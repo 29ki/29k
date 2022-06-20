@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Test
+name: Test Client
 
 # Controls when the workflow will run
 on:
@@ -25,6 +25,7 @@ jobs:
         with:
           node-version: 16.x
       - name: Install dependencies
+        working-directory: ./client
         run: yarn
       - name: Run tests
         run: yarn test
