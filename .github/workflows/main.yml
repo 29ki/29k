@@ -28,4 +28,5 @@ jobs:
         working-directory: ./client
         run: yarn
       - name: Run tests
+        working-directory: ./client
         run: yarn test
