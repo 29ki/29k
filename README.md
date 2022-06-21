@@ -27,27 +27,53 @@ Make sure to follow the instructions for React Native CLI.
 
 ## Installation
 
+### Firebase Emulator
+
 ```
+yarn
+```
+
+### Client
+
+```
+cd client
 yarn
 ```
 
 ### iOS installation
 
 ```
-cd ios
+cd client/ios
 pod install
 ```
 
-## Start iOS
+## Local development
+
+### Firebase Emulator
 
 ```
+yarn start
+```
+
+### iOS
+
+```
+cd client
 yarn ios
 ```
 
-## Start android
+### Android
 
 ```
+cd client
 yarn android
+```
+
+### Metro bundler
+
+```
+cd client
+yarn start
 ```
 
 ## Testing

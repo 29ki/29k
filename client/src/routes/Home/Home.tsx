@@ -1,7 +1,6 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
-
 
 const Home = () => {
   const {t} = useTranslation();
