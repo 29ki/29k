@@ -17,43 +17,53 @@
   <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="Chat on Discord"></a>
 </p>
 
-## Download Android/iOS app
+# Download Android/iOS app
 
-## Environment setup
+# Installation
 
-Instructions on how to setup a React Native development environment can be found here: https://reactnative.dev/docs/environment-setup
+## Firebase
 
-Make sure to follow the instructions for React Native CLI.
+Download [mock-google-services.json](https://github.com/firebase/quickstart-android/blob/master/mock-google-services.json) and [mock-GoogleService-Info.plist](https://github.com/firebase/quickstart-ios/blob/master/mock-GoogleService-Info.plist).
 
-## Installation
+**_...OR..._**
 
-### Firebase Emulator
+[Setup a new firebase project](https://cloud.google.com/firestore/docs/client/get-firebase) and [register Android app](https://firebase.google.com/docs/android/setup#create-firebase-project) and [register iOS app](https://firebase.google.com/docs/ios/setup#register-app).
+
+... and put the respective configuration files in `client/android/app/google-services.json` and `client/ios/Supporting/testing/GoogleService-Info.plist`
+
+### Emulator
 
 ```
 yarn
 ```
 
-### Client
+## Client
+
+Instructions on how to setup a React Native development environment can be found here: https://reactnative.dev/docs/environment-setup
+
+Make sure to follow the instructions for React Native CLI.
 
 ```
 cd client
 yarn
 ```
 
-### iOS installation
+### iOS
 
 ```
 cd client/ios
 pod install
 ```
 
-## Local development
+# Local development
 
-### Firebase Emulator
+## Firebase Emulator
 
 ```
 yarn start
 ```
+
+## Client
 
 ### iOS
 
@@ -62,14 +72,14 @@ cd client
 yarn ios
 ```
 
-### Android
+#### Android
 
 ```
 cd client
 yarn android
 ```
 
-### Metro bundler
+#### Metro bundler
 
 ```
 cd client
