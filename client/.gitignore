@@ -16,6 +16,7 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+contents.xcworkspacedata
 
 # Android/IntelliJ
 #
@@ -56,4 +57,6 @@ buck-out/
 /ios/Pods/
 /vendor/bundle/
 
+
+GoogleService-Info.plist
 google-services.json
