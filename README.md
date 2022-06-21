@@ -79,3 +79,21 @@ yarn start
 ## Testing
 
 ## Translations
+
+
+## Code Push
+Follow the instructions at [https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/react-native#2-create-your-app-in-the-app-center-portal-to-obtain-the-app-secret](app center) for setting up a project. 
+
+### iOS
+Create the file `ios/Supporting/production/AppCenter-Config.plist``
+and add you secret key.
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>AppSecret</key>
+		<string>{APP_SECRET_VALUE}</string>
+	</dict>
+</plist>
+```

@@ -57,6 +57,9 @@ buck-out/
 /ios/Pods/
 /vendor/bundle/
 
-
+# Google services
 GoogleService-Info.plist
 google-services.json
+
+# CodePush
+AppCenter-config.plist
