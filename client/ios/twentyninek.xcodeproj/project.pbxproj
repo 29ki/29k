@@ -17,8 +17,8 @@
 		7880A5192862029F0063B482 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		7880A51A2862029F0063B482 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		7880A529286204820063B482 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7880A527286204620063B482 /* GoogleService-Info.plist */; };
-		7880A52B286204C10063B482 /* 29k-staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* 29k-staging.plist */; };
-		7880A52C286204C30063B482 /* 29k-production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7880A52A286204B90063B482 /* 29k-production.plist */; };
+		7880A52B286204C10063B482 /* Staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Staging.plist */; };
+		7880A52C286204C30063B482 /* Production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7880A52A286204B90063B482 /* Production.plist */; };
 		7CE10605C45B8E9D0187CF6B /* Pods_production.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17252088216F2270610D64D5 /* Pods_production.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -28,7 +28,7 @@
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = twentyninek/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = twentyninek/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = twentyninek/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* 29k-staging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "29k-staging.plist"; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Staging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Staging.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = twentyninek/main.m; sourceTree = "<group>"; };
 		143A05E546094CA9DA7C9F19 /* Pods-staging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-staging.release.xcconfig"; path = "Target Support Files/Pods-staging/Pods-staging.release.xcconfig"; sourceTree = "<group>"; };
 		17252088216F2270610D64D5 /* Pods_production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_production.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,7 +39,7 @@
 		5C97BA2243FE8BE0F8AD3DB9 /* Pods_twentyninek_twentyninekTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_twentyninek_twentyninekTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7880A5222862029F0063B482 /* staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = staging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7880A527286204620063B482 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7880A52A286204B90063B482 /* 29k-production.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "29k-production.plist"; sourceTree = "<group>"; };
+		7880A52A286204B90063B482 /* Production.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Production.plist; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = twentyninek/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA419954C7A2ADE8FBEF45C6 /* Pods_staging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_staging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -100,7 +100,7 @@
 		7880A5252862035D0063B482 /* Production */ = {
 			isa = PBXGroup;
 			children = (
-				7880A52A286204B90063B482 /* 29k-production.plist */,
+				7880A52A286204B90063B482 /* Production.plist */,
 				20A763052861E2FE0007087C /* GoogleService-Info.plist */,
 			);
 			path = Production;
@@ -109,7 +109,7 @@
 		7880A526286203660063B482 /* Staging */ = {
 			isa = PBXGroup;
 			children = (
-				13B07FB61A68108700A75B9A /* 29k-staging.plist */,
+				13B07FB61A68108700A75B9A /* Staging.plist */,
 				7880A527286204620063B482 /* GoogleService-Info.plist */,
 			);
 			path = Staging;
@@ -241,7 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7880A52C286204C30063B482 /* 29k-production.plist in Resources */,
+				7880A52C286204C30063B482 /* Production.plist in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				20A763062861E2FE0007087C /* GoogleService-Info.plist in Resources */,
@@ -252,7 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7880A52B286204C10063B482 /* 29k-staging.plist in Resources */,
+				7880A52B286204C10063B482 /* Staging.plist in Resources */,
 				7880A5192862029F0063B482 /* LaunchScreen.storyboard in Resources */,
 				7880A51A2862029F0063B482 /* Images.xcassets in Resources */,
 				7880A529286204820063B482 /* GoogleService-Info.plist in Resources */,
@@ -464,7 +464,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "$(SRCROOT)/Supporting/Production/29k-production.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting/Production/Production.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -490,7 +490,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = "$(SRCROOT)/Supporting/Production/29k-production.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting/Production/Production.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -516,7 +516,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "$(SRCROOT)/Supporting/Staging/29k-staging.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting/Staging/Staging.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -542,7 +542,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = "$(SRCROOT)/Supporting/Staging/29k-staging.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting/Staging/Staging.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
