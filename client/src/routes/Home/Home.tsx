@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 const styles = StyleSheet.create({
   screen: {
@@ -10,9 +11,11 @@ const styles = StyleSheet.create({
 });
 
 const Home = () => {
+  const {t} = useTranslation();
+
   return (
     <View style={styles.screen}>
-      <Text>Home!</Text>
+      <Text>{t('welcome')}</Text>
     </View>
   );
 };
