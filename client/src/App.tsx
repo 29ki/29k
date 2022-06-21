@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import codePush from 'react-native-code-push';
 
 import './i18n';
 
@@ -19,4 +20,6 @@ const App = () => (
   </NavigationContainer>
 );
 
-export default App;
+export default codePush({
+  deploymentKey: 'ADD-DEPLOYMENT-KEY-FROM-ENV',
+})(App);
