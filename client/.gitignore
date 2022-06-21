@@ -60,6 +60,3 @@ buck-out/
 # Google services
 GoogleService-Info.plist
 google-services.json
-
-# CodePush
-AppCenter-config.plist
