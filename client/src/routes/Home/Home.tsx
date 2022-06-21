@@ -1,23 +1,19 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View} from 'react-native';
 import {useTranslation} from 'react-i18next';
+
+import {Heading1} from '../../common/components/Typography/Heading/Heading';
+
+import styles from './Home.styles';
 
 const Home = () => {
   const {t} = useTranslation();
 
   return (
     <View style={styles.screen}>
-      <Text>{t('welcome')}</Text>
+      <Heading1>{t('welcome')}</Heading1>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 
 export default Home;
