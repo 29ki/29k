@@ -21,6 +21,10 @@ def setup
   )
 end 
 
+target 'dev' do
+  setup
+end
+
 target 'staging' do
   setup
 end
