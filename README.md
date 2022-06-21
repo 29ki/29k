@@ -51,3 +51,5 @@ yarn android
 ```
 
 ## Testing
+
+## Translations
