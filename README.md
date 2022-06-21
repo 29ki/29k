@@ -19,4 +19,35 @@
 
 ## Download Android/iOS app
 
+## Environment setup
+
+Instructions on how to setup a React Native development environment can be found here: https://reactnative.dev/docs/environment-setup
+
+Make sure to follow the instructions for React Native CLI.
+
+## Installation
+
+```
+yarn
+```
+
+### iOS installation
+
+```
+cd ios
+pod install
+```
+
+## Start iOS
+
+```
+yarn ios
+```
+
+## Start android
+
+```
+yarn android
+```
+
 ## Testing
