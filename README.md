@@ -1,8 +1,7 @@
-<h1 align="center">
-  <a href="https://29k.org/">
-    29k
-  </a>
-</h1>
+<div align="center">
+
+[![29k](https://user-images.githubusercontent.com/474066/174894987-58605dd7-86b8-4455-9c86-f17346f4e213.png)](https://29k.org)  
+</div>
 
 <p align="center">
   <strong>Your Mental Health App and Supportive Communitys</strong></br>
