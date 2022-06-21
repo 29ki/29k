@@ -35,12 +35,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.twentyninek",
+    package = "org.twentyninek.app.cupcake",
 )
 
 android_resource(
     name = "res",
-    package = "com.twentyninek",
+    package = "org.twentyninek.app.cupcake",
     res = "src/main/res",
 )
 

@@ -1,4 +1,4 @@
-package com.twentyninek.newarchitecture.modules;
+package org.twentyninek.app.cupcake.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

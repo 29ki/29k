@@ -1,4 +1,4 @@
-package com.twentyninek.newarchitecture.components;
+package org.twentyninek.app.cupcake.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;
