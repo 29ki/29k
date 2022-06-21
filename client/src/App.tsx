@@ -2,6 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
+
 import './i18n';
 
 import Home from './routes/Home/Home';
@@ -9,6 +10,7 @@ import Profile from './routes/Profile/Profile';
 import {ROUTES} from './common/constants/routes';
 
 const Tab = createBottomTabNavigator();
+
 
 const App = () => (
   <NavigationContainer>

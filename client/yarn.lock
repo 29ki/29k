@@ -1329,6 +1329,11 @@
     opencollective-postinstall "^2.0.1"
     superstruct "^0.6.2"
 
+"@react-native-firebase/auth@^15.0.0":
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-15.0.0.tgz#4e6339e143e4ac1d5b1f8614b83d0fff70c58446"
+  integrity sha512-eT0NBmwGjR+v881ipBrCbFEMgznqwzlRC9rX+ZqoJfpv/ZqmZ4R8SRqIy/XtEztQFcTzG5RGKFQDCMweDLOtvQ==
+
 "@react-native/assets@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@react-native/assets/-/assets-1.0.0.tgz#c6f9bf63d274bafc8e970628de24986b30a55c8e"
@@ -5985,6 +5990,11 @@ react-is@^16.13.0, react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-native-clean-project@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-clean-project/-/react-native-clean-project-4.0.1.tgz#c0e2b17eebf32a683aa67da45fe7932857166da7"
+  integrity sha512-B7rXdFC4bfA+Vv7lZ9bKS6cUDgqg04OR5D69sNnhheFBJQ1V04cIfJ1Fu0sbqRsIehqlOcySQRpp8tm7r7PvLQ==
 
 react-native-codegen@^0.0.17:
   version "0.0.17"
