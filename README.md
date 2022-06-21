@@ -29,7 +29,7 @@ Download [mock-google-services.json](https://github.com/firebase/quickstart-andr
 
 [Setup a new firebase project](https://cloud.google.com/firestore/docs/client/get-firebase) and [register Android app](https://firebase.google.com/docs/android/setup#create-firebase-project) and [register iOS app](https://firebase.google.com/docs/ios/setup#register-app).
 
-... and put the respective configuration files in `client/android/app/google-services.json` and `client/ios/Supporting/testing/GoogleService-Info.plist`
+... and put the respective configuration files in `client/android/app/google-services.json` and `client/ios/Supporting/dev/GoogleService-Info.plist`
 
 ### Emulator
 
