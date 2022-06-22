@@ -1,6 +1,7 @@
 <div align="center">
 
-[![29k](https://user-images.githubusercontent.com/474066/174894987-58605dd7-86b8-4455-9c86-f17346f4e213.png)](https://29k.org)  
+[![29k](https://user-images.githubusercontent.com/474066/174894987-58605dd7-86b8-4455-9c86-f17346f4e213.png)](https://29k.org)
+
 </div>
 
 <p align="center">
@@ -56,6 +57,15 @@ pod install
 
 # Local development
 
+## Environments
+
+Before being able to start the client, some configs are required.
+Create a `.env` file, by duplicating `.env.example`.
+
+### CODE_PUSH_DEPLOYMENT_KEY
+
+Follow the instructions at [https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/react-native#2-create-your-app-in-the-app-center-portal-to-obtain-the-app-secret](app center) for setting up a project and getting the deployment key.
+
 ## Firebase Emulator
 
 ```
@@ -88,11 +98,3 @@ yarn start
 ## Testing
 
 ## Translations
-
-
-## Code Push
-Follow the instructions at [https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/react-native#2-create-your-app-in-the-app-center-portal-to-obtain-the-app-secret](app center) for setting up a project. 
-
-```
-TODO add deployment key to .env
-```
