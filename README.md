@@ -88,3 +88,11 @@ yarn start
 ## Testing
 
 ## Translations
+
+
+## Code Push
+Follow the instructions at [https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/react-native#2-create-your-app-in-the-app-center-portal-to-obtain-the-app-secret](app center) for setting up a project. 
+
+```
+TODO add deployment key to .env
+```
