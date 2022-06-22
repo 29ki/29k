@@ -260,6 +260,18 @@ android {
 
         }
     }
+    flavorDimensions 'default'
+    productFlavors {
+        production {
+            applicationId 'org.twentyninek.app.cupcake'
+        }
+        staging {
+            applicationId 'org.twentyninek.app.cupcake.staging'
+        }
+        dev {
+            applicationId 'org.twentyninek.app.cupcake.dev'
+        }
+    }
 }
 
 dependencies {
