@@ -60,3 +60,6 @@ buck-out/
 # Google services
 GoogleService-Info.plist
 google-services.json
+
+# Google services mock for local emulator
+!android/app/src/dev/google-services.json

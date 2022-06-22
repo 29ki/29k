@@ -2,7 +2,7 @@
   "name": "29k-cupcake",
   "version": "2.0.0",
   "scripts": {
-    "start": "yarn firebase emulators:start"
+    "start": "yarn firebase emulators:start --project demo-29k-cupcake"
   },
   "devDependencies": {
     "firebase-tools": "^11.1.0"
