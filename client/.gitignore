@@ -60,3 +60,8 @@ buck-out/
 # Google services
 GoogleService-Info.plist
 google-services.json
+
+# Environments
+.env
+.env.staging
+.env.production
