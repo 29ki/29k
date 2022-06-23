@@ -1,4 +1,4 @@
-export default {
+export const SPACINGS = {
   ZERO: 0,
   FOUR: 4,
   EIGHT: 8,
