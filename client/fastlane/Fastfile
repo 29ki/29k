@@ -25,26 +25,6 @@ end
 platform :ios do
   build_path = './build/ios'
 
-  desc 'Build an adhoc version to build dir'
-  lane :adhoc do
-
-    # Get latest adhoc provisioning profile
-    match(
-      app_identifier: ENV['IOS_BUNDLE_IDENTIFIER'], 
-      type: 'adhoc', 
-      readonly: true
-    )
-
-    build_ios_app(
-      workspace: './ios/twentyninek.xcworkspace', 
-      scheme: ENV['IOS_SCHEME'],
-      export_method: 'ad-hoc',
-      output_directory: build_path
-    )
-
-    logBuildPath(path: build_path)
-  end
-
   desc 'Build and publish a new version to TestFlight'
   lane :beta do
     # Get latest appstore provisioning profile
