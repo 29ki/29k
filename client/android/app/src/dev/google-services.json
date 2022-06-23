@@ -1,0 +1,25 @@
+{
+  "project_info": {
+    "project_id": "demo-cupcake",
+    "project_number": "123456789000",
+    "name": "DemoCupcake",
+    "firebase_url": "https://demo-cupcake.firebaseio.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123456789000:android:f1bf012572b04063",
+        "client_id": "android:com.google.samples.quickstart.admobexample",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "org.twentyninek.app.cupcake.dev"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzbSzCn1N6LWIe6wthYyrgUUSAlUsdqMb-wvTo"
+        }
+      ]
+    }
+  ]
+}
