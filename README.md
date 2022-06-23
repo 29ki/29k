@@ -21,17 +21,7 @@
 
 # Installation
 
-## Firebase
-
-Download [mock-google-services.json](https://github.com/firebase/quickstart-android/blob/master/mock-google-services.json) and [mock-GoogleService-Info.plist](https://github.com/firebase/quickstart-ios/blob/master/mock-GoogleService-Info.plist).
-
-**_...OR..._**
-
-[Setup a new firebase project](https://cloud.google.com/firestore/docs/client/get-firebase) and [register Android app](https://firebase.google.com/docs/android/setup#create-firebase-project) and [register iOS app](https://firebase.google.com/docs/ios/setup#register-app).
-
-... and put the respective configuration files in `client/android/app/google-services.json` and `client/ios/Supporting/dev/GoogleService-Info.plist`
-
-### Emulator
+## Firebase Emulator
 
 ```
 yarn
