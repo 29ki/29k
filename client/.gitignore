@@ -61,6 +61,10 @@ buck-out/
 GoogleService-Info.plist
 google-services.json
 
+# Google services mock for local emulator
+!android/app/src/dev/google-services.json
+!ios/Supporting/Dev/GoogleService-Info.plist
+
 # Environments
 .env
 .env.staging
