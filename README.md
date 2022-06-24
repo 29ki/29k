@@ -54,7 +54,7 @@ Create a `.env` file, by duplicating `.env.example`.
 
 ### CODE_PUSH_DEPLOYMENT_KEY
 
-Follow the instructions at [https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/react-native#2-create-your-app-in-the-app-center-portal-to-obtain-the-app-secret](app center) for setting up a project and getting the deployment key.
+Follow the instructions at [app center](https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/react-native#2-create-your-app-in-the-app-center-portal-to-obtain-the-app-secret) for setting up a project and getting the deployment key.
 
 ## Firebase Emulator
 
