@@ -26,14 +26,6 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios adhoc
-
-```sh
-[bundle exec] fastlane ios adhoc
-```
-
-Build an adhoc version to build dir
-
 ### ios beta
 
 ```sh
