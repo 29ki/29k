@@ -28,11 +28,11 @@ platform :ios do
   desc 'Build and publish a new version to TestFlight'
   lane :beta do
     # Get latest appstore provisioning profile
-    #match(
-    #  app_identifier: ENV['IOS_BUNDLE_IDENTIFIER'], 
-    #  type: 'appstore', 
-    #  readonly: true
-    #)
+    match(
+      app_identifier: ENV['IOS_BUNDLE_IDENTIFIER'], 
+      type: 'appstore', 
+      readonly: true
+    )
 
     increment_build_number(xcodeproj: './ios/twentyninek.xcodeproj')
 
