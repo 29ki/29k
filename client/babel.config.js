@@ -5,8 +5,9 @@ module.exports = {
       'module:react-native-dotenv',
       {
         moduleName: 'config',
-        allowUndefined: true,
+        allowUndefined: false,
       },
     ],
+    'react-native-reanimated/plugin',
   ],
 };

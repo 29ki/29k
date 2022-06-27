@@ -1,11 +1,16 @@
 import React from 'react';
 import CodePush from 'react-native-code-push';
-import {CODE_PUSH_DEPLOYMENT_KEY} from 'config';
+import {CLIENT_CODE_PUSH_DEPLOYMENT_KEY} from 'config';
 
 import './i18n';
 
 import Navigation from './Navigation';
+import {UiLibProvider} from './hooks/useUiLib';
 
-const App = () => <Navigation />;
+const App = () => (
+  <UiLibProvider>
+    <Navigation />
+  </UiLibProvider>
+);
 
-export default CodePush({deploymentKey: CODE_PUSH_DEPLOYMENT_KEY})(App);
+export default CodePush({deploymentKey: CLIENT_CODE_PUSH_DEPLOYMENT_KEY})(App);
