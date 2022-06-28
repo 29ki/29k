@@ -1,4 +1,4 @@
-name: CodePush build
+name: iOS deploy
 
 on:
   workflow_call:
