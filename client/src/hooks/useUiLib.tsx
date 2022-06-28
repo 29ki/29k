@@ -10,7 +10,7 @@ interface UILibContextInterface {
 
 const uiLibState = createContext<UILibContextInterface>({
   enabled: false,
-  toggle: () => void 0,
+  toggle: () => undefined,
 });
 
 const UiLibProvider: React.FunctionComponent<{}> = ({children}) => {
