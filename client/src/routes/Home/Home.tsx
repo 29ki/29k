@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import {View, Button} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useUiLib} from '../../hooks/useUiLib';
 
