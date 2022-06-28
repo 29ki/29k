@@ -39,8 +39,6 @@ jobs:
         working-directory: ./client
         run: > 
           yarn appcenter codepush release-react
-          --app 29k.org/29k-Cupcake-iOS
+          --app 29k.org/29k-Android
           --deployment-name ${{ inputs.environment }}
-          --plist-file ./ios/Supporting/${{ inputs.environment }}/${{ inputs.environment }}.plist
-          --xcode-project-file ./ios/twentyninek.xcodeproj
           --disable-duplicate-release-error
