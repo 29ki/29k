@@ -33,4 +33,4 @@ jobs:
 
       - name: Codepush
         working-directory: ./client
-        run: yarn appcenter codepush release-react -a 29k.org/29k-Cupcake-iOS -d Staging --plist-file ./ios/Supporting/Staging/Staging.plist
+        run: yarn appcenter codepush release-react -a 29k.org/29k-Cupcake-iOS -d Staging --plist-file ./ios/Supporting/Staging/Staging.plist --xcode-project-file twentyninek
