@@ -1,3 +1,5 @@
+name: CodePush Android
+
 on:
   workflow_call:
     inputs:
