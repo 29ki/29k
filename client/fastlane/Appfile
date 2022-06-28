@@ -1,3 +1,10 @@
+# IOS
+app_identifier(ENV['IOS_BUNDLE_IDENTIFIER']) # The bundle identifier of your app
+apple_id(ENV['IOS_APPLE_ID']) # Your Apple email address
+
+itc_team_id(ENV['IOS_APP_STORE_TEAM_ID']) # App Store Connect Team ID
+team_id(ENV['IOS_DEVELOPER_PORTAL_TEAM_ID']) # Developer Portal Team ID
+
 # ANDROID
 json_key_file(ENV['ANDROID_GOOGLE_PLAY_SERVICE_FILE']) # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
 package_name(ENV['ANDROID_PACKAGE_NAME'])
