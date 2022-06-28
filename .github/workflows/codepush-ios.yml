@@ -1,3 +1,5 @@
+name: CodePush iOS
+
 on:
   workflow_call:
     inputs:
