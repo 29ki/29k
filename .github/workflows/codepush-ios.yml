@@ -1,4 +1,4 @@
-name: iOS deploy
+name: Deploy
 
 on:
   workflow_call:
@@ -8,8 +8,7 @@ on:
         type: string
 
 jobs:
-  build:
-    name: CodePush build
+  deploy:
     runs-on: ubuntu-20.04
     environment: ${{ inputs.environment }}
     steps:
