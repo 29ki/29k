@@ -1,0 +1,33 @@
+name: iOS CodePush
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: iOS CodePush
+    runs-on: ubuntu-20.04
+    env:
+      APPCENTER_ACCESS_TOKEN: ${{ secrets.APPCENTER_ACCESS_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js v14
+        uses: actions/setup-node@v2
+        with:
+          node-version: v14.x.x
+
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Install Dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: yarn
+
+      - name: Codepush
+        run: yarn appcenter codepush release-react -a 29k.org/29k-Cupcake-iOS -d Staging
