@@ -21,16 +21,7 @@ jobs:
           node-version: v14.x.x
 
       - name: Output secrets to env
-        run: |
-          while read -d $'\t' -r key value; do
-            if [[ $key == *$'\n'* ]]; then
-              echo $key'<<EOF' >> $GITHUB_ENV
-              echo "$value" >> $GITHUB_ENV
-              echo 'EOF' >> $GITHUB_ENV
-            elif [[ ! -z $key ]]; then
-              echo $key'='$value >> $GITHUB_ENV
-            fi
-          done< <(jq -j 'to_entries|.[] | "\(.key) \(.value)\t"' <<< "$secrets")
+        run: ./.github/workflows/scripts/outputSecretsToEnv.sh
         env:
           secrets: ${{ toJSON(secrets) }}
 
