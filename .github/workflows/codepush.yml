@@ -4,16 +4,30 @@ on:
   workflow_dispatch:
 
 jobs:        
-  codepush-ios-production:
+  ios-production:
     name: iOS Production
     uses: ./.github/workflows/codepush-ios.yml
     with:
       environment: Production
     secrets: inherit
     
-  codepush-ios-staging:
+  ios-staging:
     name: iOS Staging
     uses: ./.github/workflows/codepush-ios.yml
+    with:
+      environment: Staging
+    secrets: inherit
+    
+  android-production:
+    name: Android Production
+    uses: ./.github/workflows/codepush-android.yml
+    with:
+      environment: Production
+    secrets: inherit
+    
+  android-staging:
+    name: Android Staging
+    uses: ./.github/workflows/codepush-android.yml
     with:
       environment: Staging
     secrets: inherit
