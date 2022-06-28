@@ -1,0 +1,21 @@
+name: CodePush
+
+on:
+  workflow_dispatch:
+
+jobs:
+  codepush-ios-production:
+    environment: production
+    steps:
+      uses: /.github/workflows/codepush-build
+      with:
+        environment: Production
+      secrets: inherit
+
+  codepush-ios-staging:
+    environment: staging
+    steps:
+      uses: /.github/workflows/codepush-build
+      with:
+        environment: Staging
+      secrets: inherit

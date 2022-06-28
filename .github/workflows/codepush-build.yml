@@ -1,13 +1,16 @@
-name: iOS CodePush
+name: CodePush build
 
 on:
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
 
 jobs:
   build:
-    name: iOS CodePush
+    name: CodePush build
     runs-on: ubuntu-20.04
-    environment: staging
     env:
       APPCENTER_ACCESS_TOKEN: ${{ secrets.APPCENTER_ACCESS_TOKEN }}
       CLIENT_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.CLIENT_CODE_PUSH_DEPLOYMENT_KEY }}
@@ -35,4 +38,4 @@ jobs:
 
       - name: Codepush
         working-directory: ./client
-        run: yarn appcenter codepush release-react -a 29k.org/29k-Cupcake-iOS -d Staging --plist-file ./ios/Supporting/Staging/Staging.plist --xcode-project-file ./ios/twentyninek.xcodeproj
+        run: yarn appcenter codepush release-react -a 29k.org/29k-Cupcake-iOS -d ${{ inputs.enivronment }} --plist-file ./ios/Supporting/${{ inputs.enivronment }}/${{ inputs.enivronment }}.plist --xcode-project-file ./ios/twentyninek.xcodeproj
