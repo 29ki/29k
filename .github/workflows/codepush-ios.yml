@@ -1,5 +1,3 @@
-name: Deploy
-
 on:
   workflow_call:
     inputs:
@@ -9,6 +7,7 @@ on:
 
 jobs:
   deploy:
+    name: Deploy
     runs-on: ubuntu-20.04
     environment: ${{ inputs.environment }}
     steps:
