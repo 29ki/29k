@@ -1,0 +1,42 @@
+name: CodePush build
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+
+jobs:
+  build:
+    name: CodePush build
+    runs-on: ubuntu-20.04
+    environment: ${{ inputs.enivronment }}
+    env:
+      APPCENTER_ACCESS_TOKEN: ${{ secrets.APPCENTER_ACCESS_TOKEN }}
+      CLIENT_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.CLIENT_CODE_PUSH_DEPLOYMENT_KEY }}
+      CLIENT_ENVIRONMENT: ${{ secrets.CLIENT_ENVIRONMENT }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js v14
+        uses: actions/setup-node@v2
+        with:
+          node-version: v14.x.x
+
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: ./client/node_modules
+          key: node-modules-${{ hashFiles('./client/yarn.lock') }}
+
+      - name: Install Dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        working-directory: ./client
+        run: yarn
+
+      - name: Codepush
+        working-directory: ./client
+        run: yarn appcenter codepush release-react -a 29k.org/29k-Cupcake-iOS -d ${{ inputs.enivronment }} --plist-file ./ios/Supporting/${{ inputs.enivronment }}/${{ inputs.enivronment }}.plist --xcode-project-file ./ios/twentyninek.xcodeproj
