@@ -25,10 +25,6 @@ jobs:
         env:
           secrets: ${{ toJSON(secrets) }}
 
-      - name: Codepush
-        working-directory: ./client
-        run: echo "hepp=${{ env.CLIENT_ENVIRONMENT }}"
-
       - name: Cache Node Modules
         id: cache-node-modules
         uses: actions/cache@v2
