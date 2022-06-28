@@ -12,11 +12,6 @@ jobs:
     name: CodePush build
     runs-on: ubuntu-20.04
     environment: ${{ inputs.environment }}
-    env:
-      APPCENTER_ACCESS_TOKEN: ${{ secrets.APPCENTER_ACCESS_TOKEN }}
-      CLIENT_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.CLIENT_CODE_PUSH_DEPLOYMENT_KEY }}
-      CLIENT_ENVIRONMENT: ${{ secrets.CLIENT_ENVIRONMENT }}
-
     steps:
       - uses: actions/checkout@v2
 
