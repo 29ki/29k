@@ -26,7 +26,7 @@ platform :ios do
   build_path = './build/ios'
 
   desc 'Build and publish a new version to TestFlight'
-  lane :beta do
+  lane :app do
     # Get latest appstore provisioning profile
     match(
       app_identifier: ENV['IOS_BUNDLE_IDENTIFIER'], 
@@ -50,7 +50,7 @@ platform :android do
   build_path = './build/android'
 
   desc 'Build and publish a new version to Google Play Store'
-  lane :beta do
+  lane :app do
     increment_version_code(
       gradle_file_path: './android/app/build.gradle'
     )
