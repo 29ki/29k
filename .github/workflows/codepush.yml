@@ -5,13 +5,13 @@ on:
 
 jobs:        
   codepush-ios-production:
-    uses: /.github/workflows/codepush-build
+    uses: ./.github/workflows/codepush-build
     with:
       environment: Production
     secrets: inherit
     
   codepush-ios-staging:
-    uses: /.github/workflows/codepush-build
+    uses: ./.github/workflows/codepush-build
     with:
       environment: Staging
     secrets: inherit
