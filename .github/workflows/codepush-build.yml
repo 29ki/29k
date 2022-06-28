@@ -11,7 +11,7 @@ jobs:
   build:
     name: CodePush build
     runs-on: ubuntu-20.04
-    environment: ${{ inputs.enivronment }}
+    environment: ${{ inputs.environment }}
     env:
       APPCENTER_ACCESS_TOKEN: ${{ secrets.APPCENTER_ACCESS_TOKEN }}
       CLIENT_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.CLIENT_CODE_PUSH_DEPLOYMENT_KEY }}
@@ -39,4 +39,4 @@ jobs:
 
       - name: Codepush
         working-directory: ./client
-        run: yarn appcenter codepush release-react -a 29k.org/29k-Cupcake-iOS -d ${{ inputs.enivronment }} --plist-file ./ios/Supporting/${{ inputs.enivronment }}/${{ inputs.enivronment }}.plist --xcode-project-file ./ios/twentyninek.xcodeproj
+        run: yarn appcenter codepush release-react -a 29k.org/29k-Cupcake-iOS -d ${{ inputs.environment }} --plist-file ./ios/Supporting/${{ inputs.environment }}/${{ inputs.environment }}.plist --xcode-project-file ./ios/twentyninek.xcodeproj
