@@ -26,7 +26,7 @@ platform :ios do
   build_path = './build/ios'
 
   desc 'Build and publish a new version to TestFlight'
-  lane :beta do
+  lane :app do
     # Get latest appstore provisioning profile
     match(
       app_identifier: ENV['IOS_BUNDLE_IDENTIFIER'], 
@@ -43,5 +43,33 @@ platform :ios do
     )
 
     upload_to_testflight(skip_waiting_for_build_processing: true)
+  end
+end
+
+platform :android do
+  build_path = './build/android'
+
+  desc 'Build and publish a new version to Google Play Store'
+  lane :app do
+    increment_version_code(
+      gradle_file_path: './android/app/build.gradle'
+    )
+
+    build_android_app(
+      task: 'clean bundle',
+      flavor: ENV['ANDROID_FLAVOR'], 
+      build_type: 'Release',
+      project_dir: './android'
+    )
+
+    upload_to_play_store(
+      track: 'internal',
+      release_status: 'draft',
+      package_name: ENV['ANDROID_PACKAGE_NAME'],
+      skip_upload_apk: true,
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+    )
   end
 end

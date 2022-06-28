@@ -47,9 +47,9 @@ buck-out/
 # For more information about the recommended setup visit:
 # https://docs.fastlane.tools/best-practices/source-control/
 
-*/fastlane/report.xml
-*/fastlane/Preview.html
-*/fastlane/screenshots
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
 
 # Bundle artifact
 *.jsbundle
@@ -61,6 +61,7 @@ buck-out/
 # Google services
 GoogleService-Info.plist
 google-services.json
+google-play-service.json
 
 # Google services mock for local emulator
 !android/app/src/dev/google-services.json

@@ -26,13 +26,26 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios beta
+### ios app
 
 ```sh
-[bundle exec] fastlane ios beta
+[bundle exec] fastlane ios app
 ```
 
 Build and publish a new version to TestFlight
+
+----
+
+
+## Android
+
+### android app
+
+```sh
+[bundle exec] fastlane android app
+```
+
+Build and publish a new version to Google Play Store
 
 ----
 
