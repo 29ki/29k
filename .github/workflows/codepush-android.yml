@@ -41,6 +41,6 @@ jobs:
         working-directory: ./client
         run: > 
           yarn appcenter codepush release-react
-          --app 29k.org/29k-Android
+          --app 29k-Cupcake-Android
           --deployment-name ${{ inputs.environment }}
           --disable-duplicate-release-error
