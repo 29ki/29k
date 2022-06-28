@@ -1,3 +1,9 @@
+// This needs to be mocked before runners since react-native-config is a
+// babel plugin
+process.env = Object.assign(process.env, {
+  CLIENT_CODE_PUSH_DEPLOYMENT_KEY: '',
+  CLIENT_ENVIRONMENT: 'dev',
+});
 const modules = ['react-native', '@react-native'];
 
 module.exports = {
