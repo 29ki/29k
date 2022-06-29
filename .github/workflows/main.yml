@@ -1,0 +1,18 @@
+name: Main
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  testClient:
+    name: "Test Client"
+    uses: ./.github/workflows/test.yml
+    secrets: inherit
+  deployClient:
+    name: "Deploy Client"
+    uses: ./.github/workflows/codepush.yml
+    needs: testClient
+    secrets: inherit
