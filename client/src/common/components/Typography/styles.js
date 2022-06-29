@@ -3,18 +3,22 @@ import {COLORS} from '../../constants/colors';
 
 export default StyleSheet.create({
   HEADING1: {
+    color: COLORS.GREY800,
     fontSize: 40,
     lineHeight: 48,
   },
   HEADING2: {
+    color: COLORS.GREY800,
     fontSize: 32,
     lineHeight: 41,
   },
   HEADING3: {
+    color: COLORS.GREY800,
     fontSize: 24,
     lineHeight: 31,
   },
   HEADING4: {
+    color: COLORS.GREY800,
     fontSize: 20,
     lineHeight: 28,
   },
