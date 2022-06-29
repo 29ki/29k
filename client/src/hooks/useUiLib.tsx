@@ -1,7 +1,7 @@
 import React, {useState, createContext, useContext} from 'react';
-import {CLIENT_ENVIRONMENT} from 'config';
+import {ENVIRONMENT} from 'config';
 
-const IS_PRODUCTION = CLIENT_ENVIRONMENT === 'production';
+const IS_PRODUCTION = ENVIRONMENT === 'production';
 
 interface UILibContextInterface {
   enabled: Boolean;

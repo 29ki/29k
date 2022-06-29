@@ -1,4 +1,5 @@
 declare module 'config' {
-  export const CLIENT_CODE_PUSH_DEPLOYMENT_KEY: string;
-  export const CLIENT_ENVIRONMENT: string;
+  export const ENVIRONMENT: string;
+  export const ANDROID_CODE_PUSH_DEPLOYMENT_KEY: string;
+  export const IOS_CODE_PUSH_DEPLOYMENT_KEY: string;
 }
