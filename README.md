@@ -13,7 +13,7 @@
   <a href="https://github.com/29ki/29k/blob/HEAD/LICENSE">
     <img src="https://img.shields.io/github/license/29ki/29k" alt="29k is released under the Creative Commons Zero v1.0 Universal." />
   </a>
-  <img src="https://github.com/29ki/29k/actions/workflows/main.yml/badge.svg" alt="Current build status." />
+  <img src="https://github.com/29ki/29k/actions/workflows/test.yml/badge.svg" alt="Current build status." />
   <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="Make a Pull Request"></a>
 </p>
 
