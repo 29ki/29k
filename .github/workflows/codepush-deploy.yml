@@ -42,7 +42,7 @@ jobs:
 
       - name: Codepush Android
         working-directory: ./client
-        if: ${{ inputs.platform }} == 'android'
+        if: inputs.platform == 'android'
         run: >
           yarn appcenter codepush release-react
           --app 29k.org/29k-Cupcake-Android
@@ -51,7 +51,7 @@ jobs:
 
       - name: Codepush iOS
         working-directory: ./client
-        if: ${{ inputs.platform }} == 'ios'
+        if: inputs.platform == 'ios'
         run: >
           yarn appcenter codepush release-react
           --app 29k.org/29k-Cupcake-iOS
