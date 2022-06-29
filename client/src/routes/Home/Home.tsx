@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <View style={styles.screen}>
       <Heading1>{t('welcome')}</Heading1>
-      <Button title="Show UI lib" onPress={toggleUiLib} />
+      <Button title="Show The Awesome UI lib" onPress={toggleUiLib} />
     </View>
   );
 };
