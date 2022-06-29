@@ -40,7 +40,7 @@ jobs:
         working-directory: ./client
         run: yarn
 
-      - name: Codepush
+      - name: Codepush Android
         working-directory: ./client
         if: ${{ inputs.platform }} == 'android'
         run: >
@@ -48,6 +48,9 @@ jobs:
           --app 29k.org/29k-Cupcake-Android
           --deployment-name ${{ inputs.environment }}
           --disable-duplicate-release-error
+
+      - name: Codepush iOS
+        working-directory: ./client
         if: ${{ inputs.platform }} == 'ios'
         run: >
           yarn appcenter codepush release-react
