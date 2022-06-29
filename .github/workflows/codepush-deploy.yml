@@ -1,9 +1,12 @@
-name: CodePush Android
+name: CodePush ${{ inputs.platform }}
 
 on:
   workflow_call:
     inputs:
       environment:
+        required: true
+        type: string
+      platform:
         required: true
         type: string
 
@@ -39,8 +42,17 @@ jobs:
 
       - name: Codepush
         working-directory: ./client
+        if: ${{ inputs.platform }} == 'android'
         run: >
           yarn appcenter codepush release-react
           --app 29k.org/29k-Cupcake-Android
           --deployment-name ${{ inputs.environment }}
+          --disable-duplicate-release-error
+        if: ${{ inputs.platform }} == 'ios'
+        run: >
+          yarn appcenter codepush release-react
+          --app 29k.org/29k-Cupcake-iOS
+          --deployment-name ${{ inputs.environment }}
+          --plist-file ./ios/Supporting/Info.plist
+          --xcode-project-file ./ios/twentyninek.xcodeproj
           --disable-duplicate-release-error
