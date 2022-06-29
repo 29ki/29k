@@ -11,7 +11,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-20.04
-    environment: ${{ inputs.environment }}
+    environment: client-${{ inputs.environment }}
     steps:
       - uses: actions/checkout@v2
 
@@ -39,7 +39,7 @@ jobs:
 
       - name: Codepush
         working-directory: ./client
-        run: > 
+        run: >
           yarn appcenter codepush release-react
           --app 29k.org/29k-Cupcake-Android
           --deployment-name ${{ inputs.environment }}
