@@ -7,15 +7,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-client:
-    name: Test Client
+  test:
+    name: Test
     uses: ./.github/workflows/test.yml
     secrets: inherit
 
   deploy-ios-production:
     name: Deploy iOS Production
     uses: ./.github/workflows/codepush-deploy.yml
-    needs: test-client
+    needs: test
     with:
       environment: production
       platform: ios
@@ -24,7 +24,7 @@ jobs:
   deploy-ios-staging:
     name: Deploy iOS Staging
     uses: ./.github/workflows/codepush-deploy.yml
-    needs: test-client
+    needs: test
     with:
       environment: staging
       platform: ios
@@ -33,7 +33,7 @@ jobs:
   deploy-android-production:
     name: Deploy Android Production
     uses: ./.github/workflows/codepush-deploy.yml
-    needs: test-client
+    needs: test
     with:
       environment: production
       platform: android
@@ -42,7 +42,7 @@ jobs:
   deploy-android-staging:
     name: Deploy Android Staging
     uses: ./.github/workflows/codepush-deploy.yml
-    needs: test-client
+    needs: test
     with:
       environment: staging
       platform: android
