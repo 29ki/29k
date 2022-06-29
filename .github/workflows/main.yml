@@ -9,10 +9,10 @@ on:
 jobs:
   testClient:
     name: "Test Client"
-    uses: ./.github/workflow/test.yml
+    uses: ./.github/workflows/test.yml
     secrets: inherit
   deployClient:
     name: "Deploy Client"
-    uses: ./.github/workflow/codepush.yml
+    uses: ./.github/workflows/codepush.yml
     needs: testClient
     secrets: inherit
