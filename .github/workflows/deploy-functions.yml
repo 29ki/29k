@@ -16,30 +16,35 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Use Node.js v16
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: v16.x.x
+          node-version: 16.x
 
       - name: Output secrets to env
         run: ./.github/workflows/scripts/outputSecretsToEnv.sh
         env:
           secrets: ${{ toJSON(secrets) }}
 
-      - name: Cache Node Modules
-        id: cache-node-modules
+      - name: Cache Root Dependencies
+        id: cache-root-node-modules
         uses: actions/cache@v2
         with:
-          path: |
-            ./node_modules
-            ./functions/node_modules
-          key: node-modules-${{ hashFiles('./yarn.lock') }}-${{ hashFiles('./functions/yarn.lock') }}
+          path: ./node_modules
+          key: node-modules-${{ hashFiles('./yarn.lock') }}
 
       - name: Install Root Dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        if: steps.cache-root-node-modules.outputs.cache-hit != 'true'
         run: yarn
 
+      - name: Cache Functions Dependencies
+        id: cache-functions-node-modules
+        uses: actions/cache@v2
+        with:
+          path: ./functions/node_modules
+          key: functions-node-modules-${{ hashFiles('./functions/yarn.lock') }}
+
       - name: Install Functions Dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        if: steps.cache-functions-node-modules.outputs.cache-hit != 'true'
         working-directory: ./functions
         run: yarn
 
