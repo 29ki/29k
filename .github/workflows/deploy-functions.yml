@@ -54,3 +54,4 @@ jobs:
           --project "${{ secrets.FIREBASE_PROJECT }}" 
           --token "${{ secrets.FIREBASE_TOKEN }}"
           --non-interactive deploy
+          --force
