@@ -57,7 +57,7 @@ export const killswitch = onRequest(
   {
     memory: "256MiB",
     maxInstances: 1024,
-    minInstances: 2,
+    minInstances: 1,
   },
   (request, response) => {
     const { version, bundleVersion, platform, language } =
