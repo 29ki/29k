@@ -1,3 +1,4 @@
+import "firebase-functions";
 import { onRequest } from "firebase-functions/v2/https";
 import { lt, valid } from "semver";
 import { getFakeT } from "../lib/fakeI18Next";
@@ -55,6 +56,7 @@ type RequestQuery = {
 
 export const killswitch = onRequest(
   {
+    region: "europe-west1",
     memory: "256MiB",
     maxInstances: 1024,
     minInstances: 1,
