@@ -1,14 +1,15 @@
 {
   "name": "functions",
   "scripts": {
-    "lint": "eslint --ext .js,.ts .",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "serve": "yarn build && firebase emulators:start --project demo-29k-cupcake",
     "shell": "yarn build && firebase functions:shell",
     "start": "yarn serve",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "test": "yarn tsc && yarn lint",
+    "tsc": "tsc --noEmit",
+    "lint": "eslint --ext .js,.ts ."
   },
   "engines": {
     "node": "16"
