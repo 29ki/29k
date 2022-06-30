@@ -10,12 +10,20 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js
+      - name: Use Node.js v16
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
 
-      - name: Install dependencies
+      - name: Cache Client Dependencies
+        id: cache-client-node-modules
+        uses: actions/cache@v2
+        with:
+          path: ./client/node_modules
+          key: client-node-modules-${{ hashFiles('./client/yarn.lock') }}
+
+      - name: Install Client Dependencies
+        if: steps.cache-client-node-modules.outputs.cache-hit != 'true'
         working-directory: ./client
         run: yarn
 
@@ -34,7 +42,15 @@ jobs:
         with:
           node-version: 16.x
 
-      - name: Install dependencies
+      - name: Cache Functions Dependencies
+        id: cache-functions-node-modules
+        uses: actions/cache@v2
+        with:
+          path: ./functions/node_modules
+          key: functions-node-modules-${{ hashFiles('./functions/yarn.lock') }}
+
+      - name: Install Functions Dependencies
+        if: steps.cache-functions-node-modules.outputs.cache-hit != 'true'
         working-directory: ./functions
         run: yarn
 
