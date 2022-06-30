@@ -71,7 +71,7 @@ const useCheckForUpdate = () => {
         },
       );
     } catch (cause) {
-      console.error(new Error(`Code Push check failed ${cause}`));
+      console.error(new Error('Code Push check failed', {cause}));
     }
   }, [setStatus, setDownloadProgress, setUpdateAvailable]);
 };
