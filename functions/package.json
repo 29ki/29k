@@ -4,9 +4,9 @@
     "lint": "eslint --ext .js,.ts .",
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "serve": "npm run build && firebase emulators:start --only functions",
-    "shell": "npm run build && firebase functions:shell",
-    "start": "npm run shell",
+    "serve": "yarn build && firebase emulators:start --project demo-29k-cupcake",
+    "shell": "yarn build && firebase functions:shell",
+    "start": "yarn serve",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
@@ -31,6 +31,7 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^4.2.1",
     "firebase-functions-test": "^0.2.0",
+    "firebase-tools": "^11.2.0",
     "prettier": "^2.7.1",
     "typescript": "^4.5.4"
   },
