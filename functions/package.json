@@ -1,0 +1,40 @@
+{
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "yarn build && firebase emulators:start --project demo-29k-cupcake",
+    "shell": "yarn build && firebase functions:shell",
+    "start": "yarn serve",
+    "logs": "firebase functions:log",
+    "test": "yarn tsc && yarn lint",
+    "tsc": "tsc --noEmit",
+    "lint": "eslint --ext .js,.ts ."
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "lib/functions/src/index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0",
+    "ramda": "^0.28.0",
+    "semver": "^7.3.7"
+  },
+  "devDependencies": {
+    "@types/ramda": "^0.28.14",
+    "@types/semver": "^7.3.10",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.2.1",
+    "firebase-functions-test": "^0.2.0",
+    "firebase-tools": "^11.2.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.5.4"
+  },
+  "private": true
+}

@@ -21,9 +21,14 @@
 
 # Installation
 
-## Firebase Emulator
+```
+yarn
+```
+
+## Functions
 
 ```
+cd functions
 yarn
 ```
 
@@ -42,11 +47,11 @@ yarn
 
 Before being able to start the client, some configs are required.
 Create a `.env` file, by duplicating `.env.example`.
- 
-| Key | Description |
-| --- | --- |
-| `ENVIRONMENT` | Client environment, e.g. `dev`, `staging` or `production`  |
-| `IOS_CODE_PUSH_DEPLOYMENT_KEY` `ANDROID_CODE_PUSH_DEPLOYMENT_KEY` | *Not needed for local development*. Follow the instructions at [app center](https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/react-native#2-create-your-app-in-the-app-center-portal-to-obtain-the-app-secret) for setting up a project and getting the deployment key.  |
+
+| Key                                                               | Description                                                                                                                                                                                                                                                                           |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ENVIRONMENT`                                                     | Client environment, e.g. `dev`, `staging` or `production`                                                                                                                                                                                                                             |
+| `IOS_CODE_PUSH_DEPLOYMENT_KEY` `ANDROID_CODE_PUSH_DEPLOYMENT_KEY` | _Not needed for local development_. Follow the instructions at [app center](https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/react-native#2-create-your-app-in-the-app-center-portal-to-obtain-the-app-secret) for setting up a project and getting the deployment key. |
 
 ### iOS
 
@@ -57,9 +62,10 @@ pod install
 
 # Local development
 
-## Firebase Emulator
+## Functions
 
 ```
+cd functions
 yarn start
 ```
 
@@ -72,14 +78,14 @@ cd client
 yarn ios
 ```
 
-#### Android
+### Android
 
 ```
 cd client
 yarn android
 ```
 
-#### Metro bundler
+### Metro bundler
 
 ```
 cd client
