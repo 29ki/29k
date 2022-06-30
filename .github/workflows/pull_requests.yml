@@ -8,5 +8,5 @@ on:
 jobs:
   test:
     name: Test
-    uses: ./.github/workflows/test.yml
+    uses: ./.github/workflows/test/test.yml
     secrets: inherit

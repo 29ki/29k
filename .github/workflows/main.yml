@@ -1,6 +1,7 @@
 name: Main
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -8,13 +9,29 @@ on:
 jobs:
   test:
     name: Test
-    uses: ./.github/workflows/test.yml
+    uses: ./.github/workflows/test/test.yml
+    secrets: inherit
+
+  deploy-functions-production:
+    name: Functions Production
+    uses: ./.github/workflows/deploy/functions.yml
+    needs: test
+    with:
+      environment: production
+    secrets: inherit
+
+  deploy-functions-staging:
+    name: Functions Staging
+    uses: ./.github/workflows/deploy/functions.yml
+    needs: test
+    with:
+      environment: staging
     secrets: inherit
 
   deploy-ios-production:
     name: iOS Production
-    uses: ./.github/workflows/codepush-deploy.yml
-    needs: test
+    uses: ./.github/workflows/deploy/codepush.yml
+    needs: deploy-functions-production
     with:
       environment: production
       platform: ios
@@ -22,8 +39,8 @@ jobs:
 
   deploy-ios-staging:
     name: iOS Staging
-    uses: ./.github/workflows/codepush-deploy.yml
-    needs: test
+    uses: ./.github/workflows/deploy/codepush.yml
+    needs: deploy-functions-staging
     with:
       environment: staging
       platform: ios
@@ -31,8 +48,8 @@ jobs:
 
   deploy-android-production:
     name: Android Production
-    uses: ./.github/workflows/codepush-deploy.yml
-    needs: test
+    uses: ./.github/workflows/deploy/codepush.yml
+    needs: deploy-functions-production
     with:
       environment: production
       platform: android
@@ -40,8 +57,8 @@ jobs:
 
   deploy-android-staging:
     name: Android Staging
-    uses: ./.github/workflows/codepush-deploy.yml
-    needs: test
+    uses: ./.github/workflows/deploy/codepush.yml
+    needs: deploy-functions-staging
     with:
       environment: staging
       platform: android
