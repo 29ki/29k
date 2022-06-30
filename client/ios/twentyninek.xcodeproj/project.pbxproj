@@ -622,7 +622,7 @@
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "./Supporting/Info.plist";
+				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -653,7 +653,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
-				INFOPLIST_FILE = "./Supporting/Info.plist";
+				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -683,7 +683,7 @@
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "./Supporting/Info.plist";
+				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -713,7 +713,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "./Supporting/Info.plist";
+				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -744,7 +744,7 @@
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "./Supporting/Info.plist";
+				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -775,7 +775,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
-				INFOPLIST_FILE = "./Supporting/Info.plist";
+				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
