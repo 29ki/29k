@@ -1,4 +1,4 @@
-import * as functions from "firebase-functions";
+import { onRequest } from "firebase-functions/v2/https";
 import { lt, valid } from "semver";
 import { getFakeT } from "../lib/fakeI18Next";
 
@@ -53,52 +53,52 @@ type RequestQuery = {
   language: string;
 };
 
-const handler = (
-  request: functions.https.Request,
-  response: functions.Response
-) => {
-  const { version, bundleVersion, platform, language } =
-    request.query as RequestQuery;
+export const killswitch = onRequest(
+  {
+    memory: "256MiB",
+    maxInstances: 1024,
+    minInstances: 2,
+  },
+  (request, response) => {
+    const { version, bundleVersion, platform, language } =
+      request.query as RequestQuery;
 
-  // We don't use the i18next library here because of slow initialization
-  const t = getFakeT(language, "Screen.KillSwitch", undefined, translations);
+    // We don't use the i18next library here because of slow initialization
+    const t = getFakeT(language, "Screen.KillSwitch", undefined, translations);
 
-  if (!valid(version) || !acceptedPlatforms.includes(platform)) {
-    response.status(400).send();
+    if (!valid(version) || !acceptedPlatforms.includes(platform)) {
+      response.status(400).send();
+      return;
+    }
+
+    if (KILL_SWITCH) {
+      response.status(403).send({
+        image: t(`maintenance.image__image`),
+        message: t("maintenance.text__markdown"),
+        permanent: false,
+      });
+      return;
+    }
+
+    if (lt(version, MIN_APP_VERSION)) {
+      response.status(403).send({
+        image: t(`update.image__image`),
+        message: t(`update.${platform}.text__markdown`),
+        button: {
+          text: t(`update.${platform}.button`),
+          link: t(`update.${platform}.link`),
+        },
+        permanent: true,
+      });
+      return;
+    }
+
+    if (!acceptedBundleVersion(platform, version, bundleVersion)) {
+      response.status(200).send({ requiresBundleUpdate: true });
+      return;
+    }
+
+    response.status(200).send();
     return;
   }
-
-  if (KILL_SWITCH) {
-    response.status(403).send({
-      image: t(`maintenance.image__image`),
-      message: t("maintenance.text__markdown"),
-      permanent: false,
-    });
-    return;
-  }
-
-  if (lt(version, MIN_APP_VERSION)) {
-    response.status(403).send({
-      image: t(`update.image__image`),
-      message: t(`update.${platform}.text__markdown`),
-      button: {
-        text: t(`update.${platform}.button`),
-        link: t(`update.${platform}.link`),
-      },
-      permanent: true,
-    });
-    return;
-  }
-
-  if (!acceptedBundleVersion(platform, version, bundleVersion)) {
-    response.status(200).send({ requiresBundleUpdate: true });
-    return;
-  }
-
-  response.status(200).send();
-  return;
-};
-
-export const killSwitch = functions
-  .runWith({ memory: "256MB", maxInstances: 1024, minInstances: 2 })
-  .https.onRequest(handler);
+);
