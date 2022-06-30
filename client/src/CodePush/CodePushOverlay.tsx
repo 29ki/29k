@@ -1,11 +1,19 @@
-import React, {useContext} from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import codepush from 'react-native-code-push';
+import {useRecoilValue} from 'recoil';
+import {AnimatedCircularProgress} from 'react-native-circular-progress';
+
 import Button from '../common/components/Buttons/Button';
 import {Heading4} from '../common/components/Typography/Heading/Heading';
 import {COLORS} from '../common/constants/colors';
-import {CodePushContext} from './CodePushProvider';
-// import {AnimatedCircularProgress} from 'react-native-circular-progress';
+
+import useRestartApp from './hooks/useRestartApp';
+import {
+  downloadProgressAtom,
+  isColdStartedAtom,
+  statusAtom,
+} from './state/state';
 
 // import * as metrics from '../../lib/metrics';
 // import {EVENTS} from '../../constants/metrics';
@@ -45,11 +53,20 @@ const styles = StyleSheet.create({
 });
 
 const CodePushOverlay = () => {
-  const {downloadProgress, isColdStarted, restartApp, status} =
-    useContext(CodePushContext);
+  const restartApp = useRestartApp();
+
+  const status = useRecoilValue(statusAtom);
+  const downloadProgress = useRecoilValue(downloadProgressAtom);
+  const isColdStarted = useRecoilValue(isColdStartedAtom);
+
+  const [isRequiredUpdate, setRequiresBundleUpdate] = useState(true);
+
+  if (!isRequiredUpdate) {
+    return null;
+  }
 
   const handleDismiss = () => {
-    // dispatch(setRequiresBundleUpdate(false));
+    setRequiresBundleUpdate(false);
   };
 
   const handleRestart = () => {
@@ -62,7 +79,7 @@ const CodePushOverlay = () => {
       return (
         <View style={[styles.container, styles.prompt]}>
           <Heading4 style={styles.text}>Downloading</Heading4>
-          {/* <AnimatedCircularProgress
+          <AnimatedCircularProgress
             fill={downloadProgress * 100}
             size={30}
             width={2}
@@ -71,8 +88,6 @@ const CodePushOverlay = () => {
             backgroundColor={COLORS.GREY400}
             lineCap="round"
           />
-          <Spacer16 />
-          <BodyNormal style={styles.text}>{t('downloading.text')}</BodyNormal> */}
         </View>
       );
 
