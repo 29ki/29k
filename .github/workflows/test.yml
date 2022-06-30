@@ -54,10 +54,6 @@ jobs:
         working-directory: ./functions
         run: yarn
 
-      - name: Install dependencies
-        working-directory: ./functions
-        run: yarn
-
       - name: Run tests
         working-directory: ./functions
         run: yarn test
