@@ -8,15 +8,13 @@ export default {
         android: {
           text__markdown:
             "## We've made the app even ~~better!~~\n\nYou can get the latest version from ~~[Google Play](https://play.google.com/store/apps/details?id=org.twentyninek.app)~~",
-          link:
-            'https://play.google.com/store/apps/details?id=org.twentyninek.app',
+          link: 'https://play.google.com/store/apps/details?id=org.twentyninek.app',
           button: 'Update',
         },
         ios: {
           text__markdown:
             "## We've made the app even ~~better!~~\n\nYou can get the latest version from ~~[App Store](https://apps.apple.com/se/app/29k-find-yourself-others/id1434100083)~~",
-          link:
-            'https://apps.apple.com/se/app/29k-find-yourself-others/id1434100083',
+          link: 'https://apps.apple.com/se/app/29k-find-yourself-others/id1434100083',
           button: 'Update',
         },
       },
@@ -36,15 +34,13 @@ export default {
         android: {
           text__markdown:
             '## Vi har gjort appen ännu ~~bättre!~~\n\nDu kan hämta den senaste versionen från ~~[Google Play](https://play.google.com/store/apps/details?id=org.twentyninek.app)~~',
-          link:
-            'https://play.google.com/store/apps/details?id=org.twentyninek.app',
+          link: 'https://play.google.com/store/apps/details?id=org.twentyninek.app',
           button: 'Uppdatera',
         },
         ios: {
           text__markdown:
             '## Vi har gjort appen ännu ~~bättre!~~\n\nDu kan hämta den senaste versionen från ~~[App Store](https://apps.apple.com/se/app/29k-find-yourself-others/id1434100083)~~',
-          link:
-            'https://apps.apple.com/se/app/29k-find-yourself-others/id1434100083',
+          link: 'https://apps.apple.com/se/app/29k-find-yourself-others/id1434100083',
           button: 'Uppdatera',
         },
       },
@@ -64,15 +60,13 @@ export default {
         android: {
           text__markdown:
             '## Tornamos a app ainda ~~melhor!~~\n\nPodes obter a última versão aqui ~~[Google Play](https://play.google.com/store/apps/details?id=org.twentyninek.app)~~',
-          link:
-            'https://play.google.com/store/apps/details?id=org.twentyninek.app',
+          link: 'https://play.google.com/store/apps/details?id=org.twentyninek.app',
           button: 'Atualizar',
         },
         ios: {
           text__markdown:
             '## Tornamos a app ainda ~~melhor!~~\n\nPodes obter a última versão aqui ~~[App Store](https://apps.apple.com/se/app/29k-find-yourself-others/id1434100083)~~',
-          link:
-            'https://apps.apple.com/se/app/29k-find-yourself-others/id1434100083',
+          link: 'https://apps.apple.com/se/app/29k-find-yourself-others/id1434100083',
           button: 'Atualizar',
         },
       },

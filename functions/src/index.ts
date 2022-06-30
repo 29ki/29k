@@ -1,3 +1,3 @@
-import { killswitch } from "./killswitch";
+import {killswitch} from './killswitch';
 
-export { killswitch };
+export {killswitch};
