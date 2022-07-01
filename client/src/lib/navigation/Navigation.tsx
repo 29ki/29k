@@ -54,18 +54,14 @@ const Navigation = () => {
             name={ROUTES.HOME}
             component={Home}
             options={{
-              tabBarIcon: () => {
-                return <HomeIcon fill={COLORS.GREY600} />;
-              },
+              tabBarIcon: () => <HomeIcon fill={COLORS.GREY600} />,
             }}
           />
           <Tab.Screen
             name={ROUTES.PROFILE}
             component={Profile}
             options={{
-              tabBarIcon: () => {
-                return <ProfileIcon fill={COLORS.GREY600} />;
-              },
+              tabBarIcon: () => <ProfileIcon fill={COLORS.GREY600} />,
             }}
           />
         </Tab.Navigator>
