@@ -32,10 +32,10 @@ const styles = StyleSheet.create({
   menuItemText: {
     fontSize: 15,
     paddingLeft: 40,
-    color: 'white',
+    color: 'black',
   },
   menuItemTextActive: {
-    color: 'black',
+    color: 'white',
   },
 });
 
@@ -103,6 +103,7 @@ type MenuProps = {
 
 const Menu: React.FunctionComponent<MenuProps> = ({items}) => {
   const {toggle: onClose} = useUiLib();
+
   return (
     <NavigationContainer
       independent={true}
