@@ -66,6 +66,7 @@ pod install
 
 ```
 cd functions
+yarn build:watch
 yarn start
 ```
 
