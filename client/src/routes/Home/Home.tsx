@@ -3,7 +3,7 @@ import {View, Button} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useUiLib} from '../../hooks/useUiLib';
 
-import {Heading1} from '../../common/components/Typography/Heading/Heading';
+import {H1} from '../../common/components/Typography/Heading/Heading';
 
 import styles from './Home.styles';
 import useClearUpdates from '../../CodePush/hooks/useClearUpdates';
@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <View style={styles.screen}>
-      <Heading1>{t('welcome')}</Heading1>
+      <H1>{t('welcome')}</H1>
       <Button title="Show The Awesome UI lib" onPress={toggleUiLib} />
       <Button title="Clear update" onPress={clearUpdate} />
       <Button title="Check update" onPress={checkForUpdate} />

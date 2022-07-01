@@ -5,7 +5,7 @@ import {useRecoilValue} from 'recoil';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
 
 import Button from '../common/components/Buttons/Button';
-import {Heading4} from '../common/components/Typography/Heading/Heading';
+import {H4} from '../common/components/Typography/Heading/Heading';
 import {COLORS} from '../common/constants/colors';
 
 import useRestartApp from './hooks/useRestartApp';
@@ -21,7 +21,7 @@ import {
 // import GUTTERS from '../../styles/gutters.style';
 // import {COLORS} from '../../styles/theme.style';
 // import {Spacer16} from '../Spacer/Spacer';
-// import {Heading4} from '../Typography/Heading/Heading';
+// import {H4} from '../Typography/Heading/Heading';
 // import {BodyNormal} from '../Typography/Text/Text';
 // import {CodePushContext} from './CodePushProvider';
 // import {useTranslation} from 'react-i18next';
@@ -78,7 +78,7 @@ const CodePushOverlay = () => {
     case INSTALLING_UPDATE:
       return (
         <View style={[styles.container, styles.prompt]}>
-          <Heading4 style={styles.text}>Downloading</Heading4>
+          <H4 style={styles.text}>Downloading</H4>
           <AnimatedCircularProgress
             fill={downloadProgress * 100}
             size={30}
@@ -95,7 +95,7 @@ const CodePushOverlay = () => {
       return (
         <View style={styles.container}>
           <View style={styles.prompt}>
-            <Heading4 style={styles.text}>install.title</Heading4>
+            <H4 style={styles.text}>install.title</H4>
 
             {!isColdStarted && (
               <>

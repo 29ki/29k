@@ -20,15 +20,15 @@ const Heading: React.FC<HeadingBaseProps> = ({
 type HeadingProps = {
   style?: TextStyle;
 };
-export const Heading1: React.FC<HeadingProps> = props => (
-  <Heading {...props} defaultStyles={typeStyles.HEADING1} />
+export const H1: React.FC<HeadingProps> = props => (
+  <Heading {...props} defaultStyles={typeStyles.H1} />
 );
-export const Heading2: React.FC<HeadingProps> = props => (
-  <Heading {...props} defaultStyles={typeStyles.HEADING2} />
+export const H2: React.FC<HeadingProps> = props => (
+  <Heading {...props} defaultStyles={typeStyles.H2} />
 );
-export const Heading3: React.FC<HeadingProps> = props => (
-  <Heading {...props} defaultStyles={typeStyles.HEADING3} />
+export const H3: React.FC<HeadingProps> = props => (
+  <Heading {...props} defaultStyles={typeStyles.H3} />
 );
-export const Heading4: React.FC<HeadingProps> = props => (
-  <Heading {...props} defaultStyles={typeStyles.HEADING4} />
+export const H4: React.FC<HeadingProps> = props => (
+  <Heading {...props} defaultStyles={typeStyles.H4} />
 );

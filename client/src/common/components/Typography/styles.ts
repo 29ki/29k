@@ -2,33 +2,41 @@ import {StyleSheet} from 'react-native';
 import {COLORS} from '../../constants/colors';
 
 export default StyleSheet.create({
-  HEADING1: {
+  H1: {
     color: COLORS.GREY800,
     fontSize: 40,
     lineHeight: 48,
   },
-  HEADING2: {
+  H2: {
     color: COLORS.GREY800,
     fontSize: 32,
     lineHeight: 41,
   },
-  HEADING3: {
+  H3: {
     color: COLORS.GREY800,
     fontSize: 24,
     lineHeight: 31,
   },
-  HEADING4: {
+  H4: {
     color: COLORS.GREY800,
     fontSize: 20,
     lineHeight: 28,
   },
-  BODY_NORMAL: {
+  B1: {
+    color: COLORS.GREY800,
     fontSize: 16,
     lineHeight: 22,
   },
-  BODY_SMALL: {
+  B2: {
+    color: COLORS.GREY800,
     fontSize: 14,
     lineHeight: 20,
+  },
+  B3: {
+    color: COLORS.GREY500,
+    fontSize: 14,
+    lineHeight: 20,
+    textTransform: 'uppercase',
   },
   ERROR_TEXT: {
     fontSize: 14,
