@@ -1,13 +1,13 @@
 import React from 'react';
 import {View, Button} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import {useUiLib} from '../../hooks/useUiLib';
 
 import {H1} from '../../common/components/Typography/Heading/Heading';
 
 import styles from './Home.styles';
-import useClearUpdates from '../../CodePush/hooks/useClearUpdates';
-import useCheckForUpdate from '../../CodePush/hooks/useCheckForUpdate';
+import useClearUpdates from '../../lib/codePush/hooks/useClearUpdates';
+import useCheckForUpdate from '../../lib/codePush/hooks/useCheckForUpdate';
+import {useUiLib} from '../../lib/uiLib/hooks/useUiLib';
 
 const Home = () => {
   const {t} = useTranslation();

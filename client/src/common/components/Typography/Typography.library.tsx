@@ -1,5 +1,5 @@
 import React from 'react';
-import ScreenWrapper from '../../../uiLib/decorators/ScreenWrapper';
+import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import {H1, H2, H3, H4} from './Heading/Heading';
 import {B1, B2, B3} from './Text/Text';
 
