@@ -5,15 +5,9 @@ const NAMESPACE = 'KillSwitch';
 type KillSwitchState = {
   isBlocking: boolean;
   isLoading: boolean;
-  requireBundleUpdate: boolean;
+  requiresBundleUpdate: boolean;
   isRetriable: boolean;
   hasFailed: boolean;
-  image: string | null;
-  message: string | null;
-  button: {
-    link: string;
-    text: string;
-  } | null;
 };
 
 export const killSwitchAtom = atom<KillSwitchState>({
@@ -21,12 +15,9 @@ export const killSwitchAtom = atom<KillSwitchState>({
   default: {
     isBlocking: false,
     isLoading: false,
-    isRetriable: false,
     hasFailed: false,
-    requireBundleUpdate: false,
-    image: null,
-    message: null,
-    button: null,
+    isRetriable: false,
+    requiresBundleUpdate: false,
   },
 });
 
@@ -40,4 +31,22 @@ export const killSwitchFields = selectorFamily({
     field =>
     ({set}, newValue) =>
       set(killSwitchAtom, prevState => ({...prevState, [field]: newValue})),
+});
+
+type KillSwitchMessageState = {
+  image?: string | null;
+  message?: string | null;
+  button?: {
+    link: string;
+    text: string;
+  } | null;
+};
+
+export const killSwitchMessageAtom = atom<KillSwitchMessageState>({
+  key: `${NAMESPACE}/message`,
+  default: {
+    image: null,
+    message: null,
+    button: null,
+  },
 });

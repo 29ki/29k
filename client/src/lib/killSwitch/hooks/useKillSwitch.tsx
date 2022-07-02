@@ -1,14 +1,21 @@
 import {KILL_SWITCH_ENDPOINT} from 'config';
 import {useResetRecoilState, useSetRecoilState} from 'recoil';
 import {DeviceInfo, getDeviceInfo} from '../../../common/utils/system';
-import {killSwitchAtom, killSwitchFields} from '../state/state';
+import {
+  killSwitchAtom,
+  killSwitchFields,
+  killSwitchMessageAtom,
+} from '../state/state';
 
 type KillSwitchReponseBody = {
-  image?: string;
-  message?: string;
-  button?: string;
   requiresBundleUpdate?: boolean;
   permanent?: boolean;
+  image?: string;
+  message?: string;
+  button?: {
+    link: string;
+    text: string;
+  } | null;
 };
 
 const getKillSwitchUrl = ({
@@ -33,14 +40,13 @@ const useKillSwitch = () => {
 
   const setIsLoading = useSetRecoilState(killSwitchFields('isLoading'));
   const setIsBlocking = useSetRecoilState(killSwitchFields('isBlocking'));
-  const setIsRetriable = useSetRecoilState(killSwitchFields('isRetriable'));
   const setHasFailed = useSetRecoilState(killSwitchFields('hasFailed'));
-  const setRequireBundleUpdate = useSetRecoilState(
-    killSwitchFields('requireBundleUpdate'),
+  const setIsRetriable = useSetRecoilState(killSwitchFields('isRetriable'));
+  const setRequiresBundleUpdate = useSetRecoilState(
+    killSwitchFields('requiresBundleUpdate'),
   );
-  const setImage = useSetRecoilState(killSwitchFields('image'));
-  const setMessage = useSetRecoilState(killSwitchFields('message'));
-  const setButton = useSetRecoilState(killSwitchFields('button'));
+  const setMessage = useSetRecoilState(killSwitchMessageAtom);
+
   const fetchKillSwitch = async (url: string) => {
     setIsLoading(true);
 
@@ -78,7 +84,7 @@ const useKillSwitch = () => {
     }
   };
 
-  return async () => {
+  const checkKillSwitch = async () => {
     reset();
 
     const {os, osVersion, nativeVersion, bundleVersion} = await getDeviceInfo();
@@ -99,7 +105,7 @@ const useKillSwitch = () => {
     const {image, message, button, requiresBundleUpdate, permanent} =
       data as KillSwitchReponseBody;
 
-    setRequireBundleUpdate(Boolean(requiresBundleUpdate));
+    setRequiresBundleUpdate(Boolean(requiresBundleUpdate));
 
     if (response.ok) {
       setIsBlocking(false);
@@ -108,22 +114,18 @@ const useKillSwitch = () => {
 
     setIsBlocking(true);
 
-    setIsRetriable(!Boolean(permanent));
+    setIsRetriable(!permanent);
 
-    if (image) {
-      setImage(image);
-    }
-
-    if (message) {
-      setMessage(message);
-    }
-
-    if (button) {
-      setButton(button);
-    }
+    setMessage({
+      image,
+      message,
+      button,
+    });
 
     throw new Error(`${os}${osVersion}@${nativeVersion} is Kill Switched`);
   };
+
+  return checkKillSwitch;
 };
 
 export default useKillSwitch;
