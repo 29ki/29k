@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {useRecoilValue, useResetRecoilState} from 'recoil';
+import {useRecoilValue} from 'recoil';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -11,7 +11,7 @@ import {HomeIcon, ProfileIcon} from '../../common/components/Icons';
 import {COLORS} from '../../common/constants/colors';
 import {SPACINGS} from '../../common/constants/spacings';
 
-import {killSwitchAtom, killSwitchFields} from '../killSwitch/state/state';
+import {killSwitchFields} from '../killSwitch/state/state';
 import useKillSwitch from '../killSwitch/hooks/useKillSwitch';
 
 const Tab = createBottomTabNavigator();
@@ -40,7 +40,7 @@ const Navigation = () => {
 
   useEffect(() => {
     runKillSwitch();
-  }, []);
+  }, [runKillSwitch]);
 
   return (
     <NavigationContainer>
