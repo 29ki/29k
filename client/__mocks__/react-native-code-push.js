@@ -15,6 +15,7 @@ const codePushMock = {
   },
   sync: jest.fn(),
   restartApp: jest.fn(),
+  clearUpdates: jest.fn(),
   getUpdateMetadata: jest.fn(() =>
     Promise.resolve({label: 'v1337', description: 'decription'}),
   ),
