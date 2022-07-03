@@ -55,11 +55,8 @@ const useKillSwitch = () => {
       try {
         return await fetch(url);
       } catch (cause: any) {
-        if (cause.message === 'Network request failed') {
-          // Do not block the user on network issues
-          setIsBlocking(false);
-        }
-
+        // Do not block the user on network issues
+        setIsBlocking(cause.message !== 'Network request failed');
         setIsRetriable(true);
         setHasFailed(true);
         throw new Error('Kill Switch failed', {cause});
