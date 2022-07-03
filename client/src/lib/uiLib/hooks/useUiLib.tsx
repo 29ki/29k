@@ -19,7 +19,7 @@ const UiLibProvider: React.FunctionComponent<{}> = ({children}) => {
   let UILib: React.ComponentType | null = null;
 
   if (!IS_PRODUCTION && UILibEnabled) {
-    UILib = require('../UiLibRootComponent').default;
+    UILib = require('../components/UiLibRootComponent').default;
   }
 
   const toggle = () => setUILibEnabled(!UILibEnabled);
