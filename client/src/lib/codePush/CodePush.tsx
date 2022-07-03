@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import codePush from 'react-native-code-push';
 
-import useResumeFromBackgrounded from '../hooks/useResumeFromBackgrounded';
+import useResumeFromBackgrounded from './hooks/useResumeFromBackgrounded';
 import {useSetRecoilState} from 'recoil';
 import {isColdStartedAtom} from './state/state';
 import useCheckForUpdate from './hooks/useCheckForUpdate';

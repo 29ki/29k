@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ScreenWrapper from '../../../uiLib/decorators/ScreenWrapper';
+import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 
 import Button from './Button';
 
