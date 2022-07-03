@@ -1,20 +1,11 @@
 import {renderHook, act} from '@testing-library/react-hooks';
 import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
-import {RecoilState} from 'recoil';
-import {killSwitchFields, killSwitchMessageAtom} from '../state/state';
+import {RecoilRoot, useRecoilValue} from 'recoil';
+import {killSwitchAtom, killSwitchMessageAtom} from '../state/state';
 
 import useKillSwitch from './useKillSwitch';
 
 enableFetchMocks();
-
-const mockSetRecoilState = jest.fn();
-const mockResetRecoilState = jest.fn();
-jest.mock('recoil', () => ({
-  ...jest.requireActual('recoil'),
-  useSetRecoilState: (atom: RecoilState<boolean>) => (value: any) =>
-    mockSetRecoilState(atom, value),
-  useResetRecoilState: () => mockResetRecoilState,
-}));
 
 beforeEach(() => {
   fetchMock.resetMocks();
@@ -25,13 +16,21 @@ afterEach(() => {
 });
 
 describe('useKillSwitch', () => {
+  const useTestHook = () => {
+    const checkKillSwitch = useKillSwitch();
+    const killSwitchState = useRecoilValue(killSwitchAtom);
+    const killSwitchMessageState = useRecoilValue(killSwitchMessageAtom);
+
+    return {checkKillSwitch, killSwitchState, killSwitchMessageState};
+  };
+
   describe('Success', () => {
     it('checks if the app is killed', async () => {
       fetchMock.mockResponseOnce('', {status: 200});
 
-      const {result} = renderHook(() => useKillSwitch());
+      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
 
-      await act(() => result.current());
+      await act(() => result.current.checkKillSwitch());
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(fetchMock).toHaveBeenCalledWith(
@@ -39,19 +38,34 @@ describe('useKillSwitch', () => {
       );
     });
 
-    it('blocks the app if server says no', async () => {
+    it('sets isBlocking=true if server says no', async () => {
       fetchMock.mockResponseOnce(JSON.stringify({}), {status: 403});
 
-      const {result} = renderHook(() => useKillSwitch());
+      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+
+      expect(result.current.killSwitchState).toEqual({
+        hasFailed: false,
+        isBlocking: false,
+        isLoading: false,
+        isRetriable: false,
+        requiresBundleUpdate: false,
+      });
 
       await act(async () => {
-        await expect(result.current()).rejects.toThrow(
+        await expect(result.current.checkKillSwitch()).rejects.toThrow(
           new Error('some-ossome-os-version@some-version is Kill Switched'),
         );
       });
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
 
+      expect(result.current.killSwitchState).toEqual({
+        hasFailed: false,
+        isBlocking: true,
+        isLoading: false,
+        isRetriable: true,
+        requiresBundleUpdate: false,
+      });
       /*
       expect(metrics.logEvent).toHaveBeenCalledTimes(1);
       expect(metrics.logEvent).toHaveBeenCalledWith('Show Kill Switch', {
@@ -62,30 +76,41 @@ describe('useKillSwitch', () => {
         version: 'some-version',
       });
       */
+    });
 
-      expect(mockResetRecoilState).toHaveBeenCalledTimes(1);
+    it('sets isRetriable=false if permanent', async () => {
+      fetchMock.mockResponseOnce(
+        JSON.stringify({
+          permanent: true,
+        }),
+        {status: 403},
+      );
 
-      expect(mockSetRecoilState).toHaveBeenCalledTimes(6);
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isLoading'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('requiresBundleUpdate'),
-        false,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isBlocking'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isRetriable'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isLoading'),
-        false,
-      );
+      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+
+      expect(result.current.killSwitchState).toEqual({
+        hasFailed: false,
+        isBlocking: false,
+        isLoading: false,
+        isRetriable: false,
+        requiresBundleUpdate: false,
+      });
+
+      await act(async () => {
+        await expect(result.current.checkKillSwitch()).rejects.toThrow(
+          new Error('some-ossome-os-version@some-version is Kill Switched'),
+        );
+      });
+
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+
+      expect(result.current.killSwitchState).toEqual({
+        hasFailed: false,
+        isBlocking: true,
+        isLoading: false,
+        isRetriable: false,
+        requiresBundleUpdate: false,
+      });
     });
 
     it('sets image, message and button if provided by server', async () => {
@@ -101,40 +126,23 @@ describe('useKillSwitch', () => {
         {status: 403},
       );
 
-      const {result} = renderHook(() => useKillSwitch());
+      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+
+      expect(result.current.killSwitchMessageState).toEqual({
+        button: null,
+        image: null,
+        message: null,
+      });
 
       await act(async () => {
-        await expect(result.current()).rejects.toThrow(
+        await expect(result.current.checkKillSwitch()).rejects.toThrow(
           new Error('some-ossome-os-version@some-version is Kill Switched'),
         );
       });
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
 
-      expect(mockResetRecoilState).toHaveBeenCalledTimes(1);
-
-      expect(mockSetRecoilState).toHaveBeenCalledTimes(6);
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isLoading'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('requiresBundleUpdate'),
-        false,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isBlocking'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isRetriable'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isLoading'),
-        false,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(killSwitchMessageAtom, {
+      expect(result.current.killSwitchMessageState).toEqual({
         image: 'http://some/image.jpg',
         message: 'Some Message',
         button: {
@@ -144,7 +152,7 @@ describe('useKillSwitch', () => {
       });
     });
 
-    it('sets requiresBundleUpdate if server says so', async () => {
+    it('sets requiresBundleUpdate=true if server says so', async () => {
       fetchMock.mockResponseOnce(
         JSON.stringify({
           requiresBundleUpdate: true,
@@ -152,141 +160,121 @@ describe('useKillSwitch', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() => useKillSwitch());
+      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+
+      expect(result.current.killSwitchState).toEqual({
+        hasFailed: false,
+        isBlocking: false,
+        isLoading: false,
+        isRetriable: false,
+        requiresBundleUpdate: false,
+      });
 
       await act(async () => {
-        await expect(result.current()).resolves.toBe(undefined);
+        await expect(result.current.checkKillSwitch()).resolves.toBe(undefined);
       });
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
 
-      expect(mockResetRecoilState).toHaveBeenCalledTimes(1);
-
-      expect(mockSetRecoilState).toHaveBeenCalledTimes(4);
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isLoading'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('requiresBundleUpdate'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isBlocking'),
-        false,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isLoading'),
-        false,
-      );
+      expect(result.current.killSwitchState).toEqual({
+        hasFailed: false,
+        isBlocking: false,
+        isLoading: false,
+        isRetriable: false,
+        requiresBundleUpdate: true,
+      });
     });
   });
 
   describe('Failure', () => {
-    it('sets as failed on fetch error', async () => {
+    it('sets isBlocking=true, hasFailed=true and isRetriable=true on fetch error', async () => {
       fetchMock.mockRejectOnce(new Error('Some Random Error'));
 
-      const {result} = renderHook(() => useKillSwitch());
+      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+
+      expect(result.current.killSwitchState).toEqual({
+        hasFailed: false,
+        isBlocking: false,
+        isLoading: false,
+        isRetriable: false,
+        requiresBundleUpdate: false,
+      });
 
       await act(async () => {
-        await expect(result.current()).rejects.toThrow(
+        await expect(result.current.checkKillSwitch()).rejects.toThrow(
           new Error('Kill Switch failed'),
         );
       });
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
 
-      expect(mockResetRecoilState).toHaveBeenCalledTimes(1);
-
-      expect(mockSetRecoilState).toHaveBeenCalledTimes(4);
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isLoading'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isRetriable'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('hasFailed'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isLoading'),
-        false,
-      );
+      expect(result.current.killSwitchState).toEqual({
+        hasFailed: true,
+        isBlocking: true,
+        isLoading: false,
+        isRetriable: true,
+        requiresBundleUpdate: false,
+      });
     });
 
     it("doesn't block failed network requests", async () => {
       fetchMock.mockRejectOnce(new Error('Network request failed'));
 
-      const {result} = renderHook(() => useKillSwitch());
+      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+
+      expect(result.current.killSwitchState).toEqual({
+        hasFailed: false,
+        isBlocking: false,
+        isLoading: false,
+        isRetriable: false,
+        requiresBundleUpdate: false,
+      });
 
       await act(async () => {
-        await expect(result.current()).rejects.toThrow(
+        await expect(result.current.checkKillSwitch()).rejects.toThrow(
           new Error('Kill Switch failed'),
         );
       });
 
-      expect(mockResetRecoilState).toHaveBeenCalledTimes(1);
+      expect(fetchMock).toHaveBeenCalledTimes(1);
 
-      expect(mockSetRecoilState).toHaveBeenCalledTimes(5);
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isLoading'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isBlocking'),
-        false,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isRetriable'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('hasFailed'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isLoading'),
-        false,
-      );
+      expect(result.current.killSwitchState).toEqual({
+        hasFailed: true,
+        isBlocking: false,
+        isLoading: false,
+        isRetriable: true,
+        requiresBundleUpdate: false,
+      });
     });
 
     it('sets as failed on malformed server response', async () => {
       fetchMock.mockResponseOnce('foo', {status: 403});
 
-      const {result} = renderHook(() => useKillSwitch());
+      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+
+      expect(result.current.killSwitchState).toEqual({
+        hasFailed: false,
+        isBlocking: false,
+        isLoading: false,
+        isRetriable: false,
+        requiresBundleUpdate: false,
+      });
 
       await act(async () => {
-        await expect(result.current()).rejects.toThrow(
+        await expect(result.current.checkKillSwitch()).rejects.toThrow(
           new Error('Failed to read Kill Switch body'),
         );
       });
 
-      expect(mockResetRecoilState).toHaveBeenCalledTimes(1);
+      expect(fetchMock).toHaveBeenCalledTimes(1);
 
-      expect(mockSetRecoilState).toHaveBeenCalledTimes(5);
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isLoading'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isBlocking'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isRetriable'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('hasFailed'),
-        true,
-      );
-      expect(mockSetRecoilState).toHaveBeenCalledWith(
-        killSwitchFields('isLoading'),
-        false,
-      );
+      expect(result.current.killSwitchState).toEqual({
+        hasFailed: true,
+        isBlocking: true,
+        isLoading: false,
+        isRetriable: true,
+        requiresBundleUpdate: false,
+      });
     });
   });
 });
