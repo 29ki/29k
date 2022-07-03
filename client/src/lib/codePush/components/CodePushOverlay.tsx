@@ -4,16 +4,16 @@ import codepush from 'react-native-code-push';
 import {useRecoilValue} from 'recoil';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
 
-import Button from '../../common/components/Buttons/Button';
-import {H4} from '../../common/components/Typography/Heading/Heading';
-import {COLORS} from '../../common/constants/colors';
+import Button from '../../../common/components/Buttons/Button';
+import {H4} from '../../../common/components/Typography/Heading/Heading';
+import {COLORS} from '../../../common/constants/colors';
 
 import {
   downloadProgressAtom,
   isColdStartedAtom,
   statusAtom,
-} from './state/state';
-import useRestartApp from './hooks/useRestartApp';
+} from '../state/state';
+import useRestartApp from '../hooks/useRestartApp';
 
 // import * as metrics from '../../lib/metrics';
 // import {EVENTS} from '../../constants/metrics';
