@@ -56,9 +56,7 @@ const useCheckForUpdate = () => {
     status => {
       setStatus(status);
       logStatus(status);
-      if (status === UPDATE_INSTALLED) {
-        setUpdateAvailable(true);
-      }
+      setUpdateAvailable(status === UPDATE_INSTALLED);
     },
     [setStatus, setUpdateAvailable],
   );
@@ -81,7 +79,7 @@ const useCheckForUpdate = () => {
         onProgress,
       );
     } catch (cause) {
-      console.error(new Error('Code Push check failed', {cause}));
+      throw new Error('Code Push check failed', {cause});
     }
   }, [onStatus, onProgress]);
 };
