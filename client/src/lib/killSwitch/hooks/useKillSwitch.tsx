@@ -1,4 +1,5 @@
 import {KILL_SWITCH_ENDPOINT} from 'config';
+import {useCallback} from 'react';
 import {useResetRecoilState, useSetRecoilState} from 'recoil';
 import {DeviceInfo, getDeviceInfo} from '../../../common/utils/system';
 import {
@@ -47,44 +48,50 @@ const useKillSwitch = () => {
   );
   const setMessage = useSetRecoilState(killSwitchMessageAtom);
 
-  const fetchKillSwitch = async (url: string) => {
-    setIsLoading(true);
+  const fetchKillSwitch = useCallback(
+    async (url: string) => {
+      setIsLoading(true);
 
-    try {
-      return await fetch(url);
-    } catch (cause: any) {
-      if (cause.message === 'Network request failed') {
-        // Do not block the user on network issues
-        setIsBlocking(false);
+      try {
+        return await fetch(url);
+      } catch (cause: any) {
+        if (cause.message === 'Network request failed') {
+          // Do not block the user on network issues
+          setIsBlocking(false);
+        }
+
+        setIsRetriable(true);
+        setHasFailed(true);
+        throw new Error('Kill Switch failed', {cause});
+      } finally {
+        setIsLoading(false);
       }
+    },
+    [setHasFailed, setIsBlocking, setIsRetriable, setIsLoading],
+  );
 
-      setIsRetriable(true);
-      setHasFailed(true);
-      throw new Error('Kill Switch failed', {cause});
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const getResponseData = useCallback(
+    async (response: Response) => {
+      try {
+        const body = await response.text();
 
-  const getResponseData = async (response: Response) => {
-    try {
-      const body = await response.text();
+        if (body) {
+          return JSON.parse(body);
+        }
 
-      if (body) {
-        return JSON.parse(body);
+        return {};
+      } catch (cause) {
+        setIsBlocking(true);
+        setIsRetriable(true);
+        setHasFailed(true);
+
+        throw new Error('Failed to read Kill Switch body', {cause});
       }
+    },
+    [setIsBlocking, setIsRetriable, setHasFailed],
+  );
 
-      return {};
-    } catch (cause) {
-      setIsBlocking(true);
-      setIsRetriable(true);
-      setHasFailed(true);
-
-      throw new Error('Failed to read Kill Switch body', {cause});
-    }
-  };
-
-  const checkKillSwitch = async () => {
+  const checkKillSwitch = useCallback(async () => {
     reset();
 
     const {os, osVersion, nativeVersion, bundleVersion} = await getDeviceInfo();
@@ -123,7 +130,15 @@ const useKillSwitch = () => {
     });
 
     throw new Error(`${os}${osVersion}@${nativeVersion} is Kill Switched`);
-  };
+  }, [
+    fetchKillSwitch,
+    getResponseData,
+    reset,
+    setIsBlocking,
+    setIsRetriable,
+    setRequiresBundleUpdate,
+    setMessage,
+  ]);
 
   return checkKillSwitch;
 };
