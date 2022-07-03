@@ -52,6 +52,22 @@ const useCheckForUpdate = () => {
   const setUpdateAvailable = useSetRecoilState(updateAvailableAtom);
   const setDownloadProgress = useSetRecoilState(downloadProgressAtom);
 
+  const onStatus = useCallback(
+    status => {
+      setStatus(status);
+      logStatus(status);
+      setUpdateAvailable(status === UPDATE_INSTALLED);
+    },
+    [setStatus, setUpdateAvailable],
+  );
+
+  const onProgress = useCallback(
+    progress => {
+      setDownloadProgress(progress.receivedBytes / progress.totalBytes);
+    },
+    [setDownloadProgress],
+  );
+
   return useCallback(async () => {
     try {
       await codePush.sync(
@@ -59,21 +75,13 @@ const useCheckForUpdate = () => {
           mandatoryInstallMode: codePush.InstallMode.ON_NEXT_RESTART,
           deploymentKey,
         },
-        status => {
-          setStatus(status);
-          logStatus(status);
-          if (status === UPDATE_INSTALLED) {
-            setUpdateAvailable(true);
-          }
-        },
-        progress => {
-          setDownloadProgress(progress.receivedBytes / progress.totalBytes);
-        },
+        onStatus,
+        onProgress,
       );
     } catch (cause) {
-      console.error(new Error('Code Push check failed', {cause}));
+      throw new Error('Code Push check failed', {cause});
     }
-  }, [setStatus, setDownloadProgress, setUpdateAvailable]);
+  }, [onStatus, onProgress]);
 };
 
 export default useCheckForUpdate;

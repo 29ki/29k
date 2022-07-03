@@ -3,7 +3,7 @@ import codePush from 'react-native-code-push';
 
 import useClearUpdates from './useClearUpdates';
 
-test('call clear updates', () => {
+test('useClearUpdates', () => {
   const {result} = renderHook(() => useClearUpdates());
 
   act(() => {
