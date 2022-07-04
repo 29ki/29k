@@ -1,8 +1,12 @@
 import styled from 'styled-components/native';
-import {GUTTERS} from '../../constants/spacings';
+import {SPACINGS} from '../../constants/spacings';
 
-const Gutters = styled.View`
-  padding-horizontal: ${GUTTERS};
+export const TextGutter = styled.View`
+  padding-left: ${SPACINGS.TWENTYFOUR}px;
+  padding-right: ${SPACINGS.TWENTYFOUR}px;
 `;
 
-export default Gutters;
+export const GrapihcGutter = styled.View`
+  padding-left: ${SPACINGS.SIXTEEN}px;
+  padding-right: ${SPACINGS.SIXTEEN}px;
+`;

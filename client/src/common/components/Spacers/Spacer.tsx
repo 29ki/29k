@@ -8,12 +8,12 @@ type Spacer = {
 };
 
 const Spacer = styled.View<Spacer>`
-  flex: 0,
-  overflow: 'visible',
-  zIndex: 1,
-  flexBasis: ${props => props.size}, 
-  minHeight: ${props => props.size}, 
-  minWidth: ${props => props.size}
+  flex: 0;
+  overflow: visible;
+  z-index: 1;
+  flex-basis: ${props => props.size}px;
+  min-height: ${props => props.size}px;
+  min-width: ${props => props.size}px;
 `;
 
 export const Spacer4: React.FC = props => (
