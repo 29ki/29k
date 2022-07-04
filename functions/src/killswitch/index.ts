@@ -10,7 +10,7 @@ import translations from './translations';
 const KILL_SWITCH = false;
 
 // Specify the minimum required app native version.
-const MIN_APP_VERSION = '2.32.2';
+const MIN_APP_VERSION = '1.32.2';
 
 // Specify the minimum required bundle version.
 //
