@@ -22,6 +22,11 @@ export default StyleSheet.create({
     fontSize: 20,
     lineHeight: 28,
   },
+  H5: {
+    color: COLORS.GREY800,
+    fontSize: 16,
+    lineHeight: 22,
+  },
   B1: {
     color: COLORS.GREY800,
     fontSize: 16,
