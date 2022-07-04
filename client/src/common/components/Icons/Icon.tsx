@@ -1,25 +1,15 @@
 import React from 'react';
-import {StyleProp, StyleSheet, ViewStyle} from 'react-native';
-import Svg from 'react-native-svg';
+import Svg, {SvgProps} from 'react-native-svg';
+import styled from 'styled-components/native';
 
-const defaultStyles = StyleSheet.create({
-  icon: {
-    aspectRatio: 1,
-  },
-});
+const SvgIcon = styled(Svg)`
+  aspect-ratio: 1;
+`;
 
-type IconProps = {
-  styles?: StyleProp<ViewStyle>;
-};
-
-const Icon: React.FC<IconProps> = ({children, styles}) => (
-  <Svg
-    width="100%"
-    height="100%"
-    viewBox="0 0 30 30"
-    style={[defaultStyles.icon, styles]}>
+const Icon: React.FC<SvgProps> = ({children, style}) => (
+  <SvgIcon width="100%" height="100%" viewBox="0 0 30 30" style={style}>
     {children}
-  </Svg>
+  </SvgIcon>
 );
 
 export default Icon;

@@ -7,7 +7,7 @@ import {B1} from '../Typography/Text/Text';
 const ButtonComponent = styled.View`
   background-color: ${COLORS.SUCCESS_GREEN};
   padding: 10px 20px;
-  border-radius: 30px;
+  border-radius: 15px;
   align-items: center;
 `;
 
