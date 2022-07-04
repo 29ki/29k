@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {
   ActivityIndicator,
   Image,
@@ -10,6 +11,7 @@ import {useRecoilValue} from 'recoil';
 import Button from '../../../common/components/Buttons/Button';
 import Gutters from '../../../common/components/Gutters/Gutters';
 import {Spacer40} from '../../../common/components/Spacers/Spacer';
+import Markdown from '../../../common/components/Typography/Markdown/Markdown';
 import {COLORS} from '../../../common/constants/colors';
 import useKillSwitch from '../hooks/useKillSwitch';
 import {killSwitchFields, killSwitchMessageAtom} from '../state/state';
@@ -26,6 +28,7 @@ const styles = StyleSheet.create({
 });
 
 const KillSwitchMessage = () => {
+  const {t} = useTranslation();
   const checkKillSwitch = useKillSwitch();
   const {image, message, button} = useRecoilValue(killSwitchMessageAtom);
   const isLoading = useRecoilValue(killSwitchFields('isLoading'));
@@ -48,7 +51,7 @@ const KillSwitchMessage = () => {
         {Boolean(isLoading) && (
           <ActivityIndicator size="large" color={COLORS.GREY100} />
         )}
-        {image !== null && (
+        {image && (
           <>
             <Image
               source={{uri: image}}
@@ -58,7 +61,7 @@ const KillSwitchMessage = () => {
             <Spacer40 />
           </>
         )}
-        {message !== null && (
+        {message && (
           <Gutters>
             <Markdown>{message}</Markdown>
           </Gutters>
@@ -77,12 +80,10 @@ const KillSwitchMessage = () => {
           </>
         )}
       </View>
-      {button !== null && (
+      {button && (
         <>
           <Gutters>
-            <Button primary onPress={handleLinkButton}>
-              {button.text}
-            </Button>
+            <Button onPress={handleLinkButton} title={button.text} />
           </Gutters>
           <Spacer40 />
         </>
@@ -90,9 +91,7 @@ const KillSwitchMessage = () => {
       {isRetriable && (
         <>
           <Gutters>
-            <Button primary onPress={handleRetryButton}>
-              {t('retry')}
-            </Button>
+            <Button onPress={handleRetryButton} title={t('retry')} />
           </Gutters>
           <Spacer40 />
         </>
