@@ -53,7 +53,7 @@ const DailyProvider: React.FC = ({children}) => {
   );
 
   const prepareMeeting = useCallback(() => {
-    daily.preAuth({url: 'https://29k-testing.daily.co/FlNLdGKawgSt3ItIpOdB'});
+    daily.preAuth({url: ''});
     setCompletedAuth(true);
     console.log('preAuth done');
   }, [daily]);
