@@ -13,6 +13,7 @@ import {SPACINGS} from '../../common/constants/spacings';
 
 import {killSwitchFields} from '../killSwitch/state/state';
 import useKillSwitch from '../killSwitch/hooks/useKillSwitch';
+import Video from '../../routes/Video/Video';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -64,6 +65,7 @@ const Navigation = () => {
               tabBarIcon: () => <ProfileIcon fill={COLORS.GREY600} />,
             }}
           />
+          <Tab.Screen name={ROUTES.VIDEO} component={Video} />
         </Tab.Navigator>
       )}
     </NavigationContainer>

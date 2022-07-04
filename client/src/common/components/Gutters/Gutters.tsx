@@ -6,7 +6,7 @@ export const TextGutter = styled.View`
   padding-right: ${SPACINGS.TWENTYFOUR}px;
 `;
 
-export const GrapihcGutter = styled.View`
+export const GraphicGutter = styled.View`
   padding-left: ${SPACINGS.SIXTEEN}px;
   padding-right: ${SPACINGS.SIXTEEN}px;
 `;

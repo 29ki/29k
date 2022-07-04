@@ -10,7 +10,17 @@ import Daily, {
   DailyEventObject,
 } from '@daily-co/react-native-daily-js';
 
-export const DailyContext = createContext({});
+type DailyProviderTypes = {
+  prepareMeeting: () => void;
+  startMeeting: () => void;
+  leaveMeeting: () => void;
+};
+
+export const DailyContext = createContext<DailyProviderTypes>({
+  startMeeting: () => {},
+  prepareMeeting: () => {},
+  leaveMeeting: () => {},
+});
 
 const logParticipants = ({participants}: DailyEventObject) => {
   console.log(participants);
@@ -45,6 +55,7 @@ const DailyProvider: React.FC = ({children}) => {
   const prepareMeeting = useCallback(() => {
     daily.preAuth({url: 'https://29k-testing.daily.co/FlNLdGKawgSt3ItIpOdB'});
     setCompletedAuth(true);
+    console.log('preAuth done');
   }, [daily]);
 
   // Join when setup is complete and user is ready
@@ -115,14 +126,14 @@ const DailyProvider: React.FC = ({children}) => {
   return (
     <DailyContext.Provider
       value={{
-        call: daily,
+        // call: daily,
         prepareMeeting,
         startMeeting,
         leaveMeeting,
-        toggleAudio,
-        toggleVideo,
-        hasAudio,
-        hasVideo,
+        // toggleAudio,
+        // toggleVideo,
+        // hasAudio,
+        // hasVideo,
       }}>
       {children}
     </DailyContext.Provider>
