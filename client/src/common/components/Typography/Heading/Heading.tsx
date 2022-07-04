@@ -32,3 +32,6 @@ export const H3: React.FC<HeadingProps> = props => (
 export const H4: React.FC<HeadingProps> = props => (
   <Heading {...props} defaultStyles={typeStyles.H4} />
 );
+export const H5: React.FC<HeadingProps> = props => (
+  <Heading {...props} defaultStyles={typeStyles.H5} />
+);
