@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {Button} from 'react-native';
 import styled from 'styled-components/native';
 
-import {DailyContext} from './DailyProvider';
+import {DailyContext} from '../../DailyProvider';
 
 const EntranceScreen = styled.View`
   flex: 1;

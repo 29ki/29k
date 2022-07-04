@@ -8,9 +8,13 @@ import React, {
 import Daily, {
   DailyEvent,
   DailyEventObject,
+  DailyCall,
 } from '@daily-co/react-native-daily-js';
+import {useSetRecoilState} from 'recoil';
+import {videoSharingFields} from './state/state';
 
 type DailyProviderTypes = {
+  call?: DailyCall;
   prepareMeeting: () => void;
   startMeeting: () => void;
   leaveMeeting: () => void;
@@ -33,6 +37,8 @@ const DailyProvider: React.FC = ({children}) => {
   const [hasVideo, setHasVideo] = useState(true);
   const [shouldJoin, setShouldJoin] = useState(false);
 
+  const setIsLoading = useSetRecoilState(videoSharingFields('isLoading'));
+
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(
     () => [
       ['joined-meeting', logParticipants],
@@ -53,9 +59,13 @@ const DailyProvider: React.FC = ({children}) => {
   );
 
   const prepareMeeting = useCallback(() => {
-    daily.preAuth({url: ''});
+    setIsLoading(true);
+
+    daily.preAuth({url: ''}); // TODO should fetch url and token from function in the future
+
+    setIsLoading(false);
+
     setCompletedAuth(true);
-    console.log('preAuth done');
   }, [daily]);
 
   // Join when setup is complete and user is ready
@@ -126,7 +136,7 @@ const DailyProvider: React.FC = ({children}) => {
   return (
     <DailyContext.Provider
       value={{
-        // call: daily,
+        call: daily,
         prepareMeeting,
         startMeeting,
         leaveMeeting,

@@ -1,12 +1,12 @@
 import React from 'react';
 import DailyProvider from './DailyProvider';
-import Entrance from './Entrance';
+import Lobby from './Lobby/Lobby';
 import Session from './Session';
 
 const Video = () => {
   return (
     <DailyProvider>
-      <Entrance />
+      <Lobby />
       <Session />
     </DailyProvider>
   );
