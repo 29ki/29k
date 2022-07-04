@@ -13,6 +13,7 @@ import {SPACINGS} from '../../common/constants/spacings';
 
 import {killSwitchFields} from '../killSwitch/state/state';
 import useKillSwitch from '../killSwitch/hooks/useKillSwitch';
+import KillSwitch from '../../routes/KillSwitch/KillSwitch';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -34,6 +35,10 @@ const tabBarOptions = {
   },
 };
 
+const stackOptions = {
+  headerShown: false,
+};
+
 const Navigation = () => {
   const isBlocking = useRecoilValue(killSwitchFields('isBlocking'));
   const runKillSwitch = useKillSwitch();
@@ -45,8 +50,8 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       {isBlocking ? (
-        <Stack.Navigator>
-          <Stack.Screen name={ROUTES.PROFILE} component={Profile} />
+        <Stack.Navigator screenOptions={stackOptions}>
+          <Stack.Screen name={ROUTES.KILL_SWITCH} component={KillSwitch} />
         </Stack.Navigator>
       ) : (
         <Tab.Navigator screenOptions={tabBarOptions}>
