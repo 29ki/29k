@@ -13,64 +13,58 @@ jobs:
 
   deploy-functions-production:
     name: Functions Production
+    concurrency: deploy-functions-production
     needs: test
     uses: ./.github/workflows/deploy-functions.yml
     with:
       environment: production
-    strategy:
-      max-parallel: 1
     secrets: inherit
 
   deploy-functions-staging:
     name: Functions Staging
+    concurrency: deploy-functions-staging
     needs: test
     uses: ./.github/workflows/deploy-functions.yml
     with:
       environment: staging
-    strategy:
-      max-parallel: 1
     secrets: inherit
 
   deploy-ios-production:
     name: iOS Production
+    concurrency: deploy-ios-production
     needs: deploy-functions-production
     uses: ./.github/workflows/deploy-codepush.yml
     with:
       environment: production
       platform: ios
-    strategy:
-      max-parallel: 1
     secrets: inherit
 
   deploy-ios-staging:
     name: iOS Staging
+    concurrency: deploy-ios-staging
     needs: deploy-functions-staging
     uses: ./.github/workflows/deploy-codepush.yml
     with:
       environment: staging
       platform: ios
-    strategy:
-      max-parallel: 1
     secrets: inherit
 
   deploy-android-production:
     name: Android Production
+    concurrency: deploy-android-production
     needs: deploy-functions-production
     uses: ./.github/workflows/deploy-codepush.yml
     with:
       environment: production
       platform: android
-    strategy:
-      max-parallel: 1
     secrets: inherit
 
   deploy-android-staging:
     name: Android Staging
+    concurrency: deploy-android-staging
     needs: deploy-functions-staging
     uses: ./.github/workflows/deploy-codepush.yml
     with:
       environment: staging
       platform: android
-    strategy:
-      max-parallel: 1
     secrets: inherit
