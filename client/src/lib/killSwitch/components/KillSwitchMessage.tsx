@@ -9,6 +9,7 @@ import {
 import {useRecoilValue} from 'recoil';
 import Button from '../../../common/components/Buttons/Button';
 import Gutters from '../../../common/components/Gutters/Gutters';
+import {Spacer40} from '../../../common/components/Spacers/Spacer';
 import {COLORS} from '../../../common/constants/colors';
 import useKillSwitch from '../hooks/useKillSwitch';
 import {killSwitchFields, killSwitchMessageAtom} from '../state/state';
