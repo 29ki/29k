@@ -1,20 +1,17 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {Text} from 'react-native';
+import styled from 'styled-components/native';
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+const Wrapper = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
 
-const Profile = () => {
-  return (
-    <View style={styles.screen}>
-      <Text>Profile!</Text>
-    </View>
-  );
-};
+const Profile = () => (
+  <Wrapper>
+    <Text>Profile!</Text>
+  </Wrapper>
+);
 
 export default Profile;

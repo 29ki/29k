@@ -99,10 +99,10 @@ const CodePushOverlay = () => {
 
             {!isColdStarted && (
               <>
-                <Button onPress={handleDismiss} title="Dismiss" />
+                <Button onPress={handleDismiss}>Dismiss</Button>
               </>
             )}
-            <Button onPress={handleRestart} title="Restart" />
+            <Button onPress={handleRestart}>Restart</Button>
           </View>
         </View>
       );
