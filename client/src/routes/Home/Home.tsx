@@ -4,10 +4,10 @@ import {useTranslation} from 'react-i18next';
 
 import {H1} from '../../common/components/Typography/Heading/Heading';
 
-import styles from './Home.styles';
 import useClearUpdates from '../../lib/codePush/hooks/useClearUpdates';
 import useCheckForUpdate from '../../lib/codePush/hooks/useCheckForUpdate';
 import {useUiLib} from '../../lib/uiLib/hooks/useUiLib';
+import styles from './Home.styles';
 
 const Home = () => {
   const {t} = useTranslation();
@@ -18,6 +18,7 @@ const Home = () => {
   return (
     <View style={styles.screen}>
       <H1>{t('welcome')}</H1>
+
       <Button title="Show The Awesome UI lib" onPress={toggleUiLib} />
       <Button title="Clear update" onPress={clearUpdate} />
       <Button title="Check update" onPress={checkForUpdate} />
