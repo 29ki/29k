@@ -94,6 +94,20 @@ cd client
 yarn start
 ```
 
-## Testing
+# Testing
 
-## Translations
+## Client
+
+```
+cd client
+yarn test
+```
+
+## Functions
+
+```
+cd functions
+yarn test
+```
+
+# Translations
