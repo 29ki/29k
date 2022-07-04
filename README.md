@@ -34,7 +34,7 @@ yarn
 
 ## Client
 
-Instructions on how to setup a React Native development environment can be found here: https://reactnative.dev/docs/environment-setup
+Instructions on how to setup a React Native development environment can be found here: https://reactnative.dev/docs/environment-setup.
 
 Make sure to follow the instructions for React Native CLI.
 
