@@ -1,12 +1,6 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {
-  ActivityIndicator,
-  Image as RNImage,
-  Linking,
-  StyleSheet,
-  View,
-} from 'react-native';
+import {ActivityIndicator, Image as RNImage, Linking} from 'react-native';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
