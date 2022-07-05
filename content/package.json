@@ -1,0 +1,16 @@
+{
+  "name": "29k-content",
+  "version": "2.0.0",
+  "description": "29k Content",
+  "type": "module",
+  "engines": {
+    "node": ">= 16"
+  },
+  "scripts": {
+    "build": "node buildContent.js content.json",
+    "build:watch": "nodemon --watch src --exec \"yarn build\""
+  },
+  "dependencies": {
+    "nodemon": "^2.0.18"
+  }
+}
