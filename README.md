@@ -39,7 +39,7 @@ yarn
 
 ## Client
 
-Instructions on how to setup a React Native development environment can be found here: https://reactnative.dev/docs/environment-setup
+Instructions on how to setup a React Native development environment can be found here: https://reactnative.dev/docs/environment-setup.
 
 Make sure to follow the instructions for React Native CLI.
 
@@ -57,7 +57,7 @@ Create a `.env` file, by duplicating `.env.example`.
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ENVIRONMENT`                                                     | Client environment, e.g. `dev`, `staging` or `production`                                                                                                                                                                                                                             |
 | `IOS_CODE_PUSH_DEPLOYMENT_KEY` `ANDROID_CODE_PUSH_DEPLOYMENT_KEY` | _Not needed for local development_. Follow the instructions at [app center](https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/react-native#2-create-your-app-in-the-app-center-portal-to-obtain-the-app-secret) for setting up a project and getting the deployment key. |
-| `KILL_SWITCH_ENDPOINT`                                            | Kill Switch functions end point                                                                                                                                                                                                                                                       |
+| `KILL_SWITCH_ENDPOINT`                                            | Kill Switch functions end point.                                                                                                                                                                                                                                                      |
 
 ### iOS
 
@@ -99,7 +99,23 @@ cd client
 yarn start
 ```
 
-# Deployment
+# Testing
+
+## Client
+
+```
+cd client
+yarn test
+```
+
+## Functions
+
+```
+cd functions
+yarn test
+```
+
+# Build & Deploy
 
 ## Functions
 
@@ -161,7 +177,5 @@ cd client/fastlane
 cd client/fastlane
 <environment variables> fastlane android app
 ```
-
-## Testing
 
 ## Translations
