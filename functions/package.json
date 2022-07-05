@@ -1,7 +1,6 @@
 {
   "name": "functions",
   "scripts": {
-    "postinstall": "yarn build:content",
     "build": "yarn build:content && tsc",
     "build:content": "yarn --cwd \"../content\" build",
     "build:watch": "tsc --watch",
