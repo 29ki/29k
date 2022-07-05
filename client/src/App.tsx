@@ -1,6 +1,6 @@
 import React from 'react';
 import {RecoilRoot} from 'recoil';
-import './i18n';
+import './lib/i18n/i18n';
 
 import Navigation from './lib/navigation/Navigation';
 
