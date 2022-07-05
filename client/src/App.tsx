@@ -4,17 +4,21 @@ import './lib/i18n/i18n';
 
 import Navigation from './lib/navigation/Navigation';
 
+import codePush, {CodePushOverlay} from './lib/codePush';
 import {UiLibProvider} from './lib/uiLib/hooks/useUiLib';
-import CodePush from './lib/codePush/CodePush';
-import CodePushOverlay from './lib/codePush/CodePushOverlay';
+import Boostrap from './Bootstrap';
 
-export default () => (
-  <RecoilRoot>
-    <CodePush>
+const App = () => {
+  return (
+    <RecoilRoot>
       <UiLibProvider>
-        <Navigation />
-        <CodePushOverlay />
+        <Boostrap>
+          <Navigation />
+          <CodePushOverlay />
+        </Boostrap>
       </UiLibProvider>
-    </CodePush>
-  </RecoilRoot>
-);
+    </RecoilRoot>
+  );
+};
+
+export default codePush(App);

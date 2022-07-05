@@ -102,6 +102,9 @@ const useKillSwitch = () => {
       languageCode,
     });
 
+    console.log(
+      `[KillSwitch] checking stats @ ${os}${osVersion}@${nativeVersion}`,
+    );
     const response = await fetchKillSwitch(url);
 
     const data = await getResponseData(response);
@@ -109,12 +112,20 @@ const useKillSwitch = () => {
     const {image, message, button, requiresBundleUpdate, permanent} =
       data as KillSwitchReponseBody;
 
-    setRequiresBundleUpdate(Boolean(requiresBundleUpdate));
+    if (requiresBundleUpdate) {
+      console.log(
+        `[KillSwitch] requires bundle update @ ${os}${osVersion}@${nativeVersion}`,
+      );
+      setRequiresBundleUpdate(true);
+    }
 
     if (response.ok) {
+      console.log(`[KillSwitch] ok @ ${os}${osVersion}@${nativeVersion}`);
       setIsBlocking(false);
       return;
     }
+
+    console.log(`[KillSwitch] not ok @ ${os}${osVersion}@${nativeVersion}`);
 
     setIsBlocking(true);
 

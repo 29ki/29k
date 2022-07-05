@@ -69,5 +69,6 @@ google-play-service.json
 
 # Environments
 .env
+.env.dev
 .env.staging
 .env.production
