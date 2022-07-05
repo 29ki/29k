@@ -103,7 +103,7 @@ const useKillSwitch = () => {
     });
 
     console.log(
-      `[KillSwitch] checking stats @ ${os}${osVersion}@${nativeVersion}`,
+      `[KillSwitch] checking status @ ${os}${osVersion}@${nativeVersion}`,
     );
     const response = await fetchKillSwitch(url);
 
