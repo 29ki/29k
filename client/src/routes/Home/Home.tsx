@@ -13,22 +13,22 @@ import {
 import {H1, H3} from '../../common/components/Typography/Heading/Heading';
 import {B1} from '../../common/components/Typography/Text/Text';
 
-const Wrapper = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
+const Wrapper = styled.View({
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+});
 
-const Logotype = styled.View`
-  width: 50px;
-  height: 50px;
-`;
+const Logotype = styled.View({
+  width: 50,
+  height: 50,
+});
 
-const ContentWrapper = styled.View`
-  width: 80%;
-  align-items: center;
-  flex-direction: row;
-`;
+const ContentWrapper = styled.View({
+  width: '80%',
+  alignItems: 'center',
+  flexDirection: 'row',
+});
 
 const Home = () => {
   return (

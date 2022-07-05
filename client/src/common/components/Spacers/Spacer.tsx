@@ -7,14 +7,14 @@ type Spacer = {
   size: number;
 };
 
-const Spacer = styled.View<Spacer>`
-  flex: 0;
-  overflow: visible;
-  z-index: 1;
-  flex-basis: ${props => props.size}px;
-  min-height: ${props => props.size}px;
-  min-width: ${props => props.size}px;
-`;
+const Spacer = styled.View<Spacer>(({size}) => ({
+  flex: 0,
+  overflow: 'visible',
+  zIndex: 1,
+  flexBasis: size,
+  minHeight: size,
+  minWidth: size,
+}));
 
 export const Spacer4: React.FC = props => (
   <Spacer {...props} size={SPACINGS.FOUR} />

@@ -4,11 +4,11 @@ import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {useUiLib} from '../../lib/uiLib/hooks/useUiLib';
 
-const Wrapper = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
+const Wrapper = styled.View({
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+});
 
 const Profile = () => {
   const {toggle: toggleUiLib} = useUiLib();
