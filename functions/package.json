@@ -2,8 +2,8 @@
   "name": "functions",
   "scripts": {
     "build": "yarn build:content && tsc",
-    "build:content": "yarn --cwd ../content build",
-    "build:watch": "yarn tsc --watch",
+    "build:content": "yarn --cwd \"../content\" build",
+    "build:watch": "tsc --watch",
     "serve": "yarn build && firebase emulators:start --project demo-29k-cupcake",
     "shell": "yarn build && firebase functions:shell",
     "start": "yarn serve",

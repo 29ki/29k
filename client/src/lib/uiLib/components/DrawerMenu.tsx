@@ -8,10 +8,10 @@ import {
 } from '@react-navigation/drawer';
 
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {useUiLib} from './hooks/useUiLib';
+import {useUiLib} from '../hooks/useUiLib';
 import {ComponentLibrary, ComponentList} from './UiLibRootComponent';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {COLORS} from '../../common/constants/colors';
+import {COLORS} from '../../../common/constants/colors';
 
 const Drawer = createDrawerNavigator();
 

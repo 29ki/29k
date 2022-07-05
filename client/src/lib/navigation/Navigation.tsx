@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useRecoilValue} from 'recoil';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -10,9 +10,8 @@ import {ROUTES} from '../../common/constants/routes';
 import {HomeIcon, ProfileIcon} from '../../common/components/Icons';
 import {COLORS} from '../../common/constants/colors';
 import {SPACINGS} from '../../common/constants/spacings';
-
 import {killSwitchFields} from '../killSwitch/state/state';
-import useKillSwitch from '../killSwitch/hooks/useKillSwitch';
+import KillSwitch from '../../routes/KillSwitch/KillSwitch';
 
 const navTheme = {
   ...DefaultTheme,
@@ -44,19 +43,18 @@ const tabBarOptions = {
   },
 };
 
+const stackOptions = {
+  headerShown: false,
+};
+
 const Navigation = () => {
   const isBlocking = useRecoilValue(killSwitchFields('isBlocking'));
-  const runKillSwitch = useKillSwitch();
-
-  useEffect(() => {
-    runKillSwitch();
-  }, [runKillSwitch]);
 
   return (
     <NavigationContainer theme={navTheme}>
       {isBlocking ? (
-        <Stack.Navigator>
-          <Stack.Screen name={ROUTES.PROFILE} component={Profile} />
+        <Stack.Navigator screenOptions={stackOptions}>
+          <Stack.Screen name={ROUTES.KILL_SWITCH} component={KillSwitch} />
         </Stack.Navigator>
       ) : (
         <Tab.Navigator screenOptions={tabBarOptions}>
