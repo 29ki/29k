@@ -48,6 +48,10 @@ jobs:
         working-directory: ./functions
         run: yarn
 
+      - name: Build Content
+        working-directory: ./content
+        run: yarn build
+
       - name: Deploy Functions
         run: >
           yarn firebase 
