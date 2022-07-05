@@ -1,6 +1,7 @@
 {
   "name": "functions",
   "scripts": {
+    "prebuild": "yarn --cwd ../content build",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "serve": "yarn build && firebase emulators:start --project demo-29k-cupcake",
