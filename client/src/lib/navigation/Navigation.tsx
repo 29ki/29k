@@ -18,7 +18,7 @@ const navTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    background: COLORS.GREY100,
+    background: COLORS.CREAM500,
   },
 };
 
@@ -40,7 +40,7 @@ const tabBarOptions = {
   tabBarStyle: {
     elevation: 0,
     borderTopWidth: 0,
-    backgroundColor: COLORS.GREY100,
+    backgroundColor: COLORS.CREAM500,
   },
 };
 
