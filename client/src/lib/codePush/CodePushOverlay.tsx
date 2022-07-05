@@ -9,11 +9,8 @@ import Button from '../../common/components/Buttons/Button';
 import {H4} from '../../common/components/Typography/Heading/Heading';
 import {COLORS} from '../../common/constants/colors';
 
-import {
-  downloadProgressAtom,
-  isColdStartedAtom,
-  statusAtom,
-} from './state/state';
+import {downloadProgressAtom, statusAtom} from './state/state';
+import {isColdStartedAtom} from '../appState/state/state';
 import useRestartApp from './hooks/useRestartApp';
 import NS from '../i18n/constants/namespaces';
 import {Spacer16} from '../../common/components/Spacers/Spacer';
@@ -59,11 +56,9 @@ const CodePushOverlay = () => {
     killSwitchFields('requiresBundleUpdate'),
   );
 
-  /*
   if (!isRequiredUpdate) {
     return null;
   }
-  */
 
   const handleDismiss = () => {
     //metrics.logEvent(EVENTS.DISMISS_REQUIRED_UPDATE);
