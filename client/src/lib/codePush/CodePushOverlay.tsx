@@ -32,7 +32,7 @@ const Container = styled.View({
   ...StyleSheet.absoluteFillObject,
   backgroundColor: 'rgba(0, 0, 0, 0.6)',
   alignItems: 'center',
-  justifyContent: '',
+  justifyContent: 'center',
 });
 
 const Prompt = styled.View({
@@ -59,9 +59,11 @@ const CodePushOverlay = () => {
     killSwitchFields('requiresBundleUpdate'),
   );
 
+  /*
   if (!isRequiredUpdate) {
     return null;
   }
+  */
 
   const handleDismiss = () => {
     //metrics.logEvent(EVENTS.DISMISS_REQUIRED_UPDATE);
