@@ -1,6 +1,6 @@
 import React from 'react';
-import {Text} from 'react-native';
 import styled from 'styled-components/native';
+import {B1} from '../../common/components/Typography/Text/Text';
 
 const Wrapper = styled.View`
   flex: 1;
@@ -10,7 +10,7 @@ const Wrapper = styled.View`
 
 const Profile = () => (
   <Wrapper>
-    <Text>Profile!</Text>
+    <B1>Profile!</B1>
   </Wrapper>
 );
 
