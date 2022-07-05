@@ -99,6 +99,15 @@ cd client
 yarn start
 ```
 
+## Content
+
+Content needs to be re-built when it's changed.
+
+```
+cd content
+yarn build:watch
+```
+
 # Testing
 
 ## Client
