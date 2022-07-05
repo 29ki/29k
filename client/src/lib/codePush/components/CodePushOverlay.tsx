@@ -5,19 +5,19 @@ import {useRecoilState, useRecoilValue} from 'recoil';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
 import {useTranslation} from 'react-i18next';
 
-import Button from '../../common/components/Buttons/Button';
-import {H4} from '../../common/components/Typography/Heading/Heading';
-import {COLORS} from '../../common/constants/colors';
+import Button from '../../../common/components/Buttons/Button';
+import {H4} from '../../../common/components/Typography/Heading/Heading';
+import {COLORS} from '../../../common/constants/colors';
 
-import {downloadProgressAtom, statusAtom} from './state/state';
-import {isColdStartedAtom} from '../appState/state/state';
-import useRestartApp from './hooks/useRestartApp';
-import NS from '../i18n/constants/namespaces';
-import {Spacer16} from '../../common/components/Spacers/Spacer';
-import {B1} from '../../common/components/Typography/Text/Text';
+import {downloadProgressAtom, statusAtom} from '..//state/state';
+import {isColdStartedAtom} from '../../appState/state/state';
+import useRestartApp from '../hooks/useRestartApp';
+import NS from '../../i18n/constants/namespaces';
+import {Spacer16} from '../../../common/components/Spacers/Spacer';
+import {B1} from '../../../common/components/Typography/Text/Text';
 import styled from 'styled-components/native';
-import {GUTTERS} from '../../common/constants/spacings';
-import {killSwitchFields} from '../killSwitch/state/state';
+import {GUTTERS} from '../../../common/constants/spacings';
+import {killSwitchFields} from '../../killSwitch/state/state';
 
 // import * as metrics from '../../lib/metrics';
 // import {EVENTS} from '../../constants/metrics';

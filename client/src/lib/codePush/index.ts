@@ -1,5 +1,5 @@
 import codePush from 'react-native-code-push';
-import CodePushOverlay from './CodePushOverlay';
+import CodePushOverlay from './components/CodePushOverlay';
 
 export {CodePushOverlay};
 

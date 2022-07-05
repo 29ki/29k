@@ -2,33 +2,34 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {
   ActivityIndicator,
-  Image,
+  Image as RNImage,
   Linking,
   StyleSheet,
   View,
 } from 'react-native';
 import {useRecoilValue} from 'recoil';
+import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
 import Gutters from '../../../common/components/Gutters/Gutters';
 import {Spacer40} from '../../../common/components/Spacers/Spacer';
 import Markdown from '../../../common/components/Typography/Markdown/Markdown';
 import {COLORS} from '../../../common/constants/colors';
+import NS from '../../i18n/constants/namespaces';
 import useKillSwitch from '../hooks/useKillSwitch';
 import {killSwitchFields, killSwitchMessageAtom} from '../state/state';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  image: {
-    width: '100%',
-    aspectRatio: 1.6,
-  },
+const Container = styled.View({
+  flex: 1,
+  justifyContent: 'center',
+});
+
+const Image = styled(RNImage)({
+  width: '100%',
+  aspectRatio: '1.6',
 });
 
 const KillSwitchMessage = () => {
-  const {t} = useTranslation();
+  const {t} = useTranslation(NS.SCREEN.KILL_SWITCH);
   const checkKillSwitch = useKillSwitch();
   const {image, message, button} = useRecoilValue(killSwitchMessageAtom);
   const isLoading = useRecoilValue(killSwitchFields('isLoading'));
@@ -47,17 +48,13 @@ const KillSwitchMessage = () => {
 
   return (
     <>
-      <View style={styles.container}>
+      <Container>
         {Boolean(isLoading) && (
           <ActivityIndicator size="large" color={COLORS.GREY100} />
         )}
         {image && (
           <>
-            <Image
-              source={{uri: image}}
-              resizeMode="contain"
-              style={styles.image}
-            />
+            <Image source={{uri: image}} resizeMode="contain" />
             <Spacer40 />
           </>
         )}
@@ -71,7 +68,6 @@ const KillSwitchMessage = () => {
             <Image
               source={{uri: t('failed.image__image')}}
               resizeMode="contain"
-              style={styles.image}
             />
             <Spacer40 />
             <Gutters>
@@ -79,7 +75,7 @@ const KillSwitchMessage = () => {
             </Gutters>
           </>
         )}
-      </View>
+      </Container>
       {button && (
         <>
           <Gutters>

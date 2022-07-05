@@ -10,8 +10,8 @@ import {ROUTES} from '../../common/constants/routes';
 import {HomeIcon, ProfileIcon} from '../../common/components/Icons';
 import {COLORS} from '../../common/constants/colors';
 import {SPACINGS} from '../../common/constants/spacings';
-
 import {killSwitchFields} from '../killSwitch/state/state';
+import KillSwitch from '../../routes/KillSwitch/KillSwitch';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -33,14 +33,18 @@ const tabBarOptions = {
   },
 };
 
+const stackOptions = {
+  headerShown: false,
+};
+
 const Navigation = () => {
   const isBlocking = useRecoilValue(killSwitchFields('isBlocking'));
 
   return (
     <NavigationContainer>
       {isBlocking ? (
-        <Stack.Navigator>
-          <Stack.Screen name={ROUTES.PROFILE} component={Profile} />
+        <Stack.Navigator screenOptions={stackOptions}>
+          <Stack.Screen name={ROUTES.KILL_SWITCH} component={KillSwitch} />
         </Stack.Navigator>
       ) : (
         <Tab.Navigator screenOptions={tabBarOptions}>
