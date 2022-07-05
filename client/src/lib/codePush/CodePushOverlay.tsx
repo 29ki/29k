@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    color: COLORS.PLUM100,
+    color: COLORS.LEAF300,
   },
 });
 

@@ -5,7 +5,7 @@ import {COLORS} from '../../constants/colors';
 import {B1} from '../Typography/Text/Text';
 
 const ButtonComponent = styled.View`
-  background-color: ${COLORS.SUCCESS_GREEN};
+  background-color: ${COLORS.ROSE700};
   padding: 10px 20px;
   border-radius: 15px;
   align-items: center;

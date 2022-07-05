@@ -49,10 +49,17 @@ export default StyleSheet.create({
     color: COLORS.ERROR_PINK,
   },
   HIGHLIGHT: {
-    color: COLORS.PEACH100,
+    color: COLORS.ROSE700,
   },
   NAV_TAB: {
+    color: COLORS.GREY800,
     fontSize: 14,
     textTransform: 'uppercase',
+  },
+  TEXTLINK: {
+    color: COLORS.ROSE700,
+    fontSize: 14,
+    lineHeight: 20,
+    textDecorationLine: 'underline',
   },
 });

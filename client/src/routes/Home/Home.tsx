@@ -1,9 +1,6 @@
 import React from 'react';
 
-import {useUiLib} from '../../lib/uiLib/hooks/useUiLib';
 import styled from 'styled-components/native';
-import {Spacer32} from '../../common/components/Spacers/Spacer';
-import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 
 const Wrapper = styled.View`
@@ -20,8 +17,6 @@ const Logotype = styled.Image`
 `;
 
 const Home = () => {
-  const {toggle: toggleUiLib} = useUiLib();
-
   return (
     <Wrapper>
       <Gutters>
@@ -29,8 +24,6 @@ const Home = () => {
           source={require('../../assets/logotype.png')}
           resizeMode="contain"
         />
-        <Spacer32 />
-        <Button onPress={toggleUiLib}>UI lib</Button>
       </Gutters>
     </Wrapper>
   );

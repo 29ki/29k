@@ -31,7 +31,7 @@ const tabBarOptions = {
   tabBarShowLabel: true,
   tabBarHideOnKeyboard: true,
   tabBarAllowFontScaling: false,
-  tabBarActiveTintColor: COLORS.GREY500,
+  tabBarActiveTintColor: COLORS.LEAF300,
   tabBarInactiveTintColor: COLORS.GREY800,
   tabBarItemStyle: {
     paddingVertical: SPACINGS.EIGHT,
@@ -65,7 +65,7 @@ const Navigation = () => {
             component={Home}
             options={{
               tabBarIcon: ({focused}) => (
-                <HomeIcon fill={focused ? COLORS.GREY500 : COLORS.GREY800} />
+                <HomeIcon fill={focused ? COLORS.LEAF300 : COLORS.GREY800} />
               ),
             }}
           />
@@ -74,7 +74,7 @@ const Navigation = () => {
             component={Profile}
             options={{
               tabBarIcon: ({focused}) => (
-                <ProfileIcon fill={focused ? COLORS.GREY500 : COLORS.GREY800} />
+                <ProfileIcon fill={focused ? COLORS.LEAF300 : COLORS.GREY800} />
               ),
             }}
           />

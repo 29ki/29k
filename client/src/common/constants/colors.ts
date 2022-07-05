@@ -21,30 +21,24 @@ export const COLORS = {
   // Brand   -- Primary, Secondary, Accent
 
   // Primary
-  PEACH100: '#FF7259',
-  PEACH200: '#E65D45',
-  PEACH300: '#CC533D',
-  PEACH600: '#803426',
+  ROSE300: '#FDE4D8',
+  ROSE500: '#FF7259',
+  ROSE700: '#EA8585',
 
   // Secondary
-  PLUM100: '#493C4D',
-  PLUM200: '#3D3240',
-  PLUM300: '#312833',
-  PLUM400: '#251E26',
-  PLUM500: '#18141A',
-  PLUM600: '#0C0A0D',
+  LEAF300: '#008A87',
+  LEAF500: '#005545',
+  LEAF700: '#022217',
 
-  //
-  // Accent -- Content types
-  //
-  DEFAULT_CONTENT: '#293744',
-  EXERCISE: '#423C5A',
-  MEDITATION: '#3C5666',
-  CHECKIN: '#423C5A',
-  CHALLENGE: '#293744',
-  TEST: '#5D5A70',
-  COURSE: '#293744',
-  LESSON: '#354D48',
+  // Accent
+  VIOLET300: '#DFD7F9',
+  VIOLET500: '#B2AFED',
+  VIOLET700: '#8D98DD',
+
+  CREAM500: '#ECE8DE',
+  CREAM700: '#D5CDC3',
+  BODY500: '#E4CCBD',
+  BODY700: '#CEABA1',
 
   //
   // Functional  --  Information, Success, Warning, Danger
