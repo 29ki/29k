@@ -9,7 +9,7 @@ import useCheckForUpdate from './lib/codePush/hooks/useCheckForUpdate';
 import useKillSwitch from './lib/killSwitch/hooks/useKillSwitch';
 import useAuthenticateUser from './lib/user/hooks/useAuthenticateUser';
 
-const Boostrap: React.FC = ({children}) => {
+const Bootsrap: React.FC = ({children}) => {
   useAuthenticateUser();
 
   const setIsColdStarted = useSetRecoilState(isColdStartedAtom);
@@ -32,4 +32,4 @@ const Boostrap: React.FC = ({children}) => {
   return <>{children}</>;
 };
 
-export default Boostrap;
+export default Bootsrap;
