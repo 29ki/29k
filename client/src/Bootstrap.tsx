@@ -4,8 +4,11 @@ import useResumeFromBackgrounded from './lib/appState/hooks/useResumeFromBackgro
 import {isColdStartedAtom} from './lib/appState/state/state';
 import useCheckForUpdate from './lib/codePush/hooks/useCheckForUpdate';
 import useKillSwitch from './lib/killSwitch/hooks/useKillSwitch';
+import useAuthenticateUser from './lib/user/hooks/useAuthenticateUser';
 
 const Boostrap: React.FC = ({children}) => {
+  useAuthenticateUser();
+
   const setIsColdStarted = useSetRecoilState(isColdStartedAtom);
   const checkKillSwitch = useKillSwitch();
   const checkForUpdate = useCheckForUpdate();
