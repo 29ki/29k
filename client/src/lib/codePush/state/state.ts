@@ -1,16 +1,11 @@
 import CodePush from 'react-native-code-push';
 import {atom} from 'recoil';
 
-const NAMESPACE = 'CodePush';
+export const NAMESPACE = 'CodePush';
 
 export const downloadProgressAtom = atom({
   key: `${NAMESPACE}/DownloadProgress`,
   default: 0,
-});
-
-export const isColdStartedAtom = atom({
-  key: `${NAMESPACE}/IsColdStarted`,
-  default: true,
 });
 
 export const statusAtom = atom({

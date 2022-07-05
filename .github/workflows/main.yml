@@ -13,24 +13,27 @@ jobs:
 
   deploy-functions-production:
     name: Functions Production
-    uses: ./.github/workflows/deploy-functions.yml
+    concurrency: deploy-functions-production
     needs: test
+    uses: ./.github/workflows/deploy-functions.yml
     with:
       environment: production
     secrets: inherit
 
   deploy-functions-staging:
     name: Functions Staging
-    uses: ./.github/workflows/deploy-functions.yml
+    concurrency: deploy-functions-staging
     needs: test
+    uses: ./.github/workflows/deploy-functions.yml
     with:
       environment: staging
     secrets: inherit
 
   deploy-ios-production:
     name: iOS Production
-    uses: ./.github/workflows/deploy-codepush.yml
+    concurrency: deploy-ios-production
     needs: deploy-functions-production
+    uses: ./.github/workflows/deploy-codepush.yml
     with:
       environment: production
       platform: ios
@@ -38,8 +41,9 @@ jobs:
 
   deploy-ios-staging:
     name: iOS Staging
-    uses: ./.github/workflows/deploy-codepush.yml
+    concurrency: deploy-ios-staging
     needs: deploy-functions-staging
+    uses: ./.github/workflows/deploy-codepush.yml
     with:
       environment: staging
       platform: ios
@@ -47,8 +51,9 @@ jobs:
 
   deploy-android-production:
     name: Android Production
-    uses: ./.github/workflows/deploy-codepush.yml
+    concurrency: deploy-android-production
     needs: deploy-functions-production
+    uses: ./.github/workflows/deploy-codepush.yml
     with:
       environment: production
       platform: android
@@ -56,8 +61,9 @@ jobs:
 
   deploy-android-staging:
     name: Android Staging
-    uses: ./.github/workflows/deploy-codepush.yml
+    concurrency: deploy-android-staging
     needs: deploy-functions-staging
+    uses: ./.github/workflows/deploy-codepush.yml
     with:
       environment: staging
       platform: android
