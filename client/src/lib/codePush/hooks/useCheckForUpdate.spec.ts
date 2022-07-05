@@ -3,7 +3,6 @@ import codePush from 'react-native-code-push';
 import {RecoilRoot, useRecoilValue} from 'recoil';
 import {
   downloadProgressAtom,
-  isColdStartedAtom,
   statusAtom,
   updateAvailableAtom,
 } from '../state/state';
@@ -20,14 +19,12 @@ describe('useCheckForUpdate', () => {
   const useTestHook = () => {
     const checkCodePush = useCheckForUpdate();
     const downloadProgressState = useRecoilValue(downloadProgressAtom);
-    const isColdStartedState = useRecoilValue(isColdStartedAtom);
     const statusState = useRecoilValue(statusAtom);
     const updateAvailableState = useRecoilValue(updateAvailableAtom);
 
     return {
       checkCodePush,
       downloadProgressState,
-      isColdStartedState,
       statusState,
       updateAvailableState,
     };
