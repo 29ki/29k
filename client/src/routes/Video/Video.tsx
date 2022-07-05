@@ -6,7 +6,6 @@ import Session from './Session';
 const Video = () => {
   return (
     <DailyProvider>
-      <Lobby />
       <Session />
     </DailyProvider>
   );

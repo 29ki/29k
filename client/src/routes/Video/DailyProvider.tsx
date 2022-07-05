@@ -10,8 +10,9 @@ import Daily, {
   DailyEventObject,
   DailyCall,
 } from '@daily-co/react-native-daily-js';
-import {useSetRecoilState} from 'recoil';
-import {videoSharingFields} from './state/state';
+import {useRecoilValue, useSetRecoilState} from 'recoil';
+import {videoSharingFields, videoSharingParticipantsAtom} from './state/state';
+import {values} from 'ramda';
 
 type DailyProviderTypes = {
   call?: DailyCall;
@@ -26,25 +27,47 @@ export const DailyContext = createContext<DailyProviderTypes>({
   leaveMeeting: () => {},
 });
 
-const logParticipants = ({participants}: DailyEventObject) => {
-  console.log(participants);
-};
-
 const DailyProvider: React.FC = ({children}) => {
   const [daily] = useState(() => Daily.createCallObject());
-  const [completedAuth, setCompletedAuth] = useState(false);
   const [hasAudio, setHasAudio] = useState(true);
   const [hasVideo, setHasVideo] = useState(true);
   const [shouldJoin, setShouldJoin] = useState(false);
 
   const setIsLoading = useSetRecoilState(videoSharingFields('isLoading'));
+  const setParticipants = useSetRecoilState(videoSharingParticipantsAtom);
+  const participants = useRecoilValue(videoSharingParticipantsAtom);
+
+  const onJoinedMeeting = ({participants}: DailyEventObject) => {
+    setParticipants(participants);
+  };
+
+  const onParticipantJoined = ({participant}: DailyEventObject) => {
+    setParticipants(participants => ({
+      ...participants,
+      [participant.user_id]: participant,
+    }));
+  };
+
+  const onParticipantUpdated = ({participant}: DailyEventObject) => {
+    setParticipants(participants => ({
+      ...participants,
+      [participant.user_id]: participant,
+    }));
+  };
+
+  const onParticipantLeft = ({participant}: DailyEventObject) => {
+    const {[participant.user_id]: praticipantToRemove, ...otherParticipants} =
+      participants;
+
+    setParticipants(otherParticipants);
+  };
 
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(
     () => [
-      ['joined-meeting', logParticipants],
-      ['participant-joined', logParticipants],
-      //   ['participant-left', connect(participantLeft)],
-      //   ['participant-updated', connect(participantUpdated)],
+      ['joined-meeting', onJoinedMeeting],
+      ['participant-joined', onParticipantJoined],
+      ['participant-left', onParticipantLeft],
+      ['participant-updated', onParticipantUpdated],
       //   ['network-quality-change', connect(networkQualityChange)],
       //   ['error', error => dispatch(setError(error.errorMsg))],
     ],
@@ -61,45 +84,10 @@ const DailyProvider: React.FC = ({children}) => {
   const prepareMeeting = useCallback(() => {
     setIsLoading(true);
 
-    daily.preAuth({url: ''}); // TODO should fetch url and token from function in the future
+    daily.preAuth({url: 'https://29k-testing.daily.co/I1s53jXePycRMHTAwcQC'}); // TODO should fetch url and token from function in the future
 
     setIsLoading(false);
-
-    setCompletedAuth(true);
   }, [daily]);
-
-  // Join when setup is complete and user is ready
-  useEffect(() => {
-    // Make sure we only continue if user has choosen to start meeting
-    if (!shouldJoin) {
-      return;
-    }
-
-    if (!completedAuth) {
-      return;
-    }
-
-    if (!daily) {
-      console.error(new Error('Tried to join meeting before it was prepared'));
-      return;
-    }
-
-    const joinMeeting = async () => {
-      eventHandlers.forEach(([event, handler]) => {
-        daily.on(event, handler);
-      });
-
-      await daily.join();
-
-      daily.setLocalVideo(hasVideo);
-      daily.setLocalAudio(hasAudio);
-    };
-
-    joinMeeting();
-
-    // Make sure we don't join multiple times
-    setShouldJoin(false);
-  }, [daily, eventHandlers, shouldJoin, hasVideo, hasAudio, completedAuth]);
 
   const leaveMeeting = useCallback(async () => {
     if (!daily) {
@@ -130,8 +118,14 @@ const DailyProvider: React.FC = ({children}) => {
   };
 
   const startMeeting = useCallback(async () => {
-    setShouldJoin(true);
-  }, [setShouldJoin]);
+    eventHandlers.forEach(([event, handler]) => {
+      daily.on(event, handler);
+    });
+
+    await daily.join();
+
+    daily.setLocalAudio(false);
+  }, []);
 
   return (
     <DailyContext.Provider

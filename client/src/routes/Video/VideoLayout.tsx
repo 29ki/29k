@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Children} from 'react';
 import {splitEvery} from 'ramda';
 import {StyleSheet, View} from 'react-native';
 
@@ -38,16 +38,20 @@ type VideoUiProps = {
 };
 
 const MultiLayout: React.FC<VideoUiProps> = ({showUI, children}) => {
-  const rows = splitEvery(2, children);
-  return rows.map((row, index) => (
-    <Row
-      rowIndex={index}
-      key={index}
-      totalCount={children.length}
-      showUI={showUI}>
-      {row}
-    </Row>
-  ));
+  const rows = splitEvery(2, Children.toArray(children));
+  return (
+    <>
+      {rows.map((row, index) => (
+        <Row
+          rowIndex={index}
+          key={index}
+          totalCount={Children.count(children)}
+          showUI={showUI}>
+          {row}
+        </Row>
+      ))}
+    </>
+  );
 };
 
 type RowProps = {

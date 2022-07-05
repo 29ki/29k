@@ -1,4 +1,5 @@
-import {atom, selectorFamily} from 'recoil';
+import {DailyParticipant} from '@daily-co/react-native-daily-js';
+import {atom, selectorFamily, SetterOrUpdater} from 'recoil';
 
 const NAMESPACE = 'VideoSharing';
 
@@ -15,6 +16,13 @@ export const videoSharingAtom = atom<VideoSharingState>({
     isStarted: false,
     isJoined: false,
   },
+});
+
+export const videoSharingParticipantsAtom = atom<{
+  [user_id: string]: DailyParticipant;
+}>({
+  key: `${NAMESPACE}/participants`,
+  default: {},
 });
 
 export const videoSharingFields = selectorFamily({

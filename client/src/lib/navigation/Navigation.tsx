@@ -37,11 +37,11 @@ const tabBarOptions = {
 
 const Navigation = () => {
   const isBlocking = useRecoilValue(killSwitchFields('isBlocking'));
-  const runKillSwitch = useKillSwitch();
+  // const runKillSwitch = useKillSwitch();
 
-  useEffect(() => {
-    runKillSwitch();
-  }, [runKillSwitch]);
+  // useEffect(() => {
+  //   runKillSwitch();
+  // }, [runKillSwitch]);
 
   return (
     <NavigationContainer>
