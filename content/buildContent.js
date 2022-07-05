@@ -59,3 +59,5 @@ if (process.argv.length > 2) {
 } else {
   process.stdout.write(data);
 }
+
+console.log('Content built!');
