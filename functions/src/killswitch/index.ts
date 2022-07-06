@@ -1,4 +1,3 @@
-import 'firebase-functions';
 import {onRequest} from 'firebase-functions/v2/https';
 import {lt, valid} from 'semver';
 import {getFakeT} from '../lib/fakeI18Next';
