@@ -10,12 +10,19 @@
 </p>
 
 <p align="center">
+  This is 2.0 open-source version based on the learnings from the currently live <a href="https://app.29k.org/download">29k: Mental Health App</a>.
+</p>
+
+<p align="center">
   <a href="https://github.com/29ki/29k/blob/HEAD/LICENSE">
     <img src="https://img.shields.io/github/license/29ki/29k" alt="29k is released under the Creative Commons Zero v1.0 Universal." />
   </a>
   <img src="https://github.com/29ki/29k/actions/workflows/test.yml/badge.svg" alt="Current build status." />
   <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="Make a Pull Request"></a>
+  <a href="code_of_conduct.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="Contributor Covenant"></a>
 </p>
+
+
 
 # Download Android/iOS app
 
