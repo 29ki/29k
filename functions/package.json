@@ -1,13 +1,14 @@
 {
   "name": "functions",
   "scripts": {
-    "build": "tsc",
+    "build": "yarn build:content && tsc",
+    "build:content": "yarn --cwd \"../content\" build",
     "build:watch": "tsc --watch",
     "serve": "yarn build && firebase emulators:start --project demo-29k-cupcake",
     "shell": "yarn build && firebase functions:shell",
     "start": "yarn serve",
     "logs": "firebase functions:log",
-    "test": "yarn tsc && yarn lint",
+    "test": "yarn build:content && yarn tsc && yarn lint",
     "tsc": "tsc --noEmit",
     "lint": "eslint --ext .js,.ts ."
   },

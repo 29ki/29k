@@ -17,9 +17,10 @@ const MIN_APP_VERSION = '1.32.2';
 // We started sending bundleVersion in version 1.30 bundle 2300/2420. iOS is
 // currently 120 versions ahead of Android.
 const MIN_BUNDLE_VERSION: {[key: string]: {android: number; ios: number}} = {
-  '1.32.2': {
-    android: 2873,
-    ios: 2994,
+  '2.0.1': {
+    // Allways require update
+    android: 10000,
+    ios: 10000,
   },
 };
 

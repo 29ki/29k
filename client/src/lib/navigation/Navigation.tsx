@@ -1,19 +1,18 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useRecoilValue} from 'recoil';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Home from '../../routes/Home/Home';
-import Profile from '../../routes/Profile/Profile';
 import {ROUTES} from '../../common/constants/routes';
 import {HomeIcon, ProfileIcon} from '../../common/components/Icons';
 import {COLORS} from '../../common/constants/colors';
 import {SPACINGS} from '../../common/constants/spacings';
-
 import {killSwitchFields} from '../killSwitch/state/state';
-import useKillSwitch from '../killSwitch/hooks/useKillSwitch';
 import Video from '../../routes/Video/Video';
+import Profile from '../../routes/Profile/Profile';
+import KillSwitch from '../../routes/KillSwitch/KillSwitch';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -35,19 +34,18 @@ const tabBarOptions = {
   },
 };
 
+const stackOptions = {
+  headerShown: false,
+};
+
 const Navigation = () => {
   const isBlocking = useRecoilValue(killSwitchFields('isBlocking'));
-  // const runKillSwitch = useKillSwitch();
-
-  // useEffect(() => {
-  //   runKillSwitch();
-  // }, [runKillSwitch]);
 
   return (
     <NavigationContainer>
       {isBlocking ? (
-        <Stack.Navigator>
-          <Stack.Screen name={ROUTES.PROFILE} component={Profile} />
+        <Stack.Navigator screenOptions={stackOptions}>
+          <Stack.Screen name={ROUTES.KILL_SWITCH} component={KillSwitch} />
         </Stack.Navigator>
       ) : (
         <Tab.Navigator screenOptions={tabBarOptions}>
