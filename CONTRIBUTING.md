@@ -1,12 +1,8 @@
 # Introduction
 
-### Write something nice here!
+Thank you for being here exploring how to contribute to our cause!
 
->First off, thank you for considering contributing to Active Admin. It's people like you that make Active Admin such a great tool.
-
-[source: [Active Admin](https://github.com/activeadmin/activeadmin/blob/master/CONTRIBUTING.md)] **Need more inspiration?** [1] [Read The Docs](http://read-the-docs.readthedocs.org/en/latest/contribute.html) [2] [Mustache.js](https://github.com/janl/mustache.js/#contributing)
-
-### Tell them why they should read your guidelines.
+### Why read this?
 
 >Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
 
