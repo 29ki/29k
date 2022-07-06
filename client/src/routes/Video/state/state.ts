@@ -1,5 +1,6 @@
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
-import {atom, selectorFamily, SetterOrUpdater} from 'recoil';
+import {prop, uniqBy, values} from 'ramda';
+import {atom, selector, selectorFamily} from 'recoil';
 
 const NAMESPACE = 'VideoSharing';
 
@@ -23,6 +24,14 @@ export const videoSharingParticipantsAtom = atom<{
 }>({
   key: `${NAMESPACE}/participants`,
   default: {},
+});
+
+export const videoSharingParticipantsSelector = selector({
+  key: `${NAMESPACE}/participantsSelector`,
+  get: ({get}) => {
+    const participants = values(get(videoSharingParticipantsAtom));
+    return uniqBy(prop('session_id'), participants);
+  },
 });
 
 export const videoSharingFields = selectorFamily({

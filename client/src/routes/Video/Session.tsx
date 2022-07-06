@@ -1,81 +1,85 @@
 import {useContext, useEffect} from 'react';
-import {ActivityIndicator, Text, View, StyleSheet} from 'react-native';
+import {ActivityIndicator, StyleSheet, FlatList} from 'react-native';
 import {useRecoilValue} from 'recoil';
-import {
-  DailyMediaView,
-  DailyParticipant,
-} from '@daily-co/react-native-daily-js';
+import {DailyMediaView} from '@daily-co/react-native-daily-js';
 import styled from 'styled-components/native';
 
 import React from 'react';
 import {DailyContext} from './DailyProvider';
-import {videoSharingFields, videoSharingParticipantsAtom} from './state/state';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import {complement, isNil, o, values} from 'ramda';
+import {
+  videoSharingFields,
+  videoSharingParticipantsSelector,
+} from './state/state';
 import Button from '../../common/components/Buttons/Button';
-// import Button from '../../common/components/Buttons/Button';
+import {Spacer12, TopSafeArea} from '../../common/components/Spacers/Spacer';
 
-const VideoView = styled.View`
-  height: 100px;
-  width: 100px;
-  background-color: green;
-`;
+const VideoView = styled.View({
+  aspectRatio: '1',
+  backgroundColor: 'gray',
+});
 
-const ScreenView = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
+const ScreenView = styled.View({
+  flex: 1,
+  flexDirection: 'row',
+});
+
+const Spotlight = styled.View({flexGrow: 2});
+
+const Participants = styled.View({
+  width: '25%',
+  backgroundColor: 'darksalmon',
+});
 
 const style = StyleSheet.create({
   video: {height: '100%', width: '100%'},
 });
 
 const Session = () => {
-  const {call, prepareMeeting, leaveMeeting, startMeeting} =
-    useContext(DailyContext);
+  const {prepareMeeting, leaveMeeting, startMeeting} = useContext(DailyContext);
 
-  const participants = values(useRecoilValue(videoSharingParticipantsAtom));
+  const participants = useRecoilValue(videoSharingParticipantsSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
 
   useEffect(() => {
     prepareMeeting();
   }, [prepareMeeting]);
 
-  useEffect(() => {
-    return leaveMeeting;
-  }, [leaveMeeting]);
-
   if (isLoading) {
     return <ActivityIndicator size="large" />;
   }
 
-  if (participants.length === 0) {
-    return (
-      <ScreenView>
-        <Button title="Start Meeting" onPress={startMeeting} />
-      </ScreenView>
-    );
-  }
-
-  console.log('************************', participants.length);
-
   return (
-    <ScreenView>
-      {participants.map(({user_id, videoTrack, audioTrack}) => (
-        <VideoView key={user_id}>
-          <DailyMediaView
-            videoTrack={videoTrack ?? null}
-            audioTrack={audioTrack ?? null}
-            objectFit={'cover'}
-            zOrder={user_id === 'local' ? 1 : 0}
-            mirror={user_id === 'local'}
-            style={style.video}
+    <>
+      <TopSafeArea />
+      <ScreenView>
+        <Spotlight>
+          {participants.length === 0 ? (
+            <Button title="Start Meeting" onPress={startMeeting} />
+          ) : (
+            <Button title="Leave Meeting" onPress={leaveMeeting} />
+          )}
+        </Spotlight>
+        <Participants>
+          <FlatList
+            data={participants}
+            keyExtractor={participant => participant.user_id}
+            ItemSeparatorComponent={Spacer12}
+            renderItem={({item}) => (
+              <VideoView>
+                <DailyMediaView
+                  videoTrack={item.videoTrack ?? null}
+                  audioTrack={item.audioTrack ?? null}
+                  objectFit={'cover'}
+                  zOrder={item.local ? 1 : 0}
+                  mirror={item.local}
+                  style={style.video}
+                />
+              </VideoView>
+            )}
           />
-        </VideoView>
-      ))}
-      <Button title="Leave Meeting" onPress={leaveMeeting} />
-    </ScreenView>
+        </Participants>
+      </ScreenView>
+    </>
   );
 };
 

@@ -12,7 +12,7 @@ import Daily, {
 } from '@daily-co/react-native-daily-js';
 import {useRecoilValue, useSetRecoilState} from 'recoil';
 import {videoSharingFields, videoSharingParticipantsAtom} from './state/state';
-import {values} from 'ramda';
+import {compose, prop, values} from 'ramda';
 
 type DailyProviderTypes = {
   call?: DailyCall;
@@ -37,11 +37,15 @@ const DailyProvider: React.FC = ({children}) => {
   const setParticipants = useSetRecoilState(videoSharingParticipantsAtom);
   const participants = useRecoilValue(videoSharingParticipantsAtom);
 
+  console.log('all participants', Object.keys(participants));
+
   const onJoinedMeeting = ({participants}: DailyEventObject) => {
+    console.log('onJoinedMeeting', Object.keys(participants));
     setParticipants(participants);
   };
 
   const onParticipantJoined = ({participant}: DailyEventObject) => {
+    console.log('onParticipantJoined', participant.user_id);
     setParticipants(participants => ({
       ...participants,
       [participant.user_id]: participant,
@@ -49,6 +53,7 @@ const DailyProvider: React.FC = ({children}) => {
   };
 
   const onParticipantUpdated = ({participant}: DailyEventObject) => {
+    console.log('onParticipantUpdated', participant.user_id);
     setParticipants(participants => ({
       ...participants,
       [participant.user_id]: participant,
@@ -56,10 +61,12 @@ const DailyProvider: React.FC = ({children}) => {
   };
 
   const onParticipantLeft = ({participant}: DailyEventObject) => {
-    const {[participant.user_id]: praticipantToRemove, ...otherParticipants} =
-      participants;
+    setParticipants(participants => {
+      const {[participant.user_id]: participantToRemove, ...otherParticipants} =
+        participants;
 
-    setParticipants(otherParticipants);
+      return otherParticipants;
+    });
   };
 
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(
@@ -76,17 +83,19 @@ const DailyProvider: React.FC = ({children}) => {
 
   useEffect(
     () => () => {
+      leaveMeeting();
       daily?.destroy();
     },
     [daily],
   );
-
-  const prepareMeeting = useCallback(() => {
-    setIsLoading(true);
-
-    daily.preAuth({url: 'https://29k-testing.daily.co/I1s53jXePycRMHTAwcQC'}); // TODO should fetch url and token from function in the future
-
-    setIsLoading(false);
+  const prepareMeeting = useCallback(async () => {
+    if (daily.meetingState() !== 'joined-meeting') {
+      setIsLoading(true);
+      await daily.preAuth({
+        url: '', // TODO should fetch url and token from function in the future
+      });
+      setIsLoading(false);
+    }
   }, [daily]);
 
   const leaveMeeting = useCallback(async () => {
