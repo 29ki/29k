@@ -1,6 +1,11 @@
 import React, {useContext, useEffect} from 'react';
-import {ActivityIndicator, StyleSheet, FlatList} from 'react-native';
-import {useRecoilValue} from 'recoil';
+import {
+  ActivityIndicator,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+} from 'react-native';
+import {useRecoilState, useRecoilValue} from 'recoil';
 import {
   DailyMediaView,
   DailyEventObject,
@@ -9,11 +14,14 @@ import styled from 'styled-components/native';
 
 import {DailyContext} from './DailyProvider';
 import {
+  selectedParticipantId,
   videoSharingFields,
-  videoSharingParticipantsSelector,
+  participantsAtom,
+  participantsSelector,
 } from './state/state';
 import Button from '../../common/components/Buttons/Button';
 import {Spacer12, TopSafeArea} from '../../common/components/Spacers/Spacer';
+import {SPACINGS} from '../../common/constants/spacings';
 
 const VideoView = styled.View({
   aspectRatio: '1',
@@ -25,7 +33,16 @@ const ScreenView = styled.View({
   flexDirection: 'row',
 });
 
-const Spotlight = styled.View({flexGrow: 2});
+const Spotlight = styled.View({
+  flexGrow: 2,
+  justifyContent: 'space-between',
+  margin: SPACINGS.SIXTEEN,
+});
+
+const SpotlightVideo = styled.View({
+  width: '100%',
+  height: '50%',
+});
 
 const Participants = styled.View({
   width: '25%',
@@ -52,8 +69,15 @@ const renderVideo = ({item}: DailyEventObject) => (
 const Session = () => {
   const {prepareMeeting, leaveMeeting, startMeeting} = useContext(DailyContext);
 
-  const participants = useRecoilValue(videoSharingParticipantsSelector);
+  const participantsObj = useRecoilValue(participantsAtom);
+  const participants = useRecoilValue(participantsSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
+  const [spotlightParticipantId, setSelectedParticipantId] = useRecoilState(
+    selectedParticipantId,
+  );
+  const selectedParticipant = spotlightParticipantId
+    ? participantsObj[spotlightParticipantId]
+    : null;
 
   useEffect(() => {
     prepareMeeting();
@@ -68,6 +92,20 @@ const Session = () => {
       <TopSafeArea />
       <ScreenView>
         <Spotlight>
+          <SpotlightVideo>
+            {selectedParticipant && (
+              <TouchableOpacity onPress={() => setSelectedParticipantId(null)}>
+                <DailyMediaView
+                  videoTrack={selectedParticipant.videoTrack ?? null}
+                  audioTrack={selectedParticipant.audioTrack ?? null}
+                  objectFit={'cover'}
+                  zOrder={selectedParticipant.local ? 1 : 0}
+                  mirror={selectedParticipant.local}
+                  style={style.video}
+                />
+              </TouchableOpacity>
+            )}
+          </SpotlightVideo>
           {participants.length === 0 ? (
             <Button onPress={startMeeting}>Start Meeting</Button>
           ) : (
@@ -79,7 +117,21 @@ const Session = () => {
             data={participants}
             keyExtractor={participant => participant.user_id}
             ItemSeparatorComponent={Spacer12}
-            renderItem={renderVideo}
+            renderItem={({item}) => (
+              <TouchableOpacity
+                onPress={() => setSelectedParticipantId(item.user_id)}>
+                <VideoView>
+                  <DailyMediaView
+                    videoTrack={item.videoTrack ?? null}
+                    audioTrack={item.audioTrack ?? null}
+                    objectFit={'cover'}
+                    zOrder={item.local ? 1 : 0}
+                    mirror={item.local}
+                    style={style.video}
+                  />
+                </VideoView>
+              </TouchableOpacity>
+            )}
           />
         </Participants>
       </ScreenView>

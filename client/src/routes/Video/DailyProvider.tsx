@@ -11,7 +11,7 @@ import Daily, {
   DailyCall,
 } from '@daily-co/react-native-daily-js';
 import {useRecoilValue, useResetRecoilState, useSetRecoilState} from 'recoil';
-import {videoSharingFields, videoSharingParticipantsAtom} from './state/state';
+import {videoSharingFields, participantsAtom} from './state/state';
 import {getCallUrl} from '../../lib/api/call';
 
 type DailyProviderTypes = {
@@ -33,19 +33,14 @@ const DailyProvider: React.FC = ({children}) => {
   const [hasVideo, setHasVideo] = useState(true);
 
   const setIsLoading = useSetRecoilState(videoSharingFields('isLoading'));
-  const setParticipants = useSetRecoilState(videoSharingParticipantsAtom);
-  const participants = useRecoilValue(videoSharingParticipantsAtom);
-  const resetVideoCall = useResetRecoilState(videoSharingParticipantsAtom);
-
-  console.log('all participants', Object.keys(participants));
+  const setParticipants = useSetRecoilState(participantsAtom);
+  const resetVideoCall = useResetRecoilState(participantsAtom);
 
   const onJoinedMeeting = ({participants}: DailyEventObject) => {
-    console.log('onJoinedMeeting', Object.keys(participants));
     setParticipants(participants);
   };
 
   const onParticipantJoined = ({participant}: DailyEventObject) => {
-    console.log('onParticipantJoined', participant.user_id);
     setParticipants(participants => ({
       ...participants,
       [participant.user_id]: participant,
@@ -53,7 +48,6 @@ const DailyProvider: React.FC = ({children}) => {
   };
 
   const onParticipantUpdated = ({participant}: DailyEventObject) => {
-    console.log('onParticipantUpdated', participant.user_id);
     setParticipants(participants => ({
       ...participants,
       [participant.user_id]: participant,
