@@ -10,7 +10,7 @@ import Daily, {
   DailyEventObject,
   DailyCall,
 } from '@daily-co/react-native-daily-js';
-import {useRecoilValue, useSetRecoilState} from 'recoil';
+import {useRecoilValue, useResetRecoilState, useSetRecoilState} from 'recoil';
 import {videoSharingFields, videoSharingParticipantsAtom} from './state/state';
 import {getCallUrl} from '../../lib/api/call';
 
@@ -35,6 +35,7 @@ const DailyProvider: React.FC = ({children}) => {
   const setIsLoading = useSetRecoilState(videoSharingFields('isLoading'));
   const setParticipants = useSetRecoilState(videoSharingParticipantsAtom);
   const participants = useRecoilValue(videoSharingParticipantsAtom);
+  const resetVideoCall = useResetRecoilState(videoSharingParticipantsAtom);
 
   console.log('all participants', Object.keys(participants));
 
@@ -108,6 +109,8 @@ const DailyProvider: React.FC = ({children}) => {
     eventHandlers.forEach(([event, handler]) => {
       daily.off(event, handler);
     });
+
+    resetVideoCall();
   }, [daily, eventHandlers]);
 
   const toggleAudio = () => {
