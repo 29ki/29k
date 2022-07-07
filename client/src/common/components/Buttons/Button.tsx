@@ -5,15 +5,17 @@ import {COLORS} from '../../constants/colors';
 import {B1} from '../Typography/Text/Text';
 
 const ButtonComponent = styled.View({
-  backgroundColor: COLORS.ROSE700,
-  paddingVertical: 10,
-  paddingHorizontal: 20,
-  borderRadius: 15,
+  minHeight: 58,
+  backgroundColor: COLORS.GREY,
+  paddingHorizontal: 24,
+  borderRadius: 24,
   alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'row',
 });
 
-const ButtonText = styled(B1)({
-  color: COLORS.WHITE,
+export const ButtonText = styled(B1)({
+  color: COLORS.YELLOW,
 });
 
 const Button: React.FC<{
@@ -21,7 +23,11 @@ const Button: React.FC<{
 }> = ({children, onPress}) => (
   <TouchableOpacity onPress={onPress}>
     <ButtonComponent>
-      <ButtonText>{children}</ButtonText>
+      {typeof children === 'string' ? (
+        <ButtonText>{children}</ButtonText>
+      ) : (
+        children
+      )}
     </ButtonComponent>
   </TouchableOpacity>
 );
