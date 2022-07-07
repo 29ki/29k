@@ -1,7 +1,7 @@
-import {useNavigation} from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import AnimatedLottieView from 'lottie-react-native';
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import Button, {ButtonText} from '../../common/components/Buttons/Button';
@@ -50,6 +50,21 @@ type ScreenNavigationProps = StackNavigationProp<ScreenProps>;
 const Home = () => {
   const {t} = useTranslation(NS.SCREEN.HOME);
   const {navigate} = useNavigation<ScreenNavigationProps>();
+  const isFocused = useIsFocused();
+  const mandalaRef = useRef<AnimatedLottieView>(null);
+
+  useEffect(() => {
+    if (mandalaRef.current) {
+      if (isFocused) {
+        /* Reset animation on language change and/or getting focus */
+        mandalaRef.current.play();
+      } else {
+        /* Since tabs aren't detached/unmounted we need to pause the animation when navigating away */
+        mandalaRef.current.pause();
+      }
+    }
+  }, [isFocused]);
+
   return (
     <>
       <TopSafeArea />
@@ -62,6 +77,7 @@ const Home = () => {
         </Gutters>
         <Mandala
           source={require('../../assets/animations/mandala.json')}
+          ref={mandalaRef}
           autoPlay
           loop
         />

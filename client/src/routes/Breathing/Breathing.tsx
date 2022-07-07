@@ -1,4 +1,4 @@
-import {useNavigation} from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import RNVideo from 'react-native-video';
@@ -23,22 +23,28 @@ const Back = styled.TouchableOpacity({
 
 const Breathing = () => {
   const {goBack} = useNavigation();
+  const isFocused = useIsFocused();
+
   return (
     <>
-      <Video
-        source={{
-          uri: 'https://res.cloudinary.com/twentyninek/video/upload/v1657186014/temp/breathe_bubble_mxjjaz.mp4',
-        }}
-        resizeMode="cover"
-        repeat
-      />
-      <Audio
-        source={{
-          uri: 'https://res.cloudinary.com/twentyninek/video/upload/v1657186772/temp/583998__stanrams__meditation-one_nynthl.mp3',
-        }}
-        ignoreSilentSwitch="ignore"
-        audioOnly
-      />
+      {isFocused && (
+        <>
+          <Video
+            source={{
+              uri: 'https://res.cloudinary.com/twentyninek/video/upload/v1657186014/temp/breathe_bubble_mxjjaz.mp4',
+            }}
+            resizeMode="cover"
+            repeat
+          />
+          <Audio
+            source={{
+              uri: 'https://res.cloudinary.com/twentyninek/video/upload/v1657186772/temp/583998__stanrams__meditation-one_nynthl.mp3',
+            }}
+            ignoreSilentSwitch="ignore"
+            audioOnly
+          />
+        </>
+      )}
       <TopSafeArea />
       <Gutters>
         <Back onPress={goBack}>
