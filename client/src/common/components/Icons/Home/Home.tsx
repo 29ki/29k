@@ -3,19 +3,13 @@ import {Path} from 'react-native-svg';
 import {COLORS} from '../../../constants/colors';
 import Icon from '../Icon';
 
-export const HomeIcon = ({fill = COLORS.GREY800}) => (
+export const HomeIcon = ({fill = COLORS.GREY}) => (
   <Icon>
     <Path
-      d="M4.558 11.68a.75.75 0 00-.308.606V23c0 .414.336.75.75.75h20a.75.75 0 00.75-.75V12.286a.75.75 0 00-.308-.606l-10-7.286a.75.75 0 00-.884 0l-10 7.286z"
+      d="m3 27 5.999-13.057 4.544-9.885c.647-1.41 2.266-1.41 2.913 0l4.545 9.885L26.999 27"
       stroke={fill}
-      strokeWidth={1.5}
+      strokeWidth={2}
       strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <Path
-      d="M12 24v-7h6v7"
-      stroke={fill}
-      strokeWidth={1.5}
       strokeLinejoin="round"
     />
   </Icon>
