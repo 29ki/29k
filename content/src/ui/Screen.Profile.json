@@ -6,6 +6,12 @@
     "checkUpdate": "Check for update",
     "language": "Language"
   },
-  "sv": {},
+  "sv": {
+    "userId": "Användar-ID",
+    "uiLib": "UI Lib",
+    "clearUpdate": "Rensa uppdatering",
+    "checkUpdate": "Sök efter uppdatering",
+    "language": "Language"
+  },
   "pt": {}
 }
