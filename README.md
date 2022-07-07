@@ -176,8 +176,6 @@ cd client
 
 4. Build and deploy with Fastlane
 
-You might need to add `arch -x86_64` on Apple Silicon due to Daily.
-
 ```
 cd client/fastlane
 <environment variables> fastlane ios app
