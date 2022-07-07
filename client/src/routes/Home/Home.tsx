@@ -1,9 +1,8 @@
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import AnimatedLottieView from 'lottie-react-native';
-import React, {Ref, useEffect, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {useTranslation} from 'react-i18next';
-import {ViewComponent} from 'react-native';
 import styled from 'styled-components/native';
 import Button, {ButtonText} from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
@@ -60,8 +59,7 @@ const Home = () => {
         /* Reset animation on language change and/or getting focus */
         mandalaRef.current.play();
       } else {
-        /* Since screens aren't detached/unmounted in the sign-up stack we 
-      need to pause the animation when navigating away */
+        /* Since tabs aren't detached/unmounted we need to pause the animation when navigating away */
         mandalaRef.current.pause();
       }
     }
