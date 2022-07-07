@@ -66,8 +66,8 @@ const Home = () => {
           loop
         />
         <Spacer16 />
-        <Button onPress={() => navigate(ROUTES.BREATHING)}>
-          <ButtonText>{t('button')}</ButtonText>
+        <Button onPress={() => navigate(ROUTES.BREATHING)} primary>
+          <ButtonText primary>{t('button')}</ButtonText>
           <Spacer16 />
           <ButtonIcon>
             <ForwardIcon fill={COLORS.YELLOW} />

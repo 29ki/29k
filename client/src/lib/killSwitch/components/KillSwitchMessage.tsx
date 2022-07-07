@@ -73,7 +73,9 @@ const KillSwitchMessage = () => {
       {button && (
         <>
           <Gutters>
-            <Button onPress={handleLinkButton}>{button.text}</Button>
+            <Button onPress={handleLinkButton} primary>
+              {button.text}
+            </Button>
           </Gutters>
           <Spacer40 />
         </>
@@ -81,7 +83,9 @@ const KillSwitchMessage = () => {
       {isRetriable && (
         <>
           <Gutters>
-            <Button onPress={handleRetryButton}>{t('retry')}</Button>
+            <Button onPress={handleRetryButton} primary>
+              {t('retry')}
+            </Button>
           </Gutters>
           <Spacer40 />
         </>
