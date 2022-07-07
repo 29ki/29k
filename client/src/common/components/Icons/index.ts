@@ -1,3 +1,4 @@
+export * from './Back/Back';
 export * from './Home/Home';
-export * from './Profile/Profile';
 export * from './Logo/Logo';
+export * from './Profile/Profile';
