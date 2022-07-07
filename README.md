@@ -22,8 +22,6 @@
   <a href="code_of_conduct.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="Contributor Covenant"></a>
 </p>
 
-
-
 # Download Android/iOS app
 
 Latest builds can be downloaded through iOS TestFlight and Android PlayStore:
@@ -163,9 +161,9 @@ bundle install
 
 | Key                            | Description                                                                                                   |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| `IOS_APPLE_ID`                 | AppStore Connect Apple ID - e.g. john.appleseed@apple.com                                                     |
-| `IOS_APP_STORE_TEAM_ID`        | AppStore Connect Team ID - e.g. 18742801                                                                      |
-| `IOS_DEVELOPER_PORTAL_TEAM_ID` | Developer Portal Team ID - e.g. Q2CBPJ58CA                                                                    |
+| `IOS_APPLE_ID`                 | AppStore Connect Apple ID - e.g. `john.appleseed@apple.com`                                                   |
+| `IOS_APP_STORE_TEAM_ID`        | AppStore Connect Team ID - e.g. `18742801`                                                                    |
+| `IOS_DEVELOPER_PORTAL_TEAM_ID` | Developer Portal Team ID - e.g. `Q2CBPJ58CA`                                                                  |
 | `IOS_BUNDLE_IDENTIFIER`        | e.g `org.twentyninek.app.cupcake`, `org.twentyninek.app.cupcake.staging` or `org.twentyninek.app.cupcake.dev` |
 | `IOS_SCHEME`                   | `dev`, `staging` or `production`                                                                              |
 
@@ -187,7 +185,14 @@ cd client/fastlane
 | `ANDROID_PACKAGE_NAME`             | e.g `org.twentyninek.app.cupcake`, `org.twentyninek.app.cupcake.staging` or `org.twentyninek.app.cupcake.dev`                                                                |
 | `ANDROID_FLAVOR`                   | `dev`, `staging` or `production`                                                                                                                                             |
 
-3. Build and deploy with Fastlane
+3. Download iOS bitcode
+
+```
+cd client
+./node_modules/@daily-co/react-native-webrtc/tools/downloadBitcode.sh
+```
+
+4. Build and deploy with Fastlane
 
 ```
 cd client/fastlane
