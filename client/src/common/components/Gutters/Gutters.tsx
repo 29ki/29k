@@ -1,9 +1,8 @@
 import styled from 'styled-components/native';
 import {GUTTERS} from '../../constants/spacings';
 
-const Gutters = styled.View`
-  padding-left: ${GUTTERS}px;
-  padding-right: ${GUTTERS}px;
-`;
+const Gutters = styled.View({
+  paddingHorizontal: GUTTERS,
+});
 
 export default Gutters;

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text as RNText, TextStyle} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 import typeStyles from '../styles';
 
@@ -16,6 +17,10 @@ const Text: React.FC<TextBaseProps> = ({
 type TextProps = {
   styles?: TextStyle;
 };
+type TextLinkProps = {
+  styles?: {onPress: () => void};
+  onPress: () => void;
+};
 export const B1: React.FC<TextProps> = props => (
   <Text {...props} defaultStyles={typeStyles.B1} />
 );
@@ -24,4 +29,9 @@ export const B2: React.FC<TextProps> = props => (
 );
 export const B3: React.FC<TextProps> = props => (
   <Text {...props} defaultStyles={typeStyles.B3} />
+);
+export const TextLink: React.FC<TextLinkProps> = props => (
+  <TouchableOpacity onPress={props.onPress}>
+    <Text {...props} defaultStyles={typeStyles.TEXTLINK} />
+  </TouchableOpacity>
 );

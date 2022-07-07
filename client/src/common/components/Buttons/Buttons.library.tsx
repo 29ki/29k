@@ -6,6 +6,6 @@ import Button from './Button';
 
 export const AllButtons = () => (
   <ScreenWrapper>
-    <Button onPress={() => undefined} title="Dummy button" />
+    <Button onPress={() => undefined}>Dummy button</Button>
   </ScreenWrapper>
 );

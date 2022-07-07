@@ -1,6 +1,6 @@
 import React from 'react';
 import {useRecoilValue} from 'recoil';
-import {NavigationContainer} from '@react-navigation/native';
+import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 
@@ -14,23 +14,33 @@ import Video from '../../routes/Video/Video';
 import Profile from '../../routes/Profile/Profile';
 import KillSwitch from '../../routes/KillSwitch/KillSwitch';
 
+const navTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: COLORS.CREAM500,
+  },
+};
+
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 const tabBarOptions = {
+  backgroundColor: 'red',
   headerShown: false,
   tabBarShowLabel: true,
   tabBarHideOnKeyboard: true,
   tabBarAllowFontScaling: false,
-  tabBarActiveTintColor: COLORS.PEACH100,
-  tabBarInactiveTintColor: COLORS.GREY600,
+  tabBarActiveTintColor: COLORS.LEAF300,
+  tabBarInactiveTintColor: COLORS.GREY800,
   tabBarItemStyle: {
     paddingVertical: SPACINGS.EIGHT,
     height: SPACINGS.SIXTY,
   },
   tabBarStyle: {
-    marginBottom: 5,
     elevation: 0,
+    borderTopWidth: 0,
+    backgroundColor: COLORS.CREAM500,
   },
 };
 
@@ -42,7 +52,7 @@ const Navigation = () => {
   const isBlocking = useRecoilValue(killSwitchFields('isBlocking'));
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navTheme}>
       {isBlocking ? (
         <Stack.Navigator screenOptions={stackOptions}>
           <Stack.Screen name={ROUTES.KILL_SWITCH} component={KillSwitch} />
@@ -53,14 +63,18 @@ const Navigation = () => {
             name={ROUTES.HOME}
             component={Home}
             options={{
-              tabBarIcon: () => <HomeIcon fill={COLORS.GREY600} />,
+              tabBarIcon: ({focused}) => (
+                <HomeIcon fill={focused ? COLORS.LEAF300 : COLORS.GREY800} />
+              ),
             }}
           />
           <Tab.Screen
             name={ROUTES.PROFILE}
             component={Profile}
             options={{
-              tabBarIcon: () => <ProfileIcon fill={COLORS.GREY600} />,
+              tabBarIcon: ({focused}) => (
+                <ProfileIcon fill={focused ? COLORS.LEAF300 : COLORS.GREY800} />
+              ),
             }}
           />
           <Tab.Screen name={ROUTES.VIDEO} component={Video} />
