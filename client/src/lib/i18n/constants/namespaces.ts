@@ -4,8 +4,9 @@ const NS = {
     TABS: 'Component.Tabs',
   },
   SCREEN: {
-    KILL_SWITCH: 'Screen.KillSwitch',
     HOME: 'Screen.Home',
+    KILL_SWITCH: 'Screen.KillSwitch',
+    PROFILE: 'Screen.Profile',
   },
 };
 
