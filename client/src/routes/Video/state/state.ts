@@ -27,8 +27,16 @@ export const participantsAtom = atom<{
 });
 
 export const selectedParticipantId = atom<string | null>({
-  key: `${NAMESPACE}/selectedParticipant`,
+  key: `${NAMESPACE}/selectedParticipantId`,
   default: null,
+});
+
+export const selectedParticipantSelector = selector({
+  key: `${NAMESPACE}/selectedParticipant`,
+  get: ({get}) => {
+    const userId = get(selectedParticipantId);
+    return userId ? get(participantsAtom)[userId] : null;
+  },
 });
 
 export const participantsSelector = selector({

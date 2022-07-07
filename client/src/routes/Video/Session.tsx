@@ -4,11 +4,12 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
+  ListRenderItemInfo,
 } from 'react-native';
-import {useRecoilState, useRecoilValue} from 'recoil';
+import {useRecoilValue, useSetRecoilState} from 'recoil';
 import {
   DailyMediaView,
-  DailyEventObject,
+  DailyParticipant,
 } from '@daily-co/react-native-daily-js';
 import styled from 'styled-components/native';
 
@@ -16,8 +17,8 @@ import {DailyContext} from './DailyProvider';
 import {
   selectedParticipantId,
   videoSharingFields,
-  participantsAtom,
   participantsSelector,
+  selectedParticipantSelector,
 } from './state/state';
 import Button from '../../common/components/Buttons/Button';
 import {Spacer12, TopSafeArea} from '../../common/components/Spacers/Spacer';
@@ -53,8 +54,14 @@ const style = StyleSheet.create({
   video: {height: '100%', width: '100%'},
 });
 
-const renderVideo = ({item}: DailyEventObject) => (
-  <VideoView>
+const TouchableMediaView = ({
+  onPress,
+  item,
+}: {
+  onPress: () => void;
+  item: DailyParticipant;
+}) => (
+  <TouchableOpacity onPress={onPress}>
     <DailyMediaView
       videoTrack={item.videoTrack ?? null}
       audioTrack={item.audioTrack ?? null}
@@ -63,21 +70,16 @@ const renderVideo = ({item}: DailyEventObject) => (
       mirror={item.local}
       style={style.video}
     />
-  </VideoView>
+  </TouchableOpacity>
 );
 
 const Session = () => {
   const {prepareMeeting, leaveMeeting, startMeeting} = useContext(DailyContext);
 
-  const participantsObj = useRecoilValue(participantsAtom);
   const participants = useRecoilValue(participantsSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
-  const [spotlightParticipantId, setSelectedParticipantId] = useRecoilState(
-    selectedParticipantId,
-  );
-  const selectedParticipant = spotlightParticipantId
-    ? participantsObj[spotlightParticipantId]
-    : null;
+  const selectedParticipant = useRecoilValue(selectedParticipantSelector);
+  const setSelectedParticipantId = useSetRecoilState(selectedParticipantId);
 
   useEffect(() => {
     prepareMeeting();
@@ -87,6 +89,15 @@ const Session = () => {
     return <ActivityIndicator size="large" />;
   }
 
+  const renderVideo = ({item}: ListRenderItemInfo<DailyParticipant>) => (
+    <VideoView>
+      <TouchableMediaView
+        onPress={() => setSelectedParticipantId(item.user_id)}
+        item={item}
+      />
+    </VideoView>
+  );
+
   return (
     <>
       <TopSafeArea />
@@ -94,16 +105,10 @@ const Session = () => {
         <Spotlight>
           <SpotlightVideo>
             {selectedParticipant && (
-              <TouchableOpacity onPress={() => setSelectedParticipantId(null)}>
-                <DailyMediaView
-                  videoTrack={selectedParticipant.videoTrack ?? null}
-                  audioTrack={selectedParticipant.audioTrack ?? null}
-                  objectFit={'cover'}
-                  zOrder={selectedParticipant.local ? 1 : 0}
-                  mirror={selectedParticipant.local}
-                  style={style.video}
-                />
-              </TouchableOpacity>
+              <TouchableMediaView
+                onPress={() => setSelectedParticipantId(null)}
+                item={selectedParticipant}
+              />
             )}
           </SpotlightVideo>
           {participants.length === 0 ? (
@@ -117,21 +122,7 @@ const Session = () => {
             data={participants}
             keyExtractor={participant => participant.user_id}
             ItemSeparatorComponent={Spacer12}
-            renderItem={({item}) => (
-              <TouchableOpacity
-                onPress={() => setSelectedParticipantId(item.user_id)}>
-                <VideoView>
-                  <DailyMediaView
-                    videoTrack={item.videoTrack ?? null}
-                    audioTrack={item.audioTrack ?? null}
-                    objectFit={'cover'}
-                    zOrder={item.local ? 1 : 0}
-                    mirror={item.local}
-                    style={style.video}
-                  />
-                </VideoView>
-              </TouchableOpacity>
-            )}
+            renderItem={renderVideo}
           />
         </Participants>
       </ScreenView>
