@@ -3,7 +3,7 @@ import {Circle, Path} from 'react-native-svg';
 import {COLORS} from '../../../constants/colors';
 import Icon from '../Icon';
 
-export const ProfileIcon = ({fill = COLORS.GREY100}) => (
+export const ProfileIcon = ({fill = COLORS.GREY800}) => (
   <Icon>
     <Circle cx={15} cy={10} r={3.75} stroke={fill} strokeWidth={1.5} />
     <Path
