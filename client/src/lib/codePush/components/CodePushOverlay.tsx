@@ -104,17 +104,15 @@ const CodePushOverlay = () => {
             <Row>
               {!isColdStarted && (
                 <>
-                  <Button
-                    onPress={handleDismiss}
-                    title={t('install.dismiss_button')}
-                  />
+                  <Button onPress={handleDismiss}>
+                    {t('install.dismiss_button')}
+                  </Button>
                   <Spacer16 />
                 </>
               )}
-              <Button
-                onPress={handleRestart}
-                title={t('install.restart_button')}
-              />
+              <Button onPress={handleRestart}>
+                {t('install.restart_button')}
+              </Button>
             </Row>
           </Prompt>
         </Container>

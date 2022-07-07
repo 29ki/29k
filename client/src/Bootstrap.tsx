@@ -1,11 +1,17 @@
 import React, {useEffect} from 'react';
 import {useSetRecoilState} from 'recoil';
+
+import './lib/i18n';
+
 import useResumeFromBackgrounded from './lib/appState/hooks/useResumeFromBackgrounded';
 import {isColdStartedAtom} from './lib/appState/state/state';
 import useCheckForUpdate from './lib/codePush/hooks/useCheckForUpdate';
 import useKillSwitch from './lib/killSwitch/hooks/useKillSwitch';
+import useAuthenticateUser from './lib/user/hooks/useAuthenticateUser';
 
-const Boostrap: React.FC = ({children}) => {
+const Bootsrap: React.FC = ({children}) => {
+  useAuthenticateUser();
+
   const setIsColdStarted = useSetRecoilState(isColdStartedAtom);
   const checkKillSwitch = useKillSwitch();
   const checkForUpdate = useCheckForUpdate();
@@ -26,4 +32,4 @@ const Boostrap: React.FC = ({children}) => {
   return <>{children}</>;
 };
 
-export default Boostrap;
+export default Bootsrap;
