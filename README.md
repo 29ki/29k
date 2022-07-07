@@ -167,7 +167,16 @@ bundle install
 | `IOS_BUNDLE_IDENTIFIER`        | e.g `org.twentyninek.app.cupcake`, `org.twentyninek.app.cupcake.staging` or `org.twentyninek.app.cupcake.dev` |
 | `IOS_SCHEME`                   | `dev`, `staging` or `production`                                                                              |
 
-3. Build and deploy with Fastlane
+3. Download iOS bitcode
+
+```
+cd client
+./node_modules/@daily-co/react-native-webrtc/tools/downloadBitcode.sh
+```
+
+4. Build and deploy with Fastlane
+
+You might need to add `arch -x86_64` on Apple Silicon due to Daily.
 
 ```
 cd client/fastlane
@@ -185,14 +194,7 @@ cd client/fastlane
 | `ANDROID_PACKAGE_NAME`             | e.g `org.twentyninek.app.cupcake`, `org.twentyninek.app.cupcake.staging` or `org.twentyninek.app.cupcake.dev`                                                                |
 | `ANDROID_FLAVOR`                   | `dev`, `staging` or `production`                                                                                                                                             |
 
-3. Download iOS bitcode
-
-```
-cd client
-./node_modules/@daily-co/react-native-webrtc/tools/downloadBitcode.sh
-```
-
-4. Build and deploy with Fastlane
+3. Build and deploy with Fastlane
 
 ```
 cd client/fastlane
