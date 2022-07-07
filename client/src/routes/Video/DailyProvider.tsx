@@ -12,7 +12,7 @@ import Daily, {
 } from '@daily-co/react-native-daily-js';
 import {useRecoilValue, useSetRecoilState} from 'recoil';
 import {videoSharingFields, videoSharingParticipantsAtom} from './state/state';
-import {compose, prop, values} from 'ramda';
+import {getCallUrl} from '../../lib/api/call';
 
 type DailyProviderTypes = {
   call?: DailyCall;
@@ -91,8 +91,9 @@ const DailyProvider: React.FC = ({children}) => {
   const prepareMeeting = useCallback(async () => {
     if (daily.meetingState() !== 'joined-meeting') {
       setIsLoading(true);
+      const url = await getCallUrl();
       await daily.preAuth({
-        url: '', // TODO should fetch url and token from function in the future
+        url, // TODO should fetch also token from function in the future
       });
       setIsLoading(false);
     }
