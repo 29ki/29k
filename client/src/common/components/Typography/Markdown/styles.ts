@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {COLORS} from '../../../constants/colors';
+import {SPACINGS} from '../../../constants/spacings';
 import baseStyles from '../styles';
 
 const styles = StyleSheet.create({
@@ -24,19 +25,21 @@ const styles = StyleSheet.create({
     fontSize: 0,
     width: 6,
     height: 6,
-    marginTop: 9,
+    marginTop: 6,
     marginLeft: 2,
     marginRight: 14,
     borderRadius: 3,
-    backgroundColor: COLORS.PEACH100,
+    backgroundColor: COLORS.ROSE700,
     overflow: 'hidden',
   },
   ordered_list_icon: {
     ...baseStyles.B1,
-    color: COLORS.PEACH100,
+    color: COLORS.ROSE700,
     minWidth: 13,
     marginLeft: 0,
     marginRight: 9,
+    lineHeight: SPACINGS.TWENTYFOUR,
+    marginTop: -4,
   },
   hr: {
     marginTop: 15,

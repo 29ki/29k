@@ -54,9 +54,9 @@ const Session = () => {
       <ScreenView>
         <Spotlight>
           {participants.length === 0 ? (
-            <Button title="Start Meeting" onPress={startMeeting} />
+            <Button onPress={startMeeting}>Start Meeting</Button>
           ) : (
-            <Button title="Leave Meeting" onPress={leaveMeeting} />
+            <Button onPress={leaveMeeting}>Leave Meeting</Button>
           )}
         </Spotlight>
         <Participants>
