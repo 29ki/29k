@@ -277,7 +277,7 @@ PODS:
   - react-native-background-timer (2.4.1):
     - React-Core
   - react-native-daily-js (0.25.0):
-    - React
+    - React-Core
   - react-native-safe-area-context (4.3.1):
     - RCT-Folly
     - RCTRequired
@@ -588,7 +588,7 @@ SPEC CHECKSUMS:
   React-jsinspector: c5989c77cb89ae6a69561095a61cce56a44ae8e8
   React-logger: a0833912d93b36b791b7a521672d8ee89107aff1
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: 047708198dca1a1cab668b9e8bb22255f2455b32
+  react-native-daily-js: d733340df9e0e22acf391d7952b4769aafa484e7
   react-native-safe-area-context: 6c12e3859b6f27b25de4fee8201cfb858432d8de
   react-native-webrtc: 1ef92e33b86c4130d7f0804ad00856d2fdfad566
   React-perflogger: a18b4f0bd933b8b24ecf9f3c54f9bf65180f3fe6
