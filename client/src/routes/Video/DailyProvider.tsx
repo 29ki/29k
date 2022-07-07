@@ -5,12 +5,13 @@ import React, {
   useCallback,
   useMemo,
 } from 'react';
+import {omit} from 'ramda';
 import Daily, {
   DailyEvent,
   DailyEventObject,
   DailyCall,
 } from '@daily-co/react-native-daily-js';
-import {useRecoilValue, useResetRecoilState, useSetRecoilState} from 'recoil';
+import {useResetRecoilState, useSetRecoilState} from 'recoil';
 import {videoSharingFields, participantsAtom} from './state/state';
 import {getCallUrl} from '../../lib/api/call';
 
@@ -36,62 +37,39 @@ const DailyProvider: React.FC = ({children}) => {
   const setParticipants = useSetRecoilState(participantsAtom);
   const resetVideoCall = useResetRecoilState(participantsAtom);
 
-  const onJoinedMeeting = ({participants}: DailyEventObject) => {
-    setParticipants(participants);
-  };
+  const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(() => {
+    const onJoinedMeeting = ({participants}: DailyEventObject) => {
+      setParticipants(participants);
+    };
 
-  const onParticipantJoined = ({participant}: DailyEventObject) => {
-    setParticipants(participants => ({
-      ...participants,
-      [participant.user_id]: participant,
-    }));
-  };
+    const onParticipantJoined = ({participant}: DailyEventObject) => {
+      setParticipants(participants => ({
+        ...participants,
+        [participant.user_id]: participant,
+      }));
+    };
 
-  const onParticipantUpdated = ({participant}: DailyEventObject) => {
-    setParticipants(participants => ({
-      ...participants,
-      [participant.user_id]: participant,
-    }));
-  };
+    const onParticipantUpdated = ({participant}: DailyEventObject) => {
+      setParticipants(participants => ({
+        ...participants,
+        [participant.user_id]: participant,
+      }));
+    };
 
-  const onParticipantLeft = ({participant}: DailyEventObject) => {
-    setParticipants(participants => {
-      const {[participant.user_id]: participantToRemove, ...otherParticipants} =
-        participants;
-
-      return otherParticipants;
-    });
-  };
-
-  const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(
-    () => [
+    const onParticipantLeft = ({participant}: DailyEventObject) => {
+      setParticipants(participants =>
+        omit([participant.user_id], participants),
+      );
+    };
+    return [
       ['joined-meeting', onJoinedMeeting],
       ['participant-joined', onParticipantJoined],
       ['participant-left', onParticipantLeft],
       ['participant-updated', onParticipantUpdated],
       //   ['network-quality-change', connect(networkQualityChange)],
       //   ['error', error => dispatch(setError(error.errorMsg))],
-    ],
-    [],
-  );
-
-  useEffect(
-    () => () => {
-      leaveMeeting();
-      daily?.destroy();
-    },
-    [daily],
-  );
-  const prepareMeeting = useCallback(async () => {
-    if (daily.meetingState() !== 'joined-meeting') {
-      setIsLoading(true);
-      const url = await getCallUrl();
-      await daily.preAuth({
-        url, // TODO should fetch also token from function in the future
-      });
-      setIsLoading(false);
-    }
-  }, [daily]);
+    ];
+  }, [setParticipants]);
 
   const leaveMeeting = useCallback(async () => {
     if (!daily) {
@@ -105,7 +83,25 @@ const DailyProvider: React.FC = ({children}) => {
     });
 
     resetVideoCall();
-  }, [daily, eventHandlers]);
+  }, [daily, eventHandlers, resetVideoCall]);
+
+  useEffect(
+    () => () => {
+      leaveMeeting();
+      daily?.destroy();
+    },
+    [daily, leaveMeeting],
+  );
+  const prepareMeeting = useCallback(async () => {
+    if (daily.meetingState() !== 'joined-meeting') {
+      setIsLoading(true);
+      const url = await getCallUrl();
+      await daily.preAuth({
+        url, // TODO should fetch also token from function in the future
+      });
+      setIsLoading(false);
+    }
+  }, [daily, setIsLoading]);
 
   const toggleAudio = () => {
     if (!daily) {
@@ -131,7 +127,7 @@ const DailyProvider: React.FC = ({children}) => {
     await daily.join();
 
     daily.setLocalAudio(false);
-  }, []);
+  }, [daily, eventHandlers]);
 
   return (
     <DailyContext.Provider
