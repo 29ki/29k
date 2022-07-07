@@ -1,10 +1,16 @@
+import {CompositeNavigationProp, useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import styled from 'styled-components/native';
+import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {
   BottomSafeArea,
+  Spacer16,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
+import {ROUTES} from '../../common/constants/routes';
+import {StackNavigatorScreens} from '../../lib/navigation/Stacks';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -25,7 +31,10 @@ const Image = styled.Image({
   height: '100%',
 });
 
+type BreathinhScreenNavigationProp = StackNavigationProp<StackNavigatorScreens>;
+
 const Home = () => {
+  const {navigate} = useNavigation<BreathinhScreenNavigationProp>();
   return (
     <Wrapper>
       <Gutters>
@@ -33,6 +42,8 @@ const Home = () => {
         <Logotype>
           <Image source={require('../../assets/logotype.png')} />
         </Logotype>
+        <Spacer16 />
+        <Button onPress={() => navigate(ROUTES.BREATHING)}>Hej</Button>
         <BottomSafeArea />
       </Gutters>
     </Wrapper>
