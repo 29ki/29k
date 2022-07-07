@@ -1,12 +1,12 @@
 // LANGUAGES defines the supported languages and their tags
-const LANGUAGES = {
+export const LANGUAGES = {
   en: 'English',
   sv: 'Svenska',
   pt: 'Português',
 };
 
 // LANGUAGE_TAGS defines the supported languages
-export const LANGUAGE_TAGS = ['en', 'sv', 'pt'];
+export const LANGUAGE_TAGS = Object.keys(LANGUAGES);
 
 // DEFAULT_LANGUAGE defines the default language is used when a translation for
 // a specific language is missing and will also be the default for all users,
