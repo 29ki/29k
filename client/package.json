@@ -5,6 +5,7 @@
   "scripts": {
     "postinstall": "if [ -x \"$(command -v pod)\" ]; then cd ios && pod install; fi",
     "android": "react-native run-android --variant devDebug --appIdSuffix dev",
+    "expose:android": "./scripts/exposeAndroid.sh",
     "ios": "react-native run-ios --scheme dev",
     "build:content": "yarn --cwd \"../content\" build",
     "start": "yarn build:content && react-native start",
