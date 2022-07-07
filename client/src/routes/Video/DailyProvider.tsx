@@ -31,7 +31,6 @@ const DailyProvider: React.FC = ({children}) => {
   const [daily] = useState(() => Daily.createCallObject());
   const [hasAudio, setHasAudio] = useState(true);
   const [hasVideo, setHasVideo] = useState(true);
-  const [shouldJoin, setShouldJoin] = useState(false);
 
   const setIsLoading = useSetRecoilState(videoSharingFields('isLoading'));
   const setParticipants = useSetRecoilState(videoSharingParticipantsAtom);

@@ -1,10 +1,12 @@
-import {useContext, useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {ActivityIndicator, StyleSheet, FlatList} from 'react-native';
 import {useRecoilValue} from 'recoil';
-import {DailyMediaView} from '@daily-co/react-native-daily-js';
+import {
+  DailyMediaView,
+  DailyEventObject,
+} from '@daily-co/react-native-daily-js';
 import styled from 'styled-components/native';
 
-import React from 'react';
 import {DailyContext} from './DailyProvider';
 import {
   videoSharingFields,
@@ -33,6 +35,19 @@ const Participants = styled.View({
 const style = StyleSheet.create({
   video: {height: '100%', width: '100%'},
 });
+
+const renderVideo = ({item}: DailyEventObject) => (
+  <VideoView>
+    <DailyMediaView
+      videoTrack={item.videoTrack ?? null}
+      audioTrack={item.audioTrack ?? null}
+      objectFit={'cover'}
+      zOrder={item.local ? 1 : 0}
+      mirror={item.local}
+      style={style.video}
+    />
+  </VideoView>
+);
 
 const Session = () => {
   const {prepareMeeting, leaveMeeting, startMeeting} = useContext(DailyContext);
@@ -64,18 +79,7 @@ const Session = () => {
             data={participants}
             keyExtractor={participant => participant.user_id}
             ItemSeparatorComponent={Spacer12}
-            renderItem={({item}) => (
-              <VideoView>
-                <DailyMediaView
-                  videoTrack={item.videoTrack ?? null}
-                  audioTrack={item.audioTrack ?? null}
-                  objectFit={'cover'}
-                  zOrder={item.local ? 1 : 0}
-                  mirror={item.local}
-                  style={style.video}
-                />
-              </VideoView>
-            )}
+            renderItem={renderVideo}
           />
         </Participants>
       </ScreenView>
