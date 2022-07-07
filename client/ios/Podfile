@@ -4,10 +4,10 @@ require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 platform :ios, '11.0'
+use_frameworks! :linkage => :static
 install! 'cocoapods', :deterministic_uuids => false
 
 def setup 
-  use_frameworks!
   config = use_native_modules!
 
   # Flags change depending on the env values.
