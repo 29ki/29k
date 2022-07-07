@@ -1,15 +1,14 @@
 import React from 'react';
-import {Circle, Path} from 'react-native-svg';
+import {Path} from 'react-native-svg';
 import {COLORS} from '../../../constants/colors';
 import Icon from '../Icon';
 
-export const ProfileIcon = ({fill = COLORS.GREY100}) => (
+export const ProfileIcon = ({fill = COLORS.GREY}) => (
   <Icon>
-    <Circle cx={15} cy={10} r={3.75} stroke={fill} strokeWidth={1.5} />
     <Path
-      d="M7.26 23.877a.75.75 0 00.74.873h14a.75.75 0 00.74-.873l-.014-.082a7.833 7.833 0 00-15.452 0l-.014.082z"
+      d="M6 27c4.725-3.233 9.337-8.133 9.337-8.133s3.996-4.506 4.877-8.185c1.253-5.225-2.232-7.674-5.13-7.682-3.093 0-6.13 2.225-5.17 7.654.688 3.885 5.127 8.21 5.127 8.21s4.485 5.452 8.862 8.136"
       stroke={fill}
-      strokeWidth={1.5}
+      strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
     />

@@ -46,4 +46,8 @@ export const COLORS = {
   ERROR_PINK: '#F85F7D',
   SUCCESS_GREEN: '#2CAC76',
   HANG_UP_RED: '#E65d45',
+
+  // New colors?
+  GREY: '#383838',
+  YELLOW: '#FFEEBE',
 };

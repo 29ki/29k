@@ -4,6 +4,7 @@ const NS = {
   },
   SCREEN: {
     KILL_SWITCH: 'Screen.KillSwitch',
+    HOME: 'Screen.Home',
   },
 };
 
