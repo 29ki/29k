@@ -6,6 +6,10 @@ import {ROUTES} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import Home from '../../routes/Home/Home';
 import Profile from '../../routes/Profile/Profile';
+import {B3} from '../../common/components/Typography/Text/Text';
+import typographyStyle from '../../common/components/Typography/styles';
+import styled from 'styled-components/native';
+import {StyledComponent} from 'styled-components';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,18 +19,28 @@ const tabBarOptions = {
   tabBarShowLabel: true,
   tabBarHideOnKeyboard: true,
   tabBarAllowFontScaling: false,
-  tabBarActiveTintColor: COLORS.LEAF300,
-  tabBarInactiveTintColor: COLORS.GREY800,
   tabBarItemStyle: {
-    paddingVertical: SPACINGS.EIGHT,
-    height: SPACINGS.SIXTY,
+    paddingTop: SPACINGS.TWENTY,
   },
   tabBarStyle: {
     elevation: 0,
-    borderTopWidth: 0,
-    backgroundColor: COLORS.CREAM500,
+    height: 100,
+    borderTopWidth: 1.5,
+    borderLeftWidth: 1.5,
+    borderRightWidth: 1.5,
+    borderRadius: 24,
+    borderColor: COLORS.GREY,
+    borderTopColor: undefined,
+    backgroundColor: 'transparent',
   },
 };
+
+type TabBarLabelProps = {
+  readonly focused: boolean;
+};
+const TabBarLabel = styled(B3)<TabBarLabelProps>(props => ({
+  color: props.focused ? COLORS.GREY600 : COLORS.GREY,
+}));
 
 const Tabs = () => (
   <Tab.Navigator screenOptions={tabBarOptions}>
@@ -35,7 +49,10 @@ const Tabs = () => (
       component={Home}
       options={{
         tabBarIcon: ({focused}) => (
-          <HomeIcon fill={focused ? COLORS.LEAF300 : COLORS.GREY800} />
+          <HomeIcon fill={focused ? COLORS.GREY600 : COLORS.GREY} />
+        ),
+        tabBarLabel: ({focused}) => (
+          <TabBarLabel focused={focused}>home</TabBarLabel>
         ),
       }}
     />
@@ -44,7 +61,10 @@ const Tabs = () => (
       component={Profile}
       options={{
         tabBarIcon: ({focused}) => (
-          <ProfileIcon fill={focused ? COLORS.LEAF300 : COLORS.GREY800} />
+          <ProfileIcon fill={focused ? COLORS.GREY600 : COLORS.GREY} />
+        ),
+        tabBarLabel: ({focused}) => (
+          <TabBarLabel focused={focused}>profile</TabBarLabel>
         ),
       }}
     />

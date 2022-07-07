@@ -8,7 +8,7 @@ const navTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    background: COLORS.CREAM500,
+    background: COLORS.YELLOW,
   },
 };
 
