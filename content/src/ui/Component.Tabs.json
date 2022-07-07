@@ -1,0 +1,17 @@
+{
+  "en": {
+    "home": "home",
+    "profile": "profile",
+    "video": "video"
+  },
+  "sv": {
+    "home": "hem",
+    "profile": "profil",
+    "video": "video"
+  },
+  "pt": {
+    "home": "casa",
+    "profile": "perfil",
+    "video": "vídeo"
+  }
+}
