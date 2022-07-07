@@ -7,9 +7,7 @@ import {SPACINGS} from '../../common/constants/spacings';
 import Home from '../../routes/Home/Home';
 import Profile from '../../routes/Profile/Profile';
 import {B3} from '../../common/components/Typography/Text/Text';
-import typographyStyle from '../../common/components/Typography/styles';
 import styled from 'styled-components/native';
-import {StyledComponent} from 'styled-components';
 
 const Tab = createBottomTabNavigator();
 

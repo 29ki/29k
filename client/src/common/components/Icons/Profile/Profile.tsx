@@ -1,5 +1,5 @@
 import React from 'react';
-import {Circle, Path} from 'react-native-svg';
+import {Path} from 'react-native-svg';
 import {COLORS} from '../../../constants/colors';
 import Icon from '../Icon';
 
