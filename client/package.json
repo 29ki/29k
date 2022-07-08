@@ -64,6 +64,7 @@
     "appcenter-cli": "^2.10.10",
     "babel-jest": "^26.6.3",
     "eslint": "^7.32.0",
+    "eslint-plugin-i18next": "^6.0.0-2",
     "jest": "^26.6.3",
     "jest-fetch-mock": "^3.0.3",
     "jest-transform-stub": "^2.0.0",

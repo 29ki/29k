@@ -1,23 +1,39 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+  BottomTabNavigationOptions,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
+import {useTranslation} from 'react-i18next';
+import styled from 'styled-components/native';
+
 import {HomeIcon, ProfileIcon} from '../../common/components/Icons';
 import {COLORS} from '../../common/constants/colors';
 import {ROUTES} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
+import {B3} from '../../common/components/Typography/Text/Text';
+
 import Home from '../../routes/Home/Home';
 import Profile from '../../routes/Profile/Profile';
-import {B3} from '../../common/components/Typography/Text/Text';
-import styled from 'styled-components/native';
 import Video from '../../routes/Video/Video';
+
+import NS from '../i18n/constants/namespaces';
 
 const Tab = createBottomTabNavigator();
 
-const tabBarOptions = {
-  backgroundColor: 'red',
+type TabBarLabelProps = {
+  readonly color: string;
+};
+const TabBarLabel = styled(B3)<TabBarLabelProps>(({color}) => ({
+  color,
+}));
+
+const tabBarOptions: BottomTabNavigationOptions = {
   headerShown: false,
   tabBarShowLabel: true,
   tabBarHideOnKeyboard: true,
   tabBarAllowFontScaling: false,
+  tabBarActiveTintColor: COLORS.GREY600,
+  tabBarInactiveTintColor: COLORS.GREY,
   tabBarItemStyle: {
     paddingTop: SPACINGS.TWENTY,
   },
@@ -34,49 +50,42 @@ const tabBarOptions = {
   },
 };
 
-type TabBarLabelProps = {
-  readonly focused: boolean;
-};
-const TabBarLabel = styled(B3)<TabBarLabelProps>(props => ({
-  color: props.focused ? COLORS.GREY600 : COLORS.GREY,
-}));
+const Tabs = () => {
+  const {t} = useTranslation(NS.COMPONENT.TABS);
 
-const Tabs = () => (
-  <Tab.Navigator screenOptions={tabBarOptions}>
-    <Tab.Screen
-      name={ROUTES.HOME}
-      component={Home}
-      options={{
-        tabBarIcon: ({focused}) => (
-          <HomeIcon fill={focused ? COLORS.GREY600 : COLORS.GREY} />
-        ),
-        tabBarLabel: ({focused}) => (
-          <TabBarLabel focused={focused}>home</TabBarLabel>
-        ),
-      }}
-    />
-    <Tab.Screen
-      name={ROUTES.PROFILE}
-      component={Profile}
-      options={{
-        tabBarIcon: ({focused}) => (
-          <ProfileIcon fill={focused ? COLORS.GREY600 : COLORS.GREY} />
-        ),
-        tabBarLabel: ({focused}) => (
-          <TabBarLabel focused={focused}>profile</TabBarLabel>
-        ),
-      }}
-    />
-    <Tab.Screen
-      name={ROUTES.VIDEO}
-      component={Video}
-      options={{
-        tabBarLabel: ({focused}) => (
-          <TabBarLabel focused={focused}>video</TabBarLabel>
-        ),
-      }}
-    />
-  </Tab.Navigator>
-);
+  return (
+    <Tab.Navigator screenOptions={tabBarOptions}>
+      <Tab.Screen
+        name={ROUTES.HOME}
+        component={Home}
+        options={{
+          tabBarIcon: ({color}) => <HomeIcon fill={color} />,
+          tabBarLabel: ({color}) => (
+            <TabBarLabel color={color}>{t('home')}</TabBarLabel>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={ROUTES.PROFILE}
+        component={Profile}
+        options={{
+          tabBarIcon: ({color}) => <ProfileIcon fill={color} />,
+          tabBarLabel: ({color}) => (
+            <TabBarLabel color={color}>{t('profile')}</TabBarLabel>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={ROUTES.VIDEO}
+        component={Video}
+        options={{
+          tabBarLabel: ({color}) => (
+            <TabBarLabel color={color}>{t('video')}</TabBarLabel>
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
 
 export default Tabs;
