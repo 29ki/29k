@@ -1,5 +1,5 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NAVIGATORS, ROUTES, ScreenProps} from '../../common/constants/routes';
 import KillSwitch from '../../routes/KillSwitch/KillSwitch';
 import {useRecoilValue} from 'recoil';
@@ -7,7 +7,7 @@ import {killSwitchFields} from '../killSwitch/state/state';
 import Tabs from './Tabs';
 import Breathing from '../../routes/Breathing/Breathing';
 
-const Stack = createStackNavigator<ScreenProps>();
+const Stack = createNativeStackNavigator<ScreenProps>();
 
 const stackOptions = {
   headerShown: false,
