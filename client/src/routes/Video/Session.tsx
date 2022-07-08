@@ -31,6 +31,11 @@ import VideoToggleButton from './Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
 import MeetingToggleButton from './Buttons/MeetingToggleButton';
 
+const LoadingView = styled.View({
+  flex: 1,
+  justifyContent: 'center',
+});
+
 const VideoView = styled.View({
   aspectRatio: '1',
   backgroundColor: 'gray',
@@ -111,7 +116,11 @@ const Session = () => {
   }, [prepareMeeting]);
 
   if (isLoading) {
-    return <ActivityIndicator size="large" />;
+    return (
+      <LoadingView>
+        <ActivityIndicator size="large" color={COLORS.BLACK} />
+      </LoadingView>
+    );
   }
 
   const renderVideo = ({item}: ListRenderItemInfo<DailyParticipant>) => (
