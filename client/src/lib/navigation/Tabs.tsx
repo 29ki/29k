@@ -3,15 +3,19 @@ import {
   BottomTabNavigationOptions,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
+import {useTranslation} from 'react-i18next';
+import styled from 'styled-components/native';
+
 import {HomeIcon, ProfileIcon} from '../../common/components/Icons';
 import {COLORS} from '../../common/constants/colors';
 import {ROUTES} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
+import {B3} from '../../common/components/Typography/Text/Text';
+
 import Home from '../../routes/Home/Home';
 import Profile from '../../routes/Profile/Profile';
-import {B3} from '../../common/components/Typography/Text/Text';
-import styled from 'styled-components/native';
-import {useTranslation} from 'react-i18next';
+import Video from '../../routes/Video/Video';
+
 import NS from '../i18n/constants/namespaces';
 
 const Tab = createBottomTabNavigator();
@@ -68,6 +72,15 @@ const Tabs = () => {
           tabBarIcon: ({color}) => <ProfileIcon fill={color} />,
           tabBarLabel: ({color}) => (
             <TabBarLabel color={color}>{t('profile')}</TabBarLabel>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={ROUTES.VIDEO}
+        component={Video}
+        options={{
+          tabBarLabel: ({color}) => (
+            <TabBarLabel color={color}>{t('video')}</TabBarLabel>
           ),
         }}
       />
