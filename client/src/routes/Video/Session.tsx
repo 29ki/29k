@@ -20,9 +20,16 @@ import {
   participantsSelector,
   selectedParticipantSelector,
 } from './state/state';
-import Button from '../../common/components/Buttons/Button';
-import {Spacer12, TopSafeArea} from '../../common/components/Spacers/Spacer';
+import {
+  Spacer12,
+  Spacer16,
+  TopSafeArea,
+} from '../../common/components/Spacers/Spacer';
 import {SPACINGS} from '../../common/constants/spacings';
+import AudioToggleButton from './Buttons/AudioToggleButton';
+import VideoToggleButton from './Buttons/VideoToggleButton';
+import {COLORS} from '../../common/constants/colors';
+import MeetingToggleButton from './Buttons/MeetingToggleButton';
 
 const VideoView = styled.View({
   aspectRatio: '1',
@@ -36,7 +43,6 @@ const ScreenView = styled.View({
 
 const Spotlight = styled.View({
   flexGrow: 2,
-  justifyContent: 'space-between',
   margin: SPACINGS.SIXTEEN,
 });
 
@@ -47,7 +53,18 @@ const SpotlightVideo = styled.View({
 
 const Participants = styled.View({
   width: '25%',
-  backgroundColor: 'darksalmon',
+  borderLeftWidth: 1,
+  borderLeftColor: COLORS.BLACK,
+  borderLeftStyle: 'solid',
+});
+
+const MainViewContainer = styled.View({
+  flex: 1,
+});
+
+const Controls = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
 });
 
 const style = StyleSheet.create({
@@ -74,7 +91,15 @@ const TouchableMediaView = ({
 );
 
 const Session = () => {
-  const {prepareMeeting, leaveMeeting, startMeeting} = useContext(DailyContext);
+  const {
+    prepareMeeting,
+    leaveMeeting,
+    startMeeting,
+    toggleAudio,
+    toggleVideo,
+    hasAudio,
+    hasVideo,
+  } = useContext(DailyContext);
 
   const participants = useRecoilValue(participantsSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
@@ -102,21 +127,27 @@ const Session = () => {
     <>
       <TopSafeArea />
       <ScreenView>
-        <Spotlight>
-          <SpotlightVideo>
-            {selectedParticipant && (
-              <TouchableMediaView
-                onPress={() => setSelectedParticipantId(null)}
-                item={selectedParticipant}
-              />
-            )}
-          </SpotlightVideo>
-          {participants.length === 0 ? (
-            <Button onPress={startMeeting}>Start Meeting</Button>
-          ) : (
-            <Button onPress={leaveMeeting}>Leave Meeting</Button>
-          )}
-        </Spotlight>
+        <MainViewContainer>
+          <Spotlight>
+            <SpotlightVideo>
+              {selectedParticipant && (
+                <TouchableMediaView
+                  onPress={() => setSelectedParticipantId(null)}
+                  item={selectedParticipant}
+                />
+              )}
+            </SpotlightVideo>
+          </Spotlight>
+          <Controls>
+            <AudioToggleButton onPress={toggleAudio} active={hasAudio} />
+            <VideoToggleButton onPress={toggleVideo} active={hasVideo} />
+            <MeetingToggleButton
+              onPress={participants.length === 0 ? startMeeting : leaveMeeting}
+              active={participants.length === 0}
+            />
+          </Controls>
+          <Spacer16 />
+        </MainViewContainer>
         <Participants>
           <FlatList
             data={participants}

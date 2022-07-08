@@ -20,12 +20,20 @@ type DailyProviderTypes = {
   prepareMeeting: () => void;
   startMeeting: () => void;
   leaveMeeting: () => void;
+  toggleAudio: () => void;
+  toggleVideo: () => void;
+  hasAudio: boolean;
+  hasVideo: boolean;
 };
 
 export const DailyContext = createContext<DailyProviderTypes>({
   startMeeting: () => {},
   prepareMeeting: () => {},
   leaveMeeting: () => {},
+  toggleAudio: () => {},
+  toggleVideo: () => {},
+  hasAudio: false,
+  hasVideo: false,
 });
 
 const DailyProvider: React.FC = ({children}) => {
@@ -37,6 +45,7 @@ const DailyProvider: React.FC = ({children}) => {
   const setParticipants = useSetRecoilState(participantsAtom);
   const resetVideoCall = useResetRecoilState(participantsAtom);
 
+  // eslint-disable-next-line no-spaced-func
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(() => {
     const onJoinedMeeting = ({participants}: DailyEventObject) => {
       setParticipants(participants);
@@ -126,8 +135,9 @@ const DailyProvider: React.FC = ({children}) => {
 
     await daily.join();
 
-    daily.setLocalAudio(false);
-  }, [daily, eventHandlers]);
+    daily.setLocalAudio(hasAudio);
+    daily.setLocalVideo(hasVideo);
+  }, [daily, eventHandlers, hasAudio, hasVideo]);
 
   return (
     <DailyContext.Provider
@@ -136,10 +146,10 @@ const DailyProvider: React.FC = ({children}) => {
         prepareMeeting,
         startMeeting,
         leaveMeeting,
-        // toggleAudio,
-        // toggleVideo,
-        // hasAudio,
-        // hasVideo,
+        toggleAudio,
+        toggleVideo,
+        hasAudio,
+        hasVideo,
       }}>
       {children}
     </DailyContext.Provider>
