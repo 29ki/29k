@@ -44,7 +44,7 @@
     "react-native-safe-area-context": "^4.3.1",
     "react-native-screens": "^3.13.1",
     "react-native-svg": "^12.3.0",
-    "react-native-video": "^6.0.0-alpha.1",
+    "react-native-video": "^5.2.0",
     "recoil": "^0.7.4",
     "styled-components": "^5.3.5"
   },
