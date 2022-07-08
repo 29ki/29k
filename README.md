@@ -176,9 +176,11 @@ cd client
 
 4. Build and deploy with Fastlane
 
+Issues with Daily/WebRTC native libs requires the app to be built with rosetta (`arch -x86_64`) on Apple Silicon.
+
 ```
 cd client/fastlane
-<environment variables> fastlane ios app
+<environment variables> arch -x86_64 fastlane ios app
 ```
 
 #### Android
