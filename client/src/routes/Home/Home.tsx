@@ -1,5 +1,5 @@
 import {useIsFocused, useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import AnimatedLottieView from 'lottie-react-native';
 import React, {useEffect, useRef} from 'react';
 import {useTranslation} from 'react-i18next';
@@ -45,7 +45,7 @@ const ButtonIcon = styled.View({
   height: 30,
 });
 
-type ScreenNavigationProps = StackNavigationProp<ScreenProps>;
+type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
 
 const Home = () => {
   const {t} = useTranslation(NS.SCREEN.HOME);
