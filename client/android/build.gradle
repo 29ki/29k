@@ -50,5 +50,12 @@ allprojects {
         }
         google()
         maven { url 'https://www.jitpack.io' }
+
+        // This is needed for react-native-video v5. Remove when v6 is out of alpha
+        jcenter() {
+            content {
+                includeModule("com.yqritc", "android-scalablevideoview")
+            }
+        }
     }
 }
