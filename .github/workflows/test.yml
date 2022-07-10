@@ -57,3 +57,30 @@ jobs:
       - name: Run tests
         working-directory: ./functions
         run: yarn test
+
+  cms:
+    name: CMS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js v16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Cache CMS Dependencies
+        id: cache-cms-node-modules
+        uses: actions/cache@v2
+        with:
+          path: ./cms/node_modules
+          key: cms-node-modules-${{ hashFiles('./cms/yarn.lock') }}
+
+      - name: Install CMS Dependencies
+        if: steps.cache-cms-node-modules.outputs.cache-hit != 'true'
+        working-directory: ./cms
+        run: yarn
+
+      - name: Run tests
+        working-directory: ./cms
+        run: yarn test
