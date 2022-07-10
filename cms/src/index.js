@@ -15,6 +15,7 @@ CMS.init({
       name: 'github',
       repo: '29ki/29k',
       branch: 'main',
+      open_authoring: true,
     },
     local_backend: {
       url: 'http://localhost:1337/api/v1',
