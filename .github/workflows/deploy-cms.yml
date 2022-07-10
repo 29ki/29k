@@ -1,4 +1,4 @@
-name: Functions
+name: CMS
 
 on:
   workflow_call:
@@ -11,7 +11,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-20.04
-    environment: functions-${{ inputs.environment }}
+    environment: cms-${{ inputs.environment }}
     steps:
       - uses: actions/checkout@v2
 
@@ -36,27 +36,27 @@ jobs:
         if: steps.cache-root-node-modules.outputs.cache-hit != 'true'
         run: yarn
 
-      - name: Cache Functions Dependencies
-        id: cache-functions-node-modules
+      - name: Cache CMS Dependencies
+        id: cache-cms-node-modules
         uses: actions/cache@v2
         with:
-          path: ./functions/node_modules
-          key: functions-node-modules-${{ hashFiles('./functions/yarn.lock') }}
+          path: ./cms/node_modules
+          key: cms-node-modules-${{ hashFiles('./cms/yarn.lock') }}
 
-      - name: Install Functions Dependencies
-        if: steps.cache-functions-node-modules.outputs.cache-hit != 'true'
-        working-directory: ./functions
+      - name: Install CMS Dependencies
+        if: steps.cache-cms-node-modules.outputs.cache-hit != 'true'
+        working-directory: ./cms
         run: yarn
 
       - name: Build Content
         working-directory: ./content
         run: yarn build
 
-      - name: Deploy Functions
+      - name: Deploy CMS
         run: >
-          yarn firebase 
+          yarn firebase deploy
           --project "${{ secrets.FIREBASE_PROJECT }}" 
           --token "${{ secrets.FIREBASE_TOKEN }}"
-          --only firestore,functions
+          --only hosting:cupcake-29k-cms
           --non-interactive deploy
           --force

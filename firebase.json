@@ -3,6 +3,13 @@
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
+  "hosting": [
+    {
+      "site": "cupcake-29k-cms",
+      "public": "cms/dist",
+      "predeploy": ["yarn --cwd \"$RESOURCE_DIR\" run build"]
+    }
+  ],
   "emulators": {
     "auth": {
       "port": 9099
@@ -15,13 +22,13 @@
     },
     "functions": {
       "port": 5001
+    },
+    "hosting": {
+      "port": 5000
     }
   },
   "functions": {
-    "predeploy": [
-      "yarn --cwd \"$RESOURCE_DIR\" lint",
-      "yarn --cwd \"$RESOURCE_DIR\" build"
-    ],
+    "predeploy": ["yarn --cwd \"$RESOURCE_DIR\" build"],
     "source": "functions"
   }
 }

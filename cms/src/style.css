@@ -1,0 +1,14 @@
+[class*='StyledAuthenticationPage'] {
+  background-color: #030303 !important;
+}
+[class*='NetlifyCreditIcon'] {
+  display: none !important;
+}
+
+[class*='e16dayda1'] {
+  display: none !important;
+}
+
+[class*='FieldLabel-fieldLabel'] {
+  text-transform: inherit !important;
+}
