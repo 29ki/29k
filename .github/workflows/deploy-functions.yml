@@ -54,9 +54,9 @@ jobs:
 
       - name: Deploy Functions
         run: >
-          yarn firebase 
+          yarn firebase deploy
           --project "${{ secrets.FIREBASE_PROJECT }}" 
           --token "${{ secrets.FIREBASE_TOKEN }}"
           --only firestore,functions
-          --non-interactive deploy
+          --non-interactive
           --force
