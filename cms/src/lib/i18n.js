@@ -44,7 +44,7 @@ export const generateFieldFromI18n = ([key, value]) => {
       name: key,
       widget: 'list',
       required: true,
-      ...(Object.entries(value).every(([_, val]) => typeof val === 'string')
+      ...(Object.entries(value).every(([, val]) => typeof val === 'string')
         ? {
             // Plain string fields
             field: {
