@@ -57,5 +57,6 @@ jobs:
           yarn firebase 
           --project "${{ secrets.FIREBASE_PROJECT }}" 
           --token "${{ secrets.FIREBASE_TOKEN }}"
+          --only firestore,functions
           --non-interactive deploy
           --force
