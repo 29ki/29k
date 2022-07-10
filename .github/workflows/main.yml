@@ -11,6 +11,15 @@ jobs:
     uses: ./.github/workflows/test.yml
     secrets: inherit
 
+  deploy-cms-production:
+    name: CMS Production
+    concurrency: deploy-cms-production
+    needs: test
+    uses: ./.github/workflows/deploy-cms.yml
+    with:
+      environment: production
+    secrets: inherit
+
   deploy-functions-production:
     name: Functions Production
     concurrency: deploy-functions-production
