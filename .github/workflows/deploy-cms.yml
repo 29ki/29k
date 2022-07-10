@@ -59,4 +59,3 @@ jobs:
           --token "${{ secrets.FIREBASE_TOKEN }}"
           --only hosting:cupcake-29k-cms
           --non-interactive
-          --force
