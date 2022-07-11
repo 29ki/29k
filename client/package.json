@@ -2,6 +2,9 @@
   "name": "29k-cupcake-client",
   "version": "2.0.0",
   "private": true,
+  "engines": {
+    "node": "16"
+  },
   "scripts": {
     "postinstall": "if [ -x \"$(command -v pod)\" ]; then cd ios && pod install; fi",
     "android": "react-native run-android --variant devDebug --appIdSuffix dev",
