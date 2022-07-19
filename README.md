@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  This is 2.0 open-source version based on the learnings from the currently live <a href="https://app.29k.org/download">29k: Mental Health App</a>.
+  This is the 2.0 open-source version based on the learnings from the currently live <a href="https://app.29k.org/download">29k: Mental Health App</a>.
 </p>
 
 <p align="center">
@@ -62,7 +62,8 @@ Create a `.env` file, by duplicating `.env.example`.
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ENVIRONMENT`                                                     | Client environment, e.g. `dev`, `staging` or `production`                                                                                                                                                                                                                             |
 | `IOS_CODE_PUSH_DEPLOYMENT_KEY` `ANDROID_CODE_PUSH_DEPLOYMENT_KEY` | _Not needed for local development_. Follow the instructions at [app center](https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/react-native#2-create-your-app-in-the-app-center-portal-to-obtain-the-app-secret) for setting up a project and getting the deployment key. |
-| `KILL_SWITCH_ENDPOINT`                                            | Kill Switch functions end point.                                                                                                                                                                                                                                                      |
+| `KILL_SWITCH_ENDPOINT`                                            | Kill Switch functions end point. e.g. `http://localhost:5001/demo-29k-cupcake/europe-west1/killswitch`                                                                                                                                                                                |
+| `CALL_ENDPOINT`                                                   | Call functions end point. e.g. `http://localhost:5001/demo-29k-cupcake/europe-west1/call`                                                                                                                                                                                             |
 
 ### iOS
 
