@@ -16,7 +16,7 @@
     "logs": "firebase functions:log",
     "test": "yarn build:content && yarn tsc && yarn lint",
     "tsc": "tsc --noEmit",
-    "lint": "yarn --cwd .. eslint --ext .js,.ts functions"
+    "lint": "yarn eslint --ext .js,.ts"
   },
   "dependencies": {
     "firebase-admin": "^10.0.2",
