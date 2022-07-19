@@ -8,10 +8,18 @@
     "node": ">= 16"
   },
   "scripts": {
+    "build:watch": "nodemon --watch src --exec \"yarn build\"",
     "build": "node buildContent.js content.json",
-    "build:watch": "nodemon --watch src --exec \"yarn build\""
+    "test:lint": "eslint --ext .js,.ts .",
+    "test": "yarn test:lint"
   },
   "dependencies": {
     "nodemon": "^2.0.18"
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1"
   }
 }
