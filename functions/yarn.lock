@@ -2320,10 +2320,10 @@ firebase-functions@^3.18.0:
     lodash "^4.17.14"
     node-fetch "^2.6.7"
 
-firebase-tools@^11.2.0:
-  version "11.2.0"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-11.2.0.tgz#6a30f3627a2717b3f1652fa2b3ed9be3dcb91a02"
-  integrity sha512-+kTppjR6GrMFyKZB12KvJcG6456p/wrMEETSavwy4Hpj8/LGRxpDTPRvDvQNKuibMa/iViC/hYQFs4eXhNtgFg==
+firebase-tools@^11.3.0:
+  version "11.3.0"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-11.3.0.tgz#1f0a7cd2553efdaaa23a0964fe173fe34adfc1ba"
+  integrity sha512-wg02bDKJCQIym1PGfuE+5RzBY6LTpi0+T3QGcig0QbfEFtqvcigllnbFqGFzzYk8cJgOxCwpY/AU8vCb2iKRjg==
   dependencies:
     "@google-cloud/pubsub" "^3.0.1"
     abort-controller "^3.0.0"
