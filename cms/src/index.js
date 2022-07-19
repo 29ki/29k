@@ -21,7 +21,7 @@ CMS.init({
       url: 'http://localhost:1337/api/v1',
     },
     publish_mode: 'editorial_workflow',
-    media_folder: '',
+    media_folder: 'media',
     logo_url:
       'https://static.tildacdn.com/tild3863-3531-4934-a361-343061656664/29k_logo_white.png',
     i18n: {

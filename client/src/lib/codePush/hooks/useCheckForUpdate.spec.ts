@@ -116,13 +116,13 @@ describe('useCheckForUpdate', () => {
   });
 
   describe('Failure', () => {
-    it('throws on CodePush error', () => {
+    it('throws on CodePush error', async () => {
       codePushMock.sync.mockRejectedValue(new Error('Some Random Error'));
 
       const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
 
-      act(() => {
-        expect(result.current.checkCodePush()).rejects.toThrow(
+      await act(async () => {
+        await expect(result.current.checkCodePush()).rejects.toThrow(
           new Error('Code Push check failed'),
         );
       });

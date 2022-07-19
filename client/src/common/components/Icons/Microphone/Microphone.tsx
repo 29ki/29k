@@ -1,12 +1,11 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import Svg, {Path, Rect} from 'react-native-svg';
+import {Path, Rect} from 'react-native-svg';
+import {IconType} from '..';
 import {COLORS} from '../../../constants/colors';
+import Icon from '../Icon';
 
-const style = StyleSheet.create({icon: {aspectRatio: 1}});
-
-export const MicrophoneIcon = ({fill = COLORS.GREY200}) => (
-  <Svg width="100%" height="100%" viewBox="0 0 30 30" style={style.icon}>
+export const MicrophoneIcon: IconType = ({fill = COLORS.GREY200}) => (
+  <Icon>
     <Rect
       x={11.75}
       y={4.75}
@@ -22,5 +21,5 @@ export const MicrophoneIcon = ({fill = COLORS.GREY200}) => (
       strokeWidth={1.5}
       strokeLinecap="round"
     />
-  </Svg>
+  </Icon>
 );

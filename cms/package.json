@@ -1,8 +1,9 @@
 {
   "name": "29k-cms",
   "version": "2.0.0",
-  "description": "29k CMS",
+  "private": true,
   "main": "index.js",
+  "type": "module",
   "engines": {
     "node": "16"
   },
@@ -11,19 +12,18 @@
     "build": "yarn build:content && rm -rf dist && vite build",
     "dev": "yarn build:content && vite & PORT=1337 GIT_REPO_DIRECTORY='./../' yarn run netlify-cms-proxy-server",
     "start": "yarn build:content && vite",
-    "lint": "eslint --ext .js,.ts .",
-    "test": "yarn lint"
+    "test:lint": "eslint --ext .js,.ts .",
+    "test": "yarn test:lint"
   },
   "dependencies": {
     "netlify-cms-app": "^2.15.72"
   },
   "devDependencies": {
-    "eslint": "^8.19.0",
+    "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.2.1",
     "netlify-cms-proxy-server": "^1.3.24",
     "prettier": "^2.7.1",
-    "vite": "^2.9.14"
+    "vite": "^3.0.2"
   }
 }

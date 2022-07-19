@@ -45,7 +45,6 @@ const DailyProvider: React.FC = ({children}) => {
   const setParticipants = useSetRecoilState(participantsAtom);
   const resetVideoCall = useResetRecoilState(participantsAtom);
 
-  // eslint-disable-next-line no-spaced-func
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(() => {
     const onJoinedMeeting = ({participants}: DailyEventObject) => {
       setParticipants(participants);

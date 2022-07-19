@@ -1,7 +1,8 @@
-import React, {ReactElement} from 'react';
+import React from 'react';
 import {TouchableOpacity, ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
 import {SPACINGS} from '../../../constants/spacings';
+import {IconType} from '../../Icons';
 
 const StyledIconButton = styled(TouchableOpacity)({
   padding: 6,
@@ -14,7 +15,7 @@ const StyledIconButton = styled(TouchableOpacity)({
 type IconButtonProps = {
   onPress?: () => void;
   fill?: string;
-  Icon: ({fill}: {fill?: string}) => ReactElement;
+  Icon: IconType;
   disabled?: boolean;
   style?: ViewStyle;
 };
