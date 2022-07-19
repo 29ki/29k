@@ -6,17 +6,17 @@
     "node": "16"
   },
   "scripts": {
-    "postinstall": "if [ -x \"$(command -v pod)\" ]; then cd ios && pod install; fi",
+    "android:expose": "./scripts/exposeAndroid.sh",
     "android": "react-native run-android --variant devDebug --appIdSuffix dev",
-    "expose:android": "./scripts/exposeAndroid.sh",
-    "ios": "react-native run-ios --scheme dev",
     "build:content": "yarn --cwd \"../content\" build",
+    "clean": "react-native-clean-project",
+    "ios": "react-native run-ios --scheme dev",
+    "postinstall": "if [ -x \"$(command -v pod)\" ]; then cd ios && pod install; fi",
     "start": "yarn build:content && react-native start",
-    "test": "yarn build:content && yarn tsc && yarn lint && yarn jest",
-    "tsc": "tsc --noEmit",
-    "jest": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "clean": "react-native-clean-project"
+    "test:jest": "jest",
+    "test:lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "test:ts": "tsc --noEmit",
+    "test": "yarn build:content && yarn test:ts && yarn test:lint && yarn test:jest"
   },
   "dependencies": {
     "@daily-co/react-native-daily-js": "^0.25.0",

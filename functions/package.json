@@ -7,16 +7,16 @@
   },
   "main": "lib/functions/src/index.js",
   "scripts": {
-    "build": "yarn build:content && tsc",
     "build:content": "yarn --cwd \"../content\" build",
     "build:watch": "tsc --watch",
+    "build": "yarn build:content && tsc",
+    "logs": "firebase functions:log",
     "serve": "yarn build && firebase emulators:start --project demo-29k-cupcake",
     "shell": "yarn build && firebase functions:shell",
     "start": "yarn serve",
-    "logs": "firebase functions:log",
-    "test": "yarn build:content && yarn tsc && yarn lint",
-    "tsc": "tsc --noEmit",
-    "lint": "yarn eslint --ext .js,.ts"
+    "test:lint": "eslint --ext .js,.ts",
+    "test:ts": "tsc --noEmit",
+    "test": "yarn build:content && yarn test:ts && yarn test:lint"
   },
   "dependencies": {
     "firebase-admin": "^11.0.0",

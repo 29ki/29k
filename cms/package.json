@@ -11,8 +11,8 @@
     "build": "yarn build:content && rm -rf dist && vite build",
     "dev": "yarn build:content && vite & PORT=1337 GIT_REPO_DIRECTORY='./../' yarn run netlify-cms-proxy-server",
     "start": "yarn build:content && vite",
-    "lint": "eslint --ext .js,.ts .",
-    "test": "yarn lint"
+    "test:lint": "eslint --ext .js,.ts .",
+    "test": "yarn test:lint"
   },
   "dependencies": {
     "netlify-cms-app": "^2.15.72"
