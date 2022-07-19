@@ -6,7 +6,7 @@ import {
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 
-import {HomeIcon, ProfileIcon} from '../../common/components/Icons';
+import {HomeIcon, IconType, ProfileIcon} from '../../common/components/Icons';
 import {COLORS} from '../../common/constants/colors';
 import {ROUTES} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
@@ -17,6 +17,7 @@ import Profile from '../../routes/Profile/Profile';
 import Video from '../../routes/Video/Video';
 
 import NS from '../i18n/constants/namespaces';
+import {FilmCameraIcon} from '../../common/components/Icons/FilmCamera/FilmCamera';
 
 const Tab = createBottomTabNavigator();
 
@@ -50,39 +51,32 @@ const tabBarOptions: BottomTabNavigationOptions = {
   },
 };
 
+const getTabOptions: (
+  Icon: IconType,
+  label: string,
+) => BottomTabNavigationOptions = (Icon, label) => ({
+  tabBarIcon: ({color}) => <Icon fill={color} />,
+  tabBarLabel: ({color}) => <TabBarLabel color={color}>{label}</TabBarLabel>,
+});
+
 const Tabs = () => {
   const {t} = useTranslation(NS.COMPONENT.TABS);
-
   return (
     <Tab.Navigator screenOptions={tabBarOptions}>
       <Tab.Screen
         name={ROUTES.HOME}
         component={Home}
-        options={{
-          tabBarIcon: ({color}) => <HomeIcon fill={color} />,
-          tabBarLabel: ({color}) => (
-            <TabBarLabel color={color}>{t('home')}</TabBarLabel>
-          ),
-        }}
+        options={getTabOptions(HomeIcon, t('home'))}
       />
       <Tab.Screen
         name={ROUTES.PROFILE}
         component={Profile}
-        options={{
-          tabBarIcon: ({color}) => <ProfileIcon fill={color} />,
-          tabBarLabel: ({color}) => (
-            <TabBarLabel color={color}>{t('profile')}</TabBarLabel>
-          ),
-        }}
+        options={getTabOptions(ProfileIcon, t('profile'))}
       />
       <Tab.Screen
         name={ROUTES.VIDEO}
         component={Video}
-        options={{
-          tabBarLabel: ({color}) => (
-            <TabBarLabel color={color}>{t('video')}</TabBarLabel>
-          ),
-        }}
+        options={getTabOptions(FilmCameraIcon, t('video'))}
       />
     </Tab.Navigator>
   );
