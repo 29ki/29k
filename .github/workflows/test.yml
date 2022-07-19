@@ -84,3 +84,30 @@ jobs:
       - name: Run tests
         working-directory: ./cms
         run: yarn test
+
+  content:
+    name: Content
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js v16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Cache Content Dependencies
+        id: cache-content-node-modules
+        uses: actions/cache@v2
+        with:
+          path: ./content/node_modules
+          key: content-node-modules-${{ hashFiles('./cms/yarn.lock') }}
+
+      - name: Install Content Dependencies
+        if: steps.cache-content-node-modules.outputs.cache-hit != 'true'
+        working-directory: ./content
+        run: yarn
+
+      - name: Run tests
+        working-directory: ./content
+        run: yarn test
