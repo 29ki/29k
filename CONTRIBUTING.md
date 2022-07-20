@@ -17,17 +17,6 @@ The following is a set of guidelines, these are mostly guidelines, not rules. Us
 - [Your First Code Contribution](#your-first-code-contribution)
 - [Pull Requests](#pull-requests)
 
-[Styleguides](#styleguides)
-
-- [Git Commit Messages](#git-commit-messages)
-- [Typescript Styleguide](#typescript-styleguide)
-- [Specs Styleguide](#specs-styleguide)
-- [Documentation Styleguide](#documentation-styleguide)
-
-[Additional Notes](#additional-notes)
-
-- [Issue and Pull Request Labels](#issue-and-pull-request-labels)
-
 ## Code of Conduct
 
 This project and everyone participating in it uses the [29k Code of Conduct](CODE_OF_CONDUCT.md) as a compass towards a great experience in our co-creation process. By contributing, you are expected to uphold this code. Please report unacceptable behavior to [help@29k.org](mailto:help@29k.org).
@@ -73,5 +62,3 @@ Unsure where to begin contributing? You can start by looking through these `begi
 - [Help wanted issues][help-wanted] - issues which should need a bit more involvement than `beginner` issues.
 
 Either type of issues you get involved in, it is with great joy that get this oppotunity to get to know you and co-create with you!
-
-## Styleguide
