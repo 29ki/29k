@@ -17,6 +17,10 @@ The following is a set of guidelines, these are mostly guidelines, not rules. Us
 - [Your First Code Contribution](#your-first-code-contribution)
 - [Pull Requests](#pull-requests)
 
+[Styleguides](#styleguides)
+
+- [Git Commit Messages](#git-commit-messages)
+
 ## Code of Conduct
 
 This project and everyone participating in it uses the [29k Code of Conduct](CODE_OF_CONDUCT.md) as a compass towards a great experience in our co-creation process. By contributing, you are expected to uphold this code. Please report unacceptable behavior to [help@29k.org](mailto:help@29k.org).
@@ -62,3 +66,13 @@ Unsure where to begin contributing? You can start by looking through these `begi
 - [Help wanted issues][help-wanted] - issues which should need a bit more involvement than `beginner` issues.
 
 Either type of issues you get involved in, it is with great joy that get this oppotunity to get to know you and co-create with you!
+
+## Styleguides
+
+### Git Commit Messages
+
+- Use the present tense ("Add feature" not "Added feature")
+- Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
+- Limit the first line to 72 characters or less
+- Reference issues and pull requests liberally after the first line
+- When only changing documentation, include `[ci skip]` in the commit title
