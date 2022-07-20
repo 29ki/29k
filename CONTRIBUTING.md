@@ -36,7 +36,7 @@ When you are creating a bug report, please include as many details as possible:
 - Screenshots and animated GIFs are super welcomed and appreciated.
 - And ask questions, we love reflecting on things together and learning new perspectives!
 
-When creating an issue through github you can choose "bug report" which will use the existing [template](https://github.com/29k/.github/blob/master/.github/ISSUE_TEMPLATE/bug_report.md), the information it asks for helps us get into a common ground to co-create and know each other.
+When creating an issue through github you can choose "bug report" which will use the existing [template](.github/ISSUE_TEMPLATE/bug_report.md), the information it asks for helps us get into a common ground to co-create and know each other.
 
 > **Note:** If you find a **Closed** issue that seems like it is the same or related to what you're experiencing, open a new issue and include a link to the original issue in the body of your new one.
 
@@ -52,7 +52,7 @@ When you suggest an enhancement, please include as many details as possible:
 - If there are other apps that do the same feel free to list them as examples/inspiration, screenshots, gifs are welcomed!
 - And ask questions, we love reflecting on things together and learning new perspectives!
 
-When creating an issue through github you can choose "Feature request" which will use the existing [template](https://github.com/29k/.github/blob/master/.github/ISSUE_TEMPLATE/feature_request.md), the information it asks for helps us get into a common ground to co-create and know each other.
+When creating an issue through github you can choose "Feature request" which will use the existing [template](.github/ISSUE_TEMPLATE/feature_request.md), the information it asks for helps us get into a common ground to co-create and know each other.
 
 ### Your First Code Contribution
 
