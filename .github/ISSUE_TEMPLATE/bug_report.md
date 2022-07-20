@@ -3,9 +3,9 @@ name: Bug report
 about: Create a report to help us improve
 ---
 
-### Feel like doing a check-in with us? how would you like to be called? what brings you here? how are you? 🤩
+### What brings you here and how are you?
 
-<!-- Feel free to share freely, we love this and to this all the time in the org -->
+<!-- Feel free to share freely or not, we love this and to this all the time in the org -->
 
 ### Description
 

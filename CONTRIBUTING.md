@@ -67,6 +67,12 @@ Unsure where to begin contributing? You can start by looking through these `begi
 
 Either type of issues you get involved in, it is with great joy that get this oppotunity to get to know you and co-create with you!
 
+### Pull Requests
+
+If your PR is related to an issue, add a link to the issue on its description.
+
+Our [pull request template](.github/PULL_REQUEST_TEMPLATE/pull_request_template.md) will offer some guidance on basic info that should be added to your PR.
+
 ## Styleguides
 
 ### Git Commit Messages
