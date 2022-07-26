@@ -2341,13 +2341,14 @@ firebase-frameworks@^0.4.2:
     semver "^7.3.7"
     tslib "^2.3.1"
 
-firebase-functions-test@^0.2.0:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/firebase-functions-test/-/firebase-functions-test-0.2.3.tgz#90d6da662d604ed013a3735c6cdba5984e0d57ea"
-  integrity sha512-zYX0QTm53wCazuej7O0xqbHl90r/v1PTXt/hwa0jo1YF8nDM+iBKnLDlkIoW66MDd0R6aGg4BvKzTTdJpvigUA==
+firebase-functions-test@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/firebase-functions-test/-/firebase-functions-test-2.1.0.tgz#47caae96c2f3d2ff7fc2d4e59189105e143c90b6"
+  integrity sha512-USA1iwprxStMSidxBXBVydQOEUrByVdDSD83oUFX5+e/sdeLY3qFWk3naC2XhfoXw9T/RF9m+p8EarupS+Xo9w==
   dependencies:
     "@types/lodash" "^4.14.104"
     lodash "^4.17.5"
+    ts-deepmerge "^2.0.1"
 
 firebase-functions@^3.18.0:
   version "3.22.0"
@@ -5406,6 +5407,11 @@ triple-beam@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/triple-beam/-/triple-beam-1.3.0.tgz#a595214c7298db8339eeeee083e4d10bd8cb8dd9"
   integrity sha512-XrHUvV5HpdLmIj4uVMxHggLbFSZYIn7HEWsqePZcI50pco+MPqJ50wMGY794X7AOOhxOBAjbkqfAbEe/QMp2Lw==
+
+ts-deepmerge@^2.0.1:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/ts-deepmerge/-/ts-deepmerge-2.0.4.tgz#294d08c0b6957cb15f3eac2dfa020611e0db8cf1"
+  integrity sha512-+xUYN/yYCwAtK7NtE0M1w5U1TlJg8ODoepMttmfsuRSo/Pz49bv7ZCILkCiBEpGBOIRrFMynnIhrY42U57Rl1g==
 
 ts-toolbelt@^6.15.1:
   version "6.15.5"
