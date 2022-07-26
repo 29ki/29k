@@ -14,7 +14,7 @@
     "test": "yarn test:lint"
   },
   "dependencies": {
-    "nodemon": "^2.0.18"
+    "nodemon": "^2.0.19"
   },
   "devDependencies": {
     "eslint": "^8.20.0",
