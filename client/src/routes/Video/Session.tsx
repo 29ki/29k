@@ -1,9 +1,4 @@
-import React, {
-  Component,
-  ReactComponentElement,
-  useContext,
-  useEffect,
-} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {
   ActivityIndicator,
   StyleSheet,
@@ -25,6 +20,9 @@ import {
   participantsSelector,
   selectedParticipantSelector,
 } from './state/state';
+
+import useLiveContent from '../../lib/liveContent/hooks/useLiveContent';
+
 import {
   Spacer12,
   Spacer16,
@@ -35,9 +33,8 @@ import AudioToggleButton from './Buttons/AudioToggleButton';
 import VideoToggleButton from './Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
 import MeetingToggleButton from './Buttons/MeetingToggleButton';
-import useSharingContent from '../../lib/sharing/hooks/useSharingContent';
 import {B1} from '../../common/components/Typography/Text/Text';
-import {SharingContentState} from '../../lib/sharing/state/state';
+import {LiveContentState} from '../../lib/liveContent/state/state';
 
 const LoadingView = styled.View({
   flex: 1,
@@ -103,7 +100,7 @@ const TouchableMediaView = ({
   </TouchableOpacity>
 );
 
-const Content = ({state}: {state: SharingContentState}) => (
+const Content = ({state}: {state: LiveContentState}) => (
   <B1>{JSON.stringify(state, null, 2)}</B1>
 );
 
@@ -117,6 +114,7 @@ const Session = () => {
     hasAudio,
     hasVideo,
   } = useContext(DailyContext);
+  const liveContentState = useLiveContent('OORlVPO4sreTKl9E2G2r');
 
   const participants = useRecoilValue(participantsSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
@@ -126,8 +124,6 @@ const Session = () => {
   useEffect(() => {
     prepareMeeting();
   }, [prepareMeeting]);
-
-  const sharingContentState: SharingContentState = useSharingContent();
 
   if (isLoading) {
     return (
@@ -152,8 +148,8 @@ const Session = () => {
       <ScreenView>
         <MainViewContainer>
           <Spotlight>
-            {sharingContentState.active && (
-              <Content state={sharingContentState} />
+            {liveContentState.active && !selectedParticipant && (
+              <Content state={liveContentState} />
             )}
             {selectedParticipant && (
               <SpotlightVideo>
