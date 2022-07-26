@@ -28,7 +28,7 @@
     "@types/ramda": "^0.28.14",
     "@types/semver": "^7.3.10",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
-    "@typescript-eslint/parser": "^5.30.7",
+    "@typescript-eslint/parser": "^5.31.0",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
