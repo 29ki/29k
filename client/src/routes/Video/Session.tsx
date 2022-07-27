@@ -34,7 +34,10 @@ import VideoToggleButton from './Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
 import MeetingToggleButton from './Buttons/MeetingToggleButton';
 import {B1} from '../../common/components/Typography/Text/Text';
-import {LiveContentState} from '../../lib/liveContent/state/state';
+import {
+  LiveContentState,
+  liveContentStateAtom,
+} from '../../lib/liveContent/state/state';
 
 const LoadingView = styled.View({
   flex: 1,
@@ -114,7 +117,8 @@ const Session = () => {
     hasAudio,
     hasVideo,
   } = useContext(DailyContext);
-  const liveContentState = useLiveContent('OORlVPO4sreTKl9E2G2r');
+  const subscribe = useLiveContent('OORlVPO4sreTKl9E2G2r');
+  const liveContentState = useRecoilValue(liveContentStateAtom);
 
   const participants = useRecoilValue(participantsSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
@@ -123,7 +127,10 @@ const Session = () => {
 
   useEffect(() => {
     prepareMeeting();
-  }, [prepareMeeting]);
+    const unsubscribe = subscribe();
+
+    return unsubscribe;
+  }, [prepareMeeting, subscribe]);
 
   if (isLoading) {
     return (
