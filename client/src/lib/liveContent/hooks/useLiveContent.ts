@@ -1,24 +1,23 @@
 import firestore from '@react-native-firebase/firestore';
-import {useEffect} from 'react';
-import {useRecoilValue, useSetRecoilState} from 'recoil';
+import {useCallback} from 'react';
+import {useSetRecoilState} from 'recoil';
 
 import {liveContentStateAtom, LiveContentState} from '../state/state';
 
-const useLiveContent = (id: string): LiveContentState => {
+const useLiveContent = (id: string) => {
   const setState = useSetRecoilState(liveContentStateAtom);
 
-  useEffect(() => {
+  const subscribe = useCallback(() => {
     const doc = firestore().collection('live-content-sessions').doc(id);
-    const unsubscribe = doc.onSnapshot(
+
+    return doc.onSnapshot(
       documentSnapshot => setState(documentSnapshot.data() as LiveContentState),
       error =>
         console.debug(`Failed to subscribe to live session ${id}`, error),
     );
+  }, [id, setState]);
 
-    return unsubscribe;
-  }, [setState, id]);
-
-  return useRecoilValue(liveContentStateAtom);
+  return subscribe;
 };
 
 export default useLiveContent;
