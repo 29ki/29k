@@ -9,12 +9,7 @@ export type LiveContentState = {
   someIndex: number;
 };
 
-export const liveContentStateAtom = atom<LiveContentState>({
+export const liveContentStateAtom = atom<LiveContentState | null>({
   key: NAMESPACE,
-  default: {
-    active: false,
-    someContentId: "'content-id'",
-    someHighlightedElement: "'highlighted-option'",
-    someIndex: 3,
-  },
+  default: null,
 });

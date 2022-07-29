@@ -155,7 +155,7 @@ const Session = () => {
       <ScreenView>
         <MainViewContainer>
           <Spotlight>
-            {liveContentState.active && !selectedParticipant && (
+            {liveContentState?.active && !selectedParticipant && (
               <Content state={liveContentState} />
             )}
             {selectedParticipant && (
