@@ -20,6 +20,9 @@ import {
   participantsSelector,
   selectedParticipantSelector,
 } from './state/state';
+
+import useLiveContent from '../../lib/liveContent/hooks/useLiveContent';
+
 import {
   Spacer12,
   Spacer16,
@@ -30,6 +33,11 @@ import AudioToggleButton from './Buttons/AudioToggleButton';
 import VideoToggleButton from './Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
 import MeetingToggleButton from './Buttons/MeetingToggleButton';
+import {B1} from '../../common/components/Typography/Text/Text';
+import {
+  LiveContentState,
+  liveContentStateAtom,
+} from '../../lib/liveContent/state/state';
 
 const LoadingView = styled.View({
   flex: 1,
@@ -95,6 +103,10 @@ const TouchableMediaView = ({
   </TouchableOpacity>
 );
 
+const Content = ({state}: {state: LiveContentState}) => (
+  <B1>{JSON.stringify(state, null, 2)}</B1>
+);
+
 const Session = () => {
   const {
     prepareMeeting,
@@ -105,6 +117,8 @@ const Session = () => {
     hasAudio,
     hasVideo,
   } = useContext(DailyContext);
+  const subscribe = useLiveContent('OORlVPO4sreTKl9E2G2r');
+  const liveContentState = useRecoilValue(liveContentStateAtom);
 
   const participants = useRecoilValue(participantsSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
@@ -113,7 +127,10 @@ const Session = () => {
 
   useEffect(() => {
     prepareMeeting();
-  }, [prepareMeeting]);
+    const unsubscribe = subscribe();
+
+    return unsubscribe;
+  }, [prepareMeeting, subscribe]);
 
   if (isLoading) {
     return (
@@ -138,14 +155,17 @@ const Session = () => {
       <ScreenView>
         <MainViewContainer>
           <Spotlight>
-            <SpotlightVideo>
-              {selectedParticipant && (
+            {liveContentState?.active && !selectedParticipant && (
+              <Content state={liveContentState} />
+            )}
+            {selectedParticipant && (
+              <SpotlightVideo>
                 <TouchableMediaView
                   onPress={() => setSelectedParticipantId(null)}
                   item={selectedParticipant}
                 />
-              )}
-            </SpotlightVideo>
+              </SpotlightVideo>
+            )}
           </Spotlight>
           <Controls>
             <AudioToggleButton onPress={toggleAudio} active={hasAudio} />
