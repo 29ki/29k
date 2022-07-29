@@ -21,14 +21,17 @@
   "dependencies": {
     "firebase-admin": "^11.0.0",
     "firebase-functions": "^3.18.0",
+    "node-fetch": "2",
     "ramda": "^0.28.0",
     "semver": "^7.3.7"
   },
   "devDependencies": {
+    "@types/node-fetch": "2",
     "@types/ramda": "^0.28.14",
     "@types/semver": "^7.3.10",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
+    "dotenv": "^16.0.1",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
