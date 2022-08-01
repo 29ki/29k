@@ -65,6 +65,10 @@ Create a `.env` file, by duplicating `.env.example`.
 | `KILL_SWITCH_ENDPOINT`                                            | Kill Switch functions end point. e.g. `http://localhost:5001/demo-29k-cupcake/europe-west1/killswitch`                                                                                                                                                                                |
 | `CALL_ENDPOINT`                                                   | Call functions end point. e.g. `http://localhost:5001/demo-29k-cupcake/europe-west1/call`                                                                                                                                                                                             |
 
+### Sentry
+
+Create a `client/sentry.properties` from the [Sentry example template](https://github.com/getsentry/examples/blob/master/react-native/sentry.properties). You may use the empty values for local development.
+
 ### iOS
 
 ```
