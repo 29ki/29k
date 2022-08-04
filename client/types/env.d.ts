@@ -4,4 +4,5 @@ declare module 'config' {
   export const IOS_CODE_PUSH_DEPLOYMENT_KEY: string;
   export const KILL_SWITCH_ENDPOINT: string;
   export const CALL_ENDPOINT: string;
+  export const ROOM_ENDPOINT: string;
 }

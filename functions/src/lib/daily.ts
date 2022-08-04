@@ -43,3 +43,20 @@ export const createRoom = async (name: string): Promise<Room> => {
     throw err;
   }
 };
+
+export const getRooms = async (): Promise<Room> => {
+  try {
+    const res = await fetch(`${DAILY_API}/rooms`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${config.DAILY_API_KEY}`,
+      },
+    });
+    const {data} = await res.json();
+
+    return data;
+  } catch (err) {
+    console.error('Failed fetching rooms', err);
+    throw err;
+  }
+};
