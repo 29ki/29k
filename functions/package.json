@@ -19,7 +19,7 @@
     "test": "yarn build:content && yarn test:ts && yarn test:lint"
   },
   "dependencies": {
-    "firebase-admin": "^11.0.0",
+    "firebase-admin": "^11.0.1",
     "firebase-functions": "^3.18.0",
     "ramda": "^0.28.0",
     "semver": "^7.3.7"
