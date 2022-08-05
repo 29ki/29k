@@ -5,15 +5,15 @@ import Navigation from './lib/navigation/Navigation';
 
 import codePush, {CodePushOverlay} from './lib/codePush';
 import {UiLibProvider} from './lib/uiLib/hooks/useUiLib';
-import Bootsrap from './Bootstrap';
+import Bootstrap from './Bootstrap';
 
 const App = () => (
   <RecoilRoot>
     <UiLibProvider>
-      <Bootsrap>
+      <Bootstrap>
         <Navigation />
         <CodePushOverlay />
-      </Bootsrap>
+      </Bootstrap>
     </UiLibProvider>
   </RecoilRoot>
 );

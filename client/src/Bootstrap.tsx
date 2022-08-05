@@ -13,7 +13,7 @@ import useAuthenticateUser from './lib/user/hooks/useAuthenticateUser';
 i18n.init();
 sentry.init();
 
-const Bootsrap: React.FC = ({children}) => {
+const Bootstrap: React.FC = ({children}) => {
   useAuthenticateUser();
 
   const setIsColdStarted = useSetRecoilState(isColdStartedAtom);
@@ -36,4 +36,4 @@ const Bootsrap: React.FC = ({children}) => {
   return <>{children}</>;
 };
 
-export default Bootsrap;
+export default Bootstrap;
