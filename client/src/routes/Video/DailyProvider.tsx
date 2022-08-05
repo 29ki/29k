@@ -13,11 +13,10 @@ import Daily, {
 } from '@daily-co/react-native-daily-js';
 import {useResetRecoilState, useSetRecoilState} from 'recoil';
 import {videoSharingFields, participantsAtom} from './state/state';
-import {getCallUrl} from '../../lib/api/call';
 
 type DailyProviderTypes = {
   call?: DailyCall;
-  prepareMeeting: () => void;
+  prepareMeeting: (url: string) => void;
   startMeeting: () => void;
   leaveMeeting: () => void;
   toggleAudio: () => void;
@@ -100,16 +99,19 @@ const DailyProvider: React.FC = ({children}) => {
     },
     [daily, leaveMeeting],
   );
-  const prepareMeeting = useCallback(async () => {
-    if (daily.meetingState() !== 'joined-meeting') {
-      setIsLoading(true);
-      const url = await getCallUrl();
-      await daily.preAuth({
-        url, // TODO should fetch also token from function in the future
-      });
-      setIsLoading(false);
-    }
-  }, [daily, setIsLoading]);
+  const prepareMeeting = useCallback(
+    async url => {
+      if (daily.meetingState() !== 'joined-meeting') {
+        setIsLoading(true);
+
+        await daily.preAuth({
+          url, // TODO should fetch also token from function in the future
+        });
+        setIsLoading(false);
+      }
+    },
+    [daily, setIsLoading],
+  );
 
   const toggleAudio = () => {
     if (!daily) {

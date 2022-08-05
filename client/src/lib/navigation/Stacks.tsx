@@ -6,6 +6,7 @@ import {useRecoilValue} from 'recoil';
 import {killSwitchFields} from '../killSwitch/state/state';
 import Tabs from './Tabs';
 import Breathing from '../../routes/Breathing/Breathing';
+import Video from '../../routes/Video/Video';
 
 const Stack = createNativeStackNavigator<ScreenProps>();
 
@@ -24,6 +25,7 @@ const Stacks = () => {
         <>
           <Stack.Screen name={NAVIGATORS.TABS} component={Tabs} />
           <Stack.Screen name={ROUTES.BREATHING} component={Breathing} />
+          <Stack.Screen name={ROUTES.VIDEO} component={Video} />
         </>
       )}
     </Stack.Navigator>

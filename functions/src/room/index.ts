@@ -1,6 +1,7 @@
 import {firestore} from 'firebase-admin';
 import 'firebase-functions';
 import {onRequest} from 'firebase-functions/v2/https';
+
 import {createRoom, getRooms} from '../lib/daily';
 
 export const room = onRequest(

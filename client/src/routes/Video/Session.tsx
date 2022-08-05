@@ -20,6 +20,7 @@ import {
   participantsSelector,
   selectedParticipantSelector,
 } from './state/state';
+import {RouteProp, useRoute} from '@react-navigation/native';
 
 import useLiveContent from '../../lib/liveContent/hooks/useLiveContent';
 
@@ -38,6 +39,7 @@ import {
   LiveContentState,
   liveContentStateAtom,
 } from '../../lib/liveContent/state/state';
+import {ScreenProps} from '../../common/constants/routes';
 
 const LoadingView = styled.View({
   flex: 1,
@@ -117,6 +119,10 @@ const Session = () => {
     hasAudio,
     hasVideo,
   } = useContext(DailyContext);
+  const {
+    params: {url},
+  } = useRoute<RouteProp<ScreenProps, 'Video'>>();
+
   const subscribe = useLiveContent('OORlVPO4sreTKl9E2G2r');
   const liveContentState = useRecoilValue(liveContentStateAtom);
 
@@ -126,11 +132,11 @@ const Session = () => {
   const setSelectedParticipantId = useSetRecoilState(selectedParticipantId);
 
   useEffect(() => {
-    prepareMeeting();
+    prepareMeeting(url);
     const unsubscribe = subscribe();
 
     return unsubscribe;
-  }, [prepareMeeting, subscribe]);
+  }, [prepareMeeting, subscribe, url]);
 
   if (isLoading) {
     return (

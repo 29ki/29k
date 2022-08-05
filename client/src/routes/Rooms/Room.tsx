@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {ListRenderItemInfo} from 'react-native';
 import {FlatList, TextInput} from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
@@ -18,6 +18,9 @@ import {SPACINGS} from '../../common/constants/spacings';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {H3} from '../../common/components/Typography/Heading/Heading';
 import Button from '../../common/components/Buttons/Button';
+import {ROUTES, ScreenProps} from '../../common/constants/routes';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 const Card = styled.TouchableOpacity({
   border: 0.1,
@@ -27,24 +30,33 @@ const Card = styled.TouchableOpacity({
   backgroundColor: COLORS.WHITE_TRANSPARENT,
 });
 
+type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
+
 const Rooms = () => {
   const [rooms, setRooms] = useState<Room[] | null>(null);
   const [newRoom, onChangeNewRoom] = useState<string | null>(null);
-
-  const addNewRoom = useCallback(
-    roomName => roomName && createRoom(roomName),
-    [],
-  );
+  const {navigate} = useNavigation<ScreenNavigationProps>();
 
   const renderRoom = ({item}: ListRenderItemInfo<Room>) => (
-    <Card>
+    <Card onPress={() => navigate(ROUTES.VIDEO, {url: item.url})}>
       <B1>{item.name}</B1>
     </Card>
   );
 
+  const fetchRooms = useCallback(async () => setRooms(await getRooms()), []);
+  const addNewRoom = useCallback(
+    async roomName => {
+      if (roomName) {
+        await createRoom(roomName);
+        fetchRooms();
+      }
+    },
+    [fetchRooms],
+  );
+
   useEffect(() => {
-    (async () => setRooms(await getRooms()))();
-  }, [setRooms]);
+    fetchRooms();
+  }, [fetchRooms]);
 
   return (
     <>
