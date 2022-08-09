@@ -35,11 +35,9 @@ import VideoToggleButton from './Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
 import MeetingToggleButton from './Buttons/MeetingToggleButton';
 import {B1} from '../../common/components/Typography/Text/Text';
-import {
-  LiveContentState,
-  liveContentStateAtom,
-} from '../../lib/liveContent/state/state';
 import {ScreenProps} from '../../common/constants/routes';
+import {ContentState, contentStateAtom} from '../../lib/temples/state/state';
+import useTemples from '../../lib/temples/hooks/useTemples';
 
 const LoadingView = styled.View({
   flex: 1,
@@ -105,7 +103,7 @@ const TouchableMediaView = ({
   </TouchableOpacity>
 );
 
-const Content = ({state}: {state: LiveContentState}) => (
+const Content = ({state}: {state: ContentState}) => (
   <B1>{JSON.stringify(state, null, 2)}</B1>
 );
 
@@ -120,11 +118,10 @@ const Session = () => {
     hasVideo,
   } = useContext(DailyContext);
   const {
-    params: {url},
+    params: {templeId, url},
   } = useRoute<RouteProp<ScreenProps, 'Video'>>();
 
-  const subscribe = useLiveContent('OORlVPO4sreTKl9E2G2r');
-  const liveContentState = useRecoilValue(liveContentStateAtom);
+  const {subscribeTemple, contentState} = useTemples();
 
   const participants = useRecoilValue(participantsSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
@@ -133,10 +130,9 @@ const Session = () => {
 
   useEffect(() => {
     prepareMeeting(url);
-    const unsubscribe = subscribe();
-
+    const unsubscribe = subscribeTemple(templeId);
     return unsubscribe;
-  }, [prepareMeeting, subscribe, url]);
+  }, [prepareMeeting, subscribeTemple, templeId, url]);
 
   if (isLoading) {
     return (
@@ -161,8 +157,8 @@ const Session = () => {
       <ScreenView>
         <MainViewContainer>
           <Spotlight>
-            {liveContentState?.active && !selectedParticipant && (
-              <Content state={liveContentState} />
+            {contentState?.active && !selectedParticipant && (
+              <Content state={contentState} />
             )}
             {selectedParticipant && (
               <SpotlightVideo>

@@ -1,6 +1,6 @@
 import firestore from '@react-native-firebase/firestore';
 import {useCallback} from 'react';
-import {useRecoilState, useSetRecoilState} from 'recoil';
+import {useRecoilState} from 'recoil';
 import * as templeApi from '../../api/temple';
 
 import {
@@ -11,17 +11,15 @@ import {
 } from '../state/state';
 
 const useTemples = () => {
-  const setContentState = useSetRecoilState(contentStateAtom);
+  const [contentState, setContentState] = useRecoilState(contentStateAtom);
   const [isLoading, setIsLoading] = useRecoilState(isLoadingAtom);
   const [temples, setTemples] = useRecoilState(templesAtom);
 
   const subscribeTemple = useCallback(
-    async templeId => {
-      const doc = await firestore()
-        .collection('live-content-sessions')
-        .doc(templeId);
+    templeId => {
+      const doc = firestore().collection('live-content-sessions').doc(templeId);
 
-      return doc.onSnapshot(
+      const unsubscribe = doc.onSnapshot(
         documentSnapshot =>
           setContentState(documentSnapshot.data() as ContentState),
         error =>
@@ -30,6 +28,8 @@ const useTemples = () => {
             error,
           ),
       );
+
+      return unsubscribe;
     },
     [setContentState],
   );
@@ -58,6 +58,7 @@ const useTemples = () => {
     addTemple,
     subscribeTemple,
     temples,
+    contentState,
   };
 };
 
