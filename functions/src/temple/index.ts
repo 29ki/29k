@@ -4,7 +4,7 @@ import {onRequest} from 'firebase-functions/v2/https';
 
 import {createRoom, getRooms} from '../lib/daily';
 
-export const room = onRequest(
+export const temple = onRequest(
   {
     region: 'europe-west1',
     memory: '256MiB',
@@ -27,7 +27,7 @@ export const room = onRequest(
         const data = await createRoom(request.body.name);
         await firestore()
           .collection('live-content-sessions')
-          .doc()
+          .doc(data.id)
           .create({roomUrl: data.url, roomId: data.id, active: false});
 
         response.status(200).json(data);

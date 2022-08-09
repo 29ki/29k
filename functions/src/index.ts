@@ -3,4 +3,4 @@ admin.initializeApp();
 
 export * from './killswitch';
 export * from './call';
-export * from './room';
+export * from './temple';

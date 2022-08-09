@@ -18,7 +18,7 @@ import Profile from '../../routes/Profile/Profile';
 
 import NS from '../i18n/constants/namespaces';
 import {FilmCameraIcon} from '../../common/components/Icons/FilmCamera/FilmCamera';
-import Rooms from '../../routes/Rooms/Room';
+import Temples from '../../routes/Temples/Temples';
 
 const Tab = createBottomTabNavigator();
 
@@ -75,8 +75,8 @@ const Tabs = () => {
         options={getTabOptions(ProfileIcon, t('profile'))}
       />
       <Tab.Screen
-        name={ROUTES.ROOMS}
-        component={Rooms}
+        name={ROUTES.TEMPLES}
+        component={Temples}
         options={getTabOptions(FilmCameraIcon, t('video'))}
       />
     </Tab.Navigator>
