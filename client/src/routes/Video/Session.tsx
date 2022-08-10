@@ -22,8 +22,6 @@ import {
 } from './state/state';
 import {RouteProp, useRoute} from '@react-navigation/native';
 
-import useLiveContent from '../../lib/liveContent/hooks/useLiveContent';
-
 import {
   Spacer12,
   Spacer16,
@@ -36,7 +34,7 @@ import {COLORS} from '../../common/constants/colors';
 import MeetingToggleButton from './Buttons/MeetingToggleButton';
 import {B1} from '../../common/components/Typography/Text/Text';
 import {ScreenProps} from '../../common/constants/routes';
-import {ContentState, contentStateAtom} from '../../lib/temples/state/state';
+import {ContentState} from '../../lib/temples/state/state';
 import useTemples from '../../lib/temples/hooks/useTemples';
 
 const LoadingView = styled.View({
