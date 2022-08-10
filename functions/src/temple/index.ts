@@ -2,7 +2,9 @@ import {firestore} from 'firebase-admin';
 import 'firebase-functions';
 import {onRequest} from 'firebase-functions/v2/https';
 
-import {createRoom, getRooms} from '../lib/daily';
+import {createRoom} from '../lib/daily';
+
+const FIRESTORE_COLLECTION = 'temples';
 
 export const temple = onRequest(
   {
@@ -14,25 +16,32 @@ export const temple = onRequest(
   async (request, response) => {
     if (request.method === 'GET') {
       try {
-        const rooms = await getRooms();
-        response.status(200).json(rooms);
+        const temples = await firestore()
+          .collection(FIRESTORE_COLLECTION)
+          .get();
+
+        response.status(200).json(temples.docs.map(doc => doc.data()));
       } catch (err) {
-        console.error('Failed to create room', err);
+        console.error('Failed to query temples', err);
         response.status(500).send(err);
       }
     }
 
     if (request.method === 'POST') {
       try {
-        const data = await createRoom(request.body.name);
-        await firestore()
-          .collection('live-content-sessions')
-          .doc(data.id)
-          .create({roomUrl: data.url, roomId: data.id, active: false});
+        const {name} = JSON.parse(request.body);
+        const data = await createRoom(name);
+
+        await firestore().collection(FIRESTORE_COLLECTION).doc(data.id).create({
+          id: data.id,
+          name,
+          url: data.url,
+          active: false,
+        });
 
         response.status(200).json(data);
       } catch (err) {
-        console.error('Failed to create room', err);
+        console.error('Failed to create temple', err);
         response.status(500).send(err);
       }
     }

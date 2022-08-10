@@ -17,7 +17,7 @@ const useTemples = () => {
 
   const subscribeTemple = useCallback(
     templeId => {
-      const doc = firestore().collection('live-content-sessions').doc(templeId);
+      const doc = firestore().collection('temples').doc(templeId);
 
       const unsubscribe = doc.onSnapshot(
         documentSnapshot =>
