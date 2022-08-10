@@ -44,7 +44,7 @@ const Temples = () => {
   const [newTemple, onChangeNewTemple] = useState<string | null>(null);
   const {navigate} = useNavigation<ScreenNavigationProps>();
 
-  const renderRoom = ({item}: ListRenderItemInfo<Temple>) => (
+  const renderTemple = ({item}: ListRenderItemInfo<Temple>) => (
     <Card
       onPress={() =>
         navigate(ROUTES.VIDEO, {templeId: item.id, url: item.url})
@@ -80,9 +80,9 @@ const Temples = () => {
         <Spacer16 />
         <FlatList
           data={temples}
-          keyExtractor={room => room.id}
+          keyExtractor={temple => temple.id}
           ItemSeparatorComponent={Spacer12}
-          renderItem={renderRoom}
+          renderItem={renderTemple}
           refreshing={isLoading}
           onRefresh={fetchTemples}
         />
