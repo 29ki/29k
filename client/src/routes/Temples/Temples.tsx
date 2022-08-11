@@ -1,5 +1,9 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {ActivityIndicator, ListRenderItemInfo} from 'react-native';
+import {
+  ActivityIndicator,
+  ListRenderItemInfo,
+  RefreshControl,
+} from 'react-native';
 import {FlatList, TextInput} from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import {useNavigation} from '@react-navigation/native';
@@ -53,24 +57,9 @@ const Temples = () => {
     </Card>
   );
 
-  const addNewTemple = useCallback(
-    async roomName => {
-      addTemple(roomName);
-    },
-    [addTemple],
-  );
-
   useEffect(() => {
     fetchTemples();
   }, [fetchTemples]);
-
-  if (isLoading) {
-    return (
-      <LoadingView>
-        <ActivityIndicator size="large" color={COLORS.BLACK} />
-      </LoadingView>
-    );
-  }
 
   return (
     <>
@@ -83,17 +72,22 @@ const Temples = () => {
           keyExtractor={temple => temple.id}
           ItemSeparatorComponent={Spacer12}
           renderItem={renderTemple}
-          refreshing={isLoading}
-          onRefresh={fetchTemples}
+          refreshControl={
+            <RefreshControl
+              refreshing={isLoading}
+              onRefresh={fetchTemples}
+              tintColor="white"
+            />
+          }
         />
         <Spacer32 />
         <TextInput
-          placeholder="Room name..."
+          placeholder="Temple name..."
           onChangeText={onChangeNewTemple}
         />
         <Spacer8 />
-        <Button onPress={() => addNewTemple(newTemple)}>
-          <B1>{'Create room'}</B1>
+        <Button onPress={() => addTemple(newTemple)}>
+          <B1>{'Create temple'}</B1>
         </Button>
       </Gutters>
     </>
