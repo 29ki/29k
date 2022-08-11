@@ -4,22 +4,8 @@ import {TEMPLE_ENDPOINT} from 'config';
 export type Temple = {
   id: string;
   name: string;
-  api_created: boolean;
-  privacy: 'public' | 'private';
   url: string;
-  created_at: string;
-  config: {
-    max_participants: number;
-    nbf: number;
-    exp: number;
-    start_video_off: boolean;
-    enable_recording:
-      | 'cloud'
-      | 'local'
-      | 'rtp-tracks'
-      | 'output-byte-stream'
-      | '<not set>';
-  };
+  active: boolean;
 };
 
 export const addTemple = async (name: string): Promise<Temple> => {

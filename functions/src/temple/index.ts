@@ -4,7 +4,14 @@ import {onRequest} from 'firebase-functions/v2/https';
 
 import {createRoom} from '../lib/daily';
 
-const FIRESTORE_COLLECTION = 'temples';
+export type Temple = {
+  id: string;
+  name: string;
+  url: string;
+  active: boolean;
+};
+
+const TEMPLES_COLLECTION = 'temples';
 
 export const temple = onRequest(
   {
@@ -16,11 +23,10 @@ export const temple = onRequest(
   async (request, response) => {
     if (request.method === 'GET') {
       try {
-        const temples = await firestore()
-          .collection(FIRESTORE_COLLECTION)
-          .get();
+        const snapshot = await firestore().collection(TEMPLES_COLLECTION).get();
+        const temples = snapshot.docs.map(doc => doc.data()) as Temple[];
 
-        response.status(200).json(temples.docs.map(doc => doc.data()));
+        response.status(200).json(temples);
       } catch (err) {
         console.error('Failed to query temples', err);
         response.status(500).send(err);
@@ -31,13 +37,17 @@ export const temple = onRequest(
       try {
         const {name} = JSON.parse(request.body);
         const data = await createRoom(name);
-
-        await firestore().collection(FIRESTORE_COLLECTION).doc(data.id).create({
+        const temple: Temple = {
           id: data.id,
           name,
           url: data.url,
           active: false,
-        });
+        };
+
+        await firestore()
+          .collection(TEMPLES_COLLECTION)
+          .doc(data.id)
+          .create(temple);
 
         response.status(200).json(data);
       } catch (err) {
