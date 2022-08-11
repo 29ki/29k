@@ -7,6 +7,7 @@ const NS = {
     HOME: 'Screen.Home',
     KILL_SWITCH: 'Screen.KillSwitch',
     PROFILE: 'Screen.Profile',
+    TEMPLES: 'Screen.Temples',
   },
 };
 

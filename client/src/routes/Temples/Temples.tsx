@@ -1,9 +1,5 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {
-  ActivityIndicator,
-  ListRenderItemInfo,
-  RefreshControl,
-} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {ListRenderItemInfo, RefreshControl} from 'react-native';
 import {FlatList, TextInput} from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import {useNavigation} from '@react-navigation/native';
@@ -26,11 +22,8 @@ import Gutters from '../../common/components/Gutters/Gutters';
 import {H3} from '../../common/components/Typography/Heading/Heading';
 import Button from '../../common/components/Buttons/Button';
 import {Temple} from '../../lib/api/temple';
-
-const LoadingView = styled.View({
-  flex: 1,
-  justifyContent: 'center',
-});
+import NS from '../../lib/i18n/constants/namespaces';
+import {useTranslation} from 'react-i18next';
 
 const Card = styled.TouchableOpacity({
   border: 0.1,
@@ -43,6 +36,7 @@ const Card = styled.TouchableOpacity({
 type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
 
 const Temples = () => {
+  const {t} = useTranslation(NS.SCREEN.TEMPLES);
   const {fetchTemples, isLoading, addTemple, temples} = useTemples();
 
   const [newTemple, onChangeNewTemple] = useState<string | null>(null);
@@ -65,7 +59,7 @@ const Temples = () => {
     <>
       <TopSafeArea />
       <Gutters>
-        <H3>{'Temples'}</H3>
+        <H3>{t('heading')}</H3>
         <Spacer16 />
         <FlatList
           data={temples}
@@ -82,12 +76,12 @@ const Temples = () => {
         />
         <Spacer32 />
         <TextInput
-          placeholder="Temple name..."
+          placeholder={t('createPlaceholder')}
           onChangeText={onChangeNewTemple}
         />
         <Spacer8 />
         <Button onPress={() => addTemple(newTemple)}>
-          <B1>{'Create temple'}</B1>
+          <B1>{t('create')}</B1>
         </Button>
       </Gutters>
     </>
