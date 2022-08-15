@@ -63,7 +63,7 @@
     "@types/react-native": "^0.67.3",
     "@types/react-native-video": "^5.0.14",
     "@types/react-test-renderer": "^17.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.30.7",
     "appcenter-cli": "^2.10.10",
     "babel-jest": "^28.1.3",
