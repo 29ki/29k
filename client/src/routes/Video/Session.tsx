@@ -22,11 +22,7 @@ import {
 } from './state/state';
 import {RouteProp, useRoute} from '@react-navigation/native';
 
-import {
-  Spacer12,
-  Spacer16,
-  TopSafeArea,
-} from '../../common/components/Spacers/Spacer';
+import {Spacer12, Spacer16} from '../../common/components/Spacers/Spacer';
 import {SPACINGS} from '../../common/constants/spacings';
 import AudioToggleButton from './Buttons/AudioToggleButton';
 import VideoToggleButton from './Buttons/VideoToggleButton';
@@ -151,7 +147,6 @@ const Session = () => {
 
   return (
     <>
-      <TopSafeArea />
       <ScreenView>
         <MainViewContainer>
           <Spotlight>
