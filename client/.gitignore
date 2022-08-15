@@ -67,6 +67,9 @@ google-play-service.json
 !android/app/src/dev/google-services.json
 !ios/Supporting/Dev/GoogleService-Info.plist
 
+# Sentry
+/sentry.properties
+
 # Environments
 .env
 .env.dev

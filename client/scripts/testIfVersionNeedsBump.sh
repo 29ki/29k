@@ -5,7 +5,7 @@ echo "🔍 Checking for iOS / Android native changes"
 
 git diff --quiet origin/main HEAD -- ios
 if [ $? -ne 0 ]; then
-    echo "📱 iOS native changes found! (could be that you're not on pair with main)"
+    echo "📱 iOS native changes found! (could be that you're not on par with main)"
 
     IOS_VERSION_CHANGES=$(git --no-pager diff --unified=0 --word-diff=color origin/main HEAD -- ios/twentyninek.xcodeproj/project.pbxproj)
     IOS_MARKETING_VERSION_CHANGES=$(echo "${IOS_VERSION_CHANGES}" | grep MARKETING_VERSION | wc -l)
@@ -33,7 +33,7 @@ fi
 # Check for Android OR Podfile.lock changes (since it hints about new native libraries)
 git diff --quiet origin/main HEAD -- android ios/Podfile.lock
 if [ $? -ne 0 ]; then
-    echo "📱 Android native changes found! (could be that you're not on pair with main)"
+    echo "📱 Android native changes found! (could be that you're not on par with main)"
 
     ANDROID_VERSION_CHANGES=$(git --no-pager diff --unified=0 --word-diff=color origin/main HEAD -- android/app/build.gradle)
     ANDROID_VERSION_NAME_CHANGES=$(echo "${ANDROID_VERSION_CHANGES}" | grep versionName | wc -l)
