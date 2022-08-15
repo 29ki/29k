@@ -29,6 +29,7 @@
     "@react-navigation/drawer": "^6.4.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.7.0",
+    "@sentry/react-native": "^4.2.2",
     "@types/styled-components-react-native": "^5.1.3",
     "i18next": "^21.8.14",
     "intl-pluralrules": "^1.3.1",
