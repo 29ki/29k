@@ -4,14 +4,16 @@
     "uiLib": "UI Lib",
     "clearUpdate": "Clear update",
     "checkUpdate": "Check for update",
-    "language": "Language"
+    "language": "Language",
+    "logout": "Logout (and create new)"
   },
   "sv": {
     "userId": "Användar-ID",
     "uiLib": "UI Lib",
     "clearUpdate": "Rensa uppdatering",
     "checkUpdate": "Sök efter uppdatering",
-    "language": "Language"
+    "language": "Language",
+    "logout": "Logga ut (och skapa ny)"
   },
   "pt": {}
 }

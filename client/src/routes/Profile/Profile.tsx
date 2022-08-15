@@ -1,5 +1,8 @@
 import React from 'react';
 import {useRecoilValue} from 'recoil';
+import auth from '@react-native-firebase/auth';
+import {useTranslation} from 'react-i18next';
+
 import styled from 'styled-components/native';
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
@@ -10,7 +13,6 @@ import useClearUpdates from '../../lib/codePush/hooks/useClearUpdates';
 import {useUiLib} from '../../lib/uiLib/hooks/useUiLib';
 import {userAtom} from '../../lib/user/state/state';
 import {LANGUAGE_TAGS} from '../../../../shared/src/constants/i18n';
-import {useTranslation} from 'react-i18next';
 import {H3} from '../../common/components/Typography/Heading/Heading';
 import NS from '../../lib/i18n/constants/namespaces';
 
@@ -31,6 +33,9 @@ const Profile = () => {
   const {toggle: toggleUiLib} = useUiLib();
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
+  const logout = () => {
+    auth().signOut();
+  };
 
   return (
     <Wrapper>
@@ -60,6 +65,8 @@ const Profile = () => {
             </Button>
           ))}
         </Row>
+        <Spacer48 />
+        <Button onPress={logout}>{t('logout')}</Button>
       </Gutters>
     </Wrapper>
   );

@@ -1,6 +1,7 @@
 import {useEffect} from 'react';
 import auth from '@react-native-firebase/auth';
 import {useSetRecoilState} from 'recoil';
+import {clone} from 'ramda';
 
 import {userAtom} from '../state/state';
 
@@ -16,7 +17,7 @@ const useAuthenticateUser = () => {
           console.debug('Failed to sign in: ', err);
         }
       } else {
-        setUser(currentUser);
+        setUser(clone(currentUser));
       }
     });
 
