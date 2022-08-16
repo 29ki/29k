@@ -44,14 +44,11 @@ jobs:
         working-directory: ./content
         run: yarn build
 
-      - name: Source GIT Commit Hash Env Variable
-        working-directory: ./client
-        run: . ./scripts/getGitCommitShort.sh
-
       - name: Codepush Android
         working-directory: ./client
         if: inputs.platform == 'android'
         run: >
+          . ./scripts/getGitCommitShort.sh &&
           yarn appcenter codepush release-react
           --app 29k.org/29k-Cupcake-Android
           --deployment-name ${{ inputs.environment }}
@@ -61,6 +58,7 @@ jobs:
         working-directory: ./client
         if: inputs.platform == 'ios'
         run: >
+          . ./scripts/getGitCommitShort.sh &&
           yarn appcenter codepush release-react
           --app 29k.org/29k-Cupcake-iOS
           --deployment-name ${{ inputs.environment }}
