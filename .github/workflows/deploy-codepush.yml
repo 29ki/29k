@@ -44,6 +44,10 @@ jobs:
         working-directory: ./content
         run: yarn build
 
+      - name: Source GIT Commit Hash Env Variable
+        working-directory: ./client
+        run: . ./scripts/getGitCommitShort.sh
+
       - name: Codepush Android
         working-directory: ./client
         if: inputs.platform == 'android'
