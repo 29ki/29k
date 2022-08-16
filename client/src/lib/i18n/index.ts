@@ -8,11 +8,12 @@ import {
   LANGUAGE_TAGS,
 } from '../../../../shared/src/constants/i18n';
 
-i18next.use(initReactI18next).init({
-  lng: 'en',
-  supportedLngs: LANGUAGE_TAGS,
-  fallbackLng: DEFAULT_LANGUAGE_TAG,
-  resources,
-});
+export const init = () =>
+  i18next.use(initReactI18next).init({
+    lng: 'en',
+    supportedLngs: LANGUAGE_TAGS,
+    fallbackLng: DEFAULT_LANGUAGE_TAG,
+    resources,
+  });
 
 export default i18next;
