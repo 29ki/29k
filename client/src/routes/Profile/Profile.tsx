@@ -41,7 +41,7 @@ const Profile = () => {
         {user && (
           <>
             <H3>{t('userId')}</H3>
-            <B1>{user.uid}</B1>
+            <B1 selectable>{user.uid}</B1>
             <Spacer16 />
           </>
         )}

@@ -5,4 +5,5 @@ declare module 'config' {
   export const KILL_SWITCH_ENDPOINT: string;
   export const CALL_ENDPOINT: string;
   export const TEMPLE_ENDPOINT: string;
+  export const SENTRY_DSN: string;
 }
