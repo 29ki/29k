@@ -12,7 +12,11 @@ import Daily, {
   DailyCall,
 } from '@daily-co/react-native-daily-js';
 import {useResetRecoilState, useSetRecoilState} from 'recoil';
-import {videoSharingFields, participantsAtom} from './state/state';
+import {
+  videoSharingFields,
+  participantsAtom,
+  videoSharingAtom,
+} from './state/state';
 
 type DailyProviderTypes = {
   call?: DailyCall;
@@ -41,11 +45,14 @@ const DailyProvider: React.FC = ({children}) => {
   const [hasVideo, setHasVideo] = useState(true);
 
   const setIsLoading = useSetRecoilState(videoSharingFields('isLoading'));
+  const setIsJoined = useSetRecoilState(videoSharingFields('isJoined'));
   const setParticipants = useSetRecoilState(participantsAtom);
-  const resetVideoCall = useResetRecoilState(participantsAtom);
+  const resetParticipants = useResetRecoilState(participantsAtom);
+  const resetVideoCallState = useResetRecoilState(videoSharingAtom);
 
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(() => {
     const onJoinedMeeting = ({participants}: DailyEventObject) => {
+      setIsJoined(true);
       setParticipants(participants);
     };
 
@@ -76,7 +83,7 @@ const DailyProvider: React.FC = ({children}) => {
       //   ['network-quality-change', connect(networkQualityChange)],
       //   ['error', error => dispatch(setError(error.errorMsg))],
     ];
-  }, [setParticipants]);
+  }, [setParticipants, setIsJoined]);
 
   const leaveMeeting = useCallback(async () => {
     if (!daily) {
@@ -89,15 +96,15 @@ const DailyProvider: React.FC = ({children}) => {
       daily.off(event, handler);
     });
 
-    resetVideoCall();
-  }, [daily, eventHandlers, resetVideoCall]);
+    resetParticipants();
+    resetVideoCallState();
+  }, [daily, eventHandlers, resetParticipants, resetVideoCallState]);
 
   useEffect(
     () => () => {
-      leaveMeeting();
       daily?.destroy();
     },
-    [daily, leaveMeeting],
+    [daily],
   );
   const prepareMeeting = useCallback(
     async url => {

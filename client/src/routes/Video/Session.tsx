@@ -119,6 +119,7 @@ const Session = () => {
 
   const participants = useRecoilValue(participantsSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
+  const isJoined = useRecoilValue(videoSharingFields('isJoined'));
   const selectedParticipant = useRecoilValue(selectedParticipantSelector);
   const setSelectedParticipantId = useSetRecoilState(selectedParticipantId);
 
@@ -127,6 +128,13 @@ const Session = () => {
     const unsubscribe = subscribeTemple(templeId);
     return unsubscribe;
   }, [prepareMeeting, subscribeTemple, templeId, url]);
+
+  useEffect(() => {
+    if (!isJoined) {
+      return;
+    }
+    return leaveMeeting;
+  }, [isJoined, leaveMeeting]);
 
   if (isLoading) {
     return (
