@@ -5,7 +5,7 @@ import styled from 'styled-components/native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-import useTemples from '../../lib/temples/hooks/useTemples';
+import useTemples from './hooks/useTemples';
 import {ROUTES, ScreenProps} from '../../common/constants/routes';
 
 import {
@@ -21,9 +21,11 @@ import {SPACINGS} from '../../common/constants/spacings';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {H3} from '../../common/components/Typography/Heading/Heading';
 import Button from '../../common/components/Buttons/Button';
-import {Temple} from '../../lib/api/temple';
 import NS from '../../lib/i18n/constants/namespaces';
 import {useTranslation} from 'react-i18next';
+import {useRecoilValue} from 'recoil';
+import {isLoadingAtom, templesAtom} from './state/state';
+import {Temple} from '../../../../shared/src/types/Temple';
 
 const Card = styled.TouchableOpacity({
   border: 0.1,
@@ -37,7 +39,9 @@ type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
 
 const Temples = () => {
   const {t} = useTranslation(NS.SCREEN.TEMPLES);
-  const {fetchTemples, isLoading, addTemple, temples} = useTemples();
+  const {fetchTemples, addTemple} = useTemples();
+  const isLoading = useRecoilValue(isLoadingAtom);
+  const temples = useRecoilValue(templesAtom);
 
   const [newTemple, onChangeNewTemple] = useState<string | null>(null);
   const {navigate} = useNavigation<ScreenNavigationProps>();

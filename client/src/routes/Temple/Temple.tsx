@@ -1,10 +1,10 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import styled from 'styled-components/native';
+
 import Gutters from '../../common/components/Gutters/Gutters';
 import {BackIcon} from '../../common/components/Icons';
 import {TopSafeArea} from '../../common/components/Spacers/Spacer';
-
 import DailyProvider from './DailyProvider';
 import Session from './Session';
 
@@ -13,7 +13,7 @@ const Back = styled.TouchableOpacity({
   height: 40,
 });
 
-const Video = () => {
+const Temple = () => {
   const {goBack} = useNavigation();
 
   return (
@@ -31,4 +31,4 @@ const Video = () => {
   );
 };
 
-export default Video;
+export default Temple;

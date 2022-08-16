@@ -14,7 +14,6 @@ import {B3} from '../../common/components/Typography/Text/Text';
 
 import Home from '../../routes/Home/Home';
 import Profile from '../../routes/Profile/Profile';
-// import Video from '../../routes/Video/Video';
 
 import NS from '../i18n/constants/namespaces';
 import {FilmCameraIcon} from '../../common/components/Icons/FilmCamera/FilmCamera';

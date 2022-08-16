@@ -2,14 +2,8 @@ import {firestore} from 'firebase-admin';
 import 'firebase-functions';
 import {onRequest} from 'firebase-functions/v2/https';
 
+import {Temple} from '../../../shared/src/types/Temple';
 import {createRoom} from '../lib/daily';
-
-export type Temple = {
-  id: string;
-  name: string;
-  url: string;
-  active: boolean;
-};
 
 const TEMPLES_COLLECTION = 'temples';
 

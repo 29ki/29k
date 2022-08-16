@@ -1,12 +1,5 @@
 import {TEMPLE_ENDPOINT} from 'config';
-
-// TODO: move to shared? and use it also on functions/src/room/index.ts
-export type Temple = {
-  id: string;
-  name: string;
-  url: string;
-  active: boolean;
-};
+import {Temple} from '../../../../../shared/src/types/Temple';
 
 export const addTemple = async (name: string): Promise<Temple> => {
   try {
@@ -18,13 +11,5 @@ export const addTemple = async (name: string): Promise<Temple> => {
     return temple;
   } catch (cause) {
     throw new Error('Could not create a room', {cause});
-  }
-};
-
-export const fetchTemples = async (): Promise<Temple[]> => {
-  try {
-    return (await fetch(TEMPLE_ENDPOINT)).json();
-  } catch (cause) {
-    throw new Error('Could not fetch temples', {cause});
   }
 };

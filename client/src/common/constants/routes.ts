@@ -17,7 +17,7 @@ export const NAVIGATORS: Routes = {
 export const ROUTES: Routes = {
   HOME: 'Home',
   PROFILE: 'Profile',
-  VIDEO: 'Video',
+  TEMPLE: 'Temple',
   KILL_SWITCH: 'KillSwitch',
   BREATHING: 'Breathing',
   TEMPLES: 'Temples',

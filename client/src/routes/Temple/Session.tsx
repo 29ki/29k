@@ -13,12 +13,12 @@ import {
 } from '@daily-co/react-native-daily-js';
 import styled from 'styled-components/native';
 
-import {DailyContext} from './DailyProvider';
 import {
   selectedParticipantId,
   videoSharingFields,
   participantsSelector,
   selectedParticipantSelector,
+  templeAtom,
 } from './state/state';
 import {RouteProp, useRoute} from '@react-navigation/native';
 
@@ -30,8 +30,9 @@ import {COLORS} from '../../common/constants/colors';
 import MeetingToggleButton from './Buttons/MeetingToggleButton';
 import {B1} from '../../common/components/Typography/Text/Text';
 import {ScreenProps} from '../../common/constants/routes';
-import {ContentState} from '../../lib/temples/state/state';
-import useTemples from '../../lib/temples/hooks/useTemples';
+import useTemple from './hooks/useTemple';
+import {DailyContext} from './DailyProvider';
+import {Temple} from '../../../../shared/src/types/Temple';
 
 const LoadingView = styled.View({
   flex: 1,
@@ -97,7 +98,7 @@ const TouchableMediaView = ({
   </TouchableOpacity>
 );
 
-const Content = ({state}: {state: ContentState}) => (
+const Content = ({state}: {state: Temple}) => (
   <B1>{JSON.stringify(state, null, 2)}</B1>
 );
 
@@ -112,11 +113,12 @@ const Session = () => {
     hasVideo,
   } = useContext(DailyContext);
   const {
-    params: {templeId, url},
+    params: {templeId},
   } = useRoute<RouteProp<ScreenProps, 'Video'>>();
 
-  const {subscribeTemple, contentState} = useTemples();
+  const {subscribeTemple} = useTemple();
 
+  const temple = useRecoilValue(templeAtom);
   const participants = useRecoilValue(participantsSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
   const isJoined = useRecoilValue(videoSharingFields('isJoined'));
@@ -124,10 +126,15 @@ const Session = () => {
   const setSelectedParticipantId = useSetRecoilState(selectedParticipantId);
 
   useEffect(() => {
-    prepareMeeting(url);
+    if (temple?.url) {
+      prepareMeeting(temple.url);
+    }
+  }, [temple?.url, prepareMeeting]);
+
+  useEffect(() => {
     const unsubscribe = subscribeTemple(templeId);
     return unsubscribe;
-  }, [prepareMeeting, subscribeTemple, templeId, url]);
+  }, [prepareMeeting, subscribeTemple, templeId]);
 
   useEffect(() => {
     if (!isJoined) {
@@ -158,8 +165,8 @@ const Session = () => {
       <ScreenView>
         <MainViewContainer>
           <Spotlight>
-            {contentState?.active && !selectedParticipant && (
-              <Content state={contentState} />
+            {temple?.active && !selectedParticipant && (
+              <Content state={temple} />
             )}
             {selectedParticipant && (
               <SpotlightVideo>

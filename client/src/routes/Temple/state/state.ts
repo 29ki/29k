@@ -1,6 +1,7 @@
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import {prop, uniqBy, values} from 'ramda';
 import {atom, selector, selectorFamily} from 'recoil';
+import {Temple} from '../../../../../shared/src/types/Temple';
 
 const NAMESPACE = 'VideoSharing';
 
@@ -57,4 +58,9 @@ export const videoSharingFields = selectorFamily({
     field =>
     ({set}, newValue) =>
       set(videoSharingAtom, prevState => ({...prevState, [field]: newValue})),
+});
+
+export const templeAtom = atom<Temple | null>({
+  key: NAMESPACE,
+  default: null,
 });
