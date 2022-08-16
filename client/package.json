@@ -12,12 +12,12 @@
     "clean": "react-native-clean-project",
     "ios": "react-native run-ios --scheme dev",
     "postinstall": "if [ -x \"$(command -v pod)\" ]; then cd ios && pod install; fi",
-    "start": "yarn build:content && react-native start",
+    "start": "source ./scripts/getGitCommitShort.sh && yarn build:content && react-native start",
     "test:jest": "jest",
     "test:lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test:ts": "tsc --noEmit",
     "test:version": "./scripts/testIfVersionNeedsBump.sh",
-    "test": "yarn build:content && yarn test:version && yarn test:ts && yarn test:lint && yarn test:jest"
+    "test": "source ./scripts/getGitCommitShort.sh && yarn build:content && yarn test:version && yarn test:ts && yarn test:lint && yarn test:jest"
   },
   "dependencies": {
     "@daily-co/react-native-daily-js": "^0.25.0",
