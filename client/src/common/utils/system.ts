@@ -1,6 +1,7 @@
 import {Platform} from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import codePush from 'react-native-code-push';
+import {GIT_COMMIT_SHORT} from 'config';
 
 export const getBundleVersion = async () => {
   const update = await codePush.getUpdateMetadata();
@@ -22,4 +23,5 @@ export const getDeviceInfo = async () => ({
   osVersion: Platform.Version,
   nativeVersion: DeviceInfo.getVersion(),
   bundleVersion: await getBundleVersion(),
+  gitCommit: GIT_COMMIT_SHORT,
 });
