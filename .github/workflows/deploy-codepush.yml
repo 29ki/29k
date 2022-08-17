@@ -105,4 +105,5 @@ jobs:
           --release-name $GIT_COMMIT_SHORT
 
       - name: Associate Commits to Sentry Release
+        working-directory: ./client
         run: yarn sentry-cli releases set-commits --auto $GIT_COMMIT_SHORT
