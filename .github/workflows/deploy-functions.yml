@@ -20,11 +20,6 @@ jobs:
         with:
           node-version: 16.x
 
-      - name: Output secrets to env
-        run: ./.github/workflows/scripts/outputSecretsToEnv.sh
-        env:
-          secrets: ${{ toJSON(secrets) }}
-
       - name: Create Dotenv File
         uses: SpicyPizza/create-envfile@v1.3
         with:
@@ -65,8 +60,8 @@ jobs:
       - name: Deploy Functions
         run: >
           yarn firebase deploy
-          --project "${{ secrets.FIREBASE_PROJECT }}" 
-          --token "${{ secrets.FIREBASE_TOKEN }}"
+          --project ${{ secrets.FIREBASE_PROJECT }}
+          --token ${{ secrets.FIREBASE_TOKEN }}
           --only firestore,functions
           --non-interactive
           --force
