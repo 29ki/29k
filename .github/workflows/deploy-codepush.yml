@@ -32,6 +32,19 @@ jobs:
         env:
           secrets: ${{ toJSON(secrets) }}
 
+      - name: Create Dotenv File
+        uses: actually-colab/github-action-create-env-file@v2.3
+        with:
+          envkey_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+          envkey_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          envkey_IOS_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.IOS_CODE_PUSH_DEPLOYMENT_KEY }}
+          envkey_ANDROID_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.ANDROID_CODE_PUSH_DEPLOYMENT_KEY }}
+          envkey_KILL_SWITCH_ENDPOINT: ${{ secrets.KILL_SWITCH_ENDPOINT }}
+          envkey_CALL_ENDPOINT: ${{ secrets.CALL_ENDPOINT }}
+
+          directory: ./client
+          file_name: .env
+
       - name: Cache Client Dependencies
         id: cache-client-node-modules
         uses: actions/cache@v2
