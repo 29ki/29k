@@ -1,5 +1,4 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import {Spacer16} from '../Spacers/Spacer';
@@ -7,6 +6,7 @@ import {Spacer16} from '../Spacers/Spacer';
 import Button from './Button';
 import IconButton from './IconButton/IconButton';
 import {HomeIcon} from '../Icons/Home/Home';
+import styled from 'styled-components';
 
 export const AllButtons = () => (
   <ScreenWrapper>
@@ -23,18 +23,14 @@ export const Buttons = () => (
   </ScreenWrapper>
 );
 
-const IconWithBackgroundStyle = StyleSheet.create({
-  image: {backgroundColor: 'black'},
+const IconButtonBlack = styled(IconButton)({
+  backgroundColor: 'black',
 });
 
 export const IconButtons = () => (
   <ScreenWrapper>
     <IconButton Icon={HomeIcon} fill="black" />
     <Spacer16 />
-    <IconButton
-      Icon={HomeIcon}
-      fill="white"
-      style={IconWithBackgroundStyle.image}
-    />
+    <IconButtonBlack Icon={HomeIcon} fill="white" />
   </ScreenWrapper>
 );

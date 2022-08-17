@@ -1,9 +1,8 @@
-import {StyleSheet} from 'react-native';
 import {COLORS} from '../../../constants/colors';
 import {SPACINGS} from '../../../constants/spacings';
 import baseStyles from '../styles';
 
-const styles = StyleSheet.create({
+const styles = {
   heading1: baseStyles.H1,
   heading2: baseStyles.H2,
   heading3: baseStyles.H3,
@@ -46,6 +45,6 @@ const styles = StyleSheet.create({
     marginBottom: 25,
     backgroundColor: COLORS.GREY800,
   },
-});
+};
 
 export default styles;
