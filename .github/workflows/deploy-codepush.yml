@@ -11,8 +11,6 @@ on:
         type: string
 
 env:
-  CODEPUSH_IOS_APP: 29k.org/29k-Cupcake-Android
-  CODEPUSH_ANDROID_APP: 29k.org/29k-Cupcake-Android
   BUILD_DIR: ./build
   SOURCEMAPS_DIR: ./build/sourcemaps
 
@@ -63,7 +61,7 @@ jobs:
         if: inputs.platform == 'android'
         run: >
           yarn appcenter codepush release-react
-          --app $CODEPUSH_ANDROID_APP
+          --app $ANDROID_CODE_PUSH_PROJECT
           --deployment-name ${{ inputs.environment }}
           --output-dir $BUILD_DIR
           --sourcemap-output-dir $SOURCEMAPS_DIR
@@ -74,7 +72,7 @@ jobs:
         if: inputs.platform == 'ios'
         run: >
           yarn appcenter codepush release-react
-          --app $CODEPUSH_IOS_APP
+          --app $IOS_CODE_PUSH_PROJECT
           --deployment-name ${{ inputs.environment }}
           --plist-file ./ios/Supporting/Info.plist
           --xcode-project-file ./ios/twentyninek.xcodeproj
@@ -87,7 +85,7 @@ jobs:
         if: inputs.platform == 'android'
         run: >
           yarn sentry-cli react-native appcenter
-          $CODEPUSH_ANDROID_APP android
+          $ANDROID_CODE_PUSH_PROJECT android
           $BUILD_DIR/CodePush $SOURCEMAPS_DIR
           --deployment ${{ inputs.environment }}
           --dist ${{ inputs.environment }}
@@ -98,7 +96,7 @@ jobs:
         if: inputs.platform == 'ios'
         run: >
           yarn sentry-cli react-native appcenter
-          $CODEPUSH_IOS_APP ios
+          $IOS_CODE_PUSH_PROJECT ios
           $BUILD_DIR/CodePush $SOURCEMAPS_DIR
           --deployment ${{ inputs.environment }}
           --dist ${{ inputs.environment }}
