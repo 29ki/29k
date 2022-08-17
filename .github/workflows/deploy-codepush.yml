@@ -65,8 +65,8 @@ jobs:
           yarn appcenter codepush release-react
           --app $CODEPUSH_ANDROID_APP
           --deployment-name ${{ inputs.environment }}
-          --output-dir $BUILD_DIR \
-          --sourcemap-output-dir $SOURCEMAPS_DIR \
+          --output-dir $BUILD_DIR
+          --sourcemap-output-dir $SOURCEMAPS_DIR
           --disable-duplicate-release-error
 
       - name: Codepush iOS
