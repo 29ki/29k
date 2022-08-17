@@ -33,7 +33,7 @@ jobs:
           secrets: ${{ toJSON(secrets) }}
 
       - name: Create Dotenv File
-        uses: actually-colab/github-action-create-env-file@v2.3
+        uses: SpicyPizza/create-envfile@v1.3
         with:
           envkey_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
           envkey_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
