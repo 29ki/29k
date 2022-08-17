@@ -19,6 +19,8 @@ jobs:
       BUILD_DIR: ./build
       SOURCEMAPS_DIR: ./build/sourcemaps
       APPCENTER_ACCESS_TOKEN: ${{ secrets.APPCENTER_ACCESS_TOKEN }}
+      ANDROID_CODE_PUSH_PROJECT: ${{ secrets.ANDROID_CODE_PUSH_PROJECT }}
+      IOS_CODE_PUSH_PROJECT: ${{ secrets.IOS_CODE_PUSH_PROJECT }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
       SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
