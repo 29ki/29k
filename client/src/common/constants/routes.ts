@@ -4,7 +4,7 @@ export type ScreenProps = {
   KillSwitch: undefined;
   Tabs: undefined;
   Breathing: undefined;
-  Video: {url: string; templeId: string};
+  Temple: {templeId: string};
   Temples: undefined;
 };
 

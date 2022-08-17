@@ -12,7 +12,7 @@ type VideoSharingState = {
 };
 
 export const videoSharingAtom = atom<VideoSharingState>({
-  key: NAMESPACE,
+  key: `${NAMESPACE}/videoSharing`,
   default: {
     isLoading: false,
     isStarted: false,
@@ -61,6 +61,6 @@ export const videoSharingFields = selectorFamily({
 });
 
 export const templeAtom = atom<Temple | null>({
-  key: NAMESPACE,
+  key: `${NAMESPACE}/temple`,
   default: null,
 });

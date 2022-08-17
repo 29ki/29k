@@ -6,7 +6,7 @@ import {useRecoilValue} from 'recoil';
 import {killSwitchFields} from '../killSwitch/state/state';
 import Tabs from './Tabs';
 import Breathing from '../../routes/Breathing/Breathing';
-import Temple from '../../routes/temple/Temple';
+import Temple from '../../routes/Temple/Temple';
 
 const Stack = createNativeStackNavigator<ScreenProps>();
 

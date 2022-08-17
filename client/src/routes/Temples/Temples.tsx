@@ -47,10 +47,7 @@ const Temples = () => {
   const {navigate} = useNavigation<ScreenNavigationProps>();
 
   const renderTemple = ({item}: ListRenderItemInfo<Temple>) => (
-    <Card
-      onPress={() =>
-        navigate(ROUTES.VIDEO, {templeId: item.id, url: item.url})
-      }>
+    <Card onPress={() => navigate(ROUTES.TEMPLE, {templeId: item.id})}>
       <B1>{item.name}</B1>
     </Card>
   );

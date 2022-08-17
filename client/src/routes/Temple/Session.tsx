@@ -114,7 +114,7 @@ const Session = () => {
   } = useContext(DailyContext);
   const {
     params: {templeId},
-  } = useRoute<RouteProp<ScreenProps, 'Video'>>();
+  } = useRoute<RouteProp<ScreenProps, 'Temple'>>();
 
   const {subscribeTemple} = useTemple();
 
