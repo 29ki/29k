@@ -78,30 +78,30 @@ jobs:
           --deployment-name ${{ inputs.environment }}
           --plist-file ./ios/Supporting/Info.plist
           --xcode-project-file ./ios/twentyninek.xcodeproj
-          --output-dir $BUILD_DIR \
-          --sourcemap-output-dir $SOURCEMAPS_DIR \
+          --output-dir $BUILD_DIR
+          --sourcemap-output-dir $SOURCEMAPS_DIR
           --disable-duplicate-release-error
 
       - name: Upload Android Source Maps to Sentry
         working-directory: ./client
         if: inputs.platform == 'android'
         run: >
-          yarn sentry-cli react-native appcenter \
-            $CODEPUSH_ANDROID_APP android \
-            $BUILD_DIR/CodePush $SOURCEMAPS_DIR \
-            --deployment ${{ inputs.environment }} \
-            --dist ${{ inputs.environment }} \
-            --release-name $GIT_COMMIT_SHORT
+          yarn sentry-cli react-native appcenter
+          $CODEPUSH_ANDROID_APP android
+          $BUILD_DIR/CodePush $SOURCEMAPS_DIR
+          --deployment ${{ inputs.environment }}
+          --dist ${{ inputs.environment }}
+          --release-name $GIT_COMMIT_SHORT
 
       - name: Upload iOS Source Maps to Sentry
         working-directory: ./client
         if: inputs.platform == 'ios'
         run: >
-          yarn sentry-cli react-native appcenter \
-          $CODEPUSH_IOS_APP ios \
-          $BUILD_DIR/CodePush $SOURCEMAPS_DIR \
-          --deployment ${{ inputs.environment }} \
-          --dist ${{ inputs.environment }} \
+          yarn sentry-cli react-native appcenter
+          $CODEPUSH_IOS_APP ios
+          $BUILD_DIR/CodePush $SOURCEMAPS_DIR
+          --deployment ${{ inputs.environment }}
+          --dist ${{ inputs.environment }}
           --release-name $GIT_COMMIT_SHORT
 
       - name: Associate Commits to Sentry Release
