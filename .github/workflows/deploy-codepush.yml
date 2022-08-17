@@ -10,6 +10,12 @@ on:
         required: true
         type: string
 
+env:
+  CODEPUSH_IOS_APP: 29k.org/29k-Cupcake-Android
+  CODEPUSH_ANDROID_APP: 29k.org/29k-Cupcake-Android
+  BUILD_DIR: ./build
+  SOURCEMAPS_DIR: ./build/sourcemaps
+
 jobs:
   deploy:
     name: Deploy
@@ -44,24 +50,59 @@ jobs:
         working-directory: ./content
         run: yarn build
 
+      - name: Prepare Build Directory
+        working-directory: ./client
+        run: mkdir -p $SOURCEMAPS_DIR
+
+      - name: Prepare $GIT_COMMIT_SHORT
+        working-directory: ./client
+        run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
+
       - name: Codepush Android
         working-directory: ./client
         if: inputs.platform == 'android'
         run: >
-          . ./scripts/getGitCommitShort.sh &&
           yarn appcenter codepush release-react
-          --app 29k.org/29k-Cupcake-Android
+          --app $CODEPUSH_ANDROID_APP
           --deployment-name ${{ inputs.environment }}
+          --output-dir $BUILD_DIR \
+          --sourcemap-output-dir $SOURCEMAPS_DIR \
           --disable-duplicate-release-error
 
       - name: Codepush iOS
         working-directory: ./client
         if: inputs.platform == 'ios'
         run: >
-          . ./scripts/getGitCommitShort.sh &&
           yarn appcenter codepush release-react
-          --app 29k.org/29k-Cupcake-iOS
+          --app $CODEPUSH_IOS_APP
           --deployment-name ${{ inputs.environment }}
           --plist-file ./ios/Supporting/Info.plist
           --xcode-project-file ./ios/twentyninek.xcodeproj
+          --output-dir $BUILD_DIR \
+          --sourcemap-output-dir $SOURCEMAPS_DIR \
           --disable-duplicate-release-error
+
+      - name: Upload Android Source Maps to Sentry
+        working-directory: ./client
+        if: inputs.platform == 'android'
+        run: >
+          yarn sentry-cli react-native appcenter \
+            $CODEPUSH_ANDROID_APP android \
+            $BUILD_DIR/CodePush $SOURCEMAPS_DIR \
+            --deployment ${{ inputs.environment }} \
+            --dist ${{ inputs.environment }} \
+            --release-name $GIT_COMMIT_SHORT
+
+      - name: Upload iOS Source Maps to Sentry
+        working-directory: ./client
+        if: inputs.platform == 'ios'
+        run: >
+          yarn sentry-cli react-native appcenter \
+          $CODEPUSH_IOS_APP ios \
+          $BUILD_DIR/CodePush $SOURCEMAPS_DIR \
+          --deployment ${{ inputs.environment }} \
+          --dist ${{ inputs.environment }} \
+          --release-name $GIT_COMMIT_SHORT
+
+      - name: Associate Commits to Sentry Release
+        run: yarn sentry-cli releases set-commits --auto $GIT_COMMIT_SHORT
