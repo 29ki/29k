@@ -10,15 +10,19 @@ on:
         required: true
         type: string
 
-env:
-  BUILD_DIR: ./build
-  SOURCEMAPS_DIR: ./build/sourcemaps
-
 jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-20.04
     environment: client-${{ inputs.environment }}
+    env:
+      BUILD_DIR: ./build
+      SOURCEMAPS_DIR: ./build/sourcemaps
+      APPCENTER_ACCESS_TOKEN: ${{ secrets.APPCENTER_ACCESS_TOKEN }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+
     steps:
       - uses: actions/checkout@v2
 
@@ -26,11 +30,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-
-      - name: Output secrets to env
-        run: ./.github/workflows/scripts/outputSecretsToEnv.sh
-        env:
-          secrets: ${{ toJSON(secrets) }}
 
       - name: Create Dotenv File
         uses: SpicyPizza/create-envfile@v1.3
