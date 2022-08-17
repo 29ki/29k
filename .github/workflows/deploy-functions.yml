@@ -25,6 +25,16 @@ jobs:
         env:
           secrets: ${{ toJSON(secrets) }}
 
+      - name: Create Dotenv File
+        uses: actually-colab/github-action-create-env-file@v2.3
+        with:
+          envkey_DAILY_API_KEY: ${{ secrets.DAILY_API_KEY }}
+          envkey_DAILY_API_URL: ${{ secrets.DAILY_API_URL }}
+          envkey_DAILY_API_VERSION: ${{ secrets.DAILY_API_VERSION }}
+
+          directory: ./functions
+          file_name: .env
+
       - name: Cache Root Dependencies
         id: cache-root-node-modules
         uses: actions/cache@v2
