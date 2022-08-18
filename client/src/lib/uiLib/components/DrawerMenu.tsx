@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import {mapObjIndexed, mergeAll, values} from 'ramda';
-import {Text, ScrollView, Button, View} from 'react-native';
+import {Text, Button, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {
   createDrawerNavigator,
