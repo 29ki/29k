@@ -7,7 +7,7 @@ import {
   DrawerContentComponentProps,
 } from '@react-navigation/drawer';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useUiLib} from '../hooks/useUiLib';
@@ -18,7 +18,7 @@ const Drawer = createDrawerNavigator();
 
 const SafeAreaViewWrapper = styled(SafeAreaView)({flex: 1});
 
-const ScrollViewWrapper = styled(ScrollView)({flex: 1});
+const ScrollViewWrapper = styled.ScrollView({flex: 1});
 
 const MenuWrapper = styled(TouchableOpacity)((props: {active: boolean}) => ({
   paddingVertical: 5,
