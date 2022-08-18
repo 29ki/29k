@@ -1,13 +1,13 @@
 import React, {Children} from 'react';
 import {splitEvery} from 'ramda';
-import {StyleSheet, View} from 'react-native';
-import styled from 'styled-components';
+import {StyleSheet} from 'react-native';
+import styled from 'styled-components/native';
 
-const Flex1 = styled(View)({
+const Flex1 = styled.View({
   flex: 1,
 });
 
-const Thumb = styled(View)((props: {isThumbMode: boolean}) =>
+const Thumb = styled.View((props: {isThumbMode: boolean}) =>
   props.isThumbMode
     ? {
         overflow: 'hidden',
@@ -35,7 +35,7 @@ const ThumbContainer = styled(Flex1)(
         }
       : {},
 );
-const ViewRow = styled(View)({
+const ViewRow = styled.View({
   flexDirection: 'row',
   flex: 1,
 });

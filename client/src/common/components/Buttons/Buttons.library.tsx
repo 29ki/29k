@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components/native';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import {Spacer16} from '../Spacers/Spacer';
@@ -6,7 +7,6 @@ import {Spacer16} from '../Spacers/Spacer';
 import Button from './Button';
 import IconButton from './IconButton/IconButton';
 import {HomeIcon} from '../Icons/Home/Home';
-import styled from 'styled-components';
 
 export const AllButtons = () => (
   <ScreenWrapper>
