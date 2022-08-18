@@ -20,10 +20,15 @@ jobs:
         with:
           node-version: 16.x
 
-      - name: Output secrets to env
-        run: ./.github/workflows/scripts/outputSecretsToEnv.sh
-        env:
-          secrets: ${{ toJSON(secrets) }}
+      - name: Create Dotenv File
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_DAILY_API_KEY: ${{ secrets.DAILY_API_KEY }}
+          envkey_DAILY_API_URL: ${{ secrets.DAILY_API_URL }}
+          envkey_DAILY_API_VERSION: ${{ secrets.DAILY_API_VERSION }}
+
+          directory: ./functions
+          file_name: .env
 
       - name: Cache Root Dependencies
         id: cache-root-node-modules
@@ -55,8 +60,8 @@ jobs:
       - name: Deploy Functions
         run: >
           yarn firebase deploy
-          --project "${{ secrets.FIREBASE_PROJECT }}" 
-          --token "${{ secrets.FIREBASE_TOKEN }}"
+          --project ${{ secrets.FIREBASE_PROJECT }}
+          --token ${{ secrets.FIREBASE_TOKEN }}
           --only firestore,functions
           --non-interactive
           --force

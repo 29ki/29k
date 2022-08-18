@@ -20,11 +20,6 @@ jobs:
         with:
           node-version: 16.x
 
-      - name: Output secrets to env
-        run: ./.github/workflows/scripts/outputSecretsToEnv.sh
-        env:
-          secrets: ${{ toJSON(secrets) }}
-
       - name: Cache Root Dependencies
         id: cache-root-node-modules
         uses: actions/cache@v2
@@ -55,7 +50,7 @@ jobs:
       - name: Deploy CMS
         run: >
           yarn firebase deploy
-          --project "${{ secrets.FIREBASE_PROJECT }}" 
-          --token "${{ secrets.FIREBASE_TOKEN }}"
+          --project ${{ secrets.FIREBASE_PROJECT }}
+          --token ${{ secrets.FIREBASE_TOKEN }}
           --only hosting:cupcake-29k-cms
           --non-interactive
