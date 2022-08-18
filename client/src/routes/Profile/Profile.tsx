@@ -1,5 +1,7 @@
 import React from 'react';
 import {useRecoilValue} from 'recoil';
+import {useTranslation} from 'react-i18next';
+
 import styled from 'styled-components/native';
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
@@ -7,10 +9,10 @@ import {Spacer16, Spacer48} from '../../common/components/Spacers/Spacer';
 import {B1} from '../../common/components/Typography/Text/Text';
 import useCheckForUpdate from '../../lib/codePush/hooks/useCheckForUpdate';
 import useClearUpdates from '../../lib/codePush/hooks/useClearUpdates';
+import {useSignOutUser} from '../../lib/user/hooks/useSignOutUser';
 import {useUiLib} from '../../lib/uiLib/hooks/useUiLib';
 import {userAtom} from '../../lib/user/state/state';
 import {LANGUAGE_TAGS} from '../../../../shared/src/constants/i18n';
-import {useTranslation} from 'react-i18next';
 import {H3} from '../../common/components/Typography/Heading/Heading';
 import NS from '../../lib/i18n/constants/namespaces';
 
@@ -31,6 +33,7 @@ const Profile = () => {
   const {toggle: toggleUiLib} = useUiLib();
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
+  const {signOut} = useSignOutUser();
 
   return (
     <Wrapper>
@@ -60,6 +63,8 @@ const Profile = () => {
             </Button>
           ))}
         </Row>
+        <Spacer48 />
+        <Button onPress={signOut}>{t('logout')}</Button>
       </Gutters>
     </Wrapper>
   );

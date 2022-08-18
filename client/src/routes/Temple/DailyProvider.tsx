@@ -12,12 +12,15 @@ import Daily, {
   DailyCall,
 } from '@daily-co/react-native-daily-js';
 import {useResetRecoilState, useSetRecoilState} from 'recoil';
-import {videoSharingFields, participantsAtom} from './state/state';
-import {getCallUrl} from '../../lib/api/call';
+import {
+  videoSharingFields,
+  participantsAtom,
+  videoSharingAtom,
+} from './state/state';
 
 type DailyProviderTypes = {
   call?: DailyCall;
-  prepareMeeting: () => void;
+  prepareMeeting: (url: string) => void;
   startMeeting: () => void;
   leaveMeeting: () => void;
   toggleAudio: () => void;
@@ -42,11 +45,14 @@ const DailyProvider: React.FC = ({children}) => {
   const [hasVideo, setHasVideo] = useState(true);
 
   const setIsLoading = useSetRecoilState(videoSharingFields('isLoading'));
+  const setIsJoined = useSetRecoilState(videoSharingFields('isJoined'));
   const setParticipants = useSetRecoilState(participantsAtom);
-  const resetVideoCall = useResetRecoilState(participantsAtom);
+  const resetParticipants = useResetRecoilState(participantsAtom);
+  const resetVideoCallState = useResetRecoilState(videoSharingAtom);
 
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(() => {
     const onJoinedMeeting = ({participants}: DailyEventObject) => {
+      setIsJoined(true);
       setParticipants(participants);
     };
 
@@ -77,7 +83,7 @@ const DailyProvider: React.FC = ({children}) => {
       //   ['network-quality-change', connect(networkQualityChange)],
       //   ['error', error => dispatch(setError(error.errorMsg))],
     ];
-  }, [setParticipants]);
+  }, [setParticipants, setIsJoined]);
 
   const leaveMeeting = useCallback(async () => {
     if (!daily) {
@@ -90,26 +96,29 @@ const DailyProvider: React.FC = ({children}) => {
       daily.off(event, handler);
     });
 
-    resetVideoCall();
-  }, [daily, eventHandlers, resetVideoCall]);
+    resetParticipants();
+    resetVideoCallState();
+  }, [daily, eventHandlers, resetParticipants, resetVideoCallState]);
 
   useEffect(
     () => () => {
-      leaveMeeting();
       daily?.destroy();
     },
-    [daily, leaveMeeting],
+    [daily],
   );
-  const prepareMeeting = useCallback(async () => {
-    if (daily.meetingState() !== 'joined-meeting') {
-      setIsLoading(true);
-      const url = await getCallUrl();
-      await daily.preAuth({
-        url, // TODO should fetch also token from function in the future
-      });
-      setIsLoading(false);
-    }
-  }, [daily, setIsLoading]);
+  const prepareMeeting = useCallback(
+    async url => {
+      if (daily.meetingState() !== 'joined-meeting') {
+        setIsLoading(true);
+
+        await daily.preAuth({
+          url, // TODO should fetch also token from function in the future
+        });
+        setIsLoading(false);
+      }
+    },
+    [daily, setIsLoading],
+  );
 
   const toggleAudio = () => {
     if (!daily) {

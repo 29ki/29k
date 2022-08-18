@@ -19,12 +19,15 @@
     "test": "yarn build:content && yarn test:ts && yarn test:lint"
   },
   "dependencies": {
+    "dotenv": "^16.0.1",
     "firebase-admin": "^11.0.1",
     "firebase-functions": "^3.18.0",
+    "node-fetch": "2",
     "ramda": "^0.28.0",
     "semver": "^7.3.7"
   },
   "devDependencies": {
+    "@types/node-fetch": "2",
     "@types/ramda": "^0.28.15",
     "@types/semver": "^7.3.12",
     "@typescript-eslint/eslint-plugin": "^5.33.0",

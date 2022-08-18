@@ -15,9 +15,9 @@
 	<key>BUNDLE_ID</key>
 	<string>org.twentyninek.app.cupcake.dev</string>
 	<key>PROJECT_ID</key>
-	<string>mockproject-1234</string>
+	<string>demo-29k-cupcake</string>
 	<key>STORAGE_BUCKET</key>
-	<string>mockproject-1234.appspot.com</string>
+	<string>demo-29k-cupcake.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>

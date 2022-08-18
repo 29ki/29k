@@ -14,10 +14,10 @@ import {B3} from '../../common/components/Typography/Text/Text';
 
 import Home from '../../routes/Home/Home';
 import Profile from '../../routes/Profile/Profile';
-import Video from '../../routes/Video/Video';
 
 import NS from '../i18n/constants/namespaces';
 import {FilmCameraIcon} from '../../common/components/Icons/FilmCamera/FilmCamera';
+import Temples from '../../routes/Temples/Temples';
 
 const Tab = createBottomTabNavigator();
 
@@ -74,8 +74,8 @@ const Tabs = () => {
         options={getTabOptions(ProfileIcon, t('profile'))}
       />
       <Tab.Screen
-        name={ROUTES.VIDEO}
-        component={Video}
+        name={ROUTES.TEMPLES}
+        component={Temples}
         options={getTabOptions(FilmCameraIcon, t('video'))}
       />
     </Tab.Navigator>

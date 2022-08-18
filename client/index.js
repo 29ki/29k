@@ -1,5 +1,6 @@
 import {AppRegistry, LogBox} from 'react-native';
 import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
 
 import App from './src/App';
 
@@ -18,6 +19,7 @@ LogBox.ignoreLogs([
 
 if (__DEV__) {
   auth().useEmulator('http://localhost:9099');
+  firestore().useEmulator('localhost', 8080);
 }
 
 AppRegistry.registerComponent('twentyninek', () => App);

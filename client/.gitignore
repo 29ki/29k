@@ -69,9 +69,3 @@ google-play-service.json
 
 # Sentry
 /sentry.properties
-
-# Environments
-.env
-.env.dev
-.env.staging
-.env.production

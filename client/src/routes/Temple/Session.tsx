@@ -12,23 +12,26 @@ import {
 } from '@daily-co/react-native-daily-js';
 import styled from 'styled-components/native';
 
-import {DailyContext} from './DailyProvider';
 import {
   selectedParticipantId,
   videoSharingFields,
   participantsSelector,
   selectedParticipantSelector,
+  templeAtom,
 } from './state/state';
-import {
-  Spacer12,
-  Spacer16,
-  TopSafeArea,
-} from '../../common/components/Spacers/Spacer';
+import {RouteProp, useRoute} from '@react-navigation/native';
+
+import {Spacer12, Spacer16} from '../../common/components/Spacers/Spacer';
 import {SPACINGS} from '../../common/constants/spacings';
 import AudioToggleButton from './Buttons/AudioToggleButton';
 import VideoToggleButton from './Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
 import MeetingToggleButton from './Buttons/MeetingToggleButton';
+import {B1} from '../../common/components/Typography/Text/Text';
+import {ScreenProps} from '../../common/constants/routes';
+import useTemple from './hooks/useTemple';
+import {DailyContext} from './DailyProvider';
+import {Temple} from '../../../../shared/src/types/Temple';
 
 const LoadingView = styled.View({
   flex: 1,
@@ -94,6 +97,10 @@ const TouchableMediaView = ({
   </TouchableOpacity>
 );
 
+const Content = ({state}: {state: Temple}) => (
+  <B1>{JSON.stringify(state, null, 2)}</B1>
+);
+
 const Session = () => {
   const {
     prepareMeeting,
@@ -104,15 +111,36 @@ const Session = () => {
     hasAudio,
     hasVideo,
   } = useContext(DailyContext);
+  const {
+    params: {templeId},
+  } = useRoute<RouteProp<ScreenProps, 'Temple'>>();
 
+  const {subscribeTemple} = useTemple();
+
+  const temple = useRecoilValue(templeAtom);
   const participants = useRecoilValue(participantsSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
+  const isJoined = useRecoilValue(videoSharingFields('isJoined'));
   const selectedParticipant = useRecoilValue(selectedParticipantSelector);
   const setSelectedParticipantId = useSetRecoilState(selectedParticipantId);
 
   useEffect(() => {
-    prepareMeeting();
-  }, [prepareMeeting]);
+    if (temple?.url) {
+      prepareMeeting(temple.url);
+    }
+  }, [temple?.url, prepareMeeting]);
+
+  useEffect(() => {
+    const unsubscribe = subscribeTemple(templeId);
+    return unsubscribe;
+  }, [prepareMeeting, subscribeTemple, templeId]);
+
+  useEffect(() => {
+    if (!isJoined) {
+      return;
+    }
+    return leaveMeeting;
+  }, [isJoined, leaveMeeting]);
 
   if (isLoading) {
     return (
@@ -133,18 +161,20 @@ const Session = () => {
 
   return (
     <>
-      <TopSafeArea />
       <ScreenView>
         <MainViewContainer>
           <Spotlight>
-            <SpotlightVideo>
-              {selectedParticipant && (
+            {temple?.active && !selectedParticipant && (
+              <Content state={temple} />
+            )}
+            {selectedParticipant && (
+              <SpotlightVideo>
                 <TouchableMediaView
                   onPress={() => setSelectedParticipantId(null)}
                   item={selectedParticipant}
                 />
-              )}
-            </SpotlightVideo>
+              </SpotlightVideo>
+            )}
           </Spotlight>
           <Controls>
             <AudioToggleButton onPress={toggleAudio} active={hasAudio} />
