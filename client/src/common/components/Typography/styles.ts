@@ -38,7 +38,6 @@ export default StyleSheet.create({
     color: COLORS.GREY,
     fontSize: 20,
     lineHeight: 26,
-    padding: 1,
   },
   B2: {
     color: COLORS.GREY,
