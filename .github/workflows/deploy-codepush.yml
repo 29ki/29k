@@ -15,6 +15,16 @@ jobs:
     name: Deploy
     runs-on: ubuntu-20.04
     environment: client-${{ inputs.environment }}
+    env:
+      BUILD_DIR: ./build
+      SOURCEMAPS_DIR: ./build/sourcemaps
+      APPCENTER_ACCESS_TOKEN: ${{ secrets.APPCENTER_ACCESS_TOKEN }}
+      ANDROID_CODE_PUSH_PROJECT: ${{ secrets.ANDROID_CODE_PUSH_PROJECT }}
+      IOS_CODE_PUSH_PROJECT: ${{ secrets.IOS_CODE_PUSH_PROJECT }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+
     steps:
       - uses: actions/checkout@v2
 
@@ -23,10 +33,18 @@ jobs:
         with:
           node-version: 16.x
 
-      - name: Output secrets to env
-        run: ./.github/workflows/scripts/outputSecretsToEnv.sh
-        env:
-          secrets: ${{ toJSON(secrets) }}
+      - name: Create Dotenv File
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+          envkey_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          envkey_IOS_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.IOS_CODE_PUSH_DEPLOYMENT_KEY }}
+          envkey_ANDROID_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.ANDROID_CODE_PUSH_DEPLOYMENT_KEY }}
+          envkey_KILL_SWITCH_ENDPOINT: ${{ secrets.KILL_SWITCH_ENDPOINT }}
+          envkey_CALL_ENDPOINT: ${{ secrets.CALL_ENDPOINT }}
+
+          directory: ./client
+          file_name: .env
 
       - name: Cache Client Dependencies
         id: cache-client-node-modules
@@ -44,13 +62,23 @@ jobs:
         working-directory: ./content
         run: yarn build
 
+      - name: Prepare Build Directory
+        working-directory: ./client
+        run: mkdir -p $SOURCEMAPS_DIR
+
+      - name: Prepare $GIT_COMMIT_SHORT
+        working-directory: ./client
+        run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
+
       - name: Codepush Android
         working-directory: ./client
         if: inputs.platform == 'android'
         run: >
           yarn appcenter codepush release-react
-          --app 29k.org/29k-Cupcake-Android
+          --app $ANDROID_CODE_PUSH_PROJECT
           --deployment-name ${{ inputs.environment }}
+          --output-dir $BUILD_DIR
+          --sourcemap-output-dir $SOURCEMAPS_DIR
           --disable-duplicate-release-error
 
       - name: Codepush iOS
@@ -58,8 +86,36 @@ jobs:
         if: inputs.platform == 'ios'
         run: >
           yarn appcenter codepush release-react
-          --app 29k.org/29k-Cupcake-iOS
+          --app $IOS_CODE_PUSH_PROJECT
           --deployment-name ${{ inputs.environment }}
           --plist-file ./ios/Supporting/Info.plist
           --xcode-project-file ./ios/twentyninek.xcodeproj
+          --output-dir $BUILD_DIR
+          --sourcemap-output-dir $SOURCEMAPS_DIR
           --disable-duplicate-release-error
+
+      - name: Upload Android Source Maps to Sentry
+        working-directory: ./client
+        if: inputs.platform == 'android'
+        run: >
+          yarn sentry-cli react-native appcenter
+          $ANDROID_CODE_PUSH_PROJECT android
+          $BUILD_DIR/CodePush $SOURCEMAPS_DIR
+          --deployment ${{ inputs.environment }}
+          --dist ${{ inputs.environment }}
+          --release-name $GIT_COMMIT_SHORT
+
+      - name: Upload iOS Source Maps to Sentry
+        working-directory: ./client
+        if: inputs.platform == 'ios'
+        run: >
+          yarn sentry-cli react-native appcenter
+          $IOS_CODE_PUSH_PROJECT ios
+          $BUILD_DIR/CodePush $SOURCEMAPS_DIR
+          --deployment ${{ inputs.environment }}
+          --dist ${{ inputs.environment }}
+          --release-name $GIT_COMMIT_SHORT
+
+      - name: Associate Commits to Sentry Release
+        working-directory: ./client
+        run: yarn sentry-cli releases set-commits --auto $GIT_COMMIT_SHORT
