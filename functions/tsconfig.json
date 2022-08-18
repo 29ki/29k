@@ -6,8 +6,10 @@
     "outDir": "lib",
     "sourceMap": true,
     "strict": true,
-    "target": "es2017"
+    "target": "es2017",
+    "typeRoots": ["./types", "./node_modules/@types"]
   },
   "compileOnSave": true,
-  "include": ["src"]
+  "include": ["src"],
+  "files": ["types/index.d.ts"]
 }
