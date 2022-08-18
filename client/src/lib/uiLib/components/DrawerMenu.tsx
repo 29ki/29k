@@ -1,43 +1,40 @@
 import React, {Fragment} from 'react';
 import {mapObjIndexed, mergeAll, values} from 'ramda';
-import {Text, ScrollView, Button, View, StyleSheet} from 'react-native';
+import {Text, Button, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {
   createDrawerNavigator,
   DrawerContentComponentProps,
 } from '@react-navigation/drawer';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import styled from 'styled-components/native';
 
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useUiLib} from '../hooks/useUiLib';
 import {ComponentLibrary, ComponentList} from './UiLibRootComponent';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import {COLORS} from '../../../common/constants/colors';
 
 const Drawer = createDrawerNavigator();
 
-const styles = StyleSheet.create({
-  wrapper: {flex: 1},
-  scrollWrapper: {flex: 1},
-  topLevelItem: {
-    fontSize: 17,
-    paddingLeft: 20,
-    fontWeight: 'bold',
-  },
-  menuItem: {
-    paddingVertical: 5,
-    backgroundColor: 'transparent',
-  },
-  menuItemActive: {
-    backgroundColor: COLORS.LEAF300,
-  },
-  menuItemText: {
-    fontSize: 15,
-    paddingLeft: 40,
-    color: 'black',
-  },
-  menuItemTextActive: {
-    color: 'white',
-  },
+const SafeAreaViewWrapper = styled(SafeAreaView)({flex: 1});
+
+const ScrollViewWrapper = styled.ScrollView({flex: 1});
+
+const MenuWrapper = styled(TouchableOpacity)((props: {active: boolean}) => ({
+  paddingVertical: 5,
+  backgroundColor: props.active ? COLORS.LEAF300 : 'transparent',
+}));
+
+const MenuText = styled(Text)((props: {active: boolean}) => ({
+  fontSize: 15,
+  paddingLeft: 40,
+  color: props.active ? 'white' : 'black',
+}));
+
+const TopLevelText = styled(Text)({
+  fontSize: 17,
+  paddingLeft: 20,
+  fontWeight: 'bold',
 });
 
 const renderScreens = (imports: any) => {
@@ -57,23 +54,14 @@ const DrawerContent: (
     const navState = navigation.getState();
     const activeRouteName = navState.routes[navState.index].name;
     const renderMenuItem = (_: any, title: string) => (
-      <TouchableOpacity
+      <MenuWrapper
         key={`Menu-item-${title}`}
-        style={[
-          styles.menuItem,
-          activeRouteName === title && styles.menuItemActive,
-        ]}
+        active={activeRouteName === title}
         onPress={() => {
           navigation.navigate(title);
         }}>
-        <Text
-          style={[
-            styles.menuItemText,
-            activeRouteName === title && styles.menuItemTextActive,
-          ]}>
-          {title}
-        </Text>
-      </TouchableOpacity>
+        <MenuText active={activeRouteName === title}>{title}</MenuText>
+      </MenuWrapper>
     );
 
     const renderTopLevel = (
@@ -81,20 +69,18 @@ const DrawerContent: (
       title: string,
     ) => (
       <Fragment key={`Top-level-${title}`}>
-        <Text style={styles.topLevelItem}>{title}</Text>
+        <TopLevelText>{title}</TopLevelText>
         {values(mapObjIndexed(renderMenuItem, mergeAll(subLevel)))}
       </Fragment>
     );
 
     return (
-      <SafeAreaView style={styles.wrapper}>
-        <ScrollView
-          style={styles.scrollWrapper}
-          showsVerticalScrollIndicator={false}>
+      <SafeAreaViewWrapper>
+        <ScrollViewWrapper showsVerticalScrollIndicator={false}>
           {values(mapObjIndexed(renderTopLevel, items))}
-        </ScrollView>
+        </ScrollViewWrapper>
         <Button title="Close Library" onPress={onClose} />
-      </SafeAreaView>
+      </SafeAreaViewWrapper>
     );
   };
 

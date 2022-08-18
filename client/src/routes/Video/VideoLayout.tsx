@@ -1,36 +1,43 @@
 import React, {Children} from 'react';
 import {splitEvery} from 'ramda';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet} from 'react-native';
+import styled from 'styled-components/native';
 
-const styles = StyleSheet.create({
-  layout: {
-    flex: 1,
-  },
-  row: {
-    flexDirection: 'row',
-    flex: 1,
-  },
-  item: {flex: 1},
-  thumbContainer: {
-    position: 'absolute',
-    bottom: 116, // TODO: Allow adjustable bottom if needed for safe area
-    right: 2,
-    width: 75,
-    height: 104,
-    shadowColor: 'black',
-    shadowOffset: {width: 6, height: 0},
-    shadowOpacity: 0.34,
-    shadowRadius: 15,
-    zIndex: 2,
-  },
-  thumb: {
-    overflow: 'hidden',
-    borderRadius: 5,
-    backgroundColor: 'black',
-  },
-  hide: {
-    opacity: 0,
-  },
+const Flex1 = styled.View({
+  flex: 1,
+});
+
+const Thumb = styled.View((props: {isThumbMode: boolean}) =>
+  props.isThumbMode
+    ? {
+        overflow: 'hidden',
+        borderRadius: 5,
+        backgroundColor: 'black',
+      }
+    : {},
+);
+
+const ThumbContainer = styled(Flex1)(
+  (props: {isThumbMode: boolean; hide: boolean}) =>
+    props.isThumbMode
+      ? {
+          ...StyleSheet.absoluteFillObject,
+          bottom: 116, // TODO: Allow adjustable bottom if needed for safe area
+          right: 2,
+          width: 75,
+          height: 104,
+          shadowColor: 'black',
+          shadowOffset: {width: 6, height: 0},
+          shadowOpacity: 0.34,
+          shadowRadius: 15,
+          zIndex: 2,
+          opacity: props.hide ? 0 : 1,
+        }
+      : {},
+);
+const ViewRow = styled.View({
+  flexDirection: 'row',
+  flex: 1,
 });
 
 type VideoUiProps = {
@@ -66,33 +73,27 @@ const Row: React.FC<RowProps> = ({
   totalCount,
   showUI = true,
 }) => (
-  <View style={styles.row}>
+  <ViewRow>
     {React.Children.map(children, (item, index) => {
       const isThumbMode = totalCount === 2 && index === 0;
       return (
-        <View
-          key={index}
-          style={[
-            styles.item,
-            isThumbMode && styles.thumbContainer,
-            !showUI && isThumbMode && styles.hide,
-          ]}>
-          <View style={[isThumbMode && styles.thumb, {}]}>
+        <ThumbContainer key={index} hide={!showUI} isThumbMode={isThumbMode}>
+          <Thumb isThumbMode={isThumbMode}>
             {React.cloneElement(item as React.ReactElement, {
               respectSafeArea: !isThumbMode && rowIndex === 0,
               thumbMode: isThumbMode,
             })}
-          </View>
-        </View>
+          </Thumb>
+        </ThumbContainer>
       );
     })}
-  </View>
+  </ViewRow>
 );
 
 const VideoLayout: React.FC<VideoUiProps> = ({showUI, children}) => (
-  <View style={[styles.layout]}>
+  <Flex1>
     <MultiLayout showUI={showUI}>{children}</MultiLayout>
-  </View>
+  </Flex1>
 );
 
 export default VideoLayout;
