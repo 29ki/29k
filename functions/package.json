@@ -19,6 +19,7 @@
     "test": "yarn build:content && yarn test:ts && yarn test:lint"
   },
   "dependencies": {
+    "dotenv": "^16.0.1",
     "firebase-admin": "^11.0.1",
     "firebase-functions": "^3.18.0",
     "node-fetch": "2",
@@ -31,7 +32,6 @@
     "@types/semver": "^7.3.12",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
-    "dotenv": "^16.0.1",
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
