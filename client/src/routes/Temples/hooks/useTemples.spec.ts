@@ -77,19 +77,14 @@ describe('useTemples', () => {
         await result.current.addTemple('Temple name');
       });
 
-      expect(fetchMock).toHaveBeenCalledWith(
-        'http://localhost:5001/demo-29k-cupcake/europe-west1/temple',
-        {
-          body: JSON.stringify({name: 'Temple name'}),
-          method: 'POST',
-        },
-      );
+      expect(fetchMock).toHaveBeenCalledWith('some-temple-endpoint', {
+        body: JSON.stringify({name: 'Temple name'}),
+        method: 'POST',
+      });
 
       await promise;
 
-      expect(fetchMock).toHaveBeenCalledWith(
-        'http://localhost:5001/demo-29k-cupcake/europe-west1/temple',
-      );
+      expect(fetchMock).toHaveBeenCalledWith('some-temple-endpoint');
     });
   });
 });
