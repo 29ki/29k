@@ -1,7 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import {
   ActivityIndicator,
-  StyleSheet,
   FlatList,
   TouchableOpacity,
   ListRenderItemInfo,
@@ -75,8 +74,9 @@ const Controls = styled.View({
   justifyContent: 'space-between',
 });
 
-const style = StyleSheet.create({
-  video: {height: '100%', width: '100%'},
+const DailyMediaViewWrapper = styled(DailyMediaView)({
+  height: '100%',
+  width: '100%',
 });
 
 const TouchableMediaView = ({
@@ -87,13 +87,12 @@ const TouchableMediaView = ({
   item: DailyParticipant;
 }) => (
   <TouchableOpacity onPress={onPress}>
-    <DailyMediaView
+    <DailyMediaViewWrapper
       videoTrack={item.videoTrack ?? null}
       audioTrack={item.audioTrack ?? null}
       objectFit={'cover'}
       zOrder={item.local ? 1 : 0}
       mirror={item.local}
-      style={style.video}
     />
   </TouchableOpacity>
 );
