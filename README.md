@@ -179,13 +179,20 @@ cd client
 ./node_modules/@daily-co/react-native-webrtc/tools/downloadBitcode.sh
 ```
 
-4. Build and deploy with Fastlane
+4. Source GIT_COMMIT_SHORT env variable
+
+```
+cd client
+source ./scripts/getGitCommitShort.sh
+```
+
+5. Build and deploy with Fastlane
 
 Issues with Daily/WebRTC native libs requires the app to be built with rosetta (`arch -x86_64`) on Apple Silicon.
 
 ```
 cd client/fastlane
-<environment variables> arch -x86_64 fastlane ios app
+<environment variables> arch -x86_64 bundle exec fastlane ios app
 ```
 
 #### Android
@@ -199,11 +206,18 @@ cd client/fastlane
 | `ANDROID_PACKAGE_NAME`             | e.g `org.twentyninek.app.cupcake`, `org.twentyninek.app.cupcake.staging` or `org.twentyninek.app.cupcake.dev`                                                                |
 | `ANDROID_FLAVOR`                   | `dev`, `staging` or `production`                                                                                                                                             |
 
-3. Build and deploy with Fastlane
+3. Source GIT_COMMIT_SHORT env variable
+
+```
+cd client
+source ./scripts/getGitCommitShort.sh
+```
+
+4. Build and deploy with Fastlane
 
 ```
 cd client/fastlane
-<environment variables> fastlane android app
+<environment variables> bundle exec fastlane android app
 ```
 
 ## Translations
