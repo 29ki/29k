@@ -1,4 +1,4 @@
-import * as Router from 'koa-router';
+import Router from '@koa/router';
 import {lt, valid} from 'semver';
 import {getFakeT} from '../../lib/fakeI18Next';
 

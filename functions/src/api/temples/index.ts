@@ -1,4 +1,6 @@
-import * as Router from 'koa-router';
+import Router from '@koa/router';
+import * as yup from 'yup';
+import validator from 'koa-yup-validator';
 import {firestore} from 'firebase-admin';
 import 'firebase-functions';
 
@@ -8,6 +10,7 @@ import {createRoom} from '../../lib/daily';
 const TEMPLES_COLLECTION = 'temples';
 
 const templesRouter = new Router();
+
 templesRouter.get('/', async ctx => {
   const {response} = ctx;
 
@@ -18,7 +21,11 @@ templesRouter.get('/', async ctx => {
   ctx.body = temples;
 });
 
-templesRouter.post('/', async ctx => {
+const Temple = yup.object().shape({
+  name: yup.string().required(),
+});
+
+templesRouter.post('/', validator({body: Temple}), async ctx => {
   const {name} = ctx.request.body;
 
   const data = await createRoom(name);
