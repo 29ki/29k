@@ -12,8 +12,10 @@ We therefore shim this with the dotenv library
 import 'dotenv/config';
 import {cleanEnv, str} from 'envalid';
 
-export default cleanEnv(process.env, {
+const configValidation = {
   DAILY_API_KEY: str(),
   DAILY_API_URL: str(),
   DAILY_API_VERSION: str(),
-});
+};
+
+export default cleanEnv(process.env, configValidation);
