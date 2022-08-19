@@ -40,8 +40,7 @@ jobs:
           envkey_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           envkey_IOS_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.IOS_CODE_PUSH_DEPLOYMENT_KEY }}
           envkey_ANDROID_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.ANDROID_CODE_PUSH_DEPLOYMENT_KEY }}
-          envkey_KILL_SWITCH_ENDPOINT: ${{ secrets.KILL_SWITCH_ENDPOINT }}
-          envkey_TEMPLE_ENDPOINT: ''
+          envkey_API_ENDPOINT: ${{ secrets.API_ENDPOINT }}
 
           directory: ./client
           file_name: .env
