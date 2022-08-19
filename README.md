@@ -192,7 +192,7 @@ Issues with Daily/WebRTC native libs requires the app to be built with rosetta (
 
 ```
 cd client/fastlane
-<environment variables> arch -x86_64 fastlane ios app
+<environment variables> arch -x86_64 bundle exec fastlane ios app
 ```
 
 #### Android
@@ -217,7 +217,7 @@ source ./scripts/getGitCommitShort.sh
 
 ```
 cd client/fastlane
-<environment variables> fastlane android app
+<environment variables> bundle exec fastlane android app
 ```
 
 ## Translations
