@@ -77,14 +77,17 @@ describe('useTemples', () => {
         await result.current.addTemple('Temple name');
       });
 
-      expect(fetchMock).toHaveBeenCalledWith('some-temple-endpoint', {
+      expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/temples', {
         body: JSON.stringify({name: 'Temple name'}),
+        headers: {
+          'Content-Type': 'application/json',
+        },
         method: 'POST',
       });
 
       await promise;
 
-      expect(fetchMock).toHaveBeenCalledWith('some-temple-endpoint');
+      expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/temples');
     });
   });
 });

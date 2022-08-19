@@ -34,7 +34,7 @@ describe('useKillSwitch', () => {
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(fetchMock).toHaveBeenCalledWith(
-        'some-killswitch-endpoint?platform=some-os&platformVersion=some-os-version&version=some-version&bundleVersion=1337&language=en',
+        'some-api-endpoint/killSwitch?platform=some-os&platformVersion=some-os-version&version=some-version&bundleVersion=1337&language=en',
       );
     });
 
