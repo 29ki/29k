@@ -1,8 +1,10 @@
 import fetch from 'node-fetch';
 
-import config from '../config';
+import config from './config';
 
-const DAILY_API = `${config.DAILY_API_URL}/${config.DAILY_API_VERSION}`;
+const {DAILY_API_URL, DAILY_API_VERSION, DAILY_API_KEY} = config;
+
+const DAILY_API = `${DAILY_API_URL}/${DAILY_API_VERSION}`;
 
 // https://docs.daily.co/reference/rest-api/rooms
 type Room = {
@@ -33,7 +35,7 @@ export const createRoom = async (name: string): Promise<Room> => {
       body: JSON.stringify({name}),
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${config.DAILY_API_KEY}`,
+        Authorization: `Bearer ${DAILY_API_KEY}`,
       },
     });
 
@@ -49,7 +51,7 @@ export const getRooms = async (): Promise<Room> => {
     const res = await fetch(`${DAILY_API}/rooms`, {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${config.DAILY_API_KEY}`,
+        Authorization: `Bearer ${DAILY_API_KEY}`,
       },
     });
     const {data} = await res.json();
