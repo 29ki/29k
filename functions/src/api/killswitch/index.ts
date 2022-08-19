@@ -1,4 +1,6 @@
-import * as Router from 'koa-router';
+import Router from '@koa/router';
+import * as yup from 'yup';
+import validator from 'koa-yup-validator';
 import {lt, valid} from 'semver';
 import {getFakeT} from '../../lib/fakeI18Next';
 
@@ -46,6 +48,8 @@ const acceptedBundleVersion = (
   return bundleVersionNumber >= MIN_BUNDLE_VERSION[version][platform];
 };
 
+const router = new Router();
+
 type RequestQuery = {
   version: string;
   bundleVersion: string;
@@ -53,51 +57,59 @@ type RequestQuery = {
   language: string;
 };
 
-const router = new Router();
-export const killSwitchRouter = router.get('/', ctx => {
-  const {request, response} = ctx;
-  const {version, bundleVersion, platform, language} =
-    request.query as RequestQuery;
-
-  // We don't use the i18next library here because of slow initialization
-  const t = getFakeT(language, 'Screen.KillSwitch', undefined, translations);
-
-  if (!valid(version) || !acceptedPlatforms.includes(platform)) {
-    response.status = 400;
-    return;
-  }
-
-  if (KILL_SWITCH) {
-    response.status = 403;
-    ctx.body = {
-      image: t('maintenance.image__image'),
-      message: t('maintenance.text__markdown'),
-      permanent: false,
-    };
-    return;
-  }
-
-  if (lt(version, MIN_APP_VERSION)) {
-    response.status = 403;
-    ctx.body = {
-      image: t('update.image__image'),
-      message: t(`update.${platform}.text__markdown`),
-      button: {
-        text: t(`update.${platform}.button`),
-        link: t(`update.${platform}.link`),
-      },
-      permanent: true,
-    };
-    return;
-  }
-
-  if (!acceptedBundleVersion(platform, version, bundleVersion)) {
-    response.status = 200;
-    ctx.body = {requiresBundleUpdate: true};
-    return;
-  }
-
-  response.status = 200;
-  ctx.body = '';
-  return;
+const killSwitchQuerySchema = yup.object().shape({
+  version: yup
+    .string()
+    .test('semver', 'incorrect version', test => Boolean(valid(test)))
+    .required(),
+  platform: yup.string().oneOf(acceptedPlatforms).required(),
+  bundleVersion: yup.string(),
+  language: yup.string().required(),
 });
+
+export const killSwitchRouter = router.get(
+  '/',
+  validator({query: killSwitchQuerySchema}),
+  ctx => {
+    const {request, response} = ctx;
+    const {version, bundleVersion, platform, language} =
+      request.query as RequestQuery;
+
+    // We don't use the i18next library here because of slow initialization
+    const t = getFakeT(language, 'Screen.KillSwitch', undefined, translations);
+
+    if (KILL_SWITCH) {
+      response.status = 403;
+      ctx.body = {
+        image: t('maintenance.image__image'),
+        message: t('maintenance.text__markdown'),
+        permanent: false,
+      };
+      return;
+    }
+
+    if (lt(version, MIN_APP_VERSION)) {
+      response.status = 403;
+      ctx.body = {
+        image: t('update.image__image'),
+        message: t(`update.${platform}.text__markdown`),
+        button: {
+          text: t(`update.${platform}.button`),
+          link: t(`update.${platform}.link`),
+        },
+        permanent: true,
+      };
+      return;
+    }
+
+    if (!acceptedBundleVersion(platform, version, bundleVersion)) {
+      response.status = 200;
+      ctx.body = {requiresBundleUpdate: true};
+      return;
+    }
+
+    response.status = 200;
+    ctx.body = '';
+    return;
+  },
+);
