@@ -1,4 +1,4 @@
-import {KILL_SWITCH_ENDPOINT} from 'config';
+import {API_ENDPOINT} from 'config';
 import {useCallback} from 'react';
 import {useResetRecoilState, useSetRecoilState} from 'recoil';
 import {DeviceInfo, getDeviceInfo} from '../../../common/utils/system';
@@ -26,8 +26,8 @@ const getKillSwitchUrl = ({
   bundleVersion,
   languageCode,
 }: DeviceInfo & {languageCode: string}) =>
-  KILL_SWITCH_ENDPOINT +
-  '?' +
+  API_ENDPOINT +
+  '/killSwitch?' +
   [
     `platform=${os}`,
     `platformVersion=${osVersion}`,
