@@ -6,6 +6,8 @@ import {
   LANGUAGE_TAGS,
 } from '../../../shared/src/constants/i18n';
 
+export * from '../../../shared/src/constants/i18n';
+
 init({
   lng: DEFAULT_LANGUAGE_TAG,
   supportedLngs: LANGUAGE_TAGS,

@@ -8,6 +8,8 @@ import {
   LANGUAGE_TAGS,
 } from '../../../../shared/src/constants/i18n';
 
+export * from '../../../../shared/src/constants/i18n';
+
 export const init = () =>
   i18next.use(initReactI18next).init({
     lng: 'en',
