@@ -2,9 +2,6 @@ import Router from '@koa/router';
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 import {lt, valid} from 'semver';
-import {getFakeT} from '../../lib/fakeI18Next';
-
-import translations from './translations';
 
 // Binary kill switch, this will permanently disable the entire app.
 // USE WITH CAUTION!
