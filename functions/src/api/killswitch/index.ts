@@ -54,7 +54,6 @@ type RequestQuery = {
   version: string;
   bundleVersion: string;
   platform: AcceptedPlatforms;
-  language: string;
 };
 
 const killSwitchQuerySchema = yup.object().shape({
@@ -64,19 +63,16 @@ const killSwitchQuerySchema = yup.object().shape({
     .required(),
   platform: yup.string().oneOf(acceptedPlatforms).required(),
   bundleVersion: yup.string(),
-  language: yup.string().required(),
 });
 
 export const killSwitchRouter = router.get(
   '/',
   validator({query: killSwitchQuerySchema}),
   ctx => {
-    const {request, response} = ctx;
-    const {version, bundleVersion, platform, language} =
-      request.query as RequestQuery;
+    const {request, response, i18n} = ctx;
+    const {version, bundleVersion, platform} = request.query as RequestQuery;
 
-    // We don't use the i18next library here because of slow initialization
-    const t = getFakeT(language, 'Screen.KillSwitch', undefined, translations);
+    const t = i18n.getFixedT(null, 'Screen.KillSwitch');
 
     if (KILL_SWITCH) {
       response.status = 403;
