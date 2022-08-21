@@ -149,6 +149,7 @@ const useKillSwitch = () => {
     setIsRetriable,
     setRequiresBundleUpdate,
     setMessage,
+    i18n.resolvedLanguage,
   ]);
 
   return checkKillSwitch;
