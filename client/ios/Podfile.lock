@@ -618,32 +618,32 @@ PODS:
     - React-Core (= 0.68.2)
     - React-jsi (= 0.68.2)
     - ReactCommon/turbomodule/core (= 0.68.2)
-  - Firebase/Auth (9.1.0):
+  - Firebase/Auth (9.4.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (~> 9.1.0)
-  - Firebase/CoreOnly (9.1.0):
-    - FirebaseCore (= 9.1.0)
-  - Firebase/Firestore (9.1.0):
+    - FirebaseAuth (~> 9.4.0)
+  - Firebase/CoreOnly (9.4.0):
+    - FirebaseCore (= 9.4.0)
+  - Firebase/Firestore (9.4.0):
     - Firebase/CoreOnly
-    - FirebaseFirestore (~> 9.1.0)
-  - FirebaseAuth (9.1.0):
+    - FirebaseFirestore (~> 9.4.0)
+  - FirebaseAuth (9.4.0):
     - FirebaseCore (~> 9.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
     - GoogleUtilities/Environment (~> 7.7)
     - GTMSessionFetcher/Core (< 3.0, >= 1.7)
-  - FirebaseCore (9.1.0):
+  - FirebaseCore (9.4.0):
     - FirebaseCoreDiagnostics (~> 9.0)
     - FirebaseCoreInternal (~> 9.0)
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/Logger (~> 7.7)
-  - FirebaseCoreDiagnostics (9.3.0):
+  - FirebaseCoreDiagnostics (9.4.0):
     - GoogleDataTransport (< 10.0.0, >= 9.1.4)
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/Logger (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
   - FirebaseCoreInternal (9.4.0):
     - "GoogleUtilities/NSData+zlib (~> 7.7)"
-  - FirebaseFirestore (9.1.0):
+  - FirebaseFirestore (9.4.0):
     - abseil/algorithm (~> 1.20211102.0)
     - abseil/base (~> 1.20211102.0)
     - abseil/container/flat_hash_map (~> 1.20211102.0)
@@ -728,7 +728,7 @@ PODS:
     - gRPC-Core/Interface (= 1.44.0)
     - Libuv-gRPC (= 0.0.10)
   - gRPC-Core/Interface (1.44.0)
-  - GTMSessionFetcher/Core (2.0.0)
+  - GTMSessionFetcher/Core (2.1.0)
   - JWT (3.0.0-beta.14):
     - Base64 (~> 1.1.2)
   - leveldb-library (1.22.1)
@@ -1041,15 +1041,15 @@ PODS:
     - React-Core
   - RNDeviceInfo (10.0.2):
     - React-Core
-  - RNFBApp (15.0.0):
-    - Firebase/CoreOnly (= 9.1.0)
+  - RNFBApp (15.3.0):
+    - Firebase/CoreOnly (= 9.4.0)
     - React-Core
-  - RNFBAuth (15.0.0):
-    - Firebase/Auth (= 9.1.0)
+  - RNFBAuth (15.3.0):
+    - Firebase/Auth (= 9.4.0)
     - React-Core
     - RNFBApp
-  - RNFBFirestore (15.2.0):
-    - Firebase/Firestore (= 9.1.0)
+  - RNFBFirestore (15.3.0):
+    - Firebase/Firestore (= 9.4.0)
     - React-Core
     - RNFBApp
   - RNGestureHandler (2.5.0):
@@ -1282,19 +1282,19 @@ SPEC CHECKSUMS:
   DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662
   FBLazyVector: a7a655862f6b09625d11c772296b01cd5164b648
   FBReactNativeSpec: 81ce99032d5b586fddd6a38d450f8595f7e04be4
-  Firebase: 91c243d75573ac6e7c9735ec859b72bffb61347d
-  FirebaseAuth: 77247e07732ec5cdb20cc58ef40ad84d2fcce847
-  FirebaseCore: b7bfc258e996eada23b3666bd6b9a22ca092acb8
-  FirebaseCoreDiagnostics: 060eb57cc56dfaf40b1b1b5874a5c17c41ce79f8
+  Firebase: 7703fc4022824b6d6db1bf7bea58d13b8e17ec46
+  FirebaseAuth: ae5d4402e1516497357d909162b091b3ca2a2e9c
+  FirebaseCore: 9a2b10270a854731c4d4d8a97d0aa8380ec3458d
+  FirebaseCoreDiagnostics: aaa87098082c4d4bdd1a9557b1186d18ca85ce8c
   FirebaseCoreInternal: a13302b0088fbf5f38b79b6ece49c2af7d3e05d6
-  FirebaseFirestore: 20b1df7d65058b038745ecebb60f741a10e40a6f
+  FirebaseFirestore: 945196dd78f4e92de6fc47b38569a1e7088af81f
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 476ee3e89abb49e07f822b48323c51c57124b572
   GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   "gRPC-C++": 9675f953ace2b3de7c506039d77be1f2e77a8db2
   gRPC-Core: 943e491cb0d45598b0b0eb9e910c88080369290b
-  GTMSessionFetcher: 681175626052e03fdde7952f7e9c7a9785719506
+  GTMSessionFetcher: ffbb25ec00ebcb5201adab0a56d808f6f1902d9f
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
@@ -1334,9 +1334,9 @@ SPEC CHECKSUMS:
   ReactCommon: 095366164a276d91ea704ce53cb03825c487a3f2
   RNCAsyncStorage: d81ee5c3db1060afd49ea7045ad460eff82d2b7d
   RNDeviceInfo: 0a7c1d2532aa7691f9b9925a27e43af006db4dae
-  RNFBApp: 9edb3febb5ef4ca4ef19a9b7c3e78b003b3f5607
-  RNFBAuth: 1bb8b798359adfe67876261804dea5e5edcb4a5c
-  RNFBFirestore: 25a9f28c47896102d2b1d8b58a563de082538da9
+  RNFBApp: 0db41be0ca09ec0828164f16cd36732c0df8dabb
+  RNFBAuth: 5258f9a4402f8dd1b85eebb00f62511e073c79b3
+  RNFBFirestore: 991890f43c4ee33aed752418f06d80d0d9b8eb25
   RNGestureHandler: bad495418bcbd3ab47017a38d93d290ebd406f50
   RNReanimated: 64573e25e078ae6bec03b891586d50b9ec284393
   RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
