@@ -1,11 +1,5 @@
 {
   "name": "29k-cupcake",
   "version": "2.0.0",
-  "private": true,
-  "engines": {
-    "node": "16"
-  },
-  "devDependencies": {
-    "firebase-tools": "^11.6.0"
-  }
+  "private": true
 }
