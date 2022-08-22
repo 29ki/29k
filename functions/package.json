@@ -28,7 +28,7 @@
     "i18next": "^21.9.1",
     "koa": "^2.13.4",
     "koa-yup-validator": "^4.1.0",
-    "node-fetch": "2",
+    "node-fetch": "3",
     "ramda": "^0.28.0",
     "semver": "^7.3.7",
     "yup": "^0.32.11"
