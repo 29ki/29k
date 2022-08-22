@@ -17,6 +17,9 @@ jobs:
         with:
           node-version: 16.x
 
+      - name: Install CocoaPods
+        run: gem install cocoapods
+
       - name: Cache Client Dependencies
         id: cache-client-node-modules
         uses: actions/cache@v2
