@@ -45,6 +45,7 @@
     "react-native-code-push": "^7.0.5",
     "react-native-device-info": "^10.0.2",
     "react-native-gesture-handler": "^2.5.0",
+    "react-native-localize": "^2.2.3",
     "react-native-markdown-display": "^7.0.0-alpha.2",
     "react-native-reanimated": "^2.8.0",
     "react-native-safe-area-context": "^4.3.1",
