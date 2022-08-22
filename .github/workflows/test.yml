@@ -29,7 +29,9 @@ jobs:
         id: cache-client-node-modules
         uses: actions/cache@v2
         with:
-          path: ./client/node_modules
+          path: |
+            ./client/node_modules
+            ./client/ios/Pods
           key: client-node-modules-${{ hashFiles('./client/yarn.lock') }}
 
       - name: Install Client Dependencies
