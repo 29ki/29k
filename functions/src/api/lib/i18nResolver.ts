@@ -10,7 +10,8 @@ const i18nResolver = () => async (ctx: Context, next: Next) => {
       ? // Resolve from query param
         ctx.query.lng
       : // Resolve from Accept-Language header
-        ctx.acceptsLanguages(LANGUAGE_TAGS) || DEFAULT_LANGUAGE_TAG;
+        ctx.acceptsLanguages([DEFAULT_LANGUAGE_TAG, ...LANGUAGE_TAGS]) ||
+        DEFAULT_LANGUAGE_TAG;
 
   ctx.i18n = i18n.cloneInstance({
     lng,
