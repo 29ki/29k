@@ -35,6 +35,19 @@ https://github.com/29ki/29k/blob/237ee21db3cd91990b26ebd0c5da0bb41760fb92/client
 
 ### Info
 
-One API endpoint with functions
+A wrapping API layer enabling a centralized way of accessing and modifying data.
+As most REST API we use the method from the request to indicate which operation to perform:
+
+```
+GET    /fruit         // Provides all the fruits Fruit[]
+GET    /fruit/:id     // Provides a fruit based on the ID used Fruit
+POST   /fruit         // Creates a new fruit
+PUT    /fruit/:id     // Updates an exisitng fruit
+DELETE /fruit/:id     // Deletes an exisitng fruit
+```
 
 ### Example
+
+An example is the Temple endpoint.
+
+https://github.com/29ki/29k/blob/237ee21db3cd91990b26ebd0c5da0bb41760fb92/functions/src/api/temples/index.ts
