@@ -1,5 +1,6 @@
 import {API_ENDPOINT} from 'config';
 import {useCallback} from 'react';
+import {useTranslation} from 'react-i18next';
 import {useResetRecoilState, useSetRecoilState} from 'recoil';
 import {DeviceInfo, getDeviceInfo} from '../../../common/utils/system';
 import {
@@ -37,6 +38,8 @@ const getKillSwitchUrl = ({
   ].join('&');
 
 const useKillSwitch = () => {
+  const {i18n} = useTranslation();
+
   const reset = useResetRecoilState(killSwitchAtom);
 
   const setIsLoading = useSetRecoilState(killSwitchFields('isLoading'));
@@ -92,7 +95,7 @@ const useKillSwitch = () => {
     reset();
 
     const {os, osVersion, nativeVersion, bundleVersion} = await getDeviceInfo();
-    const languageCode = 'en'; //getCurrentLanguageCode();
+    const languageCode = i18n.resolvedLanguage;
 
     const url = getKillSwitchUrl({
       os,
@@ -146,6 +149,7 @@ const useKillSwitch = () => {
     setIsRetriable,
     setRequiresBundleUpdate,
     setMessage,
+    i18n.resolvedLanguage,
   ]);
 
   return checkKillSwitch;
