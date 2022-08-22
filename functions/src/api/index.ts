@@ -4,7 +4,8 @@ import Router from '@koa/router';
 
 import {killSwitchRouter} from './killswitch';
 import {templesRouter} from './temples';
-import firebaseBodyParser from './utils/firebaseBodyParser';
+import firebaseBodyParser from './lib/firebaseBodyParser';
+import i18nResolver from './lib/i18nResolver';
 
 const app = new Koa();
 
@@ -14,6 +15,7 @@ apiRouter.use('/temples', templesRouter.routes());
 
 app
   .use(firebaseBodyParser())
+  .use(i18nResolver())
   .use(apiRouter.routes())
   .use(apiRouter.allowedMethods());
 

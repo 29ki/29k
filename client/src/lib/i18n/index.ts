@@ -9,7 +9,9 @@ import {
   LANGUAGE_TAGS,
 } from '../../../../shared/src/constants/i18n';
 
-export const init = async () => {
+export * from '../../../../shared/src/constants/i18n';
+
+export const init = () =>
   i18next.use(initReactI18next).init({
     lng: findBestAvailableLanguage(LANGUAGE_TAGS)?.languageTag,
     supportedLngs: LANGUAGE_TAGS,
