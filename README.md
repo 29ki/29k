@@ -38,7 +38,7 @@ Latest builds can be downloaded through iOS TestFlight and Android PlayStore:
 
 * [Build and Deploy](/docs/BUILD_AND_DEPLOY.md)
 
-* Style guide
+* [Style guide](/docs/STYLE_GUIDE.md)
 
 * Translations
 
