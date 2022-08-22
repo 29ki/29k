@@ -17,6 +17,14 @@ jobs:
         with:
           node-version: 16.x
 
+      - name: Use Ruby 2.6
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+
+      - name: Install CocoaPods
+        run: gem install cocoapods
+
       - name: Cache Client Dependencies
         id: cache-client-node-modules
         uses: actions/cache@v2
