@@ -1,76 +1,20 @@
-# Installation
-
-Instructions on how to setup a React Native development environment can be found here: https://reactnative.dev/docs/environment-setup.
-
-Make sure to follow the instructions for React Native CLI.
-
-```
-yarn
-```
-
-## Environment
-
-Before being able to start the client, some configs are required.
-Create a `.env` file, by duplicating `.env.example`.
-
-| Key                                                               | Description                                                                                                                                                                                                                                                                           |
-| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ENVIRONMENT`                                                     | Client environment, e.g. `dev`, `staging` or `production`                                                                                                                                                                                                                             |
-| `SENTRY_DSN`                                                      | _Not needed for local development_. [Sentry DSN string](https://docs.sentry.io/product/sentry-basics/dsn-explainer/)                                                                                                                                                                  |
-| `IOS_CODE_PUSH_DEPLOYMENT_KEY` `ANDROID_CODE_PUSH_DEPLOYMENT_KEY` | _Not needed for local development_. Follow the instructions at [app center](https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/react-native#2-create-your-app-in-the-app-center-portal-to-obtain-the-app-secret) for setting up a project and getting the deployment key. |
-| `API_ENDPOINT`                                                    | API end points. e.g. `http://localhost:5001/demo-29k-cupcake/europe-west1/api`                                                                                                                                                                                                        |
-
-## Sentry
-
-Create a `client/sentry.properties` from the [Sentry example template](https://github.com/getsentry/examples/blob/master/react-native/sentry.properties). You may use the empty values for local development.
-
-## iOS
-
-```
-cd client/ios
-pod install
-```
-
-# Local development
-
-## iOS
-
-```
-cd client
-yarn ios
-```
-
-## Android
-
-```
-cd client
-yarn android
-```
-
-## Metro bundler
-
-```
-cd client
-yarn start
-```
-
-# Testing
-
-```
-yarn test
-```
-
 # Build & Deploy
 
-## CodePush
+## Functions
+
+Functions are deployed through workflows triggered on main branch. See [`.github/workflows/deploy-functions.yml`](https://github.com/29ki/29k/blob/main/.github/workflows/deploy-functions.yml) for details
+
+## Client
+
+### CodePush
 
 Over-the-air CodePush bundles are deployed through workflows triggered on main branch. See [`.github/workflows/deploy-codepush.yml`](https://github.com/29ki/29k/blob/main/.github/workflows/deploy-codepush.yml) for details
 
-## Apps
+### Apps
 
 Native builds are currently built and uploaded locally with Fastlane. This would preferrably be moved to GitHub workflows.
 
-### Prerequisites
+#### Prerequisites
 
 ```
 xcode-select --install
@@ -79,7 +23,7 @@ cd client/fastlane
 bundle install
 ```
 
-### iOS
+#### iOS
 
 1. Environment variables needed for the client bundle (see [`client/.env.example`](https://github.com/29ki/29k/blob/main/client/.env.example) or [Environment docs](https://github.com/29ki/29k#environment))
 2. Environment variables needed to build and deploy.
@@ -115,7 +59,7 @@ cd client/fastlane
 <environment variables> arch -x86_64 bundle exec fastlane ios app
 ```
 
-### Android
+#### Android
 
 1. Environment variables needed for the client bundle (see [`client/.env.example`](https://github.com/29ki/29k/blob/main/client/.env.example) or [Environment docs](https://github.com/29ki/29k#environment))
 2. Environment variables needed to build and deploy.
@@ -139,7 +83,3 @@ source ./scripts/getGitCommitShort.sh
 cd client/fastlane
 <environment variables> bundle exec fastlane android app
 ```
-
-# Translations
-
-# Styleguide

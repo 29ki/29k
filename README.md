@@ -29,77 +29,19 @@ Latest builds can be downloaded through iOS TestFlight and Android PlayStore:
 - 🍎 [29k: Cupcake for iOS](https://testflight.apple.com/join/0VdruQ6z) - get access through TestFlight
 - 🤖 [29k: Cupcake for Android](https://groups.google.com/u/1/a/29k.org/g/android-beta-test) - get access by becoming member of this google group
 
-# Installation
 
-```
-yarn
-cd functions 
-yarn
-cd client
-yarn
-```
+# Installation
+[Installation](/docs/INSTALLATION.md)
 
 # Local development
+[Local development](/docs/LOCAL_DEVELOPMENT.md)
 
-## Functions
+# Build and Deploy
+[Build and Deploy](/docs/BUILD_AND_DEPLOY.md)
 
-```
-cd functions
-yarn build:watch
-yarn start
-```
+# Style guide
 
-## Client
-
-### iOS
-
-```
-cd client
-yarn ios
-```
-
-### Android
-
-```
-cd client
-yarn android
-```
-
-### Metro bundler
-
-```
-cd client
-yarn start
-```
-
-## Content
-
-Content needs to be re-built when it's changed.
-
-```
-cd content
-yarn build:watch
-```
-
-# Testing
-
-## Client
-
-```
-cd client
-yarn test
-```
-
-## Functions
-
-```
-cd functions
-yarn test
-```
-
-
-
-## Translations
+# Translations
 
 # Contributing
 
