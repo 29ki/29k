@@ -22,7 +22,7 @@
   <a href="code_of_conduct.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="Contributor Covenant"></a>
 </p>
 
-# Download Android/iOS app
+## Download Android/iOS app
 
 Latest builds can be downloaded through iOS TestFlight and Android PlayStore:
 
@@ -30,22 +30,17 @@ Latest builds can be downloaded through iOS TestFlight and Android PlayStore:
 - 🤖 [29k: Cupcake for Android](https://groups.google.com/u/1/a/29k.org/g/android-beta-test) - get access by becoming member of this google group
 
 
-# Installation
-[Installation](/docs/INSTALLATION.md)
 
-# Local development
-[Local development](/docs/LOCAL_DEVELOPMENT.md)
+## Instructions
+* [Installation](/docs/INSTALLATION.md)
 
-# Build and Deploy
-[Build and Deploy](/docs/BUILD_AND_DEPLOY.md)
+* [Local development](/docs/LOCAL_DEVELOPMENT.md)
 
-# Style guide
+* [Build and Deploy](/docs/BUILD_AND_DEPLOY.md)
 
-# Translations
+* Style guide
 
-# Contributing
+* Translations
 
-[Contributions doc](/docs/CONTRIBUTING.md)
-# Code of conduct
-
-[Code of Conduct](/docs/CODE_OF_CONDUCT.md)
+* [Contributions doc](/docs/CONTRIBUTING.md)
+* [Code of Conduct](/docs/CODE_OF_CONDUCT.md)
