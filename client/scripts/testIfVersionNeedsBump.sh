@@ -3,7 +3,7 @@
 
 echo "🔍 Checking for iOS / Android native changes"
 
-git diff --quiet origin/main HEAD -- ios
+git diff --quiet origin/main -- ios
 if [ $? -ne 0 ]; then
     echo "📱 iOS native changes found! (could be that you're not on par with main)"
 
@@ -31,7 +31,7 @@ else
 fi
 
 # Check for Android OR Podfile.lock changes (since it hints about new native libraries)
-git diff --quiet origin/main HEAD -- android ios/Podfile.lock
+git diff --quiet origin/main -- android ios/Podfile.lock
 if [ $? -ne 0 ]; then
     echo "📱 Android native changes found! (could be that you're not on par with main)"
 
