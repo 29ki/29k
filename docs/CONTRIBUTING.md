@@ -86,3 +86,7 @@ Our [pull request template](.github/PULL_REQUEST_TEMPLATE/pull_request_template.
 ### Development style guide
 
 See [STYLE_GUIDE.md](STYLE_GUIDE.md)
+
+## Add yourself as a contributor
+
+To add yourself to the table of contributors, follow the [bot usage instructions](https://allcontributors.org/docs/en/bot/usage).
