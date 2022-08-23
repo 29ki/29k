@@ -19,7 +19,10 @@
   </a>
   <img src="https://github.com/29ki/29k/actions/workflows/test.yml/badge.svg" alt="Current build status." />
   <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="Make a Pull Request"></a>
-  <a href="code_of_conduct.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="Contributor Covenant"></a>
+  <a href="docs/code_of_conduct.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="Contributor Covenant"></a>
+  <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+  <a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square" atl="All Contributors" /></a>
+  <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
 ## Download Android/iOS app
@@ -44,3 +47,23 @@ Latest builds can be downloaded through iOS TestFlight and Android PlayStore:
 
 ## License
 * See [LICENSE](/LICENSE)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/Pelsin"><img src="https://avatars.githubusercontent.com/u/5345892?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pelsin</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=Pelsin" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
