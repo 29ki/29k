@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "swemail",
+      "name": "Emil Rondahl",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1139207?v=4",
+      "profile": "https://github.com/swemail",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "29k",
+  "projectOwner": "29ki",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
