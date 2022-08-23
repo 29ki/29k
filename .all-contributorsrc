@@ -24,6 +24,15 @@
         "code",
         "design"
       ]
+    },
+    {
+      "login": "swemail",
+      "name": "Emil Rondahl",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1139207?v=4",
+      "profile": "https://github.com/swemail",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
