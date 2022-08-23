@@ -4,6 +4,7 @@
   ],
   "imageSize": 100,
   "commit": false,
+  "badgeTemplate": "<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square" atl="All Contributors" /></a>",
   "contributors": [
     {
       "login": "Pelsin",
@@ -12,6 +13,16 @@
       "profile": "https://github.com/Pelsin",
       "contributions": [
         "code"
+      ]
+    },
+    {
+      "login": "kajsaunge",
+      "name": "Kajsa Unge",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9316860?v=4",
+      "profile": "http://kajsaunge.se",
+      "contributions": [
+        "code",
+        "design"
       ]
     }
   ],
