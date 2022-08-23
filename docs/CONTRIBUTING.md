@@ -82,3 +82,7 @@ Our [pull request template](.github/PULL_REQUEST_TEMPLATE/pull_request_template.
 - Limit the first line to 72 characters or less
 - Reference issues and pull requests liberally after the first line
 - When only changing documentation, include `[ci skip]` in the commit title
+
+### Development style guide
+
+See [STYLE_GUIDE.md](STYLE_GUIDE.md)
