@@ -43,4 +43,4 @@ Latest builds can be downloaded through iOS TestFlight and Android PlayStore:
 * Translations
 
 ## License
-* See [LICENSE](/LICENSE.md)
+* See [LICENSE](/LICENSE)
