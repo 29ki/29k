@@ -1,19 +1,24 @@
 # Style guide
 
 * [Hooks](#Hooks)
-    * Info
-    * Example
 * [Firestore Client](#Firstore-Client)
-    * Info
-    * Example
 * [Rest API](#Rest-Api)
-    * Info
-    * Example
 
 ## Hooks
 
 ### Info
+
+As a general rule of thumb separate "getter" hooks from "setter" hooks. E.g. use one hook to set the state and another to fetch that state.
+
 ### Example
+
+Setting the state from the `useCheckForUpdates` hook
+
+https://github.com/29ki/29k/blob/5dc9ce42034b0ea72e3294772ca5cfc26ecbc8ce/client/src/lib/codePush/hooks/useCheckForUpdate.ts#L50-L62
+
+Getting the state by using the recoil state `useRecoilValue(statusAtom)`
+
+https://github.com/29ki/29k/blob/5dc9ce42034b0ea72e3294772ca5cfc26ecbc8ce/client/src/lib/codePush/components/CodePushOverlay.tsx#L47-L57
 
 ## Firstore Client
 
