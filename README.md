@@ -31,16 +31,16 @@ Latest builds can be downloaded through iOS TestFlight and Android PlayStore:
 
 
 
-## Instructions
+## Documentation
 * [Installation](/docs/INSTALLATION.md)
-
 * [Local development](/docs/LOCAL_DEVELOPMENT.md)
-
 * [Build and Deploy](/docs/BUILD_AND_DEPLOY.md)
 
+## Contributing
+* [Contributing](/docs/CONTRIBUTING.md)
+* [Code of Conduct](/docs/CODE_OF_CONDUCT.md)
 * [Style guide](/docs/STYLE_GUIDE.md)
-
 * Translations
 
-* [Contributions doc](/docs/CONTRIBUTING.md)
-* [Code of Conduct](/docs/CODE_OF_CONDUCT.md)
+## License
+* See [LICENSE](/LICENSE.md)
