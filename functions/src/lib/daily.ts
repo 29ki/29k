@@ -2,9 +2,9 @@ import fetch from 'node-fetch';
 
 import config from './config';
 
-const {DAILY_API_URL, DAILY_API_VERSION, DAILY_API_KEY} = config;
+const {DAILY_API_KEY} = config;
 
-const DAILY_API = `${DAILY_API_URL}/${DAILY_API_VERSION}`;
+const DAILY_API_URL = `https://api.daily.co/v1`;
 
 // https://docs.daily.co/reference/rest-api/rooms
 type Room = {
@@ -28,37 +28,18 @@ type Room = {
   };
 };
 
-export const createRoom = async (name: string): Promise<Room> => {
-  try {
-    const res = await fetch(`${DAILY_API}/rooms`, {
-      method: 'POST',
-      body: JSON.stringify({name}),
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${DAILY_API_KEY}`,
-      },
-    });
+export const createRoom = async (): Promise<Room> => {
+  const res = await fetch(`${DAILY_API_URL}/rooms`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${DAILY_API_KEY}`,
+    },
+  });
 
-    return res.json();
-  } catch (err) {
-    console.error('Failed creating room', err);
-    throw err;
+  if (!res.ok) {
+    throw new Error(`Failed creating room, ${res.body}`);
   }
-};
 
-export const getRooms = async (): Promise<Room> => {
-  try {
-    const res = await fetch(`${DAILY_API}/rooms`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${DAILY_API_KEY}`,
-      },
-    });
-    const {data} = await res.json();
-
-    return data;
-  } catch (err) {
-    console.error('Failed fetching rooms', err);
-    throw err;
-  }
+  return res.json();
 };

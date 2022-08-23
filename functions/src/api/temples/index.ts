@@ -28,7 +28,7 @@ const Temple = yup.object().shape({
 templesRouter.post('/', validator({body: Temple}), async ctx => {
   const {name} = ctx.request.body;
 
-  const data = await createRoom(name);
+  const data = await createRoom();
   const temple: Temple = {
     id: data.id,
     name,
