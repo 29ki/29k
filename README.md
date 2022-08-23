@@ -21,7 +21,7 @@
   <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="Make a Pull Request"></a>
   <a href="docs/code_of_conduct.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="Contributor Covenant"></a>
   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square" atl="All Contributors" /></a>
+<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square" atl="All Contributors" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
@@ -60,6 +60,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Pelsin"><img src="https://avatars.githubusercontent.com/u/5345892?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pelsin</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=Pelsin" title="Code">💻</a></td>
     <td align="center"><a href="http://kajsaunge.se"><img src="https://avatars.githubusercontent.com/u/9316860?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kajsa Unge</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=kajsaunge" title="Code">💻</a> <a href="#design-kajsaunge" title="Design">🎨</a></td>
     <td align="center"><a href="https://github.com/swemail"><img src="https://avatars.githubusercontent.com/u/1139207?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Emil Rondahl</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=swemail" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Nipher"><img src="https://avatars.githubusercontent.com/u/7523828?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jonas Mendes</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=Nipher" title="Code">💻</a></td>
   </tr>
 </table>
 
