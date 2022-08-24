@@ -1,9 +1,8 @@
-import Koa from 'koa';
 import Router from '@koa/router';
 import request from 'supertest';
 
 import {killSwitchRouter} from './index';
-import i18nResolver from '../lib/i18nResolver';
+import createMockServer from '../lib/createMockServer';
 
 jest.mock('../../../../content/content.json', () => ({
   en: {
@@ -50,15 +49,15 @@ jest.mock('../../../../content/content.json', () => ({
   },
 }));
 
+const router = new Router();
+router.use('/killSwitch', killSwitchRouter.routes());
+const mockServer = createMockServer(router.routes(), router.allowedMethods());
+
+afterAll(() => {
+  mockServer.close();
+});
+
 describe('/api/killswitch', () => {
-  const app = new Koa();
-  const router = new Router();
-
-  router.use('/killSwitch', killSwitchRouter.routes());
-  app.use(i18nResolver());
-  app.use(router.routes());
-  app.use(router.allowedMethods());
-
   describe('Mixed', () => {
     const nativeUpdate = expect.objectContaining({
       message: expect.any(String),
@@ -103,7 +102,7 @@ describe('/api/killswitch', () => {
     ])(
       'Returns %s and %s for %s on %s with %s language',
       async (status, body, version, bundleVersion, platform, lng) => {
-        const response = await request(app.listen()).get(
+        const response = await request(mockServer).get(
           `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&lng=${lng}`,
         );
 
@@ -115,7 +114,7 @@ describe('/api/killswitch', () => {
 
   describe('Failure', () => {
     it('Should handle incorrect query params', async () => {
-      const response = await request(app.listen()).get(`/killSwitch`);
+      const response = await request(mockServer).get(`/killSwitch`);
 
       expect(response.status).toBe(500);
     });
@@ -126,7 +125,7 @@ describe('/api/killswitch', () => {
       const bundleVersion = '5000';
       const lng = 'en';
 
-      const response = await request(app.listen()).get(
+      const response = await request(mockServer).get(
         `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&lng=${lng}`,
       );
 
@@ -139,7 +138,7 @@ describe('/api/killswitch', () => {
       const bundleVersion = '5000';
       const lng = 'en';
 
-      const response = await request(app.listen()).get(
+      const response = await request(mockServer).get(
         `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&lng=${lng}`,
       );
 
@@ -152,7 +151,7 @@ describe('/api/killswitch', () => {
       const bundleVersion = 'incorrect';
       const lng = 'en';
 
-      const response = await request(app.listen()).get(
+      const response = await request(mockServer).get(
         `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&lng=${lng}`,
       );
 
@@ -165,7 +164,7 @@ describe('/api/killswitch', () => {
       const bundleVersion = '3000';
       const lng = 'en';
 
-      const response = await request(app.listen()).get(
+      const response = await request(mockServer).get(
         `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&lng=${lng}`,
       );
 
@@ -187,7 +186,7 @@ describe('/api/killswitch', () => {
       const bundleVersion = '3000';
       const lng = 'en';
 
-      const response = await request(app.listen()).get(
+      const response = await request(mockServer).get(
         `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&lng=${lng}`,
       );
 
@@ -209,7 +208,7 @@ describe('/api/killswitch', () => {
       const bundleVersion = '3000';
       const lng = 'sv';
 
-      const response = await request(app.listen()).get(
+      const response = await request(mockServer).get(
         `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&lng=${lng}`,
       );
 
@@ -231,7 +230,7 @@ describe('/api/killswitch', () => {
       const bundleVersion = '3000';
       const lng = 'unsupported';
 
-      const response = await request(app.listen()).get(
+      const response = await request(mockServer).get(
         `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&lng=${lng}`,
       );
 
