@@ -1,15 +1,15 @@
-const fetchMock = jest.fn();
-import {createRoom} from './dailyApi';
+import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
 
-jest.mock('node-fetch', () => fetchMock);
+enableFetchMocks();
+
+import {createRoom} from './dailyApi';
 
 describe('dailyApi', () => {
   describe('createRoom', () => {
     it('returns a new room from the Daily API', async () => {
-      fetchMock.mockResolvedValue({
-        ok: true,
-        json: () => Promise.resolve({id: 'some-id', name: 'some-name'}),
-      });
+      fetchMock.mockResponseOnce(
+        JSON.stringify({id: 'some-id', name: 'some-name'}),
+      );
 
       const room = await createRoom();
       expect(fetchMock).toHaveBeenCalledTimes(1);
@@ -24,10 +24,7 @@ describe('dailyApi', () => {
     });
 
     it('throws when not ok', async () => {
-      fetchMock.mockResolvedValue({
-        ok: false,
-        body: 'some-body',
-      });
+      fetchMock.mockResponseOnce('some-body', {status: 500});
 
       await expect(createRoom()).rejects.toThrow(
         new Error('Failed creating room, some-body'),
