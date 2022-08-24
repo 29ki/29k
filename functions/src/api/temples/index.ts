@@ -5,7 +5,7 @@ import {firestore} from 'firebase-admin';
 import 'firebase-functions';
 
 import {Temple} from '../../../../shared/src/types/Temple';
-import {createRoom} from '../../lib/daily';
+import * as dailyApi from '../../lib/dailyApi';
 
 const TEMPLES_COLLECTION = 'temples';
 
@@ -28,7 +28,7 @@ const Temple = yup.object().shape({
 templesRouter.post('/', validator({body: Temple}), async ctx => {
   const {name} = ctx.request.body;
 
-  const data = await createRoom(name);
+  const data = await dailyApi.createRoom();
   const temple: Temple = {
     id: data.id,
     name,

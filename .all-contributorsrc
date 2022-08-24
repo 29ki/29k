@@ -1,0 +1,62 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "badgeTemplate": "<a href=\"#contributors-\"><img src=\"https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square\" atl=\"All Contributors\" /></a>",
+  "contributors": [
+    {
+      "login": "Pelsin",
+      "name": "Pelsin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5345892?v=4",
+      "profile": "https://github.com/Pelsin",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "kajsaunge",
+      "name": "Kajsa Unge",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9316860?v=4",
+      "profile": "http://kajsaunge.se",
+      "contributions": [
+        "code",
+        "design"
+      ]
+    },
+    {
+      "login": "swemail",
+      "name": "Emil Rondahl",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1139207?v=4",
+      "profile": "https://github.com/swemail",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Nipher",
+      "name": "Jonas Mendes",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7523828?v=4",
+      "profile": "https://github.com/Nipher",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "gewfy",
+      "name": "gewfy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/474066?v=4",
+      "profile": "https://github.com/gewfy",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "29k",
+  "projectOwner": "29ki",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}

@@ -14,8 +14,6 @@ import {cleanEnv, str} from 'envalid';
 
 const configValidation = {
   DAILY_API_KEY: str(),
-  DAILY_API_URL: str(),
-  DAILY_API_VERSION: str(),
 };
 
 export default cleanEnv(process.env, configValidation);
