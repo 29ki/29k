@@ -1,10 +1,9 @@
 const fetchMock = jest.fn();
-
-import {createRoom} from './daily';
+import {createRoom} from './dailyApi';
 
 jest.mock('node-fetch', () => fetchMock);
 
-describe('lib/daily', () => {
+describe('dailyApi', () => {
   describe('createRoom', () => {
     it('returns a new room from the Daily API', async () => {
       fetchMock.mockResolvedValue({
@@ -13,6 +12,14 @@ describe('lib/daily', () => {
       });
 
       const room = await createRoom();
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+      expect(fetchMock).toHaveBeenCalledWith('https://api.daily.co/v1/rooms', {
+        headers: {
+          Authorization: 'Bearer some-api-endpoint',
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      });
       expect(room).toEqual({id: 'some-id', name: 'some-name'});
     });
 
