@@ -11,6 +11,15 @@ cd functions
 yarn
 ```
 
+### Environment
+
+Before being able to start the functions emulator, some configs are required.
+Create a `.env` file, by duplicating `.env.example`.
+
+| Key             | Description                            |
+| --------------- | -------------------------------------- |
+| `DAILY_API_KEY` | [Daily](https://www.daily.co/) API key |
+
 ## Client
 
 Instructions on how to setup a React Native development environment can be found here: https://reactnative.dev/docs/environment-setup.
