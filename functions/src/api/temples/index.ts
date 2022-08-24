@@ -36,9 +36,9 @@ templesRouter.post('/', validator({body: Temple}), async ctx => {
     active: false,
   };
 
-  await firestore().collection(TEMPLES_COLLECTION).doc(data.id).create(temple);
+  await firestore().collection(TEMPLES_COLLECTION).doc(data.id).set(temple);
 
-  ctx.body = data;
+  ctx.body = temple;
 });
 
 export {templesRouter};
