@@ -68,10 +68,7 @@ jobs:
 
       - name: Create release.keystore
         working-directory: ./client/android/app
-        run: |
-          cat > ./release.keystore << EOL
-          ${{ secrets.ANDROID_RELEASE_KEYSTORE }}
-          EOL
+        run: echo -n "${{ secrets.ANDROID_RELEASE_KEYSTORE }}" | base64 --decode > release.keystore
 
       - name: Cache Client Dependencies
         id: cache-client-node-modules
