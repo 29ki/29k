@@ -35,21 +35,6 @@ jobs:
         with:
           node-version: 16.x
 
-      - name: Install bundle
-        run: gem install bundle
-
-      - name: Create Dotenv File
-        uses: iamsauravsharma/create-dotenv@v1.2.1
-        with:
-          env-prefix: 'ENV_'
-          directory: 'client/'
-        env:
-          ENV_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
-          ENV_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-          ENV_IOS_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.IOS_CODE_PUSH_DEPLOYMENT_KEY }}
-          ENV_ANDROID_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.ANDROID_CODE_PUSH_DEPLOYMENT_KEY }}
-          ENV_API_ENDPOINT: ${{ secrets.API_ENDPOINT }}
-
       - name: Create google-play-service.json
         working-directory: ./client
         run: |
@@ -57,38 +42,63 @@ jobs:
           ${{ secrets.ANDROID_GOOGLE_PLAY_SERVICE_FILE }}
           EOL
 
-      - name: Cache Client Dependencies
-        id: cache-client-node-modules
-        uses: actions/cache@v2
-        with:
-          path: ./client/node_modules
-          key: client-node-modules-${{ hashFiles('./client/yarn.lock') }}
-
-      - name: Install Client Dependencies
-        if: steps.cache-client-node-modules.outputs.cache-hit != 'true'
+      - name: Cat file
         working-directory: ./client
-        run: yarn
-
-      - name: Install Fastlane Dependencies
-        working-directory: ./client/fastlane
-        run: bundle install
-
-      - name: Build Content
-        working-directory: ./content
-        run: yarn build
-
-      - name: Prepare $GIT_COMMIT_SHORT
-        working-directory: ./client
-        run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
-
-      - name: Build Android App
-        working-directory: ./client/fastlane
-        run: bundle exec fastlane android app
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
-        with:
-          title: Native Version Bump (auto generated)
-          commit-message: Native Version Bump
-          branch: native-version-bump
-          delete-branch: true
+        run: cat $ANDROID_GOOGLE_PLAY_SERVICE_FILE
+#      - name: Install bundle
+#        run: gem install bundle
+#
+#      - name: Create Dotenv File
+#        uses: iamsauravsharma/create-dotenv@v1.2.1
+#        with:
+#          env-prefix: 'ENV_'
+#          directory: 'client/'
+#        env:
+#          ENV_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+#          ENV_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+#          ENV_IOS_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.IOS_CODE_PUSH_DEPLOYMENT_KEY }}
+#          ENV_ANDROID_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.ANDROID_CODE_PUSH_DEPLOYMENT_KEY }}
+#          ENV_API_ENDPOINT: ${{ secrets.API_ENDPOINT }}
+#
+#      - name: Create google-play-service.json
+#        working-directory: ./client
+#        run: |
+#          cat > $ANDROID_GOOGLE_PLAY_SERVICE_FILE << EOL
+#          ${{ secrets.ANDROID_GOOGLE_PLAY_SERVICE_FILE }}
+#          EOL
+#
+#      - name: Cache Client Dependencies
+#        id: cache-client-node-modules
+#        uses: actions/cache@v2
+#        with:
+#          path: ./client/node_modules
+#          key: client-node-modules-${{ hashFiles('./client/yarn.lock') }}
+#
+#      - name: Install Client Dependencies
+#        if: steps.cache-client-node-modules.outputs.cache-hit != 'true'
+#        working-directory: ./client
+#        run: yarn
+#
+#      - name: Install Fastlane Dependencies
+#        working-directory: ./client/fastlane
+#        run: bundle install
+#
+#      - name: Build Content
+#        working-directory: ./content
+#        run: yarn build
+#
+#      - name: Prepare $GIT_COMMIT_SHORT
+#        working-directory: ./client
+#        run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
+#
+#      - name: Build Android App
+#        working-directory: ./client/fastlane
+#        run: bundle exec fastlane android app
+#
+#      - name: Create Pull Request
+#        uses: peter-evans/create-pull-request@v4
+#        with:
+#          title: Native Version Bump (auto generated)
+#          commit-message: Native Version Bump
+#          branch: native-version-bump
+#          delete-branch: true
