@@ -58,8 +58,3 @@ jobs:
         if: steps.cache-client-node-modules-pods.outputs.cache-hit != 'true'
         working-directory: ./client
         run: yarn
-
-      - uses: maierj/fastlane-action@v2.2.0
-        with:
-          lane: 'ios app'
-          subdirectory: ./client/fastlane
