@@ -20,6 +20,8 @@ jobs:
 
       ANDROID_PACKAGE_NAME: ${{ secrets.ANDROID_PACKAGE_NAME }}
       ANDROID_FLAVOR: ${{ secrets.ANDROID_FLAVOR }}
+      ANDROID_UPLOAD_STORE_PASSWORD: ${{ secrets.ANDROID_UPLOAD_STORE_PASSWORD }}
+      ANDROID_UPLOAD_KEY_PASSWORD: ${{ secrets.ANDROID_UPLOAD_KEY_PASSWORD }}
       ANDROID_GOOGLE_PLAY_SERVICE_FILE: ./google-play-service.json
 
     steps:
@@ -60,8 +62,15 @@ jobs:
       - name: Create google-services.json
         working-directory: ./client/android/app/src
         run: |
-          cat > $ANDROID_FLAVOR/google-services.json << EOL
+          cat > ./$ANDROID_FLAVOR/google-services.json << EOL
           ${{ secrets.ANDROID_GOOGLE_SERVICES_FILE }}
+          EOL
+
+      - name: Create release.keystore
+        working-directory: ./client/android/app
+        run: |
+          cat > ./release.keystore << EOL
+          ${{ secrets.ANDROID_RELEASE_KEYSTORE }}
           EOL
 
       - name: Cache Client Dependencies
