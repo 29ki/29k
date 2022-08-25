@@ -51,7 +51,7 @@ jobs:
           ENV_API_ENDPOINT: ${{ secrets.API_ENDPOINT }}
 
       - name: Create google-play-service.json
-        working-directory: ./client
+        working-directory: ./client/fastlane
         run: |
           cat > $ANDROID_GOOGLE_PLAY_SERVICE_FILE << EOL
           ${{ secrets.ANDROID_GOOGLE_PLAY_SERVICE_FILE }}
