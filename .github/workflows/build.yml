@@ -35,13 +35,6 @@ jobs:
         with:
           node-version: 16.x
 
-      - name: Create google-play-service.json
-        working-directory: ./client
-        run: |
-          cat > $ANDROID_GOOGLE_PLAY_SERVICE_FILE << EOL
-          ${{ secrets.ANDROID_GOOGLE_PLAY_SERVICE_FILE }}
-          EOL
-
       - name: Install bundle
         run: gem install bundle
 
@@ -88,9 +81,11 @@ jobs:
         working-directory: ./client
         run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
 
-      - name: Build Android App
-        working-directory: ./client/fastlane
-        run: bundle exec fastlane android app
+      - working-directory: ./client/fastlane
+        run: bundle exec fastlane run validate_play_store_json_key json_key:$ANDROID_GOOGLE_PLAY_SERVICE_FILE
+#      - name: Build Android App
+#        working-directory: ./client/fastlane
+#        run: bundle exec fastlane android app
 #
 #      - name: Create Pull Request
 #        uses: peter-evans/create-pull-request@v4

@@ -51,9 +51,6 @@ platform :android do
 
   desc 'Build and publish a new version to Google Play Store'
   lane :app do
-    UI.message('ENV')
-    UI.message(ENV['ANDROID_GOOGLE_PLAY_SERVICE_FILE'])
-
     increment_version_code(
       gradle_file_path: './android/app/build.gradle'
     )
