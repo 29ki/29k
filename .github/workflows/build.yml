@@ -1,0 +1,63 @@
+name: Build
+
+on: workflow_dispatch
+
+jobs:
+  ios:
+    name: iOS
+    runs-on: macos-latest
+    environment: client-staging
+    env:
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+      IOS_APPLE_ID: ${{ secrets.IOS_APPLE_ID }}
+      IOS_APP_STORE_TEAM_ID: ${{ secrets.IOS_APP_STORE_TEAM_ID }}
+      IOS_DEVELOPER_PORTAL_TEAM_ID: ${{ secrets.IOS_DEVELOPER_PORTAL_TEAM_ID }}
+      IOS_BUNDLE_IDENTIFIER: ${{ secrets.IOS_BUNDLE_IDENTIFIER }}
+      IOS_SCHEME: ${{ secrets.IOS_SCHEME }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Ruby 2.7.2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.2'
+
+      - name: Use Node.js v16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Install CocoaPods
+        run: gem install cocoapods
+
+      - name: Create Dotenv File
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+          envkey_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          envkey_IOS_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.IOS_CODE_PUSH_DEPLOYMENT_KEY }}
+          envkey_ANDROID_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.ANDROID_CODE_PUSH_DEPLOYMENT_KEY }}
+          envkey_API_ENDPOINT: ${{ secrets.API_ENDPOINT }}
+
+          directory: ./client
+          file_name: .env
+
+      - name: Cache Client Dependencies
+        id: cache-client-node-modules
+        uses: actions/cache@v2
+        with:
+          path: ./client/node_modules
+          key: client-node-modules-${{ hashFiles('./client/yarn.lock') }}
+
+      - name: Install Client Dependencies
+        if: steps.cache-client-node-modules.outputs.cache-hit != 'true'
+        working-directory: ./client
+        run: yarn
+
+      - uses: maierj/fastlane-action@v2.2.0
+        with:
+          lane: 'ios app'
+          subdirectory: ./client/fastlane
