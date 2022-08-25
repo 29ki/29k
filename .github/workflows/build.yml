@@ -42,7 +42,7 @@ jobs:
         uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
           env-prefix: 'ENV_'
-          directory: 'client/'
+          directory: './client'
         env:
           ENV_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
           ENV_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
@@ -55,6 +55,13 @@ jobs:
         run: |
           cat > $ANDROID_GOOGLE_PLAY_SERVICE_FILE << EOL
           ${{ secrets.ANDROID_GOOGLE_PLAY_SERVICE_FILE }}
+          EOL
+
+      - name: Create google-services.json
+        working-directory: ./client/android/app/src/$ANDROID_FLAVOR
+        run: |
+          cat > google-services.json << EOL
+          ${{ secrets.ANDROID_GOOGLE_SERVICES }}
           EOL
 
       - name: Cache Client Dependencies
