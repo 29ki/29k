@@ -63,11 +63,16 @@ jobs:
         working-directory: ./client
         run: yarn
 
+      - name: Build Content
+        working-directory: ./content
+        run: yarn build
+
       - name: Prepare $GIT_COMMIT_SHORT
         working-directory: ./client
         run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
 
-      - uses: maierj/fastlane-action@v2.2.0
+      - name: Build Android App
+        uses: maierj/fastlane-action@v2.2.0
         with:
           lane: 'android app'
           subdirectory: ./client/fastlane
