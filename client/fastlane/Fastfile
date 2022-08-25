@@ -29,15 +29,15 @@ platform :ios do
   lane :app do
     # Get latest appstore provisioning profile
     match(
-      app_identifier: ENV['IOS_BUNDLE_IDENTIFIER'], 
-      type: 'appstore', 
+      app_identifier: ENV['IOS_BUNDLE_IDENTIFIER'],
+      type: 'appstore',
       readonly: true
     )
 
     increment_build_number(xcodeproj: './ios/twentyninek.xcodeproj')
 
     build_ios_app(
-      workspace: './ios/twentyninek.xcworkspace', 
+      workspace: './ios/twentyninek.xcworkspace',
       scheme: ENV['IOS_SCHEME'],
       export_method: 'app-store',
     )
@@ -51,13 +51,16 @@ platform :android do
 
   desc 'Build and publish a new version to Google Play Store'
   lane :app do
+    UI.message('ENV')
+    UI.message(ENV['ANDROID_GOOGLE_PLAY_SERVICE_FILE'])
+
     increment_version_code(
       gradle_file_path: './android/app/build.gradle'
     )
 
     build_android_app(
       task: 'clean bundle',
-      flavor: ENV['ANDROID_FLAVOR'], 
+      flavor: ENV['ANDROID_FLAVOR'],
       build_type: 'Release',
       project_dir: './android'
     )
