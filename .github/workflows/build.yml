@@ -61,7 +61,7 @@ jobs:
         working-directory: ./client/android/app/src
         run: |
           cat > $ANDROID_FLAVOR/google-services.json << EOL
-          ${{ secrets.ANDROID_GOOGLE_SERVICES }}
+          ${{ secrets.ANDROID_GOOGLE_SERVICES_FILE }}
           EOL
 
       - name: Cache Client Dependencies
