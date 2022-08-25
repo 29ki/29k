@@ -35,6 +35,9 @@ jobs:
         with:
           node-version: 16.x
 
+      - name: Install bundle
+        run: gem install bundle
+
       - name: Create Dotenv File
         uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
@@ -66,6 +69,10 @@ jobs:
         working-directory: ./client
         run: yarn
 
+      - name: Install Fastlane Dependencies
+        working-directory: ./client/fastlane
+        run: bundle install
+
       - name: Build Content
         working-directory: ./content
         run: yarn build
@@ -75,10 +82,8 @@ jobs:
         run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
 
       - name: Build Android App
-        uses: maierj/fastlane-action@v2.2.0
-        with:
-          lane: 'android app'
-          subdirectory: ./client/fastlane
+        working-directory: ./client/fastlane
+        run: bundle exec fastlane android app
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
