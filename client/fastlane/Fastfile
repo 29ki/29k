@@ -59,7 +59,7 @@ platform :android do
       task: 'clean bundle',
       flavor: ENV['ANDROID_FLAVOR'],
       build_type: 'Release',
-      project_dir: './android'
+      project_dir: './android',
       properties: {
         "UPLOAD_STORE_FILE" => "release.keystore",
         "UPLOAD_KEY_ALIAS" => "release",
