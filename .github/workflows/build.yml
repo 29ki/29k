@@ -76,3 +76,11 @@ jobs:
         with:
           lane: 'android app'
           subdirectory: ./client/fastlane
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: Native Version Bump (auto generated)
+          commit-message: Native Version Bump
+          branch: native-version-bump
+          delete-branch: true
