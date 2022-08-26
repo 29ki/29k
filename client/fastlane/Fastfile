@@ -36,6 +36,12 @@ platform :ios do
       readonly: true
     )
 
+    api_key = app_store_connect_api_key(
+      key_id: ENV['IOS_APP_STORE_CONNECT_API_KEY_ID'],
+      issuer_id: ENV['IOS_APP_STORE_CONNECT_API_ISSUER_ID'],
+      key_filepath: ENV['IOS_APP_STORE_CONNECT_API_KEY_FILE'],
+    )
+
     increment_build_number(xcodeproj: './ios/twentyninek.xcodeproj')
 
     build_ios_app(
@@ -44,7 +50,10 @@ platform :ios do
       export_method: 'app-store',
     )
 
-    upload_to_testflight(skip_waiting_for_build_processing: true)
+    upload_to_testflight(
+      api_key: api_key
+      skip_waiting_for_build_processing: true
+    )
   end
 end
 
