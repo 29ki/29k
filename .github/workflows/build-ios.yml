@@ -57,8 +57,8 @@ jobs:
       - name: Create GoogleService-Info.plist
         working-directory: ./client/ios/Supporting
         run: |
-          touch ./$IOS_SCHEME/GoogleService-Info.plist
-          echo "${{ secrets.IOS_GOOGLE_SERVICE_PLIST_FILE }}" > ./$IOS_SCHEME/GoogleService-Info.plist
+          touch ./staging/GoogleService-Info.plist
+          echo "${{ secrets.IOS_GOOGLE_SERVICE_PLIST_FILE }}" > ./staging/GoogleService-Info.plist
 
       - name: Prepare $GIT_COMMIT_SHORT
         working-directory: ./client
