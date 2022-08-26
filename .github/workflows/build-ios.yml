@@ -45,9 +45,6 @@ jobs:
         with:
           node-version: 16.x
 
-      - name: Install bundle
-        run: gem install bundle
-
       - name: Install CocoaPods
         run: gem install cocoapods
 

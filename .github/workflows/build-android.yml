@@ -45,9 +45,6 @@ jobs:
         with:
           node-version: 16.x
 
-      - name: Install bundle
-        run: gem install bundle
-
       - name: Create Dotenv File
         uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
