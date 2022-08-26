@@ -50,7 +50,7 @@ jobs:
 
       - name: Add keys repo access key
         run: |
-          eval "$(ssh-agent -s)"
+          eval `ssh-agent -s`
           ssh-add - <<< '${{ secrets.KEYS_REPO_ACCESS_KEY }}'
 
       - name: Create Dotenv File
