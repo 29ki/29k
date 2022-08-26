@@ -22,6 +22,8 @@ lane :logBuildPath do |params|
   UI.message('')
 end
 
+setup_ci if ENV['CI']
+
 platform :ios do
   build_path = './build/ios'
 

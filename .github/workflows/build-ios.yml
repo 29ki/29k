@@ -16,6 +16,8 @@ jobs:
     runs-on: macos-latest
     environment: client-${{ inputs.environment }}
     env:
+      CI: github
+
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
       SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
