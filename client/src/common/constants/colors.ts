@@ -3,6 +3,7 @@ export const COLORS = {
   // Base
   //
   BLACK: '#000000',
+  BLACK_EASY: '#2E2E2E',
   BLACK_TRANSPARENT: 'rgba(0, 0, 0, 0.5)',
   WHITE: '#FFFFFF',
   WHITE_TRANSPARENT: 'rgba(255, 255, 255, 0.75)',
@@ -50,4 +51,5 @@ export const COLORS = {
   // New colors?
   GREY: '#383838',
   YELLOW: '#FFEEBE',
+  YELLOW_LIGHT: '#F4EBC4',
 };

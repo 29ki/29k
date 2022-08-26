@@ -86,7 +86,7 @@ const Home = () => {
           <ButtonText primary>{t('button')}</ButtonText>
           <Spacer16 />
           <ButtonIcon>
-            <ForwardIcon fill={COLORS.YELLOW} />
+            <ForwardIcon fill={COLORS.BLACK_EASY} />
           </ButtonIcon>
         </Button>
       </Wrapper>
