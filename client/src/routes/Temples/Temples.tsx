@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {ListRenderItemInfo, RefreshControl} from 'react-native';
 import {FlatList, TextInput} from 'react-native-gesture-handler';
-import styled from 'styled-components/native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
@@ -9,15 +8,11 @@ import useTemples from './hooks/useTemples';
 import {ROUTES, ScreenProps} from '../../common/constants/routes';
 
 import {
-  Spacer12,
   Spacer16,
   Spacer32,
   Spacer8,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
-import {B1} from '../../common/components/Typography/Text/Text';
-import {COLORS} from '../../common/constants/colors';
-import {SPACINGS} from '../../common/constants/spacings';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {H3} from '../../common/components/Typography/Heading/Heading';
 import Button from '../../common/components/Buttons/Button';
@@ -26,14 +21,7 @@ import {useTranslation} from 'react-i18next';
 import {useRecoilValue} from 'recoil';
 import {isLoadingAtom, templesAtom} from './state/state';
 import {Temple} from '../../../../shared/src/types/Temple';
-
-const Card = styled.TouchableOpacity({
-  border: 0.1,
-  borderColor: COLORS.BODY500,
-  padding: SPACINGS.SIXTEEN,
-  borderRadius: SPACINGS.TWELVE,
-  backgroundColor: COLORS.WHITE_TRANSPARENT,
-});
+import TempleCard from '../../common/components/Cards/TempleCard/TempleCard';
 
 type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
 
@@ -45,11 +33,16 @@ const Temples = () => {
 
   const [newTemple, onChangeNewTemple] = useState<string | null>(null);
   const {navigate} = useNavigation<ScreenNavigationProps>();
+  const lottieSource = require('../../assets/animations/mandala.json');
 
   const renderTemple = ({item}: ListRenderItemInfo<Temple>) => (
-    <Card onPress={() => navigate(ROUTES.TEMPLE, {templeId: item.id})}>
-      <B1>{item.name}</B1>
-    </Card>
+    <TempleCard
+      temple={item}
+      lottieSrc={lottieSource}
+      time="This session will start on saturday at 13.00"
+      buttonText="Join"
+      onPress={() => navigate(ROUTES.TEMPLE, {templeId: item.id})}
+    />
   );
 
   useEffect(() => {
@@ -65,7 +58,7 @@ const Temples = () => {
         <FlatList
           data={temples}
           keyExtractor={temple => temple.id}
-          ItemSeparatorComponent={Spacer12}
+          ItemSeparatorComponent={Spacer16}
           renderItem={renderTemple}
           refreshControl={
             <RefreshControl
@@ -81,8 +74,8 @@ const Temples = () => {
           onChangeText={onChangeNewTemple}
         />
         <Spacer8 />
-        <Button onPress={() => addTemple(newTemple)}>
-          <B1>{t('create')}</B1>
+        <Button primary onPress={() => addTemple(newTemple)}>
+          {t('create')}
         </Button>
       </Gutters>
     </>
