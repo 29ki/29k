@@ -6,7 +6,7 @@ jobs:
   build-android-staging:
     name: Android Staging
     concurrency: build-android-staging
-    uses: ./.github/workflows/deploy-android.yml
+    uses: ./.github/workflows/build-android.yml
     with:
       environment: staging
     secrets: inherit
@@ -15,7 +15,7 @@ jobs:
     name: Android Production
     concurrency: build-android-production
     needs: build-android-staging # Run this sequentially since they bumps the same version code
-    uses: ./.github/workflows/deploy-android.yml
+    uses: ./.github/workflows/build-android.yml
     with:
       environment: production
     secrets: inherit
