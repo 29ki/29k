@@ -53,11 +53,17 @@ jobs:
 
       - name: Create google-play-service.json
         working-directory: ./client
-        run: echo "${{ secrets.ANDROID_GOOGLE_PLAY_SERVICE_FILE }}" > $ANDROID_GOOGLE_PLAY_SERVICE_FILE
+        run: |
+          cat > $ANDROID_GOOGLE_PLAY_SERVICE_FILE << EOL
+          ${{ secrets.ANDROID_GOOGLE_PLAY_SERVICE_FILE }}
+          EOL
 
       - name: Create google-services.json
         working-directory: ./client/android/app/src
-        run: echo "${{ secrets.ANDROID_GOOGLE_SERVICES_FILE }}" > ./$ANDROID_FLAVOR/google-services.json
+        run: |
+          cat > ./$ANDROID_FLAVOR/google-services.json << EOL
+          ${{ secrets.ANDROID_GOOGLE_SERVICES_FILE }}
+          EOL
 
       - name: Create release.keystore
         working-directory: ./client/android/app
