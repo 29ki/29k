@@ -37,7 +37,9 @@ jobs:
 
       - name: Create GoogleService-Info.plist
         working-directory: ./client/ios/Supporting
-        run: echo "${{ secrets.IOS_GOOGLE_SERVICE_PLIST_FILE }}" > ./$IOS_SCHEME/GoogleService-Info.plist
+        run: |
+          echo "${{ secrets.IOS_GOOGLE_SERVICE_PLIST_FILE }}" > ./$IOS_SCHEME/GoogleService-Info.plist
+          cat ./$IOS_SCHEME/GoogleService-Info.plist
 
       - name: Use Ruby 2.7.2
         uses: ruby/setup-ruby@v1
