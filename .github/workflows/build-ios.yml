@@ -1,0 +1,106 @@
+name: iOS
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+
+jobs:
+  android:
+    name: Build
+    runs-on: macos-latest
+    environment: client-${{ inputs.environment }}
+    env:
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+
+      DOTENV_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+      DOTENV_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+      DOTENV_IOS_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.IOS_CODE_PUSH_DEPLOYMENT_KEY }}
+      DOTENV_ANDROID_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.ANDROID_CODE_PUSH_DEPLOYMENT_KEY }}
+      DOTENV_API_ENDPOINT: ${{ secrets.API_ENDPOINT }}
+
+      IOS_APPLE_ID: ${{ secrets.IOS_APPLE_ID }}
+      IOS_APP_STORE_TEAM_ID: ${{ secrets.IOS_APP_STORE_TEAM_ID }}
+      IOS_DEVELOPER_PORTAL_TEAM_ID: ${{ secrets.IOS_DEVELOPER_PORTAL_TEAM_ID }}
+      IOS_BUNDLE_IDENTIFIER: ${{ secrets.IOS_BUNDLE_IDENTIFIER }}
+      IOS_SCHEME: ${{ secrets.IOS_SCHEME }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Ruby 2.7.2
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.2'
+
+      - name: Use Node.js v16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Install bundle
+        run: gem install bundle
+
+      - name: Create Dotenv File
+        uses: iamsauravsharma/create-dotenv@v1.2.1
+        with:
+          env-prefix: 'ENV_'
+          directory: './client'
+
+      - name: Create google-play-service.json
+        working-directory: ./client
+        run: |
+          cat > $ANDROID_GOOGLE_PLAY_SERVICE_FILE << EOL
+          ${{ secrets.ANDROID_GOOGLE_PLAY_SERVICE_FILE }}
+          EOL
+
+      - name: Create google-services.json
+        working-directory: ./client/android/app/src
+        run: |
+          cat > ./$ANDROID_FLAVOR/google-services.json << EOL
+          ${{ secrets.ANDROID_GOOGLE_SERVICES_FILE }}
+          EOL
+
+      - name: Create release.keystore
+        working-directory: ./client/android/app
+        run: echo -n "${{ secrets.ANDROID_RELEASE_KEYSTORE }}" | base64 --decode > release.keystore
+
+      - name: Cache Client Dependencies
+        id: cache-client-node-modules
+        uses: actions/cache@v2
+        with:
+          path: ./client/node_modules
+          key: client-node-modules-${{ hashFiles('./client/yarn.lock') }}
+
+      - name: Install Client Dependencies
+        if: steps.cache-client-node-modules.outputs.cache-hit != 'true'
+        working-directory: ./client
+        run: yarn
+
+      - name: Prepare $GIT_COMMIT_SHORT
+        working-directory: ./client
+        run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
+
+      - name: Install Fastlane Dependencies
+        working-directory: ./client/fastlane
+        run: bundle install
+
+      - name: Build Content
+        working-directory: ./content
+        run: yarn build
+
+      - name: Build Android App
+        working-directory: ./client/fastlane
+        run: bundle exec fastlane android app
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: Native version bump on ${{ env.GITHUB_REF }} (auto generated)
+          commit-message: Native Version Bump
+          branch: ${{ env.GITHUB_REF }}-native-version-bump
+          delete-branch: true
