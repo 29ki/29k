@@ -11,7 +11,7 @@ on:
         type: string
 
 jobs:
-  android:
+  ios:
     name: Build
     runs-on: macos-latest
     environment: client-${{ inputs.environment }}
@@ -35,12 +35,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Create GoogleService-Info.plist
-        working-directory: ./client/ios/Supporting
-        run: |
-          echo "${{ secrets.IOS_GOOGLE_SERVICE_PLIST_FILE }}" > ./$IOS_SCHEME/GoogleService-Info.plist
-          cat ./$IOS_SCHEME/GoogleService-Info.plist
-
       - name: Use Ruby 2.7.2
         uses: ruby/setup-ruby@v1
         with:
@@ -54,11 +48,20 @@ jobs:
       - name: Install CocoaPods
         run: gem install cocoapods
 
+      - name: Add keys repo access key
+        run: |
+          eval "$(ssh-agent -s)"
+          ssh-add - <<< '${{ secrets.KEYS_REPO_ACCESS_KEY }}'
+
       - name: Create Dotenv File
         uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
           env-prefix: 'ENV_'
           directory: './client'
+
+      - name: Create GoogleService-Info.plist
+        working-directory: ./client/ios/Supporting
+        run: echo "${{ secrets.IOS_GOOGLE_SERVICE_PLIST_FILE }}" > ./$IOS_SCHEME/GoogleService-Info.plist
 
       - name: Prepare $GIT_COMMIT_SHORT
         working-directory: ./client
@@ -85,9 +88,10 @@ jobs:
       - name: Build Content
         working-directory: ./content
         run: yarn build
-#      - name: Build iOS App
-#        working-directory: ./client/fastlane
-#        run: bundle exec fastlane android app
+
+      - name: Build iOS App
+        working-directory: ./client/fastlane
+        run: bundle exec fastlane ios app
 #
 #      - name: Create Pull Request
 #        uses: peter-evans/create-pull-request@v4
