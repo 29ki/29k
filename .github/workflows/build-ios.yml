@@ -33,6 +33,11 @@ jobs:
       IOS_SCHEME: ${{ secrets.IOS_SCHEME }}
 
     steps:
+      - name: Create GoogleService-Info.plist
+        working-directory: ./client/ios/Supporting
+        run: touch ./staging/GoogleService-Info.plist
+        #echo "${{ secrets.IOS_GOOGLE_SERVICE_PLIST_FILE }}" > ./staging/GoogleService-Info.plist
+
       - uses: actions/checkout@v3
 
       - name: Use Ruby 2.7.2
@@ -53,12 +58,6 @@ jobs:
         with:
           env-prefix: 'ENV_'
           directory: './client'
-
-      - name: Create GoogleService-Info.plist
-        working-directory: ./client/ios/Supporting
-        run: |
-          touch ./staging/GoogleService-Info.plist
-          echo "${{ secrets.IOS_GOOGLE_SERVICE_PLIST_FILE }}" > ./staging/GoogleService-Info.plist
 
       - name: Prepare $GIT_COMMIT_SHORT
         working-directory: ./client
