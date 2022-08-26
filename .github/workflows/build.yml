@@ -9,7 +9,7 @@ jobs:
     uses: ./.github/workflows/build-android.yml
     with:
       environment: staging
-      branch: ${{ env.GITHUB_REF_NAME }}
+      branch: ${{ github.ref_name }}
     secrets: inherit
 
   build-android-production:
@@ -19,5 +19,5 @@ jobs:
     uses: ./.github/workflows/build-android.yml
     with:
       environment: production
-      branch: ${{ env.GITHUB_REF_NAME }}
+      branch: ${{ github.ref_name }}
     secrets: inherit
