@@ -31,6 +31,7 @@ jobs:
       IOS_DEVELOPER_PORTAL_TEAM_ID: ${{ secrets.IOS_DEVELOPER_PORTAL_TEAM_ID }}
       IOS_BUNDLE_IDENTIFIER: ${{ secrets.IOS_BUNDLE_IDENTIFIER }}
       IOS_SCHEME: ${{ secrets.IOS_SCHEME }}
+      MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
 
     steps:
       - uses: actions/checkout@v3
