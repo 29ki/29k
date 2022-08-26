@@ -5,49 +5,32 @@ import AnimatedLottieView from 'lottie-react-native';
 
 import {COLORS} from '../../constants/colors';
 import {SPACINGS} from '../../constants/spacings';
+import SETTINGS from '../../constants/settings';
 import Button from '../Buttons/Button';
 import {Spacer16} from '../Spacers/Spacer';
-
 import {H3} from '../Typography/Heading/Heading';
 import {B2} from '../Typography/Text/Text';
-// import HomeIcon from '../Icons/Home/Home';
-// import {Spacer4, Spacer8} from '../Spacers/Spacer';
-
-// Design
-// Props
-// Translation
-// Library
-// Temple page
-// Image component
-
-// Qs how to add attrs? ex activeOpacity={0.7}
 
 const Lottie = styled(AnimatedLottieView)({
   aspectRatio: '1',
   overflow: 'hidden',
   alignSelf: 'flex-end',
-  width: 130,
-  height: 130,
+  width: 100,
+  height: 100,
 });
 
 const CardButton = styled(Button)({
   alignSelf: 'flex-start',
 });
 const Shadow = styled.View({
-  shadowOffset: {
-    width: 0,
-    height: 5,
-  },
-  shadowOpacity: 0.29,
-  shadowRadius: 6,
-  elevation: 10,
+  ...SETTINGS.BOXSHADOW,
   shadowColor: COLORS.BLACK,
 });
 
 const Wrapper = styled.TouchableOpacity({
   flex: 1,
   justifyContent: 'space-between',
-  borderRadius: SPACINGS.TWENTYFOUR,
+  borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
   backgroundColor: COLORS.YELLOW_LIGHT,
   padding: SPACINGS.SIXTEEN,
 });
