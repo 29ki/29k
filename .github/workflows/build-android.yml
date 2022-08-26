@@ -6,6 +6,9 @@ on:
       environment:
         required: true
         type: string
+      branch:
+        required: true
+        type: string
 
 jobs:
   android:
@@ -100,7 +103,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          title: Native version bump on ${{ env.GITHUB_REF }} (auto generated)
+          title: Native version bump on ${{ inputs.branch }} (auto generated)
           commit-message: Native Version Bump
-          branch: ${{ env.GITHUB_REF }}-native-version-bump
+          branch: ${{ inputs.branch }}-native-version-bump
           delete-branch: true
