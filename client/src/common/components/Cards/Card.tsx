@@ -11,17 +11,23 @@ import {Spacer16} from '../Spacers/Spacer';
 import {H3} from '../Typography/Heading/Heading';
 import {B2} from '../Typography/Text/Text';
 
-const Lottie = styled(AnimatedLottieView)({
-  aspectRatio: '1',
+const GraphicsWrapper = styled.View({
   overflow: 'hidden',
   alignSelf: 'flex-end',
   width: 100,
   height: 100,
+  marginRight: -16,
+  marginBottom: -16,
+});
+
+const Lottie = styled(AnimatedLottieView)({
+  aspectRatio: '1',
 });
 
 const CardButton = styled(Button)({
   alignSelf: 'flex-start',
 });
+
 const Shadow = styled.View({
   ...SETTINGS.BOXSHADOW,
   shadowColor: COLORS.BLACK,
@@ -75,8 +81,10 @@ export const Card: React.FC<CardProps> = ({
           {children}
           <CardButton onPress={onPress}>{buttonText}</CardButton>
         </CallToAction>
-        {/* Add image component when not animation */}
-        {graphic.animation && <Lottie source={graphic.src} autoPlay loop />}
+        <GraphicsWrapper>
+          {/* Add image component when not animation */}
+          {graphic.animation && <Lottie source={graphic.src} autoPlay loop />}
+        </GraphicsWrapper>
       </Row>
     </Wrapper>
   </Shadow>
