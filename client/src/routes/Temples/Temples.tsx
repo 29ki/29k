@@ -60,6 +60,7 @@ const Temples = () => {
           keyExtractor={temple => temple.id}
           ItemSeparatorComponent={Spacer16}
           renderItem={renderTemple}
+          style={{overflow: 'visible'}}
           refreshControl={
             <RefreshControl
               refreshing={isLoading}
