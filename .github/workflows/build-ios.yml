@@ -103,11 +103,11 @@ jobs:
       - name: Build iOS App
         working-directory: ./client/fastlane
         run: bundle exec fastlane ios app
-#
-#      - name: Create Pull Request
-#        uses: peter-evans/create-pull-request@v4
-#        with:
-#          title: Native version bump on ${{ inputs.branch }} (auto generated)
-#          commit-message: Native Version Bump
-#          branch: ${{ inputs.branch }}-native-version-bump
-#          delete-branch: true
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: Native version bump on ${{ inputs.branch }} (auto generated)
+          commit-message: Native Version Bump
+          branch: ${{ inputs.branch }}-native-version-bump
+          delete-branch: true
