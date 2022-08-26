@@ -6,6 +6,7 @@ export const COLORS = {
   BLACK_EASY: '#2E2E2E',
   BLACK_TRANSPARENT: 'rgba(0, 0, 0, 0.5)',
   WHITE: '#FFFFFF',
+  WHITE_EASY: '#F9F8F4',
   WHITE_TRANSPARENT: 'rgba(255, 255, 255, 0.75)',
 
   //
