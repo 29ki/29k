@@ -49,9 +49,9 @@ jobs:
         run: gem install cocoapods
 
       - name: Add keys repo access key
-        run: |
-          eval `ssh-agent -s`
-          ssh-add - <<< '${{ secrets.KEYS_REPO_ACCESS_KEY }}'
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.KEYS_REPO_ACCESS_KEY }}
 
       - name: Create Dotenv File
         uses: iamsauravsharma/create-dotenv@v1.2.1
