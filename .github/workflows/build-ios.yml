@@ -33,11 +33,11 @@ jobs:
       IOS_SCHEME: ${{ secrets.IOS_SCHEME }}
 
     steps:
+      - uses: actions/checkout@v3
+
       - name: Create GoogleService-Info.plist
         working-directory: ./client/ios/Supporting
         run: echo "${{ secrets.IOS_GOOGLE_SERVICE_PLIST_FILE }}" > ./$IOS_SCHEME/GoogleService-Info.plist
-
-      - uses: actions/checkout@v3
 
       - name: Use Ruby 2.7.2
         uses: ruby/setup-ruby@v1
