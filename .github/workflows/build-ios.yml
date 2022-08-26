@@ -13,7 +13,7 @@ on:
 jobs:
   ios:
     name: Build
-    runs-on: macos-latest
+    runs-on: macos-12
     environment: client-${{ inputs.environment }}
     env:
       CI: github
