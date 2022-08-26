@@ -5,7 +5,7 @@ on: workflow_dispatch
 jobs:
   build-android-staging:
     name: Android Staging
-    concurrency: build-android
+    concurrency: build-android-production
     uses: ./.github/workflows/build-android.yml
     with:
       environment: staging
@@ -14,7 +14,7 @@ jobs:
 
   build-android-production:
     name: Android Production
-    concurrency: build-android # Run this sequentially since they bumps the same version code
+    concurrency: build-android-staging
     uses: ./.github/workflows/build-android.yml
     with:
       environment: production
@@ -23,7 +23,7 @@ jobs:
 
   build-ios-staging:
     name: iOS Staging
-    concurrency: build-ios
+    concurrency: build-ios-staging
     uses: ./.github/workflows/build-ios.yml
     with:
       environment: staging
@@ -32,7 +32,7 @@ jobs:
 
   build-ios-production:
     name: iOS Production
-    concurrency: build-ios # Run this sequentially since they bumps the same version code
+    concurrency: build-ios-production
     uses: ./.github/workflows/build-ios.yml
     with:
       environment: production
