@@ -5,7 +5,7 @@ on: workflow_dispatch
 jobs:
   build-android-staging:
     name: Android Staging
-    concurrency: build-android-staging
+    concurrency: build-android
     uses: ./.github/workflows/build-android.yml
     with:
       environment: staging
@@ -14,9 +14,26 @@ jobs:
 
   build-android-production:
     name: Android Production
-    concurrency: build-android-production
-    needs: build-android-staging # Run this sequentially since they bumps the same version code
+    concurrency: build-android # Run this sequentially since they bumps the same version code
     uses: ./.github/workflows/build-android.yml
+    with:
+      environment: production
+      branch: ${{ github.ref_name }}
+    secrets: inherit
+
+  build-ios-staging:
+    name: iOS Staging
+    concurrency: build-ios
+    uses: ./.github/workflows/build-ios.yml
+    with:
+      environment: staging
+      branch: ${{ github.ref_name }}
+    secrets: inherit
+
+  build-ios-production:
+    name: iOS Production
+    concurrency: build-ios # Run this sequentially since they bumps the same version code
+    uses: ./.github/workflows/build-ios.yml
     with:
       environment: production
       branch: ${{ github.ref_name }}

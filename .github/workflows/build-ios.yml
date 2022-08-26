@@ -6,6 +6,9 @@ on:
       environment:
         required: true
         type: string
+      branch:
+        required: true
+        type: string
 
 jobs:
   android:
@@ -45,45 +48,39 @@ jobs:
       - name: Install bundle
         run: gem install bundle
 
+      - name: Install CocoaPods
+        run: gem install cocoapods
+
       - name: Create Dotenv File
         uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
           env-prefix: 'ENV_'
           directory: './client'
 
-      - name: Create google-play-service.json
-        working-directory: ./client
+      - name: Create GoogleService-Info.plist
+        working-directory: ./client/ios/Supporting/src
         run: |
-          cat > $ANDROID_GOOGLE_PLAY_SERVICE_FILE << EOL
-          ${{ secrets.ANDROID_GOOGLE_PLAY_SERVICE_FILE }}
+          cat > ./$IOS_SCHEME/GoogleService-Info.plist << EOL
+          ${{ secrets.IOS_GOOGLE_SERVICE_PLIST_FILE }}
           EOL
-
-      - name: Create google-services.json
-        working-directory: ./client/android/app/src
-        run: |
-          cat > ./$ANDROID_FLAVOR/google-services.json << EOL
-          ${{ secrets.ANDROID_GOOGLE_SERVICES_FILE }}
-          EOL
-
-      - name: Create release.keystore
-        working-directory: ./client/android/app
-        run: echo -n "${{ secrets.ANDROID_RELEASE_KEYSTORE }}" | base64 --decode > release.keystore
-
-      - name: Cache Client Dependencies
-        id: cache-client-node-modules
-        uses: actions/cache@v2
-        with:
-          path: ./client/node_modules
-          key: client-node-modules-${{ hashFiles('./client/yarn.lock') }}
-
-      - name: Install Client Dependencies
-        if: steps.cache-client-node-modules.outputs.cache-hit != 'true'
-        working-directory: ./client
-        run: yarn
 
       - name: Prepare $GIT_COMMIT_SHORT
         working-directory: ./client
         run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
+
+      - name: Cache Client Dependencies
+        id: cache-client-node-modules-pods
+        uses: actions/cache@v2
+        with:
+          path: |
+            ./client/node_modules
+            ./client/ios/Pods
+          key: client-node-modules-pods-${{ hashFiles('./client/yarn.lock') }}
+
+      - name: Install Client Dependencies
+        if: steps.cache-client-node-modules-pods.outputs.cache-hit != 'true'
+        working-directory: ./client
+        run: yarn
 
       - name: Install Fastlane Dependencies
         working-directory: ./client/fastlane
@@ -92,15 +89,14 @@ jobs:
       - name: Build Content
         working-directory: ./content
         run: yarn build
-
-      - name: Build Android App
-        working-directory: ./client/fastlane
-        run: bundle exec fastlane android app
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
-        with:
-          title: Native version bump on ${{ env.GITHUB_REF }} (auto generated)
-          commit-message: Native Version Bump
-          branch: ${{ env.GITHUB_REF }}-native-version-bump
-          delete-branch: true
+#      - name: Build iOS App
+#        working-directory: ./client/fastlane
+#        run: bundle exec fastlane android app
+#
+#      - name: Create Pull Request
+#        uses: peter-evans/create-pull-request@v4
+#        with:
+#          title: Native version bump on ${{ inputs.branch }} (auto generated)
+#          commit-message: Native Version Bump
+#          branch: ${{ inputs.branch }}-native-version-bump
+#          delete-branch: true
