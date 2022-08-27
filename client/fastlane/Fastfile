@@ -74,7 +74,6 @@ platform :android do
 
     upload_to_play_store(
       track: 'internal',
-      release_status: 'draft',
       package_name: ENV['ANDROID_PACKAGE_NAME'],
       skip_upload_apk: true,
       skip_upload_metadata: true,
