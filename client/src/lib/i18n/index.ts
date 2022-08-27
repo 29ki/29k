@@ -18,6 +18,5 @@ export const init = () =>
     fallbackLng: DEFAULT_LANGUAGE_TAG,
     resources,
   });
-};
 
 export default i18next;
