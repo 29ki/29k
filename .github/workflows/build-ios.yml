@@ -66,9 +66,9 @@ jobs:
           env-prefix: 'ENV_'
           directory: './client'
 
-      - name: Create GoogleService-Info.plist
-        working-directory: ./client/ios/Supporting
-        run: echo "${{ secrets.IOS_GOOGLE_SERVICE_PLIST_FILE }}" > ./$IOS_SCHEME/GoogleService-Info.plist
+      #- name: Create GoogleService-Info.plist
+      #  working-directory: ./client/ios/Supporting
+      #  run: echo "${{ secrets.IOS_GOOGLE_SERVICE_PLIST_FILE }}" > ./$IOS_SCHEME/GoogleService-Info.plist
 
       - name: Create App Store Connect API Key
         working-directory: ./client
