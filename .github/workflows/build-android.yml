@@ -95,14 +95,13 @@ jobs:
         working-directory: ./content
         run: yarn build
 
-      - name: Build Android App
+      - name: Build & Upload App
         working-directory: ./client/fastlane
         run: bundle exec fastlane android app
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          title: Native version bump on ${{ inputs.branch }} (auto generated)
+          title: Android native version bump on ${{ inputs.branch }} (auto generated)
           commit-message: Native Version Bump
-          branch: ${{ inputs.branch }}-native-version-bump
-          delete-branch: true
+          branch: ${{ inputs.branch }}-android-native-version-bump

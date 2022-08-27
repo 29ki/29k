@@ -100,7 +100,7 @@ jobs:
         working-directory: ./content
         run: yarn build
 
-      - name: Build iOS App
+      - name: Build & Upload App
         working-directory: ./client/fastlane
         run: bundle exec fastlane ios app
 
@@ -114,7 +114,6 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          title: Native version bump on ${{ inputs.branch }} (auto generated)
+          title: iOS native version bump on ${{ inputs.branch }} (auto generated)
           commit-message: Native Version Bump
-          branch: ${{ inputs.branch }}-native-version-bump
-          delete-branch: true
+          branch: ${{ inputs.branch }}-ios-native-version-bump
