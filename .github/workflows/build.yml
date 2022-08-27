@@ -1,0 +1,40 @@
+name: Build
+
+on: workflow_dispatch
+
+jobs:
+  build-android-staging:
+    name: Android Staging
+    concurrency: build-android-production
+    uses: ./.github/workflows/build-android.yml
+    with:
+      environment: staging
+      branch: ${{ github.ref_name }}
+    secrets: inherit
+
+  build-android-production:
+    name: Android Production
+    concurrency: build-android-staging
+    uses: ./.github/workflows/build-android.yml
+    with:
+      environment: production
+      branch: ${{ github.ref_name }}
+    secrets: inherit
+
+  build-ios-staging:
+    name: iOS Staging
+    concurrency: build-ios-staging
+    uses: ./.github/workflows/build-ios.yml
+    with:
+      environment: staging
+      branch: ${{ github.ref_name }}
+    secrets: inherit
+
+  build-ios-production:
+    name: iOS Production
+    concurrency: build-ios-production
+    uses: ./.github/workflows/build-ios.yml
+    with:
+      environment: production
+      branch: ${{ github.ref_name }}
+    secrets: inherit

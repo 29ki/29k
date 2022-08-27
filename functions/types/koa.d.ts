@@ -8,6 +8,6 @@ https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/koa-bodypar
 import * as Koa from 'koa';
 declare module 'koa' {
   interface Request {
-    body: any; // eslint-disable-line
+    body?: any; // eslint-disable-line
   }
 }
