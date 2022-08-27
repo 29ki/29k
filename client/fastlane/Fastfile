@@ -15,13 +15,6 @@
 
 default_platform(:ios)
 
-lane :logBuildPath do |params|
-  UI.message('')
-  UI.header('Build output path')
-  UI.message(params[:path])
-  UI.message('')
-end
-
 setup_ci if ENV['CI']
 
 platform :ios do
