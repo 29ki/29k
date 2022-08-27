@@ -14,8 +14,6 @@ jobs:
     environment: functions-${{ inputs.environment }}
     env:
       DOTENV_DAILY_API_KEY: ${{ secrets.DAILY_API_KEY }}
-      DOTENV_DAILY_API_URL: ${{ secrets.DAILY_API_URL }}
-      DOTENV_DAILY_API_VERSION: ${{ secrets.DAILY_API_VERSION }}
 
     steps:
       - uses: actions/checkout@v2
