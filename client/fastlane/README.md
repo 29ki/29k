@@ -13,17 +13,6 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 # Available Actions
 
-### logBuildPath
-
-```sh
-[bundle exec] fastlane logBuildPath
-```
-
-
-
-----
-
-
 ## iOS
 
 ### ios app
