@@ -35,7 +35,7 @@ jobs:
       IOS_SCHEME: ${{ secrets.IOS_SCHEME }}
       IOS_APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.IOS_APP_STORE_CONNECT_API_ISSUER_ID }}
       IOS_APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.IOS_APP_STORE_CONNECT_API_KEY_ID }}
-      IOS_APP_STORE_CONNECT_API_KEY_FILE: ./AppStoreConnectApiKey.p8
+      IOS_APP_STORE_CONNECT_API_KEY_FILE: ${{ secrets.IOS_APP_STORE_CONNECT_API_KEY_FILE }}
       MATCH_REPOSITORY: ${{ secrets.MATCH_REPOSITORY }}
       MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
 
@@ -69,10 +69,6 @@ jobs:
       - name: Create GoogleService-Info.plist
         working-directory: ./client/ios/Supporting
         run: echo "${{ secrets.IOS_GOOGLE_SERVICE_PLIST_FILE }}" > ./$IOS_SCHEME/GoogleService-Info.plist
-
-      - name: Create App Store Connect API Key
-        working-directory: ./client
-        run: echo "${{ secrets.IOS_APP_STORE_CONNECT_API_KEY_FILE }}" > $IOS_APP_STORE_CONNECT_API_KEY_FILE
 
       - name: Prepare $GIT_COMMIT_SHORT
         working-directory: ./client
