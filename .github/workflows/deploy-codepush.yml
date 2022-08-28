@@ -25,6 +25,12 @@ jobs:
       SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
       SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
 
+      DOTENV_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+      DOTENV_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+      DOTENV_IOS_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.IOS_CODE_PUSH_DEPLOYMENT_KEY }}
+      DOTENV_ANDROID_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.ANDROID_CODE_PUSH_DEPLOYMENT_KEY }}
+      DOTENV_API_ENDPOINT: ${{ secrets.API_ENDPOINT }}
+
     steps:
       - uses: actions/checkout@v2
 
@@ -34,16 +40,10 @@ jobs:
           node-version: 16.x
 
       - name: Create Dotenv File
-        uses: SpicyPizza/create-envfile@v1.3
+        uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
-          envkey_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
-          envkey_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-          envkey_IOS_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.IOS_CODE_PUSH_DEPLOYMENT_KEY }}
-          envkey_ANDROID_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.ANDROID_CODE_PUSH_DEPLOYMENT_KEY }}
-          envkey_API_ENDPOINT: ${{ secrets.API_ENDPOINT }}
-
-          directory: ./client
-          file_name: .env
+          env-prefix: 'DOTENV_'
+          directory: './client'
 
       - name: Cache Client Dependencies
         id: cache-client-node-modules
