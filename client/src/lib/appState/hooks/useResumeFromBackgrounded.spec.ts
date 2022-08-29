@@ -10,7 +10,7 @@ const subscriptionMock = {remove: jest.fn()};
 });
 
 afterEach(async () => {
-  await cleanup();
+  await cleanup(); //Normally added automatically by @testing-library/react-hooks
   jest.clearAllMocks();
 });
 
