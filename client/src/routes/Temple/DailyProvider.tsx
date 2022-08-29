@@ -16,6 +16,7 @@ import {
   videoSharingFields,
   participantsAtom,
   videoSharingAtom,
+  activeParticipantAtom,
 } from './state/state';
 
 type DailyProviderTypes = {
@@ -41,12 +42,13 @@ export const DailyContext = createContext<DailyProviderTypes>({
 
 const DailyProvider: React.FC = ({children}) => {
   const [daily] = useState(() => Daily.createCallObject());
-  const [hasAudio, setHasAudio] = useState(true);
+  const [hasAudio, setHasAudio] = useState(false);
   const [hasVideo, setHasVideo] = useState(true);
 
   const setIsLoading = useSetRecoilState(videoSharingFields('isLoading'));
   const setIsJoined = useSetRecoilState(videoSharingFields('isJoined'));
   const setParticipants = useSetRecoilState(participantsAtom);
+  const setActiveParticipant = useSetRecoilState(activeParticipantAtom);
   const resetParticipants = useResetRecoilState(participantsAtom);
   const resetVideoCallState = useResetRecoilState(videoSharingAtom);
 
@@ -75,15 +77,24 @@ const DailyProvider: React.FC = ({children}) => {
         omit([participant.user_id], participants),
       );
     };
+
+    const onActiveSpeakerChange = ({
+      activeSpeaker,
+    }: DailyEventObject<'active-speaker-change'>) => {
+      const {peerId} = activeSpeaker;
+      setActiveParticipant(peerId);
+    };
+
     return [
       ['joined-meeting', onJoinedMeeting],
       ['participant-joined', onParticipantJoined],
       ['participant-left', onParticipantLeft],
       ['participant-updated', onParticipantUpdated],
+      ['active-speaker-change', onActiveSpeakerChange],
       //   ['network-quality-change', connect(networkQualityChange)],
       //   ['error', error => dispatch(setError(error.errorMsg))],
     ];
-  }, [setParticipants, setIsJoined]);
+  }, [setParticipants, setIsJoined, setActiveParticipant]);
 
   const leaveMeeting = useCallback(async () => {
     if (!daily) {
