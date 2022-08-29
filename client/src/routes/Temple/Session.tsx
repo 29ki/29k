@@ -1,10 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import {
-  ActivityIndicator,
-  FlatList,
-  TouchableOpacity,
-  ListRenderItemInfo,
-} from 'react-native';
+import {ActivityIndicator, TouchableOpacity} from 'react-native';
 import {useRecoilValue, useSetRecoilState} from 'recoil';
 import {
   DailyMediaView,
@@ -21,7 +16,7 @@ import {
 } from './state/state';
 import {RouteProp, useRoute} from '@react-navigation/native';
 
-import {Spacer12, Spacer16} from '../../common/components/Spacers/Spacer';
+import {Spacer16, Spacer28} from '../../common/components/Spacers/Spacer';
 import {SPACINGS} from '../../common/constants/spacings';
 import AudioToggleButton from './Buttons/AudioToggleButton';
 import VideoToggleButton from './Buttons/VideoToggleButton';
@@ -32,15 +27,11 @@ import {ScreenProps} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {DailyContext} from './DailyProvider';
 import {Temple} from '../../../../shared/src/types/Temple';
+import Participants from './Participants';
 
 const LoadingView = styled.View({
   flex: 1,
   justifyContent: 'center',
-});
-
-const VideoView = styled.View({
-  aspectRatio: '1',
-  backgroundColor: 'gray',
 });
 
 const ScreenView = styled.View({
@@ -56,13 +47,6 @@ const Spotlight = styled.View({
 const SpotlightVideo = styled.View({
   width: '100%',
   height: '50%',
-});
-
-const Participants = styled.View({
-  width: '25%',
-  borderLeftWidth: 1,
-  borderLeftColor: COLORS.BLACK,
-  borderLeftStyle: 'solid',
 });
 
 const MainViewContainer = styled.View({
@@ -150,15 +134,6 @@ const Session = () => {
     );
   }
 
-  const renderVideo = ({item}: ListRenderItemInfo<DailyParticipant>) => (
-    <VideoView>
-      <TouchableMediaView
-        onPress={() => setSelectedParticipantId(item.user_id)}
-        item={item}
-      />
-    </VideoView>
-  );
-
   return (
     <>
       <ScreenView>
@@ -176,6 +151,8 @@ const Session = () => {
               </SpotlightVideo>
             )}
           </Spotlight>
+          {participants && <Participants participants={participants} />}
+          <Spacer16 />
           <Controls>
             <AudioToggleButton onPress={toggleAudio} active={hasAudio} />
             <VideoToggleButton onPress={toggleVideo} active={hasVideo} />
@@ -184,16 +161,8 @@ const Session = () => {
               active={participants.length === 0}
             />
           </Controls>
-          <Spacer16 />
+          <Spacer28 />
         </MainViewContainer>
-        <Participants>
-          <FlatList
-            data={participants}
-            keyExtractor={participant => participant.user_id}
-            ItemSeparatorComponent={Spacer12}
-            renderItem={renderVideo}
-          />
-        </Participants>
       </ScreenView>
     </>
   );
