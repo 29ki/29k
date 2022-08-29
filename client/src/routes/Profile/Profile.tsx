@@ -45,11 +45,17 @@ const Profile = () => {
             <Spacer16 />
           </>
         )}
-        <Button onPress={toggleUiLib}>{t('uiLib')}</Button>
+        <Button primary onPress={toggleUiLib}>
+          {t('uiLib')}
+        </Button>
         <Spacer16 />
-        <Button onPress={clearUpdates}>{t('clearUpdate')}</Button>
+        <Button primary onPress={clearUpdates}>
+          {t('clearUpdate')}
+        </Button>
         <Spacer16 />
-        <Button onPress={checkForUpdate}>{t('checkUpdate')}</Button>
+        <Button primary onPress={checkForUpdate}>
+          {t('checkUpdate')}
+        </Button>
         <Spacer48 />
 
         <H3>{t('language')}</H3>
@@ -57,6 +63,7 @@ const Profile = () => {
         <Row>
           {LANGUAGE_TAGS.map(languageTag => (
             <Button
+              primary
               key={languageTag}
               onPress={() => i18n.changeLanguage(languageTag)}>
               {languageTag.toUpperCase()}
@@ -64,7 +71,9 @@ const Profile = () => {
           ))}
         </Row>
         <Spacer48 />
-        <Button onPress={signOut}>{t('logout')}</Button>
+        <Button primary onPress={signOut}>
+          {t('logout')}
+        </Button>
       </Gutters>
     </Wrapper>
   );
