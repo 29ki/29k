@@ -12,6 +12,9 @@ jobs:
     name: Deploy
     runs-on: ubuntu-20.04
     environment: functions-${{ inputs.environment }}
+    env:
+      DOTENV_DAILY_API_KEY: ${{ secrets.DAILY_API_KEY }}
+
     steps:
       - uses: actions/checkout@v2
 
@@ -21,14 +24,10 @@ jobs:
           node-version: 16.x
 
       - name: Create Dotenv File
-        uses: SpicyPizza/create-envfile@v1.3
+        uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
-          envkey_DAILY_API_KEY: ${{ secrets.DAILY_API_KEY }}
-          envkey_DAILY_API_URL: ${{ secrets.DAILY_API_URL }}
-          envkey_DAILY_API_VERSION: ${{ secrets.DAILY_API_VERSION }}
-
-          directory: ./functions
-          file_name: .env
+          env-prefix: 'DOTENV_'
+          directory: './functions'
 
       - name: Cache Root Dependencies
         id: cache-root-node-modules
