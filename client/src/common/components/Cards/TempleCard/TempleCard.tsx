@@ -7,7 +7,8 @@ import Card from '../Card';
 type TempleCardProps = {
   onPress?: () => void;
   temple: Temple;
-  lottieSrc: string;
+  graphicSrc: string;
+  animation?: boolean;
   time: string;
   buttonText: string;
 };
@@ -15,20 +16,21 @@ type TempleCardProps = {
 const TempleCard: React.FC<TempleCardProps> = ({
   onPress = () => {},
   temple,
-  lottieSrc,
+  graphicSrc,
+  animation = false,
   buttonText,
   time,
 }) => {
   const {name, url} = temple;
 
-  const lottieGraphics = {src: lottieSrc, animation: true, alt: ''};
+  const graphic = {src: graphicSrc, animation, alt: ''};
 
   return (
     <Card
       title={name}
       description={url}
       buttonText={buttonText}
-      graphic={lottieGraphics}
+      graphic={graphic}
       onPress={onPress}>
       {
         <>

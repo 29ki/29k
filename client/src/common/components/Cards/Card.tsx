@@ -10,10 +10,11 @@ import Button from '../Buttons/Button';
 import {Spacer16} from '../Spacers/Spacer';
 import {H3} from '../Typography/Heading/Heading';
 import {B2} from '../Typography/Text/Text';
+import Image from '../Image/Image';
 
 const GraphicsWrapper = styled.View({
   overflow: 'hidden',
-  alignSelf: 'flex-end',
+  justifyContent: 'flex-end',
   width: 100,
   height: 100,
   marginRight: -16,
@@ -82,8 +83,11 @@ export const Card: React.FC<CardProps> = ({
           <CardButton onPress={onPress}>{buttonText}</CardButton>
         </CallToAction>
         <GraphicsWrapper>
-          {/* Add image component when not animation */}
-          {graphic.animation && <Lottie source={graphic.src} autoPlay loop />}
+          {graphic.animation ? (
+            <Lottie source={graphic.src} autoPlay loop />
+          ) : (
+            <Image src={graphic.src} />
+          )}
         </GraphicsWrapper>
       </Row>
     </Wrapper>
