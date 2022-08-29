@@ -1,5 +1,5 @@
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
-import {prop, uniqBy, values} from 'ramda';
+import {omit, prop, uniqBy, values} from 'ramda';
 import {atom, selector, selectorFamily} from 'recoil';
 import {Temple} from '../../../../../shared/src/types/Temple';
 
@@ -32,6 +32,11 @@ export const selectedParticipantId = atom<string | null>({
   default: null,
 });
 
+export const activeParticipantAtom = atom<string | null>({
+  key: `${NAMESPACE}/activeParticipantId`,
+  default: null,
+});
+
 export const selectedParticipantSelector = selector({
   key: `${NAMESPACE}/selectedParticipant`,
   get: ({get}) => {
@@ -43,8 +48,17 @@ export const selectedParticipantSelector = selector({
 export const participantsSelector = selector({
   key: `${NAMESPACE}/participantsSelector`,
   get: ({get}) => {
-    const participants = values(get(participantsAtom));
-    return uniqBy(prop('user_id'), participants);
+    const participantsObj = get(participantsAtom);
+    const activeParticipantId = get(activeParticipantAtom);
+
+    if (activeParticipantId) {
+      return [
+        participantsObj[activeParticipantId],
+        ...values(omit([activeParticipantId], participantsObj)),
+      ];
+    }
+
+    return uniqBy(prop('user_id'), values(participantsObj));
   },
 });
 
