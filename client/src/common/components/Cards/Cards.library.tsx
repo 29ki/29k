@@ -12,7 +12,16 @@ export const AllCards = () => (
     <Spacer16 />
     <TempleCard
       temple={{url: '', name: 'Test temple', id: 'sdf', active: true}}
-      lottieSrc={animation.src}
+      graphicSrc="https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png"
+      buttonText="Join"
+      time="Some time"
+      onPress={() => console.log('Temple Card!')}
+    />
+    <Spacer16 />
+    <TempleCard
+      temple={{url: '', name: 'Test temple', id: 'sdf', active: true}}
+      graphicSrc={animation.src}
+      animation
       buttonText="Join"
       time="Some time"
       onPress={() => console.log('Temple Card!')}
