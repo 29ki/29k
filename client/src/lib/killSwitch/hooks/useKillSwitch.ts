@@ -94,7 +94,8 @@ const useKillSwitch = () => {
   const checkKillSwitch = useCallback(async () => {
     reset();
 
-    const {os, osVersion, nativeVersion, bundleVersion} = await getDeviceInfo();
+    const {os, osVersion, nativeVersion, bundleVersion, gitCommit} =
+      await getDeviceInfo();
     const languageCode = i18n.resolvedLanguage;
 
     const url = getKillSwitchUrl({
@@ -102,6 +103,7 @@ const useKillSwitch = () => {
       osVersion,
       nativeVersion,
       bundleVersion,
+      gitCommit,
       languageCode,
     });
 

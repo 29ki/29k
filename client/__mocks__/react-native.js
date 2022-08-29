@@ -7,9 +7,15 @@ export const Platform = {
   select: jest.fn(({ios}) => ios),
 };
 
+export const AppState = {
+  addEventListener: jest.fn(),
+  currentState: 'active',
+};
+
 export default Object.setPrototypeOf(
   {
     Platform,
+    AppState,
   },
   ReactNative,
 );

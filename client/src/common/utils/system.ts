@@ -15,6 +15,7 @@ export type DeviceInfo = {
   osVersion: string | number;
   nativeVersion: string;
   bundleVersion: number | undefined;
+  gitCommit: string;
 };
 
 export const getDeviceInfo = async () => ({
