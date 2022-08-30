@@ -20,7 +20,7 @@
     "test": "yarn build:content && yarn test:version && yarn test:ts && yarn test:lint && yarn test:jest"
   },
   "dependencies": {
-    "@daily-co/react-native-daily-js": "^0.27.0",
+    "@daily-co/react-native-daily-js": "^0.28.0",
     "@daily-co/react-native-webrtc": "1.94.1-daily.4",
     "@react-native-async-storage/async-storage": "^1.17.9",
     "@react-native-firebase/app": "^15.3.0",
