@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ListRenderItemInfo, RefreshControl} from 'react-native';
+import {FlatListProps, ListRenderItemInfo, RefreshControl} from 'react-native';
 import {FlatList, TextInput} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -22,8 +22,13 @@ import {useRecoilValue} from 'recoil';
 import {isLoadingAtom, templesAtom} from './state/state';
 import {Temple} from '../../../../shared/src/types/Temple';
 import TempleCard from '../../common/components/Cards/TempleCard/TempleCard';
+import styled from 'styled-components';
 
 type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
+
+const TempleList = styled(FlatList)<FlatListProps<Temple>>({
+  overflow: 'visible',
+});
 
 const Temples = () => {
   const {t} = useTranslation(NS.SCREEN.TEMPLES);
@@ -54,12 +59,11 @@ const Temples = () => {
       <Gutters>
         <H3>{t('heading')}</H3>
         <Spacer16 />
-        <FlatList
+        <TempleList
           data={temples}
           keyExtractor={temple => temple.id}
           ItemSeparatorComponent={Spacer16}
           renderItem={renderTemple}
-          style={{overflow: 'visible'}}
           refreshControl={
             <RefreshControl
               refreshing={isLoading}

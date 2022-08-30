@@ -21,12 +21,12 @@ import {
 } from './state/state';
 import {RouteProp, useRoute} from '@react-navigation/native';
 
-import {Spacer12, Spacer16} from '../../common/components/Spacers/Spacer';
+import {Spacer12, Spacer28} from '../../common/components/Spacers/Spacer';
 import {SPACINGS} from '../../common/constants/spacings';
 import AudioToggleButton from './Buttons/AudioToggleButton';
 import VideoToggleButton from './Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
-import MeetingToggleButton from './Buttons/MeetingToggleButton';
+import LeaveButton from './Buttons/LeaveButton';
 import {B1} from '../../common/components/Typography/Text/Text';
 import {ScreenProps} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
@@ -67,11 +67,11 @@ const Participants = styled.View({
 
 const MainViewContainer = styled.View({
   flex: 1,
+  alignItems: 'center',
 });
 
 const Controls = styled.View({
   flexDirection: 'row',
-  justifyContent: 'space-between',
 });
 
 const DailyMediaViewWrapper = styled(DailyMediaView)({
@@ -178,13 +178,14 @@ const Session = () => {
           </Spotlight>
           <Controls>
             <AudioToggleButton onPress={toggleAudio} active={hasAudio} />
+            <Spacer12 />
             <VideoToggleButton onPress={toggleVideo} active={hasVideo} />
-            <MeetingToggleButton
+            <Spacer12 />
+            <LeaveButton
               onPress={participants.length === 0 ? startMeeting : leaveMeeting}
-              active={participants.length === 0}
             />
           </Controls>
-          <Spacer16 />
+          <Spacer28 />
         </MainViewContainer>
         <Participants>
           <FlatList
