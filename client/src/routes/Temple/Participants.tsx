@@ -36,7 +36,7 @@ const ParticipantAudioWrapper = styled.View({
   height: 24,
   width: 24,
   borderRadius: 45,
-  backgroundColor: COLORS.GREY,
+  backgroundColor: COLORS.BLACK_TRANSPARENT,
   padding: 2,
   position: 'absolute',
   top: SPACINGS.EIGHT,
