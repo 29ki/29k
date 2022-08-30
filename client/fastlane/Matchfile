@@ -4,7 +4,7 @@ storage_mode('git')
 
 type('development') # The default type, can be: appstore, adhoc, enterprise or development
 
-app_identifier(['org.twentyninek.app.cupcake', 'org.twentyninek.app.cupcake.staging'])
+app_identifier(['org.twentyninek.app.cupcake', 'org.twentyninek.app.cupcake.staging', 'org.twentyninek.app.cupcake.dev'])
 
 # For all available options run `fastlane match --help`
 # Remove the # in the beginning of the line to enable the other options
