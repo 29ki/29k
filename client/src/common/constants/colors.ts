@@ -24,7 +24,7 @@ export const COLORS = {
 
   // Primary
   ROSE300: '#FDE4D8',
-  ROSE500: '#FF7259',
+  ROSE500: '#E18A6C',
   ROSE700: '#EA8585',
 
   // Secondary
