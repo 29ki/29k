@@ -34,11 +34,6 @@ const LoadingView = styled.View({
   justifyContent: 'center',
 });
 
-const ScreenView = styled.View({
-  flex: 1,
-  flexDirection: 'row',
-});
-
 const Spotlight = styled.View({
   flexGrow: 2,
   margin: SPACINGS.SIXTEEN,
@@ -135,36 +130,32 @@ const Session = () => {
   }
 
   return (
-    <>
-      <ScreenView>
-        <MainViewContainer>
-          <Spotlight>
-            {temple?.active && !selectedParticipant && (
-              <Content state={temple} />
-            )}
-            {selectedParticipant && (
-              <SpotlightVideo>
-                <TouchableMediaView
-                  onPress={() => setSelectedParticipantId(null)}
-                  item={selectedParticipant}
-                />
-              </SpotlightVideo>
-            )}
-          </Spotlight>
-          {participants && <Participants participants={participants} />}
-          <Spacer16 />
-          <Controls>
-            <AudioToggleButton onPress={toggleAudio} active={hasAudio} />
-            <VideoToggleButton onPress={toggleVideo} active={hasVideo} />
-            <MeetingToggleButton
-              onPress={participants.length === 0 ? startMeeting : leaveMeeting}
-              active={participants.length === 0}
+    <MainViewContainer>
+      <Spotlight>
+        {temple?.active && !selectedParticipant && <Content state={temple} />}
+        {selectedParticipant && (
+          <SpotlightVideo>
+            <TouchableMediaView
+              onPress={() => setSelectedParticipantId(null)}
+              item={selectedParticipant}
             />
-          </Controls>
-          <Spacer28 />
-        </MainViewContainer>
-      </ScreenView>
-    </>
+          </SpotlightVideo>
+        )}
+      </Spotlight>
+      {participants && (
+        <Participants participants={participants} hasAudio={hasAudio} />
+      )}
+      <Spacer16 />
+      <Controls>
+        <AudioToggleButton onPress={toggleAudio} active={hasAudio} />
+        <VideoToggleButton onPress={toggleVideo} active={hasVideo} />
+        <MeetingToggleButton
+          onPress={participants.length === 0 ? startMeeting : leaveMeeting}
+          active={participants.length === 0}
+        />
+      </Controls>
+      <Spacer28 />
+    </MainViewContainer>
   );
 };
 

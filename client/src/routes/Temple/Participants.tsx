@@ -9,6 +9,8 @@ import styled from 'styled-components/native';
 import {B2} from '../../common/components/Typography/Text/Text';
 import {COLORS} from '../../common/constants/colors';
 import {SPACINGS} from '../../common/constants/spacings';
+import {MicrophoneIcon} from '../../common/components/Icons/Microphone/Microphone';
+import {MicrophoneOffIcon} from '../../common/components/Icons/MicrophoneOff/MicrophoneOff';
 
 const ParticipatnsWrapper = styled.View({
   height: 184,
@@ -28,15 +30,36 @@ const ParticipantName = styled(B2)({
   paddingHorizontal: SPACINGS.SIXTEEN,
 });
 
+const ParticipantAudioWrapper = styled.View({
+  height: 24,
+  width: 24,
+  borderRadius: 45,
+  backgroundColor: COLORS.GREY,
+  padding: 2,
+  //   paddingLeft: SPACINGS.EIGHT,
+  //   paddingRight: SPACINGS.EIGHT,
+
+  position: 'absolute',
+  top: SPACINGS.EIGHT,
+  right: SPACINGS.SIXTEEN,
+});
+
 const DailyMediaViewWrapper = styled(DailyMediaView)({
   height: 184,
 });
 
 type ParticipantsProps = {
   participants: Array<DailyParticipant>;
+  hasAudio: boolean;
 };
 
-const Participants: React.FC<ParticipantsProps> = ({participants}) => {
+const audioOn = (participant: DailyParticipant, localAudio: boolean) =>
+  participant.local ? localAudio : participant.audio;
+
+const Participants: React.FC<ParticipantsProps> = ({
+  participants,
+  hasAudio,
+}) => {
   const renderVideo = ({item}: ListRenderItemInfo<DailyParticipant>) => (
     <VideoView>
       <DailyMediaViewWrapper
@@ -47,6 +70,13 @@ const Participants: React.FC<ParticipantsProps> = ({participants}) => {
         mirror={item.local}
       />
       <ParticipantName>{item.user_name}</ParticipantName>
+      <ParticipantAudioWrapper>
+        {audioOn(item, hasAudio) ? (
+          <MicrophoneIcon fill={COLORS.GREEN_LIGHT} />
+        ) : (
+          <MicrophoneOffIcon />
+        )}
+      </ParticipantAudioWrapper>
     </VideoView>
   );
 
