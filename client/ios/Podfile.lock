@@ -1086,14 +1086,14 @@ PODS:
   - RNScreens (3.17.0):
     - React-Core
     - React-RCTImage
-  - RNSentry (4.2.2):
+  - RNSentry (4.2.4):
     - React-Core
-    - Sentry (= 7.22.0)
+    - Sentry (= 7.23.0)
   - RNSVG (12.4.4):
     - React-Core
-  - Sentry (7.22.0):
-    - Sentry/Core (= 7.22.0)
-  - Sentry/Core (7.22.0)
+  - Sentry (7.23.0):
+    - Sentry/Core (= 7.23.0)
+  - Sentry/Core (7.23.0)
   - SSZipArchive (2.2.3)
   - Yoga (1.14.0)
 
@@ -1346,9 +1346,9 @@ SPEC CHECKSUMS:
   RNLocalize: a64514b46a01375fdfae9349036b4dc7130333b5
   RNReanimated: 5bdcbcc3a72aedeee7bb099604262403aa75a1e5
   RNScreens: 0df01424e9e0ed7827200d6ed1087ddd06c493f9
-  RNSentry: f03937a2cf86c7029ba31fbbf5618c55d223cd62
+  RNSentry: 7495ba091f09f12902d8cf916024efd99b058efe
   RNSVG: ecd661f380a07ba690c9c5929c475a44f432d674
-  Sentry: 30b51086ca9aac23337880152e95538f7e177f7f
+  Sentry: a0d4563fa4ddacba31fdcc35daaa8573d87224d6
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Yoga: 99652481fcd320aefa4a7ef90095b95acd181952
 
