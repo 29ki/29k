@@ -53,26 +53,34 @@ const DailyProvider: React.FC = ({children}) => {
   const resetVideoCallState = useResetRecoilState(videoSharingAtom);
 
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(() => {
-    const onJoinedMeeting = ({participants}: DailyEventObject) => {
+    const onJoinedMeeting = ({
+      participants,
+    }: DailyEventObject<'joined-meeting'>) => {
       setIsJoined(true);
       setParticipants(participants);
     };
 
-    const onParticipantJoined = ({participant}: DailyEventObject) => {
+    const onParticipantJoined = ({
+      participant,
+    }: DailyEventObject<'participant-joined'>) => {
       setParticipants(participants => ({
         ...participants,
         [participant.user_id]: participant,
       }));
     };
 
-    const onParticipantUpdated = ({participant}: DailyEventObject) => {
+    const onParticipantUpdated = ({
+      participant,
+    }: DailyEventObject<'participant-updated'>) => {
       setParticipants(participants => ({
         ...participants,
         [participant.user_id]: participant,
       }));
     };
 
-    const onParticipantLeft = ({participant}: DailyEventObject) => {
+    const onParticipantLeft = ({
+      participant,
+    }: DailyEventObject<'participant-left'>) => {
       setParticipants(participants =>
         omit([participant.user_id], participants),
       );
