@@ -9,6 +9,7 @@ const NS = {
     KILL_SWITCH: 'Screen.KillSwitch',
     PROFILE: 'Screen.Profile',
     TEMPLES: 'Screen.Temples',
+    TEMPLE: 'Screen.Temple',
   },
 };
 
