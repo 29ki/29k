@@ -8,7 +8,7 @@ import {
 import styled from 'styled-components/native';
 
 import {
-  selectedParticipantId,
+  selectedParticipantIdAtom,
   videoSharingFields,
   participantsSelector,
   selectedParticipantSelector,
@@ -16,8 +16,7 @@ import {
 } from './state/state';
 import {RouteProp, useRoute} from '@react-navigation/native';
 
-import {Spacer16, Spacer28} from '../../common/components/Spacers/Spacer';
-import {SPACINGS} from '../../common/constants/spacings';
+import {Spacer16} from '../../common/components/Spacers/Spacer';
 import AudioToggleButton from './Buttons/AudioToggleButton';
 import VideoToggleButton from './Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
@@ -35,13 +34,12 @@ const LoadingView = styled.View({
 });
 
 const Spotlight = styled.View({
-  flexGrow: 2,
-  margin: SPACINGS.SIXTEEN,
+  aspectRatio: '0.85',
+  backgroundColor: 'darksalmon',
 });
 
 const SpotlightVideo = styled.View({
-  width: '100%',
-  height: '50%',
+  flex: 1,
 });
 
 const MainViewContainer = styled.View({
@@ -101,13 +99,13 @@ const Session = () => {
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
   const isJoined = useRecoilValue(videoSharingFields('isJoined'));
   const selectedParticipant = useRecoilValue(selectedParticipantSelector);
-  const setSelectedParticipantId = useSetRecoilState(selectedParticipantId);
+  const setSelectedParticipantId = useSetRecoilState(selectedParticipantIdAtom);
 
   useEffect(() => {
     if (temple?.url) {
       prepareMeeting(temple.url);
     }
-  }, [temple?.url, prepareMeeting]);
+  }, [temple?.url, prepareMeeting, startMeeting]);
 
   useEffect(() => {
     const unsubscribe = subscribeTemple(templeId);
@@ -154,7 +152,6 @@ const Session = () => {
           active={participants.length === 0}
         />
       </Controls>
-      <Spacer28 />
     </MainViewContainer>
   );
 };

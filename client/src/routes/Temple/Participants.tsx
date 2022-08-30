@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {FlatList, ListRenderItemInfo} from 'react-native';
 import {
   DailyMediaView,
@@ -13,17 +13,16 @@ import {SPACINGS} from '../../common/constants/spacings';
 import {MicrophoneIcon} from '../../common/components/Icons/Microphone/Microphone';
 import {MicrophoneOffIcon} from '../../common/components/Icons/MicrophoneOff/MicrophoneOff';
 import NS from '../../lib/i18n/constants/namespaces';
+import {useSetRecoilState} from 'recoil';
+import {selectedParticipantIdAtom} from './state/state';
 
-const ParticipatnsWrapper = styled.View({
-  height: 184,
-  width: '100%',
+const ParticipantsWrapper = styled.View({
+  flex: 1,
 });
 
-const VideoView = styled.View({
-  aspectRatio: '1',
-  flexDirection: 'row',
-  backgroundColor: COLORS.GREY,
-});
+const VideoView = styled.TouchableOpacity<{width: number}>(props => ({
+  width: props.width,
+}));
 
 const ParticipantName = styled(B2)({
   position: 'absolute',
@@ -45,7 +44,7 @@ const ParticipantAudioWrapper = styled.View({
 });
 
 const DailyMediaViewWrapper = styled(DailyMediaView)({
-  width: 184,
+  flex: 1,
 });
 
 type ParticipantsProps = {
@@ -60,6 +59,8 @@ const Participants: React.FC<ParticipantsProps> = ({
   participants,
   localAudioOn,
 }) => {
+  const [containerWidth, setContainerWidth] = useState(0);
+  const setSelectedParticipantId = useSetRecoilState(selectedParticipantIdAtom);
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
 
   const renderName = (participant: DailyParticipant) =>
@@ -68,10 +69,13 @@ const Participants: React.FC<ParticipantsProps> = ({
       : participant.user_name;
 
   const renderVideo = ({item}: ListRenderItemInfo<DailyParticipant>) => (
-    <VideoView>
+    <VideoView
+      width={containerWidth * 0.4}
+      onPress={() => setSelectedParticipantId(item.user_id)}>
       <DailyMediaViewWrapper
         videoTrack={item.videoTrack ?? null}
         audioTrack={item.audioTrack ?? null}
+        objectFit="cover"
         zOrder={item.local ? 1 : 0}
         mirror={item.local}
       />
@@ -87,14 +91,17 @@ const Participants: React.FC<ParticipantsProps> = ({
   );
 
   return (
-    <ParticipatnsWrapper>
+    <ParticipantsWrapper
+      onLayout={event => {
+        setContainerWidth(event.nativeEvent.layout.width);
+      }}>
       <FlatList
         horizontal
         data={participants}
         keyExtractor={participant => participant.user_id}
         renderItem={renderVideo}
       />
-    </ParticipatnsWrapper>
+    </ParticipantsWrapper>
   );
 };
 
