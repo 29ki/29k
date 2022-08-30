@@ -21,7 +21,8 @@ const ParticipatnsWrapper = styled.View({
 
 const VideoView = styled.View({
   aspectRatio: '1',
-  backgroundColor: 'gray',
+  flexDirection: 'row',
+  backgroundColor: COLORS.GREY,
 });
 
 const ParticipantName = styled(B2)({
@@ -44,7 +45,7 @@ const ParticipantAudioWrapper = styled.View({
 });
 
 const DailyMediaViewWrapper = styled(DailyMediaView)({
-  height: 184,
+  width: 184,
 });
 
 type ParticipantsProps = {
@@ -71,7 +72,6 @@ const Participants: React.FC<ParticipantsProps> = ({
       <DailyMediaViewWrapper
         videoTrack={item.videoTrack ?? null}
         audioTrack={item.audioTrack ?? null}
-        objectFit={'cover'}
         zOrder={item.local ? 1 : 0}
         mirror={item.local}
       />
@@ -89,7 +89,6 @@ const Participants: React.FC<ParticipantsProps> = ({
   return (
     <ParticipatnsWrapper>
       <FlatList
-        bounces={false}
         horizontal
         data={participants}
         keyExtractor={participant => participant.user_id}
