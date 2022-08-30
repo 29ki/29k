@@ -922,10 +922,10 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
-"@shopify/jest-koa-mocks@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@shopify/jest-koa-mocks/-/jest-koa-mocks-5.0.0.tgz#0d9af9ef14498868e3c3acf446ad2fce64119e53"
-  integrity sha512-keF5fgqAzWgC4O5uwUgQawp80IsDJdfyyMvWnIcsMaYw9CgURm4CW+v9NskUAn6AeaHd4Tkv+pWCFg/LRHHf4w==
+"@shopify/jest-koa-mocks@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@shopify/jest-koa-mocks/-/jest-koa-mocks-5.0.1.tgz#fba490b6b7985fbb571eb9974897d396a3642e94"
+  integrity sha512-4YskS9q8+TEHNoyopmuoy2XyhInyqeOl7CF5ShJs19sm6m0EA/jGGvgf/osv2PeTfuf42/L2G9CzWUSg49yTSg==
   dependencies:
     koa "^2.13.4"
     node-mocks-http "^1.11.0"
