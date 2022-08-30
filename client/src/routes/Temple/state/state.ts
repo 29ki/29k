@@ -1,5 +1,5 @@
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
-import {omit, prop, uniqBy, values} from 'ramda';
+import {omit, values} from 'ramda';
 import {atom, selector, selectorFamily} from 'recoil';
 import {Temple} from '../../../../../shared/src/types/Temple';
 
@@ -50,15 +50,17 @@ export const participantsSelector = selector({
   get: ({get}) => {
     const participantsObj = get(participantsAtom);
     const activeParticipantId = get(activeParticipantAtom);
+    const localParticipant = participantsObj.local;
+    const participants = omit([localParticipant?.user_id], participantsObj); // Omit local stream from server
 
     if (activeParticipantId) {
       return [
         participantsObj[activeParticipantId],
-        ...values(omit([activeParticipantId], participantsObj)),
+        ...values(omit([activeParticipantId], participants)),
       ];
     }
 
-    return uniqBy(prop('user_id'), values(participantsObj));
+    return values(participants);
   },
 });
 
