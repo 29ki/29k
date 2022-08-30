@@ -738,9 +738,9 @@ PODS:
   - Libuv-gRPC/Implementation (0.0.10):
     - Libuv-gRPC/Interface (= 0.0.10)
   - Libuv-gRPC/Interface (0.0.10)
-  - lottie-ios (3.2.3)
-  - lottie-react-native (5.1.3):
-    - lottie-ios (~> 3.2.3)
+  - lottie-ios (3.4.3)
+  - lottie-react-native (5.1.4):
+    - lottie-ios (~> 3.4.0)
     - React-Core
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
@@ -1056,7 +1056,7 @@ PODS:
     - React-Core
   - RNLocalize (2.2.3):
     - React-Core
-  - RNReanimated (2.8.0):
+  - RNReanimated (2.10.0):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -1303,8 +1303,8 @@ SPEC CHECKSUMS:
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
-  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
-  lottie-react-native: a501112fa980529ccb80b9f3ee117a7f98c6af3a
+  lottie-ios: 9ae750cdc7820fecbd3c2f0cfc493038208fcdc4
+  lottie-react-native: b702fab740cdb952a8e2354713d3beda63ff97b0
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   RCT-Folly: 4d8508a426467c48885f1151029bc15fa5d7b3b8
@@ -1344,7 +1344,7 @@ SPEC CHECKSUMS:
   RNFBFirestore: 991890f43c4ee33aed752418f06d80d0d9b8eb25
   RNGestureHandler: bad495418bcbd3ab47017a38d93d290ebd406f50
   RNLocalize: a64514b46a01375fdfae9349036b4dc7130333b5
-  RNReanimated: 64573e25e078ae6bec03b891586d50b9ec284393
+  RNReanimated: 5bdcbcc3a72aedeee7bb099604262403aa75a1e5
   RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
   RNSentry: f03937a2cf86c7029ba31fbbf5618c55d223cd62
   RNSVG: ecd661f380a07ba690c9c5929c475a44f432d674

@@ -6776,10 +6776,10 @@ lottie-ios@3.4.3:
   resolved "https://registry.yarnpkg.com/lottie-ios/-/lottie-ios-3.4.3.tgz#ec1191243531bc4abb76f8affc50745a9799eeed"
   integrity sha512-QWA3uV/gOo4aIQbNYdjmrQEVp0QRzxsf34YegQuZdnYjq+vv4LX7IkSrfcdaun5U3EYJ7Bla7ccRd5pxx829Lw==
 
-lottie-react-native@^5.1.3:
-  version "5.1.3"
-  resolved "https://registry.yarnpkg.com/lottie-react-native/-/lottie-react-native-5.1.3.tgz#6f5d0867bb762cee1dfc0613845d50c73e138ddd"
-  integrity sha512-Ho+oM+D3if85I2EBn8c17tcg7pc880Sp/DOeNW5aWiNtlCJKX/kmlhoM19NLqjzkHEm96fTkTcTy82ZwYU3Kbg==
+lottie-react-native@^5.1.4:
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/lottie-react-native/-/lottie-react-native-5.1.4.tgz#9340a4f63ed115d5f050f1af69e53242e6e63840"
+  integrity sha512-Lu6mSG92Wck+vXEX6gfj/9ciqqoz0tJQZqgX0SumGvX/oZu4MbKO/oLApyHdy2V9Rb7qvwF9whOtitADxTswPA==
   dependencies:
     invariant "^2.2.2"
     react-native-safe-modules "^1.0.3"
