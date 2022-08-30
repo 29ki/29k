@@ -143,7 +143,7 @@ const Session = () => {
         )}
       </Spotlight>
       {participants && (
-        <Participants participants={participants} hasAudio={hasAudio} />
+        <Participants participants={participants} localAudioOn={hasAudio} />
       )}
       <Spacer16 />
       <Controls>

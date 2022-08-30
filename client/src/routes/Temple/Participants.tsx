@@ -49,7 +49,7 @@ const DailyMediaViewWrapper = styled(DailyMediaView)({
 
 type ParticipantsProps = {
   participants: Array<DailyParticipant>;
-  hasAudio: boolean;
+  localAudioOn: boolean;
 };
 
 const audioOn = (participant: DailyParticipant, localAudio: boolean) =>
@@ -57,7 +57,7 @@ const audioOn = (participant: DailyParticipant, localAudio: boolean) =>
 
 const Participants: React.FC<ParticipantsProps> = ({
   participants,
-  hasAudio,
+  localAudioOn,
 }) => {
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
 
@@ -77,7 +77,7 @@ const Participants: React.FC<ParticipantsProps> = ({
       />
       <ParticipantName>{renderName(item)}</ParticipantName>
       <ParticipantAudioWrapper>
-        {audioOn(item, hasAudio) ? (
+        {audioOn(item, localAudioOn) ? (
           <MicrophoneIcon fill={COLORS.GREEN_LIGHT} />
         ) : (
           <MicrophoneOffIcon />
