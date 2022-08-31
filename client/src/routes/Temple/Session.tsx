@@ -27,6 +27,10 @@ import useTemple from './hooks/useTemple';
 import {DailyContext} from './DailyProvider';
 import {Temple} from '../../../../shared/src/types/Temple';
 import Participants from './Participants';
+import {useTranslation} from 'react-i18next';
+import NS from '../../lib/i18n/constants/namespaces';
+import {ParticipantName, renderName} from './ParticipantName';
+import {ParticipantAudio} from './ParticipantAudio';
 
 const LoadingView = styled.View({
   flex: 1,
@@ -57,18 +61,28 @@ const DailyMediaViewWrapper = styled(DailyMediaView)({
 
 const TouchableMediaView = ({
   onPress,
-  item,
+  participant,
+  suffix,
+  localAudioOn,
 }: {
   onPress: () => void;
-  item: DailyParticipant;
+  participant: DailyParticipant;
+  suffix: string;
+  localAudioOn: boolean;
 }) => (
   <TouchableOpacity onPress={onPress}>
     <DailyMediaViewWrapper
-      videoTrack={item.videoTrack ?? null}
-      audioTrack={item.audioTrack ?? null}
+      videoTrack={participant.videoTrack ?? null}
+      audioTrack={participant.audioTrack ?? null}
       objectFit={'cover'}
-      zOrder={item.local ? 1 : 0}
-      mirror={item.local}
+      zOrder={participant.local ? 1 : 0}
+      mirror={participant.local}
+    />
+    <ParticipantName>{renderName(participant, suffix)}</ParticipantName>
+    <ParticipantAudio
+      participant={participant}
+      localAudioOn={localAudioOn}
+      isOnThumbnail={false}
     />
   </TouchableOpacity>
 );
@@ -91,6 +105,7 @@ const Session = () => {
   } = useRoute<RouteProp<ScreenProps, 'Temple'>>();
 
   const {goBack} = useNavigation();
+  const {t} = useTranslation(NS.SCREEN.TEMPLE);
   const {subscribeTemple} = useTemple();
 
   const temple = useRecoilValue(templeAtom);
@@ -131,7 +146,9 @@ const Session = () => {
           <SpotlightVideo>
             <TouchableMediaView
               onPress={() => setSelectedParticipantId(null)}
-              item={selectedParticipant}
+              participant={selectedParticipant}
+              suffix={t('nameSuffix')}
+              localAudioOn={hasAudio}
             />
           </SpotlightVideo>
         )}
