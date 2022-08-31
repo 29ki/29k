@@ -71,7 +71,7 @@ export const Card: React.FC<CardProps> = ({
   children,
 }) => (
   <Shadow>
-    <Wrapper onPress={onPress}>
+    <Wrapper onPress={onPress} activeOpacity={0.7}>
       <View>
         {Boolean(title) && <H3>{title}</H3>}
         {Boolean(description) && <B2 numberOfLines={1}>{description}</B2>}

@@ -35,7 +35,8 @@ const IconButton: React.FC<IconButtonProps> = ({
     onPress={onPress}
     disabled={disabled}
     style={style}
-    active={active}>
+    active={active}
+    activeOpacity={0.7}>
     <Icon fill={fill} />
   </StyledIconButton>
 );

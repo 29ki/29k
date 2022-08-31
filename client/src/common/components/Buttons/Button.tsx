@@ -29,7 +29,11 @@ const Button: React.FC<{
   primary?: boolean;
   style?: object;
 }> = ({children, onPress = () => {}, primary = false, style = {}}) => (
-  <ButtonComponent onPress={onPress} primary={primary} style={style}>
+  <ButtonComponent
+    onPress={onPress}
+    primary={primary}
+    style={style}
+    activeOpacity={0.7}>
     {typeof children === 'string' ? (
       <ButtonText primary={primary}>{children}</ButtonText>
     ) : (
