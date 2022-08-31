@@ -1,10 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import {
-  ActivityIndicator,
-  FlatList,
-  TouchableOpacity,
-  ListRenderItemInfo,
-} from 'react-native';
+import {ActivityIndicator, FlatList, ListRenderItemInfo} from 'react-native';
 import {useRecoilValue, useSetRecoilState} from 'recoil';
 import {
   DailyMediaView,
@@ -32,6 +27,7 @@ import {ScreenProps} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {DailyContext} from './DailyProvider';
 import {Temple} from '../../../../shared/src/types/Temple';
+import TouchableOpacity from '../../common/components/TouchableOpacity/TouchableOpacity';
 
 const LoadingView = styled.View({
   flex: 1,

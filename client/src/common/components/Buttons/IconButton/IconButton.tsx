@@ -1,9 +1,10 @@
 import React from 'react';
-import {TouchableOpacity, ViewStyle} from 'react-native';
+import {ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../constants/colors';
 import {SPACINGS} from '../../../constants/spacings';
 import {IconType} from '../../Icons';
+import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
 
 const StyledIconButton = styled(TouchableOpacity)<{active: boolean}>(props => ({
   width: SPACINGS.FOURTYFOUR,
@@ -35,8 +36,7 @@ const IconButton: React.FC<IconButtonProps> = ({
     onPress={onPress}
     disabled={disabled}
     style={style}
-    active={active}
-    activeOpacity={0.7}>
+    active={active}>
     <Icon fill={fill} />
   </StyledIconButton>
 );
