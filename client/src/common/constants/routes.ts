@@ -6,6 +6,7 @@ export type ScreenProps = {
   Breathing: undefined;
   Temple: {templeId: string};
   Temples: undefined;
+  ChangingRoom: {templeId: string};
 };
 
 type Routes = {[key: string]: keyof ScreenProps};
@@ -21,4 +22,5 @@ export const ROUTES: Routes = {
   KILL_SWITCH: 'KillSwitch',
   BREATHING: 'Breathing',
   TEMPLES: 'Temples',
+  CHANGING_ROOM: 'ChangingRoom',
 };

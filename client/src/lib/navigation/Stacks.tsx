@@ -7,6 +7,7 @@ import {killSwitchFields} from '../killSwitch/state/state';
 import Tabs from './Tabs';
 import Breathing from '../../routes/Breathing/Breathing';
 import Temple from '../../routes/Temple/Temple';
+import ChangingRoom from '../../routes/Temple/ChangingRoom';
 
 const Stack = createNativeStackNavigator<ScreenProps>();
 
@@ -26,6 +27,7 @@ const Stacks = () => {
           <Stack.Screen name={NAVIGATORS.TABS} component={Tabs} />
           <Stack.Screen name={ROUTES.BREATHING} component={Breathing} />
           <Stack.Screen name={ROUTES.TEMPLE} component={Temple} />
+          <Stack.Screen name={ROUTES.CHANGING_ROOM} component={ChangingRoom} />
         </>
       )}
     </Stack.Navigator>
