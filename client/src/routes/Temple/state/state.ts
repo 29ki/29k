@@ -18,6 +18,11 @@ export const videoSharingAtom = atom<VideoSharingState>({
   },
 });
 
+export const localParticipantAtom = atom<DailyParticipant | null>({
+  key: `${NAMESPACE}/localParticipant`,
+  default: null,
+});
+
 export const participantsAtom = atom<{
   [user_id: string]: DailyParticipant;
 }>({

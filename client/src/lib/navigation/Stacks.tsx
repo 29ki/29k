@@ -8,11 +8,22 @@ import Tabs from './Tabs';
 import Breathing from '../../routes/Breathing/Breathing';
 import Temple from '../../routes/Temple/Temple';
 import ChangingRoom from '../../routes/Temple/ChangingRoom';
+import DailyProvider from '../../routes/Temple/DailyProvider';
 
 const Stack = createNativeStackNavigator<ScreenProps>();
 
 const stackOptions = {
   headerShown: false,
+};
+const TempleStack = () => {
+  return (
+    <DailyProvider>
+      <Stack.Navigator screenOptions={stackOptions}>
+        <Stack.Screen name={ROUTES.TEMPLE} component={Temple} />
+        <Stack.Screen name={ROUTES.CHANGING_ROOM} component={ChangingRoom} />
+      </Stack.Navigator>
+    </DailyProvider>
+  );
 };
 
 const Stacks = () => {
@@ -26,8 +37,7 @@ const Stacks = () => {
         <>
           <Stack.Screen name={NAVIGATORS.TABS} component={Tabs} />
           <Stack.Screen name={ROUTES.BREATHING} component={Breathing} />
-          <Stack.Screen name={ROUTES.TEMPLE} component={Temple} />
-          <Stack.Screen name={ROUTES.CHANGING_ROOM} component={ChangingRoom} />
+          <Stack.Screen name={NAVIGATORS.TEMPLE} component={TempleStack} />
         </>
       )}
     </Stack.Navigator>

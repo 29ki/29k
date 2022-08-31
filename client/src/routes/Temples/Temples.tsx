@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import useTemples from './hooks/useTemples';
-import {ROUTES, ScreenProps} from '../../common/constants/routes';
+import {NAVIGATORS, ROUTES, ScreenProps} from '../../common/constants/routes';
 
 import {
   Spacer16,
@@ -45,7 +45,12 @@ const Temples = () => {
       graphicSrc="https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png"
       time="This session will start on saturday at 13.00"
       buttonText="Join"
-      onPress={() => navigate(ROUTES.CHANGING_ROOM, {templeId: item.id})}
+      onPress={() =>
+        navigate(NAVIGATORS.TEMPLE, {
+          screen: ROUTES.CHANGING_ROOM,
+          params: {templeId: item.id},
+        })
+      }
     />
   );
 

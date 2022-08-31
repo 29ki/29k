@@ -11,15 +11,11 @@ import AudioToggleButton from '../Temple/Buttons/AudioToggleButton';
 import VideoToggleButton from '../Temple/Buttons/VideoToggleButton';
 import {B1} from '../../common/components/Typography/Text/Text';
 import {COLORS} from '../../common/constants/colors';
-import DailyProvider, {DailyContext} from '../Temple/DailyProvider';
+import {DailyContext} from '../Temple/DailyProvider';
 import {DailyMediaView} from '@daily-co/react-native-daily-js';
 import {useRecoilValue} from 'recoil';
-import {
-  participantsSelector,
-  selectedParticipantSelector,
-  templeAtom,
-} from './state/state';
-import {ScreenProps} from '../../common/constants/routes';
+import {localParticipantAtom, templeAtom} from './state/state';
+import {ROUTES, ScreenProps} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 
 const Back = styled.TouchableOpacity({
@@ -40,14 +36,20 @@ const Input = styled.TextInput({
 });
 
 const DailyMediaViewWrapper = styled(DailyMediaView)({
-  height: '100%',
+  height: '50%',
   width: '100%',
 });
 
 const ChangingRoom = () => {
-  const {goBack} = useNavigation();
-  const {joinMeeting, toggleAudio, toggleVideo, hasAudio, hasVideo} =
-    useContext(DailyContext);
+  const {goBack, navigate} = useNavigation();
+  const {
+    toggleAudio,
+    toggleVideo,
+    hasAudio,
+    hasVideo,
+    prepareMeeting,
+    preJoinMeeting,
+  } = useContext(DailyContext);
 
   const temple = useRecoilValue(templeAtom);
   const {
@@ -58,7 +60,17 @@ const ChangingRoom = () => {
 
   useEffect(() => subscribeTemple(templeId), [subscribeTemple, templeId]);
 
-  const me = useRecoilValue(participantsSelector);
+  useEffect(() => {
+    const startVideo = async () => {
+      if (temple?.url) {
+        await prepareMeeting(temple?.url);
+        preJoinMeeting();
+      }
+    };
+    startVideo();
+  }, [prepareMeeting, preJoinMeeting, temple]);
+
+  const me = useRecoilValue(localParticipantAtom);
   console.log('mememememeemmememememememem', me);
   return (
     <>
@@ -69,12 +81,14 @@ const ChangingRoom = () => {
         </Back>
       </Gutters>
 
-      {/* <DailyMediaViewWrapper
-        videoTrack={me.videoTrack ?? null}
-        audioTrack={me.audioTrack ?? null}
-        objectFit={'cover'}
-        mirror={me.local}
-      /> */}
+      {me && (
+        <DailyMediaViewWrapper
+          videoTrack={me.videoTrack ?? null}
+          audioTrack={me.audioTrack ?? null}
+          objectFit={'cover'}
+          mirror={me.local}
+        />
+      )}
 
       <Spacer28 />
       <Gutters>
@@ -87,14 +101,12 @@ const ChangingRoom = () => {
         <Spacer28 />
         <Input />
         <Spacer28 />
-        <Button onPress={() => startMeeting()}>Join</Button>
+        <Button onPress={() => navigate(ROUTES.TEMPLE, {templeId})}>
+          Join
+        </Button>
       </Gutters>
     </>
   );
 };
 
-export default props => (
-  <DailyProvider>
-    <ChangingRoom {...props}></ChangingRoom>
-  </DailyProvider>
-);
+export default ChangingRoom;

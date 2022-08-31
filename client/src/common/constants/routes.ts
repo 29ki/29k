@@ -13,6 +13,7 @@ type Routes = {[key: string]: keyof ScreenProps};
 
 export const NAVIGATORS: Routes = {
   TABS: 'Tabs',
+  TEMPLE: 'Temple',
 };
 
 export const ROUTES: Routes = {
