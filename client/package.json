@@ -26,8 +26,8 @@
     "@react-native-firebase/app": "^15.3.0",
     "@react-native-firebase/auth": "^15.3.0",
     "@react-native-firebase/firestore": "^15.3.0",
-    "@react-navigation/bottom-tabs": "^6.3.2",
-    "@react-navigation/drawer": "^6.4.1",
+    "@react-navigation/bottom-tabs": "^6.3.3",
+    "@react-navigation/drawer": "^6.4.4",
     "@react-navigation/native": "^6.0.11",
     "@react-navigation/native-stack": "^6.7.0",
     "@sentry/react-native": "^4.2.2",
@@ -56,7 +56,7 @@
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.10",
+    "@babel/core": "^7.18.13",
     "@babel/runtime": "^7.18.9",
     "@react-native-community/eslint-config": "^3.0.3",
     "@testing-library/react-hooks": "^8.0.1",
