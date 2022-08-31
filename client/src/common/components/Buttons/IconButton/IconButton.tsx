@@ -9,7 +9,6 @@ import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
 const StyledIconButton = styled(TouchableOpacity)<{active: boolean}>(props => ({
   width: SPACINGS.FOURTYFOUR,
   height: SPACINGS.FOURTYFOUR,
-  margin: 'auto',
   borderRadius: SPACINGS.SIXTEEN,
   backgroundColor: props.active ? COLORS.GREY : COLORS.ROSE500,
   padding: SPACINGS.EIGHT,
