@@ -19,10 +19,9 @@ import {B3} from '../../common/components/Typography/Text/Text';
 
 import Home from '../../routes/Home/Home';
 import Profile from '../../routes/Profile/Profile';
+import Temples from '../../routes/Temples/Temples';
 
 import NS from '../i18n/constants/namespaces';
-import {FilmCameraIcon} from '../../common/components/Icons/FilmCamera/FilmCamera';
-import Temples from '../../routes/Temples/Temples';
 
 const Tab = createBottomTabNavigator();
 

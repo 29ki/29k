@@ -3,8 +3,8 @@ import React from 'react';
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import {Spacer16} from '../Spacers/Spacer';
 import TempleCard from './TempleCard/TempleCard';
-const lottieSource = require('../../../assets/animations/mandala.json');
 
+const lottieSource = require('../../../assets/animations/mandala.json');
 const animation = {src: lottieSource, animation: true};
 
 export const AllCards = () => (
