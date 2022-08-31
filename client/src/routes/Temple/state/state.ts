@@ -8,7 +8,6 @@ const NAMESPACE = 'VideoSharing';
 type VideoSharingState = {
   isLoading: boolean;
   isStarted: boolean;
-  isJoined: boolean;
 };
 
 export const videoSharingAtom = atom<VideoSharingState>({
@@ -16,7 +15,6 @@ export const videoSharingAtom = atom<VideoSharingState>({
   default: {
     isLoading: false,
     isStarted: false,
-    isJoined: false,
   },
 });
 

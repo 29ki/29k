@@ -14,7 +14,7 @@ import {
   selectedParticipantSelector,
   templeAtom,
 } from './state/state';
-import {RouteProp, useRoute} from '@react-navigation/native';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 
 import {Spacer12, Spacer16} from '../../common/components/Spacers/Spacer';
 import AudioToggleButton from './Buttons/AudioToggleButton';
@@ -79,9 +79,8 @@ const Content = ({state}: {state: Temple}) => (
 
 const Session = () => {
   const {
-    prepareMeeting,
+    joinMeeting,
     leaveMeeting,
-    startMeeting,
     toggleAudio,
     toggleVideo,
     hasAudio,
@@ -91,32 +90,30 @@ const Session = () => {
     params: {templeId},
   } = useRoute<RouteProp<ScreenProps, 'Temple'>>();
 
+  const {goBack} = useNavigation();
   const {subscribeTemple} = useTemple();
 
   const temple = useRecoilValue(templeAtom);
   const participants = useRecoilValue(participantsSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
-  const isJoined = useRecoilValue(videoSharingFields('isJoined'));
   const selectedParticipant = useRecoilValue(selectedParticipantSelector);
   const setSelectedParticipantId = useSetRecoilState(selectedParticipantIdAtom);
 
   useEffect(() => {
     if (temple?.url) {
-      prepareMeeting(temple.url);
+      joinMeeting(temple.url);
     }
-  }, [temple?.url, prepareMeeting, startMeeting]);
+  }, [temple?.url, joinMeeting]);
 
   useEffect(() => {
     const unsubscribe = subscribeTemple(templeId);
     return unsubscribe;
-  }, [prepareMeeting, subscribeTemple, templeId]);
+  }, [subscribeTemple, templeId]);
 
-  useEffect(() => {
-    if (!isJoined) {
-      return;
-    }
-    return leaveMeeting;
-  }, [isJoined, leaveMeeting]);
+  const exitMeeting = async () => {
+    await leaveMeeting();
+    goBack();
+  };
 
   if (isLoading) {
     return (
@@ -148,9 +145,7 @@ const Session = () => {
         <Spacer12 />
         <VideoToggleButton onPress={toggleVideo} active={hasVideo} />
         <Spacer12 />
-        <LeaveButton
-          onPress={participants.length === 0 ? startMeeting : leaveMeeting}
-        />
+        <LeaveButton onPress={exitMeeting} />
       </Controls>
       <Spacer16 />
     </MainViewContainer>
