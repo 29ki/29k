@@ -1,5 +1,5 @@
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
-import {prop, uniqBy, values} from 'ramda';
+import {omit, values} from 'ramda';
 import {atom, selector, selectorFamily} from 'recoil';
 import {Temple} from '../../../../../shared/src/types/Temple';
 
@@ -8,7 +8,6 @@ const NAMESPACE = 'VideoSharing';
 type VideoSharingState = {
   isLoading: boolean;
   isStarted: boolean;
-  isJoined: boolean;
 };
 
 export const videoSharingAtom = atom<VideoSharingState>({
@@ -16,7 +15,6 @@ export const videoSharingAtom = atom<VideoSharingState>({
   default: {
     isLoading: false,
     isStarted: false,
-    isJoined: false,
   },
 });
 
@@ -27,15 +25,20 @@ export const participantsAtom = atom<{
   default: {},
 });
 
-export const selectedParticipantId = atom<string | null>({
+export const selectedParticipantIdAtom = atom<string | null>({
   key: `${NAMESPACE}/selectedParticipantId`,
+  default: null,
+});
+
+export const activeParticipantAtom = atom<string | null>({
+  key: `${NAMESPACE}/activeParticipantId`,
   default: null,
 });
 
 export const selectedParticipantSelector = selector({
   key: `${NAMESPACE}/selectedParticipant`,
   get: ({get}) => {
-    const userId = get(selectedParticipantId);
+    const userId = get(selectedParticipantIdAtom);
     return userId ? get(participantsAtom)[userId] : null;
   },
 });
@@ -43,8 +46,19 @@ export const selectedParticipantSelector = selector({
 export const participantsSelector = selector({
   key: `${NAMESPACE}/participantsSelector`,
   get: ({get}) => {
-    const participants = values(get(participantsAtom));
-    return uniqBy(prop('user_id'), participants);
+    const participantsObj = get(participantsAtom);
+    const activeParticipantId = get(activeParticipantAtom);
+    const localParticipant = participantsObj.local;
+    const participants = omit([localParticipant?.user_id], participantsObj); // Omit local stream from server
+
+    if (activeParticipantId) {
+      return [
+        participantsObj[activeParticipantId],
+        ...values(omit([activeParticipantId], participants)),
+      ];
+    }
+
+    return values(participants);
   },
 });
 

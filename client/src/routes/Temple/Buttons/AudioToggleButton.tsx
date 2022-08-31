@@ -1,7 +1,7 @@
 import React from 'react';
 import IconButton from '../../../common/components/Buttons/IconButton/IconButton';
-import {MicrophoneIcon} from '../../../common/components/Icons/Microphone/Microphone';
-import {MicrophoneOffIcon} from '../../../common/components/Icons/MicrophoneOff/MicrophoneOff';
+import {MicrophoneIcon} from '../../../common/components/Icons';
+import {MicrophoneOffIcon} from '../../../common/components/Icons';
 
 type AudioToggleButton = {
   onPress: () => void;
