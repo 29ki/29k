@@ -16,13 +16,13 @@ import {
   videoSharingFields,
   participantsAtom,
   videoSharingAtom,
+  activeParticipantAtom,
 } from './state/state';
 
 type DailyProviderTypes = {
   call?: DailyCall;
-  prepareMeeting: (url: string) => void;
-  startMeeting: () => void;
-  leaveMeeting: () => void;
+  joinMeeting: (url: string) => Promise<void>;
+  leaveMeeting: () => Promise<void>;
   toggleAudio: () => void;
   toggleVideo: () => void;
   hasAudio: boolean;
@@ -30,9 +30,8 @@ type DailyProviderTypes = {
 };
 
 export const DailyContext = createContext<DailyProviderTypes>({
-  startMeeting: () => {},
-  prepareMeeting: () => {},
-  leaveMeeting: () => {},
+  joinMeeting: () => Promise.resolve(),
+  leaveMeeting: () => Promise.resolve(),
   toggleAudio: () => {},
   toggleVideo: () => {},
   hasAudio: false,
@@ -41,53 +40,69 @@ export const DailyContext = createContext<DailyProviderTypes>({
 
 const DailyProvider: React.FC = ({children}) => {
   const [daily] = useState(() => Daily.createCallObject());
-  const [hasAudio, setHasAudio] = useState(true);
+  const [hasAudio, setHasAudio] = useState(false);
   const [hasVideo, setHasVideo] = useState(true);
 
   const setIsLoading = useSetRecoilState(videoSharingFields('isLoading'));
-  const setIsJoined = useSetRecoilState(videoSharingFields('isJoined'));
   const setParticipants = useSetRecoilState(participantsAtom);
+  const setActiveParticipant = useSetRecoilState(activeParticipantAtom);
   const resetParticipants = useResetRecoilState(participantsAtom);
   const resetVideoCallState = useResetRecoilState(videoSharingAtom);
 
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(() => {
-    const onJoinedMeeting = ({participants}: DailyEventObject) => {
-      setIsJoined(true);
+    const onJoinedMeeting = ({
+      participants,
+    }: DailyEventObject<'joined-meeting'>) => {
       setParticipants(participants);
     };
 
-    const onParticipantJoined = ({participant}: DailyEventObject) => {
+    const onParticipantJoined = ({
+      participant,
+    }: DailyEventObject<'participant-joined'>) => {
       setParticipants(participants => ({
         ...participants,
         [participant.user_id]: participant,
       }));
     };
 
-    const onParticipantUpdated = ({participant}: DailyEventObject) => {
+    const onParticipantUpdated = ({
+      participant,
+    }: DailyEventObject<'participant-updated'>) => {
       setParticipants(participants => ({
         ...participants,
         [participant.user_id]: participant,
       }));
     };
 
-    const onParticipantLeft = ({participant}: DailyEventObject) => {
+    const onParticipantLeft = ({
+      participant,
+    }: DailyEventObject<'participant-left'>) => {
       setParticipants(participants =>
         omit([participant.user_id], participants),
       );
     };
+
+    const onActiveSpeakerChange = ({
+      activeSpeaker,
+    }: DailyEventObject<'active-speaker-change'>) => {
+      const {peerId} = activeSpeaker;
+      setActiveParticipant(peerId);
+    };
+
     return [
       ['joined-meeting', onJoinedMeeting],
       ['participant-joined', onParticipantJoined],
       ['participant-left', onParticipantLeft],
       ['participant-updated', onParticipantUpdated],
+      ['active-speaker-change', onActiveSpeakerChange],
       //   ['network-quality-change', connect(networkQualityChange)],
       //   ['error', error => dispatch(setError(error.errorMsg))],
     ];
-  }, [setParticipants, setIsJoined]);
+  }, [setParticipants, setActiveParticipant]);
 
   const leaveMeeting = useCallback(async () => {
     if (!daily) {
-      return null;
+      return;
     }
 
     await daily.leave();
@@ -108,15 +123,14 @@ const DailyProvider: React.FC = ({children}) => {
   );
   const prepareMeeting = useCallback(
     async url => {
-      if (daily.meetingState() !== 'joined-meeting') {
-        setIsLoading(true);
+      setIsLoading(true);
 
-        await daily.preAuth({
-          url, // TODO should fetch also token from function in the future
-        });
-        setIsLoading(false);
-      }
+      await daily.preAuth({
+        url, // TODO should fetch also token from function in the future
+      });
+      setIsLoading(false);
     },
+
     [daily, setIsLoading],
   );
 
@@ -147,12 +161,21 @@ const DailyProvider: React.FC = ({children}) => {
     daily.setLocalVideo(hasVideo);
   }, [daily, eventHandlers, hasAudio, hasVideo]);
 
+  const joinMeeting = useCallback(
+    async (url: string) => {
+      if (daily.meetingState() !== 'joined-meeting') {
+        await prepareMeeting(url);
+        startMeeting();
+      }
+    },
+    [daily, prepareMeeting, startMeeting],
+  );
+
   return (
     <DailyContext.Provider
       value={{
         call: daily,
-        prepareMeeting,
-        startMeeting,
+        joinMeeting,
         leaveMeeting,
         toggleAudio,
         toggleVideo,

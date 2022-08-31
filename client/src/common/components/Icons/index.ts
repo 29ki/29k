@@ -6,7 +6,12 @@ export type IconType = React.FC<{
 }>;
 
 export * from './Back/Back';
+export * from './FilmCamera/FilmCamera';
+export * from './FilmCameraOff/FilmCameraOff';
 export * from './Forward/Forward';
+export * from './HangUp/HangUp';
 export * from './Home/Home';
 export * from './Logo/Logo';
+export * from './Microphone/Microphone';
+export * from './MicrophoneOff/MicrophoneOff';
 export * from './Profile/Profile';

@@ -1,28 +1,23 @@
 import React, {useContext, useEffect} from 'react';
-import {
-  ActivityIndicator,
-  FlatList,
-  TouchableOpacity,
-  ListRenderItemInfo,
-} from 'react-native';
+import {ActivityIndicator, TouchableOpacity} from 'react-native';
 import {useRecoilValue, useSetRecoilState} from 'recoil';
 import {
   DailyMediaView,
   DailyParticipant,
 } from '@daily-co/react-native-daily-js';
 import styled from 'styled-components/native';
+import {useTranslation} from 'react-i18next';
 
 import {
-  selectedParticipantId,
+  selectedParticipantIdAtom,
   videoSharingFields,
   participantsSelector,
   selectedParticipantSelector,
   templeAtom,
 } from './state/state';
-import {RouteProp, useRoute} from '@react-navigation/native';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 
-import {Spacer12, Spacer28} from '../../common/components/Spacers/Spacer';
-import {SPACINGS} from '../../common/constants/spacings';
+import {Spacer12, Spacer16} from '../../common/components/Spacers/Spacer';
 import AudioToggleButton from './Buttons/AudioToggleButton';
 import VideoToggleButton from './Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
@@ -32,46 +27,31 @@ import {ScreenProps} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {DailyContext} from './DailyProvider';
 import {Temple} from '../../../../shared/src/types/Temple';
+import NS from '../../lib/i18n/constants/namespaces';
+import Participants from './Participants';
+import ParticipantName from './ParticipantName';
+import ParticipantAudio from './ParticipantAudio';
 
 const LoadingView = styled.View({
   flex: 1,
   justifyContent: 'center',
 });
 
-const VideoView = styled.View({
-  aspectRatio: '1',
-  backgroundColor: 'gray',
-});
-
-const ScreenView = styled.View({
-  flex: 1,
-  flexDirection: 'row',
-});
-
 const Spotlight = styled.View({
-  flexGrow: 2,
-  margin: SPACINGS.SIXTEEN,
+  aspectRatio: '0.85',
 });
 
 const SpotlightVideo = styled.View({
-  width: '100%',
-  height: '50%',
-});
-
-const Participants = styled.View({
-  width: '25%',
-  borderLeftWidth: 1,
-  borderLeftColor: COLORS.BLACK,
-  borderLeftStyle: 'solid',
+  flex: 1,
 });
 
 const MainViewContainer = styled.View({
   flex: 1,
-  alignItems: 'center',
 });
 
 const Controls = styled.View({
   flexDirection: 'row',
+  justifyContent: 'center',
 });
 
 const DailyMediaViewWrapper = styled(DailyMediaView)({
@@ -81,18 +61,28 @@ const DailyMediaViewWrapper = styled(DailyMediaView)({
 
 const TouchableMediaView = ({
   onPress,
-  item,
+  participant,
+  suffix,
+  localAudioOn,
 }: {
   onPress: () => void;
-  item: DailyParticipant;
+  participant: DailyParticipant;
+  suffix: string;
+  localAudioOn: boolean;
 }) => (
   <TouchableOpacity onPress={onPress}>
     <DailyMediaViewWrapper
-      videoTrack={item.videoTrack ?? null}
-      audioTrack={item.audioTrack ?? null}
+      videoTrack={participant.videoTrack ?? null}
+      audioTrack={participant.audioTrack ?? null}
       objectFit={'cover'}
-      zOrder={item.local ? 1 : 0}
-      mirror={item.local}
+      zOrder={participant.local ? 1 : 0}
+      mirror={participant.local}
+    />
+    <ParticipantName participant={participant} suffix={suffix} />
+    <ParticipantAudio
+      participant={participant}
+      localAudioOn={localAudioOn}
+      isOnThumbnail={false}
     />
   </TouchableOpacity>
 );
@@ -103,9 +93,8 @@ const Content = ({state}: {state: Temple}) => (
 
 const Session = () => {
   const {
-    prepareMeeting,
+    joinMeeting,
     leaveMeeting,
-    startMeeting,
     toggleAudio,
     toggleVideo,
     hasAudio,
@@ -115,32 +104,31 @@ const Session = () => {
     params: {templeId},
   } = useRoute<RouteProp<ScreenProps, 'Temple'>>();
 
+  const {goBack} = useNavigation();
+  const {t} = useTranslation(NS.SCREEN.TEMPLE);
   const {subscribeTemple} = useTemple();
 
   const temple = useRecoilValue(templeAtom);
   const participants = useRecoilValue(participantsSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
-  const isJoined = useRecoilValue(videoSharingFields('isJoined'));
   const selectedParticipant = useRecoilValue(selectedParticipantSelector);
-  const setSelectedParticipantId = useSetRecoilState(selectedParticipantId);
+  const setSelectedParticipantId = useSetRecoilState(selectedParticipantIdAtom);
 
   useEffect(() => {
     if (temple?.url) {
-      prepareMeeting(temple.url);
+      joinMeeting(temple.url);
     }
-  }, [temple?.url, prepareMeeting]);
+  }, [temple?.url, joinMeeting]);
 
   useEffect(() => {
     const unsubscribe = subscribeTemple(templeId);
     return unsubscribe;
-  }, [prepareMeeting, subscribeTemple, templeId]);
+  }, [subscribeTemple, templeId]);
 
-  useEffect(() => {
-    if (!isJoined) {
-      return;
-    }
-    return leaveMeeting;
-  }, [isJoined, leaveMeeting]);
+  const exitMeeting = async () => {
+    await leaveMeeting();
+    goBack();
+  };
 
   if (isLoading) {
     return (
@@ -150,53 +138,34 @@ const Session = () => {
     );
   }
 
-  const renderVideo = ({item}: ListRenderItemInfo<DailyParticipant>) => (
-    <VideoView>
-      <TouchableMediaView
-        onPress={() => setSelectedParticipantId(item.user_id)}
-        item={item}
-      />
-    </VideoView>
-  );
-
   return (
-    <>
-      <ScreenView>
-        <MainViewContainer>
-          <Spotlight>
-            {temple?.active && !selectedParticipant && (
-              <Content state={temple} />
-            )}
-            {selectedParticipant && (
-              <SpotlightVideo>
-                <TouchableMediaView
-                  onPress={() => setSelectedParticipantId(null)}
-                  item={selectedParticipant}
-                />
-              </SpotlightVideo>
-            )}
-          </Spotlight>
-          <Controls>
-            <AudioToggleButton onPress={toggleAudio} active={hasAudio} />
-            <Spacer12 />
-            <VideoToggleButton onPress={toggleVideo} active={hasVideo} />
-            <Spacer12 />
-            <LeaveButton
-              onPress={participants.length === 0 ? startMeeting : leaveMeeting}
+    <MainViewContainer>
+      <Spotlight>
+        {temple?.active && !selectedParticipant && <Content state={temple} />}
+        {selectedParticipant && (
+          <SpotlightVideo>
+            <TouchableMediaView
+              onPress={() => setSelectedParticipantId(null)}
+              participant={selectedParticipant}
+              suffix={t('nameSuffix')}
+              localAudioOn={hasAudio}
             />
-          </Controls>
-          <Spacer28 />
-        </MainViewContainer>
-        <Participants>
-          <FlatList
-            data={participants}
-            keyExtractor={participant => participant.user_id}
-            ItemSeparatorComponent={Spacer12}
-            renderItem={renderVideo}
-          />
-        </Participants>
-      </ScreenView>
-    </>
+          </SpotlightVideo>
+        )}
+      </Spotlight>
+      {participants && (
+        <Participants participants={participants} localAudioOn={hasAudio} />
+      )}
+      <Spacer16 />
+      <Controls>
+        <AudioToggleButton onPress={toggleAudio} active={hasAudio} />
+        <Spacer12 />
+        <VideoToggleButton onPress={toggleVideo} active={hasVideo} />
+        <Spacer12 />
+        <LeaveButton fill={COLORS.ROSE500} onPress={exitMeeting} />
+      </Controls>
+      <Spacer16 />
+    </MainViewContainer>
   );
 };
 

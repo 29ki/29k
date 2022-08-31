@@ -6,7 +6,12 @@ import {
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 
-import {HomeIcon, IconType, ProfileIcon} from '../../common/components/Icons';
+import {
+  HomeIcon,
+  IconType,
+  ProfileIcon,
+  FilmCameraIcon,
+} from '../../common/components/Icons';
 import {COLORS} from '../../common/constants/colors';
 import {ROUTES} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
@@ -14,10 +19,9 @@ import {B3} from '../../common/components/Typography/Text/Text';
 
 import Home from '../../routes/Home/Home';
 import Profile from '../../routes/Profile/Profile';
+import Temples from '../../routes/Temples/Temples';
 
 import NS from '../i18n/constants/namespaces';
-import {FilmCameraIcon} from '../../common/components/Icons/FilmCamera/FilmCamera';
-import Temples from '../../routes/Temples/Temples';
 
 const Tab = createBottomTabNavigator();
 
@@ -41,12 +45,8 @@ const tabBarOptions: BottomTabNavigationOptions = {
   tabBarStyle: {
     elevation: 0,
     height: 100,
-    borderTopWidth: 1.5,
-    borderLeftWidth: 1.5,
-    borderRightWidth: 1.5,
-    borderRadius: 24,
-    borderColor: COLORS.GREY,
-    borderTopColor: undefined,
+    borderTopWidth: 0.5,
+    borderTopColor: COLORS.GREY,
     backgroundColor: 'transparent',
   },
 };

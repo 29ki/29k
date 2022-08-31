@@ -33,7 +33,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@shopify/jest-koa-mocks": "^5.0.0",
+    "@shopify/jest-koa-mocks": "^5.0.1",
     "@types/jest": "^28.1.7",
     "@types/koa": "^2.13.5",
     "@types/koa-bodyparser": "^4.3.7",
@@ -42,8 +42,8 @@
     "@types/ramda": "^0.28.15",
     "@types/semver": "^7.3.12",
     "@types/supertest": "^2.0.12",
-    "@typescript-eslint/eslint-plugin": "^5.35.1",
-    "@typescript-eslint/parser": "^5.33.1",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
