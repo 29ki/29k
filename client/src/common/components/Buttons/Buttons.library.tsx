@@ -7,11 +7,30 @@ import {Spacer16} from '../Spacers/Spacer';
 import Button from './Button';
 import IconButton from './IconButton/IconButton';
 import {HomeIcon} from '../Icons/Home/Home';
+import {B2} from '../Typography/Text/Text';
+
+const Row = styled.View({
+  flex: 1,
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+});
 
 export const AllButtons = () => (
   <ScreenWrapper>
+    <Button primary>Primary button</Button>
+    <Spacer16 />
     <Button>Regular button</Button>
-    <IconButton Icon={HomeIcon} fill="black" />
+    <Spacer16 />
+    <Row>
+      <B2>Icon button active state</B2>
+      <IconButton Icon={HomeIcon} />
+    </Row>
+    <Spacer16 />
+    <Row>
+      <B2>Icon button</B2>
+      <IconButton Icon={HomeIcon} active={false} />
+    </Row>
   </ScreenWrapper>
 );
 
@@ -23,14 +42,16 @@ export const Buttons = () => (
   </ScreenWrapper>
 );
 
-const IconButtonBlack = styled(IconButton)({
-  backgroundColor: 'black',
-});
-
 export const IconButtons = () => (
   <ScreenWrapper>
-    <IconButton Icon={HomeIcon} fill="black" />
+    <Row>
+      <B2>Icon button active state</B2>
+      <IconButton Icon={HomeIcon} />
+    </Row>
     <Spacer16 />
-    <IconButtonBlack Icon={HomeIcon} fill="white" />
+    <Row>
+      <B2>Icon button</B2>
+      <IconButton Icon={HomeIcon} active={false} />
+    </Row>
   </ScreenWrapper>
 );

@@ -3,12 +3,13 @@ import styled from 'styled-components/native';
 import {COLORS} from '../../constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import {B2} from '../Typography/Text/Text';
+import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 
 type ButtonProps = {
   primary?: boolean;
   style?: object;
 };
-const ButtonComponent = styled.TouchableOpacity<ButtonProps>(({primary}) => ({
+const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(({primary}) => ({
   minHeight: 32,
   backgroundColor: primary ? COLORS.GREY200 : COLORS.BLACK_EASY,
   paddingHorizontal: 24,
