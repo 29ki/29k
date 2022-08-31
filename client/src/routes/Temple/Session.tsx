@@ -182,6 +182,7 @@ const Session = () => {
             <VideoToggleButton onPress={toggleVideo} active={hasVideo} />
             <Spacer12 />
             <LeaveButton
+              fill={COLORS.ROSE500}
               onPress={participants.length === 0 ? startMeeting : leaveMeeting}
             />
           </Controls>

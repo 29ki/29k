@@ -25,7 +25,7 @@ type IconButtonProps = {
 
 const IconButton: React.FC<IconButtonProps> = ({
   onPress,
-  fill,
+  fill = COLORS.GREY100,
   Icon,
   disabled = false,
   style,
