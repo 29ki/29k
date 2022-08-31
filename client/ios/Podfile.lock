@@ -618,32 +618,32 @@ PODS:
     - React-Core (= 0.68.2)
     - React-jsi (= 0.68.2)
     - ReactCommon/turbomodule/core (= 0.68.2)
-  - Firebase/Auth (9.4.0):
+  - Firebase/Auth (9.5.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (~> 9.4.0)
-  - Firebase/CoreOnly (9.4.0):
-    - FirebaseCore (= 9.4.0)
-  - Firebase/Firestore (9.4.0):
+    - FirebaseAuth (~> 9.5.0)
+  - Firebase/CoreOnly (9.5.0):
+    - FirebaseCore (= 9.5.0)
+  - Firebase/Firestore (9.5.0):
     - Firebase/CoreOnly
-    - FirebaseFirestore (~> 9.4.0)
-  - FirebaseAuth (9.4.0):
+    - FirebaseFirestore (~> 9.5.0)
+  - FirebaseAuth (9.5.0):
     - FirebaseCore (~> 9.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
     - GoogleUtilities/Environment (~> 7.7)
     - GTMSessionFetcher/Core (< 3.0, >= 1.7)
-  - FirebaseCore (9.4.0):
+  - FirebaseCore (9.5.0):
     - FirebaseCoreDiagnostics (~> 9.0)
     - FirebaseCoreInternal (~> 9.0)
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/Logger (~> 7.7)
-  - FirebaseCoreDiagnostics (9.4.0):
+  - FirebaseCoreDiagnostics (9.5.0):
     - GoogleDataTransport (< 10.0.0, >= 9.1.4)
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/Logger (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - FirebaseCoreInternal (9.4.0):
+  - FirebaseCoreInternal (9.5.0):
     - "GoogleUtilities/NSData+zlib (~> 7.7)"
-  - FirebaseFirestore (9.4.0):
+  - FirebaseFirestore (9.5.0):
     - abseil/algorithm (~> 1.20211102.0)
     - abseil/base (~> 1.20211102.0)
     - abseil/container/flat_hash_map (~> 1.20211102.0)
@@ -738,9 +738,9 @@ PODS:
   - Libuv-gRPC/Implementation (0.0.10):
     - Libuv-gRPC/Interface (= 0.0.10)
   - Libuv-gRPC/Interface (0.0.10)
-  - lottie-ios (3.2.3)
-  - lottie-react-native (5.1.3):
-    - lottie-ios (~> 3.2.3)
+  - lottie-ios (3.4.3)
+  - lottie-react-native (5.1.4):
+    - lottie-ios (~> 3.4.0)
     - React-Core
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
@@ -957,13 +957,13 @@ PODS:
     - glog
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.27.0):
+  - react-native-daily-js (0.28.0):
     - React
-  - react-native-safe-area-context (4.3.1):
+  - react-native-safe-area-context (4.3.3):
     - RCT-Folly
     - RCTRequired
     - RCTTypeSafety
-    - React
+    - React-Core
     - ReactCommon/turbomodule/core
   - react-native-video (5.2.0):
     - React-Core
@@ -1037,26 +1037,26 @@ PODS:
     - React-jsi (= 0.68.2)
     - React-logger (= 0.68.2)
     - React-perflogger (= 0.68.2)
-  - RNCAsyncStorage (1.17.9):
+  - RNCAsyncStorage (1.17.10):
     - React-Core
   - RNDeviceInfo (10.0.2):
     - React-Core
-  - RNFBApp (15.3.0):
-    - Firebase/CoreOnly (= 9.4.0)
+  - RNFBApp (15.4.0):
+    - Firebase/CoreOnly (= 9.5.0)
     - React-Core
-  - RNFBAuth (15.3.0):
-    - Firebase/Auth (= 9.4.0)
-    - React-Core
-    - RNFBApp
-  - RNFBFirestore (15.3.0):
-    - Firebase/Firestore (= 9.4.0)
+  - RNFBAuth (15.4.0):
+    - Firebase/Auth (= 9.5.0)
     - React-Core
     - RNFBApp
-  - RNGestureHandler (2.5.0):
+  - RNFBFirestore (15.4.0):
+    - Firebase/Firestore (= 9.5.0)
+    - React-Core
+    - RNFBApp
+  - RNGestureHandler (2.6.0):
     - React-Core
   - RNLocalize (2.2.3):
     - React-Core
-  - RNReanimated (2.8.0):
+  - RNReanimated (2.10.0):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -1083,17 +1083,17 @@ PODS:
     - React-RCTText
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.13.1):
+  - RNScreens (3.17.0):
     - React-Core
     - React-RCTImage
-  - RNSentry (4.2.2):
+  - RNSentry (4.2.4):
     - React-Core
-    - Sentry (= 7.22.0)
+    - Sentry (= 7.23.0)
   - RNSVG (12.4.4):
     - React-Core
-  - Sentry (7.22.0):
-    - Sentry/Core (= 7.22.0)
-  - Sentry/Core (7.22.0)
+  - Sentry (7.23.0):
+    - Sentry/Core (= 7.23.0)
+  - Sentry/Core (7.23.0)
   - SSZipArchive (2.2.3)
   - Yoga (1.14.0)
 
@@ -1287,12 +1287,12 @@ SPEC CHECKSUMS:
   DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662
   FBLazyVector: a7a655862f6b09625d11c772296b01cd5164b648
   FBReactNativeSpec: 81ce99032d5b586fddd6a38d450f8595f7e04be4
-  Firebase: 7703fc4022824b6d6db1bf7bea58d13b8e17ec46
-  FirebaseAuth: ae5d4402e1516497357d909162b091b3ca2a2e9c
-  FirebaseCore: 9a2b10270a854731c4d4d8a97d0aa8380ec3458d
-  FirebaseCoreDiagnostics: aaa87098082c4d4bdd1a9557b1186d18ca85ce8c
-  FirebaseCoreInternal: a13302b0088fbf5f38b79b6ece49c2af7d3e05d6
-  FirebaseFirestore: 945196dd78f4e92de6fc47b38569a1e7088af81f
+  Firebase: 800f16f07af493d98d017446a315c27af0552f41
+  FirebaseAuth: 741918f1fa62ed23246a509279f91d42d79a713f
+  FirebaseCore: 25c0400b670fd1e2f2104349cd3b5dcce8d9418f
+  FirebaseCoreDiagnostics: 17cbf4e72b1dbd64bfdc33d4b1f07bce4f16f1d8
+  FirebaseCoreInternal: 50a8e39cae8abf72d5145d07ea34c3244f70862b
+  FirebaseFirestore: e4136560a4bdd1de5f02bc79ccb8414325b08823
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 476ee3e89abb49e07f822b48323c51c57124b572
   GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
@@ -1303,8 +1303,8 @@ SPEC CHECKSUMS:
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
-  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
-  lottie-react-native: a501112fa980529ccb80b9f3ee117a7f98c6af3a
+  lottie-ios: 9ae750cdc7820fecbd3c2f0cfc493038208fcdc4
+  lottie-react-native: b702fab740cdb952a8e2354713d3beda63ff97b0
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   RCT-Folly: 4d8508a426467c48885f1151029bc15fa5d7b3b8
@@ -1321,8 +1321,8 @@ SPEC CHECKSUMS:
   React-jsinspector: c5989c77cb89ae6a69561095a61cce56a44ae8e8
   React-logger: a0833912d93b36b791b7a521672d8ee89107aff1
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: a3e02b4a42caa1a22eabe3e0c25ce9feca07db13
-  react-native-safe-area-context: 6c12e3859b6f27b25de4fee8201cfb858432d8de
+  react-native-daily-js: db107010dee1aef2fee23bc1f42b3cd22b1971df
+  react-native-safe-area-context: b456e1c40ec86f5593d58b275bd0e9603169daca
   react-native-video: a4c2635d0802f983594b7057e1bce8f442f0ad28
   react-native-webrtc: 1ef92e33b86c4130d7f0804ad00856d2fdfad566
   React-perflogger: a18b4f0bd933b8b24ecf9f3c54f9bf65180f3fe6
@@ -1337,18 +1337,18 @@ SPEC CHECKSUMS:
   React-RCTVibration: 79040b92bfa9c3c2d2cb4f57e981164ec7ab9374
   React-runtimeexecutor: b960b687d2dfef0d3761fbb187e01812ebab8b23
   ReactCommon: 095366164a276d91ea704ce53cb03825c487a3f2
-  RNCAsyncStorage: b2489b49e38c85e10ed45a888d13a2a4c7b32ea1
+  RNCAsyncStorage: 0c357f3156fcb16c8589ede67cc036330b6698ca
   RNDeviceInfo: 0a7c1d2532aa7691f9b9925a27e43af006db4dae
-  RNFBApp: 0db41be0ca09ec0828164f16cd36732c0df8dabb
-  RNFBAuth: 5258f9a4402f8dd1b85eebb00f62511e073c79b3
-  RNFBFirestore: 991890f43c4ee33aed752418f06d80d0d9b8eb25
-  RNGestureHandler: bad495418bcbd3ab47017a38d93d290ebd406f50
+  RNFBApp: a6fca2cd8f392b5efc1f2ab7bd4b3b64a6039abf
+  RNFBAuth: e121a1a5b6e6df0348f62da9bf96e5b58fdffa01
+  RNFBFirestore: 76db0e646dbbfb66938674bf5a1a433ebb2c2c92
+  RNGestureHandler: 920eb17f5b1e15dae6e5ed1904045f8f90e0b11e
   RNLocalize: a64514b46a01375fdfae9349036b4dc7130333b5
-  RNReanimated: 64573e25e078ae6bec03b891586d50b9ec284393
-  RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
-  RNSentry: f03937a2cf86c7029ba31fbbf5618c55d223cd62
+  RNReanimated: 5bdcbcc3a72aedeee7bb099604262403aa75a1e5
+  RNScreens: 0df01424e9e0ed7827200d6ed1087ddd06c493f9
+  RNSentry: 7495ba091f09f12902d8cf916024efd99b058efe
   RNSVG: ecd661f380a07ba690c9c5929c475a44f432d674
-  Sentry: 30b51086ca9aac23337880152e95538f7e177f7f
+  Sentry: a0d4563fa4ddacba31fdcc35daaa8573d87224d6
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Yoga: 99652481fcd320aefa4a7ef90095b95acd181952
 
