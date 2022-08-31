@@ -1,7 +1,7 @@
 import React from 'react';
 import IconButton from '../../../common/components/Buttons/IconButton/IconButton';
-import {FilmCameraIcon} from '../../../common/components/Icons/FilmCamera/FilmCamera';
-import {FilmCameraOffIcon} from '../../../common/components/Icons/FilmCameraOff/FilmCameraOff';
+import {FilmCameraIcon} from '../../../common/components/Icons';
+import {FilmCameraOffIcon} from '../../../common/components/Icons';
 
 type VideoToggleButton = {
   onPress: () => void;

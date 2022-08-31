@@ -6,7 +6,12 @@ import {
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 
-import {HomeIcon, IconType, ProfileIcon} from '../../common/components/Icons';
+import {
+  HomeIcon,
+  IconType,
+  ProfileIcon,
+  FilmCameraIcon,
+} from '../../common/components/Icons';
 import {COLORS} from '../../common/constants/colors';
 import {ROUTES} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';

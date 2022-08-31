@@ -1,6 +1,6 @@
 import React from 'react';
 import IconButton from '../../../common/components/Buttons/IconButton/IconButton';
-import {HangUpIcon} from '../../../common/components/Icons/HangUp/HangUp';
+import {HangUpIcon} from '../../../common/components/Icons';
 
 type LeaveButton = {
   onPress: () => void;
