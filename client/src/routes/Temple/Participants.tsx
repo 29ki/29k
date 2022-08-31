@@ -10,8 +10,8 @@ import {useTranslation} from 'react-i18next';
 import NS from '../../lib/i18n/constants/namespaces';
 import {useSetRecoilState} from 'recoil';
 import {selectedParticipantIdAtom} from './state/state';
-import {ParticipantName, renderName} from './ParticipantName';
-import {ParticipantAudio} from './ParticipantAudio';
+import ParticipantName from './ParticipantName';
+import ParticipantAudio from './ParticipantAudio';
 
 const ParticipantsWrapper = styled.View({
   flex: 1,
@@ -49,7 +49,7 @@ const Participants: React.FC<ParticipantsProps> = ({
         zOrder={item.local ? 1 : 0}
         mirror={item.local}
       />
-      <ParticipantName>{renderName(item, t('nameSuffix'))}</ParticipantName>
+      <ParticipantName participant={item} suffix={t('nameSuffix')} />
       <ParticipantAudio
         participant={item}
         localAudioOn={localAudioOn}

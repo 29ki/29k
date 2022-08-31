@@ -6,6 +6,7 @@ import {
   DailyParticipant,
 } from '@daily-co/react-native-daily-js';
 import styled from 'styled-components/native';
+import {useTranslation} from 'react-i18next';
 
 import {
   selectedParticipantIdAtom,
@@ -26,11 +27,10 @@ import {ScreenProps} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {DailyContext} from './DailyProvider';
 import {Temple} from '../../../../shared/src/types/Temple';
-import Participants from './Participants';
-import {useTranslation} from 'react-i18next';
 import NS from '../../lib/i18n/constants/namespaces';
-import {ParticipantName, renderName} from './ParticipantName';
-import {ParticipantAudio} from './ParticipantAudio';
+import Participants from './Participants';
+import ParticipantName from './ParticipantName';
+import ParticipantAudio from './ParticipantAudio';
 
 const LoadingView = styled.View({
   flex: 1,
@@ -78,7 +78,7 @@ const TouchableMediaView = ({
       zOrder={participant.local ? 1 : 0}
       mirror={participant.local}
     />
-    <ParticipantName>{renderName(participant, suffix)}</ParticipantName>
+    <ParticipantName participant={participant} suffix={suffix} />
     <ParticipantAudio
       participant={participant}
       localAudioOn={localAudioOn}

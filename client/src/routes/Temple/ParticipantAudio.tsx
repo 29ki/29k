@@ -1,5 +1,5 @@
-import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import React from 'react';
+import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import styled from 'styled-components/native';
 
 import {MicrophoneIcon} from '../../common/components/Icons/Microphone/Microphone';
@@ -33,7 +33,7 @@ const ParticipantAudioWrapper = styled.View<ParticipantAudioWrappeType>(
 const audioOn = (participant: DailyParticipant, localAudio: boolean) =>
   participant.local ? localAudio : participant.audio;
 
-export const ParticipantAudio: React.FC<ParticipantAduioType> = ({
+const ParticipantAudio: React.FC<ParticipantAduioType> = ({
   isOnThumbnail = true,
   participant,
   localAudioOn,
@@ -46,3 +46,5 @@ export const ParticipantAudio: React.FC<ParticipantAduioType> = ({
     )}
   </ParticipantAudioWrapper>
 );
+
+export default ParticipantAudio;
