@@ -6,12 +6,15 @@ import {
 } from '@daily-co/react-native-daily-js';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
+import {curry} from 'ramda';
 
 import NS from '../../lib/i18n/constants/namespaces';
 import {useSetRecoilState} from 'recoil';
 import {selectedParticipantIdAtom} from './state/state';
 import ParticipantName from './ParticipantName';
 import ParticipantAudio from './ParticipantAudio';
+
+const VIDEO_WIDTH_PERCENTAGE = 0.4;
 
 const ParticipantsWrapper = styled.View({
   flex: 1,
@@ -38,24 +41,26 @@ const Participants: React.FC<ParticipantsProps> = ({
   const setSelectedParticipantId = useSetRecoilState(selectedParticipantIdAtom);
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
 
-  const renderVideo = ({item}: ListRenderItemInfo<DailyParticipant>) => (
-    <VideoView
-      width={containerWidth * 0.4}
-      onPress={() => setSelectedParticipantId(item.user_id)}>
-      <DailyMediaViewWrapper
-        videoTrack={item.videoTrack ?? null}
-        audioTrack={item.audioTrack ?? null}
-        objectFit="cover"
-        zOrder={item.local ? 1 : 0}
-        mirror={item.local}
-      />
-      <ParticipantName participant={item} suffix={t('nameSuffix')} />
-      <ParticipantAudio
-        participant={item}
-        localAudioOn={localAudioOn}
-        isOnThumbnail
-      />
-    </VideoView>
+  const renderVideo = curry(
+    (width: number, {item}: ListRenderItemInfo<DailyParticipant>) => (
+      <VideoView
+        width={width}
+        onPress={() => setSelectedParticipantId(item.user_id)}>
+        <DailyMediaViewWrapper
+          videoTrack={item.videoTrack ?? null}
+          audioTrack={item.audioTrack ?? null}
+          objectFit="cover"
+          zOrder={item.local ? 1 : 0}
+          mirror={item.local}
+        />
+        <ParticipantName participant={item} suffix={t('nameSuffix')} />
+        <ParticipantAudio
+          participant={item}
+          localAudioOn={localAudioOn}
+          isOnThumbnail
+        />
+      </VideoView>
+    ),
   );
 
   return (
@@ -67,7 +72,11 @@ const Participants: React.FC<ParticipantsProps> = ({
         horizontal
         data={participants}
         keyExtractor={participant => participant.user_id}
-        renderItem={renderVideo}
+        renderItem={renderVideo(
+          participants.length <= 2
+            ? containerWidth * 0.5
+            : containerWidth * VIDEO_WIDTH_PERCENTAGE,
+        )}
       />
     </ParticipantsWrapper>
   );
