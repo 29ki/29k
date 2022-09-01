@@ -154,13 +154,13 @@ const Session = () => {
   return (
     <MainViewContainer>
       <Spotlight>
-        {!temple?.active && !selectedParticipant && <Button>Start</Button>}
+        {!temple?.active && !selectedParticipant && <Button>{'Start'}</Button>}
         {temple?.active && !selectedParticipant && (
           <>
             <Content contentIndex={temple.index} />
             <ContentControls>
-              <SlideButton>Föregående</SlideButton>
-              <SlideButton>Nästa</SlideButton>
+              <SlideButton>{'Föregående'}</SlideButton>
+              <SlideButton>{'Nästa'}</SlideButton>
             </ContentControls>
           </>
         )}
