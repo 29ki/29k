@@ -42,21 +42,32 @@ templesRouter.post('/', validator({body: CreateTempleData}), async ctx => {
   ctx.body = temple;
 });
 
-const UpdateTempleData = yup.object().shape({
-  index: yup.number(),
-  active: yup.boolean(),
+const UpdateIndex = yup.object().shape({
+  index: yup.number().required(),
 });
 
-templesRouter.put('/:id', validator({body: UpdateTempleData}), async ctx => {
+templesRouter.put('/:id/index', validator({body: UpdateIndex}), async ctx => {
   const {index} = ctx.request.body;
   const {id} = ctx.params;
+  const templeDoc = firestore().collection(TEMPLES_COLLECTION).doc(id);
 
-  const temple = await firestore()
-    .collection(TEMPLES_COLLECTION)
-    .doc(id)
-    .update({index});
+  await templeDoc.update({index});
 
-  ctx.body = temple;
+  ctx.body = (await templeDoc.get()).data();
+});
+
+const UpdateActive = yup.object().shape({
+  active: yup.boolean().required(),
+});
+
+templesRouter.put('/:id/active', validator({body: UpdateActive}), async ctx => {
+  const {active} = ctx.request.body;
+  const {id} = ctx.params;
+  const templeDoc = firestore().collection(TEMPLES_COLLECTION).doc(id);
+
+  await templeDoc.update({active});
+
+  ctx.body = (await templeDoc.get()).data();
 });
 
 export {templesRouter};

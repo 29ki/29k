@@ -7,23 +7,37 @@ mockFirebase(
     database: {
       temples: [
         {
+          active: false,
           id: 'some-temple-id',
           name: 'some-name',
           url: 'some-url',
-          active: false,
           index: 0,
         },
         {
+          active: true,
           id: 'some-other-temple-id',
           name: 'some-other-name',
           url: 'some-other-url',
+          index: 0,
+        },
+        {
           active: true,
+          id: 'update-index-doc-id',
+          name: 'update-index-doc-name',
+          url: 'update-index-doc-url',
+          index: 0,
+        },
+        {
+          active: true,
+          id: 'update-active-doc-id',
+          name: 'update-active-doc-name',
+          url: 'update-active-doc-url',
           index: 0,
         },
       ],
     },
   },
-  {includeIdsInData: true},
+  {includeIdsInData: true, mutable: true},
 );
 
 const mockDailyApi = {
@@ -64,6 +78,20 @@ describe('/api/temples', () => {
           id: 'some-other-temple-id',
           name: 'some-other-name',
           url: 'some-other-url',
+          index: 0,
+        },
+        {
+          active: true,
+          id: 'update-index-doc-id',
+          name: 'update-index-doc-name',
+          url: 'update-index-doc-url',
+          index: 0,
+        },
+        {
+          active: true,
+          id: 'update-active-doc-id',
+          name: 'update-active-doc-name',
+          url: 'update-active-doc-url',
           index: 0,
         },
       ]);
@@ -107,22 +135,61 @@ describe('/api/temples', () => {
     });
   });
 
-  describe('PUT', () => {
+  describe('PUT /:id/index', () => {
+    const templeId = 'update-index-doc-id';
+
     it('should update index', async () => {
-      const templeId = 'some-other-temple-id';
       const response = await request(mockServer)
-        .put(`/temples/${templeId}`)
+        .put(`/temples/${templeId}/index`)
         .send({index: 2})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
-        active: false,
-        id: 'some-fake-daily-id',
-        name: 'the next big temple!',
-        url: 'http://fake.daily/url',
+        active: true,
+        id: 'update-index-doc-id',
         index: 2,
+        name: 'update-index-doc-name',
+        url: 'update-index-doc-url',
       });
+    });
+
+    it('should require an index field', async () => {
+      const response = await request(mockServer)
+        .put(`/temples/${templeId}/index`)
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(500);
+      expect(response.text).toEqual('Internal Server Error');
+    });
+  });
+
+  describe('PUT /:id/active', () => {
+    const templeId = 'update-active-doc-id';
+
+    it('should update active', async () => {
+      const response = await request(mockServer)
+        .put(`/temples/${templeId}/active`)
+        .send({active: false})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({
+        active: false,
+        id: 'update-active-doc-id',
+        index: 0,
+        name: 'update-active-doc-name',
+        url: 'update-active-doc-url',
+      });
+    });
+
+    it('should require active field', async () => {
+      const response = await request(mockServer)
+        .put(`/temples/${templeId}/active`)
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(500);
+      expect(response.text).toEqual('Internal Server Error');
     });
   });
 });
