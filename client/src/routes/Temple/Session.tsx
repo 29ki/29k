@@ -23,7 +23,11 @@ import AudioToggleButton from './components/Buttons/AudioToggleButton';
 import VideoToggleButton from './components/Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
 import LeaveButton from './components/Buttons/LeaveButton';
-import {NAVIGATORS, ScreenProps} from '../../common/constants/routes';
+import {
+  RootStackProps,
+  RootStackRoutes,
+  TempleStackProps,
+} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {DailyContext} from './DailyProvider';
 import NS from '../../lib/i18n/constants/namespaces';
@@ -34,7 +38,7 @@ import Content from './components/Content/Content';
 import SlideButton from './components/Buttons/SlideButton';
 import Button from '../../common/components/Buttons/Button';
 
-type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
+type ScreenNavigationProps = NativeStackNavigationProp<RootStackProps, 'Tabs'>;
 
 const LoadingView = styled.View({
   flex: 1,
@@ -111,7 +115,7 @@ const Session = () => {
   } = useContext(DailyContext);
   const {
     params: {templeId},
-  } = useRoute<RouteProp<ScreenProps, 'Temple'>>();
+  } = useRoute<RouteProp<TempleStackProps, 'Temple'>>();
 
   const {navigate} = useNavigation<ScreenNavigationProps>();
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
@@ -136,7 +140,7 @@ const Session = () => {
 
   const exitMeeting = async () => {
     await leaveMeeting();
-    navigate(NAVIGATORS.TABS);
+    navigate(RootStackRoutes.TABS);
   };
 
   if (isLoading) {

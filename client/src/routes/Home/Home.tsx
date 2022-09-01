@@ -14,7 +14,7 @@ import {
 } from '../../common/components/Spacers/Spacer';
 import {H2} from '../../common/components/Typography/Heading/Heading';
 import {COLORS} from '../../common/constants/colors';
-import {ROUTES, ScreenProps} from '../../common/constants/routes';
+import {RootStackProps, RootStackRoutes} from '../../common/constants/routes';
 import NS from '../../lib/i18n/constants/namespaces';
 
 const Wrapper = styled.View({
@@ -45,7 +45,10 @@ const ButtonIcon = styled.View({
   height: 30,
 });
 
-type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
+type ScreenNavigationProps = NativeStackNavigationProp<
+  RootStackProps,
+  'Breathing'
+>;
 
 const Home = () => {
   const {t} = useTranslation(NS.SCREEN.HOME);
@@ -82,7 +85,7 @@ const Home = () => {
           loop
         />
         <Spacer16 />
-        <Button onPress={() => navigate(ROUTES.BREATHING)} primary>
+        <Button onPress={() => navigate(RootStackRoutes.BREATHING)} primary>
           <ButtonText primary>{t('button')}</ButtonText>
           <Spacer16 />
           <ButtonIcon>

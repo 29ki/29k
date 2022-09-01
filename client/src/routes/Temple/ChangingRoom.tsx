@@ -22,13 +22,19 @@ import {DailyContext} from '../Temple/DailyProvider';
 import {DailyMediaView} from '@daily-co/react-native-daily-js';
 import {useRecoilValue} from 'recoil';
 import {localParticipantAtom, templeAtom} from './state/state';
-import {ROUTES, ScreenProps} from '../../common/constants/routes';
+import {
+  TempleStackProps,
+  TempleStackRoutes,
+} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {SPACINGS} from '../../common/constants/spacings';
 import {useTranslation} from 'react-i18next';
 import NS from '../../lib/i18n/constants/namespaces';
 
-type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
+type TempleNavigationProps = NativeStackNavigationProp<
+  TempleStackProps,
+  'Temple'
+>;
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'padding', android: undefined}),
@@ -60,7 +66,7 @@ const DailyMediaViewWrapper = styled(DailyMediaView)({
 
 const ChangingRoom = () => {
   const {t} = useTranslation(NS.SCREEN.CHANGING_ROOM);
-  const {goBack, navigate} = useNavigation<ScreenNavigationProps>();
+  const {goBack, navigate} = useNavigation<TempleNavigationProps>();
   const {
     toggleAudio,
     toggleVideo,
@@ -73,7 +79,7 @@ const ChangingRoom = () => {
   const temple = useRecoilValue(templeAtom);
   const {
     params: {templeId},
-  } = useRoute<RouteProp<ScreenProps, 'ChangingRoom'>>();
+  } = useRoute<RouteProp<TempleStackProps, 'ChangingRoom'>>();
 
   const {subscribeTemple} = useTemple();
 
@@ -121,7 +127,7 @@ const ChangingRoom = () => {
           }}
         />
         <Spacer28 />
-        <Button onPress={() => navigate(ROUTES.TEMPLE, {templeId})}>
+        <Button onPress={() => navigate(TempleStackRoutes.TEMPLE, {templeId})}>
           {t('join_button')}
         </Button>
       </Gutters>
