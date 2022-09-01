@@ -31,6 +31,8 @@ import Participants from './Participants';
 import ParticipantName from './ParticipantName';
 import ParticipantAudio from './ParticipantAudio';
 import Content from './components/Content/Content';
+import SlideButton from './components/Buttons/SlideButton';
+import Button from '../../common/components/Buttons/Button';
 
 type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
 
@@ -51,7 +53,7 @@ const MainViewContainer = styled.View({
   flex: 1,
 });
 
-const Controls = styled.View({
+const SessionControls = styled.View({
   flexDirection: 'row',
   justifyContent: 'center',
 });
@@ -59,6 +61,15 @@ const Controls = styled.View({
 const DailyMediaViewWrapper = styled(DailyMediaView)({
   height: '100%',
   width: '100%',
+});
+
+const ContentControls = styled.View({
+  position: 'absolute',
+  bottom: 20,
+  left: 20,
+  right: 20,
+  flexDirection: 'row',
+  justifyContent: 'space-between',
 });
 
 const TouchableMediaView = ({
@@ -139,8 +150,15 @@ const Session = () => {
   return (
     <MainViewContainer>
       <Spotlight>
+        {!temple?.active && !selectedParticipant && <Button>Start</Button>}
         {temple?.active && !selectedParticipant && (
-          <Content contentIndex={temple.index} />
+          <>
+            <Content contentIndex={temple.index} />
+            <ContentControls>
+              <SlideButton>Föregående</SlideButton>
+              <SlideButton>Nästa</SlideButton>
+            </ContentControls>
+          </>
         )}
         {selectedParticipant && (
           <SpotlightVideo>
@@ -157,13 +175,13 @@ const Session = () => {
         <Participants participants={participants} localAudioOn={hasAudio} />
       )}
       <Spacer16 />
-      <Controls>
+      <SessionControls>
         <AudioToggleButton onPress={toggleAudio} active={hasAudio} />
         <Spacer12 />
         <VideoToggleButton onPress={toggleVideo} active={hasVideo} />
         <Spacer12 />
         <LeaveButton fill={COLORS.ROSE500} onPress={exitMeeting} />
-      </Controls>
+      </SessionControls>
       <Spacer16 />
     </MainViewContainer>
   );

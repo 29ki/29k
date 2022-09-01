@@ -11,12 +11,14 @@ mockFirebase(
           name: 'some-name',
           url: 'some-url',
           active: false,
+          index: 0,
         },
         {
           id: 'some-other-temple-id',
           name: 'some-other-name',
           url: 'some-other-url',
           active: true,
+          index: 0,
         },
       ],
     },
@@ -55,12 +57,14 @@ describe('/api/temples', () => {
           id: 'some-temple-id',
           name: 'some-name',
           url: 'some-url',
+          index: 0,
         },
         {
           active: true,
           id: 'some-other-temple-id',
           name: 'some-other-name',
           url: 'some-other-url',
+          index: 0,
         },
       ]);
     });
@@ -79,6 +83,7 @@ describe('/api/temples', () => {
         id: 'some-fake-daily-id',
         name: 'the next big temple!',
         url: 'http://fake.daily/url',
+        index: 0,
       });
     });
 
@@ -99,6 +104,25 @@ describe('/api/temples', () => {
         .post('/temples')
         .send({name: 'the name'});
       expect(response.status).toBe(500);
+    });
+  });
+
+  describe('PUT', () => {
+    it('should update index', async () => {
+      const templeId = 'some-other-temple-id';
+      const response = await request(mockServer)
+        .put(`/temples/${templeId}`)
+        .send({index: 2})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({
+        active: false,
+        id: 'some-fake-daily-id',
+        name: 'the next big temple!',
+        url: 'http://fake.daily/url',
+        index: 2,
+      });
     });
   });
 });

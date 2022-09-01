@@ -4,7 +4,11 @@ import {FlatList, ListRenderItemInfo} from 'react-native';
 
 import content from './content.json';
 import Markdown from '../../../../common/components/Typography/Markdown/Markdown';
-import {TopSafeArea} from '../../../../common/components/Spacers/Spacer';
+import {
+  Spacer12,
+  TopSafeArea,
+} from '../../../../common/components/Spacers/Spacer';
+import Gutters from '../../../../common/components/Gutters/Gutters';
 
 type ContentProps = {
   contentIndex: number;
@@ -14,13 +18,12 @@ type ContentSlide = {type: string; content: {text: string}};
 
 const Wrapper = styled.View({
   flex: 1,
-  backgroundColor: 'pink',
 });
 
 const Slide = styled.View<{width: number}>(props => ({
   flex: 1,
   width: props.width,
-  backgroundColor: 'orange',
+  backgroundColor: 'pink',
 }));
 
 const Content: React.FC<ContentProps> = ({contentIndex = 0}) => {
@@ -33,7 +36,11 @@ const Content: React.FC<ContentProps> = ({contentIndex = 0}) => {
 
   const renderSlide = ({item}: ListRenderItemInfo<ContentSlide>) => (
     <Slide width={width}>
-      <Markdown>{item.content.text}</Markdown>
+      <Gutters>
+        <Spacer12 />
+        <Markdown>{item.content.text}</Markdown>
+        <Spacer12 />
+      </Gutters>
     </Slide>
   );
 
