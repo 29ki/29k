@@ -7,6 +7,8 @@ jobs:
     name: Test
     uses: ./.github/workflows/test.yml
     secrets: inherit
+    with:
+      skipVersionBumpTest: true
 
   build-android-staging:
     name: Android Staging
