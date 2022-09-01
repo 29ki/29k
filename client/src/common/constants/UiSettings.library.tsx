@@ -43,6 +43,10 @@ const Gutter = styled(Spacer24)({
   backgroundColor: COLORS.BLACK_EASY,
 });
 
+const SpacerWrapper = styled.View({
+  backgroundColor: COLORS.BLACK_EASY,
+});
+
 const Swatches = () => {
   const colorslist = Object.entries(COLORS).map(([name, value]) => ({
     name,
@@ -69,14 +73,20 @@ export const ColorSwatches = () => (
   </ScreenWrapper>
 );
 
+const getSpacerSizeInt = (name: string) =>
+  parseInt(name.replace('Spacer', ''), 10);
+
 export const Spacings = () => (
   <ScreenWrapper>
     {Object.entries(Spacers)
       .filter(([name]) => name.startsWith('Spacer'))
+      .sort(([a], [b]) => getSpacerSizeInt(a) - getSpacerSizeInt(b))
       .map(([name, Spacer]) => (
         <View key={name}>
           <B2>{name}</B2>
-          <Spacer style={{backgroundColor: COLORS.BLACK_EASY}} />
+          <SpacerWrapper>
+            <Spacer />
+          </SpacerWrapper>
           <Spacers.Spacer4 />
         </View>
       ))}
