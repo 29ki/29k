@@ -9,6 +9,7 @@ import {NAVIGATORS, ROUTES, ScreenProps} from '../../common/constants/routes';
 
 import {
   Spacer16,
+  Spacer28,
   Spacer32,
   Spacer8,
   TopSafeArea,
@@ -42,45 +43,50 @@ const Temples = () => {
   const [newTemple, onChangeNewTemple] = useState<string | null>(null);
   const {navigate} = useNavigation<ScreenNavigationProps>();
 
-  const renderTemple = ({item}: ListRenderItemInfo<Temple>) => (
-    <TempleCard
-      temple={item}
-      graphicSrc="https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png"
-      time="This session will start on saturday at 13.00"
-      buttonText="Join"
-      onPress={() =>
-        navigate(NAVIGATORS.TEMPLE_STACK, {
-          screen: ROUTES.CHANGING_ROOM,
-          params: {templeId: item.id},
-        })
-      }
-    />
-  );
-
   useEffect(() => {
     fetchTemples();
   }, [fetchTemples]);
+
+  const renderTemple = ({item}: ListRenderItemInfo<Temple>) => (
+    <Gutters>
+      <TempleCard
+        temple={item}
+        graphicSrc="https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png"
+        time="This session will start on saturday at 13.00"
+        buttonText="Join"
+        onPress={() =>
+          navigate(NAVIGATORS.TEMPLE_STACK, {
+            screen: ROUTES.CHANGING_ROOM,
+            params: {templeId: item.id},
+          })
+        }
+      />
+    </Gutters>
+  );
 
   return (
     <>
       <TopSafeArea />
       <Gutters>
         <H3>{t('heading')}</H3>
-        <Spacer16 />
-        <TempleList
-          data={temples}
-          keyExtractor={temple => temple.id}
-          ItemSeparatorComponent={Spacer16}
-          renderItem={renderTemple}
-          refreshControl={
-            <RefreshControl
-              refreshing={isLoading}
-              onRefresh={fetchTemples}
-              tintColor="white"
-            />
-          }
-        />
-        <Spacer32 />
+      </Gutters>
+
+      <Spacer16 />
+      <TempleList
+        data={temples}
+        keyExtractor={temple => temple.id}
+        ItemSeparatorComponent={Spacer16}
+        renderItem={renderTemple}
+        refreshControl={
+          <RefreshControl
+            refreshing={isLoading}
+            onRefresh={fetchTemples}
+            tintColor="white"
+          />
+        }
+      />
+      <Spacer32 />
+      <Gutters>
         <TextInput
           placeholder={t('createPlaceholder')}
           onChangeText={onChangeNewTemple}
@@ -90,6 +96,7 @@ const Temples = () => {
           {t('create')}
         </Button>
       </Gutters>
+      <Spacer28 />
     </>
   );
 };
