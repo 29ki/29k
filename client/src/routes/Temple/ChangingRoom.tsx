@@ -48,6 +48,7 @@ const Input = styled.TextInput({
   borderBottomColor: COLORS.GREY,
   paddingBottom: 2,
   paddingHorizontal: 2,
+  textAlign: 'center',
 });
 
 const DailyMediaViewWrapper = styled(DailyMediaView)({
