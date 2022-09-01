@@ -14,9 +14,11 @@ const navTheme = {
 
 const Navigation = () => {
   return (
-    <NavigationContainer theme={navTheme}>
-      <Stacks />
-    </NavigationContainer>
+    <>
+      <NavigationContainer theme={navTheme}>
+        <Stacks />
+      </NavigationContainer>
+    </>
   );
 };
 

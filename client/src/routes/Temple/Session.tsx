@@ -16,6 +16,7 @@ import {
   templeAtom,
 } from './state/state';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import {Spacer12, Spacer16} from '../../common/components/Spacers/Spacer';
 import AudioToggleButton from './Buttons/AudioToggleButton';
@@ -23,7 +24,7 @@ import VideoToggleButton from './Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
 import LeaveButton from './Buttons/LeaveButton';
 import {B1} from '../../common/components/Typography/Text/Text';
-import {ScreenProps} from '../../common/constants/routes';
+import {NAVIGATORS, ScreenProps} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {DailyContext} from './DailyProvider';
 import {Temple} from '../../../../shared/src/types/Temple';
@@ -31,6 +32,8 @@ import NS from '../../lib/i18n/constants/namespaces';
 import Participants from './Participants';
 import ParticipantName from './ParticipantName';
 import ParticipantAudio from './ParticipantAudio';
+
+type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
 
 const LoadingView = styled.View({
   flex: 1,
@@ -104,7 +107,7 @@ const Session = () => {
     params: {templeId},
   } = useRoute<RouteProp<ScreenProps, 'Temple'>>();
 
-  const {goBack} = useNavigation();
+  const {navigate} = useNavigation<ScreenNavigationProps>();
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
   const {subscribeTemple} = useTemple();
 
@@ -116,9 +119,9 @@ const Session = () => {
 
   useEffect(() => {
     if (temple?.url) {
-      joinMeeting(temple.url);
+      joinMeeting(temple?.url);
     }
-  }, [temple?.url, joinMeeting]);
+  }, [joinMeeting, temple?.url]);
 
   useEffect(() => {
     const unsubscribe = subscribeTemple(templeId);
@@ -127,7 +130,7 @@ const Session = () => {
 
   const exitMeeting = async () => {
     await leaveMeeting();
-    goBack();
+    navigate(NAVIGATORS.TABS);
   };
 
   if (isLoading) {
