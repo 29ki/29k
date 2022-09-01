@@ -3,8 +3,16 @@ name: Build
 on: workflow_dispatch
 
 jobs:
+  test:
+    name: Test
+    uses: ./.github/workflows/test.yml
+    secrets: inherit
+    with:
+      skipVersionBumpTest: true
+
   build-android-staging:
     name: Android Staging
+    needs: test
     concurrency: build-android-production
     uses: ./.github/workflows/build-android.yml
     with:
@@ -14,6 +22,7 @@ jobs:
 
   build-android-production:
     name: Android Production
+    needs: test
     concurrency: build-android-staging
     uses: ./.github/workflows/build-android.yml
     with:
@@ -23,6 +32,7 @@ jobs:
 
   build-ios-staging:
     name: iOS Staging
+    needs: test
     concurrency: build-ios-staging
     uses: ./.github/workflows/build-ios.yml
     with:
@@ -32,6 +42,7 @@ jobs:
 
   build-ios-production:
     name: iOS Production
+    needs: test
     concurrency: build-ios-production
     uses: ./.github/workflows/build-ios.yml
     with:
