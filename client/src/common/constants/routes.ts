@@ -6,6 +6,7 @@ export type ScreenProps = {
   Breathing: undefined;
   Temple: {templeId: string};
   Temples: undefined;
+  TempleStack: undefined;
   ChangingRoom: {templeId: string};
 };
 
@@ -13,7 +14,7 @@ type Routes = {[key: string]: keyof ScreenProps};
 
 export const NAVIGATORS: Routes = {
   TABS: 'Tabs',
-  TEMPLE: 'Temple',
+  TEMPLE_STACK: 'TempleStack',
 };
 
 export const ROUTES: Routes = {

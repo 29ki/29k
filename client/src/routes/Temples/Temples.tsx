@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import useTemples from './hooks/useTemples';
-import {NAVIGATORS, ScreenProps} from '../../common/constants/routes';
+import {NAVIGATORS, ROUTES, ScreenProps} from '../../common/constants/routes';
 
 import {
   Spacer16,
