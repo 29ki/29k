@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {KeyboardAvoidingView, Platform, View} from 'react-native';
+import {Platform} from 'react-native';
 import styled from 'styled-components/native';
 
 import Button from '../../common/components/Buttons/Button';
@@ -25,6 +25,8 @@ import {localParticipantAtom, templeAtom} from './state/state';
 import {ROUTES, ScreenProps} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {SPACINGS} from '../../common/constants/spacings';
+import {useTranslation} from 'react-i18next';
+import NS from '../../lib/i18n/constants/namespaces';
 
 type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
 
@@ -57,6 +59,7 @@ const DailyMediaViewWrapper = styled(DailyMediaView)({
 });
 
 const ChangingRoom = () => {
+  const {t} = useTranslation(NS.SCREEN.CHANGING_ROOM);
   const {goBack, navigate} = useNavigation<ScreenNavigationProps>();
   const {
     toggleAudio,
@@ -110,7 +113,7 @@ const ChangingRoom = () => {
           <VideoToggleButton onPress={toggleVideo} active={hasVideo} />
         </Controls>
         <Spacer28 />
-        <B1>Please type what do you like to be called</B1>
+        <B1>{t('body')}</B1>
         <Spacer28 />
         <Input
           onChangeText={userName => {
@@ -119,7 +122,7 @@ const ChangingRoom = () => {
         />
         <Spacer28 />
         <Button onPress={() => navigate(ROUTES.TEMPLE, {templeId})}>
-          Join
+          {t('join_button')}
         </Button>
       </Gutters>
       <BottomSafeArea minSize={SPACINGS.TWENTYEIGHT} />

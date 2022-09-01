@@ -5,11 +5,12 @@ const NS = {
     TABS: 'Component.Tabs',
   },
   SCREEN: {
+    CHANGING_ROOM: 'Screen.ChangingRoom',
     HOME: 'Screen.Home',
     KILL_SWITCH: 'Screen.KillSwitch',
     PROFILE: 'Screen.Profile',
-    TEMPLES: 'Screen.Temples',
     TEMPLE: 'Screen.Temple',
+    TEMPLES: 'Screen.Temples',
   },
 };
 
