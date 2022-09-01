@@ -44,7 +44,7 @@ const Content: React.FC<ContentProps> = ({contentIndex = 0}) => {
     </Slide>
   );
 
-  const getItemLayout = (_, index: number) => ({
+  const getItemLayout = (_: any, index: number) => ({
     length: width,
     offset: index * width,
     index,

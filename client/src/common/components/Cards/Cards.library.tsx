@@ -11,7 +11,7 @@ export const AllCards = () => (
   <ScreenWrapper>
     <Spacer16 />
     <TempleCard
-      temple={{url: '', name: 'Test temple', id: 'sdf', active: true}}
+      temple={{url: '', name: 'Test temple', id: 'sdf', active: true, index: 0}}
       graphicSrc="https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png"
       buttonText="Join"
       time="Some time"
@@ -19,7 +19,7 @@ export const AllCards = () => (
     />
     <Spacer16 />
     <TempleCard
-      temple={{url: '', name: 'Test temple', id: 'sdf', active: true}}
+      temple={{url: '', name: 'Test temple', id: 'sdf', active: true, index: 0}}
       graphicSrc={animation.src}
       animation
       buttonText="Join"
