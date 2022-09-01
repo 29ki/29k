@@ -27,6 +27,7 @@ type DailyProviderTypes = {
   leaveMeeting: () => Promise<void>;
   toggleAudio: () => void;
   toggleVideo: () => void;
+  setUserName: (userName: string) => Promise<void>;
   hasAudio: boolean;
   hasVideo: boolean;
 };
@@ -37,6 +38,7 @@ export const DailyContext = createContext<DailyProviderTypes>({
   leaveMeeting: () => Promise.resolve(),
   toggleAudio: () => {},
   toggleVideo: () => {},
+  setUserName: () => Promise.resolve(),
   hasAudio: false,
   hasVideo: false,
 });
@@ -152,8 +154,17 @@ const DailyProvider: React.FC = ({children}) => {
     if (!daily) {
       return;
     }
+
     daily.setLocalVideo(!hasVideo);
     setHasVideo(!hasVideo);
+  };
+
+  const setUserName = async (userName: string) => {
+    if (!daily) {
+      return;
+    }
+
+    await daily.setUserName(userName);
   };
 
   const preJoinMeeting = useCallback(async () => {
@@ -189,6 +200,7 @@ const DailyProvider: React.FC = ({children}) => {
         leaveMeeting,
         toggleAudio,
         toggleVideo,
+        setUserName,
         hasAudio,
         hasVideo,
       }}>
