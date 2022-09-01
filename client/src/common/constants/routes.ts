@@ -6,7 +6,7 @@ export type ScreenProps = {
   Breathing: undefined;
   Temple: {templeId: string};
   Temples: undefined;
-  TempleStack: undefined;
+  TempleStack: {screen: string; params: {templeId: string}};
   ChangingRoom: {templeId: string};
 };
 
