@@ -11,6 +11,7 @@ import {Spacer16} from '../Spacers/Spacer';
 import {H3} from '../Typography/Heading/Heading';
 import {B2} from '../Typography/Text/Text';
 import Image from '../Image/Image';
+import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 
 const GraphicsWrapper = styled.View({
   overflow: 'hidden',
@@ -34,7 +35,7 @@ const Shadow = styled.View({
   shadowColor: COLORS.BLACK,
 });
 
-const Wrapper = styled.TouchableOpacity({
+const Wrapper = styled(TouchableOpacity)({
   flex: 1,
   justifyContent: 'space-between',
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
@@ -71,7 +72,7 @@ export const Card: React.FC<CardProps> = ({
   children,
 }) => (
   <Shadow>
-    <Wrapper onPress={onPress} activeOpacity={0.7}>
+    <Wrapper onPress={onPress}>
       <View>
         {Boolean(title) && <H3>{title}</H3>}
         {Boolean(description) && <B2 numberOfLines={1}>{description}</B2>}
