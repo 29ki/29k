@@ -3,4 +3,5 @@ export type Temple = {
   name: string;
   url: string;
   active: boolean;
+  index: number;
 };

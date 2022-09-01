@@ -1,0 +1,26 @@
+[
+    {
+        "type": "text",
+        "content": {
+            "text": "# Your body, your home"
+        }
+    },
+    {
+        "type": "text",
+        "content": {
+            "text": "# Reflect: How did this meditation affect you?"
+        }
+    },
+    {
+        "type": "text",
+        "content": {
+            "text": "# Share: How did this meditation affect you?"
+        }
+    },
+    {
+        "type": "text",
+        "content": {
+            "text": "# Thank you"
+        }
+    }
+]

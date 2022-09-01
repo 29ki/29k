@@ -19,19 +19,18 @@ import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import {Spacer12, Spacer16} from '../../common/components/Spacers/Spacer';
-import AudioToggleButton from './Buttons/AudioToggleButton';
-import VideoToggleButton from './Buttons/VideoToggleButton';
+import AudioToggleButton from './components/Buttons/AudioToggleButton';
+import VideoToggleButton from './components/Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
-import LeaveButton from './Buttons/LeaveButton';
-import {B1} from '../../common/components/Typography/Text/Text';
+import LeaveButton from './components/Buttons/LeaveButton';
 import {NAVIGATORS, ScreenProps} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {DailyContext} from './DailyProvider';
-import {Temple} from '../../../../shared/src/types/Temple';
 import NS from '../../lib/i18n/constants/namespaces';
 import Participants from './Participants';
 import ParticipantName from './ParticipantName';
 import ParticipantAudio from './ParticipantAudio';
+import Content from './components/Content/Content';
 
 type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
 
@@ -90,10 +89,6 @@ const TouchableMediaView = ({
   </TouchableOpacity>
 );
 
-const Content = ({state}: {state: Temple}) => (
-  <B1>{JSON.stringify(state, null, 2)}</B1>
-);
-
 const Session = () => {
   const {
     joinMeeting,
@@ -144,7 +139,9 @@ const Session = () => {
   return (
     <MainViewContainer>
       <Spotlight>
-        {temple?.active && !selectedParticipant && <Content state={temple} />}
+        {temple?.active && !selectedParticipant && (
+          <Content contentIndex={temple.index} />
+        )}
         {selectedParticipant && (
           <SpotlightVideo>
             <TouchableMediaView

@@ -14,8 +14,8 @@ import {
   Spacer28,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
-import AudioToggleButton from '../Temple/Buttons/AudioToggleButton';
-import VideoToggleButton from '../Temple/Buttons/VideoToggleButton';
+import AudioToggleButton from './components/Buttons/AudioToggleButton';
+import VideoToggleButton from './components/Buttons/VideoToggleButton';
 import {B1} from '../../common/components/Typography/Text/Text';
 import {COLORS} from '../../common/constants/colors';
 import {DailyContext} from '../Temple/DailyProvider';
