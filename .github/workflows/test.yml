@@ -2,11 +2,17 @@ name: Test
 
 on:
   workflow_call:
+    inputs:
+      skipVersionBumpTest:
+        required: false
+        type: string
 
 jobs:
   client:
     name: Client
     runs-on: ubuntu-latest
+    env:
+      SKIP_VERSION_BUMP_TEST: ${{ inputs.skipVersionBumpTest }}
     steps:
       - uses: actions/checkout@v3
         with:
