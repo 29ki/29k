@@ -15,16 +15,14 @@ const Stack = createNativeStackNavigator<ScreenProps>();
 const stackOptions = {
   headerShown: false,
 };
-const TempleStack = () => {
-  return (
-    <DailyProvider>
-      <Stack.Navigator screenOptions={stackOptions}>
-        <Stack.Screen name={ROUTES.TEMPLE} component={Temple} />
-        <Stack.Screen name={ROUTES.CHANGING_ROOM} component={ChangingRoom} />
-      </Stack.Navigator>
-    </DailyProvider>
-  );
-};
+const TempleStack = () => (
+  <DailyProvider>
+    <Stack.Navigator screenOptions={stackOptions}>
+      <Stack.Screen name={ROUTES.CHANGING_ROOM} component={ChangingRoom} />
+      <Stack.Screen name={ROUTES.TEMPLE} component={Temple} />
+    </Stack.Navigator>
+  </DailyProvider>
+);
 
 const Stacks = () => {
   const isBlocking = useRecoilValue(killSwitchFields('isBlocking'));
@@ -37,7 +35,10 @@ const Stacks = () => {
         <>
           <Stack.Screen name={NAVIGATORS.TABS} component={Tabs} />
           <Stack.Screen name={ROUTES.BREATHING} component={Breathing} />
-          <Stack.Screen name={NAVIGATORS.TEMPLE} component={TempleStack} />
+          <Stack.Screen
+            name={NAVIGATORS.TEMPLE_STACK}
+            component={TempleStack}
+          />
         </>
       )}
     </Stack.Navigator>

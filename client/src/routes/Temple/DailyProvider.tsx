@@ -22,9 +22,8 @@ import {
 
 type DailyProviderTypes = {
   call?: DailyCall;
-  prepareMeeting: (url: string) => Promise<void>;
   preJoinMeeting: () => Promise<void>;
-  joinMeeting: () => Promise<void>;
+  joinMeeting: (url: string) => Promise<void>;
   leaveMeeting: () => Promise<void>;
   toggleAudio: () => void;
   toggleVideo: () => void;
@@ -33,7 +32,6 @@ type DailyProviderTypes = {
 };
 
 export const DailyContext = createContext<DailyProviderTypes>({
-  prepareMeeting: () => Promise.resolve(),
   preJoinMeeting: () => Promise.resolve(),
   joinMeeting: () => Promise.resolve(),
   leaveMeeting: () => Promise.resolve(),
@@ -164,24 +162,28 @@ const DailyProvider: React.FC = ({children}) => {
     setLocalParticipant(localParticipant);
   }, [daily, setLocalParticipant]);
 
-  const joinMeeting = useCallback(async () => {
-    if (daily.meetingState() !== 'joined-meeting') {
-      eventHandlers.forEach(([event, handler]) => {
-        daily.on(event, handler);
-      });
+  const joinMeeting = useCallback(
+    async url => {
+      if (daily.meetingState() !== 'joined-meeting') {
+        await prepareMeeting(url);
 
-      await daily.join();
+        eventHandlers.forEach(([event, handler]) => {
+          daily.on(event, handler);
+        });
 
-      daily.setLocalAudio(hasAudio);
-      daily.setLocalVideo(hasVideo);
-    }
-  }, [daily, eventHandlers, hasAudio, hasVideo]);
+        await daily.join();
+
+        daily.setLocalAudio(hasAudio);
+        daily.setLocalVideo(hasVideo);
+      }
+    },
+    [daily, eventHandlers, hasAudio, hasVideo, prepareMeeting],
+  );
 
   return (
     <DailyContext.Provider
       value={{
         call: daily,
-        prepareMeeting,
         preJoinMeeting,
         joinMeeting,
         leaveMeeting,

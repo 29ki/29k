@@ -115,8 +115,10 @@ const Session = () => {
   const setSelectedParticipantId = useSetRecoilState(selectedParticipantIdAtom);
 
   useEffect(() => {
-    joinMeeting();
-  }, [joinMeeting]);
+    if (temple?.url) {
+      joinMeeting(temple?.url);
+    }
+  }, [joinMeeting, temple?.url]);
 
   useEffect(() => {
     const unsubscribe = subscribeTemple(templeId);

@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import useTemples from './hooks/useTemples';
-import {NAVIGATORS, ROUTES, ScreenProps} from '../../common/constants/routes';
+import {NAVIGATORS, ScreenProps} from '../../common/constants/routes';
 
 import {
   Spacer16,
@@ -24,7 +24,10 @@ import {Temple} from '../../../../shared/src/types/Temple';
 import TempleCard from '../../common/components/Cards/TempleCard/TempleCard';
 import styled from 'styled-components';
 
-type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
+type ScreenNavigationProps = NativeStackNavigationProp<
+  ScreenProps,
+  'ChangingRoom'
+>;
 
 const TempleList = styled(FlatList)<FlatListProps<Temple>>({
   overflow: 'visible',
@@ -46,7 +49,7 @@ const Temples = () => {
       time="This session will start on saturday at 13.00"
       buttonText="Join"
       onPress={() =>
-        navigate(NAVIGATORS.TEMPLE, {
+        navigate(NAVIGATORS.TEMPLE_STACK, {
           screen: ROUTES.CHANGING_ROOM,
           params: {templeId: item.id},
         })

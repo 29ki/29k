@@ -1,5 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import styled from 'styled-components/native';
 
 import Button from '../../common/components/Buttons/Button';
@@ -17,6 +18,8 @@ import {useRecoilValue} from 'recoil';
 import {localParticipantAtom, templeAtom} from './state/state';
 import {ROUTES, ScreenProps} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
+
+type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
 
 const Back = styled.TouchableOpacity({
   width: 40,
@@ -41,13 +44,13 @@ const DailyMediaViewWrapper = styled(DailyMediaView)({
 });
 
 const ChangingRoom = () => {
-  const {goBack, navigate} = useNavigation();
+  const {goBack, navigate} = useNavigation<ScreenNavigationProps>();
   const {
     toggleAudio,
     toggleVideo,
     hasAudio,
     hasVideo,
-    prepareMeeting,
+
     preJoinMeeting,
   } = useContext(DailyContext);
 
@@ -63,12 +66,11 @@ const ChangingRoom = () => {
   useEffect(() => {
     const startVideo = async () => {
       if (temple?.url) {
-        await prepareMeeting(temple?.url);
         preJoinMeeting();
       }
     };
     startVideo();
-  }, [prepareMeeting, preJoinMeeting, temple]);
+  }, [preJoinMeeting, temple]);
 
   const me = useRecoilValue(localParticipantAtom);
   console.log('mememememeemmememememememem', me);
