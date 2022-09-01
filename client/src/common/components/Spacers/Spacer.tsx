@@ -31,6 +31,9 @@ export const Spacer16: React.FC = props => (
 export const Spacer20: React.FC = props => (
   <Spacer {...props} size={SPACINGS.TWENTY} />
 );
+export const Spacer24: React.FC = props => (
+  <Spacer {...props} size={SPACINGS.TWENTYFOUR} />
+);
 export const Spacer28: React.FC = props => (
   <Spacer {...props} size={SPACINGS.TWENTYEIGHT} />
 );
