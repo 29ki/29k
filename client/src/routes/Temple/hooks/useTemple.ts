@@ -1,11 +1,12 @@
 import {useCallback} from 'react';
 import firestore from '@react-native-firebase/firestore';
-import {useSetRecoilState} from 'recoil';
+import {useRecoilState} from 'recoil';
 import {templeAtom} from '../state/state';
 import {Temple} from '../../../../../shared/src/types/Temple';
+import * as templeApi from '../../Temples/api/temple';
 
 const useTemple = () => {
-  const setTempleState = useSetRecoilState(templeAtom);
+  const [temple, setTempleState] = useRecoilState(templeAtom);
 
   const subscribeTemple = useCallback(
     templeId => {
@@ -25,8 +26,23 @@ const useTemple = () => {
     [setTempleState],
   );
 
+  const navigateToIndex = useCallback(
+    async (index: Temple['index']) => {
+      const contentLength = 3; // get from content
+      const invalidIndex = index < 0 || index > contentLength;
+
+      if (!temple || invalidIndex) {
+        return;
+      }
+
+      return templeApi.updateIndex({index, id: temple.id});
+    },
+    [temple],
+  );
+
   return {
     subscribeTemple,
+    navigateToIndex,
   };
 };
 

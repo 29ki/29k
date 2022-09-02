@@ -22,6 +22,7 @@ describe('useTemple', () => {
 
     return {subscribeTemple, temple};
   };
+
   describe('subscribeTemple', () => {
     it('should subscribe to live session document', async () => {
       const {result} = renderHook(() => useTestHook(), {
