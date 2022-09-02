@@ -17,3 +17,6 @@ export * from './Logo/Logo';
 export * from './Microphone/Microphone';
 export * from './MicrophoneOff/MicrophoneOff';
 export * from './Profile/Profile';
+export * from './Pause/Pause';
+export * from './Play/Play';
+export * from './Rewind/Rewind';
