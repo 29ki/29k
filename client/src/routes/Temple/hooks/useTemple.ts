@@ -35,7 +35,18 @@ const useTemple = () => {
         return;
       }
 
-      return templeApi.updateIndex({index, id: temple.id});
+      return templeApi.updateTemple({index, id: temple.id});
+    },
+    [temple],
+  );
+
+  const setActive = useCallback(
+    async (active: Temple['active']) => {
+      if (!temple) {
+        return;
+      }
+
+      return templeApi.updateTemple({active, id: temple.id});
     },
     [temple],
   );
@@ -43,6 +54,7 @@ const useTemple = () => {
   return {
     subscribeTemple,
     navigateToIndex,
+    setActive,
   };
 };
 

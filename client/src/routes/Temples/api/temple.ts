@@ -19,20 +19,22 @@ export const addTemple = async (name: string): Promise<Temple> => {
   }
 };
 
-export const updateIndex = async ({
+export const updateTemple = async ({
   id,
   index,
+  active,
 }: {
   id: Temple['id'];
-  index: Temple['index'];
+  index?: Temple['index'];
+  active?: Temple['active'];
 }) => {
   try {
-    const response = await fetch(`${TEMPLES_ENDPOINT}/${id}/index`, {
+    const response = await fetch(`${TEMPLES_ENDPOINT}/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({index}),
+      body: JSON.stringify({index, active}),
     });
 
     return response.json();

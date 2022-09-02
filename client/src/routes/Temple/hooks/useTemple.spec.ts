@@ -17,10 +17,10 @@ afterEach(() => {
 
 describe('useTemple', () => {
   const useTestHook = () => {
-    const {subscribeTemple, navigateToIndex} = useTemple();
+    const {subscribeTemple, navigateToIndex, setActive} = useTemple();
     const temple = useRecoilValue(templeAtom);
 
-    return {subscribeTemple, temple, navigateToIndex};
+    return {subscribeTemple, temple, navigateToIndex, setActive};
   };
 
   describe('subscribeTemple', () => {
@@ -122,6 +122,45 @@ describe('useTemple', () => {
         await result.current.navigateToIndex(invalidIndex2);
         expect(mock).toHaveBeenCalledTimes(0);
       });
+    });
+  });
+
+  describe('setActive', () => {
+    it('should make request', async () => {
+      const mock = fetchMock.mockResponseOnce(
+        JSON.stringify({
+          data: 'some-data',
+        }),
+        {status: 200},
+      );
+
+      const {result} = renderHook(() => useTestHook(), {
+        wrapper: RecoilRoot,
+      });
+
+      await act(async () => {
+        await result.current.subscribeTemple('temple-id');
+        await result.current.setActive(true);
+        expect(mock).toHaveBeenCalledTimes(1);
+      });
+    });
+  });
+
+  it('should do nothing when temple isnt fetched', async () => {
+    const mock = fetchMock.mockResponseOnce(
+      JSON.stringify({
+        data: 'some-data',
+      }),
+      {status: 200},
+    );
+
+    const {result} = renderHook(() => useTestHook(), {
+      wrapper: RecoilRoot,
+    });
+
+    await act(async () => {
+      await result.current.setActive(true);
+      expect(mock).toHaveBeenCalledTimes(0);
     });
   });
 });
