@@ -65,6 +65,7 @@ describe('/api/temples', () => {
           name: 'some-name',
           url: 'some-url',
           index: 0,
+          playing: false,
         },
         {
           id: 'some-other-temple-id',
@@ -72,6 +73,7 @@ describe('/api/temples', () => {
           name: 'some-other-name',
           url: 'some-other-url',
           index: 0,
+          playing: false,
         },
       ]);
     });
@@ -91,6 +93,7 @@ describe('/api/temples', () => {
         name: 'the next big temple!',
         url: 'http://fake.daily/url',
         index: 0,
+        playing: false,
       });
     });
 
@@ -128,6 +131,7 @@ describe('/api/temples', () => {
         index: 2,
         name: 'some-name',
         url: 'some-url',
+        playing: false,
       });
     });
 
@@ -144,6 +148,7 @@ describe('/api/temples', () => {
         index: 0,
         name: 'some-other-name',
         url: 'some-other-url',
+        playing: false,
       });
     });
 
