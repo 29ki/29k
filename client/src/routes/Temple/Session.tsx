@@ -36,7 +36,7 @@ import ParticipantName from './ParticipantName';
 import ParticipantAudio from './ParticipantAudio';
 import Content from './components/Content/Content';
 import SlideButton from './components/Buttons/SlideButton';
-import Button from '../../common/components/Buttons/Button';
+import {ChevronRight} from '../../common/components/Icons';
 
 type ScreenNavigationProps = NativeStackNavigationProp<RootStackProps, 'Tabs'>;
 
@@ -156,19 +156,29 @@ const Session = () => {
       <Spotlight>
         {!temple?.active && !selectedParticipant && (
           <ContentControls>
-            <Button>{t('controls.start')}</Button>
+            <SlideButton
+              primary
+              Icon={ChevronRight}
+              title={t('controls.start')}
+            />
           </ContentControls>
         )}
         {temple?.active && !selectedParticipant && (
           <>
             <Content contentIndex={temple.index} />
             <ContentControls>
-              <SlideButton onPress={() => navigateToIndex(temple.index - 1)}>
-                {t('controls.prev')}
-              </SlideButton>
-              <SlideButton onPress={() => navigateToIndex(temple.index + 1)}>
-                {t('controls.next')}
-              </SlideButton>
+              <SlideButton
+                primary
+                Icon={ChevronRight}
+                title={t('controls.prev')}
+                onPress={() => navigateToIndex(temple.index - 1)}
+              />
+              <SlideButton
+                primary
+                title={t('controls.next')}
+                Icon={ChevronRight}
+                onPress={() => navigateToIndex(temple.index + 1)}
+              />
             </ContentControls>
           </>
         )}

@@ -8,11 +8,12 @@ import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 type ButtonProps = {
   primary?: boolean;
   style?: object;
+  disabled?: boolean;
 };
 const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(({primary}) => ({
-  minHeight: 32,
+  minHeight: SPACINGS.THIRTYTWO,
   backgroundColor: primary ? COLORS.GREY200 : COLORS.BLACK_EASY,
-  paddingHorizontal: 24,
+  paddingHorizontal: SPACINGS.SIXTEEN,
   borderRadius: SPACINGS.SIXTEEN,
   alignItems: 'center',
   justifyContent: 'center',
@@ -28,9 +29,20 @@ export const ButtonText = styled(B2)<ButtonProps>(({primary}) => ({
 const Button: React.FC<{
   onPress?: () => void;
   primary?: boolean;
+  disabled?: boolean;
   style?: object;
-}> = ({children, onPress = () => {}, primary = false, style = {}}) => (
-  <ButtonComponent onPress={onPress} primary={primary} style={style}>
+}> = ({
+  children,
+  onPress = () => {},
+  primary = false,
+  style = {},
+  disabled = false,
+}) => (
+  <ButtonComponent
+    onPress={onPress}
+    primary={primary}
+    style={style}
+    disabled={disabled}>
     {typeof children === 'string' ? (
       <ButtonText primary={primary}>{children}</ButtonText>
     ) : (
