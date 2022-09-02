@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import {ActivityIndicator, TouchableOpacity, View} from 'react-native';
+import {ActivityIndicator, TouchableOpacity} from 'react-native';
 import {useRecoilValue, useSetRecoilState} from 'recoil';
 import {
   DailyMediaView,
