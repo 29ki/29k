@@ -1,5 +1,10 @@
 import React, {useContext, useEffect} from 'react';
-import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {
+  RouteProp,
+  useIsFocused,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Platform} from 'react-native';
 import styled from 'styled-components/native';
@@ -82,19 +87,24 @@ const ChangingRoom = () => {
   } = useRoute<RouteProp<TempleStackProps, 'ChangingRoom'>>();
 
   const {subscribeTemple} = useTemple();
+  const isFocused = useIsFocused();
 
   useEffect(() => subscribeTemple(templeId), [subscribeTemple, templeId]);
 
   useEffect(() => {
     const startVideo = async () => {
-      if (temple?.url) {
+      if (isFocused && temple?.url) {
         preJoinMeeting();
       }
     };
     startVideo();
-  }, [preJoinMeeting, temple]);
+  }, [preJoinMeeting, temple, isFocused]);
 
   const me = useRecoilValue(localParticipantAtom);
+
+  if (!isFocused) {
+    return null;
+  }
 
   return (
     <Wrapper>
@@ -106,7 +116,6 @@ const ChangingRoom = () => {
       </Gutters>
       <DailyMediaViewWrapper
         videoTrack={me?.videoTrack ?? null}
-        audioTrack={me?.audioTrack ?? null}
         objectFit={'cover'}
         mirror={me?.local}
       />
