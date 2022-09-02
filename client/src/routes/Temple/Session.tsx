@@ -119,7 +119,7 @@ const Session = () => {
 
   const {navigate} = useNavigation<ScreenNavigationProps>();
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
-  const {subscribeTemple, navigateToIndex} = useTemple();
+  const {subscribeTemple, navigateToIndex, setActive} = useTemple();
 
   const temple = useRecoilValue(templeAtom);
   const participants = useRecoilValue(participantsSelector);
@@ -156,7 +156,9 @@ const Session = () => {
       <Spotlight>
         {!temple?.active && !selectedParticipant && (
           <ContentControls>
-            <Button>{t('controls.start')}</Button>
+            <Button onPress={() => setActive(true)}>
+              {t('controls.start')}
+            </Button>
           </ContentControls>
         )}
         {temple?.active && !selectedParticipant && (
