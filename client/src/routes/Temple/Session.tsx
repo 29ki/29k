@@ -154,16 +154,20 @@ const Session = () => {
   return (
     <MainViewContainer>
       <Spotlight>
-        {!temple?.active && !selectedParticipant && <Button>{'Start'}</Button>}
+        {!temple?.active && !selectedParticipant && (
+          <ContentControls>
+            <Button>{t('controls.start')}</Button>
+          </ContentControls>
+        )}
         {temple?.active && !selectedParticipant && (
           <>
             <Content contentIndex={temple.index} />
             <ContentControls>
               <SlideButton onPress={() => navigateToIndex(temple.index - 1)}>
-                {'Föregående'}
+                {t('controls.prev')}
               </SlideButton>
               <SlideButton onPress={() => navigateToIndex(temple.index + 1)}>
-                {'Nästa'}
+                {t('controls.next')}
               </SlideButton>
             </ContentControls>
           </>

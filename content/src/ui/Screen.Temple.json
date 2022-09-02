@@ -1,11 +1,26 @@
 {
   "en": {
-    "nameSuffix": "You"
+    "nameSuffix": "You",
+    "controls": {
+      "start": "Start",
+      "next": "Next",
+      "prev": "Back"
+    }
   },
   "sv": {
-    "nameSuffix": "Du"
+    "nameSuffix": "Du",
+    "controls": {
+      "start": "Start",
+      "next": "Nästa",
+      "prev": "Föregående"
+    }
   },
   "pt": {
-    "nameSuffix": "Você"
+    "nameSuffix": "Você",
+    "controls": {
+      "start": "Start",
+      "next": "Next",
+      "prev": "Back"
+    }
   }
 }
