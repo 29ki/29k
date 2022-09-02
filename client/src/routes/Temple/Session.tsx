@@ -156,7 +156,9 @@ const Session = () => {
       <Spotlight>
         {!temple?.active && !selectedParticipant && (
           <ContentControls>
-            <Button>{t('controls.start')}</Button>
+            <SlideButton onPress={() => setActive(true)}>
+              {t('controls.start')}
+            </SlideButton>
           </ContentControls>
         )}
         {temple?.active && !selectedParticipant && (
@@ -164,17 +166,15 @@ const Session = () => {
             <Content contentIndex={temple.index} />
             <ContentControls>
               <SlideButton
-                primary
-                Icon={ChevronRight}
-                title={t('controls.prev')}
-                onPress={() => navigateToIndex(temple.index - 1)}
-              />
+                LeftIcon={ChevronRight}
+                onPress={() => navigateToIndex(temple.index - 1)}>
+                {t('controls.prev')}
+              </SlideButton>
               <SlideButton
-                primary
-                title={t('controls.next')}
-                Icon={ChevronRight}
-                onPress={() => navigateToIndex(temple.index + 1)}
-              />
+                RightIcon={ChevronRight}
+                onPress={() => navigateToIndex(temple.index + 1)}>
+                {t('controls.next')}
+              </SlideButton>
             </ContentControls>
           </>
         )}

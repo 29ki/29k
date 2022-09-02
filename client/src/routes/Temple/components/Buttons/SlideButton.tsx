@@ -1,5 +1,4 @@
 import React from 'react';
-import {ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
 
 import Button, {ButtonText} from '../../../../common/components/Buttons/Button';
@@ -8,12 +7,10 @@ import {IconType} from '../../../../common/components/Icons';
 
 type SlideButtonProps = {
   onPress?: () => void;
-  Icon: IconType;
+  LeftIcon?: IconType;
+  RightIcon?: IconType;
   disabled?: boolean;
-  style?: ViewStyle;
   fill?: string;
-  title: string;
-  primary: boolean;
 };
 
 const StyledSlideButton = styled(Button)({
@@ -27,21 +24,23 @@ const IconWrapper = styled.View({
 const SlideButton: React.FC<SlideButtonProps> = ({
   onPress,
   fill = COLORS.BLACK_EASY,
-  Icon,
+  LeftIcon,
+  RightIcon,
   disabled = false,
-  style,
-  title = '',
-  primary = false,
+  children,
 }) => (
-  <StyledSlideButton
-    primary
-    onPress={onPress}
-    disabled={disabled}
-    style={style}>
-    <ButtonText primary={primary}>{title}</ButtonText>
-    <IconWrapper>
-      <Icon fill={fill} />
-    </IconWrapper>
+  <StyledSlideButton primary onPress={onPress} disabled={disabled}>
+    {LeftIcon && (
+      <IconWrapper>
+        <LeftIcon fill={fill} />
+      </IconWrapper>
+    )}
+    <ButtonText primary>{children}</ButtonText>
+    {RightIcon && (
+      <IconWrapper>
+        <RightIcon fill={fill} />
+      </IconWrapper>
+    )}
   </StyledSlideButton>
 );
 
