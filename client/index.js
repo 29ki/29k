@@ -11,6 +11,7 @@ LogBox.ignoreLogs([
     https://github.com/styled-components/css-to-react-native/issues/40
   */
   'contain units',
+  'to be unitless',
   /*
     React Native Video v5 uses the deprecated ViewPropTypes. Remove this after upgrading to a stable v6
   */
