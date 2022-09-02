@@ -62,7 +62,7 @@ const Content: React.FC<ContentProps> = ({contentIndex = 0, playing}) => {
           getItemLayout={getItemLayout}
           ref={listRef}
           horizontal
-          data={content}
+          data={content as ContentSlide[]}
           renderItem={renderSlide}
           snapToInterval={width}
           scrollEnabled={false}

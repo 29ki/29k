@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import {ActivityIndicator, TouchableOpacity} from 'react-native';
+import {ActivityIndicator, TouchableOpacity, View} from 'react-native';
 import {useRecoilValue, useSetRecoilState} from 'recoil';
 import {
   DailyMediaView,
@@ -18,7 +18,11 @@ import {
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-import {Spacer12, Spacer16} from '../../common/components/Spacers/Spacer';
+import {
+  Spacer8,
+  Spacer12,
+  Spacer16,
+} from '../../common/components/Spacers/Spacer';
 import AudioToggleButton from './components/Buttons/AudioToggleButton';
 import VideoToggleButton from './components/Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
@@ -41,6 +45,7 @@ import {
   ChevronLeft,
   Play,
   Pause,
+  Rewind,
 } from '../../common/components/Icons';
 
 type ScreenNavigationProps = NativeStackNavigationProp<RootStackProps, 'Tabs'>;
@@ -79,6 +84,10 @@ const ContentControls = styled.View({
   right: 20,
   flexDirection: 'row',
   justifyContent: 'space-between',
+});
+
+const Row = styled.View({
+  flexDirection: 'row',
 });
 
 const TouchableMediaView = ({
@@ -176,10 +185,17 @@ const Session = () => {
                 LeftIcon={ChevronLeft}
                 onPress={() => navigateToIndex(temple.index - 1)}
               />
-              <SlideButton
-                LeftIcon={temple.playing ? Pause : Play}
-                onPress={() => setPlaying(!temple.playing)}
-              />
+              <Row>
+                <SlideButton
+                  LeftIcon={Rewind}
+                  onPress={() => setPlaying(!temple.playing)}
+                />
+                <Spacer8 />
+                <SlideButton
+                  LeftIcon={temple.playing ? Pause : Play}
+                  onPress={() => setPlaying(!temple.playing)}
+                />
+              </Row>
               <SlideButton
                 RightIcon={ChevronRight}
                 onPress={() => navigateToIndex(temple.index + 1)}

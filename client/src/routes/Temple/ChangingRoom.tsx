@@ -116,6 +116,7 @@ const ChangingRoom = () => {
       </Gutters>
       <DailyMediaViewWrapper
         videoTrack={me?.videoTrack ?? null}
+        audioTrack={null}
         objectFit={'cover'}
         mirror={me?.local}
       />
