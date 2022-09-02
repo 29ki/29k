@@ -12,6 +12,7 @@ mockFirebase(
           name: 'some-name',
           url: 'some-url',
           index: 0,
+          playing: false,
         },
         {
           id: 'some-other-temple-id',
@@ -19,6 +20,7 @@ mockFirebase(
           name: 'some-other-name',
           url: 'some-other-url',
           index: 0,
+          playing: false,
         },
       ],
     },
@@ -142,6 +144,23 @@ describe('/api/temples', () => {
         index: 0,
         name: 'some-other-name',
         url: 'some-other-url',
+      });
+    });
+
+    it('should update playing', async () => {
+      const response = await request(mockServer)
+        .put(`/temples/some-other-temple-id`)
+        .send({playing: true})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({
+        active: true,
+        id: 'some-other-temple-id',
+        index: 0,
+        name: 'some-other-name',
+        url: 'some-other-url',
+        playing: true,
       });
     });
 

@@ -35,6 +35,7 @@ templesRouter.post('/', validator({body: CreateTempleData}), async ctx => {
     url: data.url,
     active: false,
     index: 0,
+    playing: false,
   };
 
   await firestore().collection(TEMPLES_COLLECTION).doc(data.id).set(temple);
@@ -46,6 +47,7 @@ const UpdateTemple = yup
   .object({
     active: yup.boolean(),
     index: yup.number(),
+    playing: yup.boolean(),
   })
   .test(
     'nonEmptyObject',
