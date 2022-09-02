@@ -74,9 +74,10 @@ const Participants: React.FC<ParticipantsProps> = ({
         keyExtractor={participant => participant.user_id}
         renderItem={renderVideo(
           participants.length <= 2
-            ? containerWidth * 0.5
+            ? containerWidth * (1 / participants.length)
             : containerWidth * VIDEO_WIDTH_PERCENTAGE,
         )}
+        scrollEnabled={participants.length > 2}
       />
     </ParticipantsWrapper>
   );
