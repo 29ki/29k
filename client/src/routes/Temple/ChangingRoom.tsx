@@ -1,5 +1,10 @@
 import React, {useContext, useEffect} from 'react';
-import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {
+  RouteProp,
+  useIsFocused,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Platform} from 'react-native';
 import styled from 'styled-components/native';
@@ -14,21 +19,27 @@ import {
   Spacer28,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
-import AudioToggleButton from '../Temple/Buttons/AudioToggleButton';
-import VideoToggleButton from '../Temple/Buttons/VideoToggleButton';
+import AudioToggleButton from './components/Buttons/AudioToggleButton';
+import VideoToggleButton from './components/Buttons/VideoToggleButton';
 import {B1} from '../../common/components/Typography/Text/Text';
 import {COLORS} from '../../common/constants/colors';
 import {DailyContext} from '../Temple/DailyProvider';
 import {DailyMediaView} from '@daily-co/react-native-daily-js';
 import {useRecoilValue} from 'recoil';
 import {localParticipantAtom, templeAtom} from './state/state';
-import {ROUTES, ScreenProps} from '../../common/constants/routes';
+import {
+  TempleStackProps,
+  TempleStackRoutes,
+} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {SPACINGS} from '../../common/constants/spacings';
 import {useTranslation} from 'react-i18next';
 import NS from '../../lib/i18n/constants/namespaces';
 
-type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
+type TempleNavigationProps = NativeStackNavigationProp<
+  TempleStackProps,
+  'Temple'
+>;
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'padding', android: undefined}),
@@ -60,7 +71,7 @@ const DailyMediaViewWrapper = styled(DailyMediaView)({
 
 const ChangingRoom = () => {
   const {t} = useTranslation(NS.SCREEN.CHANGING_ROOM);
-  const {goBack, navigate} = useNavigation<ScreenNavigationProps>();
+  const {goBack, navigate} = useNavigation<TempleNavigationProps>();
   const {
     toggleAudio,
     toggleVideo,
@@ -73,22 +84,27 @@ const ChangingRoom = () => {
   const temple = useRecoilValue(templeAtom);
   const {
     params: {templeId},
-  } = useRoute<RouteProp<ScreenProps, 'ChangingRoom'>>();
+  } = useRoute<RouteProp<TempleStackProps, 'ChangingRoom'>>();
 
   const {subscribeTemple} = useTemple();
+  const isFocused = useIsFocused();
 
   useEffect(() => subscribeTemple(templeId), [subscribeTemple, templeId]);
 
   useEffect(() => {
     const startVideo = async () => {
-      if (temple?.url) {
+      if (isFocused && temple?.url) {
         preJoinMeeting();
       }
     };
     startVideo();
-  }, [preJoinMeeting, temple]);
+  }, [preJoinMeeting, temple, isFocused]);
 
   const me = useRecoilValue(localParticipantAtom);
+
+  if (!isFocused) {
+    return null;
+  }
 
   return (
     <Wrapper>
@@ -100,7 +116,7 @@ const ChangingRoom = () => {
       </Gutters>
       <DailyMediaViewWrapper
         videoTrack={me?.videoTrack ?? null}
-        audioTrack={me?.audioTrack ?? null}
+        audioTrack={null}
         objectFit={'cover'}
         mirror={me?.local}
       />
@@ -121,7 +137,7 @@ const ChangingRoom = () => {
           }}
         />
         <Spacer28 />
-        <Button onPress={() => navigate(ROUTES.TEMPLE, {templeId})}>
+        <Button onPress={() => navigate(TempleStackRoutes.TEMPLE, {templeId})}>
           {t('join_button')}
         </Button>
       </Gutters>

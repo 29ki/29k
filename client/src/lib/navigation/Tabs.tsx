@@ -13,7 +13,7 @@ import {
   FilmCameraIcon,
 } from '../../common/components/Icons';
 import {COLORS} from '../../common/constants/colors';
-import {ROUTES} from '../../common/constants/routes';
+import {RootStackRoutes} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import {B3} from '../../common/components/Typography/Text/Text';
 
@@ -64,17 +64,17 @@ const Tabs = () => {
   return (
     <Tab.Navigator screenOptions={tabBarOptions}>
       <Tab.Screen
-        name={ROUTES.HOME}
+        name={RootStackRoutes.HOME}
         component={Home}
         options={getTabOptions(HomeIcon, t('home'))}
       />
       <Tab.Screen
-        name={ROUTES.PROFILE}
+        name={RootStackRoutes.PROFILE}
         component={Profile}
         options={getTabOptions(ProfileIcon, t('profile'))}
       />
       <Tab.Screen
-        name={ROUTES.TEMPLES}
+        name={RootStackRoutes.TEMPLES}
         component={Temples}
         options={getTabOptions(FilmCameraIcon, t('video'))}
       />

@@ -1,28 +1,31 @@
-export type ScreenProps = {
+import {NavigatorScreenParams} from '@react-navigation/native';
+
+export type TempleStackProps = {
+  Temple: {templeId: string};
+  ChangingRoom: {templeId: string};
+};
+
+export type RootStackProps = {
   Home: undefined;
   Profile: undefined;
   KillSwitch: undefined;
   Tabs: undefined;
   Breathing: undefined;
-  Temple: {templeId: string};
   Temples: undefined;
-  TempleStack: {screen: string; params: {templeId: string}};
-  ChangingRoom: {templeId: string};
+  TempleStack: NavigatorScreenParams<TempleStackProps>;
 };
 
-type Routes = {[key: string]: keyof ScreenProps};
-
-export const NAVIGATORS: Routes = {
-  TABS: 'Tabs',
-  TEMPLE_STACK: 'TempleStack',
+export const TempleStackRoutes: {[key: string]: keyof TempleStackProps} = {
+  TEMPLE: 'Temple',
+  CHANGING_ROOM: 'ChangingRoom',
 };
 
-export const ROUTES: Routes = {
+export const RootStackRoutes: {[key: string]: keyof RootStackProps} = {
   HOME: 'Home',
   PROFILE: 'Profile',
-  TEMPLE: 'Temple',
   KILL_SWITCH: 'KillSwitch',
   BREATHING: 'Breathing',
   TEMPLES: 'Temples',
-  CHANGING_ROOM: 'ChangingRoom',
+  TABS: 'Tabs',
+  TEMPLE_STACK: 'TempleStack',
 };

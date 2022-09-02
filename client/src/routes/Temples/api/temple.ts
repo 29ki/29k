@@ -15,6 +15,22 @@ export const addTemple = async (name: string): Promise<Temple> => {
     const {temple} = await response.json();
     return temple;
   } catch (cause) {
-    throw new Error('Could not create a room', {cause});
+    throw new Error('Could not create a temple', {cause});
+  }
+};
+
+export const updateTemple = async (id: string, data: Partial<Temple>) => {
+  try {
+    const response = await fetch(`${TEMPLES_ENDPOINT}/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    return response.json();
+  } catch (cause) {
+    throw new Error('Could not update temple', {cause});
   }
 };

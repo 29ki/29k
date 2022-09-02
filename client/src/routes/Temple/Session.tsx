@@ -18,22 +18,37 @@ import {
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-import {Spacer12, Spacer16} from '../../common/components/Spacers/Spacer';
-import AudioToggleButton from './Buttons/AudioToggleButton';
-import VideoToggleButton from './Buttons/VideoToggleButton';
+import {
+  Spacer8,
+  Spacer12,
+  Spacer16,
+} from '../../common/components/Spacers/Spacer';
+import AudioToggleButton from './components/Buttons/AudioToggleButton';
+import VideoToggleButton from './components/Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
-import LeaveButton from './Buttons/LeaveButton';
-import {B1} from '../../common/components/Typography/Text/Text';
-import {NAVIGATORS, ScreenProps} from '../../common/constants/routes';
+import LeaveButton from './components/Buttons/LeaveButton';
+import {
+  RootStackProps,
+  RootStackRoutes,
+  TempleStackProps,
+} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {DailyContext} from './DailyProvider';
-import {Temple} from '../../../../shared/src/types/Temple';
 import NS from '../../lib/i18n/constants/namespaces';
 import Participants from './Participants';
 import ParticipantName from './ParticipantName';
 import ParticipantAudio from './ParticipantAudio';
+import Content from './components/Content/Content';
+import SlideButton from './components/Buttons/SlideButton';
+import {
+  ChevronRight,
+  ChevronLeft,
+  Play,
+  Pause,
+  Rewind,
+} from '../../common/components/Icons';
 
-type ScreenNavigationProps = NativeStackNavigationProp<ScreenProps>;
+type ScreenNavigationProps = NativeStackNavigationProp<RootStackProps, 'Tabs'>;
 
 const LoadingView = styled.View({
   flex: 1,
@@ -52,7 +67,7 @@ const MainViewContainer = styled.View({
   flex: 1,
 });
 
-const Controls = styled.View({
+const SessionControls = styled.View({
   flexDirection: 'row',
   justifyContent: 'center',
 });
@@ -60,6 +75,19 @@ const Controls = styled.View({
 const DailyMediaViewWrapper = styled(DailyMediaView)({
   height: '100%',
   width: '100%',
+});
+
+const ContentControls = styled.View({
+  position: 'absolute',
+  bottom: 20,
+  left: 20,
+  right: 20,
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+});
+
+const Row = styled.View({
+  flexDirection: 'row',
 });
 
 const TouchableMediaView = ({
@@ -90,10 +118,6 @@ const TouchableMediaView = ({
   </TouchableOpacity>
 );
 
-const Content = ({state}: {state: Temple}) => (
-  <B1>{JSON.stringify(state, null, 2)}</B1>
-);
-
 const Session = () => {
   const {
     joinMeeting,
@@ -105,11 +129,11 @@ const Session = () => {
   } = useContext(DailyContext);
   const {
     params: {templeId},
-  } = useRoute<RouteProp<ScreenProps, 'Temple'>>();
+  } = useRoute<RouteProp<TempleStackProps, 'Temple'>>();
 
   const {navigate} = useNavigation<ScreenNavigationProps>();
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
-  const {subscribeTemple} = useTemple();
+  const {subscribeTemple, navigateToIndex, setActive, setPlaying} = useTemple();
 
   const temple = useRecoilValue(templeAtom);
   const participants = useRecoilValue(participantsSelector);
@@ -130,7 +154,7 @@ const Session = () => {
 
   const exitMeeting = async () => {
     await leaveMeeting();
-    navigate(NAVIGATORS.TABS);
+    navigate(RootStackRoutes.TABS);
   };
 
   if (isLoading) {
@@ -144,7 +168,41 @@ const Session = () => {
   return (
     <MainViewContainer>
       <Spotlight>
-        {temple?.active && !selectedParticipant && <Content state={temple} />}
+        {!temple?.active && !selectedParticipant && (
+          <ContentControls>
+            <SlideButton
+              onPress={() => setActive(true)}
+              RightIcon={ChevronRight}>
+              {t('controls.start')}
+            </SlideButton>
+          </ContentControls>
+        )}
+        {temple?.active && !selectedParticipant && (
+          <>
+            <Content contentIndex={temple.index} playing={temple.playing} />
+            <ContentControls>
+              <SlideButton
+                LeftIcon={ChevronLeft}
+                onPress={() => navigateToIndex(temple.index - 1)}
+              />
+              <Row>
+                <SlideButton
+                  LeftIcon={Rewind}
+                  onPress={() => setPlaying(!temple.playing)}
+                />
+                <Spacer8 />
+                <SlideButton
+                  LeftIcon={temple.playing ? Pause : Play}
+                  onPress={() => setPlaying(!temple.playing)}
+                />
+              </Row>
+              <SlideButton
+                RightIcon={ChevronRight}
+                onPress={() => navigateToIndex(temple.index + 1)}
+              />
+            </ContentControls>
+          </>
+        )}
         {selectedParticipant && (
           <SpotlightVideo>
             <TouchableMediaView
@@ -160,13 +218,13 @@ const Session = () => {
         <Participants participants={participants} localAudioOn={hasAudio} />
       )}
       <Spacer16 />
-      <Controls>
+      <SessionControls>
         <AudioToggleButton onPress={toggleAudio} active={hasAudio} />
         <Spacer12 />
         <VideoToggleButton onPress={toggleVideo} active={hasVideo} />
         <Spacer12 />
         <LeaveButton fill={COLORS.ROSE500} onPress={exitMeeting} />
-      </Controls>
+      </SessionControls>
       <Spacer16 />
     </MainViewContainer>
   );

@@ -1,6 +1,11 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NAVIGATORS, ROUTES, ScreenProps} from '../../common/constants/routes';
+import {
+  RootStackProps,
+  RootStackRoutes,
+  TempleStackProps,
+  TempleStackRoutes,
+} from '../../common/constants/routes';
 import KillSwitch from '../../routes/KillSwitch/KillSwitch';
 import {useRecoilValue} from 'recoil';
 import {killSwitchFields} from '../killSwitch/state/state';
@@ -10,39 +15,49 @@ import Temple from '../../routes/Temple/Temple';
 import ChangingRoom from '../../routes/Temple/ChangingRoom';
 import DailyProvider from '../../routes/Temple/DailyProvider';
 
-const Stack = createNativeStackNavigator<ScreenProps>();
+const TempleStack = createNativeStackNavigator<TempleStackProps>();
+const RootStack = createNativeStackNavigator<RootStackProps>();
 
 const stackOptions = {
   headerShown: false,
 };
-const TempleStack = () => (
+const TempleStackWrapper = () => (
   <DailyProvider>
-    <Stack.Navigator screenOptions={stackOptions}>
-      <Stack.Screen name={ROUTES.CHANGING_ROOM} component={ChangingRoom} />
-      <Stack.Screen name={ROUTES.TEMPLE} component={Temple} />
-    </Stack.Navigator>
+    <TempleStack.Navigator screenOptions={stackOptions}>
+      <TempleStack.Screen
+        name={TempleStackRoutes.CHANGING_ROOM}
+        component={ChangingRoom}
+      />
+      <TempleStack.Screen name={TempleStackRoutes.TEMPLE} component={Temple} />
+    </TempleStack.Navigator>
   </DailyProvider>
 );
 
-const Stacks = () => {
+const RootStackWrapper = () => {
   const isBlocking = useRecoilValue(killSwitchFields('isBlocking'));
 
   return (
-    <Stack.Navigator screenOptions={stackOptions}>
+    <RootStack.Navigator screenOptions={stackOptions}>
       {isBlocking ? (
-        <Stack.Screen name={ROUTES.KILL_SWITCH} component={KillSwitch} />
+        <RootStack.Screen
+          name={RootStackRoutes.KILL_SWITCH}
+          component={KillSwitch}
+        />
       ) : (
         <>
-          <Stack.Screen name={NAVIGATORS.TABS} component={Tabs} />
-          <Stack.Screen name={ROUTES.BREATHING} component={Breathing} />
-          <Stack.Screen
-            name={NAVIGATORS.TEMPLE_STACK}
-            component={TempleStack}
+          <RootStack.Screen name={RootStackRoutes.TABS} component={Tabs} />
+          <RootStack.Screen
+            name={RootStackRoutes.BREATHING}
+            component={Breathing}
+          />
+          <RootStack.Screen
+            name={RootStackRoutes.TEMPLE_STACK}
+            component={TempleStackWrapper}
           />
         </>
       )}
-    </Stack.Navigator>
+    </RootStack.Navigator>
   );
 };
 
-export default Stacks;
+export default RootStackWrapper;

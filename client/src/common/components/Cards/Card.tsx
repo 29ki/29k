@@ -30,10 +30,10 @@ const CardButton = styled(Button)({
   alignSelf: 'flex-start',
 });
 
-const Shadow = styled.View({
+const Shadow = styled.View.attrs({
   ...SETTINGS.BOXSHADOW,
   shadowColor: COLORS.BLACK,
-});
+})({});
 
 const Wrapper = styled(TouchableOpacity)({
   flex: 1,
