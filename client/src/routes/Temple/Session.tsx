@@ -119,7 +119,7 @@ const Session = () => {
 
   const {navigate} = useNavigation<ScreenNavigationProps>();
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
-  const {subscribeTemple} = useTemple();
+  const {subscribeTemple, navigateToIndex} = useTemple();
 
   const temple = useRecoilValue(templeAtom);
   const participants = useRecoilValue(participantsSelector);
@@ -159,8 +159,12 @@ const Session = () => {
           <>
             <Content contentIndex={temple.index} />
             <ContentControls>
-              <SlideButton>{'Föregående'}</SlideButton>
-              <SlideButton>{'Nästa'}</SlideButton>
+              <SlideButton onPress={() => navigateToIndex(temple.index - 1)}>
+                {'Föregående'}
+              </SlideButton>
+              <SlideButton onPress={() => navigateToIndex(temple.index + 1)}>
+                {'Nästa'}
+              </SlideButton>
             </ContentControls>
           </>
         )}
