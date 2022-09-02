@@ -42,32 +42,30 @@ templesRouter.post('/', validator({body: CreateTempleData}), async ctx => {
   ctx.body = temple;
 });
 
-const UpdateIndex = yup.object().shape({
-  index: yup.number().required(),
-});
+const UpdateTemple = yup
+  .object({
+    active: yup.boolean(),
+    index: yup.number(),
+  })
+  .test(
+    'nonEmptyObject',
+    'object may not be empty',
+    test => Object.keys(test).length > 0,
+  );
 
-templesRouter.put('/:id/index', validator({body: UpdateIndex}), async ctx => {
-  const {index} = ctx.request.body;
+templesRouter.put('/:id', validator({body: UpdateTemple}), async ctx => {
+  const data = ctx.request.body;
   const {id} = ctx.params;
-  const templeDoc = firestore().collection(TEMPLES_COLLECTION).doc(id);
+  const templeDocRef = firestore().collection(TEMPLES_COLLECTION).doc(id);
 
-  await templeDoc.update({index});
+  const templeDoc = await templeDocRef.get();
+  if (templeDoc.exists) {
+    await templeDocRef.update(data);
 
-  ctx.body = (await templeDoc.get()).data();
-});
-
-const UpdateActive = yup.object().shape({
-  active: yup.boolean().required(),
-});
-
-templesRouter.put('/:id/active', validator({body: UpdateActive}), async ctx => {
-  const {active} = ctx.request.body;
-  const {id} = ctx.params;
-  const templeDoc = firestore().collection(TEMPLES_COLLECTION).doc(id);
-
-  await templeDoc.update({active});
-
-  ctx.body = (await templeDoc.get()).data();
+    ctx.body = (await templeDocRef.get()).data();
+  } else {
+    ctx.status = 500;
+  }
 });
 
 export {templesRouter};

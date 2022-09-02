@@ -7,31 +7,17 @@ mockFirebase(
     database: {
       temples: [
         {
-          active: false,
           id: 'some-temple-id',
+          active: false,
           name: 'some-name',
           url: 'some-url',
           index: 0,
         },
         {
-          active: true,
           id: 'some-other-temple-id',
+          active: false,
           name: 'some-other-name',
           url: 'some-other-url',
-          index: 0,
-        },
-        {
-          active: true,
-          id: 'update-index-doc-id',
-          name: 'update-index-doc-name',
-          url: 'update-index-doc-url',
-          index: 0,
-        },
-        {
-          active: true,
-          id: 'update-active-doc-id',
-          name: 'update-active-doc-name',
-          url: 'update-active-doc-url',
           index: 0,
         },
       ],
@@ -49,12 +35,17 @@ const mockDailyApi = {
 
 import {templesRouter} from '.';
 import createMockServer from '../lib/createMockServer';
+import {mockUpdate} from 'firestore-jest-mock/mocks/firestore';
 
 jest.mock('../../lib/dailyApi', () => mockDailyApi);
 
 const router = new Router();
 router.use('/temples', templesRouter.routes());
 const mockServer = createMockServer(router.routes(), router.allowedMethods());
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
 
 afterAll(() => {
   mockServer.close();
@@ -67,31 +58,17 @@ describe('/api/temples', () => {
       expect(response.status).toBe(200);
       expect(response.body).toEqual([
         {
-          active: false,
           id: 'some-temple-id',
+          active: false,
           name: 'some-name',
           url: 'some-url',
           index: 0,
         },
         {
-          active: true,
           id: 'some-other-temple-id',
+          active: false,
           name: 'some-other-name',
           url: 'some-other-url',
-          index: 0,
-        },
-        {
-          active: true,
-          id: 'update-index-doc-id',
-          name: 'update-index-doc-name',
-          url: 'update-index-doc-url',
-          index: 0,
-        },
-        {
-          active: true,
-          id: 'update-active-doc-id',
-          name: 'update-active-doc-name',
-          url: 'update-active-doc-url',
           index: 0,
         },
       ]);
@@ -135,61 +112,69 @@ describe('/api/temples', () => {
     });
   });
 
-  describe('PUT /:id/index', () => {
-    const templeId = 'update-index-doc-id';
-
+  describe('PUT /:id', () => {
     it('should update index', async () => {
       const response = await request(mockServer)
-        .put(`/temples/${templeId}/index`)
+        .put(`/temples/some-temple-id`)
         .send({index: 2})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
-        active: true,
-        id: 'update-index-doc-id',
+        active: false,
+        id: 'some-temple-id',
         index: 2,
-        name: 'update-index-doc-name',
-        url: 'update-index-doc-url',
+        name: 'some-name',
+        url: 'some-url',
       });
     });
 
-    it('should require an index field', async () => {
-      const response = await request(mockServer)
-        .put(`/temples/${templeId}/index`)
-        .set('Accept', 'application/json');
-
-      expect(response.status).toBe(500);
-      expect(response.text).toEqual('Internal Server Error');
-    });
-  });
-
-  describe('PUT /:id/active', () => {
-    const templeId = 'update-active-doc-id';
-
     it('should update active', async () => {
       const response = await request(mockServer)
-        .put(`/temples/${templeId}/active`)
-        .send({active: false})
+        .put(`/temples/some-other-temple-id`)
+        .send({active: true})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
-        active: false,
-        id: 'update-active-doc-id',
+        active: true,
+        id: 'some-other-temple-id',
         index: 0,
-        name: 'update-active-doc-name',
-        url: 'update-active-doc-url',
+        name: 'some-other-name',
+        url: 'some-other-url',
       });
     });
 
-    it('should require active field', async () => {
+    it('should require a field', async () => {
       const response = await request(mockServer)
-        .put(`/temples/${templeId}/active`)
+        .put(`/temples/some-temple-id`)
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(500);
       expect(response.text).toEqual('Internal Server Error');
+      expect(mockUpdate).toHaveBeenCalledTimes(0);
+    });
+
+    it('does not accept other fields', async () => {
+      const response = await request(mockServer)
+        .put(`/temples/some-temple-id`)
+        .send({active: true, index: 1, foo: 'bar'})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(200);
+      expect(mockUpdate).toHaveBeenCalledTimes(1);
+      expect(mockUpdate).toBeCalledWith({active: true, index: 1});
+    });
+
+    it('should return 500 on non-existing temple', async () => {
+      const response = await request(mockServer)
+        .put(`/temples/some-non-existing-id`)
+        .send({active: true, index: 1})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(500);
+      expect(response.text).toEqual('Internal Server Error');
+      expect(mockUpdate).toHaveBeenCalledTimes(0);
     });
   });
 });
