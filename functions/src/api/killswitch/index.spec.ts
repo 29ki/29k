@@ -85,12 +85,12 @@ describe('/api/killswitch', () => {
       [403, nativeUpdate, '1.0.0', '1', 'ios', 'en'],
 
       // older bundle versions currently kill-switched
-      [200, bundleUpdate, '2.0.3', '2993', 'ios', 'en'],
-      [200, bundleUpdate, '2.0.3', '2872', 'android', 'en'],
+      [200, bundleUpdate, '2.0.8', '2993', 'ios', 'en'],
+      [200, bundleUpdate, '2.0.8', '2872', 'android', 'en'],
 
       // current bundle minimum version
-      [200, {}, '2.0.3', '10001', 'ios', 'en'],
-      [200, {}, '2.0.3', '10001', 'android', 'en'],
+      [200, {}, '2.0.8', '10001', 'ios', 'en'],
+      [200, {}, '2.0.8', '10001', 'android', 'en'],
 
       /////// miscellaneous //////////////////////////////////////////////////
       // accepts partially broken input
