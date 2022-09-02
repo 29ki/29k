@@ -6,6 +6,7 @@ export type IconType = React.FC<{
 }>;
 
 export * from './Back/Back';
+export * from './ChevronRight/ChevronRight';
 export * from './FilmCamera/FilmCamera';
 export * from './FilmCameraOff/FilmCameraOff';
 export * from './Forward/Forward';
