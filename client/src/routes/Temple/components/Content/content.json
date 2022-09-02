@@ -1,8 +1,9 @@
 [
     {
-        "type": "text",
+        "type": "video",
         "content": {
-            "text": "# Your body, your home"
+            "text": "# Your body, your home",
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/v1662110103/temp/meditation_zjiwjl.mp4"
         }
     },
     {
