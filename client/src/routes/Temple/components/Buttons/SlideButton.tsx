@@ -17,10 +17,14 @@ const StyledSlideButton = styled(Button)({
   backgroundColor: COLORS.GREY100,
   color: COLORS.BLACK_EASY,
 });
-const IconWrapper = styled.View({
+
+const IconWrapper = styled.View<{left?: boolean}>(props => ({
   width: 26,
   height: 26,
-});
+  marginLeft: props.left ? -8 : 0,
+  marginRight: !props.left ? -8 : 0,
+}));
+
 const SlideButton: React.FC<SlideButtonProps> = ({
   onPress,
   fill = COLORS.BLACK_EASY,
@@ -31,7 +35,7 @@ const SlideButton: React.FC<SlideButtonProps> = ({
 }) => (
   <StyledSlideButton primary onPress={onPress} disabled={disabled}>
     {LeftIcon && (
-      <IconWrapper>
+      <IconWrapper left>
         <LeftIcon fill={fill} />
       </IconWrapper>
     )}

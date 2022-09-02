@@ -36,7 +36,7 @@ import ParticipantName from './ParticipantName';
 import ParticipantAudio from './ParticipantAudio';
 import Content from './components/Content/Content';
 import SlideButton from './components/Buttons/SlideButton';
-import {ChevronRight} from '../../common/components/Icons';
+import {ChevronRight, ChevronLeft} from '../../common/components/Icons';
 
 type ScreenNavigationProps = NativeStackNavigationProp<RootStackProps, 'Tabs'>;
 
@@ -156,7 +156,9 @@ const Session = () => {
       <Spotlight>
         {!temple?.active && !selectedParticipant && (
           <ContentControls>
-            <SlideButton onPress={() => setActive(true)}>
+            <SlideButton
+              onPress={() => setActive(true)}
+              RightIcon={ChevronRight}>
               {t('controls.start')}
             </SlideButton>
           </ContentControls>
@@ -166,7 +168,7 @@ const Session = () => {
             <Content contentIndex={temple.index} />
             <ContentControls>
               <SlideButton
-                LeftIcon={ChevronRight}
+                LeftIcon={ChevronLeft}
                 onPress={() => navigateToIndex(temple.index - 1)}>
                 {t('controls.prev')}
               </SlideButton>

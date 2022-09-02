@@ -14,6 +14,7 @@ const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(({primary}) => ({
   minHeight: SPACINGS.THIRTYTWO,
   backgroundColor: primary ? COLORS.GREY200 : COLORS.BLACK_EASY,
   paddingHorizontal: SPACINGS.SIXTEEN,
+  paddingVertical: SPACINGS.EIGHT,
   borderRadius: SPACINGS.SIXTEEN,
   alignItems: 'center',
   justifyContent: 'center',
@@ -23,7 +24,6 @@ const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(({primary}) => ({
 export const ButtonText = styled(B2)<ButtonProps>(({primary}) => ({
   color: primary ? COLORS.BLACK_EASY : COLORS.GREY100,
   fontWeight: 600,
-  margin: 12,
 }));
 
 const Button: React.FC<{
