@@ -18,7 +18,8 @@ type SlideButtonProps = {
 const StyledSlideButton = styled(Button)({
   backgroundColor: COLORS.GREY100,
   color: COLORS.BLACK_EASY,
-  paddingHorizontal: SPACINGS.EIGHT,
+  paddingVertical: SPACINGS.EIGHT,
+  paddingHorizontal: SPACINGS.TWELVE,
   boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.16)',
   elevation: 1,
 });
@@ -47,7 +48,11 @@ const SlideButton: React.FC<SlideButtonProps> = ({
         <LeftIcon fill={fill} />
       </IconWrapper>
     )}
-    <ButtonText>{children}</ButtonText>
+    {typeof children === 'string' ? (
+      <ButtonText>{children}</ButtonText>
+    ) : (
+      children
+    )}
     {RightIcon && (
       <IconWrapper>
         <RightIcon fill={fill} />

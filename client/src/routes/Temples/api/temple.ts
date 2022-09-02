@@ -19,22 +19,14 @@ export const addTemple = async (name: string): Promise<Temple> => {
   }
 };
 
-export const updateTemple = async ({
-  id,
-  index,
-  active,
-}: {
-  id: Temple['id'];
-  index?: Temple['index'];
-  active?: Temple['active'];
-}) => {
+export const updateTemple = async (id: string, data: Partial<Temple>) => {
   try {
     const response = await fetch(`${TEMPLES_ENDPOINT}/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({index, active}),
+      body: JSON.stringify(data),
     });
 
     return response.json();

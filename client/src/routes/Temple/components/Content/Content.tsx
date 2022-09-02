@@ -9,6 +9,7 @@ import VideoContent, {VideoContentType} from './contentTypes/Video';
 
 type ContentProps = {
   contentIndex: number;
+  playing: boolean;
 };
 
 type ContentSlide = TextContentType | VideoContentType;
@@ -22,7 +23,7 @@ const Slide = styled.View<{width: number}>(props => ({
   width: props.width,
 }));
 
-const Content: React.FC<ContentProps> = ({contentIndex = 0}) => {
+const Content: React.FC<ContentProps> = ({contentIndex = 0, playing}) => {
   const [width, setWidth] = useState<number>(0);
   const listRef = useRef<FlatList>(null);
 
@@ -30,11 +31,16 @@ const Content: React.FC<ContentProps> = ({contentIndex = 0}) => {
     listRef.current?.scrollToIndex({animated: true, index: contentIndex});
   }, [contentIndex]);
 
-  const renderSlide = ({item}: ListRenderItemInfo<ContentSlide>) => {
+  const renderSlide = ({item, index}: ListRenderItemInfo<ContentSlide>) => {
     return (
       <Slide width={width}>
         {item.type === 'text' && <TextContent content={item} />}
-        {item.type === 'video' && <VideoContent content={item} />}
+        {item.type === 'video' && (
+          <VideoContent
+            content={item}
+            playing={contentIndex === index && playing}
+          />
+        )}
       </Slide>
     );
   };

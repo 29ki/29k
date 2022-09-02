@@ -35,7 +35,7 @@ const useTemple = () => {
         return;
       }
 
-      return templeApi.updateTemple({index, id: temple.id});
+      return templeApi.updateTemple(temple.id, {index, playing: false});
     },
     [temple],
   );
@@ -46,7 +46,18 @@ const useTemple = () => {
         return;
       }
 
-      return templeApi.updateTemple({active, id: temple.id});
+      return templeApi.updateTemple(temple.id, {active});
+    },
+    [temple],
+  );
+
+  const setPlaying = useCallback(
+    async (playing: Temple['playing']) => {
+      if (!temple) {
+        return;
+      }
+
+      return templeApi.updateTemple(temple.id, {playing});
     },
     [temple],
   );
@@ -55,6 +66,7 @@ const useTemple = () => {
     subscribeTemple,
     navigateToIndex,
     setActive,
+    setPlaying,
   };
 };
 

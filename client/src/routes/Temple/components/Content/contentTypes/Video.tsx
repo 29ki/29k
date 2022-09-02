@@ -1,45 +1,40 @@
-import React, {useState} from 'react';
+import React from 'react';
 import RNVideo from 'react-native-video';
 import styled from 'styled-components/native';
 import {Spacer12} from '../../../../../common/components/Spacers/Spacer';
-import Markdown from '../../../../../common/components/Typography/Markdown/Markdown';
-import {SPACINGS} from '../../../../../common/constants/spacings';
+import {H2} from '../../../../../common/components/Typography/Heading/Heading';
 
 export type VideoContentType = {
   type: 'video';
   content: {
     source: string;
-    text: string;
+    heading: string;
   };
 };
-
-const Wrapper = styled.TouchableOpacity({
-  flex: 1,
-});
-
-const TextWrapper = styled.View({
-  top: SPACINGS.SIXTEEN,
-  flexDirection: 'row',
-  justifyContent: 'center',
-});
 
 const Video = styled(RNVideo)({
   flex: 1,
 });
 
-const VideoContent: React.FC<{content: VideoContentType}> = ({content}) => {
-  const [isPaused, setIsPaused] = useState(true);
-  return (
-    <Wrapper onPress={() => setIsPaused(!isPaused)}>
-      <Spacer12 />
-      <TextWrapper>
-        <Markdown>{content.content.text}</Markdown>
-      </TextWrapper>
-      <Spacer12 />
-      <Video source={{uri: content.content.source}} paused={isPaused} />
-      <Spacer12 />
-    </Wrapper>
-  );
-};
+const Heading = styled(H2)({
+  textAlign: 'center',
+});
+
+const VideoContent: React.FC<{content: VideoContentType; playing: boolean}> = ({
+  content,
+  playing,
+}) => (
+  <>
+    <Spacer12 />
+    <Heading>{content.content.heading}</Heading>
+    <Spacer12 />
+    <Video
+      source={{uri: content.content.source}}
+      paused={!playing}
+      resizeMode="contain"
+    />
+    <Spacer12 />
+  </>
+);
 
 export default VideoContent;

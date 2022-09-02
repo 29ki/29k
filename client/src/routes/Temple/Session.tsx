@@ -36,7 +36,12 @@ import ParticipantName from './ParticipantName';
 import ParticipantAudio from './ParticipantAudio';
 import Content from './components/Content/Content';
 import SlideButton from './components/Buttons/SlideButton';
-import {ChevronRight, ChevronLeft} from '../../common/components/Icons';
+import {
+  ChevronRight,
+  ChevronLeft,
+  Play,
+  Pause,
+} from '../../common/components/Icons';
 
 type ScreenNavigationProps = NativeStackNavigationProp<RootStackProps, 'Tabs'>;
 
@@ -119,7 +124,7 @@ const Session = () => {
 
   const {navigate} = useNavigation<ScreenNavigationProps>();
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
-  const {subscribeTemple, navigateToIndex, setActive} = useTemple();
+  const {subscribeTemple, navigateToIndex, setActive, setPlaying} = useTemple();
 
   const temple = useRecoilValue(templeAtom);
   const participants = useRecoilValue(participantsSelector);
@@ -165,18 +170,20 @@ const Session = () => {
         )}
         {temple?.active && !selectedParticipant && (
           <>
-            <Content contentIndex={temple.index} />
+            <Content contentIndex={temple.index} playing={temple.playing} />
             <ContentControls>
               <SlideButton
                 LeftIcon={ChevronLeft}
-                onPress={() => navigateToIndex(temple.index - 1)}>
-                {t('controls.prev')}
-              </SlideButton>
+                onPress={() => navigateToIndex(temple.index - 1)}
+              />
+              <SlideButton
+                LeftIcon={temple.playing ? Pause : Play}
+                onPress={() => setPlaying(!temple.playing)}
+              />
               <SlideButton
                 RightIcon={ChevronRight}
-                onPress={() => navigateToIndex(temple.index + 1)}>
-                {t('controls.next')}
-              </SlideButton>
+                onPress={() => navigateToIndex(temple.index + 1)}
+              />
             </ContentControls>
           </>
         )}
