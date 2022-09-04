@@ -105,8 +105,8 @@ jobs:
       #  working-directory: ./client/fastlane
       #  run: bundle exec fastlane android app
 
-      - name: Generate Source Maps
-        working-directory: ./client/fastlane
+      - name: Generate Source Map
+        working-directory: ./client
         run: |
           yarn react-native bundle
           --dev false
@@ -115,7 +115,7 @@ jobs:
           --sourcemap-output $SOURCEMAPS_DIR/index.android.bundle
           --bundle-output $SOURCEMAPS_DIR/index.android.bundle.map
 
-      - name: Upload Source Maps to Sentry
+      - name: Upload Source Map to Sentry
         working-directory: ./client
         run: >
           yarn sentry-cli releases
