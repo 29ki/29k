@@ -18,6 +18,8 @@ jobs:
     env:
       CI: github
 
+      SOURCEMAPS_DIR: ./build/sourcemaps
+
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
       SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
@@ -71,6 +73,10 @@ jobs:
         working-directory: ./client/android/app
         run: echo -n "${{ secrets.ANDROID_RELEASE_KEYSTORE }}" | base64 --decode > release.keystore
 
+      - name: Prepare Source Maps Directory
+        working-directory: ./client
+        run: mkdir -p $SOURCEMAPS_DIR
+
       - name: Prepare $GIT_COMMIT_SHORT
         working-directory: ./client
         run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
@@ -98,6 +104,30 @@ jobs:
       - name: Build & Upload App
         working-directory: ./client/fastlane
         run: bundle exec fastlane android app
+
+      - name: Generate Source Map
+        working-directory: ./client
+        run: >
+          yarn react-native bundle
+          --dev false
+          --entry-file index.js
+          --platform android
+          --bundle-output $SOURCEMAPS_DIR/index.android.bundle
+          --sourcemap-output $SOURCEMAPS_DIR/index.android.bundle.map
+
+      - name: Upload Source Map to Sentry
+        working-directory: ./client
+        run: >
+          yarn sentry-cli releases
+          files $GIT_COMMIT_SHORT
+          upload-sourcemaps
+          --dist ${{ inputs.environment }}
+          --strip-prefix $PWD
+          $SOURCEMAPS_DIR
+
+      - name: Associate Commits to Sentry Release
+        working-directory: ./client
+        run: yarn sentry-cli releases set-commits --auto $GIT_COMMIT_SHORT
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
