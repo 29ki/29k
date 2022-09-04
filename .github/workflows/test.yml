@@ -3,16 +3,14 @@ name: Test
 on:
   workflow_call:
     inputs:
-      skipVersionBumpTest:
+      skipClientVersionBumpTest:
         required: false
-        type: string
+        type: boolean
 
 jobs:
   client:
     name: Client
     runs-on: ubuntu-latest
-    env:
-      SKIP_VERSION_BUMP_TEST: ${{ inputs.skipVersionBumpTest }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -34,6 +32,11 @@ jobs:
         if: steps.cache-client-node-modules.outputs.cache-hit != 'true'
         working-directory: ./client
         run: yarn
+
+      - name: Check if native versions needs bump
+        if: inputs.skipClientVersionBumpTest != true
+        working-directory: ./client
+        run: yarn test:version
 
       - name: Run tests
         working-directory: ./client

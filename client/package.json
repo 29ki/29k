@@ -17,7 +17,7 @@
     "test:lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test:ts": "tsc --noEmit",
     "test:version": "./scripts/testIfVersionNeedsBump.sh",
-    "test": "yarn build:content && yarn test:version && yarn test:ts && yarn test:lint && yarn test:jest"
+    "test": "yarn build:content && yarn test:ts && yarn test:lint && yarn test:jest"
   },
   "dependencies": {
     "@daily-co/react-native-daily-js": "^0.28.0",

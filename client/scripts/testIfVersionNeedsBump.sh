@@ -1,9 +1,5 @@
 # This is a pretty naive folder git diff test.
 # It does not take what changes have been made or the actual version into account.
-if [ $SKIP_VERSION_BUMP_TEST ]; then
-  echo "Skipping version bump test"
-  exit 0
-fi
 
 echo "🔍 Checking for iOS / Android native changes"
 
