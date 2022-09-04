@@ -124,8 +124,8 @@ jobs:
           --dev false
           --entry-file index.js
           --platform ios
-          --sourcemap-output $SOURCEMAPS_DIR/main.jsbundle
-          --bundle-output $SOURCEMAPS_DIR/main.jsbundle.map
+          --bundle-output $SOURCEMAPS_DIR/main.jsbundle
+          --sourcemap-output $SOURCEMAPS_DIR/main.jsbundle.map
 
       - name: Upload Source Map to Sentry
         working-directory: ./client

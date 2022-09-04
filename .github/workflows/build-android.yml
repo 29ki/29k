@@ -112,8 +112,8 @@ jobs:
           --dev false
           --entry-file index.js
           --platform android
-          --sourcemap-output $SOURCEMAPS_DIR/index.android.bundle
-          --bundle-output $SOURCEMAPS_DIR/index.android.bundle.map
+          --bundle-output $SOURCEMAPS_DIR/index.android.bundle
+          --sourcemap-output $SOURCEMAPS_DIR/index.android.bundle.map
 
       - name: Upload Source Map to Sentry
         working-directory: ./client
