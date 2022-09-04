@@ -6,8 +6,9 @@ export {default as ErrorBoundary} from './components/ErrorBoundary';
 export const init = () => {
   Sentry.init({
     dsn: SENTRY_DSN,
-    environment: ENVIRONMENT,
+    dist: ENVIRONMENT,
     release: GIT_COMMIT_SHORT,
+    environment: ENVIRONMENT,
   });
 };
 
