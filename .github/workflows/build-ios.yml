@@ -106,16 +106,16 @@ jobs:
         working-directory: ./content
         run: yarn build
 
-      #- name: Build & Upload App
-      #  working-directory: ./client/fastlane
-      #  run: bundle exec fastlane ios app
-      #
-      #- name: Upload Logs
-      #  uses: actions/upload-artifact@v3
-      #  if: failure()
-      #  with:
-      #    name: ios-build-logs
-      #    path: /Users/runner/Library/Logs/gym/*
+      - name: Build & Upload App
+        working-directory: ./client/fastlane
+        run: bundle exec fastlane ios app
+
+      - name: Upload Logs
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: ios-build-logs
+          path: /Users/runner/Library/Logs/gym/*
 
       - name: Generate Source Map
         working-directory: ./client
