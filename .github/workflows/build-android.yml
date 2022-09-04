@@ -107,7 +107,7 @@ jobs:
 
       - name: Generate Source Map
         working-directory: ./client
-        run: |
+        run: >
           yarn react-native bundle
           --dev false
           --entry-file index.js
