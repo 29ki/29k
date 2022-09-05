@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {
   RouteProp,
   useIsFocused,
@@ -8,9 +8,11 @@ import {
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Platform} from 'react-native';
 import styled from 'styled-components/native';
+import {useTranslation} from 'react-i18next';
+import {DailyMediaView} from '@daily-co/react-native-daily-js';
+import {useRecoilValue} from 'recoil';
 
 import Button from '../../common/components/Buttons/Button';
-
 import Gutters from '../../common/components/Gutters/Gutters';
 import {BackIcon} from '../../common/components/Icons';
 import {
@@ -21,11 +23,9 @@ import {
 } from '../../common/components/Spacers/Spacer';
 import AudioToggleButton from './components/Buttons/AudioToggleButton';
 import VideoToggleButton from './components/Buttons/VideoToggleButton';
-import {B1} from '../../common/components/Typography/Text/Text';
+import {B2} from '../../common/components/Typography/Text/Text';
 import {COLORS} from '../../common/constants/colors';
 import {DailyContext} from '../Temple/DailyProvider';
-import {DailyMediaView} from '@daily-co/react-native-daily-js';
-import {useRecoilValue} from 'recoil';
 import {localParticipantAtom, templeAtom} from './state/state';
 import {
   TempleStackProps,
@@ -33,8 +33,8 @@ import {
 } from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {SPACINGS} from '../../common/constants/spacings';
-import {useTranslation} from 'react-i18next';
 import NS from '../../lib/i18n/constants/namespaces';
+import TextInput from '../../common/components/Typography/TextInput/TextInput';
 
 type TempleNavigationProps = NativeStackNavigationProp<
   TempleStackProps,
@@ -56,21 +56,18 @@ const Controls = styled.View({
   justifyContent: 'center',
 });
 
-const Input = styled.TextInput({
-  borderBottomWidth: 1,
-  borderBottomColor: COLORS.GREY,
-  paddingBottom: 2,
-  paddingHorizontal: 2,
-  textAlign: 'center',
-});
-
 const DailyMediaViewWrapper = styled(DailyMediaView)({
   flex: 1,
   backgroundColor: COLORS.GREY,
 });
 
+const InputLabel = styled(B2)({
+  textAlign: 'center',
+});
+
 const ChangingRoom = () => {
   const {t} = useTranslation(NS.SCREEN.CHANGING_ROOM);
+  const [localUserName, setLocalUserName] = useState('');
   const {goBack, navigate} = useNavigation<TempleNavigationProps>();
   const {
     toggleAudio,
@@ -106,6 +103,11 @@ const ChangingRoom = () => {
     return null;
   }
 
+  const handleJoin = () => {
+    setUserName(localUserName);
+    navigate(TempleStackRoutes.TEMPLE, {templeId});
+  };
+
   return (
     <Wrapper>
       <TopSafeArea />
@@ -129,15 +131,11 @@ const ChangingRoom = () => {
           <VideoToggleButton onPress={toggleVideo} active={hasVideo} />
         </Controls>
         <Spacer28 />
-        <B1>{t('body')}</B1>
+        <InputLabel>{t('body')}</InputLabel>
         <Spacer28 />
-        <Input
-          onChangeText={userName => {
-            setUserName(userName);
-          }}
-        />
+        <TextInput onChangeText={setLocalUserName} />
         <Spacer28 />
-        <Button onPress={() => navigate(TempleStackRoutes.TEMPLE, {templeId})}>
+        <Button onPress={handleJoin} disabled={!localUserName.length}>
           {t('join_button')}
         </Button>
       </Gutters>
