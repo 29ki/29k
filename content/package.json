@@ -20,7 +20,6 @@
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.7.1",
-    "ramda": "^0.28.0"
+    "prettier": "^2.7.1"
   }
 }
