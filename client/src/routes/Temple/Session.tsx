@@ -47,7 +47,7 @@ import {
   Pause,
   Rewind,
 } from '../../common/components/Icons';
-import useContentById from '../../lib/content/hooks/useContentById';
+import useExerciseById from '../../lib/content/hooks/useExerciseById';
 
 type ScreenNavigationProps = NativeStackNavigationProp<RootStackProps, 'Tabs'>;
 
@@ -142,7 +142,7 @@ const Session = () => {
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
   const selectedParticipant = useRecoilValue(selectedParticipantSelector);
   const setSelectedParticipantId = useSetRecoilState(selectedParticipantIdAtom);
-  const content = useContentById(temple?.contentId);
+  const content = useExerciseById(temple?.contentId);
 
   useEffect(() => {
     if (temple?.url) {

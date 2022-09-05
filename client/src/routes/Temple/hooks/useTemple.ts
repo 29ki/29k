@@ -4,11 +4,11 @@ import {useRecoilState} from 'recoil';
 import {templeAtom} from '../state/state';
 import {Temple} from '../../../../../shared/src/types/Temple';
 import * as templeApi from '../../Temples/api/temple';
-import useContentById from '../../../lib/content/hooks/useContentById';
+import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 
 const useTemple = () => {
   const [temple, setTempleState] = useRecoilState(templeAtom);
-  const content = useContentById(temple?.contentId);
+  const content = useExerciseById(temple?.contentId);
 
   const subscribeTemple = useCallback(
     templeId => {

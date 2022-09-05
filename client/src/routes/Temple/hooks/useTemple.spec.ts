@@ -7,6 +7,12 @@ import {templeAtom} from '../state/state';
 
 enableFetchMocks();
 
+const mockContent = [{type: 'text'}, {type: 'text'}, {type: 'text'}];
+jest.mock(
+  '../../../lib/content/hooks/useExerciseById',
+  () => () => mockContent,
+);
+
 beforeEach(() => {
   fetchMock.resetMocks();
 });
