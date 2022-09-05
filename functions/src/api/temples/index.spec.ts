@@ -1,6 +1,7 @@
 import request from 'supertest';
 import Router from '@koa/router';
 import {mockFirebase} from 'firestore-jest-mock';
+import Koa from 'koa';
 
 mockFirebase(
   {
@@ -43,7 +44,16 @@ jest.mock('../../lib/dailyApi', () => mockDailyApi);
 
 const router = new Router();
 router.use('/temples', templesRouter.routes());
-const mockServer = createMockServer(router.routes(), router.allowedMethods());
+const mockServer = createMockServer(
+  async (ctx: Koa.Context, next: Koa.Next) => {
+    ctx.user = {
+      id: 'some-user-id',
+    };
+    await next();
+  },
+  router.routes(),
+  router.allowedMethods(),
+);
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -95,6 +105,7 @@ describe('/api/temples', () => {
         index: 0,
         playing: false,
         contentId: 'some-content-id',
+        facilitator: 'some-user-id',
       });
     });
 
