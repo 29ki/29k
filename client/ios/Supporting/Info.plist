@@ -2,10 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key></key>
-	<string></string>
+	<key/>
+	<string/>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -51,7 +51,7 @@
 		<string>voip</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -68,5 +68,34 @@
 	<false/>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>HKGrotesk-Black.otf</string>
+		<string>HKGrotesk-Bold.otf</string>
+		<string>HKGrotesk-BoldItalic.otf</string>
+		<string>HKGrotesk-BoldLegacy.otf</string>
+		<string>HKGrotesk-BoldLegacyItalic.otf</string>
+		<string>HKGrotesk-ExtraBold.otf</string>
+		<string>HKGrotesk-Italic.otf</string>
+		<string>HKGrotesk-LegacyItalic.otf</string>
+		<string>HKGrotesk-Light.otf</string>
+		<string>HKGrotesk-LightItalic.otf</string>
+		<string>HKGrotesk-LightLegacy.otf</string>
+		<string>HKGrotesk-LightLegacyItalic.otf</string>
+		<string>HKGrotesk-Medium.otf</string>
+		<string>HKGrotesk-MediumItalic.otf</string>
+		<string>HKGrotesk-MediumLegacy.otf</string>
+		<string>HKGrotesk-MediumLegacyItalic.otf</string>
+		<string>HKGrotesk-Regular.otf</string>
+		<string>HKGrotesk-RegularLegacy.otf</string>
+		<string>HKGrotesk-SemiBold.otf</string>
+		<string>HKGrotesk-SemiBoldItalic.otf</string>
+		<string>HKGrotesk-SemiBoldLegacy.otf</string>
+		<string>HKGrotesk-SemiBoldLegacyItalic.otf</string>
+		<string>Orpheus Pro Bold.otf</string>
+		<string>Orpheus Pro Italic.otf</string>
+		<string>Orpheus Pro Medium.otf</string>
+		<string>Orpheus Pro Regular.otf</string>
+	</array>
 </dict>
 </plist>

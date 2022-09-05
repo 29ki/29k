@@ -1,38 +1,44 @@
 import {Platform, StyleSheet} from 'react-native';
 import {COLORS} from '../../constants/colors';
 
-const fontFamily = Platform.select({ios: 'Times New Roman', android: 'serif'});
+const OrpheusProRegular = Platform.select({
+  ios: 'Orpheus Pro',
+  android: 'Orpheus Pro Regular',
+});
+const OrpheusProMedium = 'Orpheus Pro Medium';
+const OrpheusProBold = 'Orpheus Pro Bold';
+const OrpheusProItalic = 'Orpheus Pro Italic';
 
 export default StyleSheet.create({
   H1: {
     color: COLORS.GREY,
     fontSize: 40,
     lineHeight: 48,
-    fontFamily,
+    fontFamily: OrpheusProMedium,
   },
   H2: {
     color: COLORS.GREY,
     fontSize: 32,
     lineHeight: 41,
-    fontFamily,
+    fontFamily: OrpheusProMedium,
   },
   H3: {
     color: COLORS.GREY,
     fontSize: 24,
     lineHeight: 31,
-    fontFamily,
+    fontFamily: OrpheusProMedium,
   },
   H4: {
     color: COLORS.GREY,
     fontSize: 20,
     lineHeight: 28,
-    fontFamily,
+    fontFamily: OrpheusProMedium,
   },
   H5: {
     color: COLORS.GREY,
     fontSize: 16,
     lineHeight: 22,
-    fontFamily,
+    fontFamily: OrpheusProMedium,
   },
   B1: {
     color: COLORS.GREY,
