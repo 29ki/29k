@@ -23,10 +23,11 @@ templesRouter.get('/', async ctx => {
 
 const CreateTempleData = yup.object().shape({
   name: yup.string().required(),
+  contentId: yup.string().required(),
 });
 
 templesRouter.post('/', validator({body: CreateTempleData}), async ctx => {
-  const {name} = ctx.request.body;
+  const {name, contentId} = ctx.request.body;
 
   const data = await dailyApi.createRoom();
   const temple: Temple = {
@@ -36,6 +37,7 @@ templesRouter.post('/', validator({body: CreateTempleData}), async ctx => {
     active: false,
     index: 0,
     playing: false,
+    contentId,
   };
 
   await firestore().collection(TEMPLES_COLLECTION).doc(data.id).set(temple);

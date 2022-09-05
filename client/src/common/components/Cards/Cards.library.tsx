@@ -18,6 +18,7 @@ export const AllCards = () => (
         active: true,
         index: 0,
         playing: false,
+        contentId: 'some content',
       }}
       graphicSrc="https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png"
       buttonText="Join"
@@ -33,6 +34,7 @@ export const AllCards = () => (
         active: true,
         index: 0,
         playing: false,
+        contentId: 'some content',
       }}
       graphicSrc={animation.src}
       animation

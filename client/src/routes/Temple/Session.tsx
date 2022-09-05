@@ -47,6 +47,7 @@ import {
   Pause,
   Rewind,
 } from '../../common/components/Icons';
+import useExerciseById from '../../lib/content/hooks/useExerciseById';
 
 type ScreenNavigationProps = NativeStackNavigationProp<RootStackProps, 'Tabs'>;
 
@@ -83,11 +84,12 @@ const ContentControls = styled.View({
   left: 20,
   right: 20,
   flexDirection: 'row',
-  justifyContent: 'space-between',
 });
 
-const Row = styled.View({
+const MediaControls = styled.View({
+  flex: 1,
   flexDirection: 'row',
+  justifyContent: 'center',
 });
 
 const TouchableMediaView = ({
@@ -140,6 +142,7 @@ const Session = () => {
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
   const selectedParticipant = useRecoilValue(selectedParticipantSelector);
   const setSelectedParticipantId = useSetRecoilState(selectedParticipantIdAtom);
+  const content = useExerciseById(temple?.contentId);
 
   useEffect(() => {
     if (temple?.url) {
@@ -179,13 +182,19 @@ const Session = () => {
         )}
         {temple?.active && !selectedParticipant && (
           <>
-            <Content contentIndex={temple.index} playing={temple.playing} />
+            <Content
+              content={content}
+              contentIndex={temple.index}
+              playing={temple.playing}
+            />
             <ContentControls>
-              <SlideButton
-                LeftIcon={ChevronLeft}
-                onPress={() => navigateToIndex(temple.index - 1)}
-              />
-              <Row>
+              {temple.index > 0 && (
+                <SlideButton
+                  LeftIcon={ChevronLeft}
+                  onPress={() => navigateToIndex(temple.index - 1)}
+                />
+              )}
+              <MediaControls>
                 <SlideButton
                   LeftIcon={Rewind}
                   onPress={() => setPlaying(!temple.playing)}
@@ -195,11 +204,13 @@ const Session = () => {
                   LeftIcon={temple.playing ? Pause : Play}
                   onPress={() => setPlaying(!temple.playing)}
                 />
-              </Row>
-              <SlideButton
-                RightIcon={ChevronRight}
-                onPress={() => navigateToIndex(temple.index + 1)}
-              />
+              </MediaControls>
+              {temple.index < content.length - 1 && (
+                <SlideButton
+                  RightIcon={ChevronRight}
+                  onPress={() => navigateToIndex(temple.index + 1)}
+                />
+              )}
             </ContentControls>
           </>
         )}

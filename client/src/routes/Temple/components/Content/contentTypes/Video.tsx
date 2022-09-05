@@ -1,16 +1,9 @@
 import React from 'react';
 import RNVideo from 'react-native-video';
 import styled from 'styled-components/native';
+import {VideoContentType} from '../../../../../../../shared/src/types/Content';
 import {Spacer12} from '../../../../../common/components/Spacers/Spacer';
 import {H2} from '../../../../../common/components/Typography/Heading/Heading';
-
-export type VideoContentType = {
-  type: 'video';
-  content: {
-    source: string;
-    heading: string;
-  };
-};
 
 const Video = styled(RNVideo)({
   flex: 1,

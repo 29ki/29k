@@ -12,6 +12,7 @@ const NS = {
     TEMPLE: 'Screen.Temple',
     TEMPLES: 'Screen.Temples',
   },
+  EXERCISES: 'exercises',
 };
 
 export default NS;
