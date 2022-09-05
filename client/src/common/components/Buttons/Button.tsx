@@ -21,7 +21,6 @@ const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(({primary}) => ({
 
 export const ButtonText = styled(B2)<ButtonProps>(({primary}) => ({
   color: primary ? COLORS.BLACK_EASY : COLORS.GREY100,
-  fontWeight: 600,
   marginVertical: SPACINGS.TWELVE,
   marginHorizontal: SPACINGS.SIXTEEN,
 }));
