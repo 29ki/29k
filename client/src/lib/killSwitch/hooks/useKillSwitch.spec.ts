@@ -43,6 +43,7 @@ describe('useKillSwitch', () => {
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(fetchMock).toHaveBeenCalledWith(
         'some-api-endpoint/killSwitch?platform=some-os&platformVersion=some-os-version&version=some-version&bundleVersion=1337&language=some-language',
+        {headers: {'Content-Type': 'application/json'}},
       );
     });
 
