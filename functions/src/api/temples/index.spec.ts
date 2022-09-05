@@ -83,7 +83,7 @@ describe('/api/temples', () => {
     it('should return newly created temple', async () => {
       const response = await request(mockServer)
         .post('/temples')
-        .send({name: 'the next big temple!'})
+        .send({name: 'the next big temple!', contentId: 'some-content-id'})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
@@ -94,6 +94,7 @@ describe('/api/temples', () => {
         url: 'http://fake.daily/url',
         index: 0,
         playing: false,
+        contentId: 'some-content-id',
       });
     });
 

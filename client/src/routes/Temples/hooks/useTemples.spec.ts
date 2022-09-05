@@ -78,7 +78,10 @@ describe('useTemples', () => {
       });
 
       expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/temples', {
-        body: JSON.stringify({name: 'Temple name'}),
+        body: JSON.stringify({
+          name: 'Temple name',
+          contentId: '095f9642-73b6-4c9a-ae9a-ea7dea7363f5',
+        }),
         headers: {
           'Content-Type': 'application/json',
         },
