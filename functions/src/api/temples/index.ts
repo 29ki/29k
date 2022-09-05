@@ -38,6 +38,7 @@ templesRouter.post('/', validator({body: CreateTempleData}), async ctx => {
     index: 0,
     playing: false,
     contentId,
+    facilitator: ctx.user.id,
   };
 
   await firestore().collection(TEMPLES_COLLECTION).doc(data.id).set(temple);
