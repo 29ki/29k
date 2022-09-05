@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import {mergeDeepRight} from 'ramda';
 
 const getContentByType = type => {
   const dirPath = path.resolve('src', type);
@@ -34,25 +35,34 @@ Generates i18n-friendly structure
   },
 };
 */
-const generateI18NResources = content =>
+const generateI18NResources = (content, overrideNS) =>
   Object.entries(content).reduce(
     (i18nResources, [namespace, locales]) =>
       Object.entries(locales).reduce(
         (resources, [locale, resource]) => ({
           ...resources,
-          [locale]: {
-            ...resources[locale],
-            [namespace]: resource,
-          },
+          [locale]: overrideNS
+            ? {
+                [overrideNS]: {
+                  ...resources[locale],
+                  [namespace]: resource,
+                },
+              }
+            : {
+                ...resources[locale],
+                [namespace]: resource,
+              },
         }),
         i18nResources,
       ),
     {},
   );
-
-const i18nResources = generateI18NResources(getContentByType('ui'));
-
-const data = JSON.stringify(i18nResources);
+const exercises = generateI18NResources(
+  getContentByType('exercises'),
+  'exercises',
+);
+const ui = generateI18NResources(getContentByType('ui'));
+const data = JSON.stringify(mergeDeepRight(ui, exercises));
 
 if (process.argv.length > 2) {
   fs.writeFileSync(process.argv[2], data);

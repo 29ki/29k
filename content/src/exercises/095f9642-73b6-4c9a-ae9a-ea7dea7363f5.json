@@ -1,0 +1,31 @@
+{
+  "en": [
+    {
+      "type": "video",
+      "content": {
+        "heading": "Your body, your home",
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1662110103/temp/meditation_zjiwjl.mp4"
+      }
+    },
+    {
+      "type": "video",
+      "content": {
+        "heading": "Reflect: How did this meditation affect you?",
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1662119657/temp/reflect_xotkli.mp4"
+      }
+    },
+    {
+      "type": "video",
+      "content": {
+        "heading": "Share: How did this meditation affect you?",
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1662119657/temp/share_c64sxr.mp4"
+      }
+    },
+    {
+      "type": "text",
+      "content": {
+        "heading": "Thank you"
+      }
+    }
+  ]
+}
