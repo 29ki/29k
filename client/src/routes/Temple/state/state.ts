@@ -24,7 +24,7 @@ export const localParticipantAtom = atom<DailyParticipant | null>({
 });
 
 export const participantsAtom = atom<{
-  [user_id: string]: DailyParticipant;
+  [user_id: string]: DailyParticipant | undefined;
 }>({
   key: `${NAMESPACE}/participants`,
   default: {},
@@ -48,22 +48,26 @@ export const selectedParticipantSelector = selector({
   },
 });
 
-export const participantsSelector = selector({
+export const participantsSelector = selector<Array<DailyParticipant>>({
   key: `${NAMESPACE}/participantsSelector`,
   get: ({get}) => {
     const participantsObj = get(participantsAtom);
     const activeParticipantId = get(activeParticipantAtom);
     const localParticipant = participantsObj.local;
-    const participants = omit([localParticipant?.user_id], participantsObj); // Omit local stream from server
+    const participants = localParticipant?.user_id
+      ? omit([localParticipant?.user_id], participantsObj)
+      : participantsObj; // Omit local stream from server
 
-    if (activeParticipantId) {
-      return [
-        participantsObj[activeParticipantId],
-        ...values(omit([activeParticipantId], participants)),
-      ];
-    }
-
-    return values(participants);
+    // When users leaves the call they are sometimes represented as undefined
+    // so we need to remove those
+    return (
+      activeParticipantId
+        ? [
+            participantsObj[activeParticipantId],
+            ...values(omit([activeParticipantId], participants)),
+          ]
+        : values(participants)
+    ).filter(p => p !== undefined) as Array<DailyParticipant>;
   },
 });
 
