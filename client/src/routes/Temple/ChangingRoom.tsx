@@ -67,7 +67,7 @@ const InputLabel = styled(B2)({
 
 const ChangingRoom = () => {
   const {t} = useTranslation(NS.SCREEN.CHANGING_ROOM);
-  const [allowJoin, setAllowJoin] = useState(false);
+  const [localUserName, setLocalUserName] = useState('');
   const {goBack, navigate} = useNavigation<TempleNavigationProps>();
   const {
     toggleAudio,
@@ -103,6 +103,11 @@ const ChangingRoom = () => {
     return null;
   }
 
+  const handleJoin = () => {
+    setUserName(localUserName);
+    navigate(TempleStackRoutes.TEMPLE, {templeId});
+  };
+
   return (
     <Wrapper>
       <TopSafeArea />
@@ -128,16 +133,9 @@ const ChangingRoom = () => {
         <Spacer28 />
         <InputLabel>{t('body')}</InputLabel>
         <Spacer28 />
-        <TextInput
-          onChangeText={userName => {
-            setAllowJoin(true);
-            setUserName(userName);
-          }}
-        />
+        <TextInput onChangeText={setUserName} />
         <Spacer28 />
-        <Button
-          onPress={() => navigate(TempleStackRoutes.TEMPLE, {templeId})}
-          disabled={!allowJoin}>
+        <Button onPress={handleJoin} disabled={!localUserName.length}>
           {t('join_button')}
         </Button>
       </Gutters>
