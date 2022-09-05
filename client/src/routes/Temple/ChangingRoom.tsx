@@ -13,7 +13,6 @@ import {DailyMediaView} from '@daily-co/react-native-daily-js';
 import {useRecoilValue} from 'recoil';
 
 import Button from '../../common/components/Buttons/Button';
-
 import Gutters from '../../common/components/Gutters/Gutters';
 import {BackIcon} from '../../common/components/Icons';
 import {
@@ -27,8 +26,6 @@ import VideoToggleButton from './components/Buttons/VideoToggleButton';
 import {B2} from '../../common/components/Typography/Text/Text';
 import {COLORS} from '../../common/constants/colors';
 import {DailyContext} from '../Temple/DailyProvider';
-import {DailyMediaView} from '@daily-co/react-native-daily-js';
-import {useRecoilValue} from 'recoil';
 import {localParticipantAtom, templeAtom} from './state/state';
 import {
   TempleStackProps,
@@ -36,8 +33,8 @@ import {
 } from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {SPACINGS} from '../../common/constants/spacings';
-import {useTranslation} from 'react-i18next';
 import NS from '../../lib/i18n/constants/namespaces';
+import TextInput from '../../common/components/Typography/TextInput/TextInput';
 
 type TempleNavigationProps = NativeStackNavigationProp<
   TempleStackProps,
@@ -57,14 +54,6 @@ const Controls = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
-});
-
-const Input = styled.TextInput({
-  borderBottomWidth: 1,
-  borderBottomColor: COLORS.GREY,
-  paddingBottom: 2,
-  paddingHorizontal: 2,
-  textAlign: 'center',
 });
 
 const DailyMediaViewWrapper = styled(DailyMediaView)({
@@ -139,6 +128,8 @@ const ChangingRoom = () => {
         <Spacer28 />
         <InputLabel>{t('body')}</InputLabel>
         <Spacer28 />
+        <TextInput
+          onChange={userName => {
             setAllowJoin(true);
             setUserName(userName);
           }}
