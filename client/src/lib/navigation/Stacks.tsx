@@ -10,7 +10,6 @@ import KillSwitch from '../../routes/KillSwitch/KillSwitch';
 import {useRecoilValue} from 'recoil';
 import {killSwitchFields} from '../killSwitch/state/state';
 import Tabs from './Tabs';
-import Breathing from '../../routes/Breathing/Breathing';
 import Temple from '../../routes/Temple/Temple';
 import ChangingRoom from '../../routes/Temple/ChangingRoom';
 import DailyProvider from '../../routes/Temple/DailyProvider';
@@ -46,10 +45,6 @@ const RootStackWrapper = () => {
       ) : (
         <>
           <RootStack.Screen name={RootStackRoutes.TABS} component={Tabs} />
-          <RootStack.Screen
-            name={RootStackRoutes.BREATHING}
-            component={Breathing}
-          />
           <RootStack.Screen
             name={RootStackRoutes.TEMPLE_STACK}
             component={TempleStackWrapper}

@@ -6,18 +6,12 @@ import {
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 
-import {
-  HomeIcon,
-  IconType,
-  ProfileIcon,
-  FilmCameraIcon,
-} from '../../common/components/Icons';
+import {HomeIcon, IconType, ProfileIcon} from '../../common/components/Icons';
 import {COLORS} from '../../common/constants/colors';
 import {RootStackRoutes} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import {B3} from '../../common/components/Typography/Text/Text';
 
-import Home from '../../routes/Home/Home';
 import Profile from '../../routes/Profile/Profile';
 import Temples from '../../routes/Temples/Temples';
 
@@ -64,19 +58,14 @@ const Tabs = () => {
   return (
     <Tab.Navigator screenOptions={tabBarOptions}>
       <Tab.Screen
-        name={RootStackRoutes.HOME}
-        component={Home}
+        name={RootStackRoutes.TEMPLES}
+        component={Temples}
         options={getTabOptions(HomeIcon, t('home'))}
       />
       <Tab.Screen
         name={RootStackRoutes.PROFILE}
         component={Profile}
         options={getTabOptions(ProfileIcon, t('profile'))}
-      />
-      <Tab.Screen
-        name={RootStackRoutes.TEMPLES}
-        component={Temples}
-        options={getTabOptions(FilmCameraIcon, t('video'))}
       />
     </Tab.Navigator>
   );
