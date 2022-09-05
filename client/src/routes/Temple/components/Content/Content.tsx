@@ -2,17 +2,17 @@ import React, {useState, useEffect, useRef} from 'react';
 import styled from 'styled-components/native';
 import {FlatList, ListRenderItemInfo} from 'react-native';
 
-import content from './content.json';
 import {TopSafeArea} from '../../../../common/components/Spacers/Spacer';
-import TextContent, {TextContentType} from './contentTypes/Text';
-import VideoContent, {VideoContentType} from './contentTypes/Video';
+import TextContent from './contentTypes/Text';
+import VideoContent from './contentTypes/Video';
+
+import {ContentSlide} from '../../../../../../shared/src/types/Content';
 
 type ContentProps = {
+  content: ContentSlide[];
   contentIndex: number;
   playing: boolean;
 };
-
-type ContentSlide = TextContentType | VideoContentType;
 
 const Wrapper = styled.View({
   flex: 1,
@@ -23,7 +23,11 @@ const Slide = styled.View<{width: number}>(props => ({
   width: props.width,
 }));
 
-const Content: React.FC<ContentProps> = ({contentIndex = 0, playing}) => {
+const Content: React.FC<ContentProps> = ({
+  content,
+  contentIndex = 0,
+  playing,
+}) => {
   const [width, setWidth] = useState<number>(0);
   const listRef = useRef<FlatList>(null);
 
@@ -62,7 +66,7 @@ const Content: React.FC<ContentProps> = ({contentIndex = 0, playing}) => {
           getItemLayout={getItemLayout}
           ref={listRef}
           horizontal
-          data={content as ContentSlide[]}
+          data={content}
           renderItem={renderSlide}
           snapToInterval={width}
           scrollEnabled={false}

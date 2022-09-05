@@ -5,4 +5,5 @@ export type Temple = {
   active: boolean;
   index: number;
   playing: boolean;
+  contentId: string;
 };
