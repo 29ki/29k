@@ -3,14 +3,17 @@ import {Temple} from '../../../../../shared/src/types/Temple';
 
 const TEMPLES_ENDPOINT = `${API_ENDPOINT}/temples`;
 
-export const addTemple = async (name: string): Promise<Temple> => {
+export const addTemple = async (
+  name: string,
+  contentId = '095f9642-73b6-4c9a-ae9a-ea7dea7363f5',
+): Promise<Temple> => {
   try {
     const response = await fetch(TEMPLES_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({name}),
+      body: JSON.stringify({name, contentId}),
     });
     const {temple} = await response.json();
     return temple;
