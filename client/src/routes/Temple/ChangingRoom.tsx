@@ -133,7 +133,7 @@ const ChangingRoom = () => {
         <Spacer28 />
         <InputLabel>{t('body')}</InputLabel>
         <Spacer28 />
-        <TextInput onChangeText={setUserName} />
+        <TextInput onChangeText={setLocalUserName} />
         <Spacer28 />
         <Button onPress={handleJoin} disabled={!localUserName.length}>
           {t('join_button')}
