@@ -1,14 +1,10 @@
-import React from 'react';
+import {TextInput} from 'react-native';
 import styled from 'styled-components/native';
 
 import {COLORS} from '../../../constants/colors';
 import {SPACINGS} from '../../../constants/spacings';
 
-type InputProps = {
-  onChange: () => void;
-};
-
-const Input = styled.TextInput({
+const Input = styled(TextInput)({
   borderBottomWidth: 1,
   borderBottomColor: COLORS.GREY,
   paddingBottom: 2,
@@ -17,8 +13,4 @@ const Input = styled.TextInput({
   fontSize: SPACINGS.THIRTYTWO,
 });
 
-const TextInput: React.FC<InputProps> = ({onChange}) => (
-  <Input onChangeText={onChange} />
-);
-
-export default TextInput;
+export default Input;

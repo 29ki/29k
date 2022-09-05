@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {FlatListProps, ListRenderItemInfo, RefreshControl} from 'react-native';
-import {FlatList, TextInput} from 'react-native-gesture-handler';
+import {FlatList} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useTranslation} from 'react-i18next';
+import {useRecoilValue} from 'recoil';
+import styled from 'styled-components';
 
 import useTemples from './hooks/useTemples';
 import {
@@ -22,12 +25,10 @@ import Gutters from '../../common/components/Gutters/Gutters';
 import {H3} from '../../common/components/Typography/Heading/Heading';
 import Button from '../../common/components/Buttons/Button';
 import NS from '../../lib/i18n/constants/namespaces';
-import {useTranslation} from 'react-i18next';
-import {useRecoilValue} from 'recoil';
 import {isLoadingAtom, templesAtom} from './state/state';
 import {Temple} from '../../../../shared/src/types/Temple';
 import TempleCard from '../../common/components/Cards/TempleCard/TempleCard';
-import styled from 'styled-components';
+import TextInput from '../../common/components/Typography/TextInput/TextInput';
 
 const TempleList = styled(FlatList)<FlatListProps<Temple>>({
   overflow: 'visible',
@@ -39,7 +40,7 @@ const Temples = () => {
   const isLoading = useRecoilValue(isLoadingAtom);
   const temples = useRecoilValue(templesAtom);
 
-  const [newTemple, onChangeNewTemple] = useState<string | null>(null);
+  const [newTemple, setNewTemple] = useState<string | null>(null);
   const {navigate} =
     useNavigation<NativeStackNavigationProp<RootStackProps, 'TempleStack'>>();
 
@@ -90,8 +91,8 @@ const Temples = () => {
       <Spacer32 />
       <Gutters>
         <TextInput
+          onChangeText={setNewTemple}
           placeholder={t('createPlaceholder')}
-          onChangeText={onChangeNewTemple}
         />
         <Spacer8 />
         <Button primary onPress={() => addTemple(newTemple)}>

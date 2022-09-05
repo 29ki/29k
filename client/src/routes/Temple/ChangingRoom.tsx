@@ -129,7 +129,7 @@ const ChangingRoom = () => {
         <InputLabel>{t('body')}</InputLabel>
         <Spacer28 />
         <TextInput
-          onChange={userName => {
+          onChangeText={userName => {
             setAllowJoin(true);
             setUserName(userName);
           }}
