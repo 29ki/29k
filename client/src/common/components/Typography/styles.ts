@@ -1,13 +1,10 @@
-import {Platform, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {COLORS} from '../../constants/colors';
-
-const OrpheusProRegular = Platform.select({
-  ios: 'Orpheus Pro',
-  android: 'Orpheus Pro Regular',
-});
-const OrpheusProMedium = 'Orpheus Pro Medium';
-const OrpheusProBold = 'Orpheus Pro Bold';
-const OrpheusProItalic = 'Orpheus Pro Italic';
+import {
+  HKGroteskBold,
+  HKGroteskMedium,
+  OrpheusProMedium,
+} from '../../constants/fonts';
 
 export default StyleSheet.create({
   H1: {
@@ -44,16 +41,19 @@ export default StyleSheet.create({
     color: COLORS.GREY,
     fontSize: 20,
     lineHeight: 26,
+    fontFamily: HKGroteskMedium,
   },
   B2: {
     color: COLORS.GREY,
     fontSize: 16,
     lineHeight: 18,
+    fontFamily: HKGroteskMedium,
   },
   B3: {
     color: COLORS.GREY,
     fontSize: 14,
     lineHeight: 16,
+    fontFamily: HKGroteskMedium,
   },
   ERROR_TEXT: {
     fontSize: 14,
@@ -66,6 +66,7 @@ export default StyleSheet.create({
   NAV_TAB: {
     color: COLORS.BLACK,
     fontSize: 16,
+    fontFamily: HKGroteskBold,
   },
   TEXTLINK: {
     color: COLORS.ROSE700,
