@@ -30,6 +30,19 @@ describe('Temple state', () => {
       ]);
     });
 
+    it('should omit undefineds streams from server', () => {
+      const initialSnapshot = snapshot_UNSTABLE(({set}) =>
+        set(participantsAtom, {
+          ['test-id-1']: undefined,
+          ...createParticipant('test-id-2'),
+        }),
+      );
+
+      expect(
+        initialSnapshot.getLoadable(participantsSelector).valueOrThrow(),
+      ).toEqual([{user_id: 'test-id-2', local: false}]);
+    });
+
     it('should return active participant first', () => {
       const initialSnapshot = snapshot_UNSTABLE(({set}) => {
         set(participantsAtom, {
