@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {
   RouteProp,
   useIsFocused,
@@ -8,6 +8,9 @@ import {
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Platform} from 'react-native';
 import styled from 'styled-components/native';
+import {useTranslation} from 'react-i18next';
+import {DailyMediaView} from '@daily-co/react-native-daily-js';
+import {useRecoilValue} from 'recoil';
 
 import Button from '../../common/components/Buttons/Button';
 
@@ -21,7 +24,7 @@ import {
 } from '../../common/components/Spacers/Spacer';
 import AudioToggleButton from './components/Buttons/AudioToggleButton';
 import VideoToggleButton from './components/Buttons/VideoToggleButton';
-import {B1} from '../../common/components/Typography/Text/Text';
+import {B2} from '../../common/components/Typography/Text/Text';
 import {COLORS} from '../../common/constants/colors';
 import {DailyContext} from '../Temple/DailyProvider';
 import {DailyMediaView} from '@daily-co/react-native-daily-js';
@@ -69,8 +72,13 @@ const DailyMediaViewWrapper = styled(DailyMediaView)({
   backgroundColor: COLORS.GREY,
 });
 
+const InputLabel = styled(B2)({
+  textAlign: 'center',
+});
+
 const ChangingRoom = () => {
   const {t} = useTranslation(NS.SCREEN.CHANGING_ROOM);
+  const [allowJoin, setAllowJoin] = useState(false);
   const {goBack, navigate} = useNavigation<TempleNavigationProps>();
   const {
     toggleAudio,
@@ -129,15 +137,16 @@ const ChangingRoom = () => {
           <VideoToggleButton onPress={toggleVideo} active={hasVideo} />
         </Controls>
         <Spacer28 />
-        <B1>{t('body')}</B1>
+        <InputLabel>{t('body')}</InputLabel>
         <Spacer28 />
-        <Input
-          onChangeText={userName => {
+            setAllowJoin(true);
             setUserName(userName);
           }}
         />
         <Spacer28 />
-        <Button onPress={() => navigate(TempleStackRoutes.TEMPLE, {templeId})}>
+        <Button
+          onPress={() => navigate(TempleStackRoutes.TEMPLE, {templeId})}
+          disabled={!allowJoin}>
           {t('join_button')}
         </Button>
       </Gutters>
