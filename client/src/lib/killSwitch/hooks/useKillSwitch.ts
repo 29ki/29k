@@ -1,4 +1,3 @@
-import {API_ENDPOINT} from 'config';
 import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useResetRecoilState, useSetRecoilState} from 'recoil';
@@ -28,7 +27,6 @@ const getKillSwitchUrl = ({
   bundleVersion,
   languageCode,
 }: DeviceInfo & {languageCode: string}) =>
-  API_ENDPOINT +
   '/killSwitch?' +
   [
     `platform=${os}`,

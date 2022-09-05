@@ -1,4 +1,5 @@
 import auth from '@react-native-firebase/auth';
+import {API_ENDPOINT} from 'config';
 
 const getAuthorizationToken = async () => {
   const {currentUser} = auth();
@@ -23,8 +24,10 @@ const getAuthorizationHeader = async () => {
   }
 };
 
-const apiClient = async (input: RequestInfo, init?: RequestInit | undefined) =>
-  fetch(input, {
+const trimSlashes = (str: string) => str.replace(/^\/+|\/+$/g, '');
+
+const apiClient = async (input: string, init?: RequestInit | undefined) =>
+  fetch(`${trimSlashes(API_ENDPOINT)}/${trimSlashes(input)}`, {
     ...init,
     headers: {
       'Content-Type': 'application/json',

@@ -11,10 +11,10 @@ afterEach(() => {
 
 describe('apiClient', () => {
   it('adds default Content-Type header', async () => {
-    await apiClient('some-url');
+    await apiClient('/some-path');
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
-    expect(fetchMock).toHaveBeenCalledWith('some-url', {
+    expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {'Content-Type': 'application/json'},
     });
   });
@@ -24,13 +24,13 @@ describe('apiClient', () => {
       'some-authorization-token',
     );
 
-    await apiClient('some-url');
+    await apiClient('/some-path');
 
     expect(auth().currentUser?.getIdToken).toHaveBeenCalledTimes(1);
     expect(auth().currentUser?.getIdToken).toHaveBeenCalledWith();
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
-    expect(fetchMock).toHaveBeenCalledWith('some-url', {
+    expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
         Authorization: 'bearer some-authorization-token',
@@ -43,14 +43,14 @@ describe('apiClient', () => {
       .mockRejectedValueOnce(new Error('Failed to get token'))
       .mockResolvedValueOnce('some-authorization-token');
 
-    await apiClient('some-url');
+    await apiClient('/some-path');
 
     expect(auth().currentUser?.getIdToken).toHaveBeenCalledTimes(2);
     expect(auth().currentUser?.getIdToken).toHaveBeenCalledWith();
     expect(auth().currentUser?.getIdToken).toHaveBeenCalledWith(true);
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
-    expect(fetchMock).toHaveBeenCalledWith('some-url', {
+    expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
         Authorization: 'bearer some-authorization-token',
@@ -63,7 +63,7 @@ describe('apiClient', () => {
       'some-authorization-token',
     );
 
-    await apiClient('some-url', {
+    await apiClient('/some-path', {
       headers: {
         'Content-Type': 'text/plain',
         Authorization: 'some-overridden-authorization',
@@ -71,7 +71,7 @@ describe('apiClient', () => {
     });
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
-    expect(fetchMock).toHaveBeenCalledWith('some-url', {
+    expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'text/plain',
         Authorization: 'some-overridden-authorization',

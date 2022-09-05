@@ -1,8 +1,7 @@
-import {API_ENDPOINT} from 'config';
 import {Temple} from '../../../../../shared/src/types/Temple';
 import apiClient from '../../../lib/apiClient/apiClient';
 
-const TEMPLES_ENDPOINT = `${API_ENDPOINT}/temples`;
+const TEMPLES_ENDPOINT = '/temples';
 
 export const addTemple = async (
   name: string,
