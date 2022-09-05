@@ -3,6 +3,7 @@ import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useResetRecoilState, useSetRecoilState} from 'recoil';
 import {DeviceInfo, getDeviceInfo} from '../../../common/utils/system';
+import apiClient from '../../apiClient/apiClient';
 import {
   killSwitchAtom,
   killSwitchFields,
@@ -56,7 +57,7 @@ const useKillSwitch = () => {
       setIsLoading(true);
 
       try {
-        return await fetch(url);
+        return await apiClient(url);
       } catch (cause: any) {
         // Do not block the user on network issues
         setIsBlocking(cause.message !== 'Network request failed');
