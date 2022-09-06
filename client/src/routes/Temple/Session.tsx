@@ -145,10 +145,8 @@ const Session = () => {
   const content = useExerciseById(temple?.contentId);
 
   useEffect(() => {
-    if (temple?.url) {
-      joinMeeting(temple?.url);
-    }
-  }, [joinMeeting, temple?.url]);
+    joinMeeting();
+  }, [joinMeeting]);
 
   useEffect(() => {
     const unsubscribe = subscribeTemple(templeId);

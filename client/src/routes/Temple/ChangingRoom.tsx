@@ -91,7 +91,7 @@ const ChangingRoom = () => {
   useEffect(() => {
     const startVideo = async () => {
       if (isFocused && temple?.url) {
-        preJoinMeeting();
+        preJoinMeeting(temple?.url);
       }
     };
     startVideo();
@@ -118,7 +118,7 @@ const ChangingRoom = () => {
       </Gutters>
       <DailyMediaViewWrapper
         videoTrack={me?.videoTrack ?? null}
-        audioTrack={null}
+        audioTrack={me?.audioTrack ?? null}
         objectFit={'cover'}
         mirror={me?.local}
       />
