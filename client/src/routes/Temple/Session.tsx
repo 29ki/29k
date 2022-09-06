@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import {ActivityIndicator, TouchableOpacity} from 'react-native';
-import {useRecoilValue, useSetRecoilState} from 'recoil';
+import {useRecoilValue} from 'recoil';
 import {
   DailyMediaView,
   DailyParticipant,
@@ -9,7 +9,6 @@ import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 
 import {
-  selectedParticipantIdAtom,
   videoSharingFields,
   participantsSelector,
   selectedParticipantSelector,
@@ -99,7 +98,7 @@ const TouchableMediaView = ({
   suffix,
   localAudioOn,
 }: {
-  onPress: () => void;
+  onPress?: () => void;
   participant: DailyParticipant;
   suffix: string;
   localAudioOn: boolean;
@@ -143,7 +142,6 @@ const Session = () => {
   const participants = useRecoilValue(participantsSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
   const selectedParticipant = useRecoilValue(selectedParticipantSelector);
-  const setSelectedParticipantId = useSetRecoilState(selectedParticipantIdAtom);
   const content = useExerciseById(temple?.contentId);
 
   useEffect(() => {
@@ -221,7 +219,6 @@ const Session = () => {
         {selectedParticipant && (
           <SpotlightVideo>
             <TouchableMediaView
-              onPress={() => setSelectedParticipantId(null)}
               participant={selectedParticipant}
               suffix={t('nameSuffix')}
               localAudioOn={hasAudio}

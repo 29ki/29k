@@ -9,8 +9,6 @@ import {useTranslation} from 'react-i18next';
 import {curry} from 'ramda';
 
 import NS from '../../lib/i18n/constants/namespaces';
-import {useSetRecoilState} from 'recoil';
-import {selectedParticipantIdAtom} from './state/state';
 import ParticipantName from './ParticipantName';
 import ParticipantAudio from './ParticipantAudio';
 
@@ -38,14 +36,11 @@ const Participants: React.FC<ParticipantsProps> = ({
   localAudioOn,
 }) => {
   const [containerWidth, setContainerWidth] = useState(0);
-  const setSelectedParticipantId = useSetRecoilState(selectedParticipantIdAtom);
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
 
   const renderVideo = curry(
     (width: number, {item}: ListRenderItemInfo<DailyParticipant>) => (
-      <VideoView
-        width={width}
-        onPress={() => setSelectedParticipantId(item.user_id)}>
+      <VideoView width={width} onPress={() => {}}>
         <DailyMediaViewWrapper
           videoTrack={item.videoTrack ?? null}
           audioTrack={item.audioTrack ?? null}
