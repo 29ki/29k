@@ -170,8 +170,13 @@ const DailyProvider: React.FC = ({children}) => {
   const preJoinMeeting = useCallback(async () => {
     await daily.startCamera();
     const localParticipant = daily.participants().local;
+
+    eventHandlers.forEach(([event, handler]) => {
+      daily.on(event, handler);
+    });
+
     setLocalParticipant(localParticipant);
-  }, [daily, setLocalParticipant]);
+  }, [daily, eventHandlers, setLocalParticipant]);
 
   const joinMeeting = useCallback(
     async url => {
