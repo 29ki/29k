@@ -8,11 +8,7 @@ import {useRecoilValue} from 'recoil';
 import styled from 'styled-components';
 
 import useTemples from './hooks/useTemples';
-import {
-  RootStackProps,
-  RootStackRoutes,
-  TempleStackRoutes,
-} from '../../common/constants/routes';
+import {TempleStackProps} from '../../common/constants/routes';
 
 import {
   Spacer16,
@@ -42,7 +38,9 @@ const Temples = () => {
 
   const [newTemple, setNewTemple] = useState<string | null>(null);
   const {navigate} =
-    useNavigation<NativeStackNavigationProp<RootStackProps, 'TempleStack'>>();
+    useNavigation<
+      NativeStackNavigationProp<TempleStackProps, 'ChangingRoom'>
+    >();
 
   useEffect(() => {
     fetchTemples();
@@ -56,11 +54,8 @@ const Temples = () => {
         time="This session will start on saturday at 13.00"
         buttonText="Join"
         onPress={() =>
-          navigate(RootStackRoutes.TEMPLE_STACK, {
-            screen: TempleStackRoutes.CHANGING_ROOM,
-            params: {
-              templeId: item.id,
-            },
+          navigate('ChangingRoom', {
+            templeId: item.id,
           })
         }
       />
