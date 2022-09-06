@@ -36,7 +36,7 @@ const TempleList = styled(FlatList)<FlatListProps<Temple>>({
 
 const Temples = () => {
   const {t} = useTranslation(NS.SCREEN.TEMPLES);
-  const {fetchTemples, addTemple} = useTemples();
+  const {fetchTemples, addTemple, deleteTemple} = useTemples();
   const isLoading = useRecoilValue(isLoadingAtom);
   const temples = useRecoilValue(templesAtom);
 
@@ -64,6 +64,7 @@ const Temples = () => {
           })
         }
       />
+      <Button onPress={() => deleteTemple(item.id)}>{'delete'}</Button>
     </Gutters>
   );
 

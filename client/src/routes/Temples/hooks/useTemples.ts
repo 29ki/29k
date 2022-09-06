@@ -16,7 +16,7 @@ const useTemples = () => {
   }, [setIsLoading, setTemples]);
 
   const addTemple = useCallback(
-    async templeName => {
+    async (templeName?: string) => {
       if (!templeName) {
         return;
       }
@@ -27,9 +27,22 @@ const useTemples = () => {
     [fetchTemples],
   );
 
+  const deleteTemple = useCallback(
+    async (templeId?: string) => {
+      if (!templeId) {
+        return;
+      }
+
+      await templeApi.deleteTemple(templeId);
+      fetchTemples();
+    },
+    [fetchTemples],
+  );
+
   return {
     fetchTemples,
     addTemple,
+    deleteTemple,
   };
 };
 

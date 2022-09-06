@@ -12,8 +12,12 @@ export const addTemple = async (
       method: 'POST',
       body: JSON.stringify({name, contentId}),
     });
-    const {temple} = await response.json();
-    return temple;
+
+    if (!response.ok) {
+      throw new Error(await response.text());
+    }
+
+    return response.json();
   } catch (cause) {
     throw new Error('Could not create a temple', {cause});
   }
@@ -26,8 +30,28 @@ export const updateTemple = async (id: string, data: Partial<Temple>) => {
       body: JSON.stringify(data),
     });
 
+    if (!response.ok) {
+      throw new Error(await response.text());
+    }
+
     return response.json();
   } catch (cause) {
     throw new Error('Could not update temple', {cause});
+  }
+};
+
+export const deleteTemple = async (id: string) => {
+  try {
+    const response = await apiClient(`${TEMPLES_ENDPOINT}/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (!response.ok) {
+      throw new Error(await response.text());
+    }
+
+    return response.text();
+  } catch (cause) {
+    throw new Error('Could not delete temple', {cause});
   }
 };
