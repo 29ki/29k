@@ -5,7 +5,11 @@ const TEMPLES_ENDPOINT = '/temples';
 
 export const fetchTemples = async (): Promise<Temple[]> => {
   try {
-    return (await apiClient(TEMPLES_ENDPOINT)).json();
+    const response = await apiClient(TEMPLES_ENDPOINT);
+    if (!response.ok) {
+      throw new Error(await response.text());
+    }
+    return response.json();
   } catch (cause) {
     throw new Error('Could not fetch temples', {cause});
   }

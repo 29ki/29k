@@ -2,9 +2,17 @@
 In abscense of a good i18next koa middleware
 */
 import {Context, Next} from 'koa';
-import i18n, {DEFAULT_LANGUAGE_TAG, LANGUAGE_TAGS} from '../../lib/i18n';
+import i18n, {
+  DEFAULT_LANGUAGE_TAG,
+  LANGUAGE_TAGS,
+  I18nInterface,
+} from '../../lib/i18n';
 
-const i18nResolver = () => async (ctx: Context, next: Next) => {
+export type I18nContext = Context & {
+  i18n: I18nInterface;
+};
+
+const i18nResolver = () => async (ctx: I18nContext, next: Next) => {
   const lng =
     typeof ctx.query.lng === 'string'
       ? // Resolve from query param

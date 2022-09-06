@@ -1,4 +1,4 @@
-import i18nResolver from './i18nResolver';
+import i18nResolver, {I18nContext} from './i18nResolver';
 import i18n from '../../lib/i18n';
 import {createMockContext} from '@shopify/jest-koa-mocks';
 
@@ -17,7 +17,7 @@ describe('i18nResolver', () => {
     const middleware = i18nResolver();
     const ctx = createMockContext({
       url: '?lng=some-query-language',
-    });
+    }) as I18nContext;
 
     const next = jest.fn();
 
@@ -33,7 +33,7 @@ describe('i18nResolver', () => {
     const middleware = i18nResolver();
     const ctx = createMockContext({
       headers: {'Accept-Language': 'some-header-language'},
-    });
+    }) as I18nContext;
 
     const acceptsLanguagesSpy = jest.spyOn(ctx, 'acceptsLanguages');
 
@@ -58,7 +58,7 @@ describe('i18nResolver', () => {
     const middleware = i18nResolver();
     const ctx = createMockContext({
       headers: {'Accept-Language': 'some-unsupported-header-language'},
-    });
+    }) as I18nContext;
 
     const next = jest.fn();
 
@@ -75,7 +75,7 @@ describe('i18nResolver', () => {
     const ctx = createMockContext({
       url: '?lng=some-query-language',
       headers: {'Accept-Language': 'some-header-language'},
-    });
+    }) as I18nContext;
 
     const acceptsLanguagesSpy = jest.spyOn(ctx, 'acceptsLanguages');
 
@@ -94,7 +94,7 @@ describe('i18nResolver', () => {
   it('sets default language if no language is supplied', async () => {
     const middleware = i18nResolver();
 
-    const ctx = createMockContext();
+    const ctx = createMockContext() as I18nContext;
 
     const acceptsLanguagesSpy = jest.spyOn(ctx, 'acceptsLanguages');
 
