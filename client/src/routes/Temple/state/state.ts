@@ -52,8 +52,14 @@ export const participantsSelector = selector<Array<DailyParticipant>>({
   key: `${NAMESPACE}/participantsSelector`,
   get: ({get}) => {
     const participantsObj = get(participantsAtom);
-    const activeParticipantId = get(activeParticipantAtom);
+
     const localParticipant = participantsObj.local;
+    const activeParticipant = get(activeParticipantAtom);
+    const activeParticipantId =
+      activeParticipant === localParticipant?.user_id
+        ? 'local'
+        : activeParticipant;
+
     const participants = localParticipant?.user_id
       ? omit([localParticipant?.user_id], participantsObj)
       : participantsObj; // Omit local stream from server
