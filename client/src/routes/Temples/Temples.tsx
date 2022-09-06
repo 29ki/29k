@@ -64,7 +64,14 @@ const Temples = () => {
           })
         }
       />
-      <Button onPress={() => deleteTemple(item.id)}>{'delete'}</Button>
+      {__DEV__ && (
+        <Button
+          onPress={() => deleteTemple(item.id)}
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{position: 'absolute', right: 10, top: -2}}>
+          {'x'}
+        </Button>
+      )}
     </Gutters>
   );
 
