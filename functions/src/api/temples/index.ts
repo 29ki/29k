@@ -32,7 +32,7 @@ templesRouter.post('/', validator({body: CreateTempleData}), async ctx => {
   const {name, contentId} = ctx.request.body;
 
   const data = await dailyApi.createRoom();
-  const temple: Temple = {
+  const temple: Temple & {dailyRoomName: string} = {
     id: data.id,
     name,
     url: data.url,
@@ -41,6 +41,7 @@ templesRouter.post('/', validator({body: CreateTempleData}), async ctx => {
     playing: false,
     contentId,
     facilitator: ctx.user.id,
+    dailyRoomName: data.name,
   };
 
   await firestore().collection(TEMPLES_COLLECTION).doc(data.id).set(temple);
@@ -73,6 +74,31 @@ templesRouter.put('/:id', validator({body: UpdateTemple}), async ctx => {
   } else {
     ctx.status = 500;
   }
+});
+
+templesRouter.delete('/:id', async ctx => {
+  const {id} = ctx.params;
+  const templeDocRef = firestore().collection(TEMPLES_COLLECTION).doc(id);
+  const temple = (await templeDocRef.get()).data() as Temple & {
+    dailyRoomName: string;
+  };
+
+  if (ctx.user.id !== temple.facilitator) {
+    ctx.status = 500;
+    return;
+  }
+
+  try {
+    await Promise.all([
+      dailyApi.deleteRoom(temple.dailyRoomName),
+      templeDocRef.delete(),
+    ]);
+  } catch {
+    ctx.status = 500;
+  }
+
+  ctx.status = 200;
+  ctx.body = 'Temple deleted successfully';
 });
 
 export {templesRouter};
