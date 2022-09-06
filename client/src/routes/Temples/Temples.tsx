@@ -40,7 +40,7 @@ const Temples = () => {
   const isLoading = useRecoilValue(isLoadingAtom);
   const temples = useRecoilValue(templesAtom);
 
-  const [newTemple, setNewTemple] = useState<string | null>(null);
+  const [newTemple, setNewTemple] = useState<string>();
   const {navigate} =
     useNavigation<NativeStackNavigationProp<RootStackProps, 'TempleStack'>>();
 
