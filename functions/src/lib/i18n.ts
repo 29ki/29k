@@ -7,6 +7,7 @@ import {
 } from '../../../shared/src/constants/i18n';
 
 export * from '../../../shared/src/constants/i18n';
+export type {i18n as I18nInterface} from 'i18next';
 
 init({
   lng: DEFAULT_LANGUAGE_TAG,

@@ -1,6 +1,5 @@
 import {getAuth} from 'firebase-admin/auth';
-import {Context} from 'koa';
-import firebaseAuth from './firebaseAuth';
+import firebaseAuth, {FirebaseAuthContext} from './firebaseAuth';
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -18,7 +17,7 @@ describe('firebaseAuth', () => {
       headers: {
         authorization: 'bearer some-token',
       },
-    } as Context;
+    } as FirebaseAuthContext;
     const next = jest.fn();
 
     await middleware(ctx, next);
@@ -38,16 +37,18 @@ describe('firebaseAuth', () => {
     expect(next).toHaveBeenCalledTimes(1);
   });
 
-  it('skips requests without authorization', async () => {
+  it('throws on requests without authorization', async () => {
     const middleware = firebaseAuth();
 
     const ctx = {
       headers: {},
-    } as Context;
+    } as FirebaseAuthContext;
 
     const next = jest.fn();
 
-    await middleware(ctx, next);
+    await expect(middleware(ctx, next)).rejects.toThrow(
+      new Error('Non authorized request'),
+    );
 
     expect(getAuth().verifyIdToken).toHaveBeenCalledTimes(0);
 
@@ -55,7 +56,7 @@ describe('firebaseAuth', () => {
       headers: {},
     });
 
-    expect(next).toHaveBeenCalledTimes(1);
+    expect(next).toHaveBeenCalledTimes(0);
   });
 
   it('throws on malformed authorization header', async () => {
@@ -69,7 +70,7 @@ describe('firebaseAuth', () => {
       headers: {
         authorization: 'malformed-authorization',
       },
-    } as Context;
+    } as FirebaseAuthContext;
 
     const next = jest.fn();
 
@@ -90,7 +91,7 @@ describe('firebaseAuth', () => {
       headers: {
         authorization: 'bearer some-token',
       },
-    } as Context;
+    } as FirebaseAuthContext;
 
     const next = jest.fn();
 

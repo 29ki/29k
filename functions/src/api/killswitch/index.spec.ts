@@ -3,6 +3,8 @@ import request from 'supertest';
 
 import {killSwitchRouter} from './index';
 import createMockServer from '../lib/createMockServer';
+import {I18nContext} from '../lib/i18nResolver';
+import {DefaultState} from 'koa';
 
 jest.mock('../../../../content/content.json', () => ({
   en: {
@@ -49,7 +51,7 @@ jest.mock('../../../../content/content.json', () => ({
   },
 }));
 
-const router = new Router();
+const router = new Router<DefaultState, I18nContext>();
 router.use('/killSwitch', killSwitchRouter.routes());
 const mockServer = createMockServer(router.routes(), router.allowedMethods());
 

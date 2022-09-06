@@ -2,6 +2,8 @@ import Router from '@koa/router';
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 import {lt, valid} from 'semver';
+import {I18nContext} from '../lib/i18nResolver';
+import {DefaultState} from 'koa';
 
 // Binary kill switch, this will permanently disable the entire app.
 // USE WITH CAUTION!
@@ -45,7 +47,7 @@ const acceptedBundleVersion = (
   return bundleVersionNumber >= MIN_BUNDLE_VERSION[version][platform];
 };
 
-const router = new Router();
+const router = new Router<DefaultState, I18nContext>();
 
 type RequestQuery = {
   version: string;
