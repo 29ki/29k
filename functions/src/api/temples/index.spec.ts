@@ -1,7 +1,6 @@
 import request from 'supertest';
-import Router from '@koa/router';
 import {mockFirebase} from 'firestore-jest-mock';
-import Koa, {DefaultState} from 'koa';
+import Koa from 'koa';
 
 mockFirebase(
   {
@@ -39,11 +38,11 @@ const mockDailyApi = {
 import {templesRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {mockUpdate} from 'firestore-jest-mock/mocks/firestore';
-import {FirebaseAuthContext} from '../lib/firebaseAuth';
+import {createAuthorizedRouter} from '../../lib/routers';
 
 jest.mock('../../lib/dailyApi', () => mockDailyApi);
 
-const router = new Router<DefaultState, FirebaseAuthContext>();
+const router = createAuthorizedRouter();
 router.use('/temples', templesRouter.routes());
 const mockServer = createMockServer(
   async (ctx: Koa.Context, next: Koa.Next) => {
