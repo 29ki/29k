@@ -19,6 +19,7 @@ import {
   BottomSafeArea,
   Spacer16,
   Spacer28,
+  Spacer48,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
 import AudioToggleButton from './components/Buttons/AudioToggleButton';
@@ -33,6 +34,7 @@ import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
 import AudioIndicator from './components/AudioIdicator';
+import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 
 type TempleNavigationProps = NativeStackNavigationProp<
   TempleStackProps,
@@ -41,11 +43,9 @@ type TempleNavigationProps = NativeStackNavigationProp<
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'padding', android: undefined}),
-})({flex: 1});
-
-const Back = styled.TouchableOpacity({
-  width: 40,
-  height: 40,
+})({
+  flex: 1,
+  justifyContent: 'center',
 });
 
 const Controls = styled.View({
@@ -74,8 +74,8 @@ const VideoText = styled(B2)({
   color: COLORS.WHITE,
 });
 
-const InputLabel = styled(B2)({
-  textAlign: 'center',
+const InputWrapper = styled.View({
+  flexDirection: 'row',
 });
 
 const Audio = styled(AudioIndicator)({
@@ -125,51 +125,52 @@ const ChangingRoom = () => {
   const hasVideo = Boolean(me?.videoTrack);
 
   return (
-    <Wrapper>
+    <>
       <TopSafeArea />
       <Gutters>
-        <Back onPress={goBack}>
-          <BackIcon />
-        </Back>
+        <IconButton onPress={goBack} Icon={BackIcon} />
       </Gutters>
-      <VideoWrapper>
-        {hasVideo ? (
-          <DailyMediaViewWrapper
-            videoTrack={me?.videoTrack ?? null}
-            audioTrack={me?.audioTrack ?? null}
-            objectFit={'cover'}
-            mirror={me?.local}
-          />
-        ) : (
-          <VideoText>{t('cameraOff')}</VideoText>
-        )}
-        <Audio muted={!hasAudio} />
-      </VideoWrapper>
+      <Wrapper>
+        <VideoWrapper>
+          {hasVideo ? (
+            <DailyMediaViewWrapper
+              videoTrack={me?.videoTrack ?? null}
+              audioTrack={me?.audioTrack ?? null}
+              objectFit={'cover'}
+              mirror={me?.local}
+            />
+          ) : (
+            <VideoText>{t('cameraOff')}</VideoText>
+          )}
+          <Audio muted={!hasAudio} />
+        </VideoWrapper>
 
-      <Spacer28 />
-      <Gutters>
-        <Controls>
-          <AudioToggleButton
-            onPress={() => toggleAudio(!hasAudio)}
-            active={hasAudio}
-          />
-          <Spacer16 />
-          <VideoToggleButton
-            onPress={() => toggleVideo(!hasVideo)}
-            active={hasVideo}
-          />
-        </Controls>
         <Spacer28 />
-        <InputLabel>{t('body')}</InputLabel>
-        <Spacer28 />
-        <TextInput onChangeText={setLocalUserName} />
-        <Spacer28 />
-        <Button onPress={handleJoin} disabled={!localUserName.length}>
-          {t('join_button')}
-        </Button>
-      </Gutters>
+        <Gutters>
+          <Controls>
+            <AudioToggleButton
+              onPress={() => toggleAudio(!hasAudio)}
+              active={hasAudio}
+            />
+            <Spacer16 />
+            <VideoToggleButton
+              onPress={() => toggleVideo(!hasVideo)}
+              active={hasVideo}
+            />
+          </Controls>
+          <Spacer48 />
+          <InputWrapper>
+            <TextInput autoFocus onChangeText={setLocalUserName} />
+            <Spacer28 />
+            <Button onPress={handleJoin} disabled={!localUserName.length}>
+              {t('join_button')}
+            </Button>
+          </InputWrapper>
+          <Spacer28 />
+        </Gutters>
+      </Wrapper>
       <BottomSafeArea minSize={SPACINGS.TWENTYEIGHT} />
-    </Wrapper>
+    </>
   );
 };
 

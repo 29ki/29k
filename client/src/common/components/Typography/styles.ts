@@ -3,7 +3,7 @@ import {COLORS} from '../../constants/colors';
 
 const fontFamily = Platform.select({ios: 'Times New Roman', android: 'serif'});
 
-export default StyleSheet.create({
+const textStyles = StyleSheet.create({
   H1: {
     color: COLORS.GREY,
     fontSize: 40,
@@ -68,3 +68,5 @@ export default StyleSheet.create({
     textDecorationLine: 'underline',
   },
 });
+
+export default textStyles;
