@@ -90,4 +90,29 @@ describe('useTemples', () => {
       });
     });
   });
+
+  describe('deleteTemple', () => {
+    it('should add a temple and refetch', async () => {
+      fetchMock.mockResponseOnce('Success', {status: 200});
+      const {result} = renderHook(() => useTemples(), {wrapper: RecoilRoot});
+
+      await act(async () => {
+        await result.current.deleteTemple('temple-id');
+      });
+
+      expect(fetchMock).toHaveBeenCalledWith(
+        'some-api-endpoint/temples/temple-id',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          method: 'DELETE',
+        },
+      );
+
+      expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/temples', {
+        headers: {'Content-Type': 'application/json'},
+      });
+    });
+  });
 });

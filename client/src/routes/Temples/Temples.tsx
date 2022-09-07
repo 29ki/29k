@@ -36,11 +36,11 @@ const TempleList = styled(FlatList)<FlatListProps<Temple>>({
 
 const Temples = () => {
   const {t} = useTranslation(NS.SCREEN.TEMPLES);
-  const {fetchTemples, addTemple} = useTemples();
+  const {fetchTemples, addTemple, deleteTemple} = useTemples();
   const isLoading = useRecoilValue(isLoadingAtom);
   const temples = useRecoilValue(templesAtom);
 
-  const [newTemple, setNewTemple] = useState<string | null>(null);
+  const [newTemple, setNewTemple] = useState<string>();
   const {navigate} =
     useNavigation<NativeStackNavigationProp<RootStackProps, 'TempleStack'>>();
 
@@ -64,6 +64,14 @@ const Temples = () => {
           })
         }
       />
+      {__DEV__ && (
+        <Button
+          onPress={() => deleteTemple(item.id)}
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{position: 'absolute', right: 10, top: -2}}>
+          {'x'}
+        </Button>
+      )}
     </Gutters>
   );
 

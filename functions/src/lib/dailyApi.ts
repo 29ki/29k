@@ -43,3 +43,19 @@ export const createRoom = async (): Promise<Room> => {
 
   return res.json();
 };
+
+export const deleteRoom = async (name: string): Promise<Room> => {
+  const res = await fetch(`${DAILY_API_URL}/rooms/${name}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${DAILY_API_KEY}`,
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error(`Failed deleting room, ${res.body}`);
+  }
+
+  return res.json();
+};

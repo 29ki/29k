@@ -14,6 +14,7 @@ mockFirebase(
           url: 'some-url',
           index: 0,
           playing: false,
+          facilitator: 'some-user-id',
         },
         {
           id: 'some-other-temple-id',
@@ -22,6 +23,7 @@ mockFirebase(
           url: 'some-other-url',
           index: 0,
           playing: false,
+          facilitator: 'some-other-user-id',
         },
       ],
     },
@@ -34,6 +36,7 @@ const mockDailyApi = {
     id: 'some-fake-daily-id',
     url: 'http://fake.daily/url',
   })),
+  deleteRoom: jest.fn(),
 };
 
 import {templesRouter} from '.';
@@ -77,6 +80,7 @@ describe('/api/temples', () => {
           url: 'some-url',
           index: 0,
           playing: false,
+          facilitator: 'some-user-id',
         },
         {
           id: 'some-other-temple-id',
@@ -85,6 +89,7 @@ describe('/api/temples', () => {
           url: 'some-other-url',
           index: 0,
           playing: false,
+          facilitator: 'some-other-user-id',
         },
       ]);
     });
@@ -145,6 +150,7 @@ describe('/api/temples', () => {
         name: 'some-name',
         url: 'some-url',
         playing: false,
+        facilitator: 'some-user-id',
       });
     });
 
@@ -162,6 +168,7 @@ describe('/api/temples', () => {
         name: 'some-other-name',
         url: 'some-other-url',
         playing: false,
+        facilitator: 'some-other-user-id',
       });
     });
 
@@ -179,6 +186,7 @@ describe('/api/temples', () => {
         name: 'some-other-name',
         url: 'some-other-url',
         playing: true,
+        facilitator: 'some-other-user-id',
       });
     });
 
@@ -212,6 +220,35 @@ describe('/api/temples', () => {
       expect(response.status).toBe(500);
       expect(response.text).toEqual('Internal Server Error');
       expect(mockUpdate).toHaveBeenCalledTimes(0);
+    });
+  });
+
+  describe('DELETE', () => {
+    it('should delete and confirm on response', async () => {
+      const response = await request(mockServer)
+        .delete('/temples/some-temple-id')
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(200);
+      expect(response.text).toEqual('Temple deleted successfully');
+    });
+
+    it('should fail when non-existing temple id', async () => {
+      const response = await request(mockServer)
+        .delete('/temples/some-non-existent-temple-id')
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(500);
+      expect(response.text).toEqual('Internal Server Error');
+    });
+
+    it('should fail when request auth user is not facilitator', async () => {
+      const response = await request(mockServer)
+        .delete('/temples/some-other-temple-id')
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(500);
+      expect(response.text).toEqual('Internal Server Error');
     });
   });
 });
