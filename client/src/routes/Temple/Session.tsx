@@ -26,11 +26,7 @@ import AudioToggleButton from './components/Buttons/AudioToggleButton';
 import VideoToggleButton from './components/Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
 import LeaveButton from './components/Buttons/LeaveButton';
-import {
-  RootStackProps,
-  RootStackRoutes,
-  TempleStackProps,
-} from '../../common/constants/routes';
+import {RootStackProps, TempleStackProps} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {DailyContext} from './DailyProvider';
 import NS from '../../lib/i18n/constants/namespaces';
@@ -157,7 +153,7 @@ const Session = () => {
 
   const exitMeeting = async () => {
     await leaveMeeting();
-    navigate(RootStackRoutes.TABS);
+    navigate('Tabs');
   };
 
   if (isLoading) {
