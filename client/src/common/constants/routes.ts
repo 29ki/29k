@@ -1,17 +1,17 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 
 export type TabNavigatorProps = {
-  ProfileTab: undefined;
-  TemplesTab: NavigatorScreenParams<TempleStackProps>;
+  Profile: undefined;
+  Temples: undefined;
 };
 
 export type TempleStackProps = {
-  Temples: undefined;
-  Temple: {templeId: string};
   ChangingRoom: {templeId: string};
+  Temple: {templeId: string};
 };
 
 export type RootStackProps = {
-  Tabs: undefined;
   KillSwitch: undefined;
+  Tabs: undefined;
+  TempleStack: NavigatorScreenParams<TempleStackProps>;
 };

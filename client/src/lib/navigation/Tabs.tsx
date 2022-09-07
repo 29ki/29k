@@ -12,10 +12,7 @@ import {
   ProfileIcon,
 } from '../../common/components/Icons';
 import {COLORS} from '../../common/constants/colors';
-import {
-  TabNavigatorProps,
-  TempleStackProps,
-} from '../../common/constants/routes';
+import {TabNavigatorProps} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import {B3} from '../../common/components/Typography/Text/Text';
 
@@ -23,10 +20,6 @@ import Profile from '../../routes/Profile/Profile';
 import Temples from '../../routes/Temples/Temples';
 
 import NS from '../i18n/constants/namespaces';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import DailyProvider from '../../routes/Temple/DailyProvider';
-import ChangingRoom from '../../routes/Temple/ChangingRoom';
-import Temple from '../../routes/Temple/Temple';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
 
@@ -64,35 +57,19 @@ const getTabOptions: (
   tabBarLabel: ({color}) => <TabBarLabel color={color}>{label}</TabBarLabel>,
 });
 
-const TempleStack = createNativeStackNavigator<TempleStackProps>();
-
-const stackOptions = {
-  headerShown: false,
-};
-
-const TempleStackWrapper = () => (
-  <DailyProvider>
-    <TempleStack.Navigator screenOptions={stackOptions}>
-      <TempleStack.Screen name={'Temples'} component={Temples} />
-      <TempleStack.Screen name={'ChangingRoom'} component={ChangingRoom} />
-      <TempleStack.Screen name={'Temple'} component={Temple} />
-    </TempleStack.Navigator>
-  </DailyProvider>
-);
-
 const Tabs = () => {
   const {t} = useTranslation(NS.COMPONENT.TABS);
   return (
     <Tab.Navigator screenOptions={tabBarOptions}>
       <Tab.Screen
-        name={'ProfileTab'}
-        component={Profile}
-        options={getTabOptions(ProfileIcon, t('profile'))}
+        name={'Temples'}
+        component={Temples}
+        options={getTabOptions(FilmCameraIcon, t('video'))}
       />
       <Tab.Screen
-        name={'TemplesTab'}
-        component={TempleStackWrapper}
-        options={getTabOptions(FilmCameraIcon, t('video'))}
+        name={'Profile'}
+        component={Profile}
+        options={getTabOptions(ProfileIcon, t('profile'))}
       />
     </Tab.Navigator>
   );
