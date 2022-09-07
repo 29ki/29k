@@ -26,12 +26,13 @@ import VideoToggleButton from './components/Buttons/VideoToggleButton';
 import {B2} from '../../common/components/Typography/Text/Text';
 import {COLORS} from '../../common/constants/colors';
 import {DailyContext} from '../Temple/DailyProvider';
-import {localParticipantAtom, templeAtom} from './state/state';
+import {localParticipantSelector, templeAtom} from './state/state';
 import {TempleStackProps} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
+import AudioIndicator from './components/AudioIdicator';
 
 type TempleNavigationProps = NativeStackNavigationProp<
   TempleStackProps,
@@ -53,27 +54,42 @@ const Controls = styled.View({
   justifyContent: 'center',
 });
 
+const VideoWrapper = styled.View({
+  width: 200,
+  height: 232,
+  borderRadius: 24,
+  overflow: 'hidden',
+  alignContent: 'center',
+  justifyContent: 'center',
+  alignSelf: 'center',
+  backgroundColor: COLORS.GREY,
+});
+
 const DailyMediaViewWrapper = styled(DailyMediaView)({
   flex: 1,
-  backgroundColor: COLORS.GREY,
+});
+
+const VideoText = styled(B2)({
+  textAlign: 'center',
+  color: COLORS.WHITE,
 });
 
 const InputLabel = styled(B2)({
   textAlign: 'center',
 });
 
+const Audio = styled(AudioIndicator)({
+  position: 'absolute',
+  left: SPACINGS.SIXTEEN,
+  top: SPACINGS.SIXTEEN,
+});
+
 const ChangingRoom = () => {
   const {t} = useTranslation(NS.SCREEN.CHANGING_ROOM);
   const [localUserName, setLocalUserName] = useState('');
   const {goBack, navigate} = useNavigation<TempleNavigationProps>();
-  const {
-    toggleAudio,
-    toggleVideo,
-    hasAudio,
-    hasVideo,
-    setUserName,
-    preJoinMeeting,
-  } = useContext(DailyContext);
+  const {toggleAudio, toggleVideo, setUserName, preJoinMeeting} =
+    useContext(DailyContext);
 
   const temple = useRecoilValue(templeAtom);
   const {
@@ -88,13 +104,13 @@ const ChangingRoom = () => {
   useEffect(() => {
     const startVideo = async () => {
       if (isFocused && temple?.url) {
-        preJoinMeeting();
+        preJoinMeeting(temple?.url);
       }
     };
     startVideo();
   }, [preJoinMeeting, temple, isFocused]);
 
-  const me = useRecoilValue(localParticipantAtom);
+  const me = useRecoilValue(localParticipantSelector);
 
   if (!isFocused) {
     return null;
@@ -105,6 +121,9 @@ const ChangingRoom = () => {
     navigate('Temple', {templeId});
   };
 
+  const hasAudio = Boolean(me?.audioTrack);
+  const hasVideo = Boolean(me?.videoTrack);
+
   return (
     <Wrapper>
       <TopSafeArea />
@@ -113,19 +132,32 @@ const ChangingRoom = () => {
           <BackIcon />
         </Back>
       </Gutters>
-      <DailyMediaViewWrapper
-        videoTrack={me?.videoTrack ?? null}
-        audioTrack={null}
-        objectFit={'cover'}
-        mirror={me?.local}
-      />
+      <VideoWrapper>
+        {hasVideo ? (
+          <DailyMediaViewWrapper
+            videoTrack={me?.videoTrack ?? null}
+            audioTrack={me?.audioTrack ?? null}
+            objectFit={'cover'}
+            mirror={me?.local}
+          />
+        ) : (
+          <VideoText>{t('cameraOff')}</VideoText>
+        )}
+        <Audio muted={!hasAudio} />
+      </VideoWrapper>
 
       <Spacer28 />
       <Gutters>
         <Controls>
-          <AudioToggleButton onPress={toggleAudio} active={hasAudio} />
+          <AudioToggleButton
+            onPress={() => toggleAudio(!hasAudio)}
+            active={hasAudio}
+          />
           <Spacer16 />
-          <VideoToggleButton onPress={toggleVideo} active={hasVideo} />
+          <VideoToggleButton
+            onPress={() => toggleVideo(!hasVideo)}
+            active={hasVideo}
+          />
         </Controls>
         <Spacer28 />
         <InputLabel>{t('body')}</InputLabel>

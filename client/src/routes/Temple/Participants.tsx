@@ -10,7 +10,9 @@ import {curry} from 'ramda';
 
 import NS from '../../lib/i18n/constants/namespaces';
 import ParticipantName from './ParticipantName';
-import ParticipantAudio from './ParticipantAudio';
+import AudioIndicator from './components/AudioIdicator';
+import {SPACINGS} from '../../common/constants/spacings';
+import {COLORS} from '../../common/constants/colors';
 
 const VIDEO_WIDTH_PERCENTAGE = 0.4;
 
@@ -26,15 +28,22 @@ const DailyMediaViewWrapper = styled(DailyMediaView)({
   flex: 1,
 });
 
+const ParticipantAudio = styled(AudioIndicator)({
+  height: 24,
+  width: 24,
+  borderRadius: 45,
+  backgroundColor: COLORS.BLACK_TRANSPARENT,
+  padding: 2,
+  position: 'absolute',
+  top: SPACINGS.SIXTEEN,
+  right: SPACINGS.SIXTEEN,
+});
+
 type ParticipantsProps = {
   participants: Array<DailyParticipant>;
-  localAudioOn: boolean;
 };
 
-const Participants: React.FC<ParticipantsProps> = ({
-  participants,
-  localAudioOn,
-}) => {
+const Participants: React.FC<ParticipantsProps> = ({participants}) => {
   const [containerWidth, setContainerWidth] = useState(0);
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
 
@@ -49,11 +58,7 @@ const Participants: React.FC<ParticipantsProps> = ({
           mirror={item.local}
         />
         <ParticipantName participant={item} suffix={t('nameSuffix')} />
-        <ParticipantAudio
-          participant={item}
-          localAudioOn={localAudioOn}
-          isOnThumbnail
-        />
+        <ParticipantAudio muted={!item.audioTrack} />
       </VideoView>
     ),
   );

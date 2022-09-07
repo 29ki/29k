@@ -17,19 +17,16 @@ import {
   participantsAtom,
   videoSharingAtom,
   activeParticipantAtom,
-  localParticipantAtom,
 } from './state/state';
 
 type DailyProviderTypes = {
   call?: DailyCall;
-  preJoinMeeting: () => Promise<void>;
-  joinMeeting: (url: string) => Promise<void>;
+  preJoinMeeting: (url: string) => Promise<void>;
+  joinMeeting: () => Promise<void>;
   leaveMeeting: () => Promise<void>;
-  toggleAudio: () => void;
-  toggleVideo: () => void;
+  toggleAudio: (enabled: boolean) => void;
+  toggleVideo: (enabled: boolean) => void;
   setUserName: (userName: string) => Promise<void>;
-  hasAudio: boolean;
-  hasVideo: boolean;
 };
 
 export const DailyContext = createContext<DailyProviderTypes>({
@@ -39,21 +36,23 @@ export const DailyContext = createContext<DailyProviderTypes>({
   toggleAudio: () => {},
   toggleVideo: () => {},
   setUserName: () => Promise.resolve(),
-  hasAudio: false,
-  hasVideo: false,
 });
 
 const DailyProvider: React.FC = ({children}) => {
   const [daily] = useState(() => Daily.createCallObject());
-  const [hasAudio, setHasAudio] = useState(false);
-  const [hasVideo, setHasVideo] = useState(true);
 
   const setIsLoading = useSetRecoilState(videoSharingFields('isLoading'));
-  const setLocalParticipant = useSetRecoilState(localParticipantAtom);
   const setParticipants = useSetRecoilState(participantsAtom);
   const setActiveParticipant = useSetRecoilState(activeParticipantAtom);
   const resetParticipants = useResetRecoilState(participantsAtom);
   const resetVideoCallState = useResetRecoilState(videoSharingAtom);
+  const resetActiveParticipant = useResetRecoilState(activeParticipantAtom);
+
+  const resetState = useCallback(() => {
+    resetParticipants();
+    resetVideoCallState();
+    resetActiveParticipant();
+  }, [resetParticipants, resetVideoCallState, resetActiveParticipant]);
 
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(() => {
     const onJoinedMeeting = ({
@@ -77,6 +76,7 @@ const DailyProvider: React.FC = ({children}) => {
       setParticipants(participants => ({
         ...participants,
         [participant.user_id]: participant,
+        local: daily.participants().local,
       }));
     };
 
@@ -104,7 +104,7 @@ const DailyProvider: React.FC = ({children}) => {
       //   ['network-quality-change', connect(networkQualityChange)],
       //   ['error', error => dispatch(setError(error.errorMsg))],
     ];
-  }, [setParticipants, setActiveParticipant]);
+  }, [setParticipants, setActiveParticipant, daily]);
 
   const leaveMeeting = useCallback(async () => {
     if (!daily) {
@@ -112,21 +112,8 @@ const DailyProvider: React.FC = ({children}) => {
     }
 
     await daily.leave();
+  }, [daily]);
 
-    eventHandlers.forEach(([event, handler]) => {
-      daily.off(event, handler);
-    });
-
-    resetParticipants();
-    resetVideoCallState();
-  }, [daily, eventHandlers, resetParticipants, resetVideoCallState]);
-
-  useEffect(
-    () => () => {
-      daily?.destroy();
-    },
-    [daily],
-  );
   const prepareMeeting = useCallback(
     async url => {
       if (daily.meetingState() !== 'joined-meeting') {
@@ -142,54 +129,69 @@ const DailyProvider: React.FC = ({children}) => {
     [daily, setIsLoading],
   );
 
-  const toggleAudio = () => {
-    if (!daily) {
-      return;
-    }
-    daily.setLocalAudio(!hasAudio);
-    setHasAudio(!hasAudio);
-  };
+  const toggleAudio = useCallback(
+    (enabled = true) => {
+      if (!daily) {
+        return;
+      }
+      daily.setLocalAudio(enabled);
+    },
+    [daily],
+  );
 
-  const toggleVideo = () => {
-    if (!daily) {
-      return;
-    }
+  const toggleVideo = useCallback(
+    (enabled = true) => {
+      if (!daily) {
+        return;
+      }
 
-    daily.setLocalVideo(!hasVideo);
-    setHasVideo(!hasVideo);
-  };
+      daily.setLocalVideo(enabled);
+    },
+    [daily],
+  );
 
-  const setUserName = async (userName: string) => {
-    if (!daily) {
-      return;
-    }
+  const setUserName = useCallback(
+    async (userName: string) => {
+      if (!daily) {
+        return;
+      }
 
-    await daily.setUserName(userName);
-  };
+      await daily.setUserName(userName);
+    },
+    [daily],
+  );
 
-  const preJoinMeeting = useCallback(async () => {
-    await daily.startCamera();
-    const localParticipant = daily.participants().local;
-    setLocalParticipant(localParticipant);
-  }, [daily, setLocalParticipant]);
-
-  const joinMeeting = useCallback(
+  const preJoinMeeting = useCallback(
     async url => {
-      if (daily.meetingState() !== 'joined-meeting') {
+      if (daily.meetingState() === 'new') {
         await prepareMeeting(url);
-
-        eventHandlers.forEach(([event, handler]) => {
-          daily.on(event, handler);
-        });
-
-        await daily.join();
-
-        daily.setLocalAudio(hasAudio);
-        daily.setLocalVideo(hasVideo);
+        await daily.startCamera({url});
       }
     },
-    [daily, eventHandlers, hasAudio, hasVideo, prepareMeeting],
+    [daily, prepareMeeting],
   );
+
+  const joinMeeting = useCallback(async () => {
+    if (daily.meetingState() !== 'joined-meeting') {
+      await daily.join();
+    }
+  }, [daily]);
+
+  useEffect(() => {
+    eventHandlers.forEach(([event, handler]) => {
+      daily.on(event, handler);
+    });
+
+    return () => {
+      eventHandlers.forEach(([event, handler]) => {
+        daily.off(event, handler);
+      });
+
+      resetState();
+
+      daily?.destroy();
+    };
+  }, [daily, eventHandlers, resetState]);
 
   return (
     <DailyContext.Provider
@@ -201,8 +203,6 @@ const DailyProvider: React.FC = ({children}) => {
         toggleAudio,
         toggleVideo,
         setUserName,
-        hasAudio,
-        hasVideo,
       }}>
       {children}
     </DailyContext.Provider>

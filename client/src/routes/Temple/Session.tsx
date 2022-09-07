@@ -13,6 +13,7 @@ import {
   participantsSelector,
   selectedParticipantSelector,
   templeAtom,
+  localParticipantSelector,
 } from './state/state';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -32,7 +33,7 @@ import {DailyContext} from './DailyProvider';
 import NS from '../../lib/i18n/constants/namespaces';
 import Participants from './Participants';
 import ParticipantName from './ParticipantName';
-import ParticipantAudio from './ParticipantAudio';
+
 import Content from './components/Content/Content';
 import SlideButton from './components/Buttons/SlideButton';
 import {
@@ -44,6 +45,8 @@ import {
 } from '../../common/components/Icons';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import {userAtom} from '../../lib/user/state/state';
+import AudioIndicator from './components/AudioIdicator';
+import {SPACINGS} from '../../common/constants/spacings';
 
 type ScreenNavigationProps = NativeStackNavigationProp<RootStackProps, 'Tabs'>;
 
@@ -88,6 +91,17 @@ const MediaControls = styled.View({
   justifyContent: 'center',
 });
 
+const ParticipantAudio = styled(AudioIndicator)({
+  height: 24,
+  width: 24,
+  borderRadius: 45,
+  backgroundColor: COLORS.BLACK_TRANSPARENT,
+  padding: 2,
+  position: 'absolute',
+  top: SPACINGS.FIFTYSIX,
+  left: SPACINGS.SIXTEEN,
+});
+
 const TouchableMediaView = ({
   onPress,
   participant,
@@ -109,22 +123,14 @@ const TouchableMediaView = ({
     />
     <ParticipantName participant={participant} suffix={suffix} />
     <ParticipantAudio
-      participant={participant}
-      localAudioOn={localAudioOn}
-      isOnThumbnail={false}
+      muted={participant.local ? !localAudioOn : !participant.audioTrack}
     />
   </TouchableOpacity>
 );
 
 const Session = () => {
-  const {
-    joinMeeting,
-    leaveMeeting,
-    toggleAudio,
-    toggleVideo,
-    hasAudio,
-    hasVideo,
-  } = useContext(DailyContext);
+  const {joinMeeting, leaveMeeting, toggleAudio, toggleVideo} =
+    useContext(DailyContext);
   const {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Temple'>>();
@@ -136,15 +142,14 @@ const Session = () => {
 
   const temple = useRecoilValue(templeAtom);
   const participants = useRecoilValue(participantsSelector);
+  const me = useRecoilValue(localParticipantSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
   const selectedParticipant = useRecoilValue(selectedParticipantSelector);
   const content = useExerciseById(temple?.contentId);
 
   useEffect(() => {
-    if (temple?.url) {
-      joinMeeting(temple?.url);
-    }
-  }, [joinMeeting, temple?.url]);
+    joinMeeting();
+  }, [joinMeeting]);
 
   useEffect(() => {
     const unsubscribe = subscribeTemple(templeId);
@@ -163,6 +168,9 @@ const Session = () => {
       </LoadingView>
     );
   }
+
+  const hasAudio = Boolean(me?.audioTrack);
+  const hasVideo = Boolean(me?.videoTrack);
 
   return (
     <MainViewContainer>
@@ -222,14 +230,18 @@ const Session = () => {
           </SpotlightVideo>
         )}
       </Spotlight>
-      {participants && (
-        <Participants participants={participants} localAudioOn={hasAudio} />
-      )}
+      {participants && <Participants participants={participants} />}
       <Spacer16 />
       <SessionControls>
-        <AudioToggleButton onPress={toggleAudio} active={hasAudio} />
+        <AudioToggleButton
+          onPress={() => toggleAudio(!hasAudio)}
+          active={hasAudio}
+        />
         <Spacer12 />
-        <VideoToggleButton onPress={toggleVideo} active={hasVideo} />
+        <VideoToggleButton
+          onPress={() => toggleVideo(!hasVideo)}
+          active={hasVideo}
+        />
         <Spacer12 />
         <LeaveButton fill={COLORS.ROSE500} onPress={exitMeeting} />
       </SessionControls>

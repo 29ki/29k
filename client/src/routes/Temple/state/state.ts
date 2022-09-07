@@ -18,11 +18,6 @@ export const videoSharingAtom = atom<VideoSharingState>({
   },
 });
 
-export const localParticipantAtom = atom<DailyParticipant | null>({
-  key: `${NAMESPACE}/localParticipant`,
-  default: null,
-});
-
 export const participantsAtom = atom<{
   [user_id: string]: DailyParticipant | undefined;
 }>({
@@ -52,8 +47,14 @@ export const participantsSelector = selector<Array<DailyParticipant>>({
   key: `${NAMESPACE}/participantsSelector`,
   get: ({get}) => {
     const participantsObj = get(participantsAtom);
-    const activeParticipantId = get(activeParticipantAtom);
+
     const localParticipant = participantsObj.local;
+    const activeParticipant = get(activeParticipantAtom);
+    const activeParticipantId =
+      activeParticipant === localParticipant?.user_id
+        ? 'local'
+        : activeParticipant;
+
     const participants = localParticipant?.user_id
       ? omit([localParticipant?.user_id], participantsObj)
       : participantsObj; // Omit local stream from server
@@ -68,6 +69,14 @@ export const participantsSelector = selector<Array<DailyParticipant>>({
           ]
         : values(participants)
     ).filter(p => p !== undefined) as Array<DailyParticipant>;
+  },
+});
+
+export const localParticipantSelector = selector<DailyParticipant | null>({
+  key: `${NAMESPACE}/localParticipantsSelector`,
+  get: ({get}) => {
+    const participants = get(participantsAtom);
+    return participants.local ?? null;
   },
 });
 

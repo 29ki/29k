@@ -24,6 +24,9 @@ describe('dailyApi', () => {
           'Content-Type': 'application/json',
         },
         method: 'POST',
+        body: JSON.stringify({
+          properties: {start_audio_off: true, start_video_off: false},
+        }),
       });
       expect(room).toEqual({id: 'some-id', name: 'some-name'});
     });
