@@ -1,6 +1,7 @@
 import request from 'supertest';
 import Router from '@koa/router';
 import {mockFirebase} from 'firestore-jest-mock';
+import Koa, {DefaultState} from 'koa';
 
 mockFirebase(
   {
@@ -38,12 +39,22 @@ const mockDailyApi = {
 import {templesRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {mockUpdate} from 'firestore-jest-mock/mocks/firestore';
+import {FirebaseAuthContext} from '../lib/firebaseAuth';
 
 jest.mock('../../lib/dailyApi', () => mockDailyApi);
 
-const router = new Router();
+const router = new Router<DefaultState, FirebaseAuthContext>();
 router.use('/temples', templesRouter.routes());
-const mockServer = createMockServer(router.routes(), router.allowedMethods());
+const mockServer = createMockServer(
+  async (ctx: Koa.Context, next: Koa.Next) => {
+    ctx.user = {
+      id: 'some-user-id',
+    };
+    await next();
+  },
+  router.routes(),
+  router.allowedMethods(),
+);
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -95,6 +106,7 @@ describe('/api/temples', () => {
         index: 0,
         playing: false,
         contentId: 'some-content-id',
+        facilitator: 'some-user-id',
       });
     });
 

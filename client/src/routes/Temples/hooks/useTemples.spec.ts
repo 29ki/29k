@@ -6,11 +6,8 @@ import {isLoadingAtom, templesAtom} from '../state/state';
 
 enableFetchMocks();
 
-beforeEach(() => {
-  fetchMock.resetMocks();
-});
-
 afterEach(() => {
+  fetchMock.resetMocks();
   jest.clearAllMocks();
 });
 
@@ -73,7 +70,7 @@ describe('useTemples', () => {
       );
       const {result} = renderHook(() => useTemples(), {wrapper: RecoilRoot});
 
-      const promise = act(async () => {
+      await act(async () => {
         await result.current.addTemple('Temple name');
       });
 
@@ -88,9 +85,9 @@ describe('useTemples', () => {
         method: 'POST',
       });
 
-      await promise;
-
-      expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/temples');
+      expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/temples', {
+        headers: {'Content-Type': 'application/json'},
+      });
     });
   });
 });

@@ -1,18 +1,15 @@
-import {API_ENDPOINT} from 'config';
 import {Temple} from '../../../../../shared/src/types/Temple';
+import apiClient from '../../../lib/apiClient/apiClient';
 
-const TEMPLES_ENDPOINT = `${API_ENDPOINT}/temples`;
+const TEMPLES_ENDPOINT = '/temples';
 
 export const addTemple = async (
   name: string,
   contentId = '095f9642-73b6-4c9a-ae9a-ea7dea7363f5',
 ): Promise<Temple> => {
   try {
-    const response = await fetch(TEMPLES_ENDPOINT, {
+    const response = await apiClient(TEMPLES_ENDPOINT, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({name, contentId}),
     });
     const {temple} = await response.json();
@@ -24,11 +21,8 @@ export const addTemple = async (
 
 export const updateTemple = async (id: string, data: Partial<Temple>) => {
   try {
-    const response = await fetch(`${TEMPLES_ENDPOINT}/${id}`, {
+    const response = await apiClient(`${TEMPLES_ENDPOINT}/${id}`, {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify(data),
     });
 

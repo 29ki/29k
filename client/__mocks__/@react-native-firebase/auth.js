@@ -4,6 +4,7 @@ const mockAuth = {
   signOut: jest.fn(),
   currentUser: {
     delete: jest.fn(),
+    getIdToken: jest.fn(),
   },
 };
 

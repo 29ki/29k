@@ -6,10 +6,12 @@ import 'firebase-functions';
 
 import {Temple} from '../../../../shared/src/types/Temple';
 import * as dailyApi from '../../lib/dailyApi';
+import {DefaultState} from 'koa';
+import {FirebaseAuthContext} from '../lib/firebaseAuth';
 
 const TEMPLES_COLLECTION = 'temples';
 
-const templesRouter = new Router();
+const templesRouter = new Router<DefaultState, FirebaseAuthContext>();
 
 templesRouter.get('/', async ctx => {
   const {response} = ctx;
@@ -38,6 +40,7 @@ templesRouter.post('/', validator({body: CreateTempleData}), async ctx => {
     index: 0,
     playing: false,
     contentId,
+    facilitator: ctx.user.id,
   };
 
   await firestore().collection(TEMPLES_COLLECTION).doc(data.id).set(temple);

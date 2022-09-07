@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import {ActivityIndicator, TouchableOpacity} from 'react-native';
-import {useRecoilValue, useSetRecoilState} from 'recoil';
+import {useRecoilValue} from 'recoil';
 import {
   DailyMediaView,
   DailyParticipant,
@@ -9,7 +9,6 @@ import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 
 import {
-  selectedParticipantIdAtom,
   videoSharingFields,
   participantsSelector,
   selectedParticipantSelector,
@@ -48,6 +47,7 @@ import {
   Rewind,
 } from '../../common/components/Icons';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
+import {userAtom} from '../../lib/user/state/state';
 
 type ScreenNavigationProps = NativeStackNavigationProp<RootStackProps, 'Tabs'>;
 
@@ -98,7 +98,7 @@ const TouchableMediaView = ({
   suffix,
   localAudioOn,
 }: {
-  onPress: () => void;
+  onPress?: () => void;
   participant: DailyParticipant;
   suffix: string;
   localAudioOn: boolean;
@@ -136,12 +136,12 @@ const Session = () => {
   const {navigate} = useNavigation<ScreenNavigationProps>();
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
   const {subscribeTemple, navigateToIndex, setActive, setPlaying} = useTemple();
+  const user = useRecoilValue(userAtom);
 
   const temple = useRecoilValue(templeAtom);
   const participants = useRecoilValue(participantsSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
   const selectedParticipant = useRecoilValue(selectedParticipantSelector);
-  const setSelectedParticipantId = useSetRecoilState(selectedParticipantIdAtom);
   const content = useExerciseById(temple?.contentId);
 
   useEffect(() => {
@@ -171,15 +171,17 @@ const Session = () => {
   return (
     <MainViewContainer>
       <Spotlight>
-        {!temple?.active && !selectedParticipant && (
-          <ContentControls>
-            <SlideButton
-              onPress={() => setActive(true)}
-              RightIcon={ChevronRight}>
-              {t('controls.start')}
-            </SlideButton>
-          </ContentControls>
-        )}
+        {!temple?.active &&
+          !selectedParticipant &&
+          temple?.facilitator === user?.uid && (
+            <ContentControls>
+              <SlideButton
+                onPress={() => setActive(true)}
+                RightIcon={ChevronRight}>
+                {t('controls.start')}
+              </SlideButton>
+            </ContentControls>
+          )}
         {temple?.active && !selectedParticipant && (
           <>
             <Content
@@ -217,7 +219,6 @@ const Session = () => {
         {selectedParticipant && (
           <SpotlightVideo>
             <TouchableMediaView
-              onPress={() => setSelectedParticipantId(null)}
               participant={selectedParticipant}
               suffix={t('nameSuffix')}
               localAudioOn={hasAudio}

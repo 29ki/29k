@@ -6,4 +6,5 @@ export type Temple = {
   index: number;
   playing: boolean;
   contentId: string;
+  facilitator: string;
 };
