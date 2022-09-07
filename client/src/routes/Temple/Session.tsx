@@ -37,7 +37,7 @@ import {DailyContext} from './DailyProvider';
 import NS from '../../lib/i18n/constants/namespaces';
 import Participants from './Participants';
 import ParticipantName from './ParticipantName';
-import ParticipantAudio from './ParticipantAudio';
+
 import Content from './components/Content/Content';
 import SlideButton from './components/Buttons/SlideButton';
 import {
@@ -49,6 +49,8 @@ import {
 } from '../../common/components/Icons';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import {userAtom} from '../../lib/user/state/state';
+import AudioIndicator from './components/AudioIdicator';
+import {SPACINGS} from '../../common/constants/spacings';
 
 type ScreenNavigationProps = NativeStackNavigationProp<RootStackProps, 'Tabs'>;
 
@@ -93,6 +95,17 @@ const MediaControls = styled.View({
   justifyContent: 'center',
 });
 
+const ParticipantAudio = styled(AudioIndicator)({
+  height: 24,
+  width: 24,
+  borderRadius: 45,
+  backgroundColor: COLORS.BLACK_TRANSPARENT,
+  padding: 2,
+  position: 'absolute',
+  top: SPACINGS.FIFTYSIX,
+  left: SPACINGS.SIXTEEN,
+});
+
 const TouchableMediaView = ({
   onPress,
   participant,
@@ -114,9 +127,7 @@ const TouchableMediaView = ({
     />
     <ParticipantName participant={participant} suffix={suffix} />
     <ParticipantAudio
-      participant={participant}
-      localAudioOn={localAudioOn}
-      isOnThumbnail={false}
+      muted={participant.local ? !localAudioOn : !participant.audioTrack}
     />
   </TouchableOpacity>
 );
