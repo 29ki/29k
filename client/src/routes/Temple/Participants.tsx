@@ -13,6 +13,7 @@ import ParticipantName from './ParticipantName';
 import AudioIndicator from './components/AudioIdicator';
 import {SPACINGS} from '../../common/constants/spacings';
 import {COLORS} from '../../common/constants/colors';
+import {H1} from '../../common/components/Typography/Heading/Heading';
 
 const VIDEO_WIDTH_PERCENTAGE = 0.4;
 
@@ -22,10 +23,14 @@ const ParticipantsWrapper = styled.View({
 
 const VideoView = styled.TouchableOpacity<{width: number}>(props => ({
   width: props.width,
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: COLORS.BLACK_EASY,
 }));
 
 const DailyMediaViewWrapper = styled(DailyMediaView)({
-  flex: 1,
+  height: '100%',
+  width: '100%',
 });
 
 const ParticipantAudio = styled(AudioIndicator)({
@@ -39,6 +44,17 @@ const ParticipantAudio = styled(AudioIndicator)({
   right: SPACINGS.SIXTEEN,
 });
 
+const ParticipantPlaceholder = styled.View({
+  backgroundColor: COLORS.CREAM500,
+  borderRadius: SPACINGS.SIXTEEN,
+  width: 80,
+  height: 80,
+  justifyContent: 'center',
+  alignItems: 'center',
+  alignSelf: 'center',
+  justifySelf: 'center',
+});
+
 type ParticipantsProps = {
   participants: Array<DailyParticipant>;
 };
@@ -50,13 +66,19 @@ const Participants: React.FC<ParticipantsProps> = ({participants}) => {
   const renderVideo = curry(
     (width: number, {item}: ListRenderItemInfo<DailyParticipant>) => (
       <VideoView width={width} onPress={() => {}}>
-        <DailyMediaViewWrapper
-          videoTrack={item.videoTrack ?? null}
-          audioTrack={item.audioTrack ?? null}
-          objectFit="cover"
-          zOrder={item.local ? 1 : 0}
-          mirror={item.local}
-        />
+        {item.videoTrack ? (
+          <DailyMediaViewWrapper
+            videoTrack={item.videoTrack ?? null}
+            audioTrack={item.audioTrack ?? null}
+            objectFit="cover"
+            zOrder={item.local ? 1 : 0}
+            mirror={item.local}
+          />
+        ) : (
+          <ParticipantPlaceholder>
+            <H1>{item?.user_name?.[0]}</H1>
+          </ParticipantPlaceholder>
+        )}
         <ParticipantName participant={item} suffix={t('nameSuffix')} />
         <ParticipantAudio muted={!item.audioTrack} />
       </VideoView>
