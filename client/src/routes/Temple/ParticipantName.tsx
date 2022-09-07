@@ -21,12 +21,12 @@ const ParticipantNameStyled = styled(B2)({
 
 type ParticipantNameProps = {
   participant: DailyParticipant;
-  suffix: string;
+  suffix?: string;
 };
 
 const ParticipantName: React.FC<ParticipantNameProps> = ({
   participant,
-  suffix,
+  suffix = '',
 }) => (
   <ParticipantNameStyled>
     {renderName(participant, suffix)}

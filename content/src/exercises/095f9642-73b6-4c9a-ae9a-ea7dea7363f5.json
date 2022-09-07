@@ -1,6 +1,9 @@
 {
   "en": [
     {
+      "type": "facilitator"
+    },
+    {
       "type": "video",
       "content": {
         "heading": "Your body, your home",

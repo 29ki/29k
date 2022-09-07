@@ -1,3 +1,7 @@
+export type FacilitatorType = {
+  type: 'facilitator';
+};
+
 export type TextContentType = {
   type: 'text';
   content: {
@@ -13,4 +17,4 @@ export type VideoContentType = {
   };
 };
 
-export type ContentSlide = TextContentType | VideoContentType;
+export type ContentSlide = TextContentType | VideoContentType | FacilitatorType;

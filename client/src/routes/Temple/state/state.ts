@@ -35,6 +35,21 @@ export const activeParticipantAtom = atom<string | null>({
   default: null,
 });
 
+export const participantByIdSelector = selectorFamily({
+  key: `${NAMESPACE}/participantById`,
+  get:
+    (participantId: DailyParticipant['user_id'] | undefined) =>
+    ({get}) => {
+      if (!participantId) {
+        return;
+      }
+
+      console.log('Participants Ids', Object.keys(get(participantsAtom)));
+
+      return get(participantsAtom)[participantId];
+    },
+});
+
 export const selectedParticipantSelector = selector({
   key: `${NAMESPACE}/selectedParticipant`,
   get: ({get}) => {

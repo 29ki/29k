@@ -52,6 +52,7 @@ const UpdateTemple = yup
     active: yup.boolean(),
     index: yup.number(),
     playing: yup.boolean(),
+    dailyFacilitatorId: yup.string(),
   })
   .test(
     'nonEmptyObject',
@@ -63,9 +64,16 @@ templesRouter.put('/:id', validator({body: UpdateTemple}), async ctx => {
   const data = ctx.request.body;
   const {id} = ctx.params;
   const templeDocRef = firestore().collection(TEMPLES_COLLECTION).doc(id);
-
   const templeDoc = await templeDocRef.get();
+
   if (templeDoc.exists) {
+    const temple = templeDoc.data() as Temple;
+
+    if (ctx.user.id !== temple.facilitator) {
+      ctx.status = 500;
+      return;
+    }
+
     await templeDocRef.update(data);
 
     ctx.body = (await templeDocRef.get()).data();

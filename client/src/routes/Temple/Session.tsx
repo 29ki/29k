@@ -1,10 +1,7 @@
 import React, {useContext, useEffect} from 'react';
-import {ActivityIndicator, TouchableOpacity} from 'react-native';
+import {ActivityIndicator} from 'react-native';
 import {useRecoilValue} from 'recoil';
-import {
-  DailyMediaView,
-  DailyParticipant,
-} from '@daily-co/react-native-daily-js';
+
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 
@@ -32,7 +29,6 @@ import useTemple from './hooks/useTemple';
 import {DailyContext} from './DailyProvider';
 import NS from '../../lib/i18n/constants/namespaces';
 import Participants from './Participants';
-import ParticipantName from './ParticipantName';
 
 import Content from './components/Content/Content';
 import SlideButton from './components/Buttons/SlideButton';
@@ -45,8 +41,6 @@ import {
 } from '../../common/components/Icons';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import {userAtom} from '../../lib/user/state/state';
-import AudioIndicator from './components/AudioIdicator';
-import {SPACINGS} from '../../common/constants/spacings';
 
 type ScreenNavigationProps = NativeStackNavigationProp<RootStackProps, 'Tabs'>;
 
@@ -59,10 +53,6 @@ const Spotlight = styled.View({
   aspectRatio: '0.85',
 });
 
-const SpotlightVideo = styled.View({
-  flex: 1,
-});
-
 const MainViewContainer = styled.View({
   flex: 1,
 });
@@ -70,11 +60,6 @@ const MainViewContainer = styled.View({
 const SessionControls = styled.View({
   flexDirection: 'row',
   justifyContent: 'center',
-});
-
-const DailyMediaViewWrapper = styled(DailyMediaView)({
-  height: '100%',
-  width: '100%',
 });
 
 const ContentControls = styled.View({
@@ -91,43 +76,6 @@ const MediaControls = styled.View({
   justifyContent: 'center',
 });
 
-const ParticipantAudio = styled(AudioIndicator)({
-  height: 24,
-  width: 24,
-  borderRadius: 45,
-  backgroundColor: COLORS.BLACK_TRANSPARENT,
-  padding: 2,
-  position: 'absolute',
-  top: SPACINGS.FIFTYSIX,
-  left: SPACINGS.SIXTEEN,
-});
-
-const TouchableMediaView = ({
-  onPress,
-  participant,
-  suffix,
-  localAudioOn,
-}: {
-  onPress?: () => void;
-  participant: DailyParticipant;
-  suffix: string;
-  localAudioOn: boolean;
-}) => (
-  <TouchableOpacity onPress={onPress}>
-    <DailyMediaViewWrapper
-      videoTrack={participant.videoTrack ?? null}
-      audioTrack={participant.audioTrack ?? null}
-      objectFit={'cover'}
-      zOrder={participant.local ? 1 : 0}
-      mirror={participant.local}
-    />
-    <ParticipantName participant={participant} suffix={suffix} />
-    <ParticipantAudio
-      muted={participant.local ? !localAudioOn : !participant.audioTrack}
-    />
-  </TouchableOpacity>
-);
-
 const Session = () => {
   const {joinMeeting, leaveMeeting, toggleAudio, toggleVideo} =
     useContext(DailyContext);
@@ -137,7 +85,13 @@ const Session = () => {
 
   const {navigate} = useNavigation<ScreenNavigationProps>();
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
-  const {subscribeTemple, navigateToIndex, setActive, setPlaying} = useTemple();
+  const {
+    subscribeTemple,
+    navigateToIndex,
+    setActive,
+    setPlaying,
+    setDailyFacilitatorId,
+  } = useTemple();
   const user = useRecoilValue(userAtom);
 
   const temple = useRecoilValue(templeAtom);
@@ -148,8 +102,18 @@ const Session = () => {
   const content = useExerciseById(temple?.contentId);
 
   useEffect(() => {
+    if (temple?.facilitator === user?.uid && me?.user_id) {
+      console.log('UPDATING FAICLITATOR >>>> ', temple?.facilitator);
+      setDailyFacilitatorId(me.user_id);
+    }
     joinMeeting();
-  }, [joinMeeting]);
+  }, [
+    joinMeeting,
+    setDailyFacilitatorId,
+    me?.user_id,
+    user?.uid,
+    temple?.facilitator,
+  ]);
 
   useEffect(() => {
     const unsubscribe = subscribeTemple(templeId);
@@ -160,6 +124,8 @@ const Session = () => {
     await leaveMeeting();
     navigate('Tabs');
   };
+
+  console.log('FACILITATOR >>>> ', temple?.dailyFacilitatorId);
 
   if (isLoading) {
     return (
@@ -186,7 +152,7 @@ const Session = () => {
               </SlideButton>
             </ContentControls>
           )}
-        {temple?.active && !selectedParticipant && (
+        {temple?.active && (
           <>
             <Content
               content={content}
@@ -219,15 +185,6 @@ const Session = () => {
               )}
             </ContentControls>
           </>
-        )}
-        {selectedParticipant && (
-          <SpotlightVideo>
-            <TouchableMediaView
-              participant={selectedParticipant}
-              suffix={t('nameSuffix')}
-              localAudioOn={hasAudio}
-            />
-          </SpotlightVideo>
         )}
       </Spotlight>
       {participants && <Participants participants={participants} />}

@@ -9,7 +9,7 @@ const Heading = styled(H2)({
   textAlign: 'center',
 });
 
-const TextContent: React.FC<{content: TextContentType}> = ({content}) => (
+const Text: React.FC<{content: TextContentType}> = ({content}) => (
   <Gutters>
     <Spacer12 />
     <Heading>{content.content.heading}</Heading>
@@ -17,4 +17,4 @@ const TextContent: React.FC<{content: TextContentType}> = ({content}) => (
   </Gutters>
 );
 
-export default TextContent;
+export default Text;
