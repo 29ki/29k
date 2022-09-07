@@ -13,7 +13,7 @@ import {
   participantsSelector,
   selectedParticipantSelector,
   templeAtom,
-  localParticipantAtom,
+  localParticipantSelector,
 } from './state/state';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -142,7 +142,7 @@ const Session = () => {
 
   const temple = useRecoilValue(templeAtom);
   const participants = useRecoilValue(participantsSelector);
-  const me = useRecoilValue(localParticipantAtom);
+  const me = useRecoilValue(localParticipantSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
   const selectedParticipant = useRecoilValue(selectedParticipantSelector);
   const content = useExerciseById(temple?.contentId);

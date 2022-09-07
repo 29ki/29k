@@ -17,7 +17,6 @@ import {
   participantsAtom,
   videoSharingAtom,
   activeParticipantAtom,
-  localParticipantAtom,
 } from './state/state';
 
 type DailyProviderTypes = {
@@ -43,25 +42,17 @@ const DailyProvider: React.FC = ({children}) => {
   const [daily] = useState(() => Daily.createCallObject());
 
   const setIsLoading = useSetRecoilState(videoSharingFields('isLoading'));
-  const setLocalParticipant = useSetRecoilState(localParticipantAtom);
   const setParticipants = useSetRecoilState(participantsAtom);
   const setActiveParticipant = useSetRecoilState(activeParticipantAtom);
   const resetParticipants = useResetRecoilState(participantsAtom);
   const resetVideoCallState = useResetRecoilState(videoSharingAtom);
-  const resetLocalParticipant = useResetRecoilState(localParticipantAtom);
   const resetActiveParticipant = useResetRecoilState(activeParticipantAtom);
 
   const resetState = useCallback(() => {
     resetParticipants();
     resetVideoCallState();
-    resetLocalParticipant();
     resetActiveParticipant();
-  }, [
-    resetParticipants,
-    resetVideoCallState,
-    resetLocalParticipant,
-    resetActiveParticipant,
-  ]);
+  }, [resetParticipants, resetVideoCallState, resetActiveParticipant]);
 
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(() => {
     const onJoinedMeeting = ({
@@ -82,10 +73,6 @@ const DailyProvider: React.FC = ({children}) => {
     const onParticipantUpdated = ({
       participant,
     }: DailyEventObject<'participant-updated'>) => {
-      if (participant.local) {
-        setLocalParticipant(participant);
-      }
-
       setParticipants(participants => ({
         ...participants,
         [participant.user_id]: participant,
@@ -116,7 +103,7 @@ const DailyProvider: React.FC = ({children}) => {
       //   ['network-quality-change', connect(networkQualityChange)],
       //   ['error', error => dispatch(setError(error.errorMsg))],
     ];
-  }, [setParticipants, setActiveParticipant, setLocalParticipant]);
+  }, [setParticipants, setActiveParticipant]);
 
   const leaveMeeting = useCallback(async () => {
     if (!daily) {
@@ -177,7 +164,7 @@ const DailyProvider: React.FC = ({children}) => {
     async url => {
       if (daily.meetingState() === 'new') {
         await prepareMeeting(url);
-        await daily.startCamera();
+        await daily.startCamera({url});
       }
     },
     [daily, prepareMeeting],

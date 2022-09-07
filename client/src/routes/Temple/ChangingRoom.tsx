@@ -26,7 +26,7 @@ import VideoToggleButton from './components/Buttons/VideoToggleButton';
 import {B2} from '../../common/components/Typography/Text/Text';
 import {COLORS} from '../../common/constants/colors';
 import {DailyContext} from '../Temple/DailyProvider';
-import {localParticipantAtom, templeAtom} from './state/state';
+import {localParticipantSelector, templeAtom} from './state/state';
 import {TempleStackProps} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {SPACINGS} from '../../common/constants/spacings';
@@ -110,7 +110,7 @@ const ChangingRoom = () => {
     startVideo();
   }, [preJoinMeeting, temple, isFocused]);
 
-  const me = useRecoilValue(localParticipantAtom);
+  const me = useRecoilValue(localParticipantSelector);
 
   if (!isFocused) {
     return null;
