@@ -76,6 +76,7 @@ const DailyProvider: React.FC = ({children}) => {
       setParticipants(participants => ({
         ...participants,
         [participant.user_id]: participant,
+        local: daily.participants().local,
       }));
     };
 
@@ -103,7 +104,7 @@ const DailyProvider: React.FC = ({children}) => {
       //   ['network-quality-change', connect(networkQualityChange)],
       //   ['error', error => dispatch(setError(error.errorMsg))],
     ];
-  }, [setParticipants, setActiveParticipant]);
+  }, [setParticipants, setActiveParticipant, daily]);
 
   const leaveMeeting = useCallback(async () => {
     if (!daily) {

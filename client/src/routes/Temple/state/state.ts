@@ -76,7 +76,7 @@ export const localParticipantSelector = selector<DailyParticipant | null>({
   key: `${NAMESPACE}/localParticipantsSelector`,
   get: ({get}) => {
     const participants = get(participantsAtom);
-    return Object.values(participants).find(p => p?.local) ?? null;
+    return participants.local ?? null;
   },
 });
 

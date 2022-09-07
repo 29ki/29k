@@ -41,13 +41,9 @@ const ParticipantAudio = styled(AudioIndicator)({
 
 type ParticipantsProps = {
   participants: Array<DailyParticipant>;
-  localAudioOn: boolean;
 };
 
-const Participants: React.FC<ParticipantsProps> = ({
-  participants,
-  localAudioOn,
-}) => {
+const Participants: React.FC<ParticipantsProps> = ({participants}) => {
   const [containerWidth, setContainerWidth] = useState(0);
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
 
@@ -62,9 +58,7 @@ const Participants: React.FC<ParticipantsProps> = ({
           mirror={item.local}
         />
         <ParticipantName participant={item} suffix={t('nameSuffix')} />
-        <ParticipantAudio
-          muted={item.local ? !localAudioOn : !item.audioTrack}
-        />
+        <ParticipantAudio muted={!item.audioTrack} />
       </VideoView>
     ),
   );
