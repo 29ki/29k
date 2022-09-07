@@ -35,6 +35,12 @@ export const createRoom = async (): Promise<Room> => {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${DAILY_API_KEY}`,
     },
+    body: JSON.stringify({
+      properties: {
+        start_audio_off: true,
+        start_video_off: false,
+      },
+    }),
   });
 
   if (!res.ok) {
