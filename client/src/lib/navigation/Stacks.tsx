@@ -1,13 +1,14 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {useRecoilValue} from 'recoil';
+
 import {RootStackProps, TempleStackProps} from '../../common/constants/routes';
 import KillSwitch from '../../routes/KillSwitch/KillSwitch';
-import {useRecoilValue} from 'recoil';
 import {killSwitchFields} from '../killSwitch/state/state';
 import Tabs from './Tabs';
-import DailyProvider from '../../routes/Temple/DailyProvider';
-import ChangingRoom from '../../routes/Temple/ChangingRoom';
 import Temple from '../../routes/Temple/Temple';
+import ChangingRoom from '../../routes/Temple/ChangingRoom';
+import DailyProvider from '../../routes/Temple/DailyProvider';
 
 const RootStack = createNativeStackNavigator<RootStackProps>();
 const TempleStack = createNativeStackNavigator<TempleStackProps>();
