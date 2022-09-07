@@ -27,10 +27,7 @@ import {B2} from '../../common/components/Typography/Text/Text';
 import {COLORS} from '../../common/constants/colors';
 import {DailyContext} from '../Temple/DailyProvider';
 import {localParticipantAtom, templeAtom} from './state/state';
-import {
-  TempleStackProps,
-  TempleStackRoutes,
-} from '../../common/constants/routes';
+import {TempleStackProps} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
@@ -121,7 +118,7 @@ const ChangingRoom = () => {
 
   const handleJoin = () => {
     setUserName(localUserName);
-    navigate(TempleStackRoutes.TEMPLE, {templeId});
+    navigate('Temple', {templeId});
   };
 
   const hasAudio = Boolean(me?.audioTrack);

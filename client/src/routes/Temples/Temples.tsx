@@ -8,11 +8,7 @@ import {useRecoilValue} from 'recoil';
 import styled from 'styled-components';
 
 import useTemples from './hooks/useTemples';
-import {
-  RootStackProps,
-  RootStackRoutes,
-  TempleStackRoutes,
-} from '../../common/constants/routes';
+import {RootStackProps} from '../../common/constants/routes';
 
 import {
   Spacer16,
@@ -56,8 +52,8 @@ const Temples = () => {
         time="This session will start on saturday at 13.00"
         buttonText="Join"
         onPress={() =>
-          navigate(RootStackRoutes.TEMPLE_STACK, {
-            screen: TempleStackRoutes.CHANGING_ROOM,
+          navigate('TempleStack', {
+            screen: 'ChangingRoom',
             params: {
               templeId: item.id,
             },

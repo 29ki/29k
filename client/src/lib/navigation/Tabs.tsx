@@ -6,9 +6,13 @@ import {
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 
-import {HomeIcon, IconType, ProfileIcon} from '../../common/components/Icons';
+import {
+  FilmCameraIcon,
+  IconType,
+  ProfileIcon,
+} from '../../common/components/Icons';
 import {COLORS} from '../../common/constants/colors';
-import {RootStackRoutes} from '../../common/constants/routes';
+import {TabNavigatorProps} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import {B3} from '../../common/components/Typography/Text/Text';
 
@@ -17,7 +21,7 @@ import Temples from '../../routes/Temples/Temples';
 
 import NS from '../i18n/constants/namespaces';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<TabNavigatorProps>();
 
 type TabBarLabelProps = {
   readonly color: string;
@@ -58,12 +62,12 @@ const Tabs = () => {
   return (
     <Tab.Navigator screenOptions={tabBarOptions}>
       <Tab.Screen
-        name={RootStackRoutes.TEMPLES}
+        name={'Temples'}
         component={Temples}
-        options={getTabOptions(HomeIcon, t('home'))}
+        options={getTabOptions(FilmCameraIcon, t('video'))}
       />
       <Tab.Screen
-        name={RootStackRoutes.PROFILE}
+        name={'Profile'}
         component={Profile}
         options={getTabOptions(ProfileIcon, t('profile'))}
       />
