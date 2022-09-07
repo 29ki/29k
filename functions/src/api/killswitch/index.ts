@@ -1,9 +1,7 @@
-import Router from '@koa/router';
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 import {lt, valid} from 'semver';
-import {I18nContext} from '../lib/i18nResolver';
-import {DefaultState} from 'koa';
+import {createUnauthorizedRouter} from '../../lib/routers';
 
 // Binary kill switch, this will permanently disable the entire app.
 // USE WITH CAUTION!
@@ -47,7 +45,7 @@ const acceptedBundleVersion = (
   return bundleVersionNumber >= MIN_BUNDLE_VERSION[version][platform];
 };
 
-const router = new Router<DefaultState, I18nContext>();
+const router = createUnauthorizedRouter();
 
 type RequestQuery = {
   version: string;

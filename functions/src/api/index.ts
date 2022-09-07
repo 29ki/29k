@@ -1,22 +1,19 @@
 import {onRequest} from 'firebase-functions/v2/https';
-import Koa, {DefaultState} from 'koa';
-import Router from '@koa/router';
+import Koa from 'koa';
 
 import {killSwitchRouter} from './killswitch';
 import {templesRouter} from './temples';
 import firebaseBodyParser from './lib/firebaseBodyParser';
-import i18nResolver, {I18nContext} from './lib/i18nResolver';
-import firebaseAuth, {FirebaseAuthContext} from './lib/firebaseAuth';
+import i18nResolver from './lib/i18nResolver';
+import firebaseAuth from './lib/firebaseAuth';
+import {createAuthorizedRouter, createUnauthorizedRouter} from '../lib/routers';
 
 const app = new Koa();
 
-const unauthorizedRouter = new Router<DefaultState, I18nContext>();
+const unauthorizedRouter = createUnauthorizedRouter();
 unauthorizedRouter.use('/killSwitch', killSwitchRouter.routes());
 
-const authoroizedRouter = new Router<
-  DefaultState,
-  I18nContext & FirebaseAuthContext
->();
+const authoroizedRouter = createAuthorizedRouter();
 authoroizedRouter.use('/temples', templesRouter.routes());
 
 app

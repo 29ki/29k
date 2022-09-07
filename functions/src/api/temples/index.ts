@@ -1,4 +1,3 @@
-import Router from '@koa/router';
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 import {firestore} from 'firebase-admin';
@@ -6,12 +5,11 @@ import 'firebase-functions';
 
 import {Temple} from '../../../../shared/src/types/Temple';
 import * as dailyApi from '../../lib/dailyApi';
-import {DefaultState} from 'koa';
-import {FirebaseAuthContext} from '../lib/firebaseAuth';
+import {createAuthorizedRouter} from '../../lib/routers';
 
 const TEMPLES_COLLECTION = 'temples';
 
-const templesRouter = new Router<DefaultState, FirebaseAuthContext>();
+const templesRouter = createAuthorizedRouter();
 
 templesRouter.get('/', async ctx => {
   const {response} = ctx;
