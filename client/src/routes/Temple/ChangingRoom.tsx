@@ -144,7 +144,7 @@ const ChangingRoom = () => {
             mirror={me?.local}
           />
         ) : (
-          <VideoText>Camera off</VideoText>
+          <VideoText>{t('cameraOff')}</VideoText>
         )}
         <Audio muted={!hasAudio} />
       </VideoWrapper>

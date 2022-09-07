@@ -1,6 +1,12 @@
 {
   "en": {
     "body": "Please type what do you like to be called",
-    "join_button": "Join"
+    "join_button": "Join",
+    "cameraOff": "Camera is Off"
+  },
+  "se": {
+    "body": "Vänligen skriv vad du vill bli kallad",
+    "join_button": "Gå med",
+    "cameraOff": "Karmeran är Av"
   }
 }
