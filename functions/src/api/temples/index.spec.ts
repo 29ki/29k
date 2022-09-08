@@ -2,29 +2,31 @@ import request from 'supertest';
 import {mockFirebase} from 'firestore-jest-mock';
 import Koa from 'koa';
 
+const temples = [
+  {
+    id: 'some-temple-id',
+    active: false,
+    name: 'some-name',
+    url: 'some-url',
+    index: 0,
+    playing: false,
+    facilitator: 'some-user-id',
+  },
+  {
+    id: 'some-other-temple-id',
+    active: false,
+    name: 'some-other-name',
+    url: 'some-other-url',
+    index: 0,
+    playing: false,
+    facilitator: 'some-other-user-id',
+  },
+];
+
 mockFirebase(
   {
     database: {
-      temples: [
-        {
-          id: 'some-temple-id',
-          active: false,
-          name: 'some-name',
-          url: 'some-url',
-          index: 0,
-          playing: false,
-          facilitator: 'some-user-id',
-        },
-        {
-          id: 'some-other-temple-id',
-          active: false,
-          name: 'some-other-name',
-          url: 'some-other-url',
-          index: 0,
-          playing: false,
-          facilitator: 'some-other-user-id',
-        },
-      ],
+      temples: [],
     },
   },
   {includeIdsInData: true, mutable: true},
@@ -42,6 +44,7 @@ import {templesRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {mockUpdate} from 'firestore-jest-mock/mocks/firestore';
 import {createAuthorizedRouter} from '../../lib/routers';
+import {firestore} from 'firebase-admin';
 
 jest.mock('../../lib/dailyApi', () => mockDailyApi);
 
@@ -57,6 +60,14 @@ const mockServer = createMockServer(
   router.routes(),
   router.allowedMethods(),
 );
+
+beforeEach(async () => {
+  await Promise.all(
+    temples.map(temple =>
+      firestore().collection('temples').doc(temple.id).set(temple),
+    ),
+  );
+});
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -155,38 +166,48 @@ describe('/api/temples', () => {
 
     it('should update active', async () => {
       const response = await request(mockServer)
-        .put(`/temples/some-other-temple-id`)
+        .put(`/temples/some-temple-id`)
         .send({active: true})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
         active: true,
-        id: 'some-other-temple-id',
+        id: 'some-temple-id',
         index: 0,
-        name: 'some-other-name',
-        url: 'some-other-url',
+        name: 'some-name',
+        url: 'some-url',
         playing: false,
-        facilitator: 'some-other-user-id',
+        facilitator: 'some-user-id',
       });
     });
 
     it('should update playing', async () => {
       const response = await request(mockServer)
-        .put(`/temples/some-other-temple-id`)
+        .put(`/temples/some-temple-id`)
         .send({playing: true})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
-        active: true,
-        id: 'some-other-temple-id',
+        active: false,
+        id: 'some-temple-id',
         index: 0,
-        name: 'some-other-name',
-        url: 'some-other-url',
+        name: 'some-name',
+        url: 'some-url',
         playing: true,
-        facilitator: 'some-other-user-id',
+        facilitator: 'some-user-id',
       });
+    });
+
+    it('should fail when request auth user is not facilitator', async () => {
+      const response = await request(mockServer)
+        .put('/temples/some-other-temple-id')
+        .send({playing: true})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(500);
+      expect(response.text).toEqual('Internal Server Error');
     });
 
     it('should require a field', async () => {
