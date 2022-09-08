@@ -4,7 +4,6 @@ import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import styled from 'styled-components/native';
 import {curry} from 'ramda';
 
-import {COLORS} from '../../../../common/constants/colors';
 import Participant from './Participant';
 
 const VIDEO_WIDTH_PERCENTAGE = 0.4;
