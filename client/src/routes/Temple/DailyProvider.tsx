@@ -55,12 +55,6 @@ const DailyProvider: React.FC = ({children}) => {
   }, [resetParticipants, resetVideoCallState, resetActiveParticipant]);
 
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(() => {
-    const onJoinedMeeting = ({
-      participants,
-    }: DailyEventObject<'joined-meeting'>) => {
-      setParticipants(participants);
-    };
-
     const onParticipantJoined = ({
       participant,
     }: DailyEventObject<'participant-joined'>) => {
@@ -76,7 +70,6 @@ const DailyProvider: React.FC = ({children}) => {
       setParticipants(participants => ({
         ...participants,
         [participant.user_id]: participant,
-        local: daily.participants().local,
       }));
     };
 
@@ -96,7 +89,6 @@ const DailyProvider: React.FC = ({children}) => {
     };
 
     return [
-      ['joined-meeting', onJoinedMeeting],
       ['participant-joined', onParticipantJoined],
       ['participant-left', onParticipantLeft],
       ['participant-updated', onParticipantUpdated],
@@ -104,7 +96,7 @@ const DailyProvider: React.FC = ({children}) => {
       //   ['network-quality-change', connect(networkQualityChange)],
       //   ['error', error => dispatch(setError(error.errorMsg))],
     ];
-  }, [setParticipants, setActiveParticipant, daily]);
+  }, [setParticipants, setActiveParticipant]);
 
   const leaveMeeting = useCallback(async () => {
     if (!daily) {

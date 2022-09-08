@@ -44,8 +44,6 @@ export const participantByIdSelector = selectorFamily({
         return;
       }
 
-      console.log('Participants Ids', Object.keys(get(participantsAtom)));
-
       return get(participantsAtom)[participantId];
     },
 });
@@ -62,17 +60,7 @@ export const participantsSelector = selector<Array<DailyParticipant>>({
   key: `${NAMESPACE}/participantsSelector`,
   get: ({get}) => {
     const participantsObj = get(participantsAtom);
-
-    const localParticipant = participantsObj.local;
-    const activeParticipant = get(activeParticipantAtom);
-    const activeParticipantId =
-      activeParticipant === localParticipant?.user_id
-        ? 'local'
-        : activeParticipant;
-
-    const participants = localParticipant?.user_id
-      ? omit([localParticipant?.user_id], participantsObj)
-      : participantsObj; // Omit local stream from server
+    const activeParticipantId = get(activeParticipantAtom);
 
     // When users leaves the call they are sometimes represented as undefined
     // so we need to remove those
@@ -80,9 +68,9 @@ export const participantsSelector = selector<Array<DailyParticipant>>({
       activeParticipantId
         ? [
             participantsObj[activeParticipantId],
-            ...values(omit([activeParticipantId], participants)),
+            ...values(omit([activeParticipantId], participantsObj)),
           ]
-        : values(participants)
+        : values(participantsObj)
     ).filter(p => p !== undefined) as Array<DailyParticipant>;
   },
 });
@@ -91,7 +79,11 @@ export const localParticipantSelector = selector<DailyParticipant | null>({
   key: `${NAMESPACE}/localParticipantsSelector`,
   get: ({get}) => {
     const participants = get(participantsAtom);
-    return participants.local ?? null;
+    return (
+      Object.values(participants).find(participant =>
+        Boolean(participant?.local),
+      ) ?? null
+    );
   },
 });
 

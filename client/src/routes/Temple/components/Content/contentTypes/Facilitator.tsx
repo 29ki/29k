@@ -10,7 +10,6 @@ import ParticipantName from '../../../ParticipantName';
 
 const Wrapper = styled.View({
   flex: 1,
-  backgroundColor: 'red',
 });
 
 const DailyMediaViewWrapper = styled(DailyMediaView)({
@@ -31,12 +30,10 @@ const ParticipantAudio = styled(AudioIndicator)({
 
 const Facilitator = () => {
   const temple = useRecoilValue(templeAtom);
-  console.log('dailyFacilitatorId', temple?.dailyFacilitatorId);
+
   const facilitator = useRecoilValue(
     participantByIdSelector(temple?.dailyFacilitatorId),
   );
-
-  console.log(facilitator);
 
   if (!facilitator) {
     return null;

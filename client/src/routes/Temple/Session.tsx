@@ -8,7 +8,6 @@ import {useTranslation} from 'react-i18next';
 import {
   videoSharingFields,
   participantsSelector,
-  selectedParticipantSelector,
   templeAtom,
   localParticipantSelector,
 } from './state/state';
@@ -98,12 +97,10 @@ const Session = () => {
   const participants = useRecoilValue(participantsSelector);
   const me = useRecoilValue(localParticipantSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
-  const selectedParticipant = useRecoilValue(selectedParticipantSelector);
   const content = useExerciseById(temple?.contentId);
 
   useEffect(() => {
     if (temple?.facilitator === user?.uid && me?.user_id) {
-      console.log('UPDATING FAICLITATOR >>>> ', temple?.facilitator);
       setDailyFacilitatorId(me.user_id);
     }
     joinMeeting();
@@ -125,8 +122,6 @@ const Session = () => {
     navigate('Tabs');
   };
 
-  console.log('FACILITATOR >>>> ', temple?.dailyFacilitatorId);
-
   if (isLoading) {
     return (
       <LoadingView>
@@ -141,17 +136,15 @@ const Session = () => {
   return (
     <MainViewContainer>
       <Spotlight>
-        {!temple?.active &&
-          !selectedParticipant &&
-          temple?.facilitator === user?.uid && (
-            <ContentControls>
-              <SlideButton
-                onPress={() => setActive(true)}
-                RightIcon={ChevronRight}>
-                {t('controls.start')}
-              </SlideButton>
-            </ContentControls>
-          )}
+        {!temple?.active && temple?.facilitator === user?.uid && (
+          <ContentControls>
+            <SlideButton
+              onPress={() => setActive(true)}
+              RightIcon={ChevronRight}>
+              {t('controls.start')}
+            </SlideButton>
+          </ContentControls>
+        )}
         {temple?.active && (
           <>
             <Content
@@ -159,31 +152,33 @@ const Session = () => {
               contentIndex={temple.index}
               playing={temple.playing}
             />
-            <ContentControls>
-              {temple.index > 0 && (
-                <SlideButton
-                  LeftIcon={ChevronLeft}
-                  onPress={() => navigateToIndex(temple.index - 1)}
-                />
-              )}
-              <MediaControls>
-                <SlideButton
-                  LeftIcon={Rewind}
-                  onPress={() => setPlaying(!temple.playing)}
-                />
-                <Spacer8 />
-                <SlideButton
-                  LeftIcon={temple.playing ? Pause : Play}
-                  onPress={() => setPlaying(!temple.playing)}
-                />
-              </MediaControls>
-              {temple.index < content.length - 1 && (
-                <SlideButton
-                  RightIcon={ChevronRight}
-                  onPress={() => navigateToIndex(temple.index + 1)}
-                />
-              )}
-            </ContentControls>
+            {temple?.facilitator === user?.uid && (
+              <ContentControls>
+                {temple.index > 0 && (
+                  <SlideButton
+                    LeftIcon={ChevronLeft}
+                    onPress={() => navigateToIndex(temple.index - 1)}
+                  />
+                )}
+                <MediaControls>
+                  <SlideButton
+                    LeftIcon={Rewind}
+                    onPress={() => setPlaying(!temple.playing)}
+                  />
+                  <Spacer8 />
+                  <SlideButton
+                    LeftIcon={temple.playing ? Pause : Play}
+                    onPress={() => setPlaying(!temple.playing)}
+                  />
+                </MediaControls>
+                {temple.index < content.length - 1 && (
+                  <SlideButton
+                    RightIcon={ChevronRight}
+                    onPress={() => navigateToIndex(temple.index + 1)}
+                  />
+                )}
+              </ContentControls>
+            )}
           </>
         )}
       </Spotlight>
