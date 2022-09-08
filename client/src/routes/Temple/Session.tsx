@@ -84,13 +84,7 @@ const Session = () => {
 
   const {navigate} = useNavigation<ScreenNavigationProps>();
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
-  const {
-    subscribeTemple,
-    navigateToIndex,
-    setActive,
-    setPlaying,
-    setDailyFacilitatorId,
-  } = useTemple();
+  const {subscribeTemple, navigateToIndex, setActive, setPlaying} = useTemple();
   const user = useRecoilValue(userAtom);
 
   const temple = useRecoilValue(templeAtom);
@@ -100,17 +94,8 @@ const Session = () => {
   const content = useExerciseById(temple?.contentId);
 
   useEffect(() => {
-    if (temple?.facilitator === user?.uid && me?.user_id) {
-      setDailyFacilitatorId(me.user_id);
-    }
     joinMeeting();
-  }, [
-    joinMeeting,
-    setDailyFacilitatorId,
-    me?.user_id,
-    user?.uid,
-    temple?.facilitator,
-  ]);
+  }, [joinMeeting]);
 
   useEffect(() => {
     const unsubscribe = subscribeTemple(templeId);
