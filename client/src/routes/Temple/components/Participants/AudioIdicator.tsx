@@ -1,10 +1,10 @@
 import React from 'react';
 import {ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
-import {MicrophoneIcon} from '../../../common/components/Icons/Microphone/Microphone';
-import {MicrophoneOffIcon} from '../../../common/components/Icons/MicrophoneOff/MicrophoneOff';
+import {MicrophoneIcon} from '../../../../common/components/Icons/Microphone/Microphone';
+import {MicrophoneOffIcon} from '../../../../common/components/Icons/MicrophoneOff/MicrophoneOff';
 
-import {COLORS} from '../../../common/constants/colors';
+import {COLORS} from '../../../../common/constants/colors';
 
 const Wrapper = styled.View({
   height: 24,

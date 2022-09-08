@@ -27,7 +27,6 @@ import {RootStackProps, TempleStackProps} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {DailyContext} from './DailyProvider';
 import NS from '../../lib/i18n/constants/namespaces';
-import Participants from './Participants';
 
 import Content from './components/Content/Content';
 import SlideButton from './components/Buttons/SlideButton';
@@ -40,6 +39,7 @@ import {
 } from '../../common/components/Icons';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import {userAtom} from '../../lib/user/state/state';
+import Participants from './components/Participants/Participants';
 
 type ScreenNavigationProps = NativeStackNavigationProp<RootStackProps, 'Tabs'>;
 

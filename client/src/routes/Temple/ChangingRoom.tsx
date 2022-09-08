@@ -33,7 +33,7 @@ import useTemple from './hooks/useTemple';
 import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
-import AudioIndicator from './components/AudioIdicator';
+import AudioIndicator from './components/Participants/AudioIdicator';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 
 type TempleNavigationProps = NativeStackNavigationProp<
@@ -80,7 +80,7 @@ const InputWrapper = styled.View({
 
 const Audio = styled(AudioIndicator)({
   position: 'absolute',
-  left: SPACINGS.SIXTEEN,
+  right: SPACINGS.SIXTEEN,
   top: SPACINGS.SIXTEEN,
 });
 
