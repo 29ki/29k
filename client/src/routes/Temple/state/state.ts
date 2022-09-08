@@ -25,8 +25,8 @@ export const participantsAtom = atom<{
   default: {},
 });
 
-export const selectedParticipantIdAtom = atom<string | null>({
-  key: `${NAMESPACE}/selectedParticipantId`,
+export const spotlightParticipantIdAtom = atom<string | null>({
+  key: `${NAMESPACE}/spotlightParticipantId`,
   default: null,
 });
 
@@ -48,29 +48,27 @@ export const participantByIdSelector = selectorFamily({
     },
 });
 
-export const selectedParticipantSelector = selector({
-  key: `${NAMESPACE}/selectedParticipant`,
-  get: ({get}) => {
-    const userId = get(selectedParticipantIdAtom);
-    return userId ? get(participantsAtom)[userId] : null;
-  },
-});
-
 export const participantsSelector = selector<Array<DailyParticipant>>({
   key: `${NAMESPACE}/participantsSelector`,
   get: ({get}) => {
     const participantsObj = get(participantsAtom);
     const activeParticipantId = get(activeParticipantAtom);
+    const spotlightParticipantId = get(spotlightParticipantIdAtom) ?? '';
 
     // When users leaves the call they are sometimes represented as undefined
     // so we need to remove those
     return (
-      activeParticipantId
+      activeParticipantId && activeParticipantId !== spotlightParticipantId
         ? [
             participantsObj[activeParticipantId],
-            ...values(omit([activeParticipantId], participantsObj)),
+            ...values(
+              omit(
+                [activeParticipantId, spotlightParticipantId],
+                participantsObj,
+              ),
+            ),
           ]
-        : values(participantsObj)
+        : values(omit([spotlightParticipantId], participantsObj))
     ).filter(p => p !== undefined) as Array<DailyParticipant>;
   },
 });

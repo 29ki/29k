@@ -4,6 +4,7 @@ import {
   activeParticipantAtom,
   participantsAtom,
   participantsSelector,
+  spotlightParticipantIdAtom,
 } from './state';
 
 const createParticipant = (id: string, local = false) => ({
@@ -40,6 +41,35 @@ describe('Temple state', () => {
         {user_id: 'test-id-2', local: false},
         {user_id: 'test-id-1', local: true},
       ]);
+    });
+
+    it('should omit the "spotlight participant" even while also active', () => {
+      const initialSnapshot = snapshot_UNSTABLE(({set}) => {
+        set(participantsAtom, {
+          ...createParticipant('test-id-1', true),
+          ...createParticipant('test-id-2'),
+        });
+        set(activeParticipantAtom, 'test-id-2');
+        set(spotlightParticipantIdAtom, 'test-id-2');
+      });
+
+      expect(
+        initialSnapshot.getLoadable(participantsSelector).valueOrThrow(),
+      ).toEqual([{user_id: 'test-id-1', local: true}]);
+    });
+
+    it('should omit the "spotlight participant"', () => {
+      const initialSnapshot = snapshot_UNSTABLE(({set}) => {
+        set(participantsAtom, {
+          ...createParticipant('test-id-1', true),
+          ...createParticipant('test-id-2'),
+        });
+        set(spotlightParticipantIdAtom, 'test-id-1');
+      });
+
+      expect(
+        initialSnapshot.getLoadable(participantsSelector).valueOrThrow(),
+      ).toEqual([{user_id: 'test-id-2', local: false}]);
     });
   });
 });

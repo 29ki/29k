@@ -1,6 +1,10 @@
-import React from 'react';
-import {useRecoilValue} from 'recoil';
-import {participantByIdSelector, templeAtom} from '../../../state/state';
+import React, {useEffect} from 'react';
+import {useRecoilValue, useSetRecoilState} from 'recoil';
+import {
+  participantByIdSelector,
+  spotlightParticipantIdAtom,
+  templeAtom,
+} from '../../../state/state';
 import Participant from '../../Participants/Participant';
 
 const Facilitator = () => {
@@ -9,10 +13,20 @@ const Facilitator = () => {
   const facilitator = useRecoilValue(
     participantByIdSelector(temple?.dailyFacilitatorId),
   );
+  const setSelectedParticipant = useSetRecoilState(spotlightParticipantIdAtom);
+
+  useEffect(() => {
+    if (facilitator?.user_id) {
+      setSelectedParticipant(facilitator.user_id);
+    }
+
+    return () => setSelectedParticipant(null);
+  }, [setSelectedParticipant, facilitator?.user_id]);
 
   if (!facilitator) {
     return null;
   }
+
   return <Participant participant={facilitator} />;
 };
 
