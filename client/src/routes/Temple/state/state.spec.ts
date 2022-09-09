@@ -4,32 +4,15 @@ import {
   activeParticipantAtom,
   participantsAtom,
   participantsSelector,
+  spotlightParticipantIdAtom,
 } from './state';
 
-const createParticipant = (id: string, local = false) =>
-  local
-    ? {local: {user_id: id, local} as DailyParticipant}
-    : {[id]: {user_id: id, local} as DailyParticipant};
+const createParticipant = (id: string, local = false) => ({
+  [id]: {user_id: id, local} as DailyParticipant,
+});
 
 describe('Temple state', () => {
   describe('participantsSelector', () => {
-    it('should omit local stream from server', () => {
-      const initialSnapshot = snapshot_UNSTABLE(({set}) =>
-        set(participantsAtom, {
-          ...createParticipant('test-id-1', true),
-          ...createParticipant('test-id-1'),
-          ...createParticipant('test-id-2'),
-        }),
-      );
-
-      expect(
-        initialSnapshot.getLoadable(participantsSelector).valueOrThrow(),
-      ).toEqual([
-        {user_id: 'test-id-1', local: true},
-        {user_id: 'test-id-2', local: false},
-      ]);
-    });
-
     it('should omit undefineds streams from server', () => {
       const initialSnapshot = snapshot_UNSTABLE(({set}) =>
         set(participantsAtom, {
@@ -47,7 +30,6 @@ describe('Temple state', () => {
       const initialSnapshot = snapshot_UNSTABLE(({set}) => {
         set(participantsAtom, {
           ...createParticipant('test-id-1', true),
-          ...createParticipant('test-id-1'),
           ...createParticipant('test-id-2'),
         });
         set(activeParticipantAtom, 'test-id-2');
@@ -59,6 +41,35 @@ describe('Temple state', () => {
         {user_id: 'test-id-2', local: false},
         {user_id: 'test-id-1', local: true},
       ]);
+    });
+
+    it('should omit the "spotlight participant" even while also active', () => {
+      const initialSnapshot = snapshot_UNSTABLE(({set}) => {
+        set(participantsAtom, {
+          ...createParticipant('test-id-1', true),
+          ...createParticipant('test-id-2'),
+        });
+        set(activeParticipantAtom, 'test-id-2');
+        set(spotlightParticipantIdAtom, 'test-id-2');
+      });
+
+      expect(
+        initialSnapshot.getLoadable(participantsSelector).valueOrThrow(),
+      ).toEqual([{user_id: 'test-id-1', local: true}]);
+    });
+
+    it('should omit the "spotlight participant"', () => {
+      const initialSnapshot = snapshot_UNSTABLE(({set}) => {
+        set(participantsAtom, {
+          ...createParticipant('test-id-1', true),
+          ...createParticipant('test-id-2'),
+        });
+        set(spotlightParticipantIdAtom, 'test-id-1');
+      });
+
+      expect(
+        initialSnapshot.getLoadable(participantsSelector).valueOrThrow(),
+      ).toEqual([{user_id: 'test-id-2', local: false}]);
     });
   });
 });

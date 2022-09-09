@@ -7,6 +7,7 @@ import TextContent from './contentTypes/Text';
 import VideoContent from './contentTypes/Video';
 
 import {ContentSlide} from '../../../../../../shared/src/types/Content';
+import Facilitator from './contentTypes/Facilitator';
 
 type ContentProps = {
   content: ContentSlide[];
@@ -38,6 +39,7 @@ const Content: React.FC<ContentProps> = ({
   const renderSlide = ({item, index}: ListRenderItemInfo<ContentSlide>) => {
     return (
       <Slide width={width}>
+        {item.type === 'facilitator' && <Facilitator />}
         {item.type === 'text' && <TextContent content={item} />}
         {item.type === 'video' && (
           <VideoContent

@@ -25,8 +25,8 @@ export const participantsAtom = atom<{
   default: {},
 });
 
-export const selectedParticipantIdAtom = atom<string | null>({
-  key: `${NAMESPACE}/selectedParticipantId`,
+export const spotlightParticipantIdAtom = atom<string | null>({
+  key: `${NAMESPACE}/spotlightParticipantId`,
   default: null,
 });
 
@@ -35,39 +35,40 @@ export const activeParticipantAtom = atom<string | null>({
   default: null,
 });
 
-export const selectedParticipantSelector = selector({
-  key: `${NAMESPACE}/selectedParticipant`,
-  get: ({get}) => {
-    const userId = get(selectedParticipantIdAtom);
-    return userId ? get(participantsAtom)[userId] : null;
-  },
+export const participantByIdSelector = selectorFamily({
+  key: `${NAMESPACE}/participantById`,
+  get:
+    (participantId: DailyParticipant['user_id'] | undefined) =>
+    ({get}) => {
+      if (!participantId) {
+        return;
+      }
+
+      return get(participantsAtom)[participantId];
+    },
 });
 
 export const participantsSelector = selector<Array<DailyParticipant>>({
   key: `${NAMESPACE}/participantsSelector`,
   get: ({get}) => {
     const participantsObj = get(participantsAtom);
-
-    const localParticipant = participantsObj.local;
-    const activeParticipant = get(activeParticipantAtom);
-    const activeParticipantId =
-      activeParticipant === localParticipant?.user_id
-        ? 'local'
-        : activeParticipant;
-
-    const participants = localParticipant?.user_id
-      ? omit([localParticipant?.user_id], participantsObj)
-      : participantsObj; // Omit local stream from server
+    const activeParticipantId = get(activeParticipantAtom);
+    const spotlightParticipantId = get(spotlightParticipantIdAtom) ?? '';
 
     // When users leaves the call they are sometimes represented as undefined
     // so we need to remove those
     return (
-      activeParticipantId
+      activeParticipantId && activeParticipantId !== spotlightParticipantId
         ? [
             participantsObj[activeParticipantId],
-            ...values(omit([activeParticipantId], participants)),
+            ...values(
+              omit(
+                [activeParticipantId, spotlightParticipantId],
+                participantsObj,
+              ),
+            ),
           ]
-        : values(participants)
+        : values(omit([spotlightParticipantId], participantsObj))
     ).filter(p => p !== undefined) as Array<DailyParticipant>;
   },
 });
@@ -76,7 +77,11 @@ export const localParticipantSelector = selector<DailyParticipant | null>({
   key: `${NAMESPACE}/localParticipantsSelector`,
   get: ({get}) => {
     const participants = get(participantsAtom);
-    return participants.local ?? null;
+    return (
+      Object.values(participants).find(participant =>
+        Boolean(participant?.local),
+      ) ?? null
+    );
   },
 });
 

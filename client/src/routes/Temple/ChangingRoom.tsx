@@ -33,8 +33,9 @@ import useTemple from './hooks/useTemple';
 import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
-import AudioIndicator from './components/AudioIdicator';
+import AudioIndicator from './components/Participants/AudioIdicator';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
+import {userAtom} from '../../lib/user/state/state';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -77,13 +78,15 @@ const InputWrapper = styled.View({
 
 const Audio = styled(AudioIndicator)({
   position: 'absolute',
-  left: SPACINGS.SIXTEEN,
+  right: SPACINGS.SIXTEEN,
   top: SPACINGS.SIXTEEN,
 });
 
 const ChangingRoom = () => {
   const {t} = useTranslation(NS.SCREEN.CHANGING_ROOM);
   const [localUserName, setLocalUserName] = useState('');
+
+  const user = useRecoilValue(userAtom);
   const {goBack, navigate} = useNavigation<TempleNavigationProps>();
   const {toggleAudio, toggleVideo, setUserName, preJoinMeeting} =
     useContext(DailyContext);
@@ -93,8 +96,9 @@ const ChangingRoom = () => {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'ChangingRoom'>>();
 
-  const {subscribeTemple} = useTemple();
+  const {subscribeTemple, setDailyFacilitatorId} = useTemple();
   const isFocused = useIsFocused();
+  const me = useRecoilValue(localParticipantSelector);
 
   useEffect(() => subscribeTemple(templeId), [subscribeTemple, templeId]);
 
@@ -102,12 +106,22 @@ const ChangingRoom = () => {
     const startVideo = async () => {
       if (isFocused && temple?.url) {
         preJoinMeeting(temple?.url);
+
+        if (temple?.facilitator === user?.uid && me?.user_id) {
+          setDailyFacilitatorId(me.user_id);
+        }
       }
     };
     startVideo();
-  }, [preJoinMeeting, temple, isFocused]);
-
-  const me = useRecoilValue(localParticipantSelector);
+  }, [
+    preJoinMeeting,
+    setDailyFacilitatorId,
+    temple?.url,
+    temple?.facilitator,
+    user?.uid,
+    me?.user_id,
+    isFocused,
+  ]);
 
   if (!isFocused) {
     return null;

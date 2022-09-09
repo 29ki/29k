@@ -30,35 +30,46 @@ const useTemple = () => {
 
   const navigateToIndex = useCallback(
     async (index: Temple['index']) => {
-      if (!temple || index < 0 || index > content.length - 1) {
+      if (!temple?.id || index < 0 || index > content.length - 1) {
         return;
       }
 
       return templeApi.updateTemple(temple.id, {index, playing: false});
     },
-    [temple, content],
+    [temple?.id, content],
   );
 
   const setActive = useCallback(
     async (active: Temple['active']) => {
-      if (!temple) {
+      if (!temple?.id) {
         return;
       }
 
       return templeApi.updateTemple(temple.id, {active});
     },
-    [temple],
+    [temple?.id],
   );
 
   const setPlaying = useCallback(
     async (playing: Temple['playing']) => {
-      if (!temple) {
+      if (!temple?.id) {
         return;
       }
 
       return templeApi.updateTemple(temple.id, {playing});
     },
-    [temple],
+    [temple?.id],
+  );
+
+  const setDailyFacilitatorId = useCallback(
+    async (dailyFacilitatorId: Temple['dailyFacilitatorId']) => {
+      if (!temple?.id) {
+        return;
+      }
+
+      return templeApi.updateTemple(temple.id, {dailyFacilitatorId});
+    },
+    [temple?.id],
   );
 
   return {
@@ -66,6 +77,7 @@ const useTemple = () => {
     navigateToIndex,
     setActive,
     setPlaying,
+    setDailyFacilitatorId,
   };
 };
 
