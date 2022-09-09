@@ -1,53 +1,59 @@
-import {Platform, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {COLORS} from '../../constants/colors';
-
-const fontFamily = Platform.select({ios: 'Times New Roman', android: 'serif'});
+import {
+  HKGroteskBold,
+  HKGroteskMedium,
+  OrpheusProMedium,
+} from '../../constants/fonts';
 
 const textStyles = StyleSheet.create({
   H1: {
     color: COLORS.GREY,
     fontSize: 40,
     lineHeight: 48,
-    fontFamily,
+    fontFamily: OrpheusProMedium,
   },
   H2: {
     color: COLORS.GREY,
     fontSize: 32,
     lineHeight: 41,
-    fontFamily,
+    fontFamily: OrpheusProMedium,
   },
   H3: {
     color: COLORS.GREY,
     fontSize: 24,
     lineHeight: 31,
-    fontFamily,
+    fontFamily: OrpheusProMedium,
   },
   H4: {
     color: COLORS.GREY,
     fontSize: 20,
     lineHeight: 28,
-    fontFamily,
+    fontFamily: OrpheusProMedium,
   },
   H5: {
     color: COLORS.GREY,
     fontSize: 16,
     lineHeight: 22,
-    fontFamily,
+    fontFamily: OrpheusProMedium,
   },
   B1: {
     color: COLORS.GREY,
     fontSize: 20,
     lineHeight: 26,
+    fontFamily: HKGroteskMedium,
   },
   B2: {
     color: COLORS.GREY,
     fontSize: 16,
     lineHeight: 18,
+    fontFamily: HKGroteskMedium,
   },
   B3: {
     color: COLORS.GREY,
     fontSize: 14,
     lineHeight: 16,
+    fontFamily: HKGroteskMedium,
   },
   ERROR_TEXT: {
     fontSize: 14,
@@ -60,6 +66,7 @@ const textStyles = StyleSheet.create({
   NAV_TAB: {
     color: COLORS.BLACK,
     fontSize: 16,
+    fontFamily: HKGroteskBold,
   },
   TEXTLINK: {
     color: COLORS.ROSE700,
