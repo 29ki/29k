@@ -37,10 +37,7 @@ import AudioIndicator from './components/Participants/AudioIdicator';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 import {userAtom} from '../../lib/user/state/state';
 
-type TempleNavigationProps = NativeStackNavigationProp<
-  TempleStackProps,
-  'Temple'
->;
+type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'padding', android: undefined}),

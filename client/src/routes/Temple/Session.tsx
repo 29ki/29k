@@ -23,7 +23,10 @@ import AudioToggleButton from './components/Buttons/AudioToggleButton';
 import VideoToggleButton from './components/Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
 import LeaveButton from './components/Buttons/LeaveButton';
-import {RootStackProps, TempleStackProps} from '../../common/constants/routes';
+import {
+  TabNavigatorProps,
+  TempleStackProps,
+} from '../../common/constants/routes';
 import useTemple from './hooks/useTemple';
 import {DailyContext} from './DailyProvider';
 import NS from '../../lib/i18n/constants/namespaces';
@@ -41,7 +44,7 @@ import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import {userAtom} from '../../lib/user/state/state';
 import Participants from './components/Participants/Participants';
 
-type ScreenNavigationProps = NativeStackNavigationProp<RootStackProps, 'Tabs'>;
+type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
 const LoadingView = styled.View({
   flex: 1,
@@ -104,7 +107,7 @@ const Session = () => {
 
   const exitMeeting = async () => {
     await leaveMeeting();
-    navigate('Tabs');
+    navigate('Temples');
   };
 
   if (isLoading) {
