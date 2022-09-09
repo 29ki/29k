@@ -36,7 +36,6 @@ const Shadow = styled.View.attrs({
 })({});
 
 const Wrapper = styled(TouchableOpacity)({
-  flex: 1,
   justifyContent: 'space-between',
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
   backgroundColor: COLORS.YELLOW_LIGHT,

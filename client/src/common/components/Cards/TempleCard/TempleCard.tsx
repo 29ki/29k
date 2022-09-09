@@ -32,13 +32,9 @@ const TempleCard: React.FC<TempleCardProps> = ({
       buttonText={buttonText}
       graphic={graphic}
       onPress={onPress}>
-      {
-        <>
-          {/* Add Time component to handle "Starts in 20 min 18 sec" vs "The session will start Saturday at 13.00 " */}
-          <B3>{time}</B3>
-          <Spacer8 />
-        </>
-      }
+      {/* Add Time component to handle "Starts in 20 min 18 sec" vs "The session will start Saturday at 13.00 " */}
+      <B3>{time}</B3>
+      <Spacer8 />
     </Card>
   );
 };
