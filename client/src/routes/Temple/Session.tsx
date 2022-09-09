@@ -27,7 +27,7 @@ import {
   TabNavigatorProps,
   TempleStackProps,
 } from '../../common/constants/routes';
-import useTemple from './hooks/useTemple';
+
 import {DailyContext} from './DailyProvider';
 import NS from '../../lib/i18n/constants/namespaces';
 
@@ -43,6 +43,8 @@ import {
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import {userAtom} from '../../lib/user/state/state';
 import Participants from './components/Participants/Participants';
+import useUpdateTemple from './hooks/useUpdateTemple';
+import useSubscribeToTemple from './hooks/useSubscribeToTemple';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
@@ -84,12 +86,13 @@ const Session = () => {
   const {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Temple'>>();
-
   const {navigate} = useNavigation<ScreenNavigationProps>();
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
-  const {subscribeTemple, navigateToIndex, setActive, setPlaying} = useTemple();
-  const user = useRecoilValue(userAtom);
 
+  useSubscribeToTemple(templeId);
+  const {navigateToIndex, setActive, setPlaying} = useUpdateTemple(templeId);
+
+  const user = useRecoilValue(userAtom);
   const temple = useRecoilValue(templeAtom);
   const participants = useRecoilValue(participantsSelector);
   const me = useRecoilValue(localParticipantSelector);
@@ -99,11 +102,6 @@ const Session = () => {
   useEffect(() => {
     joinMeeting();
   }, [joinMeeting]);
-
-  useEffect(() => {
-    const unsubscribe = subscribeTemple(templeId);
-    return unsubscribe;
-  }, [subscribeTemple, templeId]);
 
   const exitMeeting = async () => {
     await leaveMeeting();
@@ -145,7 +143,9 @@ const Session = () => {
                 {temple.index > 0 && (
                   <SlideButton
                     LeftIcon={ChevronLeft}
-                    onPress={() => navigateToIndex(temple.index - 1)}
+                    onPress={() =>
+                      navigateToIndex({index: temple.index - 1, content})
+                    }
                   />
                 )}
                 <MediaControls>
@@ -162,7 +162,9 @@ const Session = () => {
                 {temple.index < content.length - 1 && (
                   <SlideButton
                     RightIcon={ChevronRight}
-                    onPress={() => navigateToIndex(temple.index + 1)}
+                    onPress={() =>
+                      navigateToIndex({index: temple.index + 1, content})
+                    }
                   />
                 )}
               </ContentControls>

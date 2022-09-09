@@ -29,13 +29,14 @@ import {COLORS} from '../../common/constants/colors';
 import {DailyContext} from '../Temple/DailyProvider';
 import {localParticipantSelector, templeAtom} from './state/state';
 import {TempleStackProps} from '../../common/constants/routes';
-import useTemple from './hooks/useTemple';
 import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
 import AudioIndicator from './components/Participants/AudioIdicator';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 import {userAtom} from '../../lib/user/state/state';
+import useSubscribeToTemple from './hooks/useSubscribeToTemple';
+import useUpdateTemple from './hooks/useUpdateTemple';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -96,11 +97,10 @@ const ChangingRoom = () => {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'ChangingRoom'>>();
 
-  const {subscribeTemple, setDailyFacilitatorId} = useTemple();
+  useSubscribeToTemple(templeId);
+  const {setSpotlightParticipant} = useUpdateTemple(templeId);
   const isFocused = useIsFocused();
   const me = useRecoilValue(localParticipantSelector);
-
-  useEffect(() => subscribeTemple(templeId), [subscribeTemple, templeId]);
 
   useEffect(() => {
     const startVideo = async () => {
@@ -108,14 +108,14 @@ const ChangingRoom = () => {
         preJoinMeeting(temple?.url);
 
         if (temple?.facilitator === user?.uid && me?.user_id) {
-          setDailyFacilitatorId(me.user_id);
+          setSpotlightParticipant(me.user_id);
         }
       }
     };
     startVideo();
   }, [
     preJoinMeeting,
-    setDailyFacilitatorId,
+    setSpotlightParticipant,
     temple?.url,
     temple?.facilitator,
     user?.uid,
