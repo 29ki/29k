@@ -58,7 +58,7 @@ const ContentResolver = React.memo(
 );
 
 const Fade: React.FC<{visible: boolean}> = ({children, visible}) => {
-  const opacity = useSharedValue(0);
+  const opacity = useSharedValue(visible ? 1 : 0);
 
   const animatedStyles = useAnimatedStyle(() => ({
     opacity: opacity.value,
