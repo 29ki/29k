@@ -6,15 +6,9 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import {ContentSlide} from '../../../../../../shared/src/types/Content';
+import {ExerciseSlide} from '../../../../../../shared/src/types/Content';
 import {StyleSheet} from 'react-native';
-import {Content} from '../Content/Content';
-
-type ContentProps = {
-  content: ContentSlide[];
-  contentIndex: number;
-  playing: boolean;
-};
+import {Slide} from '../Slides/Slide';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -38,7 +32,13 @@ const Fade: React.FC<{visible: boolean}> = ({children, visible}) => {
   return <AnimatedView style={animatedStyles}>{children}</AnimatedView>;
 };
 
-const ContentSlides: React.FC<ContentProps> = ({
+type ExerciseSlidesProps = {
+  content: ExerciseSlide[];
+  contentIndex: number;
+  playing: boolean;
+};
+
+const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
   content,
   contentIndex = 0,
   playing,
@@ -52,19 +52,19 @@ const ContentSlides: React.FC<ContentProps> = ({
     <Wrapper>
       {prevContent && (
         <Fade visible={false} key={contentIndex - 1}>
-          <Content content={prevContent} playing={false} />
+          <Slide slide={prevContent} playing={false} />
         </Fade>
       )}
       <Fade visible={true} key={contentIndex}>
-        <Content content={currentContent} playing={playing} />
+        <Slide slide={currentContent} playing={playing} />
       </Fade>
       {nextContent && (
         <Fade visible={false} key={contentIndex + 1}>
-          <Content content={nextContent} playing={false} />
+          <Slide slide={nextContent} playing={false} />
         </Fade>
       )}
     </Wrapper>
   );
 };
 
-export default ContentSlides;
+export default ExerciseSlides;

@@ -3,15 +3,21 @@ import {RecoilRoot} from 'recoil';
 
 import useUpdateTemple from './useUpdateTemple';
 import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
-import {ContentSlide} from '../../../../../shared/src/types/Content';
+import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 
 enableFetchMocks();
 
 const mockContent = [
-  {type: 'facilitator'},
-  {type: 'text', content: {heading: 'some heading'}},
-  {type: 'video', content: {heading: 'some heading', source: 'some://source'}},
-] as ContentSlide[];
+  {type: 'participantSpotlight'},
+  {type: 'content', content: {heading: 'some heading'}},
+  {
+    type: 'reflection',
+    content: {
+      heading: 'some heading',
+      video: {source: 'some://source', thumbnail: 'some://thumbnail'},
+    },
+  },
+] as ExerciseSlide[];
 
 beforeEach(() => {
   fetchMock.resetMocks();

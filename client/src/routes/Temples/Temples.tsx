@@ -47,7 +47,9 @@ const Temples = () => {
     <Gutters>
       <TempleCard
         temple={item}
-        graphicSrc="https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png"
+        image={{
+          uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
+        }}
         time="This session will start on saturday at 13.00"
         buttonText="Join"
         onPress={() =>

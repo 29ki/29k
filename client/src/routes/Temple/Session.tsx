@@ -32,7 +32,7 @@ import {
 import {DailyContext} from './DailyProvider';
 import NS from '../../lib/i18n/constants/namespaces';
 
-import ContentSlides from './components/ContentSlides/ContentSlides';
+import ExerciseSlides from './components/ExerciseSlides/ExerciseSlides';
 import SlideButton from './components/Buttons/SlideButton';
 import {
   ChevronRight,
@@ -135,8 +135,8 @@ const Session = () => {
         )}
         {temple?.active && exercise && (
           <>
-            <ContentSlides
-              content={exercise.content}
+            <ExerciseSlides
+              content={exercise.slides}
               contentIndex={temple.index}
               playing={temple.playing}
             />
@@ -148,7 +148,7 @@ const Session = () => {
                     onPress={() =>
                       navigateToIndex({
                         index: temple.index - 1,
-                        content: exercise.content,
+                        content: exercise.slides,
                       })
                     }
                   />
@@ -164,13 +164,13 @@ const Session = () => {
                     onPress={() => setPlaying(!temple.playing)}
                   />
                 </MediaControls>
-                {temple.index < exercise.content.length - 1 && (
+                {temple.index < exercise.slides.length - 1 && (
                   <SlideButton
                     RightIcon={ChevronRight}
                     onPress={() =>
                       navigateToIndex({
                         index: temple.index + 1,
-                        content: exercise.content,
+                        content: exercise.slides,
                       })
                     }
                   />

@@ -1,33 +1,43 @@
 {
   "en": {
+    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
     "name": "You body, your home",
-    "content": [
+    "slides": [
       {
-        "type": "facilitator"
+        "type": "participantSpotlight"
       },
       {
-        "type": "video",
+        "type": "content",
         "content": {
           "heading": "Your body, your home",
-          "source": "https://res.cloudinary.com/twentyninek/video/upload/v1662110103/temp/meditation_zjiwjl.mp4"
+          "video": {
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/v1662110103/temp/meditation_zjiwjl.mp4"
+          }
         }
       },
       {
-        "type": "video",
+        "type": "reflection",
         "content": {
           "heading": "Reflect: How did this meditation affect you?",
-          "source": "https://res.cloudinary.com/twentyninek/video/upload/v1662119657/temp/reflect_xotkli.mp4"
+          "video": {
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/v1662119657/temp/reflect_xotkli.mp4"
+          }
         }
       },
       {
-        "type": "video",
+        "type": "sharing",
         "content": {
           "heading": "Share: How did this meditation affect you?",
-          "source": "https://res.cloudinary.com/twentyninek/video/upload/v1662119657/temp/share_c64sxr.mp4"
+          "video": {
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/v1662119657/temp/share_c64sxr.mp4"
+          }
         }
       },
       {
-        "type": "text",
+        "type": "participantSpotlight"
+      },
+      {
+        "type": "content",
         "content": {
           "heading": "Thank you"
         }

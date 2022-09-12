@@ -1,25 +1,42 @@
-export type FacilitatorType = {
-  type: 'facilitator';
+export type ParticipantSpotlightSlide = {
+  type: 'participantSpotlight';
 };
 
-export type TextContentType = {
-  type: 'text';
-  content: {
-    heading: string;
-  };
-};
-
-export type VideoContentType = {
-  type: 'video';
-  content: {
+export type Content = {
+  heading?: string;
+  video?: {
     source: string;
-    heading: string;
+    thumbnail: string;
+  };
+  image?: {
+    source: string;
+    description: string;
   };
 };
 
-export type ContentSlide = TextContentType | VideoContentType | FacilitatorType;
+export type ContentSlide = {
+  type: 'content';
+  content: Content;
+};
+
+export type ReflectionSlide = {
+  type: 'reflection';
+  content: Content;
+};
+
+export type SharingSlide = {
+  type: 'sharing';
+  content: Content;
+};
+
+export type ExerciseSlide =
+  | ContentSlide
+  | ReflectionSlide
+  | SharingSlide
+  | ParticipantSpotlightSlide;
 
 export type Exercise = {
+  id: string;
   name: string;
-  content: ContentSlide[];
+  slides: ExerciseSlide[];
 };

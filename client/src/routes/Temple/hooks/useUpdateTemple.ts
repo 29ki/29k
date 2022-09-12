@@ -1,5 +1,5 @@
 import {useCallback} from 'react';
-import {ContentSlide} from '../../../../../shared/src/types/Content';
+import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 import {Temple} from '../../../../../shared/src/types/Temple';
 import * as templeApi from '../../Temples/api/temple';
 
@@ -10,7 +10,7 @@ const useUpdateTemple = (templeId: Temple['id']) => {
       content,
     }: {
       index: Temple['index'];
-      content: ContentSlide[];
+      content: ExerciseSlide[];
     }) => {
       if (!templeId || index < 0 || index > content.length - 1) {
         return;
