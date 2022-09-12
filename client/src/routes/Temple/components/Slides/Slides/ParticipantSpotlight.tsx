@@ -1,14 +1,9 @@
 import React from 'react';
-import {useRecoilValue} from 'recoil';
-import {participantByIdSelector, templeAtom} from '../../../state/state';
+import useTempleParticipantSpotlight from '../../../hooks/useTempleParticipantSpotlight';
 import Participant from '../../Participants/Participant';
 
 const ParticipantSpotlight = () => {
-  const temple = useRecoilValue(templeAtom);
-
-  const participantSpotlight = useRecoilValue(
-    participantByIdSelector(temple?.dailySpotlightId),
-  );
+  const participantSpotlight = useTempleParticipantSpotlight();
 
   if (!participantSpotlight) {
     return null;

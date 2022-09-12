@@ -7,7 +7,6 @@ import {useTranslation} from 'react-i18next';
 
 import {
   videoSharingFields,
-  participantsSelector,
   templeAtom,
   localParticipantSelector,
 } from './state/state';
@@ -41,11 +40,12 @@ import {
   Pause,
   Rewind,
 } from '../../common/components/Icons';
-import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import {userAtom} from '../../lib/user/state/state';
 import Participants from './components/Participants/Participants';
 import useUpdateTemple from './hooks/useUpdateTemple';
 import useSubscribeToTemple from './hooks/useSubscribeToTemple';
+import useTempleParticipants from './hooks/useTempleParticipants';
+import useTempleExercise from './hooks/useTempleExercise';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
@@ -73,6 +73,7 @@ const ContentControls = styled.View({
   left: 20,
   right: 20,
   flexDirection: 'row',
+  justifyContent: 'space-between',
 });
 
 const MediaControls = styled.View({
@@ -95,10 +96,10 @@ const Session = () => {
 
   const user = useRecoilValue(userAtom);
   const temple = useRecoilValue(templeAtom);
-  const participants = useRecoilValue(participantsSelector);
+  const participants = useTempleParticipants();
   const me = useRecoilValue(localParticipantSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
-  const exercise = useExerciseById(temple?.contentId);
+  const exercise = useTempleExercise();
 
   useEffect(() => {
     joinMeeting();
@@ -136,8 +137,10 @@ const Session = () => {
         {temple?.active && exercise && (
           <>
             <ExerciseSlides
-              content={exercise.slides}
-              contentIndex={temple.index}
+              index={exercise.slide.index}
+              current={exercise.slide.current}
+              previous={exercise.slide.previous}
+              next={exercise.slide.next}
               playing={temple.playing}
             />
             {temple?.facilitator === user?.uid && (
@@ -153,17 +156,19 @@ const Session = () => {
                     }
                   />
                 )}
-                <MediaControls>
-                  <SlideButton
-                    LeftIcon={Rewind}
-                    onPress={() => setPlaying(!temple.playing)}
-                  />
-                  <Spacer8 />
-                  <SlideButton
-                    LeftIcon={temple.playing ? Pause : Play}
-                    onPress={() => setPlaying(!temple.playing)}
-                  />
-                </MediaControls>
+                {exercise.slide.current.type !== 'participantSpotlight' && (
+                  <MediaControls>
+                    <SlideButton
+                      LeftIcon={Rewind}
+                      onPress={() => setPlaying(!temple.playing)}
+                    />
+                    <Spacer8 />
+                    <SlideButton
+                      LeftIcon={temple.playing ? Pause : Play}
+                      onPress={() => setPlaying(!temple.playing)}
+                    />
+                  </MediaControls>
+                )}
                 {temple.index < exercise.slides.length - 1 && (
                   <SlideButton
                     RightIcon={ChevronRight}
