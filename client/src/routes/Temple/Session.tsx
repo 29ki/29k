@@ -31,7 +31,7 @@ import {
 import {DailyContext} from './DailyProvider';
 import NS from '../../lib/i18n/constants/namespaces';
 
-import Content from './components/Content/Content';
+import ContentSlides from './components/ContentSlides/ContentSlides';
 import SlideButton from './components/Buttons/SlideButton';
 import {
   ChevronRight,
@@ -133,7 +133,7 @@ const Session = () => {
         )}
         {temple?.active && (
           <>
-            <Content
+            <ContentSlides
               content={content}
               contentIndex={temple.index}
               playing={temple.playing}
