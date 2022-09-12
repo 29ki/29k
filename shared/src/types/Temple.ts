@@ -7,5 +7,5 @@ export type Temple = {
   playing: boolean;
   contentId: string;
   facilitator: string;
-  dailyFacilitatorId?: string;
+  dailySpotlightId?: string;
 };

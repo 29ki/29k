@@ -33,38 +33,36 @@ const Fade: React.FC<{visible: boolean}> = ({children, visible}) => {
 };
 
 type ExerciseSlidesProps = {
-  content: ExerciseSlide[];
-  contentIndex: number;
+  index: number;
   playing: boolean;
+  current: ExerciseSlide;
+  previous?: ExerciseSlide;
+  next?: ExerciseSlide;
 };
 
 const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
-  content,
-  contentIndex = 0,
+  index = 0,
   playing,
-}) => {
-  const prevContent = content[contentIndex - 1];
-  const currentContent = content[contentIndex];
-  const nextContent = content[contentIndex + 1];
-
+  current,
+  previous,
+  next,
+}) => (
   // "Pre load" previous and next slide
-  return (
-    <Wrapper>
-      {prevContent && (
-        <Fade visible={false} key={contentIndex - 1}>
-          <Slide slide={prevContent} playing={false} />
-        </Fade>
-      )}
-      <Fade visible={true} key={contentIndex}>
-        <Slide slide={currentContent} playing={playing} />
+  <Wrapper>
+    {previous && (
+      <Fade visible={false} key={index - 1}>
+        <Slide slide={previous} playing={false} />
       </Fade>
-      {nextContent && (
-        <Fade visible={false} key={contentIndex + 1}>
-          <Slide slide={nextContent} playing={false} />
-        </Fade>
-      )}
-    </Wrapper>
-  );
-};
+    )}
+    <Fade visible={true} key={index}>
+      <Slide slide={current} playing={playing} />
+    </Fade>
+    {next && (
+      <Fade visible={false} key={index + 1}>
+        <Slide slide={next} playing={false} />
+      </Fade>
+    )}
+  </Wrapper>
+);
 
 export default ExerciseSlides;

@@ -1,35 +1,15 @@
-import React, {useEffect} from 'react';
-import {useRecoilValue, useSetRecoilState} from 'recoil';
-import {
-  participantByIdSelector,
-  spotlightParticipantIdAtom,
-  templeAtom,
-} from '../../../state/state';
+import React from 'react';
+import useTempleParticipantSpotlight from '../../../hooks/useTempleParticipantSpotlight';
 import Participant from '../../Participants/Participant';
 
 const ParticipantSpotlight = () => {
-  const temple = useRecoilValue(templeAtom);
+  const participantSpotlight = useTempleParticipantSpotlight();
 
-  const facilitator = useRecoilValue(
-    participantByIdSelector(temple?.dailyFacilitatorId),
-  );
-  const setSpotlightParticipantId = useSetRecoilState(
-    spotlightParticipantIdAtom,
-  );
-
-  useEffect(() => {
-    if (facilitator?.user_id) {
-      setSpotlightParticipantId(facilitator.user_id);
-    }
-
-    return () => setSpotlightParticipantId(null);
-  }, [setSpotlightParticipantId, facilitator?.user_id]);
-
-  if (!facilitator) {
+  if (!participantSpotlight) {
     return null;
   }
 
-  return <Participant participant={facilitator} />;
+  return <Participant participant={participantSpotlight} />;
 };
 
 export default ParticipantSpotlight;
