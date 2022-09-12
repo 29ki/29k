@@ -58,6 +58,7 @@ describe('useTempleExercise', () => {
 
     expect(result.current).toEqual({
       slide: {
+        index: 1,
         current: {type: 'slide-2'},
         next: {type: 'slide-3'},
         previous: {type: 'slide-1'},
@@ -82,6 +83,7 @@ describe('useTempleExercise', () => {
 
     expect(result.current).toEqual({
       slide: {
+        index: 0,
         current: {type: 'slide-1'},
         next: undefined,
         previous: undefined,
