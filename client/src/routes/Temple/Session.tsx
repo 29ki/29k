@@ -127,10 +127,6 @@ const Session = () => {
     <MainViewContainer>
       <Spotlight>
         <TopSafeArea />
-        <ProgressBar
-          index={exercise?.slide.index}
-          length={exercise?.slides.length}
-        />
         {!temple?.exerciseState.active && temple?.facilitator === user?.uid && (
           <ContentControls>
             <SlideButton
@@ -142,6 +138,10 @@ const Session = () => {
         )}
         {temple?.exerciseState.active && exercise && (
           <>
+            <ProgressBar
+              index={exercise?.slide.index}
+              length={exercise?.slides.length}
+            />
             <ExerciseSlides
               index={exercise.slide.index}
               current={exercise.slide.current}
