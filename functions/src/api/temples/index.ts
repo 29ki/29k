@@ -1,11 +1,30 @@
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 import {firestore} from 'firebase-admin';
+import {Timestamp} from 'firebase-admin/firestore';
 import 'firebase-functions';
 
-import {Temple} from '../../../../shared/src/types/Temple';
+import {
+  TempleInput,
+  TempleData,
+  Temple,
+  ExerciseStateData,
+  ExerciseState,
+} from '../../../../shared/src/types/Temple';
 import * as dailyApi from '../../lib/dailyApi';
 import {createAuthorizedRouter} from '../../lib/routers';
+
+const getTempleExerciseState = (
+  exerciseState: ExerciseStateData,
+): ExerciseState => ({
+  ...exerciseState,
+  timestamp: exerciseState.timestamp.toString(),
+});
+
+const getTemple = (temple: TempleData): Temple => ({
+  ...temple,
+  exerciseState: getTempleExerciseState(temple.exerciseState),
+});
 
 const TEMPLES_COLLECTION = 'temples';
 
@@ -15,7 +34,7 @@ templesRouter.get('/', async ctx => {
   const {response} = ctx;
 
   const snapshot = await firestore().collection(TEMPLES_COLLECTION).get();
-  const temples = snapshot.docs.map(doc => doc.data()) as Temple[];
+  const temples = snapshot.docs.map(doc => getTemple(doc.data() as TempleData));
 
   response.status = 200;
   ctx.body = temples;
@@ -30,62 +49,34 @@ templesRouter.post('/', validator({body: CreateTempleData}), async ctx => {
   const {name, contentId} = ctx.request.body;
 
   const data = await dailyApi.createRoom();
-  const temple: Temple & {dailyRoomName: string} = {
-    id: data.id,
-    name,
-    url: data.url,
+  const defaultExerciseState = {
     active: false,
     index: 0,
     playing: false,
+    timestamp: Timestamp.now(),
+  };
+
+  const temple: TempleInput & {
+    dailyRoomName: string;
+  } = {
+    id: data.id,
+    name: name,
+    url: data.url,
     contentId,
     facilitator: ctx.user.id,
     dailyRoomName: data.name,
+    exerciseState: defaultExerciseState,
   };
 
   await firestore().collection(TEMPLES_COLLECTION).doc(data.id).set(temple);
 
-  ctx.body = temple;
-});
-
-const UpdateTemple = yup
-  .object({
-    active: yup.boolean(),
-    index: yup.number(),
-    playing: yup.boolean(),
-    dailySpotlightId: yup.string(),
-  })
-  .test(
-    'nonEmptyObject',
-    'object may not be empty',
-    test => Object.keys(test).length > 0,
-  );
-
-templesRouter.put('/:id', validator({body: UpdateTemple}), async ctx => {
-  const data = ctx.request.body;
-  const {id} = ctx.params;
-  const templeDocRef = firestore().collection(TEMPLES_COLLECTION).doc(id);
-  const templeDoc = await templeDocRef.get();
-
-  if (templeDoc.exists) {
-    const temple = templeDoc.data() as Temple;
-
-    if (ctx.user.id !== temple.facilitator) {
-      ctx.status = 500;
-      return;
-    }
-
-    await templeDocRef.update(data);
-
-    ctx.body = (await templeDocRef.get()).data();
-  } else {
-    ctx.status = 500;
-  }
+  ctx.body = getTemple(temple);
 });
 
 templesRouter.delete('/:id', async ctx => {
   const {id} = ctx.params;
   const templeDocRef = firestore().collection(TEMPLES_COLLECTION).doc(id);
-  const temple = (await templeDocRef.get()).data() as Temple & {
+  const temple = (await templeDocRef.get()).data() as TempleData & {
     dailyRoomName: string;
   };
 
@@ -106,5 +97,54 @@ templesRouter.delete('/:id', async ctx => {
   ctx.status = 200;
   ctx.body = 'Temple deleted successfully';
 });
+
+const ExerciseStateUpdate = yup
+  .object({
+    active: yup.boolean(),
+    index: yup.number(),
+    playing: yup.boolean(),
+    dailySpotlightId: yup.string(),
+  })
+  .test(
+    'nonEmptyObject',
+    'object may not be empty',
+    test => Object.keys(test).length > 0,
+  );
+
+templesRouter.put(
+  '/:id/exerciseState',
+  validator({body: ExerciseStateUpdate}),
+  async ctx => {
+    const {id} = ctx.params;
+    const templeDocRef = firestore().collection(TEMPLES_COLLECTION).doc(id);
+
+    await firestore().runTransaction(async transaction => {
+      const templeDoc = await transaction.get(templeDocRef);
+
+      if (templeDoc.exists) {
+        const temple = templeDoc.data() as TempleData;
+
+        if (ctx.user.id !== temple.facilitator) {
+          ctx.status = 500;
+          return;
+        }
+
+        const data = {
+          ...temple.exerciseState,
+          ...ctx.request.body,
+          timestamp: Timestamp.now(),
+        };
+
+        await transaction.update(templeDocRef, {exerciseState: data});
+
+        ctx.body = getTemple(
+          (await transaction.get(templeDocRef)).data() as TempleData,
+        );
+      } else {
+        ctx.status = 500;
+      }
+    });
+  },
+);
 
 export {templesRouter};

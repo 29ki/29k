@@ -2,27 +2,6 @@ import request from 'supertest';
 import {mockFirebase} from 'firestore-jest-mock';
 import Koa from 'koa';
 
-const temples = [
-  {
-    id: 'some-temple-id',
-    active: false,
-    name: 'some-name',
-    url: 'some-url',
-    index: 0,
-    playing: false,
-    facilitator: 'some-user-id',
-  },
-  {
-    id: 'some-other-temple-id',
-    active: false,
-    name: 'some-other-name',
-    url: 'some-other-url',
-    index: 0,
-    playing: false,
-    facilitator: 'some-other-user-id',
-  },
-];
-
 mockFirebase(
   {
     database: {
@@ -42,11 +21,44 @@ const mockDailyApi = {
 
 import {templesRouter} from '.';
 import createMockServer from '../lib/createMockServer';
-import {mockUpdate} from 'firestore-jest-mock/mocks/firestore';
+import {
+  mockGetTransaction,
+  mockRunTransaction,
+  mockUpdate,
+  mockUpdateTransaction,
+} from 'firestore-jest-mock/mocks/firestore';
 import {createAuthorizedRouter} from '../../lib/routers';
 import {firestore} from 'firebase-admin';
+import {Timestamp} from 'firebase-admin/firestore';
 
 jest.mock('../../lib/dailyApi', () => mockDailyApi);
+
+const temples = [
+  {
+    id: 'some-temple-id',
+    name: 'some-name',
+    url: 'some-url',
+    exerciseState: {
+      active: false,
+      index: 0,
+      playing: false,
+      timestamp: Timestamp.now(),
+    },
+    facilitator: 'some-user-id',
+  },
+  {
+    id: 'some-other-temple-id',
+    name: 'some-other-name',
+    url: 'some-other-url',
+    exerciseState: {
+      active: false,
+      index: 0,
+      playing: false,
+      timestamp: Timestamp.now(),
+    },
+    facilitator: 'some-other-user-id',
+  },
+];
 
 const router = createAuthorizedRouter();
 router.use('/temples', templesRouter.routes());
@@ -85,20 +97,26 @@ describe('/api/temples', () => {
       expect(response.body).toEqual([
         {
           id: 'some-temple-id',
-          active: false,
           name: 'some-name',
           url: 'some-url',
-          index: 0,
-          playing: false,
+          exerciseState: {
+            active: false,
+            index: 0,
+            playing: false,
+            timestamp: expect.any(String),
+          },
           facilitator: 'some-user-id',
         },
         {
           id: 'some-other-temple-id',
-          active: false,
           name: 'some-other-name',
           url: 'some-other-url',
-          index: 0,
-          playing: false,
+          exerciseState: {
+            active: false,
+            index: 0,
+            playing: false,
+            timestamp: expect.any(String),
+          },
           facilitator: 'some-other-user-id',
         },
       ]);
@@ -114,12 +132,15 @@ describe('/api/temples', () => {
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
-        active: false,
         id: 'some-fake-daily-id',
         name: 'the next big temple!',
         url: 'http://fake.daily/url',
-        index: 0,
-        playing: false,
+        exerciseState: {
+          active: false,
+          index: 0,
+          playing: false,
+          timestamp: expect.any(String),
+        },
         contentId: 'some-content-id',
         facilitator: 'some-user-id',
       });
@@ -145,64 +166,106 @@ describe('/api/temples', () => {
     });
   });
 
-  describe('PUT /:id', () => {
+  describe('PUT /:id/exerciseState', () => {
+    it('runs in a transaction', async () => {
+      await request(mockServer)
+        .put('/temples/some-temple-id/exerciseState')
+        .send({active: true})
+        .set('Accept', 'application/json');
+
+      expect(mockRunTransaction).toHaveBeenCalledTimes(1);
+      expect(mockUpdateTransaction).toHaveBeenCalledTimes(1);
+      expect(mockGetTransaction).toHaveBeenCalledTimes(2);
+    });
+
     it('should update index', async () => {
       const response = await request(mockServer)
-        .put(`/temples/some-temple-id`)
+        .put('/temples/some-temple-id/exerciseState')
         .send({index: 2})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
-        active: false,
         id: 'some-temple-id',
-        index: 2,
         name: 'some-name',
         url: 'some-url',
-        playing: false,
+        exerciseState: {
+          active: false,
+          index: 2,
+          playing: false,
+          timestamp: expect.any(String),
+        },
         facilitator: 'some-user-id',
       });
     });
 
     it('should update active', async () => {
       const response = await request(mockServer)
-        .put(`/temples/some-temple-id`)
+        .put('/temples/some-temple-id/exerciseState')
         .send({active: true})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
-        active: true,
         id: 'some-temple-id',
-        index: 0,
         name: 'some-name',
         url: 'some-url',
-        playing: false,
+        exerciseState: {
+          active: true,
+          index: 0,
+          playing: false,
+          timestamp: expect.any(String),
+        },
         facilitator: 'some-user-id',
       });
     });
 
     it('should update playing', async () => {
       const response = await request(mockServer)
-        .put(`/temples/some-temple-id`)
+        .put('/temples/some-temple-id/exerciseState')
         .send({playing: true})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
-        active: false,
         id: 'some-temple-id',
-        index: 0,
         name: 'some-name',
         url: 'some-url',
-        playing: true,
+        exerciseState: {
+          active: false,
+          index: 0,
+          playing: true,
+          timestamp: expect.any(String),
+        },
+        facilitator: 'some-user-id',
+      });
+    });
+
+    it('should update dailySpotlightId', async () => {
+      const response = await request(mockServer)
+        .put('/temples/some-temple-id/exerciseState')
+        .send({dailySpotlightId: 'some-user-id'})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({
+        id: 'some-temple-id',
+        name: 'some-name',
+        url: 'some-url',
+        exerciseState: {
+          active: false,
+          index: 0,
+          playing: false,
+          dailySpotlightId: 'some-user-id',
+          timestamp: expect.any(String),
+        },
         facilitator: 'some-user-id',
       });
     });
 
     it('should fail when request auth user is not facilitator', async () => {
       const response = await request(mockServer)
-        .put('/temples/some-other-temple-id')
+        .put('/temples/some-other-temple-id/exerciseState')
         .send({playing: true})
         .set('Accept', 'application/json');
 
@@ -212,7 +275,7 @@ describe('/api/temples', () => {
 
     it('should require a field', async () => {
       const response = await request(mockServer)
-        .put(`/temples/some-temple-id`)
+        .put('/temples/some-temple-id/exerciseState')
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(500);
@@ -222,18 +285,25 @@ describe('/api/temples', () => {
 
     it('does not accept other fields', async () => {
       const response = await request(mockServer)
-        .put(`/temples/some-temple-id`)
+        .put('/temples/some-temple-id/exerciseState')
         .send({active: true, index: 1, foo: 'bar'})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
-      expect(mockUpdate).toHaveBeenCalledTimes(1);
-      expect(mockUpdate).toBeCalledWith({active: true, index: 1});
+      expect(mockUpdateTransaction).toHaveBeenCalledTimes(1);
+      expect(mockUpdateTransaction).toHaveBeenCalledWith(expect.any(Object), {
+        exerciseState: {
+          active: true,
+          index: 1,
+          playing: false,
+          timestamp: expect.any(Object),
+        },
+      });
     });
 
     it('should return 500 on non-existing temple', async () => {
       const response = await request(mockServer)
-        .put(`/temples/some-non-existing-id`)
+        .put('/temples/some-non-existing-id/exerciseState')
         .send({active: true, index: 1})
         .set('Accept', 'application/json');
 
