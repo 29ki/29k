@@ -126,7 +126,7 @@ templesRouter.put(
 
         if (ctx.user.id !== temple.facilitator) {
           ctx.status = 500;
-          return;
+          throw new Error('Unauthorized');
         }
 
         const data = {
@@ -136,14 +136,12 @@ templesRouter.put(
         };
 
         await transaction.update(templeDocRef, {exerciseState: data});
-
-        ctx.body = getTemple(
-          (await transaction.get(templeDocRef)).data() as TempleData,
-        );
       } else {
         ctx.status = 500;
       }
     });
+
+    ctx.body = getTemple((await templeDocRef.get()).data() as TempleData);
   },
 );
 

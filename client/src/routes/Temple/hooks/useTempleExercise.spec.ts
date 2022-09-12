@@ -50,7 +50,7 @@ describe('useTempleExercise', () => {
       wrapper: RecoilRoot,
       initialProps: {
         initializeState: ({set}) => {
-          set(templeAtom, {index: 1} as Temple);
+          set(templeAtom, {exerciseState: {index: 1}} as Temple);
         },
         children: null,
       },
@@ -75,7 +75,7 @@ describe('useTempleExercise', () => {
       wrapper: RecoilRoot,
       initialProps: {
         initializeState: ({set}) => {
-          set(templeAtom, {index: 0} as Temple);
+          set(templeAtom, {exerciseState: {index: 0}} as Temple);
         },
         children: null,
       },

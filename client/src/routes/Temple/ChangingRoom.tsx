@@ -36,7 +36,7 @@ import AudioIndicator from './components/Participants/AudioIdicator';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 import {userAtom} from '../../lib/user/state/state';
 import useSubscribeToTemple from './hooks/useSubscribeToTemple';
-import useUpdateTemple from './hooks/useUpdateTemple';
+import useUpdateTempleExerciseState from './hooks/useUpdateTempleExerciseState';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -98,7 +98,7 @@ const ChangingRoom = () => {
   } = useRoute<RouteProp<TempleStackProps, 'ChangingRoom'>>();
 
   useSubscribeToTemple(templeId);
-  const {setSpotlightParticipant} = useUpdateTemple(templeId);
+  const {setSpotlightParticipant} = useUpdateTempleExerciseState(templeId);
   const isFocused = useIsFocused();
   const me = useRecoilValue(localParticipantSelector);
 

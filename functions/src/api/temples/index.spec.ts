@@ -175,7 +175,7 @@ describe('/api/temples', () => {
 
       expect(mockRunTransaction).toHaveBeenCalledTimes(1);
       expect(mockUpdateTransaction).toHaveBeenCalledTimes(1);
-      expect(mockGetTransaction).toHaveBeenCalledTimes(2);
+      expect(mockGetTransaction).toHaveBeenCalledTimes(1);
     });
 
     it('should update index', async () => {
