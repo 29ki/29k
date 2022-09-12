@@ -1,82 +1,33 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
-import {FlatList, ListRenderItemInfo} from 'react-native';
-
-import {TopSafeArea} from '../../../../common/components/Spacers/Spacer';
 import TextContent from './contentTypes/Text';
 import VideoContent from './contentTypes/Video';
-
-import {ContentSlide} from '../../../../../../shared/src/types/Content';
+import {
+  ContentSlide,
+  TextContentType,
+  VideoContentType,
+} from '../../../../../../shared/src/types/Content';
 import Facilitator from './contentTypes/Facilitator';
-
-type ContentProps = {
-  content: ContentSlide[];
-  contentIndex: number;
-  playing: boolean;
-};
+import {COLORS} from '../../../../common/constants/colors';
 
 const Wrapper = styled.View({
   flex: 1,
+  backgroundColor: COLORS.WHITE_EASY,
 });
 
-const Slide = styled.View<{width: number}>(props => ({
-  flex: 1,
-  width: props.width,
-}));
-
-const Content: React.FC<ContentProps> = ({
-  content,
-  contentIndex = 0,
-  playing,
-}) => {
-  const [width, setWidth] = useState<number>(0);
-  const listRef = useRef<FlatList>(null);
-
-  useEffect(() => {
-    listRef.current?.scrollToIndex({animated: true, index: contentIndex});
-  }, [contentIndex]);
-
-  const renderSlide = ({item, index}: ListRenderItemInfo<ContentSlide>) => {
-    return (
-      <Slide width={width}>
-        {item.type === 'facilitator' && <Facilitator />}
-        {item.type === 'text' && <TextContent content={item} />}
-        {item.type === 'video' && (
-          <VideoContent
-            content={item}
-            playing={contentIndex === index && playing}
-          />
-        )}
-      </Slide>
-    );
-  };
-
-  const getItemLayout = (_: any, index: number) => ({
-    length: width,
-    offset: index * width,
-    index,
-  });
-
-  return (
-    <>
-      <TopSafeArea />
-      <Wrapper
-        onLayout={event => {
-          setWidth(event.nativeEvent.layout.width);
-        }}>
-        <FlatList
-          getItemLayout={getItemLayout}
-          ref={listRef}
-          horizontal
-          data={content}
-          renderItem={renderSlide}
-          snapToInterval={width}
-          scrollEnabled={false}
-          initialScrollIndex={contentIndex}
-        />
-      </Wrapper>
-    </>
-  );
+type ContentProps = {
+  content: ContentSlide;
+  playing: boolean;
 };
 
-export default Content;
+export const Content = React.memo(({content, playing}: ContentProps) => (
+  <Wrapper>
+    {content.type === 'facilitator' && <Facilitator />}
+    {content.type === 'text' && (
+      <TextContent content={content as TextContentType} />
+    )}
+    {content.type === 'video' && (
+      <VideoContent content={content as VideoContentType} playing={playing} />
+    )}
+  </Wrapper>
+));

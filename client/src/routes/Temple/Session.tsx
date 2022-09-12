@@ -18,6 +18,7 @@ import {
   Spacer8,
   Spacer12,
   Spacer16,
+  TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
 import AudioToggleButton from './components/Buttons/AudioToggleButton';
 import VideoToggleButton from './components/Buttons/VideoToggleButton';
@@ -31,7 +32,7 @@ import {
 import {DailyContext} from './DailyProvider';
 import NS from '../../lib/i18n/constants/namespaces';
 
-import Content from './components/Content/Content';
+import ContentSlides from './components/ContentSlides/ContentSlides';
 import SlideButton from './components/Buttons/SlideButton';
 import {
   ChevronRight,
@@ -122,6 +123,7 @@ const Session = () => {
   return (
     <MainViewContainer>
       <Spotlight>
+        <TopSafeArea />
         {!temple?.active && temple?.facilitator === user?.uid && (
           <ContentControls>
             <SlideButton
@@ -133,7 +135,7 @@ const Session = () => {
         )}
         {temple?.active && (
           <>
-            <Content
+            <ContentSlides
               content={content}
               contentIndex={temple.index}
               playing={temple.playing}

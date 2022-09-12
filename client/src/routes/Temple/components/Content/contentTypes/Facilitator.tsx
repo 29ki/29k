@@ -13,15 +13,17 @@ const Facilitator = () => {
   const facilitator = useRecoilValue(
     participantByIdSelector(temple?.dailyFacilitatorId),
   );
-  const setSelectedParticipant = useSetRecoilState(spotlightParticipantIdAtom);
+  const setSpotlightParticipantId = useSetRecoilState(
+    spotlightParticipantIdAtom,
+  );
 
   useEffect(() => {
     if (facilitator?.user_id) {
-      setSelectedParticipant(facilitator.user_id);
+      setSpotlightParticipantId(facilitator.user_id);
     }
 
-    return () => setSelectedParticipant(null);
-  }, [setSelectedParticipant, facilitator?.user_id]);
+    return () => setSpotlightParticipantId(null);
+  }, [setSpotlightParticipantId, facilitator?.user_id]);
 
   if (!facilitator) {
     return null;
