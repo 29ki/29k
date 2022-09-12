@@ -29,8 +29,10 @@ const useUpdateTemple = (templeId: Temple['id']) => {
   );
 
   const setSpotlightParticipant = useCallback(
-    async (dailyFacilitatorId: Temple['dailyFacilitatorId']) => {
-      return templeApi.updateTemple(templeId, {dailyFacilitatorId});
+    async (dailySpotlightId: Temple['dailySpotlightId']) => {
+      return templeApi.updateTemple(templeId, {
+        dailySpotlightId,
+      });
     },
     [templeId],
   );

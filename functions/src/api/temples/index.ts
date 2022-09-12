@@ -52,7 +52,7 @@ const UpdateTemple = yup
     active: yup.boolean(),
     index: yup.number(),
     playing: yup.boolean(),
-    dailyFacilitatorId: yup.string(),
+    dailySpotlightId: yup.string(),
   })
   .test(
     'nonEmptyObject',
