@@ -1,9 +1,9 @@
 import {useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {ContentSlide} from '../../../../../shared/src/types/Content';
+import {Exercise} from '../../../../../shared/src/types/Content';
 import NS from '../../i18n/constants/namespaces';
 
-const useExerciseById = (id: string | undefined): ContentSlide[] => {
+const useExerciseById = (id: string | undefined): Exercise | null => {
   const {t} = useTranslation(NS.EXERCISES);
 
   return useMemo(
@@ -12,7 +12,7 @@ const useExerciseById = (id: string | undefined): ContentSlide[] => {
         ? t(id, {
             returnObjects: true,
           })
-        : [],
+        : null,
     [id, t],
   );
 };
