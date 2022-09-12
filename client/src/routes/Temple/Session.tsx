@@ -98,7 +98,7 @@ const Session = () => {
   const participants = useRecoilValue(participantsSelector);
   const me = useRecoilValue(localParticipantSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
-  const content = useExerciseById(temple?.contentId);
+  const exercise = useExerciseById(temple?.contentId);
 
   useEffect(() => {
     joinMeeting();
@@ -133,10 +133,10 @@ const Session = () => {
             </SlideButton>
           </ContentControls>
         )}
-        {temple?.active && (
+        {temple?.active && exercise && (
           <>
             <ContentSlides
-              content={content}
+              content={exercise.content}
               contentIndex={temple.index}
               playing={temple.playing}
             />
@@ -146,7 +146,10 @@ const Session = () => {
                   <SlideButton
                     LeftIcon={ChevronLeft}
                     onPress={() =>
-                      navigateToIndex({index: temple.index - 1, content})
+                      navigateToIndex({
+                        index: temple.index - 1,
+                        content: exercise.content,
+                      })
                     }
                   />
                 )}
@@ -161,11 +164,14 @@ const Session = () => {
                     onPress={() => setPlaying(!temple.playing)}
                   />
                 </MediaControls>
-                {temple.index < content.length - 1 && (
+                {temple.index < exercise.content.length - 1 && (
                   <SlideButton
                     RightIcon={ChevronRight}
                     onPress={() =>
-                      navigateToIndex({index: temple.index + 1, content})
+                      navigateToIndex({
+                        index: temple.index + 1,
+                        content: exercise.content,
+                      })
                     }
                   />
                 )}
