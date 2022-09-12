@@ -1,7 +1,7 @@
 import React from 'react';
-import {View} from 'react-native';
+import {ImageSourcePropType, View} from 'react-native';
 import styled from 'styled-components/native';
-import AnimatedLottieView from 'lottie-react-native';
+import AnimatedLottieView, {AnimationObject} from 'lottie-react-native';
 
 import {COLORS} from '../../constants/colors';
 import {SPACINGS} from '../../constants/spacings';
@@ -48,16 +48,11 @@ const Row = styled.View({
 
 const CallToAction = styled.View({flex: 1, justifyContent: 'flex-end'});
 
-type Graphics = {
-  src: string;
-  alt?: string;
-  animation: boolean;
-};
-
 type CardProps = {
   title: string;
   description?: string;
-  graphic: Graphics;
+  image?: ImageSourcePropType;
+  lottie?: AnimationObject;
   onPress: () => void;
   buttonText: string;
 };
@@ -65,7 +60,8 @@ type CardProps = {
 export const Card: React.FC<CardProps> = ({
   title,
   description,
-  graphic = {src: '', animation: false},
+  lottie,
+  image,
   onPress,
   buttonText,
   children,
@@ -83,11 +79,11 @@ export const Card: React.FC<CardProps> = ({
           <CardButton onPress={onPress}>{buttonText}</CardButton>
         </CallToAction>
         <GraphicsWrapper>
-          {graphic.animation ? (
-            <Lottie source={graphic.src} autoPlay loop />
-          ) : (
-            <Image src={graphic.src} />
-          )}
+          {lottie ? (
+            <Lottie source={lottie} autoPlay loop />
+          ) : image ? (
+            <Image source={image} />
+          ) : null}
         </GraphicsWrapper>
       </Row>
     </Wrapper>
