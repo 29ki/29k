@@ -142,7 +142,6 @@ const Session = () => {
               current={exercise.slide.current}
               previous={exercise.slide.previous}
               next={exercise.slide.next}
-              playing={temple.exerciseState.playing}
             />
             {temple?.facilitator === user?.uid && (
               <ContentControls>
@@ -161,7 +160,7 @@ const Session = () => {
                   <MediaControls>
                     <SlideButton
                       LeftIcon={Rewind}
-                      onPress={() => setPlaying(!temple.exerciseState.playing)}
+                      onPress={() => setPlaying(temple.exerciseState.playing)}
                     />
                     <Spacer8 />
                     <SlideButton
