@@ -18,3 +18,8 @@ export type VideoContentType = {
 };
 
 export type ContentSlide = TextContentType | VideoContentType | FacilitatorType;
+
+export type Exercise = {
+  name: string;
+  content: ContentSlide[];
+};
