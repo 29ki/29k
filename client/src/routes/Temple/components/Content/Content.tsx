@@ -76,10 +76,9 @@ const Content: React.FC<ContentProps> = ({
   contentIndex = 0,
   playing,
 }) => {
-  const prevContent = contentIndex > 0 ? content[contentIndex - 1] : null;
+  const prevContent = content[contentIndex - 1];
   const currentContent = content[contentIndex];
-  const nextContent =
-    contentIndex < content.length - 1 ? content[contentIndex + 1] : null;
+  const nextContent = content[contentIndex + 1];
 
   return (
     <>
@@ -90,14 +89,14 @@ const Content: React.FC<ContentProps> = ({
             <ContentResolver content={prevContent} playing={false} />
           </Fade>
         )}
+        <Fade visible={true} key={contentIndex}>
+          <ContentResolver content={currentContent} playing={playing} />
+        </Fade>
         {nextContent && (
           <Fade visible={false} key={contentIndex + 1}>
             <ContentResolver content={nextContent} playing={false} />
           </Fade>
         )}
-        <Fade visible={true} key={contentIndex}>
-          <ContentResolver content={currentContent} playing={playing} />
-        </Fade>
       </Wrapper>
     </>
   );
