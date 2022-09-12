@@ -42,7 +42,7 @@ import {
 } from '../../common/components/Icons';
 import {userAtom} from '../../lib/user/state/state';
 import Participants from './components/Participants/Participants';
-import useUpdateTemple from './hooks/useUpdateTemple';
+import useUpdateTempleExerciseState from './hooks/useUpdateTempleExerciseState';
 import useSubscribeToTemple from './hooks/useSubscribeToTemple';
 import useTempleParticipants from './hooks/useTempleParticipants';
 import useTempleExercise from './hooks/useTempleExercise';
@@ -92,7 +92,8 @@ const Session = () => {
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
 
   useSubscribeToTemple(templeId);
-  const {navigateToIndex, setActive, setPlaying} = useUpdateTemple(templeId);
+  const {navigateToIndex, setActive, setPlaying} =
+    useUpdateTempleExerciseState(templeId);
 
   const user = useRecoilValue(userAtom);
   const temple = useRecoilValue(templeAtom);
@@ -125,7 +126,7 @@ const Session = () => {
     <MainViewContainer>
       <Spotlight>
         <TopSafeArea />
-        {!temple?.active && temple?.facilitator === user?.uid && (
+        {!temple?.exerciseState.active && temple?.facilitator === user?.uid && (
           <ContentControls>
             <SlideButton
               onPress={() => setActive(true)}
@@ -134,23 +135,23 @@ const Session = () => {
             </SlideButton>
           </ContentControls>
         )}
-        {temple?.active && exercise && (
+        {temple?.exerciseState.active && exercise && (
           <>
             <ExerciseSlides
               index={exercise.slide.index}
               current={exercise.slide.current}
               previous={exercise.slide.previous}
               next={exercise.slide.next}
-              playing={temple.playing}
+              playing={temple.exerciseState.playing}
             />
             {temple?.facilitator === user?.uid && (
               <ContentControls>
-                {temple.index > 0 && (
+                {temple.exerciseState.index > 0 && (
                   <SlideButton
                     LeftIcon={ChevronLeft}
                     onPress={() =>
                       navigateToIndex({
-                        index: temple.index - 1,
+                        index: temple.exerciseState.index - 1,
                         content: exercise.slides,
                       })
                     }
@@ -160,21 +161,21 @@ const Session = () => {
                   <MediaControls>
                     <SlideButton
                       LeftIcon={Rewind}
-                      onPress={() => setPlaying(!temple.playing)}
+                      onPress={() => setPlaying(!temple.exerciseState.playing)}
                     />
                     <Spacer8 />
                     <SlideButton
-                      LeftIcon={temple.playing ? Pause : Play}
-                      onPress={() => setPlaying(!temple.playing)}
+                      LeftIcon={temple.exerciseState.playing ? Pause : Play}
+                      onPress={() => setPlaying(!temple.exerciseState.playing)}
                     />
                   </MediaControls>
                 )}
-                {temple.index < exercise.slides.length - 1 && (
+                {temple.exerciseState.index < exercise.slides.length - 1 && (
                   <SlideButton
                     RightIcon={ChevronRight}
                     onPress={() =>
                       navigateToIndex({
-                        index: temple.index + 1,
+                        index: temple.exerciseState.index + 1,
                         content: exercise.slides,
                       })
                     }

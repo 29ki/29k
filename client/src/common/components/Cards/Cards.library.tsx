@@ -14,9 +14,12 @@ export const AllCards = () => (
         url: '',
         name: 'Test temple',
         id: 'sdf',
-        active: true,
-        index: 0,
-        playing: false,
+        exerciseState: {
+          active: true,
+          index: 0,
+          playing: false,
+          timestamp: '',
+        },
         contentId: 'some content',
         facilitator: 'some-user-id',
       }}
@@ -33,9 +36,12 @@ export const AllCards = () => (
         url: '',
         name: 'Test temple',
         id: 'sdf',
-        active: true,
-        index: 0,
-        playing: false,
+        exerciseState: {
+          active: true,
+          index: 0,
+          playing: false,
+          timestamp: '',
+        },
         contentId: 'some content',
         facilitator: 'some-user-id',
       }}

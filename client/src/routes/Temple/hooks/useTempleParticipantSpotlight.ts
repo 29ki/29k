@@ -5,7 +5,7 @@ const useTempleParticipantSpotlight = () => {
   const temple = useRecoilValue(templeAtom);
 
   const participantSpotlight = useRecoilValue(
-    participantByIdSelector(temple?.dailySpotlightId),
+    participantByIdSelector(temple?.exerciseState.dailySpotlightId),
   );
 
   return participantSpotlight;
