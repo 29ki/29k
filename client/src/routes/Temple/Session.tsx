@@ -46,6 +46,7 @@ import useUpdateTempleExerciseState from './hooks/useUpdateTempleExerciseState';
 import useSubscribeToTemple from './hooks/useSubscribeToTemple';
 import useTempleParticipants from './hooks/useTempleParticipants';
 import useTempleExercise from './hooks/useTempleExercise';
+import ProgressBar from './components/ProgressBar/ProgressBar';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
@@ -126,6 +127,10 @@ const Session = () => {
     <MainViewContainer>
       <Spotlight>
         <TopSafeArea />
+        <ProgressBar
+          index={exercise?.slide.index}
+          length={exercise?.slides.length}
+        />
         {!temple?.exerciseState.active && temple?.facilitator === user?.uid && (
           <ContentControls>
             <SlideButton
