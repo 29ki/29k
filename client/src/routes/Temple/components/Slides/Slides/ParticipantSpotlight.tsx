@@ -7,7 +7,7 @@ import {
 } from '../../../state/state';
 import Participant from '../../Participants/Participant';
 
-const Facilitator = () => {
+const ParticipantSpotlight = () => {
   const temple = useRecoilValue(templeAtom);
 
   const facilitator = useRecoilValue(
@@ -32,4 +32,4 @@ const Facilitator = () => {
   return <Participant participant={facilitator} />;
 };
 
-export default Facilitator;
+export default ParticipantSpotlight;

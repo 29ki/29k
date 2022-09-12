@@ -5,7 +5,6 @@ import {Spacer16} from '../Spacers/Spacer';
 import TempleCard from './TempleCard/TempleCard';
 
 const lottieSource = require('../../../assets/animations/mandala.json');
-const animation = {src: lottieSource, animation: true};
 
 export const AllCards = () => (
   <ScreenWrapper>
@@ -21,7 +20,9 @@ export const AllCards = () => (
         contentId: 'some content',
         facilitator: 'some-user-id',
       }}
-      graphicSrc="https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png"
+      image={{
+        uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
+      }}
       buttonText="Join"
       time="Some time"
       onPress={() => console.log('Temple Card!')}
@@ -38,8 +39,7 @@ export const AllCards = () => (
         contentId: 'some content',
         facilitator: 'some-user-id',
       }}
-      graphicSrc={animation.src}
-      animation
+      lottie={lottieSource}
       buttonText="Join"
       time="Some time"
       onPress={() => console.log('Temple Card!')}

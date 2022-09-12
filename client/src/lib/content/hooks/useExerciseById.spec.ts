@@ -24,12 +24,12 @@ describe('useExerciseById', () => {
     expect(result.current).toBe('some-exercise');
   });
 
-  it('returns empty array when no ID is provided', () => {
+  it('returns null when no ID is provided', () => {
     const {result} = renderHook(() => useExerciseById(undefined));
 
     expect(mockT).toHaveBeenCalledTimes(0);
 
-    expect(result.current).toEqual([]);
+    expect(result.current).toBe(null);
   });
 
   it('memoizes the result - as i18next.t is not pure', () => {

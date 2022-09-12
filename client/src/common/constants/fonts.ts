@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import {Platform} from 'react-native';
 
 export const OrpheusProRegular = Platform.select({
