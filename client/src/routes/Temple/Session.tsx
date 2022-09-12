@@ -18,6 +18,7 @@ import {
   Spacer8,
   Spacer12,
   Spacer16,
+  TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
 import AudioToggleButton from './components/Buttons/AudioToggleButton';
 import VideoToggleButton from './components/Buttons/VideoToggleButton';
@@ -122,6 +123,7 @@ const Session = () => {
   return (
     <MainViewContainer>
       <Spotlight>
+        <TopSafeArea />
         {!temple?.active && temple?.facilitator === user?.uid && (
           <ContentControls>
             <SlideButton

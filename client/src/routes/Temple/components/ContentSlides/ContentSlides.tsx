@@ -6,8 +6,6 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import {TopSafeArea} from '../../../../common/components/Spacers/Spacer';
-
 import {ContentSlide} from '../../../../../../shared/src/types/Content';
 import {StyleSheet} from 'react-native';
 import {Content} from '../Content/Content';
@@ -49,25 +47,23 @@ const ContentSlides: React.FC<ContentProps> = ({
   const currentContent = content[contentIndex];
   const nextContent = content[contentIndex + 1];
 
+  // "Pre load" previous and next slide
   return (
-    <>
-      <TopSafeArea />
-      <Wrapper>
-        {prevContent && (
-          <Fade visible={false} key={contentIndex - 1}>
-            <Content content={prevContent} playing={false} />
-          </Fade>
-        )}
-        <Fade visible={true} key={contentIndex}>
-          <Content content={currentContent} playing={playing} />
+    <Wrapper>
+      {prevContent && (
+        <Fade visible={false} key={contentIndex - 1}>
+          <Content content={prevContent} playing={false} />
         </Fade>
-        {nextContent && (
-          <Fade visible={false} key={contentIndex + 1}>
-            <Content content={nextContent} playing={false} />
-          </Fade>
-        )}
-      </Wrapper>
-    </>
+      )}
+      <Fade visible={true} key={contentIndex}>
+        <Content content={currentContent} playing={playing} />
+      </Fade>
+      {nextContent && (
+        <Fade visible={false} key={contentIndex + 1}>
+          <Content content={nextContent} playing={false} />
+        </Fade>
+      )}
+    </Wrapper>
   );
 };
 
