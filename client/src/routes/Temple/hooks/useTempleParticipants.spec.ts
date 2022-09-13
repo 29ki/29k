@@ -20,7 +20,9 @@ describe('useTempleParticipants', () => {
       initialProps: {
         initializeState: ({set}) => {
           set(templeAtom, {
-            dailySpotlightId: 'some-spotlight-user-id',
+            exerciseState: {
+              dailySpotlightId: 'some-spotlight-user-id',
+            },
           } as Temple);
           set(participantsAtom, {
             'some-spotlight-user-id': {
@@ -76,7 +78,9 @@ describe('useTempleParticipants', () => {
       initialProps: {
         initializeState: ({set}) => {
           set(templeAtom, {
-            dailySpotlightId: 'some-spotlight-user-id',
+            exerciseState: {
+              dailySpotlightId: 'some-spotlight-user-id',
+            },
           } as Temple);
           set(participantsAtom, {
             'some-spotlight-user-id': {

@@ -1,4 +1,4 @@
-import {Temple} from '../../../../../shared/src/types/Temple';
+import {ExerciseState, Temple} from '../../../../../shared/src/types/Temple';
 import apiClient from '../../../lib/apiClient/apiClient';
 
 const TEMPLES_ENDPOINT = '/temples';
@@ -23,12 +23,18 @@ export const addTemple = async (
   }
 };
 
-export const updateTemple = async (id: string, data: Partial<Temple>) => {
+export const updateTempleExerciseState = async (
+  id: string,
+  data: Partial<ExerciseState>,
+) => {
   try {
-    const response = await apiClient(`${TEMPLES_ENDPOINT}/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify(data),
-    });
+    const response = await apiClient(
+      `${TEMPLES_ENDPOINT}/${id}/exerciseState`,
+      {
+        method: 'PUT',
+        body: JSON.stringify(data),
+      },
+    );
 
     if (!response.ok) {
       throw new Error(await response.text());
@@ -36,7 +42,7 @@ export const updateTemple = async (id: string, data: Partial<Temple>) => {
 
     return response.json();
   } catch (cause) {
-    throw new Error('Could not update temple', {cause});
+    throw new Error('Could not update temple exercise state', {cause});
   }
 };
 

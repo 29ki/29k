@@ -1,7 +1,7 @@
 import {act, renderHook} from '@testing-library/react-hooks';
 import {RecoilRoot} from 'recoil';
 
-import useUpdateTemple from './useUpdateTemple';
+import useUpdateTempleExerciseState from './useUpdateTempleExerciseState';
 import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
 import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 
@@ -27,10 +27,10 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe('useUpdateTemple', () => {
+describe('useUpdateTempleExerciseState', () => {
   const useTestHook = () => {
     const {navigateToIndex, setActive, setPlaying} =
-      useUpdateTemple('temple-id');
+      useUpdateTempleExerciseState('temple-id');
 
     return {navigateToIndex, setActive, setPlaying};
   };
