@@ -1,6 +1,6 @@
 import {renderHook} from '@testing-library/react-hooks';
 import {RecoilRoot} from 'recoil';
-import {Temple} from '../../../../../shared/src/types/Temple';
+import {TempleData} from '../../../../../shared/src/types/Temple';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import {templeAtom} from '../state/state';
 import useTempleExercise from './useTempleExercise';
@@ -18,7 +18,7 @@ describe('useTempleExercise', () => {
         initializeState: ({set}) => {
           set(templeAtom, {
             id: 'test',
-          } as Temple);
+          } as TempleData);
         },
         children: null,
       },
@@ -50,7 +50,7 @@ describe('useTempleExercise', () => {
       wrapper: RecoilRoot,
       initialProps: {
         initializeState: ({set}) => {
-          set(templeAtom, {exerciseState: {index: 1}} as Temple);
+          set(templeAtom, {exerciseState: {index: 1}} as TempleData);
         },
         children: null,
       },
@@ -75,7 +75,7 @@ describe('useTempleExercise', () => {
       wrapper: RecoilRoot,
       initialProps: {
         initializeState: ({set}) => {
-          set(templeAtom, {exerciseState: {index: 0}} as Temple);
+          set(templeAtom, {exerciseState: {index: 0}} as TempleData);
         },
         children: null,
       },

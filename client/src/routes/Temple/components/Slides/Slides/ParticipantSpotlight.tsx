@@ -2,10 +2,15 @@ import React from 'react';
 import useTempleParticipantSpotlight from '../../../hooks/useTempleParticipantSpotlight';
 import Participant from '../../Participants/Participant';
 
-const ParticipantSpotlight = () => {
+type ParticipantSpotlightProps = {
+  active: boolean;
+};
+const ParticipantSpotlight: React.FC<ParticipantSpotlightProps> = ({
+  active,
+}) => {
   const participantSpotlight = useTempleParticipantSpotlight();
 
-  if (!participantSpotlight) {
+  if (!active || !participantSpotlight) {
     return null;
   }
 
