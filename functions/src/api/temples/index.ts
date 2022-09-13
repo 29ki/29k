@@ -21,13 +21,15 @@ templesRouter.get('/', async ctx => {
   ctx.body = temples;
 });
 
-const CreateTempleData = yup.object().shape({
+const CreateTempleSchema = yup.object().shape({
   name: yup.string().required(),
   contentId: yup.string().required(),
 });
 
-templesRouter.post('/', validator({body: CreateTempleData}), async ctx => {
-  const {name, contentId} = ctx.request.body;
+type CreateTemple = yup.InferType<typeof CreateTempleSchema>;
+
+templesRouter.post('/', validator({body: CreateTempleSchema}), async ctx => {
+  const {name, contentId} = ctx.request.body as CreateTemple;
 
   const data = await dailyApi.createRoom();
   const temple: Temple & {dailyRoomName: string} = {
@@ -47,7 +49,7 @@ templesRouter.post('/', validator({body: CreateTempleData}), async ctx => {
   ctx.body = temple;
 });
 
-const UpdateTemple = yup
+const UpdateTempleSchema = yup
   .object({
     active: yup.boolean(),
     index: yup.number(),
@@ -60,8 +62,10 @@ const UpdateTemple = yup
     test => Object.keys(test).length > 0,
   );
 
-templesRouter.put('/:id', validator({body: UpdateTemple}), async ctx => {
-  const data = ctx.request.body;
+type UpdateTemple = yup.InferType<typeof UpdateTempleSchema>;
+
+templesRouter.put('/:id', validator({body: UpdateTempleSchema}), async ctx => {
+  const data = ctx.request.body as UpdateTemple;
   const {id} = ctx.params;
   const templeDocRef = firestore().collection(TEMPLES_COLLECTION).doc(id);
   const templeDoc = await templeDocRef.get();
