@@ -5,7 +5,7 @@ import {Context as KoaContext, Next} from 'koa';
 Firebase parses body for us, so no need for a body parser
 https://github.com/koajs/bodyparser/issues/127
 */
-export type FirebaseContext = KoaContext & {
+export type FirebaseContext = Omit<KoaContext, 'req'> & {
   req: FirebaseRequest;
 };
 
