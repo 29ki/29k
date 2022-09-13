@@ -56,7 +56,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({index = 0, length = 1}) => (
     {Array(length - 1)
       .fill('')
       .map((_, idx) => (
-        <Block fill={idx < index} />
+        <Block key={idx} fill={idx < index} />
       ))}
   </Wrapper>
 );
