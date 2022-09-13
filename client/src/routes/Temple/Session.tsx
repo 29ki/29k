@@ -46,6 +46,7 @@ import useUpdateTempleExerciseState from './hooks/useUpdateTempleExerciseState';
 import useSubscribeToTemple from './hooks/useSubscribeToTemple';
 import useTempleParticipants from './hooks/useTempleParticipants';
 import useTempleExercise from './hooks/useTempleExercise';
+import useMuteAudioListener from './hooks/useMuteAudioListener';
 import ProgressBar from './components/ProgressBar/ProgressBar';
 import {SPACINGS} from '../../common/constants/spacings';
 
@@ -98,6 +99,7 @@ const Session = () => {
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
 
   useSubscribeToTemple(templeId);
+  useMuteAudioListener();
   const {navigateToIndex, setActive, setPlaying} =
     useUpdateTempleExerciseState(templeId);
 

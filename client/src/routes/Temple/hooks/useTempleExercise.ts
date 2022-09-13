@@ -1,8 +1,18 @@
 import {useRecoilValue} from 'recoil';
+import {Exercise, ExerciseSlide} from '../../../../../shared/src/types/Content';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import {templeAtom} from '../state/state';
 
-const useTempleExercise = () => {
+type TempleExercise = Exercise & {
+  slide: {
+    index: number;
+    previous?: ExerciseSlide;
+    current: ExerciseSlide;
+    next?: ExerciseSlide;
+  };
+};
+
+const useTempleExercise = (): TempleExercise | null => {
   const temple = useRecoilValue(templeAtom);
   const excercise = useExerciseById(temple?.contentId);
 
