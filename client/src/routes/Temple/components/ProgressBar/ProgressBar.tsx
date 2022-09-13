@@ -1,6 +1,5 @@
-import {props} from 'ramda';
 import React, {useEffect} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {View} from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -13,8 +12,6 @@ import {SPACINGS} from '../../../../common/constants/spacings';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
-  paddingLeft: SPACINGS.SIXTEEN,
-  paddingRight: SPACINGS.SIXTEEN,
   borderRadius: SPACINGS.EIGHT,
   height: SPACINGS.FOUR,
   overflow: 'hidden',

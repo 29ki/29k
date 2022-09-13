@@ -47,6 +47,7 @@ import useSubscribeToTemple from './hooks/useSubscribeToTemple';
 import useTempleParticipants from './hooks/useTempleParticipants';
 import useTempleExercise from './hooks/useTempleExercise';
 import ProgressBar from './components/ProgressBar/ProgressBar';
+import {SPACINGS} from '../../common/constants/spacings';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
@@ -81,6 +82,10 @@ const MediaControls = styled.View({
   flex: 1,
   flexDirection: 'row',
   justifyContent: 'center',
+});
+
+const ProgressWrapper = styled.View({
+  paddingHorizontal: SPACINGS.SIXTEEN,
 });
 
 const Session = () => {
@@ -138,10 +143,12 @@ const Session = () => {
         )}
         {temple?.exerciseState.active && exercise && (
           <>
-            <ProgressBar
-              index={exercise?.slide.index}
-              length={exercise?.slides.length}
-            />
+            <ProgressWrapper>
+              <ProgressBar
+                index={exercise?.slide.index}
+                length={exercise?.slides.length}
+              />
+            </ProgressWrapper>
             <ExerciseSlides
               index={exercise.slide.index}
               current={exercise.slide.current}
