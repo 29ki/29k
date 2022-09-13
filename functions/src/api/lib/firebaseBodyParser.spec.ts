@@ -1,3 +1,4 @@
+import {Request} from 'firebase-functions/v1';
 import firebaseBodyParser, {FirebaseContext} from './firebaseBodyParser';
 
 describe('firebaseBodyParser', () => {
@@ -10,7 +11,7 @@ describe('firebaseBodyParser', () => {
       },
       req: {
         body: {foo: 'bar'},
-      },
+      } as Request,
     };
     const next = jest.fn();
 
