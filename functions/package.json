@@ -37,7 +37,7 @@
     "@types/jest": "^28.1.7",
     "@types/koa": "^2.13.5",
     "@types/koa-bodyparser": "^4.3.7",
-    "@types/koa__router": "^8.0.11",
+    "@types/koa__router": "^12.0.0",
     "@types/node-fetch": "^2.6.2",
     "@types/ramda": "^0.28.15",
     "@types/semver": "^7.3.12",
