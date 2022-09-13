@@ -12,6 +12,7 @@ import {SPACINGS} from '../../../../common/constants/spacings';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
+  backgroundColor: COLORS.GREY200,
   borderRadius: SPACINGS.EIGHT,
   height: SPACINGS.FOUR,
   overflow: 'hidden',
