@@ -1,7 +1,7 @@
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import {renderHook} from '@testing-library/react-hooks';
 import {RecoilRoot} from 'recoil';
-import {Temple} from '../../../../../shared/src/types/Temple';
+import {TempleData} from '../../../../../shared/src/types/Temple';
 import {participantsAtom, templeAtom} from '../state/state';
 import useTempleParticipantSpotlight from './useTempleParticipantSpotlight';
 
@@ -15,7 +15,7 @@ describe('useTempleParticipantSpotlight', () => {
             exerciseState: {
               dailySpotlightId: 'some-spotlight-user-id',
             },
-          } as Temple);
+          } as TempleData);
 
           set(participantsAtom, {
             'some-spotlight-user-id': {
@@ -57,7 +57,7 @@ describe('useTempleParticipantSpotlight', () => {
             exerciseState: {
               dailySpotlightId: 'some-spotlight-user-id',
             },
-          } as Temple);
+          } as TempleData);
 
           set(participantsAtom, {
             'some-other-user-id': {

@@ -2,17 +2,17 @@ import {useContext, useEffect} from 'react';
 import {useRecoilValue} from 'recoil';
 
 import {DailyContext} from '../DailyProvider';
-import {templeAtom} from '../state/state';
+import {templeExerciseStateSelector} from '../state/state';
 
 const useSubscribeToExerciseState = () => {
   const {toggleAudio} = useContext(DailyContext);
-  const temple = useRecoilValue(templeAtom);
+  const exerciseState = useRecoilValue(templeExerciseStateSelector);
 
   useEffect(() => {
-    if (temple?.exerciseState.playing) {
+    if (exerciseState?.playing) {
       toggleAudio(false);
     }
-  }, [toggleAudio, temple?.exerciseState]);
+  }, [toggleAudio, exerciseState]);
 };
 
 export default useSubscribeToExerciseState;

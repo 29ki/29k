@@ -3,7 +3,10 @@ import {renderHook} from '@testing-library/react-hooks';
 import {RecoilRoot} from 'recoil';
 
 import {templeAtom} from '../state/state';
-import {ExerciseState, Temple} from '../../../../../shared/src/types/Temple';
+import {
+  ExerciseStateInput,
+  TempleInput,
+} from '../../../../../shared/src/types/Temple';
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -14,7 +17,7 @@ const mockToggleAudio = jest.fn();
 jest.mock('../DailyProvider');
 
 import {DailyContext, DailyProviderTypes} from '../DailyProvider';
-import useSubscribeToExerciseState from './useMuteAudioListener';
+import useMuteAudioListener from './useMuteAudioListener';
 
 describe('useMuteAudioListener', () => {
   it('should toggle audio when state is playing', async () => {
@@ -22,8 +25,8 @@ describe('useMuteAudioListener', () => {
       <RecoilRoot
         initializeState={({set}) => {
           set(templeAtom, {
-            exerciseState: {playing: true} as ExerciseState,
-          } as Temple);
+            exerciseState: {playing: true} as ExerciseStateInput,
+          } as TempleInput);
         }}>
         <DailyContext.Provider
           value={
@@ -34,7 +37,7 @@ describe('useMuteAudioListener', () => {
       </RecoilRoot>
     );
 
-    renderHook(() => useSubscribeToExerciseState(), {
+    renderHook(() => useMuteAudioListener(), {
       wrapper,
     });
 
@@ -46,8 +49,8 @@ describe('useMuteAudioListener', () => {
       <RecoilRoot
         initializeState={({set}) => {
           set(templeAtom, {
-            exerciseState: {playing: false} as ExerciseState,
-          } as Temple);
+            exerciseState: {playing: false} as ExerciseStateInput,
+          } as TempleInput);
         }}>
         <DailyContext.Provider
           value={
@@ -58,7 +61,7 @@ describe('useMuteAudioListener', () => {
       </RecoilRoot>
     );
 
-    renderHook(() => useSubscribeToExerciseState(), {
+    renderHook(() => useMuteAudioListener(), {
       wrapper,
     });
 
