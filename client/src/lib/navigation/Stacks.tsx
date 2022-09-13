@@ -9,6 +9,7 @@ import Tabs from './Tabs';
 import Temple from '../../routes/Temple/Temple';
 import ChangingRoom from '../../routes/Temple/ChangingRoom';
 import DailyProvider from '../../routes/Temple/DailyProvider';
+import CreateTemple from '../../routes/Temples/CreateTemple';
 
 const RootStack = createNativeStackNavigator<RootStackProps>();
 const TempleStack = createNativeStackNavigator<TempleStackProps>();
@@ -40,6 +41,14 @@ const RootStackWrapper = () => {
             name={'TempleStack'}
             component={TempleStackWrapper}
           />
+          <RootStack.Group
+            screenOptions={{
+              presentation: 'transparentModal',
+              gestureDirection: 'vertical',
+              gestureEnabled: true,
+            }}>
+            <RootStack.Screen name={'CreateTemple'} component={CreateTemple} />
+          </RootStack.Group>
         </>
       )}
     </RootStack.Navigator>

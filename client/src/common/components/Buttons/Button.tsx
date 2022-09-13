@@ -10,14 +10,17 @@ type ButtonProps = {
   style?: object;
   disabled?: boolean;
 };
-const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(({primary}) => ({
-  minHeight: SPACINGS.THIRTYTWO,
-  backgroundColor: primary ? COLORS.GREY200 : COLORS.BLACK_EASY,
-  borderRadius: SPACINGS.SIXTEEN,
-  alignItems: 'center',
-  justifyContent: 'center',
-  flexDirection: 'row',
-}));
+const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(
+  ({primary, disabled}) => ({
+    opacity: disabled ? 0.7 : undefined,
+    minHeight: SPACINGS.THIRTYTWO,
+    backgroundColor: primary ? COLORS.GREY200 : COLORS.BLACK_EASY,
+    borderRadius: SPACINGS.SIXTEEN,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  }),
+);
 
 export const ButtonText = styled(B2)<ButtonProps>(({primary}) => ({
   color: primary ? COLORS.BLACK_EASY : COLORS.GREY100,

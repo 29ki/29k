@@ -11,6 +11,7 @@ const NS = {
     PROFILE: 'Screen.Profile',
     TEMPLE: 'Screen.Temple',
     TEMPLES: 'Screen.Temples',
+    ADD_TEMPLE: 'Screen.AddTemple',
   },
   EXERCISES: 'exercises',
 };

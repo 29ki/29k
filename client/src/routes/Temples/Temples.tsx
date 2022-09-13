@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {FlatListProps, ListRenderItemInfo, RefreshControl} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
@@ -14,7 +14,6 @@ import {
   Spacer16,
   Spacer28,
   Spacer32,
-  Spacer8,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
 import Gutters from '../../common/components/Gutters/Gutters';
@@ -24,7 +23,12 @@ import NS from '../../lib/i18n/constants/namespaces';
 import {isLoadingAtom, templesAtom} from './state/state';
 import {Temple} from '../../../../shared/src/types/Temple';
 import TempleCard from '../../common/components/Cards/TempleCard/TempleCard';
-import TextInput from '../../common/components/Typography/TextInput/TextInput';
+import {COLORS} from '../../common/constants/colors';
+
+const CreateButton = styled(Button)({
+  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.16)',
+  backgroundColor: COLORS.GREEN,
+});
 
 const TempleList = styled(FlatList)<FlatListProps<Temple>>({
   overflow: 'visible',
@@ -32,11 +36,10 @@ const TempleList = styled(FlatList)<FlatListProps<Temple>>({
 
 const Temples = () => {
   const {t} = useTranslation(NS.SCREEN.TEMPLES);
-  const {fetchTemples, addTemple, deleteTemple} = useTemples();
+  const {fetchTemples, deleteTemple} = useTemples();
   const isLoading = useRecoilValue(isLoadingAtom);
   const temples = useRecoilValue(templesAtom);
 
-  const [newTemple, setNewTemple] = useState<string>();
   const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
 
   useEffect(() => {
@@ -95,14 +98,9 @@ const Temples = () => {
       />
       <Spacer32 />
       <Gutters>
-        <TextInput
-          onChangeText={setNewTemple}
-          placeholder={t('createPlaceholder')}
-        />
-        <Spacer8 />
-        <Button primary onPress={() => addTemple(newTemple)}>
+        <CreateButton primary={false} onPress={() => navigate('CreateTemple')}>
           {t('create')}
-        </Button>
+        </CreateButton>
       </Gutters>
       <Spacer28 />
     </>

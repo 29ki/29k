@@ -14,4 +14,5 @@ export type RootStackProps = {
   KillSwitch: undefined;
   Tabs: NavigatorScreenParams<TabNavigatorProps>;
   TempleStack: NavigatorScreenParams<TempleStackProps>;
+  CreateTemple: undefined;
 };
