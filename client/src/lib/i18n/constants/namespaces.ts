@@ -12,6 +12,7 @@ const NS = {
     PROFILE: 'Screen.Profile',
     TEMPLE: 'Screen.Temple',
     TEMPLES: 'Screen.Temples',
+    PORTAL: 'Screen.Portal',
   },
   EXERCISES: 'exercises',
 };
