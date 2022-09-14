@@ -55,7 +55,7 @@ const CreateTempleForm = ({}) => {
   const {addTemple} = useTemples();
 
   return isAdding ? (
-    <CreateTempleWrapper entering={FlipInXUp} key="in">
+    <CreateTempleWrapper entering={FlipInXUp} exiting={FlipOutXDown} key="in">
       <TextInput
         onChangeText={setTempleName}
         placeholder={t('createPlaceholder')}
@@ -70,7 +70,7 @@ const CreateTempleForm = ({}) => {
       </CreateButton>
     </CreateTempleWrapper>
   ) : (
-    <CreateTempleWrapper exiting={FlipOutXDown} key="out">
+    <CreateTempleWrapper entering={FlipInXUp} exiting={FlipOutXDown} key="out">
       <CreateButton onPress={() => setIsAdding(true)} LeftIcon={Plus}>
         {t('create')}
       </CreateButton>
