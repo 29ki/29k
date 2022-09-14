@@ -7,8 +7,10 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 
 import {
-  FilmCameraIcon,
+  HomeFillIcon,
+  HomeIcon,
   IconType,
+  ProfileFillIcon,
   ProfileIcon,
 } from '../../common/components/Icons';
 import {COLORS} from '../../common/constants/colors';
@@ -23,13 +25,6 @@ import NS from '../i18n/constants/namespaces';
 import {Platform} from 'react-native';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
-
-type TabBarLabelProps = {
-  readonly color: string;
-};
-const TabBarLabel = styled(B3)<TabBarLabelProps>(({color}) => ({
-  color,
-}));
 
 const tabBarOptions: BottomTabNavigationOptions = {
   headerShown: false,
@@ -50,11 +45,12 @@ const tabBarOptions: BottomTabNavigationOptions = {
 };
 
 const getTabOptions: (
-  Icon: IconType,
+  InactiveIcon: IconType,
+  ActiveIcon: IconType,
   label: string,
-) => BottomTabNavigationOptions = (Icon, label) => ({
-  tabBarIcon: ({color}) => <Icon fill={color} />,
-  tabBarLabel: ({color}) => <TabBarLabel color={color}>{label}</TabBarLabel>,
+) => BottomTabNavigationOptions = (InactiveIcon, ActiveIcon, label) => ({
+  tabBarIcon: ({focused}) => (focused ? <ActiveIcon /> : <InactiveIcon />),
+  tabBarLabel: () => <B3>{label}</B3>,
 });
 
 const Tabs = () => {
@@ -64,12 +60,12 @@ const Tabs = () => {
       <Tab.Screen
         name={'Temples'}
         component={Temples}
-        options={getTabOptions(FilmCameraIcon, t('video'))}
+        options={getTabOptions(HomeIcon, HomeFillIcon, t('home'))}
       />
       <Tab.Screen
         name={'Profile'}
         component={Profile}
-        options={getTabOptions(ProfileIcon, t('profile'))}
+        options={getTabOptions(ProfileIcon, ProfileFillIcon, t('profile'))}
       />
     </Tab.Navigator>
   );
