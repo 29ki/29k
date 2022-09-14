@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {ListRenderItemInfo, RefreshControl} from 'react-native';
+import {ListRenderItemInfo, Platform, RefreshControl} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
-import Animated, {FlipInXUp, FlipOutXDown} from 'react-native-reanimated';
 
 import useTemples from './hooks/useTemples';
 import {RootStackProps} from '../../common/constants/routes';
@@ -28,6 +27,11 @@ import {COLORS} from '../../common/constants/colors';
 import SETTINGS from '../../common/constants/settings';
 import {Plus} from '../../common/components/Icons';
 
+const Wrapper = styled.KeyboardAvoidingView.attrs({
+  behavior: Platform.select({ios: 'position'}),
+  contentContainerStyle: {flex: 1},
+})({flex: 1});
+
 const CreateButton = styled(Button)({
   backgroundColor: COLORS.GREEN,
   flexDirection: 'row',
@@ -35,7 +39,7 @@ const CreateButton = styled(Button)({
   alignItems: 'center',
 });
 
-const CreateTempleWrapper = styled(Animated.View)({
+const CreateTempleWrapper = styled.View({
   flexDirection: 'row',
   justifyContent: 'center',
   ...SETTINGS.BOXSHADOW,
@@ -54,23 +58,34 @@ const CreateTempleForm = ({}) => {
   const [templeName, setTempleName] = useState<string>();
   const {addTemple} = useTemples();
 
+  const onBlur = () => {
+    if (!templeName) {
+      setIsAdding(false);
+    }
+  };
+
+  const onSubmit = async () => {
+    if (templeName) {
+      await addTemple(templeName);
+      setIsAdding(false);
+    }
+  };
+
   return isAdding ? (
-    <CreateTempleWrapper entering={FlipInXUp} exiting={FlipOutXDown} key="in">
+    <CreateTempleWrapper>
       <TextInput
         onChangeText={setTempleName}
         placeholder={t('createPlaceholder')}
+        onBlur={onBlur}
+        onSubmitEditing={onSubmit}
+        returnKeyType="done"
+        autoFocus
       />
       <Spacer8 />
-      <CreateButton
-        onPress={async () => {
-          await addTemple(templeName);
-          setIsAdding(false);
-        }}>
-        {t('create')}
-      </CreateButton>
+      <CreateButton onPress={onSubmit}>{t('create')}</CreateButton>
     </CreateTempleWrapper>
   ) : (
-    <CreateTempleWrapper entering={FlipInXUp} exiting={FlipOutXDown} key="out">
+    <CreateTempleWrapper>
       <CreateButton onPress={() => setIsAdding(true)} LeftIcon={Plus}>
         {t('create')}
       </CreateButton>
@@ -119,7 +134,7 @@ const Temples = () => {
   );
 
   return (
-    <>
+    <Wrapper>
       <TopSafeArea />
       <FlatList
         data={temples}
@@ -138,7 +153,7 @@ const Temples = () => {
         <CreateTempleForm />
         <Spacer12 />
       </FloatingForm>
-    </>
+    </Wrapper>
   );
 };
 
