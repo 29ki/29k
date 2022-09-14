@@ -69,15 +69,15 @@ Generates i18n-friendly structure
   },
 };
 */
-export const generateI18NResources = (content, overrideNS) =>
+export const generateI18NResources = (content, parentNS) =>
   Object.entries(content).reduce(
     (i18nResources, [namespace, locales]) =>
       Object.entries(locales).reduce(
         (resources, [locale, resource]) => ({
           ...resources,
-          [locale]: overrideNS
+          [locale]: parentNS
             ? {
-                [overrideNS]: {
+                [parentNS]: {
                   ...resources[locale],
                   [namespace]: resource,
                 },
