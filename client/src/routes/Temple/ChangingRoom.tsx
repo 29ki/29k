@@ -171,7 +171,12 @@ const ChangingRoom = () => {
           </Controls>
           <Spacer48 />
           <InputWrapper>
-            <TextInput autoFocus onChangeText={setLocalUserName} />
+            <TextInput
+              autoFocus
+              onChangeText={setLocalUserName}
+              autoCapitalize="words"
+              autoCorrect={false}
+            />
             <Spacer28 />
             <Button onPress={handleJoin} disabled={!localUserName.length}>
               {t('join_button')}
