@@ -20,6 +20,7 @@ import Profile from '../../routes/Profile/Profile';
 import Temples from '../../routes/Temples/Temples';
 
 import NS from '../i18n/constants/namespaces';
+import {Platform} from 'react-native';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
 
@@ -33,7 +34,7 @@ const TabBarLabel = styled(B3)<TabBarLabelProps>(({color}) => ({
 const tabBarOptions: BottomTabNavigationOptions = {
   headerShown: false,
   tabBarShowLabel: true,
-  tabBarHideOnKeyboard: true,
+  tabBarHideOnKeyboard: Platform.select({android: true, ios: false}),
   tabBarAllowFontScaling: false,
   tabBarActiveTintColor: COLORS.GREY600,
   tabBarInactiveTintColor: COLORS.GREY,
