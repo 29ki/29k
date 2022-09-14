@@ -184,7 +184,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ./content/node_modules
-          key: content-node-modules-${{ hashFiles('./cms/yarn.lock') }}
+          key: content-node-modules-${{ hashFiles('./content/yarn.lock') }}
 
       - name: Install Content Dependencies
         if: steps.cache-content-node-modules.outputs.cache-hit != 'true'
