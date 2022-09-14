@@ -34,7 +34,6 @@ const Fade: React.FC<{visible: boolean}> = ({children, visible}) => {
 
 type ExerciseSlidesProps = {
   index: number;
-  playing: boolean;
   current: ExerciseSlide;
   previous?: ExerciseSlide;
   next?: ExerciseSlide;
@@ -42,7 +41,6 @@ type ExerciseSlidesProps = {
 
 const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
   index = 0,
-  playing,
   current,
   previous,
   next,
@@ -51,15 +49,15 @@ const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
   <Wrapper>
     {previous && (
       <Fade visible={false} key={index - 1}>
-        <Slide slide={previous} playing={false} />
+        <Slide slide={previous} active={false} />
       </Fade>
     )}
     <Fade visible={true} key={index}>
-      <Slide slide={current} playing={playing} />
+      <Slide slide={current} active={true} />
     </Fade>
     {next && (
       <Fade visible={false} key={index + 1}>
-        <Slide slide={next} playing={false} />
+        <Slide slide={next} active={false} />
       </Fade>
     )}
   </Wrapper>

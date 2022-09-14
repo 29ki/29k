@@ -42,10 +42,14 @@ import {
 } from '../../common/components/Icons';
 import {userAtom} from '../../lib/user/state/state';
 import Participants from './components/Participants/Participants';
-import useUpdateTemple from './hooks/useUpdateTemple';
+import useUpdateTempleExerciseState from './hooks/useUpdateTempleExerciseState';
 import useSubscribeToTemple from './hooks/useSubscribeToTemple';
 import useTempleParticipants from './hooks/useTempleParticipants';
 import useTempleExercise from './hooks/useTempleExercise';
+import useMuteAudioListener from './hooks/useMuteAudioListener';
+import ProgressBar from './components/ProgressBar/ProgressBar';
+import {SPACINGS} from '../../common/constants/spacings';
+import Button from '../../common/components/Buttons/Button';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
@@ -82,6 +86,10 @@ const MediaControls = styled.View({
   justifyContent: 'center',
 });
 
+const ProgressWrapper = styled.View({
+  paddingHorizontal: SPACINGS.SIXTEEN,
+});
+
 const Session = () => {
   const {joinMeeting, leaveMeeting, toggleAudio, toggleVideo} =
     useContext(DailyContext);
@@ -92,7 +100,9 @@ const Session = () => {
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
 
   useSubscribeToTemple(templeId);
-  const {navigateToIndex, setActive, setPlaying} = useUpdateTemple(templeId);
+  useMuteAudioListener();
+  const {navigateToIndex, setActive, setPlaying} =
+    useUpdateTempleExerciseState(templeId);
 
   const user = useRecoilValue(userAtom);
   const temple = useRecoilValue(templeAtom);
@@ -125,32 +135,35 @@ const Session = () => {
     <MainViewContainer>
       <Spotlight>
         <TopSafeArea />
-        {!temple?.active && temple?.facilitator === user?.uid && (
+        {!temple?.exerciseState.active && temple?.facilitator === user?.uid && (
           <ContentControls>
-            <SlideButton
-              onPress={() => setActive(true)}
-              RightIcon={ChevronRight}>
+            <Button onPress={() => setActive(true)} RightIcon={ChevronRight}>
               {t('controls.start')}
-            </SlideButton>
+            </Button>
           </ContentControls>
         )}
-        {temple?.active && exercise && (
+        {temple?.exerciseState.active && exercise && (
           <>
+            <ProgressWrapper>
+              <ProgressBar
+                index={exercise?.slide.index}
+                length={exercise?.slides.length}
+              />
+            </ProgressWrapper>
             <ExerciseSlides
               index={exercise.slide.index}
               current={exercise.slide.current}
               previous={exercise.slide.previous}
               next={exercise.slide.next}
-              playing={temple.playing}
             />
             {temple?.facilitator === user?.uid && (
               <ContentControls>
-                {temple.index > 0 && (
+                {temple.exerciseState.index > 0 && (
                   <SlideButton
-                    LeftIcon={ChevronLeft}
+                    Icon={ChevronLeft}
                     onPress={() =>
                       navigateToIndex({
-                        index: temple.index - 1,
+                        index: temple.exerciseState.index - 1,
                         content: exercise.slides,
                       })
                     }
@@ -159,22 +172,22 @@ const Session = () => {
                 {exercise.slide.current.type !== 'participantSpotlight' && (
                   <MediaControls>
                     <SlideButton
-                      LeftIcon={Rewind}
-                      onPress={() => setPlaying(!temple.playing)}
+                      Icon={Rewind}
+                      onPress={() => setPlaying(temple.exerciseState.playing)}
                     />
                     <Spacer8 />
                     <SlideButton
-                      LeftIcon={temple.playing ? Pause : Play}
-                      onPress={() => setPlaying(!temple.playing)}
+                      Icon={temple.exerciseState.playing ? Pause : Play}
+                      onPress={() => setPlaying(!temple.exerciseState.playing)}
                     />
                   </MediaControls>
                 )}
-                {temple.index < exercise.slides.length - 1 && (
+                {temple.exerciseState.index < exercise.slides.length - 1 && (
                   <SlideButton
-                    RightIcon={ChevronRight}
+                    Icon={ChevronRight}
                     onPress={() =>
                       navigateToIndex({
-                        index: temple.index + 1,
+                        index: temple.exerciseState.index + 1,
                         content: exercise.slides,
                       })
                     }

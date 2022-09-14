@@ -9,7 +9,7 @@
       {
         "type": "content",
         "content": {
-          "heading": "Your body, your home",
+          "heading": "Your body, your home!",
           "video": {
             "source": "https://res.cloudinary.com/twentyninek/video/upload/v1662110103/temp/meditation_zjiwjl.mp4"
           }
@@ -42,6 +42,15 @@
           "heading": "Thank you"
         }
       }
-    ]
+    ],
+    "published": true
+  },
+  "sv": {
+    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+    "published": false
+  },
+  "pt": {
+    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+    "published": false
   }
 }

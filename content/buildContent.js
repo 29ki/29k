@@ -1,8 +1,13 @@
 import fs from 'fs';
-import {generateI18NResources, getContentByType, mergeDeep} from './utils.js';
+import {
+  filterPublishedContent,
+  generateI18NResources,
+  getContentByType,
+  mergeDeep,
+} from './utils.js';
 
 const exercises = generateI18NResources(
-  getContentByType('exercises'),
+  filterPublishedContent(getContentByType('exercises')),
   'exercises',
 );
 const ui = generateI18NResources(getContentByType('ui'));

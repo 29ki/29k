@@ -81,6 +81,18 @@ jobs:
         working-directory: ./client
         run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
 
+      - name: Cache Shared Dependencies
+        id: cache-shared-node-modules
+        uses: actions/cache@v2
+        with:
+          path: ./shared/node_modules
+          key: shared-node-modules-${{ hashFiles('./shared/yarn.lock') }}
+
+      - name: Install Shared Dependencies
+        if: steps.cache-shared-node-modules.outputs.cache-hit != 'true'
+        working-directory: ./shared
+        run: yarn
+
       - name: Cache Client Dependencies
         id: cache-client-node-modules
         uses: actions/cache@v2

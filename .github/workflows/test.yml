@@ -21,6 +21,18 @@ jobs:
         with:
           node-version: 16.x
 
+      - name: Cache Shared Dependencies
+        id: cache-shared-node-modules
+        uses: actions/cache@v2
+        with:
+          path: ./shared/node_modules
+          key: shared-node-modules-${{ hashFiles('./shared/yarn.lock') }}
+
+      - name: Install Shared Dependencies
+        if: steps.cache-shared-node-modules.outputs.cache-hit != 'true'
+        working-directory: ./shared
+        run: yarn
+
       - name: Cache Client Dependencies
         id: cache-client-node-modules
         uses: actions/cache@v2
@@ -53,6 +65,18 @@ jobs:
         with:
           node-version: 16.x
 
+      - name: Cache Shared Dependencies
+        id: cache-shared-node-modules
+        uses: actions/cache@v2
+        with:
+          path: ./shared/node_modules
+          key: shared-node-modules-${{ hashFiles('./shared/yarn.lock') }}
+
+      - name: Install Shared Dependencies
+        if: steps.cache-shared-node-modules.outputs.cache-hit != 'true'
+        working-directory: ./shared
+        run: yarn
+
       - name: Cache Functions Dependencies
         id: cache-functions-node-modules
         uses: actions/cache@v2
@@ -80,6 +104,18 @@ jobs:
         with:
           node-version: 16.x
 
+      - name: Cache Shared Dependencies
+        id: cache-shared-node-modules
+        uses: actions/cache@v2
+        with:
+          path: ./shared/node_modules
+          key: shared-node-modules-${{ hashFiles('./shared/yarn.lock') }}
+
+      - name: Install Shared Dependencies
+        if: steps.cache-shared-node-modules.outputs.cache-hit != 'true'
+        working-directory: ./shared
+        run: yarn
+
       - name: Cache CMS Dependencies
         id: cache-cms-node-modules
         uses: actions/cache@v2
@@ -106,6 +142,18 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
+
+      - name: Cache Shared Dependencies
+        id: cache-shared-node-modules
+        uses: actions/cache@v2
+        with:
+          path: ./shared/node_modules
+          key: shared-node-modules-${{ hashFiles('./shared/yarn.lock') }}
+
+      - name: Install Shared Dependencies
+        if: steps.cache-shared-node-modules.outputs.cache-hit != 'true'
+        working-directory: ./shared
+        run: yarn
 
       - name: Cache Content Dependencies
         id: cache-content-node-modules

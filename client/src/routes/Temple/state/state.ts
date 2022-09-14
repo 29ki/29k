@@ -1,7 +1,10 @@
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import {omit, values} from 'ramda';
 import {atom, selector, selectorFamily} from 'recoil';
-import {Temple} from '../../../../../shared/src/types/Temple';
+import {
+  ExerciseStateData,
+  TempleData,
+} from '../../../../../shared/src/types/Temple';
 
 const NAMESPACE = 'VideoSharing';
 
@@ -86,7 +89,12 @@ export const videoSharingFields = selectorFamily({
       set(videoSharingAtom, prevState => ({...prevState, [field]: newValue})),
 });
 
-export const templeAtom = atom<Temple | null>({
+export const templeAtom = atom<TempleData | null>({
   key: `${NAMESPACE}/temple`,
   default: null,
+});
+
+export const templeExerciseStateSelector = selector<ExerciseStateData | null>({
+  key: `${NAMESPACE}/exerciseStateSelector`,
+  get: ({get}) => get(templeAtom)?.exerciseState || null,
 });

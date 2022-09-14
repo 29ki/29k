@@ -19,7 +19,7 @@ import {
   activeParticipantAtom,
 } from './state/state';
 
-type DailyProviderTypes = {
+export type DailyProviderTypes = {
   call?: DailyCall;
   preJoinMeeting: (url: string) => Promise<void>;
   joinMeeting: () => Promise<void>;

@@ -1,21 +1,19 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import Button from '../../../../common/components/Buttons/Button';
 import {COLORS} from '../../../../common/constants/colors';
 import {IconType} from '../../../../common/components/Icons';
-import {B2} from '../../../../common/components/Typography/Text/Text';
 import {SPACINGS} from '../../../../common/constants/spacings';
+import IconButton from '../../../../common/components/Buttons/IconButton/IconButton';
 
 type SlideButtonProps = {
   onPress?: () => void;
-  LeftIcon?: IconType;
-  RightIcon?: IconType;
+  Icon: IconType;
   disabled?: boolean;
   fill?: string;
 };
 
-const StyledSlideButton = styled(Button)({
+const StyledSlideButton = styled(IconButton)({
   backgroundColor: COLORS.GREY100,
   color: COLORS.BLACK_EASY,
   paddingVertical: SPACINGS.EIGHT,
@@ -24,41 +22,18 @@ const StyledSlideButton = styled(Button)({
   elevation: 1,
 });
 
-const IconWrapper = styled.View({
-  width: 26,
-  height: 26,
-});
-
-const ButtonText = styled(B2)({
-  marginVertical: SPACINGS.TWELVE,
-  marginHorizontal: SPACINGS.EIGHT,
-});
-
 const SlideButton: React.FC<SlideButtonProps> = ({
   onPress,
   fill = COLORS.BLACK_EASY,
-  LeftIcon,
-  RightIcon,
+  Icon,
   disabled = false,
-  children,
 }) => (
-  <StyledSlideButton primary onPress={onPress} disabled={disabled}>
-    {LeftIcon && (
-      <IconWrapper>
-        <LeftIcon fill={fill} />
-      </IconWrapper>
-    )}
-    {typeof children === 'string' ? (
-      <ButtonText>{children}</ButtonText>
-    ) : (
-      children
-    )}
-    {RightIcon && (
-      <IconWrapper>
-        <RightIcon fill={fill} />
-      </IconWrapper>
-    )}
-  </StyledSlideButton>
+  <StyledSlideButton
+    Icon={Icon}
+    fill={fill}
+    onPress={onPress}
+    disabled={disabled}
+  />
 );
 
 export default SlideButton;

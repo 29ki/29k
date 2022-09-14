@@ -12,14 +12,16 @@ const Wrapper = styled.View({
 
 type SlideProps = {
   slide: ExerciseSlide;
-  playing: boolean;
+  active: boolean;
 };
 
-export const Slide = React.memo(({slide, playing}: SlideProps) => (
+export const Slide = React.memo(({slide, active}: SlideProps) => (
   <Wrapper>
-    {slide.type === 'participantSpotlight' && <ParticipantSpotlight />}
-    {slide.type === 'content' && <Content slide={slide} playing={playing} />}
-    {slide.type === 'reflection' && <Content slide={slide} playing={playing} />}
-    {slide.type === 'sharing' && <Content slide={slide} playing={playing} />}
+    {slide.type === 'participantSpotlight' && (
+      <ParticipantSpotlight active={active} />
+    )}
+    {slide.type === 'content' && <Content slide={slide} active={active} />}
+    {slide.type === 'reflection' && <Content slide={slide} active={active} />}
+    {slide.type === 'sharing' && <Content slide={slide} active={active} />}
   </Wrapper>
 ));

@@ -1,8 +1,18 @@
 import {useRecoilValue} from 'recoil';
+import {Exercise, ExerciseSlide} from '../../../../../shared/src/types/Content';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import {templeAtom} from '../state/state';
 
-const useTempleExercise = () => {
+type TempleExercise = Exercise & {
+  slide: {
+    index: number;
+    previous?: ExerciseSlide;
+    current: ExerciseSlide;
+    next?: ExerciseSlide;
+  };
+};
+
+const useTempleExercise = (): TempleExercise | null => {
   const temple = useRecoilValue(templeAtom);
   const excercise = useExerciseById(temple?.contentId);
 
@@ -10,14 +20,14 @@ const useTempleExercise = () => {
     return null;
   }
 
-  const previous = excercise.slides[temple.index - 1];
-  const current = excercise.slides[temple.index];
-  const next = excercise.slides[temple.index + 1];
+  const previous = excercise.slides[temple.exerciseState.index - 1];
+  const current = excercise.slides[temple.exerciseState.index];
+  const next = excercise.slides[temple.exerciseState.index + 1];
 
   return {
     ...excercise,
     slide: {
-      index: temple.index,
+      index: temple.exerciseState.index,
       previous,
       current,
       next,

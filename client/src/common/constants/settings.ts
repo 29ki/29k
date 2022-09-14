@@ -5,12 +5,7 @@ export const SETTINGS = {
     CARDS: SPACINGS.TWENTYFOUR,
   },
   BOXSHADOW: {
-    shadowOffset: {
-      width: 0,
-      height: SPACINGS.FOUR,
-    },
-    shadowOpacity: 0.16,
-    shadowRadius: 6,
+    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.16)',
     elevation: 10,
   },
 };
