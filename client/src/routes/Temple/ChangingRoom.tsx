@@ -75,6 +75,7 @@ const VideoText = styled(B2)({
 
 const InputWrapper = styled.View({
   flexDirection: 'row',
+  flexShrink: 1,
 });
 
 const Audio = styled(AudioIndicator)({
