@@ -7,11 +7,16 @@ import Icon from '../Icon';
 export const ProfileIcon: IconType = ({fill = COLORS.GREY}) => (
   <Icon>
     <Path
-      d="M6 27c4.725-3.233 9.337-8.133 9.337-8.133s3.996-4.506 4.877-8.185c1.253-5.225-2.232-7.674-5.13-7.682-3.093 0-6.13 2.225-5.17 7.654.688 3.885 5.127 8.21 5.127 8.21s4.485 5.452 8.862 8.136"
-      stroke={fill}
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M15 23.043a8.043 8.043 0 1 1 0-16.086 8.043 8.043 0 0 1 0 16.086ZM5.357 15a9.643 9.643 0 1 0 19.286 0 9.643 9.643 0 0 0-19.286 0Z"
+      fill={fill}
+    />
+    <Path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M19.34 14.238a.8.8 0 0 0-.8.8 3.502 3.502 0 1 1-7.005 0 .8.8 0 0 0-1.6 0 5.102 5.102 0 0 0 5.103 5.103 5.102 5.102 0 0 0 5.103-5.103.8.8 0 0 0-.8-.8Z"
+      fill={fill}
     />
   </Icon>
 );
