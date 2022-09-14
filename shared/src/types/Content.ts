@@ -29,6 +29,20 @@ export type SharingSlide = {
   content: Content;
 };
 
+export type VideoPortal = {
+  type: 'video';
+  content: {
+    videoLoop: {
+      source: string;
+    };
+    videoEnd?: {
+      source: string;
+    };
+  };
+};
+
+export type Portal = VideoPortal;
+
 export type ExerciseSlide =
   | ContentSlide
   | ReflectionSlide
@@ -42,5 +56,6 @@ export type Exercise = {
     image?: {source: string; description?: string};
     backgroundColor?: string;
   };
+  introPortal: Portal;
   slides: ExerciseSlide[];
 };

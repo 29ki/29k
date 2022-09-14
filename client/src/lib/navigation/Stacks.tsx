@@ -8,6 +8,7 @@ import {killSwitchFields} from '../killSwitch/state/state';
 import Tabs from './Tabs';
 import Temple from '../../routes/Temple/Temple';
 import ChangingRoom from '../../routes/Temple/ChangingRoom';
+import Portal from '../../routes/Temple/Portal';
 import DailyProvider from '../../routes/Temple/DailyProvider';
 
 const RootStack = createNativeStackNavigator<RootStackProps>();
@@ -21,6 +22,7 @@ const TempleStackWrapper = () => (
   <DailyProvider>
     <TempleStack.Navigator screenOptions={stackOptions}>
       <TempleStack.Screen name={'ChangingRoom'} component={ChangingRoom} />
+      <TempleStack.Screen name={'Portal'} component={Portal} />
       <TempleStack.Screen name={'Temple'} component={Temple} />
     </TempleStack.Navigator>
   </DailyProvider>

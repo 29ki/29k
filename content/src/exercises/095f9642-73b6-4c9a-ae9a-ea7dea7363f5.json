@@ -8,6 +8,17 @@
       },
       "backgroundColor": "#e8dcd1"
     },
+    "introPortal": {
+      "type": "video",
+      "content": {
+        "videoLoop": {
+          "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663143395/temp/portal-intro_h7qccz.mp4"
+        },
+        "videoEnd": {
+          "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663147750/temp/portal-intro-end_crzjih.mp4"
+        }
+      }
+    },
     "slides": [
       {
         "type": "participantSpotlight"
