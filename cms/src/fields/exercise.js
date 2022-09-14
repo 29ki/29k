@@ -1,4 +1,4 @@
-import {ID_FIELD, NAME_FIELD} from './common';
+import {ID_FIELD, NAME_FIELD, PUBLISHED_FIELD} from './common';
 import {
   CONTENT_SLIDE,
   PARTICIPANT_SPOTLIGHT_SLIDE,
@@ -9,6 +9,7 @@ import {
 export default [
   ID_FIELD,
   NAME_FIELD,
+  PUBLISHED_FIELD,
   {
     label: 'Slides',
     name: 'slides',

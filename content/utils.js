@@ -40,6 +40,19 @@ export const getContentByType = type => {
   }, {});
 };
 
+export const filterPublishedContent = files =>
+  Object.entries(files).reduce(
+    (files, [file, content]) => ({
+      ...files,
+      [file]: Object.entries(content).reduce(
+        (filtered, [locale, resource]) =>
+          resource.published ? {...filtered, [locale]: resource} : filtered,
+        {},
+      ),
+    }),
+    {},
+  );
+
 /*
 Generates i18n-friendly structure
 
@@ -56,15 +69,15 @@ Generates i18n-friendly structure
   },
 };
 */
-export const generateI18NResources = (content, overrideNS) =>
+export const generateI18NResources = (content, parentNS) =>
   Object.entries(content).reduce(
     (i18nResources, [namespace, locales]) =>
       Object.entries(locales).reduce(
         (resources, [locale, resource]) => ({
           ...resources,
-          [locale]: overrideNS
+          [locale]: parentNS
             ? {
-                [overrideNS]: {
+                [parentNS]: {
                   ...resources[locale],
                   [namespace]: resource,
                 },

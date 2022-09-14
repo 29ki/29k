@@ -5,6 +5,15 @@ export const ID_FIELD = {
   i18n: 'duplicate',
 };
 
+export const PUBLISHED_FIELD = {
+  label: 'Published',
+  name: 'published',
+  widget: 'boolean',
+  required: true,
+  default: false,
+  i18n: true,
+};
+
 export const NAME_FIELD = {
   label: 'Name',
   name: 'name',
