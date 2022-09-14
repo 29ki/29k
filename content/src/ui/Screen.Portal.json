@@ -1,14 +1,35 @@
 {
   "en": {
     "participants": "We are",
-    "counter": "Starting in"
+    "counterLabel": {
+      "counting": "Starting in",
+      "soon": "Starting"
+    },
+    "counterValue": {
+      "shortly": "Shortly",
+      "now": "Now"
+    }
   },
   "sv": {
     "participants": "We are",
-    "counter": "Starting in"
+    "counterLabel": {
+      "counting": "Startar om",
+      "soon": "Startar"
+    },
+    "counterValue": {
+      "shortly": "Snart",
+      "now": "Nu"
+    }
   },
   "pt": {
     "participants": "We are",
-    "counter": "Starting in"
+    "counterLabel": {
+      "counting": "Starting in",
+      "soon": "Starting"
+    },
+    "counterValue": {
+      "shortly": "Shortly",
+      "now": "Ahora"
+    }
   }
 }

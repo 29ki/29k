@@ -20,7 +20,12 @@ const stackOptions = {
 
 const TempleStackWrapper = () => (
   <DailyProvider>
-    <TempleStack.Navigator screenOptions={stackOptions}>
+    <TempleStack.Navigator
+      screenOptions={{
+        ...stackOptions,
+        animation: 'fade',
+        animationDuration: 2000,
+      }}>
       <TempleStack.Screen name={'ChangingRoom'} component={ChangingRoom} />
       <TempleStack.Screen name={'Portal'} component={Portal} />
       <TempleStack.Screen name={'Temple'} component={Temple} />
