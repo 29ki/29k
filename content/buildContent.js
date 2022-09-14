@@ -1,9 +1,9 @@
 import fs from 'fs';
+import {mergeDeepRight} from 'ramda';
 import {
   filterPublishedContent,
   generateI18NResources,
   getContentByType,
-  mergeDeep,
 } from './utils.js';
 
 const exercises = generateI18NResources(
@@ -11,7 +11,7 @@ const exercises = generateI18NResources(
   'exercises',
 );
 const ui = generateI18NResources(getContentByType('ui'));
-const data = JSON.stringify(mergeDeep(ui, exercises));
+const data = JSON.stringify(mergeDeepRight(ui, exercises));
 
 if (process.argv.length > 2) {
   fs.writeFileSync(process.argv[2], data);
