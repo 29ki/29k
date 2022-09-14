@@ -49,6 +49,7 @@ import useTempleExercise from './hooks/useTempleExercise';
 import useMuteAudioListener from './hooks/useMuteAudioListener';
 import ProgressBar from './components/ProgressBar/ProgressBar';
 import {SPACINGS} from '../../common/constants/spacings';
+import Button from '../../common/components/Buttons/Button';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
@@ -136,11 +137,9 @@ const Session = () => {
         <TopSafeArea />
         {!temple?.exerciseState.active && temple?.facilitator === user?.uid && (
           <ContentControls>
-            <SlideButton
-              onPress={() => setActive(true)}
-              RightIcon={ChevronRight}>
+            <Button onPress={() => setActive(true)} RightIcon={ChevronRight}>
               {t('controls.start')}
-            </SlideButton>
+            </Button>
           </ContentControls>
         )}
         {temple?.exerciseState.active && exercise && (
@@ -161,7 +160,7 @@ const Session = () => {
               <ContentControls>
                 {temple.exerciseState.index > 0 && (
                   <SlideButton
-                    LeftIcon={ChevronLeft}
+                    Icon={ChevronLeft}
                     onPress={() =>
                       navigateToIndex({
                         index: temple.exerciseState.index - 1,
@@ -173,19 +172,19 @@ const Session = () => {
                 {exercise.slide.current.type !== 'participantSpotlight' && (
                   <MediaControls>
                     <SlideButton
-                      LeftIcon={Rewind}
+                      Icon={Rewind}
                       onPress={() => setPlaying(temple.exerciseState.playing)}
                     />
                     <Spacer8 />
                     <SlideButton
-                      LeftIcon={temple.exerciseState.playing ? Pause : Play}
+                      Icon={temple.exerciseState.playing ? Pause : Play}
                       onPress={() => setPlaying(!temple.exerciseState.playing)}
                     />
                   </MediaControls>
                 )}
                 {temple.exerciseState.index < exercise.slides.length - 1 && (
                   <SlideButton
-                    RightIcon={ChevronRight}
+                    Icon={ChevronRight}
                     onPress={() =>
                       navigateToIndex({
                         index: temple.exerciseState.index + 1,

@@ -17,21 +17,10 @@ const Row = styled.View({
 });
 
 export const AllButtons = () => (
-  <ScreenWrapper>
-    <Button primary>Primary button</Button>
-    <Spacer16 />
-    <Button>Regular button</Button>
-    <Spacer16 />
-    <Row>
-      <B2>Icon button active state</B2>
-      <IconButton Icon={HomeIcon} />
-    </Row>
-    <Spacer16 />
-    <Row>
-      <B2>Icon button</B2>
-      <IconButton Icon={HomeIcon} active={false} />
-    </Row>
-  </ScreenWrapper>
+  <>
+    <Buttons />
+    <IconButtons />
+  </>
 );
 
 export const Buttons = () => (
@@ -39,6 +28,10 @@ export const Buttons = () => (
     <Button>Regular button</Button>
     <Spacer16 />
     <Button primary>Primary button</Button>
+    <Spacer16 />
+    <Button LeftIcon={HomeIcon}>Left icon</Button>
+    <Spacer16 />
+    <Button RightIcon={HomeIcon}>Right icon</Button>
   </ScreenWrapper>
 );
 

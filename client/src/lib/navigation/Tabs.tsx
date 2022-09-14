@@ -43,8 +43,7 @@ const tabBarOptions: BottomTabNavigationOptions = {
   tabBarStyle: {
     elevation: 0,
     height: 100,
-    borderTopWidth: 0.5,
-    borderTopColor: COLORS.GREY,
+    borderTopWidth: 0,
     backgroundColor: 'transparent',
   },
 };

@@ -54,4 +54,5 @@ export const COLORS = {
   YELLOW: '#FFEEBE',
   YELLOW_LIGHT: '#F4EBC4',
   GREEN_LIGHT: '#2AE2D7',
+  GREEN: '#378D88',
 };

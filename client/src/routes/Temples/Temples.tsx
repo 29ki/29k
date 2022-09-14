@@ -1,42 +1,88 @@
 import React, {useEffect, useState} from 'react';
-import {FlatListProps, ListRenderItemInfo, RefreshControl} from 'react-native';
+import {ListRenderItemInfo, RefreshControl} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import {useRecoilValue} from 'recoil';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
+import Animated, {FlipInXUp, FlipOutXDown} from 'react-native-reanimated';
 
 import useTemples from './hooks/useTemples';
 import {RootStackProps} from '../../common/constants/routes';
 
 import {
+  Spacer12,
   Spacer16,
-  Spacer28,
-  Spacer32,
   Spacer8,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
 import Gutters from '../../common/components/Gutters/Gutters';
-import {H3} from '../../common/components/Typography/Heading/Heading';
 import Button from '../../common/components/Buttons/Button';
 import NS from '../../lib/i18n/constants/namespaces';
 import {isLoadingAtom, templesAtom} from './state/state';
 import {Temple} from '../../../../shared/src/types/Temple';
 import TempleCard from '../../common/components/Cards/TempleCard/TempleCard';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
+import {COLORS} from '../../common/constants/colors';
+import SETTINGS from '../../common/constants/settings';
+import {Plus} from '../../common/components/Icons';
 
-const TempleList = styled(FlatList)<FlatListProps<Temple>>({
-  overflow: 'visible',
+const CreateButton = styled(Button)({
+  backgroundColor: COLORS.GREEN,
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignItems: 'center',
 });
 
-const Temples = () => {
+const CreateTempleWrapper = styled(Animated.View)({
+  flexDirection: 'row',
+  justifyContent: 'center',
+  ...SETTINGS.BOXSHADOW,
+});
+
+const FloatingForm = styled(Gutters)({
+  position: 'absolute',
+  left: 0,
+  right: 0,
+  bottom: 0,
+});
+
+const CreateTempleForm = ({}) => {
   const {t} = useTranslation(NS.SCREEN.TEMPLES);
-  const {fetchTemples, addTemple, deleteTemple} = useTemples();
+  const [isAdding, setIsAdding] = useState(false);
+  const [templeName, setTempleName] = useState<string>();
+  const {addTemple} = useTemples();
+
+  return isAdding ? (
+    <CreateTempleWrapper entering={FlipInXUp} exiting={FlipOutXDown} key="in">
+      <TextInput
+        onChangeText={setTempleName}
+        placeholder={t('createPlaceholder')}
+      />
+      <Spacer8 />
+      <CreateButton
+        onPress={async () => {
+          await addTemple(templeName);
+          setIsAdding(false);
+        }}>
+        {t('create')}
+      </CreateButton>
+    </CreateTempleWrapper>
+  ) : (
+    <CreateTempleWrapper entering={FlipInXUp} exiting={FlipOutXDown} key="out">
+      <CreateButton onPress={() => setIsAdding(true)} LeftIcon={Plus}>
+        {t('create')}
+      </CreateButton>
+    </CreateTempleWrapper>
+  );
+};
+
+const Temples = () => {
+  const {fetchTemples, deleteTemple} = useTemples();
   const isLoading = useRecoilValue(isLoadingAtom);
   const temples = useRecoilValue(templesAtom);
 
-  const [newTemple, setNewTemple] = useState<string>();
   const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
 
   useEffect(() => {
@@ -75,12 +121,7 @@ const Temples = () => {
   return (
     <>
       <TopSafeArea />
-      <Gutters>
-        <H3>{t('heading')}</H3>
-      </Gutters>
-
-      <Spacer16 />
-      <TempleList
+      <FlatList
         data={temples}
         keyExtractor={temple => temple.id}
         ItemSeparatorComponent={Spacer16}
@@ -93,18 +134,10 @@ const Temples = () => {
           />
         }
       />
-      <Spacer32 />
-      <Gutters>
-        <TextInput
-          onChangeText={setNewTemple}
-          placeholder={t('createPlaceholder')}
-        />
-        <Spacer8 />
-        <Button primary onPress={() => addTemple(newTemple)}>
-          {t('create')}
-        </Button>
-      </Gutters>
-      <Spacer28 />
+      <FloatingForm>
+        <CreateTempleForm />
+        <Spacer12 />
+      </FloatingForm>
     </>
   );
 };
