@@ -40,6 +40,19 @@ export const getContentByType = type => {
   }, {});
 };
 
+export const filterPublishedContent = files =>
+  Object.entries(files).reduce(
+    (files, [file, content]) => ({
+      ...files,
+      [file]: Object.entries(content).reduce(
+        (filtered, [locale, resource]) =>
+          resource.published ? {...filtered, [locale]: resource} : filtered,
+        {},
+      ),
+    }),
+    {},
+  );
+
 /*
 Generates i18n-friendly structure
 
