@@ -6,7 +6,6 @@ import {B2} from '../Typography/Text/Text';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {IconType} from '../Icons';
 import {ActivityIndicator, StyleSheet} from 'react-native';
-import Icon from '../Icons/Icon';
 
 const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(({primary}) => ({
   backgroundColor: primary ? COLORS.GREY200 : COLORS.BLACK_EASY,
