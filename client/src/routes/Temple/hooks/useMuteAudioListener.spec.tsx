@@ -81,7 +81,7 @@ describe('useMuteAudioListener', () => {
   });
 
   it('should not toggle audio when current slide is sharing', async () => {
-    const wrapper: React.FC = ({children}) => (
+    const wrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
       <RecoilRoot
         initializeState={({set}) => {
           set(templeAtom, {
