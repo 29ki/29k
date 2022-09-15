@@ -15,14 +15,13 @@ import {HKGroteskBold} from '../../common/constants/fonts';
 import {TempleStackProps} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
+import Counter from './components/Counter/Counter';
 import useTempleExercise from './hooks/useTempleExercise';
 import {participantsSelector} from './state/state';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
-const TIME_TO_START = new Date(
-  new Date().getTime() + (1 * 60000) / 2,
-).getTime();
+const TIME_TO_START = new Date(new Date().getTime() + 2 * 60000).getTime();
 
 const VideoStyled = styled(Video)({
   ...StyleSheet.absoluteFillObject,
@@ -119,7 +118,8 @@ const Portal: React.FC = () => {
 
               <Spacer8 />
               <Badge>
-                <BadgeText>
+                <Counter startTime={TIME_TO_START} />
+                {/* <BadgeText>
                   {TIME_TO_START - now <= 60000 &&
                     TIME_TO_START - now > 0 &&
                     t('counterValue.shortly')}
@@ -130,9 +130,9 @@ const Portal: React.FC = () => {
                       new Date(TIME_TO_START - now).getSeconds() +
                       's'}
                 </BadgeText>
-              </Badge>
+              </Badge> */}
             </StatusItem>
-            {participantsCount > 1 && (
+            {participantsCount > 0 && (
               <StatusItem>
                 <StatusText>{t('participants')}</StatusText>
                 <Spacer8 />
