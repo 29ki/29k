@@ -1,14 +1,17 @@
 import React from 'react';
 import {
   BottomTabNavigationOptions,
+  BottomTabBar,
   createBottomTabNavigator,
+  BottomTabBarProps,
 } from '@react-navigation/bottom-tabs';
 import {useTranslation} from 'react-i18next';
-import styled from 'styled-components/native';
 
 import {
-  FilmCameraIcon,
+  HomeFillIcon,
+  HomeIcon,
   IconType,
+  ProfileFillIcon,
   ProfileIcon,
 } from '../../common/components/Icons';
 import {COLORS} from '../../common/constants/colors';
@@ -21,15 +24,26 @@ import Temples from '../../routes/Temples/Temples';
 
 import NS from '../i18n/constants/namespaces';
 import {Platform} from 'react-native';
+import {BottomSafeArea} from '../../common/components/Spacers/Spacer';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
 
-type TabBarLabelProps = {
-  readonly color: string;
-};
-const TabBarLabel = styled(B3)<TabBarLabelProps>(({color}) => ({
-  color,
-}));
+// This component overrides the way SafeAreaInsets are handled so we have better styling control.
+const TabBar: React.FC<BottomTabBarProps> = ({
+  state,
+  navigation,
+  descriptors,
+}) => (
+  <>
+    <BottomTabBar
+      state={state}
+      navigation={navigation}
+      descriptors={descriptors}
+      insets={{top: 0, left: 0, right: 0, bottom: 0}}
+    />
+    <BottomSafeArea />
+  </>
+);
 
 const tabBarOptions: BottomTabNavigationOptions = {
   headerShown: false,
@@ -38,38 +52,40 @@ const tabBarOptions: BottomTabNavigationOptions = {
   tabBarAllowFontScaling: false,
   tabBarActiveTintColor: COLORS.GREY600,
   tabBarInactiveTintColor: COLORS.GREY,
-  tabBarItemStyle: {
-    paddingTop: SPACINGS.TWENTY,
-  },
   tabBarStyle: {
-    elevation: 0,
-    height: 100,
+    height: 46 + SPACINGS.EIGHT * 2,
     borderTopWidth: 0,
+    elevation: 0,
     backgroundColor: 'transparent',
+  },
+  tabBarItemStyle: {
+    paddingVertical: SPACINGS.EIGHT,
+    height: 46 + SPACINGS.EIGHT * 2,
   },
 };
 
 const getTabOptions: (
-  Icon: IconType,
+  InactiveIcon: IconType,
+  ActiveIcon: IconType,
   label: string,
-) => BottomTabNavigationOptions = (Icon, label) => ({
-  tabBarIcon: ({color}) => <Icon fill={color} />,
-  tabBarLabel: ({color}) => <TabBarLabel color={color}>{label}</TabBarLabel>,
+) => BottomTabNavigationOptions = (InactiveIcon, ActiveIcon, label) => ({
+  tabBarIcon: ({focused}) => (focused ? <ActiveIcon /> : <InactiveIcon />),
+  tabBarLabel: () => <B3>{label}</B3>,
 });
 
 const Tabs = () => {
   const {t} = useTranslation(NS.COMPONENT.TABS);
   return (
-    <Tab.Navigator screenOptions={tabBarOptions}>
+    <Tab.Navigator screenOptions={tabBarOptions} tabBar={TabBar}>
       <Tab.Screen
         name={'Temples'}
         component={Temples}
-        options={getTabOptions(FilmCameraIcon, t('video'))}
+        options={getTabOptions(HomeIcon, HomeFillIcon, t('home'))}
       />
       <Tab.Screen
         name={'Profile'}
         component={Profile}
-        options={getTabOptions(ProfileIcon, t('profile'))}
+        options={getTabOptions(ProfileIcon, ProfileFillIcon, t('profile'))}
       />
     </Tab.Navigator>
   );

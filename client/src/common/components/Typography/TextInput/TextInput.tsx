@@ -6,7 +6,7 @@ import {SPACINGS} from '../../../constants/spacings';
 import textStyles from '../styles';
 
 const Input = styled(TextInput)({
-  flexGrow: 1,
+  flex: 1,
   height: 42,
   paddingHorizontal: SPACINGS.SIXTEEN,
   paddingVertical: SPACINGS.TWELVE,
