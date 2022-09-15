@@ -1,10 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  ActivityIndicator,
-  ListRenderItemInfo,
-  Platform,
-  RefreshControl,
-} from 'react-native';
+import {ListRenderItemInfo, Platform, RefreshControl} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useTranslation} from 'react-i18next';
 import {useRecoilValue} from 'recoil';
