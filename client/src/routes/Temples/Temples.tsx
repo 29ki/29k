@@ -1,14 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {ListRenderItemInfo, Platform, RefreshControl} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 
 import useTemples from './hooks/useTemples';
-import {RootStackProps} from '../../common/constants/routes';
 
 import {
   Spacer12,
