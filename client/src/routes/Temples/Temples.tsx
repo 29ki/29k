@@ -98,30 +98,13 @@ const Temples = () => {
   const isLoading = useRecoilValue(isLoadingAtom);
   const temples = useRecoilValue(templesAtom);
 
-  const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
-
   useEffect(() => {
     fetchTemples();
   }, [fetchTemples]);
 
   const renderTemple = ({item}: ListRenderItemInfo<Temple>) => (
     <Gutters>
-      <TempleCard
-        temple={item}
-        image={{
-          uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
-        }}
-        time="This session will start on saturday at 13.00"
-        buttonText="Join"
-        onPress={() =>
-          navigate('TempleStack', {
-            screen: 'ChangingRoom',
-            params: {
-              templeId: item.id,
-            },
-          })
-        }
-      />
+      <TempleCard temple={item} />
       {__DEV__ && (
         <Button
           onPress={() => deleteTemple(item.id)}
