@@ -3,6 +3,7 @@ import {ListRenderItemInfo, Platform, RefreshControl} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useTranslation} from 'react-i18next';
 import {useRecoilValue} from 'recoil';
+import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 
 import useTemples from './hooks/useTemples';
@@ -10,6 +11,7 @@ import useTemples from './hooks/useTemples';
 import {
   Spacer12,
   Spacer16,
+  Spacer60,
   Spacer8,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
@@ -22,7 +24,8 @@ import TempleCard from '../../common/components/Cards/TempleCard/TempleCard';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
 import {COLORS} from '../../common/constants/colors';
 import SETTINGS from '../../common/constants/settings';
-import {Plus} from '../../common/components/Icons';
+import {PlusIcon} from '../../common/components/Icons';
+import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'position'}),
@@ -42,12 +45,24 @@ const CreateTempleWrapper = styled.View({
   ...SETTINGS.BOXSHADOW,
 });
 
-const FloatingForm = styled(Gutters)({
+const FloatingForm = styled(LinearGradient).attrs({
+  colors: ['rgba(249, 248, 244, 0)', 'rgba(249, 248, 244, 1)'],
+})({
   position: 'absolute',
   left: 0,
   right: 0,
   bottom: 0,
+  paddingHorizontal: GUTTERS,
+  paddingTop: SPACINGS.TWENTYFOUR,
+  passingBottom: SPACINGS.TWELVE,
 });
+
+const ListHeader = () => (
+  <>
+    <TopSafeArea />
+    <Spacer16 />
+  </>
+);
 
 const CreateTempleForm = ({}) => {
   const {t} = useTranslation(NS.SCREEN.TEMPLES);
@@ -68,24 +83,26 @@ const CreateTempleForm = ({}) => {
     }
   };
 
-  return isAdding ? (
+  return (
     <CreateTempleWrapper>
-      <TextInput
-        onChangeText={setTempleName}
-        placeholder={t('createPlaceholder')}
-        onBlur={onBlur}
-        onSubmitEditing={onSubmit}
-        returnKeyType="done"
-        autoFocus
-      />
-      <Spacer8 />
-      <CreateButton onPress={onSubmit}>{t('create')}</CreateButton>
-    </CreateTempleWrapper>
-  ) : (
-    <CreateTempleWrapper>
-      <CreateButton onPress={() => setIsAdding(true)} LeftIcon={Plus}>
-        {t('create')}
-      </CreateButton>
+      {isAdding ? (
+        <>
+          <TextInput
+            onChangeText={setTempleName}
+            placeholder={t('createPlaceholder')}
+            onBlur={onBlur}
+            onSubmitEditing={onSubmit}
+            returnKeyType="done"
+            autoFocus
+          />
+          <Spacer8 />
+          <CreateButton onPress={onSubmit}>{t('create')}</CreateButton>
+        </>
+      ) : (
+        <CreateButton onPress={() => setIsAdding(true)} LeftIcon={PlusIcon}>
+          {t('create')}
+        </CreateButton>
+      )}
     </CreateTempleWrapper>
   );
 };
@@ -115,10 +132,11 @@ const Temples = () => {
 
   return (
     <Wrapper>
-      <TopSafeArea />
       <FlatList
         data={temples}
         keyExtractor={temple => temple.id}
+        ListHeaderComponent={ListHeader}
+        ListFooterComponent={Spacer60}
         ItemSeparatorComponent={Spacer16}
         renderItem={renderTemple}
         refreshControl={

@@ -54,6 +54,7 @@ type CardProps = {
   onPress: () => void;
   buttonText: string;
   backgroundColor?: string;
+  children?: React.ReactNode;
 };
 
 export const Card: React.FC<CardProps> = ({

@@ -13,7 +13,7 @@ import useAuthenticateUser from './lib/user/hooks/useAuthenticateUser';
 i18n.init();
 sentry.init();
 
-const Bootstrap: React.FC = ({children}) => {
+const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
   useAuthenticateUser();
 
   const setIsColdStarted = useSetRecoilState(isColdStartedAtom);

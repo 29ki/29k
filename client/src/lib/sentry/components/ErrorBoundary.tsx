@@ -21,7 +21,7 @@ const CrashErrorMessage = () => {
   );
 };
 
-const ErrorBoundary: React.FC = ({children}) => (
+const ErrorBoundary: React.FC<{children: React.ReactNode}> = ({children}) => (
   <SentryErrorBoundary fallback={<CrashErrorMessage />}>
     {children}
   </SentryErrorBoundary>

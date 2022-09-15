@@ -21,7 +21,7 @@ import useMuteAudioListener from './useMuteAudioListener';
 
 describe('useMuteAudioListener', () => {
   it('should toggle audio when state is playing', async () => {
-    const wrapper: React.FC = ({children}) => (
+    const wrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
       <RecoilRoot
         initializeState={({set}) => {
           set(templeAtom, {
@@ -45,7 +45,7 @@ describe('useMuteAudioListener', () => {
   });
 
   it('should toggle audio when state is not playing', async () => {
-    const wrapper: React.FC = ({children}) => (
+    const wrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
       <RecoilRoot
         initializeState={({set}) => {
           set(templeAtom, {

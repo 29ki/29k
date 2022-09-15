@@ -7,7 +7,7 @@ const StyledHeading = styled(H2)({
   textAlign: 'center',
 });
 
-const Heading: React.FC = ({children}) => (
+const Heading: React.FC<{children: React.ReactNode}> = ({children}) => (
   <>
     <Spacer12 />
     <StyledHeading>{children}</StyledHeading>
