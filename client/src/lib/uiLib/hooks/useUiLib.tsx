@@ -13,7 +13,7 @@ const uiLibState = createContext<UILibContextInterface>({
   toggle: () => undefined,
 });
 
-const UiLibProvider: React.FunctionComponent<{}> = ({children}) => {
+const UiLibProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const [UILibEnabled, setUILibEnabled] = useState(false);
 
   let UILib: React.ComponentType | null = null;

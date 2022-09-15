@@ -7,7 +7,7 @@ import {
   TopSafeArea,
 } from '../../../common/components/Spacers/Spacer';
 
-const ScreenWrapper: React.FunctionComponent = ({children}) => (
+const ScreenWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
   <ScrollView>
     <TopSafeArea />
     <Gutters>{children}</Gutters>

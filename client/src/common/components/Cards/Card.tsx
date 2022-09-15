@@ -55,6 +55,7 @@ type CardProps = {
   lottie?: AnimationObject;
   onPress: () => void;
   buttonText: string;
+  children: React.ReactNode;
 };
 
 export const Card: React.FC<CardProps> = ({

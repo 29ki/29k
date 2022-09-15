@@ -1,6 +1,6 @@
 import {useCallback} from 'react';
 import {Platform} from 'react-native';
-import codePush from 'react-native-code-push';
+import codePush, {DownloadProgress} from 'react-native-code-push';
 import {
   IOS_CODE_PUSH_DEPLOYMENT_KEY,
   ANDROID_CODE_PUSH_DEPLOYMENT_KEY,
@@ -53,7 +53,7 @@ const useCheckForUpdate = () => {
   const setDownloadProgress = useSetRecoilState(downloadProgressAtom);
 
   const onStatus = useCallback(
-    status => {
+    (status: codePush.SyncStatus) => {
       setStatus(status);
       logStatus(status);
       setUpdateAvailable(status === UPDATE_INSTALLED);
@@ -62,7 +62,7 @@ const useCheckForUpdate = () => {
   );
 
   const onProgress = useCallback(
-    progress => {
+    (progress: DownloadProgress) => {
       setDownloadProgress(progress.receivedBytes / progress.totalBytes);
     },
     [setDownloadProgress],
