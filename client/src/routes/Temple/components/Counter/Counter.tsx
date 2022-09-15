@@ -1,14 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
+import {useTranslation} from 'react-i18next';
 import dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration';
 import {B3} from '../../../../common/components/Typography/Text/Text';
 import {COLORS} from '../../../../common/constants/colors';
 import {HKGroteskBold} from '../../../../common/constants/fonts';
-import {useTranslation} from 'react-i18next';
 import NS from '../../../../lib/i18n/constants/namespaces';
+
+dayjs.extend(duration);
 
 type CounterProps = {
   startTime: dayjs.Dayjs;
+  now: dayjs.Dayjs;
 };
 
 const CounterText = styled(B3)({
@@ -16,36 +20,31 @@ const CounterText = styled(B3)({
   fontFamily: HKGroteskBold,
 });
 
-const Counter: React.FC<CounterProps> = ({startTime}) => {
-  const [diff, setDiff] = useState<number>(
-    startTime.subtract(dayjs().second(), 'seconds').second(),
-  );
+const Counter: React.FC<CounterProps> = ({startTime, now}) => {
   const {t} = useTranslation(NS.COMPONENT.COUNTER);
 
-  useEffect(() => {
-    const handle = setInterval(() => {
-      setDiff(startTime.subtract(dayjs().second(), 'seconds').second());
-    }, 1000);
-    return () => clearInterval(handle);
-  }, [setDiff, startTime]);
-
   const isStartingShortly = () => {
-    return diff <= 60 && diff > 0;
+    return now.add(1, 'minute').isAfter(startTime);
   };
 
   const isStartingNow = () => {
-    return startTime.isBefore(diff) || startTime.isSame(diff);
+    return now.isAfter(startTime) || startTime.isSame(now);
+  };
+
+  const getTime = () => {
+    const diff = dayjs.duration(startTime.diff(now));
+    const minutes = diff.minutes();
+    const seconds = diff.seconds();
+    return `${minutes}m ${seconds < 10 ? 0 : ''}${seconds}s`;
   };
 
   return (
     <CounterText>
-      {isStartingShortly() && t('counterValue.shortly')}
-      {/* {isStartingNow() && t('counterValue.now')}
-      {TIME_TO_START >= diff + 60000 &&
-        new Date(TIME_TO_START - diff).getMinutes() +
-          'm ' +
-          new Date(TIME_TO_START - diff).getSeconds() +
-          's'} */}
+      {isStartingNow()
+        ? t('counterValue.now')
+        : isStartingShortly()
+        ? t('counterValue.shortly')
+        : getTime()}
     </CounterText>
   );
 };

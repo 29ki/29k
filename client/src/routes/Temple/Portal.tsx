@@ -1,5 +1,6 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import dayjs from 'dayjs';
 import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
@@ -21,7 +22,7 @@ import {participantsSelector} from './state/state';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
-const TIME_TO_START = new Date(new Date().getTime() + 2 * 60000).getTime();
+const dayjsTime = dayjs().add(3, 'minutes');
 
 const VideoStyled = styled(Video)({
   ...StyleSheet.absoluteFillObject,
@@ -63,7 +64,7 @@ const Portal: React.FC = () => {
   const {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Portal'>>();
-  const [now, setNow] = useState(Date.now());
+  const [now, setNow] = useState(dayjs());
   const [fade, setFade] = useState(false);
   const {t} = useTranslation(NS.SCREEN.PORTAL);
   const exercise = useTempleExercise();
@@ -75,14 +76,14 @@ const Portal: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setNow(Date.now());
+      setNow(dayjs());
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
-    if (TIME_TO_START <= now) {
+    if (now.isAfter(dayjsTime)) {
       setFade(true);
     }
   }, [now]);
@@ -108,29 +109,12 @@ const Portal: React.FC = () => {
           )}
           <PortalStaus>
             <StatusItem>
-              <StatusText>
-                {t(
-                  `counterLabel.${
-                    TIME_TO_START <= now + 60000 ? 'soon' : 'counting'
-                  }`,
-                )}
-              </StatusText>
+              <StatusText>{t('counterLabel.soon')}</StatusText>
 
               <Spacer8 />
               <Badge>
-                <Counter startTime={TIME_TO_START} />
-                {/* <BadgeText>
-                  {TIME_TO_START - now <= 60000 &&
-                    TIME_TO_START - now > 0 &&
-                    t('counterValue.shortly')}
-                  {TIME_TO_START <= now && t('counterValue.now')}
-                  {TIME_TO_START >= now + 60000 &&
-                    new Date(TIME_TO_START - now).getMinutes() +
-                      'm ' +
-                      new Date(TIME_TO_START - now).getSeconds() +
-                      's'}
-                </BadgeText>
-              </Badge> */}
+                <Counter startTime={dayjsTime} now={now} />
+              </Badge>
             </StatusItem>
             {participantsCount > 0 && (
               <StatusItem>
