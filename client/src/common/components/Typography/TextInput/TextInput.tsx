@@ -7,7 +7,7 @@ import textStyles from '../styles';
 
 const Input = styled(TextInput)({
   flex: 1,
-  height: 42,
+  height: 44,
   paddingHorizontal: SPACINGS.SIXTEEN,
   paddingVertical: SPACINGS.TWELVE,
   ...textStyles.B2,

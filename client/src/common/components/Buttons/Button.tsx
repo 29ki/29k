@@ -5,14 +5,15 @@ import {SPACINGS} from '../../constants/spacings';
 import {B2} from '../Typography/Text/Text';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {IconType} from '../Icons';
+import {StyleSheet} from 'react-native';
 
 const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(({primary}) => ({
-  minHeight: SPACINGS.THIRTYTWO,
   backgroundColor: primary ? COLORS.GREY200 : COLORS.BLACK_EASY,
   borderRadius: SPACINGS.SIXTEEN,
   alignItems: 'center',
   justifyContent: 'center',
   flexDirection: 'row',
+  overflow: 'hidden',
 }));
 
 const IconWrapper = styled.View({
@@ -30,7 +31,14 @@ const RightIconWrapper = styled(IconWrapper)({
   marginRight: SPACINGS.TWELVE,
 });
 
+const DisabledOverlay = styled.View({
+  ...StyleSheet.absoluteFillObject,
+  backgroundColor: COLORS.WHITE_EASY,
+  opacity: 0.6,
+});
+
 export const ButtonText = styled(B2)<ButtonProps>(({primary}) => ({
+  height: 20,
   color: primary ? COLORS.BLACK_EASY : COLORS.GREY100,
   marginVertical: SPACINGS.TWELVE,
   marginHorizontal: SPACINGS.SIXTEEN,
@@ -81,6 +89,7 @@ const Button: React.FC<ButtonProps> = ({
         />
       </RightIconWrapper>
     )}
+    {disabled && <DisabledOverlay />}
   </ButtonComponent>
 );
 
