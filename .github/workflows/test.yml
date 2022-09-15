@@ -33,6 +33,18 @@ jobs:
         working-directory: ./shared
         run: yarn
 
+      - name: Cache Content Dependencies
+        id: cache-content-node-modules
+        uses: actions/cache@v2
+        with:
+          path: ./content/node_modules
+          key: content-node-modules-${{ hashFiles('./content/yarn.lock') }}
+
+      - name: Install Content Dependencies
+        if: steps.cache-content-node-modules.outputs.cache-hit != 'true'
+        working-directory: ./content
+        run: yarn
+
       - name: Cache Client Dependencies
         id: cache-client-node-modules
         uses: actions/cache@v2
@@ -75,6 +87,18 @@ jobs:
       - name: Install Shared Dependencies
         if: steps.cache-shared-node-modules.outputs.cache-hit != 'true'
         working-directory: ./shared
+        run: yarn
+
+      - name: Cache Content Dependencies
+        id: cache-content-node-modules
+        uses: actions/cache@v2
+        with:
+          path: ./content/node_modules
+          key: content-node-modules-${{ hashFiles('./content/yarn.lock') }}
+
+      - name: Install Content Dependencies
+        if: steps.cache-content-node-modules.outputs.cache-hit != 'true'
+        working-directory: ./content
         run: yarn
 
       - name: Cache Functions Dependencies
@@ -160,7 +184,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ./content/node_modules
-          key: content-node-modules-${{ hashFiles('./cms/yarn.lock') }}
+          key: content-node-modules-${{ hashFiles('./content/yarn.lock') }}
 
       - name: Install Content Dependencies
         if: steps.cache-content-node-modules.outputs.cache-hit != 'true'
