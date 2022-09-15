@@ -30,17 +30,15 @@ const CardButton = styled(Button)({
   alignSelf: 'flex-start',
 });
 
-const Shadow = styled.View.attrs({
-  ...SETTINGS.BOXSHADOW,
-  shadowColor: COLORS.BLACK,
-})({});
-
-const Wrapper = styled(TouchableOpacity)({
-  justifyContent: 'space-between',
-  borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
-  backgroundColor: COLORS.YELLOW_LIGHT,
-  padding: SPACINGS.SIXTEEN,
-});
+const Wrapper = styled(TouchableOpacity)<{backgroundColor?: string}>(
+  ({backgroundColor}) => ({
+    justifyContent: 'space-between',
+    borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
+    backgroundColor: backgroundColor || COLORS.YELLOW_LIGHT,
+    padding: SPACINGS.SIXTEEN,
+    ...SETTINGS.BOXSHADOW,
+  }),
+);
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -49,13 +47,14 @@ const Row = styled.View({
 const CallToAction = styled.View({flex: 1, justifyContent: 'flex-end'});
 
 type CardProps = {
-  title: string;
+  title?: string;
   description?: string;
   image?: ImageSourcePropType;
   lottie?: AnimationObject;
   onPress: () => void;
   buttonText: string;
-  children: React.ReactNode;
+  backgroundColor?: string;
+  children?: React.ReactNode;
 };
 
 export const Card: React.FC<CardProps> = ({
@@ -66,29 +65,28 @@ export const Card: React.FC<CardProps> = ({
   onPress,
   buttonText,
   children,
+  backgroundColor,
 }) => (
-  <Shadow>
-    <Wrapper onPress={onPress}>
-      <View>
-        {Boolean(title) && <H3>{title}</H3>}
-        {Boolean(description) && <B2 numberOfLines={1}>{description}</B2>}
-      </View>
-      <Spacer16 />
-      <Row>
-        <CallToAction>
-          {children}
-          <CardButton onPress={onPress}>{buttonText}</CardButton>
-        </CallToAction>
-        <GraphicsWrapper>
-          {lottie ? (
-            <Lottie source={lottie} autoPlay loop />
-          ) : image ? (
-            <Image source={image} />
-          ) : null}
-        </GraphicsWrapper>
-      </Row>
-    </Wrapper>
-  </Shadow>
+  <Wrapper backgroundColor={backgroundColor} onPress={onPress}>
+    <View>
+      {title && <H3>{title}</H3>}
+      {description && <B2 numberOfLines={1}>{description}</B2>}
+    </View>
+    <Spacer16 />
+    <Row>
+      <CallToAction>
+        {children}
+        <CardButton onPress={onPress}>{buttonText}</CardButton>
+      </CallToAction>
+      <GraphicsWrapper>
+        {lottie ? (
+          <Lottie source={lottie} autoPlay loop />
+        ) : image ? (
+          <Image source={image} />
+        ) : null}
+      </GraphicsWrapper>
+    </Row>
+  </Wrapper>
 );
 
 export default Card;

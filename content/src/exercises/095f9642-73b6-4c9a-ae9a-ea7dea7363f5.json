@@ -2,6 +2,10 @@
   "en": {
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
     "name": "You body, your home",
+    "card": {
+      "image": "https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png",
+      "backgroundColor": "#e8dcd1"
+    },
     "slides": [
       {
         "type": "participantSpotlight"

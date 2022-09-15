@@ -1,15 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {ListRenderItemInfo, Platform, RefreshControl} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import {useRecoilValue} from 'recoil';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 
 import useTemples from './hooks/useTemples';
-import {RootStackProps} from '../../common/constants/routes';
 
 import {
   Spacer12,
@@ -115,30 +112,13 @@ const Temples = () => {
   const isLoading = useRecoilValue(isLoadingAtom);
   const temples = useRecoilValue(templesAtom);
 
-  const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
-
   useEffect(() => {
     fetchTemples();
   }, [fetchTemples]);
 
   const renderTemple = ({item}: ListRenderItemInfo<Temple>) => (
     <Gutters>
-      <TempleCard
-        temple={item}
-        image={{
-          uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
-        }}
-        time="This session will start on saturday at 13.00"
-        buttonText="Join"
-        onPress={() =>
-          navigate('TempleStack', {
-            screen: 'ChangingRoom',
-            params: {
-              templeId: item.id,
-            },
-          })
-        }
-      />
+      <TempleCard temple={item} />
       {__DEV__ && (
         <Button
           onPress={() => deleteTemple(item.id)}

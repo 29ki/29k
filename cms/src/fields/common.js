@@ -45,3 +45,18 @@ export const VIDEO_FIELD = {
     },
   ],
 };
+
+export const BACKGROUND_COLOR = {
+  label: 'Background Color',
+  name: 'backgroundColor',
+  i18n: true,
+  widget: 'color',
+};
+
+export const CARD_FIELD = {
+  label: 'Card',
+  name: 'card',
+  i18n: true,
+  widget: 'object',
+  fields: [IMAGE_FIELD, BACKGROUND_COLOR],
+};
