@@ -38,5 +38,9 @@ export type ExerciseSlide =
 export type Exercise = {
   id: string;
   name: string;
+  card?: {
+    image?: string;
+    backgroundColor?: string;
+  };
   slides: ExerciseSlide[];
 };

@@ -25,7 +25,7 @@ const mockUseTempleExercise = useTempleExercise as jest.Mock;
 
 describe('useMuteAudioListener', () => {
   it('should toggle audio when state is playing and current slide is not sharing', async () => {
-    const wrapper: React.FC = ({children}) => (
+    const wrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
       <RecoilRoot
         initializeState={({set}) => {
           set(templeAtom, {
@@ -53,7 +53,7 @@ describe('useMuteAudioListener', () => {
   });
 
   it('should not toggle audio when state is not playing', async () => {
-    const wrapper: React.FC = ({children}) => (
+    const wrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
       <RecoilRoot
         initializeState={({set}) => {
           set(templeAtom, {

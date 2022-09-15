@@ -1,42 +1,41 @@
-import {AnimationObject} from 'lottie-react-native';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
-import {ImageSourcePropType} from 'react-native';
+import {useTranslation} from 'react-i18next';
 import {Temple} from '../../../../../../shared/src/types/Temple';
-import {Spacer8} from '../../Spacers/Spacer';
-import {B3} from '../../Typography/Text/Text';
+import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
+import NS from '../../../../lib/i18n/constants/namespaces';
+import {RootStackProps} from '../../../constants/routes';
 import Card from '../Card';
 
 type TempleCardProps = {
-  onPress?: () => void;
   temple: Temple;
-  image?: ImageSourcePropType;
-  lottie?: AnimationObject;
-  time: string;
-  buttonText: string;
 };
 
-const TempleCard: React.FC<TempleCardProps> = ({
-  onPress = () => {},
-  temple,
-  buttonText,
-  time,
-  image,
-  lottie,
-}) => {
-  const {name, url} = temple;
+const TempleCard: React.FC<TempleCardProps> = ({temple}) => {
+  const {name, contentId} = temple;
+  const exercise = useExerciseById(contentId);
+  const {t} = useTranslation(NS.COMPONENT.TEMPLE_CARD);
+  const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
 
   return (
     <Card
-      title={name}
-      description={url}
-      buttonText={buttonText}
-      image={image}
-      lottie={lottie}
-      onPress={onPress}>
-      {/* Add Time component to handle "Starts in 20 min 18 sec" vs "The session will start Saturday at 13.00 " */}
-      <B3>{time}</B3>
-      <Spacer8 />
-    </Card>
+      title={exercise?.name}
+      description={name}
+      buttonText={t('join_button')}
+      backgroundColor={exercise?.card?.backgroundColor}
+      image={{
+        uri: exercise?.card?.image,
+      }}
+      onPress={() =>
+        navigate('TempleStack', {
+          screen: 'ChangingRoom',
+          params: {
+            templeId: temple.id,
+          },
+        })
+      }
+    />
   );
 };
 
