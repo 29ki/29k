@@ -26,6 +26,7 @@ import {COLORS} from '../../common/constants/colors';
 import SETTINGS from '../../common/constants/settings';
 import {PlusIcon} from '../../common/components/Icons';
 import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
+import {userAtom} from '../../lib/user/state/state';
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'position'}),
@@ -120,6 +121,7 @@ const Temples = () => {
   const {fetchTemples, deleteTemple} = useTemples();
   const isLoading = useRecoilValue(isLoadingAtom);
   const temples = useRecoilValue(templesAtom);
+  const user = useRecoilValue(userAtom);
 
   useEffect(() => {
     fetchTemples();
@@ -128,7 +130,7 @@ const Temples = () => {
   const renderTemple = ({item}: ListRenderItemInfo<Temple>) => (
     <Gutters>
       <TempleCard temple={item} />
-      {__DEV__ && (
+      {__DEV__ && user && item.facilitator === user.uid && (
         <Button
           onPress={() => deleteTemple(item.id)}
           // eslint-disable-next-line react-native/no-inline-styles
