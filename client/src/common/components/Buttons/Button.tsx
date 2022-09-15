@@ -19,6 +19,8 @@ const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(({primary}) => ({
 const IconWrapper = styled.View({
   width: 26,
   height: 26,
+  alignItems: 'center',
+  justifyContent: 'center',
 });
 
 const LeftIconWrapper = styled(IconWrapper)({
@@ -49,8 +51,8 @@ type ButtonProps = {
   primary?: boolean;
   style?: object;
   disabled?: boolean;
-  LeftIcon?: IconType;
-  RightIcon?: IconType;
+  LeftIcon?: IconType | React.ReactNode;
+  RightIcon?: IconType | React.ReactNode;
   fill?: string;
   children: React.ReactNode;
 };
