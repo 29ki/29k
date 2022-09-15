@@ -1,5 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {ListRenderItemInfo, Platform, RefreshControl} from 'react-native';
+import {
+  ActivityIndicator,
+  ListRenderItemInfo,
+  Platform,
+  RefreshControl,
+} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useTranslation} from 'react-i18next';
 import {useRecoilValue} from 'recoil';
@@ -64,9 +69,14 @@ const ListHeader = () => (
   </>
 );
 
+const Spinner = styled.ActivityIndicator.attrs({size: 'small', color: 'white'})(
+  {},
+);
+
 const CreateTempleForm = ({}) => {
   const {t} = useTranslation(NS.SCREEN.TEMPLES);
   const [isAdding, setIsAdding] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [templeName, setTempleName] = useState<string>();
   const {addTemple} = useTemples();
 
@@ -78,7 +88,10 @@ const CreateTempleForm = ({}) => {
 
   const onSubmit = async () => {
     if (templeName) {
+      setIsLoading(true);
       await addTemple(templeName);
+      setIsLoading(false);
+      setTempleName('');
       setIsAdding(false);
     }
   };
@@ -96,7 +109,12 @@ const CreateTempleForm = ({}) => {
             autoFocus
           />
           <Spacer8 />
-          <CreateButton onPress={onSubmit}>{t('create')}</CreateButton>
+          <CreateButton
+            onPress={onSubmit}
+            disabled={!templeName}
+            LeftIcon={isLoading && Spinner}>
+            {t('create')}
+          </CreateButton>
         </>
       ) : (
         <CreateButton onPress={() => setIsAdding(true)} LeftIcon={PlusIcon}>
