@@ -13,7 +13,9 @@ const addToggler = () => {
   }
 };
 
-const UiDebuggerProvider: React.FunctionComponent = ({children}) => {
+const UiDebuggerProvider: React.FC<{children: React.ReactNode}> = ({
+  children,
+}) => {
   const [state, setState] = useState(false);
 
   // Set-up toggler on mount

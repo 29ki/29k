@@ -18,7 +18,10 @@ const AnimatedView = styled(Animated.View)({
   ...StyleSheet.absoluteFillObject,
 });
 
-const Fade: React.FC<{visible: boolean}> = ({children, visible}) => {
+const Fade: React.FC<{children: React.ReactNode; visible: boolean}> = ({
+  children,
+  visible,
+}) => {
   const opacity = useSharedValue(visible ? 1 : 0);
 
   const animatedStyles = useAnimatedStyle(() => ({

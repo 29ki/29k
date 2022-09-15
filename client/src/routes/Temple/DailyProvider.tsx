@@ -38,7 +38,7 @@ export const DailyContext = createContext<DailyProviderTypes>({
   setUserName: () => Promise.resolve(),
 });
 
-const DailyProvider: React.FC = ({children}) => {
+const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const [daily] = useState(() => Daily.createCallObject());
 
   const setIsLoading = useSetRecoilState(videoSharingFields('isLoading'));
@@ -107,7 +107,7 @@ const DailyProvider: React.FC = ({children}) => {
   }, [daily]);
 
   const prepareMeeting = useCallback(
-    async url => {
+    async (url: string) => {
       if (daily.meetingState() !== 'joined-meeting') {
         setIsLoading(true);
 
@@ -154,7 +154,7 @@ const DailyProvider: React.FC = ({children}) => {
   );
 
   const preJoinMeeting = useCallback(
-    async url => {
+    async (url: string) => {
       if (daily.meetingState() === 'new') {
         await prepareMeeting(url);
         await daily.startCamera({url});

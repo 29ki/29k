@@ -6,15 +6,6 @@ import {B2} from '../Typography/Text/Text';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {IconType} from '../Icons';
 
-type ButtonProps = {
-  onPress?: () => void;
-  primary?: boolean;
-  style?: object;
-  disabled?: boolean;
-  LeftIcon?: IconType;
-  RightIcon?: IconType;
-  fill?: string;
-};
 const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(({primary}) => ({
   minHeight: SPACINGS.THIRTYTWO,
   backgroundColor: primary ? COLORS.GREY200 : COLORS.BLACK_EASY,
@@ -44,6 +35,17 @@ export const ButtonText = styled(B2)<ButtonProps>(({primary}) => ({
   marginVertical: SPACINGS.TWELVE,
   marginHorizontal: SPACINGS.SIXTEEN,
 }));
+
+type ButtonProps = {
+  onPress?: () => void;
+  primary?: boolean;
+  style?: object;
+  disabled?: boolean;
+  LeftIcon?: IconType;
+  RightIcon?: IconType;
+  fill?: string;
+  children: React.ReactNode;
+};
 
 const Button: React.FC<ButtonProps> = ({
   children,
