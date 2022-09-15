@@ -28,9 +28,9 @@ export const participantsAtom = atom<{
   default: {},
 });
 
-export const activeParticipantAtom = atom<string | null>({
-  key: `${NAMESPACE}/activeParticipantId`,
-  default: null,
+export const activeParticipants = atom<Array<string>>({
+  key: `${NAMESPACE}/activeParticipants`,
+  default: [],
 });
 
 export const participantByIdSelector = selectorFamily({
@@ -50,18 +50,14 @@ export const participantsSelector = selector<Array<DailyParticipant>>({
   key: `${NAMESPACE}/participantsSelector`,
   get: ({get}) => {
     const participantsObj = get(participantsAtom);
-    const activeParticipantId = get(activeParticipantAtom);
+    const lastActiveParticipants = get(activeParticipants);
 
     // When users leaves the call they are sometimes represented as undefined
     // so we need to remove those
-    return (
-      activeParticipantId
-        ? [
-            participantsObj[activeParticipantId],
-            ...values(omit([activeParticipantId], participantsObj)),
-          ]
-        : values(participantsObj)
-    ).filter(p => p !== undefined) as Array<DailyParticipant>;
+    return [
+      ...lastActiveParticipants.map(id => participantsObj[id]),
+      ...values(omit(lastActiveParticipants, participantsObj)),
+    ].filter(p => p !== undefined) as Array<DailyParticipant>;
   },
 });
 
