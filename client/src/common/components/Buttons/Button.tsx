@@ -5,7 +5,8 @@ import {SPACINGS} from '../../constants/spacings';
 import {B2} from '../Typography/Text/Text';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {IconType} from '../Icons';
-import {StyleSheet} from 'react-native';
+import {ActivityIndicator, StyleSheet} from 'react-native';
+import Icon from '../Icons/Icon';
 
 const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(({primary}) => ({
   backgroundColor: primary ? COLORS.GREY200 : COLORS.BLACK_EASY,
@@ -51,8 +52,9 @@ type ButtonProps = {
   primary?: boolean;
   style?: object;
   disabled?: boolean;
-  LeftIcon?: IconType | React.ReactNode;
-  RightIcon?: IconType | React.ReactNode;
+  loading?: boolean;
+  LeftIcon?: IconType;
+  RightIcon?: IconType;
   fill?: string;
   children: React.ReactNode;
 };
@@ -63,6 +65,7 @@ const Button: React.FC<ButtonProps> = ({
   primary = false,
   style = {},
   disabled = false,
+  loading = false,
   LeftIcon,
   RightIcon,
   fill,
@@ -72,6 +75,14 @@ const Button: React.FC<ButtonProps> = ({
     primary={primary}
     style={style}
     disabled={disabled}>
+    {loading && (
+      <LeftIconWrapper>
+        <ActivityIndicator
+          size="small"
+          color={fill ? fill : primary ? COLORS.BLACK_EASY : COLORS.GREY100}
+        />
+      </LeftIconWrapper>
+    )}
     {LeftIcon && (
       <LeftIconWrapper>
         <LeftIcon

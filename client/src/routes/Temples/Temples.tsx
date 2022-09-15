@@ -64,10 +64,6 @@ const ListHeader = () => (
   </>
 );
 
-const Spinner = styled.ActivityIndicator.attrs({size: 'small', color: 'white'})(
-  {},
-);
-
 const CreateTempleForm = ({}) => {
   const {t} = useTranslation(NS.SCREEN.TEMPLES);
   const [isAdding, setIsAdding] = useState(false);
@@ -107,7 +103,7 @@ const CreateTempleForm = ({}) => {
           <CreateButton
             onPress={onSubmit}
             disabled={!templeName}
-            LeftIcon={isLoading && Spinner}>
+            loading={isLoading}>
             {t('create')}
           </CreateButton>
         </>
