@@ -46,7 +46,10 @@
       {
         "type": "content",
         "content": {
-          "heading": "Thank you"
+          "heading": "Thank you",
+          "image": {
+            "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1663323376/temp/Group_697212_jqufnz.png"
+          }
         }
       }
     ],
