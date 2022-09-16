@@ -69,16 +69,16 @@ describe('/api/killswitch', () => {
       ////// native version //////////////////////////////////////////////////
       // older native versions currently kill-switched
       [403, nativeUpdate, '1.0.0', undefined, 'ios', 'en'],
-      [403, nativeUpdate, '1.21.3', undefined, 'ios', 'en'],
-      [403, nativeUpdate, '1.23.0', undefined, 'ios', 'en'],
+      [403, nativeUpdate, '1.0.0', undefined, 'ios', 'en'],
+      [403, nativeUpdate, '1.0.0', undefined, 'ios', 'en'],
 
       // current native minimum version
-      [200, {}, '2.0.2', '5000', 'ios', 'en'],
-      [200, {}, '2.0.2', '5000', 'android', 'en'],
+      [200, {}, '2.0.10', '10001', 'ios', 'en'],
+      [200, {}, '2.0.10', '10001', 'android', 'en'],
 
       // some future version
-      [200, {}, '3.50.0', undefined, 'ios', 'en'],
-      [200, {}, '3.50.1', undefined, 'ios', 'sv'],
+      [200, {}, '3.0.0', undefined, 'ios', 'en'],
+      [200, {}, '3.0.0', undefined, 'ios', 'sv'],
       [200, {}, '3.0.0', undefined, 'android', 'en'],
 
       ////// bundle version //////////////////////////////////////////////////
@@ -86,20 +86,20 @@ describe('/api/killswitch', () => {
       [403, nativeUpdate, '1.0.0', '1', 'ios', 'en'],
 
       // older bundle versions currently kill-switched
-      [200, bundleUpdate, '2.0.9', '2993', 'ios', 'en'],
-      [200, bundleUpdate, '2.0.9', '2872', 'android', 'en'],
+      [200, bundleUpdate, '2.0.10', '2993', 'ios', 'en'],
+      [200, bundleUpdate, '2.0.10', '2872', 'android', 'en'],
 
       // current bundle minimum version
-      [200, {}, '2.0.9', '10001', 'ios', 'en'],
-      [200, {}, '2.0.9', '10001', 'android', 'en'],
+      [200, {}, '2.0.10', '10001', 'ios', 'en'],
+      [200, {}, '2.0.10', '10001', 'android', 'en'],
 
       /////// miscellaneous //////////////////////////////////////////////////
       // accepts partially broken input
-      [200, {}, '2.0.0', 'undefined', 'ios', 'en'],
+      [200, {}, '3.0.0', 'undefined', 'ios', 'en'],
 
       // doesn't require language (defaults to english)
       [403, nativeUpdate, '1.0.0', undefined, 'ios', undefined],
-      [200, {}, '2.0.0', undefined, 'android', undefined],
+      [200, {}, '3.0.0', undefined, 'android', undefined],
     ])(
       'Returns %s and %s for %s on %s with %s language',
       async (status, body, version, bundleVersion, platform, lng) => {
