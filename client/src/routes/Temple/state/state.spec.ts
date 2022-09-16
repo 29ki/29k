@@ -1,7 +1,7 @@
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import {snapshot_UNSTABLE} from 'recoil';
 import {
-  activeParticipants,
+  activeParticipantsAtom,
   participantsAtom,
   participantsSelector,
 } from './state';
@@ -31,7 +31,7 @@ describe('Temple state', () => {
           ...createParticipant('test-id-1', true),
           ...createParticipant('test-id-2'),
         });
-        set(activeParticipants, ['test-id-2']);
+        set(activeParticipantsAtom, ['test-id-2']);
       });
 
       expect(
@@ -49,7 +49,7 @@ describe('Temple state', () => {
           ...createParticipant('test-id-2'),
           ...createParticipant('test-id-3'),
         });
-        set(activeParticipants, ['test-id-2', 'test-id-3', 'test-id-1']);
+        set(activeParticipantsAtom, ['test-id-2', 'test-id-3', 'test-id-1']);
       });
 
       expect(
@@ -67,7 +67,7 @@ describe('Temple state', () => {
           ...createParticipant('test-id-1', true),
           ...createParticipant('test-id-2'),
         });
-        set(activeParticipants, ['test-id-2', 'test-id-3', 'test-id-1']);
+        set(activeParticipantsAtom, ['test-id-2', 'test-id-3', 'test-id-1']);
       });
 
       expect(

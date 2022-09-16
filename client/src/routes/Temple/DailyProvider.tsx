@@ -16,8 +16,9 @@ import {
   videoSharingFields,
   participantsAtom,
   videoSharingAtom,
-  activeParticipants,
+  activeParticipantsAtom,
 } from './state/state';
+import useSetActiveParticipants from './hooks/useSetActiveParticipants';
 
 export type DailyProviderTypes = {
   call?: DailyCall;
@@ -43,10 +44,10 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
 
   const setIsLoading = useSetRecoilState(videoSharingFields('isLoading'));
   const setParticipants = useSetRecoilState(participantsAtom);
-  const setActiveParticipant = useSetRecoilState(activeParticipants);
+  const setActiveParticipant = useSetActiveParticipants();
   const resetParticipants = useResetRecoilState(participantsAtom);
   const resetVideoCallState = useResetRecoilState(videoSharingAtom);
-  const resetActiveParticipants = useResetRecoilState(activeParticipants);
+  const resetActiveParticipants = useResetRecoilState(activeParticipantsAtom);
 
   const resetState = useCallback(() => {
     resetParticipants();
@@ -85,10 +86,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
       activeSpeaker,
     }: DailyEventObject<'active-speaker-change'>) => {
       const {peerId} = activeSpeaker;
-      setActiveParticipant(participantIds => [
-        peerId,
-        ...participantIds.filter(id => id !== peerId),
-      ]);
+      setActiveParticipant(peerId);
     };
 
     return [
