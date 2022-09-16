@@ -7,22 +7,31 @@ import {StyleSheet} from 'react-native';
 import Video from 'react-native-video';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
+import Button from '../../common/components/Buttons/Button';
+import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 
 import Gutters from '../../common/components/Gutters/Gutters';
-import {BottomSafeArea, Spacer8} from '../../common/components/Spacers/Spacer';
+import {ArrowLeftIcon} from '../../common/components/Icons';
+import {
+  BottomSafeArea,
+  Spacer8,
+  TopSafeArea,
+} from '../../common/components/Spacers/Spacer';
 import {B3} from '../../common/components/Typography/Text/Text';
 import {COLORS} from '../../common/constants/colors';
 import {HKGroteskBold} from '../../common/constants/fonts';
 import {TempleStackProps} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
+import {userAtom} from '../../lib/user/state/state';
+import * as templeApi from '../Temples/api/temple';
 import Counter from './components/Counter/Counter';
 import useTempleExercise from './hooks/useTempleExercise';
-import {participantsSelector} from './state/state';
+import {participantsSelector, templeAtom} from './state/state';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
-const dayjsTime = dayjs().add(30, 'seconds');
+const dayjsTime = dayjs().add(10, 'minutes');
 
 const VideoStyled = styled(Video)({
   ...StyleSheet.absoluteFillObject,
@@ -36,6 +45,7 @@ const StatusText = styled(B3)({
 const StatusItem = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
+  flex: 1,
 });
 
 const BadgeText = styled(StatusText)({
@@ -49,15 +59,29 @@ const Badge = styled.View({
   borderRadius: SPACINGS.EIGHT,
 });
 
-const PortalStaus = styled.View({
+const PortalStatus = styled(Gutters)({
   flexDirection: 'row',
   justifyContent: 'space-between',
   alignItems: 'center',
 });
 
-const Wrapper = styled(Gutters)({
+const Wrapper = styled.View({
   flex: 1,
-  justifyContent: 'flex-end',
+  justifyContent: 'space-between',
+});
+
+const TopBar = styled(Gutters)({
+  justifyContent: 'space-between',
+  flexDirection: 'row',
+  paddingVertical: SPACINGS.EIGHT,
+});
+
+const StartButton = styled(Button)({
+  backgroundColor: COLORS.GREEN,
+});
+
+const BackButton = styled(IconButton)({
+  marginLeft: -SPACINGS.TWELVE,
 });
 
 const Portal: React.FC = () => {
@@ -65,15 +89,16 @@ const Portal: React.FC = () => {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Portal'>>();
   const [now, setNow] = useState(dayjs());
-  const [startTransition, setStartTransition] = useState(false);
   const [joiningTemple, setJoiningTemple] = useState(false);
   const {t} = useTranslation(NS.SCREEN.PORTAL);
   const exercise = useTempleExercise();
+  const temple = useRecoilValue(templeAtom);
   const introPortal = exercise?.introPortal;
   const participants = useRecoilValue(participantsSelector);
   const participantsCount = participants.length;
+  const user = useRecoilValue(userAtom);
 
-  const {navigate} = useNavigation<TempleNavigationProps>();
+  const {goBack, navigate} = useNavigation<TempleNavigationProps>();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -83,55 +108,72 @@ const Portal: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    if (now.isAfter(dayjsTime)) {
-      setStartTransition(true);
-    }
-  }, [now]);
-
   if (!introPortal) {
     return null;
   }
 
   return (
-    <Wrapper>
-      {introPortal.type === 'video' && (
-        <>
-          <VideoStyled
-            onEnd={() => navigate('Temple', {templeId})}
-            paused={!joiningTemple}
-            source={{uri: introPortal.content.videoEnd?.source}}
-          />
-          {!joiningTemple && (
-            <VideoStyled
-              onEnd={() => setJoiningTemple(true)}
-              repeat={!startTransition}
-              source={{uri: introPortal.content.videoLoop?.source}}
-            />
-          )}
-          <PortalStaus>
-            <StatusItem>
-              <StatusText>{t('counterLabel.soon')}</StatusText>
+    <>
+      <TopSafeArea />
+      <VideoStyled
+        onEnd={() => navigate('Temple', {templeId})}
+        paused={!joiningTemple}
+        source={{uri: introPortal.content.videoEnd?.source}}
+      />
+      {!joiningTemple && (
+        <VideoStyled
+          onEnd={() => {
+            if (temple?.started) {
+              setJoiningTemple(true);
+            }
+          }}
+          repeat={!temple?.started}
+          source={{uri: introPortal.content.videoLoop?.source}}
+        />
+      )}
+      <Wrapper>
+        {introPortal.type === 'video' && (
+          <>
+            <TopBar>
+              <BackButton noBackground onPress={goBack} Icon={ArrowLeftIcon} />
+              {temple?.facilitator === user?.uid && (
+                <StartButton
+                  onPress={() => {
+                    console.log('wtf');
+                    templeApi.updateTemple(templeId, {started: true});
+                  }}>
+                  {t('startSession')}
+                </StartButton>
+              )}
+            </TopBar>
 
-              <Spacer8 />
-              <Badge>
-                <Counter startTime={dayjsTime} now={now} />
-              </Badge>
-            </StatusItem>
-            {participantsCount > 1 && (
+            <PortalStatus>
               <StatusItem>
-                <StatusText>{t('participants')}</StatusText>
+                <StatusText>{t('counterLabel.soon')}</StatusText>
+
                 <Spacer8 />
                 <Badge>
-                  <BadgeText>{participantsCount}</BadgeText>
+                  <Counter startTime={dayjsTime} now={now} />
                 </Badge>
               </StatusItem>
-            )}
-          </PortalStaus>
-        </>
-      )}
+
+              <StatusItem>
+                {participantsCount > 1 && (
+                  <>
+                    <StatusText>{t('participants')}</StatusText>
+                    <Spacer8 />
+                    <Badge>
+                      <BadgeText>{participantsCount}</BadgeText>
+                    </Badge>
+                  </>
+                )}
+              </StatusItem>
+            </PortalStatus>
+          </>
+        )}
+      </Wrapper>
       <BottomSafeArea />
-    </Wrapper>
+    </>
   );
 };
 

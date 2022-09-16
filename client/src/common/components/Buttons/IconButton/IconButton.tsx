@@ -6,12 +6,17 @@ import {SPACINGS} from '../../../constants/spacings';
 import {IconType} from '../../Icons';
 import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
 
-const StyledIconButton = styled(TouchableOpacity)<{active: boolean}>(props => ({
+const StyledIconButton = styled(TouchableOpacity)<{
+  active: boolean;
+  noBackground: boolean;
+}>(props => ({
   width: SPACINGS.FOURTYFOUR,
   height: SPACINGS.FOURTYFOUR,
   borderRadius: SPACINGS.SIXTEEN,
-  backgroundColor: props.active ? COLORS.GREY : COLORS.ROSE500,
   padding: SPACINGS.EIGHT,
+  ...(props.noBackground
+    ? {}
+    : {backgroundColor: props.active ? COLORS.GREY : COLORS.ROSE500}),
 }));
 
 type IconButtonProps = {
@@ -21,6 +26,7 @@ type IconButtonProps = {
   disabled?: boolean;
   style?: ViewStyle;
   active?: boolean;
+  noBackground?: boolean;
 };
 
 const IconButton: React.FC<IconButtonProps> = ({
@@ -30,12 +36,14 @@ const IconButton: React.FC<IconButtonProps> = ({
   disabled = false,
   style,
   active = true,
+  noBackground = false,
 }) => (
   <StyledIconButton
     onPress={onPress}
     disabled={disabled}
     style={style}
-    active={active}>
+    active={active}
+    noBackground={noBackground}>
     <Icon fill={fill} />
   </StyledIconButton>
 );

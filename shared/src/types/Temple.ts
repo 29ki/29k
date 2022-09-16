@@ -30,4 +30,5 @@ export type Temple = {
   exerciseState: ExerciseState;
   contentId: string;
   facilitator: string;
+  started: boolean;
 };

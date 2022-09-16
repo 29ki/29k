@@ -45,6 +45,7 @@ const temples = [
       timestamp: Timestamp.now(),
     },
     facilitator: 'some-user-id',
+    started: false,
   },
   {
     id: 'some-other-temple-id',
@@ -57,6 +58,7 @@ const temples = [
       timestamp: Timestamp.now(),
     },
     facilitator: 'some-other-user-id',
+    started: false,
   },
 ];
 
@@ -106,6 +108,7 @@ describe('/api/temples', () => {
             timestamp: expect.any(String),
           },
           facilitator: 'some-user-id',
+          started: false,
         },
         {
           id: 'some-other-temple-id',
@@ -118,6 +121,7 @@ describe('/api/temples', () => {
             timestamp: expect.any(String),
           },
           facilitator: 'some-other-user-id',
+          started: false,
         },
       ]);
     });
@@ -143,6 +147,7 @@ describe('/api/temples', () => {
         },
         contentId: 'some-content-id',
         facilitator: 'some-user-id',
+        started: false,
       });
     });
 
@@ -162,6 +167,39 @@ describe('/api/temples', () => {
       const response = await request(mockServer)
         .post('/temples')
         .send({name: 'the name'});
+      expect(response.status).toBe(500);
+    });
+  });
+
+  describe('PUT', () => {
+    it('should return updated temple', async () => {
+      const response = await request(mockServer)
+        .put('/temples/some-temple-id')
+        .send({started: true})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({
+        id: 'some-temple-id',
+        name: 'some-name',
+        url: 'some-url',
+        exerciseState: {
+          active: false,
+          index: 0,
+          playing: false,
+          timestamp: expect.any(String),
+        },
+        facilitator: 'some-user-id',
+        started: true,
+      });
+    });
+
+    it('should fail on invalid fields', async () => {
+      const response = await request(mockServer)
+        .put('/temples/some-temple-id')
+        .send({invalidField: 'some-value'})
+        .set('Accept', 'application/json');
+
       expect(response.status).toBe(500);
     });
   });
@@ -196,6 +234,7 @@ describe('/api/temples', () => {
           timestamp: expect.any(String),
         },
         facilitator: 'some-user-id',
+        started: false,
       });
     });
 
@@ -217,6 +256,7 @@ describe('/api/temples', () => {
           timestamp: expect.any(String),
         },
         facilitator: 'some-user-id',
+        started: false,
       });
     });
 
@@ -238,6 +278,7 @@ describe('/api/temples', () => {
           timestamp: expect.any(String),
         },
         facilitator: 'some-user-id',
+        started: false,
       });
     });
 
@@ -260,6 +301,7 @@ describe('/api/temples', () => {
           timestamp: expect.any(String),
         },
         facilitator: 'some-user-id',
+        started: false,
       });
     });
 

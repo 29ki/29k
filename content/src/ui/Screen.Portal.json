@@ -1,6 +1,7 @@
 {
   "en": {
     "participants": "We are",
+    "startSession": "Start session",
     "counterLabel": {
       "counting": "Starting in",
       "soon": "Starting"
@@ -12,6 +13,7 @@
   },
   "sv": {
     "participants": "We are",
+    "startSession": "Start session",
     "counterLabel": {
       "counting": "Startar om",
       "soon": "Startar"
@@ -23,6 +25,7 @@
   },
   "pt": {
     "participants": "We are",
+    "startSession": "Start session",
     "counterLabel": {
       "counting": "Starting in",
       "soon": "Starting"
