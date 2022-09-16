@@ -1,4 +1,4 @@
-import {VIDEO_FIELD} from './common';
+import {IMAGE_FIELD, VIDEO_FIELD} from './common';
 
 export const SLIDE_TYPES = {
   PARTICIPANT_SPOTLIGHT: 'participantSpotlight',
@@ -7,12 +7,23 @@ export const SLIDE_TYPES = {
   SHARING: 'sharing',
 };
 
+const CONTENT_IMAGE_FIELD = {
+  label: 'Image',
+  name: 'image',
+  widget: 'object',
+  collapsed: true,
+  required: false,
+  i18n: false,
+  fields: [{...IMAGE_FIELD, name: 'source', required: false}],
+};
+
 const CONTENT_FIELDS = [
   {
     label: 'Heading',
     name: 'heading',
     widget: 'string',
   },
+  CONTENT_IMAGE_FIELD,
   VIDEO_FIELD,
 ];
 
