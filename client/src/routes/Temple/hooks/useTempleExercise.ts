@@ -1,3 +1,4 @@
+import {useMemo} from 'react';
 import {useRecoilValue} from 'recoil';
 import {Exercise, ExerciseSlide} from '../../../../../shared/src/types/Content';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
@@ -16,23 +17,28 @@ const useTempleExercise = (): TempleExercise | null => {
   const temple = useRecoilValue(templeAtom);
   const excercise = useExerciseById(temple?.contentId);
 
-  if (!excercise || !temple) {
-    return null;
-  }
+  const exerciseState = temple?.exerciseState;
 
-  const previous = excercise.slides[temple.exerciseState.index - 1];
-  const current = excercise.slides[temple.exerciseState.index];
-  const next = excercise.slides[temple.exerciseState.index + 1];
+  return useMemo(() => {
+    if (!excercise || !exerciseState) {
+      return null;
+    }
 
-  return {
-    ...excercise,
-    slide: {
-      index: temple.exerciseState.index,
-      previous,
-      current,
-      next,
-    },
-  };
+    const index = exerciseState.index;
+    const previous = excercise.slides[index - 1];
+    const current = excercise.slides[index];
+    const next = excercise.slides[index + 1];
+
+    return {
+      ...excercise,
+      slide: {
+        index,
+        previous,
+        current,
+        next,
+      },
+    };
+  }, [excercise, exerciseState]);
 };
 
 export default useTempleExercise;

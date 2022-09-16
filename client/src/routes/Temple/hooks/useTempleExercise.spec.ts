@@ -67,6 +67,26 @@ describe('useTempleExercise', () => {
     });
   });
 
+  it('should memoize return', () => {
+    mockUseExerciseById.mockReturnValue({
+      slides: [{type: 'slide-1'}, {type: 'slide-2'}, {type: 'slide-3'}],
+    });
+    const {result, rerender} = renderHook(() => useTempleExercise(), {
+      wrapper: RecoilRoot,
+      initialProps: {
+        initializeState: ({set}) => {
+          set(templeAtom, {exerciseState: {index: 1}} as TempleData);
+        },
+        children: null,
+      },
+    });
+
+    rerender();
+
+    expect(result.all.length).toBe(2);
+    expect(result.all[0]).toBe(result.all[1]);
+  });
+
   it('should return exercise and only current slide', () => {
     mockUseExerciseById.mockReturnValue({
       slides: [{type: 'slide-1'}],
