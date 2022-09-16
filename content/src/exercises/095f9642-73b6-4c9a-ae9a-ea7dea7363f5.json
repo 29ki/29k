@@ -1,7 +1,7 @@
 {
   "en": {
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
-    "name": "Your body, your home",
+    "name": "Pure simple love",
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png"
@@ -15,9 +15,9 @@
       {
         "type": "content",
         "content": {
-          "heading": "Your body, your home!",
+          "heading": "Pure simple love",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/v1662110103/temp/meditation_zjiwjl.mp4"
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328548/temp/audio_meditation_2_b3hwge.mp4"
           },
           "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
         }
@@ -25,18 +25,18 @@
       {
         "type": "reflection",
         "content": {
-          "heading": "Reflect: How did this meditation affect you?",
+          "heading": "Reflect: How did this meditation affect you? What from this can you bring into the rest of your day?",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/v1662119657/temp/reflect_xotkli.mp4"
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328538/temp/1_min_eto52x.mp4"
           }
         }
       },
       {
         "type": "sharing",
         "content": {
-          "heading": "Share: How did this meditation affect you?",
+          "heading": "Share: How did this meditation affect you? What from this can you bring into the rest of your day?",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/v1662119657/temp/share_c64sxr.mp4"
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328538/temp/2_min_fr9hsu.mp4"
           }
         }
       },
