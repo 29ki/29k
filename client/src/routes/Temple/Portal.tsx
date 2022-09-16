@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
+import Animated, {FadeOut} from 'react-native-reanimated';
 import Video from 'react-native-video';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
@@ -136,13 +137,16 @@ const Portal: React.FC = () => {
           <>
             <TopBar>
               <BackButton noBackground onPress={goBack} Icon={ArrowLeftIcon} />
-              {temple?.facilitator === user?.uid && (
-                <StartButton
-                  onPress={() => {
-                    templeApi.updateTemple(templeId, {started: true});
-                  }}>
-                  {t('startSession')}
-                </StartButton>
+              {temple?.facilitator === user?.uid && !temple?.started && (
+                <Animated.View exiting={FadeOut.duration(1500)}>
+                  <StartButton
+                    disabled={temple?.started}
+                    onPress={() => {
+                      templeApi.updateTemple(templeId, {started: true});
+                    }}>
+                    {t('startSession')}
+                  </StartButton>
+                </Animated.View>
               )}
             </TopBar>
 
