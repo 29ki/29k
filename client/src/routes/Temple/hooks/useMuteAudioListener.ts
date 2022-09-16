@@ -5,7 +5,7 @@ import {DailyContext} from '../DailyProvider';
 import {templeExerciseStateSelector} from '../state/state';
 import useTempleExercise from './useTempleExercise';
 
-const useSubscribeToExerciseState = () => {
+const useMuteAudioListener = () => {
   const {toggleAudio} = useContext(DailyContext);
   const exerciseState = useRecoilValue(templeExerciseStateSelector);
   const excercise = useTempleExercise();
@@ -17,4 +17,4 @@ const useSubscribeToExerciseState = () => {
   }, [toggleAudio, exerciseState, excercise]);
 };
 
-export default useSubscribeToExerciseState;
+export default useMuteAudioListener;
