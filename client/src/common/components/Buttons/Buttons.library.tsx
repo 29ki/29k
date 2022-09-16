@@ -25,9 +25,9 @@ export const AllButtons = () => (
 
 export const Buttons = () => (
   <ScreenWrapper>
-    <Button>Regular button</Button>
+    <Button>Button</Button>
     <Spacer16 />
-    <Button primary>Primary button</Button>
+    <Button disabled>Button Disabled</Button>
     <Spacer16 />
     <Button LeftIcon={HomeIcon}>Left icon</Button>
     <Spacer16 />

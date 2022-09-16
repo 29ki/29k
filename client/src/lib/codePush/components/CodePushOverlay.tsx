@@ -110,7 +110,7 @@ const CodePushOverlay = () => {
                   <Spacer16 />
                 </>
               )}
-              <Button onPress={handleRestart} primary>
+              <Button onPress={handleRestart}>
                 {t('install.restart_button')}
               </Button>
             </Row>
