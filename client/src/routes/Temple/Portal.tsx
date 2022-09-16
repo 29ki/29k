@@ -31,7 +31,7 @@ import {participantsSelector, templeAtom} from './state/state';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
-const dayjsTime = dayjs().add(10, 'minutes');
+const dayjsTime = dayjs().add(59, 'seconds');
 
 const VideoStyled = styled(Video)({
   ...StyleSheet.absoluteFillObject,
@@ -139,7 +139,6 @@ const Portal: React.FC = () => {
               {temple?.facilitator === user?.uid && (
                 <StartButton
                   onPress={() => {
-                    console.log('wtf');
                     templeApi.updateTemple(templeId, {started: true});
                   }}>
                   {t('startSession')}
@@ -153,7 +152,11 @@ const Portal: React.FC = () => {
 
                 <Spacer8 />
                 <Badge>
-                  <Counter startTime={dayjsTime} now={now} />
+                  <Counter
+                    startTime={dayjsTime}
+                    now={now}
+                    starting={joiningTemple}
+                  />
                 </Badge>
               </StatusItem>
 

@@ -13,6 +13,7 @@ dayjs.extend(duration);
 type CounterProps = {
   startTime: dayjs.Dayjs;
   now: dayjs.Dayjs;
+  starting?: boolean;
 };
 
 const CounterText = styled(B3)({
@@ -20,15 +21,15 @@ const CounterText = styled(B3)({
   fontFamily: HKGroteskBold,
 });
 
-const Counter: React.FC<CounterProps> = ({startTime, now}) => {
+const Counter: React.FC<CounterProps> = ({
+  startTime,
+  now,
+  starting = false,
+}) => {
   const {t} = useTranslation(NS.COMPONENT.COUNTER);
 
   const isStartingShortly = () => {
     return now.add(1, 'minute').isAfter(startTime);
-  };
-
-  const isStartingNow = () => {
-    return now.isAfter(startTime) || startTime.isSame(now);
   };
 
   const getTime = () => {
@@ -40,7 +41,7 @@ const Counter: React.FC<CounterProps> = ({startTime, now}) => {
 
   return (
     <CounterText>
-      {isStartingNow()
+      {starting
         ? t('counterValue.now')
         : isStartingShortly()
         ? t('counterValue.shortly')
