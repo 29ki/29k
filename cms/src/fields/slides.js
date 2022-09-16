@@ -1,4 +1,4 @@
-import {VIDEO_FIELD} from './common';
+import {IMAGE_FIELD, VIDEO_FIELD} from './common';
 
 export const SLIDE_TYPES = {
   PARTICIPANT_SPOTLIGHT: 'participantSpotlight',
@@ -7,13 +7,16 @@ export const SLIDE_TYPES = {
   SHARING: 'sharing',
 };
 
+const CONTENT_VIDEO_FIELD = {...VIDEO_FIELD, hint: 'Overrides image'};
+
 const CONTENT_FIELDS = [
   {
     label: 'Heading',
     name: 'heading',
     widget: 'string',
   },
-  VIDEO_FIELD,
+  IMAGE_FIELD,
+  CONTENT_VIDEO_FIELD,
 ];
 
 export const PARTICIPANT_SPOTLIGHT_SLIDE = {
