@@ -3,18 +3,16 @@ import {ActivityIndicator} from 'react-native';
 import {useRecoilValue} from 'recoil';
 
 import styled from 'styled-components/native';
-import {useTranslation} from 'react-i18next';
 
 import {
   videoSharingFields,
-  templeAtom,
   localParticipantSelector,
+  templeExerciseStateSelector,
 } from './state/state';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import {
-  Spacer8,
   Spacer12,
   Spacer16,
   TopSafeArea,
@@ -29,27 +27,17 @@ import {
 } from '../../common/constants/routes';
 
 import {DailyContext} from './DailyProvider';
-import NS from '../../lib/i18n/constants/namespaces';
 
 import ExerciseSlides from './components/ExerciseSlides/ExerciseSlides';
-import SlideButton from './components/Buttons/SlideButton';
-import {
-  ChevronRight,
-  ChevronLeft,
-  Play,
-  Pause,
-  Rewind,
-} from '../../common/components/Icons';
-import {userAtom} from '../../lib/user/state/state';
+
 import Participants from './components/Participants/Participants';
-import useUpdateTempleExerciseState from './hooks/useUpdateTempleExerciseState';
 import useSubscribeToTemple from './hooks/useSubscribeToTemple';
 import useTempleParticipants from './hooks/useTempleParticipants';
 import useTempleExercise from './hooks/useTempleExercise';
 import useMuteAudioListener from './hooks/useMuteAudioListener';
 import ProgressBar from './components/ProgressBar/ProgressBar';
 import {SPACINGS} from '../../common/constants/spacings';
-import Button from '../../common/components/Buttons/Button';
+import ContentControls from './components/ContentControls/ContentControls';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
@@ -66,28 +54,20 @@ const MainViewContainer = styled.View({
   flex: 1,
 });
 
+const ExerciseControl = styled(ContentControls)({
+  position: 'absolute',
+  bottom: 20,
+  left: 20,
+  right: 20,
+});
+
 const SessionControls = styled.View({
   flexDirection: 'row',
   justifyContent: 'center',
 });
 
-const ContentControls = styled.View({
-  position: 'absolute',
-  bottom: 20,
-  left: 20,
-  right: 20,
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-});
-
-const MediaControls = styled.View({
-  flex: 1,
-  flexDirection: 'row',
-  justifyContent: 'center',
-});
-
-const ProgressWrapper = styled.View({
-  paddingHorizontal: SPACINGS.SIXTEEN,
+const Progress = styled(ProgressBar)({
+  marginHorizontal: SPACINGS.SIXTEEN,
 });
 
 const Session = () => {
@@ -97,15 +77,11 @@ const Session = () => {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Temple'>>();
   const {navigate} = useNavigation<ScreenNavigationProps>();
-  const {t} = useTranslation(NS.SCREEN.TEMPLE);
 
   useSubscribeToTemple(templeId);
   useMuteAudioListener();
-  const {navigateToIndex, setActive, setPlaying} =
-    useUpdateTempleExerciseState(templeId);
 
-  const user = useRecoilValue(userAtom);
-  const temple = useRecoilValue(templeAtom);
+  const exerciseState = useRecoilValue(templeExerciseStateSelector);
   const participants = useTempleParticipants();
   const me = useRecoilValue(localParticipantSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
@@ -135,70 +111,23 @@ const Session = () => {
     <MainViewContainer>
       <Spotlight>
         <TopSafeArea />
-        {!temple?.exerciseState.active && temple?.facilitator === user?.uid && (
-          <ContentControls>
-            <Button onPress={() => setActive(true)} RightIcon={ChevronRight}>
-              {t('controls.start')}
-            </Button>
-          </ContentControls>
-        )}
-        {temple?.exerciseState.active && exercise && (
+        {exerciseState?.active && exercise && (
           <>
-            <ProgressWrapper>
-              <ProgressBar
-                index={exercise?.slide.index}
-                length={exercise?.slides.length}
-              />
-            </ProgressWrapper>
+            <Progress
+              index={exercise?.slide.index}
+              length={exercise?.slides.length}
+            />
             <ExerciseSlides
               index={exercise.slide.index}
               current={exercise.slide.current}
               previous={exercise.slide.previous}
               next={exercise.slide.next}
             />
-            {temple?.facilitator === user?.uid && (
-              <ContentControls>
-                {temple.exerciseState.index > 0 && (
-                  <SlideButton
-                    Icon={ChevronLeft}
-                    onPress={() =>
-                      navigateToIndex({
-                        index: temple.exerciseState.index - 1,
-                        content: exercise.slides,
-                      })
-                    }
-                  />
-                )}
-                {exercise.slide.current.type !== 'participantSpotlight' && (
-                  <MediaControls>
-                    <SlideButton
-                      Icon={Rewind}
-                      onPress={() => setPlaying(temple.exerciseState.playing)}
-                    />
-                    <Spacer8 />
-                    <SlideButton
-                      Icon={temple.exerciseState.playing ? Pause : Play}
-                      onPress={() => setPlaying(!temple.exerciseState.playing)}
-                    />
-                  </MediaControls>
-                )}
-                {temple.exerciseState.index < exercise.slides.length - 1 && (
-                  <SlideButton
-                    Icon={ChevronRight}
-                    onPress={() =>
-                      navigateToIndex({
-                        index: temple.exerciseState.index + 1,
-                        content: exercise.slides,
-                      })
-                    }
-                  />
-                )}
-              </ContentControls>
-            )}
           </>
         )}
+        <ExerciseControl templeId={templeId} />
       </Spotlight>
-      {participants && <Participants participants={participants} />}
+      <Participants participants={participants} />
       <Spacer16 />
       <SessionControls>
         <AudioToggleButton

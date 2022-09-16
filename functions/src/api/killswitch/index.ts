@@ -8,14 +8,11 @@ import {createUnauthorizedRouter} from '../../lib/routers';
 const KILL_SWITCH = false;
 
 // Specify the minimum required app native version.
-const MIN_APP_VERSION = '1.32.2';
+const MIN_APP_VERSION = '2.0.10';
 
 // Specify the minimum required bundle version.
-//
-// We started sending bundleVersion in version 1.30 bundle 2300/2420. iOS is
-// currently 120 versions ahead of Android.
 const MIN_BUNDLE_VERSION: {[key: string]: {android: number; ios: number}} = {
-  '2.0.9': {
+  [MIN_APP_VERSION]: {
     // Allways require update to the latest version
     android: 10000,
     ios: 10000,

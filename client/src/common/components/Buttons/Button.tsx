@@ -5,19 +5,22 @@ import {SPACINGS} from '../../constants/spacings';
 import {B2} from '../Typography/Text/Text';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {IconType} from '../Icons';
+import {ActivityIndicator, StyleSheet} from 'react-native';
 
 const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(({primary}) => ({
-  minHeight: SPACINGS.THIRTYTWO,
   backgroundColor: primary ? COLORS.GREY200 : COLORS.BLACK_EASY,
   borderRadius: SPACINGS.SIXTEEN,
   alignItems: 'center',
   justifyContent: 'center',
   flexDirection: 'row',
+  overflow: 'hidden',
 }));
 
 const IconWrapper = styled.View({
   width: 26,
   height: 26,
+  alignItems: 'center',
+  justifyContent: 'center',
 });
 
 const LeftIconWrapper = styled(IconWrapper)({
@@ -30,7 +33,14 @@ const RightIconWrapper = styled(IconWrapper)({
   marginRight: SPACINGS.TWELVE,
 });
 
+const DisabledOverlay = styled.View({
+  ...StyleSheet.absoluteFillObject,
+  backgroundColor: COLORS.WHITE_EASY,
+  opacity: 0.6,
+});
+
 export const ButtonText = styled(B2)<ButtonProps>(({primary}) => ({
+  height: 20,
   color: primary ? COLORS.BLACK_EASY : COLORS.GREY100,
   marginVertical: SPACINGS.TWELVE,
   marginHorizontal: SPACINGS.SIXTEEN,
@@ -41,6 +51,7 @@ type ButtonProps = {
   primary?: boolean;
   style?: object;
   disabled?: boolean;
+  loading?: boolean;
   LeftIcon?: IconType;
   RightIcon?: IconType;
   fill?: string;
@@ -53,6 +64,7 @@ const Button: React.FC<ButtonProps> = ({
   primary = false,
   style = {},
   disabled = false,
+  loading = false,
   LeftIcon,
   RightIcon,
   fill,
@@ -62,6 +74,14 @@ const Button: React.FC<ButtonProps> = ({
     primary={primary}
     style={style}
     disabled={disabled}>
+    {loading && (
+      <LeftIconWrapper>
+        <ActivityIndicator
+          size="small"
+          color={fill ? fill : primary ? COLORS.BLACK_EASY : COLORS.GREY100}
+        />
+      </LeftIconWrapper>
+    )}
     {LeftIcon && (
       <LeftIconWrapper>
         <LeftIcon
@@ -81,6 +101,7 @@ const Button: React.FC<ButtonProps> = ({
         />
       </RightIconWrapper>
     )}
+    {disabled && <DisabledOverlay />}
   </ButtonComponent>
 );
 
