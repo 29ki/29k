@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../common/constants/colors';
@@ -13,27 +12,16 @@ type SlideButtonProps = {
   fill?: string;
 };
 
-const StyledSlideButton = styled(IconButton)({
+const SlideButton = styled(IconButton).attrs({
+  fill: COLORS.BLACK_EASY,
+})<SlideButtonProps>(({disabled}) => ({
   backgroundColor: COLORS.GREY100,
   color: COLORS.BLACK_EASY,
   paddingVertical: SPACINGS.EIGHT,
   paddingHorizontal: SPACINGS.TWELVE,
   boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.16)',
   elevation: 1,
-});
-
-const SlideButton: React.FC<SlideButtonProps> = ({
-  onPress,
-  fill = COLORS.BLACK_EASY,
-  Icon,
-  disabled = false,
-}) => (
-  <StyledSlideButton
-    Icon={Icon}
-    fill={fill}
-    onPress={onPress}
-    disabled={disabled}
-  />
-);
+  opacity: disabled ? 0 : 1,
+}));
 
 export default SlideButton;
