@@ -24,10 +24,11 @@ type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
 const dayjsTime = dayjs().add(3, 'minutes');
 
-const VideoStyled = styled(Video)({
+const VideoStyled = styled(Video)<{fadeOut?: boolean}>(({fadeOut}) => ({
   ...StyleSheet.absoluteFillObject,
   flex: 1,
-});
+  opacity: fadeOut ? 0 : 1,
+}));
 
 const StatusText = styled(B3)({
   color: COLORS.WHITE,
@@ -65,7 +66,8 @@ const Portal: React.FC = () => {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Portal'>>();
   const [now, setNow] = useState(dayjs());
-  const [fade, setFade] = useState(false);
+  const [startTransition, setStartTransition] = useState(false);
+  const [joiningTemple, setJoiningTemple] = useState(false);
   const {t} = useTranslation(NS.SCREEN.PORTAL);
   const exercise = useTempleExercise();
   const introPortal = exercise?.introPortal;
@@ -84,7 +86,7 @@ const Portal: React.FC = () => {
 
   useEffect(() => {
     if (now.isAfter(dayjsTime)) {
-      setFade(true);
+      setStartTransition(true);
     }
   }, [now]);
 
@@ -98,15 +100,15 @@ const Portal: React.FC = () => {
         <>
           <VideoStyled
             onEnd={() => navigate('Temple', {templeId})}
-            paused={!fade}
+            paused={!joiningTemple}
             source={{uri: introPortal.content.videoEnd?.source}}
           />
-          {!fade && (
-            <VideoStyled
-              repeat
-              source={{uri: introPortal.content.videoLoop?.source}}
-            />
-          )}
+          <VideoStyled
+            onEnd={() => setJoiningTemple(true)}
+            repeat={!startTransition}
+            source={{uri: introPortal.content.videoLoop?.source}}
+            fadeOut={joiningTemple}
+          />
           <PortalStaus>
             <StatusItem>
               <StatusText>{t('counterLabel.soon')}</StatusText>
