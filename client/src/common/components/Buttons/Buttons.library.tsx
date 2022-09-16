@@ -32,6 +32,10 @@ export const Buttons = () => (
     <Button LeftIcon={HomeIcon}>Left icon</Button>
     <Spacer16 />
     <Button RightIcon={HomeIcon}>Right icon</Button>
+    <Spacer16 />
+    <Button loading>Loading</Button>
+    <Spacer16 />
+    <Button disabled>Disabled</Button>
   </ScreenWrapper>
 );
 
