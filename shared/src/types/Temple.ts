@@ -16,7 +16,6 @@ export type TempleData = TempleInput;
 
 // Applicaton schema
 export type ExerciseState = {
-  active: boolean;
   index: number;
   playing: boolean;
   dailySpotlightId?: string;

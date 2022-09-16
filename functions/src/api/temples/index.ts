@@ -52,7 +52,6 @@ templesRouter.post('/', validator({body: CreateTempleSchema}), async ctx => {
 
   const data = await dailyApi.createRoom();
   const defaultExerciseState = {
-    active: false,
     index: 0,
     playing: false,
     timestamp: Timestamp.now(),
@@ -120,7 +119,6 @@ templesRouter.put('/:id', validator({body: UpdateTempleSchema}), async ctx => {
 
 const ExerciseStateUpdateSchema = yup
   .object({
-    active: yup.boolean(),
     index: yup.number(),
     playing: yup.boolean(),
     dailySpotlightId: yup.string(),

@@ -81,7 +81,6 @@ const Session = () => {
   useSubscribeToTemple(templeId);
   useMuteAudioListener();
 
-  const exerciseState = useRecoilValue(templeExerciseStateSelector);
   const participants = useTempleParticipants();
   const me = useRecoilValue(localParticipantSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
@@ -111,7 +110,7 @@ const Session = () => {
     <MainViewContainer>
       <Spotlight>
         <TopSafeArea />
-        {exerciseState?.active && exercise && (
+        {exercise && (
           <>
             <Progress
               index={exercise?.slide.index}

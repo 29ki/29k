@@ -39,7 +39,6 @@ const temples = [
     name: 'some-name',
     url: 'some-url',
     exerciseState: {
-      active: false,
       index: 0,
       playing: false,
       timestamp: Timestamp.now(),
@@ -52,7 +51,6 @@ const temples = [
     name: 'some-other-name',
     url: 'some-other-url',
     exerciseState: {
-      active: false,
       index: 0,
       playing: false,
       timestamp: Timestamp.now(),
@@ -102,7 +100,6 @@ describe('/api/temples', () => {
           name: 'some-name',
           url: 'some-url',
           exerciseState: {
-            active: false,
             index: 0,
             playing: false,
             timestamp: expect.any(String),
@@ -115,7 +112,6 @@ describe('/api/temples', () => {
           name: 'some-other-name',
           url: 'some-other-url',
           exerciseState: {
-            active: false,
             index: 0,
             playing: false,
             timestamp: expect.any(String),
@@ -140,7 +136,6 @@ describe('/api/temples', () => {
         name: 'the next big temple!',
         url: 'http://fake.daily/url',
         exerciseState: {
-          active: false,
           index: 0,
           playing: false,
           timestamp: expect.any(String),
@@ -184,7 +179,6 @@ describe('/api/temples', () => {
         name: 'some-name',
         url: 'some-url',
         exerciseState: {
-          active: false,
           index: 0,
           playing: false,
           timestamp: expect.any(String),
@@ -208,7 +202,7 @@ describe('/api/temples', () => {
     it('runs in a transaction', async () => {
       await request(mockServer)
         .put('/temples/some-temple-id/exerciseState')
-        .send({active: true})
+        .send({playing: true})
         .set('Accept', 'application/json');
 
       expect(mockRunTransaction).toHaveBeenCalledTimes(1);
@@ -228,30 +222,7 @@ describe('/api/temples', () => {
         name: 'some-name',
         url: 'some-url',
         exerciseState: {
-          active: false,
           index: 2,
-          playing: false,
-          timestamp: expect.any(String),
-        },
-        facilitator: 'some-user-id',
-        started: false,
-      });
-    });
-
-    it('should update active', async () => {
-      const response = await request(mockServer)
-        .put('/temples/some-temple-id/exerciseState')
-        .send({active: true})
-        .set('Accept', 'application/json');
-
-      expect(response.status).toBe(200);
-      expect(response.body).toEqual({
-        id: 'some-temple-id',
-        name: 'some-name',
-        url: 'some-url',
-        exerciseState: {
-          active: true,
-          index: 0,
           playing: false,
           timestamp: expect.any(String),
         },
@@ -272,7 +243,6 @@ describe('/api/temples', () => {
         name: 'some-name',
         url: 'some-url',
         exerciseState: {
-          active: false,
           index: 0,
           playing: true,
           timestamp: expect.any(String),
@@ -294,7 +264,6 @@ describe('/api/temples', () => {
         name: 'some-name',
         url: 'some-url',
         exerciseState: {
-          active: false,
           index: 0,
           playing: false,
           dailySpotlightId: 'some-user-id',
@@ -328,14 +297,13 @@ describe('/api/temples', () => {
     it('does not accept other fields', async () => {
       const response = await request(mockServer)
         .put('/temples/some-temple-id/exerciseState')
-        .send({active: true, index: 1, foo: 'bar'})
+        .send({index: 1, foo: 'bar'})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
       expect(mockUpdateTransaction).toHaveBeenCalledTimes(1);
       expect(mockUpdateTransaction).toHaveBeenCalledWith(expect.any(Object), {
         exerciseState: {
-          active: true,
           index: 1,
           playing: false,
           timestamp: expect.any(Object),
@@ -346,7 +314,7 @@ describe('/api/temples', () => {
     it('should return 500 on non-existing temple', async () => {
       const response = await request(mockServer)
         .put('/temples/some-non-existing-id/exerciseState')
-        .send({active: true, index: 1})
+        .send({index: 1})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(500);
