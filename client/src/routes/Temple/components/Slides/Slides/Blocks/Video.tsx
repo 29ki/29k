@@ -54,7 +54,7 @@ const Video: React.FC<VideoProps> = ({active, source}) => {
       resizeMode="contain"
       paused={!active || !exerciseState?.playing}
       ignoreSilentSwitch="ignore"
-      mixWithOthers="mix"
+      mixWithOthers="duck"
     />
   );
 };
