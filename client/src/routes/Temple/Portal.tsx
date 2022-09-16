@@ -22,13 +22,12 @@ import {participantsSelector} from './state/state';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
-const dayjsTime = dayjs().add(3, 'minutes');
+const dayjsTime = dayjs().add(30, 'seconds');
 
-const VideoStyled = styled(Video)<{fadeOut?: boolean}>(({fadeOut}) => ({
+const VideoStyled = styled(Video)({
   ...StyleSheet.absoluteFillObject,
   flex: 1,
-  opacity: fadeOut ? 0 : 1,
-}));
+});
 
 const StatusText = styled(B3)({
   color: COLORS.WHITE,
@@ -103,12 +102,13 @@ const Portal: React.FC = () => {
             paused={!joiningTemple}
             source={{uri: introPortal.content.videoEnd?.source}}
           />
-          <VideoStyled
-            onEnd={() => setJoiningTemple(true)}
-            repeat={!startTransition}
-            source={{uri: introPortal.content.videoLoop?.source}}
-            fadeOut={joiningTemple}
-          />
+          {!joiningTemple && (
+            <VideoStyled
+              onEnd={() => setJoiningTemple(true)}
+              repeat={!startTransition}
+              source={{uri: introPortal.content.videoLoop?.source}}
+            />
+          )}
           <PortalStaus>
             <StatusItem>
               <StatusText>{t('counterLabel.soon')}</StatusText>
