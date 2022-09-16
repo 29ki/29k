@@ -26,6 +26,7 @@ import {COLORS} from '../../common/constants/colors';
 import SETTINGS from '../../common/constants/settings';
 import {PlusIcon} from '../../common/components/Icons';
 import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
+import {userAtom} from '../../lib/user/state/state';
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'position'}),
@@ -67,6 +68,7 @@ const ListHeader = () => (
 const CreateTempleForm = ({}) => {
   const {t} = useTranslation(NS.SCREEN.TEMPLES);
   const [isAdding, setIsAdding] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [templeName, setTempleName] = useState<string>();
   const {addTemple} = useTemples();
 
@@ -78,7 +80,10 @@ const CreateTempleForm = ({}) => {
 
   const onSubmit = async () => {
     if (templeName) {
+      setIsLoading(true);
       await addTemple(templeName);
+      setIsLoading(false);
+      setTempleName('');
       setIsAdding(false);
     }
   };
@@ -96,7 +101,12 @@ const CreateTempleForm = ({}) => {
             autoFocus
           />
           <Spacer8 />
-          <CreateButton onPress={onSubmit}>{t('create')}</CreateButton>
+          <CreateButton
+            onPress={onSubmit}
+            disabled={!templeName}
+            loading={isLoading}>
+            {t('create')}
+          </CreateButton>
         </>
       ) : (
         <CreateButton onPress={() => setIsAdding(true)} LeftIcon={PlusIcon}>
@@ -111,6 +121,7 @@ const Temples = () => {
   const {fetchTemples, deleteTemple} = useTemples();
   const isLoading = useRecoilValue(isLoadingAtom);
   const temples = useRecoilValue(templesAtom);
+  const user = useRecoilValue(userAtom);
 
   useEffect(() => {
     fetchTemples();
@@ -119,7 +130,7 @@ const Temples = () => {
   const renderTemple = ({item}: ListRenderItemInfo<Temple>) => (
     <Gutters>
       <TempleCard temple={item} />
-      {__DEV__ && (
+      {__DEV__ && user && item.facilitator === user.uid && (
         <Button
           onPress={() => deleteTemple(item.id)}
           // eslint-disable-next-line react-native/no-inline-styles
