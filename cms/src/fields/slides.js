@@ -17,7 +17,7 @@ const CONTENT_IMAGE_FIELD = {
   fields: [{...IMAGE_FIELD, name: 'source', required: false}],
 };
 
-const CONTENT_VIDEO_FILED = {...VIDEO_FIELD, hint: 'Overrides image'};
+const CONTENT_VIDEO_FIELD = {...VIDEO_FIELD, hint: 'Overrides image'};
 
 const CONTENT_FIELDS = [
   {
@@ -26,7 +26,7 @@ const CONTENT_FIELDS = [
     widget: 'string',
   },
   CONTENT_IMAGE_FIELD,
-  CONTENT_VIDEO_FILED,
+  CONTENT_VIDEO_FIELD,
 ];
 
 export const PARTICIPANT_SPOTLIGHT_SLIDE = {
