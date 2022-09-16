@@ -4,11 +4,7 @@ import {useRecoilValue} from 'recoil';
 
 import styled from 'styled-components/native';
 
-import {
-  videoSharingFields,
-  localParticipantSelector,
-  templeExerciseStateSelector,
-} from './state/state';
+import {videoSharingFields, localParticipantSelector} from './state/state';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
