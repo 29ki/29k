@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View} from 'react-native';
+import {View, ViewStyle} from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -16,7 +16,6 @@ const Wrapper = styled.View({
   borderRadius: SPACINGS.EIGHT,
   height: SPACINGS.FOUR,
   overflow: 'hidden',
-  width: '100%',
 });
 
 const Bar = styled(View)({flex: 1});
@@ -50,10 +49,15 @@ const Block: React.FC<{fill: boolean}> = ({fill}) => {
 type ProgressBarProps = {
   length?: number;
   index?: number;
+  style?: ViewStyle;
 };
 
-const ProgressBar: React.FC<ProgressBarProps> = ({index = 0, length = 1}) => (
-  <Wrapper>
+const ProgressBar: React.FC<ProgressBarProps> = ({
+  index = 0,
+  length = 1,
+  style,
+}) => (
+  <Wrapper style={style}>
     {Array(length - 1)
       .fill('')
       .map((_, idx) => (
