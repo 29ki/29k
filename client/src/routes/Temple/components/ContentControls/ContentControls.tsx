@@ -1,6 +1,7 @@
 import React from 'react';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
+import {ViewStyle} from 'react-native';
 
 import useIsTempleFacilitator from '../../hooks/useIsTempleFacilitator';
 import {templeExerciseStateSelector} from '../../state/state';
@@ -14,12 +15,9 @@ import {
   Pause,
   Rewind,
 } from '../../../../common/components/Icons';
-import {useTranslation} from 'react-i18next';
+
 import useUpdateTempleExerciseState from '../../hooks/useUpdateTempleExerciseState';
-import NS from '../../../../lib/i18n/constants/namespaces';
 import {Spacer8} from '../../../../common/components/Spacers/Spacer';
-import Button from '../../../../common/components/Buttons/Button';
-import {ViewStyle} from 'react-native';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -41,23 +39,11 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
   const isFacilitator = useIsTempleFacilitator();
   const exerciseState = useRecoilValue(templeExerciseStateSelector);
   const exercise = useTempleExercise();
-  const {t} = useTranslation(NS.SCREEN.TEMPLE);
 
-  const {navigateToIndex, setActive, setPlaying} =
-    useUpdateTempleExerciseState(templeId);
+  const {navigateToIndex, setPlaying} = useUpdateTempleExerciseState(templeId);
 
-  if (!isFacilitator || !exercise) {
+  if (!isFacilitator || !exercise || !exerciseState) {
     return null;
-  }
-
-  if (!exerciseState?.active) {
-    return (
-      <Wrapper style={style}>
-        <Button onPress={() => setActive(true)} RightIcon={ChevronRight}>
-          {t('controls.start')}
-        </Button>
-      </Wrapper>
-    );
   }
 
   return (

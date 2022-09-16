@@ -5,6 +5,7 @@ export type IconType = React.FC<{
   fill?: ColorValue;
 }>;
 
+export * from './ArrowLeft/ArrowLeft';
 export * from './Back/Back';
 export * from './ChevronLeft/ChevronLeft';
 export * from './ChevronRight/ChevronRight';

@@ -128,7 +128,7 @@ const ChangingRoom = () => {
 
   const handleJoin = () => {
     setUserName(localUserName);
-    navigate('Temple', {templeId});
+    navigate('Portal', {templeId});
   };
 
   const hasAudio = Boolean(me?.audioTrack);
