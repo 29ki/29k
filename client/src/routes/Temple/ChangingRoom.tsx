@@ -34,9 +34,9 @@ import NS from '../../lib/i18n/constants/namespaces';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
 import AudioIndicator from './components/Participants/AudioIdicator';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
-import {userAtom} from '../../lib/user/state/state';
 import useSubscribeToTemple from './hooks/useSubscribeToTemple';
 import useUpdateTempleExerciseState from './hooks/useUpdateTempleExerciseState';
+import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -87,7 +87,6 @@ const ChangingRoom = () => {
   const {t} = useTranslation(NS.SCREEN.CHANGING_ROOM);
   const [localUserName, setLocalUserName] = useState('');
 
-  const user = useRecoilValue(userAtom);
   const {goBack, navigate} = useNavigation<TempleNavigationProps>();
   const {toggleAudio, toggleVideo, setUserName, preJoinMeeting} =
     useContext(DailyContext);
@@ -99,6 +98,7 @@ const ChangingRoom = () => {
 
   useSubscribeToTemple(templeId);
   const {setSpotlightParticipant} = useUpdateTempleExerciseState(templeId);
+  const isFacilitator = useIsTempleFacilitator();
   const isFocused = useIsFocused();
   const me = useRecoilValue(localParticipantSelector);
 
@@ -107,7 +107,7 @@ const ChangingRoom = () => {
       if (isFocused && temple?.url) {
         preJoinMeeting(temple?.url);
 
-        if (temple?.facilitator === user?.uid && me?.user_id) {
+        if (isFacilitator && me?.user_id) {
           setSpotlightParticipant(me.user_id);
         }
       }
@@ -117,8 +117,7 @@ const ChangingRoom = () => {
     preJoinMeeting,
     setSpotlightParticipant,
     temple?.url,
-    temple?.facilitator,
-    user?.uid,
+    isFacilitator,
     me?.user_id,
     isFocused,
   ]);
