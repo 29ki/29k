@@ -116,7 +116,7 @@ const Portal: React.FC = () => {
                 <Counter startTime={dayjsTime} now={now} />
               </Badge>
             </StatusItem>
-            {participantsCount > 0 && (
+            {participantsCount > 1 && (
               <StatusItem>
                 <StatusText>{t('participants')}</StatusText>
                 <Spacer8 />
