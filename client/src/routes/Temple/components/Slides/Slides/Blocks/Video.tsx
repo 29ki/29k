@@ -53,8 +53,7 @@ const Video: React.FC<VideoProps> = ({active, source}) => {
       onLoad={() => setLoaded(true)}
       resizeMode="contain"
       paused={!active || !exerciseState?.playing}
-      ignoreSilentSwitch="ignore"
-      mixWithOthers="duck"
+      mixWithOthers="mix"
     />
   );
 };
