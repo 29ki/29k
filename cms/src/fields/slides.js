@@ -7,16 +7,6 @@ export const SLIDE_TYPES = {
   SHARING: 'sharing',
 };
 
-const CONTENT_IMAGE_FIELD = {
-  label: 'Image',
-  name: 'image',
-  widget: 'object',
-  collapsed: true,
-  required: false,
-  i18n: false,
-  fields: [{...IMAGE_FIELD, name: 'source', required: false}],
-};
-
 const CONTENT_VIDEO_FIELD = {...VIDEO_FIELD, hint: 'Overrides image'};
 
 const CONTENT_FIELDS = [
@@ -25,7 +15,7 @@ const CONTENT_FIELDS = [
     name: 'heading',
     widget: 'string',
   },
-  CONTENT_IMAGE_FIELD,
+  IMAGE_FIELD,
   CONTENT_VIDEO_FIELD,
 ];
 

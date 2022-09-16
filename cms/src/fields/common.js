@@ -24,8 +24,25 @@ export const NAME_FIELD = {
 export const IMAGE_FIELD = {
   label: 'Image',
   name: 'image',
-  widget: 'image',
+  widget: 'object',
+  required: false,
   i18n: true,
+  fields: [
+    {
+      label: 'Description',
+      name: 'description',
+      widget: 'string',
+      required: false,
+      i18n: true,
+    },
+    {
+      label: 'Image file',
+      name: 'source',
+      widget: 'image',
+      required: false,
+      i18n: true,
+    },
+  ],
 };
 
 export const VIDEO_FIELD = {
@@ -37,11 +54,25 @@ export const VIDEO_FIELD = {
   i18n: true,
   fields: [
     {
+      label: 'Description',
+      name: 'description',
+      widget: 'string',
+      required: false,
+      i18n: true,
+    },
+    {
       label: 'Video file',
       name: 'source',
       widget: 'file',
       required: false,
       i18n: true,
+    },
+    {
+      label: 'Thumbnail file',
+      name: 'thumbnail',
+      widget: 'file',
+      required: false,
+      i18n: false,
     },
   ],
 };
