@@ -34,7 +34,6 @@ export const VIDEO_FIELD = {
   widget: 'object',
   collapsed: true,
   required: false,
-  hint: 'Overrides image',
   i18n: true,
   fields: [
     {
