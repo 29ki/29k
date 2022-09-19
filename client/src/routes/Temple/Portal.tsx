@@ -28,7 +28,7 @@ import {userAtom} from '../../lib/user/state/state';
 import * as templeApi from '../Temples/api/temple';
 import Counter from './components/Counter/Counter';
 import useTempleExercise from './hooks/useTempleExercise';
-import {participantsSelector, templeAtom} from './state/state';
+import {templeAtom} from './state/state';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -46,7 +46,6 @@ const StatusText = styled(B3)({
 const StatusItem = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
-  flex: 1,
 });
 
 const BadgeText = styled(StatusText)({
@@ -95,10 +94,8 @@ const Portal: React.FC = () => {
   const exercise = useTempleExercise();
   const temple = useRecoilValue(templeAtom);
   const introPortal = exercise?.introPortal;
-  const participants = useRecoilValue(participantsSelector);
-  const participantsCount = participants.length;
   const user = useRecoilValue(userAtom);
-
+  const participantsCount = temple?.participantsCount ?? 0;
   const {goBack, navigate} = useNavigation<TempleNavigationProps>();
 
   useEffect(() => {
@@ -170,17 +167,15 @@ const Portal: React.FC = () => {
                 </Badge>
               </StatusItem>
 
-              <StatusItem>
-                {participantsCount > 1 && (
-                  <>
-                    <StatusText>{t('participants')}</StatusText>
-                    <Spacer8 />
-                    <Badge>
-                      <BadgeText>{participantsCount}</BadgeText>
-                    </Badge>
-                  </>
-                )}
-              </StatusItem>
+              {participantsCount > 1 && (
+                <StatusItem>
+                  <StatusText>{t('participants')}</StatusText>
+                  <Spacer8 />
+                  <Badge>
+                    <BadgeText>{participantsCount}</BadgeText>
+                  </Badge>
+                </StatusItem>
+              )}
             </PortalStatus>
           </>
         )}

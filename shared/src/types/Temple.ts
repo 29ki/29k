@@ -30,4 +30,5 @@ export type Temple = {
   contentId: string;
   facilitator: string;
   started: boolean;
+  participantsCount: number;
 };

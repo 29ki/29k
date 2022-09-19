@@ -68,6 +68,7 @@ templesRouter.post('/', validator({body: CreateTempleSchema}), async ctx => {
     dailyRoomName: data.name,
     exerciseState: defaultExerciseState,
     started: false,
+    participantsCount: 0,
   };
 
   await firestore().collection(TEMPLES_COLLECTION).doc(data.id).set(temple);
@@ -100,18 +101,25 @@ templesRouter.delete('/:id', async ctx => {
   ctx.body = 'Temple deleted successfully';
 });
 
-const UpdateTempleSchema = yup.object().shape({
-  started: yup.boolean().required(),
-});
+const UpdateTempleSchema = yup
+  .object({
+    started: yup.boolean(),
+    participantsCount: yup.number(),
+  })
+  .test(
+    'nonEmptyObject',
+    'object may not be empty',
+    test => Object.keys(test).length > 0,
+  );
 
 type UpdateTemple = yup.InferType<typeof UpdateTempleSchema>;
 
 templesRouter.put('/:id', validator({body: UpdateTempleSchema}), async ctx => {
   const {id} = ctx.params;
-  const {started} = ctx.request.body as UpdateTemple;
+  const body = ctx.request.body as UpdateTemple;
   const templeDocRef = firestore().collection(TEMPLES_COLLECTION).doc(id);
 
-  await templeDocRef.update({started});
+  await templeDocRef.update(body);
 
   ctx.status = 200;
   ctx.body = getTemple((await templeDocRef.get()).data() as TempleData);
