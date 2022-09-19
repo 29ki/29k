@@ -8,6 +8,17 @@
       },
       "backgroundColor": "#e8dcd1"
     },
+    "introPortal": {
+      "type": "video",
+      "content": {
+        "videoLoop": {
+          "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663143395/temp/portal-intro_h7qccz.mp4"
+        },
+        "videoEnd": {
+          "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663147750/temp/portal-intro-end_crzjih.mp4"
+        }
+      }
+    },
     "slides": [
       {
         "type": "participantSpotlight"
@@ -25,7 +36,7 @@
       {
         "type": "reflection",
         "content": {
-          "heading": "Reflect: How did this meditation affect you? What from this can you bring into the rest of your day?",
+          "heading": "Reflect: How did this meditation affect you?",
           "video": {
             "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328538/temp/1_min_eto52x.mp4"
           }
@@ -34,7 +45,7 @@
       {
         "type": "sharing",
         "content": {
-          "heading": "Share: How did this meditation affect you? What from this can you bring into the rest of your day?",
+          "heading": "Share: How did this meditation affect you?",
           "video": {
             "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328538/temp/2_min_fr9hsu.mp4"
           }

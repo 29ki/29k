@@ -29,10 +29,10 @@ afterEach(() => {
 
 describe('useUpdateTempleExerciseState', () => {
   const useTestHook = () => {
-    const {navigateToIndex, setActive, setPlaying} =
+    const {navigateToIndex, setPlaying} =
       useUpdateTempleExerciseState('temple-id');
 
-    return {navigateToIndex, setActive, setPlaying};
+    return {navigateToIndex, setPlaying};
   };
 
   describe('navigateToIndex', () => {
@@ -100,27 +100,6 @@ describe('useUpdateTempleExerciseState', () => {
       });
 
       expect(fetchMock).toHaveBeenCalledTimes(0);
-    });
-  });
-
-  describe('setActive', () => {
-    it('should make request', async () => {
-      fetchMock.mockResponseOnce(
-        JSON.stringify({
-          data: 'somye-data',
-        }),
-        {status: 200},
-      );
-
-      const {result} = renderHook(() => useTestHook(), {
-        wrapper: RecoilRoot,
-      });
-
-      await act(async () => {
-        await result.current.setActive(true);
-      });
-
-      expect(fetchMock).toHaveBeenCalledTimes(1);
     });
   });
 });

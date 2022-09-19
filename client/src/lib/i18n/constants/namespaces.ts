@@ -4,6 +4,7 @@ const NS = {
     CRASH_ERROR_MESSAGE: 'Component.CrashErrorMessage',
     TABS: 'Component.Tabs',
     TEMPLE_CARD: 'Component.TempleCard',
+    COUNTER: 'Component.Counter',
   },
   SCREEN: {
     CHANGING_ROOM: 'Screen.ChangingRoom',
@@ -12,6 +13,7 @@ const NS = {
     PROFILE: 'Screen.Profile',
     TEMPLE: 'Screen.Temple',
     TEMPLES: 'Screen.Temples',
+    PORTAL: 'Screen.Portal',
   },
   EXERCISES: 'exercises',
 };

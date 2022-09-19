@@ -8,6 +8,7 @@ export type TabNavigatorProps = {
 export type TempleStackProps = {
   ChangingRoom: {templeId: string};
   Temple: {templeId: string};
+  Portal: {templeId: string};
 };
 
 export type RootStackProps = {

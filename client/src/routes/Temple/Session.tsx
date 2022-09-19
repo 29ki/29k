@@ -4,11 +4,7 @@ import {useRecoilValue} from 'recoil';
 
 import styled from 'styled-components/native';
 
-import {
-  videoSharingFields,
-  localParticipantSelector,
-  templeExerciseStateSelector,
-} from './state/state';
+import {videoSharingFields, localParticipantSelector} from './state/state';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
@@ -81,7 +77,6 @@ const Session = () => {
   useSubscribeToTemple(templeId);
   useMuteAudioListener();
 
-  const exerciseState = useRecoilValue(templeExerciseStateSelector);
   const participants = useTempleParticipants();
   const me = useRecoilValue(localParticipantSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
@@ -111,7 +106,7 @@ const Session = () => {
     <MainViewContainer>
       <Spotlight>
         <TopSafeArea />
-        {exerciseState?.active && exercise && (
+        {exercise && (
           <>
             <Progress
               index={exercise?.slide.index}

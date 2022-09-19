@@ -23,6 +23,26 @@ export const addTemple = async (
   }
 };
 
+export const updateTemple = async (
+  id: string,
+  data: Pick<Temple, 'started'>,
+) => {
+  try {
+    const response = await apiClient(`${TEMPLES_ENDPOINT}/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error(await response.text());
+    }
+
+    return response.json();
+  } catch (cause) {
+    throw new Error('Could not update temple', {cause});
+  }
+};
+
 export const updateTempleExerciseState = async (
   id: string,
   data: Partial<ExerciseState>,

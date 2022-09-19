@@ -52,7 +52,6 @@ templesRouter.post('/', validator({body: CreateTempleSchema}), async ctx => {
 
   const data = await dailyApi.createRoom();
   const defaultExerciseState = {
-    active: false,
     index: 0,
     playing: false,
     timestamp: Timestamp.now(),
@@ -68,6 +67,7 @@ templesRouter.post('/', validator({body: CreateTempleSchema}), async ctx => {
     facilitator: ctx.user.id,
     dailyRoomName: data.name,
     exerciseState: defaultExerciseState,
+    started: false,
   };
 
   await firestore().collection(TEMPLES_COLLECTION).doc(data.id).set(temple);
@@ -100,9 +100,25 @@ templesRouter.delete('/:id', async ctx => {
   ctx.body = 'Temple deleted successfully';
 });
 
+const UpdateTempleSchema = yup.object().shape({
+  started: yup.boolean().required(),
+});
+
+type UpdateTemple = yup.InferType<typeof UpdateTempleSchema>;
+
+templesRouter.put('/:id', validator({body: UpdateTempleSchema}), async ctx => {
+  const {id} = ctx.params;
+  const {started} = ctx.request.body as UpdateTemple;
+  const templeDocRef = firestore().collection(TEMPLES_COLLECTION).doc(id);
+
+  await templeDocRef.update({started});
+
+  ctx.status = 200;
+  ctx.body = getTemple((await templeDocRef.get()).data() as TempleData);
+});
+
 const ExerciseStateUpdateSchema = yup
   .object({
-    active: yup.boolean(),
     index: yup.number(),
     playing: yup.boolean(),
     dailySpotlightId: yup.string(),

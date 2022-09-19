@@ -24,13 +24,6 @@ const useUpdateTempleExerciseState = (templeId: Temple['id']) => {
     [templeId],
   );
 
-  const setActive = useCallback(
-    async (active: ExerciseState['active']) => {
-      return templeApi.updateTempleExerciseState(templeId, {active});
-    },
-    [templeId],
-  );
-
   const setSpotlightParticipant = useCallback(
     async (dailySpotlightId: ExerciseState['dailySpotlightId']) => {
       return templeApi.updateTempleExerciseState(templeId, {
@@ -47,6 +40,6 @@ const useUpdateTempleExerciseState = (templeId: Temple['id']) => {
     [templeId],
   );
 
-  return {navigateToIndex, setActive, setSpotlightParticipant, setPlaying};
+  return {navigateToIndex, setSpotlightParticipant, setPlaying};
 };
 export default useUpdateTempleExerciseState;
