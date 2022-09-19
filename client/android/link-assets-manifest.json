@@ -1,0 +1,93 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/HKGrotesk-Black.ttf",
+      "sha1": "5a1d4bb82dbdc0e7deee195794e6d7b4e4039f1b"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-BlackItalic.ttf",
+      "sha1": "13fb8de4a602ae97cf4cb9c92ef4915dc023d819"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-Bold.ttf",
+      "sha1": "1fc2c8c823a3bc3498cd3d515cc9d6475776fb15"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-BoldItalic.ttf",
+      "sha1": "e042fd639e0fdef95840e8dd285aabd7b9655677"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-ExtraBold.ttf",
+      "sha1": "ce78182f9c457342c749109d7058ccfa0e2064a5"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-ExtraBoldItalic.ttf",
+      "sha1": "ff198557261178cafe115446cba0a53e548c95b6"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-ExtraLight.ttf",
+      "sha1": "e03de910febbe2e0b3577a9074aa49d6f81ecbe4"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-ExtraLightItalic.ttf",
+      "sha1": "822eaac90039d5af7ba8904bebec281cf3a84314"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-Italic.ttf",
+      "sha1": "90d8e811f4fa6da77604b2a81e864d19780e73b6"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-Light.ttf",
+      "sha1": "feaeb667a4f50224507ae8bd8470f7f7edf958da"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-LightItalic.ttf",
+      "sha1": "8086122a41ec7f49a49e546ded6ca282ec92bbf0"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-Medium.ttf",
+      "sha1": "5826271f6e59fcd197a73fc84362c3021f805315"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-MediumItalic.ttf",
+      "sha1": "fedb4fc6f92f31bbb0511cc2f912fb037179c56a"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-Regular.ttf",
+      "sha1": "452f6df595caba20b091750903fab31d41f44533"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-SemiBold.ttf",
+      "sha1": "2b2b620dfbb42e71d7d31efd1e645b6538ec2f8a"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-SemiBoldItalic.ttf",
+      "sha1": "6b7218f1117d0607cdaed590102e1d6230274c7d"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-Thin.ttf",
+      "sha1": "5e1df9a7203f24c81e890d169d256572ef07f6b6"
+    },
+    {
+      "path": "src/assets/fonts/HKGrotesk-ThinItalic.ttf",
+      "sha1": "8105630f80958fdfa0c9e37ed4344030be47f6d4"
+    },
+    {
+      "path": "src/assets/fonts/Orpheus Pro Bold.otf",
+      "sha1": "c26f53bd87064736fb48ef53c695c96f17afcbc2"
+    },
+    {
+      "path": "src/assets/fonts/Orpheus Pro Italic.otf",
+      "sha1": "f83c53f2805c1e0b7a7e608a56133717d8b6e303"
+    },
+    {
+      "path": "src/assets/fonts/Orpheus Pro Medium.otf",
+      "sha1": "7bd8c61e4ad6813c9a5661bf54e16761f88ab989"
+    },
+    {
+      "path": "src/assets/fonts/Orpheus Pro Regular.otf",
+      "sha1": "07774f17088a5fc8e8527c29ebe0304e0e4d3ef1"
+    }
+  ]
+}

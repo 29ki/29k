@@ -5,7 +5,7 @@
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -51,7 +51,7 @@
 		<string>voip</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -96,6 +96,24 @@
 		<string>Orpheus Pro Italic.otf</string>
 		<string>Orpheus Pro Medium.otf</string>
 		<string>Orpheus Pro Regular.otf</string>
+		<string>HKGrotesk-Black.ttf</string>
+		<string>HKGrotesk-BlackItalic.ttf</string>
+		<string>HKGrotesk-Bold.ttf</string>
+		<string>HKGrotesk-BoldItalic.ttf</string>
+		<string>HKGrotesk-ExtraBold.ttf</string>
+		<string>HKGrotesk-ExtraBoldItalic.ttf</string>
+		<string>HKGrotesk-ExtraLight.ttf</string>
+		<string>HKGrotesk-ExtraLightItalic.ttf</string>
+		<string>HKGrotesk-Italic.ttf</string>
+		<string>HKGrotesk-Light.ttf</string>
+		<string>HKGrotesk-LightItalic.ttf</string>
+		<string>HKGrotesk-Medium.ttf</string>
+		<string>HKGrotesk-MediumItalic.ttf</string>
+		<string>HKGrotesk-Regular.ttf</string>
+		<string>HKGrotesk-SemiBold.ttf</string>
+		<string>HKGrotesk-SemiBoldItalic.ttf</string>
+		<string>HKGrotesk-Thin.ttf</string>
+		<string>HKGrotesk-ThinItalic.ttf</string>
 	</array>
 </dict>
 </plist>
