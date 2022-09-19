@@ -27,7 +27,7 @@
     "@react-native-firebase/auth": "^15.6.0",
     "@react-native-firebase/firestore": "^15.6.0",
     "@react-navigation/bottom-tabs": "^6.3.3",
-    "@react-navigation/drawer": "^6.4.4",
+    "@react-navigation/drawer": "^6.5.0",
     "@react-navigation/native": "^6.0.12",
     "@react-navigation/native-stack": "^6.8.0",
     "@sentry/react-native": "^4.4.0",
