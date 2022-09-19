@@ -120,6 +120,8 @@ const Portal: React.FC = () => {
         onEnd={() => navigate('Temple', {templeId})}
         paused={!joiningTemple}
         source={{uri: introPortal.content.videoEnd?.source}}
+        mixWithOthers="mix"
+        disableFocus
       />
       {!joiningTemple && (
         <VideoStyled
@@ -130,6 +132,8 @@ const Portal: React.FC = () => {
           }}
           repeat={!temple?.started}
           source={{uri: introPortal.content.videoLoop?.source}}
+          mixWithOthers="mix"
+          disableFocus
         />
       )}
       <Wrapper>
