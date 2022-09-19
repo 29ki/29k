@@ -9,8 +9,6 @@ const useSetActiveParticipants = () => {
   return useCallback(
     (userId: string) => {
       setActiveParticipants(participantIds => {
-        console.log(participantIds, userId);
-
         if (userId === participantIds[0] || userId === participantIds[1]) {
           return participantIds;
         }
