@@ -25,24 +25,7 @@ describe('Temple state', () => {
       ).toEqual([{user_id: 'test-id-2', local: false}]);
     });
 
-    it('should return active participant first', () => {
-      const initialSnapshot = snapshot_UNSTABLE(({set}) => {
-        set(participantsAtom, {
-          ...createParticipant('test-id-1', true),
-          ...createParticipant('test-id-2'),
-        });
-        set(participantsSortOrderAtom, ['test-id-2']);
-      });
-
-      expect(
-        initialSnapshot.getLoadable(participantsSelector).valueOrThrow(),
-      ).toEqual([
-        {user_id: 'test-id-2', local: false},
-        {user_id: 'test-id-1', local: true},
-      ]);
-    });
-
-    it('should order participants depending on when active', () => {
+    it('should order participants depending on sort order', () => {
       const initialSnapshot = snapshot_UNSTABLE(({set}) => {
         set(participantsAtom, {
           ...createParticipant('test-id-1', true),
@@ -61,7 +44,7 @@ describe('Temple state', () => {
       ]);
     });
 
-    it('should order handle participants leaving', () => {
+    it('should handle handle participants leaving', () => {
       const initialSnapshot = snapshot_UNSTABLE(({set}) => {
         set(participantsAtom, {
           ...createParticipant('test-id-1', true),
