@@ -54,7 +54,7 @@
     "react-native-screens": "^3.17.0",
     "react-native-svg": "^12.4.4",
     "react-native-video": "^5.2.1",
-    "recoil": "^0.7.4",
+    "recoil": "^0.7.5",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
