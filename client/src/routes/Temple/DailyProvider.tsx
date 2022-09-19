@@ -16,9 +16,9 @@ import {
   videoSharingFields,
   participantsAtom,
   videoSharingAtom,
-  activeParticipantsAtom,
+  participantsSortOrderAtom,
 } from './state/state';
-import useSetActiveParticipants from './hooks/useSetActiveParticipants';
+import useSetParticipantsSortOrder from './hooks/useSetParticipantsSortOrder';
 
 export type DailyProviderTypes = {
   call?: DailyCall;
@@ -44,10 +44,12 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
 
   const setIsLoading = useSetRecoilState(videoSharingFields('isLoading'));
   const setParticipants = useSetRecoilState(participantsAtom);
-  const setActiveParticipant = useSetActiveParticipants();
+  const setParticipantsSortOrder = useSetParticipantsSortOrder();
   const resetParticipants = useResetRecoilState(participantsAtom);
   const resetVideoCallState = useResetRecoilState(videoSharingAtom);
-  const resetActiveParticipants = useResetRecoilState(activeParticipantsAtom);
+  const resetActiveParticipants = useResetRecoilState(
+    participantsSortOrderAtom,
+  );
 
   const resetState = useCallback(() => {
     resetParticipants();
@@ -86,7 +88,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
       activeSpeaker,
     }: DailyEventObject<'active-speaker-change'>) => {
       const {peerId} = activeSpeaker;
-      setActiveParticipant(peerId);
+      setParticipantsSortOrder(peerId);
     };
 
     return [
@@ -97,7 +99,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
       //   ['network-quality-change', connect(networkQualityChange)],
       //   ['error', error => dispatch(setError(error.errorMsg))],
     ];
-  }, [setParticipants, setActiveParticipant]);
+  }, [setParticipants, setParticipantsSortOrder]);
 
   const leaveMeeting = useCallback(async () => {
     if (!daily) {

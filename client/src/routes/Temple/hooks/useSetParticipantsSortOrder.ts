@@ -1,14 +1,14 @@
 import {reject, whereEq} from 'ramda';
 import {useCallback} from 'react';
 import {useSetRecoilState} from 'recoil';
-import {activeParticipantsAtom} from '../state/state';
+import {participantsSortOrderAtom} from '../state/state';
 
-const useSetActiveParticipants = () => {
-  const setActiveParticipants = useSetRecoilState(activeParticipantsAtom);
+const useSetParticipantsSortOrder = () => {
+  const setParticipantsSortOrder = useSetRecoilState(participantsSortOrderAtom);
 
   return useCallback(
     (userId: string) => {
-      setActiveParticipants(participantIds => {
+      setParticipantsSortOrder(participantIds => {
         if (userId === participantIds[0] || userId === participantIds[1]) {
           return participantIds;
         }
@@ -16,8 +16,8 @@ const useSetActiveParticipants = () => {
         return [userId, ...reject(whereEq(userId), participantIds)];
       });
     },
-    [setActiveParticipants],
+    [setParticipantsSortOrder],
   );
 };
 
-export default useSetActiveParticipants;
+export default useSetParticipantsSortOrder;

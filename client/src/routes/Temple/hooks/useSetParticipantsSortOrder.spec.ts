@@ -1,14 +1,14 @@
 import {act, renderHook} from '@testing-library/react-hooks';
 import {RecoilRoot, useRecoilValue} from 'recoil';
-import {activeParticipantsAtom} from '../state/state';
-import useSetActiveParticipants from './useSetActiveParticipants';
+import {participantsSortOrderAtom} from '../state/state';
+import useSetParticipantsSortOrder from './useSetParticipantsSortOrder';
 
 describe('setActiveParticipants', () => {
   const useTestHook = () => {
     // Actual function to test
-    const setActiveParticipants = useSetActiveParticipants();
+    const setActiveParticipants = useSetParticipantsSortOrder();
     // State to expect on
-    const activeParticipants = useRecoilValue(activeParticipantsAtom);
+    const activeParticipants = useRecoilValue(participantsSortOrderAtom);
 
     return {
       setActiveParticipants,
@@ -21,7 +21,7 @@ describe('setActiveParticipants', () => {
       wrapper: RecoilRoot,
       initialProps: {
         initializeState: ({set}) => {
-          set(activeParticipantsAtom, ['test-id-2', 'test-id-1']);
+          set(participantsSortOrderAtom, ['test-id-2', 'test-id-1']);
         },
         children: null,
       },
@@ -40,7 +40,7 @@ describe('setActiveParticipants', () => {
       wrapper: RecoilRoot,
       initialProps: {
         initializeState: ({set}) => {
-          set(activeParticipantsAtom, ['test-id-2', 'test-id-1']);
+          set(participantsSortOrderAtom, ['test-id-2', 'test-id-1']);
         },
         children: null,
       },
@@ -59,7 +59,7 @@ describe('setActiveParticipants', () => {
       wrapper: RecoilRoot,
       initialProps: {
         initializeState: ({set}) => {
-          set(activeParticipantsAtom, ['test-id-2', 'test-id-1']);
+          set(participantsSortOrderAtom, ['test-id-2', 'test-id-1']);
         },
         children: null,
       },
