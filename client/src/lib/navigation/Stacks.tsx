@@ -28,7 +28,11 @@ const TempleStackWrapper = () => (
       }}>
       <TempleStack.Screen name={'ChangingRoom'} component={ChangingRoom} />
       <TempleStack.Screen name={'Portal'} component={Portal} />
-      <TempleStack.Screen name={'Temple'} component={Temple} />
+      <TempleStack.Screen
+        options={{gestureEnabled: false}}
+        name={'Temple'}
+        component={Temple}
+      />
     </TempleStack.Navigator>
   </DailyProvider>
 );
