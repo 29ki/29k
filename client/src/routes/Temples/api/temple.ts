@@ -25,7 +25,7 @@ export const addTemple = async (
 
 export const updateTemple = async (
   id: string,
-  data: Pick<Temple, 'started'>,
+  data: Partial<Pick<Temple, 'started'>>,
 ) => {
   try {
     const response = await apiClient(`${TEMPLES_ENDPOINT}/${id}`, {

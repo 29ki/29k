@@ -1,7 +1,7 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
 import Animated, {FadeOut} from 'react-native-reanimated';
@@ -27,8 +27,11 @@ import NS from '../../lib/i18n/constants/namespaces';
 import {userAtom} from '../../lib/user/state/state';
 import * as templeApi from '../Temples/api/temple';
 import Counter from './components/Counter/Counter';
+import {DailyContext} from './DailyProvider';
 import useTempleExercise from './hooks/useTempleExercise';
-import {participantsSelector, templeAtom} from './state/state';
+import useConfirmExitTemple from './hooks/useConfirmExitTemple';
+import {participantsAtom, templeAtom} from './state/state';
+import {DailyUserData} from '../../../../shared/src/types/Temple';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -46,7 +49,6 @@ const StatusText = styled(B3)({
 const StatusItem = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
-  flex: 1,
 });
 
 const BadgeText = styled(StatusText)({
@@ -90,16 +92,22 @@ const Portal: React.FC = () => {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Portal'>>();
   const [now, setNow] = useState(dayjs());
+  const {joinMeeting} = useContext(DailyContext);
   const [joiningTemple, setJoiningTemple] = useState(false);
   const {t} = useTranslation(NS.SCREEN.PORTAL);
   const exercise = useTempleExercise();
   const temple = useRecoilValue(templeAtom);
   const introPortal = exercise?.introPortal;
-  const participants = useRecoilValue(participantsSelector);
-  const participantsCount = participants.length;
   const user = useRecoilValue(userAtom);
-
+  const participants = useRecoilValue(participantsAtom);
+  const participantsCount = Object.keys(participants).length;
   const {goBack, navigate} = useNavigation<TempleNavigationProps>();
+
+  useConfirmExitTemple();
+
+  useEffect(() => {
+    joinMeeting({inPortal: true} as DailyUserData);
+  }, [joinMeeting]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -121,6 +129,7 @@ const Portal: React.FC = () => {
         paused={!joiningTemple}
         source={{uri: introPortal.content.videoEnd?.source}}
         mixWithOthers="mix"
+        resizeMode="cover"
         disableFocus
       />
       {!joiningTemple && (
@@ -133,6 +142,7 @@ const Portal: React.FC = () => {
           repeat={!temple?.started}
           source={{uri: introPortal.content.videoLoop?.source}}
           mixWithOthers="mix"
+          resizeMode="cover"
           disableFocus
         />
       )}
@@ -168,17 +178,15 @@ const Portal: React.FC = () => {
                 </Badge>
               </StatusItem>
 
-              <StatusItem>
-                {participantsCount > 1 && (
-                  <>
-                    <StatusText>{t('participants')}</StatusText>
-                    <Spacer8 />
-                    <Badge>
-                      <BadgeText>{participantsCount}</BadgeText>
-                    </Badge>
-                  </>
-                )}
-              </StatusItem>
+              {participantsCount > 1 && (
+                <StatusItem>
+                  <StatusText>{t('participants')}</StatusText>
+                  <Spacer8 />
+                  <Badge>
+                    <BadgeText>{participantsCount}</BadgeText>
+                  </Badge>
+                </StatusItem>
+              )}
             </PortalStatus>
           </>
         )}

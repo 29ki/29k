@@ -34,6 +34,8 @@ import useMuteAudioListener from './hooks/useMuteAudioListener';
 import ProgressBar from './components/ProgressBar/ProgressBar';
 import {SPACINGS} from '../../common/constants/spacings';
 import ContentControls from './components/ContentControls/ContentControls';
+import {DailyUserData} from '../../../../shared/src/types/Temple';
+import useConfirmExitTemple from './hooks/useConfirmExitTemple';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
@@ -67,12 +69,12 @@ const Progress = styled(ProgressBar)({
 });
 
 const Session = () => {
-  const {joinMeeting, leaveMeeting, toggleAudio, toggleVideo} =
+  const {setUserData, leaveMeeting, toggleAudio, toggleVideo} =
     useContext(DailyContext);
   const {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Temple'>>();
-  const {navigate} = useNavigation<ScreenNavigationProps>();
+  const {goBack} = useNavigation<ScreenNavigationProps>();
 
   useSubscribeToTemple(templeId);
   useMuteAudioListener();
@@ -82,13 +84,16 @@ const Session = () => {
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
   const exercise = useTempleExercise();
 
+  useConfirmExitTemple();
+
   useEffect(() => {
-    joinMeeting();
-  }, [joinMeeting]);
+    setUserData({inPortal: false} as DailyUserData);
+  }, [setUserData]);
 
   const exitMeeting = async () => {
     await leaveMeeting();
-    navigate('Temples');
+    // This is actually not a back - it's triggering the useConfirmExitTemple event listener
+    goBack();
   };
 
   if (isLoading) {

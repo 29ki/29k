@@ -31,3 +31,7 @@ export type Temple = {
   facilitator: string;
   started: boolean;
 };
+
+export type DailyUserData = {
+  inPortal: boolean;
+};
