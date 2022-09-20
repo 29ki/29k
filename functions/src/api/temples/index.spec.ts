@@ -45,7 +45,6 @@ const temples = [
     },
     facilitator: 'some-user-id',
     started: false,
-    participantsCount: 0,
   },
   {
     id: 'some-other-temple-id',
@@ -58,7 +57,6 @@ const temples = [
     },
     facilitator: 'some-other-user-id',
     started: false,
-    participantsCount: 0,
   },
 ];
 
@@ -108,7 +106,6 @@ describe('/api/temples', () => {
           },
           facilitator: 'some-user-id',
           started: false,
-          participantsCount: 0,
         },
         {
           id: 'some-other-temple-id',
@@ -121,7 +118,6 @@ describe('/api/temples', () => {
           },
           facilitator: 'some-other-user-id',
           started: false,
-          participantsCount: 0,
         },
       ]);
     });
@@ -147,7 +143,6 @@ describe('/api/temples', () => {
         contentId: 'some-content-id',
         facilitator: 'some-user-id',
         started: false,
-        participantsCount: 0,
       });
     });
 
@@ -175,7 +170,7 @@ describe('/api/temples', () => {
     it('should return updated temple', async () => {
       const response = await request(mockServer)
         .put('/temples/some-temple-id')
-        .send({started: true, participantsCount: 1})
+        .send({started: true})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
@@ -190,29 +185,6 @@ describe('/api/temples', () => {
         },
         facilitator: 'some-user-id',
         started: true,
-        participantsCount: 1,
-      });
-    });
-
-    it('should update only passed in fields', async () => {
-      const response = await request(mockServer)
-        .put('/temples/some-temple-id')
-        .send({participantsCount: 2})
-        .set('Accept', 'application/json');
-
-      expect(response.status).toBe(200);
-      expect(response.body).toEqual({
-        id: 'some-temple-id',
-        name: 'some-name',
-        url: 'some-url',
-        exerciseState: {
-          index: 0,
-          playing: false,
-          timestamp: expect.any(String),
-        },
-        facilitator: 'some-user-id',
-        started: false,
-        participantsCount: 2,
       });
     });
 
@@ -223,6 +195,16 @@ describe('/api/temples', () => {
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(500);
+    });
+
+    it('should fail when request auth user is not facilitator', async () => {
+      const response = await request(mockServer)
+        .put('/temples/some-other-temple-id')
+        .send({started: true})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(500);
+      expect(response.text).toEqual('Internal Server Error');
     });
   });
 
@@ -256,7 +238,6 @@ describe('/api/temples', () => {
         },
         facilitator: 'some-user-id',
         started: false,
-        participantsCount: 0,
       });
     });
 
@@ -278,7 +259,6 @@ describe('/api/temples', () => {
         },
         facilitator: 'some-user-id',
         started: false,
-        participantsCount: 0,
       });
     });
 
@@ -301,7 +281,6 @@ describe('/api/temples', () => {
         },
         facilitator: 'some-user-id',
         started: false,
-        participantsCount: 0,
       });
     });
 

@@ -1,4 +1,5 @@
 import {useRecoilValue} from 'recoil';
+import {DailyUserData} from '../../../../../shared/src/types/Temple';
 import {participantsSelector, templeAtom} from '../state/state';
 import useTempleExercise from './useTempleExercise';
 
@@ -7,14 +8,18 @@ const useTempleParticipants = () => {
   const temple = useRecoilValue(templeAtom);
   const exercise = useTempleExercise();
 
+  const inSessionParticipants = participants.filter(
+    participant => !(participant.userData as DailyUserData)?.inPortal,
+  );
+
   if (
     !temple?.exerciseState.dailySpotlightId ||
     exercise?.slide.current.type !== 'participantSpotlight'
   ) {
-    return participants;
+    return inSessionParticipants;
   }
 
-  return participants.filter(
+  return inSessionParticipants.filter(
     participant =>
       participant.user_id !== temple?.exerciseState.dailySpotlightId,
   );

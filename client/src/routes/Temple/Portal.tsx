@@ -1,7 +1,7 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
 import Animated, {FadeOut} from 'react-native-reanimated';
@@ -27,8 +27,10 @@ import NS from '../../lib/i18n/constants/namespaces';
 import {userAtom} from '../../lib/user/state/state';
 import * as templeApi from '../Temples/api/temple';
 import Counter from './components/Counter/Counter';
+import {DailyContext} from './DailyProvider';
 import useTempleExercise from './hooks/useTempleExercise';
-import {templeAtom} from './state/state';
+import {participantsAtom, templeAtom} from './state/state';
+import {DailyUserData} from '../../../../shared/src/types/Temple';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -89,14 +91,20 @@ const Portal: React.FC = () => {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Portal'>>();
   const [now, setNow] = useState(dayjs());
+  const {joinMeeting} = useContext(DailyContext);
   const [joiningTemple, setJoiningTemple] = useState(false);
   const {t} = useTranslation(NS.SCREEN.PORTAL);
   const exercise = useTempleExercise();
   const temple = useRecoilValue(templeAtom);
   const introPortal = exercise?.introPortal;
   const user = useRecoilValue(userAtom);
-  const participantsCount = temple?.participantsCount ?? 0;
+  const participants = useRecoilValue(participantsAtom);
+  const participantsCount = Object.keys(participants).length;
   const {goBack, navigate} = useNavigation<TempleNavigationProps>();
+
+  useEffect(() => {
+    joinMeeting({inPortal: true} as DailyUserData);
+  }, [joinMeeting]);
 
   useEffect(() => {
     const interval = setInterval(() => {

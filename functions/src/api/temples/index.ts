@@ -68,7 +68,6 @@ templesRouter.post('/', validator({body: CreateTempleSchema}), async ctx => {
     dailyRoomName: data.name,
     exerciseState: defaultExerciseState,
     started: false,
-    participantsCount: 0,
   };
 
   await firestore().collection(TEMPLES_COLLECTION).doc(data.id).set(temple);
@@ -104,7 +103,6 @@ templesRouter.delete('/:id', async ctx => {
 const UpdateTempleSchema = yup
   .object({
     started: yup.boolean(),
-    participantsCount: yup.number(),
   })
   .test(
     'nonEmptyObject',
@@ -118,6 +116,12 @@ templesRouter.put('/:id', validator({body: UpdateTempleSchema}), async ctx => {
   const {id} = ctx.params;
   const body = ctx.request.body as UpdateTemple;
   const templeDocRef = firestore().collection(TEMPLES_COLLECTION).doc(id);
+  const temple = (await templeDocRef.get()).data() as TempleData;
+
+  if (ctx.user.id !== temple.facilitator) {
+    ctx.status = 500;
+    throw new Error('Unauthorized');
+  }
 
   await templeDocRef.update(body);
 

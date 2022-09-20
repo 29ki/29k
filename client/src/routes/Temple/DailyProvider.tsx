@@ -19,15 +19,17 @@ import {
   participantsSortOrderAtom,
 } from './state/state';
 import useSetParticipantsSortOrder from './hooks/useSetParticipantsSortOrder';
+import {DailyUserData} from '../../../../shared/src/types/Temple';
 
 export type DailyProviderTypes = {
   call?: DailyCall;
   preJoinMeeting: (url: string) => Promise<void>;
-  joinMeeting: () => Promise<void>;
+  joinMeeting: (userData: DailyUserData) => Promise<void>;
   leaveMeeting: () => Promise<void>;
   toggleAudio: (enabled: boolean) => void;
   toggleVideo: (enabled: boolean) => void;
   setUserName: (userName: string) => Promise<void>;
+  setUserData: (userData: unknown) => Promise<void>;
 };
 
 export const DailyContext = createContext<DailyProviderTypes>({
@@ -37,6 +39,7 @@ export const DailyContext = createContext<DailyProviderTypes>({
   toggleAudio: () => {},
   toggleVideo: () => {},
   setUserName: () => Promise.resolve(),
+  setUserData: () => Promise.resolve(),
 });
 
 const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
@@ -166,11 +169,21 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     [daily, prepareMeeting],
   );
 
-  const joinMeeting = useCallback(async () => {
-    if (daily.meetingState() !== 'joined-meeting') {
-      await daily.join();
-    }
-  }, [daily]);
+  const joinMeeting = useCallback(
+    async (userData: unknown) => {
+      if (daily.meetingState() !== 'joined-meeting') {
+        await daily.join({userData});
+      }
+    },
+    [daily],
+  );
+
+  const setUserData = useCallback(
+    async (userData: unknown) => {
+      await daily.setUserData(userData);
+    },
+    [daily],
+  );
 
   useEffect(() => {
     eventHandlers.forEach(([event, handler]) => {
@@ -198,6 +211,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
         toggleAudio,
         toggleVideo,
         setUserName,
+        setUserData,
       }}>
       {children}
     </DailyContext.Provider>

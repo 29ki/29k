@@ -100,4 +100,33 @@ describe('useTempleParticipants', () => {
       {user_id: 'some-other-user-id'},
     ]);
   });
+
+  it('filter participants who are in the portal', () => {
+    const {result} = renderHook(() => useTempleParticipants(), {
+      wrapper: RecoilRoot,
+      initialProps: {
+        initializeState: ({set}) => {
+          set(participantsAtom, {
+            'some-in-portal-user-id': {
+              user_id: 'some-in-portal-user-id',
+              userData: {inPortal: true},
+            } as DailyParticipant,
+            'some-not-in-portal-user-id': {
+              user_id: 'some-not-in-portal-user-id',
+              userData: {inPortal: false},
+            } as DailyParticipant,
+            'some-without-user-data-user-id': {
+              user_id: 'some-without-user-data-user-id',
+            } as DailyParticipant,
+          });
+        },
+        children: null,
+      },
+    });
+
+    expect(result.current).toEqual([
+      {user_id: 'some-not-in-portal-user-id', userData: {inPortal: false}},
+      {user_id: 'some-without-user-data-user-id'},
+    ]);
+  });
 });

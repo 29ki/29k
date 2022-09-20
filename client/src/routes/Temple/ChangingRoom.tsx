@@ -37,7 +37,6 @@ import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 import useSubscribeToTemple from './hooks/useSubscribeToTemple';
 import useUpdateTempleExerciseState from './hooks/useUpdateTempleExerciseState';
 import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
-import * as templeApi from '../Temples/api/temple';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -129,9 +128,6 @@ const ChangingRoom = () => {
 
   const handleJoin = () => {
     setUserName(localUserName);
-    templeApi.updateTemple(templeId, {
-      participantsCount: (temple?.participantsCount ?? 0) + 1,
-    });
     navigate('Portal', {templeId});
   };
 
