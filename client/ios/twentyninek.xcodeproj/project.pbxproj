@@ -12,16 +12,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		172FD1A660FA43AF8390F756 /* HKGrotesk-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D23A9D3469D04DCBA3B5B6DE /* HKGrotesk-ThinItalic.ttf */; };
 		1CADA6E67B504D9EA69F73FA /* HKGrotesk-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8268BC6140D4234847163B1 /* HKGrotesk-BoldItalic.ttf */; };
-		20205FD228C63AFC0047CE4F /* Orpheus Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2FB552E63E134540BCE3C1FA /* Orpheus Pro Bold.otf */; };
-		20205FD628C63AFC0047CE4F /* Orpheus Pro Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4544D2289684C2EB5E3C7E4 /* Orpheus Pro Regular.otf */; };
-		20205FE328C63AFC0047CE4F /* Orpheus Pro Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 567A13769CCD485093093244 /* Orpheus Pro Medium.otf */; };
-		20205FE428C63AFC0047CE4F /* Orpheus Pro Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A63BB12E53D43E9A50B993E /* Orpheus Pro Italic.otf */; };
-		20205FEC28C63AFC0047CE4F /* Orpheus Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2FB552E63E134540BCE3C1FA /* Orpheus Pro Bold.otf */; };
-		20205FF028C63AFC0047CE4F /* Orpheus Pro Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4544D2289684C2EB5E3C7E4 /* Orpheus Pro Regular.otf */; };
-		20205FFD28C63AFC0047CE4F /* Orpheus Pro Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 567A13769CCD485093093244 /* Orpheus Pro Medium.otf */; };
-		20205FFE28C63AFC0047CE4F /* Orpheus Pro Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A63BB12E53D43E9A50B993E /* Orpheus Pro Italic.otf */; };
 		2534018508E87E505AF96201 /* Pods_production.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3917496B3DD7B39A251F220E /* Pods_production.framework */; };
-		2A7FAFC137404BC9BD2AA7DB /* Orpheus Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2FB552E63E134540BCE3C1FA /* Orpheus Pro Bold.otf */; };
 		358C4F2723F64259BA21F041 /* HKGrotesk-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F984EB2C23C413EAD170059 /* HKGrotesk-SemiBoldItalic.ttf */; };
 		3690D88E2865064200A0F937 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3690D88D2865064200A0F937 /* Images.xcassets */; };
 		3690D88F2865069800A0F937 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3690D88D2865064200A0F937 /* Images.xcassets */; };
@@ -71,7 +62,6 @@
 		46CD5A7405F7418BB481C2F7 /* HKGrotesk-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF33B8F1B88F43168FDB6B0F /* HKGrotesk-ExtraLight.ttf */; };
 		4858360232814D29A1F6513D /* HKGrotesk-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF83EDE6720045869984C7B3 /* HKGrotesk-Black.ttf */; };
 		4A94D31420464CDCB3B29A4A /* HKGrotesk-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFA4006C7CCA4AB2B2917E80 /* HKGrotesk-ExtraLightItalic.ttf */; };
-		577AE01343CC4C248342DA6B /* Orpheus Pro Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4544D2289684C2EB5E3C7E4 /* Orpheus Pro Regular.otf */; };
 		603DFC37750546B786EF64E1 /* HKGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4DC8D4A3FCD42879BD2D25D /* HKGrotesk-Regular.ttf */; };
 		6CCB426AB87A49E596107039 /* HKGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A056520304664C35A018EACD /* HKGrotesk-Bold.ttf */; };
 		7880A5142862029F0063B482 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
@@ -85,12 +75,22 @@
 		9FAB75AE36C241759B2D6102 /* HKGrotesk-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7B0369A69A5459EBF311F36 /* HKGrotesk-MediumItalic.ttf */; };
 		A004DA0332A84139837B70E3 /* HKGrotesk-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDC97632AC9A41E683B57B63 /* HKGrotesk-ExtraBold.ttf */; };
 		A0396F9773F344FE8F381035 /* HKGrotesk-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8B60BFB051E4200971A1E5D /* HKGrotesk-ExtraBoldItalic.ttf */; };
-		AAE8A6EE8EF844D4ACF2630A /* Orpheus Pro Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 567A13769CCD485093093244 /* Orpheus Pro Medium.otf */; };
 		CD86BEA31AC24020B0EDF7F9 /* HKGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7A9AC015F0444D78702CDB8 /* HKGrotesk-Medium.ttf */; };
 		D27C808E13974943B12A51A1 /* HKGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38098D4E3BE44FE192B788F7 /* HKGrotesk-Light.ttf */; };
-		D2D08003B2F7470A9CE154FC /* Orpheus Pro Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A63BB12E53D43E9A50B993E /* Orpheus Pro Italic.otf */; };
 		FCDDAFDDFE4F4A1FABA34E33 /* HKGrotesk-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6955B7D500CF486496F2FAC1 /* HKGrotesk-Thin.ttf */; };
 		FF3F319A6B6F454CB98D805C /* HKGrotesk-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB7EF2B3981F4C15B5A80B41 /* HKGrotesk-LightItalic.ttf */; };
+		61AF23D5BAF44C79B8C88620 /* PlayfairDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C60BDAB4BE94BBC97B83082 /* PlayfairDisplay-Black.ttf */; };
+		8EA1C749FD07419CAFAC8F1E /* PlayfairDisplay-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FB1C4107AC3466188F02C93 /* PlayfairDisplay-BlackItalic.ttf */; };
+		F972E6872EEC4680BFA871D4 /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D604BD0BA9D4700B61615BC /* PlayfairDisplay-Bold.ttf */; };
+		4B72FCA287A94CC2BAB57E64 /* PlayfairDisplay-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A25751351AC74C9899C05A2B /* PlayfairDisplay-BoldItalic.ttf */; };
+		1AF1549406FE42B5B87DF3CD /* PlayfairDisplay-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B969669E9C09454993930592 /* PlayfairDisplay-ExtraBold.ttf */; };
+		5DB405A75D724943AEF04D2E /* PlayfairDisplay-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61A8F5BA383445C59ADAA18A /* PlayfairDisplay-ExtraBoldItalic.ttf */; };
+		6C4AAC59C1E14B75BF46AE59 /* PlayfairDisplay-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64EC0C45BF0040A2AEAB9C0F /* PlayfairDisplay-Italic.ttf */; };
+		09311DD5B06E4A41BD97FE2A /* PlayfairDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0732F29855A4EE089F76599 /* PlayfairDisplay-Medium.ttf */; };
+		069CEB0FA3F44CE6A86060C9 /* PlayfairDisplay-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F35AC701EC1A4C298B2B7BBD /* PlayfairDisplay-MediumItalic.ttf */; };
+		10E70385B2454591A7657B4B /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35E0C7EB316048939A75C305 /* PlayfairDisplay-Regular.ttf */; };
+		A2D0FF0B865E4996AAAEED8C /* PlayfairDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47BAB9D11CC441EE8D9AD069 /* PlayfairDisplay-SemiBold.ttf */; };
+		FB406F7E72B143368045E1E2 /* PlayfairDisplay-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70541B4723CC4589BC286F20 /* PlayfairDisplay-SemiBoldItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,7 +103,6 @@
 		1F92E01E06E64E5F936FE9CB /* HKGrotesk-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-BlackItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-BlackItalic.ttf"; sourceTree = "<group>"; };
 		20A763052861E2FE0007087C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F984EB2C23C413EAD170059 /* HKGrotesk-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-SemiBoldItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		2FB552E63E134540BCE3C1FA /* Orpheus Pro Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Orpheus Pro Bold.otf"; path = "../src/assets/fonts/Orpheus Pro Bold.otf"; sourceTree = "<group>"; };
 		3690D88D2865064200A0F937 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = twentyninek/Images.xcassets; sourceTree = "<group>"; };
 		36B9FA1F28625FFA00563812 /* dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B9FA22286260E500563812 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -111,8 +110,6 @@
 		3917496B3DD7B39A251F220E /* Pods_production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_production.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E0301EF6E76DEAE2416B918 /* Pods-dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dev.release.xcconfig"; path = "Target Support Files/Pods-dev/Pods-dev.release.xcconfig"; sourceTree = "<group>"; };
 		4668E18F3B364E8FBEE4855C /* HKGrotesk-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-SemiBold.ttf"; path = "../src/assets/fonts/HKGrotesk-SemiBold.ttf"; sourceTree = "<group>"; };
-		567A13769CCD485093093244 /* Orpheus Pro Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Orpheus Pro Medium.otf"; path = "../src/assets/fonts/Orpheus Pro Medium.otf"; sourceTree = "<group>"; };
-		5A63BB12E53D43E9A50B993E /* Orpheus Pro Italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Orpheus Pro Italic.otf"; path = "../src/assets/fonts/Orpheus Pro Italic.otf"; sourceTree = "<group>"; };
 		624F908A7D658EB04E2EA6F1 /* Pods-staging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-staging.debug.xcconfig"; path = "Target Support Files/Pods-staging/Pods-staging.debug.xcconfig"; sourceTree = "<group>"; };
 		6955B7D500CF486496F2FAC1 /* HKGrotesk-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-Thin.ttf"; path = "../src/assets/fonts/HKGrotesk-Thin.ttf"; sourceTree = "<group>"; };
 		6F88E6EBC89A3FCABE465890 /* Pods-dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dev.debug.xcconfig"; path = "Target Support Files/Pods-dev/Pods-dev.debug.xcconfig"; sourceTree = "<group>"; };
@@ -129,7 +126,6 @@
 		C7A9AC015F0444D78702CDB8 /* HKGrotesk-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-Medium.ttf"; path = "../src/assets/fonts/HKGrotesk-Medium.ttf"; sourceTree = "<group>"; };
 		CB7EF2B3981F4C15B5A80B41 /* HKGrotesk-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-LightItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-LightItalic.ttf"; sourceTree = "<group>"; };
 		D23A9D3469D04DCBA3B5B6DE /* HKGrotesk-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-ThinItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-ThinItalic.ttf"; sourceTree = "<group>"; };
-		D4544D2289684C2EB5E3C7E4 /* Orpheus Pro Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Orpheus Pro Regular.otf"; path = "../src/assets/fonts/Orpheus Pro Regular.otf"; sourceTree = "<group>"; };
 		D4DC8D4A3FCD42879BD2D25D /* HKGrotesk-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-Regular.ttf"; path = "../src/assets/fonts/HKGrotesk-Regular.ttf"; sourceTree = "<group>"; };
 		E7B0369A69A5459EBF311F36 /* HKGrotesk-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-MediumItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-MediumItalic.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -138,6 +134,18 @@
 		FDC97632AC9A41E683B57B63 /* HKGrotesk-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-ExtraBold.ttf"; path = "../src/assets/fonts/HKGrotesk-ExtraBold.ttf"; sourceTree = "<group>"; };
 		FF83EDE6720045869984C7B3 /* HKGrotesk-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-Black.ttf"; path = "../src/assets/fonts/HKGrotesk-Black.ttf"; sourceTree = "<group>"; };
 		FFCEF1E2F3828B576D8B9B3D /* Pods-staging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-staging.release.xcconfig"; path = "Target Support Files/Pods-staging/Pods-staging.release.xcconfig"; sourceTree = "<group>"; };
+		0C60BDAB4BE94BBC97B83082 /* PlayfairDisplay-Black.ttf */ = {isa = PBXFileReference; name = "PlayfairDisplay-Black.ttf"; path = "../src/assets/fonts/PlayfairDisplay-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3FB1C4107AC3466188F02C93 /* PlayfairDisplay-BlackItalic.ttf */ = {isa = PBXFileReference; name = "PlayfairDisplay-BlackItalic.ttf"; path = "../src/assets/fonts/PlayfairDisplay-BlackItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5D604BD0BA9D4700B61615BC /* PlayfairDisplay-Bold.ttf */ = {isa = PBXFileReference; name = "PlayfairDisplay-Bold.ttf"; path = "../src/assets/fonts/PlayfairDisplay-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A25751351AC74C9899C05A2B /* PlayfairDisplay-BoldItalic.ttf */ = {isa = PBXFileReference; name = "PlayfairDisplay-BoldItalic.ttf"; path = "../src/assets/fonts/PlayfairDisplay-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B969669E9C09454993930592 /* PlayfairDisplay-ExtraBold.ttf */ = {isa = PBXFileReference; name = "PlayfairDisplay-ExtraBold.ttf"; path = "../src/assets/fonts/PlayfairDisplay-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		61A8F5BA383445C59ADAA18A /* PlayfairDisplay-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; name = "PlayfairDisplay-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/PlayfairDisplay-ExtraBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		64EC0C45BF0040A2AEAB9C0F /* PlayfairDisplay-Italic.ttf */ = {isa = PBXFileReference; name = "PlayfairDisplay-Italic.ttf"; path = "../src/assets/fonts/PlayfairDisplay-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F0732F29855A4EE089F76599 /* PlayfairDisplay-Medium.ttf */ = {isa = PBXFileReference; name = "PlayfairDisplay-Medium.ttf"; path = "../src/assets/fonts/PlayfairDisplay-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F35AC701EC1A4C298B2B7BBD /* PlayfairDisplay-MediumItalic.ttf */ = {isa = PBXFileReference; name = "PlayfairDisplay-MediumItalic.ttf"; path = "../src/assets/fonts/PlayfairDisplay-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		35E0C7EB316048939A75C305 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; name = "PlayfairDisplay-Regular.ttf"; path = "../src/assets/fonts/PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		47BAB9D11CC441EE8D9AD069 /* PlayfairDisplay-SemiBold.ttf */ = {isa = PBXFileReference; name = "PlayfairDisplay-SemiBold.ttf"; path = "../src/assets/fonts/PlayfairDisplay-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		70541B4723CC4589BC286F20 /* PlayfairDisplay-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "PlayfairDisplay-SemiBoldItalic.ttf"; path = "../src/assets/fonts/PlayfairDisplay-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,10 +191,6 @@
 		18DFA808C0F24C1398D3AC65 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2FB552E63E134540BCE3C1FA /* Orpheus Pro Bold.otf */,
-				5A63BB12E53D43E9A50B993E /* Orpheus Pro Italic.otf */,
-				567A13769CCD485093093244 /* Orpheus Pro Medium.otf */,
-				D4544D2289684C2EB5E3C7E4 /* Orpheus Pro Regular.otf */,
 				FF83EDE6720045869984C7B3 /* HKGrotesk-Black.ttf */,
 				1F92E01E06E64E5F936FE9CB /* HKGrotesk-BlackItalic.ttf */,
 				A056520304664C35A018EACD /* HKGrotesk-Bold.ttf */,
@@ -205,6 +209,18 @@
 				2F984EB2C23C413EAD170059 /* HKGrotesk-SemiBoldItalic.ttf */,
 				6955B7D500CF486496F2FAC1 /* HKGrotesk-Thin.ttf */,
 				D23A9D3469D04DCBA3B5B6DE /* HKGrotesk-ThinItalic.ttf */,
+				0C60BDAB4BE94BBC97B83082 /* PlayfairDisplay-Black.ttf */,
+				3FB1C4107AC3466188F02C93 /* PlayfairDisplay-BlackItalic.ttf */,
+				5D604BD0BA9D4700B61615BC /* PlayfairDisplay-Bold.ttf */,
+				A25751351AC74C9899C05A2B /* PlayfairDisplay-BoldItalic.ttf */,
+				B969669E9C09454993930592 /* PlayfairDisplay-ExtraBold.ttf */,
+				61A8F5BA383445C59ADAA18A /* PlayfairDisplay-ExtraBoldItalic.ttf */,
+				64EC0C45BF0040A2AEAB9C0F /* PlayfairDisplay-Italic.ttf */,
+				F0732F29855A4EE089F76599 /* PlayfairDisplay-Medium.ttf */,
+				F35AC701EC1A4C298B2B7BBD /* PlayfairDisplay-MediumItalic.ttf */,
+				35E0C7EB316048939A75C305 /* PlayfairDisplay-Regular.ttf */,
+				47BAB9D11CC441EE8D9AD069 /* PlayfairDisplay-SemiBold.ttf */,
+				70541B4723CC4589BC286F20 /* PlayfairDisplay-SemiBoldItalic.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -417,10 +433,6 @@
 				3CB0510228624EBF009F0527 /* GoogleService-Info.plist in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				3690D88E2865064200A0F937 /* Images.xcassets in Resources */,
-				2A7FAFC137404BC9BD2AA7DB /* Orpheus Pro Bold.otf in Resources */,
-				D2D08003B2F7470A9CE154FC /* Orpheus Pro Italic.otf in Resources */,
-				AAE8A6EE8EF844D4ACF2630A /* Orpheus Pro Medium.otf in Resources */,
-				577AE01343CC4C248342DA6B /* Orpheus Pro Regular.otf in Resources */,
 				4858360232814D29A1F6513D /* HKGrotesk-Black.ttf in Resources */,
 				389B54A26CD447569B799C13 /* HKGrotesk-BlackItalic.ttf in Resources */,
 				6CCB426AB87A49E596107039 /* HKGrotesk-Bold.ttf in Resources */,
@@ -439,6 +451,18 @@
 				358C4F2723F64259BA21F041 /* HKGrotesk-SemiBoldItalic.ttf in Resources */,
 				FCDDAFDDFE4F4A1FABA34E33 /* HKGrotesk-Thin.ttf in Resources */,
 				172FD1A660FA43AF8390F756 /* HKGrotesk-ThinItalic.ttf in Resources */,
+				61AF23D5BAF44C79B8C88620 /* PlayfairDisplay-Black.ttf in Resources */,
+				8EA1C749FD07419CAFAC8F1E /* PlayfairDisplay-BlackItalic.ttf in Resources */,
+				F972E6872EEC4680BFA871D4 /* PlayfairDisplay-Bold.ttf in Resources */,
+				4B72FCA287A94CC2BAB57E64 /* PlayfairDisplay-BoldItalic.ttf in Resources */,
+				1AF1549406FE42B5B87DF3CD /* PlayfairDisplay-ExtraBold.ttf in Resources */,
+				5DB405A75D724943AEF04D2E /* PlayfairDisplay-ExtraBoldItalic.ttf in Resources */,
+				6C4AAC59C1E14B75BF46AE59 /* PlayfairDisplay-Italic.ttf in Resources */,
+				09311DD5B06E4A41BD97FE2A /* PlayfairDisplay-Medium.ttf in Resources */,
+				069CEB0FA3F44CE6A86060C9 /* PlayfairDisplay-MediumItalic.ttf in Resources */,
+				10E70385B2454591A7657B4B /* PlayfairDisplay-Regular.ttf in Resources */,
+				A2D0FF0B865E4996AAAEED8C /* PlayfairDisplay-SemiBold.ttf in Resources */,
+				FB406F7E72B143368045E1E2 /* PlayfairDisplay-SemiBoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

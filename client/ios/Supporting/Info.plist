@@ -92,10 +92,6 @@
 		<string>HKGrotesk-SemiBoldItalic.otf</string>
 		<string>HKGrotesk-SemiBoldLegacy.otf</string>
 		<string>HKGrotesk-SemiBoldLegacyItalic.otf</string>
-		<string>Orpheus Pro Bold.otf</string>
-		<string>Orpheus Pro Italic.otf</string>
-		<string>Orpheus Pro Medium.otf</string>
-		<string>Orpheus Pro Regular.otf</string>
 		<string>HKGrotesk-Black.ttf</string>
 		<string>HKGrotesk-BlackItalic.ttf</string>
 		<string>HKGrotesk-Bold.ttf</string>
@@ -114,6 +110,18 @@
 		<string>HKGrotesk-SemiBoldItalic.ttf</string>
 		<string>HKGrotesk-Thin.ttf</string>
 		<string>HKGrotesk-ThinItalic.ttf</string>
+		<string>PlayfairDisplay-Black.ttf</string>
+		<string>PlayfairDisplay-BlackItalic.ttf</string>
+		<string>PlayfairDisplay-Bold.ttf</string>
+		<string>PlayfairDisplay-BoldItalic.ttf</string>
+		<string>PlayfairDisplay-ExtraBold.ttf</string>
+		<string>PlayfairDisplay-ExtraBoldItalic.ttf</string>
+		<string>PlayfairDisplay-Italic.ttf</string>
+		<string>PlayfairDisplay-Medium.ttf</string>
+		<string>PlayfairDisplay-MediumItalic.ttf</string>
+		<string>PlayfairDisplay-Regular.ttf</string>
+		<string>PlayfairDisplay-SemiBold.ttf</string>
+		<string>PlayfairDisplay-SemiBoldItalic.ttf</string>
 	</array>
 </dict>
 </plist>
