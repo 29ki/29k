@@ -8,8 +8,8 @@ import {Spacer16, Spacer8} from '../Spacers/Spacer';
 import {
   HKGroteskBold,
   HKGroteskRegular,
-  OrpheusProBold,
-  OrpheusProItalic,
+  PlayfairDisplayBold,
+  PlayfairDisplayItalic,
 } from '../../constants/fonts';
 
 export const AllTypes = () => (
@@ -32,41 +32,41 @@ export const AllTypes = () => (
 export const Headings = () => (
   <ScreenWrapper>
     <Spacer16 />
-    <B3>Default: OrpheusProMedium</B3>
+    <B3>Default: PlayfairDisplay-Regular</B3>
     <H1>Heading 1</H1>
     <H2>Heading 2</H2>
     <H3>Heading 3</H3>
     <H5>Heading 5</H5>
     <Spacer16 />
-    <B3>Default: OrpheusProBold</B3>
-    <H1 style={{fontFamily: OrpheusProBold}}>Heading 1</H1>
-    <H2 style={{fontFamily: OrpheusProBold}}>Heading 2</H2>
-    <H3 style={{fontFamily: OrpheusProBold}}>Heading 3</H3>
-    <H4 style={{fontFamily: OrpheusProBold}}>Heading 4</H4>
-    <H5 style={{fontFamily: OrpheusProBold}}>Heading 5</H5>
+    <B3>Default: PlayfairDisplay-Bold</B3>
+    <H1 style={{fontFamily: PlayfairDisplayBold}}>Heading 1</H1>
+    <H2 style={{fontFamily: PlayfairDisplayBold}}>Heading 2</H2>
+    <H3 style={{fontFamily: PlayfairDisplayBold}}>Heading 3</H3>
+    <H4 style={{fontFamily: PlayfairDisplayBold}}>Heading 4</H4>
+    <H5 style={{fontFamily: PlayfairDisplayBold}}>Heading 5</H5>
     <Spacer16 />
-    <B3>Default: OrpheusProItalic</B3>
-    <H1 style={{fontFamily: OrpheusProItalic}}>Heading 1</H1>
-    <H2 style={{fontFamily: OrpheusProItalic}}>Heading 2</H2>
-    <H3 style={{fontFamily: OrpheusProItalic}}>Heading 3</H3>
-    <H4 style={{fontFamily: OrpheusProItalic}}>Heading 4</H4>
-    <H5 style={{fontFamily: OrpheusProItalic}}>Heading 5</H5>
+    <B3>Default: PlayfairDisplay-Italic</B3>
+    <H1 style={{fontFamily: PlayfairDisplayItalic}}>Heading 1</H1>
+    <H2 style={{fontFamily: PlayfairDisplayItalic}}>Heading 2</H2>
+    <H3 style={{fontFamily: PlayfairDisplayItalic}}>Heading 3</H3>
+    <H4 style={{fontFamily: PlayfairDisplayItalic}}>Heading 4</H4>
+    <H5 style={{fontFamily: PlayfairDisplayItalic}}>Heading 5</H5>
   </ScreenWrapper>
 );
 export const Bodies = () => (
   <ScreenWrapper>
     <Spacer16 />
-    <B3>Default: HKGroteskMedium</B3>
+    <B3>Default: HKGrotesk-Medium</B3>
     <B1>Body 1</B1>
     <B2>Body 2</B2>
     <B3>Body 3</B3>
     <Spacer16 />
-    <B3>HKGroteskBold</B3>
+    <B3>HKGrotesk-Bold</B3>
     <B1 style={{fontFamily: HKGroteskBold}}>Body 1</B1>
     <B2 style={{fontFamily: HKGroteskBold}}>Body 2</B2>
     <B3 style={{fontFamily: HKGroteskBold}}>Body 3</B3>
     <Spacer16 />
-    <B3>HKGroteskRegular</B3>
+    <B3>HKGrotesk-Regular</B3>
     <B1 style={{fontFamily: HKGroteskRegular}}>Body 1</B1>
     <B2 style={{fontFamily: HKGroteskRegular}}>Body 2</B2>
     <B3 style={{fontFamily: HKGroteskRegular}}>Body 3</B3>
