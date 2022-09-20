@@ -196,6 +196,16 @@ describe('/api/temples', () => {
 
       expect(response.status).toBe(500);
     });
+
+    it('should fail when request auth user is not facilitator', async () => {
+      const response = await request(mockServer)
+        .put('/temples/some-other-temple-id')
+        .send({started: true})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(500);
+      expect(response.text).toEqual('Internal Server Error');
+    });
   });
 
   describe('PUT /:id/exerciseState', () => {

@@ -100,18 +100,30 @@ templesRouter.delete('/:id', async ctx => {
   ctx.body = 'Temple deleted successfully';
 });
 
-const UpdateTempleSchema = yup.object().shape({
-  started: yup.boolean().required(),
-});
+const UpdateTempleSchema = yup
+  .object({
+    started: yup.boolean(),
+  })
+  .test(
+    'nonEmptyObject',
+    'object may not be empty',
+    test => Object.keys(test).length > 0,
+  );
 
 type UpdateTemple = yup.InferType<typeof UpdateTempleSchema>;
 
 templesRouter.put('/:id', validator({body: UpdateTempleSchema}), async ctx => {
   const {id} = ctx.params;
-  const {started} = ctx.request.body as UpdateTemple;
+  const body = ctx.request.body as UpdateTemple;
   const templeDocRef = firestore().collection(TEMPLES_COLLECTION).doc(id);
+  const temple = (await templeDocRef.get()).data() as TempleData;
 
-  await templeDocRef.update({started});
+  if (ctx.user.id !== temple.facilitator) {
+    ctx.status = 500;
+    throw new Error('Unauthorized');
+  }
+
+  await templeDocRef.update(body);
 
   ctx.status = 200;
   ctx.body = getTemple((await templeDocRef.get()).data() as TempleData);

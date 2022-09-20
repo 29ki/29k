@@ -34,6 +34,7 @@ import useMuteAudioListener from './hooks/useMuteAudioListener';
 import ProgressBar from './components/ProgressBar/ProgressBar';
 import {SPACINGS} from '../../common/constants/spacings';
 import ContentControls from './components/ContentControls/ContentControls';
+import {DailyUserData} from '../../../../shared/src/types/Temple';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
@@ -67,7 +68,7 @@ const Progress = styled(ProgressBar)({
 });
 
 const Session = () => {
-  const {joinMeeting, leaveMeeting, toggleAudio, toggleVideo} =
+  const {setUserData, leaveMeeting, toggleAudio, toggleVideo} =
     useContext(DailyContext);
   const {
     params: {templeId},
@@ -83,8 +84,8 @@ const Session = () => {
   const exercise = useTempleExercise();
 
   useEffect(() => {
-    joinMeeting();
-  }, [joinMeeting]);
+    setUserData({inPortal: false} as DailyUserData);
+  }, [setUserData]);
 
   const exitMeeting = async () => {
     await leaveMeeting();
