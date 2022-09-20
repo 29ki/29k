@@ -25,6 +25,7 @@ const TempleStackWrapper = () => (
         ...stackOptions,
         animation: 'fade',
         animationDuration: 2000,
+        gestureEnabled: false,
       }}>
       <TempleStack.Screen name={'ChangingRoom'} component={ChangingRoom} />
       <TempleStack.Screen name={'Portal'} component={Portal} />
@@ -46,6 +47,7 @@ const RootStackWrapper = () => {
           <RootStack.Screen
             name={'TempleStack'}
             component={TempleStackWrapper}
+            options={{gestureEnabled: false}}
           />
         </>
       )}

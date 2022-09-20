@@ -5,6 +5,7 @@ const NS = {
     TABS: 'Component.Tabs',
     TEMPLE_CARD: 'Component.TempleCard',
     COUNTER: 'Component.Counter',
+    CONFIRM_EXIT_TEMPLE: 'Component.ConfirmExitTemple',
   },
   SCREEN: {
     CHANGING_ROOM: 'Screen.ChangingRoom',
