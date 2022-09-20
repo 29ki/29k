@@ -1044,7 +1044,7 @@ PODS:
     - React-perflogger (= 0.69.5)
   - RNCAsyncStorage (1.17.10):
     - React-Core
-  - RNDeviceInfo (10.0.2):
+  - RNDeviceInfo (10.2.0):
     - React-Core
   - RNFBApp (15.6.0):
     - Firebase/CoreOnly (= 9.6.0)
@@ -1057,7 +1057,7 @@ PODS:
     - Firebase/Firestore (= 9.6.0)
     - React-Core
     - RNFBApp
-  - RNGestureHandler (2.6.0):
+  - RNGestureHandler (2.6.1):
     - React-Core
   - RNLocalize (2.2.3):
     - React-Core
@@ -1091,14 +1091,14 @@ PODS:
   - RNScreens (3.17.0):
     - React-Core
     - React-RCTImage
-  - RNSentry (4.3.0):
+  - RNSentry (4.4.0):
     - React-Core
-    - Sentry (= 7.24.1)
+    - Sentry (= 7.25.1)
   - RNSVG (13.2.0):
     - React-Core
-  - Sentry (7.24.1):
-    - Sentry/Core (= 7.24.1)
-  - Sentry/Core (7.24.1)
+  - Sentry (7.25.1):
+    - Sentry/Core (= 7.25.1)
+  - Sentry/Core (7.25.1)
   - SSZipArchive (2.2.3)
   - Yoga (1.14.0)
 
@@ -1295,7 +1295,7 @@ SPEC CHECKSUMS:
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   BVLinearGradient: 34a999fda29036898a09c6a6b728b0b4189e1a44
   CodePush: ef496b6fd053012e985e3d4a0ab9f9dbf2739eac
-  DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662
+  DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 0045cf98ca4a48af3bf7108d85b1c243740fa289
   FBReactNativeSpec: 82e74141263f8c962e288f5cd6b5d149cdc8afe1
   Firebase: 5ae8b7cf8efce559a653aef0ad95bab3f427c351
@@ -1305,7 +1305,7 @@ SPEC CHECKSUMS:
   FirebaseCoreInternal: bca76517fe1ed381e989f5e7d8abb0da8d85bed3
   FirebaseFirestore: c09ce6d050745a45fb75ebd901005ed3279c3caf
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  glog: 476ee3e89abb49e07f822b48323c51c57124b572
+  glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
   GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
   "gRPC-C++": 9675f953ace2b3de7c506039d77be1f2e77a8db2
@@ -1318,7 +1318,7 @@ SPEC CHECKSUMS:
   lottie-react-native: b702fab740cdb952a8e2354713d3beda63ff97b0
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
-  RCT-Folly: 4d8508a426467c48885f1151029bc15fa5d7b3b8
+  RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
   RCTRequired: 85c60c4bde8241278be2c93420de4c65475a2151
   RCTTypeSafety: 15990f289215eb0fc65c5eb6e2610faeeda8d5e1
   React: 6cfa9367042a85f6235740420df017d51efc6494
@@ -1350,17 +1350,17 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: c778439c3c430a5719d027d3c67423b390a221fe
   ReactCommon: ab1003b81be740fecd82509c370a45b1a7dda0c1
   RNCAsyncStorage: 0c357f3156fcb16c8589ede67cc036330b6698ca
-  RNDeviceInfo: 0a7c1d2532aa7691f9b9925a27e43af006db4dae
+  RNDeviceInfo: 8b83e99e290deaf1bab71673cc636776ef647b6f
   RNFBApp: c14c5e27a6b0bf026fc1c60702603ae94eba6fb1
   RNFBAuth: ca6d82cb4cf17243d9d654e5206770e4f172ebdc
   RNFBFirestore: c2130bd455fee49a50fbad196aec704950d596f1
-  RNGestureHandler: 920eb17f5b1e15dae6e5ed1904045f8f90e0b11e
+  RNGestureHandler: 28ad20bf02257791f7f137b31beef34b9549f54b
   RNLocalize: a64514b46a01375fdfae9349036b4dc7130333b5
   RNReanimated: 7faa787e8d4493fbc95fab2ad331fa7625828cfa
   RNScreens: 0df01424e9e0ed7827200d6ed1087ddd06c493f9
-  RNSentry: 771e3a33d720752dd963a97c3a3447223e92214f
+  RNSentry: 6386245031a4dc3091523b941de8241c03e7f214
   RNSVG: 07037623c36f12e41312730622d5f6b3656227ca
-  Sentry: 1ed2d3f2973658bf6ab7ed43857c8e321a1625dd
+  Sentry: dd29c18c32b0af9269949f079cf631d581ca76ca
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Yoga: c2b1f2494060865ac1f27e49639e72371b1205fa
 
