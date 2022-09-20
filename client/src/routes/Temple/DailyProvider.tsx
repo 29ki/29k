@@ -19,12 +19,11 @@ import {
   participantsSortOrderAtom,
 } from './state/state';
 import useSetParticipantsSortOrder from './hooks/useSetParticipantsSortOrder';
-import {DailyUserData} from '../../../../shared/src/types/Temple';
 
 export type DailyProviderTypes = {
   call?: DailyCall;
   preJoinMeeting: (url: string) => Promise<void>;
-  joinMeeting: (userData: DailyUserData) => Promise<void>;
+  joinMeeting: (userData: unknown) => Promise<void>;
   leaveMeeting: () => Promise<void>;
   toggleAudio: (enabled: boolean) => void;
   toggleVideo: (enabled: boolean) => void;
