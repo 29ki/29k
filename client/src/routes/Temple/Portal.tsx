@@ -29,6 +29,7 @@ import * as templeApi from '../Temples/api/temple';
 import Counter from './components/Counter/Counter';
 import {DailyContext} from './DailyProvider';
 import useTempleExercise from './hooks/useTempleExercise';
+import useConfirmExitTemple from './hooks/useConfirmExitTemple';
 import {participantsAtom, templeAtom} from './state/state';
 import {DailyUserData} from '../../../../shared/src/types/Temple';
 
@@ -101,6 +102,8 @@ const Portal: React.FC = () => {
   const participants = useRecoilValue(participantsAtom);
   const participantsCount = Object.keys(participants).length;
   const {goBack, navigate} = useNavigation<TempleNavigationProps>();
+
+  useConfirmExitTemple();
 
   useEffect(() => {
     joinMeeting({inPortal: true} as DailyUserData);

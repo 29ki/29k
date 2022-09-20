@@ -1,0 +1,26 @@
+{
+  "en": {
+    "header": "Leave meeting",
+    "text": "Are you sure you want to leave the meeting",
+    "buttons": {
+      "cancel": "Don't leave",
+      "confirm": "Leave"
+    }
+  },
+  "sv": {
+    "header": "Leave meeting",
+    "text": "Are you sure you want to leave the meeting",
+    "buttons": {
+      "cancel": "Don't leave",
+      "confirm": "Leave"
+    }
+  },
+  "pt": {
+    "header": "Leave meeting",
+    "text": "Are you sure you want to leave the meeting",
+    "buttons": {
+      "cancel": "Don't leave",
+      "confirm": "Leave"
+    }
+  }
+}
