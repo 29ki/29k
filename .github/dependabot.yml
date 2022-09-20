@@ -4,23 +4,28 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 10
       
   - package-ecosystem: "npm"
     directory: "/client"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 10
       
   - package-ecosystem: "npm"
     directory: "/functions"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 10
       
   - package-ecosystem: "npm"
     directory: "/cms"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 10
       
   - package-ecosystem: "npm"
     directory: "/content"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 10
