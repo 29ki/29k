@@ -3,34 +3,34 @@ import {COLORS} from '../../constants/colors';
 import {
   HKGroteskBold,
   HKGroteskMedium,
-  OrpheusProMedium,
+  PlayfairDisplayMedium,
 } from '../../constants/fonts';
 
 const textStyles = StyleSheet.create({
   H1: {
     color: COLORS.GREY,
     fontSize: 40,
-    fontFamily: OrpheusProMedium,
+    fontFamily: PlayfairDisplayMedium,
   },
   H2: {
     color: COLORS.GREY,
     fontSize: 32,
-    fontFamily: OrpheusProMedium,
+    fontFamily: PlayfairDisplayMedium,
   },
   H3: {
     color: COLORS.GREY,
     fontSize: 24,
-    fontFamily: OrpheusProMedium,
+    fontFamily: PlayfairDisplayMedium,
   },
   H4: {
     color: COLORS.GREY,
     fontSize: 20,
-    fontFamily: OrpheusProMedium,
+    fontFamily: PlayfairDisplayMedium,
   },
   H5: {
     color: COLORS.GREY,
     fontSize: 16,
-    fontFamily: OrpheusProMedium,
+    fontFamily: PlayfairDisplayMedium,
   },
   B1: {
     color: COLORS.GREY,

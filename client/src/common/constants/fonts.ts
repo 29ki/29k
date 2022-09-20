@@ -1,12 +1,7 @@
-import {Platform} from 'react-native';
-
-export const OrpheusProRegular = Platform.select({
-  ios: 'Orpheus Pro',
-  android: 'Orpheus Pro Regular',
-});
-export const OrpheusProMedium = 'Orpheus Pro Medium';
-export const OrpheusProBold = 'Orpheus Pro Bold';
-export const OrpheusProItalic = 'Orpheus Pro Italic';
+export const PlayfairDisplayRegular = 'PlayfairDisplay-Regular';
+export const PlayfairDisplayMedium = 'PlayfairDisplay-Medium';
+export const PlayfairDisplayBold = 'PlayfairDisplay-Bold';
+export const PlayfairDisplayItalic = 'PlayfairDisplay-Italic';
 
 export const HKGroteskRegular = 'HKGrotesk-Regular';
 export const HKGroteskMedium = 'HKGrotesk-Medium';
