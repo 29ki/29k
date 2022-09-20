@@ -7,9 +7,9 @@ import Icon from '../Icon';
 export const PlusIcon: IconType = ({fill = COLORS.GREY}) => (
   <Icon>
     <Path
-      d="M14 8V20 M20 14L8 14"
-      strokeWidth="2"
+      d="M15.867 9.064v12M21.867 15.064h-12"
       stroke={fill}
+      strokeWidth={2}
       strokeLinecap="round"
     />
   </Icon>
