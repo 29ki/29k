@@ -22,8 +22,7 @@ const useConfirmExitTemple = () => {
         {
           text: t('buttons.confirm'),
           style: 'destructive',
-          // If the user confirmed, then we dispatch the action we blocked earlier
-          // This will continue the action that had triggered the removal of the screen
+
           onPress: () => {
             navigation.navigate('Temples');
           },
