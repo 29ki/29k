@@ -5,20 +5,38 @@ import {SPACINGS} from '../../constants/spacings';
 import {B2} from '../Typography/Text/Text';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {IconType} from '../Icons';
-import {ActivityIndicator, StyleSheet} from 'react-native';
+import {ActivityIndicator} from 'react-native';
+import SETTINGS from '../../constants/settings';
 
-const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(({primary}) => ({
-  backgroundColor: primary ? COLORS.GREY200 : COLORS.BLACK_EASY,
-  borderRadius: SPACINGS.SIXTEEN,
-  alignItems: 'center',
-  justifyContent: 'center',
-  flexDirection: 'row',
-  overflow: 'hidden',
-}));
+const VARIANTS = {
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+  TERTIARY: 'tertiary',
+};
+
+const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(
+  ({variant, small, elevated, disabled, active}) => ({
+    // how to not allow it to exand in width?
+    backgroundColor: disabled
+      ? COLORS.GREY400
+      : active
+      ? COLORS.ROSE500
+      : variant === VARIANTS.SECONDARY
+      ? COLORS.BLACK_EASY
+      : variant === VARIANTS.TERTIARY
+      ? COLORS.GREY200
+      : COLORS.GREEN,
+    borderRadius: small ? SPACINGS.TWELVE : SPACINGS.SIXTEEN,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    ...(elevated ? {...SETTINGS.BOXSHADOW} : {}),
+  }),
+);
 
 const IconWrapper = styled.View({
-  width: 26,
-  height: 26,
+  width: 21,
+  height: 21,
   alignItems: 'center',
   justifyContent: 'center',
 });
@@ -33,22 +51,21 @@ const RightIconWrapper = styled(IconWrapper)({
   marginRight: SPACINGS.TWELVE,
 });
 
-const DisabledOverlay = styled.View({
-  ...StyleSheet.absoluteFillObject,
-  backgroundColor: COLORS.WHITE_EASY,
-  opacity: 0.6,
-});
-
-export const ButtonText = styled(B2)<ButtonProps>(({primary}) => ({
-  height: 20,
-  color: primary ? COLORS.BLACK_EASY : COLORS.GREY100,
-  marginVertical: SPACINGS.TWELVE,
-  marginHorizontal: SPACINGS.SIXTEEN,
-}));
+export const ButtonText = styled(B2)<ButtonProps>(
+  ({variant, small, active, disabled}) => ({
+    height: 20,
+    color:
+      disabled || active || variant !== VARIANTS.TERTIARY
+        ? COLORS.GREY100
+        : COLORS.BLACK_EASY,
+    marginVertical: small ? 8 : SPACINGS.TWELVE,
+    marginHorizontal: SPACINGS.SIXTEEN,
+  }),
+);
 
 type ButtonProps = {
   onPress?: () => void;
-  primary?: boolean;
+  variant?: string;
   style?: object;
   disabled?: boolean;
   loading?: boolean;
@@ -56,52 +73,84 @@ type ButtonProps = {
   RightIcon?: IconType;
   fill?: string;
   children: React.ReactNode;
+  small?: boolean;
+  elevated?: boolean;
+  active?: boolean;
 };
 
 const Button: React.FC<ButtonProps> = ({
   children,
   onPress = () => {},
-  primary = false,
+  variant = VARIANTS.PRIMARY,
   style = {},
   disabled = false,
   loading = false,
+  small = false,
   LeftIcon,
   RightIcon,
   fill,
+  elevated = false,
+  active = false,
 }) => (
   <ButtonComponent
     onPress={onPress}
-    primary={primary}
+    variant={variant}
+    elevated={elevated}
+    active={active}
+    small={small}
     style={style}
     disabled={disabled}>
     {loading && (
       <LeftIconWrapper>
         <ActivityIndicator
           size="small"
-          color={fill ? fill : primary ? COLORS.BLACK_EASY : COLORS.GREY100}
+          color={
+            fill
+              ? fill
+              : variant === VARIANTS.TERTIARY && !active
+              ? COLORS.BLACK_EASY
+              : COLORS.GREY100
+          }
         />
       </LeftIconWrapper>
     )}
     {LeftIcon && (
       <LeftIconWrapper>
         <LeftIcon
-          fill={fill ? fill : primary ? COLORS.BLACK_EASY : COLORS.GREY100}
+          fill={
+            fill
+              ? fill
+              : disabled || active || variant !== VARIANTS.TERTIARY
+              ? COLORS.GREY100
+              : COLORS.BLACK_EASY
+          }
         />
       </LeftIconWrapper>
     )}
     {typeof children === 'string' ? (
-      <ButtonText primary={primary}>{children}</ButtonText>
+      <ButtonText
+        small={small}
+        variant={variant}
+        active={active}
+        disabled={disabled}>
+        {children}
+      </ButtonText>
     ) : (
       children
     )}
     {RightIcon && (
       <RightIconWrapper>
         <RightIcon
-          fill={fill ? fill : primary ? COLORS.BLACK_EASY : COLORS.GREY100}
+          fill={
+            fill
+              ? fill
+              : disabled || active || variant !== VARIANTS.TERTIARY
+              ? COLORS.GREY100
+              : COLORS.BLACK_EASY
+          }
         />
       </RightIconWrapper>
     )}
-    {disabled && <DisabledOverlay />}
   </ButtonComponent>
 );
 

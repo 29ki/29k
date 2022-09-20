@@ -17,37 +17,46 @@ const Row = styled.View({
 });
 
 export const AllButtons = () => (
-  <>
+  <ScreenWrapper>
     <Buttons />
     <IconButtons />
-  </>
+  </ScreenWrapper>
 );
 
 export const Buttons = () => (
   <ScreenWrapper>
-    <Button>Regular button</Button>
+    <Button>Primary</Button>
     <Spacer16 />
-    <Button primary>Primary button</Button>
+    <Button small>Small</Button>
     <Spacer16 />
     <Button LeftIcon={HomeIcon}>Left icon</Button>
     <Spacer16 />
     <Button RightIcon={HomeIcon}>Right icon</Button>
     <Spacer16 />
+    <Button elevated>Elevated</Button>
+    <Spacer16 />
     <Button loading>Loading</Button>
     <Spacer16 />
     <Button disabled>Disabled</Button>
+    <Spacer16 />
+    <Button active>Active</Button>
+    <Spacer16 />
+    <Button variant="secondary">Secondary</Button>
+    <Spacer16 />
+    <Button variant="tertiary">Tertiary</Button>
+    <Spacer16 />
   </ScreenWrapper>
 );
 
 export const IconButtons = () => (
   <ScreenWrapper>
     <Row>
-      <B2>Icon button active state</B2>
+      <B2>Icon button</B2>
       <IconButton Icon={HomeIcon} />
     </Row>
     <Spacer16 />
     <Row>
-      <B2>Icon button</B2>
+      <B2>Icon button active state</B2>
       <IconButton Icon={HomeIcon} active={false} />
     </Row>
   </ScreenWrapper>
