@@ -131,6 +131,7 @@ const Portal: React.FC = () => {
         poster={introPortal.content.videoEnd?.thumbnail}
         mixWithOthers="mix"
         resizeMode="cover"
+        posterResizeMode="cover"
         disableFocus
       />
       {!joiningTemple && (
@@ -145,6 +146,7 @@ const Portal: React.FC = () => {
           poster={introPortal.content.videoLoop?.thumbnail}
           mixWithOthers="mix"
           resizeMode="cover"
+          posterResizeMode="cover"
           disableFocus
         />
       )}
