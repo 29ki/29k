@@ -17,7 +17,11 @@ const Content: React.FC<ContentProps> = ({slide, active}) => (
   <>
     {slide.content.heading && <Heading>{slide.content.heading}</Heading>}
     {slide.content.video ? (
-      <Video source={{uri: slide.content.video.source}} active={active} />
+      <Video
+        source={{uri: slide.content.video.source}}
+        active={active}
+        thumbnail={slide.content.video.thumbnail}
+      />
     ) : slide.content.image ? (
       <Image source={{uri: slide.content.image.source}} />
     ) : null}

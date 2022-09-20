@@ -128,6 +128,7 @@ const Portal: React.FC = () => {
         onEnd={() => navigate('Temple', {templeId})}
         paused={!joiningTemple}
         source={{uri: introPortal.content.videoEnd?.source}}
+        poster={introPortal.content.videoEnd?.thumbnail}
         mixWithOthers="mix"
         resizeMode="cover"
         disableFocus
@@ -141,6 +142,7 @@ const Portal: React.FC = () => {
           }}
           repeat={!temple?.started}
           source={{uri: introPortal.content.videoLoop?.source}}
+          poster={introPortal.content.videoLoop?.thumbnail}
           mixWithOthers="mix"
           resizeMode="cover"
           disableFocus

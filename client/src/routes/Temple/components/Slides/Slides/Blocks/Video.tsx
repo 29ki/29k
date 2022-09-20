@@ -12,8 +12,9 @@ const StyledVideo = styled(RNVideo)({
 type VideoProps = {
   source: VideoProperties['source'];
   active: boolean;
+  thumbnail?: string;
 };
-const Video: React.FC<VideoProps> = ({active, source}) => {
+const Video: React.FC<VideoProps> = ({active, source, thumbnail}) => {
   const videoRef = useRef<RNVideo>(null);
   const [loaded, setLoaded] = useState(false);
   const exerciseState = useRecoilValue(templeExerciseStateSelector);
@@ -49,6 +50,7 @@ const Video: React.FC<VideoProps> = ({active, source}) => {
   return (
     <StyledVideo
       source={source}
+      poster={thumbnail}
       ref={videoRef}
       onLoad={() => setLoaded(true)}
       resizeMode="contain"
