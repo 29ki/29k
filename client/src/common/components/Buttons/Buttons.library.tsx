@@ -8,6 +8,7 @@ import Button from './Button';
 import IconButton from './IconButton/IconButton';
 import {HomeIcon} from '../Icons/Home/Home';
 import {B2} from '../Typography/Text/Text';
+import {PlusIcon} from '../Icons';
 
 const Row = styled.View({
   flex: 1,
@@ -17,38 +18,92 @@ const Row = styled.View({
 });
 
 export const AllButtons = () => (
-  <>
+  <ScreenWrapper>
     <Buttons />
     <IconButtons />
-  </>
+  </ScreenWrapper>
 );
 
 export const Buttons = () => (
   <ScreenWrapper>
-    <Button>Regular button</Button>
+    <Button onPress={() => {}}>Primary</Button>
     <Spacer16 />
-    <Button primary>Primary button</Button>
+    <Button onPress={() => {}} small>
+      Small
+    </Button>
     <Spacer16 />
-    <Button LeftIcon={HomeIcon}>Left icon</Button>
+    <Button onPress={() => {}} LeftIcon={HomeIcon}>
+      Left icon
+    </Button>
     <Spacer16 />
-    <Button RightIcon={HomeIcon}>Right icon</Button>
+    <Button onPress={() => {}} RightIcon={HomeIcon}>
+      Right icon
+    </Button>
     <Spacer16 />
-    <Button loading>Loading</Button>
+    <Button onPress={() => {}} elevated>
+      Elevated
+    </Button>
     <Spacer16 />
-    <Button disabled>Disabled</Button>
+    <Button onPress={() => {}} loading>
+      Loading
+    </Button>
+    <Spacer16 />
+    <Button onPress={() => {}} disabled>
+      Disabled
+    </Button>
+    <Spacer16 />
+    <Button onPress={() => {}} active>
+      Active
+    </Button>
+    <Spacer16 />
+    <Button onPress={() => {}} variant="secondary">
+      Secondary
+    </Button>
+    <Spacer16 />
+    <Button onPress={() => {}} variant="tertiary">
+      Tertiary
+    </Button>
+    <Spacer16 />
   </ScreenWrapper>
 );
 
 export const IconButtons = () => (
   <ScreenWrapper>
     <Row>
-      <B2>Icon button active state</B2>
-      <IconButton Icon={HomeIcon} />
+      <B2>Icon button secondary</B2>
+      <IconButton variant="secondary" onPress={() => {}} Icon={PlusIcon} />
     </Row>
     <Spacer16 />
     <Row>
-      <B2>Icon button</B2>
-      <IconButton Icon={HomeIcon} active={false} />
+      <B2>Icon button active state</B2>
+      <IconButton onPress={() => {}} Icon={PlusIcon} active />
     </Row>
+    <Spacer16 />
+    <Row>
+      <B2>Icon button tertiary elevated</B2>
+      <IconButton
+        elevated
+        variant="tertiary"
+        onPress={() => {}}
+        Icon={PlusIcon}
+      />
+    </Row>
+    <Spacer16 />
+    <Row>
+      <B2>Icon button elevated disabled</B2>
+      <IconButton
+        elevated
+        variant="tertiary"
+        disabled
+        onPress={() => {}}
+        Icon={PlusIcon}
+      />
+    </Row>
+    <Spacer16 />
+    <Row>
+      <B2>Icon button small</B2>
+      <IconButton small onPress={() => {}} Icon={PlusIcon} />
+    </Row>
+    <Spacer16 />
   </ScreenWrapper>
 );

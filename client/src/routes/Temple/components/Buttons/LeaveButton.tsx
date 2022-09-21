@@ -7,8 +7,8 @@ type LeaveButton = {
   fill: string;
 };
 
-const LeaveButton: React.FC<LeaveButton> = ({onPress, fill}) => (
-  <IconButton Icon={HangUpIcon} onPress={onPress} fill={fill} />
+const LeaveButton: React.FC<LeaveButton> = ({onPress}) => (
+  <IconButton Icon={HangUpIcon} onPress={onPress} />
 );
 
 export default LeaveButton;

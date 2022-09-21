@@ -3,7 +3,7 @@ import {Path} from 'react-native-svg';
 import {COLORS} from '../../../constants/colors';
 import Icon from '../Icon';
 
-export const ForwardIcon = ({fill = COLORS.GREY}) => (
+export const ForwardIcon = ({fill = COLORS.BLACK}) => (
   <Icon>
     <Path
       fillRule="evenodd"

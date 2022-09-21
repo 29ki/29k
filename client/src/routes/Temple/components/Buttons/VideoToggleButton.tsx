@@ -13,6 +13,7 @@ const VideoToggleButton: React.FC<VideoToggleButton> = ({onPress, active}) => (
     Icon={active ? FilmCameraIcon : FilmCameraOffIcon}
     active={active}
     onPress={onPress}
+    variant="secondary"
   />
 );
 

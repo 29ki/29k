@@ -22,9 +22,9 @@ const AudioIndicator: React.FC<AudioIndicatorProps> = ({
 }) => (
   <Wrapper style={style}>
     {muted ? (
-      <MicrophoneOffIcon fill={COLORS.WHITE} />
+      <MicrophoneOffIcon fill={COLORS.PURE_WHITE} />
     ) : (
-      <MicrophoneIcon fill={COLORS.GREEN_LIGHT} />
+      <MicrophoneIcon fill={COLORS.ACTION} />
     )}
   </Wrapper>
 );
