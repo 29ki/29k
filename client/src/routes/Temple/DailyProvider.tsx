@@ -10,6 +10,7 @@ import Daily, {
   DailyEvent,
   DailyEventObject,
   DailyCall,
+  DailyRoomInfo,
 } from '@daily-co/react-native-daily-js';
 import {useResetRecoilState, useSetRecoilState} from 'recoil';
 import {
@@ -210,6 +211,18 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
 
       resetState();
 
+      daily.room().then(room => {
+        daily
+          ?.destroy()
+          .then(() =>
+            Sentry.captureMessage(
+              `Daily successfuly destroyed for room ${
+                (room as DailyRoomInfo)?.id
+              } session `,
+            ),
+          )
+          .catch(error => Sentry.captureException(error));
+      });
       daily?.destroy();
     };
   }, [daily, eventHandlers, resetState]);
