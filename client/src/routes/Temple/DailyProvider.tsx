@@ -218,7 +218,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
             Sentry.captureMessage(
               `Daily successfuly destroyed for room ${
                 (room as DailyRoomInfo)?.id
-              } session `,
+              }`,
             ),
           )
           .catch(error => Sentry.captureException(error));
