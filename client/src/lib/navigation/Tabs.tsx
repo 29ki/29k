@@ -50,8 +50,8 @@ const tabBarOptions: BottomTabNavigationOptions = {
   tabBarShowLabel: true,
   tabBarHideOnKeyboard: Platform.select({android: true, ios: false}),
   tabBarAllowFontScaling: false,
-  tabBarActiveTintColor: COLORS.GREY600,
-  tabBarInactiveTintColor: COLORS.GREY,
+  tabBarActiveTintColor: COLORS.GREYDARK,
+  tabBarInactiveTintColor: COLORS.BLACK,
   tabBarStyle: {
     height: 46 + SPACINGS.EIGHT * 2,
     borderTopWidth: 0,

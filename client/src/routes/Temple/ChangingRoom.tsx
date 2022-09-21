@@ -14,7 +14,7 @@ import {useRecoilValue} from 'recoil';
 
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
-import {BackIcon} from '../../common/components/Icons';
+import {ArrowLeftIcon} from '../../common/components/Icons';
 import {
   BottomSafeArea,
   Spacer16,
@@ -61,7 +61,7 @@ const VideoWrapper = styled.View({
   alignContent: 'center',
   justifyContent: 'center',
   alignSelf: 'center',
-  backgroundColor: COLORS.GREY,
+  backgroundColor: COLORS.BLACK,
 });
 
 const DailyMediaViewWrapper = styled(DailyMediaView)({
@@ -70,7 +70,7 @@ const DailyMediaViewWrapper = styled(DailyMediaView)({
 
 const VideoText = styled(B2)({
   textAlign: 'center',
-  color: COLORS.WHITE,
+  color: COLORS.PURE_WHITE,
 });
 
 const InputWrapper = styled.View({
@@ -138,7 +138,7 @@ const ChangingRoom = () => {
     <>
       <TopSafeArea />
       <Gutters>
-        <IconButton onPress={goBack} Icon={BackIcon} />
+        <IconButton variant="tertiary" onPress={goBack} Icon={ArrowLeftIcon} />
       </Gutters>
       <Wrapper>
         <VideoWrapper>
@@ -178,7 +178,10 @@ const ChangingRoom = () => {
               maxLength={20}
             />
             <Spacer28 />
-            <Button onPress={handleJoin} disabled={!localUserName.length}>
+            <Button
+              variant="secondary"
+              onPress={handleJoin}
+              disabled={!localUserName.length}>
               {t('join_button')}
             </Button>
           </InputWrapper>

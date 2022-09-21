@@ -22,7 +22,7 @@ const ScrollViewWrapper = styled.ScrollView({flex: 1});
 
 const MenuWrapper = styled(TouchableOpacity)((props: {active: boolean}) => ({
   paddingVertical: 5,
-  backgroundColor: props.active ? COLORS.LEAF300 : 'transparent',
+  backgroundColor: props.active ? COLORS.PRIMARY : 'transparent',
 }));
 
 const MenuText = styled(Text)((props: {active: boolean}) => ({

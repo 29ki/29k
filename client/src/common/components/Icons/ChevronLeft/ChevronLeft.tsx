@@ -4,7 +4,7 @@ import {IconType} from '..';
 import {COLORS} from '../../../constants/colors';
 import Icon from '../Icon';
 
-export const ChevronLeft: IconType = ({fill = COLORS.GREY}) => (
+export const ChevronLeft: IconType = ({fill = COLORS.BLACK}) => (
   <Icon>
     <Path
       d="M18.5 7.5 11 15l7.5 7.5"

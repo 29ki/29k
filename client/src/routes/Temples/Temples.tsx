@@ -22,7 +22,6 @@ import {isLoadingAtom, templesAtom} from './state/state';
 import {Temple} from '../../../../shared/src/types/Temple';
 import TempleCard from '../../common/components/Cards/TempleCard/TempleCard';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
-import {COLORS} from '../../common/constants/colors';
 import SETTINGS from '../../common/constants/settings';
 import {PlusIcon} from '../../common/components/Icons';
 import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
@@ -34,7 +33,6 @@ const Wrapper = styled.KeyboardAvoidingView.attrs({
 })({flex: 1});
 
 const CreateButton = styled(Button)({
-  backgroundColor: COLORS.GREEN,
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
