@@ -19,6 +19,7 @@ import {
   participantsSortOrderAtom,
 } from './state/state';
 import useSetParticipantsSortOrder from './hooks/useSetParticipantsSortOrder';
+import Sentry from '../../lib/sentry';
 
 export type DailyProviderTypes = {
   call?: DailyCall;
@@ -95,13 +96,17 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
       setParticipantsSortOrder(peerId);
     };
 
+    const onError = ({error}: DailyEventObject<'error'>) => {
+      Sentry.captureException(error);
+    };
+
     return [
       ['participant-joined', onParticipantJoined],
       ['participant-left', onParticipantLeft],
       ['participant-updated', onParticipantUpdated],
       ['active-speaker-change', onActiveSpeakerChange],
+      ['error', onError],
       //   ['network-quality-change', connect(networkQualityChange)],
-      //   ['error', error => dispatch(setError(error.errorMsg))],
     ];
   }, [setParticipants, setParticipantsSortOrder]);
 
