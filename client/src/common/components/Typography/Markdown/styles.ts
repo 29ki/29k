@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     marginBottom: 0,
   },
   textgroup: {
-    color: COLORS.GREY800,
+    color: COLORS.GREYDARK,
   },
   s: {
     ...baseStyles.HIGHLIGHT,
@@ -29,12 +29,12 @@ const styles = StyleSheet.create({
     marginLeft: 2,
     marginRight: 14,
     borderRadius: 3,
-    backgroundColor: COLORS.ROSE700,
+    backgroundColor: COLORS.ACTIVE,
     overflow: 'hidden',
   },
   ordered_list_icon: {
     ...baseStyles.B1,
-    color: COLORS.ROSE700,
+    color: COLORS.ACTIVE,
     minWidth: 13,
     marginLeft: 0,
     marginRight: 9,
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   hr: {
     marginTop: 15,
     marginBottom: 25,
-    backgroundColor: COLORS.GREY800,
+    backgroundColor: COLORS.GREYDARK,
   },
 });
 
