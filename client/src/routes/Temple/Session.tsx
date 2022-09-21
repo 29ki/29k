@@ -69,8 +69,13 @@ const Progress = styled(ProgressBar)({
 });
 
 const Session = () => {
-  const {setUserData, leaveMeeting, toggleAudio, toggleVideo} =
-    useContext(DailyContext);
+  const {
+    setUserData,
+    leaveMeeting,
+    toggleAudio,
+    toggleVideo,
+    setSubscribeToAllTracks,
+  } = useContext(DailyContext);
   const {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Temple'>>();
@@ -88,7 +93,8 @@ const Session = () => {
 
   useEffect(() => {
     setUserData({inPortal: false} as DailyUserData);
-  }, [setUserData]);
+    setSubscribeToAllTracks();
+  }, [setUserData, setSubscribeToAllTracks]);
 
   const exitMeeting = async () => {
     await leaveMeeting();
