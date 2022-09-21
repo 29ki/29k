@@ -223,7 +223,6 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
           )
           .catch(error => Sentry.captureException(error));
       });
-      daily?.destroy();
     };
   }, [daily, eventHandlers, resetState]);
 
