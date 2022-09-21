@@ -36,7 +36,7 @@ const Prompt = styled.View({
   margin: GUTTERS,
   padding: GUTTERS,
   borderRadius: 16,
-  backgroundColor: COLORS.GREY100,
+  backgroundColor: COLORS.GREYLIGHTEST,
   alignItems: 'center',
 });
 
@@ -83,8 +83,8 @@ const CodePushOverlay = () => {
               size={30}
               width={2}
               rotation={0}
-              tintColor={COLORS.GREY800}
-              backgroundColor={COLORS.GREY400}
+              tintColor={COLORS.GREYDARK}
+              backgroundColor={COLORS.GREYMEDIUM}
               lineCap="round"
             />
             <Spacer16 />

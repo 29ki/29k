@@ -13,10 +13,10 @@ type SlideButtonProps = {
 };
 
 const SlideButton = styled(IconButton).attrs({
-  fill: COLORS.BLACK_EASY,
+  fill: COLORS.BLACK,
 })<SlideButtonProps>(({disabled}) => ({
-  backgroundColor: COLORS.GREY100,
-  color: COLORS.BLACK_EASY,
+  backgroundColor: COLORS.GREYLIGHTEST,
+  color: COLORS.BLACK,
   paddingVertical: SPACINGS.EIGHT,
   paddingHorizontal: SPACINGS.TWELVE,
   boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.16)',

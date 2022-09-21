@@ -43,7 +43,7 @@ const VideoStyled = styled(Video)({
 });
 
 const StatusText = styled(B3)({
-  color: COLORS.WHITE,
+  color: COLORS.PURE_WHITE,
 });
 
 const StatusItem = styled.View({
@@ -80,7 +80,7 @@ const TopBar = styled(Gutters)({
 });
 
 const StartButton = styled(Button)({
-  backgroundColor: COLORS.GREEN,
+  backgroundColor: COLORS.PRIMARY,
 });
 
 const BackButton = styled(IconButton)({

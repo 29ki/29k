@@ -13,6 +13,7 @@ const AudioToggleButton: React.FC<AudioToggleButton> = ({onPress, active}) => (
     Icon={active ? MicrophoneIcon : MicrophoneOffIcon}
     onPress={onPress}
     active={active}
+    variant="secondary"
   />
 );
 

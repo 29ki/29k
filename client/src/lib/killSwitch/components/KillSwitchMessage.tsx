@@ -44,7 +44,7 @@ const KillSwitchMessage = () => {
     <>
       <Container>
         {Boolean(isLoading) && (
-          <ActivityIndicator size="large" color={COLORS.GREY100} />
+          <ActivityIndicator size="large" color={COLORS.GREYLIGHTEST} />
         )}
         {image && (
           <>

@@ -11,7 +11,7 @@ const Input = styled(TextInput)({
   paddingHorizontal: SPACINGS.SIXTEEN,
   paddingVertical: SPACINGS.TWELVE,
   ...textStyles.B2,
-  backgroundColor: COLORS.WHITE,
+  backgroundColor: COLORS.PURE_WHITE,
   borderRadius: 16,
 });
 

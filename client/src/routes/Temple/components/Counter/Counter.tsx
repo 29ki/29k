@@ -17,7 +17,7 @@ type CounterProps = {
 };
 
 const CounterText = styled(B3)({
-  color: COLORS.WHITE,
+  color: COLORS.PURE_WHITE,
   fontFamily: HKGroteskBold,
 });
 
