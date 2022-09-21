@@ -8,7 +8,7 @@ import {createUnauthorizedRouter} from '../../lib/routers';
 const KILL_SWITCH = false;
 
 // Specify the minimum required app native version.
-const MIN_APP_VERSION = '2.0.10';
+const MIN_APP_VERSION = '2.0.11';
 
 // Specify the minimum required bundle version.
 const MIN_BUNDLE_VERSION: {[key: string]: {android: number; ios: number}} = {
