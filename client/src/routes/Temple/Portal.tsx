@@ -1,7 +1,7 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
 import Animated, {FadeOut} from 'react-native-reanimated';
@@ -91,6 +91,7 @@ const Portal: React.FC = () => {
   const {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Portal'>>();
+  const finalVidRef = useRef<Video>(null);
   const [now, setNow] = useState(dayjs());
   const {joinMeeting} = useContext(DailyContext);
   const [joiningTemple, setJoiningTemple] = useState(false);
@@ -125,8 +126,13 @@ const Portal: React.FC = () => {
     <>
       <TopSafeArea />
       <VideoStyled
-        onEnd={() => navigate('Temple', {templeId})}
-        paused={!joiningTemple}
+        ref={finalVidRef}
+        onEnd={() => {
+          if (joiningTemple) {
+            navigate('Temple', {templeId});
+          }
+        }}
+        repeat={!joiningTemple}
         source={{uri: introPortal.content.videoEnd?.source}}
         mixWithOthers="mix"
         resizeMode="cover"
@@ -136,6 +142,7 @@ const Portal: React.FC = () => {
         <VideoStyled
           onEnd={() => {
             if (temple?.started) {
+              finalVidRef.current?.seek(0);
               setJoiningTemple(true);
             }
           }}
@@ -173,7 +180,7 @@ const Portal: React.FC = () => {
                   <Counter
                     startTime={dayjsTime}
                     now={now}
-                    starting={joiningTemple}
+                    starting={temple?.started}
                   />
                 </Badge>
               </StatusItem>
