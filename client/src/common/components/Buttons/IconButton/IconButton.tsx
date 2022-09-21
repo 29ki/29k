@@ -1,50 +1,50 @@
 import React from 'react';
-import {ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../constants/colors';
-import {SPACINGS} from '../../../constants/spacings';
 import {IconType} from '../../Icons';
-import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
+import BaseButton, {BaseButtonProps} from '../BaseButton';
 
-const StyledIconButton = styled(TouchableOpacity)<{
-  active: boolean;
-  noBackground: boolean;
-}>(props => ({
-  width: SPACINGS.FOURTYFOUR,
-  height: SPACINGS.FOURTYFOUR,
-  borderRadius: SPACINGS.SIXTEEN,
-  padding: SPACINGS.EIGHT,
-  ...(props.noBackground
-    ? {}
-    : {backgroundColor: props.active ? COLORS.GREY : COLORS.ROSE500}),
+type BaseIconButtonProps = BaseButtonProps & {
+  noBackground?: boolean;
+};
+
+const StyledIconButton = styled(BaseButton)<BaseIconButtonProps>(props => ({
+  ...(props.noBackground ? {backgroundColor: 'transparent'} : {}),
+  width: props.small ? 36 : 44,
+  padding: props.small ? 3 : 7,
 }));
 
-type IconButtonProps = {
-  onPress?: () => void;
-  fill?: string;
+type IconButtonProps = BaseIconButtonProps & {
   Icon: IconType;
-  disabled?: boolean;
-  style?: ViewStyle;
-  active?: boolean;
-  noBackground?: boolean;
 };
 
 const IconButton: React.FC<IconButtonProps> = ({
   onPress,
-  fill = COLORS.GREY100,
-  Icon,
-  disabled = false,
+  variant,
   style,
-  active = true,
-  noBackground = false,
+  disabled,
+  small,
+  elevated,
+  active,
+  Icon,
+  noBackground,
 }) => (
   <StyledIconButton
     onPress={onPress}
     disabled={disabled}
+    variant={variant}
     style={style}
     active={active}
+    small={small}
+    elevated={elevated}
     noBackground={noBackground}>
-    <Icon fill={fill} />
+    <Icon
+      fill={
+        disabled || active || variant !== 'tertiary'
+          ? COLORS.GREYLIGHTEST
+          : COLORS.BLACK
+      }
+    />
   </StyledIconButton>
 );
 

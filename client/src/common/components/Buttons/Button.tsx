@@ -3,36 +3,9 @@ import styled from 'styled-components/native';
 import {COLORS} from '../../constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import {B2} from '../Typography/Text/Text';
-import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {IconType} from '../Icons';
 import {ActivityIndicator} from 'react-native';
-import SETTINGS from '../../constants/settings';
-
-const VARIANTS = {
-  PRIMARY: 'primary',
-  SECONDARY: 'secondary',
-  TERTIARY: 'tertiary',
-};
-
-const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(
-  ({variant, small, elevated, disabled, active}) => ({
-    // how to not allow it to exand in width?
-    backgroundColor: disabled
-      ? COLORS.GREY400
-      : active
-      ? COLORS.ROSE500
-      : variant === VARIANTS.SECONDARY
-      ? COLORS.BLACK_EASY
-      : variant === VARIANTS.TERTIARY
-      ? COLORS.GREY200
-      : COLORS.GREEN,
-    borderRadius: small ? SPACINGS.TWELVE : SPACINGS.SIXTEEN,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    ...(elevated ? {...SETTINGS.BOXSHADOW} : {}),
-  }),
-);
+import BaseButton, {BaseButtonProps, ButtonVariant} from './BaseButton';
 
 const IconWrapper = styled.View({
   width: 21,
@@ -51,48 +24,46 @@ const RightIconWrapper = styled(IconWrapper)({
   marginRight: SPACINGS.TWELVE,
 });
 
-export const ButtonText = styled(B2)<ButtonProps>(
+type ButtonTextProps = {
+  variant?: ButtonVariant;
+  small?: boolean;
+  active?: boolean;
+  disabled?: boolean;
+  children: React.ReactNode;
+};
+
+const ButtonText = styled(B2)<ButtonTextProps>(
   ({variant, small, active, disabled}) => ({
     height: 20,
     color:
-      disabled || active || variant !== VARIANTS.TERTIARY
-        ? COLORS.GREY100
-        : COLORS.BLACK_EASY,
+      disabled || active || variant !== 'tertiary'
+        ? COLORS.GREYLIGHTEST
+        : COLORS.BLACK,
     marginVertical: small ? 8 : SPACINGS.TWELVE,
     marginHorizontal: SPACINGS.SIXTEEN,
   }),
 );
 
-type ButtonProps = {
-  onPress?: () => void;
-  variant?: string;
-  style?: object;
-  disabled?: boolean;
-  loading?: boolean;
+type ButtonProps = BaseButtonProps & {
   LeftIcon?: IconType;
   RightIcon?: IconType;
-  fill?: string;
-  children: React.ReactNode;
-  small?: boolean;
-  elevated?: boolean;
-  active?: boolean;
+  loading?: boolean;
 };
 
 const Button: React.FC<ButtonProps> = ({
   children,
-  onPress = () => {},
-  variant = VARIANTS.PRIMARY,
-  style = {},
-  disabled = false,
-  loading = false,
-  small = false,
+  onPress,
+  variant = 'primary',
+  style,
+  disabled,
+  loading,
+  small,
   LeftIcon,
   RightIcon,
-  fill,
-  elevated = false,
-  active = false,
+  elevated,
+  active,
 }) => (
-  <ButtonComponent
+  <BaseButton
     onPress={onPress}
     variant={variant}
     elevated={elevated}
@@ -105,11 +76,9 @@ const Button: React.FC<ButtonProps> = ({
         <ActivityIndicator
           size="small"
           color={
-            fill
-              ? fill
-              : variant === VARIANTS.TERTIARY && !active
-              ? COLORS.BLACK_EASY
-              : COLORS.GREY100
+            variant === 'tertiary' && !active
+              ? COLORS.BLACK
+              : COLORS.GREYLIGHTEST
           }
         />
       </LeftIconWrapper>
@@ -118,40 +87,32 @@ const Button: React.FC<ButtonProps> = ({
       <LeftIconWrapper>
         <LeftIcon
           fill={
-            fill
-              ? fill
-              : disabled || active || variant !== VARIANTS.TERTIARY
-              ? COLORS.GREY100
-              : COLORS.BLACK_EASY
+            disabled || active || variant !== 'tertiary'
+              ? COLORS.GREYLIGHTEST
+              : COLORS.BLACK
           }
         />
       </LeftIconWrapper>
     )}
-    {typeof children === 'string' ? (
-      <ButtonText
-        small={small}
-        variant={variant}
-        active={active}
-        disabled={disabled}>
-        {children}
-      </ButtonText>
-    ) : (
-      children
-    )}
+    <ButtonText
+      small={small}
+      variant={variant}
+      active={active}
+      disabled={disabled}>
+      {children}
+    </ButtonText>
     {RightIcon && (
       <RightIconWrapper>
         <RightIcon
           fill={
-            fill
-              ? fill
-              : disabled || active || variant !== VARIANTS.TERTIARY
-              ? COLORS.GREY100
-              : COLORS.BLACK_EASY
+            disabled || active || variant !== 'tertiary'
+              ? COLORS.GREYLIGHTEST
+              : COLORS.BLACK
           }
         />
       </RightIconWrapper>
     )}
-  </ButtonComponent>
+  </BaseButton>
 );
 
 export default Button;
