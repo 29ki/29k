@@ -39,7 +39,11 @@ const SlideButton = styled(IconButton)({
   paddingHorizontal: SPACINGS.TWELVE,
 });
 
-const ButtonHidden = styled(Button).attrs({disabled: true, onPress: () => {}})({
+const ButtonHidden = styled(Button).attrs({
+  LeftIcon: ChevronLeft,
+  disabled: true,
+  onPress: () => {},
+})({
   opacity: 0,
 });
 
