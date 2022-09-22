@@ -16,11 +16,11 @@ const Wrapper = styled.View({
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
-  backgroundColor: COLORS.BLACK_EASY,
+  backgroundColor: COLORS.BLACK,
 });
 
 const ParticipantPlaceholder = styled.View({
-  backgroundColor: COLORS.CREAM500,
+  backgroundColor: COLORS.CREAM,
   borderRadius: SPACINGS.SIXTEEN,
   width: 80,
   height: 80,

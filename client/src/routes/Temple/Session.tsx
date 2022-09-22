@@ -5,22 +5,16 @@ import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 
 import {videoSharingFields, localParticipantSelector} from './state/state';
-import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RouteProp, useRoute} from '@react-navigation/native';
 
 import {
   Spacer12,
   Spacer16,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
-import AudioToggleButton from './components/Buttons/AudioToggleButton';
-import VideoToggleButton from './components/Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
-import LeaveButton from './components/Buttons/LeaveButton';
-import {
-  TabNavigatorProps,
-  TempleStackProps,
-} from '../../common/constants/routes';
+
+import {TempleStackProps} from '../../common/constants/routes';
 
 import {DailyContext} from './DailyProvider';
 
@@ -35,9 +29,17 @@ import ProgressBar from './components/ProgressBar/ProgressBar';
 import {SPACINGS} from '../../common/constants/spacings';
 import ContentControls from './components/ContentControls/ContentControls';
 import {DailyUserData} from '../../../../shared/src/types/Temple';
-import useConfirmExitTemple from './hooks/useConfirmExitTemple';
+import IconButton from '../../common/components/Buttons/IconButton/IconButton';
+import {
+  FilmCameraIcon,
+  FilmCameraOffIcon,
+  HangUpIcon,
+  MicrophoneIcon,
+  MicrophoneOffIcon,
+} from '../../common/components/Icons';
 
-type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
+import usePreventTempleLeave from './hooks/usePreventTempleLeave';
+import useLeaveTemple from './hooks/useLeaveTemple';
 
 const LoadingView = styled.View({
   flex: 1,
@@ -69,12 +71,11 @@ const Progress = styled(ProgressBar)({
 });
 
 const Session = () => {
-  const {setUserData, leaveMeeting, toggleAudio, toggleVideo} =
+  const {setUserData, toggleAudio, toggleVideo, setSubscribeToAllTracks} =
     useContext(DailyContext);
   const {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Temple'>>();
-  const {goBack} = useNavigation<ScreenNavigationProps>();
 
   useSubscribeToTemple(templeId);
   useMuteAudioListener();
@@ -83,18 +84,14 @@ const Session = () => {
   const me = useRecoilValue(localParticipantSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
   const exercise = useTempleExercise();
+  const leaveTemple = useLeaveTemple();
 
-  useConfirmExitTemple();
+  usePreventTempleLeave();
 
   useEffect(() => {
     setUserData({inPortal: false} as DailyUserData);
-  }, [setUserData]);
-
-  const exitMeeting = async () => {
-    await leaveMeeting();
-    // This is actually not a back - it's triggering the useConfirmExitTemple event listener
-    goBack();
-  };
+    setSubscribeToAllTracks();
+  }, [setUserData, setSubscribeToAllTracks]);
 
   if (isLoading) {
     return (
@@ -130,17 +127,26 @@ const Session = () => {
       <Participants participants={participants} />
       <Spacer16 />
       <SessionControls>
-        <AudioToggleButton
+        <IconButton
           onPress={() => toggleAudio(!hasAudio)}
           active={hasAudio}
+          variant="secondary"
+          Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
         />
         <Spacer12 />
-        <VideoToggleButton
+        <IconButton
           onPress={() => toggleVideo(!hasVideo)}
           active={hasVideo}
+          variant="secondary"
+          Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
         />
         <Spacer12 />
-        <LeaveButton fill={COLORS.ROSE500} onPress={exitMeeting} />
+        <IconButton
+          variant="secondary"
+          Icon={HangUpIcon}
+          fill={COLORS.ACTIVE}
+          onPress={leaveTemple}
+        />
       </SessionControls>
       <Spacer16 />
     </MainViewContainer>

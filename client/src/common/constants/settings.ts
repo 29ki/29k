@@ -5,7 +5,7 @@ export const SETTINGS = {
     CARDS: SPACINGS.TWENTYFOUR,
   },
   BOXSHADOW: {
-    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.16)',
+    boxShadow: '0px 2px 6px rgba(0, 0, 0, 0.16)',
     elevation: 10,
   },
 };

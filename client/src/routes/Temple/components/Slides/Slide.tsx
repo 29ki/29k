@@ -7,7 +7,7 @@ import Content from './Slides/Content';
 
 const Wrapper = styled.View({
   flex: 1,
-  backgroundColor: COLORS.WHITE_EASY,
+  backgroundColor: COLORS.WHITE,
 });
 
 type SlideProps = {

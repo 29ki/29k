@@ -12,7 +12,7 @@ const renderName = (participant: DailyParticipant, suffix: string) =>
     : participant.user_name;
 
 const Name = styled(B2)({
-  color: COLORS.WHITE,
+  color: COLORS.PURE_WHITE,
 });
 
 type ParticipantNameProps = {

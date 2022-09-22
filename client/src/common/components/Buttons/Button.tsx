@@ -3,106 +3,114 @@ import styled from 'styled-components/native';
 import {COLORS} from '../../constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import {B2} from '../Typography/Text/Text';
-import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {IconType} from '../Icons';
-import {ActivityIndicator, StyleSheet} from 'react-native';
-
-const ButtonComponent = styled(TouchableOpacity)<ButtonProps>(({primary}) => ({
-  backgroundColor: primary ? COLORS.GREY200 : COLORS.BLACK_EASY,
-  borderRadius: SPACINGS.SIXTEEN,
-  alignItems: 'center',
-  justifyContent: 'center',
-  flexDirection: 'row',
-  overflow: 'hidden',
-}));
+import {ActivityIndicator} from 'react-native';
+import BaseButton, {BaseButtonProps, ButtonVariant} from './BaseButton';
 
 const IconWrapper = styled.View({
-  width: 26,
-  height: 26,
+  width: 21,
+  height: 21,
   alignItems: 'center',
   justifyContent: 'center',
 });
 
 const LeftIconWrapper = styled(IconWrapper)({
   marginRight: -SPACINGS.TWELVE,
-  marginLeft: SPACINGS.TWELVE,
+  marginLeft: SPACINGS.EIGHT,
 });
 
 const RightIconWrapper = styled(IconWrapper)({
   marginLeft: -SPACINGS.TWELVE,
-  marginRight: SPACINGS.TWELVE,
+  marginRight: SPACINGS.EIGHT,
 });
 
-const DisabledOverlay = styled.View({
-  ...StyleSheet.absoluteFillObject,
-  backgroundColor: COLORS.WHITE_EASY,
-  opacity: 0.6,
-});
-
-export const ButtonText = styled(B2)<ButtonProps>(({primary}) => ({
-  height: 20,
-  color: primary ? COLORS.BLACK_EASY : COLORS.GREY100,
-  marginVertical: SPACINGS.TWELVE,
-  marginHorizontal: SPACINGS.SIXTEEN,
-}));
-
-type ButtonProps = {
-  onPress?: () => void;
-  primary?: boolean;
-  style?: object;
+type ButtonTextProps = {
+  variant?: ButtonVariant;
+  small?: boolean;
+  active?: boolean;
   disabled?: boolean;
-  loading?: boolean;
+  children: React.ReactNode;
+};
+
+const ButtonText = styled(B2)<ButtonTextProps>(
+  ({variant, small, active, disabled}) => ({
+    height: 20,
+    color:
+      disabled || active || variant !== 'tertiary'
+        ? COLORS.WHITE
+        : COLORS.BLACK,
+    marginVertical: small ? 8 : SPACINGS.TWELVE,
+    marginHorizontal: SPACINGS.SIXTEEN,
+  }),
+);
+
+type ButtonProps = BaseButtonProps & {
   LeftIcon?: IconType;
   RightIcon?: IconType;
-  fill?: string;
-  children: React.ReactNode;
+  loading?: boolean;
 };
 
 const Button: React.FC<ButtonProps> = ({
   children,
-  onPress = () => {},
-  primary = false,
-  style = {},
-  disabled = false,
-  loading = false,
+  onPress,
+  variant = 'primary',
+  style,
+  disabled,
+  loading,
+  small,
   LeftIcon,
   RightIcon,
-  fill,
+  elevated,
+  active,
 }) => (
-  <ButtonComponent
+  <BaseButton
     onPress={onPress}
-    primary={primary}
+    variant={variant}
+    elevated={elevated}
+    active={active}
+    small={small}
     style={style}
     disabled={disabled}>
     {loading && (
       <LeftIconWrapper>
         <ActivityIndicator
           size="small"
-          color={fill ? fill : primary ? COLORS.BLACK_EASY : COLORS.GREY100}
+          color={
+            variant === 'tertiary' && !active ? COLORS.BLACK : COLORS.WHITE
+          }
         />
       </LeftIconWrapper>
     )}
     {LeftIcon && (
       <LeftIconWrapper>
         <LeftIcon
-          fill={fill ? fill : primary ? COLORS.BLACK_EASY : COLORS.GREY100}
+          fill={
+            disabled || active || variant !== 'tertiary'
+              ? COLORS.WHITE
+              : COLORS.BLACK
+          }
         />
       </LeftIconWrapper>
     )}
-    {typeof children === 'string' ? (
-      <ButtonText primary={primary}>{children}</ButtonText>
-    ) : (
-      children
-    )}
+    <ButtonText
+      small={small}
+      variant={variant}
+      active={active}
+      disabled={disabled}>
+      {children}
+    </ButtonText>
     {RightIcon && (
       <RightIconWrapper>
         <RightIcon
-          fill={fill ? fill : primary ? COLORS.BLACK_EASY : COLORS.GREY100}
+          fill={
+            disabled || active || variant !== 'tertiary'
+              ? COLORS.WHITE
+              : COLORS.BLACK
+          }
         />
       </RightIconWrapper>
     )}
-    {disabled && <DisabledOverlay />}
-  </ButtonComponent>
+  </BaseButton>
 );
 
 export default Button;

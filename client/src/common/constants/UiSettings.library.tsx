@@ -28,7 +28,7 @@ const Swatch = styled.View<{color: string}>(props => ({
 
 const SwatchTextContainer = styled.View({
   padding: 8,
-  backgroundColor: COLORS.WHITE_EASY,
+  backgroundColor: COLORS.WHITE,
 });
 const SwatchNameText = styled(B3)({
   fontSize: 12,
@@ -40,11 +40,11 @@ const SwatchValueText = styled(B3)({
 });
 
 const Gutter = styled(Spacer24)({
-  backgroundColor: COLORS.BLACK_EASY,
+  backgroundColor: COLORS.BLACK,
 });
 
 const SpacerWrapper = styled.View({
-  backgroundColor: COLORS.BLACK_EASY,
+  backgroundColor: COLORS.BLACK,
 });
 
 const Swatches = () => {

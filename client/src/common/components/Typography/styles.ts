@@ -3,56 +3,56 @@ import {COLORS} from '../../constants/colors';
 import {
   HKGroteskBold,
   HKGroteskMedium,
-  OrpheusProMedium,
+  PlayfairDisplayMedium,
 } from '../../constants/fonts';
 
 const textStyles = StyleSheet.create({
   H1: {
-    color: COLORS.GREY,
+    color: COLORS.BLACK,
     fontSize: 40,
-    fontFamily: OrpheusProMedium,
+    fontFamily: PlayfairDisplayMedium,
   },
   H2: {
-    color: COLORS.GREY,
+    color: COLORS.BLACK,
     fontSize: 32,
-    fontFamily: OrpheusProMedium,
+    fontFamily: PlayfairDisplayMedium,
   },
   H3: {
-    color: COLORS.GREY,
+    color: COLORS.BLACK,
     fontSize: 24,
-    fontFamily: OrpheusProMedium,
+    fontFamily: PlayfairDisplayMedium,
   },
   H4: {
-    color: COLORS.GREY,
+    color: COLORS.BLACK,
     fontSize: 20,
-    fontFamily: OrpheusProMedium,
+    fontFamily: PlayfairDisplayMedium,
   },
   H5: {
-    color: COLORS.GREY,
+    color: COLORS.BLACK,
     fontSize: 16,
-    fontFamily: OrpheusProMedium,
+    fontFamily: PlayfairDisplayMedium,
   },
   B1: {
-    color: COLORS.GREY,
+    color: COLORS.BLACK,
     fontSize: 20,
     fontFamily: HKGroteskMedium,
   },
   B2: {
-    color: COLORS.GREY,
+    color: COLORS.BLACK,
     fontSize: 16,
     fontFamily: HKGroteskMedium,
   },
   B3: {
-    color: COLORS.GREY,
+    color: COLORS.BLACK,
     fontSize: 14,
     fontFamily: HKGroteskMedium,
   },
   ERROR_TEXT: {
     fontSize: 14,
-    color: COLORS.ERROR_PINK,
+    color: COLORS.ERROR,
   },
   HIGHLIGHT: {
-    color: COLORS.ROSE700,
+    color: COLORS.ACTIVE,
   },
   NAV_TAB: {
     color: COLORS.BLACK,
@@ -60,7 +60,7 @@ const textStyles = StyleSheet.create({
     fontFamily: HKGroteskBold,
   },
   TEXTLINK: {
-    color: COLORS.ROSE700,
+    color: COLORS.ACTIVE,
     fontSize: 14,
     lineHeight: 20,
     textDecorationLine: 'underline',

@@ -34,9 +34,8 @@ const Wrapper = styled(TouchableOpacity)<{backgroundColor?: string}>(
   ({backgroundColor}) => ({
     justifyContent: 'space-between',
     borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
-    backgroundColor: backgroundColor || COLORS.YELLOW_LIGHT,
+    backgroundColor: backgroundColor || COLORS.CREAM,
     padding: SPACINGS.SIXTEEN,
-    ...SETTINGS.BOXSHADOW,
   }),
 );
 
@@ -76,7 +75,9 @@ export const Card: React.FC<CardProps> = ({
     <Row>
       <CallToAction>
         {children}
-        <CardButton onPress={onPress}>{buttonText}</CardButton>
+        <CardButton small variant="secondary" onPress={onPress}>
+          {buttonText}
+        </CardButton>
       </CallToAction>
       <GraphicsWrapper>
         {lottie ? (

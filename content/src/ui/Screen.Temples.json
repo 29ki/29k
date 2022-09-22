@@ -1,17 +1,17 @@
 {
   "en": {
-    "heading": "Temples",
-    "create": "Create temple",
-    "createPlaceholder": "Temple name..."
+    "heading": "Sessions",
+    "create": "Create session",
+    "createPlaceholder": "Session name..."
   },
   "sv": {
-    "heading": "Temples",
-    "create": "Create temple",
-    "createPlaceholder": "Temple name..."
+    "heading": "Sessions",
+    "create": "Create session",
+    "createPlaceholder": "Session name..."
   },
   "pt": {
-    "heading": "Temples",
-    "create": "Create temple",
-    "createPlaceholder": "Temple name..."
+    "heading": "Sessions",
+    "create": "Create session",
+    "createPlaceholder": "Session name..."
   }
 }
