@@ -51,13 +51,16 @@ const Video: React.FC<VideoProps> = ({active, source, preview}) => {
     <StyledVideo
       source={source}
       poster={preview}
-      ref={videoRef}
-      onLoad={() => setLoaded(true)}
       resizeMode="contain"
       posterResizeMode="contain"
+      ref={videoRef}
+      onLoad={() => setLoaded(true)}
       paused={!active || !exerciseState?.playing}
+      allowsExternalPlayback={false}
       mixWithOthers="mix"
       disableFocus
+      playInBackground
+      playWhenInactive
     />
   );
 };

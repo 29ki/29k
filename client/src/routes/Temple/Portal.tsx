@@ -136,11 +136,14 @@ const Portal: React.FC = () => {
         }}
         repeat={!joiningTemple}
         source={{uri: introPortal.content.videoEnd?.source}}
-        poster={introPortal.content.videoEnd?.preview}
-        mixWithOthers="mix"
         resizeMode="cover"
+        poster={introPortal.content.videoEnd?.preview}
         posterResizeMode="cover"
+        allowsExternalPlayback={false}
+        mixWithOthers="mix"
         disableFocus
+        playInBackground
+        playWhenInactive
       />
       {!joiningTemple && (
         <VideoStyled
@@ -152,11 +155,14 @@ const Portal: React.FC = () => {
           }}
           repeat={!temple?.started}
           source={{uri: introPortal.content.videoLoop?.source}}
-          poster={introPortal.content.videoLoop?.preview}
-          mixWithOthers="mix"
           resizeMode="cover"
+          poster={introPortal.content.videoLoop?.preview}
           posterResizeMode="cover"
+          allowsExternalPlayback={false}
+          mixWithOthers="mix"
           disableFocus
+          playInBackground
+          playWhenInactive
         />
       )}
       <Wrapper>
