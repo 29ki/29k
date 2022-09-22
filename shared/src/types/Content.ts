@@ -31,15 +31,13 @@ export type SharingSlide = {
 
 export type VideoPortal = {
   type: 'video';
-  content: {
-    videoLoop: {
-      source: string;
-      preview: string;
-    };
-    videoEnd?: {
-      source: string;
-      preview: string;
-    };
+  videoLoop: {
+    source: string;
+    preview: string;
+  };
+  videoEnd?: {
+    source: string;
+    preview: string;
   };
 };
 

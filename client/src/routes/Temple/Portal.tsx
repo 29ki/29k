@@ -135,9 +135,9 @@ const Portal: React.FC = () => {
           }
         }}
         repeat={!joiningTemple}
-        source={{uri: introPortal.content.videoEnd?.source}}
+        source={{uri: introPortal.videoEnd?.source}}
         resizeMode="cover"
-        poster={introPortal.content.videoEnd?.preview}
+        poster={introPortal.videoEnd?.preview}
         posterResizeMode="cover"
         allowsExternalPlayback={false}
         mixWithOthers="mix"
@@ -154,9 +154,9 @@ const Portal: React.FC = () => {
             }
           }}
           repeat={!temple?.started}
-          source={{uri: introPortal.content.videoLoop?.source}}
+          source={{uri: introPortal.videoLoop?.source}}
           resizeMode="cover"
-          poster={introPortal.content.videoLoop?.preview}
+          poster={introPortal.videoLoop?.preview}
           posterResizeMode="cover"
           allowsExternalPlayback={false}
           mixWithOthers="mix"
