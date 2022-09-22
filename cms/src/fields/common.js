@@ -68,9 +68,9 @@ export const VIDEO_FIELD = {
       i18n: true,
     },
     {
-      label: 'Thumbnail file',
-      name: 'thumbnail',
-      widget: 'file',
+      label: 'Preview image',
+      name: 'preview',
+      widget: 'image',
       required: false,
       i18n: false,
     },

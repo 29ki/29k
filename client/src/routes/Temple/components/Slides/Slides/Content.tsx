@@ -20,7 +20,7 @@ const Content: React.FC<ContentProps> = ({slide, active}) => (
       <Video
         source={{uri: slide.content.video.source}}
         active={active}
-        thumbnail={slide.content.video.thumbnail}
+        preview={slide.content.video.preview}
       />
     ) : slide.content.image ? (
       <Image source={{uri: slide.content.image.source}} />
