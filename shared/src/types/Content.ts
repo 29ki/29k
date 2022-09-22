@@ -34,9 +34,11 @@ export type VideoPortal = {
   content: {
     videoLoop: {
       source: string;
+      thumbnail: string;
     };
     videoEnd?: {
       source: string;
+      thumbnail: string;
     };
   };
 };
