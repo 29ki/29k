@@ -8,7 +8,6 @@ import useIsTempleFacilitator from '../../hooks/useIsTempleFacilitator';
 import {templeExerciseStateSelector} from '../../state/state';
 import useTempleExercise from '../../hooks/useTempleExercise';
 
-import SlideButton from '../Buttons/SlideButton';
 import {
   ChevronRight,
   ChevronLeft,
@@ -21,6 +20,8 @@ import useUpdateTempleExerciseState from '../../hooks/useUpdateTempleExerciseSta
 import {Spacer8} from '../../../../common/components/Spacers/Spacer';
 import Button from '../../../../common/components/Buttons/Button';
 import NS from '../../../../lib/i18n/constants/namespaces';
+import IconButton from '../../../../common/components/Buttons/IconButton/IconButton';
+import {SPACINGS} from '../../../../common/constants/spacings';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -31,6 +32,11 @@ const MediaControls = styled.View({
   flex: 1,
   flexDirection: 'row',
   justifyContent: 'center',
+});
+
+const SlideButton = styled(IconButton)({
+  paddingVertical: SPACINGS.EIGHT,
+  paddingHorizontal: SPACINGS.TWELVE,
 });
 
 type ContentControlsProps = {
@@ -73,12 +79,16 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
         <MediaControls>
           <SlideButton
             small
+            elevated
+            variant="tertiary"
             Icon={Rewind}
             onPress={() => setPlaying(exerciseState.playing)}
           />
           <Spacer8 />
           <SlideButton
             small
+            elevated
+            variant="tertiary"
             Icon={exerciseState.playing ? Pause : Play}
             onPress={() => setPlaying(!exerciseState.playing)}
           />

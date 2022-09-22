@@ -16,7 +16,6 @@ import {
 import AudioToggleButton from './components/Buttons/AudioToggleButton';
 import VideoToggleButton from './components/Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
-import LeaveButton from './components/Buttons/LeaveButton';
 import {
   TabNavigatorProps,
   TempleStackProps,
@@ -36,6 +35,8 @@ import {SPACINGS} from '../../common/constants/spacings';
 import ContentControls from './components/ContentControls/ContentControls';
 import {DailyUserData} from '../../../../shared/src/types/Temple';
 import useConfirmExitTemple from './hooks/useConfirmExitTemple';
+import IconButton from '../../common/components/Buttons/IconButton/IconButton';
+import {HangUpIcon} from '../../common/components/Icons';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
@@ -146,7 +147,12 @@ const Session = () => {
           active={hasVideo}
         />
         <Spacer12 />
-        <LeaveButton fill={COLORS.ACTIVE} onPress={exitMeeting} />
+        <IconButton
+          variant="secondary"
+          Icon={HangUpIcon}
+          fill={COLORS.ACTIVE}
+          onPress={exitMeeting}
+        />
       </SessionControls>
       <Spacer16 />
     </MainViewContainer>
