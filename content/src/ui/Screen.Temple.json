@@ -10,9 +10,9 @@
   "sv": {
     "nameSuffix": "Du",
     "controls": {
-      "start": "Start",
+      "start": "Starta",
       "next": "Nästa",
-      "prev": "Föregående"
+      "prev": "Tillbaka"
     }
   },
   "pt": {
