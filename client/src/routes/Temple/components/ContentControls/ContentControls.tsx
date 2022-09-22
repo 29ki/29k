@@ -63,8 +63,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
               index: exercise.slide.index - 1,
               content: exercise.slides,
             })
-          }
-          disabled={!exercise.slide.previous}>
+          }>
           {t('controls.prev')}
         </Button>
       ) : (
@@ -96,8 +95,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
               index: exerciseState.index + 1,
               content: exercise.slides,
             })
-          }
-          disabled={!exercise.slide.next}>
+          }>
           {t('controls.next')}
         </Button>
       ) : (
