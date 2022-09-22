@@ -27,7 +27,7 @@ const BaseButton = styled(TouchableOpacity)<BaseButtonProps>(
       : variant === 'secondary'
       ? COLORS.BLACK
       : variant === 'tertiary'
-      ? COLORS.GREYLIGHT
+      ? COLORS.WHITE
       : COLORS.PRIMARY,
     borderRadius: small ? SPACINGS.TWELVE : SPACINGS.SIXTEEN,
     alignSelf: 'flex-start',

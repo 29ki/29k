@@ -16,12 +16,12 @@ const IconWrapper = styled.View({
 
 const LeftIconWrapper = styled(IconWrapper)({
   marginRight: -SPACINGS.TWELVE,
-  marginLeft: SPACINGS.TWELVE,
+  marginLeft: SPACINGS.EIGHT,
 });
 
 const RightIconWrapper = styled(IconWrapper)({
   marginLeft: -SPACINGS.TWELVE,
-  marginRight: SPACINGS.TWELVE,
+  marginRight: SPACINGS.EIGHT,
 });
 
 type ButtonTextProps = {
@@ -37,7 +37,7 @@ const ButtonText = styled(B2)<ButtonTextProps>(
     height: 20,
     color:
       disabled || active || variant !== 'tertiary'
-        ? COLORS.GREYLIGHTEST
+        ? COLORS.WHITE
         : COLORS.BLACK,
     marginVertical: small ? 8 : SPACINGS.TWELVE,
     marginHorizontal: SPACINGS.SIXTEEN,
@@ -76,9 +76,7 @@ const Button: React.FC<ButtonProps> = ({
         <ActivityIndicator
           size="small"
           color={
-            variant === 'tertiary' && !active
-              ? COLORS.BLACK
-              : COLORS.GREYLIGHTEST
+            variant === 'tertiary' && !active ? COLORS.BLACK : COLORS.WHITE
           }
         />
       </LeftIconWrapper>
@@ -88,7 +86,7 @@ const Button: React.FC<ButtonProps> = ({
         <LeftIcon
           fill={
             disabled || active || variant !== 'tertiary'
-              ? COLORS.GREYLIGHTEST
+              ? COLORS.WHITE
               : COLORS.BLACK
           }
         />
@@ -106,7 +104,7 @@ const Button: React.FC<ButtonProps> = ({
         <RightIcon
           fill={
             disabled || active || variant !== 'tertiary'
-              ? COLORS.GREYLIGHTEST
+              ? COLORS.WHITE
               : COLORS.BLACK
           }
         />

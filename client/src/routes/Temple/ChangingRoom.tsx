@@ -14,7 +14,13 @@ import {useRecoilValue} from 'recoil';
 
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
-import {ArrowLeftIcon} from '../../common/components/Icons';
+import {
+  ArrowLeftIcon,
+  FilmCameraIcon,
+  FilmCameraOffIcon,
+  MicrophoneIcon,
+  MicrophoneOffIcon,
+} from '../../common/components/Icons';
 import {
   BottomSafeArea,
   Spacer16,
@@ -22,8 +28,6 @@ import {
   Spacer48,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
-import AudioToggleButton from './components/Buttons/AudioToggleButton';
-import VideoToggleButton from './components/Buttons/VideoToggleButton';
 import {B2} from '../../common/components/Typography/Text/Text';
 import {COLORS} from '../../common/constants/colors';
 import {DailyContext} from '../Temple/DailyProvider';
@@ -158,15 +162,19 @@ const ChangingRoom = () => {
         <Spacer28 />
         <Gutters>
           <Controls>
-            <AudioToggleButton
+            <IconButton
               disabled
               onPress={() => toggleAudio(!hasAudio)}
               active={hasAudio}
+              variant="secondary"
+              Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
             />
             <Spacer16 />
-            <VideoToggleButton
+            <IconButton
               onPress={() => toggleVideo(!hasVideo)}
               active={hasVideo}
+              variant="secondary"
+              Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
             />
           </Controls>
           <Spacer48 />

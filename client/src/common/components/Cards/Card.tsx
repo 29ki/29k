@@ -36,7 +36,6 @@ const Wrapper = styled(TouchableOpacity)<{backgroundColor?: string}>(
     borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
     backgroundColor: backgroundColor || COLORS.CREAM,
     padding: SPACINGS.SIXTEEN,
-    ...SETTINGS.BOXSHADOW,
   }),
 );
 
@@ -76,7 +75,7 @@ export const Card: React.FC<CardProps> = ({
     <Row>
       <CallToAction>
         {children}
-        <CardButton variant="secondary" onPress={onPress}>
+        <CardButton small variant="secondary" onPress={onPress}>
           {buttonText}
         </CardButton>
       </CallToAction>

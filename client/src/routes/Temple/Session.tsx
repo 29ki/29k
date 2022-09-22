@@ -12,10 +12,8 @@ import {
   Spacer16,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
-import AudioToggleButton from './components/Buttons/AudioToggleButton';
-import VideoToggleButton from './components/Buttons/VideoToggleButton';
 import {COLORS} from '../../common/constants/colors';
-import LeaveButton from './components/Buttons/LeaveButton';
+
 import {TempleStackProps} from '../../common/constants/routes';
 
 import {DailyContext} from './DailyProvider';
@@ -31,6 +29,15 @@ import ProgressBar from './components/ProgressBar/ProgressBar';
 import {SPACINGS} from '../../common/constants/spacings';
 import ContentControls from './components/ContentControls/ContentControls';
 import {DailyUserData} from '../../../../shared/src/types/Temple';
+import IconButton from '../../common/components/Buttons/IconButton/IconButton';
+import {
+  FilmCameraIcon,
+  FilmCameraOffIcon,
+  HangUpIcon,
+  MicrophoneIcon,
+  MicrophoneOffIcon,
+} from '../../common/components/Icons';
+
 import usePreventTempleLeave from './hooks/usePreventTempleLeave';
 import useLeaveTemple from './hooks/useLeaveTemple';
 
@@ -120,17 +127,26 @@ const Session = () => {
       <Participants participants={participants} />
       <Spacer16 />
       <SessionControls>
-        <AudioToggleButton
+        <IconButton
           onPress={() => toggleAudio(!hasAudio)}
           active={hasAudio}
+          variant="secondary"
+          Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
         />
         <Spacer12 />
-        <VideoToggleButton
+        <IconButton
           onPress={() => toggleVideo(!hasVideo)}
           active={hasVideo}
+          variant="secondary"
+          Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
         />
         <Spacer12 />
-        <LeaveButton fill={COLORS.ACTIVE} onPress={leaveTemple} />
+        <IconButton
+          variant="secondary"
+          Icon={HangUpIcon}
+          fill={COLORS.ACTIVE}
+          onPress={leaveTemple}
+        />
       </SessionControls>
       <Spacer16 />
     </MainViewContainer>
