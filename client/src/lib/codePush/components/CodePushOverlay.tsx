@@ -14,7 +14,7 @@ import {isColdStartedAtom} from '../../appState/state/state';
 import useRestartApp from '../hooks/useRestartApp';
 import NS from '../../i18n/constants/namespaces';
 import {Spacer16} from '../../../common/components/Spacers/Spacer';
-import {B1} from '../../../common/components/Typography/Text/Text';
+import {B18} from '../../../common/components/Typography/Text/Text';
 import styled from 'styled-components/native';
 import {GUTTERS} from '../../../common/constants/spacings';
 import {killSwitchFields} from '../../killSwitch/state/state';
@@ -88,7 +88,7 @@ const CodePushOverlay = () => {
               lineCap="round"
             />
             <Spacer16 />
-            <B1>{t('downloading.text')}</B1>
+            <B18>{t('downloading.text')}</B18>
           </Prompt>
         </Container>
       );
@@ -99,7 +99,7 @@ const CodePushOverlay = () => {
           <Prompt>
             <H4>{t('install.title')}</H4>
             <Spacer16 />
-            <B1>{t('install.text')}</B1>
+            <B18>{t('install.text')}</B18>
             <Spacer16 />
             <Row>
               {!isColdStarted && (

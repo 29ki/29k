@@ -5,7 +5,7 @@ import {
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
-import {H1} from '../../../../common/components/Typography/Heading/Heading';
+import {Display36} from '../../../../common/components/Typography/Display/Display';
 import {COLORS} from '../../../../common/constants/colors';
 import {SPACINGS} from '../../../../common/constants/spacings';
 import NS from '../../../../lib/i18n/constants/namespaces';
@@ -50,6 +50,10 @@ const DailyMediaViewWrapper = styled(DailyMediaView)({
   width: '100%',
 });
 
+const Heading = styled(Display36)({
+  fontSize: SPACINGS.FOURTY,
+});
+
 type ParticipantProps = {
   participant: DailyParticipant;
 };
@@ -67,7 +71,7 @@ const Participant: React.FC<ParticipantProps> = ({participant}) => {
         />
       ) : (
         <ParticipantPlaceholder>
-          <H1>{participant?.user_name?.[0]}</H1>
+          <Heading>{participant?.user_name?.[0]}</Heading>
         </ParticipantPlaceholder>
       )}
       <ParticipantName participant={participant} suffix={t('nameSuffix')} />

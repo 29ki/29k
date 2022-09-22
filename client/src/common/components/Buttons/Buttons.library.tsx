@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import {ScrollView} from 'react-native';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import {Spacer16} from '../Spacers/Spacer';
@@ -7,7 +8,7 @@ import {Spacer16} from '../Spacers/Spacer';
 import Button from './Button';
 import IconButton from './IconButton/IconButton';
 import {HomeIcon} from '../Icons/Home/Home';
-import {B2} from '../Typography/Text/Text';
+import {B16} from '../Typography/Text/Text';
 import {PlusIcon} from '../Icons';
 
 const Row = styled.View({
@@ -18,10 +19,10 @@ const Row = styled.View({
 });
 
 export const AllButtons = () => (
-  <ScreenWrapper>
+  <ScrollView>
     <Buttons />
     <IconButtons />
-  </ScreenWrapper>
+  </ScrollView>
 );
 
 export const Buttons = () => (
@@ -70,17 +71,17 @@ export const Buttons = () => (
 export const IconButtons = () => (
   <ScreenWrapper>
     <Row>
-      <B2>Icon button secondary</B2>
+      <B16>Icon button secondary</B16>
       <IconButton variant="secondary" onPress={() => {}} Icon={PlusIcon} />
     </Row>
     <Spacer16 />
     <Row>
-      <B2>Icon button active state</B2>
+      <B16>Icon button active state</B16>
       <IconButton onPress={() => {}} Icon={PlusIcon} active />
     </Row>
     <Spacer16 />
     <Row>
-      <B2>Icon button tertiary elevated</B2>
+      <B16>Icon button tertiary elevated</B16>
       <IconButton
         elevated
         variant="tertiary"
@@ -90,7 +91,7 @@ export const IconButtons = () => (
     </Row>
     <Spacer16 />
     <Row>
-      <B2>Icon button elevated disabled</B2>
+      <B16>Icon button elevated disabled</B16>
       <IconButton
         elevated
         variant="tertiary"
@@ -101,7 +102,7 @@ export const IconButtons = () => (
     </Row>
     <Spacer16 />
     <Row>
-      <B2>Icon button small</B2>
+      <B16>Icon button small</B16>
       <IconButton small onPress={() => {}} Icon={PlusIcon} />
     </Row>
     <Spacer16 />
