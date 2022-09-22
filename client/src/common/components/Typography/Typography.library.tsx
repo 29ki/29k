@@ -57,9 +57,23 @@ export const Bodies = () => (
   <ScreenWrapper>
     <Spacer16 />
     <B14>Default: HKGrotesk Regular</B14>
-    <B18>Body 1</B18>
-    <B16>Body 2</B16>
-    <B14>Body 3</B14>
+    <B18>
+      Body 18 Regular Lorem Ipsum is simply dummy text of the printing and
+      typesetting industry. Lorem Ipsum has been the industry's standard dummy
+      text ever since the 1500s.
+    </B18>
+    <Spacer16 />
+    <B16>
+      Body 16 Regular Lorem Ipsum is simply dummy text of the printing and
+      typesetting industry. Lorem Ipsum has been the industry's standard dummy
+      text ever since the 1500s.
+    </B16>
+    <Spacer16 />
+    <B14>
+      Body 14 Regular Lorem Ipsum is simply dummy text of the printing and
+      typesetting industry. Lorem Ipsum has been the industry's standard dummy
+      text ever since the 1500s.
+    </B14>
     <Spacer16 />
   </ScreenWrapper>
 );
