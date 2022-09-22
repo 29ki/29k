@@ -69,13 +69,8 @@ const Progress = styled(ProgressBar)({
 });
 
 const Session = () => {
-  const {
-    setUserData,
-    leaveMeeting,
-    toggleAudio,
-    toggleVideo,
-    setSubscribeToAllTracks,
-  } = useContext(DailyContext);
+  const {setUserData, toggleAudio, toggleVideo, setSubscribeToAllTracks} =
+    useContext(DailyContext);
   const {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Temple'>>();
@@ -97,7 +92,6 @@ const Session = () => {
   }, [setUserData, setSubscribeToAllTracks]);
 
   const exitMeeting = async () => {
-    await leaveMeeting();
     // This is actually not a back - it's triggering the useConfirmExitTemple event listener
     goBack();
   };
