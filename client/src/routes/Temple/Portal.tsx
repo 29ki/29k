@@ -29,9 +29,10 @@ import * as templeApi from '../Temples/api/temple';
 import Counter from './components/Counter/Counter';
 import {DailyContext} from './DailyProvider';
 import useTempleExercise from './hooks/useTempleExercise';
-import useConfirmExitTemple from './hooks/useConfirmExitTemple';
+import usePreventTempleLeave from './hooks/usePreventTempleLeave';
 import {participantsAtom, templeAtom} from './state/state';
 import {DailyUserData} from '../../../../shared/src/types/Temple';
+import useLeaveTemple from './hooks/useLeaveTemple';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -102,9 +103,10 @@ const Portal: React.FC = () => {
   const user = useRecoilValue(userAtom);
   const participants = useRecoilValue(participantsAtom);
   const participantsCount = Object.keys(participants).length;
-  const {goBack, navigate} = useNavigation<TempleNavigationProps>();
+  const {navigate} = useNavigation<TempleNavigationProps>();
+  const leaveTemple = useLeaveTemple();
 
-  useConfirmExitTemple();
+  usePreventTempleLeave();
 
   useEffect(() => {
     joinMeeting({inPortal: true} as DailyUserData);
@@ -157,7 +159,11 @@ const Portal: React.FC = () => {
         {introPortal.type === 'video' && (
           <>
             <TopBar>
-              <BackButton noBackground onPress={goBack} Icon={ArrowLeftIcon} />
+              <BackButton
+                noBackground
+                onPress={leaveTemple}
+                Icon={ArrowLeftIcon}
+              />
               {temple?.facilitator === user?.uid && !temple?.started && (
                 <Animated.View exiting={FadeOut.duration(1500)}>
                   <StartButton
