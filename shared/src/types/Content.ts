@@ -6,7 +6,7 @@ export type Content = {
   heading?: string;
   video?: {
     source: string;
-    thumbnail: string;
+    preview: string;
   };
   image?: {
     source: string;
@@ -34,11 +34,11 @@ export type VideoPortal = {
   content: {
     videoLoop: {
       source: string;
-      thumbnail: string;
+      preview: string;
     };
     videoEnd?: {
       source: string;
-      thumbnail: string;
+      preview: string;
     };
   };
 };
