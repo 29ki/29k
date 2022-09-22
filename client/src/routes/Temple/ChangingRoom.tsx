@@ -159,6 +159,7 @@ const ChangingRoom = () => {
         <Gutters>
           <Controls>
             <AudioToggleButton
+              disabled
               onPress={() => toggleAudio(!hasAudio)}
               active={hasAudio}
             />
