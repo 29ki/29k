@@ -2,50 +2,85 @@ import {StyleSheet} from 'react-native';
 import {COLORS} from '../../constants/colors';
 import {
   HKGroteskBold,
-  HKGroteskMedium,
-  PlayfairDisplayMedium,
+  HKGroteskRegular,
+  PlayfairDisplayRegular,
 } from '../../constants/fonts';
 
 const textStyles = StyleSheet.create({
-  H1: {
+  Display36: {
     color: COLORS.BLACK,
-    fontSize: 40,
-    fontFamily: PlayfairDisplayMedium,
+    fontSize: 36,
+    fontFamily: PlayfairDisplayRegular,
   },
-  H2: {
+  Display28: {
     color: COLORS.BLACK,
-    fontSize: 32,
-    fontFamily: PlayfairDisplayMedium,
+    fontSize: 28,
+    fontFamily: PlayfairDisplayRegular,
   },
-  H3: {
+  Display24: {
     color: COLORS.BLACK,
     fontSize: 24,
-    fontFamily: PlayfairDisplayMedium,
+    fontFamily: PlayfairDisplayRegular,
   },
-  H4: {
+  Display22: {
     color: COLORS.BLACK,
-    fontSize: 20,
-    fontFamily: PlayfairDisplayMedium,
+    fontSize: 22,
+    fontFamily: PlayfairDisplayRegular,
   },
-  H5: {
+  Display18: {
     color: COLORS.BLACK,
-    fontSize: 16,
-    fontFamily: PlayfairDisplayMedium,
+    fontSize: 18,
+    fontFamily: PlayfairDisplayRegular,
   },
-  B1: {
-    color: COLORS.BLACK,
-    fontSize: 20,
-    fontFamily: HKGroteskMedium,
-  },
-  B2: {
+  Display16: {
     color: COLORS.BLACK,
     fontSize: 16,
-    fontFamily: HKGroteskMedium,
+    fontFamily: PlayfairDisplayRegular,
   },
-  B3: {
+  Display14: {
     color: COLORS.BLACK,
     fontSize: 14,
-    fontFamily: HKGroteskMedium,
+    fontFamily: PlayfairDisplayRegular,
+  },
+  H24: {
+    color: COLORS.BLACK,
+    fontSize: 24,
+    fontFamily: HKGroteskBold,
+  },
+  H22: {
+    color: COLORS.BLACK,
+    fontSize: 22,
+    fontFamily: HKGroteskBold,
+  },
+  H18: {
+    color: COLORS.BLACK,
+    fontSize: 18,
+    fontFamily: HKGroteskBold,
+  },
+  H16: {
+    color: COLORS.BLACK,
+    fontSize: 16,
+    fontFamily: HKGroteskBold,
+  },
+  B18: {
+    color: COLORS.BLACK,
+    fontSize: 18,
+    fontFamily: HKGroteskRegular,
+  },
+  B16: {
+    color: COLORS.BLACK,
+    fontSize: 16,
+    fontFamily: HKGroteskRegular,
+  },
+  B14: {
+    color: COLORS.BLACK,
+    fontSize: 14,
+    fontFamily: HKGroteskRegular,
+  },
+  NAV_TAB: {
+    color: COLORS.BLACK,
+    fontSize: 16,
+    fontFamily: HKGroteskBold,
   },
   ERROR_TEXT: {
     fontSize: 14,
@@ -53,11 +88,6 @@ const textStyles = StyleSheet.create({
   },
   HIGHLIGHT: {
     color: COLORS.ACTIVE,
-  },
-  NAV_TAB: {
-    color: COLORS.BLACK,
-    fontSize: 16,
-    fontFamily: HKGroteskBold,
   },
   TEXTLINK: {
     color: COLORS.ACTIVE,

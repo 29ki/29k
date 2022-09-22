@@ -4,13 +4,12 @@ import {SPACINGS} from '../../../constants/spacings';
 import baseStyles from '../styles';
 
 const styles = StyleSheet.create({
-  heading1: baseStyles.H1,
-  heading2: baseStyles.H2,
-  heading3: baseStyles.H3,
-  heading4: baseStyles.H4,
-  heading5: baseStyles.H5,
+  heading1: baseStyles.Display36,
+  heading2: baseStyles.Display28,
+  heading3: baseStyles.Display22,
+  heading4: baseStyles.Display18,
   paragraph: {
-    ...baseStyles.B1,
+    ...baseStyles.B16,
     marginTop: 0,
     marginBottom: 0,
   },
@@ -33,13 +32,13 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   ordered_list_icon: {
-    ...baseStyles.B1,
+    ...baseStyles.B18,
     color: COLORS.ACTIVE,
     minWidth: 13,
     marginLeft: 0,
     marginRight: 9,
     lineHeight: SPACINGS.TWENTYFOUR,
-    marginTop: -4,
+    marginTop: -SPACINGS.FOUR,
   },
   hr: {
     marginTop: 15,
