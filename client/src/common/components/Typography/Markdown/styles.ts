@@ -13,9 +13,6 @@ const styles = StyleSheet.create({
     marginTop: 0,
     marginBottom: 0,
   },
-  textgroup: {
-    color: COLORS.GREYDARK,
-  },
   s: {
     ...baseStyles.HIGHLIGHT,
     textDecorationLine: 'none',
