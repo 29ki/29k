@@ -163,6 +163,7 @@ const ChangingRoom = () => {
         <Gutters>
           <Controls>
             <IconButton
+              disabled
               onPress={() => toggleAudio(!hasAudio)}
               active={hasAudio}
               variant="secondary"

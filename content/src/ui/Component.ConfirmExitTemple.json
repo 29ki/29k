@@ -1,7 +1,7 @@
 {
   "en": {
-    "header": "Leave meeting",
-    "text": "Are you sure you want to leave the meeting",
+    "header": "Leave session",
+    "text": "Are you sure you want to leave the session",
     "buttons": {
       "cancel": "Don't leave",
       "confirm": "Leave"
