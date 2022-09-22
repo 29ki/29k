@@ -39,6 +39,10 @@ const SlideButton = styled(IconButton)({
   paddingHorizontal: SPACINGS.TWELVE,
 });
 
+const ButtonHidden = styled(Button).attrs({disabled: true, onPress: () => {}})({
+  opacity: 0,
+});
+
 type ContentControlsProps = {
   templeId: string;
   style?: ViewStyle;
@@ -73,7 +77,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
           {t('controls.prev')}
         </Button>
       ) : (
-        <Spacer8 />
+        <ButtonHidden>{t('controls.prev')}</ButtonHidden>
       )}
       {exercise.slide.current.type !== 'participantSpotlight' && (
         <MediaControls>
@@ -109,7 +113,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
           {t('controls.next')}
         </Button>
       ) : (
-        <Spacer8 />
+        <ButtonHidden>{t('controls.next')}</ButtonHidden>
       )}
     </Wrapper>
   );
