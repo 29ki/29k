@@ -2,6 +2,7 @@ import React from 'react';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import {ViewStyle} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 import useIsTempleFacilitator from '../../hooks/useIsTempleFacilitator';
 import {templeExerciseStateSelector} from '../../state/state';
@@ -18,6 +19,8 @@ import {
 
 import useUpdateTempleExerciseState from '../../hooks/useUpdateTempleExerciseState';
 import {Spacer8} from '../../../../common/components/Spacers/Spacer';
+import Button from '../../../../common/components/Buttons/Button';
+import NS from '../../../../lib/i18n/constants/namespaces';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -39,6 +42,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
   const isFacilitator = useIsTempleFacilitator();
   const exerciseState = useRecoilValue(templeExerciseStateSelector);
   const exercise = useTempleExercise();
+  const {t} = useTranslation(NS.SCREEN.TEMPLE);
 
   const {navigateToIndex, setPlaying} = useUpdateTempleExerciseState(templeId);
 
@@ -48,39 +52,57 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
 
   return (
     <Wrapper style={style}>
-      <SlideButton
-        Icon={ChevronLeft}
-        onPress={() =>
-          navigateToIndex({
-            index: exercise.slide.index - 1,
-            content: exercise.slides,
-          })
-        }
-        disabled={!exercise.slide.previous}
-      />
+      {exercise.slide.index !== 0 ? (
+        <Button
+          variant="tertiary"
+          small
+          LeftIcon={ChevronLeft}
+          elevated
+          onPress={() =>
+            navigateToIndex({
+              index: exercise.slide.index - 1,
+              content: exercise.slides,
+            })
+          }
+          disabled={!exercise.slide.previous}>
+          {t('controls.prev')}
+        </Button>
+      ) : (
+        <Spacer8 />
+      )}
       {exercise.slide.current.type !== 'participantSpotlight' && (
         <MediaControls>
           <SlideButton
+            small
             Icon={Rewind}
             onPress={() => setPlaying(exerciseState.playing)}
           />
           <Spacer8 />
           <SlideButton
+            small
             Icon={exerciseState.playing ? Pause : Play}
             onPress={() => setPlaying(!exerciseState.playing)}
           />
         </MediaControls>
       )}
-      <SlideButton
-        Icon={ChevronRight}
-        onPress={() =>
-          navigateToIndex({
-            index: exerciseState.index + 1,
-            content: exercise.slides,
-          })
-        }
-        disabled={!exercise.slide.next}
-      />
+      {exercise.slide.index !== exercise.slides.length - 1 ? (
+        <Button
+          small
+          elevated
+          variant="tertiary"
+          RightIcon={ChevronRight}
+          onPress={() =>
+            navigateToIndex({
+              index: exerciseState.index + 1,
+              content: exercise.slides,
+            })
+          }
+          disabled={!exercise.slide.next}>
+          {t('controls.next')}
+        </Button>
+      ) : (
+        <Spacer8 />
+      )}
     </Wrapper>
   );
 };
