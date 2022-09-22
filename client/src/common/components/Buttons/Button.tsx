@@ -16,12 +16,12 @@ const IconWrapper = styled.View({
 
 const LeftIconWrapper = styled(IconWrapper)({
   marginRight: -SPACINGS.TWELVE,
-  marginLeft: SPACINGS.TWELVE,
+  marginLeft: SPACINGS.EIGHT,
 });
 
 const RightIconWrapper = styled(IconWrapper)({
   marginLeft: -SPACINGS.TWELVE,
-  marginRight: SPACINGS.TWELVE,
+  marginRight: SPACINGS.EIGHT,
 });
 
 type ButtonTextProps = {
