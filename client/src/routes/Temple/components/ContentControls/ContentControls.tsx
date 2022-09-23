@@ -21,7 +21,6 @@ import {Spacer8} from '../../../../common/components/Spacers/Spacer';
 import Button from '../../../../common/components/Buttons/Button';
 import NS from '../../../../lib/i18n/constants/namespaces';
 import IconButton from '../../../../common/components/Buttons/IconButton/IconButton';
-import {SPACINGS} from '../../../../common/constants/spacings';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
