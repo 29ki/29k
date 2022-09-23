@@ -6,12 +6,13 @@ import {
   BottomSafeArea,
   TopSafeArea,
 } from '../../../common/components/Spacers/Spacer';
+import {GUTTERS} from '../../../common/constants/spacings';
 
 const ScreenWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
   <ScrollView>
-    <TopSafeArea />
+    <TopSafeArea minSize={GUTTERS} />
     <Gutters>{children}</Gutters>
-    <BottomSafeArea />
+    <BottomSafeArea minSize={GUTTERS} />
   </ScrollView>
 );
 
