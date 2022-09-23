@@ -23,7 +23,6 @@ export const AllCards = () => (
       title="Test temple"
       description="With description"
       lottie={lottieSource}
-      backgroundColor="pink"
       buttonText="Go fish!"
       onPress={() => console.log('Temple Card!')}
     />
@@ -40,7 +39,6 @@ export const AllCards = () => (
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
       }}
-      backgroundColor="darksalmon"
       buttonText="Go dance!"
       onPress={() => console.log('Temple Card!')}>
       <B1>Can have custom content</B1>

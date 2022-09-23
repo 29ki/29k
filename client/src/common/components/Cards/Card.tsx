@@ -30,14 +30,12 @@ const CardButton = styled(Button)({
   alignSelf: 'flex-start',
 });
 
-const Wrapper = styled(TouchableOpacity)<{backgroundColor?: string}>(
-  ({backgroundColor}) => ({
-    justifyContent: 'space-between',
-    borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
-    backgroundColor: backgroundColor || COLORS.CREAM,
-    padding: SPACINGS.SIXTEEN,
-  }),
-);
+const Wrapper = styled(TouchableOpacity)({
+  justifyContent: 'space-between',
+  borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
+  backgroundColor: COLORS.CREAM,
+  padding: SPACINGS.SIXTEEN,
+});
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -52,7 +50,6 @@ type CardProps = {
   lottie?: AnimationObject;
   onPress: () => void;
   buttonText: string;
-  backgroundColor?: string;
   children?: React.ReactNode;
 };
 
@@ -64,9 +61,8 @@ export const Card: React.FC<CardProps> = ({
   onPress,
   buttonText,
   children,
-  backgroundColor,
 }) => (
-  <Wrapper backgroundColor={backgroundColor} onPress={onPress}>
+  <Wrapper onPress={onPress}>
     <View>
       {title && <H3>{title}</H3>}
       {description && <B2 numberOfLines={1}>{description}</B2>}
