@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import styled from 'styled-components/native';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
-import {Spacer16} from '../Spacers/Spacer';
+import {Spacer16, Spacer8} from '../Spacers/Spacer';
 
 import Button from './Button';
 import IconButton from './IconButton/IconButton';
@@ -181,5 +181,119 @@ export const Buttons = () => (
 export const IconButtons = () => (
   <ScreenWrapper>
     <IconButtonList />
+  </ScreenWrapper>
+);
+
+function getCombinations(variations: object[]) {
+  var result: object[] = [];
+  var f = function (current: object[], arr: object[]) {
+    for (var i = 0; i < arr.length; i++) {
+      result.push(
+        [...current, arr[i]].reduce(
+          (acc, variant) => ({...acc, ...variant}),
+          {},
+        ),
+      );
+      f([...current, arr[i]], arr.slice(i + 1));
+    }
+  };
+  f([], variations);
+  return result;
+}
+
+const buttonVariations = getCombinations([
+  {loading: true},
+  {elevated: true},
+  {active: true},
+  {disabled: true},
+  {small: true},
+  {RightIcon: HomeIcon},
+  {LeftIcon: PlusIcon},
+]);
+
+export const VariationsButton = () => (
+  <ScreenWrapper>
+    {buttonVariations.map((combination, i) => (
+      <Fragment key={`primary${i}`}>
+        <Body16>Primary {Object.keys(combination).join(' ')}</Body16>
+        <Spacer8 />
+        <Button variant="primary" onPress={() => {}} {...combination}>
+          Button
+        </Button>
+        <Spacer16 />
+      </Fragment>
+    ))}
+    {buttonVariations.map((combination, i) => (
+      <Fragment key={`secondary${i}`}>
+        <Body16>Secondary {Object.keys(combination).join(' ')}</Body16>
+        <Spacer8 />
+        <Button variant="secondary" onPress={() => {}} {...combination}>
+          Button
+        </Button>
+        <Spacer16 />
+      </Fragment>
+    ))}
+    {buttonVariations.map((combination, i) => (
+      <Fragment key={`tertiary${i}`}>
+        <Body16>Tertiary {Object.keys(combination).join(' ')}</Body16>
+        <Spacer8 />
+        <Button variant="tertiary" onPress={() => {}} {...combination}>
+          Button
+        </Button>
+        <Spacer16 />
+      </Fragment>
+    ))}
+  </ScreenWrapper>
+);
+
+const iconButtonVariations = getCombinations([
+  {loading: true},
+  {elevated: true},
+  {active: true},
+  {disabled: true},
+  {small: true},
+]);
+
+export const VariationsIconButton = () => (
+  <ScreenWrapper>
+    {iconButtonVariations.map((combination, i) => (
+      <Fragment key={`primary${i}`}>
+        <Body16>Primary {Object.keys(combination).join(' ')}</Body16>
+        <Spacer8 />
+        <IconButton
+          variant="primary"
+          onPress={() => {}}
+          Icon={PlusIcon}
+          {...combination}
+        />
+        <Spacer16 />
+      </Fragment>
+    ))}
+    {iconButtonVariations.map((combination, i) => (
+      <Fragment key={`secondary${i}`}>
+        <Body16>Secondary {Object.keys(combination).join(' ')}</Body16>
+        <Spacer8 />
+        <IconButton
+          variant="secondary"
+          onPress={() => {}}
+          Icon={PlusIcon}
+          {...combination}
+        />
+        <Spacer16 />
+      </Fragment>
+    ))}
+    {iconButtonVariations.map((combination, i) => (
+      <Fragment key={`tertiary${i}`}>
+        <Body16>Tertiary {Object.keys(combination).join(' ')}</Body16>
+        <Spacer8 />
+        <IconButton
+          variant="tertiary"
+          onPress={() => {}}
+          Icon={PlusIcon}
+          {...combination}
+        />
+        <Spacer16 />
+      </Fragment>
+    ))}
   </ScreenWrapper>
 );
