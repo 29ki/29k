@@ -6,7 +6,7 @@ import {AnimatedCircularProgress} from 'react-native-circular-progress';
 import {useTranslation} from 'react-i18next';
 
 import Button from '../../../common/components/Buttons/Button';
-import {H18} from '../../../common/components/Typography/Heading/Heading';
+import {Heading18} from '../../../common/components/Typography/Heading/Heading';
 import {COLORS} from '../../../common/constants/colors';
 
 import {downloadProgressAtom, statusAtom} from '..//state/state';
@@ -14,7 +14,7 @@ import {isColdStartedAtom} from '../../appState/state/state';
 import useRestartApp from '../hooks/useRestartApp';
 import NS from '../../i18n/constants/namespaces';
 import {Spacer16} from '../../../common/components/Spacers/Spacer';
-import {B18} from '../../../common/components/Typography/Text/Text';
+import {Body18} from '../../../common/components/Typography/Text/Text';
 import styled from 'styled-components/native';
 import {GUTTERS} from '../../../common/constants/spacings';
 import {killSwitchFields} from '../../killSwitch/state/state';
@@ -76,7 +76,7 @@ const CodePushOverlay = () => {
       return (
         <Container>
           <Prompt>
-            <H18>{t('downloading.title')}</H18>
+            <Heading18>{t('downloading.title')}</Heading18>
             <Spacer16 />
             <AnimatedCircularProgress
               fill={downloadProgress * 100}
@@ -88,7 +88,7 @@ const CodePushOverlay = () => {
               lineCap="round"
             />
             <Spacer16 />
-            <B18>{t('downloading.text')}</B18>
+            <Body18>{t('downloading.text')}</Body18>
           </Prompt>
         </Container>
       );
@@ -97,9 +97,9 @@ const CodePushOverlay = () => {
       return (
         <Container>
           <Prompt>
-            <H18>{t('install.title')}</H18>
+            <Heading18>{t('install.title')}</Heading18>
             <Spacer16 />
-            <B18>{t('install.text')}</B18>
+            <Body18>{t('install.text')}</Body18>
             <Spacer16 />
             <Row>
               {!isColdStarted && (

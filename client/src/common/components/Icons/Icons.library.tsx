@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import {Spacer12} from '../Spacers/Spacer';
-import {B14} from '../Typography/Text/Text';
+import {Body14} from '../Typography/Text/Text';
 import * as icons from './index';
 
 const Row = styled.View({
@@ -35,7 +35,7 @@ export const IconsList = () => (
           <Icon />
         </IconListWrapper>
         <Spacer12 />
-        <B14>{name}</B14>
+        <Body14>{name}</Body14>
       </Row>
     ))}
   </ScreenWrapper>

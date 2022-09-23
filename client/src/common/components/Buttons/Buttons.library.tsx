@@ -7,7 +7,7 @@ import {Spacer16} from '../Spacers/Spacer';
 import Button from './Button';
 import IconButton from './IconButton/IconButton';
 import {HomeIcon} from '../Icons/Home/Home';
-import {B16, B18} from '../Typography/Text/Text';
+import {Body16, Body18} from '../Typography/Text/Text';
 import {PlusIcon} from '../Icons';
 
 const RowFullWidth = styled.View({
@@ -104,9 +104,9 @@ export const ButtonList = () => (
 
 export const IconButtonList = () => (
   <>
-    <B18>Icon buttons</B18>
+    <Body18>Icon buttons</Body18>
     <RowFullWidth>
-      <B16>Primary</B16>
+      <Body16>Primary</Body16>
       <Row>
         <IconButton onPress={() => {}} Icon={PlusIcon} />
         <Spacer16 />
@@ -115,7 +115,7 @@ export const IconButtonList = () => (
     </RowFullWidth>
     <Spacer16 />
     <RowFullWidth>
-      <B16>Secondary</B16>
+      <Body16>Secondary</Body16>
       <Row>
         <IconButton variant="secondary" onPress={() => {}} Icon={PlusIcon} />
         <Spacer16 />
@@ -129,7 +129,7 @@ export const IconButtonList = () => (
     </RowFullWidth>
     <Spacer16 />
     <RowFullWidth>
-      <B16>Tertiary</B16>
+      <Body16>Tertiary</Body16>
       <Row>
         <IconButton variant="tertiary" onPress={() => {}} Icon={PlusIcon} />
         <Spacer16 />
@@ -143,7 +143,7 @@ export const IconButtonList = () => (
     </RowFullWidth>
     <Spacer16 />
     <RowFullWidth>
-      <B16>Active and disabled</B16>
+      <Body16>Active and disabled</Body16>
       <Row>
         <IconButton onPress={() => {}} Icon={PlusIcon} active />
         <Spacer16 />
@@ -158,7 +158,7 @@ export const IconButtonList = () => (
     </RowFullWidth>
     <Spacer16 />
     <RowFullWidth>
-      <B16>Small</B16>
+      <Body16>Small</Body16>
       <IconButton small onPress={() => {}} Icon={PlusIcon} />
     </RowFullWidth>
     <Spacer16 />

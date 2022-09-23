@@ -18,7 +18,7 @@ import {
   Spacer8,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
-import {B14} from '../../common/components/Typography/Text/Text';
+import {Body14} from '../../common/components/Typography/Text/Text';
 import {COLORS} from '../../common/constants/colors';
 import {HKGroteskBold} from '../../common/constants/fonts';
 import {TempleStackProps} from '../../common/constants/routes';
@@ -43,7 +43,7 @@ const VideoStyled = styled(Video)({
   flex: 1,
 });
 
-const StatusText = styled(B14)({
+const StatusText = styled(Body14)({
   color: COLORS.PURE_WHITE,
 });
 

@@ -6,14 +6,14 @@ import styled from 'styled-components/native';
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {Spacer16, Spacer48} from '../../common/components/Spacers/Spacer';
-import {B18} from '../../common/components/Typography/Text/Text';
+import {Body18} from '../../common/components/Typography/Text/Text';
 import useCheckForUpdate from '../../lib/codePush/hooks/useCheckForUpdate';
 import useClearUpdates from '../../lib/codePush/hooks/useClearUpdates';
 import {useSignOutUser} from '../../lib/user/hooks/useSignOutUser';
 import {useUiLib} from '../../lib/uiLib/hooks/useUiLib';
 import {userAtom} from '../../lib/user/state/state';
 import {LANGUAGE_TAGS} from '../../../../shared/src/constants/i18n';
-import {H24} from '../../common/components/Typography/Heading/Heading';
+import {Heading24} from '../../common/components/Typography/Heading/Heading';
 import NS from '../../lib/i18n/constants/namespaces';
 
 const Wrapper = styled.View({
@@ -40,8 +40,8 @@ const Profile = () => {
       <Gutters>
         {user && (
           <>
-            <H24>{t('userId')}</H24>
-            <B18 selectable>{user.uid}</B18>
+            <Heading24>{t('userId')}</Heading24>
+            <Body18 selectable>{user.uid}</Body18>
             <Spacer16 />
           </>
         )}
@@ -52,7 +52,7 @@ const Profile = () => {
         <Button onPress={checkForUpdate}>{t('checkUpdate')}</Button>
         <Spacer48 />
 
-        <H24>{t('language')}</H24>
+        <Heading24>{t('language')}</Heading24>
         <Spacer16 />
         <Row>
           {LANGUAGE_TAGS.map(languageTag => (

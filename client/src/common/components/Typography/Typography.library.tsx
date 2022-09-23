@@ -2,8 +2,8 @@ import React from 'react';
 import {ScrollView} from 'react-native';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
-import {H24, H22, H18, H16} from './Heading/Heading';
-import {B18, B16, B14, TextLink} from './Text/Text';
+import {Heading24, Heading22, Heading18, Heading16} from './Heading/Heading';
+import {Body18, Body16, Body14, TextLink} from './Text/Text';
 import Input from './TextInput/TextInput';
 import MarkdownRenderer from './Markdown/Markdown';
 import {Spacer16, Spacer8} from '../Spacers/Spacer';
@@ -16,24 +16,20 @@ import {
   Display28,
   Display36,
 } from './Display/Display';
-import Gutters from '../Gutters/Gutters';
 
-export const AllTypes = () => (
-  <ScrollView>
-    <Displays />
-    <Headings />
-    <Bodies />
-    <Gutters>
-      <TextLink onPress={() => {}}>Text link</TextLink>
-      <Spacer8 />
-      <Input placeholder="Placeholder" />
-    </Gutters>
-  </ScrollView>
+const HeadingsList = () => (
+  <>
+    <Body14>Default: HKGrotesk Bold</Body14>
+    <Heading24>Heading 24</Heading24>
+    <Heading22>Heading 22</Heading22>
+    <Heading18>Heading 18</Heading18>
+    <Heading16>Heading 16</Heading16>
+  </>
 );
 
-export const Displays = () => (
-  <ScreenWrapper>
-    <B14>Default: PlayfairDisplay Regular</B14>
+const DisplaysList = () => (
+  <>
+    <Body14>Default: PlayfairDisplay Regular</Body14>
     <Display36>Display36</Display36>
     <Display28>Display28</Display28>
     <Display24>Display36</Display24>
@@ -41,52 +37,19 @@ export const Displays = () => (
     <Display18>Display36</Display18>
     <Display16>Display36</Display16>
     <Display14>Display36</Display14>
-  </ScreenWrapper>
-);
-export const Headings = () => (
-  <ScreenWrapper>
-    <Spacer16 />
-    <B14>Default: HKGrotesk Bold</B14>
-    <H24>Heading 24</H24>
-    <H22>Heading 22</H22>
-    <H18>Heading 18</H18>
-    <H16>Heading 16</H16>
-  </ScreenWrapper>
-);
-export const Bodies = () => (
-  <ScreenWrapper>
-    <Spacer16 />
-    <B14>Default: HKGrotesk Regular</B14>
-    <B18>
-      Body 18 Regular Lorem Ipsum is simply dummy text of the printing and
-      typesetting industry. Lorem Ipsum has been the industry's standard dummy
-      text ever since the 1500s.
-    </B18>
-    <Spacer16 />
-    <B16>
-      Body 16 Regular Lorem Ipsum is simply dummy text of the printing and
-      typesetting industry. Lorem Ipsum has been the industry's standard dummy
-      text ever since the 1500s.
-    </B16>
-    <Spacer16 />
-    <B14>
-      Body 14 Regular Lorem Ipsum is simply dummy text of the printing and
-      typesetting industry. Lorem Ipsum has been the industry's standard dummy
-      text ever since the 1500s.
-    </B14>
-    <Spacer16 />
-  </ScreenWrapper>
+  </>
 );
 
-export const Markdown = () => (
-  <ScreenWrapper>
-    <Spacer16 />
+const MarkdownList = () => (
+  <>
+    <Body14>Markdown</Body14>
+
     <MarkdownRenderer>
       {`
-# Heading1
-## Heading2
-### Heading3
-#### Heading4
+# Heading
+## Heading
+### Heading
+#### Heading
 
 Paragraph text **bold** *italic* ~~highlighted~~ http://29k.org
 
@@ -105,5 +68,68 @@ Paragraph text **bold** *italic* ~~highlighted~~ http://29k.org
 &nbsp;
 >BlockQuote example`}
     </MarkdownRenderer>
+  </>
+);
+
+const BodiesList = () => (
+  <>
+    <Body14>Default: HKGrotesk Regular</Body14>
+    <Body18>
+      Body 18 Regular Lorem Ipsum is simply dummy text of the printing and
+      typesetting industry. Lorem Ipsum has been the industry's standard dummy
+      text ever since the 1500s.
+    </Body18>
+    <Spacer16 />
+    <Body16>
+      Body 16 Regular Lorem Ipsum is simply dummy text of the printing and
+      typesetting industry. Lorem Ipsum has been the industry's standard dummy
+      text ever since the 1500s.
+    </Body16>
+    <Spacer16 />
+    <Body14>
+      Body 14 Regular Lorem Ipsum is simply dummy text of the printing and
+      typesetting industry. Lorem Ipsum has been the industry's standard dummy
+      text ever since the 1500s.
+    </Body14>
+  </>
+);
+
+export const Displays = () => (
+  <ScrollView>
+    <DisplaysList />
+  </ScrollView>
+);
+
+export const Headings = () => (
+  <ScreenWrapper>
+    <HeadingsList />
+  </ScreenWrapper>
+);
+
+export const Bodies = () => (
+  <ScreenWrapper>
+    <BodiesList />
+  </ScreenWrapper>
+);
+
+export const Markdown = () => (
+  <ScreenWrapper>
+    <MarkdownList />
+  </ScreenWrapper>
+);
+
+export const AllTypes = () => (
+  <ScreenWrapper>
+    <DisplaysList />
+    <Spacer16 />
+    <HeadingsList />
+    <Spacer16 />
+    <BodiesList />
+    <Spacer16 />
+    <MarkdownList />
+    <Spacer16 />
+    <TextLink onPress={() => {}}>Text link</TextLink>
+    <Spacer8 />
+    <Input placeholder="Placeholder" />
   </ScreenWrapper>
 );

@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
-import {B14} from '../../../../common/components/Typography/Text/Text';
+import {Body14} from '../../../../common/components/Typography/Text/Text';
 import {COLORS} from '../../../../common/constants/colors';
 import {HKGroteskBold} from '../../../../common/constants/fonts';
 import NS from '../../../../lib/i18n/constants/namespaces';
@@ -16,7 +16,7 @@ type CounterProps = {
   starting?: boolean;
 };
 
-const CounterText = styled(B14)({
+const CounterText = styled(Body14)({
   color: COLORS.PURE_WHITE,
   fontFamily: HKGroteskBold,
 });

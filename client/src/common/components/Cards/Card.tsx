@@ -8,7 +8,7 @@ import {SPACINGS} from '../../constants/spacings';
 import SETTINGS from '../../constants/settings';
 import Button from '../Buttons/Button';
 import {Spacer16} from '../Spacers/Spacer';
-import {B16} from '../Typography/Text/Text';
+import {Body16} from '../Typography/Text/Text';
 import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display24} from '../Typography/Display/Display';
@@ -65,7 +65,7 @@ export const Card: React.FC<CardProps> = ({
   <Wrapper onPress={onPress}>
     <View>
       {title && <Display24>{title}</Display24>}
-      {description && <B16 numberOfLines={1}>{description}</B16>}
+      {description && <Body16 numberOfLines={1}>{description}</Body16>}
     </View>
     <Spacer16 />
     <Row>

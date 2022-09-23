@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   heading3: baseStyles.Display22,
   heading4: baseStyles.Display18,
   paragraph: {
-    ...baseStyles.B16,
+    ...baseStyles.Body16,
     marginTop: 0,
     marginBottom: 0,
   },
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   ordered_list_icon: {
-    ...baseStyles.B18,
+    ...baseStyles.Body18,
     color: COLORS.ACTIVE,
     minWidth: 13,
     marginLeft: 0,
