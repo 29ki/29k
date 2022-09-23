@@ -7,7 +7,7 @@ BaseText.defaultProps = {
   allowFontScaling: false,
 };
 
-export const B1 = styled(BaseText)(typeStyles.B1);
-export const B2 = styled(BaseText)(typeStyles.B2);
-export const B3 = styled(BaseText)(typeStyles.B3);
+export const B18 = styled(BaseText)(typeStyles.B18);
+export const B16 = styled(BaseText)(typeStyles.B16);
+export const B14 = styled(BaseText)(typeStyles.B14);
 export const TextLink = styled(BaseText)(typeStyles.TEXTLINK);

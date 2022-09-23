@@ -1,7 +1,4 @@
 import React, {useState, createContext, useContext} from 'react';
-import {ENVIRONMENT} from 'config';
-
-const IS_PRODUCTION = ENVIRONMENT === 'production';
 
 interface UILibContextInterface {
   enabled: Boolean;
@@ -18,7 +15,7 @@ const UiLibProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
 
   let UILib: React.ComponentType | null = null;
 
-  if (!IS_PRODUCTION && UILibEnabled) {
+  if (UILibEnabled) {
     UILib = require('../components/UiLibRootComponent').default;
   }
 
@@ -30,7 +27,7 @@ const UiLibProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
         toggle,
         enabled: UILibEnabled,
       }}>
-      {UILibEnabled && UILib && !IS_PRODUCTION ? <UILib /> : <>{children}</>}
+      {UILibEnabled && UILib ? <UILib /> : <>{children}</>}
     </uiLibState.Provider>
   );
 };

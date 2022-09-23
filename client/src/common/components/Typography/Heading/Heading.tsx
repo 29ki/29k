@@ -7,8 +7,7 @@ BaseHeading.defaultProps = {
   allowFontScaling: false,
 };
 
-export const H1 = styled(BaseHeading)(typeStyles.H1);
-export const H2 = styled(BaseHeading)(typeStyles.H2);
-export const H3 = styled(BaseHeading)(typeStyles.H3);
-export const H4 = styled(BaseHeading)(typeStyles.H4);
-export const H5 = styled(BaseHeading)(typeStyles.H5);
+export const H24 = styled(BaseHeading)(typeStyles.H24);
+export const H22 = styled(BaseHeading)(typeStyles.H22);
+export const H18 = styled(BaseHeading)(typeStyles.H18);
+export const H16 = styled(BaseHeading)(typeStyles.H16);

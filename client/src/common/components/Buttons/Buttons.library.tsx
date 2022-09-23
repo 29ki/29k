@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import {ScrollView} from 'react-native';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import {Spacer16} from '../Spacers/Spacer';
@@ -7,7 +8,7 @@ import {Spacer16} from '../Spacers/Spacer';
 import Button from './Button';
 import IconButton from './IconButton/IconButton';
 import {HomeIcon} from '../Icons/Home/Home';
-import {B1, B2} from '../Typography/Text/Text';
+import {B16, B18} from '../Typography/Text/Text';
 import {PlusIcon} from '../Icons';
 
 const RowFullWidth = styled.View({
@@ -20,10 +21,10 @@ const RowFullWidth = styled.View({
 const Row = styled.View({flexDirection: 'row'});
 
 export const AllButtons = () => (
-  <ScreenWrapper>
+  <ScrollView>
     <Buttons />
     <IconButtons />
-  </ScreenWrapper>
+  </ScrollView>
 );
 
 export const Buttons = () => (
@@ -33,6 +34,26 @@ export const Buttons = () => (
       <Spacer16 />
       <Button loading elevated onPress={() => {}}>
         Elevated Loading
+      </Button>
+    </RowFullWidth>
+    <Spacer16 />
+    <RowFullWidth>
+      <Button onPress={() => {}} variant="secondary">
+        Secondary
+      </Button>
+      <Spacer16 />
+      <Button variant="secondary" elevated onPress={() => {}}>
+        Elevated Secondary
+      </Button>
+    </RowFullWidth>
+    <Spacer16 />
+    <RowFullWidth>
+      <Button onPress={() => {}} variant="tertiary">
+        Tertiary
+      </Button>
+      <Spacer16 />
+      <Button variant="tertiary" elevated onPress={() => {}}>
+        Elevated Tertiary
       </Button>
     </RowFullWidth>
     <Spacer16 />
@@ -91,9 +112,9 @@ export const Buttons = () => (
 
 export const IconButtons = () => (
   <ScreenWrapper>
-    <B1>Icon buttons</B1>
+    <B18>Icon buttons</B18>
     <RowFullWidth>
-      <B2>Primary</B2>
+      <B16>Primary</B16>
       <Row>
         <IconButton onPress={() => {}} Icon={PlusIcon} />
         <Spacer16 />
@@ -102,7 +123,7 @@ export const IconButtons = () => (
     </RowFullWidth>
     <Spacer16 />
     <RowFullWidth>
-      <B2>Secondary</B2>
+      <B16>Secondary</B16>
       <Row>
         <IconButton variant="secondary" onPress={() => {}} Icon={PlusIcon} />
         <Spacer16 />
@@ -116,7 +137,7 @@ export const IconButtons = () => (
     </RowFullWidth>
     <Spacer16 />
     <RowFullWidth>
-      <B2>Tertiary</B2>
+      <B16>Tertiary</B16>
       <Row>
         <IconButton variant="tertiary" onPress={() => {}} Icon={PlusIcon} />
         <Spacer16 />
@@ -130,7 +151,7 @@ export const IconButtons = () => (
     </RowFullWidth>
     <Spacer16 />
     <RowFullWidth>
-      <B2>Active and disabled</B2>
+      <B16>Active and disabled</B16>
       <Row>
         <IconButton onPress={() => {}} Icon={PlusIcon} active />
         <Spacer16 />
@@ -145,7 +166,7 @@ export const IconButtons = () => (
     </RowFullWidth>
     <Spacer16 />
     <RowFullWidth>
-      <B2>Small</B2>
+      <B16>Small</B16>
       <IconButton small onPress={() => {}} Icon={PlusIcon} />
     </RowFullWidth>
     <Spacer16 />
