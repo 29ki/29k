@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {ScrollView} from 'react-native';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import {Spacer16} from '../Spacers/Spacer';
@@ -20,15 +19,8 @@ const RowFullWidth = styled.View({
 
 const Row = styled.View({flexDirection: 'row'});
 
-export const AllButtons = () => (
-  <ScrollView>
-    <Buttons />
-    <IconButtons />
-  </ScrollView>
-);
-
-export const Buttons = () => (
-  <ScreenWrapper>
+export const ButtonList = () => (
+  <>
     <RowFullWidth>
       <Button onPress={() => {}}>Primary</Button>
       <Spacer16 />
@@ -107,11 +99,11 @@ export const Buttons = () => (
       </Button>
     </RowFullWidth>
     <Spacer16 />
-  </ScreenWrapper>
+  </>
 );
 
-export const IconButtons = () => (
-  <ScreenWrapper>
+export const IconButtonList = () => (
+  <>
     <B18>Icon buttons</B18>
     <RowFullWidth>
       <B16>Primary</B16>
@@ -170,5 +162,24 @@ export const IconButtons = () => (
       <IconButton small onPress={() => {}} Icon={PlusIcon} />
     </RowFullWidth>
     <Spacer16 />
+  </>
+);
+
+export const AllButtons = () => (
+  <ScreenWrapper>
+    <ButtonList />
+    <IconButtonList />
+  </ScreenWrapper>
+);
+
+export const Buttons = () => (
+  <ScreenWrapper>
+    <ButtonList />
+  </ScreenWrapper>
+);
+
+export const IconButtons = () => (
+  <ScreenWrapper>
+    <IconButtonList />
   </ScreenWrapper>
 );
