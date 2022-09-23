@@ -2,7 +2,7 @@ import React from 'react';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import {Spacer16} from '../Spacers/Spacer';
-import {B18} from '../Typography/Text/Text';
+import {Body18} from '../Typography/Body/Body';
 import Card from './Card';
 
 const lottieSource = require('../../../assets/animations/mandala.json');
@@ -40,9 +40,9 @@ export const AllCards = () => (
       }}
       buttonText="Go dance!"
       onPress={() => console.log('Temple Card!')}>
-      <B18>Can have custom content</B18>
-      <B18>Can have custom content</B18>
-      <B18>Can have custom content</B18>
+      <Body18>Can have custom content</Body18>
+      <Body18>Can have custom content</Body18>
+      <Body18>Can have custom content</Body18>
     </Card>
   </ScreenWrapper>
 );

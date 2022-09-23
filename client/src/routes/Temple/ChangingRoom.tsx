@@ -28,7 +28,7 @@ import {
   Spacer48,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
-import {B16} from '../../common/components/Typography/Text/Text';
+import {Body16} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../common/constants/colors';
 import {DailyContext} from '../Temple/DailyProvider';
 import {localParticipantSelector, templeAtom} from './state/state';
@@ -72,7 +72,7 @@ const DailyMediaViewWrapper = styled(DailyMediaView)({
   flex: 1,
 });
 
-const VideoText = styled(B16)({
+const VideoText = styled(Body16)({
   textAlign: 'center',
   color: COLORS.PURE_WHITE,
 });

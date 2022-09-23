@@ -2,7 +2,7 @@ import React from 'react';
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import styled from 'styled-components/native';
 
-import {B16} from '../../../../common/components/Typography/Text/Text';
+import {Body16} from '../../../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../common/constants/colors';
 import {ViewStyle} from 'react-native';
 
@@ -11,7 +11,7 @@ const renderName = (participant: DailyParticipant, suffix: string) =>
     ? `${participant.user_name} (${suffix})`
     : participant.user_name;
 
-const Name = styled(B16)({
+const Name = styled(Body16)({
   color: COLORS.PURE_WHITE,
 });
 

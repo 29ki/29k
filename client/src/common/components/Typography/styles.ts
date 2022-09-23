@@ -49,47 +49,50 @@ const textStyles = StyleSheet.create({
     lineHeight: 19,
     fontFamily: PlayfairDisplayRegular,
   },
-  H24: {
+  Heading24: {
     color: COLORS.BLACK,
     fontSize: 24,
     lineHeight: 31,
     fontFamily: HKGroteskBold,
   },
-  H22: {
+  Heading22: {
     color: COLORS.BLACK,
     fontSize: 22,
     lineHeight: 29,
     fontFamily: HKGroteskBold,
   },
-  H18: {
+  Heading18: {
     color: COLORS.BLACK,
     fontSize: 18,
     lineHeight: 23,
     fontFamily: HKGroteskBold,
   },
-  H16: {
+  Heading16: {
     color: COLORS.BLACK,
     fontSize: 16,
     lineHeight: 21,
     fontFamily: HKGroteskBold,
   },
-  B18: {
+  Body18: {
     color: COLORS.BLACK,
     fontSize: 18,
     lineHeight: 23,
     fontFamily: HKGroteskRegular,
   },
-  B16: {
+  Body16: {
     color: COLORS.BLACK,
     fontSize: 16,
     lineHeight: 21,
     fontFamily: HKGroteskRegular,
   },
-  B14: {
+  Body14: {
     color: COLORS.BLACK,
     fontSize: 14,
     lineHeight: 18,
     fontFamily: HKGroteskRegular,
+  },
+  BodyBold: {
+    fontFamily: HKGroteskBold,
   },
   NAV_TAB: {
     color: COLORS.BLACK,
@@ -105,10 +108,7 @@ const textStyles = StyleSheet.create({
   },
   TEXTLINK: {
     color: COLORS.ACTIVE,
-    fontSize: 16,
-    lineHeight: 21,
     textDecorationLine: 'underline',
-    fontFamily: HKGroteskRegular,
   },
 });
 

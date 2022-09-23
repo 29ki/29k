@@ -17,7 +17,7 @@ import {
 import {COLORS} from '../../common/constants/colors';
 import {TabNavigatorProps} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
-import {B14} from '../../common/components/Typography/Text/Text';
+import {Body14} from '../../common/components/Typography/Body/Body';
 
 import Profile from '../../routes/Profile/Profile';
 import Temples from '../../routes/Temples/Temples';
@@ -70,7 +70,7 @@ const getTabOptions: (
   label: string,
 ) => BottomTabNavigationOptions = (InactiveIcon, ActiveIcon, label) => ({
   tabBarIcon: ({focused}) => (focused ? <ActiveIcon /> : <InactiveIcon />),
-  tabBarLabel: () => <B14>{label}</B14>,
+  tabBarLabel: () => <Body14>{label}</Body14>,
 });
 
 const Tabs = () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {COLORS} from '../../constants/colors';
 import {SPACINGS} from '../../constants/spacings';
-import {B16} from '../Typography/Text/Text';
+import {Body16} from '../Typography/Body/Body';
 import {IconType} from '../Icons';
 import {ActivityIndicator} from 'react-native';
 import BaseButton, {BaseButtonProps, ButtonVariant} from './BaseButton';
@@ -32,7 +32,7 @@ type ButtonTextProps = {
   children: React.ReactNode;
 };
 
-const ButtonText = styled(B16)<ButtonTextProps>(
+const ButtonText = styled(Body16)<ButtonTextProps>(
   ({variant, small, active, disabled}) => ({
     height: 20,
     color:
