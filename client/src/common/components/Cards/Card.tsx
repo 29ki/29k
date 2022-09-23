@@ -12,6 +12,8 @@ import {B16} from '../Typography/Text/Text';
 import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display24} from '../Typography/Display/Display';
+import IconButton from '../Buttons/IconButton/IconButton';
+import {EllipsisIcon} from '../Icons';
 
 const GraphicsWrapper = styled.View({
   overflow: 'hidden',
@@ -39,6 +41,11 @@ const Wrapper = styled(TouchableOpacity)<{backgroundColor?: string}>(
   }),
 );
 
+const HeaderRow = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+});
+
 const Row = styled.View({
   flexDirection: 'row',
 });
@@ -54,6 +61,7 @@ type CardProps = {
   buttonText: string;
   backgroundColor?: string;
   children?: React.ReactNode;
+  onContextPress?: () => void;
 };
 
 export const Card: React.FC<CardProps> = ({
@@ -65,10 +73,22 @@ export const Card: React.FC<CardProps> = ({
   buttonText,
   children,
   backgroundColor,
+  onContextPress,
 }) => (
   <Wrapper backgroundColor={backgroundColor} onPress={onPress}>
     <View>
-      {title && <Display24>{title}</Display24>}
+      <HeaderRow>
+        {title && <Display24>{title}</Display24>}
+        {onContextPress && (
+          <IconButton
+            noBackground
+            variant="tertiary"
+            Icon={EllipsisIcon}
+            onPress={onContextPress}
+          />
+        )}
+      </HeaderRow>
+
       {description && <B16 numberOfLines={1}>{description}</B16>}
     </View>
     <Spacer16 />

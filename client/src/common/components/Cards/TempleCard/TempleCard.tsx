@@ -35,6 +35,9 @@ const TempleCard: React.FC<TempleCardProps> = ({temple}) => {
           },
         })
       }
+      onContextPress={() => {
+        navigate('TempleModal', {templeId: temple.id});
+      }}
     />
   );
 };
