@@ -23,7 +23,6 @@ const TempleCard: React.FC<TempleCardProps> = ({temple}) => {
       title={exercise?.name}
       description={name}
       buttonText={t('join_button')}
-      backgroundColor={exercise?.card?.backgroundColor}
       image={{
         uri: exercise?.card?.image?.source,
       }}

@@ -2,7 +2,7 @@ import React from 'react';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import {Spacer16} from '../Spacers/Spacer';
-import {B1} from '../Typography/Text/Text';
+import {B18} from '../Typography/Text/Text';
 import Card from './Card';
 
 const lottieSource = require('../../../assets/animations/mandala.json');
@@ -22,7 +22,6 @@ export const AllCards = () => (
       title="Test temple"
       description="With description"
       lottie={lottieSource}
-      backgroundColor="pink"
       buttonText="Go fish!"
       onPress={() => console.log('Temple Card!')}
     />
@@ -39,12 +38,11 @@ export const AllCards = () => (
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
       }}
-      backgroundColor="darksalmon"
       buttonText="Go dance!"
       onPress={() => console.log('Temple Card!')}>
-      <B1>Can have custom content</B1>
-      <B1>Can have custom content</B1>
-      <B1>Can have custom content</B1>
+      <B18>Can have custom content</B18>
+      <B18>Can have custom content</B18>
+      <B18>Can have custom content</B18>
     </Card>
   </ScreenWrapper>
 );

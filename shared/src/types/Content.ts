@@ -54,7 +54,6 @@ export type Exercise = {
   name: string;
   card?: {
     image?: {source: string; description?: string};
-    backgroundColor?: string;
   };
   introPortal: Portal;
   slides: ExerciseSlide[];
