@@ -34,18 +34,9 @@ const MediaControls = styled.View({
   justifyContent: 'center',
 });
 
-const SlideButton = styled(IconButton)({
-  paddingVertical: SPACINGS.EIGHT,
-  paddingHorizontal: SPACINGS.TWELVE,
-});
-
-const ButtonHidden = styled(Button).attrs({
-  LeftIcon: ChevronLeft,
-  disabled: true,
-  onPress: () => {},
-})({
-  opacity: 0,
-});
+const SlideButton = styled(Button)(({disabled}) => ({
+  opacity: disabled ? 0 : 1,
+}));
 
 type ContentControlsProps = {
   templeId: string;
@@ -66,26 +57,23 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
 
   return (
     <Wrapper style={style}>
-      {exercise.slide.index !== 0 ? (
-        <Button
-          variant="tertiary"
-          small
-          LeftIcon={ChevronLeft}
-          elevated
-          onPress={() =>
-            navigateToIndex({
-              index: exercise.slide.index - 1,
-              content: exercise.slides,
-            })
-          }>
-          {t('controls.prev')}
-        </Button>
-      ) : (
-        <ButtonHidden>{t('controls.prev')}</ButtonHidden>
-      )}
+      <SlideButton
+        variant="tertiary"
+        small
+        LeftIcon={ChevronLeft}
+        disabled={!exercise.slide.previous}
+        elevated
+        onPress={() =>
+          navigateToIndex({
+            index: exercise.slide.index - 1,
+            content: exercise.slides,
+          })
+        }>
+        {t('controls.prev')}
+      </SlideButton>
       {exercise.slide.current.type !== 'participantSpotlight' && (
         <MediaControls>
-          <SlideButton
+          <IconButton
             small
             elevated
             variant="tertiary"
@@ -93,7 +81,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
             onPress={() => setPlaying(exerciseState.playing)}
           />
           <Spacer8 />
-          <SlideButton
+          <IconButton
             small
             elevated
             variant="tertiary"
@@ -102,23 +90,20 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
           />
         </MediaControls>
       )}
-      {exercise.slide.index !== exercise.slides.length - 1 ? (
-        <Button
-          small
-          elevated
-          variant="tertiary"
-          RightIcon={ChevronRight}
-          onPress={() =>
-            navigateToIndex({
-              index: exerciseState.index + 1,
-              content: exercise.slides,
-            })
-          }>
-          {t('controls.next')}
-        </Button>
-      ) : (
-        <ButtonHidden>{t('controls.next')}</ButtonHidden>
-      )}
+      <SlideButton
+        small
+        elevated
+        variant="tertiary"
+        disabled={!exercise.slide.next}
+        RightIcon={ChevronRight}
+        onPress={() =>
+          navigateToIndex({
+            index: exerciseState.index + 1,
+            content: exercise.slides,
+          })
+        }>
+        {t('controls.next')}
+      </SlideButton>
     </Wrapper>
   );
 };
