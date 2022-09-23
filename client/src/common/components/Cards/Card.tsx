@@ -8,10 +8,10 @@ import {SPACINGS} from '../../constants/spacings';
 import SETTINGS from '../../constants/settings';
 import Button from '../Buttons/Button';
 import {Spacer16} from '../Spacers/Spacer';
-import {H3} from '../Typography/Heading/Heading';
-import {B2} from '../Typography/Text/Text';
+import {B16} from '../Typography/Text/Text';
 import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
+import {Display24} from '../Typography/Display/Display';
 
 const GraphicsWrapper = styled.View({
   overflow: 'hidden',
@@ -68,8 +68,8 @@ export const Card: React.FC<CardProps> = ({
 }) => (
   <Wrapper backgroundColor={backgroundColor} onPress={onPress}>
     <View>
-      {title && <H3>{title}</H3>}
-      {description && <B2 numberOfLines={1}>{description}</B2>}
+      {title && <Display24>{title}</Display24>}
+      {description && <B16 numberOfLines={1}>{description}</B16>}
     </View>
     <Spacer16 />
     <Row>

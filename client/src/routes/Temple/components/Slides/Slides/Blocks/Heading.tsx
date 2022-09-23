@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components/native';
 import Gutters from '../../../../../../common/components/Gutters/Gutters';
 import {Spacer12} from '../../../../../../common/components/Spacers/Spacer';
-import {H2} from '../../../../../../common/components/Typography/Heading/Heading';
+import {Display36} from '../../../../../../common/components/Typography/Display/Display';
 
-const StyledHeading = styled(H2)({
+const StyledHeading = styled(Display36)({
   textAlign: 'center',
 });
 
