@@ -17,15 +17,8 @@ const Row = styled.View({
   justifyContent: 'space-between',
 });
 
-export const AllButtons = () => (
-  <ScreenWrapper>
-    <Buttons />
-    <IconButtons />
-  </ScreenWrapper>
-);
-
-export const Buttons = () => (
-  <ScreenWrapper>
+const ButtonList = () => (
+  <>
     <Button onPress={() => {}}>Primary</Button>
     <Spacer16 />
     <Button onPress={() => {}} small>
@@ -64,11 +57,11 @@ export const Buttons = () => (
       Tertiary
     </Button>
     <Spacer16 />
-  </ScreenWrapper>
+  </>
 );
 
-export const IconButtons = () => (
-  <ScreenWrapper>
+const IconButtonList = () => (
+  <>
     <Row>
       <B2>Icon button secondary</B2>
       <IconButton variant="secondary" onPress={() => {}} Icon={PlusIcon} />
@@ -105,5 +98,24 @@ export const IconButtons = () => (
       <IconButton small onPress={() => {}} Icon={PlusIcon} />
     </Row>
     <Spacer16 />
+  </>
+);
+
+export const AllButtons = () => (
+  <ScreenWrapper>
+    <ButtonList />
+    <IconButtonList />
+  </ScreenWrapper>
+);
+
+export const Buttons = () => (
+  <ScreenWrapper>
+    <ButtonList />
+  </ScreenWrapper>
+);
+
+export const IconButtons = () => (
+  <ScreenWrapper>
+    <IconButtonList />
   </ScreenWrapper>
 );

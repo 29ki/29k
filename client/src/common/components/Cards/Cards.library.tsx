@@ -9,7 +9,6 @@ const lottieSource = require('../../../assets/animations/mandala.json');
 
 export const AllCards = () => (
   <ScreenWrapper>
-    <Spacer16 />
     <Card
       title="Test temple"
       image={{
