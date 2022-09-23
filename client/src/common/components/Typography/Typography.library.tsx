@@ -3,7 +3,7 @@ import {ScrollView} from 'react-native';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import {Heading24, Heading22, Heading18, Heading16} from './Heading/Heading';
-import {Body18, Body16, Body14, TextLink} from './Text/Text';
+import {Body18, Body16, Body14, BodyBold, TextLink} from './Body/Body';
 import Input from './TextInput/TextInput';
 import MarkdownRenderer from './Markdown/Markdown';
 import {Spacer16, Spacer8} from '../Spacers/Spacer';
@@ -91,6 +91,32 @@ const BodiesList = () => (
       typesetting industry. Lorem Ipsum has been the industry's standard dummy
       text ever since the 1500s.
     </Body14>
+    <Spacer16 />
+
+    <Body14>Default: HKGrotesk Bold</Body14>
+    <Body18>
+      <BodyBold>
+        Bold Body 18 Regular Lorem Ipsum is simply dummy text of the printing
+        and typesetting industry. Lorem Ipsum has been the industry's standard
+        dummy text ever since the 1500s.
+      </BodyBold>
+    </Body18>
+    <Spacer16 />
+    <Body16>
+      <BodyBold>
+        Bold Body 16 Regular Lorem Ipsum is simply dummy text of the printing
+        and typesetting industry. Lorem Ipsum has been the industry's standard
+        dummy text ever since the 1500s.
+      </BodyBold>
+    </Body16>
+    <Spacer16 />
+    <Body14>
+      <BodyBold>
+        Bold Body 14 Regular Lorem Ipsum is simply dummy text of the printing
+        and typesetting industry. Lorem Ipsum has been the industry's standard
+        dummy text ever since the 1500s.
+      </BodyBold>
+    </Body14>
   </>
 );
 
@@ -128,7 +154,9 @@ export const AllTypes = () => (
     <Spacer16 />
     <MarkdownList />
     <Spacer16 />
-    <TextLink onPress={() => {}}>Text link</TextLink>
+    <Display28>
+      <TextLink onPress={() => {}}>Text link</TextLink>
+    </Display28>
     <Spacer8 />
     <Input placeholder="Placeholder" />
   </ScreenWrapper>

@@ -2,7 +2,7 @@ import React from 'react';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import {Spacer16} from '../Spacers/Spacer';
-import {Body18} from '../Typography/Text/Text';
+import {Body18} from '../Typography/Body/Body';
 import Card from './Card';
 
 const lottieSource = require('../../../assets/animations/mandala.json');

@@ -2,11 +2,10 @@ import styled from 'styled-components/native';
 
 import typeStyles from '../styles';
 
-const BaseDisplay = styled.Text({});
-
-BaseDisplay.defaultProps = {
+const BaseDisplay = styled.Text.attrs({
   allowFontScaling: false,
-};
+  selectable: true,
+})({});
 
 export const Display36 = styled(BaseDisplay)(typeStyles.Display36);
 export const Display28 = styled(BaseDisplay)(typeStyles.Display28);

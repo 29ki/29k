@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {COLORS} from '../../constants/colors';
 import {SPACINGS} from '../../constants/spacings';
-import {Body16} from '../Typography/Text/Text';
+import {Body16} from '../Typography/Body/Body';
 import {IconType} from '../Icons';
 import {ActivityIndicator} from 'react-native';
 import BaseButton, {BaseButtonProps, ButtonVariant} from './BaseButton';

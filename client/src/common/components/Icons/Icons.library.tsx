@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import {Spacer12} from '../Spacers/Spacer';
-import {Body14} from '../Typography/Text/Text';
+import {Body14} from '../Typography/Body/Body';
 import * as icons from './index';
 
 const Row = styled.View({

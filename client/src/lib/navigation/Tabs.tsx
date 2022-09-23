@@ -17,7 +17,7 @@ import {
 import {COLORS} from '../../common/constants/colors';
 import {TabNavigatorProps} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
-import {Body14} from '../../common/components/Typography/Text/Text';
+import {Body14} from '../../common/components/Typography/Body/Body';
 
 import Profile from '../../routes/Profile/Profile';
 import Temples from '../../routes/Temples/Temples';

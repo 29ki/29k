@@ -6,7 +6,7 @@ import styled from 'styled-components/native';
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {Spacer16, Spacer48} from '../../common/components/Spacers/Spacer';
-import {Body18} from '../../common/components/Typography/Text/Text';
+import {Body18} from '../../common/components/Typography/Body/Body';
 import useCheckForUpdate from '../../lib/codePush/hooks/useCheckForUpdate';
 import useClearUpdates from '../../lib/codePush/hooks/useClearUpdates';
 import {useSignOutUser} from '../../lib/user/hooks/useSignOutUser';

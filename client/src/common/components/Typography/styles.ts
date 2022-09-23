@@ -91,6 +91,9 @@ const textStyles = StyleSheet.create({
     lineHeight: 18,
     fontFamily: HKGroteskRegular,
   },
+  BodyBold: {
+    fontFamily: HKGroteskBold,
+  },
   NAV_TAB: {
     color: COLORS.BLACK,
     fontSize: 16,
@@ -105,10 +108,7 @@ const textStyles = StyleSheet.create({
   },
   TEXTLINK: {
     color: COLORS.ACTIVE,
-    fontSize: 16,
-    lineHeight: 21,
     textDecorationLine: 'underline',
-    fontFamily: HKGroteskRegular,
   },
 });
 

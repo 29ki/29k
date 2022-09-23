@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 
-import {Body16, Body14} from '../components/Typography/Text/Text';
+import {Body16, Body14} from '../components/Typography/Body/Body';
 import * as Spacers from '../components/Spacers/Spacer';
 import {Spacer24} from '../components/Spacers/Spacer';
 import ScreenWrapper from '../../lib/uiLib/decorators/ScreenWrapper';

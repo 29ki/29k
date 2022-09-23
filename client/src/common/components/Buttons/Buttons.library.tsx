@@ -7,7 +7,7 @@ import {Spacer16} from '../Spacers/Spacer';
 import Button from './Button';
 import IconButton from './IconButton/IconButton';
 import {HomeIcon} from '../Icons/Home/Home';
-import {Body16, Body18} from '../Typography/Text/Text';
+import {Body16, Body18} from '../Typography/Body/Body';
 import {PlusIcon} from '../Icons';
 
 const RowFullWidth = styled.View({
