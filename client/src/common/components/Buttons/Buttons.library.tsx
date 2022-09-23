@@ -7,15 +7,17 @@ import {Spacer16} from '../Spacers/Spacer';
 import Button from './Button';
 import IconButton from './IconButton/IconButton';
 import {HomeIcon} from '../Icons/Home/Home';
-import {B2} from '../Typography/Text/Text';
+import {B1, B2} from '../Typography/Text/Text';
 import {PlusIcon} from '../Icons';
 
-const Row = styled.View({
+const RowFullWidth = styled.View({
   flex: 1,
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
 });
+
+const Row = styled.View({flexDirection: 'row'});
 
 export const AllButtons = () => (
   <ScreenWrapper>
@@ -26,84 +28,126 @@ export const AllButtons = () => (
 
 export const Buttons = () => (
   <ScreenWrapper>
-    <Button onPress={() => {}}>Primary</Button>
+    <RowFullWidth>
+      <Button onPress={() => {}}>Primary</Button>
+      <Spacer16 />
+      <Button loading elevated onPress={() => {}}>
+        Elevated Loading
+      </Button>
+    </RowFullWidth>
     <Spacer16 />
-    <Button onPress={() => {}} small>
-      Small
-    </Button>
+    <RowFullWidth>
+      <Button onPress={() => {}} variant="secondary">
+        Secondary
+      </Button>
+      <Spacer16 />
+      <Button variant="secondary" elevated onPress={() => {}}>
+        Elevated Secondary
+      </Button>
+    </RowFullWidth>
     <Spacer16 />
-    <Button onPress={() => {}} LeftIcon={HomeIcon}>
-      Left icon
-    </Button>
+    <RowFullWidth>
+      <Button onPress={() => {}} variant="tertiary">
+        Tertiary
+      </Button>
+      <Spacer16 />
+      <Button variant="tertiary" elevated onPress={() => {}}>
+        Elevated Tertiary
+      </Button>
+    </RowFullWidth>
     <Spacer16 />
-    <Button onPress={() => {}} RightIcon={HomeIcon}>
-      Right icon
-    </Button>
+    <RowFullWidth>
+      <Button onPress={() => {}} LeftIcon={HomeIcon}>
+        Left icon
+      </Button>
+      <Spacer16 />
+      <Button onPress={() => {}} RightIcon={HomeIcon}>
+        Right icon
+      </Button>
+    </RowFullWidth>
     <Spacer16 />
-    <Button onPress={() => {}} elevated>
-      Elevated
-    </Button>
+    <RowFullWidth>
+      <Button small onPress={() => {}}>
+        Small Button
+      </Button>
+      <Spacer16 />
+      <Button small onPress={() => {}} LeftIcon={HomeIcon}>
+        Small with icon
+      </Button>
+    </RowFullWidth>
     <Spacer16 />
-    <Button onPress={() => {}} loading>
-      Loading
-    </Button>
-    <Spacer16 />
-    <Button onPress={() => {}} disabled>
-      Disabled
-    </Button>
-    <Spacer16 />
-    <Button onPress={() => {}} active>
-      Active
-    </Button>
-    <Spacer16 />
-    <Button onPress={() => {}} variant="secondary">
-      Secondary
-    </Button>
-    <Spacer16 />
-    <Button onPress={() => {}} variant="tertiary">
-      Tertiary
-    </Button>
+    <RowFullWidth>
+      <Button onPress={() => {}} disabled>
+        Disabled
+      </Button>
+      <Spacer16 />
+      <Button onPress={() => {}} active>
+        Active
+      </Button>
+    </RowFullWidth>
     <Spacer16 />
   </ScreenWrapper>
 );
 
 export const IconButtons = () => (
   <ScreenWrapper>
-    <Row>
-      <B2>Icon button secondary</B2>
-      <IconButton variant="secondary" onPress={() => {}} Icon={PlusIcon} />
-    </Row>
+    <B1>Icon buttons</B1>
+    <RowFullWidth>
+      <B2>Primary</B2>
+      <Row>
+        <IconButton onPress={() => {}} Icon={PlusIcon} />
+        <Spacer16 />
+        <IconButton elevated onPress={() => {}} Icon={PlusIcon} />
+      </Row>
+    </RowFullWidth>
     <Spacer16 />
-    <Row>
-      <B2>Icon button active state</B2>
-      <IconButton onPress={() => {}} Icon={PlusIcon} active />
-    </Row>
+    <RowFullWidth>
+      <B2>Secondary</B2>
+      <Row>
+        <IconButton variant="secondary" onPress={() => {}} Icon={PlusIcon} />
+        <Spacer16 />
+        <IconButton
+          variant="secondary"
+          elevated
+          onPress={() => {}}
+          Icon={PlusIcon}
+        />
+      </Row>
+    </RowFullWidth>
     <Spacer16 />
-    <Row>
-      <B2>Icon button tertiary elevated</B2>
-      <IconButton
-        elevated
-        variant="tertiary"
-        onPress={() => {}}
-        Icon={PlusIcon}
-      />
-    </Row>
+    <RowFullWidth>
+      <B2>Tertiary</B2>
+      <Row>
+        <IconButton variant="tertiary" onPress={() => {}} Icon={PlusIcon} />
+        <Spacer16 />
+        <IconButton
+          variant="tertiary"
+          elevated
+          onPress={() => {}}
+          Icon={PlusIcon}
+        />
+      </Row>
+    </RowFullWidth>
     <Spacer16 />
-    <Row>
-      <B2>Icon button elevated disabled</B2>
-      <IconButton
-        elevated
-        variant="tertiary"
-        disabled
-        onPress={() => {}}
-        Icon={PlusIcon}
-      />
-    </Row>
+    <RowFullWidth>
+      <B2>Active and disabled</B2>
+      <Row>
+        <IconButton onPress={() => {}} Icon={PlusIcon} active />
+        <Spacer16 />
+        <IconButton
+          elevated
+          variant="tertiary"
+          disabled
+          onPress={() => {}}
+          Icon={PlusIcon}
+        />
+      </Row>
+    </RowFullWidth>
     <Spacer16 />
-    <Row>
-      <B2>Icon button small</B2>
+    <RowFullWidth>
+      <B2>Small</B2>
       <IconButton small onPress={() => {}} Icon={PlusIcon} />
-    </Row>
+    </RowFullWidth>
     <Spacer16 />
   </ScreenWrapper>
 );
