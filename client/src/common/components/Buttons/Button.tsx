@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import {ActivityIndicator} from 'react-native';
 import {COLORS} from '../../constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import {Body16} from '../Typography/Body/Body';
 import {IconType} from '../Icons';
-import {ActivityIndicator} from 'react-native';
 import BaseButton, {BaseButtonProps, ButtonVariant} from './BaseButton';
 
 const IconWrapper = styled.View({
@@ -22,6 +22,11 @@ const LeftIconWrapper = styled(IconWrapper)({
 const RightIconWrapper = styled(IconWrapper)({
   marginLeft: -SPACINGS.TWELVE,
   marginRight: SPACINGS.EIGHT,
+});
+
+const Spinner = styled(ActivityIndicator)({
+  marginRight: -SPACINGS.EIGHT,
+  marginLeft: SPACINGS.EIGHT,
 });
 
 type ButtonTextProps = {
@@ -72,16 +77,16 @@ const Button: React.FC<ButtonProps> = ({
     style={style}
     disabled={disabled}>
     {loading && (
-      <LeftIconWrapper>
-        <ActivityIndicator
-          size="small"
-          color={
-            variant === 'tertiary' && !active ? COLORS.BLACK : COLORS.WHITE
-          }
-        />
-      </LeftIconWrapper>
+      <Spinner
+        size="small"
+        color={
+          disabled || active || variant !== 'tertiary'
+            ? COLORS.WHITE
+            : COLORS.BLACK
+        }
+      />
     )}
-    {LeftIcon && (
+    {LeftIcon && !loading && (
       <LeftIconWrapper>
         <LeftIcon
           fill={
