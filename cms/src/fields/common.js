@@ -68,20 +68,13 @@ export const VIDEO_FIELD = {
       i18n: true,
     },
     {
-      label: 'Thumbnail file',
-      name: 'thumbnail',
-      widget: 'file',
+      label: 'Preview image',
+      name: 'preview',
+      widget: 'image',
       required: false,
       i18n: false,
     },
   ],
-};
-
-export const BACKGROUND_COLOR = {
-  label: 'Background Color',
-  name: 'backgroundColor',
-  i18n: true,
-  widget: 'color',
 };
 
 export const CARD_FIELD = {
@@ -89,5 +82,5 @@ export const CARD_FIELD = {
   name: 'card',
   i18n: true,
   widget: 'object',
-  fields: [IMAGE_FIELD, BACKGROUND_COLOR],
+  fields: [IMAGE_FIELD],
 };

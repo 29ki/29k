@@ -19,6 +19,7 @@ import {
   participantsSortOrderAtom,
 } from './state/state';
 import useSetParticipantsSortOrder from './hooks/useSetParticipantsSortOrder';
+import Sentry from '../../lib/sentry';
 
 export type DailyProviderTypes = {
   call?: DailyCall;
@@ -29,6 +30,7 @@ export type DailyProviderTypes = {
   toggleVideo: (enabled: boolean) => void;
   setUserName: (userName: string) => Promise<void>;
   setUserData: (userData: unknown) => Promise<void>;
+  setSubscribeToAllTracks: () => void;
 };
 
 export const DailyContext = createContext<DailyProviderTypes>({
@@ -39,6 +41,7 @@ export const DailyContext = createContext<DailyProviderTypes>({
   toggleVideo: () => {},
   setUserName: () => Promise.resolve(),
   setUserData: () => Promise.resolve(),
+  setSubscribeToAllTracks: () => {},
 });
 
 const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
@@ -93,13 +96,17 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
       setParticipantsSortOrder(peerId);
     };
 
+    const onError = ({error}: DailyEventObject<'error'>) => {
+      Sentry.captureException(error);
+    };
+
     return [
       ['participant-joined', onParticipantJoined],
       ['participant-left', onParticipantLeft],
       ['participant-updated', onParticipantUpdated],
       ['active-speaker-change', onActiveSpeakerChange],
+      ['error', onError],
       //   ['network-quality-change', connect(networkQualityChange)],
-      //   ['error', error => dispatch(setError(error.errorMsg))],
     ];
   }, [setParticipants, setParticipantsSortOrder]);
 
@@ -125,6 +132,13 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
 
     [daily, setIsLoading],
   );
+
+  const setSubscribeToAllTracks = useCallback(() => {
+    if (!daily) {
+      return;
+    }
+    daily.setSubscribeToTracksAutomatically(true);
+  }, [daily]);
 
   const toggleAudio = useCallback(
     (enabled = true) => {
@@ -171,7 +185,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const joinMeeting = useCallback(
     async (userData: unknown) => {
       if (daily.meetingState() !== 'joined-meeting') {
-        await daily.join({userData});
+        await daily.join({subscribeToTracksAutomatically: false, userData});
       }
     },
     [daily],
@@ -211,6 +225,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
         toggleVideo,
         setUserName,
         setUserData,
+        setSubscribeToAllTracks,
       }}>
       {children}
     </DailyContext.Provider>

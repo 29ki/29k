@@ -2,67 +2,112 @@ import {StyleSheet} from 'react-native';
 import {COLORS} from '../../constants/colors';
 import {
   HKGroteskBold,
-  HKGroteskMedium,
-  PlayfairDisplayMedium,
+  HKGroteskRegular,
+  PlayfairDisplayRegular,
 } from '../../constants/fonts';
 
 const textStyles = StyleSheet.create({
-  H1: {
-    color: COLORS.GREY,
-    fontSize: 40,
-    fontFamily: PlayfairDisplayMedium,
+  Display36: {
+    color: COLORS.BLACK,
+    fontSize: 36,
+    lineHeight: 48,
+    fontFamily: PlayfairDisplayRegular,
   },
-  H2: {
-    color: COLORS.GREY,
-    fontSize: 32,
-    fontFamily: PlayfairDisplayMedium,
+  Display28: {
+    color: COLORS.BLACK,
+    fontSize: 28,
+    lineHeight: 37,
+    fontFamily: PlayfairDisplayRegular,
   },
-  H3: {
-    color: COLORS.GREY,
+  Display24: {
+    color: COLORS.BLACK,
     fontSize: 24,
-    fontFamily: PlayfairDisplayMedium,
+    lineHeight: 33,
+    fontFamily: PlayfairDisplayRegular,
   },
-  H4: {
-    color: COLORS.GREY,
-    fontSize: 20,
-    fontFamily: PlayfairDisplayMedium,
+  Display22: {
+    color: COLORS.BLACK,
+    fontSize: 22,
+    lineHeight: 29,
+    fontFamily: PlayfairDisplayRegular,
   },
-  H5: {
-    color: COLORS.GREY,
+  Display18: {
+    color: COLORS.BLACK,
+    fontSize: 18,
+    lineHeight: 24,
+    fontFamily: PlayfairDisplayRegular,
+  },
+  Display16: {
+    color: COLORS.BLACK,
     fontSize: 16,
-    fontFamily: PlayfairDisplayMedium,
+    lineHeight: 21,
+    fontFamily: PlayfairDisplayRegular,
   },
-  B1: {
-    color: COLORS.GREY,
-    fontSize: 20,
-    fontFamily: HKGroteskMedium,
+  Display14: {
+    color: COLORS.BLACK,
+    fontSize: 14,
+    lineHeight: 19,
+    fontFamily: PlayfairDisplayRegular,
   },
-  B2: {
-    color: COLORS.GREY,
+  Heading24: {
+    color: COLORS.BLACK,
+    fontSize: 24,
+    lineHeight: 31,
+    fontFamily: HKGroteskBold,
+  },
+  Heading22: {
+    color: COLORS.BLACK,
+    fontSize: 22,
+    lineHeight: 29,
+    fontFamily: HKGroteskBold,
+  },
+  Heading18: {
+    color: COLORS.BLACK,
+    fontSize: 18,
+    lineHeight: 23,
+    fontFamily: HKGroteskBold,
+  },
+  Heading16: {
+    color: COLORS.BLACK,
     fontSize: 16,
-    fontFamily: HKGroteskMedium,
+    lineHeight: 21,
+    fontFamily: HKGroteskBold,
   },
-  B3: {
-    color: COLORS.GREY,
+  Body18: {
+    color: COLORS.BLACK,
+    fontSize: 18,
+    lineHeight: 23,
+    fontFamily: HKGroteskRegular,
+  },
+  Body16: {
+    color: COLORS.BLACK,
+    fontSize: 16,
+    lineHeight: 21,
+    fontFamily: HKGroteskRegular,
+  },
+  Body14: {
+    color: COLORS.BLACK,
     fontSize: 14,
-    fontFamily: HKGroteskMedium,
+    lineHeight: 18,
+    fontFamily: HKGroteskRegular,
   },
-  ERROR_TEXT: {
-    fontSize: 14,
-    color: COLORS.ERROR_PINK,
-  },
-  HIGHLIGHT: {
-    color: COLORS.ROSE700,
+  BodyBold: {
+    fontFamily: HKGroteskBold,
   },
   NAV_TAB: {
     color: COLORS.BLACK,
     fontSize: 16,
     fontFamily: HKGroteskBold,
   },
-  TEXTLINK: {
-    color: COLORS.ROSE700,
+  ERROR_TEXT: {
     fontSize: 14,
-    lineHeight: 20,
+    color: COLORS.ERROR,
+  },
+  HIGHLIGHT: {
+    color: COLORS.ACTIVE,
+  },
+  TEXTLINK: {
+    color: COLORS.ACTIVE,
     textDecorationLine: 'underline',
   },
 });

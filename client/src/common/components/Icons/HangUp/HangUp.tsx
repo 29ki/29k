@@ -4,7 +4,7 @@ import {IconType} from '..';
 import {COLORS} from '../../../constants/colors';
 import Icon from '../Icon';
 
-export const HangUpIcon: IconType = ({fill = COLORS.ROSE500}) => (
+export const HangUpIcon: IconType = ({fill = COLORS.ACTIVE}) => (
   <Icon>
     <Path
       fillRule="evenodd"

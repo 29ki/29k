@@ -14,7 +14,13 @@ import {useRecoilValue} from 'recoil';
 
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
-import {BackIcon} from '../../common/components/Icons';
+import {
+  ArrowLeftIcon,
+  FilmCameraIcon,
+  FilmCameraOffIcon,
+  MicrophoneIcon,
+  MicrophoneOffIcon,
+} from '../../common/components/Icons';
 import {
   BottomSafeArea,
   Spacer16,
@@ -22,9 +28,7 @@ import {
   Spacer48,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
-import AudioToggleButton from './components/Buttons/AudioToggleButton';
-import VideoToggleButton from './components/Buttons/VideoToggleButton';
-import {B2} from '../../common/components/Typography/Text/Text';
+import {Body16} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../common/constants/colors';
 import {DailyContext} from '../Temple/DailyProvider';
 import {localParticipantSelector, templeAtom} from './state/state';
@@ -61,16 +65,16 @@ const VideoWrapper = styled.View({
   alignContent: 'center',
   justifyContent: 'center',
   alignSelf: 'center',
-  backgroundColor: COLORS.GREY,
+  backgroundColor: COLORS.BLACK,
 });
 
 const DailyMediaViewWrapper = styled(DailyMediaView)({
   flex: 1,
 });
 
-const VideoText = styled(B2)({
+const VideoText = styled(Body16)({
   textAlign: 'center',
-  color: COLORS.WHITE,
+  color: COLORS.PURE_WHITE,
 });
 
 const InputWrapper = styled.View({
@@ -138,7 +142,7 @@ const ChangingRoom = () => {
     <>
       <TopSafeArea />
       <Gutters>
-        <IconButton onPress={goBack} Icon={BackIcon} />
+        <IconButton variant="tertiary" onPress={goBack} Icon={ArrowLeftIcon} />
       </Gutters>
       <Wrapper>
         <VideoWrapper>
@@ -158,14 +162,19 @@ const ChangingRoom = () => {
         <Spacer28 />
         <Gutters>
           <Controls>
-            <AudioToggleButton
+            <IconButton
+              disabled
               onPress={() => toggleAudio(!hasAudio)}
               active={hasAudio}
+              variant="secondary"
+              Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
             />
             <Spacer16 />
-            <VideoToggleButton
+            <IconButton
               onPress={() => toggleVideo(!hasVideo)}
               active={hasVideo}
+              variant="secondary"
+              Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
             />
           </Controls>
           <Spacer48 />
@@ -178,7 +187,10 @@ const ChangingRoom = () => {
               maxLength={20}
             />
             <Spacer28 />
-            <Button onPress={handleJoin} disabled={!localUserName.length}>
+            <Button
+              variant="secondary"
+              onPress={handleJoin}
+              disabled={!localUserName.length}>
               {t('join_button')}
             </Button>
           </InputWrapper>

@@ -1,7 +1,7 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
 import Animated, {FadeOut} from 'react-native-reanimated';
@@ -18,7 +18,7 @@ import {
   Spacer8,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
-import {B3} from '../../common/components/Typography/Text/Text';
+import {Body14} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../common/constants/colors';
 import {HKGroteskBold} from '../../common/constants/fonts';
 import {TempleStackProps} from '../../common/constants/routes';
@@ -29,9 +29,10 @@ import * as templeApi from '../Temples/api/temple';
 import Counter from './components/Counter/Counter';
 import {DailyContext} from './DailyProvider';
 import useTempleExercise from './hooks/useTempleExercise';
-import useConfirmExitTemple from './hooks/useConfirmExitTemple';
+import usePreventTempleLeave from './hooks/usePreventTempleLeave';
 import {participantsAtom, templeAtom} from './state/state';
 import {DailyUserData} from '../../../../shared/src/types/Temple';
+import useLeaveTemple from './hooks/useLeaveTemple';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -42,8 +43,8 @@ const VideoStyled = styled(Video)({
   flex: 1,
 });
 
-const StatusText = styled(B3)({
-  color: COLORS.WHITE,
+const StatusText = styled(Body14)({
+  color: COLORS.PURE_WHITE,
 });
 
 const StatusItem = styled.View({
@@ -80,7 +81,7 @@ const TopBar = styled(Gutters)({
 });
 
 const StartButton = styled(Button)({
-  backgroundColor: COLORS.GREEN,
+  backgroundColor: COLORS.PRIMARY,
 });
 
 const BackButton = styled(IconButton)({
@@ -91,6 +92,7 @@ const Portal: React.FC = () => {
   const {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Portal'>>();
+  const finalVidRef = useRef<Video>(null);
   const [now, setNow] = useState(dayjs());
   const {joinMeeting} = useContext(DailyContext);
   const [joiningTemple, setJoiningTemple] = useState(false);
@@ -101,9 +103,10 @@ const Portal: React.FC = () => {
   const user = useRecoilValue(userAtom);
   const participants = useRecoilValue(participantsAtom);
   const participantsCount = Object.keys(participants).length;
-  const {goBack, navigate} = useNavigation<TempleNavigationProps>();
+  const {navigate} = useNavigation<TempleNavigationProps>();
+  const leaveTemple = useLeaveTemple();
 
-  useConfirmExitTemple();
+  usePreventTempleLeave();
 
   useEffect(() => {
     joinMeeting({inPortal: true} as DailyUserData);
@@ -125,32 +128,52 @@ const Portal: React.FC = () => {
     <>
       <TopSafeArea />
       <VideoStyled
-        onEnd={() => navigate('Temple', {templeId})}
-        paused={!joiningTemple}
-        source={{uri: introPortal.content.videoEnd?.source}}
-        mixWithOthers="mix"
+        ref={finalVidRef}
+        onEnd={() => {
+          if (joiningTemple) {
+            navigate('Temple', {templeId});
+          }
+        }}
+        repeat={!joiningTemple}
+        source={{uri: introPortal.videoEnd?.source}}
         resizeMode="cover"
+        poster={introPortal.videoEnd?.preview}
+        posterResizeMode="cover"
+        allowsExternalPlayback={false}
+        mixWithOthers="mix"
         disableFocus
+        playInBackground
+        playWhenInactive
       />
       {!joiningTemple && (
         <VideoStyled
           onEnd={() => {
             if (temple?.started) {
+              finalVidRef.current?.seek(0);
               setJoiningTemple(true);
             }
           }}
           repeat={!temple?.started}
-          source={{uri: introPortal.content.videoLoop?.source}}
-          mixWithOthers="mix"
+          source={{uri: introPortal.videoLoop?.source}}
           resizeMode="cover"
+          poster={introPortal.videoLoop?.preview}
+          posterResizeMode="cover"
+          allowsExternalPlayback={false}
+          mixWithOthers="mix"
           disableFocus
+          playInBackground
+          playWhenInactive
         />
       )}
       <Wrapper>
         {introPortal.type === 'video' && (
           <>
             <TopBar>
-              <BackButton noBackground onPress={goBack} Icon={ArrowLeftIcon} />
+              <BackButton
+                noBackground
+                onPress={leaveTemple}
+                Icon={ArrowLeftIcon}
+              />
               {temple?.facilitator === user?.uid && !temple?.started && (
                 <Animated.View exiting={FadeOut.duration(1500)}>
                   <StartButton
@@ -173,7 +196,7 @@ const Portal: React.FC = () => {
                   <Counter
                     startTime={dayjsTime}
                     now={now}
-                    starting={joiningTemple}
+                    starting={temple?.started}
                   />
                 </Badge>
               </StatusItem>

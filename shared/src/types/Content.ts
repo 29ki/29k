@@ -6,7 +6,7 @@ export type Content = {
   heading?: string;
   video?: {
     source: string;
-    thumbnail: string;
+    preview: string;
   };
   image?: {
     source: string;
@@ -31,13 +31,13 @@ export type SharingSlide = {
 
 export type VideoPortal = {
   type: 'video';
-  content: {
-    videoLoop: {
-      source: string;
-    };
-    videoEnd?: {
-      source: string;
-    };
+  videoLoop: {
+    source: string;
+    preview: string;
+  };
+  videoEnd?: {
+    source: string;
+    preview: string;
   };
 };
 
@@ -54,7 +54,6 @@ export type Exercise = {
   name: string;
   card?: {
     image?: {source: string; description?: string};
-    backgroundColor?: string;
   };
   introPortal: Portal;
   slides: ExerciseSlide[];

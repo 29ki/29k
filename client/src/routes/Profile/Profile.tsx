@@ -6,14 +6,14 @@ import styled from 'styled-components/native';
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {Spacer16, Spacer48} from '../../common/components/Spacers/Spacer';
-import {B1} from '../../common/components/Typography/Text/Text';
+import {Body18} from '../../common/components/Typography/Body/Body';
 import useCheckForUpdate from '../../lib/codePush/hooks/useCheckForUpdate';
 import useClearUpdates from '../../lib/codePush/hooks/useClearUpdates';
 import {useSignOutUser} from '../../lib/user/hooks/useSignOutUser';
 import {useUiLib} from '../../lib/uiLib/hooks/useUiLib';
 import {userAtom} from '../../lib/user/state/state';
 import {LANGUAGE_TAGS} from '../../../../shared/src/constants/i18n';
-import {H3} from '../../common/components/Typography/Heading/Heading';
+import {Heading24} from '../../common/components/Typography/Heading/Heading';
 import NS from '../../lib/i18n/constants/namespaces';
 
 const Wrapper = styled.View({
@@ -40,30 +40,23 @@ const Profile = () => {
       <Gutters>
         {user && (
           <>
-            <H3>{t('userId')}</H3>
-            <B1 selectable>{user.uid}</B1>
+            <Heading24>{t('userId')}</Heading24>
+            <Body18 selectable>{user.uid}</Body18>
             <Spacer16 />
           </>
         )}
-        <Button primary onPress={toggleUiLib}>
-          {t('uiLib')}
-        </Button>
+        <Button onPress={toggleUiLib}>{t('uiLib')}</Button>
         <Spacer16 />
-        <Button primary onPress={clearUpdates}>
-          {t('clearUpdate')}
-        </Button>
+        <Button onPress={clearUpdates}>{t('clearUpdate')}</Button>
         <Spacer16 />
-        <Button primary onPress={checkForUpdate}>
-          {t('checkUpdate')}
-        </Button>
+        <Button onPress={checkForUpdate}>{t('checkUpdate')}</Button>
         <Spacer48 />
 
-        <H3>{t('language')}</H3>
+        <Heading24>{t('language')}</Heading24>
         <Spacer16 />
         <Row>
           {LANGUAGE_TAGS.map(languageTag => (
             <Button
-              primary
               key={languageTag}
               onPress={() => i18n.changeLanguage(languageTag)}>
               {languageTag.toUpperCase()}
@@ -71,9 +64,7 @@ const Profile = () => {
           ))}
         </Row>
         <Spacer48 />
-        <Button primary onPress={signOut}>
-          {t('logout')}
-        </Button>
+        <Button onPress={signOut}>{t('logout')}</Button>
       </Gutters>
     </Wrapper>
   );

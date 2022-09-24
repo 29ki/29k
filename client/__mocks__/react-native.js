@@ -12,10 +12,15 @@ export const AppState = {
   currentState: 'active',
 };
 
+export const Alert = {
+  alert: jest.fn(),
+};
+
 export default Object.setPrototypeOf(
   {
     Platform,
     AppState,
+    Alert,
   },
   ReactNative,
 );

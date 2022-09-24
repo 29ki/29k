@@ -14,7 +14,7 @@ const mockContent = [
     type: 'reflection',
     content: {
       heading: 'some heading',
-      video: {source: 'some://source', thumbnail: 'some://thumbnail'},
+      video: {source: 'some://source', preview: 'some://preview'},
     },
   },
 ] as ExerciseSlide[];

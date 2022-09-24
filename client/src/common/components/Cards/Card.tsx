@@ -8,10 +8,10 @@ import {SPACINGS} from '../../constants/spacings';
 import SETTINGS from '../../constants/settings';
 import Button from '../Buttons/Button';
 import {Spacer16} from '../Spacers/Spacer';
-import {H3} from '../Typography/Heading/Heading';
-import {B2} from '../Typography/Text/Text';
+import {Body16} from '../Typography/Body/Body';
 import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
+import {Display24} from '../Typography/Display/Display';
 
 const GraphicsWrapper = styled.View({
   overflow: 'hidden',
@@ -30,15 +30,12 @@ const CardButton = styled(Button)({
   alignSelf: 'flex-start',
 });
 
-const Wrapper = styled(TouchableOpacity)<{backgroundColor?: string}>(
-  ({backgroundColor}) => ({
-    justifyContent: 'space-between',
-    borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
-    backgroundColor: backgroundColor || COLORS.YELLOW_LIGHT,
-    padding: SPACINGS.SIXTEEN,
-    ...SETTINGS.BOXSHADOW,
-  }),
-);
+const Wrapper = styled(TouchableOpacity)({
+  justifyContent: 'space-between',
+  borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
+  backgroundColor: COLORS.CREAM,
+  padding: SPACINGS.SIXTEEN,
+});
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -53,7 +50,6 @@ type CardProps = {
   lottie?: AnimationObject;
   onPress: () => void;
   buttonText: string;
-  backgroundColor?: string;
   children?: React.ReactNode;
 };
 
@@ -65,18 +61,19 @@ export const Card: React.FC<CardProps> = ({
   onPress,
   buttonText,
   children,
-  backgroundColor,
 }) => (
-  <Wrapper backgroundColor={backgroundColor} onPress={onPress}>
+  <Wrapper onPress={onPress}>
     <View>
-      {title && <H3>{title}</H3>}
-      {description && <B2 numberOfLines={1}>{description}</B2>}
+      {title && <Display24>{title}</Display24>}
+      {description && <Body16 numberOfLines={1}>{description}</Body16>}
     </View>
     <Spacer16 />
     <Row>
       <CallToAction>
         {children}
-        <CardButton onPress={onPress}>{buttonText}</CardButton>
+        <CardButton small variant="secondary" onPress={onPress}>
+          {buttonText}
+        </CardButton>
       </CallToAction>
       <GraphicsWrapper>
         {lottie ? (

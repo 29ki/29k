@@ -17,7 +17,7 @@ import {
 import {COLORS} from '../../common/constants/colors';
 import {TabNavigatorProps} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
-import {B3} from '../../common/components/Typography/Text/Text';
+import {Body14} from '../../common/components/Typography/Body/Body';
 
 import Profile from '../../routes/Profile/Profile';
 import Temples from '../../routes/Temples/Temples';
@@ -50,8 +50,8 @@ const tabBarOptions: BottomTabNavigationOptions = {
   tabBarShowLabel: true,
   tabBarHideOnKeyboard: Platform.select({android: true, ios: false}),
   tabBarAllowFontScaling: false,
-  tabBarActiveTintColor: COLORS.GREY600,
-  tabBarInactiveTintColor: COLORS.GREY,
+  tabBarActiveTintColor: COLORS.GREYDARK,
+  tabBarInactiveTintColor: COLORS.BLACK,
   tabBarStyle: {
     height: 46 + SPACINGS.EIGHT * 2,
     borderTopWidth: 0,
@@ -70,7 +70,7 @@ const getTabOptions: (
   label: string,
 ) => BottomTabNavigationOptions = (InactiveIcon, ActiveIcon, label) => ({
   tabBarIcon: ({focused}) => (focused ? <ActiveIcon /> : <InactiveIcon />),
-  tabBarLabel: () => <B3>{label}</B3>,
+  tabBarLabel: () => <Body14>{label}</Body14>,
 });
 
 const Tabs = () => {

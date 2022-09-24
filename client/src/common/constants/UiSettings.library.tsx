@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 
-import {B2, B3} from '../components/Typography/Text/Text';
+import {Body16, Body14} from '../components/Typography/Body/Body';
 import * as Spacers from '../components/Spacers/Spacer';
 import {Spacer24} from '../components/Spacers/Spacer';
 import ScreenWrapper from '../../lib/uiLib/decorators/ScreenWrapper';
@@ -28,23 +28,23 @@ const Swatch = styled.View<{color: string}>(props => ({
 
 const SwatchTextContainer = styled.View({
   padding: 8,
-  backgroundColor: COLORS.WHITE_EASY,
+  backgroundColor: COLORS.WHITE,
 });
-const SwatchNameText = styled(B3)({
+const SwatchNameText = styled(Body14)({
   fontSize: 12,
   marginBottom: -4,
   fontWeight: 'bold',
 });
-const SwatchValueText = styled(B3)({
+const SwatchValueText = styled(Body14)({
   fontSize: 12,
 });
 
 const Gutter = styled(Spacer24)({
-  backgroundColor: COLORS.BLACK_EASY,
+  backgroundColor: COLORS.BLACK,
 });
 
 const SpacerWrapper = styled.View({
-  backgroundColor: COLORS.BLACK_EASY,
+  backgroundColor: COLORS.BLACK,
 });
 
 const Swatches = () => {
@@ -83,7 +83,7 @@ export const Spacings = () => (
       .sort(([a], [b]) => getSpacerSizeInt(a) - getSpacerSizeInt(b))
       .map(([name, Spacer]) => (
         <View key={name}>
-          <B2>{name}</B2>
+          <Body16>{name}</Body16>
           <SpacerWrapper>
             <Spacer />
           </SpacerWrapper>
@@ -91,7 +91,7 @@ export const Spacings = () => (
         </View>
       ))}
     <Spacer24 />
-    <B2>Gutters ({GUTTERS})</B2>
+    <Body16>Gutters ({GUTTERS})</Body16>
     <Gutter />
   </ScreenWrapper>
 );
