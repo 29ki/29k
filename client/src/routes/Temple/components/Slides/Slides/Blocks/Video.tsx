@@ -16,12 +16,12 @@ type VideoProps = {
 };
 const Video: React.FC<VideoProps> = ({active, source, preview}) => {
   const videoRef = useRef<RNVideo>(null);
-  const [loaded, setLoaded] = useState(false);
+  const [videoLength, setVideoLength] = useState(0);
   const exerciseState = useRecoilValue(templeExerciseStateSelector);
   const previousState = useRef({playing: false, timestamp: new Date()});
 
   useEffect(() => {
-    if (active && loaded && exerciseState) {
+    if (active && videoLength && exerciseState) {
       // Block is active, video and state is loaded
       const playing = exerciseState.playing;
       const timestamp = exerciseState.timestamp.toDate();
@@ -32,11 +32,15 @@ const Video: React.FC<VideoProps> = ({active, source, preview}) => {
       ) {
         // State is equal, but newer - reset to beginning
         videoRef.current?.seek(0);
-      } else if (timestamp < previousState.current.timestamp) {
+      } else if (timestamp < previousState.current.timestamp && playing) {
         // State is old - compensate time played
-        videoRef.current?.seek(
-          (new Date().getTime() - timestamp.getTime()) / 1000,
-        );
+        const timeDiff = (new Date().getTime() - timestamp.getTime()) / 1000;
+        if (timeDiff < videoLength) {
+          // Do not seek passed video length
+          videoRef.current?.seek(timeDiff);
+        } else {
+          videoRef.current?.seek(videoLength - 1);
+        }
       }
 
       // Update previous state
@@ -45,16 +49,16 @@ const Video: React.FC<VideoProps> = ({active, source, preview}) => {
         timestamp,
       };
     }
-  }, [active, loaded, previousState, exerciseState]);
+  }, [active, videoLength, previousState, exerciseState]);
 
   return (
     <StyledVideo
       source={source}
       poster={preview}
+      ref={videoRef}
+      onLoad={({duration}) => setVideoLength(duration)}
       resizeMode="contain"
       posterResizeMode="contain"
-      ref={videoRef}
-      onLoad={() => setLoaded(true)}
       paused={!active || !exerciseState?.playing}
       allowsExternalPlayback={false}
       mixWithOthers="mix"
