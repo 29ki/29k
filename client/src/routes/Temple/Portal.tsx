@@ -140,6 +140,7 @@ const Portal: React.FC = () => {
         poster={introPortal.videoEnd?.preview}
         posterResizeMode="cover"
         allowsExternalPlayback={false}
+        ignoreSilentSwitch="ignore"
         mixWithOthers="mix"
         disableFocus
         playInBackground
@@ -159,6 +160,7 @@ const Portal: React.FC = () => {
           poster={introPortal.videoLoop?.preview}
           posterResizeMode="cover"
           allowsExternalPlayback={false}
+          ignoreSilentSwitch="ignore"
           mixWithOthers="mix"
           disableFocus
           playInBackground
