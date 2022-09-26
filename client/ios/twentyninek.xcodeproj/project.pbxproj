@@ -1026,6 +1026,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1042,6 +1043,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.twentyninek.app.cupcake.dev";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development org.twentyninek.app.cupcake.dev";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1058,6 +1060,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 68Y57ZGKLJ;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
