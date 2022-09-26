@@ -3,17 +3,21 @@ import {Pressable, StyleSheet, Dimensions} from 'react-native';
 import {useNavigation} from '@react-navigation/core';
 
 import styled from 'styled-components/native';
-import {BottomSafeArea} from '../Spacers/Spacer';
+import {BottomSafeArea, Spacer24} from '../Spacers/Spacer';
 import IconButton from '../Buttons/IconButton/IconButton';
 import {Rewind} from '../Icons';
 import {ScrollView} from 'react-native-gesture-handler';
+import {COLORS} from '../../constants/colors';
+import Gutters from '../Gutters/Gutters';
+import SETTINGS from '../../constants/settings';
 
 const Container = styled.View<{deviceHeight: number; backgroundColor?: string}>(
   ({deviceHeight, backgroundColor}) => ({
-    backgroundColor: backgroundColor ? backgroundColor : 'transparent',
+    backgroundColor: backgroundColor ? backgroundColor : COLORS.CREAM,
     borderTopLeftRadius: 18,
     borderTopRightRadius: 18,
     maxHeight: deviceHeight - 50,
+    ...SETTINGS.BOXSHADOW,
   }),
 );
 
@@ -57,17 +61,23 @@ export const HalfModal: React.FC<HalfModalProps> = ({
     <KeyboardAvoidingView behavior="padding">
       <Pressable style={[StyleSheet.absoluteFill]} onPress={handleOnClose} />
       <Container deviceHeight={height} backgroundColor={backgroundColor}>
-        <ScrollView showsVerticalScrollIndicator={false}>{children}</ScrollView>
-        {onClose && (
-          <CloseIconWrapper>
-            <IconButton
-              variant="primary"
-              Icon={Rewind}
-              onPress={handleOnClose}
-            />
-          </CloseIconWrapper>
-        )}
-        <BottomSafeArea minSize={16} />
+        <Gutters>
+          <Spacer24 />
+
+          <ScrollView showsVerticalScrollIndicator={false}>
+            {children}
+          </ScrollView>
+          {onClose && (
+            <CloseIconWrapper>
+              <IconButton
+                variant="primary"
+                Icon={Rewind}
+                onPress={handleOnClose}
+              />
+            </CloseIconWrapper>
+          )}
+          <BottomSafeArea minSize={16} />
+        </Gutters>
       </Container>
     </KeyboardAvoidingView>
   );
