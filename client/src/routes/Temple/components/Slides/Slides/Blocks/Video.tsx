@@ -59,7 +59,6 @@ const Video: React.FC<VideoProps> = ({active, source, preview}) => {
       allowsExternalPlayback={false}
       ignoreSilentSwitch="ignore"
       mixWithOthers="mix"
-      disableFocus
       playInBackground
       playWhenInactive
     />

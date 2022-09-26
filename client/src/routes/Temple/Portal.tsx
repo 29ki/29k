@@ -142,7 +142,6 @@ const Portal: React.FC = () => {
         allowsExternalPlayback={false}
         ignoreSilentSwitch="ignore"
         mixWithOthers="mix"
-        disableFocus
         playInBackground
         playWhenInactive
       />
@@ -162,7 +161,6 @@ const Portal: React.FC = () => {
           allowsExternalPlayback={false}
           ignoreSilentSwitch="ignore"
           mixWithOthers="mix"
-          disableFocus
           playInBackground
           playWhenInactive
         />
