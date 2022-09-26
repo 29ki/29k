@@ -4,8 +4,9 @@ import RNVideo, {VideoProperties} from 'react-native-video';
 import {useRecoilValue} from 'recoil';
 
 import {templeExerciseStateSelector} from '../../../../state/state';
+import VideoBase from '../../../VideoBase/VideoBase';
 
-const StyledVideo = styled(RNVideo)({
+const StyledVideo = styled(VideoBase)({
   flex: 1,
 });
 
@@ -57,10 +58,6 @@ const Video: React.FC<VideoProps> = ({active, source, preview}) => {
       onLoad={() => setLoaded(true)}
       paused={!active || !exerciseState?.playing}
       allowsExternalPlayback={false}
-      ignoreSilentSwitch="ignore"
-      mixWithOthers="mix"
-      playInBackground
-      playWhenInactive
     />
   );
 };
