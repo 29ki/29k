@@ -16,6 +16,7 @@ const Container = styled.View<{deviceHeight: number; backgroundColor?: string}>(
     backgroundColor: backgroundColor ? backgroundColor : COLORS.CREAM,
     borderTopLeftRadius: 18,
     borderTopRightRadius: 18,
+    minHeight: deviceHeight / 3,
     maxHeight: deviceHeight - 50,
     ...SETTINGS.BOXSHADOW,
   }),
@@ -63,7 +64,6 @@ export const HalfModal: React.FC<HalfModalProps> = ({
       <Container deviceHeight={height} backgroundColor={backgroundColor}>
         <Gutters>
           <Spacer24 />
-
           <ScrollView showsVerticalScrollIndicator={false}>
             {children}
           </ScrollView>

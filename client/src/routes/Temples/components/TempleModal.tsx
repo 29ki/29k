@@ -1,13 +1,16 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
-import React, {useState} from 'react';
+import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {Alert} from 'react-native';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
 import {DeleteIcon} from '../../../common/components/Icons';
+import Image from '../../../common/components/Image/Image';
 import HalfModal from '../../../common/components/Modals/HalfModal';
-import {H16} from '../../../common/components/Typography/Heading/Heading';
+import {Spacer16} from '../../../common/components/Spacers/Spacer';
+import {Display24} from '../../../common/components/Typography/Display/Display';
+import {COLORS} from '../../../common/constants/colors';
 import {RootStackProps} from '../../../common/constants/routes';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import NS from '../../../lib/i18n/constants/namespaces';
@@ -22,21 +25,17 @@ const Container = styled.View<{backgroundColor?: string}>(
   }),
 );
 
-const Controls = styled.View({
+const Content = styled.View({
   flexDirection: 'row',
-  justifyContent: 'flex-end',
 });
 
-const StyledButton = styled(Button)<{backgroundColor?: string}>(
-  ({backgroundColor}) => ({
-    backgroundColor,
-  }),
-);
+const ImageContainer = styled.View({
+  width: 100,
+  height: 100,
+});
 
-const DeleteButtonWrapper = styled.View({
-  alignItems: 'center',
-  flexDirection: 'row',
-  justifyContent: 'center',
+const DeleteButton = styled(Button)({
+  backgroundColor: COLORS.DELETE,
 });
 
 const TempleModal = () => {
@@ -45,7 +44,6 @@ const TempleModal = () => {
   } = useRoute<RouteProp<RootStackProps, 'TempleModal'>>();
   const {t} = useTranslation(NS.COMPONENT.TEMPLE_MODAL);
   const navigation = useNavigation();
-  const [isEditing, setIsEditing] = useState(false);
   const {deleteTemple} = useTemples();
   const temple = useRecoilValue(templeByIdSelector(templeId));
   const exercise = useExerciseById(temple?.contentId);
@@ -70,20 +68,18 @@ const TempleModal = () => {
   };
 
   return (
-    <HalfModal backgroundColor={exercise.card?.backgroundColor}>
-      <Container backgroundColor={exercise.card?.backgroundColor}>
-        <Controls>
-          <StyledButton
-            backgroundColor={exercise.card?.backgroundColor}
-            onPress={() => setIsEditing(editing => !editing)}>
-            <H16>{isEditing ? t('done') : t('edit')}</H16>
-          </StyledButton>
-        </Controls>
-        <DeleteButtonWrapper>
-          <Button variant="tertiary" RightIcon={DeleteIcon} onPress={onDelete}>
-            <H16>{t('deleteButton')}</H16>
-          </Button>
-        </DeleteButtonWrapper>
+    <HalfModal>
+      <Container>
+        <Content>
+          <Display24>{exercise?.name}</Display24>
+          <ImageContainer>
+            <Image source={{uri: exercise?.card?.image?.source}} />
+          </ImageContainer>
+        </Content>
+        <Spacer16 />
+        <DeleteButton elevated RightIcon={DeleteIcon} onPress={onDelete}>
+          {t('deleteButton')}
+        </DeleteButton>
       </Container>
     </HalfModal>
   );
