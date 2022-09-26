@@ -57,6 +57,7 @@ const Video: React.FC<VideoProps> = ({active, source, preview}) => {
       onLoad={() => setLoaded(true)}
       paused={!active || !exerciseState?.playing}
       allowsExternalPlayback={false}
+      ignoreSilentSwitch="ignore"
       mixWithOthers="mix"
       disableFocus
       playInBackground
