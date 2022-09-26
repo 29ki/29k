@@ -74,9 +74,13 @@ export const Card: React.FC<CardProps> = ({
   <Wrapper onPress={onPress}>
     <View>
       <HeaderRow>
-        {title && <Display24>{title}</Display24>}
+        <View>
+          {title && <Display24>{title}</Display24>}
+          {description && <Body16 numberOfLines={1}>{description}</Body16>}
+        </View>
         {onContextPress && (
           <IconButton
+            small
             noBackground
             variant="tertiary"
             Icon={EllipsisIcon}
@@ -84,8 +88,6 @@ export const Card: React.FC<CardProps> = ({
           />
         )}
       </HeaderRow>
-
-      {description && <Body16 numberOfLines={1}>{description}</Body16>}
     </View>
     <Spacer16 />
     <Row>
