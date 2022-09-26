@@ -85,6 +85,10 @@ const StartButton = styled(Button)({
   backgroundColor: COLORS.PRIMARY,
 });
 
+const SkipButton = styled(Button)({
+  backgroundColor: COLORS.PRIMARY,
+});
+
 const BackButton = styled(IconButton)({
   marginLeft: -SPACINGS.TWELVE,
 });
@@ -177,6 +181,11 @@ const Portal: React.FC = () => {
                     {t('startSession')}
                   </StartButton>
                 </Animated.View>
+              )}
+              {__DEV__ && temple?.started && (
+                <SkipButton onPress={() => navigate('Temple', {templeId})}>
+                  {t('skipPortal')}
+                </SkipButton>
               )}
             </TopBar>
 
