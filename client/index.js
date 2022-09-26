@@ -19,8 +19,9 @@ LogBox.ignoreLogs([
 ]);
 
 if (__DEV__) {
-  auth().useEmulator('http://localhost:9099');
-  firestore().useEmulator('localhost', 8080);
+  const HOSTNAME = process.env.HOSTNAME ?? 'localhost';
+  auth().useEmulator(`http://${HOSTNAME}:9099`);
+  firestore().useEmulator(HOSTNAME, 8080);
 }
 
 AppRegistry.registerComponent('twentyninek', () => App);
