@@ -10,7 +10,7 @@ const Input = styled(TextInput)({
   height: 44,
   paddingHorizontal: SPACINGS.SIXTEEN,
   paddingVertical: SPACINGS.TWELVE,
-  ...textStyles.B16,
+  ...textStyles.Body16,
   backgroundColor: COLORS.PURE_WHITE,
   borderRadius: 16,
 });

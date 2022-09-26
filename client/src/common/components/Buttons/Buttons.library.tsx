@@ -1,110 +1,299 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import styled from 'styled-components/native';
-import {ScrollView} from 'react-native';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
-import {Spacer16} from '../Spacers/Spacer';
+import {Spacer16, Spacer8} from '../Spacers/Spacer';
 
 import Button from './Button';
 import IconButton from './IconButton/IconButton';
 import {HomeIcon} from '../Icons/Home/Home';
-import {B16} from '../Typography/Text/Text';
+import {Body16, Body18} from '../Typography/Body/Body';
 import {PlusIcon} from '../Icons';
 
-const Row = styled.View({
+const RowFullWidth = styled.View({
   flex: 1,
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
 });
 
+const Row = styled.View({flexDirection: 'row'});
+
+export const ButtonList = () => (
+  <>
+    <RowFullWidth>
+      <Button onPress={() => {}}>Primary</Button>
+      <Spacer16 />
+      <Button loading elevated onPress={() => {}}>
+        Elevated Loading
+      </Button>
+    </RowFullWidth>
+    <Spacer16 />
+    <RowFullWidth>
+      <Button onPress={() => {}} variant="secondary">
+        Secondary
+      </Button>
+      <Spacer16 />
+      <Button variant="secondary" elevated onPress={() => {}}>
+        Elevated Secondary
+      </Button>
+    </RowFullWidth>
+    <Spacer16 />
+    <RowFullWidth>
+      <Button onPress={() => {}} variant="tertiary">
+        Tertiary
+      </Button>
+      <Spacer16 />
+      <Button variant="tertiary" elevated onPress={() => {}}>
+        Elevated Tertiary
+      </Button>
+    </RowFullWidth>
+    <Spacer16 />
+    <RowFullWidth>
+      <Button onPress={() => {}} variant="secondary">
+        Secondary
+      </Button>
+      <Spacer16 />
+      <Button variant="secondary" elevated onPress={() => {}}>
+        Elevated Secondary
+      </Button>
+    </RowFullWidth>
+    <Spacer16 />
+    <RowFullWidth>
+      <Button onPress={() => {}} variant="tertiary">
+        Tertiary
+      </Button>
+      <Spacer16 />
+      <Button variant="tertiary" elevated onPress={() => {}}>
+        Elevated Tertiary
+      </Button>
+    </RowFullWidth>
+    <Spacer16 />
+    <RowFullWidth>
+      <Button onPress={() => {}} LeftIcon={HomeIcon}>
+        Left icon
+      </Button>
+      <Spacer16 />
+      <Button onPress={() => {}} RightIcon={HomeIcon}>
+        Right icon
+      </Button>
+    </RowFullWidth>
+    <Spacer16 />
+    <RowFullWidth>
+      <Button small onPress={() => {}}>
+        Small Button
+      </Button>
+      <Spacer16 />
+      <Button small onPress={() => {}} LeftIcon={HomeIcon}>
+        Small with icon
+      </Button>
+    </RowFullWidth>
+    <Spacer16 />
+    <RowFullWidth>
+      <Button onPress={() => {}} disabled>
+        Disabled
+      </Button>
+      <Spacer16 />
+      <Button onPress={() => {}} active>
+        Active
+      </Button>
+    </RowFullWidth>
+    <Spacer16 />
+  </>
+);
+
+export const IconButtonList = () => (
+  <>
+    <Body18>Icon buttons</Body18>
+    <RowFullWidth>
+      <Body16>Primary</Body16>
+      <Row>
+        <IconButton onPress={() => {}} Icon={PlusIcon} />
+        <Spacer16 />
+        <IconButton elevated onPress={() => {}} Icon={PlusIcon} />
+      </Row>
+    </RowFullWidth>
+    <Spacer16 />
+    <RowFullWidth>
+      <Body16>Secondary</Body16>
+      <Row>
+        <IconButton variant="secondary" onPress={() => {}} Icon={PlusIcon} />
+        <Spacer16 />
+        <IconButton
+          variant="secondary"
+          elevated
+          onPress={() => {}}
+          Icon={PlusIcon}
+        />
+      </Row>
+    </RowFullWidth>
+    <Spacer16 />
+    <RowFullWidth>
+      <Body16>Tertiary</Body16>
+      <Row>
+        <IconButton variant="tertiary" onPress={() => {}} Icon={PlusIcon} />
+        <Spacer16 />
+        <IconButton
+          variant="tertiary"
+          elevated
+          onPress={() => {}}
+          Icon={PlusIcon}
+        />
+      </Row>
+    </RowFullWidth>
+    <Spacer16 />
+    <RowFullWidth>
+      <Body16>Active and disabled</Body16>
+      <Row>
+        <IconButton onPress={() => {}} Icon={PlusIcon} active />
+        <Spacer16 />
+        <IconButton
+          elevated
+          variant="tertiary"
+          disabled
+          onPress={() => {}}
+          Icon={PlusIcon}
+        />
+      </Row>
+    </RowFullWidth>
+    <Spacer16 />
+    <RowFullWidth>
+      <Body16>Small</Body16>
+      <IconButton small onPress={() => {}} Icon={PlusIcon} />
+    </RowFullWidth>
+    <Spacer16 />
+  </>
+);
+
 export const AllButtons = () => (
-  <ScrollView>
-    <Buttons />
-    <IconButtons />
-  </ScrollView>
+  <ScreenWrapper>
+    <ButtonList />
+    <IconButtonList />
+  </ScreenWrapper>
 );
 
 export const Buttons = () => (
   <ScreenWrapper>
-    <Button onPress={() => {}}>Primary</Button>
-    <Spacer16 />
-    <Button onPress={() => {}} small>
-      Small
-    </Button>
-    <Spacer16 />
-    <Button onPress={() => {}} LeftIcon={HomeIcon}>
-      Left icon
-    </Button>
-    <Spacer16 />
-    <Button onPress={() => {}} RightIcon={HomeIcon}>
-      Right icon
-    </Button>
-    <Spacer16 />
-    <Button onPress={() => {}} elevated>
-      Elevated
-    </Button>
-    <Spacer16 />
-    <Button onPress={() => {}} loading>
-      Loading
-    </Button>
-    <Spacer16 />
-    <Button onPress={() => {}} disabled>
-      Disabled
-    </Button>
-    <Spacer16 />
-    <Button onPress={() => {}} active>
-      Active
-    </Button>
-    <Spacer16 />
-    <Button onPress={() => {}} variant="secondary">
-      Secondary
-    </Button>
-    <Spacer16 />
-    <Button onPress={() => {}} variant="tertiary">
-      Tertiary
-    </Button>
-    <Spacer16 />
+    <ButtonList />
   </ScreenWrapper>
 );
 
 export const IconButtons = () => (
   <ScreenWrapper>
-    <Row>
-      <B16>Icon button secondary</B16>
-      <IconButton variant="secondary" onPress={() => {}} Icon={PlusIcon} />
-    </Row>
-    <Spacer16 />
-    <Row>
-      <B16>Icon button active state</B16>
-      <IconButton onPress={() => {}} Icon={PlusIcon} active />
-    </Row>
-    <Spacer16 />
-    <Row>
-      <B16>Icon button tertiary elevated</B16>
-      <IconButton
-        elevated
-        variant="tertiary"
-        onPress={() => {}}
-        Icon={PlusIcon}
-      />
-    </Row>
-    <Spacer16 />
-    <Row>
-      <B16>Icon button elevated disabled</B16>
-      <IconButton
-        elevated
-        variant="tertiary"
-        disabled
-        onPress={() => {}}
-        Icon={PlusIcon}
-      />
-    </Row>
-    <Spacer16 />
-    <Row>
-      <B16>Icon button small</B16>
-      <IconButton small onPress={() => {}} Icon={PlusIcon} />
-    </Row>
-    <Spacer16 />
+    <IconButtonList />
+  </ScreenWrapper>
+);
+
+function getCombinations(variations: object[]) {
+  var result: object[] = [];
+  var f = function (current: object[], arr: object[]) {
+    for (var i = 0; i < arr.length; i++) {
+      result.push(
+        [...current, arr[i]].reduce(
+          (acc, variant) => ({...acc, ...variant}),
+          {},
+        ),
+      );
+      f([...current, arr[i]], arr.slice(i + 1));
+    }
+  };
+  f([], variations);
+  return result;
+}
+
+const buttonVariations = getCombinations([
+  {loading: true},
+  {elevated: true},
+  {active: true},
+  {disabled: true},
+  {small: true},
+  {RightIcon: HomeIcon},
+  {LeftIcon: PlusIcon},
+]);
+
+export const VariationsButton = () => (
+  <ScreenWrapper>
+    {buttonVariations.map((combination, i) => (
+      <Fragment key={`primary${i}`}>
+        <Body16>Primary {Object.keys(combination).join(' ')}</Body16>
+        <Spacer8 />
+        <Button variant="primary" onPress={() => {}} {...combination}>
+          Button
+        </Button>
+        <Spacer16 />
+      </Fragment>
+    ))}
+    {buttonVariations.map((combination, i) => (
+      <Fragment key={`secondary${i}`}>
+        <Body16>Secondary {Object.keys(combination).join(' ')}</Body16>
+        <Spacer8 />
+        <Button variant="secondary" onPress={() => {}} {...combination}>
+          Button
+        </Button>
+        <Spacer16 />
+      </Fragment>
+    ))}
+    {buttonVariations.map((combination, i) => (
+      <Fragment key={`tertiary${i}`}>
+        <Body16>Tertiary {Object.keys(combination).join(' ')}</Body16>
+        <Spacer8 />
+        <Button variant="tertiary" onPress={() => {}} {...combination}>
+          Button
+        </Button>
+        <Spacer16 />
+      </Fragment>
+    ))}
+  </ScreenWrapper>
+);
+
+const iconButtonVariations = getCombinations([
+  {loading: true},
+  {elevated: true},
+  {active: true},
+  {disabled: true},
+  {small: true},
+]);
+
+export const VariationsIconButton = () => (
+  <ScreenWrapper>
+    {iconButtonVariations.map((combination, i) => (
+      <Fragment key={`primary${i}`}>
+        <Body16>Primary {Object.keys(combination).join(' ')}</Body16>
+        <Spacer8 />
+        <IconButton
+          variant="primary"
+          onPress={() => {}}
+          Icon={PlusIcon}
+          {...combination}
+        />
+        <Spacer16 />
+      </Fragment>
+    ))}
+    {iconButtonVariations.map((combination, i) => (
+      <Fragment key={`secondary${i}`}>
+        <Body16>Secondary {Object.keys(combination).join(' ')}</Body16>
+        <Spacer8 />
+        <IconButton
+          variant="secondary"
+          onPress={() => {}}
+          Icon={PlusIcon}
+          {...combination}
+        />
+        <Spacer16 />
+      </Fragment>
+    ))}
+    {iconButtonVariations.map((combination, i) => (
+      <Fragment key={`tertiary${i}`}>
+        <Body16>Tertiary {Object.keys(combination).join(' ')}</Body16>
+        <Spacer8 />
+        <IconButton
+          variant="tertiary"
+          onPress={() => {}}
+          Icon={PlusIcon}
+          {...combination}
+        />
+        <Spacer16 />
+      </Fragment>
+    ))}
   </ScreenWrapper>
 );

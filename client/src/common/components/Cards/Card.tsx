@@ -8,7 +8,7 @@ import {SPACINGS} from '../../constants/spacings';
 import SETTINGS from '../../constants/settings';
 import Button from '../Buttons/Button';
 import {Spacer16} from '../Spacers/Spacer';
-import {B16} from '../Typography/Text/Text';
+import {Body16} from '../Typography/Body/Body';
 import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display24} from '../Typography/Display/Display';
@@ -32,14 +32,12 @@ const CardButton = styled(Button)({
   alignSelf: 'flex-start',
 });
 
-const Wrapper = styled(TouchableOpacity)<{backgroundColor?: string}>(
-  ({backgroundColor}) => ({
-    justifyContent: 'space-between',
-    borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
-    backgroundColor: backgroundColor || COLORS.CREAM,
-    padding: SPACINGS.SIXTEEN,
-  }),
-);
+const Wrapper = styled(TouchableOpacity)({
+  justifyContent: 'space-between',
+  borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
+  backgroundColor: COLORS.CREAM,
+  padding: SPACINGS.SIXTEEN,
+});
 
 const HeaderRow = styled.View({
   flexDirection: 'row',
@@ -59,7 +57,6 @@ type CardProps = {
   lottie?: AnimationObject;
   onPress: () => void;
   buttonText: string;
-  backgroundColor?: string;
   children?: React.ReactNode;
   onContextPress?: () => void;
 };
@@ -72,10 +69,9 @@ export const Card: React.FC<CardProps> = ({
   onPress,
   buttonText,
   children,
-  backgroundColor,
   onContextPress,
 }) => (
-  <Wrapper backgroundColor={backgroundColor} onPress={onPress}>
+  <Wrapper onPress={onPress}>
     <View>
       <HeaderRow>
         {title && <Display24>{title}</Display24>}
@@ -89,7 +85,7 @@ export const Card: React.FC<CardProps> = ({
         )}
       </HeaderRow>
 
-      {description && <B16 numberOfLines={1}>{description}</B16>}
+      {description && <Body16 numberOfLines={1}>{description}</Body16>}
     </View>
     <Spacer16 />
     <Row>

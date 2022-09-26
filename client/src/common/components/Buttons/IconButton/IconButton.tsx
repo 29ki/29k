@@ -1,4 +1,5 @@
 import React from 'react';
+import {ActivityIndicator} from 'react-native';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../constants/colors';
 import {SPACINGS} from '../../../constants/spacings';
@@ -13,12 +14,14 @@ export type BaseIconButtonProps = BaseButtonProps & {
 const StyledIconButton = styled(BaseButton)<BaseIconButtonProps>(props => ({
   ...(props.noBackground ? {backgroundColor: 'transparent'} : {}),
   width: props.small ? 36 : 44,
+  height: props.small ? 36 : 44,
   padding: props.small ? 3 : 7,
   borderRadius: SPACINGS.SIXTEEN,
 }));
 
 type IconButtonProps = BaseIconButtonProps & {
   Icon: IconType;
+  loading?: boolean;
 };
 
 const IconButton: React.FC<IconButtonProps> = ({
@@ -29,6 +32,7 @@ const IconButton: React.FC<IconButtonProps> = ({
   small,
   elevated,
   active,
+  loading,
   Icon,
   noBackground,
   fill,
@@ -42,15 +46,28 @@ const IconButton: React.FC<IconButtonProps> = ({
     small={small}
     elevated={elevated}
     noBackground={noBackground}>
-    <Icon
-      fill={
-        fill
-          ? fill
-          : disabled || active || variant !== 'tertiary'
-          ? COLORS.WHITE
-          : COLORS.BLACK
-      }
-    />
+    {loading ? (
+      <ActivityIndicator
+        size="small"
+        color={
+          fill
+            ? fill
+            : disabled || active || variant !== 'tertiary'
+            ? COLORS.WHITE
+            : COLORS.BLACK
+        }
+      />
+    ) : (
+      <Icon
+        fill={
+          fill
+            ? fill
+            : disabled || active || variant !== 'tertiary'
+            ? COLORS.WHITE
+            : COLORS.BLACK
+        }
+      />
+    )}
   </StyledIconButton>
 );
 
