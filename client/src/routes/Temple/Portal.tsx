@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import React, {useContext, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
-import Animated, {FadeOut} from 'react-native-reanimated';
+import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import Video from 'react-native-video';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
@@ -102,7 +102,7 @@ const Portal: React.FC = () => {
   const introPortal = exercise?.introPortal;
   const user = useRecoilValue(userAtom);
   const participants = useRecoilValue(participantsAtom);
-  const participantsCount = Object.keys(participants).length;
+  const participantsCount = Object.keys(participants ?? {}).length;
   const {navigate} = useNavigation<TempleNavigationProps>();
   const leaveTemple = useLeaveTemple();
 
@@ -129,12 +129,13 @@ const Portal: React.FC = () => {
       <TopSafeArea />
       <VideoStyled
         ref={finalVidRef}
+        onLoad={() => finalVidRef.current?.seek(0)}
         onEnd={() => {
           if (joiningTemple) {
             navigate('Temple', {templeId});
           }
         }}
-        repeat={!joiningTemple}
+        paused={!joiningTemple}
         source={{uri: introPortal.videoEnd?.source}}
         resizeMode="cover"
         poster={introPortal.videoEnd?.preview}
@@ -150,7 +151,6 @@ const Portal: React.FC = () => {
         <VideoStyled
           onEnd={() => {
             if (temple?.started) {
-              finalVidRef.current?.seek(0);
               setJoiningTemple(true);
             }
           }}
