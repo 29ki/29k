@@ -33,12 +33,13 @@ import usePreventTempleLeave from './hooks/usePreventTempleLeave';
 import {participantsAtom, templeAtom} from './state/state';
 import {DailyUserData} from '../../../../shared/src/types/Temple';
 import useLeaveTemple from './hooks/useLeaveTemple';
+import VideoBase from './components/VideoBase/VideoBase';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
 const dayjsTime = dayjs().add(59, 'seconds');
 
-const VideoStyled = styled(Video)({
+const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
   flex: 1,
 });
@@ -102,7 +103,7 @@ const Portal: React.FC = () => {
   const introPortal = exercise?.introPortal;
   const user = useRecoilValue(userAtom);
   const participants = useRecoilValue(participantsAtom);
-  const participantsCount = Object.keys(participants).length;
+  const participantsCount = Object.keys(participants ?? {}).length;
   const {navigate} = useNavigation<TempleNavigationProps>();
   const leaveTemple = useLeaveTemple();
 
@@ -129,28 +130,23 @@ const Portal: React.FC = () => {
       <TopSafeArea />
       <VideoStyled
         ref={finalVidRef}
+        onLoad={() => finalVidRef.current?.seek(0)}
         onEnd={() => {
           if (joiningTemple) {
             navigate('Temple', {templeId});
           }
         }}
-        repeat={!joiningTemple}
+        paused={!joiningTemple}
         source={{uri: introPortal.videoEnd?.source}}
         resizeMode="cover"
         poster={introPortal.videoEnd?.preview}
         posterResizeMode="cover"
         allowsExternalPlayback={false}
-        ignoreSilentSwitch="ignore"
-        mixWithOthers="mix"
-        disableFocus
-        playInBackground
-        playWhenInactive
       />
       {!joiningTemple && (
         <VideoStyled
           onEnd={() => {
             if (temple?.started) {
-              finalVidRef.current?.seek(0);
               setJoiningTemple(true);
             }
           }}
@@ -160,11 +156,6 @@ const Portal: React.FC = () => {
           poster={introPortal.videoLoop?.preview}
           posterResizeMode="cover"
           allowsExternalPlayback={false}
-          ignoreSilentSwitch="ignore"
-          mixWithOthers="mix"
-          disableFocus
-          playInBackground
-          playWhenInactive
         />
       )}
       <Wrapper>
