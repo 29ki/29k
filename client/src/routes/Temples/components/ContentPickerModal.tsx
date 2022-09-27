@@ -1,14 +1,17 @@
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
-import {View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import Gutters from '../../../common/components/Gutters/Gutters';
 import Image from '../../../common/components/Image/Image';
 import HalfModal from '../../../common/components/Modals/HalfModal';
 import {Spacer24} from '../../../common/components/Spacers/Spacer';
+import TouchableOpacity from '../../../common/components/TouchableOpacity/TouchableOpacity';
 import {Body14} from '../../../common/components/Typography/Body/Body';
 import {Display16} from '../../../common/components/Typography/Display/Display';
 import {COLORS} from '../../../common/constants/colors';
+import {ModalStackProps} from '../../../common/constants/routes';
 import SETTINGS from '../../../common/constants/settings';
 import {SPACINGS} from '../../../common/constants/spacings';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
@@ -19,7 +22,7 @@ const Content = styled(Gutters)({
   justifyContent: 'space-between',
 });
 
-const Card = styled.View({
+const Card = styled(TouchableOpacity)({
   flexDirection: 'row',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -40,9 +43,13 @@ const CardContent = styled.View({
 
 const ContentCard: React.FC<{id: string}> = ({id}) => {
   const exercise = useExerciseById(id);
-
+  const {navigate} =
+    useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   return (
-    <Card>
+    <Card
+      onPress={() => {
+        navigate('TempleModal', {templeId: id});
+      }}>
       <CardContent>
         <Display16>{exercise?.name}</Display16>
         <Body14>{exercise?.id}</Body14>
