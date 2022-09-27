@@ -10,7 +10,7 @@ const useAuthenticateUser = () => {
   const resetUser = useResetRecoilState(userAtom);
 
   useEffect(() => {
-    const unsubscribe = auth().onAuthStateChanged(async currentUser => {
+    const unsubscribe = auth().onUserChanged(async currentUser => {
       if (currentUser === null) {
         resetUser();
       } else {
