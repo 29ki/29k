@@ -12,14 +12,12 @@ import {Body16} from '../Typography/Body/Body';
 import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display24} from '../Typography/Display/Display';
+import IconButton from '../Buttons/IconButton/IconButton';
+import {EllipsisIcon} from '../Icons';
 
 const GraphicsWrapper = styled.View({
-  overflow: 'hidden',
-  justifyContent: 'flex-end',
-  width: 100,
-  height: 100,
-  marginRight: -16,
-  marginBottom: -16,
+  width: 130,
+  height: 130,
 });
 
 const Lottie = styled(AnimatedLottieView)({
@@ -33,8 +31,14 @@ const Wrapper = styled(TouchableOpacity)({
   padding: SPACINGS.SIXTEEN,
 });
 
+const HeaderRow = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+});
+
 const Row = styled.View({
   flexDirection: 'row',
+  justifyContent: 'space-between',
 });
 
 const CallToAction = styled.View({flex: 1, justifyContent: 'flex-end'});
@@ -47,6 +51,7 @@ type CardProps = {
   onPress: () => void;
   buttonText: string;
   children?: React.ReactNode;
+  onContextPress?: () => void;
 };
 
 export const Card: React.FC<CardProps> = ({
@@ -57,11 +62,25 @@ export const Card: React.FC<CardProps> = ({
   onPress,
   buttonText,
   children,
+  onContextPress,
 }) => (
   <Wrapper onPress={onPress}>
     <View>
-      {title && <Display24>{title}</Display24>}
-      {description && <Body16 numberOfLines={1}>{description}</Body16>}
+      <HeaderRow>
+        <View>
+          {title && <Display24>{title}</Display24>}
+          {description && <Body16 numberOfLines={1}>{description}</Body16>}
+        </View>
+        {onContextPress && (
+          <IconButton
+            small
+            noBackground
+            variant="tertiary"
+            Icon={EllipsisIcon}
+            onPress={onContextPress}
+          />
+        )}
+      </HeaderRow>
     </View>
     <Spacer16 />
     <Row>
@@ -75,7 +94,7 @@ export const Card: React.FC<CardProps> = ({
         {lottie ? (
           <Lottie source={lottie} autoPlay loop />
         ) : image ? (
-          <Image source={image} />
+          <Image resizeMode="contain" source={image} />
         ) : null}
       </GraphicsWrapper>
     </Row>

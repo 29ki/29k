@@ -209,7 +209,7 @@ const Portal: React.FC = () => {
           </>
         )}
       </Wrapper>
-      <BottomSafeArea />
+      <BottomSafeArea minSize={16} />
     </>
   );
 };
