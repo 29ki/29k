@@ -5,7 +5,11 @@
     "clearUpdate": "Clear update",
     "checkUpdate": "Check for update",
     "language": "Language",
-    "logout": "Logout (and create new)"
+    "logout": "Logout",
+    "setEmailAndPassword": "Upgrade with Email & Password",
+    "email": "E-mail",
+    "password": "Password",
+    "save": "Save"
   },
   "sv": {
     "userId": "Användar-ID",
@@ -13,7 +17,11 @@
     "clearUpdate": "Rensa uppdatering",
     "checkUpdate": "Sök efter uppdatering",
     "language": "Språk",
-    "logout": "Logga ut (och skapa ny)"
+    "logout": "Logga ut",
+    "setEmailAndPassword": "Uppgradera med Email & Password",
+    "email": "E-mail",
+    "password": "Lösenord",
+    "save": "Spara"
   },
   "pt": {}
 }
