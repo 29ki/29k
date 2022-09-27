@@ -24,7 +24,6 @@ import {HKGroteskBold} from '../../common/constants/fonts';
 import {TempleStackProps} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
-import {userAtom} from '../../lib/user/state/state';
 import * as templeApi from '../Temples/api/temple';
 import Counter from './components/Counter/Counter';
 import {DailyContext} from './DailyProvider';
