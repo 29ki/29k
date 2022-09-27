@@ -11,11 +11,12 @@ export type TempleStackProps = {
   Portal: {templeId: string};
 };
 
-export type Modals = {
+export type ModalStackProps = {
   TempleModal: {templeId: string};
+  ContentPickerModal: undefined;
 };
 
-export type RootStackProps = Modals & {
+export type RootStackProps = ModalStackProps & {
   KillSwitch: undefined;
   Tabs: NavigatorScreenParams<TabNavigatorProps>;
   TempleStack: NavigatorScreenParams<TempleStackProps>;

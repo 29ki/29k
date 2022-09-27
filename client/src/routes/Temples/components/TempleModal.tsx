@@ -5,6 +5,7 @@ import {Alert} from 'react-native';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
+import Gutters from '../../../common/components/Gutters/Gutters';
 import Image from '../../../common/components/Image/Image';
 import HalfModal from '../../../common/components/Modals/HalfModal';
 import {Spacer16} from '../../../common/components/Spacers/Spacer';
@@ -16,12 +17,12 @@ import NS from '../../../lib/i18n/constants/namespaces';
 import useTemples from '../hooks/useTemples';
 import {templeByIdSelector} from '../state/state';
 
-const Content = styled.View({
+const Content = styled(Gutters)({
   flex: 1,
   flexDirection: 'row',
   justifyContent: 'space-between',
 });
-const BottomContent = styled.View({
+const BottomContent = styled(Gutters)({
   flex: 1,
   alignItems: 'center',
   flexDirection: 'row',
@@ -73,6 +74,7 @@ const TempleModal = () => {
 
   return (
     <HalfModal>
+      <Spacer16 />
       <Content>
         <Title>{exercise?.name}</Title>
         <ImageContainer>

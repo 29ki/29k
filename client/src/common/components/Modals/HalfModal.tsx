@@ -3,12 +3,10 @@ import {Pressable, StyleSheet, Dimensions} from 'react-native';
 import {useNavigation} from '@react-navigation/core';
 
 import styled from 'styled-components/native';
-import {BottomSafeArea, Spacer24} from '../Spacers/Spacer';
+import {BottomSafeArea} from '../Spacers/Spacer';
 import IconButton from '../Buttons/IconButton/IconButton';
 import {CloseIcon} from '../Icons';
-import {ScrollView} from 'react-native-gesture-handler';
 import {COLORS} from '../../constants/colors';
-import Gutters from '../Gutters/Gutters';
 import SETTINGS from '../../constants/settings';
 import {SPACINGS} from '../../constants/spacings';
 
@@ -26,6 +24,11 @@ const Container = styled.View<{deviceHeight: number; backgroundColor?: string}>(
 const KeyboardAvoidingView = styled.KeyboardAvoidingView({
   flex: 1,
   justifyContent: 'flex-end',
+});
+
+const Content = styled.View({
+  flex: 1,
+  justifyContent: 'space-between',
 });
 
 const CloseIconWrapper = styled.View({
@@ -60,22 +63,17 @@ export const HalfModal: React.FC<HalfModalProps> = ({
     <KeyboardAvoidingView behavior="padding">
       <Pressable style={[StyleSheet.absoluteFill]} onPress={handleOnClose} />
       <Container deviceHeight={height} backgroundColor={backgroundColor}>
-        <Gutters>
-          <Spacer24 />
-          <ScrollView showsVerticalScrollIndicator={false}>
-            {children}
-          </ScrollView>
-          {onClose && (
-            <CloseIconWrapper>
-              <IconButton
-                small
-                variant="secondary"
-                Icon={CloseIcon}
-                onPress={handleOnClose}
-              />
-            </CloseIconWrapper>
-          )}
-        </Gutters>
+        <Content>{children}</Content>
+        {onClose && (
+          <CloseIconWrapper>
+            <IconButton
+              small
+              variant="secondary"
+              Icon={CloseIcon}
+              onPress={handleOnClose}
+            />
+          </CloseIconWrapper>
+        )}
         <BottomSafeArea minSize={16} />
       </Container>
     </KeyboardAvoidingView>
