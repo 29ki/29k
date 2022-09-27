@@ -24,10 +24,6 @@ const Lottie = styled(AnimatedLottieView)({
   aspectRatio: '1',
 });
 
-const CardButton = styled(Button)({
-  alignSelf: 'flex-start',
-});
-
 const Wrapper = styled(TouchableOpacity)({
   justifyContent: 'space-between',
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
@@ -90,9 +86,9 @@ export const Card: React.FC<CardProps> = ({
     <Row>
       <CallToAction>
         {children}
-        <CardButton small variant="secondary" onPress={onPress}>
+        <Button small variant="secondary" onPress={onPress}>
           {buttonText}
-        </CardButton>
+        </Button>
       </CallToAction>
       <GraphicsWrapper>
         {lottie ? (

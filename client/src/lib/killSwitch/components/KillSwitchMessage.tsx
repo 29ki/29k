@@ -22,6 +22,10 @@ const Image = styled(RNImage)({
   aspectRatio: '1.6',
 });
 
+const CenteredButton = styled(Button)({
+  alignSelf: 'center',
+});
+
 const KillSwitchMessage = () => {
   const {t} = useTranslation(NS.SCREEN.KILL_SWITCH);
   const checkKillSwitch = useKillSwitch();
@@ -73,7 +77,9 @@ const KillSwitchMessage = () => {
       {button && (
         <>
           <Gutters>
-            <Button onPress={handleLinkButton}>{button.text}</Button>
+            <CenteredButton onPress={handleLinkButton}>
+              {button.text}
+            </CenteredButton>
           </Gutters>
           <Spacer40 />
         </>
@@ -81,7 +87,9 @@ const KillSwitchMessage = () => {
       {isRetriable && (
         <>
           <Gutters>
-            <Button onPress={handleRetryButton}>{t('retry')}</Button>
+            <CenteredButton onPress={handleRetryButton}>
+              {t('retry')}
+            </CenteredButton>
           </Gutters>
           <Spacer40 />
         </>
