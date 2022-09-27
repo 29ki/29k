@@ -2,7 +2,7 @@
   "en": {
     "participants": "We are",
     "startSession": "Start session",
-    "skipPortal": "Skip protal",
+    "skipPortal": "Skip portal",
     "counterLabel": {
       "counting": "Starting in",
       "soon": "Starting"
@@ -15,7 +15,7 @@
   "sv": {
     "participants": "Vi är",
     "startSession": "Starta session",
-    "skipPortal": "Skip protal",
+    "skipPortal": "Skip portal",
     "counterLabel": {
       "counting": "Startar om",
       "soon": "Startar"
@@ -28,7 +28,7 @@
   "pt": {
     "participants": "We are",
     "startSession": "Start session",
-    "skipPortal": "Skip protal",
+    "skipPortal": "Skip portal",
     "counterLabel": {
       "counting": "Starting in",
       "soon": "Starting"
