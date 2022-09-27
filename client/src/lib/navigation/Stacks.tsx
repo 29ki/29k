@@ -11,7 +11,7 @@ import ChangingRoom from '../../routes/Temple/ChangingRoom';
 import Portal from '../../routes/Temple/Portal';
 import DailyProvider from '../../routes/Temple/DailyProvider';
 import TempleModal from '../../routes/Temples/components/TempleModal';
-import ContentPickerModal from '../../routes/Temples/components/ContentPickerModal';
+import CreateTempleModal from '../../routes/Temples/components/CreateTempleModal';
 
 const RootStack = createNativeStackNavigator<RootStackProps>();
 const TempleStack = createNativeStackNavigator<TempleStackProps>();
@@ -60,8 +60,8 @@ const RootStackWrapper = () => {
             }}>
             <RootStack.Screen name={'TempleModal'} component={TempleModal} />
             <RootStack.Screen
-              name={'ContentPickerModal'}
-              component={ContentPickerModal}
+              name={'CreateTempleModal'}
+              component={CreateTempleModal}
             />
           </RootStack.Group>
         </>

@@ -73,7 +73,7 @@ const CreateTempleForm = ({}) => {
   return (
     <CreateTempleWrapper>
       <CreateButton
-        onPress={() => navigate('ContentPickerModal')}
+        onPress={() => navigate('CreateTempleModal')}
         LeftIcon={PlusIcon}>
         {t('create')}
       </CreateButton>

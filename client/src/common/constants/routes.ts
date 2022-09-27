@@ -13,7 +13,7 @@ export type TempleStackProps = {
 
 export type ModalStackProps = {
   TempleModal: {templeId: string};
-  ContentPickerModal: undefined;
+  CreateTempleModal: undefined;
 };
 
 export type RootStackProps = ModalStackProps & {
