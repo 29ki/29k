@@ -8,7 +8,7 @@ export const SETTINGS = {
   BOXSHADOW: Platform.select({
     ios: {
       shadowColor: '#000000',
-      shadowOffset: {width: 0, height: SPACINGS.FOUR},
+      shadowOffset: `0 ${SPACINGS.FOUR}px`,
       shadowOpacity: 0.16,
       shadowRadius: SPACINGS.TWELVE,
     },
