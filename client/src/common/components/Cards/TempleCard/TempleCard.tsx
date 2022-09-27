@@ -2,9 +2,11 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
+import {useRecoilValue} from 'recoil';
 import {Temple} from '../../../../../../shared/src/types/Temple';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import NS from '../../../../lib/i18n/constants/namespaces';
+import {userAtom} from '../../../../lib/user/state/state';
 import {RootStackProps} from '../../../constants/routes';
 import Card from '../Card';
 
@@ -13,10 +15,11 @@ type TempleCardProps = {
 };
 
 const TempleCard: React.FC<TempleCardProps> = ({temple}) => {
-  const {name, contentId} = temple;
+  const {name, contentId, facilitator} = temple;
   const exercise = useExerciseById(contentId);
   const {t} = useTranslation(NS.COMPONENT.TEMPLE_CARD);
   const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
+  const user = useRecoilValue(userAtom);
 
   return (
     <Card
@@ -34,9 +37,13 @@ const TempleCard: React.FC<TempleCardProps> = ({temple}) => {
           },
         })
       }
-      onContextPress={() => {
-        navigate('TempleModal', {templeId: temple.id});
-      }}
+      onContextPress={
+        user && facilitator === user.uid
+          ? () => {
+              navigate('TempleModal', {templeId: temple.id});
+            }
+          : undefined
+      }
     />
   );
 };

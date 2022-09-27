@@ -8,7 +8,6 @@ import Button from '../../../common/components/Buttons/Button';
 import Image from '../../../common/components/Image/Image';
 import HalfModal from '../../../common/components/Modals/HalfModal';
 import {Spacer16} from '../../../common/components/Spacers/Spacer';
-import {Body16} from '../../../common/components/Typography/Body/Body';
 import {Display24} from '../../../common/components/Typography/Display/Display';
 import {COLORS} from '../../../common/constants/colors';
 import {RootStackProps} from '../../../common/constants/routes';
@@ -85,7 +84,6 @@ const TempleModal = () => {
       </Content>
       <Spacer16 />
       <BottomContent>
-        <Body16>Date and time</Body16>
         <DeleteButton small onPress={onDelete}>
           {t('deleteButton')}
         </DeleteButton>
