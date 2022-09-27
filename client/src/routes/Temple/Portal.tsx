@@ -24,7 +24,6 @@ import {HKGroteskBold} from '../../common/constants/fonts';
 import {TempleStackProps} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
-import {userAtom} from '../../lib/user/state/state';
 import * as templeApi from '../Temples/api/temple';
 import Counter from './components/Counter/Counter';
 import {DailyContext} from './DailyProvider';
@@ -34,6 +33,7 @@ import {participantsAtom, templeAtom} from './state/state';
 import {DailyUserData} from '../../../../shared/src/types/Temple';
 import useLeaveTemple from './hooks/useLeaveTemple';
 import VideoBase from './components/VideoBase/VideoBase';
+import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -81,10 +81,6 @@ const TopBar = styled(Gutters)({
   paddingVertical: SPACINGS.EIGHT,
 });
 
-const StartButton = styled(Button)({
-  backgroundColor: COLORS.PRIMARY,
-});
-
 const BackButton = styled(IconButton)({
   marginLeft: -SPACINGS.TWELVE,
 });
@@ -100,10 +96,9 @@ const Portal: React.FC = () => {
   const {t} = useTranslation(NS.SCREEN.PORTAL);
   const exercise = useTempleExercise();
   const temple = useRecoilValue(templeAtom);
-  const introPortal = exercise?.introPortal;
-  const user = useRecoilValue(userAtom);
   const participants = useRecoilValue(participantsAtom);
   const participantsCount = Object.keys(participants ?? {}).length;
+  const isFacilitator = useIsTempleFacilitator();
   const {navigate} = useNavigation<TempleNavigationProps>();
   const leaveTemple = useLeaveTemple();
 
@@ -120,6 +115,8 @@ const Portal: React.FC = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  const introPortal = exercise?.introPortal;
 
   if (!introPortal) {
     return null;
@@ -167,16 +164,21 @@ const Portal: React.FC = () => {
                 onPress={leaveTemple}
                 Icon={ArrowLeftIcon}
               />
-              {temple?.facilitator === user?.uid && !temple?.started && (
+              {isFacilitator && !temple?.started && (
                 <Animated.View exiting={FadeOut.duration(1500)}>
-                  <StartButton
+                  <Button
                     disabled={temple?.started}
                     onPress={() => {
                       templeApi.updateTemple(templeId, {started: true});
                     }}>
                     {t('startSession')}
-                  </StartButton>
+                  </Button>
                 </Animated.View>
+              )}
+              {__DEV__ && temple?.started && (
+                <Button onPress={() => navigate('Temple', {templeId})}>
+                  {t('skipPortal')}
+                </Button>
               )}
             </TopBar>
 
