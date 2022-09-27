@@ -81,14 +81,6 @@ const TopBar = styled(Gutters)({
   paddingVertical: SPACINGS.EIGHT,
 });
 
-const StartButton = styled(Button)({
-  backgroundColor: COLORS.PRIMARY,
-});
-
-const SkipButton = styled(Button)({
-  backgroundColor: COLORS.PRIMARY,
-});
-
 const BackButton = styled(IconButton)({
   marginLeft: -SPACINGS.TWELVE,
 });
@@ -173,19 +165,19 @@ const Portal: React.FC = () => {
               />
               {temple?.facilitator === user?.uid && !temple?.started && (
                 <Animated.View exiting={FadeOut.duration(1500)}>
-                  <StartButton
+                  <Button
                     disabled={temple?.started}
                     onPress={() => {
                       templeApi.updateTemple(templeId, {started: true});
                     }}>
                     {t('startSession')}
-                  </StartButton>
+                  </Button>
                 </Animated.View>
               )}
               {__DEV__ && temple?.started && (
-                <SkipButton onPress={() => navigate('Temple', {templeId})}>
+                <Button onPress={() => navigate('Temple', {templeId})}>
                   {t('skipPortal')}
-                </SkipButton>
+                </Button>
               )}
             </TopBar>
 
