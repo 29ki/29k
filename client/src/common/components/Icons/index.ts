@@ -26,3 +26,4 @@ export * from './Plus/Plus';
 export * from './Rewind/Rewind';
 export * from './Ellipsis/Ellipsis';
 export * from './Delete/Delete';
+export * from './Close/Close';

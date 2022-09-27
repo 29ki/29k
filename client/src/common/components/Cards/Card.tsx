@@ -16,12 +16,8 @@ import IconButton from '../Buttons/IconButton/IconButton';
 import {EllipsisIcon} from '../Icons';
 
 const GraphicsWrapper = styled.View({
-  overflow: 'hidden',
-  justifyContent: 'flex-end',
-  width: 100,
-  height: 100,
-  marginRight: -16,
-  marginBottom: -16,
+  width: 130,
+  height: 130,
 });
 
 const Lottie = styled(AnimatedLottieView)({
@@ -46,6 +42,7 @@ const HeaderRow = styled.View({
 
 const Row = styled.View({
   flexDirection: 'row',
+  justifyContent: 'space-between',
 });
 
 const CallToAction = styled.View({flex: 1, justifyContent: 'flex-end'});
@@ -101,7 +98,7 @@ export const Card: React.FC<CardProps> = ({
         {lottie ? (
           <Lottie source={lottie} autoPlay loop />
         ) : image ? (
-          <Image source={image} />
+          <Image resizeMode="contain" source={image} />
         ) : null}
       </GraphicsWrapper>
     </Row>

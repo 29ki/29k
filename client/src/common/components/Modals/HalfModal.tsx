@@ -5,17 +5,18 @@ import {useNavigation} from '@react-navigation/core';
 import styled from 'styled-components/native';
 import {BottomSafeArea, Spacer24} from '../Spacers/Spacer';
 import IconButton from '../Buttons/IconButton/IconButton';
-import {Rewind} from '../Icons';
+import {CloseIcon} from '../Icons';
 import {ScrollView} from 'react-native-gesture-handler';
 import {COLORS} from '../../constants/colors';
 import Gutters from '../Gutters/Gutters';
 import SETTINGS from '../../constants/settings';
+import {SPACINGS} from '../../constants/spacings';
 
 const Container = styled.View<{deviceHeight: number; backgroundColor?: string}>(
   ({deviceHeight, backgroundColor}) => ({
     backgroundColor: backgroundColor ? backgroundColor : COLORS.CREAM,
-    borderTopLeftRadius: 18,
-    borderTopRightRadius: 18,
+    borderTopLeftRadius: SETTINGS.BORDER_RADIUS.CARDS,
+    borderTopRightRadius: SETTINGS.BORDER_RADIUS.CARDS,
     minHeight: deviceHeight / 3,
     maxHeight: deviceHeight - 50,
     ...SETTINGS.BOXSHADOW,
@@ -28,12 +29,9 @@ const KeyboardAvoidingView = styled.KeyboardAvoidingView({
 });
 
 const CloseIconWrapper = styled.View({
-  height: 30,
-  width: 54,
-  top: 15,
-  right: 0,
-  paddingLeft: 8,
   position: 'absolute',
+  top: -SPACINGS.SIXTEEN,
+  right: SPACINGS.EIGHT,
 });
 
 type HalfModalProps = {
@@ -70,14 +68,15 @@ export const HalfModal: React.FC<HalfModalProps> = ({
           {onClose && (
             <CloseIconWrapper>
               <IconButton
-                variant="primary"
-                Icon={Rewind}
+                small
+                variant="secondary"
+                Icon={CloseIcon}
                 onPress={handleOnClose}
               />
             </CloseIconWrapper>
           )}
-          <BottomSafeArea minSize={16} />
         </Gutters>
+        <BottomSafeArea minSize={16} />
       </Container>
     </KeyboardAvoidingView>
   );

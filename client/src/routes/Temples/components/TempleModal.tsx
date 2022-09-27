@@ -5,10 +5,10 @@ import {Alert} from 'react-native';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
-import {DeleteIcon} from '../../../common/components/Icons';
 import Image from '../../../common/components/Image/Image';
 import HalfModal from '../../../common/components/Modals/HalfModal';
 import {Spacer16} from '../../../common/components/Spacers/Spacer';
+import {Body16} from '../../../common/components/Typography/Body/Body';
 import {Display24} from '../../../common/components/Typography/Display/Display';
 import {COLORS} from '../../../common/constants/colors';
 import {RootStackProps} from '../../../common/constants/routes';
@@ -17,25 +17,30 @@ import NS from '../../../lib/i18n/constants/namespaces';
 import useTemples from '../hooks/useTemples';
 import {templeByIdSelector} from '../state/state';
 
-const Container = styled.View<{backgroundColor?: string}>(
-  ({backgroundColor}) => ({
-    backgroundColor,
-    borderTopLeftRadius: 18,
-    borderTopRightRadius: 18,
-  }),
-);
-
 const Content = styled.View({
+  flex: 1,
   flexDirection: 'row',
+  justifyContent: 'space-between',
+});
+const BottomContent = styled.View({
+  flex: 1,
+  alignItems: 'center',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
 });
 
 const ImageContainer = styled.View({
-  width: 100,
-  height: 100,
+  flex: 1,
+  height: 80,
 });
 
 const DeleteButton = styled(Button)({
   backgroundColor: COLORS.DELETE,
+  justifySelf: 'flex-end',
+});
+
+const Title = styled(Display24)({
+  flex: 2,
 });
 
 const TempleModal = () => {
@@ -69,18 +74,22 @@ const TempleModal = () => {
 
   return (
     <HalfModal>
-      <Container>
-        <Content>
-          <Display24>{exercise?.name}</Display24>
-          <ImageContainer>
-            <Image source={{uri: exercise?.card?.image?.source}} />
-          </ImageContainer>
-        </Content>
-        <Spacer16 />
-        <DeleteButton elevated RightIcon={DeleteIcon} onPress={onDelete}>
+      <Content>
+        <Title>{exercise?.name}</Title>
+        <ImageContainer>
+          <Image
+            resizeMode="contain"
+            source={{uri: exercise?.card?.image?.source}}
+          />
+        </ImageContainer>
+      </Content>
+      <Spacer16 />
+      <BottomContent>
+        <Body16>Date and time</Body16>
+        <DeleteButton small onPress={onDelete}>
           {t('deleteButton')}
         </DeleteButton>
-      </Container>
+      </BottomContent>
     </HalfModal>
   );
 };
