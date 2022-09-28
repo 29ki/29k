@@ -81,6 +81,10 @@ const InputWrapper = styled.View({
   flexDirection: 'row',
 });
 
+const StyledTextInput = styled(TextInput)({
+  flexGrow: 1,
+});
+
 const Audio = styled(AudioIndicator)({
   position: 'absolute',
   right: SPACINGS.SIXTEEN,
@@ -179,7 +183,7 @@ const ChangingRoom = () => {
           </Controls>
           <Spacer48 />
           <InputWrapper>
-            <TextInput
+            <StyledTextInput
               autoFocus
               onChangeText={setLocalUserName}
               autoCapitalize="words"

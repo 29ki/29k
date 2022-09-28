@@ -55,6 +55,10 @@ const FloatingForm = styled(LinearGradient).attrs({
   passingBottom: SPACINGS.TWELVE,
 });
 
+const StyledTextInput = styled(TextInput)({
+  flexGrow: 1,
+});
+
 const ListHeader = () => (
   <>
     <TopSafeArea />
@@ -89,7 +93,7 @@ const CreateTempleForm = ({}) => {
     <CreateTempleWrapper>
       {isAdding ? (
         <>
-          <TextInput
+          <StyledTextInput
             onChangeText={setTempleName}
             placeholder={t('createPlaceholder')}
             onBlur={onBlur}

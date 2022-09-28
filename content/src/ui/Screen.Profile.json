@@ -5,7 +5,13 @@
     "clearUpdate": "Clear update",
     "checkUpdate": "Check for update",
     "language": "Language",
-    "logout": "Logout (and create new)"
+    "signOut": "Sign-out",
+    "signIn": "Sign-in",
+    "signInAnonymously": "Sign-in anononymously",
+    "upgrade": "Upgrade",
+    "email": "E-mail",
+    "password": "Lösenord",
+    "or": "or"
   },
   "sv": {
     "userId": "Användar-ID",
@@ -13,7 +19,13 @@
     "clearUpdate": "Rensa uppdatering",
     "checkUpdate": "Sök efter uppdatering",
     "language": "Språk",
-    "logout": "Logga ut (och skapa ny)"
+    "signOut": "Logga ut",
+    "signIn": "Logga in",
+    "signInAnonymously": "Logga in anonymt",
+    "upgrade": "Uppgradera",
+    "email": "E-mail",
+    "password": "Lösenord",
+    "or": "eller"
   },
   "pt": {}
 }
