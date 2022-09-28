@@ -37,6 +37,90 @@ describe('firebaseAuth', () => {
     expect(next).toHaveBeenCalledTimes(1);
   });
 
+  it('returns 401 when user not found', async () => {
+    (getAuth().verifyIdToken as jest.Mock).mockRejectedValueOnce({
+      code: 'auth/user-not-found',
+    });
+    const middleware = firebaseAuth();
+
+    const ctx = {
+      headers: {
+        authorization: 'bearer some-token',
+      },
+    } as FirebaseAuthContext;
+
+    const next = jest.fn();
+
+    await middleware(ctx, next);
+
+    expect(getAuth().verifyIdToken).toHaveBeenCalledTimes(1);
+
+    expect(ctx).toEqual({
+      status: 401,
+      headers: {
+        authorization: 'bearer some-token',
+      },
+    });
+
+    expect(next).toHaveBeenCalledTimes(0);
+  });
+
+  it('returns 401 when token expired', async () => {
+    (getAuth().verifyIdToken as jest.Mock).mockRejectedValueOnce({
+      code: 'auth/id-token-expired',
+    });
+    const middleware = firebaseAuth();
+
+    const ctx = {
+      headers: {
+        authorization: 'bearer some-token',
+      },
+    } as FirebaseAuthContext;
+
+    const next = jest.fn();
+
+    await middleware(ctx, next);
+
+    expect(getAuth().verifyIdToken).toHaveBeenCalledTimes(1);
+
+    expect(ctx).toEqual({
+      status: 401,
+      headers: {
+        authorization: 'bearer some-token',
+      },
+    });
+
+    expect(next).toHaveBeenCalledTimes(0);
+  });
+
+  it('returns 401 when token revoked', async () => {
+    (getAuth().verifyIdToken as jest.Mock).mockRejectedValueOnce({
+      code: 'auth/id-token-revoked',
+    });
+    const middleware = firebaseAuth();
+
+    const ctx = {
+      headers: {
+        authorization: 'bearer some-token',
+      },
+    } as FirebaseAuthContext;
+
+    const next = jest.fn();
+
+    await middleware(ctx, next);
+
+    expect(getAuth().verifyIdToken).toHaveBeenCalledTimes(1);
+
+    expect(ctx).toEqual({
+      status: 401,
+      headers: {
+        authorization: 'bearer some-token',
+      },
+    });
+
+    expect(next).toHaveBeenCalledTimes(0);
+  });
+
   it('throws on requests without authorization', async () => {
     const middleware = firebaseAuth();
 
