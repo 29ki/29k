@@ -7,6 +7,7 @@ const NS = {
     COUNTER: 'Component.Counter',
     CONFIRM_EXIT_TEMPLE: 'Component.ConfirmExitTemple',
     TEMPLE_MODAL: 'Component.TempleModal',
+    CREATE_TEMPLE_MODAL: 'Component.CreateTempleModal',
   },
   SCREEN: {
     CHANGING_ROOM: 'Screen.ChangingRoom',

@@ -1,4 +1,5 @@
 import React, {Dispatch, SetStateAction, useState} from 'react';
+import {useTranslation} from 'react-i18next';
 import {FlatList} from 'react-native-gesture-handler';
 import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
@@ -9,11 +10,12 @@ import {Spacer24} from '../../../common/components/Spacers/Spacer';
 import TouchableOpacity from '../../../common/components/TouchableOpacity/TouchableOpacity';
 import {Body14} from '../../../common/components/Typography/Body/Body';
 import {Display16} from '../../../common/components/Typography/Display/Display';
-import {Heading18} from '../../../common/components/Typography/Heading/Heading';
+import {Heading16} from '../../../common/components/Typography/Heading/Heading';
 import {COLORS} from '../../../common/constants/colors';
 import SETTINGS from '../../../common/constants/settings';
 import {SPACINGS} from '../../../common/constants/spacings';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
+import NS from '../../../lib/i18n/constants/namespaces';
 
 const Content = styled(Gutters)({
   flex: 1,
@@ -40,12 +42,22 @@ const CardContent = styled.View({
   flex: 2,
 });
 
+const ListHeader = styled(Heading16)({
+  alignSelf: 'center',
+});
+
+const Step = styled(Animated.View).attrs({
+  entering: FadeIn.duration(300),
+  exiting: FadeOut.duration(300),
+})({
+  flex: 1,
+});
+
 const ContentCard: React.FC<{id: string; onPress: () => void}> = ({
   id,
   onPress,
 }) => {
   const exercise = useExerciseById(id);
-
   return (
     <Card onPress={onPress}>
       <CardContent>
@@ -59,20 +71,18 @@ const ContentCard: React.FC<{id: string; onPress: () => void}> = ({
   );
 };
 
-const Step = styled(Animated.View).attrs({
-  entering: FadeIn.duration(300),
-  exiting: FadeOut.duration(300),
-})({
-  flex: 1,
-});
-
 const SelectContent: React.FC<{setStep: Dispatch<SetStateAction<number>>}> = ({
   setStep,
 }) => {
   const exercises = ['095f9642-73b6-4c9a-ae9a-ea7dea7363f5'];
+  const {t} = useTranslation(NS.COMPONENT.CREATE_TEMPLE_MODAL);
+
   return (
     <Step>
       <FlatList
+        ListHeaderComponent={
+          <ListHeader>{t('selectContent.title')}</ListHeader>
+        }
         keyExtractor={id => id}
         data={exercises}
         renderItem={({item}) => (
@@ -83,9 +93,11 @@ const SelectContent: React.FC<{setStep: Dispatch<SetStateAction<number>>}> = ({
   );
 };
 const SetDateTime = () => {
+  const {t} = useTranslation(NS.COMPONENT.CREATE_TEMPLE_MODAL);
+
   return (
     <Step>
-      <Heading18>{'Tjo!'}</Heading18>
+      <Heading16>{t('setDateTime.title')}</Heading16>
     </Step>
   );
 };
