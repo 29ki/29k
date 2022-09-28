@@ -1,0 +1,11 @@
+{
+  "en": {
+    "title": "{{name}} - {{exercise}}",
+    "body": "The session starts now"
+  },
+  "sv": {
+    "title": "{{name}} - {{exercise}}",
+    "body": "Sessionen startar nu"
+  },
+  "pt": {}
+}
