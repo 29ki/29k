@@ -15,7 +15,7 @@ const getTriggerNotificationById = async (
   );
 
 const useTriggerNotification = (
-  id: string | undefined,
+  id?: string,
 ): [
   Notification | undefined,
   (title: string, body: string, timestamp: number) => Promise<string>,
@@ -54,6 +54,7 @@ const useTriggerNotification = (
   }, []);
 
   const setTrigger = async (title: string, body: string, timestamp: number) => {
+    // TODO: handle declined permissions better
     await notifee.requestPermission();
 
     const trigger: TimestampTrigger = {
