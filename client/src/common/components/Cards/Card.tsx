@@ -13,7 +13,7 @@ import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display24} from '../Typography/Display/Display';
 import IconButton from '../Buttons/IconButton/IconButton';
-import {EllipsisIcon} from '../Icons';
+import {EllipsisIcon, IconType} from '../Icons';
 
 const GraphicsWrapper = styled.View({
   width: 130,
@@ -33,12 +33,22 @@ const Wrapper = styled(TouchableOpacity)({
 
 const HeaderRow = styled.View({
   flexDirection: 'row',
-  justifyContent: 'space-between',
+});
+
+const Header = styled.View({
+  flex: 1,
+  textOverflow: 'ellipsis',
 });
 
 const Row = styled.View({
   flexDirection: 'row',
   justifyContent: 'space-between',
+});
+
+const IconWrapper = styled.View({
+  width: 36,
+  height: 36,
+  padding: 3,
 });
 
 const CallToAction = styled.View({flex: 1, justifyContent: 'flex-end'});
@@ -52,6 +62,7 @@ type CardProps = {
   buttonText: string;
   children?: React.ReactNode;
   onContextPress?: () => void;
+  Icon?: IconType;
 };
 
 export const Card: React.FC<CardProps> = ({
@@ -63,14 +74,20 @@ export const Card: React.FC<CardProps> = ({
   buttonText,
   children,
   onContextPress,
+  Icon,
 }) => (
   <Wrapper onPress={onPress}>
     <View>
       <HeaderRow>
-        <View>
-          {title && <Display24>{title}</Display24>}
+        <Header>
+          {title && <Display24 numberOfLines={1}>{title}</Display24>}
           {description && <Body16 numberOfLines={1}>{description}</Body16>}
-        </View>
+        </Header>
+        {Icon && (
+          <IconWrapper>
+            <Icon />
+          </IconWrapper>
+        )}
         {onContextPress && (
           <IconButton
             small
