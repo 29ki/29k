@@ -1,7 +1,7 @@
 import {renderHook} from '@testing-library/react-hooks';
 import notifee, {EventType, Event} from '@notifee/react-native';
 
-import useTriggerNotification from './useTriggerNotifications';
+import useTriggerNotification from './useTriggerNotification';
 
 const mockCreateTriggerNotification =
   notifee.createTriggerNotification as jest.Mock;
@@ -16,7 +16,7 @@ afterEach(() => {
   jest.resetAllMocks();
 });
 
-describe('useTriggerNotifications', () => {
+describe('useTriggerNotification', () => {
   it('sets a trigger notification', async () => {
     mockCreateTriggerNotification.mockReturnValueOnce('some-id');
 
