@@ -7,7 +7,9 @@ import {Temple} from '../../../../../../shared/src/types/Temple';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import NS from '../../../../lib/i18n/constants/namespaces';
 import {userAtom} from '../../../../lib/user/state/state';
+import useSessionNotificationReminder from '../../../../routes/Temples/hooks/useSessionNotificationReminder';
 import {RootStackProps} from '../../../constants/routes';
+import {BellIcon} from '../../Icons';
 import Card from '../Card';
 
 type TempleCardProps = {
@@ -20,6 +22,7 @@ const TempleCard: React.FC<TempleCardProps> = ({temple}) => {
   const {t} = useTranslation(NS.COMPONENT.TEMPLE_CARD);
   const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
   const user = useRecoilValue(userAtom);
+  const [reminder] = useSessionNotificationReminder(temple);
 
   return (
     <Card
@@ -44,6 +47,7 @@ const TempleCard: React.FC<TempleCardProps> = ({temple}) => {
             }
           : undefined
       }
+      Icon={reminder && BellIcon}
     />
   );
 };
