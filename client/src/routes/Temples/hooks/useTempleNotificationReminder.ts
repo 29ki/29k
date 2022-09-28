@@ -6,7 +6,7 @@ import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import NS from '../../../lib/i18n/constants/namespaces';
 import useTriggerNotification from '../../../lib/notifications/hooks/useTriggerNotifications';
 
-const useSessionNotificationReminder = (
+const useTempleNotificationReminder = (
   temple: Temple,
 ): [Notification | undefined, (enabled: boolean) => Promise<string | void>] => {
   const {name, contentId} = temple;
@@ -29,4 +29,4 @@ const useSessionNotificationReminder = (
   return [notification, setReminder];
 };
 
-export default useSessionNotificationReminder;
+export default useTempleNotificationReminder;

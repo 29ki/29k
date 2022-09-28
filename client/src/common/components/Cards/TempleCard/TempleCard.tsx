@@ -7,7 +7,7 @@ import {Temple} from '../../../../../../shared/src/types/Temple';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import NS from '../../../../lib/i18n/constants/namespaces';
 import {userAtom} from '../../../../lib/user/state/state';
-import useSessionNotificationReminder from '../../../../routes/Temples/hooks/useSessionNotificationReminder';
+import useTempleNotificationReminder from '../../../../routes/Temples/hooks/useTempleNotificationReminder';
 import {RootStackProps} from '../../../constants/routes';
 import {BellIcon} from '../../Icons';
 import Card from '../Card';
@@ -22,7 +22,7 @@ const TempleCard: React.FC<TempleCardProps> = ({temple}) => {
   const {t} = useTranslation(NS.COMPONENT.TEMPLE_CARD);
   const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
   const user = useRecoilValue(userAtom);
-  const [reminder] = useSessionNotificationReminder(temple);
+  const [reminder] = useTempleNotificationReminder(temple);
 
   return (
     <Card
