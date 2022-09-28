@@ -13,7 +13,7 @@ import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display24} from '../Typography/Display/Display';
 import IconButton from '../Buttons/IconButton/IconButton';
-import {EllipsisIcon} from '../Icons';
+import {EllipsisIcon, IconType} from '../Icons';
 
 const GraphicsWrapper = styled.View({
   width: 130,
@@ -52,6 +52,7 @@ type CardProps = {
   buttonText: string;
   children?: React.ReactNode;
   onContextPress?: () => void;
+  ButtonIcon?: IconType;
 };
 
 export const Card: React.FC<CardProps> = ({
@@ -63,6 +64,7 @@ export const Card: React.FC<CardProps> = ({
   buttonText,
   children,
   onContextPress,
+  ButtonIcon,
 }) => (
   <Wrapper onPress={onPress}>
     <View>
@@ -86,7 +88,11 @@ export const Card: React.FC<CardProps> = ({
     <Row>
       <CallToAction>
         {children}
-        <Button small variant="secondary" onPress={onPress}>
+        <Button
+          LeftIcon={ButtonIcon}
+          small
+          variant="secondary"
+          onPress={onPress}>
           {buttonText}
         </Button>
       </CallToAction>

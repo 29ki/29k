@@ -1,10 +1,12 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import dayjs from 'dayjs';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {Alert} from 'react-native';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
+import {PlusIcon} from '../../../common/components/Icons';
 import Image from '../../../common/components/Image/Image';
 import HalfModal from '../../../common/components/Modals/HalfModal';
 import {Spacer16} from '../../../common/components/Spacers/Spacer';
@@ -13,8 +15,9 @@ import {COLORS} from '../../../common/constants/colors';
 import {RootStackProps} from '../../../common/constants/routes';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import NS from '../../../lib/i18n/constants/namespaces';
+import {userAtom} from '../../../lib/user/state/state';
+import useAddToCalendar from '../hooks/useAddToCalendar';
 import useTemples from '../hooks/useTemples';
-import {templeByIdSelector} from '../state/state';
 
 const Content = styled.View({
   flex: 1,
@@ -44,12 +47,13 @@ const Title = styled(Display24)({
 
 const TempleModal = () => {
   const {
-    params: {templeId},
+    params: {temple},
   } = useRoute<RouteProp<RootStackProps, 'TempleModal'>>();
   const {t} = useTranslation(NS.COMPONENT.TEMPLE_MODAL);
+  const user = useRecoilValue(userAtom);
   const navigation = useNavigation();
   const {deleteTemple} = useTemples();
-  const temple = useRecoilValue(templeByIdSelector(templeId));
+  const addToCalendar = useAddToCalendar();
   const exercise = useExerciseById(temple?.contentId);
 
   if (!temple || !exercise) {
@@ -64,7 +68,7 @@ const TempleModal = () => {
         style: 'destructive',
 
         onPress: async () => {
-          await deleteTemple(templeId);
+          await deleteTemple(temple.id);
           navigation.goBack();
         },
       },
@@ -84,9 +88,25 @@ const TempleModal = () => {
       </Content>
       <Spacer16 />
       <BottomContent>
-        <DeleteButton small onPress={onDelete}>
-          {t('deleteButton')}
-        </DeleteButton>
+        <Button
+          small
+          LeftIcon={PlusIcon}
+          variant="secondary"
+          onPress={() =>
+            addToCalendar(
+              temple.name,
+              exercise.name,
+              dayjs().add(2, 'days'),
+              dayjs().add(2, 'days').add(1, 'hour'),
+            )
+          }>
+          {t('addToCalendar')}
+        </Button>
+        {user?.uid === temple?.facilitator && (
+          <DeleteButton small onPress={onDelete}>
+            {t('deleteButton')}
+          </DeleteButton>
+        )}
       </BottomContent>
     </HalfModal>
   );
