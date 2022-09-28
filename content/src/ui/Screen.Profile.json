@@ -6,9 +6,9 @@
     "checkUpdate": "Check for update",
     "language": "Language",
     "logout": "Logout",
-    "setEmailAndPassword": "Upgrade with Email & Password",
+    "setEmailAndPassword": "Upgrade with E-mail & Password",
     "email": "E-mail",
-    "password": "Password",
+    "password": "Lösenord",
     "save": "Save"
   },
   "sv": {
@@ -18,7 +18,7 @@
     "checkUpdate": "Sök efter uppdatering",
     "language": "Språk",
     "logout": "Logga ut",
-    "setEmailAndPassword": "Uppgradera med Email & Password",
+    "setEmailAndPassword": "Uppgradera med E-mail & Lösenord",
     "email": "E-mail",
     "password": "Lösenord",
     "save": "Spara"
