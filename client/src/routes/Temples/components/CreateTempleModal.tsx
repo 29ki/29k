@@ -3,10 +3,11 @@ import {useTranslation} from 'react-i18next';
 import {FlatList} from 'react-native-gesture-handler';
 import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
+
 import Gutters from '../../../common/components/Gutters/Gutters';
 import Image from '../../../common/components/Image/Image';
 import HalfModal from '../../../common/components/Modals/HalfModal';
-import {Spacer24} from '../../../common/components/Spacers/Spacer';
+import {Spacer16, Spacer24} from '../../../common/components/Spacers/Spacer';
 import TouchableOpacity from '../../../common/components/TouchableOpacity/TouchableOpacity';
 import {Body14} from '../../../common/components/Typography/Body/Body';
 import {Display16} from '../../../common/components/Typography/Display/Display';
@@ -16,6 +17,7 @@ import SETTINGS from '../../../common/constants/settings';
 import {SPACINGS} from '../../../common/constants/spacings';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import NS from '../../../lib/i18n/constants/namespaces';
+import DateTimePicker from './DateTimePicker';
 
 const Content = styled(Gutters)({
   flex: 1,
@@ -42,7 +44,7 @@ const CardContent = styled.View({
   flex: 2,
 });
 
-const ListHeader = styled(Heading16)({
+const StepHeading = styled(Heading16)({
   alignSelf: 'center',
 });
 
@@ -52,6 +54,15 @@ const Step = styled(Animated.View).attrs({
 })({
   flex: 1,
 });
+
+type StuffType = {
+  selectedExercise: string | null;
+  setSelectedExercise: Dispatch<SetStateAction<string | null>>;
+  currentStep: number;
+  setCurrentStep: Dispatch<SetStateAction<number>>;
+  selectedDate: Date | null;
+  setSelectedDate: Dispatch<SetStateAction<Date | null>>;
+};
 
 const ContentCard: React.FC<{id: string; onPress: () => void}> = ({
   id,
@@ -71,8 +82,9 @@ const ContentCard: React.FC<{id: string; onPress: () => void}> = ({
   );
 };
 
-const SelectContent: React.FC<{setStep: Dispatch<SetStateAction<number>>}> = ({
-  setStep,
+const SelectContent: React.FC<StuffType> = ({
+  setCurrentStep,
+  setSelectedExercise,
 }) => {
   const exercises = ['095f9642-73b6-4c9a-ae9a-ea7dea7363f5'];
   const {t} = useTranslation(NS.COMPONENT.CREATE_TEMPLE_MODAL);
@@ -81,23 +93,34 @@ const SelectContent: React.FC<{setStep: Dispatch<SetStateAction<number>>}> = ({
     <Step>
       <FlatList
         ListHeaderComponent={
-          <ListHeader>{t('selectContent.title')}</ListHeader>
+          <>
+            <StepHeading>{t('selectContent.title')}</StepHeading>
+            <Spacer16 />
+          </>
         }
         keyExtractor={id => id}
         data={exercises}
         renderItem={({item}) => (
-          <ContentCard onPress={() => setStep(1)} id={item} />
+          <ContentCard
+            onPress={() => {
+              setSelectedExercise(item);
+              setCurrentStep(1);
+            }}
+            id={item}
+          />
         )}
       />
     </Step>
   );
 };
-const SetDateTime = () => {
+const SetDateTime: React.FC<StuffType> = ({selectedDate}) => {
   const {t} = useTranslation(NS.COMPONENT.CREATE_TEMPLE_MODAL);
 
   return (
     <Step>
-      <Heading16>{t('setDateTime.title')}</Heading16>
+      <StepHeading>{t('setDateTime.title')}</StepHeading>
+      <Spacer16 />
+      <DateTimePicker />
     </Step>
   );
 };
@@ -105,13 +128,26 @@ const steps = [SelectContent, SetDateTime];
 
 const CreateTempleModal = () => {
   const [currentStep, setCurrentStep] = useState(0);
+  const [selectedExercise, setSelectedExercise] = useState<string | null>(null);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
 
-  const CurrentStepComponent = steps[currentStep];
+  const CurrentStepComponent: React.FC<StuffType> = steps[currentStep];
+
+  const stuff: StuffType = {
+    selectedExercise,
+    setSelectedExercise,
+    currentStep,
+    setCurrentStep,
+    selectedDate,
+    setSelectedDate,
+  };
+
   return (
-    <HalfModal backgroundColor={COLORS.WHITE}>
+    <HalfModal
+      backgroundColor={currentStep === 0 ? COLORS.WHITE : COLORS.CREAM}>
       <Spacer24 />
       <Content>
-        <CurrentStepComponent setStep={setCurrentStep} />
+        <CurrentStepComponent {...stuff} />
       </Content>
     </HalfModal>
   );
