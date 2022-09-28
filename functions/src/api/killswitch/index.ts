@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 import {lt, valid} from 'semver';
-import {createUnauthorizedRouter} from '../../lib/routers';
+import {createRouter} from '../../lib/routers';
 
 // Binary kill switch, this will permanently disable the entire app.
 // USE WITH CAUTION!
@@ -42,7 +42,7 @@ const acceptedBundleVersion = (
   return bundleVersionNumber >= MIN_BUNDLE_VERSION[version][platform];
 };
 
-const router = createUnauthorizedRouter();
+const router = createRouter();
 
 type RequestQuery = {
   version: string;
