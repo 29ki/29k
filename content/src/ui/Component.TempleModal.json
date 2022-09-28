@@ -10,7 +10,8 @@
         "cancel": "Cancel",
         "confirm": "Delete"
       }
-    }
+    },
+    "addToCalendar": "Add to Cal"
   },
   "sv": {
     "edit": "Ändra",
@@ -23,7 +24,8 @@
         "cancel": "Avbryt",
         "confirm": "Ta bort"
       }
-    }
+    },
+    "addToCalendar": "Lägg i Kal"
   },
   "pt": {
     "edit": "Edit",
@@ -36,6 +38,7 @@
         "cancel": "Cancel",
         "confirm": "Delete"
       }
-    }
+    },
+    "addToCalendar": "Add to Cal"
   }
 }
