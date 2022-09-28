@@ -10,18 +10,17 @@ afterEach(() => {
 
 describe('useAuthenticateUser', () => {
   it('should sign in anonymously if user is not authenticated', () => {
-    (auth().onAuthStateChanged as jest.Mock).mockImplementationOnce(callback =>
+    (auth().onUserChanged as jest.Mock).mockImplementationOnce(callback =>
       callback(null),
     );
 
     renderHook(() => useAuthenticateUser());
 
-    expect(auth().onAuthStateChanged).toHaveBeenCalledTimes(1);
-    expect(auth().signInAnonymously).toHaveBeenCalledTimes(1);
+    expect(auth().onUserChanged).toHaveBeenCalledTimes(1);
   });
 
   it('should set user state if user is authenticated', () => {
-    (auth().onAuthStateChanged as jest.Mock).mockImplementationOnce(callback =>
+    (auth().onUserChanged as jest.Mock).mockImplementationOnce(callback =>
       callback({uid: 'some-user-id'}),
     );
 
@@ -34,14 +33,13 @@ describe('useAuthenticateUser', () => {
 
     const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
 
-    expect(auth().onAuthStateChanged).toHaveBeenCalledTimes(1);
-    expect(auth().signInAnonymously).toHaveBeenCalledTimes(0);
+    expect(auth().onUserChanged).toHaveBeenCalledTimes(1);
     expect(result.current).toEqual({uid: 'some-user-id'});
   });
 
   it('should unsubscribe on unmount', () => {
     const mockUnsubscribe = jest.fn();
-    (auth().onAuthStateChanged as jest.Mock).mockImplementationOnce(
+    (auth().onUserChanged as jest.Mock).mockImplementationOnce(
       () => mockUnsubscribe,
     );
 
