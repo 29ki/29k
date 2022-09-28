@@ -1,0 +1,62 @@
+{
+  "en": {
+    "published": false,
+    "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+    "name": "Bring your feelings along",
+    "slides": [
+      {
+        "type": "participantSpotlight"
+      },
+      {
+        "type": "content",
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1635344352/The%20Word%20But/jenny_thewordand_zg3mb6.mp4",
+            "description": "Jenny - the word and",
+            "preview": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1654164681/New_images/exercises%20png/1:1.35%20ratio%20images/bring_your_feelings_along_eng_xlrrkl.png"
+          },
+          "image": {
+            "source": ""
+          },
+          "heading": "The word AND"
+        }
+      },
+      {
+        "type": "reflection",
+        "content": {
+          "heading": "I would like to X, but I am so Y"
+        }
+      },
+      {
+        "type": "reflection",
+        "content": {
+          "heading": "What happens when you switch from using BUT to using AND?"
+        }
+      },
+      {
+        "type": "sharing",
+        "content": {
+          "heading": "What happens when you switch from BUT to using AND?"
+        }
+      },
+      {
+        "type": "content",
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1617023623/Badges/quest_badge_gofzky.png",
+            "description": "Mission badge"
+          },
+          "heading": "Mission"
+        }
+      }
+    ]
+  },
+  "sv": {
+    "published": false,
+    "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898"
+  },
+  "pt": {
+    "published": false,
+    "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898"
+  }
+}
