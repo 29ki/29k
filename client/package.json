@@ -30,7 +30,7 @@
     "@react-navigation/drawer": "^6.5.0",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.0",
-    "@sentry/react-native": "^4.4.0",
+    "@sentry/react-native": "^4.5.0",
     "dayjs": "^1.11.5",
     "i18next": "^21.9.2",
     "intl-pluralrules": "^1.3.1",
