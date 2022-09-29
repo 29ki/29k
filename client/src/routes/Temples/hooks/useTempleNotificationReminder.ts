@@ -15,19 +15,22 @@ const useTempleNotificationReminder = (
   const {t} = useTranslation(NS.COMPONENT.SESSION_REMINDER);
   const exercise = useExerciseById(contentId);
 
-  const [notification, setNotification, removeNotification] =
-    useTriggerNotification(id);
+  const {
+    triggerNotification,
+    setTriggerNotification,
+    removeTriggerNotification,
+  } = useTriggerNotification(id);
 
-  const reminderEnabled = Boolean(notification);
+  const reminderEnabled = Boolean(triggerNotification);
 
   const toggleReminder: ToggleReminder = async (enable = true) =>
     enable
-      ? setNotification(
+      ? setTriggerNotification(
           t('title', {name, exercise: exercise?.name}),
           t('body'),
           dayjs().add(10, 'seconds').valueOf(),
         )
-      : removeNotification();
+      : removeTriggerNotification();
 
   return {reminderEnabled, toggleReminder};
 };

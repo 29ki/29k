@@ -18,7 +18,9 @@ afterEach(() => {
 
 describe('useTempleNotificationReminder', () => {
   it('returns the notification for a specific id', () => {
-    mockUseTriggerNotification.mockReturnValueOnce([{id: 'some-temple-id'}]);
+    mockUseTriggerNotification.mockReturnValueOnce({
+      triggerNotification: {id: 'some-temple-id'},
+    });
 
     const {result} = renderHook(() =>
       useTempleNotificationReminder({
@@ -36,10 +38,9 @@ describe('useTempleNotificationReminder', () => {
 
   it('can enable a reminder', () => {
     const mockSetNotification = jest.fn();
-    mockUseTriggerNotification.mockReturnValueOnce([
-      undefined,
-      mockSetNotification,
-    ]);
+    mockUseTriggerNotification.mockReturnValueOnce({
+      setTriggerNotification: mockSetNotification,
+    });
 
     const {result} = renderHook(() =>
       useTempleNotificationReminder({
@@ -61,11 +62,9 @@ describe('useTempleNotificationReminder', () => {
 
   it('can remove a reminder', () => {
     const mockRemoveNotification = jest.fn();
-    mockUseTriggerNotification.mockReturnValueOnce([
-      undefined,
-      undefined,
-      mockRemoveNotification,
-    ]);
+    mockUseTriggerNotification.mockReturnValueOnce({
+      removeTriggerNotification: mockRemoveNotification,
+    });
 
     const {result} = renderHook(() =>
       useTempleNotificationReminder({

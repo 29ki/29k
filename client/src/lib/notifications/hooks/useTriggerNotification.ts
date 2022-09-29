@@ -14,22 +14,30 @@ const getTriggerNotificationById = async (
     ({notification}) => notification.id === notificationId,
   );
 
+type SetTriggerNotification = (
+  title: string,
+  body: string,
+  timestamp: number,
+) => Promise<string>;
+
+type RemoveTriggerNotification = () => Promise<void>;
+
 const useTriggerNotification = (
   id?: string,
-): [
-  Notification | undefined,
-  (title: string, body: string, timestamp: number) => Promise<string>,
-  () => Promise<void>,
-] => {
+): {
+  triggerNotification: Notification | undefined;
+  setTriggerNotification: SetTriggerNotification;
+  removeTriggerNotification: RemoveTriggerNotification;
+} => {
   const notificationId = useRef<string | undefined>(id);
-  const [notification, setNotification] = useState<Notification>();
+  const [triggerNotification, setNotification] = useState<Notification>();
 
   const getExisitingNotification = async () => {
     if (notificationId.current) {
-      const triggerNotification = await getTriggerNotificationById(
-        notificationId.current,
+      setNotification(
+        (await getTriggerNotificationById(notificationId.current))
+          ?.notification,
       );
-      setNotification(triggerNotification?.notification);
     }
   };
 
@@ -53,7 +61,11 @@ const useTriggerNotification = (
     return subscribeToNotifications();
   }, []);
 
-  const setTrigger = async (title: string, body: string, timestamp: number) => {
+  const setTriggerNotification: SetTriggerNotification = async (
+    title: string,
+    body: string,
+    timestamp: number,
+  ) => {
     // TODO: handle declined permissions better
     await notifee.requestPermission();
 
@@ -78,7 +90,7 @@ const useTriggerNotification = (
     return notificationId.current;
   };
 
-  const removeTrigger = async () => {
+  const removeTriggerNotification: RemoveTriggerNotification = async () => {
     if (notificationId.current) {
       await notifee.cancelTriggerNotification(notificationId.current);
       setNotification(undefined);
@@ -86,7 +98,11 @@ const useTriggerNotification = (
     }
   };
 
-  return [notification, setTrigger, removeTrigger];
+  return {
+    triggerNotification,
+    setTriggerNotification,
+    removeTriggerNotification,
+  };
 };
 
 export default useTriggerNotification;

@@ -1,4 +1,4 @@
-import {renderHook} from '@testing-library/react-hooks';
+import {act, renderHook} from '@testing-library/react-hooks';
 import notifee, {EventType, Event} from '@notifee/react-native';
 
 import useTriggerNotification from './useTriggerNotification';
@@ -22,9 +22,7 @@ describe('useTriggerNotification', () => {
 
     const {result} = renderHook(() => useTriggerNotification('some-id'));
 
-    const [, setNotification] = result.current;
-
-    const notificationId = await setNotification(
+    const notificationId = await result.current.setTriggerNotification(
       'Some title',
       'Some body',
       123456789,
@@ -63,8 +61,7 @@ describe('useTriggerNotification', () => {
 
     await waitForNextUpdate();
 
-    const [notification] = result.current;
-    expect(notification).toEqual({id: 'some-id'});
+    expect(result.current.triggerNotification).toEqual({id: 'some-id'});
 
     expect(mockGetTriggerNotifications).toHaveBeenCalledTimes(1);
 
@@ -79,18 +76,18 @@ describe('useTriggerNotification', () => {
 
     const {result} = renderHook(() => useTriggerNotification('some-id'));
 
-    const [initialNotification] = result.current;
-    expect(initialNotification).toBe(undefined);
+    expect(result.current.triggerNotification).toBe(undefined);
 
     expect(mockOnForegroundEvent).toHaveBeenCalledTimes(1);
 
-    eventCallback({
-      type: EventType.TRIGGER_NOTIFICATION_CREATED,
-      detail: {notification: {id: 'some-id'}},
+    act(() => {
+      eventCallback({
+        type: EventType.TRIGGER_NOTIFICATION_CREATED,
+        detail: {notification: {id: 'some-id'}},
+      });
     });
 
-    const [updatedNotification] = result.current;
-    expect(updatedNotification).toEqual({id: 'some-id'});
+    expect(result.current.triggerNotification).toEqual({id: 'some-id'});
 
     expect(result.all.length).toBe(2);
   });
@@ -111,18 +108,18 @@ describe('useTriggerNotification', () => {
 
     await waitForNextUpdate();
 
-    const [initialNotification] = result.current;
-    expect(initialNotification).toEqual({id: 'some-id'});
+    expect(result.current.triggerNotification).toEqual({id: 'some-id'});
 
     expect(mockOnForegroundEvent).toHaveBeenCalledTimes(1);
 
-    eventCallback({
-      type: EventType.DELIVERED,
-      detail: {notification: {id: 'some-id'}},
+    act(() => {
+      eventCallback({
+        type: EventType.DELIVERED,
+        detail: {notification: {id: 'some-id'}},
+      });
     });
 
-    const [updatedNotification] = result.current;
-    expect(updatedNotification).toBe(undefined);
+    expect(result.current.triggerNotification).toBe(undefined);
 
     expect(result.all.length).toBe(3);
   });
@@ -136,18 +133,24 @@ describe('useTriggerNotification', () => {
 
     const {result} = renderHook(() => useTriggerNotification());
 
-    const [initialNotification, setNotification] = result.current;
-    expect(initialNotification).toBe(undefined);
+    expect(result.current.triggerNotification).toBe(undefined);
 
-    await setNotification('Some title', 'Some body', 123456789);
+    await result.current.setTriggerNotification(
+      'Some title',
+      'Some body',
+      123456789,
+    );
 
-    eventCallback({
-      type: EventType.TRIGGER_NOTIFICATION_CREATED,
-      detail: {notification: {id: 'some-generated-id'}},
+    act(() => {
+      eventCallback({
+        type: EventType.TRIGGER_NOTIFICATION_CREATED,
+        detail: {notification: {id: 'some-generated-id'}},
+      });
     });
 
-    const [updatedNotification] = result.current;
-    expect(updatedNotification).toEqual({id: 'some-generated-id'});
+    expect(result.current.triggerNotification).toEqual({
+      id: 'some-generated-id',
+    });
 
     expect(result.all.length).toBe(2);
   });
@@ -163,15 +166,13 @@ describe('useTriggerNotification', () => {
 
     await waitForNextUpdate();
 
-    const [initialNotification, , removeNotification] = result.current;
-    expect(initialNotification).toEqual({id: 'some-id'});
+    expect(result.current.triggerNotification).toEqual({id: 'some-id'});
 
-    removeNotification();
+    result.current.removeTriggerNotification();
 
     await waitForNextUpdate();
 
-    const [updatedNotification] = result.current;
-    expect(updatedNotification).toBe(undefined);
+    expect(result.current.triggerNotification).toBe(undefined);
 
     expect(mockCancelTriggerNotification).toHaveBeenCalledTimes(1);
     expect(mockCancelTriggerNotification).toHaveBeenCalledWith('some-id');
