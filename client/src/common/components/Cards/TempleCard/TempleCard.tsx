@@ -26,15 +26,22 @@ const TempleCard: React.FC<TempleCardProps> = ({temple}) => {
 
   const startingNow = false; // Calculate from starting time
 
-  const navigateToTemple = () =>
-    navigate('TempleStack', {
-      screen: 'ChangingRoom',
-      params: {
-        templeId: temple.id,
-      },
-    });
+  const onPress = () =>
+    startingNow
+      ? navigate('TempleStack', {
+          screen: 'ChangingRoom',
+          params: {
+            templeId: temple.id,
+          },
+        })
+      : addToCalendar(
+          name,
+          exercise?.name,
+          dayjs().add(2, 'days'),
+          dayjs().add(2, 'days').add(1, 'hour'),
+        );
 
-  const navigateToTempleModal = () => navigate('TempleModal', {temple});
+  const onContextPress = () => navigate('TempleModal', {temple});
 
   return (
     <Card
@@ -45,18 +52,8 @@ const TempleCard: React.FC<TempleCardProps> = ({temple}) => {
       image={{
         uri: exercise?.card?.image?.source,
       }}
-      onPress={
-        startingNow
-          ? navigateToTemple
-          : () =>
-              addToCalendar(
-                name,
-                exercise?.name,
-                dayjs().add(2, 'days'),
-                dayjs().add(2, 'days').add(1, 'hour'),
-              )
-      }
-      onContextPress={navigateToTempleModal}
+      onPress={onPress}
+      onContextPress={onContextPress}
       Icon={reminderEnabled ? BellIcon : undefined}
     />
   );
