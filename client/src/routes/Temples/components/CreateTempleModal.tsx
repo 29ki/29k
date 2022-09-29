@@ -164,7 +164,6 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
       <Spacer16 />
       <DateTimePicker />
       <Spacer16 />
-      <Spacer16 />
       <Cta variant="secondary" small onPress={onSubmit} disabled={isLoading}>
         {t('setDateTime.cta')}
       </Cta>
