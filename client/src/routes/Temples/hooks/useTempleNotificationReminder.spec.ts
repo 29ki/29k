@@ -28,8 +28,7 @@ describe('useTempleNotificationReminder', () => {
       } as Temple),
     );
 
-    const [notification] = result.current;
-    expect(notification).toEqual({id: 'some-temple-id'});
+    expect(result.current.reminderEnabled).toEqual(true);
 
     expect(mockUseTriggerNotification).toHaveBeenCalledTimes(1);
     expect(mockUseTriggerNotification).toHaveBeenCalledWith('some-temple-id');
@@ -50,9 +49,7 @@ describe('useTempleNotificationReminder', () => {
       } as Temple),
     );
 
-    const [, setNotification] = result.current;
-
-    setNotification(true);
+    result.current.toggleReminder(true);
 
     expect(mockSetNotification).toHaveBeenCalledTimes(1);
     expect(mockSetNotification).toHaveBeenCalledWith(
@@ -78,9 +75,7 @@ describe('useTempleNotificationReminder', () => {
       } as Temple),
     );
 
-    const [, setNotification] = result.current;
-
-    setNotification(false);
+    result.current.toggleReminder(false);
 
     expect(mockRemoveNotification).toHaveBeenCalledTimes(1);
     expect(mockRemoveNotification).toHaveBeenCalledWith();

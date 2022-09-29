@@ -22,7 +22,7 @@ const TempleCard: React.FC<TempleCardProps> = ({temple}) => {
   const {t} = useTranslation(NS.COMPONENT.TEMPLE_CARD);
   const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
   const user = useRecoilValue(userAtom);
-  const [reminder] = useTempleNotificationReminder(temple);
+  const {reminderEnabled} = useTempleNotificationReminder(temple);
 
   return (
     <Card
@@ -47,7 +47,7 @@ const TempleCard: React.FC<TempleCardProps> = ({temple}) => {
             }
           : undefined
       }
-      Icon={reminder && BellIcon}
+      Icon={reminderEnabled ? BellIcon : undefined}
     />
   );
 };
