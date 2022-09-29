@@ -49,6 +49,7 @@ const Wrapper = styled.KeyboardAvoidingView.attrs({
 })({
   flex: 1,
   justifyContent: 'center',
+  paddingHorizontal: SPACINGS.EIGHT,
 });
 
 const Controls = styled.View({
@@ -145,9 +146,7 @@ const ChangingRoom = () => {
   return (
     <>
       <TopSafeArea />
-      <Gutters>
-        <IconButton variant="tertiary" onPress={goBack} Icon={ArrowLeftIcon} />
-      </Gutters>
+      <IconButton variant="tertiary" onPress={goBack} Icon={ArrowLeftIcon} />
       <Wrapper>
         <VideoWrapper>
           {hasVideo ? (
@@ -169,14 +168,14 @@ const ChangingRoom = () => {
             <IconButton
               disabled
               onPress={() => toggleAudio(!hasAudio)}
-              active={hasAudio}
+              active={!hasAudio}
               variant="secondary"
               Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
             />
             <Spacer16 />
             <IconButton
               onPress={() => toggleVideo(!hasVideo)}
-              active={hasVideo}
+              active={!hasVideo}
               variant="secondary"
               Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
             />
