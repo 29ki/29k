@@ -3,32 +3,15 @@ import notifee, {
   EventType,
   Notification,
   TimestampTrigger,
-  TriggerNotification,
   TriggerType,
 } from '@notifee/react-native';
 
-const getTriggerNotificationById = async (
-  notificationId: string,
-): Promise<TriggerNotification | undefined> =>
+const getTriggerNotificationById = async (notificationId: string) =>
   (await notifee.getTriggerNotifications()).find(
     ({notification}) => notification.id === notificationId,
   );
 
-type SetTriggerNotification = (
-  title: string,
-  body: string,
-  timestamp: number,
-) => Promise<string>;
-
-type RemoveTriggerNotification = () => Promise<void>;
-
-const useTriggerNotification = (
-  id?: string,
-): {
-  triggerNotification: Notification | undefined;
-  setTriggerNotification: SetTriggerNotification;
-  removeTriggerNotification: RemoveTriggerNotification;
-} => {
+const useTriggerNotification = (id?: string) => {
   const notificationId = useRef<string | undefined>(id);
   const [triggerNotification, setNotification] = useState<Notification>();
 
@@ -61,7 +44,7 @@ const useTriggerNotification = (
     return subscribeToNotifications();
   }, []);
 
-  const setTriggerNotification: SetTriggerNotification = async (
+  const setTriggerNotification = async (
     title: string,
     body: string,
     timestamp: number,
@@ -90,7 +73,7 @@ const useTriggerNotification = (
     return notificationId.current;
   };
 
-  const removeTriggerNotification: RemoveTriggerNotification = async () => {
+  const removeTriggerNotification = async () => {
     if (notificationId.current) {
       await notifee.cancelTriggerNotification(notificationId.current);
       setNotification(undefined);

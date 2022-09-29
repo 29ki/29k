@@ -5,11 +5,7 @@ import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import NS from '../../../lib/i18n/constants/namespaces';
 import useTriggerNotification from '../../../lib/notifications/hooks/useTriggerNotification';
 
-type ToggleReminder = (enable: boolean) => Promise<string | void>;
-
-const useTempleNotificationReminder = (
-  temple: Temple,
-): {reminderEnabled: boolean; toggleReminder: ToggleReminder} => {
+const useTempleNotificationReminder = (temple: Temple) => {
   const {id, name, contentId} = temple;
 
   const {t} = useTranslation(NS.COMPONENT.SESSION_REMINDER);
@@ -23,7 +19,7 @@ const useTempleNotificationReminder = (
 
   const reminderEnabled = Boolean(triggerNotification);
 
-  const toggleReminder: ToggleReminder = async (enable = true) =>
+  const toggleReminder = async (enable = true) =>
     enable
       ? setTriggerNotification(
           t('title', {name, exercise: exercise?.name}),
