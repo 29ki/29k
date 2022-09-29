@@ -6,10 +6,11 @@ import {Alert} from 'react-native';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
-import {PlusIcon} from '../../../common/components/Icons';
+import IconButton from '../../../common/components/Buttons/IconButton/IconButton';
+import {BellIcon, DeleteIcon, PlusIcon} from '../../../common/components/Icons';
 import Image from '../../../common/components/Image/Image';
 import HalfModal from '../../../common/components/Modals/HalfModal';
-import {Spacer16} from '../../../common/components/Spacers/Spacer';
+import {Spacer16, Spacer8} from '../../../common/components/Spacers/Spacer';
 import {Display24} from '../../../common/components/Typography/Display/Display';
 import {COLORS} from '../../../common/constants/colors';
 import {RootStackProps} from '../../../common/constants/routes';
@@ -17,6 +18,7 @@ import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import NS from '../../../lib/i18n/constants/namespaces';
 import {userAtom} from '../../../lib/user/state/state';
 import useAddToCalendar from '../hooks/useAddToCalendar';
+import useTempleNotificationReminder from '../hooks/useTempleNotificationReminder';
 import useTemples from '../hooks/useTemples';
 
 const Content = styled.View({
@@ -28,7 +30,6 @@ const BottomContent = styled.View({
   flex: 1,
   alignItems: 'center',
   flexDirection: 'row',
-  justifyContent: 'space-between',
 });
 
 const ImageContainer = styled.View({
@@ -36,9 +37,8 @@ const ImageContainer = styled.View({
   height: 80,
 });
 
-const DeleteButton = styled(Button)({
+const DeleteButton = styled(IconButton)({
   backgroundColor: COLORS.DELETE,
-  justifySelf: 'flex-end',
 });
 
 const Title = styled(Display24)({
@@ -55,6 +55,8 @@ const TempleModal = () => {
   const {deleteTemple} = useTemples();
   const addToCalendar = useAddToCalendar();
   const exercise = useExerciseById(temple?.contentId);
+  const {reminderEnabled, toggleReminder} =
+    useTempleNotificationReminder(temple);
 
   if (!temple || !exercise) {
     return null;
@@ -102,10 +104,18 @@ const TempleModal = () => {
           }>
           {t('addToCalendar')}
         </Button>
+        <Spacer8 />
+        <Button
+          small
+          LeftIcon={BellIcon}
+          variant="secondary"
+          active={reminderEnabled}
+          onPress={() => toggleReminder(!reminderEnabled)}>
+          {t('addReminder')}
+        </Button>
+        <Spacer8 />
         {user?.uid === temple?.facilitator && (
-          <DeleteButton small onPress={onDelete}>
-            {t('deleteButton')}
-          </DeleteButton>
+          <DeleteButton small onPress={onDelete} Icon={DeleteIcon} />
         )}
       </BottomContent>
     </HalfModal>
