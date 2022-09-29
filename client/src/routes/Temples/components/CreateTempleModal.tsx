@@ -97,7 +97,7 @@ const ContentCard: React.FC<{id: string; onPress: () => void}> = ({
   );
 };
 
-const SelectContent: React.FC<StuffType> = ({
+const SelectContent: React.FC<StepProps> = ({
   setCurrentStep,
   setSelectedExercise,
 }) => {
@@ -130,7 +130,7 @@ const SelectContent: React.FC<StuffType> = ({
   );
 };
 
-const SetDateTime: React.FC<StuffType> = ({selectedExercise}) => {
+const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [dateTime, setDateTime] = useState();
   const {addTemple} = useTemples();
@@ -171,7 +171,7 @@ const SetDateTime: React.FC<StuffType> = ({selectedExercise}) => {
   );
 };
 
-type StuffType = {
+type StepProps = {
   selectedExercise: string | null;
   setSelectedExercise: Dispatch<SetStateAction<string | null>>;
   currentStep: number;
@@ -187,9 +187,9 @@ const CreateTempleModal = () => {
   const [selectedExercise, setSelectedExercise] = useState<string | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
 
-  const CurrentStepComponent: React.FC<StuffType> = steps[currentStep];
+  const CurrentStepComponent: React.FC<StepProps> = steps[currentStep];
 
-  const stuff: StuffType = {
+  const stuff: StepProps = {
     selectedExercise,
     setSelectedExercise,
     currentStep,
