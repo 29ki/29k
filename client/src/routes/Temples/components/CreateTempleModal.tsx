@@ -173,11 +173,11 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
 
 type StepProps = {
   selectedExercise: string | null;
-  setSelectedExercise: Dispatch<SetStateAction<string | null>>;
+  setSelectedExercise: Dispatch<SetStateAction<StepProps['selectedExercise']>>;
   currentStep: number;
-  setCurrentStep: Dispatch<SetStateAction<number>>;
+  setCurrentStep: Dispatch<SetStateAction<StepProps['currentStep']>>;
   selectedDate: Date | null;
-  setSelectedDate: Dispatch<SetStateAction<Date | null>>;
+  setSelectedDate: Dispatch<SetStateAction<StepProps['selectedDate']>>;
 };
 
 const steps = [SelectContent, SetDateTime];
