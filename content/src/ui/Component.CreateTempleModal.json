@@ -4,7 +4,8 @@
       "title": "Pick an exercise"
     },
     "setDateTime": {
-      "title": "Session time set up"
+      "title": "Session time set up",
+      "cta": "Publish"
     }
   },
   "sv": {
@@ -12,7 +13,8 @@
       "title": "Välj en övning"
     },
     "setDateTime": {
-      "title": "Välj en dag och tid"
+      "title": "Välj en dag och tid",
+      "cta": "Publisera"
     }
   },
   "pt": {
@@ -20,7 +22,8 @@
       "title": "Escolha um exercício"
     },
     "setDateTime": {
-      "title": "Escolha o tempo da sessão"
+      "title": "Escolha o tempo da sessão",
+      "cta": "Publish"
     }
   }
 }

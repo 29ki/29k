@@ -1,23 +1,41 @@
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {Dispatch, SetStateAction, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {FlatList} from 'react-native-gesture-handler';
 import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
+import Button from '../../../common/components/Buttons/Button';
 
 import Gutters from '../../../common/components/Gutters/Gutters';
 import Image from '../../../common/components/Image/Image';
 import HalfModal from '../../../common/components/Modals/HalfModal';
-import {Spacer16, Spacer24} from '../../../common/components/Spacers/Spacer';
+import {
+  Spacer16,
+  Spacer24,
+  Spacer28,
+  Spacer8,
+} from '../../../common/components/Spacers/Spacer';
 import TouchableOpacity from '../../../common/components/TouchableOpacity/TouchableOpacity';
 import {Body14} from '../../../common/components/Typography/Body/Body';
-import {Display16} from '../../../common/components/Typography/Display/Display';
+import {
+  Display16,
+  Display24,
+} from '../../../common/components/Typography/Display/Display';
 import {Heading16} from '../../../common/components/Typography/Heading/Heading';
 import {COLORS} from '../../../common/constants/colors';
+import {ModalStackProps} from '../../../common/constants/routes';
 import SETTINGS from '../../../common/constants/settings';
 import {SPACINGS} from '../../../common/constants/spacings';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import NS from '../../../lib/i18n/constants/namespaces';
+import useTemples from '../hooks/useTemples';
 import DateTimePicker from './DateTimePicker';
+
+const Row = styled.View({
+  flexDirection: 'row',
+  paddingHorizontal: SPACINGS.EIGHT,
+});
 
 const Content = styled(Gutters)({
   flex: 1,
@@ -30,18 +48,21 @@ const Card = styled(TouchableOpacity)({
   justifyContent: 'space-between',
   alignItems: 'center',
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
-  padding: SPACINGS.SIXTEEN,
-  backgroundColor: COLORS.CREAM,
+  paddingRight: 0,
+  paddingLeft: SPACINGS.SIXTEEN,
+  backgroundColor: '#F4EBC4',
+  overflow: 'hidden',
 });
 
-const ImageWrapper = styled.View({
+const CardImageWrapper = styled.View({
   flex: 1,
   width: 80,
   height: 80,
 });
 
-const CardContent = styled.View({
+const TextWrapper = styled.View({
   flex: 2,
+  paddingVertical: SPACINGS.SIXTEEN,
 });
 
 const StepHeading = styled(Heading16)({
@@ -55,14 +76,7 @@ const Step = styled(Animated.View).attrs({
   flex: 1,
 });
 
-type StuffType = {
-  selectedExercise: string | null;
-  setSelectedExercise: Dispatch<SetStateAction<string | null>>;
-  currentStep: number;
-  setCurrentStep: Dispatch<SetStateAction<number>>;
-  selectedDate: Date | null;
-  setSelectedDate: Dispatch<SetStateAction<Date | null>>;
-};
+const Cta = styled(Button)({alignSelf: 'center'});
 
 const ContentCard: React.FC<{id: string; onPress: () => void}> = ({
   id,
@@ -71,13 +85,14 @@ const ContentCard: React.FC<{id: string; onPress: () => void}> = ({
   const exercise = useExerciseById(id);
   return (
     <Card onPress={onPress}>
-      <CardContent>
+      <TextWrapper>
         <Display16>{exercise?.name}</Display16>
-        <Body14>{exercise?.id}</Body14>
-      </CardContent>
-      <ImageWrapper>
+        <Body14 numberOfLines={1}>{exercise?.id}</Body14>
+      </TextWrapper>
+      <Spacer16 />
+      <CardImageWrapper>
         <Image source={{uri: exercise?.card?.image?.source}} />
-      </ImageWrapper>
+      </CardImageWrapper>
     </Card>
   );
 };
@@ -91,6 +106,7 @@ const SelectContent: React.FC<StuffType> = ({
 
   return (
     <Step>
+      <Spacer24 />
       <FlatList
         ListHeaderComponent={
           <>
@@ -113,17 +129,57 @@ const SelectContent: React.FC<StuffType> = ({
     </Step>
   );
 };
-const SetDateTime: React.FC<StuffType> = ({selectedDate}) => {
+
+const SetDateTime: React.FC<StuffType> = ({selectedExercise}) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [dateTime, setDateTime] = useState();
+  const {addTemple} = useTemples();
+
   const {t} = useTranslation(NS.COMPONENT.CREATE_TEMPLE_MODAL);
+  const exercise = useExerciseById(selectedExercise);
+  const {navigate} =
+    useNavigation<NativeStackNavigationProp<ModalStackProps>>();
+
+  const onSubmit = async () => {
+    if (exercise && dateTime) {
+      setIsLoading(true);
+      await addTemple(exercise, dateTime);
+      setIsLoading(false);
+    }
+  };
 
   return (
     <Step>
+      <Spacer8 />
+      <Row>
+        <TextWrapper>
+          <Display24>{exercise?.name}</Display24>
+        </TextWrapper>
+        <Spacer16 />
+        <CardImageWrapper>
+          <Image source={{uri: exercise?.card?.image?.source}} />
+        </CardImageWrapper>
+      </Row>
+      <Spacer28 />
       <StepHeading>{t('setDateTime.title')}</StepHeading>
       <Spacer16 />
       <DateTimePicker />
+      <Cta variant="secondary" small onPress={onSubmit} disabled={isLoading}>
+        {t('setDateTime.cta')}
+      </Cta>
     </Step>
   );
 };
+
+type StuffType = {
+  selectedExercise: string | null;
+  setSelectedExercise: Dispatch<SetStateAction<string | null>>;
+  currentStep: number;
+  setCurrentStep: Dispatch<SetStateAction<number>>;
+  selectedDate: Date | null;
+  setSelectedDate: Dispatch<SetStateAction<Date | null>>;
+};
+
 const steps = [SelectContent, SetDateTime];
 
 const CreateTempleModal = () => {
@@ -145,7 +201,6 @@ const CreateTempleModal = () => {
   return (
     <HalfModal
       backgroundColor={currentStep === 0 ? COLORS.WHITE : COLORS.CREAM}>
-      <Spacer24 />
       <Content>
         <CurrentStepComponent {...stuff} />
       </Content>
