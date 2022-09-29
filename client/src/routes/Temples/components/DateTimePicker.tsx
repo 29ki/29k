@@ -1,5 +1,5 @@
 import RNDateTimePicker from '@react-native-community/datetimepicker';
-import React, {useState} from 'react';
+import React, {Dispatch, SetStateAction, useState} from 'react';
 import {Modal, Platform} from 'react-native';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
@@ -48,11 +48,13 @@ const ModalView = styled.View({
   elevation: 5,
 });
 
+const DoneButton = styled(Button)({alignSelf: 'center'});
+
 const DateTimePicker: React.FC<{
   mode: 'date' | 'time';
   selectedValue: any;
-  setValue: Function;
-  close: Function;
+  setValue: Dispatch<SetStateAction<Date>>;
+  close: () => void;
 }> = ({mode, setValue, selectedValue, close}) => {
   switch (Platform.OS) {
     case 'ios':
@@ -65,9 +67,11 @@ const DateTimePicker: React.FC<{
                 mode={mode}
                 display={mode === 'date' ? 'inline' : 'spinner'}
                 value={selectedValue}
-                onChange={(_, value) => setValue(value)}
+                onChange={(_, value) => setValue(value as Date)}
               />
-              <Button onPress={() => close()}>Done</Button>
+              <DoneButton variant="secondary" small onPress={close}>
+                Done
+              </DoneButton>
             </ModalView>
           </ModalBackground>
         </Modal>
@@ -79,7 +83,10 @@ const DateTimePicker: React.FC<{
           mode={mode}
           display={mode === 'date' ? 'calendar' : 'clock'}
           value={selectedValue}
-          onChange={(_, value) => setValue(value)}
+          onChange={(_, value) => {
+            close();
+            setValue(value as Date);
+          }}
         />
       );
     default:
