@@ -1,5 +1,5 @@
 import RNDateTimePicker from '@react-native-community/datetimepicker';
-import React, {Dispatch, SetStateAction, useState} from 'react';
+import React, {Dispatch, SetStateAction, useEffect, useState} from 'react';
 import {Modal, Platform} from 'react-native';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
@@ -70,7 +70,7 @@ const DateTimePicker: React.FC<{
                 onChange={(_, value) => setValue(value as Date)}
               />
               <DoneButton variant="secondary" small onPress={close}>
-                Done
+                {'Done'}
               </DoneButton>
             </ModalView>
           </ModalBackground>
@@ -94,11 +94,20 @@ const DateTimePicker: React.FC<{
   }
 };
 
-const Picker = () => {
+type PickerProps = {
+  onChange: (date: Date, time: Date) => void;
+};
+
+const Picker: React.FC<PickerProps> = ({onChange}) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState(new Date());
   const [showPicker, setShowPicker] = useState(false);
   const [mode, setMode] = useState<'date' | 'time'>('date');
+
+  useEffect(
+    () => onChange(selectedDate, selectedTime),
+    [selectedDate, selectedTime, onChange],
+  );
 
   return (
     <>
@@ -109,7 +118,7 @@ const Picker = () => {
             setShowPicker(true);
           }}>
           <Body16>
-            <BodyBold>Date</BodyBold>
+            <BodyBold>{'Date'}</BodyBold>
           </Body16>
           <Body16>{selectedDate.toDateString()}</Body16>
         </Row>
@@ -119,7 +128,7 @@ const Picker = () => {
             setShowPicker(true);
           }}>
           <Body16>
-            <BodyBold>Time</BodyBold>
+            <BodyBold>{'Time'}</BodyBold>
           </Body16>
           <Body16>{selectedTime.toTimeString()}</Body16>
         </Row>

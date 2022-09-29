@@ -1,5 +1,3 @@
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {Dispatch, SetStateAction, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {FlatList} from 'react-native-gesture-handler';
@@ -24,12 +22,13 @@ import {
 } from '../../../common/components/Typography/Display/Display';
 import {Heading16} from '../../../common/components/Typography/Heading/Heading';
 import {COLORS} from '../../../common/constants/colors';
-import {ModalStackProps} from '../../../common/constants/routes';
+
 import SETTINGS from '../../../common/constants/settings';
 import {SPACINGS} from '../../../common/constants/spacings';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
+import useExerciseIds from '../../../lib/content/hooks/useExerciseIds';
 import NS from '../../../lib/i18n/constants/namespaces';
-import useTemples from '../hooks/useTemples';
+
 import DateTimePicker from './DateTimePicker';
 
 const Row = styled.View({
@@ -99,7 +98,7 @@ const SelectContent: React.FC<StepProps> = ({
   setCurrentStep,
   setSelectedExercise,
 }) => {
-  const exercises = ['095f9642-73b6-4c9a-ae9a-ea7dea7363f5'];
+  const exercises = useExerciseIds();
   const {t} = useTranslation(NS.COMPONENT.CREATE_TEMPLE_MODAL);
 
   return (
@@ -131,18 +130,20 @@ const SelectContent: React.FC<StepProps> = ({
 
 const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [dateTime, setDateTime] = useState();
-  const {addTemple} = useTemples();
+  const [date, setDate] = useState(new Date());
+  const [time, setTime] = useState(new Date());
+  // const {addTemple} = useTemples();
 
   const {t} = useTranslation(NS.COMPONENT.CREATE_TEMPLE_MODAL);
   const exercise = useExerciseById(selectedExercise);
-  const {navigate} =
-    useNavigation<NativeStackNavigationProp<ModalStackProps>>();
+  // const {navigate} =
+  //   useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
   const onSubmit = async () => {
-    if (exercise && dateTime) {
+    if (exercise && date && time) {
       setIsLoading(true);
-      await addTemple(exercise, dateTime);
+      // TODO:
+      // await addTemple(exercise, dateTime);
       setIsLoading(false);
     }
   };
@@ -162,7 +163,12 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
       <Spacer28 />
       <StepHeading>{t('setDateTime.title')}</StepHeading>
       <Spacer16 />
-      <DateTimePicker />
+      <DateTimePicker
+        onChange={(selectedDate, selectedTime) => {
+          setDate(selectedDate);
+          setTime(selectedTime);
+        }}
+      />
       <Spacer16 />
       <Cta variant="secondary" small onPress={onSubmit} disabled={isLoading}>
         {t('setDateTime.cta')}
@@ -173,7 +179,7 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
 };
 
 type StepProps = {
-  selectedExercise: string | null;
+  selectedExercise: string | undefined;
   setSelectedExercise: Dispatch<SetStateAction<StepProps['selectedExercise']>>;
   currentStep: number;
   setCurrentStep: Dispatch<SetStateAction<StepProps['currentStep']>>;
@@ -185,7 +191,9 @@ const steps = [SelectContent, SetDateTime];
 
 const CreateTempleModal = () => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [selectedExercise, setSelectedExercise] = useState<string | null>(null);
+  const [selectedExercise, setSelectedExercise] = useState<
+    string | undefined
+  >();
   const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
 
   const CurrentStepComponent: React.FC<StepProps> = steps[currentStep];
