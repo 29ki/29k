@@ -15,7 +15,7 @@ const Container = styled.View<{deviceHeight: number; backgroundColor?: string}>(
     backgroundColor: backgroundColor ? backgroundColor : COLORS.CREAM,
     borderTopLeftRadius: SETTINGS.BORDER_RADIUS.CARDS,
     borderTopRightRadius: SETTINGS.BORDER_RADIUS.CARDS,
-    minHeight: deviceHeight / 3,
+
     maxHeight: deviceHeight - 50,
     ...SETTINGS.BOXSHADOW,
   }),
@@ -27,7 +27,6 @@ const KeyboardAvoidingView = styled.KeyboardAvoidingView({
 });
 
 const Content = styled.View({
-  flex: 1,
   justifyContent: 'space-between',
 });
 

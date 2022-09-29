@@ -38,9 +38,7 @@ const Row = styled.View({
 });
 
 const Content = styled(Gutters)({
-  flex: 1,
   flexDirection: 'row',
-  justifyContent: 'space-between',
 });
 
 const Card = styled(TouchableOpacity)({
@@ -126,6 +124,7 @@ const SelectContent: React.FC<StepProps> = ({
           />
         )}
       />
+      <Spacer24 />
     </Step>
   );
 };
@@ -164,9 +163,12 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
       <StepHeading>{t('setDateTime.title')}</StepHeading>
       <Spacer16 />
       <DateTimePicker />
+      <Spacer16 />
+      <Spacer16 />
       <Cta variant="secondary" small onPress={onSubmit} disabled={isLoading}>
         {t('setDateTime.cta')}
       </Cta>
+      <Spacer16 />
     </Step>
   );
 };
@@ -189,7 +191,7 @@ const CreateTempleModal = () => {
 
   const CurrentStepComponent: React.FC<StepProps> = steps[currentStep];
 
-  const stuff: StepProps = {
+  const stepProps: StepProps = {
     selectedExercise,
     setSelectedExercise,
     currentStep,
@@ -202,7 +204,7 @@ const CreateTempleModal = () => {
     <HalfModal
       backgroundColor={currentStep === 0 ? COLORS.WHITE : COLORS.CREAM}>
       <Content>
-        <CurrentStepComponent {...stuff} />
+        <CurrentStepComponent {...stepProps} />
       </Content>
     </HalfModal>
   );
