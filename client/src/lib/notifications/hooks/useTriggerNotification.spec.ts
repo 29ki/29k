@@ -179,4 +179,15 @@ describe('useTriggerNotification', () => {
 
     expect(result.all.length).toBe(3);
   });
+
+  it('unsubscribes from notification events on unmount', async () => {
+    const mockUnsubscribe = jest.fn();
+    mockOnForegroundEvent.mockImplementationOnce(() => mockUnsubscribe);
+
+    const {unmount} = renderHook(() => useTriggerNotification());
+
+    unmount();
+
+    expect(mockUnsubscribe).toHaveBeenCalledTimes(1);
+  });
 });
