@@ -62,6 +62,7 @@ type CardProps = {
   buttonText: string;
   children?: React.ReactNode;
   onContextPress?: () => void;
+  ButtonIcon?: IconType;
   Icon?: IconType;
 };
 
@@ -74,6 +75,7 @@ export const Card: React.FC<CardProps> = ({
   buttonText,
   children,
   onContextPress,
+  ButtonIcon,
   Icon,
 }) => (
   <Wrapper onPress={onPress}>
@@ -103,7 +105,11 @@ export const Card: React.FC<CardProps> = ({
     <Row>
       <CallToAction>
         {children}
-        <Button small variant="secondary" onPress={onPress}>
+        <Button
+          LeftIcon={ButtonIcon}
+          small
+          variant="secondary"
+          onPress={onPress}>
           {buttonText}
         </Button>
       </CallToAction>

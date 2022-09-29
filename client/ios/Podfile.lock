@@ -959,6 +959,8 @@ PODS:
   - React-jsinspector (0.69.5)
   - React-logger (0.69.5):
     - glog
+  - react-native-add-calendar-event (4.0.0):
+    - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
   - react-native-daily-js (0.29.0):
@@ -1132,6 +1134,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-add-calendar-event (from `../node_modules/react-native-add-calendar-event`)
   - react-native-background-timer (from `../node_modules/react-native-background-timer`)
   - "react-native-daily-js (from `../node_modules/@daily-co/react-native-daily-js`)"
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
@@ -1235,6 +1238,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-add-calendar-event:
+    :path: "../node_modules/react-native-add-calendar-event"
   react-native-background-timer:
     :path: "../node_modules/react-native-background-timer"
   react-native-daily-js:
@@ -1340,6 +1345,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: e42f0b46de293a026c2fb20e524d4fe09f81f575
   React-jsinspector: e385fb7a1440ae3f3b2cd1a139ca5aadaab43c10
   React-logger: 15c734997c06fe9c9b88e528fb7757601e7a56df
+  react-native-add-calendar-event: d7744f983d6770cc9e4f004db22bc4d4b4575f17
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
   react-native-daily-js: 97dfa84535efd4558cb5bce4846e64d263aa4655
   react-native-safe-area-context: b456e1c40ec86f5593d58b275bd0e9603169daca

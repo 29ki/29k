@@ -1,5 +1,6 @@
 const NS = {
   COMPONENT: {
+    ADD_TO_CALENDAR: 'Component.AddToCalendar',
     CODE_PUSH_OVERLAY: 'Component.CodePushOverlay',
     CONFIRM_EXIT_TEMPLE: 'Component.ConfirmExitTemple',
     COUNTER: 'Component.Counter',
