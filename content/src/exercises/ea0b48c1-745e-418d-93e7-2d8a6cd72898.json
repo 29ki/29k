@@ -11,12 +11,13 @@
         "type": "content",
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1635344352/The%20Word%20But/jenny_thewordand_zg3mb6.mp4",
-            "description": "Jenny - the word and",
-            "preview": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1654164681/New_images/exercises%20png/1:1.35%20ratio%20images/bring_your_feelings_along_eng_xlrrkl.png"
+            "source": "",
+            "description": "",
+            "preview": ""
           },
           "image": {
-            "source": ""
+            "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1646061249/Illustrations_Tests/take-test_c4qa3u.png",
+            "description": "When BUT gets in the way"
           },
           "heading": "The word AND"
         }
