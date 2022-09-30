@@ -33,8 +33,8 @@ const Container = styled.View({
 });
 
 const Prompt = styled.View({
-  margin: GUTTERS,
-  padding: GUTTERS,
+  margin: GUTTERS.BIG,
+  padding: GUTTERS.BIG,
   borderRadius: 16,
   backgroundColor: COLORS.GREYLIGHTEST,
   alignItems: 'center',
