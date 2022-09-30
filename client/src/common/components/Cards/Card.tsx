@@ -7,7 +7,6 @@ import {COLORS} from '../../constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import SETTINGS from '../../constants/settings';
 import Button from '../Buttons/Button';
-import {Spacer16} from '../Spacers/Spacer';
 import {Body16} from '../Typography/Body/Body';
 import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
@@ -16,8 +15,11 @@ import IconButton from '../Buttons/IconButton/IconButton';
 import {EllipsisIcon} from '../Icons';
 
 const GraphicsWrapper = styled.View({
-  width: 130,
-  height: 130,
+  position: 'absolute',
+  width: 132,
+  height: 132,
+  right: -SPACINGS.SIXTEEN,
+  bottom: -SPACINGS.SIXTEEN,
 });
 
 const Lottie = styled(AnimatedLottieView)({
@@ -29,6 +31,8 @@ const Wrapper = styled(TouchableOpacity)({
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
   backgroundColor: COLORS.CREAM,
   padding: SPACINGS.SIXTEEN,
+  paddingTop: SPACINGS.EIGHT,
+  height: 188,
 });
 
 const HeaderRow = styled.View({
@@ -41,7 +45,11 @@ const Row = styled.View({
   justifyContent: 'space-between',
 });
 
-const CallToAction = styled.View({flex: 1, justifyContent: 'flex-end'});
+const CallToAction = styled.View({
+  flex: 1,
+  justifyContent: 'flex-end',
+  alignItems: 'flex-start',
+});
 
 type CardProps = {
   title?: string;
@@ -68,7 +76,7 @@ export const Card: React.FC<CardProps> = ({
     <View>
       <HeaderRow>
         <View>
-          {title && <Display24>{title}</Display24>}
+          {title && <Display24 numberOfLines={2}>{title}</Display24>}
           {description && <Body16 numberOfLines={1}>{description}</Body16>}
         </View>
         {onContextPress && (
@@ -82,7 +90,6 @@ export const Card: React.FC<CardProps> = ({
         )}
       </HeaderRow>
     </View>
-    <Spacer16 />
     <Row>
       <CallToAction>
         {children}
