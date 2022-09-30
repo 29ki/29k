@@ -125,6 +125,15 @@
         "projectManagement",
         "userTesting"
       ]
+    },
+    {
+      "login": "jrrjenny",
+      "name": "Jenny Rickardsson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/113593919?v=4",
+      "profile": "http://29k.org",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
