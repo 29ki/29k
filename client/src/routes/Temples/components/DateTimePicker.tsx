@@ -1,4 +1,5 @@
 import RNDateTimePicker from '@react-native-community/datetimepicker';
+import dayjs from 'dayjs';
 import React, {Dispatch, SetStateAction, useEffect, useState} from 'react';
 import {Modal, Platform} from 'react-native';
 import styled from 'styled-components/native';
@@ -65,6 +66,8 @@ const DateTimePicker: React.FC<{
             <ModalView>
               <RNDateTimePicker
                 mode={mode}
+                accentColor={COLORS.BLACK}
+                textColor={COLORS.BLACK}
                 display={mode === 'date' ? 'inline' : 'spinner'}
                 value={selectedValue}
                 onChange={(_, value) => setValue(value as Date)}
@@ -120,7 +123,7 @@ const Picker: React.FC<PickerProps> = ({onChange}) => {
           <Body16>
             <BodyBold>{'Date'}</BodyBold>
           </Body16>
-          <Body16>{selectedDate.toDateString()}</Body16>
+          <Body16>{dayjs(selectedDate).format('dddd, D MMM')}</Body16>
         </Row>
         <Row
           onPress={() => {
@@ -130,7 +133,7 @@ const Picker: React.FC<PickerProps> = ({onChange}) => {
           <Body16>
             <BodyBold>{'Time'}</BodyBold>
           </Body16>
-          <Body16>{selectedTime.toTimeString()}</Body16>
+          <Body16>{dayjs(selectedTime).format('HH:mm')}</Body16>
         </Row>
       </Wrapper>
 

@@ -129,12 +129,12 @@ const SelectContent: React.FC<StepProps> = ({
 };
 
 const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
+  const {t} = useTranslation(NS.COMPONENT.CREATE_TEMPLE_MODAL);
   const [isLoading, setIsLoading] = useState(false);
-  const [date, setDate] = useState(new Date());
-  const [time, setTime] = useState(new Date());
+  const [date, setDate] = useState<Date | undefined>();
+  const [time, setTime] = useState<Date | undefined>();
   // const {addTemple} = useTemples();
 
-  const {t} = useTranslation(NS.COMPONENT.CREATE_TEMPLE_MODAL);
   const exercise = useExerciseById(selectedExercise);
   // const {navigate} =
   //   useNavigation<NativeStackNavigationProp<ModalStackProps>>();
@@ -183,8 +183,6 @@ type StepProps = {
   setSelectedExercise: Dispatch<SetStateAction<StepProps['selectedExercise']>>;
   currentStep: number;
   setCurrentStep: Dispatch<SetStateAction<StepProps['currentStep']>>;
-  selectedDate: Date | null;
-  setSelectedDate: Dispatch<SetStateAction<StepProps['selectedDate']>>;
 };
 
 const steps = [SelectContent, SetDateTime];
@@ -194,7 +192,6 @@ const CreateTempleModal = () => {
   const [selectedExercise, setSelectedExercise] = useState<
     string | undefined
   >();
-  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
 
   const CurrentStepComponent: React.FC<StepProps> = steps[currentStep];
 
@@ -203,8 +200,6 @@ const CreateTempleModal = () => {
     setSelectedExercise,
     currentStep,
     setCurrentStep,
-    selectedDate,
-    setSelectedDate,
   };
 
   return (
