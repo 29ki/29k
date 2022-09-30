@@ -6,7 +6,7 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Platform} from 'react-native';
+import {Alert, Linking, Platform} from 'react-native';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import {DailyMediaView} from '@daily-co/react-native-daily-js';
@@ -96,8 +96,13 @@ const ChangingRoom = () => {
   const [localUserName, setLocalUserName] = useState('');
 
   const {goBack, navigate} = useNavigation<TempleNavigationProps>();
-  const {toggleAudio, toggleVideo, setUserName, preJoinMeeting} =
-    useContext(DailyContext);
+  const {
+    toggleAudio,
+    toggleVideo,
+    setUserName,
+    preJoinMeeting,
+    hasAppPermissions,
+  } = useContext(DailyContext);
 
   const temple = useRecoilValue(templeAtom);
   const {
@@ -134,9 +139,28 @@ const ChangingRoom = () => {
     return null;
   }
 
+  const join = () => navigate('Portal', {templeId});
+
+  const permissionsAlert = () =>
+    Alert.alert(t('permissionsAlert.title'), t('permissionsAlert.message'), [
+      {
+        text: t('permissionsAlert.join'),
+        onPress: join,
+      },
+      {
+        style: 'cancel',
+        text: t('permissionsAlert.openSettings'),
+        onPress: () => Linking.openSettings(),
+      },
+    ]);
+
   const handleJoin = () => {
     setUserName(localUserName);
-    navigate('Portal', {templeId});
+    if (hasAppPermissions()) {
+      join();
+    } else {
+      permissionsAlert();
+    }
   };
 
   const hasAudio = Boolean(me?.audioTrack);
@@ -145,7 +169,9 @@ const ChangingRoom = () => {
   return (
     <>
       <TopSafeArea />
-      <IconButton variant="tertiary" onPress={goBack} Icon={ArrowLeftIcon} />
+      <Gutters>
+        <IconButton variant="tertiary" onPress={goBack} Icon={ArrowLeftIcon} />
+      </Gutters>
       <Wrapper>
         <VideoWrapper>
           {hasVideo ? (
@@ -162,19 +188,19 @@ const ChangingRoom = () => {
         </VideoWrapper>
 
         <Spacer28 />
-        <Gutters big>
+        <Gutters>
           <Controls>
             <IconButton
               disabled
               onPress={() => toggleAudio(!hasAudio)}
-              active={!hasAudio}
+              active={hasAudio}
               variant="secondary"
               Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
             />
             <Spacer16 />
             <IconButton
               onPress={() => toggleVideo(!hasVideo)}
-              active={!hasVideo}
+              active={hasVideo}
               variant="secondary"
               Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
             />
