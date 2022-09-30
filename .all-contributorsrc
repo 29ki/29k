@@ -135,6 +135,15 @@
         "content",
         "research"
       ]
+    },
+    {
+      "login": "chrismact",
+      "name": "chrismact",
+      "avatar_url": "https://avatars.githubusercontent.com/u/81088775?v=4",
+      "profile": "https://github.com/chrismact",
+      "contributions": [
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
