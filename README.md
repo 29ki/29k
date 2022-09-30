@@ -73,7 +73,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center"><a href="https://samuelplumppu.se"><img src="https://avatars.githubusercontent.com/u/6125097?v=4?s=100" width="100px;" alt="Samuel Plumppu"/><br /><sub><b>Samuel Plumppu</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=Greenheart" title="Code">💻</a></td>
       <td align="center"><a href="https://github.com/kapostints"><img src="https://avatars.githubusercontent.com/u/113690434?v=4?s=100" width="100px;" alt="kapostints"/><br /><sub><b>kapostints</b></sub></a><br /><a href="#design-kapostints" title="Design">🎨</a></td>
       <td align="center"><a href="https://github.com/Lisa29k"><img src="https://avatars.githubusercontent.com/u/113595061?v=4?s=100" width="100px;" alt="Lisa29k"/><br /><sub><b>Lisa29k</b></sub></a><br /><a href="#design-Lisa29k" title="Design">🎨</a> <a href="#projectManagement-Lisa29k" title="Project Management">📆</a> <a href="#userTesting-Lisa29k" title="User Testing">📓</a></td>
-      <td align="center"><a href="http://29k.org"><img src="https://avatars.githubusercontent.com/u/113593919?v=4?s=100" width="100px;" alt="Jenny Rickardsson"/><br /><sub><b>Jenny Rickardsson</b></sub></a><br /><a href="#content-jrrjenny" title="Content">🖋</a></td>
+      <td align="center"><a href="http://29k.org"><img src="https://avatars.githubusercontent.com/u/113593919?v=4?s=100" width="100px;" alt="Jenny Rickardsson"/><br /><sub><b>Jenny Rickardsson</b></sub></a><br /><a href="#content-jrrjenny" title="Content">🖋</a> <a href="#research-jrrjenny" title="Research">🔬</a></td>
     </tr>
   </tbody>
   <tfoot>
