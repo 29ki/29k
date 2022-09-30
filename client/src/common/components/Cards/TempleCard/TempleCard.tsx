@@ -24,7 +24,7 @@ const TempleCard: React.FC<TempleCardProps> = ({temple}) => {
   const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
   const {reminderEnabled} = useTempleNotificationReminder(temple);
 
-  const startingNow = false; // Calculate from starting time
+  const startingNow = true; // Calculate from starting time
 
   const onPress = () =>
     startingNow
