@@ -50,7 +50,7 @@ const FloatingForm = styled(LinearGradient).attrs({
   left: 0,
   right: 0,
   bottom: 0,
-  paddingHorizontal: GUTTERS,
+  paddingHorizontal: GUTTERS.BIG,
   paddingTop: SPACINGS.TWENTYFOUR,
   passingBottom: SPACINGS.TWELVE,
 });

@@ -129,14 +129,14 @@ const Session = () => {
       <SessionControls>
         <IconButton
           onPress={() => toggleAudio(!hasAudio)}
-          active={hasAudio}
+          active={!hasAudio}
           variant="secondary"
           Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
         />
         <Spacer12 />
         <IconButton
           onPress={() => toggleVideo(!hasVideo)}
-          active={hasVideo}
+          active={!hasVideo}
           variant="secondary"
           Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
         />
