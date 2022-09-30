@@ -51,6 +51,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "og2t",
+      "name": "Tomek Augustyn",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28712?v=4",
+      "profile": "http://play.blog2t.net",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
