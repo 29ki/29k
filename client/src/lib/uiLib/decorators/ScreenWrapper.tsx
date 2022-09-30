@@ -10,9 +10,9 @@ import {GUTTERS} from '../../../common/constants/spacings';
 
 const ScreenWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
   <ScrollView>
-    <TopSafeArea minSize={GUTTERS} />
+    <TopSafeArea minSize={GUTTERS.BIG} />
     <Gutters>{children}</Gutters>
-    <BottomSafeArea minSize={GUTTERS} />
+    <BottomSafeArea minSize={GUTTERS.BIG} />
   </ScrollView>
 );
 

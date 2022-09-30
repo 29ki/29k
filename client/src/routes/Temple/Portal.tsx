@@ -4,7 +4,6 @@ import dayjs from 'dayjs';
 import React, {useContext, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
-import Animated, {FadeOut} from 'react-native-reanimated';
 import Video from 'react-native-video';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
@@ -74,15 +73,19 @@ const Wrapper = styled.View({
   flex: 1,
   justifyContent: 'space-between',
 });
+const Content = styled.View({
+  flex: 1,
+  justifyContent: 'space-between',
+});
 
 const TopBar = styled(Gutters)({
   justifyContent: 'space-between',
+  alignItems: 'center',
   flexDirection: 'row',
-  paddingVertical: SPACINGS.EIGHT,
 });
 
 const BackButton = styled(IconButton)({
-  marginLeft: -SPACINGS.TWELVE,
+  marginLeft: -SPACINGS.SIXTEEN,
 });
 
 const Portal: React.FC = () => {
@@ -157,27 +160,26 @@ const Portal: React.FC = () => {
       )}
       <Wrapper>
         {introPortal.type === 'video' && (
-          <>
+          <Content>
             <TopBar>
               <BackButton
                 noBackground
                 onPress={leaveTemple}
                 Icon={ArrowLeftIcon}
               />
-              {isFacilitator && !temple?.started && (
-                <Animated.View exiting={FadeOut.duration(1500)}>
-                  <Button
-                    disabled={temple?.started}
-                    onPress={() => {
-                      templeApi.updateTemple(templeId, {started: true});
-                    }}>
-                    {t('startSession')}
-                  </Button>
-                </Animated.View>
-              )}
               {__DEV__ && temple?.started && (
-                <Button onPress={() => navigate('Temple', {templeId})}>
+                <Button small onPress={() => navigate('Temple', {templeId})}>
                   {t('skipPortal')}
+                </Button>
+              )}
+              {isFacilitator && (
+                <Button
+                  small
+                  disabled={temple?.started}
+                  onPress={() => {
+                    templeApi.updateTemple(templeId, {started: true});
+                  }}>
+                  {temple?.started ? t('sessionStarted') : t('startSession')}
                 </Button>
               )}
             </TopBar>
@@ -206,7 +208,7 @@ const Portal: React.FC = () => {
                 </StatusItem>
               )}
             </PortalStatus>
-          </>
+          </Content>
         )}
       </Wrapper>
       <BottomSafeArea minSize={16} />

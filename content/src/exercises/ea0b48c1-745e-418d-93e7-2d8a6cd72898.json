@@ -1,0 +1,63 @@
+{
+  "en": {
+    "published": false,
+    "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+    "name": "Bring your feelings along",
+    "slides": [
+      {
+        "type": "participantSpotlight"
+      },
+      {
+        "type": "content",
+        "content": {
+          "video": {
+            "source": "",
+            "description": "",
+            "preview": ""
+          },
+          "image": {
+            "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1646061249/Illustrations_Tests/take-test_c4qa3u.png",
+            "description": "When BUT gets in the way"
+          },
+          "heading": "The word AND"
+        }
+      },
+      {
+        "type": "reflection",
+        "content": {
+          "heading": "I would like to X, but I am so Y"
+        }
+      },
+      {
+        "type": "reflection",
+        "content": {
+          "heading": "What happens when you switch from using BUT to using AND?"
+        }
+      },
+      {
+        "type": "sharing",
+        "content": {
+          "heading": "What happens when you switch from BUT to using AND?"
+        }
+      },
+      {
+        "type": "content",
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1617023623/Badges/quest_badge_gofzky.png",
+            "description": "Mission badge"
+          },
+          "heading": "Mission"
+        }
+      }
+    ]
+  },
+  "sv": {
+    "published": false,
+    "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898"
+  },
+  "pt": {
+    "published": false,
+    "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898"
+  }
+}
