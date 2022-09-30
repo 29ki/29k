@@ -23,6 +23,7 @@ import Sentry from '../../lib/sentry';
 
 export type DailyProviderTypes = {
   call?: DailyCall;
+  hasAppPermissions: () => boolean;
   preJoinMeeting: (url: string) => Promise<void>;
   joinMeeting: (userData: unknown) => Promise<void>;
   leaveMeeting: () => Promise<void>;
@@ -34,6 +35,7 @@ export type DailyProviderTypes = {
 };
 
 export const DailyContext = createContext<DailyProviderTypes>({
+  hasAppPermissions: () => false,
   preJoinMeeting: () => Promise.resolve(),
   joinMeeting: () => Promise.resolve(),
   leaveMeeting: () => Promise.resolve(),
@@ -198,6 +200,14 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     [daily],
   );
 
+  const hasAppPermissions = useCallback(() => {
+    const {local} = daily.participants();
+    return (
+      local?.tracks.video.blocked?.byPermissions !== true &&
+      local?.tracks.audio.blocked?.byPermissions !== true
+    );
+  }, [daily]);
+
   useEffect(() => {
     eventHandlers.forEach(([event, handler]) => {
       daily.on(event, handler);
@@ -218,6 +228,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     <DailyContext.Provider
       value={{
         call: daily,
+        hasAppPermissions,
         preJoinMeeting,
         joinMeeting,
         leaveMeeting,
