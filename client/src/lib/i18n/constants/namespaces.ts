@@ -5,6 +5,7 @@ const NS = {
     CONFIRM_EXIT_TEMPLE: 'Component.ConfirmExitTemple',
     COUNTER: 'Component.Counter',
     CRASH_ERROR_MESSAGE: 'Component.CrashErrorMessage',
+    SESSION_REMINDER: 'Component.SessionReminder',
     TABS: 'Component.Tabs',
     TEMPLE_CARD: 'Component.TempleCard',
     TEMPLE_MODAL: 'Component.TempleModal',
