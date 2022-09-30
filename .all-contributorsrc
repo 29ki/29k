@@ -105,6 +105,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "kapostints",
+      "name": "kapostints",
+      "avatar_url": "https://avatars.githubusercontent.com/u/113690434?v=4",
+      "profile": "https://github.com/kapostints",
+      "contributions": [
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
