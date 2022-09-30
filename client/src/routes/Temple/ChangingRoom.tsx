@@ -49,7 +49,6 @@ const Wrapper = styled.KeyboardAvoidingView.attrs({
 })({
   flex: 1,
   justifyContent: 'center',
-  paddingHorizontal: SPACINGS.EIGHT,
 });
 
 const Controls = styled.View({
@@ -163,7 +162,7 @@ const ChangingRoom = () => {
         </VideoWrapper>
 
         <Spacer28 />
-        <Gutters>
+        <Gutters big>
           <Controls>
             <IconButton
               disabled
