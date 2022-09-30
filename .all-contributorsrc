@@ -45,7 +45,7 @@
     },
     {
       "login": "gewfy",
-      "name": "gewfy",
+      "name": "Jakob Öhman",
       "avatar_url": "https://avatars.githubusercontent.com/u/474066?v=4",
       "profile": "https://github.com/gewfy",
       "contributions": [
@@ -134,6 +134,109 @@
       "contributions": [
         "content",
         "research"
+      ]
+    },
+    {
+      "name": "Maria Modigh",
+      "avatar_url": "https://media-exp1.licdn.com/dms/image/C4E03AQGq0bjWeI_N7w/profile-displayphoto-shrink_400_400/0/1619704170013?e=1669852800&v=beta&t=_bxY0ml2BTubGPbz5ve4R-d83pEE_fvIdj2BXAZojDc",
+      "profile": "https://www.linkedin.com/in/maria-modigh-666b7738/",
+      "contributions": [
+        "fundingFinding",
+        "business"
+      ]
+    },
+    {
+      "name": "Elise Lilliehöök",
+      "avatar_url": "https://media-exp1.licdn.com/dms/image/C4E03AQFfgWXJi5bWbA/profile-displayphoto-shrink_400_400/0/1646314849201?e=1669852800&v=beta&t=rmyDGw9CyiLO3NwRRtw-unZRgI4bNyAgF6lJrdxWtMU",
+      "profile": "https://www.linkedin.com/in/eliselilliehook/",
+      "contributions": [
+        "fundingFinding",
+        "business"
+      ]
+    },
+    {
+      "name": "Fredrik Livheim",
+      "avatar_url": "https://media-exp1.licdn.com/dms/image/C4E03AQEMlxIXZratNA/profile-displayphoto-shrink_400_400/0/1516476016301?e=1669852800&v=beta&t=JJ6mA4IJh9aOJJMdgjAUHxnzTONoKuLC0W2i3Bs188E",
+      "profile": "https://www.linkedin.com/in/fredrik-livheim-53692172/",
+      "contributions": [
+        "fundingFinding",
+        "research",
+        "content"
+      ]
+    },
+    {
+      "name": "Erik Fernholm",
+      "avatar_url": "https://media-exp1.licdn.com/dms/image/C4D03AQFkIxQB9NKjQg/profile-displayphoto-shrink_400_400/0/1517500846222?e=1669852800&v=beta&t=q0HR_iNq8DhrMDEvVUMwVDKkM09pCA1ttR9KiM4vhd0",
+      "profile": "https://www.linkedin.com/in/lyckoaktivist/",
+      "contributions": [
+        "business",
+        "fundingFinding",
+        "research",
+        "content"
+      ]
+    },
+    {
+      "name": "Johanna Schwang",
+      "avatar_url": "https://media-exp1.licdn.com/dms/image/C4D03AQEtwIA2jacOsw/profile-displayphoto-shrink_400_400/0/1662574722016?e=1669852800&v=beta&t=Npfe51NWrJDdqqZATZp-j99ByVwOiW1CeB8Z63ozxnY",
+      "profile": "https://www.linkedin.com/in/johanna-schwang-61309943/",
+      "contributions": [
+        "financial"
+      ]
+    },
+    {
+      "name": "Victoria Gladkiy",
+      "avatar_url": "https://media-exp1.licdn.com/dms/image/C4D03AQHW_FgEGMQf3g/profile-displayphoto-shrink_400_400/0/1588929029294?e=1669852800&v=beta&t=oj3w713No6FSClxoYgBckarCaDaiySRcqDq-V4LpzS4",
+      "profile": "https://www.linkedin.com/in/victoria-gladkiy-0444a7163/",
+      "contributions": [
+        "data",
+        "blog"
+      ]
+    },
+    {
+      "name": "Agnes Branny",
+      "avatar_url": "https://media-exp1.licdn.com/dms/image/C4D03AQHE0PLtKwwkmg/profile-displayphoto-shrink_400_400/0/1650889770669?e=1669852800&v=beta&t=FFofOBjjY5slMeYRTzlbd6wqO6x0ld0AKIaoeWw99Z4",
+      "profile": "https://www.linkedin.com/in/agnesbranny/",
+      "contributions": [
+        "research",
+        "content"
+      ]
+    },
+    {
+      "name": "Therese Colliander",
+      "avatar_url": "https://media-exp1.licdn.com/dms/image/C5603AQEXq_dMHFVtNA/profile-displayphoto-shrink_400_400/0/1518125500465?e=1669852800&v=beta&t=8KKtrBhn1a1pFVpXkDSUW17qlWEY5YRpSZBl0BNWjxk",
+      "profile": "https://www.linkedin.com/in/therese-colliander-77744710b/",
+      "contributions": [
+        "video",
+        "audio",
+        "content"
+      ]
+    },
+    {
+      "name": "David Lindberg",
+      "avatar_url": "https://media-exp1.licdn.com/dms/image/C4D03AQHdd8nYZTv0-g/profile-displayphoto-shrink_400_400/0/1598395929100?e=1669852800&v=beta&t=6Yx8XX45ttb9uNQ6sBJU2B2KBfXspC-DEanvgAAkRds",
+      "profile": "https://www.linkedin.com/in/david-lindberg-10808319b/",
+      "contributions": [
+        "video",
+        "audio",
+        "content"
+      ]
+    },
+    {
+      "name": "Jacqueline Levi",
+      "avatar_url": "https://media-exp1.licdn.com/dms/image/C5603AQErbalTg5C1kQ/profile-displayphoto-shrink_400_400/0/1517633744111?e=1669852800&v=beta&t=nu5GC_3AWh35AtiZ4kztxYqZGYfpZS20sayFbF-THZQ",
+      "profile": "https://www.linkedin.com/in/jacqueline-levi-292065ab/",
+      "contributions": [
+        "research",
+        "content"
+      ]
+    },
+    {
+      "name": "Sonja Petrovic Lundberg",
+      "avatar_url": "https://media-exp1.licdn.com/dms/image/C4D03AQFm-I5N-xwwPQ/profile-displayphoto-shrink_400_400/0/1516839939721?e=1669852800&v=beta&t=BXSJP7l5iwSbjB6OcbEqplv8Ci1jlJprvl_d1ongJzU",
+      "profile": "https://www.linkedin.com/in/sonja-petrovic-lundberg/",
+      "contributions": [
+        "projectManagement",
+        "data"
       ]
     }
   ],
