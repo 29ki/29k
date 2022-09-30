@@ -1,7 +1,7 @@
 {
   "en": {
     "userId": "User ID",
-    "uiLib": "UI Lib",
+    "uiLib": "UI Library",
     "clearUpdate": "Clear update",
     "checkUpdate": "Check for update",
     "language": "Language",
@@ -15,7 +15,7 @@
   },
   "sv": {
     "userId": "Användar-ID",
-    "uiLib": "UI Lib",
+    "uiLib": "UI-bibliotek",
     "clearUpdate": "Rensa uppdatering",
     "checkUpdate": "Sök efter uppdatering",
     "language": "Språk",
