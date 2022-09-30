@@ -21,7 +21,7 @@
   <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="Make a Pull Request"></a>
   <a href="docs/code_of_conduct.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="Contributor Covenant"></a>
   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square" atl="All Contributors" /></a>
+<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square" atl="All Contributors" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
@@ -74,6 +74,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center"><a href="https://github.com/kapostints"><img src="https://avatars.githubusercontent.com/u/113690434?v=4?s=100" width="100px;" alt="kapostints"/><br /><sub><b>kapostints</b></sub></a><br /><a href="#design-kapostints" title="Design">🎨</a></td>
       <td align="center"><a href="https://github.com/Lisa29k"><img src="https://avatars.githubusercontent.com/u/113595061?v=4?s=100" width="100px;" alt="Lisa29k"/><br /><sub><b>Lisa29k</b></sub></a><br /><a href="#design-Lisa29k" title="Design">🎨</a> <a href="#projectManagement-Lisa29k" title="Project Management">📆</a> <a href="#userTesting-Lisa29k" title="User Testing">📓</a></td>
       <td align="center"><a href="http://29k.org"><img src="https://avatars.githubusercontent.com/u/113593919?v=4?s=100" width="100px;" alt="Jenny Rickardsson"/><br /><sub><b>Jenny Rickardsson</b></sub></a><br /><a href="#content-jrrjenny" title="Content">🖋</a> <a href="#research-jrrjenny" title="Research">🔬</a></td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/chrismact"><img src="https://avatars.githubusercontent.com/u/81088775?v=4?s=100" width="100px;" alt="chrismact"/><br /><sub><b>chrismact</b></sub></a><br /><a href="#design-chrismact" title="Design">🎨</a></td>
     </tr>
   </tbody>
   <tfoot>
