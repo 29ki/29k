@@ -21,7 +21,7 @@
   <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="Make a Pull Request"></a>
   <a href="docs/code_of_conduct.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="Contributor Covenant"></a>
   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square" atl="All Contributors" /></a>
+<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square" atl="All Contributors" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
@@ -71,6 +71,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center"><a href="https://github.com/op"><img src="https://avatars.githubusercontent.com/u/55245?v=4?s=100" width="100px;" alt="Örjan Fors"/><br /><sub><b>Örjan Fors</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=Op" title="Code">💻</a></td>
       <td align="center"><a href="https://github.com/namvu9"><img src="https://avatars.githubusercontent.com/u/66156529?v=4?s=100" width="100px;" alt="namvu9"/><br /><sub><b>namvu9</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=namvu9" title="Code">💻</a></td>
       <td align="center"><a href="https://samuelplumppu.se"><img src="https://avatars.githubusercontent.com/u/6125097?v=4?s=100" width="100px;" alt="Samuel Plumppu"/><br /><sub><b>Samuel Plumppu</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=Greenheart" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/kapostints"><img src="https://avatars.githubusercontent.com/u/113690434?v=4?s=100" width="100px;" alt="kapostints"/><br /><sub><b>kapostints</b></sub></a><br /><a href="#design-kapostints" title="Design">🎨</a></td>
     </tr>
   </tbody>
   <tfoot>
