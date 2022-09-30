@@ -96,6 +96,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "Greenheart",
+      "name": "Samuel Plumppu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6125097?v=4",
+      "profile": "https://samuelplumppu.se",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
