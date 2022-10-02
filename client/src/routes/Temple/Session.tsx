@@ -3,6 +3,7 @@ import {ActivityIndicator} from 'react-native';
 import {useRecoilValue} from 'recoil';
 
 import styled from 'styled-components/native';
+import {RouteProp, useRoute} from '@react-navigation/native';
 
 import {videoSharingFields, localParticipantSelector} from './state/state';
 import {RouteProp, useRoute} from '@react-navigation/native';
@@ -56,9 +57,9 @@ const MainViewContainer = styled.View({
 
 const ExerciseControl = styled(ContentControls)({
   position: 'absolute',
-  bottom: 20,
-  left: 20,
-  right: 20,
+  bottom: SPACINGS.SIXTEEN,
+  left: SPACINGS.SIXTEEN,
+  right: SPACINGS.SIXTEEN,
 });
 
 const SessionControls = styled.View({
@@ -107,7 +108,7 @@ const Session = () => {
   return (
     <MainViewContainer>
       <Spotlight>
-        <TopSafeArea />
+        <TopSafeArea minSize={SPACINGS.TWELVE} />
         {exercise && (
           <>
             <Progress
@@ -148,7 +149,6 @@ const Session = () => {
           onPress={leaveTemple}
         />
       </SessionControls>
-      <Spacer16 />
     </MainViewContainer>
   );
 };
