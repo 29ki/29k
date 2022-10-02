@@ -5,9 +5,26 @@
   "imageSize": 100,
   "commit": false,
   "badgeTemplate": "<a href=\"#contributors-\"><img src=\"https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square\" atl=\"All Contributors\" /></a>",
+  "types": {
+    "marketing": {
+      "symbol": "📣",
+      "description": "Marketing"
+    },
+    "userExperience": {
+      "symbol": "✨",
+      "description": "User Experience"
+    },
+    "people": {
+      "symbol": "👥",
+      "description": "People"
+    },
+    "coreTeam": {
+      "symbol": "🫂",
+      "description": "Core Team"
+    }
+  },
   "contributors": [
     {
-      "coreTeam": true,
       "name": "Erik Fernholm",
       "avatar_url": "https://user-images.githubusercontent.com/474066/193298795-f0dc1b28-f4e4-4232-b0fd-01ab174e655c.png",
       "profile": "https://www.linkedin.com/in/lyckoaktivist/",
@@ -15,54 +32,55 @@
         "content",
         "research",
         "fundingFinding",
-        "business"
+        "business",
+        "coreTeam"
       ]
     },
     {
-      "coreTeam": true,
       "name": "Elise Lilliehöök",
       "avatar_url": "https://user-images.githubusercontent.com/474066/193298663-bf7038bd-a060-4d2c-bd14-6828eb0d7d27.png",
       "profile": "https://www.linkedin.com/in/eliselilliehook/",
       "contributions": [
         "fundingFinding",
-        "business"
+        "business",
+        "coreTeam"
       ]
     },
     {
-      "coreTeam": true,
       "login": "gewfy",
       "name": "Jakob Öhman",
       "avatar_url": "https://avatars.githubusercontent.com/u/474066?v=4",
       "profile": "https://github.com/gewfy",
       "contributions": [
         "code",
-        "business"
+        "business",
+        "coreTeam"
       ]
     },
     {
-      "coreTeam": true,
       "name": "Johanna Schwang",
       "avatar_url": "https://user-images.githubusercontent.com/474066/193298848-bc63a7ee-58b5-4cb1-af9e-0e894fd2113a.png",
       "profile": "https://www.linkedin.com/in/johanna-schwang-61309943/",
       "contributions": [
-        "financial"
+        "financial",
+        "people",
+        "coreTeam"
       ]
     },
     {
-      "coreTeam": true,
       "login": "Lisa29k",
       "name": "Lisa29k",
       "avatar_url": "https://avatars.githubusercontent.com/u/113595061?v=4",
       "profile": "https://github.com/Lisa29k",
       "contributions": [
-        "design",
-        "projectManagement",
+        "userExperience",
         "userTesting",
-        "business"
+        "projectManagement",
+        "business",
+        "coreTeam"
       ]
     },
     {
-      "coreTeam": true,
       "name": "Fredrik Livheim",
       "avatar_url": "https://user-images.githubusercontent.com/474066/193298744-ea7d4d74-fa7b-4062-badf-d167fd08eb5e.png",
       "profile": "https://www.linkedin.com/in/fredrik-livheim-53692172/",
@@ -70,11 +88,11 @@
         "fundingFinding",
         "research",
         "content",
-        "business"
+        "business",
+        "coreTeam"
       ]
     },
     {
-      "coreTeam": true,
       "login": "jrrjenny",
       "name": "Jenny Rickardsson",
       "avatar_url": "https://avatars.githubusercontent.com/u/113593919?v=4",
@@ -82,72 +100,73 @@
       "contributions": [
         "content",
         "research",
-        "business"
+        "business",
+        "coreTeam"
       ]
     },
     {
-      "coreTeam": true,
       "name": "Maria Modigh",
       "avatar_url": "https://user-images.githubusercontent.com/474066/193298544-5f01d508-e75c-4cc9-8a9e-e922b73a4245.png",
       "profile": "https://www.linkedin.com/in/maria-modigh-666b7738/",
       "contributions": [
         "fundingFinding",
-        "business"
+        "business",
+        "coreTeam"
       ]
     },
     {
-      "coreTeam": true,
       "login": "Nipher",
       "name": "Jonas Mendes",
       "avatar_url": "https://avatars.githubusercontent.com/u/7523828?v=4",
       "profile": "https://github.com/Nipher",
       "contributions": [
-        "code"
+        "code",
+        "coreTeam"
       ]
     },
     {
-      "coreTeam": true,
       "name": "Victoria Gladkiy",
       "avatar_url": "https://user-images.githubusercontent.com/474066/193298946-24b0a875-9507-46c2-ad6d-4b96ee808f11.png",
       "profile": "https://www.linkedin.com/in/victoria-gladkiy-0444a7163/",
       "contributions": [
+        "marketing",
         "data",
-        "blog"
+        "blog",
+        "coreTeam"
       ]
     },
     {
-      "coreTeam": true,
       "login": "swemail",
       "name": "Emil Rondahl",
       "avatar_url": "https://avatars.githubusercontent.com/u/1139207?v=4",
       "profile": "https://github.com/swemail",
       "contributions": [
-        "code"
+        "code",
+        "coreTeam"
       ]
     },
     {
-      "coreTeam": true,
       "login": "kajsaunge",
       "name": "Kajsa Unge",
       "avatar_url": "https://avatars.githubusercontent.com/u/9316860?v=4",
       "profile": "http://kajsaunge.se",
       "contributions": [
         "code",
-        "design"
+        "design",
+        "coreTeam"
       ]
     },
     {
-      "coreTeam": true,
       "login": "kapostints",
       "name": "kapostints",
       "avatar_url": "https://avatars.githubusercontent.com/u/113690434?v=4",
       "profile": "https://github.com/kapostints",
       "contributions": [
-        "design"
+        "design",
+        "coreTeam"
       ]
     },
     {
-      "coreTeam": true,
       "name": "Jorge Ribeiro dos Santos",
       "avatar_url": "https://user-images.githubusercontent.com/474066/193447343-e7560fd4-a57d-4a36-9e12-28bcbd0e9f9e.png",
       "profile": "https://www.linkedin.com/in/jorgers/",
@@ -189,7 +208,8 @@
       "avatar_url": "https://user-images.githubusercontent.com/474066/193446315-b8c5bb27-a535-4ef4-a10d-787a8df83982.png",
       "profile": "https://www.linkedin.com/in/bamarsh/",
       "contributions": [
-        "projectManagement"
+        "projectManagement",
+        "userExperience"
       ]
     },
     {
@@ -232,7 +252,8 @@
       "avatar_url": "https://user-images.githubusercontent.com/474066/193445889-f8be8530-a063-4aeb-a030-baf744d4f2df.png",
       "profile": "https://www.linkedin.com/in/pegah-afsharian-70788051/",
       "contributions": [
-        "projectManagement"
+        "projectManagement",
+        "userTesting"
       ]
     },
     {
@@ -284,6 +305,7 @@
       "avatar_url": "https://user-images.githubusercontent.com/474066/193447190-02e4f42d-063e-4539-8652-7dc804b8fe08.png",
       "profile": "https://www.linkedin.com/in/myamori/",
       "contributions": [
+        "userExperience",
         "userTesting"
       ]
     },
@@ -292,6 +314,7 @@
       "avatar_url": "https://user-images.githubusercontent.com/474066/193447002-fbd7d024-3272-42b0-9cd1-36a2237e9c79.png",
       "profile": "https://www.linkedin.com/in/sedirajeenah/",
       "contributions": [
+        "marketing",
         "projectManagement"
       ]
     },
@@ -310,7 +333,9 @@
       "avatar_url": "https://user-images.githubusercontent.com/474066/193445797-71d7feae-d6f5-46cd-ad03-2561bb8be0fc.png",
       "profile": "https://www.linkedin.com/in/sjohansson/",
       "contributions": [
-        "business"
+        "business",
+        "marketing",
+        "projectManagement"
       ]
     },
     {
