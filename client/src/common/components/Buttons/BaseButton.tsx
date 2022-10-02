@@ -18,23 +18,28 @@ export type BaseButtonProps = {
   active?: boolean;
 };
 
-const BaseButton = styled(TouchableOpacity)<BaseButtonProps>(
-  ({variant, small, elevated, disabled, active}) => ({
-    backgroundColor: disabled
-      ? COLORS.GREYMEDIUM
-      : active
-      ? COLORS.ACTIVE
-      : variant === 'secondary'
-      ? COLORS.BLACK
-      : variant === 'tertiary'
-      ? COLORS.WHITE
-      : COLORS.PRIMARY,
-    borderRadius: small ? SPACINGS.TWELVE : SPACINGS.SIXTEEN,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    ...(elevated ? SETTINGS.BOXSHADOW : {}),
-  }),
-);
+const BaseButton = styled(TouchableOpacity).attrs({
+  hitSlop: {
+    bottom: SPACINGS.EIGHT,
+    left: undefined,
+    right: undefined,
+    top: SPACINGS.EIGHT,
+  },
+})<BaseButtonProps>(({variant, small, elevated, disabled, active}) => ({
+  backgroundColor: disabled
+    ? COLORS.GREYMEDIUM
+    : active
+    ? COLORS.ACTIVE
+    : variant === 'secondary'
+    ? COLORS.BLACK
+    : variant === 'tertiary'
+    ? COLORS.WHITE
+    : COLORS.PRIMARY,
+  borderRadius: small ? SPACINGS.TWELVE : SPACINGS.SIXTEEN,
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'row',
+  ...(elevated ? SETTINGS.BOXSHADOW : {}),
+}));
 
 export default BaseButton;
