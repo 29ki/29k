@@ -178,12 +178,12 @@ export default [
         name: 'contributions',
         widget: 'select',
         multiple: true,
-        options: Object.entries(contributionTypes).map(
-          ([type, {symbol, description}]) => ({
+        options: Object.entries(contributionTypes)
+          .sort(([typeA], [typeB]) => (typeA > typeB ? 1 : -1))
+          .map(([type, {symbol, description}]) => ({
             value: type,
             label: `${symbol} ${description}`,
-          }),
-        ),
+          })),
       },
     ],
   },
