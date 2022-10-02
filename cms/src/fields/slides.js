@@ -28,7 +28,7 @@ export const PARTICIPANT_SPOTLIGHT_SLIDE = {
     {
       label: 'Content',
       name: 'content',
-      widget: 'string',
+      widget: 'hidden',
       required: false,
     },
   ],
