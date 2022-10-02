@@ -69,7 +69,7 @@ CMS.init({
         fields: EXERCISE_FIELDS,
         i18n: true,
       },
-      generateFilesCollectionFromi18nFiles('ui', 'UI', content),
+      generateFilesCollectionFromi18nFiles('ui', 'UI', content.i18n),
     ],
   },
 });
