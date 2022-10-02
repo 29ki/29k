@@ -76,8 +76,8 @@ CMS.init({
         label: 'Other',
         files: [
           {
-            name: 'All Contributors',
             label: 'All Contributors',
+            name: '.all-contributorsrc',
             file: '/.all-contributorsrc',
             fields: CONTRIBUTORS_FIELDS,
           },
@@ -88,7 +88,7 @@ CMS.init({
         create: false,
         delete: false,
         publish: true,
-        identifier_field: 'name',
+        identifier_field: 'label',
         editor: {
           preview: false,
         },
