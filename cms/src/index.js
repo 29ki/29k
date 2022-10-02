@@ -10,6 +10,7 @@ import {generateFilesCollectionFromi18nFiles} from './lib/i18n';
 import {Widget as uniqueIdWidget} from './widgets/uniqueIdWidget.jsx';
 
 import EXERCISE_FIELDS from './fields/exercise';
+import CONTRIBUTORS_FIELDS from './fields/contributors';
 
 import content from '../../content/content.json';
 
@@ -70,6 +71,28 @@ CMS.init({
         i18n: true,
       },
       generateFilesCollectionFromi18nFiles('ui', 'UI', content.i18n),
+      {
+        name: 'other',
+        label: 'Other',
+        files: [
+          {
+            name: 'All Contributors',
+            label: 'All Contributors',
+            file: '/.all-contributorsrc',
+            fields: CONTRIBUTORS_FIELDS,
+          },
+        ],
+        i18n: false,
+        extension: 'json',
+        format: 'json',
+        create: false,
+        delete: false,
+        publish: true,
+        identifier_field: 'name',
+        editor: {
+          preview: false,
+        },
+      },
     ],
   },
 });
