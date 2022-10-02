@@ -7,6 +7,7 @@
   "badgeTemplate": "<a href=\"#contributors-\"><img src=\"https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square\" atl=\"All Contributors\" /></a>",
   "contributors": [
     {
+      "coreTeam": true,
       "name": "Erik Fernholm",
       "avatar_url": "https://user-images.githubusercontent.com/474066/193298795-f0dc1b28-f4e4-4232-b0fd-01ab174e655c.png",
       "profile": "https://www.linkedin.com/in/lyckoaktivist/",
@@ -18,6 +19,7 @@
       ]
     },
     {
+      "coreTeam": true,
       "name": "Elise Lilliehöök",
       "avatar_url": "https://user-images.githubusercontent.com/474066/193298663-bf7038bd-a060-4d2c-bd14-6828eb0d7d27.png",
       "profile": "https://www.linkedin.com/in/eliselilliehook/",
@@ -27,6 +29,7 @@
       ]
     },
     {
+      "coreTeam": true,
       "login": "gewfy",
       "name": "Jakob Öhman",
       "avatar_url": "https://avatars.githubusercontent.com/u/474066?v=4",
@@ -37,6 +40,7 @@
       ]
     },
     {
+      "coreTeam": true,
       "name": "Johanna Schwang",
       "avatar_url": "https://user-images.githubusercontent.com/474066/193298848-bc63a7ee-58b5-4cb1-af9e-0e894fd2113a.png",
       "profile": "https://www.linkedin.com/in/johanna-schwang-61309943/",
@@ -45,6 +49,7 @@
       ]
     },
     {
+      "coreTeam": true,
       "login": "Lisa29k",
       "name": "Lisa29k",
       "avatar_url": "https://avatars.githubusercontent.com/u/113595061?v=4",
@@ -57,6 +62,7 @@
       ]
     },
     {
+      "coreTeam": true,
       "name": "Fredrik Livheim",
       "avatar_url": "https://user-images.githubusercontent.com/474066/193298744-ea7d4d74-fa7b-4062-badf-d167fd08eb5e.png",
       "profile": "https://www.linkedin.com/in/fredrik-livheim-53692172/",
@@ -68,6 +74,7 @@
       ]
     },
     {
+      "coreTeam": true,
       "login": "jrrjenny",
       "name": "Jenny Rickardsson",
       "avatar_url": "https://avatars.githubusercontent.com/u/113593919?v=4",
@@ -79,6 +86,7 @@
       ]
     },
     {
+      "coreTeam": true,
       "name": "Maria Modigh",
       "avatar_url": "https://user-images.githubusercontent.com/474066/193298544-5f01d508-e75c-4cc9-8a9e-e922b73a4245.png",
       "profile": "https://www.linkedin.com/in/maria-modigh-666b7738/",
@@ -88,6 +96,7 @@
       ]
     },
     {
+      "coreTeam": true,
       "login": "Nipher",
       "name": "Jonas Mendes",
       "avatar_url": "https://avatars.githubusercontent.com/u/7523828?v=4",
@@ -97,6 +106,7 @@
       ]
     },
     {
+      "coreTeam": true,
       "name": "Victoria Gladkiy",
       "avatar_url": "https://user-images.githubusercontent.com/474066/193298946-24b0a875-9507-46c2-ad6d-4b96ee808f11.png",
       "profile": "https://www.linkedin.com/in/victoria-gladkiy-0444a7163/",
@@ -106,6 +116,7 @@
       ]
     },
     {
+      "coreTeam": true,
       "login": "swemail",
       "name": "Emil Rondahl",
       "avatar_url": "https://avatars.githubusercontent.com/u/1139207?v=4",
@@ -115,6 +126,7 @@
       ]
     },
     {
+      "coreTeam": true,
       "login": "kajsaunge",
       "name": "Kajsa Unge",
       "avatar_url": "https://avatars.githubusercontent.com/u/9316860?v=4",
@@ -125,6 +137,7 @@
       ]
     },
     {
+      "coreTeam": true,
       "login": "kapostints",
       "name": "kapostints",
       "avatar_url": "https://avatars.githubusercontent.com/u/113690434?v=4",
@@ -134,6 +147,7 @@
       ]
     },
     {
+      "coreTeam": true,
       "name": "Jorge Ribeiro dos Santos",
       "avatar_url": "https://user-images.githubusercontent.com/474066/193447343-e7560fd4-a57d-4a36-9e12-28bcbd0e9f9e.png",
       "profile": "https://www.linkedin.com/in/jorgers/",
