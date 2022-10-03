@@ -1,14 +1,8 @@
 import notifee, {EventType, Notification} from '@notifee/react-native';
-import {find} from 'ramda';
 import {atomFamily} from 'recoil';
+import {getTriggerNotificationById} from '../utils';
 
 const NAMESPACE = 'notification';
-
-const getTriggerNotificationById = async (id: string) => {
-  const notifications = await notifee.getTriggerNotifications();
-  return find(({notification}) => notification.id === id, notifications)
-    ?.notification;
-};
 
 export const notificationAtom = atomFamily<Notification | undefined, string>({
   key: `${NAMESPACE}/notification`,
