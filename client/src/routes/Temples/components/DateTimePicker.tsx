@@ -52,7 +52,9 @@ const DateTimePicker: React.FC<{
   selectedValue: any;
   setValue: Dispatch<SetStateAction<Date>>;
   close: () => void;
-}> = ({mode, setValue, selectedValue, close}) => {
+  maximumDate?: Date;
+  minimumDate?: Date;
+}> = ({mode, setValue, selectedValue, close, minimumDate, maximumDate}) => {
   switch (Platform.OS) {
     case 'ios':
       return (
@@ -67,6 +69,8 @@ const DateTimePicker: React.FC<{
                 display={mode === 'date' ? 'inline' : 'spinner'}
                 value={selectedValue}
                 onChange={(_, value) => setValue(value as Date)}
+                minimumDate={mode === 'date' ? minimumDate : undefined}
+                maximumDate={mode === 'date' ? maximumDate : undefined}
               />
               <DoneButton variant="secondary" small onPress={close}>
                 {'Done'}
@@ -82,6 +86,8 @@ const DateTimePicker: React.FC<{
           mode={mode}
           display={mode === 'date' ? 'calendar' : 'clock'}
           value={selectedValue}
+          minimumDate={mode === 'date' ? minimumDate : undefined}
+          maximumDate={mode === 'date' ? maximumDate : undefined}
           onChange={(_, value) => {
             close();
             setValue(value as Date);
@@ -94,10 +100,16 @@ const DateTimePicker: React.FC<{
 };
 
 type PickerProps = {
-  onChange: (date: Date, time: Date) => void;
+  onChange?: (date: Date, time: Date) => void;
+  maximumDate?: Date;
+  minimumDate?: Date;
 };
 
-const Picker: React.FC<PickerProps> = ({onChange}) => {
+const Picker: React.FC<PickerProps> = ({
+  onChange = () => {},
+  minimumDate,
+  maximumDate,
+}) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState(new Date());
   const [showPicker, setShowPicker] = useState(false);
@@ -139,6 +151,8 @@ const Picker: React.FC<PickerProps> = ({onChange}) => {
           selectedValue={mode === 'date' ? selectedDate : selectedTime}
           setValue={mode === 'date' ? setSelectedDate : setSelectedTime}
           close={() => setShowPicker(false)}
+          minimumDate={minimumDate}
+          maximumDate={maximumDate}
         />
       )}
     </>

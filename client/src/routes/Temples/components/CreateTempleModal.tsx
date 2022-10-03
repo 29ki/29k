@@ -113,6 +113,7 @@ const SelectContent: React.FC<StepProps> = ({
         }
         keyExtractor={id => id}
         data={exercises}
+        ItemSeparatorComponent={Spacer16}
         renderItem={({item}) => (
           <ContentCard
             onPress={() => {
@@ -164,6 +165,7 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
       <StepHeading>{t('setDateTime.title')}</StepHeading>
       <Spacer16 />
       <DateTimePicker
+        minimumDate={new Date()}
         onChange={(selectedDate, selectedTime) => {
           setDate(selectedDate);
           setTime(selectedTime);
