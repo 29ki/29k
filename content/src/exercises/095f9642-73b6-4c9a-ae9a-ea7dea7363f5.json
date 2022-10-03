@@ -11,10 +11,11 @@
       "type": "video",
       "videoLoop": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663143395/temp/portal-intro_h7qccz.mp4",
-        "audio": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1654680298/Meditations/Body-Scan-Meditation_whd0hr.mp3"
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664798292/temp/ocean_s3t5yy.mp3"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663147750/temp/portal-intro-end_crzjih.mp4"
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663147750/temp/portal-intro-end_crzjih.mp4",
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664798292/temp/bowl_fxc4ox.mp3"
       }
     },
     "slides": [

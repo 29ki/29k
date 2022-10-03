@@ -132,21 +132,30 @@ const Portal: React.FC = () => {
   return (
     <>
       <TopSafeArea minSize={SPACINGS.SIXTEEN} />
-      <VideoStyled
-        ref={finalVidRef}
-        onLoad={() => finalVidRef.current?.seek(0)}
-        onEnd={() => {
-          if (joiningTemple) {
-            navigate('Temple', {templeId});
-          }
-        }}
-        paused={!joiningTemple}
-        source={{uri: introPortal.videoEnd?.source}}
-        resizeMode="cover"
-        poster={introPortal.videoEnd?.preview}
-        posterResizeMode="cover"
-        allowsExternalPlayback={false}
-      />
+      <>
+        {joiningTemple && (
+          <AudioStyled
+            repeat={!temple?.started}
+            source={{uri: introPortal.videoEnd?.audio}}
+            allowsExternalPlayback={false}
+          />
+        )}
+        <VideoStyled
+          ref={finalVidRef}
+          onLoad={() => finalVidRef.current?.seek(0)}
+          onEnd={() => {
+            if (joiningTemple) {
+              navigate('Temple', {templeId});
+            }
+          }}
+          paused={!joiningTemple}
+          source={{uri: introPortal.videoEnd?.source}}
+          resizeMode="cover"
+          poster={introPortal.videoEnd?.preview}
+          posterResizeMode="cover"
+          allowsExternalPlayback={false}
+        />
+      </>
       {!joiningTemple && (
         <>
           <AudioStyled
