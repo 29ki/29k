@@ -133,10 +133,10 @@ const Portal: React.FC = () => {
     <>
       <TopSafeArea minSize={SPACINGS.SIXTEEN} />
       <>
-        {joiningTemple && (
+        {joiningTemple && introPortal.videoEnd?.audio && (
           <AudioStyled
             repeat={!temple?.started}
-            source={{uri: introPortal.videoEnd?.audio}}
+            source={{uri: introPortal.videoEnd.audio}}
             allowsExternalPlayback={false}
           />
         )}
@@ -158,11 +158,13 @@ const Portal: React.FC = () => {
       </>
       {!joiningTemple && (
         <>
-          <AudioStyled
-            repeat={!temple?.started}
-            source={{uri: introPortal.videoLoop?.audio}}
-            allowsExternalPlayback={false}
-          />
+          {introPortal.videoLoop?.audio && (
+            <AudioStyled
+              repeat={!temple?.started}
+              source={{uri: introPortal.videoLoop.audio}}
+              allowsExternalPlayback={false}
+            />
+          )}
           <VideoStyled
             onEnd={() => {
               if (temple?.started) {
