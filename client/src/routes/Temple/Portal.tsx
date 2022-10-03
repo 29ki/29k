@@ -151,7 +151,7 @@ const Portal: React.FC = () => {
         <>
           <AudioStyled
             repeat={!temple?.started}
-            source={{uri: introPortal.videoLoop?.sound}}
+            source={{uri: introPortal.videoLoop?.audio}}
             allowsExternalPlayback={false}
           />
           <VideoStyled
