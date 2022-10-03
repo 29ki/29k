@@ -205,7 +205,7 @@
     },
     {
       "login": "Pelsin",
-      "name": "Pelsin",
+      "name": "Ian Vidales",
       "avatar_url": "https://avatars.githubusercontent.com/u/5345892?v=4",
       "profile": "https://github.com/Pelsin",
       "contributions": [
@@ -310,6 +310,15 @@
       ]
     },
     {
+      "name": "Jonas Lind Bertéusen ",
+      "avatar_url": "https://user-images.githubusercontent.com/474066/193597571-d8141c87-be90-40bd-a9ea-40744e9f5fa8.png",
+      "profile": "https://www.linkedin.com/in/jonoq/",
+      "contributions": [
+        "userExperience",
+        "userTesting"
+      ]
+    },
+    {
       "name": "Sonja Petrovic Lundberg",
       "avatar_url": "https://user-images.githubusercontent.com/474066/193299185-668be8ac-1b78-4700-9f9e-c10eefe83caf.png",
       "profile": "https://www.linkedin.com/in/sonja-petrovic-lundberg/",
@@ -339,6 +348,14 @@
       ]
     },
     {
+      "name": "Adel Ekvall Halila",
+      "avatar_url": "https://user-images.githubusercontent.com/474066/193598543-ed11e638-af84-4b0d-83fa-89c15a679d24.png",
+      "profile": "https://www.linkedin.com/in/adel-ekvall-halila-6a2ab9183/",
+      "contributions": [
+        "marketing"
+      ]
+    },
+    {
       "name": "Jacqueline Levi",
       "avatar_url": "https://user-images.githubusercontent.com/474066/193299146-c6eda64c-8ba8-4482-9177-71ef2d54537c.png",
       "profile": "https://www.linkedin.com/in/jacqueline-levi-292065ab/",
@@ -349,7 +366,7 @@
     },
     {
       "login": "chrismact",
-      "name": "chrismact",
+      "name": "Chris MacTaggart",
       "avatar_url": "https://avatars.githubusercontent.com/u/81088775?v=4",
       "profile": "https://github.com/chrismact",
       "contributions": [
