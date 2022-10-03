@@ -19,7 +19,9 @@ const RowFullWidth = styled.View({
 
 const Row = styled.View({flexDirection: 'row'});
 
-export const ButtonList = () => (
+const ButtonWrapper = styled.View({alignItems: 'flex-start'});
+
+const ButtonList = () => (
   <>
     <RowFullWidth>
       <Button onPress={() => {}}>Primary</Button>
@@ -102,7 +104,7 @@ export const ButtonList = () => (
   </>
 );
 
-export const IconButtonList = () => (
+const IconButtonList = () => (
   <>
     <Body18>Icon buttons</Body18>
     <RowFullWidth>
@@ -217,9 +219,11 @@ export const VariationsButton = () => (
       <Fragment key={`primary${i}`}>
         <Body16>Primary {Object.keys(combination).join(' ')}</Body16>
         <Spacer8 />
-        <Button variant="primary" onPress={() => {}} {...combination}>
-          Button
-        </Button>
+        <ButtonWrapper>
+          <Button variant="primary" onPress={() => {}} {...combination}>
+            Button
+          </Button>
+        </ButtonWrapper>
         <Spacer16 />
       </Fragment>
     ))}

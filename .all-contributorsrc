@@ -51,6 +51,90 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "og2t",
+      "name": "Tomek Augustyn",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28712?v=4",
+      "profile": "http://play.blog2t.net",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "reimertz",
+      "name": "Piérre Reimertz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/625287?v=4",
+      "profile": "https://reimertz.co",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "bbultman",
+      "name": "Ben Bultman",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8900487?v=4",
+      "profile": "https://github.com/bbultman",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Op",
+      "name": "Örjan Fors",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55245?v=4",
+      "profile": "https://github.com/op",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "namvu9",
+      "name": "namvu9",
+      "avatar_url": "https://avatars.githubusercontent.com/u/66156529?v=4",
+      "profile": "https://github.com/namvu9",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Greenheart",
+      "name": "Samuel Plumppu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6125097?v=4",
+      "profile": "https://samuelplumppu.se",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "kapostints",
+      "name": "kapostints",
+      "avatar_url": "https://avatars.githubusercontent.com/u/113690434?v=4",
+      "profile": "https://github.com/kapostints",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "Lisa29k",
+      "name": "Lisa29k",
+      "avatar_url": "https://avatars.githubusercontent.com/u/113595061?v=4",
+      "profile": "https://github.com/Lisa29k",
+      "contributions": [
+        "design",
+        "projectManagement",
+        "userTesting"
+      ]
+    },
+    {
+      "login": "jrrjenny",
+      "name": "Jenny Rickardsson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/113593919?v=4",
+      "profile": "http://29k.org",
+      "contributions": [
+        "content",
+        "research"
+      ]
     }
   ],
   "contributorsPerLine": 7,

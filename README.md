@@ -21,7 +21,7 @@
   <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="Make a Pull Request"></a>
   <a href="docs/code_of_conduct.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="Contributor Covenant"></a>
   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square" atl="All Contributors" /></a>
+<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square" atl="All Contributors" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
@@ -56,13 +56,29 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
-  <tr>
-    <td align="center"><a href="https://github.com/Pelsin"><img src="https://avatars.githubusercontent.com/u/5345892?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pelsin</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=Pelsin" title="Code">💻</a></td>
-    <td align="center"><a href="http://kajsaunge.se"><img src="https://avatars.githubusercontent.com/u/9316860?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kajsa Unge</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=kajsaunge" title="Code">💻</a> <a href="#design-kajsaunge" title="Design">🎨</a></td>
-    <td align="center"><a href="https://github.com/swemail"><img src="https://avatars.githubusercontent.com/u/1139207?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Emil Rondahl</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=swemail" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/Nipher"><img src="https://avatars.githubusercontent.com/u/7523828?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jonas Mendes</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=Nipher" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/gewfy"><img src="https://avatars.githubusercontent.com/u/474066?v=4?s=100" width="100px;" alt=""/><br /><sub><b>gewfy</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=gewfy" title="Code">💻</a></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://github.com/Pelsin"><img src="https://avatars.githubusercontent.com/u/5345892?v=4?s=100" width="100px;" alt="Pelsin"/><br /><sub><b>Pelsin</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=Pelsin" title="Code">💻</a></td>
+      <td align="center"><a href="http://kajsaunge.se"><img src="https://avatars.githubusercontent.com/u/9316860?v=4?s=100" width="100px;" alt="Kajsa Unge"/><br /><sub><b>Kajsa Unge</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=kajsaunge" title="Code">💻</a> <a href="#design-kajsaunge" title="Design">🎨</a></td>
+      <td align="center"><a href="https://github.com/swemail"><img src="https://avatars.githubusercontent.com/u/1139207?v=4?s=100" width="100px;" alt="Emil Rondahl"/><br /><sub><b>Emil Rondahl</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=swemail" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/Nipher"><img src="https://avatars.githubusercontent.com/u/7523828?v=4?s=100" width="100px;" alt="Jonas Mendes"/><br /><sub><b>Jonas Mendes</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=Nipher" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/gewfy"><img src="https://avatars.githubusercontent.com/u/474066?v=4?s=100" width="100px;" alt="gewfy"/><br /><sub><b>gewfy</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=gewfy" title="Code">💻</a></td>
+      <td align="center"><a href="http://play.blog2t.net"><img src="https://avatars.githubusercontent.com/u/28712?v=4?s=100" width="100px;" alt="Tomek Augustyn"/><br /><sub><b>Tomek Augustyn</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=og2t" title="Code">💻</a></td>
+      <td align="center"><a href="https://reimertz.co"><img src="https://avatars.githubusercontent.com/u/625287?v=4?s=100" width="100px;" alt="Piérre Reimertz"/><br /><sub><b>Piérre Reimertz</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=reimertz" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/bbultman"><img src="https://avatars.githubusercontent.com/u/8900487?v=4?s=100" width="100px;" alt="Ben Bultman"/><br /><sub><b>Ben Bultman</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=bbultman" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/op"><img src="https://avatars.githubusercontent.com/u/55245?v=4?s=100" width="100px;" alt="Örjan Fors"/><br /><sub><b>Örjan Fors</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=Op" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/namvu9"><img src="https://avatars.githubusercontent.com/u/66156529?v=4?s=100" width="100px;" alt="namvu9"/><br /><sub><b>namvu9</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=namvu9" title="Code">💻</a></td>
+      <td align="center"><a href="https://samuelplumppu.se"><img src="https://avatars.githubusercontent.com/u/6125097?v=4?s=100" width="100px;" alt="Samuel Plumppu"/><br /><sub><b>Samuel Plumppu</b></sub></a><br /><a href="https://github.com/29ki/29k/commits?author=Greenheart" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/kapostints"><img src="https://avatars.githubusercontent.com/u/113690434?v=4?s=100" width="100px;" alt="kapostints"/><br /><sub><b>kapostints</b></sub></a><br /><a href="#design-kapostints" title="Design">🎨</a></td>
+      <td align="center"><a href="https://github.com/Lisa29k"><img src="https://avatars.githubusercontent.com/u/113595061?v=4?s=100" width="100px;" alt="Lisa29k"/><br /><sub><b>Lisa29k</b></sub></a><br /><a href="#design-Lisa29k" title="Design">🎨</a> <a href="#projectManagement-Lisa29k" title="Project Management">📆</a> <a href="#userTesting-Lisa29k" title="User Testing">📓</a></td>
+      <td align="center"><a href="http://29k.org"><img src="https://avatars.githubusercontent.com/u/113593919?v=4?s=100" width="100px;" alt="Jenny Rickardsson"/><br /><sub><b>Jenny Rickardsson</b></sub></a><br /><a href="#content-jrrjenny" title="Content">🖋</a> <a href="#research-jrrjenny" title="Research">🔬</a></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    
+  </tfoot>
 </table>
 
 <!-- markdownlint-restore -->
