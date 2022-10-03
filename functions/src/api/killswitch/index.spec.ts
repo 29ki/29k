@@ -6,45 +6,47 @@ import createMockServer from '../lib/createMockServer';
 import {createRouter} from '../../lib/routers';
 
 jest.mock('../../../../content/content.json', () => ({
-  en: {
-    'Screen.KillSwitch': {
-      update: {
-        image__image: 'update image',
-        android: {
-          text__markdown: 'android update text',
-          link: 'android update link',
-          button: 'android update button',
+  i18n: {
+    en: {
+      'Screen.KillSwitch': {
+        update: {
+          image__image: 'update image',
+          android: {
+            text__markdown: 'android update text',
+            link: 'android update link',
+            button: 'android update button',
+          },
+          ios: {
+            text__markdown: 'ios update text',
+            link: 'ios update link',
+            button: 'ios update button',
+          },
         },
-        ios: {
-          text__markdown: 'ios update text',
-          link: 'ios update link',
-          button: 'ios update button',
+        maintenance: {
+          image__image: 'maintenance image',
+          text__markdown: 'maintenance text',
         },
-      },
-      maintenance: {
-        image__image: 'maintenance image',
-        text__markdown: 'maintenance text',
       },
     },
-  },
-  sv: {
-    'Screen.KillSwitch': {
-      update: {
-        image__image: 'uppdatera bild',
-        android: {
-          text__markdown: 'android uppdatera text',
-          link: 'android uppdatera länk',
-          button: 'android uppdatera knapp',
+    sv: {
+      'Screen.KillSwitch': {
+        update: {
+          image__image: 'uppdatera bild',
+          android: {
+            text__markdown: 'android uppdatera text',
+            link: 'android uppdatera länk',
+            button: 'android uppdatera knapp',
+          },
+          ios: {
+            text__markdown: 'ios uppdatera text',
+            link: 'ios uppdatera länk',
+            button: 'ios uppdatera knapp',
+          },
         },
-        ios: {
-          text__markdown: 'ios uppdatera text',
-          link: 'ios uppdatera länk',
-          button: 'ios uppdatera knapp',
+        maintenance: {
+          image__image: 'underhåll bild',
+          text__markdown: 'underhåll text',
         },
-      },
-      maintenance: {
-        image__image: 'underhåll bild',
-        text__markdown: 'underhåll text',
       },
     },
   },
