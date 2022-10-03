@@ -133,13 +133,24 @@ const Portal: React.FC = () => {
     <>
       <TopSafeArea minSize={SPACINGS.SIXTEEN} />
       <>
-        {joiningTemple && introPortal.videoEnd?.audio && (
-          <AudioStyled
-            repeat={!temple?.started}
-            source={{uri: introPortal.videoEnd.audio}}
-            allowsExternalPlayback={false}
-          />
-        )}
+        <>
+          {introPortal.videoEnd?.audio && (
+            <AudioStyled
+              paused={!joiningTemple}
+              source={{uri: introPortal.videoEnd.audio}}
+              allowsExternalPlayback={false}
+            />
+          )}
+          {introPortal.videoLoop?.audio && (
+            <AudioStyled
+              paused={joiningTemple}
+              repeat
+              source={{uri: introPortal.videoLoop.audio}}
+              allowsExternalPlayback={false}
+            />
+          )}
+        </>
+
         <VideoStyled
           ref={finalVidRef}
           onLoad={() => finalVidRef.current?.seek(0)}
@@ -157,28 +168,19 @@ const Portal: React.FC = () => {
         />
       </>
       {!joiningTemple && (
-        <>
-          {introPortal.videoLoop?.audio && (
-            <AudioStyled
-              repeat={!temple?.started}
-              source={{uri: introPortal.videoLoop.audio}}
-              allowsExternalPlayback={false}
-            />
-          )}
-          <VideoStyled
-            onEnd={() => {
-              if (temple?.started) {
-                setJoiningTemple(true);
-              }
-            }}
-            repeat={!temple?.started}
-            source={{uri: introPortal.videoLoop?.source}}
-            resizeMode="cover"
-            poster={introPortal.videoLoop?.preview}
-            posterResizeMode="cover"
-            allowsExternalPlayback={false}
-          />
-        </>
+        <VideoStyled
+          onEnd={() => {
+            if (temple?.started) {
+              setJoiningTemple(true);
+            }
+          }}
+          repeat={!temple?.started}
+          source={{uri: introPortal.videoLoop?.source}}
+          resizeMode="cover"
+          poster={introPortal.videoLoop?.preview}
+          posterResizeMode="cover"
+          allowsExternalPlayback={false}
+        />
       )}
       <Wrapper>
         {introPortal.type === 'video' && (
