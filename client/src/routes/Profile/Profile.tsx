@@ -18,6 +18,11 @@ import {Heading18} from '../../common/components/Typography/Heading/Heading';
 import NS from '../../lib/i18n/constants/namespaces';
 import {ScrollView} from 'react-native-gesture-handler';
 import CurrentUser from './components/CurrentUser';
+import {useNavigation} from '@react-navigation/native';
+import {RootStackProps} from '../../common/constants/routes';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+
+type RootNavigationProps = NativeStackNavigationProp<RootStackProps>;
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -29,8 +34,11 @@ const StartCol = styled.View({
 const Profile = () => {
   const {i18n, t} = useTranslation(NS.SCREEN.PROFILE);
   const {toggle: toggleUiLib} = useUiLib();
+  const {navigate} = useNavigation<RootNavigationProps>();
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
+
+  const navigateToContributors = () => navigate('Contributors');
 
   return (
     <ScrollView>
@@ -66,6 +74,10 @@ const Profile = () => {
           <Spacer8 />
           <Button variant="secondary" onPress={checkForUpdate}>
             {t('checkUpdate')}
+          </Button>
+          <Spacer8 />
+          <Button variant="secondary" onPress={navigateToContributors}>
+            {t('contributors')}
           </Button>
         </StartCol>
         <Spacer48 />

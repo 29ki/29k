@@ -19,4 +19,5 @@ export type RootStackProps = Modals & {
   KillSwitch: undefined;
   Tabs: NavigatorScreenParams<TabNavigatorProps>;
   TempleStack: NavigatorScreenParams<TempleStackProps>;
+  Contributors: undefined;
 };
