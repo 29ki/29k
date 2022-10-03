@@ -14,14 +14,8 @@ const mockCancelTriggerNotification =
   notifee.cancelTriggerNotification as jest.Mock;
 const mockAddEventListener = AppState.addEventListener as jest.Mock;
 
-beforeEach(() => {
-  mockAddEventListener.mockImplementation(() => {
-    return {remove: jest.fn()};
-  });
-});
-
-afterEach(async () => {
-  jest.resetAllMocks();
+mockAddEventListener.mockImplementation(() => {
+  return {remove: jest.fn()};
 });
 
 describe('useTriggerNotification', () => {
