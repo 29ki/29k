@@ -1,0 +1,13 @@
+{
+  "en": {
+    "title": "29k Session - {{name}}",
+    "notes": "Exercise: {{name}}\n{{url}}",
+    "location": "29k app"
+  },
+  "sv": {
+    "title": "29k-session: {{name}}",
+    "notes": "Övning: {{name}}\n{{url}}",
+    "location": "29k-appen"
+  },
+  "pt": {}
+}
