@@ -1,18 +1,24 @@
 import React from 'react';
 import {View} from 'react-native';
+import styled from 'styled-components/native';
 
-import {Body16, Body14} from '../components/Typography/Body/Body';
-import * as Spacers from '../components/Spacers/Spacer';
-import {Spacer24} from '../components/Spacers/Spacer';
-import ScreenWrapper from '../../lib/uiLib/decorators/ScreenWrapper';
 import {COLORS} from './colors';
 import {GUTTERS} from './spacings';
-import styled from 'styled-components/native';
+
+import {Body16, Body14} from '../components/Typography/Body/Body';
+import ScreenWrapper from '../../lib/uiLib/decorators/ScreenWrapper';
+import * as Spacers from '../components/Spacers/Spacer';
+import {Spacer24, Spacer16, Spacer4} from '../components/Spacers/Spacer';
 
 const SwatchList = styled.View({
   flexDirection: 'row',
   flexWrap: 'wrap',
   justifyContent: 'space-between',
+});
+const Row = styled.View({
+  flex: 1,
+  flexDirection: 'row',
+  alignItems: 'center',
 });
 
 const SwatchCard = styled.View({
@@ -39,9 +45,11 @@ const SwatchValueText = styled(Body14)({
   fontSize: 12,
 });
 
-const Gutter = styled(Spacer24)({
+const Gutter = styled.View<{big?: boolean}>(props => ({
   backgroundColor: COLORS.BLACK,
-});
+  height: props.big ? 32 : 16,
+  width: props.big ? 32 : 16,
+}));
 
 const SpacerWrapper = styled.View({
   backgroundColor: COLORS.BLACK,
@@ -87,11 +95,20 @@ export const Spacings = () => (
           <SpacerWrapper>
             <Spacer />
           </SpacerWrapper>
-          <Spacers.Spacer4 />
+          <Spacer4 />
         </View>
       ))}
     <Spacer24 />
-    <Body16>Gutters ({GUTTERS})</Body16>
-    <Gutter />
+    <Row>
+      <Gutter />
+      <Spacer16 />
+      <Body16>Gutters ({GUTTERS.SMALL})</Body16>
+    </Row>
+    <Spacer16 />
+    <Row>
+      <Gutter big />
+      <Spacer16 />
+      <Body16>Gutters big ({GUTTERS.BIG})</Body16>
+    </Row>
   </ScreenWrapper>
 );

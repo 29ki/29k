@@ -1,12 +1,11 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import {Heading24, Heading22, Heading18, Heading16} from './Heading/Heading';
 import {Body18, Body16, Body14, BodyBold, TextLink} from './Body/Body';
 import Input from './TextInput/TextInput';
 import MarkdownRenderer from './Markdown/Markdown';
-import {Spacer16, Spacer8} from '../Spacers/Spacer';
+import {Spacer16, Spacer24, Spacer8} from '../Spacers/Spacer';
 import {
   Display14,
   Display16,
@@ -121,9 +120,9 @@ const BodiesList = () => (
 );
 
 export const Displays = () => (
-  <ScrollView>
+  <ScreenWrapper>
     <DisplaysList />
-  </ScrollView>
+  </ScreenWrapper>
 );
 
 export const Headings = () => (
@@ -144,6 +143,43 @@ export const Markdown = () => (
   </ScreenWrapper>
 );
 
+export const Layouts = () => (
+  <ScreenWrapper>
+    <Display22>A Display22</Display22>
+    <Body16>
+      With a Body16 Lorem Ipsum is simply dummy text of the printing and
+      typesetting industry. <TextLink onPress={() => {}}>Text link</TextLink>{' '}
+      <BodyBold>Lorem Ipsum</BodyBold> has been the industry's standard dummy
+      text ever since the 1500s.
+    </Body16>
+    <Spacer24 />
+    <Heading18>A Heading18</Heading18>
+    <Body16>
+      With a Body16 Lorem Ipsum is simply dummy text of the printing and
+      typesetting industry.
+      <BodyBold>Lorem Ipsum</BodyBold> has been the industry's standard dummy
+      text ever since the 1500s.
+    </Body16>
+    <Spacer24 />
+    <Heading16>A Heading18</Heading16>
+    <Body14>
+      With a Body16 Lorem Ipsum is simply dummy text of the printing and
+      typesetting industry.
+      <BodyBold>Lorem Ipsum</BodyBold> has been the industry's standard dummy
+      text ever since the 1500s.
+    </Body14>
+    <Spacer24 />
+    <Display28>A Display22</Display28>
+    <Body16>
+      <BodyBold>
+        With a Body16 Lorem Ipsum is simply dummy text of the printing and
+        typesetting industry.
+      </BodyBold>{' '}
+      Lorem Ipsum has been the industry's standard dummy text ever since the
+      1500s.
+    </Body16>
+  </ScreenWrapper>
+);
 export const AllTypes = () => (
   <ScreenWrapper>
     <DisplaysList />

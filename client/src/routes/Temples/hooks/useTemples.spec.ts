@@ -50,25 +50,6 @@ describe('useTemples', () => {
       ]);
     });
 
-    it('should not fetch temples when user is not yet authenticated', async () => {
-      fetchMock.mockResponseOnce(
-        JSON.stringify([
-          {id: 'temple-id', url: '/temple-url', name: 'Temple Name'},
-        ]),
-        {status: 200},
-      );
-      const {result} = renderHook(() => useTestHook(), {
-        wrapper: RecoilRoot,
-      });
-
-      await act(async () => {
-        await result.current.fetchTemples();
-      });
-
-      expect(fetchMock).toHaveBeenCalledTimes(0);
-      expect(result.current.temples).toEqual(null);
-    });
-
     it('should update loading state', async () => {
       fetchMock.mockResponseOnce(
         JSON.stringify([
@@ -134,26 +115,6 @@ describe('useTemples', () => {
       expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/temples', {
         headers: {'Content-Type': 'application/json'},
       });
-    });
-
-    it('should not add a temple and refetch if user is not authenticated', async () => {
-      fetchMock.mockResponseOnce(
-        JSON.stringify({
-          id: 'temple-id',
-          url: '/temple-url',
-          name: 'Temple Name',
-        }),
-        {status: 200},
-      );
-      const {result} = renderHook(() => useTemples(), {
-        wrapper: RecoilRoot,
-      });
-
-      await act(async () => {
-        await result.current.addTemple('Temple name');
-      });
-
-      expect(fetchMock).toHaveBeenCalledTimes(0);
     });
   });
 
