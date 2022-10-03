@@ -3,7 +3,7 @@ import request from 'supertest';
 import {killSwitchRouter} from './index';
 import createMockServer from '../lib/createMockServer';
 
-import {createUnauthorizedRouter} from '../../lib/routers';
+import {createRouter} from '../../lib/routers';
 
 jest.mock('../../../../content/content.json', () => ({
   en: {
@@ -50,7 +50,7 @@ jest.mock('../../../../content/content.json', () => ({
   },
 }));
 
-const router = createUnauthorizedRouter();
+const router = createRouter();
 router.use('/killSwitch', killSwitchRouter.routes());
 const mockServer = createMockServer(router.routes(), router.allowedMethods());
 

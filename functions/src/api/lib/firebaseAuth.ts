@@ -1,3 +1,4 @@
+import {FirebaseError} from 'firebase-admin';
 import {getAuth} from 'firebase-admin/auth';
 import {Context, Next} from 'koa';
 
@@ -18,11 +19,27 @@ const firebaseAuth = () => async (ctx: FirebaseAuthContext, next: Next) => {
     throw new Error('Invalid authorization');
   }
 
-  const user = await getAuth().verifyIdToken(token);
+  try {
+    const user = await getAuth().verifyIdToken(token);
 
-  ctx.user = {
-    id: user.sub,
-  };
+    ctx.user = {
+      id: user.sub,
+    };
+  } catch (error) {
+    const firebaseError = error as FirebaseError;
+    switch (firebaseError.code) {
+      case 'auth/user-not-found':
+      case 'auth/id-token-expired':
+      case 'auth/id-token-revoked': {
+        ctx.status = 401;
+        return;
+      }
+
+      default: {
+        throw error;
+      }
+    }
+  }
 
   await next();
 };

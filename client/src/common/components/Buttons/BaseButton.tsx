@@ -30,7 +30,6 @@ const BaseButton = styled(TouchableOpacity)<BaseButtonProps>(
       ? COLORS.WHITE
       : COLORS.PRIMARY,
     borderRadius: small ? SPACINGS.TWELVE : SPACINGS.SIXTEEN,
-    alignSelf: 'flex-start',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',

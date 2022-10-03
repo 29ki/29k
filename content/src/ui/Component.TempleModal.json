@@ -1,0 +1,41 @@
+{
+  "en": {
+    "edit": "Edit",
+    "done": "Done",
+    "deleteButton": "Delete Session",
+    "delete": {
+      "header": "Delete Session?",
+      "text": "Are you sure you want to delete the session?",
+      "buttons": {
+        "cancel": "Cancel",
+        "confirm": "Delete"
+      }
+    }
+  },
+  "sv": {
+    "edit": "Ändra",
+    "done": "Klar",
+    "deleteButton": "Ta bort Session",
+    "delete": {
+      "header": "Ta bort Session?",
+      "text": "Är du säker på att du vill ta bort sessionen?",
+      "buttons": {
+        "cancel": "Avbryt",
+        "confirm": "Ta bort"
+      }
+    }
+  },
+  "pt": {
+    "edit": "Edit",
+    "done": "Done",
+    "deleteButton": "Delete Session",
+    "delete": {
+      "header": "Delete Session?",
+      "text": "Are you sure you want to delete the session?",
+      "buttons": {
+        "cancel": "Cancel",
+        "confirm": "Delete"
+      }
+    }
+  }
+}

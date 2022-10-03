@@ -27,7 +27,7 @@ import {
   mockUpdate,
   mockUpdateTransaction,
 } from 'firestore-jest-mock/mocks/firestore';
-import {createAuthorizedRouter} from '../../lib/routers';
+import {createRouter} from '../../lib/routers';
 import {firestore} from 'firebase-admin';
 import {Timestamp} from 'firebase-admin/firestore';
 
@@ -60,7 +60,7 @@ const temples = [
   },
 ];
 
-const router = createAuthorizedRouter();
+const router = createRouter();
 router.use('/temples', templesRouter.routes());
 const mockServer = createMockServer(
   async (ctx: Koa.Context, next: Koa.Next) => {

@@ -6,21 +6,18 @@ import {templesRouter} from './temples';
 import firebaseBodyParser from './lib/firebaseBodyParser';
 import i18nResolver from './lib/i18nResolver';
 import firebaseAuth from './lib/firebaseAuth';
-import {createAuthorizedRouter, createUnauthorizedRouter} from '../lib/routers';
+import {createRouter} from '../lib/routers';
 
 const app = new Koa();
 
-const unauthorizedRouter = createUnauthorizedRouter();
-unauthorizedRouter.use('/killSwitch', killSwitchRouter.routes());
-
-const authoroizedRouter = createAuthorizedRouter();
-authoroizedRouter.use('/temples', templesRouter.routes());
+const authoroizedRouter = createRouter();
+authoroizedRouter
+  .use('/temples', templesRouter.routes())
+  .use('/killSwitch', killSwitchRouter.routes());
 
 app
   .use(firebaseBodyParser())
   .use(i18nResolver())
-  .use(unauthorizedRouter.routes())
-  .use(unauthorizedRouter.allowedMethods())
   .use(firebaseAuth())
   .use(authoroizedRouter.routes())
   .use(authoroizedRouter.allowedMethods());
