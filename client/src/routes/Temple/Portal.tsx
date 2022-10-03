@@ -43,6 +43,10 @@ const VideoStyled = styled(VideoBase)({
   flex: 1,
 });
 
+const AudioStyled = styled(VideoBase)({
+  display: 'none',
+});
+
 const StatusText = styled(Body14)({
   color: COLORS.PURE_WHITE,
 });
@@ -144,19 +148,26 @@ const Portal: React.FC = () => {
         allowsExternalPlayback={false}
       />
       {!joiningTemple && (
-        <VideoStyled
-          onEnd={() => {
-            if (temple?.started) {
-              setJoiningTemple(true);
-            }
-          }}
-          repeat={!temple?.started}
-          source={{uri: introPortal.videoLoop?.source}}
-          resizeMode="cover"
-          poster={introPortal.videoLoop?.preview}
-          posterResizeMode="cover"
-          allowsExternalPlayback={false}
-        />
+        <>
+          <AudioStyled
+            repeat={!temple?.started}
+            source={{uri: introPortal.videoLoop?.sound}}
+            allowsExternalPlayback={false}
+          />
+          <VideoStyled
+            onEnd={() => {
+              if (temple?.started) {
+                setJoiningTemple(true);
+              }
+            }}
+            repeat={!temple?.started}
+            source={{uri: introPortal.videoLoop?.source}}
+            resizeMode="cover"
+            poster={introPortal.videoLoop?.preview}
+            posterResizeMode="cover"
+            allowsExternalPlayback={false}
+          />
+        </>
       )}
       <Wrapper>
         {introPortal.type === 'video' && (

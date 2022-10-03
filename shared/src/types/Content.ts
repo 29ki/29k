@@ -33,10 +33,12 @@ export type VideoPortal = {
   type: 'video';
   videoLoop: {
     source: string;
+    sound: string;
     preview: string;
   };
   videoEnd?: {
     source: string;
+    sound: string;
     preview: string;
   };
 };
