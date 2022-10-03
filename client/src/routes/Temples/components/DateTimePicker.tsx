@@ -3,17 +3,20 @@ import dayjs from 'dayjs';
 import React, {Dispatch, SetStateAction, useEffect, useState} from 'react';
 import {Modal, Platform} from 'react-native';
 import styled from 'styled-components/native';
+import utc from 'dayjs/plugin/utc';
+
+import {COLORS} from '../../../common/constants/colors';
+import {SPACINGS} from '../../../common/constants/spacings';
+
 import Button from '../../../common/components/Buttons/Button';
-
 import {TopSafeArea} from '../../../common/components/Spacers/Spacer';
-
 import TouchableOpacity from '../../../common/components/TouchableOpacity/TouchableOpacity';
 import {
   Body16,
   BodyBold,
 } from '../../../common/components/Typography/Body/Body';
-import {COLORS} from '../../../common/constants/colors';
-import {SPACINGS} from '../../../common/constants/spacings';
+
+dayjs.extend(utc);
 
 const Wrapper = styled.View({
   backgroundColor: COLORS.WHITE,
@@ -49,8 +52,8 @@ const DoneButton = styled(Button)({alignSelf: 'center'});
 
 const DateTimePicker: React.FC<{
   mode: 'date' | 'time';
-  selectedValue: any;
-  setValue: Dispatch<SetStateAction<Date>>;
+  selectedValue: dayjs.Dayjs;
+  setValue: Dispatch<SetStateAction<dayjs.Dayjs>>;
   close: () => void;
   maximumDate?: Date;
   minimumDate?: Date;
@@ -67,8 +70,8 @@ const DateTimePicker: React.FC<{
                 accentColor={COLORS.BLACK}
                 textColor={COLORS.BLACK}
                 display={mode === 'date' ? 'inline' : 'spinner'}
-                value={selectedValue}
-                onChange={(_, value) => setValue(value as Date)}
+                value={selectedValue.local().toDate()}
+                onChange={(_, value) => setValue(dayjs(value).utc())}
                 minimumDate={mode === 'date' ? minimumDate : undefined}
                 maximumDate={mode === 'date' ? maximumDate : undefined}
               />
@@ -85,12 +88,12 @@ const DateTimePicker: React.FC<{
         <RNDateTimePicker
           mode={mode}
           display={mode === 'date' ? 'calendar' : 'clock'}
-          value={selectedValue}
+          value={selectedValue.local().toDate()}
           minimumDate={mode === 'date' ? minimumDate : undefined}
           maximumDate={mode === 'date' ? maximumDate : undefined}
           onChange={(_, value) => {
             close();
-            setValue(value as Date);
+            setValue(dayjs(value).utc());
           }}
         />
       );
@@ -100,7 +103,7 @@ const DateTimePicker: React.FC<{
 };
 
 type PickerProps = {
-  onChange?: (date: Date, time: Date) => void;
+  onChange?: (date: dayjs.Dayjs, time: dayjs.Dayjs) => void;
   maximumDate?: Date;
   minimumDate?: Date;
 };
@@ -110,8 +113,8 @@ const Picker: React.FC<PickerProps> = ({
   minimumDate,
   maximumDate,
 }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedTime, setSelectedTime] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(dayjs().utc());
+  const [selectedTime, setSelectedTime] = useState(dayjs().utc());
   const [showPicker, setShowPicker] = useState(false);
   const [mode, setMode] = useState<'date' | 'time'>('date');
 
@@ -131,7 +134,7 @@ const Picker: React.FC<PickerProps> = ({
           <Body16>
             <BodyBold>{'Date'}</BodyBold>
           </Body16>
-          <Body16>{dayjs(selectedDate).format('dddd, D MMM')}</Body16>
+          <Body16>{selectedDate.local().format('dddd, D MMM')}</Body16>
         </Row>
         <Row
           onPress={() => {
@@ -141,7 +144,7 @@ const Picker: React.FC<PickerProps> = ({
           <Body16>
             <BodyBold>{'Time'}</BodyBold>
           </Body16>
-          <Body16>{dayjs(selectedTime).format('HH:mm')}</Body16>
+          <Body16>{selectedTime.local().format('HH:mm')}</Body16>
         </Row>
       </Wrapper>
 

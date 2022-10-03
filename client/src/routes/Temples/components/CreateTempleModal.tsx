@@ -1,8 +1,11 @@
+import {useNavigation} from '@react-navigation/native';
+import dayjs from 'dayjs';
 import React, {Dispatch, SetStateAction, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {FlatList} from 'react-native-gesture-handler';
 import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
+
 import Button from '../../../common/components/Buttons/Button';
 
 import Gutters from '../../../common/components/Gutters/Gutters';
@@ -28,6 +31,7 @@ import {SPACINGS} from '../../../common/constants/spacings';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useExerciseIds from '../../../lib/content/hooks/useExerciseIds';
 import NS from '../../../lib/i18n/constants/namespaces';
+import useTemples from '../hooks/useTemples';
 
 import DateTimePicker from './DateTimePicker';
 
@@ -131,21 +135,22 @@ const SelectContent: React.FC<StepProps> = ({
 
 const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
   const {t} = useTranslation(NS.COMPONENT.CREATE_TEMPLE_MODAL);
+  const {goBack} = useNavigation();
   const [isLoading, setIsLoading] = useState(false);
-  const [date, setDate] = useState<Date | undefined>();
-  const [time, setTime] = useState<Date | undefined>();
-  // const {addTemple} = useTemples();
+  const [date, setDate] = useState<dayjs.Dayjs | undefined>();
+  const [time, setTime] = useState<dayjs.Dayjs | undefined>();
+  const {addTemple} = useTemples();
 
   const exercise = useExerciseById(selectedExercise);
-  // const {navigate} =
-  //   useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
   const onSubmit = async () => {
-    if (exercise && date && time) {
+    if (selectedExercise && date && time) {
+      const sessionDateTime = date.hour(time.hour()).minute(time.minute());
+
       setIsLoading(true);
-      // TODO:
-      // await addTemple(exercise, dateTime);
+      await addTemple('Some Name', selectedExercise, sessionDateTime);
       setIsLoading(false);
+      goBack();
     }
   };
 
