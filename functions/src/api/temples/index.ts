@@ -12,7 +12,7 @@ import {
   ExerciseState,
 } from '../../../../shared/src/types/Temple';
 import * as dailyApi from '../../lib/dailyApi';
-import {createAuthorizedRouter} from '../../lib/routers';
+import {createRouter} from '../../lib/routers';
 
 const getTempleExerciseState = (
   exerciseState: ExerciseStateData,
@@ -28,7 +28,7 @@ const getTemple = (temple: TempleData): Temple => ({
 
 const TEMPLES_COLLECTION = 'temples';
 
-const templesRouter = createAuthorizedRouter();
+const templesRouter = createRouter();
 
 templesRouter.get('/', async ctx => {
   const {response} = ctx;

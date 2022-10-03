@@ -6,7 +6,7 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Platform} from 'react-native';
+import {Alert, Linking, Platform} from 'react-native';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import {DailyMediaView} from '@daily-co/react-native-daily-js';
@@ -81,6 +81,10 @@ const InputWrapper = styled.View({
   flexDirection: 'row',
 });
 
+const StyledTextInput = styled(TextInput)({
+  flexGrow: 1,
+});
+
 const Audio = styled(AudioIndicator)({
   position: 'absolute',
   right: SPACINGS.SIXTEEN,
@@ -92,8 +96,13 @@ const ChangingRoom = () => {
   const [localUserName, setLocalUserName] = useState('');
 
   const {goBack, navigate} = useNavigation<TempleNavigationProps>();
-  const {toggleAudio, toggleVideo, setUserName, preJoinMeeting} =
-    useContext(DailyContext);
+  const {
+    toggleAudio,
+    toggleVideo,
+    setUserName,
+    preJoinMeeting,
+    hasAppPermissions,
+  } = useContext(DailyContext);
 
   const temple = useRecoilValue(templeAtom);
   const {
@@ -130,9 +139,28 @@ const ChangingRoom = () => {
     return null;
   }
 
+  const join = () => navigate('Portal', {templeId});
+
+  const permissionsAlert = () =>
+    Alert.alert(t('permissionsAlert.title'), t('permissionsAlert.message'), [
+      {
+        text: t('permissionsAlert.join'),
+        onPress: join,
+      },
+      {
+        style: 'cancel',
+        text: t('permissionsAlert.openSettings'),
+        onPress: () => Linking.openSettings(),
+      },
+    ]);
+
   const handleJoin = () => {
     setUserName(localUserName);
-    navigate('Portal', {templeId});
+    if (hasAppPermissions()) {
+      join();
+    } else {
+      permissionsAlert();
+    }
   };
 
   const hasAudio = Boolean(me?.audioTrack);
@@ -179,7 +207,7 @@ const ChangingRoom = () => {
           </Controls>
           <Spacer48 />
           <InputWrapper>
-            <TextInput
+            <StyledTextInput
               autoFocus
               onChangeText={setLocalUserName}
               autoCapitalize="words"

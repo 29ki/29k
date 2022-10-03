@@ -25,7 +25,6 @@ import TextInput from '../../common/components/Typography/TextInput/TextInput';
 import SETTINGS from '../../common/constants/settings';
 import {PlusIcon} from '../../common/components/Icons';
 import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
-import {userAtom} from '../../lib/user/state/state';
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'position'}),
@@ -51,9 +50,13 @@ const FloatingForm = styled(LinearGradient).attrs({
   left: 0,
   right: 0,
   bottom: 0,
-  paddingHorizontal: GUTTERS,
+  paddingHorizontal: GUTTERS.BIG,
   paddingTop: SPACINGS.TWENTYFOUR,
   passingBottom: SPACINGS.TWELVE,
+});
+
+const StyledTextInput = styled(TextInput)({
+  flexGrow: 1,
 });
 
 const ListHeader = () => (
@@ -90,7 +93,7 @@ const CreateTempleForm = ({}) => {
     <CreateTempleWrapper>
       {isAdding ? (
         <>
-          <TextInput
+          <StyledTextInput
             onChangeText={setTempleName}
             placeholder={t('createPlaceholder')}
             onBlur={onBlur}
@@ -116,10 +119,9 @@ const CreateTempleForm = ({}) => {
 };
 
 const Temples = () => {
-  const {fetchTemples, deleteTemple} = useTemples();
+  const {fetchTemples} = useTemples();
   const isLoading = useRecoilValue(isLoadingAtom);
   const temples = useRecoilValue(templesAtom);
-  const user = useRecoilValue(userAtom);
 
   useEffect(() => {
     fetchTemples();
@@ -128,14 +130,6 @@ const Temples = () => {
   const renderTemple = ({item}: ListRenderItemInfo<Temple>) => (
     <Gutters>
       <TempleCard temple={item} />
-      {__DEV__ && user && item.facilitator === user.uid && (
-        <Button
-          onPress={() => deleteTemple(item.id)}
-          // eslint-disable-next-line react-native/no-inline-styles
-          style={{position: 'absolute', right: 10, top: -2}}>
-          {'x'}
-        </Button>
-      )}
     </Gutters>
   );
 

@@ -4,7 +4,6 @@ import dayjs from 'dayjs';
 import React, {useContext, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
-import Animated, {FadeOut} from 'react-native-reanimated';
 import Video from 'react-native-video';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
@@ -24,7 +23,6 @@ import {HKGroteskBold} from '../../common/constants/fonts';
 import {TempleStackProps} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
-import {userAtom} from '../../lib/user/state/state';
 import * as templeApi from '../Temples/api/temple';
 import Counter from './components/Counter/Counter';
 import {DailyContext} from './DailyProvider';
@@ -34,6 +32,7 @@ import {participantsAtom, templeAtom} from './state/state';
 import {DailyUserData} from '../../../../shared/src/types/Temple';
 import useLeaveTemple from './hooks/useLeaveTemple';
 import VideoBase from './components/VideoBase/VideoBase';
+import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -74,19 +73,19 @@ const Wrapper = styled.View({
   flex: 1,
   justifyContent: 'space-between',
 });
+const Content = styled.View({
+  flex: 1,
+  justifyContent: 'space-between',
+});
 
 const TopBar = styled(Gutters)({
   justifyContent: 'space-between',
+  alignItems: 'center',
   flexDirection: 'row',
-  paddingVertical: SPACINGS.EIGHT,
-});
-
-const StartButton = styled(Button)({
-  backgroundColor: COLORS.PRIMARY,
 });
 
 const BackButton = styled(IconButton)({
-  marginLeft: -SPACINGS.TWELVE,
+  marginLeft: -SPACINGS.SIXTEEN,
 });
 
 const Portal: React.FC = () => {
@@ -100,10 +99,9 @@ const Portal: React.FC = () => {
   const {t} = useTranslation(NS.SCREEN.PORTAL);
   const exercise = useTempleExercise();
   const temple = useRecoilValue(templeAtom);
-  const introPortal = exercise?.introPortal;
-  const user = useRecoilValue(userAtom);
   const participants = useRecoilValue(participantsAtom);
   const participantsCount = Object.keys(participants ?? {}).length;
+  const isFacilitator = useIsTempleFacilitator();
   const {navigate} = useNavigation<TempleNavigationProps>();
   const leaveTemple = useLeaveTemple();
 
@@ -120,6 +118,8 @@ const Portal: React.FC = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  const introPortal = exercise?.introPortal;
 
   if (!introPortal) {
     return null;
@@ -160,23 +160,27 @@ const Portal: React.FC = () => {
       )}
       <Wrapper>
         {introPortal.type === 'video' && (
-          <>
+          <Content>
             <TopBar>
               <BackButton
                 noBackground
                 onPress={leaveTemple}
                 Icon={ArrowLeftIcon}
               />
-              {temple?.facilitator === user?.uid && !temple?.started && (
-                <Animated.View exiting={FadeOut.duration(1500)}>
-                  <StartButton
-                    disabled={temple?.started}
-                    onPress={() => {
-                      templeApi.updateTemple(templeId, {started: true});
-                    }}>
-                    {t('startSession')}
-                  </StartButton>
-                </Animated.View>
+              {__DEV__ && temple?.started && (
+                <Button small onPress={() => navigate('Temple', {templeId})}>
+                  {t('skipPortal')}
+                </Button>
+              )}
+              {isFacilitator && (
+                <Button
+                  small
+                  disabled={temple?.started}
+                  onPress={() => {
+                    templeApi.updateTemple(templeId, {started: true});
+                  }}>
+                  {temple?.started ? t('sessionStarted') : t('startSession')}
+                </Button>
               )}
             </TopBar>
 
@@ -204,10 +208,10 @@ const Portal: React.FC = () => {
                 </StatusItem>
               )}
             </PortalStatus>
-          </>
+          </Content>
         )}
       </Wrapper>
-      <BottomSafeArea />
+      <BottomSafeArea minSize={16} />
     </>
   );
 };
