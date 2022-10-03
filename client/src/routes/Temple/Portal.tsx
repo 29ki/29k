@@ -127,7 +127,7 @@ const Portal: React.FC = () => {
 
   return (
     <>
-      <TopSafeArea />
+      <TopSafeArea minSize={SPACINGS.SIXTEEN} />
       <VideoStyled
         ref={finalVidRef}
         onLoad={() => finalVidRef.current?.seek(0)}
@@ -211,7 +211,7 @@ const Portal: React.FC = () => {
           </Content>
         )}
       </Wrapper>
-      <BottomSafeArea minSize={16} />
+      <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
     </>
   );
 };

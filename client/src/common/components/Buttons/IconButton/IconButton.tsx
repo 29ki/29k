@@ -38,6 +38,16 @@ const IconButton: React.FC<IconButtonProps> = ({
   fill,
 }) => (
   <StyledIconButton
+    hitSlop={
+      small
+        ? {
+            bottom: SPACINGS.FOUR,
+            left: SPACINGS.FOUR,
+            right: SPACINGS.FOUR,
+            top: SPACINGS.FOUR,
+          }
+        : {}
+    }
     onPress={onPress}
     disabled={disabled}
     variant={variant}

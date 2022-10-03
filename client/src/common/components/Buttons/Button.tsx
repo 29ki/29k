@@ -69,6 +69,12 @@ const Button: React.FC<ButtonProps> = ({
   active,
 }) => (
   <BaseButton
+    hitSlop={{
+      bottom: small ? SPACINGS.EIGHT : undefined,
+      left: undefined,
+      right: undefined,
+      top: small ? SPACINGS.EIGHT : undefined,
+    }}
     onPress={onPress}
     variant={variant}
     elevated={elevated}
