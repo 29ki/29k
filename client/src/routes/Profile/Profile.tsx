@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {useTranslation} from 'react-i18next';
 
 import styled from 'styled-components/native';
@@ -42,8 +42,8 @@ const Profile = () => {
         <Heading18>{t('language')}</Heading18>
         <Spacer8 />
         <Row>
-          {LANGUAGE_TAGS.map(languageTag => (
-            <>
+          {LANGUAGE_TAGS.map((languageTag, i) => (
+            <Fragment key={i}>
               <Button
                 variant="secondary"
                 key={languageTag}
@@ -51,7 +51,7 @@ const Profile = () => {
                 {languageTag.toUpperCase()}
               </Button>
               <Spacer8 />
-            </>
+            </Fragment>
           ))}
         </Row>
         <Spacer48 />
