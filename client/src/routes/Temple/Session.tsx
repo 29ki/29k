@@ -39,7 +39,6 @@ import {
 
 import usePreventTempleLeave from './hooks/usePreventTempleLeave';
 import useLeaveTemple from './hooks/useLeaveTemple';
-import {ParticipantSpotlightSlide} from '../../../../shared/src/types/Content';
 
 const LoadingView = styled.View({
   flex: 1,
@@ -74,14 +73,7 @@ const SpotlightContent = styled.View({
   flex: 1,
 });
 
-const ProgressGradient: React.FC<ParticipantSpotlightSlide> = styled(
-  LinearGradient,
-).attrs(({exerciseType}) => ({
-  colors:
-    exerciseType === 'participantSpotlight'
-      ? ['rgba(249, 248, 244, 1)', 'rgba(249, 248, 244, 0)']
-      : ['rgba(249, 248, 244, 0)', 'rgba(249, 248, 244, 0)'],
-}))({
+const ProgressGradient = styled(LinearGradient)({
   paddingTop: SPACINGS.EIGHT,
   position: 'absolute',
   width: '100%',
@@ -137,7 +129,12 @@ const Session = () => {
               previous={exercise.slide.previous}
               next={exercise.slide.next}
             />
-            <ProgressGradient exerciseType={exercise?.slide.current.type}>
+            <ProgressGradient
+              colors={
+                exercise?.slide.current.type === 'participantSpotlight'
+                  ? ['rgba(249, 248, 244, 1)', 'rgba(249, 248, 244, 0)']
+                  : ['rgba(249, 248, 244, 0)', 'rgba(249, 248, 244, 0)']
+              }>
               <Progress
                 index={exercise?.slide.index}
                 length={exercise?.slides.length}
