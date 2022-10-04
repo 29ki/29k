@@ -82,7 +82,7 @@ describe('useTemples', () => {
   });
 
   describe('addTemple', () => {
-    const date = dayjs.utc(new Date('1994-03-08T07:24:00'));
+    const startTime = dayjs.utc(new Date('1994-03-08T07:24:00'));
 
     it('should add a temple and refetch', async () => {
       fetchMock.mockResponseOnce(
@@ -104,7 +104,11 @@ describe('useTemples', () => {
       });
 
       await act(async () => {
-        await result.current.addTemple('Temple name', 'some-content-id', date);
+        await result.current.addTemple(
+          'Temple name',
+          'some-content-id',
+          startTime,
+        );
       });
 
       expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/temples', {
