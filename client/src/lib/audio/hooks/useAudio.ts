@@ -1,24 +1,25 @@
-import {useEffect, useRef, useState} from 'react';
+import {useEffect, useState} from 'react';
 import Sound from 'react-native-sound';
 
 const useAudio = (source: string): Sound | undefined => {
-  const currentSource = useRef<string | undefined>();
   const [audio, setAudio] = useState<Sound | undefined>();
 
   useEffect(() => {
-    if (currentSource.current !== source) {
-      currentSource.current = source;
-      const sound = new Sound(source, '', () => {
-        setAudio(sound);
-      });
-    }
-
-    return () => {
-      if (audio) {
-        audio.release();
+    const audioInstance = new Sound(source, '', err => {
+      if (err) {
+        console.error(err);
       }
-    };
-  }, [source, audio]);
+
+      setAudio(audioInstance);
+    });
+  }, [source]);
+
+  useEffect(
+    () => () => {
+      audio?.release();
+    },
+    [audio],
+  );
 
   return audio;
 };

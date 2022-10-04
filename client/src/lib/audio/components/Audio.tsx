@@ -1,6 +1,7 @@
 import React, {useEffect, useImperativeHandle} from 'react';
+import {View} from 'react-native';
 import type RNSound from 'react-native-sound';
-import useSound from '../hooks/useAudio';
+import useAudio from '../hooks/useAudio';
 
 type AudioProps = {
   source: string;
@@ -11,7 +12,7 @@ type AudioProps = {
 
 const Audio = React.forwardRef<RNSound | undefined, AudioProps>(
   ({source, paused = false, repeat = false, volume = 1}, ref) => {
-    const sound = useSound(source);
+    const sound = useAudio(source);
 
     // Expose sound as ref
     useImperativeHandle(ref, () => sound, [sound]);
@@ -32,7 +33,7 @@ const Audio = React.forwardRef<RNSound | undefined, AudioProps>(
       sound?.setVolume(volume);
     }, [sound, volume]);
 
-    return null;
+    return <View />;
   },
 );
 
