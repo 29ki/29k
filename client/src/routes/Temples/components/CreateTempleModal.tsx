@@ -169,7 +169,7 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
       <StepHeading>{t('setDateTime.title')}</StepHeading>
       <Spacer16 />
       <DateTimePicker
-        minimumDate={new Date()}
+        minimumDate={dayjs().local()}
         onChange={(selectedDate, selectedTime) => {
           setDate(selectedDate);
           setTime(selectedTime);
