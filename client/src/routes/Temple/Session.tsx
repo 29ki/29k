@@ -1,12 +1,11 @@
 import React, {useContext, useEffect} from 'react';
 import {ActivityIndicator} from 'react-native';
 import {useRecoilValue} from 'recoil';
-
+import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
-
-import {videoSharingFields, localParticipantSelector} from './state/state';
 import {RouteProp, useRoute} from '@react-navigation/native';
 
+import {videoSharingFields, localParticipantSelector} from './state/state';
 import {
   Spacer12,
   Spacer16,
@@ -56,9 +55,9 @@ const MainViewContainer = styled.View({
 
 const ExerciseControl = styled(ContentControls)({
   position: 'absolute',
-  bottom: 20,
-  left: 20,
-  right: 20,
+  bottom: SPACINGS.SIXTEEN,
+  left: SPACINGS.SIXTEEN,
+  right: SPACINGS.SIXTEEN,
 });
 
 const SessionControls = styled.View({
@@ -68,6 +67,20 @@ const SessionControls = styled.View({
 
 const Progress = styled(ProgressBar)({
   marginHorizontal: SPACINGS.SIXTEEN,
+});
+
+const SpotlightContent = styled.View({
+  flex: 1,
+});
+
+const ProgressGradient = styled(LinearGradient)({
+  paddingTop: SPACINGS.EIGHT,
+  position: 'absolute',
+  width: '100%',
+  height: 50,
+  left: 0,
+  right: 0,
+  top: 0,
 });
 
 const Session = () => {
@@ -107,20 +120,27 @@ const Session = () => {
   return (
     <MainViewContainer>
       <Spotlight>
-        <TopSafeArea />
+        <TopSafeArea minSize={SPACINGS.TWELVE} />
         {exercise && (
-          <>
-            <Progress
-              index={exercise?.slide.index}
-              length={exercise?.slides.length}
-            />
+          <SpotlightContent>
             <ExerciseSlides
               index={exercise.slide.index}
               current={exercise.slide.current}
               previous={exercise.slide.previous}
               next={exercise.slide.next}
             />
-          </>
+            <ProgressGradient
+              colors={
+                exercise?.slide.current.type === 'participantSpotlight'
+                  ? ['rgba(249, 248, 244, 1)', 'rgba(249, 248, 244, 0)']
+                  : ['rgba(249, 248, 244, 0)', 'rgba(249, 248, 244, 0)']
+              }>
+              <Progress
+                index={exercise?.slide.index}
+                length={exercise?.slides.length}
+              />
+            </ProgressGradient>
+          </SpotlightContent>
         )}
         <ExerciseControl templeId={templeId} />
       </Spotlight>
@@ -148,7 +168,6 @@ const Session = () => {
           onPress={leaveTemple}
         />
       </SessionControls>
-      <Spacer16 />
     </MainViewContainer>
   );
 };
