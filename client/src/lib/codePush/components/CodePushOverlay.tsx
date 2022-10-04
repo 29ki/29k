@@ -7,7 +7,7 @@ import {useTranslation} from 'react-i18next';
 
 import Button from '../../../common/components/Buttons/Button';
 import {Heading18} from '../../../common/components/Typography/Heading/Heading';
-import {COLORS} from '../../../common/constants/colors';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 
 import {downloadProgressAtom, statusAtom} from '..//state/state';
 import {isColdStartedAtom} from '../../appState/state/state';

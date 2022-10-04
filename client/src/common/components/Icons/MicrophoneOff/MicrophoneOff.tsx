@@ -1,7 +1,7 @@
 import React from 'react';
 import {ClipPath, Path} from 'react-native-svg';
 import {IconType} from '..';
-import {COLORS} from '../../../constants/colors';
+import {COLORS} from '../../../../../../shared/src/constants/colors';
 import Icon from '../Icon';
 
 export const MicrophoneOffIcon: IconType = ({fill = COLORS.BLACK}) => (
