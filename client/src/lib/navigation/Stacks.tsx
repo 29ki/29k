@@ -57,6 +57,7 @@ const RootStackWrapper = () => {
               presentation: 'transparentModal',
               gestureDirection: 'vertical',
               gestureEnabled: true,
+              animation: 'slide_from_bottom',
             }}>
             <RootStack.Screen name={'TempleModal'} component={TempleModal} />
             <RootStack.Screen

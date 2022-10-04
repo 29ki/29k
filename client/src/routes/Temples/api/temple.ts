@@ -20,6 +20,7 @@ export const addTemple = async (
 
     return response.json();
   } catch (cause) {
+    console.log(cause);
     throw new Error('Could not create a temple', {cause});
   }
 };

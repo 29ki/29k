@@ -5,7 +5,7 @@ import {Modal, Platform} from 'react-native';
 import styled from 'styled-components/native';
 import utc from 'dayjs/plugin/utc';
 
-import {COLORS} from '../../../common/constants/colors';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../common/constants/spacings';
 
 import Button from '../../../common/components/Buttons/Button';

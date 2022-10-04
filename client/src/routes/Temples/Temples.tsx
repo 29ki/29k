@@ -23,7 +23,7 @@ import TempleCard from '../../common/components/Cards/TempleCard/TempleCard';
 import SETTINGS from '../../common/constants/settings';
 import {PlusIcon} from '../../common/components/Icons';
 import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
-import {COLORS} from '../../common/constants/colors';
+import {COLORS} from '../../../../shared/src/constants/colors';
 import {ModalStackProps} from '../../common/constants/routes';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useNavigation} from '@react-navigation/native';
