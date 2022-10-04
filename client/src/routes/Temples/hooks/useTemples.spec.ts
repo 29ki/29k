@@ -82,7 +82,7 @@ describe('useTemples', () => {
   });
 
   describe('addTemple', () => {
-    const startTime = dayjs.utc(new Date('1994-03-08T07:24:00'));
+    const startTime = dayjs.utc('1994-03-08');
 
     it('should add a temple and refetch', async () => {
       fetchMock.mockResponseOnce(
@@ -115,7 +115,7 @@ describe('useTemples', () => {
         body: JSON.stringify({
           name: 'Temple name',
           contentId: 'some-content-id',
-          startTime: '1994-03-08T06:24:00.000Z',
+          startTime: '1994-03-08T00:00:00.000Z',
         }),
         headers: {'Content-Type': 'application/json'},
         method: 'POST',
@@ -128,7 +128,7 @@ describe('useTemples', () => {
   });
 
   describe('deleteTemple', () => {
-    it('should add a temple and refetch', async () => {
+    it('should delete a temple and refetch', async () => {
       fetchMock.mockResponseOnce('Success', {status: 200});
       const {result} = renderHook(() => useTemples(), {
         wrapper: RecoilRoot,
