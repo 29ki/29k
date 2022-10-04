@@ -3,7 +3,7 @@ import IconButton from '../../../../common/components/Buttons/IconButton/IconBut
 import {IconType} from '../../../../common/components/Icons';
 import {COLORS} from '../../../../common/constants/colors';
 
-const NotesButton: React.FC<{Icon: IconType}> = ({Icon}) => (
+const NavButton: React.FC<{Icon: IconType}> = ({Icon}) => (
   <IconButton
     onPress={() => {}}
     Icon={Icon}
@@ -13,4 +13,4 @@ const NotesButton: React.FC<{Icon: IconType}> = ({Icon}) => (
   />
 );
 
-export default NotesButton;
+export default NavButton;

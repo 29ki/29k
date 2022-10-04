@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components/native';
 import Button from '../../../../common/components/Buttons/Button';
 import {
+  PlusIcon,
   ForwardCircleIcon,
   BackwardCircleIcon,
-  PlusIcon,
 } from '../../../../common/components/Icons';
 import NavButton from './NavButton';
 
@@ -27,7 +27,7 @@ const Wrapper = styled.View({
 });
 const Row = styled.View({flexDirection: 'row'});
 
-const FacilitatorNotes = () => (
+const HostNotes = () => (
   <Wrapper>
     <Row>
       <Button onPress={() => {}} RightIcon={PlusIcon} variant="tertiary">
@@ -47,4 +47,4 @@ const FacilitatorNotes = () => (
   </Wrapper>
 );
 
-export default FacilitatorNotes;
+export default HostNotes;
