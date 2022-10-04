@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import {Body14} from '../../../../common/components/Typography/Body/Body';
-import {COLORS} from '../../../../common/constants/colors';
+import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {HKGroteskBold} from '../../../../common/constants/fonts';
 import NS from '../../../../lib/i18n/constants/namespaces';
 

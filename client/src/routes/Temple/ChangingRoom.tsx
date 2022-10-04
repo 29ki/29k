@@ -29,7 +29,7 @@ import {
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
 import {Body16} from '../../common/components/Typography/Body/Body';
-import {COLORS} from '../../common/constants/colors';
+import {COLORS} from '../../../../shared/src/constants/colors';
 import {DailyContext} from '../Temple/DailyProvider';
 import {localParticipantSelector, templeAtom} from './state/state';
 import {TempleStackProps} from '../../common/constants/routes';

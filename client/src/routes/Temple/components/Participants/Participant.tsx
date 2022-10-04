@@ -7,7 +7,7 @@ import {useTranslation} from 'react-i18next';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import {Display36} from '../../../../common/components/Typography/Display/Display';
-import {COLORS} from '../../../../common/constants/colors';
+import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../../common/constants/spacings';
 import NS from '../../../../lib/i18n/constants/namespaces';
 import AudioIndicator from './AudioIdicator';
