@@ -15,6 +15,11 @@ const CONTENT_FIELDS = [
     name: 'heading',
     widget: 'string',
   },
+  {
+    label: 'Text',
+    name: 'text',
+    widget: 'string',
+  },
   IMAGE_FIELD,
   CONTENT_VIDEO_FIELD,
 ];
