@@ -15,6 +15,11 @@ const CONTENT_FIELDS = [
     name: 'heading',
     widget: 'string',
   },
+  {
+    label: 'Text',
+    name: 'text',
+    widget: 'string',
+  },
   IMAGE_FIELD,
   CONTENT_VIDEO_FIELD,
 ];
@@ -28,7 +33,7 @@ export const PARTICIPANT_SPOTLIGHT_SLIDE = {
     {
       label: 'Content',
       name: 'content',
-      widget: 'string',
+      widget: 'hidden',
       required: false,
     },
   ],

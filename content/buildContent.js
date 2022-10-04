@@ -11,7 +11,14 @@ const exercises = generateI18NResources(
   'exercises',
 );
 const ui = generateI18NResources(getContentByType('ui'));
-const data = JSON.stringify(mergeDeepRight(ui, exercises));
+const i18n = mergeDeepRight(ui, exercises);
+
+const {contributors} = JSON.parse(fs.readFileSync('../.all-contributorsrc'));
+
+const data = JSON.stringify({
+  i18n,
+  contributors,
+});
 
 if (process.argv.length > 2) {
   fs.writeFileSync(process.argv[2], data);

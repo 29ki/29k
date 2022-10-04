@@ -25,10 +25,12 @@ import TextInput from '../../common/components/Typography/TextInput/TextInput';
 import SETTINGS from '../../common/constants/settings';
 import {PlusIcon} from '../../common/components/Icons';
 import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
+import {COLORS} from '../../common/constants/colors';
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'position'}),
   contentContainerStyle: {flex: 1},
+  backgroundColor: COLORS.PURE_WHITE,
 })({flex: 1});
 
 const CreateButton = styled(Button)({

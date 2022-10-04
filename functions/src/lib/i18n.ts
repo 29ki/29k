@@ -1,6 +1,6 @@
 import i18next, {init} from 'i18next';
 
-import resources from '../../../content/content.json';
+import content from '../../../content/content.json';
 import {
   DEFAULT_LANGUAGE_TAG,
   LANGUAGE_TAGS,
@@ -13,7 +13,7 @@ init({
   lng: DEFAULT_LANGUAGE_TAG,
   supportedLngs: LANGUAGE_TAGS,
   fallbackLng: DEFAULT_LANGUAGE_TAG,
-  resources,
+  resources: content.i18n,
 });
 
 export default i18next;

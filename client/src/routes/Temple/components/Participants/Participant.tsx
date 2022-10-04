@@ -4,6 +4,7 @@ import {
 } from '@daily-co/react-native-daily-js';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
+import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import {Display36} from '../../../../common/components/Typography/Display/Display';
 import {COLORS} from '../../../../common/constants/colors';
@@ -37,6 +38,15 @@ const ParticipantAudio = styled(AudioIndicator)({
   position: 'absolute',
   top: SPACINGS.SIXTEEN,
   right: SPACINGS.SIXTEEN,
+});
+const NameGradient = styled(LinearGradient).attrs({
+  colors: ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 1)'],
+})({
+  position: 'absolute',
+  bottom: 0,
+  width: '100%',
+  height: SPACINGS.SIXTY,
+  paddingTop: SPACINGS.EIGHT,
 });
 
 const ParticipantName = styled(Name)({
@@ -74,7 +84,9 @@ const Participant: React.FC<ParticipantProps> = ({participant}) => {
           <Heading>{participant?.user_name?.[0]}</Heading>
         </ParticipantPlaceholder>
       )}
-      <ParticipantName participant={participant} suffix={t('nameSuffix')} />
+      <NameGradient>
+        <ParticipantName participant={participant} suffix={t('nameSuffix')} />
+      </NameGradient>
       <ParticipantAudio muted={!participant.audioTrack} />
     </Wrapper>
   );
