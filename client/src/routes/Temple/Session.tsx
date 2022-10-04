@@ -46,7 +46,7 @@ const LoadingView = styled.View({
 });
 
 const Spotlight = styled.View({
-  aspectRatio: '0.85',
+  aspectRatio: '0.9375',
 });
 
 const MainViewContainer = styled.View({
@@ -119,8 +119,8 @@ const Session = () => {
 
   return (
     <MainViewContainer>
+      <TopSafeArea />
       <Spotlight>
-        <TopSafeArea minSize={SPACINGS.TWELVE} />
         {exercise && (
           <SpotlightContent>
             <ExerciseSlides
