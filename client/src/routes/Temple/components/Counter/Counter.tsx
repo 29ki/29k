@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import dayjs from 'dayjs';
@@ -12,7 +12,6 @@ dayjs.extend(duration);
 
 type CounterProps = {
   startTime: dayjs.Dayjs;
-  now: dayjs.Dayjs;
   starting?: boolean;
 };
 
@@ -21,12 +20,17 @@ const CounterText = styled(Body14)({
   fontFamily: HKGroteskBold,
 });
 
-const Counter: React.FC<CounterProps> = ({
-  startTime,
-  now,
-  starting = false,
-}) => {
+const Counter: React.FC<CounterProps> = ({startTime, starting = false}) => {
   const {t} = useTranslation(NS.COMPONENT.COUNTER);
+  const [now, setNow] = useState(dayjs());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNow(dayjs());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const isStartingShortly = () => {
     return now.add(1, 'minute').isAfter(startTime);
