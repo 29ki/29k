@@ -9,7 +9,7 @@ import Image from '../../../common/components/Image/Image';
 import HalfModal from '../../../common/components/Modals/HalfModal';
 import {Spacer16} from '../../../common/components/Spacers/Spacer';
 import {Display24} from '../../../common/components/Typography/Display/Display';
-import {COLORS} from '../../../common/constants/colors';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 import {RootStackProps} from '../../../common/constants/routes';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import NS from '../../../lib/i18n/constants/namespaces';

@@ -11,7 +11,7 @@ import {
   Spacer16,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
-import {COLORS} from '../../common/constants/colors';
+import {COLORS} from '../../../../shared/src/constants/colors';
 
 import {TempleStackProps} from '../../common/constants/routes';
 

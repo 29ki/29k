@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import {ViewStyle} from 'react-native';
-import {COLORS} from '../../constants/colors';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import SETTINGS from '../../constants/settings';

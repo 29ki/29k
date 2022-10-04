@@ -7,7 +7,7 @@ import {BottomSafeArea, Spacer24} from '../Spacers/Spacer';
 import IconButton from '../Buttons/IconButton/IconButton';
 import {CloseIcon} from '../Icons';
 import {ScrollView} from 'react-native-gesture-handler';
-import {COLORS} from '../../constants/colors';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 import Gutters from '../Gutters/Gutters';
 import SETTINGS from '../../constants/settings';
 import {SPACINGS} from '../../constants/spacings';

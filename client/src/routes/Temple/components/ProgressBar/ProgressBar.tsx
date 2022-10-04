@@ -7,7 +7,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import styled from 'styled-components/native';
-import {COLORS} from '../../../../common/constants/colors';
+import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../../common/constants/spacings';
 
 const Wrapper = styled.View({
