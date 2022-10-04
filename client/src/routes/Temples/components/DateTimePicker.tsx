@@ -15,6 +15,8 @@ import {
   Body16,
   BodyBold,
 } from '../../../common/components/Typography/Body/Body';
+import {useTranslation} from 'react-i18next';
+import NS from '../../../lib/i18n/constants/namespaces';
 
 dayjs.extend(utc);
 
@@ -58,6 +60,8 @@ const DateTimePicker: React.FC<{
   maximumDate?: Date;
   minimumDate?: Date;
 }> = ({mode, setValue, selectedValue, close, minimumDate, maximumDate}) => {
+  const {t} = useTranslation(NS.COMPONENT.DATE_TIME_PICKER);
+
   switch (Platform.OS) {
     case 'ios':
       return (
@@ -76,7 +80,7 @@ const DateTimePicker: React.FC<{
                 maximumDate={mode === 'date' ? maximumDate : undefined}
               />
               <DoneButton variant="secondary" small onPress={close}>
-                {'Done'}
+                {t('done')}
               </DoneButton>
             </ModalView>
           </ModalBackground>
@@ -113,6 +117,7 @@ const Picker: React.FC<PickerProps> = ({
   minimumDate,
   maximumDate,
 }) => {
+  const {t} = useTranslation(NS.COMPONENT.DATE_TIME_PICKER);
   const [selectedDate, setSelectedDate] = useState(dayjs().utc());
   const [selectedTime, setSelectedTime] = useState(dayjs().utc());
   const [showPicker, setShowPicker] = useState(false);
@@ -132,7 +137,7 @@ const Picker: React.FC<PickerProps> = ({
             setShowPicker(true);
           }}>
           <Body16>
-            <BodyBold>{'Date'}</BodyBold>
+            <BodyBold>{t('date')}</BodyBold>
           </Body16>
           <Body16>{selectedDate.local().format('dddd, D MMM')}</Body16>
         </Row>
@@ -142,7 +147,7 @@ const Picker: React.FC<PickerProps> = ({
             setShowPicker(true);
           }}>
           <Body16>
-            <BodyBold>{'Time'}</BodyBold>
+            <BodyBold>{t('time')}</BodyBold>
           </Body16>
           <Body16>{selectedTime.local().format('HH:mm')}</Body16>
         </Row>

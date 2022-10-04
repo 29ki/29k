@@ -5,6 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {FlatList} from 'react-native-gesture-handler';
 import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
+import {Exercise} from '../../../../../shared/src/types/Content';
 
 import Button from '../../../common/components/Buttons/Button';
 
@@ -28,8 +29,8 @@ import {COLORS} from '../../../common/constants/colors';
 
 import SETTINGS from '../../../common/constants/settings';
 import {SPACINGS} from '../../../common/constants/spacings';
-import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useExerciseIds from '../../../lib/content/hooks/useExerciseIds';
+import useGetExerciseById from '../../../lib/content/hooks/useGetExerciseById';
 import NS from '../../../lib/i18n/constants/namespaces';
 import useTemples from '../hooks/useTemples';
 
@@ -79,30 +80,31 @@ const Step = styled(Animated.View).attrs({
 
 const Cta = styled(Button)({alignSelf: 'center'});
 
-const ContentCard: React.FC<{id: string; onPress: () => void}> = ({
-  id,
+const ContentCard: React.FC<{exercise: Exercise; onPress: () => void}> = ({
+  exercise,
   onPress,
-}) => {
-  const exercise = useExerciseById(id);
-  return (
-    <Card onPress={onPress}>
-      <TextWrapper>
-        <Display16>{exercise?.name}</Display16>
-        <Body14 numberOfLines={1}>{exercise?.id}</Body14>
-      </TextWrapper>
-      <Spacer16 />
-      <CardImageWrapper>
-        <Image source={{uri: exercise?.card?.image?.source}} />
-      </CardImageWrapper>
-    </Card>
-  );
-};
+}) => (
+  <Card onPress={onPress}>
+    <TextWrapper>
+      <Display16>{exercise.name}</Display16>
+      <Body14 numberOfLines={1}>{exercise?.id}</Body14>
+    </TextWrapper>
+    <Spacer16 />
+    <CardImageWrapper>
+      <Image source={{uri: exercise.card?.image?.source}} />
+    </CardImageWrapper>
+  </Card>
+);
 
 const SelectContent: React.FC<StepProps> = ({
   setCurrentStep,
   setSelectedExercise,
 }) => {
-  const exercises = useExerciseIds();
+  const exerciseIds = useExerciseIds();
+  const getExerciseById = useGetExerciseById();
+  const exercises = exerciseIds
+    .map(getExerciseById)
+    .filter(Boolean) as Exercise[];
   const {t} = useTranslation(NS.COMPONENT.CREATE_TEMPLE_MODAL);
 
   return (
@@ -115,7 +117,7 @@ const SelectContent: React.FC<StepProps> = ({
             <Spacer16 />
           </>
         }
-        keyExtractor={id => id}
+        keyExtractor={exercise => exercise.id}
         data={exercises}
         ItemSeparatorComponent={Spacer16}
         renderItem={({item}) => (
@@ -124,7 +126,7 @@ const SelectContent: React.FC<StepProps> = ({
               setSelectedExercise(item);
               setCurrentStep(1);
             }}
-            id={item}
+            exercise={item}
           />
         )}
       />
@@ -141,14 +143,12 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
   const [time, setTime] = useState<dayjs.Dayjs | undefined>();
   const {addTemple} = useTemples();
 
-  const exercise = useExerciseById(selectedExercise);
-
   const onSubmit = async () => {
     if (selectedExercise && date && time) {
       const sessionDateTime = date.hour(time.hour()).minute(time.minute());
 
       setIsLoading(true);
-      await addTemple('Some Name', selectedExercise, sessionDateTime);
+      await addTemple('Some Name', selectedExercise.id, sessionDateTime);
       setIsLoading(false);
       goBack();
     }
@@ -159,11 +159,11 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
       <Spacer8 />
       <Row>
         <TextWrapper>
-          <Display24>{exercise?.name}</Display24>
+          <Display24>{selectedExercise?.name}</Display24>
         </TextWrapper>
         <Spacer16 />
         <CardImageWrapper>
-          <Image source={{uri: exercise?.card?.image?.source}} />
+          <Image source={{uri: selectedExercise?.card?.image?.source}} />
         </CardImageWrapper>
       </Row>
       <Spacer28 />
@@ -186,7 +186,7 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
 };
 
 type StepProps = {
-  selectedExercise: string | undefined;
+  selectedExercise: Exercise | undefined;
   setSelectedExercise: Dispatch<SetStateAction<StepProps['selectedExercise']>>;
   currentStep: number;
   setCurrentStep: Dispatch<SetStateAction<StepProps['currentStep']>>;
@@ -197,7 +197,7 @@ const steps = [SelectContent, SetDateTime];
 const CreateTempleModal = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedExercise, setSelectedExercise] = useState<
-    string | undefined
+    Exercise | undefined
   >();
 
   const CurrentStepComponent: React.FC<StepProps> = steps[currentStep];
