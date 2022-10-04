@@ -2,11 +2,16 @@ import {useCallback} from 'react';
 import notifee, {TimestampTrigger, TriggerType} from '@notifee/react-native';
 import {useRecoilState} from 'recoil';
 import {notificationAtom} from '../state/state';
+import useResumeFromBackgrounded from '../../appState/hooks/useResumeFromBackgrounded';
+import {getTriggerNotificationById} from '../utils';
 
 const useTriggerNotification = (id: string) => {
   const [triggerNotification, setNotification] = useRecoilState(
     notificationAtom(id),
   );
+  useResumeFromBackgrounded(async () => {
+    setNotification(await getTriggerNotificationById(id));
+  });
 
   const setTriggerNotification = useCallback(
     async (title: string, body: string, timestamp: number) => {
