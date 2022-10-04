@@ -11,8 +11,7 @@ const StyledHeading = styled(Display24)({
 const Heading: React.FC<{children: React.ReactNode}> = ({children}) => (
   <Gutters>
     <Spacer12 />
-    <StyledHeading>{children}</StyledHeading>
-    <Spacer12 />
+    <StyledHeading numberOfLines={2}>{children}</StyledHeading>
   </Gutters>
 );
 
