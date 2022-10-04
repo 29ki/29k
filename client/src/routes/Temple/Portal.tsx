@@ -33,6 +33,7 @@ import {DailyUserData} from '../../../../shared/src/types/Temple';
 import useLeaveTemple from './hooks/useLeaveTemple';
 import VideoBase from './components/VideoBase/VideoBase';
 import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
+import Audio from '../../lib/audio/components/Audio';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -41,10 +42,6 @@ const dayjsTime = dayjs().add(59, 'seconds');
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
   flex: 1,
-});
-
-const AudioStyled = styled(VideoBase)({
-  display: 'none',
 });
 
 const StatusText = styled(Body14)({
@@ -115,6 +112,7 @@ const Portal: React.FC = () => {
     joinMeeting({inPortal: true} as DailyUserData);
   }, [joinMeeting]);
 
+  /*
   useEffect(() => {
     const interval = setInterval(() => {
       setNow(dayjs());
@@ -122,6 +120,7 @@ const Portal: React.FC = () => {
 
     return () => clearInterval(interval);
   }, []);
+  */
 
   const introPortal = exercise?.introPortal;
 
@@ -135,18 +134,16 @@ const Portal: React.FC = () => {
       <>
         <>
           {introPortal.videoEnd?.audio && (
-            <AudioStyled
+            <Audio
               paused={!joiningTemple}
-              source={{uri: introPortal.videoEnd.audio}}
-              allowsExternalPlayback={false}
+              source={introPortal.videoEnd.audio}
             />
           )}
           {introPortal.videoLoop?.audio && (
-            <AudioStyled
+            <Audio
               paused={joiningTemple}
               repeat
-              source={{uri: introPortal.videoLoop.audio}}
-              allowsExternalPlayback={false}
+              source={introPortal.videoLoop.audio}
             />
           )}
         </>
