@@ -4,6 +4,7 @@ export type ParticipantSpotlightSlide = {
 
 export type Content = {
   heading?: string;
+  text?: string;
   video?: {
     source: string;
     preview: string;
