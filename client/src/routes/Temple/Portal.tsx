@@ -112,7 +112,6 @@ const Portal: React.FC = () => {
     joinMeeting({inPortal: true} as DailyUserData);
   }, [joinMeeting]);
 
-  /*
   useEffect(() => {
     const interval = setInterval(() => {
       setNow(dayjs());
@@ -120,7 +119,6 @@ const Portal: React.FC = () => {
 
     return () => clearInterval(interval);
   }, []);
-  */
 
   const introPortal = exercise?.introPortal;
 
