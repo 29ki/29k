@@ -6,7 +6,7 @@ import {COLORS} from '../../../../../../shared/src/constants/colors';
 import Content from './Slides/Content';
 import useTempleExercise from '../../hooks/useTempleExercise';
 
-type WrapperProps = {backgroundColor?: 'string'};
+type WrapperProps = {backgroundColor?: string};
 const Wrapper = styled.View<WrapperProps>(({backgroundColor}) => ({
   flex: 1,
   backgroundColor: backgroundColor ?? COLORS.WHITE,
