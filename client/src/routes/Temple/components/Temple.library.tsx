@@ -9,7 +9,7 @@ import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import Counter from './Counter/Counter';
 import AudioIndicator from './Participants/AudioIdicator';
 import ProgressBar from './ProgressBar/ProgressBar';
-import FacilitatorNotes from './FacilitatorNotes/FacilitatorNotes';
+import HostNotes from './HostNotes/HostNotes';
 
 const dayjsTime = dayjs().add(59, 'seconds');
 
@@ -49,6 +49,6 @@ export const ContentUI = () => (
 
 export const Facilitator = () => (
   <ScreenWrapper>
-    <FacilitatorNotes />
+    <HostNotes />
   </ScreenWrapper>
 );
