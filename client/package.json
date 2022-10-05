@@ -49,6 +49,7 @@
     "react-native-code-push": "^7.0.5",
     "react-native-device-info": "^10.2.0",
     "react-native-gesture-handler": "^2.6.2",
+    "react-native-haptic-feedback": "^1.14.0",
     "react-native-linear-gradient": "^2.6.2",
     "react-native-localize": "^2.2.3",
     "react-native-markdown-display": "^7.0.0-alpha.2",

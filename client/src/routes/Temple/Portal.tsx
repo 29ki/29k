@@ -12,6 +12,7 @@ import {StyleSheet} from 'react-native';
 import Video from 'react-native-video';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 import Button from '../../common/components/Buttons/Button';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
@@ -135,6 +136,7 @@ const Portal: React.FC = () => {
 
   const onLoopVideoEnd = () => {
     if (temple?.started) {
+      ReactNativeHapticFeedback.trigger('impactHeavy');
       setJoiningTemple(true);
     }
   };
