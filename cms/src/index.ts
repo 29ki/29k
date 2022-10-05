@@ -7,7 +7,7 @@ import {
 } from '../../shared/src/constants/i18n';
 
 import {generateFilesCollectionFromi18nFiles} from './lib/i18n';
-import {Widget as uniqueIdWidget} from './widgets/uniqueIdWidget.jsx';
+import {Widget as uniqueIdWidget} from './widgets/uniqueIdWidget.js';
 
 import EXERCISE_FIELDS from './fields/exercise';
 import CONTRIBUTORS_FIELDS from './fields/contributors';

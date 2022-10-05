@@ -1,6 +1,7 @@
 // https://github.com/netlify/netlify-cms/pull/3366#issuecomment-662033144
 // https://github.com/reimertz/netlify-cms/commit/8ebe03a08e4aaab8fa038caf226dd425c8e7b1b2
 
+import {Resource, ResourceKey} from 'i18next';
 import {DEFAULT_LANGUAGE_TAG} from '../../../shared/src/constants/i18n';
 
 const SUPPORTED_KEYBASED_WIDGETS = [
@@ -29,7 +30,7 @@ Example:
 }
 
 */
-const getFieldWidgetType = (key = '') => {
+const getFieldWidgetType = (key: string = '') => {
   const parsedWidgetType = key.split('__')[1] || '';
   const cleanWidgetType = parsedWidgetType.split('_')[0]; // remove context
   if (cleanWidgetType && SUPPORTED_KEYBASED_WIDGETS.includes(cleanWidgetType))
@@ -37,7 +38,7 @@ const getFieldWidgetType = (key = '') => {
   else return 'string';
 };
 
-export const generateFieldFromI18n = ([key, value]) => {
+export const generateFieldFromI18n = ([key, value]: [string, ResourceKey]) => {
   if (Array.isArray(value)) {
     return {
       label: key,
@@ -84,9 +85,9 @@ export const generateFieldFromI18n = ([key, value]) => {
 };
 
 export const generateFilesCollectionFromi18nFiles = (
-  folderName,
-  label,
-  i18nResources,
+  folderName: string,
+  label: string,
+  i18nResources: Resource,
 ) => {
   const filteredResources = Object.entries(i18nResources[DEFAULT_LANGUAGE_TAG]);
 
