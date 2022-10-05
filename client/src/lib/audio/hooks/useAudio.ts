@@ -5,6 +5,9 @@ const useAudio = (source: string): Sound | undefined => {
   const [audio, setAudio] = useState<Sound | undefined>();
 
   useEffect(() => {
+    Sound.setCategory('Playback', true);
+    Sound.setActive(true);
+
     const audioInstance = new Sound(source, '', err => {
       if (err) {
         console.error(err);
@@ -14,12 +17,11 @@ const useAudio = (source: string): Sound | undefined => {
     });
   }, [source]);
 
-  useEffect(
-    () => () => {
+  useEffect(() => {
+    return () => {
       audio?.release();
-    },
-    [audio],
-  );
+    };
+  }, [audio]);
 
   return audio;
 };

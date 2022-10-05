@@ -146,7 +146,7 @@ const Portal: React.FC = () => {
         <AudioFader
           source={introPortal.videoLoop.audio}
           repeat
-          fadeOut={joiningTemple}
+          mute={joiningTemple}
         />
       )}
 

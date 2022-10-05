@@ -7,14 +7,21 @@ type AudioProps = {
   paused?: boolean;
   repeat?: boolean;
   volume?: number;
+  onLoad?: (sound: RNSound) => void;
 };
 
 const Audio = React.forwardRef<RNSound | undefined, AudioProps>(
-  ({source, paused = false, repeat = false, volume = 1}, ref) => {
+  ({source, paused = false, repeat = false, volume = 1, onLoad}, ref) => {
     const sound = useAudio(source);
 
     // Expose sound as ref
     useImperativeHandle(ref, () => sound, [sound]);
+
+    useEffect(() => {
+      if (onLoad && sound) {
+        onLoad(sound);
+      }
+    }, [sound, onLoad]);
 
     useEffect(() => {
       sound?.setNumberOfLoops(repeat ? -1 : 0);

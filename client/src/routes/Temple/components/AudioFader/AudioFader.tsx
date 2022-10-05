@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import Audio from '../../../../lib/audio/components/Audio';
 
 type AudioFaderProps = {
   duration?: number;
-  fadeOut?: boolean;
+  mute?: boolean;
   paused?: boolean;
   repeat?: boolean;
   source: string;
@@ -11,28 +11,47 @@ type AudioFaderProps = {
 
 const AudioFader: React.FC<AudioFaderProps> = ({
   duration = 5000,
-  fadeOut = false,
+  mute = false,
   paused,
   repeat,
   source,
 }) => {
-  const [volume, setVolume] = useState(1);
+  const [volume, setVolume] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+
+  const updateVolume = useCallback(
+    (step: number) => (v: number) => {
+      if (mute && v > 0) {
+        return v - step < 0 ? 0 : v - step;
+      } else if (!mute && v < 1) {
+        return v + step > 1 ? 1 : v + step;
+      }
+      return v;
+    },
+    [mute],
+  );
 
   useEffect(() => {
     const ms = 100;
     const step = ms / duration;
 
     const interval = setInterval(() => {
-      if (fadeOut) {
-        setVolume(v => (v - step < 0 ? 0 : v - step));
+      if (loaded) {
+        setVolume(updateVolume(step));
       }
     }, ms);
 
     return () => clearInterval(interval);
-  }, [fadeOut, duration]);
+  }, [mute, duration, updateVolume, loaded]);
 
   return (
-    <Audio source={source} repeat={repeat} volume={volume} paused={paused} />
+    <Audio
+      source={source}
+      repeat={repeat}
+      volume={volume}
+      paused={paused}
+      onLoad={() => setLoaded(true)}
+    />
   );
 };
 
