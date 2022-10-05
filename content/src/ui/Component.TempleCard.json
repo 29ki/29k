@@ -1,11 +1,13 @@
 {
   "en": {
     "addToCalendar": "Add to Cal",
-    "join": "Join"
+    "join": "Join",
+    "starts": "Starts"
   },
   "sv": {
     "addToCalendar": "Lägg i Kal",
-    "join": "Gå med"
+    "join": "Gå med",
+    "starts": "Startar"
   },
   "pt": {}
 }

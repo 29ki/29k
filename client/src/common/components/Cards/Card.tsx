@@ -109,8 +109,8 @@ export const Card: React.FC<CardProps> = ({
         )}
       </HeaderRow>
     </View>
+    {children}
     <Row>
-      {children}
       <CallToAction>
         {buttonText && (
           <Button

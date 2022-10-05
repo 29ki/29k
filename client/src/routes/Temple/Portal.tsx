@@ -43,15 +43,9 @@ import AudioFader from './components/AudioFader/AudioFader';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
-const dayjsTime = dayjs().add(59, 'seconds');
-
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
   flex: 1,
-});
-
-const StatusText = styled(Body14)({
-  color: COLORS.PURE_WHITE,
 });
 
 const StatusItem = styled.View({
@@ -59,7 +53,8 @@ const StatusItem = styled.View({
   alignItems: 'center',
 });
 
-const BadgeText = styled(StatusText)({
+const StatusText = styled(Body14)({
+  color: COLORS.PURE_WHITE,
   fontFamily: HKGroteskBold,
 });
 
@@ -207,16 +202,21 @@ const Portal: React.FC = () => {
 
                 <Spacer8 />
                 <Badge>
-                  <Counter startTime={dayjsTime} starting={temple?.started} />
+                  <StatusText>
+                    <Counter
+                      startTime={dayjs(temple?.startTime.toDate())}
+                      starting={temple?.started}
+                    />
+                  </StatusText>
                 </Badge>
               </StatusItem>
 
-              {participantsCount > 1 && (
+              {participantsCount > 0 && (
                 <StatusItem>
                   <StatusText>{t('participants')}</StatusText>
                   <Spacer8 />
                   <Badge>
-                    <BadgeText>{participantsCount}</BadgeText>
+                    <StatusText>{participantsCount}</StatusText>
                   </Badge>
                 </StatusItem>
               )}
