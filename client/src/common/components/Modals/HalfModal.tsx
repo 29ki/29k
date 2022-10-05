@@ -6,7 +6,7 @@ import styled from 'styled-components/native';
 import {BottomSafeArea} from '../Spacers/Spacer';
 import IconButton from '../Buttons/IconButton/IconButton';
 import {CloseIcon} from '../Icons';
-import {COLORS} from '../../constants/colors';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 import SETTINGS from '../../constants/settings';
 import {SPACINGS} from '../../constants/spacings';
 

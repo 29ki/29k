@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {COLORS} from '../../constants/colors';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 import {
   HKGroteskBold,
   HKGroteskRegular,

@@ -959,6 +959,8 @@ PODS:
   - React-jsinspector (0.69.5)
   - React-logger (0.69.5):
     - glog
+  - react-native-add-calendar-event (4.0.0):
+    - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
   - react-native-daily-js (0.29.0):
@@ -1059,9 +1061,14 @@ PODS:
     - Firebase/Firestore (= 9.6.0)
     - React-Core
     - RNFBApp
-  - RNGestureHandler (2.6.1):
+  - RNGestureHandler (2.6.2):
     - React-Core
   - RNLocalize (2.2.3):
+    - React-Core
+  - RNNotifee (7.0.1):
+    - React-Core
+    - RNNotifee/NotifeeCore (= 7.0.1)
+  - RNNotifee/NotifeeCore (7.0.1):
     - React-Core
   - RNReanimated (2.10.0):
     - DoubleConversion
@@ -1093,7 +1100,7 @@ PODS:
   - RNScreens (3.17.0):
     - React-Core
     - React-RCTImage
-  - RNSentry (4.4.0):
+  - RNSentry (4.5.0):
     - React-Core
     - Sentry (= 7.25.1)
   - RNSVG (13.2.0):
@@ -1129,6 +1136,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-add-calendar-event (from `../node_modules/react-native-add-calendar-event`)
   - react-native-background-timer (from `../node_modules/react-native-background-timer`)
   - "react-native-daily-js (from `../node_modules/@daily-co/react-native-daily-js`)"
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
@@ -1154,6 +1162,7 @@ DEPENDENCIES:
   - "RNFBFirestore (from `../node_modules/@react-native-firebase/firestore`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNLocalize (from `../node_modules/react-native-localize`)
+  - "RNNotifee (from `../node_modules/@notifee/react-native`)"
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - "RNSentry (from `../node_modules/@sentry/react-native`)"
@@ -1232,6 +1241,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-add-calendar-event:
+    :path: "../node_modules/react-native-add-calendar-event"
   react-native-background-timer:
     :path: "../node_modules/react-native-background-timer"
   react-native-daily-js:
@@ -1282,6 +1293,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
+  RNNotifee:
+    :path: "../node_modules/@notifee/react-native"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -1337,6 +1350,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: e42f0b46de293a026c2fb20e524d4fe09f81f575
   React-jsinspector: e385fb7a1440ae3f3b2cd1a139ca5aadaab43c10
   React-logger: 15c734997c06fe9c9b88e528fb7757601e7a56df
+  react-native-add-calendar-event: d7744f983d6770cc9e4f004db22bc4d4b4575f17
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
   react-native-daily-js: 97dfa84535efd4558cb5bce4846e64d263aa4655
   react-native-safe-area-context: dfe5aa13bee37a0c7e8059d14f72ffc076d120e9
@@ -1360,11 +1374,12 @@ SPEC CHECKSUMS:
   RNFBApp: c14c5e27a6b0bf026fc1c60702603ae94eba6fb1
   RNFBAuth: ca6d82cb4cf17243d9d654e5206770e4f172ebdc
   RNFBFirestore: c2130bd455fee49a50fbad196aec704950d596f1
-  RNGestureHandler: 28ad20bf02257791f7f137b31beef34b9549f54b
+  RNGestureHandler: 4defbd70b2faf3d6761b82fa7880285241762cb0
   RNLocalize: a64514b46a01375fdfae9349036b4dc7130333b5
+  RNNotifee: 3655e26c064d1a77132ce3c21d6aaf2b69bcbdc7
   RNReanimated: 7faa787e8d4493fbc95fab2ad331fa7625828cfa
   RNScreens: 0df01424e9e0ed7827200d6ed1087ddd06c493f9
-  RNSentry: 6386245031a4dc3091523b941de8241c03e7f214
+  RNSentry: a034d0e81e3d3c04b770dd2df953fe634d372d22
   RNSVG: 07037623c36f12e41312730622d5f6b3656227ca
   Sentry: dd29c18c32b0af9269949f079cf631d581ca76ca
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9

@@ -56,6 +56,10 @@ export type Exercise = {
   card?: {
     image?: {source: string; description?: string};
   };
+  theme?: {
+    textColor: string;
+    backgroundColor: string;
+  };
   introPortal: Portal;
   slides: ExerciseSlide[];
   published: boolean;

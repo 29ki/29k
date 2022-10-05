@@ -5,7 +5,7 @@ import {Modal, Platform} from 'react-native';
 import styled from 'styled-components/native';
 import utc from 'dayjs/plugin/utc';
 
-import {COLORS} from '../../../common/constants/colors';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../common/constants/spacings';
 
 import Button from '../../../common/components/Buttons/Button';
@@ -57,8 +57,8 @@ const DateTimePicker: React.FC<{
   selectedValue: dayjs.Dayjs;
   setValue: Dispatch<SetStateAction<dayjs.Dayjs>>;
   close: () => void;
-  maximumDate?: Date;
-  minimumDate?: Date;
+  maximumDate?: dayjs.Dayjs;
+  minimumDate?: dayjs.Dayjs;
 }> = ({mode, setValue, selectedValue, close, minimumDate, maximumDate}) => {
   const {t} = useTranslation(NS.COMPONENT.DATE_TIME_PICKER);
 
@@ -76,8 +76,12 @@ const DateTimePicker: React.FC<{
                 display={mode === 'date' ? 'inline' : 'spinner'}
                 value={selectedValue.local().toDate()}
                 onChange={(_, value) => setValue(dayjs(value).utc())}
-                minimumDate={mode === 'date' ? minimumDate : undefined}
-                maximumDate={mode === 'date' ? maximumDate : undefined}
+                minimumDate={
+                  mode === 'date' ? minimumDate?.toDate() : undefined
+                }
+                maximumDate={
+                  mode === 'date' ? maximumDate?.toDate() : undefined
+                }
               />
               <DoneButton variant="secondary" small onPress={close}>
                 {t('done')}
@@ -93,8 +97,8 @@ const DateTimePicker: React.FC<{
           mode={mode}
           display={mode === 'date' ? 'calendar' : 'clock'}
           value={selectedValue.local().toDate()}
-          minimumDate={mode === 'date' ? minimumDate : undefined}
-          maximumDate={mode === 'date' ? maximumDate : undefined}
+          minimumDate={mode === 'date' ? minimumDate?.toDate() : undefined}
+          maximumDate={mode === 'date' ? maximumDate?.toDate() : undefined}
           onChange={(_, value) => {
             close();
             setValue(dayjs(value).utc());
@@ -108,8 +112,8 @@ const DateTimePicker: React.FC<{
 
 type PickerProps = {
   onChange?: (date: dayjs.Dayjs, time: dayjs.Dayjs) => void;
-  maximumDate?: Date;
-  minimumDate?: Date;
+  maximumDate?: dayjs.Dayjs;
+  minimumDate?: dayjs.Dayjs;
 };
 
 const Picker: React.FC<PickerProps> = ({

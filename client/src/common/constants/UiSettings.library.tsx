@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
 
-import {COLORS} from './colors';
+import {COLORS} from '../../../../shared/src/constants/colors';
 import {GUTTERS} from './spacings';
 
 import {Body16, Body14} from '../components/Typography/Body/Body';

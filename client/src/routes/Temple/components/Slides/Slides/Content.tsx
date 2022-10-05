@@ -9,7 +9,10 @@ import {
 import Heading from './Blocks/Heading';
 import Image from '../../../../../common/components/Image/Image';
 import Video from './Blocks/Video';
-import {Spacer8} from '../../../../../common/components/Spacers/Spacer';
+import {
+  Spacer12,
+  Spacer8,
+} from '../../../../../common/components/Spacers/Spacer';
 import Text from './Blocks/Text';
 
 const GraphicsWrapper = styled.View({
@@ -26,6 +29,7 @@ type ContentProps = {
 };
 const Content: React.FC<ContentProps> = ({slide, active}) => (
   <>
+    <Spacer12 />
     {!slide.content.video && !slide.content.image && (
       <TextWrapper>
         {slide.content.heading && <Heading>{slide.content.heading}</Heading>}

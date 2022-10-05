@@ -1,4 +1,5 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
+import {Temple} from '../../../../shared/src/types/Temple';
 
 export type TabNavigatorProps = {
   Profile: undefined;
@@ -12,7 +13,7 @@ export type TempleStackProps = {
 };
 
 export type ModalStackProps = {
-  TempleModal: {templeId: string};
+  TempleModal: {temple: Temple};
   CreateTempleModal: undefined;
 };
 

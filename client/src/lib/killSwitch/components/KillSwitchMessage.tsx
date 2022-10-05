@@ -7,7 +7,7 @@ import Button from '../../../common/components/Buttons/Button';
 import Gutters from '../../../common/components/Gutters/Gutters';
 import {Spacer40} from '../../../common/components/Spacers/Spacer';
 import Markdown from '../../../common/components/Typography/Markdown/Markdown';
-import {COLORS} from '../../../common/constants/colors';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 import NS from '../../i18n/constants/namespaces';
 import useKillSwitch from '../hooks/useKillSwitch';
 import {killSwitchFields, killSwitchMessageAtom} from '../state/state';

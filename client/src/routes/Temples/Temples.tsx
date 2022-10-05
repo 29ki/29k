@@ -5,8 +5,18 @@ import {useTranslation} from 'react-i18next';
 import {useRecoilValue} from 'recoil';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useNavigation} from '@react-navigation/native';
 
 import useTemples from './hooks/useTemples';
+
+import {Temple} from '../../../../shared/src/types/Temple';
+
+import NS from '../../lib/i18n/constants/namespaces';
+import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
+import {COLORS} from '../../../../shared/src/constants/colors';
+import {ModalStackProps} from '../../common/constants/routes';
+import SETTINGS from '../../common/constants/settings';
 
 import {
   Spacer12,
@@ -16,17 +26,10 @@ import {
 } from '../../common/components/Spacers/Spacer';
 import Gutters from '../../common/components/Gutters/Gutters';
 import Button from '../../common/components/Buttons/Button';
-import NS from '../../lib/i18n/constants/namespaces';
-import {isLoadingAtom, templesAtom} from './state/state';
-import {Temple} from '../../../../shared/src/types/Temple';
 import TempleCard from '../../common/components/Cards/TempleCard/TempleCard';
-import SETTINGS from '../../common/constants/settings';
 import {PlusIcon} from '../../common/components/Icons';
-import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
-import {COLORS} from '../../common/constants/colors';
-import {ModalStackProps} from '../../common/constants/routes';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {useNavigation} from '@react-navigation/native';
+
+import {isLoadingAtom, templesAtom} from './state/state';
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'position'}),

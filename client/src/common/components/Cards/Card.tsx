@@ -3,7 +3,7 @@ import {ImageSourcePropType, View} from 'react-native';
 import styled from 'styled-components/native';
 import AnimatedLottieView, {AnimationObject} from 'lottie-react-native';
 
-import {COLORS} from '../../constants/colors';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import SETTINGS from '../../constants/settings';
 import Button from '../Buttons/Button';
@@ -12,7 +12,7 @@ import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display24} from '../Typography/Display/Display';
 import IconButton from '../Buttons/IconButton/IconButton';
-import {EllipsisIcon} from '../Icons';
+import {EllipsisIcon, IconType} from '../Icons';
 
 const GraphicsWrapper = styled.View({
   position: 'absolute',
@@ -37,12 +37,22 @@ const Wrapper = styled(TouchableOpacity)({
 
 const HeaderRow = styled.View({
   flexDirection: 'row',
-  justifyContent: 'space-between',
+});
+
+const Header = styled.View({
+  flex: 1,
+  textOverflow: 'ellipsis',
 });
 
 const Row = styled.View({
   flexDirection: 'row',
   justifyContent: 'space-between',
+});
+
+const IconWrapper = styled.View({
+  width: 36,
+  height: 36,
+  padding: 3,
 });
 
 const CallToAction = styled.View({
@@ -60,6 +70,8 @@ type CardProps = {
   buttonText?: string;
   children?: React.ReactNode;
   onContextPress?: () => void;
+  ButtonIcon?: IconType;
+  Icon?: IconType;
 };
 
 export const Card: React.FC<CardProps> = ({
@@ -71,14 +83,21 @@ export const Card: React.FC<CardProps> = ({
   buttonText,
   children,
   onContextPress,
+  ButtonIcon,
+  Icon,
 }) => (
   <Wrapper onPress={onPress}>
     <View>
       <HeaderRow>
-        <View>
+        <Header>
           {title && <Display24 numberOfLines={2}>{title}</Display24>}
           {description && <Body16 numberOfLines={1}>{description}</Body16>}
-        </View>
+        </Header>
+        {Icon && (
+          <IconWrapper>
+            <Icon />
+          </IconWrapper>
+        )}
         {onContextPress && (
           <IconButton
             small
@@ -94,7 +113,11 @@ export const Card: React.FC<CardProps> = ({
       {children}
       <CallToAction>
         {buttonText && (
-          <Button small variant="secondary" onPress={onPress}>
+          <Button
+            LeftIcon={ButtonIcon}
+            small
+            variant="secondary"
+            onPress={onPress}>
             {buttonText}
           </Button>
         )}
