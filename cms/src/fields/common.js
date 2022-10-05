@@ -89,5 +89,6 @@ export const CARD_FIELD = {
   name: 'card',
   i18n: true,
   widget: 'object',
+  collapsed: true,
   fields: [IMAGE_FIELD],
 };

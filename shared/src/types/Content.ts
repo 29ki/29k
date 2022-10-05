@@ -4,6 +4,7 @@ export type ParticipantSpotlightSlide = {
 
 export type Content = {
   heading?: string;
+  text?: string;
   video?: {
     source: string;
     preview: string;
@@ -56,6 +57,10 @@ export type Exercise = {
   name: string;
   card?: {
     image?: {source: string; description?: string};
+  };
+  theme?: {
+    textColor: string;
+    backgroundColor: string;
   };
   introPortal: Portal;
   slides: ExerciseSlide[];

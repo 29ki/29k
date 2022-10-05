@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
+import {BellIcon} from '../Icons';
 import {Spacer16} from '../Spacers/Spacer';
 import {Body18} from '../Typography/Body/Body';
 import Card from './Card';
@@ -16,6 +17,37 @@ export const AllCards = () => (
       }}
       buttonText="Join"
       onPress={() => console.log('Temple Card!')}
+    />
+    <Spacer16 />
+    <Card
+      title="With context menu ➡️"
+      image={{
+        uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
+      }}
+      buttonText="Go dance!"
+      onPress={() => console.log('Temple Card!')}
+      onContextPress={() => {}}
+    />
+    <Spacer16 />
+    <Card
+      title="With icon ➡️ "
+      image={{
+        uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
+      }}
+      buttonText="Go dance!"
+      onPress={() => console.log('Temple Card!')}
+      Icon={BellIcon}
+    />
+    <Spacer16 />
+    <Card
+      title="With icon and menu ➡️ "
+      image={{
+        uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
+      }}
+      buttonText="Go dance!"
+      onPress={() => console.log('Temple Card!')}
+      onContextPress={() => {}}
+      Icon={BellIcon}
     />
     <Spacer16 />
     <Card

@@ -1,7 +1,7 @@
 import React from 'react';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 
-import {COLORS} from '../../common/constants/colors';
+import {COLORS} from '../../../../shared/src/constants/colors';
 import Stacks from './Stacks';
 
 const navTheme = {

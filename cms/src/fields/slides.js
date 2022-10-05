@@ -14,6 +14,13 @@ const CONTENT_FIELDS = [
     label: 'Heading',
     name: 'heading',
     widget: 'string',
+    required: false,
+  },
+  {
+    label: 'Text',
+    name: 'text',
+    widget: 'string',
+    required: false,
   },
   IMAGE_FIELD,
   CONTENT_VIDEO_FIELD,
