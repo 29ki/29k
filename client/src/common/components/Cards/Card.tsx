@@ -67,7 +67,7 @@ type CardProps = {
   image?: ImageSourcePropType;
   lottie?: AnimationObject;
   onPress: () => void;
-  buttonText: string;
+  buttonText?: string;
   children?: React.ReactNode;
   onContextPress?: () => void;
   ButtonIcon?: IconType;
@@ -110,15 +110,17 @@ export const Card: React.FC<CardProps> = ({
       </HeaderRow>
     </View>
     <Row>
+      {children}
       <CallToAction>
-        {children}
-        <Button
-          LeftIcon={ButtonIcon}
-          small
-          variant="secondary"
-          onPress={onPress}>
-          {buttonText}
-        </Button>
+        {buttonText && (
+          <Button
+            LeftIcon={ButtonIcon}
+            small
+            variant="secondary"
+            onPress={onPress}>
+            {buttonText}
+          </Button>
+        )}
       </CallToAction>
       <GraphicsWrapper>
         {lottie ? (

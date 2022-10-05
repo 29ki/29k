@@ -64,4 +64,5 @@ export type Exercise = {
   };
   introPortal: Portal;
   slides: ExerciseSlide[];
+  published: boolean;
 };

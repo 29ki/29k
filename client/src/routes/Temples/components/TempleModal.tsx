@@ -6,6 +6,7 @@ import {Alert} from 'react-native';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
+import Gutters from '../../../common/components/Gutters/Gutters';
 import IconButton from '../../../common/components/Buttons/IconButton/IconButton';
 import {BellIcon, DeleteIcon, PlusIcon} from '../../../common/components/Icons';
 import Image from '../../../common/components/Image/Image';
@@ -21,12 +22,12 @@ import useAddToCalendar from '../hooks/useAddToCalendar';
 import useTempleNotificationReminder from '../hooks/useTempleNotificationReminder';
 import useTemples from '../hooks/useTemples';
 
-const Content = styled.View({
+const Content = styled(Gutters)({
   flex: 1,
   flexDirection: 'row',
   justifyContent: 'space-between',
 });
-const BottomContent = styled.View({
+const BottomContent = styled(Gutters)({
   flex: 1,
   alignItems: 'center',
   flexDirection: 'row',
@@ -79,6 +80,7 @@ const TempleModal = () => {
 
   return (
     <HalfModal>
+      <Spacer16 />
       <Content>
         <Title>{exercise?.name}</Title>
         <ImageContainer>

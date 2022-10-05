@@ -1,31 +1,35 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {ListRenderItemInfo, Platform, RefreshControl} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useTranslation} from 'react-i18next';
 import {useRecoilValue} from 'recoil';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useNavigation} from '@react-navigation/native';
 
 import useTemples from './hooks/useTemples';
+
+import {Temple} from '../../../../shared/src/types/Temple';
+
+import NS from '../../lib/i18n/constants/namespaces';
+import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
+import {COLORS} from '../../../../shared/src/constants/colors';
+import {ModalStackProps} from '../../common/constants/routes';
+import SETTINGS from '../../common/constants/settings';
 
 import {
   Spacer12,
   Spacer16,
   Spacer60,
-  Spacer8,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
 import Gutters from '../../common/components/Gutters/Gutters';
 import Button from '../../common/components/Buttons/Button';
-import NS from '../../lib/i18n/constants/namespaces';
-import {isLoadingAtom, templesAtom} from './state/state';
-import {Temple} from '../../../../shared/src/types/Temple';
 import TempleCard from '../../common/components/Cards/TempleCard/TempleCard';
-import TextInput from '../../common/components/Typography/TextInput/TextInput';
-import SETTINGS from '../../common/constants/settings';
 import {PlusIcon} from '../../common/components/Icons';
-import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
-import {COLORS} from '../../../../shared/src/constants/colors';
+
+import {isLoadingAtom, templesAtom} from './state/state';
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'position'}),
@@ -57,10 +61,6 @@ const FloatingForm = styled(LinearGradient).attrs({
   passingBottom: SPACINGS.TWELVE,
 });
 
-const StyledTextInput = styled(TextInput)({
-  flexGrow: 1,
-});
-
 const ListHeader = () => (
   <>
     <TopSafeArea />
@@ -70,52 +70,16 @@ const ListHeader = () => (
 
 const CreateTempleForm = ({}) => {
   const {t} = useTranslation(NS.SCREEN.TEMPLES);
-  const [isAdding, setIsAdding] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [templeName, setTempleName] = useState<string>();
-  const {addTemple} = useTemples();
-
-  const onBlur = () => {
-    if (!templeName) {
-      setIsAdding(false);
-    }
-  };
-
-  const onSubmit = async () => {
-    if (templeName) {
-      setIsLoading(true);
-      await addTemple(templeName);
-      setIsLoading(false);
-      setTempleName('');
-      setIsAdding(false);
-    }
-  };
+  const {navigate} =
+    useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
   return (
     <CreateTempleWrapper>
-      {isAdding ? (
-        <>
-          <StyledTextInput
-            onChangeText={setTempleName}
-            placeholder={t('createPlaceholder')}
-            onBlur={onBlur}
-            onSubmitEditing={onSubmit}
-            returnKeyType="done"
-            autoFocus
-          />
-          <Spacer8 />
-          <CreateButton
-            onPress={onSubmit}
-            disabled={!templeName}
-            loading={isLoading}>
-            {t('create')}
-          </CreateButton>
-        </>
-      ) : (
-        <CreateButton onPress={() => setIsAdding(true)} LeftIcon={PlusIcon}>
-          {t('create')}
-        </CreateButton>
-      )}
+      <CreateButton
+        onPress={() => navigate('CreateTempleModal')}
+        LeftIcon={PlusIcon}>
+        {t('create')}
+      </CreateButton>
     </CreateTempleWrapper>
   );
 };

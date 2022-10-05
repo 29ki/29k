@@ -9,6 +9,8 @@ const NS = {
     TABS: 'Component.Tabs',
     TEMPLE_CARD: 'Component.TempleCard',
     TEMPLE_MODAL: 'Component.TempleModal',
+    CREATE_TEMPLE_MODAL: 'Component.CreateTempleModal',
+    DATE_TIME_PICKER: 'Component.DateTimePicker',
   },
   SCREEN: {
     CHANGING_ROOM: 'Screen.ChangingRoom',

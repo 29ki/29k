@@ -44,6 +44,7 @@ const temples = [
       timestamp: Timestamp.now(),
     },
     facilitator: 'some-user-id',
+    startTime: Timestamp.now(),
     started: false,
   },
   {
@@ -56,6 +57,7 @@ const temples = [
       timestamp: Timestamp.now(),
     },
     facilitator: 'some-other-user-id',
+    startTime: Timestamp.now(),
     started: false,
   },
 ];
@@ -105,6 +107,7 @@ describe('/api/temples', () => {
             timestamp: expect.any(String),
           },
           facilitator: 'some-user-id',
+          startTime: expect.any(String),
           started: false,
         },
         {
@@ -117,6 +120,7 @@ describe('/api/temples', () => {
             timestamp: expect.any(String),
           },
           facilitator: 'some-other-user-id',
+          startTime: expect.any(String),
           started: false,
         },
       ]);
@@ -124,10 +128,16 @@ describe('/api/temples', () => {
   });
 
   describe('POST', () => {
+    const startTime = new Date('1994-03-08T07:24:00').toISOString();
+
     it('should return newly created temple', async () => {
       const response = await request(mockServer)
         .post('/temples')
-        .send({name: 'the next big temple!', contentId: 'some-content-id'})
+        .send({
+          name: 'the next big temple!',
+          contentId: 'some-content-id',
+          startTime,
+        })
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
@@ -142,6 +152,7 @@ describe('/api/temples', () => {
         },
         contentId: 'some-content-id',
         facilitator: 'some-user-id',
+        startTime: startTime,
         started: false,
       });
     });
@@ -184,6 +195,7 @@ describe('/api/temples', () => {
           timestamp: expect.any(String),
         },
         facilitator: 'some-user-id',
+        startTime: expect.any(String),
         started: true,
       });
     });
@@ -237,6 +249,7 @@ describe('/api/temples', () => {
           timestamp: expect.any(String),
         },
         facilitator: 'some-user-id',
+        startTime: expect.any(String),
         started: false,
       });
     });
@@ -258,6 +271,7 @@ describe('/api/temples', () => {
           timestamp: expect.any(String),
         },
         facilitator: 'some-user-id',
+        startTime: expect.any(String),
         started: false,
       });
     });
@@ -280,6 +294,7 @@ describe('/api/temples', () => {
           timestamp: expect.any(String),
         },
         facilitator: 'some-user-id',
+        startTime: expect.any(String),
         started: false,
       });
     });
