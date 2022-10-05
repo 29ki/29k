@@ -53,7 +53,11 @@ type RequestQuery = {
 const killSwitchQuerySchema = yup.object().shape({
   version: yup
     .string()
-    .test('semver', 'incorrect version', test => Boolean(valid(test)))
+    .test(
+      'semver',
+      'incorrect version',
+      test => console.log('test', test) || Boolean(valid(test)),
+    )
     .required(),
   platform: yup.string().oneOf(acceptedPlatforms).required(),
   bundleVersion: yup.string(),
@@ -67,6 +71,8 @@ export const killSwitchRouter = router.get(
     const {version, bundleVersion, platform} = request.query as RequestQuery;
 
     const t = i18n.getFixedT(null, 'Screen.KillSwitch');
+
+    console.log('HERE');
 
     if (KILL_SWITCH) {
       response.status = 403;

@@ -27,12 +27,12 @@ import * as templeApi from '../Temples/api/temple';
 import Counter from './components/Counter/Counter';
 import {DailyContext} from './DailyProvider';
 import useTempleExercise from './hooks/useTempleExercise';
-import usePreventTempleLeave from './hooks/usePreventTempleLeave';
 import {participantsAtom, templeAtom} from './state/state';
 import {DailyUserData} from '../../../../shared/src/types/Temple';
 import useLeaveTemple from './hooks/useLeaveTemple';
 import VideoBase from './components/VideoBase/VideoBase';
 import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
+import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -88,10 +88,10 @@ const BackButton = styled(IconButton)({
   marginLeft: -SPACINGS.SIXTEEN,
 });
 
-const Portal: React.FC = () => {
+const IntroPortal: React.FC = () => {
   const {
     params: {templeId},
-  } = useRoute<RouteProp<TempleStackProps, 'Portal'>>();
+  } = useRoute<RouteProp<TempleStackProps, 'IntroPortal'>>();
   const finalVidRef = useRef<Video>(null);
   const [now, setNow] = useState(dayjs());
   const {joinMeeting} = useContext(DailyContext);
@@ -105,7 +105,7 @@ const Portal: React.FC = () => {
   const {navigate} = useNavigation<TempleNavigationProps>();
   const leaveTemple = useLeaveTemple();
 
-  usePreventTempleLeave();
+  usePreventGoingBack(leaveTemple);
 
   useEffect(() => {
     joinMeeting({inPortal: true} as DailyUserData);
@@ -216,4 +216,4 @@ const Portal: React.FC = () => {
   );
 };
 
-export default Portal;
+export default IntroPortal;

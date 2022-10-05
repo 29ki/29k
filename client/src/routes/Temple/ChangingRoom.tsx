@@ -139,7 +139,7 @@ const ChangingRoom = () => {
     return null;
   }
 
-  const join = () => navigate('Portal', {templeId});
+  const join = () => navigate('IntroPortal', {templeId});
 
   const permissionsAlert = () =>
     Alert.alert(t('permissionsAlert.title'), t('permissionsAlert.message'), [

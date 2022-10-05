@@ -25,12 +25,23 @@ const INTRO_PORTAL = {
   ],
 };
 
+const OUTRO_PORTAL = {
+  label: 'Outro Portal',
+  name: 'outroPortal',
+  widget: 'object',
+  collapsed: true,
+  required: false,
+  i18n: true,
+  fields: [{...VIDEO_FIELD, label: 'Video', name: 'video'}],
+};
+
 export default [
   ID_FIELD,
   NAME_FIELD,
   PUBLISHED_FIELD,
   CARD_FIELD,
   INTRO_PORTAL,
+  OUTRO_PORTAL,
   {
     label: 'Slides',
     name: 'slides',

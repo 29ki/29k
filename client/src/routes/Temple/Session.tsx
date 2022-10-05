@@ -1,11 +1,16 @@
 import React, {useContext, useEffect} from 'react';
 import {ActivityIndicator} from 'react-native';
 import {useRecoilValue} from 'recoil';
-import LinearGradient from 'react-native-linear-gradient';
-import styled from 'styled-components/native';
-import {RouteProp, useRoute} from '@react-navigation/native';
 
-import {videoSharingFields, localParticipantSelector} from './state/state';
+import styled from 'styled-components/native';
+
+import {
+  videoSharingFields,
+  localParticipantSelector,
+  templeAtom,
+} from './state/state';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+
 import {
   Spacer12,
   Spacer16,
@@ -37,8 +42,9 @@ import {
   MicrophoneOffIcon,
 } from '../../common/components/Icons';
 
-import usePreventTempleLeave from './hooks/usePreventTempleLeave';
 import useLeaveTemple from './hooks/useLeaveTemple';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 
 const LoadingView = styled.View({
   flex: 1,
@@ -55,9 +61,9 @@ const MainViewContainer = styled.View({
 
 const ExerciseControl = styled(ContentControls)({
   position: 'absolute',
-  bottom: SPACINGS.SIXTEEN,
-  left: SPACINGS.SIXTEEN,
-  right: SPACINGS.SIXTEEN,
+  bottom: 20,
+  left: 20,
+  right: 20,
 });
 
 const SessionControls = styled.View({
@@ -69,26 +75,14 @@ const Progress = styled(ProgressBar)({
   marginHorizontal: SPACINGS.SIXTEEN,
 });
 
-const SpotlightContent = styled.View({
-  flex: 1,
-});
-
-const ProgressGradient = styled(LinearGradient)({
-  paddingTop: SPACINGS.EIGHT,
-  position: 'absolute',
-  width: '100%',
-  height: 50,
-  left: 0,
-  right: 0,
-  top: 0,
-});
-
 const Session = () => {
   const {setUserData, toggleAudio, toggleVideo, setSubscribeToAllTracks} =
     useContext(DailyContext);
   const {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Temple'>>();
+  const {navigate} =
+    useNavigation<NativeStackNavigationProp<TempleStackProps>>();
 
   useSubscribeToTemple(templeId);
   useMuteAudioListener();
@@ -96,15 +90,22 @@ const Session = () => {
   const participants = useTempleParticipants();
   const me = useRecoilValue(localParticipantSelector);
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
+  const temple = useRecoilValue(templeAtom);
   const exercise = useTempleExercise();
   const leaveTemple = useLeaveTemple();
 
-  usePreventTempleLeave();
+  usePreventGoingBack(leaveTemple);
 
   useEffect(() => {
     setUserData({inPortal: false} as DailyUserData);
     setSubscribeToAllTracks();
   }, [setUserData, setSubscribeToAllTracks]);
+
+  useEffect(() => {
+    if (temple?.exerciseState.ended) {
+      navigate('OutroPortal');
+    }
+  }, [temple?.exerciseState, navigate]);
 
   if (isLoading) {
     return (
@@ -122,25 +123,18 @@ const Session = () => {
       <TopSafeArea />
       <Spotlight>
         {exercise && (
-          <SpotlightContent>
+          <>
+            <Progress
+              index={exercise?.slide.index}
+              length={exercise?.slides.length}
+            />
             <ExerciseSlides
               index={exercise.slide.index}
               current={exercise.slide.current}
               previous={exercise.slide.previous}
               next={exercise.slide.next}
             />
-            <ProgressGradient
-              colors={
-                exercise?.slide.current.type === 'participantSpotlight'
-                  ? ['rgba(249, 248, 244, 1)', 'rgba(249, 248, 244, 0)']
-                  : ['rgba(249, 248, 244, 0)', 'rgba(249, 248, 244, 0)']
-              }>
-              <Progress
-                index={exercise?.slide.index}
-                length={exercise?.slides.length}
-              />
-            </ProgressGradient>
-          </SpotlightContent>
+          </>
         )}
         <ExerciseControl templeId={templeId} />
       </Spotlight>
@@ -168,6 +162,7 @@ const Session = () => {
           onPress={leaveTemple}
         />
       </SessionControls>
+      <Spacer16 />
     </MainViewContainer>
   );
 };

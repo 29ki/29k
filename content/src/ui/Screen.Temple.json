@@ -4,7 +4,8 @@
     "controls": {
       "start": "Start",
       "next": "Next",
-      "prev": "Back"
+      "prev": "Back",
+      "end": "End"
     }
   },
   "sv": {
@@ -12,7 +13,8 @@
     "controls": {
       "start": "Starta",
       "next": "Nästa",
-      "prev": "Tillbaka"
+      "prev": "Tillbaka",
+      "end": "Avsluta"
     }
   },
   "pt": {
@@ -20,7 +22,8 @@
     "controls": {
       "start": "Start",
       "next": "Next",
-      "prev": "Back"
+      "prev": "Back",
+      "end": "End"
     }
   }
 }

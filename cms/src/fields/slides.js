@@ -19,6 +19,7 @@ const CONTENT_FIELDS = [
     label: 'Text',
     name: 'text',
     widget: 'string',
+    required: false,
   },
   IMAGE_FIELD,
   CONTENT_VIDEO_FIELD,

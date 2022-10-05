@@ -8,7 +8,8 @@ import {killSwitchFields} from '../killSwitch/state/state';
 import Tabs from './Tabs';
 import Temple from '../../routes/Temple/Temple';
 import ChangingRoom from '../../routes/Temple/ChangingRoom';
-import Portal from '../../routes/Temple/Portal';
+import IntroPortal from '../../routes/Temple/IntroPortal';
+import OutroPortal from '../../routes/Temple/OutroPortal';
 import DailyProvider from '../../routes/Temple/DailyProvider';
 import TempleModal from '../../routes/Temples/components/TempleModal';
 
@@ -29,8 +30,9 @@ const TempleStackWrapper = () => (
         gestureEnabled: false,
       }}>
       <TempleStack.Screen name={'ChangingRoom'} component={ChangingRoom} />
-      <TempleStack.Screen name={'Portal'} component={Portal} />
+      <TempleStack.Screen name={'IntroPortal'} component={IntroPortal} />
       <TempleStack.Screen name={'Temple'} component={Temple} />
+      <TempleStack.Screen name={'OutroPortal'} component={OutroPortal} />
     </TempleStack.Navigator>
   </DailyProvider>
 );

@@ -13,6 +13,7 @@ import {
 } from '../../../../shared/src/types/Temple';
 import * as dailyApi from '../../lib/dailyApi';
 import {createRouter} from '../../lib/routers';
+import {removeEmpty} from '../../lib/utils';
 
 const getTempleExerciseState = (
   exerciseState: ExerciseStateData,
@@ -55,6 +56,7 @@ templesRouter.post('/', validator({body: CreateTempleSchema}), async ctx => {
     index: 0,
     playing: false,
     timestamp: Timestamp.now(),
+    ended: false,
   };
 
   const temple: TempleInput & {
@@ -134,6 +136,7 @@ const ExerciseStateUpdateSchema = yup
     index: yup.number(),
     playing: yup.boolean(),
     dailySpotlightId: yup.string(),
+    ended: yup.boolean(),
   })
   .test(
     'nonEmptyObject',
@@ -161,11 +164,13 @@ templesRouter.put(
           throw new Error('Unauthorized');
         }
 
-        const data = {
+        const update = ctx.request.body as ExerciseStateUpdate;
+        const data = removeEmpty({
           ...temple.exerciseState,
-          ...(ctx.request.body as ExerciseStateUpdate),
+          ...update,
+          playing: update.ended ? false : update.playing,
           timestamp: Timestamp.now(),
-        };
+        });
 
         await transaction.update(templeDocRef, {exerciseState: data});
       } else {

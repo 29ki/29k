@@ -40,6 +40,10 @@ const useUpdateTempleExerciseState = (templeId: Temple['id']) => {
     [templeId],
   );
 
-  return {navigateToIndex, setSpotlightParticipant, setPlaying};
+  const setEnded = useCallback(async () => {
+    return templeApi.updateTempleExerciseState(templeId, {ended: true});
+  }, [templeId]);
+
+  return {navigateToIndex, setSpotlightParticipant, setPlaying, setEnded};
 };
 export default useUpdateTempleExerciseState;

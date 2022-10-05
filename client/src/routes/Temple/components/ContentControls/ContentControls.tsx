@@ -48,7 +48,8 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
   const exercise = useTempleExercise();
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
 
-  const {navigateToIndex, setPlaying} = useUpdateTempleExerciseState(templeId);
+  const {navigateToIndex, setPlaying, setEnded} =
+    useUpdateTempleExerciseState(templeId);
 
   if (!isFacilitator || !exercise || !exerciseState) {
     return null;
@@ -89,20 +90,25 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
           />
         </MediaControls>
       )}
-      <SlideButton
-        small
-        elevated
-        variant="tertiary"
-        disabled={!exercise.slide.next}
-        RightIcon={ChevronRight}
-        onPress={() =>
-          navigateToIndex({
-            index: exerciseState.index + 1,
-            content: exercise.slides,
-          })
-        }>
-        {t('controls.next')}
-      </SlideButton>
+      {exercise.slide.next ? (
+        <SlideButton
+          small
+          elevated
+          variant="tertiary"
+          RightIcon={ChevronRight}
+          onPress={() =>
+            navigateToIndex({
+              index: exerciseState.index + 1,
+              content: exercise.slides,
+            })
+          }>
+          {t('controls.next')}
+        </SlideButton>
+      ) : (
+        <SlideButton small elevated variant="tertiary" onPress={setEnded}>
+          {t('controls.end')}
+        </SlideButton>
+      )}
     </Wrapper>
   );
 };

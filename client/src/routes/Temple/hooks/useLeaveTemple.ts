@@ -12,7 +12,7 @@ import {TabNavigatorProps} from '../../../common/constants/routes';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
-const useLeaveTemple = () => {
+const useLeaveTemple = (confirm: boolean = true) => {
   const {t} = useTranslation(NS.COMPONENT.CONFIRM_EXIT_TEMPLE);
   const {leaveMeeting} = useContext(DailyContext);
   const navigation = useNavigation<ScreenNavigationProps>();
@@ -22,20 +22,24 @@ const useLeaveTemple = () => {
   const onConfirm = async () => {
     await leaveMeeting();
     resetTemple();
-    navigation.navigate('Temples');
+    navigation.pop(1);
   };
 
-  return async () => {
-    Alert.alert(t('header'), t('text'), [
-      {text: t('buttons.cancel'), style: 'cancel', onPress: () => {}},
-      {
-        text: t('buttons.confirm'),
-        style: 'destructive',
+  if (confirm) {
+    return async () => {
+      Alert.alert(t('header'), t('text'), [
+        {text: t('buttons.cancel'), style: 'cancel', onPress: () => {}},
+        {
+          text: t('buttons.confirm'),
+          style: 'destructive',
 
-        onPress: onConfirm,
-      },
-    ]);
-  };
+          onPress: onConfirm,
+        },
+      ]);
+    };
+  }
+
+  return onConfirm;
 };
 
 export default useLeaveTemple;
