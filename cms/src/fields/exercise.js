@@ -57,6 +57,43 @@ const THEME = {
   ],
 };
 
+const HOST_NOTES = {
+  label: 'Host Notes slide',
+  name: 'hostnotesslide',
+  widget: 'list',
+  hint: '',
+  collapsed: true,
+  required: false,
+  i18n: true,
+  fields: [
+    {
+      label: 'Notes type',
+      name: 'notestype',
+      widget: 'select',
+      multiple: false,
+      options: [
+        {label: 'Intro portal', value: 'Intro portal'},
+        {label: 'Host spotlight', value: 'Host spotlight'},
+        {label: 'Content', value: 'Content'},
+      ],
+    },
+    {
+      label: 'Host Notes',
+      name: 'hostnotes',
+      widget: 'list',
+      collapsed: false,
+      fields: [
+        {
+          label: 'Note',
+          name: 'note',
+          widget: 'string',
+          required: false,
+        },
+      ],
+    },
+  ],
+};
+
 export default [
   ID_FIELD,
   NAME_FIELD,
@@ -76,4 +113,5 @@ export default [
       PARTICIPANT_SPOTLIGHT_SLIDE,
     ],
   },
+  HOST_NOTES,
 ];
