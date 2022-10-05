@@ -45,14 +45,14 @@ const THEME = {
         {label: 'Light', value: COLORS.WHITE},
         {label: 'Dark', value: COLORS.BLACK},
       ],
-      required: true,
+      required: false,
     },
     {
       label: 'Background Color',
       name: 'backgroundColor',
       widget: 'color',
       i18n: 'duplicate',
-      required: true,
+      required: false,
     },
   ],
 };
