@@ -6,7 +6,7 @@ import NS from '../../../lib/i18n/constants/namespaces';
 import useTriggerNotification from '../../../lib/notifications/hooks/useTriggerNotification';
 
 const useTempleNotificationReminder = (temple: Temple) => {
-  const {id, name, contentId} = temple;
+  const {id, contentId, startTime} = temple;
 
   const {t} = useTranslation(NS.COMPONENT.SESSION_REMINDER);
   const exercise = useExerciseById(contentId);
@@ -22,9 +22,9 @@ const useTempleNotificationReminder = (temple: Temple) => {
   const toggleReminder = async (enable = true) =>
     enable
       ? setTriggerNotification(
-          t('title', {name, exercise: exercise?.name}),
+          t('title', {exercise: exercise?.name}),
           t('body'),
-          dayjs().add(10, 'seconds').valueOf(),
+          dayjs(startTime).subtract(10, 'minutes').valueOf(),
         )
       : removeTriggerNotification();
 

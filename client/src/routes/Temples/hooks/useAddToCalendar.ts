@@ -8,16 +8,11 @@ const useAddToCalendar = () => {
   const {t} = useTranslation(NS.COMPONENT.ADD_TO_CALENDAR);
 
   return useCallback(
-    (
-      sessionName: string | undefined,
-      exerciseName: string | undefined,
-      startDate: Dayjs,
-      endDate: Dayjs,
-    ) => {
+    (exerciseName: string | undefined, startDate: Dayjs, endDate: Dayjs) => {
       const url = 'https://app.29k.org'; // TODO: deep link here
 
       AddCalendarEvent.presentEventCreatingDialog({
-        title: t('title', {name: sessionName}),
+        title: t('title', {name: exerciseName}),
         notes: t('notes', {
           name: exerciseName,
           url,

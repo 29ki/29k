@@ -23,12 +23,10 @@ import useTempleNotificationReminder from '../hooks/useTempleNotificationReminde
 import useTemples from '../hooks/useTemples';
 
 const Content = styled(Gutters)({
-  flex: 1,
   flexDirection: 'row',
   justifyContent: 'space-between',
 });
 const BottomContent = styled(Gutters)({
-  flex: 1,
   alignItems: 'center',
   flexDirection: 'row',
 });
@@ -58,6 +56,8 @@ const TempleModal = () => {
   const exercise = useExerciseById(temple?.contentId);
   const {reminderEnabled, toggleReminder} =
     useTempleNotificationReminder(temple);
+
+  const startTime = dayjs(temple.startTime);
 
   if (!temple || !exercise) {
     return null;
@@ -98,10 +98,9 @@ const TempleModal = () => {
           variant="secondary"
           onPress={() =>
             addToCalendar(
-              temple.name,
               exercise.name,
-              dayjs().add(2, 'days'),
-              dayjs().add(2, 'days').add(1, 'hour'),
+              startTime,
+              startTime.add(30, 'minutes'),
             )
           }>
           {t('addToCalendar')}

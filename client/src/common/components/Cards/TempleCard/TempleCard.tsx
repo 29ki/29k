@@ -17,14 +17,15 @@ type TempleCardProps = {
 };
 
 const TempleCard: React.FC<TempleCardProps> = ({temple}) => {
-  const {name, contentId} = temple;
+  const {contentId, startTime} = temple;
   const exercise = useExerciseById(contentId);
   const addToCalendar = useAddToCalendar();
   const {t} = useTranslation(NS.COMPONENT.TEMPLE_CARD);
   const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
   const {reminderEnabled} = useTempleNotificationReminder(temple);
 
-  const startingNow = true; // Calculate from starting time
+  const startAt = dayjs(startTime);
+  const startingNow = dayjs().isAfter(startAt.subtract(10, 'minutes'));
 
   const onPress = () =>
     startingNow
@@ -34,19 +35,13 @@ const TempleCard: React.FC<TempleCardProps> = ({temple}) => {
             templeId: temple.id,
           },
         })
-      : addToCalendar(
-          name,
-          exercise?.name,
-          dayjs().add(2, 'days'),
-          dayjs().add(2, 'days').add(1, 'hour'),
-        );
+      : addToCalendar(exercise?.name, startAt, startAt.add(30, 'minutes'));
 
   const onContextPress = () => navigate('TempleModal', {temple});
 
   return (
     <Card
       title={exercise?.name}
-      description={name}
       buttonText={startingNow ? t('join') : t('addToCalendar')}
       ButtonIcon={PlusIcon}
       image={{
