@@ -1,33 +1,30 @@
 import fs from 'fs';
 import {mergeDeepRight} from 'ramda';
+import {DEFAULT_LANGUAGE_TAG} from '../shared/src/constants/i18n.js';
 import {
   filterPublishedContent,
   generateI18NResources,
   getContentByType,
 } from './utils.js';
 
-const locales = ['en', 'sv', 'pt'];
-
+const exerciseContent = getContentByType('exercises');
 const exercises = generateI18NResources(
-  filterPublishedContent(getContentByType('exercises')),
+  filterPublishedContent(exerciseContent),
   'exercises',
 );
-const ui = generateI18NResources(getContentByType('ui'));
 const exerciseIds = Object.keys(
-  filterPublishedContent(getContentByType('exercises')),
+  filterPublishedContent(exerciseContent, DEFAULT_LANGUAGE_TAG),
 );
-const contentIds = locales.reduce(
-  (acc, locale) => ({
-    ...acc,
-    [locale]: {contentIds: {all: exerciseIds, exercises: exerciseIds}},
-  }),
-  {},
-);
-const i18n = mergeDeepRight(mergeDeepRight(ui, exercises), contentIds);
+
+const ui = generateI18NResources(getContentByType('ui'));
+
+const i18n = mergeDeepRight(ui, exercises);
+
 const {contributors} = JSON.parse(fs.readFileSync('../.all-contributorsrc'));
 
 const data = JSON.stringify({
   i18n,
+  exerciseIds,
   contributors,
 });
 
