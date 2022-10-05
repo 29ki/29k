@@ -1,50 +1,85 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import Button from '../../../../common/components/Buttons/Button';
-import {
-  PlusIcon,
-  ForwardCircleIcon,
-  BackwardCircleIcon,
-} from '../../../../common/components/Icons';
+import {PlusIcon} from '../../../../common/components/Icons';
 import NavButton from './NavButton';
 
 import {Body14} from '../../../../common/components/Typography/Body/Body';
-import {COLORS} from '../../../../common/constants/colors';
 import ProgressBar from '../ProgressBar/ProgressBar';
-import {SPACINGS} from '../../../../common/constants/spacings';
 import SETTINGS from '../../../../common/constants/settings';
+import {COLORS} from '../../../../../../shared/src/constants/colors';
+import {BackwardCircleIcon} from '../../../../common/components/Icons/BackwardCircle/BackwardCircle';
+import {ForwardCircleIcon} from '../../../../common/components/Icons/ForwardCircle/ForwardCircle';
+import {
+  Spacer8,
+  TopSafeArea,
+} from '../../../../common/components/Spacers/Spacer';
+import Gutters from '../../../../common/components/Gutters/Gutters';
+import useTempleExercise from '../../hooks/useTempleExercise';
+
+// Toggle open close
+// animate icon change
+// animate content toggle
+// Go to next note
+// ProgressBar and notes numbering
+// Progressbar to replicate exercise slides?
+// Show note numbering based on?
 
 const Wrapper = styled.View({
   position: 'absolute',
   top: 0,
   left: 0,
   right: 0,
-  padding: SPACINGS.SIXTEEN,
   borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS,
   borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS,
   backgroundColor: COLORS.WHITE,
   ...SETTINGS.BOXSHADOW,
 });
-const Row = styled.View({flexDirection: 'row'});
+const Row = styled.View({
+  flexDirection: 'row',
+  alignItems: 'center',
+});
+const NavWrapper = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+});
 
-const HostNotes = () => (
-  <Wrapper>
-    <Row>
-      <Button onPress={() => {}} RightIcon={PlusIcon} variant="tertiary">
-        {'Notes'}
-      </Button>
-      <ProgressBar index={1} length={5} />
-    </Row>
-    <Body14>
-      {
-        'Now we’ll take a minute to reflect on our own. How did this meditation affect you? What from this can you bring into the rest of your day? There is no right or wrong here, our answers are our own.'
-      }
-    </Body14>
-    <Row>
-      <NavButton Icon={BackwardCircleIcon} />
-      <NavButton Icon={ForwardCircleIcon} />
-    </Row>
-  </Wrapper>
-);
+const Progress = styled(ProgressBar)({
+  flex: 1,
+});
+
+const HostNotes = () => {
+  const exercise = useTempleExercise();
+
+  console.log(exercise);
+  return (
+    <Wrapper>
+      <TopSafeArea />
+      <Gutters>
+        <Spacer8 />
+        <Row>
+          <Progress index={1} length={5} />
+          <Spacer8 />
+          <Button
+            small
+            onPress={() => {}}
+            RightIcon={PlusIcon}
+            variant="tertiary">
+            {'Notes'}
+          </Button>
+        </Row>
+        <Spacer8 />
+        <Body14>{'NOTES JOE'}</Body14>
+        <NavWrapper>
+          <NavButton Icon={BackwardCircleIcon} />
+          <Body14>{'1/2'}</Body14>
+          <NavButton Icon={ForwardCircleIcon} />
+        </NavWrapper>
+        <Spacer8 />
+      </Gutters>
+    </Wrapper>
+  );
+};
 
 export default HostNotes;
