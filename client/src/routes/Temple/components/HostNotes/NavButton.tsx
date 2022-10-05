@@ -1,7 +1,7 @@
 import React from 'react';
+import {COLORS} from '../../../../../../shared/src/constants/colors';
 import IconButton from '../../../../common/components/Buttons/IconButton/IconButton';
 import {IconType} from '../../../../common/components/Icons';
-import {COLORS} from '../../../../common/constants/colors';
 
 const NavButton: React.FC<{Icon: IconType}> = ({Icon}) => (
   <IconButton

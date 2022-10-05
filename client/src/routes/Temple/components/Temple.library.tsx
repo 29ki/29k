@@ -4,19 +4,19 @@ import styled from 'styled-components/native';
 
 import {Spacer16, Spacer8} from '../../../common/components/Spacers/Spacer';
 import {Body14} from '../../../common/components/Typography/Body/Body';
-import {COLORS} from '../../../common/constants/colors';
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import Counter from './Counter/Counter';
 import AudioIndicator from './Participants/AudioIdicator';
 import ProgressBar from './ProgressBar/ProgressBar';
 import HostNotes from './HostNotes/HostNotes';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 
 const dayjsTime = dayjs().add(59, 'seconds');
 
 const Row = styled.View({flexDirection: 'row'});
 const ColorBG = styled.View({backgroundColor: COLORS.GREYDARK, padding: 4});
 
-export const ContentUI = () => (
+export const UI = () => (
   <ScreenWrapper>
     <Body14>Progress bar</Body14>
     <Spacer8 />
@@ -47,8 +47,8 @@ export const ContentUI = () => (
   </ScreenWrapper>
 );
 
-export const Facilitator = () => (
-  <ScreenWrapper>
+export const Notes = () => (
+  <>
     <HostNotes />
-  </ScreenWrapper>
+  </>
 );
