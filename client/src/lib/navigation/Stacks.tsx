@@ -12,6 +12,7 @@ import IntroPortal from '../../routes/Temple/IntroPortal';
 import OutroPortal from '../../routes/Temple/OutroPortal';
 import DailyProvider from '../../routes/Temple/DailyProvider';
 import TempleModal from '../../routes/Temples/components/TempleModal';
+import {navigationWithFadeAtom} from './state/state';
 
 const RootStack = createNativeStackNavigator<RootStackProps>();
 const TempleStack = createNativeStackNavigator<TempleStackProps>();
@@ -39,9 +40,13 @@ const TempleStackWrapper = () => (
 
 const RootStackWrapper = () => {
   const isBlocking = useRecoilValue(killSwitchFields('isBlocking'));
+  const fade = useRecoilValue(navigationWithFadeAtom);
 
   return (
-    <RootStack.Navigator screenOptions={stackOptions}>
+    <RootStack.Navigator
+      screenOptions={
+        fade ? {...stackOptions, animation: 'fade'} : stackOptions
+      }>
       {isBlocking ? (
         <RootStack.Screen name={'KillSwitch'} component={KillSwitch} />
       ) : (

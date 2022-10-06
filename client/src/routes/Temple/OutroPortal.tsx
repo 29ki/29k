@@ -12,6 +12,7 @@ import useTempleExercise from './hooks/useTempleExercise';
 import useLeaveTemple from './hooks/useLeaveTemple';
 import VideoBase from './components/VideoBase/VideoBase';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
+import useNavigateWithFade from '../../lib/navigation/hooks/useNavigateWithFade';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -24,6 +25,7 @@ const OutroPortal: React.FC = () => {
   const leaveTemple = useLeaveTemple(false);
 
   usePreventGoingBack();
+  useNavigateWithFade();
 
   const outroPortal = exercise?.outroPortal;
 

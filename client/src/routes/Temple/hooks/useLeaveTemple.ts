@@ -22,7 +22,7 @@ const useLeaveTemple = (confirm: boolean = true) => {
   const onConfirm = async () => {
     await leaveMeeting();
     resetTemple();
-    navigation.pop(1);
+    navigation.navigate('Temples');
   };
 
   if (confirm) {
