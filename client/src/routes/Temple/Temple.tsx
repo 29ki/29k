@@ -145,7 +145,7 @@ const Temple = () => {
       <TopSafeArea />
       <Spotlight>
         <TopBar>
-          {isFacilitator && !temple?.ended && !exercise?.slide.next && (
+          {isFacilitator && !exercise?.slide.next && (
             <Button small active onPress={setEnded}>
               {t('endButton')}
             </Button>
