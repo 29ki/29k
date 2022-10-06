@@ -43,7 +43,6 @@ type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
-  flex: 1,
 });
 
 const StatusItem = styled.View({
@@ -93,6 +92,7 @@ const Portal: React.FC = () => {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Portal'>>();
   const endVideoRef = useRef<Video>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const [joiningTemple, setJoiningTemple] = useState(false);
   const {t} = useTranslation(NS.SCREEN.PORTAL);
   const exercise = useTempleExercise();
@@ -122,6 +122,10 @@ const Portal: React.FC = () => {
     }
   };
 
+  const onLoopVideoLoad = () => {
+    setVideoLoaded(true);
+  };
+
   const onLoopVideoEnd = () => {
     if (temple?.started) {
       ReactNativeHapticFeedback.trigger('impactHeavy');
@@ -136,6 +140,7 @@ const Portal: React.FC = () => {
         <AudioFader
           source={introPortal.videoLoop.audio}
           repeat
+          paused={!videoLoaded}
           mute={joiningTemple}
         />
       )}
@@ -150,10 +155,12 @@ const Portal: React.FC = () => {
         poster={introPortal.videoEnd?.preview}
         posterResizeMode="cover"
         allowsExternalPlayback={false}
+        muted
       />
 
       {!joiningTemple && (
         <VideoStyled
+          onLoad={onLoopVideoLoad}
           onEnd={onLoopVideoEnd}
           repeat={!temple?.started}
           source={{uri: introPortal.videoLoop?.source}}
@@ -161,8 +168,10 @@ const Portal: React.FC = () => {
           poster={introPortal.videoLoop?.preview}
           posterResizeMode="cover"
           allowsExternalPlayback={false}
+          muted
         />
       )}
+
       <Wrapper>
         {isFocused && (
           <Content>
@@ -217,6 +226,7 @@ const Portal: React.FC = () => {
           </Content>
         )}
       </Wrapper>
+
       <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
     </>
   );

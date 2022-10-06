@@ -22,9 +22,9 @@ const AudioFader: React.FC<AudioFaderProps> = ({
   const updateVolume = useCallback(
     (step: number) => (v: number) => {
       if (mute && v > 0) {
-        return v - step < 0 ? 0 : v - step;
+        return Math.max(v - step, 0);
       } else if (!mute && v < 1) {
-        return v + step > 1 ? 1 : v + step;
+        return Math.min(v + step, 1);
       }
       return v;
     },
@@ -36,13 +36,13 @@ const AudioFader: React.FC<AudioFaderProps> = ({
     const step = ms / duration;
 
     const interval = setInterval(() => {
-      if (loaded) {
+      if (loaded && !paused) {
         setVolume(updateVolume(step));
       }
     }, ms);
 
     return () => clearInterval(interval);
-  }, [mute, duration, updateVolume, loaded]);
+  }, [mute, duration, updateVolume, loaded, paused]);
 
   return (
     <Audio
