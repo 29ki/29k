@@ -21,7 +21,6 @@ import {Spacer8} from '../../../../common/components/Spacers/Spacer';
 import Button from '../../../../common/components/Buttons/Button';
 import NS from '../../../../lib/i18n/constants/namespaces';
 import IconButton from '../../../../common/components/Buttons/IconButton/IconButton';
-import useUpdateTemple from '../../hooks/useUpdateTemple';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -50,7 +49,6 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
 
   const {navigateToIndex, setPlaying} = useUpdateTempleExerciseState(templeId);
-  const {setEnded} = useUpdateTemple(templeId);
 
   if (!isFacilitator || !exercise || !exerciseState) {
     return null;
@@ -91,25 +89,20 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
           />
         </MediaControls>
       )}
-      {exercise.slide.next ? (
-        <SlideButton
-          small
-          elevated
-          variant="tertiary"
-          RightIcon={ChevronRight}
-          onPress={() =>
-            navigateToIndex({
-              index: exerciseState.index + 1,
-              content: exercise.slides,
-            })
-          }>
-          {t('controls.next')}
-        </SlideButton>
-      ) : (
-        <SlideButton small elevated variant="tertiary" onPress={setEnded}>
-          {t('controls.end')}
-        </SlideButton>
-      )}
+      <SlideButton
+        small
+        elevated
+        variant="tertiary"
+        disabled={!exercise.slide.next}
+        RightIcon={ChevronRight}
+        onPress={() =>
+          navigateToIndex({
+            index: exerciseState.index + 1,
+            content: exercise.slides,
+          })
+        }>
+        {t('controls.next')}
+      </SlideButton>
     </Wrapper>
   );
 };

@@ -44,10 +44,21 @@ import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack'
 
 import useLeaveTemple from './hooks/useLeaveTemple';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import Gutters from '../../common/components/Gutters/Gutters';
+import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
+import Button from '../../common/components/Buttons/Button';
+import useUpdateTemple from './hooks/useUpdateTemple';
+import NS from '../../lib/i18n/constants/namespaces';
+import {useTranslation} from 'react-i18next';
 
 const LoadingView = styled.View({
   flex: 1,
   justifyContent: 'center',
+});
+
+const TopBar = styled(Gutters)({
+  justifyContent: 'flex-end',
+  flexDirection: 'row',
 });
 
 const Spotlight = styled.View({
@@ -91,12 +102,15 @@ const Temple = () => {
   } = useRoute<RouteProp<TempleStackProps, 'Temple'>>();
   const {navigate} =
     useNavigation<NativeStackNavigationProp<TempleStackProps>>();
+  const {t} = useTranslation(NS.SCREEN.TEMPLE);
 
   useSubscribeToTemple(templeId);
   useMuteAudioListener();
 
   const participants = useTempleParticipants();
+  const {setEnded} = useUpdateTemple(templeId);
   const me = useRecoilValue(localParticipantSelector);
+  const isFacilitator = useIsTempleFacilitator();
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
   const temple = useRecoilValue(templeAtom);
   const exercise = useTempleExercise();
@@ -130,6 +144,13 @@ const Temple = () => {
     <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
       <TopSafeArea />
       <Spotlight>
+        <TopBar>
+          {isFacilitator && !temple?.ended && !exercise?.slide.next && (
+            <Button small active onPress={setEnded}>
+              {t('endButton')}
+            </Button>
+          )}
+        </TopBar>
         {exercise && (
           <SpotlightContent>
             <ExerciseSlides
