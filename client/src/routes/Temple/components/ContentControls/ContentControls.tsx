@@ -21,6 +21,7 @@ import {Spacer8} from '../../../../common/components/Spacers/Spacer';
 import Button from '../../../../common/components/Buttons/Button';
 import NS from '../../../../lib/i18n/constants/namespaces';
 import IconButton from '../../../../common/components/Buttons/IconButton/IconButton';
+import useUpdateTemple from '../../hooks/useUpdateTemple';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -48,8 +49,8 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
   const exercise = useTempleExercise();
   const {t} = useTranslation(NS.SCREEN.TEMPLE);
 
-  const {navigateToIndex, setPlaying, setEnded} =
-    useUpdateTempleExerciseState(templeId);
+  const {navigateToIndex, setPlaying} = useUpdateTempleExerciseState(templeId);
+  const {setEnded} = useUpdateTemple(templeId);
 
   if (!isFacilitator || !exercise || !exerciseState) {
     return null;

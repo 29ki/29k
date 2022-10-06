@@ -23,7 +23,6 @@ import {HKGroteskBold} from '../../common/constants/fonts';
 import {TempleStackProps} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
-import * as templeApi from '../Temples/api/temple';
 import Counter from './components/Counter/Counter';
 import {DailyContext} from './DailyProvider';
 import useTempleExercise from './hooks/useTempleExercise';
@@ -33,6 +32,7 @@ import useLeaveTemple from './hooks/useLeaveTemple';
 import VideoBase from './components/VideoBase/VideoBase';
 import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
+import useUpdateTemple from './hooks/useUpdateTemple';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -103,6 +103,7 @@ const IntroPortal: React.FC = () => {
   const participantsCount = Object.keys(participants ?? {}).length;
   const isFacilitator = useIsTempleFacilitator();
   const {navigate} = useNavigation<TempleNavigationProps>();
+  const {setStarted} = useUpdateTemple(templeId);
   const leaveTemple = useLeaveTemple();
 
   usePreventGoingBack(leaveTemple);
@@ -173,12 +174,7 @@ const IntroPortal: React.FC = () => {
                 </Button>
               )}
               {isFacilitator && (
-                <Button
-                  small
-                  disabled={temple?.started}
-                  onPress={() => {
-                    templeApi.updateTemple(templeId, {started: true});
-                  }}>
+                <Button small disabled={temple?.started} onPress={setStarted}>
                   {temple?.started ? t('sessionStarted') : t('startSession')}
                 </Button>
               )}
