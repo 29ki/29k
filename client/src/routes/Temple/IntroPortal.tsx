@@ -104,9 +104,9 @@ const IntroPortal: React.FC = () => {
   const isFacilitator = useIsTempleFacilitator();
   const {navigate} = useNavigation<TempleNavigationProps>();
   const {setStarted} = useUpdateTemple(templeId);
-  const leaveTemple = useLeaveTemple();
+  const {leaveTempleWithConfirm} = useLeaveTemple();
 
-  usePreventGoingBack(leaveTemple);
+  usePreventGoingBack(leaveTempleWithConfirm);
 
   useEffect(() => {
     joinMeeting({inPortal: true} as DailyUserData);
@@ -165,7 +165,7 @@ const IntroPortal: React.FC = () => {
             <TopBar>
               <BackButton
                 noBackground
-                onPress={leaveTemple}
+                onPress={leaveTempleWithConfirm}
                 Icon={ArrowLeftIcon}
               />
               {__DEV__ && temple?.started && (

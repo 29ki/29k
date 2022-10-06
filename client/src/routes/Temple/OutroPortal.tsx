@@ -22,7 +22,7 @@ const VideoStyled = styled(VideoBase)({
 const OutroPortal: React.FC = () => {
   const finalVidRef = useRef<Video>(null);
   const exercise = useTempleExercise();
-  const leaveTemple = useLeaveTemple(false);
+  const {leaveTemple} = useLeaveTemple();
 
   usePreventGoingBack();
   useNavigateWithFade();

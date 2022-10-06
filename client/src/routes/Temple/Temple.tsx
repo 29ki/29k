@@ -100,9 +100,9 @@ const Temple = () => {
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
   const temple = useRecoilValue(templeAtom);
   const exercise = useTempleExercise();
-  const leaveTemple = useLeaveTemple();
+  const {leaveTempleWithConfirm} = useLeaveTemple();
 
-  usePreventGoingBack(leaveTemple);
+  usePreventGoingBack(leaveTempleWithConfirm);
 
   useEffect(() => {
     if (temple?.ended) {
@@ -167,7 +167,7 @@ const Temple = () => {
           variant="secondary"
           Icon={HangUpIcon}
           fill={COLORS.ACTIVE}
-          onPress={leaveTemple}
+          onPress={leaveTempleWithConfirm}
         />
       </SessionControls>
       <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
