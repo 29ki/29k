@@ -1,15 +1,17 @@
 import React from 'react';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import IconButton from '../../../../common/components/Buttons/IconButton/IconButton';
-import {IconType} from '../../../../common/components/Icons';
+import IconButton, {
+  IconButtonProps,
+} from '../../../../common/components/Buttons/IconButton/IconButton';
 
-const NavButton: React.FC<{Icon: IconType}> = ({Icon}) => (
+const NavButton: React.FC<IconButtonProps> = ({Icon, onPress, disabled}) => (
   <IconButton
-    onPress={() => {}}
+    onPress={onPress}
     Icon={Icon}
     noBackground
     small
     fill={COLORS.BLACK}
+    disabled={disabled}
   />
 );
 

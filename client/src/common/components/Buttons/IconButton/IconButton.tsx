@@ -19,7 +19,7 @@ const StyledIconButton = styled(BaseButton)<BaseIconButtonProps>(props => ({
   borderRadius: SPACINGS.SIXTEEN,
 }));
 
-type IconButtonProps = BaseIconButtonProps & {
+export type IconButtonProps = BaseIconButtonProps & {
   Icon: IconType;
   loading?: boolean;
 };
