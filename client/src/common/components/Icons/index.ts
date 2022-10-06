@@ -24,6 +24,7 @@ export * from './HomeFill/HomeFill';
 export * from './Logo/Logo';
 export * from './Microphone/Microphone';
 export * from './MicrophoneOff/MicrophoneOff';
+export * from './Minus/Minus';
 export * from './Pause/Pause';
 export * from './Play/Play';
 export * from './Plus/Plus';
