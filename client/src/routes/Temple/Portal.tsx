@@ -155,7 +155,7 @@ const Portal: React.FC = () => {
       {!joiningTemple && (
         <VideoStyled
           onEnd={onLoopVideoEnd}
-          repeat
+          repeat={!temple?.started}
           source={{uri: introPortal.videoLoop?.source}}
           resizeMode="cover"
           poster={introPortal.videoLoop?.preview}
