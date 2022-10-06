@@ -66,5 +66,9 @@ export type Exercise = {
   };
   introPortal: IntroPortal;
   outroPortal: OutroPortal;
+  theme?: {
+    textColor: string;
+    backgroundColor: string;
+  };
   slides: ExerciseSlide[];
 };

@@ -14,6 +14,7 @@ const CONTENT_FIELDS = [
     label: 'Heading',
     name: 'heading',
     widget: 'string',
+    required: false,
   },
   {
     label: 'Text',

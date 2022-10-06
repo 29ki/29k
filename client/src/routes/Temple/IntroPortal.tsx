@@ -18,7 +18,7 @@ import {
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
 import {Body14} from '../../common/components/Typography/Body/Body';
-import {COLORS} from '../../common/constants/colors';
+import {COLORS} from '../../../../shared/src/constants/colors';
 import {HKGroteskBold} from '../../common/constants/fonts';
 import {TempleStackProps} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
