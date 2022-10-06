@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import Button from '../../../../common/components/Buttons/Button';
-import {PlusIcon} from '../../../../common/components/Icons';
+import {MinusIcon, PlusIcon} from '../../../../common/components/Icons';
 import NavButton from './NavButton';
 
 import {Body14} from '../../../../common/components/Typography/Body/Body';
@@ -16,6 +16,12 @@ import {
 } from '../../../../common/components/Spacers/Spacer';
 import Gutters from '../../../../common/components/Gutters/Gutters';
 import useTempleExercise from '../../hooks/useTempleExercise';
+import Animated, {
+  RotateInUpLeft,
+  RotateInUpRight,
+  RotateOutDownLeft,
+  RotateOutDownRight,
+} from 'react-native-reanimated';
 
 // Toggle open close
 // animate icon change
@@ -49,7 +55,25 @@ const Progress = styled(ProgressBar)({
   flex: 1,
 });
 
-const HostNotes = () => {
+const AnimatedPlusIcon = () => {
+  return (
+    <Animated.View
+      entering={RotateInUpRight.duration(300)}
+      exiting={RotateOutDownRight.duration(300)}>
+      <PlusIcon />
+    </Animated.View>
+  );
+};
+const AnimatedMinusIcon = () => {
+  return (
+    <Animated.View
+      entering={RotateInUpLeft.duration(300)}
+      exiting={RotateOutDownLeft.duration(300)}>
+      <MinusIcon />
+    </Animated.View>
+  );
+};
+  const [showNotes, setShowNotes] = useState(false);
   const exercise = useTempleExercise();
 
   console.log(exercise);
@@ -63,8 +87,8 @@ const HostNotes = () => {
           <Spacer8 />
           <Button
             small
-            onPress={() => {}}
-            RightIcon={PlusIcon}
+            onPress={() => setShowNotes(!showNotes)}
+            RightIcon={!showNotes ? AnimatedMinusIcon : AnimatedPlusIcon}
             variant="tertiary">
             {'Notes'}
           </Button>
