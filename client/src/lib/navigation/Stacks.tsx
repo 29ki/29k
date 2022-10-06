@@ -1,5 +1,8 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationOptions,
+} from '@react-navigation/native-stack';
 import {useRecoilValue} from 'recoil';
 
 import {RootStackProps, TempleStackProps} from '../../common/constants/routes';
@@ -17,19 +20,20 @@ import {navigationWithFadeAtom} from './state/state';
 const RootStack = createNativeStackNavigator<RootStackProps>();
 const TempleStack = createNativeStackNavigator<TempleStackProps>();
 
-const stackOptions = {
+const stackOptions: NativeStackNavigationOptions = {
   headerShown: false,
+};
+
+const fadeStackOptions: NativeStackNavigationOptions = {
+  ...stackOptions,
+  animation: 'fade',
+  animationDuration: 2000,
+  gestureEnabled: false,
 };
 
 const TempleStackWrapper = () => (
   <DailyProvider>
-    <TempleStack.Navigator
-      screenOptions={{
-        ...stackOptions,
-        animation: 'fade',
-        animationDuration: 2000,
-        gestureEnabled: false,
-      }}>
+    <TempleStack.Navigator screenOptions={fadeStackOptions}>
       <TempleStack.Screen name={'ChangingRoom'} component={ChangingRoom} />
       <TempleStack.Screen name={'IntroPortal'} component={IntroPortal} />
       <TempleStack.Screen name={'Temple'} component={Temple} />
@@ -43,10 +47,7 @@ const RootStackWrapper = () => {
   const fade = useRecoilValue(navigationWithFadeAtom);
 
   return (
-    <RootStack.Navigator
-      screenOptions={
-        fade ? {...stackOptions, animation: 'fade'} : stackOptions
-      }>
+    <RootStack.Navigator screenOptions={fade ? fadeStackOptions : stackOptions}>
       {isBlocking ? (
         <RootStack.Screen name={'KillSwitch'} component={KillSwitch} />
       ) : (
