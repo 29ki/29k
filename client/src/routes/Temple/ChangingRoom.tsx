@@ -138,10 +138,6 @@ const ChangingRoom = () => {
     isFocused,
   ]);
 
-  if (!isFocused) {
-    return null;
-  }
-
   const join = async () => {
     setJoiningTemple(true);
     await joinMeeting({inPortal: true} as DailyUserData);
@@ -181,16 +177,17 @@ const ChangingRoom = () => {
       </Gutters>
       <Wrapper>
         <VideoWrapper>
-          {hasVideo ? (
-            <DailyMediaViewWrapper
-              videoTrack={me?.videoTrack ?? null}
-              audioTrack={me?.audioTrack ?? null}
-              objectFit={'cover'}
-              mirror={me?.local}
-            />
-          ) : (
-            <VideoText>{t('cameraOff')}</VideoText>
-          )}
+          {isFocused &&
+            (hasVideo ? (
+              <DailyMediaViewWrapper
+                videoTrack={me?.videoTrack ?? null}
+                audioTrack={me?.audioTrack ?? null}
+                objectFit={'cover'}
+                mirror={me?.local}
+              />
+            ) : (
+              <VideoText>{t('cameraOff')}</VideoText>
+            ))}
           <Audio muted={!hasAudio} />
         </VideoWrapper>
 
