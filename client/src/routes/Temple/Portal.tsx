@@ -6,7 +6,7 @@ import {
 } from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
-import React, {useContext, useEffect, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
 import Video from 'react-native-video';
@@ -31,11 +31,9 @@ import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
 import * as templeApi from '../Temples/api/temple';
 import Counter from './components/Counter/Counter';
-import {DailyContext} from './DailyProvider';
 import useTempleExercise from './hooks/useTempleExercise';
 import usePreventTempleLeave from './hooks/usePreventTempleLeave';
 import {participantsAtom, templeAtom} from './state/state';
-import {DailyUserData} from '../../../../shared/src/types/Temple';
 import useLeaveTemple from './hooks/useLeaveTemple';
 import VideoBase from './components/VideoBase/VideoBase';
 import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
@@ -95,7 +93,6 @@ const Portal: React.FC = () => {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'Portal'>>();
   const endVideoRef = useRef<Video>(null);
-  const {joinMeeting} = useContext(DailyContext);
   const [joiningTemple, setJoiningTemple] = useState(false);
   const {t} = useTranslation(NS.SCREEN.PORTAL);
   const exercise = useTempleExercise();
@@ -108,10 +105,6 @@ const Portal: React.FC = () => {
   const isFocused = useIsFocused();
 
   usePreventTempleLeave();
-
-  useEffect(() => {
-    joinMeeting({inPortal: true} as DailyUserData);
-  }, [joinMeeting]);
 
   const introPortal = exercise?.introPortal;
 
@@ -162,7 +155,7 @@ const Portal: React.FC = () => {
       {!joiningTemple && (
         <VideoStyled
           onEnd={onLoopVideoEnd}
-          repeat={!temple?.started}
+          repeat
           source={{uri: introPortal.videoLoop?.source}}
           resizeMode="cover"
           poster={introPortal.videoLoop?.preview}
