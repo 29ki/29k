@@ -105,10 +105,10 @@ const Temple = () => {
   usePreventGoingBack(leaveTemple);
 
   useEffect(() => {
-    if (temple?.exerciseState.ended) {
+    if (temple?.ended) {
       navigate('OutroPortal');
     }
-  }, [temple?.exerciseState, navigate]);
+  }, [temple?.ended, navigate]);
 
   useEffect(() => {
     setUserData({inPortal: false} as DailyUserData);

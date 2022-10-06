@@ -20,7 +20,6 @@ export type ExerciseState = {
   playing: boolean;
   dailySpotlightId?: string;
   timestamp: string;
-  ended: boolean;
 };
 
 export type Temple = {
@@ -31,6 +30,7 @@ export type Temple = {
   contentId: string;
   facilitator: string;
   started: boolean;
+  ended: boolean;
 };
 
 export type DailyUserData = {
