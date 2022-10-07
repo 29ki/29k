@@ -51,7 +51,7 @@
     "react-native-gesture-handler": "^2.6.2",
     "react-native-haptic-feedback": "^1.14.0",
     "react-native-linear-gradient": "^2.6.2",
-    "react-native-localize": "^2.2.3",
+    "react-native-localize": "^2.2.4",
     "react-native-markdown-display": "^7.0.0-alpha.2",
     "react-native-reanimated": "^2.10.0",
     "react-native-safe-area-context": "^4.3.4",
