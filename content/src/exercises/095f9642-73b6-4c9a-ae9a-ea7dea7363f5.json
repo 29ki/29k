@@ -63,7 +63,12 @@
         }
       }
     ],
-    "published": true
+    "published": true,
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1664798564/temp/portal_outro_lpm80e.mp4"
+      }
+    }
   },
   "sv": {
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",

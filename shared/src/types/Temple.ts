@@ -30,8 +30,9 @@ export type Temple = {
   exerciseState: ExerciseState;
   contentId: string;
   facilitator: string;
-  started: boolean;
   startTime: string;
+  started: boolean;
+  ended: boolean;
 };
 
 export type DailyUserData = {

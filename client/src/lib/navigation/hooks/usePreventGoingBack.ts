@@ -1,19 +1,19 @@
 import {useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import useLeaveTemple from './useLeaveTemple';
 
-const usePreventTempleLeave = () => {
+const usePreventGoingBack = (callback?: () => void) => {
   const navigation = useNavigation();
-  const leaveTemple = useLeaveTemple();
 
   useEffect(
     () =>
       navigation.addListener('beforeRemove', e => {
         e.preventDefault();
-        leaveTemple();
+        if (callback) {
+          callback();
+        }
       }),
-    [leaveTemple, navigation],
+    [callback, navigation],
   );
 };
 
-export default usePreventTempleLeave;
+export default usePreventGoingBack;

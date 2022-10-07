@@ -46,6 +46,7 @@ const temples = [
     facilitator: 'some-user-id',
     startTime: Timestamp.now(),
     started: false,
+    ended: false,
   },
   {
     id: 'some-other-temple-id',
@@ -59,6 +60,7 @@ const temples = [
     facilitator: 'some-other-user-id',
     startTime: Timestamp.now(),
     started: false,
+    ended: false,
   },
 ];
 
@@ -109,6 +111,7 @@ describe('/api/temples', () => {
           facilitator: 'some-user-id',
           startTime: expect.any(String),
           started: false,
+          ended: false,
         },
         {
           id: 'some-other-temple-id',
@@ -122,6 +125,7 @@ describe('/api/temples', () => {
           facilitator: 'some-other-user-id',
           startTime: expect.any(String),
           started: false,
+          ended: false,
         },
       ]);
     });
@@ -154,6 +158,7 @@ describe('/api/temples', () => {
         facilitator: 'some-user-id',
         startTime: startTime,
         started: false,
+        ended: false,
       });
     });
 
@@ -178,7 +183,7 @@ describe('/api/temples', () => {
   });
 
   describe('PUT', () => {
-    it('should return updated temple', async () => {
+    it('should return updated temple with started', async () => {
       const response = await request(mockServer)
         .put('/temples/some-temple-id')
         .send({started: true})
@@ -197,6 +202,30 @@ describe('/api/temples', () => {
         facilitator: 'some-user-id',
         startTime: expect.any(String),
         started: true,
+        ended: false,
+      });
+    });
+
+    it('should return updated temple with ended', async () => {
+      const response = await request(mockServer)
+        .put('/temples/some-temple-id')
+        .send({ended: true})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({
+        id: 'some-temple-id',
+        name: 'some-name',
+        url: 'some-url',
+        exerciseState: {
+          index: 0,
+          playing: false,
+          timestamp: expect.any(String),
+        },
+        facilitator: 'some-user-id',
+        startTime: expect.any(String),
+        started: false,
+        ended: true,
       });
     });
 
@@ -251,6 +280,7 @@ describe('/api/temples', () => {
         facilitator: 'some-user-id',
         startTime: expect.any(String),
         started: false,
+        ended: false,
       });
     });
 
@@ -273,6 +303,7 @@ describe('/api/temples', () => {
         facilitator: 'some-user-id',
         startTime: expect.any(String),
         started: false,
+        ended: false,
       });
     });
 
@@ -296,6 +327,7 @@ describe('/api/temples', () => {
         facilitator: 'some-user-id',
         startTime: expect.any(String),
         started: false,
+        ended: false,
       });
     });
 
