@@ -1,3 +1,5 @@
+import {CmsField} from 'netlify-cms-core';
+
 import {COLORS} from '../../../shared/src/constants/colors';
 import {
   CARD_FIELD,
@@ -13,7 +15,7 @@ import {
   SHARING_SLIDE,
 } from './slides';
 
-const INTRO_PORTAL = {
+const INTRO_PORTAL: CmsField = {
   label: 'Intro Portal',
   name: 'introPortal',
   widget: 'object',
@@ -26,7 +28,7 @@ const INTRO_PORTAL = {
   ],
 };
 
-const THEME = {
+const THEME: CmsField = {
   label: 'Theme',
   name: 'theme',
   widget: 'object',
@@ -57,7 +59,7 @@ const THEME = {
   ],
 };
 
-export default [
+const EXERCISE_FIELDS: Array<CmsField> = [
   ID_FIELD,
   NAME_FIELD,
   PUBLISHED_FIELD,
@@ -77,3 +79,5 @@ export default [
     ],
   },
 ];
+
+export default EXERCISE_FIELDS;

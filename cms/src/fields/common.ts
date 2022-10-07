@@ -1,11 +1,16 @@
-export const ID_FIELD = {
+import {CmsField} from 'netlify-cms-core';
+
+export const ID_FIELD: CmsField = {
   label: 'ID',
   name: 'id',
   widget: 'uniqueId',
   i18n: 'duplicate',
+  required: true,
+  index_file: '',
+  meta: false,
 };
 
-export const PUBLISHED_FIELD = {
+export const PUBLISHED_FIELD: CmsField = {
   label: 'Published',
   name: 'published',
   widget: 'boolean',
@@ -14,14 +19,14 @@ export const PUBLISHED_FIELD = {
   i18n: true,
 };
 
-export const NAME_FIELD = {
+export const NAME_FIELD: CmsField = {
   label: 'Name',
   name: 'name',
   i18n: true,
   widget: 'string',
 };
 
-export const IMAGE_FIELD = {
+export const IMAGE_FIELD: CmsField = {
   label: 'Image',
   name: 'image',
   widget: 'object',
@@ -45,7 +50,7 @@ export const IMAGE_FIELD = {
   ],
 };
 
-export const VIDEO_FIELD = {
+export const VIDEO_FIELD: CmsField = {
   label: 'Video',
   name: 'video',
   widget: 'object',
@@ -77,7 +82,7 @@ export const VIDEO_FIELD = {
   ],
 };
 
-export const CARD_FIELD = {
+export const CARD_FIELD: CmsField = {
   label: 'Card',
   name: 'card',
   i18n: true,

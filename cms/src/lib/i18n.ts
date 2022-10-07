@@ -1,6 +1,7 @@
 // https://github.com/netlify/netlify-cms/pull/3366#issuecomment-662033144
 // https://github.com/reimertz/netlify-cms/commit/8ebe03a08e4aaab8fa038caf226dd425c8e7b1b2
 
+import {CmsCollection} from 'netlify-cms-core';
 import {Resource, ResourceKey} from 'i18next';
 import {DEFAULT_LANGUAGE_TAG} from '../../../shared/src/constants/i18n';
 
@@ -88,7 +89,7 @@ export const generateFilesCollectionFromi18nFiles = (
   folderName: string,
   label: string,
   i18nResources: Resource,
-) => {
+): CmsCollection => {
   const filteredResources = Object.entries(i18nResources[DEFAULT_LANGUAGE_TAG]);
 
   return {

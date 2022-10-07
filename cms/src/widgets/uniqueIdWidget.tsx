@@ -7,7 +7,7 @@ type ControlProps = CmsWidgetControlProps & {
   setInactiveStyle: React.FocusEventHandler<HTMLInputElement> | undefined;
 };
 
-class Control extends PureComponent<ControlProps, {}> {
+class Control extends PureComponent<ControlProps> {
   constructor(props: ControlProps) {
     super(props);
 
@@ -47,9 +47,9 @@ class Control extends PureComponent<ControlProps, {}> {
   }
 }
 
-const Widget: CmsWidgetParam = {
+const Widget = {
   name: 'uniqueId',
-  controlComponent: Control,
-};
+  controlComponent: Component,
+} as unknown as CmsWidgetParam;
 
 export {Widget, Control};
