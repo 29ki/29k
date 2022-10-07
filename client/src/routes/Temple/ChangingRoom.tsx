@@ -141,7 +141,7 @@ const ChangingRoom = () => {
   const join = async () => {
     setJoiningTemple(true);
     await joinMeeting({inPortal: true} as DailyUserData);
-    navigate('Portal', {templeId});
+    navigate('IntroPortal', {templeId});
   };
 
   const permissionsAlert = () =>

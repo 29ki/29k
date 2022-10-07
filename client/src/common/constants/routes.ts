@@ -9,7 +9,8 @@ export type TabNavigatorProps = {
 export type TempleStackProps = {
   ChangingRoom: {templeId: string};
   Temple: {templeId: string};
-  Portal: {templeId: string};
+  IntroPortal: {templeId: string};
+  OutroPortal: undefined;
 };
 
 export type ModalStackProps = {
