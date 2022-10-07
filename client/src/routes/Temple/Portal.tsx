@@ -141,7 +141,7 @@ const Portal: React.FC = () => {
           source={introPortal.videoLoop.audio}
           repeat
           paused={!videoLoaded}
-          mute={joiningTemple}
+          muted={joiningTemple}
         />
       )}
 
