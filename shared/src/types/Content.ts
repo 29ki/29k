@@ -42,7 +42,15 @@ export type VideoPortal = {
   };
 };
 
-export type Portal = VideoPortal;
+export type IntroPortal = VideoPortal;
+
+export type OutroPortal = {
+  type: 'video';
+  video: {
+    source: string;
+    preview: string;
+  };
+};
 
 export type ExerciseSlide =
   | ContentSlide
@@ -56,10 +64,11 @@ export type Exercise = {
   card?: {
     image?: {source: string; description?: string};
   };
+  introPortal: IntroPortal;
+  outroPortal: OutroPortal;
   theme?: {
     textColor: string;
     backgroundColor: string;
   };
-  introPortal: Portal;
   slides: ExerciseSlide[];
 };

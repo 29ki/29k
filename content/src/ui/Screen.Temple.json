@@ -1,6 +1,7 @@
 {
   "en": {
     "nameSuffix": "You",
+    "endButton": "Finish session",
     "controls": {
       "start": "Start",
       "next": "Next",
@@ -9,6 +10,7 @@
   },
   "sv": {
     "nameSuffix": "Du",
+    "endButton": "Avsluta",
     "controls": {
       "start": "Starta",
       "next": "Nästa",
@@ -17,6 +19,7 @@
   },
   "pt": {
     "nameSuffix": "Você",
+    "endButton": "End Session",
     "controls": {
       "start": "Start",
       "next": "Next",

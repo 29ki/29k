@@ -30,6 +30,7 @@ export type Temple = {
   contentId: string;
   facilitator: string;
   started: boolean;
+  ended: boolean;
 };
 
 export type DailyUserData = {

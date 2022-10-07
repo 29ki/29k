@@ -23,16 +23,16 @@ import {HKGroteskBold} from '../../common/constants/fonts';
 import {TempleStackProps} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
-import * as templeApi from '../Temples/api/temple';
 import Counter from './components/Counter/Counter';
 import {DailyContext} from './DailyProvider';
 import useTempleExercise from './hooks/useTempleExercise';
-import usePreventTempleLeave from './hooks/usePreventTempleLeave';
 import {participantsAtom, templeAtom} from './state/state';
 import {DailyUserData} from '../../../../shared/src/types/Temple';
 import useLeaveTemple from './hooks/useLeaveTemple';
 import VideoBase from './components/VideoBase/VideoBase';
 import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
+import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
+import useUpdateTemple from './hooks/useUpdateTemple';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -88,10 +88,10 @@ const BackButton = styled(IconButton)({
   marginLeft: -SPACINGS.SIXTEEN,
 });
 
-const Portal: React.FC = () => {
+const IntroPortal: React.FC = () => {
   const {
     params: {templeId},
-  } = useRoute<RouteProp<TempleStackProps, 'Portal'>>();
+  } = useRoute<RouteProp<TempleStackProps, 'IntroPortal'>>();
   const finalVidRef = useRef<Video>(null);
   const [now, setNow] = useState(dayjs());
   const {joinMeeting} = useContext(DailyContext);
@@ -103,9 +103,10 @@ const Portal: React.FC = () => {
   const participantsCount = Object.keys(participants ?? {}).length;
   const isFacilitator = useIsTempleFacilitator();
   const {navigate} = useNavigation<TempleNavigationProps>();
-  const leaveTemple = useLeaveTemple();
+  const {setStarted} = useUpdateTemple(templeId);
+  const {leaveTempleWithConfirm} = useLeaveTemple();
 
-  usePreventTempleLeave();
+  usePreventGoingBack(leaveTempleWithConfirm);
 
   useEffect(() => {
     joinMeeting({inPortal: true} as DailyUserData);
@@ -164,7 +165,7 @@ const Portal: React.FC = () => {
             <TopBar>
               <BackButton
                 noBackground
-                onPress={leaveTemple}
+                onPress={leaveTempleWithConfirm}
                 Icon={ArrowLeftIcon}
               />
               {__DEV__ && temple?.started && (
@@ -173,12 +174,7 @@ const Portal: React.FC = () => {
                 </Button>
               )}
               {isFacilitator && (
-                <Button
-                  small
-                  disabled={temple?.started}
-                  onPress={() => {
-                    templeApi.updateTemple(templeId, {started: true});
-                  }}>
+                <Button small disabled={temple?.started} onPress={setStarted}>
                   {temple?.started ? t('sessionStarted') : t('startSession')}
                 </Button>
               )}
@@ -216,4 +212,4 @@ const Portal: React.FC = () => {
   );
 };
 
-export default Portal;
+export default IntroPortal;
