@@ -1,31 +1,34 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import dayjs from 'dayjs';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {Alert} from 'react-native';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
+import Gutters from '../../../common/components/Gutters/Gutters';
+import IconButton from '../../../common/components/Buttons/IconButton/IconButton';
+import {BellIcon, DeleteIcon, PlusIcon} from '../../../common/components/Icons';
 import Image from '../../../common/components/Image/Image';
 import HalfModal from '../../../common/components/Modals/HalfModal';
-import {Spacer16} from '../../../common/components/Spacers/Spacer';
+import {Spacer16, Spacer8} from '../../../common/components/Spacers/Spacer';
 import {Display24} from '../../../common/components/Typography/Display/Display';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {RootStackProps} from '../../../common/constants/routes';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import NS from '../../../lib/i18n/constants/namespaces';
+import {userAtom} from '../../../lib/user/state/state';
+import useAddToCalendar from '../hooks/useAddToCalendar';
+import useTempleNotificationReminder from '../hooks/useTempleNotificationReminder';
 import useTemples from '../hooks/useTemples';
-import {templeByIdSelector} from '../state/state';
 
-const Content = styled.View({
-  flex: 1,
+const Content = styled(Gutters)({
   flexDirection: 'row',
   justifyContent: 'space-between',
 });
-const BottomContent = styled.View({
-  flex: 1,
+const BottomContent = styled(Gutters)({
   alignItems: 'center',
   flexDirection: 'row',
-  justifyContent: 'space-between',
 });
 
 const ImageContainer = styled.View({
@@ -33,9 +36,8 @@ const ImageContainer = styled.View({
   height: 80,
 });
 
-const DeleteButton = styled(Button)({
+const DeleteButton = styled(IconButton)({
   backgroundColor: COLORS.DELETE,
-  justifySelf: 'flex-end',
 });
 
 const Title = styled(Display24)({
@@ -44,13 +46,18 @@ const Title = styled(Display24)({
 
 const TempleModal = () => {
   const {
-    params: {templeId},
+    params: {temple},
   } = useRoute<RouteProp<RootStackProps, 'TempleModal'>>();
   const {t} = useTranslation(NS.COMPONENT.TEMPLE_MODAL);
+  const user = useRecoilValue(userAtom);
   const navigation = useNavigation();
   const {deleteTemple} = useTemples();
-  const temple = useRecoilValue(templeByIdSelector(templeId));
+  const addToCalendar = useAddToCalendar();
   const exercise = useExerciseById(temple?.contentId);
+  const {reminderEnabled, toggleReminder} =
+    useTempleNotificationReminder(temple);
+
+  const startTime = dayjs(temple.startTime);
 
   if (!temple || !exercise) {
     return null;
@@ -64,7 +71,7 @@ const TempleModal = () => {
         style: 'destructive',
 
         onPress: async () => {
-          await deleteTemple(templeId);
+          await deleteTemple(temple.id);
           navigation.goBack();
         },
       },
@@ -73,6 +80,7 @@ const TempleModal = () => {
 
   return (
     <HalfModal>
+      <Spacer16 />
       <Content>
         <Title>{exercise?.name}</Title>
         <ImageContainer>
@@ -84,9 +92,32 @@ const TempleModal = () => {
       </Content>
       <Spacer16 />
       <BottomContent>
-        <DeleteButton small onPress={onDelete}>
-          {t('deleteButton')}
-        </DeleteButton>
+        <Button
+          small
+          LeftIcon={PlusIcon}
+          variant="secondary"
+          onPress={() =>
+            addToCalendar(
+              exercise.name,
+              startTime,
+              startTime.add(30, 'minutes'),
+            )
+          }>
+          {t('addToCalendar')}
+        </Button>
+        <Spacer8 />
+        <Button
+          small
+          LeftIcon={BellIcon}
+          variant="secondary"
+          active={reminderEnabled}
+          onPress={() => toggleReminder(!reminderEnabled)}>
+          {t('addReminder')}
+        </Button>
+        <Spacer8 />
+        {user?.uid === temple?.facilitator && (
+          <DeleteButton small onPress={onDelete} Icon={DeleteIcon} />
+        )}
       </BottomContent>
     </HalfModal>
   );

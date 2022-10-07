@@ -15,6 +15,7 @@ import IntroPortal from '../../routes/Temple/IntroPortal';
 import OutroPortal from '../../routes/Temple/OutroPortal';
 import DailyProvider from '../../routes/Temple/DailyProvider';
 import TempleModal from '../../routes/Temples/components/TempleModal';
+import CreateTempleModal from '../../routes/Temples/components/CreateTempleModal';
 import {navigationWithFadeAtom} from './state/state';
 
 const RootStack = createNativeStackNavigator<RootStackProps>();
@@ -65,8 +66,13 @@ const RootStackWrapper = () => {
               presentation: 'transparentModal',
               gestureDirection: 'vertical',
               gestureEnabled: true,
+              animation: 'slide_from_bottom',
             }}>
             <RootStack.Screen name={'TempleModal'} component={TempleModal} />
+            <RootStack.Screen
+              name={'CreateTempleModal'}
+              component={CreateTempleModal}
+            />
           </RootStack.Group>
         </>
       )}

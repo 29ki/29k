@@ -1,4 +1,9 @@
-import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {
+  RouteProp,
+  useIsFocused,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
 import React, {useContext, useEffect, useRef, useState} from 'react';
@@ -7,9 +12,10 @@ import {StyleSheet} from 'react-native';
 import Video from 'react-native-video';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+
 import Button from '../../common/components/Buttons/Button';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
-
 import Gutters from '../../common/components/Gutters/Gutters';
 import {ArrowLeftIcon} from '../../common/components/Icons';
 import {
@@ -31,20 +37,15 @@ import {DailyUserData} from '../../../../shared/src/types/Temple';
 import useLeaveTemple from './hooks/useLeaveTemple';
 import VideoBase from './components/VideoBase/VideoBase';
 import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
+import AudioFader from './components/AudioFader/AudioFader';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 import useUpdateTemple from './hooks/useUpdateTemple';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
-const dayjsTime = dayjs().add(59, 'seconds');
-
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
   flex: 1,
-});
-
-const StatusText = styled(Body14)({
-  color: COLORS.PURE_WHITE,
 });
 
 const StatusItem = styled.View({
@@ -52,7 +53,8 @@ const StatusItem = styled.View({
   alignItems: 'center',
 });
 
-const BadgeText = styled(StatusText)({
+const StatusText = styled(Body14)({
+  color: COLORS.PURE_WHITE,
   fontFamily: HKGroteskBold,
 });
 
@@ -92,8 +94,7 @@ const IntroPortal: React.FC = () => {
   const {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'IntroPortal'>>();
-  const finalVidRef = useRef<Video>(null);
-  const [now, setNow] = useState(dayjs());
+  const endVideoRef = useRef<Video>(null);
   const {joinMeeting} = useContext(DailyContext);
   const [joiningTemple, setJoiningTemple] = useState(false);
   const {t} = useTranslation(NS.SCREEN.PORTAL);
@@ -103,6 +104,7 @@ const IntroPortal: React.FC = () => {
   const participantsCount = Object.keys(participants ?? {}).length;
   const isFacilitator = useIsTempleFacilitator();
   const {navigate} = useNavigation<TempleNavigationProps>();
+  const isFocused = useIsFocused();
   const {setStarted} = useUpdateTemple(templeId);
   const {leaveTempleWithConfirm} = useLeaveTemple();
 
@@ -112,31 +114,44 @@ const IntroPortal: React.FC = () => {
     joinMeeting({inPortal: true} as DailyUserData);
   }, [joinMeeting]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setNow(dayjs());
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   const introPortal = exercise?.introPortal;
 
   if (!introPortal) {
     return null;
   }
 
+  const onEndVideoLoad = () => {
+    endVideoRef.current?.seek(0);
+  };
+
+  const onEndVideoEnd = () => {
+    if (joiningTemple) {
+      navigate('Temple', {templeId});
+    }
+  };
+
+  const onLoopVideoEnd = () => {
+    if (temple?.started) {
+      ReactNativeHapticFeedback.trigger('impactHeavy');
+      setJoiningTemple(true);
+    }
+  };
+
   return (
     <>
       <TopSafeArea minSize={SPACINGS.SIXTEEN} />
+      {isFocused && introPortal.videoLoop?.audio && (
+        <AudioFader
+          source={introPortal.videoLoop.audio}
+          repeat
+          mute={joiningTemple}
+        />
+      )}
+
       <VideoStyled
-        ref={finalVidRef}
-        onLoad={() => finalVidRef.current?.seek(0)}
-        onEnd={() => {
-          if (joiningTemple) {
-            navigate('Temple', {templeId});
-          }
-        }}
+        ref={endVideoRef}
+        onLoad={onEndVideoLoad}
+        onEnd={onEndVideoEnd}
         paused={!joiningTemple}
         source={{uri: introPortal.videoEnd?.source}}
         resizeMode="cover"
@@ -144,13 +159,10 @@ const IntroPortal: React.FC = () => {
         posterResizeMode="cover"
         allowsExternalPlayback={false}
       />
+
       {!joiningTemple && (
         <VideoStyled
-          onEnd={() => {
-            if (temple?.started) {
-              setJoiningTemple(true);
-            }
-          }}
+          onEnd={onLoopVideoEnd}
           repeat={!temple?.started}
           source={{uri: introPortal.videoLoop?.source}}
           resizeMode="cover"
@@ -160,7 +172,7 @@ const IntroPortal: React.FC = () => {
         />
       )}
       <Wrapper>
-        {introPortal.type === 'video' && (
+        {isFocused && (
           <Content>
             <TopBar>
               <BackButton
@@ -186,20 +198,21 @@ const IntroPortal: React.FC = () => {
 
                 <Spacer8 />
                 <Badge>
-                  <Counter
-                    startTime={dayjsTime}
-                    now={now}
-                    starting={temple?.started}
-                  />
+                  <StatusText>
+                    <Counter
+                      startTime={dayjs(temple?.startTime.toDate())}
+                      starting={temple?.started}
+                    />
+                  </StatusText>
                 </Badge>
               </StatusItem>
 
-              {participantsCount > 1 && (
+              {participantsCount > 0 && (
                 <StatusItem>
                   <StatusText>{t('participants')}</StatusText>
                   <Spacer8 />
                   <Badge>
-                    <BadgeText>{participantsCount}</BadgeText>
+                    <StatusText>{participantsCount}</StatusText>
                   </Badge>
                 </StatusItem>
               )}

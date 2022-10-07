@@ -34,10 +34,12 @@ export type VideoPortal = {
   type: 'video';
   videoLoop: {
     source: string;
+    audio: string;
     preview: string;
   };
   videoEnd?: {
     source: string;
+    audio: string;
     preview: string;
   };
 };
@@ -71,4 +73,5 @@ export type Exercise = {
     backgroundColor: string;
   };
   slides: ExerciseSlide[];
+  published: boolean;
 };

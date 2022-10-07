@@ -6,11 +6,12 @@ const TEMPLES_ENDPOINT = '/temples';
 export const addTemple = async (
   name: string,
   contentId = '095f9642-73b6-4c9a-ae9a-ea7dea7363f5',
+  startTime: string,
 ): Promise<Temple> => {
   try {
     const response = await apiClient(TEMPLES_ENDPOINT, {
       method: 'POST',
-      body: JSON.stringify({name, contentId}),
+      body: JSON.stringify({name, contentId, startTime}),
     });
 
     if (!response.ok) {
@@ -19,6 +20,7 @@ export const addTemple = async (
 
     return response.json();
   } catch (cause) {
+    console.log(cause);
     throw new Error('Could not create a temple', {cause});
   }
 };

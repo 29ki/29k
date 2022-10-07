@@ -28,12 +28,13 @@ const getTempleExerciseState = (
   exerciseState: ExerciseStateData,
 ): ExerciseState => ({
   ...exerciseState,
-  timestamp: exerciseState.timestamp.toString(),
+  timestamp: exerciseState.timestamp.toDate().toISOString(),
 });
 
 const getTemple = (temple: TempleData): Temple => ({
   ...temple,
   exerciseState: getTempleExerciseState(temple.exerciseState),
+  startTime: temple.startTime.toDate().toISOString(),
 });
 
 const TEMPLES_COLLECTION = 'temples';
@@ -53,12 +54,13 @@ templesRouter.get('/', async ctx => {
 const CreateTempleSchema = yup.object().shape({
   name: yup.string().required(),
   contentId: yup.string().required(),
+  startTime: yup.string().required(),
 });
 
 type CreateTemple = yup.InferType<typeof CreateTempleSchema>;
 
 templesRouter.post('/', validator({body: CreateTempleSchema}), async ctx => {
-  const {name, contentId} = ctx.request.body as CreateTemple;
+  const {name, contentId, startTime} = ctx.request.body as CreateTemple;
 
   const data = await dailyApi.createRoom();
   const defaultExerciseState = {
@@ -76,6 +78,7 @@ templesRouter.post('/', validator({body: CreateTempleSchema}), async ctx => {
     contentId,
     facilitator: ctx.user.id,
     dailyRoomName: data.name,
+    startTime: Timestamp.fromDate(new Date(startTime)),
     exerciseState: defaultExerciseState,
     started: false,
     ended: false,
