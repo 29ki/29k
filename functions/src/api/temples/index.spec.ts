@@ -44,7 +44,9 @@ const temples = [
       timestamp: Timestamp.now(),
     },
     facilitator: 'some-user-id',
+    startTime: Timestamp.now(),
     started: false,
+    ended: false,
   },
   {
     id: 'some-other-temple-id',
@@ -56,7 +58,9 @@ const temples = [
       timestamp: Timestamp.now(),
     },
     facilitator: 'some-other-user-id',
+    startTime: Timestamp.now(),
     started: false,
+    ended: false,
   },
 ];
 
@@ -105,7 +109,9 @@ describe('/api/temples', () => {
             timestamp: expect.any(String),
           },
           facilitator: 'some-user-id',
+          startTime: expect.any(String),
           started: false,
+          ended: false,
         },
         {
           id: 'some-other-temple-id',
@@ -117,17 +123,25 @@ describe('/api/temples', () => {
             timestamp: expect.any(String),
           },
           facilitator: 'some-other-user-id',
+          startTime: expect.any(String),
           started: false,
+          ended: false,
         },
       ]);
     });
   });
 
   describe('POST', () => {
+    const startTime = new Date('1994-03-08T07:24:00').toISOString();
+
     it('should return newly created temple', async () => {
       const response = await request(mockServer)
         .post('/temples')
-        .send({name: 'the next big temple!', contentId: 'some-content-id'})
+        .send({
+          name: 'the next big temple!',
+          contentId: 'some-content-id',
+          startTime,
+        })
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
@@ -142,7 +156,9 @@ describe('/api/temples', () => {
         },
         contentId: 'some-content-id',
         facilitator: 'some-user-id',
+        startTime: startTime,
         started: false,
+        ended: false,
       });
     });
 
@@ -167,7 +183,7 @@ describe('/api/temples', () => {
   });
 
   describe('PUT', () => {
-    it('should return updated temple', async () => {
+    it('should return updated temple with started', async () => {
       const response = await request(mockServer)
         .put('/temples/some-temple-id')
         .send({started: true})
@@ -184,7 +200,32 @@ describe('/api/temples', () => {
           timestamp: expect.any(String),
         },
         facilitator: 'some-user-id',
+        startTime: expect.any(String),
         started: true,
+        ended: false,
+      });
+    });
+
+    it('should return updated temple with ended', async () => {
+      const response = await request(mockServer)
+        .put('/temples/some-temple-id')
+        .send({ended: true})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({
+        id: 'some-temple-id',
+        name: 'some-name',
+        url: 'some-url',
+        exerciseState: {
+          index: 0,
+          playing: false,
+          timestamp: expect.any(String),
+        },
+        facilitator: 'some-user-id',
+        startTime: expect.any(String),
+        started: false,
+        ended: true,
       });
     });
 
@@ -237,7 +278,9 @@ describe('/api/temples', () => {
           timestamp: expect.any(String),
         },
         facilitator: 'some-user-id',
+        startTime: expect.any(String),
         started: false,
+        ended: false,
       });
     });
 
@@ -258,7 +301,9 @@ describe('/api/temples', () => {
           timestamp: expect.any(String),
         },
         facilitator: 'some-user-id',
+        startTime: expect.any(String),
         started: false,
+        ended: false,
       });
     });
 
@@ -280,7 +325,9 @@ describe('/api/temples', () => {
           timestamp: expect.any(String),
         },
         facilitator: 'some-user-id',
+        startTime: expect.any(String),
         started: false,
+        ended: false,
       });
     });
 

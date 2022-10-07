@@ -1,0 +1,29 @@
+{
+  "en": {
+    "selectContent": {
+      "title": "Pick an exercise"
+    },
+    "setDateTime": {
+      "title": "Session time set up",
+      "cta": "Publish"
+    }
+  },
+  "sv": {
+    "selectContent": {
+      "title": "Välj en övning"
+    },
+    "setDateTime": {
+      "title": "Välj en dag och tid",
+      "cta": "Publisera"
+    }
+  },
+  "pt": {
+    "selectContent": {
+      "title": "Escolha um exercício"
+    },
+    "setDateTime": {
+      "title": "Escolha o tempo da sessão",
+      "cta": "Publish"
+    }
+  }
+}

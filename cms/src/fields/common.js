@@ -61,6 +61,13 @@ export const VIDEO_FIELD = {
       i18n: true,
     },
     {
+      label: 'Audio file',
+      name: 'audio',
+      widget: 'file',
+      required: false,
+      i18n: false,
+    },
+    {
       label: 'Video file',
       name: 'source',
       widget: 'file',
@@ -82,5 +89,6 @@ export const CARD_FIELD = {
   name: 'card',
   i18n: true,
   widget: 'object',
+  collapsed: true,
   fields: [IMAGE_FIELD],
 };

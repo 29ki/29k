@@ -1,4 +1,5 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
+import {Temple} from '../../../../shared/src/types/Temple';
 
 export type TabNavigatorProps = {
   Profile: undefined;
@@ -8,14 +9,16 @@ export type TabNavigatorProps = {
 export type TempleStackProps = {
   ChangingRoom: {templeId: string};
   Temple: {templeId: string};
-  Portal: {templeId: string};
+  IntroPortal: {templeId: string};
+  OutroPortal: undefined;
 };
 
-export type Modals = {
-  TempleModal: {templeId: string};
+export type ModalStackProps = {
+  TempleModal: {temple: Temple};
+  CreateTempleModal: undefined;
 };
 
-export type RootStackProps = Modals & {
+export type RootStackProps = ModalStackProps & {
   KillSwitch: undefined;
   Tabs: NavigatorScreenParams<TabNavigatorProps>;
   TempleStack: NavigatorScreenParams<TempleStackProps>;
