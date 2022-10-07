@@ -47,6 +47,7 @@ const RootStackWrapper = () => {
   const fade = useRecoilValue(navigationWithFadeAtom);
 
   return (
+    // set this state using useNavigationWithFade to change animation to fade
     <RootStack.Navigator screenOptions={fade ? fadeStackOptions : stackOptions}>
       {isBlocking ? (
         <RootStack.Screen name={'KillSwitch'} component={KillSwitch} />
