@@ -68,28 +68,7 @@
       "video": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/v1664798564/temp/portal_outro_lpm80e.mp4"
       }
-    },
-    "hostnotes": [
-      {
-        "type": "portalNote",
-        "notes": [
-          {
-            "text": "PORTAL 1"
-          },
-          {
-            "text": "PORTAL 2"
-          }
-        ]
-      },
-      {
-        "type": "spotlightNote",
-        "notes": [
-          {
-            "text": "SPOTLIGHT 1"
-          }
-        ]
-      }
-    ]
+    }
   },
   "sv": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139"
