@@ -29,9 +29,7 @@ describe('useTemples', () => {
 
     it('should fetch temples', async () => {
       fetchMock.mockResponseOnce(
-        JSON.stringify([
-          {id: 'temple-id', url: '/temple-url', name: 'Temple Name'},
-        ]),
+        JSON.stringify([{id: 'temple-id', url: '/temple-url'}]),
         {status: 200},
       );
       const {result} = renderHook(() => useTestHook(), {
@@ -50,15 +48,13 @@ describe('useTemples', () => {
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(result.current.temples).toEqual([
-        {id: 'temple-id', url: '/temple-url', name: 'Temple Name'},
+        {id: 'temple-id', url: '/temple-url'},
       ]);
     });
 
     it('should update loading state', async () => {
       fetchMock.mockResponseOnce(
-        JSON.stringify([
-          {id: 'temple-id', url: '/temple-url', name: 'Temple Name'},
-        ]),
+        JSON.stringify([{id: 'temple-id', url: '/temple-url'}]),
         {status: 200},
       );
       const {result} = renderHook(() => useTestHook(), {
@@ -104,16 +100,11 @@ describe('useTemples', () => {
       });
 
       await act(async () => {
-        await result.current.addTemple(
-          'Temple name',
-          'some-content-id',
-          startTime,
-        );
+        await result.current.addTemple('some-content-id', startTime);
       });
 
       expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/temples', {
         body: JSON.stringify({
-          name: 'Temple name',
           contentId: 'some-content-id',
           startTime: '1994-03-08T00:00:00.000Z',
         }),

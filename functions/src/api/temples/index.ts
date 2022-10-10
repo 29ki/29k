@@ -52,7 +52,6 @@ templesRouter.get('/', async ctx => {
 });
 
 const CreateTempleSchema = yup.object().shape({
-  name: yup.string().required(),
   contentId: yup.string().required(),
   startTime: yup.string().required(),
 });
@@ -60,7 +59,7 @@ const CreateTempleSchema = yup.object().shape({
 type CreateTemple = yup.InferType<typeof CreateTempleSchema>;
 
 templesRouter.post('/', validator({body: CreateTempleSchema}), async ctx => {
-  const {name, contentId, startTime} = ctx.request.body as CreateTemple;
+  const {contentId, startTime} = ctx.request.body as CreateTemple;
 
   const data = await dailyApi.createRoom();
   const defaultExerciseState = {
@@ -73,7 +72,6 @@ templesRouter.post('/', validator({body: CreateTempleSchema}), async ctx => {
     dailyRoomName: string;
   } = {
     id: data.id,
-    name: name,
     url: data.url,
     contentId,
     facilitator: ctx.user.id,

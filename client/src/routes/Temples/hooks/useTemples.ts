@@ -1,10 +1,12 @@
 import {useCallback} from 'react';
 import {useSetRecoilState} from 'recoil';
+import dayjs from 'dayjs';
+
 import * as templesApi from '../api/temples';
 import * as templeApi from '../api/temple';
 
 import {isLoadingAtom, templesAtom} from '../state/state';
-import dayjs from 'dayjs';
+import {Temple} from '../../../../../shared/src/types/Temple';
 
 const useTemples = () => {
   const setIsLoading = useSetRecoilState(isLoadingAtom);
@@ -17,12 +19,8 @@ const useTemples = () => {
   }, [setIsLoading, setTemples]);
 
   const addTemple = useCallback(
-    async (templeName: string, contentId: string, startTime: dayjs.Dayjs) => {
-      if (!templeName) {
-        return;
-      }
-
-      await templeApi.addTemple(templeName, contentId, startTime.toJSON());
+    async (contentId: Temple['contentId'], startTime: dayjs.Dayjs) => {
+      await templeApi.addTemple(contentId, startTime.toJSON());
       fetchTemples();
     },
     [fetchTemples],
