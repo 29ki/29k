@@ -3,7 +3,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
 import React, {useContext, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Video from 'react-native-video';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
@@ -14,6 +14,7 @@ import Gutters from '../../common/components/Gutters/Gutters';
 import {ArrowLeftIcon} from '../../common/components/Icons';
 import {
   BottomSafeArea,
+  Spacer16,
   Spacer8,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
@@ -33,6 +34,7 @@ import {DailyUserData} from '../../../../shared/src/types/Temple';
 import useLeaveTemple from './hooks/useLeaveTemple';
 import VideoBase from './components/VideoBase/VideoBase';
 import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
+import HostNotes from './components/HostNotes/HostNotes';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -121,13 +123,18 @@ const Portal: React.FC = () => {
 
   const introPortal = exercise?.introPortal;
 
+  const hostnotes = exercise?.hostnotes.filter(
+    item => item.type === 'portalNote' && item,
+  );
+  const filteredNotes = hostnotes?.map(item => item.notes)[0];
+
   if (!introPortal) {
     return null;
   }
 
   return (
     <>
-      <TopSafeArea minSize={SPACINGS.SIXTEEN} />
+      {!isFacilitator && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
       <VideoStyled
         ref={finalVidRef}
         onLoad={() => finalVidRef.current?.seek(0)}
@@ -161,29 +168,31 @@ const Portal: React.FC = () => {
       <Wrapper>
         {introPortal.type === 'video' && (
           <Content>
-            <TopBar>
-              <BackButton
-                noBackground
-                onPress={leaveTemple}
-                Icon={ArrowLeftIcon}
-              />
-              {__DEV__ && temple?.started && (
-                <Button small onPress={() => navigate('Temple', {templeId})}>
-                  {t('skipPortal')}
-                </Button>
-              )}
-              {isFacilitator && (
-                <Button
-                  small
-                  disabled={temple?.started}
-                  onPress={() => {
-                    templeApi.updateTemple(templeId, {started: true});
-                  }}>
-                  {temple?.started ? t('sessionStarted') : t('startSession')}
-                </Button>
-              )}
-            </TopBar>
-
+            <View>
+              {isFacilitator && <HostNotes notes={filteredNotes} />}
+              <Spacer16 />
+              <TopBar>
+                <BackButton
+                  noBackground
+                  onPress={leaveTemple}
+                  Icon={ArrowLeftIcon}
+                />
+                {__DEV__ && temple?.started && (
+                  <Button small onPress={() => navigate('Temple', {templeId})}>
+                    {t('skipPortal')}
+                  </Button>
+                )}
+                {isFacilitator && (
+                  <Button
+                    disabled={temple?.started}
+                    onPress={() => {
+                      templeApi.updateTemple(templeId, {started: true});
+                    }}>
+                    {temple?.started ? t('sessionStarted') : t('startSession')}
+                  </Button>
+                )}
+              </TopBar>
+            </View>
             <PortalStatus>
               <StatusItem>
                 <StatusText>{t('counterLabel.soon')}</StatusText>
