@@ -25,7 +25,6 @@ describe('useTempleNotificationReminder', () => {
     const {result} = renderHook(() =>
       useTempleNotificationReminder({
         id: 'some-temple-id',
-        name: 'Some name',
         contentId: 'some-content-id',
       } as Temple),
     );
@@ -45,7 +44,6 @@ describe('useTempleNotificationReminder', () => {
     const {result} = renderHook(() =>
       useTempleNotificationReminder({
         id: 'some-temple-id',
-        name: 'Some name',
         contentId: 'some-content-id',
       } as Temple),
     );
@@ -69,7 +67,6 @@ describe('useTempleNotificationReminder', () => {
     const {result} = renderHook(() =>
       useTempleNotificationReminder({
         id: 'some-temple-id',
-        name: 'Some name',
         contentId: 'some-content-id',
       } as Temple),
     );
