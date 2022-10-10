@@ -67,41 +67,62 @@ const THEME = {
   ],
 };
 
-const HOST_NOTES = {
-  label: 'Host Notes slide',
-  name: 'hostnotesslide',
+const NOTE_TYPES = {
+  PORTAL_NOTE: 'portalNote',
+  SPOTLIGHT_NOTE: 'spotlightNote',
+  CONTENT_NOTE: 'ContentNote',
+  REFLECTION_NOTE: 'ReflectionNote',
+  SHARING_NOTE: 'SharingNote',
+};
+
+const NOTES_FIELDS = {
+  label: 'Notes',
+  name: 'notes',
   widget: 'list',
-  hint: '',
-  collapsed: true,
-  required: false,
-  i18n: true,
+  collapsed: false,
   fields: [
     {
-      label: 'Notes type',
-      name: 'notestype',
-      widget: 'select',
-      multiple: false,
-      options: [
-        {label: 'Intro portal', value: 'Intro portal'},
-        {label: 'Host spotlight', value: 'Host spotlight'},
-        {label: 'Content', value: 'Content'},
-      ],
-    },
-    {
-      label: 'Host Notes',
-      name: 'hostnotes',
-      widget: 'list',
-      collapsed: false,
-      fields: [
-        {
-          label: 'Note',
-          name: 'note',
-          widget: 'string',
-          required: false,
-        },
-      ],
+      label: 'Text',
+      name: 'text',
+      widget: 'string',
+      required: true,
     },
   ],
+};
+export const PORTAL_NOTE = {
+  label: 'Portal Note',
+  name: NOTE_TYPES.PORTAL_NOTE,
+  widget: 'object',
+  collapsed: true,
+  fields: [NOTES_FIELDS],
+};
+export const SPOTLIGHT_NOTE = {
+  label: 'Spotlight Note',
+  name: NOTE_TYPES.SPOTLIGHT_NOTE,
+  widget: 'object',
+  collapsed: true,
+  fields: [NOTES_FIELDS],
+};
+export const CONTENT_NOTE = {
+  label: 'Content Note',
+  name: NOTE_TYPES.CONTENT_NOTE,
+  widget: 'object',
+  collapsed: true,
+  fields: [NOTES_FIELDS],
+};
+export const REFLECTION_NOTE = {
+  label: 'Reflection Note',
+  name: NOTE_TYPES.REFLECTION_NOTE,
+  widget: 'object',
+  collapsed: true,
+  fields: [NOTES_FIELDS],
+};
+export const SHARING_NOTE = {
+  label: 'Sharing Note',
+  name: NOTE_TYPES.SHARING_NOTE,
+  widget: 'object',
+  collapsed: true,
+  fields: [NOTES_FIELDS],
 };
 
 export default [
@@ -124,5 +145,18 @@ export default [
       PARTICIPANT_SPOTLIGHT_SLIDE,
     ],
   },
-  HOST_NOTES,
+
+  {
+    label: 'Host Notes',
+    name: 'hostnotes',
+    widget: 'list',
+    i18n: true,
+    types: [
+      PORTAL_NOTE,
+      SPOTLIGHT_NOTE,
+      CONTENT_NOTE,
+      REFLECTION_NOTE,
+      SHARING_NOTE,
+    ],
+  },
 ];

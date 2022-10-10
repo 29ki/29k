@@ -54,6 +54,34 @@ export type OutroPortal = {
   };
 };
 
+export type PortalNote = {
+  type: 'portalNote';
+  notes: string[];
+};
+export type SpotlightNote = {
+  type: 'spotlightNote';
+  notes: string[];
+};
+export type ContentNote = {
+  type: 'contentNote';
+  notes: string[];
+};
+export type ReflectionNote = {
+  type: 'reflectionNote';
+  notes: string[];
+};
+export type SharingNote = {
+  type: 'sharingNote';
+  notes: string[];
+};
+
+export type HostNote =
+  | PortalNote
+  | SpotlightNote
+  | ContentNote
+  | ReflectionNote
+  | SharingNote;
+
 export type ExerciseSlide =
   | ContentSlide
   | ReflectionSlide
@@ -74,4 +102,5 @@ export type Exercise = {
   };
   slides: ExerciseSlide[];
   published: boolean;
+  hostnotes: HostNote[];
 };

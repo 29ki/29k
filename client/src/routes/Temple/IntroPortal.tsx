@@ -8,7 +8,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
 import React, {useContext, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Video from 'react-native-video';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
@@ -20,6 +20,7 @@ import Gutters from '../../common/components/Gutters/Gutters';
 import {ArrowLeftIcon} from '../../common/components/Icons';
 import {
   BottomSafeArea,
+  Spacer16,
   Spacer8,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
@@ -40,6 +41,7 @@ import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
 import AudioFader from './components/AudioFader/AudioFader';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 import useUpdateTemple from './hooks/useUpdateTemple';
+import HostNotes from './components/HostNotes/HostNotes';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -116,6 +118,11 @@ const IntroPortal: React.FC = () => {
 
   const introPortal = exercise?.introPortal;
 
+  const hostnotes = exercise?.hostnotes.filter(
+    item => item.type === 'portalNote' && item,
+  );
+  const filteredNotes = hostnotes?.map(item => item.notes)[0];
+
   if (!introPortal) {
     return null;
   }
@@ -139,7 +146,7 @@ const IntroPortal: React.FC = () => {
 
   return (
     <>
-      <TopSafeArea minSize={SPACINGS.SIXTEEN} />
+      {!isFacilitator && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
       {isFocused && introPortal.videoLoop?.audio && (
         <AudioFader
           source={introPortal.videoLoop.audio}
@@ -147,7 +154,6 @@ const IntroPortal: React.FC = () => {
           mute={joiningTemple}
         />
       )}
-
       <VideoStyled
         ref={endVideoRef}
         onLoad={onEndVideoLoad}
@@ -174,49 +180,53 @@ const IntroPortal: React.FC = () => {
       <Wrapper>
         {isFocused && (
           <Content>
-            <TopBar>
-              <BackButton
-                noBackground
-                onPress={leaveTempleWithConfirm}
-                Icon={ArrowLeftIcon}
-              />
-              {__DEV__ && temple?.started && (
-                <Button small onPress={() => navigate('Temple', {templeId})}>
-                  {t('skipPortal')}
-                </Button>
-              )}
-              {isFacilitator && (
-                <Button small disabled={temple?.started} onPress={setStarted}>
-                  {temple?.started ? t('sessionStarted') : t('startSession')}
-                </Button>
-              )}
-            </TopBar>
+            <View>
+              {isFacilitator && <HostNotes notes={filteredNotes} />}
+              <Spacer16 />
+              <TopBar>
+                <BackButton
+                  noBackground
+                  onPress={leaveTempleWithConfirm}
+                  Icon={ArrowLeftIcon}
+                />
+                {__DEV__ && temple?.started && (
+                  <Button small onPress={() => navigate('Temple', {templeId})}>
+                    {t('skipPortal')}
+                  </Button>
+                )}
+                {isFacilitator && (
+                  <Button small disabled={temple?.started} onPress={setStarted}>
+                    {temple?.started ? t('sessionStarted') : t('startSession')}
+                  </Button>
+                )}
+              </TopBar>
 
-            <PortalStatus>
-              <StatusItem>
-                <StatusText>{t('counterLabel.soon')}</StatusText>
-
-                <Spacer8 />
-                <Badge>
-                  <StatusText>
-                    <Counter
-                      startTime={dayjs(temple?.startTime.toDate())}
-                      starting={temple?.started}
-                    />
-                  </StatusText>
-                </Badge>
-              </StatusItem>
-
-              {participantsCount > 0 && (
+              <PortalStatus>
                 <StatusItem>
-                  <StatusText>{t('participants')}</StatusText>
+                  <StatusText>{t('counterLabel.soon')}</StatusText>
+
                   <Spacer8 />
                   <Badge>
-                    <StatusText>{participantsCount}</StatusText>
+                    <StatusText>
+                      <Counter
+                        startTime={dayjs(temple?.startTime.toDate())}
+                        starting={temple?.started}
+                      />
+                    </StatusText>
                   </Badge>
                 </StatusItem>
-              )}
-            </PortalStatus>
+
+                {participantsCount > 0 && (
+                  <StatusItem>
+                    <StatusText>{t('participants')}</StatusText>
+                    <Spacer8 />
+                    <Badge>
+                      <StatusText>{participantsCount}</StatusText>
+                    </Badge>
+                  </StatusItem>
+                )}
+              </PortalStatus>
+            </View>
           </Content>
         )}
       </Wrapper>
