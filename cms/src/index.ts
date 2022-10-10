@@ -28,8 +28,8 @@ CMS.init({
     media_library: {
       name: 'cloudinary',
       config: {
-        cloud_name: 'twentyninek',
-        api_key: '898446174989532',
+        cloud_name: 'cupcake-29k',
+        api_key: '373696539271219',
         default_transformations: [
           [
             {

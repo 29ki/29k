@@ -12,6 +12,13 @@ We must be able to understand the design of your change from this description. I
 
 -->
 
+#### Screenshots
+
+<!-- If client change - add screenshots for both platforms -->
+| iOS | Android |
+|-|-|
+|  |  |
+
 ### Verification Process
 
 <!--
