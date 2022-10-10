@@ -13,7 +13,7 @@
     "start": "yarn build:content && vite",
     "test:lint": "eslint --ext .js,.jsx,.ts,.tsx",
     "test:ts": "tsc --noEmit",
-    "test": "yarn test:ts && yarn test:lint"
+    "test": "yarn build:content && yarn test:ts && yarn test:lint"
   },
   "dependencies": {
     "i18next": "^21.9.2",
