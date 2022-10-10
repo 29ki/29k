@@ -9,7 +9,7 @@
   "contributors": [
     {
       "name": "Erik Fernholm",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193298795-f0dc1b28-f4e4-4232-b0fd-01ab174e655c.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665412608/Contributors/Erik%20Fernholm.png",
       "profile": "https://www.linkedin.com/in/lyckoaktivist/",
       "contributions": [
         "content",
@@ -21,7 +21,7 @@
     },
     {
       "name": "Elise Lilliehöök",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193298663-bf7038bd-a060-4d2c-bd14-6828eb0d7d27.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665412985/Contributors/Elise%20Lillieh%C3%B6%C3%B6k.png",
       "profile": "https://www.linkedin.com/in/eliselilliehook/",
       "contributions": [
         "fundingFinding",
@@ -32,7 +32,7 @@
     {
       "login": "gewfy",
       "name": "Jakob Öhman",
-      "avatar_url": "https://avatars.githubusercontent.com/u/474066?v=4",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413037/Contributors/Jakob%20%C3%96hman.jpg",
       "profile": "https://github.com/gewfy",
       "contributions": [
         "code",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Johanna Schwang",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193298848-bc63a7ee-58b5-4cb1-af9e-0e894fd2113a.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413106/Contributors/Johanna%20Schwang.png",
       "profile": "https://www.linkedin.com/in/johanna-schwang-61309943/",
       "contributions": [
         "financial",
@@ -52,8 +52,8 @@
     },
     {
       "login": "Lisa29k",
-      "name": "Lisa29k",
-      "avatar_url": "https://avatars.githubusercontent.com/u/113595061?v=4",
+      "name": "Lisa Lööf",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413154/Contributors/Lisa%20L%C3%B6%C3%B6f.jpg",
       "profile": "https://github.com/Lisa29k",
       "contributions": [
         "userExperience",
@@ -65,7 +65,7 @@
     },
     {
       "name": "Fredrik Livheim",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193298744-ea7d4d74-fa7b-4062-badf-d167fd08eb5e.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413198/Contributors/Fredrik%20Livheim.png",
       "profile": "https://www.linkedin.com/in/fredrik-livheim-53692172/",
       "contributions": [
         "fundingFinding",
@@ -78,7 +78,7 @@
     {
       "login": "jrrjenny",
       "name": "Jenny Rickardsson",
-      "avatar_url": "https://avatars.githubusercontent.com/u/113593919?v=4",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413228/Contributors/Jenny%20Rickardsson.jpg",
       "profile": "http://29k.org",
       "contributions": [
         "content",
@@ -89,7 +89,7 @@
     },
     {
       "name": "Maria Modigh",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193298544-5f01d508-e75c-4cc9-8a9e-e922b73a4245.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413252/Contributors/Maria%20Modigh.png",
       "profile": "https://www.linkedin.com/in/maria-modigh-666b7738/",
       "contributions": [
         "fundingFinding",
@@ -100,7 +100,7 @@
     {
       "login": "Nipher",
       "name": "Jonas Mendes",
-      "avatar_url": "https://avatars.githubusercontent.com/u/7523828?v=4",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413280/Contributors/Jonas%20Mendes.jpg",
       "profile": "https://github.com/Nipher",
       "contributions": [
         "code",
@@ -109,7 +109,7 @@
     },
     {
       "name": "Victoria Gladkiy",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193298946-24b0a875-9507-46c2-ad6d-4b96ee808f11.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413297/Contributors/Victoria%20Gladkiy.png",
       "profile": "https://www.linkedin.com/in/victoria-gladkiy-0444a7163/",
       "contributions": [
         "marketing",
@@ -120,7 +120,7 @@
     {
       "login": "swemail",
       "name": "Emil Rondahl",
-      "avatar_url": "https://avatars.githubusercontent.com/u/1139207?v=4",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413335/Contributors/Emil%20Rondahl.jpg",
       "profile": "https://github.com/swemail",
       "contributions": [
         "code",
@@ -130,7 +130,7 @@
     {
       "login": "kajsaunge",
       "name": "Kajsa Unge",
-      "avatar_url": "https://avatars.githubusercontent.com/u/9316860?v=4",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413357/Contributors/Kajsa%20Unge.jpg",
       "profile": "http://kajsaunge.se",
       "contributions": [
         "code",
@@ -140,8 +140,8 @@
     },
     {
       "login": "kapostints",
-      "name": "kapostints",
-      "avatar_url": "https://avatars.githubusercontent.com/u/113690434?v=4",
+      "name": "Ints Ivanovskis",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
       "profile": "https://github.com/kapostints",
       "contributions": [
         "design",
@@ -151,7 +151,7 @@
     {
       "name": "Iraci Stensjö",
       "profile": "https://www.linkedin.com/in/iracistensjo/",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193539148-94fcbf35-4c48-4125-8752-f71f1f7aff05.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413467/Contributors/Iraci%20Stensj%C3%B6.png",
       "contributions": [
         "data",
         "coreTeam"
@@ -159,7 +159,7 @@
     },
     {
       "name": "Jorge Ribeiro dos Santos",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193447343-e7560fd4-a57d-4a36-9e12-28bcbd0e9f9e.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413498/Contributors/Jorge%20Ribeiro%20dos%20Santos.png",
       "profile": "https://www.linkedin.com/in/jorgers/",
       "contributions": [
         "translation",
@@ -168,7 +168,7 @@
     },
     {
       "name": "David Lindberg",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193299100-a66f4126-191d-4cf2-843b-aa7ae317a40f.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413515/Contributors/David%20Lindberg.png",
       "profile": "https://www.linkedin.com/in/david-lindberg-10808319b/",
       "contributions": [
         "video",
@@ -178,7 +178,7 @@
     },
     {
       "name": "Chibi Anward",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193445918-1264d8be-f883-4e75-80d4-d0f1cac6d4dd.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413554/Contributors/Chibi%20Anward.png",
       "profile": "https://www.linkedin.com/in/chibianward/",
       "contributions": [
         "code",
@@ -188,7 +188,7 @@
     {
       "login": "Op",
       "name": "Örjan Fors",
-      "avatar_url": "https://avatars.githubusercontent.com/u/55245?v=4",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413572/Contributors/%C3%96rjan%20Fors.jpg",
       "profile": "https://github.com/op",
       "contributions": [
         "code"
@@ -196,7 +196,7 @@
     },
     {
       "name": "Brendan Marsh",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193446315-b8c5bb27-a535-4ef4-a10d-787a8df83982.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413606/Contributors/Brendan%20Marsh.png",
       "profile": "https://www.linkedin.com/in/bamarsh/",
       "contributions": [
         "projectManagement",
@@ -206,7 +206,7 @@
     {
       "login": "Pelsin",
       "name": "Ian Vidales",
-      "avatar_url": "https://avatars.githubusercontent.com/u/5345892?v=4",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413686/Contributors/Ian%20Vidales.jpg",
       "profile": "https://github.com/Pelsin",
       "contributions": [
         "code"
@@ -214,7 +214,7 @@
     },
     {
       "name": "Thorarinn Johannsson",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193446075-13de066d-eecb-41f2-84c6-6103ec2c1f33.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413715/Contributors/Thorarinn%20Johannsson.png",
       "profile": "https://www.linkedin.com/in/thorarinnjohannsson/",
       "contributions": [
         "design"
@@ -223,7 +223,7 @@
     {
       "login": "namvu9",
       "name": "Nam Vu",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193447154-e1f1fd7c-5605-4d64-8ae4-02c8f5fe03ab.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413740/Contributors/Nam%20Vu.png",
       "profile": "https://github.com/namvu9",
       "contributions": [
         "code"
@@ -232,7 +232,7 @@
     {
       "login": "og2t",
       "name": "Tomek Augustyn",
-      "avatar_url": "https://avatars.githubusercontent.com/u/28712?v=4",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413766/Contributors/Tomek%20Augustyn.png",
       "profile": "http://play.blog2t.net",
       "contributions": [
         "code"
@@ -240,7 +240,7 @@
     },
     {
       "name": "Pegah Afsharian",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193445889-f8be8530-a063-4aeb-a030-baf744d4f2df.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413793/Contributors/Pegah%20Afsharian.png",
       "profile": "https://www.linkedin.com/in/pegah-afsharian-70788051/",
       "contributions": [
         "projectManagement",
@@ -250,7 +250,7 @@
     {
       "login": "bbultman",
       "name": "Ben Bultman",
-      "avatar_url": "https://avatars.githubusercontent.com/u/8900487?v=4",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413820/Contributors/Ben%20Bultman.jpg",
       "profile": "https://github.com/bbultman",
       "contributions": [
         "code"
@@ -258,7 +258,7 @@
     },
     {
       "name": "Daniel Ek",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/194889944-241af587-b893-4218-b588-c73a27ceb2c7.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413852/Contributors/Daniel%20Ek.png",
       "profile": "https://www.linkedin.com/in/daniel-ek-92515a4/",
       "contributions": [
         "content"
@@ -267,14 +267,14 @@
     {
       "profile": "https://www.linkedin.com/in/bjornhedensjo/",
       "name": "Björn Hedensjö",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/194890177-7bf205f7-834d-4c04-b868-6f10b36146d9.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413870/Contributors/Bj%C3%B6rn%20Hedensj%C3%B6.png",
       "contributions": [
         "content"
       ]
     },
     {
       "name": "Freja Hedvall",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193446264-fce5264a-2cda-43e2-a01a-29715398c110.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413899/Contributors/Freja%20Hedvall.png",
       "profile": "https://www.linkedin.com/in/frejahedvall/",
       "contributions": [
         "design"
@@ -282,7 +282,7 @@
     },
     {
       "name": "Biola Kadiri Fischer",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193446234-6dadc115-fd4b-4711-8a24-637373d1caae.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413928/Contributors/Biola%20Kadiri%20Fischer.png",
       "profile": "https://www.linkedin.com/in/thorarinnjohannsson/",
       "contributions": [
         "design"
@@ -291,7 +291,7 @@
     {
       "login": "reimertz",
       "name": "Piérre Reimertz",
-      "avatar_url": "https://avatars.githubusercontent.com/u/625287?v=4",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413988/Contributors/Pi%C3%A9rre%20Reimertz.jpg",
       "profile": "https://reimertz.co",
       "contributions": [
         "code"
@@ -299,7 +299,7 @@
     },
     {
       "name": "Therese Colliander",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193299045-2bc4bddc-16ae-4a1f-a747-289964549ba8.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665414017/Contributors/Therese%20Colliander.png",
       "profile": "https://www.linkedin.com/in/therese-colliander-77744710b/",
       "contributions": [
         "video",
@@ -309,7 +309,7 @@
     },
     {
       "name": "My Amori",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193447190-02e4f42d-063e-4539-8652-7dc804b8fe08.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665414040/Contributors/My%20Amori.png",
       "profile": "https://www.linkedin.com/in/myamori/",
       "contributions": [
         "userExperience",
@@ -318,7 +318,7 @@
     },
     {
       "name": "Sedir Ajeenah",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193447002-fbd7d024-3272-42b0-9cd1-36a2237e9c79.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665414059/Contributors/Sedir%20Ajeenah.png",
       "profile": "https://www.linkedin.com/in/sedirajeenah/",
       "contributions": [
         "marketing",
@@ -327,7 +327,7 @@
     },
     {
       "name": "Jonas Lind Bertéusen ",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193597571-d8141c87-be90-40bd-a9ea-40744e9f5fa8.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665414096/Contributors/Jonas%20Lind%20Bert%C3%A9usen.png",
       "profile": "https://www.linkedin.com/in/jonoq/",
       "contributions": [
         "userExperience",
@@ -336,7 +336,7 @@
     },
     {
       "name": "Sonja Petrovic Lundberg",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193299185-668be8ac-1b78-4700-9f9e-c10eefe83caf.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665414114/Contributors/Sonja%20Petrovic%20Lundberg.png",
       "profile": "https://www.linkedin.com/in/sonja-petrovic-lundberg/",
       "contributions": [
         "projectManagement",
@@ -346,7 +346,7 @@
     },
     {
       "name": "Shirley Johansson",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193445797-71d7feae-d6f5-46cd-ad03-2561bb8be0fc.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665414155/Contributors/Shirley%20Johansson.png",
       "profile": "https://www.linkedin.com/in/sjohansson/",
       "contributions": [
         "business",
@@ -356,7 +356,7 @@
     },
     {
       "name": "Agnes Branny",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193298988-abea4f98-5c83-4df5-9a03-b0e4071a639f.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665414181/Contributors/Agnes%20Branny.png",
       "profile": "https://www.linkedin.com/in/agnesbranny/",
       "contributions": [
         "research",
@@ -365,7 +365,7 @@
     },
     {
       "name": "Adel Ekvall Halila",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193598543-ed11e638-af84-4b0d-83fa-89c15a679d24.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665414206/Contributors/Adel%20Ekvall%20Halila.png",
       "profile": "https://www.linkedin.com/in/adel-ekvall-halila-6a2ab9183/",
       "contributions": [
         "marketing"
@@ -373,7 +373,7 @@
     },
     {
       "name": "Jacqueline Levi",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193299146-c6eda64c-8ba8-4482-9177-71ef2d54537c.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665414232/Contributors/Jacqueline%20Levi.png",
       "profile": "https://www.linkedin.com/in/jacqueline-levi-292065ab/",
       "contributions": [
         "research",
@@ -383,7 +383,7 @@
     {
       "login": "chrismact",
       "name": "Chris MacTaggart",
-      "avatar_url": "https://avatars.githubusercontent.com/u/81088775?v=4",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665414254/Contributors/Chris%20MacTaggart.jpg",
       "profile": "https://github.com/chrismact",
       "contributions": [
         "design",
@@ -393,7 +393,7 @@
     {
       "login": "Greenheart",
       "name": "Samuel Plumppu",
-      "avatar_url": "https://avatars.githubusercontent.com/u/6125097?v=4",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665414277/Contributors/Samuel%20Plumppu.png",
       "profile": "https://samuelplumppu.se",
       "contributions": [
         "code"
@@ -401,7 +401,7 @@
     },
     {
       "name": "Joanna Rajska Lindvall",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193447103-6742ff02-9ec6-4100-955a-0beaa7abaf74.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665414300/Contributors/Joanna%20Rajska%20Lindvall.png",
       "profile": "https://www.linkedin.com/in/joanna-rajska-lindvall-3a1b26129/",
       "contributions": [
         "content"
@@ -410,7 +410,7 @@
     {
       "profile": "https://www.linkedin.com/in/emmy-backstrom/",
       "name": "Emmy Bäckström",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193538328-525a4656-ea87-4c9e-ac8d-4729d266193c.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665414326/Contributors/Emmy%20B%C3%A4ckstr%C3%B6m.png",
       "contributions": [
         "design"
       ]
@@ -418,7 +418,7 @@
     {
       "name": "Sofia Lundgren",
       "profile": "https://www.linkedin.com/in/sofia-lundgren-b75537a5/",
-      "avatar_url": "https://user-images.githubusercontent.com/474066/193538883-a52b8b6d-32bb-4a8d-91d6-32cd422509ad.png",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665414341/Contributors/Sofia%20Lundgren.png",
       "contributions": [
         "data"
       ]
