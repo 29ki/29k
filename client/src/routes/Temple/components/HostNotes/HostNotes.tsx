@@ -10,6 +10,7 @@ import Animated, {
   RotateOutDownRight,
   SlideOutUp,
 } from 'react-native-reanimated';
+import {useTranslation} from 'react-i18next';
 
 import Button from '../../../../common/components/Buttons/Button';
 import {MinusIcon, PlusIcon} from '../../../../common/components/Icons';
@@ -28,6 +29,7 @@ import {
 } from '../../../../common/components/Spacers/Spacer';
 import Gutters from '../../../../common/components/Gutters/Gutters';
 import useTempleExercise from '../../hooks/useTempleExercise';
+import NS from '../../../../lib/i18n/constants/namespaces';
 
 const BoxShadowWrapper = styled.View({...SETTINGS.BOXSHADOW});
 const Wrapper = styled.View({
@@ -96,6 +98,7 @@ const HostNotes: React.FC<HostNotesProps> = ({notes}) => {
   const [containerWidth, setContainerWidth] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const exercise = useTempleExercise();
+  const {t} = useTranslation(NS.COMPONENT.HOST_NOTES);
 
   useEffect(() => {
     listRef.current?.scrollToIndex({animated: true, index: activeIndex});
@@ -121,7 +124,7 @@ const HostNotes: React.FC<HostNotesProps> = ({notes}) => {
               onPress={() => setShowNotes(!showNotes)}
               RightIcon={showNotes ? AnimatedMinusIcon : AnimatedPlusIcon}
               variant="tertiary">
-              {'Notes'}
+              {t('notes')}
             </Button>
           </TopBar>
           <Spacer8 />
