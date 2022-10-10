@@ -1,8 +1,4 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-# Compiled JavaScript files
-lib/**/*.js
-lib/**/*.js.map
-lib/**/*.json
 
 # dependencies
 /node_modules
