@@ -9,6 +9,7 @@ export const fetchTemples = async (): Promise<Temple[]> => {
     if (!response.ok) {
       throw new Error(await response.text());
     }
+
     return response.json();
   } catch (cause) {
     throw new Error('Could not fetch temples', {cause});

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {ActivityIndicator} from 'react-native';
-import {COLORS} from '../../constants/colors';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import {Body16} from '../Typography/Body/Body';
 import {IconType} from '../Icons';
@@ -69,6 +69,12 @@ const Button: React.FC<ButtonProps> = ({
   active,
 }) => (
   <BaseButton
+    hitSlop={{
+      bottom: small ? SPACINGS.EIGHT : undefined,
+      left: undefined,
+      right: undefined,
+      top: small ? SPACINGS.EIGHT : undefined,
+    }}
     onPress={onPress}
     variant={variant}
     elevated={elevated}

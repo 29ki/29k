@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {useTranslation} from 'react-i18next';
-
 import styled from 'styled-components/native';
+import dayjs from 'dayjs';
+
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {
@@ -42,16 +43,19 @@ const Profile = () => {
         <Heading18>{t('language')}</Heading18>
         <Spacer8 />
         <Row>
-          {LANGUAGE_TAGS.map(languageTag => (
-            <>
+          {LANGUAGE_TAGS.map((languageTag, i) => (
+            <Fragment key={i}>
               <Button
                 variant="secondary"
                 key={languageTag}
-                onPress={() => i18n.changeLanguage(languageTag)}>
+                onPress={() => {
+                  i18n.changeLanguage(languageTag);
+                  dayjs.locale(languageTag);
+                }}>
                 {languageTag.toUpperCase()}
               </Button>
               <Spacer8 />
-            </>
+            </Fragment>
           ))}
         </Row>
         <Spacer48 />

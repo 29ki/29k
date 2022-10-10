@@ -5,6 +5,10 @@ import useTemples from './useTemples';
 import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
 import {isLoadingAtom, templesAtom} from '../state/state';
 import {userAtom} from '../../../lib/user/state/state';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+
+dayjs.extend(utc);
 
 enableFetchMocks();
 
@@ -25,9 +29,7 @@ describe('useTemples', () => {
 
     it('should fetch temples', async () => {
       fetchMock.mockResponseOnce(
-        JSON.stringify([
-          {id: 'temple-id', url: '/temple-url', name: 'Temple Name'},
-        ]),
+        JSON.stringify([{id: 'temple-id', url: '/temple-url'}]),
         {status: 200},
       );
       const {result} = renderHook(() => useTestHook(), {
@@ -46,15 +48,13 @@ describe('useTemples', () => {
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(result.current.temples).toEqual([
-        {id: 'temple-id', url: '/temple-url', name: 'Temple Name'},
+        {id: 'temple-id', url: '/temple-url'},
       ]);
     });
 
     it('should update loading state', async () => {
       fetchMock.mockResponseOnce(
-        JSON.stringify([
-          {id: 'temple-id', url: '/temple-url', name: 'Temple Name'},
-        ]),
+        JSON.stringify([{id: 'temple-id', url: '/temple-url'}]),
         {status: 200},
       );
       const {result} = renderHook(() => useTestHook(), {
@@ -78,6 +78,8 @@ describe('useTemples', () => {
   });
 
   describe('addTemple', () => {
+    const startTime = dayjs.utc('1994-03-08');
+
     it('should add a temple and refetch', async () => {
       fetchMock.mockResponseOnce(
         JSON.stringify({
@@ -98,17 +100,15 @@ describe('useTemples', () => {
       });
 
       await act(async () => {
-        await result.current.addTemple('Temple name');
+        await result.current.addTemple('some-content-id', startTime);
       });
 
       expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/temples', {
         body: JSON.stringify({
-          name: 'Temple name',
-          contentId: '095f9642-73b6-4c9a-ae9a-ea7dea7363f5',
+          contentId: 'some-content-id',
+          startTime: '1994-03-08T00:00:00.000Z',
         }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: {'Content-Type': 'application/json'},
         method: 'POST',
       });
 
@@ -119,7 +119,7 @@ describe('useTemples', () => {
   });
 
   describe('deleteTemple', () => {
-    it('should add a temple and refetch', async () => {
+    it('should delete a temple and refetch', async () => {
       fetchMock.mockResponseOnce('Success', {status: 200});
       const {result} = renderHook(() => useTemples(), {
         wrapper: RecoilRoot,

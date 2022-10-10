@@ -4,16 +4,18 @@
     "name": "Pure simple love",
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png"
+        "source": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
       }
     },
     "introPortal": {
       "type": "video",
       "videoLoop": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663143395/temp/portal-intro_h7qccz.mp4"
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663143395/temp/portal-intro_h7qccz.mp4",
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663147750/temp/portal-intro-end_crzjih.mp4"
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663147750/temp/portal-intro-end_crzjih.mp4",
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664798292/temp/bowl_fxc4ox.mp3"
       }
     },
     "slides": [
@@ -61,7 +63,12 @@
         }
       }
     ],
-    "published": true
+    "published": true,
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1664798564/temp/portal_outro_lpm80e.mp4"
+      }
+    }
   },
   "sv": {
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",

@@ -12,7 +12,7 @@ import styled from 'styled-components/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useUiLib} from '../hooks/useUiLib';
 import {ComponentLibrary, ComponentList} from './UiLibRootComponent';
-import {COLORS} from '../../../common/constants/colors';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 
 const Drawer = createDrawerNavigator();
 

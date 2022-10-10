@@ -1,4 +1,4 @@
-import {useContext} from 'react';
+import {useCallback, useContext} from 'react';
 import {Alert} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
@@ -15,27 +15,29 @@ type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 const useLeaveTemple = () => {
   const {t} = useTranslation(NS.COMPONENT.CONFIRM_EXIT_TEMPLE);
   const {leaveMeeting} = useContext(DailyContext);
-  const navigation = useNavigation<ScreenNavigationProps>();
+  const {navigate} = useNavigation<ScreenNavigationProps>();
 
   const resetTemple = useResetRecoilState(templeAtom);
 
-  const onConfirm = async () => {
+  const leaveTemple = useCallback(async () => {
     await leaveMeeting();
     resetTemple();
-    navigation.navigate('Temples');
-  };
+    navigate('Temples');
+  }, [leaveMeeting, resetTemple, navigate]);
 
-  return async () => {
+  const leaveTempleWithConfirm = useCallback(async () => {
     Alert.alert(t('header'), t('text'), [
       {text: t('buttons.cancel'), style: 'cancel', onPress: () => {}},
       {
         text: t('buttons.confirm'),
         style: 'destructive',
 
-        onPress: onConfirm,
+        onPress: leaveTemple,
       },
     ]);
-  };
+  }, [t, leaveTemple]);
+
+  return {leaveTemple, leaveTempleWithConfirm};
 };
 
 export default useLeaveTemple;

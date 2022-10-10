@@ -4,6 +4,7 @@ export type ParticipantSpotlightSlide = {
 
 export type Content = {
   heading?: string;
+  text?: string;
   video?: {
     source: string;
     preview: string;
@@ -33,15 +34,25 @@ export type VideoPortal = {
   type: 'video';
   videoLoop: {
     source: string;
+    audio: string;
     preview: string;
   };
   videoEnd?: {
     source: string;
+    audio: string;
     preview: string;
   };
 };
 
-export type Portal = VideoPortal;
+export type IntroPortal = VideoPortal;
+
+export type OutroPortal = {
+  type: 'video';
+  video: {
+    source: string;
+    preview: string;
+  };
+};
 
 export type ExerciseSlide =
   | ContentSlide
@@ -55,6 +66,12 @@ export type Exercise = {
   card?: {
     image?: {source: string; description?: string};
   };
-  introPortal: Portal;
+  introPortal: IntroPortal;
+  outroPortal: OutroPortal;
+  theme?: {
+    textColor: string;
+    backgroundColor: string;
+  };
   slides: ExerciseSlide[];
+  published: boolean;
 };

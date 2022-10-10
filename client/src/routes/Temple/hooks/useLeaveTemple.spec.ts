@@ -35,61 +35,77 @@ describe('useLeaveTemple', () => {
   const navigation = useNavigation();
   const resetState = useResetRecoilState(templesAtom);
 
-  it('shows a confirm dialogue on leaving the temple', async () => {
-    const {result} = renderHook(() => useLeaveTemple());
+  describe('leaveTemple', () => {
+    it('leaves the call, resets the state and navigates on confirming', async () => {
+      const {result} = renderHook(() => useLeaveTemple());
 
-    await act(() => result.current());
+      await act(() => result.current.leaveTemple());
 
-    expect(alertConfirmMock).toHaveBeenCalledTimes(1);
-    expect(alertConfirmMock).toHaveBeenCalledWith(
-      'Some translation',
-      'Some translation',
-      [
-        {
-          onPress: expect.any(Function),
-          style: 'cancel',
-          text: 'Some translation',
-        },
-        {
-          onPress: expect.any(Function),
-          style: 'destructive',
-          text: 'Some translation',
-        },
-      ],
-    );
+      expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
+      expect(useResetRecoilState).toHaveBeenCalled(); // Weird recoil caching seems to make this be called twice in this test
+      expect(useResetRecoilState).toHaveBeenCalledWith(templeAtom);
+      expect(resetState).toHaveBeenCalledTimes(1);
+      expect(navigation.navigate as jest.Mock).toHaveBeenCalledTimes(1);
+    });
   });
 
-  it('leaves the call, resets the state and navigates on confirming', async () => {
-    alertConfirmMock.mockImplementationOnce((header, text, config) => {
-      // Run the confirm action
-      config[1].onPress();
+  describe('leaveTempleWithConfirm', () => {
+    it('shows a confirm dialogue on leaving the temple', async () => {
+      const {result} = renderHook(() => useLeaveTemple());
+
+      await act(() => result.current.leaveTempleWithConfirm());
+
+      expect(alertConfirmMock).toHaveBeenCalledTimes(1);
+      expect(alertConfirmMock).toHaveBeenCalledWith(
+        'Some translation',
+        'Some translation',
+        [
+          {
+            onPress: expect.any(Function),
+            style: 'cancel',
+            text: 'Some translation',
+          },
+          {
+            onPress: expect.any(Function),
+            style: 'destructive',
+            text: 'Some translation',
+          },
+        ],
+      );
     });
 
-    const {result} = renderHook(() => useLeaveTemple());
+    it('leaves the call, resets the state and navigates on confirming', async () => {
+      alertConfirmMock.mockImplementationOnce((header, text, config) => {
+        // Run the confirm action
+        config[1].onPress();
+      });
 
-    await act(() => result.current());
+      const {result} = renderHook(() => useLeaveTemple());
 
-    expect(alertConfirmMock).toHaveBeenCalledTimes(1);
-    expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
-    expect(useResetRecoilState).toHaveBeenCalledTimes(1);
-    expect(useResetRecoilState).toHaveBeenCalledWith(templeAtom);
-    expect(resetState).toHaveBeenCalledTimes(1);
-    expect(navigation.navigate as jest.Mock).toHaveBeenCalledTimes(1);
-  });
+      await act(() => result.current.leaveTempleWithConfirm());
 
-  it('does nothing on dismiss', async () => {
-    alertConfirmMock.mockImplementationOnce((header, text, config) => {
-      // Run the dismiss action
-      config[0].onPress();
+      expect(alertConfirmMock).toHaveBeenCalledTimes(1);
+      expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
+      expect(useResetRecoilState).toHaveBeenCalledTimes(1);
+      expect(useResetRecoilState).toHaveBeenCalledWith(templeAtom);
+      expect(resetState).toHaveBeenCalledTimes(1);
+      expect(navigation.navigate as jest.Mock).toHaveBeenCalledTimes(1);
     });
 
-    const {result} = renderHook(() => useLeaveTemple());
+    it('does nothing on dismiss', async () => {
+      alertConfirmMock.mockImplementationOnce((header, text, config) => {
+        // Run the dismiss action
+        config[0].onPress();
+      });
 
-    await act(() => result.current());
+      const {result} = renderHook(() => useLeaveTemple());
 
-    expect(alertConfirmMock).toHaveBeenCalledTimes(1);
-    expect(mockLeaveMeeting).toHaveBeenCalledTimes(0);
-    expect(resetState).toHaveBeenCalledTimes(0);
-    expect(navigation.navigate as jest.Mock).toHaveBeenCalledTimes(0);
+      await act(() => result.current.leaveTempleWithConfirm());
+
+      expect(alertConfirmMock).toHaveBeenCalledTimes(1);
+      expect(mockLeaveMeeting).toHaveBeenCalledTimes(0);
+      expect(resetState).toHaveBeenCalledTimes(0);
+      expect(navigation.navigate as jest.Mock).toHaveBeenCalledTimes(0);
+    });
   });
 });

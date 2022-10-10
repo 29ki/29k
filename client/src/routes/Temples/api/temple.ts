@@ -4,13 +4,13 @@ import apiClient from '../../../lib/apiClient/apiClient';
 const TEMPLES_ENDPOINT = '/temples';
 
 export const addTemple = async (
-  name: string,
-  contentId = '095f9642-73b6-4c9a-ae9a-ea7dea7363f5',
+  contentId: Temple['contentId'],
+  startTime: Temple['startTime'],
 ): Promise<Temple> => {
   try {
     const response = await apiClient(TEMPLES_ENDPOINT, {
       method: 'POST',
-      body: JSON.stringify({name, contentId}),
+      body: JSON.stringify({contentId, startTime}),
     });
 
     if (!response.ok) {
@@ -25,7 +25,7 @@ export const addTemple = async (
 
 export const updateTemple = async (
   id: string,
-  data: Partial<Pick<Temple, 'started'>>,
+  data: Partial<Pick<Temple, 'started' | 'ended'>>,
 ) => {
   try {
     const response = await apiClient(`${TEMPLES_ENDPOINT}/${id}`, {

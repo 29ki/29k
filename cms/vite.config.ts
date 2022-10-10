@@ -1,5 +1,6 @@
 import dns from 'dns';
 import {defineConfig} from 'vite';
+import react from '@vitejs/plugin-react';
 
 /*
   GitHub authentication only works on "localhost" and not "127.0.0.1".
@@ -10,10 +11,11 @@ dns.setDefaultResultOrder('verbatim');
 export default defineConfig({
   root: 'src',
   server: {
-    port: '1234',
+    port: 1234,
     open: '/',
   },
   build: {
     outDir: '../dist',
   },
+  plugins: [react()],
 });

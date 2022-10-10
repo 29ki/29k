@@ -1,7 +1,7 @@
 import React from 'react';
 import {ActivityIndicator} from 'react-native';
 import styled from 'styled-components/native';
-import {COLORS} from '../../../constants/colors';
+import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../constants/spacings';
 import {IconType} from '../../Icons';
 import BaseButton, {BaseButtonProps} from '../BaseButton';
@@ -38,6 +38,16 @@ const IconButton: React.FC<IconButtonProps> = ({
   fill,
 }) => (
   <StyledIconButton
+    hitSlop={
+      small
+        ? {
+            bottom: SPACINGS.FOUR,
+            left: SPACINGS.FOUR,
+            right: SPACINGS.FOUR,
+            top: SPACINGS.FOUR,
+          }
+        : {}
+    }
     onPress={onPress}
     disabled={disabled}
     variant={variant}
