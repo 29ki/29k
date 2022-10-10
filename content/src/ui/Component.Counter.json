@@ -2,19 +2,25 @@
   "en": {
     "counterValue": {
       "shortly": "Shortly",
-      "now": "Now"
+      "now": "Now",
+      "inHours": "{{hours}}h {{minutes}}m",
+      "inMinutes": "{{minutes}}m {{seconds}}s"
     }
   },
   "sv": {
     "counterValue": {
       "shortly": "Strax",
-      "now": "Nu"
+      "now": "Nu",
+      "inHours": "{{hours}}h {{minutes}}m",
+      "inMinutes": "{{minutes}}m {{seconds}}s"
     }
   },
   "pt": {
     "counterValue": {
       "shortly": "Shortly",
-      "now": "Now"
+      "now": "Now",
+      "inHours": "{{hours}}h {{minutes}}m",
+      "inMinutes": "{{minutes}}m {{seconds}}s"
     }
   }
 }
