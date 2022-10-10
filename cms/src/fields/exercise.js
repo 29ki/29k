@@ -125,6 +125,64 @@ export const SHARING_NOTE = {
   fields: [NOTES_FIELDS],
 };
 
+const NOTE_TYPES = {
+  PORTAL_NOTE: 'portalNote',
+  SPOTLIGHT_NOTE: 'spotlightNote',
+  CONTENT_NOTE: 'ContentNote',
+  REFLECTION_NOTE: 'ReflectionNote',
+  SHARING_NOTE: 'SharingNote',
+};
+
+const NOTES_FIELDS = {
+  label: 'Notes',
+  name: 'notes',
+  widget: 'list',
+  collapsed: false,
+  fields: [
+    {
+      label: 'Text',
+      name: 'text',
+      widget: 'string',
+      required: true,
+    },
+  ],
+};
+export const PORTAL_NOTE = {
+  label: 'Portal Note',
+  name: NOTE_TYPES.PORTAL_NOTE,
+  widget: 'object',
+  collapsed: true,
+  fields: [NOTES_FIELDS],
+};
+export const SPOTLIGHT_NOTE = {
+  label: 'Spotlight Note',
+  name: NOTE_TYPES.SPOTLIGHT_NOTE,
+  widget: 'object',
+  collapsed: true,
+  fields: [NOTES_FIELDS],
+};
+export const CONTENT_NOTE = {
+  label: 'Content Note',
+  name: NOTE_TYPES.CONTENT_NOTE,
+  widget: 'object',
+  collapsed: true,
+  fields: [NOTES_FIELDS],
+};
+export const REFLECTION_NOTE = {
+  label: 'Reflection Note',
+  name: NOTE_TYPES.REFLECTION_NOTE,
+  widget: 'object',
+  collapsed: true,
+  fields: [NOTES_FIELDS],
+};
+export const SHARING_NOTE = {
+  label: 'Sharing Note',
+  name: NOTE_TYPES.SHARING_NOTE,
+  widget: 'object',
+  collapsed: true,
+  fields: [NOTES_FIELDS],
+};
+
 export default [
   ID_FIELD,
   NAME_FIELD,

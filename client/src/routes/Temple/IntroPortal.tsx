@@ -195,7 +195,7 @@ const IntroPortal: React.FC = () => {
                   </Button>
                 )}
                 {isFacilitator && (
-                  <Button small disabled={temple?.started} onPress={setStarted}>
+                  <Button disabled={temple?.started} onPress={setStarted}>
                     {temple?.started ? t('sessionStarted') : t('startSession')}
                   </Button>
                 )}
