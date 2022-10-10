@@ -30,10 +30,25 @@ describe('utils', () => {
             published: true,
           },
         },
+        'some-other-exercise-id': {
+          en: {
+            id: 'some-other-exercise-id',
+            name: 'You body, your home',
+            slides: [
+              {
+                type: 'participantSpotlight',
+              },
+            ],
+            published: true,
+          },
+        },
       };
       expect(generateI18NResources(content, 'exercises')).toEqual({
         en: {
-          exercises: {'some-exercise-id': content['some-exercise-id']['en']},
+          exercises: {
+            'some-exercise-id': content['some-exercise-id']['en'],
+            'some-other-exercise-id': content['some-other-exercise-id']['en'],
+          },
         },
       });
     });
@@ -52,9 +67,48 @@ describe('utils', () => {
           sv: {id: 'some-exercise-id', published: false},
           pt: {id: 'some-exercise-id', published: false},
         },
+        'some-other-exercise-id': {
+          en: {id: 'some-other-exercise-id', published: false},
+          sv: {id: 'some-other-exercise-id', published: true},
+          pt: {id: 'some-other-exercise-id', published: false},
+        },
       };
 
       expect(filterPublishedContent(content)).toEqual({
+        'some-exercise-id': {
+          en: {
+            id: 'some-exercise-id',
+            name: 'You body, your home',
+            slides: [],
+            published: true,
+          },
+        },
+        'some-other-exercise-id': {
+          sv: {id: 'some-other-exercise-id', published: true},
+        },
+      });
+    });
+
+    it('should filter out non published content for an explicit locale', () => {
+      const content = {
+        'some-exercise-id': {
+          en: {
+            id: 'some-exercise-id',
+            name: 'You body, your home',
+            slides: [],
+            published: true,
+          },
+          sv: {id: 'some-exercise-id', published: false},
+          pt: {id: 'some-exercise-id', published: false},
+        },
+        'some-other-exercise-id': {
+          en: {id: 'some-other-exercise-id', published: false},
+          sv: {id: 'some-other-exercise-id', published: true},
+          pt: {id: 'some-other-exercise-id', published: false},
+        },
+      };
+
+      expect(filterPublishedContent(content, 'en')).toEqual({
         'some-exercise-id': {
           en: {
             id: 'some-exercise-id',

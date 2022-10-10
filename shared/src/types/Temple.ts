@@ -5,8 +5,9 @@ export type ExerciseStateInput = Omit<ExerciseState, 'timestamp'> & {
   timestamp: Timestamp;
 };
 
-export type TempleInput = Omit<Temple, 'exerciseState'> & {
+export type TempleInput = Omit<Omit<Temple, 'exerciseState'>, 'startTime'> & {
   exerciseState: ExerciseStateInput;
+  startTime: Timestamp;
 };
 
 // Data stored in DB
@@ -24,12 +25,13 @@ export type ExerciseState = {
 
 export type Temple = {
   id: string;
-  name: string;
   url: string;
   exerciseState: ExerciseState;
   contentId: string;
   facilitator: string;
+  startTime: string;
   started: boolean;
+  ended: boolean;
 };
 
 export type DailyUserData = {

@@ -18,18 +18,22 @@ export const getContentByType = type => {
   }, {});
 };
 
-export const filterPublishedContent = files =>
-  Object.entries(files).reduce(
-    (files, [file, content]) => ({
-      ...files,
-      [file]: Object.entries(content).reduce(
-        (filtered, [locale, resource]) =>
-          resource.published ? {...filtered, [locale]: resource} : filtered,
-        {},
-      ),
-    }),
-    {},
-  );
+export const filterPublishedContent = (files, explicitLocale) =>
+  Object.entries(files)
+    .filter(
+      ([, content]) => !explicitLocale || content?.[explicitLocale]?.published,
+    )
+    .reduce(
+      (files, [file, content]) => ({
+        ...files,
+        [file]: Object.entries(content).reduce(
+          (filtered, [locale, resource]) =>
+            resource.published ? {...filtered, [locale]: resource} : filtered,
+          {},
+        ),
+      }),
+      {},
+    );
 
 /*
 Generates i18n-friendly structure
@@ -56,7 +60,7 @@ export const generateI18NResources = (content, parentNS) =>
           [locale]: parentNS
             ? {
                 [parentNS]: {
-                  ...resources[locale],
+                  ...resources[locale]?.[parentNS],
                   [namespace]: resource,
                 },
               }

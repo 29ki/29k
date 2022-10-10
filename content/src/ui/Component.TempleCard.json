@@ -1,9 +1,13 @@
 {
-    "en": {
-        "join_button": "Join"
-    },
-    "sv": {
-        "join_button": "Gå med"
-    },
-    "pt": {}
+  "en": {
+    "addToCalendar": "Add to Cal",
+    "join": "Join",
+    "starts": "Starts"
+  },
+  "sv": {
+    "addToCalendar": "Lägg i Kal",
+    "join": "Gå med",
+    "starts": "Startar"
+  },
+  "pt": {}
 }

@@ -28,6 +28,16 @@ const INTRO_PORTAL: CmsField = {
   ],
 };
 
+const OUTRO_PORTAL: CmsField = {
+  label: 'Outro Portal',
+  name: 'outroPortal',
+  widget: 'object',
+  collapsed: true,
+  required: false,
+  i18n: true,
+  fields: [{...VIDEO_FIELD, label: 'Video', name: 'video'}],
+};
+
 const THEME: CmsField = {
   label: 'Theme',
   name: 'theme',
@@ -47,14 +57,14 @@ const THEME: CmsField = {
         {label: 'Light', value: COLORS.WHITE},
         {label: 'Dark', value: COLORS.BLACK},
       ],
-      required: true,
+      required: false,
     },
     {
       label: 'Background Color',
       name: 'backgroundColor',
       widget: 'color',
       i18n: 'duplicate',
-      required: true,
+      required: false,
     },
   ],
 };
@@ -66,6 +76,7 @@ const EXERCISE_FIELDS: Array<CmsField> = [
   CARD_FIELD,
   THEME,
   INTRO_PORTAL,
+  OUTRO_PORTAL,
   {
     label: 'Slides',
     name: 'slides',
