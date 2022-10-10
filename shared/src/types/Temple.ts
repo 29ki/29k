@@ -25,7 +25,6 @@ export type ExerciseState = {
 
 export type Temple = {
   id: string;
-  name: string;
   url: string;
   exerciseState: ExerciseState;
   contentId: string;

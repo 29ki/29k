@@ -149,7 +149,7 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
       const sessionDateTime = date.hour(time.hour()).minute(time.minute());
 
       setIsLoading(true);
-      await addTemple('Some Name', selectedExercise, sessionDateTime);
+      await addTemple(selectedExercise, sessionDateTime);
       setIsLoading(false);
       goBack();
     }
