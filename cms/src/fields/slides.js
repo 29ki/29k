@@ -7,6 +7,23 @@ export const SLIDE_TYPES = {
   SHARING: 'sharing',
 };
 
+export const HOST_NOTES = {
+  label: 'Host Notes',
+  name: 'hostNotes',
+  widget: 'list',
+  label_singular: 'Host note',
+  collapsed: true,
+  requred: false,
+  fields: [
+    {
+      label: 'Text',
+      name: 'text',
+      widget: 'markdown',
+      required: true,
+    },
+  ],
+};
+
 const CONTENT_VIDEO_FIELD = {...VIDEO_FIELD, hint: 'Overrides image'};
 
 const CONTENT_FIELDS = [
@@ -31,14 +48,7 @@ export const PARTICIPANT_SPOTLIGHT_SLIDE = {
   name: SLIDE_TYPES.PARTICIPANT_SPOTLIGHT,
   widget: 'object',
   collapsed: true,
-  fields: [
-    {
-      label: 'Content',
-      name: 'content',
-      widget: 'hidden',
-      required: false,
-    },
-  ],
+  fields: [HOST_NOTES],
 };
 
 export const CONTENT_SLIDE = {
@@ -47,6 +57,7 @@ export const CONTENT_SLIDE = {
   widget: 'object',
   collapsed: true,
   fields: [
+    HOST_NOTES,
     {
       label: 'Content',
       name: 'content',
@@ -63,6 +74,7 @@ export const REFLECTION_SLIDE = {
   widget: 'object',
   collapsed: true,
   fields: [
+    HOST_NOTES,
     {
       label: 'Content',
       name: 'content',
@@ -79,6 +91,7 @@ export const SHARING_SLIDE = {
   widget: 'object',
   collapsed: true,
   fields: [
+    HOST_NOTES,
     {
       label: 'Content',
       name: 'content',

@@ -1,5 +1,10 @@
+export type HostNote = {
+  text: string;
+};
+
 export type ParticipantSpotlightSlide = {
   type: 'participantSpotlight';
+  hostNotes?: HostNote[];
 };
 
 export type Content = {
@@ -17,21 +22,25 @@ export type Content = {
 
 export type ContentSlide = {
   type: 'content';
+  hostNotes?: HostNote[];
   content: Content;
 };
 
 export type ReflectionSlide = {
   type: 'reflection';
+  hostNotes?: HostNote[];
   content: Content;
 };
 
 export type SharingSlide = {
   type: 'sharing';
+  hostNotes?: HostNote[];
   content: Content;
 };
 
-export type VideoPortal = {
+export type IntroPortal = {
   type: 'video';
+  hostNotes?: HostNote[];
   videoLoop: {
     source: string;
     audio: string;
@@ -44,8 +53,6 @@ export type VideoPortal = {
   };
 };
 
-export type IntroPortal = VideoPortal;
-
 export type OutroPortal = {
   type: 'video';
   video: {
@@ -53,34 +60,6 @@ export type OutroPortal = {
     preview: string;
   };
 };
-
-export type PortalNote = {
-  type: 'portalNote';
-  notes: string[];
-};
-export type SpotlightNote = {
-  type: 'spotlightNote';
-  notes: string[];
-};
-export type ContentNote = {
-  type: 'contentNote';
-  notes: string[];
-};
-export type ReflectionNote = {
-  type: 'reflectionNote';
-  notes: string[];
-};
-export type SharingNote = {
-  type: 'sharingNote';
-  notes: string[];
-};
-
-export type HostNote =
-  | PortalNote
-  | SpotlightNote
-  | ContentNote
-  | ReflectionNote
-  | SharingNote;
 
 export type ExerciseSlide =
   | ContentSlide
@@ -102,5 +81,4 @@ export type Exercise = {
   };
   slides: ExerciseSlide[];
   published: boolean;
-  hostnotes: HostNote[];
 };

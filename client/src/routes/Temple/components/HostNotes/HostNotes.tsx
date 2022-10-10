@@ -11,6 +11,7 @@ import Animated, {
   SlideOutUp,
 } from 'react-native-reanimated';
 import {useTranslation} from 'react-i18next';
+import {ViewStyle} from 'react-native';
 
 import Button from '../../../../common/components/Buttons/Button';
 import {MinusIcon, PlusIcon} from '../../../../common/components/Icons';
@@ -19,7 +20,6 @@ import {Body14} from '../../../../common/components/Typography/Body/Body';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import SETTINGS from '../../../../common/constants/settings';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import {HostNote} from '../../../../../../shared/src/types/Content';
 import {BackwardCircleIcon} from '../../../../common/components/Icons/BackwardCircle/BackwardCircle';
 import {ForwardCircleIcon} from '../../../../common/components/Icons/ForwardCircle/ForwardCircle';
 import {
@@ -29,6 +29,7 @@ import {
 } from '../../../../common/components/Spacers/Spacer';
 import Gutters from '../../../../common/components/Gutters/Gutters';
 import useTempleExercise from '../../hooks/useTempleExercise';
+import Markdown from '../../../../common/components/Typography/Markdown/Markdown';
 import NS from '../../../../lib/i18n/constants/namespaces';
 
 const BoxShadowWrapper = styled.View({...SETTINGS.BOXSHADOW});
@@ -89,10 +90,11 @@ const ListItem = styled.View<{containerWidth: number}>(props => ({
 }));
 
 type HostNotesProps = {
-  notes: HostNote[];
+  introPortal?: boolean;
+  style?: ViewStyle;
 };
 
-const HostNotes: React.FC<HostNotesProps> = ({notes}) => {
+const HostNotes: React.FC<HostNotesProps> = ({introPortal, style}) => {
   const listRef = useRef<FlatList>(null);
   const [showNotes, setShowNotes] = useState(false);
   const [containerWidth, setContainerWidth] = useState(0);
@@ -100,18 +102,25 @@ const HostNotes: React.FC<HostNotesProps> = ({notes}) => {
   const exercise = useTempleExercise();
   const {t} = useTranslation(NS.COMPONENT.HOST_NOTES);
 
+  const notes = introPortal
+    ? exercise?.introPortal.hostNotes
+    : exercise?.slide.current.hostNotes;
+
   useEffect(() => {
     listRef.current?.scrollToIndex({animated: true, index: activeIndex});
   }, [activeIndex]);
 
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [notes]);
+
   return (
-    <BoxShadowWrapper>
+    <BoxShadowWrapper style={style}>
       <Wrapper
         onLayout={event => {
           setContainerWidth(event.nativeEvent.layout.width);
         }}>
         <TopSafeArea />
-        <Spacer8 />
         <Gutters>
           <TopBar>
             <Progress
@@ -122,7 +131,9 @@ const HostNotes: React.FC<HostNotesProps> = ({notes}) => {
             <Button
               small
               onPress={() => setShowNotes(!showNotes)}
-              RightIcon={showNotes ? AnimatedMinusIcon : AnimatedPlusIcon}
+              RightIcon={
+                notes && showNotes ? AnimatedMinusIcon : AnimatedPlusIcon
+              }
               variant="tertiary">
               {t('notes')}
             </Button>
@@ -130,7 +141,7 @@ const HostNotes: React.FC<HostNotesProps> = ({notes}) => {
           <Spacer8 />
         </Gutters>
       </Wrapper>
-      {showNotes && (
+      {showNotes && notes && (
         <NotesWrapper>
           <Gutters>
             <Spacer28 />
@@ -144,13 +155,14 @@ const HostNotes: React.FC<HostNotesProps> = ({notes}) => {
               data={notes}
               showsHorizontalScrollIndicator={false}
               ItemSeparatorComponent={Spacer8}
-              scrollEnabled={notes?.length > 1}
+              scrollEnabled={Boolean(notes.length)}
               renderItem={({item}) => (
                 <ListItem containerWidth={containerWidth}>
-                  <Body14>{item.text}</Body14>
+                  <Markdown>{item.text}</Markdown>
                 </ListItem>
               )}
               horizontal
+              initialScrollIndex={activeIndex}
             />
             <Navigation>
               <NavButton
@@ -158,11 +170,11 @@ const HostNotes: React.FC<HostNotesProps> = ({notes}) => {
                 Icon={BackwardCircleIcon}
                 disabled={activeIndex <= 0}
               />
-              <Body14>{`${activeIndex + 1} / ${notes?.length}`}</Body14>
+              <Body14>{`${activeIndex + 1} / ${notes.length}`}</Body14>
               <NavButton
                 onPress={() => setActiveIndex(activeIndex + 1)}
                 Icon={ForwardCircleIcon}
-                disabled={activeIndex >= notes?.length - 1}
+                disabled={activeIndex >= notes.length - 1}
               />
             </Navigation>
           </Gutters>
