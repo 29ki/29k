@@ -1597,24 +1597,24 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-plugin/-/eslint-plugin-1.2.0.tgz#7d6d789ae8edf73dc9bed1246cd48277edea8066"
   integrity sha512-o6aam+0Ug1xGK3ABYmBm0B1YuEKfM/5kaoZO0eHbZwSpw9UzDX4G5y4Nx/K20FHqUmJHkZmLvOUFYwN4N+HqKA==
 
-"@react-native-firebase/app@^15.6.0":
-  version "15.6.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-15.6.0.tgz#3fb00ab92fd269fe411cd1cc88f27e785e1bd0b2"
-  integrity sha512-Lae6GL79y4FVN7E8uQXUbUW+3KzJvhKdBQoVnjMZukodWDRtLifr1DDykuICFlYL1/Pjr1AWxfcZAgwt/zo5Iw==
+"@react-native-firebase/app@^15.7.0":
+  version "15.7.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-15.7.0.tgz#0649cf398b7675b67d75f07756b51918ae20f450"
+  integrity sha512-ZyrvewIkQC0UHDuHxXyc25/V8xYOa4xlukIHIbtJeBzVCCyVgZxF4Svyqs+CosqbHOuwWnmg+AW0rMvjrRcdmw==
   dependencies:
     "@expo/config-plugins" "^5.0.1"
     opencollective-postinstall "^2.0.1"
     superstruct "^0.6.2"
 
-"@react-native-firebase/auth@^15.6.0":
-  version "15.6.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-15.6.0.tgz#2939266453150e5ea84c6925ae64d67790f7a40d"
-  integrity sha512-sw+GleRtlwsJmaQari1l6xAnoaXbfNDPWwn3FioniJe5csGLRihYcK+kvkzkQYjayN7k57x9RQP4EBhcNwLuJA==
+"@react-native-firebase/auth@^15.7.0":
+  version "15.7.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-15.7.0.tgz#bc133cb6e0f33fd307e8d3dfa7ae04b5980d7fbb"
+  integrity sha512-0HJfCc0SUcSFbz5SyZWZOJkhtn+kOU8ytuPHM+vOJBeg5owJzmLnFx1ZI20gHU5cxhN3UQy/GKMPvlIcDeW7Bg==
 
-"@react-native-firebase/firestore@^15.6.0":
-  version "15.6.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-15.6.0.tgz#c44354cc7ab2b199d41b5e790f91bf3a7d783ec4"
-  integrity sha512-gcFbYKoAJZzSR2zKl0vOw0aTcJhvVG9DRhin0dHuTc2VEfw+wD/GL3jFJBM2jxtCoLz9QKou/tbzt2Gbn1RxeA==
+"@react-native-firebase/firestore@^15.7.0":
+  version "15.7.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-15.7.0.tgz#9396d3cfcdf54aec3c10bb5c45d08d292a990abb"
+  integrity sha512-lcMApKFIo4k9GqOUuK03WBDs3JP0pa94jTmy+hZQLAqyeA78GYC57CzGGKCkR0qtwCzMtE8HXqICY9FKv4rxpg==
 
 "@react-native/assets@1.0.0":
   version "1.0.0"
