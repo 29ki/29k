@@ -5,7 +5,7 @@ export const ID_FIELD: CmsField = {
   name: 'id',
   widget: 'uniqueId',
   i18n: 'duplicate',
-  required: true,
+  required: false,
   index_file: '',
   meta: false,
 };

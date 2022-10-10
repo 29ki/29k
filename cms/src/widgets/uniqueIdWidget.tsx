@@ -1,4 +1,4 @@
-import React, {PureComponent, Component} from 'react';
+import React, {PureComponent} from 'react';
 import {v4 as uuidv4} from 'uuid';
 import {CmsWidgetControlProps, CmsWidgetParam} from 'netlify-cms-core';
 
@@ -30,6 +30,7 @@ class Control extends PureComponent<ControlProps> {
   render() {
     const {forID, classNameWrapper, setActiveStyle, setInactiveStyle, value} =
       this.props;
+
     return (
       <input
         type="text"
@@ -49,7 +50,7 @@ class Control extends PureComponent<ControlProps> {
 
 const Widget = {
   name: 'uniqueId',
-  controlComponent: Component,
+  controlComponent: Control,
 } as unknown as CmsWidgetParam;
 
 export {Widget, Control};
