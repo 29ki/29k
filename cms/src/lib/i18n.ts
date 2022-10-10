@@ -1,6 +1,8 @@
 // https://github.com/netlify/netlify-cms/pull/3366#issuecomment-662033144
 // https://github.com/reimertz/netlify-cms/commit/8ebe03a08e4aaab8fa038caf226dd425c8e7b1b2
 
+import {CmsCollection, CmsField} from 'netlify-cms-core';
+import {Resource, ResourceKey} from 'i18next';
 import {DEFAULT_LANGUAGE_TAG} from '../../../shared/src/constants/i18n';
 
 const SUPPORTED_KEYBASED_WIDGETS = [
@@ -37,7 +39,10 @@ const getFieldWidgetType = (key = '') => {
   else return 'string';
 };
 
-export const generateFieldFromI18n = ([key, value]) => {
+export const generateFieldFromI18n = ([key, value]: [
+  string,
+  ResourceKey,
+]): CmsField => {
   if (Array.isArray(value)) {
     return {
       label: key,
@@ -53,14 +58,16 @@ export const generateFieldFromI18n = ([key, value]) => {
               required: true,
               widget: 'string',
               i18n: true,
-            },
+            } as CmsField,
           }
         : {
             // Create fields based on object shapes
-            fields: Object.entries(value[0]).map(generateFieldFromI18n),
+            fields: Object.entries(value[0] as ResourceKey).map(
+              generateFieldFromI18n,
+            ),
           }),
       i18n: true,
-    };
+    } as CmsField;
   } else if (typeof value === 'object') {
     return {
       label: key,
@@ -69,7 +76,7 @@ export const generateFieldFromI18n = ([key, value]) => {
       required: true,
       fields: Object.entries(value).map(generateFieldFromI18n),
       i18n: true,
-    };
+    } as CmsField;
   } else {
     const widget = getFieldWidgetType(key);
     return {
@@ -79,15 +86,15 @@ export const generateFieldFromI18n = ([key, value]) => {
       widget,
       i18n: true,
       minimal: true,
-    };
+    } as CmsField;
   }
 };
 
 export const generateFilesCollectionFromi18nFiles = (
-  folderName,
-  label,
-  i18nResources,
-) => {
+  folderName: string,
+  label: string,
+  i18nResources: Resource,
+): CmsCollection => {
   const filteredResources = Object.entries(i18nResources[DEFAULT_LANGUAGE_TAG]);
 
   return {
