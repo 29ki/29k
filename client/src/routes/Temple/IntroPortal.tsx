@@ -118,11 +118,6 @@ const IntroPortal: React.FC = () => {
 
   const introPortal = exercise?.introPortal;
 
-  const hostnotes = exercise?.hostnotes.filter(
-    item => item.type === 'portalNote' && item,
-  );
-  const filteredNotes = hostnotes?.map(item => item.notes)[0];
-
   if (!introPortal) {
     return null;
   }
@@ -181,7 +176,7 @@ const IntroPortal: React.FC = () => {
         {isFocused && (
           <Content>
             <View>
-              {isFacilitator && <HostNotes notes={filteredNotes} />}
+              {isFacilitator && <HostNotes introPortal />}
               <Spacer16 />
               <TopBar>
                 <BackButton
@@ -200,33 +195,33 @@ const IntroPortal: React.FC = () => {
                   </Button>
                 )}
               </TopBar>
+            </View>
 
-              <PortalStatus>
+            <PortalStatus>
+              <StatusItem>
+                <StatusText>{t('counterLabel.soon')}</StatusText>
+
+                <Spacer8 />
+                <Badge>
+                  <StatusText>
+                    <Counter
+                      startTime={dayjs(temple?.startTime.toDate())}
+                      starting={temple?.started}
+                    />
+                  </StatusText>
+                </Badge>
+              </StatusItem>
+
+              {participantsCount > 0 && (
                 <StatusItem>
-                  <StatusText>{t('counterLabel.soon')}</StatusText>
-
+                  <StatusText>{t('participants')}</StatusText>
                   <Spacer8 />
                   <Badge>
-                    <StatusText>
-                      <Counter
-                        startTime={dayjs(temple?.startTime.toDate())}
-                        starting={temple?.started}
-                      />
-                    </StatusText>
+                    <StatusText>{participantsCount}</StatusText>
                   </Badge>
                 </StatusItem>
-
-                {participantsCount > 0 && (
-                  <StatusItem>
-                    <StatusText>{t('participants')}</StatusText>
-                    <Spacer8 />
-                    <Badge>
-                      <StatusText>{participantsCount}</StatusText>
-                    </Badge>
-                  </StatusItem>
-                )}
-              </PortalStatus>
-            </View>
+              )}
+            </PortalStatus>
           </Content>
         )}
       </Wrapper>

@@ -44,21 +44,23 @@ import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack'
 
 import useLeaveTemple from './hooks/useLeaveTemple';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import Gutters from '../../common/components/Gutters/Gutters';
 import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
 import Button from '../../common/components/Buttons/Button';
 import useUpdateTemple from './hooks/useUpdateTemple';
 import NS from '../../lib/i18n/constants/namespaces';
 import {useTranslation} from 'react-i18next';
+import HostNotes from './components/HostNotes/HostNotes';
 
 const LoadingView = styled.View({
   flex: 1,
   justifyContent: 'center',
 });
 
-const TopBar = styled(Gutters)({
-  justifyContent: 'flex-end',
-  flexDirection: 'row',
+const FloatingButton = styled(Button)({
+  position: 'absolute',
+  top: SPACINGS.SIXTEEN,
+  right: SPACINGS.SIXTEEN,
+  zIndex: 1,
 });
 
 const Spotlight = styled.View({
@@ -92,6 +94,14 @@ const Progress = styled(ProgressBar)({
 
 const SpotlightContent = styled.View({
   flex: 1,
+});
+
+const FloatingHostNotes = styled(HostNotes)({
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  left: 0,
+  zIndex: 1,
 });
 
 const Temple = () => {
@@ -142,15 +152,14 @@ const Temple = () => {
 
   return (
     <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
+      {isFacilitator && <FloatingHostNotes />}
       <TopSafeArea />
       <Spotlight>
-        <TopBar>
-          {isFacilitator && !exercise?.slide.next && (
-            <Button small active onPress={setEnded}>
-              {t('endButton')}
-            </Button>
-          )}
-        </TopBar>
+        {isFacilitator && !exercise?.slide.next && (
+          <FloatingButton small active onPress={setEnded}>
+            {t('endButton')}
+          </FloatingButton>
+        )}
         {exercise && (
           <SpotlightContent>
             <ExerciseSlides
