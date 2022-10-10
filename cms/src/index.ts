@@ -12,7 +12,7 @@ import {Widget as uniqueIdWidget} from './widgets/uniqueIdWidget';
 import EXERCISE_FIELDS from './fields/exercise';
 import CONTRIBUTORS_FIELDS from './fields/contributors';
 
-import content from '../../content/content.json';
+import * as content from '../../content/content.json';
 CMS.init({
   config: {
     load_config_file: false,
