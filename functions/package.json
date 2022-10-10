@@ -25,7 +25,7 @@
     "envalid": "^7.3.1",
     "firebase-admin": "^11.0.1",
     "firebase-functions": "^3.24.1",
-    "i18next": "^21.9.2",
+    "i18next": "^21.10.0",
     "koa": "^2.13.4",
     "koa-yup-validator": "^4.1.0",
     "ramda": "^0.28.0",
