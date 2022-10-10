@@ -138,7 +138,6 @@ describe('/api/temples', () => {
       const response = await request(mockServer)
         .post('/temples')
         .send({
-          name: 'the next big temple!',
           contentId: 'some-content-id',
           startTime,
         })
@@ -147,7 +146,6 @@ describe('/api/temples', () => {
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
         id: 'some-fake-daily-id',
-        name: 'the next big temple!',
         url: 'http://fake.daily/url',
         exerciseState: {
           index: 0,
