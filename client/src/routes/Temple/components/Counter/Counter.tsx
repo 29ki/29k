@@ -15,9 +15,20 @@ type CounterProps = {
 const Counter: React.FC<CounterProps> = ({startTime, starting = false}) => {
   const {t} = useTranslation(NS.COMPONENT.COUNTER);
   const [now, setNow] = useState(dayjs());
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
-    if (dayjs.duration(startTime.diff(now)).days() > 0) {
+    if (active) {
+      return;
+    }
+
+    if (dayjs.duration(startTime.diff(now)).days() < 1) {
+      setActive(true);
+    }
+  }, [active, now, startTime]);
+
+  useEffect(() => {
+    if (!active) {
       return;
     }
 
@@ -26,7 +37,7 @@ const Counter: React.FC<CounterProps> = ({startTime, starting = false}) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [now, startTime]);
+  }, [active]);
 
   const isStartingShortly = () => {
     return now.add(1, 'minute').isAfter(startTime);
