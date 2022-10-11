@@ -1,4 +1,9 @@
-import {CmsField, CmsFieldBase, CmsFieldObject} from 'netlify-cms-core';
+import {
+  CmsField,
+  CmsFieldBase,
+  CmsFieldObject,
+  CmsFieldList,
+} from 'netlify-cms-core';
 
 import {IMAGE_FIELD, VIDEO_FIELD} from './common';
 
@@ -9,13 +14,14 @@ export const SLIDE_TYPES = {
   SHARING: 'sharing',
 };
 
-export const HOST_NOTES = {
+export const HOST_NOTES: CmsFieldBase & CmsFieldList = {
   label: 'Host Notes',
   name: 'hostNotes',
   widget: 'list',
+  hint: 'Set each text block to a maximum of 50 words',
   label_singular: 'Host note',
   collapsed: true,
-  requred: false,
+  required: false,
   fields: [
     {
       label: 'Text',
