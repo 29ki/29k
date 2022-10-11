@@ -15,12 +15,10 @@ const Gradient = styled(LinearGradient)({
   height: 80,
 });
 
-type ParticipantSpotlightProps = {
+type HostProps = {
   active: boolean;
 };
-const ParticipantSpotlight: React.FC<ParticipantSpotlightProps> = ({
-  active,
-}) => {
+const Host: React.FC<HostProps> = ({active}) => {
   const participantSpotlight = useTempleParticipantSpotlight();
   const exercise = useTempleExercise();
 
@@ -40,4 +38,4 @@ const ParticipantSpotlight: React.FC<ParticipantSpotlightProps> = ({
   );
 };
 
-export default ParticipantSpotlight;
+export default Host;

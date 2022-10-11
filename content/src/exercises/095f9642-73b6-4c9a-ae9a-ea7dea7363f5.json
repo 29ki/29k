@@ -20,7 +20,7 @@
     },
     "slides": [
       {
-        "type": "participantSpotlight"
+        "type": "host"
       },
       {
         "type": "content",
@@ -51,7 +51,7 @@
         }
       },
       {
-        "type": "participantSpotlight"
+        "type": "host"
       },
       {
         "type": "content",

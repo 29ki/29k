@@ -10,7 +10,7 @@ import {
 } from './common';
 import {
   CONTENT_SLIDE,
-  PARTICIPANT_SPOTLIGHT_SLIDE,
+  HOST_SLIDE,
   REFLECTION_SLIDE,
   SHARING_SLIDE,
 } from './slides';
@@ -82,12 +82,7 @@ const EXERCISE_FIELDS: Array<CmsField> = [
     name: 'slides',
     widget: 'list',
     i18n: true,
-    types: [
-      CONTENT_SLIDE,
-      REFLECTION_SLIDE,
-      SHARING_SLIDE,
-      PARTICIPANT_SPOTLIGHT_SLIDE,
-    ],
+    types: [CONTENT_SLIDE, REFLECTION_SLIDE, SHARING_SLIDE, HOST_SLIDE],
   },
 ];
 
