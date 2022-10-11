@@ -16,11 +16,7 @@ import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
-import {
-  BottomSafeArea,
-  Spacer16,
-  Spacer8,
-} from '../../common/components/Spacers/Spacer';
+import {BottomSafeArea, Spacer8} from '../../common/components/Spacers/Spacer';
 import {Body14} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {HKGroteskBold} from '../../common/constants/fonts';

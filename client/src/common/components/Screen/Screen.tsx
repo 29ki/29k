@@ -35,7 +35,7 @@ const TopBar: React.FC<{
   <>
     <TopSafeArea />
     <TopBarWrapper>
-      {Boolean(onPressBack) && (
+      {onPressBack && (
         <BackButton
           noBackground
           onPress={onPressBack}
