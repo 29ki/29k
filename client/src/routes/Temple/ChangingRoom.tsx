@@ -41,7 +41,6 @@ import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 import useSubscribeToTemple from './hooks/useSubscribeToTemple';
 import useUpdateTempleExerciseState from './hooks/useUpdateTempleExerciseState';
 import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
-import {DailyUserData} from '../../../../shared/src/types/Temple';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -95,7 +94,6 @@ const Audio = styled(AudioIndicator)({
 const ChangingRoom = () => {
   const {t} = useTranslation(NS.SCREEN.CHANGING_ROOM);
   const [localUserName, setLocalUserName] = useState('');
-  const [joiningTemple, setJoiningTemple] = useState(false);
 
   const {goBack, navigate} = useNavigation<TempleNavigationProps>();
   const {
@@ -103,7 +101,6 @@ const ChangingRoom = () => {
     toggleVideo,
     setUserName,
     preJoinMeeting,
-    joinMeeting,
     hasAppPermissions,
   } = useContext(DailyContext);
 
@@ -139,8 +136,6 @@ const ChangingRoom = () => {
   ]);
 
   const join = async () => {
-    setJoiningTemple(true);
-    await joinMeeting({inPortal: true} as DailyUserData);
     navigate('IntroPortal', {templeId});
   };
 
@@ -222,8 +217,7 @@ const ChangingRoom = () => {
             <Button
               variant="secondary"
               onPress={handleJoin}
-              loading={joiningTemple}
-              disabled={!localUserName.length || joiningTemple}>
+              disabled={!localUserName.length}>
               {t('join_button')}
             </Button>
           </InputWrapper>
