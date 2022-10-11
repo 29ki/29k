@@ -50,14 +50,26 @@
           "heading": "Mission"
         }
       }
-    ]
+    ],
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#b82626"
+    }
   },
   "sv": {
     "published": false,
-    "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898"
+    "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#b82626"
+    }
   },
   "pt": {
     "published": false,
-    "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898"
+    "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#b82626"
+    }
   }
 }
