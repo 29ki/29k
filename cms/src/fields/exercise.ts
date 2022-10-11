@@ -4,9 +4,10 @@ import {COLORS} from '../../../shared/src/constants/colors';
 import {
   CARD_FIELD,
   ID_FIELD,
-  VIDEO_FIELD,
+  VIDEO_FIELD_WITH_AUDIO,
   NAME_FIELD,
   PUBLISHED_FIELD,
+  VIDEO_FIELD,
 } from './common';
 import {
   CONTENT_SLIDE,
@@ -23,7 +24,7 @@ const INTRO_PORTAL: CmsField = {
   required: false,
   i18n: true,
   fields: [
-    {...VIDEO_FIELD, label: 'Video Loop', name: 'videoLoop'},
+    {...VIDEO_FIELD_WITH_AUDIO, label: 'Video Loop', name: 'videoLoop'},
     {...VIDEO_FIELD, label: 'Video End', name: 'videoEnd'},
   ],
 };
@@ -35,7 +36,7 @@ const OUTRO_PORTAL: CmsField = {
   collapsed: true,
   required: false,
   i18n: true,
-  fields: [{...VIDEO_FIELD, label: 'Video', name: 'video'}],
+  fields: [{...VIDEO_FIELD_WITH_AUDIO, label: 'Video', name: 'video'}],
 };
 
 const THEME: CmsField = {
