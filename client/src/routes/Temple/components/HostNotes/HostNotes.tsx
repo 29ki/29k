@@ -93,9 +93,14 @@ const ListItem = styled.View<{containerWidth: number}>(props => ({
 type HostNotesProps = {
   introPortal?: boolean;
   style?: ViewStyle;
+  children?: React.ReactNode;
 };
 
-const HostNotes: React.FC<HostNotesProps> = ({introPortal, style}) => {
+const HostNotes: React.FC<HostNotesProps> = ({
+  introPortal,
+  style,
+  children,
+}) => {
   const listRef = useRef<FlatList>(null);
   const [showNotes, setShowNotes] = useState(false);
   const [containerWidth, setContainerWidth] = useState(0);
@@ -131,7 +136,7 @@ const HostNotes: React.FC<HostNotesProps> = ({introPortal, style}) => {
             <Spacer8 />
             <Button
               small
-              onPress={() => setShowNotes(!showNotes)}
+              onPress={() => setShowNotes(prevShowNotes => !prevShowNotes)}
               RightIcon={
                 notes && showNotes ? AnimatedMinusIcon : AnimatedPlusIcon
               }
@@ -167,13 +172,17 @@ const HostNotes: React.FC<HostNotesProps> = ({introPortal, style}) => {
             />
             <Navigation>
               <NavButton
-                onPress={() => setActiveIndex(activeIndex - 1)}
+                onPress={() =>
+                  setActiveIndex(prevActiveIndex => prevActiveIndex - 1)
+                }
                 Icon={BackwardCircleIcon}
                 disabled={activeIndex <= 0}
               />
               <Body14>{`${activeIndex + 1} / ${notes.length}`}</Body14>
               <NavButton
-                onPress={() => setActiveIndex(activeIndex + 1)}
+                onPress={() =>
+                  setActiveIndex(prevActiveIndex => prevActiveIndex + 1)
+                }
                 Icon={ForwardCircleIcon}
                 disabled={activeIndex >= notes.length - 1}
               />
@@ -182,6 +191,7 @@ const HostNotes: React.FC<HostNotesProps> = ({introPortal, style}) => {
           <Spacer8 />
         </NotesWrapper>
       )}
+      {children && children}
     </BoxShadowWrapper>
   );
 };

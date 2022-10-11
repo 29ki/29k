@@ -96,13 +96,7 @@ const FloatingHostNotes = styled(HostNotes)({
   left: 0,
   zIndex: 1,
 });
-const HostNotesWithEnd = styled.View({
-  position: 'absolute',
-  top: 0,
-  right: 0,
-  left: 0,
-  zIndex: 1,
-});
+
 const StyledButton = styled(Button)({
   alignSelf: 'flex-end',
   marginRight: SPACINGS.SIXTEEN,
@@ -156,16 +150,17 @@ const Temple = () => {
 
   return (
     <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
-      {isFacilitator && exercise?.slide.next && <FloatingHostNotes />}
-      {isFacilitator && !exercise?.slide.next && (
-        <HostNotesWithEnd>
-          <HostNotes />
-          <Spacer16 />
-
-          <StyledButton small active onPress={setEnded}>
-            {t('endButton')}
-          </StyledButton>
-        </HostNotesWithEnd>
+      {isFacilitator && (
+        <FloatingHostNotes>
+          {!exercise?.slide.next && (
+            <>
+              <Spacer16 />
+              <StyledButton small active onPress={setEnded}>
+                {t('endButton')}
+              </StyledButton>
+            </>
+          )}
+        </FloatingHostNotes>
       )}
       <TopSafeArea />
       <Spotlight>
