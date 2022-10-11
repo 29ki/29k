@@ -37,6 +37,10 @@ const SlideButton = styled(Button)(({disabled}) => ({
   opacity: disabled ? 0 : 1,
 }));
 
+const IconSlideButton = styled(IconButton)(({disabled}) => ({
+  opacity: disabled ? 0 : 1,
+}));
+
 type ContentControlsProps = {
   templeId: string;
   style?: ViewStyle;
@@ -72,17 +76,19 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
       </SlideButton>
       {exercise.slide.current.type !== 'host' && (
         <MediaControls>
-          <IconButton
+          <IconSlideButton
             small
             elevated
+            disabled={!exercise.slide.current.content.video}
             variant="tertiary"
             Icon={Rewind}
             onPress={() => setPlaying(exerciseState.playing)}
           />
           <Spacer8 />
-          <IconButton
+          <IconSlideButton
             small
             elevated
+            disabled={!exercise.slide.current.content.video}
             variant="tertiary"
             Icon={exerciseState.playing ? Pause : Play}
             onPress={() => setPlaying(!exerciseState.playing)}
