@@ -44,21 +44,16 @@ import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack'
 
 import useLeaveTemple from './hooks/useLeaveTemple';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import Gutters from '../../common/components/Gutters/Gutters';
 import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
 import Button from '../../common/components/Buttons/Button';
 import useUpdateTemple from './hooks/useUpdateTemple';
 import NS from '../../lib/i18n/constants/namespaces';
 import {useTranslation} from 'react-i18next';
+import HostNotes from './components/HostNotes/HostNotes';
 
 const LoadingView = styled.View({
   flex: 1,
   justifyContent: 'center',
-});
-
-const TopBar = styled(Gutters)({
-  justifyContent: 'flex-end',
-  flexDirection: 'row',
 });
 
 const Spotlight = styled.View({
@@ -92,6 +87,19 @@ const Progress = styled(ProgressBar)({
 
 const SpotlightContent = styled.View({
   flex: 1,
+});
+
+const FloatingHostNotes = styled(HostNotes)({
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  left: 0,
+  zIndex: 1,
+});
+
+const StyledButton = styled(Button)({
+  alignSelf: 'flex-end',
+  marginRight: SPACINGS.SIXTEEN,
 });
 
 const Temple = () => {
@@ -142,15 +150,20 @@ const Temple = () => {
 
   return (
     <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
+      {isFacilitator && (
+        <FloatingHostNotes>
+          {!exercise?.slide.next && (
+            <>
+              <Spacer16 />
+              <StyledButton small active onPress={setEnded}>
+                {t('endButton')}
+              </StyledButton>
+            </>
+          )}
+        </FloatingHostNotes>
+      )}
       <TopSafeArea />
       <Spotlight>
-        <TopBar>
-          {isFacilitator && !exercise?.slide.next && (
-            <Button small active onPress={setEnded}>
-              {t('endButton')}
-            </Button>
-          )}
-        </TopBar>
         {exercise && (
           <SpotlightContent>
             <ExerciseSlides
@@ -159,10 +172,12 @@ const Temple = () => {
               previous={exercise.slide.previous}
               next={exercise.slide.next}
             />
-            <Progress
-              index={exercise?.slide.index}
-              length={exercise?.slides.length}
-            />
+            {!isFacilitator && (
+              <Progress
+                index={exercise?.slide.index}
+                length={exercise?.slides.length}
+              />
+            )}
           </SpotlightContent>
         )}
         <ExerciseControl templeId={templeId} />

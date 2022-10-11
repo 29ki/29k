@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, ViewStyle} from 'react-native';
+import {ViewStyle} from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -12,38 +12,33 @@ import {SPACINGS} from '../../../../common/constants/spacings';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
-  backgroundColor: COLORS.GREYLIGHT,
+  backgroundColor: COLORS.BLACK_TRANSPARENT_30,
   borderRadius: SPACINGS.EIGHT,
   height: SPACINGS.FOUR,
   overflow: 'hidden',
 });
 
-const Bar = styled(View)({flex: 1});
-
 const Fill = styled(Animated.View)({
   backgroundColor: COLORS.BLACK,
-  flex: 1,
+  borderRadius: SPACINGS.EIGHT,
+  minWidth: 6,
 });
 
-const Block: React.FC<{fill: boolean}> = ({fill}) => {
-  const width = useSharedValue(fill ? '100%' : '0%');
+const Progress: React.FC<{percentage: number}> = ({percentage}) => {
+  const width = useSharedValue(percentage);
 
   const style = useAnimatedStyle(() => ({
-    width: width.value,
+    width: `${width.value * 100}%`,
   }));
 
   useEffect(() => {
-    width.value = withTiming(fill ? '100%' : '0%', {
+    width.value = withTiming(percentage, {
       duration: 500,
       easing: Easing.bezier(0.33, 1, 0.68, 1),
     });
-  }, [width, fill]);
+  }, [width, percentage]);
 
-  return (
-    <Bar>
-      <Fill style={style} />
-    </Bar>
-  );
+  return <Fill style={style} />;
 };
 
 type ProgressBarProps = {
@@ -58,11 +53,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   style,
 }) => (
   <Wrapper style={style}>
-    {Array(length - 1)
-      .fill('')
-      .map((_, idx) => (
-        <Block key={idx} fill={idx < index} />
-      ))}
+    <Progress percentage={index / (length - 1)} />
   </Wrapper>
 );
 

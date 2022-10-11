@@ -6,7 +6,7 @@ import {
 } from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
-import React, {useRef, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
 import Video from 'react-native-video';
@@ -15,14 +15,8 @@ import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 import Button from '../../common/components/Buttons/Button';
-import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 import Gutters from '../../common/components/Gutters/Gutters';
-import {ArrowLeftIcon} from '../../common/components/Icons';
-import {
-  BottomSafeArea,
-  Spacer8,
-  TopSafeArea,
-} from '../../common/components/Spacers/Spacer';
+import {BottomSafeArea, Spacer8} from '../../common/components/Spacers/Spacer';
 import {Body14} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {HKGroteskBold} from '../../common/constants/fonts';
@@ -38,6 +32,12 @@ import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
 import AudioFader from './components/AudioFader/AudioFader';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 import useUpdateTemple from './hooks/useUpdateTemple';
+import HostNotes from './components/HostNotes/HostNotes';
+import {DailyContext} from './DailyProvider';
+import {DailyUserData} from '../../../../shared/src/types/Temple';
+import Screen from '../../common/components/Screen/Screen';
+import IconButton from '../../common/components/Buttons/IconButton/IconButton';
+import {ArrowLeftIcon} from '../../common/components/Icons';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -76,15 +76,14 @@ const Content = styled.View({
   flex: 1,
   justifyContent: 'space-between',
 });
+const BackButton = styled(IconButton)({
+  marginLeft: -SPACINGS.SIXTEEN,
+});
 
 const TopBar = styled(Gutters)({
   justifyContent: 'space-between',
-  alignItems: 'center',
   flexDirection: 'row',
-});
-
-const BackButton = styled(IconButton)({
-  marginLeft: -SPACINGS.SIXTEEN,
+  marginTop: SPACINGS.SIXTEEN,
 });
 
 const IntroPortal: React.FC = () => {
@@ -100,12 +99,17 @@ const IntroPortal: React.FC = () => {
   const participants = useRecoilValue(participantsAtom);
   const participantsCount = Object.keys(participants ?? {}).length;
   const isFacilitator = useIsTempleFacilitator();
+  const {joinMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<TempleNavigationProps>();
   const isFocused = useIsFocused();
   const {setStarted} = useUpdateTemple(templeId);
   const {leaveTempleWithConfirm} = useLeaveTemple();
 
   usePreventGoingBack(leaveTempleWithConfirm);
+
+  useEffect(() => {
+    joinMeeting({inPortal: true} as DailyUserData);
+  }, [joinMeeting]);
 
   const introPortal = exercise?.introPortal;
 
@@ -135,17 +139,16 @@ const IntroPortal: React.FC = () => {
   };
 
   return (
-    <>
-      <TopSafeArea minSize={SPACINGS.SIXTEEN} />
+    <Screen noTopBar>
       {isFocused && introPortal.videoLoop?.audio && (
         <AudioFader
           source={introPortal.videoLoop.audio}
           repeat
           paused={!videoLoaded}
-          muted={joiningTemple}
+          volume={!joiningTemple ? 1 : 0}
+          duration={!joiningTemple ? 20000 : 5000}
         />
       )}
-
       <VideoStyled
         ref={endVideoRef}
         onLoad={onEndVideoLoad}
@@ -156,7 +159,6 @@ const IntroPortal: React.FC = () => {
         poster={introPortal.videoEnd?.preview}
         posterResizeMode="cover"
         allowsExternalPlayback={false}
-        muted
       />
 
       {!joiningTemple && (
@@ -169,10 +171,10 @@ const IntroPortal: React.FC = () => {
           poster={introPortal.videoLoop?.preview}
           posterResizeMode="cover"
           allowsExternalPlayback={false}
-          muted
         />
       )}
 
+      {isFacilitator && <HostNotes introPortal />}
       <Wrapper>
         {isFocused && (
           <Content>
@@ -209,7 +211,7 @@ const IntroPortal: React.FC = () => {
                 </Badge>
               </StatusItem>
 
-              {participantsCount > 0 && (
+              {participantsCount > 1 && (
                 <StatusItem>
                   <StatusText>{t('participants')}</StatusText>
                   <Spacer8 />
@@ -224,7 +226,7 @@ const IntroPortal: React.FC = () => {
       </Wrapper>
 
       <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
-    </>
+    </Screen>
   );
 };
 

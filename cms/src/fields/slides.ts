@@ -1,15 +1,41 @@
-import {CmsField, CmsFieldBase, CmsFieldObject} from 'netlify-cms-core';
+import {
+  CmsField,
+  CmsFieldBase,
+  CmsFieldObject,
+  CmsFieldList,
+} from 'netlify-cms-core';
 
-import {IMAGE_FIELD, VIDEO_FIELD} from './common';
+import {IMAGE_FIELD, VIDEO_FIELD_WITH_AUDIO} from './common';
 
 export const SLIDE_TYPES = {
-  PARTICIPANT_SPOTLIGHT: 'participantSpotlight',
+  HOST: 'host',
   CONTENT: 'content',
   REFLECTION: 'reflection',
   SHARING: 'sharing',
 };
 
-const CONTENT_VIDEO_FIELD = {...VIDEO_FIELD, hint: 'Overrides image'};
+export const HOST_NOTES: CmsFieldBase & CmsFieldList = {
+  label: 'Host Notes',
+  name: 'hostNotes',
+  widget: 'list',
+  hint: 'Set each text block to a maximum of 50 words',
+  label_singular: 'Host note',
+  collapsed: true,
+  required: false,
+  fields: [
+    {
+      label: 'Text',
+      name: 'text',
+      widget: 'markdown',
+      required: true,
+    },
+  ],
+};
+
+const CONTENT_VIDEO_FIELD = {
+  ...VIDEO_FIELD_WITH_AUDIO,
+  hint: 'Overrides image',
+};
 
 const CONTENT_FIELDS: Array<CmsField> = [
   {
@@ -28,19 +54,12 @@ const CONTENT_FIELDS: Array<CmsField> = [
   CONTENT_VIDEO_FIELD,
 ];
 
-export const PARTICIPANT_SPOTLIGHT_SLIDE: CmsFieldBase & CmsFieldObject = {
-  label: 'Participant Spotlight',
-  name: SLIDE_TYPES.PARTICIPANT_SPOTLIGHT,
+export const HOST_SLIDE: CmsFieldBase & CmsFieldObject = {
+  label: 'Host',
+  name: SLIDE_TYPES.HOST,
   widget: 'object',
   collapsed: true,
-  fields: [
-    {
-      label: 'Content',
-      name: 'content',
-      widget: 'hidden',
-      required: false,
-    },
-  ],
+  fields: [HOST_NOTES],
 };
 
 export const CONTENT_SLIDE: CmsFieldBase & CmsFieldObject = {
@@ -49,6 +68,7 @@ export const CONTENT_SLIDE: CmsFieldBase & CmsFieldObject = {
   widget: 'object',
   collapsed: true,
   fields: [
+    HOST_NOTES,
     {
       label: 'Content',
       name: 'content',
@@ -65,6 +85,7 @@ export const REFLECTION_SLIDE: CmsFieldBase & CmsFieldObject = {
   widget: 'object',
   collapsed: true,
   fields: [
+    HOST_NOTES,
     {
       label: 'Content',
       name: 'content',
@@ -81,6 +102,7 @@ export const SHARING_SLIDE: CmsFieldBase & CmsFieldObject = {
   widget: 'object',
   collapsed: true,
   fields: [
+    HOST_NOTES,
     {
       label: 'Content',
       name: 'content',

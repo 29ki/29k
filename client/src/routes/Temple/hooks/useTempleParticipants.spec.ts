@@ -12,7 +12,7 @@ jest.mock('./useTempleExercise');
 describe('useTempleParticipants', () => {
   it('filter participants if participant is on spotlight', () => {
     mockUseTempleExercise.mockReturnValue({
-      slide: {current: {type: 'participantSpotlight'}},
+      slide: {current: {type: 'host'}},
     });
 
     const {result} = renderHook(() => useTempleParticipants(), {
@@ -42,7 +42,7 @@ describe('useTempleParticipants', () => {
 
   it('returns all participants when no temple spotlight participant', () => {
     mockUseTempleExercise.mockReturnValue({
-      slide: {current: {type: 'participantSpotlight'}},
+      slide: {current: {type: 'host'}},
     });
 
     const {result} = renderHook(() => useTempleParticipants(), {
@@ -70,7 +70,7 @@ describe('useTempleParticipants', () => {
 
   it('returns all participants when content is not ”spotlight type"', () => {
     mockUseTempleExercise.mockReturnValue({
-      slide: {current: {type: 'not-participantSpotlight'}},
+      slide: {current: {type: 'not-host'}},
     });
 
     const {result} = renderHook(() => useTempleParticipants(), {

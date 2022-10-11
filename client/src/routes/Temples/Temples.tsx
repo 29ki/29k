@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {ListRenderItemInfo, Platform, RefreshControl} from 'react-native';
+import {ListRenderItemInfo, RefreshControl} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useTranslation} from 'react-i18next';
 import {useRecoilValue} from 'recoil';
@@ -17,7 +17,6 @@ import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {ModalStackProps} from '../../common/constants/routes';
 import SETTINGS from '../../common/constants/settings';
-
 import {
   Spacer12,
   Spacer16,
@@ -28,14 +27,8 @@ import Gutters from '../../common/components/Gutters/Gutters';
 import Button from '../../common/components/Buttons/Button';
 import TempleCard from '../../common/components/Cards/TempleCard/TempleCard';
 import {PlusIcon} from '../../common/components/Icons';
-
 import {isLoadingAtom, templesAtom} from './state/state';
-
-const Wrapper = styled.KeyboardAvoidingView.attrs({
-  behavior: Platform.select({ios: 'position'}),
-  contentContainerStyle: {flex: 1},
-  backgroundColor: COLORS.PURE_WHITE,
-})({flex: 1});
+import Screen from '../../common/components/Screen/Screen';
 
 const CreateButton = styled(Button)({
   flexDirection: 'row',
@@ -100,7 +93,7 @@ const Temples = () => {
   );
 
   return (
-    <Wrapper>
+    <Screen noTopBar backgroundColor={COLORS.PURE_WHITE}>
       <FlatList
         data={temples}
         keyExtractor={temple => temple.id}
@@ -120,7 +113,7 @@ const Temples = () => {
         <CreateTempleForm />
         <Spacer12 />
       </FloatingForm>
-    </Wrapper>
+    </Screen>
   );
 };
 

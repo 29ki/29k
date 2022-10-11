@@ -1,5 +1,10 @@
-export type ParticipantSpotlightSlide = {
-  type: 'participantSpotlight';
+export type HostNote = {
+  text: string;
+};
+
+export type HostSlide = {
+  type: 'host';
+  hostNotes?: HostNote[];
 };
 
 export type Content = {
@@ -17,21 +22,25 @@ export type Content = {
 
 export type ContentSlide = {
   type: 'content';
+  hostNotes?: HostNote[];
   content: Content;
 };
 
 export type ReflectionSlide = {
   type: 'reflection';
+  hostNotes?: HostNote[];
   content: Content;
 };
 
 export type SharingSlide = {
   type: 'sharing';
+  hostNotes?: HostNote[];
   content: Content;
 };
 
-export type VideoPortal = {
+export type IntroPortal = {
   type: 'video';
+  hostNotes?: HostNote[];
   videoLoop: {
     source: string;
     audio: string;
@@ -39,12 +48,9 @@ export type VideoPortal = {
   };
   videoEnd?: {
     source: string;
-    audio: string;
     preview: string;
   };
 };
-
-export type IntroPortal = VideoPortal;
 
 export type OutroPortal = {
   type: 'video';
@@ -58,7 +64,7 @@ export type ExerciseSlide =
   | ContentSlide
   | ReflectionSlide
   | SharingSlide
-  | ParticipantSpotlightSlide;
+  | HostSlide;
 
 export type Exercise = {
   id: string;
