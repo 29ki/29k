@@ -1,3 +1,5 @@
+import {CmsField, CmsFieldBase, CmsFieldObject} from 'netlify-cms-core';
+
 import {IMAGE_FIELD, VIDEO_FIELD} from './common';
 
 export const SLIDE_TYPES = {
@@ -26,7 +28,7 @@ export const HOST_NOTES = {
 
 const CONTENT_VIDEO_FIELD = {...VIDEO_FIELD, hint: 'Overrides image'};
 
-const CONTENT_FIELDS = [
+const CONTENT_FIELDS: Array<CmsField> = [
   {
     label: 'Heading',
     name: 'heading',
@@ -43,7 +45,7 @@ const CONTENT_FIELDS = [
   CONTENT_VIDEO_FIELD,
 ];
 
-export const PARTICIPANT_SPOTLIGHT_SLIDE = {
+export const PARTICIPANT_SPOTLIGHT_SLIDE: CmsFieldBase & CmsFieldObject = {
   label: 'Participant Spotlight',
   name: SLIDE_TYPES.PARTICIPANT_SPOTLIGHT,
   widget: 'object',
@@ -51,7 +53,7 @@ export const PARTICIPANT_SPOTLIGHT_SLIDE = {
   fields: [HOST_NOTES],
 };
 
-export const CONTENT_SLIDE = {
+export const CONTENT_SLIDE: CmsFieldBase & CmsFieldObject = {
   label: 'Content',
   name: SLIDE_TYPES.CONTENT,
   widget: 'object',
@@ -68,7 +70,7 @@ export const CONTENT_SLIDE = {
   ],
 };
 
-export const REFLECTION_SLIDE = {
+export const REFLECTION_SLIDE: CmsFieldBase & CmsFieldObject = {
   label: 'Reflection',
   name: SLIDE_TYPES.REFLECTION,
   widget: 'object',
@@ -85,7 +87,7 @@ export const REFLECTION_SLIDE = {
   ],
 };
 
-export const SHARING_SLIDE = {
+export const SHARING_SLIDE: CmsFieldBase & CmsFieldObject = {
   label: 'Sharing',
   name: SLIDE_TYPES.SHARING,
   widget: 'object',

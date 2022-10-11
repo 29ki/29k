@@ -1,3 +1,5 @@
+import {CmsField} from 'netlify-cms-core';
+
 const contributionTypes = {
   marketing: {
     symbol: '📣',
@@ -145,7 +147,7 @@ const contributionTypes = {
   },
 };
 
-export default [
+const CONTRIBUTORS_FIELDS: Array<CmsField> = [
   {
     label: 'Contributors',
     label_singular: 'Contributor',
@@ -188,3 +190,5 @@ export default [
     ],
   },
 ];
+
+export default CONTRIBUTORS_FIELDS;

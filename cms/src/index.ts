@@ -7,13 +7,12 @@ import {
 } from '../../shared/src/constants/i18n';
 
 import {generateFilesCollectionFromi18nFiles} from './lib/i18n';
-import {Widget as uniqueIdWidget} from './widgets/uniqueIdWidget.jsx';
+import {Widget as uniqueIdWidget} from './widgets/uniqueIdWidget';
 
 import EXERCISE_FIELDS from './fields/exercise';
 import CONTRIBUTORS_FIELDS from './fields/contributors';
 
-import content from '../../content/content.json';
-
+import * as content from '../../content/content.json';
 CMS.init({
   config: {
     load_config_file: false,
@@ -29,8 +28,8 @@ CMS.init({
     media_library: {
       name: 'cloudinary',
       config: {
-        cloud_name: 'twentyninek',
-        api_key: '898446174989532',
+        cloud_name: 'cupcake-29k',
+        api_key: '373696539271219',
         default_transformations: [
           [
             {
