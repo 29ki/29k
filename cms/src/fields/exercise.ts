@@ -11,6 +11,7 @@ import {
 } from './common';
 import {
   CONTENT_SLIDE,
+  HOST_NOTES,
   HOST_SLIDE,
   REFLECTION_SLIDE,
   SHARING_SLIDE,
@@ -26,6 +27,7 @@ const INTRO_PORTAL: CmsField = {
   fields: [
     {...VIDEO_FIELD_WITH_AUDIO, label: 'Video Loop', name: 'videoLoop'},
     {...VIDEO_FIELD, label: 'Video End', name: 'videoEnd'},
+    HOST_NOTES,
   ],
 };
 
