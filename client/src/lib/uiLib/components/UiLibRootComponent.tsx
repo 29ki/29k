@@ -12,11 +12,11 @@ export type ComponentLibrary = {[key: string]: React.ComponentType};
 export type ComponentList = {[key: string]: Array<ComponentLibrary>};
 
 const menuItems: ComponentList = {
-  TempleComponents: [Temple],
   Buttons: [Buttons],
   Cards: [Cards],
   Icons: [Icons],
   Typography: [Typography],
+  TempleComponents: [Temple],
   UiSettings: [UiSettings],
 };
 

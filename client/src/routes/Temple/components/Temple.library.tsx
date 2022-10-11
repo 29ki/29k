@@ -11,7 +11,7 @@ import ProgressBar from './ProgressBar/ProgressBar';
 import HostNotes from './HostNotes/HostNotes';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 
-const dayjsTime = dayjs().add(59, 'seconds');
+const dayjsTime = dayjs().add(59, 'minutes');
 
 const Row = styled.View({flexDirection: 'row'});
 const ColorBG = styled.View({backgroundColor: COLORS.GREYDARK, padding: 4});
@@ -38,9 +38,9 @@ export const UI = () => (
     <Spacer8 />
     <ColorBG>
       <Row>
-        <Counter startTime={dayjsTime} now={dayjsTime} />
+        <Counter startTime={dayjsTime} starting={false} />
         <Spacer8 />
-        <Counter startTime={dayjsTime} now={dayjsTime} starting={true} />
+        <Counter startTime={dayjsTime} starting={true} />
         <Spacer8 />
       </Row>
     </ColorBG>
