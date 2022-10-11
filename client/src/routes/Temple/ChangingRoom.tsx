@@ -134,11 +134,9 @@ const ChangingRoom = () => {
     isFocused,
   ]);
 
-  if (!isFocused) {
-    return null;
-  }
-
-  const join = () => navigate('IntroPortal', {templeId});
+  const join = async () => {
+    navigate('IntroPortal', {templeId});
+  };
 
   const permissionsAlert = () =>
     Alert.alert(t('permissionsAlert.title'), t('permissionsAlert.message'), [
@@ -169,16 +167,17 @@ const ChangingRoom = () => {
     <Screen onPressBack={goBack}>
       <Wrapper>
         <VideoWrapper>
-          {hasVideo ? (
-            <DailyMediaViewWrapper
-              videoTrack={me?.videoTrack ?? null}
-              audioTrack={me?.audioTrack ?? null}
-              objectFit={'cover'}
-              mirror={me?.local}
-            />
-          ) : (
-            <VideoText>{t('cameraOff')}</VideoText>
-          )}
+          {isFocused &&
+            (hasVideo ? (
+              <DailyMediaViewWrapper
+                videoTrack={me?.videoTrack ?? null}
+                audioTrack={me?.audioTrack ?? null}
+                objectFit={'cover'}
+                mirror={me?.local}
+              />
+            ) : (
+              <VideoText>{t('cameraOff')}</VideoText>
+            ))}
           <Audio muted={!hasAudio} />
         </VideoWrapper>
 

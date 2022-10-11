@@ -14,7 +14,7 @@ const useTempleParticipants = () => {
 
   if (
     !temple?.exerciseState.dailySpotlightId ||
-    exercise?.slide.current.type !== 'participantSpotlight'
+    exercise?.slide.current.type !== 'host'
   ) {
     return inSessionParticipants;
   }

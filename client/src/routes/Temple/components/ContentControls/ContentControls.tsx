@@ -70,7 +70,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({templeId, style}) => {
         }>
         {t('controls.prev')}
       </SlideButton>
-      {exercise.slide.current.type !== 'participantSpotlight' && (
+      {exercise.slide.current.type !== 'host' && (
         <MediaControls>
           <IconButton
             small

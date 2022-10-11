@@ -14,13 +14,12 @@
         "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663147750/temp/portal-intro-end_crzjih.mp4",
-        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664798292/temp/bowl_fxc4ox.mp3"
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663147750/temp/portal-intro-end_crzjih.mp4"
       }
     },
     "slides": [
       {
-        "type": "participantSpotlight"
+        "type": "host"
       },
       {
         "type": "content",
@@ -51,7 +50,7 @@
         }
       },
       {
-        "type": "participantSpotlight"
+        "type": "host"
       },
       {
         "type": "content",

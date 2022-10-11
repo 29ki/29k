@@ -3,56 +3,51 @@ import Audio from '../../../../lib/audio/components/Audio';
 
 type AudioFaderProps = {
   duration?: number;
-  mute?: boolean;
+  volume?: number;
   paused?: boolean;
   repeat?: boolean;
   source: string;
 };
 
-const AudioFader: React.FC<AudioFaderProps> = ({
-  duration = 5000,
-  mute = false,
-  paused,
-  repeat,
-  source,
-}) => {
-  const [volume, setVolume] = useState(0);
-  const [loaded, setLoaded] = useState(false);
+const AudioFader: React.FC<AudioFaderProps> = React.memo(
+  ({duration = 5000, volume = 1, paused, repeat, source}) => {
+    const [currentVolume, setVolume] = useState(0);
+    const [loaded, setLoaded] = useState(false);
 
-  const updateVolume = useCallback(
-    (step: number) => (v: number) => {
-      if (mute && v > 0) {
-        return v - step < 0 ? 0 : v - step;
-      } else if (!mute && v < 1) {
-        return v + step > 1 ? 1 : v + step;
-      }
-      return v;
-    },
-    [mute],
-  );
+    const updateVolume = useCallback(
+      (step: number) => (v: number) => {
+        if (v > volume) {
+          return Math.max(v - step, volume);
+        } else {
+          return Math.min(v + step, volume);
+        }
+      },
+      [volume],
+    );
 
-  useEffect(() => {
-    const ms = 100;
-    const step = ms / duration;
+    useEffect(() => {
+      const ms = 100;
+      const step = ms / duration;
 
-    const interval = setInterval(() => {
-      if (loaded) {
-        setVolume(updateVolume(step));
-      }
-    }, ms);
+      const interval = setInterval(() => {
+        if (loaded && !paused) {
+          setVolume(updateVolume(step));
+        }
+      }, ms);
 
-    return () => clearInterval(interval);
-  }, [mute, duration, updateVolume, loaded]);
+      return () => clearInterval(interval);
+    }, [duration, updateVolume, loaded, paused]);
 
-  return (
-    <Audio
-      source={source}
-      repeat={repeat}
-      volume={volume}
-      paused={paused}
-      onLoad={() => setLoaded(true)}
-    />
-  );
-};
+    return (
+      <Audio
+        source={source}
+        repeat={repeat}
+        volume={currentVolume}
+        paused={paused}
+        onLoad={() => setLoaded(true)}
+      />
+    );
+  },
+);
 
 export default AudioFader;

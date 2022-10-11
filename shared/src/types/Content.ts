@@ -1,5 +1,5 @@
-export type ParticipantSpotlightSlide = {
-  type: 'participantSpotlight';
+export type HostSlide = {
+  type: 'host';
 };
 
 export type Content = {
@@ -39,7 +39,6 @@ export type VideoPortal = {
   };
   videoEnd?: {
     source: string;
-    audio: string;
     preview: string;
   };
 };
@@ -58,7 +57,7 @@ export type ExerciseSlide =
   | ContentSlide
   | ReflectionSlide
   | SharingSlide
-  | ParticipantSpotlightSlide;
+  | HostSlide;
 
 export type Exercise = {
   id: string;

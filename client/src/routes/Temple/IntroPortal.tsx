@@ -30,22 +30,21 @@ import {TempleStackProps} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
 import Counter from './components/Counter/Counter';
-import {DailyContext} from './DailyProvider';
 import useTempleExercise from './hooks/useTempleExercise';
 import {participantsAtom, templeAtom} from './state/state';
-import {DailyUserData} from '../../../../shared/src/types/Temple';
 import useLeaveTemple from './hooks/useLeaveTemple';
 import VideoBase from './components/VideoBase/VideoBase';
 import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
 import AudioFader from './components/AudioFader/AudioFader';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 import useUpdateTemple from './hooks/useUpdateTemple';
+import {DailyContext} from './DailyProvider';
+import {DailyUserData} from '../../../../shared/src/types/Temple';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
-  flex: 1,
 });
 
 const StatusItem = styled.View({
@@ -95,7 +94,7 @@ const IntroPortal: React.FC = () => {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'IntroPortal'>>();
   const endVideoRef = useRef<Video>(null);
-  const {joinMeeting} = useContext(DailyContext);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const [joiningTemple, setJoiningTemple] = useState(false);
   const {t} = useTranslation(NS.SCREEN.PORTAL);
   const exercise = useTempleExercise();
@@ -103,6 +102,7 @@ const IntroPortal: React.FC = () => {
   const participants = useRecoilValue(participantsAtom);
   const participantsCount = Object.keys(participants ?? {}).length;
   const isFacilitator = useIsTempleFacilitator();
+  const {joinMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<TempleNavigationProps>();
   const isFocused = useIsFocused();
   const {setStarted} = useUpdateTemple(templeId);
@@ -130,6 +130,10 @@ const IntroPortal: React.FC = () => {
     }
   };
 
+  const onLoopVideoLoad = () => {
+    setVideoLoaded(true);
+  };
+
   const onLoopVideoEnd = () => {
     if (temple?.started) {
       ReactNativeHapticFeedback.trigger('impactHeavy');
@@ -144,7 +148,9 @@ const IntroPortal: React.FC = () => {
         <AudioFader
           source={introPortal.videoLoop.audio}
           repeat
-          mute={joiningTemple}
+          paused={!videoLoaded}
+          volume={!joiningTemple ? 1 : 0}
+          duration={!joiningTemple ? 20000 : 5000}
         />
       )}
 
@@ -162,6 +168,7 @@ const IntroPortal: React.FC = () => {
 
       {!joiningTemple && (
         <VideoStyled
+          onLoad={onLoopVideoLoad}
           onEnd={onLoopVideoEnd}
           repeat={!temple?.started}
           source={{uri: introPortal.videoLoop?.source}}
@@ -171,6 +178,7 @@ const IntroPortal: React.FC = () => {
           allowsExternalPlayback={false}
         />
       )}
+
       <Wrapper>
         {isFocused && (
           <Content>
@@ -220,6 +228,7 @@ const IntroPortal: React.FC = () => {
           </Content>
         )}
       </Wrapper>
+
       <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
     </>
   );
