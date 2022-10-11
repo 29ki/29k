@@ -102,11 +102,7 @@ const Temples = () => {
         ItemSeparatorComponent={Spacer16}
         renderItem={renderTemple}
         refreshControl={
-          <RefreshControl
-            refreshing={isLoading}
-            onRefresh={fetchTemples}
-            tintColor="white"
-          />
+          <RefreshControl refreshing={isLoading} onRefresh={fetchTemples} />
         }
       />
       <FloatingForm>
