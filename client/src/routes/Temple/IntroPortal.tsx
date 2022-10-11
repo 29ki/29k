@@ -8,22 +8,15 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
 import React, {useContext, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import Video from 'react-native-video';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 import Button from '../../common/components/Buttons/Button';
-import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 import Gutters from '../../common/components/Gutters/Gutters';
-import {ArrowLeftIcon} from '../../common/components/Icons';
-import {
-  BottomSafeArea,
-  Spacer16,
-  Spacer8,
-  TopSafeArea,
-} from '../../common/components/Spacers/Spacer';
+import {BottomSafeArea, Spacer8} from '../../common/components/Spacers/Spacer';
 import {Body14} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {HKGroteskBold} from '../../common/constants/fonts';
@@ -42,6 +35,9 @@ import useUpdateTemple from './hooks/useUpdateTemple';
 import HostNotes from './components/HostNotes/HostNotes';
 import {DailyContext} from './DailyProvider';
 import {DailyUserData} from '../../../../shared/src/types/Temple';
+import Screen from '../../common/components/Screen/Screen';
+import IconButton from '../../common/components/Buttons/IconButton/IconButton';
+import {ArrowLeftIcon} from '../../common/components/Icons';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -80,15 +76,14 @@ const Content = styled.View({
   flex: 1,
   justifyContent: 'space-between',
 });
+const BackButton = styled(IconButton)({
+  marginLeft: -SPACINGS.SIXTEEN,
+});
 
 const TopBar = styled(Gutters)({
   justifyContent: 'space-between',
-  alignItems: 'center',
   flexDirection: 'row',
-});
-
-const BackButton = styled(IconButton)({
-  marginLeft: -SPACINGS.SIXTEEN,
+  marginTop: SPACINGS.SIXTEEN,
 });
 
 const IntroPortal: React.FC = () => {
@@ -144,8 +139,7 @@ const IntroPortal: React.FC = () => {
   };
 
   return (
-    <>
-      {!isFacilitator && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
+    <Screen noTopBar>
       {isFocused && introPortal.videoLoop?.audio && (
         <AudioFader
           source={introPortal.videoLoop.audio}
@@ -180,30 +174,27 @@ const IntroPortal: React.FC = () => {
         />
       )}
 
+      {isFacilitator && <HostNotes introPortal />}
       <Wrapper>
         {isFocused && (
           <Content>
-            <View>
-              {isFacilitator && <HostNotes introPortal />}
-              <Spacer16 />
-              <TopBar>
-                <BackButton
-                  noBackground
-                  onPress={leaveTempleWithConfirm}
-                  Icon={ArrowLeftIcon}
-                />
-                {__DEV__ && temple?.started && (
-                  <Button small onPress={() => navigate('Temple', {templeId})}>
-                    {t('skipPortal')}
-                  </Button>
-                )}
-                {isFacilitator && (
-                  <Button disabled={temple?.started} onPress={setStarted}>
-                    {temple?.started ? t('sessionStarted') : t('startSession')}
-                  </Button>
-                )}
-              </TopBar>
-            </View>
+            <TopBar>
+              <BackButton
+                noBackground
+                onPress={leaveTempleWithConfirm}
+                Icon={ArrowLeftIcon}
+              />
+              {__DEV__ && temple?.started && (
+                <Button small onPress={() => navigate('Temple', {templeId})}>
+                  {t('skipPortal')}
+                </Button>
+              )}
+              {isFacilitator && (
+                <Button small disabled={temple?.started} onPress={setStarted}>
+                  {temple?.started ? t('sessionStarted') : t('startSession')}
+                </Button>
+              )}
+            </TopBar>
 
             <PortalStatus>
               <StatusItem>
@@ -220,7 +211,7 @@ const IntroPortal: React.FC = () => {
                 </Badge>
               </StatusItem>
 
-              {participantsCount > 0 && (
+              {participantsCount > 1 && (
                 <StatusItem>
                   <StatusText>{t('participants')}</StatusText>
                   <Spacer8 />
@@ -235,7 +226,7 @@ const IntroPortal: React.FC = () => {
       </Wrapper>
 
       <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
-    </>
+    </Screen>
   );
 };
 

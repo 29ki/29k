@@ -15,7 +15,6 @@ import {useRecoilValue} from 'recoil';
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {
-  ArrowLeftIcon,
   FilmCameraIcon,
   FilmCameraOffIcon,
   MicrophoneIcon,
@@ -26,7 +25,6 @@ import {
   Spacer16,
   Spacer28,
   Spacer48,
-  TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
 import {Body16} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
@@ -41,6 +39,7 @@ import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 import useSubscribeToTemple from './hooks/useSubscribeToTemple';
 import useUpdateTempleExerciseState from './hooks/useUpdateTempleExerciseState';
 import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
+import Screen from '../../common/components/Screen/Screen';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -165,11 +164,7 @@ const ChangingRoom = () => {
   const hasVideo = Boolean(me?.videoTrack);
 
   return (
-    <>
-      <TopSafeArea />
-      <Gutters>
-        <IconButton variant="tertiary" onPress={goBack} Icon={ArrowLeftIcon} />
-      </Gutters>
+    <Screen onPressBack={goBack}>
       <Wrapper>
         <VideoWrapper>
           {isFocused &&
@@ -225,7 +220,7 @@ const ChangingRoom = () => {
         </Gutters>
       </Wrapper>
       <BottomSafeArea minSize={SPACINGS.TWENTYEIGHT} />
-    </>
+    </Screen>
   );
 };
 
