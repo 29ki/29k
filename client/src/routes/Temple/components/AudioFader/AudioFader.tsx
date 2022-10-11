@@ -3,7 +3,7 @@ import Audio from '../../../../lib/audio/components/Audio';
 
 type AudioFaderProps = {
   duration?: number;
-  mute?: boolean;
+  muted?: boolean;
   paused?: boolean;
   repeat?: boolean;
   source: string;
@@ -11,7 +11,7 @@ type AudioFaderProps = {
 
 const AudioFader: React.FC<AudioFaderProps> = ({
   duration = 5000,
-  mute = false,
+  muted = false,
   paused,
   repeat,
   source,
@@ -21,14 +21,14 @@ const AudioFader: React.FC<AudioFaderProps> = ({
 
   const updateVolume = useCallback(
     (step: number) => (v: number) => {
-      if (mute && v > 0) {
-        return v - step < 0 ? 0 : v - step;
-      } else if (!mute && v < 1) {
-        return v + step > 1 ? 1 : v + step;
+      if (muted && v > 0) {
+        return Math.max(v - step, 0);
+      } else if (!muted && v < 1) {
+        return Math.min(v + step, 1);
       }
       return v;
     },
-    [mute],
+    [muted],
   );
 
   useEffect(() => {
@@ -36,13 +36,13 @@ const AudioFader: React.FC<AudioFaderProps> = ({
     const step = ms / duration;
 
     const interval = setInterval(() => {
-      if (loaded) {
+      if (loaded && !paused) {
         setVolume(updateVolume(step));
       }
     }, ms);
 
     return () => clearInterval(interval);
-  }, [mute, duration, updateVolume, loaded]);
+  }, [duration, updateVolume, loaded, paused]);
 
   return (
     <Audio
