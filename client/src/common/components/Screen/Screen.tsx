@@ -28,7 +28,10 @@ const BackButton = styled(IconButton)({
   marginLeft: -SPACINGS.SIXTEEN,
 });
 
-const TopBar: React.FC<{onPressBack: () => void}> = ({onPressBack}) => (
+const TopBar: React.FC<{
+  hasDarkBackground?: boolean;
+  onPressBack?: () => void;
+}> = ({onPressBack, hasDarkBackground: isOnDarkBackground}) => (
   <>
     <TopSafeArea />
     <TopBarWrapper>
@@ -37,7 +40,7 @@ const TopBar: React.FC<{onPressBack: () => void}> = ({onPressBack}) => (
           noBackground
           onPress={onPressBack}
           Icon={ArrowLeftIcon}
-          fill={COLORS.BLACK}
+          fill={isOnDarkBackground ? COLORS.WHITE : COLORS.BLACK}
         />
       )}
     </TopBarWrapper>
@@ -47,21 +50,28 @@ const TopBar: React.FC<{onPressBack: () => void}> = ({onPressBack}) => (
 type ScreenProps = {
   backgroundColor?: string;
   children: React.ReactNode;
+  hasDarkBackground?: boolean;
   noStatusBar?: boolean;
+  noTopBar?: boolean;
   onPressBack?: () => void;
   title?: string;
-  noTopBar?: boolean;
 };
 
 const Screen: React.FC<ScreenProps> = ({
   backgroundColor,
   children,
+  hasDarkBackground,
   noTopBar,
   onPressBack,
 }) => {
   return (
     <Wrapper backgroundColor={backgroundColor}>
-      {!Boolean(noTopBar) && <TopBar onPressBack={onPressBack} />}
+      {!noTopBar && (
+        <TopBar
+          onPressBack={onPressBack}
+          hasDarkBackground={hasDarkBackground}
+        />
+      )}
       {children}
     </Wrapper>
   );
