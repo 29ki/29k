@@ -21,5 +21,6 @@ export const COLORS = {
 
   // Transparent
   BLACK_TRANSPARENT: 'rgba(0, 0, 0, 0.5)',
+  BLACK_TRANSPARENT_30: 'rgba(46, 46, 46, 0.3)',
   WHITE_TRANSPARENT: 'rgba(255, 255, 255, 0.15)',
 };

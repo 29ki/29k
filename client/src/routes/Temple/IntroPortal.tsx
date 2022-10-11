@@ -8,7 +8,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
 import React, {useContext, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Video from 'react-native-video';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
@@ -20,6 +20,7 @@ import Gutters from '../../common/components/Gutters/Gutters';
 import {ArrowLeftIcon} from '../../common/components/Icons';
 import {
   BottomSafeArea,
+  Spacer16,
   Spacer8,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
@@ -38,6 +39,7 @@ import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
 import AudioFader from './components/AudioFader/AudioFader';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 import useUpdateTemple from './hooks/useUpdateTemple';
+import HostNotes from './components/HostNotes/HostNotes';
 import {DailyContext} from './DailyProvider';
 import {DailyUserData} from '../../../../shared/src/types/Temple';
 
@@ -143,7 +145,7 @@ const IntroPortal: React.FC = () => {
 
   return (
     <>
-      <TopSafeArea minSize={SPACINGS.SIXTEEN} />
+      {!isFacilitator && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
       {isFocused && introPortal.videoLoop?.audio && (
         <AudioFader
           source={introPortal.videoLoop.audio}
@@ -153,7 +155,6 @@ const IntroPortal: React.FC = () => {
           duration={!joiningTemple ? 20000 : 5000}
         />
       )}
-
       <VideoStyled
         ref={endVideoRef}
         onLoad={onEndVideoLoad}
@@ -182,23 +183,27 @@ const IntroPortal: React.FC = () => {
       <Wrapper>
         {isFocused && (
           <Content>
-            <TopBar>
-              <BackButton
-                noBackground
-                onPress={leaveTempleWithConfirm}
-                Icon={ArrowLeftIcon}
-              />
-              {__DEV__ && temple?.started && (
-                <Button small onPress={() => navigate('Temple', {templeId})}>
-                  {t('skipPortal')}
-                </Button>
-              )}
-              {isFacilitator && (
-                <Button small disabled={temple?.started} onPress={setStarted}>
-                  {temple?.started ? t('sessionStarted') : t('startSession')}
-                </Button>
-              )}
-            </TopBar>
+            <View>
+              {isFacilitator && <HostNotes introPortal />}
+              <Spacer16 />
+              <TopBar>
+                <BackButton
+                  noBackground
+                  onPress={leaveTempleWithConfirm}
+                  Icon={ArrowLeftIcon}
+                />
+                {__DEV__ && temple?.started && (
+                  <Button small onPress={() => navigate('Temple', {templeId})}>
+                    {t('skipPortal')}
+                  </Button>
+                )}
+                {isFacilitator && (
+                  <Button disabled={temple?.started} onPress={setStarted}>
+                    {temple?.started ? t('sessionStarted') : t('startSession')}
+                  </Button>
+                )}
+              </TopBar>
+            </View>
 
             <PortalStatus>
               <StatusItem>
