@@ -6,7 +6,7 @@ import {
 } from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
-import React, {useContext, useEffect, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
 import Video from 'react-native-video';
@@ -30,10 +30,8 @@ import {TempleStackProps} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
 import Counter from './components/Counter/Counter';
-import {DailyContext} from './DailyProvider';
 import useTempleExercise from './hooks/useTempleExercise';
 import {participantsAtom, templeAtom} from './state/state';
-import {DailyUserData} from '../../../../shared/src/types/Temple';
 import useLeaveTemple from './hooks/useLeaveTemple';
 import VideoBase from './components/VideoBase/VideoBase';
 import useIsTempleFacilitator from './hooks/useIsTempleFacilitator';
@@ -45,7 +43,6 @@ type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
-  flex: 1,
 });
 
 const StatusItem = styled.View({
@@ -95,7 +92,7 @@ const IntroPortal: React.FC = () => {
     params: {templeId},
   } = useRoute<RouteProp<TempleStackProps, 'IntroPortal'>>();
   const endVideoRef = useRef<Video>(null);
-  const {joinMeeting} = useContext(DailyContext);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const [joiningTemple, setJoiningTemple] = useState(false);
   const {t} = useTranslation(NS.SCREEN.PORTAL);
   const exercise = useTempleExercise();
@@ -109,10 +106,6 @@ const IntroPortal: React.FC = () => {
   const {leaveTempleWithConfirm} = useLeaveTemple();
 
   usePreventGoingBack(leaveTempleWithConfirm);
-
-  useEffect(() => {
-    joinMeeting({inPortal: true} as DailyUserData);
-  }, [joinMeeting]);
 
   const introPortal = exercise?.introPortal;
 
@@ -130,6 +123,10 @@ const IntroPortal: React.FC = () => {
     }
   };
 
+  const onLoopVideoLoad = () => {
+    setVideoLoaded(true);
+  };
+
   const onLoopVideoEnd = () => {
     if (temple?.started) {
       ReactNativeHapticFeedback.trigger('impactHeavy');
@@ -144,7 +141,8 @@ const IntroPortal: React.FC = () => {
         <AudioFader
           source={introPortal.videoLoop.audio}
           repeat
-          mute={joiningTemple}
+          paused={!videoLoaded}
+          muted={joiningTemple}
         />
       )}
 
@@ -158,10 +156,12 @@ const IntroPortal: React.FC = () => {
         poster={introPortal.videoEnd?.preview}
         posterResizeMode="cover"
         allowsExternalPlayback={false}
+        muted
       />
 
       {!joiningTemple && (
         <VideoStyled
+          onLoad={onLoopVideoLoad}
           onEnd={onLoopVideoEnd}
           repeat={!temple?.started}
           source={{uri: introPortal.videoLoop?.source}}
@@ -169,8 +169,10 @@ const IntroPortal: React.FC = () => {
           poster={introPortal.videoLoop?.preview}
           posterResizeMode="cover"
           allowsExternalPlayback={false}
+          muted
         />
       )}
+
       <Wrapper>
         {isFocused && (
           <Content>
@@ -220,6 +222,7 @@ const IntroPortal: React.FC = () => {
           </Content>
         )}
       </Wrapper>
+
       <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
     </>
   );
