@@ -19,7 +19,6 @@ import {
   Spacer8,
 } from '../../../common/components/Spacers/Spacer';
 import TouchableOpacity from '../../../common/components/TouchableOpacity/TouchableOpacity';
-import {Body14} from '../../../common/components/Typography/Body/Body';
 import {
   Display16,
   Display24,
@@ -89,7 +88,6 @@ const ContentCard: React.FC<{
     <Card onPress={onPress}>
       <TextWrapper>
         <Display16>{exercise?.name}</Display16>
-        <Body14 numberOfLines={1}>{exercise?.id}</Body14>
       </TextWrapper>
       <Spacer16 />
       <CardImageWrapper>
