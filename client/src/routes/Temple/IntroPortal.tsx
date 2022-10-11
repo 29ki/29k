@@ -6,7 +6,7 @@ import {
 } from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
-import React, {useRef, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet, View} from 'react-native';
 import Video from 'react-native-video';
@@ -40,6 +40,8 @@ import AudioFader from './components/AudioFader/AudioFader';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 import useUpdateTemple from './hooks/useUpdateTemple';
 import HostNotes from './components/HostNotes/HostNotes';
+import {DailyContext} from './DailyProvider';
+import {DailyUserData} from '../../../../shared/src/types/Temple';
 
 type TempleNavigationProps = NativeStackNavigationProp<TempleStackProps>;
 
@@ -102,12 +104,17 @@ const IntroPortal: React.FC = () => {
   const participants = useRecoilValue(participantsAtom);
   const participantsCount = Object.keys(participants ?? {}).length;
   const isFacilitator = useIsTempleFacilitator();
+  const {joinMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<TempleNavigationProps>();
   const isFocused = useIsFocused();
   const {setStarted} = useUpdateTemple(templeId);
   const {leaveTempleWithConfirm} = useLeaveTemple();
 
   usePreventGoingBack(leaveTempleWithConfirm);
+
+  useEffect(() => {
+    joinMeeting({inPortal: true} as DailyUserData);
+  }, [joinMeeting]);
 
   const introPortal = exercise?.introPortal;
 
@@ -144,7 +151,8 @@ const IntroPortal: React.FC = () => {
           source={introPortal.videoLoop.audio}
           repeat
           paused={!videoLoaded}
-          muted={joiningTemple}
+          volume={!joiningTemple ? 1 : 0}
+          duration={!joiningTemple ? 20000 : 5000}
         />
       )}
       <VideoStyled
@@ -157,7 +165,6 @@ const IntroPortal: React.FC = () => {
         poster={introPortal.videoEnd?.preview}
         posterResizeMode="cover"
         allowsExternalPlayback={false}
-        muted
       />
 
       {!joiningTemple && (
@@ -170,7 +177,6 @@ const IntroPortal: React.FC = () => {
           poster={introPortal.videoLoop?.preview}
           posterResizeMode="cover"
           allowsExternalPlayback={false}
-          muted
         />
       )}
 

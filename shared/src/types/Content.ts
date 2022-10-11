@@ -2,8 +2,8 @@ export type HostNote = {
   text: string;
 };
 
-export type ParticipantSpotlightSlide = {
-  type: 'participantSpotlight';
+export type HostSlide = {
+  type: 'host';
   hostNotes?: HostNote[];
 };
 
@@ -48,7 +48,6 @@ export type IntroPortal = {
   };
   videoEnd?: {
     source: string;
-    audio: string;
     preview: string;
   };
 };
@@ -65,7 +64,7 @@ export type ExerciseSlide =
   | ContentSlide
   | ReflectionSlide
   | SharingSlide
-  | ParticipantSpotlightSlide;
+  | HostSlide;
 
 export type Exercise = {
   id: string;
