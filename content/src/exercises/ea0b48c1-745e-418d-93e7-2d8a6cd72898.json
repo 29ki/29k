@@ -5,7 +5,7 @@
     "name": "Bring your feelings along",
     "slides": [
       {
-        "type": "host"
+        "type": "participantSpotlight"
       },
       {
         "type": "content",
@@ -53,7 +53,7 @@
         "type": "content",
         "content": {
           "image": {
-            "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1617023623/Badges/quest_badge_gofzky.png",
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665471249/Temp/BUT_AND-13_pdbsvr.png",
             "description": "Mission badge"
           },
           "heading": "Mission"
@@ -65,7 +65,7 @@
     },
     "introPortal": {
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1665464828/Temp/Comp_13_dp1lih.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1665480650/Temp/portal_no_sound_o7okas.mp4"
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1665469668/Temp/Comp_13_1_xmcpyo.mp4"
