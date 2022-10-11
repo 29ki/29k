@@ -56,13 +56,6 @@ const LoadingView = styled.View({
   justifyContent: 'center',
 });
 
-const FloatingButton = styled(Button)({
-  position: 'absolute',
-  top: SPACINGS.SIXTEEN,
-  right: SPACINGS.SIXTEEN,
-  zIndex: 1,
-});
-
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
 });
@@ -102,6 +95,17 @@ const FloatingHostNotes = styled(HostNotes)({
   right: 0,
   left: 0,
   zIndex: 1,
+});
+const HostNotesWithEnd = styled.View({
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  left: 0,
+  zIndex: 1,
+});
+const StyledButton = styled(Button)({
+  alignSelf: 'flex-end',
+  marginRight: SPACINGS.SIXTEEN,
 });
 
 const Temple = () => {
@@ -152,14 +156,19 @@ const Temple = () => {
 
   return (
     <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
-      {isFacilitator && <FloatingHostNotes />}
+      {isFacilitator && exercise?.slide.next && <FloatingHostNotes />}
+      {isFacilitator && !exercise?.slide.next && (
+        <HostNotesWithEnd>
+          <HostNotes />
+          <Spacer16 />
+
+          <StyledButton small active onPress={setEnded}>
+            {t('endButton')}
+          </StyledButton>
+        </HostNotesWithEnd>
+      )}
       <TopSafeArea />
       <Spotlight>
-        {isFacilitator && !exercise?.slide.next && (
-          <FloatingButton small active onPress={setEnded}>
-            {t('endButton')}
-          </FloatingButton>
-        )}
         {exercise && (
           <SpotlightContent>
             <ExerciseSlides
@@ -168,10 +177,12 @@ const Temple = () => {
               previous={exercise.slide.previous}
               next={exercise.slide.next}
             />
-            <Progress
-              index={exercise?.slide.index}
-              length={exercise?.slides.length}
-            />
+            {!isFacilitator && (
+              <Progress
+                index={exercise?.slide.index}
+                length={exercise?.slides.length}
+              />
+            )}
           </SpotlightContent>
         )}
         <ExerciseControl templeId={templeId} />

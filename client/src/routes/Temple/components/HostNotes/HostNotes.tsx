@@ -31,6 +31,7 @@ import Gutters from '../../../../common/components/Gutters/Gutters';
 import useTempleExercise from '../../hooks/useTempleExercise';
 import Markdown from '../../../../common/components/Typography/Markdown/Markdown';
 import NS from '../../../../lib/i18n/constants/namespaces';
+import {SPACINGS} from '../../../../common/constants/spacings';
 
 const BoxShadowWrapper = styled.View({...SETTINGS.BOXSHADOW});
 const Wrapper = styled.View({
@@ -86,7 +87,7 @@ const Navigation = styled.View({
 });
 
 const ListItem = styled.View<{containerWidth: number}>(props => ({
-  width: props.containerWidth,
+  width: props.containerWidth - SPACINGS.THIRTYTWO,
 }));
 
 type HostNotesProps = {
