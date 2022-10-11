@@ -39,7 +39,6 @@ export type VideoPortal = {
   };
   videoEnd?: {
     source: string;
-    audio: string;
     preview: string;
   };
 };

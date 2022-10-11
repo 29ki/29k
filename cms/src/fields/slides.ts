@@ -1,6 +1,6 @@
 import {CmsField, CmsFieldBase, CmsFieldObject} from 'netlify-cms-core';
 
-import {IMAGE_FIELD, VIDEO_FIELD} from './common';
+import {IMAGE_FIELD, VIDEO_FIELD_WITH_AUDIO} from './common';
 
 export const SLIDE_TYPES = {
   PARTICIPANT_SPOTLIGHT: 'participantSpotlight',
@@ -9,7 +9,10 @@ export const SLIDE_TYPES = {
   SHARING: 'sharing',
 };
 
-const CONTENT_VIDEO_FIELD = {...VIDEO_FIELD, hint: 'Overrides image'};
+const CONTENT_VIDEO_FIELD = {
+  ...VIDEO_FIELD_WITH_AUDIO,
+  hint: 'Overrides image',
+};
 
 const CONTENT_FIELDS: Array<CmsField> = [
   {
