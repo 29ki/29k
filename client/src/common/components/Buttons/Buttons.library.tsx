@@ -7,8 +7,9 @@ import {Spacer16, Spacer8} from '../Spacers/Spacer';
 import Button from './Button';
 import IconButton from './IconButton/IconButton';
 import {HomeIcon} from '../Icons/Home/Home';
-import {Body16, Body18} from '../Typography/Body/Body';
+import {Body16, Body18, BodyBold} from '../Typography/Body/Body';
 import {PlusIcon} from '../Icons';
+import ToggleButton from '../../../routes/Temple/components/HostNotes/ToggleButton';
 
 const RowFullWidth = styled.View({
   flex: 1,
@@ -23,6 +24,10 @@ const ButtonWrapper = styled.View({alignItems: 'flex-start'});
 
 const ButtonList = () => (
   <>
+    <Body18>
+      <BodyBold>Buttons</BodyBold>
+    </Body18>
+    <Spacer8 />
     <RowFullWidth>
       <Button onPress={() => {}}>Primary</Button>
       <Spacer16 />
@@ -106,7 +111,9 @@ const ButtonList = () => (
 
 const IconButtonList = () => (
   <>
-    <Body18>Icon buttons</Body18>
+    <Body18>
+      <BodyBold>Icon buttons</BodyBold>
+    </Body18>
     <RowFullWidth>
       <Body16>Primary</Body16>
       <Row>
@@ -171,6 +178,18 @@ export const AllButtons = () => (
   <ScreenWrapper>
     <ButtonList />
     <IconButtonList />
+    <Spacer16 />
+    <Body18>
+      <BodyBold>Toggle button</BodyBold>
+    </Body18>
+    <Spacer8 />
+    <Row>
+      <ToggleButton onPress={() => {}} title="Is not toggled" />
+      <Spacer16 />
+      <ToggleButton isToggled onPress={() => {}} title="Is toggled" />
+      <Spacer16 />
+      <ToggleButton disabled onPress={() => {}} title="Is disabled" />
+    </Row>
   </ScreenWrapper>
 );
 
@@ -231,9 +250,11 @@ export const VariationsButton = () => (
       <Fragment key={`secondary${i}`}>
         <Body16>Secondary {Object.keys(combination).join(' ')}</Body16>
         <Spacer8 />
-        <Button variant="secondary" onPress={() => {}} {...combination}>
-          Button
-        </Button>
+        <ButtonWrapper>
+          <Button variant="secondary" onPress={() => {}} {...combination}>
+            Button
+          </Button>
+        </ButtonWrapper>
         <Spacer16 />
       </Fragment>
     ))}
@@ -241,9 +262,11 @@ export const VariationsButton = () => (
       <Fragment key={`tertiary${i}`}>
         <Body16>Tertiary {Object.keys(combination).join(' ')}</Body16>
         <Spacer8 />
-        <Button variant="tertiary" onPress={() => {}} {...combination}>
-          Button
-        </Button>
+        <ButtonWrapper>
+          <Button variant="tertiary" onPress={() => {}} {...combination}>
+            Button
+          </Button>
+        </ButtonWrapper>
         <Spacer16 />
       </Fragment>
     ))}
