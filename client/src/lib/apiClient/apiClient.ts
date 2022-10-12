@@ -8,6 +8,17 @@ const recreateUser = async () => {
   await auth().signInAnonymously();
 };
 
+const reauthenticateUser = async () => {
+  const currentUser = auth().currentUser;
+  if (currentUser?.email) {
+    const emailAndPasswordCredentials = auth.EmailAuthProvider.credential(
+      currentUser.email,
+      '123456',
+    );
+    await currentUser.reauthenticateWithCredential(emailAndPasswordCredentials);
+  }
+};
+
 const getAuthorizationToken = async (): Promise<string> => {
   const {currentUser} = auth();
   if (currentUser) {
@@ -65,6 +76,11 @@ const apiClient = async (input: string, init?: RequestInit | undefined) => {
 
   if (response.status === 401) {
     await recreateUser();
+    return await doFetch();
+  }
+
+  if (response.status === 403) {
+    await reauthenticateUser();
     return await doFetch();
   }
 

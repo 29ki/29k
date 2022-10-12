@@ -29,6 +29,7 @@ import TempleCard from '../../common/components/Cards/TempleCard/TempleCard';
 import {PlusIcon} from '../../common/components/Icons';
 import {isLoadingAtom, templesAtom} from './state/state';
 import Screen from '../../common/components/Screen/Screen';
+import {hasPublicHostRole} from '../../lib/user/state/state';
 
 const CreateButton = styled(Button)({
   flexDirection: 'row',
@@ -82,6 +83,10 @@ const Temples = () => {
   const isLoading = useRecoilValue(isLoadingAtom);
   const temples = useRecoilValue(templesAtom);
 
+  const isPublicHost = useRecoilValue(hasPublicHostRole);
+
+  console.log('isPublicHost', isPublicHost);
+
   useEffect(() => {
     fetchTemples();
   }, [fetchTemples]);
@@ -109,12 +114,20 @@ const Temples = () => {
           />
         }
       />
-      <FloatingForm>
-        <CreateTempleForm />
-        <Spacer12 />
-      </FloatingForm>
+      {isPublicHost && (
+        <FloatingForm>
+          <CreateTempleForm />
+          <Spacer12 />
+        </FloatingForm>
+      )}
     </Screen>
   );
 };
 
-export default Temples;
+const TemplesWithSuspense = () => (
+  <React.Suspense>
+    <Temples />
+  </React.Suspense>
+);
+
+export default TemplesWithSuspense;
