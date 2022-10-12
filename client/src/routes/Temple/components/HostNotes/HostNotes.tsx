@@ -23,7 +23,8 @@ import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {BackwardCircleIcon} from '../../../../common/components/Icons/BackwardCircle/BackwardCircle';
 import {ForwardCircleIcon} from '../../../../common/components/Icons/ForwardCircle/ForwardCircle';
 import {
-  Spacer28,
+  Spacer32,
+  Spacer4,
   Spacer8,
   TopSafeArea,
 } from '../../../../common/components/Spacers/Spacer';
@@ -33,13 +34,16 @@ import Markdown from '../../../../common/components/Typography/Markdown/Markdown
 import NS from '../../../../lib/i18n/constants/namespaces';
 import {SPACINGS} from '../../../../common/constants/spacings';
 
-const BoxShadowWrapper = styled.View({...SETTINGS.BOXSHADOW});
+const BoxShadowWrapper = styled.View({
+  ...SETTINGS.BOXSHADOW,
+  borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not shoing on Android
+  borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not shoing on Android
+});
 const Wrapper = styled.View({
   borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS,
   borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS,
   backgroundColor: COLORS.WHITE,
   zIndex: 2,
-  elevation: 1,
 });
 
 const TopBar = styled.View({
@@ -76,8 +80,6 @@ const NotesWrapper = styled(Animated.View).attrs({
   borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS,
   borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS,
   backgroundColor: COLORS.WHITE,
-  zIndex: 1,
-  elevation: 1,
   marginTop: -25,
 });
 const Navigation = styled.View({
@@ -128,6 +130,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
         }}>
         <TopSafeArea />
         <Gutters>
+          <Spacer4 />
           <TopBar>
             <Progress
               index={exercise?.slide.index}
@@ -144,13 +147,13 @@ const HostNotes: React.FC<HostNotesProps> = ({
               {t('notes')}
             </Button>
           </TopBar>
-          <Spacer8 />
+          <Spacer4 />
         </Gutters>
       </Wrapper>
       {showNotes && notes && (
         <NotesWrapper>
           <Gutters>
-            <Spacer28 />
+            <Spacer32 />
             <FlatList
               getItemLayout={(data, index) => ({
                 length: containerWidth,
