@@ -112,6 +112,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
             <ToggleButton
               disabled={!notes}
               isToggled={showNotes}
+              title={t('notes')}
               onPress={() => setShowNotes(prevShowNotes => !prevShowNotes)}
             />
           </TopBar>

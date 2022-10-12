@@ -1,5 +1,4 @@
 import React from 'react';
-import {useTranslation} from 'react-i18next';
 import Animated, {
   RotateInUpLeft,
   RotateInUpRight,
@@ -10,7 +9,6 @@ import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../../common/constants/spacings';
-import NS from '../../../../lib/i18n/constants/namespaces';
 
 import BaseButton, {
   BaseButtonProps,
@@ -56,15 +54,15 @@ const ButtonText = styled(Body16)<{disabled?: boolean}>(({disabled}) => ({
 
 type ToggleButtonProps = BaseButtonProps & {
   isToggled?: boolean;
+  title: string;
 };
 
 const ToggleButton: React.FC<ToggleButtonProps> = ({
   onPress,
   disabled,
   isToggled,
+  title,
 }) => {
-  const {t} = useTranslation(NS.COMPONENT.HOST_NOTES);
-
   return (
     <BaseButton
       small
@@ -73,7 +71,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
       disabled={disabled}
       onPress={onPress}>
       <>
-        <ButtonText disabled={disabled}>{t('notes')}</ButtonText>
+        <ButtonText disabled={disabled}>{title}</ButtonText>
         {isToggled ? (
           <IconWrapper>
             <AnimatedMinusIcon />
