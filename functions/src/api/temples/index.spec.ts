@@ -23,6 +23,7 @@ import {templesRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {
   mockGetTransaction,
+  mockOrderBy,
   mockRunTransaction,
   mockUpdate,
   mockUpdateTransaction,
@@ -139,6 +140,11 @@ describe('/api/temples', () => {
         '>',
         expect.any(Timestamp),
       );
+    });
+
+    it('should order by startTime', async () => {
+      await request(mockServer).get('/temples');
+      expect(mockOrderBy).toHaveBeenCalledWith('startTime', 'asc');
     });
   });
 
