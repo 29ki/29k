@@ -9,12 +9,12 @@ import {
 import 'firebase-functions';
 
 import {
-  TempleInput,
-  TempleData,
-  Temple,
+  SessionInput,
+  SessionData,
+  Session,
   ExerciseStateData,
   ExerciseState,
-} from '../../../../shared/src/types/Temple';
+} from '../../../../shared/src/types/Session';
 import * as dailyApi from '../../lib/dailyApi';
 import {createRouter} from '../../lib/routers';
 import {removeEmpty} from '../../lib/utils';
@@ -31,7 +31,7 @@ const getTempleExerciseState = (
   timestamp: exerciseState.timestamp.toDate().toISOString(),
 });
 
-const getTemple = (temple: TempleData): Temple => ({
+const getTemple = (temple: SessionData): Session => ({
   ...temple,
   exerciseState: getTempleExerciseState(temple.exerciseState),
   startTime: temple.startTime.toDate().toISOString(),
@@ -45,7 +45,9 @@ templesRouter.get('/', async ctx => {
   const {response} = ctx;
 
   const snapshot = await firestore().collection(TEMPLES_COLLECTION).get();
-  const temples = snapshot.docs.map(doc => getTemple(getData<TempleData>(doc)));
+  const temples = snapshot.docs.map(doc =>
+    getTemple(getData<SessionData>(doc)),
+  );
 
   response.status = 200;
   ctx.body = temples;
@@ -68,7 +70,7 @@ templesRouter.post('/', validator({body: CreateTempleSchema}), async ctx => {
     timestamp: Timestamp.now(),
   };
 
-  const temple: TempleInput & {
+  const temple: SessionInput & {
     dailyRoomName: string;
   } = {
     id: data.id,
@@ -91,7 +93,7 @@ templesRouter.delete('/:id', async ctx => {
   const {id} = ctx.params;
   const templeDocRef = firestore().collection(TEMPLES_COLLECTION).doc(id);
   const temple = getData<
-    TempleData & {
+    SessionData & {
       dailyRoomName: string;
     }
   >(await templeDocRef.get());
@@ -131,7 +133,7 @@ templesRouter.put('/:id', validator({body: UpdateTempleSchema}), async ctx => {
   const {id} = ctx.params;
   const body = ctx.request.body as UpdateTemple;
   const templeDocRef = firestore().collection(TEMPLES_COLLECTION).doc(id);
-  const temple = getData<TempleData>(await templeDocRef.get());
+  const temple = getData<SessionData>(await templeDocRef.get());
 
   if (ctx.user.id !== temple?.facilitator) {
     ctx.status = 500;
@@ -141,7 +143,7 @@ templesRouter.put('/:id', validator({body: UpdateTempleSchema}), async ctx => {
   await templeDocRef.update(removeEmpty(body));
 
   ctx.status = 200;
-  ctx.body = getTemple(getData<TempleData>(await templeDocRef.get()));
+  ctx.body = getTemple(getData<SessionData>(await templeDocRef.get()));
 });
 
 const ExerciseStateUpdateSchema = yup
@@ -170,7 +172,7 @@ templesRouter.put(
       const templeDoc = await transaction.get(templeDocRef);
 
       if (templeDoc.exists) {
-        const temple = getData<TempleData>(templeDoc);
+        const temple = getData<SessionData>(templeDoc);
 
         if (temple && ctx.user.id !== temple?.facilitator) {
           ctx.status = 500;
@@ -191,7 +193,7 @@ templesRouter.put(
       }
     });
 
-    ctx.body = getTemple(getData<TempleData>(await templeDocRef.get()));
+    ctx.body = getTemple(getData<SessionData>(await templeDocRef.get()));
   },
 );
 
