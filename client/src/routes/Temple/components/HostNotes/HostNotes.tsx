@@ -111,7 +111,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
             <Spacer8 />
             <ToggleButton
               disabled={!notes}
-              showNotes={showNotes}
+              isToggled={showNotes}
               onPress={() => setShowNotes(prevShowNotes => !prevShowNotes)}
             />
           </TopBar>

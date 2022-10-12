@@ -55,13 +55,13 @@ const ButtonText = styled(Body16)<{disabled?: boolean}>(({disabled}) => ({
 }));
 
 type ToggleButtonProps = BaseButtonProps & {
-  showNotes: boolean;
+  isToggled?: boolean;
 };
 
 const ToggleButton: React.FC<ToggleButtonProps> = ({
   onPress,
   disabled,
-  showNotes,
+  isToggled,
 }) => {
   const {t} = useTranslation(NS.COMPONENT.HOST_NOTES);
 
@@ -74,7 +74,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
       onPress={onPress}>
       <>
         <ButtonText disabled={disabled}>{t('notes')}</ButtonText>
-        {showNotes ? (
+        {isToggled ? (
           <IconWrapper>
             <AnimatedMinusIcon />
           </IconWrapper>
