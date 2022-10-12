@@ -1,37 +1,30 @@
 import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components/native';
 import {FlatList} from 'react-native-gesture-handler';
-import Animated, {
-  Easing,
-  FadeInUp,
-  RotateInUpLeft,
-  RotateInUpRight,
-  RotateOutDownLeft,
-  RotateOutDownRight,
-  SlideOutUp,
-} from 'react-native-reanimated';
+import Animated, {Easing, FadeInUp, SlideOutUp} from 'react-native-reanimated';
 import {useTranslation} from 'react-i18next';
 import {ViewStyle} from 'react-native';
 
-import Button from '../../../../common/components/Buttons/Button';
-import {MinusIcon, PlusIcon} from '../../../../common/components/Icons';
-import NavButton from './NavButton';
-import {Body14} from '../../../../common/components/Typography/Body/Body';
-import ProgressBar from '../ProgressBar/ProgressBar';
-import SETTINGS from '../../../../common/constants/settings';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
+import NS from '../../../../lib/i18n/constants/namespaces';
+import SETTINGS from '../../../../common/constants/settings';
+import {SPACINGS} from '../../../../common/constants/spacings';
+
+import useTempleExercise from '../../hooks/useTempleExercise';
+
 import {BackwardCircleIcon} from '../../../../common/components/Icons/BackwardCircle/BackwardCircle';
+import {Body14} from '../../../../common/components/Typography/Body/Body';
 import {ForwardCircleIcon} from '../../../../common/components/Icons/ForwardCircle/ForwardCircle';
+import Gutters from '../../../../common/components/Gutters/Gutters';
+import Markdown from '../../../../common/components/Typography/Markdown/Markdown';
+import NavButton from './NavButton';
+import ProgressBar from '../ProgressBar/ProgressBar';
 import {
   Spacer28,
   Spacer8,
   TopSafeArea,
 } from '../../../../common/components/Spacers/Spacer';
-import Gutters from '../../../../common/components/Gutters/Gutters';
-import useTempleExercise from '../../hooks/useTempleExercise';
-import Markdown from '../../../../common/components/Typography/Markdown/Markdown';
-import NS from '../../../../lib/i18n/constants/namespaces';
-import {SPACINGS} from '../../../../common/constants/spacings';
+import ToggleButton from './ToggleButton';
 
 const BoxShadowWrapper = styled.View({...SETTINGS.BOXSHADOW});
 const Wrapper = styled.View({
@@ -50,24 +43,6 @@ const TopBar = styled.View({
 const Progress = styled(ProgressBar)({
   flex: 1,
 });
-const AnimatedPlusIcon = () => {
-  return (
-    <Animated.View
-      entering={RotateInUpRight.duration(300)}
-      exiting={RotateOutDownRight.duration(300)}>
-      <PlusIcon />
-    </Animated.View>
-  );
-};
-const AnimatedMinusIcon = () => {
-  return (
-    <Animated.View
-      entering={RotateInUpLeft.duration(300)}
-      exiting={RotateOutDownLeft.duration(300)}>
-      <MinusIcon />
-    </Animated.View>
-  );
-};
 
 const NotesWrapper = styled(Animated.View).attrs({
   entering: FadeInUp.duration(300).easing(Easing.bezierFn(0.34, 1.56, 0.64, 1)),
@@ -134,15 +109,11 @@ const HostNotes: React.FC<HostNotesProps> = ({
               length={exercise?.slides.length}
             />
             <Spacer8 />
-            <Button
-              small
+            <ToggleButton
+              disabled={!notes}
+              showNotes={showNotes}
               onPress={() => setShowNotes(prevShowNotes => !prevShowNotes)}
-              RightIcon={
-                notes && showNotes ? AnimatedMinusIcon : AnimatedPlusIcon
-              }
-              variant="tertiary">
-              {t('notes')}
-            </Button>
+            />
           </TopBar>
           <Spacer8 />
         </Gutters>
