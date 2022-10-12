@@ -5,7 +5,7 @@ import Koa from 'koa';
 mockFirebase(
   {
     database: {
-      temples: [],
+      sessions: [],
     },
   },
   {includeIdsInData: true, mutable: true},
@@ -19,7 +19,7 @@ const mockDailyApi = {
   deleteRoom: jest.fn(),
 };
 
-import {templesRouter} from '.';
+import {sessionsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {
   mockGetTransaction,
@@ -33,9 +33,9 @@ import {Timestamp} from 'firebase-admin/firestore';
 
 jest.mock('../../lib/dailyApi', () => mockDailyApi);
 
-const temples = [
+const sessions = [
   {
-    id: 'some-temple-id',
+    id: 'some-session-id',
     name: 'some-name',
     url: 'some-url',
     exerciseState: {
@@ -49,7 +49,7 @@ const temples = [
     ended: false,
   },
   {
-    id: 'some-other-temple-id',
+    id: 'some-other-session-id',
     name: 'some-other-name',
     url: 'some-other-url',
     exerciseState: {
@@ -65,7 +65,7 @@ const temples = [
 ];
 
 const router = createRouter();
-router.use('/temples', templesRouter.routes());
+router.use('/sessions', sessionsRouter.routes());
 const mockServer = createMockServer(
   async (ctx: Koa.Context, next: Koa.Next) => {
     ctx.user = {
@@ -79,8 +79,8 @@ const mockServer = createMockServer(
 
 beforeEach(async () => {
   await Promise.all(
-    temples.map(temple =>
-      firestore().collection('temples').doc(temple.id).set(temple),
+    sessions.map(session =>
+      firestore().collection('sessions').doc(session.id).set(session),
     ),
   );
 });
@@ -93,14 +93,14 @@ afterAll(() => {
   mockServer.close();
 });
 
-describe('/api/temples', () => {
+describe('/api/sessions', () => {
   describe('GET', () => {
-    it('should get temples', async () => {
-      const response = await request(mockServer).get('/temples');
+    it('should get sessions', async () => {
+      const response = await request(mockServer).get('/sessions');
       expect(response.status).toBe(200);
       expect(response.body).toEqual([
         {
-          id: 'some-temple-id',
+          id: 'some-session-id',
           name: 'some-name',
           url: 'some-url',
           exerciseState: {
@@ -114,7 +114,7 @@ describe('/api/temples', () => {
           ended: false,
         },
         {
-          id: 'some-other-temple-id',
+          id: 'some-other-session-id',
           name: 'some-other-name',
           url: 'some-other-url',
           exerciseState: {
@@ -134,9 +134,9 @@ describe('/api/temples', () => {
   describe('POST', () => {
     const startTime = new Date('1994-03-08T07:24:00').toISOString();
 
-    it('should return newly created temple', async () => {
+    it('should return newly created session', async () => {
       const response = await request(mockServer)
-        .post('/temples')
+        .post('/sessions')
         .send({
           contentId: 'some-content-id',
           startTime,
@@ -162,7 +162,7 @@ describe('/api/temples', () => {
 
     it('should require a name', async () => {
       const response = await request(mockServer)
-        .post('/temples')
+        .post('/sessions')
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(500);
@@ -174,22 +174,22 @@ describe('/api/temples', () => {
         new Error('some error text') as never,
       );
       const response = await request(mockServer)
-        .post('/temples')
+        .post('/sessions')
         .send({name: 'the name'});
       expect(response.status).toBe(500);
     });
   });
 
   describe('PUT', () => {
-    it('should return updated temple with started', async () => {
+    it('should return updated session with started', async () => {
       const response = await request(mockServer)
-        .put('/temples/some-temple-id')
+        .put('/sessions/some-session-id')
         .send({started: true})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
-        id: 'some-temple-id',
+        id: 'some-session-id',
         name: 'some-name',
         url: 'some-url',
         exerciseState: {
@@ -204,15 +204,15 @@ describe('/api/temples', () => {
       });
     });
 
-    it('should return updated temple with ended', async () => {
+    it('should return updated session with ended', async () => {
       const response = await request(mockServer)
-        .put('/temples/some-temple-id')
+        .put('/sessions/some-session-id')
         .send({ended: true})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
-        id: 'some-temple-id',
+        id: 'some-session-id',
         name: 'some-name',
         url: 'some-url',
         exerciseState: {
@@ -229,7 +229,7 @@ describe('/api/temples', () => {
 
     it('should fail on invalid fields', async () => {
       const response = await request(mockServer)
-        .put('/temples/some-temple-id')
+        .put('/sessions/some-session-id')
         .send({invalidField: 'some-value'})
         .set('Accept', 'application/json');
 
@@ -238,7 +238,7 @@ describe('/api/temples', () => {
 
     it('should fail when request auth user is not facilitator', async () => {
       const response = await request(mockServer)
-        .put('/temples/some-other-temple-id')
+        .put('/sessions/some-other-session-id')
         .send({started: true})
         .set('Accept', 'application/json');
 
@@ -250,7 +250,7 @@ describe('/api/temples', () => {
   describe('PUT /:id/exerciseState', () => {
     it('runs in a transaction', async () => {
       await request(mockServer)
-        .put('/temples/some-temple-id/exerciseState')
+        .put('/sessions/some-session-id/exerciseState')
         .send({playing: true})
         .set('Accept', 'application/json');
 
@@ -261,13 +261,13 @@ describe('/api/temples', () => {
 
     it('should update index', async () => {
       const response = await request(mockServer)
-        .put('/temples/some-temple-id/exerciseState')
+        .put('/sessions/some-session-id/exerciseState')
         .send({index: 2})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
-        id: 'some-temple-id',
+        id: 'some-session-id',
         name: 'some-name',
         url: 'some-url',
         exerciseState: {
@@ -284,13 +284,13 @@ describe('/api/temples', () => {
 
     it('should update playing', async () => {
       const response = await request(mockServer)
-        .put('/temples/some-temple-id/exerciseState')
+        .put('/sessions/some-session-id/exerciseState')
         .send({playing: true})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
-        id: 'some-temple-id',
+        id: 'some-session-id',
         name: 'some-name',
         url: 'some-url',
         exerciseState: {
@@ -307,13 +307,13 @@ describe('/api/temples', () => {
 
     it('should update dailySpotlightId', async () => {
       const response = await request(mockServer)
-        .put('/temples/some-temple-id/exerciseState')
+        .put('/sessions/some-session-id/exerciseState')
         .send({dailySpotlightId: 'some-user-id'})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
-        id: 'some-temple-id',
+        id: 'some-session-id',
         name: 'some-name',
         url: 'some-url',
         exerciseState: {
@@ -331,7 +331,7 @@ describe('/api/temples', () => {
 
     it('should fail when request auth user is not facilitator', async () => {
       const response = await request(mockServer)
-        .put('/temples/some-other-temple-id/exerciseState')
+        .put('/sessions/some-other-session-id/exerciseState')
         .send({playing: true})
         .set('Accept', 'application/json');
 
@@ -341,7 +341,7 @@ describe('/api/temples', () => {
 
     it('should require a field', async () => {
       const response = await request(mockServer)
-        .put('/temples/some-temple-id/exerciseState')
+        .put('/sessions/some-session-id/exerciseState')
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(500);
@@ -351,7 +351,7 @@ describe('/api/temples', () => {
 
     it('does not accept other fields', async () => {
       const response = await request(mockServer)
-        .put('/temples/some-temple-id/exerciseState')
+        .put('/sessions/some-session-id/exerciseState')
         .send({index: 1, foo: 'bar'})
         .set('Accept', 'application/json');
 
@@ -366,9 +366,9 @@ describe('/api/temples', () => {
       });
     });
 
-    it('should return 500 on non-existing temple', async () => {
+    it('should return 500 on non-existing session', async () => {
       const response = await request(mockServer)
-        .put('/temples/some-non-existing-id/exerciseState')
+        .put('/sessions/some-non-existing-id/exerciseState')
         .send({index: 1})
         .set('Accept', 'application/json');
 
@@ -381,16 +381,16 @@ describe('/api/temples', () => {
   describe('DELETE', () => {
     it('should delete and confirm on response', async () => {
       const response = await request(mockServer)
-        .delete('/temples/some-temple-id')
+        .delete('/sessions/some-session-id')
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
-      expect(response.text).toEqual('Temple deleted successfully');
+      expect(response.text).toEqual('Session deleted successfully');
     });
 
-    it('should fail when non-existing temple id', async () => {
+    it('should fail when non-existing session id', async () => {
       const response = await request(mockServer)
-        .delete('/temples/some-non-existent-temple-id')
+        .delete('/sessions/some-non-existent-session-id')
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(500);
@@ -399,7 +399,7 @@ describe('/api/temples', () => {
 
     it('should fail when request auth user is not facilitator', async () => {
       const response = await request(mockServer)
-        .delete('/temples/some-other-temple-id')
+        .delete('/sessions/some-other-session-id')
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(500);

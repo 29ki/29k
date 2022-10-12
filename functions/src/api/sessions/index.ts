@@ -24,44 +24,44 @@ const getData = <T>(document: DocumentSnapshot<DocumentData>) => {
   return data as T;
 };
 
-const getTempleExerciseState = (
+const getSessionExerciseState = (
   exerciseState: ExerciseStateData,
 ): ExerciseState => ({
   ...exerciseState,
   timestamp: exerciseState.timestamp.toDate().toISOString(),
 });
 
-const getTemple = (temple: SessionData): Session => ({
-  ...temple,
-  exerciseState: getTempleExerciseState(temple.exerciseState),
-  startTime: temple.startTime.toDate().toISOString(),
+const getSession = (session: SessionData): Session => ({
+  ...session,
+  exerciseState: getSessionExerciseState(session.exerciseState),
+  startTime: session.startTime.toDate().toISOString(),
 });
 
-const TEMPLES_COLLECTION = 'temples';
+const SESSIONS_COLLECTION = 'sessions';
 
-const templesRouter = createRouter();
+const sessionsRouter = createRouter();
 
-templesRouter.get('/', async ctx => {
+sessionsRouter.get('/', async ctx => {
   const {response} = ctx;
 
-  const snapshot = await firestore().collection(TEMPLES_COLLECTION).get();
-  const temples = snapshot.docs.map(doc =>
-    getTemple(getData<SessionData>(doc)),
+  const snapshot = await firestore().collection(SESSIONS_COLLECTION).get();
+  const sessions = snapshot.docs.map(doc =>
+    getSession(getData<SessionData>(doc)),
   );
 
   response.status = 200;
-  ctx.body = temples;
+  ctx.body = sessions;
 });
 
-const CreateTempleSchema = yup.object().shape({
+const CreateSessionSchema = yup.object().shape({
   contentId: yup.string().required(),
   startTime: yup.string().required(),
 });
 
-type CreateTemple = yup.InferType<typeof CreateTempleSchema>;
+type CreateSession = yup.InferType<typeof CreateSessionSchema>;
 
-templesRouter.post('/', validator({body: CreateTempleSchema}), async ctx => {
-  const {contentId, startTime} = ctx.request.body as CreateTemple;
+sessionsRouter.post('/', validator({body: CreateSessionSchema}), async ctx => {
+  const {contentId, startTime} = ctx.request.body as CreateSession;
 
   const data = await dailyApi.createRoom();
   const defaultExerciseState = {
@@ -70,7 +70,7 @@ templesRouter.post('/', validator({body: CreateTempleSchema}), async ctx => {
     timestamp: Timestamp.now(),
   };
 
-  const temple: SessionInput & {
+  const session: SessionInput & {
     dailyRoomName: string;
   } = {
     id: data.id,
@@ -84,39 +84,39 @@ templesRouter.post('/', validator({body: CreateTempleSchema}), async ctx => {
     ended: false,
   };
 
-  await firestore().collection(TEMPLES_COLLECTION).doc(data.id).set(temple);
+  await firestore().collection(SESSIONS_COLLECTION).doc(data.id).set(session);
 
-  ctx.body = getTemple(temple);
+  ctx.body = getSession(session);
 });
 
-templesRouter.delete('/:id', async ctx => {
+sessionsRouter.delete('/:id', async ctx => {
   const {id} = ctx.params;
-  const templeDocRef = firestore().collection(TEMPLES_COLLECTION).doc(id);
-  const temple = getData<
+  const sessionDocRef = firestore().collection(SESSIONS_COLLECTION).doc(id);
+  const session = getData<
     SessionData & {
       dailyRoomName: string;
     }
-  >(await templeDocRef.get());
+  >(await sessionDocRef.get());
 
-  if (ctx.user.id !== temple?.facilitator) {
+  if (ctx.user.id !== session?.facilitator) {
     ctx.status = 500;
     return;
   }
 
   try {
     await Promise.all([
-      dailyApi.deleteRoom(temple.dailyRoomName),
-      templeDocRef.delete(),
+      dailyApi.deleteRoom(session.dailyRoomName),
+      sessionDocRef.delete(),
     ]);
   } catch {
     ctx.status = 500;
   }
 
   ctx.status = 200;
-  ctx.body = 'Temple deleted successfully';
+  ctx.body = 'Session deleted successfully';
 });
 
-const UpdateTempleSchema = yup
+const UpdateSessionSchema = yup
   .object({
     started: yup.boolean(),
     ended: yup.boolean(),
@@ -127,24 +127,28 @@ const UpdateTempleSchema = yup
     test => Object.keys(test).length > 0,
   );
 
-type UpdateTemple = yup.InferType<typeof UpdateTempleSchema>;
+type UpdateSession = yup.InferType<typeof UpdateSessionSchema>;
 
-templesRouter.put('/:id', validator({body: UpdateTempleSchema}), async ctx => {
-  const {id} = ctx.params;
-  const body = ctx.request.body as UpdateTemple;
-  const templeDocRef = firestore().collection(TEMPLES_COLLECTION).doc(id);
-  const temple = getData<SessionData>(await templeDocRef.get());
+sessionsRouter.put(
+  '/:id',
+  validator({body: UpdateSessionSchema}),
+  async ctx => {
+    const {id} = ctx.params;
+    const body = ctx.request.body as UpdateSession;
+    const sessionDocRef = firestore().collection(SESSIONS_COLLECTION).doc(id);
+    const session = getData<SessionData>(await sessionDocRef.get());
 
-  if (ctx.user.id !== temple?.facilitator) {
-    ctx.status = 500;
-    throw new Error('Unauthorized');
-  }
+    if (ctx.user.id !== session?.facilitator) {
+      ctx.status = 500;
+      throw new Error('Unauthorized');
+    }
 
-  await templeDocRef.update(removeEmpty(body));
+    await sessionDocRef.update(removeEmpty(body));
 
-  ctx.status = 200;
-  ctx.body = getTemple(getData<SessionData>(await templeDocRef.get()));
-});
+    ctx.status = 200;
+    ctx.body = getSession(getData<SessionData>(await sessionDocRef.get()));
+  },
+);
 
 const ExerciseStateUpdateSchema = yup
   .object({
@@ -161,20 +165,20 @@ const ExerciseStateUpdateSchema = yup
 
 type ExerciseStateUpdate = yup.InferType<typeof ExerciseStateUpdateSchema>;
 
-templesRouter.put(
+sessionsRouter.put(
   '/:id/exerciseState',
   validator({body: ExerciseStateUpdateSchema}),
   async ctx => {
     const {id} = ctx.params;
-    const templeDocRef = firestore().collection(TEMPLES_COLLECTION).doc(id);
+    const sessionDocRef = firestore().collection(SESSIONS_COLLECTION).doc(id);
 
     await firestore().runTransaction(async transaction => {
-      const templeDoc = await transaction.get(templeDocRef);
+      const sessionDoc = await transaction.get(sessionDocRef);
 
-      if (templeDoc.exists) {
-        const temple = getData<SessionData>(templeDoc);
+      if (sessionDoc.exists) {
+        const session = getData<SessionData>(sessionDoc);
 
-        if (temple && ctx.user.id !== temple?.facilitator) {
+        if (session && ctx.user.id !== session?.facilitator) {
           ctx.status = 500;
           throw new Error('Unauthorized');
         }
@@ -182,19 +186,19 @@ templesRouter.put(
         const update = removeEmpty(ctx.request.body as ExerciseStateUpdate);
 
         const data = removeEmpty({
-          ...temple.exerciseState,
+          ...session.exerciseState,
           ...update,
           timestamp: Timestamp.now(),
         });
 
-        await transaction.update(templeDocRef, {exerciseState: data});
+        await transaction.update(sessionDocRef, {exerciseState: data});
       } else {
         ctx.status = 500;
       }
     });
 
-    ctx.body = getTemple(getData<SessionData>(await templeDocRef.get()));
+    ctx.body = getSession(getData<SessionData>(await sessionDocRef.get()));
   },
 );
 
-export {templesRouter};
+export {sessionsRouter};
