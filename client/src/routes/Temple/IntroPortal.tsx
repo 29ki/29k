@@ -16,7 +16,12 @@ import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
-import {BottomSafeArea, Spacer8} from '../../common/components/Spacers/Spacer';
+import {
+  BottomSafeArea,
+  Spacer16,
+  Spacer8,
+  TopSafeArea,
+} from '../../common/components/Spacers/Spacer';
 import {Body14} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {HKGroteskBold} from '../../common/constants/fonts';
@@ -83,7 +88,6 @@ const BackButton = styled(IconButton)({
 const TopBar = styled(Gutters)({
   justifyContent: 'space-between',
   flexDirection: 'row',
-  marginTop: SPACINGS.SIXTEEN,
 });
 
 const IntroPortal: React.FC = () => {
@@ -140,6 +144,7 @@ const IntroPortal: React.FC = () => {
 
   return (
     <Screen noTopBar>
+      {!isFacilitator && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
       {isFocused && introPortal.videoLoop?.audio && (
         <AudioFader
           source={introPortal.videoLoop.audio}
@@ -174,7 +179,12 @@ const IntroPortal: React.FC = () => {
         />
       )}
 
-      {isFacilitator && <HostNotes introPortal />}
+      {isFacilitator && (
+        <>
+          <HostNotes introPortal />
+          <Spacer16 />
+        </>
+      )}
       <Wrapper>
         {isFocused && (
           <Content>
