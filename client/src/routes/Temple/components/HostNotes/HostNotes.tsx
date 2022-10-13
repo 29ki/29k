@@ -20,19 +20,23 @@ import Markdown from '../../../../common/components/Typography/Markdown/Markdown
 import NavButton from './NavButton';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import {
-  Spacer28,
+  Spacer32,
+  Spacer4,
   Spacer8,
   TopSafeArea,
 } from '../../../../common/components/Spacers/Spacer';
 import ToggleButton from './ToggleButton';
 
-const BoxShadowWrapper = styled.View({...SETTINGS.BOXSHADOW});
+const BoxShadowWrapper = styled.View({
+  ...SETTINGS.BOXSHADOW,
+  borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not shoing on Android
+  borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not shoing on Android
+});
 const Wrapper = styled.View({
   borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS,
   borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS,
   backgroundColor: COLORS.WHITE,
   zIndex: 2,
-  elevation: 1,
 });
 
 const TopBar = styled.View({
@@ -51,8 +55,6 @@ const NotesWrapper = styled(Animated.View).attrs({
   borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS,
   borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS,
   backgroundColor: COLORS.WHITE,
-  zIndex: 1,
-  elevation: 1,
   marginTop: -25,
 });
 const Navigation = styled.View({
@@ -103,6 +105,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
         }}>
         <TopSafeArea />
         <Gutters>
+          <Spacer4 />
           <TopBar>
             <Progress
               index={exercise?.slide.index}
@@ -116,13 +119,13 @@ const HostNotes: React.FC<HostNotesProps> = ({
               onPress={() => setShowNotes(prevShowNotes => !prevShowNotes)}
             />
           </TopBar>
-          <Spacer8 />
+          <Spacer4 />
         </Gutters>
       </Wrapper>
       {showNotes && notes && (
         <NotesWrapper>
           <Gutters>
-            <Spacer28 />
+            <Spacer32 />
             <FlatList
               getItemLayout={(data, index) => ({
                 length: containerWidth,
