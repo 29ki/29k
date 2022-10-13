@@ -1,4 +1,4 @@
-import {filterPublishedContent, generateI18NResources} from './utils.js';
+import {filterPublishedContent, generateI18NResources} from './utils';
 
 describe('utils', () => {
   describe('generateI18NResources', () => {
@@ -74,7 +74,11 @@ describe('utils', () => {
         },
       };
 
-      expect(filterPublishedContent(content)).toEqual({
+      expect(
+        filterPublishedContent(
+          content as Record<string, Record<string, {published: boolean}>>,
+        ),
+      ).toEqual({
         'some-exercise-id': {
           en: {
             id: 'some-exercise-id',

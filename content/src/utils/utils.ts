@@ -1,34 +1,45 @@
-import fs from 'fs';
-import path from 'path';
+import {readFileSync, readdirSync} from 'fs';
+import * as path from 'path';
 
-export const getContentByType = type => {
+type LocalizedContent<T> = Record<string, Record<string, T> | string>;
+type Content<T> = Record<string, LocalizedContent<T>>;
+
+export const getContentByType = <T>(type: string) => {
   const dirPath = path.resolve('src', type);
-  const dirFiles = fs.readdirSync(dirPath);
+
+  const dirFiles = readdirSync(dirPath);
 
   return dirFiles.reduce((files, fileName) => {
     const filePath = path.resolve(dirPath, fileName);
     const fileKey = path.basename(fileName, '.json');
-    const file = fs.readFileSync(filePath);
-    const fileJSON = JSON.parse(file);
+    const file = readFileSync(filePath, {encoding: 'utf8'});
+    const fileJSON = JSON.parse(file) as LocalizedContent<T>;
 
     return {
       ...files,
       [fileKey]: fileJSON,
     };
-  }, {});
+  }, {} as Content<T>);
 };
 
-export const filterPublishedContent = (files, explicitLocale) =>
+export const filterPublishedContent = <T>(
+  files: Content<T>,
+  explicitLocale?: string,
+) =>
   Object.entries(files)
     .filter(
-      ([, content]) => !explicitLocale || content?.[explicitLocale]?.published,
+      ([, content]) =>
+        !explicitLocale ||
+        (content?.[explicitLocale] as Record<string, boolean>)?.published,
     )
     .reduce(
       (files, [file, content]) => ({
         ...files,
         [file]: Object.entries(content).reduce(
           (filtered, [locale, resource]) =>
-            resource.published ? {...filtered, [locale]: resource} : filtered,
+            (resource as Record<string, boolean>).published
+              ? {...filtered, [locale]: resource}
+              : filtered,
           {},
         ),
       }),
@@ -51,21 +62,24 @@ Generates i18n-friendly structure
   },
 };
 */
-export const generateI18NResources = (content, parentNS) =>
+export const generateI18NResources = <T>(
+  content: Content<T>,
+  parentNS?: string,
+) =>
   Object.entries(content).reduce(
     (i18nResources, [namespace, locales]) =>
       Object.entries(locales).reduce(
-        (resources, [locale, resource]) => ({
+        (resources: LocalizedContent<T>, [locale, resource]) => ({
           ...resources,
           [locale]: parentNS
             ? {
                 [parentNS]: {
-                  ...resources[locale]?.[parentNS],
+                  ...(resources[locale] as Record<string, T>)?.[parentNS],
                   [namespace]: resource,
                 },
               }
             : {
-                ...resources[locale],
+                ...(resources[locale] as Record<string, T>),
                 [namespace]: resource,
               },
         }),
