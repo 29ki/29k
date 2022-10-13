@@ -55,7 +55,6 @@ templesRouter.get('/', async ctx => {
         dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
       ),
     )
-    .orderBy('startTime', 'asc')
     .get();
 
   const temples = snapshot.docs.map(doc => getTemple(getData<TempleData>(doc)));
