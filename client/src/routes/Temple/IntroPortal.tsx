@@ -55,17 +55,19 @@ const StatusItem = styled.View({
   alignItems: 'center',
 });
 
-const StatusText = styled(Body14)({
-  color: COLORS.PURE_WHITE,
+const StatusText = styled(Body14)<{themeColor?: string}>(({themeColor}) => ({
+  color: themeColor ? themeColor : COLORS.PURE_WHITE,
   fontFamily: HKGroteskBold,
-});
+}));
 
-const Badge = styled.View({
-  backgroundColor: COLORS.WHITE_TRANSPARENT,
+const Badge = styled.View<{themeColor?: string}>(({themeColor}) => ({
+  backgroundColor: themeColor
+    ? COLORS.BLACK_TRANSPARENT
+    : COLORS.WHITE_TRANSPARENT,
   paddingVertical: SPACINGS.FOUR,
   paddingHorizontal: SPACINGS.EIGHT,
   borderRadius: SPACINGS.EIGHT,
-});
+}));
 
 const PortalStatus = styled(Gutters)({
   flexDirection: 'row',
@@ -108,7 +110,6 @@ const IntroPortal: React.FC = () => {
   const isFocused = useIsFocused();
   const {setStarted} = useUpdateTemple(templeId);
   const {leaveTempleWithConfirm} = useLeaveTemple();
-
   usePreventGoingBack(leaveTempleWithConfirm);
 
   useEffect(() => {
@@ -116,6 +117,7 @@ const IntroPortal: React.FC = () => {
   }, [joinMeeting]);
 
   const introPortal = exercise?.introPortal;
+  const themedText = exercise?.theme?.textColor;
 
   if (!introPortal) {
     return null;
@@ -193,6 +195,7 @@ const IntroPortal: React.FC = () => {
                 noBackground
                 onPress={leaveTempleWithConfirm}
                 Icon={ArrowLeftIcon}
+                fill={themedText}
               />
               {__DEV__ && temple?.started && (
                 <Button small onPress={() => navigate('Temple', {templeId})}>
@@ -208,10 +211,12 @@ const IntroPortal: React.FC = () => {
 
             <PortalStatus>
               <StatusItem>
-                <StatusText>{t('counterLabel.soon')}</StatusText>
+                <StatusText themeColor={themedText}>
+                  {t('counterLabel.soon')}
+                </StatusText>
 
                 <Spacer8 />
-                <Badge>
+                <Badge themeColor={themedText}>
                   <StatusText>
                     <Counter
                       startTime={dayjs(temple?.startTime.toDate())}
@@ -223,9 +228,11 @@ const IntroPortal: React.FC = () => {
 
               {participantsCount > 1 && (
                 <StatusItem>
-                  <StatusText>{t('participants')}</StatusText>
+                  <StatusText themeColor={themedText}>
+                    {t('participants')}
+                  </StatusText>
                   <Spacer8 />
-                  <Badge>
+                  <Badge themeColor={themedText}>
                     <StatusText>{participantsCount}</StatusText>
                   </Badge>
                 </StatusItem>
