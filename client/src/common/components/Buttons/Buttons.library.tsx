@@ -9,7 +9,7 @@ import IconButton from './IconButton/IconButton';
 import {HomeIcon} from '../Icons/Home/Home';
 import {Body16, Body18, BodyBold} from '../Typography/Body/Body';
 import {PlusIcon} from '../Icons';
-import ToggleButton from '../../../routes/Temple/components/HostNotes/ToggleButton';
+import ToggleButton from '../../../routes/Session/components/HostNotes/ToggleButton';
 
 const RowFullWidth = styled.View({
   flex: 1,

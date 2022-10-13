@@ -6,7 +6,7 @@ import * as Cards from '../../../common/components/Cards/Cards.library';
 import * as Icons from '../../../common/components/Icons/Icons.library';
 import * as Typography from '../../../common/components/Typography/Typography.library';
 import * as UiSettings from '../../../common/constants/UiSettings.library';
-import * as Temple from '../../../routes/Temple/components/Temple.library';
+import * as Session from '../../../routes/Session/components/Session.library';
 
 export type ComponentLibrary = {[key: string]: React.ComponentType};
 export type ComponentList = {[key: string]: Array<ComponentLibrary>};
@@ -16,7 +16,7 @@ const menuItems: ComponentList = {
   Cards: [Cards],
   Icons: [Icons],
   Typography: [Typography],
-  TempleComponents: [Temple],
+  SessionComponents: [Session],
   UiSettings: [UiSettings],
 };
 
