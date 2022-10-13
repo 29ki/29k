@@ -5,7 +5,12 @@
     "name": "Bring your feelings along",
     "slides": [
       {
-        "type": "host"
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "g﻿hith"
+          }
+        ]
       },
       {
         "type": "content",
