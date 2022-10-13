@@ -23,11 +23,9 @@ import {sessionsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {
   mockGetTransaction,
-  mockOrderBy,
   mockRunTransaction,
   mockUpdate,
   mockUpdateTransaction,
-  mockWhere,
 } from 'firestore-jest-mock/mocks/firestore';
 import {createRouter} from '../../lib/routers';
 import {firestore} from 'firebase-admin';
@@ -130,21 +128,6 @@ describe('/api/sessions', () => {
           ended: false,
         },
       ]);
-    });
-
-    it('should filter out old sessions', async () => {
-      await request(mockServer).get('/sessions');
-      expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
-      expect(mockWhere).toHaveBeenCalledWith(
-        'startTime',
-        '>',
-        expect.any(Timestamp),
-      );
-    });
-
-    it('should order by startTime', async () => {
-      await request(mockServer).get('/sessions');
-      expect(mockOrderBy).toHaveBeenCalledWith('startTime', 'asc');
     });
   });
 

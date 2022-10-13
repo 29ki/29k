@@ -7,7 +7,6 @@ import {
   Timestamp,
 } from 'firebase-admin/firestore';
 import 'firebase-functions';
-import dayjs from 'dayjs';
 
 import {
   SessionInput,
@@ -45,19 +44,7 @@ const sessionsRouter = createRouter();
 sessionsRouter.get('/', async ctx => {
   const {response} = ctx;
 
-  const snapshot = await firestore()
-    .collection(SESSIONS_COLLECTION)
-    .where('ended', '==', false)
-    .where(
-      'startTime',
-      '>',
-      Timestamp.fromDate(
-        dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
-      ),
-    )
-    .orderBy('startTime', 'asc')
-    .get();
-
+  const snapshot = await firestore().collection(SESSIONS_COLLECTION).get();
   const sessions = snapshot.docs.map(doc =>
     getSession(getData<SessionData>(doc)),
   );
