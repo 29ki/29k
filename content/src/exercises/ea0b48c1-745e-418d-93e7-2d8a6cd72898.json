@@ -28,7 +28,15 @@
             "description": "When BUT gets in the way"
           },
           "heading": "The word AND"
-        }
+        },
+        "hostNotes": [
+          {
+            "text": "When we have difficult things going on on the inside, it is common to put our lives on hold. Wait for the difficult things to go away, and then we can get started with our lives again. The tricky thing is that can put us in a position where we wait and wait and wait. Go to the gym another day when I’m not tired. See a friend some other time when I’m not so stressed."
+          },
+          {
+            "text": "One of the things that affect how we deal with obstacles to do the things we want to in life is our language. How we talk to ourselves can impact how we behave. And one thing we often do is use the word BUT, as a sort of condition."
+          }
+        ]
       },
       {
         "type": "reflection",
@@ -37,7 +45,15 @@
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1665464767/Temp/Comp_4_wrr4ks.mp4"
           }
-        }
+        },
+        "hostNotes": [
+          {
+            "text": "Now we’ll take a minute to reflect on our own.\n\nFor this step you’ll need a piece of paper.\n\nMost of us have recurring thoughts like “I want to do x, but I am so y”. It can make us feel like we need to get rid of y, before we do x.\n\nSee if you can find a recent thought that contains something you want but don’t do for a reason on the inside.\n\n1 minute starting now."
+          },
+          {
+            "text": "Okay, that’s 1 minute Let’s move on."
+          }
+        ]
       },
       {
         "type": "reflection",
@@ -46,7 +62,15 @@
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1665464773/Temp/Comp_9_bsizws.mp4"
           }
-        }
+        },
+        "hostNotes": [
+          {
+            "text": "The next step is to actually replace your BUT with and AND in your sentences. Then read them out loud for yourself. What happens to them and to you when you do that?\n\nMain:\n\n* ~~BUT~~ → AND.\n* Read your sentences out loud for yourself\n* What happens?\n\n1 minute starting now."
+          },
+          {
+            "text": "Okay, that’s 1 minute Let’s move on."
+          }
+        ]
       },
       {
         "type": "sharing",
@@ -55,7 +79,18 @@
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1665464766/Temp/Comp_10_ababts.mp4"
           }
-        }
+        },
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part of this exercise. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **Your job as a participant is just to listen.** There is no fixing, helping or advice-giving needed in this space. We are just showing up and trying to understand what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights, it just is.\n\nThere will be a timer set for 2 minutes as an indicator but you use as much or little time as you want to. If you don’t want to share you can always say ‘pass’.\n\nX, would you like to start and then hand over to someone else when you are done?"
+          },
+          {
+            "text": "*All/3-4 done*\n\nThank you so much for sharing your thoughts and feelings with us here today."
+          }
+        ]
       },
       {
         "type": "content",
@@ -65,7 +100,21 @@
             "description": "Mission badge"
           },
           "heading": "Mission"
-        }
+        },
+        "hostNotes": [
+          {
+            "text": "Well done. When we wait for our unwanted feelings to simply go away so that we can finally do the things we want, we consequently put our life on hold. Sometimes for a very long time.\n\nA more helpful strategy is to open up to our feelings with acceptance and intentionally choose our actions."
+          },
+          {
+            "text": "This allows us to spend time and energy on the things that are important to us – even when that comes with difficult emotions.\n\nI would like to send you off with a little mission if you’re up for it."
+          },
+          {
+            "text": "For the coming three days, see if you can notice when you talk to yourself with “I want to do x, BUT I’m so y”-sentences. When you do, replace your buts with ands and see if you notice any difference in how you behave."
+          },
+          {
+            "text": "Thank you for joining us here today. If you have any reflections or feedback for us at 29k, please let us know. Wishing you all a lovely day.\n\nBye."
+          }
+        ]
       }
     ],
     "theme": {
