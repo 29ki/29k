@@ -5,6 +5,8 @@ import {Platform} from 'react-native';
 
 const StyledVideo = styled(RNVideo)({
   flex: 1,
+  shadowOpacity: 1,
+  shadowColor: 'transparent',
 });
 
 const getSilentSwitchSetting = () =>
