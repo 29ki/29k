@@ -51,4 +51,5 @@ export const files: CmsCollection = generateFilesCollectionFromi18nFiles(
   'ui',
   'UI',
   content.i18n,
+  [exercises.name],
 );

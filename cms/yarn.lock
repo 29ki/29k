@@ -737,10 +737,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.0.3.tgz#463fc47f13ec0688a33aec75d078a0541a447199"
   integrity sha512-HzNRZtp4eepNitP+BD6k2L6DROIDG4Q0fm4x+dwfsr6LGmROENnok75VGw40628xf+iR24WeMFcHuuBDUAzzsQ==
 
-"@types/node@^18.8.3":
-  version "18.8.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.8.3.tgz#ce750ab4017effa51aed6a7230651778d54e327c"
-  integrity sha512-0os9vz6BpGwxGe9LOhgP/ncvYN5Tx1fNcd2TM3rD/aCGBkysb+ZWpXEocG24h6ZzOi13+VB8HndAQFezsSOw1w==
+"@types/node@^18.8.5":
+  version "18.8.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.8.5.tgz#6a31f820c1077c3f8ce44f9e203e68a176e8f59e"
+  integrity sha512-Bq7G3AErwe5A/Zki5fdD3O6+0zDChhg671NfPjtIcbtzDNZTv4NPKMRFr7gtYPG7y+B8uTiNK4Ngd9T0FTar6Q==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -3919,10 +3919,10 @@ netlify-cms-widget-text@^2.4.1:
   dependencies:
     react-textarea-autosize "^8.0.0"
 
-netlify-ts@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/netlify-ts/-/netlify-ts-1.4.0.tgz#eadb06bd9666be7d19ddaf6c800fa0325988a47c"
-  integrity sha512-+Q6rpCoKqWWkvAW8pXZVyCNi1bm5OaGy2UNqKS1B5WT/NuwO0U2apLQl7kqIMxAmXcDoMdVz33PSDqwfyxUzgA==
+netlify-ts@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/netlify-ts/-/netlify-ts-1.5.0.tgz#48047015bc764d8d496e4b08c12cee966b019147"
+  integrity sha512-CnhXeOijA5bKcUlYl8wWO/vmhLcr4uMe8X2hp2AL2YUNRBiHeQYOOlkuKVCjsIXhR9R4r9j7aeVPLUNPpfrtiA==
   dependencies:
     js-yaml "^4.0.0"
     ora "^5.3.0"

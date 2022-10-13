@@ -2,27 +2,32 @@ import * as fs from 'fs';
 import * as process from 'child_process';
 import {createNetlifyTypes} from 'netlify-ts';
 import {Collection} from 'netlify-ts/lib/types';
-import {exercises, contributors} from './src/collections/collections';
+import {exercises, contributors, files} from './src/collections/collections';
 
-const OUTPUT_PATH = '../shared/src/types/CmsTypes.ts';
+const OUTPUT_PATH = '../shared/src/types/generated';
 
 const clean = (input: string) => input.replaceAll(/_|-|\./g, '');
-const addEslintDisables = (input: string) =>
-  `/* eslint-disable @typescript-eslint/no-explicit-any */\n${input}`;
 
-const main = () => {
+const createTypeFile = (collection: Collection) => {
+  const fileName = collection.label_singular
+    ? collection.label_singular.replace(/^[a-z]/g, v => v.toUpperCase())
+    : collection.label;
+  const path = `${OUTPUT_PATH}/${fileName}.ts`;
   const types = createNetlifyTypes(
     {
-      collections: [exercises, contributors] as unknown as Array<Collection>,
+      collections: [collection] as unknown as Array<Collection>,
     },
-    {label: false, capitalize: true},
+    {label: true, capitalize: true, delimiter: ''},
   );
 
-  const cleanedTypes = clean(types);
-  const withDisables = addEslintDisables(cleanedTypes);
+  fs.writeFileSync(path, clean(types));
+  process.exec(`yarn prettier --write ${path}`);
+};
 
-  fs.writeFileSync(OUTPUT_PATH, withDisables);
-  process.exec(`yarn prettier --write ${OUTPUT_PATH}`);
+const main = () => {
+  ([exercises, contributors, files] as unknown as Array<Collection>).forEach(
+    createTypeFile,
+  );
 };
 
 main();
