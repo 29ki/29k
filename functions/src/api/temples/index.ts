@@ -7,7 +7,6 @@ import {
   Timestamp,
 } from 'firebase-admin/firestore';
 import 'firebase-functions';
-import dayjs from 'dayjs';
 
 import {
   TempleInput,
@@ -45,18 +44,7 @@ const templesRouter = createRouter();
 templesRouter.get('/', async ctx => {
   const {response} = ctx;
 
-  const snapshot = await firestore()
-    .collection(TEMPLES_COLLECTION)
-    .where('ended', '==', false)
-    .where(
-      'startTime',
-      '>',
-      Timestamp.fromDate(
-        dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
-      ),
-    )
-    .get();
-
+  const snapshot = await firestore().collection(TEMPLES_COLLECTION).get();
   const temples = snapshot.docs.map(doc => getTemple(getData<TempleData>(doc)));
 
   response.status = 200;
