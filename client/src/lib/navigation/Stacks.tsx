@@ -5,21 +5,21 @@ import {
 } from '@react-navigation/native-stack';
 import {useRecoilValue} from 'recoil';
 
-import {RootStackProps, TempleStackProps} from '../../common/constants/routes';
+import {RootStackProps, SessionStackProps} from '../../common/constants/routes';
 import KillSwitch from '../../routes/KillSwitch/KillSwitch';
 import {killSwitchFields} from '../killSwitch/state/state';
 import Tabs from './Tabs';
-import Temple from '../../routes/Temple/Temple';
-import ChangingRoom from '../../routes/Temple/ChangingRoom';
-import IntroPortal from '../../routes/Temple/IntroPortal';
-import OutroPortal from '../../routes/Temple/OutroPortal';
-import DailyProvider from '../../routes/Temple/DailyProvider';
-import TempleModal from '../../routes/Temples/components/TempleModal';
-import CreateTempleModal from '../../routes/Temples/components/CreateTempleModal';
+import Session from '../../routes/Session/Session';
+import ChangingRoom from '../../routes/Session/ChangingRoom';
+import IntroPortal from '../../routes/Session/IntroPortal';
+import OutroPortal from '../../routes/Session/OutroPortal';
+import DailyProvider from '../../routes/Session/DailyProvider';
+import SessionModal from '../../routes/Sessions/components/SessionModal';
+import CreateSessionModal from '../../routes/Sessions/components/CreateSessionModal';
 import {navigationWithFadeAtom} from './state/state';
 
 const RootStack = createNativeStackNavigator<RootStackProps>();
-const TempleStack = createNativeStackNavigator<TempleStackProps>();
+const SessionStack = createNativeStackNavigator<SessionStackProps>();
 
 const stackOptions: NativeStackNavigationOptions = {
   headerShown: false,
@@ -32,14 +32,14 @@ const fadeStackOptions: NativeStackNavigationOptions = {
   gestureEnabled: false,
 };
 
-const TempleStackWrapper = () => (
+const SessionStackWrapper = () => (
   <DailyProvider>
-    <TempleStack.Navigator screenOptions={fadeStackOptions}>
-      <TempleStack.Screen name={'ChangingRoom'} component={ChangingRoom} />
-      <TempleStack.Screen name={'IntroPortal'} component={IntroPortal} />
-      <TempleStack.Screen name={'Temple'} component={Temple} />
-      <TempleStack.Screen name={'OutroPortal'} component={OutroPortal} />
-    </TempleStack.Navigator>
+    <SessionStack.Navigator screenOptions={fadeStackOptions}>
+      <SessionStack.Screen name={'ChangingRoom'} component={ChangingRoom} />
+      <SessionStack.Screen name={'IntroPortal'} component={IntroPortal} />
+      <SessionStack.Screen name={'Session'} component={Session} />
+      <SessionStack.Screen name={'OutroPortal'} component={OutroPortal} />
+    </SessionStack.Navigator>
   </DailyProvider>
 );
 
@@ -56,8 +56,8 @@ const RootStackWrapper = () => {
         <>
           <RootStack.Screen name={'Tabs'} component={Tabs} />
           <RootStack.Screen
-            name={'TempleStack'}
-            component={TempleStackWrapper}
+            name={'SessionStack'}
+            component={SessionStackWrapper}
             options={{gestureEnabled: false}}
           />
 
@@ -68,10 +68,10 @@ const RootStackWrapper = () => {
               gestureEnabled: true,
               animation: 'slide_from_bottom',
             }}>
-            <RootStack.Screen name={'TempleModal'} component={TempleModal} />
+            <RootStack.Screen name={'SessionModal'} component={SessionModal} />
             <RootStack.Screen
-              name={'CreateTempleModal'}
-              component={CreateTempleModal}
+              name={'CreateSessionModal'}
+              component={CreateSessionModal}
             />
           </RootStack.Group>
         </>

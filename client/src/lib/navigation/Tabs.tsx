@@ -20,7 +20,7 @@ import {SPACINGS} from '../../common/constants/spacings';
 import {Body14} from '../../common/components/Typography/Body/Body';
 
 import Profile from '../../routes/Profile/Profile';
-import Temples from '../../routes/Temples/Temples';
+import Sessions from '../../routes/Sessions/Sessions';
 
 import NS from '../i18n/constants/namespaces';
 import {Platform} from 'react-native';
@@ -78,8 +78,8 @@ const Tabs = () => {
   return (
     <Tab.Navigator screenOptions={tabBarOptions} tabBar={TabBar}>
       <Tab.Screen
-        name={'Temples'}
-        component={Temples}
+        name={'Sessions'}
+        component={Sessions}
         options={getTabOptions(HomeIcon, HomeFillIcon, t('home'))}
       />
       <Tab.Screen
