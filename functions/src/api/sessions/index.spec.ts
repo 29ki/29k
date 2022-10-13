@@ -132,8 +132,8 @@ describe('/api/sessions', () => {
       ]);
     });
 
-    it('should filter out old temples', async () => {
-      await request(mockServer).get('/temples');
+    it('should filter out old sessions', async () => {
+      await request(mockServer).get('/sessions');
       expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
       expect(mockWhere).toHaveBeenCalledWith(
         'startTime',
@@ -143,7 +143,7 @@ describe('/api/sessions', () => {
     });
 
     it('should order by startTime', async () => {
-      await request(mockServer).get('/temples');
+      await request(mockServer).get('/sessions');
       expect(mockOrderBy).toHaveBeenCalledWith('startTime', 'asc');
     });
   });
