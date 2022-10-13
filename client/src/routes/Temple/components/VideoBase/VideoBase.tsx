@@ -5,8 +5,8 @@ import {Platform} from 'react-native';
 
 const StyledVideo = styled(RNVideo)({
   flex: 1,
-  shadowOpacity: 1,
-  shadowColor: 'transparent',
+  shadowOpacity: 1, // Removes ugly frame on iPhone 13 mini (found in thread: https://github.com/react-native-video/react-native-video/issues/1638)
+  shadowColor: 'transparent', // Removes ugly frame on iPhone 13 mini (found in thread: https://github.com/react-native-video/react-native-video/issues/1638)
 });
 
 const getSilentSwitchSetting = () =>
