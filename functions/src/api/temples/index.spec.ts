@@ -26,7 +26,6 @@ import {
   mockRunTransaction,
   mockUpdate,
   mockUpdateTransaction,
-  mockWhere,
 } from 'firestore-jest-mock/mocks/firestore';
 import {createRouter} from '../../lib/routers';
 import {firestore} from 'firebase-admin';
@@ -129,16 +128,6 @@ describe('/api/temples', () => {
           ended: false,
         },
       ]);
-    });
-
-    it('should filter out old temples', async () => {
-      await request(mockServer).get('/temples');
-      expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
-      expect(mockWhere).toHaveBeenCalledWith(
-        'startTime',
-        '>',
-        expect.any(Timestamp),
-      );
     });
   });
 
