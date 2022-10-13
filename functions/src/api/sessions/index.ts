@@ -18,6 +18,7 @@ import {
 import * as dailyApi from '../../lib/dailyApi';
 import {createRouter} from '../../lib/routers';
 import {removeEmpty} from '../../lib/utils';
+import dayjs from 'dayjs';
 
 const getData = <T>(document: DocumentSnapshot<DocumentData>) => {
   const data = document.data();
@@ -44,7 +45,18 @@ const sessionsRouter = createRouter();
 sessionsRouter.get('/', async ctx => {
   const {response} = ctx;
 
-  const snapshot = await firestore().collection(SESSIONS_COLLECTION).get();
+  const snapshot = await firestore()
+    .collection(SESSIONS_COLLECTION)
+    .where('ended', '==', false)
+    .where(
+      'startTime',
+      '>',
+      Timestamp.fromDate(
+        dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
+      ),
+    )
+    .orderBy('startTime', 'asc')
+    .get();
   const sessions = snapshot.docs.map(doc =>
     getSession(getData<SessionData>(doc)),
   );
