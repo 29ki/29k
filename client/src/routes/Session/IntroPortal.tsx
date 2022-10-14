@@ -55,17 +55,19 @@ const StatusItem = styled.View({
   alignItems: 'center',
 });
 
-const StatusText = styled(Body14)({
-  color: COLORS.PURE_WHITE,
+const StatusText = styled(Body14)<{themeColor?: string}>(({themeColor}) => ({
+  color: themeColor ? themeColor : COLORS.PURE_WHITE,
   fontFamily: HKGroteskBold,
-});
+}));
 
-const Badge = styled.View({
-  backgroundColor: COLORS.WHITE_TRANSPARENT,
+const Badge = styled.View<{themeColor?: string}>(({themeColor}) => ({
+  backgroundColor: themeColor
+    ? COLORS.BLACK_TRANSPARENT_15
+    : COLORS.WHITE_TRANSPARENT,
   paddingVertical: SPACINGS.FOUR,
   paddingHorizontal: SPACINGS.EIGHT,
   borderRadius: SPACINGS.EIGHT,
-});
+}));
 
 const PortalStatus = styled(Gutters)({
   flexDirection: 'row',
@@ -116,6 +118,7 @@ const IntroPortal: React.FC = () => {
   }, [joinMeeting]);
 
   const introPortal = exercise?.introPortal;
+  const themedText = exercise?.theme?.textColor;
 
   if (!introPortal) {
     return null;
@@ -193,6 +196,7 @@ const IntroPortal: React.FC = () => {
                 noBackground
                 onPress={leaveSessionWithConfirm}
                 Icon={ArrowLeftIcon}
+                fill={themedText}
               />
               {__DEV__ && session?.started && (
                 <Button
@@ -210,11 +214,13 @@ const IntroPortal: React.FC = () => {
 
             <PortalStatus>
               <StatusItem>
-                <StatusText>{t('counterLabel.soon')}</StatusText>
+                <StatusText themeColor={themedText}>
+                  {t('counterLabel.soon')}
+                </StatusText>
 
                 <Spacer8 />
-                <Badge>
-                  <StatusText>
+                <Badge themeColor={themedText}>
+                  <StatusText themeColor={themedText}>
                     <Counter
                       startTime={dayjs(session?.startTime.toDate())}
                       starting={session?.started}
@@ -223,12 +229,16 @@ const IntroPortal: React.FC = () => {
                 </Badge>
               </StatusItem>
 
-              {participantsCount > 1 && (
+              {participantsCount > 0 && (
                 <StatusItem>
-                  <StatusText>{t('participants')}</StatusText>
+                  <StatusText themeColor={themedText}>
+                    {t('participants')}
+                  </StatusText>
                   <Spacer8 />
-                  <Badge>
-                    <StatusText>{participantsCount}</StatusText>
+                  <Badge themeColor={themedText}>
+                    <StatusText themeColor={themedText}>
+                      {participantsCount}
+                    </StatusText>
                   </Badge>
                 </StatusItem>
               )}
