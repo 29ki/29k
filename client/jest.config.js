@@ -6,6 +6,7 @@ process.env = Object.assign(process.env, {
   ANDROID_CODE_PUSH_DEPLOYMENT_KEY: 'some-android-code-push-deployment-key',
   API_ENDPOINT: 'some-api-endpoint',
   GIT_COMMIT_SHORT: 'some-git-hash',
+  SENTRY_DSN: 'some-sentry-dsn',
 });
 const modules = ['react-native', '@react-native'];
 
