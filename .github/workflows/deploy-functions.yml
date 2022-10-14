@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-20.04
     environment: functions-${{ inputs.environment }}
     env:
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+
       DOTENV_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
       DOTENV_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
       DOTENV_DAILY_API_KEY: ${{ secrets.DAILY_API_KEY }}
@@ -96,3 +100,16 @@ jobs:
           --only firestore,functions
           --non-interactive
           --force
+
+      - name: Upload Source Maps to Sentry
+        working-directory: ./functions
+        run: >
+          yarn sentry-cli releases
+          files $GIT_COMMIT_SHORT
+          upload-sourcemaps
+          --dist ${{ secrets.ENVIRONMENT }}
+          lib
+
+      - name: Associate Commits to Sentry Release
+        working-directory: ./client
+        run: yarn sentry-cli releases set-commits --auto $GIT_COMMIT_SHORT

@@ -145,7 +145,7 @@ jobs:
           yarn sentry-cli releases
           files $GIT_COMMIT_SHORT
           upload-sourcemaps
-          --dist ${{ inputs.environment }}
+          --dist ${{ secrets.ENVIRONMENT }}
           --strip-prefix $PWD
           $SOURCEMAPS_DIR
 
