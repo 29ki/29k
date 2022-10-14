@@ -30,8 +30,8 @@ export const contributors: CmsCollection = {
   files: [
     {
       label: 'All Contributors',
-      name: '.all-contributorsrc',
-      file: '/.all-contributorsrc',
+      name: 'all-contributorsrc',
+      file: '/all-contributorsrc',
       fields: CONTRIBUTORS_FIELDS,
     },
   ],

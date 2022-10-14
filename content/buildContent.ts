@@ -22,7 +22,7 @@ const ui = generateI18NResources(getContentByType('ui'));
 const i18n = mergeDeepRight(ui, exercises);
 
 const {contributors} = JSON.parse(
-  readFileSync('../.all-contributorsrc', {encoding: 'utf8'}),
+  readFileSync('../all-contributorsrc', {encoding: 'utf8'}),
 );
 
 const data = JSON.stringify({
