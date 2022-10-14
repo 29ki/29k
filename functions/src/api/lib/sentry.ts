@@ -13,7 +13,8 @@ Sentry.init({
   integrations: [
     new RewriteFrames({
       // This is the root in Google Cloud Functions and needs to be stripped from all paths to match source maps
-      root: '/workspace/lib',
+      root: '/workspace',
+      prefix: '/functions',
     }),
   ],
 });

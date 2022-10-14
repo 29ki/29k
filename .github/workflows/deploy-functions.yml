@@ -108,8 +108,13 @@ jobs:
           files $GIT_COMMIT_SHORT
           upload-sourcemaps
           --dist ${{ secrets.ENVIRONMENT }}
-          lib
+          --ignore node_modules
+          --ext ts
+          --ext js
+          --ext map
+          ../shared
+          ../functions
 
       - name: Associate Commits to Sentry Release
-        working-directory: ./client
+        working-directory: ./functions
         run: yarn sentry-cli releases set-commits --auto $GIT_COMMIT_SHORT
