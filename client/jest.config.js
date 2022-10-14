@@ -7,7 +7,7 @@ process.env = Object.assign(process.env, {
   API_ENDPOINT: 'some-api-endpoint',
   GIT_COMMIT_SHORT: 'some-git-hash',
 });
-const modules = ['react-native', '@react-native', '@notifee'];
+const modules = ['react-native', '@react-native'];
 
 module.exports = {
   preset: 'react-native',
