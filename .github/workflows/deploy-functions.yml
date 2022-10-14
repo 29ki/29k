@@ -35,7 +35,7 @@ jobs:
           env-prefix: DOTENV_
           directory: ./functions
         env:
-          DOTENV_GIT_COMMIT_SHORT: $GIT_COMMIT_SHORT
+          DOTENV_GIT_COMMIT_SHORT: ${{ env.GIT_COMMIT_SHORT }}
 
       - name: Cache Root Dependencies
         id: cache-root-node-modules
