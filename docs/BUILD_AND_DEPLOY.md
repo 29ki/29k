@@ -47,7 +47,7 @@ cd client
 
 ```
 cd client
-source ./scripts/getGitCommitShort.sh
+source ../shared/scripts/getGitCommitShort.sh
 ```
 
 5. Build and deploy with Fastlane
@@ -74,7 +74,7 @@ cd client/fastlane
 
 ```
 cd client
-source ./scripts/getGitCommitShort.sh
+source ../shared/scripts/getGitCommitShort.sh
 ```
 
 4. Build and deploy with Fastlane

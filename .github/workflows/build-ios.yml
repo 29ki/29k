@@ -47,7 +47,7 @@ jobs:
       - name: Use Ruby 2.7.2
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7.2'
+          ruby-version: 2.7.2
 
       - name: Use Node.js v16
         uses: actions/setup-node@v3
@@ -65,8 +65,8 @@ jobs:
       - name: Create Dotenv File
         uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
-          env-prefix: 'DOTENV_'
-          directory: './client'
+          env-prefix: DOTENV_
+          directory: ./client
 
       - name: Create GoogleService-Info.plist
         working-directory: ./client/ios/Supporting
@@ -77,7 +77,7 @@ jobs:
         run: mkdir -p $SOURCEMAPS_DIR
 
       - name: Prepare $GIT_COMMIT_SHORT
-        working-directory: ./client
+        working-directory: ./shared
         run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
 
       - name: Cache Shared Dependencies
