@@ -1,9 +1,9 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import styled from 'styled-components/native';
 import {FlatList} from 'react-native-gesture-handler';
 import Animated, {Easing, FadeInUp, SlideOutUp} from 'react-native-reanimated';
 import {useTranslation} from 'react-i18next';
-import {ViewStyle} from 'react-native';
+import {NativeScrollEvent, NativeSyntheticEvent, ViewStyle} from 'react-native';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import NS from '../../../../lib/i18n/constants/namespaces';
@@ -86,17 +86,14 @@ const HostNotes: React.FC<HostNotesProps> = ({
   const exercise = useSessionExercise();
   const {t} = useTranslation(NS.COMPONENT.HOST_NOTES);
 
+  const calculatePageIndex = (e: NativeSyntheticEvent<NativeScrollEvent>) =>
+    setActiveIndex(
+      Math.round(e?.nativeEvent?.contentOffset?.x / containerWidth),
+    );
+
   const notes = introPortal
     ? exercise?.introPortal.hostNotes
     : exercise?.slide.current.hostNotes;
-
-  useEffect(() => {
-    listRef.current?.scrollToIndex({animated: true, index: activeIndex});
-  }, [activeIndex]);
-
-  useEffect(() => {
-    setActiveIndex(0);
-  }, [notes]);
 
   return (
     <BoxShadowWrapper style={style}>
@@ -135,8 +132,15 @@ const HostNotes: React.FC<HostNotesProps> = ({
               })}
               ref={listRef}
               data={notes}
+              onContentSizeChange={() =>
+                listRef.current?.scrollToIndex({
+                  animated: false,
+                  index: 0,
+                })
+              }
               pagingEnabled
-              keyExtractor={index => index}
+              onScroll={calculatePageIndex}
+              keyExtractor={(_, i) => `notes-${i}`}
               initialScrollIndex={activeIndex}
               snapToInterval={listItemWidth}
               showsHorizontalScrollIndicator={false}
@@ -150,16 +154,20 @@ const HostNotes: React.FC<HostNotesProps> = ({
             />
             <Navigation>
               <NavButton
-                onPress={() =>
-                  setActiveIndex(prevActiveIndex => prevActiveIndex - 1)
-                }
+                onPress={() => {
+                  listRef.current?.scrollToIndex({
+                    index: activeIndex - 1,
+                  });
+                }}
                 Icon={BackwardCircleIcon}
                 disabled={activeIndex <= 0}
               />
               <Body14>{`${activeIndex + 1} / ${notes.length}`}</Body14>
               <NavButton
                 onPress={() =>
-                  setActiveIndex(prevActiveIndex => prevActiveIndex + 1)
+                  listRef.current?.scrollToIndex({
+                    index: activeIndex + 1,
+                  })
                 }
                 Icon={ForwardCircleIcon}
                 disabled={activeIndex >= notes.length - 1}
