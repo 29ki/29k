@@ -63,8 +63,8 @@ const Navigation = styled.View({
   alignItems: 'center',
 });
 
-const ListItem = styled.View<{containerWidth: number}>(props => ({
-  width: props.containerWidth - SPACINGS.THIRTYTWO,
+const ListItem = styled.View<{width: number}>(({width}) => ({
+  width: width,
 }));
 
 type HostNotesProps = {
@@ -81,6 +81,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
   const listRef = useRef<FlatList>(null);
   const [showNotes, setShowNotes] = useState(false);
   const [containerWidth, setContainerWidth] = useState(0);
+  const listItemWidth = containerWidth - SPACINGS.THIRTYTWO;
   const [activeIndex, setActiveIndex] = useState(0);
   const exercise = useSessionExercise();
   const {t} = useTranslation(NS.COMPONENT.HOST_NOTES);
@@ -128,22 +129,24 @@ const HostNotes: React.FC<HostNotesProps> = ({
             <Spacer32 />
             <FlatList
               getItemLayout={(data, index) => ({
-                length: containerWidth,
-                offset: containerWidth * index,
+                length: listItemWidth,
+                offset: listItemWidth * index,
                 index,
               })}
               ref={listRef}
               data={notes}
+              pagingEnabled
+              keyExtractor={index => index}
+              initialScrollIndex={activeIndex}
+              snapToInterval={listItemWidth}
               showsHorizontalScrollIndicator={false}
-              ItemSeparatorComponent={Spacer8}
               scrollEnabled={Boolean(notes.length)}
               renderItem={({item}) => (
-                <ListItem containerWidth={containerWidth}>
+                <ListItem width={listItemWidth}>
                   <Markdown>{item.text}</Markdown>
                 </ListItem>
               )}
               horizontal
-              initialScrollIndex={activeIndex}
             />
             <Navigation>
               <NavButton
