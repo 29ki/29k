@@ -24,15 +24,15 @@ export interface ComponentCodePushOverlay {
   install: ComponentCodePushOverlayInstall;
 }
 
-export interface ComponentConfirmExitSessionButtons {
+export interface ComponentConfirmExitTempleButtons {
   cancel?: string;
   confirm?: string;
 }
 
-export interface ComponentConfirmExitSession {
+export interface ComponentConfirmExitTemple {
   header?: string;
   text?: string;
-  buttons: ComponentConfirmExitSessionButtons;
+  buttons: ComponentConfirmExitTempleButtons;
 }
 
 export interface ComponentCounterCounterValue {
@@ -50,54 +50,24 @@ export interface ComponentCrashErrorMessage {
   textmarkdown?: string;
 }
 
-export interface ComponentCreateSessionModalSelectContent {
+export interface ComponentCreateTempleModalSelectContent {
   title?: string;
 }
 
-export interface ComponentCreateSessionModalSetDateTime {
+export interface ComponentCreateTempleModalSetDateTime {
   title?: string;
   cta?: string;
 }
 
-export interface ComponentCreateSessionModal {
-  selectContent: ComponentCreateSessionModalSelectContent;
-  setDateTime: ComponentCreateSessionModalSetDateTime;
+export interface ComponentCreateTempleModal {
+  selectContent: ComponentCreateTempleModalSelectContent;
+  setDateTime: ComponentCreateTempleModalSetDateTime;
 }
 
 export interface ComponentDateTimePicker {
   date?: string;
   time?: string;
   done?: string;
-}
-
-export interface ComponentHostNotes {
-  notes?: string;
-}
-
-export interface ComponentSessionCard {
-  addToCalendar?: string;
-  join?: string;
-  starts?: string;
-}
-
-export interface ComponentSessionModalDeleteButtons {
-  cancel?: string;
-  confirm?: string;
-}
-
-export interface ComponentSessionModalDelete {
-  header?: string;
-  text?: string;
-  buttons: ComponentSessionModalDeleteButtons;
-}
-
-export interface ComponentSessionModal {
-  edit?: string;
-  done?: string;
-  deleteButton?: string;
-  delete: ComponentSessionModalDelete;
-  addToCalendar?: string;
-  addReminder?: string;
 }
 
 export interface ComponentSessionReminder {
@@ -107,6 +77,32 @@ export interface ComponentSessionReminder {
 export interface ComponentTabs {
   home?: string;
   profile?: string;
+}
+
+export interface ComponentTempleCard {
+  addToCalendar?: string;
+  join?: string;
+  starts?: string;
+}
+
+export interface ComponentTempleModalDeleteButtons {
+  cancel?: string;
+  confirm?: string;
+}
+
+export interface ComponentTempleModalDelete {
+  header?: string;
+  text?: string;
+  buttons: ComponentTempleModalDeleteButtons;
+}
+
+export interface ComponentTempleModal {
+  edit?: string;
+  done?: string;
+  deleteButton?: string;
+  delete: ComponentTempleModalDelete;
+  addToCalendar?: string;
+  addReminder?: string;
 }
 
 export interface ScreenChangingRoomPermissionsAlert {
@@ -196,58 +192,20 @@ export interface ScreenProfile {
   or?: string;
 }
 
-export interface ScreenSessionControls {
+export interface ScreenTempleControls {
   start?: string;
   next?: string;
   prev?: string;
 }
 
-export interface ScreenSession {
+export interface ScreenTemple {
   nameSuffix?: string;
   endButton?: string;
-  controls: ScreenSessionControls;
+  controls: ScreenTempleControls;
 }
 
-export interface ScreenSessions {
+export interface ScreenTemples {
   heading?: string;
   create?: string;
   createPlaceholder?: string;
 }
-
-export type UIComponent =
-  | ComponentAddToCalendar
-  | ComponentCodePushOverlayDownloading
-  | ComponentCodePushOverlayInstall
-  | ComponentCodePushOverlay
-  | ComponentConfirmExitSessionButtons
-  | ComponentConfirmExitSession
-  | ComponentCounterCounterValue
-  | ComponentCounter
-  | ComponentCrashErrorMessage
-  | ComponentCreateSessionModalSelectContent
-  | ComponentCreateSessionModalSetDateTime
-  | ComponentCreateSessionModal
-  | ComponentDateTimePicker
-  | ComponentHostNotes
-  | ComponentSessionCard
-  | ComponentSessionModalDeleteButtons
-  | ComponentSessionModalDelete
-  | ComponentSessionModal
-  | ComponentSessionReminder
-  | ComponentTabs
-  | ScreenChangingRoomPermissionsAlert
-  | ScreenChangingRoom
-  | ScreenHome
-  | ScreenKillSwitchUpdateAndroid
-  | ScreenKillSwitchUpdateIos
-  | ScreenKillSwitchUpdate
-  | ScreenKillSwitchMaintenance
-  | ScreenKillSwitchFailed
-  | ScreenKillSwitch
-  | ScreenPortalCounterLabel
-  | ScreenPortalCounterValue
-  | ScreenPortal
-  | ScreenProfile
-  | ScreenSessionControls
-  | ScreenSession
-  | ScreenSessions;
