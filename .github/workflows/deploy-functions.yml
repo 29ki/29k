@@ -102,18 +102,20 @@ jobs:
           --force
 
       - name: Upload Source Maps to Sentry
-        working-directory: ./
+        working-directory: ./functions
         run: >
           yarn sentry-cli releases
           files $GIT_COMMIT_SHORT
           upload-sourcemaps
           --dist ${{ secrets.ENVIRONMENT }}
           --ignore node_modules
+          --ignore client
+          --ignore content
+          --ignore cms
           --ext ts
           --ext js
           --ext map
-          shared
-          functions
+          ../
 
       - name: Associate Commits to Sentry Release
         working-directory: ./functions
