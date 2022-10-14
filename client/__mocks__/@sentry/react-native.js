@@ -5,4 +5,4 @@ export const captureException = jest.fn();
 const mockScope = {
   setTag: jest.fn(),
 };
-export const configureScope = jest.fn(() => mockScope);
+export const configureScope = jest.fn(fn => fn(mockScope));
