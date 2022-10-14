@@ -19,32 +19,40 @@ export interface ExerciseTheme {
 
 export interface ExerciseIntroPortalVideoLoop {
   description?: string;
-  audio?: string;
   source?: string;
   preview?: string;
+  audio?: string;
 }
 
 export interface ExerciseIntroPortalVideoEnd {
   description?: string;
-  audio?: string;
   source?: string;
   preview?: string;
+}
+
+export interface ExerciseIntroPortalHostNote {
+  text: string;
 }
 
 export interface ExerciseIntroPortal {
   videoLoop?: ExerciseIntroPortalVideoLoop;
   videoEnd?: ExerciseIntroPortalVideoEnd;
+  hostNotes?: ExerciseIntroPortalHostNote[];
 }
 
 export interface ExerciseOutroPortalVideo {
   description?: string;
-  audio?: string;
   source?: string;
   preview?: string;
+  audio?: string;
 }
 
 export interface ExerciseOutroPortal {
   video?: ExerciseOutroPortalVideo;
+}
+
+export interface ExerciseSlidesContentHostNote {
+  text: string;
 }
 
 export interface ExerciseSlidesContentContentImage {
@@ -54,9 +62,9 @@ export interface ExerciseSlidesContentContentImage {
 
 export interface ExerciseSlidesContentContentVideo {
   description?: string;
-  audio?: string;
   source?: string;
   preview?: string;
+  audio?: string;
 }
 
 export interface ExerciseSlidesContentContent {
@@ -66,6 +74,10 @@ export interface ExerciseSlidesContentContent {
   video?: ExerciseSlidesContentContentVideo;
 }
 
+export interface ExerciseSlidesReflectionHostNote {
+  text: string;
+}
+
 export interface ExerciseSlidesReflectionContentImage {
   description?: string;
   source?: string;
@@ -73,9 +85,9 @@ export interface ExerciseSlidesReflectionContentImage {
 
 export interface ExerciseSlidesReflectionContentVideo {
   description?: string;
-  audio?: string;
   source?: string;
   preview?: string;
+  audio?: string;
 }
 
 export interface ExerciseSlidesReflectionContent {
@@ -85,6 +97,10 @@ export interface ExerciseSlidesReflectionContent {
   video?: ExerciseSlidesReflectionContentVideo;
 }
 
+export interface ExerciseSlidesSharingHostNote {
+  text: string;
+}
+
 export interface ExerciseSlidesSharingContentImage {
   description?: string;
   source?: string;
@@ -92,9 +108,9 @@ export interface ExerciseSlidesSharingContentImage {
 
 export interface ExerciseSlidesSharingContentVideo {
   description?: string;
-  audio?: string;
   source?: string;
   preview?: string;
+  audio?: string;
 }
 
 export interface ExerciseSlidesSharingContent {
@@ -104,24 +120,31 @@ export interface ExerciseSlidesSharingContent {
   video?: ExerciseSlidesSharingContentVideo;
 }
 
+export interface ExerciseSlidesHostHostNote {
+  text: string;
+}
+
 export interface ExerciseSlidesContent {
   type: 'content';
+  hostNotes?: ExerciseSlidesContentHostNote[];
   content: ExerciseSlidesContentContent;
 }
 
 export interface ExerciseSlidesReflection {
   type: 'reflection';
+  hostNotes?: ExerciseSlidesReflectionHostNote[];
   content: ExerciseSlidesReflectionContent;
 }
 
 export interface ExerciseSlidesSharing {
   type: 'sharing';
+  hostNotes?: ExerciseSlidesSharingHostNote[];
   content: ExerciseSlidesSharingContent;
 }
 
-export interface ExerciseSlidesParticipantSpotlight {
-  type: 'participantSpotlight';
-  content?: any;
+export interface ExerciseSlidesHost {
+  type: 'host';
+  hostNotes?: ExerciseSlidesHostHostNote[];
 }
 
 export interface Exercise {
@@ -136,6 +159,6 @@ export interface Exercise {
     | ExerciseSlidesContent
     | ExerciseSlidesReflection
     | ExerciseSlidesSharing
-    | ExerciseSlidesParticipantSpotlight
+    | ExerciseSlidesHost
   )[];
 }
