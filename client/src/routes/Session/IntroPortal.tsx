@@ -229,7 +229,7 @@ const IntroPortal: React.FC = () => {
                 </Badge>
               </StatusItem>
 
-              {participantsCount > 0 && (
+              {participantsCount > 1 && (
                 <StatusItem>
                   <StatusText themeColor={themedText}>
                     {t('participants')}
