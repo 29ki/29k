@@ -1,4 +1,5 @@
 import * as Sentry from '@sentry/node';
+import {RewriteFrames} from '@sentry/integrations';
 import {Context} from 'koa';
 import config from '../../lib/config';
 
@@ -9,6 +10,12 @@ Sentry.init({
   dist: ENVIRONMENT,
   release: GIT_COMMIT_SHORT || 'development',
   environment: ENVIRONMENT,
+  integrations: [
+    new RewriteFrames({
+      // This is the root in Google Cloud Functions and needs to be stripped from all paths to match source maps
+      root: '/workspace/lib',
+    }),
+  ],
 });
 
 const sentryErrorHandler = (err: Error, ctx: Context) => {
