@@ -108,7 +108,12 @@ jobs:
           files $GIT_COMMIT_SHORT
           upload-sourcemaps
           --dist ${{ secrets.ENVIRONMENT }}
-          lib
+          --ignore node_modules
+          --ext ts
+          --ext js
+          --ext map
+          ../shared
+          ../functions
 
       - name: Associate Commits to Sentry Release
         working-directory: ./functions

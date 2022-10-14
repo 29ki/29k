@@ -5,12 +5,13 @@
     "noUnusedLocals": true,
     "outDir": "lib",
     "sourceMap": true,
+    "sourceRoot": "../",
     "strict": true,
     "target": "es2017",
     "typeRoots": ["./types", "./node_modules/@types"],
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "allowJs": true,
+    "allowJs": true
   },
   "compileOnSave": true,
   "include": ["src", "types"]
