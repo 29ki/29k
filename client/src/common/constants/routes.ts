@@ -1,25 +1,25 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
-import {Temple} from '../../../../shared/src/types/Temple';
+import {Session} from '../../../../shared/src/types/Session';
 
 export type TabNavigatorProps = {
   Profile: undefined;
-  Temples: undefined;
+  Sessions: undefined;
 };
 
-export type TempleStackProps = {
-  ChangingRoom: {templeId: string};
-  Temple: {templeId: string};
-  IntroPortal: {templeId: string};
+export type SessionStackProps = {
+  ChangingRoom: {sessionId: string};
+  Session: {sessionId: string};
+  IntroPortal: {sessionId: string};
   OutroPortal: undefined;
 };
 
 export type ModalStackProps = {
-  TempleModal: {temple: Temple};
-  CreateTempleModal: undefined;
+  SessionModal: {session: Session};
+  CreateSessionModal: undefined;
 };
 
 export type RootStackProps = ModalStackProps & {
   KillSwitch: undefined;
   Tabs: NavigatorScreenParams<TabNavigatorProps>;
-  TempleStack: NavigatorScreenParams<TempleStackProps>;
+  SessionStack: NavigatorScreenParams<SessionStackProps>;
 };
