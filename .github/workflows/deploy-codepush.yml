@@ -42,8 +42,8 @@ jobs:
       - name: Create Dotenv File
         uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
-          env-prefix: 'DOTENV_'
-          directory: './client'
+          env-prefix: DOTENV_
+          directory: ./client
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
@@ -90,7 +90,7 @@ jobs:
         run: mkdir -p $SOURCEMAPS_DIR
 
       - name: Prepare $GIT_COMMIT_SHORT
-        working-directory: ./client
+        working-directory: ./shared
         run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
 
       - name: Codepush Android
