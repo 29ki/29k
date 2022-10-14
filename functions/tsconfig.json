@@ -5,7 +5,7 @@
     "noUnusedLocals": true,
     "outDir": "lib",
     "sourceMap": true,
-    "sourceRoot": "../",
+    "sourceRoot": "/",
     "strict": true,
     "target": "es2017",
     "typeRoots": ["./types", "./node_modules/@types"],
