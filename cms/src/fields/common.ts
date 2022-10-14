@@ -66,13 +66,6 @@ export const VIDEO_FIELD: CmsField = {
       i18n: true,
     },
     {
-      label: 'Audio file',
-      name: 'audio',
-      widget: 'file',
-      required: false,
-      i18n: false,
-    },
-    {
       label: 'Video file',
       name: 'source',
       widget: 'file',
@@ -87,6 +80,19 @@ export const VIDEO_FIELD: CmsField = {
       i18n: false,
     },
   ],
+};
+
+const AUDIO_FIELD: CmsField = {
+  label: 'Audio file',
+  name: 'audio',
+  widget: 'file',
+  required: false,
+  i18n: false,
+};
+
+export const VIDEO_FIELD_WITH_AUDIO: CmsField = {
+  ...VIDEO_FIELD,
+  fields: [...VIDEO_FIELD.fields, AUDIO_FIELD],
 };
 
 export const CARD_FIELD: CmsField = {
