@@ -29,8 +29,8 @@ import ToggleButton from './ToggleButton';
 
 const BoxShadowWrapper = styled.View({
   ...SETTINGS.BOXSHADOW,
-  borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not shoing on Android
-  borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not shoing on Android
+  borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not showing on Android
+  borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not showing on Android
 });
 const Wrapper = styled.View({
   borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS,
