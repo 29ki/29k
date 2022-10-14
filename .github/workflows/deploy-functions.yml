@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-20.04
     environment: functions-${{ inputs.environment }}
     env:
+      DOTENV_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+      DOTENV_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
       DOTENV_DAILY_API_KEY: ${{ secrets.DAILY_API_KEY }}
 
     steps:
@@ -23,11 +25,17 @@ jobs:
         with:
           node-version: 16.x
 
+      - name: Prepare $GIT_COMMIT_SHORT
+        working-directory: ./shared
+        run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
+
       - name: Create Dotenv File
         uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
-          env-prefix: 'DOTENV_'
-          directory: './functions'
+          env-prefix: DOTENV_
+          directory: ./functions
+        env:
+          DOTENV_GIT_COMMIT_SHORT: $GIT_COMMIT_SHORT
 
       - name: Cache Root Dependencies
         id: cache-root-node-modules
