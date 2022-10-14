@@ -62,7 +62,7 @@ const StatusText = styled(Body14)<{themeColor?: string}>(({themeColor}) => ({
 
 const Badge = styled.View<{themeColor?: string}>(({themeColor}) => ({
   backgroundColor: themeColor
-    ? COLORS.BLACK_TRANSPARENT
+    ? COLORS.BLACK_TRANSPARENT_15
     : COLORS.WHITE_TRANSPARENT,
   paddingVertical: SPACINGS.FOUR,
   paddingHorizontal: SPACINGS.EIGHT,
@@ -220,7 +220,7 @@ const IntroPortal: React.FC = () => {
 
                 <Spacer8 />
                 <Badge themeColor={themedText}>
-                  <StatusText>
+                  <StatusText themeColor={themedText}>
                     <Counter
                       startTime={dayjs(session?.startTime.toDate())}
                       starting={session?.started}
@@ -229,14 +229,16 @@ const IntroPortal: React.FC = () => {
                 </Badge>
               </StatusItem>
 
-              {participantsCount > 1 && (
+              {participantsCount > 0 && (
                 <StatusItem>
                   <StatusText themeColor={themedText}>
                     {t('participants')}
                   </StatusText>
                   <Spacer8 />
                   <Badge themeColor={themedText}>
-                    <StatusText>{participantsCount}</StatusText>
+                    <StatusText themeColor={themedText}>
+                      {participantsCount}
+                    </StatusText>
                   </Badge>
                 </StatusItem>
               )}
