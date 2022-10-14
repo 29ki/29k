@@ -111,5 +111,5 @@ jobs:
           lib
 
       - name: Associate Commits to Sentry Release
-        working-directory: ./client
+        working-directory: ./functions
         run: yarn sentry-cli releases set-commits --auto $GIT_COMMIT_SHORT
