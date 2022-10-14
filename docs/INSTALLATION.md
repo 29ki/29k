@@ -16,9 +16,12 @@ yarn
 Before being able to start the functions emulator, some configs are required.
 Create a `.env` file, by duplicating `.env.example`.
 
-| Key             | Description                            |
-| --------------- | -------------------------------------- |
-| `DAILY_API_KEY` | [Daily](https://www.daily.co/) API key |
+| Key                | Description                                                                                                          |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| `GIT_COMMIT_SHORT` | _May be left blank for local development_. Current GIT Commit hash                                                   |
+| `ENVIRONMENT`      | Functions environment, e.g. `dev`, `staging` or `production`                                                         |
+| `SENTRY_DSN`       | _Not needed for local development_. [Sentry DSN string](https://docs.sentry.io/product/sentry-basics/dsn-explainer/) |
+| `DAILY_API_KEY`    | [Daily](https://www.daily.co/) API key                                                                               |
 
 ## Client
 
