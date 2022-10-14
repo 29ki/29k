@@ -6,6 +6,7 @@
     "node": "16"
   },
   "devDependencies": {
+    "@sentry/cli": "^2.7.0",
     "firebase-tools": "^11.14.1"
   }
 }
