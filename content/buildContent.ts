@@ -6,10 +6,9 @@ import {
   generateI18NResources,
   getContentByType,
 } from './src/utils/utils';
-import {Exercise} from '../shared/src/types/generated/Exercise';
-import {UIComponent} from '../shared/src/types/generated/UI';
 
-const exerciseContent = getContentByType<Exercise>('exercises');
+const exerciseContent = getContentByType('exercises');
+
 const exercises = generateI18NResources(
   filterPublishedContent(exerciseContent),
   'exercises',
@@ -18,7 +17,7 @@ const exerciseIds = Object.keys(
   filterPublishedContent(exerciseContent, DEFAULT_LANGUAGE_TAG),
 );
 
-const ui = generateI18NResources(getContentByType<UIComponent>('ui'));
+const ui = generateI18NResources(getContentByType('ui'));
 
 const i18n = mergeDeepRight(ui, exercises);
 

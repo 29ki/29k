@@ -1,7 +1,9 @@
 import {readFileSync, readdirSync} from 'fs';
 import * as path from 'path';
+import {LANGUAGES} from '../../../shared/src/constants/i18n';
 
-type LocalizedContent<T> = Record<string, Record<string, T> | string>;
+type LanguageTag = keyof typeof LANGUAGES;
+type LocalizedContent<T> = Record<LanguageTag, Record<string, T>>;
 type Content<T> = Record<string, LocalizedContent<T>>;
 
 export const getContentByType = <T>(type: string) => {
@@ -24,22 +26,18 @@ export const getContentByType = <T>(type: string) => {
 
 export const filterPublishedContent = <T>(
   files: Content<T>,
-  explicitLocale?: string,
+  explicitLocale?: LanguageTag,
 ) =>
   Object.entries(files)
     .filter(
-      ([, content]) =>
-        !explicitLocale ||
-        (content?.[explicitLocale] as Record<string, boolean>)?.published,
+      ([, content]) => !explicitLocale || content?.[explicitLocale].published,
     )
     .reduce(
       (files, [file, content]) => ({
         ...files,
         [file]: Object.entries(content).reduce(
           (filtered, [locale, resource]) =>
-            (resource as Record<string, boolean>).published
-              ? {...filtered, [locale]: resource}
-              : filtered,
+            resource.published ? {...filtered, [locale]: resource} : filtered,
           {},
         ),
       }),
@@ -62,6 +60,7 @@ Generates i18n-friendly structure
   },
 };
 */
+
 export const generateI18NResources = <T>(
   content: Content<T>,
   parentNS?: string,
@@ -74,16 +73,16 @@ export const generateI18NResources = <T>(
           [locale]: parentNS
             ? {
                 [parentNS]: {
-                  ...(resources[locale] as Record<string, T>)?.[parentNS],
+                  ...resources[locale as LanguageTag]?.[parentNS],
                   [namespace]: resource,
                 },
               }
             : {
-                ...(resources[locale] as Record<string, T>),
+                ...resources[locale as LanguageTag],
                 [namespace]: resource,
               },
         }),
         i18nResources,
       ),
-    {},
+    {} as LocalizedContent<T>,
   );
