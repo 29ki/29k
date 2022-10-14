@@ -108,7 +108,7 @@ jobs:
           files $GIT_COMMIT_SHORT
           upload-sourcemaps
           --dist ${{ secrets.ENVIRONMENT }}
-          --url-prefix functions
+          --url-prefix /functions
           --ignore node_modules
           --ignore __mocks__
           --ext ts
@@ -123,7 +123,7 @@ jobs:
           files $GIT_COMMIT_SHORT
           upload-sourcemaps
           --dist ${{ secrets.ENVIRONMENT }}
-          --url-prefix shared
+          --url-prefix /shared
           --ignore node_modules
           --ignore __mocks__
           --ext ts
