@@ -96,3 +96,16 @@ jobs:
           --only firestore,functions
           --non-interactive
           --force
+
+      - name: Upload Source Map to Sentry
+        working-directory: ./functions
+        run: >
+          yarn sentry-cli releases
+          files $GIT_COMMIT_SHORT
+          upload-sourcemaps
+          --dist ${{ secrets.ENVIRONMENT }}
+          lib
+
+      - name: Associate Commits to Sentry Release
+        working-directory: ./client
+        run: yarn sentry-cli releases set-commits --auto $GIT_COMMIT_SHORT
