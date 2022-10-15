@@ -17,7 +17,7 @@ describe('dailyApi', () => {
         JSON.stringify({id: 'some-id', name: 'some-name'}),
       );
 
-      const expireDate = dayjs('2020-01-01 01:01:01');
+      const expireDate = dayjs('2020-01-01T01:01:01.000Z');
 
       const room = await createRoom(expireDate);
       expect(fetchMock).toHaveBeenCalledTimes(1);
@@ -29,7 +29,7 @@ describe('dailyApi', () => {
         method: 'POST',
         body: JSON.stringify({
           properties: {
-            exp: 1577836861,
+            exp: 1577840461,
             start_audio_off: true,
             start_video_off: false,
           },
@@ -41,7 +41,7 @@ describe('dailyApi', () => {
     it('throws when not ok', async () => {
       fetchMock.mockResponseOnce('some-body', {status: 500});
 
-      const expireDate = dayjs('2020-01-01 01:01:01');
+      const expireDate = dayjs('2020-01-01T01:01:01.000Z');
 
       await expect(createRoom(expireDate)).rejects.toThrow(
         new Error('Failed creating room, some-body'),
