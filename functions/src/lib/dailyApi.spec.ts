@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
 
 enableFetchMocks();
@@ -16,7 +17,9 @@ describe('dailyApi', () => {
         JSON.stringify({id: 'some-id', name: 'some-name'}),
       );
 
-      const room = await createRoom();
+      const expireDate = dayjs('2020-01-01 01:01:01');
+
+      const room = await createRoom(expireDate);
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(fetchMock).toHaveBeenCalledWith('https://api.daily.co/v1/rooms', {
         headers: {
@@ -25,7 +28,11 @@ describe('dailyApi', () => {
         },
         method: 'POST',
         body: JSON.stringify({
-          properties: {start_audio_off: true, start_video_off: false},
+          properties: {
+            exp: 1577836861,
+            start_audio_off: true,
+            start_video_off: false,
+          },
         }),
       });
       expect(room).toEqual({id: 'some-id', name: 'some-name'});
@@ -34,7 +41,9 @@ describe('dailyApi', () => {
     it('throws when not ok', async () => {
       fetchMock.mockResponseOnce('some-body', {status: 500});
 
-      await expect(createRoom()).rejects.toThrow(
+      const expireDate = dayjs('2020-01-01 01:01:01');
+
+      await expect(createRoom(expireDate)).rejects.toThrow(
         new Error('Failed creating room, some-body'),
       );
     });
