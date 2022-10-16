@@ -13,7 +13,7 @@
   text-transform: inherit !important;
 }
 
-/* This solved issue with cursor moving around
+/* This solves the issue of the cursor moving around
    https://github.com/netlify/netlify-cms/issues/5092#issuecomment-1246525269 */
 [data-slate-editor] {
   -webkit-user-modify: read-write !important;
