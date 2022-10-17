@@ -192,7 +192,7 @@ const SelectType: React.FC<StepProps> = ({
   );
 };
 
-const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
+const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
   const {t} = useTranslation(NS.COMPONENT.CREATE_SESSION_MODAL);
   const {goBack} = useNavigation();
   const [isLoading, setIsLoading] = useState(false);
@@ -202,11 +202,15 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
   const exercise = useExerciseById(selectedExercise);
 
   const onSubmit = async () => {
-    if (selectedExercise && date && time) {
+    if (selectedExercise && selectedType && date && time) {
       const sessionDateTime = date.hour(time.hour()).minute(time.minute());
 
       setIsLoading(true);
-      await addSession(selectedExercise, sessionDateTime);
+      await addSession({
+        contentId: selectedExercise,
+        type: selectedType,
+        startTime: sessionDateTime,
+      });
       setIsLoading(false);
       goBack();
     }
@@ -248,7 +252,7 @@ type StepProps = {
   setSelectedExercise: Dispatch<SetStateAction<StepProps['selectedExercise']>>;
   currentStep: number;
   setCurrentStep: Dispatch<SetStateAction<StepProps['currentStep']>>;
-  selectedType: SessionType;
+  selectedType: SessionType | undefined;
   setSelectedType: Dispatch<SetStateAction<StepProps['selectedType']>>;
 };
 

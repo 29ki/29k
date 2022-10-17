@@ -10,6 +10,7 @@ import {
   Session,
   ExerciseStateData,
   ExerciseState,
+  SessionType,
 } from '../../../../shared/src/types/Session';
 import * as dailyApi from '../../lib/dailyApi';
 import {createRouter} from '../../lib/routers';
@@ -59,13 +60,14 @@ sessionsRouter.get('/', async ctx => {
 
 const CreateSessionSchema = yup.object().shape({
   contentId: yup.string().required(),
+  type: yup.mixed<SessionType>().oneOf(Object.values(SessionType)).required(),
   startTime: yup.string().required(),
 });
 
 type CreateSession = yup.InferType<typeof CreateSessionSchema>;
 
 sessionsRouter.post('/', validator({body: CreateSessionSchema}), async ctx => {
-  const {contentId, startTime} = ctx.request.body as CreateSession;
+  const {contentId, type, startTime} = ctx.request.body as CreateSession;
 
   const startDateTime = dayjs(startTime);
 
@@ -91,6 +93,7 @@ sessionsRouter.post('/', validator({body: CreateSessionSchema}), async ctx => {
     exerciseState: defaultExerciseState,
     started: false,
     ended: false,
+    type,
   };
 
   await firestore().collection(SESSIONS_COLLECTION).doc(data.id).set(session);

@@ -39,7 +39,7 @@ export type Session = {
   startTime: string;
   started: boolean;
   ended: boolean;
-  type: Record<SessionType, string>;
+  type: SessionType;
 };
 
 export type DailyUserData = {
