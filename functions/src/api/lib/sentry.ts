@@ -20,10 +20,14 @@ Sentry.init({
 });
 
 const sentryErrorHandler = (err: Error, ctx: Context) => {
+  const correlationId = ctx.get('X-Correlation-ID');
+
   Sentry.withScope(scope => {
-    scope.addEventProcessor(event => {
-      return Sentry.addRequestDataToEvent(event, ctx.request);
-    });
+    scope.setTag('correlation_id', correlationId);
+
+    scope.addEventProcessor(event =>
+      Sentry.addRequestDataToEvent(event, ctx.request),
+    );
     Sentry.captureException(err);
   });
 };
