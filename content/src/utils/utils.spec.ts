@@ -1,18 +1,37 @@
-import {filterPublishedContent, generateI18NResources} from './utils.js';
+import {filterPublishedContent, generateI18NResources} from './utils';
 
 describe('utils', () => {
   describe('generateI18NResources', () => {
     it('should key content on i18n resource', () => {
       const content = {
-        en: {
-          translationKey: 'some text',
-        },
-        sv: {
-          translationKey: 'some translation',
+        Component: {
+          en: {
+            translationKey: 'some text',
+          },
+          sv: {
+            translationKey: 'some translation',
+          },
+          pt: {
+            translationKey: 'some other translation',
+          },
         },
       };
       expect(generateI18NResources(content)).toEqual({
-        translationKey: {en: 'some text', sv: 'some translation'},
+        en: {
+          Component: {
+            translationKey: 'some text',
+          },
+        },
+        sv: {
+          Component: {
+            translationKey: 'some translation',
+          },
+        },
+        pt: {
+          Component: {
+            translationKey: 'some other translation',
+          },
+        },
       });
     });
 
@@ -29,6 +48,8 @@ describe('utils', () => {
             ],
             published: true,
           },
+          sv: {published: false},
+          pt: {published: false},
         },
         'some-other-exercise-id': {
           en: {
@@ -41,6 +62,8 @@ describe('utils', () => {
             ],
             published: true,
           },
+          sv: {published: false},
+          pt: {published: false},
         },
       };
       expect(generateI18NResources(content, 'exercises')).toEqual({
@@ -48,6 +71,18 @@ describe('utils', () => {
           exercises: {
             'some-exercise-id': content['some-exercise-id']['en'],
             'some-other-exercise-id': content['some-other-exercise-id']['en'],
+          },
+        },
+        sv: {
+          exercises: {
+            'some-exercise-id': {published: false},
+            'some-other-exercise-id': {published: false},
+          },
+        },
+        pt: {
+          exercises: {
+            'some-exercise-id': {published: false},
+            'some-other-exercise-id': {published: false},
           },
         },
       });
