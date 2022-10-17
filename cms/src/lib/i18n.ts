@@ -94,8 +94,11 @@ export const generateFilesCollectionFromi18nFiles = (
   folderName: string,
   label: string,
   i18nResources: Resource,
+  exclude: Array<string>,
 ): CmsCollection => {
-  const filteredResources = Object.entries(i18nResources[DEFAULT_LANGUAGE_TAG]);
+  const filteredResources = Object.entries(
+    i18nResources[DEFAULT_LANGUAGE_TAG],
+  ).filter(resouce => !exclude.find(e => e === resouce[0]));
 
   return {
     label,

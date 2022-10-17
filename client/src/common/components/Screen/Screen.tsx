@@ -17,9 +17,9 @@ const TopBarWrapper = styled.View({
   zIndex: 100,
   flexDirection: 'row',
   alignItems: 'center',
-  paddingLeft: 16,
-  paddingRight: 16,
-  height: 48,
+  paddingLeft: SPACINGS.SIXTEEN,
+  paddingRight: SPACINGS.SIXTEEN,
+  height: SPACINGS.FOURTYFOUR,
   width: '100%',
   justifyContent: 'space-between',
 });
@@ -33,7 +33,7 @@ const TopBar: React.FC<{
   onPressBack?: () => void;
 }> = ({onPressBack, hasDarkBackground: isOnDarkBackground}) => (
   <>
-    <TopSafeArea />
+    <TopSafeArea minSize={SPACINGS.SIXTEEN} />
     <TopBarWrapper>
       {onPressBack && (
         <BackButton

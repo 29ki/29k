@@ -1,5 +1,6 @@
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {API_ENDPOINT} from 'config';
+import {getCorrelationId} from '../sentry';
 
 const recreateUser = async () => {
   if (auth().currentUser) {
@@ -61,11 +62,13 @@ const trimSlashes = (str: string) => str.replace(/^\/+|\/+$/g, '');
 const apiClient = async (input: string, init?: RequestInit | undefined) => {
   const doFetch = async () => {
     const authHeader = await getAuthorizationHeader();
+    const correlationId = getCorrelationId();
 
     return fetch(`${trimSlashes(API_ENDPOINT)}/${trimSlashes(input)}`, {
       ...init,
       headers: {
         'Content-Type': 'application/json',
+        'X-Correlation-ID': correlationId,
         ...authHeader,
         ...init?.headers,
       },
