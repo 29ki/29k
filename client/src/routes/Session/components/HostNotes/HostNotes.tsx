@@ -1,9 +1,9 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import styled from 'styled-components/native';
 import {FlatList} from 'react-native-gesture-handler';
 import Animated, {Easing, FadeInUp, SlideOutUp} from 'react-native-reanimated';
 import {useTranslation} from 'react-i18next';
-import {ViewStyle} from 'react-native';
+import {NativeScrollEvent, NativeSyntheticEvent, ViewStyle} from 'react-native';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import NS from '../../../../lib/i18n/constants/namespaces';
@@ -29,8 +29,8 @@ import ToggleButton from './ToggleButton';
 
 const BoxShadowWrapper = styled.View({
   ...SETTINGS.BOXSHADOW,
-  borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not shoing on Android
-  borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not shoing on Android
+  borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not showing on Android
+  borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not showing on Android
 });
 const Wrapper = styled.View({
   borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS,
@@ -63,8 +63,8 @@ const Navigation = styled.View({
   alignItems: 'center',
 });
 
-const ListItem = styled.View<{containerWidth: number}>(props => ({
-  width: props.containerWidth - SPACINGS.THIRTYTWO,
+const ListItem = styled.View<{width: number}>(({width}) => ({
+  width: width,
 }));
 
 type HostNotesProps = {
@@ -81,21 +81,19 @@ const HostNotes: React.FC<HostNotesProps> = ({
   const listRef = useRef<FlatList>(null);
   const [showNotes, setShowNotes] = useState(false);
   const [containerWidth, setContainerWidth] = useState(0);
+  const listItemWidth = containerWidth - SPACINGS.THIRTYTWO;
   const [activeIndex, setActiveIndex] = useState(0);
   const exercise = useSessionExercise();
   const {t} = useTranslation(NS.COMPONENT.HOST_NOTES);
 
+  const calculatePageIndex = (e: NativeSyntheticEvent<NativeScrollEvent>) =>
+    setActiveIndex(
+      Math.round(e?.nativeEvent?.contentOffset?.x / containerWidth),
+    );
+
   const notes = introPortal
     ? exercise?.introPortal?.hostNotes
     : exercise?.slide.current.hostNotes;
-
-  useEffect(() => {
-    listRef.current?.scrollToIndex({animated: true, index: activeIndex});
-  }, [activeIndex]);
-
-  useEffect(() => {
-    setActiveIndex(0);
-  }, [notes]);
 
   return (
     <BoxShadowWrapper style={style}>
@@ -128,35 +126,48 @@ const HostNotes: React.FC<HostNotesProps> = ({
             <Spacer32 />
             <FlatList
               getItemLayout={(data, index) => ({
-                length: containerWidth,
-                offset: containerWidth * index,
+                length: listItemWidth,
+                offset: listItemWidth * index,
                 index,
               })}
               ref={listRef}
               data={notes}
+              onContentSizeChange={() =>
+                listRef.current?.scrollToIndex({
+                  animated: false,
+                  index: 0,
+                })
+              }
+              pagingEnabled
+              onScroll={calculatePageIndex}
+              keyExtractor={(_, i) => `notes-${i}`}
+              initialScrollIndex={activeIndex}
+              snapToInterval={listItemWidth}
               showsHorizontalScrollIndicator={false}
-              ItemSeparatorComponent={Spacer8}
               scrollEnabled={Boolean(notes.length)}
               renderItem={({item}) => (
-                <ListItem containerWidth={containerWidth}>
+                <ListItem width={listItemWidth}>
                   <Markdown>{item.text}</Markdown>
                 </ListItem>
               )}
               horizontal
-              initialScrollIndex={activeIndex}
             />
             <Navigation>
               <NavButton
-                onPress={() =>
-                  setActiveIndex(prevActiveIndex => prevActiveIndex - 1)
-                }
+                onPress={() => {
+                  listRef.current?.scrollToIndex({
+                    index: activeIndex - 1,
+                  });
+                }}
                 Icon={BackwardCircleIcon}
                 disabled={activeIndex <= 0}
               />
               <Body14>{`${activeIndex + 1} / ${notes.length}`}</Body14>
               <NavButton
                 onPress={() =>
-                  setActiveIndex(prevActiveIndex => prevActiveIndex + 1)
+                  listRef.current?.scrollToIndex({
+                    index: activeIndex + 1,
+                  })
                 }
                 Icon={ForwardCircleIcon}
                 disabled={activeIndex >= notes.length - 1}

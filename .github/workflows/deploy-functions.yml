@@ -13,6 +13,12 @@ jobs:
     runs-on: ubuntu-20.04
     environment: functions-${{ inputs.environment }}
     env:
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+
+      DOTENV_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+      DOTENV_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
       DOTENV_DAILY_API_KEY: ${{ secrets.DAILY_API_KEY }}
 
     steps:
@@ -23,11 +29,17 @@ jobs:
         with:
           node-version: 16.x
 
+      - name: Prepare $GIT_COMMIT_SHORT
+        working-directory: ./shared
+        run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
+
       - name: Create Dotenv File
         uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
-          env-prefix: 'DOTENV_'
-          directory: './functions'
+          env-prefix: DOTENV_
+          directory: ./functions
+        env:
+          DOTENV_GIT_COMMIT_SHORT: ${{ env.GIT_COMMIT_SHORT }}
 
       - name: Cache Root Dependencies
         id: cache-root-node-modules
@@ -88,3 +100,37 @@ jobs:
           --only firestore,functions
           --non-interactive
           --force
+
+      - name: Upload Functions Source Maps to Sentry
+        working-directory: ./functions
+        run: >
+          yarn sentry-cli releases
+          files $GIT_COMMIT_SHORT
+          upload-sourcemaps
+          --dist ${{ secrets.ENVIRONMENT }}
+          --url-prefix /functions
+          --ignore node_modules
+          --ignore __mocks__
+          --ext ts
+          --ext js
+          --ext map
+          .
+
+      - name: Upload Shared Source Maps to Sentry
+        working-directory: ./functions
+        run: >
+          yarn sentry-cli releases
+          files $GIT_COMMIT_SHORT
+          upload-sourcemaps
+          --dist ${{ secrets.ENVIRONMENT }}
+          --url-prefix /shared
+          --ignore node_modules
+          --ignore __mocks__
+          --ext ts
+          --ext js
+          --ext map
+          ../shared
+
+      - name: Associate Commits to Sentry Release
+        working-directory: ./functions
+        run: yarn sentry-cli releases set-commits --auto $GIT_COMMIT_SHORT

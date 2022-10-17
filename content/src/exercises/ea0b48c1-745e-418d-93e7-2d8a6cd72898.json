@@ -118,7 +118,8 @@
       }
     ],
     "theme": {
-      "backgroundColor": "#f1d0b0"
+      "backgroundColor": "#f1d0b0",
+      "textColor": "#2E2E2E"
     },
     "introPortal": {
       "videoLoop": {
@@ -138,14 +139,16 @@
     "published": false,
     "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
     "theme": {
-      "backgroundColor": "#f1d0b0"
+      "backgroundColor": "#f1d0b0",
+      "textColor": "#2E2E2E"
     }
   },
   "pt": {
     "published": false,
     "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
     "theme": {
-      "backgroundColor": "#f1d0b0"
+      "backgroundColor": "#f1d0b0",
+      "textColor": "#2E2E2E"
     }
   }
 }

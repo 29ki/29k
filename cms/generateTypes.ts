@@ -1,12 +1,10 @@
 import * as fs from 'fs';
 import * as process from 'child_process';
-import {createNetlifyTypes} from 'netlify-ts';
+import createNetlifyTypes from 'netlify-ts';
 import {Collection} from 'netlify-ts/lib/types';
 import {exercises, contributors, files} from './src/collections/collections';
 
 const OUTPUT_PATH = '../shared/src/types/generated';
-
-const clean = (input: string) => input.replaceAll(/_|-|\./g, '');
 
 const createTypeFile = (collection: Collection) => {
   const fileName = collection.label_singular
@@ -20,7 +18,7 @@ const createTypeFile = (collection: Collection) => {
     {label: true, capitalize: true, delimiter: ''},
   );
 
-  fs.writeFileSync(path, clean(types));
+  fs.writeFileSync(path, types);
   process.exec(`yarn prettier --write ${path}`);
 };
 

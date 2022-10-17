@@ -15,7 +15,10 @@ describe('apiClient', () => {
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
-      headers: {'Content-Type': 'application/json'},
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Correlation-ID': expect.any(String),
+      },
     });
   });
 
@@ -33,6 +36,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
+        'X-Correlation-ID': expect.any(String),
         Authorization: 'bearer some-authorization-token',
       },
     });
@@ -53,6 +57,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
+        'X-Correlation-ID': expect.any(String),
         Authorization: 'bearer some-authorization-token',
       },
     });
@@ -77,6 +82,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
+        'X-Correlation-ID': expect.any(String),
         Authorization: 'bearer some-authorization-token',
       },
     });
@@ -102,6 +108,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
+        'X-Correlation-ID': expect.any(String),
         Authorization: 'bearer some-authorization-token',
       },
     });
@@ -125,6 +132,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
+        'X-Correlation-ID': expect.any(String),
         Authorization: 'bearer some-authorization-token',
       },
     });
@@ -165,6 +173,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'text/plain',
+        'X-Correlation-ID': expect.any(String),
         Authorization: 'some-overridden-authorization',
       },
     });

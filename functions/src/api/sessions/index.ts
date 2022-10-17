@@ -75,7 +75,9 @@ type CreateSession = yup.InferType<typeof CreateSessionSchema>;
 sessionsRouter.post('/', validator({body: CreateSessionSchema}), async ctx => {
   const {contentId, startTime} = ctx.request.body as CreateSession;
 
-  const data = await dailyApi.createRoom();
+  const startDateTime = dayjs(startTime);
+
+  const data = await dailyApi.createRoom(startDateTime.add(2, 'hour'));
   const defaultExerciseState = {
     index: 0,
     playing: false,
@@ -90,7 +92,7 @@ sessionsRouter.post('/', validator({body: CreateSessionSchema}), async ctx => {
     contentId,
     facilitator: ctx.user.id,
     dailyRoomName: data.name,
-    startTime: Timestamp.fromDate(new Date(startTime)),
+    startTime: Timestamp.fromDate(startDateTime.toDate()),
     exerciseState: defaultExerciseState,
     started: false,
     ended: false,

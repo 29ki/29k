@@ -1110,7 +1110,7 @@ PODS:
     - RNSound/Core (= 0.11.2)
   - RNSound/Core (0.11.2):
     - React-Core
-  - RNSVG (13.3.0):
+  - RNSVG (13.4.0):
     - React-Core
   - Sentry (7.27.1):
     - Sentry/Core (= 7.27.1)
@@ -1395,7 +1395,7 @@ SPEC CHECKSUMS:
   RNScreens: f3230dd008a7d0ce5c0a8bc78ff12cf2315bda24
   RNSentry: f8591057d48d4f6d64196a76cbca67895667b033
   RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
-  RNSVG: 1869ad9534459f24caaa0416a4764548c2aeedad
+  RNSVG: 07dbd870b0dcdecc99b3a202fa37c8ca163caec2
   Sentry: bc644307e2eb6a4c9c55cf117a80b895bb2a25a7
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Yoga: c2b1f2494060865ac1f27e49639e72371b1205fa

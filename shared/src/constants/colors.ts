@@ -20,6 +20,7 @@ export const COLORS = {
   DELETE: '#D94A4A',
 
   // Transparent
+  BLACK_TRANSPARENT_15: 'rgba(0, 0, 0, 0.15)',
   BLACK_TRANSPARENT: 'rgba(0, 0, 0, 0.5)',
   BLACK_TRANSPARENT_30: 'rgba(46, 46, 46, 0.3)',
   WHITE_TRANSPARENT: 'rgba(255, 255, 255, 0.15)',

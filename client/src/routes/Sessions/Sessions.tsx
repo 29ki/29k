@@ -102,11 +102,7 @@ const Sessions = () => {
         ItemSeparatorComponent={Spacer16}
         renderItem={renderSession}
         refreshControl={
-          <RefreshControl
-            refreshing={isLoading}
-            onRefresh={fetchSessions}
-            tintColor="white"
-          />
+          <RefreshControl refreshing={isLoading} onRefresh={fetchSessions} />
         }
       />
       <FloatingForm>
