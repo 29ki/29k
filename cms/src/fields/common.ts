@@ -70,6 +70,11 @@ export const VIDEO_FIELD: CmsField = {
       name: 'source',
       widget: 'file',
       required: false,
+      media_library: {
+        config: {
+          muiltiple: true,
+        },
+      },
       i18n: true,
     },
     {

@@ -86,7 +86,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
   const {t} = useTranslation(NS.COMPONENT.HOST_NOTES);
 
   const notes = introPortal
-    ? exercise?.introPortal.hostNotes
+    ? exercise?.introPortal?.hostNotes
     : exercise?.slide.current.hostNotes;
 
   useEffect(() => {
