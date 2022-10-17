@@ -1,4 +1,4 @@
-/* eslintdisable */
+/* eslint-disable */
 /* tslint:disable */
 
 export interface ComponentAddToCalendar {
@@ -15,8 +15,8 @@ export interface ComponentCodePushOverlayDownloading {
 export interface ComponentCodePushOverlayInstall {
   title?: string;
   text?: string;
-  dismissbutton?: string;
-  restartbutton?: string;
+  dismiss_button?: string;
+  restart_button?: string;
 }
 
 export interface ComponentCodePushOverlay {
@@ -47,7 +47,7 @@ export interface ComponentCounter {
 }
 
 export interface ComponentCrashErrorMessage {
-  textmarkdown?: string;
+  text__markdown?: string;
 }
 
 export interface ComponentCreateSessionModalSelectContent {
@@ -117,7 +117,7 @@ export interface ScreenChangingRoomPermissionsAlert {
 }
 
 export interface ScreenChangingRoom {
-  joinbutton?: string;
+  join_button?: string;
   cameraOff?: string;
   permissionsAlert: ScreenChangingRoomPermissionsAlert;
 }
@@ -128,31 +128,31 @@ export interface ScreenHome {
 }
 
 export interface ScreenKillSwitchUpdateAndroid {
-  textmarkdown?: string;
+  text__markdown?: string;
   link?: string;
   button?: string;
 }
 
 export interface ScreenKillSwitchUpdateIos {
-  textmarkdown?: string;
+  text__markdown?: string;
   link?: string;
   button?: string;
 }
 
 export interface ScreenKillSwitchUpdate {
-  imageimage?: string;
+  image__image?: string;
   android: ScreenKillSwitchUpdateAndroid;
   ios: ScreenKillSwitchUpdateIos;
 }
 
 export interface ScreenKillSwitchMaintenance {
-  imageimage?: string;
-  textmarkdown?: string;
+  image__image?: string;
+  text__markdown?: string;
 }
 
 export interface ScreenKillSwitchFailed {
-  imageimage?: string;
-  textmarkdown?: string;
+  image__image?: string;
+  text__markdown?: string;
 }
 
 export interface ScreenKillSwitch {

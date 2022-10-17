@@ -1,4 +1,4 @@
-/* eslintdisable */
+/* eslint-disable */
 /* tslint:disable */
 
 export type AllContributorsContributorContributionsOptions =
@@ -41,7 +41,7 @@ export type AllContributorsContributorContributionsOptions =
 
 export interface AllContributorsContributor {
   name: string;
-  avatarurl: string;
+  avatar_url: string;
   profile: string;
   login?: string;
   contributions: AllContributorsContributorContributionsOptions[];
