@@ -42,8 +42,8 @@ jobs:
       - name: Create Dotenv File
         uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
-          env-prefix: 'DOTENV_'
-          directory: './client'
+          env-prefix: DOTENV_
+          directory: ./client
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
@@ -90,7 +90,7 @@ jobs:
         run: mkdir -p $SOURCEMAPS_DIR
 
       - name: Prepare $GIT_COMMIT_SHORT
-        working-directory: ./client
+        working-directory: ./shared
         run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
 
       - name: Codepush Android
@@ -99,7 +99,7 @@ jobs:
         run: >
           yarn appcenter codepush release-react
           --app $ANDROID_CODE_PUSH_PROJECT
-          --deployment-name ${{ inputs.environment }}
+          --deployment-name ${{ secrets.ENVIRONMENT }}
           --output-dir $BUILD_DIR
           --sourcemap-output-dir $SOURCEMAPS_DIR
           --disable-duplicate-release-error
@@ -110,7 +110,7 @@ jobs:
         run: >
           yarn appcenter codepush release-react
           --app $IOS_CODE_PUSH_PROJECT
-          --deployment-name ${{ inputs.environment }}
+          --deployment-name ${{ secrets.ENVIRONMENT }}
           --plist-file ./ios/Supporting/Info.plist
           --xcode-project-file ./ios/twentyninek.xcodeproj
           --output-dir $BUILD_DIR
@@ -124,8 +124,8 @@ jobs:
           yarn sentry-cli react-native appcenter
           $ANDROID_CODE_PUSH_PROJECT android
           $BUILD_DIR/CodePush $SOURCEMAPS_DIR
-          --deployment ${{ inputs.environment }}
-          --dist ${{ inputs.environment }}
+          --deployment ${{ secrets.ENVIRONMENT }}
+          --dist ${{ secrets.ENVIRONMENT }}
           --release-name $GIT_COMMIT_SHORT
 
       - name: Upload iOS Source Maps to Sentry
@@ -135,8 +135,8 @@ jobs:
           yarn sentry-cli react-native appcenter
           $IOS_CODE_PUSH_PROJECT ios
           $BUILD_DIR/CodePush $SOURCEMAPS_DIR
-          --deployment ${{ inputs.environment }}
-          --dist ${{ inputs.environment }}
+          --deployment ${{ secrets.ENVIRONMENT }}
+          --dist ${{ secrets.ENVIRONMENT }}
           --release-name $GIT_COMMIT_SHORT
 
       - name: Associate Commits to Sentry Release

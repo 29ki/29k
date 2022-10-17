@@ -2,7 +2,8 @@ import {onRequest} from 'firebase-functions/v2/https';
 import Koa from 'koa';
 
 import {killSwitchRouter} from './killswitch';
-import {templesRouter} from './temples';
+import {sessionsRouter} from './sessions';
+import sentryErrorHandler from './lib/sentry';
 import firebaseBodyParser from './lib/firebaseBodyParser';
 import i18nResolver from './lib/i18nResolver';
 import firebaseAuth from './lib/firebaseAuth';
@@ -10,9 +11,11 @@ import {createRouter} from '../lib/routers';
 
 const app = new Koa();
 
+app.on('error', sentryErrorHandler);
+
 const authoroizedRouter = createRouter();
 authoroizedRouter
-  .use('/temples', templesRouter.routes())
+  .use('/sessions', sessionsRouter.routes())
   .use('/killSwitch', killSwitchRouter.routes());
 
 app

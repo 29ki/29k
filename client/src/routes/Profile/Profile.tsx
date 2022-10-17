@@ -1,7 +1,9 @@
 import React, {Fragment} from 'react';
 import {useTranslation} from 'react-i18next';
-
 import styled from 'styled-components/native';
+import dayjs from 'dayjs';
+import {ScrollView} from 'react-native-gesture-handler';
+
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {
@@ -16,8 +18,8 @@ import {useUiLib} from '../../lib/uiLib/hooks/useUiLib';
 import {LANGUAGE_TAGS} from '../../../../shared/src/constants/i18n';
 import {Heading18} from '../../common/components/Typography/Heading/Heading';
 import NS from '../../lib/i18n/constants/namespaces';
-import {ScrollView} from 'react-native-gesture-handler';
 import CurrentUser from './components/CurrentUser';
+import Screen from '../../common/components/Screen/Screen';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -33,44 +35,49 @@ const Profile = () => {
   const checkForUpdate = useCheckForUpdate();
 
   return (
-    <ScrollView>
-      <TopSafeArea />
-      <Gutters>
-        <Spacer28 />
-        <CurrentUser />
-        <Spacer48 />
-        <Heading18>{t('language')}</Heading18>
-        <Spacer8 />
-        <Row>
-          {LANGUAGE_TAGS.map((languageTag, i) => (
-            <Fragment key={i}>
-              <Button
-                variant="secondary"
-                key={languageTag}
-                onPress={() => i18n.changeLanguage(languageTag)}>
-                {languageTag.toUpperCase()}
-              </Button>
-              <Spacer8 />
-            </Fragment>
-          ))}
-        </Row>
-        <Spacer48 />
-        <StartCol>
-          <Button variant="secondary" onPress={toggleUiLib}>
-            {t('uiLib')}
-          </Button>
+    <Screen noTopBar>
+      <ScrollView>
+        <TopSafeArea />
+        <Gutters>
+          <Spacer28 />
+          <CurrentUser />
+          <Spacer48 />
+          <Heading18>{t('language')}</Heading18>
           <Spacer8 />
-          <Button variant="secondary" onPress={clearUpdates}>
-            {t('clearUpdate')}
-          </Button>
-          <Spacer8 />
-          <Button variant="secondary" onPress={checkForUpdate}>
-            {t('checkUpdate')}
-          </Button>
-        </StartCol>
-        <Spacer48 />
-      </Gutters>
-    </ScrollView>
+          <Row>
+            {LANGUAGE_TAGS.map((languageTag, i) => (
+              <Fragment key={i}>
+                <Button
+                  variant="secondary"
+                  key={languageTag}
+                  onPress={() => {
+                    i18n.changeLanguage(languageTag);
+                    dayjs.locale(languageTag);
+                  }}>
+                  {languageTag.toUpperCase()}
+                </Button>
+                <Spacer8 />
+              </Fragment>
+            ))}
+          </Row>
+          <Spacer48 />
+          <StartCol>
+            <Button variant="secondary" onPress={toggleUiLib}>
+              {t('uiLib')}
+            </Button>
+            <Spacer8 />
+            <Button variant="secondary" onPress={clearUpdates}>
+              {t('clearUpdate')}
+            </Button>
+            <Spacer8 />
+            <Button variant="secondary" onPress={checkForUpdate}>
+              {t('checkUpdate')}
+            </Button>
+          </StartCol>
+          <Spacer48 />
+        </Gutters>
+      </ScrollView>
+    </Screen>
   );
 };
 

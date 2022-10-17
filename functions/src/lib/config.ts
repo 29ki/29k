@@ -13,7 +13,10 @@ import 'dotenv/config';
 import {cleanEnv, str} from 'envalid';
 
 const configValidation = {
+  GIT_COMMIT_SHORT: str(),
+  ENVIRONMENT: str(),
   DAILY_API_KEY: str(),
+  SENTRY_DSN: str(),
 };
 
 export default cleanEnv(process.env, configValidation);

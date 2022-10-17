@@ -29,7 +29,7 @@ const Audio = React.forwardRef<RNSound | undefined, AudioProps>(
 
     useEffect(() => {
       if (paused) {
-        sound?.stop();
+        sound?.pause();
       } else {
         sound?.play();
       }

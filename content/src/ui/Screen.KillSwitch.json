@@ -1,15 +1,15 @@
 {
   "en": {
     "update": {
-      "image__image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1648213293/KillSwitch%20illustrations/Message_Illustration_ly48sc.png",
+      "image__image": "",
       "android": {
-        "text__markdown": "## We've made the app even ~~better!~~\n\nYou can get the latest version from ~~[Google Play](https://play.google.com/store/apps/details?id=org.twentyninek.app)~~",
-        "link": "https://play.google.com/store/apps/details?id=org.twentyninek.app",
+        "text__markdown": "## We've made the app even ~~better!~~\n\nYou can get the latest version from ~~[Google PlayStore](https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake)~~",
+        "link": "https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake",
         "button": "Update"
       },
       "ios": {
-        "text__markdown": "## We've made the app even ~~better!~~\n\nYou can get the latest version from ~~[App Store](https://apps.apple.com/se/app/29k-find-yourself-others/id1434100083)~~",
-        "link": "https://apps.apple.com/se/app/29k-find-yourself-others/id1434100083",
+        "text__markdown": "## We've made the app even ~~better!~~\n\nYou can get the latest version from ~~[Apple TestFlight](https://testflight.apple.com/join/0VdruQ6z)~~",
+        "link": "https://testflight.apple.com/join/0VdruQ6z",
         "button": "Update"
       }
     },
@@ -25,15 +25,15 @@
   },
   "sv": {
     "update": {
-      "image__image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1648213293/KillSwitch%20illustrations/Message_Illustration_ly48sc.png",
+      "image__image": "",
       "android": {
-        "text__markdown": "## Vi har gjort appen ännu ~~bättre!~~\n\nDu kan hämta den senaste versionen från ~~[Google Play](https://play.google.com/store/apps/details?id=org.twentyninek.app)~~",
-        "link": "https://play.google.com/store/apps/details?id=org.twentyninek.app",
+        "text__markdown": "## Vi har gjort appen ännu ~~bättre!~~\n\nDu kan hämta den senaste versionen från ~~[Google PlayStore](https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake)~~",
+        "link": "https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake",
         "button": "Uppdatera"
       },
       "ios": {
-        "text__markdown": "## Vi har gjort appen ännu ~~bättre!~~\n\nDu kan hämta den senaste versionen från ~~[App Store](https://apps.apple.com/se/app/29k-find-yourself-others/id1434100083)~~",
-        "link": "https://apps.apple.com/se/app/29k-find-yourself-others/id1434100083",
+        "text__markdown": "## Vi har gjort appen ännu ~~bättre!~~\n\nDu kan hämta den senaste versionen från ~~[Apple TestFlight](https://testflight.apple.com/join/0VdruQ6z)~~",
+        "link": "https://testflight.apple.com/join/0VdruQ6z",
         "button": "Uppdatera"
       }
     },
@@ -49,26 +49,26 @@
   },
   "pt": {
     "update": {
-      "image__image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1648213293/KillSwitch%20illustrations/Message_Illustration_ly48sc.png",
+      "image__image": "",
       "android": {
-        "text__markdown": "## Tornamos a app ainda ~~melhor!~~\n\nPodes obter a última versão aqui ~~[Google Play](https://play.google.com/store/apps/details?id=org.twentyninek.app)~~",
-        "link": "https://play.google.com/store/apps/details?id=org.twentyninek.app",
-        "button": "Atualizar"
+        "text__markdown": "## We've made the app even ~~better!~~\n\nYou can get the latest version from ~~[Google PlayStore](https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake)~~",
+        "link": "https://testflight.apple.com/join/0VdruQ6z",
+        "button": "Update"
       },
       "ios": {
-        "text__markdown": "## Tornamos a app ainda ~~melhor!~~\n\nPodes obter a última versão aqui ~~[App Store](https://apps.apple.com/se/app/29k-find-yourself-others/id1434100083)~~",
+        "text__markdown": "## We've made the app even ~~better!~~\n\nYou can get the latest version from ~~[Apple TestFlight](https://testflight.apple.com/join/0VdruQ6z)~~",
         "link": "https://apps.apple.com/se/app/29k-find-yourself-others/id1434100083",
-        "button": "Atualizar"
+        "button": "Update"
       }
     },
     "maintenance": {
       "image__image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1648213290/KillSwitch%20illustrations/Failed_Illutration_wer2cx.png",
-      "text__markdown": "## Estamos a fazer um pouco de ~~manutenção~~\n\nDesculpa o incómodo. Estaremos de volta o mais rápido possível."
+      "text__markdown": "## We're undergoing a bit of a ~~maintenance~~\n\nSorry for the inconvenience. We’ll be back up and running as soon as possible."
     },
     "failed": {
       "image__image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1648213290/KillSwitch%20illustrations/Failed_Illutration_wer2cx.png",
-      "text__markdown": "## Alguma coisa não está bem...\n\nEstamos a ter algumas dificuldades técnicas. Por favor tenta de novo daqui a pouco."
+      "text__markdown": "## Something’s not quite right...\n\nWe’re having some technical difficulties right now. Try again in a moment."
     },
-    "retry": "Tenta de novo"
+    "retry": "Try again"
   }
 }
