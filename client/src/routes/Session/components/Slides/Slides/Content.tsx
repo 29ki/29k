@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 import {
-  ContentSlide,
-  ReflectionSlide,
-  SharingSlide,
-} from '../../../../../../../shared/src/types/Content';
+  ExerciseSlidesContent,
+  ExerciseSlidesReflection,
+  ExerciseSlidesSharing,
+} from '../../../../../../../shared/src/types/generated/Exercise';
 import Heading from './Blocks/Heading';
 import Image from '../../../../../common/components/Image/Image';
 import Video from './Blocks/Video';
@@ -24,7 +24,10 @@ const TextWrapper = styled.View({
 });
 
 type ContentProps = {
-  slide: ReflectionSlide | SharingSlide | ContentSlide;
+  slide:
+    | ExerciseSlidesReflection
+    | ExerciseSlidesSharing
+    | ExerciseSlidesContent;
   active: boolean;
 };
 const Content: React.FC<ContentProps> = ({slide, active}) => (

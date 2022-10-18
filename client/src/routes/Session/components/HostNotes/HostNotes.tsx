@@ -92,7 +92,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
     );
 
   const notes = introPortal
-    ? exercise?.introPortal.hostNotes
+    ? exercise?.introPortal?.hostNotes
     : exercise?.slide.current.hostNotes;
 
   return (

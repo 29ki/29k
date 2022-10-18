@@ -1,6 +1,7 @@
 import {useMemo} from 'react';
 import {useRecoilValue} from 'recoil';
-import {Exercise, ExerciseSlide} from '../../../../../shared/src/types/Content';
+import {ExerciseSlide} from '../../../../../shared/src/types/Content';
+import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import {sessionAtom} from '../state/state';
 

@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {FlatList} from 'react-native-gesture-handler';
 import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
-import {Exercise} from '../../../../../shared/src/types/Content';
+import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 
 import Button from '../../../common/components/Buttons/Button';
 

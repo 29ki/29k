@@ -108,12 +108,18 @@ describe('useSessions', () => {
           contentId: 'some-content-id',
           startTime: '1994-03-08T00:00:00.000Z',
         }),
-        headers: {'Content-Type': 'application/json'},
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Correlation-ID': expect.any(String),
+        },
         method: 'POST',
       });
 
       expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/sessions', {
-        headers: {'Content-Type': 'application/json'},
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Correlation-ID': expect.any(String),
+        },
       });
     });
   });
@@ -140,13 +146,17 @@ describe('useSessions', () => {
         {
           headers: {
             'Content-Type': 'application/json',
+            'X-Correlation-ID': expect.any(String),
           },
           method: 'DELETE',
         },
       );
 
       expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/sessions', {
-        headers: {'Content-Type': 'application/json'},
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Correlation-ID': expect.any(String),
+        },
       });
     });
   });
