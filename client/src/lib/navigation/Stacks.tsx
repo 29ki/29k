@@ -17,7 +17,7 @@ import DailyProvider from '../../routes/Session/DailyProvider';
 import SessionModal from '../../routes/Sessions/components/SessionModal';
 import CreateSessionModal from '../../routes/Sessions/components/CreateSessionModal';
 import {navigationWithFadeAtom} from './state/state';
-import VerificationModal from '../../routes/Profile/components/VerificationModal';
+import UpgradeAccount from '../../routes/Profile/UpgradeAccount';
 
 const RootStack = createNativeStackNavigator<RootStackProps>();
 const SessionStack = createNativeStackNavigator<SessionStackProps>();
@@ -75,8 +75,8 @@ const RootStackWrapper = () => {
               component={CreateSessionModal}
             />
             <RootStack.Screen
-              name={'VerificationModal'}
-              component={VerificationModal}
+              name={'UpgradeAccount'}
+              component={UpgradeAccount}
             />
           </RootStack.Group>
         </>

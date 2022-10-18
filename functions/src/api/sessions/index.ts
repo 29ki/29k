@@ -17,13 +17,8 @@ import {
 } from '../../../../shared/src/types/Session';
 import * as dailyApi from '../../lib/dailyApi';
 import {createRouter} from '../../lib/routers';
-import {removeEmpty} from '../../lib/utils';
+import {getData, removeEmpty} from '../../lib/utils';
 import dayjs from 'dayjs';
-
-const getData = <T>(document: DocumentSnapshot<DocumentData>) => {
-  const data = document.data();
-  return data as T;
-};
 
 const getSessionExerciseState = (
   exerciseState: ExerciseStateData,

@@ -14,7 +14,7 @@ import {useRecoilValue} from 'recoil';
 import {userAtom} from '../../../lib/user/state/state';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {ModalStackProps} from '../../../common/constants/routes';
+import {RootStackProps} from '../../../common/constants/routes';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -25,10 +25,13 @@ const StartCol = styled.View({
   alignItems: 'flex-start',
 });
 
-const CurrentUser = () => {
+type CurrentUserProps = {
+  isPublicHost: boolean;
+};
+
+const CurrentUser: React.FC<CurrentUserProps> = ({isPublicHost = false}) => {
   const {t} = useTranslation(NS.SCREEN.PROFILE);
-  const {navigate} =
-    useNavigation<NativeStackNavigationProp<ModalStackProps>>();
+  const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
   const user = useRecoilValue(userAtom);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -54,6 +57,10 @@ const CurrentUser = () => {
     } catch (error: any) {
       Alert.alert(error.message);
     }
+  };
+
+  const requestPublicHostRole = async () => {
+    navigate('UpgradeAccount');
   };
 
   return (
@@ -142,9 +149,14 @@ const CurrentUser = () => {
           </Row>
         </>
       )}
-      <Button onPress={() => navigate('VerificationModal')}>
-        {t('verify')}
-      </Button>
+      <Spacer16 />
+      {!isPublicHost && (
+        <StartCol>
+          <Button onPress={requestPublicHostRole}>
+            {t('requestPublicHostRoleButton')}
+          </Button>
+        </StartCol>
+      )}
     </>
   );
 };

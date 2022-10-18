@@ -11,7 +11,8 @@
     "upgrade": "Upgrade",
     "email": "E-mail",
     "password": "Lösenord",
-    "or": "or"
+    "or": "or",
+    "requestPublicHostRoleButton": "Request to create public sessions"
   },
   "sv": {
     "userId": "Användar-ID",
@@ -25,7 +26,8 @@
     "upgrade": "Uppgradera",
     "email": "E-mail",
     "password": "Lösenord",
-    "or": "eller"
+    "or": "eller",
+    "requestPublicHostRoleButton": "Begär att få skapa publika sessioner"
   },
   "pt": {}
 }
