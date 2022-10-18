@@ -36,6 +36,7 @@ import {
 import {createRouter} from '../../lib/routers';
 import {firestore} from 'firebase-admin';
 import {Timestamp} from 'firebase-admin/firestore';
+import {SessionType} from '../../../../shared/src/types/Session';
 
 jest.mock('../../lib/dailyApi', () => mockDailyApi);
 jest.mock('../../lib/dynamicLinks', () => mockDynamicLinks);
@@ -145,6 +146,11 @@ describe('/api/sessions', () => {
         '>',
         expect.any(Timestamp),
       );
+    });
+
+    it('should filter for non-private sessions', async () => {
+      await request(mockServer).get('/sessions');
+      expect(mockWhere).toHaveBeenCalledWith('type', '!=', SessionType.private);
     });
 
     it('should order by startTime', async () => {

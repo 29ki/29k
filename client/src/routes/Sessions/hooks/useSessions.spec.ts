@@ -7,6 +7,7 @@ import {isLoadingAtom, sessionsAtom} from '../state/state';
 import {userAtom} from '../../../lib/user/state/state';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
+import {SessionType} from '../../../../../shared/src/types/Session';
 
 dayjs.extend(utc);
 
@@ -100,7 +101,11 @@ describe('useSessions', () => {
       });
 
       await act(async () => {
-        await result.current.addSession('some-content-id', startTime);
+        await result.current.addSession({
+          contentId: 'some-content-id',
+          type: SessionType.public,
+          startTime,
+        });
       });
 
       expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/sessions', {
