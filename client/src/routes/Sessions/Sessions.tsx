@@ -85,8 +85,6 @@ const Sessions = () => {
 
   const isPublicHost = useRecoilValue(hasPublicHostRole);
 
-  console.log('isPublicHost', isPublicHost);
-
   useEffect(() => {
     fetchSessions();
   }, [fetchSessions]);

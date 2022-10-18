@@ -12,6 +12,7 @@ const NS = {
     TABS: 'Component.Tabs',
     SESSION_CARD: 'Component.SessionCard',
     SESSION_MODAL: 'Component.SessionModal',
+    VERIFICATION_MODAL: 'Component.VerificationModal',
   },
   SCREEN: {
     CHANGING_ROOM: 'Screen.ChangingRoom',

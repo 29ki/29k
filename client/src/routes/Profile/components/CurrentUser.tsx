@@ -12,6 +12,9 @@ import Input from '../../../common/components/Typography/TextInput/TextInput';
 import {Body16, Body18} from '../../../common/components/Typography/Body/Body';
 import {useRecoilValue} from 'recoil';
 import {userAtom} from '../../../lib/user/state/state';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {ModalStackProps} from '../../../common/constants/routes';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -24,6 +27,8 @@ const StartCol = styled.View({
 
 const CurrentUser = () => {
   const {t} = useTranslation(NS.SCREEN.PROFILE);
+  const {navigate} =
+    useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const user = useRecoilValue(userAtom);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -137,6 +142,9 @@ const CurrentUser = () => {
           </Row>
         </>
       )}
+      <Button onPress={() => navigate('VerificationModal')}>
+        {t('verify')}
+      </Button>
     </>
   );
 };
