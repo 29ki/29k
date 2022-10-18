@@ -161,6 +161,7 @@ describe('/api/sessions', () => {
         .post('/sessions')
         .send({
           contentId: 'some-content-id',
+          type: 'public',
           startTime,
         })
         .set('Accept', 'application/json');
@@ -180,10 +181,11 @@ describe('/api/sessions', () => {
         startTime: startTime,
         started: false,
         ended: false,
+        type: 'public',
       });
     });
 
-    it('should require a name', async () => {
+    it('should fail without session data', async () => {
       const response = await request(mockServer)
         .post('/sessions')
         .set('Accept', 'application/json');

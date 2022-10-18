@@ -1,9 +1,8 @@
 import type {Timestamp} from 'firebase-admin/firestore';
 
 export enum SessionType {
-  private = 'private',
   public = 'public',
-  async = 'async',
+  private = 'private',
 }
 
 // Input to DB

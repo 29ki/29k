@@ -48,6 +48,7 @@ sessionsRouter.get('/', async ctx => {
         dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
       ),
     )
+    .where('type', '==', 'public')
     .orderBy('startTime', 'asc')
     .get();
   const sessions = snapshot.docs.map(doc =>
