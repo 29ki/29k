@@ -1,3 +1,4 @@
+import {Dayjs} from 'dayjs';
 import fetch from 'node-fetch';
 
 import config from './config';
@@ -28,7 +29,7 @@ type Room = {
   };
 };
 
-export const createRoom = async (): Promise<Room> => {
+export const createRoom = async (expireDate: Dayjs): Promise<Room> => {
   const res = await fetch(`${DAILY_API_URL}/rooms`, {
     method: 'POST',
     headers: {
@@ -37,6 +38,7 @@ export const createRoom = async (): Promise<Room> => {
     },
     body: JSON.stringify({
       properties: {
+        exp: expireDate.unix(),
         start_audio_off: true,
         start_video_off: false,
       },

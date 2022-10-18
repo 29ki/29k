@@ -1,11 +1,23 @@
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {API_ENDPOINT} from 'config';
+import {getCorrelationId} from '../sentry';
 
-const recreateUser = async () => {
+const signOutAndSignIn = async () => {
   if (auth().currentUser) {
     await auth().signOut();
   }
   await auth().signInAnonymously();
+};
+
+let recreationPromise: undefined | Promise<void>;
+const recreateUser = async () => {
+  /* To prevent a race condition - re-use the promise to prevent this function to be run in parallel */
+  if (!recreationPromise) {
+    recreationPromise = signOutAndSignIn();
+  }
+
+  await recreationPromise;
+  recreationPromise = undefined;
 };
 
 const getAuthorizationToken = async (): Promise<string> => {
@@ -50,11 +62,13 @@ const trimSlashes = (str: string) => str.replace(/^\/+|\/+$/g, '');
 const apiClient = async (input: string, init?: RequestInit | undefined) => {
   const doFetch = async () => {
     const authHeader = await getAuthorizationHeader();
+    const correlationId = getCorrelationId();
 
     return fetch(`${trimSlashes(API_ENDPOINT)}/${trimSlashes(input)}`, {
       ...init,
       headers: {
         'Content-Type': 'application/json',
+        'X-Correlation-ID': correlationId,
         ...authHeader,
         ...init?.headers,
       },

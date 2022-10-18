@@ -15,7 +15,10 @@ describe('apiClient', () => {
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
-      headers: {'Content-Type': 'application/json'},
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Correlation-ID': expect.any(String),
+      },
     });
   });
 
@@ -33,6 +36,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
+        'X-Correlation-ID': expect.any(String),
         Authorization: 'bearer some-authorization-token',
       },
     });
@@ -53,6 +57,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
+        'X-Correlation-ID': expect.any(String),
         Authorization: 'bearer some-authorization-token',
       },
     });
@@ -77,6 +82,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
+        'X-Correlation-ID': expect.any(String),
         Authorization: 'bearer some-authorization-token',
       },
     });
@@ -102,6 +108,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
+        'X-Correlation-ID': expect.any(String),
         Authorization: 'bearer some-authorization-token',
       },
     });
@@ -125,9 +132,22 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
+        'X-Correlation-ID': expect.any(String),
         Authorization: 'bearer some-authorization-token',
       },
     });
+  });
+
+  it('does not run user recreation in parallel', async () => {
+    (auth().currentUser?.getIdToken as jest.Mock).mockResolvedValue(
+      'some-authorization-token',
+    );
+    fetchMock.mockResolvedValue({status: 401} as Response);
+
+    await Promise.all([apiClient('/some-path'), apiClient('/some-other-path')]);
+
+    expect(auth().signOut).toHaveBeenCalledTimes(1);
+    expect(auth().signInAnonymously).toHaveBeenCalledTimes(1);
   });
 
   it('thows if authorization header from server fails on network error', async () => {
@@ -165,6 +185,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'text/plain',
+        'X-Correlation-ID': expect.any(String),
         Authorization: 'some-overridden-authorization',
       },
     });

@@ -70,14 +70,16 @@ const useCheckForUpdate = () => {
 
   return useCallback(async () => {
     try {
-      await codePush.sync(
-        {
-          mandatoryInstallMode: codePush.InstallMode.ON_NEXT_RESTART,
-          deploymentKey,
-        },
-        onStatus,
-        onProgress,
-      );
+      if (deploymentKey) {
+        await codePush.sync(
+          {
+            mandatoryInstallMode: codePush.InstallMode.ON_NEXT_RESTART,
+            deploymentKey,
+          },
+          onStatus,
+          onProgress,
+        );
+      }
     } catch (cause) {
       throw new Error('Code Push check failed', {cause});
     }

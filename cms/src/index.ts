@@ -5,14 +5,9 @@ import {
   DEFAULT_LANGUAGE_TAG,
   LANGUAGE_TAGS,
 } from '../../shared/src/constants/i18n';
-
-import {generateFilesCollectionFromi18nFiles} from './lib/i18n';
+import {exercises, contributors, files} from './collections/collections';
 import {Widget as uniqueIdWidget} from './widgets/uniqueIdWidget';
 
-import EXERCISE_FIELDS from './fields/exercise';
-import CONTRIBUTORS_FIELDS from './fields/contributors';
-
-import * as content from '../../content/content.json';
 CMS.init({
   config: {
     load_config_file: false,
@@ -49,49 +44,7 @@ CMS.init({
       locales: LANGUAGE_TAGS,
       default_locale: DEFAULT_LANGUAGE_TAG,
     },
-    collections: [
-      {
-        name: 'exercises',
-        label: 'Exercises',
-        label_singular: 'exercise',
-        folder: '/content/src/exercises',
-        identifier_field: 'id',
-        extension: 'json',
-        format: 'json',
-        create: true,
-        delete: true,
-        publish: true,
-        summary: '{{fields.name}}',
-        slug: '{{id}}',
-        editor: {
-          preview: false,
-        },
-        fields: EXERCISE_FIELDS,
-        i18n: true,
-      },
-      generateFilesCollectionFromi18nFiles('ui', 'UI', content.i18n),
-      {
-        name: 'other',
-        label: 'Other',
-        files: [
-          {
-            label: 'All Contributors',
-            name: 'all-contributorsrc',
-            file: '/.all-contributorsrc',
-            fields: CONTRIBUTORS_FIELDS,
-          },
-        ],
-        i18n: false,
-        extension: 'json',
-        format: 'json',
-        create: false,
-        delete: false,
-        publish: true,
-        editor: {
-          preview: false,
-        },
-      },
-    ],
+    collections: [exercises, contributors, files],
   },
 });
 
