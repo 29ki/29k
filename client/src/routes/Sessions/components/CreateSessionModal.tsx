@@ -104,7 +104,7 @@ const ContentCard: React.FC<{
 };
 
 const SelectContent: React.FC<StepProps> = ({
-  setCurrentStep,
+  nextStep,
   setSelectedExercise,
 }) => {
   const exerciseIds = useExerciseIds();
@@ -128,7 +128,7 @@ const SelectContent: React.FC<StepProps> = ({
           <ContentCard
             onPress={() => {
               setSelectedExercise(item);
-              setCurrentStep(1);
+              nextStep();
             }}
             exerciseId={item}
           />
@@ -155,8 +155,7 @@ const TypeItem: React.FC<{
 const SelectType: React.FC<StepProps> = ({
   selectedExercise,
   setSelectedType,
-  currentStep,
-  setCurrentStep,
+  nextStep,
 }) => {
   const exercise = useExerciseById(selectedExercise);
   const {t} = useTranslation(NS.COMPONENT.CREATE_SESSION_MODAL);
@@ -181,7 +180,7 @@ const SelectType: React.FC<StepProps> = ({
           <TypeItem
             onPress={() => {
               setSelectedType(type);
-              setCurrentStep(currentStep + 1);
+              nextStep();
             }}
             label={t(`selectType.${type}.title`)}
             icon={t(`selectType.${type}.icon`)}
@@ -250,8 +249,7 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
 type StepProps = {
   selectedExercise: Exercise['id'] | undefined;
   setSelectedExercise: Dispatch<SetStateAction<StepProps['selectedExercise']>>;
-  currentStep: number;
-  setCurrentStep: Dispatch<SetStateAction<StepProps['currentStep']>>;
+  nextStep: () => void;
   selectedType: SessionType | undefined;
   setSelectedType: Dispatch<SetStateAction<StepProps['selectedType']>>;
 };
@@ -270,10 +268,9 @@ const CreateSessionModal = () => {
   const stepProps: StepProps = {
     selectedExercise,
     setSelectedExercise,
-    currentStep,
-    setCurrentStep,
     selectedType,
     setSelectedType,
+    nextStep: () => setCurrentStep(currentStep + 1),
   };
 
   return (
