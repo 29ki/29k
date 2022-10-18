@@ -38,9 +38,13 @@ export const UI = () => (
     <Spacer8 />
     <ColorBG>
       <Row>
+          <Body14>
         <Counter startTime={dayjsTime} starting={false} />
+          </Body14>
         <Spacer8 />
+          <Body14>
         <Counter startTime={dayjsTime} starting={true} />
+          </Body14>
         <Spacer8 />
       </Row>
     </ColorBG>
