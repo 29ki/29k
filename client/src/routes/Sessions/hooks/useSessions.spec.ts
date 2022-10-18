@@ -111,6 +111,7 @@ describe('useSessions', () => {
       expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/sessions', {
         body: JSON.stringify({
           contentId: 'some-content-id',
+          type: 'public',
           startTime: '1994-03-08T00:00:00.000Z',
         }),
         headers: {
