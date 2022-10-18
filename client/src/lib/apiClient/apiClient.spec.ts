@@ -138,6 +138,18 @@ describe('apiClient', () => {
     });
   });
 
+  it('does not run user recreation in parallel', async () => {
+    (auth().currentUser?.getIdToken as jest.Mock).mockResolvedValue(
+      'some-authorization-token',
+    );
+    fetchMock.mockResolvedValue({status: 401} as Response);
+
+    await Promise.all([apiClient('/some-path'), apiClient('/some-other-path')]);
+
+    expect(auth().signOut).toHaveBeenCalledTimes(1);
+    expect(auth().signInAnonymously).toHaveBeenCalledTimes(1);
+  });
+
   it('thows if authorization header from server fails on network error', async () => {
     (auth().currentUser?.getIdToken as jest.Mock)
       .mockRejectedValueOnce(new Error('Failed to get token'))
