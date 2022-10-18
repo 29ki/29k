@@ -41,8 +41,7 @@ import HostNotes from './components/HostNotes/HostNotes';
 import {DailyContext} from './DailyProvider';
 import {DailyUserData} from '../../../../shared/src/types/Session';
 import Screen from '../../common/components/Screen/Screen';
-import IconButton from '../../common/components/Buttons/IconButton/IconButton';
-import {ArrowLeftIcon} from '../../common/components/Icons';
+import BackButton from '../../common/components/Buttons/BackButton/BackButton';
 
 type SessionNavigationProps = NativeStackNavigationProp<SessionStackProps>;
 
@@ -82,9 +81,6 @@ const Wrapper = styled.View({
 const Content = styled.View({
   flex: 1,
   justifyContent: 'space-between',
-});
-const BackButton = styled(IconButton)({
-  marginLeft: -SPACINGS.SIXTEEN,
 });
 
 const TopBar = styled(Gutters)({
@@ -192,12 +188,7 @@ const IntroPortal: React.FC = () => {
         {isFocused && (
           <Content>
             <TopBar>
-              <BackButton
-                noBackground
-                onPress={leaveSessionWithConfirm}
-                Icon={ArrowLeftIcon}
-                fill={themedText}
-              />
+              <BackButton onPress={leaveSessionWithConfirm} fill={themedText} />
               {__DEV__ && session?.started && (
                 <Button
                   small

@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
-import IconButton from '../Buttons/IconButton/IconButton';
-import {ArrowLeftIcon} from '../Icons';
+import BackButton from '../Buttons/BackButton/BackButton';
 import {TopSafeArea} from '../Spacers/Spacer';
 
 const Wrapper = styled.View<{backgroundColor?: string}>(
@@ -24,10 +23,6 @@ const TopBarWrapper = styled.View({
   justifyContent: 'space-between',
 });
 
-const BackButton = styled(IconButton)({
-  marginLeft: -SPACINGS.SIXTEEN,
-});
-
 const TopBar: React.FC<{
   hasDarkBackground?: boolean;
   onPressBack?: () => void;
@@ -37,9 +32,7 @@ const TopBar: React.FC<{
     <TopBarWrapper>
       {onPressBack && (
         <BackButton
-          noBackground
           onPress={onPressBack}
-          Icon={ArrowLeftIcon}
           fill={isOnDarkBackground ? COLORS.WHITE : COLORS.BLACK}
         />
       )}
