@@ -271,12 +271,15 @@ android {
     productFlavors {
         production {
             applicationId 'org.twentyninek.app.cupcake'
+            manifestPlaceholders.deepLinkHost = 'app.cupcake.29k.org'
         }
         staging {
             applicationId 'org.twentyninek.app.cupcake.staging'
+            manifestPlaceholders.deepLinkHost = 'staging.app.cupcake.29k.org'
         }
         dev {
             applicationId 'org.twentyninek.app.cupcake.dev'
+            manifestPlaceholders.deepLinkHost = 'testing.app.cupcake.29k.org'
         }
     }
 }
