@@ -4,17 +4,17 @@
       "title": "Pick an exercise"
     },
     "setDateTime": {
-      "title": "Session time set up",
-      "cta": "Publish"
+      "title": "Pick a time",
+      "cta": "Create session"
     }
   },
   "sv": {
     "selectContent": {
-      "title": "Välj en övning"
+      "title": "Välj övning"
     },
     "setDateTime": {
-      "title": "Välj en dag och tid",
-      "cta": "Publisera"
+      "title": "Välj tid",
+      "cta": "Skapa session"
     }
   },
   "pt": {
