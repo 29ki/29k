@@ -1,59 +1,29 @@
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
-import {firestore} from 'firebase-admin';
-import {Timestamp} from 'firebase-admin/firestore';
 import 'firebase-functions';
+import dayjs from 'dayjs';
 
-import {
-  SessionInput,
-  SessionData,
-  Session,
-  ExerciseStateData,
-  ExerciseState,
-  SessionType,
-} from '../../../../shared/src/types/Session';
+import {Session, SessionType} from '../../../../shared/src/types/Session';
 import * as dailyApi from '../../lib/dailyApi';
 import {createRouter} from '../../lib/routers';
-import {getData, removeEmpty} from '../../lib/utils';
-import dayjs from 'dayjs';
+
+import {removeEmpty} from '../../lib/utils';
 import {createDynamicLink} from '../../lib/dynamicLinks';
-
-const getSessionExerciseState = (
-  exerciseState: ExerciseStateData,
-): ExerciseState => ({
-  ...exerciseState,
-  timestamp: exerciseState.timestamp.toDate().toISOString(),
-});
-
-const getSession = (session: SessionData): Session => ({
-  ...session,
-  exerciseState: getSessionExerciseState(session.exerciseState),
-  startTime: session.startTime.toDate().toISOString(),
-});
-
-const SESSIONS_COLLECTION = 'sessions';
+import {
+  addSession,
+  deleteSession,
+  getSessionById,
+  getSessions,
+  updateExerciseState,
+  updateSession,
+} from '../../models/session';
 
 const sessionsRouter = createRouter();
 
 sessionsRouter.get('/', async ctx => {
   const {response} = ctx;
 
-  const snapshot = await firestore()
-    .collection(SESSIONS_COLLECTION)
-    .where('ended', '==', false)
-    .where(
-      'startTime',
-      '>',
-      Timestamp.fromDate(
-        dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
-      ),
-    )
-    .where('type', '!=', SessionType.private)
-    .orderBy('startTime', 'asc')
-    .get();
-  const sessions = snapshot.docs.map(doc =>
-    getSession(getData<SessionData>(doc)),
-  );
+  const sessions = await getSessions();
 
   response.status = 200;
   ctx.body = sessions;
@@ -69,47 +39,31 @@ type CreateSession = yup.InferType<typeof CreateSessionSchema>;
 
 sessionsRouter.post('/', validator({body: CreateSessionSchema}), async ctx => {
   const {contentId, type, startTime} = ctx.request.body as CreateSession;
+  const user = ctx.user;
 
-  const startDateTime = dayjs(startTime);
+  const dailyRoom = await dailyApi.createRoom(dayjs(startTime).add(2, 'hour'));
+  const link = await createDynamicLink(`sessions/${dailyRoom.id}`);
 
-  const data = await dailyApi.createRoom(startDateTime.add(2, 'hour'));
-  const defaultExerciseState = {
-    index: 0,
-    playing: false,
-    timestamp: Timestamp.now(),
-  };
-
-  const link = await createDynamicLink(`sessions/${data.id}`);
-
-  const session: SessionInput & {
-    dailyRoomName: string;
-  } = {
-    id: data.id,
-    url: data.url,
+  const session = await addSession({
+    id: dailyRoom.id,
+    dailyRoomName: dailyRoom.name,
+    url: dailyRoom.url,
     contentId,
     link,
-    facilitator: ctx.user.id,
-    dailyRoomName: data.name,
-    startTime: Timestamp.fromDate(startDateTime.toDate()),
-    exerciseState: defaultExerciseState,
-    started: false,
-    ended: false,
     type,
-  };
+    startTime,
+    facilitator: user.id,
+  });
 
-  await firestore().collection(SESSIONS_COLLECTION).doc(data.id).set(session);
-
-  ctx.body = getSession(session);
+  ctx.body = session;
 });
 
 sessionsRouter.delete('/:id', async ctx => {
   const {id} = ctx.params;
-  const sessionDocRef = firestore().collection(SESSIONS_COLLECTION).doc(id);
-  const session = getData<
-    SessionData & {
-      dailyRoomName: string;
-    }
-  >(await sessionDocRef.get());
+
+  const session = (await getSessionById(id)) as Session & {
+    dailyRoomName: string;
+  };
 
   if (ctx.user.id !== session?.facilitator) {
     ctx.status = 500;
@@ -119,7 +73,7 @@ sessionsRouter.delete('/:id', async ctx => {
   try {
     await Promise.all([
       dailyApi.deleteRoom(session.dailyRoomName),
-      sessionDocRef.delete(),
+      deleteSession(session.id),
     ]);
   } catch {
     ctx.status = 500;
@@ -148,18 +102,17 @@ sessionsRouter.put(
   async ctx => {
     const {id} = ctx.params;
     const body = ctx.request.body as UpdateSession;
-    const sessionDocRef = firestore().collection(SESSIONS_COLLECTION).doc(id);
-    const session = getData<SessionData>(await sessionDocRef.get());
+    const session = await getSessionById(id);
 
     if (ctx.user.id !== session?.facilitator) {
       ctx.status = 500;
       throw new Error('Unauthorized');
     }
 
-    await sessionDocRef.update(removeEmpty(body));
+    const updatedSession = await updateSession(id, removeEmpty(body));
 
     ctx.status = 200;
-    ctx.body = getSession(getData<SessionData>(await sessionDocRef.get()));
+    ctx.body = updatedSession;
   },
 );
 
@@ -176,41 +129,29 @@ const ExerciseStateUpdateSchema = yup
     test => Object.keys(test).length > 0,
   );
 
-type ExerciseStateUpdate = yup.InferType<typeof ExerciseStateUpdateSchema>;
+export type ExerciseStateUpdate = yup.InferType<
+  typeof ExerciseStateUpdateSchema
+>;
 
 sessionsRouter.put(
   '/:id/exerciseState',
   validator({body: ExerciseStateUpdateSchema}),
   async ctx => {
     const {id} = ctx.params;
-    const sessionDocRef = firestore().collection(SESSIONS_COLLECTION).doc(id);
+    const session = await getSessionById(id);
 
-    await firestore().runTransaction(async transaction => {
-      const sessionDoc = await transaction.get(sessionDocRef);
-
-      if (sessionDoc.exists) {
-        const session = getData<SessionData>(sessionDoc);
-
-        if (session && ctx.user.id !== session?.facilitator) {
-          ctx.status = 500;
-          throw new Error('Unauthorized');
-        }
-
-        const update = removeEmpty(ctx.request.body as ExerciseStateUpdate);
-
-        const data = removeEmpty({
-          ...session.exerciseState,
-          ...update,
-          timestamp: Timestamp.now(),
-        });
-
-        await transaction.update(sessionDocRef, {exerciseState: data});
-      } else {
+    if (!session) {
+      ctx.status = 500;
+    } else {
+      if (ctx.user.id !== session?.facilitator) {
         ctx.status = 500;
+        throw new Error('Unauthorized');
       }
-    });
+      const data = removeEmpty(ctx.request.body as ExerciseStateUpdate);
 
-    ctx.body = getSession(getData<SessionData>(await sessionDocRef.get()));
+      const updatedSession = await updateExerciseState(id, data);
+      ctx.body = updatedSession;
+    }
   },
 );
 
