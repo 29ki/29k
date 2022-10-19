@@ -142,5 +142,12 @@
 	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>FirebaseDynamicLinksCustomDomains</key>
+	<array>
+		<string>https://app.cupcake.29k.org/</string>
+		<string>https://staging.app.cupcake.29k.org/</string>
+		<string>https://dev.app.cupcake.29k.org/</string>
+		<string>https://testing.app.cupcake.29k.org/</string>
+	</array>
 </dict>
 </plist>
