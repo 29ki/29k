@@ -1381,10 +1381,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@notifee/react-native@^7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@notifee/react-native/-/react-native-7.0.1.tgz#a142ee365593f07f216f69d454f0353854508595"
-  integrity sha512-bP5tXjpRgZC68ule8+cr07rJcpK7yEHMsspzPwrvby+1xDrfLVBTmwvtoR3rXImd2+aJ0ryL40AoudcPpVg63w==
+"@notifee/react-native@^7.0.4":
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/@notifee/react-native/-/react-native-7.0.4.tgz#f0408484cd401f13baef0518d8537a3325378f3e"
+  integrity sha512-l41BLu3kYeVmySm9wyp/QF6yTfJoIvChn8FnGmc2WO7AR+GU54ZV3Ij6eIBS8SeHV0PLcmBiHqF9cecYXMJpUg==
 
 "@pnpm/network.ca-file@^1.0.1":
   version "1.0.1"
