@@ -1578,10 +1578,10 @@
     prompts "^2.4.0"
     semver "^6.3.0"
 
-"@react-native-community/datetimepicker@^6.5.0":
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/@react-native-community/datetimepicker/-/datetimepicker-6.5.0.tgz#ecbcb0f995f57570ae5fa11ed66d23fcc67c2a3c"
-  integrity sha512-s0gxsz/l3Ln2+dZV+4RZI94+A+JO8ywrjC17cGK8ozM+VLXHAUARgGLGc+vqNJkxzZzGUqnkO6/kypQGoK7t/A==
+"@react-native-community/datetimepicker@^6.5.2":
+  version "6.5.2"
+  resolved "https://registry.yarnpkg.com/@react-native-community/datetimepicker/-/datetimepicker-6.5.2.tgz#d2c0df9f2c6acce39f7e957743dd811547656098"
+  integrity sha512-9K3zhIH1zmpIGSG3GJTWLIoAx+sR4kJ1wqpGKMwWJ5IYXBsFxMdvGw023t0pz2CQStlnNbbNhnZY/HMYFBCsCg==
   dependencies:
     invariant "^2.2.4"
 
@@ -1678,10 +1678,10 @@
   resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.3.6.tgz#fa700318528db93f05144b1be4b691b9c1dd1abe"
   integrity sha512-pNJ8R9JMga6SXOw6wGVN0tjmE6vegwPmJBL45SEMX2fqTfAk2ykDnlJHodRpHpAgsv0DaI8qX76z3A+aqKSU0w==
 
-"@react-navigation/native-stack@^6.9.0":
-  version "6.9.0"
-  resolved "https://registry.yarnpkg.com/@react-navigation/native-stack/-/native-stack-6.9.0.tgz#1e79e06da8b81f0368d3709aedca269947da3649"
-  integrity sha512-cwqm/2GO0hf94OFRuH6R0beZPVKY4vMFxrdAPaDwwoukN5a0UgcsMYxrN8s2huwssTCuGScABFME9GnqG5hC5w==
+"@react-navigation/native-stack@^6.9.1":
+  version "6.9.1"
+  resolved "https://registry.yarnpkg.com/@react-navigation/native-stack/-/native-stack-6.9.1.tgz#6013300e4cd0b33e242aa18593e4dff7db2ab3d1"
+  integrity sha512-aOuJP97ge6NRz8wH6sDKfLTfdygGmraYh0apKrrVbGvMnflbPX4kpjQiAQcUPUpMeas0betH/Su8QubNL8HEkg==
   dependencies:
     "@react-navigation/elements" "^1.3.6"
     warn-once "^0.1.0"
@@ -6962,10 +6962,10 @@ metro-react-native-babel-preset@0.70.3:
     "@babel/template" "^7.0.0"
     react-refresh "^0.4.0"
 
-metro-react-native-babel-preset@^0.73.1:
-  version "0.73.1"
-  resolved "https://registry.yarnpkg.com/metro-react-native-babel-preset/-/metro-react-native-babel-preset-0.73.1.tgz#a7183a572032b664a08bfa50de048549d110a031"
-  integrity sha512-yKWtM25PFoMGOumqfgqVbCwhfTm65yfTQLnesdvG6cjDn3MhaFF0wWkha2rWaT2HhJPYeO3qLER16C/CBAitcw==
+metro-react-native-babel-preset@^0.73.2:
+  version "0.73.2"
+  resolved "https://registry.yarnpkg.com/metro-react-native-babel-preset/-/metro-react-native-babel-preset-0.73.2.tgz#b80d0bdd3d64a10c14514bd4d73f9cf6277218e9"
+  integrity sha512-Wb7nPaJRHpikZII565oLKylxmiyMFlTA/wSnCkJ7LDo6ICh0jSshfNk9+w5V5xAxSnpsEnvXPaGP5QFk4ZHXrg==
   dependencies:
     "@babel/core" "^7.14.0"
     "@babel/plugin-proposal-async-generator-functions" "^7.0.0"
@@ -8235,10 +8235,10 @@ react-native-fit-image@^1.5.5:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-gesture-handler@^2.7.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-2.7.0.tgz#53ad828add926c8e025f68ea581758c0f8893054"
-  integrity sha512-0jr3FNm2R3gv/v6XTtENgjv0fewD6LEct8EWmXw/oHw36M3YiIIpxnW57thL+0YiKwyLBXN0QHL4JZbs/heW2Q==
+react-native-gesture-handler@^2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-2.7.1.tgz#c109d33c38cb182fafcda13012b77c6cac43b127"
+  integrity sha512-Rnak7U4v3ZB+vjVghv5CvAGS+UfRLsXUq7Nq+FycloxZ7jUZjBo+7rPnt+EdTIE2zc2pKhQHIQKcD+IAPg2Scg==
   dependencies:
     "@egjs/hammerjs" "^2.0.17"
     hoist-non-react-statics "^3.3.0"
@@ -8276,10 +8276,10 @@ react-native-markdown-display@^7.0.0-alpha.2:
     prop-types "^15.7.2"
     react-native-fit-image "^1.5.5"
 
-react-native-reanimated@^2.10.0:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-2.10.0.tgz#ed53be66bbb553b5b5e93e93ef4217c87b8c73db"
-  integrity sha512-jKm3xz5nX7ABtHzzuuLmawP0pFWP77lXNdIC6AWOceBs23OHUaJ29p4prxr/7Sb588GwTbkPsYkDqVFaE3ezNQ==
+react-native-reanimated@^2.11.0:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-2.11.0.tgz#415ef668440d1b7d8b2b36a20342b1035432dd80"
+  integrity sha512-/QnujrXSNyXasv7v8K3eu5Z4XGRYMPRa0+x0RjNr6Z5/KEuPHwrg1Xm7UZ2YSm6jCF2b1BW6ceqP/1d626gvhQ==
   dependencies:
     "@babel/plugin-transform-object-assign" "^7.16.7"
     "@babel/preset-typescript" "^7.16.7"

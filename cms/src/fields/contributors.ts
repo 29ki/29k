@@ -163,18 +163,6 @@ const CONTRIBUTORS_FIELDS: Array<CmsField> = [
         label: 'Avatar',
         name: 'avatar_url',
         widget: 'image',
-        media_library: {
-          name: 'cloudinary',
-          config: {
-            default_transformations: [
-              [
-                {
-                  transformation: 'profile_picture',
-                },
-              ],
-            ],
-          },
-        },
       },
       {
         label: 'Profile URL',
