@@ -52,7 +52,21 @@ Create a `client/sentry.properties` from the [Sentry example template](https://g
 
 ### iOS
 
+Add a `client/ios/Supporting/dev/GoogleService-Info.plist` for local development. You have two options:
+
+- By copying `client/ios/Supporting/dev/GoogleService-Info.plist.local` ➡️ `GoogleService-Info.plist`. _This will only work with local firebase emulator._
+- By [downloading it from Firebase](https://firebase.google.com/docs/ios/setup)
+
+Then install pod dependencies
+
 ```
 cd client/ios
 pod install
 ```
+
+### Android
+
+Add a `client/android/app/src/dev/google-services.json` for local development. You have two options:
+
+- By copying `client/android/app/src/dev/google-services.json.local` ➡️ `google-services.json`. _This will only work with local firebase emulator._
+- By [downloading it from Firebase](https://firebase.google.com/docs/android/setup)
