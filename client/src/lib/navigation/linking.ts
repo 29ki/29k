@@ -8,12 +8,9 @@ import {RootStackProps} from '../../common/constants/routes';
 
 // Deep link configuration
 const config: LinkingOptions<RootStackProps>['config'] = {
+  initialRouteName: 'Tabs',
   screens: {
-    Tabs: {
-      screens: {
-        Profile: 'profile',
-      },
-    },
+    CreateSessionModal: 'sessions/create',
   },
 };
 
