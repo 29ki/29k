@@ -20,6 +20,7 @@
     "test": "yarn build:content && yarn test:ts && yarn test:lint && yarn test:jest"
   },
   "dependencies": {
+    "@googleapis/firebasedynamiclinks": "^0.2.2",
     "@koa/router": "^12.0.0",
     "@sentry/integrations": "^7.15.0",
     "@sentry/node": "^7.15.0",
