@@ -78,6 +78,7 @@ export const addSession = async ({
   dailyRoomName,
   startTime,
   type,
+  link,
 }: Omit<Session, 'exerciseState' | 'ended' | 'started'> & {
   dailyRoomName: string;
 }) => {
@@ -90,6 +91,7 @@ export const addSession = async ({
     startTime: Timestamp.fromDate(new Date(startTime)),
     exerciseState: defaultExerciseState,
     type,
+    link,
     started: false,
     ended: false,
   };

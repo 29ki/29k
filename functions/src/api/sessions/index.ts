@@ -2,6 +2,7 @@ import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 import 'firebase-functions';
 import dayjs from 'dayjs';
+import 'firebase-functions';
 
 import {Session, SessionType} from '../../../../shared/src/types/Session';
 import * as dailyApi from '../../lib/dailyApi';
