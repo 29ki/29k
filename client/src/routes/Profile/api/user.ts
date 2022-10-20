@@ -22,7 +22,7 @@ export const verifyPromotion = async (
   verificationCode: number,
 ): Promise<void> => {
   try {
-    const response = await apiClient(`${USER_ENDPOINT}/verify`, {
+    const response = await apiClient(`${USER_ENDPOINT}/verifyPublicHostCode`, {
       method: 'PUT',
       body: JSON.stringify({verificationCode}),
     });
