@@ -16,6 +16,7 @@ import {createRouter} from '../../lib/routers';
 import {getData, removeEmpty} from '../../lib/utils';
 import dayjs from 'dayjs';
 import {createDynamicLink} from '../../lib/dynamicLinks';
+import restrictAccessToRole from '../lib/restrictAccessToRole';
 
 const getSessionExerciseState = (
   exerciseState: ExerciseStateData,
@@ -64,39 +65,44 @@ const CreateSessionSchema = yup.object().shape({
 
 type CreateSession = yup.InferType<typeof CreateSessionSchema>;
 
-sessionsRouter.post('/', validator({body: CreateSessionSchema}), async ctx => {
-  const {contentId, startTime} = ctx.request.body as CreateSession;
+sessionsRouter.post(
+  '/',
+  validator({body: CreateSessionSchema}),
+  restrictAccessToRole('publicHost'),
+  async ctx => {
+    const {contentId, startTime} = ctx.request.body as CreateSession;
 
-  const startDateTime = dayjs(startTime);
+    const startDateTime = dayjs(startTime);
 
-  const data = await dailyApi.createRoom(startDateTime.add(2, 'hour'));
-  const defaultExerciseState = {
-    index: 0,
-    playing: false,
-    timestamp: Timestamp.now(),
-  };
+    const data = await dailyApi.createRoom(startDateTime.add(2, 'hour'));
+    const defaultExerciseState = {
+      index: 0,
+      playing: false,
+      timestamp: Timestamp.now(),
+    };
 
-  const link = await createDynamicLink(`sessions/${data.id}`);
+    const link = await createDynamicLink(`sessions/${data.id}`);
 
-  const session: SessionInput & {
-    dailyRoomName: string;
-  } = {
-    id: data.id,
-    url: data.url,
-    contentId,
-    link,
-    facilitator: ctx.user.id,
-    dailyRoomName: data.name,
-    startTime: Timestamp.fromDate(startDateTime.toDate()),
-    exerciseState: defaultExerciseState,
-    started: false,
-    ended: false,
-  };
+    const session: SessionInput & {
+      dailyRoomName: string;
+    } = {
+      id: data.id,
+      url: data.url,
+      contentId,
+      link,
+      facilitator: ctx.user.id,
+      dailyRoomName: data.name,
+      startTime: Timestamp.fromDate(startDateTime.toDate()),
+      exerciseState: defaultExerciseState,
+      started: false,
+      ended: false,
+    };
 
-  await firestore().collection(SESSIONS_COLLECTION).doc(data.id).set(session);
+    await firestore().collection(SESSIONS_COLLECTION).doc(data.id).set(session);
 
-  ctx.body = getSession(session);
-});
+    ctx.body = getSession(session);
+  },
+);
 
 sessionsRouter.delete('/:id', async ctx => {
   const {id} = ctx.params;

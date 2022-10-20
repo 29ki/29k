@@ -36,6 +36,8 @@ import {
 import {createRouter} from '../../lib/routers';
 import {firestore} from 'firebase-admin';
 import {Timestamp} from 'firebase-admin/firestore';
+import {getAuth} from 'firebase-admin/auth';
+import {ROLES} from '../../../../shared/src/types/User';
 
 jest.mock('../../lib/dailyApi', () => mockDailyApi);
 jest.mock('../../lib/dynamicLinks', () => mockDynamicLinks);
@@ -157,6 +159,10 @@ describe('/api/sessions', () => {
     const startTime = new Date('1994-03-08T07:24:00').toISOString();
 
     it('should return newly created session', async () => {
+      (getAuth().getUser as jest.Mock).mockReturnValueOnce({
+        customClaims: {role: ROLES.publicHost},
+      });
+
       const response = await request(mockServer)
         .post('/sessions')
         .send({
@@ -183,7 +189,27 @@ describe('/api/sessions', () => {
       });
     });
 
+    it('should require user to be publicHost', async () => {
+      (getAuth().getUser as jest.Mock).mockReturnValueOnce({
+        customClaims: {role: 'not-public-host'},
+      });
+
+      const response = await request(mockServer)
+        .post('/sessions')
+        .send({
+          contentId: 'some-content-id',
+          startTime,
+        })
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(401);
+    });
+
     it('should require a name', async () => {
+      (getAuth().getUser as jest.Mock).mockReturnValueOnce({
+        customClaims: {role: ROLES.publicHost},
+      });
+
       const response = await request(mockServer)
         .post('/sessions')
         .set('Accept', 'application/json');
@@ -193,6 +219,9 @@ describe('/api/sessions', () => {
     });
 
     it('should fail if daily api fails', async () => {
+      (getAuth().getUser as jest.Mock).mockReturnValueOnce({
+        customClaims: {role: ROLES.publicHost},
+      });
       mockDailyApi.createRoom.mockRejectedValueOnce(
         new Error('some error text') as never,
       );
