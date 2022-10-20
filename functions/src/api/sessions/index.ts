@@ -19,6 +19,7 @@ import * as dailyApi from '../../lib/dailyApi';
 import {createRouter} from '../../lib/routers';
 import {removeEmpty} from '../../lib/utils';
 import dayjs from 'dayjs';
+import {createDynamicLink} from '../../lib/dynamicLinks';
 
 const getData = <T>(document: DocumentSnapshot<DocumentData>) => {
   const data = document.data();
@@ -84,12 +85,15 @@ sessionsRouter.post('/', validator({body: CreateSessionSchema}), async ctx => {
     timestamp: Timestamp.now(),
   };
 
+  const link = await createDynamicLink(`sessions/${data.id}`);
+
   const session: SessionInput & {
     dailyRoomName: string;
   } = {
     id: data.id,
     url: data.url,
     contentId,
+    link,
     facilitator: ctx.user.id,
     dailyRoomName: data.name,
     startTime: Timestamp.fromDate(startDateTime.toDate()),

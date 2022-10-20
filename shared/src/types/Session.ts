@@ -26,6 +26,7 @@ export type ExerciseState = {
 export type Session = {
   id: string;
   url: string;
+  link?: string;
   exerciseState: ExerciseState;
   contentId: string;
   facilitator: string;
