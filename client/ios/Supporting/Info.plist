@@ -149,5 +149,7 @@
 		<string>https://dev.app.cupcake.29k.org/</string>
 		<string>https://testing.app.cupcake.29k.org/</string>
 	</array>
+	<key>FirebaseDeepLinkPasteboardRetrievalEnabled</key>
+	<false/>
 </dict>
 </plist>
