@@ -82,8 +82,9 @@ const apiClient = async (input: string, init?: RequestInit | undefined) => {
     return await doFetch();
   }
 
+  // TODO: Handle this with asking the user to reauthenticate if not anonymous
   if (response.status === 403) {
-    await reauthenticateUser();
+    await recreateUser();
     return await doFetch();
   }
 

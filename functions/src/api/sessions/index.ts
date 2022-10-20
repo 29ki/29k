@@ -1,11 +1,7 @@
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 import {firestore} from 'firebase-admin';
-import {
-  DocumentData,
-  DocumentSnapshot,
-  Timestamp,
-} from 'firebase-admin/firestore';
+import {Timestamp} from 'firebase-admin/firestore';
 import 'firebase-functions';
 
 import {
