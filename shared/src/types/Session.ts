@@ -39,6 +39,7 @@ export type Session = {
   started: boolean;
   ended: boolean;
   type: SessionType;
+  userIds: string[];
 };
 
 export type DailyUserData = {

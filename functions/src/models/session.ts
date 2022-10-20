@@ -12,7 +12,6 @@ import {
   ExerciseStateData,
   Session,
   SessionData,
-  SessionType,
 } from '../../../shared/src/types/Session';
 import {ExerciseStateUpdate} from '../api/sessions';
 import {removeEmpty} from '../lib/utils';
@@ -52,7 +51,7 @@ export const getSessionById = async (id: Session['id']) => {
   return getSession(getData<SessionData>(sessionDoc));
 };
 
-export const getSessions = async () => {
+export const getSessions = async (userId: string) => {
   const sessionsCollection = firestore().collection(SESSIONS_COLLECTION);
   const snapshot = await sessionsCollection
     .where('ended', '==', false)
@@ -63,7 +62,7 @@ export const getSessions = async () => {
         dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
       ),
     )
-    .where('type', '!=', SessionType.private)
+    .where('userIds', 'array-contains-any', ['all', userId])
     .orderBy('startTime', 'asc')
     .get();
 
@@ -79,6 +78,7 @@ export const addSession = async ({
   startTime,
   type,
   link,
+  userIds,
 }: Omit<Session, 'exerciseState' | 'ended' | 'started'> & {
   dailyRoomName: string;
 }) => {
@@ -92,6 +92,7 @@ export const addSession = async ({
     exerciseState: defaultExerciseState,
     type,
     link,
+    userIds,
     started: false,
     ended: false,
   };

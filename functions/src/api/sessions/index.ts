@@ -2,7 +2,6 @@ import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 import 'firebase-functions';
 import dayjs from 'dayjs';
-import 'firebase-functions';
 
 import {Session, SessionType} from '../../../../shared/src/types/Session';
 import * as dailyApi from '../../lib/dailyApi';
@@ -22,9 +21,9 @@ import {
 const sessionsRouter = createRouter();
 
 sessionsRouter.get('/', async ctx => {
-  const {response} = ctx;
+  const {response, user} = ctx;
 
-  const sessions = await getSessions();
+  const sessions = await getSessions(user.id);
 
   response.status = 200;
   ctx.body = sessions;
@@ -42,21 +41,28 @@ sessionsRouter.post('/', validator({body: CreateSessionSchema}), async ctx => {
   const {contentId, type, startTime} = ctx.request.body as CreateSession;
   const user = ctx.user;
 
-  const dailyRoom = await dailyApi.createRoom(dayjs(startTime).add(2, 'hour'));
-  const link = await createDynamicLink(`sessions/${dailyRoom.id}`);
+  try {
+    const dailyRoom = await dailyApi.createRoom(
+      dayjs(startTime).add(2, 'hour'),
+    );
+    const link = await createDynamicLink(`sessions/${dailyRoom.id}`);
 
-  const session = await addSession({
-    id: dailyRoom.id,
-    dailyRoomName: dailyRoom.name,
-    url: dailyRoom.url,
-    contentId,
-    link,
-    type,
-    startTime,
-    facilitator: user.id,
-  });
+    const session = await addSession({
+      id: dailyRoom.id,
+      dailyRoomName: dailyRoom.name,
+      url: dailyRoom.url,
+      contentId,
+      link,
+      type,
+      startTime,
+      facilitator: user.id,
+      userIds: type === SessionType.private ? [user.id] : ['all'],
+    });
 
-  ctx.body = session;
+    ctx.body = session;
+  } catch (err) {
+    console.log('por favor...', err);
+  }
 });
 
 sessionsRouter.delete('/:id', async ctx => {
