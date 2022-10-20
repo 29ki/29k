@@ -53,7 +53,7 @@ describe('useKillSwitch', () => {
     });
 
     it('sets isBlocking=true if server says no', async () => {
-      fetchMock.mockResponseOnce(JSON.stringify({}), {status: 403});
+      fetchMock.mockResponseOnce(JSON.stringify({}), {status: 404});
 
       const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
 
@@ -97,7 +97,7 @@ describe('useKillSwitch', () => {
         JSON.stringify({
           permanent: true,
         }),
-        {status: 403},
+        {status: 404},
       );
 
       const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
@@ -137,7 +137,7 @@ describe('useKillSwitch', () => {
             link: 'http://some.link',
           },
         }),
-        {status: 403},
+        {status: 404},
       );
 
       const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
@@ -262,7 +262,7 @@ describe('useKillSwitch', () => {
     });
 
     it('sets as failed on malformed server response', async () => {
-      fetchMock.mockResponseOnce('foo', {status: 403});
+      fetchMock.mockResponseOnce('foo', {status: 404});
 
       const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
 
