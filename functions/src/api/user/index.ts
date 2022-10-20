@@ -3,7 +3,7 @@ import validator from 'koa-yup-validator';
 import {createRouter} from '../../lib/routers';
 
 import {requestPublicHostRole, verifyRequest} from '../../controllers/requests';
-import {RequestError} from '../../controllers/errors/requestsError';
+import {RequestError} from '../../controllers/errors/RequestError';
 
 const userRouter = createRouter();
 

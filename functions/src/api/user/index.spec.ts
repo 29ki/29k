@@ -4,7 +4,7 @@ import {userRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {createRouter} from '../../lib/routers';
 import {requestPublicHostRole, verifyRequest} from '../../controllers/requests';
-import {RequestError} from '../../controllers/errors/requestsError';
+import {RequestError} from '../../controllers/errors/RequestError';
 
 jest.mock('../../controllers/requests');
 const mockRequestPublicHostRole = requestPublicHostRole as jest.Mock;

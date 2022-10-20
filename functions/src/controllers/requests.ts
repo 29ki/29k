@@ -8,7 +8,7 @@ import {
   getRequstByUserId,
   removeUsersRequest,
 } from '../models/requests';
-import {RequestError} from './errors/requestsError';
+import {RequestError} from './errors/RequestError';
 
 const requestExpired = (timestamp?: Timestamp) =>
   timestamp &&

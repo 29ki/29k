@@ -14,7 +14,7 @@ import {
   removeUsersRequest,
 } from '../models/requests';
 import {requestPublicHostRole, verifyRequest} from './requests';
-import {RequestError} from './errors/requestsError';
+import {RequestError} from './errors/RequestError';
 
 jest.mock('../models/requests');
 const mockGetRequestByUserId = getRequstByUserId as jest.Mock;
