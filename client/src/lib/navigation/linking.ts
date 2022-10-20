@@ -10,7 +10,11 @@ import {RootStackProps} from '../../common/constants/routes';
 const config: LinkingOptions<RootStackProps>['config'] = {
   initialRouteName: 'Tabs',
   screens: {
-    CreateSessionModal: 'sessions/create',
+    SessionStack: {
+      screens: {
+        ChangingRoom: 'sessions/:sessionId',
+      },
+    },
   },
 };
 
