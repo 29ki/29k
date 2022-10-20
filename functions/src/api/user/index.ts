@@ -14,6 +14,10 @@ import {
 
 const userRouter = createRouter();
 
+const requestExpired = (timestamp?: Timestamp) =>
+  timestamp &&
+  dayjs(timestamp.toDate()).isBefore(dayjs(Timestamp.now().toDate()));
+
 userRouter.post('/requestPublicHost', async ctx => {
   const {id} = ctx.user;
 
@@ -27,8 +31,9 @@ userRouter.post('/requestPublicHost', async ctx => {
   }
 
   const request = await getRequstByUserId(id);
+  const expired = requestExpired(request?.expires);
 
-  if (request) {
+  if (request && !expired) {
     ctx.status = 409;
     ctx.message = 'User have already made a request';
     return;
@@ -57,9 +62,7 @@ userRouter.put('/verify', validator({body: PromoteUserSchema}), async ctx => {
     return;
   }
 
-  if (
-    dayjs(request.expires.toDate()).isBefore(dayjs(Timestamp.now().toDate()))
-  ) {
+  if (requestExpired(request.expires)) {
     ctx.status = 410;
     ctx.message = 'Request has expired';
     return;
