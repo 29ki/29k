@@ -56,7 +56,6 @@ sessionsRouter.post('/', validator({body: CreateSessionSchema}), async ctx => {
       type,
       startTime,
       facilitator: user.id,
-      userIds: type === SessionType.private ? [user.id] : ['all'],
     });
 
     ctx.body = session;

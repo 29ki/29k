@@ -12,6 +12,7 @@ import {
   ExerciseStateData,
   Session,
   SessionData,
+  SessionType,
 } from '../../../shared/src/types/Session';
 import {ExerciseStateUpdate} from '../api/sessions';
 import {removeEmpty} from '../lib/utils';
@@ -78,8 +79,7 @@ export const addSession = async ({
   startTime,
   type,
   link,
-  userIds,
-}: Omit<Session, 'exerciseState' | 'ended' | 'started'> & {
+}: Omit<Session, 'exerciseState' | 'ended' | 'started' | 'userIds'> & {
   dailyRoomName: string;
 }) => {
   const session = {
@@ -92,7 +92,7 @@ export const addSession = async ({
     exerciseState: defaultExerciseState,
     type,
     link,
-    userIds,
+    userIds: type === SessionType.private ? [facilitator] : ['all'],
     started: false,
     ended: false,
   };
@@ -116,7 +116,7 @@ export const updateSession = async (
 
 export const updateExerciseState = async (
   id: Session['id'],
-  data: ExerciseStateUpdate,
+  data: Partial<ExerciseStateUpdate>,
 ) => {
   const sessionDocRef = firestore().collection(SESSIONS_COLLECTION).doc(id);
   await firestore().runTransaction(async transaction => {
