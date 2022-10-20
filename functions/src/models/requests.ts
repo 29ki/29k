@@ -16,11 +16,12 @@ export const getRequstByUserId = async (userId: string) => {
 };
 
 export const addRequest = async (userId: string, verificationCode: number) => {
+  const now = Timestamp.now();
   const data: RequestData = {
     verificationCode,
-    expires: Timestamp.fromDate(
-      dayjs(Timestamp.now().toDate()).add(2, 'hours').toDate(),
-    ),
+    expires: Timestamp.fromDate(dayjs(now.toDate()).add(2, 'hours').toDate()),
+    createdAt: now,
+    updatedAt: now,
   };
   await firestore().collection(REQUESTS_COLLECTION).doc(userId).set(data);
 };
