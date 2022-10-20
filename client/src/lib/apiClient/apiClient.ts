@@ -77,7 +77,7 @@ const apiClient = async (input: string, init?: RequestInit | undefined) => {
 
   const response = await doFetch();
 
-  if (response.status === 401) {
+  if (response.status === 401 || response.status === 403) {
     await recreateUser();
     return await doFetch();
   }
