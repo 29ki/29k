@@ -178,6 +178,7 @@ const SelectType: React.FC<StepProps> = ({
       <Row>
         {Object.values(SessionType).map(type => (
           <TypeItem
+            key={type}
             onPress={() => {
               setSelectedType(type);
               nextStep();
