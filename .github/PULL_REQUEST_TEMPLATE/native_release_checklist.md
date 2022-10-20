@@ -6,6 +6,7 @@
 
 - [ ] Bump Android `versionName` and iOS `MARKETING_VERSION`
 - [ ] Merge main into this branch
+- [ ] Update `Podfile.lock`
 
 # Build
 

@@ -19,6 +19,10 @@ const mockDailyApi = {
   deleteRoom: jest.fn(),
 };
 
+const mockDynamicLinks = {
+  createDynamicLink: jest.fn().mockResolvedValue('http://some.dynamic/link'),
+};
+
 import {sessionsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {
@@ -34,6 +38,7 @@ import {firestore} from 'firebase-admin';
 import {Timestamp} from 'firebase-admin/firestore';
 
 jest.mock('../../lib/dailyApi', () => mockDailyApi);
+jest.mock('../../lib/dynamicLinks', () => mockDynamicLinks);
 
 const sessions = [
   {
@@ -164,6 +169,7 @@ describe('/api/sessions', () => {
       expect(response.body).toEqual({
         id: 'some-fake-daily-id',
         url: 'http://fake.daily/url',
+        link: 'http://some.dynamic/link',
         exerciseState: {
           index: 0,
           playing: false,
