@@ -2,7 +2,7 @@ import {
   firebasedynamiclinks,
   type firebasedynamiclinks_v1,
 } from '@googleapis/firebasedynamiclinks';
-import config from '../../lib/config';
+import config from './config';
 
 const dynamicLinks = firebasedynamiclinks('v1');
 

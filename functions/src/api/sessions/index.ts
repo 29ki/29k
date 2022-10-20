@@ -19,7 +19,7 @@ import * as dailyApi from '../../lib/dailyApi';
 import {createRouter} from '../../lib/routers';
 import {removeEmpty} from '../../lib/utils';
 import dayjs from 'dayjs';
-import {createDynamicLink} from '../lib/dynamicLinks';
+import {createDynamicLink} from '../../lib/dynamicLinks';
 
 const getData = <T>(document: DocumentSnapshot<DocumentData>) => {
   const data = document.data();
