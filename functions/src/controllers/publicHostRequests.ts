@@ -4,10 +4,10 @@ import {Timestamp} from 'firebase-admin/firestore';
 import {ROLES} from '../../../shared/src/types/User';
 import {generateVerificationCode} from '../lib/utils';
 import {
-  addRequest,
-  getRequstByUserId,
-  removeUsersRequest,
-} from '../models/requests';
+  addPublicHostRequest,
+  getPublicHostRequestByUserId,
+  removePublicHostRequest,
+} from '../models/publicHostRequests';
 import {RequestError} from './errors/RequestError';
 
 const requestExpired = (timestamp?: Timestamp) =>
@@ -21,21 +21,21 @@ export const requestPublicHostRole = async (userId: string) => {
     throw new RequestError('user-needs-email');
   }
 
-  const request = await getRequstByUserId(userId);
+  const request = await getPublicHostRequestByUserId(userId);
   const expired = requestExpired(request?.expires);
 
   if (request && !expired) {
     throw new RequestError('request-exists');
   }
 
-  await addRequest(userId, generateVerificationCode());
+  await addPublicHostRequest(userId, generateVerificationCode());
 };
 
-export const verifyRequest = async (
+export const verifyPublicHostRequest = async (
   userId: string,
   verificationCode: number,
 ) => {
-  const request = await getRequstByUserId(userId);
+  const request = await getPublicHostRequestByUserId(userId);
 
   if (!request) {
     throw new RequestError('request-not-found');
@@ -50,5 +50,5 @@ export const verifyRequest = async (
   }
 
   await getAuth().setCustomUserClaims(userId, {role: ROLES.publicHost});
-  await removeUsersRequest(userId);
+  await removePublicHostRequest(userId);
 };
