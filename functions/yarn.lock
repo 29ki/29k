@@ -418,9 +418,9 @@
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
 "@google-cloud/firestore@^6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@google-cloud/firestore/-/firestore-6.3.0.tgz#0ba073f02c4ac9bda63f45b332cf73e5ebb0c04f"
-  integrity sha512-EtEOl1A8lDFv+t2X/GyyvCDSWamUfBPVep0y0qHvO7CKD4MH/4MiPKe/+kcq1h8rynX6Ths/E/jtfAiizFCVrA==
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/firestore/-/firestore-6.4.0.tgz#cc6899fda202c385a285a8628c7e0c380828bd8b"
+  integrity sha512-qhL5V8S6uIGlESQYC/TMKISlKHaM2qSACz0X15ID0s4F1NuVgSM3Z2FS10WYHdCGIwJ2C73xdLaS+ByFDsu7sg==
   dependencies:
     fast-deep-equal "^3.1.1"
     functional-red-black-tree "^1.0.1"
