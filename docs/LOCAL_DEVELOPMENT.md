@@ -69,8 +69,8 @@ yarn test
 
 # Firebase dynamic links
 
-1. Make your client setup has [`google-services.json`](../INSTALLATION.md#android) and [`GoogleService-Info.plist`](../INSTALLATION.md#ios) config files pointing to a real Firebase project.
-2. Make sure `DEEP_LINK_` variables are properly setup for both [`client/.env`](../INSTALLATION.md#environment) and [`functions/.env`](../INSTALLATION.md#environment-1)
+1. Make your client setup has [`google-services.json`](./INSTALLATION.md#android) and [`GoogleService-Info.plist`](./INSTALLATION.md#ios) config files pointing to a real Firebase project.
+2. Make sure `DEEP_LINK_` variables are properly setup for both [`functions/.env`](./INSTALLATION.md#environment) and [`client/.env`](./INSTALLATION.md#environment-1)
 3. Start functions with a real firebase project:
    ```
    yarn start:remote --project <firebase-project>
