@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSContactsUsageDescription</key>
-	<string>This allows us to add sessions to your calendar.</string>
-	<key>NSCalendarsUsageDescription</key>
-	<string>This allows us to add sessions to your calendar.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -24,6 +20,21 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Bundle ID</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>org.twentyninek.app.cupcake.staging</string>
+				<string>org.twentyninek.app.cupcake.dev</string>
+				<string>org.twentyninek.app.cupcake</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>50</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
@@ -43,8 +54,12 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCalendarsUsageDescription</key>
+	<string>This allows us to add sessions to your calendar.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This allows us to take a profile picture of you. It also allows us to stream your video during video sharing.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>This allows us to add sessions to your calendar.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>NSMicrophoneUsageDescription</key>
@@ -117,15 +132,24 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDarkContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleDarkContent</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>FirebaseDynamicLinksCustomDomains</key>
+	<array>
+		<string>https://app.cupcake.29k.org/</string>
+		<string>https://staging.app.cupcake.29k.org/</string>
+		<string>https://dev.app.cupcake.29k.org/</string>
+		<string>https://testing.app.cupcake.29k.org/</string>
+	</array>
+	<key>FirebaseDeepLinkPasteboardRetrievalEnabled</key>
 	<false/>
 </dict>
 </plist>

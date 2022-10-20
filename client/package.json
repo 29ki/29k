@@ -28,6 +28,7 @@
     "@react-native-community/datetimepicker": "^6.5.2",
     "@react-native-firebase/app": "^15.7.0",
     "@react-native-firebase/auth": "^15.7.0",
+    "@react-native-firebase/dynamic-links": "^15.7.0",
     "@react-native-firebase/firestore": "^15.7.0",
     "@react-navigation/bottom-tabs": "^6.4.0",
     "@react-navigation/drawer": "^6.5.0",
