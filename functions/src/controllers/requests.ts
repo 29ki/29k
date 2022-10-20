@@ -46,8 +46,6 @@ export const verifyRequest = async (
   }
 
   if (verificationCode !== request.verificationCode) {
-    console.log('HERE');
-
     throw new RequestError('verification-failed');
   }
 

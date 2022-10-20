@@ -4,6 +4,7 @@ type ErrorCode =
   | 'request-exists'
   | 'request-expired'
   | 'verification-failed';
+
 export class RequestError extends Error {
   constructor(code: ErrorCode) {
     super(code);
