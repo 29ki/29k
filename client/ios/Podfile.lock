@@ -625,6 +625,9 @@ PODS:
     - FirebaseAuth (~> 9.6.0)
   - Firebase/CoreOnly (9.6.0):
     - FirebaseCore (= 9.6.0)
+  - Firebase/DynamicLinks (9.6.0):
+    - Firebase/CoreOnly
+    - FirebaseDynamicLinks (~> 9.6.0)
   - Firebase/Firestore (9.6.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 9.6.0)
@@ -645,6 +648,8 @@ PODS:
     - nanopb (< 2.30910.0, >= 2.30908.0)
   - FirebaseCoreInternal (9.6.0):
     - "GoogleUtilities/NSData+zlib (~> 7.7)"
+  - FirebaseDynamicLinks (9.6.0):
+    - FirebaseCore (~> 9.0)
   - FirebaseFirestore (9.6.0):
     - abseil/algorithm (~> 1.20211102.0)
     - abseil/base (~> 1.20211102.0)
@@ -1046,6 +1051,8 @@ PODS:
     - React-perflogger (= 0.69.5)
   - RNCAsyncStorage (1.17.10):
     - React-Core
+  - RNCClipboard (1.11.1):
+    - React-Core
   - RNDateTimePicker (6.5.2):
     - React-Core
   - RNDeviceInfo (10.2.1):
@@ -1057,6 +1064,11 @@ PODS:
     - Firebase/Auth (= 9.6.0)
     - React-Core
     - RNFBApp
+  - RNFBDynamicLinks (15.7.0):
+    - Firebase/DynamicLinks (= 9.6.0)
+    - GoogleUtilities/AppDelegateSwizzler
+    - React-Core
+    - RNFBApp
   - RNFBFirestore (15.7.0):
     - Firebase/Firestore (= 9.6.0)
     - React-Core
@@ -1065,10 +1077,10 @@ PODS:
     - React-Core
   - RNLocalize (2.2.4):
     - React-Core
-  - RNNotifee (7.0.1):
+  - RNNotifee (7.0.4):
     - React-Core
-    - RNNotifee/NotifeeCore (= 7.0.1)
-  - RNNotifee/NotifeeCore (7.0.1):
+    - RNNotifee/NotifeeCore (= 7.0.4)
+  - RNNotifee/NotifeeCore (7.0.4):
     - React-Core
   - RNReactNativeHapticFeedback (1.14.0):
     - React-Core
@@ -1099,7 +1111,7 @@ PODS:
     - React-RCTText
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.18.0):
+  - RNScreens (3.18.2):
     - React-Core
     - React-RCTImage
   - RNSentry (4.6.1):
@@ -1162,10 +1174,12 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - "RNCClipboard (from `../node_modules/@react-native-clipboard/clipboard`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
+  - "RNFBDynamicLinks (from `../node_modules/@react-native-firebase/dynamic-links`)"
   - "RNFBFirestore (from `../node_modules/@react-native-firebase/firestore`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNLocalize (from `../node_modules/react-native-localize`)
@@ -1188,6 +1202,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseCoreInternal
+    - FirebaseDynamicLinks
     - FirebaseFirestore
     - fmt
     - GoogleDataTransport
@@ -1288,6 +1303,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNCClipboard:
+    :path: "../node_modules/@react-native-clipboard/clipboard"
   RNDateTimePicker:
     :path: "../node_modules/@react-native-community/datetimepicker"
   RNDeviceInfo:
@@ -1296,6 +1313,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/app"
   RNFBAuth:
     :path: "../node_modules/@react-native-firebase/auth"
+  RNFBDynamicLinks:
+    :path: "../node_modules/@react-native-firebase/dynamic-links"
   RNFBFirestore:
     :path: "../node_modules/@react-native-firebase/firestore"
   RNGestureHandler:
@@ -1326,7 +1345,7 @@ SPEC CHECKSUMS:
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   BVLinearGradient: 34a999fda29036898a09c6a6b728b0b4189e1a44
   CodePush: ef496b6fd053012e985e3d4a0ab9f9dbf2739eac
-  DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662
+  DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 0045cf98ca4a48af3bf7108d85b1c243740fa289
   FBReactNativeSpec: 82e74141263f8c962e288f5cd6b5d149cdc8afe1
   Firebase: 5ae8b7cf8efce559a653aef0ad95bab3f427c351
@@ -1334,9 +1353,10 @@ SPEC CHECKSUMS:
   FirebaseCore: 2082fffcd855f95f883c0a1641133eb9bbe76d40
   FirebaseCoreDiagnostics: 99a495094b10a57eeb3ae8efa1665700ad0bdaa6
   FirebaseCoreInternal: bca76517fe1ed381e989f5e7d8abb0da8d85bed3
+  FirebaseDynamicLinks: 894ee3b4e56a77abee067d371c9a23e7b5a3c686
   FirebaseFirestore: c09ce6d050745a45fb75ebd901005ed3279c3caf
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  glog: 476ee3e89abb49e07f822b48323c51c57124b572
+  glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
   GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
   "gRPC-C++": 9675f953ace2b3de7c506039d77be1f2e77a8db2
@@ -1349,7 +1369,7 @@ SPEC CHECKSUMS:
   lottie-react-native: b702fab740cdb952a8e2354713d3beda63ff97b0
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
-  RCT-Folly: 4d8508a426467c48885f1151029bc15fa5d7b3b8
+  RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
   RCTRequired: 85c60c4bde8241278be2c93420de4c65475a2151
   RCTTypeSafety: 15990f289215eb0fc65c5eb6e2610faeeda8d5e1
   React: 6cfa9367042a85f6235740420df017d51efc6494
@@ -1382,17 +1402,19 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: c778439c3c430a5719d027d3c67423b390a221fe
   ReactCommon: ab1003b81be740fecd82509c370a45b1a7dda0c1
   RNCAsyncStorage: 0c357f3156fcb16c8589ede67cc036330b6698ca
+  RNCClipboard: 2834e1c4af68697089cdd455ee4a4cdd198fa7dd
   RNDateTimePicker: 3f32aa2247836c12618d346113e5e82ea60ddd9c
   RNDeviceInfo: c31137f22ee779fe3931d1a8d60cc1af80ef4077
   RNFBApp: ad6ad2dd37ccf10e737ec8688208761026331d64
   RNFBAuth: 26fb3495911fcb6c201a4a18fb7bede51d1d0199
+  RNFBDynamicLinks: ceddbfe29b52c4c2a1705571c5bf11e6d42130d6
   RNFBFirestore: 89d7adb8138384f134e722c2dc883084f7e2808f
   RNGestureHandler: b7a872907ee289ada902127f2554fa1d2c076122
   RNLocalize: 0df7970cfc60389f00eb62fd7c097dc75af3fb4f
-  RNNotifee: 3655e26c064d1a77132ce3c21d6aaf2b69bcbdc7
+  RNNotifee: dcb2593127f40945c4ee5fc09f61d71bbd00b9cf
   RNReactNativeHapticFeedback: 1e3efeca9628ff9876ee7cdd9edec1b336913f8c
   RNReanimated: 2222d29719379a53017f8ed53ded6c2c97d6417f
-  RNScreens: f3230dd008a7d0ce5c0a8bc78ff12cf2315bda24
+  RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
   RNSentry: f8591057d48d4f6d64196a76cbca67895667b033
   RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
   RNSVG: 07dbd870b0dcdecc99b3a202fa37c8ca163caec2
