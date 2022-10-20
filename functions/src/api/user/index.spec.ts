@@ -3,12 +3,16 @@ import Koa from 'koa';
 import {userRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {createRouter} from '../../lib/routers';
-import {requestPublicHostRole, verifyRequest} from '../../controllers/requests';
+
+import {
+  requestPublicHostRole,
+  verifyPublicHostRequest,
+} from '../../controllers/publicHostRequests';
 import {RequestError} from '../../controllers/errors/RequestError';
 
-jest.mock('../../controllers/requests');
+jest.mock('../../controllers/publicHostRequests');
 const mockRequestPublicHostRole = requestPublicHostRole as jest.Mock;
-const mockVerifyRequest = verifyRequest as jest.Mock;
+const mockVerifyRequest = verifyPublicHostRequest as jest.Mock;
 
 const router = createRouter();
 router.use('/user', userRouter.routes());
@@ -69,10 +73,10 @@ describe('/api/user', () => {
     });
   });
 
-  describe('/verify', () => {
+  describe('/verifyPublicHostCode', () => {
     it('should upgrade user claims if code is valid', async () => {
       const response = await request(mockServer)
-        .put('/user/verify')
+        .put('/user/verifyPublicHostCode')
         .send({verificationCode: 123456});
 
       expect(mockVerifyRequest).toHaveBeenCalledWith('some-user-id', 123456);
@@ -84,7 +88,7 @@ describe('/api/user', () => {
         new RequestError('request-not-found'),
       );
       const response = await request(mockServer)
-        .put('/user/verify')
+        .put('/user/verifyPublicHostCode')
         .send({verificationCode: 123456});
 
       expect(mockVerifyRequest).toHaveBeenCalledWith('some-user-id', 123456);
@@ -96,7 +100,7 @@ describe('/api/user', () => {
         new RequestError('request-expired'),
       );
       const response = await request(mockServer)
-        .put('/user/verify')
+        .put('/user/verifyPublicHostCode')
         .send({verificationCode: 123456});
 
       expect(mockVerifyRequest).toHaveBeenCalledWith('some-user-id', 123456);
@@ -108,7 +112,7 @@ describe('/api/user', () => {
         new RequestError('verification-failed'),
       );
       const response = await request(mockServer)
-        .put('/user/verify')
+        .put('/user/verifyPublicHostCode')
         .send({verificationCode: 123456});
 
       expect(mockVerifyRequest).toHaveBeenCalledWith('some-user-id', 123456);

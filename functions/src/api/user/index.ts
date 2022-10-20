@@ -2,7 +2,10 @@ import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 import {createRouter} from '../../lib/routers';
 
-import {requestPublicHostRole, verifyRequest} from '../../controllers/requests';
+import {
+  requestPublicHostRole,
+  verifyPublicHostRequest,
+} from '../../controllers/publicHostRequests';
 import {RequestError} from '../../controllers/errors/RequestError';
 
 const userRouter = createRouter();
@@ -39,35 +42,39 @@ const PromoteUserSchema = yup.object().shape({
 
 type PromoteUser = yup.InferType<typeof PromoteUserSchema>;
 
-userRouter.put('/verify', validator({body: PromoteUserSchema}), async ctx => {
-  const {verificationCode} = ctx.request.body as PromoteUser;
-  const {id} = ctx.user;
+userRouter.put(
+  '/verifyPublicHostCode',
+  validator({body: PromoteUserSchema}),
+  async ctx => {
+    const {verificationCode} = ctx.request.body as PromoteUser;
+    const {id} = ctx.user;
 
-  try {
-    await verifyRequest(id, verificationCode);
-    ctx.response.status = 200;
-  } catch (error) {
-    const requestError = error as RequestError;
-    switch (requestError.code) {
-      case 'request-not-found':
-        ctx.status = 404;
-        ctx.message = 'No request found for user';
-        break;
+    try {
+      await verifyPublicHostRequest(id, verificationCode);
+      ctx.response.status = 200;
+    } catch (error) {
+      const requestError = error as RequestError;
+      switch (requestError.code) {
+        case 'request-not-found':
+          ctx.status = 404;
+          ctx.message = 'No request found for user';
+          break;
 
-      case 'request-expired':
-        ctx.status = 410;
-        ctx.message = 'Request has expired';
-        break;
+        case 'request-expired':
+          ctx.status = 410;
+          ctx.message = 'Request has expired';
+          break;
 
-      case 'verification-failed':
-        ctx.status = 404;
-        ctx.message = 'Verification code not matching';
-        break;
+        case 'verification-failed':
+          ctx.status = 404;
+          ctx.message = 'Verification code not matching';
+          break;
 
-      default:
-        break;
+        default:
+          break;
+      }
     }
-  }
-});
+  },
+);
 
 export {userRouter};
