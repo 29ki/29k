@@ -2,22 +2,22 @@ import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {API_ENDPOINT} from 'config';
 import {getCorrelationId} from '../sentry';
 
-const recreateUser = async () => {
+const signOutAndSignIn = async () => {
   if (auth().currentUser) {
     await auth().signOut();
   }
   await auth().signInAnonymously();
 };
 
-const reauthenticateUser = async () => {
-  const currentUser = auth().currentUser;
-  if (currentUser?.email) {
-    const emailAndPasswordCredentials = auth.EmailAuthProvider.credential(
-      currentUser.email,
-      '123456',
-    );
-    await currentUser.reauthenticateWithCredential(emailAndPasswordCredentials);
+let recreationPromise: undefined | Promise<void>;
+const recreateUser = async () => {
+  /* To prevent a race condition - re-use the promise to prevent this function to be run in parallel */
+  if (!recreationPromise) {
+    recreationPromise = signOutAndSignIn();
   }
+
+  await recreationPromise;
+  recreationPromise = undefined;
 };
 
 const getAuthorizationToken = async (): Promise<string> => {
