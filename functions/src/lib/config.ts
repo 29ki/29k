@@ -17,6 +17,12 @@ const configValidation = {
   ENVIRONMENT: str(),
   DAILY_API_KEY: str(),
   SENTRY_DSN: str(),
+  DEEP_LINK_API_KEY: str(),
+  DEEP_LINK_DOMAIN_URI_PREFIX: str(),
+  DEEP_LINK_BASE_URL: str(),
+  DEEP_LINK_ANDROID_PACKAGE_NAME: str(),
+  DEEP_LINK_IOS_BUNDLE_ID: str(),
+  DEEP_LINK_IOS_APPSTORE_ID: str(),
 };
 
 export default cleanEnv(process.env, configValidation);
