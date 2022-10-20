@@ -20,8 +20,7 @@ import {Heading18} from '../../common/components/Typography/Heading/Heading';
 import NS from '../../lib/i18n/constants/namespaces';
 import CurrentUser from './components/CurrentUser';
 import Screen from '../../common/components/Screen/Screen';
-import {useRecoilValue} from 'recoil';
-import {hasPublicHostRole} from '../../lib/user/state/state';
+import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -35,7 +34,7 @@ const Profile = () => {
   const {toggle: toggleUiLib} = useUiLib();
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
-  const isPublicHost = useRecoilValue(hasPublicHostRole);
+  const isPublicHost = useIsPublicHost();
 
   return (
     <Screen noTopBar>
@@ -84,10 +83,4 @@ const Profile = () => {
   );
 };
 
-const ProfileWrapper = () => (
-  <React.Suspense>
-    <Profile />
-  </React.Suspense>
-);
-
-export default ProfileWrapper;
+export default Profile;
