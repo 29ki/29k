@@ -1413,7 +1413,7 @@ SPEC CHECKSUMS:
   RNLocalize: 0df7970cfc60389f00eb62fd7c097dc75af3fb4f
   RNNotifee: dcb2593127f40945c4ee5fc09f61d71bbd00b9cf
   RNReactNativeHapticFeedback: 1e3efeca9628ff9876ee7cdd9edec1b336913f8c
-  RNReanimated: 2222d29719379a53017f8ed53ded6c2c97d6417f
+  RNReanimated: ef8ac1c5e358b61f3bfb9154cf663962e3d16757
   RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
   RNSentry: f8591057d48d4f6d64196a76cbca67895667b033
   RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
