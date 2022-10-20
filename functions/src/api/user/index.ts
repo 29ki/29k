@@ -1,47 +1,36 @@
-import {Timestamp} from 'firebase-admin/firestore';
-import dayjs from 'dayjs';
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
-import {getAuth} from 'firebase-admin/auth';
 import {createRouter} from '../../lib/routers';
-import {ROLES} from '../../../../shared/src/types/User';
-import {generateVerificationCode} from '../../lib/utils';
-import {
-  addRequest,
-  getRequstByUserId,
-  removeUsersRequest,
-} from '../../models/requests';
+
+import {requestPublicHostRole, verifyRequest} from '../../controllers/requests';
+import {RequestError} from '../../controllers/errors/requestsError';
 
 const userRouter = createRouter();
-
-const requestExpired = (timestamp?: Timestamp) =>
-  timestamp &&
-  dayjs(timestamp.toDate()).isBefore(dayjs(Timestamp.now().toDate()));
 
 userRouter.post('/requestPublicHost', async ctx => {
   const {id} = ctx.user;
 
-  const user = await getAuth().getUser(id);
+  try {
+    await requestPublicHostRole(id);
+    ctx.response.status = 200;
+  } catch (error) {
+    const requestError = error as RequestError;
+    switch (requestError.code) {
+      case 'user-needs-email':
+        ctx.status = 401;
+        ctx.message =
+          'User needs to be registerd with email to request public host role';
+        break;
 
-  if (!user.email) {
-    ctx.status = 401;
-    ctx.message =
-      'User needs to be registerd with email to request public host role';
-    return;
+      case 'request-exists':
+        ctx.status = 409;
+        ctx.message = 'User have already made a request';
+        break;
+
+      default:
+        throw error;
+    }
   }
-
-  const request = await getRequstByUserId(id);
-  const expired = requestExpired(request?.expires);
-
-  if (request && !expired) {
-    ctx.status = 409;
-    ctx.message = 'User have already made a request';
-    return;
-  }
-
-  await addRequest(id, generateVerificationCode());
-
-  ctx.response.status = 200;
 });
 
 const PromoteUserSchema = yup.object().shape({
@@ -54,30 +43,31 @@ userRouter.put('/verify', validator({body: PromoteUserSchema}), async ctx => {
   const {verificationCode} = ctx.request.body as PromoteUser;
   const {id} = ctx.user;
 
-  const request = await getRequstByUserId(id);
+  try {
+    await verifyRequest(id, verificationCode);
+    ctx.response.status = 200;
+  } catch (error) {
+    const requestError = error as RequestError;
+    switch (requestError.code) {
+      case 'request-not-found':
+        ctx.status = 404;
+        ctx.message = 'No request found for user';
+        break;
 
-  if (!request) {
-    ctx.status = 404;
-    ctx.message = 'No request found for user';
-    return;
+      case 'request-expired':
+        ctx.status = 410;
+        ctx.message = 'Request has expired';
+        break;
+
+      case 'verification-failed':
+        ctx.status = 404;
+        ctx.message = 'Verification code not matching';
+        break;
+
+      default:
+        break;
+    }
   }
-
-  if (requestExpired(request.expires)) {
-    ctx.status = 410;
-    ctx.message = 'Request has expired';
-    return;
-  }
-
-  if (request.verificationCode !== verificationCode) {
-    ctx.status = 404;
-    ctx.message = 'Verification code not matching';
-    return;
-  }
-
-  await getAuth().setCustomUserClaims(id, {role: ROLES.publicHost});
-  await removeUsersRequest(id);
-
-  ctx.response.status = 200;
 });
 
 export {userRouter};
