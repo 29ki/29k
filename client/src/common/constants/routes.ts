@@ -16,6 +16,7 @@ export type SessionStackProps = {
 export type ModalStackProps = {
   SessionModal: {session: Session};
   CreateSessionModal: undefined;
+  UpgradeAccount: undefined;
 };
 
 export type RootStackProps = ModalStackProps & {

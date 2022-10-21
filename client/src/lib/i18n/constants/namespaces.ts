@@ -12,6 +12,7 @@ const NS = {
     TABS: 'Component.Tabs',
     SESSION_CARD: 'Component.SessionCard',
     SESSION_MODAL: 'Component.SessionModal',
+    VERIFICATION_CODE: 'Component.VerificationCode',
   },
   SCREEN: {
     CHANGING_ROOM: 'Screen.ChangingRoom',
@@ -19,6 +20,7 @@ const NS = {
     KILL_SWITCH: 'Screen.KillSwitch',
     PORTAL: 'Screen.Portal',
     PROFILE: 'Screen.Profile',
+    UPGRADE_ACCOUNT: 'Screen.UpgradeAccount',
     SESSION: 'Screen.Session',
     SESSIONS: 'Screen.Sessions',
   },

@@ -12,6 +12,9 @@ import Input from '../../../common/components/Typography/TextInput/TextInput';
 import {Body16, Body18} from '../../../common/components/Typography/Body/Body';
 import {useRecoilValue} from 'recoil';
 import {userAtom} from '../../../lib/user/state/state';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackProps} from '../../../common/constants/routes';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -22,8 +25,13 @@ const StartCol = styled.View({
   alignItems: 'flex-start',
 });
 
-const CurrentUser = () => {
+type CurrentUserProps = {
+  isPublicHost: boolean;
+};
+
+const CurrentUser: React.FC<CurrentUserProps> = ({isPublicHost = false}) => {
   const {t} = useTranslation(NS.SCREEN.PROFILE);
+  const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
   const user = useRecoilValue(userAtom);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -49,6 +57,10 @@ const CurrentUser = () => {
     } catch (error: any) {
       Alert.alert(error.message);
     }
+  };
+
+  const requestPublicHostRole = async () => {
+    navigate('UpgradeAccount');
   };
 
   return (
@@ -136,6 +148,14 @@ const CurrentUser = () => {
             </Button>
           </Row>
         </>
+      )}
+      <Spacer16 />
+      {!isPublicHost && (
+        <StartCol>
+          <Button onPress={requestPublicHostRole}>
+            {t('requestPublicHostRoleButton')}
+          </Button>
+        </StartCol>
       )}
     </>
   );
