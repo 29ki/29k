@@ -51,6 +51,8 @@ Create a `.env` file, by duplicating `.env.example`.
 | `SENTRY_DSN`                                                      | _Not needed for local development_. [Sentry DSN string](https://docs.sentry.io/product/sentry-basics/dsn-explainer/)                                                                                                                                                                  |
 | `IOS_CODE_PUSH_DEPLOYMENT_KEY` `ANDROID_CODE_PUSH_DEPLOYMENT_KEY` | _Not needed for local development_. Follow the instructions at [app center](https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/react-native#2-create-your-app-in-the-app-center-portal-to-obtain-the-app-secret) for setting up a project and getting the deployment key. |
 | `API_ENDPOINT`                                                    | API end points. e.g. `http://localhost:5001/demo-29k-cupcake/europe-west1/api`                                                                                                                                                                                                        |
+| `DEEP_LINK_SCHEMA`                                                | _Not needed for local development_. Deep link app schema, e.g `org.twentyninek.app.cupcake.dev://`                                                                                                                                                                                    |
+| `DEEP_LINK_PREFIX`                                                | _Not needed for local development_. Deep link app prefix, e.g `https://29k.org/`                                                                                                                                                                                                      |
 
 ### Sentry
 
@@ -58,7 +60,21 @@ Create a `client/sentry.properties` from the [Sentry example template](https://g
 
 ### iOS
 
+Add a `client/ios/Supporting/dev/GoogleService-Info.plist` for local development. You have two options:
+
+- By copying `client/ios/Supporting/dev/GoogleService-Info.plist.local` ➡️ `GoogleService-Info.plist`. _This will only work with local firebase emulator._
+- By [downloading it from Firebase](https://firebase.google.com/docs/ios/setup)
+
+Then install pod dependencies
+
 ```
 cd client/ios
 pod install
 ```
+
+### Android
+
+Add a `client/android/app/src/dev/google-services.json` for local development. You have two options:
+
+- By copying `client/android/app/src/dev/google-services.json.local` ➡️ `google-services.json`. _This will only work with local firebase emulator._
+- By [downloading it from Firebase](https://firebase.google.com/docs/android/setup)
