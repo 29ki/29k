@@ -25,6 +25,7 @@ import {Timestamp} from 'firebase-admin/firestore';
 import {
   addSession,
   deleteSession,
+  getSessionById,
   getSessions,
   updateExerciseState,
   updateSession,
@@ -208,8 +209,8 @@ describe('session model', () => {
 
   describe('updateSession', () => {
     it('should return updated session with started', async () => {
-      const session = await updateSession('some-session-id', {started: true});
-
+      await updateSession('some-session-id', {started: true});
+      const session = await getSessionById('some-session-id');
       expect(session).toEqual({
         id: 'some-session-id',
         name: 'some-name',
@@ -228,8 +229,8 @@ describe('session model', () => {
     });
 
     it('should return updated session with ended', async () => {
-      const session = await updateSession('some-session-id', {ended: true});
-
+      await updateSession('some-session-id', {ended: true});
+      const session = await getSessionById('some-session-id');
       expect(session).toEqual({
         id: 'some-session-id',
         name: 'some-name',
@@ -250,9 +251,10 @@ describe('session model', () => {
 
   describe('updateExerciseState', () => {
     it('should update playing', async () => {
-      const session = await updateExerciseState('some-session-id', {
+      await updateExerciseState('some-session-id', {
         playing: true,
       });
+      const session = await getSessionById('some-session-id');
 
       expect(mockRunTransaction).toHaveBeenCalledTimes(1);
       expect(mockUpdateTransaction).toHaveBeenCalledTimes(1);
@@ -275,9 +277,10 @@ describe('session model', () => {
     });
 
     it('should update index', async () => {
-      const session = await updateExerciseState('some-session-id', {
+      await updateExerciseState('some-session-id', {
         index: 2,
       });
+      const session = await getSessionById('some-session-id');
 
       expect(session).toEqual({
         id: 'some-session-id',
@@ -297,9 +300,10 @@ describe('session model', () => {
     });
 
     it('should update dailySpotlightId', async () => {
-      const session = await updateExerciseState('some-session-id', {
+      await updateExerciseState('some-session-id', {
         dailySpotlightId: 'some-user-id',
       });
+      const session = await getSessionById('some-session-id');
 
       expect(session).toEqual({
         id: 'some-session-id',
