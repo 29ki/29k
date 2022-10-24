@@ -1,5 +1,10 @@
 import type {Timestamp} from 'firebase-admin/firestore';
 
+export enum SessionType {
+  public = 'public',
+  private = 'private',
+}
+
 // Input to DB
 export type ExerciseStateInput = Omit<ExerciseState, 'timestamp'> & {
   timestamp: Timestamp;
@@ -33,6 +38,8 @@ export type Session = {
   startTime: string;
   started: boolean;
   ended: boolean;
+  type: SessionType;
+  userIds: string[];
 };
 
 export type DailyUserData = {
