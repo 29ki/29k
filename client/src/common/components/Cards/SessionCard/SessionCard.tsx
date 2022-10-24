@@ -66,7 +66,8 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
       image={{
         uri: exercise?.card?.image?.source,
       }}
-      onPress={onPress}
+      onPress={onContextPress}
+      onButtonPress={onPress}
       onContextPress={onContextPress}
       Icon={reminderEnabled ? BellIcon : undefined}>
       <Row>
