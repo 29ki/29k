@@ -47,7 +47,7 @@ const Counter: React.FC<CounterProps> = ({startTime, starting = false}) => {
     const diff = dayjs.duration(startTime.diff(now));
 
     if (diff.days() > 0) {
-      return startTime.format('dddd, D MMM HH:mm');
+      return startTime.format('ddd, D MMM HH:mm');
     }
 
     if (diff.hours() > 0) {
