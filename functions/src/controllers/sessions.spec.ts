@@ -104,6 +104,17 @@ describe('sessions - conroller', () => {
       );
       expect(mockDeleteSession).toHaveBeenCalledWith('some-session-id');
     });
+
+    it('should just resolve if session is not found', async () => {
+      mockGetSessionById.mockResolvedValue(undefined);
+
+      await expect(
+        removeSession('the-host-id', 'some-session-id'),
+      ).resolves.toBe(undefined);
+
+      expect(mockDailyApi.deleteRoom).toHaveBeenCalledTimes(0);
+      expect(mockDeleteSession).toHaveBeenCalledTimes(0);
+    });
   });
 
   describe('updateSession', () => {
@@ -148,6 +159,15 @@ describe('sessions - conroller', () => {
           index: 1,
         }),
       ).rejects.toEqual(Error('user-unauthorized'));
+    });
+
+    it('should throw if session is not found', async () => {
+      mockGetSessionById.mockResolvedValue(undefined);
+      await expect(
+        updateExerciseState('not-the-host-id', 'some-session-id', {
+          index: 1,
+        }),
+      ).rejects.toEqual(Error('session-not-found'));
     });
 
     it('should update the session and return it', async () => {

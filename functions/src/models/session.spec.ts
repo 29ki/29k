@@ -78,6 +78,32 @@ afterEach(() => {
 });
 
 describe('session model', () => {
+  describe('getSessionById', () => {
+    it('should get a session by its id', async () => {
+      const session = await getSessionById('some-session-id');
+      expect(session).toEqual({
+        ended: false,
+        exerciseState: {
+          index: 0,
+          playing: false,
+          timestamp: expect.any(String),
+        },
+        facilitator: 'some-user-id',
+        id: 'some-session-id',
+        name: 'some-name',
+        startTime: expect.any(String),
+        started: false,
+        url: 'some-url',
+        userIds: ['all'],
+      });
+    });
+
+    it('should return undefined if no session is found', async () => {
+      const session = await getSessionById('some-non-existing-session-id');
+      expect(session).toBe(undefined);
+    });
+  });
+
   describe('getSessions', () => {
     it('should get sessions', async () => {
       const sessions = await getSessions('some-non-id');

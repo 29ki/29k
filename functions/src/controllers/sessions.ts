@@ -37,6 +37,8 @@ export const removeSession = async (
     dailyRoomName: string;
   };
 
+  if (!session) return;
+
   if (userId !== session?.facilitator) {
     throw new Error('user-unauthorized');
   }
@@ -72,6 +74,10 @@ export const updateExerciseState = async (
   const session = (await sessionModel.getSessionById(sessionId)) as Session & {
     dailyRoomName: string;
   };
+
+  if (!session) {
+    throw new Error('session-not-found');
+  }
 
   if (userId !== session?.facilitator) {
     throw new Error('user-unauthorized');

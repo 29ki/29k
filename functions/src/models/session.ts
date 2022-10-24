@@ -49,6 +49,10 @@ export const getSessionById = async (id: Session['id']) => {
     .doc(id)
     .get();
 
+  if (!sessionDoc.exists) {
+    return;
+  }
+
   return getSession(getData<SessionData>(sessionDoc));
 };
 
