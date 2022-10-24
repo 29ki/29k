@@ -116,6 +116,7 @@ describe('useSessions', () => {
         }),
         headers: {
           'Content-Type': 'application/json',
+          'Accept-Language': 'en',
           'X-Correlation-ID': expect.any(String),
         },
         method: 'POST',
@@ -124,6 +125,7 @@ describe('useSessions', () => {
       expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/sessions', {
         headers: {
           'Content-Type': 'application/json',
+          'Accept-Language': 'en',
           'X-Correlation-ID': expect.any(String),
         },
       });
@@ -152,6 +154,7 @@ describe('useSessions', () => {
         {
           headers: {
             'Content-Type': 'application/json',
+            'Accept-Language': 'en',
             'X-Correlation-ID': expect.any(String),
           },
           method: 'DELETE',
@@ -161,6 +164,7 @@ describe('useSessions', () => {
       expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/sessions', {
         headers: {
           'Content-Type': 'application/json',
+          'Accept-Language': 'en',
           'X-Correlation-ID': expect.any(String),
         },
       });
