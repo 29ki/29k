@@ -3,7 +3,12 @@ import styled from 'styled-components/native';
 import {FlatList} from 'react-native-gesture-handler';
 import Animated, {Easing, FadeInUp, SlideOutUp} from 'react-native-reanimated';
 import {useTranslation} from 'react-i18next';
-import {NativeScrollEvent, NativeSyntheticEvent, ViewStyle} from 'react-native';
+import {
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  View,
+  ViewStyle,
+} from 'react-native';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import NS from '../../../../lib/i18n/constants/namespaces';
@@ -27,11 +32,12 @@ import {
 } from '../../../../common/components/Spacers/Spacer';
 import ToggleButton from './ToggleButton';
 
-const BoxShadowWrapper = styled.View({
+const ShadowWrapper = styled.View({
   ...SETTINGS.BOXSHADOW,
   borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not showing on Android
   borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not showing on Android
 });
+
 const Wrapper = styled.View({
   borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS,
   borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS,
@@ -96,89 +102,91 @@ const HostNotes: React.FC<HostNotesProps> = ({
     : exercise?.slide.current.hostNotes;
 
   return (
-    <BoxShadowWrapper style={style}>
-      <Wrapper
-        onLayout={event => {
-          setContainerWidth(event.nativeEvent.layout.width);
-        }}>
-        <TopSafeArea />
-        <Gutters>
-          <Spacer4 />
-          <TopBar>
-            <Progress
-              index={exercise?.slide.index}
-              length={exercise?.slides.length}
-            />
-            <Spacer8 />
-            <ToggleButton
-              disabled={!notes}
-              isToggled={showNotes}
-              title={t('notes')}
-              onPress={() => setShowNotes(prevShowNotes => !prevShowNotes)}
-            />
-          </TopBar>
-          <Spacer4 />
-        </Gutters>
-      </Wrapper>
-      {showNotes && notes && (
-        <NotesWrapper>
+    <View style={style}>
+      <ShadowWrapper>
+        <Wrapper
+          onLayout={event => {
+            setContainerWidth(event.nativeEvent.layout.width);
+          }}>
+          <TopSafeArea />
           <Gutters>
-            <Spacer32 />
-            <FlatList
-              getItemLayout={(data, index) => ({
-                length: listItemWidth,
-                offset: listItemWidth * index,
-                index,
-              })}
-              ref={listRef}
-              data={notes}
-              onContentSizeChange={() =>
-                listRef.current?.scrollToIndex({
-                  animated: false,
-                  index: 0,
-                })
-              }
-              pagingEnabled
-              onScroll={calculatePageIndex}
-              keyExtractor={(_, i) => `notes-${i}`}
-              initialScrollIndex={activeIndex}
-              snapToInterval={listItemWidth}
-              showsHorizontalScrollIndicator={false}
-              scrollEnabled={Boolean(notes.length)}
-              renderItem={({item}) => (
-                <ListItem width={listItemWidth}>
-                  <Markdown>{item.text}</Markdown>
-                </ListItem>
-              )}
-              horizontal
-            />
-            <Navigation>
-              <NavButton
-                onPress={() => {
-                  listRef.current?.scrollToIndex({
-                    index: activeIndex - 1,
-                  });
-                }}
-                Icon={BackwardCircleIcon}
-                disabled={activeIndex <= 0}
+            <Spacer4 />
+            <TopBar>
+              <Progress
+                index={exercise?.slide.index}
+                length={exercise?.slides.length}
               />
-              <Body14>{`${activeIndex + 1} / ${notes.length}`}</Body14>
-              <NavButton
-                onPress={() =>
+              <Spacer8 />
+              <ToggleButton
+                disabled={!notes}
+                isToggled={showNotes}
+                title={t('notes')}
+                onPress={() => setShowNotes(prevShowNotes => !prevShowNotes)}
+              />
+            </TopBar>
+            <Spacer4 />
+          </Gutters>
+        </Wrapper>
+        {showNotes && notes && (
+          <NotesWrapper>
+            <Gutters>
+              <Spacer32 />
+              <FlatList
+                getItemLayout={(data, index) => ({
+                  length: listItemWidth,
+                  offset: listItemWidth * index,
+                  index,
+                })}
+                ref={listRef}
+                data={notes}
+                onContentSizeChange={() =>
                   listRef.current?.scrollToIndex({
-                    index: activeIndex + 1,
+                    animated: false,
+                    index: 0,
                   })
                 }
-                Icon={ForwardCircleIcon}
-                disabled={activeIndex >= notes.length - 1}
+                pagingEnabled
+                onScroll={calculatePageIndex}
+                keyExtractor={(_, i) => `notes-${i}`}
+                initialScrollIndex={activeIndex}
+                snapToInterval={listItemWidth}
+                showsHorizontalScrollIndicator={false}
+                scrollEnabled={Boolean(notes.length)}
+                renderItem={({item}) => (
+                  <ListItem width={listItemWidth}>
+                    <Markdown>{item.text}</Markdown>
+                  </ListItem>
+                )}
+                horizontal
               />
-            </Navigation>
-          </Gutters>
-          <Spacer8 />
-        </NotesWrapper>
-      )}
+              <Navigation>
+                <NavButton
+                  onPress={() => {
+                    listRef.current?.scrollToIndex({
+                      index: activeIndex - 1,
+                    });
+                  }}
+                  Icon={BackwardCircleIcon}
+                  disabled={activeIndex <= 0}
+                />
+                <Body14>{`${activeIndex + 1} / ${notes.length}`}</Body14>
+                <NavButton
+                  onPress={() =>
+                    listRef.current?.scrollToIndex({
+                      index: activeIndex + 1,
+                    })
+                  }
+                  Icon={ForwardCircleIcon}
+                  disabled={activeIndex >= notes.length - 1}
+                />
+              </Navigation>
+            </Gutters>
+            <Spacer8 />
+          </NotesWrapper>
+        )}
+      </ShadowWrapper>
       {children && children}
-    </BoxShadowWrapper>
+    </View>
   );
 };
 
