@@ -18,12 +18,17 @@ import {
   verifyPublicHostRequest,
 } from './publicHostRequests';
 import {RequestError} from './errors/RequestError';
+import {sendPublicHostRequestMessage} from '../lib/slack';
 
 jest.mock('../models/publicHostRequests');
+jest.mock('../lib/slack');
+
 const mockGetPublicHostRequestByUserId =
   getPublicHostRequestByUserId as jest.Mock;
 const mockAddPublicHostRequest = addPublicHostRequest as jest.Mock;
 const mockUpdatePublicHostRequest = updatePublicHostRequest as jest.Mock;
+const mockSendPublicHostRequestMessage =
+  sendPublicHostRequestMessage as jest.Mock;
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));
 
@@ -41,6 +46,7 @@ describe('requests - conroller', () => {
       await requestPublicHostRole('some-user-id');
 
       expect(mockAddPublicHostRequest).toHaveBeenCalledWith('some-user-id');
+      expect(mockSendPublicHostRequestMessage).toHaveBeenCalledTimes(1);
     });
 
     it('should not create a request when user has no email', async () => {
@@ -53,6 +59,7 @@ describe('requests - conroller', () => {
       }
 
       expect(mockAddPublicHostRequest).toHaveBeenCalledTimes(0);
+      expect(mockSendPublicHostRequestMessage).toHaveBeenCalledTimes(0);
     });
 
     it('should not create a asecond request when user have already made a request', async () => {
@@ -72,6 +79,7 @@ describe('requests - conroller', () => {
       }
 
       expect(mockAddPublicHostRequest).toHaveBeenCalledTimes(0);
+      expect(mockSendPublicHostRequestMessage).toHaveBeenCalledTimes(0);
     });
   });
 
