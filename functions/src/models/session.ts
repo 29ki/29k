@@ -111,7 +111,6 @@ export const updateSession = async (
   data: Partial<Session>,
 ) => {
   await firestore().collection(SESSIONS_COLLECTION).doc(id).update(data);
-  return getSessionById(id);
 };
 
 export const updateExerciseState = async (
@@ -128,6 +127,4 @@ export const updateExerciseState = async (
     });
     await transaction.update(sessionDocRef, {exerciseState});
   });
-
-  return getSessionById(id);
 };

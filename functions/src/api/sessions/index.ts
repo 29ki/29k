@@ -1,22 +1,12 @@
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 import 'firebase-functions';
-import dayjs from 'dayjs';
 
-import {Session, SessionType} from '../../../../shared/src/types/Session';
-import * as dailyApi from '../../lib/dailyApi';
+import {SessionType} from '../../../../shared/src/types/Session';
 import {createRouter} from '../../lib/routers';
 
-import {removeEmpty} from '../../lib/utils';
-import {createDynamicLink} from '../../lib/dynamicLinks';
-import {
-  addSession,
-  deleteSession,
-  getSessionById,
-  getSessions,
-  updateExerciseState,
-  updateSession,
-} from '../../models/session';
+import {getSessions} from '../../models/session';
+import * as sessionControler from '../../controllers/sessions';
 
 const sessionsRouter = createRouter();
 
@@ -41,46 +31,18 @@ sessionsRouter.post('/', validator({body: CreateSessionSchema}), async ctx => {
   const {contentId, type, startTime} = ctx.request.body as CreateSession;
   const user = ctx.user;
 
-  try {
-    const dailyRoom = await dailyApi.createRoom(
-      dayjs(startTime).add(2, 'hour'),
-    );
-    const link = await createDynamicLink(`sessions/${dailyRoom.id}`);
-
-    const session = await addSession({
-      id: dailyRoom.id,
-      dailyRoomName: dailyRoom.name,
-      url: dailyRoom.url,
-      contentId,
-      link,
-      type,
-      startTime,
-      facilitator: user.id,
-    });
-
-    ctx.body = session;
-  } catch (err) {
-    console.log('por favor...', err);
-  }
+  ctx.body = await sessionControler.createSession(user.id, {
+    contentId,
+    type,
+    startTime,
+  });
 });
 
 sessionsRouter.delete('/:id', async ctx => {
   const {id} = ctx.params;
 
-  const session = (await getSessionById(id)) as Session & {
-    dailyRoomName: string;
-  };
-
-  if (ctx.user.id !== session?.facilitator) {
-    ctx.status = 500;
-    return;
-  }
-
   try {
-    await Promise.all([
-      dailyApi.deleteRoom(session.dailyRoomName),
-      deleteSession(session.id),
-    ]);
+    await sessionControler.removeSession(ctx.user.id, id);
   } catch {
     ctx.status = 500;
   }
@@ -100,7 +62,7 @@ const UpdateSessionSchema = yup
     test => Object.keys(test).length > 0,
   );
 
-type UpdateSession = yup.InferType<typeof UpdateSessionSchema>;
+export type UpdateSession = yup.InferType<typeof UpdateSessionSchema>;
 
 sessionsRouter.put(
   '/:id',
@@ -108,17 +70,18 @@ sessionsRouter.put(
   async ctx => {
     const {id} = ctx.params;
     const body = ctx.request.body as UpdateSession;
-    const session = await getSessionById(id);
-
-    if (ctx.user.id !== session?.facilitator) {
+    try {
+      const updatedSession = await sessionControler.updateSession(
+        ctx.user.id,
+        id,
+        body,
+      );
+      ctx.status = 200;
+      ctx.body = updatedSession;
+    } catch (err) {
       ctx.status = 500;
-      throw new Error('Unauthorized');
+      throw err;
     }
-
-    const updatedSession = await updateSession(id, removeEmpty(body));
-
-    ctx.status = 200;
-    ctx.body = updatedSession;
   },
 );
 
@@ -144,19 +107,18 @@ sessionsRouter.put(
   validator({body: ExerciseStateUpdateSchema}),
   async ctx => {
     const {id} = ctx.params;
-    const session = await getSessionById(id);
+    const data = ctx.request.body as ExerciseStateUpdate;
 
-    if (!session) {
-      ctx.status = 500;
-    } else {
-      if (ctx.user.id !== session?.facilitator) {
-        ctx.status = 500;
-        throw new Error('Unauthorized');
-      }
-      const data = removeEmpty(ctx.request.body as ExerciseStateUpdate);
-
-      const updatedSession = await updateExerciseState(id, data);
+    try {
+      const updatedSession = await sessionControler.updateExerciseState(
+        ctx.user.id,
+        id,
+        data,
+      );
       ctx.body = updatedSession;
+    } catch (err) {
+      ctx.status = 500;
+      throw err;
     }
   },
 );
