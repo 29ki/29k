@@ -60,9 +60,10 @@ userRouter.put(
           ctx.message = 'No request found for user';
           break;
 
-        case 'request-expired':
+        case 'request-declined':
+        case 'verification-already-claimed':
           ctx.status = 410;
-          ctx.message = 'Request has expired';
+          ctx.message = 'Request declined or already claimed';
           break;
 
         case 'verification-failed':

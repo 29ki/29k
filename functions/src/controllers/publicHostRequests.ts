@@ -1,18 +1,12 @@
-import dayjs from 'dayjs';
 import {getAuth} from 'firebase-admin/auth';
-import {Timestamp} from 'firebase-admin/firestore';
 import {ROLES} from '../../../shared/src/types/User';
-import {generateVerificationCode} from '../lib/utils';
+import {sendPublicHostRequestMessage} from '../lib/slack';
 import {
   addPublicHostRequest,
   getPublicHostRequestByUserId,
-  removePublicHostRequest,
+  updatePublicHostRequest,
 } from '../models/publicHostRequests';
 import {RequestError} from './errors/RequestError';
-
-const requestExpired = (timestamp?: Timestamp) =>
-  timestamp &&
-  dayjs(timestamp.toDate()).isBefore(dayjs(Timestamp.now().toDate()));
 
 export const requestPublicHostRole = async (userId: string) => {
   const user = await getAuth().getUser(userId);
@@ -22,13 +16,13 @@ export const requestPublicHostRole = async (userId: string) => {
   }
 
   const request = await getPublicHostRequestByUserId(userId);
-  const expired = requestExpired(request?.expires);
 
-  if (request && !expired) {
+  if (request) {
     throw new RequestError('request-exists');
   }
 
-  await addPublicHostRequest(userId, generateVerificationCode());
+  await addPublicHostRequest(userId);
+  await sendPublicHostRequestMessage(userId, user.email);
 };
 
 export const verifyPublicHostRequest = async (
@@ -41,8 +35,12 @@ export const verifyPublicHostRequest = async (
     throw new RequestError('request-not-found');
   }
 
-  if (requestExpired(request.expires)) {
-    throw new RequestError('request-expired');
+  if (request.status === 'declined') {
+    throw new RequestError('request-declined');
+  }
+
+  if (request.status === 'verified') {
+    throw new RequestError('verification-already-used');
   }
 
   if (verificationCode !== request.verificationCode) {
@@ -50,5 +48,5 @@ export const verifyPublicHostRequest = async (
   }
 
   await getAuth().setCustomUserClaims(userId, {role: ROLES.publicHost});
-  await removePublicHostRequest(userId);
+  await updatePublicHostRequest(userId, 'verified');
 };

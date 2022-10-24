@@ -8,11 +8,18 @@ import sentryErrorHandler from './lib/sentry';
 import firebaseBodyParser from './lib/firebaseBodyParser';
 import i18nResolver from './lib/i18nResolver';
 import firebaseAuth from './lib/firebaseAuth';
-import {createRouter} from '../lib/routers';
+import {cerateSlackRouter, createRouter} from '../lib/routers';
+import {slackRouter} from './slack';
+import verifySlackRequest from './lib/verifySlackRequest';
 
 const app = new Koa();
 
 app.on('error', sentryErrorHandler);
+
+const slackIntegrationRouter = cerateSlackRouter();
+slackIntegrationRouter
+  .use(verifySlackRequest())
+  .use('/slack', slackRouter.routes());
 
 const authoroizedRouter = createRouter();
 authoroizedRouter
@@ -22,6 +29,7 @@ authoroizedRouter
 
 app
   .use(firebaseBodyParser())
+  .use(slackIntegrationRouter.routes())
   .use(i18nResolver())
   .use(firebaseAuth())
   .use(authoroizedRouter.routes())

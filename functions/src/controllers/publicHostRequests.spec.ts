@@ -11,7 +11,7 @@ mockFirebase({
 import {
   getPublicHostRequestByUserId,
   addPublicHostRequest,
-  removePublicHostRequest,
+  updatePublicHostRequest,
 } from '../models/publicHostRequests';
 import {
   requestPublicHostRole,
@@ -23,7 +23,7 @@ jest.mock('../models/publicHostRequests');
 const mockGetPublicHostRequestByUserId =
   getPublicHostRequestByUserId as jest.Mock;
 const mockAddPublicHostRequest = addPublicHostRequest as jest.Mock;
-const mockRemovePublicHostRequest = removePublicHostRequest as jest.Mock;
+const mockUpdatePublicHostRequest = updatePublicHostRequest as jest.Mock;
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));
 
@@ -40,10 +40,7 @@ describe('requests - conroller', () => {
 
       await requestPublicHostRole('some-user-id');
 
-      expect(mockAddPublicHostRequest).toHaveBeenCalledWith(
-        'some-user-id',
-        expect.any(Number),
-      );
+      expect(mockAddPublicHostRequest).toHaveBeenCalledWith('some-user-id');
     });
 
     it('should not create a request when user has no email', async () => {
@@ -83,7 +80,7 @@ describe('requests - conroller', () => {
       mockGetPublicHostRequestByUserId.mockResolvedValueOnce({
         userId: 'some-user-id',
         verificationCode: 123456,
-        expires: Timestamp.fromDate(new Date('2022-10-10T10:00:00Z')),
+        status: 'accepted',
       });
 
       await verifyPublicHostRequest('some-user-id', 123456);
@@ -94,7 +91,10 @@ describe('requests - conroller', () => {
           role: 'publicHost',
         },
       );
-      expect(mockRemovePublicHostRequest).toHaveBeenCalledWith('some-user-id');
+      expect(mockUpdatePublicHostRequest).toHaveBeenCalledWith(
+        'some-user-id',
+        'verified',
+      );
     });
 
     it('should return 404 if request not found', async () => {
@@ -111,17 +111,16 @@ describe('requests - conroller', () => {
       );
     });
 
-    it('should return 410 if request has expired', async () => {
+    it('should return 410 if request was declined', async () => {
       mockGetPublicHostRequestByUserId.mockResolvedValueOnce({
         userId: 'some-user-id',
-        verificationCode: 123456,
-        expires: Timestamp.fromDate(new Date('2022-10-03T08:00:00Z')),
+        status: 'declined',
       });
 
       try {
         await verifyPublicHostRequest('some-user-id', 123456);
       } catch (error) {
-        expect(error).toEqual(new RequestError('request-expired'));
+        expect(error).toEqual(new RequestError('request-declined'));
       }
 
       expect(getAuth().setCustomUserClaims as jest.Mock).toHaveBeenCalledTimes(

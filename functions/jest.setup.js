@@ -9,4 +9,10 @@ process.env = Object.assign(process.env, {
   DEEP_LINK_ANDROID_PACKAGE_NAME: 'some-deep-link-android-package-name',
   DEEP_LINK_IOS_BUNDLE_ID: 'some-deep-link-ios-bundle-id',
   DEEP_LINK_IOS_APPSTORE_ID: 'some-deep-link-ios-appstore-id',
+  FUNCTIONS_SLACK_SIGNING_SECRET: 'some-slack-signing-secret',
 });
+
+global.console = {
+  ...console,
+  error: jest.fn(),
+};

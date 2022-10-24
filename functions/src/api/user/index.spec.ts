@@ -97,7 +97,7 @@ describe('/api/user', () => {
 
     it('should return 410 if request has expired', async () => {
       mockVerifyRequest.mockRejectedValueOnce(
-        new RequestError('request-expired'),
+        new RequestError('request-declined'),
       );
       const response = await request(mockServer)
         .put('/user/verifyPublicHostCode')
