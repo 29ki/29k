@@ -51,10 +51,7 @@ const Counter: React.FC<CounterProps> = ({startTime, starting = false}) => {
     }
 
     if (diff.hours() > 0) {
-      return t('counterValue.inHours', {
-        hours: diff.hours(),
-        minutes: diff.minutes(),
-      });
+      return `${t('today')}, ${startTime.format('HH:mm')}`;
     }
 
     return t('counterValue.inMinutes', {
