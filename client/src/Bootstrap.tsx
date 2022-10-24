@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {useSetRecoilState} from 'recoil';
-import dynamicLinks from '@react-native-firebase/dynamic-links';
 
 import * as i18n from './lib/i18n';
 import * as sentry from './lib/sentry';
@@ -23,9 +22,6 @@ const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
 
   // Check killswitch and updates on mount
   useEffect(() => {
-    dynamicLinks()
-      .getInitialLink()
-      .then(link => console.log('LIIINK', link));
     checkKillSwitch();
     checkForUpdate();
   }, [checkKillSwitch, checkForUpdate]);
