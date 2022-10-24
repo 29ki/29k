@@ -2,13 +2,18 @@ import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import dayjs from 'dayjs';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {Alert} from 'react-native';
+import {Alert, Platform, Share} from 'react-native';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
 import Gutters from '../../../common/components/Gutters/Gutters';
 import IconButton from '../../../common/components/Buttons/IconButton/IconButton';
-import {BellIcon, DeleteIcon, PlusIcon} from '../../../common/components/Icons';
+import {
+  BellIcon,
+  DeleteIcon,
+  PlusIcon,
+  ShareIcon,
+} from '../../../common/components/Icons';
 import Image from '../../../common/components/Image/Image';
 import HalfModal from '../../../common/components/Modals/HalfModal';
 import {Spacer16, Spacer8} from '../../../common/components/Spacers/Spacer';
@@ -63,6 +68,17 @@ const SessionModal = () => {
     return null;
   }
 
+  const onShare = () => {
+    if (session.link) {
+      Share.share(
+        Platform.select({
+          ios: {url: session.link},
+          default: {message: session.link},
+        }),
+      );
+    }
+  };
+
   const onDelete = () => {
     Alert.alert(t('delete.header'), t('delete.text'), [
       {text: t('delete.buttons.cancel'), style: 'cancel', onPress: () => {}},
@@ -115,6 +131,17 @@ const SessionModal = () => {
           {t('addReminder')}
         </Button>
         <Spacer8 />
+        {session.link && (
+          <>
+            <IconButton
+              small
+              variant="secondary"
+              onPress={onShare}
+              Icon={ShareIcon}
+            />
+            <Spacer8 />
+          </>
+        )}
         {user?.uid === session?.facilitator && (
           <DeleteButton small onPress={onDelete} Icon={DeleteIcon} />
         )}
