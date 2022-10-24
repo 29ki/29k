@@ -58,10 +58,24 @@ const SessionModal = () => {
     useSessionNotificationReminder(session);
 
   const startTime = dayjs(session.startTime);
-
+  const startingNow = dayjs().isAfter(startTime.subtract(10, 'minutes'));
   if (!session || !exercise) {
     return null;
   }
+
+  const onPress = () =>
+    startingNow
+      ? navigation.navigate(
+          'SessionStack',
+          {
+            screen: 'ChangingRoom',
+            params: {
+              sessionId: session.id,
+            },
+          },
+          navigation.goBack(),
+        )
+      : addToCalendar(exercise.name, startTime, startTime.add(30, 'minutes'));
 
   const onDelete = () => {
     Alert.alert(t('delete.header'), t('delete.text'), [
@@ -94,16 +108,10 @@ const SessionModal = () => {
       <BottomContent>
         <Button
           small
-          LeftIcon={PlusIcon}
-          variant="secondary"
-          onPress={() =>
-            addToCalendar(
-              exercise.name,
-              startTime,
-              startTime.add(30, 'minutes'),
-            )
-          }>
-          {t('addToCalendar')}
+          LeftIcon={!startingNow ? PlusIcon : undefined}
+          variant={startingNow ? 'primary' : 'secondary'}
+          onPress={onPress}>
+          {startingNow ? t('join') : t('addToCalendar')}
         </Button>
         <Spacer8 />
         <Button
