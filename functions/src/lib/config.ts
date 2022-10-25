@@ -10,7 +10,7 @@ https://github.com/firebase/firebase-tools/issues/4656
 We therefore shim this with the dotenv library
 */
 import 'dotenv/config';
-import {cleanEnv, str} from 'envalid';
+import {bool, cleanEnv, str} from 'envalid';
 
 const configValidation = {
   GIT_COMMIT_SHORT: str(),
@@ -23,8 +23,9 @@ const configValidation = {
   DEEP_LINK_ANDROID_PACKAGE_NAME: str(),
   DEEP_LINK_IOS_BUNDLE_ID: str(),
   DEEP_LINK_IOS_APPSTORE_ID: str(),
-  FUNCTIONS_SLACK_OAUTH_TOKEN: str(),
-  FUNCTIONS_SLACK_SIGNING_SECRET: str(),
+  SLACK_ENABLED: bool(),
+  SLACK_OAUTH_TOKEN: str(),
+  SLACK_SIGNING_SECRET: str(),
 };
 
 export default cleanEnv(process.env, configValidation);

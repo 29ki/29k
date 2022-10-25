@@ -3,11 +3,11 @@ import config from './config';
 import {RequestAction} from './constants/requestAction';
 
 const PUBLIC_HOST_REQUESTS_CHANNEL = '#public_host_requests';
-const {FUNCTIONS_SLACK_OAUTH_TOKEN} = config;
+const {SLACK_OAUTH_TOKEN, SLACK_ENABLED} = config;
 
 const createSlackClient = () => {
-  if (FUNCTIONS_SLACK_OAUTH_TOKEN.length > 0) {
-    return new WebClient(FUNCTIONS_SLACK_OAUTH_TOKEN);
+  if (SLACK_ENABLED && SLACK_OAUTH_TOKEN.length > 0) {
+    return new WebClient(SLACK_OAUTH_TOKEN);
   }
 
   return {
