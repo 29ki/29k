@@ -1,4 +1,6 @@
 import i18next, {init} from 'i18next';
+import 'dayjs/locale/pt';
+import 'dayjs/locale/sv';
 
 import content from '../../../content/content.json';
 import {
