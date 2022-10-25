@@ -22,7 +22,7 @@ import {Display24} from '../../../common/components/Typography/Display/Display';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {RootStackProps} from '../../../common/constants/routes';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import NS from '../../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../../shared/src/constants/namespaces';
 import {userAtom} from '../../../lib/user/state/state';
 import useAddToCalendar from '../hooks/useAddToCalendar';
 import useSessionNotificationReminder from '../hooks/useSessionNotificationReminder';
