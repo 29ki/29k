@@ -2,6 +2,7 @@ import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import dayjs from 'dayjs';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Alert} from 'react-native';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
@@ -50,7 +51,7 @@ const SessionModal = () => {
   } = useRoute<RouteProp<RootStackProps, 'SessionModal'>>();
   const {t} = useTranslation(NS.COMPONENT.SESSION_MODAL);
   const user = useRecoilValue(userAtom);
-  const navigation = useNavigation();
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackProps>>();
   const {deleteSession} = useSessions();
   const addToCalendar = useAddToCalendar();
   const exercise = useExerciseById(session?.contentId);
@@ -59,22 +60,24 @@ const SessionModal = () => {
 
   const startTime = dayjs(session.startTime);
   const startingNow = dayjs().isAfter(startTime.subtract(10, 'minutes'));
+
+  const onStartingNow = () => {
+    navigation.goBack();
+    navigation.navigate('SessionStack', {
+      screen: 'ChangingRoom',
+      params: {
+        sessionId: session.id,
+      },
+    });
+  };
+
   if (!session || !exercise) {
     return null;
   }
 
   const onPress = () =>
     startingNow
-      ? navigation.navigate(
-          'SessionStack',
-          {
-            screen: 'ChangingRoom',
-            params: {
-              sessionId: session.id,
-            },
-          },
-          navigation.goBack(),
-        )
+      ? onStartingNow()
       : addToCalendar(exercise.name, startTime, startTime.add(30, 'minutes'));
 
   const onDelete = () => {
