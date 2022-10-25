@@ -150,7 +150,7 @@ describe('createSessionLink', () => {
     const shortLink = await createSessionLink(
       'some-session-id',
       'some-exercise-id',
-      '2022-01-01T00:00:00.000Z',
+      '2020-01-01T01:01:01.000Z',
       'en',
     );
 
@@ -170,7 +170,7 @@ describe('createSessionLink', () => {
           link: 'http://some.deep/link/base/sessions/some-session-id',
           navigationInfo: {enableForcedRedirect: false},
           socialMetaTagInfo: {
-            socialDescription: 'Some link description: Saturday, 1 Jan 01:00',
+            socialDescription: 'Some link description: Wednesday, 1 Jan 01:01',
             socialImageLink: 'http://some.image/source.en',
             socialTitle: 'Some link title: Some Exercise',
           },
@@ -191,7 +191,7 @@ describe('createSessionLink', () => {
     const shortLink = await createSessionLink(
       'some-session-id',
       'some-exercise-id',
-      '2022-01-01T00:00:00.000Z',
+      '2020-01-01T01:01:01.000Z',
       'sv',
     );
 
@@ -211,7 +211,7 @@ describe('createSessionLink', () => {
           link: 'http://some.deep/link/base/sessions/some-session-id',
           navigationInfo: {enableForcedRedirect: false},
           socialMetaTagInfo: {
-            socialDescription: 'En länkbeskrivning: lördag, 1 jan 01:00',
+            socialDescription: 'En länkbeskrivning: onsdag, 1 jan 01:01',
             socialImageLink: 'http://some.image/source.sv',
             socialTitle: 'En länktitel: En Övning',
           },
