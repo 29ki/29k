@@ -5,7 +5,7 @@ import {
 } from '@react-navigation/native-stack';
 import {useRecoilValue} from 'recoil';
 
-import {RootStackProps, SessionStackProps} from '../../common/constants/routes';
+import {RootStackProps, SessionStackProps} from './constants/routes';
 import KillSwitch from '../../routes/KillSwitch/KillSwitch';
 import {killSwitchFields} from '../killSwitch/state/state';
 import Tabs from './Tabs';

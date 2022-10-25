@@ -15,7 +15,7 @@ import {
   ProfileIcon,
 } from '../../common/components/Icons';
 import {COLORS} from '../../../../shared/src/constants/colors';
-import {TabNavigatorProps} from '../../common/constants/routes';
+import {TabNavigatorProps} from './constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import {Body14} from '../../common/components/Typography/Body/Body';
 

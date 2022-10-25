@@ -1,5 +1,5 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
-import {Session} from '../../../../shared/src/types/Session';
+import {Session} from '../../../../../shared/src/types/Session';
 
 export type TabNavigatorProps = {
   Profile: undefined;

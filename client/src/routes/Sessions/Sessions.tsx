@@ -15,7 +15,7 @@ import {Session} from '../../../../shared/src/types/Session';
 import NS from '../../lib/i18n/constants/namespaces';
 import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
 import {COLORS} from '../../../../shared/src/constants/colors';
-import {ModalStackProps} from '../../common/constants/routes';
+import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import SETTINGS from '../../common/constants/settings';
 import {
   Spacer12,

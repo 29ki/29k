@@ -30,7 +30,7 @@ import {Body16} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {DailyContext} from './DailyProvider';
 import {localParticipantSelector, sessionAtom} from './state/state';
-import {SessionStackProps} from '../../common/constants/routes';
+import {SessionStackProps} from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import NS from '../../lib/i18n/constants/namespaces';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
