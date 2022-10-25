@@ -9,21 +9,23 @@ import Input from '../../common/components/Typography/TextInput/TextInput';
 import NS from '../../lib/i18n/constants/namespaces';
 import {Body16} from '../../common/components/Typography/Body/Body';
 import Gutters from '../../common/components/Gutters/Gutters';
-import {useNavigation} from '@react-navigation/native';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {requestPromotion, verifyPromotion} from './api/user';
 import styled from 'styled-components/native';
 import HalfModal from '../../common/components/Modals/HalfModal';
 import {userAtom} from '../../lib/user/state/state';
 import VerificationCode from './components/VerificationCode';
+import {ModalStackProps} from '../../lib/navigation/constants/routes';
 
 const Heading = styled(Body16)({textAlign: 'center'});
 
 const UpgradeAccount = () => {
   const {t} = useTranslation(NS.SCREEN.UPGRADE_ACCOUNT);
+  const {params} = useRoute<RouteProp<ModalStackProps, 'UpgradeAccount'>>();
   const {goBack} = useNavigation();
   const user = useRecoilValue(userAtom);
   const [needToUpgrade, setNeedToUpgrade] = useState(false);
-  const [haveCode, setHaveCode] = useState(false);
+  const [haveCode, setHaveCode] = useState(Boolean(params.code));
   const [haveRequested, setHaveRequested] = useState(false);
   const [haveVerified, setHaveVerified] = useState(false);
   const [email, setEmail] = useState('');
@@ -127,7 +129,10 @@ const UpgradeAccount = () => {
           <>
             <Heading>{t('enterCode')}</Heading>
             <Spacer16 />
-            <VerificationCode onCodeCompleted={onCodeCompleted} />
+            <VerificationCode
+              prefillCode={params.code}
+              onCodeCompleted={onCodeCompleted}
+            />
           </>
         )}
         {haveVerified && (

@@ -15,6 +15,7 @@ const config: LinkingOptions<RootStackProps>['config'] = {
         ChangingRoom: 'sessions/:sessionId',
       },
     },
+    UpgradeAccount: 'verifyPublicHostCode/:code',
   },
 };
 
