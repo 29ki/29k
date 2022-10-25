@@ -1,11 +1,11 @@
 import Koa, {Middleware} from 'koa';
 import bodyParser from 'koa-bodyparser';
-import i18nResolver from './i18nResolver';
+import languageResolver from './languageResolver';
 
 const createMockServer = (...middlewares: unknown[]) => {
   const app = new Koa();
   app.use(bodyParser());
-  app.use(i18nResolver());
+  app.use(languageResolver());
   middlewares.forEach(middleware => {
     app.use(middleware as Middleware);
   });

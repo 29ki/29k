@@ -105,6 +105,7 @@ describe('useSessions', () => {
           contentId: 'some-content-id',
           type: SessionType.public,
           startTime,
+          language: 'some-language',
         });
       });
 
@@ -113,9 +114,11 @@ describe('useSessions', () => {
           contentId: 'some-content-id',
           type: 'public',
           startTime: '1994-03-08T00:00:00.000Z',
+          language: 'some-language',
         }),
         headers: {
           'Content-Type': 'application/json',
+          'Accept-Language': 'en',
           'X-Correlation-ID': expect.any(String),
         },
         method: 'POST',
@@ -124,6 +127,7 @@ describe('useSessions', () => {
       expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/sessions', {
         headers: {
           'Content-Type': 'application/json',
+          'Accept-Language': 'en',
           'X-Correlation-ID': expect.any(String),
         },
       });
@@ -152,6 +156,7 @@ describe('useSessions', () => {
         {
           headers: {
             'Content-Type': 'application/json',
+            'Accept-Language': 'en',
             'X-Correlation-ID': expect.any(String),
           },
           method: 'DELETE',
@@ -161,6 +166,7 @@ describe('useSessions', () => {
       expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/sessions', {
         headers: {
           'Content-Type': 'application/json',
+          'Accept-Language': 'en',
           'X-Correlation-ID': expect.any(String),
         },
       });

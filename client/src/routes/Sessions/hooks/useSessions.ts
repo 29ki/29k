@@ -23,15 +23,18 @@ const useSessions = () => {
       contentId,
       type,
       startTime,
+      language,
     }: {
       contentId: Session['contentId'];
       type: Session['type'];
       startTime: dayjs.Dayjs;
+      language: Session['language'];
     }) => {
       await sessionApi.addSession({
         contentId,
         type,
         startTime: startTime.toJSON(),
+        language,
       });
       fetchSessions();
     },
