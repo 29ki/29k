@@ -2,6 +2,7 @@ import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import dayjs from 'dayjs';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Alert, Platform, Share} from 'react-native';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
@@ -55,7 +56,7 @@ const SessionModal = () => {
   } = useRoute<RouteProp<RootStackProps, 'SessionModal'>>();
   const {t} = useTranslation(NS.COMPONENT.SESSION_MODAL);
   const user = useRecoilValue(userAtom);
-  const navigation = useNavigation();
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackProps>>();
   const {deleteSession} = useSessions();
   const addToCalendar = useAddToCalendar();
   const exercise = useExerciseById(session?.contentId);
@@ -63,10 +64,26 @@ const SessionModal = () => {
     useSessionNotificationReminder(session);
 
   const startTime = dayjs(session.startTime);
+  const startingNow = dayjs().isAfter(startTime.subtract(10, 'minutes'));
+
+  const onStartingNow = () => {
+    navigation.goBack();
+    navigation.navigate('SessionStack', {
+      screen: 'ChangingRoom',
+      params: {
+        sessionId: session.id,
+      },
+    });
+  };
 
   if (!session || !exercise) {
     return null;
   }
+
+  const onPress = () =>
+    startingNow
+      ? onStartingNow()
+      : addToCalendar(exercise.name, startTime, startTime.add(30, 'minutes'));
 
   const onShare = () => {
     if (session.link) {
@@ -110,16 +127,10 @@ const SessionModal = () => {
       <BottomContent>
         <Button
           small
-          LeftIcon={PlusIcon}
-          variant="secondary"
-          onPress={() =>
-            addToCalendar(
-              exercise.name,
-              startTime,
-              startTime.add(30, 'minutes'),
-            )
-          }>
-          {t('addToCalendar')}
+          LeftIcon={!startingNow ? PlusIcon : undefined}
+          variant={startingNow ? 'primary' : 'secondary'}
+          onPress={onPress}>
+          {startingNow ? t('join') : t('addToCalendar')}
         </Button>
         <Spacer8 />
         <Button

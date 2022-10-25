@@ -207,6 +207,7 @@ const ChangingRoom = () => {
               autoCapitalize="words"
               autoCorrect={false}
               maxLength={20}
+              placeholder={t('placeholder')}
             />
             <Spacer28 />
             <Button

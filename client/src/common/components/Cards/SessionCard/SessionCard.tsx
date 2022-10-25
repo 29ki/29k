@@ -62,11 +62,12 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
     <Card
       title={exercise?.name}
       buttonText={startingNow ? t('join') : t('addToCalendar')}
-      ButtonIcon={PlusIcon}
+      ButtonIcon={!startingNow ? PlusIcon : undefined}
       image={{
         uri: exercise?.card?.image?.source,
       }}
-      onPress={onPress}
+      onPress={onContextPress}
+      onButtonPress={onPress}
       onContextPress={onContextPress}
       Icon={reminderEnabled ? BellIcon : undefined}>
       <Row>

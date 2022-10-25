@@ -39,6 +39,8 @@ const getSession = (session: SessionData): Session => ({
   ...session,
   exerciseState: getSessionExerciseState(session.exerciseState),
   startTime: session.startTime.toDate().toISOString(),
+  createdAt: session.createdAt.toDate().toISOString(),
+  updatedAt: session.updatedAt.toDate().toISOString(),
 });
 
 const SESSIONS_COLLECTION = 'sessions';
@@ -84,9 +86,13 @@ export const addSession = async ({
   startTime,
   type,
   link,
-}: Omit<Session, 'exerciseState' | 'ended' | 'started' | 'userIds'> & {
+}: Omit<
+  Session,
+  'exerciseState' | 'ended' | 'started' | 'userIds' | 'createdAt' | 'updatedAt'
+> & {
   dailyRoomName: string;
 }) => {
+  const now = Timestamp.now();
   const session = {
     id,
     url,
@@ -101,6 +107,8 @@ export const addSession = async ({
     userIds: type === SessionType.private ? [facilitator] : ['all'],
     started: false,
     ended: false,
+    createdAt: now,
+    updatedAt: now,
   };
 
   const sessionDoc = firestore().collection(SESSIONS_COLLECTION).doc(id);
@@ -116,7 +124,10 @@ export const updateSession = async (
   id: Session['id'],
   data: Partial<Session>,
 ) => {
-  await firestore().collection(SESSIONS_COLLECTION).doc(id).update(data);
+  await firestore()
+    .collection(SESSIONS_COLLECTION)
+    .doc(id)
+    .update({...data, updatedAt: Timestamp.now()});
 };
 
 export const updateExerciseState = async (
@@ -131,6 +142,9 @@ export const updateExerciseState = async (
       ...data,
       timestamp: Timestamp.now(),
     });
-    await transaction.update(sessionDocRef, {exerciseState});
+    await transaction.update(sessionDocRef, {
+      exerciseState,
+      updatedAt: Timestamp.now(),
+    });
   });
 };
