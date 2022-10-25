@@ -1,7 +1,7 @@
 import Router from '@koa/router';
 import {DefaultState} from 'koa';
 import {FirebaseAuthContext} from '../api/lib/firebaseAuth';
-import {I18nContext} from '../api/lib/i18nResolver';
+import {LanguageContext} from '../api/lib/languageResolver';
 
 export const createRouter = () =>
-  new Router<DefaultState, I18nContext & FirebaseAuthContext>();
+  new Router<DefaultState, LanguageContext & FirebaseAuthContext>();

@@ -14,7 +14,7 @@
     "shell": "yarn build && firebase functions:shell",
     "start:remote": "yarn build && firebase emulators:start",
     "start": "yarn build && firebase emulators:start --project demo-29k-cupcake --import emulatorSeed --export-on-exit",
-    "test:jest": "jest",
+    "test:jest": "TZ=UTC jest",
     "test:lint": "eslint --ext .js,.ts",
     "test:ts": "tsc --noEmit",
     "test": "yarn build:content && yarn test:ts && yarn test:lint && yarn test:jest"

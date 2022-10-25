@@ -1,0 +1,11 @@
+{
+  "en": {
+    "title": "Session: {{name}}",
+    "description": "{{date}} in the 29k app"
+  },
+  "sv": {
+    "title": "Session: {{name}}",
+    "description": "{{date}} i 29k-appen"
+  },
+  "pt": {}
+}

@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
-import dayjs from 'dayjs';
 import {ScrollView} from 'react-native-gesture-handler';
 
 import Button from '../../common/components/Buttons/Button';
@@ -54,7 +53,6 @@ const Profile = () => {
                   key={languageTag}
                   onPress={() => {
                     i18n.changeLanguage(languageTag);
-                    dayjs.locale(languageTag);
                   }}>
                   {languageTag.toUpperCase()}
                 </Button>

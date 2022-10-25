@@ -1,5 +1,5 @@
 const mockDynamicLinks = {
-  createDynamicLink: jest.fn().mockResolvedValue('http://some.dynamic/link'),
+  createSessionLink: jest.fn().mockResolvedValue('http://some.dynamic/link'),
 };
 const mockDailyApi = {
   createRoom: jest.fn(() => ({
@@ -21,7 +21,7 @@ import {SessionType} from '../../../shared/src/types/Session';
 import dayjs from 'dayjs';
 
 jest.mock('../lib/dailyApi', () => mockDailyApi);
-jest.mock('../lib/dynamicLinks', () => mockDynamicLinks);
+jest.mock('../models/dynamicLinks', () => mockDynamicLinks);
 jest.mock('../models/session');
 
 const mockAddSession = sessionModel.addSession as jest.Mock;
@@ -43,6 +43,7 @@ describe('sessions - conroller', () => {
         contentId: 'some-content-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+        language: 'some-language',
       });
 
       const expireDate = dayjs('2022-10-10T12:00:00.000Z');
@@ -54,9 +55,13 @@ describe('sessions - conroller', () => {
         contentId: 'some-content-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+        language: 'some-language',
       });
-      expect(mockDynamicLinks.createDynamicLink).toHaveBeenCalledWith(
-        'sessions/some-fake-daily-id',
+      expect(mockDynamicLinks.createSessionLink).toHaveBeenCalledWith(
+        'some-fake-daily-id',
+        'some-content-id',
+        '2022-10-10T10:00:00.000Z',
+        'some-language',
       );
     });
 
@@ -66,10 +71,12 @@ describe('sessions - conroller', () => {
         contentId: 'some-content-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+        language: 'some-language',
       });
 
       expect(mockAddSession).toHaveBeenCalledWith({
         contentId: 'some-content-id',
+        language: 'some-language',
         dailyRoomName: 'some-fake-daily-room-name',
         facilitator: 'some-user-id',
         id: 'some-fake-daily-id',
