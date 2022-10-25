@@ -1,7 +1,7 @@
-import {cerateSlackRouter} from '../../lib/routers';
+import {createSlackRouter} from '../../lib/routers';
 import {slackHandler} from '../controllers/slack';
 
-const slackRouter = cerateSlackRouter();
+const slackRouter = createSlackRouter();
 
 slackRouter.post('/', async ctx => {
   try {

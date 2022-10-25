@@ -2,14 +2,14 @@ import request from 'supertest';
 import Koa from 'koa';
 import {slackRouter} from '.';
 import createMockServer from '../../api/lib/createMockServer';
-import {cerateSlackRouter} from '../../lib/routers';
+import {createSlackRouter} from '../../lib/routers';
 import {slackHandler} from '../controllers/slack';
 import {SlackContext} from '../lib/verifySlackRequest';
 
 jest.mock('../controllers/slack');
 const mockPublicHostAction = slackHandler as jest.Mock;
 
-const router = cerateSlackRouter();
+const router = createSlackRouter();
 router.use('/slack', slackRouter.routes());
 const mockServer = createMockServer(
   async (ctx: SlackContext, next: Koa.Next) => {

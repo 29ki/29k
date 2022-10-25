@@ -7,4 +7,4 @@ import {SlackContext} from '../slack/lib/verifySlackRequest';
 export const createRouter = () =>
   new Router<DefaultState, LanguageContext & FirebaseAuthContext>();
 
-export const cerateSlackRouter = () => new Router<DefaultState, SlackContext>();
+export const createSlackRouter = () => new Router<DefaultState, SlackContext>();
