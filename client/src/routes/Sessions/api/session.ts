@@ -3,14 +3,19 @@ import apiClient from '../../../lib/apiClient/apiClient';
 
 const SESSIONS_ENDPOINT = '/sessions';
 
-export const addSession = async (
-  contentId: Session['contentId'],
-  startTime: Session['startTime'],
-): Promise<Session> => {
+export const addSession = async ({
+  contentId,
+  type,
+  startTime,
+}: {
+  contentId: Session['contentId'];
+  type: Session['type'];
+  startTime: Session['startTime'];
+}): Promise<Session> => {
   try {
     const response = await apiClient(SESSIONS_ENDPOINT, {
       method: 'POST',
-      body: JSON.stringify({contentId, startTime}),
+      body: JSON.stringify({contentId, type, startTime}),
     });
 
     if (!response.ok) {

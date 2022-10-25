@@ -19,8 +19,20 @@ const useSessions = () => {
   }, [setIsLoading, setSessions]);
 
   const addSession = useCallback(
-    async (contentId: Session['contentId'], startTime: dayjs.Dayjs) => {
-      await sessionApi.addSession(contentId, startTime.toJSON());
+    async ({
+      contentId,
+      type,
+      startTime,
+    }: {
+      contentId: Session['contentId'];
+      type: Session['type'];
+      startTime: dayjs.Dayjs;
+    }) => {
+      await sessionApi.addSession({
+        contentId,
+        type,
+        startTime: startTime.toJSON(),
+      });
       fetchSessions();
     },
     [fetchSessions],

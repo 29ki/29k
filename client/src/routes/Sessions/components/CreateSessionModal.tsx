@@ -5,10 +5,16 @@ import {useTranslation} from 'react-i18next';
 import {FlatList} from 'react-native-gesture-handler';
 import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
+
+import NS from '../../../lib/i18n/constants/namespaces';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
+import {SessionType} from '../../../../../shared/src/types/Session';
+
+import useExerciseById from '../../../lib/content/hooks/useExerciseById';
+import useExerciseIds from '../../../lib/content/hooks/useExerciseIds';
+import useSessions from '../hooks/useSessions';
 
 import Button from '../../../common/components/Buttons/Button';
-
 import Gutters from '../../../common/components/Gutters/Gutters';
 import Image from '../../../common/components/Image/Image';
 import HalfModal from '../../../common/components/Modals/HalfModal';
@@ -27,11 +33,7 @@ import {Heading16} from '../../../common/components/Typography/Heading/Heading';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import SETTINGS from '../../../common/constants/settings';
 import {SPACINGS} from '../../../common/constants/spacings';
-import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import useExerciseIds from '../../../lib/content/hooks/useExerciseIds';
-import NS from '../../../lib/i18n/constants/namespaces';
-import useSessions from '../hooks/useSessions';
-
+import {Body16} from '../../../common/components/Typography/Body/Body';
 import DateTimePicker from './DateTimePicker';
 
 const Row = styled.View({
@@ -55,7 +57,6 @@ const Card = styled(TouchableOpacity)({
 });
 
 const CardImageWrapper = styled.View({
-  flex: 1,
   width: 80,
   height: 80,
 });
@@ -78,6 +79,11 @@ const Step = styled(Animated.View).attrs({
 
 const Cta = styled(Button)({alignSelf: 'center'});
 
+const TypeWrapper = styled(TouchableOpacity)({
+  alignItems: 'center',
+  flex: 1,
+});
+
 const ContentCard: React.FC<{
   exerciseId: Exercise['id'];
   onPress: () => void;
@@ -98,7 +104,7 @@ const ContentCard: React.FC<{
 };
 
 const SelectContent: React.FC<StepProps> = ({
-  setCurrentStep,
+  nextStep,
   setSelectedExercise,
 }) => {
   const exerciseIds = useExerciseIds();
@@ -122,7 +128,7 @@ const SelectContent: React.FC<StepProps> = ({
           <ContentCard
             onPress={() => {
               setSelectedExercise(item);
-              setCurrentStep(1);
+              nextStep();
             }}
             exerciseId={item}
           />
@@ -133,7 +139,60 @@ const SelectContent: React.FC<StepProps> = ({
   );
 };
 
-const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
+const TypeItem: React.FC<{
+  icon: string;
+  label: string;
+  onPress: () => void;
+}> = ({icon, label, onPress = () => {}}) => (
+  <TypeWrapper onPress={onPress}>
+    <CardImageWrapper>
+      <Image source={{uri: icon}} />
+    </CardImageWrapper>
+    <Body16>{label}</Body16>
+  </TypeWrapper>
+);
+
+const SelectType: React.FC<StepProps> = ({
+  selectedExercise,
+  setSelectedType,
+  nextStep,
+}) => {
+  const exercise = useExerciseById(selectedExercise);
+  const {t} = useTranslation(NS.COMPONENT.CREATE_SESSION_MODAL);
+
+  return (
+    <Step>
+      <Spacer8 />
+      <Row>
+        <TextWrapper>
+          <Display24>{exercise?.name}</Display24>
+        </TextWrapper>
+        <Spacer16 />
+        <CardImageWrapper>
+          <Image source={{uri: exercise?.card?.image?.source}} />
+        </CardImageWrapper>
+      </Row>
+      <Spacer28 />
+      <StepHeading>{t('selectType.title')}</StepHeading>
+      <Spacer16 />
+      <Row>
+        {Object.values(SessionType).map(type => (
+          <TypeItem
+            key={type}
+            onPress={() => {
+              setSelectedType(type);
+              nextStep();
+            }}
+            label={t(`selectType.${type}.title`)}
+            icon={t(`selectType.${type}.icon`)}
+          />
+        ))}
+      </Row>
+    </Step>
+  );
+};
+
+const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
   const {t} = useTranslation(NS.COMPONENT.CREATE_SESSION_MODAL);
   const {goBack} = useNavigation();
   const [isLoading, setIsLoading] = useState(false);
@@ -143,11 +202,15 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
   const exercise = useExerciseById(selectedExercise);
 
   const onSubmit = async () => {
-    if (selectedExercise && date && time) {
+    if (selectedExercise && selectedType && date && time) {
       const sessionDateTime = date.hour(time.hour()).minute(time.minute());
 
       setIsLoading(true);
-      await addSession(selectedExercise, sessionDateTime);
+      await addSession({
+        contentId: selectedExercise,
+        type: selectedType,
+        startTime: sessionDateTime,
+      });
       setIsLoading(false);
       goBack();
     }
@@ -187,25 +250,28 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise}) => {
 type StepProps = {
   selectedExercise: Exercise['id'] | undefined;
   setSelectedExercise: Dispatch<SetStateAction<StepProps['selectedExercise']>>;
-  currentStep: number;
-  setCurrentStep: Dispatch<SetStateAction<StepProps['currentStep']>>;
+  nextStep: () => void;
+  selectedType: SessionType | undefined;
+  setSelectedType: Dispatch<SetStateAction<StepProps['selectedType']>>;
 };
 
-const steps = [SelectContent, SetDateTime];
+const steps = [SelectContent, SelectType, SetDateTime];
 
 const CreateSessionModal = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedExercise, setSelectedExercise] = useState<
     Exercise['id'] | undefined
   >();
+  const [selectedType, setSelectedType] = useState<SessionType | undefined>();
 
   const CurrentStepComponent: React.FC<StepProps> = steps[currentStep];
 
   const stepProps: StepProps = {
     selectedExercise,
     setSelectedExercise,
-    currentStep,
-    setCurrentStep,
+    selectedType,
+    setSelectedType,
+    nextStep: () => setCurrentStep(currentStep + 1),
   };
 
   return (
