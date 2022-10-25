@@ -10,9 +10,11 @@ export type ExerciseStateInput = Omit<ExerciseState, 'timestamp'> & {
   timestamp: Timestamp;
 };
 
-export type SessionInput = Omit<Omit<Session, 'exerciseState'>, 'startTime'> & {
+export type SessionInput = Omit<Session, 'exerciseState' | 'startTime'> & {
   exerciseState: ExerciseStateInput;
   startTime: Timestamp;
+  createdAt: Timestamp;
+  updatedAt: Timestamp;
 };
 
 // Data stored in DB
@@ -41,6 +43,8 @@ export type Session = {
   ended: boolean;
   type: SessionType;
   userIds: string[];
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type DailyUserData = {
