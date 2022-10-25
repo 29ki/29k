@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import {createDynamicLink} from '../lib/dynamicLinks';
+import {createSessionLink} from '../models/dynamicLinks';
 import * as sessionModel from '../models/session';
 import * as dailyApi from '../lib/dailyApi';
 import {Session} from '../../../shared/src/types/Session';
@@ -16,7 +16,12 @@ export const createSession = async (
   }: Pick<Session, 'contentId' | 'type' | 'startTime' | 'language'>,
 ) => {
   const dailyRoom = await dailyApi.createRoom(dayjs(startTime).add(2, 'hour'));
-  const link = await createDynamicLink(`sessions/${dailyRoom.id}`);
+  const link = await createSessionLink(
+    dailyRoom.id,
+    contentId,
+    startTime,
+    language,
+  );
 
   return sessionModel.addSession({
     id: dailyRoom.id,

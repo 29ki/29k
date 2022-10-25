@@ -2,7 +2,10 @@ import {
   firebasedynamiclinks,
   type firebasedynamiclinks_v1,
 } from '@googleapis/firebasedynamiclinks';
-import config from './config';
+import config from '../lib/config';
+import i18next from '../lib/i18n';
+import type {Exercise} from '../../../shared/src/types/generated/Exercise';
+import dayjs from 'dayjs';
 
 const dynamicLinks = firebasedynamiclinks('v1');
 
@@ -36,7 +39,7 @@ export const createDynamicLink = async (
             iosAppStoreId: DEEP_LINK_IOS_APPSTORE_ID,
           },
           navigationInfo: {
-            enableForcedRedirect: true,
+            enableForcedRedirect: false,
           },
           socialMetaTagInfo,
         },
@@ -47,4 +50,31 @@ export const createDynamicLink = async (
   } catch (cause) {
     throw new Error('Failed creating dynamic link', {cause});
   }
+};
+
+export const createSessionLink = async (
+  sessionId: string,
+  contentId: string,
+  startTime: string,
+  language: string,
+) => {
+  const {name, card} = i18next.t(contentId, {
+    lng: language,
+    ns: 'exercises',
+    returnObjects: true,
+  }) as Exercise;
+
+  const t = i18next.getFixedT(language, 'DeepLink.Session');
+
+  const date = dayjs(startTime).locale(language).format('dddd, D MMM HH:mm');
+
+  const socialImageLink = card?.image?.source;
+  const socialTitle = t('title', {name}) as string;
+  const socialDescription = t('description', {date}) as string;
+
+  return createDynamicLink(`sessions/${sessionId}`, {
+    socialImageLink,
+    socialTitle,
+    socialDescription,
+  });
 };
