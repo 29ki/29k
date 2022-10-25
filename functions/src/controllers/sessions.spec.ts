@@ -43,6 +43,7 @@ describe('sessions - conroller', () => {
         contentId: 'some-content-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+        language: 'some-language',
       });
 
       const expireDate = dayjs('2022-10-10T12:00:00.000Z');
@@ -54,6 +55,7 @@ describe('sessions - conroller', () => {
         contentId: 'some-content-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+        language: 'some-language',
       });
       expect(mockDynamicLinks.createDynamicLink).toHaveBeenCalledWith(
         'sessions/some-fake-daily-id',
@@ -66,10 +68,12 @@ describe('sessions - conroller', () => {
         contentId: 'some-content-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+        language: 'some-language',
       });
 
       expect(mockAddSession).toHaveBeenCalledWith({
         contentId: 'some-content-id',
+        language: 'some-language',
         dailyRoomName: 'some-fake-daily-room-name',
         facilitator: 'some-user-id',
         id: 'some-fake-daily-id',

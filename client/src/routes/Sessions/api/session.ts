@@ -7,15 +7,17 @@ export const addSession = async ({
   contentId,
   type,
   startTime,
+  language,
 }: {
   contentId: Session['contentId'];
   type: Session['type'];
   startTime: Session['startTime'];
+  language: Session['language'];
 }): Promise<Session> => {
   try {
     const response = await apiClient(SESSIONS_ENDPOINT, {
       method: 'POST',
-      body: JSON.stringify({contentId, type, startTime}),
+      body: JSON.stringify({contentId, type, startTime, language}),
     });
 
     if (!response.ok) {

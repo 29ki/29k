@@ -31,6 +31,7 @@ export type ExerciseState = {
 export type Session = {
   id: string;
   url: string;
+  language: string;
   link?: string;
   exerciseState: ExerciseState;
   contentId: string;

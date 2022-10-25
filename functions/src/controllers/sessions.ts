@@ -12,7 +12,8 @@ export const createSession = async (
     contentId,
     type,
     startTime,
-  }: Pick<Session, 'contentId' | 'type' | 'startTime'>,
+    language,
+  }: Pick<Session, 'contentId' | 'type' | 'startTime' | 'language'>,
 ) => {
   const dailyRoom = await dailyApi.createRoom(dayjs(startTime).add(2, 'hour'));
   const link = await createDynamicLink(`sessions/${dailyRoom.id}`);
@@ -21,6 +22,7 @@ export const createSession = async (
     id: dailyRoom.id,
     dailyRoomName: dailyRoom.name,
     url: dailyRoom.url,
+    language,
     contentId,
     link,
     type,

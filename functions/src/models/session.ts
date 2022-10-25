@@ -77,6 +77,7 @@ export const getSessions = async (userId: string) => {
 export const addSession = async ({
   id,
   url,
+  language,
   contentId,
   facilitator,
   dailyRoomName,
@@ -89,6 +90,7 @@ export const addSession = async ({
   const session = {
     id,
     url,
+    language,
     contentId,
     facilitator,
     dailyRoomName,

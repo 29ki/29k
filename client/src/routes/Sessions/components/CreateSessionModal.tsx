@@ -193,7 +193,7 @@ const SelectType: React.FC<StepProps> = ({
 };
 
 const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
-  const {t} = useTranslation(NS.COMPONENT.CREATE_SESSION_MODAL);
+  const {t, i18n} = useTranslation(NS.COMPONENT.CREATE_SESSION_MODAL);
   const {goBack} = useNavigation();
   const [isLoading, setIsLoading] = useState(false);
   const [date, setDate] = useState<dayjs.Dayjs | undefined>();
@@ -210,6 +210,7 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
         contentId: selectedExercise,
         type: selectedType,
         startTime: sessionDateTime,
+        language: i18n.resolvedLanguage,
       });
       setIsLoading(false);
       goBack();
