@@ -1,4 +1,5 @@
 import type {Timestamp} from 'firebase-admin/firestore';
+import {LANGUAGE_TAG} from '../constants/i18n';
 
 export enum SessionType {
   public = 'public',
@@ -33,7 +34,7 @@ export type ExerciseState = {
 export type Session = {
   id: string;
   url: string;
-  language: string;
+  language: LANGUAGE_TAG;
   link?: string;
   exerciseState: ExerciseState;
   contentId: string;
