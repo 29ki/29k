@@ -32,7 +32,7 @@ import {DailyContext} from './DailyProvider';
 import {localParticipantSelector, sessionAtom} from './state/state';
 import {SessionStackProps} from '../../common/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
-import NS from '../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../shared/src/constants/namespaces';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
 import AudioIndicator from './components/Participants/AudioIdicator';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';

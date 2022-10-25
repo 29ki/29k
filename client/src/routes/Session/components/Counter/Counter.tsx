@@ -3,7 +3,7 @@ import {useTranslation} from 'react-i18next';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 
-import NS from '../../../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../../../shared/src/constants/namespaces';
 
 dayjs.extend(duration);
 

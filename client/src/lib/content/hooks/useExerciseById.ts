@@ -1,7 +1,7 @@
 import {useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import NS from '../../i18n/constants/namespaces';
+import * as NS from '../../../../../shared/src/constants/namespaces';
 
 const useExerciseById = (id: string | undefined): Exercise | null => {
   const {t} = useTranslation(NS.EXERCISES);

@@ -11,7 +11,7 @@ import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
 import {Spacer16} from '../../../common/components/Spacers/Spacer';
 import {useTranslation} from 'react-i18next';
-import NS from '../../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../../shared/src/constants/namespaces';
 
 const RowWrapper = styled.View({});
 

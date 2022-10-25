@@ -6,7 +6,7 @@ import {FlatList} from 'react-native-gesture-handler';
 import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
 
-import NS from '../../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../../shared/src/constants/namespaces';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {SessionType} from '../../../../../shared/src/types/Session';
 

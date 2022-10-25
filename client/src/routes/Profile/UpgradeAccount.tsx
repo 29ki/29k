@@ -6,7 +6,7 @@ import auth from '@react-native-firebase/auth';
 import Button from '../../common/components/Buttons/Button';
 import {Spacer16} from '../../common/components/Spacers/Spacer';
 import Input from '../../common/components/Typography/TextInput/TextInput';
-import NS from '../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../shared/src/constants/namespaces';
 import {Body16} from '../../common/components/Typography/Body/Body';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {useNavigation} from '@react-navigation/native';

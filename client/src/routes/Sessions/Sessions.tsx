@@ -12,7 +12,7 @@ import useSessions from './hooks/useSessions';
 
 import {Session} from '../../../../shared/src/types/Session';
 
-import NS from '../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../shared/src/constants/namespaces';
 import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {ModalStackProps} from '../../common/constants/routes';
