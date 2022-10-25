@@ -42,6 +42,13 @@ const styles = StyleSheet.create({
     marginBottom: 25,
     backgroundColor: COLORS.GREYDARK,
   },
+  code_inline: {
+    ...baseStyles.Body16,
+    padding: 0,
+    borderWidth: 0,
+    backgroundColor: 'transparent',
+    flexDirection: 'row',
+  },
 });
 
 export default styles;
