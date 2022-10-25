@@ -134,4 +134,21 @@ sessionsRouter.put(
   },
 );
 
+const JoinSessionSchema = yup.object({
+  inviteCode: yup.string().required(),
+});
+
+export type JoinSession = yup.InferType<typeof JoinSessionSchema>;
+
+sessionsRouter.put(
+  '/joinSession',
+  validator({body: JoinSessionSchema}),
+  async ctx => {
+    const {inviteCode} = ctx.request.body as JoinSession;
+    const {user} = ctx;
+
+    ctx.body = await sessionControler.joinSession(user.id, inviteCode);
+  },
+);
+
 export {sessionsRouter};

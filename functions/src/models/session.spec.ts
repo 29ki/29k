@@ -26,6 +26,7 @@ import {
   addSession,
   deleteSession,
   getSessionById,
+  getSessionByInviteCode,
   getSessions,
   updateExerciseState,
   updateSession,
@@ -107,6 +108,17 @@ describe('session model', () => {
     it('should return undefined if no session is found', async () => {
       const session = await getSessionById('some-non-existing-session-id');
       expect(session).toBe(undefined);
+    });
+  });
+
+  describe('getSessionByInviteCode', () => {
+    it('should get a session by its invite', async () => {
+      await getSessionByInviteCode('some-session-invite-code');
+      expect(mockWhere).toHaveBeenCalledWith(
+        'inviteCode',
+        '==',
+        'some-session-invite-code',
+      );
     });
   });
 
@@ -245,6 +257,7 @@ describe('session model', () => {
         type: 'private',
         url: 'daily-url',
         userIds: ['some-user-id'],
+        inviteCode: expect.any(Number),
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -378,7 +391,7 @@ describe('session model', () => {
     });
   });
 
-  describe('DELETE', () => {
+  describe('deleteSession', () => {
     it('should delete and confirm on response', async () => {
       await deleteSession('some-session-id');
 

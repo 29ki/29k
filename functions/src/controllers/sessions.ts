@@ -61,9 +61,7 @@ export const updateSession = async (
   sessionId: Session['id'],
   data: Partial<UpdateSession>,
 ) => {
-  const session = (await sessionModel.getSessionById(sessionId)) as Session & {
-    dailyRoomName: string;
-  };
+  const session = (await sessionModel.getSessionById(sessionId)) as Session;
 
   if (userId !== session?.facilitator) {
     throw new Error('user-unauthorized');
@@ -78,9 +76,7 @@ export const updateExerciseState = async (
   sessionId: Session['id'],
   data: Partial<ExerciseStateUpdate>,
 ) => {
-  const session = (await sessionModel.getSessionById(sessionId)) as Session & {
-    dailyRoomName: string;
-  };
+  const session = (await sessionModel.getSessionById(sessionId)) as Session;
 
   if (!session) {
     throw new Error('session-not-found');
@@ -92,4 +88,18 @@ export const updateExerciseState = async (
 
   await sessionModel.updateExerciseState(sessionId, removeEmpty(data));
   return sessionModel.getSessionById(sessionId);
+};
+
+export const joinSession = async (
+  userId: string,
+  inviteCode: Session['inviteCode'],
+) => {
+  const session = (await sessionModel.getSessionByInviteCode(
+    inviteCode,
+  )) as Session;
+
+  await sessionModel.updateSession(session.id, {
+    userIds: [...session.userIds, userId],
+  });
+  return sessionModel.getSessionById(session.id);
 };

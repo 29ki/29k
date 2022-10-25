@@ -15,7 +15,7 @@ import {
   SessionType,
 } from '../../../shared/src/types/Session';
 import {ExerciseStateUpdate} from '../api/sessions';
-import {removeEmpty} from '../lib/utils';
+import {generateVerificationCode, removeEmpty} from '../lib/utils';
 
 const defaultExerciseState = {
   index: 0,
@@ -58,6 +58,21 @@ export const getSessionById = async (id: Session['id']) => {
   return getSession(getData<SessionData>(sessionDoc));
 };
 
+export const getSessionByInviteCode = async (
+  inviteCode: Session['inviteCode'],
+) => {
+  const result = await firestore()
+    .collection(SESSIONS_COLLECTION)
+    .where('inviteCode', '==', inviteCode)
+    .get();
+
+  if (!result.docs.length) {
+    return;
+  }
+
+  return getSession(getData<SessionData>(result.docs[0]));
+};
+
 export const getSessions = async (userId: string) => {
   const sessionsCollection = firestore().collection(SESSIONS_COLLECTION);
   const snapshot = await sessionsCollection
@@ -88,7 +103,13 @@ export const addSession = async ({
   link,
 }: Omit<
   Session,
-  'exerciseState' | 'ended' | 'started' | 'userIds' | 'createdAt' | 'updatedAt'
+  | 'exerciseState'
+  | 'ended'
+  | 'started'
+  | 'userIds'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'inviteCode'
 > & {
   dailyRoomName: string;
 }) => {
@@ -107,6 +128,8 @@ export const addSession = async ({
     userIds: type === SessionType.private ? [facilitator] : ['all'],
     started: false,
     ended: false,
+    inviteCode:
+      type === SessionType.private ? generateVerificationCode() : undefined,
     createdAt: now,
     updatedAt: now,
   };
