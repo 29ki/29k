@@ -1,4 +1,3 @@
-import {Timestamp} from 'firebase-admin/firestore';
 import {getAuth} from 'firebase-admin/auth';
 import {mockFirebase} from 'firestore-jest-mock';
 
@@ -71,7 +70,7 @@ describe('requests - conroller', () => {
       mockGetPublicHostRequestByUserId.mockResolvedValueOnce({
         userId: 'some-user-id',
         verificationCode: 123456,
-        expires: Timestamp.fromDate(new Date('2022-10-10T10:00:00Z')),
+        status: 'accepted',
       });
       (getAuth().getUser as jest.Mock).mockReturnValueOnce({
         email: 'test@test.com',
@@ -110,7 +109,7 @@ describe('requests - conroller', () => {
       );
     });
 
-    it('should return 404 if request not found', async () => {
+    it('should throw error if request was not found', async () => {
       mockGetPublicHostRequestByUserId.mockResolvedValueOnce(null);
 
       try {
@@ -124,7 +123,7 @@ describe('requests - conroller', () => {
       );
     });
 
-    it('should return 410 if request was declined', async () => {
+    it('should not validate requests that where declined', async () => {
       mockGetPublicHostRequestByUserId.mockResolvedValueOnce({
         userId: 'some-user-id',
         status: 'declined',
@@ -141,11 +140,28 @@ describe('requests - conroller', () => {
       );
     });
 
-    it('should return 404 if verificationCode does not match', async () => {
+    it('should not validate request that was already used', async () => {
+      mockGetPublicHostRequestByUserId.mockResolvedValueOnce({
+        userId: 'some-user-id',
+        status: 'verified',
+      });
+
+      try {
+        await verifyPublicHostRequest('some-user-id', 123456);
+      } catch (error) {
+        expect(error).toEqual(new RequestError('verification-already-used'));
+      }
+
+      expect(getAuth().setCustomUserClaims as jest.Mock).toHaveBeenCalledTimes(
+        0,
+      );
+    });
+
+    it('should throw error indicatint validation failed', async () => {
       mockGetPublicHostRequestByUserId.mockResolvedValueOnce({
         userId: 'some-user-id',
         verificationCode: 123456,
-        expires: Timestamp.fromDate(new Date('2022-10-10T10:00:00Z')),
+        status: 'accepted',
       });
 
       try {
