@@ -43,11 +43,14 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.GREYDARK,
   },
   code_inline: {
-    ...baseStyles.Body16,
     padding: 0,
     borderWidth: 0,
+    borderRadius: 0,
     backgroundColor: 'transparent',
     flexDirection: 'row',
+  },
+  code_inline_text: {
+    flexShrink: 1,
   },
 });
 

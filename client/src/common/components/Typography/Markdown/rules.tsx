@@ -7,6 +7,7 @@ import {SPACINGS} from '../../../constants/spacings';
 import {InfoIcon} from '../../Icons';
 
 import {Spacer16} from '../../Spacers/Spacer';
+import {Body16} from '../Body/Body';
 
 const IconWrapper = styled.View({
   width: 21,
@@ -45,13 +46,14 @@ const rules: RenderRules = {
       <Spacer16 />
     </Fragment>
   ),
+
   code_inline: (node, children, parent, styles) => (
     <Fragment key={node.key}>
       <View style={styles.code_inline}>
         <IconWrapper>
           <InfoIcon fill={COLORS.PRIMARY} />
         </IconWrapper>
-        {children}
+        <Body16 style={styles.code_inline_text}>{node.content}</Body16>
       </View>
       <Spacer16 />
     </Fragment>
