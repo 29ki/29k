@@ -1,6 +1,3 @@
-/*
-In abscense of a good i18next koa middleware
-*/
 import {Context, Next} from 'koa';
 import {DEFAULT_LANGUAGE_TAG, LANGUAGE_TAGS} from '../../lib/i18n';
 
