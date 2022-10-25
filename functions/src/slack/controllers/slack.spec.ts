@@ -1,12 +1,12 @@
 import {getAuth} from 'firebase-admin/auth';
-import {updatePublicHostRequest} from '../models/publicHostRequests';
-import {RequestAction} from '../lib/constants/requestAction';
-import {updatePublicHostRequestMessage, parseMessage} from '../lib/slack';
-import {publicHostAction} from './slack';
-import {SlackError} from './errors/SlackError';
+import {updatePublicHostRequest} from '../../models/publicHostRequests';
+import {RequestAction} from '../../lib/constants/requestAction';
+import {updatePublicHostRequestMessage, parseMessage} from '../../lib/slack';
+import {slackHandler} from './slack';
+import {SlackError} from '../../controllers/errors/SlackError';
 
-jest.mock('../lib/slack');
-jest.mock('../models/publicHostRequests');
+jest.mock('../../lib/slack');
+jest.mock('../../models/publicHostRequests');
 
 const mockUpdatePublicHostRequestMessage =
   updatePublicHostRequestMessage as jest.Mock;
@@ -32,7 +32,7 @@ describe('slack', () => {
         uid: 'some-user-id',
       });
 
-      await publicHostAction(JSON.stringify({payload: 'some-payload'}));
+      await slackHandler(JSON.stringify({payload: 'some-payload'}));
 
       expect(mockUpdatePublicHostRequest).toHaveBeenLastCalledWith(
         'some-user-id',
@@ -60,7 +60,7 @@ describe('slack', () => {
         uid: 'some-user-id',
       });
 
-      await publicHostAction(JSON.stringify({payload: 'some-payload'}));
+      await slackHandler(JSON.stringify({payload: 'some-payload'}));
 
       expect(mockUpdatePublicHostRequest).toHaveBeenLastCalledWith(
         'some-user-id',
@@ -80,7 +80,7 @@ describe('slack', () => {
       });
 
       try {
-        await publicHostAction('invalid-json');
+        await slackHandler('invalid-json');
       } catch (error) {
         expect(error).toEqual(new SlackError('could-not-parse-message'));
       }
@@ -98,7 +98,7 @@ describe('slack', () => {
       });
 
       try {
-        await publicHostAction(JSON.stringify({}));
+        await slackHandler(JSON.stringify({}));
       } catch (error) {
         expect(error).toEqual(new SlackError('could-not-parse-message'));
       }
@@ -119,7 +119,7 @@ describe('slack', () => {
       });
 
       try {
-        await publicHostAction(JSON.stringify({payload: 'some-payload'}));
+        await slackHandler(JSON.stringify({payload: 'some-payload'}));
       } catch (error) {
         expect(error).toEqual(new SlackError('user-not-found'));
       }

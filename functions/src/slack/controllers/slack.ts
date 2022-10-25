@@ -1,13 +1,13 @@
 import {getAuth} from 'firebase-admin/auth';
-import {RequestAction} from '../lib/constants/requestAction';
+import {SlackError} from '../../controllers/errors/SlackError';
+import {RequestAction} from '../../lib/constants/requestAction';
 import {
   parseMessage,
   SlackPayload,
   updatePublicHostRequestMessage,
-} from '../lib/slack';
-import {generateVerificationCode} from '../lib/utils';
-import {updatePublicHostRequest} from '../models/publicHostRequests';
-import {SlackError} from './errors/SlackError';
+} from '../../lib/slack';
+import {generateVerificationCode} from '../../lib/utils';
+import {updatePublicHostRequest} from '../../models/publicHostRequests';
 
 const parseMessageOrThrow = (slackPayload: string) => {
   try {
@@ -17,7 +17,7 @@ const parseMessageOrThrow = (slackPayload: string) => {
   }
 };
 
-export const publicHostAction = async (slackPayload: string) => {
+export const slackHandler = async (slackPayload: string) => {
   const [channelId, ts, action_id, userId] = parseMessageOrThrow(slackPayload);
 
   const user = await getAuth().getUser(userId);

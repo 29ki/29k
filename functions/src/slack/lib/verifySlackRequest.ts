@@ -4,12 +4,12 @@ import config from '../../lib/config';
 
 const {SLACK_SIGNING_SECRET} = config;
 
-export type SlackAuthContext = Context & {
+export type SlackContext = Context & {
   headers: {'x-slack-signature': string; 'x-slack-request-timestamp': number};
-  req: {rawBody: Buffer};
+  req: {rawBody: Buffer; body: Record<string, unknown>};
 };
 
-const verifySlackRequest = () => async (ctx: SlackAuthContext, next: Next) => {
+const verifySlackRequest = () => async (ctx: SlackContext, next: Next) => {
   const {headers, req} = ctx;
 
   verify({

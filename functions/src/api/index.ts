@@ -4,22 +4,15 @@ import Koa from 'koa';
 import {killSwitchRouter} from './killswitch';
 import {sessionsRouter} from './sessions';
 import {userRouter} from './user';
-import sentryErrorHandler from './lib/sentry';
+import sentryErrorHandler from '../lib/sentry';
 import firebaseBodyParser from './lib/firebaseBodyParser';
 import languageResolver from './lib/languageResolver';
 import firebaseAuth from './lib/firebaseAuth';
-import {cerateSlackRouter, createRouter} from '../lib/routers';
-import {slackRouter} from './slack';
-import verifySlackRequest from './lib/verifySlackRequest';
+import {createRouter} from '../lib/routers';
 
 const app = new Koa();
 
 app.on('error', sentryErrorHandler);
-
-const slackIntegrationRouter = cerateSlackRouter();
-slackIntegrationRouter
-  .use(verifySlackRequest())
-  .use('/slack', slackRouter.routes());
 
 const authoroizedRouter = createRouter();
 authoroizedRouter
@@ -29,7 +22,6 @@ authoroizedRouter
 
 app
   .use(firebaseBodyParser())
-  .use(slackIntegrationRouter.routes())
   .use(languageResolver())
   .use(firebaseAuth())
   .use(authoroizedRouter.routes())

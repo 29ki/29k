@@ -1,11 +1,11 @@
 import {cerateSlackRouter} from '../../lib/routers';
-import {publicHostAction} from '../../controllers/slack';
+import {slackHandler} from '../controllers/slack';
 
 const slackRouter = cerateSlackRouter();
 
-slackRouter.post('/publicHostAction', async ctx => {
+slackRouter.post('/', async ctx => {
   try {
-    await publicHostAction(ctx.request.body?.payload as string);
+    await slackHandler(ctx.req.body?.payload as string);
     ctx.status = 200;
   } catch (error) {
     console.error('Error handling slack action', error);

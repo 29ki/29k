@@ -1,18 +1,19 @@
 import request from 'supertest';
 import Koa from 'koa';
 import {slackRouter} from '.';
-import createMockServer from '../lib/createMockServer';
+import createMockServer from '../../api/lib/createMockServer';
 import {cerateSlackRouter} from '../../lib/routers';
+import {slackHandler} from '../controllers/slack';
+import {SlackContext} from '../lib/verifySlackRequest';
 
-import {publicHostAction} from '../../controllers/slack';
-
-jest.mock('../../controllers/slack');
-const mockPublicHostAction = publicHostAction as jest.Mock;
+jest.mock('../controllers/slack');
+const mockPublicHostAction = slackHandler as jest.Mock;
 
 const router = cerateSlackRouter();
 router.use('/slack', slackRouter.routes());
 const mockServer = createMockServer(
-  async (ctx: Koa.Context, next: Koa.Next) => {
+  async (ctx: SlackContext, next: Koa.Next) => {
+    ctx.req.body = ctx.request.body as Record<string, unknown>;
     await next();
   },
   router.routes(),
@@ -28,10 +29,10 @@ afterAll(() => {
 });
 
 describe('/slack', () => {
-  describe('/publicHostAction', () => {
+  describe('/', () => {
     it('should call controller', async () => {
       const response = await request(mockServer)
-        .post('/slack/publicHostAction')
+        .post('/slack')
         .send({payload: {}});
 
       expect(mockPublicHostAction).toHaveBeenCalledWith({});
@@ -41,7 +42,7 @@ describe('/slack', () => {
     it('should fail when controller fails', async () => {
       mockPublicHostAction.mockRejectedValueOnce({error: 'error'});
       const response = await request(mockServer)
-        .post('/slack/publicHostAction')
+        .post('/slack')
         .send({payload: {}});
 
       expect(mockPublicHostAction).toHaveBeenCalledWith({});

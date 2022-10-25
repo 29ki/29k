@@ -1,5 +1,5 @@
 import {verifySlackRequest as verify} from '@slack/bolt';
-import verifySlackRequest, {SlackAuthContext} from './verifySlackRequest';
+import verifySlackRequest, {SlackContext} from './verifySlackRequest';
 
 const mockVerifySlackRequest = verify as jest.Mock;
 
@@ -17,7 +17,7 @@ describe('verifySlackRequests', () => {
         'x-slack-request-timestamp': 'some-timestamp',
       },
       req: {rawBody: Buffer.from('')},
-    } as unknown as SlackAuthContext;
+    } as unknown as SlackContext;
     const next = jest.fn();
 
     await middleware(ctx, next);
@@ -44,7 +44,7 @@ describe('verifySlackRequests', () => {
         'x-slack-request-timestamp': 'some-timestamp',
       },
       req: {rawBody: Buffer.from('')},
-    } as unknown as SlackAuthContext;
+    } as unknown as SlackContext;
     const next = jest.fn();
 
     try {
