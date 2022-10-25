@@ -42,6 +42,16 @@ const styles = StyleSheet.create({
     marginBottom: 25,
     backgroundColor: COLORS.GREYDARK,
   },
+  code_inline: {
+    padding: 0,
+    borderWidth: 0,
+    borderRadius: 0,
+    backgroundColor: 'transparent',
+    flexDirection: 'row',
+  },
+  code_inline_text: {
+    flexShrink: 1,
+  },
 });
 
 export default styles;
