@@ -66,8 +66,10 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
   const [currentCell, setCurrentCell] = useState(0);
 
   useEffect(() => {
-    cells[currentCell].current?.focus();
-  }, [currentCell, cells]);
+    if (code.length < 6) {
+      cells[currentCell].current?.focus();
+    }
+  }, [currentCell, cells, code]);
 
   useEffect(() => {
     if (code.length === 6) {

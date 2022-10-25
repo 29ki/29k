@@ -25,7 +25,7 @@ const UpgradeAccount = () => {
   const {goBack} = useNavigation();
   const user = useRecoilValue(userAtom);
   const [needToUpgrade, setNeedToUpgrade] = useState(false);
-  const [haveCode, setHaveCode] = useState(Boolean(params.code));
+  const [haveCode, setHaveCode] = useState(Boolean(params?.code));
   const [haveRequested, setHaveRequested] = useState(false);
   const [haveVerified, setHaveVerified] = useState(false);
   const [email, setEmail] = useState('');
@@ -130,7 +130,7 @@ const UpgradeAccount = () => {
             <Heading>{t('enterCode')}</Heading>
             <Spacer16 />
             <VerificationCode
-              prefillCode={params.code}
+              prefillCode={params?.code}
               onCodeCompleted={onCodeCompleted}
             />
           </>
