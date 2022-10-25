@@ -45,8 +45,13 @@ describe('requests - conroller', () => {
 
       await requestPublicHostRole('some-user-id');
 
+      expect(mockAddPublicHostRequest).toHaveBeenCalledTimes(1);
       expect(mockAddPublicHostRequest).toHaveBeenCalledWith('some-user-id');
       expect(mockSendPublicHostRequestMessage).toHaveBeenCalledTimes(1);
+      expect(mockSendPublicHostRequestMessage).toHaveBeenCalledWith(
+        'some-user-id',
+        'test@test.com',
+      );
     });
 
     it('should not create a request when user has no email', async () => {
