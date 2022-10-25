@@ -3,7 +3,7 @@ import {
   type firebasedynamiclinks_v1,
 } from '@googleapis/firebasedynamiclinks';
 import config from '../lib/config';
-import i18next from '../lib/i18n';
+import i18next, {LANGUAGE_TAG} from '../lib/i18n';
 import type {Exercise} from '../../../shared/src/types/generated/Exercise';
 import dayjs from 'dayjs';
 
@@ -56,7 +56,7 @@ export const createSessionLink = async (
   sessionId: string,
   contentId: string,
   startTime: string,
-  language: string,
+  language: LANGUAGE_TAG,
 ) => {
   const {name, card} = i18next.t(contentId, {
     lng: language,

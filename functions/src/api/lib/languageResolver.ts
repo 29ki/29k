@@ -1,8 +1,12 @@
 import {Context, Next} from 'koa';
-import {DEFAULT_LANGUAGE_TAG, LANGUAGE_TAGS} from '../../lib/i18n';
+import {
+  DEFAULT_LANGUAGE_TAG,
+  LANGUAGE_TAG,
+  LANGUAGE_TAGS,
+} from '../../lib/i18n';
 
 export type LanguageContext = Context & {
-  language: string;
+  language: LANGUAGE_TAG;
 };
 
 const languageResolver = () => async (ctx: LanguageContext, next: Next) => {
@@ -14,7 +18,7 @@ const languageResolver = () => async (ctx: LanguageContext, next: Next) => {
         ctx.acceptsLanguages([DEFAULT_LANGUAGE_TAG, ...LANGUAGE_TAGS]) ||
         DEFAULT_LANGUAGE_TAG;
 
-  ctx.language = language;
+  ctx.language = language as LANGUAGE_TAG;
 
   await next();
 };
