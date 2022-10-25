@@ -7,14 +7,6 @@ import useKillSwitch from './useKillSwitch';
 
 enableFetchMocks();
 
-jest.mock('react-i18next', () => ({
-  useTranslation: () => ({
-    i18n: {
-      resolvedLanguage: 'some-language',
-    },
-  }),
-}));
-
 beforeEach(() => {
   fetchMock.resetMocks();
 });
@@ -42,10 +34,11 @@ describe('useKillSwitch', () => {
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(fetchMock).toHaveBeenCalledWith(
-        'some-api-endpoint/killSwitch?platform=some-os&platformVersion=some-os-version&version=some-version&bundleVersion=1337&language=some-language',
+        'some-api-endpoint/killSwitch?platform=some-os&platformVersion=some-os-version&version=some-version&bundleVersion=1337',
         {
           headers: {
             'Content-Type': 'application/json',
+            'Accept-Language': 'en',
             'X-Correlation-ID': expect.any(String),
           },
         },

@@ -6,7 +6,7 @@ import {sessionsRouter} from './sessions';
 import {userRouter} from './user';
 import sentryErrorHandler from './lib/sentry';
 import firebaseBodyParser from './lib/firebaseBodyParser';
-import i18nResolver from './lib/i18nResolver';
+import languageResolver from './lib/languageResolver';
 import firebaseAuth from './lib/firebaseAuth';
 import {createRouter} from '../lib/routers';
 
@@ -22,7 +22,7 @@ authoroizedRouter
 
 app
   .use(firebaseBodyParser())
-  .use(i18nResolver())
+  .use(languageResolver())
   .use(firebaseAuth())
   .use(authoroizedRouter.routes())
   .use(authoroizedRouter.allowedMethods());

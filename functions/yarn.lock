@@ -417,7 +417,7 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@google-cloud/firestore@^6.3.0":
+"@google-cloud/firestore@^6.4.0":
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/@google-cloud/firestore/-/firestore-6.4.0.tgz#cc6899fda202c385a285a8628c7e0c380828bd8b"
   integrity sha512-qhL5V8S6uIGlESQYC/TMKISlKHaM2qSACz0X15ID0s4F1NuVgSM3Z2FS10WYHdCGIwJ2C73xdLaS+ByFDsu7sg==
@@ -1324,10 +1324,10 @@
   resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.7.tgz#63bb7d067db107cc1e457c303bc25d511febf6cb"
   integrity sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==
 
-"@types/ramda@^0.28.17":
-  version "0.28.17"
-  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.28.17.tgz#f3796226f240ac32a39c4d785096f0ca9961df14"
-  integrity sha512-c+4IXFiPl3mCJqM2RkN7ZK+tqzBmSCQobX+aPzDcfu3a0V3LOHUHZXWszm9+R1qBTe26C4x7dE2SQzW1lKLOng==
+"@types/ramda@^0.28.18":
+  version "0.28.18"
+  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.28.18.tgz#b95942143937f41302100e43cd02a87da9f9ff10"
+  integrity sha512-DlhIC80d1ArfB1jz8C5OzavJfIj6hmEOQzCzy7Nt0FRqXJbmWTt05vI+f3rfC+3AR1VQwvyCMaCyZv++HGk+6w==
   dependencies:
     ts-toolbelt "^6.15.1"
 
@@ -2630,10 +2630,10 @@ data-uri-to-buffer@3:
   resolved "https://registry.yarnpkg.com/data-uri-to-buffer/-/data-uri-to-buffer-3.0.1.tgz#594b8973938c5bc2c33046535785341abc4f3636"
   integrity sha512-WboRycPNsVw3B3TL559F7kuBUM4d8CgMEvk6xEJlOp7OBPjt6G7z8WMWlD2rOFZLk6OYfFIUGsCOWzcQH9K2og==
 
-dayjs@^1.11.5:
-  version "1.11.5"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.5.tgz#00e8cc627f231f9499c19b38af49f56dc0ac5e93"
-  integrity sha512-CAdX5Q3YW3Gclyo5Vpqkgpj8fSdLQcRuzfX6mC6Phy0nfJ0eGYOeS7m4mt2plDWLAtA4TqTakvbboHvUxfe4iA==
+dayjs@^1.11.6:
+  version "1.11.6"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.6.tgz#2e79a226314ec3ec904e3ee1dd5a4f5e5b1c7afb"
+  integrity sha512-zZbY5giJAinCG+7AGaw0wIhNZ6J8AhWuSXKvuc1KAyMiRsvGQWqh4L+MomvhdAYjN+lqvVCMq1I41e3YHvXkyQ==
 
 debug@2.6.9, debug@^2.6.9:
   version "2.6.9"
@@ -3517,10 +3517,10 @@ find-up@^5.0.0:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
 
-firebase-admin@^11.1.0:
-  version "11.1.0"
-  resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-11.1.0.tgz#8b94d056afd01eaf3210f3af864d5640ead63de1"
-  integrity sha512-c7yzUs8CYdmnkuN5OCHPguDNqqdMJqlrBsCHekYkd8aR3WmhHwOISHru2QL+M/HE7t2VMj3018Ibqu2ja1xfGg==
+firebase-admin@^11.2.0:
+  version "11.2.0"
+  resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-11.2.0.tgz#eeabeddcca03cb50cc04564e8d6f0db4d25878cf"
+  integrity sha512-EGr8w4ZDXPXdwUgDZc/InSP/ciu5/FlaAmT8hw9qBnIbKHOuETYqKnzx8hxLlF8VIg7OQKsxb/PEQik6dVAIgQ==
   dependencies:
     "@fastify/busboy" "^1.1.0"
     "@firebase/database-compat" "^0.2.6"
@@ -3531,7 +3531,7 @@ firebase-admin@^11.1.0:
     node-forge "^1.3.1"
     uuid "^9.0.0"
   optionalDependencies:
-    "@google-cloud/firestore" "^6.3.0"
+    "@google-cloud/firestore" "^6.4.0"
     "@google-cloud/storage" "^6.5.2"
 
 firebase-frameworks@^0.4.2:
@@ -4307,10 +4307,10 @@ humanize-ms@^1.2.1:
   dependencies:
     ms "^2.0.0"
 
-i18next@^22.0.1:
-  version "22.0.1"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-22.0.1.tgz#cf21f5152c8cf4d29341ff44818cfe9f12fec87b"
-  integrity sha512-CRbtl6urEcIDbIzP4sGoPf9YuDNto1JgCRsfdvcVUOPb8nPAQ0azhPZiSdD5AFg/Erb58+/nDRmhm8bzVyjABQ==
+i18next@^22.0.2:
+  version "22.0.2"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-22.0.2.tgz#04634aa751388625735cdb41f625a6b0dd1dcb2f"
+  integrity sha512-rGXWILemhx0dpNE5PfudVU1g4SdW0hkh4WYHaP8Cl6gm1KkMdBckmNqj9WvYqp8fOSocqX5FFJeadwiOZHLSXQ==
   dependencies:
     "@babel/runtime" "^7.17.2"
 

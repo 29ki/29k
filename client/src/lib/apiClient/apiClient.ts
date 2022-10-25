@@ -1,5 +1,6 @@
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {API_ENDPOINT} from 'config';
+import i18next, {DEFAULT_LANGUAGE_TAG} from '../../lib/i18n';
 import {getCorrelationId} from '../sentry';
 
 const signOutAndSignIn = async () => {
@@ -69,6 +70,7 @@ const apiClient = async (input: string, init?: RequestInit | undefined) => {
       headers: {
         'Content-Type': 'application/json',
         'X-Correlation-ID': correlationId,
+        'Accept-Language': i18next.languages?.join(',') || DEFAULT_LANGUAGE_TAG,
         ...authHeader,
         ...init?.headers,
       },

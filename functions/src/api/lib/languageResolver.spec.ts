@@ -1,9 +1,7 @@
-import i18nResolver, {I18nContext} from './i18nResolver';
-import i18n from '../../lib/i18n';
+import languageResolver, {LanguageContext} from './languageResolver';
 import {createMockContext} from '@shopify/jest-koa-mocks';
 
 jest.mock('../../lib/i18n', () => ({
-  cloneInstance: jest.fn(),
   LANGUAGE_TAGS: ['some-query-language', 'some-header-language'],
   DEFAULT_LANGUAGE_TAG: 'some-default-language-tag',
 }));
@@ -12,28 +10,25 @@ afterEach(() => {
   jest.resetAllMocks();
 });
 
-describe('i18nResolver', () => {
-  it('supports lng query param', async () => {
-    const middleware = i18nResolver();
+describe('languageResolver', () => {
+  it('supports language query param', async () => {
+    const middleware = languageResolver();
     const ctx = createMockContext({
-      url: '?lng=some-query-language',
-    }) as I18nContext;
+      url: '?language=some-query-language',
+    }) as LanguageContext;
 
     const next = jest.fn();
 
     await middleware(ctx, next);
 
-    expect(i18n.cloneInstance).toHaveBeenCalledTimes(1);
-    expect(i18n.cloneInstance).toHaveBeenCalledWith({
-      lng: 'some-query-language',
-    });
+    expect(ctx.language).toEqual('some-query-language');
   });
 
   it('supports Accept-Language header', async () => {
-    const middleware = i18nResolver();
+    const middleware = languageResolver();
     const ctx = createMockContext({
       headers: {'Accept-Language': 'some-header-language'},
-    }) as I18nContext;
+    }) as LanguageContext;
 
     const acceptsLanguagesSpy = jest.spyOn(ctx, 'acceptsLanguages');
 
@@ -48,34 +43,28 @@ describe('i18nResolver', () => {
     ]);
     expect(acceptsLanguagesSpy).toHaveBeenCalledTimes(1);
 
-    expect(i18n.cloneInstance).toHaveBeenCalledTimes(1);
-    expect(i18n.cloneInstance).toHaveBeenCalledWith({
-      lng: 'some-header-language',
-    });
+    expect(ctx.language).toEqual('some-header-language');
   });
 
   it('sets defaults language if Accept-Language language is not supported', async () => {
-    const middleware = i18nResolver();
+    const middleware = languageResolver();
     const ctx = createMockContext({
       headers: {'Accept-Language': 'some-unsupported-header-language'},
-    }) as I18nContext;
+    }) as LanguageContext;
 
     const next = jest.fn();
 
     await middleware(ctx, next);
 
-    expect(i18n.cloneInstance).toHaveBeenCalledTimes(1);
-    expect(i18n.cloneInstance).toHaveBeenCalledWith({
-      lng: 'some-default-language-tag',
-    });
+    expect(ctx.language).toEqual('some-default-language-tag');
   });
 
   it('priorities query param over Accept-Language header', async () => {
-    const middleware = i18nResolver();
+    const middleware = languageResolver();
     const ctx = createMockContext({
-      url: '?lng=some-query-language',
+      url: '?language=some-query-language',
       headers: {'Accept-Language': 'some-header-language'},
-    }) as I18nContext;
+    }) as LanguageContext;
 
     const acceptsLanguagesSpy = jest.spyOn(ctx, 'acceptsLanguages');
 
@@ -85,16 +74,13 @@ describe('i18nResolver', () => {
 
     expect(acceptsLanguagesSpy).toHaveBeenCalledTimes(0);
 
-    expect(i18n.cloneInstance).toHaveBeenCalledTimes(1);
-    expect(i18n.cloneInstance).toHaveBeenCalledWith({
-      lng: 'some-query-language',
-    });
+    expect(ctx.language).toEqual('some-query-language');
   });
 
   it('sets default language if no language is supplied', async () => {
-    const middleware = i18nResolver();
+    const middleware = languageResolver();
 
-    const ctx = createMockContext() as I18nContext;
+    const ctx = createMockContext() as LanguageContext;
 
     const acceptsLanguagesSpy = jest.spyOn(ctx, 'acceptsLanguages');
 
@@ -109,9 +95,6 @@ describe('i18nResolver', () => {
     ]);
     expect(acceptsLanguagesSpy).toHaveBeenCalledTimes(1);
 
-    expect(i18n.cloneInstance).toHaveBeenCalledTimes(1);
-    expect(i18n.cloneInstance).toHaveBeenCalledWith({
-      lng: 'some-default-language-tag',
-    });
+    expect(ctx.language).toEqual('some-default-language-tag');
   });
 });
