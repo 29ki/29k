@@ -1,6 +1,6 @@
 import {WebClient} from '@slack/web-api';
 import config from './config';
-import {REQUEST_ACTION} from './constants/requestAction';
+import {RequestAction} from './constants/requestAction';
 
 const PUBLIC_HOST_REQUESTS_CHANNEL = '#public_host_requests';
 const {FUNCTIONS_SLACK_OAUTH_TOKEN} = config;
@@ -47,14 +47,14 @@ const createRequestBlocks = (userId: string, email: string) => [
         text: {text: 'Accept', type: 'plain_text'},
         value: userId,
         style: 'primary',
-        action_id: REQUEST_ACTION.ACCEPT_PUBLIC_HOST_ROLE,
+        action_id: RequestAction.ACCEPT_PUBLIC_HOST_ROLE,
       },
       {
         type: 'button',
         text: {text: 'Decline', type: 'plain_text'},
         value: userId,
         style: 'danger',
-        action_id: REQUEST_ACTION.DECLINE_PUBLIC_HOST_ROLE,
+        action_id: RequestAction.DECLINE_PUBLIC_HOST_ROLE,
       },
     ],
   },

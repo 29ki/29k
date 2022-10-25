@@ -1,5 +1,5 @@
 import {getAuth} from 'firebase-admin/auth';
-import {REQUEST_ACTION} from '../lib/constants/requestAction';
+import {RequestAction} from '../lib/constants/requestAction';
 import {
   parseMessage,
   SlackPayload,
@@ -26,7 +26,7 @@ export const publicHostAction = async (slackPayload: string) => {
     throw new SlackError('user-not-found');
   }
 
-  if (action_id === REQUEST_ACTION.ACCEPT_PUBLIC_HOST_ROLE) {
+  if (action_id === RequestAction.ACCEPT_PUBLIC_HOST_ROLE) {
     const verificationCode = generateVerificationCode();
 
     await updatePublicHostRequest(user.uid, 'accepted', verificationCode);

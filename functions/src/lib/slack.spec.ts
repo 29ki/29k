@@ -1,4 +1,4 @@
-import {REQUEST_ACTION} from './constants/requestAction';
+import {RequestAction} from './constants/requestAction';
 import {
   parseMessage,
   sendPublicHostRequestMessage,
@@ -60,14 +60,14 @@ describe('slack', () => {
                 text: {text: 'Accept', type: 'plain_text'},
                 value: 'some-user-id',
                 style: 'primary',
-                action_id: REQUEST_ACTION.ACCEPT_PUBLIC_HOST_ROLE,
+                action_id: RequestAction.ACCEPT_PUBLIC_HOST_ROLE,
               },
               {
                 type: 'button',
                 text: {text: 'Decline', type: 'plain_text'},
                 value: 'some-user-id',
                 style: 'danger',
-                action_id: REQUEST_ACTION.DECLINE_PUBLIC_HOST_ROLE,
+                action_id: RequestAction.DECLINE_PUBLIC_HOST_ROLE,
               },
             ],
           },

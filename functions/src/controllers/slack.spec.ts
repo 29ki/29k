@@ -1,6 +1,6 @@
 import {getAuth} from 'firebase-admin/auth';
 import {updatePublicHostRequest} from '../models/publicHostRequests';
-import {REQUEST_ACTION} from '../lib/constants/requestAction';
+import {RequestAction} from '../lib/constants/requestAction';
 import {updatePublicHostRequestMessage, parseMessage} from '../lib/slack';
 import {publicHostAction} from './slack';
 import {SlackError} from './errors/SlackError';
@@ -24,7 +24,7 @@ describe('slack', () => {
       mockParseMessage.mockReturnValueOnce([
         'some-channel-id',
         'some-ts',
-        REQUEST_ACTION.ACCEPT_PUBLIC_HOST_ROLE,
+        RequestAction.ACCEPT_PUBLIC_HOST_ROLE,
         'some-user-id',
       ]);
       mockGetUser.mockResolvedValueOnce({
@@ -52,7 +52,7 @@ describe('slack', () => {
       mockParseMessage.mockReturnValueOnce([
         'some-channel-id',
         'some-ts',
-        REQUEST_ACTION.DECLINE_PUBLIC_HOST_ROLE,
+        RequestAction.DECLINE_PUBLIC_HOST_ROLE,
         'some-user-id',
       ]);
       mockGetUser.mockResolvedValueOnce({
@@ -111,7 +111,7 @@ describe('slack', () => {
       mockParseMessage.mockReturnValueOnce([
         'some-channel-id',
         'some-ts',
-        REQUEST_ACTION.ACCEPT_PUBLIC_HOST_ROLE,
+        RequestAction.ACCEPT_PUBLIC_HOST_ROLE,
         'some-user-id',
       ]);
       mockGetUser.mockResolvedValueOnce({
