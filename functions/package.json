@@ -13,7 +13,7 @@
     "logs": "firebase functions:log",
     "shell": "yarn build && firebase functions:shell",
     "start:remote": "yarn build && firebase emulators:start",
-    "start": "yarn build && firebase emulators:start --project demo-29k-cupcake --import emulatorSeed --export-on-exit",
+    "start": "yarn build && firebase emulators:start --project demo-29k-cupcake --import emulatorSeed",
     "test:jest": "TZ=UTC jest",
     "test:lint": "eslint --ext .js,.ts",
     "test:ts": "tsc --noEmit",
