@@ -139,8 +139,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 54
-        versionName "2.0.15"
+        versionCode 59
+        versionName "2.1.0"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
         // Solving the issue with binary resource modify time with code push
@@ -271,12 +271,15 @@ android {
     productFlavors {
         production {
             applicationId 'org.twentyninek.app.cupcake'
+            manifestPlaceholders.deepLinkHost = 'app.cupcake.29k.org'
         }
         staging {
             applicationId 'org.twentyninek.app.cupcake.staging'
+            manifestPlaceholders.deepLinkHost = 'staging.app.cupcake.29k.org'
         }
         dev {
             applicationId 'org.twentyninek.app.cupcake.dev'
+            manifestPlaceholders.deepLinkHost = 'testing.app.cupcake.29k.org'
         }
     }
 }

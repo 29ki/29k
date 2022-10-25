@@ -7,14 +7,6 @@ import useKillSwitch from './useKillSwitch';
 
 enableFetchMocks();
 
-jest.mock('react-i18next', () => ({
-  useTranslation: () => ({
-    i18n: {
-      resolvedLanguage: 'some-language',
-    },
-  }),
-}));
-
 beforeEach(() => {
   fetchMock.resetMocks();
 });
@@ -42,10 +34,11 @@ describe('useKillSwitch', () => {
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(fetchMock).toHaveBeenCalledWith(
-        'some-api-endpoint/killSwitch?platform=some-os&platformVersion=some-os-version&version=some-version&bundleVersion=1337&language=some-language',
+        'some-api-endpoint/killSwitch?platform=some-os&platformVersion=some-os-version&version=some-version&bundleVersion=1337',
         {
           headers: {
             'Content-Type': 'application/json',
+            'Accept-Language': 'en',
             'X-Correlation-ID': expect.any(String),
           },
         },
@@ -53,7 +46,7 @@ describe('useKillSwitch', () => {
     });
 
     it('sets isBlocking=true if server says no', async () => {
-      fetchMock.mockResponseOnce(JSON.stringify({}), {status: 403});
+      fetchMock.mockResponseOnce(JSON.stringify({}), {status: 404});
 
       const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
 
@@ -97,7 +90,7 @@ describe('useKillSwitch', () => {
         JSON.stringify({
           permanent: true,
         }),
-        {status: 403},
+        {status: 404},
       );
 
       const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
@@ -137,7 +130,7 @@ describe('useKillSwitch', () => {
             link: 'http://some.link',
           },
         }),
-        {status: 403},
+        {status: 404},
       );
 
       const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
@@ -262,7 +255,7 @@ describe('useKillSwitch', () => {
     });
 
     it('sets as failed on malformed server response', async () => {
-      fetchMock.mockResponseOnce('foo', {status: 403});
+      fetchMock.mockResponseOnce('foo', {status: 404});
 
       const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
 

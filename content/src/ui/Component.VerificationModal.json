@@ -1,0 +1,26 @@
+{
+  "en": {
+    "header": "Verification",
+    "email": "Email",
+    "password": "Passsword",
+    "upgrade": "Upgrade",
+    "code": "Code",
+    "signIn": "Sign in"
+  },
+  "sv": {
+    "header": "Verification",
+    "email": "Email",
+    "password": "Passsword",
+    "upgrade": "Upgrade",
+    "code": "Code",
+    "signIn": "Sign in"
+  },
+  "pt": {
+    "header": "Verification",
+    "email": "Email",
+    "password": "Passsword",
+    "upgrade": "Upgrade",
+    "code": "Code",
+    "signIn": "Sign in"
+  }
+}

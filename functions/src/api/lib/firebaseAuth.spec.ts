@@ -65,7 +65,7 @@ describe('firebaseAuth', () => {
     expect(next).toHaveBeenCalledTimes(0);
   });
 
-  it('returns 401 when token expired', async () => {
+  it('returns 403 when token expired', async () => {
     (getAuth().verifyIdToken as jest.Mock).mockRejectedValueOnce({
       code: 'auth/id-token-expired',
     });
@@ -84,7 +84,7 @@ describe('firebaseAuth', () => {
     expect(getAuth().verifyIdToken).toHaveBeenCalledTimes(1);
 
     expect(ctx).toEqual({
-      status: 401,
+      status: 403,
       headers: {
         authorization: 'bearer some-token',
       },
@@ -93,7 +93,7 @@ describe('firebaseAuth', () => {
     expect(next).toHaveBeenCalledTimes(0);
   });
 
-  it('returns 401 when token revoked', async () => {
+  it('returns 403 when token revoked', async () => {
     (getAuth().verifyIdToken as jest.Mock).mockRejectedValueOnce({
       code: 'auth/id-token-revoked',
     });
@@ -112,7 +112,7 @@ describe('firebaseAuth', () => {
     expect(getAuth().verifyIdToken).toHaveBeenCalledTimes(1);
 
     expect(ctx).toEqual({
-      status: 401,
+      status: 403,
       headers: {
         authorization: 'bearer some-token',
       },

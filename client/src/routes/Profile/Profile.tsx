@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
-import dayjs from 'dayjs';
 import {ScrollView} from 'react-native-gesture-handler';
 
 import Button from '../../common/components/Buttons/Button';
@@ -20,6 +19,7 @@ import {Heading18} from '../../common/components/Typography/Heading/Heading';
 import NS from '../../lib/i18n/constants/namespaces';
 import CurrentUser from './components/CurrentUser';
 import Screen from '../../common/components/Screen/Screen';
+import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -33,6 +33,7 @@ const Profile = () => {
   const {toggle: toggleUiLib} = useUiLib();
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
+  const isPublicHost = useIsPublicHost();
 
   return (
     <Screen noTopBar>
@@ -40,7 +41,7 @@ const Profile = () => {
         <TopSafeArea />
         <Gutters>
           <Spacer28 />
-          <CurrentUser />
+          <CurrentUser isPublicHost={isPublicHost} />
           <Spacer48 />
           <Heading18>{t('language')}</Heading18>
           <Spacer8 />
@@ -52,7 +53,6 @@ const Profile = () => {
                   key={languageTag}
                   onPress={() => {
                     i18n.changeLanguage(languageTag);
-                    dayjs.locale(languageTag);
                   }}>
                   {languageTag.toUpperCase()}
                 </Button>

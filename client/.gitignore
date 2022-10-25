@@ -65,9 +65,5 @@ GoogleService-Info.plist
 google-services.json
 google-play-service.json
 
-# Google services mock for local emulator
-!android/app/src/dev/google-services.json
-!ios/Supporting/Dev/GoogleService-Info.plist
-
 # Sentry
 /sentry.properties

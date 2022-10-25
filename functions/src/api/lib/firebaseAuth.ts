@@ -28,10 +28,13 @@ const firebaseAuth = () => async (ctx: FirebaseAuthContext, next: Next) => {
   } catch (error) {
     const firebaseError = error as FirebaseError;
     switch (firebaseError.code) {
-      case 'auth/user-not-found':
+      case 'auth/user-not-found': {
+        ctx.status = 401;
+        return;
+      }
       case 'auth/id-token-expired':
       case 'auth/id-token-revoked': {
-        ctx.status = 401;
+        ctx.status = 403;
         return;
       }
 

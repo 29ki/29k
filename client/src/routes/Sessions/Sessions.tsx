@@ -29,6 +29,7 @@ import SessionCard from '../../common/components/Cards/SessionCard/SessionCard';
 import {PlusIcon} from '../../common/components/Icons';
 import {isLoadingAtom, sessionsAtom} from './state/state';
 import Screen from '../../common/components/Screen/Screen';
+import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 
 const CreateButton = styled(Button)({
   flexDirection: 'row',
@@ -81,6 +82,7 @@ const Sessions = () => {
   const {fetchSessions} = useSessions();
   const isLoading = useRecoilValue(isLoadingAtom);
   const sessions = useRecoilValue(sessionsAtom);
+  const isPublicHost = useIsPublicHost();
 
   useEffect(() => {
     fetchSessions();
@@ -105,10 +107,13 @@ const Sessions = () => {
           <RefreshControl refreshing={isLoading} onRefresh={fetchSessions} />
         }
       />
-      <FloatingForm>
-        <CreateSessionForm />
-        <Spacer12 />
-      </FloatingForm>
+
+      {isPublicHost && (
+        <FloatingForm>
+          <CreateSessionForm />
+          <Spacer12 />
+        </FloatingForm>
+      )}
     </Screen>
   );
 };

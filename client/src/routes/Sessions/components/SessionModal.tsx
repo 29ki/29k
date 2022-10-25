@@ -2,13 +2,19 @@ import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import dayjs from 'dayjs';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {Alert} from 'react-native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {Alert, Platform, Share} from 'react-native';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
 import Gutters from '../../../common/components/Gutters/Gutters';
 import IconButton from '../../../common/components/Buttons/IconButton/IconButton';
-import {BellIcon, DeleteIcon, PlusIcon} from '../../../common/components/Icons';
+import {
+  BellIcon,
+  DeleteIcon,
+  PlusIcon,
+  ShareIcon,
+} from '../../../common/components/Icons';
 import Image from '../../../common/components/Image/Image';
 import HalfModal from '../../../common/components/Modals/HalfModal';
 import {Spacer16, Spacer8} from '../../../common/components/Spacers/Spacer';
@@ -50,7 +56,7 @@ const SessionModal = () => {
   } = useRoute<RouteProp<RootStackProps, 'SessionModal'>>();
   const {t} = useTranslation(NS.COMPONENT.SESSION_MODAL);
   const user = useRecoilValue(userAtom);
-  const navigation = useNavigation();
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackProps>>();
   const {deleteSession} = useSessions();
   const addToCalendar = useAddToCalendar();
   const exercise = useExerciseById(session?.contentId);
@@ -58,10 +64,37 @@ const SessionModal = () => {
     useSessionNotificationReminder(session);
 
   const startTime = dayjs(session.startTime);
+  const startingNow = dayjs().isAfter(startTime.subtract(10, 'minutes'));
+
+  const onStartingNow = () => {
+    navigation.goBack();
+    navigation.navigate('SessionStack', {
+      screen: 'ChangingRoom',
+      params: {
+        sessionId: session.id,
+      },
+    });
+  };
 
   if (!session || !exercise) {
     return null;
   }
+
+  const onPress = () =>
+    startingNow
+      ? onStartingNow()
+      : addToCalendar(exercise.name, startTime, startTime.add(30, 'minutes'));
+
+  const onShare = () => {
+    if (session.link) {
+      Share.share(
+        Platform.select({
+          ios: {url: session.link},
+          default: {message: session.link},
+        }),
+      );
+    }
+  };
 
   const onDelete = () => {
     Alert.alert(t('delete.header'), t('delete.text'), [
@@ -94,16 +127,10 @@ const SessionModal = () => {
       <BottomContent>
         <Button
           small
-          LeftIcon={PlusIcon}
-          variant="secondary"
-          onPress={() =>
-            addToCalendar(
-              exercise.name,
-              startTime,
-              startTime.add(30, 'minutes'),
-            )
-          }>
-          {t('addToCalendar')}
+          LeftIcon={!startingNow ? PlusIcon : undefined}
+          variant={startingNow ? 'primary' : 'secondary'}
+          onPress={onPress}>
+          {startingNow ? t('join') : t('addToCalendar')}
         </Button>
         <Spacer8 />
         <Button
@@ -115,6 +142,17 @@ const SessionModal = () => {
           {t('addReminder')}
         </Button>
         <Spacer8 />
+        {session.link && (
+          <>
+            <IconButton
+              small
+              variant="secondary"
+              onPress={onShare}
+              Icon={ShareIcon}
+            />
+            <Spacer8 />
+          </>
+        )}
         {user?.uid === session?.facilitator && (
           <DeleteButton small onPress={onDelete} Icon={DeleteIcon} />
         )}
