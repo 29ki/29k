@@ -116,7 +116,7 @@ export const sendPublicHostRequestMessage = async (
       channel: PUBLIC_HOST_REQUESTS_CHANNEL,
     });
   } catch (error) {
-    console.log('Error sending slack request', error);
+    console.error('Error sending slack request', error);
   }
 };
 
@@ -135,6 +135,6 @@ export const updatePublicHostRequestMessage = async (
       ts,
     });
   } catch (error) {
-    console.log('Error updating message', error);
+    console.error('Error updating slack message', error);
   }
 };
