@@ -2,11 +2,15 @@ import {WebClient} from '@slack/web-api';
 import config from './config';
 import {RequestAction} from './constants/requestAction';
 
-const PUBLIC_HOST_REQUESTS_CHANNEL = '#public_host_requests';
-const {SLACK_OAUTH_TOKEN, SLACK_ENABLED} = config;
+const {SLACK_OAUTH_TOKEN, SLACK_BOT_NAME, SLACK_PUBLIC_HOST_REQUESTS_CHANNEL} =
+  config;
 
 const createSlackClient = () => {
-  if (SLACK_ENABLED && SLACK_OAUTH_TOKEN.length > 0) {
+  if (
+    SLACK_BOT_NAME &&
+    SLACK_PUBLIC_HOST_REQUESTS_CHANNEL &&
+    SLACK_OAUTH_TOKEN
+  ) {
     return new WebClient(SLACK_OAUTH_TOKEN);
   }
 
@@ -112,8 +116,8 @@ export const sendPublicHostRequestMessage = async (
 
     await slackClient.chat.postMessage({
       blocks: createRequestBlocks(userId, email),
-      username: 'Public Host Requests',
-      channel: PUBLIC_HOST_REQUESTS_CHANNEL,
+      username: SLACK_BOT_NAME,
+      channel: SLACK_PUBLIC_HOST_REQUESTS_CHANNEL,
     });
   } catch (error) {
     console.error('Error sending slack request', error);

@@ -72,8 +72,8 @@ describe('slack', () => {
             ],
           },
         ]),
-        username: 'Public Host Requests',
-        channel: '#public_host_requests',
+        username: 'Some Bot',
+        channel: '#some-channel',
       });
     });
 
