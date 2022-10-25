@@ -79,3 +79,10 @@ yarn test
    ```
    npx uri-scheme open "https://testing.app.cupcake.29k.org/jksd23kjh2kjhk" --ios --android
    ```
+
+# Seeded users
+
+Two emulator accounts are seeded.
+
+1. Public host, email: `publichost@29k.org`, password: `123456`
+2. Regular user, email `user@29k.org`, password: `123456`
