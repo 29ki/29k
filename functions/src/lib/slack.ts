@@ -113,7 +113,7 @@ export const sendPublicHostRequestMessage = async (
     await slackClient.chat.postMessage({
       blocks: createRequestBlocks(userId, email),
       username: SLACK_BOT_NAME,
-      channel: SLACK_PUBLIC_HOST_REQUESTS_CHANNEL,
+      channel: `#${SLACK_PUBLIC_HOST_REQUESTS_CHANNEL}`,
     });
   }
 };
