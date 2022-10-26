@@ -16,18 +16,20 @@ yarn
 Before being able to start the functions emulator, some configs are required.
 Create a `.env` file, by duplicating `.env.example`.
 
-| Key                              | Description                                                                                                                                                                  |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `GIT_COMMIT_SHORT`               | _May be left blank for local development_. Current GIT Commit hash                                                                                                           |
-| `ENVIRONMENT`                    | Functions environment, e.g. `dev`, `staging` or `production`                                                                                                                 |
-| `SENTRY_DSN`                     | _Not needed for local development_. [Sentry DSN string](https://docs.sentry.io/product/sentry-basics/dsn-explainer/)                                                         |
-| `DAILY_API_KEY`                  | [Daily](https://www.daily.co/) API key                                                                                                                                       |
-| `DEEP_LINK_API_KEY`              | [Firebase Dynamic Links API key](https://firebase.google.com/docs/dynamic-links/rest#before_you_begin)                                                                       |
-| `DEEP_LINK_DOMAIN_URI_PREFIX`    | Dynamic links domain, e.g. `dev.app.cupcake.29k.org`. [Dynamic links parameters](https://firebase.google.com/docs/reference/dynamic-links/link-shortener#parameters)         |
-| `DEEP_LINK_BASE_URL`             | Base URL of the deep links, e.g. `https://29k.org`.                                                                                                                          |
-| `DEEP_LINK_ANDROID_PACKAGE_NAME` | Android package name, e.g. `org.twentyninek.app.cupcake.dev`. [Dynamic links parameters](https://firebase.google.com/docs/reference/dynamic-links/link-shortener#parameters) |
-| `DEEP_LINK_IOS_BUNDLE_ID`        | iOS bundle ID, e.g. `org.twentyninek.app.cupcake.dev`. [Dynamic links parameters](https://firebase.google.com/docs/reference/dynamic-links/link-shortener#parameters)        |
-| `DEEP_LINK_IOS_APPSTORE_ID`      | iOS AppStore ID, e.g. `1631342681`. [Dynamic links parameters](https://firebase.google.com/docs/reference/dynamic-links/link-shortener#parameters)                           |
+| Key                               | Description                                                                                                                                                                                                                            |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `GIT_COMMIT_SHORT`                | _May be left blank for local development_. Current GIT Commit hash                                                                                                                                                                     |
+| `ENVIRONMENT`                     | Functions environment, e.g. `dev`, `staging` or `production`                                                                                                                                                                           |
+| `SENTRY_DSN`                      | _Not needed for local development_. [Sentry DSN string](https://docs.sentry.io/product/sentry-basics/dsn-explainer/)                                                                                                                   |
+| `DAILY_API_KEY`                   | [Daily](https://www.daily.co/) API key                                                                                                                                                                                                 |
+| `DEEP_LINK_API_KEY`               | [Firebase Dynamic Links API key](https://firebase.google.com/docs/dynamic-links/rest#before_you_begin)                                                                                                                                 |
+| `DEEP_LINK_DOMAIN_URI_PREFIX`     | Dynamic links domain, e.g. `dev.app.cupcake.29k.org`. [Dynamic links parameters](https://firebase.google.com/docs/reference/dynamic-links/link-shortener#parameters)                                                                   |
+| `DEEP_LINK_BASE_URL`              | Base URL of the deep links, e.g. `https://29k.org`.                                                                                                                                                                                    |
+| `DEEP_LINK_ANDROID_PACKAGE_NAME`  | Android package name, e.g. `org.twentyninek.app.cupcake.dev`. [Dynamic links parameters](https://firebase.google.com/docs/reference/dynamic-links/link-shortener#parameters)                                                           |
+| `DEEP_LINK_ANDROID_FALLBACK_LINK` | Android link to open when the app isn't installed., e.g. `https://groups.google.com/u/1/a/29k.org/g/android-beta-test`. [Dynamic links parameters](https://firebase.google.com/docs/reference/dynamic-links/link-shortener#parameters) |
+| `DEEP_LINK_IOS_BUNDLE_ID`         | iOS bundle ID, e.g. `org.twentyninek.app.cupcake.dev`. [Dynamic links parameters](https://firebase.google.com/docs/reference/dynamic-links/link-shortener#parameters)                                                                  |
+| `DEEP_LINK_IOS_APPSTORE_ID`       | iOS AppStore ID, e.g. `1631342681`. [Dynamic links parameters](https://firebase.google.com/docs/reference/dynamic-links/link-shortener#parameters)                                                                                     |
+| `DEEP_LINK_IOS_FALLBACK_LINK`     | iOS link to open when the app isn't installed., e.g. `https://testflight.apple.com/join/0VdruQ6z`. [Dynamic links parameters](https://firebase.google.com/docs/reference/dynamic-links/link-shortener#parameters)                      |
 
 ## Client
 

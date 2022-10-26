@@ -7,6 +7,8 @@ process.env = Object.assign(process.env, {
   DEEP_LINK_DOMAIN_URI_PREFIX: 'some-deep-link-domain-uri-prefix',
   DEEP_LINK_BASE_URL: 'http://some.deep/link/base/url',
   DEEP_LINK_ANDROID_PACKAGE_NAME: 'some-deep-link-android-package-name',
+  DEEP_LINK_ANDROID_FALLBACK_LINK: 'http://some.android/fallback/link',
   DEEP_LINK_IOS_BUNDLE_ID: 'some-deep-link-ios-bundle-id',
   DEEP_LINK_IOS_APPSTORE_ID: 'some-deep-link-ios-appstore-id',
+  DEEP_LINK_IOS_FALLBACK_LINK: 'http://some.ios/fallback/link',
 });
