@@ -1,8 +1,7 @@
-import dayjs from 'dayjs';
 import {firestore} from 'firebase-admin';
 import {Timestamp} from 'firebase-admin/firestore';
-import {getData} from '../lib/utils';
-import {RequestData} from './types/types';
+import {getData, removeEmpty} from '../lib/utils';
+import {RequestData, RequestStatus} from './types/types';
 
 const REQUESTS_COLLECTION = 'publicHostRequests';
 
@@ -15,23 +14,31 @@ export const getPublicHostRequestByUserId = async (userId: string) => {
   return snapshot.exists ? getData<RequestData>(snapshot) : null;
 };
 
-export const addPublicHostRequest = async (
-  userId: string,
-  verificationCode: number,
-) => {
+export const addPublicHostRequest = async (userId: string) => {
   const now = Timestamp.now();
   const data: RequestData = {
-    verificationCode,
-    expires: Timestamp.fromDate(dayjs(now.toDate()).add(1, 'week').toDate()),
+    status: 'requested',
     createdAt: now,
     updatedAt: now,
   };
   await firestore().collection(REQUESTS_COLLECTION).doc(userId).set(data);
 };
 
-export const removePublicHostRequest = async (userId: string) => {
-  const request = await queryByUserId(userId);
-  if (request.exists) {
-    await request.ref.delete();
-  }
+export const updatePublicHostRequest = async (
+  userId: string,
+  status: RequestStatus,
+  verificationCode?: number,
+) => {
+  const now = Timestamp.now();
+
+  const data: RequestData = removeEmpty({
+    status,
+    updatedAt: now,
+    verificationCode,
+  });
+
+  await firestore()
+    .collection(REQUESTS_COLLECTION)
+    .doc(userId)
+    .set(data, {merge: true});
 };

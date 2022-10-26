@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pressable, StyleSheet, Dimensions} from 'react-native';
+import {Pressable, StyleSheet, Dimensions, Platform} from 'react-native';
 import {useNavigation} from '@react-navigation/core';
 
 import styled from 'styled-components/native';
@@ -21,7 +21,9 @@ const Container = styled.View<{deviceHeight: number; backgroundColor?: string}>(
   }),
 );
 
-const KeyboardAvoidingView = styled.KeyboardAvoidingView({
+const KeyboardAvoidingView = styled.KeyboardAvoidingView.attrs({
+  behavior: Platform.select({ios: 'padding', android: undefined}),
+})({
   flex: 1,
   justifyContent: 'flex-end',
 });
@@ -59,7 +61,7 @@ export const HalfModal: React.FC<HalfModalProps> = ({
   };
 
   return (
-    <KeyboardAvoidingView behavior="padding">
+    <KeyboardAvoidingView>
       <Pressable style={[StyleSheet.absoluteFill]} onPress={handleOnClose} />
       <Container deviceHeight={height} backgroundColor={backgroundColor}>
         <Content>{children}</Content>

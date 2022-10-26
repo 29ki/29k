@@ -3,9 +3,10 @@ import {
   type firebasedynamiclinks_v1,
 } from '@googleapis/firebasedynamiclinks';
 import config from '../lib/config';
-import i18next from '../lib/i18n';
+import i18next, {LANGUAGE_TAG} from '../lib/i18n';
 import type {Exercise} from '../../../shared/src/types/generated/Exercise';
 import dayjs from 'dayjs';
+import * as NS from '../../../shared/src/constants/namespaces';
 
 const dynamicLinks = firebasedynamiclinks('v1');
 
@@ -56,7 +57,7 @@ export const createSessionLink = async (
   sessionId: string,
   contentId: string,
   startTime: string,
-  language: string,
+  language: LANGUAGE_TAG,
 ) => {
   const {name, card} = i18next.t(contentId, {
     lng: language,
@@ -64,7 +65,7 @@ export const createSessionLink = async (
     returnObjects: true,
   }) as Exercise;
 
-  const t = i18next.getFixedT(language, 'DeepLink.Session');
+  const t = i18next.getFixedT(language, NS.DEEP_LINK.SESSION);
 
   const date = dayjs(startTime).locale(language).format('dddd, D MMM HH:mm');
 

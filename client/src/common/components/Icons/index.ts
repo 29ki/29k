@@ -21,6 +21,7 @@ export * from './ForwardCircle/ForwardCircle';
 export * from './HangUp/HangUp';
 export * from './Home/Home';
 export * from './HomeFill/HomeFill';
+export * from './Info/Info';
 export * from './Logo/Logo';
 export * from './Microphone/Microphone';
 export * from './MicrophoneOff/MicrophoneOff';
