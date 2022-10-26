@@ -25,6 +25,10 @@ const configValidation = {
   DEEP_LINK_IOS_BUNDLE_ID: str(),
   DEEP_LINK_IOS_APPSTORE_ID: str(),
   DEEP_LINK_IOS_FALLBACK_LINK: str(),
+  SLACK_BOT_NAME: str(),
+  SLACK_PUBLIC_HOST_REQUESTS_CHANNEL: str(),
+  SLACK_OAUTH_TOKEN: str(),
+  SLACK_SIGNING_SECRET: str(),
 };
 
 export default cleanEnv(process.env, configValidation);

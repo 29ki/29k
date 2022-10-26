@@ -17,7 +17,7 @@ import {
 } from '../../common/components/Spacers/Spacer';
 import {COLORS} from '../../../../shared/src/constants/colors';
 
-import {SessionStackProps} from '../../common/constants/routes';
+import {SessionStackProps} from '../../lib/navigation/constants/routes';
 
 import {DailyContext} from './DailyProvider';
 

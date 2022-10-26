@@ -43,10 +43,12 @@ const Overlay = styled.View({
 const NUMERIC_KEYS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 type VerificationCodeProps = {
+  prefillCode?: string;
   onCodeCompleted: (result: number) => void;
 };
 
 const VerificationCode: React.FC<VerificationCodeProps> = ({
+  prefillCode = '',
   onCodeCompleted,
 }) => {
   const {t} = useTranslation(NS.COMPONENT.VERIFICATION_CODE);
@@ -60,12 +62,14 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
     () => [cell1, cell2, cell3, cell4, cell5, cell6],
     [cell1, cell2, cell3, cell4, cell5, cell6],
   );
-  const [code, setCode] = useState('');
+  const [code, setCode] = useState(prefillCode);
   const [currentCell, setCurrentCell] = useState(0);
 
   useEffect(() => {
-    cells[currentCell].current?.focus();
-  }, [currentCell, cells]);
+    if (code.length < 6) {
+      cells[currentCell].current?.focus();
+    }
+  }, [currentCell, cells, code]);
 
   useEffect(() => {
     if (code.length === 6) {

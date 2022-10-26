@@ -1,7 +1,7 @@
 import * as Sentry from '@sentry/node';
 import {RewriteFrames} from '@sentry/integrations';
 import {Context} from 'koa';
-import config from '../../lib/config';
+import config from './config';
 
 const {SENTRY_DSN, GIT_COMMIT_SHORT, ENVIRONMENT} = config;
 
