@@ -3,7 +3,7 @@ import {updatePublicHostRequest} from '../../models/publicHostRequests';
 import {RequestAction} from '../../lib/constants/requestAction';
 import {updatePublicHostRequestMessage, parseMessage} from '../../lib/slack';
 import {slackHandler} from './slack';
-import {SlackError} from '../../controllers/errors/SlackError';
+import {SlackError, SlackErrorCode} from '../../controllers/errors/SlackError';
 
 jest.mock('../../lib/slack');
 jest.mock('../../models/publicHostRequests');
@@ -82,7 +82,9 @@ describe('slack', () => {
       try {
         await slackHandler('invalid-json');
       } catch (error) {
-        expect(error).toEqual(new SlackError('could-not-parse-message'));
+        expect(error).toEqual(
+          new SlackError(SlackErrorCode.couldNotParseMessage),
+        );
       }
 
       expect(mockUpdatePublicHostRequest).toHaveBeenCalledTimes(0);
@@ -100,7 +102,9 @@ describe('slack', () => {
       try {
         await slackHandler(JSON.stringify({}));
       } catch (error) {
-        expect(error).toEqual(new SlackError('could-not-parse-message'));
+        expect(error).toEqual(
+          new SlackError(SlackErrorCode.couldNotParseMessage),
+        );
       }
 
       expect(mockUpdatePublicHostRequest).toHaveBeenCalledTimes(0);
@@ -121,7 +125,7 @@ describe('slack', () => {
       try {
         await slackHandler(JSON.stringify({payload: 'some-payload'}));
       } catch (error) {
-        expect(error).toEqual(new SlackError('user-not-found'));
+        expect(error).toEqual(new SlackError(SlackErrorCode.userNotFound));
       }
 
       expect(mockUpdatePublicHostRequest).toHaveBeenCalledTimes(0);

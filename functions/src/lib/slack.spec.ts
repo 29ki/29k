@@ -1,3 +1,4 @@
+import {SlackError, SlackErrorCode} from '../controllers/errors/SlackError';
 import {RequestAction} from './constants/requestAction';
 import {
   parseMessage,
@@ -76,6 +77,18 @@ describe('slack', () => {
         channel: '#some-channel',
       });
     });
+
+    it('should rethrow error', async () => {
+      mockPostMessage.mockRejectedValueOnce('error cause');
+
+      try {
+        await sendPublicHostRequestMessage('some-user-id', 'some@email.com');
+      } catch (error) {
+        expect(error).toEqual(
+          new SlackError(SlackErrorCode.couldNotSendMessage, 'error cause'),
+        );
+      }
+    });
   });
 
   describe('updatePublicHostRequestMessage', () => {
@@ -124,6 +137,22 @@ describe('slack', () => {
         channel: 'some-channel-id',
         ts: 'some-ts',
       });
+    });
+
+    it('should rethrow error', async () => {
+      mockUpdate.mockRejectedValueOnce('error cause');
+
+      try {
+        await updatePublicHostRequestMessage(
+          'some-channel-id',
+          'some-ts',
+          'some@email.com',
+        );
+      } catch (error) {
+        expect(error).toEqual(
+          new SlackError(SlackErrorCode.couldNotUpdateMessage, 'error cause'),
+        );
+      }
     });
   });
 });
