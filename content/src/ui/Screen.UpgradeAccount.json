@@ -10,7 +10,13 @@
     "enterCode": "Enter your code",
     "email": "Email",
     "password": "Passsword",
-    "button": "Upgrade"
+    "button": "Upgrade",
+    "errors": {
+      "verificationNotFound": "We could not find any public host request for this user.",
+      "verificationDeclined": "The request was not accepted.",
+      "verificationAlreadyClaimed": "The code have already been used.",
+      "verificationFailed": "Verification failed."
+    }
   },
   "sv": {
     "text": "As an official 29k host you can register here to be able to create public sessions.",
@@ -23,7 +29,13 @@
     "enterCode": "Enter your code",
     "email": "Epost",
     "password": "Lösenord",
-    "button": "Uppgradera"
+    "button": "Uppgradera",
+    "errors": {
+      "verificationNotFound": "Vi kunde inte hitta någon begäran från denna användare.",
+      "verificationDeclined": "Begäran godkändes inte",
+      "verificationAlreadyClaimed": "Koden har redan använts.",
+      "verificationFailed": "Du har inte angivigt en giltig kod."
+    }
   },
   "pt": {}
 }
