@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import NS from '../../../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../../../shared/src/constants/namespaces';
 import SETTINGS from '../../../../common/constants/settings';
 import {SPACINGS} from '../../../../common/constants/spacings';
 

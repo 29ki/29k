@@ -7,7 +7,7 @@ import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
 import {Spacer16} from '../../../common/components/Spacers/Spacer';
 import {Heading18} from '../../../common/components/Typography/Heading/Heading';
-import NS from '../../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../../shared/src/constants/namespaces';
 import Input from '../../../common/components/Typography/TextInput/TextInput';
 import {Body16, Body18} from '../../../common/components/Typography/Body/Body';
 import {useRecoilValue} from 'recoil';

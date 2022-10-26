@@ -47,7 +47,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import useIsSessionFacilitator from './hooks/useIsSessionHost';
 import Button from '../../common/components/Buttons/Button';
 import useUpdateSession from './hooks/useUpdateSession';
-import NS from '../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../shared/src/constants/namespaces';
 import {useTranslation} from 'react-i18next';
 import HostNotes from './components/HostNotes/HostNotes';
 

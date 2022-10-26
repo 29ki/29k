@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import {ErrorBoundary as SentryErrorBoundary} from '@sentry/react-native';
 import {useTranslation} from 'react-i18next';
 
-import NS from '../../i18n/constants/namespaces';
+import * as NS from '../../../../../shared/src/constants/namespaces';
 import Gutters from '../../../common/components/Gutters/Gutters';
 import Markdown from '../../../common/components/Typography/Markdown/Markdown';
 

@@ -2,7 +2,7 @@ import {Dayjs} from 'dayjs';
 import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import * as AddCalendarEvent from 'react-native-add-calendar-event';
-import NS from '../../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../../shared/src/constants/namespaces';
 
 const useAddToCalendar = () => {
   const {t} = useTranslation(NS.COMPONENT.ADD_TO_CALENDAR);
