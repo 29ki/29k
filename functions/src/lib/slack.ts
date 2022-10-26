@@ -108,17 +108,13 @@ export const sendPublicHostRequestMessage = async (
   email: string,
 ) => {
   if (SLACK_PUBLIC_HOST_REQUESTS_CHANNEL) {
-    try {
-      const slackClient = createSlackClient();
+    const slackClient = createSlackClient();
 
-      await slackClient.chat.postMessage({
-        blocks: createRequestBlocks(userId, email),
-        username: SLACK_BOT_NAME,
-        channel: SLACK_PUBLIC_HOST_REQUESTS_CHANNEL,
-      });
-    } catch (error) {
-      console.error('Error sending slack request', error);
-    }
+    await slackClient.chat.postMessage({
+      blocks: createRequestBlocks(userId, email),
+      username: SLACK_BOT_NAME,
+      channel: SLACK_PUBLIC_HOST_REQUESTS_CHANNEL,
+    });
   }
 };
 
@@ -128,15 +124,11 @@ export const updatePublicHostRequestMessage = async (
   email: string,
   verificationCode?: number,
 ) => {
-  try {
-    const slackClient = createSlackClient();
+  const slackClient = createSlackClient();
 
-    await slackClient.chat.update({
-      blocks: createResponseBlocks(email, verificationCode),
-      channel: channelId,
-      ts,
-    });
-  } catch (error) {
-    console.error('Error updating slack message', error);
-  }
+  await slackClient.chat.update({
+    blocks: createResponseBlocks(email, verificationCode),
+    channel: channelId,
+    ts,
+  });
 };
