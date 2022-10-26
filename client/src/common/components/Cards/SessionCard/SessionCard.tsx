@@ -9,7 +9,7 @@ import {Session} from '../../../../../../shared/src/types/Session';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import * as NS from '../../../../../../shared/src/constants/namespaces';
 import useSessionNotificationReminder from '../../../../routes/Sessions/hooks/useSessionNotificationReminder';
-import {RootStackProps} from '../../../constants/routes';
+import {RootStackProps} from '../../../../lib/navigation/constants/routes';
 import {PlusIcon, BellIcon} from '../../Icons';
 import Card from '../Card';
 import useAddToCalendar from '../../../../routes/Sessions/hooks/useAddToCalendar';

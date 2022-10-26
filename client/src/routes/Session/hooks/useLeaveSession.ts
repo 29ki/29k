@@ -8,7 +8,7 @@ import {useResetRecoilState} from 'recoil';
 import * as NS from '../../../../../shared/src/constants/namespaces';
 import {DailyContext} from '../DailyProvider';
 import {sessionAtom} from '../state/state';
-import {TabNavigatorProps} from '../../../common/constants/routes';
+import {TabNavigatorProps} from '../../../lib/navigation/constants/routes';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 

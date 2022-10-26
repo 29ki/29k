@@ -14,7 +14,7 @@ import {useRecoilValue} from 'recoil';
 import {userAtom} from '../../../lib/user/state/state';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {RootStackProps} from '../../../common/constants/routes';
+import {RootStackProps} from '../../../lib/navigation/constants/routes';
 
 const Row = styled.View({
   flexDirection: 'row',

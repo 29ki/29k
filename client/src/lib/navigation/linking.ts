@@ -4,7 +4,7 @@ import {Linking} from 'react-native';
 import {utils} from '@react-native-firebase/app';
 import {DEEP_LINK_SCHEMA, DEEP_LINK_PREFIX} from 'config';
 
-import {RootStackProps} from '../../common/constants/routes';
+import {RootStackProps} from './constants/routes';
 
 // Deep link configuration
 const config: LinkingOptions<RootStackProps>['config'] = {
@@ -15,6 +15,7 @@ const config: LinkingOptions<RootStackProps>['config'] = {
         ChangingRoom: 'sessions/:sessionId',
       },
     },
+    UpgradeAccount: 'verifyPublicHostCode/:code',
   },
 };
 
