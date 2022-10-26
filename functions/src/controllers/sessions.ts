@@ -98,6 +98,14 @@ export const joinSession = async (
     inviteCode,
   )) as Session;
 
+  if (!session) {
+    throw new Error('session-not-found');
+  }
+
+  if (session.userIds.includes(userId)) {
+    return session;
+  }
+
   await sessionModel.updateSession(session.id, {
     userIds: [...session.userIds, userId],
   });

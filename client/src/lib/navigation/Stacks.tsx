@@ -16,6 +16,7 @@ import OutroPortal from '../../routes/Session/OutroPortal';
 import DailyProvider from '../../routes/Session/DailyProvider';
 import SessionModal from '../../routes/Sessions/components/SessionModal';
 import CreateSessionModal from '../../routes/Sessions/components/CreateSessionModal';
+import JoinSessionModal from '../../routes/Sessions/components/JoinSessionModal';
 import {navigationWithFadeAtom} from './state/state';
 import UpgradeAccount from '../../routes/Profile/UpgradeAccount';
 
@@ -73,6 +74,10 @@ const RootStackWrapper = () => {
             <RootStack.Screen
               name={'CreateSessionModal'}
               component={CreateSessionModal}
+            />
+            <RootStack.Screen
+              name={'JoinSessionModal'}
+              component={JoinSessionModal}
             />
             <RootStack.Screen
               name={'UpgradeAccount'}

@@ -47,7 +47,7 @@ const sessions = [
     startTime: Timestamp.now(),
     started: false,
     ended: false,
-    userIds: ['all'],
+    userIds: ['*'],
     createdAt: Timestamp.now(),
     updatedAt: Timestamp.now(),
   },
@@ -64,7 +64,7 @@ const sessions = [
     startTime: Timestamp.now(),
     started: false,
     ended: false,
-    userIds: ['all'],
+    userIds: ['*'],
     createdAt: Timestamp.now(),
     updatedAt: Timestamp.now(),
   },
@@ -99,7 +99,7 @@ describe('session model', () => {
         startTime: expect.any(String),
         started: false,
         url: 'some-url',
-        userIds: ['all'],
+        userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -113,12 +113,8 @@ describe('session model', () => {
 
   describe('getSessionByInviteCode', () => {
     it('should get a session by its invite', async () => {
-      await getSessionByInviteCode('some-session-invite-code');
-      expect(mockWhere).toHaveBeenCalledWith(
-        'inviteCode',
-        '==',
-        'some-session-invite-code',
-      );
+      await getSessionByInviteCode(12345);
+      expect(mockWhere).toHaveBeenCalledWith('inviteCode', '==', 12345);
     });
   });
 
@@ -139,7 +135,7 @@ describe('session model', () => {
           startTime: expect.any(String),
           started: false,
           url: 'some-url',
-          userIds: ['all'],
+          userIds: ['*'],
           createdAt: expect.any(String),
           updatedAt: expect.any(String),
         },
@@ -156,7 +152,7 @@ describe('session model', () => {
           startTime: expect.any(String),
           started: false,
           url: 'some-other-url',
-          userIds: ['all'],
+          userIds: ['*'],
           createdAt: expect.any(String),
           updatedAt: expect.any(String),
         },
@@ -176,7 +172,7 @@ describe('session model', () => {
     it('should filter for public sessions and sessions that the user belongs to', async () => {
       await getSessions('some-user-id');
       expect(mockWhere).toHaveBeenCalledWith('userIds', 'array-contains-any', [
-        'all',
+        '*',
         'some-user-id',
       ]);
     });
@@ -220,7 +216,7 @@ describe('session model', () => {
         started: false,
         type: 'public',
         url: 'daily-url',
-        userIds: ['all'],
+        userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -281,7 +277,7 @@ describe('session model', () => {
         startTime: expect.any(String),
         started: true,
         ended: false,
-        userIds: ['all'],
+        userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -303,7 +299,7 @@ describe('session model', () => {
         startTime: expect.any(String),
         started: false,
         ended: true,
-        userIds: ['all'],
+        userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -333,7 +329,7 @@ describe('session model', () => {
         startTime: expect.any(String),
         started: false,
         url: 'some-url',
-        userIds: ['all'],
+        userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -358,7 +354,7 @@ describe('session model', () => {
         startTime: expect.any(String),
         started: false,
         ended: false,
-        userIds: ['all'],
+        userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -384,7 +380,7 @@ describe('session model', () => {
         startTime: expect.any(String),
         started: false,
         ended: false,
-        userIds: ['all'],
+        userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });

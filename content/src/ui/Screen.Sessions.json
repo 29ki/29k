@@ -2,16 +2,19 @@
   "en": {
     "heading": "Sessions",
     "create": "Create session",
+    "join": "Join session",
     "createPlaceholder": "Session name..."
   },
   "sv": {
     "heading": "Sessioner",
     "create": "Skapa session",
-    "createPlaceholder": "Sessionsnamn..."
+    "createPlaceholder": "Sessionsnamn...",
+    "join": "Join session"
   },
   "pt": {
     "heading": "Sessions",
     "create": "Create session",
+    "join": "Join session",
     "createPlaceholder": "Session name..."
   }
 }

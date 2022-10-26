@@ -13,6 +13,7 @@ const mockDailyApi = {
 import * as sessionModel from '../models/session';
 import {
   createSession,
+  joinSession,
   removeSession,
   updateExerciseState,
   updateSession,
@@ -29,6 +30,8 @@ const mockGetSessionById = sessionModel.getSessionById as jest.Mock;
 const mockDeleteSession = sessionModel.deleteSession as jest.Mock;
 const mockUpdateSession = sessionModel.updateSession as jest.Mock;
 const mockUpdateExerciseState = sessionModel.updateExerciseState as jest.Mock;
+const mockGetSessionByInviteCode =
+  sessionModel.getSessionByInviteCode as jest.Mock;
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));
 
@@ -36,7 +39,7 @@ beforeEach(async () => {
   jest.clearAllMocks();
 });
 
-describe('sessions - conroller', () => {
+describe('sessions - controller', () => {
   describe('createSession', () => {
     it('should create a daily room that expires 2h after it starts', async () => {
       await createSession('some-user-id', {
@@ -121,6 +124,46 @@ describe('sessions - conroller', () => {
 
       expect(mockDailyApi.deleteRoom).toHaveBeenCalledTimes(0);
       expect(mockDeleteSession).toHaveBeenCalledTimes(0);
+    });
+  });
+
+  describe('joinSession', () => {
+    it('should not call update if user is already included', async () => {
+      mockGetSessionByInviteCode.mockResolvedValueOnce({
+        id: 'some-session-id',
+        userIds: ['some-other-user-id', 'some-user-id'],
+      });
+      const unmodifiedSession = await joinSession('some-user-id', 12345);
+      expect(mockUpdateSession).toHaveBeenCalledTimes(0);
+      expect(unmodifiedSession).toEqual({
+        id: 'some-session-id',
+        userIds: ['some-other-user-id', 'some-user-id'],
+      });
+    });
+
+    it('should throw if session is not found', async () => {
+      mockGetSessionByInviteCode.mockResolvedValueOnce(undefined);
+      await expect(joinSession('some-user-id', 12345)).rejects.toEqual(
+        Error('session-not-found'),
+      );
+    });
+
+    it('should update the session users and return it', async () => {
+      mockGetSessionByInviteCode.mockResolvedValueOnce({
+        id: 'some-session-id',
+        userIds: ['some-other-user-id'],
+      });
+      mockGetSessionById.mockResolvedValueOnce({
+        id: 'some-session-id',
+      }); // second call (returned value)
+
+      const joinedSession = await joinSession('some-user-id', 12345);
+      expect(mockUpdateSession).toHaveBeenCalledWith('some-session-id', {
+        userIds: ['some-other-user-id', 'some-user-id'],
+      });
+      expect(joinedSession).toEqual({
+        id: 'some-session-id',
+      });
     });
   });
 

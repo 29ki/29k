@@ -84,7 +84,7 @@ export const getSessions = async (userId: string) => {
         dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
       ),
     )
-    .where('userIds', 'array-contains-any', ['all', userId])
+    .where('userIds', 'array-contains-any', ['*', userId])
     .orderBy('startTime', 'asc')
     .get();
 
@@ -125,7 +125,8 @@ export const addSession = async ({
     exerciseState: defaultExerciseState,
     type,
     link,
-    userIds: type === SessionType.private ? [facilitator] : ['all'],
+    // '*' means session is available for everyone/public enables one single query on getSessions
+    userIds: type === SessionType.private ? [facilitator] : ['*'],
     started: false,
     ended: false,
     inviteCode:
