@@ -76,14 +76,6 @@ describe('slack', () => {
         channel: '#some-channel',
       });
     });
-
-    it('should be allowed to fail', async () => {
-      mockPostMessage.mockRejectedValueOnce('error');
-
-      await sendPublicHostRequestMessage('some-user-id', 'some@email.com');
-
-      expect(mockPostMessage).toHaveBeenCalledTimes(1);
-    });
   });
 
   describe('updatePublicHostRequestMessage', () => {
@@ -133,18 +125,5 @@ describe('slack', () => {
         ts: 'some-ts',
       });
     });
-  });
-
-  it('should be allowed to fail', async () => {
-    mockUpdate.mockRejectedValueOnce('error');
-
-    await updatePublicHostRequestMessage(
-      'some-channel-id',
-      'some-ts',
-      'some@email.com',
-      123456,
-    );
-
-    expect(mockUpdate).toHaveBeenCalledTimes(1);
   });
 });

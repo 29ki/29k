@@ -6,11 +6,7 @@ const {SLACK_OAUTH_TOKEN, SLACK_BOT_NAME, SLACK_PUBLIC_HOST_REQUESTS_CHANNEL} =
   config;
 
 const createSlackClient = () => {
-  if (
-    SLACK_BOT_NAME &&
-    SLACK_PUBLIC_HOST_REQUESTS_CHANNEL &&
-    SLACK_OAUTH_TOKEN
-  ) {
+  if (SLACK_BOT_NAME && SLACK_OAUTH_TOKEN) {
     return new WebClient(SLACK_OAUTH_TOKEN);
   }
 
@@ -111,16 +107,14 @@ export const sendPublicHostRequestMessage = async (
   userId: string,
   email: string,
 ) => {
-  try {
+  if (SLACK_PUBLIC_HOST_REQUESTS_CHANNEL) {
     const slackClient = createSlackClient();
 
     await slackClient.chat.postMessage({
       blocks: createRequestBlocks(userId, email),
       username: SLACK_BOT_NAME,
-      channel: SLACK_PUBLIC_HOST_REQUESTS_CHANNEL,
+      channel: `#${SLACK_PUBLIC_HOST_REQUESTS_CHANNEL}`,
     });
-  } catch (error) {
-    console.error('Error sending slack request', error);
   }
 };
 
@@ -130,15 +124,11 @@ export const updatePublicHostRequestMessage = async (
   email: string,
   verificationCode?: number,
 ) => {
-  try {
-    const slackClient = createSlackClient();
+  const slackClient = createSlackClient();
 
-    await slackClient.chat.update({
-      blocks: createResponseBlocks(email, verificationCode),
-      channel: channelId,
-      ts,
-    });
-  } catch (error) {
-    console.error('Error updating slack message', error);
-  }
+  await slackClient.chat.update({
+    blocks: createResponseBlocks(email, verificationCode),
+    channel: channelId,
+    ts,
+  });
 };

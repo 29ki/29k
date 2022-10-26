@@ -6,7 +6,7 @@ import {FlatList} from 'react-native-gesture-handler';
 import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
 
-import NS from '../../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../../shared/src/constants/namespaces';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {SessionType} from '../../../../../shared/src/types/Session';
 
@@ -35,6 +35,7 @@ import SETTINGS from '../../../common/constants/settings';
 import {SPACINGS} from '../../../common/constants/spacings';
 import {Body16} from '../../../common/components/Typography/Body/Body';
 import DateTimePicker from './DateTimePicker';
+import {LANGUAGE_TAG} from '../../../lib/i18n';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -210,7 +211,7 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
         contentId: selectedExercise,
         type: selectedType,
         startTime: sessionDateTime,
-        language: i18n.resolvedLanguage,
+        language: i18n.resolvedLanguage as LANGUAGE_TAG,
       });
       setIsLoading(false);
       goBack();
