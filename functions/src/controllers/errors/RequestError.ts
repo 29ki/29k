@@ -1,12 +1,13 @@
-type ErrorCode =
+type RequestErrorCode =
   | 'user-needs-email'
   | 'request-not-found'
   | 'request-exists'
-  | 'request-expired'
-  | 'verification-failed';
+  | 'request-declined'
+  | 'verification-failed'
+  | 'verification-already-used';
 
 export class RequestError extends Error {
-  constructor(code: ErrorCode) {
+  constructor(code: RequestErrorCode) {
     super(code);
     this.code = code;
   }
