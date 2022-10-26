@@ -43,14 +43,11 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.GREYDARK,
   },
   code_inline: {
-    padding: 0,
+    paddingHorizontal: SPACINGS.SIXTEEN,
+    paddingVertical: SPACINGS.EIGHT,
     borderWidth: 0,
-    borderRadius: 0,
-    backgroundColor: 'transparent',
-    flexDirection: 'row',
-  },
-  code_inline_text: {
-    flexShrink: 1,
+    borderRadius: SPACINGS.EIGHT,
+    backgroundColor: COLORS.GREYLIGHTER,
   },
 });
 
