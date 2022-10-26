@@ -1,4 +1,5 @@
 import {WebClient} from '@slack/web-api';
+import {SlackError, SlackErrorCode} from '../controllers/errors/SlackError';
 import config from './config';
 import {RequestAction} from './constants/requestAction';
 
@@ -108,13 +109,17 @@ export const sendPublicHostRequestMessage = async (
   email: string,
 ) => {
   if (SLACK_PUBLIC_HOST_REQUESTS_CHANNEL) {
-    const slackClient = createSlackClient();
+    try {
+      const slackClient = createSlackClient();
 
-    await slackClient.chat.postMessage({
-      blocks: createRequestBlocks(userId, email),
-      username: SLACK_BOT_NAME,
-      channel: `#${SLACK_PUBLIC_HOST_REQUESTS_CHANNEL}`,
-    });
+      await slackClient.chat.postMessage({
+        blocks: createRequestBlocks(userId, email),
+        username: SLACK_BOT_NAME,
+        channel: `#${SLACK_PUBLIC_HOST_REQUESTS_CHANNEL}`,
+      });
+    } catch (error) {
+      throw new SlackError(SlackErrorCode.couldNotSendMessage, error);
+    }
   }
 };
 
@@ -124,11 +129,15 @@ export const updatePublicHostRequestMessage = async (
   email: string,
   verificationCode?: number,
 ) => {
-  const slackClient = createSlackClient();
+  try {
+    const slackClient = createSlackClient();
 
-  await slackClient.chat.update({
-    blocks: createResponseBlocks(email, verificationCode),
-    channel: channelId,
-    ts,
-  });
+    await slackClient.chat.update({
+      blocks: createResponseBlocks(email, verificationCode),
+      channel: channelId,
+      ts,
+    });
+  } catch (error) {
+    throw new SlackError(SlackErrorCode.couldNotUpdateMessage, error);
+  }
 };

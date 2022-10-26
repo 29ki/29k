@@ -1,5 +1,5 @@
 import {getAuth} from 'firebase-admin/auth';
-import {SlackError} from '../../controllers/errors/SlackError';
+import {SlackError, SlackErrorCode} from '../../controllers/errors/SlackError';
 import {RequestAction} from '../../lib/constants/requestAction';
 import {
   parseMessage,
@@ -13,7 +13,7 @@ const parseMessageOrThrow = (slackPayload: string) => {
   try {
     return parseMessage(JSON.parse(slackPayload) as SlackPayload);
   } catch (error) {
-    throw new SlackError('could-not-parse-message', error);
+    throw new SlackError(SlackErrorCode.couldNotParseMessage, error);
   }
 };
 
@@ -23,7 +23,7 @@ export const slackHandler = async (slackPayload: string) => {
   const user = await getAuth().getUser(userId);
 
   if (!user?.email) {
-    throw new SlackError('user-not-found');
+    throw new SlackError(SlackErrorCode.userNotFound);
   }
 
   if (action_id === RequestAction.ACCEPT_PUBLIC_HOST_ROLE) {
