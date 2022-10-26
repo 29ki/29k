@@ -1,3 +1,4 @@
+import {VerificationError} from '../../../../../shared/src/errors/User';
 import apiClient from '../../../lib/apiClient/apiClient';
 
 const USER_ENDPOINT = '/user';
@@ -20,7 +21,7 @@ export const requestPromotion = async (): Promise<void> => {
 
 export const verifyPromotion = async (
   verificationCode: number,
-): Promise<void> => {
+): Promise<VerificationError | undefined> => {
   try {
     const response = await apiClient(`${USER_ENDPOINT}/verifyPublicHostCode`, {
       method: 'PUT',
@@ -28,6 +29,12 @@ export const verifyPromotion = async (
     });
 
     if (!response.ok) {
+      const text = await response.text();
+      if (
+        Object.values(VerificationError).find(errorCode => errorCode === text)
+      ) {
+        return text as unknown as VerificationError;
+      }
       throw new Error(await response.text());
     }
 

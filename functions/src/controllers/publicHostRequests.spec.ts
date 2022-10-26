@@ -18,6 +18,7 @@ import {
 } from './publicHostRequests';
 import {RequestError} from './errors/RequestError';
 import {sendPublicHostRequestMessage} from '../lib/slack';
+import {VerificationError} from '../../../shared/src/errors/User';
 
 jest.mock('../models/publicHostRequests');
 jest.mock('../lib/slack');
@@ -59,7 +60,9 @@ describe('requests - conroller', () => {
       try {
         await requestPublicHostRole('some-user-id');
       } catch (error) {
-        expect(error).toEqual(new RequestError('user-needs-email'));
+        expect(error).toEqual(
+          new RequestError(VerificationError.userNeedEmail),
+        );
       }
 
       expect(mockAddPublicHostRequest).toHaveBeenCalledTimes(0);
@@ -79,7 +82,9 @@ describe('requests - conroller', () => {
       try {
         await requestPublicHostRole('some-user-id');
       } catch (error) {
-        expect(error).toEqual(new RequestError('request-exists'));
+        expect(error).toEqual(
+          new RequestError(VerificationError.requestExists),
+        );
       }
 
       expect(mockAddPublicHostRequest).toHaveBeenCalledTimes(0);
@@ -115,7 +120,9 @@ describe('requests - conroller', () => {
       try {
         await verifyPublicHostRequest('some-user-id', 123456);
       } catch (error) {
-        expect(error).toEqual(new RequestError('request-not-found'));
+        expect(error).toEqual(
+          new RequestError(VerificationError.requestNotFound),
+        );
       }
 
       expect(getAuth().setCustomUserClaims as jest.Mock).toHaveBeenCalledTimes(
@@ -132,7 +139,9 @@ describe('requests - conroller', () => {
       try {
         await verifyPublicHostRequest('some-user-id', 123456);
       } catch (error) {
-        expect(error).toEqual(new RequestError('request-declined'));
+        expect(error).toEqual(
+          new RequestError(VerificationError.requestDeclined),
+        );
       }
 
       expect(getAuth().setCustomUserClaims as jest.Mock).toHaveBeenCalledTimes(
@@ -149,7 +158,9 @@ describe('requests - conroller', () => {
       try {
         await verifyPublicHostRequest('some-user-id', 123456);
       } catch (error) {
-        expect(error).toEqual(new RequestError('verification-already-used'));
+        expect(error).toEqual(
+          new RequestError(VerificationError.verificationAlreadyCalimed),
+        );
       }
 
       expect(getAuth().setCustomUserClaims as jest.Mock).toHaveBeenCalledTimes(
@@ -167,7 +178,9 @@ describe('requests - conroller', () => {
       try {
         await verifyPublicHostRequest('some-user-id', 654321);
       } catch (error) {
-        expect(error).toEqual(new RequestError('verification-failed'));
+        expect(error).toEqual(
+          new RequestError(VerificationError.verificationFailed),
+        );
       }
 
       expect(getAuth().setCustomUserClaims as jest.Mock).toHaveBeenCalledTimes(
