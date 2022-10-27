@@ -66,10 +66,13 @@ describe('createDynamicLink', () => {
         dynamicLinkInfo: {
           androidInfo: {
             androidFallbackLink: 'http://some.android/fallback/link',
+            androidPackageName: 'some-deep-link-android-package-name',
           },
           domainUriPrefix: 'some-deep-link-domain-uri-prefix',
           iosInfo: {
             iosFallbackLink: 'http://some.ios/fallback/link',
+            iosAppStoreId: 'some-deep-link-ios-appstore-id',
+            iosBundleId: 'some-deep-link-ios-bundle-id',
           },
           link: 'http://some.deep/link/base/some/path',
           navigationInfo: {enableForcedRedirect: false},
@@ -101,10 +104,13 @@ describe('createDynamicLink', () => {
         dynamicLinkInfo: {
           androidInfo: {
             androidFallbackLink: 'http://some.android/fallback/link',
+            androidPackageName: 'some-deep-link-android-package-name',
           },
           domainUriPrefix: 'some-deep-link-domain-uri-prefix',
           iosInfo: {
             iosFallbackLink: 'http://some.ios/fallback/link',
+            iosAppStoreId: 'some-deep-link-ios-appstore-id',
+            iosBundleId: 'some-deep-link-ios-bundle-id',
           },
           link: 'http://some.deep/link/base/some/path',
           navigationInfo: {enableForcedRedirect: false},
@@ -163,10 +169,13 @@ describe('createSessionLink', () => {
         dynamicLinkInfo: {
           androidInfo: {
             androidFallbackLink: 'http://some.android/fallback/link',
+            androidPackageName: 'some-deep-link-android-package-name',
           },
           domainUriPrefix: 'some-deep-link-domain-uri-prefix',
           iosInfo: {
             iosFallbackLink: 'http://some.ios/fallback/link',
+            iosAppStoreId: 'some-deep-link-ios-appstore-id',
+            iosBundleId: 'some-deep-link-ios-bundle-id',
           },
           link: 'http://some.deep/link/base/sessions/some-session-id',
           navigationInfo: {enableForcedRedirect: false},
@@ -203,10 +212,13 @@ describe('createSessionLink', () => {
         dynamicLinkInfo: {
           androidInfo: {
             androidFallbackLink: 'http://some.android/fallback/link',
+            androidPackageName: 'some-deep-link-android-package-name',
           },
           domainUriPrefix: 'some-deep-link-domain-uri-prefix',
           iosInfo: {
             iosFallbackLink: 'http://some.ios/fallback/link',
+            iosAppStoreId: 'some-deep-link-ios-appstore-id',
+            iosBundleId: 'some-deep-link-ios-bundle-id',
           },
           link: 'http://some.deep/link/base/sessions/some-session-id',
           navigationInfo: {enableForcedRedirect: false},
@@ -240,10 +252,13 @@ describe('createPublicHostCodeLink', () => {
         dynamicLinkInfo: {
           androidInfo: {
             androidFallbackLink: 'http://some.android/fallback/link',
+            androidPackageName: 'some-deep-link-android-package-name',
           },
           domainUriPrefix: 'some-deep-link-domain-uri-prefix',
           iosInfo: {
             iosFallbackLink: 'http://some.ios/fallback/link',
+            iosAppStoreId: 'some-deep-link-ios-appstore-id',
+            iosBundleId: 'some-deep-link-ios-bundle-id',
           },
           link: 'http://some.deep/link/base/verifyPublicHostCode/1337',
           navigationInfo: {enableForcedRedirect: false},
