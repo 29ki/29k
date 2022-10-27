@@ -1,5 +1,6 @@
 import {getAuth} from 'firebase-admin/auth';
 import {updatePublicHostRequest} from '../../models/publicHostRequests';
+import {createPublicHostCodeLink} from '../../models/dynamicLinks';
 import {RequestAction} from '../../lib/constants/requestAction';
 import {updatePublicHostRequestMessage, parseMessage} from '../../lib/slack';
 import {slackHandler} from './slack';
@@ -7,12 +8,14 @@ import {SlackError, SlackErrorCode} from '../../controllers/errors/SlackError';
 
 jest.mock('../../lib/slack');
 jest.mock('../../models/publicHostRequests');
+jest.mock('../../models/dynamicLinks');
 
 const mockUpdatePublicHostRequestMessage =
   updatePublicHostRequestMessage as jest.Mock;
 const mockParseMessage = parseMessage as jest.Mock;
 const mockGetUser = getAuth().getUser as jest.Mock;
 const mockUpdatePublicHostRequest = updatePublicHostRequest as jest.Mock;
+const mockCreatePublicHostCodeLink = createPublicHostCodeLink as jest.Mock;
 
 beforeEach(async () => {
   jest.clearAllMocks();
@@ -21,6 +24,9 @@ beforeEach(async () => {
 describe('slack', () => {
   describe('publicHostAction', () => {
     it('should update request to accepted and notify in slack', async () => {
+      mockCreatePublicHostCodeLink.mockResolvedValueOnce(
+        'http://some.deep/verification/link',
+      );
       mockParseMessage.mockReturnValueOnce([
         'some-channel-id',
         'some-ts',
@@ -44,6 +50,7 @@ describe('slack', () => {
         'some-channel-id',
         'some-ts',
         'some@email.com',
+        'http://some.deep/verification/link',
         expect.any(Number),
       );
     });

@@ -7,6 +7,7 @@ import * as Icons from '../../../common/components/Icons/Icons.library';
 import * as Typography from '../../../common/components/Typography/Typography.library';
 import * as UiSettings from '../../../common/constants/UiSettings.library';
 import * as Session from '../../../routes/Session/components/Session.library';
+import * as Screen from '../../../common/components/Screen/Screen.library';
 import * as Modal from '../../../common/components/Modals/Modal.library';
 
 export type ComponentLibrary = {[key: string]: React.ComponentType};
@@ -18,6 +19,7 @@ const menuItems: ComponentList = {
   Icons: [Icons],
   Modal: [Modal],
   Typography: [Typography],
+  Screen: [Screen],
   SessionComponents: [Session],
   UiSettings: [UiSettings],
 };
