@@ -10,7 +10,7 @@
       "openSettings": "Open settings"
     }
   },
-  "se": {
+  "sv": {
     "placeholder": "Skriv ditt namn",
     "join_button": "Gå med",
     "cameraOff": "Karmeran är Av",
@@ -20,5 +20,6 @@
       "join": "Gå med ändå",
       "openSettings": "Öppna inställningar"
     }
-  }
+  },
+  "pt": {}
 }
