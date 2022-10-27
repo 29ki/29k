@@ -3,13 +3,14 @@ import {Alert} from 'react-native';
 import {useRecoilValue} from 'recoil';
 import {useTranslation} from 'react-i18next';
 import auth from '@react-native-firebase/auth';
+import {RouteProp, useRoute} from '@react-navigation/native';
 import Button from '../../common/components/Buttons/Button';
-import {Spacer16} from '../../common/components/Spacers/Spacer';
+import {Spacer16, Spacer48} from '../../common/components/Spacers/Spacer';
 import Input from '../../common/components/Typography/TextInput/TextInput';
 import * as NS from '../../../../shared/src/constants/namespaces';
 import {Body14, Body16} from '../../common/components/Typography/Body/Body';
+import {Heading16} from '../../common/components/Typography/Heading/Heading';
 import Gutters from '../../common/components/Gutters/Gutters';
-import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {requestPromotion, verifyPromotion} from './api/user';
 import styled from 'styled-components/native';
 import HalfModal from '../../common/components/Modals/HalfModal';
@@ -24,14 +25,17 @@ const Heading = styled(Body16)({textAlign: 'center'});
 
 const ErrorText = styled(Body14)({color: COLORS.ERROR, textAlign: 'center'});
 
+const SuccessHeader = styled(Heading16)({textAlign: 'center'});
+const SuccessText = styled(Body16)({textAlign: 'center'});
+
 const UpgradeAccount = () => {
   const {t} = useTranslation(NS.SCREEN.UPGRADE_ACCOUNT);
   const {params} = useRoute<RouteProp<ModalStackProps, 'UpgradeAccount'>>();
-  const {goBack} = useNavigation();
   const user = useRecoilValue(userAtom);
   const [needToUpgrade, setNeedToUpgrade] = useState(false);
   const [haveCode, setHaveCode] = useState(Boolean(params?.code));
   const [haveRequested, setHaveRequested] = useState(false);
+  const [upgradeComplete, setUpgradeComplete] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorString, setErrorString] = useState<string | null>(null);
@@ -69,7 +73,7 @@ const UpgradeAccount = () => {
 
     if (!error) {
       await updateIsPublicHost();
-      goBack();
+      setUpgradeComplete(true);
     } else {
       switch (error) {
         case VerificationError.requestNotFound:
@@ -94,9 +98,9 @@ const UpgradeAccount = () => {
   return (
     <HalfModal>
       <Gutters>
-        <Spacer16 />
+        <Spacer48 />
 
-        {(!needToUpgrade || haveRequested) && !haveCode && (
+        {(!needToUpgrade || haveRequested) && !haveCode && !upgradeComplete && (
           <>
             <Heading>
               {haveRequested ? t('requestComplete') : t('text')}
@@ -114,7 +118,7 @@ const UpgradeAccount = () => {
           </>
         )}
 
-        {!haveRequested && needToUpgrade && !haveCode && (
+        {!haveRequested && needToUpgrade && !haveCode && !upgradeComplete && (
           <>
             <Heading>{t('needToUpgrade')}</Heading>
             <Spacer16 />
@@ -141,7 +145,7 @@ const UpgradeAccount = () => {
             <Button onPress={setEmailAndPassword}>{t('button')}</Button>
           </>
         )}
-        {haveCode && (
+        {haveCode && !upgradeComplete && (
           <>
             <Heading>{t('enterCode')}</Heading>
             <Spacer16 />
@@ -157,6 +161,13 @@ const UpgradeAccount = () => {
             )}
           </>
         )}
+        {upgradeComplete && (
+          <>
+            <SuccessHeader>{t('success.header')}</SuccessHeader>
+            <SuccessText>{t('success.text')}</SuccessText>
+          </>
+        )}
+        <Spacer48 />
       </Gutters>
     </HalfModal>
   );
