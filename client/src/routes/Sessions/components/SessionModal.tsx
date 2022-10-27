@@ -87,12 +87,14 @@ const SessionModal = () => {
 
   const onShare = () => {
     if (session.link) {
-      Share.share(
-        Platform.select({
-          ios: {url: session.link},
-          default: {message: session.link},
+      Share.share({
+        url: session.link,
+        message: t('shareMessage', {
+          link: session.link,
+          code: '111 111',
+          interpolation: {escapeValue: false},
         }),
-      );
+      });
     }
   };
 
