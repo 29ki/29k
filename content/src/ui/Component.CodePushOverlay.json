@@ -1,11 +1,11 @@
 {
   "en": {
     "downloading": {
-      "title": "Downloading important update",
-      "text": "Sorry for the inconvienience - please hang tight."
+      "title": "Downloading update",
+      "text": "Sorry for the inconvienience – please hang tight."
     },
     "install": {
-      "title": "Install important update",
+      "title": "Install update",
       "text": "Restart the app to install the latest version.",
       "dismiss_button": "Not now",
       "restart_button": "Restart"
@@ -13,11 +13,11 @@
   },
   "sv": {
     "downloading": {
-      "title": "Laddar ner viktig uppdatering",
-      "text": "Ursäkta besväret - det här ska inte ta så lång tid."
+      "title": "Laddar ner uppdatering",
+      "text": "Ursäkta besväret – snart klart."
     },
     "install": {
-      "title": "Installera viktig uppdatering",
+      "title": "Installera uppdatering",
       "text": "Starta om appen för att installera den senaste versionen.",
       "dismiss_button": "Inte nu",
       "restart_button": "Starta om"

@@ -1,10 +1,14 @@
 import React from 'react';
+import {ViewProps} from 'react-native';
+import LinearGradient, {
+  LinearGradientProps,
+} from 'react-native-linear-gradient';
+import {EdgeInsets, useSafeAreaInsets} from 'react-native-safe-area-context';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import IconButton from '../Buttons/IconButton/IconButton';
 import {ArrowLeftIcon} from '../Icons';
-import {TopSafeArea} from '../Spacers/Spacer';
 
 const Wrapper = styled.View<{backgroundColor?: string}>(
   ({backgroundColor}) => ({
@@ -13,64 +17,78 @@ const Wrapper = styled.View<{backgroundColor?: string}>(
   }),
 );
 
-const TopBarWrapper = styled.View({
-  zIndex: 100,
-  flexDirection: 'row',
-  alignItems: 'center',
-  paddingLeft: SPACINGS.SIXTEEN,
-  paddingRight: SPACINGS.SIXTEEN,
-  height: SPACINGS.FOURTYFOUR,
-  width: '100%',
-  justifyContent: 'space-between',
-});
+type TopBarWrapperProps = ViewProps & {
+  floating?: boolean;
+  safeArea: EdgeInsets;
+};
 
-const BackButton = styled(IconButton)({
-  marginLeft: -SPACINGS.SIXTEEN,
-});
-
-const TopBar: React.FC<{
-  hasDarkBackground?: boolean;
-  onPressBack?: () => void;
-}> = ({onPressBack, hasDarkBackground: isOnDarkBackground}) => (
-  <>
-    <TopSafeArea minSize={SPACINGS.SIXTEEN} />
-    <TopBarWrapper>
-      {onPressBack && (
-        <BackButton
-          noBackground
-          onPress={onPressBack}
-          Icon={ArrowLeftIcon}
-          fill={isOnDarkBackground ? COLORS.WHITE : COLORS.BLACK}
-        />
-      )}
-    </TopBarWrapper>
-  </>
+const TopBarWrapper = styled.View<TopBarWrapperProps>(
+  ({floating, safeArea}) => ({
+    zIndex: 100,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: safeArea.top,
+    height: safeArea.top + SPACINGS.FOURTYFOUR,
+    width: '100%',
+    justifyContent: 'space-between',
+    position: floating ? 'absolute' : 'relative',
+  }),
 );
+
+type OverlayProps = LinearGradientProps & {safeArea: EdgeInsets};
+
+const Overlay = styled(LinearGradient)<OverlayProps>(({safeArea}) => ({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  height: safeArea.top + SPACINGS.FOURTYFOUR,
+}));
 
 type ScreenProps = {
   backgroundColor?: string;
+  textColor?: string;
   children: React.ReactNode;
-  hasDarkBackground?: boolean;
-  noStatusBar?: boolean;
-  noTopBar?: boolean;
   onPressBack?: () => void;
-  title?: string;
+  floatingTopBar?: boolean;
+  topBarOverlay?: boolean;
 };
 
 const Screen: React.FC<ScreenProps> = ({
   backgroundColor,
+  textColor,
   children,
-  hasDarkBackground,
-  noTopBar,
   onPressBack,
+  floatingTopBar = true,
+  topBarOverlay = false,
 }) => {
+  const safeArea = useSafeAreaInsets();
+
   return (
     <Wrapper backgroundColor={backgroundColor}>
-      {!noTopBar && (
-        <TopBar
-          onPressBack={onPressBack}
-          hasDarkBackground={hasDarkBackground}
-        />
+      {onPressBack && (
+        <TopBarWrapper floating={floatingTopBar} safeArea={safeArea}>
+          {topBarOverlay && (
+            <Overlay
+              colors={[
+                backgroundColor ? backgroundColor : COLORS.WHITE,
+                backgroundColor
+                  ? `${backgroundColor}00`
+                  : COLORS.WHITE_TRANSPARENT,
+              ]}
+              start={{x: 0, y: 0.8}}
+              end={{x: 0, y: 1}}
+              safeArea={safeArea}
+            />
+          )}
+          <IconButton
+            Icon={ArrowLeftIcon}
+            onPress={onPressBack}
+            noBackground
+            fill={textColor}
+            variant="tertiary"
+          />
+        </TopBarWrapper>
       )}
       {children}
     </Wrapper>

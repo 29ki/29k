@@ -13,6 +13,7 @@ import useLeaveSession from './hooks/useLeaveSession';
 import VideoBase from './components/VideoBase/VideoBase';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 import useNavigateWithFade from '../../lib/navigation/hooks/useNavigateWithFade';
+import Screen from '../../common/components/Screen/Screen';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -39,7 +40,7 @@ const OutroPortal: React.FC = () => {
     return null;
   }
   return (
-    <>
+    <Screen>
       <TopSafeArea minSize={SPACINGS.SIXTEEN} />
       <VideoStyled
         ref={finalVidRef}
@@ -52,7 +53,7 @@ const OutroPortal: React.FC = () => {
         allowsExternalPlayback={false}
       />
       <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
-    </>
+    </Screen>
   );
 };
 

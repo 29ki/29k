@@ -97,6 +97,7 @@ describe('slack', () => {
         'some-channel-id',
         'some-ts',
         'some@email.com',
+        'http://some.deep/verification/link',
         123456,
       );
 
@@ -107,7 +108,7 @@ describe('slack', () => {
             type: 'section',
             text: {
               type: 'mrkdwn',
-              text: '*Accepted <mailto:some@email.com?body=123456|some@email.com> as public host, please send code `123456` to the user.*',
+              text: '*Accepted <mailto:some@email.com?body=123456%20-%20http%3A%2F%2Fsome.deep%2Fverification%2Flink|some@email.com> as public host, please send code `123456` http://some.deep/verification/link to the user.*',
             },
           },
         ]),

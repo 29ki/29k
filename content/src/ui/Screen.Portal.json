@@ -2,29 +2,29 @@
   "en": {
     "participants": "We are",
     "startSession": "Start session",
-    "sessionStarted": "Session is On",
+    "sessionStarted": "Session is on",
     "skipPortal": "Skip portal",
     "counterLabel": {
       "counting": "Starting in",
       "soon": "Starting"
     },
     "counterValue": {
-      "shortly": "Shortly",
-      "now": "Now"
+      "shortly": "shortly",
+      "now": "now"
     }
   },
   "sv": {
     "participants": "Vi är",
     "startSession": "Starta session",
     "sessionStarted": "Session är igång",
-    "skipPortal": "Skip portal",
+    "skipPortal": "Skippa portal",
     "counterLabel": {
       "counting": "Startar om",
       "soon": "Startar"
     },
     "counterValue": {
-      "shortly": "Snart",
-      "now": "Nu"
+      "shortly": "snart",
+      "now": "nu"
     }
   },
   "pt": {
