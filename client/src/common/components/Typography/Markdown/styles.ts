@@ -42,10 +42,11 @@ const styles = StyleSheet.create({
     marginBottom: 25,
     backgroundColor: COLORS.GREYDARK,
   },
-  code_inline: {
-    paddingHorizontal: SPACINGS.SIXTEEN,
+  blockquote: {
+    marginLeft: 0,
+    borderLeftWidth: 0,
     paddingVertical: SPACINGS.EIGHT,
-    borderWidth: 0,
+    paddingHorizontal: SPACINGS.SIXTEEN,
     borderRadius: SPACINGS.EIGHT,
     backgroundColor: COLORS.GREYLIGHTER,
   },

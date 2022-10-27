@@ -37,11 +37,9 @@ const rules: RenderRules = {
     </Fragment>
   ),
 
-  code_inline: (node, children, parent, styles) => (
+  blockquote: (node, children, parent, styles) => (
     <Fragment key={node.key}>
-      <View style={styles.code_inline}>
-        <Body16>{node.content}</Body16>
-      </View>
+      <View style={styles.blockquote}>{children}</View>
       <Spacer16 />
     </Fragment>
   ),
