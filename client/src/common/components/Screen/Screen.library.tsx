@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView} from 'react-native-gesture-handler';
+import {ScrollView} from 'react-native';
 import {Display36} from '../Typography/Display/Display';
 import Screen from './Screen';
 
