@@ -49,7 +49,7 @@ export const WithBackButton = () => (
   </Screen>
 );
 export const WithTopBarWithOverlay = () => (
-  <Screen topBarOverlay onPressBack={() => {}}>
+  <Screen topBarOverlay onPressBack={() => {}} backgroundColor="#ff8164">
     <ScrollView>
       <Display36>
         WithTopBarWithOverlay. Lorem Ipsum is simply dummy text of the printing

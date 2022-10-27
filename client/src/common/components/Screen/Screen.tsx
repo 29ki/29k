@@ -70,7 +70,12 @@ const Screen: React.FC<ScreenProps> = ({
         <TopBarWrapper floating={floatingTopBar} safeArea={safeArea}>
           {topBarOverlay && (
             <Overlay
-              colors={[COLORS.WHITE, COLORS.WHITE_TRANSPARENT]}
+              colors={[
+                backgroundColor ? backgroundColor : COLORS.WHITE,
+                backgroundColor
+                  ? `${backgroundColor}00`
+                  : COLORS.WHITE_TRANSPARENT,
+              ]}
               start={{x: 0, y: 0.8}}
               end={{x: 0, y: 1}}
               safeArea={safeArea}
