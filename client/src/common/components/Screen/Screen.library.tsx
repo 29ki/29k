@@ -16,39 +16,47 @@ export const DefaultScreen = () => (
 );
 export const DefaultWithBackgroundColor = () => (
   <Screen backgroundColor="red">
-    <Display36>
-      WithBackgroundColor. Lorem Ipsum is simply dummy text of the printing and
-      typesetting industry. Lorem Ipsum has been the industry's standard dummy
-      text ever since the 1500s.
-    </Display36>
+    <ScrollView>
+      <Display36>
+        DefaultWithBackgroundColor. Lorem Ipsum is simply dummy text of the
+        printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s.
+      </Display36>
+    </ScrollView>
   </Screen>
 );
 export const DefaultWithTextColor = () => (
   <Screen textColor="red" onPressBack={() => {}}>
-    <Display36>
-      WithTextColor. Lorem Ipsum is simply dummy text of the printing and
-      typesetting industry. Lorem Ipsum has been the industry's standard dummy
-      text ever since the 1500s.
-    </Display36>
+    <ScrollView>
+      <Display36>
+        DefaultWithTextColor. Lorem Ipsum is simply dummy text of the printing
+        and typesetting industry. Lorem Ipsum has been the industry's standard
+        dummy text ever since the 1500s.
+      </Display36>
+    </ScrollView>
   </Screen>
 );
 
 export const WithBackButton = () => (
   <Screen floatingTopBar={false} onPressBack={() => {}}>
-    <Display36>
-      WithBackButton. Lorem Ipsum is simply dummy text of the printing and
-      typesetting industry. Lorem Ipsum has been the industry's standard dummy
-      text ever since the 1500s.
-    </Display36>
+    <ScrollView>
+      <Display36>
+        WithBackButton. Lorem Ipsum is simply dummy text of the printing and
+        typesetting industry. Lorem Ipsum has been the industry's standard dummy
+        text ever since the 1500s.
+      </Display36>
+    </ScrollView>
   </Screen>
 );
-export const WithBackButtonAndTopBarWithOverlay = () => (
+export const WithTopBarWithOverlay = () => (
   <Screen topBarOverlay onPressBack={() => {}}>
-    <Display36>
-      TopBarWithOverlay. Lorem Ipsum is simply dummy text of the printing and
-      typesetting industry. Lorem Ipsum has been the industry's standard dummy
-      text ever since the 1500s.
-    </Display36>
+    <ScrollView>
+      <Display36>
+        WithTopBarWithOverlay. Lorem Ipsum is simply dummy text of the printing
+        and typesetting industry. Lorem Ipsum has been the industry's standard
+        dummy text ever since the 1500s.
+      </Display36>
+    </ScrollView>
   </Screen>
 );
 export const WithBackButtonFloating = () => (
