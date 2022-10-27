@@ -36,7 +36,7 @@ const Profile = () => {
   const {isPublicHost} = useIsPublicHost();
 
   return (
-    <Screen noTopBar>
+    <Screen>
       <ScrollView>
         <TopSafeArea />
         <Gutters>

@@ -83,13 +83,14 @@ const Content = styled.View({
   flex: 1,
   justifyContent: 'space-between',
 });
-const BackButton = styled(IconButton)({
-  marginLeft: -SPACINGS.SIXTEEN,
-});
 
 const TopBar = styled(Gutters)({
   justifyContent: 'space-between',
   flexDirection: 'row',
+});
+
+const BackButton = styled(IconButton)({
+  marginLeft: -SPACINGS.SIXTEEN,
 });
 
 const IntroPortal: React.FC = () => {
@@ -118,7 +119,7 @@ const IntroPortal: React.FC = () => {
   }, [joinMeeting]);
 
   const introPortal = exercise?.introPortal;
-  const themedText = exercise?.theme?.textColor;
+  const textColor = exercise?.theme?.textColor;
 
   if (!introPortal) {
     return null;
@@ -146,7 +147,7 @@ const IntroPortal: React.FC = () => {
   };
 
   return (
-    <Screen noTopBar>
+    <Screen>
       {!isFacilitator && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
       {isFocused && introPortal.videoLoop?.audio && (
         <AudioFader
@@ -193,10 +194,10 @@ const IntroPortal: React.FC = () => {
           <Content>
             <TopBar>
               <BackButton
-                noBackground
                 onPress={leaveSessionWithConfirm}
+                fill={textColor}
                 Icon={ArrowLeftIcon}
-                fill={themedText}
+                noBackground
               />
               {__DEV__ && session?.started && (
                 <Button
@@ -214,13 +215,13 @@ const IntroPortal: React.FC = () => {
 
             <PortalStatus>
               <StatusItem>
-                <StatusText themeColor={themedText}>
+                <StatusText themeColor={textColor}>
                   {t('counterLabel.soon')}
                 </StatusText>
 
                 <Spacer8 />
-                <Badge themeColor={themedText}>
-                  <StatusText themeColor={themedText}>
+                <Badge themeColor={textColor}>
+                  <StatusText themeColor={textColor}>
                     <Counter
                       startTime={dayjs(session?.startTime.toDate())}
                       starting={session?.started}
@@ -231,12 +232,12 @@ const IntroPortal: React.FC = () => {
 
               {participantsCount > 1 && (
                 <StatusItem>
-                  <StatusText themeColor={themedText}>
+                  <StatusText themeColor={textColor}>
                     {t('participants')}
                   </StatusText>
                   <Spacer8 />
-                  <Badge themeColor={themedText}>
-                    <StatusText themeColor={themedText}>
+                  <Badge themeColor={textColor}>
+                    <StatusText themeColor={textColor}>
                       {participantsCount}
                     </StatusText>
                   </Badge>
@@ -246,7 +247,6 @@ const IntroPortal: React.FC = () => {
           </Content>
         )}
       </Wrapper>
-
       <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
     </Screen>
   );

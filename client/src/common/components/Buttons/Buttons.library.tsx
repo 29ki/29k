@@ -183,13 +183,13 @@ export const AllButtons = () => (
       <BodyBold>Toggle button</BodyBold>
     </Body18>
     <Spacer8 />
-    <Row>
+    <ButtonWrapper>
       <ToggleButton onPress={() => {}} title="Is not toggled" />
-      <Spacer16 />
+      <Spacer8 />
       <ToggleButton isToggled onPress={() => {}} title="Is toggled" />
-      <Spacer16 />
+      <Spacer8 />
       <ToggleButton disabled onPress={() => {}} title="Is disabled" />
-    </Row>
+    </ButtonWrapper>
   </ScreenWrapper>
 );
 
