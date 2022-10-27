@@ -24,7 +24,7 @@ export const DefaultWithBackgroundColor = () => (
   </Screen>
 );
 export const DefaultWithTextColor = () => (
-  <Screen textColor="red">
+  <Screen textColor="red" onPressBack={() => {}}>
     <Display36>
       WithTextColor. Lorem Ipsum is simply dummy text of the printing and
       typesetting industry. Lorem Ipsum has been the industry's standard dummy
