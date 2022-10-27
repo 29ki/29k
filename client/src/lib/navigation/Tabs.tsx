@@ -15,14 +15,14 @@ import {
   ProfileIcon,
 } from '../../common/components/Icons';
 import {COLORS} from '../../../../shared/src/constants/colors';
-import {TabNavigatorProps} from '../../common/constants/routes';
+import {TabNavigatorProps} from './constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import {Body14} from '../../common/components/Typography/Body/Body';
 
 import Profile from '../../routes/Profile/Profile';
 import Sessions from '../../routes/Sessions/Sessions';
 
-import NS from '../i18n/constants/namespaces';
+import * as NS from '../../../../shared/src/constants/namespaces';
 import {Platform} from 'react-native';
 import {BottomSafeArea} from '../../common/components/Spacers/Spacer';
 

@@ -1,77 +1,23 @@
 import request from 'supertest';
-import {mockFirebase} from 'firestore-jest-mock';
 import Koa from 'koa';
-
-mockFirebase(
-  {
-    database: {
-      sessions: [],
-    },
-  },
-  {includeIdsInData: true, mutable: true},
-);
-
-const mockDailyApi = {
-  createRoom: jest.fn(() => ({
-    id: 'some-fake-daily-id',
-    url: 'http://fake.daily/url',
-  })),
-  deleteRoom: jest.fn(),
-};
-
-const mockDynamicLinks = {
-  createDynamicLink: jest.fn().mockResolvedValue('http://some.dynamic/link'),
-};
 
 import {sessionsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
-import {
-  mockGetTransaction,
-  mockOrderBy,
-  mockRunTransaction,
-  mockUpdate,
-  mockUpdateTransaction,
-  mockWhere,
-} from 'firestore-jest-mock/mocks/firestore';
 import {createRouter} from '../../lib/routers';
-import {firestore} from 'firebase-admin';
-import {Timestamp} from 'firebase-admin/firestore';
 import {getAuth} from 'firebase-admin/auth';
 import {ROLES} from '../../../../shared/src/types/User';
+import * as sessionsController from '../../controllers/sessions';
+import * as sessionModel from '../../models/session';
 
-jest.mock('../../lib/dailyApi', () => mockDailyApi);
-jest.mock('../../lib/dynamicLinks', () => mockDynamicLinks);
+jest.mock('../../controllers/sessions');
+const mockCreateSession = sessionsController.createSession as jest.Mock;
+const mockRemoveSession = sessionsController.removeSession as jest.Mock;
+const mockUpdateSession = sessionsController.updateSession as jest.Mock;
+const mockUpdateExerciseState =
+  sessionsController.updateExerciseState as jest.Mock;
 
-const sessions = [
-  {
-    id: 'some-session-id',
-    name: 'some-name',
-    url: 'some-url',
-    exerciseState: {
-      index: 0,
-      playing: false,
-      timestamp: Timestamp.now(),
-    },
-    facilitator: 'some-user-id',
-    startTime: Timestamp.now(),
-    started: false,
-    ended: false,
-  },
-  {
-    id: 'some-other-session-id',
-    name: 'some-other-name',
-    url: 'some-other-url',
-    exerciseState: {
-      index: 0,
-      playing: false,
-      timestamp: Timestamp.now(),
-    },
-    facilitator: 'some-other-user-id',
-    startTime: Timestamp.now(),
-    started: false,
-    ended: false,
-  },
-];
+jest.mock('../../models/session');
+const mockGetSessions = sessionModel.getSessions as jest.Mock;
 
 const router = createRouter();
 router.use('/sessions', sessionsRouter.routes());
@@ -86,14 +32,6 @@ const mockServer = createMockServer(
   router.allowedMethods(),
 );
 
-beforeEach(async () => {
-  await Promise.all(
-    sessions.map(session =>
-      firestore().collection('sessions').doc(session.id).set(session),
-    ),
-  );
-});
-
 afterEach(() => {
   jest.clearAllMocks();
 });
@@ -105,7 +43,39 @@ afterAll(() => {
 describe('/api/sessions', () => {
   describe('GET', () => {
     it('should get sessions', async () => {
+      mockGetSessions.mockResolvedValue([
+        {
+          id: 'some-session-id',
+          name: 'some-name',
+          url: 'some-url',
+          exerciseState: {
+            index: 0,
+            playing: false,
+            timestamp: new Date('2022-10-10T10:00:00Z').toISOString(),
+          },
+          facilitator: 'some-user-id',
+          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+          started: false,
+          ended: false,
+        },
+        {
+          id: 'some-other-session-id',
+          name: 'some-other-name',
+          url: 'some-other-url',
+          exerciseState: {
+            index: 0,
+            playing: false,
+            timestamp: new Date('2022-10-10T10:00:00Z').toISOString(),
+          },
+          facilitator: 'some-other-user-id',
+          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+          started: false,
+          ended: false,
+        },
+      ]);
+
       const response = await request(mockServer).get('/sessions');
+
       expect(response.status).toBe(200);
       expect(response.body).toEqual([
         {
@@ -138,21 +108,6 @@ describe('/api/sessions', () => {
         },
       ]);
     });
-
-    it('should filter out old sessions', async () => {
-      await request(mockServer).get('/sessions');
-      expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
-      expect(mockWhere).toHaveBeenCalledWith(
-        'startTime',
-        '>',
-        expect.any(Timestamp),
-      );
-    });
-
-    it('should order by startTime', async () => {
-      await request(mockServer).get('/sessions');
-      expect(mockOrderBy).toHaveBeenCalledWith('startTime', 'asc');
-    });
   });
 
   describe('POST', () => {
@@ -163,29 +118,19 @@ describe('/api/sessions', () => {
         customClaims: {role: ROLES.publicHost},
       });
 
+      mockCreateSession.mockResolvedValueOnce({id: 'new-session'});
       const response = await request(mockServer)
         .post('/sessions')
         .send({
           contentId: 'some-content-id',
+          type: 'public',
           startTime,
         })
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
-        id: 'some-fake-daily-id',
-        url: 'http://fake.daily/url',
-        link: 'http://some.dynamic/link',
-        exerciseState: {
-          index: 0,
-          playing: false,
-          timestamp: expect.any(String),
-        },
-        contentId: 'some-content-id',
-        facilitator: 'some-user-id',
-        startTime: startTime,
-        started: false,
-        ended: false,
+        id: 'new-session',
       });
     });
 
@@ -198,6 +143,7 @@ describe('/api/sessions', () => {
         .post('/sessions')
         .send({
           contentId: 'some-content-id',
+          type: 'public',
           startTime,
         })
         .set('Accept', 'application/json');
@@ -205,11 +151,10 @@ describe('/api/sessions', () => {
       expect(response.status).toBe(401);
     });
 
-    it('should require a name', async () => {
+    it('should fail without session data', async () => {
       (getAuth().getUser as jest.Mock).mockReturnValueOnce({
         customClaims: {role: ROLES.publicHost},
       });
-
       const response = await request(mockServer)
         .post('/sessions')
         .set('Accept', 'application/json');
@@ -218,11 +163,8 @@ describe('/api/sessions', () => {
       expect(response.text).toEqual('Internal Server Error');
     });
 
-    it('should fail if daily api fails', async () => {
-      (getAuth().getUser as jest.Mock).mockReturnValueOnce({
-        customClaims: {role: ROLES.publicHost},
-      });
-      mockDailyApi.createRoom.mockRejectedValueOnce(
+    it('should fail if controller throws', async () => {
+      mockCreateSession.mockRejectedValueOnce(
         new Error('some error text') as never,
       );
       const response = await request(mockServer)
@@ -233,7 +175,8 @@ describe('/api/sessions', () => {
   });
 
   describe('PUT', () => {
-    it('should return updated session with started', async () => {
+    it('should return updated session', async () => {
+      mockUpdateSession.mockResolvedValueOnce({id: 'some-session-id'});
       const response = await request(mockServer)
         .put('/sessions/some-session-id')
         .send({started: true})
@@ -242,40 +185,6 @@ describe('/api/sessions', () => {
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
         id: 'some-session-id',
-        name: 'some-name',
-        url: 'some-url',
-        exerciseState: {
-          index: 0,
-          playing: false,
-          timestamp: expect.any(String),
-        },
-        facilitator: 'some-user-id',
-        startTime: expect.any(String),
-        started: true,
-        ended: false,
-      });
-    });
-
-    it('should return updated session with ended', async () => {
-      const response = await request(mockServer)
-        .put('/sessions/some-session-id')
-        .send({ended: true})
-        .set('Accept', 'application/json');
-
-      expect(response.status).toBe(200);
-      expect(response.body).toEqual({
-        id: 'some-session-id',
-        name: 'some-name',
-        url: 'some-url',
-        exerciseState: {
-          index: 0,
-          playing: false,
-          timestamp: expect.any(String),
-        },
-        facilitator: 'some-user-id',
-        startTime: expect.any(String),
-        started: false,
-        ended: true,
       });
     });
 
@@ -288,7 +197,8 @@ describe('/api/sessions', () => {
       expect(response.status).toBe(500);
     });
 
-    it('should fail when request auth user is not facilitator', async () => {
+    it('should fail when update rejects', async () => {
+      mockUpdateSession.mockRejectedValueOnce(new Error('some-error'));
       const response = await request(mockServer)
         .put('/sessions/some-other-session-id')
         .send({started: true})
@@ -300,18 +210,8 @@ describe('/api/sessions', () => {
   });
 
   describe('PUT /:id/exerciseState', () => {
-    it('runs in a transaction', async () => {
-      await request(mockServer)
-        .put('/sessions/some-session-id/exerciseState')
-        .send({playing: true})
-        .set('Accept', 'application/json');
-
-      expect(mockRunTransaction).toHaveBeenCalledTimes(1);
-      expect(mockUpdateTransaction).toHaveBeenCalledTimes(1);
-      expect(mockGetTransaction).toHaveBeenCalledTimes(1);
-    });
-
-    it('should update index', async () => {
+    it('should call session update', async () => {
+      mockUpdateExerciseState.mockResolvedValueOnce({id: 'some-session-id'});
       const response = await request(mockServer)
         .put('/sessions/some-session-id/exerciseState')
         .send({index: 2})
@@ -320,68 +220,11 @@ describe('/api/sessions', () => {
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
         id: 'some-session-id',
-        name: 'some-name',
-        url: 'some-url',
-        exerciseState: {
-          index: 2,
-          playing: false,
-          timestamp: expect.any(String),
-        },
-        facilitator: 'some-user-id',
-        startTime: expect.any(String),
-        started: false,
-        ended: false,
       });
     });
 
-    it('should update playing', async () => {
-      const response = await request(mockServer)
-        .put('/sessions/some-session-id/exerciseState')
-        .send({playing: true})
-        .set('Accept', 'application/json');
-
-      expect(response.status).toBe(200);
-      expect(response.body).toEqual({
-        id: 'some-session-id',
-        name: 'some-name',
-        url: 'some-url',
-        exerciseState: {
-          index: 0,
-          playing: true,
-          timestamp: expect.any(String),
-        },
-        facilitator: 'some-user-id',
-        startTime: expect.any(String),
-        started: false,
-        ended: false,
-      });
-    });
-
-    it('should update dailySpotlightId', async () => {
-      const response = await request(mockServer)
-        .put('/sessions/some-session-id/exerciseState')
-        .send({dailySpotlightId: 'some-user-id'})
-        .set('Accept', 'application/json');
-
-      expect(response.status).toBe(200);
-      expect(response.body).toEqual({
-        id: 'some-session-id',
-        name: 'some-name',
-        url: 'some-url',
-        exerciseState: {
-          index: 0,
-          playing: false,
-          dailySpotlightId: 'some-user-id',
-          timestamp: expect.any(String),
-        },
-        facilitator: 'some-user-id',
-        startTime: expect.any(String),
-        started: false,
-        ended: false,
-      });
-    });
-
-    it('should fail when request auth user is not facilitator', async () => {
+    it('should fail when update rejects', async () => {
+      mockUpdateExerciseState.mockRejectedValueOnce(new Error('some-error'));
       const response = await request(mockServer)
         .put('/sessions/some-other-session-id/exerciseState')
         .send({playing: true})
@@ -398,64 +241,37 @@ describe('/api/sessions', () => {
 
       expect(response.status).toBe(500);
       expect(response.text).toEqual('Internal Server Error');
-      expect(mockUpdate).toHaveBeenCalledTimes(0);
+      expect(mockUpdateExerciseState).toHaveBeenCalledTimes(0);
     });
 
     it('does not accept other fields', async () => {
+      mockUpdateExerciseState.mockResolvedValueOnce({id: 'some-session-id'});
       const response = await request(mockServer)
         .put('/sessions/some-session-id/exerciseState')
         .send({index: 1, foo: 'bar'})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
-      expect(mockUpdateTransaction).toHaveBeenCalledTimes(1);
-      expect(mockUpdateTransaction).toHaveBeenCalledWith(expect.any(Object), {
-        exerciseState: {
+      expect(mockUpdateExerciseState).toHaveBeenCalledTimes(1);
+      expect(mockUpdateExerciseState).toHaveBeenCalledWith(
+        'some-user-id',
+        'some-session-id',
+        {
           index: 1,
-          playing: false,
-          timestamp: expect.any(Object),
         },
-      });
-    });
-
-    it('should return 500 on non-existing session', async () => {
-      const response = await request(mockServer)
-        .put('/sessions/some-non-existing-id/exerciseState')
-        .send({index: 1})
-        .set('Accept', 'application/json');
-
-      expect(response.status).toBe(500);
-      expect(response.text).toEqual('Internal Server Error');
-      expect(mockUpdate).toHaveBeenCalledTimes(0);
+      );
     });
   });
 
   describe('DELETE', () => {
     it('should delete and confirm on response', async () => {
+      mockRemoveSession.mockResolvedValue(undefined);
       const response = await request(mockServer)
         .delete('/sessions/some-session-id')
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
       expect(response.text).toEqual('Session deleted successfully');
-    });
-
-    it('should fail when non-existing session id', async () => {
-      const response = await request(mockServer)
-        .delete('/sessions/some-non-existent-session-id')
-        .set('Accept', 'application/json');
-
-      expect(response.status).toBe(500);
-      expect(response.text).toEqual('Internal Server Error');
-    });
-
-    it('should fail when request auth user is not facilitator', async () => {
-      const response = await request(mockServer)
-        .delete('/sessions/some-other-session-id')
-        .set('Accept', 'application/json');
-
-      expect(response.status).toBe(500);
-      expect(response.text).toEqual('Internal Server Error');
     });
   });
 });

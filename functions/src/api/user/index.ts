@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 import {createRouter} from '../../lib/routers';
-
+import {VerificationError} from '../../../../shared/src/errors/User';
 import {
   requestPublicHostRole,
   verifyPublicHostRequest,
@@ -19,20 +19,19 @@ userRouter.post('/requestPublicHost', async ctx => {
   } catch (error) {
     const requestError = error as RequestError;
     switch (requestError.code) {
-      case 'user-needs-email':
+      case VerificationError.userNeedEmail:
         ctx.status = 401;
-        ctx.message =
-          'User needs to be registerd with email to request public host role';
         break;
 
-      case 'request-exists':
+      case VerificationError.requestExists:
         ctx.status = 409;
-        ctx.message = 'User have already made a request';
         break;
 
       default:
         throw error;
     }
+
+    ctx.message = requestError.code;
   }
 });
 
@@ -55,24 +54,26 @@ userRouter.put(
     } catch (error) {
       const requestError = error as RequestError;
       switch (requestError.code) {
-        case 'request-not-found':
+        case VerificationError.requestNotFound:
           ctx.status = 404;
-          ctx.message = 'No request found for user';
           break;
 
-        case 'request-expired':
+        case VerificationError.requestDeclined:
           ctx.status = 410;
-          ctx.message = 'Request has expired';
+          break;
+        case VerificationError.verificationAlreadyCalimed:
+          ctx.status = 410;
           break;
 
-        case 'verification-failed':
+        case VerificationError.verificationFailed:
           ctx.status = 404;
-          ctx.message = 'Verification code not matching';
           break;
 
         default:
-          break;
+          throw error;
       }
+
+      ctx.message = requestError.code;
     }
   },
 );

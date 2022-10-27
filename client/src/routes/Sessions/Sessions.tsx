@@ -12,10 +12,10 @@ import useSessions from './hooks/useSessions';
 
 import {Session} from '../../../../shared/src/types/Session';
 
-import NS from '../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../shared/src/constants/namespaces';
 import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
 import {COLORS} from '../../../../shared/src/constants/colors';
-import {ModalStackProps} from '../../common/constants/routes';
+import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import SETTINGS from '../../common/constants/settings';
 import {
   Spacer12,
@@ -29,6 +29,7 @@ import SessionCard from '../../common/components/Cards/SessionCard/SessionCard';
 import {PlusIcon} from '../../common/components/Icons';
 import {isLoadingAtom, sessionsAtom} from './state/state';
 import Screen from '../../common/components/Screen/Screen';
+import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 
 const CreateButton = styled(Button)({
   flexDirection: 'row',
@@ -81,6 +82,7 @@ const Sessions = () => {
   const {fetchSessions} = useSessions();
   const isLoading = useRecoilValue(isLoadingAtom);
   const sessions = useRecoilValue(sessionsAtom);
+  const {isPublicHost} = useIsPublicHost();
 
   useEffect(() => {
     fetchSessions();
@@ -105,10 +107,13 @@ const Sessions = () => {
           <RefreshControl refreshing={isLoading} onRefresh={fetchSessions} />
         }
       />
-      <FloatingForm>
-        <CreateSessionForm />
-        <Spacer12 />
-      </FloatingForm>
+
+      {isPublicHost && (
+        <FloatingForm>
+          <CreateSessionForm />
+          <Spacer12 />
+        </FloatingForm>
+      )}
     </Screen>
   );
 };

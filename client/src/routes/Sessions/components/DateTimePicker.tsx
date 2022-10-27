@@ -16,7 +16,7 @@ import {
   BodyBold,
 } from '../../../common/components/Typography/Body/Body';
 import {useTranslation} from 'react-i18next';
-import NS from '../../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../../shared/src/constants/namespaces';
 
 dayjs.extend(utc);
 

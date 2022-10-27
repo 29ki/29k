@@ -2,13 +2,15 @@ import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 import {lt, valid} from 'semver';
 import {createRouter} from '../../lib/routers';
+import i18next from '../../lib/i18n';
+import * as NS from '../../../../shared/src/constants/namespaces';
 
 // Binary kill switch, this will permanently disable the entire app.
 // USE WITH CAUTION!
 const KILL_SWITCH = false;
 
 // Specify the minimum required app native version.
-const MIN_APP_VERSION = '2.0.16';
+const MIN_APP_VERSION = '2.1.0';
 
 // Specify the minimum required bundle version.
 const MIN_BUNDLE_VERSION: {[key: string]: {android: number; ios: number}} = {
@@ -63,10 +65,10 @@ export const killSwitchRouter = router.get(
   '/',
   validator({query: killSwitchQuerySchema}),
   ctx => {
-    const {request, response, i18n} = ctx;
+    const {request, response, language} = ctx;
     const {version, bundleVersion, platform} = request.query as RequestQuery;
 
-    const t = i18n.getFixedT(null, 'Screen.KillSwitch');
+    const t = i18next.getFixedT(language, NS.SCREEN.KILL_SWITCH);
 
     if (KILL_SWITCH) {
       response.status = 403;

@@ -25,9 +25,9 @@ import {
 import {Body14} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {HKGroteskBold} from '../../common/constants/fonts';
-import {SessionStackProps} from '../../common/constants/routes';
+import {SessionStackProps} from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
-import NS from '../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../shared/src/constants/namespaces';
 import Counter from './components/Counter/Counter';
 import useSessionExercise from './hooks/useSessionExercise';
 import {participantsAtom, sessionAtom} from './state/state';

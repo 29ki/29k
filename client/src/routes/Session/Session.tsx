@@ -17,7 +17,7 @@ import {
 } from '../../common/components/Spacers/Spacer';
 import {COLORS} from '../../../../shared/src/constants/colors';
 
-import {SessionStackProps} from '../../common/constants/routes';
+import {SessionStackProps} from '../../lib/navigation/constants/routes';
 
 import {DailyContext} from './DailyProvider';
 
@@ -47,7 +47,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import useIsSessionFacilitator from './hooks/useIsSessionHost';
 import Button from '../../common/components/Buttons/Button';
 import useUpdateSession from './hooks/useUpdateSession';
-import NS from '../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../shared/src/constants/namespaces';
 import {useTranslation} from 'react-i18next';
 import HostNotes from './components/HostNotes/HostNotes';
 

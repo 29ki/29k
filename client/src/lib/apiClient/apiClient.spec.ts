@@ -17,6 +17,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
+        'Accept-Language': 'en',
         'X-Correlation-ID': expect.any(String),
       },
     });
@@ -36,6 +37,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
+        'Accept-Language': 'en',
         'X-Correlation-ID': expect.any(String),
         Authorization: 'bearer some-authorization-token',
       },
@@ -57,6 +59,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
+        'Accept-Language': 'en',
         'X-Correlation-ID': expect.any(String),
         Authorization: 'bearer some-authorization-token',
       },
@@ -82,6 +85,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
+        'Accept-Language': 'en',
         'X-Correlation-ID': expect.any(String),
         Authorization: 'bearer some-authorization-token',
       },
@@ -108,6 +112,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
+        'Accept-Language': 'en',
         'X-Correlation-ID': expect.any(String),
         Authorization: 'bearer some-authorization-token',
       },
@@ -132,6 +137,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'application/json',
+        'Accept-Language': 'en',
         'X-Correlation-ID': expect.any(String),
         Authorization: 'bearer some-authorization-token',
       },
@@ -185,6 +191,7 @@ describe('apiClient', () => {
     expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
       headers: {
         'Content-Type': 'text/plain',
+        'Accept-Language': 'en',
         'X-Correlation-ID': expect.any(String),
         Authorization: 'some-overridden-authorization',
       },

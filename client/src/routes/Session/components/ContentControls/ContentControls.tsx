@@ -19,7 +19,7 @@ import {
 import useUpdateSessionExerciseState from '../../hooks/useUpdateSessionExerciseState';
 import {Spacer8} from '../../../../common/components/Spacers/Spacer';
 import Button from '../../../../common/components/Buttons/Button';
-import NS from '../../../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../../../shared/src/constants/namespaces';
 import IconButton from '../../../../common/components/Buttons/IconButton/IconButton';
 
 const Wrapper = styled.View({

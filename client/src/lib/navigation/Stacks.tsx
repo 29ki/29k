@@ -5,7 +5,7 @@ import {
 } from '@react-navigation/native-stack';
 import {useRecoilValue} from 'recoil';
 
-import {RootStackProps, SessionStackProps} from '../../common/constants/routes';
+import {RootStackProps, SessionStackProps} from './constants/routes';
 import KillSwitch from '../../routes/KillSwitch/KillSwitch';
 import {killSwitchFields} from '../killSwitch/state/state';
 import Tabs from './Tabs';
@@ -17,6 +17,7 @@ import DailyProvider from '../../routes/Session/DailyProvider';
 import SessionModal from '../../routes/Sessions/components/SessionModal';
 import CreateSessionModal from '../../routes/Sessions/components/CreateSessionModal';
 import {navigationWithFadeAtom} from './state/state';
+import UpgradeAccount from '../../routes/Profile/UpgradeAccount';
 
 const RootStack = createNativeStackNavigator<RootStackProps>();
 const SessionStack = createNativeStackNavigator<SessionStackProps>();
@@ -72,6 +73,10 @@ const RootStackWrapper = () => {
             <RootStack.Screen
               name={'CreateSessionModal'}
               component={CreateSessionModal}
+            />
+            <RootStack.Screen
+              name={'UpgradeAccount'}
+              component={UpgradeAccount}
             />
           </RootStack.Group>
         </>

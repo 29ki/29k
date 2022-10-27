@@ -75,8 +75,8 @@ describe('/api/killswitch', () => {
       [403, nativeUpdate, '1.0.0', undefined, 'ios', 'en'],
 
       // current native minimum version
-      [200, {}, '2.0.16', '10001', 'ios', 'en'],
-      [200, {}, '2.0.16', '10001', 'android', 'en'],
+      [200, {}, '2.1.0', '10001', 'ios', 'en'],
+      [200, {}, '2.1.0', '10001', 'android', 'en'],
 
       // some future version
       [200, {}, '3.0.0', undefined, 'ios', 'en'],
@@ -88,12 +88,12 @@ describe('/api/killswitch', () => {
       [403, nativeUpdate, '1.0.0', '1', 'ios', 'en'],
 
       // older bundle versions currently kill-switched
-      [200, bundleUpdate, '2.0.16', '2993', 'ios', 'en'],
-      [200, bundleUpdate, '2.0.16', '2872', 'android', 'en'],
+      [200, bundleUpdate, '2.1.0', '2993', 'ios', 'en'],
+      [200, bundleUpdate, '2.1.0', '2872', 'android', 'en'],
 
       // current bundle minimum version
-      [200, {}, '2.0.16', '10001', 'ios', 'en'],
-      [200, {}, '2.0.16', '10001', 'android', 'en'],
+      [200, {}, '2.1.0', '10001', 'ios', 'en'],
+      [200, {}, '2.1.0', '10001', 'android', 'en'],
 
       /////// miscellaneous //////////////////////////////////////////////////
       // accepts partially broken input
@@ -104,9 +104,9 @@ describe('/api/killswitch', () => {
       [200, {}, '3.0.0', undefined, 'android', undefined],
     ])(
       'Returns %s and %s for %s on %s with %s language',
-      async (status, body, version, bundleVersion, platform, lng) => {
+      async (status, body, version, bundleVersion, platform, language) => {
         const response = await request(mockServer).get(
-          `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&lng=${lng}`,
+          `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&language=${language}`,
         );
 
         expect(response.status).toBe(status);
@@ -126,10 +126,10 @@ describe('/api/killswitch', () => {
       const version = '10.0.0';
       const platform = 'windows';
       const bundleVersion = '5000';
-      const lng = 'en';
+      const language = 'en';
 
       const response = await request(mockServer).get(
-        `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&lng=${lng}`,
+        `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&language=${language}`,
       );
 
       expect(response.status).toBe(500);
@@ -139,10 +139,10 @@ describe('/api/killswitch', () => {
       const version = 'incorrect';
       const platform = 'ios';
       const bundleVersion = '5000';
-      const lng = 'en';
+      const language = 'en';
 
       const response = await request(mockServer).get(
-        `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&lng=${lng}`,
+        `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&language=${language}`,
       );
 
       expect(response.status).toBe(500);
@@ -152,10 +152,10 @@ describe('/api/killswitch', () => {
       const version = '10.0.0';
       const platform = 'ios';
       const bundleVersion = 'incorrect';
-      const lng = 'en';
+      const language = 'en';
 
       const response = await request(mockServer).get(
-        `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&lng=${lng}`,
+        `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&language=${language}`,
       );
 
       expect(response.status).toBe(200);
@@ -165,10 +165,10 @@ describe('/api/killswitch', () => {
       const version = '1.0.0';
       const platform = 'ios';
       const bundleVersion = '3000';
-      const lng = 'en';
+      const language = 'en';
 
       const response = await request(mockServer).get(
-        `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&lng=${lng}`,
+        `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&language=${language}`,
       );
 
       expect(response.status).toBe(403);
@@ -187,10 +187,10 @@ describe('/api/killswitch', () => {
       const version = '1.0.0';
       const platform = 'android';
       const bundleVersion = '3000';
-      const lng = 'en';
+      const language = 'en';
 
       const response = await request(mockServer).get(
-        `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&lng=${lng}`,
+        `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&language=${language}`,
       );
 
       expect(response.status).toBe(403);
@@ -209,10 +209,10 @@ describe('/api/killswitch', () => {
       const version = '1.0.0';
       const platform = 'android';
       const bundleVersion = '3000';
-      const lng = 'sv';
+      const language = 'sv';
 
       const response = await request(mockServer).get(
-        `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&lng=${lng}`,
+        `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&language=${language}`,
       );
 
       expect(response.status).toBe(403);
@@ -231,10 +231,10 @@ describe('/api/killswitch', () => {
       const version = '1.0.0';
       const platform = 'android';
       const bundleVersion = '3000';
-      const lng = 'unsupported';
+      const language = 'unsupported';
 
       const response = await request(mockServer).get(
-        `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&lng=${lng}`,
+        `/killSwitch?platform=${platform}&platformVersion=10&version=${version}&bundleVersion=${bundleVersion}&language=${language}`,
       );
 
       expect(response.status).toBe(403);

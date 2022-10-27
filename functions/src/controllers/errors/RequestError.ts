@@ -1,15 +1,10 @@
-type ErrorCode =
-  | 'user-needs-email'
-  | 'request-not-found'
-  | 'request-exists'
-  | 'request-expired'
-  | 'verification-failed';
+import {VerificationError} from '../../../../shared/src/errors/User';
 
 export class RequestError extends Error {
-  constructor(code: ErrorCode) {
+  constructor(code: VerificationError) {
     super(code);
     this.code = code;
   }
 
-  code: string;
+  code: VerificationError;
 }

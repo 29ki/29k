@@ -4,23 +4,26 @@
       "shortly": "Shortly",
       "now": "Now",
       "inHours": "{{hours}}h {{minutes}}m",
-      "inMinutes": "{{minutes}}m {{seconds}}s"
-    }
+      "inMinutes": "in {{minutes}}m {{seconds}}s"
+    },
+    "today": "Today"
   },
   "sv": {
     "counterValue": {
       "shortly": "Strax",
       "now": "Nu",
       "inHours": "{{hours}}h {{minutes}}m",
-      "inMinutes": "{{minutes}}m {{seconds}}s"
-    }
+      "inMinutes": "om {{minutes}}m {{seconds}}s"
+    },
+    "today": "idag"
   },
   "pt": {
     "counterValue": {
       "shortly": "Shortly",
       "now": "Now",
       "inHours": "{{hours}}h {{minutes}}m",
-      "inMinutes": "{{minutes}}m {{seconds}}s"
-    }
+      "inMinutes": "in {{minutes}}m {{seconds}}s"
+    },
+    "today": "hoje"
   }
 }

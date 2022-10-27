@@ -7,9 +7,9 @@ import styled from 'styled-components/native';
 
 import {Session} from '../../../../../../shared/src/types/Session';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
-import NS from '../../../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../../../shared/src/constants/namespaces';
 import useSessionNotificationReminder from '../../../../routes/Sessions/hooks/useSessionNotificationReminder';
-import {RootStackProps} from '../../../constants/routes';
+import {RootStackProps} from '../../../../lib/navigation/constants/routes';
 import {PlusIcon, BellIcon} from '../../Icons';
 import Card from '../Card';
 import useAddToCalendar from '../../../../routes/Sessions/hooks/useAddToCalendar';
@@ -62,11 +62,12 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
     <Card
       title={exercise?.name}
       buttonText={startingNow ? t('join') : t('addToCalendar')}
-      ButtonIcon={PlusIcon}
+      ButtonIcon={!startingNow ? PlusIcon : undefined}
       image={{
         uri: exercise?.card?.image?.source,
       }}
-      onPress={onPress}
+      onPress={onContextPress}
+      onButtonPress={onPress}
       onContextPress={onContextPress}
       Icon={reminderEnabled ? BellIcon : undefined}>
       <Row>
