@@ -6,10 +6,15 @@
     "activateButton": "Activate settings",
     "needToUpgrade": "To become an official host you need to register an account.",
     "requestComplete": "We've now registered your request.\n\nAs soon as it's approved we'll email you a verification code.",
+    "success__markdown": "*Success!*\nYou're now able to create and host sessions open for every 29k user to join!",
     "enterCode": "Enter your code",
     "email": "Email",
     "password": "Passsword",
     "button": "Upgrade",
+    "success": {
+      "header": "Success!",
+      "text": "You're now able to create and host sessions open for every 29k user to join!"
+    },
     "errors": {
       "verificationNotFound": "We could not find any public host request for this user.",
       "verificationDeclined": "The request was not accepted.",
@@ -24,10 +29,15 @@
     "activateButton": "Activate settings",
     "needToUpgrade": "To become an official host you need to register an account.",
     "requestComplete": "We've now registered your request.\n\nAs soon as it's approved we'll email you a verification code.",
+    "success__markdown": "**Success!**\nYou're now able to create and host sessions open for every 29k user to join!",
     "enterCode": "Enter your code",
     "email": "Epost",
     "password": "Lösenord",
     "button": "Uppgradera",
+    "success": {
+      "header": "Success!",
+      "text": "You're now able to create and host sessions open for every 29k user to join!"
+    },
     "errors": {
       "verificationNotFound": "Vi kunde inte hitta någon begäran från denna användare.",
       "verificationDeclined": "Begäran godkändes inte",
