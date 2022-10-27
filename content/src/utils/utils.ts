@@ -16,7 +16,7 @@ export const getContentByType = <T>(type: string) => {
     const file = readFileSync(filePath, {encoding: 'utf8'});
     const fileJSON = JSON.parse(file) as LocalizedContent<T>;
 
-    // Make sure content the content defines all available languages
+    // Make sure the content defines all available languages
     LANGUAGE_TAGS.forEach(languageTag => {
       if (fileJSON[languageTag] === undefined) {
         throw new Error(`${languageTag} is not defined for ${filePath}`);
