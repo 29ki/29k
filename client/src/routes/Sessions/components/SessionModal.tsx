@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Alert, Platform, Share} from 'react-native';
+import {Alert, Share} from 'react-native';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
