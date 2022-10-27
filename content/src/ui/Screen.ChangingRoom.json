@@ -10,17 +10,8 @@
       "openSettings": "Open settings"
     }
   },
-  "se": {
-    "placeholder": "Skriv ditt namn",
-    "join_button": "Gå med",
-    "cameraOff": "Karmeran är Av",
-    "permissionsAlert": {
-      "title": "Innan du går med",
-      "message": "Du har inte gett appen behörighet att kunna växla kamera och/eller mikrofon.\n\nDet är ok, men du kommer inte att kunna delta fullt ut i sessionen.",
-      "join": "Gå med ändå",
-      "openSettings": "Öppna inställningar"
-    }
+  "sv": {
+    "placeholder": "Skriv ditt namn"
   },
-  "pt": {
-  }
+  "pt": {}
 }
