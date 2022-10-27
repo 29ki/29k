@@ -13,7 +13,8 @@
     },
     "addToCalendar": "Add to cal",
     "addReminder": "Add reminder",
-    "join": "Join"
+    "join": "Join",
+    "shareMessage": "{{link}}\nSession code: {{code}}"
   },
   "sv": {
     "edit": "Ändra",
