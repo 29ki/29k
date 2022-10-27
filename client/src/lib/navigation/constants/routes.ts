@@ -1,5 +1,5 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
-import {Session} from '../../../../shared/src/types/Session';
+import {Session} from '../../../../../shared/src/types/Session';
 
 export type TabNavigatorProps = {
   Profile: undefined;
@@ -16,7 +16,7 @@ export type SessionStackProps = {
 export type ModalStackProps = {
   SessionModal: {session: Session};
   CreateSessionModal: undefined;
-  UpgradeAccount: undefined;
+  UpgradeAccount: {code: string} | undefined;
 };
 
 export type RootStackProps = ModalStackProps & {

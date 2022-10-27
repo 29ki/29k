@@ -4,7 +4,7 @@ import Koa from 'koa';
 import {killSwitchRouter} from './killswitch';
 import {sessionsRouter} from './sessions';
 import {userRouter} from './user';
-import sentryErrorHandler from './lib/sentry';
+import sentryErrorHandler from '../lib/sentry';
 import firebaseBodyParser from './lib/firebaseBodyParser';
 import languageResolver from './lib/languageResolver';
 import firebaseAuth from './lib/firebaseAuth';

@@ -181,7 +181,7 @@ describe('session model', () => {
     it('should return public session', async () => {
       const session = await addSession({
         id: 'session-id',
-        language: 'some-language',
+        language: 'en',
         dailyRoomName: 'daily-room-name',
         url: 'daily-url',
         contentId: 'content-id',
@@ -193,7 +193,7 @@ describe('session model', () => {
 
       expect(session).toEqual({
         contentId: 'content-id',
-        language: 'some-language',
+        language: 'en',
         dailyRoomName: 'daily-room-name',
         ended: false,
         exerciseState: {
@@ -217,7 +217,7 @@ describe('session model', () => {
     it('should return private session', async () => {
       const session = await addSession({
         id: 'session-id',
-        language: 'some-language',
+        language: 'en',
         dailyRoomName: 'daily-room-name',
         url: 'daily-url',
         contentId: 'content-id',
@@ -229,7 +229,7 @@ describe('session model', () => {
 
       expect(session).toEqual({
         contentId: 'content-id',
-        language: 'some-language',
+        language: 'en',
         dailyRoomName: 'daily-room-name',
         ended: false,
         exerciseState: {

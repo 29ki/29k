@@ -61,12 +61,11 @@ describe('createDynamicLink', () => {
       requestBody: {
         dynamicLinkInfo: {
           androidInfo: {
-            androidPackageName: 'some-deep-link-android-package-name',
+            androidFallbackLink: 'http://some.android/fallback/link',
           },
           domainUriPrefix: 'some-deep-link-domain-uri-prefix',
           iosInfo: {
-            iosAppStoreId: 'some-deep-link-ios-appstore-id',
-            iosBundleId: 'some-deep-link-ios-bundle-id',
+            iosFallbackLink: 'http://some.ios/fallback/link',
           },
           link: 'http://some.deep/link/base/some/path',
           navigationInfo: {enableForcedRedirect: false},
@@ -97,12 +96,11 @@ describe('createDynamicLink', () => {
       requestBody: {
         dynamicLinkInfo: {
           androidInfo: {
-            androidPackageName: 'some-deep-link-android-package-name',
+            androidFallbackLink: 'http://some.android/fallback/link',
           },
           domainUriPrefix: 'some-deep-link-domain-uri-prefix',
           iosInfo: {
-            iosAppStoreId: 'some-deep-link-ios-appstore-id',
-            iosBundleId: 'some-deep-link-ios-bundle-id',
+            iosFallbackLink: 'http://some.ios/fallback/link',
           },
           link: 'http://some.deep/link/base/some/path',
           navigationInfo: {enableForcedRedirect: false},
@@ -160,12 +158,11 @@ describe('createSessionLink', () => {
       requestBody: {
         dynamicLinkInfo: {
           androidInfo: {
-            androidPackageName: 'some-deep-link-android-package-name',
+            androidFallbackLink: 'http://some.android/fallback/link',
           },
           domainUriPrefix: 'some-deep-link-domain-uri-prefix',
           iosInfo: {
-            iosAppStoreId: 'some-deep-link-ios-appstore-id',
-            iosBundleId: 'some-deep-link-ios-bundle-id',
+            iosFallbackLink: 'http://some.ios/fallback/link',
           },
           link: 'http://some.deep/link/base/sessions/some-session-id',
           navigationInfo: {enableForcedRedirect: false},
@@ -201,12 +198,11 @@ describe('createSessionLink', () => {
       requestBody: {
         dynamicLinkInfo: {
           androidInfo: {
-            androidPackageName: 'some-deep-link-android-package-name',
+            androidFallbackLink: 'http://some.android/fallback/link',
           },
           domainUriPrefix: 'some-deep-link-domain-uri-prefix',
           iosInfo: {
-            iosAppStoreId: 'some-deep-link-ios-appstore-id',
-            iosBundleId: 'some-deep-link-ios-bundle-id',
+            iosFallbackLink: 'http://some.ios/fallback/link',
           },
           link: 'http://some.deep/link/base/sessions/some-session-id',
           navigationInfo: {enableForcedRedirect: false},

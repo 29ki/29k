@@ -4,19 +4,26 @@ import {ROLES} from '../../../../../shared/src/types/User';
 import {userAtom} from '../state/state';
 
 const useIsPublicHost = () => {
-  const [hasPublicHostRole, setHasPublicHostRole] = useState(false);
+  const [isPublicHost, setIsPublicHost] = useState(false);
   const user = useRecoilValue(userAtom);
 
-  const checkPublicHostRole = useCallback(async () => {
-    const customClaim = await user?.getIdTokenResult(true);
-    setHasPublicHostRole(customClaim?.claims.role === ROLES.publicHost);
-  }, [user]);
+  const checkPublicHostRole = useCallback(
+    async (forceRefresh?: boolean) => {
+      const customClaim = await user?.getIdTokenResult(forceRefresh);
+      setIsPublicHost(customClaim?.claims.role === ROLES.publicHost);
+    },
+    [user],
+  );
+
+  const updateIsPublicHost = useCallback(async () => {
+    checkPublicHostRole(true);
+  }, [checkPublicHostRole]);
 
   useEffect(() => {
     checkPublicHostRole();
   }, [checkPublicHostRole]);
 
-  return hasPublicHostRole;
+  return {isPublicHost, updateIsPublicHost};
 };
 
 export default useIsPublicHost;

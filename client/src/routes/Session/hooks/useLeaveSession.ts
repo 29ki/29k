@@ -5,10 +5,10 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useResetRecoilState} from 'recoil';
 
-import NS from '../../../lib/i18n/constants/namespaces';
+import * as NS from '../../../../../shared/src/constants/namespaces';
 import {DailyContext} from '../DailyProvider';
 import {sessionAtom} from '../state/state';
-import {TabNavigatorProps} from '../../../common/constants/routes';
+import {TabNavigatorProps} from '../../../lib/navigation/constants/routes';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
