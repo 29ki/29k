@@ -2,7 +2,7 @@
   "en": {
     "placeholder": "Please type your name",
     "join_button": "Join",
-    "cameraOff": "Camera is Off",
+    "cameraOff": "Camera is off",
     "permissionsAlert": {
       "title": "Before you join",
       "message": "You haven’t given the app permissions to be able to toggle camera and/or microphone.\n\nThat’s ok, but you won’t be able to participate fully in the session.",
@@ -11,7 +11,15 @@
     }
   },
   "sv": {
-    "placeholder": "Skriv ditt namn"
+    "placeholder": "Skriv ditt namn",
+    "join_button": "Gå med",
+    "cameraOff": "Kameran är av",
+    "permissionsAlert": {
+      "title": "Innan du går med",
+      "message": "Du har inte gett appen tillåtelse att använda kameran och mikrofonen. Det är helt upp till dig. Vi vill bara att du ska veta att du då inte kan delta fullt ut i sessionen.",
+      "join": "Gå med ändå",
+      "openSettings": "Ändra inställningar"
+    }
   },
   "pt": {}
 }
