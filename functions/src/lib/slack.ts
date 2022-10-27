@@ -64,7 +64,11 @@ const createRequestBlocks = (userId: string, email: string) => [
   },
 ];
 
-const createResponseBlocks = (email: string, verificationCode?: number) => [
+const createResponseBlocks = (
+  email: string,
+  link = '',
+  verificationCode?: number,
+) => [
   {
     type: 'divider',
   },
@@ -80,7 +84,9 @@ const createResponseBlocks = (email: string, verificationCode?: number) => [
     text: {
       type: 'mrkdwn',
       text: verificationCode
-        ? `*Accepted <mailto:${email}?body=${verificationCode}|${email}> as public host, please send code \`${verificationCode}\` to the user.*`
+        ? `*Accepted <mailto:${email}?body=${encodeURIComponent(
+            `${verificationCode}|${email}|${link}`,
+          )}> as public host, please send code \`${verificationCode}\` ${link} to the user.*`
         : `*Declined ${email} as public host*`,
     },
   },
@@ -127,13 +133,14 @@ export const updatePublicHostRequestMessage = async (
   channelId: string,
   ts: string,
   email: string,
+  link?: string,
   verificationCode?: number,
 ) => {
   try {
     const slackClient = createSlackClient();
 
     await slackClient.chat.update({
-      blocks: createResponseBlocks(email, verificationCode),
+      blocks: createResponseBlocks(email, link, verificationCode),
       channel: channelId,
       ts,
     });
