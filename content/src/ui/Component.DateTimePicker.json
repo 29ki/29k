@@ -6,8 +6,8 @@
   },
   "sv": {
     "date": "Dag",
-    "time": "Timmar",
-    "done": "Redo"
+    "time": "Tid",
+    "done": "Klar"
   },
   "pt": {
     "date": "Dia",
