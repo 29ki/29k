@@ -84,7 +84,9 @@ const createResponseBlocks = (
     text: {
       type: 'mrkdwn',
       text: verificationCode
-        ? `*Accepted <mailto:${email}?body=${verificationCode}|${email}> as public host, please send code \`${verificationCode}\` ${link} to the user.*`
+        ? `*Accepted <mailto:${email}?body=${encodeURIComponent(
+            `${verificationCode}|${email}|${link}`,
+          )}> as public host, please send code \`${verificationCode}\` ${link} to the user.*`
         : `*Declined ${email} as public host*`,
     },
   },
