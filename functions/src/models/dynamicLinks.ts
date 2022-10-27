@@ -86,3 +86,6 @@ export const createSessionLink = async (
     socialDescription,
   });
 };
+
+export const createPublicHostCodeLink = (verificationCode: number) =>
+  createDynamicLink(`verifyPublicHostCode/${verificationCode}`);

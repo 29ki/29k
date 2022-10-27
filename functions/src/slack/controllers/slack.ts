@@ -7,6 +7,7 @@ import {
   updatePublicHostRequestMessage,
 } from '../../lib/slack';
 import {generateVerificationCode} from '../../lib/utils';
+import {createPublicHostCodeLink} from '../../models/dynamicLinks';
 import {updatePublicHostRequest} from '../../models/publicHostRequests';
 
 const parseMessageOrThrow = (slackPayload: string) => {
@@ -31,10 +32,13 @@ export const slackHandler = async (slackPayload: string) => {
 
     await updatePublicHostRequest(user.uid, 'accepted', verificationCode);
 
+    const link = await createPublicHostCodeLink(verificationCode);
+
     await updatePublicHostRequestMessage(
       channelId,
       ts,
       user.email,
+      link,
       verificationCode,
     );
   } else {
