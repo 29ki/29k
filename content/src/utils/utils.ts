@@ -1,6 +1,6 @@
 import {readFileSync, readdirSync} from 'fs';
 import * as path from 'path';
-import {LANGUAGE_TAG} from '../../../shared/src/constants/i18n';
+import {LANGUAGE_TAG, LANGUAGE_TAGS} from '../../../shared/src/constants/i18n';
 
 type LocalizedContent<T> = Record<LANGUAGE_TAG, Record<string, T>>;
 type Content<T> = Record<string, LocalizedContent<T>>;
@@ -15,6 +15,13 @@ export const getContentByType = <T>(type: string) => {
     const fileKey = path.basename(fileName, '.json');
     const file = readFileSync(filePath, {encoding: 'utf8'});
     const fileJSON = JSON.parse(file) as LocalizedContent<T>;
+
+    // Make sure the content defines all available languages
+    LANGUAGE_TAGS.forEach(languageTag => {
+      if (fileJSON[languageTag] === undefined) {
+        throw new Error(`${languageTag} is not defined for ${filePath}`);
+      }
+    });
 
     return {
       ...files,
