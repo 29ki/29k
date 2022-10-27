@@ -82,7 +82,7 @@ const Sessions = () => {
   const {fetchSessions} = useSessions();
   const isLoading = useRecoilValue(isLoadingAtom);
   const sessions = useRecoilValue(sessionsAtom);
-  const isPublicHost = useIsPublicHost();
+  const {isPublicHost} = useIsPublicHost();
 
   useEffect(() => {
     fetchSessions();

@@ -18,6 +18,7 @@ import VerificationCode from './components/VerificationCode';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import {VerificationError} from '../../../../shared/src/errors/User';
 import {COLORS} from '../../../../shared/src/constants/colors';
+import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 
 const Heading = styled(Body16)({textAlign: 'center'});
 
@@ -31,10 +32,10 @@ const UpgradeAccount = () => {
   const [needToUpgrade, setNeedToUpgrade] = useState(false);
   const [haveCode, setHaveCode] = useState(Boolean(params?.code));
   const [haveRequested, setHaveRequested] = useState(false);
-  const [haveVerified, setHaveVerified] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorString, setErrorString] = useState<string | null>(null);
+  const {updateIsPublicHost} = useIsPublicHost();
 
   const requestCode = async () => {
     if (user?.isAnonymous) {
@@ -63,23 +64,12 @@ const UpgradeAccount = () => {
     }
   };
 
-  const reauthenticate = async () => {
-    if (user?.email) {
-      const emailAndPasswordCredentials = auth.EmailAuthProvider.credential(
-        user?.email,
-        password,
-      );
-
-      user.reauthenticateWithCredential(emailAndPasswordCredentials);
-      goBack();
-    }
-  };
-
   const onCodeCompleted = async (code: number) => {
     const error = await verifyPromotion(code);
 
     if (!error) {
-      setHaveVerified(true);
+      await updateIsPublicHost();
+      goBack();
     } else {
       switch (error) {
         case VerificationError.requestNotFound:
@@ -151,7 +141,7 @@ const UpgradeAccount = () => {
             <Button onPress={setEmailAndPassword}>{t('button')}</Button>
           </>
         )}
-        {haveCode && !haveVerified && (
+        {haveCode && (
           <>
             <Heading>{t('enterCode')}</Heading>
             <Spacer16 />
@@ -165,23 +155,6 @@ const UpgradeAccount = () => {
                 <ErrorText>{errorString}</ErrorText>
               </>
             )}
-          </>
-        )}
-        {haveVerified && (
-          <>
-            <Heading>{t('authenticate')}</Heading>
-            <Spacer16 />
-            <Input
-              textContentType="password"
-              secureTextEntry
-              autoCapitalize="none"
-              autoComplete="password"
-              autoCorrect={false}
-              placeholder={t('password')}
-              onChangeText={setPassword}
-            />
-            <Spacer16 />
-            <Button onPress={reauthenticate}>{t('activateButton')}</Button>
           </>
         )}
       </Gutters>

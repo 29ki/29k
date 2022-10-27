@@ -33,7 +33,7 @@ const Profile = () => {
   const {toggle: toggleUiLib} = useUiLib();
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
-  const isPublicHost = useIsPublicHost();
+  const {isPublicHost} = useIsPublicHost();
 
   return (
     <Screen noTopBar>
