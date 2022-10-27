@@ -3,7 +3,6 @@ import {View} from 'react-native';
 import {RenderRules} from 'react-native-markdown-display';
 
 import {Spacer16} from '../../Spacers/Spacer';
-import {Body16} from '../Body/Body';
 
 const rules: RenderRules = {
   heading1: (node, children) => (
@@ -33,6 +32,18 @@ const rules: RenderRules = {
   paragraph: (node, children, parent, styles) => (
     <Fragment key={node.key}>
       <View style={styles.paragraph}>{children}</View>
+      <Spacer16 />
+    </Fragment>
+  ),
+  bullet_list: (node, children) => (
+    <Fragment key={node.key}>
+      {children}
+      <Spacer16 />
+    </Fragment>
+  ),
+  ordered_list: (node, children) => (
+    <Fragment key={node.key}>
+      {children}
       <Spacer16 />
     </Fragment>
   ),
