@@ -11,7 +11,7 @@
             "text": "Welcome to this session, hosted by me, x.\n\nThanks for joining here today. We'll work for around 30 minutes on opening up to our feelings with acceptance and intentionally choosing our actions.\n\nWe’ll be doing a short intro, then reflect on our own and share with each other. \n\nAnd a heads up that it's great if you already now have a pen and paper close by."
           },
           {
-            "text": "Let’s start with a mini check-in.\n\nHow are you feeling right now? Please answer in two-three words.\n\n* X, would you like to start and then hand over to someone else when you are done?\n\n`Let everyone in the session check in one by one.`\n\nThank you all for checking in.\n\nNow let’s get started."
+            "text": "Let’s start with a mini check-in.\n\nHow are you feeling right now? Please answer in two-three words.\n\n* X, would you like to start and then hand over to someone else when you are done?\n\n>Let everyone in the session check in one by one.\n\nThank you all for checking in.\n\nNow let’s get started."
           }
         ]
       },
@@ -51,7 +51,7 @@
             "text": "Now we’ll take a minute to reflect on our own.\n\nFor this step you’ll need a piece of paper.\n\nMost of us have recurring thoughts like *“I want to do x, **BUT** I am so y”.* It can make us feel like we need to get rid of y, before we do x."
           },
           {
-            "text": "See if you can find a recent thought that contains something you want but don’t do for a reason on the inside.\n\n1 minute starting now.\n\n`Push play to start the timer.`\n\nOkay, that’s 1 minute Let’s move on."
+            "text": "See if you can find a recent thought that contains something you want but don’t do for a reason on the inside.\n\n1 minute starting now.\n\n>Push play to start the timer.\n\nOkay, that’s 1 minute Let’s move on."
           }
         ]
       },
@@ -68,7 +68,7 @@
             "text": "The next step is to actually replace your **BUT** with an **AND** in your sentences. \n\nThen read them out loud for yourself. What happens to them, and to you, when you do that?"
           },
           {
-            "text": "1 minute starting now.\n\n`Push play to start the timer.`\n\nOkay, that’s 1 minute Let’s move on."
+            "text": "1 minute starting now.\n\n>Push play to start the timer.\n\nOkay, that’s 1 minute Let’s move on."
           }
         ]
       },
@@ -88,7 +88,7 @@
             "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights, it just is.\n\nThere will be a timer set for 2 minutes as an indicator but you use as much or little time as you want to. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "X, would you like to start? \n\n`Let everyone (or as many as you got time for) share one by one.`\n\n`Push play to start the timer. Re-start for each new sharing. `\n\nThank you so much for sharing your thoughts and feelings with us here today."
+            "text": "X, would you like to start? \n\n>Let everyone (or as many as you got time for) share one by one.\n\n>Push play to start the timer. Re-start for each new sharing. \n\nThank you so much for sharing your thoughts and feelings with us here today."
           }
         ]
       },
@@ -130,7 +130,7 @@
       },
       "hostNotes": [
         {
-          "text": "`Start the session when you're ready to go.`"
+          "text": "> Start the session when you're ready to go."
         }
       ]
     },
