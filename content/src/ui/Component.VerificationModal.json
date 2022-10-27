@@ -8,12 +8,12 @@
     "signIn": "Sign in"
   },
   "sv": {
-    "header": "Verification",
-    "email": "Email",
-    "password": "Passsword",
-    "upgrade": "Upgrade",
-    "code": "Code",
-    "signIn": "Sign in"
+    "header": "Verifikation",
+    "email": "Epost",
+    "password": "Lösenord",
+    "upgrade": "Uppgradera",
+    "code": "Kod",
+    "signIn": "Logga in"
   },
   "pt": {
     "header": "Verification",
