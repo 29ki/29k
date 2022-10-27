@@ -95,7 +95,7 @@ const Sessions = () => {
   );
 
   return (
-    <Screen noTopBar backgroundColor={COLORS.PURE_WHITE}>
+    <Screen backgroundColor={COLORS.PURE_WHITE}>
       <FlatList
         data={sessions}
         keyExtractor={session => session.id}
