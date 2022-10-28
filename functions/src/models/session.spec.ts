@@ -26,6 +26,7 @@ import {
   addSession,
   deleteSession,
   getSessionById,
+  getSessionByInviteCode,
   getSessions,
   updateExerciseState,
   updateSession,
@@ -46,7 +47,7 @@ const sessions = [
     startTime: Timestamp.now(),
     started: false,
     ended: false,
-    userIds: ['all'],
+    userIds: ['*'],
     createdAt: Timestamp.now(),
     updatedAt: Timestamp.now(),
   },
@@ -63,7 +64,7 @@ const sessions = [
     startTime: Timestamp.now(),
     started: false,
     ended: false,
-    userIds: ['all'],
+    userIds: ['*'],
     createdAt: Timestamp.now(),
     updatedAt: Timestamp.now(),
   },
@@ -98,7 +99,7 @@ describe('session model', () => {
         startTime: expect.any(String),
         started: false,
         url: 'some-url',
-        userIds: ['all'],
+        userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -107,6 +108,19 @@ describe('session model', () => {
     it('should return undefined if no session is found', async () => {
       const session = await getSessionById('some-non-existing-session-id');
       expect(session).toBe(undefined);
+    });
+  });
+
+  describe('getSessionByInviteCode', () => {
+    it('should get a session by its invite', async () => {
+      await getSessionByInviteCode(12345);
+      expect(mockWhere).toHaveBeenCalledWith('inviteCode', '==', 12345);
+      expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
+      expect(mockWhere).toHaveBeenCalledWith(
+        'startTime',
+        '>',
+        expect.any(Timestamp),
+      );
     });
   });
 
@@ -127,7 +141,7 @@ describe('session model', () => {
           startTime: expect.any(String),
           started: false,
           url: 'some-url',
-          userIds: ['all'],
+          userIds: ['*'],
           createdAt: expect.any(String),
           updatedAt: expect.any(String),
         },
@@ -144,7 +158,7 @@ describe('session model', () => {
           startTime: expect.any(String),
           started: false,
           url: 'some-other-url',
-          userIds: ['all'],
+          userIds: ['*'],
           createdAt: expect.any(String),
           updatedAt: expect.any(String),
         },
@@ -164,7 +178,7 @@ describe('session model', () => {
     it('should filter for public sessions and sessions that the user belongs to', async () => {
       await getSessions('some-user-id');
       expect(mockWhere).toHaveBeenCalledWith('userIds', 'array-contains-any', [
-        'all',
+        '*',
         'some-user-id',
       ]);
     });
@@ -189,6 +203,7 @@ describe('session model', () => {
         type: SessionType.public,
         startTime: startTime,
         facilitator: 'some-user-id',
+        inviteCode: 1234,
       });
 
       expect(session).toEqual({
@@ -208,7 +223,8 @@ describe('session model', () => {
         started: false,
         type: 'public',
         url: 'daily-url',
-        userIds: ['all'],
+        userIds: ['*'],
+        inviteCode: 1234,
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -225,6 +241,7 @@ describe('session model', () => {
         type: SessionType.private,
         startTime: startTime,
         facilitator: 'some-user-id',
+        inviteCode: 1234,
       });
 
       expect(session).toEqual({
@@ -245,6 +262,7 @@ describe('session model', () => {
         type: 'private',
         url: 'daily-url',
         userIds: ['some-user-id'],
+        inviteCode: 1234,
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -268,7 +286,7 @@ describe('session model', () => {
         startTime: expect.any(String),
         started: true,
         ended: false,
-        userIds: ['all'],
+        userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -290,7 +308,7 @@ describe('session model', () => {
         startTime: expect.any(String),
         started: false,
         ended: true,
-        userIds: ['all'],
+        userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -320,7 +338,7 @@ describe('session model', () => {
         startTime: expect.any(String),
         started: false,
         url: 'some-url',
-        userIds: ['all'],
+        userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -345,7 +363,7 @@ describe('session model', () => {
         startTime: expect.any(String),
         started: false,
         ended: false,
-        userIds: ['all'],
+        userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -371,14 +389,14 @@ describe('session model', () => {
         startTime: expect.any(String),
         started: false,
         ended: false,
-        userIds: ['all'],
+        userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
     });
   });
 
-  describe('DELETE', () => {
+  describe('deleteSession', () => {
     it('should delete and confirm on response', async () => {
       await deleteSession('some-session-id');
 

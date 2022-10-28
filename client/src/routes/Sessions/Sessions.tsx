@@ -21,6 +21,7 @@ import {
   Spacer12,
   Spacer16,
   Spacer60,
+  Spacer8,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
 import Gutters from '../../common/components/Gutters/Gutters';
@@ -62,17 +63,28 @@ const ListHeader = () => (
   </>
 );
 
-const CreateSessionForm = ({}) => {
+const CreateSessionForm = ({allowCreate}: {allowCreate: Boolean}) => {
   const {t} = useTranslation(NS.SCREEN.SESSIONS);
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
   return (
     <CreateSessionWrapper>
+      {allowCreate && (
+        <>
+          <CreateButton
+            onPress={() => navigate('CreateSessionModal')}
+            LeftIcon={PlusIcon}>
+            {t('create')}
+          </CreateButton>
+          <Spacer8 />
+        </>
+      )}
+
       <CreateButton
-        onPress={() => navigate('CreateSessionModal')}
+        onPress={() => navigate('JoinSessionModal', {inviteCode: undefined})}
         LeftIcon={PlusIcon}>
-        {t('create')}
+        {t('join')}
       </CreateButton>
     </CreateSessionWrapper>
   );
@@ -108,12 +120,10 @@ const Sessions = () => {
         }
       />
 
-      {isPublicHost && (
-        <FloatingForm>
-          <CreateSessionForm />
-          <Spacer12 />
-        </FloatingForm>
-      )}
+      <FloatingForm>
+        <CreateSessionForm allowCreate={isPublicHost} />
+        <Spacer12 />
+      </FloatingForm>
     </Screen>
   );
 };

@@ -62,6 +62,23 @@ sessionsRouter.delete('/:id', async ctx => {
   ctx.body = 'Session deleted successfully';
 });
 
+const JoinSessionSchema = yup.object({
+  inviteCode: yup.number().required(),
+});
+
+export type JoinSession = yup.InferType<typeof JoinSessionSchema>;
+
+sessionsRouter.put(
+  '/joinSession',
+  validator({body: JoinSessionSchema}),
+  async ctx => {
+    const {inviteCode} = ctx.request.body as JoinSession;
+    const {user} = ctx;
+
+    ctx.body = await sessionControler.joinSession(user.id, inviteCode);
+  },
+);
+
 const UpdateSessionSchema = yup
   .object({
     started: yup.boolean(),

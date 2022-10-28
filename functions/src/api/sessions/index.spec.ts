@@ -13,6 +13,7 @@ const mockRemoveSession = sessionsController.removeSession as jest.Mock;
 const mockUpdateSession = sessionsController.updateSession as jest.Mock;
 const mockUpdateExerciseState =
   sessionsController.updateExerciseState as jest.Mock;
+const mockJoinSession = sessionsController.joinSession as jest.Mock;
 
 jest.mock('../../models/session');
 const mockGetSessions = sessionModel.getSessions as jest.Mock;
@@ -234,6 +235,41 @@ describe('/api/sessions', () => {
           index: 1,
         },
       );
+    });
+  });
+
+  describe('PUT /joinSession', () => {
+    it('should return joined session', async () => {
+      mockJoinSession.mockResolvedValueOnce({id: 'some-session-id'});
+      const response = await request(mockServer)
+        .put('/sessions/joinSession')
+        .send({inviteCode: 12345})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({
+        id: 'some-session-id',
+      });
+    });
+
+    it('should fail on invalid fields', async () => {
+      const response = await request(mockServer)
+        .put('/sessions/joinSession')
+        .send({invalidField: 12345})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(500);
+    });
+
+    it('should fail when join rejects', async () => {
+      mockJoinSession.mockRejectedValueOnce(new Error('some-error'));
+      const response = await request(mockServer)
+        .put('/sessions/joinSession')
+        .send({inviteCode: 12345})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(500);
+      expect(response.text).toEqual('Internal Server Error');
     });
   });
 

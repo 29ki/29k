@@ -58,6 +58,29 @@ export const getSessionById = async (id: Session['id']) => {
   return getSession(getData<SessionData>(sessionDoc));
 };
 
+export const getSessionByInviteCode = async (
+  inviteCode: Session['inviteCode'],
+) => {
+  const result = await firestore()
+    .collection(SESSIONS_COLLECTION)
+    .where('inviteCode', '==', inviteCode)
+    .where('ended', '==', false)
+    .where(
+      'startTime',
+      '>',
+      Timestamp.fromDate(
+        dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
+      ),
+    )
+    .get();
+
+  if (!result.docs.length) {
+    return;
+  }
+
+  return getSession(getData<SessionData>(result.docs[0]));
+};
+
 export const getSessions = async (userId: string) => {
   const sessionsCollection = firestore().collection(SESSIONS_COLLECTION);
   const snapshot = await sessionsCollection
@@ -69,7 +92,7 @@ export const getSessions = async (userId: string) => {
         dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
       ),
     )
-    .where('userIds', 'array-contains-any', ['all', userId])
+    .where('userIds', 'array-contains-any', ['*', userId])
     .orderBy('startTime', 'asc')
     .get();
 
@@ -86,6 +109,7 @@ export const addSession = async ({
   startTime,
   type,
   link,
+  inviteCode,
 }: Omit<
   Session,
   'exerciseState' | 'ended' | 'started' | 'userIds' | 'createdAt' | 'updatedAt'
@@ -100,15 +124,17 @@ export const addSession = async ({
     contentId,
     facilitator,
     dailyRoomName,
-    startTime: Timestamp.fromDate(new Date(startTime)),
-    exerciseState: defaultExerciseState,
     type,
     link,
-    userIds: type === SessionType.private ? [facilitator] : ['all'],
+    inviteCode,
+    startTime: Timestamp.fromDate(new Date(startTime)),
+    exerciseState: defaultExerciseState,
     started: false,
     ended: false,
     createdAt: now,
     updatedAt: now,
+    // '*' means session is available for everyone/public enables one single query on getSessions
+    userIds: type === SessionType.private ? [facilitator] : ['*'],
   };
 
   const sessionDoc = firestore().collection(SESSIONS_COLLECTION).doc(id);
