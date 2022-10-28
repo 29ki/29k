@@ -115,6 +115,12 @@ describe('session model', () => {
     it('should get a session by its invite', async () => {
       await getSessionByInviteCode(12345);
       expect(mockWhere).toHaveBeenCalledWith('inviteCode', '==', 12345);
+      expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
+      expect(mockWhere).toHaveBeenCalledWith(
+        'startTime',
+        '>',
+        expect.any(Timestamp),
+      );
     });
   });
 
