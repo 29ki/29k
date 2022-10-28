@@ -58,6 +58,7 @@ export const createSessionLink = async (
   startTime: string,
   language: string,
 ) => {
+  // @ts-expect-error variable/string litteral as key is not yet supported https://www.i18next.com/overview/typescript#type-error-template-literal
   const {name, card} = i18next.t(contentId, {
     lng: language,
     ns: 'exercises',
@@ -69,8 +70,8 @@ export const createSessionLink = async (
   const date = dayjs(startTime).locale(language).format('dddd, D MMM HH:mm');
 
   const socialImageLink = card?.image?.source;
-  const socialTitle = t('title', {name}) as string;
-  const socialDescription = t('description', {date}) as string;
+  const socialTitle = t('title', {name});
+  const socialDescription = t('description', {date});
 
   return createDynamicLink(`sessions/${sessionId}`, {
     socialImageLink,
