@@ -5,6 +5,7 @@ export enum COMPONENT {
   COUNTER = 'Component.Counter',
   CRASH_ERROR_MESSAGE = 'Component.CrashErrorMessage',
   CREATE_SESSION_MODAL = 'Component.CreateSessionModal',
+  JOIN_SESSION_MODAL = 'Component.JoinSessionModal',
   DATE_TIME_PICKER = 'Component.DateTimePicker',
   HOST_NOTES = 'Component.HostNotes',
   SESSION_REMINDER = 'Component.SessionReminder',
