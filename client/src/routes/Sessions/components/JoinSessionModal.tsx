@@ -5,7 +5,8 @@ import Gutters from '../../../common/components/Gutters/Gutters';
 import HalfModal from '../../../common/components/Modals/HalfModal';
 import {Spacer24} from '../../../common/components/Spacers/Spacer';
 
-import {ModalStackProps} from '../../../common/constants/routes';
+import {ModalStackProps} from '../../../lib/navigation/constants/routes';
+
 import VerificationCode from '../../Profile/components/VerificationCode';
 import useJoinSession from '../../Session/hooks/useJoinSession';
 import useSessions from '../hooks/useSessions';
@@ -23,7 +24,7 @@ const JoinSessionModal = () => {
       <Gutters>
         <Spacer24 />
         <VerificationCode
-          initialValue={inviteCode}
+          prefillCode={`${inviteCode}`}
           onCodeCompleted={async value => {
             await joinSession(value);
             fetchSessions();
