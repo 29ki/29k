@@ -1,4 +1,5 @@
 import {WebClient} from '@slack/web-api';
+import {SlackError, SlackErrorCode} from '../controllers/errors/SlackError';
 import config from './config';
 import {RequestAction} from './constants/requestAction';
 
@@ -63,7 +64,11 @@ const createRequestBlocks = (userId: string, email: string) => [
   },
 ];
 
-const createResponseBlocks = (email: string, verificationCode?: number) => [
+const createResponseBlocks = (
+  email: string,
+  link = '',
+  verificationCode?: number,
+) => [
   {
     type: 'divider',
   },
@@ -79,7 +84,9 @@ const createResponseBlocks = (email: string, verificationCode?: number) => [
     text: {
       type: 'mrkdwn',
       text: verificationCode
-        ? `*Accepted <mailto:${email}?body=${verificationCode}|${email}> as public host, please send code \`${verificationCode}\` to the user.*`
+        ? `*Accepted <mailto:${email}?body=${encodeURIComponent(
+            `${verificationCode} - ${link}`,
+          )}|${email}> as public host, please send code \`${verificationCode}\` ${link} to the user.*`
         : `*Declined ${email} as public host*`,
     },
   },
@@ -108,13 +115,17 @@ export const sendPublicHostRequestMessage = async (
   email: string,
 ) => {
   if (SLACK_PUBLIC_HOST_REQUESTS_CHANNEL) {
-    const slackClient = createSlackClient();
+    try {
+      const slackClient = createSlackClient();
 
-    await slackClient.chat.postMessage({
-      blocks: createRequestBlocks(userId, email),
-      username: SLACK_BOT_NAME,
-      channel: `#${SLACK_PUBLIC_HOST_REQUESTS_CHANNEL}`,
-    });
+      await slackClient.chat.postMessage({
+        blocks: createRequestBlocks(userId, email),
+        username: SLACK_BOT_NAME,
+        channel: `#${SLACK_PUBLIC_HOST_REQUESTS_CHANNEL}`,
+      });
+    } catch (error) {
+      throw new SlackError(SlackErrorCode.couldNotSendMessage, error);
+    }
   }
 };
 
@@ -122,13 +133,18 @@ export const updatePublicHostRequestMessage = async (
   channelId: string,
   ts: string,
   email: string,
+  link?: string,
   verificationCode?: number,
 ) => {
-  const slackClient = createSlackClient();
+  try {
+    const slackClient = createSlackClient();
 
-  await slackClient.chat.update({
-    blocks: createResponseBlocks(email, verificationCode),
-    channel: channelId,
-    ts,
-  });
+    await slackClient.chat.update({
+      blocks: createResponseBlocks(email, link, verificationCode),
+      channel: channelId,
+      ts,
+    });
+  } catch (error) {
+    throw new SlackError(SlackErrorCode.couldNotUpdateMessage, error);
+  }
 };

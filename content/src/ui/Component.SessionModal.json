@@ -2,32 +2,33 @@
   "en": {
     "edit": "Edit",
     "done": "Done",
-    "deleteButton": "Delete Session",
+    "deleteButton": "Delete session",
     "delete": {
-      "header": "Delete Session?",
+      "header": "Delete session?",
       "text": "Are you sure you want to delete the session?",
       "buttons": {
         "cancel": "Cancel",
         "confirm": "Delete"
       }
     },
-    "addToCalendar": "Add to Cal",
+    "addToCalendar": "Add to cal",
     "addReminder": "Add reminder",
-    "join": "Join"
+    "join": "Join",
+    "shareMessage": "{{link}}\nSession code: {{code}}"
   },
   "sv": {
     "edit": "Ändra",
     "done": "Klar",
-    "deleteButton": "Ta bort Session",
+    "deleteButton": "Ta bort session",
     "delete": {
-      "header": "Ta bort Session?",
+      "header": "Ta bort session?",
       "text": "Är du säker på att du vill ta bort sessionen?",
       "buttons": {
         "cancel": "Avbryt",
         "confirm": "Ta bort"
       }
     },
-    "addToCalendar": "Lägg i Kal",
+    "addToCalendar": "Lägg till i kal.",
     "addReminder": "Påminn",
     "join": "Gå med"
   },

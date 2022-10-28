@@ -17,7 +17,7 @@ import {
 } from '../../common/components/Spacers/Spacer';
 import {COLORS} from '../../../../shared/src/constants/colors';
 
-import {SessionStackProps} from '../../common/constants/routes';
+import {SessionStackProps} from '../../lib/navigation/constants/routes';
 
 import {DailyContext} from './DailyProvider';
 
@@ -50,6 +50,7 @@ import useUpdateSession from './hooks/useUpdateSession';
 import * as NS from '../../../../shared/src/constants/namespaces';
 import {useTranslation} from 'react-i18next';
 import HostNotes from './components/HostNotes/HostNotes';
+import Screen from '../../common/components/Screen/Screen';
 
 const LoadingView = styled.View({
   flex: 1,
@@ -59,12 +60,6 @@ const LoadingView = styled.View({
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
 });
-
-type WrapperProps = {backgroundColor?: string};
-const Wrapper = styled.View<WrapperProps>(({backgroundColor}) => ({
-  flex: 1,
-  backgroundColor: backgroundColor ?? COLORS.WHITE,
-}));
 
 const ExerciseControl = styled(ContentControls)({
   position: 'absolute',
@@ -149,7 +144,7 @@ const Session = () => {
   const hasVideo = Boolean(me?.videoTrack);
 
   return (
-    <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
+    <Screen backgroundColor={exercise?.theme?.backgroundColor}>
       {isFacilitator && (
         <FloatingHostNotes>
           {!exercise?.slide.next && (
@@ -207,7 +202,7 @@ const Session = () => {
         />
       </SessionControls>
       <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
-    </Wrapper>
+    </Screen>
   );
 };
 

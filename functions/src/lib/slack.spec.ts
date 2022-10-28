@@ -1,3 +1,4 @@
+import {SlackError, SlackErrorCode} from '../controllers/errors/SlackError';
 import {RequestAction} from './constants/requestAction';
 import {
   parseMessage,
@@ -76,6 +77,18 @@ describe('slack', () => {
         channel: '#some-channel',
       });
     });
+
+    it('should rethrow error', async () => {
+      mockPostMessage.mockRejectedValueOnce('error cause');
+
+      try {
+        await sendPublicHostRequestMessage('some-user-id', 'some@email.com');
+      } catch (error) {
+        expect(error).toEqual(
+          new SlackError(SlackErrorCode.couldNotSendMessage, 'error cause'),
+        );
+      }
+    });
   });
 
   describe('updatePublicHostRequestMessage', () => {
@@ -84,6 +97,7 @@ describe('slack', () => {
         'some-channel-id',
         'some-ts',
         'some@email.com',
+        'http://some.deep/verification/link',
         123456,
       );
 
@@ -94,7 +108,7 @@ describe('slack', () => {
             type: 'section',
             text: {
               type: 'mrkdwn',
-              text: '*Accepted <mailto:some@email.com?body=123456|some@email.com> as public host, please send code `123456` to the user.*',
+              text: '*Accepted <mailto:some@email.com?body=123456%20-%20http%3A%2F%2Fsome.deep%2Fverification%2Flink|some@email.com> as public host, please send code `123456` http://some.deep/verification/link to the user.*',
             },
           },
         ]),
@@ -124,6 +138,22 @@ describe('slack', () => {
         channel: 'some-channel-id',
         ts: 'some-ts',
       });
+    });
+
+    it('should rethrow error', async () => {
+      mockUpdate.mockRejectedValueOnce('error cause');
+
+      try {
+        await updatePublicHostRequestMessage(
+          'some-channel-id',
+          'some-ts',
+          'some@email.com',
+        );
+      } catch (error) {
+        expect(error).toEqual(
+          new SlackError(SlackErrorCode.couldNotUpdateMessage, 'error cause'),
+        );
+      }
     });
   });
 });

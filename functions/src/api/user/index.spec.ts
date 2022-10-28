@@ -9,6 +9,7 @@ import {
   verifyPublicHostRequest,
 } from '../../controllers/publicHostRequests';
 import {RequestError} from '../../controllers/errors/RequestError';
+import {VerificationError} from '../../../../shared/src/errors/User';
 
 jest.mock('../../controllers/publicHostRequests');
 const mockRequestPublicHostRole = requestPublicHostRole as jest.Mock;
@@ -48,7 +49,7 @@ describe('/api/user', () => {
 
     it('should not create a request when user has no email', async () => {
       mockRequestPublicHostRole.mockRejectedValueOnce(
-        new RequestError('user-needs-email'),
+        new RequestError(VerificationError.userNeedEmail),
       );
 
       const response = await request(mockServer).post(
@@ -61,7 +62,7 @@ describe('/api/user', () => {
 
     it('should not create a second request when user have already made a request', async () => {
       mockRequestPublicHostRole.mockRejectedValueOnce(
-        new RequestError('request-exists'),
+        new RequestError(VerificationError.requestExists),
       );
 
       const response = await request(mockServer).post(
@@ -85,7 +86,7 @@ describe('/api/user', () => {
 
     it('should return 404 if request not found', async () => {
       mockVerifyRequest.mockRejectedValueOnce(
-        new RequestError('request-not-found'),
+        new RequestError(VerificationError.requestNotFound),
       );
       const response = await request(mockServer)
         .put('/user/verifyPublicHostCode')
@@ -93,11 +94,12 @@ describe('/api/user', () => {
 
       expect(mockVerifyRequest).toHaveBeenCalledWith('some-user-id', 123456);
       expect(response.status).toBe(404);
+      expect(response.text).toBe(VerificationError.requestNotFound);
     });
 
-    it('should return 410 if request has expired', async () => {
+    it('should return 410 if request was declined', async () => {
       mockVerifyRequest.mockRejectedValueOnce(
-        new RequestError('request-declined'),
+        new RequestError(VerificationError.requestDeclined),
       );
       const response = await request(mockServer)
         .put('/user/verifyPublicHostCode')
@@ -105,11 +107,25 @@ describe('/api/user', () => {
 
       expect(mockVerifyRequest).toHaveBeenCalledWith('some-user-id', 123456);
       expect(response.status).toBe(410);
+      expect(response.text).toBe(VerificationError.requestDeclined);
+    });
+
+    it('should return 410 if request was already claimed', async () => {
+      mockVerifyRequest.mockRejectedValueOnce(
+        new RequestError(VerificationError.verificationAlreadyCalimed),
+      );
+      const response = await request(mockServer)
+        .put('/user/verifyPublicHostCode')
+        .send({verificationCode: 123456});
+
+      expect(mockVerifyRequest).toHaveBeenCalledWith('some-user-id', 123456);
+      expect(response.status).toBe(410);
+      expect(response.text).toBe(VerificationError.verificationAlreadyCalimed);
     });
 
     it('should return 404 if verificationCode does not match', async () => {
       mockVerifyRequest.mockRejectedValueOnce(
-        new RequestError('verification-failed'),
+        new RequestError(VerificationError.verificationFailed),
       );
       const response = await request(mockServer)
         .put('/user/verifyPublicHostCode')
@@ -117,6 +133,7 @@ describe('/api/user', () => {
 
       expect(mockVerifyRequest).toHaveBeenCalledWith('some-user-id', 123456);
       expect(response.status).toBe(404);
+      expect(response.text).toBe(VerificationError.verificationFailed);
     });
   });
 });

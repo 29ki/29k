@@ -1,5 +1,9 @@
 import {firebasedynamiclinks} from '@googleapis/firebasedynamiclinks';
-import {createDynamicLink, createSessionLink} from './dynamicLinks';
+import {
+  createDynamicLink,
+  createPublicHostCodeLink,
+  createSessionLink,
+} from './dynamicLinks';
 
 const dynamicLinks = firebasedynamiclinks('v1');
 const mockCreate = dynamicLinks.shortLinks.create as jest.Mock;
@@ -61,10 +65,12 @@ describe('createDynamicLink', () => {
       requestBody: {
         dynamicLinkInfo: {
           androidInfo: {
+            androidFallbackLink: 'http://some.android/fallback/link',
             androidPackageName: 'some-deep-link-android-package-name',
           },
           domainUriPrefix: 'some-deep-link-domain-uri-prefix',
           iosInfo: {
+            iosFallbackLink: 'http://some.ios/fallback/link',
             iosAppStoreId: 'some-deep-link-ios-appstore-id',
             iosBundleId: 'some-deep-link-ios-bundle-id',
           },
@@ -97,10 +103,12 @@ describe('createDynamicLink', () => {
       requestBody: {
         dynamicLinkInfo: {
           androidInfo: {
+            androidFallbackLink: 'http://some.android/fallback/link',
             androidPackageName: 'some-deep-link-android-package-name',
           },
           domainUriPrefix: 'some-deep-link-domain-uri-prefix',
           iosInfo: {
+            iosFallbackLink: 'http://some.ios/fallback/link',
             iosAppStoreId: 'some-deep-link-ios-appstore-id',
             iosBundleId: 'some-deep-link-ios-bundle-id',
           },
@@ -160,10 +168,12 @@ describe('createSessionLink', () => {
       requestBody: {
         dynamicLinkInfo: {
           androidInfo: {
+            androidFallbackLink: 'http://some.android/fallback/link',
             androidPackageName: 'some-deep-link-android-package-name',
           },
           domainUriPrefix: 'some-deep-link-domain-uri-prefix',
           iosInfo: {
+            iosFallbackLink: 'http://some.ios/fallback/link',
             iosAppStoreId: 'some-deep-link-ios-appstore-id',
             iosBundleId: 'some-deep-link-ios-bundle-id',
           },
@@ -201,10 +211,12 @@ describe('createSessionLink', () => {
       requestBody: {
         dynamicLinkInfo: {
           androidInfo: {
+            androidFallbackLink: 'http://some.android/fallback/link',
             androidPackageName: 'some-deep-link-android-package-name',
           },
           domainUriPrefix: 'some-deep-link-domain-uri-prefix',
           iosInfo: {
+            iosFallbackLink: 'http://some.ios/fallback/link',
             iosAppStoreId: 'some-deep-link-ios-appstore-id',
             iosBundleId: 'some-deep-link-ios-bundle-id',
           },
@@ -220,5 +232,40 @@ describe('createSessionLink', () => {
     });
 
     expect(shortLink).toBe('https://some.short/session/link');
+  });
+});
+
+describe('createPublicHostCodeLink', () => {
+  it('creates a dynamic link', async () => {
+    mockCreate.mockResolvedValueOnce({
+      data: {
+        shortLink: 'https://some.short/hostCode/link',
+      },
+    });
+
+    const shortLink = await createPublicHostCodeLink(1337);
+
+    expect(mockCreate).toHaveBeenCalledTimes(1);
+    expect(mockCreate).toHaveBeenCalledWith({
+      key: 'some-deep-link-api-key',
+      requestBody: {
+        dynamicLinkInfo: {
+          androidInfo: {
+            androidFallbackLink: 'http://some.android/fallback/link',
+            androidPackageName: 'some-deep-link-android-package-name',
+          },
+          domainUriPrefix: 'some-deep-link-domain-uri-prefix',
+          iosInfo: {
+            iosFallbackLink: 'http://some.ios/fallback/link',
+            iosAppStoreId: 'some-deep-link-ios-appstore-id',
+            iosBundleId: 'some-deep-link-ios-bundle-id',
+          },
+          link: 'http://some.deep/link/base/verifyPublicHostCode/1337',
+          navigationInfo: {enableForcedRedirect: false},
+        },
+      },
+    });
+
+    expect(shortLink).toBe('https://some.short/hostCode/link');
   });
 });

@@ -3,6 +3,7 @@ import {
   NativeSyntheticEvent,
   TextInput,
   TextInputKeyPressEventData,
+  TouchableOpacity,
 } from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
 import Input from '../../../common/components/Typography/TextInput/TextInput';
@@ -24,29 +25,44 @@ const Cell = styled(Input).attrs({
   keyboardType: 'numeric',
   autoCorrect: false,
   maxLength: 1,
-  clearTextOnFocus: true,
 })({
   width: 50,
   maxWidth: 50,
   textAlign: 'center',
 });
 
-const Overlay = styled.View({
-  position: 'absolute',
-  width: '100%',
-  height: 50,
-  bottom: 0,
-  left: 0,
-  opacity: 0,
-});
+type CellComponentProps = {
+  value?: string;
+  onKeyPress: (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => void;
+  onCellPress: () => void;
+  onChangeText: (text: string) => void;
+};
+
+const CellComponent = React.forwardRef<TextInput, CellComponentProps>(
+  ({value, onCellPress, onKeyPress, onChangeText}, ref) => (
+    <TouchableOpacity onPress={onCellPress}>
+      <Cell
+        autoCorrect={false}
+        value={value}
+        onTouchStart={onCellPress}
+        ref={ref}
+        onChangeText={onChangeText}
+        onKeyPress={onKeyPress}
+        selectTextOnFocus
+      />
+    </TouchableOpacity>
+  ),
+);
 
 const NUMERIC_KEYS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 type VerificationCodeProps = {
+  prefillCode?: string;
   onCodeCompleted: (result: number) => void;
 };
 
 const VerificationCode: React.FC<VerificationCodeProps> = ({
+  prefillCode = '',
   onCodeCompleted,
 }) => {
   const {t} = useTranslation(NS.COMPONENT.VERIFICATION_CODE);
@@ -60,7 +76,9 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
     () => [cell1, cell2, cell3, cell4, cell5, cell6],
     [cell1, cell2, cell3, cell4, cell5, cell6],
   );
-  const [code, setCode] = useState('');
+  const [code, setCode] = useState<Array<string>>(
+    prefillCode ? prefillCode.split('') : [],
+  );
   const [currentCell, setCurrentCell] = useState(0);
 
   useEffect(() => {
@@ -68,74 +86,55 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
   }, [currentCell, cells]);
 
   useEffect(() => {
-    if (code.length === 6) {
-      onCodeCompleted(parseInt(code, 10));
+    const codeString = code.join('');
+    if (codeString.length === 6) {
+      onCodeCompleted(parseInt(codeString, 10));
     }
   }, [code, onCodeCompleted]);
 
-  const updateCode = (text: string) => {
-    if (text.length === 1) {
-      setCode(c => `${c}${text}`);
-    } else {
-      setCode(c => c.slice(0, c.length - 1));
+  const updateCode = (index: number) => (text: string) => {
+    //Allows also code to be erased
+    if (text.length <= 2) {
+      setCode(c => {
+        const clone = [...c];
+        clone[index] = text;
+        return clone;
+      });
     }
   };
 
-  const onKeyPress = (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => {
-    if (e.nativeEvent.key === 'Backspace') {
-      setCurrentCell(c => Math.max(0, c - 1));
-      setCode(c => c.slice(0, c.length - 1));
-    } else if (NUMERIC_KEYS.find(n => n === e.nativeEvent.key)) {
-      setCurrentCell(c => Math.min(5, c + 1));
-    }
-  };
+  const onKeyPress =
+    (index: number) =>
+    (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => {
+      if (e.nativeEvent.key === 'Backspace') {
+        setCurrentCell(Math.max(0, index - 1));
+      } else if (NUMERIC_KEYS.find(n => n === e.nativeEvent.key)) {
+        setCurrentCell(Math.min(5, index + 1));
+      }
+    };
 
   const paste = async () => {
     const clipboardString = await Clipboard.getString();
-    setCode(clipboardString);
+    setCode(clipboardString.split(''));
   };
+
+  const onCellPress = (index: number) => () => setCurrentCell(index);
 
   return (
     <RowWrapper>
       <Row>
-        <Cell
-          value={code.charAt(0)}
-          ref={cell1}
-          onChangeText={updateCode}
-          onKeyPress={onKeyPress}
-        />
-        <Cell
-          value={code.charAt(1)}
-          ref={cell2}
-          onChangeText={updateCode}
-          onKeyPress={onKeyPress}
-        />
-        <Cell
-          value={code.charAt(2)}
-          ref={cell3}
-          onChangeText={updateCode}
-          onKeyPress={onKeyPress}
-        />
-        <Cell
-          value={code.charAt(3)}
-          ref={cell4}
-          onChangeText={updateCode}
-          onKeyPress={onKeyPress}
-        />
-        <Cell
-          value={code.charAt(4)}
-          ref={cell5}
-          onChangeText={updateCode}
-          onKeyPress={onKeyPress}
-        />
-        <Cell
-          value={code.charAt(5)}
-          ref={cell6}
-          onChangeText={updateCode}
-          onKeyPress={onKeyPress}
-        />
+        {cells.map((cellRef, index) => (
+          <CellComponent
+            key={index}
+            value={code[index]}
+            onCellPress={onCellPress(index)}
+            ref={cellRef}
+            onChangeText={updateCode(index)}
+            onKeyPress={onKeyPress(index)}
+          />
+        ))}
       </Row>
-      <Overlay />
+
       <Spacer16 />
       <Button onPress={paste}>{t('pasteButton')}</Button>
     </RowWrapper>

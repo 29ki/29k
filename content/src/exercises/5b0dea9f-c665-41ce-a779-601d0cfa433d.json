@@ -1,0 +1,131 @@
+{
+  "en": {
+    "published": false,
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+    "name": "Letting go of control",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "`Start the session when you're ready to go.`"
+        }
+      ]
+    },
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome to this session, hosted by me, x.\n\nI am so happy you choose to join us at 29k here today and we will work for around 30 minutes on acceptance and letting go of control.\n\nWe’ll be doing a short meditation together, then we’ll take a moment to reflect on our own, and the final step is to share with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in.\n\nHow are you feeling right now? Please answer in two-three words.\n\nX, would you like to start and then hand over to someone else when you are done?\n\n`Let everyone in the session check in one by one.`\n\nThank you all for checking in.\n\nNow let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "When difficult feelings arise, many of us have a natural tendency to try to control them. The **impulse to control things can make us feel in charge**.\n\nBut science shows that this is just an **illusion.**\n\nFind a comfortable position, relax your shoulders. Let's do this meditation together. \\\n\\\n`Push play to start the meditation.`"
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take a minute to reflect on our own.\n\nWhat's in your own beach ball? \\\nWhat is it that you are pushing below the surface?"
+          },
+          {
+            "text": "If you want to, you can take notes on a piece of paper or just mental notes in your head. And remember, there is no right or wrong here, our answers are our own.\n\n1 minute starting now.\n\n`Push play to start the timer.`\n\nOkay, that’s 1 minute Let’s move on."
+          }
+        ],
+        "content": {
+          "heading": "What's in your beachball?"
+        }
+      },
+      {
+        "type": "sharing",
+        "content": {
+          "heading": "What's in your beachball?"
+        },
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part of this exercise. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **Your job as a participant is just to listen.** There is no fixing, helping or advice-giving needed in this space. We are just showing up and trying to understand what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights, it just is.\n\nThere will be a timer set for 2 minutes as an indicator but you use as much or little time as you want to. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "X, would you like to start? \n\n`Let everyone (or as many as you got time for) share one by one.`\n\n`Push play to start the timer. Re-start for each new sharing.`\n\nThank you so much for sharing your thoughts and feelings with us here today."
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "The more time and effort we spend trying to control our feelings, the more they tend to dictate our lives.\n\nThe same goes for a lot of things in life. Sometimes we believe that the **more** **control** we have, the **closer** we will get to reaching our **goals**.\n\nThat can be true in some instances..."
+          },
+          {
+            "text": "But when we get stuck in a loop of trying to control ourselves and the events around us, we often end up **diverging** **from our values.** Or miss out on participating in important occasions that actually matter to us."
+          },
+          {
+            "text": "Now we’ll take a minute to reflect on our own again.\n\nWhat if you let go of your beachball? \\\nWhat would that mean to you? \\\nWhat would you do differently?"
+          },
+          {
+            "text": "1 minute starting now.\n\n`Push play to start the timer.`\n\nOkay, that’s 1 minute. Let’s move on."
+          }
+        ],
+        "content": {
+          "heading": "What if you let go of your beachball?"
+        }
+      },
+      {
+        "type": "sharing",
+        "content": {
+          "heading": "What if you let go of your beachball?"
+        },
+        "hostNotes": [
+          {
+            "text": "Time for a next round of sharing.\n\nWhat if you let go of your beachball?\n\nThere will be a timer set for 2 minutes as an indicator but you use as much or little time as you want to. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "X, would you like to start? \n\n`Let everyone (or as many as you got time for) share one by one.`\n\n`Push play to start the timer. Re-start for each new sharing.`\n\nThank you so much for sharing."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Letting go of control may seem **scary**, risky and very **uncomfortable**.\n\nBy practicing **acceptance,** we can learn how to **make room** for a range of feelings and experiences, without trying to escape, numb or fight the ones we don’t want or like.\n\nThis allows us to redirect our focus and instead spend our energy on all things that are important to us."
+          },
+          {
+            "text": "Well done. I would like to send you off with a little mission if you’re up for it.\n\nXXX."
+          },
+          {
+            "text": "Thank you for joining us here today. If you have any reflections or feedback for us at 29k, please let us know. Wishing you all a lovely day.\n\nBye."
+          }
+        ]
+      }
+    ]
+  },
+  "sv": {
+    "published": false,
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d"
+  },
+  "pt": {
+    "published": false,
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d"
+  }
+}

@@ -1,7 +1,12 @@
-type HandleSlackError = 'user-not-found' | 'could-not-parse-message';
+export enum SlackErrorCode {
+  userNotFound = 'slack/user-not-found',
+  couldNotParseMessage = 'slack/could-not-parse-message',
+  couldNotSendMessage = 'slack/could-not-send-message',
+  couldNotUpdateMessage = 'slack/could-not-update-message',
+}
 
 export class SlackError extends Error {
-  constructor(code: HandleSlackError, cause?: unknown) {
+  constructor(code: SlackErrorCode, cause?: unknown) {
     super(code, {cause});
     this.code = code;
   }
