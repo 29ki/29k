@@ -84,6 +84,7 @@ const CreateSessionForm = ({allowCreate}: {allowCreate: Boolean}) => {
         onPress={() => navigate('JoinSessionModal', {inviteCode: undefined})}
         LeftIcon={PlusIcon}>
         {t('join')}
+      </CreateButton>
     </CreateSessionWrapper>
   );
 };
