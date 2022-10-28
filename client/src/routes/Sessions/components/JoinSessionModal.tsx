@@ -1,4 +1,5 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
 
 import Gutters from '../../../common/components/Gutters/Gutters';
@@ -17,7 +18,8 @@ const JoinSessionModal = () => {
   } = useRoute<RouteProp<ModalStackProps, 'JoinSessionModal'>>();
   const {fetchSessions} = useSessions();
   const joinSession = useJoinSession();
-  const navigation = useNavigation();
+  const {navigate} =
+    useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
 
   return (
     <HalfModal>
@@ -26,9 +28,9 @@ const JoinSessionModal = () => {
         <VerificationCode
           prefillCode={`${inviteCode}`}
           onCodeCompleted={async value => {
-            await joinSession(value);
+            const session = await joinSession(value);
             fetchSessions();
-            navigation.goBack();
+            navigate('SessionModal', {session: session});
           }}
         />
       </Gutters>

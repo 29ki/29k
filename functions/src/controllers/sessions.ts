@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import {createSessionLink} from '../models/dynamicLinks';
+import {createSessionInviteLink} from '../models/dynamicLinks';
 import * as sessionModel from '../models/session';
 import * as dailyApi from '../lib/dailyApi';
 import {Session} from '../../../shared/src/types/Session';
@@ -22,7 +22,7 @@ export const createSession = async (
     inviteCode = generateVerificationCode();
   }
 
-  const link = await createSessionLink(
+  const link = await createSessionInviteLink(
     inviteCode,
     contentId,
     startTime,

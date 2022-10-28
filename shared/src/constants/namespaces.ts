@@ -26,7 +26,7 @@ export enum SCREEN {
 }
 
 export enum DEEP_LINK {
-  SESSION = 'DeepLink.Session',
+  JOIN_SESSION_INVITE = 'DeepLink.JoinSessionInvite',
 }
 
 export const EXERCISES = 'exercises';

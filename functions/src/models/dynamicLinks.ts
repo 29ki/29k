@@ -59,7 +59,7 @@ export const createDynamicLink = async (
   }
 };
 
-export const createSessionLink = async (
+export const createSessionInviteLink = async (
   inviteCode: number,
   contentId: string,
   startTime: string,
@@ -70,8 +70,7 @@ export const createSessionLink = async (
     ns: 'exercises',
     returnObjects: true,
   }) as Exercise;
-
-  const t = i18next.getFixedT(language, NS.DEEP_LINK.SESSION);
+  const t = i18next.getFixedT(language, NS.DEEP_LINK.JOIN_SESSION_INVITE);
 
   const date = dayjs(startTime).locale(language).format('dddd, D MMM HH:mm');
 
@@ -79,7 +78,7 @@ export const createSessionLink = async (
   const socialTitle = t('title', {name}) as string;
   const socialDescription = t('description', {date}) as string;
 
-  return createDynamicLink(`sessions/${inviteCode}`, {
+  return createDynamicLink(`joinSessionInvite/${inviteCode}`, {
     socialImageLink,
     socialTitle,
     socialDescription,

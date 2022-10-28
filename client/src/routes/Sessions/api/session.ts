@@ -50,7 +50,9 @@ export const updateSession = async (
   }
 };
 
-export const joinSession = async (inviteCode: Session['inviteCode']) => {
+export const joinSession = async (
+  inviteCode: Session['inviteCode'],
+): Promise<Session> => {
   try {
     const response = await apiClient(`${SESSIONS_ENDPOINT}/joinSession`, {
       method: 'PUT',
@@ -63,7 +65,6 @@ export const joinSession = async (inviteCode: Session['inviteCode']) => {
 
     return response.json();
   } catch (cause) {
-    console.log('causseeeeeee', cause);
     throw new Error('Could not join session', {cause});
   }
 };

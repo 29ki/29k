@@ -1,5 +1,7 @@
 const mockDynamicLinks = {
-  createSessionLink: jest.fn().mockResolvedValue('http://some.dynamic/link'),
+  createSessionInviteLink: jest
+    .fn()
+    .mockResolvedValue('http://some.dynamic/link'),
 };
 const mockDailyApi = {
   createRoom: jest.fn(() => ({
@@ -60,14 +62,14 @@ describe('sessions - controller', () => {
     });
 
     it('should create a dynamic link with correct path', async () => {
-      mockGenerateVerificationCode.mockReturnValueOnce(123456);
+      mockGenerateVerificationCode.mockReturnValue(123456);
       await createSession('some-user-id', {
         contentId: 'some-content-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
         language: 'en',
       });
-      expect(mockDynamicLinks.createSessionLink).toHaveBeenCalledWith(
+      expect(mockDynamicLinks.createSessionInviteLink).toHaveBeenCalledWith(
         123456,
         'some-content-id',
         '2022-10-10T10:00:00.000Z',
