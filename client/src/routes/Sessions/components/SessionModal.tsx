@@ -26,6 +26,7 @@ import {userAtom} from '../../../lib/user/state/state';
 import useAddToCalendar from '../hooks/useAddToCalendar';
 import useSessionNotificationReminder from '../hooks/useSessionNotificationReminder';
 import useSessions from '../hooks/useSessions';
+import {Body14} from '../../../common/components/Typography/Body/Body';
 
 const Content = styled(Gutters)({
   flexDirection: 'row',
@@ -117,6 +118,13 @@ const SessionModal = () => {
       <Spacer16 />
       <Content>
         <Title>{exercise?.name}</Title>
+        {session.inviteCode && (
+          <>
+            <Spacer8 />
+            <Body14>{session.inviteCode}</Body14>
+            <Spacer8 />
+          </>
+        )}
         <ImageContainer>
           <Image
             resizeMode="contain"

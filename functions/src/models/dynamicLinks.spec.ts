@@ -2,7 +2,7 @@ import {firebasedynamiclinks} from '@googleapis/firebasedynamiclinks';
 import {
   createDynamicLink,
   createPublicHostCodeLink,
-  createSessionLink,
+  createSessionInviteLink,
 } from './dynamicLinks';
 
 const dynamicLinks = firebasedynamiclinks('v1');
@@ -21,7 +21,7 @@ jest.mock('../../../content/content.json', () => ({
           },
         },
       },
-      'DeepLink.Session': {
+      'DeepLink.JoinSessionInvite': {
         title: 'Some link title: {{name}}',
         description: 'Some link description: {{date}}',
       },
@@ -37,7 +37,7 @@ jest.mock('../../../content/content.json', () => ({
           },
         },
       },
-      'DeepLink.Session': {
+      'DeepLink.JoinSessionInvite': {
         title: 'En länktitel: {{name}}',
         description: 'En länkbeskrivning: {{date}}',
       },
@@ -147,7 +147,7 @@ describe('createDynamicLink', () => {
   });
 });
 
-describe('createSessionLink', () => {
+describe('createSessionInviteLink', () => {
   it('creates a dynamic link', async () => {
     mockCreate.mockResolvedValueOnce({
       data: {
@@ -155,8 +155,8 @@ describe('createSessionLink', () => {
       },
     });
 
-    const shortLink = await createSessionLink(
-      'some-session-id',
+    const shortLink = await createSessionInviteLink(
+      123456,
       'some-exercise-id',
       '2020-01-01T01:01:01.000Z',
       'en',
@@ -177,7 +177,7 @@ describe('createSessionLink', () => {
             iosAppStoreId: 'some-deep-link-ios-appstore-id',
             iosBundleId: 'some-deep-link-ios-bundle-id',
           },
-          link: 'http://some.deep/link/base/sessions/some-session-id',
+          link: 'http://some.deep/link/base/joinSessionInvite/123456',
           navigationInfo: {enableForcedRedirect: false},
           socialMetaTagInfo: {
             socialDescription: 'Some link description: Wednesday, 1 Jan 01:01',
@@ -198,8 +198,8 @@ describe('createSessionLink', () => {
       },
     });
 
-    const shortLink = await createSessionLink(
-      'some-session-id',
+    const shortLink = await createSessionInviteLink(
+      123456,
       'some-exercise-id',
       '2020-01-01T01:01:01.000Z',
       'sv',
@@ -220,7 +220,7 @@ describe('createSessionLink', () => {
             iosAppStoreId: 'some-deep-link-ios-appstore-id',
             iosBundleId: 'some-deep-link-ios-bundle-id',
           },
-          link: 'http://some.deep/link/base/sessions/some-session-id',
+          link: 'http://some.deep/link/base/joinSessionInvite/123456',
           navigationInfo: {enableForcedRedirect: false},
           socialMetaTagInfo: {
             socialDescription: 'En länkbeskrivning: onsdag, 1 jan 01:01',

@@ -1,5 +1,7 @@
 const mockDynamicLinks = {
-  createSessionLink: jest.fn().mockResolvedValue('http://some.dynamic/link'),
+  createSessionInviteLink: jest
+    .fn()
+    .mockResolvedValue('http://some.dynamic/link'),
 };
 const mockDailyApi = {
   createRoom: jest.fn(() => ({
@@ -10,9 +12,12 @@ const mockDailyApi = {
   deleteRoom: jest.fn(),
 };
 
+const mockGenerateVerificationCode = jest.fn();
+
 import * as sessionModel from '../models/session';
 import {
   createSession,
+  joinSession,
   removeSession,
   updateExerciseState,
   updateSession,
@@ -20,6 +25,10 @@ import {
 import {SessionType} from '../../../shared/src/types/Session';
 import dayjs from 'dayjs';
 
+jest.mock('../lib/utils', () => ({
+  ...jest.requireActual('../lib/utils'),
+  generateVerificationCode: mockGenerateVerificationCode,
+}));
 jest.mock('../lib/dailyApi', () => mockDailyApi);
 jest.mock('../models/dynamicLinks', () => mockDynamicLinks);
 jest.mock('../models/session');
@@ -29,6 +38,8 @@ const mockGetSessionById = sessionModel.getSessionById as jest.Mock;
 const mockDeleteSession = sessionModel.deleteSession as jest.Mock;
 const mockUpdateSession = sessionModel.updateSession as jest.Mock;
 const mockUpdateExerciseState = sessionModel.updateExerciseState as jest.Mock;
+const mockGetSessionByInviteCode =
+  sessionModel.getSessionByInviteCode as jest.Mock;
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));
 
@@ -36,7 +47,7 @@ beforeEach(async () => {
   jest.clearAllMocks();
 });
 
-describe('sessions - conroller', () => {
+describe('sessions - controller', () => {
   describe('createSession', () => {
     it('should create a daily room that expires 2h after it starts', async () => {
       await createSession('some-user-id', {
@@ -51,14 +62,15 @@ describe('sessions - conroller', () => {
     });
 
     it('should create a dynamic link with correct path', async () => {
+      mockGenerateVerificationCode.mockReturnValue(123456);
       await createSession('some-user-id', {
         contentId: 'some-content-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
         language: 'en',
       });
-      expect(mockDynamicLinks.createSessionLink).toHaveBeenCalledWith(
-        'some-fake-daily-id',
+      expect(mockDynamicLinks.createSessionInviteLink).toHaveBeenCalledWith(
+        123456,
         'some-content-id',
         '2022-10-10T10:00:00.000Z',
         'en',
@@ -66,6 +78,7 @@ describe('sessions - conroller', () => {
     });
 
     it('should create and return a session', async () => {
+      mockGenerateVerificationCode.mockReturnValueOnce(123456);
       mockAddSession.mockResolvedValueOnce('add-session-resolved-value');
       const session = await createSession('some-user-id', {
         contentId: 'some-content-id',
@@ -84,6 +97,45 @@ describe('sessions - conroller', () => {
         startTime: '2022-10-10T10:00:00.000Z',
         type: 'public',
         url: 'http://fake.daily/url',
+        inviteCode: 123456,
+      });
+      expect(session).toBe('add-session-resolved-value');
+    });
+
+    it('should create a invite code that is not in use', async () => {
+      // first try generating a unique code finds it in use
+      mockGenerateVerificationCode.mockReturnValueOnce(123456);
+      mockGetSessionByInviteCode.mockResolvedValueOnce(
+        'existing-session-using-the-same-invite-code',
+      );
+
+      // second try generating a unique code finds no session
+      mockGenerateVerificationCode.mockReturnValueOnce(654321);
+      mockGetSessionByInviteCode.mockResolvedValueOnce(undefined);
+      mockAddSession.mockResolvedValueOnce('add-session-resolved-value');
+
+      const session = await createSession('some-user-id', {
+        contentId: 'some-content-id',
+        type: SessionType.public,
+        startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+        language: 'en',
+      });
+
+      expect(mockGenerateVerificationCode).toHaveBeenCalledTimes(2);
+      expect(mockGetSessionByInviteCode).toHaveBeenCalledWith(123456);
+      expect(mockGetSessionByInviteCode).toHaveBeenCalledWith(654321);
+
+      expect(mockAddSession).toHaveBeenCalledWith({
+        contentId: 'some-content-id',
+        language: 'en',
+        dailyRoomName: 'some-fake-daily-room-name',
+        facilitator: 'some-user-id',
+        id: 'some-fake-daily-id',
+        link: 'http://some.dynamic/link',
+        startTime: '2022-10-10T10:00:00.000Z',
+        type: 'public',
+        url: 'http://fake.daily/url',
+        inviteCode: 654321, // Code generated on the second try
       });
       expect(session).toBe('add-session-resolved-value');
     });
@@ -121,6 +173,46 @@ describe('sessions - conroller', () => {
 
       expect(mockDailyApi.deleteRoom).toHaveBeenCalledTimes(0);
       expect(mockDeleteSession).toHaveBeenCalledTimes(0);
+    });
+  });
+
+  describe('joinSession', () => {
+    it('should not call update if user is already included', async () => {
+      mockGetSessionByInviteCode.mockResolvedValueOnce({
+        id: 'some-session-id',
+        userIds: ['some-other-user-id', 'some-user-id'],
+      });
+      const unmodifiedSession = await joinSession('some-user-id', 12345);
+      expect(mockUpdateSession).toHaveBeenCalledTimes(0);
+      expect(unmodifiedSession).toEqual({
+        id: 'some-session-id',
+        userIds: ['some-other-user-id', 'some-user-id'],
+      });
+    });
+
+    it('should throw if session is not found', async () => {
+      mockGetSessionByInviteCode.mockResolvedValueOnce(undefined);
+      await expect(joinSession('some-user-id', 12345)).rejects.toEqual(
+        Error('session-not-found'),
+      );
+    });
+
+    it('should update the session users and return it', async () => {
+      mockGetSessionByInviteCode.mockResolvedValueOnce({
+        id: 'some-session-id',
+        userIds: ['some-other-user-id'],
+      });
+      mockGetSessionById.mockResolvedValueOnce({
+        id: 'some-session-id',
+      }); // second call (returned value)
+
+      const joinedSession = await joinSession('some-user-id', 12345);
+      expect(mockUpdateSession).toHaveBeenCalledWith('some-session-id', {
+        userIds: ['some-other-user-id', 'some-user-id'],
+      });
+      expect(joinedSession).toEqual({
+        id: 'some-session-id',
+      });
     });
   });
 
