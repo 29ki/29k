@@ -15,7 +15,7 @@ import {
   SessionType,
 } from '../../../shared/src/types/Session';
 import {ExerciseStateUpdate} from '../api/sessions';
-import {generateVerificationCode, removeEmpty} from '../lib/utils';
+import {removeEmpty} from '../lib/utils';
 
 const defaultExerciseState = {
   index: 0,
@@ -64,6 +64,14 @@ export const getSessionByInviteCode = async (
   const result = await firestore()
     .collection(SESSIONS_COLLECTION)
     .where('inviteCode', '==', inviteCode)
+    .where('ended', '==', false)
+    .where(
+      'startTime',
+      '>',
+      Timestamp.fromDate(
+        dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
+      ),
+    )
     .get();
 
   if (!result.docs.length) {
@@ -101,15 +109,10 @@ export const addSession = async ({
   startTime,
   type,
   link,
+  inviteCode,
 }: Omit<
   Session,
-  | 'exerciseState'
-  | 'ended'
-  | 'started'
-  | 'userIds'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'inviteCode'
+  'exerciseState' | 'ended' | 'started' | 'userIds' | 'createdAt' | 'updatedAt'
 > & {
   dailyRoomName: string;
 }) => {
@@ -121,18 +124,17 @@ export const addSession = async ({
     contentId,
     facilitator,
     dailyRoomName,
-    startTime: Timestamp.fromDate(new Date(startTime)),
-    exerciseState: defaultExerciseState,
     type,
     link,
-    // '*' means session is available for everyone/public enables one single query on getSessions
-    userIds: type === SessionType.private ? [facilitator] : ['*'],
+    inviteCode,
+    startTime: Timestamp.fromDate(new Date(startTime)),
+    exerciseState: defaultExerciseState,
     started: false,
     ended: false,
-    inviteCode:
-      type === SessionType.private ? generateVerificationCode() : undefined,
     createdAt: now,
     updatedAt: now,
+    // '*' means session is available for everyone/public enables one single query on getSessions
+    userIds: type === SessionType.private ? [facilitator] : ['*'],
   };
 
   const sessionDoc = firestore().collection(SESSIONS_COLLECTION).doc(id);

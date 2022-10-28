@@ -60,7 +60,7 @@ export const createDynamicLink = async (
 };
 
 export const createSessionLink = async (
-  sessionId: string,
+  inviteCode: number,
   contentId: string,
   startTime: string,
   language: LANGUAGE_TAG,
@@ -79,7 +79,7 @@ export const createSessionLink = async (
   const socialTitle = t('title', {name}) as string;
   const socialDescription = t('description', {date}) as string;
 
-  return createDynamicLink(`sessions/${sessionId}`, {
+  return createDynamicLink(`sessions/${inviteCode}`, {
     socialImageLink,
     socialTitle,
     socialDescription,

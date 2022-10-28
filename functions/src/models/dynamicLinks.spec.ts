@@ -156,7 +156,7 @@ describe('createSessionLink', () => {
     });
 
     const shortLink = await createSessionLink(
-      'some-session-id',
+      1234,
       'some-exercise-id',
       '2020-01-01T01:01:01.000Z',
       'en',
@@ -177,7 +177,7 @@ describe('createSessionLink', () => {
             iosAppStoreId: 'some-deep-link-ios-appstore-id',
             iosBundleId: 'some-deep-link-ios-bundle-id',
           },
-          link: 'http://some.deep/link/base/sessions/some-session-id',
+          link: 'http://some.deep/link/base/sessions/1234',
           navigationInfo: {enableForcedRedirect: false},
           socialMetaTagInfo: {
             socialDescription: 'Some link description: Wednesday, 1 Jan 01:01',
@@ -199,7 +199,7 @@ describe('createSessionLink', () => {
     });
 
     const shortLink = await createSessionLink(
-      'some-session-id',
+      1234,
       'some-exercise-id',
       '2020-01-01T01:01:01.000Z',
       'sv',
@@ -220,7 +220,7 @@ describe('createSessionLink', () => {
             iosAppStoreId: 'some-deep-link-ios-appstore-id',
             iosBundleId: 'some-deep-link-ios-bundle-id',
           },
-          link: 'http://some.deep/link/base/sessions/some-session-id',
+          link: 'http://some.deep/link/base/sessions/1234',
           navigationInfo: {enableForcedRedirect: false},
           socialMetaTagInfo: {
             socialDescription: 'En länkbeskrivning: onsdag, 1 jan 01:01',

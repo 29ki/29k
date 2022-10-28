@@ -4,7 +4,7 @@ import * as sessionModel from '../models/session';
 import * as dailyApi from '../lib/dailyApi';
 import {Session} from '../../../shared/src/types/Session';
 import {ExerciseStateUpdate, UpdateSession} from '../api/sessions';
-import {removeEmpty} from '../lib/utils';
+import {generateVerificationCode, removeEmpty} from '../lib/utils';
 
 export const createSession = async (
   userId: string,
@@ -16,8 +16,14 @@ export const createSession = async (
   }: Pick<Session, 'contentId' | 'type' | 'startTime' | 'language'>,
 ) => {
   const dailyRoom = await dailyApi.createRoom(dayjs(startTime).add(2, 'hour'));
+  let inviteCode = generateVerificationCode();
+
+  while (await sessionModel.getSessionByInviteCode(inviteCode)) {
+    inviteCode = generateVerificationCode();
+  }
+
   const link = await createSessionLink(
-    dailyRoom.id,
+    inviteCode,
     contentId,
     startTime,
     language,
@@ -32,6 +38,7 @@ export const createSession = async (
     link,
     type,
     startTime,
+    inviteCode,
     facilitator: userId,
   });
 };

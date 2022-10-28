@@ -197,6 +197,7 @@ describe('session model', () => {
         type: SessionType.public,
         startTime: startTime,
         facilitator: 'some-user-id',
+        inviteCode: 1234,
       });
 
       expect(session).toEqual({
@@ -217,6 +218,7 @@ describe('session model', () => {
         type: 'public',
         url: 'daily-url',
         userIds: ['*'],
+        inviteCode: 1234,
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -233,6 +235,7 @@ describe('session model', () => {
         type: SessionType.private,
         startTime: startTime,
         facilitator: 'some-user-id',
+        inviteCode: 1234,
       });
 
       expect(session).toEqual({
@@ -253,7 +256,7 @@ describe('session model', () => {
         type: 'private',
         url: 'daily-url',
         userIds: ['some-user-id'],
-        inviteCode: expect.any(Number),
+        inviteCode: 1234,
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
