@@ -13,8 +13,11 @@ const {
   DEEP_LINK_API_KEY,
   DEEP_LINK_DOMAIN_URI_PREFIX,
   DEEP_LINK_BASE_URL,
-  DEEP_LINK_ANDROID_FALLBACK_LINK,
+  DEEP_LINK_IOS_APPSTORE_ID,
+  DEEP_LINK_IOS_BUNDLE_ID,
   DEEP_LINK_IOS_FALLBACK_LINK,
+  DEEP_LINK_ANDROID_PACKAGE_NAME,
+  DEEP_LINK_ANDROID_FALLBACK_LINK,
 } = config;
 
 export const createDynamicLink = async (
@@ -33,17 +36,13 @@ export const createDynamicLink = async (
           androidInfo: {
             // Since app is not live in PlayStore - link to join the closed testing
             androidFallbackLink: DEEP_LINK_ANDROID_FALLBACK_LINK,
-            /*
             androidPackageName: DEEP_LINK_ANDROID_PACKAGE_NAME,
-            */
           },
           iosInfo: {
             // Since app is not live in AppStore - link to join the closed testing
             iosFallbackLink: DEEP_LINK_IOS_FALLBACK_LINK,
-            /*
             iosBundleId: DEEP_LINK_IOS_BUNDLE_ID,
             iosAppStoreId: DEEP_LINK_IOS_APPSTORE_ID,
-            */
           },
           navigationInfo: {
             enableForcedRedirect: false,

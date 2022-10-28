@@ -42,15 +42,21 @@ const styles = StyleSheet.create({
     marginBottom: 25,
     backgroundColor: COLORS.GREYDARK,
   },
-  code_inline: {
-    padding: 0,
-    borderWidth: 0,
-    borderRadius: 0,
+  blockquote: {
+    paddingHorizontal: SPACINGS.EIGHT,
+    paddingTop: SPACINGS.EIGHT,
+    marginLeft: 0,
+    borderLeftWidth: 0,
     backgroundColor: 'transparent',
-    flexDirection: 'row',
   },
-  code_inline_text: {
-    flexShrink: 1,
+  blockquote_background: {
+    borderRadius: SPACINGS.EIGHT,
+    backgroundColor: COLORS.GREYLIGHTER,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: SPACINGS.EIGHT,
   },
 });
 

@@ -69,7 +69,7 @@ const Navigation = styled.View({
 });
 
 const ListItem = styled.View<{width: number}>(({width}) => ({
-  width: width,
+  width,
 }));
 
 type HostNotesProps = {

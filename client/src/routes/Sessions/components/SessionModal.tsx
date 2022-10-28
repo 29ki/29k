@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Alert, Platform, Share} from 'react-native';
+import {Alert, Share} from 'react-native';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
@@ -86,12 +86,14 @@ const SessionModal = () => {
 
   const onShare = () => {
     if (session.link) {
-      Share.share(
-        Platform.select({
-          ios: {url: session.link},
-          default: {message: session.link},
+      Share.share({
+        url: session.link,
+        message: t('shareMessage', {
+          link: session.link,
+          code: '111 111',
+          interpolation: {escapeValue: false},
         }),
-      );
+      });
     }
   };
 
