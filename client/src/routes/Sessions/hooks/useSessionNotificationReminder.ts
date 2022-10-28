@@ -2,13 +2,12 @@ import dayjs from 'dayjs';
 import {useTranslation} from 'react-i18next';
 import {Session} from '../../../../../shared/src/types/Session';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import * as NS from '../../../../../shared/src/constants/namespaces';
 import useTriggerNotification from '../../../lib/notifications/hooks/useTriggerNotification';
 
 const useSessionNotificationReminder = (session: Session) => {
   const {id, contentId, startTime} = session;
 
-  const {t} = useTranslation(NS.COMPONENT.SESSION_REMINDER);
+  const {t} = useTranslation('Component.SessionReminder');
   const exercise = useExerciseById(contentId);
 
   const {

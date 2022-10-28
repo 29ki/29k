@@ -8,7 +8,6 @@ import Gutters from '../../../common/components/Gutters/Gutters';
 import {Spacer40} from '../../../common/components/Spacers/Spacer';
 import Markdown from '../../../common/components/Typography/Markdown/Markdown';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import * as NS from '../../../../../shared/src/constants/namespaces';
 import useKillSwitch from '../hooks/useKillSwitch';
 import {killSwitchFields, killSwitchMessageAtom} from '../state/state';
 
@@ -27,7 +26,7 @@ const CenteredButton = styled(Button)({
 });
 
 const KillSwitchMessage = () => {
-  const {t} = useTranslation(NS.SCREEN.KILL_SWITCH);
+  const {t} = useTranslation('Screen.KillSwitch');
   const checkKillSwitch = useKillSwitch();
   const {image, message, button} = useRecoilValue(killSwitchMessageAtom);
   const isLoading = useRecoilValue(killSwitchFields('isLoading'));

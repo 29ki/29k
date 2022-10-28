@@ -32,7 +32,6 @@ import {DailyContext} from './DailyProvider';
 import {localParticipantSelector, sessionAtom} from './state/state';
 import {SessionStackProps} from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
-import * as NS from '../../../../shared/src/constants/namespaces';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
 import AudioIndicator from './components/Participants/AudioIdicator';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
@@ -91,7 +90,7 @@ const Audio = styled(AudioIndicator)({
 });
 
 const ChangingRoom = () => {
-  const {t} = useTranslation(NS.SCREEN.CHANGING_ROOM);
+  const {t} = useTranslation('Screen.ChangingRoom');
   const [localUserName, setLocalUserName] = useState('');
 
   const {goBack, navigate} = useNavigation<SessionNavigationProps>();

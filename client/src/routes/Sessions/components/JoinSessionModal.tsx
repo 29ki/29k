@@ -3,8 +3,6 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 
-import * as NS from '../../../../../shared/src/constants/namespaces';
-
 import Gutters from '../../../common/components/Gutters/Gutters';
 import HalfModal from '../../../common/components/Modals/HalfModal';
 import {Spacer16, Spacer24} from '../../../common/components/Spacers/Spacer';
@@ -17,7 +15,7 @@ import useJoinSession from '../../Session/hooks/useJoinSession';
 import useSessions from '../hooks/useSessions';
 
 const JoinSessionModal = () => {
-  const {t} = useTranslation(NS.COMPONENT.JOIN_SESSION_MODAL);
+  const {t} = useTranslation('Component.JoinSessionModal');
   const {
     params: {inviteCode: inviteCode},
   } = useRoute<RouteProp<ModalStackProps, 'JoinSessionModal'>>();

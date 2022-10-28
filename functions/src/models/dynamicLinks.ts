@@ -6,7 +6,6 @@ import config from '../lib/config';
 import i18next, {LANGUAGE_TAG} from '../lib/i18n';
 import type {Exercise} from '../../../shared/src/types/generated/Exercise';
 import dayjs from 'dayjs';
-import * as NS from '../../../shared/src/constants/namespaces';
 
 const dynamicLinks = firebasedynamiclinks('v1');
 
@@ -65,18 +64,20 @@ export const createSessionInviteLink = async (
   startTime: string,
   language: LANGUAGE_TAG,
 ) => {
+  // @ts-expect-error variable/string litteral as key is not yet supported https://www.i18next.com/overview/typescript#type-error-template-literal
   const {name, card} = i18next.t(contentId, {
     lng: language,
     ns: 'exercises',
     returnObjects: true,
   }) as Exercise;
-  const t = i18next.getFixedT(language, NS.DEEP_LINK.JOIN_SESSION_INVITE);
+
+  const t = i18next.getFixedT(language, 'DeepLink.JoinSessionInvite');
 
   const date = dayjs(startTime).locale(language).format('dddd, D MMM HH:mm');
 
   const socialImageLink = card?.image?.source;
-  const socialTitle = t('title', {name}) as string;
-  const socialDescription = t('description', {date}) as string;
+  const socialTitle = t('title', {name});
+  const socialDescription = t('description', {date});
 
   return createDynamicLink(`joinSessionInvite/${inviteCode}`, {
     socialImageLink,

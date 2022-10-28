@@ -12,7 +12,6 @@ import {COLORS} from '../../../../../shared/src/constants/colors';
 import {downloadProgressAtom, statusAtom} from '..//state/state';
 import {isColdStartedAtom} from '../../appState/state/state';
 import useRestartApp from '../hooks/useRestartApp';
-import * as NS from '../../../../../shared/src/constants/namespaces';
 import {Spacer16} from '../../../common/components/Spacers/Spacer';
 import {Body18} from '../../../common/components/Typography/Body/Body';
 import styled from 'styled-components/native';
@@ -45,7 +44,7 @@ const Row = styled.View({
 });
 
 const CodePushOverlay = () => {
-  const {t} = useTranslation(NS.COMPONENT.CODE_PUSH_OVERLAY);
+  const {t} = useTranslation('Component.CodePushOverlay');
 
   const restartApp = useRestartApp();
 

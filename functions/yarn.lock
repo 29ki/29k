@@ -1285,6 +1285,13 @@
   resolved "https://registry.yarnpkg.com/@types/http-errors/-/http-errors-1.8.2.tgz#7315b4c4c54f82d13fa61c228ec5c2ea5cc9e0e1"
   integrity sha512-EqX+YQxINb+MeXaIqYDASb6U6FCHbWjkj4a1CKDBks3d/QiB2+PqBLyO72vLDgAO1wUI4O+9gweRcQK11bTL/w==
 
+"@types/i18next@^13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@types/i18next/-/i18next-13.0.0.tgz#403ef338add0104e74d9759f1b39217e7c5d4084"
+  integrity sha512-gp/SIShAuf4WOqi8ey0nuI7qfWaVpMNCcs/xLygrh/QTQIXmlDC1E0TtVejweNW+7SGDY7g0lyxyKZIJuCKIJw==
+  dependencies:
+    i18next "*"
+
 "@types/is-stream@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@types/is-stream/-/is-stream-1.1.0.tgz#b84d7bb207a210f2af9bed431dc0fbe9c4143be1"
@@ -4534,10 +4541,10 @@ humanize-ms@^1.2.1:
   dependencies:
     ms "^2.0.0"
 
-i18next@^22.0.2:
-  version "22.0.2"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-22.0.2.tgz#04634aa751388625735cdb41f625a6b0dd1dcb2f"
-  integrity sha512-rGXWILemhx0dpNE5PfudVU1g4SdW0hkh4WYHaP8Cl6gm1KkMdBckmNqj9WvYqp8fOSocqX5FFJeadwiOZHLSXQ==
+i18next@*, i18next@^22.0.3:
+  version "22.0.3"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-22.0.3.tgz#084e40ec88d63c13385175ddebcc4395c89b97e3"
+  integrity sha512-gG6kCG5+gnPXdK8TLTJ2oiuFSjn6CYMSUwV3vnmISxwTunJHREn/z6gi1g7942c61K1dL3Gm+9a64nZCPv6mlg==
   dependencies:
     "@babel/runtime" "^7.17.2"
 

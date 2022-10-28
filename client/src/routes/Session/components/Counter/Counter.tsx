@@ -3,8 +3,6 @@ import {useTranslation} from 'react-i18next';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 
-import * as NS from '../../../../../../shared/src/constants/namespaces';
-
 dayjs.extend(duration);
 
 type CounterProps = {
@@ -13,7 +11,7 @@ type CounterProps = {
 };
 
 const Counter: React.FC<CounterProps> = ({startTime, starting = false}) => {
-  const {t} = useTranslation(NS.COMPONENT.COUNTER);
+  const {t} = useTranslation('Component.Counter');
   const [now, setNow] = useState(dayjs());
   const [active, setActive] = useState(false);
 

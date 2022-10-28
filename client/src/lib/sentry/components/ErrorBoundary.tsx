@@ -3,7 +3,6 @@ import styled from 'styled-components/native';
 import {ErrorBoundary as SentryErrorBoundary} from '@sentry/react-native';
 import {useTranslation} from 'react-i18next';
 
-import * as NS from '../../../../../shared/src/constants/namespaces';
 import Gutters from '../../../common/components/Gutters/Gutters';
 import Markdown from '../../../common/components/Typography/Markdown/Markdown';
 
@@ -13,7 +12,7 @@ const Container = styled(Gutters)({
 });
 
 const CrashErrorMessage = () => {
-  const {t} = useTranslation(NS.COMPONENT.CRASH_ERROR_MESSAGE);
+  const {t} = useTranslation('Component.CrashErrorMessage');
 
   return (
     <Container>

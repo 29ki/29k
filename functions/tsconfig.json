@@ -11,7 +11,8 @@
     "typeRoots": ["./types", "./node_modules/@types"],
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "allowJs": true
+    "allowJs": true,
+    "skipLibCheck": true
   },
   "compileOnSave": true,
   "include": ["src", "types"]

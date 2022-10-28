@@ -7,7 +7,6 @@ import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
 import {Spacer16} from '../../../common/components/Spacers/Spacer';
 import {Heading18} from '../../../common/components/Typography/Heading/Heading';
-import * as NS from '../../../../../shared/src/constants/namespaces';
 import Input from '../../../common/components/Typography/TextInput/TextInput';
 import {Body16, Body18} from '../../../common/components/Typography/Body/Body';
 import {useRecoilValue} from 'recoil';
@@ -30,7 +29,7 @@ type CurrentUserProps = {
 };
 
 const CurrentUser: React.FC<CurrentUserProps> = ({isPublicHost = false}) => {
-  const {t} = useTranslation(NS.SCREEN.PROFILE);
+  const {t} = useTranslation('Screen.Profile');
   const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
   const user = useRecoilValue(userAtom);
   const [email, setEmail] = useState('');

@@ -12,7 +12,6 @@ import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
 import {Spacer16} from '../../../common/components/Spacers/Spacer';
 import {useTranslation} from 'react-i18next';
-import * as NS from '../../../../../shared/src/constants/namespaces';
 
 const RowWrapper = styled.View({});
 
@@ -65,7 +64,7 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
   prefillCode = '',
   onCodeCompleted,
 }) => {
-  const {t} = useTranslation(NS.COMPONENT.VERIFICATION_CODE);
+  const {t} = useTranslation('Component.VerificationCode');
   const cell1 = useRef<TextInput>(null);
   const cell2 = useRef<TextInput>(null);
   const cell3 = useRef<TextInput>(null);

@@ -27,7 +27,6 @@ import {COLORS} from '../../../../shared/src/constants/colors';
 import {HKGroteskBold} from '../../common/constants/fonts';
 import {SessionStackProps} from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
-import * as NS from '../../../../shared/src/constants/namespaces';
 import Counter from './components/Counter/Counter';
 import useSessionExercise from './hooks/useSessionExercise';
 import {participantsAtom, sessionAtom} from './state/state';
@@ -100,7 +99,7 @@ const IntroPortal: React.FC = () => {
   const endVideoRef = useRef<Video>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [joiningSession, setJoiningSession] = useState(false);
-  const {t} = useTranslation(NS.SCREEN.PORTAL);
+  const {t} = useTranslation('Screen.Portal');
   const exercise = useSessionExercise();
   const session = useRecoilValue(sessionAtom);
   const participants = useRecoilValue(participantsAtom);

@@ -7,7 +7,6 @@ import {RouteProp, useRoute} from '@react-navigation/native';
 import Button from '../../common/components/Buttons/Button';
 import {Spacer16, Spacer48} from '../../common/components/Spacers/Spacer';
 import Input from '../../common/components/Typography/TextInput/TextInput';
-import * as NS from '../../../../shared/src/constants/namespaces';
 import {Body14, Body16} from '../../common/components/Typography/Body/Body';
 import {Heading16} from '../../common/components/Typography/Heading/Heading';
 import Gutters from '../../common/components/Gutters/Gutters';
@@ -29,7 +28,7 @@ const SuccessHeader = styled(Heading16)({textAlign: 'center'});
 const SuccessText = styled(Body16)({textAlign: 'center'});
 
 const UpgradeAccount = () => {
-  const {t} = useTranslation(NS.SCREEN.UPGRADE_ACCOUNT);
+  const {t} = useTranslation('Screen.UpgradeAccount');
   const {params} = useRoute<RouteProp<ModalStackProps, 'UpgradeAccount'>>();
   const user = useRecoilValue(userAtom);
   const [needToUpgrade, setNeedToUpgrade] = useState(false);

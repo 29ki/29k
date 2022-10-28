@@ -19,7 +19,6 @@ import {
 import useUpdateSessionExerciseState from '../../hooks/useUpdateSessionExerciseState';
 import {Spacer8} from '../../../../common/components/Spacers/Spacer';
 import Button from '../../../../common/components/Buttons/Button';
-import * as NS from '../../../../../../shared/src/constants/namespaces';
 import IconButton from '../../../../common/components/Buttons/IconButton/IconButton';
 
 const Wrapper = styled.View({
@@ -53,7 +52,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   const isFacilitator = useIsSessionHost();
   const exerciseState = useRecoilValue(sessionExerciseStateSelector);
   const exercise = useSessionExercise();
-  const {t} = useTranslation(NS.SCREEN.SESSION);
+  const {t} = useTranslation('Screen.Session');
 
   const {navigateToIndex, setPlaying} =
     useUpdateSessionExerciseState(sessionId);
