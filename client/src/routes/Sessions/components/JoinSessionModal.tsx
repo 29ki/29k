@@ -26,7 +26,7 @@ const JoinSessionModal = () => {
       <Gutters>
         <Spacer24 />
         <VerificationCode
-          prefillCode={`${inviteCode}`}
+          prefillCode={`${inviteCode || ''}`}
           onCodeCompleted={async value => {
             const session = await joinSession(value);
             fetchSessions();
