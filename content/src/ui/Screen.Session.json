@@ -6,6 +6,10 @@
       "start": "Start",
       "next": "Next",
       "prev": "Back"
+    },
+    "participant": {
+      "joined": "{{user}} joined",
+      "left": "Someone left"
     }
   },
   "sv": {
@@ -15,6 +19,10 @@
       "start": "Starta",
       "next": "Nästa",
       "prev": "Tillbaka"
+    },
+    "participant": {
+      "joined": "{{user}} anslöt",
+      "left": "Någon lämnade"
     }
   },
   "pt": {
@@ -24,6 +32,10 @@
       "start": "Start",
       "next": "Next",
       "prev": "Back"
+    },
+    "participant": {
+      "joined": "{{user}} joined",
+      "left": "Someone left"
     }
   }
 }
