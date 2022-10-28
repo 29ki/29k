@@ -43,12 +43,20 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.GREYDARK,
   },
   blockquote: {
+    paddingHorizontal: SPACINGS.EIGHT,
+    paddingTop: SPACINGS.EIGHT,
     marginLeft: 0,
     borderLeftWidth: 0,
-    paddingVertical: SPACINGS.EIGHT,
-    paddingHorizontal: SPACINGS.SIXTEEN,
+    backgroundColor: 'transparent',
+  },
+  blockquote_background: {
     borderRadius: SPACINGS.EIGHT,
     backgroundColor: COLORS.GREYLIGHTER,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: SPACINGS.EIGHT,
   },
 });
 

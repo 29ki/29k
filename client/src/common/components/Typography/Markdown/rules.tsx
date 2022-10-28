@@ -47,10 +47,12 @@ const rules: RenderRules = {
       <Spacer16 />
     </Fragment>
   ),
-
   blockquote: (node, children, parent, styles) => (
     <Fragment key={node.key}>
-      <View style={styles.blockquote}>{children}</View>
+      <View style={styles.blockquote}>
+        <View style={styles.blockquote_background} />
+        {children}
+      </View>
       <Spacer16 />
     </Fragment>
   ),
