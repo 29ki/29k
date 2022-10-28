@@ -47,7 +47,6 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import useIsSessionFacilitator from './hooks/useIsSessionHost';
 import Button from '../../common/components/Buttons/Button';
 import useUpdateSession from './hooks/useUpdateSession';
-import NS from '../../lib/i18n/constants/namespaces';
 import {useTranslation} from 'react-i18next';
 import HostNotes from './components/HostNotes/HostNotes';
 
@@ -110,7 +109,7 @@ const Session = () => {
   } = useRoute<RouteProp<SessionStackProps, 'Session'>>();
   const {navigate} =
     useNavigation<NativeStackNavigationProp<SessionStackProps>>();
-  const {t} = useTranslation(NS.SCREEN.SESSION);
+  const {t} = useTranslation('Screen.Session');
 
   useSubscribeToSession(sessionId);
   useMuteAudioListener();

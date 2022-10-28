@@ -22,7 +22,6 @@ import {Body14} from '../../common/components/Typography/Body/Body';
 import Profile from '../../routes/Profile/Profile';
 import Sessions from '../../routes/Sessions/Sessions';
 
-import NS from '../i18n/constants/namespaces';
 import {Platform} from 'react-native';
 import {BottomSafeArea} from '../../common/components/Spacers/Spacer';
 
@@ -74,7 +73,7 @@ const getTabOptions: (
 });
 
 const Tabs = () => {
-  const {t} = useTranslation(NS.COMPONENT.TABS);
+  const {t} = useTranslation('Component.Tabs');
   return (
     <Tab.Navigator screenOptions={tabBarOptions} tabBar={TabBar}>
       <Tab.Screen

@@ -6,7 +6,6 @@ import auth from '@react-native-firebase/auth';
 import Button from '../../common/components/Buttons/Button';
 import {Spacer16} from '../../common/components/Spacers/Spacer';
 import Input from '../../common/components/Typography/TextInput/TextInput';
-import NS from '../../lib/i18n/constants/namespaces';
 import {Body16} from '../../common/components/Typography/Body/Body';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {useNavigation} from '@react-navigation/native';
@@ -19,7 +18,7 @@ import VerificationCode from './components/VerificationCode';
 const Heading = styled(Body16)({textAlign: 'center'});
 
 const UpgradeAccount = () => {
-  const {t} = useTranslation(NS.SCREEN.UPGRADE_ACCOUNT);
+  const {t} = useTranslation('Screen.UpgradeAccount');
   const {goBack} = useNavigation();
   const user = useRecoilValue(userAtom);
   const [needToUpgrade, setNeedToUpgrade] = useState(false);

@@ -16,7 +16,6 @@ import useClearUpdates from '../../lib/codePush/hooks/useClearUpdates';
 import {useUiLib} from '../../lib/uiLib/hooks/useUiLib';
 import {LANGUAGE_TAGS} from '../../../../shared/src/constants/i18n';
 import {Heading18} from '../../common/components/Typography/Heading/Heading';
-import NS from '../../lib/i18n/constants/namespaces';
 import CurrentUser from './components/CurrentUser';
 import Screen from '../../common/components/Screen/Screen';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
@@ -29,7 +28,7 @@ const StartCol = styled.View({
 });
 
 const Profile = () => {
-  const {i18n, t} = useTranslation(NS.SCREEN.PROFILE);
+  const {i18n, t} = useTranslation('Screen.Profile');
   const {toggle: toggleUiLib} = useUiLib();
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();

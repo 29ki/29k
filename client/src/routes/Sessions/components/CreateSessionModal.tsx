@@ -6,7 +6,6 @@ import {FlatList} from 'react-native-gesture-handler';
 import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
 
-import NS from '../../../lib/i18n/constants/namespaces';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {SessionType} from '../../../../../shared/src/types/Session';
 
@@ -109,7 +108,7 @@ const SelectContent: React.FC<StepProps> = ({
 }) => {
   const exerciseIds = useExerciseIds();
 
-  const {t} = useTranslation(NS.COMPONENT.CREATE_SESSION_MODAL);
+  const {t} = useTranslation('Component.CreateSessionModal');
 
   return (
     <Step>
@@ -158,7 +157,7 @@ const SelectType: React.FC<StepProps> = ({
   nextStep,
 }) => {
   const exercise = useExerciseById(selectedExercise);
-  const {t} = useTranslation(NS.COMPONENT.CREATE_SESSION_MODAL);
+  const {t} = useTranslation('Component.CreateSessionModal');
 
   return (
     <Step>
@@ -193,7 +192,7 @@ const SelectType: React.FC<StepProps> = ({
 };
 
 const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
-  const {t, i18n} = useTranslation(NS.COMPONENT.CREATE_SESSION_MODAL);
+  const {t, i18n} = useTranslation('Component.CreateSessionModal');
   const {goBack} = useNavigation();
   const [isLoading, setIsLoading] = useState(false);
   const [date, setDate] = useState<dayjs.Dayjs | undefined>();

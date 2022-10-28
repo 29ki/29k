@@ -9,7 +9,6 @@ import styled from 'styled-components/native';
 import {Display36} from '../../../../common/components/Typography/Display/Display';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../../common/constants/spacings';
-import NS from '../../../../lib/i18n/constants/namespaces';
 import AudioIndicator from './AudioIdicator';
 import Name from './Name';
 
@@ -69,7 +68,7 @@ type ParticipantProps = {
 };
 
 const Participant: React.FC<ParticipantProps> = ({participant}) => {
-  const {t} = useTranslation(NS.SCREEN.SESSION);
+  const {t} = useTranslation('Screen.Session');
   return (
     <Wrapper>
       {participant.videoTrack ? (

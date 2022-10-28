@@ -21,7 +21,6 @@ import {Display24} from '../../../common/components/Typography/Display/Display';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {RootStackProps} from '../../../common/constants/routes';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import NS from '../../../lib/i18n/constants/namespaces';
 import {userAtom} from '../../../lib/user/state/state';
 import useAddToCalendar from '../hooks/useAddToCalendar';
 import useSessionNotificationReminder from '../hooks/useSessionNotificationReminder';
@@ -53,7 +52,7 @@ const SessionModal = () => {
   const {
     params: {session},
   } = useRoute<RouteProp<RootStackProps, 'SessionModal'>>();
-  const {t} = useTranslation(NS.COMPONENT.SESSION_MODAL);
+  const {t} = useTranslation('Component.SessionModal');
   const user = useRecoilValue(userAtom);
   const navigation = useNavigation();
   const {deleteSession} = useSessions();

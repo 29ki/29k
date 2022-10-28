@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import NS from '../../../../lib/i18n/constants/namespaces';
 import SETTINGS from '../../../../common/constants/settings';
 import {SPACINGS} from '../../../../common/constants/spacings';
 
@@ -90,7 +89,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
   const listItemWidth = containerWidth - SPACINGS.THIRTYTWO;
   const [activeIndex, setActiveIndex] = useState(0);
   const exercise = useSessionExercise();
-  const {t} = useTranslation(NS.COMPONENT.HOST_NOTES);
+  const {t} = useTranslation('Component.HostNotes');
 
   const calculatePageIndex = (e: NativeSyntheticEvent<NativeScrollEvent>) =>
     setActiveIndex(

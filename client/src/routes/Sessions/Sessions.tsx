@@ -12,7 +12,6 @@ import useSessions from './hooks/useSessions';
 
 import {Session} from '../../../../shared/src/types/Session';
 
-import NS from '../../lib/i18n/constants/namespaces';
 import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {ModalStackProps} from '../../common/constants/routes';
@@ -63,7 +62,7 @@ const ListHeader = () => (
 );
 
 const CreateSessionForm = ({}) => {
-  const {t} = useTranslation(NS.SCREEN.SESSIONS);
+  const {t} = useTranslation('Screen.Sessions');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 

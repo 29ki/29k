@@ -5,7 +5,6 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useResetRecoilState} from 'recoil';
 
-import NS from '../../../lib/i18n/constants/namespaces';
 import {DailyContext} from '../DailyProvider';
 import {sessionAtom} from '../state/state';
 import {TabNavigatorProps} from '../../../common/constants/routes';
@@ -13,7 +12,7 @@ import {TabNavigatorProps} from '../../../common/constants/routes';
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
 const useLeaveSession = () => {
-  const {t} = useTranslation(NS.COMPONENT.CONFIRM_EXIT_SESSION);
+  const {t} = useTranslation('Component.ConfirmExitSession');
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();
 

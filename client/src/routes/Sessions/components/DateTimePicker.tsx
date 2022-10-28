@@ -16,7 +16,6 @@ import {
   BodyBold,
 } from '../../../common/components/Typography/Body/Body';
 import {useTranslation} from 'react-i18next';
-import NS from '../../../lib/i18n/constants/namespaces';
 
 dayjs.extend(utc);
 
@@ -60,7 +59,7 @@ const DateTimePicker: React.FC<{
   maximumDate?: dayjs.Dayjs;
   minimumDate?: dayjs.Dayjs;
 }> = ({mode, setValue, selectedValue, close, minimumDate, maximumDate}) => {
-  const {t} = useTranslation(NS.COMPONENT.DATE_TIME_PICKER);
+  const {t} = useTranslation('Component.DateTimePicker');
 
   switch (Platform.OS) {
     case 'ios':
@@ -121,7 +120,7 @@ const Picker: React.FC<PickerProps> = ({
   minimumDate,
   maximumDate,
 }) => {
-  const {t} = useTranslation(NS.COMPONENT.DATE_TIME_PICKER);
+  const {t} = useTranslation('Component.DateTimePicker');
   const [selectedDate, setSelectedDate] = useState(dayjs().utc());
   const [selectedTime, setSelectedTime] = useState(dayjs().utc());
   const [showPicker, setShowPicker] = useState(false);

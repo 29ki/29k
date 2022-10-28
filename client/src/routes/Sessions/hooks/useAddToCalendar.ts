@@ -2,10 +2,9 @@ import {Dayjs} from 'dayjs';
 import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import * as AddCalendarEvent from 'react-native-add-calendar-event';
-import NS from '../../../lib/i18n/constants/namespaces';
 
 const useAddToCalendar = () => {
-  const {t} = useTranslation(NS.COMPONENT.ADD_TO_CALENDAR);
+  const {t} = useTranslation('Component.AddToCalendar');
 
   return useCallback(
     (exerciseName: string | undefined, startDate: Dayjs, endDate: Dayjs) => {
