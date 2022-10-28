@@ -1,34 +1,29 @@
-import dayjs from 'dayjs';
 import {getAuth} from 'firebase-admin/auth';
-import {Timestamp} from 'firebase-admin/firestore';
+import {VerificationError} from '../../../shared/src/errors/User';
 import {ROLES} from '../../../shared/src/types/User';
-import {generateVerificationCode} from '../lib/utils';
+import {sendPublicHostRequestMessage} from '../lib/slack';
 import {
   addPublicHostRequest,
   getPublicHostRequestByUserId,
-  removePublicHostRequest,
+  updatePublicHostRequest,
 } from '../models/publicHostRequests';
 import {RequestError} from './errors/RequestError';
-
-const requestExpired = (timestamp?: Timestamp) =>
-  timestamp &&
-  dayjs(timestamp.toDate()).isBefore(dayjs(Timestamp.now().toDate()));
 
 export const requestPublicHostRole = async (userId: string) => {
   const user = await getAuth().getUser(userId);
 
   if (!user.email) {
-    throw new RequestError('user-needs-email');
+    throw new RequestError(VerificationError.userNeedEmail);
   }
 
   const request = await getPublicHostRequestByUserId(userId);
-  const expired = requestExpired(request?.expires);
 
-  if (request && !expired) {
-    throw new RequestError('request-exists');
+  if (request) {
+    throw new RequestError(VerificationError.requestExists);
   }
 
-  await addPublicHostRequest(userId, generateVerificationCode());
+  await addPublicHostRequest(userId);
+  await sendPublicHostRequestMessage(userId, user.email);
 };
 
 export const verifyPublicHostRequest = async (
@@ -38,17 +33,21 @@ export const verifyPublicHostRequest = async (
   const request = await getPublicHostRequestByUserId(userId);
 
   if (!request) {
-    throw new RequestError('request-not-found');
+    throw new RequestError(VerificationError.requestNotFound);
   }
 
-  if (requestExpired(request.expires)) {
-    throw new RequestError('request-expired');
+  if (request.status === 'declined') {
+    throw new RequestError(VerificationError.requestDeclined);
+  }
+
+  if (request.status === 'verified') {
+    throw new RequestError(VerificationError.verificationAlreadyCalimed);
   }
 
   if (verificationCode !== request.verificationCode) {
-    throw new RequestError('verification-failed');
+    throw new RequestError(VerificationError.verificationFailed);
   }
 
   await getAuth().setCustomUserClaims(userId, {role: ROLES.publicHost});
-  await removePublicHostRequest(userId);
+  await updatePublicHostRequest(userId, 'verified');
 };

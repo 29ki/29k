@@ -105,7 +105,7 @@ describe('useSessions', () => {
           contentId: 'some-content-id',
           type: SessionType.public,
           startTime,
-          language: 'some-language',
+          language: 'en',
         });
       });
 
@@ -114,7 +114,7 @@ describe('useSessions', () => {
           contentId: 'some-content-id',
           type: 'public',
           startTime: '1994-03-08T00:00:00.000Z',
-          language: 'some-language',
+          language: 'en',
         }),
         headers: {
           'Content-Type': 'application/json',

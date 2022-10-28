@@ -14,7 +14,7 @@ import {Session} from '../../../../shared/src/types/Session';
 
 import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
 import {COLORS} from '../../../../shared/src/constants/colors';
-import {ModalStackProps} from '../../common/constants/routes';
+import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import SETTINGS from '../../common/constants/settings';
 import {
   Spacer12,
@@ -81,7 +81,7 @@ const Sessions = () => {
   const {fetchSessions} = useSessions();
   const isLoading = useRecoilValue(isLoadingAtom);
   const sessions = useRecoilValue(sessionsAtom);
-  const isPublicHost = useIsPublicHost();
+  const {isPublicHost} = useIsPublicHost();
 
   useEffect(() => {
     fetchSessions();
@@ -94,7 +94,7 @@ const Sessions = () => {
   );
 
   return (
-    <Screen noTopBar backgroundColor={COLORS.PURE_WHITE}>
+    <Screen backgroundColor={COLORS.PURE_WHITE}>
       <FlatList
         data={sessions}
         keyExtractor={session => session.id}

@@ -34,6 +34,7 @@ import SETTINGS from '../../../common/constants/settings';
 import {SPACINGS} from '../../../common/constants/spacings';
 import {Body16} from '../../../common/components/Typography/Body/Body';
 import DateTimePicker from './DateTimePicker';
+import {LANGUAGE_TAG} from '../../../lib/i18n';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -209,7 +210,7 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
         contentId: selectedExercise,
         type: selectedType,
         startTime: sessionDateTime,
-        language: i18n.resolvedLanguage,
+        language: i18n.resolvedLanguage as LANGUAGE_TAG,
       });
       setIsLoading(false);
       goBack();

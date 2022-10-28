@@ -1,29 +1,47 @@
 {
   "en": {
+    "enterCode": "Enter your code",
+    "activateButton": "Activate settings",
+    "haveCodeButton": "I have a code",
+    "requestComplete": "We've now registered your request. As soon as it's approved we'll email you a verification code.",
+    "needToUpgrade": "To become an official host you need to register an account.",
+    "success": {
+      "header": "Success!",
+      "text": "You're now able to create and host sessions open for every 29k user to join!"
+    },
+    "errors": {
+      "verificationNotFound": "We could not find any public host request for this user.",
+      "verificationDeclined": "The request was not accepted.",
+      "verificationAlreadyClaimed": "The code have already been used.",
+      "verificationFailed": "Verification failed."
+    },
     "text": "As an official 29k host you can register here to be able to create public sessions.",
     "requestCodeButton": "Request a code",
-    "haveCodeButton": "I have a code",
-    "activateButton": "Activate settings",
-    "needToUpgrade": "To become an official host you need to register an account.",
-    "requestComplete": "We've now registered your request.\n\nAs soon as it's approved we'll email you a verification code.",
-    "authenticate": "Authenticate to activate your new host settings",
-    "enterCode": "Enter your code",
-    "email": "Email",
+    "button": "Upgrade",
     "password": "Passsword",
-    "button": "Upgrade"
+    "email": "Email"
   },
   "sv": {
-    "text": "As an official 29k host you can register here to be able to create public sessions.",
-    "requestCodeButton": "Request a code",
-    "haveCodeButton": "I have a code",
-    "activateButton": "Activate settings",
-    "needToUpgrade": "To become an official host you need to register an account.",
-    "requestComplete": "We've now registered your request.\n\nAs soon as it's approved we'll email you a verification code.",
-    "authenticate": "Authenticate to activate your new host settings",
-    "enterCode": "Enter your code",
-    "email": "Epost",
+    "enterCode": "Skriv in din kod",
+    "activateButton": "Aktivera inställningar",
+    "haveCodeButton": "Jag har en kod",
+    "requestComplete": "Vi har tagit emot din begäran. När den är godkänd får du ett mail med en verifikationskod. ",
+    "needToUpgrade": "För att hålla i publika sessioner behöver du skapa ett konto.",
+    "success": {
+      "header": "Success!",
+      "text": "You're now able to create and host sessions open for every 29k user to join!"
+    },
+    "errors": {
+      "verificationNotFound": "Vi kunde inte hitta någon begäran från denna användare.",
+      "verificationDeclined": "Begäran godkändes inte",
+      "verificationAlreadyClaimed": "Koden har redan använts.",
+      "verificationFailed": "Du har inte angett en giltig kod."
+    },
+    "text": "Du behöver registrera dig för att kunna skapa publika sessioner. ",
+    "requestCodeButton": "Begär kod",
+    "button": "Uppgradera",
     "password": "Lösenord",
-    "button": "Uppgradera"
+    "email": "Epost"
   },
   "pt": {}
 }

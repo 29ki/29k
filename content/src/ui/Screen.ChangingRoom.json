@@ -1,6 +1,6 @@
 {
   "en": {
-    "body": "Please type what do you like to be called",
+    "placeholder": "Please type your name",
     "join_button": "Join",
     "cameraOff": "Camera is Off",
     "permissionsAlert": {
@@ -11,7 +11,7 @@
     }
   },
   "se": {
-    "body": "Vänligen skriv vad du vill bli kallad",
+    "placeholder": "Skriv ditt namn",
     "join_button": "Gå med",
     "cameraOff": "Karmeran är Av",
     "permissionsAlert": {
@@ -20,5 +20,7 @@
       "join": "Gå med ändå",
       "openSettings": "Öppna inställningar"
     }
+  },
+  "pt": {
   }
 }

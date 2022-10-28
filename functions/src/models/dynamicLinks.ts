@@ -3,9 +3,10 @@ import {
   type firebasedynamiclinks_v1,
 } from '@googleapis/firebasedynamiclinks';
 import config from '../lib/config';
-import i18next from '../lib/i18n';
+import i18next, {LANGUAGE_TAG} from '../lib/i18n';
 import type {Exercise} from '../../../shared/src/types/generated/Exercise';
 import dayjs from 'dayjs';
+import * as NS from '../../../shared/src/constants/namespaces';
 
 const dynamicLinks = firebasedynamiclinks('v1');
 
@@ -13,9 +14,8 @@ const {
   DEEP_LINK_API_KEY,
   DEEP_LINK_DOMAIN_URI_PREFIX,
   DEEP_LINK_BASE_URL,
-  DEEP_LINK_ANDROID_PACKAGE_NAME,
-  DEEP_LINK_IOS_BUNDLE_ID,
-  DEEP_LINK_IOS_APPSTORE_ID,
+  DEEP_LINK_ANDROID_FALLBACK_LINK,
+  DEEP_LINK_IOS_FALLBACK_LINK,
 } = config;
 
 export const createDynamicLink = async (
@@ -32,11 +32,19 @@ export const createDynamicLink = async (
           domainUriPrefix: DEEP_LINK_DOMAIN_URI_PREFIX,
           link,
           androidInfo: {
+            // Since app is not live in PlayStore - link to join the closed testing
+            androidFallbackLink: DEEP_LINK_ANDROID_FALLBACK_LINK,
+            /*
             androidPackageName: DEEP_LINK_ANDROID_PACKAGE_NAME,
+            */
           },
           iosInfo: {
+            // Since app is not live in AppStore - link to join the closed testing
+            iosFallbackLink: DEEP_LINK_IOS_FALLBACK_LINK,
+            /*
             iosBundleId: DEEP_LINK_IOS_BUNDLE_ID,
             iosAppStoreId: DEEP_LINK_IOS_APPSTORE_ID,
+            */
           },
           navigationInfo: {
             enableForcedRedirect: false,
@@ -56,7 +64,7 @@ export const createSessionLink = async (
   sessionId: string,
   contentId: string,
   startTime: string,
-  language: string,
+  language: LANGUAGE_TAG,
 ) => {
   // @ts-expect-error variable/string litteral as key is not yet supported https://www.i18next.com/overview/typescript#type-error-template-literal
   const {name, card} = i18next.t(contentId, {
@@ -65,7 +73,7 @@ export const createSessionLink = async (
     returnObjects: true,
   }) as Exercise;
 
-  const t = i18next.getFixedT(language, 'DeepLink.Session');
+  const t = i18next.getFixedT(language, NS.DEEP_LINK.SESSION);
 
   const date = dayjs(startTime).locale(language).format('dddd, D MMM HH:mm');
 
@@ -79,3 +87,6 @@ export const createSessionLink = async (
     socialDescription,
   });
 };
+
+export const createPublicHostCodeLink = (verificationCode: number) =>
+  createDynamicLink(`verifyPublicHostCode/${verificationCode}`);

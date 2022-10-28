@@ -7,7 +7,11 @@ import {createRouter} from '../../lib/routers';
 
 import {getSessions} from '../../models/session';
 import * as sessionControler from '../../controllers/sessions';
-import {DEFAULT_LANGUAGE_TAG, LANGUAGE_TAGS} from '../../lib/i18n';
+import {
+  DEFAULT_LANGUAGE_TAG,
+  LANGUAGE_TAG,
+  LANGUAGE_TAGS,
+} from '../../lib/i18n';
 
 const sessionsRouter = createRouter();
 
@@ -24,7 +28,10 @@ const CreateSessionSchema = yup.object().shape({
   contentId: yup.string().required(),
   type: yup.mixed<SessionType>().oneOf(Object.values(SessionType)).required(),
   startTime: yup.string().required(),
-  language: yup.string().oneOf(LANGUAGE_TAGS).default(DEFAULT_LANGUAGE_TAG),
+  language: yup
+    .mixed<LANGUAGE_TAG>()
+    .oneOf(LANGUAGE_TAGS)
+    .default(DEFAULT_LANGUAGE_TAG),
 });
 
 type CreateSession = yup.InferType<typeof CreateSessionSchema>;

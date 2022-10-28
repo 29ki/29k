@@ -9,7 +9,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "`Start the session when you're ready to go`"
         }
       ]
     },
@@ -21,7 +21,7 @@
             "text": "Welcome to this session, hosted by me, x.\n\nI am so happy you choose to join us at 29k here today.  \\\n\\\nWe will work for around 30 minutes on connecting with- and being kind to ourselves.\n\nWe’ll be doing some reflection exercises and there will be opportunities to share those reflections with each other."
           },
           {
-            "text": "Let’s start with a mini check-in.\n\nHow are you feeling right now? Please answer in two-three words.\n\n* X, would you like to start and then hand over to someone else when you are done?\n\n> Let everyone in the session check in one by one.\n\nThank you all for checking in.\n\nNow let’s get started."
+            "text": "Let’s start with a mini check-in.\n\nHow are you feeling right now? Please answer in two-three words.\n\nX, would you like to start and then hand over to someone else when you are done?\n\n`Let everyone in the session check in one by one.`\n\nThank you all for checking in.\n\nNow let’s get started."
           }
         ]
       },
@@ -46,7 +46,7 @@
             "text": "Now we’ll take 2 minutes to reflect on our own.\n\nThink of a situation when you felt down. When you failed at something and doubted yourself. How do you usually react to and treat yourself in such situations? What do you say to yourself? What tone do you use?"
           },
           {
-            "text": "If you want to, you can take notes on a piece of paper or just mental notes in your head. And remember, there is no right or wrong here, our answers are our own.\n\n2 minutes starting now.\n\n> Push play to start the timer.\n\nOkay, that’s 2 minutes and it’s time to move on."
+            "text": "If you want to, you can take notes on a piece of paper or just mental notes in your head. And remember, there is no right or wrong here, our answers are our own.\n\n2 minutes starting now.\n\n`Push play to start the timer.`\n\nOkay, that’s 2 minutes and it’s time to move on."
           }
         ],
         "content": {
@@ -66,7 +66,7 @@
             "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights, it just is.\n\nThere will be a timer set for 2 minutes as an indicator but you use as much or little time as you want to. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "X, would you like to start? \n\n> Let everyone (or as many as you got time for) share one by one.\n>\n> Push play to start the timer. Re-start for each new sharing. \n\nThank you so much for sharing your thoughts and feelings with us here today."
+            "text": "X, would you like to start? \n\n`Let everyone (or as many as you got time for) share one by one.`\n\n`Push play to start the timer. Re-start for each new sharing. `\n\nThank you so much for sharing your thoughts and feelings with us here today."
           }
         ]
       },
@@ -80,7 +80,7 @@
             "text": "One way to practice self-compassion is by taking a different perspective.\n\nThink about how you react when a friend is feeling down, is putting themselves down or perhaps is doubting their ability. \n\nHow do you usually react? What do you say or do? What tone do you use?"
           },
           {
-            "text": "If you want to, you can take notes on a piece of paper or just mental notes in your head. And remember, there is no right or wrong here, our answers are our own.\n\n2 minutes starting now.\n\n> Push play to start the timer.\n\nOkay, that’s 2 minutes and it’s time to move on."
+            "text": "If you want to, you can take notes on a piece of paper or just mental notes in your head. And remember, there is no right or wrong here, our answers are our own.\n\n2 minutes starting now.\n\n`Push play to start the timer.`\n\nOkay, that’s 2 minutes and it’s time to move on."
           }
         ]
       },
@@ -91,7 +91,7 @@
         },
         "hostNotes": [
           {
-            "text": "Time to share again.\n\nX, would you like to start?\n\n> Let everyone (or as many as you got time for) share one by one.\n>\n> Push play to start the timer. Re-start for each new sharing.\n\nThank you so much for sharing."
+            "text": "Time to share again.\n\nX, would you like to start?\n\n`Let everyone (or as many as you got time for) share one by one.`\n\n`Push play to start the timer. Re-start for each new sharing.`\n\nThank you so much for sharing."
           }
         ]
       },
@@ -102,10 +102,10 @@
         },
         "hostNotes": [
           {
-            "text": "Write down 2-4 things that you think would change if you talked to yourself in the same way you usually treat friends who feel down. \n\nFor example, how you'd feel and what you'd do."
+            "text": "Think of 2-4 things that would change if you talked to yourself in the same way you usually treat a friend who feel down. \n\nFor example, how you'd feel and what you'd do differently."
           },
           {
-            "text": "1 minute starting now.\n\n> Push play to start the timer.\n\nOkay, that’s 1 minute and it’s time to move on."
+            "text": "1 minute starting now.\n\n`Push play to start the timer.`\n\nOkay, that’s 1 minute and it’s time to move on."
           }
         ]
       },

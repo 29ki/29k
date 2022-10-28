@@ -43,7 +43,7 @@ describe('sessions - conroller', () => {
         contentId: 'some-content-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
-        language: 'some-language',
+        language: 'en',
       });
 
       const expireDate = dayjs('2022-10-10T12:00:00.000Z');
@@ -55,13 +55,13 @@ describe('sessions - conroller', () => {
         contentId: 'some-content-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
-        language: 'some-language',
+        language: 'en',
       });
       expect(mockDynamicLinks.createSessionLink).toHaveBeenCalledWith(
         'some-fake-daily-id',
         'some-content-id',
         '2022-10-10T10:00:00.000Z',
-        'some-language',
+        'en',
       );
     });
 
@@ -71,12 +71,12 @@ describe('sessions - conroller', () => {
         contentId: 'some-content-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
-        language: 'some-language',
+        language: 'en',
       });
 
       expect(mockAddSession).toHaveBeenCalledWith({
         contentId: 'some-content-id',
-        language: 'some-language',
+        language: 'en',
         dailyRoomName: 'some-fake-daily-room-name',
         facilitator: 'some-user-id',
         id: 'some-fake-daily-id',

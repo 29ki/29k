@@ -1,8 +1,10 @@
 import {Timestamp} from 'firebase-admin/firestore';
 
+export type RequestStatus = 'requested' | 'accepted' | 'declined' | 'verified';
+
 export type RequestData = {
-  verificationCode: number;
-  expires: Timestamp;
-  createdAt: Timestamp;
+  verificationCode?: number;
+  status: RequestStatus;
+  createdAt?: Timestamp;
   updatedAt: Timestamp;
 };

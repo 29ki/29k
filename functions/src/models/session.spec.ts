@@ -47,6 +47,8 @@ const sessions = [
     started: false,
     ended: false,
     userIds: ['all'],
+    createdAt: Timestamp.now(),
+    updatedAt: Timestamp.now(),
   },
   {
     id: 'some-other-session-id',
@@ -62,6 +64,8 @@ const sessions = [
     started: false,
     ended: false,
     userIds: ['all'],
+    createdAt: Timestamp.now(),
+    updatedAt: Timestamp.now(),
   },
 ];
 
@@ -95,6 +99,8 @@ describe('session model', () => {
         started: false,
         url: 'some-url',
         userIds: ['all'],
+        createdAt: expect.any(String),
+        updatedAt: expect.any(String),
       });
     });
 
@@ -122,6 +128,8 @@ describe('session model', () => {
           started: false,
           url: 'some-url',
           userIds: ['all'],
+          createdAt: expect.any(String),
+          updatedAt: expect.any(String),
         },
         {
           ended: false,
@@ -137,6 +145,8 @@ describe('session model', () => {
           started: false,
           url: 'some-other-url',
           userIds: ['all'],
+          createdAt: expect.any(String),
+          updatedAt: expect.any(String),
         },
       ]);
     });
@@ -171,7 +181,7 @@ describe('session model', () => {
     it('should return public session', async () => {
       const session = await addSession({
         id: 'session-id',
-        language: 'some-language',
+        language: 'en',
         dailyRoomName: 'daily-room-name',
         url: 'daily-url',
         contentId: 'content-id',
@@ -183,7 +193,7 @@ describe('session model', () => {
 
       expect(session).toEqual({
         contentId: 'content-id',
-        language: 'some-language',
+        language: 'en',
         dailyRoomName: 'daily-room-name',
         ended: false,
         exerciseState: {
@@ -199,13 +209,15 @@ describe('session model', () => {
         type: 'public',
         url: 'daily-url',
         userIds: ['all'],
+        createdAt: expect.any(String),
+        updatedAt: expect.any(String),
       });
     });
 
     it('should return private session', async () => {
       const session = await addSession({
         id: 'session-id',
-        language: 'some-language',
+        language: 'en',
         dailyRoomName: 'daily-room-name',
         url: 'daily-url',
         contentId: 'content-id',
@@ -217,7 +229,7 @@ describe('session model', () => {
 
       expect(session).toEqual({
         contentId: 'content-id',
-        language: 'some-language',
+        language: 'en',
         dailyRoomName: 'daily-room-name',
         ended: false,
         exerciseState: {
@@ -233,6 +245,8 @@ describe('session model', () => {
         type: 'private',
         url: 'daily-url',
         userIds: ['some-user-id'],
+        createdAt: expect.any(String),
+        updatedAt: expect.any(String),
       });
     });
   });
@@ -255,6 +269,8 @@ describe('session model', () => {
         started: true,
         ended: false,
         userIds: ['all'],
+        createdAt: expect.any(String),
+        updatedAt: expect.any(String),
       });
     });
 
@@ -275,6 +291,8 @@ describe('session model', () => {
         started: false,
         ended: true,
         userIds: ['all'],
+        createdAt: expect.any(String),
+        updatedAt: expect.any(String),
       });
     });
   });
@@ -303,6 +321,8 @@ describe('session model', () => {
         started: false,
         url: 'some-url',
         userIds: ['all'],
+        createdAt: expect.any(String),
+        updatedAt: expect.any(String),
       });
     });
 
@@ -326,6 +346,8 @@ describe('session model', () => {
         started: false,
         ended: false,
         userIds: ['all'],
+        createdAt: expect.any(String),
+        updatedAt: expect.any(String),
       });
     });
 
@@ -350,6 +372,8 @@ describe('session model', () => {
         started: false,
         ended: false,
         userIds: ['all'],
+        createdAt: expect.any(String),
+        updatedAt: expect.any(String),
       });
     });
   });

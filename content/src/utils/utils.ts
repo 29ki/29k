@@ -1,9 +1,8 @@
 import {readFileSync, readdirSync} from 'fs';
 import * as path from 'path';
-import {LANGUAGES} from '../../../shared/src/constants/i18n';
+import {LANGUAGE_TAG} from '../../../shared/src/constants/i18n';
 
-type LanguageTag = keyof typeof LANGUAGES;
-type LocalizedContent<T> = Record<LanguageTag, Record<string, T>>;
+type LocalizedContent<T> = Record<LANGUAGE_TAG, Record<string, T>>;
 type Content<T> = Record<string, LocalizedContent<T>>;
 
 export const getContentByType = <T>(type: string) => {
@@ -26,7 +25,7 @@ export const getContentByType = <T>(type: string) => {
 
 export const filterPublishedContent = <T>(
   files: Content<T>,
-  explicitLocale?: LanguageTag,
+  explicitLocale?: LANGUAGE_TAG,
 ) =>
   Object.entries(files)
     .filter(
@@ -73,12 +72,12 @@ export const generateI18NResources = <T>(
           [locale]: parentNS
             ? {
                 [parentNS]: {
-                  ...resources[locale as LanguageTag]?.[parentNS],
+                  ...resources[locale as LANGUAGE_TAG]?.[parentNS],
                   [namespace]: resource,
                 },
               }
             : {
-                ...resources[locale as LanguageTag],
+                ...resources[locale as LANGUAGE_TAG],
                 [namespace]: resource,
               },
         }),
