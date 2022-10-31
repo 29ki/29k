@@ -7,10 +7,10 @@ import {SessionData} from '../../../../../shared/src/types/Session';
 
 import {userAtom} from '../../../lib/user/state/state';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import useIsSessionFacilitator from './useIsSessionHost';
+import useIsSessionHost from './useIsSessionHost';
 
-describe('useIsSessionFacilitator', () => {
-  it('returns true if current session facilitator matches the current user', async () => {
+describe('useIsSessionHost', () => {
+  it('returns true if current session host matches the current user', async () => {
     const wrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
       <RecoilRoot
         initializeState={({set}) => {
@@ -18,21 +18,21 @@ describe('useIsSessionFacilitator', () => {
             uid: 'some-user-id',
           } as FirebaseAuthTypes.User);
           set(sessionAtom, {
-            facilitator: 'some-user-id',
+            host: 'some-user-id',
           } as SessionData);
         }}>
         {children}
       </RecoilRoot>
     );
 
-    const {result} = renderHook(() => useIsSessionFacilitator(), {
+    const {result} = renderHook(() => useIsSessionHost(), {
       wrapper,
     });
 
     expect(result.current).toBe(true);
   });
 
-  it('returns true if current session facilitator is not the current user', async () => {
+  it('returns true if current session host is not the current user', async () => {
     const wrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
       <RecoilRoot
         initializeState={({set}) => {
@@ -40,14 +40,14 @@ describe('useIsSessionFacilitator', () => {
             uid: 'some-user-id',
           } as FirebaseAuthTypes.User);
           set(sessionAtom, {
-            facilitator: 'some-other-user-id',
+            host: 'some-other-user-id',
           } as SessionData);
         }}>
         {children}
       </RecoilRoot>
     );
 
-    const {result} = renderHook(() => useIsSessionFacilitator(), {
+    const {result} = renderHook(() => useIsSessionHost(), {
       wrapper,
     });
 

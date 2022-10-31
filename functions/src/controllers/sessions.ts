@@ -39,7 +39,7 @@ export const createSession = async (
     type,
     startTime,
     inviteCode,
-    facilitator: userId,
+    host: userId,
   });
 };
 
@@ -53,7 +53,7 @@ export const removeSession = async (
 
   if (!session) return;
 
-  if (userId !== session?.facilitator) {
+  if (userId !== session?.host) {
     throw new Error('user-unauthorized');
   }
 
@@ -70,7 +70,7 @@ export const updateSession = async (
 ) => {
   const session = (await sessionModel.getSessionById(sessionId)) as Session;
 
-  if (userId !== session?.facilitator) {
+  if (userId !== session?.host) {
     throw new Error('user-unauthorized');
   }
 
@@ -89,7 +89,7 @@ export const updateExerciseState = async (
     throw new Error('session-not-found');
   }
 
-  if (userId !== session?.facilitator) {
+  if (userId !== session?.host) {
     throw new Error('user-unauthorized');
   }
 

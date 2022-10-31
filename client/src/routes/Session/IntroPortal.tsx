@@ -32,7 +32,7 @@ import useSessionExercise from './hooks/useSessionExercise';
 import {participantsAtom, sessionAtom} from './state/state';
 import useLeaveSession from './hooks/useLeaveSession';
 import VideoBase from './components/VideoBase/VideoBase';
-import useIsSessionFacilitator from './hooks/useIsSessionHost';
+import useIsSessionHost from './hooks/useIsSessionHost';
 import AudioFader from './components/AudioFader/AudioFader';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 import useUpdateSession from './hooks/useUpdateSession';
@@ -104,7 +104,7 @@ const IntroPortal: React.FC = () => {
   const session = useRecoilValue(sessionAtom);
   const participants = useRecoilValue(participantsAtom);
   const participantsCount = Object.keys(participants ?? {}).length;
-  const isFacilitator = useIsSessionFacilitator();
+  const isHost = useIsSessionHost();
   const {joinMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<SessionNavigationProps>();
   const isFocused = useIsFocused();
@@ -147,7 +147,7 @@ const IntroPortal: React.FC = () => {
 
   return (
     <Screen>
-      {!isFacilitator && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
+      {!isHost && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
       {isFocused && introPortal.videoLoop?.audio && (
         <AudioFader
           source={introPortal.videoLoop.audio}
@@ -182,7 +182,7 @@ const IntroPortal: React.FC = () => {
         />
       )}
 
-      {isFacilitator && (
+      {isHost && (
         <>
           <HostNotes introPortal />
           <Spacer16 />
@@ -205,7 +205,7 @@ const IntroPortal: React.FC = () => {
                   {t('skipPortal')}
                 </Button>
               )}
-              {isFacilitator && (
+              {isHost && (
                 <Button small disabled={session?.started} onPress={setStarted}>
                   {session?.started ? t('sessionStarted') : t('startSession')}
                 </Button>

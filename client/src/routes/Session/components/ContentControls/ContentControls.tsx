@@ -49,7 +49,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   sessionId,
   style,
 }) => {
-  const isFacilitator = useIsSessionHost();
+  const isHost = useIsSessionHost();
   const exerciseState = useRecoilValue(sessionExerciseStateSelector);
   const exercise = useSessionExercise();
   const {t} = useTranslation('Screen.Session');
@@ -57,7 +57,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   const {navigateToIndex, setPlaying} =
     useUpdateSessionExerciseState(sessionId);
 
-  if (!isFacilitator || !exercise || !exerciseState) {
+  if (!isHost || !exercise || !exerciseState) {
     return null;
   }
 
