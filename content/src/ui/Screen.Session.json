@@ -6,6 +6,10 @@
       "start": "Start",
       "next": "Next",
       "prev": "Back"
+    },
+    "notifications": {
+      "joined": "{{name}} joined",
+      "left": "{{name}} left"
     }
   },
   "sv": {
@@ -15,15 +19,13 @@
       "start": "Starta",
       "next": "Nästa",
       "prev": "Tillbaka"
+    },
+    "notifications": {
+      "joined": "{{name}} gick med",
+      "left": "{{name}} lämnade"
     }
   },
   "pt": {
-    "nameSuffix": "Você",
-    "endButton": "End Session",
-    "controls": {
-      "start": "Start",
-      "next": "Next",
-      "prev": "Back"
-    }
+    "nameSuffix": "Você"
   }
 }
