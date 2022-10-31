@@ -30,13 +30,13 @@ import {PlusIcon} from '../../common/components/Icons';
 import {isLoadingAtom, sessionsAtom} from './state/state';
 import Screen from '../../common/components/Screen/Screen';
 
-const CreateButton = styled(Button)({
+const AddButton = styled(Button)({
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
 });
 
-const CreateSessionWrapper = styled.View({
+const AddSessionWrapper = styled.View({
   flexDirection: 'row',
   justifyContent: 'center',
   ...SETTINGS.BOXSHADOW,
@@ -61,20 +61,20 @@ const ListHeader = () => (
   </>
 );
 
-const CreateSessionForm = () => {
+const AddSessionForm = () => {
   const {t} = useTranslation('Screen.Sessions');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
   return (
-    <CreateSessionWrapper>
-      <CreateButton
-        onPress={() => navigate('CreateSessionModal')}
+    <AddSessionWrapper>
+      <AddButton
+        onPress={() => navigate('AddSessionModal')}
         LeftIcon={PlusIcon}>
-        {t('create')}
-      </CreateButton>
+        {t('add')}
+      </AddButton>
       <Spacer8 />
-    </CreateSessionWrapper>
+    </AddSessionWrapper>
   );
 };
 
@@ -108,7 +108,7 @@ const Sessions = () => {
       />
 
       <FloatingForm>
-        <CreateSessionForm />
+        <AddSessionForm />
         <Spacer12 />
       </FloatingForm>
     </Screen>
