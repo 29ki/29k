@@ -32,9 +32,19 @@ export const HOST_NOTES: CmsFieldBase & CmsFieldList = {
   ],
 };
 
-const CONTENT_VIDEO_FIELD = {
+const CONTENT_VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
   ...VIDEO_FIELD_WITH_AUDIO,
   hint: 'Overrides image',
+  fields: [
+    {
+      label: 'Auto Play & Loop',
+      name: 'autoPlayLoop',
+      hint: 'This automatically plays and loops the video. Play controls will be disabled.',
+      required: false,
+      widget: 'boolean',
+    },
+    ...VIDEO_FIELD_WITH_AUDIO.fields,
+  ],
 };
 
 const CONTENT_FIELDS: Array<CmsField> = [

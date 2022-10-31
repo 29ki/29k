@@ -21,7 +21,8 @@
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1665464756/Temp/Comp_8_jsv5jo.mp4",
             "description": "",
-            "preview": ""
+            "preview": "",
+            "autoPlayLoop": true
           },
           "image": {
             "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1646061249/Illustrations_Tests/take-test_c4qa3u.png",
@@ -43,7 +44,8 @@
         "content": {
           "heading": "I would like to X, but I am so Y",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1665464767/Temp/Comp_4_wrr4ks.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1665464767/Temp/Comp_4_wrr4ks.mp4",
+            "autoPlayLoop": true
           }
         },
         "hostNotes": [
@@ -60,7 +62,8 @@
         "content": {
           "heading": "What happens when you switch from using BUT to using AND?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1665464773/Temp/Comp_9_bsizws.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1665464773/Temp/Comp_9_bsizws.mp4",
+            "autoPlayLoop": true
           }
         },
         "hostNotes": [
