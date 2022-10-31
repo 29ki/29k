@@ -78,7 +78,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         {t('controls.prev')}
       </SlideButton>
       {exercise.slide.current.type !== 'host' &&
-        !exercise.slide.current.content.video?.autoLoop && (
+        !exercise.slide.current.content.video?.autoPlayLoop && (
           <MediaControls>
             <IconSlideButton
               small

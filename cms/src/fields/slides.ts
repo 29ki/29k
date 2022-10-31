@@ -37,8 +37,8 @@ const CONTENT_VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
   hint: 'Overrides image',
   fields: [
     {
-      label: 'Auto Loop',
-      name: 'autoLoop',
+      label: 'Auto Play & Loop',
+      name: 'autoPlayLoop',
       hint: 'This automatically plays and loops the video. Play controls will be disabled.',
       required: false,
       widget: 'boolean',

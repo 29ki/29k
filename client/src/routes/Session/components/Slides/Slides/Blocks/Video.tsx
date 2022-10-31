@@ -14,13 +14,13 @@ type VideoProps = {
   source: VideoProperties['source'];
   active: boolean;
   preview?: string;
-  autoLoop?: boolean;
+  autoPlayLoop?: boolean;
 };
 const Video: React.FC<VideoProps> = ({
   active,
   source,
   preview,
-  autoLoop = false,
+  autoPlayLoop = false,
 }) => {
   const videoRef = useRef<RNVideo>(null);
   const [videoLength, setVideoLength] = useState(0);
@@ -28,7 +28,7 @@ const Video: React.FC<VideoProps> = ({
   const previousState = useRef({playing: false, timestamp: new Date()});
 
   useEffect(() => {
-    if (active && !autoLoop && videoLength && exerciseState) {
+    if (active && !autoPlayLoop && videoLength && exerciseState) {
       // Block is active, video and state is loaded
       const playing = exerciseState.playing;
       const timestamp = exerciseState.timestamp.toDate();
@@ -56,7 +56,7 @@ const Video: React.FC<VideoProps> = ({
         timestamp,
       };
     }
-  }, [active, autoLoop, videoLength, previousState, exerciseState]);
+  }, [active, autoPlayLoop, videoLength, previousState, exerciseState]);
 
   return (
     <StyledVideo
@@ -64,10 +64,10 @@ const Video: React.FC<VideoProps> = ({
       poster={preview}
       ref={videoRef}
       onLoad={({duration}) => setVideoLength(duration)}
-      repeat={autoLoop}
+      repeat={autoPlayLoop}
       resizeMode="contain"
       posterResizeMode="contain"
-      paused={!active || (!exerciseState?.playing && !autoLoop)}
+      paused={!active || (!exerciseState?.playing && !autoPlayLoop)}
       allowsExternalPlayback={false}
     />
   );

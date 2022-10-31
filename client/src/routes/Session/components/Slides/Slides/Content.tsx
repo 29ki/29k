@@ -53,7 +53,7 @@ const Content: React.FC<ContentProps> = ({slide, active}) => (
           source={{uri: slide.content.video.source}}
           active={active}
           preview={slide.content.video.preview}
-          autoLoop={slide.content.video.autoLoop}
+          autoPlayLoop={slide.content.video.autoPlayLoop}
         />
       </GraphicsWrapper>
     ) : slide.content.image ? (
