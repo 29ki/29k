@@ -1,13 +1,16 @@
 import {Next} from 'koa';
-import {getAuth} from 'firebase-admin/auth';
 import {ROLES} from '../../../../shared/src/types/User';
 import {FirebaseAuthContext} from './firebaseAuth';
 
 const restrictAccessToRole =
-  (role: keyof typeof ROLES) =>
+  <T>(
+    role: keyof typeof ROLES,
+    inputNeedsRole: (body: T) => boolean = () => true,
+  ) =>
   async (ctx: FirebaseAuthContext, next: Next) => {
-    const customClaims = (await getAuth().getUser(ctx.user.id)).customClaims;
-    if (customClaims?.role !== role) {
+    const {customClaims} = ctx.user;
+
+    if (customClaims?.role !== role && inputNeedsRole(ctx.request?.body as T)) {
       ctx.status = 401;
       return;
     }

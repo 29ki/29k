@@ -40,7 +40,10 @@ type CreateSession = yup.InferType<typeof CreateSessionSchema>;
 sessionsRouter.post(
   '/',
   validator({body: CreateSessionSchema}),
-  restrictAccessToRole('publicHost'),
+  restrictAccessToRole<CreateSession>(
+    'publicHost',
+    ({type}) => type === SessionType.public,
+  ),
   async ctx => {
     const {contentId, type, startTime, language} = ctx.request
       .body as CreateSession;

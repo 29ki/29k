@@ -4,7 +4,6 @@ import Koa from 'koa';
 import {sessionsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {createRouter} from '../../lib/routers';
-import {getAuth} from 'firebase-admin/auth';
 import {ROLES} from '../../../../shared/src/types/User';
 import * as sessionsController from '../../controllers/sessions';
 import * as sessionModel from '../../models/session';
@@ -19,12 +18,14 @@ const mockUpdateExerciseState =
 jest.mock('../../models/session');
 const mockGetSessions = sessionModel.getSessions as jest.Mock;
 
+const getMockCustomClaims = jest.fn();
 const router = createRouter();
 router.use('/sessions', sessionsRouter.routes());
 const mockServer = createMockServer(
   async (ctx: Koa.Context, next: Koa.Next) => {
     ctx.user = {
       id: 'some-user-id',
+      customClaims: getMockCustomClaims(),
     };
     await next();
   },
@@ -114,9 +115,7 @@ describe('/api/sessions', () => {
     const startTime = new Date('1994-03-08T07:24:00').toISOString();
 
     it('should return newly created session', async () => {
-      (getAuth().getUser as jest.Mock).mockReturnValueOnce({
-        customClaims: {role: ROLES.publicHost},
-      });
+      getMockCustomClaims.mockReturnValueOnce({role: ROLES.publicHost});
 
       mockCreateSession.mockResolvedValueOnce({id: 'new-session'});
       const response = await request(mockServer)
@@ -135,9 +134,7 @@ describe('/api/sessions', () => {
     });
 
     it('should require user to be publicHost', async () => {
-      (getAuth().getUser as jest.Mock).mockReturnValueOnce({
-        customClaims: {role: 'not-public-host'},
-      });
+      getMockCustomClaims.mockReturnValueOnce({role: 'not-public-host'});
 
       const response = await request(mockServer)
         .post('/sessions')
@@ -152,9 +149,7 @@ describe('/api/sessions', () => {
     });
 
     it('should fail without session data', async () => {
-      (getAuth().getUser as jest.Mock).mockReturnValueOnce({
-        customClaims: {role: ROLES.publicHost},
-      });
+      getMockCustomClaims.mockReturnValueOnce({role: ROLES.publicHost});
       const response = await request(mockServer)
         .post('/sessions')
         .set('Accept', 'application/json');

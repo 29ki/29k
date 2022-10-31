@@ -10,6 +10,9 @@ describe('firebaseAuth', () => {
     (getAuth().verifyIdToken as jest.Mock).mockReturnValueOnce({
       sub: 'some-user-id',
     });
+    (getAuth().getUser as jest.Mock).mockReturnValueOnce({
+      customClaims: {role: 'some-role'},
+    });
 
     const middleware = firebaseAuth();
 
@@ -24,6 +27,8 @@ describe('firebaseAuth', () => {
 
     expect(getAuth().verifyIdToken).toHaveBeenCalledTimes(1);
     expect(getAuth().verifyIdToken).toHaveBeenCalledWith('some-token');
+    expect(getAuth().getUser).toHaveBeenCalledTimes(1);
+    expect(getAuth().getUser).toHaveBeenCalledWith('some-user-id');
 
     expect(ctx).toEqual({
       headers: {
@@ -31,6 +36,7 @@ describe('firebaseAuth', () => {
       },
       user: {
         id: 'some-user-id',
+        customClaims: {role: 'some-role'},
       },
     });
 
