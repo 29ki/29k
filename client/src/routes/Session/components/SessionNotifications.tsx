@@ -1,20 +1,39 @@
 import React, {useCallback, useContext, useEffect, useState} from 'react';
 import {DailyEventObject} from '@daily-co/react-native-daily-js';
 import Animated, {FadeInDown, FadeOut} from 'react-native-reanimated';
-import {Body16} from '../../../common/components/Typography/Body/Body';
-import {DailyContext} from '../DailyProvider';
 import styled from 'styled-components/native';
-import {COLORS} from '../../../../../shared/src/constants/colors';
-import {View, ViewStyle} from 'react-native';
-import {SPACINGS} from '../../../common/constants/spacings';
 import {useTranslation} from 'react-i18next';
+import {View, ViewStyle} from 'react-native';
 
-const Notification = styled(Body16)({
-  backgroundColor: COLORS.WHITE_TRANSPARENT_70,
+import {COLORS} from '../../../../../shared/src/constants/colors';
+import {SPACINGS} from '../../../common/constants/spacings';
+import {DailyContext} from '../DailyProvider';
+import {Body16} from '../../../common/components/Typography/Body/Body';
+import {Display22} from '../../../common/components/Typography/Display/Display';
+
+const Notification = styled.View({
+  backgroundColor: COLORS.WHITE_TRANSPARENT_80,
   padding: SPACINGS.EIGHT,
   marginTop: SPACINGS.EIGHT,
   borderRadius: SPACINGS.EIGHT,
   overflow: 'hidden',
+  flexDirection: 'row',
+  alignItem: 'center',
+  justifyContent: 'center',
+});
+const ProfilePlaceholder = styled(Display22)({
+  backgroundColor: COLORS.BLACK,
+  width: 30,
+  height: 30,
+  paddingLeft: SPACINGS.EIGHT,
+  overflow: 'hidden',
+  borderRadius: 15,
+  marginRight: SPACINGS.EIGHT,
+  color: COLORS.WHITE,
+});
+
+const Name = styled(Body16)({
+  paddingTop: SPACINGS.FOUR,
 });
 
 const SessionNotification: React.FC<{text: string}> = ({text}) => {
@@ -30,10 +49,13 @@ const SessionNotification: React.FC<{text: string}> = ({text}) => {
     };
   }, []);
 
-  if (visible) {
+  if (!visible) {
     return (
       <Animated.View entering={FadeInDown} exiting={FadeOut}>
-        <Notification>{text}</Notification>
+        <Notification>
+          <ProfilePlaceholder>{text[0]}</ProfilePlaceholder>
+          <Name>{text}</Name>
+        </Notification>
       </Animated.View>
     );
   }
@@ -46,7 +68,10 @@ const SessionNotifications: React.FC<{
 }> = ({style}) => {
   const {call} = useContext(DailyContext);
   const {t} = useTranslation('Screen.Session');
-  const [notifications, setNotifications] = useState<string[]>([]);
+  const [notifications, setNotifications] = useState<string[]>([
+    'Tårtan',
+    'Steffe',
+  ]);
 
   const participantJoined = useCallback(
     (user: DailyEventObject<'participant-joined'> | undefined) => {
