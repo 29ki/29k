@@ -1,4 +1,4 @@
-import {CmsField} from 'netlify-cms-core';
+import {CmsField, CmsFieldBase, CmsFieldObject} from 'netlify-cms-core';
 
 export const ID_FIELD: CmsField = {
   label: 'ID',
@@ -26,10 +26,11 @@ export const NAME_FIELD: CmsField = {
   widget: 'string',
 };
 
-export const IMAGE_FIELD: CmsField = {
+export const IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
   label: 'Image',
   name: 'image',
   widget: 'object',
+  collapsed: true,
   required: false,
   i18n: true,
   fields: [
@@ -50,7 +51,7 @@ export const IMAGE_FIELD: CmsField = {
   ],
 };
 
-export const VIDEO_FIELD: CmsField = {
+export const VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
   label: 'Video',
   name: 'video',
   widget: 'object',
@@ -90,12 +91,12 @@ const AUDIO_FIELD: CmsField = {
   i18n: false,
 };
 
-export const VIDEO_FIELD_WITH_AUDIO: CmsField = {
+export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
   ...VIDEO_FIELD,
   fields: [...VIDEO_FIELD.fields, AUDIO_FIELD],
 };
 
-export const CARD_FIELD: CmsField = {
+export const CARD_FIELD: CmsFieldBase & CmsFieldObject = {
   label: 'Card',
   name: 'card',
   i18n: true,
