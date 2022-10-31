@@ -29,7 +29,6 @@ import SessionCard from '../../common/components/Cards/SessionCard/SessionCard';
 import {PlusIcon} from '../../common/components/Icons';
 import {isLoadingAtom, sessionsAtom} from './state/state';
 import Screen from '../../common/components/Screen/Screen';
-import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 
 const CreateButton = styled(Button)({
   flexDirection: 'row',
