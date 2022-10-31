@@ -62,29 +62,19 @@ const ListHeader = () => (
   </>
 );
 
-const CreateSessionForm = ({allowCreate}: {allowCreate: Boolean}) => {
+const CreateSessionForm = () => {
   const {t} = useTranslation('Screen.Sessions');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
   return (
     <CreateSessionWrapper>
-      {allowCreate && (
-        <>
-          <CreateButton
-            onPress={() => navigate('CreateSessionModal')}
-            LeftIcon={PlusIcon}>
-            {t('create')}
-          </CreateButton>
-          <Spacer8 />
-        </>
-      )}
-
       <CreateButton
-        onPress={() => navigate('JoinSessionModal', {inviteCode: undefined})}
+        onPress={() => navigate('CreateSessionModal')}
         LeftIcon={PlusIcon}>
-        {t('join')}
+        {t('create')}
       </CreateButton>
+      <Spacer8 />
     </CreateSessionWrapper>
   );
 };
@@ -93,7 +83,6 @@ const Sessions = () => {
   const {fetchSessions} = useSessions();
   const isLoading = useRecoilValue(isLoadingAtom);
   const sessions = useRecoilValue(sessionsAtom);
-  const {isPublicHost} = useIsPublicHost();
 
   useEffect(() => {
     fetchSessions();
@@ -120,7 +109,7 @@ const Sessions = () => {
       />
 
       <FloatingForm>
-        <CreateSessionForm allowCreate={isPublicHost} />
+        <CreateSessionForm />
         <Spacer12 />
       </FloatingForm>
     </Screen>
