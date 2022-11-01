@@ -44,7 +44,7 @@ import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack'
 
 import useLeaveSession from './hooks/useLeaveSession';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import useIsSessionFacilitator from './hooks/useIsSessionHost';
+import useIsSessionHost from './hooks/useIsSessionHost';
 import Button from '../../common/components/Buttons/Button';
 import useUpdateSession from './hooks/useUpdateSession';
 import {useTranslation} from 'react-i18next';
@@ -112,7 +112,7 @@ const Session = () => {
   const participants = useSessionParticipants();
   const {setEnded} = useUpdateSession(sessionId);
   const me = useRecoilValue(localParticipantSelector);
-  const isFacilitator = useIsSessionFacilitator();
+  const isHost = useIsSessionHost();
   const isLoading = useRecoilValue(videoSharingFields('isLoading'));
   const session = useRecoilValue(sessionAtom);
   const exercise = useSessionExercise();
@@ -144,7 +144,7 @@ const Session = () => {
 
   return (
     <Screen backgroundColor={exercise?.theme?.backgroundColor}>
-      {isFacilitator && (
+      {isHost && (
         <FloatingHostNotes>
           {!exercise?.slide.next && (
             <>
@@ -166,7 +166,7 @@ const Session = () => {
               previous={exercise.slide.previous}
               next={exercise.slide.next}
             />
-            {!isFacilitator && (
+            {!isHost && (
               <Progress
                 index={exercise?.slide.index}
                 length={exercise?.slides.length}
