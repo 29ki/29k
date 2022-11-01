@@ -5,9 +5,9 @@ import {sessionsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {createRouter} from '../../lib/routers';
 import * as sessionsController from '../../controllers/sessions';
-import * as sessionModel from '../../models/session';
 
 jest.mock('../../controllers/sessions');
+const mockGetSessions = sessionsController.getSessions as jest.Mock;
 const mockCreateSession = sessionsController.createSession as jest.Mock;
 const mockRemoveSession = sessionsController.removeSession as jest.Mock;
 const mockUpdateSession = sessionsController.updateSession as jest.Mock;
@@ -16,7 +16,6 @@ const mockUpdateExerciseState =
 const mockJoinSession = sessionsController.joinSession as jest.Mock;
 
 jest.mock('../../models/session');
-const mockGetSessions = sessionModel.getSessions as jest.Mock;
 
 const router = createRouter();
 router.use('/sessions', sessionsRouter.routes());

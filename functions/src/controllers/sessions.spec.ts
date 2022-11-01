@@ -21,10 +21,13 @@ import {
   removeSession,
   updateExerciseState,
   updateSession,
+  getSessions,
 } from './sessions';
+import {getUserProfile} from './users';
 import {SessionType} from '../../../shared/src/types/Session';
 import dayjs from 'dayjs';
 
+jest.mock('./users');
 jest.mock('../lib/utils', () => ({
   ...jest.requireActual('../lib/utils'),
   generateVerificationCode: mockGenerateVerificationCode,
@@ -33,6 +36,7 @@ jest.mock('../lib/dailyApi', () => mockDailyApi);
 jest.mock('../models/dynamicLinks', () => mockDynamicLinks);
 jest.mock('../models/session');
 
+const mockGetSessions = sessionModel.getSessions as jest.Mock;
 const mockAddSession = sessionModel.addSession as jest.Mock;
 const mockGetSessionById = sessionModel.getSessionById as jest.Mock;
 const mockDeleteSession = sessionModel.deleteSession as jest.Mock;
@@ -40,6 +44,7 @@ const mockUpdateSession = sessionModel.updateSession as jest.Mock;
 const mockUpdateExerciseState = sessionModel.updateExerciseState as jest.Mock;
 const mockGetSessionByInviteCode =
   sessionModel.getSessionByInviteCode as jest.Mock;
+const mockGetUserProfile = getUserProfile as jest.Mock;
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));
 
@@ -48,6 +53,29 @@ beforeEach(async () => {
 });
 
 describe('sessions - controller', () => {
+  describe('getSessions', () => {
+    it('should get sessions with host profile', async () => {
+      mockGetUserProfile.mockResolvedValueOnce({
+        displayName: 'some-name',
+        photoURL: 'some-photo-url',
+      });
+      mockGetSessions.mockResolvedValueOnce([
+        {
+          facilitator: 'some-user-id',
+        },
+      ]);
+
+      const sessions = await getSessions('all');
+
+      expect(sessions[0].hostProfile.displayName).toEqual('some-name');
+      expect(sessions[0].hostProfile.photoURL).toEqual('some-photo-url');
+      expect(mockGetSessions).toHaveBeenCalledTimes(1);
+      expect(mockGetSessions).toHaveBeenCalledWith('all');
+      expect(mockGetUserProfile).toHaveBeenCalledTimes(1);
+      expect(mockGetUserProfile).toHaveBeenCalledWith('some-user-id');
+    });
+  });
+
   describe('createSession', () => {
     it('should create a daily room that expires 2h after it starts', async () => {
       await createSession('some-user-id', {
