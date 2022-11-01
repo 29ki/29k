@@ -45,7 +45,7 @@
           "heading": "I would like to X, but I am so Y",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1665464767/Temp/Comp_4_wrr4ks.mp4",
-            "autoPlayLoop": false
+            "autoPlayLoop": true
           }
         },
         "hostNotes": [
@@ -63,7 +63,7 @@
           "heading": "What happens when you switch from using BUT to using AND?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1665464773/Temp/Comp_9_bsizws.mp4",
-            "autoPlayLoop": false
+            "autoPlayLoop": true
           }
         },
         "hostNotes": [
