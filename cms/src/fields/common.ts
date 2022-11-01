@@ -97,7 +97,7 @@ export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
     ...VIDEO_FIELD.fields,
     {
       ...AUDIO_FIELD,
-      hint: 'This will override the audio of the video',
+      hint: 'This will override the audio of the video. Video will automatically loop while playing.',
     },
   ],
 };
