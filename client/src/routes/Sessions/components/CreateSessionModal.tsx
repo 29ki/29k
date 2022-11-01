@@ -35,6 +35,7 @@ import {SPACINGS} from '../../../common/constants/spacings';
 import {Body16} from '../../../common/components/Typography/Body/Body';
 import DateTimePicker from './DateTimePicker';
 import {LANGUAGE_TAG} from '../../../lib/i18n';
+import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -256,16 +257,22 @@ type StepProps = {
   setSelectedType: Dispatch<SetStateAction<StepProps['selectedType']>>;
 };
 
-const steps = [SelectContent, SelectType, SetDateTime];
+const publicHostSteps = [SelectContent, SelectType, SetDateTime];
+const normalUserSteps = [SelectContent, SetDateTime];
 
 const CreateSessionModal = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedExercise, setSelectedExercise] = useState<
     Exercise['id'] | undefined
   >();
-  const [selectedType, setSelectedType] = useState<SessionType | undefined>();
+  const {isPublicHost} = useIsPublicHost();
+  const [selectedType, setSelectedType] = useState<SessionType | undefined>(
+    isPublicHost ? undefined : SessionType.private,
+  );
 
-  const CurrentStepComponent: React.FC<StepProps> = steps[currentStep];
+  const CurrentStepComponent: React.FC<StepProps> = isPublicHost
+    ? publicHostSteps[currentStep]
+    : normalUserSteps[currentStep];
 
   const stepProps: StepProps = {
     selectedExercise,
