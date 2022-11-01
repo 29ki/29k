@@ -6,7 +6,7 @@ const useIsSessionHost = () => {
   const session = useRecoilValue(sessionAtom);
   const user = useRecoilValue(userAtom);
 
-  return session?.host === user?.uid;
+  return session?.hostId === user?.uid;
 };
 
 export default useIsSessionHost;

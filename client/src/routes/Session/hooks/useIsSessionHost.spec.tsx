@@ -18,7 +18,7 @@ describe('useIsSessionHost', () => {
             uid: 'some-user-id',
           } as FirebaseAuthTypes.User);
           set(sessionAtom, {
-            host: 'some-user-id',
+            hostId: 'some-user-id',
           } as SessionData);
         }}>
         {children}
@@ -40,7 +40,7 @@ describe('useIsSessionHost', () => {
             uid: 'some-user-id',
           } as FirebaseAuthTypes.User);
           set(sessionAtom, {
-            host: 'some-other-user-id',
+            hostId: 'some-other-user-id',
           } as SessionData);
         }}>
         {children}
