@@ -39,7 +39,7 @@ export type Session = {
   exerciseState: ExerciseState;
   contentId: string;
   inviteCode: number;
-  facilitator: string;
+  hostId: string;
   startTime: string;
   started: boolean;
   ended: boolean;
