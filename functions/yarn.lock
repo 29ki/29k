@@ -967,13 +967,13 @@
     "@sentry/utils" "7.17.3"
     tslib "^1.9.3"
 
-"@sentry/integrations@^7.16.0":
-  version "7.16.0"
-  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-7.16.0.tgz#fa6a2a2b7275efec5cf67c07eb76297447301ff2"
-  integrity sha512-PJRmFUHOKMf1APOlwxGB7Z6LHzJP4xL6OLSoiwnruRuHaGvdyILA53fr/A6wRMSPyTxJDJpNkcN36cA56mLxYA==
+"@sentry/integrations@^7.17.3":
+  version "7.17.3"
+  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-7.17.3.tgz#e808e2d524199f10aa1fd3185fba91e7f0e59ccd"
+  integrity sha512-KSdWxqePSP9QsPfIw8ZsX/o6uQ3W21yA8MyzKng52KK4zt6qT5KsCrEJSUdGY+osuG7HQ8ONM7kNkqOUDvBzjg==
   dependencies:
-    "@sentry/types" "7.16.0"
-    "@sentry/utils" "7.16.0"
+    "@sentry/types" "7.17.3"
+    "@sentry/utils" "7.17.3"
     localforage "^1.8.1"
     tslib "^1.9.3"
 
