@@ -50,7 +50,6 @@ const OutroPortal: React.FC = () => {
         resizeMode="cover"
         poster={outroPortal.video?.preview}
         posterResizeMode="cover"
-        allowsExternalPlayback={false}
       />
       <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
     </Screen>
