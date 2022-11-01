@@ -166,7 +166,6 @@ const IntroPortal: React.FC = () => {
         resizeMode="cover"
         poster={introPortal.videoEnd?.preview}
         posterResizeMode="cover"
-        allowsExternalPlayback={false}
       />
 
       {!joiningSession && (
@@ -178,7 +177,6 @@ const IntroPortal: React.FC = () => {
           resizeMode="cover"
           poster={introPortal.videoLoop?.preview}
           posterResizeMode="cover"
-          allowsExternalPlayback={false}
         />
       )}
 

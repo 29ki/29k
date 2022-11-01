@@ -93,7 +93,13 @@ const AUDIO_FIELD: CmsField = {
 
 export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
   ...VIDEO_FIELD,
-  fields: [...VIDEO_FIELD.fields, AUDIO_FIELD],
+  fields: [
+    ...VIDEO_FIELD.fields,
+    {
+      ...AUDIO_FIELD,
+      hint: 'This will override the audio of the video',
+    },
+  ],
 };
 
 export const CARD_FIELD: CmsFieldBase & CmsFieldObject = {

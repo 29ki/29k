@@ -6,12 +6,17 @@ import {useRecoilValue} from 'recoil';
 import {sessionExerciseStateSelector} from '../../../../state/state';
 import VideoBase from '../../../VideoBase/VideoBase';
 
-const StyledVideo = styled(VideoBase)({
+const VideoPlayer = styled(VideoBase)({
   flex: 1,
+});
+
+const AudioPlayer = styled(VideoBase)({
+  display: 'none',
 });
 
 type VideoProps = {
   source: VideoProperties['source'];
+  audioSource?: VideoProperties['source'];
   active: boolean;
   preview?: string;
   autoPlayLoop?: boolean;
@@ -19,16 +24,17 @@ type VideoProps = {
 const Video: React.FC<VideoProps> = ({
   active,
   source,
+  audioSource,
   preview,
   autoPlayLoop = false,
 }) => {
   const videoRef = useRef<RNVideo>(null);
-  const [videoLength, setVideoLength] = useState(0);
+  const [duration, setDuration] = useState(0);
   const exerciseState = useRecoilValue(sessionExerciseStateSelector);
   const previousState = useRef({playing: false, timestamp: new Date()});
 
   useEffect(() => {
-    if (active && !autoPlayLoop && videoLength && exerciseState) {
+    if (active && !autoPlayLoop && duration && exerciseState) {
       // Block is active, video and state is loaded
       const playing = exerciseState.playing;
       const timestamp = exerciseState.timestamp.toDate();
@@ -42,11 +48,11 @@ const Video: React.FC<VideoProps> = ({
       } else if (timestamp < previousState.current.timestamp && playing) {
         // State is old - compensate time played
         const timeDiff = (new Date().getTime() - timestamp.getTime()) / 1000;
-        if (timeDiff < videoLength) {
+        if (timeDiff < duration) {
           // Do not seek passed video length
           videoRef.current?.seek(timeDiff);
         } else {
-          videoRef.current?.seek(videoLength - 1);
+          videoRef.current?.seek(duration - 1);
         }
       }
 
@@ -56,19 +62,43 @@ const Video: React.FC<VideoProps> = ({
         timestamp,
       };
     }
-  }, [active, autoPlayLoop, videoLength, previousState, exerciseState]);
+  }, [active, autoPlayLoop, duration, previousState, exerciseState]);
+
+  const onLoad: VideoProperties['onLoad'] = data => setDuration(data.duration);
+
+  const paused = !active || (!exerciseState?.playing && !autoPlayLoop);
+
+  const videoProps: VideoProperties = {
+    source,
+    poster: preview,
+    resizeMode: 'contain',
+    posterResizeMode: 'contain',
+    paused,
+  };
+
+  if (audioSource) {
+    // If audio source is available we allways loop the video and handle the audio separateley as the primary playing source
+    return (
+      <>
+        <AudioPlayer
+          source={audioSource}
+          audioOnly
+          ref={videoRef}
+          onLoad={onLoad}
+          repeat={autoPlayLoop}
+          paused={paused}
+        />
+        <VideoPlayer {...videoProps} muted repeat />
+      </>
+    );
+  }
 
   return (
-    <StyledVideo
-      source={source}
-      poster={preview}
+    <VideoPlayer
+      {...videoProps}
       ref={videoRef}
-      onLoad={({duration}) => setVideoLength(duration)}
+      onLoad={onLoad}
       repeat={autoPlayLoop}
-      resizeMode="contain"
-      posterResizeMode="contain"
-      paused={!active || (!exerciseState?.playing && !autoPlayLoop)}
-      allowsExternalPlayback={false}
     />
   );
 };
