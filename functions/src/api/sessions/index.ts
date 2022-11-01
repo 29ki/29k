@@ -4,6 +4,7 @@ import 'firebase-functions';
 
 import {SessionType} from '../../../../shared/src/types/Session';
 import {createRouter} from '../../lib/routers';
+import restrictAccessToRole from '../lib/restrictAccessToRole';
 
 import * as sessionsController from '../../controllers/sessions';
 import {
@@ -35,18 +36,26 @@ const CreateSessionSchema = yup.object().shape({
 
 type CreateSession = yup.InferType<typeof CreateSessionSchema>;
 
-sessionsRouter.post('/', validator({body: CreateSessionSchema}), async ctx => {
-  const {contentId, type, startTime, language} = ctx.request
-    .body as CreateSession;
-  const {user} = ctx;
+sessionsRouter.post(
+  '/',
+  validator({body: CreateSessionSchema}),
+  restrictAccessToRole<CreateSession>(
+    'publicHost',
+    ({type}) => type === SessionType.public,
+  ),
+  async ctx => {
+    const {contentId, type, startTime, language} = ctx.request
+      .body as CreateSession;
+    const {user} = ctx;
 
-  ctx.body = await sessionsController.createSession(user.id, {
-    contentId,
-    type,
-    startTime,
-    language,
-  });
-});
+    ctx.body = await sessionsController.createSession(user.id, {
+      contentId,
+      type,
+      startTime,
+      language,
+    });
+  },
+);
 
 sessionsRouter.delete('/:id', async ctx => {
   const {id} = ctx.params;

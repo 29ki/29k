@@ -35,6 +35,9 @@ import {SPACINGS} from '../../../common/constants/spacings';
 import {Body16} from '../../../common/components/Typography/Body/Body';
 import DateTimePicker from './DateTimePicker';
 import {LANGUAGE_TAG} from '../../../lib/i18n';
+import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
+import {ModalStackProps} from '../../../lib/navigation/constants/routes';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -194,7 +197,8 @@ const SelectType: React.FC<StepProps> = ({
 
 const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
   const {t, i18n} = useTranslation('Component.CreateSessionModal');
-  const {goBack} = useNavigation();
+  const {goBack, navigate} =
+    useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
   const [isLoading, setIsLoading] = useState(false);
   const [date, setDate] = useState<dayjs.Dayjs | undefined>();
   const [time, setTime] = useState<dayjs.Dayjs | undefined>();
@@ -206,7 +210,7 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
       const sessionDateTime = date.hour(time.hour()).minute(time.minute());
 
       setIsLoading(true);
-      await addSession({
+      const session = await addSession({
         contentId: selectedExercise,
         type: selectedType,
         startTime: sessionDateTime,
@@ -214,6 +218,7 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
       });
       setIsLoading(false);
       goBack();
+      navigate('SessionModal', {session});
     }
   };
 
@@ -256,16 +261,22 @@ type StepProps = {
   setSelectedType: Dispatch<SetStateAction<StepProps['selectedType']>>;
 };
 
-const steps = [SelectContent, SelectType, SetDateTime];
+const publicHostSteps = [SelectContent, SelectType, SetDateTime];
+const normalUserSteps = [SelectContent, SetDateTime];
 
 const CreateSessionModal = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedExercise, setSelectedExercise] = useState<
     Exercise['id'] | undefined
   >();
-  const [selectedType, setSelectedType] = useState<SessionType | undefined>();
+  const {isPublicHost} = useIsPublicHost();
+  const [selectedType, setSelectedType] = useState<SessionType | undefined>(
+    isPublicHost ? undefined : SessionType.private,
+  );
 
-  const CurrentStepComponent: React.FC<StepProps> = steps[currentStep];
+  const CurrentStepComponent: React.FC<StepProps> = isPublicHost
+    ? publicHostSteps[currentStep]
+    : normalUserSteps[currentStep];
 
   const stepProps: StepProps = {
     selectedExercise,

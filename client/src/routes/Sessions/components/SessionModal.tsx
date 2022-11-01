@@ -165,7 +165,7 @@ const SessionModal = () => {
             <Spacer8 />
           </>
         )}
-        {user?.uid === session?.facilitator && (
+        {user?.uid === session?.hostId && (
           <DeleteButton small onPress={onDelete} Icon={DeleteIcon} />
         )}
       </BottomContent>

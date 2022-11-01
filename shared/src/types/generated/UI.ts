@@ -44,6 +44,7 @@ export interface ComponentCounterCounterValue {
 
 export interface ComponentCounter {
   counterValue: ComponentCounterCounterValue;
+  today?: string;
 }
 
 export interface ComponentCrashErrorMessage {
@@ -54,6 +55,28 @@ export interface ComponentCreateSessionModalSelectContent {
   title?: string;
 }
 
+export interface ComponentCreateSessionModalSelectTypePublic {
+  title?: string;
+  icon?: string;
+}
+
+export interface ComponentCreateSessionModalSelectTypePrivate {
+  title?: string;
+  icon?: string;
+}
+
+export interface ComponentCreateSessionModalSelectTypeAsync {
+  title?: string;
+  icon?: string;
+}
+
+export interface ComponentCreateSessionModalSelectType {
+  title?: string;
+  public: ComponentCreateSessionModalSelectTypePublic;
+  private: ComponentCreateSessionModalSelectTypePrivate;
+  async: ComponentCreateSessionModalSelectTypeAsync;
+}
+
 export interface ComponentCreateSessionModalSetDateTime {
   title?: string;
   cta?: string;
@@ -61,6 +84,7 @@ export interface ComponentCreateSessionModalSetDateTime {
 
 export interface ComponentCreateSessionModal {
   selectContent: ComponentCreateSessionModalSelectContent;
+  selectType: ComponentCreateSessionModalSelectType;
   setDateTime: ComponentCreateSessionModalSetDateTime;
 }
 
@@ -72,6 +96,10 @@ export interface ComponentDateTimePicker {
 
 export interface ComponentHostNotes {
   notes?: string;
+}
+
+export interface ComponentJoinSessionModal {
+  title?: string;
 }
 
 export interface ComponentSessionCard {
@@ -98,6 +126,8 @@ export interface ComponentSessionModal {
   delete: ComponentSessionModalDelete;
   addToCalendar?: string;
   addReminder?: string;
+  join?: string;
+  shareMessage?: string;
 }
 
 export interface ComponentSessionReminder {
@@ -109,6 +139,24 @@ export interface ComponentTabs {
   profile?: string;
 }
 
+export interface ComponentVerificationCode {
+  pasteButton?: string;
+}
+
+export interface ComponentVerificationModal {
+  header?: string;
+  email?: string;
+  password?: string;
+  upgrade?: string;
+  code?: string;
+  signIn?: string;
+}
+
+export interface DeepLinkJoinSessionInvite {
+  title?: string;
+  description?: string;
+}
+
 export interface ScreenChangingRoomPermissionsAlert {
   title?: string;
   message?: string;
@@ -117,6 +165,7 @@ export interface ScreenChangingRoomPermissionsAlert {
 }
 
 export interface ScreenChangingRoom {
+  placeholder?: string;
   join_button?: string;
   cameraOff?: string;
   permissionsAlert: ScreenChangingRoomPermissionsAlert;
@@ -182,18 +231,19 @@ export interface ScreenPortal {
 }
 
 export interface ScreenProfile {
-  userId?: string;
-  uiLib?: string;
-  clearUpdate?: string;
-  checkUpdate?: string;
-  language?: string;
-  signOut?: string;
   signIn?: string;
+  or?: string;
+  userId?: string;
+  requestPublicHostRoleButton?: string;
+  signOut?: string;
+  uiLib?: string;
+  checkUpdate?: string;
+  clearUpdate?: string;
   signInAnonymously?: string;
+  language?: string;
+  password?: string;
   upgrade?: string;
   email?: string;
-  password?: string;
-  or?: string;
 }
 
 export interface ScreenSessionControls {
@@ -211,5 +261,33 @@ export interface ScreenSession {
 export interface ScreenSessions {
   heading?: string;
   create?: string;
+  join?: string;
   createPlaceholder?: string;
+}
+
+export interface ScreenUpgradeAccountSuccess {
+  header?: string;
+  text?: string;
+}
+
+export interface ScreenUpgradeAccountErrors {
+  verificationNotFound?: string;
+  verificationDeclined?: string;
+  verificationAlreadyClaimed?: string;
+  verificationFailed?: string;
+}
+
+export interface ScreenUpgradeAccount {
+  enterCode?: string;
+  activateButton?: string;
+  haveCodeButton?: string;
+  requestComplete?: string;
+  needToUpgrade?: string;
+  success: ScreenUpgradeAccountSuccess;
+  errors: ScreenUpgradeAccountErrors;
+  text?: string;
+  requestCodeButton?: string;
+  button?: string;
+  password?: string;
+  email?: string;
 }

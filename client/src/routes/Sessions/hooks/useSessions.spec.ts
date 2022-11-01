@@ -81,12 +81,12 @@ describe('useSessions', () => {
   describe('addSession', () => {
     const startTime = dayjs.utc('1994-03-08');
 
-    it('should add a session and refetch', async () => {
+    it('should resolve to a new session and trigger a refetch', async () => {
       fetchMock.mockResponseOnce(
         JSON.stringify({
           id: 'session-id',
           url: '/session-url',
-          name: 'Session Name',
+          name: 'A New Session',
         }),
         {status: 200},
       );
@@ -101,11 +101,17 @@ describe('useSessions', () => {
       });
 
       await act(async () => {
-        await result.current.addSession({
+        const session = await result.current.addSession({
           contentId: 'some-content-id',
           type: SessionType.public,
           startTime,
           language: 'en',
+        });
+
+        expect(session).toEqual({
+          id: 'session-id',
+          name: 'A New Session',
+          url: '/session-url',
         });
       });
 

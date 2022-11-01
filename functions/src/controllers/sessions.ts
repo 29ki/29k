@@ -12,7 +12,7 @@ export const getSessions = async (userId: string): Promise<Array<Session>> => {
   return Promise.all(
     sessions.map(async session => ({
       ...session,
-      hostProfile: await getUserProfile(session.facilitator),
+      hostProfile: await getUserProfile(session.hostId),
     })),
   );
 };
@@ -50,7 +50,7 @@ export const createSession = async (
     type,
     startTime,
     inviteCode,
-    facilitator: userId,
+    hostId: userId,
   });
 };
 
@@ -64,7 +64,7 @@ export const removeSession = async (
 
   if (!session) return;
 
-  if (userId !== session?.facilitator) {
+  if (userId !== session?.hostId) {
     throw new Error('user-unauthorized');
   }
 
@@ -81,7 +81,7 @@ export const updateSession = async (
 ) => {
   const session = (await sessionModel.getSessionById(sessionId)) as Session;
 
-  if (userId !== session?.facilitator) {
+  if (userId !== session?.hostId) {
     throw new Error('user-unauthorized');
   }
 
@@ -100,7 +100,7 @@ export const updateExerciseState = async (
     throw new Error('session-not-found');
   }
 
-  if (userId !== session?.facilitator) {
+  if (userId !== session?.hostId) {
     throw new Error('user-unauthorized');
   }
 

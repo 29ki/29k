@@ -30,13 +30,14 @@ const useSessions = () => {
       startTime: dayjs.Dayjs;
       language: Session['language'];
     }) => {
-      await sessionApi.addSession({
+      const session = await sessionApi.addSession({
         contentId,
         type,
         startTime: startTime.toJSON(),
         language,
       });
       fetchSessions();
+      return session;
     },
     [fetchSessions],
   );

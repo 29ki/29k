@@ -3,7 +3,7 @@ import {getAuth} from 'firebase-admin/auth';
 import {Context, Next} from 'koa';
 
 export type FirebaseAuthContext = Context & {
-  user: {id: string};
+  user: {id: string; customClaims?: {[key: string]: string}};
 };
 
 const firebaseAuth = () => async (ctx: FirebaseAuthContext, next: Next) => {
@@ -21,9 +21,11 @@ const firebaseAuth = () => async (ctx: FirebaseAuthContext, next: Next) => {
 
   try {
     const user = await getAuth().verifyIdToken(token);
+    const customClaims = (await getAuth().getUser(user.sub)).customClaims;
 
     ctx.user = {
       id: user.sub,
+      customClaims,
     };
   } catch (error) {
     const firebaseError = error as FirebaseError;

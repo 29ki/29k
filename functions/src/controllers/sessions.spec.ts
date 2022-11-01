@@ -61,7 +61,7 @@ describe('sessions - controller', () => {
       });
       mockGetSessions.mockResolvedValueOnce([
         {
-          facilitator: 'some-user-id',
+          hostId: 'some-user-id',
         },
       ]);
 
@@ -119,7 +119,7 @@ describe('sessions - controller', () => {
         contentId: 'some-content-id',
         language: 'en',
         dailyRoomName: 'some-fake-daily-room-name',
-        facilitator: 'some-user-id',
+        hostId: 'some-user-id',
         id: 'some-fake-daily-id',
         link: 'http://some.dynamic/link',
         startTime: '2022-10-10T10:00:00.000Z',
@@ -157,7 +157,7 @@ describe('sessions - controller', () => {
         contentId: 'some-content-id',
         language: 'en',
         dailyRoomName: 'some-fake-daily-room-name',
-        facilitator: 'some-user-id',
+        hostId: 'some-user-id',
         id: 'some-fake-daily-id',
         link: 'http://some.dynamic/link',
         startTime: '2022-10-10T10:00:00.000Z',
@@ -171,7 +171,7 @@ describe('sessions - controller', () => {
 
   describe('removeSession', () => {
     it('should throw if user is not the host', async () => {
-      mockGetSessionById.mockResolvedValue({facilitator: 'the-host-id'});
+      mockGetSessionById.mockResolvedValue({hostId: 'the-host-id'});
       await expect(
         removeSession('not-the-host-id', 'some-session-id'),
       ).rejects.toEqual(Error('user-unauthorized'));
@@ -181,7 +181,7 @@ describe('sessions - controller', () => {
       mockGetSessionById.mockResolvedValue({
         id: 'some-session-id',
         dailyRoomName: 'some-daily-room-name',
-        facilitator: 'the-host-id',
+        hostId: 'the-host-id',
       });
 
       await removeSession('the-host-id', 'some-session-id');
@@ -246,7 +246,7 @@ describe('sessions - controller', () => {
 
   describe('updateSession', () => {
     it('should throw if user is not the host', async () => {
-      mockGetSessionById.mockResolvedValue({facilitator: 'the-host-id'});
+      mockGetSessionById.mockResolvedValue({hostId: 'the-host-id'});
       await expect(
         updateSession('not-the-host-id', 'some-session-id', {started: true}),
       ).rejects.toEqual(Error('user-unauthorized'));
@@ -256,7 +256,7 @@ describe('sessions - controller', () => {
       mockGetSessionById.mockResolvedValueOnce({
         id: 'some-session-id',
         dailyRoomName: 'some-daily-room-name',
-        facilitator: 'the-host-id',
+        hostId: 'the-host-id',
       });
       mockGetSessionById.mockResolvedValueOnce({
         id: 'some-session-id',
@@ -280,7 +280,7 @@ describe('sessions - controller', () => {
 
   describe('updateExerciseState', () => {
     it('should throw if user is not the host', async () => {
-      mockGetSessionById.mockResolvedValue({facilitator: 'the-host-id'});
+      mockGetSessionById.mockResolvedValue({hostId: 'the-host-id'});
       await expect(
         updateExerciseState('not-the-host-id', 'some-session-id', {
           index: 1,
@@ -301,7 +301,7 @@ describe('sessions - controller', () => {
       mockGetSessionById.mockResolvedValueOnce({
         id: 'some-session-id',
         dailyRoomName: 'some-daily-room-name',
-        facilitator: 'the-host-id',
+        hostId: 'the-host-id',
       });
       mockGetSessionById.mockResolvedValueOnce({
         id: 'some-session-id',
