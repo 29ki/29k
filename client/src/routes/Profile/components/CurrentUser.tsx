@@ -14,14 +14,28 @@ import {userAtom} from '../../../lib/user/state/state';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackProps} from '../../../lib/navigation/constants/routes';
+import useChangeProfileInfo from '../hooks/useChangeProfileInfo';
+import ProfilePicture from './ProfilePicture';
+import {SPACINGS} from '../../../common/constants/spacings';
 
 const Row = styled.View({
   flexDirection: 'row',
   justifyContent: 'flex-start',
   alignItems: 'center',
 });
+
 const StartCol = styled.View({
   alignItems: 'flex-start',
+});
+
+const CenterCol = styled.View({
+  width: '100%',
+  alignItems: 'center',
+});
+
+const ProfilePictureWrapper = styled.View({
+  width: SPACINGS.NINTYSIX,
+  height: SPACINGS.NINTYSIX,
 });
 
 type CurrentUserProps = {
@@ -32,6 +46,7 @@ const CurrentUser: React.FC<CurrentUserProps> = ({isPublicHost = false}) => {
   const {t} = useTranslation('Screen.Profile');
   const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
   const user = useRecoilValue(userAtom);
+  const {changeProfilePicture} = useChangeProfileInfo();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -66,6 +81,14 @@ const CurrentUser: React.FC<CurrentUserProps> = ({isPublicHost = false}) => {
     <>
       {user && (
         <StartCol>
+          <CenterCol>
+            <ProfilePictureWrapper>
+              <ProfilePicture
+                pictureURL={user.photoURL}
+                onPress={changeProfilePicture}
+              />
+            </ProfilePictureWrapper>
+          </CenterCol>
           <Heading18>{t('userId')}</Heading18>
           <Body18 selectable>{user.uid}</Body18>
           <Spacer16 />
@@ -73,6 +96,9 @@ const CurrentUser: React.FC<CurrentUserProps> = ({isPublicHost = false}) => {
             <>
               <Heading18>{t('email')}</Heading18>
               <Body16 selectable>{user.email}</Body16>
+              <Spacer16 />
+              <Heading18>{t('displayName')}</Heading18>
+              <Body16 selectable>{user.displayName ?? '-'}</Body16>
               <Spacer16 />
             </>
           )}

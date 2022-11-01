@@ -12,7 +12,14 @@
     "language": "Language",
     "password": "Lösenord",
     "upgrade": "Upgrade",
-    "email": "E-mail"
+    "userProfile": {
+      "heading": "Profile info",
+      "displayName": "What should we call you?",
+      "image": "Profile Image",
+      "saveButton": "Save"
+    },
+    "email": "E-mail",
+    "displayName": "Name"
   },
   "sv": {
     "signIn": "Logga in",
@@ -27,7 +34,14 @@
     "language": "Språk",
     "password": "Lösenord",
     "upgrade": "Uppgradera",
-    "email": "Epost"
+    "userProfile": {
+      "heading": "Profilinfo",
+      "displayName": "Vad ska vi kalla dig?",
+      "image": "Profilbild",
+      "saveButton": "Spara"
+    },
+    "email": "Epost",
+    "displayName": "Namn"
   },
   "pt": {}
 }
