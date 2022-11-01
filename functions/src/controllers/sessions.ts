@@ -5,6 +5,17 @@ import * as dailyApi from '../lib/dailyApi';
 import {Session} from '../../../shared/src/types/Session';
 import {ExerciseStateUpdate, UpdateSession} from '../api/sessions';
 import {generateVerificationCode, removeEmpty} from '../lib/utils';
+import {getUserProfile} from './users';
+
+export const getSessions = async (userId: string): Promise<Array<Session>> => {
+  const sessions = await sessionModel.getSessions(userId);
+  return Promise.all(
+    sessions.map(async session => ({
+      ...session,
+      hostProfile: await getUserProfile(session.facilitator),
+    })),
+  );
+};
 
 export const createSession = async (
   userId: string,
