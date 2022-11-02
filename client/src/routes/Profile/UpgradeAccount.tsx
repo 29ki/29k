@@ -19,7 +19,6 @@ import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import {VerificationError} from '../../../../shared/src/errors/User';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
-import ProfileInfo from './components/ProfileInfo';
 
 const Heading = styled(Body16)({textAlign: 'center'});
 
@@ -41,7 +40,6 @@ const UpgradeAccount = () => {
   const {updateIsPublicHost} = useIsPublicHost();
 
   const needToUpgrade = Boolean(user?.isAnonymous);
-  const needProfileInfo = !user?.photoURL || !user?.displayName;
 
   const requestCode = async () => {
     await requestPromotion();
@@ -120,17 +118,6 @@ const UpgradeAccount = () => {
           />
           <Spacer16 />
           <Button onPress={setEmailAndPassword}>{t('button')}</Button>
-        </>
-      );
-    }
-
-    if (needProfileInfo) {
-      return (
-        <>
-          <Heading>{t('needProfile')}</Heading>
-          <Spacer16 />
-          <ProfileInfo />
-          <Spacer16 />
         </>
       );
     }

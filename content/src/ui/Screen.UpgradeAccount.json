@@ -5,7 +5,6 @@
     "haveCodeButton": "I have a code",
     "requestComplete": "We've now registered your request. As soon as it's approved we'll email you a verification code.",
     "needToUpgrade": "To become an official host you need to register an account.",
-    "needProfile": "To become an official host you need provide a user name and profile picture.",
     "success": {
       "header": "Success!",
       "text": "You're now able to create and host sessions open for every 29k user to join!"
@@ -28,7 +27,6 @@
     "haveCodeButton": "Jag har en kod",
     "requestComplete": "Vi har tagit emot din begäran. När den är godkänd får du ett mail med en verifikationskod. ",
     "needToUpgrade": "För att hålla i publika sessioner behöver du skapa ett konto.",
-    "needProfile": "För att hålla i publika sessioner behöver du ett namn och en profilbild.",
     "success": {
       "header": "Success!",
       "text": "You're now able to create and host sessions open for every 29k user to join!"
@@ -39,7 +37,7 @@
       "verificationAlreadyClaimed": "Koden har redan använts.",
       "verificationFailed": "Du har inte angett en giltig kod."
     },
-    "text": "Du behöver registrera dig för att kunna skapa publika sessioner. ",
+    "text": "Du behöver registrera dig för att kunna skapa publika sessioner.",
     "requestCodeButton": "Begär kod",
     "button": "Uppgradera",
     "password": "Lösenord",

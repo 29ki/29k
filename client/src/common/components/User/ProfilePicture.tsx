@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import Image from '../../../common/components/Image/Image';
+import Image from '../Image/Image';
 
 const ImageContainer = styled.TouchableOpacity({
   backgroundColor: COLORS.GREYMEDIUM,

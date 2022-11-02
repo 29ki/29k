@@ -15,7 +15,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackProps} from '../../../lib/navigation/constants/routes';
 import useChangeProfileInfo from '../hooks/useChangeProfileInfo';
-import ProfilePicture from './ProfilePicture';
+import ProfilePicture from '../../../common/components/User/ProfilePicture';
 import {SPACINGS} from '../../../common/constants/spacings';
 
 const Row = styled.View({
@@ -89,6 +89,9 @@ const CurrentUser: React.FC<CurrentUserProps> = ({isPublicHost = false}) => {
               />
             </ProfilePictureWrapper>
           </CenterCol>
+          <Heading18>{t('displayName')}</Heading18>
+          <Body16 selectable>{user.displayName ?? '-'}</Body16>
+          <Spacer16 />
           <Heading18>{t('userId')}</Heading18>
           <Body18 selectable>{user.uid}</Body18>
           <Spacer16 />
@@ -96,9 +99,6 @@ const CurrentUser: React.FC<CurrentUserProps> = ({isPublicHost = false}) => {
             <>
               <Heading18>{t('email')}</Heading18>
               <Body16 selectable>{user.email}</Body16>
-              <Spacer16 />
-              <Heading18>{t('displayName')}</Heading18>
-              <Body16 selectable>{user.displayName ?? '-'}</Body16>
               <Spacer16 />
             </>
           )}
