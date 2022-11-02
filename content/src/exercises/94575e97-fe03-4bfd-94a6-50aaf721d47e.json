@@ -79,7 +79,7 @@
         "content": {
           "heading": "Up for a mission?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1667374477/Video/mission_1_sgl2fx.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1667376437/Video/mission_Accepting_thoughts_and_feelings_x7qguf.mp4",
             "autoPlayLoop": true
           }
         },
@@ -100,7 +100,7 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1667317593/Video/portal1_Accepting_thoughts_and_feelings_b5ayhz.mp4",
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3"
       },
       "videoEnd": {
@@ -114,7 +114,7 @@
     },
     "outroPortal": {
       "video": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1667317593/Video/portal1_Accepting_thoughts_and_feelings_b5ayhz.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4"
       }
     }
   },
