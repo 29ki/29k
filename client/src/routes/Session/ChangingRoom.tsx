@@ -6,7 +6,7 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Alert, Linking, Platform} from 'react-native';
+import {ActivityIndicator, Alert, Linking, Platform} from 'react-native';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import {DailyMediaView} from '@daily-co/react-native-daily-js';
@@ -25,6 +25,7 @@ import {
   Spacer16,
   Spacer28,
   Spacer48,
+  TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
 import {Body16} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
@@ -114,24 +115,16 @@ const ChangingRoom = () => {
   const me = useRecoilValue(localParticipantSelector);
 
   useEffect(() => {
-    const startVideo = async () => {
-      if (isFocused && session?.url) {
-        preJoinMeeting(session?.url);
+    if (isFocused && session?.url) {
+      preJoinMeeting(session?.url);
+    }
+  }, [isFocused, session?.url, preJoinMeeting]);
 
-        if (isHost && me?.user_id) {
-          setSpotlightParticipant(me.user_id);
-        }
-      }
-    };
-    startVideo();
-  }, [
-    preJoinMeeting,
-    setSpotlightParticipant,
-    session?.url,
-    isHost,
-    me?.user_id,
-    isFocused,
-  ]);
+  useEffect(() => {
+    if (isHost && me?.user_id) {
+      setSpotlightParticipant(me.user_id);
+    }
+  }, [isHost, me?.user_id, setSpotlightParticipant]);
 
   const join = async () => {
     navigate('IntroPortal', {sessionId: sessionId});
@@ -164,60 +157,66 @@ const ChangingRoom = () => {
 
   return (
     <Screen onPressBack={goBack}>
+      <TopSafeArea />
       <Wrapper>
-        <VideoWrapper>
-          {isFocused &&
-            (hasVideo ? (
-              <DailyMediaViewWrapper
-                videoTrack={me?.videoTrack ?? null}
-                audioTrack={me?.audioTrack ?? null}
-                objectFit={'cover'}
-                mirror={me?.local}
-              />
-            ) : (
-              <VideoText>{t('cameraOff')}</VideoText>
-            ))}
-          <Audio muted={!hasAudio} />
-        </VideoWrapper>
+        {!me ? (
+          <ActivityIndicator size="large" />
+        ) : (
+          <>
+            <VideoWrapper>
+              {isFocused &&
+                (hasVideo ? (
+                  <DailyMediaViewWrapper
+                    videoTrack={me?.videoTrack ?? null}
+                    audioTrack={me?.audioTrack ?? null}
+                    objectFit={'cover'}
+                    mirror={me?.local}
+                  />
+                ) : (
+                  <VideoText>{t('cameraOff')}</VideoText>
+                ))}
+              <Audio muted={!hasAudio} />
+            </VideoWrapper>
 
-        <Spacer28 />
-        <Gutters>
-          <Controls>
-            <IconButton
-              disabled
-              onPress={() => toggleAudio(!hasAudio)}
-              active={hasAudio}
-              variant="secondary"
-              Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
-            />
-            <Spacer16 />
-            <IconButton
-              onPress={() => toggleVideo(!hasVideo)}
-              active={hasVideo}
-              variant="secondary"
-              Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
-            />
-          </Controls>
-          <Spacer48 />
-          <InputWrapper>
-            <StyledTextInput
-              autoFocus
-              onChangeText={setLocalUserName}
-              autoCapitalize="words"
-              autoCorrect={false}
-              maxLength={20}
-              placeholder={t('placeholder')}
-            />
             <Spacer28 />
-            <Button
-              variant="secondary"
-              onPress={handleJoin}
-              disabled={!localUserName.length}>
-              {t('join_button')}
-            </Button>
-          </InputWrapper>
-          <Spacer28 />
-        </Gutters>
+            <Gutters>
+              <Controls>
+                <IconButton
+                  disabled
+                  onPress={() => toggleAudio(!hasAudio)}
+                  active={hasAudio}
+                  variant="secondary"
+                  Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
+                />
+                <Spacer16 />
+                <IconButton
+                  onPress={() => toggleVideo(!hasVideo)}
+                  active={hasVideo}
+                  variant="secondary"
+                  Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
+                />
+              </Controls>
+              <Spacer48 />
+              <InputWrapper>
+                <StyledTextInput
+                  autoFocus
+                  onChangeText={setLocalUserName}
+                  autoCapitalize="words"
+                  autoCorrect={false}
+                  maxLength={20}
+                  placeholder={t('placeholder')}
+                />
+                <Spacer28 />
+                <Button
+                  variant="secondary"
+                  onPress={handleJoin}
+                  disabled={!localUserName.length}>
+                  {t('join_button')}
+                </Button>
+              </InputWrapper>
+            </Gutters>
+          </>
+        )}
       </Wrapper>
       <BottomSafeArea minSize={SPACINGS.TWENTYEIGHT} />
     </Screen>
