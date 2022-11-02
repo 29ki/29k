@@ -110,6 +110,8 @@ const SessionModal = () => {
     ]);
   };
 
+  console.log(session.hostProfile);
+
   return (
     <HalfModal>
       <Spacer16 />
