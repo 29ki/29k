@@ -1,17 +1,17 @@
 import {getAuth} from 'firebase-admin/auth';
-import {getUserProfile} from './users';
+import {getPublicUserInfo} from './user';
 
 const mockGetUser = getAuth().getUser as jest.Mock;
 
-describe('users - controller', () => {
-  describe('getUserProfile', () => {
+describe('users - model', () => {
+  describe('getPublicUserInfo', () => {
     it('should return user profile info', async () => {
       mockGetUser.mockResolvedValueOnce({
         displayName: 'some-name',
         photoURL: 'some-photo-url',
       });
 
-      const profile = await getUserProfile('some-user-id');
+      const profile = await getPublicUserInfo('some-user-id');
 
       expect(profile.displayName).toEqual('some-name');
       expect(profile.photoURL).toEqual('some-photo-url');

@@ -23,11 +23,10 @@ import {
   updateSession,
   getSessions,
 } from './sessions';
-import {getUserProfile} from './users';
+import {getPublicUserInfo} from '../models/user';
 import {SessionType} from '../../../shared/src/types/Session';
 import dayjs from 'dayjs';
 
-jest.mock('./users');
 jest.mock('../lib/utils', () => ({
   ...jest.requireActual('../lib/utils'),
   generateVerificationCode: mockGenerateVerificationCode,
@@ -35,6 +34,7 @@ jest.mock('../lib/utils', () => ({
 jest.mock('../lib/dailyApi', () => mockDailyApi);
 jest.mock('../models/dynamicLinks', () => mockDynamicLinks);
 jest.mock('../models/session');
+jest.mock('../models/user');
 
 const mockGetSessions = sessionModel.getSessions as jest.Mock;
 const mockAddSession = sessionModel.addSession as jest.Mock;
@@ -44,7 +44,7 @@ const mockUpdateSession = sessionModel.updateSession as jest.Mock;
 const mockUpdateExerciseState = sessionModel.updateExerciseState as jest.Mock;
 const mockGetSessionByInviteCode =
   sessionModel.getSessionByInviteCode as jest.Mock;
-const mockGetUserProfile = getUserProfile as jest.Mock;
+const mockGetPublicUserInfo = getPublicUserInfo as jest.Mock;
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));
 
@@ -55,7 +55,7 @@ beforeEach(async () => {
 describe('sessions - controller', () => {
   describe('getSessions', () => {
     it('should get sessions with host profile', async () => {
-      mockGetUserProfile.mockResolvedValueOnce({
+      mockGetPublicUserInfo.mockResolvedValueOnce({
         displayName: 'some-name',
         photoURL: 'some-photo-url',
       });
@@ -71,8 +71,8 @@ describe('sessions - controller', () => {
       expect(sessions[0].hostProfile?.photoURL).toEqual('some-photo-url');
       expect(mockGetSessions).toHaveBeenCalledTimes(1);
       expect(mockGetSessions).toHaveBeenCalledWith('all');
-      expect(mockGetUserProfile).toHaveBeenCalledTimes(1);
-      expect(mockGetUserProfile).toHaveBeenCalledWith('some-user-id');
+      expect(mockGetPublicUserInfo).toHaveBeenCalledTimes(1);
+      expect(mockGetPublicUserInfo).toHaveBeenCalledWith('some-user-id');
     });
   });
 
@@ -116,7 +116,7 @@ describe('sessions - controller', () => {
       mockAddSession.mockResolvedValueOnce({
         hostId: 'some-user-id',
       });
-      mockGetUserProfile.mockResolvedValueOnce({
+      mockGetPublicUserInfo.mockResolvedValueOnce({
         displayName: 'some-name',
         photoURL: 'some-photo-url',
       });
@@ -162,7 +162,7 @@ describe('sessions - controller', () => {
       mockAddSession.mockResolvedValueOnce({
         hostId: 'some-user-id',
       });
-      mockGetUserProfile.mockResolvedValueOnce({
+      mockGetPublicUserInfo.mockResolvedValueOnce({
         displayName: 'some-name',
         photoURL: 'some-photo-url',
       });

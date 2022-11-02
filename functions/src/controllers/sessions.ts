@@ -1,14 +1,14 @@
 import dayjs from 'dayjs';
 import {createSessionInviteLink} from '../models/dynamicLinks';
 import * as sessionModel from '../models/session';
+import {getPublicUserInfo} from '../models/user';
 import * as dailyApi from '../lib/dailyApi';
 import {Session} from '../../../shared/src/types/Session';
 import {ExerciseStateUpdate, UpdateSession} from '../api/sessions';
 import {generateVerificationCode, removeEmpty} from '../lib/utils';
-import {getUserProfile} from './users';
 
 const mapSession = async (session: Session) => {
-  return {...session, hostProfile: await getUserProfile(session.hostId)};
+  return {...session, hostProfile: await getPublicUserInfo(session.hostId)};
 };
 
 export const getSessions = async (userId: string): Promise<Array<Session>> => {
