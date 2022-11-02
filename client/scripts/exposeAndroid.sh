@@ -9,4 +9,5 @@ for id in `adb devices | tail -n +2 | grep device | cut -f1 | grep -E .`; do
   adb -s $id reverse tcp:8080 tcp:8080
   adb -s $id reverse tcp:7007 tcp:7007
   adb -s $id reverse tcp:9099 tcp:9099
+  adb -s $id reverse tcp:9199 tcp:9199
 done

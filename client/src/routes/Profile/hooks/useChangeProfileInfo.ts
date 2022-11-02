@@ -4,12 +4,8 @@ import {openCamera, openPicker} from 'react-native-image-crop-picker';
 import {useRecoilValue} from 'recoil';
 import {userAtom} from '../../../lib/user/state/state';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import {
-  ActionSheetIOS,
-  Alert,
-  PermissionsAndroid,
-  Platform,
-} from 'react-native';
+import {Alert, PermissionsAndroid, Platform} from 'react-native';
+import ActionSheet from 'react-native-action-sheet';
 import {useCallback} from 'react';
 import {STORAGE_ENDPOINT} from 'config';
 
@@ -118,7 +114,7 @@ const useChangeProfileInfo = () => {
       );
     };
 
-    ActionSheetIOS.showActionSheetWithOptions(
+    ActionSheet.showActionSheetWithOptions(
       {
         title: t('title'),
         options: optionTitles,
