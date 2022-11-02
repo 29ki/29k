@@ -30,38 +30,39 @@ type ContentProps = {
     | ExerciseSlidesContent;
   active: boolean;
 };
-const Content: React.FC<ContentProps> = ({slide, active}) => (
+const Content: React.FC<ContentProps> = ({slide: {content}, active}) => (
   <>
     <Spacer12 />
-    {!slide.content.video && !slide.content.image && (
+    {!content.video && !content.image && (
       <TextWrapper>
-        {slide.content.heading && <Heading>{slide.content.heading}</Heading>}
-        {slide.content.text && <Text>{slide.content.text}</Text>}
+        {content.heading && <Heading>{content.heading}</Heading>}
+        {content.text && <Text>{content.text}</Text>}
       </TextWrapper>
     )}
-    {(slide.content.video || slide.content.image) && slide.content.heading && (
-      <Heading>{slide.content.heading}</Heading>
+    {(content.video || content.image) && content.heading && (
+      <Heading>{content.heading}</Heading>
     )}
-    {(slide.content.video || slide.content.image) && slide.content.text && (
-      <Text>{slide.content.text}</Text>
+    {(content.video || content.image) && content.text && (
+      <Text>{content.text}</Text>
     )}
 
-    {slide.content.video ? (
+    {content.video ? (
       <GraphicsWrapper>
         <Spacer8 />
         <Video
-          source={{uri: slide.content.video.source}}
+          source={{uri: content.video.source}}
+          audioSource={
+            content.video.audio ? {uri: content.video.audio} : undefined
+          }
           active={active}
-          preview={slide.content.video.preview}
+          preview={content.video.preview}
+          autoPlayLoop={content.video.autoPlayLoop}
         />
       </GraphicsWrapper>
-    ) : slide.content.image ? (
+    ) : content.image ? (
       <GraphicsWrapper>
         <Spacer8 />
-        <Image
-          resizeMode="contain"
-          source={{uri: slide.content.image.source}}
-        />
+        <Image resizeMode="contain" source={{uri: content.image.source}} />
       </GraphicsWrapper>
     ) : null}
   </>

@@ -38,7 +38,7 @@
       "fields": [
         {
           "fieldPath": "ended",
-          "arrayConfig": "ASCENDING"
+          "order": "ASCENDING"
         },
         {
           "fieldPath": "inviteCode",

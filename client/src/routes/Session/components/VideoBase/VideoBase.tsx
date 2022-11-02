@@ -30,6 +30,7 @@ const VideoBase = React.forwardRef<RNVideo, Omit<VideoProperties, CommonProps>>(
         })}
         playInBackground
         playWhenInactive
+        allowsExternalPlayback={false}
         ref={ref}
       />
     );

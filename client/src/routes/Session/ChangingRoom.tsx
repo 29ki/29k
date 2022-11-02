@@ -37,7 +37,7 @@ import AudioIndicator from './components/Participants/AudioIdicator';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 import useSubscribeToSession from './hooks/useSubscribeToSession';
 import useUpdateSessionExerciseState from './hooks/useUpdateSessionExerciseState';
-import useIsSessionFacilitator from './hooks/useIsSessionHost';
+import useIsSessionHost from './hooks/useIsSessionHost';
 import Screen from '../../common/components/Screen/Screen';
 
 type SessionNavigationProps = NativeStackNavigationProp<SessionStackProps>;
@@ -109,7 +109,7 @@ const ChangingRoom = () => {
 
   useSubscribeToSession(sessionId);
   const {setSpotlightParticipant} = useUpdateSessionExerciseState(sessionId);
-  const isFacilitator = useIsSessionFacilitator();
+  const isHost = useIsSessionHost();
   const isFocused = useIsFocused();
   const me = useRecoilValue(localParticipantSelector);
 
@@ -118,7 +118,7 @@ const ChangingRoom = () => {
       if (isFocused && session?.url) {
         preJoinMeeting(session?.url);
 
-        if (isFacilitator && me?.user_id) {
+        if (isHost && me?.user_id) {
           setSpotlightParticipant(me.user_id);
         }
       }
@@ -128,7 +128,7 @@ const ChangingRoom = () => {
     preJoinMeeting,
     setSpotlightParticipant,
     session?.url,
-    isFacilitator,
+    isHost,
     me?.user_id,
     isFocused,
   ]);

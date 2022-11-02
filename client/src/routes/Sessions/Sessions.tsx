@@ -29,15 +29,14 @@ import SessionCard from '../../common/components/Cards/SessionCard/SessionCard';
 import {PlusIcon} from '../../common/components/Icons';
 import {isLoadingAtom, sessionsAtom} from './state/state';
 import Screen from '../../common/components/Screen/Screen';
-import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 
-const CreateButton = styled(Button)({
+const AddButton = styled(Button)({
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
 });
 
-const CreateSessionWrapper = styled.View({
+const AddSessionWrapper = styled.View({
   flexDirection: 'row',
   justifyContent: 'center',
   ...SETTINGS.BOXSHADOW,
@@ -62,30 +61,20 @@ const ListHeader = () => (
   </>
 );
 
-const CreateSessionForm = ({allowCreate}: {allowCreate: Boolean}) => {
+const AddSessionForm = () => {
   const {t} = useTranslation('Screen.Sessions');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
   return (
-    <CreateSessionWrapper>
-      {allowCreate && (
-        <>
-          <CreateButton
-            onPress={() => navigate('CreateSessionModal')}
-            LeftIcon={PlusIcon}>
-            {t('create')}
-          </CreateButton>
-          <Spacer8 />
-        </>
-      )}
-
-      <CreateButton
-        onPress={() => navigate('JoinSessionModal', {inviteCode: undefined})}
+    <AddSessionWrapper>
+      <AddButton
+        onPress={() => navigate('AddSessionModal')}
         LeftIcon={PlusIcon}>
-        {t('join')}
-      </CreateButton>
-    </CreateSessionWrapper>
+        {t('add')}
+      </AddButton>
+      <Spacer8 />
+    </AddSessionWrapper>
   );
 };
 
@@ -93,7 +82,6 @@ const Sessions = () => {
   const {fetchSessions} = useSessions();
   const isLoading = useRecoilValue(isLoadingAtom);
   const sessions = useRecoilValue(sessionsAtom);
-  const {isPublicHost} = useIsPublicHost();
 
   useEffect(() => {
     fetchSessions();
@@ -120,7 +108,7 @@ const Sessions = () => {
       />
 
       <FloatingForm>
-        <CreateSessionForm allowCreate={isPublicHost} />
+        <AddSessionForm />
         <Spacer12 />
       </FloatingForm>
     </Screen>
