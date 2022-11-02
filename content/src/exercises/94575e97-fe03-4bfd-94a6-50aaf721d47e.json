@@ -77,7 +77,11 @@
       {
         "type": "content",
         "content": {
-          "heading": "Up for a mission?"
+          "heading": "Up for a mission?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1667374477/Video/mission_1_sgl2fx.mp4",
+            "autoPlayLoop": true
+          }
         },
         "hostNotes": [
           {
