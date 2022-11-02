@@ -6,7 +6,13 @@ import {
 } from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
-import React, {useContext, useEffect, useRef, useState} from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
 import Video from 'react-native-video';
@@ -111,18 +117,26 @@ const IntroPortal: React.FC = () => {
   const {setStarted} = useUpdateSession(sessionId);
   const {leaveSessionWithConfirm} = useLeaveSession();
 
+  const introPortal = exercise?.introPortal;
+  const textColor = exercise?.theme?.textColor;
+
+  const navigateToSession = useCallback(
+    () => navigate('Session', {sessionId: sessionId}),
+    [navigate, sessionId],
+  );
+
   usePreventGoingBack(leaveSessionWithConfirm);
 
   useEffect(() => {
     joinMeeting({inPortal: true} as DailyUserData);
   }, [joinMeeting]);
 
-  const introPortal = exercise?.introPortal;
-  const textColor = exercise?.theme?.textColor;
-
-  if (!introPortal) {
-    return null;
-  }
+  useEffect(() => {
+    if (session?.started && !endVideoRef.current) {
+      // If no video is defined, navigate directly
+      navigateToSession();
+    }
+  }, [session?.started, navigateToSession]);
 
   const onEndVideoLoad = () => {
     endVideoRef.current?.seek(0);
@@ -130,7 +144,7 @@ const IntroPortal: React.FC = () => {
 
   const onEndVideoEnd = () => {
     if (joiningSession) {
-      navigate('Session', {sessionId: sessionId});
+      navigateToSession();
     }
   };
 
@@ -148,27 +162,29 @@ const IntroPortal: React.FC = () => {
   return (
     <Screen>
       {!isHost && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
-      {isFocused && introPortal.videoLoop?.audio && (
+      {isFocused && introPortal?.videoLoop?.audio && (
         <AudioFader
-          source={introPortal.videoLoop.audio}
+          source={introPortal?.videoLoop.audio}
           repeat
           paused={!videoLoaded}
           volume={!joiningSession ? 1 : 0}
           duration={!joiningSession ? 20000 : 5000}
         />
       )}
-      <VideoStyled
-        ref={endVideoRef}
-        onLoad={onEndVideoLoad}
-        onEnd={onEndVideoEnd}
-        paused={!joiningSession}
-        source={{uri: introPortal.videoEnd?.source}}
-        resizeMode="cover"
-        poster={introPortal.videoEnd?.preview}
-        posterResizeMode="cover"
-      />
+      {introPortal?.videoEnd && (
+        <VideoStyled
+          ref={endVideoRef}
+          onLoad={onEndVideoLoad}
+          onEnd={onEndVideoEnd}
+          paused={!joiningSession}
+          source={{uri: introPortal.videoEnd?.source}}
+          resizeMode="cover"
+          poster={introPortal.videoEnd?.preview}
+          posterResizeMode="cover"
+        />
+      )}
 
-      {!joiningSession && (
+      {!joiningSession && introPortal?.videoLoop && (
         <VideoStyled
           onLoad={onLoopVideoLoad}
           onEnd={onLoopVideoEnd}
@@ -197,9 +213,7 @@ const IntroPortal: React.FC = () => {
                 noBackground
               />
               {__DEV__ && session?.started && (
-                <Button
-                  small
-                  onPress={() => navigate('Session', {sessionId: sessionId})}>
+                <Button small onPress={navigateToSession}>
                   {t('skipPortal')}
                 </Button>
               )}

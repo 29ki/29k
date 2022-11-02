@@ -13,14 +13,10 @@ const navTheme = {
   },
 };
 
-const Navigation = () => {
-  return (
-    <>
-      <NavigationContainer theme={navTheme} linking={linking}>
-        <Stacks />
-      </NavigationContainer>
-    </>
-  );
-};
+const Navigation = () => (
+  <NavigationContainer theme={navTheme} linking={linking}>
+    <Stacks />
+  </NavigationContainer>
+);
 
 export default Navigation;
