@@ -2,7 +2,7 @@
   "en": {
     "published": true,
     "theme": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "backgroundColor": "#fcc9b7"
     },
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
@@ -77,7 +77,11 @@
       {
         "type": "content",
         "content": {
-          "heading": "Up for a mission?"
+          "heading": "Up for a mission?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1667374477/Video/mission_1_sgl2fx.mp4",
+            "autoPlayLoop": true
+          }
         },
         "hostNotes": [
           {
@@ -107,12 +111,17 @@
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
       }
+    },
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1667317593/Video/portal1_Accepting_thoughts_and_feelings_b5ayhz.mp4"
+      }
     }
   },
   "sv": {
     "published": false,
     "theme": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "backgroundColor": "#fcc9b7"
     },
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
@@ -120,7 +129,7 @@
   "pt": {
     "published": false,
     "theme": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "backgroundColor": "#fcc9b7"
     },
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
