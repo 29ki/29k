@@ -620,38 +620,38 @@ PODS:
     - React-Core (= 0.69.5)
     - React-jsi (= 0.69.5)
     - ReactCommon/turbomodule/core (= 0.69.5)
-  - Firebase/Auth (10.0.0):
+  - Firebase/Auth (10.1.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (~> 10.0.0)
-  - Firebase/CoreOnly (10.0.0):
-    - FirebaseCore (= 10.0.0)
-  - Firebase/DynamicLinks (10.0.0):
+    - FirebaseAuth (~> 10.1.0)
+  - Firebase/CoreOnly (10.1.0):
+    - FirebaseCore (= 10.1.0)
+  - Firebase/DynamicLinks (10.1.0):
     - Firebase/CoreOnly
-    - FirebaseDynamicLinks (~> 10.0.0)
-  - Firebase/Firestore (10.0.0):
+    - FirebaseDynamicLinks (~> 10.1.0)
+  - Firebase/Firestore (10.1.0):
     - Firebase/CoreOnly
-    - FirebaseFirestore (~> 10.0.0)
-  - Firebase/Storage (10.0.0):
+    - FirebaseFirestore (~> 10.1.0)
+  - Firebase/Storage (10.1.0):
     - Firebase/CoreOnly
-    - FirebaseStorage (~> 10.0.0)
+    - FirebaseStorage (~> 10.1.0)
   - FirebaseAppCheckInterop (10.1.0)
-  - FirebaseAuth (10.0.0):
+  - FirebaseAuth (10.1.0):
     - FirebaseCore (~> 10.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
     - GoogleUtilities/Environment (~> 7.8)
     - GTMSessionFetcher/Core (~> 2.1)
   - FirebaseAuthInterop (10.1.0)
-  - FirebaseCore (10.0.0):
+  - FirebaseCore (10.1.0):
     - FirebaseCoreInternal (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/Logger (~> 7.8)
   - FirebaseCoreExtension (10.1.0):
     - FirebaseCore (~> 10.0)
-  - FirebaseCoreInternal (10.0.0):
+  - FirebaseCoreInternal (10.1.0):
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
-  - FirebaseDynamicLinks (10.0.0):
+  - FirebaseDynamicLinks (10.1.0):
     - FirebaseCore (~> 10.0)
-  - FirebaseFirestore (10.0.0):
+  - FirebaseFirestore (10.1.0):
     - abseil/algorithm (~> 1.20211102.0)
     - abseil/base (~> 1.20211102.0)
     - abseil/container/flat_hash_map (~> 1.20211102.0)
@@ -664,7 +664,7 @@ PODS:
     - "gRPC-C++ (~> 1.44.0)"
     - leveldb-library (~> 1.22)
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - FirebaseStorage (10.0.0):
+  - FirebaseStorage (10.1.0):
     - FirebaseAppCheckInterop (~> 10.0)
     - FirebaseAuthInterop (~> 10.0)
     - FirebaseCore (~> 10.0)
@@ -1060,25 +1060,25 @@ PODS:
     - React-Core
   - RNDeviceInfo (10.3.0):
     - React-Core
-  - RNFBApp (16.3.0):
-    - Firebase/CoreOnly (= 10.0.0)
+  - RNFBApp (16.4.0):
+    - Firebase/CoreOnly (= 10.1.0)
     - React-Core
-  - RNFBAuth (16.3.0):
-    - Firebase/Auth (= 10.0.0)
+  - RNFBAuth (16.4.0):
+    - Firebase/Auth (= 10.1.0)
     - React-Core
     - RNFBApp
-  - RNFBDynamicLinks (16.3.0):
-    - Firebase/DynamicLinks (= 10.0.0)
+  - RNFBDynamicLinks (16.4.0):
+    - Firebase/DynamicLinks (= 10.1.0)
     - GoogleUtilities/AppDelegateSwizzler
     - React-Core
     - RNFBApp
-  - RNFBFirestore (16.3.0):
-    - Firebase/Firestore (= 10.0.0)
+  - RNFBFirestore (16.4.0):
+    - Firebase/Firestore (= 10.1.0)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - React-Core
     - RNFBApp
   - RNFBStorage (16.4.0):
-    - Firebase/Storage (= 10.0.0)
+    - Firebase/Storage (= 10.1.0)
     - React-Core
     - RNFBApp
   - RNGestureHandler (2.8.0):
@@ -1101,7 +1101,7 @@ PODS:
     - React-Core
   - RNReactNativeHapticFeedback (1.14.0):
     - React-Core
-  - RNReanimated (2.11.0):
+  - RNReanimated (2.12.0):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -1131,9 +1131,9 @@ PODS:
   - RNScreens (3.18.2):
     - React-Core
     - React-RCTImage
-  - RNSentry (4.6.1):
+  - RNSentry (4.7.1):
     - React-Core
-    - Sentry (= 7.27.1)
+    - Sentry (= 7.28.0)
   - RNSound (0.11.2):
     - React-Core
     - RNSound/Core (= 0.11.2)
@@ -1141,9 +1141,9 @@ PODS:
     - React-Core
   - RNSVG (13.4.0):
     - React-Core
-  - Sentry (7.27.1):
-    - Sentry/Core (= 7.27.1)
-  - Sentry/Core (7.27.1)
+  - Sentry (7.28.0):
+    - Sentry/Core (= 7.28.0)
+  - Sentry/Core (7.28.0)
   - SSZipArchive (2.2.3)
   - TOCropViewController (2.6.1)
   - Yoga (1.14.0)
@@ -1375,16 +1375,16 @@ SPEC CHECKSUMS:
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 0045cf98ca4a48af3bf7108d85b1c243740fa289
   FBReactNativeSpec: 82e74141263f8c962e288f5cd6b5d149cdc8afe1
-  Firebase: 1b810f3d0c0532e27a48f1961f8c0400a668a2cf
+  Firebase: 444b35a9c568a516666213c2f6cccd10cb12559f
   FirebaseAppCheckInterop: 53eec3c354a95f8fe6ff947dd9518ea17f624914
-  FirebaseAuth: 493382cf533cc45e2862b00e9aa4cfe4c98daf71
+  FirebaseAuth: 19a85b8a42e7c1104a2ffa6987c748daa79a5e64
   FirebaseAuthInterop: 15b2c717321d5e46a60562e388c4d1b039ea7e28
-  FirebaseCore: 97f48a3a567a72b8d4daa0f03c3aadb78df4e995
+  FirebaseCore: 55e7ae35991ccca4db03ff8d8df6ed5f17a3e4c7
   FirebaseCoreExtension: 69b966c399abc4ca6dc75006ab87160f81512725
-  FirebaseCoreInternal: 5eb3960335da5ea30115d57d39db6988c4ad06f3
-  FirebaseDynamicLinks: 37dcd9f082b9c5ea9eb5826e82aef58bbd6fd5c1
-  FirebaseFirestore: 5007583f3db2129de8e87f18ee63f4c86f07e7a3
-  FirebaseStorage: 8b0b0630e11b9f3e4a479a26cfccb70ec790ec50
+  FirebaseCoreInternal: 96d75228e10fd369564da51bd898414eb0f54df5
+  FirebaseDynamicLinks: 0c8492a77625ee3c0c564bf98b4cdaa89d9e6535
+  FirebaseFirestore: d482e5e0f95dba8ef5d499a7efa87ba2f56ef0c0
+  FirebaseStorage: 132c10c4d2f8ed8afbfa918eb35d19a87f383d59
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
@@ -1434,22 +1434,22 @@ SPEC CHECKSUMS:
   RNCClipboard: 2834e1c4af68697089cdd455ee4a4cdd198fa7dd
   RNDateTimePicker: 400fc87d26052d1ac76d05935e0f8d0fd4c78f13
   RNDeviceInfo: 4701f0bf2a06b34654745053db0ce4cb0c53ada7
-  RNFBApp: 32d8ec57e98715944859acea963a1cca2a36e006
-  RNFBAuth: f4abe374f3bf88e0c656209c132e4854bef3a747
-  RNFBDynamicLinks: 7f299cbd728eb4394be34835d6e0bad25b7ae75a
-  RNFBFirestore: 0a79bc873c0fafc8e25e62668cf9e69418cb007d
-  RNFBStorage: f70616c8ea9e695b9e2bf7fcfd78a5da6d484641
+  RNFBApp: 4180fc452f41c74ee88a5f4d1357d02a4570d5f1
+  RNFBAuth: 4b3df4568755239c12d7ab3fb2934b7bbe9c227d
+  RNFBDynamicLinks: dc0b3f1594ea6d6fdb610b71938766eb11e2ed4e
+  RNFBFirestore: 60ddceb56611405a0c1bda31c014ff82e7be62ae
+  RNFBStorage: b05f58e2c3b47d97d504dbaa40b22cc70b44d394
   RNGestureHandler: 62232ba8f562f7dea5ba1b3383494eb5bf97a4d3
   RNImageCropPicker: 648356d68fbf9911a1016b3e3723885d28373eda
   RNLocalize: 0df7970cfc60389f00eb62fd7c097dc75af3fb4f
   RNNotifee: dcb2593127f40945c4ee5fc09f61d71bbd00b9cf
   RNReactNativeHapticFeedback: 1e3efeca9628ff9876ee7cdd9edec1b336913f8c
-  RNReanimated: c18abb42be28e4bbf57b54b459968fb7845444d0
+  RNReanimated: c3e58924b9418883b0bde9e78c4c957302f02435
   RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
-  RNSentry: f8591057d48d4f6d64196a76cbca67895667b033
+  RNSentry: 694aecc3d8240e4935374974a6636e360ae06394
   RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
   RNSVG: 07dbd870b0dcdecc99b3a202fa37c8ca163caec2
-  Sentry: bc644307e2eb6a4c9c55cf117a80b895bb2a25a7
+  Sentry: 2c6053e4cfe6dea6608135dea1928ffbb4ecfba5
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
   Yoga: c2b1f2494060865ac1f27e49639e72371b1205fa

@@ -1635,7 +1635,7 @@
   resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-16.4.0.tgz#b79fcd4317f633c1fe7b34a8fe06784afc061bbd"
   integrity sha512-Oxi9yc6o9TywR3eEbO68cuSapIM8jbj7XvTWuGRY/uk+kdgF7b/VqKDKY4D2K9x6fCWKf4J1egmPsLmrMmNTuA==
 
-"@react-native-firebase/storage@^16.3.0":
+"@react-native-firebase/storage@^16.4.0":
   version "16.4.0"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-16.4.0.tgz#25beb39dc8ef345c19fefd105f01cb7ef089d67b"
   integrity sha512-ujbWXd6/Che88xFs8x8SVAEzQKzulRVsZheX49RlSKBkdmOl/D13ujlGlFIgMlr/ACt86MCJx0octbnCLKgRHA==
