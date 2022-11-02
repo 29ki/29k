@@ -2,7 +2,7 @@
   "en": {
     "published": true,
     "theme": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "backgroundColor": "#fcc9b7"
     },
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
@@ -112,7 +112,7 @@
   "sv": {
     "published": false,
     "theme": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "backgroundColor": "#fcc9b7"
     },
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
@@ -120,7 +120,7 @@
   "pt": {
     "published": false,
     "theme": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "backgroundColor": "#fcc9b7"
     },
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
