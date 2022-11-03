@@ -33,10 +33,15 @@ const JoinSessionModal = () => {
         <VerificationCode
           prefillCode={`${inviteCode || ''}`}
           onCodeCompleted={async value => {
-            const session = await joinSession(value);
-            fetchSessions();
-            goBack();
-            navigate('SessionModal', {session: session});
+            try {
+              const session = await joinSession(value);
+              fetchSessions();
+              goBack();
+              navigate('SessionModal', {session: session});
+            } catch (err) {
+              goBack();
+              navigate('SessionUnavailable');
+            }
           }}
         />
       </Gutters>

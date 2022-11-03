@@ -19,6 +19,7 @@ import JoinSessionModal from '../../routes/Sessions/components/JoinSessionModal'
 import useNavigationState from './state/state';
 import UpgradeAccount from '../../routes/Profile/UpgradeAccount';
 import AddSessionModal from '../../routes/Sessions/components/AddSessionModal';
+import SessionUnavailable from '../../routes/Sessions/components/SessionUnavailable';
 
 const RootStack = createNativeStackNavigator<RootStackProps>();
 const SessionStack = createNativeStackNavigator<SessionStackProps>();
@@ -86,6 +87,10 @@ const RootStackWrapper = () => {
             <RootStack.Screen
               name={'UpgradeAccount'}
               component={UpgradeAccount}
+            />
+            <RootStack.Screen
+              name={'SessionUnavailable'}
+              component={SessionUnavailable}
             />
           </RootStack.Group>
         </>
