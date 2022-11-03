@@ -3829,7 +3829,7 @@ firebase-functions-test@^2.4.0:
     lodash "^4.17.5"
     ts-deepmerge "^2.0.1"
 
-firebase-functions@4.0.2:
+firebase-functions@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/firebase-functions/-/firebase-functions-4.0.2.tgz#1029ff160b4b0b6521f2f82bcda97d449526ecfb"
   integrity sha512-y2JEMVRQfKQyib/wRMn6qSEg1kfJhl0nBOPHbcvrWN3cFakOssTVfq78GEQe3m9PPE8toF9ysabsetTUi4vkSg==
@@ -3840,7 +3840,7 @@ firebase-functions@4.0.2:
     express "^4.17.1"
     node-fetch "^2.6.7"
 
-firebase-tools@11.16.0:
+firebase-tools@^11.16.0:
   version "11.16.0"
   resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-11.16.0.tgz#6c0477798c5d7497ddfb12356d9eb2e045f5a5c8"
   integrity sha512-fT8yeco/ksIjA3fdpqWoI+v58tUCzH7YXY+WZdBq6DsbJ27EOSgVcO9uUzn7GYfWEP3A0OdsBwoi/i78RMGlkQ==
