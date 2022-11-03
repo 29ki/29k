@@ -6,6 +6,6 @@
     "node": "16"
   },
   "devDependencies": {
-    "firebase-admin": "^11.1.0"
+    "firebase-admin": "^11.2.0"
   }
 }
