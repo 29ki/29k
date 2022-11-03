@@ -13,6 +13,7 @@ import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display24} from '../Typography/Display/Display';
 import IconButton from '../Buttons/IconButton/IconButton';
 import {EllipsisIcon, IconType} from '../Icons';
+import Byline from '../Bylines/Byline';
 
 const GraphicsWrapper = styled.View({
   position: 'absolute',
@@ -73,6 +74,8 @@ type CardProps = {
   onContextPress?: () => void;
   ButtonIcon?: IconType;
   Icon?: IconType;
+  hostPictureURL?: string;
+  hostName?: string;
 };
 
 export const Card: React.FC<CardProps> = ({
@@ -87,12 +90,15 @@ export const Card: React.FC<CardProps> = ({
   onContextPress,
   ButtonIcon,
   Icon,
+  hostPictureURL,
+  hostName,
 }) => (
   <Wrapper onPress={onPress}>
     <View>
       <HeaderRow>
         <Header>
           {title && <Display24 numberOfLines={2}>{title}</Display24>}
+          <Byline pictureURL={hostPictureURL} name={hostName} />
           {description && <Body16 numberOfLines={1}>{description}</Body16>}
         </Header>
         {Icon && (

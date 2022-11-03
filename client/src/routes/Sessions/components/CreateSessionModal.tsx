@@ -38,6 +38,9 @@ import {LANGUAGE_TAG} from '../../../lib/i18n';
 import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useRecoilValue} from 'recoil';
+import {userAtom} from '../../../lib/user/state/state';
+import ProfileInfo from './ProfileInfo';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -103,6 +106,22 @@ const ContentCard: React.FC<{
         <Image source={{uri: exercise?.card?.image?.source}} />
       </CardImageWrapper>
     </Card>
+  );
+};
+
+const UpdateProfileContainer = styled.View({flex: 1});
+
+const UpdateProfileHeading = styled(Body16)({textAlign: 'center'});
+
+const UpdateProfile: React.FC<StepProps> = () => {
+  const {t} = useTranslation('Component.CreateSessionModal');
+  return (
+    <UpdateProfileContainer>
+      <Spacer16 />
+      <UpdateProfileHeading>{t('profile.text')}</UpdateProfileHeading>
+      <Spacer16 />
+      <ProfileInfo />
+    </UpdateProfileContainer>
   );
 };
 
@@ -261,8 +280,14 @@ type StepProps = {
   setSelectedType: Dispatch<SetStateAction<StepProps['selectedType']>>;
 };
 
-const publicHostSteps = [SelectContent, SelectType, SetDateTime];
-const normalUserSteps = [SelectContent, SetDateTime];
+const publicHostSteps = (hasProfile: boolean) =>
+  hasProfile
+    ? [SelectContent, SelectType, SetDateTime]
+    : [UpdateProfile, SelectContent, SelectType, SetDateTime];
+const normalUserSteps = (hasProfile: boolean) =>
+  hasProfile
+    ? [SelectContent, SetDateTime]
+    : [UpdateProfile, SelectContent, SetDateTime];
 
 const CreateSessionModal = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -270,13 +295,16 @@ const CreateSessionModal = () => {
     Exercise['id'] | undefined
   >();
   const {isPublicHost} = useIsPublicHost();
+  const user = useRecoilValue(userAtom);
   const [selectedType, setSelectedType] = useState<SessionType | undefined>(
     isPublicHost ? undefined : SessionType.private,
   );
 
+  const hasProfile = Boolean(user?.displayName) && Boolean(user?.photoURL);
+
   const CurrentStepComponent: React.FC<StepProps> = isPublicHost
-    ? publicHostSteps[currentStep]
-    : normalUserSteps[currentStep];
+    ? publicHostSteps(hasProfile)[currentStep]
+    : normalUserSteps(hasProfile)[currentStep];
 
   const stepProps: StepProps = {
     selectedExercise,

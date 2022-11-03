@@ -12,7 +12,8 @@
     "language": "Language",
     "password": "Lösenord",
     "upgrade": "Upgrade",
-    "email": "E-mail"
+    "email": "E-mail",
+    "displayName": "Name"
   },
   "sv": {
     "signIn": "Logga in",
@@ -27,7 +28,8 @@
     "language": "Språk",
     "password": "Lösenord",
     "upgrade": "Uppgradera",
-    "email": "Epost"
+    "email": "Epost",
+    "displayName": "Namn"
   },
   "pt": {}
 }

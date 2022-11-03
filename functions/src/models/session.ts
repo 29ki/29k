@@ -112,7 +112,13 @@ export const addSession = async ({
   inviteCode,
 }: Omit<
   Session,
-  'exerciseState' | 'ended' | 'started' | 'userIds' | 'createdAt' | 'updatedAt'
+  | 'exerciseState'
+  | 'ended'
+  | 'started'
+  | 'userIds'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'hostProfile'
 > & {
   dailyRoomName: string;
 }) => {

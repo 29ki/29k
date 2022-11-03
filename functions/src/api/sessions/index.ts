@@ -6,8 +6,7 @@ import {SessionType} from '../../../../shared/src/types/Session';
 import {createRouter} from '../../lib/routers';
 import restrictAccessToRole from '../lib/restrictAccessToRole';
 
-import {getSessions} from '../../models/session';
-import * as sessionControler from '../../controllers/sessions';
+import * as sessionsController from '../../controllers/sessions';
 import {
   DEFAULT_LANGUAGE_TAG,
   LANGUAGE_TAG,
@@ -19,7 +18,7 @@ const sessionsRouter = createRouter();
 sessionsRouter.get('/', async ctx => {
   const {response, user} = ctx;
 
-  const sessions = await getSessions(user.id);
+  const sessions = await sessionsController.getSessions(user.id);
 
   response.status = 200;
   ctx.body = sessions;
@@ -49,7 +48,7 @@ sessionsRouter.post(
       .body as CreateSession;
     const {user} = ctx;
 
-    ctx.body = await sessionControler.createSession(user.id, {
+    ctx.body = await sessionsController.createSession(user.id, {
       contentId,
       type,
       startTime,
@@ -62,7 +61,7 @@ sessionsRouter.delete('/:id', async ctx => {
   const {id} = ctx.params;
 
   try {
-    await sessionControler.removeSession(ctx.user.id, id);
+    await sessionsController.removeSession(ctx.user.id, id);
   } catch {
     ctx.status = 500;
   }
@@ -84,7 +83,7 @@ sessionsRouter.put(
     const {inviteCode} = ctx.request.body as JoinSession;
     const {user} = ctx;
 
-    ctx.body = await sessionControler.joinSession(user.id, inviteCode);
+    ctx.body = await sessionsController.joinSession(user.id, inviteCode);
   },
 );
 
@@ -108,7 +107,7 @@ sessionsRouter.put(
     const {id} = ctx.params;
     const body = ctx.request.body as UpdateSession;
     try {
-      const updatedSession = await sessionControler.updateSession(
+      const updatedSession = await sessionsController.updateSession(
         ctx.user.id,
         id,
         body,
@@ -147,7 +146,7 @@ sessionsRouter.put(
     const data = ctx.request.body as ExerciseStateUpdate;
 
     try {
-      const updatedSession = await sessionControler.updateExerciseState(
+      const updatedSession = await sessionsController.updateExerciseState(
         ctx.user.id,
         id,
         data,

@@ -37,7 +37,7 @@
       "verificationAlreadyClaimed": "Koden har redan använts.",
       "verificationFailed": "Du har inte angett en giltig kod."
     },
-    "text": "Du behöver registrera dig för att kunna skapa publika sessioner. ",
+    "text": "Du behöver registrera dig för att kunna skapa publika sessioner.",
     "requestCodeButton": "Begär kod",
     "button": "Uppgradera",
     "password": "Lösenord",
