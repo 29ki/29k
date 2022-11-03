@@ -21,7 +21,9 @@ import {
   removeSession,
   updateExerciseState,
   updateSession,
+  getSessions,
 } from './sessions';
+import {getPublicUserInfo} from '../models/user';
 import {SessionType} from '../../../shared/src/types/Session';
 import dayjs from 'dayjs';
 
@@ -32,7 +34,9 @@ jest.mock('../lib/utils', () => ({
 jest.mock('../lib/dailyApi', () => mockDailyApi);
 jest.mock('../models/dynamicLinks', () => mockDynamicLinks);
 jest.mock('../models/session');
+jest.mock('../models/user');
 
+const mockGetSessions = sessionModel.getSessions as jest.Mock;
 const mockAddSession = sessionModel.addSession as jest.Mock;
 const mockGetSessionById = sessionModel.getSessionById as jest.Mock;
 const mockDeleteSession = sessionModel.deleteSession as jest.Mock;
@@ -40,6 +44,7 @@ const mockUpdateSession = sessionModel.updateSession as jest.Mock;
 const mockUpdateExerciseState = sessionModel.updateExerciseState as jest.Mock;
 const mockGetSessionByInviteCode =
   sessionModel.getSessionByInviteCode as jest.Mock;
+const mockGetPublicUserInfo = getPublicUserInfo as jest.Mock;
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));
 
@@ -48,8 +53,34 @@ beforeEach(async () => {
 });
 
 describe('sessions - controller', () => {
+  describe('getSessions', () => {
+    it('should get sessions with host profile', async () => {
+      mockGetPublicUserInfo.mockResolvedValueOnce({
+        displayName: 'some-name',
+        photoURL: 'some-photo-url',
+      });
+      mockGetSessions.mockResolvedValueOnce([
+        {
+          hostId: 'some-user-id',
+        },
+      ]);
+
+      const sessions = await getSessions('all');
+
+      expect(sessions[0].hostProfile?.displayName).toEqual('some-name');
+      expect(sessions[0].hostProfile?.photoURL).toEqual('some-photo-url');
+      expect(mockGetSessions).toHaveBeenCalledTimes(1);
+      expect(mockGetSessions).toHaveBeenCalledWith('all');
+      expect(mockGetPublicUserInfo).toHaveBeenCalledTimes(1);
+      expect(mockGetPublicUserInfo).toHaveBeenCalledWith('some-user-id');
+    });
+  });
+
   describe('createSession', () => {
     it('should create a daily room that expires 2h after it starts', async () => {
+      mockAddSession.mockResolvedValueOnce({
+        hostId: 'some-user-id',
+      });
       await createSession('some-user-id', {
         contentId: 'some-content-id',
         type: SessionType.public,
@@ -62,6 +93,9 @@ describe('sessions - controller', () => {
     });
 
     it('should create a dynamic link with correct path', async () => {
+      mockAddSession.mockResolvedValueOnce({
+        hostId: 'some-user-id',
+      });
       mockGenerateVerificationCode.mockReturnValue(123456);
       await createSession('some-user-id', {
         contentId: 'some-content-id',
@@ -79,7 +113,14 @@ describe('sessions - controller', () => {
 
     it('should create and return a session', async () => {
       mockGenerateVerificationCode.mockReturnValueOnce(123456);
-      mockAddSession.mockResolvedValueOnce('add-session-resolved-value');
+      mockAddSession.mockResolvedValueOnce({
+        hostId: 'some-user-id',
+      });
+      mockGetPublicUserInfo.mockResolvedValueOnce({
+        displayName: 'some-name',
+        photoURL: 'some-photo-url',
+      });
+
       const session = await createSession('some-user-id', {
         contentId: 'some-content-id',
         type: SessionType.public,
@@ -99,7 +140,13 @@ describe('sessions - controller', () => {
         url: 'http://fake.daily/url',
         inviteCode: 123456,
       });
-      expect(session).toBe('add-session-resolved-value');
+      expect(session).toMatchObject({
+        hostId: 'some-user-id',
+        hostProfile: {
+          displayName: 'some-name',
+          photoURL: 'some-photo-url',
+        },
+      });
     });
 
     it('should create a invite code that is not in use', async () => {
@@ -112,7 +159,13 @@ describe('sessions - controller', () => {
       // second try generating a unique code finds no session
       mockGenerateVerificationCode.mockReturnValueOnce(654321);
       mockGetSessionByInviteCode.mockResolvedValueOnce(undefined);
-      mockAddSession.mockResolvedValueOnce('add-session-resolved-value');
+      mockAddSession.mockResolvedValueOnce({
+        hostId: 'some-user-id',
+      });
+      mockGetPublicUserInfo.mockResolvedValueOnce({
+        displayName: 'some-name',
+        photoURL: 'some-photo-url',
+      });
 
       const session = await createSession('some-user-id', {
         contentId: 'some-content-id',
@@ -137,7 +190,13 @@ describe('sessions - controller', () => {
         url: 'http://fake.daily/url',
         inviteCode: 654321, // Code generated on the second try
       });
-      expect(session).toBe('add-session-resolved-value');
+      expect(session).toMatchObject({
+        hostId: 'some-user-id',
+        hostProfile: {
+          displayName: 'some-name',
+          photoURL: 'some-photo-url',
+        },
+      });
     });
   });
 

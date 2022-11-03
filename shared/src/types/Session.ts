@@ -1,5 +1,6 @@
 import type {Timestamp} from 'firebase-admin/firestore';
 import {LANGUAGE_TAG} from '../constants/i18n';
+import {UserProfile} from './User';
 
 export enum SessionType {
   public = 'public',
@@ -39,6 +40,7 @@ export type Session = {
   exerciseState: ExerciseState;
   contentId: string;
   inviteCode: number;
+  hostProfile: UserProfile;
   hostId: string;
   startTime: string;
   started: boolean;
