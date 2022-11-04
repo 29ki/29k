@@ -12,12 +12,7 @@ import Daily, {
   DailyCall,
 } from '@daily-co/react-native-daily-js';
 import {useResetRecoilState, useSetRecoilState} from 'recoil';
-import {
-  videoSharingFields,
-  participantsAtom,
-  videoSharingAtom,
-  participantsSortOrderAtom,
-} from './state/state';
+import {participantsAtom, participantsSortOrderAtom} from './state/state';
 import useSetParticipantsSortOrder from './hooks/useSetParticipantsSortOrder';
 import Sentry from '../../lib/sentry';
 
@@ -49,20 +44,17 @@ export const DailyContext = createContext<DailyProviderTypes>({
 const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const [daily] = useState(() => Daily.createCallObject());
 
-  const setIsLoading = useSetRecoilState(videoSharingFields('isLoading'));
   const setParticipants = useSetRecoilState(participantsAtom);
   const setParticipantsSortOrder = useSetParticipantsSortOrder();
   const resetParticipants = useResetRecoilState(participantsAtom);
-  const resetVideoCallState = useResetRecoilState(videoSharingAtom);
   const resetActiveParticipants = useResetRecoilState(
     participantsSortOrderAtom,
   );
 
   const resetState = useCallback(() => {
     resetParticipants();
-    resetVideoCallState();
     resetActiveParticipants();
-  }, [resetParticipants, resetVideoCallState, resetActiveParticipants]);
+  }, [resetParticipants, resetActiveParticipants]);
 
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(() => {
     const onParticipantJoined = ({

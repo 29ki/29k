@@ -8,19 +8,6 @@ import {
 
 const NAMESPACE = 'VideoSharing';
 
-type VideoSharingState = {
-  isLoading: boolean;
-  isStarted: boolean;
-};
-
-export const videoSharingAtom = atom<VideoSharingState>({
-  key: `${NAMESPACE}/videoSharing`,
-  default: {
-    isLoading: false,
-    isStarted: false,
-  },
-});
-
 export const participantsAtom = atom<{
   [user_id: string]: DailyParticipant | undefined;
 }>({
@@ -74,18 +61,6 @@ export const localParticipantSelector = selector<DailyParticipant | null>({
       ) ?? null
     );
   },
-});
-
-export const videoSharingFields = selectorFamily({
-  key: `${NAMESPACE}/fields`,
-  get:
-    (field: keyof VideoSharingState) =>
-    ({get}) =>
-      get(videoSharingAtom)[field],
-  set:
-    field =>
-    ({set}, newValue) =>
-      set(videoSharingAtom, prevState => ({...prevState, [field]: newValue})),
 });
 
 export const sessionAtom = atom<SessionData | null>({

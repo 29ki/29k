@@ -1,14 +1,9 @@
 import React, {useContext, useEffect} from 'react';
-import {ActivityIndicator} from 'react-native';
 import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 
-import {
-  videoSharingFields,
-  localParticipantSelector,
-  sessionAtom,
-} from './state/state';
+import {localParticipantSelector, sessionAtom} from './state/state';
 import {
   BottomSafeArea,
   Spacer12,
@@ -113,7 +108,6 @@ const Session = () => {
   const {setEnded} = useUpdateSession(sessionId);
   const me = useRecoilValue(localParticipantSelector);
   const isHost = useIsSessionHost();
-  const isLoading = useRecoilValue(videoSharingFields('isLoading'));
   const session = useRecoilValue(sessionAtom);
   const exercise = useSessionExercise();
   const {leaveSessionWithConfirm} = useLeaveSession();
@@ -130,14 +124,6 @@ const Session = () => {
     setUserData({inPortal: false} as DailyUserData);
     setSubscribeToAllTracks();
   }, [setUserData, setSubscribeToAllTracks]);
-
-  if (isLoading) {
-    return (
-      <LoadingView>
-        <ActivityIndicator size="large" color={COLORS.BLACK} />
-      </LoadingView>
-    );
-  }
 
   const hasAudio = Boolean(me?.audioTrack);
   const hasVideo = Boolean(me?.videoTrack);
