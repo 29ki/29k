@@ -7,7 +7,7 @@ import {useRecoilValue} from 'recoil';
 
 import {RootStackProps, SessionStackProps} from './constants/routes';
 import KillSwitch from '../../routes/KillSwitch/KillSwitch';
-import {killSwitchFields} from '../killSwitch/state/state';
+import useKillSwitchState from '../killSwitch/state/state';
 import Tabs from './Tabs';
 import Session from '../../routes/Session/Session';
 import ChangingRoom from '../../routes/Session/ChangingRoom';
@@ -47,7 +47,7 @@ const SessionStackWrapper = () => (
 );
 
 const RootStackWrapper = () => {
-  const isBlocking = useRecoilValue(killSwitchFields('isBlocking'));
+  const isBlocking = useKillSwitchState(state => state.isBlocking);
   const fade = useRecoilValue(navigationWithFadeAtom);
 
   return (

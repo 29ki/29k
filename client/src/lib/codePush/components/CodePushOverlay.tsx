@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import codepush from 'react-native-code-push';
-import {useRecoilState, useRecoilValue} from 'recoil';
+import {useRecoilValue} from 'recoil';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
 import {useTranslation} from 'react-i18next';
 
@@ -16,7 +16,7 @@ import {Spacer16} from '../../../common/components/Spacers/Spacer';
 import {Body18} from '../../../common/components/Typography/Body/Body';
 import styled from 'styled-components/native';
 import {GUTTERS} from '../../../common/constants/spacings';
-import {killSwitchFields} from '../../killSwitch/state/state';
+import useKillSwitchState from '../../killSwitch/state/state';
 
 // import * as metrics from '../../lib/metrics';
 // import {EVENTS} from '../../constants/metrics';
@@ -51,8 +51,11 @@ const CodePushOverlay = () => {
   const status = useRecoilValue(statusAtom);
   const downloadProgress = useRecoilValue(downloadProgressAtom);
   const isColdStarted = useAppState(state => state.isColdStarted);
-  const [isRequiredUpdate, setRequiresBundleUpdate] = useRecoilState(
-    killSwitchFields('requiresBundleUpdate'),
+  const isRequiredUpdate = useKillSwitchState(
+    state => state.requiresBundleUpdate,
+  );
+  const setRequiresBundleUpdate = useKillSwitchState(
+    state => state.setRequiresBundleUpdate,
   );
 
   if (!isRequiredUpdate) {
