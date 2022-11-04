@@ -1,13 +1,12 @@
 import {useEffect} from 'react';
 import auth from '@react-native-firebase/auth';
-import {useResetRecoilState, useSetRecoilState} from 'recoil';
 import {clone} from 'ramda';
 
-import {userAtom} from '../state/state';
+import useUserState from '../state/state';
 
 const useAuthenticateUser = () => {
-  const setUser = useSetRecoilState(userAtom);
-  const resetUser = useResetRecoilState(userAtom);
+  const setUser = useUserState(state => state.setUser);
+  const resetUser = useUserState(state => state.reset);
 
   useEffect(() => {
     const unsubscribe = auth().onUserChanged(async currentUser => {

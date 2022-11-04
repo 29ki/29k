@@ -1,11 +1,10 @@
 import {useState, useCallback, useEffect} from 'react';
-import {useRecoilValue} from 'recoil';
 import {ROLES} from '../../../../../shared/src/types/User';
-import {userAtom} from '../state/state';
+import useUser from './useUser';
 
 const useIsPublicHost = () => {
   const [isPublicHost, setIsPublicHost] = useState(false);
-  const user = useRecoilValue(userAtom);
+  const user = useUser();
 
   const checkPublicHostRole = useCallback(
     async (forceRefresh?: boolean) => {

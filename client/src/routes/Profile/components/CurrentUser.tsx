@@ -9,11 +9,10 @@ import {Spacer16} from '../../../common/components/Spacers/Spacer';
 import {Heading18} from '../../../common/components/Typography/Heading/Heading';
 import Input from '../../../common/components/Typography/TextInput/TextInput';
 import {Body16, Body18} from '../../../common/components/Typography/Body/Body';
-import {useRecoilValue} from 'recoil';
-import {userAtom} from '../../../lib/user/state/state';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackProps} from '../../../lib/navigation/constants/routes';
+import useUser from '../../../lib/user/hooks/useUser';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -31,7 +30,7 @@ type CurrentUserProps = {
 const CurrentUser: React.FC<CurrentUserProps> = ({isPublicHost = false}) => {
   const {t} = useTranslation('Screen.Profile');
   const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
-  const user = useRecoilValue(userAtom);
+  const user = useUser();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 

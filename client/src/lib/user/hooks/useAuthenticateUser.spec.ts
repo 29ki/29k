@@ -1,8 +1,8 @@
 import {renderHook} from '@testing-library/react-hooks';
 import auth from '@react-native-firebase/auth';
 import useAuthenticateUser from './useAuthenticateUser';
-import {RecoilRoot, useRecoilValue} from 'recoil';
-import {userAtom} from '../state/state';
+import {RecoilRoot} from 'recoil';
+import useUserState from '../state/state';
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -26,7 +26,7 @@ describe('useAuthenticateUser', () => {
 
     const useTestHook = () => {
       useAuthenticateUser();
-      const user = useRecoilValue(userAtom);
+      const user = useUserState(state => state.user);
 
       return user;
     };

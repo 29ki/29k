@@ -1,10 +1,8 @@
 import {act, renderHook} from '@testing-library/react-hooks';
 import {RecoilRoot, useRecoilValue} from 'recoil';
-import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import useSessions from './useSessions';
 import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
 import {isLoadingAtom, sessionsAtom} from '../state/state';
-import {userAtom} from '../../../lib/user/state/state';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import {SessionType} from '../../../../../shared/src/types/Session';
@@ -35,12 +33,6 @@ describe('useSessions', () => {
       );
       const {result} = renderHook(() => useTestHook(), {
         wrapper: RecoilRoot,
-        initialProps: {
-          initializeState: ({set}) => {
-            set(userAtom, {} as FirebaseAuthTypes.User);
-          },
-          children: null,
-        },
       });
 
       await act(async () => {
@@ -60,12 +52,6 @@ describe('useSessions', () => {
       );
       const {result} = renderHook(() => useTestHook(), {
         wrapper: RecoilRoot,
-        initialProps: {
-          initializeState: ({set}) => {
-            set(userAtom, {} as FirebaseAuthTypes.User);
-          },
-          children: null,
-        },
       });
 
       const fetchPromise = act(async () => {
@@ -92,12 +78,6 @@ describe('useSessions', () => {
       );
       const {result} = renderHook(() => useSessions(), {
         wrapper: RecoilRoot,
-        initialProps: {
-          initializeState: ({set}) => {
-            set(userAtom, {} as FirebaseAuthTypes.User);
-          },
-          children: null,
-        },
       });
 
       await act(async () => {
@@ -145,12 +125,6 @@ describe('useSessions', () => {
       fetchMock.mockResponseOnce('Success', {status: 200});
       const {result} = renderHook(() => useSessions(), {
         wrapper: RecoilRoot,
-        initialProps: {
-          initializeState: ({set}) => {
-            set(userAtom, {} as FirebaseAuthTypes.User);
-          },
-          children: null,
-        },
       });
 
       await act(async () => {
