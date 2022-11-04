@@ -22,7 +22,7 @@ type Actions = {
   reset: () => void;
 };
 
-const initialState = {
+const initialState: State = {
   isBlocking: false,
   isLoading: false,
   hasFailed: false,
