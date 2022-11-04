@@ -1,9 +1,8 @@
 import {act, renderHook} from '@testing-library/react-hooks';
 import notifee from '@notifee/react-native';
+import {AppState} from 'react-native';
 
 import useTriggerNotification from './useTriggerNotification';
-import {RecoilRoot} from 'recoil';
-import {AppState} from 'react-native';
 
 const mockCreateTriggerNotification =
   notifee.createTriggerNotification as jest.Mock;
@@ -24,11 +23,8 @@ describe('useTriggerNotification', () => {
       {notification: {id: 'some-id'}},
     ]);
 
-    const {result, waitForNextUpdate} = renderHook(
-      () => useTriggerNotification('some-id'),
-      {
-        wrapper: RecoilRoot,
-      },
+    const {result, waitForNextUpdate} = renderHook(() =>
+      useTriggerNotification('some-id'),
     );
 
     await waitForNextUpdate();
@@ -59,28 +55,21 @@ describe('useTriggerNotification', () => {
       },
     );
 
-    expect(result.all.length).toBe(2);
+    expect(result.all.length).toBe(3);
   });
 
   it('supports removing the notification', async () => {
     mockGetTriggerNotifications.mockResolvedValueOnce([
-      {notification: {id: 'some-other-id'}},
+      {notification: {id: 'some-id'}},
     ]);
 
-    const {result, waitForNextUpdate} = renderHook(
-      /*
-        Recoil caches selectors between recoil roots - easiest to use a different ID here
-        https://recoiljs.org/docs/guides/testing/#clearing-all-selector-caches
-      */
-      () => useTriggerNotification('some-other-id'),
-      {
-        wrapper: RecoilRoot,
-      },
+    const {result, waitForNextUpdate} = renderHook(() =>
+      useTriggerNotification('some-id'),
     );
 
     await waitForNextUpdate();
 
-    expect(result.current.triggerNotification).toEqual({id: 'some-other-id'});
+    expect(result.current.triggerNotification).toEqual({id: 'some-id'});
 
     await act(async () => {
       await result.current.removeTriggerNotification();
@@ -89,15 +78,15 @@ describe('useTriggerNotification', () => {
     expect(result.current.triggerNotification).toBe(undefined);
 
     expect(mockCancelTriggerNotification).toHaveBeenCalledTimes(1);
-    expect(mockCancelTriggerNotification).toHaveBeenCalledWith('some-other-id');
+    expect(mockCancelTriggerNotification).toHaveBeenCalledWith('some-id');
 
-    expect(result.all.length).toBe(2);
+    expect(result.all.length).toBe(3);
   });
 
   it('supports removing the notification on resume', async () => {
     AppState.currentState = 'background';
     mockGetTriggerNotifications
-      .mockResolvedValueOnce([{notification: {id: 'some-sent-id'}}])
+      .mockResolvedValueOnce([{notification: {id: 'some-id'}}])
       .mockResolvedValueOnce([]);
 
     let eventCallback = (_: string) => Promise.resolve();
@@ -106,20 +95,13 @@ describe('useTriggerNotification', () => {
       return {remove: jest.fn()};
     });
 
-    const {result, waitForNextUpdate} = renderHook(
-      /*
-        Recoil caches selectors between recoil roots - easiest to use a different ID here
-        https://recoiljs.org/docs/guides/testing/#clearing-all-selector-caches
-      */
-      () => useTriggerNotification('some-sent-id'),
-      {
-        wrapper: RecoilRoot,
-      },
+    const {result, waitForNextUpdate} = renderHook(() =>
+      useTriggerNotification('some-id'),
     );
 
     await waitForNextUpdate();
 
-    expect(result.current.triggerNotification).toEqual({id: 'some-sent-id'});
+    expect(result.current.triggerNotification).toEqual({id: 'some-id'});
 
     await act(async () => {
       await eventCallback('active');
@@ -127,6 +109,6 @@ describe('useTriggerNotification', () => {
 
     expect(result.current.triggerNotification).toBe(undefined);
 
-    expect(result.all.length).toBe(2);
+    expect(result.all.length).toBe(3);
   });
 });
