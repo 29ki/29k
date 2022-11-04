@@ -1,6 +1,7 @@
 import {useRecoilValue} from 'recoil';
 import {DailyUserData} from '../../../../../shared/src/types/Session';
-import {participantsSelector, sessionAtom} from '../state/state';
+import {sessionAtom} from '../state/state';
+import {participantsSelector} from '../../../lib/daily/state/state';
 import useSessionExercise from './useSessionExercise';
 
 const useSessionParticipants = () => {

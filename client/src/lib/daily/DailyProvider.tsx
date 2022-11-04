@@ -13,10 +13,7 @@ import Daily, {
   DailyCallOptions,
 } from '@daily-co/react-native-daily-js';
 import {useResetRecoilState, useSetRecoilState} from 'recoil';
-import {
-  participantsAtom,
-  participantsSortOrderAtom,
-} from '../../routes/Session/state/state';
+import {participantsAtom, participantsSortOrderAtom} from './state/state';
 import useSetParticipantsSortOrder from '../../routes/Session/hooks/useSetParticipantsSortOrder';
 import Sentry from '../sentry';
 

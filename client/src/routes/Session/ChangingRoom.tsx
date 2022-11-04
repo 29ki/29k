@@ -30,7 +30,8 @@ import {
 import {Body16} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {DailyContext} from '../../lib/daily/DailyProvider';
-import {localParticipantSelector, sessionAtom} from './state/state';
+import {sessionAtom} from './state/state';
+import {localParticipantSelector} from '../../lib/daily/state/state';
 import {SessionStackProps} from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';

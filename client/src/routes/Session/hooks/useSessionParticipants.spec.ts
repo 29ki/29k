@@ -2,7 +2,8 @@ import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import {renderHook} from '@testing-library/react-hooks';
 import {RecoilRoot} from 'recoil';
 import {SessionData} from '../../../../../shared/src/types/Session';
-import {participantsAtom, sessionAtom} from '../state/state';
+import {sessionAtom} from '../state/state';
+import {participantsAtom} from '../../../lib/daily/state/state';
 import useSessionExercise from './useSessionExercise';
 import useSessionParticipants from './useSessionParticipants';
 

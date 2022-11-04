@@ -1,7 +1,7 @@
 import {reject, whereEq} from 'ramda';
 import {useCallback} from 'react';
 import {useSetRecoilState} from 'recoil';
-import {participantsSortOrderAtom} from '../state/state';
+import {participantsSortOrderAtom} from '../../../lib/daily/state/state';
 
 const useSetParticipantsSortOrder = () => {
   const setParticipantsSortOrder = useSetRecoilState(participantsSortOrderAtom);

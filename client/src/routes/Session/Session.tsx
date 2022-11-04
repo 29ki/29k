@@ -3,7 +3,8 @@ import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 
-import {localParticipantSelector, sessionAtom} from './state/state';
+import {sessionAtom} from './state/state';
+import {localParticipantSelector} from '../../lib/daily/state/state';
 import {
   BottomSafeArea,
   Spacer12,

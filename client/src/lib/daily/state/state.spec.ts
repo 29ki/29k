@@ -10,7 +10,7 @@ const createParticipant = (id: string, local = false) => ({
   [id]: {user_id: id, local} as DailyParticipant,
 });
 
-describe('Session state', () => {
+describe('Daily state', () => {
   describe('participantsSelector', () => {
     it('should omit undefineds streams from server', () => {
       const initialSnapshot = snapshot_UNSTABLE(({set}) =>

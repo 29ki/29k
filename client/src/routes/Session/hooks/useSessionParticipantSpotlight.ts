@@ -1,5 +1,6 @@
 import {useRecoilValue} from 'recoil';
-import {participantByIdSelector, sessionAtom} from '../state/state';
+import {sessionAtom} from '../state/state';
+import {participantByIdSelector} from '../../../lib/daily/state/state';
 
 const useSessionParticipantSpotlight = () => {
   const session = useRecoilValue(sessionAtom);

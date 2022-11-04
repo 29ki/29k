@@ -1,7 +1,10 @@
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import {act, renderHook} from '@testing-library/react-hooks';
 import {RecoilRoot, useRecoilValue, useSetRecoilState} from 'recoil';
-import {participantsAtom, participantsSortOrderAtom} from '../state/state';
+import {
+  participantsAtom,
+  participantsSortOrderAtom,
+} from '../../../lib/daily/state/state';
 import useSetParticipantsSortOrder from './useSetParticipantsSortOrder';
 
 const createParticipant = (id: string, local = false) => ({
