@@ -10,7 +10,7 @@ import {Heading18} from '../../../common/components/Typography/Heading/Heading';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 
 import {downloadProgressAtom, statusAtom} from '..//state/state';
-import {isColdStartedAtom} from '../../appState/state/state';
+import useAppState from '../../appState/state/state';
 import useRestartApp from '../hooks/useRestartApp';
 import {Spacer16} from '../../../common/components/Spacers/Spacer';
 import {Body18} from '../../../common/components/Typography/Body/Body';
@@ -50,7 +50,7 @@ const CodePushOverlay = () => {
 
   const status = useRecoilValue(statusAtom);
   const downloadProgress = useRecoilValue(downloadProgressAtom);
-  const isColdStarted = useRecoilValue(isColdStartedAtom);
+  const isColdStarted = useAppState(state => state.isColdStarted);
   const [isRequiredUpdate, setRequiresBundleUpdate] = useRecoilState(
     killSwitchFields('requiresBundleUpdate'),
   );
