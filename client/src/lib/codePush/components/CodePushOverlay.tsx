@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import codepush from 'react-native-code-push';
-import {useRecoilValue} from 'recoil';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
 import {useTranslation} from 'react-i18next';
 
@@ -9,7 +8,7 @@ import Button from '../../../common/components/Buttons/Button';
 import {Heading18} from '../../../common/components/Typography/Heading/Heading';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 
-import {downloadProgressAtom, statusAtom} from '..//state/state';
+import useCodePushState from '..//state/state';
 import useAppState from '../../appState/state/state';
 import useRestartApp from '../hooks/useRestartApp';
 import {Spacer16} from '../../../common/components/Spacers/Spacer';
@@ -48,8 +47,8 @@ const CodePushOverlay = () => {
 
   const restartApp = useRestartApp();
 
-  const status = useRecoilValue(statusAtom);
-  const downloadProgress = useRecoilValue(downloadProgressAtom);
+  const status = useCodePushState(state => state.status);
+  const downloadProgress = useCodePushState(state => state.downloadProgress);
   const isColdStarted = useAppState(state => state.isColdStarted);
   const isRequiredUpdate = useKillSwitchState(
     state => state.requiresBundleUpdate,
