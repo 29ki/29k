@@ -10,17 +10,21 @@ import Daily, {
   DailyEvent,
   DailyEventObject,
   DailyCall,
+  DailyCallOptions,
 } from '@daily-co/react-native-daily-js';
 import {useResetRecoilState, useSetRecoilState} from 'recoil';
-import {participantsAtom, participantsSortOrderAtom} from './state/state';
-import useSetParticipantsSortOrder from './hooks/useSetParticipantsSortOrder';
-import Sentry from '../../lib/sentry';
+import {
+  participantsAtom,
+  participantsSortOrderAtom,
+} from '../../routes/Session/state/state';
+import useSetParticipantsSortOrder from '../../routes/Session/hooks/useSetParticipantsSortOrder';
+import Sentry from '../sentry';
 
 export type DailyProviderTypes = {
   call?: DailyCall;
   hasAppPermissions: () => boolean;
   preJoinMeeting: (url: string) => Promise<void>;
-  joinMeeting: (userData: unknown) => Promise<void>;
+  joinMeeting: (options: DailyCallOptions) => Promise<void>;
   leaveMeeting: () => Promise<void>;
   toggleAudio: (enabled: boolean) => void;
   toggleVideo: (enabled: boolean) => void;
@@ -115,16 +119,13 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const prepareMeeting = useCallback(
     async (url: string) => {
       if (daily.meetingState() !== 'joined-meeting') {
-        setIsLoading(true);
-
         await daily.preAuth({
           url, // TODO should fetch also token from function in the future
         });
-        setIsLoading(false);
       }
     },
 
-    [daily, setIsLoading],
+    [daily],
   );
 
   const setSubscribeToAllTracks = useCallback(() => {
@@ -177,9 +178,9 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   );
 
   const joinMeeting = useCallback(
-    async (userData: unknown) => {
+    async (options: DailyCallOptions) => {
       if (daily.meetingState() !== 'joined-meeting') {
-        await daily.join({subscribeToTracksAutomatically: false, userData});
+        await daily.join(options);
       }
     },
     [daily],

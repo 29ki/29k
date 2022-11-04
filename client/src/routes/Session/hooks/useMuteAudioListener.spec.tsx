@@ -14,10 +14,13 @@ afterEach(() => {
 
 const mockToggleAudio = jest.fn();
 
-jest.mock('../DailyProvider');
+jest.mock('../../../lib/daily/DailyProvider');
 jest.mock('./useSessionExercise', () => jest.fn());
 
-import {DailyContext, DailyProviderTypes} from '../DailyProvider';
+import {
+  DailyContext,
+  DailyProviderTypes,
+} from '../../../lib/daily/DailyProvider';
 import useMuteAudioListener from './useMuteAudioListener';
 import useSessionExercise from './useSessionExercise';
 

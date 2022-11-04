@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useResetRecoilState} from 'recoil';
 
-import {DailyContext} from '../DailyProvider';
+import {DailyContext} from '../../../lib/daily/DailyProvider';
 import {sessionAtom} from '../state/state';
 import {TabNavigatorProps} from '../../../lib/navigation/constants/routes';
 

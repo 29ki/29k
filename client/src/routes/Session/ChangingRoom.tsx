@@ -29,7 +29,7 @@ import {
 } from '../../common/components/Spacers/Spacer';
 import {Body16} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
-import {DailyContext} from './DailyProvider';
+import {DailyContext} from '../../lib/daily/DailyProvider';
 import {localParticipantSelector, sessionAtom} from './state/state';
 import {SessionStackProps} from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';

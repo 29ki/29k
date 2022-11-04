@@ -43,7 +43,7 @@ import AudioFader from './components/AudioFader/AudioFader';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 import useUpdateSession from './hooks/useUpdateSession';
 import HostNotes from './components/HostNotes/HostNotes';
-import {DailyContext} from './DailyProvider';
+import {DailyContext} from '../../lib/daily/DailyProvider';
 import {DailyUserData} from '../../../../shared/src/types/Session';
 import Screen from '../../common/components/Screen/Screen';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
@@ -128,7 +128,12 @@ const IntroPortal: React.FC = () => {
   usePreventGoingBack(leaveSessionWithConfirm);
 
   useEffect(() => {
-    joinMeeting({inPortal: true} as DailyUserData);
+    joinMeeting({
+      subscribeToTracksAutomatically: false,
+      userData: {
+        inPortal: true,
+      },
+    });
   }, [joinMeeting]);
 
   useEffect(() => {

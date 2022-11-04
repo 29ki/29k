@@ -13,7 +13,7 @@ import Session from '../../routes/Session/Session';
 import ChangingRoom from '../../routes/Session/ChangingRoom';
 import IntroPortal from '../../routes/Session/IntroPortal';
 import OutroPortal from '../../routes/Session/OutroPortal';
-import DailyProvider from '../../routes/Session/DailyProvider';
+import DailyProvider from '../daily/DailyProvider';
 import SessionModal from '../../routes/Sessions/components/SessionModal';
 import CreateSessionModal from '../../routes/Sessions/components/CreateSessionModal';
 import JoinSessionModal from '../../routes/Sessions/components/JoinSessionModal';

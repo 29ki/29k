@@ -1,7 +1,7 @@
 import {useContext, useEffect} from 'react';
 import {useRecoilValue} from 'recoil';
 
-import {DailyContext} from '../DailyProvider';
+import {DailyContext} from '../../../lib/daily/DailyProvider';
 import {sessionExerciseStateSelector} from '../state/state';
 import useSessionExercise from './useSessionExercise';
 

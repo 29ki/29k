@@ -9,7 +9,7 @@ import useLeaveSession from './useLeaveSession';
 
 const alertConfirmMock = AlertMock.alert as jest.Mock;
 
-jest.mock('../DailyProvider', () => ({
+jest.mock('../../../lib/daily/DailyProvider', () => ({
   DailyContext: jest.fn(),
 }));
 

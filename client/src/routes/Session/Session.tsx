@@ -14,7 +14,7 @@ import {COLORS} from '../../../../shared/src/constants/colors';
 
 import {SessionStackProps} from '../../lib/navigation/constants/routes';
 
-import {DailyContext} from './DailyProvider';
+import {DailyContext} from '../../lib/daily/DailyProvider';
 
 import ExerciseSlides from './components/ExerciseSlides/ExerciseSlides';
 
