@@ -1,64 +1,106 @@
+import {renderHook} from '@testing-library/react-hooks';
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
-import {snapshot_UNSTABLE} from 'recoil';
-import {
-  participantsSortOrderAtom,
-  participantsAtom,
-  participantsSelector,
-} from './state';
-
-const createParticipant = (id: string, local = false) => ({
-  [id]: {user_id: id, local} as DailyParticipant,
-});
+import useDailyState from './state';
+import {act} from 'react-test-renderer';
 
 describe('Daily state', () => {
-  describe('participantsSelector', () => {
-    it('should omit undefineds streams from server', () => {
-      const initialSnapshot = snapshot_UNSTABLE(({set}) =>
-        set(participantsAtom, {
-          ['test-id-1']: undefined,
-          ...createParticipant('test-id-2'),
-        }),
-      );
+  describe('setParticipant', () => {
+    it('sets participants state', () => {
+      const {result} = renderHook(() => useDailyState());
 
-      expect(
-        initialSnapshot.getLoadable(participantsSelector).valueOrThrow(),
-      ).toEqual([{user_id: 'test-id-2', local: false}]);
-    });
-
-    it('should order participants depending on sort order', () => {
-      const initialSnapshot = snapshot_UNSTABLE(({set}) => {
-        set(participantsAtom, {
-          ...createParticipant('test-id-1', true),
-          ...createParticipant('test-id-2'),
-          ...createParticipant('test-id-3'),
-        });
-        set(participantsSortOrderAtom, ['test-id-2', 'test-id-3', 'test-id-1']);
+      act(() => {
+        result.current.setParticipant('some-id', {
+          user_id: 'some-id',
+        } as DailyParticipant);
       });
 
-      expect(
-        initialSnapshot.getLoadable(participantsSelector).valueOrThrow(),
-      ).toEqual([
-        {user_id: 'test-id-2', local: false},
-        {user_id: 'test-id-3', local: false},
-        {user_id: 'test-id-1', local: true},
-      ]);
+      expect(result.current.participants).toEqual({
+        'some-id': {user_id: 'some-id'},
+      });
     });
+  });
 
-    it('should handle handle participants leaving', () => {
-      const initialSnapshot = snapshot_UNSTABLE(({set}) => {
-        set(participantsAtom, {
-          ...createParticipant('test-id-1', true),
-          ...createParticipant('test-id-2'),
-        });
-        set(participantsSortOrderAtom, ['test-id-2', 'test-id-3', 'test-id-1']);
+  describe('setParticipantsSortOrder', () => {
+    it('sets participantsSortOrder state', () => {
+      const {result} = renderHook(() => useDailyState());
+
+      act(() => {
+        result.current.setParticipantsSortOrder(['some-id', 'some-other-id']);
       });
 
-      expect(
-        initialSnapshot.getLoadable(participantsSelector).valueOrThrow(),
-      ).toEqual([
-        {user_id: 'test-id-2', local: false},
-        {user_id: 'test-id-1', local: true},
+      expect(result.current.participantsSortOrder).toEqual([
+        'some-id',
+        'some-other-id',
       ]);
+    });
+  });
+
+  describe('removeParticipant', () => {
+    it('removed from participants and participantsSortOrder states', () => {
+      const {result} = renderHook(() => useDailyState());
+
+      act(() => {
+        result.current.setParticipant('some-id', {
+          user_id: 'some-id',
+        } as DailyParticipant);
+        result.current.setParticipant('some-other-id', {
+          user_id: 'some-other-id',
+        } as DailyParticipant);
+        result.current.setParticipantsSortOrder(['some-id', 'some-other-id']);
+      });
+
+      expect(result.current.participantsSortOrder).toEqual([
+        'some-id',
+        'some-other-id',
+      ]);
+      expect(result.current.participants).toEqual({
+        'some-id': {user_id: 'some-id'},
+        'some-other-id': {user_id: 'some-other-id'},
+      });
+
+      act(() => {
+        result.current.removeParticipant('some-id');
+      });
+
+      expect(result.current.participants).toEqual({
+        'some-other-id': {user_id: 'some-other-id'},
+      });
+      expect(result.current.participantsSortOrder).toEqual(['some-other-id']);
+    });
+  });
+
+  describe('reset', () => {
+    it('resets state to inital state', () => {
+      const {result} = renderHook(() => useDailyState());
+
+      expect(result.current.participants).toEqual({});
+      expect(result.current.participantsSortOrder).toEqual([]);
+
+      act(() => {
+        result.current.setParticipant('some-id', {
+          user_id: 'some-id',
+        } as DailyParticipant);
+        result.current.setParticipant('some-other-id', {
+          user_id: 'some-other-id',
+        } as DailyParticipant);
+        result.current.setParticipantsSortOrder(['some-id', 'some-other-id']);
+      });
+
+      expect(result.current.participantsSortOrder).toEqual([
+        'some-id',
+        'some-other-id',
+      ]);
+      expect(result.current.participants).toEqual({
+        'some-id': {user_id: 'some-id'},
+        'some-other-id': {user_id: 'some-other-id'},
+      });
+
+      act(() => {
+        result.current.reset();
+      });
+
+      expect(result.current.participants).toEqual({});
+      expect(result.current.participantsSortOrder).toEqual([]);
     });
   });
 });

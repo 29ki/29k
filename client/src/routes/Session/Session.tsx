@@ -4,7 +4,6 @@ import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 
 import {sessionAtom} from './state/state';
-import {localParticipantSelector} from '../../lib/daily/state/state';
 import {
   BottomSafeArea,
   Spacer12,
@@ -46,11 +45,7 @@ import useUpdateSession from './hooks/useUpdateSession';
 import {useTranslation} from 'react-i18next';
 import HostNotes from './components/HostNotes/HostNotes';
 import Screen from '../../common/components/Screen/Screen';
-
-const LoadingView = styled.View({
-  flex: 1,
-  justifyContent: 'center',
-});
+import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
@@ -107,7 +102,7 @@ const Session = () => {
 
   const participants = useSessionParticipants();
   const {setEnded} = useUpdateSession(sessionId);
-  const me = useRecoilValue(localParticipantSelector);
+  const me = useLocalParticipant();
   const isHost = useIsSessionHost();
   const session = useRecoilValue(sessionAtom);
   const exercise = useSessionExercise();

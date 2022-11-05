@@ -5,15 +5,13 @@ import React, {
   useCallback,
   useMemo,
 } from 'react';
-import {omit} from 'ramda';
 import Daily, {
   DailyEvent,
   DailyEventObject,
   DailyCall,
   DailyCallOptions,
 } from '@daily-co/react-native-daily-js';
-import {useResetRecoilState, useSetRecoilState} from 'recoil';
-import {participantsAtom, participantsSortOrderAtom} from './state/state';
+import useDailyState from './state/state';
 import useSetParticipantsSortOrder from '../../routes/Session/hooks/useSetParticipantsSortOrder';
 import Sentry from '../sentry';
 
@@ -45,43 +43,28 @@ export const DailyContext = createContext<DailyProviderTypes>({
 const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const [daily] = useState(() => Daily.createCallObject());
 
-  const setParticipants = useSetRecoilState(participantsAtom);
+  const resetState = useDailyState(state => state.reset);
+  const setParticipant = useDailyState(state => state.setParticipant);
+  const removeParticipant = useDailyState(state => state.removeParticipant);
   const setParticipantsSortOrder = useSetParticipantsSortOrder();
-  const resetParticipants = useResetRecoilState(participantsAtom);
-  const resetActiveParticipants = useResetRecoilState(
-    participantsSortOrderAtom,
-  );
-
-  const resetState = useCallback(() => {
-    resetParticipants();
-    resetActiveParticipants();
-  }, [resetParticipants, resetActiveParticipants]);
 
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(() => {
     const onParticipantJoined = ({
       participant,
     }: DailyEventObject<'participant-joined'>) => {
-      setParticipants(participants => ({
-        ...participants,
-        [participant.user_id]: participant,
-      }));
+      setParticipant(participant.user_id, participant);
     };
 
     const onParticipantUpdated = ({
       participant,
     }: DailyEventObject<'participant-updated'>) => {
-      setParticipants(participants => ({
-        ...participants,
-        [participant.user_id]: participant,
-      }));
+      setParticipant(participant.user_id, participant);
     };
 
     const onParticipantLeft = ({
       participant,
     }: DailyEventObject<'participant-left'>) => {
-      setParticipants(participants =>
-        omit([participant.user_id], participants),
-      );
+      removeParticipant(participant.user_id);
     };
 
     const onActiveSpeakerChange = ({
@@ -103,7 +86,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
       ['error', onError],
       //   ['network-quality-change', connect(networkQualityChange)],
     ];
-  }, [setParticipants, setParticipantsSortOrder]);
+  }, [setParticipant, removeParticipant, setParticipantsSortOrder]);
 
   const leaveMeeting = useCallback(async () => {
     if (!daily) {

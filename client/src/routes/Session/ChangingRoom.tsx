@@ -31,7 +31,6 @@ import {Body16} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {DailyContext} from '../../lib/daily/DailyProvider';
 import {sessionAtom} from './state/state';
-import {localParticipantSelector} from '../../lib/daily/state/state';
 import {SessionStackProps} from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
@@ -41,6 +40,7 @@ import useSubscribeToSession from './hooks/useSubscribeToSession';
 import useUpdateSessionExerciseState from './hooks/useUpdateSessionExerciseState';
 import useIsSessionHost from './hooks/useIsSessionHost';
 import Screen from '../../common/components/Screen/Screen';
+import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 
 type SessionNavigationProps = NativeStackNavigationProp<SessionStackProps>;
 
@@ -113,7 +113,7 @@ const ChangingRoom = () => {
   const {setSpotlightParticipant} = useUpdateSessionExerciseState(sessionId);
   const isHost = useIsSessionHost();
   const isFocused = useIsFocused();
-  const me = useRecoilValue(localParticipantSelector);
+  const me = useLocalParticipant();
 
   useEffect(() => {
     if (isFocused && session?.url) {

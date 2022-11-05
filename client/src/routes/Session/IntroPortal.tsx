@@ -36,7 +36,7 @@ import {SPACINGS} from '../../common/constants/spacings';
 import Counter from './components/Counter/Counter';
 import useSessionExercise from './hooks/useSessionExercise';
 import {sessionAtom} from './state/state';
-import {participantsAtom} from '../../lib/daily/state/state';
+import useDailyState from '../../lib/daily/state/state';
 import useLeaveSession from './hooks/useLeaveSession';
 import VideoBase from './components/VideoBase/VideoBase';
 import useIsSessionHost from './hooks/useIsSessionHost';
@@ -45,7 +45,6 @@ import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack'
 import useUpdateSession from './hooks/useUpdateSession';
 import HostNotes from './components/HostNotes/HostNotes';
 import {DailyContext} from '../../lib/daily/DailyProvider';
-import {DailyUserData} from '../../../../shared/src/types/Session';
 import Screen from '../../common/components/Screen/Screen';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 import {ArrowLeftIcon} from '../../common/components/Icons';
@@ -109,7 +108,7 @@ const IntroPortal: React.FC = () => {
   const {t} = useTranslation('Screen.Portal');
   const exercise = useSessionExercise();
   const session = useRecoilValue(sessionAtom);
-  const participants = useRecoilValue(participantsAtom);
+  const participants = useDailyState(state => state.participants);
   const participantsCount = Object.keys(participants ?? {}).length;
   const isHost = useIsSessionHost();
   const {joinMeeting} = useContext(DailyContext);
