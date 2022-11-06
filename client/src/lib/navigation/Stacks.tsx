@@ -3,7 +3,6 @@ import {
   createNativeStackNavigator,
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
-import {useRecoilValue} from 'recoil';
 
 import {RootStackProps, SessionStackProps} from './constants/routes';
 import KillSwitch from '../../routes/KillSwitch/KillSwitch';
@@ -17,7 +16,7 @@ import DailyProvider from '../daily/DailyProvider';
 import SessionModal from '../../routes/Sessions/components/SessionModal';
 import CreateSessionModal from '../../routes/Sessions/components/CreateSessionModal';
 import JoinSessionModal from '../../routes/Sessions/components/JoinSessionModal';
-import {navigationWithFadeAtom} from './state/state';
+import useNavigationState from './state/state';
 import UpgradeAccount from '../../routes/Profile/UpgradeAccount';
 import AddSessionModal from '../../routes/Sessions/components/AddSessionModal';
 
@@ -48,7 +47,7 @@ const SessionStackWrapper = () => (
 
 const RootStackWrapper = () => {
   const isBlocking = useKillSwitchState(state => state.isBlocking);
-  const fade = useRecoilValue(navigationWithFadeAtom);
+  const fade = useNavigationState(state => state.navigateWithFade);
 
   return (
     // set this state using useNavigationWithFade to change animation to fade
