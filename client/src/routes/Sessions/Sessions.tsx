@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {ListRenderItemInfo, RefreshControl} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useTranslation} from 'react-i18next';
-import {useRecoilValue} from 'recoil';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';

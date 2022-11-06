@@ -1,5 +1,4 @@
 import React, {useContext, useEffect} from 'react';
-import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 

@@ -1,8 +1,6 @@
-import React from 'react';
 import {renderHook} from '@testing-library/react-hooks';
-import {RecoilRoot} from 'recoil';
 
-import useSessionState, {sessionAtom} from '../state/state';
+import useSessionState from '../state/state';
 import {SessionData} from '../../../../../shared/src/types/Session';
 
 import useUserState from '../../../lib/user/state/state';

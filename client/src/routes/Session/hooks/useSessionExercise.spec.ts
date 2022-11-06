@@ -1,8 +1,7 @@
 import {renderHook} from '@testing-library/react-hooks';
-import {RecoilRoot} from 'recoil';
 import {SessionData} from '../../../../../shared/src/types/Session';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import useSessionState, {sessionAtom} from '../state/state';
+import useSessionState from '../state/state';
 import useSessionExercise from './useSessionExercise';
 
 jest.mock('../../../lib/content/hooks/useExerciseById', () => jest.fn());
