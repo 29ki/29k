@@ -1,8 +1,7 @@
 import {act, renderHook} from '@testing-library/react-hooks';
-import {RecoilRoot, useRecoilValue} from 'recoil';
 import useSessions from './useSessions';
 import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
-import {isLoadingAtom, sessionsAtom} from '../state/state';
+import useSessionsState from '../state/state';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import {SessionType} from '../../../../../shared/src/types/Session';
@@ -20,8 +19,8 @@ describe('useSessions', () => {
   describe('fetchSessions', () => {
     const useTestHook = () => {
       const {fetchSessions} = useSessions();
-      const sessions = useRecoilValue(sessionsAtom);
-      const isLoading = useRecoilValue(isLoadingAtom);
+      const sessions = useSessionsState(state => state.sessions);
+      const isLoading = useSessionsState(state => state.isLoading);
 
       return {fetchSessions, sessions, isLoading};
     };
@@ -31,9 +30,7 @@ describe('useSessions', () => {
         JSON.stringify([{id: 'session-id', url: '/session-url'}]),
         {status: 200},
       );
-      const {result} = renderHook(() => useTestHook(), {
-        wrapper: RecoilRoot,
-      });
+      const {result} = renderHook(() => useTestHook());
 
       await act(async () => {
         await result.current.fetchSessions();
@@ -50,9 +47,7 @@ describe('useSessions', () => {
         JSON.stringify([{id: 'session-id', url: '/session-url'}]),
         {status: 200},
       );
-      const {result} = renderHook(() => useTestHook(), {
-        wrapper: RecoilRoot,
-      });
+      const {result} = renderHook(() => useTestHook());
 
       const fetchPromise = act(async () => {
         await result.current.fetchSessions();
@@ -76,9 +71,7 @@ describe('useSessions', () => {
         }),
         {status: 200},
       );
-      const {result} = renderHook(() => useSessions(), {
-        wrapper: RecoilRoot,
-      });
+      const {result} = renderHook(() => useSessions());
 
       await act(async () => {
         const session = await result.current.addSession({
@@ -123,9 +116,7 @@ describe('useSessions', () => {
   describe('deleteSession', () => {
     it('should delete a session and refetch', async () => {
       fetchMock.mockResponseOnce('Success', {status: 200});
-      const {result} = renderHook(() => useSessions(), {
-        wrapper: RecoilRoot,
-      });
+      const {result} = renderHook(() => useSessions());
 
       await act(async () => {
         await result.current.deleteSession('session-id');
