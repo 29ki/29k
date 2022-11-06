@@ -1,8 +1,9 @@
 import {act, renderHook} from '@testing-library/react-hooks';
-import notifee from '@notifee/react-native';
+import notifee, {EventType, Event} from '@notifee/react-native';
 import {AppState} from 'react-native';
 
 import useTriggerNotification from './useTriggerNotification';
+import useNotificationsState from '../state/state';
 
 const mockCreateTriggerNotification =
   notifee.createTriggerNotification as jest.Mock;
@@ -12,6 +13,7 @@ const mockRequestPermission = notifee.requestPermission as jest.Mock;
 const mockCancelTriggerNotification =
   notifee.cancelTriggerNotification as jest.Mock;
 const mockAddEventListener = AppState.addEventListener as jest.Mock;
+const mockOnForegroundEvent = notifee.onForegroundEvent as jest.Mock;
 
 mockAddEventListener.mockImplementation(() => {
   return {remove: jest.fn()};
@@ -110,5 +112,66 @@ describe('useTriggerNotification', () => {
     expect(result.current.triggerNotification).toBe(undefined);
 
     expect(result.all.length).toBe(3);
+  });
+
+  it('adds notification on TRIGGER_NOTIFICATION_CREATED', async () => {
+    mockGetTriggerNotifications.mockResolvedValue([
+      {notification: {id: 'some-id'}},
+    ]);
+
+    type EventCallback = (event?: Event) => Promise<void>;
+    let eventCallback: EventCallback = () => Promise.resolve();
+    mockOnForegroundEvent.mockImplementation(callback => {
+      eventCallback = callback;
+    });
+
+    const {result} = renderHook(() => useTriggerNotification('some-id'));
+
+    await act(async () => {
+      await eventCallback({
+        type: EventType.TRIGGER_NOTIFICATION_CREATED,
+        detail: {notification: {id: 'some-id'}},
+      });
+    });
+
+    expect(result.current.triggerNotification).toEqual({id: 'some-id'});
+  });
+
+  it('removes notification on DELIVERED', async () => {
+    useNotificationsState.setState({
+      notifications: {'some-id': {id: 'some-id'}},
+    });
+
+    mockGetTriggerNotifications.mockResolvedValue([]);
+
+    type EventCallback = (event?: Event) => Promise<void>;
+    let eventCallback: EventCallback = () => Promise.resolve();
+    mockOnForegroundEvent.mockImplementation(callback => {
+      eventCallback = callback;
+    });
+
+    const {result} = renderHook(() => useTriggerNotification('some-id'));
+
+    expect(result.current.triggerNotification).toEqual({id: 'some-id'});
+
+    await act(async () => {
+      await eventCallback({
+        type: EventType.DELIVERED,
+        detail: {notification: {id: 'some-id'}},
+      });
+    });
+
+    expect(result.current.triggerNotification).toBe(undefined);
+  });
+
+  it('unsubscribes from onForegroundEvent on unmount', async () => {
+    const mockUnsubscribe = jest.fn();
+    mockOnForegroundEvent.mockImplementation(() => mockUnsubscribe);
+
+    const {unmount} = renderHook(() => useTriggerNotification('some-id'));
+
+    unmount();
+
+    expect(mockUnsubscribe).toHaveBeenCalledTimes(1);
   });
 });
