@@ -10,15 +10,17 @@ import Input from '../../common/components/Typography/TextInput/TextInput';
 import {Body14, Body16} from '../../common/components/Typography/Body/Body';
 import {Heading16} from '../../common/components/Typography/Heading/Heading';
 import Gutters from '../../common/components/Gutters/Gutters';
-import {requestPromotion, verifyPromotion} from './api/user';
+import {requestPromotion, verifyPromotion} from '../Profile/api/user';
 import styled from 'styled-components/native';
 import HalfModal from '../../common/components/Modals/HalfModal';
 import {userAtom} from '../../lib/user/state/state';
-import VerificationCode from './components/VerificationCode';
+import VerificationCode from '../Profile/components/VerificationCode';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import {VerificationError} from '../../../../shared/src/errors/User';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
+import {getAggregatedState} from './utils';
+import {States} from './constants';
 
 const Heading = styled(Body16)({textAlign: 'center'});
 
@@ -27,18 +29,26 @@ const ErrorText = styled(Body14)({color: COLORS.ERROR, textAlign: 'center'});
 const SuccessHeader = styled(Heading16)({textAlign: 'center'});
 const SuccessText = styled(Body16)({textAlign: 'center'});
 
-const UpgradeAccount = () => {
+const UpgradeAccountModal = () => {
   const {t} = useTranslation('Screen.UpgradeAccount');
   const {params} = useRoute<RouteProp<ModalStackProps, 'UpgradeAccount'>>();
   const user = useRecoilValue(userAtom);
-  const [needToUpgrade, setNeedToUpgrade] = useState(false);
-  const [haveCode, setHaveCode] = useState(Boolean(params?.code));
-  const [haveRequested, setHaveRequested] = useState(false);
-  const [upgradeComplete, setUpgradeComplete] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorString, setErrorString] = useState<string | null>(null);
   const {updateIsPublicHost} = useIsPublicHost();
+
+  const [needToUpgrade, setNeedToUpgrade] = useState(false);
+  const [haveCode, setHaveCode] = useState(Boolean(params?.code));
+  const [haveRequested, setHaveRequested] = useState(false);
+  const [upgradeComplete, setUpgradeComplete] = useState(false);
+
+  const state = getAggregatedState({
+    needToUpgrade,
+    haveRequested,
+    haveCode,
+    upgradeComplete,
+  });
 
   const requestCode = async () => {
     if (user?.isAnonymous) {
@@ -99,14 +109,16 @@ const UpgradeAccount = () => {
       <Gutters>
         <Spacer48 />
 
-        {(!needToUpgrade || haveRequested) && !haveCode && !upgradeComplete && (
+        {state === States.START && (
           <>
             <Heading>
               {haveRequested ? t('requestComplete') : t('text')}
             </Heading>
-            <Spacer16 />
             {!haveRequested && (
-              <Button onPress={requestCode}>{t('requestCodeButton')}</Button>
+              <>
+                <Spacer16 />
+                <Button onPress={requestCode}>{t('requestCodeButton')}</Button>
+              </>
             )}
             <Spacer16 />
             {!user?.isAnonymous && (
@@ -117,7 +129,7 @@ const UpgradeAccount = () => {
           </>
         )}
 
-        {!haveRequested && needToUpgrade && !haveCode && !upgradeComplete && (
+        {state === States.UPGRADE && (
           <>
             <Heading>{t('needToUpgrade')}</Heading>
             <Spacer16 />
@@ -144,7 +156,8 @@ const UpgradeAccount = () => {
             <Button onPress={setEmailAndPassword}>{t('button')}</Button>
           </>
         )}
-        {haveCode && !upgradeComplete && (
+
+        {state === States.INPUT_CODE && (
           <>
             <Heading>{t('enterCode')}</Heading>
             <Spacer16 />
@@ -160,7 +173,8 @@ const UpgradeAccount = () => {
             )}
           </>
         )}
-        {upgradeComplete && (
+
+        {state === States.COMPLETE && (
           <>
             <SuccessHeader>{t('success.header')}</SuccessHeader>
             <SuccessText>{t('success.text')}</SuccessText>
@@ -172,4 +186,4 @@ const UpgradeAccount = () => {
   );
 };
 
-export default UpgradeAccount;
+export default UpgradeAccountModal;

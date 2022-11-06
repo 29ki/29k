@@ -18,7 +18,7 @@ import SessionModal from '../../routes/Sessions/components/SessionModal';
 import CreateSessionModal from '../../routes/Sessions/components/CreateSessionModal';
 import JoinSessionModal from '../../routes/Sessions/components/JoinSessionModal';
 import {navigationWithFadeAtom} from './state/state';
-import UpgradeAccount from '../../routes/Profile/UpgradeAccount';
+import UpgradeAccountModal from '../../routes/UpgradeAccountModal/UpgradeAccountModal';
 import AddSessionModal from '../../routes/Sessions/components/AddSessionModal';
 
 const RootStack = createNativeStackNavigator<RootStackProps>();
@@ -86,7 +86,7 @@ const RootStackWrapper = () => {
             />
             <RootStack.Screen
               name={'UpgradeAccount'}
-              component={UpgradeAccount}
+              component={UpgradeAccountModal}
             />
           </RootStack.Group>
         </>
