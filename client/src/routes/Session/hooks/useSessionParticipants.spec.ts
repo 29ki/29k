@@ -1,8 +1,7 @@
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import {renderHook} from '@testing-library/react-hooks';
-import {RecoilRoot} from 'recoil';
 import {SessionData} from '../../../../../shared/src/types/Session';
-import {sessionAtom} from '../state/state';
+import useSessionState from '../state/state';
 import useDailyState from '../../../lib/daily/state/state';
 import useSessionExercise from './useSessionExercise';
 import useSessionParticipants from './useSessionParticipants';
@@ -26,20 +25,15 @@ describe('useSessionParticipants', () => {
         } as DailyParticipant,
       },
     });
-
-    const {result} = renderHook(() => useSessionParticipants(), {
-      wrapper: RecoilRoot,
-      initialProps: {
-        initializeState: ({set}) => {
-          set(sessionAtom, {
-            exerciseState: {
-              dailySpotlightId: 'some-spotlight-user-id',
-            },
-          } as SessionData);
+    useSessionState.setState({
+      session: {
+        exerciseState: {
+          dailySpotlightId: 'some-spotlight-user-id',
         },
-        children: null,
-      },
+      } as SessionData,
     });
+
+    const {result} = renderHook(() => useSessionParticipants());
 
     expect(result.current).toEqual([{user_id: 'some-other-user-id'}]);
   });
@@ -60,9 +54,7 @@ describe('useSessionParticipants', () => {
       },
     });
 
-    const {result} = renderHook(() => useSessionParticipants(), {
-      wrapper: RecoilRoot,
-    });
+    const {result} = renderHook(() => useSessionParticipants());
 
     expect(result.current).toEqual([
       {user_id: 'some-spotlight-user-id'},
@@ -85,20 +77,15 @@ describe('useSessionParticipants', () => {
         } as DailyParticipant,
       },
     });
-
-    const {result} = renderHook(() => useSessionParticipants(), {
-      wrapper: RecoilRoot,
-      initialProps: {
-        initializeState: ({set}) => {
-          set(sessionAtom, {
-            exerciseState: {
-              dailySpotlightId: 'some-spotlight-user-id',
-            },
-          } as SessionData);
+    useSessionState.setState({
+      session: {
+        exerciseState: {
+          dailySpotlightId: 'some-spotlight-user-id',
         },
-        children: null,
-      },
+      } as SessionData,
     });
+
+    const {result} = renderHook(() => useSessionParticipants());
 
     expect(result.current).toEqual([
       {user_id: 'some-spotlight-user-id'},
@@ -123,9 +110,7 @@ describe('useSessionParticipants', () => {
       },
     });
 
-    const {result} = renderHook(() => useSessionParticipants(), {
-      wrapper: RecoilRoot,
-    });
+    const {result} = renderHook(() => useSessionParticipants());
 
     expect(result.current).toEqual([
       {user_id: 'some-not-in-portal-user-id', userData: {inPortal: false}},

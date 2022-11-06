@@ -3,10 +3,9 @@ import {Alert} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {useResetRecoilState} from 'recoil';
 
 import {DailyContext} from '../../../lib/daily/DailyProvider';
-import {sessionAtom} from '../state/state';
+import useSessionState from '../state/state';
 import {TabNavigatorProps} from '../../../lib/navigation/constants/routes';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
@@ -16,7 +15,7 @@ const useLeaveSession = () => {
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();
 
-  const resetSession = useResetRecoilState(sessionAtom);
+  const resetSession = useSessionState(state => state.reset);
 
   const leaveSession = useCallback(async () => {
     await leaveMeeting();

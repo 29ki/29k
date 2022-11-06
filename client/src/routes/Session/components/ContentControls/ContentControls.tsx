@@ -1,11 +1,10 @@
 import React from 'react';
-import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import {ViewStyle} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
 import useIsSessionHost from '../../hooks/useIsSessionHost';
-import {sessionExerciseStateSelector} from '../../state/state';
+import useSessionState from '../../state/state';
 import useSessionExercise from '../../hooks/useSessionExercise';
 
 import {
@@ -50,7 +49,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   style,
 }) => {
   const isHost = useIsSessionHost();
-  const exerciseState = useRecoilValue(sessionExerciseStateSelector);
+  const exerciseState = useSessionState(state => state.session?.exerciseState);
   const exercise = useSessionExercise();
   const {t} = useTranslation('Screen.Session');
 

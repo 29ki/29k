@@ -35,7 +35,7 @@ import {SessionStackProps} from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import Counter from './components/Counter/Counter';
 import useSessionExercise from './hooks/useSessionExercise';
-import {sessionAtom} from './state/state';
+import useSessionState from './state/state';
 import useDailyState from '../../lib/daily/state/state';
 import useLeaveSession from './hooks/useLeaveSession';
 import VideoBase from './components/VideoBase/VideoBase';
@@ -107,7 +107,7 @@ const IntroPortal: React.FC = () => {
   const [joiningSession, setJoiningSession] = useState(false);
   const {t} = useTranslation('Screen.Portal');
   const exercise = useSessionExercise();
-  const session = useRecoilValue(sessionAtom);
+  const session = useSessionState(state => state.session);
   const participants = useDailyState(state => state.participants);
   const participantsCount = Object.keys(participants ?? {}).length;
   const isHost = useIsSessionHost();

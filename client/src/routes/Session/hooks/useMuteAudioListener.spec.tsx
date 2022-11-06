@@ -1,11 +1,10 @@
 import React from 'react';
 import {renderHook} from '@testing-library/react-hooks';
-import {RecoilRoot} from 'recoil';
 
-import {sessionAtom} from '../state/state';
+import useSessionState from '../state/state';
 import {
   ExerciseStateInput,
-  SessionInput,
+  SessionData,
 } from '../../../../../shared/src/types/Session';
 
 afterEach(() => {
@@ -28,20 +27,17 @@ const mockUseSessionExercise = useSessionExercise as jest.Mock;
 
 describe('useMuteAudioListener', () => {
   it('should toggle audio when state is playing and current slide is not sharing', async () => {
+    useSessionState.setState({
+      session: {
+        exerciseState: {playing: true} as ExerciseStateInput,
+      } as SessionData,
+    });
+
     const wrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
-      <RecoilRoot
-        initializeState={({set}) => {
-          set(sessionAtom, {
-            exerciseState: {playing: true} as ExerciseStateInput,
-          } as SessionInput);
-        }}>
-        <DailyContext.Provider
-          value={
-            {toggleAudio: mockToggleAudio} as unknown as DailyProviderTypes
-          }>
-          {children}
-        </DailyContext.Provider>
-      </RecoilRoot>
+      <DailyContext.Provider
+        value={{toggleAudio: mockToggleAudio} as unknown as DailyProviderTypes}>
+        {children}
+      </DailyContext.Provider>
     );
 
     mockUseSessionExercise.mockReturnValue({
@@ -56,20 +52,17 @@ describe('useMuteAudioListener', () => {
   });
 
   it('should not toggle audio when state is not playing', async () => {
+    useSessionState.setState({
+      session: {
+        exerciseState: {playing: false} as ExerciseStateInput,
+      } as SessionData,
+    });
+
     const wrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
-      <RecoilRoot
-        initializeState={({set}) => {
-          set(sessionAtom, {
-            exerciseState: {playing: false} as ExerciseStateInput,
-          } as SessionInput);
-        }}>
-        <DailyContext.Provider
-          value={
-            {toggleAudio: mockToggleAudio} as unknown as DailyProviderTypes
-          }>
-          {children}
-        </DailyContext.Provider>
-      </RecoilRoot>
+      <DailyContext.Provider
+        value={{toggleAudio: mockToggleAudio} as unknown as DailyProviderTypes}>
+        {children}
+      </DailyContext.Provider>
     );
 
     mockUseSessionExercise.mockReturnValue({
@@ -84,20 +77,17 @@ describe('useMuteAudioListener', () => {
   });
 
   it('should not toggle audio when current slide is sharing', async () => {
+    useSessionState.setState({
+      session: {
+        exerciseState: {playing: true} as ExerciseStateInput,
+      } as SessionData,
+    });
+
     const wrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
-      <RecoilRoot
-        initializeState={({set}) => {
-          set(sessionAtom, {
-            exerciseState: {playing: true} as ExerciseStateInput,
-          } as SessionInput);
-        }}>
-        <DailyContext.Provider
-          value={
-            {toggleAudio: mockToggleAudio} as unknown as DailyProviderTypes
-          }>
-          {children}
-        </DailyContext.Provider>
-      </RecoilRoot>
+      <DailyContext.Provider
+        value={{toggleAudio: mockToggleAudio} as unknown as DailyProviderTypes}>
+        {children}
+      </DailyContext.Provider>
     );
 
     mockUseSessionExercise.mockReturnValue({

@@ -3,7 +3,7 @@ import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 
-import {sessionAtom} from './state/state';
+import useSessionState from './state/state';
 import {
   BottomSafeArea,
   Spacer12,
@@ -104,7 +104,7 @@ const Session = () => {
   const {setEnded} = useUpdateSession(sessionId);
   const me = useLocalParticipant();
   const isHost = useIsSessionHost();
-  const session = useRecoilValue(sessionAtom);
+  const session = useSessionState(state => state.session);
   const exercise = useSessionExercise();
   const {leaveSessionWithConfirm} = useLeaveSession();
 

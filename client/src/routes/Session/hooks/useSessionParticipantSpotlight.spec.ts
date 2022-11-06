@@ -1,8 +1,7 @@
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import {renderHook} from '@testing-library/react-hooks';
-import {RecoilRoot} from 'recoil';
 import {SessionData} from '../../../../../shared/src/types/Session';
-import {sessionAtom} from '../state/state';
+import useSessionState from '../state/state';
 import useDailyState from '../../../lib/daily/state/state';
 import useSessionParticipantSpotlight from './useSessionParticipantSpotlight';
 
@@ -15,20 +14,15 @@ describe('useSessionParticipantSpotlight', () => {
         } as DailyParticipant,
       },
     });
-
-    const {result} = renderHook(() => useSessionParticipantSpotlight(), {
-      wrapper: RecoilRoot,
-      initialProps: {
-        initializeState: ({set}) => {
-          set(sessionAtom, {
-            exerciseState: {
-              dailySpotlightId: 'some-spotlight-user-id',
-            },
-          } as SessionData);
+    useSessionState.setState({
+      session: {
+        exerciseState: {
+          dailySpotlightId: 'some-spotlight-user-id',
         },
-        children: null,
-      },
+      } as SessionData,
     });
+
+    const {result} = renderHook(() => useSessionParticipantSpotlight());
 
     expect(result.current).toEqual({user_id: 'some-spotlight-user-id'});
   });
@@ -42,9 +36,7 @@ describe('useSessionParticipantSpotlight', () => {
       },
     });
 
-    const {result} = renderHook(() => useSessionParticipantSpotlight(), {
-      wrapper: RecoilRoot,
-    });
+    const {result} = renderHook(() => useSessionParticipantSpotlight());
 
     expect(result.current).toBe(undefined);
   });
@@ -58,9 +50,7 @@ describe('useSessionParticipantSpotlight', () => {
       },
     });
 
-    const {result} = renderHook(() => useSessionParticipantSpotlight(), {
-      wrapper: RecoilRoot,
-    });
+    const {result} = renderHook(() => useSessionParticipantSpotlight());
 
     expect(result.current).toBe(undefined);
   });

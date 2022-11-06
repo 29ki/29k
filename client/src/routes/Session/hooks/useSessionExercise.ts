@@ -1,9 +1,8 @@
 import {useMemo} from 'react';
-import {useRecoilValue} from 'recoil';
 import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import {sessionAtom} from '../state/state';
+import useSessionState from '../state/state';
 
 type SessionExercise = Exercise & {
   slide: {
@@ -15,7 +14,7 @@ type SessionExercise = Exercise & {
 };
 
 const useSessionExercise = (): SessionExercise | null => {
-  const session = useRecoilValue(sessionAtom);
+  const session = useSessionState(state => state.session);
   const excercise = useExerciseById(session?.contentId);
 
   const exerciseState = session?.exerciseState;

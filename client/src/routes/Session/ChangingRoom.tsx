@@ -30,7 +30,7 @@ import {
 import {Body16} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {DailyContext} from '../../lib/daily/DailyProvider';
-import {sessionAtom} from './state/state';
+import useSessionState from './state/state';
 import {SessionStackProps} from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
@@ -104,7 +104,7 @@ const ChangingRoom = () => {
     hasAppPermissions,
   } = useContext(DailyContext);
 
-  const session = useRecoilValue(sessionAtom);
+  const session = useSessionState(state => state.session);
   const {
     params: {sessionId: sessionId},
   } = useRoute<RouteProp<SessionStackProps, 'ChangingRoom'>>();

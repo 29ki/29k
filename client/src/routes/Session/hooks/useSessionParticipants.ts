@@ -1,6 +1,5 @@
-import {useRecoilValue} from 'recoil';
 import {DailyUserData} from '../../../../../shared/src/types/Session';
-import {sessionAtom} from '../state/state';
+import useSessionState from '../state/state';
 import useDailyState from '../../../lib/daily/state/state';
 import useSessionExercise from './useSessionExercise';
 import {omit, values} from 'ramda';
@@ -10,7 +9,7 @@ const useSessionParticipants = () => {
   const participantsSortOrder = useDailyState(
     state => state.participantsSortOrder,
   );
-  const session = useRecoilValue(sessionAtom);
+  const session = useSessionState(state => state.session);
   const exercise = useSessionExercise();
 
   const participants = [

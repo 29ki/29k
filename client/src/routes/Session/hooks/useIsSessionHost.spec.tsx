@@ -2,7 +2,7 @@ import React from 'react';
 import {renderHook} from '@testing-library/react-hooks';
 import {RecoilRoot} from 'recoil';
 
-import {sessionAtom} from '../state/state';
+import useSessionState, {sessionAtom} from '../state/state';
 import {SessionData} from '../../../../../shared/src/types/Session';
 
 import useUserState from '../../../lib/user/state/state';
@@ -14,21 +14,13 @@ describe('useIsSessionHost', () => {
     useUserState.setState({
       user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
     });
-
-    const wrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
-      <RecoilRoot
-        initializeState={({set}) => {
-          set(sessionAtom, {
-            hostId: 'some-user-id',
-          } as SessionData);
-        }}>
-        {children}
-      </RecoilRoot>
-    );
-
-    const {result} = renderHook(() => useIsSessionHost(), {
-      wrapper,
+    useSessionState.setState({
+      session: {
+        hostId: 'some-user-id',
+      } as SessionData,
     });
+
+    const {result} = renderHook(() => useIsSessionHost());
 
     expect(result.current).toBe(true);
   });
@@ -37,21 +29,13 @@ describe('useIsSessionHost', () => {
     useUserState.setState({
       user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
     });
-
-    const wrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
-      <RecoilRoot
-        initializeState={({set}) => {
-          set(sessionAtom, {
-            hostId: 'some-other-user-id',
-          } as SessionData);
-        }}>
-        {children}
-      </RecoilRoot>
-    );
-
-    const {result} = renderHook(() => useIsSessionHost(), {
-      wrapper,
+    useSessionState.setState({
+      session: {
+        hostId: 'some-other-user-id',
+      } as SessionData,
     });
+
+    const {result} = renderHook(() => useIsSessionHost());
 
     expect(result.current).toBe(false);
   });
