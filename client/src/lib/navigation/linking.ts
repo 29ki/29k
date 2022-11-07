@@ -25,7 +25,7 @@ const config: LinkingOptions<RootStackProps>['config'] = {
   initialRouteName: 'Tabs',
   screens: {
     JoinSessionModal: 'joinSessionInvite/:inviteCode',
-    UpgradeAccount: 'verifyPublicHostCode/:code',
+    UpgradeAccountModal: 'verifyPublicHostCode/:code',
   },
 };
 
