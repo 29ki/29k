@@ -53,7 +53,12 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
             sessionId: session.id,
           },
         })
-      : addToCalendar(exercise?.name, startAt, startAt.add(30, 'minutes'));
+      : addToCalendar(
+          exercise?.name,
+          session.link,
+          startAt,
+          startAt.add(30, 'minutes'),
+        );
 
   const onContextPress = () => navigate('SessionModal', {session: session});
 

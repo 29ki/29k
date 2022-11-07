@@ -78,7 +78,12 @@ const SessionModal = () => {
   };
 
   const onAddToCalendar = () =>
-    addToCalendar(exercise.name, startTime, startTime.add(30, 'minutes'));
+    addToCalendar(
+      exercise.name,
+      session.link,
+      startTime,
+      startTime.add(30, 'minutes'),
+    );
 
   const onToggleReminder = () => toggleReminder(!reminderEnabled);
 
