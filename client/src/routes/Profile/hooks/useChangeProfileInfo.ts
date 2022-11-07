@@ -21,10 +21,9 @@ const removeProfilePicture = async (user: FirebaseAuthTypes.User | null) => {
     await firebaseStorage()
       .ref(`users/${user.uid}/profilePicture.jpeg`)
       .delete();
-    console.log('HERE');
 
     await user.updateProfile({
-      photoURL: '', // Setting it to null as per documentation does not delete it
+      photoURL: Platform.select({ios: '', android: null}), // Setting it to null as per documentation does not delete it on iOS
     });
     // For some reason this is what makes the user profile info reload
     await user.getIdToken(true);
