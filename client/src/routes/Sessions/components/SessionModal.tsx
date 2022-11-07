@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Alert, Share, View} from 'react-native';
+import {Alert, Platform, Share, View} from 'react-native';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
 import Gutters from '../../../common/components/Gutters/Gutters';
@@ -27,6 +27,7 @@ import useSessions from '../hooks/useSessions';
 import {Body14} from '../../../common/components/Typography/Body/Body';
 import useUser from '../../../lib/user/hooks/useUser';
 import Byline from '../../../common/components/Bylines/Byline';
+import {formatInviteCode} from '../../../common/utils/string';
 
 const Content = styled(Gutters)({
   flexDirection: 'row',
@@ -86,8 +87,8 @@ const SessionModal = () => {
       Share.share({
         url: session.link,
         message: t('shareMessage', {
-          link: session.link,
-          code: '111 111',
+          link: Platform.select({android: session.link, default: undefined}),
+          code: formatInviteCode(session.inviteCode),
           interpolation: {escapeValue: false},
         }),
       });
@@ -123,7 +124,7 @@ const SessionModal = () => {
         {session.inviteCode && (
           <>
             <Spacer8 />
-            <Body14>{session.inviteCode}</Body14>
+            <Body14>{formatInviteCode(session.inviteCode)}</Body14>
             <Spacer8 />
           </>
         )}
