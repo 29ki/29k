@@ -62,8 +62,12 @@ const SessionModal = () => {
   const startTime = dayjs(session.startTime);
   const startingNow = dayjs().isAfter(startTime.subtract(10, 'minutes'));
 
-  const onStartingNow = () => {
-    navigation.goBack();
+  if (!session || !exercise) {
+    return null;
+  }
+
+  const onJoin = () => {
+    navigation.popToTop();
     navigation.navigate('SessionStack', {
       screen: 'ChangingRoom',
       params: {
@@ -72,14 +76,10 @@ const SessionModal = () => {
     });
   };
 
-  if (!session || !exercise) {
-    return null;
-  }
+  const onAddToCalendar = () =>
+    addToCalendar(exercise.name, startTime, startTime.add(30, 'minutes'));
 
-  const onPress = () =>
-    startingNow
-      ? onStartingNow()
-      : addToCalendar(exercise.name, startTime, startTime.add(30, 'minutes'));
+  const onToggleReminder = () => toggleReminder(!reminderEnabled);
 
   const onShare = () => {
     if (session.link) {
@@ -109,8 +109,6 @@ const SessionModal = () => {
     ]);
   };
 
-  console.log(session.hostProfile);
-
   return (
     <HalfModal>
       <Spacer16 />
@@ -138,22 +136,33 @@ const SessionModal = () => {
       </Content>
       <Spacer16 />
       <BottomContent>
-        <Button
-          small
-          LeftIcon={!startingNow ? PlusIcon : undefined}
-          variant={startingNow ? 'primary' : 'secondary'}
-          onPress={onPress}>
-          {startingNow ? t('join') : t('addToCalendar')}
-        </Button>
-        <Spacer8 />
-        <Button
-          small
-          LeftIcon={BellIcon}
-          variant="secondary"
-          active={reminderEnabled}
-          onPress={() => toggleReminder(!reminderEnabled)}>
-          {t('addReminder')}
-        </Button>
+        {startingNow ? (
+          <>
+            <Button small variant="primary" onPress={onJoin}>
+              {t('join')}
+            </Button>
+          </>
+        ) : (
+          <>
+            <Button
+              small
+              LeftIcon={PlusIcon}
+              variant={'secondary'}
+              onPress={onAddToCalendar}>
+              {t('addToCalendar')}
+            </Button>
+            <Spacer8 />
+            <Button
+              small
+              LeftIcon={BellIcon}
+              variant="secondary"
+              active={reminderEnabled}
+              onPress={onToggleReminder}>
+              {t('addReminder')}
+            </Button>
+          </>
+        )}
+
         <Spacer8 />
         {session.link && (
           <>
