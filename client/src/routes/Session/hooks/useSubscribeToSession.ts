@@ -1,11 +1,10 @@
 import {useEffect} from 'react';
 import firestore from '@react-native-firebase/firestore';
-import {useSetRecoilState} from 'recoil';
-import {sessionAtom} from '../state/state';
+import useSessionState from '../state/state';
 import {Session, SessionData} from '../../../../../shared/src/types/Session';
 
 const useSubscribeToSession = (sessionId: Session['id']) => {
-  const setSessionState = useSetRecoilState(sessionAtom);
+  const setSessionState = useSessionState(state => state.setState);
 
   useEffect(() => {
     const doc = firestore().collection('sessions').doc(sessionId);

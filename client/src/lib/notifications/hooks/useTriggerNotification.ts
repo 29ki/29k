@@ -1,17 +1,41 @@
-import {useCallback} from 'react';
+import {useCallback, useEffect} from 'react';
 import notifee, {TimestampTrigger, TriggerType} from '@notifee/react-native';
-import {useRecoilState} from 'recoil';
-import {notificationAtom} from '../state/state';
+import {find} from 'ramda';
+
+import useNotificationsState from '../state/state';
 import useResumeFromBackgrounded from '../../appState/hooks/useResumeFromBackgrounded';
-import {getTriggerNotificationById} from '../utils';
+
+export const getTriggerNotificationById = async (id: string) => {
+  const notifications = await notifee.getTriggerNotifications();
+  return find(({notification}) => notification.id === id, notifications)
+    ?.notification;
+};
 
 const useTriggerNotification = (id: string) => {
-  const [triggerNotification, setNotification] = useRecoilState(
-    notificationAtom(id),
+  const triggerNotification = useNotificationsState(
+    state => state.notifications[id],
   );
-  useResumeFromBackgrounded(async () => {
-    setNotification(await getTriggerNotificationById(id));
-  });
+  const setNotification = useNotificationsState(state => state.setNotification);
+
+  const updateNotification = useCallback(async () => {
+    // Allways get notification data from source (notifee)
+    setNotification(id, await getTriggerNotificationById(id));
+  }, [id, setNotification]);
+
+  useEffect(() => {
+    // Get existing notification on mount
+    updateNotification();
+
+    // Keep state in sync with notification events
+    return notifee.onForegroundEvent(async ({detail}) => {
+      if (detail.notification?.id === id) {
+        updateNotification();
+      }
+    });
+  }, [id, updateNotification]);
+
+  // Update notification when coming back from backgrounded
+  useResumeFromBackgrounded(updateNotification);
 
   const setTriggerNotification = useCallback(
     async (title: string, body: string, timestamp: number) => {
@@ -33,16 +57,17 @@ const useTriggerNotification = (id: string) => {
         },
       };
 
-      setNotification(notification);
+      // Optimistic add, will be updated when created by notifee
+      setNotification(id, notification);
 
       await notifee.createTriggerNotification(notification, trigger);
     },
-    [setNotification, id],
+    [id, setNotification],
   );
 
   const removeTriggerNotification = async () => {
     await notifee.cancelTriggerNotification(id);
-    setNotification(undefined);
+    setNotification(id, undefined);
   };
 
   return {

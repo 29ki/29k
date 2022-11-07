@@ -1,8 +1,16 @@
-import {atom} from 'recoil';
+import create from 'zustand';
 
-const NAMESPACE = 'AppState';
+type State = {
+  isColdStarted: boolean;
+};
 
-export const isColdStartedAtom = atom({
-  key: `${NAMESPACE}/IsColdStarted`,
-  default: true,
-});
+type Actions = {
+  setIsColdStarted: (isColdStarted: boolean) => void;
+};
+
+const useAppState = create<State & Actions>()(set => ({
+  isColdStarted: true,
+  setIsColdStarted: isColdStarted => set({isColdStarted}),
+}));
+
+export default useAppState;

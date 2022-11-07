@@ -16,7 +16,6 @@ import React, {
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
 import Video from 'react-native-video';
-import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
@@ -35,7 +34,8 @@ import {SessionStackProps} from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import Counter from './components/Counter/Counter';
 import useSessionExercise from './hooks/useSessionExercise';
-import {participantsAtom, sessionAtom} from './state/state';
+import useSessionState from './state/state';
+import useDailyState from '../../lib/daily/state/state';
 import useLeaveSession from './hooks/useLeaveSession';
 import VideoBase from './components/VideoBase/VideoBase';
 import useIsSessionHost from './hooks/useIsSessionHost';
@@ -43,8 +43,7 @@ import AudioFader from './components/AudioFader/AudioFader';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 import useUpdateSession from './hooks/useUpdateSession';
 import HostNotes from './components/HostNotes/HostNotes';
-import {DailyContext} from './DailyProvider';
-import {DailyUserData} from '../../../../shared/src/types/Session';
+import {DailyContext} from '../../lib/daily/DailyProvider';
 import Screen from '../../common/components/Screen/Screen';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 import {ArrowLeftIcon} from '../../common/components/Icons';
@@ -107,8 +106,8 @@ const IntroPortal: React.FC = () => {
   const [joiningSession, setJoiningSession] = useState(false);
   const {t} = useTranslation('Screen.Portal');
   const exercise = useSessionExercise();
-  const session = useRecoilValue(sessionAtom);
-  const participants = useRecoilValue(participantsAtom);
+  const session = useSessionState(state => state.session);
+  const participants = useDailyState(state => state.participants);
   const participantsCount = Object.keys(participants ?? {}).length;
   const isHost = useIsSessionHost();
   const {joinMeeting} = useContext(DailyContext);
@@ -128,7 +127,12 @@ const IntroPortal: React.FC = () => {
   usePreventGoingBack(leaveSessionWithConfirm);
 
   useEffect(() => {
-    joinMeeting({inPortal: true} as DailyUserData);
+    joinMeeting({
+      subscribeToTracksAutomatically: false,
+      userData: {
+        inPortal: true,
+      },
+    });
   }, [joinMeeting]);
 
   useEffect(() => {

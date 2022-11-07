@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Alert} from 'react-native';
-import {useRecoilValue} from 'recoil';
 import {useTranslation} from 'react-i18next';
 import auth from '@react-native-firebase/auth';
 import {RouteProp, useRoute} from '@react-navigation/native';
@@ -13,7 +12,7 @@ import Gutters from '../../common/components/Gutters/Gutters';
 import {requestPromotion, verifyPromotion} from './api/user';
 import styled from 'styled-components/native';
 import HalfModal from '../../common/components/Modals/HalfModal';
-import {userAtom} from '../../lib/user/state/state';
+import useUserState from '../../lib/user/state/state';
 import VerificationCode from './components/VerificationCode';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import {VerificationError} from '../../../../shared/src/errors/User';
@@ -30,7 +29,7 @@ const SuccessText = styled(Body16)({textAlign: 'center'});
 const UpgradeAccount = () => {
   const {t} = useTranslation('Screen.UpgradeAccount');
   const {params} = useRoute<RouteProp<ModalStackProps, 'UpgradeAccount'>>();
-  const user = useRecoilValue(userAtom);
+  const user = useUserState(state => state.user);
   const [haveCode, setHaveCode] = useState(Boolean(params?.code));
   const [haveRequested, setHaveRequested] = useState(false);
   const [upgradeComplete, setUpgradeComplete] = useState(false);

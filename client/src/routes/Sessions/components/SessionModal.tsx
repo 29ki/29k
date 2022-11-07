@@ -4,7 +4,6 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Alert, Share, View} from 'react-native';
-import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
 import Gutters from '../../../common/components/Gutters/Gutters';
@@ -22,11 +21,11 @@ import {Display24} from '../../../common/components/Typography/Display/Display';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {RootStackProps} from '../../../lib/navigation/constants/routes';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import {userAtom} from '../../../lib/user/state/state';
 import useAddToCalendar from '../hooks/useAddToCalendar';
 import useSessionNotificationReminder from '../hooks/useSessionNotificationReminder';
 import useSessions from '../hooks/useSessions';
 import {Body14} from '../../../common/components/Typography/Body/Body';
+import useUser from '../../../lib/user/hooks/useUser';
 import Byline from '../../../common/components/Bylines/Byline';
 
 const Content = styled(Gutters)({
@@ -52,7 +51,7 @@ const SessionModal = () => {
     params: {session},
   } = useRoute<RouteProp<RootStackProps, 'SessionModal'>>();
   const {t} = useTranslation('Component.SessionModal');
-  const user = useRecoilValue(userAtom);
+  const user = useUser();
   const navigation = useNavigation<NativeStackNavigationProp<RootStackProps>>();
   const {deleteSession} = useSessions();
   const addToCalendar = useAddToCalendar();
