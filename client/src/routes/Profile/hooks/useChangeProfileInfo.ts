@@ -1,13 +1,12 @@
 import {useTranslation} from 'react-i18next';
 import firebaseStorage from '@react-native-firebase/storage';
 import {openCamera, openPicker} from 'react-native-image-crop-picker';
-import {useRecoilValue} from 'recoil';
-import {userAtom} from '../../../lib/user/state/state';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {Alert, PermissionsAndroid, Platform} from 'react-native';
 import ActionSheet from 'react-native-action-sheet';
 import {useCallback} from 'react';
 import {STORAGE_ENDPOINT} from 'config';
+import useUser from '../../../lib/user/hooks/useUser';
 
 // react-native-image-crop-picker does not export any error
 const E_PICKER_CANCELLED = 'E_PICKER_CANCELLED';
@@ -63,7 +62,7 @@ const uploadProfilePicture = async (
 
 const useChangeProfileInfo = () => {
   const {t} = useTranslation('Alert.ChangeProfilePicture');
-  const user = useRecoilValue(userAtom);
+  const user = useUser();
 
   const changeProfileName = useCallback(
     async (displayName: string) => {

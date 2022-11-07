@@ -38,9 +38,8 @@ import {LANGUAGE_TAG} from '../../../lib/i18n';
 import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {useRecoilValue} from 'recoil';
-import {userAtom} from '../../../lib/user/state/state';
 import ProfileInfo from './ProfileInfo';
+import useUser from '../../../lib/user/hooks/useUser';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -295,7 +294,7 @@ const CreateSessionModal = () => {
     Exercise['id'] | undefined
   >();
   const {isPublicHost} = useIsPublicHost();
-  const user = useRecoilValue(userAtom);
+  const user = useUser();
   const [selectedType, setSelectedType] = useState<SessionType | undefined>(
     isPublicHost ? undefined : SessionType.private,
   );
