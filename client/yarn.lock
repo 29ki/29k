@@ -1785,10 +1785,10 @@
     localforage "^1.8.1"
     tslib "^1.9.3"
 
-"@sentry/react-native@^4.7.1":
-  version "4.7.1"
-  resolved "https://registry.yarnpkg.com/@sentry/react-native/-/react-native-4.7.1.tgz#e1cf140c524b5fe5a70133365a2020cc3ad960cb"
-  integrity sha512-IyqTJFTvxqjdvUOBhdEV9wijDba8If2Ns8AS9MmBnDySgx7dGHWvdGco0SUnT3gtc3jeus+/xjN3DCNp6VBACg==
+"@sentry/react-native@^4.8.0":
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/@sentry/react-native/-/react-native-4.8.0.tgz#77609f20dd84820e051d2669324e0e380702f4b6"
+  integrity sha512-+8js5kRGw8XurRqIVI+IT4tWdBlK6SVEEP6zHTMYB6u4NNzSXc5gKCheSZ1SeKAl30e1ZFw4t4Ace6kO+TlVdQ==
   dependencies:
     "@sentry/browser" "7.16.0"
     "@sentry/cli" "1.74.4"
