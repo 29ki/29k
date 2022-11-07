@@ -20,7 +20,7 @@ import HalfModal from '../../../common/components/Modals/HalfModal';
 import {Spacer16, Spacer8} from '../../../common/components/Spacers/Spacer';
 import {Display24} from '../../../common/components/Typography/Display/Display';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {RootStackProps} from '../../../lib/navigation/constants/routes';
+import {AppStackProps} from '../../../lib/navigation/constants/routes';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import {userAtom} from '../../../lib/user/state/state';
 import useAddToCalendar from '../hooks/useAddToCalendar';
@@ -53,10 +53,10 @@ const Title = styled(Display24)({
 const SessionModal = () => {
   const {
     params: {session},
-  } = useRoute<RouteProp<RootStackProps, 'SessionModal'>>();
+  } = useRoute<RouteProp<AppStackProps, 'SessionModal'>>();
   const {t} = useTranslation('Component.SessionModal');
   const user = useRecoilValue(userAtom);
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackProps>>();
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
   const {deleteSession} = useSessions();
   const addToCalendar = useAddToCalendar();
   const exercise = useExerciseById(session?.contentId);
@@ -67,7 +67,7 @@ const SessionModal = () => {
   const startingNow = dayjs().isAfter(startTime.subtract(10, 'minutes'));
 
   const onStartingNow = () => {
-    navigation.goBack();
+    navigation.popToTop();
     navigation.navigate('SessionStack', {
       screen: 'ChangingRoom',
       params: {
@@ -107,7 +107,7 @@ const SessionModal = () => {
 
         onPress: async () => {
           await deleteSession(session.id);
-          navigation.goBack();
+          navigation.popToTop();
         },
       },
     ]);

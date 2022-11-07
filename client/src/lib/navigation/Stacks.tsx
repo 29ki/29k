@@ -1,11 +1,17 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {
   createNativeStackNavigator,
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
+import {createBottomSheetNavigator} from '@th3rdwave/react-navigation-bottom-sheet';
+import {useBottomSheetDynamicSnapPoints} from '@gorhom/bottom-sheet';
 import {useRecoilValue} from 'recoil';
 
-import {RootStackProps, SessionStackProps} from './constants/routes';
+import {
+  ModalStackProps,
+  AppStackProps,
+  SessionStackProps,
+} from './constants/routes';
 import KillSwitch from '../../routes/KillSwitch/KillSwitch';
 import {killSwitchFields} from '../killSwitch/state/state';
 import Tabs from './Tabs';
@@ -21,7 +27,8 @@ import {navigationWithFadeAtom} from './state/state';
 import UpgradeAccount from '../../routes/Profile/UpgradeAccount';
 import AddSessionModal from '../../routes/Sessions/components/AddSessionModal';
 
-const RootStack = createNativeStackNavigator<RootStackProps>();
+const ModalStack = createBottomSheetNavigator<ModalStackProps>();
+const AppStack = createNativeStackNavigator<AppStackProps>();
 const SessionStack = createNativeStackNavigator<SessionStackProps>();
 
 const stackOptions: NativeStackNavigationOptions = {
@@ -46,52 +53,60 @@ const SessionStackWrapper = () => (
   </DailyProvider>
 );
 
-const RootStackWrapper = () => {
+const AppStackWrapper = () => {
   const isBlocking = useRecoilValue(killSwitchFields('isBlocking'));
   const fade = useRecoilValue(navigationWithFadeAtom);
 
   return (
     // set this state using useNavigationWithFade to change animation to fade
-    <RootStack.Navigator screenOptions={fade ? fadeStackOptions : stackOptions}>
+    <AppStack.Navigator screenOptions={fade ? fadeStackOptions : stackOptions}>
       {isBlocking ? (
-        <RootStack.Screen name={'KillSwitch'} component={KillSwitch} />
+        <AppStack.Screen name={'KillSwitch'} component={KillSwitch} />
       ) : (
         <>
-          <RootStack.Screen name={'Tabs'} component={Tabs} />
-          <RootStack.Screen
+          <AppStack.Screen name={'Tabs'} component={Tabs} />
+          <AppStack.Screen
             name={'SessionStack'}
             component={SessionStackWrapper}
             options={{gestureEnabled: false}}
           />
-
-          <RootStack.Group
-            screenOptions={{
-              presentation: 'transparentModal',
-              gestureDirection: 'vertical',
-              gestureEnabled: true,
-              animation: 'slide_from_bottom',
-            }}>
-            <RootStack.Screen name={'SessionModal'} component={SessionModal} />
-            <RootStack.Screen
-              name={'CreateSessionModal'}
-              component={CreateSessionModal}
-            />
-            <RootStack.Screen
-              name={'JoinSessionModal'}
-              component={JoinSessionModal}
-            />
-            <RootStack.Screen
-              name={'AddSessionModal'}
-              component={AddSessionModal}
-            />
-            <RootStack.Screen
-              name={'UpgradeAccount'}
-              component={UpgradeAccount}
-            />
-          </RootStack.Group>
         </>
       )}
-    </RootStack.Navigator>
+    </AppStack.Navigator>
+  );
+};
+
+const RootStackWrapper = () => {
+  const initialSnapPoints = useMemo(() => ['25%', 'CONTENT_HEIGHT'], []);
+
+  const {
+    animatedHandleHeight,
+    animatedSnapPoints,
+    animatedContentHeight,
+    handleContentLayout,
+  } = useBottomSheetDynamicSnapPoints(initialSnapPoints);
+
+  return (
+    <ModalStack.Navigator
+      screenOptions={{
+        snapPoints: animatedSnapPoints,
+        handleHeight: animatedHandleHeight,
+        contentHeight: animatedContentHeight,
+      }}>
+      <ModalStack.Screen name="App" component={AppStackWrapper} />
+
+      <ModalStack.Screen name={'SessionModal'} component={SessionModal} />
+      <ModalStack.Screen
+        name={'CreateSessionModal'}
+        component={CreateSessionModal}
+      />
+      <ModalStack.Screen
+        name={'JoinSessionModal'}
+        component={JoinSessionModal}
+      />
+      <ModalStack.Screen name={'AddSessionModal'} component={AddSessionModal} />
+      <ModalStack.Screen name={'UpgradeAccount'} component={UpgradeAccount} />
+    </ModalStack.Navigator>
   );
 };
 

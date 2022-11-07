@@ -1,6 +1,6 @@
 import React from 'react';
-import {Pressable, StyleSheet, Dimensions, Platform} from 'react-native';
-import {useNavigation} from '@react-navigation/core';
+import {StyleSheet, Dimensions, Platform} from 'react-native';
+import {useNavigation, useIsFocused} from '@react-navigation/core';
 
 import styled from 'styled-components/native';
 import {BottomSafeArea} from '../Spacers/Spacer';
@@ -9,6 +9,12 @@ import {CloseIcon} from '../Icons';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import SETTINGS from '../../constants/settings';
 import {SPACINGS} from '../../constants/spacings';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {ModalStackProps} from '../../../lib/navigation/constants/routes';
+
+const Background = styled.Pressable({
+  ...StyleSheet.absoluteFillObject,
+});
 
 const Container = styled.View<{deviceHeight: number; backgroundColor?: string}>(
   ({deviceHeight, backgroundColor}) => ({
@@ -50,19 +56,26 @@ export const HalfModal: React.FC<HalfModalProps> = ({
   backgroundColor,
 }) => {
   const dimensions = Dimensions.get('window');
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<ModalStackProps>>();
+  const isFocused = useIsFocused();
+
   const {height} = dimensions;
 
   const handleOnClose = () => {
     if (onClose) {
       onClose();
     }
-    navigation.goBack();
+    navigation.popToTop();
   };
+
+  if (!isFocused) {
+    return null;
+  }
 
   return (
     <KeyboardAvoidingView>
-      <Pressable style={[StyleSheet.absoluteFill]} onPress={handleOnClose} />
+      <Background onPress={handleOnClose} />
       <Container deviceHeight={height} backgroundColor={backgroundColor}>
         <Content>{children}</Content>
         {onClose && (

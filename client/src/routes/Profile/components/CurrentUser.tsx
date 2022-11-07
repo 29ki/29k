@@ -13,7 +13,7 @@ import {useRecoilValue} from 'recoil';
 import {userAtom} from '../../../lib/user/state/state';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {RootStackProps} from '../../../lib/navigation/constants/routes';
+import {AppStackProps} from '../../../lib/navigation/constants/routes';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -30,7 +30,7 @@ type CurrentUserProps = {
 
 const CurrentUser: React.FC<CurrentUserProps> = ({isPublicHost = false}) => {
   const {t} = useTranslation('Screen.Profile');
-  const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
+  const {navigate} = useNavigation<NativeStackNavigationProp<AppStackProps>>();
   const user = useRecoilValue(userAtom);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

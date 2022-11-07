@@ -18,18 +18,17 @@ import Button from '../../../common/components/Buttons/Button';
 const AddSessionModal: React.FC = () => {
   const {t} = useTranslation('Component.AddSessionModal');
 
-  const {goBack, navigate} =
+  const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
   return (
     <HalfModal>
       <Spacer16 />
-      <Gutters>
+      <Gutters style={{height: 600}}>
         <Display24>{t('title')}</Display24>
         <Spacer24 />
         <Button
           onPress={() => {
-            goBack();
             navigate('CreateSessionModal');
           }}>
           {t('create')}
@@ -37,7 +36,6 @@ const AddSessionModal: React.FC = () => {
         <Spacer8 />
         <Button
           onPress={() => {
-            goBack();
             navigate('JoinSessionModal', {inviteCode: undefined});
           }}>
           {t('join')}
