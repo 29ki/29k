@@ -7,9 +7,10 @@ import {View, ViewStyle} from 'react-native';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../common/constants/spacings';
-import {DailyContext} from '../DailyProvider';
+
 import {Body16} from '../../../common/components/Typography/Body/Body';
 import {Display22} from '../../../common/components/Typography/Display/Display';
+import {DailyContext} from '../../../lib/daily/DailyProvider';
 
 const Notification = styled.View({
   backgroundColor: COLORS.WHITE_TRANSPARENT_80,
