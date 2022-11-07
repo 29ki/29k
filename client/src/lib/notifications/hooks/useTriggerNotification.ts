@@ -38,7 +38,12 @@ const useTriggerNotification = (id: string) => {
   useResumeFromBackgrounded(updateNotification);
 
   const setTriggerNotification = useCallback(
-    async (title: string, body: string, timestamp: number) => {
+    async (
+      title: string,
+      body: string,
+      url: string | undefined = '',
+      timestamp: number,
+    ) => {
       if (timestamp > new Date().getTime()) {
         // TODO: handle declined permissions better
         await notifee.requestPermission();
@@ -55,6 +60,9 @@ const useTriggerNotification = (id: string) => {
           body,
           android: {
             channelId: 'reminders',
+          },
+          data: {
+            url,
           },
         };
 

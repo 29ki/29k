@@ -5,7 +5,7 @@ import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useTriggerNotification from '../../../lib/notifications/hooks/useTriggerNotification';
 
 const useSessionNotificationReminder = (session: Session) => {
-  const {id, contentId, startTime} = session;
+  const {id, contentId, startTime, link} = session;
 
   const {t} = useTranslation('Component.SessionReminder');
   const exercise = useExerciseById(contentId);
@@ -23,7 +23,8 @@ const useSessionNotificationReminder = (session: Session) => {
       ? setTriggerNotification(
           t('title', {exercise: exercise?.name}),
           t('body'),
-          dayjs(startTime).subtract(12, 'minutes').valueOf(),
+          link,
+          dayjs(startTime).subtract(10, 'minutes').valueOf(),
         )
       : removeTriggerNotification();
 
