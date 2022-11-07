@@ -1,11 +1,7 @@
 import {renderHook, act} from '@testing-library/react-hooks';
+import {pick} from 'ramda';
 import codePush from 'react-native-code-push';
-import {RecoilRoot, useRecoilValue} from 'recoil';
-import {
-  downloadProgressAtom,
-  statusAtom,
-  updateAvailableAtom,
-} from '../state/state';
+import useCodePushState from '../state/state';
 
 import useCheckForUpdate from './useCheckForUpdate';
 
@@ -18,21 +14,19 @@ afterEach(() => {
 describe('useCheckForUpdate', () => {
   const useTestHook = () => {
     const checkCodePush = useCheckForUpdate();
-    const downloadProgressState = useRecoilValue(downloadProgressAtom);
-    const statusState = useRecoilValue(statusAtom);
-    const updateAvailableState = useRecoilValue(updateAvailableAtom);
+    const codePushState = useCodePushState(
+      pick(['status', 'updateAvailable', 'downloadProgress']),
+    );
 
     return {
       checkCodePush,
-      downloadProgressState,
-      statusState,
-      updateAvailableState,
+      codePushState,
     };
   };
 
   describe('Success', () => {
     it('calls codePush.sync', () => {
-      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+      const {result} = renderHook(useTestHook);
 
       act(() => {
         result.current.checkCodePush();
@@ -58,7 +52,7 @@ describe('useCheckForUpdate', () => {
         },
       );
 
-      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+      const {result} = renderHook(useTestHook);
 
       act(() => {
         result.current.checkCodePush();
@@ -66,8 +60,8 @@ describe('useCheckForUpdate', () => {
 
       expect(codePushMock.sync).toHaveBeenCalledTimes(1);
 
-      expect(result.current.statusState).toBe(4);
-      expect(result.current.updateAvailableState).toBe(false);
+      expect(result.current.codePushState.status).toBe(4);
+      expect(result.current.codePushState.updateAvailable).toBe(false);
     });
 
     it('sets the status and updateAvailable on UPDATE_INSTALLED', () => {
@@ -79,7 +73,7 @@ describe('useCheckForUpdate', () => {
         },
       );
 
-      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+      const {result} = renderHook(useTestHook);
 
       act(() => {
         result.current.checkCodePush();
@@ -87,8 +81,8 @@ describe('useCheckForUpdate', () => {
 
       expect(codePushMock.sync).toHaveBeenCalledTimes(1);
 
-      expect(result.current.statusState).toBe(1);
-      expect(result.current.updateAvailableState).toBe(true);
+      expect(result.current.codePushState.status).toBe(1);
+      expect(result.current.codePushState.updateAvailable).toBe(true);
     });
 
     it('sets the downloadProgress state on download', () => {
@@ -101,7 +95,7 @@ describe('useCheckForUpdate', () => {
         },
       );
 
-      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+      const {result} = renderHook(useTestHook);
 
       act(() => {
         result.current.checkCodePush();
@@ -109,9 +103,9 @@ describe('useCheckForUpdate', () => {
 
       expect(codePushMock.sync).toHaveBeenCalledTimes(1);
 
-      expect(result.current.statusState).toBe(7);
-      expect(result.current.updateAvailableState).toBe(false);
-      expect(result.current.downloadProgressState).toBe(0.5);
+      expect(result.current.codePushState.status).toBe(7);
+      expect(result.current.codePushState.updateAvailable).toBe(false);
+      expect(result.current.codePushState.downloadProgress).toBe(0.5);
     });
   });
 
@@ -119,7 +113,7 @@ describe('useCheckForUpdate', () => {
     it('throws on CodePush error', async () => {
       codePushMock.sync.mockRejectedValue(new Error('Some Random Error'));
 
-      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+      const {result} = renderHook(useTestHook);
 
       await act(async () => {
         await expect(result.current.checkCodePush()).rejects.toThrow(

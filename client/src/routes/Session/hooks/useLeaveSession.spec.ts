@@ -2,14 +2,11 @@ import {useNavigation} from '@react-navigation/native';
 import {act, renderHook} from '@testing-library/react-hooks';
 import {useTranslation} from 'react-i18next';
 import {Alert as AlertMock} from 'react-native';
-import {useResetRecoilState} from 'recoil';
-import {sessionsAtom} from '../../Sessions/state/state';
-import {sessionAtom} from '../state/state';
 import useLeaveSession from './useLeaveSession';
 
 const alertConfirmMock = AlertMock.alert as jest.Mock;
 
-jest.mock('../DailyProvider', () => ({
+jest.mock('../../../lib/daily/DailyProvider', () => ({
   DailyContext: jest.fn(),
 }));
 
@@ -19,11 +16,10 @@ jest.mock('react', () => ({
   useContext: jest.fn(() => ({leaveMeeting: mockLeaveMeeting})),
 }));
 
-const mockReseRecoilState = jest.fn();
-jest.mock('recoil', () => ({
-  ...jest.requireActual('recoil'),
-  useResetRecoilState: jest.fn(() => mockReseRecoilState),
-}));
+const mockResetSessionState = jest.fn();
+jest.mock('../state/state', () =>
+  jest.fn(fn => fn({reset: mockResetSessionState})),
+);
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -33,7 +29,6 @@ describe('useLeaveSession', () => {
   const {t} = useTranslation();
   (t as jest.Mock).mockReturnValue('Some translation');
   const navigation = useNavigation();
-  const resetState = useResetRecoilState(sessionsAtom);
 
   describe('leaveSession', () => {
     it('leaves the call, resets the state and navigates on confirming', async () => {
@@ -42,9 +37,7 @@ describe('useLeaveSession', () => {
       await act(() => result.current.leaveSession());
 
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
-      expect(useResetRecoilState).toHaveBeenCalled(); // Weird recoil caching seems to make this be called twice in this test
-      expect(useResetRecoilState).toHaveBeenCalledWith(sessionAtom);
-      expect(resetState).toHaveBeenCalledTimes(1);
+      expect(mockResetSessionState).toHaveBeenCalledTimes(1);
       expect(navigation.navigate as jest.Mock).toHaveBeenCalledTimes(1);
     });
   });
@@ -86,9 +79,7 @@ describe('useLeaveSession', () => {
 
       expect(alertConfirmMock).toHaveBeenCalledTimes(1);
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
-      expect(useResetRecoilState).toHaveBeenCalledTimes(1);
-      expect(useResetRecoilState).toHaveBeenCalledWith(sessionAtom);
-      expect(resetState).toHaveBeenCalledTimes(1);
+      expect(mockResetSessionState).toHaveBeenCalledTimes(1);
       expect(navigation.navigate as jest.Mock).toHaveBeenCalledTimes(1);
     });
 
@@ -104,7 +95,7 @@ describe('useLeaveSession', () => {
 
       expect(alertConfirmMock).toHaveBeenCalledTimes(1);
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(0);
-      expect(resetState).toHaveBeenCalledTimes(0);
+      expect(mockResetSessionState).toHaveBeenCalledTimes(0);
       expect(navigation.navigate as jest.Mock).toHaveBeenCalledTimes(0);
     });
   });

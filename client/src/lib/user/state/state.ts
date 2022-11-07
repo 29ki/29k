@@ -1,9 +1,23 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import {atom} from 'recoil';
+import create from 'zustand';
 
-const NAMESPACE = 'User';
+type State = {
+  user: FirebaseAuthTypes.User | null;
+};
 
-export const userAtom = atom<FirebaseAuthTypes.User | null>({
-  key: NAMESPACE,
-  default: null,
-});
+type Actions = {
+  setUser: (user: State['user']) => void;
+  reset: () => void;
+};
+
+const initialState: State = {
+  user: null,
+};
+
+const useUserState = create<State & Actions>()(set => ({
+  ...initialState,
+  setUser: user => set({user}),
+  reset: () => set(initialState),
+}));
+
+export default useUserState;

@@ -1,10 +1,10 @@
 import {useEffect} from 'react';
-import {useRecoilState} from 'recoil';
-import {navigationWithFadeAtom} from '../state/state';
+import useNavigationState from '../state/state';
 
 const useNavigateWithFade = () => {
-  const [navigatedWithFade, setNavigateWithFade] = useRecoilState(
-    navigationWithFadeAtom,
+  const navigatedWithFade = useNavigationState(state => state.navigateWithFade);
+  const setNavigateWithFade = useNavigationState(
+    state => state.setNavigateWithFade,
   );
 
   useEffect(() => {

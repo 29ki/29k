@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import codepush from 'react-native-code-push';
-import {useRecoilState, useRecoilValue} from 'recoil';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
 import {useTranslation} from 'react-i18next';
 
@@ -9,14 +8,14 @@ import Button from '../../../common/components/Buttons/Button';
 import {Heading18} from '../../../common/components/Typography/Heading/Heading';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 
-import {downloadProgressAtom, statusAtom} from '..//state/state';
-import {isColdStartedAtom} from '../../appState/state/state';
+import useCodePushState from '..//state/state';
+import useAppState from '../../appState/state/state';
 import useRestartApp from '../hooks/useRestartApp';
 import {Spacer16} from '../../../common/components/Spacers/Spacer';
 import {Body18} from '../../../common/components/Typography/Body/Body';
 import styled from 'styled-components/native';
 import {GUTTERS} from '../../../common/constants/spacings';
-import {killSwitchFields} from '../../killSwitch/state/state';
+import useKillSwitchState from '../../killSwitch/state/state';
 
 // import * as metrics from '../../lib/metrics';
 // import {EVENTS} from '../../constants/metrics';
@@ -48,11 +47,14 @@ const CodePushOverlay = () => {
 
   const restartApp = useRestartApp();
 
-  const status = useRecoilValue(statusAtom);
-  const downloadProgress = useRecoilValue(downloadProgressAtom);
-  const isColdStarted = useRecoilValue(isColdStartedAtom);
-  const [isRequiredUpdate, setRequiresBundleUpdate] = useRecoilState(
-    killSwitchFields('requiresBundleUpdate'),
+  const status = useCodePushState(state => state.status);
+  const downloadProgress = useCodePushState(state => state.downloadProgress);
+  const isColdStarted = useAppState(state => state.isColdStarted);
+  const isRequiredUpdate = useKillSwitchState(
+    state => state.requiresBundleUpdate,
+  );
+  const setRequiresBundleUpdate = useKillSwitchState(
+    state => state.setRequiresBundleUpdate,
   );
 
   if (!isRequiredUpdate) {

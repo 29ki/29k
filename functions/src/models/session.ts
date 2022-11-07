@@ -104,7 +104,7 @@ export const addSession = async ({
   url,
   language,
   contentId,
-  facilitator,
+  hostId,
   dailyRoomName,
   startTime,
   type,
@@ -112,7 +112,13 @@ export const addSession = async ({
   inviteCode,
 }: Omit<
   Session,
-  'exerciseState' | 'ended' | 'started' | 'userIds' | 'createdAt' | 'updatedAt'
+  | 'exerciseState'
+  | 'ended'
+  | 'started'
+  | 'userIds'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'hostProfile'
 > & {
   dailyRoomName: string;
 }) => {
@@ -122,7 +128,7 @@ export const addSession = async ({
     url,
     language,
     contentId,
-    facilitator,
+    hostId,
     dailyRoomName,
     type,
     link,
@@ -134,7 +140,7 @@ export const addSession = async ({
     createdAt: now,
     updatedAt: now,
     // '*' means session is available for everyone/public enables one single query on getSessions
-    userIds: type === SessionType.private ? [facilitator] : ['*'],
+    userIds: type === SessionType.private ? [hostId] : ['*'],
   };
 
   const sessionDoc = firestore().collection(SESSIONS_COLLECTION).doc(id);

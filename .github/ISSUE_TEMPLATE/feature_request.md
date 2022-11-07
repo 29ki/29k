@@ -5,7 +5,7 @@ about: Suggest an idea for this project
 
 ### What brings you here and how are you?
 
-<!-- Feel free to share freely or not, we love this and to this all the time in the org -->
+<!-- Feel free to share freely or not, we love this and do this all the time in the org -->
 
 ### Summary
 

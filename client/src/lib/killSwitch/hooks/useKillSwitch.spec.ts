@@ -1,7 +1,7 @@
 import {renderHook, act} from '@testing-library/react-hooks';
 import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
-import {RecoilRoot, useRecoilValue} from 'recoil';
-import {killSwitchAtom, killSwitchMessageAtom} from '../state/state';
+import {pick} from 'ramda';
+import useKillSwitchState from '../state/state';
 
 import useKillSwitch from './useKillSwitch';
 
@@ -18,17 +18,25 @@ afterEach(() => {
 describe('useKillSwitch', () => {
   const useTestHook = () => {
     const checkKillSwitch = useKillSwitch();
-    const killSwitchState = useRecoilValue(killSwitchAtom);
-    const killSwitchMessageState = useRecoilValue(killSwitchMessageAtom);
+    const killSwitchState = useKillSwitchState(
+      pick([
+        'isBlocking',
+        'isLoading',
+        'requiresBundleUpdate',
+        'isRetriable',
+        'hasFailed',
+        'message',
+      ]),
+    );
 
-    return {checkKillSwitch, killSwitchState, killSwitchMessageState};
+    return {checkKillSwitch, killSwitchState};
   };
 
   describe('Success', () => {
     it('checks if the app is killed', async () => {
       fetchMock.mockResponseOnce('', {status: 200});
 
-      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+      const {result} = renderHook(useTestHook);
 
       await act(() => result.current.checkKillSwitch());
 
@@ -48,7 +56,7 @@ describe('useKillSwitch', () => {
     it('sets isBlocking=true if server says no', async () => {
       fetchMock.mockResponseOnce(JSON.stringify({}), {status: 404});
 
-      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+      const {result} = renderHook(useTestHook);
 
       expect(result.current.killSwitchState).toEqual({
         hasFailed: false,
@@ -72,6 +80,7 @@ describe('useKillSwitch', () => {
         isLoading: false,
         isRetriable: true,
         requiresBundleUpdate: false,
+        message: {},
       });
       /*
       expect(metrics.logEvent).toHaveBeenCalledTimes(1);
@@ -93,7 +102,7 @@ describe('useKillSwitch', () => {
         {status: 404},
       );
 
-      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+      const {result} = renderHook(useTestHook);
 
       expect(result.current.killSwitchState).toEqual({
         hasFailed: false,
@@ -117,6 +126,7 @@ describe('useKillSwitch', () => {
         isLoading: false,
         isRetriable: false,
         requiresBundleUpdate: false,
+        message: {},
       });
     });
 
@@ -133,13 +143,9 @@ describe('useKillSwitch', () => {
         {status: 404},
       );
 
-      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+      const {result} = renderHook(useTestHook);
 
-      expect(result.current.killSwitchMessageState).toEqual({
-        button: null,
-        image: null,
-        message: null,
-      });
+      expect(result.current.killSwitchState.message).toBe(undefined);
 
       await act(async () => {
         await expect(result.current.checkKillSwitch()).rejects.toThrow(
@@ -149,7 +155,7 @@ describe('useKillSwitch', () => {
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
 
-      expect(result.current.killSwitchMessageState).toEqual({
+      expect(result.current.killSwitchState.message).toEqual({
         image: 'http://some/image.jpg',
         message: 'Some Message',
         button: {
@@ -167,7 +173,7 @@ describe('useKillSwitch', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+      const {result} = renderHook(useTestHook);
 
       expect(result.current.killSwitchState).toEqual({
         hasFailed: false,
@@ -197,7 +203,7 @@ describe('useKillSwitch', () => {
     it('sets isBlocking=true, hasFailed=true and isRetriable=true on fetch error', async () => {
       fetchMock.mockRejectOnce(new Error('Some Random Error'));
 
-      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+      const {result} = renderHook(useTestHook);
 
       expect(result.current.killSwitchState).toEqual({
         hasFailed: false,
@@ -227,7 +233,7 @@ describe('useKillSwitch', () => {
     it("doesn't block failed network requests", async () => {
       fetchMock.mockRejectOnce(new Error('Network request failed'));
 
-      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+      const {result} = renderHook(useTestHook);
 
       expect(result.current.killSwitchState).toEqual({
         hasFailed: false,
@@ -257,7 +263,7 @@ describe('useKillSwitch', () => {
     it('sets as failed on malformed server response', async () => {
       fetchMock.mockResponseOnce('foo', {status: 404});
 
-      const {result} = renderHook(useTestHook, {wrapper: RecoilRoot});
+      const {result} = renderHook(useTestHook);
 
       expect(result.current.killSwitchState).toEqual({
         hasFailed: false,

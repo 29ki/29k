@@ -1,10 +1,7 @@
 import {act, renderHook} from '@testing-library/react-hooks';
-import {RecoilRoot, useRecoilValue} from 'recoil';
-import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import useSessions from './useSessions';
 import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
-import {isLoadingAtom, sessionsAtom} from '../state/state';
-import {userAtom} from '../../../lib/user/state/state';
+import useSessionsState from '../state/state';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import {SessionType} from '../../../../../shared/src/types/Session';
@@ -22,8 +19,8 @@ describe('useSessions', () => {
   describe('fetchSessions', () => {
     const useTestHook = () => {
       const {fetchSessions} = useSessions();
-      const sessions = useRecoilValue(sessionsAtom);
-      const isLoading = useRecoilValue(isLoadingAtom);
+      const sessions = useSessionsState(state => state.sessions);
+      const isLoading = useSessionsState(state => state.isLoading);
 
       return {fetchSessions, sessions, isLoading};
     };
@@ -33,15 +30,7 @@ describe('useSessions', () => {
         JSON.stringify([{id: 'session-id', url: '/session-url'}]),
         {status: 200},
       );
-      const {result} = renderHook(() => useTestHook(), {
-        wrapper: RecoilRoot,
-        initialProps: {
-          initializeState: ({set}) => {
-            set(userAtom, {} as FirebaseAuthTypes.User);
-          },
-          children: null,
-        },
-      });
+      const {result} = renderHook(() => useTestHook());
 
       await act(async () => {
         await result.current.fetchSessions();
@@ -58,15 +47,7 @@ describe('useSessions', () => {
         JSON.stringify([{id: 'session-id', url: '/session-url'}]),
         {status: 200},
       );
-      const {result} = renderHook(() => useTestHook(), {
-        wrapper: RecoilRoot,
-        initialProps: {
-          initializeState: ({set}) => {
-            set(userAtom, {} as FirebaseAuthTypes.User);
-          },
-          children: null,
-        },
-      });
+      const {result} = renderHook(() => useTestHook());
 
       const fetchPromise = act(async () => {
         await result.current.fetchSessions();
@@ -81,31 +62,29 @@ describe('useSessions', () => {
   describe('addSession', () => {
     const startTime = dayjs.utc('1994-03-08');
 
-    it('should add a session and refetch', async () => {
+    it('should resolve to a new session and trigger a refetch', async () => {
       fetchMock.mockResponseOnce(
         JSON.stringify({
           id: 'session-id',
           url: '/session-url',
-          name: 'Session Name',
+          name: 'A New Session',
         }),
         {status: 200},
       );
-      const {result} = renderHook(() => useSessions(), {
-        wrapper: RecoilRoot,
-        initialProps: {
-          initializeState: ({set}) => {
-            set(userAtom, {} as FirebaseAuthTypes.User);
-          },
-          children: null,
-        },
-      });
+      const {result} = renderHook(() => useSessions());
 
       await act(async () => {
-        await result.current.addSession({
+        const session = await result.current.addSession({
           contentId: 'some-content-id',
           type: SessionType.public,
           startTime,
           language: 'en',
+        });
+
+        expect(session).toEqual({
+          id: 'session-id',
+          name: 'A New Session',
+          url: '/session-url',
         });
       });
 
@@ -137,15 +116,7 @@ describe('useSessions', () => {
   describe('deleteSession', () => {
     it('should delete a session and refetch', async () => {
       fetchMock.mockResponseOnce('Success', {status: 200});
-      const {result} = renderHook(() => useSessions(), {
-        wrapper: RecoilRoot,
-        initialProps: {
-          initializeState: ({set}) => {
-            set(userAtom, {} as FirebaseAuthTypes.User);
-          },
-          children: null,
-        },
-      });
+      const {result} = renderHook(() => useSessions());
 
       await act(async () => {
         await result.current.deleteSession('session-id');

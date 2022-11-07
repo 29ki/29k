@@ -1,5 +1,4 @@
 import React from 'react';
-import {RecoilRoot} from 'recoil';
 
 import Navigation from './lib/navigation/Navigation';
 
@@ -10,14 +9,12 @@ import ErrorBoundary from './lib/sentry/components/ErrorBoundary';
 
 const App = () => (
   <ErrorBoundary>
-    <RecoilRoot>
-      <UiLibProvider>
-        <Bootstrap>
-          <Navigation />
-          <CodePushOverlay />
-        </Bootstrap>
-      </UiLibProvider>
-    </RecoilRoot>
+    <UiLibProvider>
+      <Bootstrap>
+        <Navigation />
+        <CodePushOverlay />
+      </Bootstrap>
+    </UiLibProvider>
   </ErrorBoundary>
 );
 

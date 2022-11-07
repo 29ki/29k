@@ -1,8 +1,7 @@
 import {renderHook} from '@testing-library/react-hooks';
-import {RecoilRoot, useRecoilValue} from 'recoil';
 import firestore from '@react-native-firebase/firestore';
 
-import {sessionAtom} from '../state/state';
+import useSessionState from '../state/state';
 import useSubscribeToSession from './useSubscribeToSession';
 
 afterEach(() => {
@@ -12,15 +11,13 @@ afterEach(() => {
 describe('useSubscribeToSession', () => {
   const useTestHook = () => {
     useSubscribeToSession('session-id');
-    const session = useRecoilValue(sessionAtom);
+    const session = useSessionState(state => state.session);
 
     return session;
   };
 
   it('should subscribe to live session document', async () => {
-    renderHook(() => useTestHook(), {
-      wrapper: RecoilRoot,
-    });
+    renderHook(() => useTestHook());
 
     expect(firestore().collection).toHaveBeenCalledWith('sessions');
 
@@ -33,7 +30,7 @@ describe('useSubscribeToSession', () => {
   });
 
   it('should set live content state', () => {
-    const {result} = renderHook(() => useTestHook(), {wrapper: RecoilRoot});
+    const {result} = renderHook(() => useTestHook());
 
     expect(result.current).toEqual({id: 'test-id'});
   });

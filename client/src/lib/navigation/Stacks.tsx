@@ -3,22 +3,22 @@ import {
   createNativeStackNavigator,
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
-import {useRecoilValue} from 'recoil';
 
 import {RootStackProps, SessionStackProps} from './constants/routes';
 import KillSwitch from '../../routes/KillSwitch/KillSwitch';
-import {killSwitchFields} from '../killSwitch/state/state';
+import useKillSwitchState from '../killSwitch/state/state';
 import Tabs from './Tabs';
 import Session from '../../routes/Session/Session';
 import ChangingRoom from '../../routes/Session/ChangingRoom';
 import IntroPortal from '../../routes/Session/IntroPortal';
 import OutroPortal from '../../routes/Session/OutroPortal';
-import DailyProvider from '../../routes/Session/DailyProvider';
+import DailyProvider from '../daily/DailyProvider';
 import SessionModal from '../../routes/Sessions/components/SessionModal';
 import CreateSessionModal from '../../routes/Sessions/components/CreateSessionModal';
 import JoinSessionModal from '../../routes/Sessions/components/JoinSessionModal';
-import {navigationWithFadeAtom} from './state/state';
+import useNavigationState from './state/state';
 import UpgradeAccount from '../../routes/Profile/UpgradeAccount';
+import AddSessionModal from '../../routes/Sessions/components/AddSessionModal';
 
 const RootStack = createNativeStackNavigator<RootStackProps>();
 const SessionStack = createNativeStackNavigator<SessionStackProps>();
@@ -46,8 +46,8 @@ const SessionStackWrapper = () => (
 );
 
 const RootStackWrapper = () => {
-  const isBlocking = useRecoilValue(killSwitchFields('isBlocking'));
-  const fade = useRecoilValue(navigationWithFadeAtom);
+  const isBlocking = useKillSwitchState(state => state.isBlocking);
+  const fade = useNavigationState(state => state.navigateWithFade);
 
   return (
     // set this state using useNavigationWithFade to change animation to fade
@@ -78,6 +78,10 @@ const RootStackWrapper = () => {
             <RootStack.Screen
               name={'JoinSessionModal'}
               component={JoinSessionModal}
+            />
+            <RootStack.Screen
+              name={'AddSessionModal'}
+              component={AddSessionModal}
             />
             <RootStack.Screen
               name={'UpgradeAccount'}

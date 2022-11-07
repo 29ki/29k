@@ -1,5 +1,4 @@
 import {act, renderHook} from '@testing-library/react-hooks';
-import {RecoilRoot} from 'recoil';
 
 import useUpdateSessionExerciseState from './useUpdateSessionExerciseState';
 import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
@@ -44,9 +43,7 @@ describe('useUpdateSessionExerciseState', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() => useTestHook(), {
-        wrapper: RecoilRoot,
-      });
+      const {result} = renderHook(() => useTestHook());
 
       await act(async () => {
         await result.current.navigateToIndex({index: 2, content: mockContent});
@@ -63,9 +60,7 @@ describe('useUpdateSessionExerciseState', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() => useTestHook(), {
-        wrapper: RecoilRoot,
-      });
+      const {result} = renderHook(() => useTestHook());
 
       await act(async () => {
         await result.current.navigateToIndex({index: 4, content: mockContent});
@@ -82,9 +77,7 @@ describe('useUpdateSessionExerciseState', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() => useTestHook(), {
-        wrapper: RecoilRoot,
-      });
+      const {result} = renderHook(() => useTestHook());
 
       await act(async () => {
         const invalidIndex = 4000;

@@ -1,12 +1,11 @@
-import {useRecoilValue} from 'recoil';
-import {userAtom} from '../../../lib/user/state/state';
-import {sessionAtom} from '../state/state';
+import useUser from '../../../lib/user/hooks/useUser';
+import useSessionState from '../state/state';
 
-const useIsSessionFacilitator = () => {
-  const session = useRecoilValue(sessionAtom);
-  const user = useRecoilValue(userAtom);
+const useIsSessionHost = () => {
+  const session = useSessionState(state => state.session);
+  const user = useUser();
 
-  return session?.facilitator === user?.uid;
+  return session?.hostId === user?.uid;
 };
 
-export default useIsSessionFacilitator;
+export default useIsSessionHost;

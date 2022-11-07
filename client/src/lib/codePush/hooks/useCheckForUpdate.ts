@@ -5,12 +5,7 @@ import {
   IOS_CODE_PUSH_DEPLOYMENT_KEY,
   ANDROID_CODE_PUSH_DEPLOYMENT_KEY,
 } from 'config';
-import {useSetRecoilState} from 'recoil';
-import {
-  downloadProgressAtom,
-  statusAtom,
-  updateAvailableAtom,
-} from '../state/state';
+import useCodePushState from '../state/state';
 
 const deploymentKey = Platform.select({
   android: ANDROID_CODE_PUSH_DEPLOYMENT_KEY,
@@ -48,9 +43,13 @@ const logStatus = (status: codePush.SyncStatus) => {
 };
 
 const useCheckForUpdate = () => {
-  const setStatus = useSetRecoilState(statusAtom);
-  const setUpdateAvailable = useSetRecoilState(updateAvailableAtom);
-  const setDownloadProgress = useSetRecoilState(downloadProgressAtom);
+  const setStatus = useCodePushState(state => state.setStatus);
+  const setUpdateAvailable = useCodePushState(
+    state => state.setUpdateAvailable,
+  );
+  const setDownloadProgress = useCodePushState(
+    state => state.setDownloadProgress,
+  );
 
   const onStatus = useCallback(
     (status: codePush.SyncStatus) => {

@@ -3,8 +3,7 @@ import dayjs from 'dayjs';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Alert, Share} from 'react-native';
-import {useRecoilValue} from 'recoil';
+import {Alert, Share, View} from 'react-native';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
 import Gutters from '../../../common/components/Gutters/Gutters';
@@ -22,11 +21,12 @@ import {Display24} from '../../../common/components/Typography/Display/Display';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {RootStackProps} from '../../../lib/navigation/constants/routes';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import {userAtom} from '../../../lib/user/state/state';
 import useAddToCalendar from '../hooks/useAddToCalendar';
 import useSessionNotificationReminder from '../hooks/useSessionNotificationReminder';
 import useSessions from '../hooks/useSessions';
 import {Body14} from '../../../common/components/Typography/Body/Body';
+import useUser from '../../../lib/user/hooks/useUser';
+import Byline from '../../../common/components/Bylines/Byline';
 
 const Content = styled(Gutters)({
   flexDirection: 'row',
@@ -46,16 +46,12 @@ const DeleteButton = styled(IconButton)({
   backgroundColor: COLORS.DELETE,
 });
 
-const Title = styled(Display24)({
-  flex: 2,
-});
-
 const SessionModal = () => {
   const {
     params: {session},
   } = useRoute<RouteProp<RootStackProps, 'SessionModal'>>();
   const {t} = useTranslation('Component.SessionModal');
-  const user = useRecoilValue(userAtom);
+  const user = useUser();
   const navigation = useNavigation<NativeStackNavigationProp<RootStackProps>>();
   const {deleteSession} = useSessions();
   const addToCalendar = useAddToCalendar();
@@ -113,11 +109,19 @@ const SessionModal = () => {
     ]);
   };
 
+  console.log(session.hostProfile);
+
   return (
     <HalfModal>
       <Spacer16 />
       <Content>
-        <Title>{exercise?.name}</Title>
+        <View>
+          <Display24>{exercise?.name}</Display24>
+          <Byline
+            pictureURL={session.hostProfile.photoURL}
+            name={session.hostProfile.displayName}
+          />
+        </View>
         {session.inviteCode && (
           <>
             <Spacer8 />
@@ -162,7 +166,7 @@ const SessionModal = () => {
             <Spacer8 />
           </>
         )}
-        {user?.uid === session?.facilitator && (
+        {user?.uid === session?.hostId && (
           <DeleteButton small onPress={onDelete} Icon={DeleteIcon} />
         )}
       </BottomContent>

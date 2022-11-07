@@ -1,11 +1,10 @@
 import React from 'react';
-import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import {ViewStyle} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
 import useIsSessionHost from '../../hooks/useIsSessionHost';
-import {sessionExerciseStateSelector} from '../../state/state';
+import useSessionState from '../../state/state';
 import useSessionExercise from '../../hooks/useSessionExercise';
 
 import {
@@ -49,15 +48,15 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   sessionId,
   style,
 }) => {
-  const isFacilitator = useIsSessionHost();
-  const exerciseState = useRecoilValue(sessionExerciseStateSelector);
+  const isHost = useIsSessionHost();
+  const exerciseState = useSessionState(state => state.session?.exerciseState);
   const exercise = useSessionExercise();
   const {t} = useTranslation('Screen.Session');
 
   const {navigateToIndex, setPlaying} =
     useUpdateSessionExerciseState(sessionId);
 
-  if (!isFacilitator || !exercise || !exerciseState) {
+  if (!isHost || !exercise || !exerciseState) {
     return null;
   }
 
@@ -77,27 +76,28 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         }>
         {t('controls.prev')}
       </SlideButton>
-      {exercise.slide.current.type !== 'host' && (
-        <MediaControls>
-          <IconSlideButton
-            small
-            elevated
-            disabled={!exercise.slide.current.content.video}
-            variant="tertiary"
-            Icon={Rewind}
-            onPress={() => setPlaying(exerciseState.playing)}
-          />
-          <Spacer8 />
-          <IconSlideButton
-            small
-            elevated
-            disabled={!exercise.slide.current.content.video}
-            variant="tertiary"
-            Icon={exerciseState.playing ? Pause : Play}
-            onPress={() => setPlaying(!exerciseState.playing)}
-          />
-        </MediaControls>
-      )}
+      {exercise.slide.current.type !== 'host' &&
+        !exercise.slide.current.content.video?.autoPlayLoop && (
+          <MediaControls>
+            <IconSlideButton
+              small
+              elevated
+              disabled={!exercise.slide.current.content.video}
+              variant="tertiary"
+              Icon={Rewind}
+              onPress={() => setPlaying(exerciseState.playing)}
+            />
+            <Spacer8 />
+            <IconSlideButton
+              small
+              elevated
+              disabled={!exercise.slide.current.content.video}
+              variant="tertiary"
+              Icon={exerciseState.playing ? Pause : Play}
+              onPress={() => setPlaying(!exerciseState.playing)}
+            />
+          </MediaControls>
+        )}
       <SlideButton
         small
         elevated

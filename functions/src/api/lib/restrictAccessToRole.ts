@@ -15,7 +15,7 @@ const restrictAccessToRole =
       return;
     }
 
-    next();
+    await next();
   };
 
 export default restrictAccessToRole;

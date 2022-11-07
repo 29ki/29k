@@ -21,6 +21,9 @@
     "setDateTime": {
       "title": "Pick a time",
       "cta": "Create session"
+    },
+    "profile": {
+      "text": "To become an official host you need provide a user name and profile picture."
     }
   },
   "sv": {
@@ -45,6 +48,9 @@
     "setDateTime": {
       "title": "Välj tid",
       "cta": "Skapa session"
+    },
+    "profile": {
+      "text": "För att hålla i sessioner behöver du ett namn och en profilbild."
     }
   },
   "pt": {
@@ -69,6 +75,9 @@
     "setDateTime": {
       "title": "Escolha o tempo da sessão",
       "cta": "Publish"
+    },
+    "profile": {
+      "text": "To host as session you need provide a user name and profile picture."
     }
   }
 }

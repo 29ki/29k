@@ -1,10 +1,20 @@
 import dayjs from 'dayjs';
 import {createSessionInviteLink} from '../models/dynamicLinks';
 import * as sessionModel from '../models/session';
+import {getPublicUserInfo} from '../models/user';
 import * as dailyApi from '../lib/dailyApi';
 import {Session} from '../../../shared/src/types/Session';
 import {ExerciseStateUpdate, UpdateSession} from '../api/sessions';
 import {generateVerificationCode, removeEmpty} from '../lib/utils';
+
+const mapSession = async (session: Session) => {
+  return {...session, hostProfile: await getPublicUserInfo(session.hostId)};
+};
+
+export const getSessions = async (userId: string): Promise<Array<Session>> => {
+  const sessions = await sessionModel.getSessions(userId);
+  return Promise.all(sessions.map(mapSession));
+};
 
 export const createSession = async (
   userId: string,
@@ -29,7 +39,7 @@ export const createSession = async (
     language,
   );
 
-  return sessionModel.addSession({
+  const session = await sessionModel.addSession({
     id: dailyRoom.id,
     dailyRoomName: dailyRoom.name,
     url: dailyRoom.url,
@@ -39,8 +49,10 @@ export const createSession = async (
     type,
     startTime,
     inviteCode,
-    facilitator: userId,
+    hostId: userId,
   });
+
+  return await mapSession(session);
 };
 
 export const removeSession = async (
@@ -53,7 +65,7 @@ export const removeSession = async (
 
   if (!session) return;
 
-  if (userId !== session?.facilitator) {
+  if (userId !== session?.hostId) {
     throw new Error('user-unauthorized');
   }
 
@@ -70,12 +82,13 @@ export const updateSession = async (
 ) => {
   const session = (await sessionModel.getSessionById(sessionId)) as Session;
 
-  if (userId !== session?.facilitator) {
+  if (userId !== session?.hostId) {
     throw new Error('user-unauthorized');
   }
 
   await sessionModel.updateSession(sessionId, removeEmpty(data));
-  return sessionModel.getSessionById(sessionId);
+  const updatedSession = await sessionModel.getSessionById(sessionId);
+  return updatedSession ? mapSession(updatedSession) : undefined;
 };
 
 export const updateExerciseState = async (
@@ -89,12 +102,13 @@ export const updateExerciseState = async (
     throw new Error('session-not-found');
   }
 
-  if (userId !== session?.facilitator) {
+  if (userId !== session?.hostId) {
     throw new Error('user-unauthorized');
   }
 
   await sessionModel.updateExerciseState(sessionId, removeEmpty(data));
-  return sessionModel.getSessionById(sessionId);
+  const updatedSession = await sessionModel.getSessionById(sessionId);
+  return updatedSession ? mapSession(updatedSession) : undefined;
 };
 
 export const joinSession = async (
@@ -116,5 +130,6 @@ export const joinSession = async (
   await sessionModel.updateSession(session.id, {
     userIds: [...session.userIds, userId],
   });
-  return sessionModel.getSessionById(session.id);
+  const updatedSession = await sessionModel.getSessionById(session.id);
+  return updatedSession ? mapSession(updatedSession) : undefined;
 };

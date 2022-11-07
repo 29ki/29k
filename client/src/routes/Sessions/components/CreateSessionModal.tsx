@@ -35,6 +35,11 @@ import {SPACINGS} from '../../../common/constants/spacings';
 import {Body16} from '../../../common/components/Typography/Body/Body';
 import DateTimePicker from './DateTimePicker';
 import {LANGUAGE_TAG} from '../../../lib/i18n';
+import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
+import {ModalStackProps} from '../../../lib/navigation/constants/routes';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import ProfileInfo from './ProfileInfo';
+import useUser from '../../../lib/user/hooks/useUser';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -100,6 +105,22 @@ const ContentCard: React.FC<{
         <Image source={{uri: exercise?.card?.image?.source}} />
       </CardImageWrapper>
     </Card>
+  );
+};
+
+const UpdateProfileContainer = styled.View({flex: 1});
+
+const UpdateProfileHeading = styled(Body16)({textAlign: 'center'});
+
+const UpdateProfile: React.FC<StepProps> = () => {
+  const {t} = useTranslation('Component.CreateSessionModal');
+  return (
+    <UpdateProfileContainer>
+      <Spacer16 />
+      <UpdateProfileHeading>{t('profile.text')}</UpdateProfileHeading>
+      <Spacer16 />
+      <ProfileInfo />
+    </UpdateProfileContainer>
   );
 };
 
@@ -194,7 +215,8 @@ const SelectType: React.FC<StepProps> = ({
 
 const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
   const {t, i18n} = useTranslation('Component.CreateSessionModal');
-  const {goBack} = useNavigation();
+  const {goBack, navigate} =
+    useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
   const [isLoading, setIsLoading] = useState(false);
   const [date, setDate] = useState<dayjs.Dayjs | undefined>();
   const [time, setTime] = useState<dayjs.Dayjs | undefined>();
@@ -206,7 +228,7 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
       const sessionDateTime = date.hour(time.hour()).minute(time.minute());
 
       setIsLoading(true);
-      await addSession({
+      const session = await addSession({
         contentId: selectedExercise,
         type: selectedType,
         startTime: sessionDateTime,
@@ -214,6 +236,7 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
       });
       setIsLoading(false);
       goBack();
+      navigate('SessionModal', {session});
     }
   };
 
@@ -256,16 +279,31 @@ type StepProps = {
   setSelectedType: Dispatch<SetStateAction<StepProps['selectedType']>>;
 };
 
-const steps = [SelectContent, SelectType, SetDateTime];
+const publicHostSteps = (hasProfile: boolean) =>
+  hasProfile
+    ? [SelectContent, SelectType, SetDateTime]
+    : [UpdateProfile, SelectContent, SelectType, SetDateTime];
+const normalUserSteps = (hasProfile: boolean) =>
+  hasProfile
+    ? [SelectContent, SetDateTime]
+    : [UpdateProfile, SelectContent, SetDateTime];
 
 const CreateSessionModal = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedExercise, setSelectedExercise] = useState<
     Exercise['id'] | undefined
   >();
-  const [selectedType, setSelectedType] = useState<SessionType | undefined>();
+  const {isPublicHost} = useIsPublicHost();
+  const user = useUser();
+  const [selectedType, setSelectedType] = useState<SessionType | undefined>(
+    isPublicHost ? undefined : SessionType.private,
+  );
 
-  const CurrentStepComponent: React.FC<StepProps> = steps[currentStep];
+  const hasProfile = Boolean(user?.displayName) && Boolean(user?.photoURL);
+
+  const CurrentStepComponent: React.FC<StepProps> = isPublicHost
+    ? publicHostSteps(hasProfile)[currentStep]
+    : normalUserSteps(hasProfile)[currentStep];
 
   const stepProps: StepProps = {
     selectedExercise,

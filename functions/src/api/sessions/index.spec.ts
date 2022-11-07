@@ -6,9 +6,9 @@ import createMockServer from '../lib/createMockServer';
 import {createRouter} from '../../lib/routers';
 import {ROLES} from '../../../../shared/src/types/User';
 import * as sessionsController from '../../controllers/sessions';
-import * as sessionModel from '../../models/session';
 
 jest.mock('../../controllers/sessions');
+const mockGetSessions = sessionsController.getSessions as jest.Mock;
 const mockCreateSession = sessionsController.createSession as jest.Mock;
 const mockRemoveSession = sessionsController.removeSession as jest.Mock;
 const mockUpdateSession = sessionsController.updateSession as jest.Mock;
@@ -17,7 +17,6 @@ const mockUpdateExerciseState =
 const mockJoinSession = sessionsController.joinSession as jest.Mock;
 
 jest.mock('../../models/session');
-const mockGetSessions = sessionModel.getSessions as jest.Mock;
 
 const getMockCustomClaims = jest.fn();
 const router = createRouter();
@@ -55,7 +54,7 @@ describe('/api/sessions', () => {
             playing: false,
             timestamp: new Date('2022-10-10T10:00:00Z').toISOString(),
           },
-          facilitator: 'some-user-id',
+          hostId: 'some-user-id',
           startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
           started: false,
           ended: false,
@@ -69,7 +68,7 @@ describe('/api/sessions', () => {
             playing: false,
             timestamp: new Date('2022-10-10T10:00:00Z').toISOString(),
           },
-          facilitator: 'some-other-user-id',
+          hostId: 'some-other-user-id',
           startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
           started: false,
           ended: false,
@@ -89,7 +88,7 @@ describe('/api/sessions', () => {
             playing: false,
             timestamp: expect.any(String),
           },
-          facilitator: 'some-user-id',
+          hostId: 'some-user-id',
           startTime: expect.any(String),
           started: false,
           ended: false,
@@ -103,7 +102,7 @@ describe('/api/sessions', () => {
             playing: false,
             timestamp: expect.any(String),
           },
-          facilitator: 'some-other-user-id',
+          hostId: 'some-other-user-id',
           startTime: expect.any(String),
           started: false,
           ended: false,

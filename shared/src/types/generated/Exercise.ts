@@ -61,6 +61,7 @@ export interface ExerciseSlidesContentContentImage {
 }
 
 export interface ExerciseSlidesContentContentVideo {
+  autoPlayLoop?: boolean;
   description?: string;
   source?: string;
   preview?: string;
@@ -84,6 +85,7 @@ export interface ExerciseSlidesReflectionContentImage {
 }
 
 export interface ExerciseSlidesReflectionContentVideo {
+  autoPlayLoop?: boolean;
   description?: string;
   source?: string;
   preview?: string;
@@ -107,6 +109,7 @@ export interface ExerciseSlidesSharingContentImage {
 }
 
 export interface ExerciseSlidesSharingContentVideo {
+  autoPlayLoop?: boolean;
   description?: string;
   source?: string;
   preview?: string;
