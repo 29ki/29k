@@ -9,7 +9,8 @@
     },
     "notifications": {
       "joined": "{{name}} joined",
-      "left": "{{name}} left"
+      "left": "{{name}} left",
+      "networkQuality": "Unrealiable network connection"
     }
   },
   "sv": {
@@ -22,7 +23,8 @@
     },
     "notifications": {
       "joined": "{{name}} gick med",
-      "left": "{{name}} lämnade"
+      "left": "{{name}} lämnade",
+      "networkQuality": "Unrealiable network connection"
     }
   },
   "pt": {

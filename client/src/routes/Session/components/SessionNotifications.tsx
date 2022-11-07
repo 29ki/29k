@@ -37,7 +37,10 @@ const Name = styled(Body16)({
   paddingTop: SPACINGS.FOUR,
 });
 
-const SessionNotification: React.FC<{text: string}> = ({text}) => {
+const SessionNotification: React.FC<{text: string; withProfile: boolean}> = ({
+  withProfile,
+  text,
+}) => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -54,7 +57,7 @@ const SessionNotification: React.FC<{text: string}> = ({text}) => {
     return (
       <Animated.View entering={FadeInDown} exiting={FadeOut}>
         <Notification>
-          <ProfilePlaceholder>{text[0]}</ProfilePlaceholder>
+          {withProfile && <ProfilePlaceholder>{text[0]}</ProfilePlaceholder>}
           <Name>{text}</Name>
         </Notification>
       </Animated.View>
@@ -64,21 +67,31 @@ const SessionNotification: React.FC<{text: string}> = ({text}) => {
   return null;
 };
 
+enum NotificationType {
+  participant = 'participant',
+  network = 'network',
+}
+
+type Notification = {
+  type: NotificationType;
+  text: string;
+};
+
 const SessionNotifications: React.FC<{
   style?: ViewStyle;
 }> = ({style}) => {
   const {call} = useContext(DailyContext);
   const {t} = useTranslation('Screen.Session');
-  const [notifications, setNotifications] = useState<string[]>([
-    'Tårtan',
-    'Steffe',
-  ]);
+  const [notifications, setNotifications] = useState<Notification[]>([]);
 
   const participantJoined = useCallback(
     (user: DailyEventObject<'participant-joined'> | undefined) => {
       setNotifications(state => [
         ...state,
-        t('notifications.joined', {name: user?.participant.user_name}),
+        {
+          type: NotificationType.participant,
+          text: t('notifications.joined', {name: user?.participant.user_name}),
+        },
       ]);
     },
     [t],
@@ -88,8 +101,26 @@ const SessionNotifications: React.FC<{
     (user: DailyEventObject<'participant-left'> | undefined) => {
       setNotifications(state => [
         ...state,
-        t('notifications.left', {name: user?.participant.user_name}),
+        {
+          type: NotificationType.participant,
+          text: t('notifications.left', {name: user?.participant.user_name}),
+        },
       ]);
+    },
+    [t],
+  );
+
+  const networkQualityChange = useCallback(
+    (event: DailyEventObject<'network-quality-change'> | undefined) => {
+      if (['low', 'very-low'].includes(event?.threshold ?? '')) {
+        setNotifications(state => [
+          ...state,
+          {
+            type: NotificationType.network,
+            text: t('notifications.networkQuality'),
+          },
+        ]);
+      }
     },
     [t],
   );
@@ -97,17 +128,23 @@ const SessionNotifications: React.FC<{
   useEffect(() => {
     call?.on('participant-joined', participantJoined);
     call?.on('participant-left', participantLeft);
+    call?.on('network-quality-change', networkQualityChange);
 
     return () => {
       call?.off('participant-joined', participantJoined);
       call?.off('participant-left', participantLeft);
+      call?.off('network-quality-change', networkQualityChange);
     };
-  }, [call, participantJoined, participantLeft]);
+  }, [call, participantJoined, participantLeft, networkQualityChange]);
 
   return (
     <View style={style} pointerEvents="none">
       {notifications.map((notification, i) => (
-        <SessionNotification text={notification} key={i} />
+        <SessionNotification
+          text={notification.text}
+          withProfile={notification.type === 'participant'}
+          key={i}
+        />
       ))}
     </View>
   );
