@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Alert, Share} from 'react-native';
+import {Alert, Share, View} from 'react-native';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
 import Gutters from '../../../common/components/Gutters/Gutters';
@@ -26,6 +26,7 @@ import useSessionNotificationReminder from '../hooks/useSessionNotificationRemin
 import useSessions from '../hooks/useSessions';
 import {Body14} from '../../../common/components/Typography/Body/Body';
 import useUser from '../../../lib/user/hooks/useUser';
+import Byline from '../../../common/components/Bylines/Byline';
 
 const Content = styled(Gutters)({
   flexDirection: 'row',
@@ -43,10 +44,6 @@ const ImageContainer = styled.View({
 
 const DeleteButton = styled(IconButton)({
   backgroundColor: COLORS.DELETE,
-});
-
-const Title = styled(Display24)({
-  flex: 2,
 });
 
 const SessionModal = () => {
@@ -112,11 +109,19 @@ const SessionModal = () => {
     ]);
   };
 
+  console.log(session.hostProfile);
+
   return (
     <HalfModal>
       <Spacer16 />
       <Content>
-        <Title>{exercise?.name}</Title>
+        <View>
+          <Display24>{exercise?.name}</Display24>
+          <Byline
+            pictureURL={session.hostProfile.photoURL}
+            name={session.hostProfile.displayName}
+          />
+        </View>
         {session.inviteCode && (
           <>
             <Spacer8 />

@@ -35,7 +35,7 @@ type SessionCardProps = {
 };
 
 const SessionCard: React.FC<SessionCardProps> = ({session}) => {
-  const {contentId, startTime, started} = session;
+  const {contentId, startTime, started, hostProfile} = session;
   const exercise = useExerciseById(contentId);
   const addToCalendar = useAddToCalendar();
   const {t} = useTranslation('Component.SessionCard');
@@ -68,7 +68,9 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
       onPress={onContextPress}
       onButtonPress={onPress}
       onContextPress={onContextPress}
-      Icon={reminderEnabled ? BellIcon : undefined}>
+      Icon={reminderEnabled ? BellIcon : undefined}
+      hostPictureURL={hostProfile.photoURL}
+      hostName={hostProfile.displayName}>
       <Row>
         <Body14>{t('starts')}</Body14>
         <Spacer4 />
