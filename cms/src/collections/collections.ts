@@ -6,7 +6,7 @@ import {generateFilesCollectionFromi18nFiles} from '../lib/i18n';
 
 export const exercises: CmsCollection = {
   name: 'exercises',
-  label: 'Exercises',
+  label: '📝 Exercises',
   label_singular: 'exercise',
   folder: '/content/src/exercises',
   identifier_field: 'id',
@@ -26,10 +26,10 @@ export const exercises: CmsCollection = {
 
 export const contributors: CmsCollection = {
   name: 'other',
-  label: 'Other',
+  label: '🪴 Other',
   files: [
     {
-      label: 'All Contributors',
+      label: '👥 All Contributors',
       name: 'all-contributorsrc',
       file: '/.all-contributorsrc',
       fields: CONTRIBUTORS_FIELDS,
@@ -49,7 +49,7 @@ export const contributors: CmsCollection = {
 
 export const files: CmsCollection = generateFilesCollectionFromi18nFiles(
   'ui',
-  'UI',
+  '📱 UI',
   content.i18n,
   [exercises.name],
 );
