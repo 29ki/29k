@@ -19,6 +19,10 @@ mockAddEventListener.mockImplementation(() => {
   return {remove: jest.fn()};
 });
 
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
 describe('useTriggerNotification', () => {
   it('sets a trigger notification', async () => {
     mockGetTriggerNotifications.mockResolvedValueOnce([
@@ -31,11 +35,13 @@ describe('useTriggerNotification', () => {
 
     await waitForNextUpdate();
 
+    const timestamp = new Date().getTime() + 10000;
+
     await act(async () => {
       await result.current.setTriggerNotification(
         'Some title',
         'Some body',
-        123456789,
+        timestamp,
       );
     });
 
@@ -53,11 +59,27 @@ describe('useTriggerNotification', () => {
       },
       {
         type: 0,
-        timestamp: 123456789,
+        timestamp,
       },
     );
 
     expect(result.all.length).toBe(3);
+  });
+
+  it('does not set reminders for dates in the pas', async () => {
+    const {result} = renderHook(() => useTriggerNotification('some-id'));
+
+    await act(async () => {
+      await result.current.setTriggerNotification(
+        'Some title',
+        'Some body',
+        new Date().getTime() - 10000,
+      );
+    });
+
+    expect(result.current.triggerNotification).toBe(undefined);
+    expect(mockRequestPermission).toHaveBeenCalledTimes(0);
+    expect(mockCreateTriggerNotification).toHaveBeenCalledTimes(0);
   });
 
   it('supports removing the notification', async () => {

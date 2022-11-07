@@ -23,7 +23,7 @@ const useSessionNotificationReminder = (session: Session) => {
       ? setTriggerNotification(
           t('title', {exercise: exercise?.name}),
           t('body'),
-          dayjs(startTime).subtract(10, 'minutes').valueOf(),
+          dayjs(startTime).subtract(12, 'minutes').valueOf(),
         )
       : removeTriggerNotification();
 

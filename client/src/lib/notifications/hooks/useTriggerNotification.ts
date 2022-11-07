@@ -39,28 +39,30 @@ const useTriggerNotification = (id: string) => {
 
   const setTriggerNotification = useCallback(
     async (title: string, body: string, timestamp: number) => {
-      // TODO: handle declined permissions better
-      await notifee.requestPermission();
+      if (timestamp > new Date().getTime()) {
+        // TODO: handle declined permissions better
+        await notifee.requestPermission();
 
-      const trigger: TimestampTrigger = {
-        type: TriggerType.TIMESTAMP,
-        timestamp,
-      };
+        const trigger: TimestampTrigger = {
+          type: TriggerType.TIMESTAMP,
+          timestamp,
+        };
 
-      // Create a trigger notification
-      const notification = {
-        id,
-        title,
-        body,
-        android: {
-          channelId: 'reminders',
-        },
-      };
+        // Create a trigger notification
+        const notification = {
+          id,
+          title,
+          body,
+          android: {
+            channelId: 'reminders',
+          },
+        };
 
-      // Optimistic add, will be updated when created by notifee
-      setNotification(id, notification);
+        // Optimistic add, will be updated when created by notifee
+        setNotification(id, notification);
 
-      await notifee.createTriggerNotification(notification, trigger);
+        await notifee.createTriggerNotification(notification, trigger);
+      }
     },
     [id, setNotification],
   );
