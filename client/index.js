@@ -1,6 +1,7 @@
 import {AppRegistry, LogBox} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
+import storage from '@react-native-firebase/storage';
 
 import App from './src/App';
 
@@ -22,6 +23,7 @@ if (__DEV__) {
   const HOSTNAME = process.env.HOSTNAME ?? 'localhost';
   auth().useEmulator(`http://${HOSTNAME}:9099`);
   firestore().useEmulator(HOSTNAME, 8080);
+  storage().useEmulator(HOSTNAME, 9199);
 }
 
 AppRegistry.registerComponent('twentyninek', () => App);

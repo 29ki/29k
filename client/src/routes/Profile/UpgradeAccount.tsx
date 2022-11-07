@@ -31,7 +31,6 @@ const UpgradeAccount = () => {
   const {t} = useTranslation('Screen.UpgradeAccount');
   const {params} = useRoute<RouteProp<ModalStackProps, 'UpgradeAccount'>>();
   const user = useRecoilValue(userAtom);
-  const [needToUpgrade, setNeedToUpgrade] = useState(false);
   const [haveCode, setHaveCode] = useState(Boolean(params?.code));
   const [haveRequested, setHaveRequested] = useState(false);
   const [upgradeComplete, setUpgradeComplete] = useState(false);
@@ -40,13 +39,11 @@ const UpgradeAccount = () => {
   const [errorString, setErrorString] = useState<string | null>(null);
   const {updateIsPublicHost} = useIsPublicHost();
 
+  const needToUpgrade = Boolean(user?.isAnonymous);
+
   const requestCode = async () => {
-    if (user?.isAnonymous) {
-      setNeedToUpgrade(true);
-    } else {
-      await requestPromotion();
-      setHaveRequested(true);
-    }
+    await requestPromotion();
+    setHaveRequested(true);
   };
 
   const setEmailAndPassword = async () => {
@@ -94,78 +91,87 @@ const UpgradeAccount = () => {
     }
   };
 
+  const renderContent = () => {
+    if (!haveRequested && needToUpgrade && !haveCode && !upgradeComplete) {
+      return (
+        <>
+          <Heading>{t('needToUpgrade')}</Heading>
+          <Spacer16 />
+          <Input
+            textContentType="emailAddress"
+            keyboardType="email-address"
+            autoCapitalize="none"
+            autoComplete="email"
+            autoCorrect={false}
+            placeholder={t('email')}
+            onChangeText={setEmail}
+          />
+          <Spacer16 />
+          <Input
+            textContentType="newPassword"
+            secureTextEntry
+            autoCapitalize="none"
+            autoComplete="password-new"
+            autoCorrect={false}
+            placeholder={t('password')}
+            onChangeText={setPassword}
+          />
+          <Spacer16 />
+          <Button onPress={setEmailAndPassword}>{t('button')}</Button>
+        </>
+      );
+    }
+
+    if ((!needToUpgrade || haveRequested) && !haveCode && !upgradeComplete) {
+      return (
+        <>
+          <Heading>{haveRequested ? t('requestComplete') : t('text')}</Heading>
+          <Spacer16 />
+          {!haveRequested && (
+            <Button onPress={requestCode}>{t('requestCodeButton')}</Button>
+          )}
+          <Spacer16 />
+          {!user?.isAnonymous && (
+            <Button onPress={() => setHaveCode(true)}>
+              {t('haveCodeButton')}
+            </Button>
+          )}
+        </>
+      );
+    }
+
+    if (haveCode && !upgradeComplete) {
+      return (
+        <>
+          <Heading>{t('enterCode')}</Heading>
+          <Spacer16 />
+          <VerificationCode
+            prefillCode={params?.code}
+            onCodeCompleted={onCodeCompleted}
+          />
+          {errorString && (
+            <>
+              <Spacer16 />
+              <ErrorText>{errorString}</ErrorText>
+            </>
+          )}
+        </>
+      );
+    }
+
+    return (
+      <>
+        <SuccessHeader>{t('success.header')}</SuccessHeader>
+        <SuccessText>{t('success.text')}</SuccessText>
+      </>
+    );
+  };
+
   return (
     <HalfModal>
       <Gutters>
         <Spacer48 />
-
-        {(!needToUpgrade || haveRequested) && !haveCode && !upgradeComplete && (
-          <>
-            <Heading>
-              {haveRequested ? t('requestComplete') : t('text')}
-            </Heading>
-            <Spacer16 />
-            {!haveRequested && (
-              <Button onPress={requestCode}>{t('requestCodeButton')}</Button>
-            )}
-            <Spacer16 />
-            {!user?.isAnonymous && (
-              <Button onPress={() => setHaveCode(true)}>
-                {t('haveCodeButton')}
-              </Button>
-            )}
-          </>
-        )}
-
-        {!haveRequested && needToUpgrade && !haveCode && !upgradeComplete && (
-          <>
-            <Heading>{t('needToUpgrade')}</Heading>
-            <Spacer16 />
-            <Input
-              textContentType="emailAddress"
-              keyboardType="email-address"
-              autoCapitalize="none"
-              autoComplete="email"
-              autoCorrect={false}
-              placeholder={t('email')}
-              onChangeText={setEmail}
-            />
-            <Spacer16 />
-            <Input
-              textContentType="newPassword"
-              secureTextEntry
-              autoCapitalize="none"
-              autoComplete="password-new"
-              autoCorrect={false}
-              placeholder={t('password')}
-              onChangeText={setPassword}
-            />
-            <Spacer16 />
-            <Button onPress={setEmailAndPassword}>{t('button')}</Button>
-          </>
-        )}
-        {haveCode && !upgradeComplete && (
-          <>
-            <Heading>{t('enterCode')}</Heading>
-            <Spacer16 />
-            <VerificationCode
-              prefillCode={params?.code}
-              onCodeCompleted={onCodeCompleted}
-            />
-            {errorString && (
-              <>
-                <Spacer16 />
-                <ErrorText>{errorString}</ErrorText>
-              </>
-            )}
-          </>
-        )}
-        {upgradeComplete && (
-          <>
-            <SuccessHeader>{t('success.header')}</SuccessHeader>
-            <SuccessText>{t('success.text')}</SuccessText>
-          </>
-        )}
+        {renderContent()}
         <Spacer48 />
       </Gutters>
     </HalfModal>
