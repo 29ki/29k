@@ -9,7 +9,7 @@ const useAddToCalendar = () => {
   return useCallback(
     (
       exerciseName: string | undefined,
-      url: string,
+      url: string | undefined,
       startDate: Dayjs,
       endDate: Dayjs,
     ) => {

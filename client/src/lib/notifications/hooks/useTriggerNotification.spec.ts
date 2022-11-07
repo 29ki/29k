@@ -41,6 +41,7 @@ describe('useTriggerNotification', () => {
       await result.current.setTriggerNotification(
         'Some title',
         'Some body',
+        'http://some.deep/link',
         timestamp,
       );
     });
@@ -55,6 +56,9 @@ describe('useTriggerNotification', () => {
         body: 'Some body',
         android: {
           channelId: 'reminders',
+        },
+        data: {
+          url: 'http://some.deep/link',
         },
       },
       {
@@ -73,6 +77,7 @@ describe('useTriggerNotification', () => {
       await result.current.setTriggerNotification(
         'Some title',
         'Some body',
+        'http://some.deep/link',
         new Date().getTime() - 10000,
       );
     });
