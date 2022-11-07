@@ -1,41 +1,61 @@
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import {renderHook} from '@testing-library/react-hooks';
-import {RecoilRoot} from 'recoil';
-import {SessionData} from '../../../../../shared/src/types/Session';
-import {participantsAtom, sessionAtom} from '../state/state';
+import {
+  DailyUserData,
+  SessionData,
+} from '../../../../../shared/src/types/Session';
+import useSessionState from '../state/state';
+import useDailyState from '../../../lib/daily/state/state';
 import useSessionExercise from './useSessionExercise';
 import useSessionParticipants from './useSessionParticipants';
 
 const mockUseSessionExercise = useSessionExercise as jest.Mock;
 jest.mock('./useSessionExercise');
 
+const createParticipant = (id: string, userData?: DailyUserData) => ({
+  [id]: {user_id: id, userData} as DailyParticipant,
+});
+
 describe('useSessionParticipants', () => {
+  it('should order participants depending on sort order', () => {
+    useDailyState.setState({
+      participants: {
+        ...createParticipant('test-id-1'),
+        ...createParticipant('test-id-2'),
+        ...createParticipant('test-id-3'),
+      },
+      participantsSortOrder: ['test-id-2', 'test-id-3', 'test-id-1'],
+    });
+
+    const {result} = renderHook(() => useSessionParticipants());
+
+    expect(result.current).toEqual([
+      {user_id: 'test-id-2'},
+      {user_id: 'test-id-3'},
+      {user_id: 'test-id-1'},
+    ]);
+  });
+
   it('filter participants if participant is on spotlight', () => {
     mockUseSessionExercise.mockReturnValue({
       slide: {current: {type: 'host'}},
     });
 
-    const {result} = renderHook(() => useSessionParticipants(), {
-      wrapper: RecoilRoot,
-      initialProps: {
-        initializeState: ({set}) => {
-          set(sessionAtom, {
-            exerciseState: {
-              dailySpotlightId: 'some-spotlight-user-id',
-            },
-          } as SessionData);
-          set(participantsAtom, {
-            'some-spotlight-user-id': {
-              user_id: 'some-spotlight-user-id',
-            } as DailyParticipant,
-            'some-other-user-id': {
-              user_id: 'some-other-user-id',
-            } as DailyParticipant,
-          });
-        },
-        children: null,
+    useDailyState.setState({
+      participants: {
+        ...createParticipant('some-spotlight-user-id'),
+        ...createParticipant('some-other-user-id'),
       },
     });
+    useSessionState.setState({
+      session: {
+        exerciseState: {
+          dailySpotlightId: 'some-spotlight-user-id',
+        },
+      } as SessionData,
+    });
+
+    const {result} = renderHook(() => useSessionParticipants());
 
     expect(result.current).toEqual([{user_id: 'some-other-user-id'}]);
   });
@@ -45,22 +65,14 @@ describe('useSessionParticipants', () => {
       slide: {current: {type: 'host'}},
     });
 
-    const {result} = renderHook(() => useSessionParticipants(), {
-      wrapper: RecoilRoot,
-      initialProps: {
-        initializeState: ({set}) => {
-          set(participantsAtom, {
-            'some-spotlight-user-id': {
-              user_id: 'some-spotlight-user-id',
-            } as DailyParticipant,
-            'some-other-user-id': {
-              user_id: 'some-other-user-id',
-            } as DailyParticipant,
-          });
-        },
-        children: null,
+    useDailyState.setState({
+      participants: {
+        ...createParticipant('some-spotlight-user-id'),
+        ...createParticipant('some-other-user-id'),
       },
     });
+
+    const {result} = renderHook(() => useSessionParticipants());
 
     expect(result.current).toEqual([
       {user_id: 'some-spotlight-user-id'},
@@ -73,27 +85,21 @@ describe('useSessionParticipants', () => {
       slide: {current: {type: 'not-host'}},
     });
 
-    const {result} = renderHook(() => useSessionParticipants(), {
-      wrapper: RecoilRoot,
-      initialProps: {
-        initializeState: ({set}) => {
-          set(sessionAtom, {
-            exerciseState: {
-              dailySpotlightId: 'some-spotlight-user-id',
-            },
-          } as SessionData);
-          set(participantsAtom, {
-            'some-spotlight-user-id': {
-              user_id: 'some-spotlight-user-id',
-            } as DailyParticipant,
-            'some-other-user-id': {
-              user_id: 'some-other-user-id',
-            } as DailyParticipant,
-          });
-        },
-        children: null,
+    useDailyState.setState({
+      participants: {
+        ...createParticipant('some-spotlight-user-id'),
+        ...createParticipant('some-other-user-id'),
       },
     });
+    useSessionState.setState({
+      session: {
+        exerciseState: {
+          dailySpotlightId: 'some-spotlight-user-id',
+        },
+      } as SessionData,
+    });
+
+    const {result} = renderHook(() => useSessionParticipants());
 
     expect(result.current).toEqual([
       {user_id: 'some-spotlight-user-id'},
@@ -102,27 +108,15 @@ describe('useSessionParticipants', () => {
   });
 
   it('filter participants who are in the portal', () => {
-    const {result} = renderHook(() => useSessionParticipants(), {
-      wrapper: RecoilRoot,
-      initialProps: {
-        initializeState: ({set}) => {
-          set(participantsAtom, {
-            'some-in-portal-user-id': {
-              user_id: 'some-in-portal-user-id',
-              userData: {inPortal: true},
-            } as DailyParticipant,
-            'some-not-in-portal-user-id': {
-              user_id: 'some-not-in-portal-user-id',
-              userData: {inPortal: false},
-            } as DailyParticipant,
-            'some-without-user-data-user-id': {
-              user_id: 'some-without-user-data-user-id',
-            } as DailyParticipant,
-          });
-        },
-        children: null,
+    useDailyState.setState({
+      participants: {
+        ...createParticipant('some-in-portal-user-id', {inPortal: true}),
+        ...createParticipant('some-not-in-portal-user-id', {inPortal: false}),
+        ...createParticipant('some-without-user-data-user-id'),
       },
     });
+
+    const {result} = renderHook(() => useSessionParticipants());
 
     expect(result.current).toEqual([
       {user_id: 'some-not-in-portal-user-id', userData: {inPortal: false}},

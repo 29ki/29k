@@ -1,12 +1,21 @@
-import {useRecoilValue} from 'recoil';
 import {DailyUserData} from '../../../../../shared/src/types/Session';
-import {participantsSelector, sessionAtom} from '../state/state';
+import useSessionState from '../state/state';
+import useDailyState from '../../../lib/daily/state/state';
 import useSessionExercise from './useSessionExercise';
+import {omit, values} from 'ramda';
 
 const useSessionParticipants = () => {
-  const participants = useRecoilValue(participantsSelector);
-  const session = useRecoilValue(sessionAtom);
+  const participantsObj = useDailyState(state => state.participants);
+  const participantsSortOrder = useDailyState(
+    state => state.participantsSortOrder,
+  );
+  const session = useSessionState(state => state.session);
   const exercise = useSessionExercise();
+
+  const participants = [
+    ...participantsSortOrder.map(id => participantsObj[id]),
+    ...values(omit(participantsSortOrder, participantsObj)),
+  ];
 
   const inSessionParticipants = participants.filter(
     participant => !(participant.userData as DailyUserData)?.inPortal,

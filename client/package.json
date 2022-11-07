@@ -64,8 +64,8 @@
     "react-native-sound": "^0.11.2",
     "react-native-svg": "^13.4.0",
     "react-native-video": "^5.2.1",
-    "recoil": "^0.7.6",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "zustand": "^4.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",

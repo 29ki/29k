@@ -1,14 +1,8 @@
 import React, {useContext, useEffect} from 'react';
-import {ActivityIndicator} from 'react-native';
-import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 
-import {
-  videoSharingFields,
-  localParticipantSelector,
-  sessionAtom,
-} from './state/state';
+import useSessionState from './state/state';
 import {
   BottomSafeArea,
   Spacer12,
@@ -19,7 +13,7 @@ import {COLORS} from '../../../../shared/src/constants/colors';
 
 import {SessionStackProps} from '../../lib/navigation/constants/routes';
 
-import {DailyContext} from './DailyProvider';
+import {DailyContext} from '../../lib/daily/DailyProvider';
 
 import ExerciseSlides from './components/ExerciseSlides/ExerciseSlides';
 
@@ -50,11 +44,7 @@ import useUpdateSession from './hooks/useUpdateSession';
 import {useTranslation} from 'react-i18next';
 import HostNotes from './components/HostNotes/HostNotes';
 import Screen from '../../common/components/Screen/Screen';
-
-const LoadingView = styled.View({
-  flex: 1,
-  justifyContent: 'center',
-});
+import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
@@ -111,10 +101,9 @@ const Session = () => {
 
   const participants = useSessionParticipants();
   const {setEnded} = useUpdateSession(sessionId);
-  const me = useRecoilValue(localParticipantSelector);
+  const me = useLocalParticipant();
   const isHost = useIsSessionHost();
-  const isLoading = useRecoilValue(videoSharingFields('isLoading'));
-  const session = useRecoilValue(sessionAtom);
+  const session = useSessionState(state => state.session);
   const exercise = useSessionExercise();
   const {leaveSessionWithConfirm} = useLeaveSession();
 
@@ -130,14 +119,6 @@ const Session = () => {
     setUserData({inPortal: false} as DailyUserData);
     setSubscribeToAllTracks();
   }, [setUserData, setSubscribeToAllTracks]);
-
-  if (isLoading) {
-    return (
-      <LoadingView>
-        <ActivityIndicator size="large" color={COLORS.BLACK} />
-      </LoadingView>
-    );
-  }
 
   const hasAudio = Boolean(me?.audioTrack);
   const hasVideo = Boolean(me?.videoTrack);

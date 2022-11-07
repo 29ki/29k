@@ -10,7 +10,6 @@ import {ActivityIndicator, Alert, Linking, Platform} from 'react-native';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import {DailyMediaView} from '@daily-co/react-native-daily-js';
-import {useRecoilValue} from 'recoil';
 
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
@@ -29,8 +28,8 @@ import {
 } from '../../common/components/Spacers/Spacer';
 import {Body16} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
-import {DailyContext} from './DailyProvider';
-import {localParticipantSelector, sessionAtom} from './state/state';
+import {DailyContext} from '../../lib/daily/DailyProvider';
+import useSessionState from './state/state';
 import {SessionStackProps} from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
@@ -40,6 +39,7 @@ import useSubscribeToSession from './hooks/useSubscribeToSession';
 import useUpdateSessionExerciseState from './hooks/useUpdateSessionExerciseState';
 import useIsSessionHost from './hooks/useIsSessionHost';
 import Screen from '../../common/components/Screen/Screen';
+import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 
 type SessionNavigationProps = NativeStackNavigationProp<SessionStackProps>;
 
@@ -103,7 +103,7 @@ const ChangingRoom = () => {
     hasAppPermissions,
   } = useContext(DailyContext);
 
-  const session = useRecoilValue(sessionAtom);
+  const session = useSessionState(state => state.session);
   const {
     params: {sessionId: sessionId},
   } = useRoute<RouteProp<SessionStackProps, 'ChangingRoom'>>();
@@ -112,7 +112,7 @@ const ChangingRoom = () => {
   const {setSpotlightParticipant} = useUpdateSessionExerciseState(sessionId);
   const isHost = useIsSessionHost();
   const isFocused = useIsFocused();
-  const me = useRecoilValue(localParticipantSelector);
+  const me = useLocalParticipant();
 
   useEffect(() => {
     if (isFocused && session?.url) {

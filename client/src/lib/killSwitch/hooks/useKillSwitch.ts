@@ -1,12 +1,7 @@
 import {useCallback} from 'react';
-import {useResetRecoilState, useSetRecoilState} from 'recoil';
 import {DeviceInfo, getDeviceInfo} from '../../../common/utils/system';
 import apiClient from '../../apiClient/apiClient';
-import {
-  killSwitchAtom,
-  killSwitchFields,
-  killSwitchMessageAtom,
-} from '../state/state';
+import useKillSwitchState from '../state/state';
 
 type KillSwitchReponseBody = {
   requiresBundleUpdate?: boolean;
@@ -34,34 +29,28 @@ const getKillSwitchUrl = ({
   ].join('&');
 
 const useKillSwitch = () => {
-  const reset = useResetRecoilState(killSwitchAtom);
-
-  const setIsLoading = useSetRecoilState(killSwitchFields('isLoading'));
-  const setIsBlocking = useSetRecoilState(killSwitchFields('isBlocking'));
-  const setHasFailed = useSetRecoilState(killSwitchFields('hasFailed'));
-  const setIsRetriable = useSetRecoilState(killSwitchFields('isRetriable'));
-  const setRequiresBundleUpdate = useSetRecoilState(
-    killSwitchFields('requiresBundleUpdate'),
-  );
-  const setMessage = useSetRecoilState(killSwitchMessageAtom);
+  const reset = useKillSwitchState(state => state.reset);
+  const setState = useKillSwitchState(state => state.setState);
 
   const fetchKillSwitch = useCallback(
     async (url: string) => {
-      setIsLoading(true);
+      setState({isLoading: true});
 
       try {
         return await apiClient(url);
       } catch (cause: any) {
         // Do not block the user on network issues
-        setIsBlocking(cause.message !== 'Network request failed');
-        setIsRetriable(true);
-        setHasFailed(true);
+        setState({
+          isBlocking: cause.message !== 'Network request failed',
+          isRetriable: true,
+          hasFailed: true,
+        });
         throw new Error('Kill Switch failed', {cause});
       } finally {
-        setIsLoading(false);
+        setState({isLoading: false});
       }
     },
-    [setHasFailed, setIsBlocking, setIsRetriable, setIsLoading],
+    [setState],
   );
 
   const getResponseData = useCallback(
@@ -75,14 +64,16 @@ const useKillSwitch = () => {
 
         return {};
       } catch (cause) {
-        setIsBlocking(true);
-        setIsRetriable(true);
-        setHasFailed(true);
+        setState({
+          isBlocking: true,
+          isRetriable: true,
+          hasFailed: true,
+        });
 
         throw new Error('Failed to read Kill Switch body', {cause});
       }
     },
-    [setIsBlocking, setIsRetriable, setHasFailed],
+    [setState],
   );
 
   const checkKillSwitch = useCallback(async () => {
@@ -113,37 +104,29 @@ const useKillSwitch = () => {
       console.log(
         `[KillSwitch] requires bundle update @ ${os}${osVersion}@${nativeVersion}`,
       );
-      setRequiresBundleUpdate(true);
+      setState({requiresBundleUpdate: true});
     }
 
     if (response.ok) {
       console.log(`[KillSwitch] ok @ ${os}${osVersion}@${nativeVersion}`);
-      setIsBlocking(false);
+      setState({isBlocking: false});
       return;
     }
 
     console.log(`[KillSwitch] not ok @ ${os}${osVersion}@${nativeVersion}`);
 
-    setIsBlocking(true);
-
-    setIsRetriable(!permanent);
-
-    setMessage({
-      image,
-      message,
-      button,
+    setState({
+      isBlocking: true,
+      isRetriable: !permanent,
+      message: {
+        image,
+        message,
+        button,
+      },
     });
 
     throw new Error(`${os}${osVersion}@${nativeVersion} is Kill Switched`);
-  }, [
-    fetchKillSwitch,
-    getResponseData,
-    reset,
-    setIsBlocking,
-    setIsRetriable,
-    setRequiresBundleUpdate,
-    setMessage,
-  ]);
+  }, [fetchKillSwitch, getResponseData, reset, setState]);
 
   return checkKillSwitch;
 };

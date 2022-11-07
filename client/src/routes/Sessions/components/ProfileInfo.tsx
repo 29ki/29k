@@ -1,14 +1,13 @@
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
 import {Spacer16} from '../../../common/components/Spacers/Spacer';
 import Input from '../../../common/components/Typography/TextInput/TextInput';
 import {SPACINGS} from '../../../common/constants/spacings';
-import {userAtom} from '../../../lib/user/state/state';
 import useChangeProfileInfo from '../../Profile/hooks/useChangeProfileInfo';
 import ProfilePicture from '../../../common/components/User/ProfilePicture';
+import useUser from '../../../lib/user/hooks/useUser';
 
 const Container = styled.View({
   alignItems: 'center',
@@ -23,7 +22,7 @@ const ProfilePicutreWrapper = styled.View({
 
 const ProfileInfo = () => {
   const {t} = useTranslation('Component.ProfileInfo');
-  const user = useRecoilValue(userAtom);
+  const user = useUser();
   const {changeProfilePicture, changeProfileName} = useChangeProfileInfo();
   const [displayName, setDisplayName] = useState(user?.displayName ?? '');
 
