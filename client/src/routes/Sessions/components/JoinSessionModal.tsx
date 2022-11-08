@@ -1,18 +1,25 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React from 'react';
+import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
+import styled from 'styled-components/native';
+
+import {JoinSessionError} from '../../../../../shared/src/errors/Session';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 
 import Gutters from '../../../common/components/Gutters/Gutters';
 import HalfModal from '../../../common/components/Modals/HalfModal';
 import {Spacer16, Spacer24} from '../../../common/components/Spacers/Spacer';
+import {Body14} from '../../../common/components/Typography/Body/Body';
 import {Display24} from '../../../common/components/Typography/Display/Display';
+import VerificationCode from '../../Profile/components/VerificationCode';
 
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 
-import VerificationCode from '../../Profile/components/VerificationCode';
-import useJoinSession from '../../Session/hooks/useJoinSession';
+import {joinSession} from '../api/session';
 import useSessions from '../hooks/useSessions';
+
+const ErrorText = styled(Body14)({color: COLORS.ERROR, textAlign: 'center'});
 
 const JoinSessionModal = () => {
   const {t} = useTranslation('Component.JoinSessionModal');
@@ -20,9 +27,9 @@ const JoinSessionModal = () => {
     params: {inviteCode: inviteCode},
   } = useRoute<RouteProp<ModalStackProps, 'JoinSessionModal'>>();
   const {fetchSessions} = useSessions();
-  const joinSession = useJoinSession();
   const {goBack, navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
+  const [errorString, setErrorString] = useState<string | null>(null);
 
   return (
     <HalfModal>
@@ -39,11 +46,24 @@ const JoinSessionModal = () => {
               goBack();
               navigate('SessionModal', {session: session});
             } catch (err) {
-              goBack();
-              navigate('SessionUnavailable');
+              switch ((err as Error).message) {
+                case JoinSessionError.notFound:
+                  setErrorString(t('errors.sessionNotFound'));
+                  break;
+                default:
+                  goBack();
+                  navigate('SessionUnavailableModal');
+                  break;
+              }
             }
           }}
         />
+        {errorString && (
+          <>
+            <Spacer16 />
+            <ErrorText>{errorString}</ErrorText>
+          </>
+        )}
       </Gutters>
     </HalfModal>
   );
