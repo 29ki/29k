@@ -48,6 +48,10 @@ const mockGetPublicUserInfo = getPublicUserInfo as jest.Mock;
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));
 
+mockGetPublicUserInfo.mockResolvedValue({
+  displayName: 'some-name',
+  photoURL: 'some-photo-url',
+});
 beforeEach(async () => {
   jest.clearAllMocks();
 });
@@ -55,10 +59,6 @@ beforeEach(async () => {
 describe('sessions - controller', () => {
   describe('getSessions', () => {
     it('should get sessions with host profile', async () => {
-      mockGetPublicUserInfo.mockResolvedValueOnce({
-        displayName: 'some-name',
-        photoURL: 'some-photo-url',
-      });
       mockGetSessions.mockResolvedValueOnce([
         {
           hostId: 'some-user-id',
@@ -246,6 +246,10 @@ describe('sessions - controller', () => {
       expect(unmodifiedSession).toEqual({
         id: 'some-session-id',
         userIds: ['some-other-user-id', 'some-user-id'],
+        hostProfile: {
+          displayName: 'some-name',
+          photoURL: 'some-photo-url',
+        },
       });
     });
 
@@ -271,6 +275,10 @@ describe('sessions - controller', () => {
       });
       expect(joinedSession).toEqual({
         id: 'some-session-id',
+        hostProfile: {
+          displayName: 'some-name',
+          photoURL: 'some-photo-url',
+        },
       });
     });
   });
@@ -305,6 +313,10 @@ describe('sessions - controller', () => {
       expect(updatedSession).toEqual({
         id: 'some-session-id',
         started: true,
+        hostProfile: {
+          displayName: 'some-name',
+          photoURL: 'some-photo-url',
+        },
       });
     });
   });
@@ -350,6 +362,10 @@ describe('sessions - controller', () => {
       expect(updatedSession).toEqual({
         id: 'some-session-id',
         exerciseState: {index: 1},
+        hostProfile: {
+          displayName: 'some-name',
+          photoURL: 'some-photo-url',
+        },
       });
     });
   });

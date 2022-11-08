@@ -7,9 +7,12 @@ const useAddToCalendar = () => {
   const {t} = useTranslation('Component.AddToCalendar');
 
   return useCallback(
-    (exerciseName: string | undefined, startDate: Dayjs, endDate: Dayjs) => {
-      const url = 'https://app.29k.org'; // TODO: deep link here
-
+    (
+      exerciseName: string | undefined,
+      url: string | undefined,
+      startDate: Dayjs,
+      endDate: Dayjs,
+    ) => {
       AddCalendarEvent.presentEventCreatingDialog({
         title: t('title', {name: exerciseName}),
         notes: t('notes', {

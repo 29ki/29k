@@ -124,7 +124,7 @@ export const joinSession = async (
   }
 
   if (session.userIds.includes(userId)) {
-    return session;
+    return mapSession(session);
   }
 
   await sessionModel.updateSession(session.id, {
