@@ -25,10 +25,35 @@ describe('Daily state', () => {
       const {result} = renderHook(() => useDailyState());
 
       act(() => {
-        result.current.setParticipantsSortOrder(['some-id', 'some-other-id']);
+        result.current.setParticipantsSortOrder(() => [
+          'some-id',
+          'some-other-id',
+        ]);
       });
 
       expect(result.current.participantsSortOrder).toEqual([
+        'some-id',
+        'some-other-id',
+      ]);
+    });
+
+    it('gets the current sort order in the setter', () => {
+      const {result} = renderHook(() => useDailyState());
+
+      useDailyState.setState({
+        participantsSortOrder: ['some-previous-id'],
+      });
+
+      act(() => {
+        result.current.setParticipantsSortOrder(participantIds => [
+          ...participantIds,
+          'some-id',
+          'some-other-id',
+        ]);
+      });
+
+      expect(result.current.participantsSortOrder).toEqual([
+        'some-previous-id',
         'some-id',
         'some-other-id',
       ]);
@@ -83,7 +108,10 @@ describe('Daily state', () => {
         result.current.setParticipant('some-other-id', {
           user_id: 'some-other-id',
         } as DailyParticipant);
-        result.current.setParticipantsSortOrder(['some-id', 'some-other-id']);
+        result.current.setParticipantsSortOrder(() => [
+          'some-id',
+          'some-other-id',
+        ]);
       });
 
       expect(result.current.participantsSortOrder).toEqual([
