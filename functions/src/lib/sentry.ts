@@ -26,7 +26,7 @@ const sentryErrorHandler = (err: Error, ctx: Context) => {
     scope.setTag('correlation_id', correlationId);
 
     scope.addEventProcessor(event =>
-      Sentry.addRequestDataToEvent(event, ctx.request),
+      Sentry.addRequestDataToEvent(event, ctx.req),
     );
     Sentry.captureException(err);
   });
