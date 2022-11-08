@@ -26,6 +26,8 @@ import {
 import {getPublicUserInfo} from '../models/user';
 import {SessionType} from '../../../shared/src/types/Session';
 import dayjs from 'dayjs';
+import {RequestError} from './errors/RequestError';
+import {JoinSessionError} from '../../../shared/src/errors/Session';
 
 jest.mock('../lib/utils', () => ({
   ...jest.requireActual('../lib/utils'),
@@ -175,8 +177,12 @@ describe('sessions - controller', () => {
       });
 
       expect(mockGenerateVerificationCode).toHaveBeenCalledTimes(2);
-      expect(mockGetSessionByInviteCode).toHaveBeenCalledWith(123456);
-      expect(mockGetSessionByInviteCode).toHaveBeenCalledWith(654321);
+      expect(mockGetSessionByInviteCode).toHaveBeenCalledWith({
+        inviteCode: 123456,
+      });
+      expect(mockGetSessionByInviteCode).toHaveBeenCalledWith({
+        inviteCode: 654321,
+      });
 
       expect(mockAddSession).toHaveBeenCalledWith({
         contentId: 'some-content-id',
@@ -256,7 +262,17 @@ describe('sessions - controller', () => {
     it('should throw if session is not found', async () => {
       mockGetSessionByInviteCode.mockResolvedValueOnce(undefined);
       await expect(joinSession('some-user-id', 12345)).rejects.toEqual(
-        Error('session-not-found'),
+        new RequestError(JoinSessionError.notFound),
+      );
+    });
+
+    it('should throw if session is unavailable', async () => {
+      mockGetSessionByInviteCode.mockResolvedValueOnce(undefined);
+      mockGetSessionByInviteCode.mockResolvedValueOnce(
+        'some-unavailable-session',
+      );
+      await expect(joinSession('some-user-id', 12345)).rejects.toEqual(
+        new RequestError(JoinSessionError.notAvailable),
       );
     });
 
