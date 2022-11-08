@@ -93,12 +93,14 @@ const Audio = styled(AudioIndicator)({
 const ChangingRoom = () => {
   const {t} = useTranslation('Screen.ChangingRoom');
   const [localUserName, setLocalUserName] = useState('');
+  const [joiningMeeting, setJoiningMeeting] = useState(false);
 
   const {goBack, navigate} = useNavigation<SessionNavigationProps>();
   const {
     toggleAudio,
     toggleVideo,
     setUserName,
+    joinMeeting,
     preJoinMeeting,
     hasAppPermissions,
   } = useContext(DailyContext);
@@ -127,7 +129,13 @@ const ChangingRoom = () => {
   }, [isHost, me?.user_id, setSpotlightParticipant]);
 
   const join = async () => {
-    navigate('IntroPortal', {sessionId: sessionId});
+    if (session?.started) {
+      setJoiningMeeting(true);
+      await joinMeeting();
+      navigate('Session', {sessionId: sessionId});
+    } else {
+      navigate('IntroPortal', {sessionId: sessionId});
+    }
   };
 
   const permissionsAlert = () =>
@@ -210,7 +218,8 @@ const ChangingRoom = () => {
                 <Button
                   variant="secondary"
                   onPress={handleJoin}
-                  disabled={!localUserName.length}>
+                  loading={joiningMeeting}
+                  disabled={!localUserName.length || joiningMeeting}>
                   {t('join_button')}
                 </Button>
               </InputWrapper>
