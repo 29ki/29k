@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Alert, Share, View} from 'react-native';
+import {Alert, Platform, Share, View} from 'react-native';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
 import Gutters from '../../../common/components/Gutters/Gutters';
@@ -27,6 +27,7 @@ import useSessions from '../hooks/useSessions';
 import {Body14} from '../../../common/components/Typography/Body/Body';
 import useUser from '../../../lib/user/hooks/useUser';
 import Byline from '../../../common/components/Bylines/Byline';
+import {formatInviteCode} from '../../../common/utils/string';
 
 const Content = styled(Gutters)({
   flexDirection: 'row',
@@ -62,8 +63,12 @@ const SessionModal = () => {
   const startTime = dayjs(session.startTime);
   const startingNow = dayjs().isAfter(startTime.subtract(10, 'minutes'));
 
-  const onStartingNow = () => {
-    navigation.goBack();
+  if (!session || !exercise) {
+    return null;
+  }
+
+  const onJoin = () => {
+    navigation.popToTop();
     navigation.navigate('SessionStack', {
       screen: 'ChangingRoom',
       params: {
@@ -72,22 +77,23 @@ const SessionModal = () => {
     });
   };
 
-  if (!session || !exercise) {
-    return null;
-  }
+  const onAddToCalendar = () =>
+    addToCalendar(
+      exercise.name,
+      session.link,
+      startTime,
+      startTime.add(30, 'minutes'),
+    );
 
-  const onPress = () =>
-    startingNow
-      ? onStartingNow()
-      : addToCalendar(exercise.name, startTime, startTime.add(30, 'minutes'));
+  const onToggleReminder = () => toggleReminder(!reminderEnabled);
 
   const onShare = () => {
     if (session.link) {
       Share.share({
         url: session.link,
         message: t('shareMessage', {
-          link: session.link,
-          code: '111 111',
+          link: Platform.select({android: session.link, default: undefined}),
+          code: formatInviteCode(session.inviteCode),
           interpolation: {escapeValue: false},
         }),
       });
@@ -109,8 +115,6 @@ const SessionModal = () => {
     ]);
   };
 
-  console.log(session.hostProfile);
-
   return (
     <HalfModal>
       <Spacer16 />
@@ -125,7 +129,7 @@ const SessionModal = () => {
         {session.inviteCode && (
           <>
             <Spacer8 />
-            <Body14>{session.inviteCode}</Body14>
+            <Body14>{formatInviteCode(session.inviteCode)}</Body14>
             <Spacer8 />
           </>
         )}
@@ -138,22 +142,33 @@ const SessionModal = () => {
       </Content>
       <Spacer16 />
       <BottomContent>
-        <Button
-          small
-          LeftIcon={!startingNow ? PlusIcon : undefined}
-          variant={startingNow ? 'primary' : 'secondary'}
-          onPress={onPress}>
-          {startingNow ? t('join') : t('addToCalendar')}
-        </Button>
-        <Spacer8 />
-        <Button
-          small
-          LeftIcon={BellIcon}
-          variant="secondary"
-          active={reminderEnabled}
-          onPress={() => toggleReminder(!reminderEnabled)}>
-          {t('addReminder')}
-        </Button>
+        {startingNow ? (
+          <>
+            <Button small variant="primary" onPress={onJoin}>
+              {t('join')}
+            </Button>
+          </>
+        ) : (
+          <>
+            <Button
+              small
+              LeftIcon={PlusIcon}
+              variant={'secondary'}
+              onPress={onAddToCalendar}>
+              {t('addToCalendar')}
+            </Button>
+            <Spacer8 />
+            <Button
+              small
+              LeftIcon={BellIcon}
+              variant="secondary"
+              active={reminderEnabled}
+              onPress={onToggleReminder}>
+              {t('addReminder')}
+            </Button>
+          </>
+        )}
+
         <Spacer8 />
         {session.link && (
           <>

@@ -5,6 +5,8 @@ import styled from 'styled-components/native';
 import {curry} from 'ramda';
 
 import Participant from './Participant';
+import SessionNotifications from '../SessionNotifications';
+import {SPACINGS} from '../../../../common/constants/spacings';
 
 const VIDEO_WIDTH_PERCENTAGE = 0.4;
 
@@ -15,6 +17,17 @@ const ParticipantsWrapper = styled.View({
 const VideoView = styled.View<{width: number}>(props => ({
   width: props.width,
 }));
+
+const Notifications = styled(SessionNotifications)({
+  position: 'absolute',
+  left: SPACINGS.EIGHT,
+  right: SPACINGS.EIGHT,
+  top: SPACINGS.EIGHT,
+  bottom: SPACINGS.EIGHT,
+  overflow: 'hidden',
+  alignItems: 'flex-end',
+  justifyContent: 'flex-end',
+});
 
 type ParticipantsProps = {
   participants: Array<DailyParticipant>;
@@ -47,6 +60,7 @@ const Participants: React.FC<ParticipantsProps> = ({participants}) => {
         )}
         scrollEnabled={participants.length > 2}
       />
+      <Notifications />
     </ParticipantsWrapper>
   );
 };

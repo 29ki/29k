@@ -1,10 +1,24 @@
 import {LinkingOptions} from '@react-navigation/native';
 import dynamicLinks from '@react-native-firebase/dynamic-links';
+import notifee, {
+  EventDetail,
+  EventType,
+  InitialNotification,
+} from '@notifee/react-native';
 import {Linking} from 'react-native';
 import {utils} from '@react-native-firebase/app';
 import {DEEP_LINK_SCHEMA, DEEP_LINK_PREFIX} from 'config';
 
 import {RootStackProps} from './constants/routes';
+
+const resolveNotificationUrl = async (
+  source: InitialNotification | EventDetail | null,
+): Promise<string | undefined> => {
+  const url = source?.notification?.data?.url;
+  if (url) {
+    return (await dynamicLinks().resolveLink(url)).url;
+  }
+};
 
 // Deep link configuration
 const config: LinkingOptions<RootStackProps>['config'] = {
@@ -36,6 +50,14 @@ const linking: LinkingOptions<RootStackProps> = {
       }
     }
 
+    // Second, check for the app being opened from a notification
+    const notificationUrl = await resolveNotificationUrl(
+      await notifee.getInitialNotification(),
+    );
+    if (notificationUrl) {
+      return notificationUrl;
+    }
+
     // As a fallback, you may want to do the default deep link handling
     const url = await Linking.getInitialURL();
 
@@ -49,6 +71,18 @@ const linking: LinkingOptions<RootStackProps> = {
       listener(url);
     });
 
+    // Listen to incoming links from Notifee notifications
+    const unsubscribeNotifee = notifee.onForegroundEvent(
+      async ({type, detail}) => {
+        if (type === EventType.PRESS) {
+          const url = await resolveNotificationUrl(detail);
+          if (url) {
+            listener(url);
+          }
+        }
+      },
+    );
+
     // Listen to incoming links from deep linking
     const linkingSubscription = Linking.addEventListener('url', ({url}) => {
       listener(url);
@@ -57,6 +91,7 @@ const linking: LinkingOptions<RootStackProps> = {
     return () => {
       // Clean up the event listeners
       unsubscribeFirebase();
+      unsubscribeNotifee();
       linkingSubscription.remove();
     };
   },

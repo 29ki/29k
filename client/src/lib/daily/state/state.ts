@@ -12,7 +12,11 @@ type State = {
 type Actions = {
   setParticipant: (id: string, participant: DailyParticipant) => void;
   removeParticipant: (id: string) => void;
-  setParticipantsSortOrder: (sortOrder: State['participantsSortOrder']) => void;
+  setParticipantsSortOrder: (
+    setter: (
+      participantsSortOrder: State['participantsSortOrder'],
+    ) => State['participantsSortOrder'],
+  ) => void;
   reset: () => void;
 };
 
@@ -38,8 +42,10 @@ const useDailyState = create<State & Actions>()(set => ({
       participantsSortOrder: without([id], state.participantsSortOrder),
     })),
 
-  setParticipantsSortOrder: participantsSortOrder =>
-    set({participantsSortOrder}),
+  setParticipantsSortOrder: setter =>
+    set(state => ({
+      participantsSortOrder: setter(state.participantsSortOrder),
+    })),
 
   reset: () => set(initialState),
 }));
