@@ -53,7 +53,7 @@ const SessionNotification: React.FC<{text: string; withProfile: boolean}> = ({
     };
   }, []);
 
-  if (!visible) {
+  if (visible) {
     return (
       <Animated.View entering={FadeInDown} exiting={FadeOut}>
         <Notification>
