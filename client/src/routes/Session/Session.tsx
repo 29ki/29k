@@ -87,8 +87,13 @@ const StyledButton = styled(Button)({
 });
 
 const Session = () => {
-  const {setUserData, toggleAudio, toggleVideo, setSubscribeToAllTracks} =
-    useContext(DailyContext);
+  const {
+    setUserData,
+    toggleAudio,
+    toggleVideo,
+    setSubscribeToAllTracks,
+    leaveMeeting,
+  } = useContext(DailyContext);
   const {
     params: {sessionId},
   } = useRoute<RouteProp<SessionStackProps, 'Session'>>();
@@ -111,9 +116,10 @@ const Session = () => {
 
   useEffect(() => {
     if (session?.ended) {
+      leaveMeeting();
       navigate('OutroPortal');
     }
-  }, [session?.ended, navigate]);
+  }, [session?.ended, navigate, leaveMeeting]);
 
   useEffect(() => {
     setUserData({inPortal: false} as DailyUserData);
