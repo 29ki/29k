@@ -71,7 +71,10 @@ describe('Daily state', () => {
         result.current.setParticipant('some-other-id', {
           user_id: 'some-other-id',
         } as DailyParticipant);
-        result.current.setParticipantsSortOrder(['some-id', 'some-other-id']);
+        result.current.setParticipantsSortOrder(() => [
+          'some-id',
+          'some-other-id',
+        ]);
       });
 
       expect(result.current.participantsSortOrder).toEqual([
