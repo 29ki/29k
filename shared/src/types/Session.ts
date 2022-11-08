@@ -53,4 +53,5 @@ export type Session = {
 
 export type DailyUserData = {
   inPortal: boolean;
+  photoURL: string;
 };

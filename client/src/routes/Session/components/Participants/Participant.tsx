@@ -11,6 +11,8 @@ import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../../common/constants/spacings';
 import AudioIndicator from './AudioIdicator';
 import Name from './Name';
+import Image from '../../../../common/components/Image/Image';
+import {DailyUserData} from '../../../../../../shared/src/types/Session';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -26,6 +28,7 @@ const ParticipantPlaceholder = styled.View({
   height: 80,
   justifyContent: 'center',
   alignItems: 'center',
+  overflow: 'hidden',
 });
 
 const ParticipantAudio = styled(AudioIndicator)({
@@ -58,6 +61,10 @@ const DailyMediaViewWrapper = styled(DailyMediaView)({
   height: '100%',
   width: '100%',
 });
+const ProfileImage = styled(Image)({
+  height: '100%',
+  width: '100%',
+});
 
 const Heading = styled(Display36)({
   fontSize: SPACINGS.FOURTY,
@@ -69,6 +76,8 @@ type ParticipantProps = {
 
 const Participant: React.FC<ParticipantProps> = ({participant}) => {
   const {t} = useTranslation('Screen.Session');
+  const photoURL = (participant?.userData as DailyUserData)?.photoURL;
+
   return (
     <Wrapper>
       {participant.videoTrack ? (
@@ -80,7 +89,11 @@ const Participant: React.FC<ParticipantProps> = ({participant}) => {
         />
       ) : (
         <ParticipantPlaceholder>
-          <Heading>{participant?.user_name?.[0]}</Heading>
+          {photoURL ? (
+            <ProfileImage source={{uri: photoURL}} />
+          ) : (
+            <Heading>{participant?.user_name?.[0]}</Heading>
+          )}
         </ParticipantPlaceholder>
       )}
       <NameGradient>

@@ -45,6 +45,7 @@ import {useTranslation} from 'react-i18next';
 import HostNotes from './components/HostNotes/HostNotes';
 import Screen from '../../common/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
+import useUser from '../../lib/user/hooks/useUser';
 
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
@@ -106,7 +107,7 @@ const Session = () => {
   const session = useSessionState(state => state.session);
   const exercise = useSessionExercise();
   const {leaveSessionWithConfirm} = useLeaveSession();
-
+  const user = useUser();
   usePreventGoingBack(leaveSessionWithConfirm);
 
   useEffect(() => {
@@ -116,9 +117,12 @@ const Session = () => {
   }, [session?.ended, navigate]);
 
   useEffect(() => {
-    setUserData({inPortal: false} as DailyUserData);
+    setUserData({
+      inPortal: false,
+      photoURL: user?.photoURL,
+    } as DailyUserData);
     setSubscribeToAllTracks();
-  }, [setUserData, setSubscribeToAllTracks]);
+  }, [setUserData, setSubscribeToAllTracks, user?.photoURL]);
 
   const hasAudio = Boolean(me?.audioTrack);
   const hasVideo = Boolean(me?.videoTrack);
