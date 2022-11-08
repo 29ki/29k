@@ -69,7 +69,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
-    "@babel/runtime": "^7.20.0",
+    "@babel/runtime": "^7.20.1",
     "@react-native-community/eslint-config": "^3.2.0",
     "@sentry/cli": "^2.8.1",
     "@testing-library/react-hooks": "^8.0.1",
