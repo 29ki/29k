@@ -21,8 +21,7 @@ const Notification = styled.View({
   borderRadius: SPACINGS.EIGHT,
   overflow: 'hidden',
   flexDirection: 'row',
-  alignItem: 'center',
-  justifyContent: 'center',
+  alignItems: 'center',
 });
 const ProfilePlaceholder = styled.View({
   backgroundColor: COLORS.BLACK,
@@ -31,13 +30,12 @@ const ProfilePlaceholder = styled.View({
   overflow: 'hidden',
   borderRadius: 15,
   marginRight: SPACINGS.EIGHT,
-  color: COLORS.WHITE,
   justifyContent: 'center',
   alignItems: 'center',
 });
-
-const Name = styled(Body16)({
-  paddingTop: SPACINGS.FOUR,
+const Letter = styled(Display22)({
+  color: COLORS.WHITE,
+  lineHeight: 26,
 });
 
 const ProfileImage = styled(Image)({
@@ -71,11 +69,11 @@ const SessionNotification: React.FC<{
               {image ? (
                 <ProfileImage source={{uri: image}} />
               ) : (
-                <Display22>{letter}</Display22>
+                <Letter>{letter?.toUpperCase()}</Letter>
               )}
             </ProfilePlaceholder>
           )}
-          <Name>{text}</Name>
+          <Body16>{text}</Body16>
         </Notification>
       </Animated.View>
     );
