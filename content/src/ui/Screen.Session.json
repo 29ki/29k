@@ -24,7 +24,7 @@
     "notifications": {
       "joined": "{{name}} gick med",
       "left": "{{name}} lämnade",
-      "networkQuality": "Unrealiable network connection"
+      "networkQuality": "Ostabilt nätverk"
     }
   },
   "pt": {
