@@ -158,7 +158,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   );
 
   const joinMeeting = useCallback(
-    async (options: DailyCallOptions) => {
+    async (options?: DailyCallOptions) => {
       if (daily.meetingState() !== 'joined-meeting') {
         await daily.join(options);
       }
