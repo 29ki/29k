@@ -19,7 +19,7 @@ export type DailyProviderTypes = {
   call?: DailyCall;
   hasAppPermissions: () => boolean;
   preJoinMeeting: (url: string) => Promise<void>;
-  joinMeeting: (options: DailyCallOptions) => Promise<void>;
+  joinMeeting: (options?: DailyCallOptions) => Promise<void>;
   leaveMeeting: () => Promise<void>;
   toggleAudio: (enabled: boolean) => void;
   toggleVideo: (enabled: boolean) => void;
