@@ -19,7 +19,7 @@ export type DailyProviderTypes = {
   call?: DailyCall;
   hasAppPermissions: () => boolean;
   preJoinMeeting: (url: string) => Promise<void>;
-  joinMeeting: (options: DailyCallOptions) => Promise<void>;
+  joinMeeting: (options?: DailyCallOptions) => Promise<void>;
   leaveMeeting: () => Promise<void>;
   toggleAudio: (enabled: boolean) => void;
   toggleVideo: (enabled: boolean) => void;
@@ -158,7 +158,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   );
 
   const joinMeeting = useCallback(
-    async (options: DailyCallOptions) => {
+    async (options?: DailyCallOptions) => {
       if (daily.meetingState() !== 'joined-meeting') {
         await daily.join(options);
       }

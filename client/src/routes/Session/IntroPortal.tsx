@@ -180,7 +180,7 @@ const IntroPortal: React.FC = () => {
           ref={endVideoRef}
           onLoad={onEndVideoLoad}
           onEnd={onEndVideoEnd}
-          paused={!joiningSession}
+          paused={!joiningSession || !isFocused}
           source={{uri: introPortal.videoEnd?.source}}
           resizeMode="cover"
           poster={introPortal.videoEnd?.preview}
@@ -192,6 +192,7 @@ const IntroPortal: React.FC = () => {
         <VideoStyled
           onLoad={onLoopVideoLoad}
           onEnd={onLoopVideoEnd}
+          paused={!isFocused}
           repeat={!session?.started}
           source={{uri: introPortal.videoLoop?.source}}
           resizeMode="cover"
