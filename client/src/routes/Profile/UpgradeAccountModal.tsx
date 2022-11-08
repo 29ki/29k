@@ -26,9 +26,10 @@ const ErrorText = styled(Body14)({color: COLORS.ERROR, textAlign: 'center'});
 const SuccessHeader = styled(Heading16)({textAlign: 'center'});
 const SuccessText = styled(Body16)({textAlign: 'center'});
 
-const UpgradeAccount = () => {
-  const {t} = useTranslation('Screen.UpgradeAccount');
-  const {params} = useRoute<RouteProp<ModalStackProps, 'UpgradeAccount'>>();
+const UpgradeAccountModal = () => {
+  const {t} = useTranslation('Screen.UpgradeAccountModal');
+  const {params} =
+    useRoute<RouteProp<ModalStackProps, 'UpgradeAccountModal'>>();
   const user = useUserState(state => state.user);
   const [haveCode, setHaveCode] = useState(Boolean(params?.code));
   const [haveRequested, setHaveRequested] = useState(false);
@@ -177,4 +178,4 @@ const UpgradeAccount = () => {
   );
 };
 
-export default UpgradeAccount;
+export default UpgradeAccountModal;

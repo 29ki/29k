@@ -15,8 +15,9 @@ export type SessionStackProps = {
 
 export type ModalStackProps = {
   SessionModal: {session: Session};
+  SessionUnavailableModal: undefined;
   CreateSessionModal: undefined;
-  UpgradeAccount: {code: string} | undefined;
+  UpgradeAccountModal: {code: string} | undefined;
   JoinSessionModal: {inviteCode?: number};
   AddSessionModal: undefined;
 };

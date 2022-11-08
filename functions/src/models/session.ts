@@ -58,20 +58,30 @@ export const getSessionById = async (id: Session['id']) => {
   return getSession(getData<SessionData>(sessionDoc));
 };
 
-export const getSessionByInviteCode = async (
-  inviteCode: Session['inviteCode'],
-) => {
-  const result = await firestore()
+export const getSessionByInviteCode = async ({
+  inviteCode,
+  activeOnly = true,
+}: {
+  inviteCode: Session['inviteCode'];
+  activeOnly?: boolean;
+}) => {
+  const query = firestore()
     .collection(SESSIONS_COLLECTION)
-    .where('inviteCode', '==', inviteCode)
-    .where('ended', '==', false)
-    .where(
-      'startTime',
-      '>',
-      Timestamp.fromDate(
-        dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
-      ),
-    )
+    .where('inviteCode', '==', inviteCode);
+
+  const result = await (activeOnly
+    ? query
+        .where('ended', '==', false)
+        .where(
+          'startTime',
+          '>',
+          Timestamp.fromDate(
+            dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
+          ),
+        )
+    : query
+  )
+    .orderBy('startTime', 'asc')
     .get();
 
   if (!result.docs.length) {
