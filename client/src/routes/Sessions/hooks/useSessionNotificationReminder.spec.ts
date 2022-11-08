@@ -45,6 +45,7 @@ describe('useSessionNotificationReminder', () => {
       useSessionNotificationReminder({
         id: 'some-session-id',
         contentId: 'some-content-id',
+        link: 'http://some.deep/link',
       } as Session),
     );
 
@@ -54,6 +55,7 @@ describe('useSessionNotificationReminder', () => {
     expect(mockSetNotification).toHaveBeenCalledWith(
       'title',
       'body',
+      'http://some.deep/link',
       expect.any(Number),
     );
   });
