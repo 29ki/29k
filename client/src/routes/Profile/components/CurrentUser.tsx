@@ -73,7 +73,7 @@ const CurrentUser: React.FC<CurrentUserProps> = ({isPublicHost = false}) => {
   };
 
   const requestPublicHostRole = async () => {
-    navigate('UpgradeAccount');
+    navigate('UpgradeAccountModal');
   };
 
   return (

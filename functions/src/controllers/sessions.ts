@@ -4,8 +4,10 @@ import * as sessionModel from '../models/session';
 import {getPublicUserInfo} from '../models/user';
 import * as dailyApi from '../lib/dailyApi';
 import {Session} from '../../../shared/src/types/Session';
+import {JoinSessionError} from '../../../shared/src/errors/Session';
 import {ExerciseStateUpdate, UpdateSession} from '../api/sessions';
 import {generateVerificationCode, removeEmpty} from '../lib/utils';
+import {RequestError} from './errors/RequestError';
 
 const mapSession = async (session: Session) => {
   return {...session, hostProfile: await getPublicUserInfo(session.hostId)};
@@ -28,7 +30,7 @@ export const createSession = async (
   const dailyRoom = await dailyApi.createRoom(dayjs(startTime).add(2, 'hour'));
   let inviteCode = generateVerificationCode();
 
-  while (await sessionModel.getSessionByInviteCode(inviteCode)) {
+  while (await sessionModel.getSessionByInviteCode({inviteCode})) {
     inviteCode = generateVerificationCode();
   }
 
@@ -115,12 +117,21 @@ export const joinSession = async (
   userId: string,
   inviteCode: Session['inviteCode'],
 ) => {
-  const session = (await sessionModel.getSessionByInviteCode(
+  const session = (await sessionModel.getSessionByInviteCode({
     inviteCode,
-  )) as Session;
+  })) as Session;
 
   if (!session) {
-    throw new Error('session-not-found');
+    const unavailableSession = (await sessionModel.getSessionByInviteCode({
+      inviteCode,
+      activeOnly: false,
+    })) as Session;
+
+    if (unavailableSession) {
+      throw new RequestError(JoinSessionError.notAvailable);
+    } else {
+      throw new RequestError(JoinSessionError.notFound);
+    }
   }
 
   if (session.userIds.includes(userId)) {

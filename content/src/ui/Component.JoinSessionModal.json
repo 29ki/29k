@@ -1,11 +1,12 @@
 {
   "en": {
-    "title": "Join by invite code"
+    "title": "Join by invite code",
+    "errors": {
+      "sessionNotFound": "Invalid invite code"
+    }
   },
   "sv": {
     "title": "Använd kod för att gå med"
   },
-  "pt": {
-    "title": "Join by invite code"
-  }
+  "pt": {}
 }

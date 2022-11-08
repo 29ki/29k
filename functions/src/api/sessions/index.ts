@@ -12,6 +12,8 @@ import {
   LANGUAGE_TAG,
   LANGUAGE_TAGS,
 } from '../../lib/i18n';
+import {JoinSessionError} from '../../../../shared/src/errors/Session';
+import {RequestError} from '../../controllers/errors/RequestError';
 
 const sessionsRouter = createRouter();
 
@@ -83,7 +85,24 @@ sessionsRouter.put(
     const {inviteCode} = ctx.request.body as JoinSession;
     const {user} = ctx;
 
-    ctx.body = await sessionsController.joinSession(user.id, inviteCode);
+    try {
+      ctx.body = await sessionsController.joinSession(user.id, inviteCode);
+    } catch (error) {
+      const requestError = error as RequestError;
+      switch (requestError.code) {
+        case JoinSessionError.notFound:
+          ctx.status = 404;
+          break;
+
+        case JoinSessionError.notAvailable:
+          ctx.status = 410;
+          break;
+
+        default:
+          throw error;
+      }
+      ctx.message = requestError.code;
+    }
   },
 );
 

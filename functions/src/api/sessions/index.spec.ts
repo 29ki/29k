@@ -6,6 +6,8 @@ import createMockServer from '../lib/createMockServer';
 import {createRouter} from '../../lib/routers';
 import {ROLES} from '../../../../shared/src/types/User';
 import * as sessionsController from '../../controllers/sessions';
+import {RequestError} from '../../controllers/errors/RequestError';
+import {JoinSessionError} from '../../../../shared/src/errors/Session';
 
 jest.mock('../../controllers/sessions');
 const mockGetSessions = sessionsController.getSessions as jest.Mock;
@@ -281,15 +283,32 @@ describe('/api/sessions', () => {
       expect(response.status).toBe(500);
     });
 
-    it('should fail when join rejects', async () => {
-      mockJoinSession.mockRejectedValueOnce(new Error('some-error'));
+    it('should fail when session is not found', async () => {
+      mockJoinSession.mockRejectedValueOnce(
+        new RequestError(JoinSessionError.notFound),
+      );
+
       const response = await request(mockServer)
         .put('/sessions/joinSession')
         .send({inviteCode: 12345})
         .set('Accept', 'application/json');
 
-      expect(response.status).toBe(500);
-      expect(response.text).toEqual('Internal Server Error');
+      expect(response.status).toBe(404);
+      expect(response.text).toBe(JoinSessionError.notFound);
+    });
+
+    it('should fail when session is no longer available', async () => {
+      mockJoinSession.mockRejectedValueOnce(
+        new RequestError(JoinSessionError.notAvailable),
+      );
+
+      const response = await request(mockServer)
+        .put('/sessions/joinSession')
+        .send({inviteCode: 12345})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(410);
+      expect(response.text).toBe(JoinSessionError.notAvailable);
     });
   });
 
