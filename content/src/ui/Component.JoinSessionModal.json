@@ -8,5 +8,10 @@
   "sv": {
     "title": "Använd kod för att gå med"
   },
-  "pt": {}
+  "pt": {
+    "title": "Junta-te por código de convite",
+    "errors": {
+      "sessionNotFound": "Código de convite inválido"
+    }
+  }
 }
