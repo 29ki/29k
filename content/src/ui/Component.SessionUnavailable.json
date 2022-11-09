@@ -3,5 +3,7 @@
     "description": "The session you're looking for is not available anymore."
   },
   "sv": {},
-  "pt": {}
+  "pt": {
+    "description": "A sessão que estás a procurar já não está disponível."
+  }
 }
