@@ -21,5 +21,15 @@
       "openSettings": "Ändra inställningar"
     }
   },
-  "pt": {}
+  "pt": {
+    "placeholder": "Por favor escreve o teu nome",
+    "join_button": "Participar",
+    "cameraOff": "A câmara está desligada",
+    "permissionsAlert": {
+      "title": "Antes de entrares",
+      "message": "Não deste permissões à app para poderes ligar/desligar a câmara e/ou o microfone. Não há problema mas desta forma não vais poder aproveitar ao máximo a sessão.",
+      "join": "Participar mesmo assim",
+      "openSettings": "Abrir configurações"
+    }
+  }
 }
