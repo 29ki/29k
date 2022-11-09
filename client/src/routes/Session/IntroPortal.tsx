@@ -51,7 +51,7 @@ import {DailyContext} from '../../lib/daily/DailyProvider';
 import Screen from '../../common/components/Screen/Screen';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 import {ArrowLeftIcon} from '../../common/components/Icons';
-import useSessions from '../Sessions/hooks/useSessions';
+import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -120,11 +120,10 @@ const IntroPortal: React.FC = () => {
         SessionStackProps & TabNavigatorProps & ModalStackProps
       >
     >();
-  const isFocused = useIsFocused();
   const {setStarted} = useUpdateSession(sessionId);
   const {leaveSessionWithConfirm} = useLeaveSession();
-
-  const {fetchSessions} = useSessions();
+  const isFocused = useIsFocused();
+  useSubscribeToSessionIfFocused(sessionId);
 
   const introPortal = exercise?.introPortal;
   const textColor = exercise?.theme?.textColor;
@@ -144,14 +143,6 @@ const IntroPortal: React.FC = () => {
       },
     });
   }, [joinMeeting]);
-
-  useEffect(() => {
-    if (session?.ended) {
-      fetchSessions();
-      navigate('Sessions');
-      navigate('SessionUnavailableModal');
-    }
-  }, [session?.ended, navigate, fetchSessions]);
 
   useEffect(() => {
     if (session?.started && !endVideoRef.current) {

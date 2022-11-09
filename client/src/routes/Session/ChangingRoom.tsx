@@ -39,14 +39,13 @@ import {SPACINGS} from '../../common/constants/spacings';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
 import AudioIndicator from './components/Participants/AudioIdicator';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
-import useSubscribeToSession from './hooks/useSubscribeToSession';
 import useUpdateSessionExerciseState from './hooks/useUpdateSessionExerciseState';
 import useIsSessionHost from './hooks/useIsSessionHost';
 import Screen from '../../common/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../lib/user/hooks/useUser';
 import Image from '../../common/components/Image/Image';
-import useSessions from '../Sessions/hooks/useSessions';
+import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'padding', android: undefined}),
@@ -103,7 +102,6 @@ const ImageContainer = styled.View({
 const ChangingRoom = () => {
   const {t} = useTranslation('Screen.ChangingRoom');
   const [joiningMeeting, setJoiningMeeting] = useState(false);
-  const {fetchSessions} = useSessions();
 
   const {goBack, navigate} =
     useNavigation<
@@ -125,21 +123,13 @@ const ChangingRoom = () => {
     params: {sessionId: sessionId},
   } = useRoute<RouteProp<SessionStackProps, 'ChangingRoom'>>();
 
-  useSubscribeToSession(sessionId);
+  useSubscribeToSessionIfFocused(sessionId);
   const {setSpotlightParticipant} = useUpdateSessionExerciseState(sessionId);
   const isHost = useIsSessionHost();
   const isFocused = useIsFocused();
   const me = useLocalParticipant();
   const user = useUser();
   const [localUserName, setLocalUserName] = useState(user?.displayName ?? '');
-
-  useEffect(() => {
-    if (session?.ended) {
-      fetchSessions();
-      navigate('Sessions');
-      navigate('SessionUnavailableModal');
-    }
-  }, [session?.ended, navigate, fetchSessions]);
 
   useEffect(() => {
     if (isFocused && session?.url) {

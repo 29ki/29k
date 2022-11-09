@@ -1,11 +1,6 @@
 import {renderHook} from '@testing-library/react-hooks';
 import firestore from '@react-native-firebase/firestore';
-import {useNavigation} from '@react-navigation/native';
 import useSessionState from '../state/state';
-import useSessions from '../../Sessions/hooks/useSessions';
-jest.mock('../../Sessions/hooks/useSessions');
-
-const mockUseSessions = useSessions as jest.Mock;
 
 import useSubscribeToSession from './useSubscribeToSession';
 
@@ -14,14 +9,13 @@ afterEach(() => {
 });
 
 describe('useSubscribeToSession', () => {
-  const fetchSessionsMock = jest.fn();
-  mockUseSessions.mockReturnValue({fetchSessions: fetchSessionsMock});
-  const navigation = useNavigation();
+  const mockCallback = jest.fn();
 
   const useTestHook = () => {
-    useSubscribeToSession('session-id');
+    const subscribeToSession = useSubscribeToSession('session-id');
     const session = useSessionState(state => state.session);
 
+    subscribeToSession(mockCallback);
     return session;
   };
 
@@ -35,27 +29,10 @@ describe('useSubscribeToSession', () => {
     );
     expect(
       firestore().collection('sessions').doc('session-id').onSnapshot,
-    ).toHaveBeenCalled();
-  });
-
-  it('should set live content state', () => {
-    const {result} = renderHook(() => useTestHook());
-
-    expect(result.current).toEqual({id: 'test-id'});
-  });
-
-  it('should handle when session does not exist', () => {
-    (
-      firestore().collection('sessions').doc().onSnapshot as jest.Mock
-    ).mockImplementationOnce(cb => {
-      cb({exists: false, data: () => undefined});
+    ).toHaveBeenCalledWith(mockCallback, expect.any(Function));
+    expect(mockCallback).toHaveBeenCalledWith({
+      data: expect.any(Function),
+      exists: true,
     });
-
-    const {result} = renderHook(() => useTestHook());
-    expect(result.current).toBe(null);
-
-    expect(fetchSessionsMock).toHaveBeenCalledTimes(1);
-    expect(navigation.navigate).toHaveBeenCalledWith('Sessions');
-    expect(navigation.navigate).toHaveBeenCalledWith('SessionUnavailableModal');
   });
 });
