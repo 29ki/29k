@@ -9,5 +9,9 @@
     "join": "Gå med",
     "starts": "Startar"
   },
-  "pt": {}
+  "pt": {
+    "addToCalendar": "Adicionar ao calendário",
+    "starts": "Começar",
+    "join": "Juntar"
+  }
 }
