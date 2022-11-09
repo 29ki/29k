@@ -19,11 +19,11 @@
   },
   "pt": {
     "counterValue": {
-      "shortly": "Shortly",
-      "now": "Now",
+      "shortly": "Em breve",
+      "now": "Agora",
       "inHours": "{{hours}}h {{minutes}}m",
-      "inMinutes": "in {{minutes}}m {{seconds}}s"
+      "inMinutes": "em {{minutes}}m {{seconds}}s"
     },
-    "today": "hoje"
+    "today": "Hoje"
   }
 }
