@@ -11,6 +11,8 @@ import {SPACINGS} from '../../../common/constants/spacings';
 import {Body16} from '../../../common/components/Typography/Body/Body';
 import {Display22} from '../../../common/components/Typography/Display/Display';
 import {DailyContext} from '../../../lib/daily/DailyProvider';
+import {DailyUserData} from '../../../../../shared/src/types/Session';
+import Image from '../../../common/components/Image/Image';
 
 const Notification = styled.View({
   backgroundColor: COLORS.WHITE_TRANSPARENT_80,
@@ -19,28 +21,33 @@ const Notification = styled.View({
   borderRadius: SPACINGS.EIGHT,
   overflow: 'hidden',
   flexDirection: 'row',
-  alignItem: 'center',
-  justifyContent: 'center',
+  alignItems: 'center',
 });
-const ProfilePlaceholder = styled(Display22)({
+const ProfilePlaceholder = styled.View({
   backgroundColor: COLORS.BLACK,
   width: 30,
   height: 30,
-  paddingLeft: SPACINGS.EIGHT,
   overflow: 'hidden',
   borderRadius: 15,
   marginRight: SPACINGS.EIGHT,
+  justifyContent: 'center',
+  alignItems: 'center',
+});
+const Letter = styled(Display22)({
   color: COLORS.WHITE,
+  lineHeight: 26,
 });
 
-const Name = styled(Body16)({
-  paddingTop: SPACINGS.FOUR,
+const ProfileImage = styled(Image)({
+  width: '100%',
+  height: '100%',
 });
 
-const SessionNotification: React.FC<{text: string; withProfile: boolean}> = ({
-  withProfile,
-  text,
-}) => {
+const SessionNotification: React.FC<{
+  text: string;
+  letter?: string;
+  image?: string;
+}> = ({letter, text, image}) => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -57,8 +64,16 @@ const SessionNotification: React.FC<{text: string; withProfile: boolean}> = ({
     return (
       <Animated.View entering={FadeInDown} exiting={FadeOut}>
         <Notification>
-          {withProfile && <ProfilePlaceholder>{text[0]}</ProfilePlaceholder>}
-          <Name>{text}</Name>
+          {(letter || image) && (
+            <ProfilePlaceholder>
+              {image ? (
+                <ProfileImage source={{uri: image}} />
+              ) : (
+                <Letter>{letter?.toUpperCase()}</Letter>
+              )}
+            </ProfilePlaceholder>
+          )}
+          <Body16>{text}</Body16>
         </Notification>
       </Animated.View>
     );
@@ -67,14 +82,10 @@ const SessionNotification: React.FC<{text: string; withProfile: boolean}> = ({
   return null;
 };
 
-enum NotificationType {
-  participant = 'participant',
-  network = 'network',
-}
-
 type Notification = {
-  type: NotificationType;
   text: string;
+  letter?: string;
+  image?: string;
 };
 
 const SessionNotifications: React.FC<{
@@ -85,12 +96,15 @@ const SessionNotifications: React.FC<{
   const [notifications, setNotifications] = useState<Notification[]>([]);
 
   const participantJoined = useCallback(
-    (user: DailyEventObject<'participant-joined'> | undefined) => {
+    (event: DailyEventObject<'participant-joined'> | undefined) => {
+      const image = (event?.participant.userData as DailyUserData)?.photoURL;
+      const name = event?.participant.user_name ?? '';
       setNotifications(state => [
         ...state,
         {
-          type: NotificationType.participant,
-          text: t('notifications.joined', {name: user?.participant.user_name}),
+          text: t('notifications.joined', {name}),
+          letter: name[0],
+          image,
         },
       ]);
     },
@@ -98,12 +112,15 @@ const SessionNotifications: React.FC<{
   );
 
   const participantLeft = useCallback(
-    (user: DailyEventObject<'participant-left'> | undefined) => {
+    (event: DailyEventObject<'participant-left'> | undefined) => {
+      const image = (event?.participant.userData as DailyUserData)?.photoURL;
+      const name = event?.participant.user_name ?? '';
       setNotifications(state => [
         ...state,
         {
-          type: NotificationType.participant,
-          text: t('notifications.left', {name: user?.participant.user_name}),
+          text: t('notifications.left', {name}),
+          letter: name[0],
+          image,
         },
       ]);
     },
@@ -116,7 +133,6 @@ const SessionNotifications: React.FC<{
         setNotifications(state => [
           ...state,
           {
-            type: NotificationType.network,
             text: t('notifications.networkQuality'),
           },
         ]);
@@ -142,7 +158,8 @@ const SessionNotifications: React.FC<{
       {notifications.map((notification, i) => (
         <SessionNotification
           text={notification.text}
-          withProfile={notification.type === 'participant'}
+          image={notification.image}
+          letter={notification.letter}
           key={i}
         />
       ))}

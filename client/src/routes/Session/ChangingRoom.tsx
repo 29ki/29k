@@ -40,6 +40,8 @@ import useUpdateSessionExerciseState from './hooks/useUpdateSessionExerciseState
 import useIsSessionHost from './hooks/useIsSessionHost';
 import Screen from '../../common/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
+import useUser from '../../lib/user/hooks/useUser';
+import Image from '../../common/components/Image/Image';
 
 type SessionNavigationProps = NativeStackNavigationProp<SessionStackProps>;
 
@@ -90,9 +92,13 @@ const Audio = styled(AudioIndicator)({
   top: SPACINGS.SIXTEEN,
 });
 
+const ImageContainer = styled.View({
+  width: '100%',
+  height: '100%',
+});
+
 const ChangingRoom = () => {
   const {t} = useTranslation('Screen.ChangingRoom');
-  const [localUserName, setLocalUserName] = useState('');
   const [joiningMeeting, setJoiningMeeting] = useState(false);
 
   const {goBack, navigate} = useNavigation<SessionNavigationProps>();
@@ -115,6 +121,8 @@ const ChangingRoom = () => {
   const isHost = useIsSessionHost();
   const isFocused = useIsFocused();
   const me = useLocalParticipant();
+  const user = useUser();
+  const [localUserName, setLocalUserName] = useState(user?.displayName ?? '');
 
   useEffect(() => {
     if (isFocused && session?.url) {
@@ -180,6 +188,10 @@ const ChangingRoom = () => {
                     objectFit={'cover'}
                     mirror={me?.local}
                   />
+                ) : user?.photoURL ? (
+                  <ImageContainer>
+                    <Image source={{uri: user.photoURL}} />
+                  </ImageContainer>
                 ) : (
                   <VideoText>{t('cameraOff')}</VideoText>
                 ))}
@@ -212,6 +224,7 @@ const ChangingRoom = () => {
                   autoCapitalize="words"
                   autoCorrect={false}
                   maxLength={20}
+                  value={localUserName}
                   placeholder={t('placeholder')}
                 />
                 <Spacer28 />
