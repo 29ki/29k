@@ -28,6 +28,17 @@
     }
   },
   "pt": {
-    "nameSuffix": "Você"
+    "nameSuffix": "Tu",
+    "endButton": "Terminar sessão",
+    "controls": {
+      "start": "Iniciar",
+      "next": "Próximo",
+      "prev": "Voltar"
+    },
+    "notifications": {
+      "joined": "{{name}} juntou-se",
+      "left": "{{name}} saiu",
+      "networkQuality": "Ligação de rede instável"
+    }
   }
 }
