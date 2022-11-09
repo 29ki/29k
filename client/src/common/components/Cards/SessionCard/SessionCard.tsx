@@ -82,7 +82,7 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
         <Badge>
           <Body14>
             <BodyBold>
-              {session.started ? (
+              {started ? (
                 t('counterLabel.started')
               ) : (
                 <Counter startTime={startAt} />
