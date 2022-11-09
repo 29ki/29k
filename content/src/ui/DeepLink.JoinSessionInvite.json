@@ -7,5 +7,8 @@
     "title": "Session: {{name}}",
     "description": "{{date}} i 29k-appen"
   },
-  "pt": {}
+  "pt": {
+    "title": "Sessão: {{name}}",
+    "description": "{{date}} na app 29k FJN"
+  }
 }
