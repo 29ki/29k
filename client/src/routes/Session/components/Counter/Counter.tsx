@@ -2,15 +2,16 @@ import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
+import isToday from 'dayjs/plugin/isToday';
 
 dayjs.extend(duration);
+dayjs.extend(isToday);
 
 type CounterProps = {
   startTime: dayjs.Dayjs;
-  starting?: boolean;
 };
 
-const Counter: React.FC<CounterProps> = ({startTime, starting = false}) => {
+const Counter: React.FC<CounterProps> = ({startTime}) => {
   const {t} = useTranslation('Component.Counter');
   const [now, setNow] = useState(dayjs());
   const [active, setActive] = useState(false);
@@ -20,7 +21,7 @@ const Counter: React.FC<CounterProps> = ({startTime, starting = false}) => {
       return;
     }
 
-    if (dayjs.duration(startTime.diff(now)).days() < 1) {
+    if (startTime.isToday()) {
       setActive(true);
     }
   }, [active, now, startTime]);
@@ -44,7 +45,7 @@ const Counter: React.FC<CounterProps> = ({startTime, starting = false}) => {
   const getTime = () => {
     const diff = dayjs.duration(startTime.diff(now));
 
-    if (diff.days() > 0) {
+    if (!startTime.isToday()) {
       return startTime.format('ddd, D MMM HH:mm');
     }
 
@@ -52,20 +53,12 @@ const Counter: React.FC<CounterProps> = ({startTime, starting = false}) => {
       return `${t('today')}, ${startTime.format('HH:mm')}`;
     }
 
-    return t('counterValue.inMinutes', {
+    return t('inMinutes', {
       minutes: diff.minutes(),
       seconds: diff.seconds(),
     });
   };
 
-  return (
-    <>
-      {starting
-        ? t('counterValue.now')
-        : isStartingShortly()
-        ? t('counterValue.shortly')
-        : getTime()}
-    </>
-  );
+  return <>{isStartingShortly() ? t('shortly') : getTime()}</>;
 };
 export default Counter;

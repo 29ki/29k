@@ -77,12 +77,16 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
       hostPictureURL={hostProfile.photoURL}
       hostName={hostProfile.displayName}>
       <Row>
-        <Body14>{t('starts')}</Body14>
+        <Body14>{t('counterLabel.starts')}</Body14>
         <Spacer4 />
         <Badge>
           <Body14>
             <BodyBold>
-              <Counter startTime={startAt} starting={started} />
+              {session.started ? (
+                t('counterLabel.started')
+              ) : (
+                <Counter startTime={startAt} />
+              )}
             </BodyBold>
           </Body14>
         </Badge>

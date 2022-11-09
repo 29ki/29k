@@ -1,29 +1,17 @@
 {
   "en": {
-    "counterValue": {
-      "shortly": "Shortly",
-      "now": "Now",
-      "inHours": "{{hours}}h {{minutes}}m",
-      "inMinutes": "in {{minutes}}m {{seconds}}s"
-    },
-    "today": "Today"
+    "today": "Today",
+    "shortly": "Shortly",
+    "inMinutes": "in {{minutes}}m {{seconds}}s"
   },
   "sv": {
-    "counterValue": {
-      "shortly": "Strax",
-      "now": "Nu",
-      "inHours": "{{hours}}h {{minutes}}m",
-      "inMinutes": "om {{minutes}}m {{seconds}}s"
-    },
-    "today": "idag"
+    "today": "Idag",
+    "shortly": "Strax",
+    "inMinutes": "om {{minutes}}m {{seconds}}s"
   },
   "pt": {
-    "counterValue": {
-      "shortly": "Shortly",
-      "now": "Now",
-      "inHours": "{{hours}}h {{minutes}}m",
-      "inMinutes": "in {{minutes}}m {{seconds}}s"
-    },
-    "today": "hoje"
+    "today": "Hoje",
+    "shortly": "Shortly",
+    "inMinutes": "in {{minutes}}m {{seconds}}s"
   }
 }
