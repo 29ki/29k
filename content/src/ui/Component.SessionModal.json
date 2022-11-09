@@ -33,18 +33,20 @@
     "join": "Gå med"
   },
   "pt": {
-    "edit": "Edit",
-    "done": "Done",
-    "deleteButton": "Delete Session",
+    "edit": "Alterar",
+    "done": "Terminar",
+    "deleteButton": "Remover sessão",
     "delete": {
-      "header": "Delete Session?",
-      "text": "Are you sure you want to delete the session?",
+      "header": "Remover sessão?",
+      "text": "Tens a certeza que queres remover a sessão?",
       "buttons": {
-        "cancel": "Cancel",
-        "confirm": "Delete"
+        "cancel": "Cancelar",
+        "confirm": "Remover"
       }
     },
-    "addToCalendar": "Add to Cal",
-    "join": "Join"
+    "addToCalendar": "Adicionar ao calendário",
+    "join": "Juntar",
+    "addReminder": "Adicionar lembrete",
+    "shareMessage": "{{link}}Código da sessão: {{code}}"
   }
 }
