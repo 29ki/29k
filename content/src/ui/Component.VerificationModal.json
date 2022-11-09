@@ -16,11 +16,11 @@
     "signIn": "Logga in"
   },
   "pt": {
-    "header": "Verification",
+    "header": "Validação",
     "email": "Email",
     "password": "Passsword",
-    "upgrade": "Upgrade",
-    "code": "Code",
-    "signIn": "Sign in"
+    "upgrade": "Atualizar",
+    "code": "Código",
+    "signIn": "Entrar"
   }
 }
