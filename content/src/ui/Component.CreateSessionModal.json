@@ -58,26 +58,26 @@
       "title": "Escolha um exercício"
     },
     "selectType": {
-      "title": "Create session with...",
+      "title": "Criar sessão com...",
       "public": {
-        "title": "Anyone",
+        "title": "Qualquer pessoa",
         "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
       },
       "private": {
-        "title": "My friends",
+        "title": "Os meus amigos",
         "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
       },
       "async": {
-        "title": "My self",
+        "title": "Comigo",
         "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
       }
     },
     "setDateTime": {
-      "title": "Escolha o tempo da sessão",
-      "cta": "Publish"
+      "title": "Escolhe o horário",
+      "cta": "Criar sessão"
     },
     "profile": {
-      "text": "To host as session you need provide a user name and profile picture."
+      "text": "Para poderes ser um moderador autorizado tens de colocar o teu nome e a tua fotografia."
     }
   }
 }
