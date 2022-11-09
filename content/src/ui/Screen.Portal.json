@@ -28,17 +28,17 @@
     }
   },
   "pt": {
-    "participants": "We are",
-    "startSession": "Start session",
-    "sessionStarted": "Session is On",
-    "skipPortal": "Skip portal",
+    "participants": "Somos",
+    "startSession": "Iniciar sessão",
+    "sessionStarted": "A sessão está ativa",
+    "skipPortal": "Ignorar",
     "counterLabel": {
-      "counting": "Starting in",
-      "soon": "Starting"
+      "counting": "Inicia em ",
+      "soon": "A iniciar"
     },
     "counterValue": {
-      "shortly": "Shortly",
-      "now": "Ahora"
+      "shortly": "Brevemente",
+      "now": "Agora"
     }
   }
 }
