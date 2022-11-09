@@ -51,24 +51,24 @@
     "update": {
       "image__image": "",
       "android": {
-        "text__markdown": "## We've made the app even ~~better!~~\n\nYou can get the latest version from ~~[Google PlayStore](https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake)~~",
-        "link": "https://testflight.apple.com/join/0VdruQ6z",
-        "button": "Update"
+        "text__markdown": "## Tornamos a app ainda ~~melhor!~~\n\nPodes obter a última versão na ~~[Google PlayStore](https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake)~~",
+        "link": "https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake",
+        "button": "Atualizar"
       },
       "ios": {
-        "text__markdown": "## We've made the app even ~~better!~~\n\nYou can get the latest version from ~~[Apple TestFlight](https://testflight.apple.com/join/0VdruQ6z)~~",
-        "link": "https://apps.apple.com/se/app/29k-find-yourself-others/id1434100083",
-        "button": "Update"
+        "text__markdown": "## Tornamos a app ainda ~~melhor!~~\n\nPodes obter a última versão na ~~[Apple TestFlight](https://testflight.apple.com/join/0VdruQ6z)~~",
+        "link": "https://testflight.apple.com/join/0VdruQ6z",
+        "button": "Atualizar"
       }
     },
     "maintenance": {
       "image__image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1648213290/KillSwitch%20illustrations/Failed_Illutration_wer2cx.png",
-      "text__markdown": "## We're undergoing a bit of a ~~maintenance~~\n\nSorry for the inconvenience. We’ll be back up and running as soon as possible."
+      "text__markdown": "## Estamos em ~~manutenção~~\n\nDesculpa o incómodo. Vamos tentar voltar o mais rapidamente possível."
     },
     "failed": {
       "image__image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1648213290/KillSwitch%20illustrations/Failed_Illutration_wer2cx.png",
-      "text__markdown": "## Something’s not quite right...\n\nWe’re having some technical difficulties right now. Try again in a moment."
+      "text__markdown": "## Algo correu mal...\n\nEstamos com algumas dificuldades técnicas. Tenta de novo daqui a pouco."
     },
-    "retry": "Try again"
+    "retry": "Tentar de novo"
   }
 }
