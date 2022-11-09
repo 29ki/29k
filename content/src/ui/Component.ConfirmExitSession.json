@@ -16,11 +16,11 @@
     }
   },
   "pt": {
-    "header": "Leave meeting",
-    "text": "Are you sure you want to leave the meeting",
+    "header": "Sair da sessão",
+    "text": "Tens a certeza que queres sair da sessão?",
     "buttons": {
-      "cancel": "Don't leave",
-      "confirm": "Leave"
+      "cancel": "Não sair",
+      "confirm": "Sair"
     }
   }
 }
