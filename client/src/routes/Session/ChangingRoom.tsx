@@ -30,7 +30,11 @@ import {Body16} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {DailyContext} from '../../lib/daily/DailyProvider';
 import useSessionState from './state/state';
-import {SessionStackProps} from '../../lib/navigation/constants/routes';
+import {
+  ModalStackProps,
+  SessionStackProps,
+  TabNavigatorProps,
+} from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
 import AudioIndicator from './components/Participants/AudioIdicator';
@@ -42,8 +46,7 @@ import Screen from '../../common/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../lib/user/hooks/useUser';
 import Image from '../../common/components/Image/Image';
-
-type SessionNavigationProps = NativeStackNavigationProp<SessionStackProps>;
+import useSessions from '../Sessions/hooks/useSessions';
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'padding', android: undefined}),
@@ -100,8 +103,14 @@ const ImageContainer = styled.View({
 const ChangingRoom = () => {
   const {t} = useTranslation('Screen.ChangingRoom');
   const [joiningMeeting, setJoiningMeeting] = useState(false);
+  const {fetchSessions} = useSessions();
 
-  const {goBack, navigate} = useNavigation<SessionNavigationProps>();
+  const {goBack, navigate} =
+    useNavigation<
+      NativeStackNavigationProp<
+        SessionStackProps & TabNavigatorProps & ModalStackProps
+      >
+    >();
   const {
     toggleAudio,
     toggleVideo,
@@ -123,6 +132,14 @@ const ChangingRoom = () => {
   const me = useLocalParticipant();
   const user = useUser();
   const [localUserName, setLocalUserName] = useState(user?.displayName ?? '');
+
+  useEffect(() => {
+    if (session?.ended) {
+      fetchSessions();
+      navigate('Sessions');
+      navigate('SessionUnavailableModal');
+    }
+  }, [session?.ended, navigate, fetchSessions]);
 
   useEffect(() => {
     if (isFocused && session?.url) {

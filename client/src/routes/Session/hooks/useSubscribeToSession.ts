@@ -27,7 +27,7 @@ const useSubscribeToSession = (sessionId: Session['id']) => {
       documentSnapshot => {
         const session = documentSnapshot.data() as SessionData;
 
-        if (!documentSnapshot.exists || session.ended) {
+        if (!documentSnapshot.exists) {
           fetchSessions();
           navigate('Sessions');
           navigate('SessionUnavailableModal');

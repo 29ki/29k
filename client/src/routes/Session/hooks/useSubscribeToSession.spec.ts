@@ -58,19 +58,4 @@ describe('useSubscribeToSession', () => {
     expect(navigation.navigate).toHaveBeenCalledWith('Sessions');
     expect(navigation.navigate).toHaveBeenCalledWith('SessionUnavailableModal');
   });
-
-  it('should handle when session has ended', () => {
-    (
-      firestore().collection('sessions').doc().onSnapshot as jest.Mock
-    ).mockImplementationOnce(cb => {
-      cb({exists: true, data: () => ({ended: true})});
-    });
-
-    const {result} = renderHook(() => useTestHook());
-    expect(result.current).toBe(null);
-
-    expect(fetchSessionsMock).toHaveBeenCalledTimes(1);
-    expect(navigation.navigate).toHaveBeenCalledWith('Sessions');
-    expect(navigation.navigate).toHaveBeenCalledWith('SessionUnavailableModal');
-  });
 });
