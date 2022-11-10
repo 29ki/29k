@@ -43,11 +43,12 @@ const ProfileImage = styled(Image)({
   height: '100%',
 });
 
-const SessionNotification: React.FC<{
+export const SessionNotification: React.FC<{
   text: string;
   letter?: string;
   image?: string;
-}> = ({letter, text, image}) => {
+  uilib?: boolean;
+}> = ({letter, text, image, uilib}) => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -60,7 +61,7 @@ const SessionNotification: React.FC<{
     };
   }, []);
 
-  if (visible) {
+  if (visible || uilib) {
     return (
       <Animated.View entering={FadeInDown} exiting={FadeOut}>
         <Notification>
