@@ -52,5 +52,6 @@
     "password": "Password",
     "upgrade": "Atualizar",
     "email": "E-mail"
-  }
+  },
+  "es": {}
 }

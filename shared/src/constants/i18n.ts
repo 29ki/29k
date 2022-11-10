@@ -1,8 +1,9 @@
 // LANGUAGES defines the supported languages and their tags
 export enum LANGUAGES {
   en = 'English',
-  sv = 'Svenska',
   pt = 'Português',
+  sv = 'Svenska',
+  es = 'Español',
 }
 
 export type LANGUAGE_TAG = keyof typeof LANGUAGES;

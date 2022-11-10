@@ -13,5 +13,6 @@
     "today": "Hoje",
     "shortly": "Em breve",
     "inMinutes": "em {{minutes}}m {{seconds}}s"
-  }
+  },
+  "es": {}
 }
