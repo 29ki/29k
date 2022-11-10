@@ -4,7 +4,7 @@
     "join": "Join",
     "counterLabel": {
       "starts": "Starts",
-      "started": "Has started"
+      "startsIn": "Starts in"
     }
   },
   "sv": {
@@ -12,13 +12,14 @@
     "join": "Gå med",
     "counterLabel": {
       "starts": "Startar",
-      "started": "Har startat"
+      "startsIn": "Startar om"
     }
   },
   "pt": {
     "addToCalendar": "Adicionar ao calendário",
     "counterLabel": {
-      "starts": "Começar"
+      "starts": "Começar",
+      "startsIn": "Começar em"
     }
   }
 }
