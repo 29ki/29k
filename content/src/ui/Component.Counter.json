@@ -11,7 +11,7 @@
   },
   "pt": {
     "today": "Hoje",
-    "shortly": "Shortly",
-    "inMinutes": "in {{minutes}}m {{seconds}}s"
+    "shortly": "Em breve",
+    "inMinutes": "em {{minutes}}m {{seconds}}s"
   }
 }

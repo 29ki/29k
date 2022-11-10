@@ -6,40 +6,40 @@ import {FlatList} from 'react-native-gesture-handler';
 import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
 
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import {SessionType} from '../../../../../shared/src/types/Session';
+import {Exercise} from '../../../../shared/src/types/generated/Exercise';
+import {SessionType} from '../../../../shared/src/types/Session';
 
-import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import useExerciseIds from '../../../lib/content/hooks/useExerciseIds';
-import useSessions from '../hooks/useSessions';
+import useExerciseById from '../../lib/content/hooks/useExerciseById';
+import useExerciseIds from '../../lib/content/hooks/useExerciseIds';
+import useSessions from '../Sessions/hooks/useSessions';
 
-import Button from '../../../common/components/Buttons/Button';
-import Gutters from '../../../common/components/Gutters/Gutters';
-import Image from '../../../common/components/Image/Image';
-import HalfModal from '../../../common/components/Modals/HalfModal';
+import Button from '../../common/components/Buttons/Button';
+import Gutters from '../../common/components/Gutters/Gutters';
+import Image from '../../common/components/Image/Image';
+import HalfModal from '../../common/components/Modals/HalfModal';
 import {
   Spacer16,
   Spacer24,
   Spacer28,
   Spacer8,
-} from '../../../common/components/Spacers/Spacer';
-import TouchableOpacity from '../../../common/components/TouchableOpacity/TouchableOpacity';
+} from '../../common/components/Spacers/Spacer';
+import TouchableOpacity from '../../common/components/TouchableOpacity/TouchableOpacity';
 import {
   Display16,
   Display24,
-} from '../../../common/components/Typography/Display/Display';
-import {Heading16} from '../../../common/components/Typography/Heading/Heading';
-import {COLORS} from '../../../../../shared/src/constants/colors';
-import SETTINGS from '../../../common/constants/settings';
-import {SPACINGS} from '../../../common/constants/spacings';
-import {Body16} from '../../../common/components/Typography/Body/Body';
-import DateTimePicker from './DateTimePicker';
-import {LANGUAGE_TAG} from '../../../lib/i18n';
-import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
-import {ModalStackProps} from '../../../lib/navigation/constants/routes';
+} from '../../common/components/Typography/Display/Display';
+import {Heading16} from '../../common/components/Typography/Heading/Heading';
+import {COLORS} from '../../../../shared/src/constants/colors';
+import SETTINGS from '../../common/constants/settings';
+import {SPACINGS} from '../../common/constants/spacings';
+import {Body16} from '../../common/components/Typography/Body/Body';
+import DateTimePicker from './components/DateTimePicker';
+import {LANGUAGE_TAG} from '../../lib/i18n';
+import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
+import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import ProfileInfo from './ProfileInfo';
-import useUser from '../../../lib/user/hooks/useUser';
+import ProfileInfo from '../../common/components/ProfileInfo/ProfileInfo';
+import useUser from '../../lib/user/hooks/useUser';
 
 const Row = styled.View({
   flexDirection: 'row',

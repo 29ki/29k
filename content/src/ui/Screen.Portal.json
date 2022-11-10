@@ -19,5 +19,10 @@
       "started": "Nu"
     }
   },
-  "pt": {}
+  "pt": {
+    "participants": "Somos",
+    "startSession": "Iniciar sessão",
+    "sessionStarted": "A sessão está ativa",
+    "skipPortal": "Ignorar"
+  }
 }

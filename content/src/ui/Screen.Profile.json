@@ -4,6 +4,7 @@
     "or": "or",
     "userId": "User ID",
     "requestPublicHostRoleButton": "Request to create public sessions",
+    "displayName": "Name",
     "signOut": "Sign-out",
     "uiLib": "UI Library",
     "checkUpdate": "Check for update",
@@ -12,14 +13,14 @@
     "language": "Language",
     "password": "Lösenord",
     "upgrade": "Upgrade",
-    "email": "E-mail",
-    "displayName": "Name"
+    "email": "E-mail"
   },
   "sv": {
     "signIn": "Logga in",
     "or": "eller",
     "userId": "Användar-ID",
     "requestPublicHostRoleButton": "Jag vill kunna skapa öppna sessioner",
+    "displayName": "Namn",
     "signOut": "Logga ut",
     "uiLib": "UI-bibliotek",
     "checkUpdate": "Sök efter uppdatering",
@@ -28,8 +29,22 @@
     "language": "Språk",
     "password": "Lösenord",
     "upgrade": "Uppgradera",
-    "email": "Epost",
-    "displayName": "Namn"
+    "email": "Epost"
   },
-  "pt": {}
+  "pt": {
+    "signIn": "Entrar",
+    "or": "ou",
+    "userId": "Utilizador",
+    "requestPublicHostRoleButton": "Pedir para criar sessões públicas",
+    "displayName": "Nome",
+    "signOut": "Sair",
+    "uiLib": "Biblioteca UI",
+    "checkUpdate": "Verificar atualizações",
+    "clearUpdate": "Limpar atualização",
+    "signInAnonymously": "Entrar como anónima/o",
+    "language": "Língua",
+    "password": "Password",
+    "upgrade": "Atualizar",
+    "email": "E-mail"
+  }
 }

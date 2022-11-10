@@ -5,29 +5,29 @@ import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Alert, Platform, Share, View} from 'react-native';
 import styled from 'styled-components/native';
-import Button from '../../../common/components/Buttons/Button';
-import Gutters from '../../../common/components/Gutters/Gutters';
-import IconButton from '../../../common/components/Buttons/IconButton/IconButton';
+import Button from '../../common/components/Buttons/Button';
+import Gutters from '../../common/components/Gutters/Gutters';
+import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 import {
   BellIcon,
   DeleteIcon,
   PlusIcon,
   ShareIcon,
-} from '../../../common/components/Icons';
-import Image from '../../../common/components/Image/Image';
-import HalfModal from '../../../common/components/Modals/HalfModal';
-import {Spacer16, Spacer8} from '../../../common/components/Spacers/Spacer';
-import {Display24} from '../../../common/components/Typography/Display/Display';
-import {COLORS} from '../../../../../shared/src/constants/colors';
-import {RootStackProps} from '../../../lib/navigation/constants/routes';
-import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import useAddToCalendar from '../hooks/useAddToCalendar';
-import useSessionNotificationReminder from '../hooks/useSessionNotificationReminder';
-import useSessions from '../hooks/useSessions';
-import {Body14} from '../../../common/components/Typography/Body/Body';
-import useUser from '../../../lib/user/hooks/useUser';
-import Byline from '../../../common/components/Bylines/Byline';
-import {formatInviteCode} from '../../../common/utils/string';
+} from '../../common/components/Icons';
+import Image from '../../common/components/Image/Image';
+import HalfModal from '../../common/components/Modals/HalfModal';
+import {Spacer16, Spacer8} from '../../common/components/Spacers/Spacer';
+import {Display24} from '../../common/components/Typography/Display/Display';
+import {COLORS} from '../../../../shared/src/constants/colors';
+import {RootStackProps} from '../../lib/navigation/constants/routes';
+import useExerciseById from '../../lib/content/hooks/useExerciseById';
+import useAddToCalendar from '../Sessions/hooks/useAddToCalendar';
+import useSessionNotificationReminder from '../Sessions/hooks/useSessionNotificationReminder';
+import useSessions from '../Sessions/hooks/useSessions';
+import {Body14} from '../../common/components/Typography/Body/Body';
+import useUser from '../../lib/user/hooks/useUser';
+import Byline from '../../common/components/Bylines/Byline';
+import {formatInviteCode} from '../../common/utils/string';
 
 const Content = styled(Gutters)({
   flexDirection: 'row',

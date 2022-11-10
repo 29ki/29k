@@ -15,5 +15,10 @@
       "started": "Har startat"
     }
   },
-  "pt": {}
+  "pt": {
+    "addToCalendar": "Adicionar ao calendário",
+    "counterLabel": {
+      "starts": "Começar"
+    }
+  }
 }
