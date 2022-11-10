@@ -25,8 +25,8 @@ describe('useSubscribeToSession', () => {
 
   const navigation = useNavigation();
 
-  const useTestHook = () => {
-    useSubscribeToSessionIfFocused('session-id');
+  const useTestHook = ({exitOnEnded = true} = {}) => {
+    useSubscribeToSessionIfFocused('session-id', {exitOnEnded});
     const session = useSessionState(state => state.session);
 
     return session;
@@ -68,7 +68,7 @@ describe('useSubscribeToSession', () => {
   it('should handle when session has ended', () => {
     mockUseIsFocused.mockReturnValueOnce(true);
     mockSubscribeToSession.mockImplementationOnce(cb =>
-      cb({data: () => undefined, exists: false}),
+      cb({data: () => ({ended: true}), exists: true}),
     );
 
     const {result} = renderHook(() => useTestHook());
@@ -79,13 +79,25 @@ describe('useSubscribeToSession', () => {
     expect(navigation.navigate).toHaveBeenCalledWith('SessionUnavailableModal');
   });
 
-  it('should unsubscribe when unfocused', () => {
+  it('should do nothing when session has ended', () => {
     mockUseIsFocused.mockReturnValueOnce(true);
     mockSubscribeToSession.mockImplementationOnce(cb =>
-      cb({data: () => ({id: 'some-data'}), exists: true}),
+      cb({data: () => ({ended: true}), exists: true}),
     );
+
+    renderHook(() => useTestHook({exitOnEnded: false}));
+
+    expect(fetchSessionsMock).toHaveBeenCalledTimes(0);
+    expect(navigation.navigate).toHaveBeenCalledTimes(0);
+  });
+
+  it('should unsubscribe when unfocused', async () => {
+    mockUseIsFocused.mockReturnValueOnce(true);
     const mockUnsubscribe = jest.fn();
-    mockSubscribeToSession.mockReturnValueOnce(mockUnsubscribe);
+    mockSubscribeToSession.mockImplementationOnce(cb => {
+      cb({data: () => ({id: 'some-data'}), exists: true});
+      return mockUnsubscribe;
+    });
 
     const {rerender} = renderHook(() => useTestHook());
 
@@ -95,8 +107,8 @@ describe('useSubscribeToSession', () => {
 
     rerender();
 
+    expect(mockSubscribeToSession).toHaveBeenCalledTimes(1); // Total number of calls (meaning doesn't call it again)
     expect(mockUnsubscribe).toHaveBeenCalledTimes(1);
-    expect(mockSubscribeToSession).toHaveBeenCalledTimes(0);
   });
 
   it('should not subscribe when unfocused', () => {

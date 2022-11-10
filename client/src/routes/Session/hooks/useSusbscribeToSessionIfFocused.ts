@@ -32,7 +32,7 @@ const useSubscribeToSessionIfFocused = (
       return subscribeToSession(documentSnapshot => {
         const session = documentSnapshot.data() as SessionData;
 
-        if (!documentSnapshot.exists || (exitOnEnded && session.ended)) {
+        if (!documentSnapshot.exists || (exitOnEnded && session?.ended)) {
           fetchSessions();
           navigate('Sessions');
           navigate('SessionUnavailableModal');
