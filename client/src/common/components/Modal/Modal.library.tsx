@@ -5,7 +5,7 @@ import Gutters from '../Gutters/Gutters';
 import {Spacer16} from '../Spacers/Spacer';
 import {Body16} from '../Typography/Body/Body';
 import {Display24, Display36} from '../Typography/Display/Display';
-import Modal from './HalfModal';
+import Modal from './Modal';
 
 export const DefaultModal = () => (
   <Modal>

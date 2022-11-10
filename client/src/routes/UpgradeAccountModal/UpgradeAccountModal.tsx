@@ -11,7 +11,7 @@ import {Heading16} from '../../common/components/Typography/Heading/Heading';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {requestPromotion, verifyPromotion} from '../Profile/api/user';
 import styled from 'styled-components/native';
-import HalfModal from '../../common/components/Modals/HalfModal';
+import Modal from '../../common/components/Modal/Modal';
 import useUserState from '../../lib/user/state/state';
 import VerificationCode from '../../common/components/VerificationCode/VerificationCode';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
@@ -168,13 +168,13 @@ const UpgradeAccountModal = () => {
   };
 
   return (
-    <HalfModal>
+    <Modal>
       <Gutters>
         <Spacer48 />
         {renderContent()}
         <Spacer48 />
       </Gutters>
-    </HalfModal>
+    </Modal>
   );
 };
 

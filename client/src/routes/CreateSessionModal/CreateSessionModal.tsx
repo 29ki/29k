@@ -15,7 +15,7 @@ import useSessions from '../Sessions/hooks/useSessions';
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import Image from '../../common/components/Image/Image';
-import HalfModal from '../../common/components/Modals/HalfModal';
+import Modal from '../../common/components/Modal/Modal';
 import {
   Spacer16,
   Spacer24,
@@ -44,10 +44,6 @@ import useUser from '../../lib/user/hooks/useUser';
 const Row = styled.View({
   flexDirection: 'row',
   paddingHorizontal: SPACINGS.EIGHT,
-});
-
-const Content = styled(Gutters)({
-  flex: 1,
 });
 
 const Card = styled(TouchableOpacity)({
@@ -96,15 +92,17 @@ const ContentCard: React.FC<{
   const exercise = useExerciseById(exerciseId);
 
   return (
-    <Card onPress={onPress}>
-      <TextWrapper>
-        <Display16>{exercise?.name}</Display16>
-      </TextWrapper>
-      <Spacer16 />
-      <CardImageWrapper>
-        <Image source={{uri: exercise?.card?.image?.source}} />
-      </CardImageWrapper>
-    </Card>
+    <Gutters>
+      <Card onPress={onPress}>
+        <TextWrapper>
+          <Display16>{exercise?.name}</Display16>
+        </TextWrapper>
+        <Spacer16 />
+        <CardImageWrapper>
+          <Image source={{uri: exercise?.card?.image?.source}} />
+        </CardImageWrapper>
+      </Card>
+    </Gutters>
   );
 };
 
@@ -134,7 +132,6 @@ const SelectContent: React.FC<StepProps> = ({
 
   return (
     <Step>
-      <Spacer24 />
       <BottomSheetFlatList
         ListHeaderComponent={
           <>
@@ -183,32 +180,34 @@ const SelectType: React.FC<StepProps> = ({
 
   return (
     <Step>
-      <Spacer8 />
-      <Row>
-        <TextWrapper>
-          <Display24>{exercise?.name}</Display24>
-        </TextWrapper>
+      <Gutters>
+        <Spacer8 />
+        <Row>
+          <TextWrapper>
+            <Display24>{exercise?.name}</Display24>
+          </TextWrapper>
+          <Spacer16 />
+          <CardImageWrapper>
+            <Image source={{uri: exercise?.card?.image?.source}} />
+          </CardImageWrapper>
+        </Row>
+        <Spacer28 />
+        <StepHeading>{t('selectType.title')}</StepHeading>
         <Spacer16 />
-        <CardImageWrapper>
-          <Image source={{uri: exercise?.card?.image?.source}} />
-        </CardImageWrapper>
-      </Row>
-      <Spacer28 />
-      <StepHeading>{t('selectType.title')}</StepHeading>
-      <Spacer16 />
-      <Row>
-        {Object.values(SessionType).map(type => (
-          <TypeItem
-            key={type}
-            onPress={() => {
-              setSelectedType(type);
-              nextStep();
-            }}
-            label={t(`selectType.${type}.title`)}
-            icon={t(`selectType.${type}.icon`)}
-          />
-        ))}
-      </Row>
+        <Row>
+          {Object.values(SessionType).map(type => (
+            <TypeItem
+              key={type}
+              onPress={() => {
+                setSelectedType(type);
+                nextStep();
+              }}
+              label={t(`selectType.${type}.title`)}
+              icon={t(`selectType.${type}.icon`)}
+            />
+          ))}
+        </Row>
+      </Gutters>
     </Step>
   );
 };
@@ -242,31 +241,33 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
 
   return (
     <Step>
-      <Spacer8 />
-      <Row>
-        <TextWrapper>
-          <Display24>{exercise?.name}</Display24>
-        </TextWrapper>
+      <Gutters>
+        <Spacer8 />
+        <Row>
+          <TextWrapper>
+            <Display24>{exercise?.name}</Display24>
+          </TextWrapper>
+          <Spacer16 />
+          <CardImageWrapper>
+            <Image source={{uri: exercise?.card?.image?.source}} />
+          </CardImageWrapper>
+        </Row>
+        <Spacer28 />
+        <StepHeading>{t('setDateTime.title')}</StepHeading>
         <Spacer16 />
-        <CardImageWrapper>
-          <Image source={{uri: exercise?.card?.image?.source}} />
-        </CardImageWrapper>
-      </Row>
-      <Spacer28 />
-      <StepHeading>{t('setDateTime.title')}</StepHeading>
-      <Spacer16 />
-      <DateTimePicker
-        minimumDate={dayjs().local()}
-        onChange={(selectedDate, selectedTime) => {
-          setDate(selectedDate);
-          setTime(selectedTime);
-        }}
-      />
-      <Spacer16 />
-      <Cta variant="secondary" small onPress={onSubmit} disabled={isLoading}>
-        {t('setDateTime.cta')}
-      </Cta>
-      <Spacer16 />
+        <DateTimePicker
+          minimumDate={dayjs().local()}
+          onChange={(selectedDate, selectedTime) => {
+            setDate(selectedDate);
+            setTime(selectedTime);
+          }}
+        />
+        <Spacer16 />
+        <Cta variant="secondary" small onPress={onSubmit} disabled={isLoading}>
+          {t('setDateTime.cta')}
+        </Cta>
+        <Spacer16 />
+      </Gutters>
     </Step>
   );
 };
@@ -314,12 +315,9 @@ const CreateSessionModal = () => {
   };
 
   return (
-    <HalfModal
-      backgroundColor={currentStep === 0 ? COLORS.WHITE : COLORS.CREAM}>
-      <Content>
-        <CurrentStepComponent {...stepProps} />
-      </Content>
-    </HalfModal>
+    <Modal backgroundColor={currentStep === 0 ? COLORS.WHITE : COLORS.CREAM}>
+      <CurrentStepComponent {...stepProps} />
+    </Modal>
   );
 };
 
