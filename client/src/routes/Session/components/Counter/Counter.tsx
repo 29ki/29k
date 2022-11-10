@@ -42,6 +42,10 @@ const Counter: React.FC<CounterProps> = ({startTime}) => {
     return now.add(1, 'minute').isAfter(startTime);
   };
 
+  const isStarted = () => {
+    return now.isAfter(startTime);
+  };
+
   const getTime = () => {
     const diff = dayjs.duration(startTime.diff(now));
 
@@ -50,7 +54,7 @@ const Counter: React.FC<CounterProps> = ({startTime}) => {
     }
 
     if (diff.hours() > 0) {
-      return `${t('today')}, ${startTime.format('HH:mm')}`;
+      return startTime.format('HH:mm');
     }
 
     return t('inMinutes', {
@@ -59,6 +63,14 @@ const Counter: React.FC<CounterProps> = ({startTime}) => {
     });
   };
 
-  return <>{isStartingShortly() ? t('shortly') : getTime()}</>;
+  return (
+    <>
+      {isStarted()
+        ? t('started')
+        : isStartingShortly()
+        ? t('shortly')
+        : getTime()}
+    </>
+  );
 };
 export default Counter;
