@@ -16,7 +16,7 @@ import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import Button from '../../common/components/Buttons/Button';
 
 const AddSessionModal: React.FC = () => {
-  const {t} = useTranslation('Component.AddSessionModal');
+  const {t} = useTranslation('Modal.AddSession');
 
   const {goBack, navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();

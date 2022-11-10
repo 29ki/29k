@@ -113,7 +113,7 @@ const UpdateProfileContainer = styled.View({flex: 1});
 const UpdateProfileHeading = styled(Body16)({textAlign: 'center'});
 
 const UpdateProfile: React.FC<StepProps> = () => {
-  const {t} = useTranslation('Component.CreateSessionModal');
+  const {t} = useTranslation('Modal.CreateSession');
   return (
     <UpdateProfileContainer>
       <Spacer16 />
@@ -130,7 +130,7 @@ const SelectContent: React.FC<StepProps> = ({
 }) => {
   const exerciseIds = useExerciseIds();
 
-  const {t} = useTranslation('Component.CreateSessionModal');
+  const {t} = useTranslation('Modal.CreateSession');
 
   return (
     <Step>
@@ -179,7 +179,7 @@ const SelectType: React.FC<StepProps> = ({
   nextStep,
 }) => {
   const exercise = useExerciseById(selectedExercise);
-  const {t} = useTranslation('Component.CreateSessionModal');
+  const {t} = useTranslation('Modal.CreateSession');
 
   return (
     <Step>
@@ -214,7 +214,7 @@ const SelectType: React.FC<StepProps> = ({
 };
 
 const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
-  const {t, i18n} = useTranslation('Component.CreateSessionModal');
+  const {t, i18n} = useTranslation('Modal.CreateSession');
   const {goBack, navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
   const [isLoading, setIsLoading] = useState(false);
