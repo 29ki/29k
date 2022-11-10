@@ -44,11 +44,11 @@ export const UI = () => (
       <ColorBG>
         <Row>
           <Body14>
-            <Counter startTime={dayjsTime} starting={false} />
+            <Counter startTime={dayjsTime} />
           </Body14>
           <Spacer8 />
           <Body14>
-            <Counter startTime={dayjsTime} starting={true} />
+            <Counter startTime={dayjsTime} />
           </Body14>
           <Spacer8 />
         </Row>

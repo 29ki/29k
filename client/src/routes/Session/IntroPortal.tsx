@@ -232,16 +232,17 @@ const IntroPortal: React.FC = () => {
             <PortalStatus>
               <StatusItem>
                 <StatusText themeColor={textColor}>
-                  {t('counterLabel.soon')}
+                  {t('counterLabel.starts')}
                 </StatusText>
 
                 <Spacer8 />
                 <Badge themeColor={textColor}>
                   <StatusText themeColor={textColor}>
-                    <Counter
-                      startTime={dayjs(session?.startTime.toDate())}
-                      starting={session?.started}
-                    />
+                    {session?.started ? (
+                      t('counterLabel.started')
+                    ) : (
+                      <Counter startTime={dayjs(session?.startTime.toDate())} />
+                    )}
                   </StatusText>
                 </Badge>
               </StatusItem>
