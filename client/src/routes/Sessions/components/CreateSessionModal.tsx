@@ -1,8 +1,7 @@
-import {useNavigation} from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import dayjs from 'dayjs';
 import React, {Dispatch, SetStateAction, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {FlatList} from 'react-native-gesture-handler';
 import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
 
@@ -38,6 +37,7 @@ import {LANGUAGE_TAG} from '../../../lib/i18n';
 import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -45,7 +45,7 @@ const Row = styled.View({
 });
 
 const Content = styled(Gutters)({
-  flexDirection: 'row',
+  flex: 1,
 });
 
 const Card = styled(TouchableOpacity)({
@@ -117,14 +117,14 @@ const SelectContent: React.FC<StepProps> = ({
   return (
     <Step>
       <Spacer24 />
-      <FlatList
+      <BottomSheetFlatList
         ListHeaderComponent={
           <>
             <StepHeading>{t('selectContent.title')}</StepHeading>
             <Spacer16 />
           </>
         }
-        keyExtractor={id => id}
+        focusHook={useIsFocused}
         data={exerciseIds}
         ItemSeparatorComponent={Spacer16}
         renderItem={({item}) => (

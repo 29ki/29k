@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
-import Input from '../../../common/components/Typography/TextInput/TextInput';
+import {BottomSheetTextInput} from '../../../common/components/Typography/TextInput/TextInput';
 
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
@@ -20,7 +20,7 @@ const Row = styled.View({
   justifyContent: 'space-around',
 });
 
-const Cell = styled(Input).attrs({
+const Cell = styled(BottomSheetTextInput).attrs({
   keyboardType: 'numeric',
   autoCorrect: false,
   maxLength: 1,

@@ -1,10 +1,10 @@
-import React, {useMemo} from 'react';
+import React, {createContext} from 'react';
+import {LayoutChangeEvent} from 'react-native';
 import {
   createNativeStackNavigator,
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 import {createBottomSheetNavigator} from '@th3rdwave/react-navigation-bottom-sheet';
-import {useBottomSheetDynamicSnapPoints} from '@gorhom/bottom-sheet';
 import {useRecoilValue} from 'recoil';
 
 import {
@@ -13,6 +13,7 @@ import {
   SessionStackProps,
 } from './constants/routes';
 import KillSwitch from '../../routes/KillSwitch/KillSwitch';
+
 import {killSwitchFields} from '../killSwitch/state/state';
 import Tabs from './Tabs';
 import Session from '../../routes/Session/Session';
@@ -75,30 +76,20 @@ const AppStackWrapper = () => {
     </AppStack.Navigator>
   );
 };
+export const NavigationContext = createContext<{
+  handleContentLayout?: (event: LayoutChangeEvent) => void;
+}>({});
 
 const RootStackWrapper = () => {
-  const initialSnapPoints = useMemo(() => ['25%', 'CONTENT_HEIGHT'], []);
-
-  const {
-    animatedHandleHeight,
-    animatedSnapPoints,
-    animatedContentHeight,
-    handleContentLayout,
-  } = useBottomSheetDynamicSnapPoints(initialSnapPoints);
-
   return (
-    <ModalStack.Navigator
-      screenOptions={{
-        snapPoints: animatedSnapPoints,
-        handleHeight: animatedHandleHeight,
-        contentHeight: animatedContentHeight,
-      }}>
+    <ModalStack.Navigator screenOptions={{snapPoints: ['30%']}}>
       <ModalStack.Screen name="App" component={AppStackWrapper} />
 
       <ModalStack.Screen name={'SessionModal'} component={SessionModal} />
       <ModalStack.Screen
         name={'CreateSessionModal'}
         component={CreateSessionModal}
+        options={{snapPoints: ['30%', '75%']}}
       />
       <ModalStack.Screen
         name={'JoinSessionModal'}
