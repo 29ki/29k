@@ -3,3 +3,4 @@ const mockNavigation = {
 };
 
 export const useNavigation = jest.fn(() => mockNavigation);
+export const useIsFocused = jest.fn();

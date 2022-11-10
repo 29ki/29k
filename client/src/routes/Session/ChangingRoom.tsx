@@ -30,20 +30,22 @@ import {Body16} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {DailyContext} from '../../lib/daily/DailyProvider';
 import useSessionState from './state/state';
-import {SessionStackProps} from '../../lib/navigation/constants/routes';
+import {
+  ModalStackProps,
+  SessionStackProps,
+  TabNavigatorProps,
+} from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
 import AudioIndicator from './components/Participants/AudioIdicator';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
-import useSubscribeToSession from './hooks/useSubscribeToSession';
 import useUpdateSessionExerciseState from './hooks/useUpdateSessionExerciseState';
 import useIsSessionHost from './hooks/useIsSessionHost';
 import Screen from '../../common/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../lib/user/hooks/useUser';
 import Image from '../../common/components/Image/Image';
-
-type SessionNavigationProps = NativeStackNavigationProp<SessionStackProps>;
+import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'padding', android: undefined}),
@@ -101,7 +103,12 @@ const ChangingRoom = () => {
   const {t} = useTranslation('Screen.ChangingRoom');
   const [joiningMeeting, setJoiningMeeting] = useState(false);
 
-  const {goBack, navigate} = useNavigation<SessionNavigationProps>();
+  const {goBack, navigate} =
+    useNavigation<
+      NativeStackNavigationProp<
+        SessionStackProps & TabNavigatorProps & ModalStackProps
+      >
+    >();
   const {
     toggleAudio,
     toggleVideo,
@@ -116,7 +123,7 @@ const ChangingRoom = () => {
     params: {sessionId: sessionId},
   } = useRoute<RouteProp<SessionStackProps, 'ChangingRoom'>>();
 
-  useSubscribeToSession(sessionId);
+  useSubscribeToSessionIfFocused(sessionId);
   const {setSpotlightParticipant} = useUpdateSessionExerciseState(sessionId);
   const isHost = useIsSessionHost();
   const isFocused = useIsFocused();
