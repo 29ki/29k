@@ -1,5 +1,5 @@
-import React, {createContext} from 'react';
-import {LayoutChangeEvent} from 'react-native';
+import React from 'react';
+import {Platform} from 'react-native';
 import {
   createNativeStackNavigator,
   NativeStackNavigationOptions,
@@ -26,6 +26,8 @@ import useNavigationState from './state/state';
 import UpgradeAccountModal from '../../routes/UpgradeAccountModal/UpgradeAccountModal';
 import AddSessionModal from '../../routes/AddSessionModal/AddSessionModal';
 import SessionUnavailableModal from '../../routes/SessionUnavailableModal/SessionUnavailableModal';
+import {COLORS} from '../../../../shared/src/constants/colors';
+import {SPACINGS} from '../../common/constants/spacings';
 
 const ModalStack = createBottomSheetNavigator<ModalStackProps>();
 const AppStack = createNativeStackNavigator<AppStackProps>();
@@ -75,36 +77,57 @@ const AppStackWrapper = () => {
     </AppStack.Navigator>
   );
 };
-export const NavigationContext = createContext<{
-  handleContentLayout?: (event: LayoutChangeEvent) => void;
-}>({});
 
-const RootStackWrapper = () => {
-  return (
-    <ModalStack.Navigator screenOptions={{snapPoints: ['30%']}}>
-      <ModalStack.Screen name="App" component={AppStackWrapper} />
+const modalInset = Platform.select({ios: 4, default: 0});
 
-      <ModalStack.Screen name={'SessionModal'} component={SessionModal} />
-      <ModalStack.Screen
-        name={'CreateSessionModal'}
-        component={CreateSessionModal}
-        options={{snapPoints: ['30%', '75%']}}
-      />
-      <ModalStack.Screen
-        name={'JoinSessionModal'}
-        component={JoinSessionModal}
-      />
-      <ModalStack.Screen name={'AddSessionModal'} component={AddSessionModal} />
-      <ModalStack.Screen
-        name={'UpgradeAccountModal'}
-        component={UpgradeAccountModal}
-      />
-      <ModalStack.Screen
-        name={'SessionUnavailableModal'}
-        component={SessionUnavailableModal}
-      />
-    </ModalStack.Navigator>
-  );
-};
+const RootStackWrapper = () => (
+  <ModalStack.Navigator
+    screenOptions={{
+      snapPoints: ['30%'],
+      backgroundStyle: {
+        backgroundColor: 'transparent',
+      },
+      style: {
+        paddingHorizontal: modalInset,
+        shadowColor: '#000000',
+        shadowOffset: {
+          width: 0,
+          height: SPACINGS.FOUR,
+        },
+        shadowOpacity: 0.16,
+        shadowRadius: SPACINGS.TWELVE,
+        elevation: SPACINGS.TWELVE,
+      },
+      handleStyle: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+      },
+      handleIndicatorStyle: {
+        backgroundColor: COLORS.GREYDARK,
+      },
+      bottomInset: modalInset,
+      detached: true,
+    }}>
+    <ModalStack.Screen name="App" component={AppStackWrapper} />
+
+    <ModalStack.Screen name={'SessionModal'} component={SessionModal} />
+    <ModalStack.Screen
+      name={'CreateSessionModal'}
+      component={CreateSessionModal}
+      options={{snapPoints: ['30%', '75%']}}
+    />
+    <ModalStack.Screen name={'JoinSessionModal'} component={JoinSessionModal} />
+    <ModalStack.Screen name={'AddSessionModal'} component={AddSessionModal} />
+    <ModalStack.Screen
+      name={'UpgradeAccountModal'}
+      component={UpgradeAccountModal}
+    />
+    <ModalStack.Screen
+      name={'SessionUnavailableModal'}
+      component={SessionUnavailableModal}
+    />
+  </ModalStack.Navigator>
+);
 
 export default RootStackWrapper;
