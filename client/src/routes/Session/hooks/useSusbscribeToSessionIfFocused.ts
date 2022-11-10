@@ -50,8 +50,6 @@ const useSubscribeToSessionIfFocused = (
     navigate,
     setSessionState,
   ]);
-
-  useEffect(() => {}, [setSessionState, sessionId, navigate, fetchSessions]);
 };
 
 export default useSubscribeToSessionIfFocused;
