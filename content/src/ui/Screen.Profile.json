@@ -13,7 +13,13 @@
     "language": "Language",
     "password": "Lösenord",
     "upgrade": "Upgrade",
-    "email": "E-mail"
+    "email": "E-mail",
+    "unsupportedLanguage": {
+      "title": "Language not fully supported",
+      "message": "{{language}} is still under development and might not give you the best experience at this point.\n\nDo you want to switch to {{language}} anyway?",
+      "confirm": "Yes, switch",
+      "dismiss": "No, thank you"
+    }
   },
   "sv": {
     "signIn": "Logga in",
