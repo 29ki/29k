@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Alert} from 'react-native';
-import {useRecoilValue} from 'recoil';
 import {useTranslation} from 'react-i18next';
 import auth from '@react-native-firebase/auth';
 import {RouteProp, useRoute} from '@react-navigation/native';
@@ -10,11 +9,11 @@ import Input from '../../common/components/Typography/TextInput/TextInput';
 import {Body14, Body16} from '../../common/components/Typography/Body/Body';
 import {Heading16} from '../../common/components/Typography/Heading/Heading';
 import Gutters from '../../common/components/Gutters/Gutters';
-import {requestPromotion, verifyPromotion} from './api/user';
+import {requestPromotion, verifyPromotion} from '../Profile/api/user';
 import styled from 'styled-components/native';
 import HalfModal from '../../common/components/Modals/HalfModal';
-import {userAtom} from '../../lib/user/state/state';
-import VerificationCode from './components/VerificationCode';
+import useUserState from '../../lib/user/state/state';
+import VerificationCode from '../../common/components/VerificationCode/VerificationCode';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import {VerificationError} from '../../../../shared/src/errors/User';
 import {COLORS} from '../../../../shared/src/constants/colors';
@@ -27,11 +26,11 @@ const ErrorText = styled(Body14)({color: COLORS.ERROR, textAlign: 'center'});
 const SuccessHeader = styled(Heading16)({textAlign: 'center'});
 const SuccessText = styled(Body16)({textAlign: 'center'});
 
-const UpgradeAccount = () => {
-  const {t} = useTranslation('Screen.UpgradeAccount');
-  const {params} = useRoute<RouteProp<ModalStackProps, 'UpgradeAccount'>>();
-  const user = useRecoilValue(userAtom);
-  const [needToUpgrade, setNeedToUpgrade] = useState(false);
+const UpgradeAccountModal = () => {
+  const {t} = useTranslation('Modal.UpgradeAccount');
+  const {params} =
+    useRoute<RouteProp<ModalStackProps, 'UpgradeAccountModal'>>();
+  const user = useUserState(state => state.user);
   const [haveCode, setHaveCode] = useState(Boolean(params?.code));
   const [haveRequested, setHaveRequested] = useState(false);
   const [upgradeComplete, setUpgradeComplete] = useState(false);
@@ -40,13 +39,11 @@ const UpgradeAccount = () => {
   const [errorString, setErrorString] = useState<string | null>(null);
   const {updateIsPublicHost} = useIsPublicHost();
 
+  const needToUpgrade = Boolean(user?.isAnonymous);
+
   const requestCode = async () => {
-    if (user?.isAnonymous) {
-      setNeedToUpgrade(true);
-    } else {
-      await requestPromotion();
-      setHaveRequested(true);
-    }
+    await requestPromotion();
+    setHaveRequested(true);
   };
 
   const setEmailAndPassword = async () => {
@@ -94,82 +91,91 @@ const UpgradeAccount = () => {
     }
   };
 
+  const renderContent = () => {
+    if (!haveRequested && needToUpgrade && !haveCode && !upgradeComplete) {
+      return (
+        <>
+          <Heading>{t('needToUpgrade')}</Heading>
+          <Spacer16 />
+          <Input
+            textContentType="emailAddress"
+            keyboardType="email-address"
+            autoCapitalize="none"
+            autoComplete="email"
+            autoCorrect={false}
+            placeholder={t('email')}
+            onChangeText={setEmail}
+          />
+          <Spacer16 />
+          <Input
+            textContentType="newPassword"
+            secureTextEntry
+            autoCapitalize="none"
+            autoComplete="password-new"
+            autoCorrect={false}
+            placeholder={t('password')}
+            onChangeText={setPassword}
+          />
+          <Spacer16 />
+          <Button onPress={setEmailAndPassword}>{t('button')}</Button>
+        </>
+      );
+    }
+
+    if ((!needToUpgrade || haveRequested) && !haveCode && !upgradeComplete) {
+      return (
+        <>
+          <Heading>{haveRequested ? t('requestComplete') : t('text')}</Heading>
+          <Spacer16 />
+          {!haveRequested && (
+            <Button onPress={requestCode}>{t('requestCodeButton')}</Button>
+          )}
+          <Spacer16 />
+          {!user?.isAnonymous && (
+            <Button onPress={() => setHaveCode(true)}>
+              {t('haveCodeButton')}
+            </Button>
+          )}
+        </>
+      );
+    }
+
+    if (haveCode && !upgradeComplete) {
+      return (
+        <>
+          <Heading>{t('enterCode')}</Heading>
+          <Spacer16 />
+          <VerificationCode
+            prefillCode={params?.code}
+            onCodeCompleted={onCodeCompleted}
+          />
+          {errorString && (
+            <>
+              <Spacer16 />
+              <ErrorText>{errorString}</ErrorText>
+            </>
+          )}
+        </>
+      );
+    }
+
+    return (
+      <>
+        <SuccessHeader>{t('success.header')}</SuccessHeader>
+        <SuccessText>{t('success.text')}</SuccessText>
+      </>
+    );
+  };
+
   return (
     <HalfModal>
       <Gutters>
         <Spacer48 />
-
-        {(!needToUpgrade || haveRequested) && !haveCode && !upgradeComplete && (
-          <>
-            <Heading>
-              {haveRequested ? t('requestComplete') : t('text')}
-            </Heading>
-            <Spacer16 />
-            {!haveRequested && (
-              <Button onPress={requestCode}>{t('requestCodeButton')}</Button>
-            )}
-            <Spacer16 />
-            {!user?.isAnonymous && (
-              <Button onPress={() => setHaveCode(true)}>
-                {t('haveCodeButton')}
-              </Button>
-            )}
-          </>
-        )}
-
-        {!haveRequested && needToUpgrade && !haveCode && !upgradeComplete && (
-          <>
-            <Heading>{t('needToUpgrade')}</Heading>
-            <Spacer16 />
-            <Input
-              textContentType="emailAddress"
-              keyboardType="email-address"
-              autoCapitalize="none"
-              autoComplete="email"
-              autoCorrect={false}
-              placeholder={t('email')}
-              onChangeText={setEmail}
-            />
-            <Spacer16 />
-            <Input
-              textContentType="newPassword"
-              secureTextEntry
-              autoCapitalize="none"
-              autoComplete="password-new"
-              autoCorrect={false}
-              placeholder={t('password')}
-              onChangeText={setPassword}
-            />
-            <Spacer16 />
-            <Button onPress={setEmailAndPassword}>{t('button')}</Button>
-          </>
-        )}
-        {haveCode && !upgradeComplete && (
-          <>
-            <Heading>{t('enterCode')}</Heading>
-            <Spacer16 />
-            <VerificationCode
-              prefillCode={params?.code}
-              onCodeCompleted={onCodeCompleted}
-            />
-            {errorString && (
-              <>
-                <Spacer16 />
-                <ErrorText>{errorString}</ErrorText>
-              </>
-            )}
-          </>
-        )}
-        {upgradeComplete && (
-          <>
-            <SuccessHeader>{t('success.header')}</SuccessHeader>
-            <SuccessText>{t('success.text')}</SuccessText>
-          </>
-        )}
+        {renderContent()}
         <Spacer48 />
       </Gutters>
     </HalfModal>
   );
 };
 
-export default UpgradeAccount;
+export default UpgradeAccountModal;

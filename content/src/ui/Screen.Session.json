@@ -6,6 +6,11 @@
       "start": "Start",
       "next": "Next",
       "prev": "Back"
+    },
+    "notifications": {
+      "joined": "{{name}} joined",
+      "left": "{{name}} left",
+      "networkQuality": "Unrealiable network connection"
     }
   },
   "sv": {
@@ -15,15 +20,25 @@
       "start": "Starta",
       "next": "Nästa",
       "prev": "Tillbaka"
+    },
+    "notifications": {
+      "joined": "{{name}} gick med",
+      "left": "{{name}} lämnade",
+      "networkQuality": "Ostabilt nätverk"
     }
   },
   "pt": {
-    "nameSuffix": "Você",
-    "endButton": "End Session",
+    "nameSuffix": "Tu",
+    "endButton": "Terminar sessão",
     "controls": {
-      "start": "Start",
-      "next": "Next",
-      "prev": "Back"
+      "start": "Iniciar",
+      "next": "Próximo",
+      "prev": "Voltar"
+    },
+    "notifications": {
+      "joined": "{{name}} juntou-se",
+      "left": "{{name}} saiu",
+      "networkQuality": "Ligação de rede instável"
     }
   }
 }

@@ -5,27 +5,21 @@ import React, {
   useCallback,
   useMemo,
 } from 'react';
-import {omit} from 'ramda';
 import Daily, {
   DailyEvent,
   DailyEventObject,
   DailyCall,
+  DailyCallOptions,
 } from '@daily-co/react-native-daily-js';
-import {useResetRecoilState, useSetRecoilState} from 'recoil';
-import {
-  videoSharingFields,
-  participantsAtom,
-  videoSharingAtom,
-  participantsSortOrderAtom,
-} from './state/state';
-import useSetParticipantsSortOrder from './hooks/useSetParticipantsSortOrder';
-import Sentry from '../../lib/sentry';
+import useDailyState from './state/state';
+import useSetParticipantsSortOrder from '../../routes/Session/hooks/useSetParticipantsSortOrder';
+import Sentry from '../sentry';
 
 export type DailyProviderTypes = {
   call?: DailyCall;
   hasAppPermissions: () => boolean;
   preJoinMeeting: (url: string) => Promise<void>;
-  joinMeeting: (userData: unknown) => Promise<void>;
+  joinMeeting: (options?: DailyCallOptions) => Promise<void>;
   leaveMeeting: () => Promise<void>;
   toggleAudio: (enabled: boolean) => void;
   toggleVideo: (enabled: boolean) => void;
@@ -49,46 +43,28 @@ export const DailyContext = createContext<DailyProviderTypes>({
 const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const [daily] = useState(() => Daily.createCallObject());
 
-  const setIsLoading = useSetRecoilState(videoSharingFields('isLoading'));
-  const setParticipants = useSetRecoilState(participantsAtom);
+  const resetState = useDailyState(state => state.reset);
+  const setParticipant = useDailyState(state => state.setParticipant);
+  const removeParticipant = useDailyState(state => state.removeParticipant);
   const setParticipantsSortOrder = useSetParticipantsSortOrder();
-  const resetParticipants = useResetRecoilState(participantsAtom);
-  const resetVideoCallState = useResetRecoilState(videoSharingAtom);
-  const resetActiveParticipants = useResetRecoilState(
-    participantsSortOrderAtom,
-  );
-
-  const resetState = useCallback(() => {
-    resetParticipants();
-    resetVideoCallState();
-    resetActiveParticipants();
-  }, [resetParticipants, resetVideoCallState, resetActiveParticipants]);
 
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(() => {
     const onParticipantJoined = ({
       participant,
     }: DailyEventObject<'participant-joined'>) => {
-      setParticipants(participants => ({
-        ...participants,
-        [participant.user_id]: participant,
-      }));
+      setParticipant(participant.user_id, participant);
     };
 
     const onParticipantUpdated = ({
       participant,
     }: DailyEventObject<'participant-updated'>) => {
-      setParticipants(participants => ({
-        ...participants,
-        [participant.user_id]: participant,
-      }));
+      setParticipant(participant.user_id, participant);
     };
 
     const onParticipantLeft = ({
       participant,
     }: DailyEventObject<'participant-left'>) => {
-      setParticipants(participants =>
-        omit([participant.user_id], participants),
-      );
+      removeParticipant(participant.user_id);
     };
 
     const onActiveSpeakerChange = ({
@@ -110,7 +86,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
       ['error', onError],
       //   ['network-quality-change', connect(networkQualityChange)],
     ];
-  }, [setParticipants, setParticipantsSortOrder]);
+  }, [setParticipant, removeParticipant, setParticipantsSortOrder]);
 
   const leaveMeeting = useCallback(async () => {
     if (!daily) {
@@ -123,16 +99,13 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const prepareMeeting = useCallback(
     async (url: string) => {
       if (daily.meetingState() !== 'joined-meeting') {
-        setIsLoading(true);
-
         await daily.preAuth({
           url, // TODO should fetch also token from function in the future
         });
-        setIsLoading(false);
       }
     },
 
-    [daily, setIsLoading],
+    [daily],
   );
 
   const setSubscribeToAllTracks = useCallback(() => {
@@ -185,9 +158,9 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   );
 
   const joinMeeting = useCallback(
-    async (userData: unknown) => {
+    async (options?: DailyCallOptions) => {
       if (daily.meetingState() !== 'joined-meeting') {
-        await daily.join({subscribeToTracksAutomatically: false, userData});
+        await daily.join(options);
       }
     },
     [daily],

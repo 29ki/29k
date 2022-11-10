@@ -5,39 +5,41 @@ import {useTranslation} from 'react-i18next';
 import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
 
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import {SessionType} from '../../../../../shared/src/types/Session';
+import {Exercise} from '../../../../shared/src/types/generated/Exercise';
+import {SessionType} from '../../../../shared/src/types/Session';
 
-import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import useExerciseIds from '../../../lib/content/hooks/useExerciseIds';
-import useSessions from '../hooks/useSessions';
+import useExerciseById from '../../lib/content/hooks/useExerciseById';
+import useExerciseIds from '../../lib/content/hooks/useExerciseIds';
+import useSessions from '../Sessions/hooks/useSessions';
 
-import Button from '../../../common/components/Buttons/Button';
-import Gutters from '../../../common/components/Gutters/Gutters';
-import Image from '../../../common/components/Image/Image';
-import HalfModal from '../../../common/components/Modals/HalfModal';
+import Button from '../../common/components/Buttons/Button';
+import Gutters from '../../common/components/Gutters/Gutters';
+import Image from '../../common/components/Image/Image';
+import HalfModal from '../../common/components/Modals/HalfModal';
 import {
   Spacer16,
   Spacer24,
   Spacer28,
   Spacer8,
-} from '../../../common/components/Spacers/Spacer';
-import TouchableOpacity from '../../../common/components/TouchableOpacity/TouchableOpacity';
+} from '../../common/components/Spacers/Spacer';
+import TouchableOpacity from '../../common/components/TouchableOpacity/TouchableOpacity';
 import {
   Display16,
   Display24,
-} from '../../../common/components/Typography/Display/Display';
-import {Heading16} from '../../../common/components/Typography/Heading/Heading';
-import {COLORS} from '../../../../../shared/src/constants/colors';
-import SETTINGS from '../../../common/constants/settings';
-import {SPACINGS} from '../../../common/constants/spacings';
-import {Body16} from '../../../common/components/Typography/Body/Body';
-import DateTimePicker from './DateTimePicker';
-import {LANGUAGE_TAG} from '../../../lib/i18n';
-import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
-import {ModalStackProps} from '../../../lib/navigation/constants/routes';
+} from '../../common/components/Typography/Display/Display';
+import {Heading16} from '../../common/components/Typography/Heading/Heading';
+import {COLORS} from '../../../../shared/src/constants/colors';
+import SETTINGS from '../../common/constants/settings';
+import {SPACINGS} from '../../common/constants/spacings';
+import {Body16} from '../../common/components/Typography/Body/Body';
+import DateTimePicker from './components/DateTimePicker';
+import {LANGUAGE_TAG} from '../../lib/i18n';
+import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
+import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
+import ProfileInfo from '../../common/components/ProfileInfo/ProfileInfo';
+import useUser from '../../lib/user/hooks/useUser';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -106,13 +108,29 @@ const ContentCard: React.FC<{
   );
 };
 
+const UpdateProfileContainer = styled.View({flex: 1});
+
+const UpdateProfileHeading = styled(Body16)({textAlign: 'center'});
+
+const UpdateProfile: React.FC<StepProps> = () => {
+  const {t} = useTranslation('Modal.CreateSession');
+  return (
+    <UpdateProfileContainer>
+      <Spacer16 />
+      <UpdateProfileHeading>{t('profile.text')}</UpdateProfileHeading>
+      <Spacer16 />
+      <ProfileInfo />
+    </UpdateProfileContainer>
+  );
+};
+
 const SelectContent: React.FC<StepProps> = ({
   nextStep,
   setSelectedExercise,
 }) => {
   const exerciseIds = useExerciseIds();
 
-  const {t} = useTranslation('Component.CreateSessionModal');
+  const {t} = useTranslation('Modal.CreateSession');
 
   return (
     <Step>
@@ -161,7 +179,7 @@ const SelectType: React.FC<StepProps> = ({
   nextStep,
 }) => {
   const exercise = useExerciseById(selectedExercise);
-  const {t} = useTranslation('Component.CreateSessionModal');
+  const {t} = useTranslation('Modal.CreateSession');
 
   return (
     <Step>
@@ -196,7 +214,7 @@ const SelectType: React.FC<StepProps> = ({
 };
 
 const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
-  const {t, i18n} = useTranslation('Component.CreateSessionModal');
+  const {t, i18n} = useTranslation('Modal.CreateSession');
   const {goBack, navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
   const [isLoading, setIsLoading] = useState(false);
@@ -261,8 +279,14 @@ type StepProps = {
   setSelectedType: Dispatch<SetStateAction<StepProps['selectedType']>>;
 };
 
-const publicHostSteps = [SelectContent, SelectType, SetDateTime];
-const normalUserSteps = [SelectContent, SetDateTime];
+const publicHostSteps = (hasProfile: boolean) =>
+  hasProfile
+    ? [SelectContent, SelectType, SetDateTime]
+    : [UpdateProfile, SelectContent, SelectType, SetDateTime];
+const normalUserSteps = (hasProfile: boolean) =>
+  hasProfile
+    ? [SelectContent, SetDateTime]
+    : [UpdateProfile, SelectContent, SetDateTime];
 
 const CreateSessionModal = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -270,13 +294,16 @@ const CreateSessionModal = () => {
     Exercise['id'] | undefined
   >();
   const {isPublicHost} = useIsPublicHost();
+  const user = useUser();
   const [selectedType, setSelectedType] = useState<SessionType | undefined>(
     isPublicHost ? undefined : SessionType.private,
   );
 
+  const hasProfile = Boolean(user?.displayName) && Boolean(user?.photoURL);
+
   const CurrentStepComponent: React.FC<StepProps> = isPublicHost
-    ? publicHostSteps[currentStep]
-    : normalUserSteps[currentStep];
+    ? publicHostSteps(hasProfile)[currentStep]
+    : normalUserSteps(hasProfile)[currentStep];
 
   const stepProps: StepProps = {
     selectedExercise,

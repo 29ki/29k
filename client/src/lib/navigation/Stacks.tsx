@@ -5,7 +5,6 @@ import {
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 import {createBottomSheetNavigator} from '@th3rdwave/react-navigation-bottom-sheet';
-import {useRecoilValue} from 'recoil';
 
 import {
   ModalStackProps,
@@ -13,20 +12,20 @@ import {
   SessionStackProps,
 } from './constants/routes';
 import KillSwitch from '../../routes/KillSwitch/KillSwitch';
-
-import {killSwitchFields} from '../killSwitch/state/state';
+import useKillSwitchState from '../killSwitch/state/state';
 import Tabs from './Tabs';
 import Session from '../../routes/Session/Session';
 import ChangingRoom from '../../routes/Session/ChangingRoom';
 import IntroPortal from '../../routes/Session/IntroPortal';
 import OutroPortal from '../../routes/Session/OutroPortal';
-import DailyProvider from '../../routes/Session/DailyProvider';
-import SessionModal from '../../routes/Sessions/components/SessionModal';
-import CreateSessionModal from '../../routes/Sessions/components/CreateSessionModal';
-import JoinSessionModal from '../../routes/Sessions/components/JoinSessionModal';
-import {navigationWithFadeAtom} from './state/state';
-import UpgradeAccount from '../../routes/Profile/UpgradeAccount';
-import AddSessionModal from '../../routes/Sessions/components/AddSessionModal';
+import DailyProvider from '../daily/DailyProvider';
+import SessionModal from '../../routes/SessionModal/SessionModal';
+import CreateSessionModal from '../../routes/CreateSessionModal/CreateSessionModal';
+import JoinSessionModal from '../../routes/JoinSessionModal/JoinSessionModal';
+import useNavigationState from './state/state';
+import UpgradeAccountModal from '../../routes/UpgradeAccountModal/UpgradeAccountModal';
+import AddSessionModal from '../../routes/AddSessionModal/AddSessionModal';
+import SessionUnavailableModal from '../../routes/SessionUnavailableModal/SessionUnavailableModal';
 
 const ModalStack = createBottomSheetNavigator<ModalStackProps>();
 const AppStack = createNativeStackNavigator<AppStackProps>();
@@ -55,8 +54,8 @@ const SessionStackWrapper = () => (
 );
 
 const AppStackWrapper = () => {
-  const isBlocking = useRecoilValue(killSwitchFields('isBlocking'));
-  const fade = useRecoilValue(navigationWithFadeAtom);
+  const isBlocking = useKillSwitchState(state => state.isBlocking);
+  const fade = useNavigationState(state => state.navigateWithFade);
 
   return (
     // set this state using useNavigationWithFade to change animation to fade
@@ -96,7 +95,14 @@ const RootStackWrapper = () => {
         component={JoinSessionModal}
       />
       <ModalStack.Screen name={'AddSessionModal'} component={AddSessionModal} />
-      <ModalStack.Screen name={'UpgradeAccount'} component={UpgradeAccount} />
+      <ModalStack.Screen
+        name={'UpgradeAccountModal'}
+        component={UpgradeAccountModal}
+      />
+      <ModalStack.Screen
+        name={'SessionUnavailableModal'}
+        component={SessionUnavailableModal}
+      />
     </ModalStack.Navigator>
   );
 };

@@ -1,8 +1,8 @@
 # Style guide
 
-* [Hooks](#Hooks)
-* [Firestore Client](#Firstore-Client)
-* [Rest API](#Rest-Api)
+- [Hooks](#Hooks)
+- [Firestore Client](#Firstore-Client)
+- [Rest API](#Rest-Api)
 
 ## Hooks
 
@@ -16,9 +16,9 @@ Setting the state from the `useCheckForUpdates` hook
 
 https://github.com/29ki/29k/blob/5dc9ce42034b0ea72e3294772ca5cfc26ecbc8ce/client/src/lib/codePush/hooks/useCheckForUpdate.ts#L50-L62
 
-Getting the state by using the recoil state `useRecoilValue(statusAtom)`
+Getting the state by using the zustand state `useCodePushState(state => state.status)`
 
-https://github.com/29ki/29k/blob/5dc9ce42034b0ea72e3294772ca5cfc26ecbc8ce/client/src/lib/codePush/components/CodePushOverlay.tsx#L47-L57
+https://github.com/29ki/29k/blob/952b16cfb68f5cd9fb4a145d8e9d66c8cc3e8153/client/src/lib/codePush/components/CodePushOverlay.tsx#L50-L58
 
 ## Firstore Client
 

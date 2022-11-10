@@ -2,7 +2,7 @@
   "en": {
     "header": "Verification",
     "email": "Email",
-    "password": "Passsword",
+    "password": "Password",
     "upgrade": "Upgrade",
     "code": "Code",
     "signIn": "Sign in"
@@ -16,11 +16,11 @@
     "signIn": "Logga in"
   },
   "pt": {
-    "header": "Verification",
+    "header": "Validação",
     "email": "Email",
-    "password": "Passsword",
-    "upgrade": "Upgrade",
-    "code": "Code",
-    "signIn": "Sign in"
+    "password": "Password",
+    "upgrade": "Atualizar",
+    "code": "Código",
+    "signIn": "Entrar"
   }
 }

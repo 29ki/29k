@@ -1,16 +1,15 @@
 import {useCallback} from 'react';
-import {useSetRecoilState} from 'recoil';
 import dayjs from 'dayjs';
 
 import * as sessionsApi from '../api/sessions';
 import * as sessionApi from '../api/session';
 
-import {isLoadingAtom, sessionsAtom} from '../state/state';
+import useSessionsState from '../state/state';
 import {Session} from '../../../../../shared/src/types/Session';
 
 const useSessions = () => {
-  const setIsLoading = useSetRecoilState(isLoadingAtom);
-  const setSessions = useSetRecoilState(sessionsAtom);
+  const setIsLoading = useSessionsState(state => state.setIsLoading);
+  const setSessions = useSessionsState(state => state.setSessions);
 
   const fetchSessions = useCallback(async () => {
     setIsLoading(true);

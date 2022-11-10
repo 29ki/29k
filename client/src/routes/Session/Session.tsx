@@ -1,14 +1,8 @@
 import React, {useContext, useEffect} from 'react';
-import {ActivityIndicator} from 'react-native';
-import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 
-import {
-  videoSharingFields,
-  localParticipantSelector,
-  sessionAtom,
-} from './state/state';
+import useSessionState from './state/state';
 import {
   BottomSafeArea,
   Spacer12,
@@ -19,12 +13,11 @@ import {COLORS} from '../../../../shared/src/constants/colors';
 
 import {SessionStackProps} from '../../lib/navigation/constants/routes';
 
-import {DailyContext} from './DailyProvider';
+import {DailyContext} from '../../lib/daily/DailyProvider';
 
 import ExerciseSlides from './components/ExerciseSlides/ExerciseSlides';
 
 import Participants from './components/Participants/Participants';
-import useSubscribeToSession from './hooks/useSubscribeToSession';
 import useSessionParticipants from './hooks/useSessionParticipants';
 import useSessionExercise from './hooks/useSessionExercise';
 import useMuteAudioListener from './hooks/useMuteAudioListener';
@@ -50,11 +43,9 @@ import useUpdateSession from './hooks/useUpdateSession';
 import {useTranslation} from 'react-i18next';
 import HostNotes from './components/HostNotes/HostNotes';
 import Screen from '../../common/components/Screen/Screen';
-
-const LoadingView = styled.View({
-  flex: 1,
-  justifyContent: 'center',
-});
+import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
+import useUser from '../../lib/user/hooks/useUser';
+import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
@@ -97,47 +88,46 @@ const StyledButton = styled(Button)({
 });
 
 const Session = () => {
-  const {setUserData, toggleAudio, toggleVideo, setSubscribeToAllTracks} =
-    useContext(DailyContext);
+  const {
+    setUserData,
+    toggleAudio,
+    toggleVideo,
+    setSubscribeToAllTracks,
+    leaveMeeting,
+  } = useContext(DailyContext);
   const {
     params: {sessionId},
   } = useRoute<RouteProp<SessionStackProps, 'Session'>>();
   const {navigate} =
     useNavigation<NativeStackNavigationProp<SessionStackProps>>();
   const {t} = useTranslation('Screen.Session');
-
-  useSubscribeToSession(sessionId);
+  useSubscribeToSessionIfFocused(sessionId, {exitOnEnded: false});
   useMuteAudioListener();
 
   const participants = useSessionParticipants();
   const {setEnded} = useUpdateSession(sessionId);
-  const me = useRecoilValue(localParticipantSelector);
+  const me = useLocalParticipant();
   const isHost = useIsSessionHost();
-  const isLoading = useRecoilValue(videoSharingFields('isLoading'));
-  const session = useRecoilValue(sessionAtom);
+  const session = useSessionState(state => state.session);
   const exercise = useSessionExercise();
   const {leaveSessionWithConfirm} = useLeaveSession();
-
+  const user = useUser();
   usePreventGoingBack(leaveSessionWithConfirm);
 
   useEffect(() => {
     if (session?.ended) {
+      leaveMeeting();
       navigate('OutroPortal');
     }
-  }, [session?.ended, navigate]);
+  }, [session?.ended, navigate, leaveMeeting]);
 
   useEffect(() => {
-    setUserData({inPortal: false} as DailyUserData);
+    setUserData({
+      inPortal: false,
+      photoURL: user?.photoURL,
+    } as DailyUserData);
     setSubscribeToAllTracks();
-  }, [setUserData, setSubscribeToAllTracks]);
-
-  if (isLoading) {
-    return (
-      <LoadingView>
-        <ActivityIndicator size="large" color={COLORS.BLACK} />
-      </LoadingView>
-    );
-  }
+  }, [setUserData, setSubscribeToAllTracks, user?.photoURL]);
 
   const hasAudio = Boolean(me?.audioTrack);
   const hasVideo = Boolean(me?.videoTrack);

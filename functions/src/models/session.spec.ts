@@ -113,7 +113,7 @@ describe('session model', () => {
 
   describe('getSessionByInviteCode', () => {
     it('should get a session by its invite', async () => {
-      await getSessionByInviteCode(12345);
+      await getSessionByInviteCode({inviteCode: 12345});
       expect(mockWhere).toHaveBeenCalledWith('inviteCode', '==', 12345);
       expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
       expect(mockWhere).toHaveBeenCalledWith(

@@ -35,7 +35,7 @@ type SessionCardProps = {
 };
 
 const SessionCard: React.FC<SessionCardProps> = ({session}) => {
-  const {contentId, startTime, started} = session;
+  const {contentId, startTime, started, hostProfile} = session;
   const exercise = useExerciseById(contentId);
   const addToCalendar = useAddToCalendar();
   const {t} = useTranslation('Component.SessionCard');
@@ -53,7 +53,12 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
             sessionId: session.id,
           },
         })
-      : addToCalendar(exercise?.name, startAt, startAt.add(30, 'minutes'));
+      : addToCalendar(
+          exercise?.name,
+          session.link,
+          startAt,
+          startAt.add(30, 'minutes'),
+        );
 
   const onContextPress = () => navigate('SessionModal', {session: session});
 
@@ -68,14 +73,20 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
       onPress={onContextPress}
       onButtonPress={onPress}
       onContextPress={onContextPress}
-      Icon={reminderEnabled ? BellIcon : undefined}>
+      Icon={reminderEnabled ? BellIcon : undefined}
+      hostPictureURL={hostProfile.photoURL}
+      hostName={hostProfile.displayName}>
       <Row>
-        <Body14>{t('starts')}</Body14>
+        <Body14>{t('counterLabel.starts')}</Body14>
         <Spacer4 />
         <Badge>
           <Body14>
             <BodyBold>
-              <Counter startTime={startAt} starting={started} />
+              {started ? (
+                t('counterLabel.started')
+              ) : (
+                <Counter startTime={startAt} />
+              )}
             </BodyBold>
           </Body14>
         </Badge>

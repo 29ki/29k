@@ -9,5 +9,9 @@
     "notes": "Övning: {{name}}\n{{url}}",
     "location": "29k-appen"
   },
-  "pt": {}
+  "pt": {
+    "title": "Sessão - {{name}}",
+    "notes": "Exercício: {{name}}{{url}}",
+    "location": "29k FJN app"
+  }
 }

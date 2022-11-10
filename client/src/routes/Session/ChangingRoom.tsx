@@ -10,7 +10,6 @@ import {ActivityIndicator, Alert, Linking, Platform} from 'react-native';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import {DailyMediaView} from '@daily-co/react-native-daily-js';
-import {useRecoilValue} from 'recoil';
 
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
@@ -29,19 +28,24 @@ import {
 } from '../../common/components/Spacers/Spacer';
 import {Body16} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
-import {DailyContext} from './DailyProvider';
-import {localParticipantSelector, sessionAtom} from './state/state';
-import {SessionStackProps} from '../../lib/navigation/constants/routes';
+import {DailyContext} from '../../lib/daily/DailyProvider';
+import useSessionState from './state/state';
+import {
+  ModalStackProps,
+  SessionStackProps,
+  TabNavigatorProps,
+} from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
 import AudioIndicator from './components/Participants/AudioIdicator';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
-import useSubscribeToSession from './hooks/useSubscribeToSession';
 import useUpdateSessionExerciseState from './hooks/useUpdateSessionExerciseState';
 import useIsSessionHost from './hooks/useIsSessionHost';
 import Screen from '../../common/components/Screen/Screen';
-
-type SessionNavigationProps = NativeStackNavigationProp<SessionStackProps>;
+import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
+import useUser from '../../lib/user/hooks/useUser';
+import Image from '../../common/components/Image/Image';
+import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'padding', android: undefined}),
@@ -90,29 +94,42 @@ const Audio = styled(AudioIndicator)({
   top: SPACINGS.SIXTEEN,
 });
 
+const ImageContainer = styled.View({
+  width: '100%',
+  height: '100%',
+});
+
 const ChangingRoom = () => {
   const {t} = useTranslation('Screen.ChangingRoom');
-  const [localUserName, setLocalUserName] = useState('');
+  const [joiningMeeting, setJoiningMeeting] = useState(false);
 
-  const {goBack, navigate} = useNavigation<SessionNavigationProps>();
+  const {goBack, navigate} =
+    useNavigation<
+      NativeStackNavigationProp<
+        SessionStackProps & TabNavigatorProps & ModalStackProps
+      >
+    >();
   const {
     toggleAudio,
     toggleVideo,
     setUserName,
+    joinMeeting,
     preJoinMeeting,
     hasAppPermissions,
   } = useContext(DailyContext);
 
-  const session = useRecoilValue(sessionAtom);
+  const session = useSessionState(state => state.session);
   const {
     params: {sessionId: sessionId},
   } = useRoute<RouteProp<SessionStackProps, 'ChangingRoom'>>();
 
-  useSubscribeToSession(sessionId);
+  useSubscribeToSessionIfFocused(sessionId);
   const {setSpotlightParticipant} = useUpdateSessionExerciseState(sessionId);
   const isHost = useIsSessionHost();
   const isFocused = useIsFocused();
-  const me = useRecoilValue(localParticipantSelector);
+  const me = useLocalParticipant();
+  const user = useUser();
+  const [localUserName, setLocalUserName] = useState(user?.displayName ?? '');
 
   useEffect(() => {
     if (isFocused && session?.url) {
@@ -127,7 +144,13 @@ const ChangingRoom = () => {
   }, [isHost, me?.user_id, setSpotlightParticipant]);
 
   const join = async () => {
-    navigate('IntroPortal', {sessionId: sessionId});
+    if (session?.started) {
+      setJoiningMeeting(true);
+      await joinMeeting();
+      navigate('Session', {sessionId: sessionId});
+    } else {
+      navigate('IntroPortal', {sessionId: sessionId});
+    }
   };
 
   const permissionsAlert = () =>
@@ -172,6 +195,10 @@ const ChangingRoom = () => {
                     objectFit={'cover'}
                     mirror={me?.local}
                   />
+                ) : user?.photoURL ? (
+                  <ImageContainer>
+                    <Image source={{uri: user.photoURL}} />
+                  </ImageContainer>
                 ) : (
                   <VideoText>{t('cameraOff')}</VideoText>
                 ))}
@@ -204,13 +231,15 @@ const ChangingRoom = () => {
                   autoCapitalize="words"
                   autoCorrect={false}
                   maxLength={20}
+                  value={localUserName}
                   placeholder={t('placeholder')}
                 />
                 <Spacer28 />
                 <Button
                   variant="secondary"
                   onPress={handleJoin}
-                  disabled={!localUserName.length}>
+                  loading={joiningMeeting}
+                  disabled={!localUserName.length || joiningMeeting}>
                   {t('join_button')}
                 </Button>
               </InputWrapper>

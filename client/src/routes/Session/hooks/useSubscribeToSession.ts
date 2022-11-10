@@ -1,27 +1,29 @@
-import {useEffect} from 'react';
-import firestore from '@react-native-firebase/firestore';
-import {useSetRecoilState} from 'recoil';
-import {sessionAtom} from '../state/state';
-import {Session, SessionData} from '../../../../../shared/src/types/Session';
+import {useCallback} from 'react';
+import firestore, {
+  FirebaseFirestoreTypes,
+} from '@react-native-firebase/firestore';
+import {Session} from '../../../../../shared/src/types/Session';
 
 const useSubscribeToSession = (sessionId: Session['id']) => {
-  const setSessionState = useSetRecoilState(sessionAtom);
+  return useCallback(
+    (
+      onSnapshot: (
+        snapshot: FirebaseFirestoreTypes.DocumentSnapshot<FirebaseFirestoreTypes.DocumentData>,
+      ) => any,
+    ) => {
+      const doc = firestore().collection('sessions').doc(sessionId);
 
-  useEffect(() => {
-    const doc = firestore().collection('sessions').doc(sessionId);
-
-    const unsubscribe = doc.onSnapshot(
-      documentSnapshot =>
-        setSessionState(documentSnapshot.data() as SessionData),
-      error =>
+      const unsubscribe = doc.onSnapshot(onSnapshot, error =>
         console.debug(
           `Failed to subscribe to live session ${sessionId}`,
           error,
         ),
-    );
+      );
 
-    return unsubscribe;
-  }, [setSessionState, sessionId]);
+      return unsubscribe;
+    },
+    [sessionId],
+  );
 };
 
 export default useSubscribeToSession;

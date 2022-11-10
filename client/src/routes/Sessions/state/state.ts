@@ -1,27 +1,27 @@
-import {atom, selectorFamily} from 'recoil';
 import {Session} from '../../../../../shared/src/types/Session';
+import create from 'zustand';
 
-const NAMESPACE = 'sessions';
+type State = {
+  isLoading: boolean;
+  sessions: Session[] | null;
+};
 
-export const isLoadingAtom = atom<boolean>({
-  key: `${NAMESPACE}/isLoading`,
-  default: false,
-});
+type Actions = {
+  setIsLoading: (isLoading: State['isLoading']) => void;
+  setSessions: (sessions: State['sessions']) => void;
+  reset: () => void;
+};
 
-export const sessionsAtom = atom<Session[] | null>({
-  key: `${NAMESPACE}/sessions`,
-  default: null,
-});
+const initialState: State = {
+  isLoading: false,
+  sessions: null,
+};
 
-export const sessionByIdSelector = selectorFamily({
-  key: `${NAMESPACE}/sessionById`,
-  get:
-    (sessionId: string) =>
-    ({get}) => {
-      const sessions = get(sessionsAtom);
-      if (sessions === null) {
-        return null;
-      }
-      return sessions.find(t => t.id === sessionId);
-    },
-});
+const useSessionsState = create<State & Actions>()(set => ({
+  ...initialState,
+  setIsLoading: isLoading => set({isLoading}),
+  setSessions: sessions => set({sessions}),
+  reset: () => set(initialState),
+}));
+
+export default useSessionsState;

@@ -1,19 +1,31 @@
 import CodePush from 'react-native-code-push';
-import {atom} from 'recoil';
+import create from 'zustand';
 
-export const NAMESPACE = 'CodePush';
+type State = {
+  status: CodePush.SyncStatus;
+  updateAvailable: boolean;
+  downloadProgress: number;
+};
 
-export const downloadProgressAtom = atom({
-  key: `${NAMESPACE}/DownloadProgress`,
-  default: 0,
-});
+type Actions = {
+  setStatus: (status: State['status']) => void;
+  setUpdateAvailable: (updateAvailable: State['updateAvailable']) => void;
+  setDownloadProgress: (progress: State['downloadProgress']) => void;
+  reset: () => void;
+};
 
-export const statusAtom = atom({
-  key: `${NAMESPACE}/Status`,
-  default: CodePush.SyncStatus.UP_TO_DATE,
-});
+const initialState: State = {
+  status: CodePush.SyncStatus.UP_TO_DATE,
+  updateAvailable: false,
+  downloadProgress: 0,
+};
 
-export const updateAvailableAtom = atom({
-  key: `${NAMESPACE}/UpdateAvailable`,
-  default: false,
-});
+const useCodePushState = create<State & Actions>()(set => ({
+  ...initialState,
+  setStatus: status => set({status}),
+  setUpdateAvailable: updateAvailable => set({updateAvailable}),
+  setDownloadProgress: downloadProgress => set({downloadProgress}),
+  reset: () => set(initialState),
+}));
+
+export default useCodePushState;

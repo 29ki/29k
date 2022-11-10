@@ -1,9 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components/native';
 import RNVideo, {VideoProperties} from 'react-native-video';
-import {useRecoilValue} from 'recoil';
 
-import {sessionExerciseStateSelector} from '../../../../state/state';
+import useSessionState from '../../../../state/state';
 import VideoBase from '../../../VideoBase/VideoBase';
 
 const VideoPlayer = styled(VideoBase)({
@@ -30,7 +29,7 @@ const Video: React.FC<VideoProps> = ({
 }) => {
   const videoRef = useRef<RNVideo>(null);
   const [duration, setDuration] = useState(0);
-  const exerciseState = useRecoilValue(sessionExerciseStateSelector);
+  const exerciseState = useSessionState(state => state.session?.exerciseState);
   const previousState = useRef({playing: false, timestamp: new Date()});
 
   useEffect(() => {

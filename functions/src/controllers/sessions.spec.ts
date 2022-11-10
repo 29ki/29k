@@ -26,6 +26,8 @@ import {
 import {getPublicUserInfo} from '../models/user';
 import {SessionType} from '../../../shared/src/types/Session';
 import dayjs from 'dayjs';
+import {RequestError} from './errors/RequestError';
+import {JoinSessionError} from '../../../shared/src/errors/Session';
 
 jest.mock('../lib/utils', () => ({
   ...jest.requireActual('../lib/utils'),
@@ -48,6 +50,10 @@ const mockGetPublicUserInfo = getPublicUserInfo as jest.Mock;
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));
 
+mockGetPublicUserInfo.mockResolvedValue({
+  displayName: 'some-name',
+  photoURL: 'some-photo-url',
+});
 beforeEach(async () => {
   jest.clearAllMocks();
 });
@@ -55,10 +61,6 @@ beforeEach(async () => {
 describe('sessions - controller', () => {
   describe('getSessions', () => {
     it('should get sessions with host profile', async () => {
-      mockGetPublicUserInfo.mockResolvedValueOnce({
-        displayName: 'some-name',
-        photoURL: 'some-photo-url',
-      });
       mockGetSessions.mockResolvedValueOnce([
         {
           hostId: 'some-user-id',
@@ -175,8 +177,12 @@ describe('sessions - controller', () => {
       });
 
       expect(mockGenerateVerificationCode).toHaveBeenCalledTimes(2);
-      expect(mockGetSessionByInviteCode).toHaveBeenCalledWith(123456);
-      expect(mockGetSessionByInviteCode).toHaveBeenCalledWith(654321);
+      expect(mockGetSessionByInviteCode).toHaveBeenCalledWith({
+        inviteCode: 123456,
+      });
+      expect(mockGetSessionByInviteCode).toHaveBeenCalledWith({
+        inviteCode: 654321,
+      });
 
       expect(mockAddSession).toHaveBeenCalledWith({
         contentId: 'some-content-id',
@@ -246,13 +252,27 @@ describe('sessions - controller', () => {
       expect(unmodifiedSession).toEqual({
         id: 'some-session-id',
         userIds: ['some-other-user-id', 'some-user-id'],
+        hostProfile: {
+          displayName: 'some-name',
+          photoURL: 'some-photo-url',
+        },
       });
     });
 
     it('should throw if session is not found', async () => {
       mockGetSessionByInviteCode.mockResolvedValueOnce(undefined);
       await expect(joinSession('some-user-id', 12345)).rejects.toEqual(
-        Error('session-not-found'),
+        new RequestError(JoinSessionError.notFound),
+      );
+    });
+
+    it('should throw if session is unavailable', async () => {
+      mockGetSessionByInviteCode.mockResolvedValueOnce(undefined);
+      mockGetSessionByInviteCode.mockResolvedValueOnce(
+        'some-unavailable-session',
+      );
+      await expect(joinSession('some-user-id', 12345)).rejects.toEqual(
+        new RequestError(JoinSessionError.notAvailable),
       );
     });
 
@@ -271,6 +291,10 @@ describe('sessions - controller', () => {
       });
       expect(joinedSession).toEqual({
         id: 'some-session-id',
+        hostProfile: {
+          displayName: 'some-name',
+          photoURL: 'some-photo-url',
+        },
       });
     });
   });
@@ -305,6 +329,10 @@ describe('sessions - controller', () => {
       expect(updatedSession).toEqual({
         id: 'some-session-id',
         started: true,
+        hostProfile: {
+          displayName: 'some-name',
+          photoURL: 'some-photo-url',
+        },
       });
     });
   });
@@ -350,6 +378,10 @@ describe('sessions - controller', () => {
       expect(updatedSession).toEqual({
         id: 'some-session-id',
         exerciseState: {index: 1},
+        hostProfile: {
+          displayName: 'some-name',
+          photoURL: 'some-photo-url',
+        },
       });
     });
   });

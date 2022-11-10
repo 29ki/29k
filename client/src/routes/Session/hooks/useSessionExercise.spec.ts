@@ -1,8 +1,7 @@
 import {renderHook} from '@testing-library/react-hooks';
-import {RecoilRoot} from 'recoil';
 import {SessionData} from '../../../../../shared/src/types/Session';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import {sessionAtom} from '../state/state';
+import useSessionState from '../state/state';
 import useSessionExercise from './useSessionExercise';
 
 jest.mock('../../../lib/content/hooks/useExerciseById', () => jest.fn());
@@ -12,32 +11,23 @@ const mockUseExerciseById = useExerciseById as jest.Mock;
 describe('useSessionExercise', () => {
   it('should return null if no exercise exists', () => {
     mockUseExerciseById.mockReturnValue(null);
-    const {result} = renderHook(() => useSessionExercise(), {
-      wrapper: RecoilRoot,
-      initialProps: {
-        initializeState: ({set}) => {
-          set(sessionAtom, {
-            id: 'test',
-          } as SessionData);
-        },
-        children: null,
-      },
+    useSessionState.setState({
+      session: {
+        id: 'test',
+      } as SessionData,
     });
+
+    const {result} = renderHook(() => useSessionExercise());
 
     expect(result.current).toBe(null);
   });
 
   it('should return null if no session exists', () => {
     mockUseExerciseById.mockReturnValue({});
-    const {result} = renderHook(() => useSessionExercise(), {
-      wrapper: RecoilRoot,
-      initialProps: {
-        initializeState: ({set}) => {
-          set(sessionAtom, null);
-        },
-        children: null,
-      },
+    useSessionState.setState({
+      session: null,
     });
+    const {result} = renderHook(() => useSessionExercise());
 
     expect(result.current).toBe(null);
   });
@@ -46,15 +36,13 @@ describe('useSessionExercise', () => {
     mockUseExerciseById.mockReturnValue({
       slides: [{type: 'slide-1'}, {type: 'slide-2'}, {type: 'slide-3'}],
     });
-    const {result} = renderHook(() => useSessionExercise(), {
-      wrapper: RecoilRoot,
-      initialProps: {
-        initializeState: ({set}) => {
-          set(sessionAtom, {exerciseState: {index: 1}} as SessionData);
-        },
-        children: null,
-      },
+    useSessionState.setState({
+      session: {
+        exerciseState: {index: 1},
+      } as SessionData,
     });
+
+    const {result} = renderHook(() => useSessionExercise());
 
     expect(result.current).toEqual({
       slide: {
@@ -71,15 +59,13 @@ describe('useSessionExercise', () => {
     mockUseExerciseById.mockReturnValue({
       slides: [{type: 'slide-1'}, {type: 'slide-2'}, {type: 'slide-3'}],
     });
-    const {result, rerender} = renderHook(() => useSessionExercise(), {
-      wrapper: RecoilRoot,
-      initialProps: {
-        initializeState: ({set}) => {
-          set(sessionAtom, {exerciseState: {index: 1}} as SessionData);
-        },
-        children: null,
-      },
+    useSessionState.setState({
+      session: {
+        exerciseState: {index: 1},
+      } as SessionData,
     });
+
+    const {result, rerender} = renderHook(() => useSessionExercise());
 
     rerender();
 
@@ -91,15 +77,13 @@ describe('useSessionExercise', () => {
     mockUseExerciseById.mockReturnValue({
       slides: [{type: 'slide-1'}],
     });
-    const {result} = renderHook(() => useSessionExercise(), {
-      wrapper: RecoilRoot,
-      initialProps: {
-        initializeState: ({set}) => {
-          set(sessionAtom, {exerciseState: {index: 0}} as SessionData);
-        },
-        children: null,
-      },
+    useSessionState.setState({
+      session: {
+        exerciseState: {index: 0},
+      } as SessionData,
     });
+
+    const {result} = renderHook(() => useSessionExercise());
 
     expect(result.current).toEqual({
       slide: {

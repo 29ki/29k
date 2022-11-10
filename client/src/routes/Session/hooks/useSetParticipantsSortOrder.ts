@@ -1,19 +1,23 @@
-import {reject, whereEq} from 'ramda';
+import {without} from 'ramda';
 import {useCallback} from 'react';
-import {useSetRecoilState} from 'recoil';
-import {participantsSortOrderAtom} from '../state/state';
+import useDailyState from '../../../lib/daily/state/state';
 
 const useSetParticipantsSortOrder = () => {
-  const setParticipantsSortOrder = useSetRecoilState(participantsSortOrderAtom);
+  const setParticipantsSortOrder = useDailyState(
+    state => state.setParticipantsSortOrder,
+  );
 
   return useCallback(
     (userId: string) => {
-      setParticipantsSortOrder(participantIds => {
-        if (userId === participantIds[0] || userId === participantIds[1]) {
-          return participantIds;
+      setParticipantsSortOrder(participantsSortOrder => {
+        if (
+          userId === participantsSortOrder[0] ||
+          userId === participantsSortOrder[1]
+        ) {
+          return participantsSortOrder;
         }
 
-        return [userId, ...reject(whereEq(userId), participantIds)];
+        return [userId, ...without([userId], participantsSortOrder)];
       });
     },
     [setParticipantsSortOrder],

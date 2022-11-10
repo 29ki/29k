@@ -5,12 +5,8 @@
     "sessionStarted": "Session is on",
     "skipPortal": "Skip portal",
     "counterLabel": {
-      "counting": "Starting in",
-      "soon": "Starting"
-    },
-    "counterValue": {
-      "shortly": "shortly",
-      "now": "now"
+      "starts": "Starting",
+      "started": "Now"
     }
   },
   "sv": {
@@ -19,26 +15,14 @@
     "sessionStarted": "Session är igång",
     "skipPortal": "Skippa portal",
     "counterLabel": {
-      "counting": "Startar om",
-      "soon": "Startar"
-    },
-    "counterValue": {
-      "shortly": "snart",
-      "now": "nu"
+      "starts": "Startar",
+      "started": "Nu"
     }
   },
   "pt": {
-    "participants": "We are",
-    "startSession": "Start session",
-    "sessionStarted": "Session is On",
-    "skipPortal": "Skip portal",
-    "counterLabel": {
-      "counting": "Starting in",
-      "soon": "Starting"
-    },
-    "counterValue": {
-      "shortly": "Shortly",
-      "now": "Ahora"
-    }
+    "participants": "Somos",
+    "startSession": "Iniciar sessão",
+    "sessionStarted": "A sessão está ativa",
+    "skipPortal": "Ignorar"
   }
 }

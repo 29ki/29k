@@ -1,7 +1,6 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {ActivityIndicator, Image as RNImage, Linking} from 'react-native';
-import {useRecoilValue} from 'recoil';
 import styled from 'styled-components/native';
 import Button from '../../../common/components/Buttons/Button';
 import Gutters from '../../../common/components/Gutters/Gutters';
@@ -9,7 +8,7 @@ import {Spacer40} from '../../../common/components/Spacers/Spacer';
 import Markdown from '../../../common/components/Typography/Markdown/Markdown';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import useKillSwitch from '../hooks/useKillSwitch';
-import {killSwitchFields, killSwitchMessageAtom} from '../state/state';
+import useKillSwitchState from '../state/state';
 
 const Container = styled.View({
   flex: 1,
@@ -28,14 +27,11 @@ const CenteredButton = styled(Button)({
 const KillSwitchMessage = () => {
   const {t} = useTranslation('Screen.KillSwitch');
   const checkKillSwitch = useKillSwitch();
-  const {image, message, button} = useRecoilValue(killSwitchMessageAtom);
-  const isLoading = useRecoilValue(killSwitchFields('isLoading'));
-  const hasFailed = useRecoilValue(killSwitchFields('hasFailed'));
-  const isRetriable = useRecoilValue(killSwitchFields('isRetriable'));
+  const {isLoading, hasFailed, isRetriable, message} = useKillSwitchState();
 
   const handleLinkButton = () => {
-    if (button && 'link' in button) {
-      Linking.openURL(button.link);
+    if (message?.button && 'link' in message.button) {
+      Linking.openURL(message.button.link);
     }
   };
 
@@ -49,15 +45,15 @@ const KillSwitchMessage = () => {
         {Boolean(isLoading) && (
           <ActivityIndicator size="large" color={COLORS.GREYLIGHTEST} />
         )}
-        {image && (
+        {message?.image && (
           <>
-            <Image source={{uri: image}} resizeMode="contain" />
+            <Image source={{uri: message.image}} resizeMode="contain" />
             <Spacer40 />
           </>
         )}
-        {message && (
+        {message?.message && (
           <Gutters>
-            <Markdown>{message}</Markdown>
+            <Markdown>{message?.message}</Markdown>
           </Gutters>
         )}
         {hasFailed && (
@@ -73,11 +69,11 @@ const KillSwitchMessage = () => {
           </>
         )}
       </Container>
-      {button && (
+      {message?.button && (
         <>
           <Gutters>
             <CenteredButton onPress={handleLinkButton}>
-              {button.text}
+              {message?.button.text}
             </CenteredButton>
           </Gutters>
           <Spacer40 />

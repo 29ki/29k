@@ -6,11 +6,11 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
-import {BottomSheetTextInput} from '../../../common/components/Typography/TextInput/TextInput';
+import {BottomSheetTextInput} from '../Typography/TextInput/TextInput';
 
 import styled from 'styled-components/native';
-import Button from '../../../common/components/Buttons/Button';
-import {Spacer16} from '../../../common/components/Spacers/Spacer';
+import Button from '../Buttons/Button';
+import {Spacer16} from '../Spacers/Spacer';
 import {useTranslation} from 'react-i18next';
 
 const RowWrapper = styled.View({});

@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {ListRenderItemInfo, RefreshControl} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useTranslation} from 'react-i18next';
-import {useRecoilValue} from 'recoil';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -27,7 +26,7 @@ import Gutters from '../../common/components/Gutters/Gutters';
 import Button from '../../common/components/Buttons/Button';
 import SessionCard from '../../common/components/Cards/SessionCard/SessionCard';
 import {PlusIcon} from '../../common/components/Icons';
-import {isLoadingAtom, sessionsAtom} from './state/state';
+import useSessionsState from './state/state';
 import Screen from '../../common/components/Screen/Screen';
 
 const AddButton = styled(Button)({
@@ -80,8 +79,8 @@ const AddSessionForm = () => {
 
 const Sessions = () => {
   const {fetchSessions} = useSessions();
-  const isLoading = useRecoilValue(isLoadingAtom);
-  const sessions = useRecoilValue(sessionsAtom);
+  const isLoading = useSessionsState(state => state.isLoading);
+  const sessions = useSessionsState(state => state.sessions);
 
   useEffect(() => {
     fetchSessions();

@@ -1,0 +1,17 @@
+{
+  "en": {
+    "title": "Join by invite code",
+    "errors": {
+      "sessionNotFound": "Invalid invite code"
+    }
+  },
+  "sv": {
+    "title": "Använd kod för att gå med"
+  },
+  "pt": {
+    "title": "Junta-te por código de convite",
+    "errors": {
+      "sessionNotFound": "Código de convite inválido"
+    }
+  }
+}

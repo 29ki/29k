@@ -1,8 +1,20 @@
-import {atom} from 'recoil';
+import create from 'zustand';
 
-const NAMESPACE = 'navigation';
+type State = {
+  navigateWithFade: boolean;
+};
 
-export const navigationWithFadeAtom = atom<boolean>({
-  key: `${NAMESPACE}/navigationWithFade`,
-  default: false,
-});
+type Actions = {
+  setNavigateWithFade: (navigateWithFade: State['navigateWithFade']) => void;
+};
+
+const initialState: State = {
+  navigateWithFade: false,
+};
+
+const useNavigationState = create<State & Actions>()(set => ({
+  ...initialState,
+  setNavigateWithFade: navigateWithFade => set({navigateWithFade}),
+}));
+
+export default useNavigationState;
