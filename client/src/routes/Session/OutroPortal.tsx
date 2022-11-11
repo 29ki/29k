@@ -18,6 +18,7 @@ import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useIsFocused} from '@react-navigation/native';
 import Button from '../../common/components/Buttons/Button';
 import {useTranslation} from 'react-i18next';
+import Gutters from '../../common/components/Gutters/Gutters';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -37,6 +38,11 @@ const reverseVideo = (url: string) => {
     return url.replace(transformFlags, `${transformFlags},e_reverse`);
   }
 };
+
+const TopBar = styled(Gutters)({
+  justifyContent: 'flex-end',
+  flexDirection: 'row',
+});
 
 const OutroPortal: React.FC = () => {
   const finalVidRef = useRef<Video>(null);
@@ -82,6 +88,8 @@ const OutroPortal: React.FC = () => {
     setReadyToLeave(true);
   };
 
+  console.log(readyToLeave);
+
   return (
     <Screen>
       <TopSafeArea minSize={SPACINGS.SIXTEEN} />
@@ -116,7 +124,10 @@ const OutroPortal: React.FC = () => {
       {outroPortal?.video?.source && (
         <VideoStyled
           ref={finalVidRef}
-          onLoad={() => finalVidRef.current?.seek(0)}
+          onLoad={() => {
+            finalVidRef.current?.seek(0);
+            onLoopVideoEnd();
+          }}
           source={{uri: outroPortal.video.source}}
           resizeMode="cover"
           poster={outroPortal.video?.preview}
@@ -125,9 +136,11 @@ const OutroPortal: React.FC = () => {
         />
       )}
       {readyToLeave && (
-        <Button small onPress={() => leaveSession()}>
-          {t('leavePortal')}
-        </Button>
+        <TopBar>
+          <Button variant="secondary" small onPress={leaveSession}>
+            {t('leavePortal')}
+          </Button>
+        </TopBar>
       )}
       <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
     </Screen>
