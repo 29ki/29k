@@ -63,7 +63,7 @@
     "react-native-screens": "^3.18.2",
     "react-native-sound": "^0.11.2",
     "react-native-svg": "^13.4.0",
-    "react-native-video": "^5.2.1",
+    "react-native-video": "https://github.com/29ki/react-native-video#repeat-ios-using-av-player-looper",
     "styled-components": "^5.3.6",
     "zustand": "^4.1.4"
   },
