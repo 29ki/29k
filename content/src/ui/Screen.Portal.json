@@ -5,7 +5,8 @@
     "sessionStarted": "Session is on",
     "skipPortal": "Skip portal",
     "counterLabel": {
-      "starts": "Starting",
+      "startsIn": "Starts in",
+      "starts": "Starts",
       "started": "Now"
     }
   },
@@ -15,6 +16,7 @@
     "sessionStarted": "Session är igång",
     "skipPortal": "Skippa portal",
     "counterLabel": {
+      "startsIn": "Startar om ",
       "starts": "Startar",
       "started": "Nu"
     }
@@ -23,7 +25,7 @@
     "participants": "Somos",
     "startSession": "Iniciar sessão",
     "sessionStarted": "A sessão está ativa",
-    "skipPortal": "Ignorar"
+    "skipPortal": "Ignorar em"
   },
   "es": {}
 }

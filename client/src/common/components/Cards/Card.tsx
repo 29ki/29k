@@ -33,7 +33,7 @@ const Wrapper = styled(TouchableOpacity)({
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
   backgroundColor: COLORS.CREAM,
   overflow: 'hidden',
-  height: 188,
+  height: 174,
 });
 const LeftCol = styled.View({
   flex: 2,
