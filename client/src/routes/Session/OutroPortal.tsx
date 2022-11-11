@@ -19,6 +19,7 @@ import {useIsFocused} from '@react-navigation/native';
 import Button from '../../common/components/Buttons/Button';
 import {useTranslation} from 'react-i18next';
 import Gutters from '../../common/components/Gutters/Gutters';
+import AudioFader from './components/AudioFader/AudioFader';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -46,6 +47,7 @@ const TopBar = styled(Gutters)({
 
 const OutroPortal: React.FC = () => {
   const finalVidRef = useRef<Video>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const exercise = useSessionExercise();
   const {leaveSession} = useLeaveSession();
   const [readyToLeave, setReadyToLeave] = useState(false);
@@ -81,6 +83,7 @@ const OutroPortal: React.FC = () => {
 
   const onEndVideoLoad = () => {
     finalVidRef.current?.seek(0);
+    setVideoLoaded(true);
   };
 
   const onLoopVideoEnd = () => {
@@ -98,6 +101,15 @@ const OutroPortal: React.FC = () => {
         introPortal?.videoLoop?.source &&
         introPortal?.videoEnd?.source && (
           <>
+            {isFocused && introPortal?.videoLoop?.audio && (
+              <AudioFader
+                source={introPortal?.videoLoop.audio}
+                repeat
+                paused={!videoLoaded}
+                volume={readyToLeave ? 1 : 0}
+                duration={readyToLeave ? 20000 : 5000}
+              />
+            )}
             <VideoStyled
               ref={finalVidRef}
               onLoad={onEndVideoLoad}
