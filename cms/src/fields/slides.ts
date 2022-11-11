@@ -22,12 +22,14 @@ export const HOST_NOTES: CmsFieldBase & CmsFieldList = {
   label_singular: 'Host note',
   collapsed: true,
   required: false,
+  i18n: true,
   fields: [
     {
       label: 'Text',
       name: 'text',
       widget: 'markdown',
       required: true,
+      i18n: true,
     },
   ],
 };
