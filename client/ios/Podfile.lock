@@ -1137,11 +1137,6 @@ PODS:
   - RNSentry (4.7.1):
     - React-Core
     - Sentry (= 7.28.0)
-  - RNSound (0.11.2):
-    - React-Core
-    - RNSound/Core (= 0.11.2)
-  - RNSound/Core (0.11.2):
-    - React-Core
   - RNSVG (13.4.0):
     - React-Core
   - Sentry (7.28.0):
@@ -1211,7 +1206,6 @@ DEPENDENCIES:
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - "RNSentry (from `../node_modules/@sentry/react-native`)"
-  - RNSound (from `../node_modules/react-native-sound`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -1362,8 +1356,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-screens"
   RNSentry:
     :path: "../node_modules/@sentry/react-native"
-  RNSound:
-    :path: "../node_modules/react-native-sound"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   Yoga:
@@ -1452,7 +1444,6 @@ SPEC CHECKSUMS:
   RNReanimated: c3e58924b9418883b0bde9e78c4c957302f02435
   RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
   RNSentry: 694aecc3d8240e4935374974a6636e360ae06394
-  RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
   RNSVG: 07dbd870b0dcdecc99b3a202fa37c8ca163caec2
   Sentry: 2c6053e4cfe6dea6608135dea1928ffbb4ecfba5
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
