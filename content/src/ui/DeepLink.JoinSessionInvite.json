@@ -10,5 +10,6 @@
   "pt": {
     "title": "Sessão: {{name}}",
     "description": "{{date}} na app 29k FJN"
-  }
+  },
+  "es": {}
 }

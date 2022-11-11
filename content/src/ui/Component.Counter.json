@@ -12,5 +12,6 @@
   "pt": {
     "shortly": "Em breve",
     "inMinutes": "{{minutes}}m {{seconds}}s"
-  }
+  },
+  "es": {}
 }
