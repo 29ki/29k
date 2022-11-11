@@ -1,16 +1,11 @@
 {
   "en": {
-    "shortly": "Shortly",
-    "started": "Started",
     "inMinutes": "{{minutes}}m {{seconds}}s"
   },
   "sv": {
-    "shortly": "Strax",
-    "started": "Startad",
     "inMinutes": "{{minutes}}m {{seconds}}s"
   },
   "pt": {
-    "shortly": "Em breve",
     "inMinutes": "{{minutes}}m {{seconds}}s"
   },
   "es": {}

@@ -2,6 +2,9 @@
   "en": {
     "addToCalendar": "Add to cal",
     "join": "Join",
+    "counter": {
+      "started": "Started"
+    },
     "counterLabel": {
       "starts": "Starts",
       "startsIn": "Starts in"
@@ -10,6 +13,9 @@
   "sv": {
     "addToCalendar": "Lägg till i kal.",
     "join": "Gå med",
+    "counter": {
+      "started": "Startad"
+    },
     "counterLabel": {
       "starts": "Startar",
       "startsIn": "Startar om"

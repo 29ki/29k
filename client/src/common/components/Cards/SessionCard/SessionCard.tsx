@@ -12,9 +12,9 @@ import {RootStackProps} from '../../../../lib/navigation/constants/routes';
 import {BellIcon, PrivateIcon, PublicIcon} from '../../Icons';
 import Card from '../Card';
 import {Body14} from '../../Typography/Body/Body';
-import Counter from '../../../../routes/Session/components/Counter/Counter';
 import {Spacer4} from '../../Spacers/Spacer';
 import Badge from '../../Badge/Badge';
+import useSessionStartTime from '../../../../routes/Session/hooks/useSessionStartTime';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -31,10 +31,7 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
   const {t} = useTranslation('Component.SessionCard');
   const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
   const {reminderEnabled} = useSessionNotificationReminder(session);
-
-  const startAt = dayjs(startTime);
-  const startingSoon = dayjs().isAfter(startAt.subtract(10, 'minutes'));
-  const startingIn60 = dayjs().isAfter(startAt.subtract(60, 'minutes'));
+  const sessionTime = useSessionStartTime(dayjs(startTime));
 
   const onPress = () =>
     navigate('SessionStack', {
@@ -53,23 +50,25 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
         uri: exercise?.card?.image?.source,
       }}
       onPress={onContextPress}
-      buttonText={startingSoon ? t('join') : ''}
+      buttonText={sessionTime.isReadyToJoin ? t('join') : undefined}
       onButtonPress={onPress}
       onContextPress={onContextPress}
       Icon={reminderEnabled ? BellIcon : undefined}
       hostPictureURL={hostProfile.photoURL}
       hostName={hostProfile.displayName}>
       <Row>
-        {startingSoon ? (
-          ''
-        ) : startingIn60 ? (
-          <Body14>{t('counterLabel.startsIn')}</Body14>
-        ) : (
-          <Body14>{t('counterLabel.starts')}</Body14>
+        {!sessionTime.isReadyToJoin && (
+          <>
+            {sessionTime.isInLessThanAnHour ? (
+              <Body14>{t('counterLabel.startsIn')}</Body14>
+            ) : (
+              <Body14>{t('counterLabel.starts')}</Body14>
+            )}
+            <Spacer4 />
+          </>
         )}
-        <Spacer4 />
         <Badge
-          text={<Counter startTime={startAt} />}
+          text={sessionTime.isStarted ? t('counter.started') : sessionTime.time}
           Icon={session.type === 'private' ? <PrivateIcon /> : <PublicIcon />}
         />
       </Row>
