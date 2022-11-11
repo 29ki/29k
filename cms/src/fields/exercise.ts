@@ -54,7 +54,7 @@ const THEME: CmsField = {
       name: 'textColor',
       widget: 'select',
       multiple: false,
-      i18n: 'duplicate',
+      i18n: true,
       default: COLORS.ACTION,
       options: [
         {label: 'Light', value: COLORS.WHITE},
@@ -66,7 +66,7 @@ const THEME: CmsField = {
       label: 'Background Color',
       name: 'backgroundColor',
       widget: 'color',
-      i18n: 'duplicate',
+      i18n: true,
       required: false,
     },
   ],
