@@ -8,14 +8,13 @@ import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
-import {Platform} from 'react-native';
+import SETTINGS from '../../constants/settings';
 
 const Container = styled.View<{backgroundColor?: string}>(
   ({backgroundColor}) => ({
     flex: 1,
     paddingTop: SPACINGS.TWENTYFOUR, // Equals the height of the modal handle/grabber
-    backgroundColor: backgroundColor ? backgroundColor : COLORS.CREAM,
-    borderRadius: Platform.select({ios: 45, default: 0}),
+    //backgroundColor: backgroundColor ? backgroundColor : COLORS.CREAM,
   }),
 );
 
@@ -56,7 +55,7 @@ export const Modal: React.FC<ModalProps> = ({
   }
 
   return (
-    <Container backgroundColor={backgroundColor}>
+    <Container>
       <Content>{children}</Content>
       {onClose && (
         <CloseIconWrapper>
