@@ -9,7 +9,7 @@ import {Linking} from 'react-native';
 import {utils} from '@react-native-firebase/app';
 import {DEEP_LINK_SCHEMA, DEEP_LINK_PREFIX} from 'config';
 
-import {AppStackProps} from './constants/routes';
+import {ModalStackProps} from './constants/routes';
 
 const resolveNotificationUrl = async (
   source: InitialNotification | EventDetail | null,
@@ -21,8 +21,8 @@ const resolveNotificationUrl = async (
 };
 
 // Deep link configuration
-const config: LinkingOptions<AppStackProps>['config'] = {
-  initialRouteName: 'Tabs',
+const config: LinkingOptions<ModalStackProps>['config'] = {
+  initialRouteName: 'App',
   screens: {
     JoinSessionModal: 'joinSessionInvite/:inviteCode',
     UpgradeAccountModal: 'verifyPublicHostCode/:code',
@@ -30,7 +30,7 @@ const config: LinkingOptions<AppStackProps>['config'] = {
 };
 
 // Linking setup
-const linking: LinkingOptions<AppStackProps> = {
+const linking: LinkingOptions<ModalStackProps> = {
   config,
 
   prefixes: [DEEP_LINK_SCHEMA, DEEP_LINK_PREFIX],

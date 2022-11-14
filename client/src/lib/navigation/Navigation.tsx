@@ -2,7 +2,7 @@ import React from 'react';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 
 import {COLORS} from '../../../../shared/src/constants/colors';
-import Stacks from './Stacks';
+import ModalStack from './ModalStack';
 import linking from './linking';
 
 const navTheme = {
@@ -15,7 +15,7 @@ const navTheme = {
 
 const Navigation = () => (
   <NavigationContainer theme={navTheme} linking={linking}>
-    <Stacks />
+    <ModalStack />
   </NavigationContainer>
 );
 
