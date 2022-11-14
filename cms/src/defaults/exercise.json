@@ -1,0 +1,33 @@
+{
+  "slides": [
+    {
+      "type": "content",
+      "content": {
+        "heading": "hej hej"
+      },
+      "hostNotes": [
+        {
+          "text": "host note"
+        }
+      ]
+    }
+  ],
+  "outroPortal": {
+    "video": {
+      "description": "outro portal"
+    }
+  },
+  "introPortal": {
+    "videoLoop": {
+      "description": "Intro portal"
+    },
+    "videoEnd": {
+      "description": "Intro portal"
+    },
+    "hostNotes": [
+      {
+        "text": "INTRO PORTAL HOST NOTE"
+      }
+    ]
+  }
+}
