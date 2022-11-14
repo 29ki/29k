@@ -90,6 +90,7 @@
     "jest-fetch-mock": "^3.0.3",
     "jest-transform-stub": "^2.0.0",
     "metro-react-native-babel-preset": "^0.73.3",
+    "mockdate": "^3.0.5",
     "prettier": "^2.7.1",
     "react-dom": "18.2.0",
     "react-native-clean-project": "^4.0.1",
