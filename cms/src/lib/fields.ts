@@ -4,7 +4,7 @@ import {JSONObject} from '../../../shared/src/types/JSON';
 // This applies field defaults to nested CMSField structures as you have to specify them individually per field
 export const applyDefaults: (
   fields: Array<CmsField>,
-  defaults: JSONObject,
+  defaults?: JSONObject,
 ) => CmsField[] = (fields, defaults = {}) =>
   fields.map(field => {
     const fieldDefault = defaults[field.name];
