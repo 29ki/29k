@@ -46,7 +46,7 @@ const TopBar = styled(Gutters)({
 });
 
 const OutroPortal: React.FC = () => {
-  const finalVidRef = useRef<Video>(null);
+  const loopingVid = useRef<Video>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const exercise = useSessionExercise();
   const {leaveSession} = useLeaveSession();
@@ -82,7 +82,7 @@ const OutroPortal: React.FC = () => {
   }
 
   const onEndVideoLoad = () => {
-    finalVidRef.current?.seek(0);
+    loopingVid.current?.seek(0);
     setVideoLoaded(true);
   };
 
@@ -90,8 +90,6 @@ const OutroPortal: React.FC = () => {
     ReactNativeHapticFeedback.trigger('impactHeavy');
     setReadyToLeave(true);
   };
-
-  console.log(readyToLeave);
 
   return (
     <Screen>
@@ -111,7 +109,7 @@ const OutroPortal: React.FC = () => {
               />
             )}
             <VideoStyled
-              ref={finalVidRef}
+              ref={loopingVid}
               onLoad={onEndVideoLoad}
               paused={!readyToLeave || !isFocused}
               source={{uri: reverseVideo(introPortal.videoLoop.source)}}
@@ -135,9 +133,9 @@ const OutroPortal: React.FC = () => {
 
       {outroPortal?.video?.source && (
         <VideoStyled
-          ref={finalVidRef}
+          ref={loopingVid}
           onLoad={() => {
-            finalVidRef.current?.seek(0);
+            loopingVid.current?.seek(0);
             onLoopVideoEnd();
           }}
           source={{uri: outroPortal.video.source}}
