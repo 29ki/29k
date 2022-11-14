@@ -7,16 +7,24 @@ import {UiLibProvider} from './lib/uiLib/hooks/useUiLib';
 import Bootstrap from './Bootstrap';
 import ErrorBoundary from './lib/sentry/components/ErrorBoundary';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import styled from 'styled-components/native';
+
+const GestureHandler = styled(GestureHandlerRootView)({
+  flex: 1,
+});
 
 const App = () => (
   <ErrorBoundary>
     <SafeAreaProvider>
-      <UiLibProvider>
-        <Bootstrap>
-          <Navigation />
-          <CodePushOverlay />
-        </Bootstrap>
-      </UiLibProvider>
+      <GestureHandler>
+        <UiLibProvider>
+          <Bootstrap>
+            <Navigation />
+            <CodePushOverlay />
+          </Bootstrap>
+        </UiLibProvider>
+      </GestureHandler>
     </SafeAreaProvider>
   </ErrorBoundary>
 );
