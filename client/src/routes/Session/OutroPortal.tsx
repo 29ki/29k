@@ -38,7 +38,7 @@ const reverseVideo = (url: string) => {
   }
 
   if (transformFlags === '') {
-    return url.replace('/upload/v', '/upload/q_auto,t_global,e_reverse/v');
+    return url.replace('/upload/v', '/upload/e_reverse/v');
   } else {
     return url.replace(transformFlags, `${transformFlags},e_reverse`);
   }

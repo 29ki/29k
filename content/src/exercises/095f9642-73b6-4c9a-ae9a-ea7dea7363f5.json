@@ -39,8 +39,9 @@
         "content": {
           "heading": "Pure simple love",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328548/temp/audio_meditation_2_b3hwge.mp4"
-          }
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663328548/temp/audio_meditation_2_b3hwge.mp4"
+          },
+          "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
         },
         "hostNotes": [
           {
@@ -56,7 +57,7 @@
         "content": {
           "heading": "Reflect: How did this meditation affect you?",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328538/temp/1_min_eto52x.mp4"
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663328538/temp/1_min_eto52x.mp4"
           }
         },
         "hostNotes": [
@@ -73,7 +74,7 @@
         "content": {
           "heading": "Share: How did this meditation affect you?",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328538/temp/2_min_fr9hsu.mp4"
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663328538/temp/2_min_fr9hsu.mp4"
           }
         },
         "hostNotes": [
