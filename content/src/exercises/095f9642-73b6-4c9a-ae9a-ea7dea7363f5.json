@@ -189,7 +189,7 @@
       {
         "type": "sharing",
         "content": {
-          "heading": "Share: How did this meditation affect you?",
+          "heading": "Partilha: O que sentiste com esta meditação? Como te afetou?",
           "video": {
             "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328538/temp/2_min_fr9hsu.mp4"
           }
@@ -202,27 +202,27 @@
             "text": "3. **Tudo no nosso interior está bem.** Raiva, amor, ódio, tristeza. O que quer que apareça. Não há certos ou errados.\n\nTeremos um temporizador de 2 minutos como indicador, mas terás o tempo que quiseres. Se não quiseres partilhar, podes dizer 'passo'."
           },
           {
-            "text": "X, would you like to start? \n\n>Let everyone (or as many as you got time for) share one by one.\n\n>Push play to start the time. Re-start for each new sharing.\n\nThank you so much for sharing your thoughts and feelings with us here today."
+            "text": "X, gostarias de começar?\n\n> Permitir que todos (ou para os que houver tempo) façam uma partilha individual.\n>\n> Carrega play para iniciar a contagem de tempo. Reinicia para cada nova partilha.\n\nMuito obrigada/o por partilhares os teus pensamentos e sentimentos connosco."
           }
         ]
       },
       {
         "type": "content",
         "content": {
-          "heading": "Thank you",
+          "heading": "Obrigada/o",
           "image": {
             "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1663327181/temp/29k_slide_snrub2.png"
           }
         },
         "hostNotes": [
           {
-            "text": "We've just thought of a moment of love in our lives.\n\nPulling one of life’s precious moment into the limelight, trying to balance our brains natural efforts to help us survive by focusing on the negative aspects."
+            "text": "Acabamos de pensar num momento de amor nas nossas vidas.\n\nÉ muito importante focarmos nos momentos preciosos da nossa vida, para tentar equilibrar o esforço natural que o nosso cérebro faz de focar nos aspetos negativos para nos ajudar a sobreviver."
           },
           {
-            "text": "Well done. I would like to send you off with a little mission if you’re up for it.\n\nIf you’re up for it, set a reminder at a random time of the day, and when the reminder goes on, give yourself a moment to reflect on a loving moment from the last 24 hours, and while doing so, also notice what it feels like on the inside, in your body."
+            "text": "Parabéns. Gostava de vos deixar uma pequena missão, se estiverem dispostos a isso.\n\nSe tiverem disposição, definam um lembrete num horário aleatório do dia e, quando o lembrete for ativado, dá a ti mesmo um momento para refletir sobre um momento positivo da tua vida nas últimas 24 horas. Ao fazer isso, observa te sentes interiormente e com o teu corpo."
           },
           {
-            "text": "Thank you for joining us here today. If you have any reflections or feedback for us at 29k, please let us know. Wishing you all a lovely day.\n\nBye."
+            "text": "Muito obrigada/o por te teres juntado a nós hoje. Se tiveres alguma reflexão ou sugestão para nós na 29k FJN, por favor diz-nos. Desejo a todos um excelente dia.\n\nAté já."
           }
         ]
       }
