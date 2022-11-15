@@ -3,7 +3,8 @@
     "project_id": "demo-29k-cupcake",
     "project_number": "123456789000",
     "name": "Demo29kCupcake",
-    "firebase_url": "https://demo-29k-cupcake.firebaseio.com"
+    "firebase_url": "https://demo-29k-cupcake.firebaseio.com",
+    "storage_bucket": "demo-29k-cupcake.appspot.com"
   },
   "client": [
     {

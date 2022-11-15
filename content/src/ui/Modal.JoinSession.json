@@ -13,5 +13,6 @@
     "errors": {
       "sessionNotFound": "Código de convite inválido"
     }
-  }
+  },
+  "es": {}
 }

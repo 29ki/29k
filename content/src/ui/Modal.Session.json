@@ -48,5 +48,6 @@
     "join": "Juntar",
     "addReminder": "Adicionar lembrete",
     "shareMessage": "{{link}}Código da sessão: {{code}}"
-  }
+  },
+  "es": {}
 }
