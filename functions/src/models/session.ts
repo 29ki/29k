@@ -1,19 +1,15 @@
 import 'firebase-functions';
 import {firestore} from 'firebase-admin';
-import {
-  DocumentData,
-  DocumentSnapshot,
-  Timestamp,
-} from 'firebase-admin/firestore';
+import {Timestamp} from 'firebase-admin/firestore';
 import dayjs from 'dayjs';
 
 import {
-  ExerciseState,
-  ExerciseStateData,
   Session,
   SessionData,
   SessionType,
 } from '../../../shared/src/types/Session';
+import {getSession} from '../../../shared/src/modelUtils/session';
+import {getData} from '../../../shared/src/modelUtils/firestore';
 import {ExerciseStateUpdate} from '../api/sessions';
 import {removeEmpty} from '../lib/utils';
 
@@ -22,26 +18,6 @@ const defaultExerciseState = {
   playing: false,
   timestamp: Timestamp.now(),
 };
-
-const getData = <T>(document: DocumentSnapshot<DocumentData>) => {
-  const data = document.data();
-  return data as T;
-};
-
-const getSessionExerciseState = (
-  exerciseState: ExerciseStateData,
-): ExerciseState => ({
-  ...exerciseState,
-  timestamp: exerciseState.timestamp.toDate().toISOString(),
-});
-
-const getSession = (session: SessionData): Session => ({
-  ...session,
-  exerciseState: getSessionExerciseState(session.exerciseState),
-  startTime: session.startTime.toDate().toISOString(),
-  createdAt: session.createdAt.toDate().toISOString(),
-  updatedAt: session.updatedAt.toDate().toISOString(),
-});
 
 const SESSIONS_COLLECTION = 'sessions';
 
