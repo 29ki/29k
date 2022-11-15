@@ -1,23 +1,14 @@
-import dayjs from 'dayjs';
 import React from 'react';
 import styled from 'styled-components/native';
 
 import {Spacer16, Spacer8} from '../../../common/components/Spacers/Spacer';
 import {Body14} from '../../../common/components/Typography/Body/Body';
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
-import Counter from './Counter/Counter';
 import AudioIndicator from './Participants/AudioIdicator';
 import ProgressBar from './ProgressBar/ProgressBar';
 import HostNotes from './HostNotes/HostNotes';
-import {COLORS} from '../../../../../shared/src/constants/colors';
-
-const dayjsTime = dayjs().add(59, 'minutes');
 
 const Row = styled.View({flexDirection: 'row'});
-const ColorBG = styled.View({
-  backgroundColor: COLORS.BLACK_TRANSPARENT_15,
-  padding: 4,
-});
 
 export const UI = () => (
   <>
@@ -39,20 +30,6 @@ export const UI = () => (
         <AudioIndicator muted={false} />
       </Row>
       <Spacer16 />
-      <Body14>Counter</Body14>
-      <Spacer8 />
-      <ColorBG>
-        <Row>
-          <Body14>
-            <Counter startTime={dayjsTime} />
-          </Body14>
-          <Spacer8 />
-          <Body14>
-            <Counter startTime={dayjsTime} />
-          </Body14>
-          <Spacer8 />
-        </Row>
-      </ColorBG>
     </ScreenWrapper>
   </>
 );
