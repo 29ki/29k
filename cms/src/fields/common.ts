@@ -78,7 +78,7 @@ export const VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
       name: 'preview',
       widget: 'image',
       required: false,
-      i18n: false,
+      i18n: true,
     },
   ],
 };
@@ -88,7 +88,7 @@ const AUDIO_FIELD: CmsField = {
   name: 'audio',
   widget: 'file',
   required: false,
-  i18n: false,
+  i18n: true,
 };
 
 export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
