@@ -1,7 +1,10 @@
 import {renderHook} from '@testing-library/react-hooks';
 import MockDate from 'mockdate';
 import dayjs from 'dayjs';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
 import useSessionStartTime from './useSessionStartTime';
+
+dayjs.extend(localizedFormat);
 
 const mockT = jest.fn().mockReturnValue('in-minutes-translation');
 jest.mock('react-i18next', () => ({
@@ -38,14 +41,14 @@ describe('useSessionStartTime', () => {
       const {result} = renderHook(() =>
         useSessionStartTime(dayjs(startTimes.today)),
       );
-      expect(result.current.time).toEqual('15:49');
+      expect(result.current.time).toEqual('3:49 PM');
     });
 
     it('returns date and time when starTime is future days', () => {
       const {result} = renderHook(() =>
         useSessionStartTime(dayjs(startTimes.future)),
       );
-      expect(result.current.time).toEqual('Tue, 15 Nov 15:49');
+      expect(result.current.time).toEqual('Tue, 15 Nov 3:49 PM');
     });
   });
 
