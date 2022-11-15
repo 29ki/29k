@@ -20,6 +20,7 @@ import Button from '../../common/components/Buttons/Button';
 import {useTranslation} from 'react-i18next';
 import Gutters from '../../common/components/Gutters/Gutters';
 import AudioFader from './components/AudioFader/AudioFader';
+import Sentry from '../../lib/sentry';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -27,9 +28,12 @@ const VideoStyled = styled(VideoBase)({
 });
 
 const reverseVideo = (url: string) => {
-  const transformFlags = (url.match(/upload\/?(.*)\/v/) ?? [])[1];
+  const transformFlags = (url.match(/cloudinary.*\/upload\/?(.*)\/v/) ?? [])[1];
 
   if (transformFlags === undefined) {
+    Sentry.captureException(
+      new Error('Could not reverse the video - Invalid url'),
+    );
     return url;
   }
 
