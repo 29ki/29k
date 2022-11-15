@@ -1,1 +1,10 @@
-{}
+{
+  "slides": [
+    {
+      "type": "content",
+      "content": {
+        "heading": "A default heading"
+      }
+    }
+  ]
+}
