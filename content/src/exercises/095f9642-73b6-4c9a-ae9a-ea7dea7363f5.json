@@ -117,12 +117,9 @@
       }
     }
   },
-  "sv": {
-    "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139"
-  },
   "pt": {
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
-    "name": "O amor puro e simples",
+    "name": "O amor puro e simple",
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
@@ -236,6 +233,9 @@
         "source": "https://res.cloudinary.com/twentyninek/video/upload/v1664798564/temp/portal_outro_lpm80e.mp4"
       }
     }
+  },
+  "sv": {
+    "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139"
   },
   "es": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139"
