@@ -3,6 +3,7 @@ import EXERCISE_FIELDS from '../fields/exercise';
 import CONTRIBUTORS_FIELDS from '../fields/contributors';
 import * as content from '../../../content/content.json';
 import {generateFilesCollectionFromi18nFiles} from '../lib/i18n';
+import EXERCISE_DEFAULTS_FIELDS from '../fields/defaults';
 
 export const exercises: CmsCollection = {
   name: 'exercises',
@@ -24,7 +25,30 @@ export const exercises: CmsCollection = {
   i18n: true,
 };
 
-export const contributors: CmsCollection = {
+export const settings: CmsCollection = {
+  name: 'settings',
+  label: '⚙️ Settings',
+  files: [
+    {
+      label: '📝 Exercise defaults',
+      name: 'exercise-defaults',
+      file: '/cms/src/defaults/exercise.json',
+      fields: EXERCISE_DEFAULTS_FIELDS,
+    },
+  ],
+  i18n: false,
+  extension: 'json',
+  format: 'json',
+  create: false,
+  delete: false,
+  publish: true,
+  identifier_field: 'label',
+  editor: {
+    preview: false,
+  },
+};
+
+export const other: CmsCollection = {
   name: 'other',
   label: '🪴 Other',
   files: [
@@ -47,7 +71,7 @@ export const contributors: CmsCollection = {
   },
 };
 
-export const files: CmsCollection = generateFilesCollectionFromi18nFiles(
+export const ui: CmsCollection = generateFilesCollectionFromi18nFiles(
   'ui',
   '📱 UI',
   content.i18n,
