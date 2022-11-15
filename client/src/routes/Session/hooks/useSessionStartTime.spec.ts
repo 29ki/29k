@@ -81,7 +81,7 @@ describe('useSessionStartTime', () => {
     });
   });
 
-  describe('isStated', () => {
+  describe('isStarted', () => {
     it('should be true', () => {
       const {result} = renderHook(() =>
         useSessionStartTime(dayjs(startTimes.hasPassed)),
