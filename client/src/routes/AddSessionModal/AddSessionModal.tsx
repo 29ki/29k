@@ -28,7 +28,7 @@ const AddSessionModal: React.FC = () => {
         <Spacer24 />
         <Button
           onPress={() => {
-            popToTop();
+            //popToTop();
             navigate('CreateSessionModal');
           }}>
           {t('create')}
@@ -36,7 +36,7 @@ const AddSessionModal: React.FC = () => {
         <Spacer8 />
         <Button
           onPress={() => {
-            popToTop();
+            //popToTop();
             navigate('JoinSessionModal', {inviteCode: undefined});
           }}>
           {t('join')}

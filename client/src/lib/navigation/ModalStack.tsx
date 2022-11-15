@@ -67,7 +67,6 @@ const ModalStackWrapper = () => {
         name={'JoinSessionModal'}
         component={JoinSessionModal}
       />
-      <ModalStack.Screen name={'AddSessionModal'} component={AddSessionModal} />
       <ModalStack.Screen
         name={'UpgradeAccountModal'}
         component={UpgradeAccountModal}
@@ -76,6 +75,27 @@ const ModalStackWrapper = () => {
         name={'SessionUnavailableModal'}
         component={SessionUnavailableModal}
       />
+      <ModalStack.Group
+        screenOptions={{
+          ...screenOptions,
+          detached: true,
+          bottomInset: 5,
+          style: {
+            marginHorizontal: 4,
+          },
+          backgroundStyle: {
+            borderBottomLeftRadius: 45,
+            borderBottomRightRadius: 45,
+          },
+          handleIndicatorStyle: {
+            display: 'none',
+          },
+        }}>
+        <ModalStack.Screen
+          name={'AddSessionModal'}
+          component={AddSessionModal}
+        />
+      </ModalStack.Group>
     </ModalStack.Navigator>
   );
 };
