@@ -54,11 +54,11 @@ const useSessionStartTime = (startTime: dayjs.Dayjs) => {
     const diff = dayjs.duration(startTime.diff(now));
 
     if (!startTime.isToday()) {
-      return startTime.format('ddd, D MMM HH:mm');
+      return startTime.format('ddd, D MMM LT');
     }
 
     if (diff.hours() > 0) {
-      return startTime.format('HH:mm');
+      return startTime.format('LT');
     }
 
     return t('inMinutes', {
