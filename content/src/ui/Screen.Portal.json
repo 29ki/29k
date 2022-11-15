@@ -7,7 +7,8 @@
     "counterLabel": {
       "starts": "Starting",
       "started": "Now"
-    }
+    },
+    "leavePortal": "Leave"
   },
   "sv": {
     "participants": "Vi är",
