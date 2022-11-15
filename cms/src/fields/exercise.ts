@@ -1,4 +1,6 @@
 import {CmsField} from 'netlify-cms-core';
+import {applyDefaults} from '../lib/fields';
+import defaults from '../defaults/exercise.json';
 
 import {COLORS} from '../../../shared/src/constants/colors';
 import {
@@ -17,7 +19,7 @@ import {
   SHARING_SLIDE,
 } from './slides';
 
-const INTRO_PORTAL: CmsField = {
+export const INTRO_PORTAL: CmsField = {
   label: 'Intro Portal',
   name: 'introPortal',
   widget: 'object',
@@ -31,14 +33,20 @@ const INTRO_PORTAL: CmsField = {
   ],
 };
 
-const OUTRO_PORTAL: CmsField = {
+export const OUTRO_PORTAL: CmsField = {
   label: 'Outro Portal',
   name: 'outroPortal',
   widget: 'object',
   collapsed: true,
   required: false,
   i18n: true,
-  fields: [{...VIDEO_FIELD_WITH_AUDIO, label: 'Video', name: 'video'}],
+  fields: [
+    {
+      ...VIDEO_FIELD_WITH_AUDIO,
+      label: 'Video',
+      name: 'video',
+    },
+  ],
 };
 
 const THEME: CmsField = {
@@ -54,7 +62,7 @@ const THEME: CmsField = {
       name: 'textColor',
       widget: 'select',
       multiple: false,
-      i18n: 'duplicate',
+      i18n: true,
       default: COLORS.ACTION,
       options: [
         {label: 'Light', value: COLORS.WHITE},
@@ -66,27 +74,32 @@ const THEME: CmsField = {
       label: 'Background Color',
       name: 'backgroundColor',
       widget: 'color',
-      i18n: 'duplicate',
+      i18n: true,
       required: false,
     },
   ],
 };
 
-const EXERCISE_FIELDS: Array<CmsField> = [
-  ID_FIELD,
-  NAME_FIELD,
-  PUBLISHED_FIELD,
-  CARD_FIELD,
-  THEME,
-  INTRO_PORTAL,
-  OUTRO_PORTAL,
-  {
-    label: 'Slides',
-    name: 'slides',
-    widget: 'list',
-    i18n: true,
-    types: [CONTENT_SLIDE, REFLECTION_SLIDE, SHARING_SLIDE, HOST_SLIDE],
-  },
-];
+export const SLIDES: CmsField = {
+  label: 'Slides',
+  name: 'slides',
+  widget: 'list',
+  i18n: true,
+  types: [CONTENT_SLIDE, REFLECTION_SLIDE, SHARING_SLIDE, HOST_SLIDE],
+};
+
+const EXERCISE_FIELDS: Array<CmsField> = applyDefaults(
+  [
+    ID_FIELD,
+    NAME_FIELD,
+    PUBLISHED_FIELD,
+    CARD_FIELD,
+    THEME,
+    INTRO_PORTAL,
+    OUTRO_PORTAL,
+    SLIDES,
+  ],
+  defaults,
+);
 
 export default EXERCISE_FIELDS;

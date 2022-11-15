@@ -13,5 +13,6 @@
     "title": "Sessão - {{name}}",
     "notes": "Exercício: {{name}}{{url}}",
     "location": "29k FJN app"
-  }
+  },
+  "es": {}
 }
