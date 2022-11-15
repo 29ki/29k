@@ -1,5 +1,5 @@
 import React from 'react';
-import {ImageSourcePropType, View} from 'react-native';
+import {ImageSourcePropType} from 'react-native';
 import styled from 'styled-components/native';
 import AnimatedLottieView, {AnimationObject} from 'lottie-react-native';
 
@@ -7,20 +7,20 @@ import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import SETTINGS from '../../constants/settings';
 import Button from '../Buttons/Button';
-import {Body16} from '../Typography/Body/Body';
 import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display24} from '../Typography/Display/Display';
 import IconButton from '../Buttons/IconButton/IconButton';
 import {EllipsisIcon, IconType} from '../Icons';
 import Byline from '../Bylines/Byline';
+import {Spacer4, Spacer8} from '../Spacers/Spacer';
 
 const GraphicsWrapper = styled.View({
   position: 'absolute',
   width: 132,
   height: 132,
-  right: -SPACINGS.SIXTEEN,
-  bottom: -SPACINGS.SIXTEEN,
+  right: 0,
+  bottom: 0,
 });
 
 const Lottie = styled(AnimatedLottieView)({
@@ -28,16 +28,21 @@ const Lottie = styled(AnimatedLottieView)({
 });
 
 const Wrapper = styled(TouchableOpacity)({
+  flexDirection: 'row',
   justifyContent: 'space-between',
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
   backgroundColor: COLORS.CREAM,
+  overflow: 'hidden',
+  height: 174,
+});
+const LeftCol = styled.View({
+  flex: 2,
+  justifyContent: 'space-between',
   padding: SPACINGS.SIXTEEN,
   paddingTop: SPACINGS.EIGHT,
-  height: 188,
 });
-
-const HeaderRow = styled.View({
-  flexDirection: 'row',
+const RightCol = styled.View({
+  flex: 1,
 });
 
 const Header = styled.View({
@@ -45,26 +50,29 @@ const Header = styled.View({
   textOverflow: 'ellipsis',
 });
 
-const Row = styled.View({
+const CardContext = styled.View({
+  paddingRight: SPACINGS.EIGHT,
+  paddingTop: SPACINGS.EIGHT,
   flexDirection: 'row',
-  justifyContent: 'space-between',
+  justifyContent: 'flex-end',
+});
+const Footer = styled.View({
+  flexDirection: 'row',
+  alignItems: 'flex-end',
 });
 
 const IconWrapper = styled.View({
-  width: 36,
-  height: 36,
+  width: SPACINGS.THIRTYSIX,
+  height: SPACINGS.THIRTYSIX,
   padding: 3,
 });
 
-const CallToAction = styled.View({
-  flex: 1,
-  justifyContent: 'flex-end',
-  alignItems: 'flex-start',
+const CTAButton = styled(Button)({
+  alignSelf: 'flex-start',
 });
 
 type CardProps = {
   title?: string;
-  description?: string;
   image?: ImageSourcePropType;
   lottie?: AnimationObject;
   onPress: () => void;
@@ -80,7 +88,6 @@ type CardProps = {
 
 export const Card: React.FC<CardProps> = ({
   title,
-  description,
   lottie,
   image,
   onPress,
@@ -94,13 +101,30 @@ export const Card: React.FC<CardProps> = ({
   hostName,
 }) => (
   <Wrapper onPress={onPress}>
-    <View>
-      <HeaderRow>
-        <Header>
-          {title && <Display24 numberOfLines={2}>{title}</Display24>}
-          <Byline pictureURL={hostPictureURL} name={hostName} />
-          {description && <Body16 numberOfLines={1}>{description}</Body16>}
-        </Header>
+    <LeftCol>
+      <Header>
+        {title && <Display24 numberOfLines={2}>{title}</Display24>}
+        <Spacer4 />
+        <Byline pictureURL={hostPictureURL} name={hostName} />
+      </Header>
+      <Footer>
+        {buttonText && (
+          <>
+            <CTAButton
+              LeftIcon={ButtonIcon}
+              small
+              variant="secondary"
+              onPress={onButtonPress ? onButtonPress : onPress}>
+              {buttonText}
+            </CTAButton>
+            <Spacer8 />
+          </>
+        )}
+        {children}
+      </Footer>
+    </LeftCol>
+    <RightCol>
+      <CardContext>
         {Icon && (
           <IconWrapper>
             <Icon />
@@ -115,21 +139,7 @@ export const Card: React.FC<CardProps> = ({
             onPress={onContextPress}
           />
         )}
-      </HeaderRow>
-    </View>
-    {children}
-    <Row>
-      <CallToAction>
-        {buttonText && (
-          <Button
-            LeftIcon={ButtonIcon}
-            small
-            variant="secondary"
-            onPress={onButtonPress ? onButtonPress : onPress}>
-            {buttonText}
-          </Button>
-        )}
-      </CallToAction>
+      </CardContext>
       <GraphicsWrapper>
         {lottie ? (
           <Lottie source={lottie} autoPlay loop />
@@ -137,7 +147,7 @@ export const Card: React.FC<CardProps> = ({
           <Image resizeMode="contain" source={image} />
         ) : null}
       </GraphicsWrapper>
-    </Row>
+    </RightCol>
   </Wrapper>
 );
 
