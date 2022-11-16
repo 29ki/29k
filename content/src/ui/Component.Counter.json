@@ -1,17 +1,12 @@
 {
   "en": {
-    "today": "Today",
-    "shortly": "Shortly",
-    "inMinutes": "in {{minutes}}m {{seconds}}s"
+    "inMinutes": "{{minutes}}m {{seconds}}s"
   },
   "sv": {
-    "today": "Idag",
-    "shortly": "Strax",
-    "inMinutes": "om {{minutes}}m {{seconds}}s"
+    "inMinutes": "{{minutes}}m {{seconds}}s"
   },
   "pt": {
-    "today": "Hoje",
-    "shortly": "Em breve",
-    "inMinutes": "em {{minutes}}m {{seconds}}s"
-  }
+    "inMinutes": "{{minutes}}m {{seconds}}s"
+  },
+  "es": {}
 }

@@ -30,9 +30,12 @@ import {
 import {Body14} from '../../common/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {HKGroteskBold} from '../../common/constants/fonts';
-import {SessionStackProps} from '../../lib/navigation/constants/routes';
+import {
+  ModalStackProps,
+  SessionStackProps,
+  TabNavigatorProps,
+} from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
-import Counter from './components/Counter/Counter';
 import useSessionExercise from './hooks/useSessionExercise';
 import useSessionState from './state/state';
 import useDailyState from '../../lib/daily/state/state';
@@ -47,8 +50,9 @@ import {DailyContext} from '../../lib/daily/DailyProvider';
 import Screen from '../../common/components/Screen/Screen';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 import {ArrowLeftIcon} from '../../common/components/Icons';
-
-type SessionNavigationProps = NativeStackNavigationProp<SessionStackProps>;
+import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
+import Badge from '../../common/components/Badge/Badge';
+import useSessionStartTime from './hooks/useSessionStartTime';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -62,15 +66,6 @@ const StatusItem = styled.View({
 const StatusText = styled(Body14)<{themeColor?: string}>(({themeColor}) => ({
   color: themeColor ? themeColor : COLORS.PURE_WHITE,
   fontFamily: HKGroteskBold,
-}));
-
-const Badge = styled.View<{themeColor?: string}>(({themeColor}) => ({
-  backgroundColor: themeColor
-    ? COLORS.BLACK_TRANSPARENT_15
-    : COLORS.WHITE_TRANSPARENT,
-  paddingVertical: SPACINGS.FOUR,
-  paddingHorizontal: SPACINGS.EIGHT,
-  borderRadius: SPACINGS.EIGHT,
 }));
 
 const PortalStatus = styled(Gutters)({
@@ -111,13 +106,21 @@ const IntroPortal: React.FC = () => {
   const participantsCount = Object.keys(participants ?? {}).length;
   const isHost = useIsSessionHost();
   const {joinMeeting} = useContext(DailyContext);
-  const {navigate} = useNavigation<SessionNavigationProps>();
-  const isFocused = useIsFocused();
+  const {navigate} =
+    useNavigation<
+      NativeStackNavigationProp<
+        SessionStackProps & TabNavigatorProps & ModalStackProps
+      >
+    >();
   const {setStarted} = useUpdateSession(sessionId);
   const {leaveSessionWithConfirm} = useLeaveSession();
+  const isFocused = useIsFocused();
+  useSubscribeToSessionIfFocused(sessionId);
+  const sessionTime = useSessionStartTime(dayjs(session?.startTime.toDate()));
 
   const introPortal = exercise?.introPortal;
   const textColor = exercise?.theme?.textColor;
+  const started = session?.started;
 
   const navigateToSession = useCallback(
     () => navigate('Session', {sessionId: sessionId}),
@@ -232,19 +235,22 @@ const IntroPortal: React.FC = () => {
             <PortalStatus>
               <StatusItem>
                 <StatusText themeColor={textColor}>
-                  {t('counterLabel.starts')}
+                  {sessionTime.isStartingShortly
+                    ? t('counterLabel.starts')
+                    : t('counterLabel.startsIn')}
                 </StatusText>
-
                 <Spacer8 />
-                <Badge themeColor={textColor}>
-                  <StatusText themeColor={textColor}>
-                    {session?.started ? (
-                      t('counterLabel.started')
-                    ) : (
-                      <Counter startTime={dayjs(session?.startTime.toDate())} />
-                    )}
-                  </StatusText>
-                </Badge>
+
+                <Badge
+                  themeColor={textColor ?? textColor}
+                  text={
+                    started
+                      ? t('counterLabel.started')
+                      : sessionTime.isStartingShortly
+                      ? t('counterLabel.shortly')
+                      : sessionTime.time
+                  }
+                />
               </StatusItem>
 
               {participantsCount > 1 && (
@@ -253,11 +259,7 @@ const IntroPortal: React.FC = () => {
                     {t('participants')}
                   </StatusText>
                   <Spacer8 />
-                  <Badge themeColor={textColor}>
-                    <StatusText themeColor={textColor}>
-                      {participantsCount}
-                    </StatusText>
-                  </Badge>
+                  <Badge themeColor={textColor} text={participantsCount} />
                 </StatusItem>
               )}
             </PortalStatus>

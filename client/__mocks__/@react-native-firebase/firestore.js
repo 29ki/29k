@@ -2,7 +2,7 @@ const mockFirestore = {
   collection: jest.fn().mockReturnValue({
     doc: jest.fn().mockReturnValue({
       onSnapshot: jest.fn(cb => {
-        cb({data: () => ({id: 'test-id'})});
+        cb({exists: true, data: () => ({id: 'test-id'})});
         return jest.fn(() => 'unsubscribe-mock');
       }),
     }),

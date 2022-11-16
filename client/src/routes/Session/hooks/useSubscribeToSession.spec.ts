@@ -1,7 +1,7 @@
 import {renderHook} from '@testing-library/react-hooks';
 import firestore from '@react-native-firebase/firestore';
-
 import useSessionState from '../state/state';
+
 import useSubscribeToSession from './useSubscribeToSession';
 
 afterEach(() => {
@@ -9,10 +9,13 @@ afterEach(() => {
 });
 
 describe('useSubscribeToSession', () => {
+  const mockCallback = jest.fn();
+
   const useTestHook = () => {
-    useSubscribeToSession('session-id');
+    const subscribeToSession = useSubscribeToSession('session-id');
     const session = useSessionState(state => state.session);
 
+    subscribeToSession(mockCallback);
     return session;
   };
 
@@ -26,12 +29,10 @@ describe('useSubscribeToSession', () => {
     );
     expect(
       firestore().collection('sessions').doc('session-id').onSnapshot,
-    ).toHaveBeenCalled();
-  });
-
-  it('should set live content state', () => {
-    const {result} = renderHook(() => useTestHook());
-
-    expect(result.current).toEqual({id: 'test-id'});
+    ).toHaveBeenCalledWith(mockCallback, expect.any(Function));
+    expect(mockCallback).toHaveBeenCalledWith({
+      data: expect.any(Function),
+      exists: true,
+    });
   });
 });

@@ -1,14 +1,15 @@
 {
   "en": {
     "heading": "Sessions",
-    "add": "Add session"
+    "add": "Join or add session"
+  },
+  "pt": {
+    "heading": "Sessões",
+    "add": "Adicionar sessão"
   },
   "sv": {
     "heading": "Sessioner",
     "add": "Add session"
   },
-  "pt": {
-    "heading": "Sessões",
-    "add": "Adicionar sessão"
-  }
+  "es": {}
 }

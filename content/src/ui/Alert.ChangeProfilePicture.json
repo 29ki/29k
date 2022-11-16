@@ -31,5 +31,6 @@
     "alertCameraTitle": "Necessária permissão de acesso à câmara",
     "alertCameraWhy": "A 29k FJN precisa de utilizar a tua câmara para tirar a foto de perfil.",
     "alertCameraSettings": "Por favor, vai às configurações do sistema e dá acesso à 29k FJN para utilizar a tua câmara."
-  }
+  },
+  "es": {}
 }

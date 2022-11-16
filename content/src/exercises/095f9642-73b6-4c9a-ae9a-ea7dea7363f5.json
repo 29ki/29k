@@ -39,7 +39,7 @@
         "content": {
           "heading": "Pure simple love",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328548/temp/audio_meditation_2_b3hwge.mp4"
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663328548/temp/audio_meditation_2_b3hwge.mp4"
           },
           "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
         },
@@ -57,7 +57,7 @@
         "content": {
           "heading": "Reflect: How did this meditation affect you?",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328538/temp/1_min_eto52x.mp4"
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663328538/temp/1_min_eto52x.mp4"
           }
         },
         "hostNotes": [
@@ -74,7 +74,7 @@
         "content": {
           "heading": "Share: How did this meditation affect you?",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328538/temp/2_min_fr9hsu.mp4"
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663328538/temp/2_min_fr9hsu.mp4"
           }
         },
         "hostNotes": [
@@ -117,10 +117,127 @@
       }
     }
   },
+  "pt": {
+    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+    "name": "O amor puro e simples",
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+      }
+    },
+    "introPortal": {
+      "type": "video",
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663143395/temp/portal-intro_h7qccz.mp4",
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663147750/temp/portal-intro-end_crzjih.mp4"
+      },
+      "hostNotes": [
+        {
+          "text": "> Inicia a sessão quando estiveres pronta/o."
+        }
+      ]
+    },
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Bem-vindos a esta sessão, moderada por mim, x.\n\nEstou muito feliz por terem escolhido juntar-se a nós aqui na 29k FJN. Vamos trabalhar durante 30 minutos no amor e na ligação connosco e com os outros.\n\nFaremos uma breve meditação em conjunto, depois teremos um momento de reflexão individual, e no último momento vamos partilhar entre todos a forma como vivemos e sentimos estes momentos."
+          },
+          {
+            "text": "Vamos começar com um pequeno check-in.\n\nComo te estás a sentir neste momento? Responde por favor em duas ou três palavras.\n\nX, gostarias de começar e depois passar para outra pessoa quando terminares?\n\n> Permite que todos na sessão façam check-in um por um.\n\nObrigada/o a todos pelo check-in.\n\nVamos então começar."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "content": {
+          "heading": "O amor puro e simples",
+          "video": {
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328548/temp/audio_meditation_2_b3hwge.mp4"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Às vezes parece que a vida se desenrola sempre de uma forma monótona e sem fim. E mesmo tendo muitas coisas positivas nas nossas vidas, os nossos cérebros são programados para se concentrarem nas coisas que não funcionam e são mais negativas. Os problemas. Ameaças potenciais. Coisas que precisamos de resolver nas nossas vidas."
+          },
+          {
+            "text": "Lembrar-nos do que está a correr bem exige um esforço. Vamos agora fazer exatamente isso. Tirar alguns minutos para nos relembrarmos de um momento de amor nas nossas vidas.\n\n> Carrega no play para iniciar a meditação."
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "content": {
+          "heading": "Reflexão: O que sentiste com esta meditação? Como te afetou?",
+          "video": {
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328538/temp/1_min_eto52x.mp4"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Vamos agora reservar 1 minuto para refletir individualmente.\n\nO que sentiste ao fazer esta meditação? Como te afetou?\n\nO que podes aproveitar desta experiência para o resto do seu dia?"
+          },
+          {
+            "text": "Se quiseres, podes tomar notas numa folha de papel ou apenas algumas notas mentais. E lembra-te, não há um certo ou errado aqui. São as nossas respostas e perspetivas próprias.\n\n1 minuto a partir de agora.\n\n> Carregar em play para iniciar o cronómetro.\n\nOk, isso é 1 minuto. Vamos lá."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "content": {
+          "heading": "Partilha: O que sentiste com esta meditação? Como te afetou?",
+          "video": {
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328538/temp/2_min_fr9hsu.mp4"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Vamos agora entrar na parte de partilha deste exercício. Temos três regras importantes:\n\n1. **O que é dito aqui, fica aqui.**\n2. **O teu trabalho como participante é apenas ouvir.** Não há necessidade de ajudar ou dar conselhos neste espaço. Estamos apenas a partilhar e a tentar entender o que nós mesmos e os outros estão a passar."
+          },
+          {
+            "text": "3. **Tudo no nosso interior está bem.** Raiva, amor, ódio, tristeza. O que quer que apareça. Não há certos ou errados.\n\nTeremos um temporizador de 2 minutos como indicador, mas terás o tempo que quiseres. Se não quiseres partilhar, podes dizer 'passo'."
+          },
+          {
+            "text": "X, gostarias de começar?\n\n> Permitir que todos (ou para os que houver tempo) façam uma partilha individual.\n>\n> Carrega play para iniciar a contagem de tempo. Reinicia para cada nova partilha.\n\nMuito obrigada/o por partilhares os teus pensamentos e sentimentos connosco."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "content": {
+          "heading": "Obrigada/o",
+          "image": {
+            "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1663327181/temp/29k_slide_snrub2.png"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Acabamos de pensar num momento de amor nas nossas vidas.\n\nÉ muito importante focarmos nos momentos preciosos da nossa vida, para tentar equilibrar o esforço natural que o nosso cérebro faz de focar nos aspetos negativos para nos ajudar a sobreviver."
+          },
+          {
+            "text": "Parabéns. Gostava de vos deixar uma pequena missão, se estiverem dispostos a isso.\n\nSe tiverem disposição, definam um lembrete num horário aleatório do dia e, quando o lembrete for ativado, dá a ti mesmo um momento para refletir sobre um momento positivo da tua vida nas últimas 24 horas. Ao fazer isso, observa te sentes interiormente e com o teu corpo."
+          },
+          {
+            "text": "Muito obrigada/o por te teres juntado a nós hoje. Se tiveres alguma reflexão ou sugestão para nós na 29k FJN, por favor diz-nos. Desejo a todos um excelente dia.\n\nAté já."
+          }
+        ]
+      }
+    ],
+    "published": true,
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1664798564/temp/portal_outro_lpm80e.mp4"
+      }
+    }
+  },
   "sv": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139"
   },
-  "pt": {
+  "es": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139"
   }
 }

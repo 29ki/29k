@@ -23,7 +23,34 @@
       "cta": "Create session"
     },
     "profile": {
-      "text": "To become an official host you need provide a user name and profile picture."
+      "text": "To create and host a session you need a user name and profile picture."
+    }
+  },
+  "pt": {
+    "selectContent": {
+      "title": "Escolhe um exercício"
+    },
+    "selectType": {
+      "title": "Criar sessão com...",
+      "public": {
+        "title": "Qualquer pessoa",
+        "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+      },
+      "private": {
+        "title": "Os meus amigos",
+        "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+      },
+      "async": {
+        "title": "Comigo",
+        "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+      }
+    },
+    "setDateTime": {
+      "title": "Escolhe o horário",
+      "cta": "Criar sessão"
+    },
+    "profile": {
+      "text": "Para poderes ser um moderador autorizado tens de colocar o teu nome e a tua fotografia."
     }
   },
   "sv": {
@@ -53,31 +80,5 @@
       "text": "För att hålla i sessioner behöver du ett namn och en profilbild."
     }
   },
-  "pt": {
-    "selectContent": {
-      "title": "Escolhe um exercício"
-    },
-    "selectType": {
-      "title": "Criar sessão com...",
-      "public": {
-        "title": "Qualquer pessoa",
-        "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
-      },
-      "private": {
-        "title": "Os meus amigos",
-        "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
-      },
-      "async": {
-        "title": "Comigo",
-        "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
-      }
-    },
-    "setDateTime": {
-      "title": "Escolhe o horário",
-      "cta": "Criar sessão"
-    },
-    "profile": {
-      "text": "Para poderes ser um moderador autorizado tens de colocar o teu nome e a tua fotografia."
-    }
-  }
+  "es": {}
 }

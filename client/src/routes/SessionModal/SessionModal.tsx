@@ -51,7 +51,7 @@ const SessionModal = () => {
   const {
     params: {session},
   } = useRoute<RouteProp<RootStackProps, 'SessionModal'>>();
-  const {t} = useTranslation('Component.SessionModal');
+  const {t} = useTranslation('Modal.Session');
   const user = useUser();
   const navigation = useNavigation<NativeStackNavigationProp<RootStackProps>>();
   const {deleteSession} = useSessions();

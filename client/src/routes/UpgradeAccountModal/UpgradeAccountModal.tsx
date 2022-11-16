@@ -27,7 +27,7 @@ const SuccessHeader = styled(Heading16)({textAlign: 'center'});
 const SuccessText = styled(Body16)({textAlign: 'center'});
 
 const UpgradeAccountModal = () => {
-  const {t} = useTranslation('Screen.UpgradeAccountModal');
+  const {t} = useTranslation('Modal.UpgradeAccount');
   const {params} =
     useRoute<RouteProp<ModalStackProps, 'UpgradeAccountModal'>>();
   const user = useUserState(state => state.user);

@@ -18,7 +18,6 @@ import {DailyContext} from '../../lib/daily/DailyProvider';
 import ExerciseSlides from './components/ExerciseSlides/ExerciseSlides';
 
 import Participants from './components/Participants/Participants';
-import useSubscribeToSession from './hooks/useSubscribeToSession';
 import useSessionParticipants from './hooks/useSessionParticipants';
 import useSessionExercise from './hooks/useSessionExercise';
 import useMuteAudioListener from './hooks/useMuteAudioListener';
@@ -46,6 +45,7 @@ import HostNotes from './components/HostNotes/HostNotes';
 import Screen from '../../common/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../lib/user/hooks/useUser';
+import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
@@ -101,8 +101,7 @@ const Session = () => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<SessionStackProps>>();
   const {t} = useTranslation('Screen.Session');
-
-  useSubscribeToSession(sessionId);
+  useSubscribeToSessionIfFocused(sessionId, {exitOnEnded: false});
   useMuteAudioListener();
 
   const participants = useSessionParticipants();

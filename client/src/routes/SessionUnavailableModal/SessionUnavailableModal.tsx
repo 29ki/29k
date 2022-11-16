@@ -7,7 +7,7 @@ import {Spacer16, Spacer24} from '../../common/components/Spacers/Spacer';
 import {Body16} from '../../common/components/Typography/Body/Body';
 
 const SessionUnavailableModal = () => {
-  const {t} = useTranslation('Component.SessionUnavailableModal');
+  const {t} = useTranslation('Modal.SessionUnavailable');
 
   return (
     <HalfModal>

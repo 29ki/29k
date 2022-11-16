@@ -14,6 +14,9 @@ describe('utils', () => {
           pt: {
             translationKey: 'some other translation',
           },
+          es: {
+            translationKey: 'some other translation',
+          },
         },
       };
       expect(generateI18NResources(content)).toEqual({
@@ -28,6 +31,11 @@ describe('utils', () => {
           },
         },
         pt: {
+          Component: {
+            translationKey: 'some other translation',
+          },
+        },
+        es: {
           Component: {
             translationKey: 'some other translation',
           },
@@ -50,6 +58,7 @@ describe('utils', () => {
           },
           sv: {published: false},
           pt: {published: false},
+          es: {published: false},
         },
         'some-other-exercise-id': {
           en: {
@@ -64,6 +73,7 @@ describe('utils', () => {
           },
           sv: {published: false},
           pt: {published: false},
+          es: {published: false},
         },
       };
       expect(generateI18NResources(content, 'exercises')).toEqual({
@@ -85,6 +95,12 @@ describe('utils', () => {
             'some-other-exercise-id': {published: false},
           },
         },
+        es: {
+          exercises: {
+            'some-exercise-id': {published: false},
+            'some-other-exercise-id': {published: false},
+          },
+        },
       });
     });
   });
@@ -101,11 +117,13 @@ describe('utils', () => {
           },
           sv: {id: 'some-exercise-id', published: false},
           pt: {id: 'some-exercise-id', published: false},
+          es: {id: 'some-exercise-id', published: false},
         },
         'some-other-exercise-id': {
           en: {id: 'some-other-exercise-id', published: false},
           sv: {id: 'some-other-exercise-id', published: true},
           pt: {id: 'some-other-exercise-id', published: false},
+          es: {id: 'some-other-exercise-id', published: false},
         },
       };
 
@@ -135,11 +153,13 @@ describe('utils', () => {
           },
           sv: {id: 'some-exercise-id', published: false},
           pt: {id: 'some-exercise-id', published: false},
+          es: {id: 'some-exercise-id', published: false},
         },
         'some-other-exercise-id': {
           en: {id: 'some-other-exercise-id', published: false},
           sv: {id: 'some-other-exercise-id', published: true},
           pt: {id: 'some-other-exercise-id', published: false},
+          es: {id: 'some-other-exercise-id', published: false},
         },
       };
 

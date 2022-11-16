@@ -5,7 +5,7 @@ import {
   DEFAULT_LANGUAGE_TAG,
   LANGUAGE_TAGS,
 } from '../../shared/src/constants/i18n';
-import {exercises, contributors, files} from './collections/collections';
+import {exercises, other, settings, ui} from './collections/collections';
 import {Widget as uniqueIdWidget} from './widgets/uniqueIdWidget';
 
 CMS.init({
@@ -25,14 +25,6 @@ CMS.init({
       config: {
         cloud_name: 'cupcake-29k',
         api_key: '373696539271219',
-        default_transformations: [
-          [
-            {
-              transformation: 'global',
-              quality: 'auto',
-            },
-          ],
-        ],
       },
     },
     publish_mode: 'editorial_workflow',
@@ -44,7 +36,7 @@ CMS.init({
       locales: LANGUAGE_TAGS,
       default_locale: DEFAULT_LANGUAGE_TAG,
     },
-    collections: [exercises, contributors, files],
+    collections: [exercises, ui, settings, other],
   },
 });
 

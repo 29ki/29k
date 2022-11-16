@@ -22,7 +22,7 @@ import useSessions from '../Sessions/hooks/useSessions';
 const ErrorText = styled(Body14)({color: COLORS.ERROR, textAlign: 'center'});
 
 const JoinSessionModal = () => {
-  const {t} = useTranslation('Component.JoinSessionModal');
+  const {t} = useTranslation('Modal.JoinSession');
   const {
     params: {inviteCode: inviteCode},
   } = useRoute<RouteProp<ModalStackProps, 'JoinSessionModal'>>();

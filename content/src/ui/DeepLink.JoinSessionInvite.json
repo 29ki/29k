@@ -1,14 +1,15 @@
 {
   "en": {
     "title": "Session: {{name}}",
-    "description": "{{date}} in the 29k app"
+    "description": "In the 29k app"
   },
   "sv": {
     "title": "Session: {{name}}",
-    "description": "{{date}} i 29k-appen"
+    "description": "I 29k-appen"
   },
   "pt": {
     "title": "Sessão: {{name}}",
-    "description": "{{date}} na app 29k FJN"
-  }
+    "description": "Na app 29k FJN"
+  },
+  "es": {}
 }

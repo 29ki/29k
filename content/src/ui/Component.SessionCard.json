@@ -2,23 +2,31 @@
   "en": {
     "addToCalendar": "Add to cal",
     "join": "Join",
+    "counter": {
+      "started": "Started"
+    },
     "counterLabel": {
       "starts": "Starts",
-      "started": "Has started"
+      "startsIn": "Starts in"
     }
   },
   "sv": {
     "addToCalendar": "Lägg till i kal.",
     "join": "Gå med",
+    "counter": {
+      "started": "Startad"
+    },
     "counterLabel": {
       "starts": "Startar",
-      "started": "Har startat"
+      "startsIn": "Startar om"
     }
   },
   "pt": {
     "addToCalendar": "Adicionar ao calendário",
     "counterLabel": {
-      "starts": "Começar"
+      "starts": "Começar",
+      "startsIn": "Começar em"
     }
-  }
+  },
+  "es": {}
 }
