@@ -3,7 +3,7 @@ import {SPACINGS} from './spacings';
 export const SETTINGS = {
   BORDER_RADIUS: {
     CARDS: SPACINGS.TWENTYFOUR,
-    MODALS: 35,
+    MODALS: 45,
   },
   BOXSHADOW: {
     shadowColor: '#000000',

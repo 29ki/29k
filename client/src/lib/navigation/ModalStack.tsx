@@ -12,6 +12,7 @@ import UpgradeAccountModal from '../../routes/UpgradeAccountModal/UpgradeAccount
 import AddSessionModal from '../../routes/AddSessionModal/AddSessionModal';
 import SessionUnavailableModal from '../../routes/SessionUnavailableModal/SessionUnavailableModal';
 import {COLORS} from '../../../../shared/src/constants/colors';
+import SETTINGS from '../../common/constants/settings';
 import {SPACINGS} from '../../common/constants/spacings';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import AppStackWrapper from './AppStack';
@@ -20,10 +21,7 @@ import ModalBackdrop from '../modal/components/ModalBackdrop';
 
 const ModalStack = createBottomSheetNavigator<ModalStackProps>();
 
-const getScreenOptions: (
-  topInset: number,
-) => BottomSheetNavigationOptions = topInset => ({
-  snapPoints: ['30%'],
+const modalScreenOptions: BottomSheetNavigationOptions = {
   backdropComponent: ModalBackdrop,
   backgroundComponent: ModalBackground,
   backgroundStyle: {
@@ -36,58 +34,71 @@ const getScreenOptions: (
     shadowRadius: SPACINGS.TWELVE,
     elevation: SPACINGS.TWELVE,
   },
-  handleIndicatorStyle: {
-    backgroundColor: COLORS.GREYDARK,
-  },
-  topInset,
-});
+};
 
 const ModalStackWrapper = () => {
   const {top} = useSafeAreaInsets();
 
-  const screenOptions = useMemo(() => getScreenOptions(top), [top]);
+  const sheetModalScreenOptions = useMemo(
+    () => ({
+      ...modalScreenOptions,
+      snapPoints: ['50%', '75%', '100%'],
+      handleIndicatorStyle: {
+        backgroundColor: COLORS.GREYDARK,
+      },
+      topInset: top,
+    }),
+    [top],
+  );
+
+  const cardModalScreenOptions = useMemo(
+    () => ({
+      ...modalScreenOptions,
+      snapPoints: [250],
+      detached: true,
+      bottomInset: 5,
+      style: {
+        marginHorizontal: 4,
+      },
+      backgroundStyle: {
+        borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.MODALS,
+        borderBottomRightRadius: SETTINGS.BORDER_RADIUS.MODALS,
+      },
+      handleIndicatorStyle: {
+        display: 'none',
+      },
+    }),
+    [],
+  );
 
   return (
-    <ModalStack.Navigator screenOptions={screenOptions}>
+    <ModalStack.Navigator>
       <ModalStack.Screen name="App" component={AppStackWrapper} />
 
-      <ModalStack.Screen name={'SessionModal'} component={SessionModal} />
-      <ModalStack.Screen
-        name={'CreateSessionModal'}
-        component={CreateSessionModal}
-        options={{snapPoints: ['30%', '75%', '100%']}}
-      />
-      <ModalStack.Screen
-        name={'JoinSessionModal'}
-        component={JoinSessionModal}
-      />
-      <ModalStack.Screen
-        name={'UpgradeAccountModal'}
-        component={UpgradeAccountModal}
-      />
-      <ModalStack.Screen
-        name={'SessionUnavailableModal'}
-        component={SessionUnavailableModal}
-      />
-      <ModalStack.Group
-        screenOptions={{
-          ...screenOptions,
-          detached: true,
-          bottomInset: 5,
-          style: {
-            marginHorizontal: 4,
-          },
-          backgroundStyle: {
-            borderBottomLeftRadius: 45,
-            borderBottomRightRadius: 45,
-          },
-          handleIndicatorStyle: {
-            display: 'none',
-          },
-        }}>
+      <ModalStack.Group screenOptions={sheetModalScreenOptions}>
+        <ModalStack.Screen name={'SessionModal'} component={SessionModal} />
+        <ModalStack.Screen
+          name={'CreateSessionModal'}
+          component={CreateSessionModal}
+        />
+      </ModalStack.Group>
+
+      <ModalStack.Group screenOptions={cardModalScreenOptions}>
         <ModalStack.Screen
           name={'AddSessionModal'}
           component={AddSessionModal}
+        />
+        <ModalStack.Screen
+          name={'JoinSessionModal'}
+          component={JoinSessionModal}
+        />
+        <ModalStack.Screen
+          name={'UpgradeAccountModal'}
+          component={UpgradeAccountModal}
+        />
+        <ModalStack.Screen
+          name={'SessionUnavailableModal'}
+          component={SessionUnavailableModal}
         />
       </ModalStack.Group>
     </ModalStack.Navigator>
