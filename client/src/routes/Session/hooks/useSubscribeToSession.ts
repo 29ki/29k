@@ -6,13 +6,13 @@ import {getSession} from '../../../../../shared/src/modelUtils/session';
 
 const useSubscribeToSession = (sessionId: Session['id']) => {
   return useCallback(
-    (onSnapshot: (session: Session) => any) => {
+    (onSnapshot: (session: Session | undefined) => any) => {
       const doc = firestore().collection('sessions').doc(sessionId);
 
       const unsubscribe = doc.onSnapshot(
         snapshot => {
           if (!snapshot.exists) {
-            return undefined;
+            onSnapshot(undefined);
           }
 
           const session = getSession(getData<SessionData>(snapshot));
