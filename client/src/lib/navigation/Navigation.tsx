@@ -2,7 +2,6 @@ import React from 'react';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 
 import {COLORS} from '../../../../shared/src/constants/colors';
-import Stacks from './Stacks';
 import linking from './linking';
 
 const navTheme = {
@@ -13,9 +12,9 @@ const navTheme = {
   },
 };
 
-const Navigation = () => (
+const Navigation: React.FC<{children: React.ReactNode}> = ({children}) => (
   <NavigationContainer theme={navTheme} linking={linking}>
-    <Stacks />
+    {children}
   </NavigationContainer>
 );
 
