@@ -1,6 +1,7 @@
 import {useEffect} from 'react';
 import auth from '@react-native-firebase/auth';
 import {clone} from 'ramda';
+import * as metrics from '../../metrics';
 
 import useUserState from '../state/state';
 
@@ -14,6 +15,9 @@ const useAuthenticateUser = () => {
         resetUser();
       } else {
         setUser(clone(currentUser));
+        metrics.setUserProperties({
+          Anonymous: currentUser.isAnonymous,
+        });
       }
     });
 

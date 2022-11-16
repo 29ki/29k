@@ -9,6 +9,7 @@ import useAppState from './lib/appState/state/state';
 import useCheckForUpdate from './lib/codePush/hooks/useCheckForUpdate';
 import useKillSwitch from './lib/killSwitch/hooks/useKillSwitch';
 import useAuthenticateUser from './lib/user/hooks/useAuthenticateUser';
+import {GIT_COMMIT_SHORT} from 'config';
 
 i18n.init();
 sentry.init();
@@ -25,6 +26,9 @@ const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
   useEffect(() => {
     checkKillSwitch();
     checkForUpdate();
+    metrics.setCoreProperties({
+      'App Git Commit': GIT_COMMIT_SHORT,
+    });
   }, [checkKillSwitch, checkForUpdate]);
 
   // Check killswitch and updates when resuming from background

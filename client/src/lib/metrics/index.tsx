@@ -7,7 +7,7 @@ import {
   Values,
 } from '../../../../shared/src/types/UtilityTypes';
 
-const DEFAULT_CONSENT = false;
+const DEFAULT_CONSENT = true;
 
 let postHog: PostHog | undefined;
 let initPromise: Promise<PostHog> | undefined;
@@ -63,8 +63,11 @@ type LogEventOverloads = UnionToIntersection<
 export const logEvent: LogEventOverloads = (event, properties) =>
   postHog?.capture(event, properties);
 
-export const setUserProperties = (properties: AnyUserProperty) =>
-  postHog?.identify(undefined, properties);
+export const setUserProperties = (
+  properties: AnyUserProperty & AnyCoreProperty,
+) => postHog?.identify(undefined, properties);
 
-export const setCoreProperties = (properties: AnyCoreProperty) =>
+export const setCoreProperties = (properties: AnyCoreProperty) => {
   postHog?.register(properties);
+  setUserProperties(properties);
+};
