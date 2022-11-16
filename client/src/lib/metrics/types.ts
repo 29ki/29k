@@ -1,15 +1,36 @@
+import {Session} from '../../../../shared/src/types/Session';
+
 export type Events = {
-  'Submit Sign-in': {
-    foo: string;
+  'Add Session To Calendar': {
+    'Session Exercise ID': Session['contentId'];
+    'Session Language': Session['language'];
+    'Session Type': Session['type'];
+    'Session Start Time': Session['startTime'];
   };
-  'Add to Calendar': undefined;
+  'Add Session Reminder': {
+    'Session Exercise ID': Session['contentId'];
+    'Session Language': Session['language'];
+    'Session Type': Session['type'];
+    'Session Start Time': Session['startTime'];
+  };
+  'Share Session': {
+    'Session Exercise ID': Session['contentId'];
+    'Session Language': Session['language'];
+    'Session Type': Session['type'];
+    'Session Start Time': Session['startTime'];
+  };
+  'Join Session': {
+    'Session Exercise ID': Session['contentId'];
+    'Session Language': Session['language'];
+    'Session Type': Session['type'];
+    'Session Start Time': Session['startTime'];
+  };
 };
 
 export type UserProperties = {
-  isAnonymous: boolean;
-  foo: string;
+  Anonymous: boolean;
 };
 
 export type CoreProperties = {
-  bar: 'baz';
+  'App Git Commit': string;
 };
