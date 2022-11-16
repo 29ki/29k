@@ -65,12 +65,12 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
   onCodeCompleted,
 }) => {
   const {t} = useTranslation('Component.VerificationCode');
-  const cell1 = useRef<TextInput>(null);
-  const cell2 = useRef<TextInput>(null);
-  const cell3 = useRef<TextInput>(null);
-  const cell4 = useRef<TextInput>(null);
-  const cell5 = useRef<TextInput>(null);
-  const cell6 = useRef<TextInput>(null);
+  const cell1 = useRef<BottomSheetTextInput>(null);
+  const cell2 = useRef<BottomSheetTextInput>(null);
+  const cell3 = useRef<BottomSheetTextInput>(null);
+  const cell4 = useRef<BottomSheetTextInput>(null);
+  const cell5 = useRef<BottomSheetTextInput>(null);
+  const cell6 = useRef<BottomSheetTextInput>(null);
   const cells = useMemo(
     () => [cell1, cell2, cell3, cell4, cell5, cell6],
     [cell1, cell2, cell3, cell4, cell5, cell6],

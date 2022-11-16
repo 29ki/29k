@@ -8,7 +8,10 @@ import styled from 'styled-components/native';
 import {Session} from '../../../../../../shared/src/types/Session';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import useSessionNotificationReminder from '../../../../routes/Sessions/hooks/useSessionNotificationReminder';
-import {AppStackProps} from '../../../../lib/navigation/constants/routes';
+import {
+  AppStackProps,
+  ModalStackProps,
+} from '../../../../lib/navigation/constants/routes';
 import {PlusIcon, BellIcon} from '../../Icons';
 import Card from '../Card';
 import useAddToCalendar from '../../../../routes/Sessions/hooks/useAddToCalendar';
@@ -39,7 +42,8 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
   const exercise = useExerciseById(contentId);
   const addToCalendar = useAddToCalendar();
   const {t} = useTranslation('Component.SessionCard');
-  const {navigate} = useNavigation<NativeStackNavigationProp<AppStackProps>>();
+  const {navigate} =
+    useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const {reminderEnabled} = useSessionNotificationReminder(session);
 
   const startAt = dayjs(startTime);

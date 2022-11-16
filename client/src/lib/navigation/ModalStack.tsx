@@ -65,7 +65,7 @@ const ModalStackWrapper = () => {
         borderBottomRightRadius: SETTINGS.BORDER_RADIUS.MODALS,
       },
       handleIndicatorStyle: {
-        display: 'none',
+        opacity: 0,
       },
     }),
     [],
