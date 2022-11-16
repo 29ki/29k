@@ -2,7 +2,11 @@ import dayjs from 'dayjs';
 import React from 'react';
 import styled from 'styled-components/native';
 
-import {Spacer24, Spacer8} from '../../../common/components/Spacers/Spacer';
+import {
+  Spacer24,
+  Spacer4,
+  Spacer8,
+} from '../../../common/components/Spacers/Spacer';
 import {
   Body14,
   Body16,
@@ -14,8 +18,7 @@ import AudioIndicator from './Participants/AudioIdicator';
 import ProgressBar from './ProgressBar/ProgressBar';
 import HostNotes from './HostNotes/HostNotes';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {SessionNotification} from './SessionNotifications';
-import {View} from 'react-native';
+import {Notification} from './Notifications/Notification';
 
 const dayjsTime = dayjs().add(59, 'minutes');
 
@@ -69,22 +72,17 @@ export const UI = () => (
       <Body16>
         <BodyBold>Session Notifications</BodyBold>
       </Body16>
-      <Row>
-        <View>
-          <Body14>With image</Body14>
-          <SessionNotification
-            uilib
-            text="Skinkan joined"
-            letter="a"
-            image="https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          />
-        </View>
-        <Spacer8 />
-        <View>
-          <Body14>Without image</Body14>
-          <SessionNotification uilib text="Osten left" letter="a" />
-        </View>
-      </Row>
+      <Notification
+        text="With image"
+        letter="a"
+        image="https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg?auto=compress&cs=tinysrgb&w=1600"
+      />
+      <Spacer4 />
+      <Notification text="Without image" letter="a" />
+      <Spacer4 />
+      <Notification timeVisible={5000} text="With custom timing" letter="a" />
+      <Spacer4 />
+      <Notification visible text="Always visible" letter="a" />
     </ScreenWrapper>
   </>
 );
