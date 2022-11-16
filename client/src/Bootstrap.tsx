@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 
 import * as i18n from './lib/i18n';
 import * as sentry from './lib/sentry';
+import * as metrics from './lib/metrics';
 
 import useResumeFromBackgrounded from './lib/appState/hooks/useResumeFromBackgrounded';
 import useAppState from './lib/appState/state/state';
@@ -11,6 +12,7 @@ import useAuthenticateUser from './lib/user/hooks/useAuthenticateUser';
 
 i18n.init();
 sentry.init();
+metrics.init();
 
 const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
   useAuthenticateUser();
