@@ -46,17 +46,25 @@ export const UI = () => (
       <Body16>
         <BodyBold>Session Notifications</BodyBold>
       </Body16>
-      <Notification
-        text="With image"
-        letter="a"
-        image="https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg?auto=compress&cs=tinysrgb&w=1600"
-      />
+      <Row>
+        <Notification
+          text="With image"
+          letter="a"
+          image="https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        />
+      </Row>
       <Spacer4 />
-      <Notification text="Without image" letter="a" />
+      <Row>
+        <Notification text="Without image" letter="a" />
+      </Row>
       <Spacer4 />
-      <Notification timeVisible={5000} text="With custom timing" letter="a" />
+      <Row>
+        <Notification timeVisible={5000} text="With custom timing" letter="a" />
+      </Row>
       <Spacer4 />
-      <Notification visible text="Always visible" letter="a" />
+      <Row>
+        <Notification visible text="Always visible" letter="a" />
+      </Row>
     </ScreenWrapper>
   </>
 );
