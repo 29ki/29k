@@ -8,7 +8,7 @@ import {JoinSessionError} from '../../../../shared/src/errors/Session';
 import {COLORS} from '../../../../shared/src/constants/colors';
 
 import Gutters from '../../common/components/Gutters/Gutters';
-import Modal from '../../common/components/Modal/Modal';
+import Modal from '../../lib/modal/components/Modal';
 import {Spacer16, Spacer24} from '../../common/components/Spacers/Spacer';
 import {Body14} from '../../common/components/Typography/Body/Body';
 import {Display24} from '../../common/components/Typography/Display/Display';
@@ -32,7 +32,7 @@ const JoinSessionModal = () => {
   const [errorString, setErrorString] = useState<string | null>(null);
 
   return (
-    <Modal>
+    <Modal backgroundColor={COLORS.WHITE}>
       <Spacer16 />
       <Gutters>
         <Display24>{t('title')}</Display24>

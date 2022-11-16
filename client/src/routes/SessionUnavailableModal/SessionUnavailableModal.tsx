@@ -2,7 +2,7 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 
 import Gutters from '../../common/components/Gutters/Gutters';
-import Modal from '../../common/components/Modal/Modal';
+import Modal from '../../lib/modal/components/Modal';
 import {Spacer16, Spacer24} from '../../common/components/Spacers/Spacer';
 import {Body16} from '../../common/components/Typography/Body/Body';
 

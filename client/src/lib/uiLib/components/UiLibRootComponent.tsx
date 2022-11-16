@@ -8,7 +8,7 @@ import * as Typography from '../../../common/components/Typography/Typography.li
 import * as UiSettings from '../../../common/constants/UiSettings.library';
 import * as Session from '../../../routes/Session/components/Session.library';
 import * as Screen from '../../../common/components/Screen/Screen.library';
-import * as Modal from '../../../common/components/Modal/Modal.library';
+import * as Modal from '../../modal/components/Modal.library';
 
 export type ComponentLibrary = {[key: string]: React.ComponentType};
 export type ComponentList = {[key: string]: Array<ComponentLibrary>};

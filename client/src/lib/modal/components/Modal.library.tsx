@@ -1,10 +1,13 @@
 import React from 'react';
 import {ScrollView} from 'react-native-gesture-handler';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import Gutters from '../Gutters/Gutters';
-import {Spacer16} from '../Spacers/Spacer';
-import {Body16} from '../Typography/Body/Body';
-import {Display24, Display36} from '../Typography/Display/Display';
+import Gutters from '../../../common/components/Gutters/Gutters';
+import {Spacer16} from '../../../common/components/Spacers/Spacer';
+import {Body16} from '../../../common/components/Typography/Body/Body';
+import {
+  Display24,
+  Display36,
+} from '../../../common/components/Typography/Display/Display';
 import Modal from './Modal';
 
 export const DefaultModal = () => (

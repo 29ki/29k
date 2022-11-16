@@ -4,7 +4,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 
 import Gutters from '../../../common/components/Gutters/Gutters';
-import Modal from '../../../common/components/Modal/Modal';
+import Modal from '../../../lib/modal/components/Modal';
 import {
   Spacer16,
   Spacer24,

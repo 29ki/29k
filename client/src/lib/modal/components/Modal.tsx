@@ -1,24 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useNavigation, useIsFocused} from '@react-navigation/core';
 
 import styled from 'styled-components/native';
-import IconButton from '../Buttons/IconButton/IconButton';
-import {CloseIcon} from '../Icons';
-import {COLORS} from '../../../../../shared/src/constants/colors';
-import {SPACINGS} from '../../constants/spacings';
+import IconButton from '../../../common/components/Buttons/IconButton/IconButton';
+import {CloseIcon} from '../../../common/components/Icons';
+import {SPACINGS} from '../../../common/constants/spacings';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {ModalStackProps} from '../../../lib/navigation/constants/routes';
-import SETTINGS from '../../constants/settings';
+import {ModalStackProps} from '../../navigation/constants/routes';
+import useModalState from '../state/state';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 
-const Container = styled.View<{backgroundColor?: string}>(
-  ({backgroundColor}) => ({
-    flex: 1,
-    paddingTop: SPACINGS.TWENTYFOUR, // Equals the height of the modal handle/grabber
-    //backgroundColor: backgroundColor ? backgroundColor : COLORS.CREAM,
-  }),
-);
-
-const Content = styled.View({
+const Container = styled.View<{backgroundColor?: string}>({
   flex: 1,
 });
 
@@ -37,11 +29,18 @@ type ModalProps = {
 export const Modal: React.FC<ModalProps> = ({
   children,
   onClose,
-  backgroundColor,
+  backgroundColor = COLORS.CREAM,
 }) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
+  const setBackgroundColor = useModalState(state => state.setBackgroundColor);
   const isFocused = useIsFocused();
+
+  useEffect(() => {
+    if (isFocused) {
+      setBackgroundColor(backgroundColor);
+    }
+  }, [isFocused, backgroundColor, setBackgroundColor]);
 
   const handleOnClose = () => {
     if (onClose) {
@@ -50,13 +49,9 @@ export const Modal: React.FC<ModalProps> = ({
     navigation.popToTop();
   };
 
-  if (!isFocused) {
-    return null;
-  }
-
   return (
     <Container>
-      <Content>{children}</Content>
+      {children}
       {onClose && (
         <CloseIconWrapper>
           <IconButton

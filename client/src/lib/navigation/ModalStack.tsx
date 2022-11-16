@@ -15,8 +15,8 @@ import {COLORS} from '../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../common/constants/spacings';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import AppStackWrapper from './AppStack';
-import ModalBackground from './components/ModalBackground';
-import ModalBackdrop from './components/ModalBackdrop';
+import ModalBackground from '../modal/components/ModalBackground';
+import ModalBackdrop from '../modal/components/ModalBackdrop';
 
 const ModalStack = createBottomSheetNavigator<ModalStackProps>();
 
@@ -27,7 +27,6 @@ const getScreenOptions: (
   backdropComponent: ModalBackdrop,
   backgroundComponent: ModalBackground,
   backgroundStyle: {
-    backgroundColor: COLORS.CREAM,
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
@@ -36,11 +35,6 @@ const getScreenOptions: (
     shadowOpacity: 0.16,
     shadowRadius: SPACINGS.TWELVE,
     elevation: SPACINGS.TWELVE,
-  },
-  handleStyle: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
   },
   handleIndicatorStyle: {
     backgroundColor: COLORS.GREYDARK,

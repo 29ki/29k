@@ -6,11 +6,14 @@ import Animated, {
   interpolate,
   useAnimatedStyle,
 } from 'react-native-reanimated';
+import useModalState from '../state/state';
 
 const ModalBackground: React.FC<BottomSheetBackgroundProps> = ({
   animatedPosition,
   style,
 }) => {
+  const backgroundColor = useModalState(state => state.backgroundColor);
+
   const containerAnimatedStyle = useAnimatedStyle(() => {
     const borderRadius = interpolate(
       animatedPosition.value,
@@ -40,9 +43,10 @@ const ModalBackground: React.FC<BottomSheetBackgroundProps> = ({
       elevation,
     };
   });
+
   const containerStyle = useMemo(
-    () => [style, containerAnimatedStyle],
-    [style, containerAnimatedStyle],
+    () => [style, {backgroundColor}, containerAnimatedStyle],
+    [style, backgroundColor, containerAnimatedStyle],
   );
 
   return <Animated.View pointerEvents="none" style={containerStyle} />;
