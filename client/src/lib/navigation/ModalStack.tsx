@@ -32,6 +32,7 @@ const modalScreenOptions: BottomSheetNavigationOptions = {
     />
   ),
   backgroundStyle: {
+    backgroundColor: 'transparent',
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
@@ -94,6 +95,10 @@ const ModalStackWrapper = () => {
           name={'CreateSessionModal'}
           component={CreateSessionModal}
         />
+        <ModalStack.Screen
+          name={'UpgradeAccountModal'}
+          component={UpgradeAccountModal}
+        />
       </ModalStack.Group>
 
       <ModalStack.Group screenOptions={cardModalScreenOptions}>
@@ -104,10 +109,6 @@ const ModalStackWrapper = () => {
         <ModalStack.Screen
           name={'JoinSessionModal'}
           component={JoinSessionModal}
-        />
-        <ModalStack.Screen
-          name={'UpgradeAccountModal'}
-          component={UpgradeAccountModal}
         />
         <ModalStack.Screen
           name={'SessionUnavailableModal'}

@@ -13,6 +13,7 @@ import DailyProvider from '../daily/DailyProvider';
 const SessionStack = createNativeStackNavigator<SessionStackProps>();
 
 const screenOptions: NativeStackNavigationOptions = {
+  headerShown: false,
   animation: 'fade',
   animationDuration: 2000,
   gestureEnabled: false,

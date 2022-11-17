@@ -3,7 +3,7 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import Button from '../Buttons/Button';
 import {Spacer16} from '../Spacers/Spacer';
-import Input from '../Typography/TextInput/TextInput';
+import {BottomSheetTextInput} from '../Typography/TextInput/TextInput';
 import {SPACINGS} from '../../constants/spacings';
 import useChangeProfileInfo from '../../../routes/Profile/hooks/useChangeProfileInfo';
 import ProfilePicture from '../User/ProfilePicture';
@@ -13,7 +13,7 @@ const Container = styled.View({
   alignItems: 'center',
 });
 
-const StyledInut = styled(Input)({width: '50%'});
+const StyledInut = styled(BottomSheetTextInput)({width: '50%'});
 
 const ProfilePicutreWrapper = styled.View({
   width: SPACINGS.NINTYSIX,

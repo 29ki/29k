@@ -8,16 +8,14 @@ import {JoinSessionError} from '../../../../shared/src/errors/Session';
 import {COLORS} from '../../../../shared/src/constants/colors';
 
 import Gutters from '../../common/components/Gutters/Gutters';
-import {Spacer16, Spacer24} from '../../common/components/Spacers/Spacer';
+import {Spacer16} from '../../common/components/Spacers/Spacer';
 import {Body14} from '../../common/components/Typography/Body/Body';
-import {Display24} from '../../common/components/Typography/Display/Display';
 import VerificationCode from '../../common/components/VerificationCode/VerificationCode';
-
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
-
 import {joinSession} from '../Sessions/api/session';
 import useSessions from '../Sessions/hooks/useSessions';
 import CardModal from '../../common/components/Modals/CardModal';
+import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
 
 const ErrorText = styled(Body14)({color: COLORS.ERROR, textAlign: 'center'});
 
@@ -33,10 +31,9 @@ const JoinSessionModal = () => {
 
   return (
     <CardModal>
-      <Spacer16 />
       <Gutters>
-        <Display24>{t('title')}</Display24>
-        <Spacer24 />
+        <ModalHeading>{t('title')}</ModalHeading>
+        <Spacer16 />
         <VerificationCode
           prefillCode={`${inviteCode || ''}`}
           onCodeCompleted={async value => {

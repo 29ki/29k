@@ -4,10 +4,10 @@ import {useTranslation} from 'react-i18next';
 import auth from '@react-native-firebase/auth';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import Button from '../../common/components/Buttons/Button';
-import {Spacer16, Spacer48} from '../../common/components/Spacers/Spacer';
-import Input from '../../common/components/Typography/TextInput/TextInput';
+import {Spacer16} from '../../common/components/Spacers/Spacer';
+import {BottomSheetTextInput} from '../../common/components/Typography/TextInput/TextInput';
 import {Body14, Body16} from '../../common/components/Typography/Body/Body';
-import {Heading16} from '../../common/components/Typography/Heading/Heading';
+import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {requestPromotion, verifyPromotion} from '../Profile/api/user';
 import styled from 'styled-components/native';
@@ -19,11 +19,8 @@ import {VerificationError} from '../../../../shared/src/errors/User';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 
-const Heading = styled(Body16)({textAlign: 'center'});
-
 const ErrorText = styled(Body14)({color: COLORS.ERROR, textAlign: 'center'});
 
-const SuccessHeader = styled(Heading16)({textAlign: 'center'});
 const SuccessText = styled(Body16)({textAlign: 'center'});
 
 const UpgradeAccountModal = () => {
@@ -95,9 +92,9 @@ const UpgradeAccountModal = () => {
     if (!haveRequested && needToUpgrade && !haveCode && !upgradeComplete) {
       return (
         <>
-          <Heading>{t('needToUpgrade')}</Heading>
+          <ModalHeading>{t('needToUpgrade')}</ModalHeading>
           <Spacer16 />
-          <Input
+          <BottomSheetTextInput
             textContentType="emailAddress"
             keyboardType="email-address"
             autoCapitalize="none"
@@ -107,7 +104,7 @@ const UpgradeAccountModal = () => {
             onChangeText={setEmail}
           />
           <Spacer16 />
-          <Input
+          <BottomSheetTextInput
             textContentType="newPassword"
             secureTextEntry
             autoCapitalize="none"
@@ -125,7 +122,9 @@ const UpgradeAccountModal = () => {
     if ((!needToUpgrade || haveRequested) && !haveCode && !upgradeComplete) {
       return (
         <>
-          <Heading>{haveRequested ? t('requestComplete') : t('text')}</Heading>
+          <ModalHeading>
+            {haveRequested ? t('requestComplete') : t('text')}
+          </ModalHeading>
           <Spacer16 />
           {!haveRequested && (
             <Button onPress={requestCode}>{t('requestCodeButton')}</Button>
@@ -143,7 +142,7 @@ const UpgradeAccountModal = () => {
     if (haveCode && !upgradeComplete) {
       return (
         <>
-          <Heading>{t('enterCode')}</Heading>
+          <ModalHeading>{t('enterCode')}</ModalHeading>
           <Spacer16 />
           <VerificationCode
             prefillCode={params?.code}
@@ -161,7 +160,7 @@ const UpgradeAccountModal = () => {
 
     return (
       <>
-        <SuccessHeader>{t('success.header')}</SuccessHeader>
+        <ModalHeading>{t('success.header')}</ModalHeading>
         <SuccessText>{t('success.text')}</SuccessText>
       </>
     );
@@ -169,11 +168,7 @@ const UpgradeAccountModal = () => {
 
   return (
     <SheetModal>
-      <Gutters>
-        <Spacer48 />
-        {renderContent()}
-        <Spacer48 />
-      </Gutters>
+      <Gutters>{renderContent()}</Gutters>
     </SheetModal>
   );
 };

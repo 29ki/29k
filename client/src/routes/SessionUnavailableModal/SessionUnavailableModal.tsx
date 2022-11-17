@@ -2,22 +2,18 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 
 import Gutters from '../../common/components/Gutters/Gutters';
-import SheetModal from '../../common/components/Modals/SheetModal';
-import {Spacer16, Spacer24} from '../../common/components/Spacers/Spacer';
-import {Body16} from '../../common/components/Typography/Body/Body';
+import CardModal from '../../common/components/Modals/CardModal';
+import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
 
 const SessionUnavailableModal = () => {
   const {t} = useTranslation('Modal.SessionUnavailable');
 
   return (
-    <SheetModal>
-      <Spacer16 />
+    <CardModal>
       <Gutters>
-        <Spacer24 />
-        <Body16>{t('description')}</Body16>
-        <Spacer24 />
+        <ModalHeading>{t('description')}</ModalHeading>
       </Gutters>
-    </SheetModal>
+    </CardModal>
   );
 };
 

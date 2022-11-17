@@ -27,7 +27,7 @@ import {
   Display16,
   Display24,
 } from '../../common/components/Typography/Display/Display';
-import {Heading16} from '../../common/components/Typography/Heading/Heading';
+import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import SETTINGS from '../../common/constants/settings';
 import {SPACINGS} from '../../common/constants/spacings';
@@ -67,10 +67,6 @@ const TextWrapper = styled.View({
   paddingVertical: SPACINGS.SIXTEEN,
 });
 
-const StepHeading = styled(Heading16)({
-  alignSelf: 'center',
-});
-
 const Step = styled(Animated.View).attrs({
   entering: FadeIn.duration(300),
   exiting: FadeOut.duration(300),
@@ -106,19 +102,15 @@ const ContentCard: React.FC<{
   );
 };
 
-const UpdateProfileContainer = styled.View({flex: 1});
-
-const UpdateProfileHeading = styled(Body16)({textAlign: 'center'});
-
 const UpdateProfile: React.FC<StepProps> = () => {
   const {t} = useTranslation('Modal.CreateSession');
   return (
-    <UpdateProfileContainer>
+    <Gutters>
       <Spacer16 />
-      <UpdateProfileHeading>{t('profile.text')}</UpdateProfileHeading>
+      <ModalHeading>{t('profile.text')}</ModalHeading>
       <Spacer16 />
       <ProfileInfo />
-    </UpdateProfileContainer>
+    </Gutters>
   );
 };
 
@@ -135,12 +127,18 @@ const SelectContent: React.FC<StepProps> = ({
       <BottomSheetFlatList
         ListHeaderComponent={
           <>
-            <StepHeading>{t('selectContent.title')}</StepHeading>
+            <ModalHeading>{t('selectContent.title')}</ModalHeading>
             <Spacer16 />
           </>
         }
         focusHook={useIsFocused}
-        data={exerciseIds}
+        data={[
+          ...exerciseIds,
+          ...exerciseIds,
+          ...exerciseIds,
+          ...exerciseIds,
+          ...exerciseIds,
+        ]}
         ItemSeparatorComponent={Spacer16}
         renderItem={({item}) => (
           <ContentCard
@@ -192,7 +190,7 @@ const SelectType: React.FC<StepProps> = ({
           </CardImageWrapper>
         </Row>
         <Spacer28 />
-        <StepHeading>{t('selectType.title')}</StepHeading>
+        <ModalHeading>{t('selectType.title')}</ModalHeading>
         <Spacer16 />
         <Row>
           {Object.values(SessionType).map(type => (
@@ -253,7 +251,7 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
           </CardImageWrapper>
         </Row>
         <Spacer28 />
-        <StepHeading>{t('setDateTime.title')}</StepHeading>
+        <ModalHeading>{t('setDateTime.title')}</ModalHeading>
         <Spacer16 />
         <DateTimePicker
           minimumDate={dayjs().local()}
