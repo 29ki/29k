@@ -132,13 +132,7 @@ const SelectContent: React.FC<StepProps> = ({
           </>
         }
         focusHook={useIsFocused}
-        data={[
-          ...exerciseIds,
-          ...exerciseIds,
-          ...exerciseIds,
-          ...exerciseIds,
-          ...exerciseIds,
-        ]}
+        data={exerciseIds}
         ItemSeparatorComponent={Spacer16}
         renderItem={({item}) => (
           <ContentCard
