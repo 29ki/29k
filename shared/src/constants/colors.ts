@@ -17,7 +17,7 @@ export const COLORS = {
   // Secondary
   ACTION: '#2AE2D7',
   ERROR: '#FF6464',
-  DELETE: '#D94A4A',
+  DELETE: '#DE2222',
 
   // Transparent
   BLACK_TRANSPARENT_15: 'rgba(0, 0, 0, 0.15)',
