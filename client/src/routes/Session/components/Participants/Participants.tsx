@@ -5,7 +5,7 @@ import styled from 'styled-components/native';
 import {curry} from 'ramda';
 
 import Participant from './Participant';
-import SessionNotifications from '../SessionNotifications';
+import SessionNotifications from '../Notifications/SessionNotifications';
 import {SPACINGS} from '../../../../common/constants/spacings';
 
 const VIDEO_WIDTH_PERCENTAGE = 0.4;
