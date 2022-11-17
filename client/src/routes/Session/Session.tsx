@@ -155,6 +155,7 @@ const Session = () => {
               current={exercise.slide.current}
               previous={exercise.slide.previous}
               next={exercise.slide.next}
+              hasHostNotes={isHost}
             />
             {!isHost && (
               <Progress
