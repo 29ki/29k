@@ -8,6 +8,7 @@ import {SPACINGS} from '../../../../common/constants/spacings';
 import {Body16} from '../../../../common/components/Typography/Body/Body';
 import {Display22} from '../../../../common/components/Typography/Display/Display';
 import Image from '../../../../common/components/Image/Image';
+import {IconType} from '../../../../common/components/Icons';
 
 const Wrapper = styled.View({
   backgroundColor: COLORS.WHITE_TRANSPARENT_80,
@@ -33,6 +34,13 @@ const Letter = styled(Display22)({
   lineHeight: 26,
 });
 
+const IconWrapper = styled.View({
+  width: 21,
+  height: 21,
+  alignItems: 'center',
+  justifyContent: 'center',
+});
+
 const ProfileImage = styled(Image)({
   width: '100%',
   height: '100%',
@@ -41,6 +49,7 @@ const ProfileImage = styled(Image)({
 export type NotificationProps = {
   text: string;
   letter?: string;
+  Icon?: IconType;
   image?: string;
   timeVisible?: number;
   visible?: boolean;
@@ -49,6 +58,7 @@ export type NotificationProps = {
 export const Notification: React.FC<NotificationProps> = ({
   letter,
   text,
+  Icon,
   image,
   timeVisible,
   visible,
@@ -79,6 +89,11 @@ export const Notification: React.FC<NotificationProps> = ({
                 <Letter>{letter?.toUpperCase()}</Letter>
               )}
             </ProfilePlaceholder>
+          )}
+          {Icon && (
+            <IconWrapper>
+              <Icon />
+            </IconWrapper>
           )}
           <Body16>{text}</Body16>
         </Wrapper>

@@ -6,6 +6,7 @@ import {View, ViewStyle} from 'react-native';
 import {DailyContext} from '../../../../lib/daily/DailyProvider';
 import {DailyUserData} from '../../../../../../shared/src/types/Session';
 import {Notification, NotificationProps} from './Notification';
+import useMuteAudioListener from '../../hooks/useMuteAudioListener';
 
 const SessionNotifications: React.FC<{
   style?: ViewStyle;
@@ -13,6 +14,15 @@ const SessionNotifications: React.FC<{
   const {call} = useContext(DailyContext);
   const {t} = useTranslation('Screen.Session');
   const [notifications, setNotifications] = useState<NotificationProps[]>([]);
+
+  const hostIsMuted = useCallback(() => {
+    setNotifications(state => [
+      ...state,
+      {
+        text: t('notifications.muted'),
+      },
+    ]);
+  }, [t]);
 
   const participantJoined = useCallback(
     (event: DailyEventObject<'participant-joined'> | undefined) => {
@@ -64,13 +74,20 @@ const SessionNotifications: React.FC<{
     call?.on('participant-joined', participantJoined);
     call?.on('participant-left', participantLeft);
     call?.on('network-quality-change', networkQualityChange);
+    // listen for the host mute?? hostIsMuted
 
     return () => {
       call?.off('participant-joined', participantJoined);
       call?.off('participant-left', participantLeft);
       call?.off('network-quality-change', networkQualityChange);
     };
-  }, [call, participantJoined, participantLeft, networkQualityChange]);
+  }, [
+    call,
+    participantJoined,
+    participantLeft,
+    networkQualityChange,
+    hostIsMuted,
+  ]);
 
   return (
     <View style={style} pointerEvents="none">
@@ -80,6 +97,7 @@ const SessionNotifications: React.FC<{
           image={notification.image}
           letter={notification.letter}
           key={i}
+          visible
         />
       ))}
     </View>

@@ -10,7 +10,8 @@
     "notifications": {
       "joined": "{{name}} joined",
       "left": "{{name}} left",
-      "networkQuality": "Unrealiable network connection"
+      "networkQuality": "Unrealiable network connection",
+      "muted": "You are now muted"
     }
   },
   "sv": {
