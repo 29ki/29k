@@ -13,26 +13,40 @@ import AddSessionModal from '../../routes/AddSessionModal/AddSessionModal';
 import SessionUnavailableModal from '../../routes/SessionUnavailableModal/SessionUnavailableModal';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import SETTINGS from '../../common/constants/settings';
-import {SPACINGS} from '../../common/constants/spacings';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import AppStackWrapper from './AppStack';
-import ModalBackground from '../modal/components/ModalBackground';
-import ModalBackdrop from '../modal/components/ModalBackdrop';
+import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 
 const ModalStack = createBottomSheetNavigator<ModalStackProps>();
 
 const modalScreenOptions: BottomSheetNavigationOptions = {
-  backdropComponent: ModalBackdrop,
-  backgroundComponent: ModalBackground,
+  backdropComponent: ({animatedIndex, animatedPosition, style}) => (
+    <BottomSheetBackdrop
+      pressBehavior="close"
+      animatedIndex={animatedIndex}
+      animatedPosition={animatedPosition}
+      disappearsOnIndex={-1}
+      appearsOnIndex={0}
+      opacity={0.1}
+      style={style}
+    />
+  ),
   backgroundStyle: {
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
-      height: SPACINGS.FOUR,
+      height: -8,
     },
-    shadowOpacity: 0.16,
-    shadowRadius: SPACINGS.TWELVE,
-    elevation: SPACINGS.TWELVE,
+    shadowOpacity: 0.09,
+    shadowRadius: 35,
+    elevation: 35,
+    borderRadius: SETTINGS.BORDER_RADIUS.MODALS,
+    overflow: 'visible',
+  },
+  handleStyle: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
   },
 };
 
@@ -43,10 +57,13 @@ const ModalStackWrapper = () => {
     () => ({
       ...modalScreenOptions,
       snapPoints: ['50%', '75%', '100%'],
+      style: {
+        // Using margin instead of topInset to make the shadow visible when snapped at 100%
+        marginTop: top,
+      },
       handleIndicatorStyle: {
         backgroundColor: COLORS.GREYDARK,
       },
-      topInset: top,
     }),
     [top],
   );
@@ -54,15 +71,11 @@ const ModalStackWrapper = () => {
   const cardModalScreenOptions = useMemo(
     () => ({
       ...modalScreenOptions,
-      snapPoints: [250],
+      snapPoints: [200],
       detached: true,
-      bottomInset: 5,
+      bottomInset: 10,
       style: {
-        marginHorizontal: 4,
-      },
-      backgroundStyle: {
-        borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.MODALS,
-        borderBottomRightRadius: SETTINGS.BORDER_RADIUS.MODALS,
+        marginHorizontal: 10,
       },
       handleIndicatorStyle: {
         opacity: 0,

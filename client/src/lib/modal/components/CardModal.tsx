@@ -1,0 +1,27 @@
+import React from 'react';
+
+import styled from 'styled-components/native';
+
+import {COLORS} from '../../../../../shared/src/constants/colors';
+import SETTINGS from '../../../common/constants/settings';
+
+const Container = styled.View<{backgroundColor?: string}>(
+  ({backgroundColor}) => ({
+    flex: 1,
+    backgroundColor,
+    borderRadius: SETTINGS.BORDER_RADIUS.MODALS,
+    justifyContent: 'center',
+  }),
+);
+
+type ModalProps = {
+  backgroundColor?: string;
+  children: React.ReactNode;
+};
+
+export const CardModal: React.FC<ModalProps> = ({
+  children,
+  backgroundColor = COLORS.WHITE,
+}) => <Container backgroundColor={backgroundColor}>{children}</Container>;
+
+export default CardModal;

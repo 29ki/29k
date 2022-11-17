@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Navigation from './lib/navigation/Navigation';
-import Stacks from './lib/navigation/Stacks';
+import ModalStack from './lib/navigation/ModalStack';
 
 import codePush, {CodePushOverlay} from './lib/codePush';
 import {UiLibProvider} from './lib/uiLib/hooks/useUiLib';
@@ -24,7 +24,7 @@ const App = () => (
           <Navigation>
             <MetricsProvider>
               <Bootstrap>
-                <Stacks />
+                <ModalStack />
                 <CodePushOverlay />
               </Bootstrap>
             </MetricsProvider>

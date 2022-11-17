@@ -4,13 +4,14 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 
 import Gutters from '../../common/components/Gutters/Gutters';
-import Modal from '../../lib/modal/components/Modal';
+import SheetModal from '../../lib/modal/components/SheetModal';
 import {Spacer24, Spacer8} from '../../common/components/Spacers/Spacer';
 import {Display24} from '../../common/components/Typography/Display/Display';
 
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import Button from '../../common/components/Buttons/Button';
 import {COLORS} from '../../../../shared/src/constants/colors';
+import CardModal from '../../lib/modal/components/CardModal';
 
 const AddSessionModal: React.FC = () => {
   const {t} = useTranslation('Modal.AddSession');
@@ -19,7 +20,7 @@ const AddSessionModal: React.FC = () => {
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
   return (
-    <Modal backgroundColor={COLORS.WHITE}>
+    <CardModal>
       <Gutters>
         <Display24>{t('title')}</Display24>
         <Spacer24 />
@@ -39,7 +40,7 @@ const AddSessionModal: React.FC = () => {
           {t('join')}
         </Button>
       </Gutters>
-    </Modal>
+    </CardModal>
   );
 };
 

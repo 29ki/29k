@@ -15,7 +15,7 @@ import useSessions from '../Sessions/hooks/useSessions';
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import Image from '../../common/components/Image/Image';
-import Modal from '../../lib/modal/components/Modal';
+import SheetModal from '../../lib/modal/components/SheetModal';
 import {
   Spacer16,
   Spacer24,
@@ -315,9 +315,10 @@ const CreateSessionModal = () => {
   };
 
   return (
-    <Modal backgroundColor={currentStep === 0 ? COLORS.WHITE : COLORS.CREAM}>
+    <SheetModal
+      backgroundColor={currentStep === 0 ? COLORS.WHITE : COLORS.CREAM}>
       <CurrentStepComponent {...stepProps} />
-    </Modal>
+    </SheetModal>
   );
 };
 

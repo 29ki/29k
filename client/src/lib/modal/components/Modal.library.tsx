@@ -8,10 +8,10 @@ import {
   Display24,
   Display36,
 } from '../../../common/components/Typography/Display/Display';
-import Modal from './Modal';
+import SheetModal from './SheetModal';
 
 export const DefaultModal = () => (
-  <Modal>
+  <SheetModal>
     <ScrollView>
       <Display36>DefaultModal</Display36>
       <Body16>
@@ -20,11 +20,11 @@ export const DefaultModal = () => (
         since the 1500s.
       </Body16>
     </ScrollView>
-  </Modal>
+  </SheetModal>
 );
 
 export const WithBackgroundColor = () => (
-  <Modal backgroundColor={COLORS.ACTIVE}>
+  <SheetModal backgroundColor={COLORS.ACTIVE}>
     <ScrollView>
       <Gutters>
         <Spacer16 />
@@ -36,11 +36,11 @@ export const WithBackgroundColor = () => (
         </Body16>
       </Gutters>
     </ScrollView>
-  </Modal>
+  </SheetModal>
 );
 
 export const WithCloseButton = () => (
-  <Modal onClose={() => {}}>
+  <SheetModal onClose={() => {}}>
     <ScrollView>
       <Gutters>
         <Spacer16 />
@@ -52,5 +52,5 @@ export const WithCloseButton = () => (
         </Body16>
       </Gutters>
     </ScrollView>
-  </Modal>
+  </SheetModal>
 );
