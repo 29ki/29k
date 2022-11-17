@@ -2,6 +2,7 @@ import {StyleSheet} from 'react-native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {
   HKGroteskBold,
+  HKGroteskMedium,
   HKGroteskRegular,
   PlayfairDisplayRegular,
 } from '../../constants/fonts';
@@ -72,6 +73,13 @@ const textStyles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 21,
     fontFamily: HKGroteskBold,
+  },
+  ModalHeading: {
+    color: COLORS.BLACK,
+    fontSize: 16,
+    lineHeight: 21,
+    alignSelf: 'center',
+    fontFamily: HKGroteskMedium,
   },
   Body18: {
     color: COLORS.BLACK,
