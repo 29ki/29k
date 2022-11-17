@@ -78,7 +78,7 @@ const textStyles = StyleSheet.create({
     color: COLORS.BLACK,
     fontSize: 16,
     lineHeight: 21,
-    alignSelf: 'center',
+    textAlign: 'center',
     fontFamily: HKGroteskMedium,
   },
   Body18: {
