@@ -15,7 +15,7 @@ import useSessions from '../Sessions/hooks/useSessions';
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import Image from '../../common/components/Image/Image';
-import SheetModal from '../../lib/modal/components/SheetModal';
+import SheetModal from '../../common/components/Modals/SheetModal';
 import {
   Spacer16,
   Spacer24,

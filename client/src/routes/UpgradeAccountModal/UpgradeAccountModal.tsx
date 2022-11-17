@@ -11,7 +11,7 @@ import {Heading16} from '../../common/components/Typography/Heading/Heading';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {requestPromotion, verifyPromotion} from '../Profile/api/user';
 import styled from 'styled-components/native';
-import SheetModal from '../../lib/modal/components/SheetModal';
+import SheetModal from '../../common/components/Modals/SheetModal';
 import useUserState from '../../lib/user/state/state';
 import VerificationCode from '../../common/components/VerificationCode/VerificationCode';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';

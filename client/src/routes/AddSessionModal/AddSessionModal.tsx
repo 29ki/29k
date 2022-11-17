@@ -4,14 +4,14 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 
 import Gutters from '../../common/components/Gutters/Gutters';
-import SheetModal from '../../lib/modal/components/SheetModal';
+import SheetModal from '../../common/components/Modals/SheetModal';
 import {Spacer24, Spacer8} from '../../common/components/Spacers/Spacer';
 import {Display24} from '../../common/components/Typography/Display/Display';
 
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import Button from '../../common/components/Buttons/Button';
 import {COLORS} from '../../../../shared/src/constants/colors';
-import CardModal from '../../lib/modal/components/CardModal';
+import CardModal from '../../common/components/Modals/CardModal';
 
 const AddSessionModal: React.FC = () => {
   const {t} = useTranslation('Modal.AddSession');

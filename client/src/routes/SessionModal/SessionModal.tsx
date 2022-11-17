@@ -15,7 +15,7 @@ import {
   ShareIcon,
 } from '../../common/components/Icons';
 import Image from '../../common/components/Image/Image';
-import SheetModal from '../../lib/modal/components/SheetModal';
+import SheetModal from '../../common/components/Modals/SheetModal';
 import {Spacer16, Spacer8} from '../../common/components/Spacers/Spacer';
 import {Display24} from '../../common/components/Typography/Display/Display';
 import {COLORS} from '../../../../shared/src/constants/colors';

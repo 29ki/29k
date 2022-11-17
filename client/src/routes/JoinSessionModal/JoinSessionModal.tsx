@@ -17,7 +17,7 @@ import {ModalStackProps} from '../../lib/navigation/constants/routes';
 
 import {joinSession} from '../Sessions/api/session';
 import useSessions from '../Sessions/hooks/useSessions';
-import CardModal from '../../lib/modal/components/CardModal';
+import CardModal from '../../common/components/Modals/CardModal';
 
 const ErrorText = styled(Body14)({color: COLORS.ERROR, textAlign: 'center'});
 
