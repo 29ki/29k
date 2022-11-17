@@ -28,6 +28,7 @@ import {Body14} from '../../common/components/Typography/Body/Body';
 import useUser from '../../lib/user/hooks/useUser';
 import Byline from '../../common/components/Bylines/Byline';
 import {formatInviteCode} from '../../common/utils/string';
+import * as metrics from '../../lib/metrics';
 
 const Content = styled(Gutters)({
   flexDirection: 'row',
@@ -75,17 +76,40 @@ const SessionModal = () => {
         sessionId: session.id,
       },
     });
+    metrics.logEvent('Join Session', {
+      'Session Exercise ID': session.contentId,
+      'Session Language': session.language,
+      'Session Type': session.type,
+      'Session Start Time': session.startTime,
+    });
   };
 
-  const onAddToCalendar = () =>
+  const onAddToCalendar = () => {
     addToCalendar(
       exercise.name,
       session.link,
       startTime,
       startTime.add(30, 'minutes'),
     );
+    metrics.logEvent('Add Session To Calendar', {
+      'Session Exercise ID': session.contentId,
+      'Session Language': session.language,
+      'Session Type': session.type,
+      'Session Start Time': session.startTime,
+    });
+  };
 
-  const onToggleReminder = () => toggleReminder(!reminderEnabled);
+  const onToggleReminder = () => {
+    toggleReminder(!reminderEnabled);
+    if (!reminderEnabled) {
+      metrics.logEvent('Add Session Reminder', {
+        'Session Exercise ID': session.contentId,
+        'Session Language': session.language,
+        'Session Type': session.type,
+        'Session Start Time': session.startTime,
+      });
+    }
+  };
 
   const onShare = () => {
     if (session.link) {

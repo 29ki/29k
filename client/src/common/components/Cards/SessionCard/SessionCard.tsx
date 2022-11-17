@@ -15,6 +15,7 @@ import {Body14} from '../../Typography/Body/Body';
 import {Spacer4} from '../../Spacers/Spacer';
 import Badge from '../../Badge/Badge';
 import useSessionStartTime from '../../../../routes/Session/hooks/useSessionStartTime';
+import * as metrics from '../../../../lib/metrics';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -33,13 +34,20 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
   const {reminderEnabled} = useSessionNotificationReminder(session);
   const sessionTime = useSessionStartTime(dayjs(startTime));
 
-  const onPress = () =>
+  const onPress = () => {
     navigate('SessionStack', {
       screen: 'ChangingRoom',
       params: {
         sessionId: session.id,
       },
     });
+    metrics.logEvent('Join Session', {
+      'Session Exercise ID': session.contentId,
+      'Session Language': session.language,
+      'Session Type': session.type,
+      'Session Start Time': session.startTime,
+    });
+  };
 
   const onContextPress = () => navigate('SessionModal', {session: session});
 
