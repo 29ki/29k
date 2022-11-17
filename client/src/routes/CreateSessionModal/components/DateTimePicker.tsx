@@ -152,7 +152,7 @@ const Picker: React.FC<PickerProps> = ({
           <Body16>
             <BodyBold>{t('time')}</BodyBold>
           </Body16>
-          <Body16>{selectedTime.local().format('HH:mm')}</Body16>
+          <Body16>{selectedTime.local().format('LT')}</Body16>
         </Row>
       </Wrapper>
 

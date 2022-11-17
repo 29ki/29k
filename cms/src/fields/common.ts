@@ -1,4 +1,9 @@
 import {CmsField, CmsFieldBase, CmsFieldObject} from 'netlify-cms-core';
+import {
+  CLOUDINARY_AUDIO_CONFIG,
+  CLOUDINARY_IMAGE_CONFIG,
+  CLOUDINARY_VIDEO_CONFIG,
+} from './constants';
 
 export const ID_FIELD: CmsField = {
   label: 'ID',
@@ -47,6 +52,8 @@ export const IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
       widget: 'image',
       required: false,
       i18n: true,
+      allow_multiple: false,
+      media_library: CLOUDINARY_IMAGE_CONFIG,
     },
   ],
 };
@@ -72,6 +79,8 @@ export const VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
       widget: 'file',
       required: false,
       i18n: true,
+      allow_multiple: false,
+      media_library: CLOUDINARY_VIDEO_CONFIG,
     },
     {
       label: 'Preview image',
@@ -79,6 +88,8 @@ export const VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
       widget: 'image',
       required: false,
       i18n: true,
+      allow_multiple: false,
+      media_library: CLOUDINARY_IMAGE_CONFIG,
     },
   ],
 };
@@ -89,6 +100,8 @@ const AUDIO_FIELD: CmsField = {
   widget: 'file',
   required: false,
   i18n: true,
+  allow_multiple: false,
+  media_library: CLOUDINARY_AUDIO_CONFIG,
 };
 
 export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {

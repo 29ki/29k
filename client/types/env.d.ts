@@ -3,6 +3,7 @@ declare module 'config' {
   export const ENVIRONMENT: string;
   export const ANDROID_CODE_PUSH_DEPLOYMENT_KEY: string;
   export const IOS_CODE_PUSH_DEPLOYMENT_KEY: string;
+  export const POSTHOG_API_KEY: string;
   export const API_ENDPOINT: string;
   export const STORAGE_ENDPOINT: string;
   export const SENTRY_DSN: string;

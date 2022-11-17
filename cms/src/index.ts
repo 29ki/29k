@@ -25,14 +25,6 @@ CMS.init({
       config: {
         cloud_name: 'cupcake-29k',
         api_key: '373696539271219',
-        default_transformations: [
-          [
-            {
-              transformation: 'global',
-              quality: 'auto',
-            },
-          ],
-        ],
       },
     },
     publish_mode: 'editorial_workflow',

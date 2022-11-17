@@ -5,7 +5,6 @@ import {
 import config from '../lib/config';
 import i18next, {LANGUAGE_TAG} from '../lib/i18n';
 import type {Exercise} from '../../../shared/src/types/generated/Exercise';
-import dayjs from 'dayjs';
 
 const dynamicLinks = firebasedynamiclinks('v1');
 
@@ -73,11 +72,9 @@ export const createSessionInviteLink = async (
 
   const t = i18next.getFixedT(language, 'DeepLink.JoinSessionInvite');
 
-  const date = dayjs(startTime).locale(language).format('dddd, D MMM HH:mm');
-
   const socialImageLink = card?.image?.source;
   const socialTitle = t('title', {name});
-  const socialDescription = t('description', {date});
+  const socialDescription = t('description');
 
   return createDynamicLink(`joinSessionInvite/${inviteCode}`, {
     socialImageLink,

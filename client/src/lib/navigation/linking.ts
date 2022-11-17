@@ -14,7 +14,7 @@ import {ModalStackProps} from './constants/routes';
 const resolveNotificationUrl = async (
   source: InitialNotification | EventDetail | null,
 ): Promise<string | undefined> => {
-  const url = source?.notification?.data?.url;
+  const url = source?.notification?.data?.url as string;
   if (url) {
     return (await dynamicLinks().resolveLink(url)).url;
   }

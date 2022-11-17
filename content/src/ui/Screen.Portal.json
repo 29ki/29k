@@ -5,9 +5,12 @@
     "sessionStarted": "Session is on",
     "skipPortal": "Skip portal",
     "counterLabel": {
-      "starts": "Starting",
+      "startsIn": "Starts in",
+      "starts": "Starts",
+      "shortly": "Shortly",
       "started": "Now"
-    }
+    },
+    "leavePortal": "Leave"
   },
   "sv": {
     "participants": "Vi är",
@@ -15,7 +18,9 @@
     "sessionStarted": "Session är igång",
     "skipPortal": "Skippa portal",
     "counterLabel": {
+      "startsIn": "Startar om ",
       "starts": "Startar",
+      "shortly": "Strax",
       "started": "Nu"
     }
   },
@@ -23,7 +28,7 @@
     "participants": "Somos",
     "startSession": "Iniciar sessão",
     "sessionStarted": "A sessão está ativa",
-    "skipPortal": "Ignorar"
+    "skipPortal": "Ignorar em"
   },
   "es": {}
 }

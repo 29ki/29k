@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Navigation from './lib/navigation/Navigation';
+import Stacks from './lib/navigation/Stacks';
 
 import codePush, {CodePushOverlay} from './lib/codePush';
 import {UiLibProvider} from './lib/uiLib/hooks/useUiLib';
@@ -13,16 +14,21 @@ import styled from 'styled-components/native';
 const GestureHandler = styled(GestureHandlerRootView)({
   flex: 1,
 });
+import {MetricsProvider} from './lib/metrics';
 
 const App = () => (
   <ErrorBoundary>
     <SafeAreaProvider>
       <GestureHandler>
         <UiLibProvider>
-          <Bootstrap>
-            <Navigation />
-            <CodePushOverlay />
-          </Bootstrap>
+          <Navigation>
+            <MetricsProvider>
+              <Bootstrap>
+                <Stacks />
+                <CodePushOverlay />
+              </Bootstrap>
+            </MetricsProvider>
+          </Navigation>
         </UiLibProvider>
       </GestureHandler>
     </SafeAreaProvider>
