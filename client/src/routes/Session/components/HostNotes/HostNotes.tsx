@@ -84,7 +84,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
   children,
 }) => {
   const listRef = useRef<FlatList>(null);
-  const [showNotes, setShowNotes] = useState(false);
+  const [showNotes, setShowNotes] = useState(introPortal ? true : false);
   const [containerWidth, setContainerWidth] = useState(0);
   const listItemWidth = containerWidth - SPACINGS.THIRTYTWO;
   const [activeIndex, setActiveIndex] = useState(0);
