@@ -40,7 +40,6 @@ type ExerciseSlidesProps = {
   current: ExerciseSlide;
   previous?: ExerciseSlide;
   next?: ExerciseSlide;
-  hasHostNotes?: boolean;
 };
 
 const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
@@ -48,21 +47,20 @@ const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
   current,
   previous,
   next,
-  hasHostNotes,
 }) => (
   // "Pre load" previous and next slide
   <Wrapper>
     {previous && (
       <Fade visible={false} key={index - 1}>
-        <Slide hasHostNotes={hasHostNotes} slide={previous} active={false} />
+        <Slide slide={previous} active={false} />
       </Fade>
     )}
     <Fade visible={true} key={index}>
-      <Slide hasHostNotes={hasHostNotes} slide={current} active={true} />
+      <Slide slide={current} active={true} />
     </Fade>
     {next && (
       <Fade visible={false} key={index + 1}>
-        <Slide hasHostNotes={hasHostNotes} slide={next} active={false} />
+        <Slide slide={next} active={false} />
       </Fade>
     )}
   </Wrapper>

@@ -7,6 +7,7 @@ import {
   BottomSafeArea,
   Spacer12,
   Spacer16,
+  Spacer32,
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
 import {COLORS} from '../../../../shared/src/constants/colors';
@@ -150,12 +151,12 @@ const Session = () => {
       <Spotlight>
         {exercise && (
           <SpotlightContent>
+            {isHost && <Spacer32 />}
             <ExerciseSlides
               index={exercise.slide.index}
               current={exercise.slide.current}
               previous={exercise.slide.previous}
               next={exercise.slide.next}
-              hasHostNotes={isHost}
             />
             {!isHost && (
               <Progress

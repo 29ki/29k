@@ -15,23 +15,16 @@ const Wrapper = styled.View<WrapperProps>(({backgroundColor}) => ({
 type SlideProps = {
   slide: ExerciseSlide;
   active: boolean;
-  hasHostNotes?: boolean;
 };
 
-export const Slide = React.memo(({slide, active, hasHostNotes}: SlideProps) => {
+export const Slide = React.memo(({slide, active}: SlideProps) => {
   const exercise = useSessionExercise();
   return (
     <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
       {slide.type === 'host' && <Host active={active} />}
-      {slide.type === 'content' && (
-        <Content hasHostNotes={hasHostNotes} slide={slide} active={active} />
-      )}
-      {slide.type === 'reflection' && (
-        <Content hasHostNotes={hasHostNotes} slide={slide} active={active} />
-      )}
-      {slide.type === 'sharing' && (
-        <Content hasHostNotes={hasHostNotes} slide={slide} active={active} />
-      )}
+      {slide.type === 'content' && <Content slide={slide} active={active} />}
+      {slide.type === 'reflection' && <Content slide={slide} active={active} />}
+      {slide.type === 'sharing' && <Content slide={slide} active={active} />}
     </Wrapper>
   );
 });

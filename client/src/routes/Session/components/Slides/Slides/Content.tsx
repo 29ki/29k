@@ -11,7 +11,6 @@ import Image from '../../../../../common/components/Image/Image';
 import Video from './Blocks/Video';
 import {
   Spacer12,
-  Spacer32,
   Spacer8,
 } from '../../../../../common/components/Spacers/Spacer';
 import Text from './Blocks/Text';
@@ -30,15 +29,10 @@ type ContentProps = {
     | ExerciseSlidesSharing
     | ExerciseSlidesContent;
   active: boolean;
-  hasHostNotes?: boolean;
 };
-const Content: React.FC<ContentProps> = ({
-  slide: {content},
-  active,
-  hasHostNotes,
-}) => (
+const Content: React.FC<ContentProps> = ({slide: {content}, active}) => (
   <>
-    {hasHostNotes ? <Spacer32 /> : <Spacer12 />}
+    <Spacer12 />
     {!content.video && !content.image && (
       <TextWrapper>
         {content.heading && <Heading>{content.heading}</Heading>}
