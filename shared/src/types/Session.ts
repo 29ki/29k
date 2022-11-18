@@ -7,22 +7,17 @@ export enum SessionType {
   private = 'private',
 }
 
-// Input to DB
-export type ExerciseStateInput = Omit<ExerciseState, 'timestamp'> & {
+// Data stored in DB
+export type ExerciseStateData = Omit<ExerciseState, 'timestamp'> & {
   timestamp: Timestamp;
 };
 
-export type SessionInput = Omit<Session, 'exerciseState' | 'startTime'> & {
-  exerciseState: ExerciseStateInput;
+export type SessionData = Omit<Session, 'exerciseState' | 'startTime'> & {
+  exerciseState: ExerciseStateData;
   startTime: Timestamp;
   createdAt: Timestamp;
   updatedAt: Timestamp;
 };
-
-// Data stored in DB
-export type ExerciseStateData = ExerciseStateInput;
-
-export type SessionData = SessionInput;
 
 // Applicaton schema
 export type ExerciseState = {
