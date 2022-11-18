@@ -25,7 +25,8 @@
     "notifications": {
       "joined": "{{name}} gick med",
       "left": "{{name}} lämnade",
-      "networkQuality": "Ostabilt nätverk"
+      "networkQuality": "Ostabilt nätverk",
+      "muted": "Din mic är avstängd"
     }
   },
   "pt": {
