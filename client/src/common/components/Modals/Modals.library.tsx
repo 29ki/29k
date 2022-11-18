@@ -1,5 +1,4 @@
 import React from 'react';
-import {ScrollView} from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import Gutters from '../Gutters/Gutters';
