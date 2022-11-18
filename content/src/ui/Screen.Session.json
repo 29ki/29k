@@ -11,7 +11,7 @@
       "joined": "{{name}} joined",
       "left": "{{name}} left",
       "networkQuality": "Unrealiable network connection",
-      "muted": "You are now muted"
+      "muted": "You are muted"
     }
   },
   "sv": {
@@ -26,7 +26,7 @@
       "joined": "{{name}} gick med",
       "left": "{{name}} lämnade",
       "networkQuality": "Ostabilt nätverk",
-      "muted": "Din mic är avstängd"
+      "muted": "Din mikrofon är av"
     }
   },
   "pt": {
