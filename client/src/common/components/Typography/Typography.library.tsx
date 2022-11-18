@@ -1,7 +1,13 @@
 import React from 'react';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
-import {Heading24, Heading22, Heading18, Heading16} from './Heading/Heading';
+import {
+  Heading24,
+  Heading22,
+  Heading18,
+  Heading16,
+  ModalHeading,
+} from './Heading/Heading';
 import {Body18, Body16, Body14, BodyBold, TextLink} from './Body/Body';
 import Input from './TextInput/TextInput';
 import MarkdownRenderer from './Markdown/Markdown';
@@ -23,6 +29,9 @@ const HeadingsList = () => (
     <Heading22>Heading 22</Heading22>
     <Heading18>Heading 18</Heading18>
     <Heading16>Heading 16</Heading16>
+    <Spacer16 />
+    <Body14>Default: HKGrotesk Medium</Body14>
+    <ModalHeading>Modal Heading</ModalHeading>
   </>
 );
 

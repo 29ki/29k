@@ -4,32 +4,26 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 
 import Gutters from '../../common/components/Gutters/Gutters';
-import HalfModal from '../../common/components/Modals/HalfModal';
-import {
-  Spacer16,
-  Spacer24,
-  Spacer8,
-} from '../../common/components/Spacers/Spacer';
-import {Display24} from '../../common/components/Typography/Display/Display';
-
+import {Spacer16, Spacer8} from '../../common/components/Spacers/Spacer';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import Button from '../../common/components/Buttons/Button';
+import CardModal from '../../common/components/Modals/CardModal';
+import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
 
 const AddSessionModal: React.FC = () => {
   const {t} = useTranslation('Modal.AddSession');
 
-  const {goBack, navigate} =
+  const {popToTop, navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
   return (
-    <HalfModal>
-      <Spacer16 />
+    <CardModal>
       <Gutters>
-        <Display24>{t('title')}</Display24>
-        <Spacer24 />
+        <ModalHeading>{t('title')}</ModalHeading>
+        <Spacer16 />
         <Button
           onPress={() => {
-            goBack();
+            popToTop();
             navigate('CreateSessionModal');
           }}>
           {t('create')}
@@ -37,13 +31,13 @@ const AddSessionModal: React.FC = () => {
         <Spacer8 />
         <Button
           onPress={() => {
-            goBack();
+            popToTop();
             navigate('JoinSessionModal', {inviteCode: undefined});
           }}>
           {t('join')}
         </Button>
       </Gutters>
-    </HalfModal>
+    </CardModal>
   );
 };
 

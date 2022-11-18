@@ -1,17 +1,21 @@
-import {TextInput} from 'react-native';
+import {BottomSheetTextInput as BSTextInput} from '@gorhom/bottom-sheet';
 import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../constants/spacings';
 import textStyles from '../styles';
 
-const Input = styled(TextInput)({
+const style = {
   height: 44,
   paddingHorizontal: SPACINGS.SIXTEEN,
   paddingVertical: SPACINGS.TWELVE,
   ...textStyles.Body16,
   backgroundColor: COLORS.PURE_WHITE,
   borderRadius: 16,
-});
+};
 
-export default Input;
+const TextInput = styled.TextInput(style);
+
+export const BottomSheetTextInput = styled(BSTextInput)(style);
+
+export default TextInput;

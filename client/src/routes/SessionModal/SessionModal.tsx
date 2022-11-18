@@ -15,11 +15,14 @@ import {
   ShareIcon,
 } from '../../common/components/Icons';
 import Image from '../../common/components/Image/Image';
-import HalfModal from '../../common/components/Modals/HalfModal';
+import SheetModal from '../../common/components/Modals/SheetModal';
 import {Spacer16, Spacer8} from '../../common/components/Spacers/Spacer';
 import {Display24} from '../../common/components/Typography/Display/Display';
 import {COLORS} from '../../../../shared/src/constants/colors';
-import {RootStackProps} from '../../lib/navigation/constants/routes';
+import {
+  ModalStackProps,
+  AppStackProps,
+} from '../../lib/navigation/constants/routes';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import useAddToCalendar from '../Sessions/hooks/useAddToCalendar';
 import useSessionNotificationReminder from '../Sessions/hooks/useSessionNotificationReminder';
@@ -51,10 +54,10 @@ const DeleteButton = styled(IconButton)({
 const SessionModal = () => {
   const {
     params: {session},
-  } = useRoute<RouteProp<RootStackProps, 'SessionModal'>>();
+  } = useRoute<RouteProp<ModalStackProps, 'SessionModal'>>();
   const {t} = useTranslation('Modal.Session');
   const user = useUser();
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackProps>>();
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
   const {deleteSession} = useSessions();
   const addToCalendar = useAddToCalendar();
   const exercise = useExerciseById(session?.contentId);
@@ -133,14 +136,14 @@ const SessionModal = () => {
 
         onPress: async () => {
           await deleteSession(session.id);
-          navigation.goBack();
+          navigation.popToTop();
         },
       },
     ]);
   };
 
   return (
-    <HalfModal>
+    <SheetModal>
       <Spacer16 />
       <Content>
         <View>
@@ -209,7 +212,7 @@ const SessionModal = () => {
           <DeleteButton small onPress={onDelete} Icon={DeleteIcon} />
         )}
       </BottomContent>
-    </HalfModal>
+    </SheetModal>
   );
 };
 
