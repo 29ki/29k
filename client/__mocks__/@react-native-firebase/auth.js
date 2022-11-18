@@ -1,10 +1,11 @@
 const mockAuth = {
-  onUserChanged: jest.fn(),
+  onUserChanged: jest.fn().mockReturnValue(() => {}),
   signInAnonymously: jest.fn(),
   signOut: jest.fn(),
   currentUser: {
     delete: jest.fn(),
     getIdToken: jest.fn(),
+    getIdTokenResult: jest.fn(),
   },
 };
 
