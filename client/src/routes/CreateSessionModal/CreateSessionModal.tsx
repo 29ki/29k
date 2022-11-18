@@ -286,7 +286,7 @@ const CreateSessionModal = () => {
   const [selectedExercise, setSelectedExercise] = useState<
     Exercise['id'] | undefined
   >();
-  const {isPublicHost} = useIsPublicHost();
+  const isPublicHost = useIsPublicHost();
   const user = useUser();
   const [selectedType, setSelectedType] = useState<SessionType | undefined>(
     isPublicHost ? undefined : SessionType.private,
