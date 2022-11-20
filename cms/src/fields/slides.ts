@@ -45,6 +45,13 @@ const CONTENT_VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
       required: false,
       widget: 'boolean',
     },
+    {
+      label: 'Duration timer',
+      name: 'durationTimer',
+      hint: 'This shows a duration timer in the top right corner. Useful for stand-alone audio.',
+      required: false,
+      widget: 'boolean',
+    },
     ...VIDEO_FIELD_WITH_AUDIO.fields,
   ],
 };
