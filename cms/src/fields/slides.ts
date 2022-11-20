@@ -15,17 +15,17 @@ export const SLIDE_TYPES = {
 };
 
 export const HOST_NOTES: CmsFieldBase & CmsFieldList = {
-  label: 'Host Notes',
+  label: '📝 Host Notes',
   name: 'hostNotes',
   widget: 'list',
   hint: 'Set each text block to a maximum of 50 words',
-  label_singular: 'Host note',
+  label_singular: '📝 Host note',
   collapsed: true,
   required: false,
   i18n: true,
   fields: [
     {
-      label: 'Text',
+      label: '📝 Text',
       name: 'text',
       widget: 'markdown',
       required: true,
@@ -39,14 +39,14 @@ const CONTENT_VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
   hint: 'Overrides image',
   fields: [
     {
-      label: 'Auto Play & Loop',
+      label: '🔁 Auto Play & Loop',
       name: 'autoPlayLoop',
       hint: 'This automatically plays and loops the video. Play controls will be disabled.',
       required: false,
       widget: 'boolean',
     },
     {
-      label: 'Duration timer',
+      label: '⏱️ Duration timer',
       name: 'durationTimer',
       hint: 'This shows a duration timer in the top right corner. Useful for stand-alone audio.',
       required: false,
@@ -58,13 +58,13 @@ const CONTENT_VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
 
 const CONTENT_FIELDS: Array<CmsField> = [
   {
-    label: 'Heading',
+    label: '◾️ Heading',
     name: 'heading',
     widget: 'string',
     required: false,
   },
   {
-    label: 'Text',
+    label: '◾️ Text',
     name: 'text',
     widget: 'string',
     required: false,
@@ -74,7 +74,7 @@ const CONTENT_FIELDS: Array<CmsField> = [
 ];
 
 export const HOST_SLIDE: CmsFieldBase & CmsFieldObject = {
-  label: 'Host',
+  label: '💁‍♀️ Host',
   name: SLIDE_TYPES.HOST,
   widget: 'object',
   collapsed: true,
@@ -82,7 +82,7 @@ export const HOST_SLIDE: CmsFieldBase & CmsFieldObject = {
 };
 
 export const CONTENT_SLIDE: CmsFieldBase & CmsFieldObject = {
-  label: 'Content',
+  label: '📰 Content',
   name: SLIDE_TYPES.CONTENT,
   widget: 'object',
   collapsed: true,
@@ -99,7 +99,7 @@ export const CONTENT_SLIDE: CmsFieldBase & CmsFieldObject = {
 };
 
 export const REFLECTION_SLIDE: CmsFieldBase & CmsFieldObject = {
-  label: 'Reflection',
+  label: '🤔 Reflection',
   name: SLIDE_TYPES.REFLECTION,
   widget: 'object',
   collapsed: true,
@@ -116,7 +116,7 @@ export const REFLECTION_SLIDE: CmsFieldBase & CmsFieldObject = {
 };
 
 export const SHARING_SLIDE: CmsFieldBase & CmsFieldObject = {
-  label: 'Sharing',
+  label: '🎤 Sharing',
   name: SLIDE_TYPES.SHARING,
   widget: 'object',
   collapsed: true,
