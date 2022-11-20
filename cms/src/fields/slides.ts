@@ -74,7 +74,7 @@ const CONTENT_FIELDS: Array<CmsField> = [
 ];
 
 export const HOST_SLIDE: CmsFieldBase & CmsFieldObject = {
-  label: '💁‍♀️ Host',
+  label: '💁‍♀️ Host slide',
   name: SLIDE_TYPES.HOST,
   widget: 'object',
   collapsed: true,
@@ -82,7 +82,7 @@ export const HOST_SLIDE: CmsFieldBase & CmsFieldObject = {
 };
 
 export const CONTENT_SLIDE: CmsFieldBase & CmsFieldObject = {
-  label: '📰 Content',
+  label: '📰 Content slide',
   name: SLIDE_TYPES.CONTENT,
   widget: 'object',
   collapsed: true,
@@ -99,7 +99,7 @@ export const CONTENT_SLIDE: CmsFieldBase & CmsFieldObject = {
 };
 
 export const REFLECTION_SLIDE: CmsFieldBase & CmsFieldObject = {
-  label: '🤔 Reflection',
+  label: '🤔 Reflection slide',
   name: SLIDE_TYPES.REFLECTION,
   widget: 'object',
   collapsed: true,
@@ -116,7 +116,7 @@ export const REFLECTION_SLIDE: CmsFieldBase & CmsFieldObject = {
 };
 
 export const SHARING_SLIDE: CmsFieldBase & CmsFieldObject = {
-  label: '🎤 Sharing',
+  label: '🎤 Sharing slide',
   name: SLIDE_TYPES.SHARING,
   widget: 'object',
   collapsed: true,

@@ -76,9 +76,11 @@ const THEME: CmsField = {
 
 export const SLIDES: CmsField = {
   label: '🖼️ Slides',
+  label_singular: '🖼️ Slide',
   name: 'slides',
   widget: 'list',
   i18n: true,
+  summary: '{{fields.content.heading}}',
   types: [CONTENT_SLIDE, REFLECTION_SLIDE, SHARING_SLIDE, HOST_SLIDE],
 };
 
