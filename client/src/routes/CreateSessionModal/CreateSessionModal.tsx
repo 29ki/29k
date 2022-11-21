@@ -37,7 +37,7 @@ import {LANGUAGE_TAG} from '../../lib/i18n';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
+import {BottomSheetFlatList, useBottomSheet} from '@gorhom/bottom-sheet';
 import ProfileInfo from '../../common/components/ProfileInfo/ProfileInfo';
 import useUser from '../../lib/user/hooks/useUser';
 
@@ -206,6 +206,7 @@ const SelectType: React.FC<StepProps> = ({
 
 const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
   const {t, i18n} = useTranslation('Modal.CreateSession');
+  const {expand, collapse} = useBottomSheet();
   const {goBack, navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
   const [isLoading, setIsLoading] = useState(false);
@@ -253,6 +254,7 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
             setDate(selectedDate);
             setTime(selectedTime);
           }}
+          onToggle={expanded => (expanded ? expand() : collapse())}
         />
         <Spacer16 />
         <Cta variant="secondary" small onPress={onSubmit} disabled={isLoading}>
