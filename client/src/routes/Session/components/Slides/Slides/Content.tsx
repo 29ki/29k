@@ -23,6 +23,12 @@ const TextWrapper = styled.View({
   flex: 1,
 });
 
+const VideoWrapper = styled.View({
+  flex: 1,
+  aspectRatio: '1',
+  alignSelf: 'center',
+});
+
 type ContentProps = {
   slide:
     | ExerciseSlidesReflection
@@ -49,15 +55,18 @@ const Content: React.FC<ContentProps> = ({slide: {content}, active}) => (
     {content.video ? (
       <GraphicsWrapper>
         <Spacer8 />
-        <Video
-          source={{uri: content.video.source}}
-          audioSource={
-            content.video.audio ? {uri: content.video.audio} : undefined
-          }
-          active={active}
-          preview={content.video.preview}
-          autoPlayLoop={content.video.autoPlayLoop}
-        />
+        <VideoWrapper>
+          <Video
+            source={{uri: content.video.source}}
+            audioSource={
+              content.video.audio ? {uri: content.video.audio} : undefined
+            }
+            active={active}
+            preview={content.video.preview}
+            autoPlayLoop={content.video.autoPlayLoop}
+            durationTimer={content.video.durationTimer}
+          />
+        </VideoWrapper>
       </GraphicsWrapper>
     ) : content.image ? (
       <GraphicsWrapper>
