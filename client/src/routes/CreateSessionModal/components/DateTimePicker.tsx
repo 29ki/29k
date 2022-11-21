@@ -81,12 +81,14 @@ type PickerProps = {
   onChange?: (date: dayjs.Dayjs, time: dayjs.Dayjs) => void;
   maximumDate?: dayjs.Dayjs;
   minimumDate?: dayjs.Dayjs;
+  onToggle?: (expanded: boolean) => void;
 };
 
 const Picker: React.FC<PickerProps> = ({
   onChange = () => {},
   minimumDate,
   maximumDate,
+  onToggle = () => {},
 }) => {
   const {t} = useTranslation('Component.DateTimePicker');
   const [selectedDate, setSelectedDate] = useState(dayjs().utc());
@@ -106,6 +108,7 @@ const Picker: React.FC<PickerProps> = ({
           onPress={() => {
             setShowTimePicker(false);
             setShowDatePicker(!showDatePicker);
+            onToggle(!showDatePicker);
           }}>
           <Body16>
             <BodyBold>{t('date')}</BodyBold>
@@ -128,6 +131,7 @@ const Picker: React.FC<PickerProps> = ({
           onPress={() => {
             setShowDatePicker(false);
             setShowTimePicker(!showTimePicker);
+            onToggle(!showTimePicker);
           }}>
           <Body16>
             <BodyBold>{t('time')}</BodyBold>
