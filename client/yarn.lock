@@ -8330,7 +8330,7 @@ react-native-url-polyfill@^1.1.2:
 
 "react-native-video@https://github.com/29ki/react-native-video-5.2.1#repeat-ios-using-av-player-looper":
   version "5.2.1"
-  resolved "https://github.com/29ki/react-native-video-5.2.1#bddcd206e276c55832c047469ed2534bb592f0af"
+  resolved "https://github.com/29ki/react-native-video-5.2.1#9bf7168407c72f7b5b74a4b12909dc2f6525c69b"
   dependencies:
     deprecated-react-native-prop-types "^2.2.0"
     keymirror "^0.1.1"
