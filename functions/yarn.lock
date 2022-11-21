@@ -956,14 +956,13 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
-"@sentry/cli@^2.8.1":
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/@sentry/cli/-/cli-2.8.1.tgz#b7803572e6d5ce727329c70459a6ef0fcd2aff33"
-  integrity sha512-V/Mzy/ooZaICBFC8OvSrhUg3Anw1vlEzQQKwUtXEH0EQmcKDJMGkgfo2hXlpoR6lybODjkXDlMkajKcspdF4RA==
+"@sentry/cli@^2.9.0":
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/@sentry/cli/-/cli-2.9.0.tgz#a73c2e72c7d80b3ae4bff52b3effb2f63cb1ac90"
+  integrity sha512-0qq3aP5shbm/V5GQSyeGEXlDNPQlWKngwNu+h5zaaaDrCfG2gJeoRHybOq4of+raKFZTvx4kjVmwwWAUvHfTYg==
   dependencies:
     https-proxy-agent "^5.0.0"
     node-fetch "^2.6.7"
-    npmlog "^6.0.1"
     progress "^2.0.3"
     proxy-from-env "^1.1.0"
     which "^2.0.2"
@@ -1000,23 +999,10 @@
     lru_map "^0.3.3"
     tslib "^1.9.3"
 
-"@sentry/types@7.17.4":
-  version "7.17.4"
-  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.17.4.tgz#476522bc988989101e7aee9eee3c3f8f16fa59ea"
-  integrity sha512-QJj8vO4AtxuzQfJIzDnECSmoxwnS+WJsm1Ta2Cwdy+TUCBJyWpW7aIJJGta76zb9gNPGb3UcAbeEjhMJBJeRMQ==
-
 "@sentry/types@7.19.0":
   version "7.19.0"
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.19.0.tgz#3ebb96670399b637a945fa499fa7436f7b930147"
   integrity sha512-oGRAT6lfzoKrxO1mvxiSj0XHxWPd6Gd1wpPGuu6iJo03xgWDS+MIlD1h2unqL4N5fAzLjzmbC2D2lUw50Kn2pA==
-
-"@sentry/utils@7.17.4":
-  version "7.17.4"
-  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-7.17.4.tgz#b8f4fb6a329765b97668b34f6d397e8de2169fef"
-  integrity sha512-ioG0ANy8uiWzig82/e7cc+6C9UOxkyBzJDi1luoQVDH6P0/PvM8GzVU+1iUVUipf8+OL1Jh09GrWnd5wLm3XNQ==
-  dependencies:
-    "@sentry/types" "7.17.4"
-    tslib "^1.9.3"
 
 "@sentry/utils@7.19.0":
   version "7.19.0"
@@ -6469,7 +6455,7 @@ npm-run-path@^4.0.1:
   dependencies:
     path-key "^3.0.0"
 
-npmlog@^6.0.0, npmlog@^6.0.1:
+npmlog@^6.0.0:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/npmlog/-/npmlog-6.0.2.tgz#c8166017a42f2dea92d6453168dd865186a70830"
   integrity sha512-/vBvz5Jfr9dT/aFWd0FIRf+T/Q2WBsLENygUaFUqstqsycmZAP/t5BvFJTK0viFmSUxiUKTUplWy5vt+rvKIxg==
