@@ -20,6 +20,7 @@ export type DurationTimerHandle = {
   seek: (seconds: number) => void;
 };
 
+// This component wraps Lottie and tries to mimic parts of the react-native-video props and imperative API
 const DurationTimer = forwardRef<DurationTimerHandle, DurationTimerProps>(
   ({style, paused, duration = 60}, ref) => {
     const lottieRef = useRef<AnimatedLottieView>(null);
