@@ -124,20 +124,6 @@
         ]
       },
       {
-        "type": "reflection",
-        "content": {
-          "heading": "Write down 2-4 things"
-        },
-        "hostNotes": [
-          {
-            "text": "Think of 2-4 things that would change if you talked to yourself in the same way you usually treat a friend who feel down. \n\nFor example, how you'd feel and what you'd do differently."
-          },
-          {
-            "text": "1 minute starting now.\n\n`Push play to start the timer.`\n\nOkay, that’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
         "type": "content",
         "hostNotes": [
           {
@@ -156,7 +142,7 @@
     ],
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043690/Images/cover1_Be_kind_to_yourself_iqereg.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
       }
     }
   },
