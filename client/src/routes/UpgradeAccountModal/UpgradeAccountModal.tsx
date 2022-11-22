@@ -17,7 +17,7 @@ import VerificationCode from '../../common/components/VerificationCode/Verificat
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import {VerificationError} from '../../../../shared/src/errors/User';
 import {COLORS} from '../../../../shared/src/constants/colors';
-import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
+import useUserClaims from '../../lib/user/hooks/useUserClaims';
 
 const ErrorText = styled(Body14)({color: COLORS.ERROR, textAlign: 'center'});
 
@@ -34,7 +34,7 @@ const UpgradeAccountModal = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorString, setErrorString] = useState<string | null>(null);
-  const {updateIsPublicHost} = useIsPublicHost();
+  const {updateUserClaims} = useUserClaims();
 
   const needToUpgrade = Boolean(user?.isAnonymous);
 
@@ -65,7 +65,7 @@ const UpgradeAccountModal = () => {
     const error = await verifyPromotion(code);
 
     if (!error) {
-      await updateIsPublicHost();
+      await updateUserClaims(true);
       setUpgradeComplete(true);
     } else {
       switch (error) {

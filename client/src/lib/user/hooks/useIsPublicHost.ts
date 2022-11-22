@@ -1,28 +1,10 @@
-import {useState, useCallback, useEffect} from 'react';
 import {ROLES} from '../../../../../shared/src/types/User';
-import useUser from './useUser';
+import useUserClaims from './useUserClaims';
 
 const useIsPublicHost = () => {
-  const [isPublicHost, setIsPublicHost] = useState(false);
-  const user = useUser();
+  const {claims} = useUserClaims();
 
-  const checkPublicHostRole = useCallback(
-    async (forceRefresh?: boolean) => {
-      const customClaim = await user?.getIdTokenResult(forceRefresh);
-      setIsPublicHost(customClaim?.claims.role === ROLES.publicHost);
-    },
-    [user],
-  );
-
-  const updateIsPublicHost = useCallback(async () => {
-    checkPublicHostRole(true);
-  }, [checkPublicHostRole]);
-
-  useEffect(() => {
-    checkPublicHostRole();
-  }, [checkPublicHostRole]);
-
-  return {isPublicHost, updateIsPublicHost};
+  return claims.role === ROLES.publicHost;
 };
 
 export default useIsPublicHost;

@@ -29,6 +29,7 @@ export type Events = {
 
 export type UserProperties = {
   Anonymous: boolean;
+  'Public Host': boolean;
 };
 
 export type CoreProperties = {

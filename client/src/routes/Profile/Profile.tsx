@@ -38,7 +38,7 @@ const Profile = () => {
   const {toggle: toggleUiLib} = useUiLib();
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
-  const {isPublicHost} = useIsPublicHost();
+  const isPublicHost = useIsPublicHost();
 
   const onPressLanguage = (languageTag: LANGUAGE_TAG) => {
     if (CLIENT_LANGUAGE_TAGS.includes(languageTag)) {
