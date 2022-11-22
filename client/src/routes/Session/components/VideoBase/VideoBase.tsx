@@ -16,7 +16,7 @@ export const VideoBase = React.forwardRef<
   return (
     <RNVideo
       {...props}
-      mixWithOthers="mix"
+      mixWithOthers="duck"
       ignoreSilentSwitch="ignore"
       playInBackground
       playWhenInactive
