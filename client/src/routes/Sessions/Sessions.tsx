@@ -9,10 +9,7 @@ import {useNavigation} from '@react-navigation/native';
 
 import useSessions from './hooks/useSessions';
 
-import {
-  Session,
-  SessionWithHostProfile,
-} from '../../../../shared/src/types/Session';
+import {SessionWithHostProfile} from '../../../../shared/src/types/Session';
 
 import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
 import {COLORS} from '../../../../shared/src/constants/colors';
