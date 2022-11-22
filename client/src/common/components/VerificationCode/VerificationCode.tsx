@@ -4,14 +4,12 @@ import {
   TextInputKeyPressEventData,
   TouchableOpacity,
 } from 'react-native';
-import Clipboard from '@react-native-clipboard/clipboard';
 import {BottomSheetTextInput} from '../Typography/TextInput/TextInput';
 import {TextInput} from 'react-native-gesture-handler';
 
 import styled from 'styled-components/native';
-import Button from '../Buttons/Button';
-import {Spacer16} from '../Spacers/Spacer';
-import {useTranslation} from 'react-i18next';
+import {COLORS} from '../../../../../shared/src/constants/colors';
+import {SPACINGS} from '../../constants/spacings';
 
 const RowWrapper = styled.View({});
 
@@ -23,22 +21,26 @@ const Row = styled.View({
 const Cell = styled(BottomSheetTextInput).attrs({
   keyboardType: 'numeric',
   autoCorrect: false,
-  maxLength: 1,
-})({
-  width: 50,
-  maxWidth: 50,
+  maxLength: 6,
+})<{hasError?: boolean}>(({hasError}) => ({
+  width: 36,
+  paddingHorizontal: SPACINGS.EIGHT,
   textAlign: 'center',
-});
+  borderRadius: 8,
+  borderColor: hasError ? COLORS.ERROR : undefined,
+  borderWidth: hasError ? 1 : 0,
+}));
 
 type CellComponentProps = {
   value?: string;
   onKeyPress: (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => void;
   onCellPress: () => void;
   onChangeText: (text: string) => void;
+  hasError?: boolean;
 };
 
 const CellComponent = React.forwardRef<TextInput, CellComponentProps>(
-  ({value, onCellPress, onKeyPress, onChangeText}, ref) => (
+  ({value, onCellPress, onKeyPress, onChangeText, hasError}, ref) => (
     <TouchableOpacity onPress={onCellPress}>
       <Cell
         autoCorrect={false}
@@ -48,6 +50,7 @@ const CellComponent = React.forwardRef<TextInput, CellComponentProps>(
         onChangeText={onChangeText}
         onKeyPress={onKeyPress}
         selectTextOnFocus
+        hasError={hasError}
       />
     </TouchableOpacity>
   ),
@@ -58,13 +61,14 @@ const NUMERIC_KEYS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 type VerificationCodeProps = {
   prefillCode?: string;
   onCodeCompleted: (result: number) => void;
+  hasError?: boolean;
 };
 
 const VerificationCode: React.FC<VerificationCodeProps> = ({
   prefillCode = '',
   onCodeCompleted,
+  hasError,
 }) => {
-  const {t} = useTranslation('Component.VerificationCode');
   const cell1 = useRef<TextInput>(null);
   const cell2 = useRef<TextInput>(null);
   const cell3 = useRef<TextInput>(null);
@@ -91,14 +95,32 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
     }
   }, [code, onCodeCompleted]);
 
+  useEffect(() => {
+    let id: NodeJS.Timeout | undefined;
+    const codeString = code.join('');
+    if (codeString.length === 6 && hasError) {
+      id = setTimeout(() => {
+        setCode([]);
+        cells[0].current?.focus();
+      }, 1000);
+    }
+
+    return () => clearTimeout(id);
+  }, [code, hasError, cells]);
+
   const updateCode = (index: number) => (text: string) => {
-    //Allows also code to be erased
-    if (text.length <= 2) {
+    if (text.length === 6) {
+      // From clipboard
+      setCode([...text]);
+    } else if (text.length <= 1) {
+      //Allows also code to be erased
       setCode(c => {
         const clone = [...c];
         clone[index] = text;
         return clone;
       });
+    } else {
+      setCode(c => c);
     }
   };
 
@@ -111,11 +133,6 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
         setCurrentCell(Math.min(5, index + 1));
       }
     };
-
-  const paste = async () => {
-    const clipboardString = await Clipboard.getString();
-    setCode(clipboardString.split(''));
-  };
 
   const onCellPress = (index: number) => () => setCurrentCell(index);
 
@@ -130,12 +147,10 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
             ref={cellRef}
             onChangeText={updateCode(index)}
             onKeyPress={onKeyPress(index)}
+            hasError={hasError}
           />
         ))}
       </Row>
-
-      <Spacer16 />
-      <Button onPress={paste}>{t('pasteButton')}</Button>
     </RowWrapper>
   );
 };
