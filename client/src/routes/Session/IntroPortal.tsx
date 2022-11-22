@@ -130,15 +130,6 @@ const IntroPortal: React.FC = () => {
   usePreventGoingBack(leaveSessionWithConfirm);
 
   useEffect(() => {
-    joinMeeting({
-      subscribeToTracksAutomatically: false,
-      userData: {
-        inPortal: true,
-      },
-    });
-  }, [joinMeeting]);
-
-  useEffect(() => {
     if (session?.started && !endVideoRef.current) {
       // If no video is defined, navigate directly
       navigateToSession();

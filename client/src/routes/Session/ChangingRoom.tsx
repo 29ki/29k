@@ -144,11 +144,17 @@ const ChangingRoom = () => {
   }, [isHost, me?.user_id, setSpotlightParticipant]);
 
   const join = async () => {
+    setJoiningMeeting(true);
     if (session?.started) {
-      setJoiningMeeting(true);
       await joinMeeting();
       navigate('Session', {sessionId: sessionId});
     } else {
+      await joinMeeting({
+        subscribeToTracksAutomatically: false,
+        userData: {
+          inPortal: true,
+        },
+      });
       navigate('IntroPortal', {sessionId: sessionId});
     }
   };
