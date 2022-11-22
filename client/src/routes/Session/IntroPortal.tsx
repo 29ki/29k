@@ -131,7 +131,7 @@ const IntroPortal: React.FC = () => {
 
   useEffect(() => {
     setPreferredAudioOutputDevice();
-  }, []);
+  }, [setPreferredAudioOutputDevice]);
 
   useEffect(() => {
     if (session?.started && !endVideoRef.current) {
