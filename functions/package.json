@@ -32,7 +32,7 @@
     "envalid": "^7.3.1",
     "firebase-admin": "^11.2.1",
     "firebase-functions": "^4.0.2",
-    "i18next": "^22.0.5",
+    "i18next": "^22.0.6",
     "koa": "^2.13.4",
     "koa-yup-validator": "^4.1.0",
     "ramda": "^0.28.0",
