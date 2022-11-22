@@ -1,9 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components/native';
 import RNVideo, {VideoProperties} from 'react-native-video';
-
 import useSessionState from '../../../../state/state';
 import VideoBase from '../../../VideoBase/VideoBase';
+import DurationTimer, {
+  DurationTimerHandle,
+} from '../../../DurationTimer/DurationTimer';
 
 const VideoPlayer = styled(VideoBase)({
   flex: 1,
@@ -13,12 +15,21 @@ const AudioPlayer = styled(VideoBase)({
   display: 'none',
 });
 
+const Duration = styled(DurationTimer)({
+  position: 'absolute',
+  right: 22,
+  top: 16,
+  width: 30,
+  height: 30,
+});
+
 type VideoProps = {
   source: VideoProperties['source'];
   audioSource?: VideoProperties['source'];
   active: boolean;
   preview?: string;
   autoPlayLoop?: boolean;
+  durationTimer?: boolean;
 };
 const Video: React.FC<VideoProps> = ({
   active,
@@ -26,11 +37,18 @@ const Video: React.FC<VideoProps> = ({
   audioSource,
   preview,
   autoPlayLoop = false,
+  durationTimer = false,
 }) => {
   const videoRef = useRef<RNVideo>(null);
+  const timerRef = useRef<DurationTimerHandle>(null);
   const [duration, setDuration] = useState(0);
   const exerciseState = useSessionState(state => state.session?.exerciseState);
   const previousState = useRef({playing: false, timestamp: new Date()});
+
+  const seek = (seconds: number) => {
+    videoRef.current?.seek(seconds);
+    timerRef.current?.seek(seconds);
+  };
 
   useEffect(() => {
     if (active && !autoPlayLoop && duration && exerciseState) {
@@ -43,15 +61,15 @@ const Video: React.FC<VideoProps> = ({
         previousState.current.playing === playing
       ) {
         // State is equal, but newer - reset to beginning
-        videoRef.current?.seek(0);
+        seek(0);
       } else if (timestamp < previousState.current.timestamp && playing) {
         // State is old - compensate time played
         const timeDiff = (new Date().getTime() - timestamp.getTime()) / 1000;
         if (timeDiff < duration) {
           // Do not seek passed video length
-          videoRef.current?.seek(timeDiff);
+          seek(timeDiff);
         } else {
-          videoRef.current?.seek(duration - 1);
+          seek(duration - 1);
         }
       }
 
@@ -75,6 +93,10 @@ const Video: React.FC<VideoProps> = ({
     paused,
   };
 
+  const timer = durationTimer ? (
+    <Duration duration={duration} paused={paused} ref={timerRef} />
+  ) : null;
+
   if (audioSource) {
     // If audio source is available we allways loop the video and handle the audio separateley as the primary playing source
     return (
@@ -88,17 +110,21 @@ const Video: React.FC<VideoProps> = ({
           paused={paused}
         />
         <VideoPlayer {...videoProps} muted repeat />
+        {timer}
       </>
     );
   }
 
   return (
-    <VideoPlayer
-      {...videoProps}
-      ref={videoRef}
-      onLoad={onLoad}
-      repeat={autoPlayLoop}
-    />
+    <>
+      <VideoPlayer
+        {...videoProps}
+        ref={videoRef}
+        onLoad={onLoad}
+        repeat={autoPlayLoop}
+      />
+      {timer}
+    </>
   );
 };
 

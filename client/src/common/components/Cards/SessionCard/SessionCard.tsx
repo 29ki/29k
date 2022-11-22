@@ -8,22 +8,17 @@ import styled from 'styled-components/native';
 import {Session} from '../../../../../../shared/src/types/Session';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import useSessionNotificationReminder from '../../../../routes/Sessions/hooks/useSessionNotificationReminder';
-import {RootStackProps} from '../../../../lib/navigation/constants/routes';
-import {PlusIcon, BellIcon} from '../../Icons';
+import {
+  AppStackProps,
+  ModalStackProps,
+} from '../../../../lib/navigation/constants/routes';
+import {BellIcon, PrivateIcon, PublicIcon} from '../../Icons';
 import Card from '../Card';
-import useAddToCalendar from '../../../../routes/Sessions/hooks/useAddToCalendar';
-import {Body14, BodyBold} from '../../Typography/Body/Body';
-import Counter from '../../../../routes/Session/components/Counter/Counter';
-import {COLORS} from '../../../../../../shared/src/constants/colors';
-import {SPACINGS} from '../../../constants/spacings';
+import {Body14} from '../../Typography/Body/Body';
 import {Spacer4} from '../../Spacers/Spacer';
-
-const Badge = styled.View({
-  backgroundColor: COLORS.PURE_WHITE,
-  paddingVertical: SPACINGS.FOUR,
-  paddingHorizontal: SPACINGS.EIGHT,
-  borderRadius: SPACINGS.EIGHT,
-});
+import Badge from '../../Badge/Badge';
+import useSessionStartTime from '../../../../routes/Session/hooks/useSessionStartTime';
+import * as metrics from '../../../../lib/metrics';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -35,61 +30,59 @@ type SessionCardProps = {
 };
 
 const SessionCard: React.FC<SessionCardProps> = ({session}) => {
-  const {contentId, startTime, started, hostProfile} = session;
+  const {contentId, startTime, hostProfile} = session;
   const exercise = useExerciseById(contentId);
-  const addToCalendar = useAddToCalendar();
   const {t} = useTranslation('Component.SessionCard');
-  const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
+  const {navigate} =
+    useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const {reminderEnabled} = useSessionNotificationReminder(session);
+  const sessionTime = useSessionStartTime(dayjs(startTime));
 
-  const startAt = dayjs(startTime);
-  const startingNow = dayjs().isAfter(startAt.subtract(10, 'minutes'));
-
-  const onPress = () =>
-    startingNow
-      ? navigate('SessionStack', {
-          screen: 'ChangingRoom',
-          params: {
-            sessionId: session.id,
-          },
-        })
-      : addToCalendar(
-          exercise?.name,
-          session.link,
-          startAt,
-          startAt.add(30, 'minutes'),
-        );
+  const onPress = () => {
+    navigate('SessionStack', {
+      screen: 'ChangingRoom',
+      params: {
+        sessionId: session.id,
+      },
+    });
+    metrics.logEvent('Join Session', {
+      'Session Exercise ID': session.contentId,
+      'Session Language': session.language,
+      'Session Type': session.type,
+      'Session Start Time': session.startTime,
+    });
+  };
 
   const onContextPress = () => navigate('SessionModal', {session: session});
 
   return (
     <Card
       title={exercise?.name}
-      buttonText={startingNow ? t('join') : t('addToCalendar')}
-      ButtonIcon={!startingNow ? PlusIcon : undefined}
       image={{
         uri: exercise?.card?.image?.source,
       }}
       onPress={onContextPress}
+      buttonText={sessionTime.isReadyToJoin ? t('join') : undefined}
       onButtonPress={onPress}
       onContextPress={onContextPress}
       Icon={reminderEnabled ? BellIcon : undefined}
       hostPictureURL={hostProfile.photoURL}
       hostName={hostProfile.displayName}>
       <Row>
-        <Body14>{t('counterLabel.starts')}</Body14>
-        <Spacer4 />
-        <Badge>
-          <Body14>
-            <BodyBold>
-              {started ? (
-                t('counterLabel.started')
-              ) : (
-                <Counter startTime={startAt} />
-              )}
-            </BodyBold>
-          </Body14>
-        </Badge>
+        {!sessionTime.isReadyToJoin && (
+          <>
+            {sessionTime.isInLessThanAnHour ? (
+              <Body14>{t('counterLabel.startsIn')}</Body14>
+            ) : (
+              <Body14>{t('counterLabel.starts')}</Body14>
+            )}
+            <Spacer4 />
+          </>
+        )}
+        <Badge
+          text={sessionTime.isStarted ? t('counter.started') : sessionTime.time}
+          Icon={session.type === 'private' ? <PrivateIcon /> : <PublicIcon />}
+        />
       </Row>
     </Card>
   );

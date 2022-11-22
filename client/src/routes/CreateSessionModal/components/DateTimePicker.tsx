@@ -1,21 +1,19 @@
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import dayjs from 'dayjs';
 import React, {Dispatch, SetStateAction, useEffect, useState} from 'react';
-import {Modal, Platform} from 'react-native';
+import {Platform} from 'react-native';
 import styled from 'styled-components/native';
 import utc from 'dayjs/plugin/utc';
+import {useTranslation} from 'react-i18next';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../common/constants/spacings';
 
-import Button from '../../../common/components/Buttons/Button';
-import {TopSafeArea} from '../../../common/components/Spacers/Spacer';
 import TouchableOpacity from '../../../common/components/TouchableOpacity/TouchableOpacity';
 import {
   Body16,
   BodyBold,
 } from '../../../common/components/Typography/Body/Body';
-import {useTranslation} from 'react-i18next';
 
 dayjs.extend(utc);
 
@@ -31,25 +29,9 @@ const Row = styled(TouchableOpacity)({
   justifyContent: 'space-between',
 });
 
-const ModalBackground = styled.View({
-  justifyContent: 'center',
-  backgroundColor: COLORS.BLACK_TRANSPARENT,
-  flex: 1,
-});
-
-const ModalView = styled.View({
-  margin: SPACINGS.TWENTY,
-  backgroundColor: COLORS.WHITE,
-  borderRadius: SPACINGS.TWELVE,
-  padding: SPACINGS.THIRTYTWO,
-  alignItems: 'center',
-  shadowColor: '#000',
-  shadowOpacity: 0.25,
-  shadowRadius: 4,
-  elevation: 5,
-});
-
-const DoneButton = styled(Button)({alignSelf: 'center'});
+const SelectedText = styled(Body16)<{isActive?: boolean}>(({isActive}) => ({
+  color: isActive ? COLORS.PRIMARY : COLORS.BLACK,
+}));
 
 const DateTimePicker: React.FC<{
   mode: 'date' | 'time';
@@ -59,35 +41,21 @@ const DateTimePicker: React.FC<{
   maximumDate?: dayjs.Dayjs;
   minimumDate?: dayjs.Dayjs;
 }> = ({mode, setValue, selectedValue, close, minimumDate, maximumDate}) => {
-  const {t} = useTranslation('Component.DateTimePicker');
-
   switch (Platform.OS) {
     case 'ios':
       return (
-        <Modal animationType="fade" transparent={true}>
-          <ModalBackground>
-            <TopSafeArea />
-            <ModalView>
-              <RNDateTimePicker
-                mode={mode}
-                accentColor={COLORS.BLACK}
-                textColor={COLORS.BLACK}
-                display={mode === 'date' ? 'inline' : 'spinner'}
-                value={selectedValue.local().toDate()}
-                onChange={(_, value) => setValue(dayjs(value).utc())}
-                minimumDate={
-                  mode === 'date' ? minimumDate?.toDate() : undefined
-                }
-                maximumDate={
-                  mode === 'date' ? maximumDate?.toDate() : undefined
-                }
-              />
-              <DoneButton variant="secondary" small onPress={close}>
-                {t('done')}
-              </DoneButton>
-            </ModalView>
-          </ModalBackground>
-        </Modal>
+        <Row>
+          <RNDateTimePicker
+            mode={mode}
+            textColor={COLORS.BLACK}
+            accentColor={COLORS.PRIMARY}
+            display={mode === 'date' ? 'inline' : 'spinner'}
+            value={selectedValue.local().toDate()}
+            onChange={(_, value) => setValue(dayjs(value).utc())}
+            minimumDate={mode === 'date' ? minimumDate?.toDate() : undefined}
+            maximumDate={mode === 'date' ? maximumDate?.toDate() : undefined}
+          />
+        </Row>
       );
 
     case 'android':
@@ -113,18 +81,20 @@ type PickerProps = {
   onChange?: (date: dayjs.Dayjs, time: dayjs.Dayjs) => void;
   maximumDate?: dayjs.Dayjs;
   minimumDate?: dayjs.Dayjs;
+  onToggle?: (expanded: boolean) => void;
 };
 
 const Picker: React.FC<PickerProps> = ({
   onChange = () => {},
   minimumDate,
   maximumDate,
+  onToggle = () => {},
 }) => {
   const {t} = useTranslation('Component.DateTimePicker');
   const [selectedDate, setSelectedDate] = useState(dayjs().utc());
   const [selectedTime, setSelectedTime] = useState(dayjs().utc());
-  const [showPicker, setShowPicker] = useState(false);
-  const [mode, setMode] = useState<'date' | 'time'>('date');
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const [showTimePicker, setShowTimePicker] = useState(false);
 
   useEffect(
     () => onChange(selectedDate, selectedTime),
@@ -136,36 +106,49 @@ const Picker: React.FC<PickerProps> = ({
       <Wrapper>
         <Row
           onPress={() => {
-            setMode('date');
-            setShowPicker(true);
+            setShowTimePicker(false);
+            setShowDatePicker(!showDatePicker);
+            onToggle(!showDatePicker);
           }}>
           <Body16>
             <BodyBold>{t('date')}</BodyBold>
           </Body16>
-          <Body16>{selectedDate.local().format('dddd, D MMM')}</Body16>
+          <SelectedText isActive={showDatePicker}>
+            {selectedDate.local().format('dddd, D MMM')}
+          </SelectedText>
         </Row>
+        {showDatePicker && (
+          <DateTimePicker
+            mode="date"
+            selectedValue={selectedDate}
+            setValue={setSelectedDate}
+            close={() => setShowDatePicker(false)}
+            minimumDate={minimumDate}
+            maximumDate={maximumDate}
+          />
+        )}
         <Row
           onPress={() => {
-            setMode('time');
-            setShowPicker(true);
+            setShowDatePicker(false);
+            setShowTimePicker(!showTimePicker);
+            onToggle(!showTimePicker);
           }}>
           <Body16>
             <BodyBold>{t('time')}</BodyBold>
           </Body16>
-          <Body16>{selectedTime.local().format('HH:mm')}</Body16>
+          <SelectedText isActive={showTimePicker}>
+            {selectedTime.local().format('LT')}
+          </SelectedText>
         </Row>
+        {showTimePicker && (
+          <DateTimePicker
+            mode="time"
+            selectedValue={selectedTime}
+            setValue={setSelectedTime}
+            close={() => setShowTimePicker(false)}
+          />
+        )}
       </Wrapper>
-
-      {showPicker && (
-        <DateTimePicker
-          mode={mode}
-          selectedValue={mode === 'date' ? selectedDate : selectedTime}
-          setValue={mode === 'date' ? setSelectedDate : setSelectedTime}
-          close={() => setShowPicker(false)}
-          minimumDate={minimumDate}
-          maximumDate={maximumDate}
-        />
-      )}
     </>
   );
 };

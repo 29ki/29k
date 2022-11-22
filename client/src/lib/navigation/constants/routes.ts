@@ -13,17 +13,18 @@ export type SessionStackProps = {
   OutroPortal: undefined;
 };
 
+export type AppStackProps = {
+  KillSwitch: undefined;
+  Tabs: NavigatorScreenParams<TabNavigatorProps>;
+  SessionStack: NavigatorScreenParams<SessionStackProps>;
+};
+
 export type ModalStackProps = {
+  App: NavigatorScreenParams<AppStackProps>;
   SessionModal: {session: Session};
   SessionUnavailableModal: undefined;
   CreateSessionModal: undefined;
   UpgradeAccountModal: {code: string} | undefined;
   JoinSessionModal: {inviteCode?: number};
   AddSessionModal: undefined;
-};
-
-export type RootStackProps = ModalStackProps & {
-  KillSwitch: undefined;
-  Tabs: NavigatorScreenParams<TabNavigatorProps>;
-  SessionStack: NavigatorScreenParams<SessionStackProps>;
 };

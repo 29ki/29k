@@ -1,4 +1,6 @@
 import {CmsField} from 'netlify-cms-core';
+import {applyDefaults} from '../lib/fields';
+import defaults from '../defaults/exercise.json';
 
 import {COLORS} from '../../../shared/src/constants/colors';
 import {
@@ -17,32 +19,32 @@ import {
   SHARING_SLIDE,
 } from './slides';
 
-const INTRO_PORTAL: CmsField = {
-  label: 'Intro Portal',
+export const INTRO_PORTAL: CmsField = {
+  label: '🌇 Intro Portal',
   name: 'introPortal',
   widget: 'object',
   collapsed: true,
   required: false,
   i18n: true,
   fields: [
-    {...VIDEO_FIELD_WITH_AUDIO, label: 'Video Loop', name: 'videoLoop'},
-    {...VIDEO_FIELD, label: 'Video End', name: 'videoEnd'},
+    {...VIDEO_FIELD_WITH_AUDIO, label: '🎥 Video Loop', name: 'videoLoop'},
+    {...VIDEO_FIELD, label: '🎥 Video End', name: 'videoEnd'},
     HOST_NOTES,
   ],
 };
 
-const OUTRO_PORTAL: CmsField = {
-  label: 'Outro Portal',
+export const OUTRO_PORTAL: CmsField = {
+  label: '🌃 Outro Portal',
   name: 'outroPortal',
   widget: 'object',
   collapsed: true,
   required: false,
   i18n: true,
-  fields: [{...VIDEO_FIELD_WITH_AUDIO, label: 'Video', name: 'video'}],
+  fields: [VIDEO_FIELD_WITH_AUDIO],
 };
 
 const THEME: CmsField = {
-  label: 'Theme',
+  label: '🎨 Theme',
   name: 'theme',
   widget: 'object',
   collapsed: true,
@@ -50,11 +52,11 @@ const THEME: CmsField = {
   i18n: true,
   fields: [
     {
-      label: 'Text Color',
+      label: '㊗️ Text Color',
       name: 'textColor',
       widget: 'select',
       multiple: false,
-      i18n: 'duplicate',
+      i18n: true,
       default: COLORS.ACTION,
       options: [
         {label: 'Light', value: COLORS.WHITE},
@@ -63,30 +65,37 @@ const THEME: CmsField = {
       required: false,
     },
     {
-      label: 'Background Color',
+      label: '🔴 Background Color',
       name: 'backgroundColor',
       widget: 'color',
-      i18n: 'duplicate',
+      i18n: true,
       required: false,
     },
   ],
 };
 
-const EXERCISE_FIELDS: Array<CmsField> = [
-  ID_FIELD,
-  NAME_FIELD,
-  PUBLISHED_FIELD,
-  CARD_FIELD,
-  THEME,
-  INTRO_PORTAL,
-  OUTRO_PORTAL,
-  {
-    label: 'Slides',
-    name: 'slides',
-    widget: 'list',
-    i18n: true,
-    types: [CONTENT_SLIDE, REFLECTION_SLIDE, SHARING_SLIDE, HOST_SLIDE],
-  },
-];
+export const SLIDES: CmsField = {
+  label: '🖼️ Slides',
+  label_singular: '🖼️ Slide',
+  name: 'slides',
+  widget: 'list',
+  i18n: true,
+  summary: '{{fields.content.heading}}',
+  types: [CONTENT_SLIDE, REFLECTION_SLIDE, SHARING_SLIDE, HOST_SLIDE],
+};
+
+const EXERCISE_FIELDS: Array<CmsField> = applyDefaults(
+  [
+    ID_FIELD,
+    NAME_FIELD,
+    PUBLISHED_FIELD,
+    CARD_FIELD,
+    THEME,
+    INTRO_PORTAL,
+    OUTRO_PORTAL,
+    SLIDES,
+  ],
+  defaults,
+);
 
 export default EXERCISE_FIELDS;

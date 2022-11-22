@@ -11,7 +11,7 @@ import Input from '../../../common/components/Typography/TextInput/TextInput';
 import {Body16, Body18} from '../../../common/components/Typography/Body/Body';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {RootStackProps} from '../../../lib/navigation/constants/routes';
+import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import useUser from '../../../lib/user/hooks/useUser';
 import useChangeProfileInfo from '../hooks/useChangeProfileInfo';
 import ProfilePicture from '../../../common/components/User/ProfilePicture';
@@ -43,7 +43,8 @@ type CurrentUserProps = {
 
 const CurrentUser: React.FC<CurrentUserProps> = ({isPublicHost = false}) => {
   const {t} = useTranslation('Screen.Profile');
-  const {navigate} = useNavigation<NativeStackNavigationProp<RootStackProps>>();
+  const {navigate} =
+    useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const user = useUser();
   const {changeProfilePicture} = useChangeProfileInfo();
   const [email, setEmail] = useState('');

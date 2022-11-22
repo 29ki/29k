@@ -44,7 +44,7 @@ const TabBar: React.FC<BottomTabBarProps> = ({
   </>
 );
 
-const tabBarOptions: BottomTabNavigationOptions = {
+const screenOptions: BottomTabNavigationOptions = {
   headerShown: false,
   tabBarShowLabel: true,
   tabBarHideOnKeyboard: Platform.select({android: true, ios: false}),
@@ -75,7 +75,7 @@ const getTabOptions: (
 const Tabs = () => {
   const {t} = useTranslation('Component.Tabs');
   return (
-    <Tab.Navigator screenOptions={tabBarOptions} tabBar={TabBar}>
+    <Tab.Navigator screenOptions={screenOptions} tabBar={TabBar}>
       <Tab.Screen
         name={'Sessions'}
         component={Sessions}

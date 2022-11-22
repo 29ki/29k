@@ -15,11 +15,14 @@ import {
   ShareIcon,
 } from '../../common/components/Icons';
 import Image from '../../common/components/Image/Image';
-import HalfModal from '../../common/components/Modals/HalfModal';
+import SheetModal from '../../common/components/Modals/SheetModal';
 import {Spacer16, Spacer8} from '../../common/components/Spacers/Spacer';
 import {Display24} from '../../common/components/Typography/Display/Display';
 import {COLORS} from '../../../../shared/src/constants/colors';
-import {RootStackProps} from '../../lib/navigation/constants/routes';
+import {
+  ModalStackProps,
+  AppStackProps,
+} from '../../lib/navigation/constants/routes';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import useAddToCalendar from '../Sessions/hooks/useAddToCalendar';
 import useSessionNotificationReminder from '../Sessions/hooks/useSessionNotificationReminder';
@@ -28,6 +31,7 @@ import {Body14} from '../../common/components/Typography/Body/Body';
 import useUser from '../../lib/user/hooks/useUser';
 import Byline from '../../common/components/Bylines/Byline';
 import {formatInviteCode} from '../../common/utils/string';
+import * as metrics from '../../lib/metrics';
 
 const Content = styled(Gutters)({
   flexDirection: 'row',
@@ -50,10 +54,10 @@ const DeleteButton = styled(IconButton)({
 const SessionModal = () => {
   const {
     params: {session},
-  } = useRoute<RouteProp<RootStackProps, 'SessionModal'>>();
+  } = useRoute<RouteProp<ModalStackProps, 'SessionModal'>>();
   const {t} = useTranslation('Modal.Session');
   const user = useUser();
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackProps>>();
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
   const {deleteSession} = useSessions();
   const addToCalendar = useAddToCalendar();
   const exercise = useExerciseById(session?.contentId);
@@ -75,17 +79,40 @@ const SessionModal = () => {
         sessionId: session.id,
       },
     });
+    metrics.logEvent('Join Session', {
+      'Session Exercise ID': session.contentId,
+      'Session Language': session.language,
+      'Session Type': session.type,
+      'Session Start Time': session.startTime,
+    });
   };
 
-  const onAddToCalendar = () =>
+  const onAddToCalendar = () => {
     addToCalendar(
       exercise.name,
       session.link,
       startTime,
       startTime.add(30, 'minutes'),
     );
+    metrics.logEvent('Add Session To Calendar', {
+      'Session Exercise ID': session.contentId,
+      'Session Language': session.language,
+      'Session Type': session.type,
+      'Session Start Time': session.startTime,
+    });
+  };
 
-  const onToggleReminder = () => toggleReminder(!reminderEnabled);
+  const onToggleReminder = () => {
+    toggleReminder(!reminderEnabled);
+    if (!reminderEnabled) {
+      metrics.logEvent('Add Session Reminder', {
+        'Session Exercise ID': session.contentId,
+        'Session Language': session.language,
+        'Session Type': session.type,
+        'Session Start Time': session.startTime,
+      });
+    }
+  };
 
   const onShare = () => {
     if (session.link) {
@@ -109,14 +136,14 @@ const SessionModal = () => {
 
         onPress: async () => {
           await deleteSession(session.id);
-          navigation.goBack();
+          navigation.popToTop();
         },
       },
     ]);
   };
 
   return (
-    <HalfModal>
+    <SheetModal>
       <Spacer16 />
       <Content>
         <View>
@@ -185,7 +212,7 @@ const SessionModal = () => {
           <DeleteButton small onPress={onDelete} Icon={DeleteIcon} />
         )}
       </BottomContent>
-    </HalfModal>
+    </SheetModal>
   );
 };
 

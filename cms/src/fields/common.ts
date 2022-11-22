@@ -1,7 +1,12 @@
 import {CmsField, CmsFieldBase, CmsFieldObject} from 'netlify-cms-core';
+import {
+  CLOUDINARY_AUDIO_CONFIG,
+  CLOUDINARY_IMAGE_CONFIG,
+  CLOUDINARY_VIDEO_CONFIG,
+} from './constants';
 
 export const ID_FIELD: CmsField = {
-  label: 'ID',
+  label: '🆔',
   name: 'id',
   widget: 'uniqueId',
   i18n: 'duplicate',
@@ -11,7 +16,7 @@ export const ID_FIELD: CmsField = {
 };
 
 export const PUBLISHED_FIELD: CmsField = {
-  label: 'Published',
+  label: '📢 Published',
   name: 'published',
   widget: 'boolean',
   required: true,
@@ -20,14 +25,14 @@ export const PUBLISHED_FIELD: CmsField = {
 };
 
 export const NAME_FIELD: CmsField = {
-  label: 'Name',
+  label: '📇 Name',
   name: 'name',
   i18n: true,
   widget: 'string',
 };
 
 export const IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
-  label: 'Image',
+  label: '🌅 Image',
   name: 'image',
   widget: 'object',
   collapsed: true,
@@ -35,24 +40,26 @@ export const IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
   i18n: true,
   fields: [
     {
-      label: 'Description',
+      label: '📃 Description',
       name: 'description',
       widget: 'string',
       required: false,
       i18n: true,
     },
     {
-      label: 'Image file',
+      label: '🌅 Image file',
       name: 'source',
       widget: 'image',
       required: false,
       i18n: true,
+      allow_multiple: false,
+      media_library: CLOUDINARY_IMAGE_CONFIG,
     },
   ],
 };
 
 export const VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
-  label: 'Video',
+  label: '🎥 Video',
   name: 'video',
   widget: 'object',
   collapsed: true,
@@ -60,35 +67,41 @@ export const VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
   i18n: true,
   fields: [
     {
-      label: 'Description',
+      label: '📃 Description',
       name: 'description',
       widget: 'string',
       required: false,
       i18n: true,
     },
     {
-      label: 'Video file',
+      label: '🎥 Video file',
       name: 'source',
       widget: 'file',
       required: false,
       i18n: true,
+      allow_multiple: false,
+      media_library: CLOUDINARY_VIDEO_CONFIG,
     },
     {
-      label: 'Preview image',
+      label: '🌅 Preview image',
       name: 'preview',
       widget: 'image',
       required: false,
-      i18n: false,
+      i18n: true,
+      allow_multiple: false,
+      media_library: CLOUDINARY_IMAGE_CONFIG,
     },
   ],
 };
 
 const AUDIO_FIELD: CmsField = {
-  label: 'Audio file',
+  label: '🔈 Audio file',
   name: 'audio',
   widget: 'file',
   required: false,
-  i18n: false,
+  i18n: true,
+  allow_multiple: false,
+  media_library: CLOUDINARY_AUDIO_CONFIG,
 };
 
 export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
@@ -103,7 +116,7 @@ export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
 };
 
 export const CARD_FIELD: CmsFieldBase & CmsFieldObject = {
-  label: 'Card',
+  label: '🪪 Card',
   name: 'card',
   i18n: true,
   widget: 'object',

@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {COLORS} from '../../../../../shared/src/constants/colors';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
-import {SPACINGS} from '../../constants/spacings';
-import {BellIcon} from '../Icons';
+import Badge from '../Badge/Badge';
+import {BellIcon, PlusIcon, PrivateIcon, PublicIcon} from '../Icons';
 import {Spacer16, Spacer4} from '../Spacers/Spacer';
-import {Body14, Body18, BodyBold} from '../Typography/Body/Body';
+import {Body14} from '../Typography/Body/Body';
 import Card from './Card';
 
 const lottieSource = require('../../../assets/animations/mandala.json');
@@ -14,79 +13,69 @@ const Row = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
 });
-const Badge = styled.View({
-  backgroundColor: COLORS.PURE_WHITE,
-  paddingVertical: SPACINGS.FOUR,
-  paddingHorizontal: SPACINGS.EIGHT,
-  borderRadius: SPACINGS.EIGHT,
-});
 
 export const AllCards = () => (
   <ScreenWrapper>
     <Card
-      title="Title"
-      description="And description"
+      title="A nice title"
+      hostPictureURL="https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
+      hostName="with Jenny Johansson"
       image={{
-        uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
+        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
       buttonText="Join"
-      onPress={() => console.log('Session Card!')}
+      onPress={() => {}}
+      ButtonIcon={PlusIcon}
     />
     <Spacer16 />
     <Card
-      title="Only title and animation"
+      title="A longer title and animation"
       lottie={lottieSource}
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
       }}
       buttonText="Go dance!"
-      onPress={() => console.log('Session Card!')}
+      onPress={() => {}}
     />
     <Spacer16 />
 
     <Card
       title="With reminder and menu"
       image={{
-        uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
+        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
       buttonText="Go dance!"
-      onPress={() => console.log('Session Card!')}
+      onPress={() => {}}
       onContextPress={() => {}}
       Icon={BellIcon}
     />
     <Spacer16 />
     <Card
-      title="Test session"
-      description="With description"
+      title="Private session starts soon"
       image={{
-        uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
+        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
       buttonText="Join"
-      onPress={() => console.log('Session Card!')}
+      onPress={() => {}}
       onContextPress={() => {}}>
       <Row>
-        <Body14>{'Starts'}</Body14>
         <Spacer4 />
-        <Badge>
-          <Body14>
-            <BodyBold>
-              <Body14>{'Today 12:43'}</Body14>
-            </BodyBold>
-          </Body14>
-        </Badge>
+        <Badge text="03:43s" Icon={<PrivateIcon />} />
       </Row>
     </Card>
     <Spacer16 />
     <Card
-      title="Title with icon ➡️"
-      description="Custom"
+      title="Session starts in 24h"
       image={{
-        uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
+        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
-      buttonText="Go dance!"
-      onPress={() => console.log('Session Card!')}>
-      <Body18>Can have custom content</Body18>
-      <Body18>Go crazy</Body18>
+      onPress={() => {}}
+      onContextPress={() => {}}>
+      <Row>
+        <Body14>{'Starts in'}</Body14>
+        <Spacer4 />
+        <Badge text="12:43" Icon={<PublicIcon />} />
+      </Row>
     </Card>
   </ScreenWrapper>
 );
