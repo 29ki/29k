@@ -166,6 +166,8 @@ const IntroPortal: React.FC = () => {
     }
   };
 
+  console.log('RENDER');
+
   return (
     <Screen>
       {!isHost && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
@@ -196,7 +198,7 @@ const IntroPortal: React.FC = () => {
           onLoad={onLoopVideoLoad}
           onEnd={onLoopVideoEnd}
           paused={!isFocused}
-          repeat
+          repeat={!session?.started}
           source={{uri: introPortal.videoLoop?.source}}
           resizeMode="cover"
           poster={introPortal.videoLoop?.preview}

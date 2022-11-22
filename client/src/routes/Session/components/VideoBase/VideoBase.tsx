@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import RNVideo, {VideoProperties} from 'react-native-video';
-import {Platform} from 'react-native';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 
 type CommonProps =
@@ -18,9 +17,7 @@ export const VideoBase = React.forwardRef<
     <RNVideo
       {...props}
       mixWithOthers="mix"
-      ignoreSilentSwitch={Platform.select({
-        ios: 'ignore',
-      })}
+      ignoreSilentSwitch="ignore"
       playInBackground
       playWhenInactive
       allowsExternalPlayback={true}
