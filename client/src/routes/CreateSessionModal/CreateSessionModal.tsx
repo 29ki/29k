@@ -1,8 +1,7 @@
-import {useNavigation} from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import dayjs from 'dayjs';
 import React, {Dispatch, SetStateAction, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {FlatList} from 'react-native-gesture-handler';
 import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
 
@@ -16,7 +15,7 @@ import useSessions from '../Sessions/hooks/useSessions';
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import Image from '../../common/components/Image/Image';
-import HalfModal from '../../common/components/Modals/HalfModal';
+import SheetModal from '../../common/components/Modals/SheetModal';
 import {
   Spacer16,
   Spacer24,
@@ -28,7 +27,7 @@ import {
   Display16,
   Display24,
 } from '../../common/components/Typography/Display/Display';
-import {Heading16} from '../../common/components/Typography/Heading/Heading';
+import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import SETTINGS from '../../common/constants/settings';
 import {SPACINGS} from '../../common/constants/spacings';
@@ -38,16 +37,13 @@ import {LANGUAGE_TAG} from '../../lib/i18n';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {BottomSheetFlatList, useBottomSheet} from '@gorhom/bottom-sheet';
 import ProfileInfo from '../../common/components/ProfileInfo/ProfileInfo';
 import useUser from '../../lib/user/hooks/useUser';
 
 const Row = styled.View({
   flexDirection: 'row',
   paddingHorizontal: SPACINGS.EIGHT,
-});
-
-const Content = styled(Gutters)({
-  flexDirection: 'row',
 });
 
 const Card = styled(TouchableOpacity)({
@@ -71,10 +67,6 @@ const TextWrapper = styled.View({
   paddingVertical: SPACINGS.SIXTEEN,
 });
 
-const StepHeading = styled(Heading16)({
-  alignSelf: 'center',
-});
-
 const Step = styled(Animated.View).attrs({
   entering: FadeIn.duration(300),
   exiting: FadeOut.duration(300),
@@ -96,31 +88,29 @@ const ContentCard: React.FC<{
   const exercise = useExerciseById(exerciseId);
 
   return (
-    <Card onPress={onPress}>
-      <TextWrapper>
-        <Display16>{exercise?.name}</Display16>
-      </TextWrapper>
-      <Spacer16 />
-      <CardImageWrapper>
-        <Image source={{uri: exercise?.card?.image?.source}} />
-      </CardImageWrapper>
-    </Card>
+    <Gutters>
+      <Card onPress={onPress}>
+        <TextWrapper>
+          <Display16>{exercise?.name}</Display16>
+        </TextWrapper>
+        <Spacer16 />
+        <CardImageWrapper>
+          <Image source={{uri: exercise?.card?.image?.source}} />
+        </CardImageWrapper>
+      </Card>
+    </Gutters>
   );
 };
-
-const UpdateProfileContainer = styled.View({flex: 1});
-
-const UpdateProfileHeading = styled(Body16)({textAlign: 'center'});
 
 const UpdateProfile: React.FC<StepProps> = () => {
   const {t} = useTranslation('Modal.CreateSession');
   return (
-    <UpdateProfileContainer>
+    <Gutters>
       <Spacer16 />
-      <UpdateProfileHeading>{t('profile.text')}</UpdateProfileHeading>
+      <ModalHeading>{t('profile.text')}</ModalHeading>
       <Spacer16 />
       <ProfileInfo />
-    </UpdateProfileContainer>
+    </Gutters>
   );
 };
 
@@ -134,15 +124,14 @@ const SelectContent: React.FC<StepProps> = ({
 
   return (
     <Step>
-      <Spacer24 />
-      <FlatList
+      <BottomSheetFlatList
         ListHeaderComponent={
           <>
-            <StepHeading>{t('selectContent.title')}</StepHeading>
+            <ModalHeading>{t('selectContent.title')}</ModalHeading>
             <Spacer16 />
           </>
         }
-        keyExtractor={id => id}
+        focusHook={useIsFocused}
         data={exerciseIds}
         ItemSeparatorComponent={Spacer16}
         renderItem={({item}) => (
@@ -183,38 +172,41 @@ const SelectType: React.FC<StepProps> = ({
 
   return (
     <Step>
-      <Spacer8 />
-      <Row>
-        <TextWrapper>
-          <Display24>{exercise?.name}</Display24>
-        </TextWrapper>
+      <Gutters>
+        <Spacer8 />
+        <Row>
+          <TextWrapper>
+            <Display24>{exercise?.name}</Display24>
+          </TextWrapper>
+          <Spacer16 />
+          <CardImageWrapper>
+            <Image source={{uri: exercise?.card?.image?.source}} />
+          </CardImageWrapper>
+        </Row>
+        <Spacer28 />
+        <ModalHeading>{t('selectType.title')}</ModalHeading>
         <Spacer16 />
-        <CardImageWrapper>
-          <Image source={{uri: exercise?.card?.image?.source}} />
-        </CardImageWrapper>
-      </Row>
-      <Spacer28 />
-      <StepHeading>{t('selectType.title')}</StepHeading>
-      <Spacer16 />
-      <Row>
-        {Object.values(SessionType).map(type => (
-          <TypeItem
-            key={type}
-            onPress={() => {
-              setSelectedType(type);
-              nextStep();
-            }}
-            label={t(`selectType.${type}.title`)}
-            icon={t(`selectType.${type}.icon`)}
-          />
-        ))}
-      </Row>
+        <Row>
+          {Object.values(SessionType).map(type => (
+            <TypeItem
+              key={type}
+              onPress={() => {
+                setSelectedType(type);
+                nextStep();
+              }}
+              label={t(`selectType.${type}.title`)}
+              icon={t(`selectType.${type}.icon`)}
+            />
+          ))}
+        </Row>
+      </Gutters>
     </Step>
   );
 };
 
 const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
   const {t, i18n} = useTranslation('Modal.CreateSession');
+  const {expand, collapse} = useBottomSheet();
   const {goBack, navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
   const [isLoading, setIsLoading] = useState(false);
@@ -242,31 +234,34 @@ const SetDateTime: React.FC<StepProps> = ({selectedExercise, selectedType}) => {
 
   return (
     <Step>
-      <Spacer8 />
-      <Row>
-        <TextWrapper>
-          <Display24>{exercise?.name}</Display24>
-        </TextWrapper>
+      <Gutters>
+        <Spacer8 />
+        <Row>
+          <TextWrapper>
+            <Display24>{exercise?.name}</Display24>
+          </TextWrapper>
+          <Spacer16 />
+          <CardImageWrapper>
+            <Image source={{uri: exercise?.card?.image?.source}} />
+          </CardImageWrapper>
+        </Row>
+        <Spacer28 />
+        <ModalHeading>{t('setDateTime.title')}</ModalHeading>
         <Spacer16 />
-        <CardImageWrapper>
-          <Image source={{uri: exercise?.card?.image?.source}} />
-        </CardImageWrapper>
-      </Row>
-      <Spacer28 />
-      <StepHeading>{t('setDateTime.title')}</StepHeading>
-      <Spacer16 />
-      <DateTimePicker
-        minimumDate={dayjs().local()}
-        onChange={(selectedDate, selectedTime) => {
-          setDate(selectedDate);
-          setTime(selectedTime);
-        }}
-      />
-      <Spacer16 />
-      <Cta variant="secondary" small onPress={onSubmit} disabled={isLoading}>
-        {t('setDateTime.cta')}
-      </Cta>
-      <Spacer16 />
+        <DateTimePicker
+          minimumDate={dayjs().local()}
+          onChange={(selectedDate, selectedTime) => {
+            setDate(selectedDate);
+            setTime(selectedTime);
+          }}
+          onToggle={expanded => (expanded ? expand() : collapse())}
+        />
+        <Spacer16 />
+        <Cta variant="secondary" small onPress={onSubmit} disabled={isLoading}>
+          {t('setDateTime.cta')}
+        </Cta>
+        <Spacer16 />
+      </Gutters>
     </Step>
   );
 };
@@ -314,12 +309,10 @@ const CreateSessionModal = () => {
   };
 
   return (
-    <HalfModal
+    <SheetModal
       backgroundColor={currentStep === 0 ? COLORS.WHITE : COLORS.CREAM}>
-      <Content>
-        <CurrentStepComponent {...stepProps} />
-      </Content>
-    </HalfModal>
+      <CurrentStepComponent {...stepProps} />
+    </SheetModal>
   );
 };
 

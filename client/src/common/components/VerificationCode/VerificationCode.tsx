@@ -1,12 +1,12 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react';
 import {
   NativeSyntheticEvent,
-  TextInput,
   TextInputKeyPressEventData,
   TouchableOpacity,
 } from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
-import Input from '../Typography/TextInput/TextInput';
+import {BottomSheetTextInput} from '../Typography/TextInput/TextInput';
+import {TextInput} from 'react-native-gesture-handler';
 
 import styled from 'styled-components/native';
 import Button from '../Buttons/Button';
@@ -20,7 +20,7 @@ const Row = styled.View({
   justifyContent: 'space-around',
 });
 
-const Cell = styled(Input).attrs({
+const Cell = styled(BottomSheetTextInput).attrs({
   keyboardType: 'numeric',
   autoCorrect: false,
   maxLength: 1,

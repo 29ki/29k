@@ -79,13 +79,20 @@ const apiClient = async (input: string, init?: RequestInit | undefined) => {
 
   const response = await doFetch();
 
-  if (response.status === 401 || response.status === 403) {
+  /*
+    Please note that 403 Forbidden is used by kill switch to deny access to
+    the app and should not be used for user (re)authentication purposes
+  */
+
+  // 401 Unauthorized - no user detected at all
+  if (response.status === 401) {
     await recreateUser();
     return await doFetch();
   }
 
-  // TODO: Handle this with asking the user to reauthenticate if not anonymous
-  if (response.status === 403) {
+  // TODO: Handle this by asking the user to reauthenticate if not anonymous
+  // 400 Bad Request - probably have been authenticated before but now revoked
+  if (response.status === 400) {
     await recreateUser();
     return await doFetch();
   }

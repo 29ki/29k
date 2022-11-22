@@ -20,37 +20,31 @@ import {
 } from './slides';
 
 export const INTRO_PORTAL: CmsField = {
-  label: 'Intro Portal',
+  label: '🌇 Intro Portal',
   name: 'introPortal',
   widget: 'object',
   collapsed: true,
   required: false,
   i18n: true,
   fields: [
-    {...VIDEO_FIELD_WITH_AUDIO, label: 'Video Loop', name: 'videoLoop'},
-    {...VIDEO_FIELD, label: 'Video End', name: 'videoEnd'},
+    {...VIDEO_FIELD_WITH_AUDIO, label: '🎥 Video Loop', name: 'videoLoop'},
+    {...VIDEO_FIELD, label: '🎥 Video End', name: 'videoEnd'},
     HOST_NOTES,
   ],
 };
 
 export const OUTRO_PORTAL: CmsField = {
-  label: 'Outro Portal',
+  label: '🌃 Outro Portal',
   name: 'outroPortal',
   widget: 'object',
   collapsed: true,
   required: false,
   i18n: true,
-  fields: [
-    {
-      ...VIDEO_FIELD_WITH_AUDIO,
-      label: 'Video',
-      name: 'video',
-    },
-  ],
+  fields: [VIDEO_FIELD_WITH_AUDIO],
 };
 
 const THEME: CmsField = {
-  label: 'Theme',
+  label: '🎨 Theme',
   name: 'theme',
   widget: 'object',
   collapsed: true,
@@ -58,7 +52,7 @@ const THEME: CmsField = {
   i18n: true,
   fields: [
     {
-      label: 'Text Color',
+      label: '㊗️ Text Color',
       name: 'textColor',
       widget: 'select',
       multiple: false,
@@ -71,7 +65,7 @@ const THEME: CmsField = {
       required: false,
     },
     {
-      label: 'Background Color',
+      label: '🔴 Background Color',
       name: 'backgroundColor',
       widget: 'color',
       i18n: true,
@@ -81,10 +75,12 @@ const THEME: CmsField = {
 };
 
 export const SLIDES: CmsField = {
-  label: 'Slides',
+  label: '🖼️ Slides',
+  label_singular: '🖼️ Slide',
   name: 'slides',
   widget: 'list',
   i18n: true,
+  summary: '{{fields.content.heading}}',
   types: [CONTENT_SLIDE, REFLECTION_SLIDE, SHARING_SLIDE, HOST_SLIDE],
 };
 

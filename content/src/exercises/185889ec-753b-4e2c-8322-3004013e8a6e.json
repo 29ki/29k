@@ -1,11 +1,158 @@
 {
   "en": {
+    "published": true,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#ffffff"
+    },
+    "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
+    "name": "Be kind to yourself",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "`Start the session when you're ready to go`"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043755/Video/portal1_Be_kind_to_yourself_u6lvok.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043748/Video/portal2_Be_kind_to_yourself_rahxff.mp4"
+      }
+    },
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome to this session, hosted by me, x.\n\nI am so happy you choose to join us at 29k here today.  \\\n\\\nWe will work for around 30 minutes on connecting with- and being kind to ourselves.\n\nWe’ll be doing some reflection exercises and there will be opportunities to share those reflections with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in.\n\nHow are you feeling right now? Please answer in two-three words.\n\nX, would you like to start and then hand over to someone else when you are done?\n\n`Let everyone in the session check in one by one.`\n\nThank you all for checking in.\n\nNow let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Imagine that you took out a pair of clothespins. Next, you grab the voice within yourself and \"lift it out\", so that there’s now a person in front of you. That person is saying all the things you usually say to yourself when something has gone wrong, or when you have failed.\n\nThink about it: How long would you stand talking to this person?"
+          },
+          {
+            "text": "There's a high probability that you'd want to get out of there as fast as possible.\n\nHow is it that we humans are usually much tougher on ourselves than we are on others?"
+          },
+          {
+            "text": "In this exercise we will be practicing self-compassion - learning to become less self-critical and instead be kinder to oneself.\n\nResearch has shown that it can increase happiness and motivation, and reduce anxiety and depressive symptoms."
+          }
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043753/Video/content_Be_kind_to_yourself_qfhuch.mp4",
+            "autoPlayLoop": true
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 2 minutes to reflect on our own.\n\nThink of a situation when you felt down. When you failed at something and doubted yourself. How do you usually react to and treat yourself in such situations? What do you say to yourself? What tone do you use?"
+          },
+          {
+            "text": "If you want to, you can take notes on a piece of paper or just mental notes in your head. And remember, there is no right or wrong here, our answers are our own.\n\n2 minutes starting now.\n\n`Push play to start the timer.`\n\nOkay, that’s 2 minutes and it’s time to move on."
+          }
+        ],
+        "content": {
+          "heading": "What do you say to yourself?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "content": {
+          "heading": "What do you say to yourself?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part of this exercise. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **Your job as a participant is just to listen.** There is no fixing, helping or advice-giving needed in this space. We are just showing up and trying to understand what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights, it just is.\n\nThere will be a timer set for 2 minutes as an indicator but you use as much or little time as you want to. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "X, would you like to start? \n\n`Let everyone (or as many as you got time for) share one by one.`\n\n`Push play to start the timer. Re-start for each new sharing. `\n\nThank you so much for sharing your thoughts and feelings with us here today."
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "content": {
+          "heading": "What would you say to a friend?",
+          "video": {
+            "durationTimer": false,
+            "autoPlayLoop": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043755/Video/sharing2_Be_kind_to_yourself_bu0qwe.mp4"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "One way to practice self-compassion is by taking a different perspective.\n\nThink about how you react when a friend is feeling down, is putting themselves down or perhaps is doubting their ability. \n\nHow do you usually react? What do you say or do? What tone do you use?"
+          },
+          {
+            "text": "If you want to, you can take notes on a piece of paper or just mental notes in your head. And remember, there is no right or wrong here, our answers are our own.\n\n2 minutes starting now.\n\n`Push play to start the timer.`\n\nOkay, that’s 2 minutes and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "content": {
+          "heading": "What would you say to a friend?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Time to share again.\n\nX, would you like to start?\n\n`Let everyone (or as many as you got time for) share one by one.`\n\n`Push play to start the timer. Re-start for each new sharing.`\n\nThank you so much for sharing."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Well done. I would like to send you off with a little mission if you’re up for it.\n\nIn the coming days, see if you can try to be kinder to yourself. Especially in difficult situations! \n\nUse the idea of clothespins and start by becoming aware of what your inner voice sounds like. Next, see if you can choose to talk and react to yourself in the same way you would if it were a friend. Notice how it makes you feel."
+          },
+          {
+            "text": "Thank you for joining us here today. If you have any reflections or feedback for us at 29k, please let us know. Wishing you all a lovely day.\n\nBye."
+          }
+        ],
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043696/Images/mission_Be_kind_to_yourself_ip8nwy.png"
+          }
+        }
+      }
+    ],
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
+      }
+    }
+  },
+  "pt": {
     "published": false,
     "theme": {
       "textColor": "#2AE2D7"
     },
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
-    "name": "Be kind to yourself",
+    "name": "Be kind to yourself xxx",
     "introPortal": {
       "hostNotes": [
         {
@@ -123,13 +270,6 @@
     ]
   },
   "sv": {
-    "published": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "id": "185889ec-753b-4e2c-8322-3004013e8a6e"
-  },
-  "pt": {
     "published": false,
     "theme": {
       "textColor": "#2AE2D7"
