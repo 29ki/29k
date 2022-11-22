@@ -144,6 +144,56 @@ describe('apiClient', () => {
     });
   });
 
+  it('recreates user when server responds with 400 and calls server again', async () => {
+    (auth().currentUser?.getIdToken as jest.Mock).mockResolvedValueOnce(
+      'some-authorization-token',
+    );
+    fetchMock.mockResolvedValueOnce({status: 400} as Response);
+
+    await apiClient('/some-path');
+
+    expect(auth().currentUser?.getIdToken).toHaveBeenCalledTimes(2);
+    expect(auth().currentUser?.getIdToken).toHaveBeenCalledWith();
+
+    expect(auth().signOut).toHaveBeenCalledTimes(1);
+    expect(auth().signInAnonymously).toHaveBeenCalledTimes(1);
+
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept-Language': 'en',
+        'X-Correlation-ID': expect.any(String),
+        Authorization: 'bearer some-authorization-token',
+      },
+    });
+  });
+
+  it('does not recreate the user when server responds with 403 Forbidden', async () => {
+    (auth().currentUser?.getIdToken as jest.Mock).mockResolvedValueOnce(
+      'some-authorization-token',
+    );
+    fetchMock.mockResolvedValueOnce({status: 403} as Response);
+
+    await apiClient('/some-path');
+
+    expect(auth().currentUser?.getIdToken).toHaveBeenCalledTimes(1);
+    expect(auth().currentUser?.getIdToken).toHaveBeenCalledWith();
+
+    expect(auth().signOut).toHaveBeenCalledTimes(0);
+    expect(auth().signInAnonymously).toHaveBeenCalledTimes(0);
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept-Language': 'en',
+        'X-Correlation-ID': expect.any(String),
+        Authorization: 'bearer some-authorization-token',
+      },
+    });
+  });
+
   it('does not run user recreation in parallel', async () => {
     (auth().currentUser?.getIdToken as jest.Mock).mockResolvedValue(
       'some-authorization-token',
