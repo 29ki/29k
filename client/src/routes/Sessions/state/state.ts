@@ -1,9 +1,9 @@
-import {Session} from '../../../../../shared/src/types/Session';
+import {SessionWithHostProfile} from '../../../../../shared/src/types/Session';
 import create from 'zustand';
 
 type State = {
   isLoading: boolean;
-  sessions: Session[] | null;
+  sessions: SessionWithHostProfile[] | null;
 };
 
 type Actions = {

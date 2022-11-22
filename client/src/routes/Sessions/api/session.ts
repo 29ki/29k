@@ -1,4 +1,8 @@
-import {ExerciseState, Session} from '../../../../../shared/src/types/Session';
+import {
+  ExerciseState,
+  Session,
+  SessionWithHostProfile,
+} from '../../../../../shared/src/types/Session';
 import apiClient from '../../../lib/apiClient/apiClient';
 
 const SESSIONS_ENDPOINT = '/sessions';
@@ -13,7 +17,7 @@ export const addSession = async ({
   type: Session['type'];
   startTime: Session['startTime'];
   language: Session['language'];
-}): Promise<Session> => {
+}): Promise<SessionWithHostProfile> => {
   try {
     const response = await apiClient(SESSIONS_ENDPOINT, {
       method: 'POST',
@@ -52,7 +56,7 @@ export const updateSession = async (
 
 export const joinSession = async (
   inviteCode: Session['inviteCode'],
-): Promise<Session> => {
+): Promise<SessionWithHostProfile> => {
   const response = await apiClient(`${SESSIONS_ENDPOINT}/joinSession`, {
     method: 'PUT',
     body: JSON.stringify({inviteCode}),

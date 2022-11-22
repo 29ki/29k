@@ -7,43 +7,52 @@ export enum SessionType {
   private = 'private',
 }
 
-// Data stored in DB
-export type ExerciseStateData = Omit<ExerciseState, 'timestamp'> & {
-  timestamp: Timestamp;
-};
-
-export type SessionData = Omit<Session, 'exerciseState' | 'startTime'> & {
-  exerciseState: ExerciseStateData;
-  startTime: Timestamp;
-  createdAt: Timestamp;
-  updatedAt: Timestamp;
-};
-
-// Applicaton schema
-export type ExerciseState = {
+type ExerciseStateFields = {
   index: number;
   playing: boolean;
   dailySpotlightId?: string;
-  timestamp: string;
 };
 
-export type Session = {
+type SessionFields = {
   id: string;
   url: string;
   language: LANGUAGE_TAG;
   link?: string;
-  exerciseState: ExerciseState;
   contentId: string;
   inviteCode: number;
-  hostProfile: UserProfile;
   hostId: string;
-  startTime: string;
   started: boolean;
   ended: boolean;
   type: SessionType;
   userIds: string[];
+};
+
+// Data stored in DB
+export type ExerciseStateData = ExerciseStateFields & {
+  timestamp: Timestamp;
+};
+
+export type SessionData = SessionFields & {
+  startTime: Timestamp;
+  createdAt: Timestamp;
+  updatedAt: Timestamp;
+  exerciseState: ExerciseStateData;
+};
+
+// Applicaton schema
+export type ExerciseState = ExerciseStateFields & {
+  timestamp: string;
+};
+
+export type Session = SessionFields & {
+  startTime: string;
   createdAt: string;
   updatedAt: string;
+  exerciseState: ExerciseState;
+};
+
+export type SessionWithHostProfile = Session & {
+  hostProfile: UserProfile;
 };
 
 export type DailyUserData = {

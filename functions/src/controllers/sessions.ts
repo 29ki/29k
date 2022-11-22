@@ -3,17 +3,24 @@ import {createSessionInviteLink} from '../models/dynamicLinks';
 import * as sessionModel from '../models/session';
 import {getPublicUserInfo} from '../models/user';
 import * as dailyApi from '../lib/dailyApi';
-import {Session} from '../../../shared/src/types/Session';
+import {
+  Session,
+  SessionWithHostProfile,
+} from '../../../shared/src/types/Session';
 import {JoinSessionError} from '../../../shared/src/errors/Session';
 import {ExerciseStateUpdate, UpdateSession} from '../api/sessions';
 import {generateVerificationCode, removeEmpty} from '../lib/utils';
 import {RequestError} from './errors/RequestError';
 
-const mapSession = async (session: Session) => {
+const mapSession = async (
+  session: Session,
+): Promise<SessionWithHostProfile> => {
   return {...session, hostProfile: await getPublicUserInfo(session.hostId)};
 };
 
-export const getSessions = async (userId: string): Promise<Array<Session>> => {
+export const getSessions = async (
+  userId: string,
+): Promise<SessionWithHostProfile[]> => {
   const sessions = await sessionModel.getSessions(userId);
   return Promise.all(sessions.map(mapSession));
 };

@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import dayjs from 'dayjs';
 import styled from 'styled-components/native';
 
-import {Session} from '../../../../../../shared/src/types/Session';
+import {SessionWithHostProfile} from '../../../../../../shared/src/types/Session';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import useSessionNotificationReminder from '../../../../routes/Sessions/hooks/useSessionNotificationReminder';
 import {
@@ -26,7 +26,7 @@ const Row = styled.View({
 });
 
 type SessionCardProps = {
-  session: Session;
+  session: SessionWithHostProfile;
 };
 
 const SessionCard: React.FC<SessionCardProps> = ({session}) => {

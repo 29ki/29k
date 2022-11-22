@@ -9,7 +9,10 @@ import {useNavigation} from '@react-navigation/native';
 
 import useSessions from './hooks/useSessions';
 
-import {Session} from '../../../../shared/src/types/Session';
+import {
+  Session,
+  SessionWithHostProfile,
+} from '../../../../shared/src/types/Session';
 
 import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
 import {COLORS} from '../../../../shared/src/constants/colors';
@@ -86,7 +89,9 @@ const Sessions = () => {
     fetchSessions();
   }, [fetchSessions]);
 
-  const renderSession = ({item}: ListRenderItemInfo<Session>) => (
+  const renderSession = ({
+    item,
+  }: ListRenderItemInfo<SessionWithHostProfile>) => (
     <Gutters>
       <SessionCard session={item} />
     </Gutters>
