@@ -26,6 +26,7 @@ export type DailyProviderTypes = {
   setUserName: (userName: string) => Promise<void>;
   setUserData: (userData: unknown) => Promise<void>;
   setSubscribeToAllTracks: () => void;
+  setPreferredAudioOutputDevice: () => void;
 };
 
 export const DailyContext = createContext<DailyProviderTypes>({
@@ -38,6 +39,7 @@ export const DailyContext = createContext<DailyProviderTypes>({
   setUserName: () => Promise.resolve(),
   setUserData: () => Promise.resolve(),
   setSubscribeToAllTracks: () => {},
+  setPreferredAudioOutputDevice: () => {},
 });
 
 const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
@@ -181,6 +183,10 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     );
   }, [daily]);
 
+  const setPreferredAudioOutputDevice = useCallback(async () => {
+    await daily.setAudioDevice('SPEAKERPHONE');
+  }, [daily]);
+
   useEffect(() => {
     eventHandlers.forEach(([event, handler]) => {
       daily.on(event, handler);
@@ -210,6 +216,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
         setUserName,
         setUserData,
         setSubscribeToAllTracks,
+        setPreferredAudioOutputDevice,
       }}>
       {children}
     </DailyContext.Provider>
