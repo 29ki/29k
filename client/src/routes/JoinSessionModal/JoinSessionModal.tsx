@@ -19,8 +19,11 @@ import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
 import Button from '../../common/components/Buttons/Button';
 
 const ErrorText = styled(Body16)({color: COLORS.ERROR, textAlign: 'center'});
-
 const BodyText = styled(Body16)({textAlign: 'center'});
+const ButtonWrapper = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'center',
+});
 
 const JoinSessionModal = () => {
   const {t} = useTranslation('Modal.JoinSession');
@@ -66,13 +69,15 @@ const JoinSessionModal = () => {
         <Spacer8 />
         <BodyText>{t('create.or')}</BodyText>
         <Spacer8 />
-        <Button
-          onPress={() => {
-            popToTop();
-            navigate('CreateSessionModal');
-          }}>
-          {t('create.cta')}
-        </Button>
+        <ButtonWrapper>
+          <Button
+            onPress={() => {
+              popToTop();
+              navigate('CreateSessionModal');
+            }}>
+            {t('create.cta')}
+          </Button>
+        </ButtonWrapper>
       </Gutters>
     </CardModal>
   );
