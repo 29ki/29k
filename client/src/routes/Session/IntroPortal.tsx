@@ -166,8 +166,6 @@ const IntroPortal: React.FC = () => {
     }
   };
 
-  console.log('RENDER');
-
   return (
     <Screen>
       {!isHost && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
