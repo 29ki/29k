@@ -83,10 +83,13 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
     prefillCode ? prefillCode.split('') : [],
   );
   const [currentCell, setCurrentCell] = useState(0);
+  const [focusCells, setFocusCells] = useState(prefillCode.length !== 6);
 
   useEffect(() => {
-    cells[currentCell].current?.focus();
-  }, [currentCell, cells]);
+    if (focusCells) {
+      cells[currentCell].current?.focus();
+    }
+  }, [currentCell, cells, focusCells]);
 
   useEffect(() => {
     const codeString = code.join('');
@@ -134,7 +137,10 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
       }
     };
 
-  const onCellPress = (index: number) => () => setCurrentCell(index);
+  const onCellPress = (index: number) => () => {
+    setFocusCells(true);
+    setCurrentCell(index);
+  };
 
   return (
     <RowWrapper>
