@@ -30,7 +30,7 @@
             "text": "Welcome\n\nI am X and today we will work for around 30 minutes on on love and connection to ourselves and others.\n\nWe’ll be doing a short meditation together, then we’ll take a moment to reflect on our own, and the final step is to share with each other what we experienced."
           },
           {
-            "text": "Let’s start with a mini check-in.\n\nHow are you feeling right now? Please answer in two-three words.\n\nX, would you like to start?\n\n> `Let everyone in the session, including yourself, check in one by one.`\n\nThank you all for checking in.\n\nLet’s get started."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ]
       },
@@ -59,14 +59,14 @@
           "video": {
             "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663328538/temp/1_min_eto52x.mp4"
           },
-          "text": "What can you bring from this for the rest of your day?"
+          "text": "What can you bring for the rest of the day?"
         },
         "hostNotes": [
           {
             "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did this meditation affect you?\n\nWhat can you bring from this for the rest of your day?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.\n\n1 minute starting now.\n\n> Press play to start the timer.\n\nOkay, that’s 1 minute Let’s move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nOkay, that’s 1 minute Let’s move on."
           }
         ]
       },
@@ -77,7 +77,7 @@
           "video": {
             "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663328538/temp/2_min_fr9hsu.mp4"
           },
-          "text": "What can you bring from this for the rest of your day?"
+          "text": "What can you bring for the rest of the day?"
         },
         "hostNotes": [
           {
@@ -87,7 +87,7 @@
             "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\n   There will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "Who would like to start?\n\n> `Let everyone (or as many as you got time for) share one by one.`\n> `Press play to start the timer. Re-start for each new sharing.`\n\nThank you so much everyone."
+            "text": "Who would like to start?\n\n> Let up to six people share one by one. Press play to start the timer. Re-start for each new person.\n\nThank you so much everyone."
           }
         ]
       },
@@ -101,7 +101,10 @@
             "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nSet a reminder at a random time of the day for a week. When the reminder goes on, reflect on a loving moment from the last 24 hours. Notice what it feels like on the inside, in your body."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out.\n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words.\n\nWho would like to start?\n\n> `Let everyone in the session check out one by one.`\n\nThank you all for checking out and for joining this session today.\n\n> `Finish session to send everyone off to the exit experience.`"
+            "text": "Before we leave this space let’s do a mini check-out. How are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       }
