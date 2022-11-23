@@ -26,7 +26,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome to this session, hosted by me, x.\n\nI am so happy you choose to join us at 29k here today.  \\\n\\\nWe will work for around 30 minutes on connecting with- and being kind to ourselves.\n\nWe’ll be doing some reflection exercises and there will be opportunities to share those reflections with each other."
+            "text": "Welcome to this session, hosted by me, x.\n\nI am so happy you choose to join us at 29k here today.  \\\n\\\nWe will work for around 40 minutes on connecting with- and being kind to ourselves.\n\nWe’ll be doing some reflection exercises and there will be opportunities to share those reflections with each other."
           },
           {
             "text": "Let’s start with a mini check-in.\n\nHow are you feeling right now? Please answer in two-three words.\n\nX, would you like to start and then hand over to someone else when you are done?\n\n`Let everyone in the session check in one by one.`\n\nThank you all for checking in.\n\nNow let’s get started."
@@ -149,16 +149,24 @@
   "pt": {
     "published": false,
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#ffffff"
     },
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
-    "name": "Be kind to yourself xxx",
+    "name": "Be kind to yourself",
     "introPortal": {
       "hostNotes": [
         {
           "text": "`Start the session when you're ready to go`"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043755/Video/portal1_Be_kind_to_yourself_u6lvok.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043748/Video/portal2_Be_kind_to_yourself_rahxff.mp4"
+      }
     },
     "slides": [
       {
@@ -184,7 +192,13 @@
           {
             "text": "In this exercise we will be practicing self-compassion - learning to become less self-critical and instead be kinder to oneself.\n\nResearch has shown that it can increase happiness and motivation, and reduce anxiety and depressive symptoms."
           }
-        ]
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043753/Video/content_Be_kind_to_yourself_qfhuch.mp4",
+            "autoPlayLoop": true
+          }
+        }
       },
       {
         "type": "reflection",
@@ -197,13 +211,19 @@
           }
         ],
         "content": {
-          "heading": "What do you say to yourself?"
+          "heading": "What do you say to yourself?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4"
+          }
         }
       },
       {
         "type": "sharing",
         "content": {
-          "heading": "What do you say to yourself?"
+          "heading": "What do you say to yourself?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
+          }
         },
         "hostNotes": [
           {
@@ -220,7 +240,12 @@
       {
         "type": "reflection",
         "content": {
-          "heading": "What would you say to a friend?"
+          "heading": "What would you say to a friend?",
+          "video": {
+            "durationTimer": false,
+            "autoPlayLoop": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043755/Video/sharing2_Be_kind_to_yourself_bu0qwe.mp4"
+          }
         },
         "hostNotes": [
           {
@@ -234,25 +259,14 @@
       {
         "type": "sharing",
         "content": {
-          "heading": "What would you say to a friend?"
+          "heading": "What would you say to a friend?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
+          }
         },
         "hostNotes": [
           {
             "text": "Time to share again.\n\nX, would you like to start?\n\n`Let everyone (or as many as you got time for) share one by one.`\n\n`Push play to start the timer. Re-start for each new sharing.`\n\nThank you so much for sharing."
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "content": {
-          "heading": "Write down 2-4 things"
-        },
-        "hostNotes": [
-          {
-            "text": "Think of 2-4 things that would change if you talked to yourself in the same way you usually treat a friend who feel down. \n\nFor example, how you'd feel and what you'd do differently."
-          },
-          {
-            "text": "1 minute starting now.\n\n`Push play to start the timer.`\n\nOkay, that’s 1 minute and it’s time to move on."
           }
         ]
       },
@@ -265,9 +279,19 @@
           {
             "text": "Thank you for joining us here today. If you have any reflections or feedback for us at 29k, please let us know. Wishing you all a lovely day.\n\nBye."
           }
-        ]
+        ],
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043696/Images/mission_Be_kind_to_yourself_ip8nwy.png"
+          }
+        }
       }
-    ]
+    ],
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
+      }
+    }
   },
   "sv": {
     "published": false,
