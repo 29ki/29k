@@ -210,7 +210,7 @@ const SelectType: React.FC<StepProps> = ({
           {Object.values(SessionType).map((type, i, arr) => (
             <>
               <TypeItem
-                key={type}
+                key={i}
                 onPress={() => {
                   setSelectedType(type);
                   nextStep();
