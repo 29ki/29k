@@ -27,26 +27,27 @@
 
 ## Download Android/iOS app
 
-Latest builds can be downloaded through iOS TestFlight and Android PlayStore:
+You can get early access to our open beta through iOS TestFlight and Android PlayStore:
 
-- 🍎 [29k: Cupcake for iOS](https://testflight.apple.com/join/0VdruQ6z) - get access through TestFlight
-- 🤖 [29k: Cupcake for Android](https://groups.google.com/u/1/a/29k.org/g/android-beta-test) - get access by becoming member of this google group
-
-
+- 🍎 [29k: Cupcake for iOS](https://testflight.apple.com/join/0VdruQ6z)
+- 🤖 [29k: Cupcake for Android](https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake)
 
 ## Documentation
-* [Installation](/docs/INSTALLATION.md)
-* [Local development](/docs/LOCAL_DEVELOPMENT.md)
-* [Build and Deploy](/docs/BUILD_AND_DEPLOY.md)
+
+- [Installation](/docs/INSTALLATION.md)
+- [Local development](/docs/LOCAL_DEVELOPMENT.md)
+- [Build and Deploy](/docs/BUILD_AND_DEPLOY.md)
 
 ## Contributing
-* [Contributing](/docs/CONTRIBUTING.md)
-* [Code of Conduct](/docs/CODE_OF_CONDUCT.md)
-* [Style guide](/docs/STYLE_GUIDE.md)
-* Translations
+
+- [Contributing](/docs/CONTRIBUTING.md)
+- [Code of Conduct](/docs/CODE_OF_CONDUCT.md)
+- [Style guide](/docs/STYLE_GUIDE.md)
+- Translations
 
 ## License
-* See [LICENSE](/LICENSE)
+
+- See [LICENSE](/LICENSE)
 
 ## Contributors ✨
 
