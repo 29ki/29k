@@ -5,7 +5,6 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:dev.app.cupcake.29k.org</string>
-		<string>applinks:testing.app.cupcake.29k.org</string>
 	</array>
 </dict>
 </plist>
