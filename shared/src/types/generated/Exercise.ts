@@ -51,16 +51,16 @@ export interface ExerciseOutroPortal {
   video?: ExerciseOutroPortalVideo;
 }
 
-export interface ExerciseSlidesContentHostNote {
+export interface ExerciseSlideContentSlideHostNote {
   text: string;
 }
 
-export interface ExerciseSlidesContentContentImage {
+export interface ExerciseSlideContentSlideContentImage {
   description?: string;
   source?: string;
 }
 
-export interface ExerciseSlidesContentContentVideo {
+export interface ExerciseSlideContentSlideContentVideo {
   autoPlayLoop?: boolean;
   durationTimer?: boolean;
   description?: string;
@@ -69,23 +69,23 @@ export interface ExerciseSlidesContentContentVideo {
   audio?: string;
 }
 
-export interface ExerciseSlidesContentContent {
+export interface ExerciseSlideContentSlideContent {
   heading?: string;
   text?: string;
-  image?: ExerciseSlidesContentContentImage;
-  video?: ExerciseSlidesContentContentVideo;
+  image?: ExerciseSlideContentSlideContentImage;
+  video?: ExerciseSlideContentSlideContentVideo;
 }
 
-export interface ExerciseSlidesReflectionHostNote {
+export interface ExerciseSlideReflectionSlideHostNote {
   text: string;
 }
 
-export interface ExerciseSlidesReflectionContentImage {
+export interface ExerciseSlideReflectionSlideContentImage {
   description?: string;
   source?: string;
 }
 
-export interface ExerciseSlidesReflectionContentVideo {
+export interface ExerciseSlideReflectionSlideContentVideo {
   autoPlayLoop?: boolean;
   durationTimer?: boolean;
   description?: string;
@@ -94,23 +94,23 @@ export interface ExerciseSlidesReflectionContentVideo {
   audio?: string;
 }
 
-export interface ExerciseSlidesReflectionContent {
+export interface ExerciseSlideReflectionSlideContent {
   heading?: string;
   text?: string;
-  image?: ExerciseSlidesReflectionContentImage;
-  video?: ExerciseSlidesReflectionContentVideo;
+  image?: ExerciseSlideReflectionSlideContentImage;
+  video?: ExerciseSlideReflectionSlideContentVideo;
 }
 
-export interface ExerciseSlidesSharingHostNote {
+export interface ExerciseSlideSharingSlideHostNote {
   text: string;
 }
 
-export interface ExerciseSlidesSharingContentImage {
+export interface ExerciseSlideSharingSlideContentImage {
   description?: string;
   source?: string;
 }
 
-export interface ExerciseSlidesSharingContentVideo {
+export interface ExerciseSlideSharingSlideContentVideo {
   autoPlayLoop?: boolean;
   durationTimer?: boolean;
   description?: string;
@@ -119,38 +119,38 @@ export interface ExerciseSlidesSharingContentVideo {
   audio?: string;
 }
 
-export interface ExerciseSlidesSharingContent {
+export interface ExerciseSlideSharingSlideContent {
   heading?: string;
   text?: string;
-  image?: ExerciseSlidesSharingContentImage;
-  video?: ExerciseSlidesSharingContentVideo;
+  image?: ExerciseSlideSharingSlideContentImage;
+  video?: ExerciseSlideSharingSlideContentVideo;
 }
 
-export interface ExerciseSlidesHostHostNote {
+export interface ExerciseSlideHostSlideHostNote {
   text: string;
 }
 
-export interface ExerciseSlidesContent {
+export interface ExerciseSlideContentSlide {
   type: 'content';
-  hostNotes?: ExerciseSlidesContentHostNote[];
-  content: ExerciseSlidesContentContent;
+  hostNotes?: ExerciseSlideContentSlideHostNote[];
+  content?: ExerciseSlideContentSlideContent;
 }
 
-export interface ExerciseSlidesReflection {
+export interface ExerciseSlideReflectionSlide {
   type: 'reflection';
-  hostNotes?: ExerciseSlidesReflectionHostNote[];
-  content: ExerciseSlidesReflectionContent;
+  hostNotes?: ExerciseSlideReflectionSlideHostNote[];
+  content?: ExerciseSlideReflectionSlideContent;
 }
 
-export interface ExerciseSlidesSharing {
+export interface ExerciseSlideSharingSlide {
   type: 'sharing';
-  hostNotes?: ExerciseSlidesSharingHostNote[];
-  content: ExerciseSlidesSharingContent;
+  hostNotes?: ExerciseSlideSharingSlideHostNote[];
+  content?: ExerciseSlideSharingSlideContent;
 }
 
-export interface ExerciseSlidesHost {
+export interface ExerciseSlideHostSlide {
   type: 'host';
-  hostNotes?: ExerciseSlidesHostHostNote[];
+  hostNotes?: ExerciseSlideHostSlideHostNote[];
 }
 
 export interface Exercise {
@@ -162,9 +162,9 @@ export interface Exercise {
   introPortal?: ExerciseIntroPortal;
   outroPortal?: ExerciseOutroPortal;
   slides: (
-    | ExerciseSlidesContent
-    | ExerciseSlidesReflection
-    | ExerciseSlidesSharing
-    | ExerciseSlidesHost
+    | ExerciseSlideContentSlide
+    | ExerciseSlideReflectionSlide
+    | ExerciseSlideSharingSlide
+    | ExerciseSlideHostSlide
   )[];
 }
