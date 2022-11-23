@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import Audio from '../../../../lib/audio/components/Audio';
+import {VideoBase} from '../VideoBase/VideoBase';
 
 type AudioFaderProps = {
   duration?: number;
@@ -39,12 +39,13 @@ const AudioFader: React.FC<AudioFaderProps> = React.memo(
     }, [duration, updateVolume, loaded, paused]);
 
     return (
-      <Audio
-        source={source}
+      <VideoBase
+        audioOnly
+        paused={paused}
         repeat={repeat}
         volume={currentVolume}
-        paused={paused}
         onLoad={() => setLoaded(true)}
+        source={{uri: source}}
       />
     );
   },
