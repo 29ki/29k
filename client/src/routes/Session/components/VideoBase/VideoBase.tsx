@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components/native';
 import RNVideo, {VideoProperties} from 'react-native-video';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
+import {Platform} from 'react-native';
+
+const getSilentSwitchSetting = () =>
+  parseFloat(Platform.Version as string) >= 16 ? 'ignore' : undefined;
 
 type CommonProps =
   | 'mixWithOthers'
@@ -17,7 +21,7 @@ export const VideoBase = React.forwardRef<
     <RNVideo
       {...props}
       mixWithOthers="duck" // This seems to have great effect on being able to play sound over a daily call
-      ignoreSilentSwitch="ignore"
+      ignoreSilentSwitch={getSilentSwitchSetting()}
       playInBackground
       playWhenInactive
       allowsExternalPlayback={true}
