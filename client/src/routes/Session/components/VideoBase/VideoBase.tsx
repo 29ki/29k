@@ -16,7 +16,7 @@ export const VideoBase = React.forwardRef<
   return (
     <RNVideo
       {...props}
-      mixWithOthers="duck"
+      mixWithOthers="duck" // This seems to have great effect on being able to play sound over a daily call
       ignoreSilentSwitch="ignore"
       playInBackground
       playWhenInactive

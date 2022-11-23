@@ -184,6 +184,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   }, [daily]);
 
   const setPreferredAudioOutputDevice = useCallback(async () => {
+    // This seems to have great effect on being able to play sound over a daily call
     await daily.setAudioDevice('SPEAKERPHONE');
   }, [daily]);
 
