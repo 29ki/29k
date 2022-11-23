@@ -44,18 +44,16 @@ const DateTimePicker: React.FC<{
   switch (Platform.OS) {
     case 'ios':
       return (
-        <Row>
-          <RNDateTimePicker
-            mode={mode}
-            textColor={COLORS.BLACK}
-            accentColor={COLORS.PRIMARY}
-            display={mode === 'date' ? 'inline' : 'spinner'}
-            value={selectedValue.local().toDate()}
-            onChange={(_, value) => setValue(dayjs(value).utc())}
-            minimumDate={mode === 'date' ? minimumDate?.toDate() : undefined}
-            maximumDate={mode === 'date' ? maximumDate?.toDate() : undefined}
-          />
-        </Row>
+        <RNDateTimePicker
+          mode={mode}
+          textColor={COLORS.BLACK}
+          accentColor={COLORS.PRIMARY}
+          display={mode === 'date' ? 'inline' : 'spinner'}
+          value={selectedValue.local().toDate()}
+          onChange={(_, value) => setValue(dayjs(value).utc())}
+          minimumDate={mode === 'date' ? minimumDate?.toDate() : undefined}
+          maximumDate={mode === 'date' ? maximumDate?.toDate() : undefined}
+        />
       );
 
     case 'android':
