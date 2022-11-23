@@ -3,17 +3,12 @@ import dayjs from 'dayjs';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Alert, Platform, Share, View} from 'react-native';
+import {Platform, Share, View} from 'react-native';
 import styled from 'styled-components/native';
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
-import {
-  BellIcon,
-  DeleteIcon,
-  PlusIcon,
-  ShareIcon,
-} from '../../common/components/Icons';
+import {BellIcon, ShareIcon} from '../../common/components/Icons';
 import Image from '../../common/components/Image/Image';
 import SheetModal from '../../common/components/Modals/SheetModal';
 import {Spacer16, Spacer8} from '../../common/components/Spacers/Spacer';
@@ -26,12 +21,11 @@ import {
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import useAddToCalendar from '../Sessions/hooks/useAddToCalendar';
 import useSessionNotificationReminder from '../Sessions/hooks/useSessionNotificationReminder';
-import useSessions from '../Sessions/hooks/useSessions';
 import {Body14} from '../../common/components/Typography/Body/Body';
-import useUser from '../../lib/user/hooks/useUser';
 import Byline from '../../common/components/Bylines/Byline';
 import {formatInviteCode} from '../../common/utils/string';
 import * as metrics from '../../lib/metrics';
+import CalendarIcon from '../../common/components/Icons/Calendar/Calendar';
 
 const Content = styled(Gutters)({
   flexDirection: 'row',
@@ -47,18 +41,14 @@ const ImageContainer = styled.View({
   height: 80,
 });
 
-const DeleteButton = styled(IconButton)({
-  backgroundColor: COLORS.DELETE,
-});
-
 const SessionModal = () => {
   const {
     params: {session},
   } = useRoute<RouteProp<ModalStackProps, 'SessionModal'>>();
   const {t} = useTranslation('Modal.Session');
-  const user = useUser();
+
   const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
-  const {deleteSession} = useSessions();
+
   const addToCalendar = useAddToCalendar();
   const exercise = useExerciseById(session?.contentId);
   const {reminderEnabled, toggleReminder} =
@@ -127,21 +117,6 @@ const SessionModal = () => {
     }
   };
 
-  const onDelete = () => {
-    Alert.alert(t('delete.header'), t('delete.text'), [
-      {text: t('delete.buttons.cancel'), style: 'cancel', onPress: () => {}},
-      {
-        text: t('delete.buttons.confirm'),
-        style: 'destructive',
-
-        onPress: async () => {
-          await deleteSession(session.id);
-          navigation.popToTop();
-        },
-      },
-    ]);
-  };
-
   return (
     <SheetModal>
       <Spacer16 />
@@ -153,13 +128,6 @@ const SessionModal = () => {
             name={session.hostProfile?.displayName}
           />
         </View>
-        {session.inviteCode && (
-          <>
-            <Spacer8 />
-            <Body14>{formatInviteCode(session.inviteCode)}</Body14>
-            <Spacer8 />
-          </>
-        )}
         <ImageContainer>
           <Image
             resizeMode="contain"
@@ -177,39 +145,28 @@ const SessionModal = () => {
           </>
         ) : (
           <>
-            <Button
-              small
-              LeftIcon={PlusIcon}
+            <IconButton
+              Icon={CalendarIcon}
               variant={'secondary'}
-              onPress={onAddToCalendar}>
-              {t('addToCalendar')}
-            </Button>
+              onPress={onAddToCalendar}
+            />
             <Spacer8 />
-            <Button
-              small
-              LeftIcon={BellIcon}
+            <IconButton
+              Icon={BellIcon}
               variant="secondary"
               active={reminderEnabled}
-              onPress={onToggleReminder}>
-              {t('addReminder')}
-            </Button>
+              onPress={onToggleReminder}
+            />
           </>
         )}
 
         <Spacer8 />
         {session.link && (
           <>
-            <IconButton
-              small
-              variant="secondary"
-              onPress={onShare}
-              Icon={ShareIcon}
-            />
-            <Spacer8 />
+            <Button variant="secondary" onPress={onShare} LeftIcon={ShareIcon}>
+              {formatInviteCode(session.inviteCode)}
+            </Button>
           </>
-        )}
-        {user?.uid === session?.hostId && (
-          <DeleteButton small onPress={onDelete} Icon={DeleteIcon} />
         )}
       </BottomContent>
     </SheetModal>
