@@ -971,7 +971,7 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.29.0):
+  - react-native-daily-js (0.32.0):
     - React
   - react-native-safe-area-context (4.4.1):
     - RCT-Folly
@@ -984,7 +984,7 @@ PODS:
     - react-native-video/Video (= 5.2.1)
   - react-native-video/Video (5.2.1):
     - React-Core
-  - react-native-webrtc (1.94.1-daily.4):
+  - react-native-webrtc (1.94.1-daily.6):
     - React-Core
   - React-perflogger (0.69.5)
   - React-RCTActionSheet (0.69.5):
@@ -1406,10 +1406,10 @@ SPEC CHECKSUMS:
   React-logger: 15c734997c06fe9c9b88e528fb7757601e7a56df
   react-native-add-calendar-event: d7744f983d6770cc9e4f004db22bc4d4b4575f17
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: 97dfa84535efd4558cb5bce4846e64d263aa4655
+  react-native-daily-js: e53b92e8d0efe3d4d34be28741b40eddf010664a
   react-native-safe-area-context: 99b24a0c5acd0d5dcac2b1a7f18c49ea317be99a
   react-native-video: c26780b224543c62d5e1b2a7244a5cd1b50e8253
-  react-native-webrtc: 1ef92e33b86c4130d7f0804ad00856d2fdfad566
+  react-native-webrtc: 8637cf3962d4a431bd91e0bb2be043123f8dd294
   React-perflogger: 367418425c5e4a9f0f80385ee1eaacd2a7348f8e
   React-RCTActionSheet: e4885e7136f98ded1137cd3daccc05eaed97d5a6
   React-RCTAnimation: 7c5a74f301c9b763343ba98a3dd776ed2676993f
