@@ -1,12 +1,15 @@
 {
   "en": {
-    "description": "The session you're looking for is not available anymore."
+    "description": "The session you're looking for is not available anymore.",
+    "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669209703/Images/session-unavailable_eb9tjk.png"
   },
   "sv": {
-    "description": "The session you're looking for is not available anymore."
+    "description": "The session you're looking for is not available anymore.",
+    "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669209703/Images/session-unavailable_eb9tjk.png"
   },
   "pt": {
-    "description": "A sessão que estás a procurar já não está disponível."
+    "description": "A sessão que estás a procurar já não está disponível.",
+    "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669209703/Images/session-unavailable_eb9tjk.png"
   },
   "es": {}
 }
