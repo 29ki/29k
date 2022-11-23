@@ -279,7 +279,7 @@ android {
         }
         dev {
             applicationId 'org.twentyninek.app.cupcake.dev'
-            manifestPlaceholders.deepLinkHost = 'testing.app.cupcake.29k.org'
+            manifestPlaceholders.deepLinkHost = 'dev.app.cupcake.29k.org'
         }
     }
 }
