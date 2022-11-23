@@ -6,7 +6,7 @@ import {RouteProp, useRoute} from '@react-navigation/native';
 import Button from '../../common/components/Buttons/Button';
 import {Spacer16} from '../../common/components/Spacers/Spacer';
 import {BottomSheetTextInput} from '../../common/components/Typography/TextInput/TextInput';
-import {Body14, Body16} from '../../common/components/Typography/Body/Body';
+import {Body16} from '../../common/components/Typography/Body/Body';
 import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {requestPromotion, verifyPromotion} from '../Profile/api/user';
@@ -19,7 +19,7 @@ import {VerificationError} from '../../../../shared/src/errors/User';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 
-const ErrorText = styled(Body14)({color: COLORS.ERROR, textAlign: 'center'});
+const ErrorText = styled(Body16)({color: COLORS.ERROR, textAlign: 'center'});
 
 const SuccessText = styled(Body16)({textAlign: 'center'});
 
@@ -142,18 +142,17 @@ const UpgradeAccountModal = () => {
     if (haveCode && !upgradeComplete) {
       return (
         <>
-          <ModalHeading>{t('enterCode')}</ModalHeading>
+          {errorString ? (
+            <ErrorText>{errorString}</ErrorText>
+          ) : (
+            <ModalHeading>{t('enterCode')}</ModalHeading>
+          )}
           <Spacer16 />
           <VerificationCode
+            hasError={Boolean(errorString)}
             prefillCode={params?.code}
             onCodeCompleted={onCodeCompleted}
           />
-          {errorString && (
-            <>
-              <Spacer16 />
-              <ErrorText>{errorString}</ErrorText>
-            </>
-          )}
         </>
       );
     }
