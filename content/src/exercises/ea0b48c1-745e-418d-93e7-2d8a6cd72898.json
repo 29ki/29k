@@ -60,7 +60,7 @@
       {
         "type": "reflection",
         "content": {
-          "heading": "What happens when you switch to AND?",
+          "heading": "Switch to AND. What happens?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1665464773/Temp/Comp_9_bsizws.mp4",
             "autoPlayLoop": false
@@ -78,7 +78,7 @@
       {
         "type": "sharing",
         "content": {
-          "heading": "What happens when you switch to AND?",
+          "heading": "What happened when you switched to AND?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1665464766/Temp/Comp_10_ababts.mp4"
           }
@@ -91,24 +91,37 @@
             "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one.\n>\n> Push play to start the timer. Re-start for each new sharing. \n\nThank you so much everyone."
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one.\n>\n> Press play to start the timer. Re-start for each new sharing. \n\nThank you so much everyone."
           }
         ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Well done. When we wait for unwanted feelings to go away so that we can do the things we want, we tend to put our lives on hold. Sometimes for a very long time. A more helpful strategy can be to open up to our feelings with acceptance, and intentionally choose our actions."
+          },
+          {
+            "text": "This can allow us to spend time and energy on the things that are important to us – even when they come with difficult emotions. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life."
+          },
+          {
+            "text": "For the coming three days, see if you can notice when you talk to yourself with “I want to do x, BUT I’m so y”-sentences. When you do, replace your BUTs with ANDs and see if you notice any difference in how you behave."
+          }
+        ],
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665471249/Temp/BUT_AND-13_pdbsvr.png"
+          }
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. When we wait for our unwanted feelings to simply go away so that we can finally do the things we want, we consequently put our life on hold. Sometimes for a very long time.\n\nA more helpful strategy can be to open up to our feelings with acceptance, and intentionally choose our actions."
+            "text": "Before we leave this space let’s do a mini check-out.\n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words.\n\nWho would like to start?"
           },
           {
-            "text": "This can allow us to spend time and energy on the things that are important to us – even when that comes with difficult emotions.\n\nif you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life."
-          },
-          {
-            "text": "For the coming three days, notice when you talk to yourself with *“I want to do x, **BUT** I’m so y”-sentences.* When you do, replace your **BUT**s with **AND**s and see if you notice any difference in how you behave."
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out.\n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words.\n\nWho would like to start?\n\n> `Let everyone in the session check out one by one.`\n\nThank you all for checking out and for joining this session today.\n\n> `Finish session to send everyone off to the exit experience.`"
+            "text": "> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       }
