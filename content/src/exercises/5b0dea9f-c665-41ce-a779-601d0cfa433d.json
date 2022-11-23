@@ -2,7 +2,8 @@
   "en": {
     "published": false,
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2AE2D7",
+      "backgroundColor": "#ca6a78"
     },
     "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d",
     "name": "Letting go of control",
@@ -11,7 +12,15 @@
         {
           "text": "`Start the session when you're ready to go.`"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667919733/Video/portal1_letting_go_of_control_g0izpw.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667915462/Audio/portal_letting_go_of_controlmp3_eintur.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1668093279/Video/portal2_letting_go_of_control_bnzxxr.mp4",
+        "preview": ""
+      }
     },
     "slides": [
       {
@@ -31,7 +40,15 @@
           {
             "text": "When difficult feelings arise, many of us have a natural tendency to try to control them. The **impulse to control things can make us feel in charge**.\n\nBut science shows that this is just an **illusion.**\n\nFind a comfortable position, relax your shoulders. Let's do this meditation together. \\\n\\\n`Push play to start the meditation.`"
           }
-        ]
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1668679655/Video/meditation_letting_go_of_controlmp4_sxgwig.mp4",
+            "autoPlayLoop": true,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1668093018/Audio/meditation_letting_go_of_control_becb1s.mp3",
+            "durationTimer": true
+          }
+        }
       },
       {
         "type": "reflection",
@@ -44,13 +61,19 @@
           }
         ],
         "content": {
-          "heading": "What's in your beachball?"
+          "heading": "What's in your beachball?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669200641/Video/1min_letting_go_of_control_x23hr5.mp4"
+          }
         }
       },
       {
         "type": "sharing",
         "content": {
-          "heading": "What's in your beachball?"
+          "heading": "What's in your beachball?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669210567/Video/2min_letting_go_of_control_w4ee4s.mp4"
+          }
         },
         "hostNotes": [
           {
@@ -81,13 +104,19 @@
           }
         ],
         "content": {
-          "heading": "What if you let go of your beachball?"
+          "heading": "What if you let go of your beachball?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669200641/Video/1min_letting_go_of_control_x23hr5.mp4"
+          }
         }
       },
       {
         "type": "sharing",
         "content": {
-          "heading": "What if you let go of your beachball?"
+          "heading": "What if you let go of your beachball?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669210567/Video/2min_letting_go_of_control_w4ee4s.mp4"
+          }
         },
         "hostNotes": [
           {
@@ -112,16 +141,26 @@
           }
         ]
       }
-    ]
+    ],
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
+      }
+    },
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667919819/Video/mission_letting_go_of_control_audio_is2nnv.mp4"
+      }
+    }
   },
-  "sv": {
+  "pt": {
     "published": false,
     "theme": {
       "textColor": "#2AE2D7"
     },
     "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d"
   },
-  "pt": {
+  "sv": {
     "published": false,
     "theme": {
       "textColor": "#2AE2D7"
