@@ -13,7 +13,6 @@ import Image from '../../common/components/Image/Image';
 import SheetModal from '../../common/components/Modals/SheetModal';
 import {Spacer16, Spacer8} from '../../common/components/Spacers/Spacer';
 import {Display24} from '../../common/components/Typography/Display/Display';
-import {COLORS} from '../../../../shared/src/constants/colors';
 import {
   ModalStackProps,
   AppStackProps,
@@ -21,7 +20,7 @@ import {
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import useAddToCalendar from '../Sessions/hooks/useAddToCalendar';
 import useSessionNotificationReminder from '../Sessions/hooks/useSessionNotificationReminder';
-import {Body14} from '../../common/components/Typography/Body/Body';
+import {Body16} from '../../common/components/Typography/Body/Body';
 import Byline from '../../common/components/Bylines/Byline';
 import {formatInviteCode} from '../../common/utils/string';
 import * as metrics from '../../lib/metrics';
@@ -31,8 +30,8 @@ const Content = styled(Gutters)({
   flexDirection: 'row',
   justifyContent: 'space-between',
 });
-const BottomContent = styled(Gutters)({
-  alignItems: 'center',
+
+const ButtonsWrapper = styled(View)({
   flexDirection: 'row',
 });
 
@@ -134,41 +133,51 @@ const SessionModal = () => {
             source={{uri: exercise?.card?.image?.source}}
           />
         </ImageContainer>
-      </Content>
-      <Spacer16 />
-      <BottomContent>
-        {startingNow ? (
-          <>
-            <Button small variant="primary" onPress={onJoin}>
-              {t('join')}
-            </Button>
-          </>
-        ) : (
-          <>
-            <IconButton
-              Icon={CalendarIcon}
-              variant={'secondary'}
-              onPress={onAddToCalendar}
-            />
-            <Spacer8 />
-            <IconButton
-              Icon={BellIcon}
-              variant="secondary"
-              active={reminderEnabled}
-              onPress={onToggleReminder}
-            />
-          </>
-        )}
-
         <Spacer8 />
-        {session.link && (
-          <>
-            <Button variant="secondary" onPress={onShare} LeftIcon={ShareIcon}>
-              {formatInviteCode(session.inviteCode)}
-            </Button>
-          </>
-        )}
-      </BottomContent>
+      </Content>
+
+      <Spacer16 />
+
+      <Gutters>
+        <Body16>{t('description')}</Body16>
+        <Spacer16 />
+        <ButtonsWrapper>
+          {startingNow ? (
+            <>
+              <Button small variant="primary" onPress={onJoin}>
+                {t('join')}
+              </Button>
+            </>
+          ) : (
+            <>
+              <IconButton
+                Icon={CalendarIcon}
+                variant={'secondary'}
+                onPress={onAddToCalendar}
+              />
+              <Spacer16 />
+              <IconButton
+                Icon={BellIcon}
+                variant="secondary"
+                active={reminderEnabled}
+                onPress={onToggleReminder}
+              />
+            </>
+          )}
+
+          {session.link && (
+            <>
+              <Spacer16 />
+              <Button
+                variant="secondary"
+                onPress={onShare}
+                LeftIcon={ShareIcon}>
+                {formatInviteCode(session.inviteCode)}
+              </Button>
+            </>
+          )}
+        </ButtonsWrapper>
+      </Gutters>
     </SheetModal>
   );
 };
