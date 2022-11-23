@@ -3,20 +3,21 @@ import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import useAuthenticateUser from './useAuthenticateUser';
 import useUserState from '../state/state';
 
-import * as metrics from '../../metrics';
-
-jest.mock('../../metrics');
-
-const mockMetrics = jest.mocked(metrics);
-
 afterEach(() => {
   jest.clearAllMocks();
 });
 
 describe('useAuthenticateUser', () => {
-  it('should set user state if user is authenticated', () => {
-    (auth().onUserChanged as jest.Mock).mockImplementationOnce(callback =>
-      callback({uid: 'some-user-id', isAnonymous: false}),
+  it('should set user state if user is authenticated', async () => {
+    jest.mocked(auth().currentUser?.getIdTokenResult)?.mockResolvedValue({
+      claims: {
+        someClaim: 'some-value',
+      },
+    } as unknown as FirebaseAuthTypes.IdTokenResult);
+
+    let userChangedCallback = (user: FirebaseAuthTypes.User | null) => user;
+    (auth().onUserChanged as jest.Mock).mockImplementationOnce(
+      callback => (userChangedCallback = callback),
     );
 
     const useTestHook = () => {
@@ -28,12 +29,17 @@ describe('useAuthenticateUser', () => {
 
     const {result} = renderHook(useTestHook);
 
-    expect(auth().onUserChanged).toHaveBeenCalledTimes(1);
-    expect(mockMetrics.setUserProperties).toHaveBeenCalledTimes(1);
-    expect(mockMetrics.setUserProperties).toHaveBeenCalledWith({
-      Anonymous: false,
+    await act(async () => {
+      await userChangedCallback({
+        ...auth().currentUser,
+        uid: 'some-user-id',
+        isAnonymous: false,
+      } as FirebaseAuthTypes.User);
     });
+
+    expect(auth().onUserChanged).toHaveBeenCalledTimes(1);
     expect(result.current).toEqual({
+      ...auth().currentUser,
       uid: 'some-user-id',
       isAnonymous: false,
     });

@@ -1,12 +1,10 @@
 import {useEffect} from 'react';
 import auth from '@react-native-firebase/auth';
-import {clone} from 'ramda';
-import * as metrics from '../../metrics';
 
 import useUserState from '../state/state';
 
 const useAuthenticateUser = () => {
-  const setUser = useUserState(state => state.setUser);
+  const setUserAndClaims = useUserState(state => state.setUserAndClaims);
   const resetUser = useUserState(state => state.reset);
 
   useEffect(() => {
@@ -14,15 +12,16 @@ const useAuthenticateUser = () => {
       if (currentUser === null) {
         resetUser();
       } else {
-        setUser(clone(currentUser));
-        metrics.setUserProperties({
-          Anonymous: currentUser.isAnonymous,
+        const idToken = await currentUser.getIdTokenResult();
+        setUserAndClaims({
+          user: currentUser,
+          claims: idToken.claims,
         });
       }
     });
 
     return unsubscribe;
-  }, [setUser, resetUser]);
+  }, [setUserAndClaims, resetUser]);
 };
 
 export default useAuthenticateUser;
