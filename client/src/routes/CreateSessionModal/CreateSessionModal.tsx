@@ -105,7 +105,7 @@ const ContentCard: React.FC<{
 const UpdateProfile: React.FC<StepProps> = () => {
   const {t} = useTranslation('Modal.CreateSession');
   return (
-    <Gutters>
+    <Gutters big>
       <Spacer16 />
       <ModalHeading>{t('profile.text')}</ModalHeading>
       <Spacer16 />
