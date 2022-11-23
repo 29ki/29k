@@ -105,7 +105,7 @@ const IntroPortal: React.FC = () => {
   const participants = useDailyState(state => state.participants);
   const participantsCount = Object.keys(participants ?? {}).length;
   const isHost = useIsSessionHost();
-  const {joinMeeting} = useContext(DailyContext);
+  const {setPreferredAudioOutputDevice} = useContext(DailyContext);
   const {navigate} =
     useNavigation<
       NativeStackNavigationProp<
@@ -130,13 +130,8 @@ const IntroPortal: React.FC = () => {
   usePreventGoingBack(leaveSessionWithConfirm);
 
   useEffect(() => {
-    joinMeeting({
-      subscribeToTracksAutomatically: false,
-      userData: {
-        inPortal: true,
-      },
-    });
-  }, [joinMeeting]);
+    setPreferredAudioOutputDevice();
+  }, [setPreferredAudioOutputDevice]);
 
   useEffect(() => {
     if (session?.started && !endVideoRef.current) {

@@ -57,14 +57,14 @@ jobs:
         working-directory: ./client
         run: yarn
 
+      - name: Run tests
+        working-directory: ./client
+        run: yarn test
+
       - name: Check if native versions needs bump
         if: inputs.skipClientVersionBumpTest != true
         working-directory: ./client
         run: yarn test:version
-
-      - name: Run tests
-        working-directory: ./client
-        run: yarn test
 
   functions:
     name: Functions

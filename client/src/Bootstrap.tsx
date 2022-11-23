@@ -10,6 +10,8 @@ import useCheckForUpdate from './lib/codePush/hooks/useCheckForUpdate';
 import useKillSwitch from './lib/killSwitch/hooks/useKillSwitch';
 import useAuthenticateUser from './lib/user/hooks/useAuthenticateUser';
 import {GIT_COMMIT_SHORT} from 'config';
+import useUser from './lib/user/hooks/useUser';
+import useIsPublicHost from './lib/user/hooks/useIsPublicHost';
 
 i18n.init();
 sentry.init();
@@ -21,6 +23,8 @@ const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
   const setIsColdStarted = useAppState(state => state.setIsColdStarted);
   const checkKillSwitch = useKillSwitch();
   const checkForUpdate = useCheckForUpdate();
+  const user = useUser();
+  const isPublicHost = useIsPublicHost();
 
   // Check killswitch and updates on mount
   useEffect(() => {
@@ -37,6 +41,14 @@ const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
     checkKillSwitch();
     checkForUpdate();
   });
+
+  // Update metrics user properties on user changes
+  useEffect(() => {
+    metrics.setUserProperties({
+      Anonymous: user?.isAnonymous,
+      'Public Host': isPublicHost,
+    });
+  }, [user, isPublicHost]);
 
   return <>{children}</>;
 };
