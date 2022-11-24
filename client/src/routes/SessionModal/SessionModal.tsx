@@ -1,6 +1,6 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import dayjs from 'dayjs';
-import React from 'react';
+import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Alert, Platform, Share, View} from 'react-native';
@@ -30,11 +30,13 @@ import {Body16} from '../../common/components/Typography/Body/Body';
 import Byline from '../../common/components/Bylines/Byline';
 import {formatInviteCode} from '../../common/utils/string';
 import * as metrics from '../../lib/metrics';
-import CalendarIcon from '../../common/components/Icons/Calendar/Calendar';
 import SessionTimeBadge from '../../common/components/SessionTimeBadge/SessionTimeBadge';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import useUser from '../../lib/user/hooks/useUser';
 import useSessions from '../Sessions/hooks/useSessions';
+import {PencilIcon, CalendarIcon} from '../../common/components/Icons';
+import TouchableOpacity from '../../common/components/TouchableOpacity/TouchableOpacity';
+import DateTimePicker from '../CreateSessionModal/components/DateTimePicker';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -60,6 +62,16 @@ const ImageContainer = styled(Image)({
   height: 90,
 });
 
+const EditButton = styled(TouchableOpacity)({
+  flexDirection: 'row',
+});
+
+const EditIcon = styled(View)({
+  width: 22,
+  height: 22,
+  alignSelf: 'center',
+});
+
 const DeleteButton = styled(IconButton)({
   backgroundColor: COLORS.DELETE,
 });
@@ -71,6 +83,8 @@ const SessionModal = () => {
   const {t} = useTranslation('Modal.Session');
   const user = useUser();
   const {deleteSession} = useSessions();
+  const [editMode, setEditMode] = useState(false);
+
   const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
 
   const addToCalendar = useAddToCalendar();
@@ -175,62 +189,81 @@ const SessionModal = () => {
             source={{uri: exercise?.card?.image?.source}}
           />
         </TopContent>
-        <Spacer16 />
-        <Row>
-          {startingNow && (
-            <>
-              <Button small variant="secondary" onPress={onJoin}>
-                {t('join')}
-              </Button>
-              <Spacer8 />
-            </>
-          )}
-          <SessionTimeBadge session={session} />
-        </Row>
       </Content>
+      <Spacer8 />
+      {!editMode && (
+        <>
+          <Gutters>
+            <Row>
+              {startingNow && (
+                <>
+                  <Button small variant="secondary" onPress={onJoin}>
+                    {t('join')}
+                  </Button>
+                  <Spacer8 />
+                </>
+              )}
+              {user?.uid === session.hostId && (
+                <EditButton onPress={() => setEditMode(true)}>
+                  <SessionTimeBadge session={session} />
+                  <EditIcon>
+                    <PencilIcon />
+                  </EditIcon>
+                </EditButton>
+              )}
+              {user?.uid !== session.hostId && (
+                <SessionTimeBadge session={session} />
+              )}
+            </Row>
+          </Gutters>
 
-      <Spacer16 />
+          <Spacer16 />
 
-      <Gutters>
-        <Body16>{t('description')}</Body16>
-        <Spacer16 />
-        <Row>
-          {!startingNow && (
-            <>
-              <IconButton
-                Icon={CalendarIcon}
-                variant={'secondary'}
-                onPress={onAddToCalendar}
-              />
-              <Spacer16 />
-              <IconButton
-                Icon={BellIcon}
-                variant="secondary"
-                active={reminderEnabled}
-                onPress={onToggleReminder}
-              />
-              <Spacer16 />
-            </>
-          )}
+          <Gutters>
+            <Body16>{t('description')}</Body16>
+            <Spacer16 />
+            <Row>
+              {!startingNow && (
+                <>
+                  <IconButton
+                    Icon={CalendarIcon}
+                    variant={'secondary'}
+                    onPress={onAddToCalendar}
+                  />
+                  <Spacer16 />
+                  <IconButton
+                    Icon={BellIcon}
+                    variant="secondary"
+                    active={reminderEnabled}
+                    onPress={onToggleReminder}
+                  />
+                  <Spacer16 />
+                </>
+              )}
 
-          {session.link && (
-            <>
-              <Button
-                variant="secondary"
-                onPress={onShare}
-                LeftIcon={ShareIcon}>
-                {formatInviteCode(session.inviteCode)}
-              </Button>
-            </>
-          )}
-          {user?.uid === session?.hostId && (
-            <>
-              <Spacer16 />
-              <DeleteButton small onPress={onDelete} Icon={DeleteIcon} />
-            </>
-          )}
-        </Row>
-      </Gutters>
+              {session.link && (
+                <>
+                  <Button
+                    variant="secondary"
+                    onPress={onShare}
+                    LeftIcon={ShareIcon}>
+                    {formatInviteCode(session.inviteCode)}
+                  </Button>
+                </>
+              )}
+            </Row>
+          </Gutters>
+        </>
+      )}
+      {editMode && (
+        <Gutters>
+          <DateTimePicker
+            minimumDate={dayjs().local()}
+            initialDateTime={dayjs(session.startTime)}
+          />
+          <DeleteButton small onPress={onDelete} Icon={DeleteIcon} />
+        </Gutters>
+      )}
     </SheetModal>
   );
 };
