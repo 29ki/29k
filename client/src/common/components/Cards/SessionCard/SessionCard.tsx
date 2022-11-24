@@ -3,7 +3,6 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import dayjs from 'dayjs';
-import styled from 'styled-components/native';
 
 import {Session} from '../../../../../../shared/src/types/Session';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
@@ -12,18 +11,12 @@ import {
   AppStackProps,
   ModalStackProps,
 } from '../../../../lib/navigation/constants/routes';
-import {BellIcon, PrivateIcon, PublicIcon} from '../../Icons';
+import {BellIcon} from '../../Icons';
 import Card from '../Card';
-import {Body14} from '../../Typography/Body/Body';
-import {Spacer4} from '../../Spacers/Spacer';
-import Badge from '../../Badge/Badge';
+
 import useSessionStartTime from '../../../../routes/Session/hooks/useSessionStartTime';
 import * as metrics from '../../../../lib/metrics';
-
-const Row = styled.View({
-  flexDirection: 'row',
-  alignItems: 'center',
-});
+import SessionTimeBadge from '../../SessionTimeBadge/SessionTimeBadge';
 
 type SessionCardProps = {
   session: Session;
@@ -68,22 +61,7 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
       Icon={reminderEnabled ? BellIcon : undefined}
       hostPictureURL={hostProfile?.photoURL}
       hostName={hostProfile?.displayName}>
-      <Row>
-        {!sessionTime.isReadyToJoin && (
-          <>
-            {sessionTime.isInLessThanAnHour ? (
-              <Body14>{t('counterLabel.startsIn')}</Body14>
-            ) : (
-              <Body14>{t('counterLabel.starts')}</Body14>
-            )}
-            <Spacer4 />
-          </>
-        )}
-        <Badge
-          text={sessionTime.isStarted ? t('counter.started') : sessionTime.time}
-          Icon={session.type === 'private' ? <PrivateIcon /> : <PublicIcon />}
-        />
-      </Row>
+      <SessionTimeBadge session={session} />
     </Card>
   );
 };

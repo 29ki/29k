@@ -5,22 +5,14 @@ import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Platform, Share, View} from 'react-native';
 import styled from 'styled-components/native';
+
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
-import {
-  BellIcon,
-  PrivateIcon,
-  PublicIcon,
-  ShareIcon,
-} from '../../common/components/Icons';
+import {BellIcon, ShareIcon} from '../../common/components/Icons';
 import Image from '../../common/components/Image/Image';
 import SheetModal from '../../common/components/Modals/SheetModal';
-import {
-  Spacer16,
-  Spacer8,
-  Spacer4,
-} from '../../common/components/Spacers/Spacer';
+import {Spacer16, Spacer8} from '../../common/components/Spacers/Spacer';
 import {Display24} from '../../common/components/Typography/Display/Display';
 import {
   ModalStackProps,
@@ -29,13 +21,12 @@ import {
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import useAddToCalendar from '../Sessions/hooks/useAddToCalendar';
 import useSessionNotificationReminder from '../Sessions/hooks/useSessionNotificationReminder';
-import {Body14, Body16} from '../../common/components/Typography/Body/Body';
+import {Body16} from '../../common/components/Typography/Body/Body';
 import Byline from '../../common/components/Bylines/Byline';
 import {formatInviteCode} from '../../common/utils/string';
 import * as metrics from '../../lib/metrics';
 import CalendarIcon from '../../common/components/Icons/Calendar/Calendar';
-import useSessionStartTime from '../Session/hooks/useSessionStartTime';
-import Badge from '../../common/components/Badge/Badge';
+import SessionTimeBadge from '../../common/components/SessionTimeBadge/SessionTimeBadge';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -46,13 +37,9 @@ const TopContent = styled(View)({
   justifyContent: 'space-between',
 });
 
-const ButtonsWrapper = styled(View)({
+const Row = styled(View)({
   flexDirection: 'row',
-});
-
-const Row = styled.View({
-  flexDirection: 'row',
-  alignItems: 'center',
+  alignItems: 'flex-end',
 });
 
 const ImageContainer = styled.View({
@@ -65,7 +52,6 @@ const SessionModal = () => {
     params: {session},
   } = useRoute<RouteProp<ModalStackProps, 'SessionModal'>>();
   const {t} = useTranslation('Modal.Session');
-  const {t: sessionT} = useTranslation('Component.SessionCard');
 
   const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
 
@@ -73,7 +59,6 @@ const SessionModal = () => {
   const exercise = useExerciseById(session?.contentId);
   const {reminderEnabled, toggleReminder} =
     useSessionNotificationReminder(session);
-  const sessionTime = useSessionStartTime(dayjs(session?.startTime));
 
   const startTime = dayjs(session.startTime);
   const startingNow = dayjs().isAfter(startTime.subtract(10, 'minutes'));
@@ -159,24 +144,15 @@ const SessionModal = () => {
         </TopContent>
         <Spacer8 />
         <Row>
-          {!sessionTime.isReadyToJoin && (
+          {startingNow && (
             <>
-              {sessionTime.isInLessThanAnHour ? (
-                <Body14>{sessionT('counterLabel.startsIn')}</Body14>
-              ) : (
-                <Body14>{sessionT('counterLabel.starts')}</Body14>
-              )}
-              <Spacer4 />
+              <Button small variant="secondary" onPress={onJoin}>
+                {t('join')}
+              </Button>
+              <Spacer8 />
             </>
           )}
-          <Badge
-            text={
-              sessionTime.isStarted
-                ? sessionT('counter.started')
-                : sessionTime.time
-            }
-            Icon={session.type === 'private' ? <PrivateIcon /> : <PublicIcon />}
-          />
+          <SessionTimeBadge session={session} />
         </Row>
       </Content>
 
@@ -185,14 +161,8 @@ const SessionModal = () => {
       <Gutters>
         <Body16>{t('description')}</Body16>
         <Spacer16 />
-        <ButtonsWrapper>
-          {startingNow ? (
-            <>
-              <Button small variant="primary" onPress={onJoin}>
-                {t('join')}
-              </Button>
-            </>
-          ) : (
+        <Row>
+          {!startingNow && (
             <>
               <IconButton
                 Icon={CalendarIcon}
@@ -206,12 +176,12 @@ const SessionModal = () => {
                 active={reminderEnabled}
                 onPress={onToggleReminder}
               />
+              <Spacer16 />
             </>
           )}
 
           {session.link && (
             <>
-              <Spacer16 />
               <Button
                 variant="secondary"
                 onPress={onShare}
@@ -220,7 +190,7 @@ const SessionModal = () => {
               </Button>
             </>
           )}
-        </ButtonsWrapper>
+        </Row>
       </Gutters>
     </SheetModal>
   );
