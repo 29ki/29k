@@ -31,8 +31,8 @@ const useMuteAudioListener = () => {
     }
   }, [
     toggleAudio,
-    exerciseState,
-    excercise,
+    exerciseState?.playing,
+    excercise?.slide,
     addNotification,
     t,
     isSessionHost,
