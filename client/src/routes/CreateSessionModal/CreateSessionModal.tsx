@@ -93,7 +93,7 @@ const TypeWrapper = styled(TouchableOpacity)({
   paddingHorizontal: SPACINGS.SIXTEEN,
 });
 const TypeItemHeading = styled(ModalHeading)({
-  alignSelf: 'flex-start',
+  textAlign: 'left',
   paddingHorizontal: SPACINGS.EIGHT,
 });
 
