@@ -110,6 +110,7 @@ const UpdateSessionSchema = yup
   .object({
     started: yup.boolean(),
     ended: yup.boolean(),
+    startTime: yup.string(),
   })
   .test(
     'nonEmptyObject',

@@ -37,6 +37,7 @@ import useSessions from '../Sessions/hooks/useSessions';
 import {PencilIcon, CalendarIcon} from '../../common/components/Icons';
 import TouchableOpacity from '../../common/components/TouchableOpacity/TouchableOpacity';
 import DateTimePicker from '../CreateSessionModal/components/DateTimePicker';
+import {updateSession} from '../Sessions/api/session';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -260,6 +261,15 @@ const SessionModal = () => {
           <DateTimePicker
             minimumDate={dayjs().local()}
             initialDateTime={dayjs(session.startTime)}
+            onChange={(date, time) => {
+              const sessionDateTime = date
+                .hour(time.hour())
+                .minute(time.minute());
+
+              updateSession(session.id, {
+                startTime: sessionDateTime.utc().toISOString(),
+              });
+            }}
           />
           <DeleteButton small onPress={onDelete} Icon={DeleteIcon} />
         </Gutters>
