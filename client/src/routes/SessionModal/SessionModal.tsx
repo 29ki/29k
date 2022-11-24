@@ -12,7 +12,12 @@ import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 import {BellIcon, ShareIcon} from '../../common/components/Icons';
 import Image from '../../common/components/Image/Image';
 import SheetModal from '../../common/components/Modals/SheetModal';
-import {Spacer16, Spacer8} from '../../common/components/Spacers/Spacer';
+import {
+  Spacer16,
+  Spacer32,
+  Spacer4,
+  Spacer8,
+} from '../../common/components/Spacers/Spacer';
 import {Display24} from '../../common/components/Typography/Display/Display';
 import {
   ModalStackProps,
@@ -42,9 +47,14 @@ const Row = styled(View)({
   alignItems: 'flex-end',
 });
 
-const ImageContainer = styled.View({
+const TitleContainer = styled.View({
+  flex: 2,
+});
+
+const ImageContainer = styled(Image)({
+  aspectRatio: '1',
   flex: 1,
-  height: 80,
+  height: 90,
 });
 
 const SessionModal = () => {
@@ -128,21 +138,21 @@ const SessionModal = () => {
       <Spacer16 />
       <Content>
         <TopContent>
-          <View>
+          <TitleContainer>
             <Display24>{exercise?.name}</Display24>
+            <Spacer4 />
             <Byline
               pictureURL={session.hostProfile?.photoURL}
               name={session.hostProfile?.displayName}
             />
-          </View>
-          <ImageContainer>
-            <Image
-              resizeMode="contain"
-              source={{uri: exercise?.card?.image?.source}}
-            />
-          </ImageContainer>
+          </TitleContainer>
+          <Spacer32 />
+          <ImageContainer
+            resizeMode="contain"
+            source={{uri: exercise?.card?.image?.source}}
+          />
         </TopContent>
-        <Spacer8 />
+        <Spacer16 />
         <Row>
           {startingNow && (
             <>
