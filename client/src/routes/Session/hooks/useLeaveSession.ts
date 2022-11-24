@@ -8,6 +8,7 @@ import {DailyContext} from '../../../lib/daily/DailyProvider';
 import useSessionState from '../state/state';
 import {TabNavigatorProps} from '../../../lib/navigation/constants/routes';
 import useSessions from '../../Sessions/hooks/useSessions';
+import useSessionNotificationsState from '../state/sessionNotificationsState';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
@@ -18,13 +19,24 @@ const useLeaveSession = () => {
   const {fetchSessions} = useSessions();
 
   const resetSession = useSessionState(state => state.reset);
+  const resetSessionNotifications = useSessionNotificationsState(
+    state => state.reset,
+  );
 
   const leaveSession = useCallback(async () => {
     await leaveMeeting();
     resetSession();
+    resetSessionNotifications();
+
     fetchSessions();
     navigate('Sessions');
-  }, [leaveMeeting, resetSession, navigate, fetchSessions]);
+  }, [
+    leaveMeeting,
+    resetSession,
+    resetSessionNotifications,
+    navigate,
+    fetchSessions,
+  ]);
 
   const leaveSessionWithConfirm = useCallback(async () => {
     Alert.alert(t('header'), t('text'), [
