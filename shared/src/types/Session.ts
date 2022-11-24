@@ -49,10 +49,7 @@ export type Session = SessionFields & {
   createdAt: string;
   updatedAt: string;
   exerciseState: ExerciseState;
-};
-
-export type SessionWithHostProfile = Session & {
-  hostProfile: UserProfile;
+  hostProfile?: UserProfile;
 };
 
 export type DailyUserData = {

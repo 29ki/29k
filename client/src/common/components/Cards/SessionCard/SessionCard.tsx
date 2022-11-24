@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import dayjs from 'dayjs';
 import styled from 'styled-components/native';
 
-import {SessionWithHostProfile} from '../../../../../../shared/src/types/Session';
+import {Session} from '../../../../../../shared/src/types/Session';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import useSessionNotificationReminder from '../../../../routes/Sessions/hooks/useSessionNotificationReminder';
 import {
@@ -26,7 +26,7 @@ const Row = styled.View({
 });
 
 type SessionCardProps = {
-  session: SessionWithHostProfile;
+  session: Session;
 };
 
 const SessionCard: React.FC<SessionCardProps> = ({session}) => {
@@ -66,8 +66,8 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
       onButtonPress={onPress}
       onContextPress={onContextPress}
       Icon={reminderEnabled ? BellIcon : undefined}
-      hostPictureURL={hostProfile.photoURL}
-      hostName={hostProfile.displayName}>
+      hostPictureURL={hostProfile?.photoURL}
+      hostName={hostProfile?.displayName}>
       <Row>
         {!sessionTime.isReadyToJoin && (
           <>
