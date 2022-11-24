@@ -6,13 +6,7 @@ import {
 } from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
 import Video from 'react-native-video';
@@ -42,11 +36,9 @@ import useDailyState from '../../lib/daily/state/state';
 import useLeaveSession from './hooks/useLeaveSession';
 import VideoBase from './components/VideoBase/VideoBase';
 import useIsSessionHost from './hooks/useIsSessionHost';
-import AudioFader from './components/AudioFader/AudioFader';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 import useUpdateSession from './hooks/useUpdateSession';
 import HostNotes from './components/HostNotes/HostNotes';
-import {DailyContext} from '../../lib/daily/DailyProvider';
 import Screen from '../../common/components/Screen/Screen';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
 import {ArrowLeftIcon} from '../../common/components/Icons';
@@ -97,7 +89,7 @@ const IntroPortal: React.FC = () => {
     params: {sessionId: sessionId},
   } = useRoute<RouteProp<SessionStackProps, 'IntroPortal'>>();
   const endVideoRef = useRef<Video>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [loopVideoLoaded, setLoopVideoLoaded] = useState(false);
   const [joiningSession, setJoiningSession] = useState(false);
   const {t} = useTranslation('Screen.Portal');
   const exercise = useSessionExercise();
@@ -105,7 +97,6 @@ const IntroPortal: React.FC = () => {
   const participants = useDailyState(state => state.participants);
   const participantsCount = Object.keys(participants ?? {}).length;
   const isHost = useIsSessionHost();
-  const {setPreferredAudioOutputDevice} = useContext(DailyContext);
   const {navigate} =
     useNavigation<
       NativeStackNavigationProp<
@@ -130,10 +121,6 @@ const IntroPortal: React.FC = () => {
   usePreventGoingBack(leaveSessionWithConfirm);
 
   useEffect(() => {
-    setPreferredAudioOutputDevice();
-  }, [setPreferredAudioOutputDevice]);
-
-  useEffect(() => {
     if (session?.started && !endVideoRef.current) {
       // If no video is defined, navigate directly
       navigateToSession();
@@ -151,7 +138,7 @@ const IntroPortal: React.FC = () => {
   };
 
   const onLoopVideoLoad = () => {
-    setVideoLoaded(true);
+    setLoopVideoLoaded(true);
   };
 
   const onLoopVideoEnd = () => {
@@ -165,18 +152,17 @@ const IntroPortal: React.FC = () => {
     <Screen>
       {!isHost && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
       {isFocused && introPortal?.videoLoop?.audio && (
-        <AudioFader
-          source={introPortal?.videoLoop.audio}
+        <VideoStyled
+          audioOnly
+          source={{uri: introPortal?.videoLoop.audio}}
+          paused={!loopVideoLoaded}
           repeat
-          paused={!videoLoaded}
-          volume={!joiningSession ? 1 : 0}
-          duration={!joiningSession ? 20000 : 5000}
         />
       )}
       {introPortal?.videoEnd && (
         <VideoStyled
           ref={endVideoRef}
-          onLoad={onEndVideoLoad}
+          onReadyForDisplay={onEndVideoLoad}
           onEnd={onEndVideoEnd}
           paused={!joiningSession || !isFocused}
           source={{uri: introPortal.videoEnd?.source}}
@@ -188,7 +174,7 @@ const IntroPortal: React.FC = () => {
 
       {!joiningSession && introPortal?.videoLoop && (
         <VideoStyled
-          onLoad={onLoopVideoLoad}
+          onReadyForDisplay={onLoopVideoLoad}
           onEnd={onLoopVideoEnd}
           paused={!isFocused}
           repeat={!session?.started}

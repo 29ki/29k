@@ -193,21 +193,20 @@ const ChangingRoom = () => {
         ) : (
           <>
             <VideoWrapper>
-              {isFocused &&
-                (hasVideo ? (
-                  <DailyMediaViewWrapper
-                    videoTrack={me?.videoTrack ?? null}
-                    audioTrack={me?.audioTrack ?? null}
-                    objectFit={'cover'}
-                    mirror={me?.local}
-                  />
-                ) : user?.photoURL ? (
-                  <ImageContainer>
-                    <Image source={{uri: user.photoURL}} />
-                  </ImageContainer>
-                ) : (
-                  <VideoText>{t('cameraOff')}</VideoText>
-                ))}
+              {isFocused && hasVideo ? (
+                <DailyMediaViewWrapper
+                  videoTrack={me?.videoTrack ?? null}
+                  audioTrack={me?.audioTrack ?? null}
+                  objectFit={'cover'}
+                  mirror={me?.local}
+                />
+              ) : user?.photoURL ? (
+                <ImageContainer>
+                  <Image source={{uri: user.photoURL}} />
+                </ImageContainer>
+              ) : (
+                <VideoText>{t('cameraOff')}</VideoText>
+              )}
               <Audio muted={!hasAudio} />
             </VideoWrapper>
 

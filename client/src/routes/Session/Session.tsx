@@ -95,7 +95,6 @@ const Session = () => {
     toggleVideo,
     setSubscribeToAllTracks,
     leaveMeeting,
-    setPreferredAudioOutputDevice,
   } = useContext(DailyContext);
   const {
     params: {sessionId},
@@ -129,13 +128,7 @@ const Session = () => {
       photoURL: user?.photoURL,
     } as DailyUserData);
     setSubscribeToAllTracks();
-    setPreferredAudioOutputDevice();
-  }, [
-    setUserData,
-    setSubscribeToAllTracks,
-    setPreferredAudioOutputDevice,
-    user?.photoURL,
-  ]);
+  }, [setUserData, setSubscribeToAllTracks, user?.photoURL]);
 
   const hasAudio = Boolean(me?.audioTrack);
   const hasVideo = Boolean(me?.videoTrack);
