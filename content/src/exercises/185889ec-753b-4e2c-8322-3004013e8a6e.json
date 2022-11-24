@@ -26,10 +26,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome\n\nI am X and today we will work for around 40 minutes on connecting with- and being kind to ourselves.\n\nWe’ll be doing some reflection exercises and there will be opportunities to share those reflections with each other."
+            "text": "Welcome. I am X and today we will work for around 40 minutes on connecting with- and being kind to ourselves.\n\nWe’ll be doing some reflection exercises and there will be opportunities to share those reflections with each other."
           },
           {
-            "text": "Let’s start with a mini check-in.\n\nHow are you feeling right now? Please answer in two-three words.\n\nX, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in.\n\nLet’s get started."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ]
       },
@@ -37,13 +37,13 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Imagine that you took out a pair of clothespins. Next, you grab the voice within yourself and \"lift it out\", so that there’s now a person in front of you. That person is saying all the things you usually say to yourself when something has gone wrong, or when you have failed.\n\nThink about it: How long would you stand talking to this person?"
+            "text": "Imagine that you took out a pair of clothespins. Next, you grab the voice within yourself and \"lift it out\", so that there’s now a person in front of you. That person is saying all the things you usually say to yourself when something has gone wrong, or when you have failed."
           },
           {
-            "text": "There's a high probability that you'd want to get out of there as fast as possible.\n\nHow is it that we humans are usually much tougher on ourselves than we are on others?"
+            "text": "Think about it: How long would you stand talking to this person? There's a high probability that you'd want to get out of there as fast as possible. How is it that we humans are usually much tougher on ourselves than we are on others?"
           },
           {
-            "text": "In this exercise we will be practicing self-compassion - learning to become less self-critical and instead be kinder to oneself.\n\nResearch has shown that it can increase happiness and motivation, and reduce anxiety and depressive symptoms."
+            "text": "In this exercise we will be practicing self-compassion - learning to become less self-critical and instead be kinder to oneself. Research has shown that it can increase happiness and motivation, and reduce anxiety and depressive symptoms."
           }
         ],
         "content": {
@@ -60,7 +60,7 @@
             "text": "Now we’ll take 2 minutes to reflect on our own.\n\nThink of a situation when you felt down. When you failed at something and doubted yourself. How do you usually react to and treat yourself in such situations? What do you say to yourself? What tone do you use?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.\n\n2 minutes starting now.\n\n> Push play to start the timer.\n\nThat’s 2 minutes and it’s time to move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 2 minutes starting now.\n\n> Push play to start the timer.\n\nThat’s 2 minutes and it’s time to move on."
           }
         ],
         "content": {
@@ -80,13 +80,13 @@
         },
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through.\n3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is."
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
           },
           {
-            "text": "There will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one.\n>\n> Push play to start the timer. \n>\n> Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ]
       },
@@ -102,10 +102,10 @@
         },
         "hostNotes": [
           {
-            "text": "One way to practice self-compassion is by taking a different perspective.\n\nThink about how you react when a friend is feeling down, is putting themselves down or perhaps is doubting their ability. \n\nHow do you usually react? What do you say or do? What tone do you use?"
+            "text": "One way to practice self-compassion is by taking a different perspective. Think about how you react when a friend is feeling down, is putting themselves down or perhaps is doubting their ability. \n\nHow do you usually react? What do you say or do? What tone do you use?"
           },
           {
-            "text": "If you want to, you can take notes on a piece of paper or just mental notes in your head. And remember, there is no right or wrong here, our answers are our own.\n\n2 minutes starting now.\n\n> Push play to start the timer.\n\nThat’s 2 minutes and it’s time to move on."
+            "text": "If you want to, you can take notes on a piece of paper or just mental notes in your head. And remember, there is no right or wrong here, our answers are our own. 2 minutes starting now.\n\n> Push play to start the timer.\n\nThat’s 2 minutes and it’s time to move on."
           }
         ]
       },
@@ -119,7 +119,7 @@
         },
         "hostNotes": [
           {
-            "text": "Time to share again. Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one.\n>\n> Push play to start the timer. \n>\n> Re-start for each new sharing.\n\nThank you so much for sharing."
+            "text": "Time to share again. Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much for sharing."
           }
         ]
       },
@@ -127,13 +127,16 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nIn the coming days, see if you can try to be kinder to yourself. Especially in difficult situations! \n\nUse the idea of clothespins and start by becoming aware of what your inner voice sounds like. Next, see if you can choose to talk and react to yourself in the same way you would if it were a friend. Notice how it makes you feel."
+            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out.\n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words.\n\nWho would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today."
+            "text": "In the coming days, see if you can try to be kinder to yourself. Especially in difficult situations. Use the idea of clothespins and start by becoming aware of what your inner voice sounds like. Next, see if you can choose to talk and react to yourself in the same way you would if it were a friend. Notice how it makes you feel."
           },
           {
-            "text": "> Finish session to send everyone off to the exit experience."
+            "text": "Before we leave this space let’s do a mini check-out.\n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       }
