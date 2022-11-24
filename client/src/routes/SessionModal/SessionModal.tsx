@@ -149,8 +149,8 @@ const SessionModal = () => {
         <View>
           <Display24>{exercise?.name}</Display24>
           <Byline
-            pictureURL={session.hostProfile.photoURL}
-            name={session.hostProfile.displayName}
+            pictureURL={session.hostProfile?.photoURL}
+            name={session.hostProfile?.displayName}
           />
         </View>
         {session.inviteCode && (
