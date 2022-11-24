@@ -24,7 +24,7 @@ const SessionUnavailableModal = () => {
       </Gutters>
       <ImageWrapper>
         <Spacer28 />
-        <Image resizeMode="contain" source={{uri: t('image')}} />
+        <Image resizeMode="contain" source={{uri: t('image__image')}} />
       </ImageWrapper>
     </SheetModal>
   );
