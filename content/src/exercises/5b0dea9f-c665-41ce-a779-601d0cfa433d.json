@@ -44,7 +44,7 @@
         "content": {
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1668679655/Video/meditation_letting_go_of_controlmp4_sxgwig.mp4",
-            "autoPlayLoop": true,
+            "autoPlayLoop": false,
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1668093018/Audio/meditation_letting_go_of_control_becb1s.mp3",
             "durationTimer": true
           }
