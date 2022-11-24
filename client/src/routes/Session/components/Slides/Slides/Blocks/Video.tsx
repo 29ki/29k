@@ -54,7 +54,7 @@ const Video: React.FC<VideoProps> = ({
     if (active && !autoPlayLoop && duration && exerciseState) {
       // Block is active, video and state is loaded
       const playing = exerciseState.playing;
-      const timestamp = exerciseState.timestamp.toDate();
+      const timestamp = new Date(exerciseState.timestamp);
 
       if (
         timestamp > previousState.current.timestamp &&

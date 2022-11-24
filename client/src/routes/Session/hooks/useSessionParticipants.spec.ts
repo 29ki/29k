@@ -1,9 +1,6 @@
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import {renderHook} from '@testing-library/react-hooks';
-import {
-  DailyUserData,
-  SessionData,
-} from '../../../../../shared/src/types/Session';
+import {DailyUserData, Session} from '../../../../../shared/src/types/Session';
 import useSessionState from '../state/state';
 import useDailyState from '../../../lib/daily/state/state';
 import useSessionExercise from './useSessionExercise';
@@ -52,7 +49,7 @@ describe('useSessionParticipants', () => {
         exerciseState: {
           dailySpotlightId: 'some-spotlight-user-id',
         },
-      } as SessionData,
+      } as Session,
     });
 
     const {result} = renderHook(() => useSessionParticipants());
@@ -96,7 +93,7 @@ describe('useSessionParticipants', () => {
         exerciseState: {
           dailySpotlightId: 'some-spotlight-user-id',
         },
-      } as SessionData,
+      } as Session,
     });
 
     const {result} = renderHook(() => useSessionParticipants());

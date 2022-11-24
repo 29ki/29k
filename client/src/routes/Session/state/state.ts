@@ -1,12 +1,12 @@
-import {SessionData} from '../../../../../shared/src/types/Session';
+import {Session} from '../../../../../shared/src/types/Session';
 import create from 'zustand';
 
 type State = {
-  session: SessionData | null;
+  session: Session | null;
 };
 
 type Actions = {
-  setState: (session: SessionData) => void;
+  setState: (session: Session) => void;
   reset: () => void;
 };
 

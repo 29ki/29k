@@ -1,8 +1,8 @@
 {
   "en": {
-    "published": true,
+    "published": false,
     "theme": {
-      "textColor": "#2AE2D7",
+      "textColor": "#F9F8F4",
       "backgroundColor": "#ca6a78"
     },
     "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d",
@@ -44,7 +44,7 @@
         "content": {
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1668679655/Video/meditation_letting_go_of_controlmp4_sxgwig.mp4",
-            "autoPlayLoop": true,
+            "autoPlayLoop": false,
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1668093018/Audio/meditation_letting_go_of_control_becb1s.mp3",
             "durationTimer": true
           }
@@ -72,7 +72,7 @@
         "content": {
           "heading": "What's in your beachball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669210567/Video/2min_letting_go_of_control_w4ee4s.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669214353/Video/2min_letting_go_of_control_bzv8ur.mp4"
           }
         },
         "hostNotes": [
@@ -115,7 +115,7 @@
         "content": {
           "heading": "What if you let go of your beachball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669210567/Video/2min_letting_go_of_control_w4ee4s.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669214353/Video/2min_letting_go_of_control_bzv8ur.mp4"
           }
         },
         "hostNotes": [
