@@ -14,6 +14,7 @@ import Daily, {
 import useDailyState from './state/state';
 import useSetParticipantsSortOrder from '../../routes/Session/hooks/useSetParticipantsSortOrder';
 import Sentry from '../sentry';
+import {Platform} from 'react-native';
 
 export type DailyProviderTypes = {
   call?: DailyCall;
@@ -26,7 +27,6 @@ export type DailyProviderTypes = {
   setUserName: (userName: string) => Promise<void>;
   setUserData: (userData: unknown) => Promise<void>;
   setSubscribeToAllTracks: () => void;
-  setPreferredAudioOutputDevice: () => void;
 };
 
 export const DailyContext = createContext<DailyProviderTypes>({
@@ -39,7 +39,6 @@ export const DailyContext = createContext<DailyProviderTypes>({
   setUserName: () => Promise.resolve(),
   setUserData: () => Promise.resolve(),
   setSubscribeToAllTracks: () => {},
-  setPreferredAudioOutputDevice: () => {},
 });
 
 const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
@@ -152,6 +151,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const preJoinMeeting = useCallback(
     async (url: string) => {
       if (daily.meetingState() === 'new') {
+        daily.setNativeInCallAudioMode('video');
         await prepareMeeting(url);
         await daily.startCamera({url});
       }
@@ -160,11 +160,20 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   );
 
   const joinMeeting = useCallback(
-    async (options?: DailyCallOptions) => {
-      if (daily.meetingState() !== 'joined-meeting') {
-        await daily.join(options);
-      }
-    },
+    async (options?: DailyCallOptions) =>
+      new Promise<void>(async resolve => {
+        if (daily.meetingState() !== 'joined-meeting') {
+          await daily.join(options);
+
+          if (Platform.OS === 'ios') {
+            // This is a hack to let the audio input/output settle before resolving
+            daily.once('available-devices-updated', () => resolve());
+            return;
+          }
+
+          resolve();
+        }
+      }),
     [daily],
   );
 
@@ -181,11 +190,6 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
       local?.tracks.video.blocked?.byPermissions !== true &&
       local?.tracks.audio.blocked?.byPermissions !== true
     );
-  }, [daily]);
-
-  const setPreferredAudioOutputDevice = useCallback(async () => {
-    // This seems to have great effect on being able to play sound over a daily call
-    await daily.setAudioDevice('SPEAKERPHONE');
   }, [daily]);
 
   useEffect(() => {
@@ -217,7 +221,6 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
         setUserName,
         setUserData,
         setSubscribeToAllTracks,
-        setPreferredAudioOutputDevice,
       }}>
       {children}
     </DailyContext.Provider>
