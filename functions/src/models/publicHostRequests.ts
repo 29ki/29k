@@ -1,6 +1,8 @@
 import {firestore} from 'firebase-admin';
 import {Timestamp} from 'firebase-admin/firestore';
-import {getData, removeEmpty} from '../lib/utils';
+
+import {getData} from '../../../shared/src/modelUtils/firestore';
+import {removeEmpty} from '../lib/utils';
 import {RequestData, RequestStatus} from './types/types';
 
 const REQUESTS_COLLECTION = 'publicHostRequests';

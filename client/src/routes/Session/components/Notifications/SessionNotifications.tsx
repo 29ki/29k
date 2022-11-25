@@ -2,17 +2,20 @@ import React, {useCallback, useContext, useEffect} from 'react';
 import {DailyEventObject} from '@daily-co/react-native-daily-js';
 import {useTranslation} from 'react-i18next';
 import {View, ViewStyle} from 'react-native';
+import dayjs from 'dayjs';
 
 import {DailyContext} from '../../../../lib/daily/DailyProvider';
 import {DailyUserData} from '../../../../../../shared/src/types/Session';
 import {Notification} from './Notification';
 import useSessionNotificationsState from '../../state/sessionNotificationsState';
+import useLocalParticipant from '../../../../lib/daily/hooks/useLocalParticipant';
 
 const SessionNotifications: React.FC<{
   style?: ViewStyle;
 }> = ({style}) => {
   const {call} = useContext(DailyContext);
   const {t} = useTranslation('Screen.Session');
+  const localParticipant = useLocalParticipant();
   const notifications = useSessionNotificationsState(
     state => state.notifications,
   );
@@ -24,13 +27,18 @@ const SessionNotifications: React.FC<{
     (event: DailyEventObject<'participant-joined'> | undefined) => {
       const image = (event?.participant.userData as DailyUserData)?.photoURL;
       const name = event?.participant.user_name ?? '';
-      addNotification({
-        text: t('notifications.joined', {name}),
-        letter: name[0],
-        image,
-      });
+      const localParticipantJoinedAt = dayjs.utc(localParticipant?.joined_at);
+      const participantJoinedAt = dayjs.utc(event?.participant.joined_at);
+
+      if (participantJoinedAt.isAfter(localParticipantJoinedAt)) {
+        addNotification({
+          text: t('notifications.joined', {name}),
+          letter: name[0],
+          image,
+        });
+      }
     },
-    [t, addNotification],
+    [t, addNotification, localParticipant?.joined_at],
   );
 
   const participantLeft = useCallback(

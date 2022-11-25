@@ -66,8 +66,8 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
       onButtonPress={onPress}
       onContextPress={onContextPress}
       Icon={reminderEnabled ? BellIcon : undefined}
-      hostPictureURL={hostProfile.photoURL}
-      hostName={hostProfile.displayName}>
+      hostPictureURL={hostProfile?.photoURL}
+      hostName={hostProfile?.displayName}>
       <Row>
         {!sessionTime.isReadyToJoin && (
           <>

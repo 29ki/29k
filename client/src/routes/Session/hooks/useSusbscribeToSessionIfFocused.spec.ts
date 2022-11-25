@@ -16,7 +16,7 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe('useSubscribeToSession', () => {
+describe('useSubscribeToSessionIfFocused', () => {
   const fetchSessionsMock = jest.fn();
   mockUseSessions.mockReturnValue({fetchSessions: fetchSessionsMock});
 
@@ -42,9 +42,7 @@ describe('useSubscribeToSession', () => {
 
   it('should set live content state', () => {
     mockUseIsFocused.mockReturnValueOnce(true);
-    mockSubscribeToSession.mockImplementation(cb =>
-      cb({data: () => ({id: 'test-id'}), exists: true}),
-    );
+    mockSubscribeToSession.mockImplementation(cb => cb({id: 'test-id'}));
 
     const {result} = renderHook(() => useTestHook());
 
@@ -53,9 +51,7 @@ describe('useSubscribeToSession', () => {
 
   it('should handle when session does not exist', () => {
     mockUseIsFocused.mockReturnValueOnce(true);
-    mockSubscribeToSession.mockImplementationOnce(cb =>
-      cb({data: () => undefined, exists: false}),
-    );
+    mockSubscribeToSession.mockImplementationOnce(cb => cb(undefined));
 
     const {result} = renderHook(() => useTestHook());
     expect(result.current).toBe(null);
@@ -67,9 +63,7 @@ describe('useSubscribeToSession', () => {
 
   it('should handle when session has ended', () => {
     mockUseIsFocused.mockReturnValueOnce(true);
-    mockSubscribeToSession.mockImplementationOnce(cb =>
-      cb({data: () => ({ended: true}), exists: true}),
-    );
+    mockSubscribeToSession.mockImplementationOnce(cb => cb({ended: true}));
 
     const {result} = renderHook(() => useTestHook());
     expect(result.current).toBe(null);

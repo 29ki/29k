@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import useSessionState from '../state/state';
-import {Session, SessionData} from '../../../../../shared/src/types/Session';
+import {Session} from '../../../../../shared/src/types/Session';
 import useSessions from '../../Sessions/hooks/useSessions';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -29,10 +29,8 @@ const useSubscribeToSessionIfFocused = (
 
   useEffect(() => {
     if (isFocused) {
-      return subscribeToSession(documentSnapshot => {
-        const session = documentSnapshot.data() as SessionData;
-
-        if (!documentSnapshot.exists || (exitOnEnded && session?.ended)) {
+      return subscribeToSession(session => {
+        if (!session || (exitOnEnded && session?.ended)) {
           fetchSessions();
           navigate('Sessions');
           navigate('SessionUnavailableModal');

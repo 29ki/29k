@@ -107,7 +107,7 @@ const IntroPortal: React.FC = () => {
   const {leaveSessionWithConfirm} = useLeaveSession();
   const isFocused = useIsFocused();
   useSubscribeToSessionIfFocused(sessionId);
-  const sessionTime = useSessionStartTime(dayjs(session?.startTime.toDate()));
+  const sessionTime = useSessionStartTime(dayjs(session?.startTime));
 
   const introPortal = exercise?.introPortal;
   const textColor = exercise?.theme?.textColor;
