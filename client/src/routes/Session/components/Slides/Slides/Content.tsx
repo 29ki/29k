@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 import {
-  ExerciseSlidesContent,
-  ExerciseSlidesReflection,
-  ExerciseSlidesSharing,
+  ExerciseSlideContentSlide,
+  ExerciseSlideReflectionSlide,
+  ExerciseSlideSharingSlide,
 } from '../../../../../../../shared/src/types/generated/Exercise';
 import Heading from './Blocks/Heading';
 import Image from '../../../../../common/components/Image/Image';
@@ -31,12 +31,12 @@ const VideoWrapper = styled.View({
 
 type ContentProps = {
   slide:
-    | ExerciseSlidesReflection
-    | ExerciseSlidesSharing
-    | ExerciseSlidesContent;
+    | ExerciseSlideContentSlide
+    | ExerciseSlideSharingSlide
+    | ExerciseSlideReflectionSlide;
   active: boolean;
 };
-const Content: React.FC<ContentProps> = ({slide: {content}, active}) => (
+const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => (
   <>
     <Spacer12 />
     {!content.video && !content.image && (

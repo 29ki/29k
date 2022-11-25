@@ -40,6 +40,9 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {BottomSheetFlatList, useBottomSheet} from '@gorhom/bottom-sheet';
 import ProfileInfo from '../../common/components/ProfileInfo/ProfileInfo';
 import useUser from '../../lib/user/hooks/useUser';
+import Byline from '../../common/components/Bylines/Byline';
+import {UserProfile} from '../../../../shared/src/types/User';
+import {PrivateIcon, PublicIcon} from '../../common/components/Icons';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -53,8 +56,13 @@ const Card = styled(TouchableOpacity)({
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
   paddingRight: 0,
   paddingLeft: SPACINGS.SIXTEEN,
-  backgroundColor: '#F4EBC4',
+  backgroundColor: COLORS.CREAM,
   overflow: 'hidden',
+});
+
+const IconWrapper = styled.View({
+  width: 30,
+  height: 30,
 });
 
 const CardImageWrapper = styled.View({
@@ -77,8 +85,16 @@ const Step = styled(Animated.View).attrs({
 const Cta = styled(Button)({alignSelf: 'center'});
 
 const TypeWrapper = styled(TouchableOpacity)({
-  alignItems: 'center',
+  justifyContent: 'center',
+  height: 96,
   flex: 1,
+  backgroundColor: COLORS.PURE_WHITE,
+  borderRadius: SPACINGS.SIXTEEN,
+  paddingHorizontal: SPACINGS.SIXTEEN,
+});
+const TypeItemHeading = styled(ModalHeading)({
+  textAlign: 'left',
+  paddingHorizontal: SPACINGS.EIGHT,
 });
 
 const ContentCard: React.FC<{
@@ -150,14 +166,12 @@ const SelectContent: React.FC<StepProps> = ({
 };
 
 const TypeItem: React.FC<{
-  icon: string;
+  Icon: React.ReactNode;
   label: string;
   onPress: () => void;
-}> = ({icon, label, onPress = () => {}}) => (
+}> = ({Icon, label, onPress = () => {}}) => (
   <TypeWrapper onPress={onPress}>
-    <CardImageWrapper>
-      <Image source={{uri: icon}} />
-    </CardImageWrapper>
+    <IconWrapper>{Icon}</IconWrapper>
     <Body16>{label}</Body16>
   </TypeWrapper>
 );
@@ -166,6 +180,7 @@ const SelectType: React.FC<StepProps> = ({
   selectedExercise,
   setSelectedType,
   nextStep,
+  userProfile,
 }) => {
   const exercise = useExerciseById(selectedExercise);
   const {t} = useTranslation('Modal.CreateSession');
@@ -177,6 +192,11 @@ const SelectType: React.FC<StepProps> = ({
         <Row>
           <TextWrapper>
             <Display24>{exercise?.name}</Display24>
+            <Spacer8 />
+            <Byline
+              pictureURL={userProfile.photoURL}
+              name={userProfile.displayName}
+            />
           </TextWrapper>
           <Spacer16 />
           <CardImageWrapper>
@@ -184,19 +204,22 @@ const SelectType: React.FC<StepProps> = ({
           </CardImageWrapper>
         </Row>
         <Spacer28 />
-        <ModalHeading>{t('selectType.title')}</ModalHeading>
+        <TypeItemHeading>{t('selectType.title')}</TypeItemHeading>
         <Spacer16 />
         <Row>
-          {Object.values(SessionType).map(type => (
-            <TypeItem
-              key={type}
-              onPress={() => {
-                setSelectedType(type);
-                nextStep();
-              }}
-              label={t(`selectType.${type}.title`)}
-              icon={t(`selectType.${type}.icon`)}
-            />
+          {Object.values(SessionType).map((type, i, arr) => (
+            <>
+              <TypeItem
+                key={i}
+                onPress={() => {
+                  setSelectedType(type);
+                  nextStep();
+                }}
+                label={t(`selectType.${type}.title`)}
+                Icon={type === 'private' ? <PrivateIcon /> : <PublicIcon />}
+              />
+              {i < arr.length - 1 && <Spacer16 />}
+            </>
           ))}
         </Row>
       </Gutters>
@@ -271,6 +294,7 @@ type StepProps = {
   setSelectedExercise: Dispatch<SetStateAction<StepProps['selectedExercise']>>;
   nextStep: () => void;
   selectedType: SessionType | undefined;
+  userProfile: UserProfile;
   setSelectedType: Dispatch<SetStateAction<StepProps['selectedType']>>;
 };
 
@@ -295,6 +319,10 @@ const CreateSessionModal = () => {
   );
 
   const hasProfile = Boolean(user?.displayName) && Boolean(user?.photoURL);
+  const userProfile = {
+    displayName: user?.displayName ?? undefined,
+    photoURL: user?.photoURL ?? undefined,
+  };
 
   const CurrentStepComponent: React.FC<StepProps> = isPublicHost
     ? publicHostSteps(hasProfile)[currentStep]
@@ -305,6 +333,7 @@ const CreateSessionModal = () => {
     setSelectedExercise,
     selectedType,
     setSelectedType,
+    userProfile,
     nextStep: () => setCurrentStep(currentStep + 1),
   };
 

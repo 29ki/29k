@@ -9,11 +9,11 @@ import {ExerciseStateUpdate, UpdateSession} from '../api/sessions';
 import {generateVerificationCode, removeEmpty} from '../lib/utils';
 import {RequestError} from './errors/RequestError';
 
-const mapSession = async (session: Session) => {
+const mapSession = async (session: Session): Promise<Session> => {
   return {...session, hostProfile: await getPublicUserInfo(session.hostId)};
 };
 
-export const getSessions = async (userId: string): Promise<Array<Session>> => {
+export const getSessions = async (userId: string): Promise<Session[]> => {
   const sessions = await sessionModel.getSessions(userId);
   return Promise.all(sessions.map(mapSession));
 };
