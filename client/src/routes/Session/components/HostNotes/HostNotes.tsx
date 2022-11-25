@@ -91,22 +91,21 @@ const HostNotes: React.FC<HostNotesProps> = ({
   const exercise = useSessionExercise();
   const {t} = useTranslation('Component.HostNotes');
 
-  useEffect(() => {
-    console.log('scrolling to - ', scroll.index);
-    listRef.current?.scrollToIndex({
-      animated: scroll.animated,
-      index: scroll.index,
-    });
-  }, [scroll.animated, scroll.index]);
+  useEffect(
+    () =>
+      listRef.current?.scrollToIndex({
+        animated: scroll.animated,
+        index: scroll.index,
+      }),
+    [scroll.animated, scroll.index],
+  );
 
   const calculatePageIndex = useCallback(
-    (e: NativeSyntheticEvent<NativeScrollEvent>) => {
-      console.log('setting scroll - calculatePageIndex');
+    (e: NativeSyntheticEvent<NativeScrollEvent>) =>
       setScroll({
         index: Math.round(e?.nativeEvent?.contentOffset?.x / containerWidth),
         animated: true,
-      });
-    },
+      }),
     [containerWidth],
   );
 
