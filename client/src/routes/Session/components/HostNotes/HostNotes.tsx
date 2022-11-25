@@ -161,8 +161,13 @@ const HostNotes: React.FC<HostNotesProps> = ({
               <Navigation>
                 <NavButton
                   onPress={() => {
+                    const newIndex = activeIndex - 1;
+                    if (newIndex < 0) {
+                      return;
+                    }
+                    setActiveIndex(newIndex);
                     listRef.current?.scrollToIndex({
-                      index: activeIndex - 1,
+                      index: newIndex,
                     });
                   }}
                   Icon={BackwardCircleIcon}
@@ -170,11 +175,16 @@ const HostNotes: React.FC<HostNotesProps> = ({
                 />
                 <Body14>{`${activeIndex + 1} / ${notes.length}`}</Body14>
                 <NavButton
-                  onPress={() =>
+                  onPress={() => {
+                    const newIndex = activeIndex + 1;
+                    if (newIndex >= notes.length) {
+                      return;
+                    }
+                    setActiveIndex(newIndex);
                     listRef.current?.scrollToIndex({
-                      index: activeIndex + 1,
-                    })
-                  }
+                      index: newIndex,
+                    });
+                  }}
                   Icon={ForwardCircleIcon}
                   disabled={activeIndex >= notes.length - 1}
                 />
