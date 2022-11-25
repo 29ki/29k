@@ -1,15 +1,30 @@
 {
   "en": {
     "title": "Join by invite code",
+    "create": {
+      "or": "or",
+      "cta": "Add new session"
+    },
     "errors": {
-      "sessionNotFound": "Invalid invite code"
+      "sessionNotFound": "Incorrect code, try again"
     }
   },
   "sv": {
-    "title": "Använd kod för att gå med"
+    "title": "Använd kod för att gå med",
+    "create": {
+      "or": "eller",
+      "cta": "Skapa ny session"
+    },
+    "errors": {
+      "sessionNotFound": "Ogiltig kod, försök igen"
+    }
   },
   "pt": {
     "title": "Junta-te por código de convite",
+    "create": {
+      "or": "or",
+      "cta": "Add new session"
+    },
     "errors": {
       "sessionNotFound": "Código de convite inválido"
     }

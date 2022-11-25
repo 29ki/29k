@@ -13,7 +13,7 @@
       "verificationNotFound": "We could not find any public host request for this user.",
       "verificationDeclined": "The request was not accepted.",
       "verificationAlreadyClaimed": "The code have already been used.",
-      "verificationFailed": "Verification failed."
+      "verificationFailed": "Incorrect code, try again."
     },
     "text": "As an official 29k host you can register here to be able to create public sessions.",
     "requestCodeButton": "Request a code",
@@ -57,7 +57,7 @@
       "verificationNotFound": "Vi kunde inte hitta någon begäran från denna användare.",
       "verificationDeclined": "Begäran godkändes inte",
       "verificationAlreadyClaimed": "Koden har redan använts.",
-      "verificationFailed": "Du har inte angett en giltig kod."
+      "verificationFailed": "Ogiltig kod, försök igen."
     },
     "text": "Du behöver registrera dig för att kunna skapa publika sessioner.",
     "requestCodeButton": "Begär kod",

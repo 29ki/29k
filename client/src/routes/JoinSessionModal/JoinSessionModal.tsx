@@ -8,16 +8,22 @@ import {JoinSessionError} from '../../../../shared/src/errors/Session';
 import {COLORS} from '../../../../shared/src/constants/colors';
 
 import Gutters from '../../common/components/Gutters/Gutters';
-import {Spacer16} from '../../common/components/Spacers/Spacer';
-import {Body14} from '../../common/components/Typography/Body/Body';
+import {Spacer16, Spacer8} from '../../common/components/Spacers/Spacer';
+import {Body16} from '../../common/components/Typography/Body/Body';
 import VerificationCode from '../../common/components/VerificationCode/VerificationCode';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import {joinSession} from '../Sessions/api/session';
 import useSessions from '../Sessions/hooks/useSessions';
 import CardModal from '../../common/components/Modals/CardModal';
 import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
+import Button from '../../common/components/Buttons/Button';
 
-const ErrorText = styled(Body14)({color: COLORS.ERROR, textAlign: 'center'});
+const ErrorText = styled(Body16)({color: COLORS.ERROR, textAlign: 'center'});
+const BodyText = styled(Body16)({textAlign: 'center'});
+const ButtonWrapper = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'center',
+});
 
 const JoinSessionModal = () => {
   const {t} = useTranslation('Modal.JoinSession');
@@ -25,16 +31,21 @@ const JoinSessionModal = () => {
     params: {inviteCode: inviteCode},
   } = useRoute<RouteProp<ModalStackProps, 'JoinSessionModal'>>();
   const {fetchSessions} = useSessions();
-  const {goBack, navigate} =
+  const {goBack, navigate, popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
   const [errorString, setErrorString] = useState<string | null>(null);
 
   return (
     <CardModal>
       <Gutters>
-        <ModalHeading>{t('title')}</ModalHeading>
+        {errorString ? (
+          <ErrorText>{errorString}</ErrorText>
+        ) : (
+          <ModalHeading>{t('title')}</ModalHeading>
+        )}
         <Spacer16 />
         <VerificationCode
+          hasError={Boolean(errorString)}
           prefillCode={`${inviteCode || ''}`}
           onCodeCompleted={async value => {
             try {
@@ -55,12 +66,18 @@ const JoinSessionModal = () => {
             }
           }}
         />
-        {errorString && (
-          <>
-            <Spacer16 />
-            <ErrorText>{errorString}</ErrorText>
-          </>
-        )}
+        <Spacer8 />
+        <BodyText>{t('create.or')}</BodyText>
+        <Spacer8 />
+        <ButtonWrapper>
+          <Button
+            onPress={() => {
+              popToTop();
+              navigate('CreateSessionModal');
+            }}>
+            {t('create.cta')}
+          </Button>
+        </ButtonWrapper>
       </Gutters>
     </CardModal>
   );

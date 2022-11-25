@@ -144,11 +144,17 @@ const ChangingRoom = () => {
   }, [isHost, me?.user_id, setSpotlightParticipant]);
 
   const join = async () => {
+    setJoiningMeeting(true);
     if (session?.started) {
-      setJoiningMeeting(true);
       await joinMeeting();
       navigate('Session', {sessionId: sessionId});
     } else {
+      await joinMeeting({
+        subscribeToTracksAutomatically: false,
+        userData: {
+          inPortal: true,
+        },
+      });
       navigate('IntroPortal', {sessionId: sessionId});
     }
   };
@@ -187,21 +193,20 @@ const ChangingRoom = () => {
         ) : (
           <>
             <VideoWrapper>
-              {isFocused &&
-                (hasVideo ? (
-                  <DailyMediaViewWrapper
-                    videoTrack={me?.videoTrack ?? null}
-                    audioTrack={me?.audioTrack ?? null}
-                    objectFit={'cover'}
-                    mirror={me?.local}
-                  />
-                ) : user?.photoURL ? (
-                  <ImageContainer>
-                    <Image source={{uri: user.photoURL}} />
-                  </ImageContainer>
-                ) : (
-                  <VideoText>{t('cameraOff')}</VideoText>
-                ))}
+              {isFocused && hasVideo ? (
+                <DailyMediaViewWrapper
+                  videoTrack={me?.videoTrack ?? null}
+                  audioTrack={me?.audioTrack ?? null}
+                  objectFit={'cover'}
+                  mirror={me?.local}
+                />
+              ) : user?.photoURL ? (
+                <ImageContainer>
+                  <Image source={{uri: user.photoURL}} />
+                </ImageContainer>
+              ) : (
+                <VideoText>{t('cameraOff')}</VideoText>
+              )}
               <Audio muted={!hasAudio} />
             </VideoWrapper>
 

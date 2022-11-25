@@ -11,9 +11,11 @@ import Daily, {
   DailyCall,
   DailyCallOptions,
 } from '@daily-co/react-native-daily-js';
+import {isEmulator} from 'react-native-device-info';
 import useDailyState from './state/state';
 import useSetParticipantsSortOrder from '../../routes/Session/hooks/useSetParticipantsSortOrder';
 import Sentry from '../sentry';
+import {Platform} from 'react-native';
 
 export type DailyProviderTypes = {
   call?: DailyCall;
@@ -150,6 +152,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const preJoinMeeting = useCallback(
     async (url: string) => {
       if (daily.meetingState() === 'new') {
+        daily.setNativeInCallAudioMode('video');
         await prepareMeeting(url);
         await daily.startCamera({url});
       }
@@ -158,11 +161,21 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   );
 
   const joinMeeting = useCallback(
-    async (options?: DailyCallOptions) => {
-      if (daily.meetingState() !== 'joined-meeting') {
-        await daily.join(options);
-      }
-    },
+    async (options?: DailyCallOptions) =>
+      new Promise<void>(async resolve => {
+        if (daily.meetingState() !== 'joined-meeting') {
+          await daily.join(options);
+
+          if (Platform.OS === 'ios' && !(await isEmulator())) {
+            /* This is a hack to let the audio input/output settle before resolving to not
+            cause a race condition with react-native-video (or other sound sources) */
+            daily.once('available-devices-updated', () => resolve());
+            return;
+          }
+
+          resolve();
+        }
+      }),
     [daily],
   );
 
