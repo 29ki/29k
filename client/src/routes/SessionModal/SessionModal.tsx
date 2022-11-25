@@ -3,22 +3,22 @@ import dayjs from 'dayjs';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Alert, Platform, Share, View} from 'react-native';
+import {Platform, Share, View} from 'react-native';
 import styled from 'styled-components/native';
+
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
-import {
-  BellIcon,
-  DeleteIcon,
-  PlusIcon,
-  ShareIcon,
-} from '../../common/components/Icons';
+import {BellIcon, ShareIcon} from '../../common/components/Icons';
 import Image from '../../common/components/Image/Image';
 import SheetModal from '../../common/components/Modals/SheetModal';
-import {Spacer16, Spacer8} from '../../common/components/Spacers/Spacer';
+import {
+  Spacer16,
+  Spacer32,
+  Spacer4,
+  Spacer8,
+} from '../../common/components/Spacers/Spacer';
 import {Display24} from '../../common/components/Typography/Display/Display';
-import {COLORS} from '../../../../shared/src/constants/colors';
 import {
   ModalStackProps,
   AppStackProps,
@@ -26,29 +26,35 @@ import {
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import useAddToCalendar from '../Sessions/hooks/useAddToCalendar';
 import useSessionNotificationReminder from '../Sessions/hooks/useSessionNotificationReminder';
-import useSessions from '../Sessions/hooks/useSessions';
-import {Body14} from '../../common/components/Typography/Body/Body';
-import useUser from '../../lib/user/hooks/useUser';
+import {Body16} from '../../common/components/Typography/Body/Body';
 import Byline from '../../common/components/Bylines/Byline';
 import {formatInviteCode} from '../../common/utils/string';
 import * as metrics from '../../lib/metrics';
+import CalendarIcon from '../../common/components/Icons/Calendar/Calendar';
+import SessionTimeBadge from '../../common/components/SessionTimeBadge/SessionTimeBadge';
 
 const Content = styled(Gutters)({
+  justifyContent: 'space-between',
+});
+
+const TopContent = styled(View)({
   flexDirection: 'row',
   justifyContent: 'space-between',
 });
-const BottomContent = styled(Gutters)({
-  alignItems: 'center',
+
+const Row = styled(View)({
   flexDirection: 'row',
+  alignItems: 'flex-end',
 });
 
-const ImageContainer = styled.View({
+const TitleContainer = styled.View({
+  flex: 2,
+});
+
+const ImageContainer = styled(Image)({
+  aspectRatio: '1',
   flex: 1,
-  height: 80,
-});
-
-const DeleteButton = styled(IconButton)({
-  backgroundColor: COLORS.DELETE,
+  height: 90,
 });
 
 const SessionModal = () => {
@@ -56,9 +62,9 @@ const SessionModal = () => {
     params: {session},
   } = useRoute<RouteProp<ModalStackProps, 'SessionModal'>>();
   const {t} = useTranslation('Modal.Session');
-  const user = useUser();
+
   const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
-  const {deleteSession} = useSessions();
+
   const addToCalendar = useAddToCalendar();
   const exercise = useExerciseById(session?.contentId);
   const {reminderEnabled, toggleReminder} =
@@ -127,91 +133,75 @@ const SessionModal = () => {
     }
   };
 
-  const onDelete = () => {
-    Alert.alert(t('delete.header'), t('delete.text'), [
-      {text: t('delete.buttons.cancel'), style: 'cancel', onPress: () => {}},
-      {
-        text: t('delete.buttons.confirm'),
-        style: 'destructive',
-
-        onPress: async () => {
-          await deleteSession(session.id);
-          navigation.popToTop();
-        },
-      },
-    ]);
-  };
-
   return (
     <SheetModal>
       <Spacer16 />
       <Content>
-        <View>
-          <Display24>{exercise?.name}</Display24>
-          <Byline
-            pictureURL={session.hostProfile?.photoURL}
-            name={session.hostProfile?.displayName}
-          />
-        </View>
-        {session.inviteCode && (
-          <>
-            <Spacer8 />
-            <Body14>{formatInviteCode(session.inviteCode)}</Body14>
-            <Spacer8 />
-          </>
-        )}
-        <ImageContainer>
-          <Image
+        <TopContent>
+          <TitleContainer>
+            <Display24>{exercise?.name}</Display24>
+            <Spacer4 />
+            <Byline
+              pictureURL={session.hostProfile?.photoURL}
+              name={session.hostProfile?.displayName}
+            />
+          </TitleContainer>
+          <Spacer32 />
+          <ImageContainer
             resizeMode="contain"
             source={{uri: exercise?.card?.image?.source}}
           />
-        </ImageContainer>
+        </TopContent>
+        <Spacer16 />
+        <Row>
+          {startingNow && (
+            <>
+              <Button small variant="secondary" onPress={onJoin}>
+                {t('join')}
+              </Button>
+              <Spacer8 />
+            </>
+          )}
+          <SessionTimeBadge session={session} />
+        </Row>
       </Content>
-      <Spacer16 />
-      <BottomContent>
-        {startingNow ? (
-          <>
-            <Button small variant="primary" onPress={onJoin}>
-              {t('join')}
-            </Button>
-          </>
-        ) : (
-          <>
-            <Button
-              small
-              LeftIcon={PlusIcon}
-              variant={'secondary'}
-              onPress={onAddToCalendar}>
-              {t('addToCalendar')}
-            </Button>
-            <Spacer8 />
-            <Button
-              small
-              LeftIcon={BellIcon}
-              variant="secondary"
-              active={reminderEnabled}
-              onPress={onToggleReminder}>
-              {t('addReminder')}
-            </Button>
-          </>
-        )}
 
-        <Spacer8 />
-        {session.link && (
-          <>
-            <IconButton
-              small
-              variant="secondary"
-              onPress={onShare}
-              Icon={ShareIcon}
-            />
-            <Spacer8 />
-          </>
-        )}
-        {user?.uid === session?.hostId && (
-          <DeleteButton small onPress={onDelete} Icon={DeleteIcon} />
-        )}
-      </BottomContent>
+      <Spacer16 />
+
+      <Gutters>
+        <Body16>{t('description')}</Body16>
+        <Spacer16 />
+        <Row>
+          {!startingNow && (
+            <>
+              <IconButton
+                Icon={CalendarIcon}
+                variant={'secondary'}
+                onPress={onAddToCalendar}
+              />
+              <Spacer16 />
+              <IconButton
+                Icon={BellIcon}
+                variant="secondary"
+                active={reminderEnabled}
+                onPress={onToggleReminder}
+              />
+              <Spacer16 />
+            </>
+          )}
+
+          {session.link && (
+            <>
+              <Button
+                variant="secondary"
+                onPress={onShare}
+                LeftIcon={ShareIcon}>
+                {formatInviteCode(session.inviteCode)}
+              </Button>
+            </>
+          )}
+        </Row>
+      </Gutters>
     </SheetModal>
   );
 };

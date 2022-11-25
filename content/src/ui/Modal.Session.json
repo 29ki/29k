@@ -11,10 +11,10 @@
         "confirm": "Delete"
       }
     },
-    "addToCalendar": "Add to cal",
-    "addReminder": "Add reminder",
+
     "join": "Join",
-    "shareMessage": "{{link}}\nSession code: {{code}}"
+    "shareMessage": "{{link}}\nSession code: {{code}}",
+    "description": "Add to Calendar, set reminder or share the code to invite your friends"
   },
   "sv": {
     "edit": "Ändra",
@@ -28,8 +28,6 @@
         "confirm": "Ta bort"
       }
     },
-    "addToCalendar": "Lägg till i kal.",
-    "addReminder": "Påminn",
     "join": "Gå med"
   },
   "pt": {
@@ -44,9 +42,7 @@
         "confirm": "Remover"
       }
     },
-    "addToCalendar": "Adicionar ao calendário",
     "join": "Juntar",
-    "addReminder": "Adicionar lembrete",
     "shareMessage": "{{link}}Código da sessão: {{code}}"
   },
   "es": {}
