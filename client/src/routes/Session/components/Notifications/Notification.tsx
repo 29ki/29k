@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Animated, {FadeInDown, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
 
@@ -60,48 +60,26 @@ export const Notification: React.FC<NotificationProps> = ({
   text,
   Icon,
   image,
-  timeVisible,
-  visible,
-}) => {
-  const [active, setActive] = useState(true);
-
-  useEffect(() => {
-    if (!visible) {
-      const timeoutId = setTimeout(() => {
-        setActive(false);
-      }, timeVisible ?? 3000);
-
-      return () => {
-        clearTimeout(timeoutId);
-      };
-    }
-  }, [visible, timeVisible]);
-
-  if (active) {
-    return (
-      <Animated.View entering={FadeInDown} exiting={FadeOut}>
-        <Wrapper>
-          {(letter || image) && (
-            <ProfilePlaceholder>
-              {image ? (
-                <ProfileImage source={{uri: image}} />
-              ) : (
-                <Letter>{letter?.toUpperCase()}</Letter>
-              )}
-            </ProfilePlaceholder>
+}) => (
+  <Animated.View entering={FadeInDown} exiting={FadeOut}>
+    <Wrapper>
+      {(letter || image) && (
+        <ProfilePlaceholder>
+          {image ? (
+            <ProfileImage source={{uri: image}} />
+          ) : (
+            <Letter>{letter?.toUpperCase()}</Letter>
           )}
-          {Icon && (
-            <IconWrapper>
-              <Icon />
-            </IconWrapper>
-          )}
-          <Body16>{text}</Body16>
-        </Wrapper>
-      </Animated.View>
-    );
-  }
-
-  return null;
-};
+        </ProfilePlaceholder>
+      )}
+      {Icon && (
+        <IconWrapper>
+          <Icon />
+        </IconWrapper>
+      )}
+      <Body16>{text}</Body16>
+    </Wrapper>
+  </Animated.View>
+);
 
 export default Notification;
