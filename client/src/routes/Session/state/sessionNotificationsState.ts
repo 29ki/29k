@@ -1,7 +1,7 @@
 import create from 'zustand';
 import {IconType} from '../../../common/components/Icons';
 
-export type NotificationProps = {
+export type Notification = {
   text: string;
   letter?: string;
   Icon?: IconType;
@@ -11,11 +11,11 @@ export type NotificationProps = {
 };
 
 type State = {
-  notifications: NotificationProps[];
+  notifications: Notification[];
 };
 
 type Actions = {
-  addNotification: (notification: NotificationProps) => void;
+  addNotification: (notification: Notification) => void;
   reset: () => void;
 };
 
