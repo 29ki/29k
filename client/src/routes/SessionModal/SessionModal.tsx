@@ -3,13 +3,13 @@ import dayjs from 'dayjs';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Platform, Share, View} from 'react-native';
+import {Alert, Platform, Share, View} from 'react-native';
 import styled from 'styled-components/native';
 
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
-import {BellIcon, ShareIcon} from '../../common/components/Icons';
+import {BellIcon, DeleteIcon, ShareIcon} from '../../common/components/Icons';
 import Image from '../../common/components/Image/Image';
 import SheetModal from '../../common/components/Modals/SheetModal';
 import {
@@ -32,6 +32,9 @@ import {formatInviteCode} from '../../common/utils/string';
 import * as metrics from '../../lib/metrics';
 import CalendarIcon from '../../common/components/Icons/Calendar/Calendar';
 import SessionTimeBadge from '../../common/components/SessionTimeBadge/SessionTimeBadge';
+import {COLORS} from '../../../../shared/src/constants/colors';
+import useUser from '../../lib/user/hooks/useUser';
+import useSessions from '../Sessions/hooks/useSessions';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -57,12 +60,17 @@ const ImageContainer = styled(Image)({
   height: 90,
 });
 
+const DeleteButton = styled(IconButton)({
+  backgroundColor: COLORS.DELETE,
+});
+
 const SessionModal = () => {
   const {
     params: {session},
   } = useRoute<RouteProp<ModalStackProps, 'SessionModal'>>();
   const {t} = useTranslation('Modal.Session');
-
+  const user = useUser();
+  const {deleteSession} = useSessions();
   const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
 
   const addToCalendar = useAddToCalendar();
@@ -133,6 +141,21 @@ const SessionModal = () => {
     }
   };
 
+  const onDelete = () => {
+    Alert.alert(t('delete.header'), t('delete.text'), [
+      {text: t('delete.buttons.cancel'), style: 'cancel', onPress: () => {}},
+      {
+        text: t('delete.buttons.confirm'),
+        style: 'destructive',
+
+        onPress: async () => {
+          await deleteSession(session.id);
+          navigation.popToTop();
+        },
+      },
+    ]);
+  };
+
   return (
     <SheetModal>
       <Spacer16 />
@@ -198,6 +221,12 @@ const SessionModal = () => {
                 LeftIcon={ShareIcon}>
                 {formatInviteCode(session.inviteCode)}
               </Button>
+            </>
+          )}
+          {user?.uid === session?.hostId && (
+            <>
+              <Spacer16 />
+              <DeleteButton small onPress={onDelete} Icon={DeleteIcon} />
             </>
           )}
         </Row>
