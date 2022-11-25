@@ -21,7 +21,6 @@ const Row = styled.View({
 const Cell = styled(BottomSheetTextInput).attrs({
   keyboardType: 'numeric',
   autoCorrect: false,
-  maxLength: 6,
 })<{hasError?: boolean}>(({hasError}) => ({
   width: 36,
   paddingHorizontal: SPACINGS.EIGHT,
@@ -112,9 +111,9 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
   }, [code, hasError, cells]);
 
   const updateCode = (index: number) => (text: string) => {
-    if (text.length === 6) {
+    if (text.length >= 6) {
       // From clipboard
-      setCode([...text]);
+      setCode([...text.trim().replace(' ', '')]);
     } else if (text.length <= 1) {
       //Allows also code to be erased
       setCode(c => {
