@@ -99,6 +99,10 @@ const ModalStackWrapper = () => {
           name={'UpgradeAccountModal'}
           component={UpgradeAccountModal}
         />
+        <ModalStack.Screen
+          name={'SessionUnavailableModal'}
+          component={SessionUnavailableModal}
+        />
       </ModalStack.Group>
 
       <ModalStack.Group screenOptions={cardModalScreenOptions}>
@@ -109,10 +113,6 @@ const ModalStackWrapper = () => {
         <ModalStack.Screen
           name={'JoinSessionModal'}
           component={JoinSessionModal}
-        />
-        <ModalStack.Screen
-          name={'SessionUnavailableModal'}
-          component={SessionUnavailableModal}
         />
       </ModalStack.Group>
     </ModalStack.Navigator>
