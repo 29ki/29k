@@ -57,14 +57,6 @@ export const UI = () => (
       <Row>
         <Notification text="Without image" letter="a" />
       </Row>
-      <Spacer4 />
-      <Row>
-        <Notification timeVisible={5000} text="With custom timing" letter="a" />
-      </Row>
-      <Spacer4 />
-      <Row>
-        <Notification visible text="Always visible" letter="a" />
-      </Row>
     </ScreenWrapper>
   </>
 );
