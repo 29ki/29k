@@ -9,6 +9,7 @@ export * from './ArrowLeft/ArrowLeft';
 export * from './Back/Back';
 export * from './BackwardCircle/BackwardCircle';
 export * from './Bell/Bell';
+export * from './Camera/Camera';
 export * from './ChevronLeft/ChevronLeft';
 export * from './ChevronRight/ChevronRight';
 export * from './Close/Close';
