@@ -8,10 +8,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome.\n\nI am X and today we will work for around 30 minutes on opening up to our feelings with acceptance and intentionally choosing our actions.\n\nWe’ll be doing a short intro, then reflect on our own and share with each other. \n\nAnd a heads up that you will need pen and paper during the exercise."
+            "text": "Welcome.\n\nI am X and today we will work for around 30 minutes on opening up to our feelings with acceptance and intentionally choosing our actions. We’ll be doing a short intro, then reflect on our own and share with each other. \n\nAnd a heads up that you will need pen and paper during the exercise."
           },
           {
-            "text": "Let’s start with a mini check-in.\n\nHow are you feeling right now? Please answer in two-three words.\n\nX, would you like to start?\n\n> `Let everyone in the session, including yourself, check in one by one.`\n\nThank you all for checking in.\n\nLet’s get started."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ]
       },
@@ -32,7 +32,7 @@
         },
         "hostNotes": [
           {
-            "text": "When we have difficult things going on inside, it is common to put our lives on hold. Wait for the difficult things to go away, and then we can get started with our lives again. That can put us in a position where we wait ,and wait.\n\n*I'll go to the gym another day when I’m not so tired.* \n\n*I'll see a friend some other time when I’m not so stressed.*"
+            "text": "When we have difficult things going on inside, it is common to put our lives on hold. Wait for the difficult things to go away, and then we can get started with our lives again. That can put us in a position where we wait, and wait.\n\n*I'll go to the gym another day when I’m not so tired.* \n\n*I'll see a friend some other time when I’m not so stressed.*"
           },
           {
             "text": "One of the things that affect how we deal with inner obstacles in life is language. How we talk to ourselves can impact how we behave. And one word we often use is the word **BUT**, as a condition."
@@ -50,10 +50,10 @@
         },
         "hostNotes": [
           {
-            "text": "Now we’ll take a minute to reflect on our own.\n\nFor this step you’ll need a piece of paper.\n\nMost of us have recurring thoughts like *“I want to do x, **BUT** I am so y”.* It can make us feel like we need to get rid of y, before we do x."
+            "text": "Now we’ll take a minute to reflect on our own. For this step you’ll need a piece of paper.\n\nMost of us have recurring thoughts like *I want to do x, **BUT** I am so y.* It can make us feel like we need to get rid of y, before we do x."
           },
           {
-            "text": "See if you can find one or two recent thoughts that contains something you want, but don’t do for a reason on the inside. Write them down.\n\n1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s one minute. Let’s move on."
+            "text": "See if you can find one or two recent thoughts that contains something you want, but don’t do for a reason on the inside. Write them down. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s one minute. Let’s move on."
           }
         ]
       },
@@ -68,10 +68,10 @@
         },
         "hostNotes": [
           {
-            "text": "The next step is to replace your **BUT** with an **AND** in your sentences. \n\nThen read them out loud for yourself. \n\nWhat happens to them, and to you, when you do that?"
+            "text": "The next step is to replace your **BUT** with an **AND** in your sentences. Then read them out loud for yourself. \n\nWhat happens to them, and to you, when you do that?"
           },
           {
-            "text": "1 minute starting now.\n\n> Push play to start the timer.\n\nThat’s one minute Let’s move on."
+            "text": "1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s one minute. Let’s move on."
           }
         ]
       },
@@ -91,7 +91,7 @@
             "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one.\n>\n> Press play to start the timer. Re-start for each new sharing. \n\nThank you so much everyone."
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one.\n>\n> Press play to start the timer. Re-start for each new sharing. \n\nThank you everyone."
           }
         ]
       },
@@ -118,10 +118,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Before we leave this space let’s do a mini check-out.\n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words.\n\nWho would like to start?"
+            "text": "Before we leave this space let’s do a mini check-out. How are you feeling right now? Has anything shifted? Please answer in two-three words.\n\nWho would like to start?"
           },
           {
-            "text": "> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "> Let everyone check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       }
