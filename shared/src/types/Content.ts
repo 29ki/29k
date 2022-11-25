@@ -1,12 +1,12 @@
 import {
-  ExerciseSlidesContent,
-  ExerciseSlidesHost,
-  ExerciseSlidesReflection,
-  ExerciseSlidesSharing,
+  ExerciseSlideContentSlide,
+  ExerciseSlideHostSlide,
+  ExerciseSlideReflectionSlide,
+  ExerciseSlideSharingSlide,
 } from './generated/Exercise';
 
 export type ExerciseSlide =
-  | ExerciseSlidesContent
-  | ExerciseSlidesReflection
-  | ExerciseSlidesSharing
-  | ExerciseSlidesHost;
+  | ExerciseSlideContentSlide
+  | ExerciseSlideHostSlide
+  | ExerciseSlideReflectionSlide
+  | ExerciseSlideSharingSlide;

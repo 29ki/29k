@@ -4,10 +4,8 @@ import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {useTranslation} from 'react-i18next';
 
 import useSessionState from '../state/state';
-import {
-  ExerciseStateInput,
-  SessionData,
-} from '../../../../../shared/src/types/Session';
+
+import {ExerciseState, Session} from '../../../../../shared/src/types/Session';
 import {
   DailyContext,
   DailyProviderTypes,
@@ -43,8 +41,8 @@ describe('useMuteAudioListener', () => {
     it('should toggle audio when state is playing and current slide is not sharing', async () => {
       useSessionState.setState({
         session: {
-          exerciseState: {playing: true} as ExerciseStateInput,
-        } as SessionData,
+          exerciseState: {playing: true} as ExerciseState,
+        } as Session,
       });
 
       mockUseSessionExercise.mockReturnValue({
@@ -61,8 +59,8 @@ describe('useMuteAudioListener', () => {
     it('should not toggle audio when state is not playing', async () => {
       useSessionState.setState({
         session: {
-          exerciseState: {playing: false} as ExerciseStateInput,
-        } as SessionData,
+          exerciseState: {playing: false} as ExerciseState,
+        } as Session,
       });
 
       mockUseSessionExercise.mockReturnValue({
@@ -79,8 +77,8 @@ describe('useMuteAudioListener', () => {
     it('should not toggle audio when current slide is sharing', async () => {
       useSessionState.setState({
         session: {
-          exerciseState: {playing: true} as ExerciseStateInput,
-        } as SessionData,
+          exerciseState: {playing: true} as ExerciseState,
+        } as Session,
       });
 
       mockUseSessionExercise.mockReturnValue({
@@ -103,8 +101,8 @@ describe('useMuteAudioListener', () => {
       useSessionState.setState({
         session: {
           hostId: 'i-am-the-host-id',
-          exerciseState: {playing: true} as ExerciseStateInput,
-        } as SessionData,
+          exerciseState: {playing: true} as ExerciseState,
+        } as Session,
       });
 
       mockUseSessionExercise.mockReturnValue({

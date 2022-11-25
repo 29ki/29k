@@ -1,7 +1,7 @@
 import {renderHook} from '@testing-library/react-hooks';
 
 import useSessionState from '../state/state';
-import {SessionData} from '../../../../../shared/src/types/Session';
+import {Session} from '../../../../../shared/src/types/Session';
 
 import useUserState from '../../../lib/user/state/state';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
@@ -15,7 +15,7 @@ describe('useIsSessionHost', () => {
     useSessionState.setState({
       session: {
         hostId: 'some-user-id',
-      } as SessionData,
+      } as Session,
     });
 
     const {result} = renderHook(() => useIsSessionHost());
@@ -30,7 +30,7 @@ describe('useIsSessionHost', () => {
     useSessionState.setState({
       session: {
         hostId: 'some-other-user-id',
-      } as SessionData,
+      } as Session,
     });
 
     const {result} = renderHook(() => useIsSessionHost());
