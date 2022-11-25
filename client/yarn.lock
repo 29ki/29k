@@ -896,31 +896,30 @@
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
-"@daily-co/daily-js@^0.34.1":
-  version "0.34.1"
-  resolved "https://registry.yarnpkg.com/@daily-co/daily-js/-/daily-js-0.34.1.tgz#14aa19d503962b374d34ecf0263ca7f323ec229b"
-  integrity sha512-yHQhY+cBG5cYMGjRx0C4jPa5LkcbZKkL1UE+4OO7ZcBCMQeNfgiNe2PMrdkrPSkOjEq4t3WNt9ZaI9bzDmamrg==
+"@daily-co/daily-js@^0.31.0":
+  version "0.31.0"
+  resolved "https://registry.yarnpkg.com/@daily-co/daily-js/-/daily-js-0.31.0.tgz#60d07dd8b70f8746def0182448af95058ac02463"
+  integrity sha512-kx4HNtrEDU+0vOlZLpmqc4SfecGi/yA8iZEf/8YRublPBqEpV0mfR8I/kirfn1MBFDqM28eacsqzEs22CN2xbQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
     bowser "^2.8.1"
-    dequal "^2.0.3"
     events "^3.1.0"
     fast-equals "^1.6.3"
     lodash "^4.17.15"
 
-"@daily-co/react-native-daily-js@^0.32.0":
-  version "0.32.0"
-  resolved "https://registry.yarnpkg.com/@daily-co/react-native-daily-js/-/react-native-daily-js-0.32.0.tgz#d645f35089d0cab013b88665eecae11f024e8cc4"
-  integrity sha512-241oaciADjK1kw/g9QTasOmW/JzJYdRSsz2bnRKAZEM/gqQ1bmGFfBZ+2I5KjXFHPpz8XMBMhI9hk5uGdo9akg==
+"@daily-co/react-native-daily-js@^0.29.0":
+  version "0.29.0"
+  resolved "https://registry.yarnpkg.com/@daily-co/react-native-daily-js/-/react-native-daily-js-0.29.0.tgz#3eb200a0c9e408f12db4e8a5572c2cb509082ccb"
+  integrity sha512-9SCcnXT+/w4Onv69qpi4Kb1DGRYEoBETuTY+X8HciUKLRLE7X+gOkxZtALY7Zi/WNFS2iS2grX2Z/+BxWbMQUQ==
   dependencies:
-    "@daily-co/daily-js" "^0.34.1"
+    "@daily-co/daily-js" "^0.31.0"
     "@types/react-native-background-timer" "^2.0.0"
     react-native-url-polyfill "^1.1.2"
 
-"@daily-co/react-native-webrtc@1.94.1-daily.6":
-  version "1.94.1-daily.6"
-  resolved "https://registry.yarnpkg.com/@daily-co/react-native-webrtc/-/react-native-webrtc-1.94.1-daily.6.tgz#102440a95cc8a146ead0b6920eba92e1a29787d2"
-  integrity sha512-Jisn+EGEj9ikmsvHTdpV7Voz25Q/Cty46CcvlhAFaQb2e8nZ0Xy05VaMGEo2Aj4vqb0QvL0pFLxKdcJ6iVz/uw==
+"@daily-co/react-native-webrtc@1.94.1-daily.4":
+  version "1.94.1-daily.4"
+  resolved "https://registry.yarnpkg.com/@daily-co/react-native-webrtc/-/react-native-webrtc-1.94.1-daily.4.tgz#2a9f6f3f65f5364497181a5ad1f5368b049b5375"
+  integrity sha512-DTu821gC6G/ZdklXIQGCyAQbBd7zg5alY/Yc99tIb6RLlHg4vjXc3ZWXUwt6XJNBwBqm2LVG3LCpR86Rh4mmHw==
   dependencies:
     "@types/react" "*"
     "@types/react-native" "*"
@@ -3794,11 +3793,6 @@ deprecated-react-native-prop-types@^2.2.0:
     "@react-native/normalize-color" "*"
     invariant "*"
     prop-types "*"
-
-dequal@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/dequal/-/dequal-2.0.3.tgz#2644214f1997d39ed0ee0ece72335490a7ac67be"
-  integrity sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==
 
 destroy@1.2.0:
   version "1.2.0"
