@@ -15,7 +15,7 @@ export const VideoBase = React.forwardRef<
       mixWithOthers="mix" // Make sure to mix this audio with daily call
       playInBackground
       playWhenInactive
-      allowsExternalPlayback={true}
+      allowsExternalPlayback={false}
       ref={ref}
     />
   );
