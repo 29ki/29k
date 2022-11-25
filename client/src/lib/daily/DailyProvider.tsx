@@ -11,6 +11,7 @@ import Daily, {
   DailyCall,
   DailyCallOptions,
 } from '@daily-co/react-native-daily-js';
+import {isEmulator} from 'react-native-device-info';
 import useDailyState from './state/state';
 import useSetParticipantsSortOrder from '../../routes/Session/hooks/useSetParticipantsSortOrder';
 import Sentry from '../sentry';
@@ -165,8 +166,9 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
         if (daily.meetingState() !== 'joined-meeting') {
           await daily.join(options);
 
-          if (Platform.OS === 'ios') {
-            // This is a hack to let the audio input/output settle before resolving
+          if (Platform.OS === 'ios' && !(await isEmulator())) {
+            /* This is a hack to let the audio input/output settle before resolving to not
+            cause a race condition with react-native-video (or other sound sources) */
             daily.once('available-devices-updated', () => resolve());
             return;
           }
