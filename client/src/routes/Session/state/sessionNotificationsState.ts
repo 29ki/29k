@@ -1,12 +1,21 @@
 import create from 'zustand';
-import {NotificationProps} from '../components/Notifications/Notification';
+import {IconType} from '../../../common/components/Icons';
+
+export type Notification = {
+  text: string;
+  letter?: string;
+  Icon?: IconType;
+  image?: string;
+  timeVisible?: number;
+  visible?: boolean;
+};
 
 type State = {
-  notifications: NotificationProps[];
+  notifications: Notification[];
 };
 
 type Actions = {
-  addNotification: (notification: NotificationProps) => void;
+  addNotification: (notification: Notification) => void;
   reset: () => void;
 };
 
