@@ -53,7 +53,6 @@ const rules: RenderRules = {
         <View style={styles.blockquote_background} />
         {children}
       </View>
-      <Spacer16 />
     </Fragment>
   ),
 };
