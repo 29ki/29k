@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import Button from '../Buttons/Button';
@@ -45,6 +45,25 @@ const ProfileInfo = () => {
   const [displayName, setDisplayName] = useState(user?.displayName ?? '');
   const [nameMissing, setNameMissing] = useState(false);
   const [pictureMissing, setPictureMissing] = useState(false);
+
+  useEffect(() => {
+    let pictureTimeoutId: NodeJS.Timeout | undefined;
+    let nameTimeoutId: NodeJS.Timeout | undefined;
+    if (pictureMissing) {
+      pictureTimeoutId = setTimeout(() => {
+        setPictureMissing(false);
+      }, 500);
+    }
+    if (nameMissing) {
+      nameTimeoutId = setTimeout(() => {
+        setNameMissing(false);
+      }, 300);
+    }
+    return () => {
+      clearTimeout(pictureTimeoutId);
+      clearTimeout(nameTimeoutId);
+    };
+  }, [pictureMissing, nameMissing]);
 
   const onSave = useCallback(async () => {
     if (displayName.length <= 2) {
