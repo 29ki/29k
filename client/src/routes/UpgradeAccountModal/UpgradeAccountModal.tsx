@@ -151,6 +151,9 @@ const UpgradeAccountModal = () => {
           <VerificationCode
             hasError={Boolean(errorString)}
             prefillCode={params?.code}
+            onCodeType={() => {
+              setErrorString(null);
+            }}
             onCodeCompleted={onCodeCompleted}
           />
         </>

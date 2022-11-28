@@ -59,12 +59,14 @@ const NUMERIC_KEYS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 type VerificationCodeProps = {
   prefillCode?: string;
+  onCodeType?: () => void;
   onCodeCompleted: (result: number) => void;
   hasError?: boolean;
 };
 
 const VerificationCode: React.FC<VerificationCodeProps> = ({
   prefillCode = '',
+  onCodeType,
   onCodeCompleted,
   hasError,
 }) => {
@@ -83,6 +85,13 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
   );
   const [currentCell, setCurrentCell] = useState(0);
   const [focusCells, setFocusCells] = useState(prefillCode.length !== 6);
+  const [showError, setShowError] = useState(false);
+
+  useEffect(() => {
+    if (hasError) {
+      setShowError(true);
+    }
+  }, [hasError]);
 
   useEffect(() => {
     if (focusCells) {
@@ -103,14 +112,19 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
     if (codeString.length === 6 && hasError) {
       id = setTimeout(() => {
         setCode([]);
+        setShowError(false);
         cells[0].current?.focus();
-      }, 1000);
+      }, 300);
     }
 
     return () => clearTimeout(id);
   }, [code, hasError, cells]);
 
   const updateCode = (index: number) => (text: string) => {
+    if (onCodeType) {
+      onCodeType();
+    }
+
     if (text.length >= 6) {
       // From clipboard
       setCode([...text.trim().replace(' ', '')]);
@@ -152,7 +166,7 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
             ref={cellRef}
             onChangeText={updateCode(index)}
             onKeyPress={onKeyPress(index)}
-            hasError={hasError}
+            hasError={showError}
           />
         ))}
       </Row>
