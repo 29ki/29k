@@ -126,12 +126,14 @@ sessionsRouter.put(
   async ctx => {
     const {id} = ctx.params;
     const body = ctx.request.body as UpdateSession;
+
     try {
       const updatedSession = await sessionsController.updateSession(
         ctx.user.id,
         id,
         body,
       );
+
       ctx.status = 200;
       ctx.body = updatedSession;
     } catch (err) {

@@ -43,7 +43,7 @@ const Content = styled(Gutters)({
   justifyContent: 'space-between',
 });
 
-const TopContent = styled(View)({
+const SpaceBetweenRow = styled(View)({
   flexDirection: 'row',
   justifyContent: 'space-between',
 });
@@ -73,7 +73,7 @@ const EditIcon = styled(View)({
   alignSelf: 'center',
 });
 
-const DeleteButton = styled(IconButton)({
+const DeleteButton = styled(Button)({
   backgroundColor: COLORS.DELETE,
 });
 
@@ -83,8 +83,12 @@ const SessionModal = () => {
   } = useRoute<RouteProp<ModalStackProps, 'SessionModal'>>();
   const {t} = useTranslation('Modal.Session');
   const user = useUser();
-  const {deleteSession} = useSessions();
+  const {deleteSession, fetchSessions} = useSessions();
   const [editMode, setEditMode] = useState(false);
+
+  const initialStartTime = dayjs(session.startTime);
+  const [sessionDate, setSessionDate] = useState<dayjs.Dayjs>(initialStartTime);
+  const [sessionTime, setSessionTime] = useState<dayjs.Dayjs>(initialStartTime);
 
   const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
 
@@ -93,8 +97,7 @@ const SessionModal = () => {
   const {reminderEnabled, toggleReminder} =
     useSessionNotificationReminder(session);
 
-  const startTime = dayjs(session.startTime);
-  const startingNow = dayjs().isAfter(startTime.subtract(10, 'minutes'));
+  const startingNow = dayjs().isAfter(initialStartTime.subtract(10, 'minutes'));
 
   if (!session || !exercise) {
     return null;
@@ -120,8 +123,8 @@ const SessionModal = () => {
     addToCalendar(
       exercise.name,
       session.link,
-      startTime,
-      startTime.add(30, 'minutes'),
+      dayjs(session.startTime),
+      dayjs(session.startTime).add(30, 'minutes'),
     );
     metrics.logEvent('Add Session To Calendar', {
       'Session Exercise ID': session.contentId,
@@ -175,7 +178,7 @@ const SessionModal = () => {
     <SheetModal>
       <Spacer16 />
       <Content>
-        <TopContent>
+        <SpaceBetweenRow>
           <TitleContainer>
             <Display24>{exercise?.name}</Display24>
             <Spacer4 />
@@ -189,7 +192,7 @@ const SessionModal = () => {
             resizeMode="contain"
             source={{uri: exercise?.card?.image?.source}}
           />
-        </TopContent>
+        </SpaceBetweenRow>
       </Content>
       <Spacer8 />
       {!editMode && (
@@ -260,18 +263,32 @@ const SessionModal = () => {
         <Gutters>
           <DateTimePicker
             minimumDate={dayjs().local()}
-            initialDateTime={dayjs(session.startTime)}
             onChange={(date, time) => {
-              const sessionDateTime = date
-                .hour(time.hour())
-                .minute(time.minute());
-
-              updateSession(session.id, {
-                startTime: sessionDateTime.utc().toISOString(),
-              });
+              setSessionDate(date);
+              setSessionTime(time);
             }}
           />
-          <DeleteButton small onPress={onDelete} Icon={DeleteIcon} />
+          <Spacer16 />
+          <SpaceBetweenRow>
+            <Button
+              variant="secondary"
+              onPress={async () => {
+                const sessionDateTime = sessionDate
+                  .hour(sessionTime.hour())
+                  .minute(sessionTime.minute());
+
+                await updateSession(session.id, {
+                  startTime: sessionDateTime.utc().toISOString(),
+                });
+                fetchSessions();
+                setEditMode(false);
+              }}>
+              {t('done')}
+            </Button>
+            <DeleteButton small onPress={onDelete}>
+              {t('deleteButton')}
+            </DeleteButton>
+          </SpaceBetweenRow>
         </Gutters>
       )}
     </SheetModal>
