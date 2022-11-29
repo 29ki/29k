@@ -1,5 +1,3 @@
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -18,7 +16,7 @@ import {
 } from '../../common/components/Spacers/Spacer';
 import {Display24} from '../../common/components/Typography/Display/Display';
 import Markdown from '../../common/components/Typography/Markdown/Markdown';
-import {AppStackProps} from '../../lib/navigation/constants/routes';
+import useAppState from '../../lib/appState/state/state';
 
 const ImageWrapper = styled.View({
   width: 152,
@@ -33,12 +31,9 @@ const Center = styled.View({
 });
 const Welcome = () => {
   const {t} = useTranslation('Screen.Welcome');
-  const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
-
+  const setIsFirstLaunch = useAppState(state => state.setIsFirstLaunch);
   const onContinue = () => {
-    navigation.navigate('Tabs', {
-      screen: 'Sessions',
-    });
+    setIsFirstLaunch(false);
   };
   return (
     <Screen backgroundColor={COLORS.CREAM}>

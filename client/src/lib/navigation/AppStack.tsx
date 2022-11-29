@@ -10,6 +10,7 @@ import {
 } from '@react-navigation/native-stack';
 import {AppStackProps} from './constants/routes';
 import Welcome from '../../routes/Onboarding/Welcome';
+import useAppState from '../appState/state/state';
 
 const AppStack = createNativeStackNavigator<AppStackProps>();
 
@@ -27,6 +28,7 @@ const fadeScreenOptions: NativeStackNavigationOptions = {
 const AppStackWrapper = () => {
   const isBlocking = useKillSwitchState(state => state.isBlocking);
   const fade = useNavigationState(state => state.navigateWithFade);
+  const isFirstLaunch = useAppState(state => state.isFirstLaunch);
 
   return (
     // set this state using useNavigationWithFade to change animation to fade
@@ -34,9 +36,10 @@ const AppStackWrapper = () => {
       screenOptions={fade ? fadeScreenOptions : screenOptions}>
       {isBlocking ? (
         <AppStack.Screen name={'KillSwitch'} component={KillSwitch} />
+      ) : isFirstLaunch ? (
+        <AppStack.Screen name={'Welcome'} component={Welcome} />
       ) : (
         <>
-          <AppStack.Screen name={'Welcome'} component={Welcome} />
           <AppStack.Screen name={'Tabs'} component={Tabs} />
           <AppStack.Screen
             name={'SessionStack'}
