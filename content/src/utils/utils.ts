@@ -1,5 +1,6 @@
 import {readFileSync, readdirSync} from 'fs';
 import * as path from 'path';
+import config from './config';
 import {LANGUAGE_TAG, LANGUAGE_TAGS} from '../../../shared/src/constants/i18n';
 
 type LocalizedContent<T> = Record<LANGUAGE_TAG, Record<string, T>>;
@@ -30,20 +31,27 @@ export const getContentByType = <T>(type: string) => {
   }, {} as Content<T>);
 };
 
+const isPublishedOrWip = <T>(published: T) =>
+  config.ENVIRONMENT !== 'production' || Boolean(published);
+
 export const filterPublishedContent = <T>(
   files: Content<T>,
   explicitLocale?: LANGUAGE_TAG,
 ) =>
   Object.entries(files)
     .filter(
-      ([, content]) => !explicitLocale || content?.[explicitLocale].published,
+      ([, content]) =>
+        !explicitLocale ||
+        isPublishedOrWip(content?.[explicitLocale].published),
     )
     .reduce(
       (files, [file, content]) => ({
         ...files,
         [file]: Object.entries(content).reduce(
           (filtered, [locale, resource]) =>
-            resource.published ? {...filtered, [locale]: resource} : filtered,
+            isPublishedOrWip(resource.published)
+              ? {...filtered, [locale]: resource}
+              : filtered,
           {},
         ),
       }),

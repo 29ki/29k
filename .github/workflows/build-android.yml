@@ -53,11 +53,17 @@ jobs:
         with:
           node-version: 16.x
 
-      - name: Create Dotenv File
+      - name: Create Dotenv File Client
         uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
           env-prefix: DOTENV_
           directory: ./client
+
+      - name: Create Dotenv File Content
+        uses: iamsauravsharma/create-dotenv@v1.2.1
+        with:
+          env-prefix: DOTENV_
+          directory: ./content
 
       - name: Create google-play-service.json
         working-directory: ./client

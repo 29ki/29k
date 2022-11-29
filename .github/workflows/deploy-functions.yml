@@ -45,13 +45,19 @@ jobs:
         working-directory: ./shared
         run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
 
-      - name: Create Dotenv File
+      - name: Create Dotenv File Functions
         uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
           env-prefix: DOTENV_
           directory: ./functions
         env:
           DOTENV_GIT_COMMIT_SHORT: ${{ env.GIT_COMMIT_SHORT }}
+
+      - name: Create Dotenv File Content
+        uses: iamsauravsharma/create-dotenv@v1.2.1
+        with:
+          env-prefix: DOTENV_
+          directory: ./content
 
       - name: Cache Root Dependencies
         id: cache-root-node-modules

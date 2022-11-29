@@ -66,11 +66,17 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.KEYS_REPO_ACCESS_KEY }}
 
-      - name: Create Dotenv File
+      - name: Create Dotenv File Client
         uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
           env-prefix: DOTENV_
           directory: ./client
+
+      - name: Create Dotenv File Content
+        uses: iamsauravsharma/create-dotenv@v1.2.1
+        with:
+          env-prefix: DOTENV_
+          directory: ./content
 
       - name: Create GoogleService-Info.plist
         working-directory: ./client/ios/Supporting
