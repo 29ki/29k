@@ -9,7 +9,7 @@ import styled from 'styled-components/native';
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
-import {BellIcon, DeleteIcon, ShareIcon} from '../../common/components/Icons';
+import {BellIcon, ShareIcon} from '../../common/components/Icons';
 import Image from '../../common/components/Image/Image';
 import SheetModal from '../../common/components/Modals/SheetModal';
 import {
