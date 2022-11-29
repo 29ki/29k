@@ -31,7 +31,7 @@ export const getContentByType = <T>(type: string) => {
   }, {} as Content<T>);
 };
 
-const isPublishedOrWip = <T>(published: T) =>
+const isPublishedOrAvailableInCurrentEnv = <T>(published: T) =>
   config.ENVIRONMENT !== 'production' || Boolean(published);
 
 export const filterPublishedContent = <T>(
@@ -42,14 +42,14 @@ export const filterPublishedContent = <T>(
     .filter(
       ([, content]) =>
         !explicitLocale ||
-        isPublishedOrWip(content?.[explicitLocale].published),
+        isPublishedOrAvailableInCurrentEnv(content?.[explicitLocale].published),
     )
     .reduce(
       (files, [file, content]) => ({
         ...files,
         [file]: Object.entries(content).reduce(
           (filtered, [locale, resource]) =>
-            isPublishedOrWip(resource.published)
+            isPublishedOrAvailableInCurrentEnv(resource.published)
               ? {...filtered, [locale]: resource}
               : filtered,
           {},
