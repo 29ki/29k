@@ -96,7 +96,7 @@
           "heading": "What would you say to a friend?",
           "video": {
             "durationTimer": false,
-            "autoPlayLoop": true,
+            "autoPlayLoop": false,
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043755/Video/sharing2_Be_kind_to_yourself_bu0qwe.mp4"
           }
         },
