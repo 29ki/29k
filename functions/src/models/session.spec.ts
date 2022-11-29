@@ -273,6 +273,7 @@ describe('session model', () => {
     it('should return updated session with started', async () => {
       await updateSession('some-session-id', {started: true});
       const session = await getSessionById('some-session-id');
+
       expect(session).toEqual({
         id: 'some-session-id',
         name: 'some-name',
@@ -295,6 +296,7 @@ describe('session model', () => {
     it('should return updated session with ended', async () => {
       await updateSession('some-session-id', {ended: true});
       const session = await getSessionById('some-session-id');
+
       expect(session).toEqual({
         id: 'some-session-id',
         name: 'some-name',
@@ -308,6 +310,30 @@ describe('session model', () => {
         startTime: expect.any(String),
         started: false,
         ended: true,
+        userIds: ['*'],
+        createdAt: expect.any(String),
+        updatedAt: expect.any(String),
+      });
+    });
+
+    it('should return updated session with startTime', async () => {
+      const startTime = new Date('1994-03-08T07:24:00').toISOString();
+      await updateSession('some-session-id', {startTime});
+      const session = await getSessionById('some-session-id');
+
+      expect(session).toEqual({
+        id: 'some-session-id',
+        name: 'some-name',
+        url: 'some-url',
+        exerciseState: {
+          index: 0,
+          playing: false,
+          timestamp: expect.any(String),
+        },
+        hostId: 'some-user-id',
+        startTime: expect.any(String),
+        started: false,
+        ended: false,
         userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),

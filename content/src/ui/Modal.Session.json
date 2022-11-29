@@ -1,7 +1,7 @@
 {
   "en": {
     "edit": "Edit",
-    "done": "Done",
+    "done": "Save",
     "deleteButton": "Delete session",
     "delete": {
       "header": "Delete session?",
