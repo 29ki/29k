@@ -38,6 +38,7 @@ import {PencilIcon, CalendarIcon} from '../../common/components/Icons';
 import TouchableOpacity from '../../common/components/TouchableOpacity/TouchableOpacity';
 import DateTimePicker from '../CreateSessionModal/components/DateTimePicker';
 import {updateSession} from '../Sessions/api/session';
+import {Session} from '../../../../shared/src/types/Session';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -79,14 +80,16 @@ const DeleteButton = styled(Button)({
 
 const SessionModal = () => {
   const {
-    params: {session},
+    params: {session: initialSessionData},
   } = useRoute<RouteProp<ModalStackProps, 'SessionModal'>>();
+
   const {t} = useTranslation('Modal.Session');
   const user = useUser();
   const {deleteSession, fetchSessions} = useSessions();
   const [editMode, setEditMode] = useState(false);
 
-  const initialStartTime = dayjs(session.startTime);
+  const [session, setSession] = useState<Session>(initialSessionData);
+  const initialStartTime = dayjs(session.startTime).utc();
   const [sessionDate, setSessionDate] = useState<dayjs.Dayjs>(initialStartTime);
   const [sessionTime, setSessionTime] = useState<dayjs.Dayjs>(initialStartTime);
 
@@ -97,7 +100,9 @@ const SessionModal = () => {
   const {reminderEnabled, toggleReminder} =
     useSessionNotificationReminder(session);
 
-  const startingNow = dayjs().isAfter(initialStartTime.subtract(10, 'minutes'));
+  const startingNow = dayjs
+    .utc()
+    .isAfter(initialStartTime.subtract(10, 'minutes'));
 
   if (!session || !exercise) {
     return null;
@@ -262,6 +267,7 @@ const SessionModal = () => {
       {editMode && (
         <Gutters>
           <DateTimePicker
+            initialDateTime={initialStartTime}
             minimumDate={dayjs().local()}
             onChange={(date, time) => {
               setSessionDate(date);
@@ -277,9 +283,11 @@ const SessionModal = () => {
                   .hour(sessionTime.hour())
                   .minute(sessionTime.minute());
 
-                await updateSession(session.id, {
+                const updatedSession = await updateSession(session.id, {
                   startTime: sessionDateTime.utc().toISOString(),
                 });
+
+                setSession(updatedSession);
                 fetchSessions();
                 setEditMode(false);
               }}>
