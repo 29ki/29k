@@ -15,6 +15,7 @@ export type SessionStackProps = {
 
 export type AppStackProps = {
   KillSwitch: undefined;
+  Welcome: undefined;
   Tabs: NavigatorScreenParams<TabNavigatorProps>;
   SessionStack: NavigatorScreenParams<SessionStackProps>;
 };

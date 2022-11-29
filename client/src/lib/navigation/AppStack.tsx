@@ -9,6 +9,7 @@ import {
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 import {AppStackProps} from './constants/routes';
+import Welcome from '../../routes/Onboarding/Welcome';
 
 const AppStack = createNativeStackNavigator<AppStackProps>();
 
@@ -35,6 +36,7 @@ const AppStackWrapper = () => {
         <AppStack.Screen name={'KillSwitch'} component={KillSwitch} />
       ) : (
         <>
+          <AppStack.Screen name={'Welcome'} component={Welcome} />
           <AppStack.Screen name={'Tabs'} component={Tabs} />
           <AppStack.Screen
             name={'SessionStack'}
