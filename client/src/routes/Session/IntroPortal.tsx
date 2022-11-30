@@ -30,7 +30,6 @@ import {
   TabNavigatorProps,
 } from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
-import useSessionExercise from './hooks/useSessionExercise';
 import useSessionState from './state/state';
 import useDailyState from '../../lib/daily/state/state';
 import useLeaveSession from './hooks/useLeaveSession';
@@ -45,6 +44,7 @@ import {ArrowLeftIcon} from '../../common/components/Icons';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 import Badge from '../../common/components/Badge/Badge';
 import useSessionStartTime from './hooks/useSessionStartTime';
+import useExerciseById from '../../lib/content/hooks/useExerciseById';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -92,8 +92,8 @@ const IntroPortal: React.FC = () => {
   const [loopVideoLoaded, setLoopVideoLoaded] = useState(false);
   const [joiningSession, setJoiningSession] = useState(false);
   const {t} = useTranslation('Screen.Portal');
-  const exercise = useSessionExercise();
   const session = useSessionState(state => state.session);
+  const exercise = useExerciseById(session?.contentId);
   const participants = useDailyState(state => state.participants);
   const participantsCount = Object.keys(participants ?? {}).length;
   const isHost = useIsSessionHost();

@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/native';
+
 import {ExerciseSlide} from '../../../../../../shared/src/types/Content';
 import Host from './Slides/Host';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import Content from './Slides/Content';
-import useSessionExercise from '../../hooks/useSessionExercise';
+
+import useExerciseTheme from '../../hooks/useExerciseTheme';
 
 type WrapperProps = {backgroundColor?: string};
 const Wrapper = styled.View<WrapperProps>(({backgroundColor}) => ({
@@ -18,9 +20,10 @@ type SlideProps = {
 };
 
 export const Slide = React.memo(({slide, active}: SlideProps) => {
-  const exercise = useSessionExercise();
+  const theme = useExerciseTheme();
+
   return (
-    <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
+    <Wrapper backgroundColor={theme?.backgroundColor}>
       {slide.type === 'host' && <Host active={active} />}
       {slide.type === 'content' && <Content slide={slide} active={active} />}
       {slide.type === 'reflection' && <Content slide={slide} active={active} />}
