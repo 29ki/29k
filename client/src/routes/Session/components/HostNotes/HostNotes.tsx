@@ -96,13 +96,11 @@ const HostNotes: React.FC<HostNotesProps> = ({
     : exercise?.slide.current.hostNotes;
 
   const calculatePageIndex = useCallback(
-    (e: NativeSyntheticEvent<NativeScrollEvent>) => {
-      console.log('caculating page index');
+    (e: NativeSyntheticEvent<NativeScrollEvent>) =>
       setScroll({
         index: Math.round(e?.nativeEvent?.contentOffset?.x / containerWidth),
         animated: true,
-      });
-    },
+      }),
     [containerWidth],
   );
 
