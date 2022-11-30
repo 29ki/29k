@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../../../shared/src/constants/colors';
-import useSessionExercise from '../../../../hooks/useSessionExercise';
 import Gutters from '../../../../../../common/components/Gutters/Gutters';
 import {Spacer12} from '../../../../../../common/components/Spacers/Spacer';
 import {Display24} from '../../../../../../common/components/Typography/Display/Display';
@@ -12,13 +11,14 @@ const StyledHeading = styled(Display24)<StyledHeadingProp>(({textColor}) => ({
   color: textColor ?? COLORS.BLACK,
 }));
 
-const Heading: React.FC<{children: React.ReactNode}> = ({children}) => {
-  const exercise = useSessionExercise();
-
+const Heading: React.FC<{children: React.ReactNode; textColor?: string}> = ({
+  children,
+  textColor,
+}) => {
   return (
     <Gutters>
       <Spacer12 />
-      <StyledHeading textColor={exercise?.theme?.textColor} numberOfLines={2}>
+      <StyledHeading textColor={textColor} numberOfLines={2}>
         {children}
       </StyledHeading>
     </Gutters>

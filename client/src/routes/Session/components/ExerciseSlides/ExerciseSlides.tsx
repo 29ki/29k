@@ -7,6 +7,7 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import {ExerciseSlide} from '../../../../../../shared/src/types/Content';
+import {ExerciseTheme} from '../../../../../../shared/src/types/generated/Exercise';
 import {StyleSheet} from 'react-native';
 import {Slide} from '../Slides/Slide';
 
@@ -40,7 +41,7 @@ type ExerciseSlidesProps = {
   current: ExerciseSlide;
   previous?: ExerciseSlide;
   next?: ExerciseSlide;
-  backgroundColor?: string;
+  theme?: ExerciseTheme;
 };
 
 const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
@@ -48,25 +49,21 @@ const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
   current,
   previous,
   next,
-  backgroundColor,
+  theme,
 }) => (
   // "Pre load" previous and next slide
   <Wrapper>
     {previous && (
       <Fade visible={false} key={index - 1}>
-        <Slide
-          backgroundColor={backgroundColor}
-          slide={previous}
-          active={false}
-        />
+        <Slide theme={theme} slide={previous} active={false} />
       </Fade>
     )}
     <Fade visible={true} key={index}>
-      <Slide backgroundColor={backgroundColor} slide={current} active={true} />
+      <Slide theme={theme} slide={current} active={true} />
     </Fade>
     {next && (
       <Fade visible={false} key={index + 1}>
-        <Slide backgroundColor={backgroundColor} slide={next} active={false} />
+        <Slide theme={theme} slide={next} active={false} />
       </Fade>
     )}
   </Wrapper>
