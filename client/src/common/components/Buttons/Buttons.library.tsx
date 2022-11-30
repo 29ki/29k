@@ -10,6 +10,7 @@ import {HomeIcon} from '../Icons/Home/Home';
 import {Body16, Body18, BodyBold} from '../Typography/Body/Body';
 import {PlusIcon} from '../Icons';
 import ToggleButton from '../../../routes/Session/components/HostNotes/ToggleButton';
+import TextButton from './TextButton/TextButton';
 
 const RowFullWidth = styled.View({
   flex: 1,
@@ -178,6 +179,12 @@ export const AllButtons = () => (
   <ScreenWrapper>
     <ButtonList />
     <IconButtonList />
+    <Spacer16 />
+    <Body18>
+      <BodyBold>Text button</BodyBold>
+    </Body18>
+    <Spacer8 />
+    <TextButton title="Text button" onPress={() => {}} />
     <Spacer16 />
     <Body18>
       <BodyBold>Toggle button</BodyBold>
