@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 
 import useIsSessionHost from '../../hooks/useIsSessionHost';
 import useSessionState from '../../state/state';
-import useSessionExercise from '../../hooks/useSessionExercise';
+import {SessionExercise} from '../../hooks/useSessionExercise';
 
 import {
   ChevronRight,
@@ -42,15 +42,16 @@ const IconSlideButton = styled(IconButton)(({disabled}) => ({
 type ContentControlsProps = {
   sessionId: string;
   style?: ViewStyle;
+  exercise: SessionExercise | null;
 };
 
 const ContentControls: React.FC<ContentControlsProps> = ({
   sessionId,
   style,
+  exercise,
 }) => {
   const isHost = useIsSessionHost();
   const exerciseState = useSessionState(state => state.session?.exerciseState);
-  const exercise = useSessionExercise();
   const {t} = useTranslation('Screen.Session');
 
   const {navigateToIndex, setPlaying} =
