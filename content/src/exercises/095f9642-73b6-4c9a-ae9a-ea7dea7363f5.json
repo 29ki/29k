@@ -10,11 +10,11 @@
     "introPortal": {
       "type": "video",
       "videoLoop": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663143395/temp/portal-intro_h7qccz.mp4",
-        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3"
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663143395/temp/portal-intro_h7qccz.mp4",
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663147750/temp/portal-intro-end_crzjih.mp4"
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663147750/temp/portal-intro-end_crzjih.mp4"
       },
       "hostNotes": [
         {
@@ -39,7 +39,7 @@
         "content": {
           "heading": "Pure simple love",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663328548/temp/audio_meditation_2_b3hwge.mp4"
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663328548/temp/audio_meditation_2_b3hwge.mp4"
           },
           "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
         },
@@ -57,7 +57,7 @@
         "content": {
           "heading": "How did this meditation affect you?",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663328538/temp/1_min_eto52x.mp4"
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663328538/temp/1_min_eto52x.mp4"
           },
           "text": "What can you bring for the rest of the day?"
         },
@@ -75,7 +75,7 @@
         "content": {
           "heading": "How did this meditation affect you?",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663328538/temp/2_min_fr9hsu.mp4"
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663328538/temp/2_min_fr9hsu.mp4"
           },
           "text": "What can you bring for the rest of the day?"
         },
@@ -112,7 +112,7 @@
     "published": true,
     "outroPortal": {
       "video": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1664798564/temp/portal_outro_lpm80e.mp4"
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1664798564/temp/portal_outro_lpm80e.mp4"
       }
     }
   },
@@ -127,11 +127,11 @@
     "introPortal": {
       "type": "video",
       "videoLoop": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663143395/temp/portal-intro_h7qccz.mp4",
-        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3"
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663143395/temp/portal-intro_h7qccz.mp4",
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1663147750/temp/portal-intro-end_crzjih.mp4"
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663147750/temp/portal-intro-end_crzjih.mp4"
       },
       "hostNotes": [
         {
@@ -229,7 +229,7 @@
     "published": true,
     "outroPortal": {
       "video": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/v1664798564/temp/portal_outro_lpm80e.mp4"
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1664798564/temp/portal_outro_lpm80e.mp4"
       }
     }
   },
