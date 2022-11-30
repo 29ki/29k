@@ -30,7 +30,6 @@ import {
   TabNavigatorProps,
 } from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
-import useSessionExercise from './hooks/useSessionExercise';
 import useSessionState from './state/state';
 import useDailyState from '../../lib/daily/state/state';
 import useLeaveSession from './hooks/useLeaveSession';
