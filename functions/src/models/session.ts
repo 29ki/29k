@@ -136,10 +136,17 @@ export const updateSession = async (
   id: Session['id'],
   data: Partial<Session>,
 ) => {
+  const updateValues = {
+    ...data,
+    ...(data.startTime
+      ? {startTime: Timestamp.fromDate(new Date(data.startTime))}
+      : {}),
+  };
+
   await firestore()
     .collection(SESSIONS_COLLECTION)
     .doc(id)
-    .update({...data, updatedAt: Timestamp.now()});
+    .update({...updateValues, updatedAt: Timestamp.now()});
 };
 
 export const updateExerciseState = async (

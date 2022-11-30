@@ -47,6 +47,9 @@ const JoinSessionModal = () => {
         <VerificationCode
           hasError={Boolean(errorString)}
           prefillCode={`${inviteCode || ''}`}
+          onCodeType={() => {
+            setErrorString(null);
+          }}
           onCodeCompleted={async value => {
             try {
               const session = await joinSession(value);
