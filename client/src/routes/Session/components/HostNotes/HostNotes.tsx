@@ -91,14 +91,9 @@ const HostNotes: React.FC<HostNotesProps> = ({
   const exercise = useSessionExercise();
   const {t} = useTranslation('Component.HostNotes');
 
-  useEffect(
-    () =>
-      listRef.current?.scrollToIndex({
-        animated: scroll.animated,
-        index: scroll.index,
-      }),
-    [scroll.animated, scroll.index],
-  );
+  const notes = introPortal
+    ? exercise?.introPortal?.hostNotes
+    : exercise?.slide.current.hostNotes;
 
   const calculatePageIndex = useCallback(
     (e: NativeSyntheticEvent<NativeScrollEvent>) =>
@@ -109,9 +104,16 @@ const HostNotes: React.FC<HostNotesProps> = ({
     [containerWidth],
   );
 
-  const notes = introPortal
-    ? exercise?.introPortal?.hostNotes
-    : exercise?.slide.current.hostNotes;
+  useEffect(() => setScroll({index: 0, animated: false}), [notes]);
+
+  useEffect(
+    () =>
+      listRef.current?.scrollToIndex({
+        animated: scroll.animated,
+        index: scroll.index,
+      }),
+    [scroll.animated, scroll.index],
+  );
 
   return (
     <View style={style}>
@@ -151,9 +153,6 @@ const HostNotes: React.FC<HostNotesProps> = ({
                 })}
                 ref={listRef}
                 data={notes}
-                onContentSizeChange={() =>
-                  setScroll({index: 0, animated: false})
-                }
                 pagingEnabled
                 onMomentumScrollEnd={calculatePageIndex}
                 keyExtractor={(_, i) => `notes-${i}`}
