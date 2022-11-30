@@ -5,6 +5,7 @@ import hexToRgba from 'hex-to-rgba';
 import useSessionParticipantSpotlight from '../../../hooks/useSessionParticipantSpotlight';
 import Participant from '../../Participants/Participant';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
+import useExerciseTheme from '../../../hooks/useExerciseTheme';
 
 const Gradient = styled(LinearGradient)({
   position: 'absolute',
@@ -16,11 +17,13 @@ const Gradient = styled(LinearGradient)({
 
 type HostProps = {
   active: boolean;
-  backgroundColor?: string;
 };
-const Host: React.FC<HostProps> = ({active, backgroundColor}) => {
+const Host: React.FC<HostProps> = ({active}) => {
   const participantSpotlight = useSessionParticipantSpotlight();
-  const background = backgroundColor ?? COLORS.WHITE;
+
+  const theme = useExerciseTheme();
+  const background = theme?.backgroundColor ?? COLORS.WHITE;
+
   if (!active || !participantSpotlight) {
     return null;
   }

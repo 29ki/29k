@@ -49,21 +49,20 @@ const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
   current,
   previous,
   next,
-  theme,
 }) => (
   // "Pre load" previous and next slide
   <Wrapper>
     {previous && (
       <Fade visible={false} key={index - 1}>
-        <Slide theme={theme} slide={previous} active={false} />
+        <Slide slide={previous} active={false} />
       </Fade>
     )}
     <Fade visible={true} key={index}>
-      <Slide theme={theme} slide={current} active={true} />
+      <Slide slide={current} active={true} />
     </Fade>
     {next && (
       <Fade visible={false} key={index + 1}>
-        <Slide theme={theme} slide={next} active={false} />
+        <Slide slide={next} active={false} />
       </Fade>
     )}
   </Wrapper>

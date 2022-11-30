@@ -35,28 +35,21 @@ type ContentProps = {
     | ExerciseSlideSharingSlide
     | ExerciseSlideReflectionSlide;
   active: boolean;
-  textColor?: string;
 };
-const Content: React.FC<ContentProps> = ({
-  slide: {content = {}},
-  active,
-  textColor,
-}) => (
+const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => (
   <>
     <Spacer12 />
     {!content.video && !content.image && (
       <TextWrapper>
-        {content.heading && (
-          <Heading textColor={textColor}>{content.heading}</Heading>
-        )}
-        {content.text && <Text textColor={textColor}>{content.text}</Text>}
+        {content.heading && <Heading>{content.heading}</Heading>}
+        {content.text && <Text>{content.text}</Text>}
       </TextWrapper>
     )}
     {(content.video || content.image) && content.heading && (
-      <Heading textColor={textColor}>{content.heading}</Heading>
+      <Heading>{content.heading}</Heading>
     )}
     {(content.video || content.image) && content.text && (
-      <Text textColor={textColor}>{content.text}</Text>
+      <Text>{content.text}</Text>
     )}
 
     {content.video ? (
