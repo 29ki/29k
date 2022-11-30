@@ -4,7 +4,6 @@ import {ExerciseSlide} from '../../../../../../shared/src/types/Content';
 import Host from './Slides/Host';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import Content from './Slides/Content';
-import useSessionExercise from '../../hooks/useSessionExercise';
 
 type WrapperProps = {backgroundColor?: string};
 const Wrapper = styled.View<WrapperProps>(({backgroundColor}) => ({
@@ -15,16 +14,20 @@ const Wrapper = styled.View<WrapperProps>(({backgroundColor}) => ({
 type SlideProps = {
   slide: ExerciseSlide;
   active: boolean;
+  backgroundColor?: string;
 };
 
-export const Slide = React.memo(({slide, active}: SlideProps) => {
-  const exercise = useSessionExercise();
-  return (
-    <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
-      {slide.type === 'host' && <Host active={active} />}
-      {slide.type === 'content' && <Content slide={slide} active={active} />}
-      {slide.type === 'reflection' && <Content slide={slide} active={active} />}
-      {slide.type === 'sharing' && <Content slide={slide} active={active} />}
-    </Wrapper>
-  );
-});
+export const Slide = React.memo(
+  ({slide, active, backgroundColor}: SlideProps) => {
+    return (
+      <Wrapper backgroundColor={backgroundColor}>
+        {slide.type === 'host' && <Host active={active} />}
+        {slide.type === 'content' && <Content slide={slide} active={active} />}
+        {slide.type === 'reflection' && (
+          <Content slide={slide} active={active} />
+        )}
+        {slide.type === 'sharing' && <Content slide={slide} active={active} />}
+      </Wrapper>
+    );
+  },
+);

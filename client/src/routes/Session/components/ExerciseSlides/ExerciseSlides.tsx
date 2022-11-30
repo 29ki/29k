@@ -40,6 +40,7 @@ type ExerciseSlidesProps = {
   current: ExerciseSlide;
   previous?: ExerciseSlide;
   next?: ExerciseSlide;
+  backgroundColor?: string;
 };
 
 const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
@@ -47,20 +48,25 @@ const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
   current,
   previous,
   next,
+  backgroundColor,
 }) => (
   // "Pre load" previous and next slide
   <Wrapper>
     {previous && (
       <Fade visible={false} key={index - 1}>
-        <Slide slide={previous} active={false} />
+        <Slide
+          backgroundColor={backgroundColor}
+          slide={previous}
+          active={false}
+        />
       </Fade>
     )}
     <Fade visible={true} key={index}>
-      <Slide slide={current} active={true} />
+      <Slide backgroundColor={backgroundColor} slide={current} active={true} />
     </Fade>
     {next && (
       <Fade visible={false} key={index + 1}>
-        <Slide slide={next} active={false} />
+        <Slide backgroundColor={backgroundColor} slide={next} active={false} />
       </Fade>
     )}
   </Wrapper>
