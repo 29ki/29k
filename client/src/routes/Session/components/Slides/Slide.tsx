@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components/native';
 
 import {ExerciseSlide} from '../../../../../../shared/src/types/Content';
@@ -8,6 +8,7 @@ import Content from './Slides/Content';
 import useExerciseTheme from '../../hooks/useExerciseTheme';
 import useSessionParticipantSpotlight from '../../hooks/useSessionParticipantSpotlight';
 import Participant from '../Participants/Participant';
+import useSessionState from '../../state/state';
 
 type WrapperProps = {backgroundColor?: string};
 const Wrapper = styled.View<WrapperProps>(({backgroundColor}) => ({
@@ -23,6 +24,16 @@ type SlideProps = {
 export const Slide = React.memo(({slide, active}: SlideProps) => {
   const participantSpotlight = useSessionParticipantSpotlight();
   const theme = useExerciseTheme();
+
+  const setIsLoadingContent = useSessionState(
+    state => state.setIsLoadingContent,
+  );
+
+  useEffect(() => {
+    if (slide.type === 'host' || !slide.content?.video) {
+      setIsLoadingContent(false);
+    }
+  }, [setIsLoadingContent, active, slide]);
 
   return (
     <Wrapper backgroundColor={theme?.backgroundColor}>
