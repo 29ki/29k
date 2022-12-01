@@ -24,7 +24,7 @@ const resolveNotificationUrl = async (
 const config: LinkingOptions<ModalStackProps>['config'] = {
   initialRouteName: 'App',
   screens: {
-    JoinSessionModal: 'joinSessionInvite/:inviteCode',
+    AddSessionModal: 'joinSessionInvite/:inviteCode',
     UpgradeAccountModal: 'verifyPublicHostCode/:code',
   },
 };
