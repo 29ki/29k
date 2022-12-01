@@ -2,25 +2,13 @@
   "en": {
     "downloading": {
       "title": "Downloading update",
-      "text": "Sorry for the inconvienience – please hang tight."
+      "text": "Please hang tight. We're soon done."
     },
     "install": {
       "title": "Install update",
-      "text": "Restart the app to install the latest version.",
+      "text": "",
       "dismiss_button": "Not now",
-      "restart_button": "Restart"
-    }
-  },
-  "sv": {
-    "downloading": {
-      "title": "Laddar ner uppdatering",
-      "text": "Ursäkta besväret – snart klart."
-    },
-    "install": {
-      "title": "Installera uppdatering",
-      "text": "Starta om appen för att installera den senaste versionen.",
-      "dismiss_button": "Inte nu",
-      "restart_button": "Starta om"
+      "restart_button": "Restart to install"
     }
   },
   "pt": {
@@ -33,6 +21,18 @@
       "text": "Reinicia a aplicação para instalar a versão mais recente.",
       "dismiss_button": "Agora não",
       "restart_button": "Reiniciar"
+    }
+  },
+  "sv": {
+    "downloading": {
+      "title": "Laddar ner uppdatering",
+      "text": "Ursäkta besväret – snart klart."
+    },
+    "install": {
+      "title": "Installera uppdatering",
+      "text": "Starta om appen för att installera den senaste versionen.",
+      "dismiss_button": "Inte nu",
+      "restart_button": "Starta om"
     }
   },
   "es": {}
