@@ -114,7 +114,6 @@ const Session = () => {
   const {leaveSessionWithConfirm} = useLeaveSession();
   const user = useUser();
   usePreventGoingBack(leaveSessionWithConfirm);
-  const theme = exercise?.theme;
 
   useEffect(() => {
     if (session?.ended) {
@@ -158,7 +157,6 @@ const Session = () => {
               current={exercise.slide.current}
               previous={exercise.slide.previous}
               next={exercise.slide.next}
-              theme={theme}
             />
             {!isHost && (
               <Progress
