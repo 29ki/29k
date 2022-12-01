@@ -23,6 +23,7 @@
   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 <a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-44-orange.svg?style=flat-square" atl="All Contributors" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+  <a href="https://community.29k.org"><img src="https://img.shields.io/badge/community.29k.org-grey?logo=Slack" alt="Slack community - community.29k.org"></a>
 </p>
 
 ## Download Android/iOS app
