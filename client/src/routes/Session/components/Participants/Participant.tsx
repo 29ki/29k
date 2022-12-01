@@ -6,13 +6,16 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
-import {Display36} from '../../../../common/components/Typography/Display/Display';
+import hexToRgba from 'hex-to-rgba';
+
+import {DailyUserData} from '../../../../../../shared/src/types/Session';
+import useExerciseTheme from '../../hooks/useExerciseTheme';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../../common/constants/spacings';
+import {Display36} from '../../../../common/components/Typography/Display/Display';
 import AudioIndicator from './AudioIdicator';
 import Name from './Name';
 import Image from '../../../../common/components/Image/Image';
-import {DailyUserData} from '../../../../../../shared/src/types/Session';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -70,13 +73,27 @@ const Heading = styled(Display36)({
   fontSize: SPACINGS.FOURTY,
 });
 
+const SpotlightGradient = styled(LinearGradient)({
+  position: 'absolute',
+  left: 0,
+  right: 0,
+  top: 0,
+  height: 80,
+});
+
 type ParticipantProps = {
   participant: DailyParticipant;
+  isHostSpotlight?: boolean;
 };
 
-const Participant: React.FC<ParticipantProps> = ({participant}) => {
+const Participant: React.FC<ParticipantProps> = ({
+  participant,
+  isHostSpotlight,
+}) => {
   const {t} = useTranslation('Screen.Session');
   const photoURL = (participant?.userData as DailyUserData)?.photoURL;
+  const theme = useExerciseTheme();
+  const background = theme?.backgroundColor ?? COLORS.WHITE;
 
   return (
     <Wrapper>
@@ -99,6 +116,11 @@ const Participant: React.FC<ParticipantProps> = ({participant}) => {
       <NameGradient>
         <ParticipantName participant={participant} suffix={t('nameSuffix')} />
       </NameGradient>
+      {isHostSpotlight && (
+        <SpotlightGradient
+          colors={[hexToRgba(background, 1), hexToRgba(background, 0)]}
+        />
+      )}
       <ParticipantAudio muted={!participant.audioTrack} />
     </Wrapper>
   );
