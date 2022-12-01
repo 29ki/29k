@@ -19,7 +19,8 @@
       "message": "{{language}} is still under development and might not give you the best experience at this point.\n\nDo you want to switch to {{language}} anyway?",
       "confirm": "Yes, switch",
       "dismiss": "No, thank you"
-    }
+    },
+    "showWip": "Show work in progress"
   },
   "sv": {
     "signIn": "Logga in",
@@ -35,7 +36,8 @@
     "language": "Språk",
     "password": "Lösenord",
     "upgrade": "Uppgradera",
-    "email": "Epost"
+    "email": "Epost",
+    "showWip": "Visa pågående arbete"
   },
   "pt": {
     "signIn": "Entrar",
@@ -51,7 +53,8 @@
     "language": "Língua",
     "password": "Password",
     "upgrade": "Atualizar",
-    "email": "E-mail"
+    "email": "E-mail",
+    "showWip": "Show work in progress"
   },
   "es": {}
 }

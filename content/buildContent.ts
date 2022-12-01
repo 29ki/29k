@@ -1,21 +1,11 @@
 import {readFileSync, writeFileSync} from 'fs';
 import {mergeDeepRight} from 'ramda';
-import {DEFAULT_LANGUAGE_TAG} from '../shared/src/constants/i18n';
-import {
-  filterPublishedContent,
-  generateI18NResources,
-  getContentByType,
-} from './src/utils/utils';
+import {generateI18NResources, getContentByType} from './src/utils/utils';
 
 const exerciseContent = getContentByType('exercises');
 
-const exercises = generateI18NResources(
-  filterPublishedContent(exerciseContent),
-  'exercises',
-);
-const exerciseIds = Object.keys(
-  filterPublishedContent(exerciseContent, DEFAULT_LANGUAGE_TAG),
-);
+const exercises = generateI18NResources(exerciseContent, 'exercises');
+const exerciseIds = Object.keys(exerciseContent);
 
 const ui = generateI18NResources(getContentByType('ui'));
 
