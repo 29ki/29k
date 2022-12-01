@@ -2,6 +2,7 @@ import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import hexToRgba from 'hex-to-rgba';
+
 import useSessionParticipantSpotlight from '../../../hooks/useSessionParticipantSpotlight';
 import Participant from '../../Participants/Participant';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
