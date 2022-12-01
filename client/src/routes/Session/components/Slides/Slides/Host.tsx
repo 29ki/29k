@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import hexToRgba from 'hex-to-rgba';
@@ -7,7 +7,6 @@ import useSessionParticipantSpotlight from '../../../hooks/useSessionParticipant
 import Participant from '../../Participants/Participant';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
 import useExerciseTheme from '../../../hooks/useExerciseTheme';
-import useSessionState from '../../../state/state';
 
 const Gradient = styled(LinearGradient)({
   position: 'absolute',
@@ -25,12 +24,6 @@ const Host: React.FC<HostProps> = ({active}) => {
 
   const theme = useExerciseTheme();
   const background = theme?.backgroundColor ?? COLORS.WHITE;
-
-  const setIsLoadingContent = useSessionState(
-    state => state.setIsLoadingContent,
-  );
-
-  useEffect(() => setIsLoadingContent(false), [setIsLoadingContent, active]);
 
   if (!active || !participantSpotlight) {
     return null;
