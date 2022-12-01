@@ -35,6 +35,10 @@ const AddSessionModal = () => {
     useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
   const [errorString, setErrorString] = useState<string | null>(null);
 
+  const onCodeType = useCallback(() => {
+    setErrorString(null);
+  }, [setErrorString]);
+
   const onCodeCompleted = useCallback(
     async (value: Session['inviteCode']) => {
       try {
@@ -57,6 +61,11 @@ const AddSessionModal = () => {
     [fetchSessions, goBack, setErrorString, navigate, t],
   );
 
+  const onPressCreate = useCallback(() => {
+    popToTop();
+    navigate('CreateSessionModal');
+  }, [popToTop, navigate]);
+
   return (
     <CardModal>
       <Gutters>
@@ -69,22 +78,14 @@ const AddSessionModal = () => {
         <VerificationCode
           hasError={Boolean(errorString)}
           prefillCode={`${inviteCode || ''}`}
-          onCodeType={() => {
-            setErrorString(null);
-          }}
+          onCodeType={onCodeType}
           onCodeCompleted={onCodeCompleted}
         />
         <Spacer8 />
         <BodyText>{t('create.or')}</BodyText>
         <Spacer8 />
         <ButtonWrapper>
-          <Button
-            onPress={() => {
-              popToTop();
-              navigate('CreateSessionModal');
-            }}>
-            {t('create.cta')}
-          </Button>
+          <Button onPress={onPressCreate}>{t('create.cta')}</Button>
         </ButtonWrapper>
       </Gutters>
     </CardModal>
