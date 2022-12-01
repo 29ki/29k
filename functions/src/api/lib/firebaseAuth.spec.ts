@@ -127,6 +127,34 @@ describe('firebaseAuth', () => {
     expect(next).toHaveBeenCalledTimes(0);
   });
 
+  it('returns 400 when token has incorrect arguments', async () => {
+    (getAuth().verifyIdToken as jest.Mock).mockRejectedValueOnce({
+      code: 'auth/argument-error',
+    });
+    const middleware = firebaseAuth();
+
+    const ctx = {
+      headers: {
+        authorization: 'bearer some-token',
+      },
+    } as FirebaseAuthContext;
+
+    const next = jest.fn();
+
+    await middleware(ctx, next);
+
+    expect(getAuth().verifyIdToken).toHaveBeenCalledTimes(1);
+
+    expect(ctx).toEqual({
+      status: 400,
+      headers: {
+        authorization: 'bearer some-token',
+      },
+    });
+
+    expect(next).toHaveBeenCalledTimes(0);
+  });
+
   it('throws on requests without authorization', async () => {
     const middleware = firebaseAuth();
 
