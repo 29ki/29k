@@ -3,7 +3,7 @@
     "header": "Leave session",
     "text": "Are you sure you want to leave session?",
     "buttons": {
-      "cancel": "Stay in session",
+      "cancel": "No, stay in session",
       "confirm": "Yes, leave"
     }
   },
