@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components/native';
 import RNVideo, {VideoProperties} from 'react-native-video';
+
 import useSessionState from '../../../../state/state';
 import VideoBase from '../../../VideoBase/VideoBase';
 import DurationTimer, {
@@ -39,6 +40,9 @@ const Video: React.FC<VideoProps> = ({
   autoPlayLoop = false,
   durationTimer = false,
 }) => {
+  const setIsLoadingContent = useSessionState(
+    state => state.setIsLoadingContent,
+  );
   const videoRef = useRef<RNVideo>(null);
   const timerRef = useRef<DurationTimerHandle>(null);
   const [duration, setDuration] = useState(0);
@@ -81,7 +85,10 @@ const Video: React.FC<VideoProps> = ({
     }
   }, [active, autoPlayLoop, duration, previousState, exerciseState]);
 
-  const onLoad: VideoProperties['onLoad'] = data => setDuration(data.duration);
+  const onLoad: VideoProperties['onLoad'] = data => {
+    setDuration(data.duration);
+    setIsLoadingContent(false);
+  };
 
   const paused = !active || (!exerciseState?.playing && !autoPlayLoop);
 
@@ -121,6 +128,7 @@ const Video: React.FC<VideoProps> = ({
         {...videoProps}
         ref={videoRef}
         onLoad={onLoad}
+        onLoadStart={() => setIsLoadingContent(true)}
         repeat={autoPlayLoop}
       />
       {timer}

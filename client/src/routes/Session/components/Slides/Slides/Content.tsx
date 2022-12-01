@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components/native';
 
 import {
@@ -14,6 +14,7 @@ import {
   Spacer8,
 } from '../../../../../common/components/Spacers/Spacer';
 import Text from './Blocks/Text';
+import useSessionState from '../../../state/state';
 
 const GraphicsWrapper = styled.View({
   flex: 1,
@@ -36,45 +37,57 @@ type ContentProps = {
     | ExerciseSlideReflectionSlide;
   active: boolean;
 };
-const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => (
-  <>
-    <Spacer12 />
-    {!content.video && !content.image && (
-      <TextWrapper>
-        {content.heading && <Heading>{content.heading}</Heading>}
-        {content.text && <Text>{content.text}</Text>}
-      </TextWrapper>
-    )}
-    {(content.video || content.image) && content.heading && (
-      <Heading>{content.heading}</Heading>
-    )}
-    {(content.video || content.image) && content.text && (
-      <Text>{content.text}</Text>
-    )}
+const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
+  const setIsLoadingContent = useSessionState(
+    state => state.setIsLoadingContent,
+  );
 
-    {content.video ? (
-      <GraphicsWrapper>
-        <Spacer8 />
-        <VideoWrapper>
-          <Video
-            source={{uri: content.video.source}}
-            audioSource={
-              content.video.audio ? {uri: content.video.audio} : undefined
-            }
-            active={active}
-            preview={content.video.preview}
-            autoPlayLoop={content.video.autoPlayLoop}
-            durationTimer={content.video.durationTimer}
-          />
-        </VideoWrapper>
-      </GraphicsWrapper>
-    ) : content.image ? (
-      <GraphicsWrapper>
-        <Spacer8 />
-        <Image resizeMode="contain" source={{uri: content.image.source}} />
-      </GraphicsWrapper>
-    ) : null}
-  </>
-);
+  useEffect(() => {
+    if (!content?.video) {
+      setIsLoadingContent(false);
+    }
+  }, [content, setIsLoadingContent]);
+
+  return (
+    <>
+      <Spacer12 />
+      {!content.video && !content.image && (
+        <TextWrapper>
+          {content.heading && <Heading>{content.heading}</Heading>}
+          {content.text && <Text>{content.text}</Text>}
+        </TextWrapper>
+      )}
+      {(content.video || content.image) && content.heading && (
+        <Heading>{content.heading}</Heading>
+      )}
+      {(content.video || content.image) && content.text && (
+        <Text>{content.text}</Text>
+      )}
+
+      {content.video ? (
+        <GraphicsWrapper>
+          <Spacer8 />
+          <VideoWrapper>
+            <Video
+              source={{uri: content.video.source}}
+              audioSource={
+                content.video.audio ? {uri: content.video.audio} : undefined
+              }
+              active={active}
+              preview={content.video.preview}
+              autoPlayLoop={content.video.autoPlayLoop}
+              durationTimer={content.video.durationTimer}
+            />
+          </VideoWrapper>
+        </GraphicsWrapper>
+      ) : content.image ? (
+        <GraphicsWrapper>
+          <Spacer8 />
+          <Image resizeMode="contain" source={{uri: content.image.source}} />
+        </GraphicsWrapper>
+      ) : null}
+    </>
+  );
+};
 
 export default Content;

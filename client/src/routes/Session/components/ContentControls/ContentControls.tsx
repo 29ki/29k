@@ -50,6 +50,10 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   style,
   exercise,
 }) => {
+  const isLoadingContent = useSessionState(state => state.isLoadingContent);
+  const setSessionContentLoading = useSessionState(
+    state => state.setIsLoadingContent,
+  );
   const isHost = useIsSessionHost();
   const exerciseState = useSessionState(state => state.session?.exerciseState);
   const {t} = useTranslation('Screen.Session');
@@ -69,12 +73,17 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         LeftIcon={ChevronLeft}
         disabled={!exercise.slide.previous}
         elevated
-        onPress={() =>
+        onPress={() => {
+          if (isLoadingContent || !exercise.slide.previous) {
+            return;
+          }
+          console.log('setting loading to true');
+          setSessionContentLoading(true);
           navigateToIndex({
             index: exercise.slide.index - 1,
             content: exercise.slides,
-          })
-        }>
+          });
+        }}>
         {t('controls.prev')}
       </SlideButton>
       {exercise.slide.current.type !== 'host' &&
@@ -105,12 +114,17 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         variant="tertiary"
         disabled={!exercise.slide.next}
         RightIcon={ChevronRight}
-        onPress={() =>
+        onPress={() => {
+          if (isLoadingContent || !exercise.slide.next) {
+            return;
+          }
+          console.log('setting loading to true');
+          setSessionContentLoading(true);
           navigateToIndex({
             index: exerciseState.index + 1,
             content: exercise.slides,
-          })
-        }>
+          });
+        }}>
         {t('controls.next')}
       </SlideButton>
     </Wrapper>
