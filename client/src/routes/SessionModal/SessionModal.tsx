@@ -154,9 +154,8 @@ const SessionModal = () => {
   const onShare = () => {
     if (session.link) {
       Share.share({
-        url: session.link,
         message: t('shareMessage', {
-          link: Platform.select({android: session.link, default: undefined}),
+          link: session.link,
           code: formatInviteCode(session.inviteCode),
           interpolation: {escapeValue: false},
         }),
