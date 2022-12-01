@@ -1,6 +1,6 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 
@@ -17,6 +17,7 @@ import useSessions from '../Sessions/hooks/useSessions';
 import CardModal from '../../common/components/Modals/CardModal';
 import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
 import Button from '../../common/components/Buttons/Button';
+import {Session} from '../../../../shared/src/types/Session';
 
 const ErrorText = styled(Body16)({color: COLORS.ERROR, textAlign: 'center'});
 const BodyText = styled(Body16)({textAlign: 'center'});
@@ -34,6 +35,37 @@ const AddSessionModal = () => {
     useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
   const [errorString, setErrorString] = useState<string | null>(null);
 
+  const onCodeType = useCallback(() => {
+    setErrorString(null);
+  }, [setErrorString]);
+
+  const onCodeCompleted = useCallback(
+    async (value: Session['inviteCode']) => {
+      try {
+        const session = await joinSession(value);
+        fetchSessions();
+        goBack();
+        navigate('SessionModal', {session: session});
+      } catch (err) {
+        switch ((err as Error).message) {
+          case JoinSessionError.notFound:
+            setErrorString(t('errors.sessionNotFound'));
+            break;
+          default:
+            goBack();
+            navigate('SessionUnavailableModal');
+            break;
+        }
+      }
+    },
+    [fetchSessions, goBack, setErrorString, navigate, t],
+  );
+
+  const onPressCreate = useCallback(() => {
+    popToTop();
+    navigate('CreateSessionModal');
+  }, [popToTop, navigate]);
+
   return (
     <CardModal>
       <Gutters>
@@ -46,39 +78,14 @@ const AddSessionModal = () => {
         <VerificationCode
           hasError={Boolean(errorString)}
           prefillCode={`${inviteCode || ''}`}
-          onCodeType={() => {
-            setErrorString(null);
-          }}
-          onCodeCompleted={async value => {
-            try {
-              const session = await joinSession(value);
-              fetchSessions();
-              goBack();
-              navigate('SessionModal', {session: session});
-            } catch (err) {
-              switch ((err as Error).message) {
-                case JoinSessionError.notFound:
-                  setErrorString(t('errors.sessionNotFound'));
-                  break;
-                default:
-                  goBack();
-                  navigate('SessionUnavailableModal');
-                  break;
-              }
-            }
-          }}
+          onCodeType={onCodeType}
+          onCodeCompleted={onCodeCompleted}
         />
         <Spacer8 />
         <BodyText>{t('create.or')}</BodyText>
         <Spacer8 />
         <ButtonWrapper>
-          <Button
-            onPress={() => {
-              popToTop();
-              navigate('CreateSessionModal');
-            }}>
-            {t('create.cta')}
-          </Button>
+          <Button onPress={onPressCreate}>{t('create.cta')}</Button>
         </ButtonWrapper>
       </Gutters>
     </CardModal>
