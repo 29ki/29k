@@ -1,18 +1,10 @@
 {
   "en": {
     "header": "Leave session",
-    "text": "Are you sure you want to leave the session?",
+    "text": "Are you sure you want to leave session?",
     "buttons": {
-      "cancel": "Don't leave",
-      "confirm": "Leave"
-    }
-  },
-  "sv": {
-    "header": "Lämna session",
-    "text": "Är du säker på att du vill lämna sessionen?",
-    "buttons": {
-      "cancel": "Lämna inte",
-      "confirm": "Lämna"
+      "cancel": "Stay in session",
+      "confirm": "Yes, leave"
     }
   },
   "pt": {
@@ -21,6 +13,14 @@
     "buttons": {
       "cancel": "Não sair",
       "confirm": "Sair"
+    }
+  },
+  "sv": {
+    "header": "Lämna session",
+    "text": "Är du säker på att du vill lämna sessionen?",
+    "buttons": {
+      "cancel": "Lämna inte",
+      "confirm": "Lämna"
     }
   },
   "es": {}
