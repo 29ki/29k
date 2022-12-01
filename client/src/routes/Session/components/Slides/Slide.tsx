@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 import {ExerciseSlide} from '../../../../../../shared/src/types/Content';
-import Host from './Slides/Host';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import Content from './Slides/Content';
 
