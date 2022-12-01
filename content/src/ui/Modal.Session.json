@@ -11,24 +11,9 @@
         "confirm": "Delete"
       }
     },
-
     "join": "Join",
     "shareMessage": "{{link}}\nSession code: {{code}}",
-    "description": "Add to Calendar, set reminder or share the code to invite your friends"
-  },
-  "sv": {
-    "edit": "Ändra",
-    "done": "Klar",
-    "deleteButton": "Ta bort session",
-    "delete": {
-      "header": "Ta bort session?",
-      "text": "Är du säker på att du vill ta bort sessionen?",
-      "buttons": {
-        "cancel": "Avbryt",
-        "confirm": "Ta bort"
-      }
-    },
-    "join": "Gå med"
+    "description": "Add to calendar, set reminder or share the code to invite friends"
   },
   "pt": {
     "edit": "Alterar",
@@ -44,6 +29,20 @@
     },
     "join": "Juntar",
     "shareMessage": "{{link}}Código da sessão: {{code}}"
+  },
+  "sv": {
+    "edit": "Ändra",
+    "done": "Klar",
+    "deleteButton": "Ta bort session",
+    "delete": {
+      "header": "Ta bort session?",
+      "text": "Är du säker på att du vill ta bort sessionen?",
+      "buttons": {
+        "cancel": "Avbryt",
+        "confirm": "Ta bort"
+      }
+    },
+    "join": "Gå med"
   },
   "es": {}
 }
