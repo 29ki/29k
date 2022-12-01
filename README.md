@@ -21,8 +21,9 @@
   <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="Make a Pull Request"></a>
   <a href="docs/code_of_conduct.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="Contributor Covenant"></a>
   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-44-orange.svg?style=flat-square" atl="All Contributors" /></a>
+<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-44-orange.svg" atl="All Contributors" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+  <a href="https://community.29k.org"><img src="https://img.shields.io/badge/community.29k.org-grey?logo=Slack" alt="Slack community - community.29k.org"></a>
 </p>
 
 ## Download Android/iOS app
@@ -31,6 +32,10 @@ You can get early access to our open beta through iOS TestFlight and Android Pla
 
 - 🍎 [29k: Cupcake for iOS](https://testflight.apple.com/join/0VdruQ6z)
 - 🤖 [29k: Cupcake for Android](https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake)
+
+## Join Our Community
+
+Join our [Slack community](https://community.29k.org) if you need help, want to chat, or are thinking of a new feature. 
 
 ## Documentation
 
