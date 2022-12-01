@@ -7,7 +7,6 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import {ExerciseSlide} from '../../../../../../shared/src/types/Content';
-import {ExerciseTheme} from '../../../../../../shared/src/types/generated/Exercise';
 import {StyleSheet} from 'react-native';
 import {Slide} from '../Slides/Slide';
 
@@ -41,7 +40,6 @@ type ExerciseSlidesProps = {
   current: ExerciseSlide;
   previous?: ExerciseSlide;
   next?: ExerciseSlide;
-  theme?: ExerciseTheme;
 };
 
 const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
