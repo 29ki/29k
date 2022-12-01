@@ -40,11 +40,10 @@ export const AllCards = () => (
     <Spacer16 />
 
     <Card
-      title="With reminder and menu"
+      title="With reminder and menu, no button"
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
-      buttonText="Go dance!"
       onPress={() => {}}
       onContextPress={() => {}}
       Icon={BellIcon}
