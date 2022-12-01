@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import {createSessionInviteLink} from '../models/dynamicLinks';
 import * as sessionModel from '../models/session';
+import * as userModel from '../models/user';
 import {getPublicUserInfo} from '../models/user';
 import * as dailyApi from '../lib/dailyApi';
 import {Session} from '../../../shared/src/types/Session';
@@ -27,6 +28,7 @@ export const createSession = async (
     language,
   }: Pick<Session, 'contentId' | 'type' | 'startTime' | 'language'>,
 ) => {
+  const {displayName} = await userModel.getPublicUserInfo(userId);
   const dailyRoom = await dailyApi.createRoom(dayjs(startTime).add(2, 'hour'));
   let inviteCode = generateVerificationCode();
 
@@ -37,7 +39,7 @@ export const createSession = async (
   const link = await createSessionInviteLink(
     inviteCode,
     contentId,
-    startTime,
+    displayName,
     language,
   );
 

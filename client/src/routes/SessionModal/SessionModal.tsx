@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Alert, Platform, Share, View} from 'react-native';
+import {Alert, Share, View} from 'react-native';
 import styled from 'styled-components/native';
 
 import Button from '../../common/components/Buttons/Button';
@@ -127,6 +127,7 @@ const SessionModal = () => {
   const onAddToCalendar = () => {
     addToCalendar(
       exercise.name,
+      session.hostProfile?.displayName,
       session.link,
       dayjs(session.startTime),
       dayjs(session.startTime).add(30, 'minutes'),
@@ -154,9 +155,8 @@ const SessionModal = () => {
   const onShare = () => {
     if (session.link) {
       Share.share({
-        url: session.link,
         message: t('shareMessage', {
-          link: Platform.select({android: session.link, default: undefined}),
+          link: session.link,
           code: formatInviteCode(session.inviteCode),
           interpolation: {escapeValue: false},
         }),

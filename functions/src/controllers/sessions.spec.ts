@@ -108,7 +108,7 @@ describe('sessions - controller', () => {
       expect(mockDynamicLinks.createSessionInviteLink).toHaveBeenCalledWith(
         123456,
         'some-content-id',
-        '2022-10-10T10:00:00.000Z',
+        'some-name',
         'en',
       );
     });
