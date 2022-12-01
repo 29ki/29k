@@ -77,7 +77,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
           if (isLoadingContent || !exercise.slide.previous) {
             return;
           }
-          console.log('setting loading to true');
+
           setSessionContentLoading(true);
           navigateToIndex({
             index: exercise.slide.index - 1,
@@ -118,7 +118,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
           if (isLoadingContent || !exercise.slide.next) {
             return;
           }
-          console.log('setting loading to true');
+
           setSessionContentLoading(true);
           navigateToIndex({
             index: exerciseState.index + 1,
