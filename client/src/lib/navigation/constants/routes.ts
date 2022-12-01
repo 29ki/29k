@@ -24,8 +24,7 @@ export type ModalStackProps = {
   App: NavigatorScreenParams<AppStackProps>;
   SessionModal: {session: Session};
   SessionUnavailableModal: undefined;
+  AddSessionModal: {inviteCode?: number} | undefined;
   CreateSessionModal: undefined;
   UpgradeAccountModal: {code: string} | undefined;
-  JoinSessionModal: {inviteCode?: number};
-  AddSessionModal: undefined;
 };
