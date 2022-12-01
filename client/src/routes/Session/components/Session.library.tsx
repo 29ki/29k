@@ -16,6 +16,7 @@ import AudioIndicator from './Participants/AudioIdicator';
 import ProgressBar from './ProgressBar/ProgressBar';
 import HostNotes from './HostNotes/HostNotes';
 import {Notification} from './Notifications/Notification';
+import Byline from '../../../common/components/Bylines/Byline';
 
 const Row = styled.View({flexDirection: 'row'});
 
@@ -65,6 +66,16 @@ export const UI = () => (
       <Row>
         <Notification visible text="Always visible" letter="a" />
       </Row>
+      <Spacer24 />
+      <Body16>
+        <BodyBold>Byline</BodyBold>
+      </Body16>
+      <Spacer8 />
+      <Byline
+        pictureURL="https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        name="Pär-Ulrik Os"
+      />
+      <Spacer24 />
     </ScreenWrapper>
   </>
 );
