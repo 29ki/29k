@@ -37,7 +37,7 @@ type ButtonTextProps = {
   children: React.ReactNode;
 };
 
-const ButtonText = styled(Body16)<ButtonTextProps>(
+const ButtonText = styled(Body16).attrs({selectable: false})<ButtonTextProps>(
   ({variant, small, active, disabled}) => ({
     height: 20,
     color:
