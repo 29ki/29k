@@ -8,14 +8,14 @@
     "activateButton": "Activate settings",
     "haveCodeButton": "I have a code",
     "requestComplete": "We've now registered your request. As soon as it's approved we'll email you a verification code.",
-    "needToUpgrade": "To become an official host you need to create an account.",
+    "needToUpgrade": "To host open sessions you need to be an approved 29k host.",
     "errors": {
-      "verificationNotFound": "We could not find any public host request for this user.",
+      "verificationNotFound": "We could not find any host-open-sessions-request for this user.",
       "verificationDeclined": "The request was not accepted.",
       "verificationAlreadyClaimed": "The code have already been used.",
       "verificationFailed": "Incorrect code, try again."
     },
-    "text": "As an official 29k host you can register here to be able to create public sessions.",
+    "text": "To host open sessions you need to be an approved 29k host. Send request for approval here .",
     "requestCodeButton": "Request a code",
     "button": "Create account",
     "password": "Passsword",
