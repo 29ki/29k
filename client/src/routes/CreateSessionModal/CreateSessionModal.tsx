@@ -46,7 +46,6 @@ import {PrivateIcon, PublicIcon} from '../../common/components/Icons';
 
 const Row = styled.View({
   flexDirection: 'row',
-  paddingHorizontal: SPACINGS.EIGHT,
 });
 
 const Card = styled(TouchableOpacity)({
@@ -58,6 +57,12 @@ const Card = styled(TouchableOpacity)({
   paddingLeft: SPACINGS.SIXTEEN,
   backgroundColor: COLORS.CREAM,
   overflow: 'hidden',
+});
+
+const TypeItemWrapper = styled.View({
+  flexDirection: 'row',
+  height: 96,
+  flex: 1,
 });
 
 const IconWrapper = styled.View({
@@ -208,9 +213,8 @@ const SelectType: React.FC<StepProps> = ({
         <Spacer16 />
         <Row>
           {Object.values(SessionType).map((type, i, arr) => (
-            <>
+            <TypeItemWrapper key={i}>
               <TypeItem
-                key={i}
                 onPress={() => {
                   setSelectedType(type);
                   nextStep();
@@ -219,7 +223,7 @@ const SelectType: React.FC<StepProps> = ({
                 Icon={type === 'private' ? <PrivateIcon /> : <PublicIcon />}
               />
               {i < arr.length - 1 && <Spacer16 />}
-            </>
+            </TypeItemWrapper>
           ))}
         </Row>
       </Gutters>

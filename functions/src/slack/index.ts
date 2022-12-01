@@ -4,10 +4,12 @@ import sentryErrorHandler from '../lib/sentry';
 import {createSlackRouter} from '../lib/routers';
 import verifySlackRequest from './lib/verifySlackRequest';
 import {slackRouter} from './slack';
+import localErrorHandler from '../lib/localErrorHandler';
 
 const app = new Koa();
 
 app.on('error', sentryErrorHandler);
+app.on('error', localErrorHandler);
 
 const slackIntegrationRouter = createSlackRouter();
 slackIntegrationRouter.use('/', slackRouter.routes());

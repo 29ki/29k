@@ -107,7 +107,8 @@ const Button: React.FC<ButtonProps> = ({
       small={small}
       variant={variant}
       active={active}
-      disabled={disabled}>
+      disabled={disabled}
+      selectable={false}>
       {children}
     </ButtonText>
     {RightIcon && (
