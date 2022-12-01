@@ -33,6 +33,10 @@ You can get early access to our open beta through iOS TestFlight and Android Pla
 - 🍎 [29k: Cupcake for iOS](https://testflight.apple.com/join/0VdruQ6z)
 - 🤖 [29k: Cupcake for Android](https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake)
 
+## Join Our Community
+
+Join our [Slack community](https://community.29k.org) if you need help, want to chat, or are thinking of a new feature. 
+
 ## Documentation
 
 - [Installation](/docs/INSTALLATION.md)
