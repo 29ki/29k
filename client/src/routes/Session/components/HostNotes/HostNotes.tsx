@@ -14,7 +14,9 @@ import {COLORS} from '../../../../../../shared/src/constants/colors';
 import SETTINGS from '../../../../common/constants/settings';
 import {SPACINGS} from '../../../../common/constants/spacings';
 
-import useSessionExercise from '../../hooks/useSessionExercise';
+import useSessionExercise from '../../hooks/useSessionSlideState';
+import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
+import useSessionState from '../../state/state';
 
 import {BackwardCircleIcon} from '../../../../common/components/Icons/BackwardCircle/BackwardCircle';
 import {Body14} from '../../../../common/components/Typography/Body/Body';
@@ -88,12 +90,14 @@ const HostNotes: React.FC<HostNotesProps> = ({
   const [containerWidth, setContainerWidth] = useState(0);
   const listItemWidth = containerWidth - SPACINGS.THIRTYTWO;
   const [scroll, setScroll] = useState({index: 0, animated: false});
-  const exercise = useSessionExercise();
+  const sessionExercise = useSessionExercise();
+  const contentId = useSessionState(state => state.session?.contentId);
+  const exercise = useExerciseById(contentId);
   const {t} = useTranslation('Component.HostNotes');
 
   const notes = introPortal
     ? exercise?.introPortal?.hostNotes
-    : exercise?.slide.current.hostNotes;
+    : sessionExercise?.current.hostNotes;
 
   const calculatePageIndex = useCallback(
     (e: NativeSyntheticEvent<NativeScrollEvent>) =>
@@ -127,7 +131,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
             <Spacer4 />
             <TopBar>
               <Progress
-                index={exercise?.slide.index}
+                index={sessionExercise?.index}
                 length={exercise?.slides.length}
               />
               <Spacer8 />

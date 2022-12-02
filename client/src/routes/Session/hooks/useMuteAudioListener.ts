@@ -6,20 +6,20 @@ import {DailyContext} from '../../../lib/daily/DailyProvider';
 import useSessionNotificationsState from '../state/sessionNotificationsState';
 import useSessionState from '../state/state';
 import useIsSessionHost from './useIsSessionHost';
-import useSessionExercise from './useSessionExercise';
+import useSessionSlideState from './useSessionSlideState';
 
 const useMuteAudioListener = () => {
   const {t} = useTranslation('Screen.Session');
   const {toggleAudio} = useContext(DailyContext);
   const exerciseState = useSessionState(state => state.session?.exerciseState);
-  const excercise = useSessionExercise();
+  const slideState = useSessionSlideState();
   const isSessionHost = useIsSessionHost();
   const addNotification = useSessionNotificationsState(
     state => state.addNotification,
   );
 
   useEffect(() => {
-    if (exerciseState?.playing && excercise?.slide.current.type !== 'sharing') {
+    if (exerciseState?.playing && slideState?.current.type !== 'sharing') {
       toggleAudio(false);
 
       if (isSessionHost) {
@@ -32,10 +32,10 @@ const useMuteAudioListener = () => {
   }, [
     toggleAudio,
     exerciseState?.playing,
-    excercise?.slide,
     addNotification,
     t,
     isSessionHost,
+    slideState,
   ]);
 };
 

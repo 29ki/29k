@@ -2,7 +2,7 @@ import {renderHook} from '@testing-library/react-hooks';
 import {Session} from '../../../../../shared/src/types/Session';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useSessionState from '../state/state';
-import useSessionExercise from './useSessionExercise';
+import useSessionExercise from './useSessionSlideState';
 
 jest.mock('../../../lib/content/hooks/useExerciseById', () => jest.fn());
 
@@ -45,13 +45,10 @@ describe('useSessionExercise', () => {
     const {result} = renderHook(() => useSessionExercise());
 
     expect(result.current).toEqual({
-      slide: {
-        index: 1,
-        current: {type: 'slide-2'},
-        next: {type: 'slide-3'},
-        previous: {type: 'slide-1'},
-      },
-      slides: [{type: 'slide-1'}, {type: 'slide-2'}, {type: 'slide-3'}],
+      index: 1,
+      current: {type: 'slide-2'},
+      next: {type: 'slide-3'},
+      previous: {type: 'slide-1'},
     });
   });
 
@@ -73,7 +70,7 @@ describe('useSessionExercise', () => {
     expect(result.all[0]).toBe(result.all[1]);
   });
 
-  it('should return exercise and only current slide', () => {
+  it('should return only current slide', () => {
     mockUseExerciseById.mockReturnValue({
       slides: [{type: 'slide-1'}],
     });
@@ -86,13 +83,10 @@ describe('useSessionExercise', () => {
     const {result} = renderHook(() => useSessionExercise());
 
     expect(result.current).toEqual({
-      slide: {
-        index: 0,
-        current: {type: 'slide-1'},
-        next: undefined,
-        previous: undefined,
-      },
-      slides: [{type: 'slide-1'}],
+      index: 0,
+      current: {type: 'slide-1'},
+      next: undefined,
+      previous: undefined,
     });
   });
 });

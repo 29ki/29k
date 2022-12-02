@@ -11,7 +11,7 @@ import {
   DailyProviderTypes,
 } from '../../../lib/daily/DailyProvider';
 import useMuteAudioListener from './useMuteAudioListener';
-import useSessionExercise from './useSessionExercise';
+import useSessionSlideState from './useSessionSlideState';
 import useSessionNotificationsState from '../state/sessionNotificationsState';
 import useUserState from '../../../lib/user/state/state';
 
@@ -22,9 +22,9 @@ afterEach(() => {
 const mockToggleAudio = jest.fn();
 
 jest.mock('../../../lib/daily/DailyProvider');
-jest.mock('./useSessionExercise', () => jest.fn());
+jest.mock('./useSessionSlideState', () => jest.fn());
 
-const mockUseSessionExercise = useSessionExercise as jest.Mock;
+const mockUseSessionSlideState = useSessionSlideState as jest.Mock;
 jest.mock('../../../common/components/Icons', () => ({
   MicrophoneOffIcon: 'MicOffIconComponent',
 }));
@@ -45,8 +45,8 @@ describe('useMuteAudioListener', () => {
         } as Session,
       });
 
-      mockUseSessionExercise.mockReturnValue({
-        slide: {current: {type: 'reflection'}},
+      mockUseSessionSlideState.mockReturnValueOnce({
+        current: {type: 'reflection'},
       });
 
       renderHook(() => useMuteAudioListener(), {
@@ -63,8 +63,8 @@ describe('useMuteAudioListener', () => {
         } as Session,
       });
 
-      mockUseSessionExercise.mockReturnValue({
-        slide: {current: {type: 'reflection'}},
+      mockUseSessionSlideState.mockReturnValueOnce({
+        current: {type: 'reflection'},
       });
 
       renderHook(() => useMuteAudioListener(), {
@@ -81,8 +81,8 @@ describe('useMuteAudioListener', () => {
         } as Session,
       });
 
-      mockUseSessionExercise.mockReturnValue({
-        slide: {current: {type: 'sharing'}},
+      mockUseSessionSlideState.mockReturnValueOnce({
+        current: {type: 'sharing'},
       });
 
       renderHook(() => useMuteAudioListener(), {
@@ -105,8 +105,8 @@ describe('useMuteAudioListener', () => {
         } as Session,
       });
 
-      mockUseSessionExercise.mockReturnValue({
-        slide: {current: {type: 'reflection'}},
+      mockUseSessionSlideState.mockReturnValueOnce({
+        current: {type: 'reflection'},
       });
     });
 

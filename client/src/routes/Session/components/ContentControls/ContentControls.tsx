@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 
 import useIsSessionHost from '../../hooks/useIsSessionHost';
 import useSessionState from '../../state/state';
-import {SessionExercise} from '../../hooks/useSessionExercise';
+import useSessionSlideState from '../../hooks/useSessionSlideState';
 
 import {
   ChevronRight,
@@ -19,6 +19,7 @@ import useUpdateSessionExerciseState from '../../hooks/useUpdateSessionExerciseS
 import {Spacer8} from '../../../../common/components/Spacers/Spacer';
 import Button from '../../../../common/components/Buttons/Button';
 import IconButton from '../../../../common/components/Buttons/IconButton/IconButton';
+import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -42,38 +43,39 @@ const IconSlideButton = styled(IconButton)(({disabled}) => ({
 type ContentControlsProps = {
   sessionId: string;
   style?: ViewStyle;
-  exercise: SessionExercise | null;
 };
 
 const ContentControls: React.FC<ContentControlsProps> = ({
   sessionId,
   style,
-  exercise,
 }) => {
   const isHost = useIsSessionHost();
   const exerciseState = useSessionState(state => state.session?.exerciseState);
+  const contentId = useSessionState(state => state.session?.contentId);
+  const exercise = useExerciseById(contentId);
+  const slideState = useSessionSlideState();
   const {t} = useTranslation('Screen.Session');
 
   const {navigateToIndex, setPlaying} =
     useUpdateSessionExerciseState(sessionId);
 
   const onPrevPress = useCallback(() => {
-    if (exercise?.slide) {
+    if (slideState && exercise?.slides) {
       navigateToIndex({
-        index: exercise?.slide.index - 1,
+        index: slideState.index - 1,
         content: exercise?.slides,
       });
     }
-  }, [exercise?.slide, exercise?.slides, navigateToIndex]);
+  }, [slideState, exercise?.slides, navigateToIndex]);
 
   const onNextPress = useCallback(() => {
-    if (exercise?.slide) {
+    if (slideState?.index && exercise?.slides) {
       navigateToIndex({
-        index: exercise?.slide.index + 1,
+        index: slideState.index + 1,
         content: exercise?.slides,
       });
     }
-  }, [exercise?.slide, exercise?.slides, navigateToIndex]);
+  }, [slideState, exercise?.slides, navigateToIndex]);
 
   const onResetPlayingPress = useCallback(
     () => setPlaying(Boolean(exerciseState?.playing)),
@@ -85,7 +87,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
     [exerciseState?.playing, setPlaying],
   );
 
-  if (!isHost || !exercise || !exerciseState) {
+  if (!isHost || !exercise || !exerciseState || !slideState) {
     return null;
   }
 
@@ -95,18 +97,18 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         variant="tertiary"
         small
         LeftIcon={ChevronLeft}
-        disabled={!exercise.slide.previous}
+        disabled={!slideState.previous}
         elevated
         onPress={onPrevPress}>
         {t('controls.prev')}
       </SlideButton>
-      {exercise.slide.current.type !== 'host' &&
-        !exercise.slide.current.content?.video?.autoPlayLoop && (
+      {slideState.current.type !== 'host' &&
+        !slideState.current.content?.video?.autoPlayLoop && (
           <MediaControls>
             <IconSlideButton
               small
               elevated
-              disabled={!exercise.slide.current.content?.video}
+              disabled={!slideState.current.content?.video}
               variant="tertiary"
               Icon={Rewind}
               onPress={onResetPlayingPress}
@@ -115,7 +117,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
             <IconSlideButton
               small
               elevated
-              disabled={!exercise.slide.current.content?.video}
+              disabled={!slideState.current.content?.video}
               variant="tertiary"
               Icon={exerciseState.playing ? Pause : Play}
               onPress={onTogglePlayingPress}
@@ -126,7 +128,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         small
         elevated
         variant="tertiary"
-        disabled={!exercise.slide.next}
+        disabled={!slideState.next}
         RightIcon={ChevronRight}
         onPress={onNextPress}>
         {t('controls.next')}
