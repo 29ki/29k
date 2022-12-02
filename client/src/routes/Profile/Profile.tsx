@@ -2,7 +2,6 @@ import React, {Fragment} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {ScrollView} from 'react-native-gesture-handler';
-import {Alert} from 'react-native';
 
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
@@ -16,8 +15,6 @@ import useCheckForUpdate from '../../lib/codePush/hooks/useCheckForUpdate';
 import useClearUpdates from '../../lib/codePush/hooks/useClearUpdates';
 import {useUiLib} from '../../lib/uiLib/hooks/useUiLib';
 import {
-  LANGUAGES,
-  LANGUAGE_TAG,
   LANGUAGE_TAGS,
   CLIENT_LANGUAGE_TAGS,
 } from '../../../../shared/src/constants/i18n';
@@ -25,6 +22,7 @@ import {Heading18} from '../../common/components/Typography/Heading/Heading';
 import CurrentUser from './components/CurrentUser';
 import Screen from '../../common/components/Screen/Screen';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
+import useSetPreferredLanguage from '../../lib/i18n/hooks/useSetPreferedLanguage';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -34,30 +32,12 @@ const StartCol = styled.View({
 });
 
 const Profile = () => {
-  const {i18n, t} = useTranslation('Screen.Profile');
+  const {t} = useTranslation('Screen.Profile');
   const {toggle: toggleUiLib} = useUiLib();
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
   const isPublicHost = useIsPublicHost();
-
-  const onPressLanguage = (languageTag: LANGUAGE_TAG) => {
-    if (CLIENT_LANGUAGE_TAGS.includes(languageTag)) {
-      i18n.changeLanguage(languageTag);
-    } else {
-      const language = LANGUAGES[languageTag];
-      Alert.alert(
-        t('unsupportedLanguage.title'),
-        t('unsupportedLanguage.message', {language}),
-        [
-          {
-            text: t('unsupportedLanguage.confirm'),
-            onPress: () => i18n.changeLanguage(languageTag),
-          },
-          {text: t('unsupportedLanguage.dismiss'), style: 'cancel'},
-        ],
-      );
-    }
-  };
+  const setPreferredLanguage = useSetPreferredLanguage();
 
   return (
     <Screen>
@@ -79,7 +59,7 @@ const Profile = () => {
                       : 'tertiary'
                   }
                   key={languageTag}
-                  onPress={() => onPressLanguage(languageTag)}>
+                  onPress={() => setPreferredLanguage(languageTag)}>
                   {languageTag.toUpperCase()}
                 </Button>
                 <Spacer8 />
