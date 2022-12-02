@@ -47,6 +47,7 @@ import Screen from '../../common/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../lib/user/hooks/useUser';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
+import useExerciseTheme from './hooks/useExerciseTheme';
 
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
@@ -110,11 +111,11 @@ const Session = () => {
   const me = useLocalParticipant();
   const isHost = useIsSessionHost();
   const session = useSessionState(state => state.session);
-  const exercise = useSessionExercise();
+  const sessionExercise = useSessionExercise();
+  const theme = useExerciseTheme();
   const {leaveSessionWithConfirm} = useLeaveSession();
   const user = useUser();
   usePreventGoingBack(leaveSessionWithConfirm);
-  const theme = exercise?.theme;
 
   useEffect(() => {
     if (session?.ended) {
@@ -135,10 +136,10 @@ const Session = () => {
   const hasVideo = Boolean(me?.videoTrack);
 
   return (
-    <Screen backgroundColor={exercise?.theme?.backgroundColor}>
+    <Screen backgroundColor={theme?.backgroundColor}>
       {isHost && (
         <FloatingHostNotes>
-          {!exercise?.slide.next && (
+          {!sessionExercise?.slide.next && (
             <>
               <Spacer16 />
               <StyledButton small active onPress={setEnded}>
@@ -150,25 +151,24 @@ const Session = () => {
       )}
       <TopSafeArea />
       <Spotlight>
-        {exercise && (
+        {sessionExercise && (
           <SpotlightContent>
             {isHost && <Spacer32 />}
             <ExerciseSlides
-              index={exercise.slide.index}
-              current={exercise.slide.current}
-              previous={exercise.slide.previous}
-              next={exercise.slide.next}
-              theme={theme}
+              index={sessionExercise.slide.index}
+              current={sessionExercise.slide.current}
+              previous={sessionExercise.slide.previous}
+              next={sessionExercise.slide.next}
             />
             {!isHost && (
               <Progress
-                index={exercise?.slide.index}
-                length={exercise?.slides.length}
+                index={sessionExercise?.slide.index}
+                length={sessionExercise?.slides.length}
               />
             )}
           </SpotlightContent>
         )}
-        <ExerciseControl sessionId={sessionId} exercise={exercise} />
+        <ExerciseControl sessionId={sessionId} exercise={sessionExercise} />
       </Spotlight>
       <Participants participants={participants} />
       <Spacer16 />

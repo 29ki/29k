@@ -23,6 +23,8 @@ const Wrapper = styled(Gutters).attrs({big: true})({
   justifyContent: 'space-between',
 });
 const TopImage = styled(Image)({
+  minWidth: 132,
+  minHeight: 132,
   flex: 1,
   alignSelf: 'center',
   aspectRatio: '1',

@@ -1,11 +1,6 @@
 {
   "en": {
-    "title": "Pick flow",
-    "create": "Create session",
-    "join": "Join session"
-  },
-  "sv": {
-    "title": "Pick flow",
+    "title": "",
     "create": "Create session",
     "join": "Join session"
   },
@@ -13,6 +8,11 @@
     "title": "Escolher opção",
     "create": "Criar sessão",
     "join": "Juntar-me a uma sessão"
+  },
+  "sv": {
+    "title": "Pick flow",
+    "create": "Create session",
+    "join": "Join session"
   },
   "es": {}
 }

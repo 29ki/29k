@@ -1,6 +1,7 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import styled from 'styled-components/native';
-import RNVideo, {VideoProperties} from 'react-native-video';
+import RNVideo, {VideoProperties, OnLoadData} from 'react-native-video';
+
 import useSessionState from '../../../../state/state';
 import VideoBase from '../../../VideoBase/VideoBase';
 import DurationTimer, {
@@ -81,21 +82,33 @@ const Video: React.FC<VideoProps> = ({
     }
   }, [active, autoPlayLoop, duration, previousState, exerciseState]);
 
-  const onLoad: VideoProperties['onLoad'] = data => setDuration(data.duration);
+  const onLoad = useCallback<(data: OnLoadData) => void>(
+    data => {
+      setDuration(data.duration);
+    },
+    [setDuration],
+  );
 
   const paused = !active || (!exerciseState?.playing && !autoPlayLoop);
 
-  const videoProps: VideoProperties = {
-    source,
-    poster: preview,
-    resizeMode: 'contain',
-    posterResizeMode: 'contain',
-    paused,
-  };
+  const videoProps: VideoProperties = useMemo(
+    () => ({
+      source,
+      poster: preview,
+      resizeMode: 'contain',
+      posterResizeMode: 'contain',
+      paused,
+    }),
+    [paused, preview, source],
+  );
 
-  const timer = durationTimer ? (
-    <Duration duration={duration} paused={paused} ref={timerRef} />
-  ) : null;
+  const timer = useMemo(
+    () =>
+      durationTimer ? (
+        <Duration duration={duration} paused={paused} ref={timerRef} />
+      ) : null,
+    [durationTimer, paused, duration],
+  );
 
   if (audioSource) {
     // If audio source is available we allways loop the video and handle the audio separateley as the primary playing source
