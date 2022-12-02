@@ -52,15 +52,15 @@ const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
   <Wrapper>
     {previous && (
       <Fade visible={false} key={index - 1}>
-        <Slide slide={previous} active={false} />
+        <Slide slide={previous} active={false} key="slide" />
       </Fade>
     )}
     <Fade visible={true} key={index}>
-      <Slide slide={current} active={true} />
+      <Slide slide={current} active={true} key="slide" />
     </Fade>
     {next && (
       <Fade visible={false} key={index + 1}>
-        <Slide slide={next} active={false} />
+        <Slide slide={next} active={false} key="slide" />
       </Fade>
     )}
   </Wrapper>
