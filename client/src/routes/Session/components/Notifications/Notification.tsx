@@ -55,7 +55,7 @@ export type NotificationProps = {
   visible?: boolean;
 };
 
-export const Notification: React.FC<NotificationProps> = ({
+const Notification: React.FC<NotificationProps> = ({
   letter,
   text,
   Icon,
