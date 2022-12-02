@@ -6,9 +6,9 @@ import dayjs from 'dayjs';
 
 import {DailyContext} from '../../../../lib/daily/DailyProvider';
 import {DailyUserData} from '../../../../../../shared/src/types/Session';
-import {Notification} from './Notification';
 import useSessionNotificationsState from '../../state/sessionNotificationsState';
 import useLocalParticipant from '../../../../lib/daily/hooks/useLocalParticipant';
+import TimedNotification from './TimedNotification';
 
 const SessionNotifications: React.FC<{
   style?: ViewStyle;
@@ -80,7 +80,7 @@ const SessionNotifications: React.FC<{
   return (
     <View style={style} pointerEvents="none">
       {notifications.map((notification, i) => (
-        <Notification
+        <TimedNotification
           text={notification.text}
           image={notification.image}
           letter={notification.letter}
