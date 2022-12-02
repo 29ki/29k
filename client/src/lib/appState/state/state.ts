@@ -6,7 +6,7 @@ import {LANGUAGE_TAG} from '../../i18n';
 
 export type Settings = {
   showWelcome: boolean;
-  currentLanguage?: LANGUAGE_TAG;
+  preferredLanguage?: LANGUAGE_TAG;
 };
 
 type State = {
