@@ -1,12 +1,8 @@
 {
   "en": {
     "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669713480/Images/welcome_in80b1.png",
-    "heading": "Welcome to out Beta",
-    "text__markdown": "In 29k sessions early access you can practice mental wellbeing and inner skills for sustainable development – together with others. \n\n**Right now you can:** \n\n* Join open sessions listed on your home screen. \n* Create your own private session to practice with friends. \n\n29k sessions is under construction. Please join the 29k community on Slack to help us learn what’s working and what’s not. \n\nLots of hugs,\n\nThe 29k team",
-    "email": {
-      "text": "earlyaccess@29k.org",
-      "url": "mailto:earlyaccess@29k.org"
-    },
+    "heading": "Welcome to our Beta",
+    "text__markdown": "In 29k sessions early access you can practice mental wellbeing and inner skills for sustainable development – together with others. \n\n**Right now you can:** \n\n* Join open sessions listed on your home screen. \n* Create your own private session to practice with friends. \n\n29k sessions is under construction. Please join the 29k community on Slack to help us learn what’s working and what’s not. \n\nLots of hugs,\\\n**The 29k team**\n[earlyaccess@29k.org](mailto:earlyaccess@29k.org)",
     "button": "Continue"
   },
   "pt": {},
@@ -14,10 +10,6 @@
     "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669713480/Images/welcome_in80b1.png",
     "heading": "Välkomment till vår Beta",
     "text__markdown": "",
-    "email": {
-      "text": "earlyaccess@29k.org",
-      "url": "mailto:earlyaccess@29k.org"
-    },
     "button": "Fortsätt"
   },
   "es": {}
