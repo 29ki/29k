@@ -83,12 +83,12 @@ const SpotlightGradient = styled(LinearGradient)({
 
 type ParticipantProps = {
   participant: DailyParticipant;
-  isHostSpotlight?: boolean;
+  topGradient?: boolean;
 };
 
 const Participant: React.FC<ParticipantProps> = ({
   participant,
-  isHostSpotlight,
+  topGradient,
 }) => {
   const {t} = useTranslation('Screen.Session');
   const photoURL = (participant?.userData as DailyUserData)?.photoURL;
@@ -116,7 +116,7 @@ const Participant: React.FC<ParticipantProps> = ({
       <NameGradient>
         <ParticipantName participant={participant} suffix={t('nameSuffix')} />
       </NameGradient>
-      {isHostSpotlight && (
+      {topGradient && (
         <SpotlightGradient
           colors={[hexToRgba(background, 1), hexToRgba(background, 0)]}
         />
