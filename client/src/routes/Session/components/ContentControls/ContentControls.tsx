@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import styled from 'styled-components/native';
 import {ViewStyle} from 'react-native';
 import {useTranslation} from 'react-i18next';
@@ -50,16 +50,40 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   style,
   exercise,
 }) => {
-  const isLoadingContent = useSessionState(state => state.isLoadingContent);
-  const setSessionContentLoading = useSessionState(
-    state => state.setIsLoadingContent,
-  );
   const isHost = useIsSessionHost();
   const exerciseState = useSessionState(state => state.session?.exerciseState);
   const {t} = useTranslation('Screen.Session');
 
   const {navigateToIndex, setPlaying} =
     useUpdateSessionExerciseState(sessionId);
+
+  const onPrevPress = useCallback(() => {
+    if (exercise?.slide) {
+      navigateToIndex({
+        index: exercise?.slide.index - 1,
+        content: exercise?.slides,
+      });
+    }
+  }, [exercise?.slide, exercise?.slides, navigateToIndex]);
+
+  const onNextPress = useCallback(() => {
+    if (exercise?.slide) {
+      navigateToIndex({
+        index: exercise?.slide.index + 1,
+        content: exercise?.slides,
+      });
+    }
+  }, [exercise?.slide, exercise?.slides, navigateToIndex]);
+
+  const onResetPlayingPress = useCallback(
+    () => setPlaying(Boolean(exerciseState?.playing)),
+    [exerciseState?.playing, setPlaying],
+  );
+
+  const onTogglePlayingPress = useCallback(
+    () => setPlaying(!exerciseState?.playing),
+    [exerciseState?.playing, setPlaying],
+  );
 
   if (!isHost || !exercise || !exerciseState) {
     return null;
@@ -73,17 +97,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         LeftIcon={ChevronLeft}
         disabled={!exercise.slide.previous}
         elevated
-        onPress={() => {
-          if (isLoadingContent || !exercise.slide.previous) {
-            return;
-          }
-
-          setSessionContentLoading(true);
-          navigateToIndex({
-            index: exercise.slide.index - 1,
-            content: exercise.slides,
-          });
-        }}>
+        onPress={onPrevPress}>
         {t('controls.prev')}
       </SlideButton>
       {exercise.slide.current.type !== 'host' &&
@@ -95,7 +109,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
               disabled={!exercise.slide.current.content?.video}
               variant="tertiary"
               Icon={Rewind}
-              onPress={() => setPlaying(exerciseState.playing)}
+              onPress={onResetPlayingPress}
             />
             <Spacer8 />
             <IconSlideButton
@@ -104,7 +118,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
               disabled={!exercise.slide.current.content?.video}
               variant="tertiary"
               Icon={exerciseState.playing ? Pause : Play}
-              onPress={() => setPlaying(!exerciseState.playing)}
+              onPress={onTogglePlayingPress}
             />
           </MediaControls>
         )}
@@ -114,17 +128,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         variant="tertiary"
         disabled={!exercise.slide.next}
         RightIcon={ChevronRight}
-        onPress={() => {
-          if (isLoadingContent || !exercise.slide.next) {
-            return;
-          }
-
-          setSessionContentLoading(true);
-          navigateToIndex({
-            index: exerciseState.index + 1,
-            content: exercise.slides,
-          });
-        }}>
+        onPress={onNextPress}>
         {t('controls.next')}
       </SlideButton>
     </Wrapper>
