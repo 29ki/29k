@@ -15,7 +15,7 @@ import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import AudioIndicator from './Participants/AudioIdicator';
 import ProgressBar from './ProgressBar/ProgressBar';
 import HostNotes from './HostNotes/HostNotes';
-import {Notification} from './Notifications/Notification';
+import Notification from './Notifications/Notification';
 
 const Row = styled.View({flexDirection: 'row'});
 

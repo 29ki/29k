@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import Notification, {NotificationProps} from './Notification';
+import Notification from './Notification';
+import {Notification as NotificationProps} from '../../state/sessionNotificationsState';
 
 const TimedNotification: React.FC<NotificationProps> = ({
   letter,
