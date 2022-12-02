@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import styled from 'styled-components/native';
 import {FlatList} from 'react-native-gesture-handler';
 import Animated, {Easing, FadeInUp, SlideOutUp} from 'react-native-reanimated';
@@ -87,18 +87,33 @@ const HostNotes: React.FC<HostNotesProps> = ({
   const [showNotes, setShowNotes] = useState(introPortal ? true : false);
   const [containerWidth, setContainerWidth] = useState(0);
   const listItemWidth = containerWidth - SPACINGS.THIRTYTWO;
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [scroll, setScroll] = useState({index: 0, animated: false});
   const exercise = useSessionExercise();
   const {t} = useTranslation('Component.HostNotes');
-
-  const calculatePageIndex = (e: NativeSyntheticEvent<NativeScrollEvent>) =>
-    setActiveIndex(
-      Math.round(e?.nativeEvent?.contentOffset?.x / containerWidth),
-    );
 
   const notes = introPortal
     ? exercise?.introPortal?.hostNotes
     : exercise?.slide.current.hostNotes;
+
+  const calculatePageIndex = useCallback(
+    (e: NativeSyntheticEvent<NativeScrollEvent>) =>
+      setScroll({
+        index: Math.round(e?.nativeEvent?.contentOffset?.x / containerWidth),
+        animated: true,
+      }),
+    [containerWidth],
+  );
+
+  useEffect(() => setScroll({index: 0, animated: false}), [notes]);
+
+  useEffect(
+    () =>
+      listRef.current?.scrollToIndex({
+        animated: scroll.animated,
+        index: scroll.index,
+      }),
+    [scroll.animated, scroll.index],
+  );
 
   return (
     <View style={style}>
@@ -138,16 +153,10 @@ const HostNotes: React.FC<HostNotesProps> = ({
                 })}
                 ref={listRef}
                 data={notes}
-                onContentSizeChange={() =>
-                  listRef.current?.scrollToIndex({
-                    animated: false,
-                    index: 0,
-                  })
-                }
                 pagingEnabled
-                onScroll={calculatePageIndex}
+                onMomentumScrollEnd={calculatePageIndex}
                 keyExtractor={(_, i) => `notes-${i}`}
-                initialScrollIndex={activeIndex}
+                initialScrollIndex={scroll.index}
                 snapToInterval={listItemWidth}
                 showsHorizontalScrollIndicator={false}
                 scrollEnabled={Boolean(notes.length)}
@@ -160,23 +169,25 @@ const HostNotes: React.FC<HostNotesProps> = ({
               />
               <Navigation>
                 <NavButton
-                  onPress={() => {
-                    listRef.current?.scrollToIndex({
-                      index: activeIndex - 1,
-                    });
-                  }}
+                  onPress={() =>
+                    setScroll({
+                      index: scroll.index - 1,
+                      animated: true,
+                    })
+                  }
                   Icon={BackwardCircleIcon}
-                  disabled={activeIndex <= 0}
+                  disabled={scroll.index <= 0}
                 />
-                <Body14>{`${activeIndex + 1} / ${notes.length}`}</Body14>
+                <Body14>{`${scroll.index + 1} / ${notes.length}`}</Body14>
                 <NavButton
                   onPress={() =>
-                    listRef.current?.scrollToIndex({
-                      index: activeIndex + 1,
+                    setScroll({
+                      index: scroll.index + 1,
+                      animated: true,
                     })
                   }
                   Icon={ForwardCircleIcon}
-                  disabled={activeIndex >= notes.length - 1}
+                  disabled={scroll.index >= notes.length - 1}
                 />
               </Navigation>
             </Gutters>

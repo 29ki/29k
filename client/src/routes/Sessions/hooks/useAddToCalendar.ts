@@ -9,6 +9,7 @@ const useAddToCalendar = () => {
   return useCallback(
     (
       exerciseName: string | undefined,
+      host: string | undefined,
       url: string | undefined,
       startDate: Dayjs,
       endDate: Dayjs,
@@ -17,6 +18,7 @@ const useAddToCalendar = () => {
         title: t('title', {name: exerciseName}),
         notes: t('notes', {
           name: exerciseName,
+          host,
           url,
           interpolation: {escapeValue: false},
         }),

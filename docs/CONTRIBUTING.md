@@ -10,6 +10,8 @@ The following is a set of guidelines, these are mostly guidelines, not rules. Us
 
 [Code of Conduct](#code-of-conduct)
 
+[Join Our Community](#join-our-community)
+
 [How Can I Contribute?](#how-can-i-contribute)
 
 - [Reporting Bugs](#reporting-bugs)
@@ -24,6 +26,10 @@ The following is a set of guidelines, these are mostly guidelines, not rules. Us
 ## Code of Conduct
 
 This project and everyone participating in it uses the [29k Code of Conduct](CODE_OF_CONDUCT.md) as a compass towards a great experience in our co-creation process. By contributing, you are expected to uphold this code. Please report unacceptable behavior to [help@29k.org](mailto:help@29k.org).
+
+## Join Our Community
+
+Please join our [Slack community](http://community.29k.org) if you need help, want to chat, or are thinking of a new feature. 
 
 ## How Can I Contribute?
 

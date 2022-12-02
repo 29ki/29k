@@ -15,7 +15,11 @@ export const CLOUDINARY_IMAGE_CONFIG = {
 export const CLOUDINARY_VIDEO_CONFIG = {
   name: 'cloudinary',
   config: {
-    default_transformations: [],
+    default_transformations: [
+      {
+        quality: 'auto:eco',
+      },
+    ],
   },
 };
 

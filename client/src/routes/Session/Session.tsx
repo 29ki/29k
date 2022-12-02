@@ -166,7 +166,7 @@ const Session = () => {
             )}
           </SpotlightContent>
         )}
-        <ExerciseControl sessionId={sessionId} />
+        <ExerciseControl sessionId={sessionId} exercise={exercise} />
       </Spotlight>
       <Participants participants={participants} />
       <Spacer16 />

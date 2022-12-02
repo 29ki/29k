@@ -1,15 +1,15 @@
 {
   "en": {
-    "title": "Session: {{name}}",
-    "description": "In the 29k app"
+    "title": "29k Session: {{name}}",
+    "description": "With {{host}}"
   },
   "sv": {
-    "title": "Session: {{name}}",
-    "description": "I 29k-appen"
+    "title": "29k-session: {{name}}",
+    "description": "Med {{host}}"
   },
   "pt": {
     "title": "Sessão: {{name}}",
-    "description": "Na app 29k FJN"
+    "description": "Com {{host}}"
   },
   "es": {}
 }

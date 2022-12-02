@@ -12,12 +12,14 @@ import useAuthenticateUser from './lib/user/hooks/useAuthenticateUser';
 import {GIT_COMMIT_SHORT} from 'config';
 import useUser from './lib/user/hooks/useUser';
 import useIsPublicHost from './lib/user/hooks/useIsPublicHost';
+import {useShowWelcome} from './lib/navigation/hooks/useShowWelcome';
 
 i18n.init();
 sentry.init();
 metrics.init();
 
 const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
+  useShowWelcome();
   useAuthenticateUser();
 
   const setIsColdStarted = useAppState(state => state.setIsColdStarted);

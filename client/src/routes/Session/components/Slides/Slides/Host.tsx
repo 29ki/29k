@@ -2,10 +2,11 @@ import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import hexToRgba from 'hex-to-rgba';
-import {COLORS} from '../../../../../../../shared/src/constants/colors';
-import useSessionExercise from '../../../hooks/useSessionExercise';
+
 import useSessionParticipantSpotlight from '../../../hooks/useSessionParticipantSpotlight';
 import Participant from '../../Participants/Participant';
+import {COLORS} from '../../../../../../../shared/src/constants/colors';
+import useExerciseTheme from '../../../hooks/useExerciseTheme';
 
 const Gradient = styled(LinearGradient)({
   position: 'absolute',
@@ -20,20 +21,18 @@ type HostProps = {
 };
 const Host: React.FC<HostProps> = ({active}) => {
   const participantSpotlight = useSessionParticipantSpotlight();
-  const exercise = useSessionExercise();
+
+  const theme = useExerciseTheme();
+  const background = theme?.backgroundColor ?? COLORS.WHITE;
 
   if (!active || !participantSpotlight) {
     return null;
   }
 
-  const backgroundColor = exercise?.theme?.backgroundColor ?? COLORS.WHITE;
-
   return (
     <>
       <Participant participant={participantSpotlight} />
-      <Gradient
-        colors={[hexToRgba(backgroundColor, 1), hexToRgba(backgroundColor, 0)]}
-      />
+      <Gradient colors={[hexToRgba(background, 1), hexToRgba(background, 0)]} />
     </>
   );
 };

@@ -15,6 +15,7 @@ export type SessionStackProps = {
 
 export type AppStackProps = {
   KillSwitch: undefined;
+  Welcome: undefined;
   Tabs: NavigatorScreenParams<TabNavigatorProps>;
   SessionStack: NavigatorScreenParams<SessionStackProps>;
 };
@@ -23,8 +24,7 @@ export type ModalStackProps = {
   App: NavigatorScreenParams<AppStackProps>;
   SessionModal: {session: Session};
   SessionUnavailableModal: undefined;
+  AddSessionModal: {inviteCode?: number} | undefined;
   CreateSessionModal: undefined;
   UpgradeAccountModal: {code: string} | undefined;
-  JoinSessionModal: {inviteCode?: number};
-  AddSessionModal: undefined;
 };

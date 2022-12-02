@@ -4,7 +4,7 @@ import {IconType} from '..';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import Icon from '../Icon';
 
-const CalendarIcon: IconType = ({fill = COLORS.BLACK}) => (
+export const CalendarIcon: IconType = ({fill = COLORS.BLACK}) => (
   <Icon>
     <G clipPath="url(#a)">
       <Path
@@ -19,5 +19,3 @@ const CalendarIcon: IconType = ({fill = COLORS.BLACK}) => (
     </Defs>
   </Icon>
 );
-
-export default CalendarIcon;

@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 
 import useIsSessionHost from '../../hooks/useIsSessionHost';
 import useSessionState from '../../state/state';
-import useSessionExercise from '../../hooks/useSessionExercise';
+import {SessionExercise} from '../../hooks/useSessionExercise';
 
 import {
   ChevronRight,
@@ -42,15 +42,20 @@ const IconSlideButton = styled(IconButton)(({disabled}) => ({
 type ContentControlsProps = {
   sessionId: string;
   style?: ViewStyle;
+  exercise: SessionExercise | null;
 };
 
 const ContentControls: React.FC<ContentControlsProps> = ({
   sessionId,
   style,
+  exercise,
 }) => {
+  const isLoadingContent = useSessionState(state => state.isLoadingContent);
+  const setSessionContentLoading = useSessionState(
+    state => state.setIsLoadingContent,
+  );
   const isHost = useIsSessionHost();
   const exerciseState = useSessionState(state => state.session?.exerciseState);
-  const exercise = useSessionExercise();
   const {t} = useTranslation('Screen.Session');
 
   const {navigateToIndex, setPlaying} =
@@ -68,12 +73,17 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         LeftIcon={ChevronLeft}
         disabled={!exercise.slide.previous}
         elevated
-        onPress={() =>
+        onPress={() => {
+          if (isLoadingContent || !exercise.slide.previous) {
+            return;
+          }
+
+          setSessionContentLoading(true);
           navigateToIndex({
             index: exercise.slide.index - 1,
             content: exercise.slides,
-          })
-        }>
+          });
+        }}>
         {t('controls.prev')}
       </SlideButton>
       {exercise.slide.current.type !== 'host' &&
@@ -104,12 +114,17 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         variant="tertiary"
         disabled={!exercise.slide.next}
         RightIcon={ChevronRight}
-        onPress={() =>
+        onPress={() => {
+          if (isLoadingContent || !exercise.slide.next) {
+            return;
+          }
+
+          setSessionContentLoading(true);
           navigateToIndex({
             index: exerciseState.index + 1,
             content: exercise.slides,
-          })
-        }>
+          });
+        }}>
         {t('controls.next')}
       </SlideButton>
     </Wrapper>

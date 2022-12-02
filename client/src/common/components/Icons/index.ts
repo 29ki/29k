@@ -36,3 +36,5 @@ export * from './ProfileFill/ProfileFill';
 export * from './Public/Public';
 export * from './Rewind/Rewind';
 export * from './Share/Share';
+export * from './Calendar/Calendar';
+export * from './Pencil/Pencil';

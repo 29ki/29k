@@ -8,7 +8,6 @@ import {
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
 import {SPACINGS} from '../../common/constants/spacings';
-import useSessionExercise from './hooks/useSessionExercise';
 import useLeaveSession from './hooks/useLeaveSession';
 import VideoBase from './components/VideoBase/VideoBase';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
@@ -21,6 +20,8 @@ import {useTranslation} from 'react-i18next';
 import Gutters from '../../common/components/Gutters/Gutters';
 import AudioFader from './components/AudioFader/AudioFader';
 import Sentry from '../../lib/sentry';
+import useSessionState from './state/state';
+import useExerciseById from '../../lib/content/hooks/useExerciseById';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -52,7 +53,8 @@ const TopBar = styled(Gutters)({
 const OutroPortal: React.FC = () => {
   const loopingVid = useRef<Video>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const exercise = useSessionExercise();
+  const contentId = useSessionState(state => state.session?.contentId);
+  const exercise = useExerciseById(contentId);
   const {leaveSession} = useLeaveSession();
   const [readyToLeave, setReadyToLeave] = useState(false);
   const isFocused = useIsFocused();

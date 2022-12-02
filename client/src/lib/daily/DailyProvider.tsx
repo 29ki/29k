@@ -1,3 +1,4 @@
+import {once} from 'ramda';
 import React, {
   createContext,
   useEffect,
@@ -5,6 +6,7 @@ import React, {
   useCallback,
   useMemo,
 } from 'react';
+import {Platform} from 'react-native';
 import Daily, {
   DailyEvent,
   DailyEventObject,
@@ -15,7 +17,6 @@ import {isEmulator} from 'react-native-device-info';
 import useDailyState from './state/state';
 import useSetParticipantsSortOrder from '../../routes/Session/hooks/useSetParticipantsSortOrder';
 import Sentry from '../sentry';
-import {Platform} from 'react-native';
 
 export type DailyProviderTypes = {
   call?: DailyCall;
@@ -152,7 +153,6 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const preJoinMeeting = useCallback(
     async (url: string) => {
       if (daily.meetingState() === 'new') {
-        daily.setNativeInCallAudioMode('video');
         await prepareMeeting(url);
         await daily.startCamera({url});
       }
@@ -166,10 +166,18 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
         if (daily.meetingState() !== 'joined-meeting') {
           await daily.join(options);
 
+          // TODO: Remove as soon as intro portal is separated from daily call
           if (Platform.OS === 'ios' && !(await isEmulator())) {
             /* This is a hack to let the audio input/output settle before resolving to not
             cause a race condition with react-native-video (or other sound sources) */
-            daily.once('available-devices-updated', () => resolve());
+            const resolveOnce = once(() => resolve());
+
+            // This might not fire when camera is off 🤷‍♂️
+            daily.once('available-devices-updated', resolveOnce);
+
+            // If the event never fires, resolve after 2 seconds - as a fallback
+            setTimeout(resolveOnce, 2000);
+
             return;
           }
 

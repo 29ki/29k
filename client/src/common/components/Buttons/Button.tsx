@@ -37,7 +37,7 @@ type ButtonTextProps = {
   children: React.ReactNode;
 };
 
-const ButtonText = styled(Body16)<ButtonTextProps>(
+const ButtonText = styled(Body16).attrs({selectable: false})<ButtonTextProps>(
   ({variant, small, active, disabled}) => ({
     height: 20,
     color:
@@ -107,7 +107,8 @@ const Button: React.FC<ButtonProps> = ({
       small={small}
       variant={variant}
       active={active}
-      disabled={disabled}>
+      disabled={disabled}
+      selectable={false}>
       {children}
     </ButtonText>
     {RightIcon && (

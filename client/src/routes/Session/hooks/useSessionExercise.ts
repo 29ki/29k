@@ -4,7 +4,7 @@ import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useSessionState from '../state/state';
 
-type SessionExercise = Exercise & {
+export type SessionExercise = Exercise & {
   slide: {
     index: number;
     previous?: ExerciseSlide;

@@ -23,7 +23,7 @@ jest.mock('../../../content/content.json', () => ({
       },
       'DeepLink.JoinSessionInvite': {
         title: 'Some link title: {{name}}',
-        description: 'Some link description',
+        description: 'Some link description: {{host}}',
       },
     },
     sv: {
@@ -39,7 +39,7 @@ jest.mock('../../../content/content.json', () => ({
       },
       'DeepLink.JoinSessionInvite': {
         title: 'En länktitel: {{name}}',
-        description: 'En länkbeskrivning',
+        description: 'En länkbeskrivning: {{host}}',
       },
     },
   },
@@ -158,7 +158,7 @@ describe('createSessionInviteLink', () => {
     const shortLink = await createSessionInviteLink(
       123456,
       'some-exercise-id',
-      '2020-01-01T01:01:01.000Z',
+      'Some Host Name',
       'en',
     );
 
@@ -180,7 +180,7 @@ describe('createSessionInviteLink', () => {
           link: 'http://some.deep/link/base/joinSessionInvite/123456',
           navigationInfo: {enableForcedRedirect: false},
           socialMetaTagInfo: {
-            socialDescription: 'Some link description',
+            socialDescription: 'Some link description: Some Host Name',
             socialImageLink: 'http://some.image/source.en',
             socialTitle: 'Some link title: Some Exercise',
           },
@@ -201,7 +201,7 @@ describe('createSessionInviteLink', () => {
     const shortLink = await createSessionInviteLink(
       123456,
       'some-exercise-id',
-      '2020-01-01T01:01:01.000Z',
+      'Some Host Name',
       'sv',
     );
 
@@ -223,7 +223,7 @@ describe('createSessionInviteLink', () => {
           link: 'http://some.deep/link/base/joinSessionInvite/123456',
           navigationInfo: {enableForcedRedirect: false},
           socialMetaTagInfo: {
-            socialDescription: 'En länkbeskrivning',
+            socialDescription: 'En länkbeskrivning: Some Host Name',
             socialImageLink: 'http://some.image/source.sv',
             socialTitle: 'En länktitel: En Övning',
           },

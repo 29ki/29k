@@ -35,7 +35,8 @@ const firebaseAuth = () => async (ctx: FirebaseAuthContext, next: Next) => {
         return;
       }
       case 'auth/id-token-expired':
-      case 'auth/id-token-revoked': {
+      case 'auth/id-token-revoked':
+      case 'auth/argument-error': {
         ctx.status = 400;
         return;
       }

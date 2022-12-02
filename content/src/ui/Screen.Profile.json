@@ -3,7 +3,13 @@
     "signIn": "Sign-in",
     "or": "or",
     "userId": "User ID",
-    "requestPublicHostRoleButton": "Request to create public sessions",
+    "requestPublicHostRoleButton": "Request to host open sessions",
+    "unsupportedLanguage": {
+      "title": "Language not fully supported",
+      "message": "{{language}} is still under development and might not give you the best experience at this point. Do you want to switch to {{language}} anyway?",
+      "confirm": "Yes, switch",
+      "dismiss": "No, thank you"
+    },
     "displayName": "Name",
     "signOut": "Sign-out",
     "uiLib": "UI Library",
@@ -13,29 +19,7 @@
     "language": "Language",
     "password": "Lösenord",
     "upgrade": "Upgrade",
-    "email": "E-mail",
-    "unsupportedLanguage": {
-      "title": "Language not fully supported",
-      "message": "{{language}} is still under development and might not give you the best experience at this point.\n\nDo you want to switch to {{language}} anyway?",
-      "confirm": "Yes, switch",
-      "dismiss": "No, thank you"
-    }
-  },
-  "sv": {
-    "signIn": "Logga in",
-    "or": "eller",
-    "userId": "Användar-ID",
-    "requestPublicHostRoleButton": "Jag vill kunna skapa öppna sessioner",
-    "displayName": "Namn",
-    "signOut": "Logga ut",
-    "uiLib": "UI-bibliotek",
-    "checkUpdate": "Sök efter uppdatering",
-    "clearUpdate": "Rensa uppdatering",
-    "signInAnonymously": "Logga in anonymt",
-    "language": "Språk",
-    "password": "Lösenord",
-    "upgrade": "Uppgradera",
-    "email": "Epost"
+    "email": "E-mail"
   },
   "pt": {
     "signIn": "Entrar",
@@ -52,6 +36,22 @@
     "password": "Password",
     "upgrade": "Atualizar",
     "email": "E-mail"
+  },
+  "sv": {
+    "signIn": "Logga in",
+    "or": "eller",
+    "userId": "Användar-ID",
+    "requestPublicHostRoleButton": "Jag vill kunna skapa öppna sessioner",
+    "displayName": "Namn",
+    "signOut": "Logga ut",
+    "uiLib": "UI-bibliotek",
+    "checkUpdate": "Sök efter uppdatering",
+    "clearUpdate": "Rensa uppdatering",
+    "signInAnonymously": "Logga in anonymt",
+    "language": "Språk",
+    "password": "Lösenord",
+    "upgrade": "Uppgradera",
+    "email": "Epost"
   },
   "es": {}
 }

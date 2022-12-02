@@ -7,9 +7,8 @@ import {
 import {ModalStackProps} from './constants/routes';
 import SessionModal from '../../routes/SessionModal/SessionModal';
 import CreateSessionModal from '../../routes/CreateSessionModal/CreateSessionModal';
-import JoinSessionModal from '../../routes/JoinSessionModal/JoinSessionModal';
-import UpgradeAccountModal from '../../routes/UpgradeAccountModal/UpgradeAccountModal';
 import AddSessionModal from '../../routes/AddSessionModal/AddSessionModal';
+import UpgradeAccountModal from '../../routes/UpgradeAccountModal/UpgradeAccountModal';
 import SessionUnavailableModal from '../../routes/SessionUnavailableModal/SessionUnavailableModal';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import SETTINGS from '../../common/constants/settings';
@@ -109,10 +108,6 @@ const ModalStackWrapper = () => {
         <ModalStack.Screen
           name={'AddSessionModal'}
           component={AddSessionModal}
-        />
-        <ModalStack.Screen
-          name={'JoinSessionModal'}
-          component={JoinSessionModal}
         />
       </ModalStack.Group>
     </ModalStack.Navigator>

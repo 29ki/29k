@@ -8,7 +8,7 @@ import {SPACINGS} from '../../../../common/constants/spacings';
 import {Body16} from '../../../../common/components/Typography/Body/Body';
 import {Display22} from '../../../../common/components/Typography/Display/Display';
 import Image from '../../../../common/components/Image/Image';
-import {IconType} from '../../../../common/components/Icons';
+import {Notification as NotificationProps} from '../../state/sessionNotificationsState';
 
 const Wrapper = styled.View({
   backgroundColor: COLORS.WHITE_TRANSPARENT_80,
@@ -45,15 +45,6 @@ const ProfileImage = styled(Image)({
   width: '100%',
   height: '100%',
 });
-
-export type NotificationProps = {
-  text: string;
-  letter?: string;
-  Icon?: IconType;
-  image?: string;
-  timeVisible?: number;
-  visible?: boolean;
-};
 
 const Notification: React.FC<NotificationProps> = ({
   letter,
