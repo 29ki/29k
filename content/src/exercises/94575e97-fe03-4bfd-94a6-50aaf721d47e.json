@@ -1,12 +1,5 @@
 {
   "en": {
-    "published": true,
-    "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#fcc9b7"
-    },
-    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
-    "name": "Accepting thoughts and feelings",
     "slides": [
       {
         "type": "host",
@@ -90,6 +83,23 @@
         ]
       }
     ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#fcc9b7"
+    },
+    "name": "Accepting thoughts and feelings",
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
+      }
+    },
+    "duration": 40,
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4"
+      }
+    },
     "introPortal": {
       "hostNotes": [
         {
@@ -104,16 +114,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667317594/Video/portal2_Accepting_thoughts_and_feelings_iyqnuk.mp4"
       }
     },
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
-      }
-    },
-    "outroPortal": {
-      "video": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4"
-      }
-    }
+    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
   },
   "pt": {
     "published": false,
@@ -121,7 +122,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#fcc9b7"
     },
-    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
+    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
+    "duration": 40
   },
   "sv": {
     "published": false,
@@ -129,9 +131,11 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#fcc9b7"
     },
-    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
+    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
+    "duration": 40
   },
   "es": {
-    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
+    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
+    "duration": 40
   }
 }

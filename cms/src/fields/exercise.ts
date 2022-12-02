@@ -10,6 +10,7 @@ import {
   NAME_FIELD,
   PUBLISHED_FIELD,
   VIDEO_FIELD,
+  DURATION_FIELD,
 } from './common';
 import {
   CONTENT_SLIDE,
@@ -88,6 +89,7 @@ const EXERCISE_FIELDS: Array<CmsField> = applyDefaults(
   [
     ID_FIELD,
     NAME_FIELD,
+    DURATION_FIELD,
     PUBLISHED_FIELD,
     CARD_FIELD,
     THEME,

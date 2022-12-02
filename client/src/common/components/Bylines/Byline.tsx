@@ -1,5 +1,7 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
+import {View} from 'react-native';
+import {Text} from 'react-native-svg';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
@@ -11,6 +13,10 @@ const Container = styled.View({
   flexDirection: 'row',
   justifyContent: 'flex-start',
   alignItems: 'center',
+});
+
+const WrapText = styled(Body14)({
+  flexShrink: 1,
 });
 
 const ImageContainer = styled.View({
@@ -25,9 +31,10 @@ const ImageContainer = styled.View({
 type BylineProps = {
   pictureURL?: string;
   name?: string;
+  duration?: string;
 };
 
-const Byline: React.FC<BylineProps> = ({pictureURL, name}) => {
+const Byline: React.FC<BylineProps> = ({pictureURL, name, duration}) => {
   const {t} = useTranslation('Component.Byline');
   if (!pictureURL && !name) {
     return null;
@@ -39,9 +46,9 @@ const Byline: React.FC<BylineProps> = ({pictureURL, name}) => {
         {pictureURL && <Image source={{uri: pictureURL}} />}
       </ImageContainer>
       <Spacer4 />
-      <Body14>
-        {t('with')} {name}
-      </Body14>
+      <WrapText numberOfLines={2}>
+        {t('with')} {name} {'·'} {duration} {'min'}
+      </WrapText>
     </Container>
   );
 };
