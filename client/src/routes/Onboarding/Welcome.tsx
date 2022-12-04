@@ -1,5 +1,6 @@
 import React, {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
+import {ScrollView} from 'react-native';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import Button from '../../common/components/Buttons/Button';
@@ -49,18 +50,20 @@ const Welcome = () => {
   return (
     <Screen backgroundColor={COLORS.CREAM}>
       <TopSafeArea />
-      <Wrapper>
-        <Spacer32 />
-        <TopImage source={{uri: t('image__image')}} />
-        <Spacer20 />
-        <CenteredHeading>{t('heading')}</CenteredHeading>
-        <Spacer16 />
-        <Markdown>{t('text__markdown')}</Markdown>
-        <ButtonWrapper>
-          <Button onPress={onContinue}>{t('button')}</Button>
-        </ButtonWrapper>
-        <Spacer40 />
-      </Wrapper>
+      <ScrollView>
+        <Wrapper>
+          <Spacer32 />
+          <TopImage source={{uri: t('image__image')}} />
+          <Spacer20 />
+          <CenteredHeading>{t('heading')}</CenteredHeading>
+          <Spacer16 />
+          <Markdown>{t('text__markdown')}</Markdown>
+          <ButtonWrapper>
+            <Button onPress={onContinue}>{t('button')}</Button>
+          </ButtonWrapper>
+          <Spacer40 />
+        </Wrapper>
+      </ScrollView>
       <BottomSafeArea />
     </Screen>
   );
