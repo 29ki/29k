@@ -1,15 +1,25 @@
 import {useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {exerciseIds} from '../../../../../content/content.json';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import useAppState from '../../appState/state/state';
+import {DEFAULT_LANGUAGE_TAG} from '../../i18n';
+
+const getExerciseIds = (
+  content: Record<string, Record<string, string>> | undefined,
+) => {
+  if (content) {
+    return Object.keys(content.exercises);
+  }
+  return [];
+};
 
 const useExerciseIds = () => {
-  const {t} = useTranslation('exercises');
+  const {t, i18n} = useTranslation('exercises');
   const showNonPublishedContent = useAppState(
     state => state.showNonPublishedContent,
   );
-  const ids = exerciseIds as Array<string>;
+
+  const ids = getExerciseIds(i18n.getDataByLanguage(DEFAULT_LANGUAGE_TAG));
 
   const onlyPublished = useMemo(() => {
     const pred = (id: string) => {

@@ -56,7 +56,7 @@ const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
       </Fade>
     )}
     <Fade visible={true} key={index}>
-      <Slide slide={current} active={true} />
+      <Slide slide={current} active={false} />
     </Fade>
     {next && (
       <Fade visible={false} key={index + 1}>
