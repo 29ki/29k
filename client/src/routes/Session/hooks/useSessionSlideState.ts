@@ -1,8 +1,8 @@
 import {useMemo} from 'react';
 
 import {ExerciseSlide} from '../../../../../shared/src/types/Content';
-import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useSessionState from '../state/state';
+import useSessionExercise from './useSessionExercise';
 
 export type SessionSlideState = {
   index: number;
@@ -12,10 +12,8 @@ export type SessionSlideState = {
 };
 
 const useSessionSlideState = (): SessionSlideState | null => {
-  const session = useSessionState(state => state.session);
-  const excercise = useExerciseById(session?.contentId);
-
-  const exerciseState = session?.exerciseState;
+  const exerciseState = useSessionState(state => state.session?.exerciseState);
+  const excercise = useSessionExercise();
 
   return useMemo(() => {
     if (!excercise || !exerciseState) {
