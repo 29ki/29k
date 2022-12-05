@@ -1129,14 +1129,12 @@ PODS:
   - RNScreens (3.18.2):
     - React-Core
     - React-RCTImage
-  - RNSentry (4.8.0):
+  - RNSentry (4.9.0):
     - React-Core
-    - Sentry (= 7.29.0)
+    - Sentry/HybridSDK (= 7.31.2)
   - RNSVG (13.6.0):
     - React-Core
-  - Sentry (7.29.0):
-    - Sentry/Core (= 7.29.0)
-  - Sentry/Core (7.29.0)
+  - Sentry/HybridSDK (7.31.2)
   - SSZipArchive (2.2.3)
   - TOCropViewController (2.6.1)
   - Yoga (1.14.0)
@@ -1432,9 +1430,9 @@ SPEC CHECKSUMS:
   RNReactNativeHapticFeedback: 1e3efeca9628ff9876ee7cdd9edec1b336913f8c
   RNReanimated: f0d66bda3d074c43c72a18f4fd4f4c26687bc1fd
   RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
-  RNSentry: db7fd7b66efda28885e4e904a8b5e7349aec61c1
+  RNSentry: 6503a8ec616947dbe98be828307c8f49e7686674
   RNSVG: 3a79c0c4992213e4f06c08e62730c5e7b9e4dc17
-  Sentry: 4272663eb0eda312024d795ca3f5a562a8ce5e18
+  Sentry: b15765d11769852fe78c9add942f7df60ed5dbf5
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
   Yoga: c2b1f2494060865ac1f27e49639e72371b1205fa
