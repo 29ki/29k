@@ -68,7 +68,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   }, [slideState, exercise?.slides, navigateToIndex]);
 
   const onNextPress = useCallback(() => {
-    if (slideState?.index && exercise?.slides) {
+    if (slideState && exercise?.slides) {
       navigateToIndex({
         index: slideState.index + 1,
         content: exercise?.slides,
