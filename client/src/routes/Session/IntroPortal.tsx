@@ -45,6 +45,8 @@ import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocu
 import Badge from '../../common/components/Badge/Badge';
 import useSessionStartTime from './hooks/useSessionStartTime';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
+import Audio from '../../lib/audio/components/Audio';
+import AudioFader from './components/AudioFader/AudioFader';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -152,10 +154,10 @@ const IntroPortal: React.FC = () => {
     <Screen>
       {!isHost && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
       {isFocused && introPortal?.videoLoop?.audio && (
-        <VideoStyled
-          audioOnly
-          source={{uri: introPortal?.videoLoop.audio}}
+        <AudioFader
+          source={introPortal?.videoLoop.audio}
           paused={!loopVideoLoaded}
+          volume={joiningSession ? 0 : 1}
           repeat
         />
       )}
