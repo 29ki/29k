@@ -19,7 +19,7 @@ import useUpdateSessionExerciseState from '../../hooks/useUpdateSessionExerciseS
 import {Spacer8} from '../../../../common/components/Spacers/Spacer';
 import Button from '../../../../common/components/Buttons/Button';
 import IconButton from '../../../../common/components/Buttons/IconButton/IconButton';
-import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
+import useSessionExercise from '../../hooks/useSessionExercise';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -51,8 +51,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
 }) => {
   const isHost = useIsSessionHost();
   const exerciseState = useSessionState(state => state.session?.exerciseState);
-  const contentId = useSessionState(state => state.session?.contentId);
-  const exercise = useExerciseById(contentId);
+  const exercise = useSessionExercise();
   const slideState = useSessionSlideState();
   const {t} = useTranslation('Screen.Session');
 
