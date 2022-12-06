@@ -12,7 +12,11 @@ import Button from '../../../../common/components/Buttons/Button';
 import Byline from '../../../../common/components/Bylines/Byline';
 import Image from '../../../../common/components/Image/Image';
 import Gutters from '../../../../common/components/Gutters/Gutters';
-import {ChevronLeft, PrivateIcon} from '../../../../common/components/Icons';
+import {
+  ChevronLeft,
+  PrivateIcon,
+  PublicIcon,
+} from '../../../../common/components/Icons';
 import {
   Spacer16,
   Spacer28,
@@ -27,6 +31,7 @@ import useSessions from '../../../Sessions/hooks/useSessions';
 import {StepProps} from '../../CreateSessionModal';
 import DateTimePicker from '../DateTimePicker';
 import {SPACINGS} from '../../../../common/constants/spacings';
+import {SessionType} from '../../../../../../shared/src/types/Session';
 
 const TextWrapper = styled.View({
   flex: 2,
@@ -131,7 +136,11 @@ const SetDateTimeStep: React.FC<StepProps> = ({
               <ChevronLeft />
             </IconWrapper>
             <IconWrapper>
-              <PrivateIcon />
+              {selectedType === SessionType.private ? (
+                <PrivateIcon />
+              ) : (
+                <PublicIcon />
+              )}
             </IconWrapper>
             <Body16>{t(`setDateTime.sessionType.${selectedType}`)}</Body16>
           </Row>
