@@ -27,8 +27,9 @@
         "confirm": "Remover"
       }
     },
-    "join": "Juntar",
-    "shareMessage": "{{link}}Código da sessão: {{code}}"
+    "join": "Aderir",
+    "shareMessage": "{{link}}Código da sessão: {{code}}",
+    "description": "Adiciona ao calendário, configura um lembrete ou partilha o código para convidares os teus amigos."
   },
   "sv": {
     "edit": "Ändra",
