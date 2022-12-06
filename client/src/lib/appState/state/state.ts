@@ -1,25 +1,50 @@
 import create from 'zustand';
+import {persist} from 'zustand/middleware';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import {LANGUAGE_TAG} from '../../i18n';
+
+export type Settings = {
+  showWelcome: boolean;
+  preferredLanguage?: LANGUAGE_TAG;
+};
 
 type State = {
   isColdStarted: boolean;
-  isFirstLaunch: boolean;
   showNonPublishedContent: boolean;
+  settings: Settings;
 };
 
 type Actions = {
   setIsColdStarted: (isColdStarted: boolean) => void;
-  setIsFirstLaunch: (isFirstLaunch: boolean) => void;
   setShowNonPublishedContent: (showNonPublishedContent: boolean) => void;
+  setSettings: (settings: Partial<State['settings']>) => void;
 };
 
-const useAppState = create<State & Actions>()(set => ({
+const initialState: State = {
   isColdStarted: true,
-  isFirstLaunch: false,
   showNonPublishedContent: false,
-  setIsColdStarted: isColdStarted => set({isColdStarted}),
-  setIsFirstLaunch: isFirstLaunch => set({isFirstLaunch}),
-  setShowNonPublishedContent: showNonPublishedContent =>
-    set({showNonPublishedContent}),
-}));
+  settings: {
+    showWelcome: true,
+  },
+};
+
+const useAppState = create<State & Actions>()(
+  persist(
+    set => ({
+      ...initialState,
+      setIsColdStarted: isColdStarted => set({isColdStarted}),
+      setShowNonPublishedContent: (showNonPublishedContent: boolean) =>
+        set({showNonPublishedContent}),
+      setSettings: settings =>
+        set(state => ({settings: {...state.settings, ...settings}})),
+    }),
+    {
+      name: 'appState',
+      getStorage: () => AsyncStorage,
+      partialize: ({settings}) => ({settings}),
+    },
+  ),
+);
 
 export default useAppState;

@@ -9,10 +9,12 @@ import firebaseBodyParser from './lib/firebaseBodyParser';
 import languageResolver from './lib/languageResolver';
 import firebaseAuth from './lib/firebaseAuth';
 import {createRouter} from '../lib/routers';
+import localErrorHandler from '../lib/localErrorHandler';
 
 const app = new Koa();
 
 app.on('error', sentryErrorHandler);
+app.on('error', localErrorHandler);
 
 const authoroizedRouter = createRouter();
 authoroizedRouter
