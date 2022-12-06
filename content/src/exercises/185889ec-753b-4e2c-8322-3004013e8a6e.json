@@ -205,14 +205,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 2 minutes to reflect on our own.\n\nThink of a situation when you felt down. When you failed at something and doubted yourself. How do you usually react to and treat yourself in such situations? What do you say to yourself? What tone do you use?"
+            "text": "Agora vamos ficar 2 minutos a refletir individualmente.\n\nPensa numa situação em que te sentiste mal. Quando falhaste e duvidaste de ti. Como costumas reagir e como te tratas nessas situações? O que dizes a ti mesma/o? Que tom usas?"
           },
           {
-            "text": "If you want to, you can take notes on a piece of paper or just mental notes in your head. And remember, there is no right or wrong here, our answers are our own.\n\n2 minutes starting now.\n\n`Push play to start the timer.`\n\nOkay, that’s 2 minutes and it’s time to move on."
+            "text": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Vamos começar agora durante 2 minutos.\n\n> Carrega no play para iniciar o cronômetro.\n\nSão 2 minutos e é hora de continuarmos."
           }
         ],
         "content": {
-          "heading": "What do you say to yourself?",
+          "heading": "O que dizes a ti própria/o?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4"
           }
