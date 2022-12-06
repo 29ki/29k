@@ -135,7 +135,7 @@
       },
       "hostNotes": [
         {
-          "text": "> Inicia a sessão quando estiveres pronta/o."
+          "text": ">Start the session when you're ready to go."
         }
       ]
     },
@@ -144,84 +144,84 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Bem-vindos a esta sessão, moderada por mim, x.\n\nEstou muito feliz por terem escolhido juntar-se a nós aqui na 29k FJN. Vamos trabalhar durante 30 minutos no amor e na ligação connosco e com os outros.\n\nFaremos uma breve meditação em conjunto, depois teremos um momento de reflexão individual, e no último momento vamos partilhar entre todos a forma como vivemos e sentimos estes momentos."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on on love and connection to ourselves and others.\n\nWe’ll be doing a short meditation together, then we’ll take a moment to reflect on our own, and the final step is to share with each other what we experienced."
           },
           {
-            "text": "Vamos começar com um pequeno check-in.\n\nComo te estás a sentir neste momento? Responde por favor em duas ou três palavras.\n\nX, gostarias de começar e depois passar para outra pessoa quando terminares?\n\n> Permite que todos na sessão façam check-in um por um.\n\nObrigada/o a todos pelo check-in.\n\nVamos então começar."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ]
       },
       {
         "type": "content",
         "content": {
-          "heading": "O amor puro e simples",
+          "heading": "Pure simple love",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328548/temp/audio_meditation_2_b3hwge.mp4"
-          }
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663328548/temp/audio_meditation_2_b3hwge.mp4"
+          },
+          "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
         },
         "hostNotes": [
           {
-            "text": "Às vezes parece que a vida se desenrola sempre de uma forma monótona e sem fim. E mesmo tendo muitas coisas positivas nas nossas vidas, os nossos cérebros são programados para se concentrarem nas coisas que não funcionam e são mais negativas. Os problemas. Ameaças potenciais. Coisas que precisamos de resolver nas nossas vidas."
+            "text": "Sometimes it feels like life goes on and on in a never ending treadmill. And even though we may have beautiful things in our lives, our brains are programmed to focus on the things that don’t work. The problems. Potential threats. Things in our lives that we need to solve."
           },
           {
-            "text": "Lembrar-nos do que está a correr bem exige um esforço. Vamos agora fazer exatamente isso. Tirar alguns minutos para nos relembrarmos de um momento de amor nas nossas vidas.\n\n> Carrega no play para iniciar a meditação."
+            "text": "Reminding ourselves of what’s working takes an effort. And now we’re gonna do just that. Taking a few minutes to recall a moment of love in our lives together.\n\n> Press play to start the meditation."
           }
         ]
       },
       {
         "type": "reflection",
         "content": {
-          "heading": "Reflexão: O que sentiste com esta meditação? Como te afetou?",
+          "heading": "How did this meditation affect you?",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328538/temp/1_min_eto52x.mp4"
-          }
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663328538/temp/1_min_eto52x.mp4"
+          },
+          "text": "What can you bring for the rest of the day?"
         },
         "hostNotes": [
           {
-            "text": "Vamos agora reservar 1 minuto para refletir individualmente.\n\nO que sentiste ao fazer esta meditação? Como te afetou?\n\nO que podes aproveitar desta experiência para o resto do seu dia?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did this meditation affect you?\n\nWhat can you bring from this for the rest of your day?"
           },
           {
-            "text": "Se quiseres, podes tomar notas numa folha de papel ou apenas algumas notas mentais. E lembra-te, não há um certo ou errado aqui. São as nossas respostas e perspetivas próprias.\n\n1 minuto a partir de agora.\n\n> Carregar em play para iniciar o cronómetro.\n\nOk, isso é 1 minuto. Vamos lá."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nOkay, that’s 1 minute. Let’s move on."
           }
         ]
       },
       {
         "type": "sharing",
         "content": {
-          "heading": "Partilha: O que sentiste com esta meditação? Como te afetou?",
+          "heading": "How did this meditation affect you?",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328538/temp/2_min_fr9hsu.mp4"
-          }
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663328538/temp/2_min_fr9hsu.mp4"
+          },
+          "text": "What can you bring for the rest of the day?"
         },
         "hostNotes": [
           {
-            "text": "Vamos agora entrar na parte de partilha deste exercício. Temos três regras importantes:\n\n1. **O que é dito aqui, fica aqui.**\n2. **O teu trabalho como participante é apenas ouvir.** Não há necessidade de ajudar ou dar conselhos neste espaço. Estamos apenas a partilhar e a tentar entender o que nós mesmos e os outros estão a passar."
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
           },
           {
-            "text": "3. **Tudo no nosso interior está bem.** Raiva, amor, ódio, tristeza. O que quer que apareça. Não há certos ou errados.\n\nTeremos um temporizador de 2 minutos como indicador, mas terás o tempo que quiseres. Se não quiseres partilhar, podes dizer 'passo'."
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "X, gostarias de começar?\n\n> Permitir que todos (ou para os que houver tempo) façam uma partilha individual.\n>\n> Carrega play para iniciar a contagem de tempo. Reinicia para cada nova partilha.\n\nMuito obrigada/o por partilhares os teus pensamentos e sentimentos connosco."
+            "text": "Who would like to start?\n\n> Let up to six people share one by one. Press play to start the timer. Re-start for each new person.\n\nThank you so much everyone."
           }
         ]
       },
       {
-        "type": "content",
-        "content": {
-          "heading": "Obrigada/o",
-          "image": {
-            "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1663327181/temp/29k_slide_snrub2.png"
-          }
-        },
+        "type": "host",
         "hostNotes": [
           {
-            "text": "Acabamos de pensar num momento de amor nas nossas vidas.\n\nÉ muito importante focarmos nos momentos preciosos da nossa vida, para tentar equilibrar o esforço natural que o nosso cérebro faz de focar nos aspetos negativos para nos ajudar a sobreviver."
+            "text": "We've just thought of a moment of love in our live and put one of life’s precious moment into the limelight. To help us balance our brains natural efforts to make us survive by focusing on the negative."
           },
           {
-            "text": "Parabéns. Gostava de vos deixar uma pequena missão, se estiverem dispostos a isso.\n\nSe tiverem disposição, definam um lembrete num horário aleatório do dia e, quando o lembrete for ativado, dá a ti mesmo um momento para refletir sobre um momento positivo da tua vida nas últimas 24 horas. Ao fazer isso, observa te sentes interiormente e com o teu corpo."
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nSet a reminder at a random time of the day for a week. When the reminder goes on, reflect on a loving moment from the last 24 hours. Notice what it feels like on the inside, in your body."
           },
           {
-            "text": "Muito obrigada/o por te teres juntado a nós hoje. Se tiveres alguma reflexão ou sugestão para nós na 29k FJN, por favor diz-nos. Desejo a todos um excelente dia.\n\nAté já."
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       }
