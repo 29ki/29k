@@ -5,7 +5,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
 import {useCallback, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+
 import styled from 'styled-components/native';
 
 import Button from '../../../../common/components/Buttons/Button';
@@ -13,16 +13,10 @@ import Byline from '../../../../common/components/Bylines/Byline';
 import Image from '../../../../common/components/Image/Image';
 import Gutters from '../../../../common/components/Gutters/Gutters';
 import {
-  ChevronLeft,
-  PrivateIcon,
-  PublicIcon,
-} from '../../../../common/components/Icons';
-import {
   Spacer16,
   Spacer28,
   Spacer8,
 } from '../../../../common/components/Spacers/Spacer';
-import {Body16} from '../../../../common/components/Typography/Body/Body';
 import {Display24} from '../../../../common/components/Typography/Display/Display';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import {LANGUAGE_TAG} from '../../../../lib/i18n';
@@ -31,7 +25,7 @@ import useSessions from '../../../Sessions/hooks/useSessions';
 import {StepProps} from '../../CreateSessionModal';
 import DateTimePicker from '../DateTimePicker';
 import {SPACINGS} from '../../../../common/constants/spacings';
-import {SessionType} from '../../../../../../shared/src/types/Session';
+import EditSessionType from '../../../../common/components/EditSessionType/EditSessionType';
 
 const TextWrapper = styled.View({
   flex: 2,
@@ -44,11 +38,6 @@ const Row = styled.View({
 });
 
 const Cta = styled(Button)({alignSelf: 'center'});
-
-const IconWrapper = styled.View({
-  width: 30,
-  height: 30,
-});
 
 const CardImageWrapper = styled.View({
   width: 80,
@@ -111,6 +100,11 @@ const SetDateTimeStep: React.FC<StepProps> = ({
     [exercise?.card?.image?.source],
   );
 
+  const onToggle = useCallback(
+    (expanded: boolean) => (expanded ? expand() : collapse()),
+    [expand, collapse],
+  );
+
   return (
     <Gutters>
       <Spacer8 />
@@ -130,27 +124,13 @@ const SetDateTimeStep: React.FC<StepProps> = ({
       </Row>
       <Spacer28 />
       {isPublicHost && selectedType && (
-        <TouchableOpacity onPress={prevStep}>
-          <Row>
-            <IconWrapper>
-              <ChevronLeft />
-            </IconWrapper>
-            <IconWrapper>
-              {selectedType === SessionType.private ? (
-                <PrivateIcon />
-              ) : (
-                <PublicIcon />
-              )}
-            </IconWrapper>
-            <Body16>{t(`setDateTime.sessionType.${selectedType}`)}</Body16>
-          </Row>
-        </TouchableOpacity>
+        <EditSessionType sessionType={selectedType} onPress={prevStep} />
       )}
       <Spacer16 />
       <DateTimePicker
         minimumDate={dayjs().local()}
         onChange={onChange}
-        onToggle={expanded => (expanded ? expand() : collapse())}
+        onToggle={onToggle}
       />
       <Spacer16 />
       <Cta variant="secondary" small onPress={onSubmit} disabled={isLoading}>
