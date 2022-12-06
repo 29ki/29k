@@ -3,13 +3,13 @@
     "title": "29k Session: {{name}}",
     "description": "With {{host}}"
   },
+  "pt": {
+    "title": "Sessão 29k FJN: {{name}}",
+    "description": "Com {{host}}"
+  },
   "sv": {
     "title": "29k-session: {{name}}",
     "description": "Med {{host}}"
-  },
-  "pt": {
-    "title": "Sessão: {{name}}",
-    "description": "Com {{host}}"
   },
   "es": {}
 }
