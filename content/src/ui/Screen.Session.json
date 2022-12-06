@@ -14,6 +14,21 @@
       "muted": "You are muted"
     }
   },
+  "pt": {
+    "nameSuffix": "Tu",
+    "endButton": "Terminar sessão",
+    "controls": {
+      "start": "Iniciar",
+      "next": "Próximo",
+      "prev": "Voltar"
+    },
+    "notifications": {
+      "joined": "{{name}} juntou-se",
+      "left": "{{name}} saiu",
+      "networkQuality": "Ligação de rede instável",
+      "muted": "Estás sem som"
+    }
+  },
   "sv": {
     "nameSuffix": "Du",
     "endButton": "Avsluta",
@@ -27,20 +42,6 @@
       "left": "{{name}} lämnade",
       "networkQuality": "Ostabilt nätverk",
       "muted": "Din mikrofon är av"
-    }
-  },
-  "pt": {
-    "nameSuffix": "Tu",
-    "endButton": "Terminar sessão",
-    "controls": {
-      "start": "Iniciar",
-      "next": "Próximo",
-      "prev": "Voltar"
-    },
-    "notifications": {
-      "joined": "{{name}} juntou-se",
-      "left": "{{name}} saiu",
-      "networkQuality": "Ligação de rede instável"
     }
   },
   "es": {}
