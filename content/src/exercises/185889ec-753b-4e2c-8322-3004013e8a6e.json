@@ -158,7 +158,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Inicia a sessão quando estiveres pronta/o"
         }
       ],
       "videoLoop": {
@@ -174,10 +174,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 40 minutes on connecting with- and being kind to ourselves.\n\nWe’ll be doing some reflection exercises and there will be opportunities to share those reflections with each other."
+            "text": "Bem-vindos. Eu sou X e hoje vamos estar juntos durante 40 minutos para nos conectarmos e sermos gentis connosco.\n\nFaremos alguns exercícios de reflexão e teremos oportunidades para partilhar essas reflexões uns com os outros."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam o check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
           }
         ]
       },
@@ -185,13 +185,13 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Imagine that you took out a pair of clothespins. Next, you grab the voice within yourself and \"lift it out\", so that there’s now a person in front of you. That person is saying all the things you usually say to yourself when something has gone wrong, or when you have failed."
+            "text": "Imagina que pegaste em duas molas da roupa. De seguida, pegas e penduras a tua voz interior, de modo que haja agora uma pessoa à tua frente. Esta pessoa está a dizer todas as coisas que costumas dizer a ti mesma/o quando alguma coisa dá errada ou quando falhas."
           },
           {
-            "text": "Think about it: How long would you stand talking to this person? There's a high probability that you'd want to get out of there as fast as possible. How is it that we humans are usually much tougher on ourselves than we are on others?"
+            "text": "Pensa nisso: quanto tempo aguentarias conversar com essa pessoa? Há uma grande probabilidade de quereres sair de lá o mais rápido possível. Como é que nós, humanos, geralmente somos muito mais duros connosco do que com os outros?"
           },
           {
-            "text": "In this exercise we will be practicing self-compassion - learning to become less self-critical and instead be kinder to oneself. Research has shown that it can increase happiness and motivation, and reduce anxiety and depressive symptoms."
+            "text": "Neste exercício vamos praticar a autocompaixão. Vamos aprender tornar-nos menos autocríticos e, em vez disso, ser mais gentis connosco. A investigação mostrou que podes aumentar a tua felicidade e a tua motivação e reduzir a ansiedade e os sintomas depressivos."
           }
         ],
         "content": {
@@ -205,10 +205,10 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 2 minutes to reflect on our own.\n\nThink of a situation when you felt down. When you failed at something and doubted yourself. How do you usually react to and treat yourself in such situations? What do you say to yourself? What tone do you use?"
+            "text": "Agora vamos ficar 2 minutos a refletir individualmente.\n\nPensa numa situação em que te sentiste mal. Quando falhaste e duvidaste de ti. Como costumas reagir e como te tratas nessas situações? O que dizes a ti mesma/o? Que tom usas?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 2 minutes starting now.\n\n> Push play to start the timer.\n\nThat’s 2 minutes and it’s time to move on."
+            "text": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Vamos começar agora durante 2 minutos.\n\n> Carrega no play para iniciar o cronômetro.\n\nSão 2 minutos e é hora de continuar em frente."
           }
         ],
         "content": {
