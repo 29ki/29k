@@ -1,6 +1,14 @@
-import RNDateTimePicker from '@react-native-community/datetimepicker';
+import RNDateTimePicker, {
+  DateTimePickerEvent,
+} from '@react-native-community/datetimepicker';
 import dayjs from 'dayjs';
-import React, {Dispatch, SetStateAction, useEffect, useState} from 'react';
+import React, {
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import {Platform} from 'react-native';
 import styled from 'styled-components/native';
 import utc from 'dayjs/plugin/utc';
@@ -41,6 +49,20 @@ const DateTimePicker: React.FC<{
   maximumDate?: dayjs.Dayjs;
   minimumDate?: dayjs.Dayjs;
 }> = ({mode, setValue, selectedValue, close, minimumDate, maximumDate}) => {
+  const onChangeIos = useCallback(
+    (_: DateTimePickerEvent, value: Date | undefined) =>
+      setValue(dayjs(value).utc()),
+    [setValue],
+  );
+
+  const onChangeAndroid = useCallback(
+    (_: DateTimePickerEvent, value: Date | undefined) => {
+      close();
+      setValue(dayjs(value).utc());
+    },
+    [close, setValue],
+  );
+
   switch (Platform.OS) {
     case 'ios':
       return (
@@ -50,7 +72,7 @@ const DateTimePicker: React.FC<{
           accentColor={COLORS.PRIMARY}
           display={mode === 'date' ? 'inline' : 'spinner'}
           value={selectedValue.local().toDate()}
-          onChange={(_, value) => setValue(dayjs(value).utc())}
+          onChange={onChangeIos}
           minimumDate={mode === 'date' ? minimumDate?.toDate() : undefined}
           maximumDate={mode === 'date' ? maximumDate?.toDate() : undefined}
         />
@@ -64,10 +86,7 @@ const DateTimePicker: React.FC<{
           value={selectedValue.local().toDate()}
           minimumDate={mode === 'date' ? minimumDate?.toDate() : undefined}
           maximumDate={mode === 'date' ? maximumDate?.toDate() : undefined}
-          onChange={(_, value) => {
-            close();
-            setValue(dayjs(value).utc());
-          }}
+          onChange={onChangeAndroid}
         />
       );
     default:
@@ -101,15 +120,27 @@ const Picker: React.FC<PickerProps> = ({
     [selectedDate, selectedTime, onChange],
   );
 
+  const onDatePress = useCallback(() => {
+    setShowTimePicker(false);
+    setShowDatePicker(!showDatePicker);
+    onToggle(!showDatePicker);
+  }, [setShowTimePicker, showDatePicker, onToggle]);
+
+  const onTimePress = useCallback(() => {
+    setShowTimePicker(false);
+    setShowDatePicker(!showDatePicker);
+    onToggle(!showDatePicker);
+  }, [setShowTimePicker, showDatePicker, onToggle]);
+
+  const onClose = useCallback(
+    () => setShowDatePicker(false),
+    [setShowDatePicker],
+  );
+
   return (
     <>
       <Wrapper>
-        <Row
-          onPress={() => {
-            setShowTimePicker(false);
-            setShowDatePicker(!showDatePicker);
-            onToggle(!showDatePicker);
-          }}>
+        <Row onPress={onDatePress}>
           <Body16>
             <BodyBold>{t('date')}</BodyBold>
           </Body16>
@@ -122,17 +153,12 @@ const Picker: React.FC<PickerProps> = ({
             mode="date"
             selectedValue={selectedDate}
             setValue={setSelectedDate}
-            close={() => setShowDatePicker(false)}
+            close={onClose}
             minimumDate={minimumDate}
             maximumDate={maximumDate}
           />
         )}
-        <Row
-          onPress={() => {
-            setShowDatePicker(false);
-            setShowTimePicker(!showTimePicker);
-            onToggle(!showTimePicker);
-          }}>
+        <Row onPress={onTimePress}>
           <Body16>
             <BodyBold>{t('time')}</BodyBold>
           </Body16>
@@ -145,7 +171,7 @@ const Picker: React.FC<PickerProps> = ({
             mode="time"
             selectedValue={selectedTime}
             setValue={setSelectedTime}
-            close={() => setShowTimePicker(false)}
+            close={onClose}
           />
         )}
       </Wrapper>
