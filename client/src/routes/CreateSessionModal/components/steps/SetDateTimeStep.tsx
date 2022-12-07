@@ -23,7 +23,7 @@ import {LANGUAGE_TAG} from '../../../../lib/i18n';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
 import useSessions from '../../../Sessions/hooks/useSessions';
 import {StepProps} from '../../CreateSessionModal';
-import DateTimePicker from '../DateTimePicker';
+import DateTimePicker from '../../../../common/components/DateTimePicker/DateTimePicker';
 import {SPACINGS} from '../../../../common/constants/spacings';
 import EditSessionType from '../../../../common/components/EditSessionType/EditSessionType';
 
