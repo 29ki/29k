@@ -916,10 +916,9 @@
     "@types/react-native-background-timer" "^2.0.0"
     react-native-url-polyfill "^1.1.2"
 
-"@daily-co/react-native-webrtc@1.94.1-daily.4":
+"@daily-co/react-native-webrtc@https://github.com/29ki/daily-react-native-webrtc#fix-iOS-16-support":
   version "1.94.1-daily.4"
-  resolved "https://registry.yarnpkg.com/@daily-co/react-native-webrtc/-/react-native-webrtc-1.94.1-daily.4.tgz#2a9f6f3f65f5364497181a5ad1f5368b049b5375"
-  integrity sha512-DTu821gC6G/ZdklXIQGCyAQbBd7zg5alY/Yc99tIb6RLlHg4vjXc3ZWXUwt6XJNBwBqm2LVG3LCpR86Rh4mmHw==
+  resolved "https://github.com/29ki/daily-react-native-webrtc#c9ec9a8e6c1ff160c7f58d173853b3e1fa09a952"
   dependencies:
     "@types/react" "*"
     "@types/react-native" "*"
@@ -8216,6 +8215,10 @@ react-native-screens@^3.18.2:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
+"react-native-sound@https://github.com/29ki/react-native-sound#fix-iOS-16-support":
+  version "0.11.2"
+  resolved "https://github.com/29ki/react-native-sound#efd7224225122676c42271f4a14ce3b7c35769b7"
+
 react-native-svg@^13.6.0:
   version "13.6.0"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-13.6.0.tgz#46e95a44aabbd778db7c46d8a1047da376b28058"
@@ -8231,9 +8234,9 @@ react-native-url-polyfill@^1.1.2:
   dependencies:
     whatwg-url-without-unicode "8.0.0-3"
 
-"react-native-video@https://github.com/29ki/react-native-video-5.2.1#repeat-ios-using-av-player-looper":
+"react-native-video@https://github.com/29ki/react-native-video#fix-iOS-16-support":
   version "5.2.1"
-  resolved "https://github.com/29ki/react-native-video-5.2.1#68bfa9011dc0774d65f1d0104f916c01cebf6013"
+  resolved "https://github.com/29ki/react-native-video#7d2c12dfbdc2f2895d7f6cccbc261998fe5c4fd3"
   dependencies:
     deprecated-react-native-prop-types "^2.2.0"
     keymirror "^0.1.1"

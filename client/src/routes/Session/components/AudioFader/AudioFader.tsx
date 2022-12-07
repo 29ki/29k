@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {VideoBase} from '../VideoBase/VideoBase';
+import Audio from '../../../../lib/audio/components/Audio';
 
 type AudioFaderProps = {
   duration?: number;
@@ -9,7 +9,7 @@ type AudioFaderProps = {
   source: string;
 };
 
-const AudioFader: React.FC<AudioFaderProps> = React.memo(
+const AudioFader = React.memo<AudioFaderProps>(
   ({duration = 5000, volume = 1, paused, repeat, source}) => {
     const [currentVolume, setVolume] = useState(0);
     const [loaded, setLoaded] = useState(false);
@@ -38,14 +38,16 @@ const AudioFader: React.FC<AudioFaderProps> = React.memo(
       return () => clearInterval(interval);
     }, [duration, updateVolume, loaded, paused]);
 
+    const onLoad = useCallback(() => setLoaded(true), [setLoaded]);
+
     return (
-      <VideoBase
-        audioOnly
+      <Audio
         paused={paused}
         repeat={repeat}
         volume={currentVolume}
-        onLoad={() => setLoaded(true)}
-        source={{uri: source}}
+        onLoad={onLoad}
+        source={source}
+        mixWithOthers
       />
     );
   },
