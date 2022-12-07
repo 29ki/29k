@@ -162,11 +162,12 @@ const IntroPortal: React.FC = () => {
   return (
     <Screen>
       {!isHost && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
-      {isFocused && introPortal?.videoLoop?.audio && (
+      {isFocused && loopVideoLoaded && introPortal?.videoLoop?.audio && (
         <AudioFader
-          source={introPortal?.videoLoop.audio}
+          source={introPortal?.videoLoop?.audio}
           paused={!loopVideoLoaded}
           volume={joiningSession ? 0 : 1}
+          duration={joiningSession ? 5000 : 10000}
           repeat
         />
       )}
