@@ -100,7 +100,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
 
   const exerciseImg = useMemo(
     () => ({uri: exercise?.card?.image?.source}),
-    [exercise?.card?.image?.source],
+    [exercise],
   );
 
   return (

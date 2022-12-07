@@ -48,7 +48,7 @@ const ContentCard: React.FC<{
   const exercise = useExerciseById(exerciseId);
   const exerciseImg = useMemo(
     () => ({uri: exercise?.card?.image?.source}),
-    [exercise?.card?.image?.source],
+    [exercise],
   );
 
   return (

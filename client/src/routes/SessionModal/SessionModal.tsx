@@ -189,7 +189,7 @@ const SessionModal = () => {
       'Session Start Time': session.startTime,
     });
   }, [
-    exercise?.name,
+    exercise,
     session.startTime,
     session.type,
     session.contentId,

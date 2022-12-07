@@ -97,7 +97,7 @@ const SetDateTimeStep: React.FC<StepProps> = ({
 
   const cardImg = useMemo(
     () => ({uri: exercise?.card?.image?.source}),
-    [exercise?.card?.image?.source],
+    [exercise],
   );
 
   const onToggle = useCallback(
