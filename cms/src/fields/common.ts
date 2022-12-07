@@ -24,6 +24,16 @@ export const PUBLISHED_FIELD: CmsField = {
   i18n: true,
 };
 
+export const HIDDEN_FIELD: CmsField = {
+  label: '🙈 Hidden',
+  name: 'hidden',
+  widget: 'boolean',
+  required: true,
+  default: false,
+  i18n: true,
+  hint: 'This will make it hidden while in progress',
+};
+
 export const NAME_FIELD: CmsField = {
   label: '📇 Name',
   name: 'name',

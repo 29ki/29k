@@ -18,6 +18,8 @@ import {
   DEFAULT_LANGUAGE_TAG,
   LANGUAGE_TAGS,
 } from '../../../../shared/src/constants/i18n';
+import Backend from './backend/backend';
+import {clone} from 'ramda';
 
 export * from '../../../../shared/src/constants/i18n';
 
@@ -25,13 +27,28 @@ dayjs.extend(localizedFormat);
 
 const DEFAULT_24HOUR_LANGUAGE_TAG = 'en-gb';
 
+const omitExercises = (resources: typeof content.i18n) => {
+  const allResources = clone(resources) as unknown as Record<
+    string,
+    Record<string, string>
+  >; // Can't delete exercises if since content.i18n demands it
+  for (const ln of LANGUAGE_TAGS) {
+    delete allResources[ln].exercises;
+  }
+  return allResources;
+};
+
 export const init = () =>
-  i18next.use(initReactI18next).init({
-    lng: findBestAvailableLanguage(CLIENT_LANGUAGE_TAGS)?.languageTag,
-    supportedLngs: LANGUAGE_TAGS,
-    fallbackLng: DEFAULT_LANGUAGE_TAG,
-    resources: content.i18n,
-  });
+  i18next
+    .use(Backend)
+    .use(initReactI18next)
+    .init({
+      lng: findBestAvailableLanguage(CLIENT_LANGUAGE_TAGS)?.languageTag,
+      supportedLngs: LANGUAGE_TAGS,
+      fallbackLng: DEFAULT_LANGUAGE_TAG,
+      resources: omitExercises(content.i18n),
+      partialBundledLanguages: true,
+    });
 
 i18next.on('languageChanged', languageTag => {
   dayjs.locale(

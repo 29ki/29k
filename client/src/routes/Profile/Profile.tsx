@@ -28,6 +28,7 @@ import useAppState from '../../lib/appState/state/state';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {Body16} from '../../common/components/Typography/Body/Body';
 import useSetPreferredLanguage from '../../lib/i18n/hooks/useSetPreferedLanguage';
+import useToggleHiddenContent from '../../lib/appState/hooks/useToggleHiddenContent';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -46,12 +47,8 @@ const Profile = () => {
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
   const isPublicHost = useIsPublicHost();
-  const setShowNonPublishedContent = useAppState(
-    state => state.setShowNonPublishedContent,
-  );
-  const showNonPublishedContent = useAppState(
-    state => state.showNonPublishedContent,
-  );
+  const toggleHiddenContent = useToggleHiddenContent();
+  const showNonPublishedContent = useAppState(state => state.showHiddenContent);
 
   const setPreferredLanguage = useSetPreferredLanguage();
 
@@ -95,13 +92,14 @@ const Profile = () => {
             <Button variant="secondary" onPress={checkForUpdate}>
               {t('checkUpdate')}
             </Button>
+
             <Spacer8 />
             {ENVIRONMENT !== 'production' && isPublicHost && (
               <WorkInProgressWrapper>
                 <Body16>{t('showWip')}</Body16>
                 <Spacer8 />
                 <Switch
-                  onValueChange={setShowNonPublishedContent}
+                  onValueChange={toggleHiddenContent}
                   value={showNonPublishedContent}
                   trackColor={{true: COLORS.PRIMARY, false: undefined}}
                 />

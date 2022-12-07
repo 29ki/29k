@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 
 import Navigation from './lib/navigation/Navigation';
 import ModalStack from './lib/navigation/ModalStack';
@@ -24,8 +24,10 @@ const App = () => (
           <Navigation>
             <MetricsProvider>
               <Bootstrap>
-                <ModalStack />
-                <CodePushOverlay />
+                <Suspense>
+                  <ModalStack />
+                  <CodePushOverlay />
+                </Suspense>
               </Bootstrap>
             </MetricsProvider>
           </Navigation>

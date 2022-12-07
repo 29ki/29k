@@ -11,19 +11,19 @@ export type Settings = {
 
 type State = {
   isColdStarted: boolean;
-  showNonPublishedContent: boolean;
+  showHiddenContent: boolean;
   settings: Settings;
 };
 
 type Actions = {
   setIsColdStarted: (isColdStarted: boolean) => void;
-  setShowNonPublishedContent: (showNonPublishedContent: boolean) => void;
+  setShowHiddenContent: (showHiddenContent: boolean) => void;
   setSettings: (settings: Partial<State['settings']>) => void;
 };
 
 const initialState: State = {
   isColdStarted: true,
-  showNonPublishedContent: false,
+  showHiddenContent: false,
   settings: {
     showWelcome: true,
   },
@@ -34,8 +34,8 @@ const useAppState = create<State & Actions>()(
     set => ({
       ...initialState,
       setIsColdStarted: isColdStarted => set({isColdStarted}),
-      setShowNonPublishedContent: (showNonPublishedContent: boolean) =>
-        set({showNonPublishedContent}),
+      setShowHiddenContent: (showHiddenContent: boolean) =>
+        set({showHiddenContent}),
       setSettings: settings =>
         set(state => ({settings: {...state.settings, ...settings}})),
     }),
