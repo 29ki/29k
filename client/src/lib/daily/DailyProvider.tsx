@@ -176,7 +176,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
             daily.once('available-devices-updated', resolveOnce);
 
             // If the event never fires, resolve after 2 seconds - as a fallback
-            setTimeout(resolveOnce, 5000);
+            setTimeout(resolveOnce, 2000);
 
             return;
           }
