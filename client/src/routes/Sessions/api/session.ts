@@ -32,7 +32,7 @@ export const addSession = async ({
 
 export const updateSession = async (
   id: string,
-  data: Partial<Pick<Session, 'started' | 'ended' | 'startTime'>>,
+  data: Partial<Pick<Session, 'started' | 'ended' | 'startTime' | 'type'>>,
 ): Promise<Session> => {
   try {
     const response = await apiClient(`${SESSIONS_ENDPOINT}/${id}`, {

@@ -8,6 +8,15 @@
       "started": "Started"
     }
   },
+  "pt": {
+    "counterLabel": {
+      "starts": "Inicia",
+      "startsIn": "Inicia em"
+    },
+    "counter": {
+      "started": "Iniciou"
+    }
+  },
   "sv": {
     "counterLabel": {
       "starts": "Startar",
@@ -15,15 +24,6 @@
     },
     "counter": {
       "started": "Startad"
-    }
-  },
-  "pt": {
-    "counterLabel": {
-      "starts": "Começar",
-      "startsIn": "Começar em"
-    },
-    "counter": {
-      "started": "Começou"
     }
   },
   "es": {}
