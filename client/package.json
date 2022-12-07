@@ -75,7 +75,7 @@
     "@sentry/cli": "^2.10.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/i18next": "^13.0.0",
-    "@types/jest": "^29.2.3",
+    "@types/jest": "^29.2.4",
     "@types/ramda": "^0.28.20",
     "@types/react-native": "^0.67.3",
     "@types/react-native-video": "^5.0.14",
