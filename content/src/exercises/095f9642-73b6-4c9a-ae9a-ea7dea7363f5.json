@@ -190,11 +190,11 @@
       {
         "type": "sharing",
         "content": {
-          "heading": "How did this meditation affect you?",
+          "heading": "O que sentiste com esta meditação? Como te afetou?",
           "video": {
             "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663328538/temp/2_min_fr9hsu.mp4"
           },
-          "text": "What can you bring for the rest of the day?"
+          "text": "O que podes trazer para o resto do dia?"
         },
         "hostNotes": [
           {
