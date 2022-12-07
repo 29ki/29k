@@ -84,10 +84,19 @@ export const updateSession = async (
   sessionId: Session['id'],
   data: Partial<UpdateSession>,
 ) => {
-  const session = (await sessionModel.getSessionById(sessionId)) as Session;
+  const session = (await sessionModel.getSessionById(sessionId)) as Session & {
+    dailyRoomName: string;
+  };
 
   if (userId !== session?.hostId) {
     throw new Error('user-unauthorized');
+  }
+
+  if (data.startTime && session.startTime !== data.startTime) {
+    dailyApi.updateRoom(
+      session.dailyRoomName,
+      dayjs(data.startTime).add(2, 'hour'),
+    );
   }
 
   await sessionModel.updateSession(sessionId, removeEmpty(data));

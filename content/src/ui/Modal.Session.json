@@ -11,6 +11,18 @@
         "confirm": "Delete"
       }
     },
+    "selectType": {
+      "title": "Session with...",
+      "public": {
+        "title": "Anyone"
+      },
+      "private": {
+        "title": "Friends"
+      },
+      "async": {
+        "title": "Myself"
+      }
+    },
     "join": "Join",
     "shareMessage": "{{link}}\nSession code: {{code}}",
     "description": "Add to calendar, set reminder or share the code to invite friends"
@@ -28,7 +40,20 @@
       }
     },
     "join": "Juntar",
-    "shareMessage": "{{link}}Código da sessão: {{code}}"
+    "shareMessage": "{{link}}Código da sessão: {{code}}",
+    "description": "Adiciona ao calendário, configura um lembrete ou partilha o código para convidares os teus amigos.",
+    "selectType": {
+      "title": "Sessão com...",
+      "public": {
+        "title": "Qualquer pessoa"
+      },
+      "private": {
+        "title": "Os meus amigos"
+      },
+      "async": {
+        "title": "Comigo"
+      }
+    }
   },
   "sv": {
     "edit": "Ändra",
@@ -40,6 +65,18 @@
       "buttons": {
         "cancel": "Avbryt",
         "confirm": "Ta bort"
+      }
+    },
+    "selectType": {
+      "title": "Session för...",
+      "public": {
+        "title": "Alla"
+      },
+      "private": {
+        "title": "Mina vänner"
+      },
+      "async": {
+        "title": "Mig själv"
       }
     },
     "join": "Gå med"
