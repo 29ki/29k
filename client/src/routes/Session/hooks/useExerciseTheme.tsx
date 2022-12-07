@@ -1,11 +1,8 @@
 import {ExerciseTheme} from '../../../../../shared/src/types/generated/Exercise';
-import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import useSessionState from '../state/state';
+import useSessionExercise from './useSessionExercise';
 
 const useExerciseTheme = (): ExerciseTheme | undefined => {
-  const contentId = useSessionState(state => state.session?.contentId);
-  const excerciseTheme = useExerciseById(contentId)?.theme;
-
+  const excerciseTheme = useSessionExercise()?.theme;
   return excerciseTheme;
 };
 

@@ -4,15 +4,15 @@
     "time": "Time",
     "done": "Done"
   },
+  "pt": {
+    "date": "Data",
+    "time": "Hora",
+    "done": "Pronto"
+  },
   "sv": {
     "date": "Dag",
     "time": "Tid",
     "done": "Klar"
-  },
-  "pt": {
-    "date": "Dia",
-    "time": "Hora",
-    "done": "Pronto"
   },
   "es": {}
 }
