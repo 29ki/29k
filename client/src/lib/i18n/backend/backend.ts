@@ -1,10 +1,11 @@
 import {BackendModule, ReadCallback, ResourceKey} from 'i18next';
-import {clone, pickBy} from 'ramda';
+import {clone} from 'ramda';
 import content from '../../../../../content/content.json';
 import {
   LANGUAGE_TAG,
   DEFAULT_LANGUAGE_TAG,
 } from '../../../../../shared/src/constants/i18n';
+import {removeHiddenExercises} from '../../../../../shared/src/i18n/utils';
 import useAppState from '../../appState/state/state';
 
 type Namespace = keyof typeof content.i18n[typeof DEFAULT_LANGUAGE_TAG];
@@ -29,10 +30,7 @@ const Backend: BackendModule = {
       } else {
         // Default load only non hidden
         const exercises = clone(resource);
-        const onlyNonHiddenExercises = pickBy<ResourceKey, ResourceKey>(
-          v => !v.hidden,
-          exercises,
-        );
+        const onlyNonHiddenExercises = removeHiddenExercises(exercises);
 
         callback(null, onlyNonHiddenExercises);
       }

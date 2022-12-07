@@ -31,7 +31,7 @@ const omitExercises = (resources: typeof content.i18n) => {
   const allResources = clone(resources) as unknown as Record<
     string,
     Record<string, string>
-  >; // Can't delete exercises if since content.i18n demands it
+  >; // Can't delete exercises in type content.i18n since it's not opttional
   for (const ln of LANGUAGE_TAGS) {
     delete allResources[ln].exercises;
   }
