@@ -43,6 +43,7 @@ import useUser from '../../lib/user/hooks/useUser';
 import Byline from '../../common/components/Bylines/Byline';
 import {UserProfile} from '../../../../shared/src/types/User';
 import {PrivateIcon, PublicIcon} from '../../common/components/Icons';
+import {formatExerciseName} from '../../common/utils/string';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -112,7 +113,7 @@ const ContentCard: React.FC<{
     <Gutters>
       <Card onPress={onPress}>
         <TextWrapper>
-          <Display16>{exercise?.name}</Display16>
+          <Display16>{formatExerciseName(exercise)}</Display16>
         </TextWrapper>
         <Spacer16 />
         <CardImageWrapper>
