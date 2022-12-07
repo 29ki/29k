@@ -16,9 +16,11 @@ export const CLOUDINARY_VIDEO_CONFIG = {
   name: 'cloudinary',
   config: {
     default_transformations: [
-      {
-        quality: 'auto:eco',
-      },
+      [
+        {
+          quality: 'auto:eco',
+        },
+      ],
     ],
   },
 };
