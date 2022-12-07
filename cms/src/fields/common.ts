@@ -22,16 +22,17 @@ export const PUBLISHED_FIELD: CmsField = {
   required: true,
   default: false,
   i18n: true,
+  hint: "This will make it included in the app. For work in progress, use in combination with hidden and the 'Show work in progress' switch in the app to access it only in staging.",
 };
 
 export const HIDDEN_FIELD: CmsField = {
   label: '🙈 Hidden',
   name: 'hidden',
   widget: 'boolean',
-  required: true,
+  required: false,
   default: false,
   i18n: true,
-  hint: 'This will make it hidden while in progress',
+  hint: "This will make it hidden by default. For work in progress, use in combination with published and the 'Show work in progress' switch in the app to access it only in staging.",
 };
 
 export const NAME_FIELD: CmsField = {
