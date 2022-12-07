@@ -9,7 +9,7 @@ type AudioFaderProps = {
   source: string;
 };
 
-const AudioFader: React.FC<AudioFaderProps> = React.memo(
+const AudioFader = React.memo<AudioFaderProps>(
   ({duration = 5000, volume = 1, paused, repeat, source}) => {
     const [currentVolume, setVolume] = useState(0);
     const [loaded, setLoaded] = useState(false);
@@ -47,6 +47,7 @@ const AudioFader: React.FC<AudioFaderProps> = React.memo(
         volume={currentVolume}
         onLoad={onLoad}
         source={source}
+        mixWithOthers
       />
     );
   },

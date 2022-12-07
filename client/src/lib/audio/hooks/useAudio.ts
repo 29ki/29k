@@ -9,10 +9,6 @@ const useAudio = (source: string): Sound | undefined => {
       if (err) {
         console.error(err);
       }
-      /*
-      Sound.setCategory('PlayAndRecord');
-      Sound.setMode('VideoChat');
-      */
 
       setAudio(audioInstance);
     });
