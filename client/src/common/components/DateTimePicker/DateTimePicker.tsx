@@ -15,13 +15,10 @@ import utc from 'dayjs/plugin/utc';
 import {useTranslation} from 'react-i18next';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {SPACINGS} from '../../../common/constants/spacings';
+import {SPACINGS} from '../../constants/spacings';
 
-import TouchableOpacity from '../../../common/components/TouchableOpacity/TouchableOpacity';
-import {
-  Body16,
-  BodyBold,
-} from '../../../common/components/Typography/Body/Body';
+import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
+import {Body16, BodyBold} from '../Typography/Body/Body';
 
 dayjs.extend(utc);
 
@@ -127,8 +124,8 @@ const Picker: React.FC<PickerProps> = ({
   }, [setShowTimePicker, showDatePicker, onToggle]);
 
   const onTimePress = useCallback(() => {
-    setShowTimePicker(false);
-    setShowDatePicker(!showDatePicker);
+    setShowDatePicker(false);
+    setShowTimePicker(!showDatePicker);
     onToggle(!showDatePicker);
   }, [setShowTimePicker, showDatePicker, onToggle]);
 

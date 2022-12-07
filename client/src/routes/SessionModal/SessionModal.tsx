@@ -41,7 +41,7 @@ import useUser from '../../lib/user/hooks/useUser';
 import useSessions from '../Sessions/hooks/useSessions';
 import {PencilIcon, CalendarIcon} from '../../common/components/Icons';
 import TouchableOpacity from '../../common/components/TouchableOpacity/TouchableOpacity';
-import DateTimePicker from '../CreateSessionModal/components/DateTimePicker';
+import DateTimePicker from '../../common/components/DateTimePicker/DateTimePicker';
 import {updateSession} from '../Sessions/api/session';
 import {Session, SessionType} from '../../../../shared/src/types/Session';
 import EditSessionType from '../../common/components/EditSessionType/EditSessionType';
