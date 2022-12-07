@@ -149,12 +149,15 @@ const ChangingRoom = () => {
       await joinMeeting();
       navigate('Session', {sessionId: sessionId});
     } else {
-      await joinMeeting({
-        subscribeToTracksAutomatically: false,
-        userData: {
-          inPortal: true,
+      await joinMeeting(
+        {
+          subscribeToTracksAutomatically: false,
+          userData: {
+            inPortal: true,
+          },
         },
-      });
+        true,
+      );
       navigate('IntroPortal', {sessionId: sessionId});
     }
   };
