@@ -22,10 +22,7 @@ export type DailyProviderTypes = {
   call?: DailyCall;
   hasAppPermissions: () => boolean;
   preJoinMeeting: (url: string) => Promise<void>;
-  joinMeeting: (
-    options?: DailyCallOptions,
-    waitForAudio?: boolean,
-  ) => Promise<void>;
+  joinMeeting: (options?: DailyCallOptions) => Promise<void>;
   leaveMeeting: () => Promise<void>;
   toggleAudio: (enabled: boolean) => void;
   toggleVideo: (enabled: boolean) => void;
@@ -164,13 +161,13 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   );
 
   const joinMeeting = useCallback(
-    async (options?: DailyCallOptions, waitForAudio = false) =>
+    async (options?: DailyCallOptions) =>
       new Promise<void>(async resolve => {
         if (daily.meetingState() !== 'joined-meeting') {
           await daily.join(options);
 
           // TODO: Remove as soon as intro portal is separated from daily call
-          if (waitForAudio && Platform.OS === 'ios' && !(await isEmulator())) {
+          if (Platform.OS === 'ios' && !(await isEmulator())) {
             /* This is a hack to let the audio input/output settle before resolving to not
             cause a race condition with react-native-video (or other sound sources) */
             const resolveOnce = once(() => resolve());
