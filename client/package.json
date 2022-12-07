@@ -34,7 +34,7 @@
     "@react-navigation/bottom-tabs": "^6.4.1",
     "@react-navigation/drawer": "^6.5.1",
     "@react-navigation/native": "^6.0.14",
-    "@react-navigation/native-stack": "^6.9.2",
+    "@react-navigation/native-stack": "^6.9.4",
     "@sentry/react-native": "^4.9.0",
     "@th3rdwave/react-navigation-bottom-sheet": "^0.2.2",
     "dayjs": "^1.11.6",
