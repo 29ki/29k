@@ -1,6 +1,6 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import dayjs from 'dayjs';
-import React, {useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Alert, Share, View} from 'react-native';
@@ -9,7 +9,12 @@ import styled from 'styled-components/native';
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
-import {BellIcon, ShareIcon} from '../../common/components/Icons';
+import {
+  BellIcon,
+  PrivateIcon,
+  PublicIcon,
+  ShareIcon,
+} from '../../common/components/Icons';
 import Image from '../../common/components/Image/Image';
 import SheetModal from '../../common/components/Modals/SheetModal';
 import {
@@ -36,9 +41,26 @@ import useUser from '../../lib/user/hooks/useUser';
 import useSessions from '../Sessions/hooks/useSessions';
 import {PencilIcon, CalendarIcon} from '../../common/components/Icons';
 import TouchableOpacity from '../../common/components/TouchableOpacity/TouchableOpacity';
-import DateTimePicker from '../CreateSessionModal/components/DateTimePicker';
+import DateTimePicker from '../../common/components/DateTimePicker/DateTimePicker';
 import {updateSession} from '../Sessions/api/session';
-import {Session} from '../../../../shared/src/types/Session';
+import {Session, SessionType} from '../../../../shared/src/types/Session';
+import EditSessionType from '../../common/components/EditSessionType/EditSessionType';
+import {SPACINGS} from '../../common/constants/spacings';
+import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
+
+const TypeWrapper = styled(TouchableOpacity)({
+  justifyContent: 'center',
+  height: 96,
+  flex: 1,
+  backgroundColor: COLORS.PURE_WHITE,
+  borderRadius: SPACINGS.SIXTEEN,
+  paddingHorizontal: SPACINGS.SIXTEEN,
+});
+
+const TypeItemHeading = styled(ModalHeading)({
+  textAlign: 'left',
+  paddingHorizontal: SPACINGS.EIGHT,
+});
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -78,17 +100,42 @@ const DeleteButton = styled(Button)({
   backgroundColor: COLORS.DELETE,
 });
 
+const TypeItemWrapper = styled.View({
+  flexDirection: 'row',
+  height: 96,
+  flex: 1,
+});
+
+const IconWrapper = styled.View({
+  width: 30,
+  height: 30,
+});
+
+const TypeItem: React.FC<{
+  Icon: React.ReactNode;
+  label: string;
+  onPress: () => void;
+}> = ({Icon, label, onPress = () => {}}) => (
+  <TypeWrapper onPress={onPress}>
+    <IconWrapper>{Icon}</IconWrapper>
+    <Body16>{label}</Body16>
+  </TypeWrapper>
+);
+
 const SessionModal = () => {
   const {
     params: {session: initialSessionData},
   } = useRoute<RouteProp<ModalStackProps, 'SessionModal'>>();
 
+  const [session, setSession] = useState<Session>(initialSessionData);
+
   const {t} = useTranslation('Modal.Session');
   const user = useUser();
   const {deleteSession, fetchSessions} = useSessions();
   const [editMode, setEditMode] = useState(false);
+  const [editTypeMode, setEditTypeMode] = useState(false);
+  const [selectedType, setSelectedType] = useState(session?.type);
 
-  const [session, setSession] = useState<Session>(initialSessionData);
   const initialStartTime = dayjs(session.startTime).utc();
   const [sessionDate, setSessionDate] = useState<dayjs.Dayjs>(initialStartTime);
   const [sessionTime, setSessionTime] = useState<dayjs.Dayjs>(initialStartTime);
@@ -104,11 +151,7 @@ const SessionModal = () => {
     .utc()
     .isAfter(initialStartTime.subtract(10, 'minutes'));
 
-  if (!session || !exercise) {
-    return null;
-  }
-
-  const onJoin = () => {
+  const onJoin = useCallback(() => {
     navigation.popToTop();
     navigation.navigate('SessionStack', {
       screen: 'ChangingRoom',
@@ -122,11 +165,18 @@ const SessionModal = () => {
       'Session Type': session.type,
       'Session Start Time': session.startTime,
     });
-  };
+  }, [
+    session.startTime,
+    session.type,
+    session.contentId,
+    session.language,
+    session.id,
+    navigation,
+  ]);
 
-  const onAddToCalendar = () => {
+  const onAddToCalendar = useCallback(() => {
     addToCalendar(
-      exercise.name,
+      exercise?.name,
       session.hostProfile?.displayName,
       session.link,
       dayjs(session.startTime),
@@ -138,9 +188,18 @@ const SessionModal = () => {
       'Session Type': session.type,
       'Session Start Time': session.startTime,
     });
-  };
+  }, [
+    exercise,
+    session.startTime,
+    session.type,
+    session.contentId,
+    session.language,
+    addToCalendar,
+    session.hostProfile?.displayName,
+    session.link,
+  ]);
 
-  const onToggleReminder = () => {
+  const onToggleReminder = useCallback(() => {
     toggleReminder(!reminderEnabled);
     if (!reminderEnabled) {
       metrics.logEvent('Add Session Reminder', {
@@ -150,9 +209,16 @@ const SessionModal = () => {
         'Session Start Time': session.startTime,
       });
     }
-  };
+  }, [
+    reminderEnabled,
+    session.contentId,
+    session.language,
+    session.type,
+    session.startTime,
+    toggleReminder,
+  ]);
 
-  const onShare = () => {
+  const onShare = useCallback(() => {
     if (session.link) {
       Share.share({
         message: t('shareMessage', {
@@ -162,9 +228,9 @@ const SessionModal = () => {
         }),
       });
     }
-  };
+  }, [session.link, session.inviteCode, t]);
 
-  const onDelete = () => {
+  const onDelete = useCallback(() => {
     Alert.alert(t('delete.header'), t('delete.text'), [
       {text: t('delete.buttons.cancel'), style: 'cancel', onPress: () => {}},
       {
@@ -177,7 +243,73 @@ const SessionModal = () => {
         },
       },
     ]);
-  };
+  }, [t, navigation, deleteSession, session.id]);
+
+  const onUpdateSession = useCallback(async () => {
+    const sessionDateTime = sessionDate
+      .hour(sessionTime.hour())
+      .minute(sessionTime.minute());
+
+    const updatedSession = await updateSession(session.id, {
+      startTime: sessionDateTime.utc().toISOString(),
+      type: selectedType,
+    });
+
+    setSession(updatedSession);
+    fetchSessions();
+    setEditMode(false);
+  }, [
+    setSession,
+    fetchSessions,
+    setEditMode,
+    sessionTime,
+    sessionDate,
+    session.id,
+    selectedType,
+  ]);
+
+  const onChange = useCallback(
+    (date: dayjs.Dayjs, time: dayjs.Dayjs) => {
+      setSessionDate(date);
+      setSessionTime(time);
+    },
+    [setSessionDate, setSessionTime],
+  );
+
+  const onEditMode = useCallback(() => setEditMode(true), [setEditMode]);
+
+  const onEditType = useCallback(
+    () => setEditTypeMode(true),
+    [setEditTypeMode],
+  );
+
+  useEffect(() => {
+    if (!editMode) {
+      setEditTypeMode(false);
+    }
+  }, [editMode]);
+
+  const sessionTypes = useMemo(
+    () =>
+      Object.values(SessionType).map((type, i, arr) => (
+        <TypeItemWrapper key={i}>
+          <TypeItem
+            onPress={() => {
+              setSelectedType(type);
+              setEditTypeMode(false);
+            }}
+            label={t(`selectType.${type}.title`)}
+            Icon={type === 'private' ? <PrivateIcon /> : <PublicIcon />}
+          />
+          {i < arr.length - 1 && <Spacer16 />}
+        </TypeItemWrapper>
+      )),
+    [t],
+  );
+
+  if (!session || !exercise) {
+    return null;
+  }
 
   return (
     <SheetModal>
@@ -213,7 +345,7 @@ const SessionModal = () => {
                 </>
               )}
               {user?.uid === session.hostId && (
-                <EditButton onPress={() => setEditMode(true)}>
+                <EditButton onPress={onEditMode}>
                   <SessionTimeBadge session={session} />
                   <EditIcon>
                     <PencilIcon />
@@ -266,37 +398,36 @@ const SessionModal = () => {
       )}
       {editMode && (
         <Gutters>
-          <DateTimePicker
-            initialDateTime={initialStartTime}
-            minimumDate={dayjs().local()}
-            onChange={(date, time) => {
-              setSessionDate(date);
-              setSessionTime(time);
-            }}
-          />
-          <Spacer16 />
-          <SpaceBetweenRow>
-            <Button
-              variant="secondary"
-              onPress={async () => {
-                const sessionDateTime = sessionDate
-                  .hour(sessionTime.hour())
-                  .minute(sessionTime.minute());
-
-                const updatedSession = await updateSession(session.id, {
-                  startTime: sessionDateTime.utc().toISOString(),
-                });
-
-                setSession(updatedSession);
-                fetchSessions();
-                setEditMode(false);
-              }}>
-              {t('done')}
-            </Button>
-            <DeleteButton small onPress={onDelete}>
-              {t('deleteButton')}
-            </DeleteButton>
-          </SpaceBetweenRow>
+          {editTypeMode && (
+            <>
+              <TypeItemHeading>{t('selectType.title')}</TypeItemHeading>
+              <Spacer16 />
+              <Row>{sessionTypes}</Row>
+            </>
+          )}
+          {!editTypeMode && (
+            <>
+              <EditSessionType
+                sessionType={selectedType}
+                onPress={onEditType}
+              />
+              <Spacer16 />
+              <DateTimePicker
+                initialDateTime={initialStartTime}
+                minimumDate={dayjs().local()}
+                onChange={onChange}
+              />
+              <Spacer16 />
+              <SpaceBetweenRow>
+                <Button variant="secondary" onPress={onUpdateSession}>
+                  {t('done')}
+                </Button>
+                <DeleteButton small onPress={onDelete}>
+                  {t('deleteButton')}
+                </DeleteButton>
+              </SpaceBetweenRow>
+            </>
+          )}
         </Gutters>
       )}
     </SheetModal>
