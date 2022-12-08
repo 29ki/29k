@@ -1,5 +1,4 @@
 import React, {useCallback, useEffect} from 'react';
-import {ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
 import Animated, {
   Easing,
@@ -32,7 +31,7 @@ const Container = styled(Animated.View)({
 type AudioTogglerProps = {
   muted: boolean;
   onToggle: (muted: boolean) => void;
-  allowUnmute: boolean;
+  allowUnmute?: boolean;
 };
 
 const AudioToggler: React.FC<AudioTogglerProps> = ({
