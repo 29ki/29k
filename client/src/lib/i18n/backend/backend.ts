@@ -1,4 +1,4 @@
-import {BackendModule, ReadCallback, ResourceKey} from 'i18next';
+import {BackendModule, ReadCallback} from 'i18next';
 import {clone} from 'ramda';
 import content from '../../../../../content/content.json';
 import {
@@ -18,19 +18,20 @@ const Backend: BackendModule = {
     namespace: Namespace,
     callback: ReadCallback,
   ) {
-    const showNonPublishedContent = useAppState.getState().showHiddenContent;
-
-    const resource = (
-      content.i18n as unknown as Record<string, Record<string, string>>
-    )[language][namespace] as ResourceKey;
-
     if (namespace === 'exercises') {
+      const showNonPublishedContent = useAppState.getState().showHiddenContent;
+      const resources = content.i18n[language] as {
+        ['exercises']: {} | undefined;
+      }; // exercises does not exist for all languages, need to cast here
+
       if (showNonPublishedContent) {
-        callback(null, resource);
-      } else {
+        callback(null, resources.exercises);
+      } else if (resources.exercises) {
         // Default load only non hidden
-        const exercises = clone(resource);
-        const onlyNonHiddenExercises = removeHiddenExercises(exercises);
+        const exercises = clone(resources);
+        const onlyNonHiddenExercises = removeHiddenExercises(
+          exercises.exercises,
+        );
 
         callback(null, onlyNonHiddenExercises);
       }

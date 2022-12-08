@@ -4,6 +4,7 @@ import Backend from './backend';
 jest.mock('../../../../../content/content.json', () => ({
   i18n: {
     en: {exercises: {'exercise-1': {hidden: true}, 'exercise-2': {}}},
+    es: {},
   },
 }));
 
