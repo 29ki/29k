@@ -5,7 +5,7 @@ import {
   LANGUAGE_TAG,
   DEFAULT_LANGUAGE_TAG,
 } from '../../../../../shared/src/constants/i18n';
-import {removeHiddenExercises} from '../../../../../shared/src/i18n/utils';
+import {removeHiddenContent} from '../../../../../shared/src/i18n/utils';
 import useAppState from '../../appState/state/state';
 
 type Namespace = keyof typeof content.i18n[typeof DEFAULT_LANGUAGE_TAG];
@@ -29,9 +29,7 @@ const Backend: BackendModule = {
       } else if (resources.exercises) {
         // Default load only non hidden
         const exercises = clone(resources);
-        const onlyNonHiddenExercises = removeHiddenExercises(
-          exercises.exercises,
-        );
+        const onlyNonHiddenExercises = removeHiddenContent(exercises.exercises);
 
         callback(null, onlyNonHiddenExercises);
       }

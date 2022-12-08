@@ -1,10 +1,10 @@
-import {removeHidden, removeHiddenExercises} from './utils';
+import {removeHidden, removeHiddenContent} from './utils';
 
 describe('utils', () => {
-  describe('removeHiddenExercises', () => {
-    it('should remove hidden exercises', () => {
+  describe('removeHiddenContent', () => {
+    it('should remove hidden content', () => {
       expect(
-        removeHiddenExercises({'exercise-1': {}, 'exercise-2': {hidden: true}}),
+        removeHiddenContent({'exercise-1': {}, 'exercise-2': {hidden: true}}),
       ).toEqual({
         'exercise-1': {},
       });
