@@ -8241,7 +8241,7 @@ react-native-url-polyfill@^1.1.2:
 
 "react-native-video@https://github.com/29ki/react-native-video#fix-iOS-16-support":
   version "5.2.1"
-  resolved "https://github.com/29ki/react-native-video#c80bbb87ef9c044bc02202c0f109de8a46902217"
+  resolved "https://github.com/29ki/react-native-video#b58c9c472a4ba3d77b4757093cab073afdd17cfa"
   dependencies:
     deprecated-react-native-prop-types "^2.2.0"
     keymirror "^0.1.1"
