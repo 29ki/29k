@@ -31,13 +31,14 @@ const Container = styled(Animated.View)({
 
 type AudioTogglerProps = {
   muted: boolean;
-  style?: ViewStyle;
   onToggle: (muted: boolean) => void;
+  allowUnmute: boolean;
 };
 
 const AudioToggler: React.FC<AudioTogglerProps> = ({
   muted = false,
   onToggle,
+  allowUnmute = false,
 }) => {
   const iconOffset = useSharedValue(0);
   const iconBackground = useSharedValue(0);
@@ -77,7 +78,10 @@ const AudioToggler: React.FC<AudioTogglerProps> = ({
   ]);
 
   return (
-    <TouchableOpacity activeOpacity={1} onPress={onPress}>
+    <TouchableOpacity
+      disabled={!allowUnmute && muted}
+      activeOpacity={1}
+      onPress={onPress}>
       <Container style={containerAnimatedStyles}>
         <Wrapper style={iconAnimatedStyles}>
           {muted ? (
