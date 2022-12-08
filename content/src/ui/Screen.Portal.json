@@ -12,6 +12,19 @@
     },
     "leavePortal": "Leave"
   },
+  "pt": {
+    "participants": "Somos",
+    "startSession": "Iniciar sessão",
+    "sessionStarted": "A sessão está ativa",
+    "skipPortal": "Ignorar",
+    "counterLabel": {
+      "startsIn": "Começa em",
+      "starts": "Começa",
+      "shortly": "Brevemente",
+      "started": "Agora"
+    },
+    "leavePortal": "Sair"
+  },
   "sv": {
     "participants": "Vi är",
     "startSession": "Starta session",
@@ -23,12 +36,6 @@
       "shortly": "Strax",
       "started": "Nu"
     }
-  },
-  "pt": {
-    "participants": "Somos",
-    "startSession": "Iniciar sessão",
-    "sessionStarted": "A sessão está ativa",
-    "skipPortal": "Ignorar em"
   },
   "es": {}
 }

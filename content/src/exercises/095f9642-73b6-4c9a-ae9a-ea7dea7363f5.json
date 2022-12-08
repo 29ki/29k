@@ -135,7 +135,7 @@
       },
       "hostNotes": [
         {
-          "text": "> Inicia a sessão quando estiveres pronta/o."
+          "text": ">Start the session when you're ready to go."
         }
       ]
     },
@@ -144,10 +144,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Bem-vindos a esta sessão, moderada por mim, x.\n\nEstou muito feliz por terem escolhido juntar-se a nós aqui na 29k FJN. Vamos trabalhar durante 30 minutos no amor e na ligação connosco e com os outros.\n\nFaremos uma breve meditação em conjunto, depois teremos um momento de reflexão individual, e no último momento vamos partilhar entre todos a forma como vivemos e sentimos estes momentos."
+            "text": "Bem-vindos. Eu sou a/o X e hoje vamos estar juntos durante 30 minutos a refletir acerca de amor e conexão com nós próprios e com os outros.\n\nFaremos uma breve meditação juntos. Depois teremos um momento de reflexão acerca de nós próprios e o passo final é partilharmos uns com os outros a nossa experiência nesta sessão."
           },
           {
-            "text": "Vamos começar com um pequeno check-in.\n\nComo te estás a sentir neste momento? Responde por favor em duas ou três palavras.\n\nX, gostarias de começar e depois passar para outra pessoa quando terminares?\n\n> Permite que todos na sessão façam check-in um por um.\n\nObrigada/o a todos pelo check-in.\n\nVamos então começar."
+            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
           }
         ]
       },
@@ -156,8 +156,9 @@
         "content": {
           "heading": "O amor puro e simples",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328548/temp/audio_meditation_2_b3hwge.mp4"
-          }
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1670322252/FJN/Live%20Sessions/meditation_pure_simple_love_pt_awrfo6_pf7qo7.mp4"
+          },
+          "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
         },
         "hostNotes": [
           {
@@ -171,57 +172,56 @@
       {
         "type": "reflection",
         "content": {
-          "heading": "Reflexão: O que sentiste com esta meditação? Como te afetou?",
+          "heading": "O que sentiste com esta meditação? Como te afetou?",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328538/temp/1_min_eto52x.mp4"
-          }
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663328538/temp/1_min_eto52x.mp4"
+          },
+          "text": "O que podes trazer para o resto do dia?"
         },
         "hostNotes": [
           {
             "text": "Vamos agora reservar 1 minuto para refletir individualmente.\n\nO que sentiste ao fazer esta meditação? Como te afetou?\n\nO que podes aproveitar desta experiência para o resto do seu dia?"
           },
           {
-            "text": "Se quiseres, podes tomar notas numa folha de papel ou apenas algumas notas mentais. E lembra-te, não há um certo ou errado aqui. São as nossas respostas e perspetivas próprias.\n\n1 minuto a partir de agora.\n\n> Carregar em play para iniciar o cronómetro.\n\nOk, isso é 1 minuto. Vamos lá."
+            "text": "Se quiseres, podes tomar notas numa folha de papel ou apenas algumas notas mentais. E lembra-te, não há um certo ou errado aqui. São as nossas respostas e perspetivas próprias. 1 minuto a partir de agora.\n\n> Carregar em play para iniciar o cronómetro.\n\nOk, isso é 1 minuto. Vamos lá."
           }
         ]
       },
       {
         "type": "sharing",
         "content": {
-          "heading": "Partilha: O que sentiste com esta meditação? Como te afetou?",
+          "heading": "O que sentiste com esta meditação? Como te afetou?",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto,t_global/v1663328538/temp/2_min_fr9hsu.mp4"
-          }
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663328538/temp/2_min_fr9hsu.mp4"
+          },
+          "text": "O que podes trazer para o resto do dia?"
         },
         "hostNotes": [
           {
             "text": "Vamos agora entrar na parte de partilha deste exercício. Temos três regras importantes:\n\n1. **O que é dito aqui, fica aqui.**\n2. **O teu trabalho como participante é apenas ouvir.** Não há necessidade de ajudar ou dar conselhos neste espaço. Estamos apenas a partilhar e a tentar entender o que nós mesmos e os outros estão a passar."
           },
           {
-            "text": "3. **Tudo no nosso interior está bem.** Raiva, amor, ódio, tristeza. O que quer que apareça. Não há certos ou errados.\n\nTeremos um temporizador de 2 minutos como indicador, mas terás o tempo que quiseres. Se não quiseres partilhar, podes dizer 'passo'."
+            "text": "3. **Tudo no nosso interior está bem**. Raiva, amor, ódio, tristeza. O que quer que apareça. Não há certos ou errados.\n\nTeremos um temporizador de 2 minutos como indicador, mas terás o tempo que quiseres. Se não quiseres partilhar, podes dizer 'passar'."
           },
           {
-            "text": "X, gostarias de começar?\n\n> Permitir que todos (ou para os que houver tempo) façam uma partilha individual.\n>\n> Carrega play para iniciar a contagem de tempo. Reinicia para cada nova partilha.\n\nMuito obrigada/o por partilhares os teus pensamentos e sentimentos connosco."
+            "text": "Quem gostaria de começar?\n\n> Deixa até 6 pessoas partilharem individualmente. Carrega play para iniciar a contagem de tempo. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
         ]
       },
       {
-        "type": "content",
-        "content": {
-          "heading": "Obrigada/o",
-          "image": {
-            "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1663327181/temp/29k_slide_snrub2.png"
-          }
-        },
+        "type": "host",
         "hostNotes": [
           {
-            "text": "Acabamos de pensar num momento de amor nas nossas vidas.\n\nÉ muito importante focarmos nos momentos preciosos da nossa vida, para tentar equilibrar o esforço natural que o nosso cérebro faz de focar nos aspetos negativos para nos ajudar a sobreviver."
+            "text": "Acabamos de pensar num momento de amor nas nossas vidas. É muito importante focarmos nestes momentos preciosos, para tentar equilibrar o esforço natural que o nosso cérebro faz de focar nos aspetos negativos."
           },
           {
-            "text": "Parabéns. Gostava de vos deixar uma pequena missão, se estiverem dispostos a isso.\n\nSe tiverem disposição, definam um lembrete num horário aleatório do dia e, quando o lembrete for ativado, dá a ti mesmo um momento para refletir sobre um momento positivo da tua vida nas últimas 24 horas. Ao fazer isso, observa te sentes interiormente e com o teu corpo."
+            "text": "Parabéns. Gostava de vos deixar uma pequena missão, se estiverem dispostos a isso. Tornar este exercício um hábito no vosso dia a dia.\n\nDefinam um lembrete num horário aleatório do dia e, quando o lembrete for ativado, reserva uns instantes para refletir sobre um momento positivo da tua vida nas últimas 24 horas. Ao fazer isso, observa como te sentes interiormente e com o teu corpo."
           },
           {
-            "text": "Muito obrigada/o por te teres juntado a nós hoje. Se tiveres alguma reflexão ou sugestão para nós na 29k FJN, por favor diz-nos. Desejo a todos um excelente dia.\n\nAté já."
+            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.\n\nComo te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Permite que todos na sessão façam um check-out individual.\n\nObrigado a todos por este check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão enviando todos os participantes para a experiência de saída."
           }
         ]
       }

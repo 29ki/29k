@@ -52,6 +52,32 @@ export const createRoom = async (expireDate: Dayjs): Promise<Room> => {
   return res.json();
 };
 
+export const updateRoom = async (
+  name: Room['name'],
+  expireDate: Dayjs,
+): Promise<Room> => {
+  const res = await fetch(`${DAILY_API_URL}/rooms/${name}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${DAILY_API_KEY}`,
+    },
+    body: JSON.stringify({
+      properties: {
+        exp: expireDate.unix(),
+        start_audio_off: true,
+        start_video_off: false,
+      },
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Failed updating room, ${res.body}`);
+  }
+
+  return res.json();
+};
+
 export const deleteRoom = async (name: string): Promise<Room> => {
   const res = await fetch(`${DAILY_API_URL}/rooms/${name}`, {
     method: 'DELETE',

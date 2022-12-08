@@ -111,6 +111,7 @@ const UpdateSessionSchema = yup
     started: yup.boolean(),
     ended: yup.boolean(),
     startTime: yup.string(),
+    type: yup.mixed<SessionType>().oneOf(Object.values(SessionType)),
   })
   .test(
     'nonEmptyObject',

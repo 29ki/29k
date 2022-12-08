@@ -15,6 +15,7 @@ import SETTINGS from '../../../../common/constants/settings';
 import {SPACINGS} from '../../../../common/constants/spacings';
 
 import useSessionExercise from '../../hooks/useSessionExercise';
+import useSessionSlideState from '../../hooks/useSessionSlideState';
 
 import {BackwardCircleIcon} from '../../../../common/components/Icons/BackwardCircle/BackwardCircle';
 import {Body14} from '../../../../common/components/Typography/Body/Body';
@@ -88,12 +89,13 @@ const HostNotes: React.FC<HostNotesProps> = ({
   const [containerWidth, setContainerWidth] = useState(0);
   const listItemWidth = containerWidth - SPACINGS.THIRTYTWO;
   const [scroll, setScroll] = useState({index: 0, animated: false});
+  const sessionSlideState = useSessionSlideState();
   const exercise = useSessionExercise();
   const {t} = useTranslation('Component.HostNotes');
 
   const notes = introPortal
     ? exercise?.introPortal?.hostNotes
-    : exercise?.slide.current.hostNotes;
+    : sessionSlideState?.current.hostNotes;
 
   const calculatePageIndex = useCallback(
     (e: NativeSyntheticEvent<NativeScrollEvent>) =>
@@ -127,7 +129,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
             <Spacer4 />
             <TopBar>
               <Progress
-                index={exercise?.slide.index}
+                index={sessionSlideState?.index}
                 length={exercise?.slides.length}
               />
               <Spacer8 />
