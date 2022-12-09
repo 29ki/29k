@@ -6,3 +6,4 @@ export const PlayfairDisplayItalic = 'PlayfairDisplay-Italic';
 export const HKGroteskRegular = 'HKGrotesk-Regular';
 export const HKGroteskMedium = 'HKGrotesk-Medium';
 export const HKGroteskBold = 'HKGrotesk-Bold';
+export const HKGroteskItalic = 'HKGrotesk-Italic';

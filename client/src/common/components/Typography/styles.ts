@@ -2,6 +2,7 @@ import {StyleSheet} from 'react-native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {
   HKGroteskBold,
+  HKGroteskItalic,
   HKGroteskMedium,
   HKGroteskRegular,
   PlayfairDisplayRegular,
@@ -101,6 +102,9 @@ const textStyles = StyleSheet.create({
   },
   BodyBold: {
     fontFamily: HKGroteskBold,
+  },
+  BodyItalic: {
+    fontFamily: HKGroteskItalic,
   },
   NAV_TAB: {
     color: COLORS.BLACK,
