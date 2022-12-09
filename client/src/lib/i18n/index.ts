@@ -19,26 +19,13 @@ import {
   LANGUAGE_TAGS,
 } from '../../../../shared/src/constants/i18n';
 import Backend from './backend/backend';
-import {clone} from 'ramda';
+import {omitExercises} from './utils/utils';
 
 export * from '../../../../shared/src/constants/i18n';
 
 dayjs.extend(localizedFormat);
 
 const DEFAULT_24HOUR_LANGUAGE_TAG = 'en-gb';
-
-// To trigger the backend middleware to load exercises they have to be removed first.
-// Removing them in buildContent creates somewhat of a mess in backend adding them back.
-const omitExercises = (resources: typeof content.i18n) => {
-  const allResources = clone(resources) as unknown as Record<
-    string,
-    Record<string, string>
-  >; // Can't delete exercises in type content.i18n since it's not opttional
-  for (const ln of LANGUAGE_TAGS) {
-    delete allResources[ln].exercises;
-  }
-  return allResources;
-};
 
 export const init = () =>
   i18next
@@ -48,6 +35,8 @@ export const init = () =>
       lng: findBestAvailableLanguage(CLIENT_LANGUAGE_TAGS)?.languageTag,
       supportedLngs: LANGUAGE_TAGS,
       fallbackLng: DEFAULT_LANGUAGE_TAG,
+      // To trigger the backend middleware to load exercises they have to be removed first.
+      // Removing them in buildContent creates somewhat of a mess in backend adding them back.
       resources: omitExercises(content.i18n),
       partialBundledLanguages: true,
     });

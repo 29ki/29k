@@ -1,6 +1,6 @@
 import {cleanup, renderHook, act} from '@testing-library/react-hooks';
 import {useTranslation} from 'react-i18next';
-import useAppState from '../state/state';
+import useAppState from '../../appState/state/state';
 import useToggleHiddenContent from './useToggleHiddenContent';
 
 beforeEach(async () => {

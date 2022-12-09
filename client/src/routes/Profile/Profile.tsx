@@ -28,7 +28,7 @@ import useAppState from '../../lib/appState/state/state';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {Body16} from '../../common/components/Typography/Body/Body';
 import useSetPreferredLanguage from '../../lib/i18n/hooks/useSetPreferedLanguage';
-import useToggleHiddenContent from '../../lib/appState/hooks/useToggleHiddenContent';
+import useToggleHiddenContent from '../../lib/i18n/hooks/useToggleHiddenContent';
 
 const Row = styled.View({
   flexDirection: 'row',

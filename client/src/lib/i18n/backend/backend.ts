@@ -8,7 +8,7 @@ import {
   filterPublishedContent,
   filterHiddenContent,
 } from '../../../../../shared/src/i18n/utils';
-import useAppState from '../../appState/state/state';
+import {getShowHiddenContent} from '../utils/utils';
 
 type Namespace = keyof typeof content.i18n[typeof DEFAULT_LANGUAGE_TAG];
 
@@ -26,7 +26,7 @@ const Backend: BackendModule = {
         content.i18n[language].exercises,
       );
 
-      if (useAppState.getState().showHiddenContent) {
+      if (getShowHiddenContent()) {
         callback(null, exercises);
       } else {
         // Default load only non hidden

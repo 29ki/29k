@@ -1,7 +1,7 @@
 import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
+import useAppState from '../../appState/state/state';
 import {LANGUAGE_TAGS} from '../../i18n';
-import useAppState from '../state/state';
 
 const useToggleHiddenContent = () => {
   const {i18n} = useTranslation();
