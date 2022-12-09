@@ -1,10 +1,10 @@
 {
   "en": {
     "settings": "Settings",
-    "signIn": "Sign-in",
+    "signIn": "Sign in",
     "language": "Language",
     "profileSettings": "Profile settings",
-    "deleteData": "Delete your data",
+    "deleteData": "Delete my data",
     "about": "29k Sessions",
     "earlyAccessInfo": "Early access info",
     "publicHostAccess": "Public host access",

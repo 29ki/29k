@@ -57,6 +57,8 @@ import ProfileMini from './components/ProfileMini';
 import LinearGradient from 'react-native-linear-gradient';
 import hexToRgba from 'hex-to-rgba';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import useUser from '../../lib/user/hooks/useUser';
+import useDeleteUser from '../../lib/user/hooks/useDeleteUser';
 
 const StartCol = styled.View({
   alignItems: 'flex-start',
@@ -96,8 +98,10 @@ const Profile = () => {
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
   const isPublicHost = useIsPublicHost();
+  const user = useUser();
   const toggleHiddenContent = useToggleHiddenContent();
   const showNonPublishedContent = useAppState(state => state.showHiddenContent);
+  const deleteUser = useDeleteUser();
 
   const profileSettingsPress = useCallback(
     () => navigate('ProfileSettingsModal'),
@@ -109,8 +113,10 @@ const Profile = () => {
     [navigate],
   );
 
+  const signInPress = useCallback(() => navigate('SignInModal'), [navigate]);
+
   const earlyAccessInfoPress = useCallback(
-    () => navigate('Welcome'),
+    () => navigate('EarlyAccessInfo'),
     [navigate],
   );
   const publicHostAccessPress = useCallback(
@@ -132,15 +138,25 @@ const Profile = () => {
             <ActionButton Icon={ProfileIcon} onPress={profileSettingsPress}>
               {t('profileSettings')}
             </ActionButton>
+            {(!user || user?.isAnonymous) && (
+              <ActionButton Icon={HangUpIcon} onPress={signInPress}>
+                {t('signIn')}
+              </ActionButton>
+            )}
             <ActionButton Icon={LanguagesIcon} onPress={languagePress}>
               {t('language')}
             </ActionButton>
-            <ActionButton Icon={HangUpIcon}>{t('signIn')}</ActionButton>
           </ActionList>
-          <Spacer16 />
-          <ActionList>
-            <ActionButton Icon={DeleteIcon}>{t('deleteData')}</ActionButton>
-          </ActionList>
+          {user && (
+            <>
+              <Spacer16 />
+              <ActionList>
+                <ActionButton Icon={DeleteIcon} onPress={deleteUser}>
+                  {t('deleteData')}
+                </ActionButton>
+              </ActionList>
+            </>
+          )}
           <Spacer32 />
 
           <Heading16>{t('about')}</Heading16>
