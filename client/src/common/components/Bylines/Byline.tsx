@@ -1,7 +1,5 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {View} from 'react-native';
-import {Text} from 'react-native-svg';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
@@ -15,9 +13,7 @@ const Container = styled.View({
   alignItems: 'center',
 });
 
-const WrapText = styled(Body14)({
-  flexShrink: 1,
-});
+const WrapText = styled(Body14)({flex: 1});
 
 const ImageContainer = styled.View({
   backgroundColor: COLORS.GREYMEDIUM,
