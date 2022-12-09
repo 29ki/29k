@@ -52,6 +52,7 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
   return (
     <Card
       title={formatExerciseName(exercise)}
+      duration={exercise?.duration}
       image={{
         uri: exercise?.card?.image?.source,
       }}

@@ -322,6 +322,7 @@ const SessionModal = () => {
             <Byline
               pictureURL={session.hostProfile?.photoURL}
               name={session.hostProfile?.displayName}
+              duration={exercise?.duration}
             />
           </TitleContainer>
           <Spacer32 />

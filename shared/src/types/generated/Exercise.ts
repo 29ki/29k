@@ -156,6 +156,7 @@ export interface ExerciseSlideHostSlide {
 export interface Exercise {
   id?: any;
   name: string;
+  duration: string;
   published: boolean;
   hidden?: boolean;
   card: ExerciseCard;

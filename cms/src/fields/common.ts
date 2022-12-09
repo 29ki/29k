@@ -42,6 +42,14 @@ export const NAME_FIELD: CmsField = {
   widget: 'string',
 };
 
+export const DURATION_FIELD: CmsField = {
+  label: '⏱ Duration',
+  name: 'duration',
+  i18n: 'duplicate',
+  required: true,
+  widget: 'number',
+};
+
 export const IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
   label: '🌅 Image',
   name: 'image',
