@@ -19,7 +19,8 @@
     "language": "Language",
     "password": "Lösenord",
     "upgrade": "Upgrade",
-    "email": "E-mail"
+    "email": "E-mail",
+    "showWip": "Show work in progress"
   },
   "pt": {
     "signIn": "Entrar",
@@ -41,7 +42,8 @@
     "language": "Língua",
     "password": "Password",
     "upgrade": "Atualizar",
-    "email": "E-mail"
+    "email": "E-mail",
+    "showWip": "Show work in progress"
   },
   "sv": {
     "signIn": "Logga in",
@@ -57,7 +59,8 @@
     "language": "Språk",
     "password": "Lösenord",
     "upgrade": "Uppgradera",
-    "email": "Epost"
+    "email": "Epost",
+    "showWip": "Visa pågående arbete"
   },
   "es": {}
 }

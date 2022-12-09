@@ -17,6 +17,7 @@ import {Body16} from '../../../../common/components/Typography/Body/Body';
 import {Display24} from '../../../../common/components/Typography/Display/Display';
 import {ModalHeading} from '../../../../common/components/Typography/Heading/Heading';
 import {SPACINGS} from '../../../../common/constants/spacings';
+import {formatExerciseName} from '../../../../common/utils/string';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import {StepProps} from '../../CreateSessionModal';
 
@@ -108,7 +109,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
       <Spacer8 />
       <Row>
         <TextWrapper>
-          <Display24>{exercise?.name}</Display24>
+          <Display24>{formatExerciseName(exercise)}</Display24>
           <Spacer8 />
           <Byline
             pictureURL={userProfile.photoURL}

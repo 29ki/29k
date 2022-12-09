@@ -2,6 +2,8 @@ import React, {Fragment} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {ScrollView} from 'react-native-gesture-handler';
+import {Switch} from 'react-native';
+import {ENVIRONMENT} from 'config';
 
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
@@ -22,13 +24,21 @@ import {Heading18} from '../../common/components/Typography/Heading/Heading';
 import CurrentUser from './components/CurrentUser';
 import Screen from '../../common/components/Screen/Screen';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
+import useAppState from '../../lib/appState/state/state';
+import {COLORS} from '../../../../shared/src/constants/colors';
+import {Body16} from '../../common/components/Typography/Body/Body';
 import useSetPreferredLanguage from '../../lib/i18n/hooks/useSetPreferedLanguage';
+import useToggleHiddenContent from '../../lib/i18n/hooks/useToggleHiddenContent';
 
 const Row = styled.View({
   flexDirection: 'row',
 });
 const StartCol = styled.View({
   alignItems: 'flex-start',
+});
+const WorkInProgressWrapper = styled.View({
+  flexDirection: 'row',
+  alignItems: 'center',
 });
 
 const Profile = () => {
@@ -37,6 +47,9 @@ const Profile = () => {
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
   const isPublicHost = useIsPublicHost();
+  const toggleHiddenContent = useToggleHiddenContent();
+  const showNonPublishedContent = useAppState(state => state.showHiddenContent);
+
   const setPreferredLanguage = useSetPreferredLanguage();
 
   return (
@@ -79,6 +92,19 @@ const Profile = () => {
             <Button variant="secondary" onPress={checkForUpdate}>
               {t('checkUpdate')}
             </Button>
+
+            <Spacer8 />
+            {ENVIRONMENT !== 'production' && isPublicHost && (
+              <WorkInProgressWrapper>
+                <Body16>{t('showWip')}</Body16>
+                <Spacer8 />
+                <Switch
+                  onValueChange={toggleHiddenContent}
+                  value={showNonPublishedContent}
+                  trackColor={{true: COLORS.PRIMARY, false: undefined}}
+                />
+              </WorkInProgressWrapper>
+            )}
           </StartCol>
           <Spacer48 />
         </Gutters>

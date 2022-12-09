@@ -19,6 +19,7 @@ import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
 import {Display16} from '../../../../common/components/Typography/Display/Display';
 import Image from '../../../../common/components/Image/Image';
 import TouchableOpacity from '../../../../common/components/TouchableOpacity/TouchableOpacity';
+import {formatExerciseName} from '../../../../common/utils/string';
 
 const Card = styled(TouchableOpacity)({
   flexDirection: 'row',
@@ -55,7 +56,7 @@ const ContentCard: React.FC<{
     <Gutters>
       <Card onPress={onPress}>
         <TextWrapper>
-          <Display16>{exercise?.name}</Display16>
+          <Display16>{formatExerciseName(exercise)}</Display16>
         </TextWrapper>
         <Spacer16 />
         <CardImageWrapper>

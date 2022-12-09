@@ -1,27 +1,5 @@
 {
   "en": {
-    "published": false,
-    "theme": {
-      "textColor": "#F9F8F4",
-      "backgroundColor": "#ca6a78"
-    },
-    "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d",
-    "name": "Letting go of control",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "`Start the session when you're ready to go.`"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667919733/Video/portal1_letting_go_of_control_g0izpw.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667915462/Audio/portal_letting_go_of_controlmp3_eintur.mp3"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1668093279/Video/portal2_letting_go_of_control_bnzxxr.mp4",
-        "preview": ""
-      }
-    },
     "slides": [
       {
         "type": "host",
@@ -145,6 +123,13 @@
         ]
       }
     ],
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#ca6a78"
+    },
+    "hidden": true,
+    "name": "Letting go of control",
+    "published": true,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
@@ -154,7 +139,23 @@
       "video": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667919819/Video/mission_letting_go_of_control_audio_is2nnv.mp4"
       }
-    }
+    },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "`Start the session when you're ready to go.`"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667919733/Video/portal1_letting_go_of_control_g0izpw.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667915462/Audio/portal_letting_go_of_controlmp3_eintur.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1668093279/Video/portal2_letting_go_of_control_bnzxxr.mp4",
+        "preview": ""
+      }
+    },
+    "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d"
   },
   "pt": {
     "published": false,

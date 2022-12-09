@@ -26,6 +26,7 @@ import {StepProps} from '../../CreateSessionModal';
 import DateTimePicker from '../../../../common/components/DateTimePicker/DateTimePicker';
 import {SPACINGS} from '../../../../common/constants/spacings';
 import EditSessionType from '../../../../common/components/EditSessionType/EditSessionType';
+import {formatExerciseName} from '../../../../common/utils/string';
 
 const TextWrapper = styled.View({
   flex: 2,
@@ -110,7 +111,7 @@ const SetDateTimeStep: React.FC<StepProps> = ({
       <Spacer8 />
       <Row>
         <TextWrapper>
-          <Display24>{exercise?.name}</Display24>
+          <Display24>{formatExerciseName(exercise)}</Display24>
           <Spacer8 />
           <Byline
             pictureURL={userProfile.photoURL}
