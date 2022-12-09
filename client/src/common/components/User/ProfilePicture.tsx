@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacityProps, View} from 'react-native';
+import {TouchableOpacityProps, View, ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {PlayfairDisplayRegular} from '../../constants/fonts';
@@ -48,6 +48,7 @@ type ProfilePictureProps = {
   pictureURL?: string | null;
   hasError?: boolean;
   onPress?: TouchableOpacityProps['onPress'];
+  style?: ViewStyle;
 };
 
 const ProfilePicture: React.FC<ProfilePictureProps> = ({
@@ -55,14 +56,15 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({
   pictureURL,
   hasError,
   onPress,
+  style,
 }) => {
   return (
-    <View>
+    <View style={style}>
       <ImageContainer hasError={hasError} onPress={onPress}>
         {pictureURL ? (
           <Image source={{uri: pictureURL}} />
         ) : (
-          letter && <Letter>{letter[0]}</Letter>
+          <Letter>{letter?.[0] || 'A'}</Letter>
         )}
       </ImageContainer>
       {onPress && (
