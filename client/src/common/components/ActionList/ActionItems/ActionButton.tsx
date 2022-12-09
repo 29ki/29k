@@ -2,7 +2,7 @@ import React from 'react';
 import {TouchableOpacityProps} from 'react-native';
 import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
 import ActionItemText from '../ActionItemText';
-import ActionIconItem from './ActionIconItem';
+import ActionIconItem from '../ActionIconItem';
 
 type ActionLinkProps = React.ComponentProps<typeof ActionIconItem> & {
   onPress?: TouchableOpacityProps['onPress'];

@@ -1,13 +1,12 @@
 import React from 'react';
 import {ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
-import {SPACINGS} from '../../../constants/spacings';
-import {IconType} from '../../Icons';
-import {Spacer4} from '../../Spacers/Spacer';
-import ActionItem from '../ActionItem';
+import {SPACINGS} from '../../constants/spacings';
+import {IconType} from '../Icons';
+import {Spacer4} from '../Spacers/Spacer';
+import ActionItem from './ActionItem';
 
 const ActionWrapper = styled(ActionItem)({
-  paddingVertical: SPACINGS.EIGHT,
   paddingHorizontal: SPACINGS.EIGHT,
 });
 
