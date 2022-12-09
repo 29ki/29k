@@ -12,7 +12,8 @@
     "community": "Community",
     "contribute": "How to contribute",
     "contributors": "Contributors",
-    "developer": "Developer"
+    "developer": "Developer",
+    "noDisplayName": "Add your name"
   },
   "pt": {
     "signIn": "Entrar",
