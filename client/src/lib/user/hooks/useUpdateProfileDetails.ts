@@ -15,7 +15,10 @@ const useUpdateProfileDetails = () =>
 
     const currentUser = auth().currentUser;
 
-    if (currentUser?.isAnonymous && email && password) {
+    if (currentUser?.isAnonymous && email) {
+      if (!password) {
+        throw new Error('auth/password-missing');
+      }
       const emailAndPasswordCredentials = auth.EmailAuthProvider.credential(
         email,
         password,

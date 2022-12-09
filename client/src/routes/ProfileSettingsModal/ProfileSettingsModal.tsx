@@ -1,6 +1,5 @@
 import React, {useCallback, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import auth from '@react-native-firebase/auth';
 import styled from 'styled-components/native';
 import {BottomSheetActionTextInput} from '../../common/components/ActionList/ActionItems/ActionTextInput';
 import ActionList from '../../common/components/ActionList/ActionList';
@@ -13,11 +12,12 @@ import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
 import ProfilePicture from '../../common/components/User/ProfilePicture';
 import useUser from '../../lib/user/hooks/useUser';
 import useChangeProfilePicture from '../../lib/user/hooks/useChangeProfilePicture';
-import {Alert} from 'react-native';
-import useUpdateProfileDetails from '../../lib/user/hooks/useUpdateProfileDetails';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
+import {Body16} from '../../common/components/Typography/Body/Body';
+import {COLORS} from '../../../../shared/src/constants/colors';
+import useUpdateProfileDetails from '../../lib/user/hooks/useUpdateProfileDetails';
 
 const Picture = styled(ProfilePicture)({
   width: 144,
@@ -26,6 +26,10 @@ const Picture = styled(ProfilePicture)({
 
 const StyledButton = styled(Button)({
   alignSelf: 'flex-start',
+});
+
+const Error = styled(Body16)({
+  color: COLORS.ERROR,
 });
 
 const ProfileSettingsModal = () => {
@@ -38,14 +42,15 @@ const ProfileSettingsModal = () => {
 
   const [displayName, setDisplayName] = useState(user?.displayName);
   const [email, setEmail] = useState(user?.email);
-  const [password, setPassword] = useState();
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const updateUser = useCallback(async () => {
     try {
       await updateProfileDetails({displayName, email, password});
       popToTop();
     } catch (e: any) {
-      Alert.alert(e.message);
+      setError(e.code ?? e.message);
     }
   }, [updateProfileDetails, popToTop, displayName, email, password]);
 
@@ -92,6 +97,13 @@ const ProfileSettingsModal = () => {
           />
         </ActionList>
         <Spacer16 />
+        {error && (
+          <>
+            {/* @ts-expect-error variable/string litteral as key is not yet supported https://www.i18next.com/overview/typescript#type-error-template-literal*/}
+            <Error>{t(`errors.${error}`)}</Error>
+            <Spacer16 />
+          </>
+        )}
         <StyledButton variant="primary" onPress={updateUser}>
           {t('save')}
         </StyledButton>
