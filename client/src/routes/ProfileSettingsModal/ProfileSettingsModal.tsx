@@ -134,10 +134,14 @@ const ProfileSettingsModal = () => {
           {user && (
             <>
               <Spacer48 />
-              <StyledButton variant="secondary" onPress={signOut}>
-                {t('signOut')}
-              </StyledButton>
-              <Spacer16 />
+              {!user?.isAnonymous && (
+                <>
+                  <StyledButton variant="secondary" onPress={signOut}>
+                    {t('signOut')}
+                  </StyledButton>
+                  <Spacer16 />
+                </>
+              )}
               <DeleteButton variant="secondary" onPress={deleteData}>
                 {t('deleteData')}
               </DeleteButton>
