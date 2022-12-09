@@ -11,6 +11,7 @@ export * from './BackwardCircle/BackwardCircle';
 export * from './Bell/Bell';
 export * from './Calendar/Calendar';
 export * from './Camera/Camera';
+export * from './Checked/Checked';
 export * from './ChevronLeft/ChevronLeft';
 export * from './ChevronRight/ChevronRight';
 export * from './Close/Close';
