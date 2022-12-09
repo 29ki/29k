@@ -6,7 +6,6 @@ import textStyles from '../../Typography/styles';
 import ActionItem from '../ActionItem';
 
 const style = {
-  height: 44,
   flex: 1,
   paddingHorizontal: SPACINGS.SIXTEEN,
   ...textStyles.Body16,
@@ -20,7 +19,7 @@ const ActionTextInput: React.FC<
   React.ComponentProps<typeof TextInput>
 > = props => (
   <ActionItem>
-    <TextInput {...props} />
+    <TextInput {...props} multiline={false} />
   </ActionItem>
 );
 

@@ -15,10 +15,10 @@ export type ComponentLibrary = {[key: string]: React.ComponentType};
 export type ComponentList = {[key: string]: Array<ComponentLibrary>};
 
 const menuItems: ComponentList = {
+  ActionList: [ActionList],
   Buttons: [Buttons],
   Cards: [Cards],
   Icons: [Icons],
-  ActionList: [ActionList],
   Modals: [Modals],
   Typography: [Typography],
   Screen: [Screen],
