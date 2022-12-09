@@ -16,6 +16,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import AppStackWrapper from './AppStack';
 import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 import ChangeLanguageModal from '../../routes/ChangeLanguageModal/ChangeLanguageModal';
+import ProfileSettingsModal from '../../routes/ProfileSettingsModal/ProfileSettingsModal';
 
 const ModalStack = createBottomSheetNavigator<ModalStackProps>();
 
@@ -106,6 +107,10 @@ const ModalStackWrapper = () => {
         <ModalStack.Screen
           name={'ChangeLanguageModal'}
           component={ChangeLanguageModal}
+        />
+        <ModalStack.Screen
+          name={'ProfileSettingsModal'}
+          component={ProfileSettingsModal}
         />
       </ModalStack.Group>
 

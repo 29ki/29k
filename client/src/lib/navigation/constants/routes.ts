@@ -28,4 +28,5 @@ export type ModalStackProps = {
   CreateSessionModal: undefined;
   UpgradeAccountModal?: {code: string};
   ChangeLanguageModal: undefined;
+  ProfileSettingsModal: undefined;
 };
