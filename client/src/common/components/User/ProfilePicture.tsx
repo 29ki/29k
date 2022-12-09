@@ -64,7 +64,7 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({
         {pictureURL ? (
           <Image source={{uri: pictureURL}} />
         ) : (
-          <Letter>{letter?.[0] || 'A'}</Letter>
+          <Letter>{(letter?.[0] || 'A').toUpperCase()}</Letter>
         )}
       </ImageContainer>
       {onPress && (
