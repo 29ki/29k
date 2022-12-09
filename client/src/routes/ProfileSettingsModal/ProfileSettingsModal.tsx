@@ -73,8 +73,9 @@ const ProfileSettingsModal = () => {
   }, [popToTop]);
 
   const deleteData = useCallback(async () => {
-    await deleteUser();
-    popToTop();
+    if (await deleteUser()) {
+      popToTop();
+    }
   }, [deleteUser, popToTop]);
 
   return (

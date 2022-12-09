@@ -14,17 +14,28 @@ const useDeleteUser = () => {
     resetAppState();
   }, [resetAppState]);
 
-  return useCallback(() => {
-    Alert.alert(t('header'), t('text'), [
-      {text: t('buttons.cancel'), style: 'cancel', onPress: () => {}},
-      {
-        text: t('buttons.confirm'),
-        style: 'destructive',
+  return useCallback(
+    () =>
+      new Promise(resolve => {
+        Alert.alert(t('header'), t('text'), [
+          {
+            text: t('buttons.cancel'),
+            style: 'cancel',
+            onPress: () => resolve(false),
+          },
+          {
+            text: t('buttons.confirm'),
+            style: 'destructive',
 
-        onPress: deleteData,
-      },
-    ]);
-  }, [t, deleteData]);
+            onPress: async () => {
+              await deleteData();
+              resolve(true);
+            },
+          },
+        ]);
+      }),
+    [t, deleteData],
+  );
 };
 
 export default useDeleteUser;
