@@ -28,7 +28,7 @@ const fadeScreenOptions: NativeStackNavigationOptions = {
 const AppStackWrapper = () => {
   const isBlocking = useKillSwitchState(state => state.isBlocking);
   const fade = useNavigationState(state => state.navigateWithFade);
-  const isFirstLaunch = useAppState(state => state.isFirstLaunch);
+  const settings = useAppState(state => state.settings);
 
   return (
     // set this state using useNavigationWithFade to change animation to fade
@@ -36,7 +36,7 @@ const AppStackWrapper = () => {
       screenOptions={fade ? fadeScreenOptions : screenOptions}>
       {isBlocking ? (
         <AppStack.Screen name={'KillSwitch'} component={KillSwitch} />
-      ) : isFirstLaunch ? (
+      ) : settings.showWelcome ? (
         <AppStack.Screen name={'Welcome'} component={Welcome} />
       ) : (
         <>

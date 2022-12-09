@@ -1,26 +1,27 @@
 {
   "en": {
     "selectContent": {
-      "title": "Pick an exercise"
+      "title": "Choose exercise"
     },
     "selectType": {
       "title": "Create session with...",
       "public": {
-        "title": "Anyone",
-        "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+        "title": "Anyone"
       },
       "private": {
-        "title": "My friends",
-        "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+        "title": "Friends"
       },
       "async": {
-        "title": "My self",
-        "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+        "title": "Myself"
       }
     },
     "setDateTime": {
-      "title": "Pick a time",
-      "cta": "Create session"
+      "title": "Choose a time",
+      "cta": "Create session",
+      "sessionType": {
+        "private": "Session with Friends",
+        "public": "Session with Anyone"
+      }
     },
     "profile": {
       "text": "To create and host a session you need a user name and profile picture."
@@ -33,16 +34,13 @@
     "selectType": {
       "title": "Criar sessão com...",
       "public": {
-        "title": "Qualquer pessoa",
-        "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+        "title": "Qualquer pessoa"
       },
       "private": {
-        "title": "Os meus amigos",
-        "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+        "title": "Os meus amigos"
       },
       "async": {
-        "title": "Comigo",
-        "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+        "title": "Comigo"
       }
     },
     "setDateTime": {
@@ -60,16 +58,13 @@
     "selectType": {
       "title": "Skapa session för...",
       "public": {
-        "title": "Alla",
-        "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+        "title": "Alla"
       },
       "private": {
-        "title": "Mina vänner",
-        "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+        "title": "Mina vänner"
       },
       "async": {
-        "title": "Mig själv",
-        "icon": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+        "title": "Mig själv"
       }
     },
     "setDateTime": {

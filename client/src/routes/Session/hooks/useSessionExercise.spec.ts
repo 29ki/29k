@@ -10,7 +10,7 @@ const mockUseExerciseById = useExerciseById as jest.Mock;
 
 describe('useSessionExercise', () => {
   it('should return null if no exercise exists', () => {
-    mockUseExerciseById.mockReturnValue(null);
+    mockUseExerciseById.mockReturnValueOnce(null);
     useSessionState.setState({
       session: {
         id: 'test',
@@ -23,7 +23,7 @@ describe('useSessionExercise', () => {
   });
 
   it('should return null if no session exists', () => {
-    mockUseExerciseById.mockReturnValue({});
+    mockUseExerciseById.mockReturnValueOnce({});
     useSessionState.setState({
       session: null,
     });
@@ -32,12 +32,14 @@ describe('useSessionExercise', () => {
     expect(result.current).toBe(null);
   });
 
-  it('should return exercise and slide', () => {
-    mockUseExerciseById.mockReturnValue({
+  it('should return exercise', () => {
+    mockUseExerciseById.mockReturnValueOnce({
+      id: 'some-exercise-id',
       slides: [{type: 'slide-1'}, {type: 'slide-2'}, {type: 'slide-3'}],
     });
     useSessionState.setState({
       session: {
+        contentId: 'some-exercise-id',
         exerciseState: {index: 1},
       } as Session,
     });
@@ -45,54 +47,31 @@ describe('useSessionExercise', () => {
     const {result} = renderHook(() => useSessionExercise());
 
     expect(result.current).toEqual({
-      slide: {
-        index: 1,
-        current: {type: 'slide-2'},
-        next: {type: 'slide-3'},
-        previous: {type: 'slide-1'},
-      },
+      id: 'some-exercise-id',
       slides: [{type: 'slide-1'}, {type: 'slide-2'}, {type: 'slide-3'}],
     });
   });
 
   it('should memoize return', () => {
-    mockUseExerciseById.mockReturnValue({
+    const exercise = {
+      id: 'some-exercise-id',
       slides: [{type: 'slide-1'}, {type: 'slide-2'}, {type: 'slide-3'}],
-    });
+    };
+
+    mockUseExerciseById.mockReturnValueOnce(exercise);
     useSessionState.setState({
       session: {
+        contentId: 'some-exercise-id',
         exerciseState: {index: 1},
       } as Session,
     });
 
     const {result, rerender} = renderHook(() => useSessionExercise());
 
+    mockUseExerciseById.mockReturnValueOnce(exercise);
     rerender();
 
     expect(result.all.length).toBe(2);
     expect(result.all[0]).toBe(result.all[1]);
-  });
-
-  it('should return exercise and only current slide', () => {
-    mockUseExerciseById.mockReturnValue({
-      slides: [{type: 'slide-1'}],
-    });
-    useSessionState.setState({
-      session: {
-        exerciseState: {index: 0},
-      } as Session,
-    });
-
-    const {result} = renderHook(() => useSessionExercise());
-
-    expect(result.current).toEqual({
-      slide: {
-        index: 0,
-        current: {type: 'slide-1'},
-        next: undefined,
-        previous: undefined,
-      },
-      slides: [{type: 'slide-1'}],
-    });
   });
 });

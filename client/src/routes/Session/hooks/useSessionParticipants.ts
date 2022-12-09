@@ -1,7 +1,7 @@
 import {DailyUserData} from '../../../../../shared/src/types/Session';
 import useSessionState from '../state/state';
 import useDailyState from '../../../lib/daily/state/state';
-import useSessionExercise from './useSessionExercise';
+import useSessionExercise from './useSessionSlideState';
 import {omit, values} from 'ramda';
 
 const useSessionParticipants = () => {
@@ -9,8 +9,8 @@ const useSessionParticipants = () => {
   const participantsSortOrder = useDailyState(
     state => state.participantsSortOrder,
   );
-  const session = useSessionState(state => state.session);
-  const exercise = useSessionExercise();
+  const exerciseState = useSessionState(state => state.session?.exerciseState);
+  const slideState = useSessionExercise();
 
   const participants = [
     ...participantsSortOrder.map(id => participantsObj[id]),
@@ -21,16 +21,12 @@ const useSessionParticipants = () => {
     participant => !(participant.userData as DailyUserData)?.inPortal,
   );
 
-  if (
-    !session?.exerciseState.dailySpotlightId ||
-    exercise?.slide.current.type !== 'host'
-  ) {
+  if (!exerciseState?.dailySpotlightId || slideState?.current.type !== 'host') {
     return inSessionParticipants;
   }
 
   return inSessionParticipants.filter(
-    participant =>
-      participant.user_id !== session?.exerciseState.dailySpotlightId,
+    participant => participant.user_id !== exerciseState?.dailySpotlightId,
   );
 };
 

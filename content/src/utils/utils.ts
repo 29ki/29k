@@ -30,26 +30,6 @@ export const getContentByType = <T>(type: string) => {
   }, {} as Content<T>);
 };
 
-export const filterPublishedContent = <T>(
-  files: Content<T>,
-  explicitLocale?: LANGUAGE_TAG,
-) =>
-  Object.entries(files)
-    .filter(
-      ([, content]) => !explicitLocale || content?.[explicitLocale].published,
-    )
-    .reduce(
-      (files, [file, content]) => ({
-        ...files,
-        [file]: Object.entries(content).reduce(
-          (filtered, [locale, resource]) =>
-            resource.published ? {...filtered, [locale]: resource} : filtered,
-          {},
-        ),
-      }),
-      {},
-    );
-
 /*
 Generates i18n-friendly structure
 

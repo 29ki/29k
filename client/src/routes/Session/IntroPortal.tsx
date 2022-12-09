@@ -6,7 +6,7 @@ import {
 } from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
 import Video from 'react-native-video';
@@ -45,6 +45,7 @@ import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocu
 import Badge from '../../common/components/Badge/Badge';
 import useSessionStartTime from './hooks/useSessionStartTime';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
+import AudioFader from './components/AudioFader/AudioFader';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -148,39 +149,50 @@ const IntroPortal: React.FC = () => {
     }
   };
 
+  const endVideoSource = useMemo(
+    () => introPortal?.videoEnd && {uri: introPortal.videoEnd?.source},
+    [introPortal?.videoEnd],
+  );
+
+  const loopVideoSource = useMemo(
+    () => introPortal?.videoLoop && {uri: introPortal.videoLoop?.source},
+    [introPortal?.videoLoop],
+  );
+
   return (
     <Screen>
       {!isHost && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
-      {isFocused && introPortal?.videoLoop?.audio && (
-        <VideoStyled
-          audioOnly
-          source={{uri: introPortal?.videoLoop.audio}}
+      {isFocused && loopVideoLoaded && introPortal?.videoLoop?.audio && (
+        <AudioFader
+          source={introPortal?.videoLoop?.audio}
           paused={!loopVideoLoaded}
+          volume={joiningSession ? 0 : 1}
+          duration={joiningSession ? 5000 : 10000}
           repeat
         />
       )}
-      {introPortal?.videoEnd && (
+      {endVideoSource && (
         <VideoStyled
           ref={endVideoRef}
           onReadyForDisplay={onEndVideoLoad}
           onEnd={onEndVideoEnd}
           paused={!joiningSession || !isFocused}
-          source={{uri: introPortal.videoEnd?.source}}
+          source={endVideoSource}
           resizeMode="cover"
-          poster={introPortal.videoEnd?.preview}
+          poster={introPortal?.videoEnd?.preview}
           posterResizeMode="cover"
         />
       )}
 
-      {!joiningSession && introPortal?.videoLoop && (
+      {!joiningSession && loopVideoSource && (
         <VideoStyled
           onReadyForDisplay={onLoopVideoLoad}
           onEnd={onLoopVideoEnd}
           paused={!isFocused}
           repeat={!session?.started}
-          source={{uri: introPortal.videoLoop?.source}}
+          source={loopVideoSource}
           resizeMode="cover"
-          poster={introPortal.videoLoop?.preview}
+          poster={introPortal?.videoLoop?.preview}
           posterResizeMode="cover"
         />
       )}

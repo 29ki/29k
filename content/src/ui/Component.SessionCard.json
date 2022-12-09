@@ -10,6 +10,17 @@
       "startsIn": "Starts in"
     }
   },
+  "pt": {
+    "addToCalendar": "Adicionar ao calendário",
+    "counterLabel": {
+      "starts": "Inicia",
+      "startsIn": "Inicia em"
+    },
+    "join": "Aderir",
+    "counter": {
+      "started": "Iniciada"
+    }
+  },
   "sv": {
     "addToCalendar": "Lägg till i kal.",
     "join": "Gå med",
@@ -19,13 +30,6 @@
     "counterLabel": {
       "starts": "Startar",
       "startsIn": "Startar om"
-    }
-  },
-  "pt": {
-    "addToCalendar": "Adicionar ao calendário",
-    "counterLabel": {
-      "starts": "Começar",
-      "startsIn": "Começar em"
     }
   },
   "es": {}

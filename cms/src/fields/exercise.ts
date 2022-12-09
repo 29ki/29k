@@ -11,6 +11,7 @@ import {
   PUBLISHED_FIELD,
   VIDEO_FIELD,
   DURATION_FIELD,
+  HIDDEN_FIELD,
 } from './common';
 import {
   CONTENT_SLIDE,
@@ -91,6 +92,7 @@ const EXERCISE_FIELDS: Array<CmsField> = applyDefaults(
     NAME_FIELD,
     DURATION_FIELD,
     PUBLISHED_FIELD,
+    HIDDEN_FIELD,
     CARD_FIELD,
     THEME,
     INTRO_PORTAL,

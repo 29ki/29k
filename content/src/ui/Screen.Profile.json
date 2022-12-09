@@ -3,7 +3,13 @@
     "signIn": "Sign-in",
     "or": "or",
     "userId": "User ID",
-    "requestPublicHostRoleButton": "Request to create public sessions",
+    "requestPublicHostRoleButton": "Request to host open sessions",
+    "unsupportedLanguage": {
+      "title": "Language not fully supported",
+      "message": "{{language}} is still under development and might not give you the best experience at this point. Do you want to switch to {{language}} anyway?",
+      "confirm": "Yes, switch",
+      "dismiss": "No, thank you"
+    },
     "displayName": "Name",
     "signOut": "Sign-out",
     "uiLib": "UI Library",
@@ -14,12 +20,30 @@
     "password": "Lösenord",
     "upgrade": "Upgrade",
     "email": "E-mail",
+    "showWip": "Show work in progress"
+  },
+  "pt": {
+    "signIn": "Entrar",
+    "or": "ou",
+    "userId": "Utilizador",
+    "requestPublicHostRoleButton": "Pedir para criar sessões públicas",
     "unsupportedLanguage": {
-      "title": "Language not fully supported",
-      "message": "{{language}} is still under development and might not give you the best experience at this point.\n\nDo you want to switch to {{language}} anyway?",
-      "confirm": "Yes, switch",
-      "dismiss": "No, thank you"
-    }
+      "title": "Língua não suportada totalmente",
+      "message": "{{language}} ainda em desenvolvimento podendo não proporcionar a melhor experiência. Queres mudar na mesma para {{language}}?",
+      "confirm": "Sim. mudar",
+      "dismiss": "Não, obrigada/o"
+    },
+    "displayName": "Nome",
+    "signOut": "Sair",
+    "uiLib": "Biblioteca UI",
+    "checkUpdate": "Verificar atualizações",
+    "clearUpdate": "Limpar atualização",
+    "signInAnonymously": "Entrar como anónima/o",
+    "language": "Língua",
+    "password": "Password",
+    "upgrade": "Atualizar",
+    "email": "E-mail",
+    "showWip": "Show work in progress"
   },
   "sv": {
     "signIn": "Logga in",
@@ -35,23 +59,8 @@
     "language": "Språk",
     "password": "Lösenord",
     "upgrade": "Uppgradera",
-    "email": "Epost"
-  },
-  "pt": {
-    "signIn": "Entrar",
-    "or": "ou",
-    "userId": "Utilizador",
-    "requestPublicHostRoleButton": "Pedir para criar sessões públicas",
-    "displayName": "Nome",
-    "signOut": "Sair",
-    "uiLib": "Biblioteca UI",
-    "checkUpdate": "Verificar atualizações",
-    "clearUpdate": "Limpar atualização",
-    "signInAnonymously": "Entrar como anónima/o",
-    "language": "Língua",
-    "password": "Password",
-    "upgrade": "Atualizar",
-    "email": "E-mail"
+    "email": "Epost",
+    "showWip": "Visa pågående arbete"
   },
   "es": {}
 }

@@ -158,6 +158,7 @@ export interface Exercise {
   name: string;
   duration: string;
   published: boolean;
+  hidden?: boolean;
   card: ExerciseCard;
   theme?: ExerciseTheme;
   introPortal?: ExerciseIntroPortal;

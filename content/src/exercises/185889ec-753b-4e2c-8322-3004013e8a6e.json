@@ -97,7 +97,7 @@
           "video": {
             "durationTimer": false,
             "autoPlayLoop": false,
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043755/Video/sharing2_Be_kind_to_yourself_bu0qwe.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669898289/Video/reflection2_Be_kind_to_yourself_zlyxgi.mp4"
           }
         },
         "hostNotes": [
@@ -149,17 +149,17 @@
     "duration": 40
   },
   "pt": {
-    "published": false,
+    "published": true,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#ffffff"
     },
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
-    "name": "Be kind to yourself",
+    "name": "Sê gentil contigo",
     "introPortal": {
       "hostNotes": [
         {
-          "text": "`Start the session when you're ready to go`"
+          "text": "> Inicia a sessão quando estiveres pronta/o"
         }
       ],
       "videoLoop": {
@@ -175,10 +175,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome to this session, hosted by me, x.\n\nI am so happy you choose to join us at 29k here today.  \\\n\\\nWe will work for around 30 minutes on connecting with- and being kind to ourselves.\n\nWe’ll be doing some reflection exercises and there will be opportunities to share those reflections with each other."
+            "text": "Bem-vindos. Eu sou X e hoje vamos estar juntos durante 40 minutos para nos conectarmos e sermos gentis connosco.\n\nFaremos alguns exercícios de reflexão e teremos oportunidades para partilhar essas reflexões uns com os outros."
           },
           {
-            "text": "Let’s start with a mini check-in.\n\nHow are you feeling right now? Please answer in two-three words.\n\nX, would you like to start and then hand over to someone else when you are done?\n\n`Let everyone in the session check in one by one.`\n\nThank you all for checking in.\n\nNow let’s get started."
+            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam o check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
           }
         ]
       },
@@ -186,13 +186,13 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Imagine that you took out a pair of clothespins. Next, you grab the voice within yourself and \"lift it out\", so that there’s now a person in front of you. That person is saying all the things you usually say to yourself when something has gone wrong, or when you have failed.\n\nThink about it: How long would you stand talking to this person?"
+            "text": "Imagina que pegaste em duas molas da roupa. De seguida, pegas e penduras a tua voz interior, de modo que haja agora uma pessoa à tua frente. Esta pessoa está a dizer todas as coisas que costumas dizer a ti mesma/o quando alguma coisa dá errada ou quando falhas."
           },
           {
-            "text": "There's a high probability that you'd want to get out of there as fast as possible.\n\nHow is it that we humans are usually much tougher on ourselves than we are on others?"
+            "text": "Pensa nisso: quanto tempo aguentarias conversar com essa pessoa? Há uma grande probabilidade de quereres sair de lá o mais rápido possível. Como é que nós, humanos, geralmente somos muito mais duros connosco do que com os outros?"
           },
           {
-            "text": "In this exercise we will be practicing self-compassion - learning to become less self-critical and instead be kinder to oneself.\n\nResearch has shown that it can increase happiness and motivation, and reduce anxiety and depressive symptoms."
+            "text": "Neste exercício vamos praticar a autocompaixão. Vamos aprender tornar-nos menos autocríticos e, em vez disso, ser mais gentis connosco. A investigação mostrou que podes aumentar a tua felicidade e a tua motivação e reduzir a ansiedade e os sintomas depressivos."
           }
         ],
         "content": {
@@ -206,14 +206,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 2 minutes to reflect on our own.\n\nThink of a situation when you felt down. When you failed at something and doubted yourself. How do you usually react to and treat yourself in such situations? What do you say to yourself? What tone do you use?"
+            "text": "Agora vamos ficar 2 minutos a refletir individualmente.\n\nPensa numa situação em que te sentiste mal. Quando falhaste e duvidaste de ti. Como costumas reagir e como te tratas nessas situações? O que dizes a ti mesma/o? Que tom usas?"
           },
           {
-            "text": "If you want to, you can take notes on a piece of paper or just mental notes in your head. And remember, there is no right or wrong here, our answers are our own.\n\n2 minutes starting now.\n\n`Push play to start the timer.`\n\nOkay, that’s 2 minutes and it’s time to move on."
+            "text": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Vamos começar agora durante 2 minutos.\n\n> Carrega no play para iniciar o cronômetro.\n\nSão 2 minutos e é hora de continuar em frente."
           }
         ],
         "content": {
-          "heading": "What do you say to yourself?",
+          "heading": "O que dirias a ti próprio/a?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4"
           }
@@ -222,71 +222,72 @@
       {
         "type": "sharing",
         "content": {
-          "heading": "What do you say to yourself?",
+          "heading": "O que dirias a ti próprio/a?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
           }
         },
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part of this exercise. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **Your job as a participant is just to listen.** There is no fixing, helping or advice-giving needed in this space. We are just showing up and trying to understand what ourselves and others are going through."
+            "text": "Agora estamos a entrar na parte de partilha deste exercício. Temos três regras para essa partilha:\n\n1. **O que é dito aqui, fica aqui.**\n2. **A única coisa que precisas de fazer como participante é ouvir**. Não há necessidade de ajudar ou dar conselhos neste espaço. Estamos apenas a partilhar e a tentar entender o que nós mesmos e os outros estão a passar."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights, it just is.\n\nThere will be a timer set for 2 minutes as an indicator but you use as much or little time as you want to. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Tudo no nosso interior está bem.** Raiva, amor, ódio, tristeza. O que quer que apareça. Não há certos ou errados.\n\nTeremos um temporizador de 2 minutos como indicador, mas terás o tempo que quiseres. Se não quiseres partilhar, podes dizer 'passar'."
           },
           {
-            "text": "X, would you like to start? \n\n`Let everyone (or as many as you got time for) share one by one.`\n\n`Push play to start the timer. Re-start for each new sharing. `\n\nThank you so much for sharing your thoughts and feelings with us here today."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou para os que houver tempo) compartilhem individualmente. Carrega play para iniciar a contagem de tempo. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
         ]
       },
       {
         "type": "reflection",
         "content": {
-          "heading": "What would you say to a friend?",
+          "heading": "O que dirias a uma amiga ou a um amigo?",
           "video": {
             "durationTimer": false,
-            "autoPlayLoop": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043755/Video/sharing2_Be_kind_to_yourself_bu0qwe.mp4"
+            "autoPlayLoop": false,
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669898289/Video/reflection2_Be_kind_to_yourself_zlyxgi.mp4"
           }
         },
         "hostNotes": [
           {
-            "text": "One way to practice self-compassion is by taking a different perspective.\n\nThink about how you react when a friend is feeling down, is putting themselves down or perhaps is doubting their ability. \n\nHow do you usually react? What do you say or do? What tone do you use?"
+            "text": "Uma forma de praticar a autocompaixão é adotando uma perspetiva diferente. Pensa como reages quando um amigo ou uma amiga se está a sentir em baixo, se está a rebaixar ou a duvidar das suas capacidades.\n\nComo costumas reagir? O que dizes ou fazes? Que tom usas?"
           },
           {
-            "text": "If you want to, you can take notes on a piece of paper or just mental notes in your head. And remember, there is no right or wrong here, our answers are our own.\n\n2 minutes starting now.\n\n`Push play to start the timer.`\n\nOkay, that’s 2 minutes and it’s time to move on."
+            "text": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Vamos começar agora durante 2 minutos.\n\n> Carrega no play para iniciar o cronômetro.\n\nSão 2 minutos e é hora de continuar em frente."
           }
         ]
       },
       {
         "type": "sharing",
         "content": {
-          "heading": "What would you say to a friend?",
+          "heading": "O que dirias a uma amiga ou a um amigo?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
           }
         },
         "hostNotes": [
           {
-            "text": "Time to share again.\n\nX, would you like to start?\n\n`Let everyone (or as many as you got time for) share one by one.`\n\n`Push play to start the timer. Re-start for each new sharing.`\n\nThank you so much for sharing."
+            "text": "Hora de partilhar de novo. Quem gostaria de começar?\n\n> Deixa que todos (ou para os que houver tempo) compartilhem individualmente. Carrega play para iniciar a contagem de tempo. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
         ]
       },
       {
-        "type": "content",
+        "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. I would like to send you off with a little mission if you’re up for it.\n\nIn the coming days, see if you can try to be kinder to yourself. Especially in difficult situations! \n\nUse the idea of clothespins and start by becoming aware of what your inner voice sounds like. Next, see if you can choose to talk and react to yourself in the same way you would if it were a friend. Notice how it makes you feel."
+            "text": "Parabéns. Se estiverem dispostos a isso, podem tornar o que começamos aqui hoje um hábito positivo no vosso dia a dia."
           },
           {
-            "text": "Thank you for joining us here today. If you have any reflections or feedback for us at 29k, please let us know. Wishing you all a lovely day.\n\nBye."
+            "text": "Nos próximos dias, tenta ser mais gentil contigo. Especialmente em situações difíceis. Usa a ideia das molas da roupa e começa a perceber como soa a tua voz interior. Em seguida, vê se consegues falar e reagir contigo da mesma forma que o farias com uma amiga ou amigo. Observa como isso te faz sentir."
+          },
+          {
+            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.\n\nComo te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Permite que todos na sessão façam um check-out individual.\n\nObrigado a todos por este check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão enviando todos os participantes para a experiência de saída."
           }
-        ],
-        "content": {
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043696/Images/mission_Be_kind_to_yourself_ip8nwy.png"
-          }
-        }
+        ]
       }
     ],
     "card": {

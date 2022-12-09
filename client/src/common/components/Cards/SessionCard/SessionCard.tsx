@@ -17,6 +17,7 @@ import Card from '../Card';
 import useSessionStartTime from '../../../../routes/Session/hooks/useSessionStartTime';
 import * as metrics from '../../../../lib/metrics';
 import SessionTimeBadge from '../../SessionTimeBadge/SessionTimeBadge';
+import {formatExerciseName} from '../../../utils/string';
 
 type SessionCardProps = {
   session: Session;
@@ -50,7 +51,7 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
 
   return (
     <Card
-      title={exercise?.name}
+      title={formatExerciseName(exercise)}
       duration={exercise?.duration}
       image={{
         uri: exercise?.card?.image?.source,

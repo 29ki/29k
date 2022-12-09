@@ -1,20 +1,10 @@
 import {readFileSync, writeFileSync} from 'fs';
 import {mergeDeepRight} from 'ramda';
-import {DEFAULT_LANGUAGE_TAG} from '../shared/src/constants/i18n';
-import {
-  filterPublishedContent,
-  generateI18NResources,
-  getContentByType,
-} from './src/utils/utils';
-
-const exerciseContent = getContentByType('exercises');
+import {generateI18NResources, getContentByType} from './src/utils/utils';
 
 const exercises = generateI18NResources(
-  filterPublishedContent(exerciseContent),
+  getContentByType('exercises'),
   'exercises',
-);
-const exerciseIds = Object.keys(
-  filterPublishedContent(exerciseContent, DEFAULT_LANGUAGE_TAG),
 );
 
 const ui = generateI18NResources(getContentByType('ui'));
@@ -27,7 +17,6 @@ const {contributors} = JSON.parse(
 
 const data = JSON.stringify({
   i18n,
-  exerciseIds,
   contributors,
 });
 

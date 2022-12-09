@@ -2,9 +2,9 @@ import styled from 'styled-components/native';
 
 import typeStyles from '../styles';
 
-const BaseText = styled.Text.attrs(({selectable}) => ({
+const BaseText = styled.Text.attrs(props => ({
   allowFontScaling: false,
-  selectable: selectable ?? true,
+  selectable: props?.selectable ?? true,
 }))({});
 
 export const Body18 = styled(BaseText)(typeStyles.Body18);
