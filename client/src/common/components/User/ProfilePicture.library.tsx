@@ -7,12 +7,12 @@ import {Heading16} from '../Typography/Heading/Heading';
 import ProfilePicture from './ProfilePicture';
 
 const Wrapper = styled.View({
-  height: 150,
+  height: 144,
   flexDirection: 'row',
 });
 
 const SmallWrapper = styled(Wrapper)({
-  height: 50,
+  height: 32,
 });
 
 export const AllTypes = () => (

@@ -24,12 +24,12 @@ const Letter = styled.Text.attrs({
   adjustsFontSizeToFit: true,
   numberOfLines: 1,
 })({
-  top: '-5%', // Line height is a bit off in Playfair Display
+  flex: 1,
+  top: '-3%', // Line height is a bit off in Playfair Display
   fontFamily: PlayfairDisplayRegular,
-  fontSize: 2000,
+  fontSize: 100,
   color: COLORS.BLACK,
-  alignSelf: 'center',
-  justifySelf: 'center',
+  textAlign: 'center',
 });
 
 const IconContainer = styled.View({

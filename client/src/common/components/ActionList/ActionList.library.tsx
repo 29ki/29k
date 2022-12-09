@@ -6,15 +6,13 @@ import {ProfileIcon} from '../Icons';
 import {Alert} from 'react-native';
 import ActionTextInput from './ActionItems/ActionTextInput';
 import ActionSwitch from './ActionItems/ActionSwitch';
-import {Body16, BodyBold} from '../Typography/Body/Body';
 import {Spacer32, Spacer8} from '../Spacers/Spacer';
 import ActionRadioButton from './ActionItems/ActionRadioButton';
+import {Heading16} from '../Typography/Heading/Heading';
 
-export const All = () => (
+export const AllTypes = () => (
   <ScreenWrapper>
-    <Body16>
-      <BodyBold>ActionButton</BodyBold>
-    </Body16>
+    <Heading16>ActionButton</Heading16>
     <Spacer8 />
     <ActionList>
       <ActionButton onPress={() => Alert.alert('ACTION!')}>
@@ -32,9 +30,7 @@ export const All = () => (
     </ActionList>
     <Spacer32 />
 
-    <Body16>
-      <BodyBold>ActionTextInput</BodyBold>
-    </Body16>
+    <Heading16>ActionTextInput</Heading16>
     <Spacer8 />
     <ActionList>
       <ActionTextInput placeholder="ActionTextInput placeholder" />
@@ -43,9 +39,7 @@ export const All = () => (
     </ActionList>
     <Spacer32 />
 
-    <Body16>
-      <BodyBold>ActionRadioButton</BodyBold>
-    </Body16>
+    <Heading16>ActionRadioButton</Heading16>
     <Spacer8 />
     <ActionList>
       <ActionRadioButton onPress={() => Alert.alert('ACTION!')}>
@@ -79,9 +73,7 @@ export const All = () => (
     </ActionList>
     <Spacer32 />
 
-    <Body16>
-      <BodyBold>ActionSwitch</BodyBold>
-    </Body16>
+    <Heading16>ActionSwitch</Heading16>
     <Spacer8 />
     <ActionList>
       <ActionSwitch>ActionSwitch</ActionSwitch>
