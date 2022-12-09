@@ -2,7 +2,7 @@ import {
   DailyMediaView,
   DailyParticipant,
 } from '@daily-co/react-native-daily-js';
-import React from 'react';
+import React, {useCallback, useContext} from 'react';
 import {useTranslation} from 'react-i18next';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
@@ -16,6 +16,9 @@ import {Display36} from '../../../../common/components/Typography/Display/Displa
 import AudioIndicator from './AudioIdicator';
 import Name from './Name';
 import Image from '../../../../common/components/Image/Image';
+import useIsSessionHost from '../../hooks/useIsSessionHost';
+import AudioToggler from './AudioToggler';
+import {DailyContext} from '../../../../lib/daily/DailyProvider';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -32,6 +35,12 @@ const ParticipantPlaceholder = styled.View({
   justifyContent: 'center',
   alignItems: 'center',
   overflow: 'hidden',
+});
+
+const AudioTogglerWrapper = styled.View({
+  position: 'absolute',
+  top: SPACINGS.SIXTEEN,
+  right: SPACINGS.SIXTEEN,
 });
 
 const ParticipantAudio = styled(AudioIndicator)({
@@ -90,10 +99,19 @@ const Participant: React.FC<ParticipantProps> = ({
   participant,
   topGradient,
 }) => {
+  const {call} = useContext(DailyContext);
   const {t} = useTranslation('Screen.Session');
   const photoURL = (participant?.userData as DailyUserData)?.photoURL;
   const theme = useExerciseTheme();
   const background = theme?.backgroundColor ?? COLORS.WHITE;
+  const isSessionHost = useIsSessionHost();
+
+  const onAudioToggle = useCallback(
+    (muted: boolean) => {
+      call?.updateParticipant(participant.user_id, {setAudio: !muted});
+    },
+    [call, participant.user_id],
+  );
 
   return (
     <Wrapper>
@@ -121,7 +139,16 @@ const Participant: React.FC<ParticipantProps> = ({
           colors={[hexToRgba(background, 1), hexToRgba(background, 0)]}
         />
       )}
-      <ParticipantAudio muted={!participant.audioTrack} />
+      {isSessionHost ? (
+        <AudioTogglerWrapper>
+          <AudioToggler
+            muted={!participant.audioTrack}
+            onToggle={onAudioToggle}
+          />
+        </AudioTogglerWrapper>
+      ) : (
+        <ParticipantAudio muted={!participant.audioTrack} />
+      )}
     </Wrapper>
   );
 };
