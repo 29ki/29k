@@ -99,6 +99,11 @@ const Profile = () => {
   const toggleHiddenContent = useToggleHiddenContent();
   const showNonPublishedContent = useAppState(state => state.showHiddenContent);
 
+  const profileSettingsPress = useCallback(
+    () => navigate('ProfileSettingsModal'),
+    [navigate],
+  );
+
   const languagePress = useCallback(
     () => navigate('ChangeLanguageModal'),
     [navigate],
@@ -124,7 +129,9 @@ const Profile = () => {
           <Heading16>{t('settings')}</Heading16>
           <Spacer8 />
           <ActionList>
-            <ActionButton Icon={ProfileIcon}>{t('account')}</ActionButton>
+            <ActionButton Icon={ProfileIcon} onPress={profileSettingsPress}>
+              {t('profileSettings')}
+            </ActionButton>
             <ActionButton Icon={LanguagesIcon} onPress={languagePress}>
               {t('language')}
             </ActionButton>
@@ -167,8 +174,6 @@ const Profile = () => {
             <ActionButton Icon={CommandIcon}>{t('developer')}</ActionButton>
           </ActionList>
 
-          <Spacer28 />
-          <CurrentUser isPublicHost={isPublicHost} />
           <Spacer48 />
           <StartCol>
             <Button variant="secondary" onPress={toggleUiLib}>
