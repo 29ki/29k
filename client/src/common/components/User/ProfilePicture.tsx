@@ -1,17 +1,18 @@
 import React from 'react';
-import {View} from 'react-native';
+import {TouchableOpacityProps, View} from 'react-native';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
+import {PlayfairDisplayRegular} from '../../constants/fonts';
 import {SPACINGS} from '../../constants/spacings';
 import {CameraIcon} from '../Icons';
 import Image from '../Image/Image';
+import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 
-const ImageContainer = styled.TouchableOpacity<{hasError?: boolean}>(
+const ImageContainer = styled(TouchableOpacity)<{hasError?: boolean}>(
   ({hasError}) => ({
-    backgroundColor: COLORS.GREYMEDIUM,
-    width: '100%',
-    height: '100%',
-    borderRadius: 200,
+    backgroundColor: COLORS.PURE_WHITE,
+    borderRadius: 400,
+    aspectRatio: 1,
     overflow: 'hidden',
     shadowColor: COLORS.GREYDARK,
     borderColor: hasError ? COLORS.ERROR : undefined,
@@ -19,9 +20,21 @@ const ImageContainer = styled.TouchableOpacity<{hasError?: boolean}>(
   }),
 );
 
+const Letter = styled.Text.attrs({
+  adjustsFontSizeToFit: true,
+  numberOfLines: 1,
+})({
+  top: '-5%', // Line height is a bit off in Playfair Display
+  fontFamily: PlayfairDisplayRegular,
+  fontSize: 2000,
+  color: COLORS.BLACK,
+  alignSelf: 'center',
+  justifySelf: 'center',
+});
+
 const IconContainer = styled.View({
-  width: SPACINGS.THIRTYTWO,
-  height: SPACINGS.THIRTYTWO,
+  width: '25%',
+  height: '25%',
   padding: SPACINGS.FOUR,
   backgroundColor: COLORS.BLACK,
   borderRadius: 200,
@@ -31,12 +44,14 @@ const IconContainer = styled.View({
 });
 
 type ProfilePictureProps = {
+  letter?: string;
   pictureURL?: string | null;
   hasError?: boolean;
-  onPress: () => void;
+  onPress?: TouchableOpacityProps['onPress'];
 };
 
 const ProfilePicture: React.FC<ProfilePictureProps> = ({
+  letter,
   pictureURL,
   hasError,
   onPress,
@@ -44,11 +59,17 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({
   return (
     <View>
       <ImageContainer hasError={hasError} onPress={onPress}>
-        {pictureURL && <Image source={{uri: pictureURL}} />}
+        {pictureURL ? (
+          <Image source={{uri: pictureURL}} />
+        ) : (
+          letter && <Letter>{letter[0]}</Letter>
+        )}
       </ImageContainer>
-      <IconContainer>
-        <CameraIcon fill={COLORS.WHITE} />
-      </IconContainer>
+      {onPress && (
+        <IconContainer>
+          <CameraIcon fill={COLORS.WHITE} />
+        </IconContainer>
+      )}
     </View>
   );
 };

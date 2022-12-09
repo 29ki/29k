@@ -10,6 +10,7 @@ import * as Session from '../../../routes/Session/components/Session.library';
 import * as Screen from '../../../common/components/Screen/Screen.library';
 import * as Modals from '../../../common/components/Modals/Modals.library';
 import * as ActionList from '../../../common/components/ActionList/ActionList.library';
+import * as ProfilePicture from '../../../common/components/User/ProfilePicture.library';
 
 export type ComponentLibrary = {[key: string]: React.ComponentType};
 export type ComponentList = {[key: string]: Array<ComponentLibrary>};
@@ -23,6 +24,7 @@ const menuItems: ComponentList = {
   Typography: [Typography],
   Screen: [Screen],
   SessionComponents: [Session],
+  ProfilePicture: [ProfilePicture],
   UiSettings: [UiSettings],
 };
 
