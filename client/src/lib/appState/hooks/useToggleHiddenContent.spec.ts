@@ -18,8 +18,11 @@ describe('useToggleHiddenContent', () => {
     });
 
     expect(useAppState.getState().showHiddenContent).toBe(true);
-    expect(i18n.removeResourceBundle).toHaveBeenCalledTimes(1);
+    expect(i18n.removeResourceBundle).toHaveBeenCalledTimes(4);
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('en', 'exercises');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('pt', 'exercises');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('sv', 'exercises');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('es', 'exercises');
     expect(i18n.reloadResources).toHaveBeenCalledTimes(1);
     expect(i18n.reloadResources).toHaveBeenCalledWith(undefined, 'exercises');
   });
@@ -33,8 +36,11 @@ describe('useToggleHiddenContent', () => {
     });
 
     expect(useAppState.getState().showHiddenContent).toBe(false);
-    expect(i18n.removeResourceBundle).toHaveBeenCalledTimes(1);
+    expect(i18n.removeResourceBundle).toHaveBeenCalledTimes(4);
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('en', 'exercises');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('pt', 'exercises');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('sv', 'exercises');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('es', 'exercises');
     expect(i18n.reloadResources).toHaveBeenCalledTimes(1);
     expect(i18n.reloadResources).toHaveBeenCalledWith(undefined, 'exercises');
   });

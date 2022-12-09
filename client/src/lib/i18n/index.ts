@@ -27,6 +27,8 @@ dayjs.extend(localizedFormat);
 
 const DEFAULT_24HOUR_LANGUAGE_TAG = 'en-gb';
 
+// To trigger the backend middleware to load exercises they have to be removed first.
+// Removing them in buildContent creates somewhat of a mess in backend adding them back.
 const omitExercises = (resources: typeof content.i18n) => {
   const allResources = clone(resources) as unknown as Record<
     string,

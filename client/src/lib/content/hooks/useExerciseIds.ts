@@ -13,6 +13,7 @@ const getExerciseIds = (
 
 const useExerciseIds: () => Exercise['id'][] = () => {
   const {i18n} = useTranslation('exercises');
+  // Default to always list exercises avalible in English
   return getExerciseIds(i18n.getDataByLanguage(DEFAULT_LANGUAGE_TAG));
 };
 

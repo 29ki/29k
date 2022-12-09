@@ -13,6 +13,7 @@ jest.mock('../../../content/content.json', () => ({
     en: {
       exercises: {
         'some-exercise-id': {
+          published: true,
           name: 'Some Exercise',
           card: {
             image: {
@@ -29,6 +30,7 @@ jest.mock('../../../content/content.json', () => ({
     sv: {
       exercises: {
         'some-exercise-id': {
+          published: true,
           name: 'En Övning',
           card: {
             image: {

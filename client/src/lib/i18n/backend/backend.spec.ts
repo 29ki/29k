@@ -3,7 +3,13 @@ import Backend from './backend';
 
 jest.mock('../../../../../content/content.json', () => ({
   i18n: {
-    en: {exercises: {'exercise-1': {hidden: true}, 'exercise-2': {}}},
+    en: {
+      exercises: {
+        'exercise-1': {published: true, hidden: true},
+        'exercise-2': {published: true},
+        'exercise-3': {published: false},
+      },
+    },
     es: {},
   },
 }));
@@ -15,7 +21,7 @@ beforeEach(() => {
 });
 
 describe('i18n - backend', () => {
-  it('should only set non hidden exercises as default', () => {
+  it('should only set published and non hidden exercises as default', () => {
     (useAppState.getState as jest.Mock).mockReturnValueOnce({
       showHiddenContent: false,
     });
@@ -23,10 +29,12 @@ describe('i18n - backend', () => {
     Backend.read('en', 'exercises', callbackMock);
 
     expect(callbackMock).toHaveBeenCalledTimes(1);
-    expect(callbackMock).toHaveBeenCalledWith(null, {'exercise-2': {}});
+    expect(callbackMock).toHaveBeenCalledWith(null, {
+      'exercise-2': {published: true},
+    });
   });
 
-  it('should only set also hidden exercises', () => {
+  it('should set published and hidden exercises', () => {
     (useAppState.getState as jest.Mock).mockReturnValueOnce({
       showHiddenContent: true,
     });
@@ -35,8 +43,8 @@ describe('i18n - backend', () => {
 
     expect(callbackMock).toHaveBeenCalledTimes(1);
     expect(callbackMock).toHaveBeenCalledWith(null, {
-      'exercise-1': {hidden: true},
-      'exercise-2': {},
+      'exercise-1': {hidden: true, published: true},
+      'exercise-2': {published: true},
     });
   });
 

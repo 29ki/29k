@@ -1,11 +1,13 @@
 import {BackendModule, ReadCallback} from 'i18next';
-import {clone} from 'ramda';
 import content from '../../../../../content/content.json';
 import {
   LANGUAGE_TAG,
   DEFAULT_LANGUAGE_TAG,
 } from '../../../../../shared/src/constants/i18n';
-import {removeHiddenContent} from '../../../../../shared/src/i18n/utils';
+import {
+  filterPublishedContent,
+  filterHiddenContent,
+} from '../../../../../shared/src/i18n/utils';
 import useAppState from '../../appState/state/state';
 
 type Namespace = keyof typeof content.i18n[typeof DEFAULT_LANGUAGE_TAG];
@@ -13,25 +15,22 @@ type Namespace = keyof typeof content.i18n[typeof DEFAULT_LANGUAGE_TAG];
 const Backend: BackendModule = {
   type: 'backend',
   init: function () {},
+  // Loads all non included content
   read: function (
     language: LANGUAGE_TAG,
-    namespace: Namespace,
+    namespace: Namespace | 'exercises',
     callback: ReadCallback,
   ) {
     if (namespace === 'exercises') {
-      const showNonPublishedContent = useAppState.getState().showHiddenContent;
-      const resources = content.i18n[language] as {
-        ['exercises']: {} | undefined;
-      }; // exercises does not exist for all languages, need to cast here
+      const exercises = filterPublishedContent(
+        content.i18n[language].exercises,
+      );
 
-      if (showNonPublishedContent) {
-        callback(null, resources.exercises);
-      } else if (resources.exercises) {
+      if (useAppState.getState().showHiddenContent) {
+        callback(null, exercises);
+      } else {
         // Default load only non hidden
-        const exercises = clone(resources);
-        const onlyNonHiddenExercises = removeHiddenContent(exercises.exercises);
-
-        callback(null, onlyNonHiddenExercises);
+        callback(null, filterHiddenContent(exercises));
       }
     } else {
       callback(null, content.i18n[language][namespace]);

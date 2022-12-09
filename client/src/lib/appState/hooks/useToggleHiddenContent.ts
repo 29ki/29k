@@ -1,5 +1,6 @@
 import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
+import {LANGUAGE_TAGS} from '../../i18n';
 import useAppState from '../state/state';
 
 const useToggleHiddenContent = () => {
@@ -9,7 +10,9 @@ const useToggleHiddenContent = () => {
   const toggleHiddenContent = useCallback(
     (on: boolean) => {
       setShowHiddenContent(on);
-      i18n.removeResourceBundle(i18n.language, 'exercises');
+      // Needs to be removed for all languages,
+      // otherwise they are not reloaded when switching language
+      LANGUAGE_TAGS.forEach(lng => i18n.removeResourceBundle(lng, 'exercises'));
       i18n.reloadResources(undefined, 'exercises');
     },
     [i18n, setShowHiddenContent],

@@ -1,20 +1,66 @@
-import {removeHidden, removeHiddenContent} from './utils';
+import {
+  removeHiddenContent,
+  filterHiddenContent,
+  removeUnpublishedContent,
+  filterPublishedContent,
+} from './utils';
 
 describe('utils', () => {
-  describe('removeHiddenContent', () => {
+  describe('filterPublishedContent', () => {
     it('should remove hidden content', () => {
       expect(
-        removeHiddenContent({'exercise-1': {}, 'exercise-2': {hidden: true}}),
+        filterPublishedContent({
+          'exercise-1': {},
+          'exercise-2': {published: true},
+        }),
+      ).toEqual({
+        'exercise-2': {published: true},
+      });
+    });
+  });
+
+  describe('filterHiddenContent', () => {
+    it('should remove hidden content', () => {
+      expect(
+        filterHiddenContent({'exercise-1': {}, 'exercise-2': {hidden: true}}),
       ).toEqual({
         'exercise-1': {},
       });
     });
   });
 
-  describe('removeHidden', () => {
+  describe('removeUnpublishedContent', () => {
+    it('should remove unpublished content', () => {
+      expect(
+        removeUnpublishedContent({
+          en: {
+            exercises: {
+              'exercise-1': {published: true},
+              'exercise-2': {},
+            },
+          },
+          pt: {
+            exercises: {
+              'exercise-1': {},
+              'exercise-2': {published: true},
+            },
+          },
+          sv: {exercises: {}},
+          es: {exercises: {}},
+        }),
+      ).toEqual({
+        en: {exercises: {'exercise-1': {published: true}}},
+        pt: {exercises: {'exercise-2': {published: true}}},
+        sv: {exercises: {}},
+        es: {exercises: {}},
+      });
+    });
+  });
+
+  describe('removeHiddenContent', () => {
     it('should remove hidden exercises from all lanugages', () => {
       expect(
-        removeHidden({
+        removeHiddenContent({
           en: {
             exercises: {
               'exercise-1': {},
