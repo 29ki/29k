@@ -916,10 +916,9 @@
     "@types/react-native-background-timer" "^2.0.0"
     react-native-url-polyfill "^1.1.2"
 
-"@daily-co/react-native-webrtc@1.94.1-daily.4":
+"@daily-co/react-native-webrtc@https://github.com/29ki/daily-react-native-webrtc#fix-iOS-16-support":
   version "1.94.1-daily.4"
-  resolved "https://registry.yarnpkg.com/@daily-co/react-native-webrtc/-/react-native-webrtc-1.94.1-daily.4.tgz#2a9f6f3f65f5364497181a5ad1f5368b049b5375"
-  integrity sha512-DTu821gC6G/ZdklXIQGCyAQbBd7zg5alY/Yc99tIb6RLlHg4vjXc3ZWXUwt6XJNBwBqm2LVG3LCpR86Rh4mmHw==
+  resolved "https://github.com/29ki/daily-react-native-webrtc#c9ec9a8e6c1ff160c7f58d173853b3e1fa09a952"
   dependencies:
     "@types/react" "*"
     "@types/react-native" "*"
@@ -1580,10 +1579,10 @@
     prompts "^2.4.0"
     semver "^6.3.0"
 
-"@react-native-community/datetimepicker@^6.7.0":
-  version "6.7.0"
-  resolved "https://registry.yarnpkg.com/@react-native-community/datetimepicker/-/datetimepicker-6.7.0.tgz#c03bef0b07a6734bb8e603b78407e8281a4bfc8a"
-  integrity sha512-R8WA1nv6j2Q54+QFNkhzUzkOcN5lrtOCPyker272e8PopduAiirDMgu9hxNnfxd6NuB4n0VbRbRc7yl0O1V72Q==
+"@react-native-community/datetimepicker@^6.7.1":
+  version "6.7.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/datetimepicker/-/datetimepicker-6.7.1.tgz#a52eed9512898adef323b2fa78c6ac4611af5502"
+  integrity sha512-NPW1YITG7N+3TsqXc4LZV3c5IEpTD5iX18r0bvFsHdIblo5qi0ykpeK3TffmMM5gbTjgKJ4DNVHOjLiWKxFUxw==
   dependencies:
     invariant "^2.2.4"
 
@@ -1650,7 +1649,12 @@
   resolved "https://registry.yarnpkg.com/@react-native/assets/-/assets-1.0.0.tgz#c6f9bf63d274bafc8e970628de24986b30a55c8e"
   integrity sha512-KrwSpS1tKI70wuKl68DwJZYEvXktDHdZMG0k2AXD/rJVSlB23/X2CB2cutVR0HwNMJIal9HOUOBB2rVfa6UGtQ==
 
-"@react-native/normalize-color@*", "@react-native/normalize-color@2.0.0", "@react-native/normalize-color@^2.0.0":
+"@react-native/normalize-color@*":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@react-native/normalize-color/-/normalize-color-2.1.0.tgz#939b87a9849e81687d3640c5efa2a486ac266f91"
+  integrity sha512-Z1jQI2NpdFJCVgpY+8Dq/Bt3d+YUi1928Q+/CZm/oh66fzM0RUl54vvuXlPJKybH4pdCZey1eDTPaLHkMPNgWA==
+
+"@react-native/normalize-color@2.0.0", "@react-native/normalize-color@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@react-native/normalize-color/-/normalize-color-2.0.0.tgz#da955909432474a9a0fe1cbffc66576a0447f567"
   integrity sha512-Wip/xsc5lw8vsBlmY2MO/gFLp3MvuZ2baBZjDeTjjndMgM0h5sxz7AZR62RDPGgstp8Np7JzjvVqVT7tpFZqsw==
@@ -1690,17 +1694,17 @@
     color "^4.2.3"
     warn-once "^0.1.0"
 
-"@react-navigation/elements@^1.3.7":
-  version "1.3.7"
-  resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.3.7.tgz#40d80a7f34d645b605289da10bc4b6c3a7667215"
-  integrity sha512-OZg2N/dd2tl6qkfrWvmUjFsYsbEyHEv4NbZSBuT+CR+d1pzmexN2IeVmi4cEMoR7U7GwhFcHRevF36yBsjU/dw==
+"@react-navigation/elements@^1.3.7", "@react-navigation/elements@^1.3.9":
+  version "1.3.9"
+  resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.3.9.tgz#33e26d7ad655b012e024ef0a005a3f66201287f8"
+  integrity sha512-V9aIZN19ufaKWlXT4UcM545tDiEt9DIQS+74pDgbnzoQcDypn0CvSqWopFhPACMdJatgmlZUuOrrMfTeNrBWgA==
 
-"@react-navigation/native-stack@^6.9.2":
-  version "6.9.2"
-  resolved "https://registry.yarnpkg.com/@react-navigation/native-stack/-/native-stack-6.9.2.tgz#8c861a59a2a86aaf25f0f33a990958edc36ddac4"
-  integrity sha512-W5CYX+mYVyOYUgWoN15O34Pv/JieX2/pU09yh+kacxPHPEm4gYTQM/OIHACOov5T2WyiNSU6iIHjfzQ6e7M9zw==
+"@react-navigation/native-stack@^6.9.4":
+  version "6.9.4"
+  resolved "https://registry.yarnpkg.com/@react-navigation/native-stack/-/native-stack-6.9.4.tgz#d9cc26ad97afcee1c0e3fb092ae4c60f848b1572"
+  integrity sha512-R40G2Zfo748hE4+we/TUAEClw53l0QdFDJ0q/9VS1moxgI4zUopdBxN5SmF32OMFfkedMRAT9J+aVbwgmdn7pA==
   dependencies:
-    "@react-navigation/elements" "^1.3.7"
+    "@react-navigation/elements" "^1.3.9"
     warn-once "^0.1.0"
 
 "@react-navigation/native@^6.0.14":
@@ -2062,9 +2066,9 @@
     "@types/react-native" "*"
 
 "@types/react-native@*":
-  version "0.69.2"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.69.2.tgz#cf6fe8c909093833579ff5956bc645d6e77de426"
-  integrity sha512-AVdWv4B8/++T5QQdnpveb2OVqD+0i8SOoT63ZRD+lNtQIYxzDak91V0k6olthy+H261d4t/MRBC1cfX1Rwsb6A==
+  version "0.70.8"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.70.8.tgz#3302a0f7eddcd3350448ca17a9e415d02b1efde6"
+  integrity sha512-jvs5QMOrlyi0ScfT5Brha2roDoOWtbIOadNkp0jsueVen5+pH4SQAYtzL6xu0+dIcx3J/5LtZ/JYby2C1/zUug==
   dependencies:
     "@types/react" "*"
 
@@ -3584,9 +3588,9 @@ css-what@^6.1.0:
   integrity sha512-HTUrgRJ7r4dsZKU6GjmpfRK1O76h97Z8MfS1G0FozR+oF2kG6Vfe8JE6zwrkbxigziPHinCJ+gCPjA9EaBDtRw==
 
 csstype@^3.0.2:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.0.tgz#4ddcac3718d787cf9df0d1b7d15033925c8f29f2"
-  integrity sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.1.tgz#841b532c45c758ee546a11d5bd7b7b473c8c30b9"
+  integrity sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==
 
 d@1, d@^1.0.1:
   version "1.0.1"
@@ -7126,9 +7130,9 @@ minimist@1.2.6, minimist@^1.2.0, minimist@^1.2.6:
   integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
 
 minipass@^3.0.0:
-  version "3.3.4"
-  resolved "https://registry.yarnpkg.com/minipass/-/minipass-3.3.4.tgz#ca99f95dd77c43c7a76bf51e6d200025eee0ffae"
-  integrity sha512-I9WPbWHCGu8W+6k1ZiGpPu0GkoKBeorkfKNuAFBNS1HNFJvke82sxvI5bzcCNpWPorkOO5QQ+zomzzwRxejXiw==
+  version "3.3.6"
+  resolved "https://registry.yarnpkg.com/minipass/-/minipass-3.3.6.tgz#7bba384db3a1520d18c9c0e5251c3444e95dd94a"
+  integrity sha512-DxiNidxSEK+tHG6zOIklvNOwm3hvCrbUrdtzY74U6HKTJxvIDfOUL5W5P2Ghd3DTkhhKPYGqeNUIh5qcM4YBfw==
   dependencies:
     yallist "^4.0.0"
 
@@ -8216,6 +8220,10 @@ react-native-screens@^3.18.2:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
+"react-native-sound@https://github.com/29ki/react-native-sound#fix-iOS-16-support":
+  version "0.11.2"
+  resolved "https://github.com/29ki/react-native-sound#904cca8cff5e98e25c5abf03c1d454d5aa507f43"
+
 react-native-svg@^13.6.0:
   version "13.6.0"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-13.6.0.tgz#46e95a44aabbd778db7c46d8a1047da376b28058"
@@ -8231,9 +8239,9 @@ react-native-url-polyfill@^1.1.2:
   dependencies:
     whatwg-url-without-unicode "8.0.0-3"
 
-"react-native-video@https://github.com/29ki/react-native-video-5.2.1#repeat-ios-using-av-player-looper":
+"react-native-video@https://github.com/29ki/react-native-video#fix-iOS-16-support":
   version "5.2.1"
-  resolved "https://github.com/29ki/react-native-video-5.2.1#68bfa9011dc0774d65f1d0104f916c01cebf6013"
+  resolved "https://github.com/29ki/react-native-video#b58c9c472a4ba3d77b4757093cab073afdd17cfa"
   dependencies:
     deprecated-react-native-prop-types "^2.2.0"
     keymirror "^0.1.1"
