@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import ActionItemText from '../ActionItemText';
 import ActionIconItem from '../ActionIconItem';
-import {CheckedIcon, InfoIcon} from '../../Icons';
+import {CheckedIcon} from '../../Icons';
 import {Spacer4} from '../../Spacers/Spacer';
 import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
 import {TouchableOpacityProps} from 'react-native';

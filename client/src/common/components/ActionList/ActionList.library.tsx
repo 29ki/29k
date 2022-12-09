@@ -36,6 +36,14 @@ export const AllTypes = () => (
       <ActionTextInput placeholder="ActionTextInput placeholder" />
       <ActionTextInput value="ActionTextInput prefilled value" />
       <ActionTextInput value="ActionTextInput with very very very very very very very very very very very long text" />
+      <ActionTextInput
+        placeholder="ActionTextInput placeholder with error"
+        hasError
+      />
+      <ActionTextInput
+        value="ActionTextInput prefilled value with error"
+        hasError
+      />
     </ActionList>
     <Spacer32 />
 
