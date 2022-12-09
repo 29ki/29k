@@ -5,7 +5,8 @@ import Button from '../Buttons/Button';
 import {Spacer16} from '../Spacers/Spacer';
 import {BottomSheetTextInput} from '../Typography/TextInput/TextInput';
 import {SPACINGS} from '../../constants/spacings';
-import useChangeProfileInfo from '../../../routes/Profile/hooks/useChangeProfileInfo';
+import useChangeProfilePicture from '../../../lib/user/hooks/useChangeProfilePicture';
+import useUpdateProfileDetails from '../../../lib/user/hooks/useUpdateProfileDetails';
 import ProfilePicture from '../User/ProfilePicture';
 import useUser from '../../../lib/user/hooks/useUser';
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -41,7 +42,8 @@ const ProfilePicutreWrapper = styled.View({
 const ProfileInfo = () => {
   const {t} = useTranslation('Component.ProfileInfo');
   const user = useUser();
-  const {changeProfilePicture, changeProfileName} = useChangeProfileInfo();
+  const changeProfilePicture = useChangeProfilePicture();
+  const updateProfileDetails = useUpdateProfileDetails();
   const [displayName, setDisplayName] = useState(user?.displayName ?? '');
   const [nameMissing, setNameMissing] = useState(false);
   const [pictureMissing, setPictureMissing] = useState(false);
@@ -69,7 +71,7 @@ const ProfileInfo = () => {
     if (displayName.length <= 2) {
       setNameMissing(true);
     } else {
-      await changeProfileName(displayName);
+      await updateProfileDetails({displayName});
       setNameMissing(false);
     }
 
@@ -78,7 +80,7 @@ const ProfileInfo = () => {
     } else {
       setPictureMissing(false);
     }
-  }, [user, displayName, changeProfileName]);
+  }, [user, displayName, updateProfileDetails]);
 
   return (
     <Container>

@@ -13,7 +13,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import useUser from '../../../lib/user/hooks/useUser';
-import useChangeProfileInfo from '../hooks/useChangeProfileInfo';
+import useChangeProfilePicture from '../../../lib/user/hooks/useChangeProfilePicture';
 import ProfilePicture from '../../../common/components/User/ProfilePicture';
 import {SPACINGS} from '../../../common/constants/spacings';
 
@@ -46,7 +46,7 @@ const CurrentUser: React.FC<CurrentUserProps> = ({isPublicHost = false}) => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const user = useUser();
-  const {changeProfilePicture} = useChangeProfileInfo();
+  const changeProfilePicture = useChangeProfilePicture();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
