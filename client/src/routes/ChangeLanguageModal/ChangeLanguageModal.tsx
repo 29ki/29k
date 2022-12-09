@@ -17,7 +17,7 @@ const ChangeLanguageModal = () => {
   return (
     <SheetModal>
       <Gutters>
-        <ModalHeading>{t('language')}</ModalHeading>
+        <ModalHeading>{t('title')}</ModalHeading>
         <Spacer24 />
         <ActionList>
           {LANGUAGE_TAGS.map(languageTag => (
