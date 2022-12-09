@@ -1,3 +1,4 @@
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import React, {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import {ScrollView} from 'react-native';
@@ -18,6 +19,7 @@ import {
 import {Display24} from '../../common/components/Typography/Display/Display';
 import Markdown from '../../common/components/Typography/Markdown/Markdown';
 import useAppState from '../../lib/appState/state/state';
+import {AppStackProps} from '../../lib/navigation/constants/routes';
 
 const Wrapper = styled(Gutters).attrs({big: true})({
   flex: 1,
@@ -41,6 +43,9 @@ const ButtonWrapper = styled.View({
 
 const Welcome = () => {
   const {t} = useTranslation('Screen.Welcome');
+  const {goBack} = useNavigation();
+  const {params: {showBack} = {}} =
+    useRoute<RouteProp<AppStackProps, 'Welcome'>>();
   const setSettings = useAppState(state => state.setSettings);
 
   const onContinue = useCallback(() => {
@@ -48,7 +53,9 @@ const Welcome = () => {
   }, [setSettings]);
 
   return (
-    <Screen backgroundColor={COLORS.CREAM}>
+    <Screen
+      backgroundColor={COLORS.CREAM}
+      onPressBack={showBack ? goBack : undefined}>
       <TopSafeArea />
       <ScrollView>
         <Wrapper>
@@ -58,9 +65,11 @@ const Welcome = () => {
           <CenteredHeading>{t('heading')}</CenteredHeading>
           <Spacer16 />
           <Markdown>{t('text__markdown')}</Markdown>
-          <ButtonWrapper>
-            <Button onPress={onContinue}>{t('button')}</Button>
-          </ButtonWrapper>
+          {!showBack && (
+            <ButtonWrapper>
+              <Button onPress={onContinue}>{t('button')}</Button>
+            </ButtonWrapper>
+          )}
           <Spacer40 />
         </Wrapper>
       </ScrollView>
