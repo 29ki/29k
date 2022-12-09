@@ -11,7 +11,7 @@
       "auth/invalid-display-name": "The provided value for the displayName user property is invalid. It must be a non-empty string.",
       "auth/email-already-in-use": "The provided email is already in use by an existing user.",
       "auth/invalid-email": "The provided value for the email user property is invalid. It must be a string email address.",
-      "auth/password-missing": "To set an e-mail address you aldo need to provide a password.",
+      "auth/password-missing": "To set an e-mail address you also need to provide a password.",
       "auth/weak-password": "The provided value for the password user property is invalid. It must be a string with at least six characters."
     }
   },
