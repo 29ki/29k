@@ -1,0 +1,22 @@
+{
+  "en": {
+    "language": "Language",
+    "unsupportedLanguage": {
+      "title": "Language not fully supported",
+      "message": "{{language}} is still under development and might not give you the best experience at this point. Do you want to switch to {{language}} anyway?",
+      "confirm": "Yes, switch",
+      "dismiss": "No, thank you"
+    }
+  },
+  "pt": {
+    "language": "Língua",
+    "unsupportedLanguage": {
+      "title": "Língua não suportada totalmente",
+      "message": "{{language}} ainda em desenvolvimento podendo não proporcionar a melhor experiência. Queres mudar na mesma para {{language}}?",
+      "confirm": "Sim. mudar",
+      "dismiss": "Não, obrigada/o"
+    }
+  },
+  "sv": {},
+  "es": {}
+}

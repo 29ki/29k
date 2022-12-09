@@ -26,5 +26,6 @@ export type ModalStackProps = {
   SessionUnavailableModal: undefined;
   AddSessionModal?: {inviteCode?: number};
   CreateSessionModal: undefined;
-  UpgradeAccountModa?: {code: string};
+  UpgradeAccountModal?: {code: string};
+  ChangeLanguageModal: undefined;
 };

@@ -15,6 +15,7 @@ import SETTINGS from '../../common/constants/settings';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import AppStackWrapper from './AppStack';
 import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
+import ChangeLanguageModal from '../../routes/ChangeLanguageModal/ChangeLanguageModal';
 
 const ModalStack = createBottomSheetNavigator<ModalStackProps>();
 
@@ -101,6 +102,10 @@ const ModalStackWrapper = () => {
         <ModalStack.Screen
           name={'SessionUnavailableModal'}
           component={SessionUnavailableModal}
+        />
+        <ModalStack.Screen
+          name={'ChangeLanguageModal'}
+          component={ChangeLanguageModal}
         />
       </ModalStack.Group>
 
