@@ -4,7 +4,7 @@ import {IconType} from '..';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import Icon from '../Icon';
 
-export const HangUpIcon: IconType = ({fill = COLORS.ACTIVE}) => (
+export const HangUpIcon: IconType = ({fill = COLORS.BLACK}) => (
   <Icon>
     <Path
       fillRule="evenodd"
