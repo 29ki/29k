@@ -72,6 +72,14 @@ const ModalStackWrapper = () => {
     [top],
   );
 
+  const tallSheetModalScreenOptions = useMemo(
+    () => ({
+      ...sheetModalScreenOptions,
+      snapPoints: ['75%', '100%'],
+    }),
+    [sheetModalScreenOptions],
+  );
+
   const cardModalScreenOptions = useMemo(
     () => ({
       ...modalScreenOptions,
@@ -113,6 +121,7 @@ const ModalStackWrapper = () => {
         <ModalStack.Screen
           name={'ProfileSettingsModal'}
           component={ProfileSettingsModal}
+          options={tallSheetModalScreenOptions}
         />
         <ModalStack.Screen name={'SignInModal'} component={SignInModal} />
         <ModalStack.Screen name={'DeveloperModal'} component={DeveloperModal} />
