@@ -26,7 +26,6 @@ const useDeleteUser = () => {
           {
             text: t('buttons.confirm'),
             style: 'destructive',
-
             onPress: async () => {
               await deleteData();
               resolve(true);
