@@ -160,6 +160,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
                 keyExtractor={(_, i) => `notes-${i}`}
                 initialScrollIndex={scroll.index}
                 snapToInterval={listItemWidth}
+                disableIntervalMomentum={true}
                 showsHorizontalScrollIndicator={false}
                 scrollEnabled={Boolean(notes.length)}
                 renderItem={({item}) => (
