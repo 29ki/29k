@@ -128,6 +128,7 @@ const OutroPortal: React.FC = () => {
               <VideoStyled
                 onEnd={onLoopVideoEnd}
                 paused={!isFocused}
+                muted={true}
                 source={{uri: reverseVideo(introPortal.videoEnd.source)}}
                 resizeMode="cover"
                 poster={introPortal.videoEnd?.preview}
@@ -148,7 +149,6 @@ const OutroPortal: React.FC = () => {
           resizeMode="cover"
           poster={outroPortal.video?.preview}
           posterResizeMode="cover"
-          repeat={true}
         />
       )}
       {readyToLeave && (
