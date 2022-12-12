@@ -93,7 +93,7 @@
     "jest-transform-stub": "^2.0.0",
     "metro-react-native-babel-preset": "^0.73.3",
     "mockdate": "^3.0.5",
-    "prettier": "^2.8.0",
+    "prettier": "^2.8.1",
     "react-dom": "18.2.0",
     "react-native-clean-project": "^4.0.1",
     "react-native-dotenv": "^3.4.2",
