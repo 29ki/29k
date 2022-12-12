@@ -6,7 +6,7 @@ import {getPublicUserInfo} from '../models/user';
 import * as dailyApi from '../lib/dailyApi';
 import {Session} from '../../../shared/src/types/Session';
 import {JoinSessionError} from '../../../shared/src/errors/Session';
-import {ExerciseStateUpdate, UpdateSession} from '../api/sessions';
+import {SessionStateUpdate, UpdateSession} from '../api/sessions';
 import {generateVerificationCode, removeEmpty} from '../lib/utils';
 import {RequestError} from './errors/RequestError';
 
@@ -95,10 +95,10 @@ export const updateSession = async (
   return updatedSession ? mapSession(updatedSession) : undefined;
 };
 
-export const updateExerciseState = async (
+export const updateSessionState = async (
   userId: string,
   sessionId: Session['id'],
-  data: Partial<ExerciseStateUpdate>,
+  data: Partial<SessionStateUpdate>,
 ) => {
   const session = (await sessionModel.getSessionById(sessionId)) as Session;
 
@@ -110,7 +110,7 @@ export const updateExerciseState = async (
     throw new Error('user-unauthorized');
   }
 
-  await sessionModel.updateExerciseState(sessionId, removeEmpty(data));
+  await sessionModel.updateSessionState(sessionId, removeEmpty(data));
   const updatedSession = await sessionModel.getSessionById(sessionId);
   return updatedSession ? mapSession(updatedSession) : undefined;
 };
