@@ -159,6 +159,7 @@ const Profile = () => {
           )}
           <Spacer32 />
 
+          {/*
           <Heading16>{t('about')}</Heading16>
           <Spacer8 />
           <ActionList>
@@ -185,7 +186,7 @@ const Profile = () => {
             </ActionButton>
           </ActionList>
           <Spacer32 />
-
+          */}
           <ActionList>
             <ActionButton Icon={CommandIcon}>{t('developer')}</ActionButton>
           </ActionList>
