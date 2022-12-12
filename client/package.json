@@ -83,7 +83,7 @@
     "@types/react-test-renderer": "^17.0.1",
     "@types/styled-components-react-native": "^5.2.0",
     "@typescript-eslint/eslint-plugin": "^5.45.1",
-    "@typescript-eslint/parser": "^5.45.1",
+    "@typescript-eslint/parser": "^5.46.0",
     "appcenter-cli": "^2.12.0",
     "babel-jest": "^29.3.1",
     "eslint": "^8.29.0",
