@@ -1,6 +1,5 @@
 import React from 'react';
 import {TouchableOpacityProps, View, ViewStyle} from 'react-native';
-import {NumberFormatSettings} from 'react-native-localize';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {PlayfairDisplayRegular} from '../../constants/fonts';
