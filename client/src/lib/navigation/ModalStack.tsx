@@ -18,6 +18,7 @@ import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 import ChangeLanguageModal from '../../routes/ChangeLanguageModal/ChangeLanguageModal';
 import ProfileSettingsModal from '../../routes/ProfileSettingsModal/ProfileSettingsModal';
 import SignInModal from '../../routes/SignInModal/SignInModal';
+import DeveloperModal from '../../routes/DeveloperModal/DeveloperModal';
 
 const ModalStack = createBottomSheetNavigator<ModalStackProps>();
 
@@ -114,6 +115,7 @@ const ModalStackWrapper = () => {
           component={ProfileSettingsModal}
         />
         <ModalStack.Screen name={'SignInModal'} component={SignInModal} />
+        <ModalStack.Screen name={'DeveloperModal'} component={DeveloperModal} />
       </ModalStack.Group>
 
       <ModalStack.Group screenOptions={cardModalScreenOptions}>

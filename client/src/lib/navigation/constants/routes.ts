@@ -31,4 +31,5 @@ export type ModalStackProps = {
   ChangeLanguageModal: undefined;
   ProfileSettingsModal: undefined;
   SignInModal: undefined;
+  DeveloperModal: undefined;
 };
