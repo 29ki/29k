@@ -117,7 +117,11 @@ const ProfileSettingsModal = () => {
               autoComplete="password-new"
               autoCorrect={false}
               onSubmitEditing={updateUser}
-              placeholder={t('password')}
+              placeholder={
+                user?.isAnonymous === false
+                  ? t('changePassword')
+                  : t('setPassword')
+              }
               onChangeText={setPassword}
             />
           </ActionList>
