@@ -100,6 +100,7 @@ const Profile = () => {
     <Screen>
       <TopSafeArea />
       <Header top={top}>
+        <Spacer8 />
         <ProfileMini />
       </Header>
       <ScrollView>

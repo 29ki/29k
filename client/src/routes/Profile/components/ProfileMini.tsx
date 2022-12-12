@@ -19,11 +19,6 @@ const Wrapper = styled(Gutters)({
   alignItems: 'center',
 });
 
-const Picture = styled(ProfilePicture)({
-  width: 30,
-  height: 30,
-});
-
 const ProfileMini = () => {
   const {t} = useTranslation('Screen.Profile');
   const {navigate} =
@@ -38,7 +33,11 @@ const ProfileMini = () => {
   return (
     <TouchableOpacity onPress={onPress}>
       <Wrapper>
-        <Picture pictureURL={user?.photoURL} letter={user?.displayName?.[0]} />
+        <ProfilePicture
+          size={30}
+          pictureURL={user?.photoURL}
+          letter={user?.displayName?.[0]}
+        />
         <Spacer8 />
         <Body18>
           {user?.displayName || <BodyItalic>{t('noDisplayName')}</BodyItalic>}
