@@ -23,10 +23,14 @@ const useSetPreferredLanguage = () => {
           t('unsupportedLanguage.message', {language}),
           [
             {
+              text: t('unsupportedLanguage.dismiss'),
+              onPress: () => {},
+              style: 'cancel',
+            },
+            {
               text: t('unsupportedLanguage.confirm'),
               onPress: () => setSettings({preferredLanguage: languageTag}),
             },
-            {text: t('unsupportedLanguage.dismiss'), style: 'cancel'},
           ],
         );
       }
