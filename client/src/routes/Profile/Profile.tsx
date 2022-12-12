@@ -21,7 +21,9 @@ import {
   DeleteIcon,
   HangUpIcon,
   LanguagesIcon,
+  MegaphoneIcon,
   ProfileIcon,
+  SunUpIcon,
 } from '../../common/components/Icons';
 import {useNavigation} from '@react-navigation/native';
 import {
@@ -35,6 +37,7 @@ import hexToRgba from 'hex-to-rgba';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import useUser from '../../lib/user/hooks/useUser';
 import useDeleteUser from '../../lib/user/hooks/useDeleteUser';
+import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 
 const HEADER_HEIGHT = 72;
 
@@ -63,6 +66,7 @@ const Profile = () => {
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const {top} = useSafeAreaInsets();
   const user = useUser();
+  const isPublicHost = useIsPublicHost();
   const deleteUser = useDeleteUser();
 
   const profileSettingsPress = useCallback(
@@ -77,16 +81,15 @@ const Profile = () => {
 
   const signInPress = useCallback(() => navigate('SignInModal'), [navigate]);
 
-  /*
   const earlyAccessInfoPress = useCallback(
     () => navigate('EarlyAccessInfo'),
     [navigate],
   );
+
   const publicHostAccessPress = useCallback(
     () => navigate('UpgradeAccountModal'),
     [navigate],
   );
-  */
 
   const developerPress = useCallback(
     () => navigate('DeveloperModal'),
@@ -128,7 +131,6 @@ const Profile = () => {
           )}
           <Spacer32 />
 
-          {/*
           <Heading16>{t('about')}</Heading16>
           <Spacer8 />
           <ActionList>
@@ -142,10 +144,10 @@ const Profile = () => {
                 {t('publicHostAccess')}
               </ActionButton>
             )}
-            <ActionButton Icon={EnvelopeIcon}>{t('contact')}</ActionButton>
+            {/*<ActionButton Icon={EnvelopeIcon}>{t('contact')}</ActionButton>*/}
           </ActionList>
           <Spacer32 />
-
+          {/*
           <Heading16>{t('community')}</Heading16>
           <Spacer8 />
           <ActionList>
