@@ -1,10 +1,6 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import styled from 'styled-components/native';
-import RNVideo, {
-  VideoProperties,
-  OnLoadData,
-  OnProgressData,
-} from 'react-native-video';
+import RNVideo, {VideoProperties, OnLoadData} from 'react-native-video';
 
 import useSessionState from '../../../../state/state';
 import VideoBase from '../../../VideoBase/VideoBase';
@@ -48,7 +44,7 @@ const Video: React.FC<VideoProps> = ({
 }) => {
   const videoRef = useRef<RNVideo>(null);
   const timerRef = useRef<DurationTimerHandle>(null);
-  const progressRef = useRef<number>(0);
+  const onEndRef = useRef<boolean>(false);
   const [duration, setDuration] = useState(0);
   const exerciseState = useSessionState(state => state.session?.exerciseState);
   const previousState = useRef({playing: false, timestamp: new Date()});
@@ -64,6 +60,11 @@ const Video: React.FC<VideoProps> = ({
       const playing = exerciseState.playing;
       const timestamp = new Date(exerciseState.timestamp);
 
+      // Reset onEndRef when playing
+      if (playing) {
+        onEndRef.current = false;
+      }
+
       if (
         timestamp > previousState.current.timestamp &&
         previousState.current.playing === playing
@@ -78,14 +79,6 @@ const Video: React.FC<VideoProps> = ({
           seek(timeDiff);
         } else {
           seek(duration - 1);
-        }
-      } else if (!previousState.current.playing && playing) {
-        const diff = Math.abs(progressRef.current - duration);
-        const tolerance = 0.5; // So close to the end a pause and play could be considered a reset
-
-        if (diff < tolerance) {
-          progressRef.current = 0; // Reset this to keep track of when to reset
-          seek(0);
         }
       }
 
@@ -104,15 +97,11 @@ const Video: React.FC<VideoProps> = ({
     [setDuration],
   );
 
-  const onProgress = useCallback((data: OnProgressData) => {
-    // No need for this to be state and cause re-renders
-    progressRef.current = data.currentTime;
-  }, []);
-
   const onEnd = useCallback(() => {
     // seek(0) does not reset progress so a second onEnd is triggered
     // Check that the progressRef is not set back to zero to trigger a reset
-    if (resetCallback && !autoPlayLoop && progressRef.current > 0) {
+    if (resetCallback && !autoPlayLoop && !onEndRef.current) {
+      onEndRef.current = true;
       resetCallback();
     }
   }, [resetCallback, autoPlayLoop]);
@@ -163,7 +152,6 @@ const Video: React.FC<VideoProps> = ({
         ref={videoRef}
         onLoad={onLoad}
         onEnd={onEnd}
-        onProgress={onProgress}
         repeat={autoPlayLoop}
       />
       {timer}

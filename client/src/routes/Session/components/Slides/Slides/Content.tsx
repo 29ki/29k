@@ -15,7 +15,6 @@ import {
 } from '../../../../../common/components/Spacers/Spacer';
 import Text from './Blocks/Text';
 import useSessionState from '../../../state/state';
-import useUpdateSessionExerciseState from '../../../hooks/useUpdateSessionExerciseState';
 
 const GraphicsWrapper = styled.View({
   flex: 1,
@@ -39,8 +38,9 @@ type ContentProps = {
   active: boolean;
 };
 const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
-  const sessionId = useSessionState(state => state.session?.id);
-  const {setPlaying} = useUpdateSessionExerciseState(sessionId);
+  const setCurrentSlideDone = useSessionState(
+    state => state.setCurrentSlideDone,
+  );
 
   const videoSource = useMemo(
     () => ({uri: content?.video?.source}),
@@ -58,8 +58,8 @@ const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
   );
 
   const resetCallback = useCallback(() => {
-    setPlaying(false);
-  }, [setPlaying]);
+    setCurrentSlideDone(true);
+  }, [setCurrentSlideDone]);
 
   return (
     <>
