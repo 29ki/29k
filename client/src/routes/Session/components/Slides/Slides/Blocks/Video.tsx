@@ -31,7 +31,6 @@ type VideoProps = {
   preview?: string;
   autoPlayLoop?: boolean;
   durationTimer?: boolean;
-  resetCallback?: () => void;
 };
 const Video: React.FC<VideoProps> = ({
   active,
@@ -40,13 +39,15 @@ const Video: React.FC<VideoProps> = ({
   preview,
   autoPlayLoop = false,
   durationTimer = false,
-  resetCallback,
 }) => {
   const videoRef = useRef<RNVideo>(null);
   const timerRef = useRef<DurationTimerHandle>(null);
   const onEndRef = useRef<boolean>(false);
   const [duration, setDuration] = useState(0);
   const exerciseState = useSessionState(state => state.session?.exerciseState);
+  const setCurrentContentReachedEnd = useSessionState(
+    state => state.setCurrentContentReachedEnd,
+  );
   const previousState = useRef({playing: false, timestamp: new Date()});
 
   const seek = useCallback((seconds: number) => {
@@ -100,11 +101,11 @@ const Video: React.FC<VideoProps> = ({
   const onEnd = useCallback(() => {
     // seek(0) does not reset progress so a second onEnd is triggered
     // Check that the progressRef is not set back to zero to trigger a reset
-    if (resetCallback && !autoPlayLoop && !onEndRef.current) {
+    if (!autoPlayLoop && !onEndRef.current) {
       onEndRef.current = true;
-      resetCallback();
+      setCurrentContentReachedEnd(true);
     }
-  }, [resetCallback, autoPlayLoop]);
+  }, [setCurrentContentReachedEnd, autoPlayLoop]);
 
   const paused = !active || (!exerciseState?.playing && !autoPlayLoop);
 

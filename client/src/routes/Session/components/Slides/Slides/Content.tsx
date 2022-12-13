@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo} from 'react';
+import React, {useMemo} from 'react';
 import styled from 'styled-components/native';
 
 import {
@@ -14,7 +14,6 @@ import {
   Spacer8,
 } from '../../../../../common/components/Spacers/Spacer';
 import Text from './Blocks/Text';
-import useSessionState from '../../../state/state';
 
 const GraphicsWrapper = styled.View({
   flex: 1,
@@ -38,10 +37,6 @@ type ContentProps = {
   active: boolean;
 };
 const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
-  const setCurrentContentReachedEnd = useSessionState(
-    state => state.setCurrentContentReachedEnd,
-  );
-
   const videoSource = useMemo(
     () => ({uri: content?.video?.source}),
     [content.video?.source],
@@ -56,10 +51,6 @@ const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
     () => ({uri: content?.image?.source}),
     [content?.image?.source],
   );
-
-  const resetCallback = useCallback(() => {
-    setCurrentContentReachedEnd(true);
-  }, [setCurrentContentReachedEnd]);
 
   return (
     <>
@@ -88,7 +79,6 @@ const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
               preview={content.video.preview}
               autoPlayLoop={content.video.autoPlayLoop}
               durationTimer={content.video.durationTimer}
-              resetCallback={resetCallback}
             />
           </VideoWrapper>
         </GraphicsWrapper>
