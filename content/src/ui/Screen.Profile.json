@@ -16,12 +16,20 @@
     "language": "Language"
   },
   "pt": {
+    "contact": "Mantém-te em contacto",
     "signIn": "Entrar",
-    "language": "Língua",
     "settings": "Configurações",
+    "community": "Comunidade",
+    "developer": "Programador",
     "profileSettings": "Configurações do perfil",
+    "noDisplayName": "Adiciona o teu nome",
+    "contribute": "Como colaborar",
+    "about": "Sessões 29k FJN",
+    "publicHostAccess": "Acesso moderador público",
+    "earlyAccessInfo": "Informações de acesso a esta versão inicial",
     "deleteData": "Remover os meus dados",
-    "about": "Sessões 29k FJN"
+    "contributors": "Colaboradores",
+    "language": "Língua"
   },
   "sv": {
     "signIn": "Logga in",
