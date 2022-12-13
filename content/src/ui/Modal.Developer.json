@@ -9,7 +9,9 @@
   "pt": {
     "uiLib": "Biblioteca UI",
     "checkUpdate": "Verificar atualizações",
-    "clearUpdate": "Limpar atualização"
+    "clearUpdate": "Limpar atualização",
+    "title": "Programador",
+    "showHiddenContent": "Mostrar conteúdo escondido"
   },
   "sv": {},
   "es": {}
