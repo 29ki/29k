@@ -3,9 +3,7 @@ import styled from 'styled-components/native';
 import RNVideo, {OnLoadData} from 'react-native-video';
 
 import useSessionState from '../../../../state/state';
-import DurationTimer, {
-  DurationTimerHandle,
-} from '../../../DurationTimer/DurationTimer';
+import DurationTimer from '../../../DurationTimer/DurationTimer';
 import LPlayer, {
   LottiePlayerHandle,
 } from '../../../../../../common/components/LottiePlayer/LottiePlayer';
@@ -46,7 +44,7 @@ const Lottie: React.FC<LottieProps> = ({
 }) => {
   const lottieRef = useRef<LottiePlayerHandle>(null);
   const videoRef = useRef<RNVideo>(null);
-  const timerRef = useRef<DurationTimerHandle>(null);
+  const timerRef = useRef<LottiePlayerHandle>(null);
   const [audioDuration, setAudioDuration] = useState(0);
   const exerciseState = useSessionState(state => state.session?.exerciseState);
   const setCurrentContentReachedEnd = useSessionState(
@@ -130,9 +128,13 @@ const Lottie: React.FC<LottieProps> = ({
   const timer = useMemo(
     () =>
       durationTimer ? (
-        <Duration duration={duration} paused={paused} ref={timerRef} />
+        <Duration
+          duration={audioDuration > 0 ? audioDuration : duration}
+          paused={paused}
+          ref={timerRef}
+        />
       ) : null,
-    [durationTimer, paused, duration],
+    [durationTimer, paused, duration, audioDuration],
   );
 
   if (audioSource) {
