@@ -18,7 +18,10 @@
   "pt": {
     "signIn": "Entrar",
     "language": "Língua",
-    "settings": "Configurações"
+    "settings": "Configurações",
+    "profileSettings": "Configurações do perfil",
+    "deleteData": "Remover os meus dados",
+    "about": "Sessões 29k FJN"
   },
   "sv": {
     "signIn": "Logga in",
