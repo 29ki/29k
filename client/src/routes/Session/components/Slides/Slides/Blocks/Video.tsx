@@ -42,20 +42,29 @@ const Video: React.FC<VideoProps> = ({
 }) => {
   const videoRef = useRef<RNVideo>(null);
   const timerRef = useRef<DurationTimerHandle>(null);
+  const onEndRef = useRef<boolean>(false);
   const [duration, setDuration] = useState(0);
   const exerciseState = useSessionState(state => state.session?.exerciseState);
+  const setCurrentContentReachedEnd = useSessionState(
+    state => state.setCurrentContentReachedEnd,
+  );
   const previousState = useRef({playing: false, timestamp: new Date()});
 
-  const seek = (seconds: number) => {
+  const seek = useCallback((seconds: number) => {
     videoRef.current?.seek(seconds);
     timerRef.current?.seek(seconds);
-  };
+  }, []);
 
   useEffect(() => {
     if (active && !autoPlayLoop && duration && exerciseState) {
       // Block is active, video and state is loaded
       const playing = exerciseState.playing;
       const timestamp = new Date(exerciseState.timestamp);
+
+      // Reset onEndRef when playing
+      if (playing) {
+        onEndRef.current = false;
+      }
 
       if (
         timestamp > previousState.current.timestamp &&
@@ -80,7 +89,7 @@ const Video: React.FC<VideoProps> = ({
         timestamp,
       };
     }
-  }, [active, autoPlayLoop, duration, previousState, exerciseState]);
+  }, [active, autoPlayLoop, duration, previousState, exerciseState, seek]);
 
   const onLoad = useCallback<(data: OnLoadData) => void>(
     data => {
@@ -88,6 +97,15 @@ const Video: React.FC<VideoProps> = ({
     },
     [setDuration],
   );
+
+  const onEnd = useCallback(() => {
+    // seek(0) does not reset progress so a second onEnd is triggered
+    // Check that the progressRef is not set back to zero to trigger a reset
+    if (!autoPlayLoop && !onEndRef.current) {
+      onEndRef.current = true;
+      setCurrentContentReachedEnd(true);
+    }
+  }, [setCurrentContentReachedEnd, autoPlayLoop]);
 
   const paused = !active || (!exerciseState?.playing && !autoPlayLoop);
 
@@ -134,6 +152,7 @@ const Video: React.FC<VideoProps> = ({
         {...videoProps}
         ref={videoRef}
         onLoad={onLoad}
+        onEnd={onEnd}
         repeat={autoPlayLoop}
       />
       {timer}

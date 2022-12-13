@@ -3,7 +3,9 @@ import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 import {ExerciseState, Session} from '../../../../../shared/src/types/Session';
 import * as sessionApi from '../../Sessions/api/session';
 
-const useUpdateSessionExerciseState = (sessionId: Session['id']) => {
+const useUpdateSessionExerciseState = (
+  sessionId: Session['id'] | undefined,
+) => {
   const navigateToIndex = useCallback(
     async ({
       index,
@@ -26,16 +28,20 @@ const useUpdateSessionExerciseState = (sessionId: Session['id']) => {
 
   const setSpotlightParticipant = useCallback(
     async (dailySpotlightId: ExerciseState['dailySpotlightId']) => {
-      return sessionApi.updateSessionExerciseState(sessionId, {
-        dailySpotlightId,
-      });
+      if (sessionId) {
+        return sessionApi.updateSessionExerciseState(sessionId, {
+          dailySpotlightId,
+        });
+      }
     },
     [sessionId],
   );
 
   const setPlaying = useCallback(
     async (playing: ExerciseState['playing']) => {
-      return sessionApi.updateSessionExerciseState(sessionId, {playing});
+      if (sessionId) {
+        return sessionApi.updateSessionExerciseState(sessionId, {playing});
+      }
     },
     [sessionId],
   );
