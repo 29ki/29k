@@ -7,7 +7,14 @@
       "confirm": "Yes, delete"
     }
   },
+  "pt": {
+    "header": "Remover utilizador e dados",
+    "text": "Tens a certeza que queres remover o teu utilizador e os teus dados?",
+    "buttons": {
+      "cancel": "Não",
+      "confirm": "Sim, remover"
+    }
+  },
   "sv": {},
-  "pt": {},
   "es": {}
 }
