@@ -51,9 +51,11 @@ const ContentControls: React.FC<ContentControlsProps> = ({
 }) => {
   const isHost = useIsSessionHost();
   const exerciseState = useSessionState(state => state.session?.exerciseState);
-  const currentSlideDone = useSessionState(state => state.currentSlideDone);
-  const setCurrentSlideDone = useSessionState(
-    state => state.setCurrentSlideDone,
+  const currentContentReachedEnd = useSessionState(
+    state => state.currentContentReachedEnd,
+  );
+  const setCurrentContentReachedEnd = useSessionState(
+    state => state.setCurrentContentReachedEnd,
   );
   const exercise = useSessionExercise();
   const slideState = useSessionSlideState();
@@ -86,17 +88,17 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   );
 
   const onTogglePlayingPress = useCallback(() => {
-    if (currentSlideDone) {
+    if (currentContentReachedEnd) {
       setPlaying(true);
-      setCurrentSlideDone(false);
+      setCurrentContentReachedEnd(false);
     } else {
       setPlaying(!exerciseState?.playing);
     }
   }, [
     exerciseState?.playing,
     setPlaying,
-    currentSlideDone,
-    setCurrentSlideDone,
+    currentContentReachedEnd,
+    setCurrentContentReachedEnd,
   ]);
 
   if (!isHost || !exercise || !exerciseState || !slideState) {
@@ -131,7 +133,11 @@ const ContentControls: React.FC<ContentControlsProps> = ({
               elevated
               disabled={!slideState.current.content?.video}
               variant="tertiary"
-              Icon={exerciseState.playing && !currentSlideDone ? Pause : Play}
+              Icon={
+                exerciseState.playing && !currentContentReachedEnd
+                  ? Pause
+                  : Play
+              }
               onPress={onTogglePlayingPress}
             />
           </MediaControls>

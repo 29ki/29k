@@ -38,8 +38,8 @@ type ContentProps = {
   active: boolean;
 };
 const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
-  const setCurrentSlideDone = useSessionState(
-    state => state.setCurrentSlideDone,
+  const setCurrentContentReachedEnd = useSessionState(
+    state => state.setCurrentContentReachedEnd,
   );
 
   const videoSource = useMemo(
@@ -58,8 +58,8 @@ const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
   );
 
   const resetCallback = useCallback(() => {
-    setCurrentSlideDone(true);
-  }, [setCurrentSlideDone]);
+    setCurrentContentReachedEnd(true);
+  }, [setCurrentContentReachedEnd]);
 
   return (
     <>
