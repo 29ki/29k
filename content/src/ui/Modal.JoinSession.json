@@ -9,6 +9,16 @@
       "sessionNotFound": "Incorrect code, try again"
     }
   },
+  "pt": {
+    "title": "Junta-te por código de convite",
+    "create": {
+      "or": "ou",
+      "cta": "Adiciona uma sessão"
+    },
+    "errors": {
+      "sessionNotFound": "Código de convite inválido"
+    }
+  },
   "sv": {
     "title": "Använd kod för att gå med",
     "create": {
@@ -17,16 +27,6 @@
     },
     "errors": {
       "sessionNotFound": "Ogiltig kod, försök igen"
-    }
-  },
-  "pt": {
-    "title": "Junta-te por código de convite",
-    "create": {
-      "or": "or",
-      "cta": "Add new session"
-    },
-    "errors": {
-      "sessionNotFound": "Código de convite inválido"
     }
   },
   "es": {}
