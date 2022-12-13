@@ -11,7 +11,18 @@
       "auth/user-disabled": "Wrong e-mail and/or password"
     }
   },
-  "pt": {},
+  "pt": {
+    "title": "Entrar",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Entrar",
+    "errors": {
+      "auth/invalid-email": "Email e/ou password errada",
+      "auth/wrong-password": "Email e/ou password errada",
+      "auth/user-not-found": "Email não existe",
+      "auth/user-disabled": "Email inativo"
+    }
+  },
   "sv": {},
   "es": {}
 }
