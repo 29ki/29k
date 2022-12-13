@@ -4,9 +4,8 @@ import RNVideo, {VideoProperties, OnLoadData} from 'react-native-video';
 
 import useSessionState from '../../../../state/state';
 import VideoBase from '../../../VideoBase/VideoBase';
-import DurationTimer, {
-  DurationTimerHandle,
-} from '../../../DurationTimer/DurationTimer';
+import DurationTimer from '../../../DurationTimer/DurationTimer';
+import {LottiePlayerHandle} from '../../../../../../common/components/LottiePlayer/LottiePlayer';
 
 const VideoPlayer = styled(VideoBase)({
   flex: 1,
@@ -41,7 +40,7 @@ const Video: React.FC<VideoProps> = ({
   durationTimer = false,
 }) => {
   const videoRef = useRef<RNVideo>(null);
-  const timerRef = useRef<DurationTimerHandle>(null);
+  const timerRef = useRef<LottiePlayerHandle>(null);
   const onEndRef = useRef<boolean>(false);
   const [duration, setDuration] = useState(0);
   const exerciseState = useSessionState(state => state.session?.exerciseState);
