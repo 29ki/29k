@@ -1,12 +1,11 @@
 import {useTranslation} from 'react-i18next';
 import firebaseStorage from '@react-native-firebase/storage';
+import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {openCamera, openPicker} from 'react-native-image-crop-picker';
-import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {Alert, PermissionsAndroid, Platform} from 'react-native';
 import ActionSheet from 'react-native-action-sheet';
 import {useCallback} from 'react';
 import {STORAGE_ENDPOINT} from 'config';
-import useUser from '../../../lib/user/hooks/useUser';
 
 // react-native-image-crop-picker does not export any error
 const E_PICKER_CANCELLED = 'E_PICKER_CANCELLED';
@@ -24,8 +23,6 @@ const removeProfilePicture = async (user: FirebaseAuthTypes.User | null) => {
     await user.updateProfile({
       photoURL: Platform.select({ios: '', android: null}), // Setting it to null as per documentation does not delete it on iOS
     });
-    // For some reason this is what makes the user profile info reload
-    await user.getIdToken(true);
   } catch (cause: any) {
     if (cause.code === 'storage/object-not-found') {
       return;
@@ -57,32 +54,26 @@ const uploadProfilePicture = async (
     await user.updateProfile({
       photoURL: `${STORAGE_ENDPOINT}/${bucket}/${fullPath}?updated=${Date.now()}`,
     });
-    // For some reason this is what makes the user profile info reload
-    await user.getIdToken(true);
   } catch (cause) {
     throw new Error('Error occured when updating profile picture.', {cause});
   }
 };
 
-const useChangeProfileInfo = () => {
+const useChangeProfilePicture = () => {
   const {t} = useTranslation('Alert.ChangeProfilePicture');
-  const user = useUser();
 
-  const changeProfileName = useCallback(
-    async (displayName: string) => {
-      await user?.updateProfile({displayName});
-      // For some reason this is what makes the user profile info reload
-      await user?.getIdToken(true);
-    },
-    [user],
-  );
+  return useCallback(async () => {
+    if (!auth().currentUser) {
+      await auth().signInAnonymously();
+    }
 
-  const changeProfilePicture = useCallback(async () => {
+    const currentUser = auth().currentUser;
+
     const optionTitles = [
       t('takePhotoButtonTitle'),
       t('chooseFromLibraryButtonTitle'),
       t('cancelButtonTitle'),
-      user?.photoURL ? t('removeButtonTitle') : null,
+      currentUser?.photoURL ? t('removeButtonTitle') : null,
     ].filter(Boolean) as Array<string>;
 
     const optionIndex = {
@@ -103,7 +94,7 @@ const useChangeProfileInfo = () => {
     const captureProfilePicture = () => {
       openCamera(imagePickerOptions).then(
         async image => {
-          await uploadProfilePicture(image.path, user);
+          await uploadProfilePicture(image.path, currentUser);
         },
         error => {
           if (error.code !== E_PICKER_CANCELLED) {
@@ -164,7 +155,7 @@ const useChangeProfileInfo = () => {
           case optionIndex.LIBRARY:
             openPicker(imagePickerOptions).then(
               async image => {
-                await uploadProfilePicture(image.path, user);
+                await uploadProfilePicture(image.path, currentUser);
               },
               error => {
                 if (error.code !== E_PICKER_CANCELLED) {
@@ -178,7 +169,7 @@ const useChangeProfileInfo = () => {
             );
             break;
           case optionIndex.REMOVE: {
-            removeProfilePicture(user);
+            removeProfilePicture(currentUser);
             break;
           }
           default:
@@ -186,9 +177,7 @@ const useChangeProfileInfo = () => {
         }
       },
     );
-  }, [t, user]);
-
-  return {changeProfilePicture, changeProfileName};
+  }, [t]);
 };
 
-export default useChangeProfileInfo;
+export default useChangeProfilePicture;

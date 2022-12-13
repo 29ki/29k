@@ -15,7 +15,7 @@ const ActionButton: React.FC<ActionLinkProps> = ({
 }) => (
   <TouchableOpacity onPress={onPress}>
     <ActionIconItem Icon={Icon} style={style}>
-      <ActionItemText numberOfLines={1}>{children}</ActionItemText>
+      <ActionItemText>{children}</ActionItemText>
     </ActionIconItem>
   </TouchableOpacity>
 );
