@@ -36,7 +36,10 @@ const useUpdateProfileDetails = () =>
       }
     }
 
-    if (displayName !== currentUser?.displayName) {
+    if (
+      typeof displayName === 'string' &&
+      displayName !== currentUser?.displayName
+    ) {
       await currentUser?.updateProfile({displayName});
     }
   }, []);
