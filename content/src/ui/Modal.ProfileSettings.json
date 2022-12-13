@@ -1,22 +1,38 @@
 {
   "en": {
-    "title": "Profile Settings",
-    "displayName": "What should we call you?",
-    "email": "E-mail",
-    "setPassword": "Set a password",
     "changePassword": "Change password",
-    "save": "Save changes",
-    "signOut": "Sign out",
-    "deleteData": "Delete my data",
     "errors": {
       "auth/invalid-display-name": "The provided value for the displayName user property is invalid. It must be a non-empty string.",
       "auth/email-already-in-use": "The provided email is already in use by an existing user.",
       "auth/invalid-email": "The provided value for the email user property is invalid. It must be a string email address.",
       "auth/password-missing": "To set an e-mail address you also need to provide a password.",
       "auth/weak-password": "The provided value for the password user property is invalid. It must be a string with at least six characters."
-    }
+    },
+    "displayName": "What should we call you?",
+    "signOut": "Sign out",
+    "deleteData": "Delete my data",
+    "title": "Profile Settings",
+    "email": "E-mail",
+    "setPassword": "Set a password",
+    "save": "Save changes"
   },
-  "pt": {},
+  "pt": {
+    "changePassword": "Alterar password",
+    "errors": {
+      "auth/invalid-display-name": "O valor escolhido para o teu nome é inválido.",
+      "auth/email-already-in-use": "Este email já está registado.",
+      "auth/invalid-email": "O valor escolhido para o teu email é inválido.",
+      "auth/password-missing": "Tens de definir uma password",
+      "auth/weak-password": "Password inválida. Tem de ter pelo menos 6 carateres."
+    },
+    "displayName": "Como te devemos chamar?",
+    "signOut": "Sair",
+    "deleteData": "Remover os meus dados",
+    "title": "Configurações do perfil",
+    "email": "Email",
+    "setPassword": "Definir password",
+    "save": "Gravar alterações"
+  },
   "sv": {},
   "es": {}
 }
