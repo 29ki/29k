@@ -1,23 +1,24 @@
 {
   "en": {
-    "settings": "Settings",
-    "signIn": "Sign in",
-    "language": "Language",
-    "profileSettings": "Profile settings",
-    "deleteData": "Delete my data",
-    "about": "29k Sessions",
-    "earlyAccessInfo": "Early access info",
-    "publicHostAccess": "Public host access",
     "contact": "Get in touch",
+    "signIn": "Sign in",
+    "settings": "Settings",
     "community": "Community",
-    "contribute": "How to contribute",
-    "contributors": "Contributors",
     "developer": "Developer",
-    "noDisplayName": "Add your name"
+    "profileSettings": "Profile settings",
+    "noDisplayName": "Add your name",
+    "contribute": "How to contribute",
+    "about": "29k Sessions",
+    "publicHostAccess": "Public host access",
+    "earlyAccessInfo": "Early access info",
+    "deleteData": "Delete my data",
+    "contributors": "Contributors",
+    "language": "Language"
   },
   "pt": {
     "signIn": "Entrar",
-    "language": "Língua"
+    "language": "Língua",
+    "settings": "Configurações"
   },
   "sv": {
     "signIn": "Logga in",
