@@ -51,6 +51,12 @@ const ContentControls: React.FC<ContentControlsProps> = ({
 }) => {
   const isHost = useIsSessionHost();
   const exerciseState = useSessionState(state => state.session?.exerciseState);
+  const currentContentReachedEnd = useSessionState(
+    state => state.currentContentReachedEnd,
+  );
+  const setCurrentContentReachedEnd = useSessionState(
+    state => state.setCurrentContentReachedEnd,
+  );
   const exercise = useSessionExercise();
   const slideState = useSessionSlideState();
   const {t} = useTranslation('Screen.Session');
@@ -81,10 +87,19 @@ const ContentControls: React.FC<ContentControlsProps> = ({
     [exerciseState?.playing, setPlaying],
   );
 
-  const onTogglePlayingPress = useCallback(
-    () => setPlaying(!exerciseState?.playing),
-    [exerciseState?.playing, setPlaying],
-  );
+  const onTogglePlayingPress = useCallback(() => {
+    if (currentContentReachedEnd) {
+      setPlaying(true);
+      setCurrentContentReachedEnd(false);
+    } else {
+      setPlaying(!exerciseState?.playing);
+    }
+  }, [
+    exerciseState?.playing,
+    setPlaying,
+    currentContentReachedEnd,
+    setCurrentContentReachedEnd,
+  ]);
 
   if (!isHost || !exercise || !exerciseState || !slideState) {
     return null;
@@ -102,12 +117,16 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         {t('controls.prev')}
       </SlideButton>
       {slideState.current.type !== 'host' &&
-        !slideState.current.content?.video?.autoPlayLoop && (
+        !slideState.current.content?.video?.autoPlayLoop &&
+        !slideState.current.content?.lottie?.autoPlayLoop && (
           <MediaControls>
             <IconSlideButton
               small
               elevated
-              disabled={!slideState.current.content?.video}
+              disabled={
+                !slideState.current.content?.video &&
+                !slideState.current.content?.lottie
+              }
               variant="tertiary"
               Icon={Rewind}
               onPress={onResetPlayingPress}
@@ -116,9 +135,16 @@ const ContentControls: React.FC<ContentControlsProps> = ({
             <IconSlideButton
               small
               elevated
-              disabled={!slideState.current.content?.video}
+              disabled={
+                !slideState.current.content?.video &&
+                !slideState.current.content?.lottie
+              }
               variant="tertiary"
-              Icon={exerciseState.playing ? Pause : Play}
+              Icon={
+                exerciseState.playing && !currentContentReachedEnd
+                  ? Pause
+                  : Play
+              }
               onPress={onTogglePlayingPress}
             />
           </MediaControls>

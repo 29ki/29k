@@ -46,7 +46,7 @@
     "posthog-react-native": "^2.2.1",
     "ramda": "^0.28.0",
     "react": "18.0.0",
-    "react-i18next": "^12.0.0",
+    "react-i18next": "^12.1.1",
     "react-native": "0.69.5",
     "react-native-action-sheet": "^2.2.0",
     "react-native-add-calendar-event": "^4.0.0",
@@ -67,7 +67,7 @@
     "react-native-svg": "^13.6.0",
     "react-native-video": "https://github.com/29ki/react-native-video#fix-iOS-16-support",
     "styled-components": "^5.3.6",
-    "zustand": "^4.1.4"
+    "zustand": "^4.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
@@ -82,8 +82,8 @@
     "@types/react-native-video": "^5.0.14",
     "@types/react-test-renderer": "^17.0.1",
     "@types/styled-components-react-native": "^5.2.0",
-    "@typescript-eslint/eslint-plugin": "^5.45.1",
-    "@typescript-eslint/parser": "^5.45.1",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@typescript-eslint/parser": "^5.46.1",
     "appcenter-cli": "^2.12.0",
     "babel-jest": "^29.3.1",
     "eslint": "^8.29.0",
@@ -93,10 +93,10 @@
     "jest-transform-stub": "^2.0.0",
     "metro-react-native-babel-preset": "^0.73.3",
     "mockdate": "^3.0.5",
-    "prettier": "^2.8.0",
+    "prettier": "^2.8.1",
     "react-dom": "18.2.0",
     "react-native-clean-project": "^4.0.1",
-    "react-native-dotenv": "^3.4.2",
+    "react-native-dotenv": "^3.4.6",
     "react-test-renderer": "18.0.0",
     "typescript": "^4.9.3"
   },

@@ -14,6 +14,7 @@ import {
   Spacer8,
 } from '../../../../../common/components/Spacers/Spacer';
 import Text from './Blocks/Text';
+import Lottie from './Blocks/Lottie';
 
 const GraphicsWrapper = styled.View({
   flex: 1,
@@ -52,23 +53,50 @@ const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
     [content?.image?.source],
   );
 
+  const lottieSource = useMemo(
+    () => ({uri: content?.lottie?.source ?? ''}),
+    [content?.lottie?.source],
+  );
+
+  const lottieAudioSource = useMemo(
+    () => (content?.lottie?.audio ? {uri: content.lottie.audio} : undefined),
+    [content?.lottie?.audio],
+  );
+
+  const lottieDuration = useMemo(
+    () => parseInt(content.lottie?.duration ?? '60', 10),
+    [content.lottie?.duration],
+  );
+
   return (
     <>
       <Spacer12 />
-      {!content.video && !content.image && (
+      {!content.video && !content.image && !content.lottie && (
         <TextWrapper>
           {content.heading && <Heading>{content.heading}</Heading>}
           {content.text && <Text>{content.text}</Text>}
         </TextWrapper>
       )}
-      {(content.video || content.image) && content.heading && (
-        <Heading>{content.heading}</Heading>
-      )}
-      {(content.video || content.image) && content.text && (
+      {(content.video || content.image || content.lottie) &&
+        content.heading && <Heading>{content.heading}</Heading>}
+      {(content.video || content.image || content.lottie) && content.text && (
         <Text>{content.text}</Text>
       )}
 
-      {content.video ? (
+      {content.lottie ? (
+        <GraphicsWrapper>
+          <Spacer8 />
+          <Lottie
+            source={lottieSource}
+            audioSource={lottieAudioSource}
+            active={active}
+            duration={lottieDuration}
+            autoPlayLoop={content.lottie.autoPlayLoop}
+            durationTimer={content.lottie.durationTimer}
+          />
+          <Spacer8 />
+        </GraphicsWrapper>
+      ) : content.video ? (
         <GraphicsWrapper>
           <Spacer8 />
           <VideoWrapper>

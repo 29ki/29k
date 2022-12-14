@@ -37,9 +37,13 @@ const TopLevelText = styled(Text)({
   fontWeight: 'bold',
 });
 
-const renderScreens = (imports: any) => {
+const renderScreens = (imports: any, parentName: string) => {
   const screen = (Component: React.ComponentType, name: string) => (
-    <Drawer.Screen key={`Screen-${name}`} name={name} component={Component} />
+    <Drawer.Screen
+      key={`${parentName}-${name}`}
+      name={`${parentName}-${name}`}
+      component={Component}
+    />
   );
 
   return values(mapObjIndexed(screen, mergeAll(imports)));
@@ -53,24 +57,26 @@ const DrawerContent: (
   ({navigation}) => {
     const navState = navigation.getState();
     const activeRouteName = navState.routes[navState.index].name;
-    const renderMenuItem = (_: any, title: string) => (
-      <MenuWrapper
-        key={`Menu-item-${title}`}
-        active={activeRouteName === title}
-        onPress={() => {
-          navigation.navigate(title);
-        }}>
-        <MenuText active={activeRouteName === title}>{title}</MenuText>
-      </MenuWrapper>
-    );
+
+    const renderMenuItem = (parentName: string) => (_: any, name: string) =>
+      (
+        <MenuWrapper
+          key={`Menu-item-${parentName}-${name}`}
+          active={activeRouteName === `${parentName}-${name}`}
+          onPress={() => {
+            navigation.navigate(`${parentName}-${name}`);
+          }}>
+          <MenuText active={activeRouteName === name}>{name}</MenuText>
+        </MenuWrapper>
+      );
 
     const renderTopLevel = (
       subLevel: Array<ComponentLibrary>,
-      title: string,
+      name: string,
     ) => (
-      <Fragment key={`Top-level-${title}`}>
-        <TopLevelText>{title}</TopLevelText>
-        {values(mapObjIndexed(renderMenuItem, mergeAll(subLevel)))}
+      <Fragment key={`Top-level-${name}`}>
+        <TopLevelText>{name}</TopLevelText>
+        {values(mapObjIndexed(renderMenuItem(name), mergeAll(subLevel)))}
       </Fragment>
     );
 

@@ -1,0 +1,18 @@
+{
+  "en": {
+    "title": "Developer",
+    "uiLib": "UI Library",
+    "checkUpdate": "Check for update",
+    "clearUpdate": "Clear update",
+    "showHiddenContent": "Show hidden content"
+  },
+  "pt": {
+    "uiLib": "Biblioteca UI",
+    "checkUpdate": "Verificar atualizações",
+    "clearUpdate": "Limpar atualização",
+    "title": "Programador",
+    "showHiddenContent": "Mostrar conteúdo escondido"
+  },
+  "sv": {},
+  "es": {}
+}

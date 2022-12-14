@@ -77,6 +77,34 @@ export const IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
   ],
 };
 
+export const LOTTE_FIELD: CmsFieldBase & CmsFieldObject = {
+  label: '💃 Lottie',
+  name: 'lottie',
+  widget: 'object',
+  collapsed: true,
+  required: false,
+  i18n: true,
+  fields: [
+    {
+      label: '📃 Description',
+      name: 'description',
+      widget: 'string',
+      required: false,
+      i18n: true,
+    },
+    {
+      label: '💃 Lottie file',
+      name: 'source',
+      widget: 'file',
+      required: false,
+      i18n: true,
+      allow_multiple: false,
+      media_library: CLOUDINARY_IMAGE_CONFIG,
+    },
+    {...DURATION_FIELD, hint: 'Duration in seconds', required: false},
+  ],
+};
+
 export const VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
   label: '🎥 Video',
   name: 'video',
@@ -130,6 +158,17 @@ export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
     {
       ...AUDIO_FIELD,
       hint: 'This will override the audio of the video. Video will automatically loop while playing.',
+    },
+  ],
+};
+
+export const LOTTIE_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
+  ...LOTTE_FIELD,
+  fields: [
+    ...LOTTE_FIELD.fields,
+    {
+      ...AUDIO_FIELD,
+      hint: 'Animation will automatically loop while playing.',
     },
   ],
 };
