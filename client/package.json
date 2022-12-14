@@ -65,6 +65,7 @@
     "react-native-screens": "^3.18.2",
     "react-native-sound": "https://github.com/29ki/react-native-sound#fix-iOS-16-support",
     "react-native-svg": "^13.6.0",
+    "react-native-swipe-gestures": "^1.0.5",
     "react-native-video": "https://github.com/29ki/react-native-video#fix-iOS-16-support",
     "styled-components": "^5.3.6",
     "zustand": "^4.1.5"
