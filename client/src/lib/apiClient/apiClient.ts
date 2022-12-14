@@ -36,12 +36,15 @@ const getAuthorizationToken = async (): Promise<string> => {
       } catch (error) {
         const firebaseError =
           error as FirebaseAuthTypes.NativeFirebaseAuthError;
-        if (firebaseError.code === 'auth/network-request-failed') {
-          throw new Error('Network request failed');
+        if (
+          firebaseError.code === 'auth/id-token-expired' ||
+          firebaseError.code === 'auth/id-token-revoked'
+        ) {
+          await recreateUser();
+          return await getAuthorizationToken();
         }
 
-        await recreateUser();
-        return await getAuthorizationToken();
+        throw new Error('Failed to get user token', {cause: error});
       }
     }
   }
