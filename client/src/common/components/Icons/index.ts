@@ -29,6 +29,7 @@ export * from './Home/Home';
 export * from './HomeFill/HomeFill';
 export * from './Info/Info';
 export * from './Languages/Languages';
+export * from './Link/Link';
 export * from './Logo/Logo';
 export * from './Megaphone/Megaphone';
 export * from './Microphone/Microphone';
