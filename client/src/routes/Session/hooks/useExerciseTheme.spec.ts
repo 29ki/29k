@@ -11,7 +11,7 @@ afterEach(() => {
 
 describe('useExerciseTheme', () => {
   const {t} = useTranslation();
-  (t as jest.Mock).mockReturnValue({theme: 'some-theme'});
+  (t as unknown as jest.Mock).mockReturnValue({theme: 'some-theme'});
 
   it('returns current session exercise theme', async () => {
     useSessionState.setState({
