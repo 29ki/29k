@@ -21,7 +21,7 @@ import {SPACINGS} from '../../common/constants/spacings';
 import {Body14} from '../../common/components/Typography/Body/Body';
 import {BottomSafeArea} from '../../common/components/Spacers/Spacer';
 
-import ProfileStackWrapper from './ProfileStack';
+import ProfileStack from './ProfileStack';
 import Sessions from '../../routes/Sessions/Sessions';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
@@ -82,7 +82,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         name={'ProfileStack'}
-        component={ProfileStackWrapper}
+        component={ProfileStack}
         options={getTabOptions(ProfileIcon, ProfileFillIcon, t('profile'))}
       />
     </Tab.Navigator>

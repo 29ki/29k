@@ -8,10 +8,11 @@ import {
   SharedElementsComponentConfig,
 } from 'react-navigation-shared-element';
 import AboutOverlay from '../../routes/AboutOverlay/AboutOverlay';
-import AppStackWrapper from './AppStack';
+import AppStack from './AppStack';
 import {OverlayStackProps} from './constants/routes';
 
-const OverlayStack = createSharedElementStackNavigator<OverlayStackProps>();
+const {Navigator, Screen} =
+  createSharedElementStackNavigator<OverlayStackProps>();
 
 const screenOptions: StackNavigationOptions = {
   headerShown: false,
@@ -34,15 +35,15 @@ const editorialSharedElements: SharedElementsComponentConfig = () => [
   },
 ];
 
-const OverlayStackWrapper = () => (
-  <OverlayStack.Navigator screenOptions={screenOptions}>
-    <OverlayStack.Screen name="App" component={AppStackWrapper} />
-    <OverlayStack.Screen
+const OverlayStack = () => (
+  <Navigator screenOptions={screenOptions}>
+    <Screen name="App" component={AppStack} />
+    <Screen
       name="AboutOverlay"
       component={AboutOverlay}
       sharedElements={editorialSharedElements}
     />
-  </OverlayStack.Navigator>
+  </Navigator>
 );
 
-export default OverlayStackWrapper;
+export default OverlayStack;

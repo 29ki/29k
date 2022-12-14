@@ -15,17 +15,18 @@ const screenOptions: StackNavigationOptions = {
   https://github.com/IjzerenHein/react-navigation-shared-element/issues/77#issuecomment-782101611
   It does however function identicakl to a @react-navigation/stack navigator.
 */
-const ProfileStack = createSharedElementStackNavigator<ProfileStackProps>();
+const {Navigator, Screen} =
+  createSharedElementStackNavigator<ProfileStackProps>();
 
-const ProfileStackWrapper = () => (
-  <ProfileStack.Navigator screenOptions={screenOptions}>
-    <ProfileStack.Screen name="Profile" component={Profile} />
-    <ProfileStack.Screen
+const ProfileStack = () => (
+  <Navigator screenOptions={screenOptions}>
+    <Screen name="Profile" component={Profile} />
+    <Screen
       name={'EarlyAccessInfo'}
       component={Welcome}
       initialParams={{showBack: true}}
     />
-  </ProfileStack.Navigator>
+  </Navigator>
 );
 
-export default ProfileStackWrapper;
+export default ProfileStack;

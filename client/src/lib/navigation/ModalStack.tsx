@@ -13,15 +13,15 @@ import SessionUnavailableModal from '../../routes/SessionUnavailableModal/Sessio
 import {COLORS} from '../../../../shared/src/constants/colors';
 import SETTINGS from '../../common/constants/settings';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import AppStackWrapper from './AppStack';
 import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 import ChangeLanguageModal from '../../routes/ChangeLanguageModal/ChangeLanguageModal';
 import ProfileSettingsModal from '../../routes/ProfileSettingsModal/ProfileSettingsModal';
 import SignInModal from '../../routes/SignInModal/SignInModal';
 import DeveloperModal from '../../routes/DeveloperModal/DeveloperModal';
-import OverlayStackWrapper from './OverlayStack';
+import OverlayStack from './OverlayStack';
 
-const ModalStack = createBottomSheetNavigator<ModalStackProps>();
+const {Navigator, Screen, Group} =
+  createBottomSheetNavigator<ModalStackProps>();
 
 const modalScreenOptions: BottomSheetNavigationOptions = {
   backdropComponent: ({animatedIndex, animatedPosition, style}) => (
@@ -55,7 +55,7 @@ const modalScreenOptions: BottomSheetNavigationOptions = {
   },
 };
 
-const ModalStackWrapper = () => {
+const ModalStack = () => {
   const {top} = useSafeAreaInsets();
 
   const sheetModalScreenOptions = useMemo(
@@ -98,44 +98,32 @@ const ModalStackWrapper = () => {
   );
 
   return (
-    <ModalStack.Navigator>
-      <ModalStack.Screen name="OverlayStack" component={OverlayStackWrapper} />
+    <Navigator>
+      <Screen name="OverlayStack" component={OverlayStack} />
 
-      <ModalStack.Group screenOptions={sheetModalScreenOptions}>
-        <ModalStack.Screen name={'SessionModal'} component={SessionModal} />
-        <ModalStack.Screen
-          name={'CreateSessionModal'}
-          component={CreateSessionModal}
-        />
-        <ModalStack.Screen
-          name={'UpgradeAccountModal'}
-          component={UpgradeAccountModal}
-        />
-        <ModalStack.Screen
+      <Group screenOptions={sheetModalScreenOptions}>
+        <Screen name={'SessionModal'} component={SessionModal} />
+        <Screen name={'CreateSessionModal'} component={CreateSessionModal} />
+        <Screen name={'UpgradeAccountModal'} component={UpgradeAccountModal} />
+        <Screen
           name={'SessionUnavailableModal'}
           component={SessionUnavailableModal}
         />
-        <ModalStack.Screen
-          name={'ChangeLanguageModal'}
-          component={ChangeLanguageModal}
-        />
-        <ModalStack.Screen
+        <Screen name={'ChangeLanguageModal'} component={ChangeLanguageModal} />
+        <Screen
           name={'ProfileSettingsModal'}
           component={ProfileSettingsModal}
           options={tallSheetModalScreenOptions}
         />
-        <ModalStack.Screen name={'SignInModal'} component={SignInModal} />
-        <ModalStack.Screen name={'DeveloperModal'} component={DeveloperModal} />
-      </ModalStack.Group>
+        <Screen name={'SignInModal'} component={SignInModal} />
+        <Screen name={'DeveloperModal'} component={DeveloperModal} />
+      </Group>
 
-      <ModalStack.Group screenOptions={cardModalScreenOptions}>
-        <ModalStack.Screen
-          name={'AddSessionModal'}
-          component={AddSessionModal}
-        />
-      </ModalStack.Group>
-    </ModalStack.Navigator>
+      <Group screenOptions={cardModalScreenOptions}>
+        <Screen name={'AddSessionModal'} component={AddSessionModal} />
+      </Group>
+    </Navigator>
   );
 };
 
-export default ModalStackWrapper;
+export default ModalStack;
