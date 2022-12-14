@@ -1092,10 +1092,10 @@ PODS:
     - TOCropViewController
   - RNLocalize (2.2.4):
     - React-Core
-  - RNNotifee (7.1.0):
+  - RNNotifee (7.3.0):
     - React-Core
-    - RNNotifee/NotifeeCore (= 7.1.0)
-  - RNNotifee/NotifeeCore (7.1.0):
+    - RNNotifee/NotifeeCore (= 7.3.0)
+  - RNNotifee/NotifeeCore (7.3.0):
     - React-Core
   - RNReactNativeHapticFeedback (1.14.0):
     - React-Core
@@ -1439,7 +1439,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: 62232ba8f562f7dea5ba1b3383494eb5bf97a4d3
   RNImageCropPicker: 648356d68fbf9911a1016b3e3723885d28373eda
   RNLocalize: 0df7970cfc60389f00eb62fd7c097dc75af3fb4f
-  RNNotifee: 8527a2b9ffc6d0abfd907027e22962a809e39eee
+  RNNotifee: d585266dd69e1f355d26d074cbfdbdfa6c94b7d5
   RNReactNativeHapticFeedback: 1e3efeca9628ff9876ee7cdd9edec1b336913f8c
   RNReanimated: f0d66bda3d074c43c72a18f4fd4f4c26687bc1fd
   RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
