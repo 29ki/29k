@@ -1,13 +1,15 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import styled from 'styled-components/native';
-import RNVideo, {VideoProperties, OnLoadData} from 'react-native-video';
+import RNVideo, {OnLoadData} from 'react-native-video';
 
 import useSessionState from '../../../../state/state';
-import VideoBase from '../../../VideoBase/VideoBase';
 import DurationTimer from '../../../DurationTimer/DurationTimer';
-import {LottiePlayerHandle} from '../../../../../../common/components/LottiePlayer/LottiePlayer';
+import LPlayer, {
+  LottiePlayerHandle,
+} from '../../../../../../common/components/LottiePlayer/LottiePlayer';
+import {VideoBase} from '../../../VideoBase/VideoBase';
 
-const VideoPlayer = styled(VideoBase)({
+const LottiePlayer = styled(LPlayer)({
   flex: 1,
 });
 
@@ -23,47 +25,56 @@ const Duration = styled(DurationTimer)({
   height: 30,
 });
 
-type VideoProps = {
-  source: VideoProperties['source'];
-  audioSource?: VideoProperties['source'];
+type LottieProps = {
+  source: {uri: string};
+  audioSource?: {uri: string};
   active: boolean;
+  duration: number;
   preview?: string;
   autoPlayLoop?: boolean;
   durationTimer?: boolean;
 };
-const Video: React.FC<VideoProps> = ({
+const Lottie: React.FC<LottieProps> = ({
   active,
   source,
   audioSource,
-  preview,
+  duration,
   autoPlayLoop = false,
   durationTimer = false,
 }) => {
+  const lottieRef = useRef<LottiePlayerHandle>(null);
   const videoRef = useRef<RNVideo>(null);
   const timerRef = useRef<LottiePlayerHandle>(null);
-  const onEndRef = useRef<boolean>(false);
-  const [duration, setDuration] = useState(0);
+  const [audioDuration, setAudioDuration] = useState(0);
   const exerciseState = useSessionState(state => state.session?.exerciseState);
   const setCurrentContentReachedEnd = useSessionState(
     state => state.setCurrentContentReachedEnd,
   );
   const previousState = useRef({playing: false, timestamp: new Date()});
 
-  const seek = useCallback((seconds: number) => {
-    videoRef.current?.seek(seconds);
-    timerRef.current?.seek(seconds);
-  }, []);
+  const seek = useCallback(
+    (seconds: number) => {
+      if (audioSource) {
+        videoRef.current?.seek(seconds);
+      } else {
+        lottieRef.current?.seek(seconds);
+      }
+
+      timerRef.current?.seek(seconds);
+    },
+    [audioSource],
+  );
 
   useEffect(() => {
-    if (active && !autoPlayLoop && duration && exerciseState) {
+    if (
+      active &&
+      !autoPlayLoop &&
+      (duration || audioDuration) &&
+      exerciseState
+    ) {
       // Block is active, video and state is loaded
       const playing = exerciseState.playing;
       const timestamp = new Date(exerciseState.timestamp);
-
-      // Reset onEndRef when playing
-      if (playing) {
-        onEndRef.current = false;
-      }
 
       if (
         timestamp > previousState.current.timestamp &&
@@ -74,11 +85,12 @@ const Video: React.FC<VideoProps> = ({
       } else if (timestamp < previousState.current.timestamp && playing) {
         // State is old - compensate time played
         const timeDiff = (new Date().getTime() - timestamp.getTime()) / 1000;
-        if (timeDiff < duration) {
+        const usedDuration = audioDuration > 0 ? audioDuration : duration;
+        if (timeDiff < usedDuration) {
           // Do not seek passed video length
           seek(timeDiff);
         } else {
-          seek(duration - 1);
+          seek(usedDuration - 1);
         }
       }
 
@@ -88,47 +100,45 @@ const Video: React.FC<VideoProps> = ({
         timestamp,
       };
     }
-  }, [active, autoPlayLoop, duration, previousState, exerciseState, seek]);
+  }, [
+    active,
+    autoPlayLoop,
+    duration,
+    audioDuration,
+    previousState,
+    exerciseState,
+    seek,
+  ]);
 
   const onLoad = useCallback<(data: OnLoadData) => void>(
     data => {
-      setDuration(data.duration);
+      setAudioDuration(data.duration);
     },
-    [setDuration],
+    [setAudioDuration],
   );
 
   const onEnd = useCallback(() => {
-    // seek(0) does not reset progress so a second onEnd is triggered
-    // Check that the progressRef is not set back to zero to trigger a reset
-    if (!autoPlayLoop && !onEndRef.current) {
-      onEndRef.current = true;
+    if (!autoPlayLoop) {
       setCurrentContentReachedEnd(true);
     }
   }, [setCurrentContentReachedEnd, autoPlayLoop]);
 
   const paused = !active || (!exerciseState?.playing && !autoPlayLoop);
 
-  const videoProps: VideoProperties = useMemo(
-    () => ({
-      source,
-      poster: preview,
-      resizeMode: 'contain',
-      posterResizeMode: 'contain',
-      paused,
-    }),
-    [paused, preview, source],
-  );
-
   const timer = useMemo(
     () =>
       durationTimer ? (
-        <Duration duration={duration} paused={paused} ref={timerRef} />
+        <Duration
+          duration={audioDuration > 0 ? audioDuration : duration}
+          paused={paused}
+          ref={timerRef}
+        />
       ) : null,
-    [durationTimer, paused, duration],
+    [durationTimer, paused, duration, audioDuration],
   );
 
   if (audioSource) {
-    // If audio source is available we allways loop the video and handle the audio separateley as the primary playing source
+    // If audio source is available we allways loop the animation
     return (
       <>
         <AudioPlayer
@@ -136,10 +146,17 @@ const Video: React.FC<VideoProps> = ({
           audioOnly
           ref={videoRef}
           onLoad={onLoad}
+          onEnd={onEnd}
           repeat={autoPlayLoop}
           paused={paused}
         />
-        <VideoPlayer {...videoProps} muted repeat />
+        <LottiePlayer
+          paused={paused}
+          source={source}
+          duration={duration}
+          ref={lottieRef}
+          repeat
+        />
         {timer}
       </>
     );
@@ -147,10 +164,11 @@ const Video: React.FC<VideoProps> = ({
 
   return (
     <>
-      <VideoPlayer
-        {...videoProps}
-        ref={videoRef}
-        onLoad={onLoad}
+      <LottiePlayer
+        paused={paused}
+        source={source}
+        duration={duration}
+        ref={lottieRef}
         onEnd={onEnd}
         repeat={autoPlayLoop}
       />
@@ -159,4 +177,4 @@ const Video: React.FC<VideoProps> = ({
   );
 };
 
-export default Video;
+export default Lottie;

@@ -117,12 +117,16 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         {t('controls.prev')}
       </SlideButton>
       {slideState.current.type !== 'host' &&
-        !slideState.current.content?.video?.autoPlayLoop && (
+        !slideState.current.content?.video?.autoPlayLoop &&
+        !slideState.current.content?.lottie?.autoPlayLoop && (
           <MediaControls>
             <IconSlideButton
               small
               elevated
-              disabled={!slideState.current.content?.video}
+              disabled={
+                !slideState.current.content?.video &&
+                !slideState.current.content?.lottie
+              }
               variant="tertiary"
               Icon={Rewind}
               onPress={onResetPlayingPress}
@@ -131,7 +135,10 @@ const ContentControls: React.FC<ContentControlsProps> = ({
             <IconSlideButton
               small
               elevated
-              disabled={!slideState.current.content?.video}
+              disabled={
+                !slideState.current.content?.video &&
+                !slideState.current.content?.lottie
+              }
               variant="tertiary"
               Icon={
                 exerciseState.playing && !currentContentReachedEnd

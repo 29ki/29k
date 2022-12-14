@@ -5,7 +5,12 @@ import {
   CmsFieldList,
 } from 'netlify-cms-core';
 
-import {IMAGE_FIELD, VIDEO_FIELD_WITH_AUDIO} from './common';
+import {
+  IMAGE_FIELD,
+  LOTTE_FIELD,
+  LOTTIE_FIELD_WITH_AUDIO,
+  VIDEO_FIELD_WITH_AUDIO,
+} from './common';
 
 export const SLIDE_TYPES = {
   HOST: 'host',
@@ -56,6 +61,28 @@ const CONTENT_VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
   ],
 };
 
+const CONTENT_LOTTIE_FIELD: CmsFieldBase & CmsFieldObject = {
+  ...LOTTIE_FIELD_WITH_AUDIO,
+  hint: 'Overrides video',
+  fields: [
+    {
+      label: '🔁 Auto Play & Loop',
+      name: 'autoPlayLoop',
+      hint: 'This automatically plays and loops the video. Play controls will be disabled.',
+      required: false,
+      widget: 'boolean',
+    },
+    {
+      label: '⏱️ Duration timer',
+      name: 'durationTimer',
+      hint: 'This shows a duration timer in the top right corner. Useful for stand-alone audio.',
+      required: false,
+      widget: 'boolean',
+    },
+    ...LOTTIE_FIELD_WITH_AUDIO.fields,
+  ],
+};
+
 const CONTENT_FIELDS: Array<CmsField> = [
   {
     label: '◾️ Heading',
@@ -71,6 +98,7 @@ const CONTENT_FIELDS: Array<CmsField> = [
   },
   IMAGE_FIELD,
   CONTENT_VIDEO_FIELD,
+  CONTENT_LOTTIE_FIELD,
 ];
 
 export const HOST_SLIDE: CmsFieldBase & CmsFieldObject = {
