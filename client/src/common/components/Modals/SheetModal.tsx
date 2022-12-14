@@ -22,7 +22,7 @@ type ModalProps = {
 
 export const SheetModal: React.FC<ModalProps> = ({
   children,
-  backgroundColor = COLORS.CREAM,
+  backgroundColor = COLORS.WHITE,
 }) => <Container backgroundColor={backgroundColor}>{children}</Container>;
 
 export default SheetModal;
