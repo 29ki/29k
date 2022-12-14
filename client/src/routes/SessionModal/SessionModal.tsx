@@ -312,7 +312,7 @@ const SessionModal = () => {
   }
 
   return (
-    <SheetModal>
+    <SheetModal backgroundColor={COLORS.CREAM}>
       <Spacer16 />
       <Content>
         <SpaceBetweenRow>
