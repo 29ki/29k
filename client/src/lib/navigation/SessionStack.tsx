@@ -10,7 +10,7 @@ import IntroPortal from '../../routes/Session/IntroPortal';
 import OutroPortal from '../../routes/Session/OutroPortal';
 import DailyProvider from '../daily/DailyProvider';
 
-const SessionStack = createNativeStackNavigator<SessionStackProps>();
+const {Navigator, Screen} = createNativeStackNavigator<SessionStackProps>();
 
 const screenOptions: NativeStackNavigationOptions = {
   headerShown: false,
@@ -19,15 +19,15 @@ const screenOptions: NativeStackNavigationOptions = {
   gestureEnabled: false,
 };
 
-const SessionStackWrapper = () => (
+const SessionStack = () => (
   <DailyProvider>
-    <SessionStack.Navigator screenOptions={screenOptions}>
-      <SessionStack.Screen name={'ChangingRoom'} component={ChangingRoom} />
-      <SessionStack.Screen name={'IntroPortal'} component={IntroPortal} />
-      <SessionStack.Screen name={'Session'} component={Session} />
-      <SessionStack.Screen name={'OutroPortal'} component={OutroPortal} />
-    </SessionStack.Navigator>
+    <Navigator screenOptions={screenOptions}>
+      <Screen name={'ChangingRoom'} component={ChangingRoom} />
+      <Screen name={'IntroPortal'} component={IntroPortal} />
+      <Screen name={'Session'} component={Session} />
+      <Screen name={'OutroPortal'} component={OutroPortal} />
+    </Navigator>
   </DailyProvider>
 );
 
-export default SessionStackWrapper;
+export default SessionStack;
