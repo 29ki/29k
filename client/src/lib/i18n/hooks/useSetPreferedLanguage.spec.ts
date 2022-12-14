@@ -12,7 +12,7 @@ afterEach(() => {
 
 describe('useSetPreferedLanguage', () => {
   const {t} = useTranslation();
-  (t as jest.Mock).mockReturnValue('Some translation');
+  (t as unknown as jest.Mock).mockReturnValue('Some translation');
 
   it('shows a confirm dialogue', async () => {
     const {result} = renderHook(() => useSetPreferedLanguage());

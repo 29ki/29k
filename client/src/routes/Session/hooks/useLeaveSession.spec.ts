@@ -27,7 +27,7 @@ afterEach(() => {
 
 describe('useLeaveSession', () => {
   const {t} = useTranslation();
-  (t as jest.Mock).mockReturnValue('Some translation');
+  (t as unknown as jest.Mock).mockReturnValue('Some translation');
   const navigation = useNavigation();
 
   describe('leaveSession', () => {
