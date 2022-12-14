@@ -33,11 +33,11 @@ const AboutOverlay = () => {
         </SharedElement>
         <Gutters>
           <SharedElement id="editorial.heading">
-            <Display36>Transitions effects</Display36>
+            <Display36>{'Transitions effects'}</Display36>
           </SharedElement>
           <SharedElement id="editorial.text">
             <Body16>
-              If however the start- element and end elements are visually
+              {`If however the start- element and end elements are visually
               different, then it can make sense to choose different values. For
               instance, if you are transitioning from a with a white color to a
               with a black color, then using animation="fade" will create a
@@ -84,7 +84,7 @@ const AboutOverlay = () => {
               and end elements are visually different, then it can make sense to
               choose different values. For instance, if you are transitioning
               from a with a white color to a with a black color, then using
-              animation="fade" will create a cross-fade between them.
+              animation="fade" will create a cross-fade between them.`}
             </Body16>
           </SharedElement>
         </Gutters>
