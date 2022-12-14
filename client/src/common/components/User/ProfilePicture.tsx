@@ -35,16 +35,16 @@ const Letter = styled.Text.attrs({
   textAlign: 'center',
 }));
 
-const IconContainer = styled.View({
-  width: '25%',
-  height: '25%',
+const IconContainer = styled.View<{size: number}>(({size}) => ({
+  width: size * 0.25,
+  height: size * 0.25,
   padding: SPACINGS.FOUR,
   backgroundColor: COLORS.BLACK,
   borderRadius: 200,
   position: 'absolute',
   right: 0,
   bottom: 0,
-});
+}));
 
 type ProfilePictureProps = {
   size?: number;
@@ -73,7 +73,7 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({
         )}
       </ImageContainer>
       {onPress && (
-        <IconContainer>
+        <IconContainer size={size}>
           <CameraIcon fill={COLORS.WHITE} />
         </IconContainer>
       )}
