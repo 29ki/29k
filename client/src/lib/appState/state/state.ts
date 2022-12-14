@@ -19,6 +19,7 @@ type Actions = {
   setIsColdStarted: (isColdStarted: boolean) => void;
   setShowHiddenContent: (showHiddenContent: boolean) => void;
   setSettings: (settings: Partial<State['settings']>) => void;
+  reset: () => void;
 };
 
 const initialState: State = {
@@ -38,6 +39,7 @@ const useAppState = create<State & Actions>()(
         set({showHiddenContent}),
       setSettings: settings =>
         set(state => ({settings: {...state.settings, ...settings}})),
+      reset: () => set(initialState),
     }),
     {
       name: 'appState',

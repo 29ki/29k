@@ -95,7 +95,7 @@ describe('useMuteAudioListener', () => {
 
   describe('triggers session notification', () => {
     const {t} = useTranslation();
-    (t as jest.Mock).mockReturnValue('Some translation');
+    (t as unknown as jest.Mock).mockReturnValue('Some translation');
 
     beforeEach(() => {
       useSessionState.setState({

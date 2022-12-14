@@ -9,7 +9,9 @@ const usePreferredLanguage = () => {
   );
 
   useEffect(() => {
-    i18n.changeLanguage(preferredLanguage);
+    if (preferredLanguage) {
+      i18n.changeLanguage(preferredLanguage);
+    }
   }, [i18n, preferredLanguage]);
 };
 

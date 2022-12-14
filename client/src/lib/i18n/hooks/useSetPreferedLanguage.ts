@@ -9,7 +9,7 @@ import {
 import useAppState from '../../appState/state/state';
 
 const useSetPreferredLanguage = () => {
-  const {t} = useTranslation('Screen.Profile');
+  const {t} = useTranslation('Modal.ChangeLanguage');
   const setSettings = useAppState(state => state.setSettings);
 
   return useCallback(
@@ -23,10 +23,14 @@ const useSetPreferredLanguage = () => {
           t('unsupportedLanguage.message', {language}),
           [
             {
+              text: t('unsupportedLanguage.dismiss'),
+              onPress: () => {},
+              style: 'cancel',
+            },
+            {
               text: t('unsupportedLanguage.confirm'),
               onPress: () => setSettings({preferredLanguage: languageTag}),
             },
-            {text: t('unsupportedLanguage.dismiss'), style: 'cancel'},
           ],
         );
       }

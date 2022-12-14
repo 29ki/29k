@@ -27,12 +27,70 @@ afterEach(() => {
 });
 
 describe('useUpdateSessionExerciseState', () => {
-  const useTestHook = () => {
-    const {navigateToIndex, setPlaying} =
-      useUpdateSessionExerciseState('session-id');
+  const useTestHook = (sessionId?: string) => {
+    const {navigateToIndex, setPlaying, setSpotlightParticipant} =
+      useUpdateSessionExerciseState(sessionId);
 
-    return {navigateToIndex, setPlaying};
+    return {navigateToIndex, setPlaying, setSpotlightParticipant};
   };
+
+  describe('setSpotlightParticipant', () => {
+    it('should call api when called', async () => {
+      fetchMock.mockResponseOnce(
+        JSON.stringify({
+          data: 'some-data',
+        }),
+        {status: 200},
+      );
+
+      const {result} = renderHook(() => useTestHook('session-id'));
+
+      await act(async () => {
+        await result.current.setSpotlightParticipant('some-participant-id');
+      });
+
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+    });
+
+    it('should do nothing when session is undefined', async () => {
+      const {result} = renderHook(() => useTestHook());
+
+      await act(async () => {
+        await result.current.setSpotlightParticipant('some-participant-id');
+      });
+
+      expect(fetchMock).toHaveBeenCalledTimes(0);
+    });
+  });
+
+  describe('setPlaying', () => {
+    it('should call api when called', async () => {
+      fetchMock.mockResponseOnce(
+        JSON.stringify({
+          data: 'some-data',
+        }),
+        {status: 200},
+      );
+
+      const {result} = renderHook(() => useTestHook('session-id'));
+
+      await act(async () => {
+        await result.current.setPlaying(true);
+      });
+
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+    });
+
+    it('should do nothing when session is undefined', async () => {
+      const {result} = renderHook(() => useTestHook());
+
+      await act(async () => {
+        await result.current.setPlaying(true);
+      });
+
+      expect(fetchMock).toHaveBeenCalledTimes(0);
+    });
+  });
 
   describe('navigateToIndex', () => {
     it('should make request', async () => {
@@ -43,13 +101,23 @@ describe('useUpdateSessionExerciseState', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() => useTestHook());
+      const {result} = renderHook(() => useTestHook('session-id'));
 
       await act(async () => {
         await result.current.navigateToIndex({index: 2, content: mockContent});
       });
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
+    });
+
+    it('should do nothing when session is undefined', async () => {
+      const {result} = renderHook(() => useTestHook());
+
+      await act(async () => {
+        await result.current.navigateToIndex({index: 4, content: mockContent});
+      });
+
+      expect(fetchMock).toHaveBeenCalledTimes(0);
     });
 
     it('should do nothing when session isnt fetched', async () => {
@@ -60,7 +128,7 @@ describe('useUpdateSessionExerciseState', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() => useTestHook());
+      const {result} = renderHook(() => useTestHook('session-id'));
 
       await act(async () => {
         await result.current.navigateToIndex({index: 4, content: mockContent});
@@ -77,7 +145,7 @@ describe('useUpdateSessionExerciseState', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() => useTestHook());
+      const {result} = renderHook(() => useTestHook('session-id'));
 
       await act(async () => {
         const invalidIndex = 4000;
