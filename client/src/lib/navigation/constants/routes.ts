@@ -1,8 +1,14 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
+
 import {Session} from '../../../../../shared/src/types/Session';
 
-export type TabNavigatorProps = {
+export type ProfileStackProps = {
   Profile: undefined;
+  EarlyAccessInfo?: {showBack: boolean};
+};
+
+export type TabNavigatorProps = {
+  ProfileStack: NavigatorScreenParams<ProfileStackProps>;
   Sessions: undefined;
 };
 
@@ -16,13 +22,17 @@ export type SessionStackProps = {
 export type AppStackProps = {
   KillSwitch: undefined;
   Welcome?: {showBack: boolean};
-  EarlyAccessInfo?: {showBack: boolean};
   Tabs: NavigatorScreenParams<TabNavigatorProps>;
   SessionStack: NavigatorScreenParams<SessionStackProps>;
 };
 
-export type ModalStackProps = {
+export type OverlayStackProps = {
   App: NavigatorScreenParams<AppStackProps>;
+  AboutOverlay: undefined;
+};
+
+export type ModalStackProps = {
+  OverlayStack: NavigatorScreenParams<OverlayStackProps>;
   SessionModal: {session: Session};
   SessionUnavailableModal: undefined;
   AddSessionModal?: {inviteCode?: number};

@@ -22,7 +22,7 @@ const resolveNotificationUrl = async (
 
 // Deep link configuration
 const config: LinkingOptions<ModalStackProps>['config'] = {
-  initialRouteName: 'App',
+  initialRouteName: 'OverlayStack',
   screens: {
     AddSessionModal: 'joinSessionInvite/:inviteCode',
     UpgradeAccountModal: 'verifyPublicHostCode/:code',

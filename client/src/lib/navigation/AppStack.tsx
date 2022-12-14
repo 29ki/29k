@@ -53,11 +53,6 @@ const AppStackWrapper = () => {
             component={SessionStackWrapper}
             options={{gestureEnabled: false}}
           />
-          <AppStack.Screen
-            name={'EarlyAccessInfo'}
-            component={Welcome}
-            initialParams={{showBack: true}}
-          />
         </AppStack.Group>
       )}
     </AppStack.Navigator>

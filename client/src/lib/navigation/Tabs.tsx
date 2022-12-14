@@ -1,4 +1,5 @@
 import React from 'react';
+import {Platform} from 'react-native';
 import {
   BottomTabNavigationOptions,
   BottomTabBar,
@@ -18,12 +19,10 @@ import {COLORS} from '../../../../shared/src/constants/colors';
 import {TabNavigatorProps} from './constants/routes';
 import {SPACINGS} from '../../common/constants/spacings';
 import {Body14} from '../../common/components/Typography/Body/Body';
-
-import Profile from '../../routes/Profile/Profile';
-import Sessions from '../../routes/Sessions/Sessions';
-
-import {Platform} from 'react-native';
 import {BottomSafeArea} from '../../common/components/Spacers/Spacer';
+
+import ProfileStackWrapper from './ProfileStack';
+import Sessions from '../../routes/Sessions/Sessions';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
 
@@ -82,8 +81,8 @@ const Tabs = () => {
         options={getTabOptions(HomeIcon, HomeFillIcon, t('home'))}
       />
       <Tab.Screen
-        name={'Profile'}
-        component={Profile}
+        name={'ProfileStack'}
+        component={ProfileStackWrapper}
         options={getTabOptions(ProfileIcon, ProfileFillIcon, t('profile'))}
       />
     </Tab.Navigator>

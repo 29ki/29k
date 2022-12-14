@@ -19,6 +19,7 @@ import ChangeLanguageModal from '../../routes/ChangeLanguageModal/ChangeLanguage
 import ProfileSettingsModal from '../../routes/ProfileSettingsModal/ProfileSettingsModal';
 import SignInModal from '../../routes/SignInModal/SignInModal';
 import DeveloperModal from '../../routes/DeveloperModal/DeveloperModal';
+import OverlayStackWrapper from './OverlayStack';
 
 const ModalStack = createBottomSheetNavigator<ModalStackProps>();
 
@@ -98,7 +99,7 @@ const ModalStackWrapper = () => {
 
   return (
     <ModalStack.Navigator>
-      <ModalStack.Screen name="App" component={AppStackWrapper} />
+      <ModalStack.Screen name="OverlayStack" component={OverlayStackWrapper} />
 
       <ModalStack.Group screenOptions={sheetModalScreenOptions}>
         <ModalStack.Screen name={'SessionModal'} component={SessionModal} />
