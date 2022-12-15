@@ -33,4 +33,5 @@ export type ModalStackProps = {
   SignInModal: undefined;
   ContributorsModal: undefined;
   DeveloperModal: undefined;
+  ContactModal: undefined;
 };

@@ -20,6 +20,7 @@ import {
   CommandIcon,
   CommunityIcon,
   DeleteIcon,
+  EnvelopeIcon,
   HangUpIcon,
   LanguagesIcon,
   MegaphoneIcon,
@@ -92,6 +93,8 @@ const Profile = () => {
     [navigate],
   );
 
+  const contactPress = useCallback(() => navigate('ContactModal'), [navigate]);
+
   const contributorsPress = useCallback(
     () => navigate('ContributorsModal'),
     [navigate],
@@ -151,7 +154,9 @@ const Profile = () => {
                 {t('publicHostAccess')}
               </ActionButton>
             )}
-            {/*<ActionButton Icon={EnvelopeIcon}>{t('contact')}</ActionButton>*/}
+            <ActionButton Icon={EnvelopeIcon} onPress={contactPress}>
+              {t('contact')}
+            </ActionButton>
           </ActionList>
           <Spacer32 />
           <Heading16>{t('community')}</Heading16>
