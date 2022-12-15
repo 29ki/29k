@@ -68,15 +68,13 @@ export const getSessionByInviteCode = async ({
     .where('inviteCode', '==', inviteCode);
 
   const result = await (activeOnly
-    ? query
-        .where('ended', '==', false)
-        .where(
-          'startTime',
-          '>',
-          Timestamp.fromDate(
-            dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
-          ),
-        )
+    ? query.where(
+        'startTime',
+        '>',
+        Timestamp.fromDate(
+          dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
+        ),
+      )
     : query
   )
     .orderBy('startTime', 'asc')
@@ -92,7 +90,6 @@ export const getSessionByInviteCode = async ({
 export const getSessions = async (userId: string) => {
   const sessionsCollection = firestore().collection(SESSIONS_COLLECTION);
   const snapshot = await sessionsCollection
-    .where('ended', '==', false)
     .where(
       'startTime',
       '>',
@@ -147,7 +144,7 @@ export const addSession = async ({
   await sessionDoc
     .collection(SESSION_STATE_SUB_COLLECTION)
     .doc(id)
-    .set(defaultSessionState);
+    .set({id, ...defaultSessionState});
 
   return getSession(getData<SessionData>(await sessionDoc.get()));
 };
@@ -194,7 +191,6 @@ export const updateSessionState = async (
       ...sessionState,
       ...data,
       timestamp: Timestamp.now(),
-      updatedAt: Timestamp.now(),
     });
 
     await transaction.update(sessionStateDocRef, updatedSessionState);

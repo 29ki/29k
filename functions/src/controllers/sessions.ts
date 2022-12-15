@@ -4,7 +4,7 @@ import * as sessionModel from '../models/session';
 import * as userModel from '../models/user';
 import {getPublicUserInfo} from '../models/user';
 import * as dailyApi from '../lib/dailyApi';
-import {Session} from '../../../shared/src/types/Session';
+import {Session, SessionState} from '../../../shared/src/types/Session';
 import {JoinSessionError} from '../../../shared/src/errors/Session';
 import {SessionStateUpdate, UpdateSession} from '../api/sessions';
 import {generateVerificationCode, removeEmpty} from '../lib/utils';
@@ -101,8 +101,11 @@ export const updateSessionState = async (
   data: Partial<SessionStateUpdate>,
 ) => {
   const session = (await sessionModel.getSessionById(sessionId)) as Session;
+  const sessionState = (await sessionModel.getSessionStateById(
+    sessionId,
+  )) as SessionState;
 
-  if (!session) {
+  if (!session || !sessionState) {
     throw new Error('session-not-found');
   }
 
@@ -111,8 +114,8 @@ export const updateSessionState = async (
   }
 
   await sessionModel.updateSessionState(sessionId, removeEmpty(data));
-  const updatedSession = await sessionModel.getSessionById(sessionId);
-  return updatedSession ? mapSession(updatedSession) : undefined;
+  const updatedState = await sessionModel.getSessionStateById(sessionId);
+  return updatedState ? updatedState : undefined;
 };
 
 export const joinSession = async (

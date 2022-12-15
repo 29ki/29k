@@ -8,14 +8,15 @@ import {ROLES} from '../../../../shared/src/types/User';
 import * as sessionsController from '../../controllers/sessions';
 import {RequestError} from '../../controllers/errors/RequestError';
 import {JoinSessionError} from '../../../../shared/src/errors/Session';
+import {SessionType} from '../../../../shared/src/types/Session';
 
 jest.mock('../../controllers/sessions');
 const mockGetSessions = sessionsController.getSessions as jest.Mock;
 const mockCreateSession = sessionsController.createSession as jest.Mock;
 const mockRemoveSession = sessionsController.removeSession as jest.Mock;
 const mockUpdateSession = sessionsController.updateSession as jest.Mock;
-const mockUpdateExerciseState =
-  sessionsController.updateExerciseState as jest.Mock;
+const mockUpdateSessionState =
+  sessionsController.updateSessionState as jest.Mock;
 const mockJoinSession = sessionsController.joinSession as jest.Mock;
 
 jest.mock('../../models/session');
@@ -176,7 +177,7 @@ describe('/api/sessions', () => {
       mockUpdateSession.mockResolvedValueOnce({id: 'some-session-id'});
       const response = await request(mockServer)
         .put('/sessions/some-session-id')
-        .send({started: true})
+        .send({type: SessionType.private})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
@@ -206,11 +207,11 @@ describe('/api/sessions', () => {
     });
   });
 
-  describe('PUT /:id/exerciseState', () => {
+  describe('PUT /:id/state', () => {
     it('should call session update', async () => {
-      mockUpdateExerciseState.mockResolvedValueOnce({id: 'some-session-id'});
+      mockUpdateSessionState.mockResolvedValueOnce({id: 'some-session-id'});
       const response = await request(mockServer)
-        .put('/sessions/some-session-id/exerciseState')
+        .put('/sessions/some-session-id/state')
         .send({index: 2})
         .set('Accept', 'application/json');
 
@@ -221,9 +222,9 @@ describe('/api/sessions', () => {
     });
 
     it('should fail when update rejects', async () => {
-      mockUpdateExerciseState.mockRejectedValueOnce(new Error('some-error'));
+      mockUpdateSessionState.mockRejectedValueOnce(new Error('some-error'));
       const response = await request(mockServer)
-        .put('/sessions/some-other-session-id/exerciseState')
+        .put('/sessions/some-other-session-id/state')
         .send({playing: true})
         .set('Accept', 'application/json');
 
@@ -233,24 +234,24 @@ describe('/api/sessions', () => {
 
     it('should require a field', async () => {
       const response = await request(mockServer)
-        .put('/sessions/some-session-id/exerciseState')
+        .put('/sessions/some-session-id/state')
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(500);
       expect(response.text).toEqual('Internal Server Error');
-      expect(mockUpdateExerciseState).toHaveBeenCalledTimes(0);
+      expect(mockUpdateSessionState).toHaveBeenCalledTimes(0);
     });
 
     it('does not accept other fields', async () => {
-      mockUpdateExerciseState.mockResolvedValueOnce({id: 'some-session-id'});
+      mockUpdateSessionState.mockResolvedValueOnce({id: 'some-session-id'});
       const response = await request(mockServer)
-        .put('/sessions/some-session-id/exerciseState')
+        .put('/sessions/some-session-id/state')
         .send({index: 1, foo: 'bar'})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
-      expect(mockUpdateExerciseState).toHaveBeenCalledTimes(1);
-      expect(mockUpdateExerciseState).toHaveBeenCalledWith(
+      expect(mockUpdateSessionState).toHaveBeenCalledTimes(1);
+      expect(mockUpdateSessionState).toHaveBeenCalledWith(
         'some-user-id',
         'some-session-id',
         {
