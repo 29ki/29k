@@ -20,6 +20,7 @@ import ProfileSettingsModal from '../../routes/ProfileSettingsModal/ProfileSetti
 import SignInModal from '../../routes/SignInModal/SignInModal';
 import ContributorsModal from '../../routes/ContributorsModal/ContributorsModal';
 import DeveloperModal from '../../routes/DeveloperModal/DeveloperModal';
+import ContactModal from '../../routes/ConcactModal/ContactModal';
 
 const ModalStack = createBottomSheetNavigator<ModalStackProps>();
 
@@ -130,6 +131,7 @@ const ModalStackWrapper = () => {
           component={ContributorsModal}
         />
         <ModalStack.Screen name={'DeveloperModal'} component={DeveloperModal} />
+        <ModalStack.Screen name={'ContactModal'} component={ContactModal} />
       </ModalStack.Group>
 
       <ModalStack.Group screenOptions={cardModalScreenOptions}>
