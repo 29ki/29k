@@ -117,13 +117,122 @@
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
   },
   "pt": {
-    "published": false,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance.\n\nWe’ll be doing a short introduction, do a meditation exercise followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Practicing acceptance includes intentionally paying attention to the reality of things **without trying to change, run away from, or fix them**. Just being with whatever shows up. The reason for doing that is that fighting things on the inside often takes a lot of energy – plus it mostly doesn’t work."
+          },
+          {
+            "text": "The things we try to get rid of have a tendency to be extra persistent or even dictate more and more in life over time. So, we’re gonna take a step back and just observe. Give ourselves a break from from the daily routine.\n\n> Push play to start the meditation"
+          }
+        ],
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667298005/Audio/Agnes_bell_kmwzos_eznpow.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667297532/Video/Accepting_thoughts_and_feelings_meditation_cn20lx.mp4",
+            "autoPlayLoop": false,
+            "durationTimer": true
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own. \n\nWhat did you notice during the exercise? What can you bring from this for the rest of your day?"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Push play to start the timer.\n\nThat’s 1 minute. Let’s move on."
+          }
+        ],
+        "content": {
+          "heading": "What did you notice?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667317097/Video/1min_Accepting_thoughts_and_feelings_xdvlcn.mp4"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "content": {
+          "heading": "What did you notice?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667317099/Video/2min_Accepting_thoughts_and_feelings_b9bxvx.mp4"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ]
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission.\n\nAs you’ve reflected on what you can bring from this to the rest of your day, take this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you."
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out.\n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      }
+    ],
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#fcc9b7"
     },
-    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
-    "duration": 40
+    "hidden": true,
+    "name": "Accepting thoughts and feelings",
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
+      }
+    },
+    "duration": 40,
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4"
+      }
+    },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Start the session when you're ready to go."
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667317594/Video/portal2_Accepting_thoughts_and_feelings_iyqnuk.mp4"
+      }
+    },
+    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
   },
   "sv": {
     "published": false,
