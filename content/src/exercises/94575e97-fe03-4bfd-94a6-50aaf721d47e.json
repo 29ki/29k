@@ -204,7 +204,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#fcc9b7"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Aceitar pensamentos e sentimentos",
     "published": true,
     "card": {
