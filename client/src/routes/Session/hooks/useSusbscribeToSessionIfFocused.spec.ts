@@ -27,9 +27,9 @@ describe('useSubscribeToSessionIfFocused', () => {
 
   const useTestHook = ({exitOnEnded = true} = {}) => {
     useSubscribeToSessionIfFocused('session-id', {exitOnEnded});
-    const session = useSessionState(state => state.session);
+    const sessionState = useSessionState(({state}) => state);
 
-    return session;
+    return sessionState;
   };
 
   it('should subscribe to live session document', async () => {

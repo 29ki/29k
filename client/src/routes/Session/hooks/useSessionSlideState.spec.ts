@@ -38,6 +38,9 @@ describe('useSessionSlideState', () => {
       slides: [{type: 'slide-1'}, {type: 'slide-2'}, {type: 'slide-3'}],
     });
     useSessionState.setState({
+      session: {
+        contentId: 'some-content',
+      } as Session,
       state: {
         index: 1,
       } as SessionState,
@@ -78,6 +81,7 @@ describe('useSessionSlideState', () => {
       slides: [{type: 'slide-1'}],
     });
     useSessionState.setState({
+      session: {contentId: 'some-content'} as Session,
       state: {index: 0} as SessionState,
     });
 
