@@ -148,7 +148,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665470221/Temp/card_image-13_uoyugo.png"
       }
     },
-    "duration": 40
+    "duration": 30
   },
   "pt": {
     "published": false,
@@ -157,7 +157,7 @@
       "backgroundColor": "#f1d0b0",
       "textColor": "#2E2E2E"
     },
-    "duration": 40
+    "duration": 30
   },
   "sv": {
     "published": false,
@@ -166,10 +166,10 @@
       "backgroundColor": "#f1d0b0",
       "textColor": "#2E2E2E"
     },
-    "duration": 40
+    "duration": 30
   },
   "es": {
     "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
-    "duration": 40
+    "duration": 30
   }
 }
