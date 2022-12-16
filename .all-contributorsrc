@@ -16,7 +16,80 @@
         "research",
         "fundingFinding",
         "business",
-        "coreTeam"
+        "coreTeam",
+        "founder"
+      ]
+    },
+    {
+      "name": "Niklas Adalberth",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671117011/Contributors/Niklas_Adalberth_ad6dzp.png",
+      "profile": "https://www.linkedin.com/in/niklasadalberth/",
+      "contributions": [
+        "founder"
+      ]
+    },
+    {
+      "name": "Tomas Björkman",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671117078/Contributors/Tomas_Bjo%CC%88rkman_pt1mba.png",
+      "profile": "https://www.linkedin.com/in/tomas-bj%C3%B6rkman-882913a7/",
+      "contributions": [
+        "founder"
+      ]
+    },
+    {
+      "name": "Norrsken Foundation",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671187940/Contributors/norrsken_rykuyx.png",
+      "profile": "https://www.norrsken.org/",
+      "contributions": [
+        "partner"
+      ]
+    },
+    {
+      "name": "Stiftelsen Ekskäret",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671187937/Contributors/ekska%CC%88ret_oberpm.png",
+      "profile": "http://ekskaret.se/",
+      "contributions": [
+        "partner"
+      ]
+    },
+    {
+      "name": "Inner Development Goals",
+      "profile": "https://www.innerdevelopmentgoals.org/",
+      "contributions": [
+        "partner"
+      ],
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671191681/Contributors/IDG_lktccb.png"
+    },
+    {
+      "name": "The Inner Foundation",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671191180/Contributors/the_inner_foundation_nq3mwt.jpg",
+      "profile": "https://www.theinnerfoundation.org/",
+      "contributions": [
+        "corePartner"
+      ]
+    },
+    {
+      "name": "Hugo Stenbeck Stiftelse",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671187949/Contributors/hss_uhokto.svg",
+      "profile": "https://www.hsstiftelse.se/",
+      "contributions": [
+        "corePartner"
+      ]
+    },
+    {
+      "name": "Fundação José Neves",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671187953/Contributors/fjn_souxyw.png",
+      "profile": "https://joseneves.org/",
+      "contributions": [
+        "corePartner"
+      ]
+    },
+    {
+      "profile": "https://www.kronprinsessparetsstiftelse.se/",
+      "name": "Kronprinsessparets stiftelse",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671187943/Contributors/kronprinsessparetsstiftelse_u1mmyg.svg",
+      "contributions": [
+        "partner"
       ]
     },
     {
@@ -108,6 +181,16 @@
       ]
     },
     {
+      "name": "Jorge Ribeiro dos Santos",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1665413498/Contributors/Jorge%20Ribeiro%20dos%20Santos.png",
+      "profile": "https://www.linkedin.com/in/jorgers/",
+      "contributions": [
+        "translation",
+        "projectManagement",
+        "coreTeam"
+      ]
+    },
+    {
       "name": "Victoria Gladkiy",
       "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1665413297/Contributors/Victoria%20Gladkiy.png",
       "profile": "https://www.linkedin.com/in/victoria-gladkiy-0444a7163/",
@@ -155,15 +238,6 @@
       "contributions": [
         "data",
         "coreTeam"
-      ]
-    },
-    {
-      "name": "Jorge Ribeiro dos Santos",
-      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1665413498/Contributors/Jorge%20Ribeiro%20dos%20Santos.png",
-      "profile": "https://www.linkedin.com/in/jorgers/",
-      "contributions": [
-        "translation",
-        "projectManagement"
       ]
     },
     {
@@ -446,6 +520,18 @@
     "people": {
       "symbol": "👥",
       "description": "People"
+    },
+    "founder": {
+      "symbol": "🌱",
+      "description": "Founder"
+    },
+    "corePartner": {
+      "symbol": "🤲",
+      "description": "Core Partner"
+    },
+    "partner": {
+      "symbol": "🤝",
+      "description": "Partner"
     },
     "coreTeam": {
       "symbol": "🫂",
