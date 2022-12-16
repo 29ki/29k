@@ -13,6 +13,7 @@ type SessionStateFields = {
   dailySpotlightId?: string;
   started: boolean;
   ended: boolean;
+  id: string;
 };
 
 type SessionFields = {
