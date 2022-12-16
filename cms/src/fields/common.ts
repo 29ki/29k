@@ -22,6 +22,17 @@ export const PUBLISHED_FIELD: CmsField = {
   required: true,
   default: false,
   i18n: true,
+  hint: "This will make it included in the app. For work in progress, use in combination with hidden and the 'Show work in progress' switch in the app to access it only in staging.",
+};
+
+export const HIDDEN_FIELD: CmsField = {
+  label: '🙈 Hidden',
+  name: 'hidden',
+  widget: 'boolean',
+  required: false,
+  default: false,
+  i18n: true,
+  hint: "This will make it hidden by default. For work in progress, use in combination with published and the 'Show work in progress' switch in the app to access it only in staging.",
 };
 
 export const NAME_FIELD: CmsField = {
@@ -29,6 +40,14 @@ export const NAME_FIELD: CmsField = {
   name: 'name',
   i18n: true,
   widget: 'string',
+};
+
+export const DURATION_FIELD: CmsField = {
+  label: '⏱ Duration',
+  name: 'duration',
+  i18n: 'duplicate',
+  required: true,
+  widget: 'number',
 };
 
 export const IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
@@ -55,6 +74,34 @@ export const IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
       allow_multiple: false,
       media_library: CLOUDINARY_IMAGE_CONFIG,
     },
+  ],
+};
+
+export const LOTTE_FIELD: CmsFieldBase & CmsFieldObject = {
+  label: '💃 Lottie',
+  name: 'lottie',
+  widget: 'object',
+  collapsed: true,
+  required: false,
+  i18n: true,
+  fields: [
+    {
+      label: '📃 Description',
+      name: 'description',
+      widget: 'string',
+      required: false,
+      i18n: true,
+    },
+    {
+      label: '💃 Lottie file',
+      name: 'source',
+      widget: 'file',
+      required: false,
+      i18n: true,
+      allow_multiple: false,
+      media_library: CLOUDINARY_IMAGE_CONFIG,
+    },
+    {...DURATION_FIELD, hint: 'Duration in seconds', required: false},
   ],
 };
 
@@ -111,6 +158,17 @@ export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
     {
       ...AUDIO_FIELD,
       hint: 'This will override the audio of the video. Video will automatically loop while playing.',
+    },
+  ],
+};
+
+export const LOTTIE_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
+  ...LOTTE_FIELD,
+  fields: [
+    ...LOTTE_FIELD.fields,
+    {
+      ...AUDIO_FIELD,
+      hint: 'Animation will automatically loop while playing.',
     },
   ],
 };

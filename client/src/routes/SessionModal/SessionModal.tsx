@@ -33,7 +33,7 @@ import useAddToCalendar from '../Sessions/hooks/useAddToCalendar';
 import useSessionNotificationReminder from '../Sessions/hooks/useSessionNotificationReminder';
 import {Body16} from '../../common/components/Typography/Body/Body';
 import Byline from '../../common/components/Bylines/Byline';
-import {formatInviteCode} from '../../common/utils/string';
+import {formatExerciseName, formatInviteCode} from '../../common/utils/string';
 import * as metrics from '../../lib/metrics';
 import SessionTimeBadge from '../../common/components/SessionTimeBadge/SessionTimeBadge';
 import {COLORS} from '../../../../shared/src/constants/colors';
@@ -312,16 +312,17 @@ const SessionModal = () => {
   }
 
   return (
-    <SheetModal>
+    <SheetModal backgroundColor={COLORS.CREAM}>
       <Spacer16 />
       <Content>
         <SpaceBetweenRow>
           <TitleContainer>
-            <Display24>{exercise?.name}</Display24>
+            <Display24>{formatExerciseName(exercise)}</Display24>
             <Spacer4 />
             <Byline
               pictureURL={session.hostProfile?.photoURL}
               name={session.hostProfile?.displayName}
+              duration={exercise?.duration}
             />
           </TitleContainer>
           <Spacer32 />

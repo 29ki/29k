@@ -4,9 +4,8 @@ import RNVideo, {VideoProperties, OnLoadData} from 'react-native-video';
 
 import useSessionState from '../../../../state/state';
 import VideoBase from '../../../VideoBase/VideoBase';
-import DurationTimer, {
-  DurationTimerHandle,
-} from '../../../DurationTimer/DurationTimer';
+import DurationTimer from '../../../DurationTimer/DurationTimer';
+import {LottiePlayerHandle} from '../../../../../../common/components/LottiePlayer/LottiePlayer';
 
 const VideoPlayer = styled(VideoBase)({
   flex: 1,
@@ -41,21 +40,30 @@ const Video: React.FC<VideoProps> = ({
   durationTimer = false,
 }) => {
   const videoRef = useRef<RNVideo>(null);
-  const timerRef = useRef<DurationTimerHandle>(null);
+  const timerRef = useRef<LottiePlayerHandle>(null);
+  const onEndRef = useRef<boolean>(false);
   const [duration, setDuration] = useState(0);
   const sessionState = useSessionState(({state}) => state);
+  const setCurrentContentReachedEnd = useSessionState(
+    state => state.setCurrentContentReachedEnd,
+  );
   const previousState = useRef({playing: false, timestamp: new Date()});
 
-  const seek = (seconds: number) => {
+  const seek = useCallback((seconds: number) => {
     videoRef.current?.seek(seconds);
     timerRef.current?.seek(seconds);
-  };
+  }, []);
 
   useEffect(() => {
     if (active && !autoPlayLoop && duration && sessionState) {
       // Block is active, video and state is loaded
       const playing = sessionState.playing;
       const timestamp = new Date(sessionState.timestamp);
+
+      // Reset onEndRef when playing
+      if (playing) {
+        onEndRef.current = false;
+      }
 
       if (
         timestamp > previousState.current.timestamp &&
@@ -80,7 +88,7 @@ const Video: React.FC<VideoProps> = ({
         timestamp,
       };
     }
-  }, [active, autoPlayLoop, duration, previousState, sessionState]);
+  }, [active, autoPlayLoop, duration, previousState, sessionState, seek]);
 
   const onLoad = useCallback<(data: OnLoadData) => void>(
     data => {
@@ -90,6 +98,15 @@ const Video: React.FC<VideoProps> = ({
   );
 
   const paused = !active || (!sessionState?.playing && !autoPlayLoop);
+
+  const onEnd = useCallback(() => {
+    // seek(0) does not reset progress so a second onEnd is triggered
+    // Check that the progressRef is not set back to zero to trigger a reset
+    if (!autoPlayLoop && !onEndRef.current) {
+      onEndRef.current = true;
+      setCurrentContentReachedEnd(true);
+    }
+  }, [setCurrentContentReachedEnd, autoPlayLoop]);
 
   const videoProps: VideoProperties = useMemo(
     () => ({
@@ -134,6 +151,7 @@ const Video: React.FC<VideoProps> = ({
         {...videoProps}
         ref={videoRef}
         onLoad={onLoad}
+        onEnd={onEnd}
         repeat={autoPlayLoop}
       />
       {timer}

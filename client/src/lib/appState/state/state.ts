@@ -11,16 +11,20 @@ export type Settings = {
 
 type State = {
   isColdStarted: boolean;
+  showHiddenContent: boolean;
   settings: Settings;
 };
 
 type Actions = {
   setIsColdStarted: (isColdStarted: boolean) => void;
+  setShowHiddenContent: (showHiddenContent: boolean) => void;
   setSettings: (settings: Partial<State['settings']>) => void;
+  reset: () => void;
 };
 
 const initialState: State = {
   isColdStarted: true,
+  showHiddenContent: false,
   settings: {
     showWelcome: true,
   },
@@ -31,8 +35,11 @@ const useAppState = create<State & Actions>()(
     set => ({
       ...initialState,
       setIsColdStarted: isColdStarted => set({isColdStarted}),
+      setShowHiddenContent: (showHiddenContent: boolean) =>
+        set({showHiddenContent}),
       setSettings: settings =>
         set(state => ({settings: {...state.settings, ...settings}})),
+      reset: () => set(initialState),
     }),
     {
       name: 'appState',

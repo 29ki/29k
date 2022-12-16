@@ -1,0 +1,148 @@
+{
+  "en": {
+    "title": "Get in touch",
+    "noEmailClientAlert": {
+      "title": "We couldn't detect an email client on your device",
+      "message": "Do you want to copy our email to your clipboard?"
+    },
+    "contactInformation": {
+      "heading": "29k Foundation",
+      "email": {
+        "label": "hello@29k.org",
+        "email": "hello@29k.org",
+        "subject": "Hello from the 29k app"
+      },
+      "www": {
+        "label": "29k.org",
+        "url": "https://29k.org"
+      },
+      "chat": {
+        "label": "Community chat",
+        "url": "https://community.29k.org"
+      },
+      "facebook": {
+        "label": "Facebook",
+        "url": "https://www.facebook.com/29.org/"
+      },
+      "instagram": {
+        "label": "Instagram",
+        "url": "https://www.instagram.com/29k_org/"
+      }
+    },
+    "partnerContactInformation": {
+      "heading": "",
+      "www": {
+        "label": "",
+        "url": ""
+      },
+      "email": {
+        "label": "",
+        "email": "",
+        "subject": ""
+      },
+      "facebook": {
+        "label": "",
+        "url": ""
+      },
+      "instagram": {
+        "label": "",
+        "url": ""
+      }
+    }
+  },
+  "sv": {
+    "title": "Kontakta oss",
+    "noEmailClientAlert": {
+      "title": "Vi kunde inte hitta en email-klient.",
+      "message": "Vill du kopiera vår email?"
+    },
+    "contactInformation": {
+      "heading": "29k Foundation",
+      "email": {
+        "label": "hello+sv@29k.org",
+        "email": "hello+sv@29k.org",
+        "subject": "Hej från 29k-appen"
+      },
+      "www": {
+        "label": "29k.org",
+        "url": "https://29k.org"
+      },
+      "facebook": {
+        "label": "Facebook",
+        "url": "https://www.facebook.com/29.org/"
+      },
+      "instagram": {
+        "label": "Instagram",
+        "url": "https://www.instagram.com/29k_org/"
+      }
+    },
+    "partnerContactInformation": {
+      "heading": "",
+      "www": {
+        "label": "",
+        "url": ""
+      },
+      "email": {
+        "label": "",
+        "email": "",
+        "subject": ""
+      },
+      "facebook": {
+        "label": "",
+        "url": ""
+      },
+      "instagram": {
+        "label": "",
+        "url": ""
+      }
+    }
+  },
+  "pt": {
+    "title": "Contactos",
+    "noEmailClientAlert": {
+      "title": "Não detetamos um email de cliente no teu dispositivo",
+      "message": "Queres copiar o nosso email para a área de transferência?"
+    },
+    "contactInformation": {
+      "heading": "Fundação 29k",
+      "email": {
+        "label": "hello+fjn@29k.org",
+        "email": "hello+fjn@29k.org",
+        "subject": ""
+      },
+      "www": {
+        "label": "29k.org",
+        "url": "https://29k.org"
+      },
+      "facebook": {
+        "label": "29k Facebook",
+        "url": "https://www.facebook.com/29.org/"
+      },
+      "instagram": {
+        "label": "29k Instagram",
+        "url": "https://www.instagram.com/29k_org/"
+      }
+    },
+    "partnerContactInformation": {
+      "heading": "Fundação José Neves",
+      "www": {
+        "label": "joseneves.org",
+        "url": "https://joseneves.org"
+      },
+      "email": {
+        "label": "hello@joseneves.org",
+        "email": "hello@joseneves.org",
+        "subject": ""
+      },
+      "facebook": {
+        "label": "FJN Facebook",
+        "url": "https://www.facebook.com/fundacaojoseneves"
+      },
+      "instagram": {
+        "label": "FJN Instagram",
+        "url": "https://www.instagram.com/fundacaojoseneves"
+      }
+    }
+  },
+  "es": {}
+}

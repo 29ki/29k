@@ -89,6 +89,8 @@ const StyledButton = styled(Button)({
   marginRight: SPACINGS.SIXTEEN,
 });
 
+const StyledHangUpIcon = () => <HangUpIcon fill={COLORS.ACTIVE} />;
+
 const Session = () => {
   const {
     setUserData,
@@ -190,7 +192,7 @@ const Session = () => {
         <Spacer12 />
         <IconButton
           variant="secondary"
-          Icon={HangUpIcon}
+          Icon={StyledHangUpIcon}
           fill={COLORS.ACTIVE}
           onPress={leaveSessionWithConfirm}
         />

@@ -9,6 +9,11 @@ const mockDailyApi = {
     url: 'http://fake.daily/url',
     name: 'some-fake-daily-room-name',
   })),
+  updateRoom: jest.fn(() => ({
+    id: 'some-fake-daily-id',
+    url: 'http://fake.daily/url',
+    name: 'some-fake-daily-room-name',
+  })),
   deleteRoom: jest.fn(),
 };
 
@@ -308,6 +313,46 @@ describe('sessions - controller', () => {
           type: SessionType.private,
         }),
       ).rejects.toEqual(Error('user-unauthorized'));
+    });
+
+    it('should update the room expiry date to new startTime + 2h', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        dailyRoomName: 'some-daily-room-name',
+        hostId: 'the-host-id',
+        startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+      });
+      mockGetSessionById.mockResolvedValueOnce({
+        id: 'some-session-id',
+      }); // second call (returned value)
+
+      await updateSession('the-host-id', 'some-session-id', {
+        startTime: new Date('2022-10-10T18:00:00Z').toISOString(),
+      });
+
+      expect(mockUpdateSession).toHaveBeenCalledWith('some-session-id', {
+        startTime: new Date('2022-10-10T18:00:00Z').toISOString(),
+      });
+      expect(mockDailyApi.updateRoom).toHaveBeenCalledWith(
+        'some-daily-room-name',
+        // startTime + 2h
+        dayjs('2022-10-10T20:00:00.000Z'),
+      );
+    });
+
+    it('should not update room if startTime did not change', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        dailyRoomName: 'some-daily-room-name',
+        hostId: 'the-host-id',
+        startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+      });
+
+      await updateSession('the-host-id', 'some-session-id', {
+        startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+      });
+
+      expect(mockDailyApi.updateRoom).toHaveBeenCalledTimes(0);
     });
 
     it('should update the session and return it', async () => {

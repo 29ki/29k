@@ -3,22 +3,22 @@ import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 import {SessionState, Session} from '../../../../../shared/src/types/Session';
 import * as sessionApi from '../../Sessions/api/session';
 
-const useUpdateSessionState = (sessionId: Session['id']) => {
-  const startSession = useCallback(
-    async () =>
+const useUpdateSessionState = (sessionId: Session['id'] | undefined) => {
+  const startSession = useCallback(async () => {
+    if (sessionId) {
       sessionApi.updateSessionState(sessionId, {
         started: true,
-      }),
-    [sessionId],
-  );
+      });
+    }
+  }, [sessionId]);
 
-  const endSession = useCallback(
-    async () =>
+  const endSession = useCallback(async () => {
+    if (sessionId) {
       sessionApi.updateSessionState(sessionId, {
         ended: true,
-      }),
-    [sessionId],
-  );
+      });
+    }
+  }, [sessionId]);
 
   const navigateToIndex = useCallback(
     async ({
@@ -42,16 +42,20 @@ const useUpdateSessionState = (sessionId: Session['id']) => {
 
   const setSpotlightParticipant = useCallback(
     async (dailySpotlightId: SessionState['dailySpotlightId']) => {
-      return sessionApi.updateSessionState(sessionId, {
-        dailySpotlightId,
-      });
+      if (sessionId) {
+        return sessionApi.updateSessionState(sessionId, {
+          dailySpotlightId,
+        });
+      }
     },
     [sessionId],
   );
 
   const setPlaying = useCallback(
     async (playing: SessionState['playing']) => {
-      return sessionApi.updateSessionState(sessionId, {playing});
+      if (sessionId) {
+        return sessionApi.updateSessionState(sessionId, {playing});
+      }
     },
     [sessionId],
   );

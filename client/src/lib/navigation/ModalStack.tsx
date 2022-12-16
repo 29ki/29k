@@ -15,6 +15,12 @@ import SETTINGS from '../../common/constants/settings';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import AppStackWrapper from './AppStack';
 import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
+import ChangeLanguageModal from '../../routes/ChangeLanguageModal/ChangeLanguageModal';
+import ProfileSettingsModal from '../../routes/ProfileSettingsModal/ProfileSettingsModal';
+import SignInModal from '../../routes/SignInModal/SignInModal';
+import ContributorsModal from '../../routes/ContributorsModal/ContributorsModal';
+import DeveloperModal from '../../routes/DeveloperModal/DeveloperModal';
+import ContactModal from '../../routes/ConcactModal/ContactModal';
 
 const ModalStack = createBottomSheetNavigator<ModalStackProps>();
 
@@ -68,6 +74,14 @@ const ModalStackWrapper = () => {
     [top],
   );
 
+  const tallSheetModalScreenOptions = useMemo(
+    () => ({
+      ...sheetModalScreenOptions,
+      snapPoints: ['75%', '100%'],
+    }),
+    [sheetModalScreenOptions],
+  );
+
   const cardModalScreenOptions = useMemo(
     () => ({
       ...modalScreenOptions,
@@ -102,6 +116,22 @@ const ModalStackWrapper = () => {
           name={'SessionUnavailableModal'}
           component={SessionUnavailableModal}
         />
+        <ModalStack.Screen
+          name={'ChangeLanguageModal'}
+          component={ChangeLanguageModal}
+        />
+        <ModalStack.Screen
+          name={'ProfileSettingsModal'}
+          component={ProfileSettingsModal}
+          options={tallSheetModalScreenOptions}
+        />
+        <ModalStack.Screen name={'SignInModal'} component={SignInModal} />
+        <ModalStack.Screen
+          name={'ContributorsModal'}
+          component={ContributorsModal}
+        />
+        <ModalStack.Screen name={'DeveloperModal'} component={DeveloperModal} />
+        <ModalStack.Screen name={'ContactModal'} component={ContactModal} />
       </ModalStack.Group>
 
       <ModalStack.Group screenOptions={cardModalScreenOptions}>

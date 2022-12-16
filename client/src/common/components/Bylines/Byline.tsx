@@ -13,6 +13,8 @@ const Container = styled.View({
   alignItems: 'center',
 });
 
+const WrapText = styled(Body14)({flex: 1});
+
 const ImageContainer = styled.View({
   backgroundColor: COLORS.GREYMEDIUM,
   width: SPACINGS.TWENTYFOUR,
@@ -25,9 +27,10 @@ const ImageContainer = styled.View({
 type BylineProps = {
   pictureURL?: string;
   name?: string;
+  duration?: string;
 };
 
-const Byline: React.FC<BylineProps> = ({pictureURL, name}) => {
+const Byline: React.FC<BylineProps> = ({pictureURL, name, duration}) => {
   const {t} = useTranslation('Component.Byline');
   if (!pictureURL && !name) {
     return null;
@@ -39,9 +42,9 @@ const Byline: React.FC<BylineProps> = ({pictureURL, name}) => {
         {pictureURL && <Image source={{uri: pictureURL}} />}
       </ImageContainer>
       <Spacer4 />
-      <Body14>
-        {t('with')} {name}
-      </Body14>
+      <WrapText numberOfLines={2}>
+        {t('with')} {name} {'·'} {duration} {'min'}
+      </WrapText>
     </Container>
   );
 };

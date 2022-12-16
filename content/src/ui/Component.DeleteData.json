@@ -1,0 +1,20 @@
+{
+  "en": {
+    "header": "Delete user & data",
+    "text": "Are you sure you want to delete your user and all data?",
+    "buttons": {
+      "cancel": "No",
+      "confirm": "Yes, delete"
+    }
+  },
+  "pt": {
+    "header": "Remover utilizador e dados",
+    "text": "Tens a certeza que queres remover o teu utilizador e os teus dados?",
+    "buttons": {
+      "cancel": "Não",
+      "confirm": "Sim, remover"
+    }
+  },
+  "sv": {},
+  "es": {}
+}

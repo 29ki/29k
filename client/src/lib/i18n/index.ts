@@ -18,6 +18,8 @@ import {
   DEFAULT_LANGUAGE_TAG,
   LANGUAGE_TAGS,
 } from '../../../../shared/src/constants/i18n';
+import Backend from './backend/backend';
+import {omitExercises} from './utils/utils';
 
 export * from '../../../../shared/src/constants/i18n';
 
@@ -26,12 +28,18 @@ dayjs.extend(localizedFormat);
 const DEFAULT_24HOUR_LANGUAGE_TAG = 'en-gb';
 
 export const init = () =>
-  i18next.use(initReactI18next).init({
-    lng: findBestAvailableLanguage(CLIENT_LANGUAGE_TAGS)?.languageTag,
-    supportedLngs: LANGUAGE_TAGS,
-    fallbackLng: DEFAULT_LANGUAGE_TAG,
-    resources: content.i18n,
-  });
+  i18next
+    .use(Backend)
+    .use(initReactI18next)
+    .init({
+      lng: findBestAvailableLanguage(CLIENT_LANGUAGE_TAGS)?.languageTag,
+      supportedLngs: LANGUAGE_TAGS,
+      fallbackLng: DEFAULT_LANGUAGE_TAG,
+      // To trigger the backend middleware to load exercises they have to be removed first.
+      // Removing them in buildContent creates somewhat of a mess in backend adding them back.
+      resources: omitExercises(content.i18n),
+      partialBundledLanguages: true,
+    });
 
 i18next.on('languageChanged', languageTag => {
   dayjs.locale(

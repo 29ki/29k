@@ -16,6 +16,13 @@ const AppStack = createNativeStackNavigator<AppStackProps>();
 
 const screenOptions: NativeStackNavigationOptions = {
   headerShown: false,
+  animation: 'slide_from_right',
+};
+
+const slideScreenOptions: NativeStackNavigationOptions = {
+  ...screenOptions,
+  animation: 'slide_from_bottom',
+  gestureEnabled: false,
 };
 
 const fadeScreenOptions: NativeStackNavigationOptions = {
@@ -32,21 +39,26 @@ const AppStackWrapper = () => {
 
   return (
     // set this state using useNavigationWithFade to change animation to fade
-    <AppStack.Navigator
-      screenOptions={fade ? fadeScreenOptions : screenOptions}>
+    <AppStack.Navigator screenOptions={slideScreenOptions}>
       {isBlocking ? (
         <AppStack.Screen name={'KillSwitch'} component={KillSwitch} />
       ) : settings.showWelcome ? (
         <AppStack.Screen name={'Welcome'} component={Welcome} />
       ) : (
-        <>
+        <AppStack.Group
+          screenOptions={fade ? fadeScreenOptions : screenOptions}>
           <AppStack.Screen name={'Tabs'} component={Tabs} />
           <AppStack.Screen
             name={'SessionStack'}
             component={SessionStackWrapper}
             options={{gestureEnabled: false}}
           />
-        </>
+          <AppStack.Screen
+            name={'EarlyAccessInfo'}
+            component={Welcome}
+            initialParams={{showBack: true}}
+          />
+        </AppStack.Group>
       )}
     </AppStack.Navigator>
   );

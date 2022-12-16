@@ -56,6 +56,7 @@ const CardContext = styled.View({
   flexDirection: 'row',
   justifyContent: 'flex-end',
 });
+
 const Footer = styled.View({
   flexDirection: 'row',
   alignItems: 'flex-end',
@@ -73,6 +74,7 @@ const CTAButton = styled(Button)({
 
 type CardProps = {
   title?: string;
+  duration?: string;
   image?: ImageSourcePropType;
   lottie?: AnimationObject;
   onPress: () => void;
@@ -88,6 +90,7 @@ type CardProps = {
 
 export const Card: React.FC<CardProps> = ({
   title,
+  duration,
   lottie,
   image,
   onPress,
@@ -105,7 +108,11 @@ export const Card: React.FC<CardProps> = ({
       <Header>
         {title && <Display24 numberOfLines={2}>{title}</Display24>}
         <Spacer4 />
-        <Byline pictureURL={hostPictureURL} name={hostName} />
+        <Byline
+          pictureURL={hostPictureURL}
+          name={hostName}
+          duration={duration}
+        />
       </Header>
       <Footer>
         {buttonText && (
