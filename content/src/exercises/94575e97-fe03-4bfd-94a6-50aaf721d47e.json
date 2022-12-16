@@ -117,13 +117,122 @@
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
   },
   "pt": {
-    "published": false,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Bem-vindos. Eu sou a/o X e hoje vamos estar juntos durante 30 minutos a refletir acerca de aceitação.\n\nFaremos uma breve introdução, um exercício de meditação e teremos depois um momento de reflexão e partilha conjunta."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Praticar a aceitação inclui prestar atenção à realidade das coisas de forma intencional e **sem tentar mudá-las, fugir delas ou consertá-las.** Estar apenas com o que quer que apareça. A razão para fazer isto é evitar gastar muita energia a lutar com as coisas do nosso interior."
+          },
+          {
+            "text": "As coisas das quais tentamos fugir tendem a ser mais persistentes e com o tempo a governar cada vez mais a nossa vida. Vamos então dar um passo para trás e observar apenas. Vamos dar-nos uma pausa na nossa rotina diária.\n\n> Carrega no play para iniciar a meditação."
+          }
+        ],
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667298005/Audio/Agnes_bell_kmwzos_eznpow.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667297532/Video/Accepting_thoughts_and_feelings_meditation_cn20lx.mp4",
+            "autoPlayLoop": false,
+            "durationTimer": true
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Vamos agora reservar 1 minuto para refletir individualmente.\n\nO que sentiste ao fazer esta meditação? Como te afetou? O que podes aproveitar desta experiência para o resto do teu dia?"
+          },
+          {
+            "text": "Se quiseres, podes tomar notas numa folha de papel ou apenas algumas notas mentais. E lembra-te, não há um certo ou errado aqui. São as nossas respostas e perspetivas próprias. 1 minuto a partir de agora.\n\n> Carrega em play para iniciar o cronómetro.  \n\nOk, passou 1 minuto. Vamos continuar."
+          }
+        ],
+        "content": {
+          "heading": "O que sentiste?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667317097/Video/1min_Accepting_thoughts_and_feelings_xdvlcn.mp4"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "content": {
+          "heading": "O que sentiste?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667317099/Video/2min_Accepting_thoughts_and_feelings_b9bxvx.mp4"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Vamos agora entrar na parte de partilha deste exercício. Temos três regras importantes:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que precisas é ouvir.** Não há necessidade de ajudar ou dar conselhos neste espaço. Estamos apenas a partilhar e a tentar entender o que nós mesmos e os outros estão a passar."
+          },
+          {
+            "text": "3. **Tudo no nosso interior está bem.** Raiva, amor, ódio, tristeza. O que quer que apareça. Não há certos ou errados.\n\nTeremos um temporizador de 2 minutos como indicador, mas terás o tempo que quiseres. Se não quiseres partilhar, podes dizer 'passar'."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixa todas as pessoas (ou aquelas para que houver tempo) partilharem individualmente. Carrega play para iniciar a contagem de tempo.\n>\n> Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
+          }
+        ]
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Parabéns. Se estiverem com disposição podem continuar o que começamos aqui hoje com uma missão.\n\nAo refletires sobre o que podes aproveitar deste exercício para o resto do dia, aproveita a oportunidade para criares espaço para os teus temas internos durante o resto do dia e vê onde isso te leva."
+          },
+          {
+            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.\n\nComo te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Permite que todos na sessão façam um check-out individual.\n\nObrigada/o a todos por este check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão enviando todos os participantes para a experiência de saída."
+          }
+        ]
+      }
+    ],
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#fcc9b7"
     },
-    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
-    "duration": 40
+    "hidden": false,
+    "name": "Aceitar pensamentos e sentimentos",
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
+      }
+    },
+    "duration": 40,
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4"
+      }
+    },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Start the session when you're ready to go."
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667317594/Video/portal2_Accepting_thoughts_and_feelings_iyqnuk.mp4"
+      }
+    },
+    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
   },
   "sv": {
     "published": false,
