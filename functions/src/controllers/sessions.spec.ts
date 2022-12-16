@@ -402,7 +402,7 @@ describe('sessions - controller', () => {
       ).rejects.toEqual(Error('session-not-found'));
     });
 
-    it('should update the session and return it', async () => {
+    it('should update the session state and return it', async () => {
       mockGetSessionById.mockResolvedValueOnce({
         id: 'some-session-id',
         hostId: 'the-host-id',
@@ -425,6 +425,34 @@ describe('sessions - controller', () => {
         index: 1,
       });
       expect(updatedState).toEqual({id: 'some-session-id', index: 1});
+    });
+
+    it('should also update the session when is ended', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        hostId: 'the-host-id',
+      });
+      mockGetSessionStateById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        ended: true,
+      }); // first return (to check if it exists)
+      mockGetSessionStateById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        ended: true,
+      }); // returned value
+
+      const updatedState = await updateSessionState(
+        'the-host-id',
+        'some-session-id',
+        {ended: true},
+      );
+      expect(mockUpdateSession).toHaveBeenCalledWith('some-session-id', {
+        ended: true,
+      });
+      expect(mockUpdateSessionState).toHaveBeenCalledWith('some-session-id', {
+        ended: true,
+      });
+      expect(updatedState).toEqual({id: 'some-session-id', ended: true});
     });
   });
 });

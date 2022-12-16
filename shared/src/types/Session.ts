@@ -26,6 +26,7 @@ type SessionFields = {
   hostId: string;
   type: SessionType;
   userIds: string[];
+  ended: boolean;
 };
 
 // Data stored in DB

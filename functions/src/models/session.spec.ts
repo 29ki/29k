@@ -129,6 +129,7 @@ describe('session model', () => {
     it('should get a session by its invite', async () => {
       await getSessionByInviteCode({inviteCode: 12345});
       expect(mockWhere).toHaveBeenCalledWith('inviteCode', '==', 12345);
+      expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
       expect(mockWhere).toHaveBeenCalledWith(
         'startTime',
         '>',
@@ -168,6 +169,7 @@ describe('session model', () => {
 
     it('should filter out old sessions', async () => {
       await getSessions('some-user-id');
+      expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
       expect(mockWhere).toHaveBeenCalledWith(
         'startTime',
         '>',
@@ -216,6 +218,7 @@ describe('session model', () => {
         startTime: startTime,
         type: 'public',
         url: 'daily-url',
+        ended: false,
         userIds: ['*'],
         inviteCode: 1234,
         createdAt: expect.any(String),
@@ -248,6 +251,7 @@ describe('session model', () => {
         type: 'private',
         url: 'daily-url',
         userIds: ['some-user-id'],
+        ended: false,
         inviteCode: 1234,
         createdAt: expect.any(String),
         updatedAt: expect.any(String),

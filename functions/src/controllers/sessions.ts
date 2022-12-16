@@ -122,6 +122,10 @@ export const updateSessionState = async (
     throw new Error('user-unauthorized');
   }
 
+  if (data.ended) {
+    sessionModel.updateSession(sessionId, {ended: true});
+  }
+
   await sessionModel.updateSessionState(sessionId, removeEmpty(data));
   const updatedState = await sessionModel.getSessionStateById(sessionId);
   return updatedState ? updatedState : undefined;

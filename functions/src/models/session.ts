@@ -68,13 +68,15 @@ export const getSessionByInviteCode = async ({
     .where('inviteCode', '==', inviteCode);
 
   const result = await (activeOnly
-    ? query.where(
-        'startTime',
-        '>',
-        Timestamp.fromDate(
-          dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
-        ),
-      )
+    ? query
+        .where('ended', '==', false)
+        .where(
+          'startTime',
+          '>',
+          Timestamp.fromDate(
+            dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
+          ),
+        )
     : query
   )
     .orderBy('startTime', 'asc')
@@ -90,6 +92,7 @@ export const getSessionByInviteCode = async ({
 export const getSessions = async (userId: string) => {
   const sessionsCollection = firestore().collection(SESSIONS_COLLECTION);
   const snapshot = await sessionsCollection
+    .where('ended', '==', false)
     .where(
       'startTime',
       '>',
@@ -115,7 +118,7 @@ export const addSession = async ({
   type,
   link,
   inviteCode,
-}: Omit<Session, 'userIds' | 'createdAt' | 'updatedAt'> & {
+}: Omit<Session, 'ended' | 'userIds' | 'createdAt' | 'updatedAt'> & {
   dailyRoomName: string;
 }) => {
   const now = Timestamp.now();
@@ -132,6 +135,7 @@ export const addSession = async ({
     startTime: Timestamp.fromDate(new Date(startTime)),
     createdAt: now,
     updatedAt: now,
+    ended: false,
     // '*' means session is available for everyone/public enables one single query on getSessions
     userIds: type === SessionType.private ? [hostId] : ['*'],
   };

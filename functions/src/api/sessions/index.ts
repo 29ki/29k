@@ -166,12 +166,12 @@ sessionsRouter.put(
     const data = ctx.request.body as SessionStateUpdate;
 
     try {
-      const updatedSession = await sessionsController.updateSessionState(
+      const updatedState = await sessionsController.updateSessionState(
         ctx.user.id,
         id,
         data,
       );
-      ctx.body = updatedSession;
+      ctx.body = updatedState;
     } catch (err) {
       ctx.status = 500;
       throw err;
