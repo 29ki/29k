@@ -18,7 +18,9 @@ import ActionList from '../../common/components/ActionList/ActionList';
 import ActionButton from '../../common/components/ActionList/ActionItems/ActionButton';
 import {
   CommandIcon,
+  CommunityIcon,
   DeleteIcon,
+  EnvelopeIcon,
   HangUpIcon,
   LanguagesIcon,
   MegaphoneIcon,
@@ -96,6 +98,13 @@ const Profile = () => {
     [navigate],
   );
 
+  const contactPress = useCallback(() => navigate('ContactModal'), [navigate]);
+
+  const contributorsPress = useCallback(
+    () => navigate('ContributorsModal'),
+    [navigate],
+  );
+
   const developerPress = useCallback(
     () => navigate('DeveloperModal'),
     [navigate],
@@ -150,20 +159,22 @@ const Profile = () => {
                 {t('publicHostAccess')}
               </ActionButton>
             )}
-            {/*<ActionButton Icon={EnvelopeIcon}>{t('contact')}</ActionButton>*/}
+            <ActionButton Icon={EnvelopeIcon} onPress={contactPress}>
+              {t('contact')}
+            </ActionButton>
           </ActionList>
           <Spacer32 />
-          {/*
           <Heading16>{t('community')}</Heading16>
           <Spacer8 />
           <ActionList>
+            {/*
             <ActionButton Icon={WandIcon}>{t('contribute')}</ActionButton>
-            <ActionButton Icon={CommunityIcon}>
+            */}
+            <ActionButton Icon={CommunityIcon} onPress={contributorsPress}>
               {t('contributors')}
             </ActionButton>
           </ActionList>
           <Spacer32 />
-          */}
           {ENVIRONMENT !== 'production' && (
             <ActionList>
               <ActionButton Icon={CommandIcon} onPress={developerPress}>

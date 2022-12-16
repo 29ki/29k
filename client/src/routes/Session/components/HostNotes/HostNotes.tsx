@@ -1,14 +1,21 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import styled from 'styled-components/native';
 import {FlatList} from 'react-native-gesture-handler';
-import Animated, {Easing, FadeInUp, SlideOutUp} from 'react-native-reanimated';
+import Animated, {
+  Easing,
+  FadeInUp,
+  SlideOutUp,
+  FadeIn,
+} from 'react-native-reanimated';
 import {useTranslation} from 'react-i18next';
 import {
+  Dimensions,
   NativeScrollEvent,
   NativeSyntheticEvent,
   View,
   ViewStyle,
 } from 'react-native';
+import GestureRecognizer from 'react-native-swipe-gestures';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import SETTINGS from '../../../../common/constants/settings';
@@ -43,6 +50,25 @@ const Wrapper = styled.View({
   borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS,
   backgroundColor: COLORS.WHITE,
   zIndex: 2,
+});
+
+const HandleContainerTopBar = styled(Animated.View).attrs({
+  entering: FadeIn.duration(600),
+})({
+  padding: 10,
+});
+
+const HandleContainer = styled.View({
+  padding: 10,
+});
+
+// Same styling as https://github.com/gorhom/react-native-bottom-sheet
+const Handle = styled.View({
+  alignSelf: 'center',
+  width: (7.5 * Dimensions.get('window').width) / 100,
+  height: 4,
+  borderRadius: 4,
+  backgroundColor: COLORS.GREYDARK,
 });
 
 const TopBar = styled.View({
@@ -127,19 +153,26 @@ const HostNotes: React.FC<HostNotesProps> = ({
           <TopSafeArea />
           <Gutters>
             <Spacer4 />
-            <TopBar>
-              <Progress
-                index={sessionSlideState?.index}
-                length={exercise?.slides.length}
-              />
-              <Spacer8 />
-              <ToggleButton
-                disabled={!notes}
-                isToggled={showNotes}
-                title={t('notes')}
-                onPress={() => setShowNotes(prevShowNotes => !prevShowNotes)}
-              />
-            </TopBar>
+            <GestureRecognizer onSwipeDown={() => setShowNotes(true)}>
+              <TopBar>
+                <Progress
+                  index={sessionSlideState?.index}
+                  length={exercise?.slides.length}
+                />
+                <Spacer8 />
+                <ToggleButton
+                  disabled={!notes}
+                  isToggled={showNotes}
+                  title={t('notes')}
+                  onPress={() => setShowNotes(prevShowNotes => !prevShowNotes)}
+                />
+              </TopBar>
+              {!showNotes && notes && (
+                <HandleContainerTopBar>
+                  <Handle />
+                </HandleContainerTopBar>
+              )}
+            </GestureRecognizer>
             <Spacer4 />
           </Gutters>
         </Wrapper>
@@ -170,29 +203,34 @@ const HostNotes: React.FC<HostNotesProps> = ({
                 )}
                 horizontal
               />
-              <Navigation>
-                <NavButton
-                  onPress={() =>
-                    setScroll({
-                      index: scroll.index - 1,
-                      animated: true,
-                    })
-                  }
-                  Icon={BackwardCircleIcon}
-                  disabled={scroll.index <= 0}
-                />
-                <Body14>{`${scroll.index + 1} / ${notes.length}`}</Body14>
-                <NavButton
-                  onPress={() =>
-                    setScroll({
-                      index: scroll.index + 1,
-                      animated: true,
-                    })
-                  }
-                  Icon={ForwardCircleIcon}
-                  disabled={scroll.index >= notes.length - 1}
-                />
-              </Navigation>
+              <GestureRecognizer onSwipeUp={() => setShowNotes(false)}>
+                <Navigation>
+                  <NavButton
+                    onPress={() =>
+                      setScroll({
+                        index: scroll.index - 1,
+                        animated: true,
+                      })
+                    }
+                    Icon={BackwardCircleIcon}
+                    disabled={scroll.index <= 0}
+                  />
+                  <Body14>{`${scroll.index + 1} / ${notes.length}`}</Body14>
+                  <NavButton
+                    onPress={() =>
+                      setScroll({
+                        index: scroll.index + 1,
+                        animated: true,
+                      })
+                    }
+                    Icon={ForwardCircleIcon}
+                    disabled={scroll.index >= notes.length - 1}
+                  />
+                </Navigation>
+                <HandleContainer>
+                  <Handle />
+                </HandleContainer>
+              </GestureRecognizer>
             </Gutters>
             <Spacer8 />
           </NotesWrapper>

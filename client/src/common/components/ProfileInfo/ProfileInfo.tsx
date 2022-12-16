@@ -34,11 +34,6 @@ const StyledButton = styled(Button)<{customDisabled: boolean}>(
   }),
 );
 
-const ProfilePicutreWrapper = styled.View({
-  width: SPACINGS.NINTYSIX,
-  height: SPACINGS.NINTYSIX,
-});
-
 const ProfileInfo = () => {
   const {t} = useTranslation('Component.ProfileInfo');
   const user = useUser();
@@ -84,13 +79,12 @@ const ProfileInfo = () => {
 
   return (
     <Container>
-      <ProfilePicutreWrapper>
-        <ProfilePicture
-          pictureURL={user?.photoURL}
-          hasError={pictureMissing}
-          onPress={changeProfilePicture}
-        />
-      </ProfilePicutreWrapper>
+      <ProfilePicture
+        pictureURL={user?.photoURL}
+        hasError={pictureMissing}
+        onPress={changeProfilePicture}
+        size={SPACINGS.NINTYSIX}
+      />
       <Spacer16 />
       <InputWrapper>
         <StyledInut
