@@ -9,6 +9,7 @@ type State = {
 
 type Actions = {
   setState: (sessionState: SessionState) => void;
+  setSession: (session: Session) => void;
   setCurrentContentReachedEnd: (currentContentReachedEnd: boolean) => void;
   reset: () => void;
 };
@@ -22,6 +23,7 @@ const initialState: State = {
 const useSessionState = create<State & Actions>()(set => ({
   ...initialState,
   setState: state => set({state}),
+  setSession: session => set({session}),
   setCurrentContentReachedEnd: currentContentReachedEnd =>
     set({currentContentReachedEnd}),
   reset: () => set(initialState),

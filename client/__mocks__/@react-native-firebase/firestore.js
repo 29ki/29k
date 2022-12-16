@@ -1,6 +1,9 @@
 const mockFirestore = {
   collection: jest.fn().mockReturnValue({
     doc: jest.fn().mockReturnValue({
+      get: jest
+        .fn()
+        .mockResolvedValue({exists: true, data: () => ({id: 'test-id'})}),
       collection: jest.fn().mockReturnValue({
         doc: jest.fn().mockReturnValue({
           onSnapshot: jest.fn(cb => {

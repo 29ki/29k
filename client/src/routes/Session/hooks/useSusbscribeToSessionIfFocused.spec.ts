@@ -28,8 +28,9 @@ describe('useSubscribeToSessionIfFocused', () => {
   const useTestHook = ({exitOnEnded = true} = {}) => {
     useSubscribeToSessionIfFocused('session-id', {exitOnEnded});
     const sessionState = useSessionState(({state}) => state);
+    const session = useSessionState(state => state.session);
 
-    return sessionState;
+    return {sessionState, session};
   };
 
   it('should subscribe to live session document', async () => {
@@ -42,11 +43,16 @@ describe('useSubscribeToSessionIfFocused', () => {
 
   it('should set live content state', () => {
     mockUseIsFocused.mockReturnValueOnce(true);
-    mockSubscribeToSession.mockImplementation(cb => cb({id: 'test-id'}));
+    mockSubscribeToSession.mockImplementation(cb =>
+      cb({id: 'test-id'}, {id: 'test-id'}),
+    );
 
     const {result} = renderHook(() => useTestHook());
 
-    expect(result.current).toEqual({id: 'test-id'});
+    expect(result.current).toEqual({
+      sessionState: {id: 'test-id'},
+      session: {id: 'test-id'},
+    });
   });
 
   it('should handle when session does not exist', () => {
@@ -54,7 +60,7 @@ describe('useSubscribeToSessionIfFocused', () => {
     mockSubscribeToSession.mockImplementationOnce(cb => cb(undefined));
 
     const {result} = renderHook(() => useTestHook());
-    expect(result.current).toBe(null);
+    expect(result.current).toEqual({sessionState: null, session: null});
 
     expect(fetchSessionsMock).toHaveBeenCalledTimes(1);
     expect(navigation.navigate).toHaveBeenCalledWith('Sessions');
@@ -66,7 +72,7 @@ describe('useSubscribeToSessionIfFocused', () => {
     mockSubscribeToSession.mockImplementationOnce(cb => cb({ended: true}));
 
     const {result} = renderHook(() => useTestHook());
-    expect(result.current).toBe(null);
+    expect(result.current).toEqual({session: null, sessionState: null});
 
     expect(fetchSessionsMock).toHaveBeenCalledTimes(1);
     expect(navigation.navigate).toHaveBeenCalledWith('Sessions');
@@ -75,9 +81,7 @@ describe('useSubscribeToSessionIfFocused', () => {
 
   it('should do nothing when session has ended', () => {
     mockUseIsFocused.mockReturnValueOnce(true);
-    mockSubscribeToSession.mockImplementationOnce(cb =>
-      cb({data: () => ({ended: true}), exists: true}),
-    );
+    mockSubscribeToSession.mockImplementationOnce(cb => cb({ended: true}, {}));
 
     renderHook(() => useTestHook({exitOnEnded: false}));
 

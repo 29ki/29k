@@ -18,6 +18,7 @@ const useSubscribeToSessionIfFocused = (
 ) => {
   const {exitOnEnded = true} = options ?? {};
   const setSessionState = useSessionState(state => state.setState);
+  const setSession = useSessionState(state => state.setSession);
   const {fetchSessions} = useSessions();
   const subscribeToSession = useSubscribeToSession(sessionId);
   const isFocused = useIsFocused();
@@ -29,14 +30,15 @@ const useSubscribeToSessionIfFocused = (
 
   useEffect(() => {
     if (isFocused) {
-      return subscribeToSession(sessionState => {
-        if (!sessionState || (exitOnEnded && sessionState?.ended)) {
+      return subscribeToSession((sessionState, session) => {
+        if (!sessionState || !session || (exitOnEnded && sessionState?.ended)) {
           fetchSessions();
           navigate('Sessions');
           navigate('SessionUnavailableModal');
           return;
         }
 
+        setSession(session);
         setSessionState(sessionState);
       });
     }
@@ -47,6 +49,7 @@ const useSubscribeToSessionIfFocused = (
     fetchSessions,
     navigate,
     setSessionState,
+    setSession,
   ]);
 };
 
