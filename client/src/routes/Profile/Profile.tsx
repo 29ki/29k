@@ -17,6 +17,7 @@ import {COLORS} from '../../../../shared/src/constants/colors';
 import ActionList from '../../common/components/ActionList/ActionList';
 import ActionButton from '../../common/components/ActionList/ActionItems/ActionButton';
 import {
+  CheckedIcon,
   CommandIcon,
   CommunityIcon,
   DeleteIcon,
@@ -105,6 +106,11 @@ const Profile = () => {
     [navigate],
   );
 
+  const partnersPress = useCallback(
+    () => navigate('PartnersModal'),
+    [navigate],
+  );
+
   const developerPress = useCallback(
     () => navigate('DeveloperModal'),
     [navigate],
@@ -172,6 +178,9 @@ const Profile = () => {
             */}
             <ActionButton Icon={CommunityIcon} onPress={contributorsPress}>
               {t('contributors')}
+            </ActionButton>
+            <ActionButton Icon={CheckedIcon} onPress={partnersPress}>
+              {t('partners')}
             </ActionButton>
           </ActionList>
           <Spacer32 />

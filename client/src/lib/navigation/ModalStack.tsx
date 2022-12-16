@@ -17,9 +17,10 @@ import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 import ChangeLanguageModal from '../../routes/ChangeLanguageModal/ChangeLanguageModal';
 import ProfileSettingsModal from '../../routes/ProfileSettingsModal/ProfileSettingsModal';
 import SignInModal from '../../routes/SignInModal/SignInModal';
-import ContributorsModal from '../../routes/ContributorsModal/ContributorsModal';
+import ContributorsModal from '../../routes/Contributors/ContributorsModal';
 import DeveloperModal from '../../routes/DeveloperModal/DeveloperModal';
 import OverlayStack from './OverlayStack';
+import PartnersModal from '../../routes/Contributors/PartnersModal';
 import ContactModal from '../../routes/ConcactModal/ContactModal';
 
 const {Navigator, Screen, Group} =
@@ -119,6 +120,7 @@ const ModalStack = () => {
         />
         <Screen name={'SignInModal'} component={SignInModal} />
         <Screen name={'ContributorsModal'} component={ContributorsModal} />
+        <Screen name={'PartnersModal'} component={PartnersModal} />
         <Screen name={'DeveloperModal'} component={DeveloperModal} />
         <Screen name={'ContactModal'} component={ContactModal} />
       </Group>
