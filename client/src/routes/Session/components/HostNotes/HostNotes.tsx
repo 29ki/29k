@@ -39,6 +39,10 @@ import {
 } from '../../../../common/components/Spacers/Spacer';
 import ToggleButton from './ToggleButton';
 
+const NotesNavBtn = styled(NavButton)(({disabled}) => ({
+  opacity: disabled ? 0 : 1,
+}));
+
 const ShadowWrapper = styled.View({
   ...SETTINGS.BOXSHADOW,
   borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not showing on Android
@@ -205,7 +209,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
               />
               <GestureRecognizer onSwipeUp={() => setShowNotes(false)}>
                 <Navigation>
-                  <NavButton
+                  <NotesNavBtn
                     onPress={() =>
                       setScroll({
                         index: scroll.index - 1,
@@ -216,7 +220,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
                     disabled={scroll.index <= 0}
                   />
                   <Body14>{`${scroll.index + 1} / ${notes.length}`}</Body14>
-                  <NavButton
+                  <NotesNavBtn
                     onPress={() =>
                       setScroll({
                         index: scroll.index + 1,
