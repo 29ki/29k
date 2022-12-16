@@ -181,6 +181,16 @@
       ]
     },
     {
+      "name": "Jorge Ribeiro dos Santos",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1665413498/Contributors/Jorge%20Ribeiro%20dos%20Santos.png",
+      "profile": "https://www.linkedin.com/in/jorgers/",
+      "contributions": [
+        "translation",
+        "projectManagement",
+        "coreTeam"
+      ]
+    },
+    {
       "name": "Victoria Gladkiy",
       "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1665413297/Contributors/Victoria%20Gladkiy.png",
       "profile": "https://www.linkedin.com/in/victoria-gladkiy-0444a7163/",
@@ -227,16 +237,6 @@
       "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1665413467/Contributors/Iraci%20Stensj%C3%B6.png",
       "contributions": [
         "data",
-        "coreTeam"
-      ]
-    },
-    {
-      "name": "Jorge Ribeiro dos Santos",
-      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1665413498/Contributors/Jorge%20Ribeiro%20dos%20Santos.png",
-      "profile": "https://www.linkedin.com/in/jorgers/",
-      "contributions": [
-        "translation",
-        "projectManagement",
         "coreTeam"
       ]
     },
