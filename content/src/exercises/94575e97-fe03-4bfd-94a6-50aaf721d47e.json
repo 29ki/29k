@@ -94,7 +94,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
       }
     },
-    "duration": 30,
+    "duration": 40,
     "outroPortal": {
       "video": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4"
@@ -212,7 +212,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
       }
     },
-    "duration": 30,
+    "duration": 40,
     "outroPortal": {
       "video": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4"
@@ -241,10 +241,10 @@
       "backgroundColor": "#fcc9b7"
     },
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
-    "duration": 30
+    "duration": 40
   },
   "es": {
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
-    "duration": 30
+    "duration": 40
   }
 }

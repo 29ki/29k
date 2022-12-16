@@ -146,7 +146,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
       }
     },
-    "duration": 40
+    "duration": 30
   },
   "pt": {
     "published": true,
@@ -295,7 +295,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
       }
     },
-    "duration": 40
+    "duration": 30
   },
   "sv": {
     "published": false,
@@ -303,10 +303,10 @@
       "textColor": "#2AE2D7"
     },
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
-    "duration": 40
+    "duration": 30
   },
   "es": {
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
-    "duration": 40
+    "duration": 30
   }
 }
