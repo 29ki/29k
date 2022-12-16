@@ -36,7 +36,7 @@ import useLeaveSession from './hooks/useLeaveSession';
 import VideoBase from './components/VideoBase/VideoBase';
 import useIsSessionHost from './hooks/useIsSessionHost';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
-import useUpdateSession from './hooks/useUpdateSession';
+import useUpdateSessionState from './hooks/useUpdateSessionState';
 import HostNotes from './components/HostNotes/HostNotes';
 import Screen from '../../common/components/Screen/Screen';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
@@ -44,7 +44,7 @@ import {ArrowLeftIcon} from '../../common/components/Icons';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 import Badge from '../../common/components/Badge/Badge';
 import useSessionStartTime from './hooks/useSessionStartTime';
-import useExerciseById from '../../lib/content/hooks/useExerciseById';
+import useSessionExercise from './hooks/useSessionExercise';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -92,8 +92,9 @@ const IntroPortal: React.FC = () => {
   const [loopVideoLoaded, setLoopVideoLoaded] = useState(false);
   const [joiningSession, setJoiningSession] = useState(false);
   const {t} = useTranslation('Screen.Portal');
-  const session = useSessionState(state => state.session);
-  const exercise = useExerciseById(session?.contentId);
+  const startTime = useSessionState(state => state.session?.startTime);
+  const sessionState = useSessionState(({state}) => state);
+  const exercise = useSessionExercise();
   const participants = useDailyState(state => state.participants);
   const participantsCount = Object.keys(participants ?? {}).length;
   const isHost = useIsSessionHost();
@@ -103,15 +104,15 @@ const IntroPortal: React.FC = () => {
         SessionStackProps & TabNavigatorProps & ModalStackProps
       >
     >();
-  const {setStarted} = useUpdateSession(sessionId);
+  const {startSession} = useUpdateSessionState(sessionId);
   const {leaveSessionWithConfirm} = useLeaveSession();
   const isFocused = useIsFocused();
   useSubscribeToSessionIfFocused(sessionId);
-  const sessionTime = useSessionStartTime(dayjs(session?.startTime));
+  const sessionTime = useSessionStartTime(dayjs(startTime));
 
   const introPortal = exercise?.introPortal;
   const textColor = exercise?.theme?.textColor;
-  const started = session?.started;
+  const started = sessionState?.started;
 
   const navigateToSession = useCallback(
     () => navigate('Session', {sessionId: sessionId}),
@@ -121,11 +122,11 @@ const IntroPortal: React.FC = () => {
   usePreventGoingBack(leaveSessionWithConfirm);
 
   useEffect(() => {
-    if (session?.started && !endVideoRef.current) {
+    if (sessionState?.started && !endVideoRef.current) {
       // If no video is defined, navigate directly
       navigateToSession();
     }
-  }, [session?.started, navigateToSession]);
+  }, [sessionState?.started, navigateToSession]);
 
   const onEndVideoLoad = () => {
     endVideoRef.current?.seek(0);
@@ -142,7 +143,7 @@ const IntroPortal: React.FC = () => {
   };
 
   const onLoopVideoEnd = () => {
-    if (session?.started) {
+    if (sessionState?.started) {
       ReactNativeHapticFeedback.trigger('impactHeavy');
       setJoiningSession(true);
     }
@@ -177,7 +178,7 @@ const IntroPortal: React.FC = () => {
           onReadyForDisplay={onLoopVideoLoad}
           onEnd={onLoopVideoEnd}
           paused={!isFocused}
-          repeat={!session?.started}
+          repeat={!sessionState?.started}
           source={{uri: introPortal.videoLoop?.source}}
           resizeMode="cover"
           poster={introPortal.videoLoop?.preview}
@@ -201,14 +202,19 @@ const IntroPortal: React.FC = () => {
                 Icon={ArrowLeftIcon}
                 noBackground
               />
-              {__DEV__ && session?.started && (
+              {__DEV__ && sessionState?.started && (
                 <Button small onPress={navigateToSession}>
                   {t('skipPortal')}
                 </Button>
               )}
               {isHost && (
-                <Button small disabled={session?.started} onPress={setStarted}>
-                  {session?.started ? t('sessionStarted') : t('startSession')}
+                <Button
+                  small
+                  disabled={sessionState?.started}
+                  onPress={startSession}>
+                  {sessionState?.started
+                    ? t('sessionStarted')
+                    : t('startSession')}
                 </Button>
               )}
             </TopBar>

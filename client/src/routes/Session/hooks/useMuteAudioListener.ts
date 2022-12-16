@@ -11,7 +11,7 @@ import useSessionSlideState from './useSessionSlideState';
 const useMuteAudioListener = () => {
   const {t} = useTranslation('Screen.Session');
   const {toggleAudio} = useContext(DailyContext);
-  const exerciseState = useSessionState(state => state.session?.exerciseState);
+  const sessionState = useSessionState(({state}) => state);
   const slideState = useSessionSlideState();
   const isSessionHost = useIsSessionHost();
   const addNotification = useSessionNotificationsState(
@@ -19,7 +19,7 @@ const useMuteAudioListener = () => {
   );
 
   useEffect(() => {
-    if (exerciseState?.playing && slideState?.current.type !== 'sharing') {
+    if (sessionState?.playing && slideState?.current.type !== 'sharing') {
       toggleAudio(false);
 
       if (isSessionHost) {
@@ -31,7 +31,7 @@ const useMuteAudioListener = () => {
     }
   }, [
     toggleAudio,
-    exerciseState?.playing,
+    sessionState?.playing,
     addNotification,
     t,
     isSessionHost,

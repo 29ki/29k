@@ -1,9 +1,25 @@
-import {useCallback} from 'react';
+import {useCallback, useMemo} from 'react';
 import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 import {SessionState, Session} from '../../../../../shared/src/types/Session';
 import * as sessionApi from '../../Sessions/api/session';
 
 const useUpdateSessionState = (sessionId: Session['id']) => {
+  const startSession = useCallback(
+    async () =>
+      sessionApi.updateSessionState(sessionId, {
+        started: true,
+      }),
+    [sessionId],
+  );
+
+  const endSession = useCallback(
+    async () =>
+      sessionApi.updateSessionState(sessionId, {
+        ended: true,
+      }),
+    [sessionId],
+  );
+
   const navigateToIndex = useCallback(
     async ({
       index,
@@ -40,6 +56,21 @@ const useUpdateSessionState = (sessionId: Session['id']) => {
     [sessionId],
   );
 
-  return {navigateToIndex, setSpotlightParticipant, setPlaying};
+  return useMemo(
+    () => ({
+      navigateToIndex,
+      setSpotlightParticipant,
+      setPlaying,
+      startSession,
+      endSession,
+    }),
+    [
+      navigateToIndex,
+      setSpotlightParticipant,
+      setPlaying,
+      startSession,
+      endSession,
+    ],
+  );
 };
 export default useUpdateSessionState;

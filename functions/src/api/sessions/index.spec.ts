@@ -52,29 +52,15 @@ describe('/api/sessions', () => {
           id: 'some-session-id',
           name: 'some-name',
           url: 'some-url',
-          exerciseState: {
-            index: 0,
-            playing: false,
-            timestamp: new Date('2022-10-10T10:00:00Z').toISOString(),
-          },
           hostId: 'some-user-id',
           startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
-          started: false,
-          ended: false,
         },
         {
           id: 'some-other-session-id',
           name: 'some-other-name',
           url: 'some-other-url',
-          exerciseState: {
-            index: 0,
-            playing: false,
-            timestamp: new Date('2022-10-10T10:00:00Z').toISOString(),
-          },
           hostId: 'some-other-user-id',
           startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
-          started: false,
-          ended: false,
         },
       ]);
 
@@ -86,29 +72,15 @@ describe('/api/sessions', () => {
           id: 'some-session-id',
           name: 'some-name',
           url: 'some-url',
-          exerciseState: {
-            index: 0,
-            playing: false,
-            timestamp: expect.any(String),
-          },
           hostId: 'some-user-id',
           startTime: expect.any(String),
-          started: false,
-          ended: false,
         },
         {
           id: 'some-other-session-id',
           name: 'some-other-name',
           url: 'some-other-url',
-          exerciseState: {
-            index: 0,
-            playing: false,
-            timestamp: expect.any(String),
-          },
           hostId: 'some-other-user-id',
           startTime: expect.any(String),
-          started: false,
-          ended: false,
         },
       ]);
     });

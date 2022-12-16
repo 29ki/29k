@@ -29,15 +29,15 @@ const useSubscribeToSessionIfFocused = (
 
   useEffect(() => {
     if (isFocused) {
-      return subscribeToSession(session => {
-        if (!session || (exitOnEnded && session?.ended)) {
+      return subscribeToSession(sessionState => {
+        if (!sessionState || (exitOnEnded && sessionState?.ended)) {
           fetchSessions();
           navigate('Sessions');
           navigate('SessionUnavailableModal');
           return;
         }
 
-        setSessionState(session);
+        setSessionState(sessionState);
       });
     }
   }, [

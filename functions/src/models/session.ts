@@ -115,10 +115,7 @@ export const addSession = async ({
   type,
   link,
   inviteCode,
-}: Omit<
-  Session,
-  'exerciseState' | 'ended' | 'started' | 'userIds' | 'createdAt' | 'updatedAt'
-> & {
+}: Omit<Session, 'userIds' | 'createdAt' | 'updatedAt'> & {
   dailyRoomName: string;
 }) => {
   const now = Timestamp.now();

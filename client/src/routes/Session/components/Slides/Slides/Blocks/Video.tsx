@@ -43,7 +43,7 @@ const Video: React.FC<VideoProps> = ({
   const videoRef = useRef<RNVideo>(null);
   const timerRef = useRef<DurationTimerHandle>(null);
   const [duration, setDuration] = useState(0);
-  const exerciseState = useSessionState(state => state.session?.exerciseState);
+  const sessionState = useSessionState(({state}) => state);
   const previousState = useRef({playing: false, timestamp: new Date()});
 
   const seek = (seconds: number) => {
@@ -52,10 +52,10 @@ const Video: React.FC<VideoProps> = ({
   };
 
   useEffect(() => {
-    if (active && !autoPlayLoop && duration && exerciseState) {
+    if (active && !autoPlayLoop && duration && sessionState) {
       // Block is active, video and state is loaded
-      const playing = exerciseState.playing;
-      const timestamp = new Date(exerciseState.timestamp);
+      const playing = sessionState.playing;
+      const timestamp = new Date(sessionState.timestamp);
 
       if (
         timestamp > previousState.current.timestamp &&
@@ -80,7 +80,7 @@ const Video: React.FC<VideoProps> = ({
         timestamp,
       };
     }
-  }, [active, autoPlayLoop, duration, previousState, exerciseState]);
+  }, [active, autoPlayLoop, duration, previousState, sessionState]);
 
   const onLoad = useCallback<(data: OnLoadData) => void>(
     data => {
@@ -89,7 +89,7 @@ const Video: React.FC<VideoProps> = ({
     [setDuration],
   );
 
-  const paused = !active || (!exerciseState?.playing && !autoPlayLoop);
+  const paused = !active || (!sessionState?.playing && !autoPlayLoop);
 
   const videoProps: VideoProperties = useMemo(
     () => ({
