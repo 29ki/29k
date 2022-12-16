@@ -1,6 +1,6 @@
 import {act, renderHook} from '@testing-library/react-hooks';
 
-import useUpdateSessionExerciseState from './useUpdateSessionExerciseState';
+import useUpdateSessionState from './useUpdateSessionState';
 import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
 import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 
@@ -26,10 +26,9 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe('useUpdateSessionExerciseState', () => {
+describe('useUpdateSessionState', () => {
   const useTestHook = () => {
-    const {navigateToIndex, setPlaying} =
-      useUpdateSessionExerciseState('session-id');
+    const {navigateToIndex, setPlaying} = useUpdateSessionState('session-id');
 
     return {navigateToIndex, setPlaying};
   };

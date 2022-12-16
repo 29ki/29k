@@ -15,7 +15,7 @@ import {
   Rewind,
 } from '../../../../common/components/Icons';
 
-import useUpdateSessionExerciseState from '../../hooks/useUpdateSessionExerciseState';
+import useUpdateSessionState from '../../hooks/useUpdateSessionState';
 import {Spacer8} from '../../../../common/components/Spacers/Spacer';
 import Button from '../../../../common/components/Buttons/Button';
 import IconButton from '../../../../common/components/Buttons/IconButton/IconButton';
@@ -50,13 +50,12 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   style,
 }) => {
   const isHost = useIsSessionHost();
-  const exerciseState = useSessionState(state => state.session?.exerciseState);
+  const sessionState = useSessionState(({state}) => state);
   const exercise = useSessionExercise();
   const slideState = useSessionSlideState();
   const {t} = useTranslation('Screen.Session');
 
-  const {navigateToIndex, setPlaying} =
-    useUpdateSessionExerciseState(sessionId);
+  const {navigateToIndex, setPlaying} = useUpdateSessionState(sessionId);
 
   const onPrevPress = useCallback(() => {
     if (slideState && exercise?.slides) {
@@ -77,16 +76,16 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   }, [slideState, exercise?.slides, navigateToIndex]);
 
   const onResetPlayingPress = useCallback(
-    () => setPlaying(Boolean(exerciseState?.playing)),
-    [exerciseState?.playing, setPlaying],
+    () => setPlaying(Boolean(sessionState?.playing)),
+    [sessionState?.playing, setPlaying],
   );
 
   const onTogglePlayingPress = useCallback(
-    () => setPlaying(!exerciseState?.playing),
-    [exerciseState?.playing, setPlaying],
+    () => setPlaying(!sessionState?.playing),
+    [sessionState?.playing, setPlaying],
   );
 
-  if (!isHost || !exercise || !exerciseState || !slideState) {
+  if (!isHost || !exercise || !sessionState || !slideState) {
     return null;
   }
 
@@ -118,7 +117,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
               elevated
               disabled={!slideState.current.content?.video}
               variant="tertiary"
-              Icon={exerciseState.playing ? Pause : Play}
+              Icon={sessionState.playing ? Pause : Play}
               onPress={onTogglePlayingPress}
             />
           </MediaControls>

@@ -1,4 +1,4 @@
-import {ExerciseState, Session} from '../../../../../shared/src/types/Session';
+import {Session, SessionState} from '../../../../../shared/src/types/Session';
 import apiClient from '../../../lib/apiClient/apiClient';
 
 const SESSIONS_ENDPOINT = '/sessions';
@@ -32,7 +32,7 @@ export const addSession = async ({
 
 export const updateSession = async (
   id: string,
-  data: Partial<Pick<Session, 'started' | 'ended' | 'startTime' | 'type'>>,
+  data: Partial<Pick<Session, 'startTime' | 'type'>>,
 ): Promise<Session> => {
   try {
     const response = await apiClient(`${SESSIONS_ENDPOINT}/${id}`, {
@@ -65,18 +65,15 @@ export const joinSession = async (
   return response.json();
 };
 
-export const updateSessionExerciseState = async (
+export const updateSessionState = async (
   id: string,
-  data: Partial<ExerciseState>,
+  data: Partial<SessionState>,
 ) => {
   try {
-    const response = await apiClient(
-      `${SESSIONS_ENDPOINT}/${id}/exerciseState`,
-      {
-        method: 'PUT',
-        body: JSON.stringify(data),
-      },
-    );
+    const response = await apiClient(`${SESSIONS_ENDPOINT}/${id}/state`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+    });
 
     if (!response.ok) {
       throw new Error(await response.text());

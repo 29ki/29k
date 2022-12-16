@@ -39,7 +39,7 @@ import {SPACINGS} from '../../common/constants/spacings';
 import TextInput from '../../common/components/Typography/TextInput/TextInput';
 import AudioIndicator from './components/Participants/AudioIdicator';
 import IconButton from '../../common/components/Buttons/IconButton/IconButton';
-import useUpdateSessionExerciseState from './hooks/useUpdateSessionExerciseState';
+import useUpdateSessionState from './hooks/useUpdateSessionState';
 import useIsSessionHost from './hooks/useIsSessionHost';
 import Screen from '../../common/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
@@ -119,12 +119,13 @@ const ChangingRoom = () => {
   } = useContext(DailyContext);
 
   const session = useSessionState(state => state.session);
+  const sessionState = useSessionState(({state}) => state);
   const {
     params: {sessionId: sessionId},
   } = useRoute<RouteProp<SessionStackProps, 'ChangingRoom'>>();
 
   useSubscribeToSessionIfFocused(sessionId);
-  const {setSpotlightParticipant} = useUpdateSessionExerciseState(sessionId);
+  const {setSpotlightParticipant} = useUpdateSessionState(sessionId);
   const isHost = useIsSessionHost();
   const isFocused = useIsFocused();
   const me = useLocalParticipant();
@@ -145,7 +146,7 @@ const ChangingRoom = () => {
 
   const join = async () => {
     setJoiningMeeting(true);
-    if (session?.started) {
+    if (sessionState?.started) {
       await joinMeeting();
       navigate('Session', {sessionId: sessionId});
     } else {

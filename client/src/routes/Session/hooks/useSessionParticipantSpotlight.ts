@@ -2,10 +2,10 @@ import useSessionState from '../state/state';
 import useDailyState from '../../../lib/daily/state/state';
 
 const useSessionParticipantSpotlight = () => {
-  const session = useSessionState(state => state.session);
+  const sessionState = useSessionState(({state}) => state);
 
   const participantSpotlight = useDailyState(
-    state => state.participants[session?.exerciseState.dailySpotlightId ?? ''],
+    state => state.participants[sessionState?.dailySpotlightId ?? ''],
   );
 
   return participantSpotlight;

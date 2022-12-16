@@ -1,5 +1,5 @@
 import {renderHook} from '@testing-library/react-hooks';
-import {Session} from '../../../../../shared/src/types/Session';
+import {Session, SessionState} from '../../../../../shared/src/types/Session';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useSessionState from '../state/state';
 import useSessionSlideState from './useSessionSlideState';
@@ -38,10 +38,9 @@ describe('useSessionSlideState', () => {
       slides: [{type: 'slide-1'}, {type: 'slide-2'}, {type: 'slide-3'}],
     });
     useSessionState.setState({
-      session: {
-        contentId: 'some-content-id',
-        exerciseState: {index: 1},
-      } as Session,
+      state: {
+        index: 1,
+      } as SessionState,
     });
 
     const {result} = renderHook(() => useSessionSlideState());
@@ -60,10 +59,9 @@ describe('useSessionSlideState', () => {
     };
     mockUseExerciseById.mockReturnValueOnce(exercise);
     useSessionState.setState({
-      session: {
-        contentId: 'some-content-id',
-        exerciseState: {index: 1},
-      } as Session,
+      state: {
+        index: 1,
+      } as SessionState,
     });
 
     const {result, rerender} = renderHook(() => useSessionSlideState());
@@ -80,10 +78,7 @@ describe('useSessionSlideState', () => {
       slides: [{type: 'slide-1'}],
     });
     useSessionState.setState({
-      session: {
-        contentId: 'some-content-id',
-        exerciseState: {index: 0},
-      } as Session,
+      state: {index: 0} as SessionState,
     });
 
     const {result} = renderHook(() => useSessionSlideState());

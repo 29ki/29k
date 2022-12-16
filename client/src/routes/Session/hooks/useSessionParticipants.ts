@@ -9,7 +9,7 @@ const useSessionParticipants = () => {
   const participantsSortOrder = useDailyState(
     state => state.participantsSortOrder,
   );
-  const exerciseState = useSessionState(state => state.session?.exerciseState);
+  const sessionState = useSessionState(({state}) => state);
   const slideState = useSessionExercise();
 
   const participants = [
@@ -21,12 +21,12 @@ const useSessionParticipants = () => {
     participant => !(participant.userData as DailyUserData)?.inPortal,
   );
 
-  if (!exerciseState?.dailySpotlightId || slideState?.current.type !== 'host') {
+  if (!sessionState?.dailySpotlightId || slideState?.current.type !== 'host') {
     return inSessionParticipants;
   }
 
   return inSessionParticipants.filter(
-    participant => participant.user_id !== exerciseState?.dailySpotlightId,
+    participant => participant.user_id !== sessionState?.dailySpotlightId,
   );
 };
 

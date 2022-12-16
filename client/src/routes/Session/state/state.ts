@@ -1,22 +1,24 @@
-import {Session} from '../../../../../shared/src/types/Session';
+import {Session, SessionState} from '../../../../../shared/src/types/Session';
 import create from 'zustand';
 
 type State = {
   session: Session | null;
+  state: SessionState | null;
 };
 
 type Actions = {
-  setState: (session: Session) => void;
+  setState: (sessionState: SessionState) => void;
   reset: () => void;
 };
 
 const initialState = {
   session: null,
+  state: null,
 };
 
 const useSessionState = create<State & Actions>()(set => ({
   ...initialState,
-  setState: session => set({session}),
+  setState: state => set({state}),
   reset: () => set(initialState),
 }));
 
