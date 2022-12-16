@@ -32,6 +32,7 @@ import {useNavigation} from '@react-navigation/native';
 import {
   AppStackProps,
   ModalStackProps,
+  ProfileStackProps,
 } from '../../lib/navigation/constants/routes';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import ProfileMini from './components/ProfileMini';
@@ -66,7 +67,11 @@ const ScrollView = styled.ScrollView({
 const Profile = () => {
   const {t} = useTranslation('Screen.Profile');
   const {navigate} =
-    useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
+    useNavigation<
+      NativeStackNavigationProp<
+        AppStackProps & ProfileStackProps & ModalStackProps
+      >
+    >();
   const {top} = useSafeAreaInsets();
   const user = useUser();
   const isPublicHost = useIsPublicHost();

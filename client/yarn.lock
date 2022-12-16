@@ -1382,10 +1382,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@notifee/react-native@^7.1.0":
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@notifee/react-native/-/react-native-7.1.0.tgz#e4eb4aaf370f8154bfb908a289fc8c5088dd8ad7"
-  integrity sha512-FmYplZ1Bxua2q8u+W3RmVx85R32DWeMQGfzvu8O9w7bZQwMtvmQROjfyMSIOMVCQw6fSA7zmMaikC+W4LjLMHQ==
+"@notifee/react-native@^7.3.0":
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@notifee/react-native/-/react-native-7.3.0.tgz#5ded9c2c6d4dd93f65725fbdeab6071a71c13daf"
+  integrity sha512-bAZjmc08I+skS3gRCl/7KXE95N6sIiu3/8EnP9USMt2guWsvxTdoLceWl8uJ5ghP4S9VQiBJUWS29hAKhKHC/A==
 
 "@pnpm/network.ca-file@^1.0.1":
   version "1.0.1"
@@ -1694,6 +1694,11 @@
     color "^4.2.3"
     warn-once "^0.1.0"
 
+"@react-navigation/elements@^1.3.11":
+  version "1.3.11"
+  resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.3.11.tgz#135c2cb3ae4a31bc835bb731110fd1ef9c38e237"
+  integrity sha512-o4J0g4ofJbbn68e4TpuGkuZLtq5mLll7Ndz9C4O4RvD2chchLuGQ5TycIPTKP428cz8JzuTCFqUe/ZhOPSsudw==
+
 "@react-navigation/elements@^1.3.7", "@react-navigation/elements@^1.3.9":
   version "1.3.9"
   resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.3.9.tgz#33e26d7ad655b012e024ef0a005a3f66201287f8"
@@ -1723,6 +1728,15 @@
   integrity sha512-idJotMEzHc3haWsCh7EvnnZMKxvaS4YF/x2UyFBkNFiEFUaEo/1ioQU6qqmVLspdEv4bI/dLm97hQo7qD8Yl7Q==
   dependencies:
     nanoid "^3.1.23"
+
+"@react-navigation/stack@^6.3.9":
+  version "6.3.9"
+  resolved "https://registry.yarnpkg.com/@react-navigation/stack/-/stack-6.3.9.tgz#e4e2b6aa25973b3bc59200b7e3bf980e93cb5b4f"
+  integrity sha512-mTT0ZM/Zvp46s8UnphAspg2MR5Ds0mqZa/bEjzFgaYo+cLfjIXttUZYgsMG2fhvoTHpU7QFcZ/0kVhi4jVlzKQ==
+  dependencies:
+    "@react-navigation/elements" "^1.3.11"
+    color "^4.2.3"
+    warn-once "^0.1.0"
 
 "@sentry/browser@7.20.1":
   version "7.20.1"
@@ -8220,6 +8234,11 @@ react-native-screens@^3.18.2:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
+react-native-shared-element@^0.8.4:
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/react-native-shared-element/-/react-native-shared-element-0.8.4.tgz#dd97b992e53633a57ea728327f7c02bad3c5af14"
+  integrity sha512-agRuD5AB4daw4QLo7KCTBqCtmIjbQkqpwsT/aYrxDu/McvTCdDuXVttaVMrqeyAgdDkU1egp41FdiExS1L/hJw==
+
 "react-native-sound@https://github.com/29ki/react-native-sound#fix-iOS-16-support":
   version "0.11.2"
   resolved "https://github.com/29ki/react-native-sound#904cca8cff5e98e25c5abf03c1d454d5aa507f43"
@@ -8291,6 +8310,13 @@ react-native@0.69.5:
     use-sync-external-store "^1.0.0"
     whatwg-fetch "^3.0.0"
     ws "^6.1.4"
+
+react-navigation-shared-element@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/react-navigation-shared-element/-/react-navigation-shared-element-3.1.3.tgz#c75084ca8cab09063297a39ff1110de0dc732aab"
+  integrity sha512-U1BZp7dEdcTNHggfkq3WEBlJeg4HwFhFdj7a0i0Uql/7mg2IHQg/bZaqM2jQvJITkABge6Hz5fZixIF8jyzpkg==
+  dependencies:
+    hoist-non-react-statics "^3.3.2"
 
 react-refresh@^0.4.0:
   version "0.4.3"
