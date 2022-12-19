@@ -72,7 +72,7 @@ const OutroPortal: React.FC = () => {
   const introPortal = exercise?.introPortal;
 
   useEffect(() => {
-    if (session) {
+    if (session?.id) {
       metrics.logEvent('Enter Outro Portal', {
         'Sharing Session ID': session.id,
         'Sharing Session Type': session.type,
@@ -82,7 +82,14 @@ const OutroPortal: React.FC = () => {
         Language: session.language,
       });
     }
-  }, [session, isHost]);
+  }, [
+    session?.id,
+    session?.type,
+    session?.startTime,
+    session?.contentId,
+    session?.language,
+    isHost,
+  ]);
 
   useEffect(() => {
     if (

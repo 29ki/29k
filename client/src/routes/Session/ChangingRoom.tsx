@@ -133,7 +133,7 @@ const ChangingRoom = () => {
   const [localUserName, setLocalUserName] = useState(user?.displayName ?? '');
 
   useEffect(() => {
-    if (session) {
+    if (session?.id) {
       metrics.logEvent('Enter Changing Room', {
         'Sharing Session ID': session.id,
         'Sharing Session Type': session.type,
@@ -143,7 +143,14 @@ const ChangingRoom = () => {
         Language: session.language,
       });
     }
-  }, [session, isHost]);
+  }, [
+    session?.id,
+    session?.type,
+    session?.startTime,
+    session?.contentId,
+    session?.language,
+    isHost,
+  ]);
 
   useEffect(() => {
     if (isFocused && session?.url) {

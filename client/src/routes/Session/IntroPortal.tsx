@@ -118,7 +118,7 @@ const IntroPortal: React.FC = () => {
   usePreventGoingBack(leaveSessionWithConfirm);
 
   useEffect(() => {
-    if (session) {
+    if (session?.id) {
       metrics.logEvent('Enter Intro Portal', {
         'Sharing Session ID': session.id,
         'Sharing Session Type': session.type,
@@ -128,7 +128,14 @@ const IntroPortal: React.FC = () => {
         Language: session.language,
       });
     }
-  }, [session, isHost]);
+  }, [
+    session?.id,
+    session?.type,
+    session?.startTime,
+    session?.contentId,
+    session?.language,
+    isHost,
+  ]);
 
   const navigateToSession = useCallback(
     () => navigate('Session', {sessionId: sessionId}),
@@ -144,7 +151,7 @@ const IntroPortal: React.FC = () => {
 
   const onStartPress = useCallback(() => {
     setStarted();
-    if (session) {
+    if (session?.id) {
       metrics.logEvent('Start Sharing Session', {
         'Sharing Session ID': session.id,
         'Sharing Session Type': session.type,
@@ -154,7 +161,14 @@ const IntroPortal: React.FC = () => {
         Language: session.language,
       });
     }
-  }, [session, setStarted]);
+  }, [
+    session?.id,
+    session?.type,
+    session?.startTime,
+    session?.contentId,
+    session?.language,
+    setStarted,
+  ]);
 
   const onEndVideoLoad = () => {
     endVideoRef.current?.seek(0);
