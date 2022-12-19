@@ -330,15 +330,16 @@ const SessionModal = () => {
                   <Spacer8 />
                 </>
               )}
-              {isHost && (
+              {isHost ? (
                 <EditButton onPress={onEditMode}>
                   <SessionTimeBadge session={session} />
                   <EditIcon>
                     <PencilIcon />
                   </EditIcon>
                 </EditButton>
+              ) : (
+                <SessionTimeBadge session={session} />
               )}
-              {isHost && <SessionTimeBadge session={session} />}
             </Row>
           </Gutters>
 
