@@ -13,6 +13,7 @@ import useLeaveSession from './hooks/useLeaveSession';
 
 import Sentry from '../../lib/sentry';
 
+import * as metrics from '../../lib/metrics';
 import {
   BottomSafeArea,
   TopSafeArea,
@@ -23,6 +24,8 @@ import Screen from '../../common/components/Screen/Screen';
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import AudioFader from './components/AudioFader/AudioFader';
+import useSessionState from './state/state';
+import useIsSessionHost from './hooks/useIsSessionHost';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -54,10 +57,12 @@ const TopBar = styled(Gutters)({
 const OutroPortal: React.FC = () => {
   const loopingVid = useRef<Video>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const session = useSessionState(state => state.session);
   const exercise = useSessionExercise();
   const {leaveSession} = useLeaveSession();
   const [readyToLeave, setReadyToLeave] = useState(false);
   const isFocused = useIsFocused();
+  const isHost = useIsSessionHost();
   const {t} = useTranslation('Screen.Portal');
 
   usePreventGoingBack();
@@ -65,6 +70,19 @@ const OutroPortal: React.FC = () => {
 
   const outroPortal = exercise?.outroPortal;
   const introPortal = exercise?.introPortal;
+
+  useEffect(() => {
+    if (session) {
+      metrics.logEvent('Enter Outro Portal', {
+        'Sharing Session ID': session.id,
+        'Sharing Session Type': session.type,
+        'Sharing Session Start Time': session.startTime,
+        'Exercise ID': session.contentId,
+        Host: isHost,
+        Language: session.language,
+      });
+    }
+  }, [session, isHost]);
 
   useEffect(() => {
     if (
