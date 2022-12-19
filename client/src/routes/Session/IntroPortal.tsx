@@ -13,6 +13,7 @@ import Video from 'react-native-video';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
+import * as metrics from '../../lib/metrics';
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {
@@ -114,12 +115,20 @@ const IntroPortal: React.FC = () => {
   const textColor = exercise?.theme?.textColor;
   const started = session?.started;
 
-  const navigateToSession = useCallback(
-    () => navigate('Session', {sessionId: sessionId}),
-    [navigate, sessionId],
-  );
-
   usePreventGoingBack(leaveSessionWithConfirm);
+
+  useEffect(() => {
+    if (session) {
+      metrics.logEvent('Enter Intro Portal', {
+        'Sharing Session ID': session.id,
+        'Sharing Session Type': session.type,
+        'Sharing Session Start Time': session.startTime,
+        'Exercise ID': session.contentId,
+        Host: isHost,
+        Language: session.language,
+      });
+    }
+  }, [session, isHost]);
 
   useEffect(() => {
     if (session?.started && !endVideoRef.current) {
@@ -127,6 +136,11 @@ const IntroPortal: React.FC = () => {
       navigateToSession();
     }
   }, [session?.started, navigateToSession]);
+
+  const navigateToSession = useCallback(
+    () => navigate('Session', {sessionId: sessionId}),
+    [navigate, sessionId],
+  );
 
   const onEndVideoLoad = () => {
     endVideoRef.current?.seek(0);
