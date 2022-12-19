@@ -84,7 +84,7 @@
     "@types/ramda": "^0.28.20",
     "@types/react-native": "^0.67.3",
     "@types/react-native-video": "^5.0.14",
-    "@types/react-test-renderer": "^17.0.1",
+    "@types/react-test-renderer": "^18.0.0",
     "@types/styled-components-react-native": "^5.2.0",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
@@ -101,7 +101,7 @@
     "react-dom": "18.2.0",
     "react-native-clean-project": "^4.0.1",
     "react-native-dotenv": "^3.4.6",
-    "react-test-renderer": "18.0.0",
+    "react-test-renderer": "18.2.0",
     "typescript": "^4.9.3"
   },
   "resolutions": {
