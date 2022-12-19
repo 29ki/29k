@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from 'react';
 import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 
+import * as metrics from '../../lib/metrics';
 import useSessionState from './state/state';
 import {
   BottomSafeArea,
@@ -11,13 +12,9 @@ import {
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
 import {COLORS} from '../../../../shared/src/constants/colors';
-
 import {SessionStackProps} from '../../lib/navigation/constants/routes';
-
 import {DailyContext} from '../../lib/daily/DailyProvider';
-
 import ExerciseSlides from './components/ExerciseSlides/ExerciseSlides';
-
 import Participants from './components/Participants/Participants';
 import useSessionParticipants from './hooks/useSessionParticipants';
 import useSessionSlideState from './hooks/useSessionSlideState';
@@ -120,6 +117,19 @@ const Session = () => {
   const {leaveSessionWithConfirm} = useLeaveSession();
   const user = useUser();
   usePreventGoingBack(leaveSessionWithConfirm);
+
+  useEffect(() => {
+    if (session) {
+      metrics.logEvent('Enter Sharing Session', {
+        'Sharing Session ID': session.id,
+        'Sharing Session Type': session.type,
+        'Sharing Session Start Time': session.startTime,
+        'Exercise ID': session.contentId,
+        Host: isHost,
+        Language: session.language,
+      });
+    }
+  }, [session, isHost]);
 
   useEffect(() => {
     if (session?.ended) {
