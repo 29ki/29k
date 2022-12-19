@@ -46,6 +46,7 @@ import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../lib/user/hooks/useUser';
 import Image from '../../common/components/Image/Image';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
+import * as metrics from '../../lib/metrics';
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'padding', android: undefined}),
@@ -130,6 +131,19 @@ const ChangingRoom = () => {
   const me = useLocalParticipant();
   const user = useUser();
   const [localUserName, setLocalUserName] = useState(user?.displayName ?? '');
+
+  useEffect(() => {
+    if (session) {
+      metrics.logEvent('Enter Changing Room', {
+        'Sharing Session ID': session.id,
+        'Sharing Session Type': session.type,
+        'Sharing Session Start Time': session.startTime,
+        'Exercise ID': session.contentId,
+        Host: isHost,
+        Language: session.language,
+      });
+    }
+  }, [session, isHost]);
 
   useEffect(() => {
     if (isFocused && session?.url) {
