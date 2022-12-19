@@ -1,7 +1,9 @@
 import React from 'react';
 import PostHog, {PostHogProvider} from 'posthog-react-native';
 import {POSTHOG_API_KEY} from 'config';
-import {CoreProperties, Events, UserProperties} from './types';
+import Events from './types/Events';
+import CoreProperties from './types/CoreProperties';
+import UserProperties from './types/UserProperties';
 import {
   UnionToIntersection,
   Values,
