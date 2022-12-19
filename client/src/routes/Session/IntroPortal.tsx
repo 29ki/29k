@@ -130,6 +130,11 @@ const IntroPortal: React.FC = () => {
     }
   }, [session, isHost]);
 
+  const navigateToSession = useCallback(
+    () => navigate('Session', {sessionId: sessionId}),
+    [navigate, sessionId],
+  );
+
   useEffect(() => {
     if (session?.started && !endVideoRef.current) {
       // If no video is defined, navigate directly
@@ -137,10 +142,19 @@ const IntroPortal: React.FC = () => {
     }
   }, [session?.started, navigateToSession]);
 
-  const navigateToSession = useCallback(
-    () => navigate('Session', {sessionId: sessionId}),
-    [navigate, sessionId],
-  );
+  const onStartPress = useCallback(() => {
+    setStarted();
+    if (session) {
+      metrics.logEvent('Start Sharing Session', {
+        'Sharing Session ID': session.id,
+        'Sharing Session Type': session.type,
+        'Sharing Session Start Time': session.startTime,
+        'Exercise ID': session.contentId,
+        Host: true,
+        Language: session.language,
+      });
+    }
+  }, [session, setStarted]);
 
   const onEndVideoLoad = () => {
     endVideoRef.current?.seek(0);
@@ -233,7 +247,10 @@ const IntroPortal: React.FC = () => {
                 </Button>
               )}
               {isHost && (
-                <Button small disabled={session?.started} onPress={setStarted}>
+                <Button
+                  small
+                  disabled={session?.started}
+                  onPress={onStartPress}>
                   {session?.started ? t('sessionStarted') : t('startSession')}
                 </Button>
               )}
