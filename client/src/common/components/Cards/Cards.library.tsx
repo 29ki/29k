@@ -60,7 +60,6 @@ export const AllCards = () => (
       }}
       buttonText="Go dance!"
       onPress={() => {}}
-      onContextPress={() => {}}
       Icon={BellIcon}
     />
     <Spacer16 />
@@ -70,8 +69,7 @@ export const AllCards = () => (
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
       buttonText="Join"
-      onPress={() => {}}
-      onContextPress={() => {}}>
+      onPress={() => {}}>
       <Row>
         <Spacer4 />
         <Badge text="03:43s" Icon={<PrivateIcon />} />
@@ -83,8 +81,7 @@ export const AllCards = () => (
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
-      onPress={() => {}}
-      onContextPress={() => {}}>
+      onPress={() => {}}>
       <Row>
         <Body14>{'Starts in'}</Body14>
         <Spacer4 />
