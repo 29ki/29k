@@ -10,8 +10,7 @@ import Button from '../Buttons/Button';
 import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display24} from '../Typography/Display/Display';
-import IconButton from '../Buttons/IconButton/IconButton';
-import {EllipsisIcon, IconType} from '../Icons';
+import {IconType} from '../Icons';
 import Byline from '../Bylines/Byline';
 import {Spacer4, Spacer8} from '../Spacers/Spacer';
 
@@ -19,8 +18,8 @@ const GraphicsWrapper = styled.View({
   position: 'absolute',
   width: 132,
   height: 132,
+  top: 0,
   right: 0,
-  bottom: 0,
 });
 
 const Lottie = styled(AnimatedLottieView)({
@@ -81,7 +80,6 @@ type CardProps = {
   onButtonPress?: () => void;
   buttonText?: string;
   children?: React.ReactNode;
-  onContextPress?: () => void;
   ButtonIcon?: IconType;
   Icon?: IconType;
   hostPictureURL?: string;
@@ -97,7 +95,6 @@ export const Card: React.FC<CardProps> = ({
   buttonText,
   onButtonPress,
   children,
-  onContextPress,
   ButtonIcon,
   Icon,
   hostPictureURL,
@@ -136,15 +133,6 @@ export const Card: React.FC<CardProps> = ({
           <IconWrapper>
             <Icon />
           </IconWrapper>
-        )}
-        {onContextPress && (
-          <IconButton
-            small
-            noBackground
-            variant="tertiary"
-            Icon={EllipsisIcon}
-            onPress={onContextPress}
-          />
         )}
       </CardContext>
       <GraphicsWrapper>

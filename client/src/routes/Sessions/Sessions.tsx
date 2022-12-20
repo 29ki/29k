@@ -1,6 +1,5 @@
-import React, {useEffect} from 'react';
-import {ListRenderItemInfo, RefreshControl} from 'react-native';
-import {FlatList} from 'react-native-gesture-handler';
+import React, {useEffect, useMemo} from 'react';
+import {ListRenderItemInfo, RefreshControl, SectionList} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
@@ -18,6 +17,7 @@ import SETTINGS from '../../common/constants/settings';
 import {
   Spacer12,
   Spacer16,
+  Spacer24,
   Spacer60,
   Spacer8,
   TopSafeArea,
@@ -28,6 +28,8 @@ import SessionCard from '../../common/components/Cards/SessionCard/SessionCard';
 import {PlusIcon} from '../../common/components/Icons';
 import useSessionsState from './state/state';
 import Screen from '../../common/components/Screen/Screen';
+import usePinnedSessons from '../../lib/user/hooks/usePinnedSessions';
+import {Heading18} from '../../common/components/Typography/Heading/Heading';
 
 const AddButton = styled(Button)({
   flexDirection: 'row',
@@ -78,9 +80,20 @@ const AddSessionForm = () => {
 };
 
 const Sessions = () => {
+  const {t} = useTranslation('Screen.Sessions');
   const {fetchSessions} = useSessions();
   const isLoading = useSessionsState(state => state.isLoading);
-  const sessions = useSessionsState(state => state.sessions);
+  const {sessions, pinnedSessions} = usePinnedSessons();
+
+  const sections = useMemo(() => {
+    if (pinnedSessions.length > 0) {
+      return [
+        {title: t('interested'), data: pinnedSessions, type: 'interested'},
+        {title: t('commingSessions'), data: sessions, type: 'comming'},
+      ];
+    }
+    return [{title: t('commingSessions'), data: sessions, type: 'comming'}];
+  }, [sessions, pinnedSessions, t]);
 
   useEffect(() => {
     fetchSessions();
@@ -94,8 +107,8 @@ const Sessions = () => {
 
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
-      <FlatList
-        data={sessions}
+      <SectionList
+        sections={sections}
         keyExtractor={session => session.id}
         ListHeaderComponent={ListHeader}
         ListFooterComponent={Spacer60}
@@ -104,6 +117,13 @@ const Sessions = () => {
         refreshControl={
           <RefreshControl refreshing={isLoading} onRefresh={fetchSessions} />
         }
+        renderSectionHeader={({section: {title, type}}) => (
+          <Gutters>
+            {sections.length === 2 && type === 'comming' && <Spacer24 />}
+            <Heading18>{title}</Heading18>
+            <Spacer8 />
+          </Gutters>
+        )}
       />
 
       <FloatingForm>

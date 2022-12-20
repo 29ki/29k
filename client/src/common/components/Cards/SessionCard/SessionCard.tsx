@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React from 'react';
+import React, {useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import dayjs from 'dayjs';
 
@@ -18,6 +18,14 @@ import useSessionStartTime from '../../../../routes/Session/hooks/useSessionStar
 import * as metrics from '../../../../lib/metrics';
 import SessionTimeBadge from '../../SessionTimeBadge/SessionTimeBadge';
 import {formatExerciseName} from '../../../utils/string';
+import usePinnedSessons from '../../../../lib/user/hooks/usePinnedSessions';
+import styled from 'styled-components/native';
+import Interested from '../../Interested/Interested';
+
+const ChildWrapper = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+});
 
 type SessionCardProps = {
   session: Session;
@@ -31,6 +39,12 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const {reminderEnabled} = useSessionNotificationReminder(session);
   const sessionTime = useSessionStartTime(dayjs(startTime));
+  const {isSessionPinned} = usePinnedSessons();
+
+  const sessionPinned = useMemo(
+    () => isSessionPinned(session),
+    [isSessionPinned, session],
+  );
 
   const onPress = () => {
     navigate('SessionStack', {
@@ -59,11 +73,13 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
       onPress={onContextPress}
       buttonText={sessionTime.isReadyToJoin ? t('join') : undefined}
       onButtonPress={onPress}
-      onContextPress={onContextPress}
       Icon={reminderEnabled ? BellIcon : undefined}
       hostPictureURL={hostProfile?.photoURL}
       hostName={hostProfile?.displayName}>
-      <SessionTimeBadge session={session} />
+      <ChildWrapper>
+        <SessionTimeBadge session={session} />
+        <Interested active={sessionPinned} />
+      </ChildWrapper>
     </Card>
   );
 };

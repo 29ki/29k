@@ -11,6 +11,7 @@ import {Body16, Body18, BodyBold} from '../Typography/Body/Body';
 import {PlusIcon} from '../Icons';
 import ToggleButton from '../../../routes/Session/components/HostNotes/ToggleButton';
 import TextButton from './TextButton/TextButton';
+import RadioButton from './RadioButton/RadioButton';
 
 const RowFullWidth = styled.View({
   flex: 1,
@@ -196,6 +197,16 @@ export const AllButtons = () => (
       <ToggleButton isToggled onPress={() => {}} title="Is toggled" />
       <Spacer8 />
       <ToggleButton disabled onPress={() => {}} title="Is disabled" />
+    </ButtonWrapper>
+    <Spacer16 />
+    <Body18>
+      <BodyBold>Radio button</BodyBold>
+    </Body18>
+    <Spacer8 />
+    <ButtonWrapper>
+      <RadioButton onPress={() => {}} active />
+      <Spacer8 />
+      <RadioButton onPress={() => {}} active={false} />
     </ButtonWrapper>
   </ScreenWrapper>
 );
