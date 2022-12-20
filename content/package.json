@@ -20,10 +20,10 @@
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.19.6",
     "@types/jest": "^29.2.4",
-    "@types/node": "^18.11.13",  
+    "@types/node": "^18.11.17",  
     "@types/ramda": "^0.28.20",
-    "@typescript-eslint/eslint-plugin": "^5.46.0",
-    "@typescript-eslint/parser": "^5.46.0",
+    "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "@typescript-eslint/parser": "^5.47.0",
     "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
