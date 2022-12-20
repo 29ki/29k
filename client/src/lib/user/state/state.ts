@@ -4,19 +4,17 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {persist} from 'zustand/middleware';
 import {lensPath, set as lensSet} from 'ramda';
 
-const pinnedSessionLens = (uid: string) => lensPath([uid, 'pinnedSessions']);
-
 type PinnedSession = {
   id: string;
   expires: Date;
 };
 
+type UserState = {pinnedSessions: Array<PinnedSession>};
+
 type State = {
   user: FirebaseAuthTypes.User | null;
   claims: FirebaseAuthTypes.IdTokenResult['claims'];
-  userState: {
-    [key: string]: {pinnedSessions: Array<PinnedSession>};
-  };
+  userState: {[key: string]: UserState};
 };
 
 type Actions = {
@@ -36,6 +34,9 @@ const initialState: State = {
   userState: {},
 };
 
+const userStateLens = (uid: string, prop: keyof UserState) =>
+  lensPath([uid, prop]);
+
 const useUserState = create<State & Actions>()(
   persist(
     (set, get) => ({
@@ -49,14 +50,14 @@ const useUserState = create<State & Actions>()(
         if (user) {
           set({
             userState: lensSet(
-              pinnedSessionLens(user.uid),
+              userStateLens(user.uid, 'pinnedSessions'),
               pinnedSessions,
               userState,
             ),
           });
         }
       },
-      reset: () => set(initialState),
+      reset: () => set({...initialState, userState: get().userState}),
     }),
     {
       name: 'userState',
