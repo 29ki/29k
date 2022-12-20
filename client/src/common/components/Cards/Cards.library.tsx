@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import Badge from '../Badge/Badge';
-import {BellIcon, PlusIcon, PrivateIcon, PublicIcon} from '../Icons';
+import {PlusIcon, PrivateIcon, PublicIcon} from '../Icons';
 import {Spacer16, Spacer4} from '../Spacers/Spacer';
 import {Body14} from '../Typography/Body/Body';
 import Card from './Card';
@@ -27,6 +27,7 @@ export const AllCards = () => (
       buttonText="Join"
       onPress={() => {}}
       ButtonIcon={PlusIcon}
+      pinned={false}
     />
     <Spacer16 />
     <Card
@@ -40,6 +41,7 @@ export const AllCards = () => (
       buttonText="Join"
       onPress={() => {}}
       ButtonIcon={PlusIcon}
+      pinned={false}
     />
     <Spacer16 />
     <Card
@@ -50,6 +52,7 @@ export const AllCards = () => (
       }}
       buttonText="Go dance!"
       onPress={() => {}}
+      pinned={false}
     />
     <Spacer16 />
 
@@ -60,7 +63,7 @@ export const AllCards = () => (
       }}
       buttonText="Go dance!"
       onPress={() => {}}
-      Icon={BellIcon}
+      pinned={false}
     />
     <Spacer16 />
     <Card
@@ -69,6 +72,7 @@ export const AllCards = () => (
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
       buttonText="Join"
+      pinned={false}
       onPress={() => {}}>
       <Row>
         <Spacer4 />
@@ -81,6 +85,7 @@ export const AllCards = () => (
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
+      pinned
       onPress={() => {}}>
       <Row>
         <Body14>{'Starts in'}</Body14>

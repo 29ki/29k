@@ -6,12 +6,10 @@ import dayjs from 'dayjs';
 
 import {Session} from '../../../../../../shared/src/types/Session';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
-import useSessionNotificationReminder from '../../../../routes/Sessions/hooks/useSessionNotificationReminder';
 import {
   AppStackProps,
   ModalStackProps,
 } from '../../../../lib/navigation/constants/routes';
-import {BellIcon} from '../../Icons';
 import Card from '../Card';
 
 import useSessionStartTime from '../../../../routes/Session/hooks/useSessionStartTime';
@@ -19,13 +17,6 @@ import * as metrics from '../../../../lib/metrics';
 import SessionTimeBadge from '../../SessionTimeBadge/SessionTimeBadge';
 import {formatExerciseName} from '../../../utils/string';
 import usePinnedSessons from '../../../../lib/user/hooks/usePinnedSessions';
-import styled from 'styled-components/native';
-import Interested from '../../Interested/Interested';
-
-const ChildWrapper = styled.View({
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-});
 
 type SessionCardProps = {
   session: Session;
@@ -37,7 +28,6 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
   const {t} = useTranslation('Component.SessionCard');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
-  const {reminderEnabled} = useSessionNotificationReminder(session);
   const sessionTime = useSessionStartTime(dayjs(startTime));
   const {isSessionPinned} = usePinnedSessons();
 
@@ -73,13 +63,10 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
       onPress={onContextPress}
       buttonText={sessionTime.isReadyToJoin ? t('join') : undefined}
       onButtonPress={onPress}
-      Icon={reminderEnabled ? BellIcon : undefined}
       hostPictureURL={hostProfile?.photoURL}
-      hostName={hostProfile?.displayName}>
-      <ChildWrapper>
-        <SessionTimeBadge session={session} />
-        <Interested active={sessionPinned} />
-      </ChildWrapper>
+      hostName={hostProfile?.displayName}
+      pinned={sessionPinned}>
+      <SessionTimeBadge session={session} />
     </Card>
   );
 };
