@@ -2,7 +2,7 @@ import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import create from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {persist} from 'zustand/middleware';
-import {lensPath, set as lensSet} from 'ramda';
+import {lensPath, omit, set as lensSet} from 'ramda';
 
 type PinnedSession = {
   id: string;
@@ -25,7 +25,7 @@ type Actions = {
     claims: State['claims'];
   }) => void;
   setPinnedSessions: (pinnedSessions: Array<PinnedSession>) => void;
-  reset: () => void;
+  reset: (isDelete?: boolean) => void;
 };
 
 const initialState: State = {
@@ -57,7 +57,17 @@ const useUserState = create<State & Actions>()(
           });
         }
       },
-      reset: () => set({...initialState, userState: get().userState}),
+      reset: isDelete => {
+        const user = get().user;
+        const userState = get().userState;
+        if (isDelete && user) {
+          // Remove the state specific to the user on delete
+          set({...initialState, userState: omit([user.uid], userState)});
+        } else {
+          // Keep persisted state in case of sign out
+          set({...initialState, userState});
+        }
+      },
     }),
     {
       name: 'userState',
