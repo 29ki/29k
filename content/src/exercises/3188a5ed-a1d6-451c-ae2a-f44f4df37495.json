@@ -33,7 +33,12 @@
           {
             "text": " In the upcoming meditation we’ll practice getting a break from the spinning wheel and get some distance to our thoughts. It can help us gain persepctive, relax and change priorities.\n\nPress play to start the meditation."
           }
-        ]
+        ],
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1671549746/Audio/Meditation_Drop_all_requirements.wav"
+          }
+        }
       },
       {
         "type": "reflection",
