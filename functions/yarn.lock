@@ -3782,10 +3782,10 @@ finity@^0.5.4:
   resolved "https://registry.yarnpkg.com/finity/-/finity-0.5.4.tgz#f2a8a9198e8286467328ec32c8bfcc19a2229c11"
   integrity sha512-3l+5/1tuw616Lgb0QBimxfdd2TqaDGpfCBpfX6EqtFmqUV3FtQnVEX4Aa62DagYEqnsTIjZcTfbq9msDbXYgyA==
 
-firebase-admin@^11.3.0:
-  version "11.3.0"
-  resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-11.3.0.tgz#0c80a47d85471f6b988ecef7439a706aca052b88"
-  integrity sha512-8ENXUu9Lm6YTc5zzOqlF222M/KwsV/EDZ5UwwPPEU5XfCa1Ebj7K/SgLFdinjGu1NxkSnqu07UDpPhmAtW3b5w==
+firebase-admin@^11.4.0:
+  version "11.4.0"
+  resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-11.4.0.tgz#8ad3f848f1814b6e271bafa3b4dae62a8befc53c"
+  integrity sha512-Nuw7j3mr0qSQqq0lx7yh8F+vVDDojd8FBDibmoiIjFDUu/YQ18fye8CNzS5tdi9YYGN4A/tkVz5bCqxYrf5bvA==
   dependencies:
     "@fastify/busboy" "^1.1.0"
     "@firebase/database-compat" "^0.2.6"
@@ -3819,10 +3819,10 @@ firebase-functions@^4.0.2:
     express "^4.17.1"
     node-fetch "^2.6.7"
 
-firebase-tools@^11.17.0:
-  version "11.17.0"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-11.17.0.tgz#d433ba61ccf183145599087b29aadf4ececcd228"
-  integrity sha512-ho0O57W9kEBCUCz/q5xScV0NE9dkSYZHQI3qTKb3Pc1ELvjcQChz9KRbLZc8pPjaxmRNeSwSFn2mOYetq33VDg==
+firebase-tools@^11.18.0:
+  version "11.18.0"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-11.18.0.tgz#11ad7b089979fc1fb9fde74f7916852c060d9d4b"
+  integrity sha512-hCwlDfVtnaeYd19JaVUtWuN+EIzq6DnEJLg8HwEV8YPaFe+andaPMVQD4Q62Iol+JZxSyyrnjG+DWiRYiX91Ig==
   dependencies:
     "@google-cloud/pubsub" "^3.0.1"
     abort-controller "^3.0.0"
@@ -4588,10 +4588,10 @@ humanize-ms@^1.2.1:
   dependencies:
     ms "^2.0.0"
 
-i18next@*, i18next@^22.4.3:
-  version "22.4.3"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-22.4.3.tgz#5a09e83bb5b1ea3a3901662260c939fe4193f134"
-  integrity sha512-rnAabD3+i/rMzdg85Eq4VkZjy0Uxe33J1069IQ4R6+cpcM+wL4lWMRClfSweINA0QEfqzSdsfsyLO7SnGAF4fg==
+i18next@*, i18next@^22.4.6:
+  version "22.4.6"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-22.4.6.tgz#876352c3ba81bdfedc38eeda124e2bbd05f46988"
+  integrity sha512-9Tm1ezxWyzV+306CIDMBbYBitC1jedQyYuuLtIv7oxjp2ohh8eyxP9xytIf+2bbQfhH784IQKPSYp+Zq9+YSbw==
   dependencies:
     "@babel/runtime" "^7.20.6"
 
