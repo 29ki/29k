@@ -76,13 +76,57 @@
         }
       },
       {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Let’s get back into reflection mode. Take 2 minutes to reflect on your own on these three questions:\n\n1. Where would it be useful for you to set up boundaries and in relation to whom?"
+          },
+          {
+            "text": "2. How could you communicate your boundaries in a calm yet assertive way?\n3. When will you take action?"
+          }
+        ],
+        "content": {
+          "heading": "What boundaries, to whom?",
+          "text": "How will I communicate? When?"
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "And now on to sharing again. There will again be a timer set for 2 minutes. If you don’t want to share you can always say ‘pass’.\n\nWho would like to start?"
+          },
+          {
+            "text": "> Let everyone (or as many as you got time for) share one by one.\\\n> Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "content": {
+          "heading": "What boundaries, to whom?",
+          "text": "How will I communicate them? When?"
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Well done for your openness to explore your needs and your willingness to set healthy boundaries to meet them."
+          },
+          {
+            "text": "Now it’s time to go ahead and talk to the people you’ve identified about your intentions. If that’s not possible right now, book a time this week to do so. Sending you off now with this mission."
+          }
+        ],
+        "content": {
+          "heading": "Time to reach out"
+        }
+      },
+      {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\n<mission description>"
+            "text": "Before we leave this space let’s do a mini check-out.\\\nWhat would it mean to you to set healthy boundaries? Please answer in just a few words."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
           },
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
