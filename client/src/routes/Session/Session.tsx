@@ -11,13 +11,9 @@ import {
   TopSafeArea,
 } from '../../common/components/Spacers/Spacer';
 import {COLORS} from '../../../../shared/src/constants/colors';
-
 import {SessionStackProps} from '../../lib/navigation/constants/routes';
-
 import {DailyContext} from '../../lib/daily/DailyProvider';
-
 import ExerciseSlides from './components/ExerciseSlides/ExerciseSlides';
-
 import Participants from './components/Participants/Participants';
 import useSessionParticipants from './hooks/useSessionParticipants';
 import useSessionSlideState from './hooks/useSessionSlideState';
@@ -49,6 +45,7 @@ import useUser from '../../lib/user/hooks/useUser';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 import useExerciseTheme from './hooks/useExerciseTheme';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
+import useLogSessionMetricEvents from './hooks/useLogSessionMetricEvents';
 
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
@@ -117,9 +114,28 @@ const Session = () => {
   const sessionSlideState = useSessionSlideState();
   const exercise = useExerciseById(session?.contentId);
   const theme = useExerciseTheme();
+  const {logSessionMetricEvent, conditionallyLogCompleteSessionMetricEvent} =
+    useLogSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession();
   const user = useUser();
+
   usePreventGoingBack(leaveSessionWithConfirm);
+
+  useEffect(() => {
+    if (session?.id) {
+      logSessionMetricEvent('Enter Sharing Session');
+    }
+  }, [logSessionMetricEvent, session?.id]);
+
+  useEffect(() => {
+    if (session?.id && sessionSlideState?.current) {
+      conditionallyLogCompleteSessionMetricEvent();
+    }
+  }, [
+    conditionallyLogCompleteSessionMetricEvent,
+    session?.id,
+    sessionSlideState,
+  ]);
 
   useEffect(() => {
     if (session?.ended) {

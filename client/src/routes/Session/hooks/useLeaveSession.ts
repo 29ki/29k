@@ -9,6 +9,7 @@ import useSessionState from '../state/state';
 import {TabNavigatorProps} from '../../../lib/navigation/constants/routes';
 import useSessions from '../../Sessions/hooks/useSessions';
 import useSessionNotificationsState from '../state/sessionNotificationsState';
+import useLogSessionMetricEvents from './useLogSessionMetricEvents';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
@@ -17,6 +18,7 @@ const useLeaveSession = () => {
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();
   const {fetchSessions} = useSessions();
+  const {conditionallyLogLeaveSessionMetricEvent} = useLogSessionMetricEvents();
 
   const resetSession = useSessionState(state => state.reset);
   const resetSessionNotifications = useSessionNotificationsState(
@@ -38,17 +40,26 @@ const useLeaveSession = () => {
     fetchSessions,
   ]);
 
-  const leaveSessionWithConfirm = useCallback(async () => {
-    Alert.alert(t('header'), t('text'), [
-      {text: t('buttons.cancel'), style: 'cancel', onPress: () => {}},
-      {
-        text: t('buttons.confirm'),
-        style: 'destructive',
+  const leaveSessionWithConfirm = useCallback(
+    () =>
+      Alert.alert(t('header'), t('text'), [
+        {
+          text: t('buttons.cancel'),
+          style: 'cancel',
+          onPress: () => {},
+        },
+        {
+          text: t('buttons.confirm'),
+          style: 'destructive',
 
-        onPress: leaveSession,
-      },
-    ]);
-  }, [t, leaveSession]);
+          onPress: () => {
+            leaveSession();
+            conditionallyLogLeaveSessionMetricEvent();
+          },
+        },
+      ]),
+    [t, leaveSession, conditionallyLogLeaveSessionMetricEvent],
+  );
 
   return {leaveSession, leaveSessionWithConfirm};
 };
