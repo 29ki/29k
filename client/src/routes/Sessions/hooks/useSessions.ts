@@ -1,4 +1,4 @@
-import {useCallback} from 'react';
+import {useCallback, useMemo} from 'react';
 import dayjs from 'dayjs';
 
 import * as sessionsApi from '../api/sessions';
@@ -6,10 +6,13 @@ import * as sessionApi from '../api/session';
 
 import useSessionsState from '../state/state';
 import {Session} from '../../../../../shared/src/types/Session';
+import usePinnedSessons from '../../../lib/user/hooks/usePinnedSessions';
 
 const useSessions = () => {
   const setIsLoading = useSessionsState(state => state.setIsLoading);
   const setSessions = useSessionsState(state => state.setSessions);
+  const sessions = useSessionsState(state => state.sessions);
+  const {pinnedSessions} = usePinnedSessons();
 
   const fetchSessions = useCallback(async () => {
     setIsLoading(true);
@@ -53,10 +56,24 @@ const useSessions = () => {
     [fetchSessions],
   );
 
+  const userPinnedSessions = useMemo(
+    () =>
+      (sessions ?? []).filter(s => pinnedSessions.find(ps => ps.id === s.id)),
+    [sessions, pinnedSessions],
+  );
+
+  const unpinnedSessions = useMemo(
+    () =>
+      (sessions ?? []).filter(s => !pinnedSessions.find(ps => ps.id === s.id)),
+    [sessions, pinnedSessions],
+  );
+
   return {
     fetchSessions,
     addSession,
     deleteSession,
+    sessions: unpinnedSessions,
+    pinnedSessions: userPinnedSessions,
   };
 };
 

@@ -74,6 +74,7 @@ type CardProps = {
   lottie?: AnimationObject;
   onPress: () => void;
   onButtonPress?: () => void;
+  onPinnedPress?: () => void;
   buttonText?: string;
   children?: React.ReactNode;
   ButtonIcon?: IconType;
@@ -90,6 +91,7 @@ export const Card: React.FC<CardProps> = ({
   onPress,
   buttonText,
   onButtonPress,
+  onPinnedPress,
   children,
   ButtonIcon,
   hostPictureURL,
@@ -135,7 +137,7 @@ export const Card: React.FC<CardProps> = ({
         </LeftFooter>
         <RightFooter>
           {children}
-          <Interested active={pinned} />
+          <Interested active={pinned} onPress={onPinnedPress} />
         </RightFooter>
       </Footer>
     </Wrapper>

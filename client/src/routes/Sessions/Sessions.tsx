@@ -28,7 +28,6 @@ import SessionCard from '../../common/components/Cards/SessionCard/SessionCard';
 import {PlusIcon} from '../../common/components/Icons';
 import useSessionsState from './state/state';
 import Screen from '../../common/components/Screen/Screen';
-import usePinnedSessons from '../../lib/user/hooks/usePinnedSessions';
 import {Heading18} from '../../common/components/Typography/Heading/Heading';
 
 const AddButton = styled(Button)({
@@ -81,18 +80,26 @@ const AddSessionForm = () => {
 
 const Sessions = () => {
   const {t} = useTranslation('Screen.Sessions');
-  const {fetchSessions} = useSessions();
+  const {fetchSessions, sessions, pinnedSessions} = useSessions();
   const isLoading = useSessionsState(state => state.isLoading);
-  const {sessions, pinnedSessions} = usePinnedSessons();
 
   const sections = useMemo(() => {
+    let sectionsList = [];
     if (pinnedSessions.length > 0) {
-      return [
-        {title: t('interested'), data: pinnedSessions, type: 'interested'},
-        {title: t('commingSessions'), data: sessions, type: 'comming'},
-      ];
+      sectionsList.push({
+        title: t('interested'),
+        data: pinnedSessions,
+        type: 'interested',
+      });
     }
-    return [{title: t('commingSessions'), data: sessions, type: 'comming'}];
+    if (sessions.length > 0) {
+      sectionsList.push({
+        title: t('commingSessions'),
+        data: sessions,
+        type: 'comming',
+      });
+    }
+    return sectionsList;
   }, [sessions, pinnedSessions, t]);
 
   useEffect(() => {

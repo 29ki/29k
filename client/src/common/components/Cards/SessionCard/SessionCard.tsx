@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React, {useMemo} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import dayjs from 'dayjs';
 
@@ -29,12 +29,16 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const sessionTime = useSessionStartTime(dayjs(startTime));
-  const {isSessionPinned} = usePinnedSessons();
+  const {isSessionPinned, togglePinnSession} = usePinnedSessons();
 
   const sessionPinned = useMemo(
     () => isSessionPinned(session),
     [isSessionPinned, session],
   );
+
+  const onPinnedPress = useCallback(() => {
+    togglePinnSession(session);
+  }, [session, togglePinnSession]);
 
   const onPress = () => {
     navigate('SessionStack', {
@@ -65,7 +69,8 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
       onButtonPress={onPress}
       hostPictureURL={hostProfile?.photoURL}
       hostName={hostProfile?.displayName}
-      pinned={sessionPinned}>
+      pinned={sessionPinned}
+      onPinnedPress={onPinnedPress}>
       <SessionTimeBadge session={session} />
     </Card>
   );

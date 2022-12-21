@@ -5,7 +5,7 @@ import {COLORS} from '../../../../../shared/src/constants/colors';
 import {StarIcon} from '../Icons';
 import {BodyBold} from '../Typography/Body/Body';
 
-const Container = styled.View({
+const Container = styled.TouchableOpacity({
   flexDirection: 'row',
   alignItems: 'center',
 });
@@ -18,16 +18,17 @@ const StarIconWrapper = styled.View({
 
 type InterestedProps = {
   active: boolean;
+  onPress?: () => void;
 };
 
 const Body = styled(BodyBold)<InterestedProps>(({active}) => ({
   color: active ? COLORS.PRIMARY : COLORS.GREYDARK,
 }));
 
-const Interested: React.FC<InterestedProps> = ({active}) => {
+const Interested: React.FC<InterestedProps> = ({active, onPress}) => {
   const {t} = useTranslation('Component.Interested');
   return (
-    <Container>
+    <Container onPress={onPress}>
       <StarIconWrapper>
         <StarIcon fill={active ? COLORS.PRIMARY : COLORS.GREYDARK} />
       </StarIconWrapper>
