@@ -3,7 +3,6 @@ import {act, renderHook} from '@testing-library/react-hooks';
 import {useTranslation} from 'react-i18next';
 import {Alert as AlertMock} from 'react-native';
 import useLeaveSession from './useLeaveSession';
-import useLogSessionMetricEvents from './useLogSessionMetricEvents';
 
 const alertConfirmMock = AlertMock.alert as jest.Mock;
 
