@@ -114,7 +114,7 @@ const Session = () => {
   const sessionSlideState = useSessionSlideState();
   const exercise = useExerciseById(session?.contentId);
   const theme = useExerciseTheme();
-  const {logSessionMetricEvent, logCompleteSessionMetricEvent} =
+  const {logSessionMetricEvent, conditionallyLogCompleteSessionMetricEvent} =
     useLogSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession();
   const user = useUser();
@@ -129,9 +129,13 @@ const Session = () => {
 
   useEffect(() => {
     if (session?.id && sessionSlideState?.current) {
-      logCompleteSessionMetricEvent();
+      conditionallyLogCompleteSessionMetricEvent();
     }
-  }, [logCompleteSessionMetricEvent, session?.id, sessionSlideState]);
+  }, [
+    conditionallyLogCompleteSessionMetricEvent,
+    session?.id,
+    sessionSlideState,
+  ]);
 
   useEffect(() => {
     if (session?.ended) {

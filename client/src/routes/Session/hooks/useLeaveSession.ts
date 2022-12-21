@@ -18,7 +18,7 @@ const useLeaveSession = () => {
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();
   const {fetchSessions} = useSessions();
-  const {logLeaveSessionMetricEvent} = useLogSessionMetricEvents();
+  const {conditionallyLogLeaveSessionMetricEvent} = useLogSessionMetricEvents();
 
   const resetSession = useSessionState(state => state.reset);
   const resetSessionNotifications = useSessionNotificationsState(
@@ -54,11 +54,11 @@ const useLeaveSession = () => {
 
           onPress: () => {
             leaveSession();
-            logLeaveSessionMetricEvent();
+            conditionallyLogLeaveSessionMetricEvent();
           },
         },
       ]),
-    [t, leaveSession, logLeaveSessionMetricEvent],
+    [t, leaveSession, conditionallyLogLeaveSessionMetricEvent],
   );
 
   return {leaveSession, leaveSessionWithConfirm};
