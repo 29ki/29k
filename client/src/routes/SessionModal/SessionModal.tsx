@@ -153,6 +153,18 @@ const SessionModal = () => {
 
   const isHost = user?.uid === session.hostId;
 
+  const metricProperties = useMemo(
+    () => ({
+      'Sharing Session ID': session.id,
+      'Sharing Session Type': session.type,
+      'Sharing Session Start Time': session.startTime,
+      'Exercise ID': session.contentId,
+      Host: isHost,
+      Language: session.language,
+    }),
+    [session, isHost],
+  );
+
   const onJoin = useCallback(() => {
     navigation.popToTop();
     navigation.navigate('SessionStack', {
@@ -161,15 +173,8 @@ const SessionModal = () => {
         sessionId: session.id,
       },
     });
-    metrics.logEvent('Join Sharing Session', {
-      'Sharing Session ID': session.id,
-      'Sharing Session Type': session.type,
-      'Sharing Session Start Time': session.startTime,
-      'Exercise ID': session.contentId,
-      Host: isHost,
-      Language: session.language,
-    });
-  }, [session, navigation, isHost]);
+    metrics.logEvent('Join Sharing Session', metricProperties);
+  }, [navigation, session.id, metricProperties]);
 
   const onAddToCalendar = useCallback(() => {
     addToCalendar(
@@ -179,29 +184,15 @@ const SessionModal = () => {
       dayjs(session.startTime),
       dayjs(session.startTime).add(30, 'minutes'),
     );
-    metrics.logEvent('Add Sharing Session To Calendar', {
-      'Sharing Session ID': session.id,
-      'Sharing Session Type': session.type,
-      'Sharing Session Start Time': session.startTime,
-      'Exercise ID': session.contentId,
-      Host: isHost,
-      Language: session.language,
-    });
-  }, [exercise, session, addToCalendar, isHost]);
+    metrics.logEvent('Add Sharing Session To Calendar', metricProperties);
+  }, [addToCalendar, exercise, session, metricProperties]);
 
   const onToggleReminder = useCallback(() => {
     toggleReminder(!reminderEnabled);
     if (!reminderEnabled) {
-      metrics.logEvent('Add Sharing Session Reminder', {
-        'Sharing Session ID': session.id,
-        'Sharing Session Type': session.type,
-        'Sharing Session Start Time': session.startTime,
-        'Exercise ID': session.contentId,
-        Host: isHost,
-        Language: session.language,
-      });
+      metrics.logEvent('Add Sharing Session Reminder', metricProperties);
     }
-  }, [reminderEnabled, session, toggleReminder, isHost]);
+  }, [reminderEnabled, toggleReminder, metricProperties]);
 
   const onShare = useCallback(() => {
     if (session.link) {
