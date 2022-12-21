@@ -10,17 +10,15 @@ import Button from '../Buttons/Button';
 import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display24} from '../Typography/Display/Display';
-import IconButton from '../Buttons/IconButton/IconButton';
-import {EllipsisIcon, IconType} from '../Icons';
+import {IconType} from '../Icons';
 import Byline from '../Bylines/Byline';
 import {Spacer4, Spacer8} from '../Spacers/Spacer';
+import Gutters from '../Gutters/Gutters';
+import Interested from '../Interested/Interested';
 
 const GraphicsWrapper = styled.View({
-  position: 'absolute',
-  width: 132,
-  height: 132,
-  right: 0,
-  bottom: 0,
+  width: 120,
+  height: 120,
 });
 
 const Lottie = styled(AnimatedLottieView)({
@@ -28,21 +26,22 @@ const Lottie = styled(AnimatedLottieView)({
 });
 
 const Wrapper = styled(TouchableOpacity)({
-  flexDirection: 'row',
   justifyContent: 'space-between',
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
   backgroundColor: COLORS.CREAM,
-  overflow: 'hidden',
   height: 174,
 });
+
+const ContentWrapper = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+});
+
 const LeftCol = styled.View({
   flex: 2,
   justifyContent: 'space-between',
   padding: SPACINGS.SIXTEEN,
   paddingTop: SPACINGS.EIGHT,
-});
-const RightCol = styled.View({
-  flex: 1,
 });
 
 const Header = styled.View({
@@ -50,26 +49,22 @@ const Header = styled.View({
   textOverflow: 'ellipsis',
 });
 
-const CardContext = styled.View({
-  paddingRight: SPACINGS.EIGHT,
-  paddingTop: SPACINGS.EIGHT,
+const Footer = styled(Gutters)({
   flexDirection: 'row',
-  justifyContent: 'flex-end',
+  paddingBottom: SPACINGS.SIXTEEN,
 });
 
-const Footer = styled.View({
-  flexDirection: 'row',
-  alignItems: 'flex-end',
-});
+const LeftFooter = styled.View({});
 
-const IconWrapper = styled.View({
-  width: SPACINGS.THIRTYSIX,
-  height: SPACINGS.THIRTYSIX,
-  padding: 3,
+const RightFooter = styled.View({
+  justifyContent: 'space-between',
+  flexDirection: 'row',
+  flex: 1,
 });
 
 const CTAButton = styled(Button)({
   alignSelf: 'flex-start',
+  marginRight: SPACINGS.SIXTEEN,
 });
 
 type CardProps = {
@@ -79,13 +74,13 @@ type CardProps = {
   lottie?: AnimationObject;
   onPress: () => void;
   onButtonPress?: () => void;
+  onPinnedPress?: () => void;
   buttonText?: string;
   children?: React.ReactNode;
-  onContextPress?: () => void;
   ButtonIcon?: IconType;
-  Icon?: IconType;
   hostPictureURL?: string;
   hostName?: string;
+  pinned: boolean;
 };
 
 export const Card: React.FC<CardProps> = ({
@@ -96,66 +91,57 @@ export const Card: React.FC<CardProps> = ({
   onPress,
   buttonText,
   onButtonPress,
+  onPinnedPress,
   children,
-  onContextPress,
   ButtonIcon,
-  Icon,
   hostPictureURL,
   hostName,
+  pinned,
 }) => (
-  <Wrapper onPress={onPress}>
-    <LeftCol>
-      <Header>
-        {title && <Display24 numberOfLines={2}>{title}</Display24>}
-        <Spacer4 />
-        <Byline
-          pictureURL={hostPictureURL}
-          name={hostName}
-          duration={duration}
-        />
-      </Header>
+  <>
+    <Wrapper onPress={onPress}>
+      <ContentWrapper>
+        <LeftCol>
+          <Header>
+            {title && <Display24 numberOfLines={2}>{title}</Display24>}
+            <Spacer4 />
+            <Byline
+              pictureURL={hostPictureURL}
+              name={hostName}
+              duration={duration}
+            />
+          </Header>
+        </LeftCol>
+        <GraphicsWrapper>
+          {lottie ? (
+            <Lottie source={lottie} autoPlay loop />
+          ) : image ? (
+            <Image resizeMode="contain" source={image} />
+          ) : null}
+        </GraphicsWrapper>
+      </ContentWrapper>
       <Footer>
-        {buttonText && (
-          <>
-            <CTAButton
-              LeftIcon={ButtonIcon}
-              small
-              variant="secondary"
-              onPress={onButtonPress ? onButtonPress : onPress}>
-              {buttonText}
-            </CTAButton>
-            <Spacer8 />
-          </>
-        )}
-        {children}
+        <LeftFooter>
+          {buttonText && (
+            <>
+              <CTAButton
+                LeftIcon={ButtonIcon}
+                small
+                variant="secondary"
+                onPress={onButtonPress ? onButtonPress : onPress}>
+                {buttonText}
+              </CTAButton>
+              <Spacer8 />
+            </>
+          )}
+        </LeftFooter>
+        <RightFooter>
+          {children}
+          <Interested active={pinned} onPress={onPinnedPress} />
+        </RightFooter>
       </Footer>
-    </LeftCol>
-    <RightCol>
-      <CardContext>
-        {Icon && (
-          <IconWrapper>
-            <Icon />
-          </IconWrapper>
-        )}
-        {onContextPress && (
-          <IconButton
-            small
-            noBackground
-            variant="tertiary"
-            Icon={EllipsisIcon}
-            onPress={onContextPress}
-          />
-        )}
-      </CardContext>
-      <GraphicsWrapper>
-        {lottie ? (
-          <Lottie source={lottie} autoPlay loop />
-        ) : image ? (
-          <Image resizeMode="contain" source={image} />
-        ) : null}
-      </GraphicsWrapper>
-    </RightCol>
-  </Wrapper>
+    </Wrapper>
+  </>
 );
 
 export default Card;

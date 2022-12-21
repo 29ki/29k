@@ -11,6 +11,11 @@ jest.mock('../../appState/state/state', () =>
   jest.fn(fn => fn({reset: mockResetSessionState})),
 );
 
+const mockResetUserState = jest.fn();
+jest.mock('../state/state', () =>
+  jest.fn(fn => fn({reset: mockResetUserState})),
+);
+
 afterEach(() => {
   jest.clearAllMocks();
 });
@@ -55,6 +60,8 @@ describe('useDeleteUser', () => {
     expect(alertConfirmMock).toHaveBeenCalledTimes(1);
     expect(auth().currentUser?.delete).toHaveBeenCalledTimes(1);
     expect(mockResetSessionState).toHaveBeenCalledTimes(1);
+    expect(mockResetUserState).toHaveBeenCalledTimes(1);
+    expect(mockResetUserState).toHaveBeenCalledWith(true);
   });
 
   it('does nothing on dismiss', async () => {
@@ -69,5 +76,6 @@ describe('useDeleteUser', () => {
     expect(alertConfirmMock).toHaveBeenCalledTimes(1);
     expect(auth().currentUser?.delete).toHaveBeenCalledTimes(0);
     expect(mockResetSessionState).toHaveBeenCalledTimes(0);
+    expect(mockResetUserState).toHaveBeenCalledTimes(0);
   });
 });

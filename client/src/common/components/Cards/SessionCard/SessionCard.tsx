@@ -6,12 +6,10 @@ import dayjs from 'dayjs';
 
 import {Session} from '../../../../../../shared/src/types/Session';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
-import useSessionNotificationReminder from '../../../../routes/Sessions/hooks/useSessionNotificationReminder';
 import {
   AppStackProps,
   ModalStackProps,
 } from '../../../../lib/navigation/constants/routes';
-import {BellIcon} from '../../Icons';
 import Card from '../Card';
 
 import useSessionStartTime from '../../../../routes/Session/hooks/useSessionStartTime';
@@ -19,6 +17,7 @@ import * as metrics from '../../../../lib/metrics';
 import SessionTimeBadge from '../../SessionTimeBadge/SessionTimeBadge';
 import {formatExerciseName} from '../../../utils/string';
 import useUser from '../../../../lib/user/hooks/useUser';
+import usePinnedSessons from '../../../../lib/user/hooks/usePinnedSessions';
 
 type SessionCardProps = {
   session: Session;
@@ -30,10 +29,20 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
   const {t} = useTranslation('Component.SessionCard');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
-  const {reminderEnabled} = useSessionNotificationReminder(session);
   const sessionTime = useSessionStartTime(dayjs(startTime));
+  const {isSessionPinned, togglePinSession} = usePinnedSessons();
   const user = useUser();
+
   const isHost = session.hostId === user?.uid;
+
+  const sessionPinned = useMemo(
+    () => isSessionPinned(session),
+    [isSessionPinned, session],
+  );
+
+  const onPinnedPress = useCallback(() => {
+    togglePinSession(session);
+  }, [session, togglePinSession]);
 
   const onPress = useCallback(() => {
     navigate('SessionStack', {
@@ -72,10 +81,10 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
       onPress={onContextPress}
       buttonText={sessionTime.isReadyToJoin ? t('join') : undefined}
       onButtonPress={onPress}
-      onContextPress={onContextPress}
-      Icon={reminderEnabled ? BellIcon : undefined}
       hostPictureURL={hostProfile?.photoURL}
-      hostName={hostProfile?.displayName}>
+      hostName={hostProfile?.displayName}
+      pinned={sessionPinned}
+      onPinnedPress={onPinnedPress}>
       <SessionTimeBadge session={session} />
     </Card>
   );
