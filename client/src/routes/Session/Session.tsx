@@ -2,7 +2,6 @@ import React, {useContext, useEffect} from 'react';
 import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 
-import * as metrics from '../../lib/metrics';
 import useSessionState from './state/state';
 import {
   BottomSafeArea,

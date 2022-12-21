@@ -13,7 +13,6 @@ import Video from 'react-native-video';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
-import * as metrics from '../../lib/metrics';
 import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import {
