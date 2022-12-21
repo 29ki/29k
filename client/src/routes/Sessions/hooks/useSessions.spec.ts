@@ -4,7 +4,9 @@ import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
 import useSessionsState from '../state/state';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import {SessionType} from '../../../../../shared/src/types/Session';
+import {Session, SessionType} from '../../../../../shared/src/types/Session';
+import useUserState from '../../../lib/user/state/state';
+import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 
 dayjs.extend(utc);
 
@@ -141,6 +143,81 @@ describe('useSessions', () => {
           'X-Correlation-ID': expect.any(String),
         },
       });
+    });
+  });
+
+  describe('sessions', () => {
+    it('should return sessions that are not pinned', async () => {
+      useSessionsState.setState({
+        isLoading: false,
+        sessions: [
+          {id: 'session-id-1'},
+          {id: 'session-id-2'},
+        ] as Array<Session>,
+      });
+      useUserState.setState({
+        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
+        userState: {
+          'user-id': {
+            pinnedSessions: [
+              {id: 'session-id-1', expires: new Date('2022-12-20')},
+            ],
+          },
+        },
+      });
+
+      const {result} = renderHook(() => useSessions());
+
+      expect(result.current.sessions).toEqual([{id: 'session-id-2'}]);
+    });
+
+    it('should return sessions when no session is pinned', async () => {
+      useSessionsState.setState({
+        isLoading: false,
+        sessions: [
+          {id: 'session-id-1'},
+          {id: 'session-id-2'},
+        ] as Array<Session>,
+      });
+      useUserState.setState({
+        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
+        userState: {},
+      });
+
+      const {result} = renderHook(() => useSessions());
+
+      expect(result.current.sessions).toEqual([
+        {id: 'session-id-1'},
+        {id: 'session-id-2'},
+      ]);
+    });
+  });
+
+  describe('pinnedSessions', () => {
+    it('should return pinned sessions', () => {
+      useSessionsState.setState({
+        isLoading: false,
+        sessions: [
+          {id: 'session-id-1', started: false},
+          {id: 'session-id-2', started: false},
+        ] as Array<Session>,
+      });
+      useUserState.setState({
+        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
+        userState: {
+          'user-id': {
+            pinnedSessions: [
+              {id: 'session-id-1', expires: new Date('2022-12-20')},
+            ],
+          },
+        },
+      });
+
+      const {result} = renderHook(() => useSessions());
+
+      expect(result.current.pinnedSessions).toEqual([
+        {id: 'session-id-1', started: false},
+      ]);
     });
   });
 });

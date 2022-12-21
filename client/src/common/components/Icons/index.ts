@@ -49,4 +49,5 @@ export * from './Rewind/Rewind';
 export * from './Share/Share';
 export * from './Slack/Slack';
 export * from './SunUp/SunUp';
+export * from './Star/Star';
 export * from './Wand/Wand';

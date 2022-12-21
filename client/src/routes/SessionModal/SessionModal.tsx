@@ -47,6 +47,9 @@ import {Session, SessionType} from '../../../../shared/src/types/Session';
 import EditSessionType from '../../common/components/EditSessionType/EditSessionType';
 import {SPACINGS} from '../../common/constants/spacings';
 import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
+import Interested from '../../common/components/Interested/Interested';
+import RadioButton from '../../common/components/Buttons/RadioButton/RadioButton';
+import usePinnedSessons from '../../lib/user/hooks/usePinnedSessions';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',
@@ -96,6 +99,12 @@ const EditIcon = styled(View)({
   alignSelf: 'center',
 });
 
+const IntersetedWrapper = styled(TouchableOpacity)({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+});
+
 const DeleteButton = styled(Button)({
   backgroundColor: COLORS.DELETE,
 });
@@ -139,7 +148,12 @@ const SessionModal = () => {
   const initialStartTime = dayjs(session.startTime).utc();
   const [sessionDate, setSessionDate] = useState<dayjs.Dayjs>(initialStartTime);
   const [sessionTime, setSessionTime] = useState<dayjs.Dayjs>(initialStartTime);
+  const {togglePinSession, isSessionPinned} = usePinnedSessons();
 
+  const sessionPinned = useMemo(
+    () => isSessionPinned(session),
+    [isSessionPinned, session],
+  );
   const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
 
   const addToCalendar = useAddToCalendar();
@@ -173,6 +187,10 @@ const SessionModal = () => {
     session.id,
     navigation,
   ]);
+
+  const onTogglePinSession = useCallback(() => {
+    togglePinSession(session);
+  }, [session, togglePinSession]);
 
   const onAddToCalendar = useCallback(() => {
     addToCalendar(
@@ -357,6 +375,17 @@ const SessionModal = () => {
                 <SessionTimeBadge session={session} />
               )}
             </Row>
+          </Gutters>
+
+          <Spacer16 />
+          <Gutters>
+            <IntersetedWrapper onPress={onTogglePinSession}>
+              <Interested active={sessionPinned} />
+              <RadioButton
+                onPress={onTogglePinSession}
+                active={sessionPinned}
+              />
+            </IntersetedWrapper>
           </Gutters>
 
           <Spacer16 />

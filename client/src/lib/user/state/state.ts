@@ -1,9 +1,20 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import create from 'zustand';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {persist} from 'zustand/middleware';
+import {lensPath, omit, set as lensSet} from 'ramda';
+
+type PinnedSession = {
+  id: string;
+  expires: Date;
+};
+
+type UserState = {pinnedSessions: Array<PinnedSession>};
 
 type State = {
   user: FirebaseAuthTypes.User | null;
   claims: FirebaseAuthTypes.IdTokenResult['claims'];
+  userState: {[key: string]: UserState};
 };
 
 type Actions = {
@@ -13,20 +24,57 @@ type Actions = {
     user: State['user'];
     claims: State['claims'];
   }) => void;
-  reset: () => void;
+  setPinnedSessions: (pinnedSessions: Array<PinnedSession>) => void;
+  reset: (isDelete?: boolean) => void;
 };
 
 const initialState: State = {
   user: null,
   claims: {},
+  userState: {},
 };
 
-const useUserState = create<State & Actions>()(set => ({
-  ...initialState,
-  setUser: user => set({user}),
-  setClaims: claims => set({claims}),
-  setUserAndClaims: ({user, claims}) => set({user, claims}),
-  reset: () => set(initialState),
-}));
+const userStateLens = (uid: string, prop: keyof UserState) =>
+  lensPath([uid, prop]);
+
+const useUserState = create<State & Actions>()(
+  persist(
+    (set, get) => ({
+      ...initialState,
+      setUser: user => set({user}),
+      setClaims: claims => set({claims}),
+      setUserAndClaims: ({user, claims}) => set({user, claims}),
+      setPinnedSessions: pinnedSessions => {
+        const user = get().user;
+        const userState = get().userState;
+        if (user) {
+          set({
+            userState: lensSet(
+              userStateLens(user.uid, 'pinnedSessions'),
+              pinnedSessions,
+              userState,
+            ),
+          });
+        }
+      },
+      reset: isDelete => {
+        const user = get().user;
+        const userState = get().userState;
+        if (isDelete && user) {
+          // Remove the state specific to the user on delete
+          set({...initialState, userState: omit([user.uid], userState)});
+        } else {
+          // Keep persisted state in case of sign out
+          set({...initialState, userState});
+        }
+      },
+    }),
+    {
+      name: 'userState',
+      getStorage: () => AsyncStorage,
+      partialize: ({userState}) => ({userState}),
+    },
+  ),
+);
 
 export default useUserState;
