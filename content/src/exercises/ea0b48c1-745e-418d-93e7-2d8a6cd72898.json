@@ -266,10 +266,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Before we leave this space let’s do a mini check-out. How are you feeling right now? Has anything shifted? Please answer in two-three words.\n\nWho would like to start?"
+            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.Como te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras.\n\nQuem gostaria de começar?"
           },
           {
-            "text": "> Let everyone check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "> Permite que todos na sessão façam um check-out individual.\n\nObrigado a todos por este check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão enviando todos os participantes para a experiência de saída."
           }
         ]
       }
