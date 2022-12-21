@@ -46,7 +46,7 @@ import useUser from '../../lib/user/hooks/useUser';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 import useExerciseTheme from './hooks/useExerciseTheme';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
-import dayjs from 'dayjs';
+import useLogSessionMetricEvents from './hooks/useLogSessionMetricEvents';
 
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
@@ -115,52 +115,24 @@ const Session = () => {
   const sessionSlideState = useSessionSlideState();
   const exercise = useExerciseById(session?.contentId);
   const theme = useExerciseTheme();
+  const {logSessionMetricEvent, logCompleteSessionMetricEvent} =
+    useLogSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession();
   const user = useUser();
+
   usePreventGoingBack(leaveSessionWithConfirm);
 
   useEffect(() => {
     if (session?.id) {
-      metrics.logEvent('Enter Sharing Session', {
-        'Sharing Session ID': session.id,
-        'Sharing Session Type': session.type,
-        'Sharing Session Start Time': session.startTime,
-        'Exercise ID': session.contentId,
-        Host: isHost,
-        Language: session.language,
-      });
+      logSessionMetricEvent('Enter Sharing Session');
     }
-  }, [
-    session?.id,
-    session?.type,
-    session?.startTime,
-    session?.contentId,
-    session?.language,
-    isHost,
-  ]);
+  }, [logSessionMetricEvent, session?.id]);
 
   useEffect(() => {
-    if (session?.id && sessionSlideState?.index && !sessionSlideState?.next) {
-      // Trigger on last slide
-      metrics.logEvent('Complete Sharing Session', {
-        'Sharing Session ID': session.id,
-        'Sharing Session Type': session.type,
-        'Sharing Session Start Time': session.startTime,
-        'Sharing Session Duration': dayjs().diff(session.startTime, 'seconds'),
-        'Exercise ID': session.contentId,
-        Host: isHost,
-        Language: session.language,
-      });
+    if (session?.id && sessionSlideState?.current) {
+      logCompleteSessionMetricEvent();
     }
-  }, [
-    session?.id,
-    session?.type,
-    session?.startTime,
-    session?.contentId,
-    session?.language,
-    isHost,
-    sessionSlideState,
-  ]);
+  }, [logCompleteSessionMetricEvent, session?.id, sessionSlideState]);
 
   useEffect(() => {
     if (session?.ended) {

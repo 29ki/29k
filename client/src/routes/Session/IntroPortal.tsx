@@ -47,6 +47,7 @@ import Badge from '../../common/components/Badge/Badge';
 import useSessionStartTime from './hooks/useSessionStartTime';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import AudioFader from './components/AudioFader/AudioFader';
+import useLogSessionMetricEvents from './hooks/useLogSessionMetricEvents';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -110,6 +111,7 @@ const IntroPortal: React.FC = () => {
   const isFocused = useIsFocused();
   useSubscribeToSessionIfFocused(sessionId);
   const sessionTime = useSessionStartTime(dayjs(session?.startTime));
+  const {logSessionMetricEvent} = useLogSessionMetricEvents();
 
   const introPortal = exercise?.introPortal;
   const textColor = exercise?.theme?.textColor;
@@ -119,23 +121,9 @@ const IntroPortal: React.FC = () => {
 
   useEffect(() => {
     if (session?.id) {
-      metrics.logEvent('Enter Intro Portal', {
-        'Sharing Session ID': session.id,
-        'Sharing Session Type': session.type,
-        'Sharing Session Start Time': session.startTime,
-        'Exercise ID': session.contentId,
-        Host: isHost,
-        Language: session.language,
-      });
+      logSessionMetricEvent('Enter Intro Portal');
     }
-  }, [
-    session?.id,
-    session?.type,
-    session?.startTime,
-    session?.contentId,
-    session?.language,
-    isHost,
-  ]);
+  }, [logSessionMetricEvent, session?.id]);
 
   const navigateToSession = useCallback(
     () => navigate('Session', {sessionId: sessionId}),
@@ -152,23 +140,9 @@ const IntroPortal: React.FC = () => {
   const onStartPress = useCallback(() => {
     setStarted();
     if (session?.id) {
-      metrics.logEvent('Start Sharing Session', {
-        'Sharing Session ID': session.id,
-        'Sharing Session Type': session.type,
-        'Sharing Session Start Time': session.startTime,
-        'Exercise ID': session.contentId,
-        Host: true,
-        Language: session.language,
-      });
+      logSessionMetricEvent('Start Sharing Session');
     }
-  }, [
-    session?.id,
-    session?.type,
-    session?.startTime,
-    session?.contentId,
-    session?.language,
-    setStarted,
-  ]);
+  }, [setStarted, logSessionMetricEvent, session?.id]);
 
   const onEndVideoLoad = () => {
     endVideoRef.current?.seek(0);
