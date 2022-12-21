@@ -60,9 +60,9 @@ const Header = styled(LinearGradient).attrs({
   zIndex: 1,
 }));
 
-const ScrollView = styled.ScrollView({
-  paddingTop: HEADER_HEIGHT,
-});
+const ScrollView = styled.ScrollView.attrs({
+  contentContainerStyle: {paddingTop: HEADER_HEIGHT},
+})({});
 
 const Profile = () => {
   const {t} = useTranslation('Screen.Profile');
