@@ -4,10 +4,6 @@ import {POSTHOG_API_KEY} from 'config';
 import Events from './types/Events';
 import CoreProperties from './types/CoreProperties';
 import UserProperties from './types/UserProperties';
-import {
-  UnionToIntersection,
-  Values,
-} from '../../../../shared/src/types/UtilityTypes';
 
 const DEFAULT_CONSENT = true;
 
@@ -47,22 +43,14 @@ type EventUserProperties = {
   $unset?: [keyof UserProperties];
 };
 
-// Generate all possible allowed event names and properties as logEvent overloads
-type LogEventOverloads = UnionToIntersection<
-  Values<{
-    [Event in keyof Events]: Events[Event] extends object
-      ? (
-          event: Event,
-          properties: Events[Event] & EventUserProperties,
-        ) => typeof postHog
-      : (
-          event: Event,
-          properties?: undefined | EventUserProperties,
-        ) => typeof postHog;
-  }>
->;
+type LogEvent = <Event extends keyof Events>(
+  event: Event,
+  properties: Events[Event] extends object
+    ? Events[Event] & EventUserProperties
+    : undefined | EventUserProperties,
+) => typeof postHog;
 
-export const logEvent: LogEventOverloads = (event, properties) =>
+export const logEvent: LogEvent = (event, properties) =>
   postHog?.capture(event, properties);
 
 export const setUserProperties = (
