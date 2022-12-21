@@ -52,7 +52,7 @@ describe('usePinnedSessions', () => {
       ).toBe(false);
     });
 
-    describe('togglePinnSession', () => {
+    describe('togglePinSession', () => {
       it('should add session as pinned', async () => {
         useUserState.setState({
           user: {uid: 'user-id'} as FirebaseAuthTypes.User,
@@ -62,7 +62,7 @@ describe('usePinnedSessions', () => {
         const {result} = renderHook(() => usePinnedSessons());
 
         act(() => {
-          result.current.togglePinnSession({id: 'session-id-1'} as Session);
+          result.current.togglePinSession({id: 'session-id-1'} as Session);
         });
 
         expect(result.current.pinnedSessions).toEqual([
@@ -85,7 +85,7 @@ describe('usePinnedSessions', () => {
         const {result} = renderHook(() => usePinnedSessons());
 
         act(() => {
-          result.current.togglePinnSession({id: 'session-id-1'} as Session);
+          result.current.togglePinSession({id: 'session-id-1'} as Session);
         });
 
         expect(result.current.pinnedSessions).toEqual([]);
@@ -106,7 +106,7 @@ describe('usePinnedSessions', () => {
         const {result} = renderHook(() => usePinnedSessons());
 
         act(() => {
-          result.current.togglePinnSession({id: 'session-id-2'} as Session);
+          result.current.togglePinSession({id: 'session-id-2'} as Session);
         });
 
         expect(result.current.pinnedSessions).toEqual([
@@ -130,7 +130,7 @@ describe('usePinnedSessions', () => {
         const {result} = renderHook(() => usePinnedSessons());
 
         act(() => {
-          result.current.togglePinnSession({id: 'session-id-2'} as Session);
+          result.current.togglePinSession({id: 'session-id-2'} as Session);
         });
 
         expect(result.current.pinnedSessions).toEqual([]);

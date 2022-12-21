@@ -13,7 +13,7 @@ const usePinnedSessons = () => {
     [userState],
   );
 
-  const togglePinnSession = useCallback(
+  const togglePinSession = useCallback(
     (session: Session) => {
       const now = dayjs();
       const currentPinnedSessions = pinnedSessions.filter(s =>
@@ -45,7 +45,7 @@ const usePinnedSessons = () => {
 
   return {
     pinnedSessions,
-    togglePinnSession,
+    togglePinSession,
     isSessionPinned,
   };
 };

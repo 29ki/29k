@@ -29,7 +29,7 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const sessionTime = useSessionStartTime(dayjs(startTime));
-  const {isSessionPinned, togglePinnSession} = usePinnedSessons();
+  const {isSessionPinned, togglePinSession} = usePinnedSessons();
 
   const sessionPinned = useMemo(
     () => isSessionPinned(session),
@@ -37,8 +37,8 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
   );
 
   const onPinnedPress = useCallback(() => {
-    togglePinnSession(session);
-  }, [session, togglePinnSession]);
+    togglePinSession(session);
+  }, [session, togglePinSession]);
 
   const onPress = () => {
     navigate('SessionStack', {

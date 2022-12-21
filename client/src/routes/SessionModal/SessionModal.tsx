@@ -99,7 +99,7 @@ const EditIcon = styled(View)({
   alignSelf: 'center',
 });
 
-const IntersetedWrapper = styled.TouchableOpacity({
+const IntersetedWrapper = styled(TouchableOpacity)({
   flexDirection: 'row',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -148,7 +148,7 @@ const SessionModal = () => {
   const initialStartTime = dayjs(session.startTime).utc();
   const [sessionDate, setSessionDate] = useState<dayjs.Dayjs>(initialStartTime);
   const [sessionTime, setSessionTime] = useState<dayjs.Dayjs>(initialStartTime);
-  const {togglePinnSession, isSessionPinned} = usePinnedSessons();
+  const {togglePinSession, isSessionPinned} = usePinnedSessons();
 
   const sessionPinned = useMemo(
     () => isSessionPinned(session),
@@ -188,9 +188,9 @@ const SessionModal = () => {
     navigation,
   ]);
 
-  const onTogglePinnSession = useCallback(() => {
-    togglePinnSession(session);
-  }, [session, togglePinnSession]);
+  const onTogglePinSession = useCallback(() => {
+    togglePinSession(session);
+  }, [session, togglePinSession]);
 
   const onAddToCalendar = useCallback(() => {
     addToCalendar(
@@ -379,10 +379,10 @@ const SessionModal = () => {
 
           <Spacer16 />
           <Gutters>
-            <IntersetedWrapper onPress={onTogglePinnSession}>
+            <IntersetedWrapper onPress={onTogglePinSession}>
               <Interested active={sessionPinned} />
               <RadioButton
-                onPress={onTogglePinnSession}
+                onPress={onTogglePinSession}
                 active={sessionPinned}
               />
             </IntersetedWrapper>
