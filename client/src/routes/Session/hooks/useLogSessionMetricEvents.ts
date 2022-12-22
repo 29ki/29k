@@ -23,7 +23,7 @@ type AllowedInSharingEvents =
   | 'Complete Sharing Session'
   | 'Enter Outro Portal';
 
-const useLogInSessionMetricEvents = () => {
+const useLogSessionMetricEvents = () => {
   const user = useUser();
   const session = useSessionState(state => state.session);
   const slideState = useSessionSlideState();
@@ -102,4 +102,4 @@ const useLogInSessionMetricEvents = () => {
   };
 };
 
-export default useLogInSessionMetricEvents;
+export default useLogSessionMetricEvents;
