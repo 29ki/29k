@@ -12,6 +12,20 @@
       "left": "{{name}} left",
       "networkQuality": "Unrealiable network connection",
       "muted": "You are muted"
+    },
+    "permissionsAlert": {
+      "camera": {
+        "title": "Permission for camera was denied",
+        "message": "Allow 29k sessions to access your camera so that you can participate in the session. This will restart the 29k session app. ",
+        "dismiss": "Cancel",
+        "confirm": "Open Settings"
+      },
+      "microphone": {
+        "title": "Permission for microphone was denied",
+        "message": "Allow 29k sessions to access your microphone so that you can participate in the session. This will restart the 29k session app. ",
+        "dismiss": "Cancel",
+        "confirm": "Open Settings"
+      }
     }
   },
   "pt": {

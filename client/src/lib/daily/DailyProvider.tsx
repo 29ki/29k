@@ -20,7 +20,8 @@ import Sentry from '../sentry';
 
 export type DailyProviderTypes = {
   call?: DailyCall;
-  hasAppPermissions: () => boolean;
+  hasCameraPermissions: () => boolean;
+  hasMicrophonePermissions: () => boolean;
   preJoinMeeting: (url: string) => Promise<void>;
   joinMeeting: (options?: DailyCallOptions) => Promise<void>;
   leaveMeeting: () => Promise<void>;
@@ -32,7 +33,8 @@ export type DailyProviderTypes = {
 };
 
 export const DailyContext = createContext<DailyProviderTypes>({
-  hasAppPermissions: () => false,
+  hasCameraPermissions: () => false,
+  hasMicrophonePermissions: () => false,
   preJoinMeeting: () => Promise.resolve(),
   joinMeeting: () => Promise.resolve(),
   leaveMeeting: () => Promise.resolve(),
@@ -194,13 +196,17 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     [daily],
   );
 
-  const hasAppPermissions = useCallback(() => {
-    const {local} = daily.participants();
-    return (
-      local?.tracks.video.blocked?.byPermissions !== true &&
-      local?.tracks.audio.blocked?.byPermissions !== true
-    );
-  }, [daily]);
+  const hasCameraPermissions = useCallback(
+    () =>
+      daily.participants().local?.tracks.video.blocked?.byPermissions !== true,
+    [daily],
+  );
+
+  const hasMicrophonePermissions = useCallback(
+    () =>
+      daily.participants().local?.tracks.audio.blocked?.byPermissions !== true,
+    [daily],
+  );
 
   useEffect(() => {
     eventHandlers.forEach(([event, handler]) => {
@@ -222,7 +228,8 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     <DailyContext.Provider
       value={{
         call: daily,
-        hasAppPermissions,
+        hasCameraPermissions,
+        hasMicrophonePermissions,
         preJoinMeeting,
         joinMeeting,
         leaveMeeting,
