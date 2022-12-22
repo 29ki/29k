@@ -15,4 +15,4 @@ export const omitExercises = (resources: typeof content.i18n) => {
 };
 
 export const getShowHiddenContent = () =>
-  useAppState.getState().showHiddenContent;
+  useAppState.getState().settings.showHiddenContent;
