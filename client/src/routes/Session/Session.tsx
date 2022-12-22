@@ -45,7 +45,7 @@ import useUser from '../../lib/user/hooks/useUser';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 import useExerciseTheme from './hooks/useExerciseTheme';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
-import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
+import useLogSessionMetricEvents from './hooks/useLogSessionMetricEvents';
 
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
@@ -114,8 +114,8 @@ const Session = () => {
   const sessionSlideState = useSessionSlideState();
   const exercise = useExerciseById(session?.contentId);
   const theme = useExerciseTheme();
-  const {logSessionMetricEvent, conditionallyLogCompleteSessionMetricEvent} =
-    useLogInSessionMetricEvents();
+  const {logInSessionMetricEvent, conditionallyLogCompleteSessionMetricEvent} =
+    useLogSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession();
   const user = useUser();
 
@@ -123,9 +123,9 @@ const Session = () => {
 
   useEffect(() => {
     if (session?.id) {
-      logSessionMetricEvent('Enter Sharing Session');
+      logInSessionMetricEvent('Enter Sharing Session');
     }
-  }, [logSessionMetricEvent, session?.id]);
+  }, [logInSessionMetricEvent, session?.id]);
 
   useEffect(() => {
     if (session?.id && sessionSlideState?.current) {

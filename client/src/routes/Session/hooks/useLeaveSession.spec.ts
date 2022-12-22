@@ -22,7 +22,7 @@ jest.mock('../state/state', () =>
 );
 
 const mockConditionallyLogLeaveSessionMetricEvent = jest.fn();
-jest.mock('./useLogInSessionMetricEvents', () => () => ({
+jest.mock('./useLogSessionMetricEvents', () => () => ({
   conditionallyLogLeaveSessionMetricEvent:
     mockConditionallyLogLeaveSessionMetricEvent,
 }));

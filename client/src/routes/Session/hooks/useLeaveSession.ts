@@ -9,7 +9,7 @@ import useSessionState from '../state/state';
 import {TabNavigatorProps} from '../../../lib/navigation/constants/routes';
 import useSessions from '../../Sessions/hooks/useSessions';
 import useSessionNotificationsState from '../state/sessionNotificationsState';
-import useLogInSessionMetricEvents from './useLogInSessionMetricEvents';
+import useLogSessionMetricEvents from './useLogSessionMetricEvents';
 
 type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
 
@@ -18,8 +18,7 @@ const useLeaveSession = () => {
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();
   const {fetchSessions} = useSessions();
-  const {conditionallyLogLeaveSessionMetricEvent} =
-    useLogInSessionMetricEvents();
+  const {conditionallyLogLeaveSessionMetricEvent} = useLogSessionMetricEvents();
 
   const resetSession = useSessionState(state => state.reset);
   const resetSessionNotifications = useSessionNotificationsState(

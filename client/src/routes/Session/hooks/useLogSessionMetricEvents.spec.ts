@@ -5,7 +5,7 @@ import {Session} from '../../../../../shared/src/types/Session';
 import {logEvent} from '../../../lib/metrics';
 import useUserState from '../../../lib/user/state/state';
 import useSessionState from '../state/state';
-import useLogInSessionMetricEvents from './useLogInSessionMetricEvents';
+import useLogSessionMetricEvents from './useLogSessionMetricEvents';
 
 jest.mock('../../../lib/metrics');
 
@@ -40,9 +40,71 @@ describe('useLogInSessionMetricEvents', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLogInSessionMetricEvents());
+      const {result} = renderHook(() => useLogSessionMetricEvents());
 
-      result.current.logSessionMetricEvent('Enter Intro Portal');
+      result.current.logSessionMetricEvent('Create Sharing Session');
+
+      expect(mockedLogEvent).toHaveBeenCalledTimes(1);
+      expect(mockedLogEvent).toHaveBeenCalledWith('Create Sharing Session', {
+        'Sharing Session ID': 'some-session-id',
+        'Sharing Session Type': 'private',
+        'Sharing Session Start Time': '2022-02-02T02:02:02Z',
+        'Exercise ID': 'some-content-id',
+        Language: 'en',
+        Host: false,
+      });
+    });
+
+    it('resolves the host event property', () => {
+      useUserState.setState({
+        user: {
+          uid: 'some-user-id',
+        } as FirebaseAuthTypes.User,
+      });
+
+      useSessionState.setState({
+        session: {
+          id: 'some-session-id',
+          hostId: 'some-user-id',
+        } as Session,
+      });
+
+      const {result} = renderHook(() => useLogSessionMetricEvents());
+
+      result.current.logSessionMetricEvent('Create Sharing Session');
+
+      expect(mockedLogEvent).toHaveBeenCalledTimes(1);
+      expect(mockedLogEvent).toHaveBeenCalledWith(
+        'Create Sharing Session',
+        expect.objectContaining({
+          Host: true,
+        }),
+      );
+    });
+  });
+
+  describe('logInSessionMetricEvent', () => {
+    it('logs events with specific properties', () => {
+      useUserState.setState({
+        user: {
+          uid: 'some-user-id',
+        } as FirebaseAuthTypes.User,
+      });
+
+      useSessionState.setState({
+        session: {
+          id: 'some-session-id',
+          type: 'private',
+          hostId: 'some-host-id',
+          startTime: '2022-02-02T02:02:02Z',
+          contentId: 'some-content-id',
+          language: 'en',
+        } as Session,
+      });
+
+      const {result} = renderHook(() => useLogSessionMetricEvents());
+
+      result.current.logInSessionMetricEvent('Enter Intro Portal');
 
       expect(mockedLogEvent).toHaveBeenCalledTimes(1);
       expect(mockedLogEvent).toHaveBeenCalledWith('Enter Intro Portal', {
@@ -70,9 +132,9 @@ describe('useLogInSessionMetricEvents', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLogInSessionMetricEvents());
+      const {result} = renderHook(() => useLogSessionMetricEvents());
 
-      result.current.logSessionMetricEvent('Enter Intro Portal');
+      result.current.logInSessionMetricEvent('Enter Intro Portal');
 
       expect(mockedLogEvent).toHaveBeenCalledTimes(1);
       expect(mockedLogEvent).toHaveBeenCalledWith(
@@ -97,9 +159,9 @@ describe('useLogInSessionMetricEvents', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLogInSessionMetricEvents());
+      const {result} = renderHook(() => useLogSessionMetricEvents());
 
-      result.current.logSessionMetricEvent('Enter Intro Portal');
+      result.current.logInSessionMetricEvent('Enter Intro Portal');
 
       expect(mockedLogEvent).toHaveBeenCalledTimes(1);
       expect(mockedLogEvent).toHaveBeenCalledWith(
@@ -129,7 +191,7 @@ describe('useLogInSessionMetricEvents', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLogInSessionMetricEvents());
+      const {result} = renderHook(() => useLogSessionMetricEvents());
 
       result.current.conditionallyLogLeaveSessionMetricEvent();
 
@@ -157,7 +219,7 @@ describe('useLogInSessionMetricEvents', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLogInSessionMetricEvents());
+      const {result} = renderHook(() => useLogSessionMetricEvents());
 
       result.current.conditionallyLogLeaveSessionMetricEvent();
 
@@ -183,7 +245,7 @@ describe('useLogInSessionMetricEvents', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLogInSessionMetricEvents());
+      const {result} = renderHook(() => useLogSessionMetricEvents());
 
       result.current.conditionallyLogCompleteSessionMetricEvent();
 
@@ -211,7 +273,7 @@ describe('useLogInSessionMetricEvents', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLogInSessionMetricEvents());
+      const {result} = renderHook(() => useLogSessionMetricEvents());
 
       result.current.conditionallyLogCompleteSessionMetricEvent();
 
