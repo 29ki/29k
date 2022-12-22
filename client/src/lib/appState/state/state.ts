@@ -44,7 +44,10 @@ const useAppState = create<State & Actions>()(
     {
       name: 'appState',
       getStorage: () => AsyncStorage,
-      partialize: ({settings}) => ({settings}),
+      partialize: ({settings, showHiddenContent}) => ({
+        settings,
+        showHiddenContent,
+      }),
     },
   ),
 );
