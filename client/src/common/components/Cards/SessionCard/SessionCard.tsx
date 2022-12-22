@@ -13,11 +13,10 @@ import {
 import Card from '../Card';
 
 import useSessionStartTime from '../../../../routes/Session/hooks/useSessionStartTime';
-import * as metrics from '../../../../lib/metrics';
 import SessionTimeBadge from '../../SessionTimeBadge/SessionTimeBadge';
 import {formatExerciseName} from '../../../utils/string';
-import useUser from '../../../../lib/user/hooks/useUser';
 import usePinnedSessons from '../../../../lib/user/hooks/usePinnedSessions';
+import useLogSessionMetricEvents from '../../../../routes/Session/hooks/useLogSessionMetricEvents';
 
 type SessionCardProps = {
   session: Session;
@@ -31,9 +30,7 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const sessionTime = useSessionStartTime(dayjs(startTime));
   const {isSessionPinned, togglePinSession} = usePinnedSessons();
-  const user = useUser();
-
-  const isHost = session.hostId === user?.uid;
+  const logSessionMetricEvent = useLogSessionMetricEvents();
 
   const sessionPinned = useMemo(
     () => isSessionPinned(session),
@@ -51,15 +48,8 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
         sessionId: session.id,
       },
     });
-    metrics.logEvent('Join Sharing Session', {
-      'Sharing Session ID': session.id,
-      'Sharing Session Type': session.type,
-      'Sharing Session Start Time': session.startTime,
-      'Exercise ID': session.contentId,
-      Host: isHost,
-      Language: session.language,
-    });
-  }, [navigate, isHost, session]);
+    logSessionMetricEvent('Join Sharing Session', session);
+  }, [navigate, session, logSessionMetricEvent]);
 
   const onContextPress = useCallback(
     () => navigate('SessionModal', {session: session}),

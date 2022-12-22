@@ -5,7 +5,7 @@ import {Session} from '../../../../../shared/src/types/Session';
 import {logEvent} from '../../../lib/metrics';
 import useUserState from '../../../lib/user/state/state';
 import useSessionState from '../state/state';
-import useLogSessionMetricEvents from './useLogSessionMetricEvents';
+import useLogInSessionMetricEvents from './useLogInSessionMetricEvents';
 
 jest.mock('../../../lib/metrics');
 
@@ -20,7 +20,7 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-describe('useLogSessionMetricEvents', () => {
+describe('useLogInSessionMetricEvents', () => {
   describe('logSessionMetricEvent', () => {
     it('logs events with specific properties', () => {
       useUserState.setState({
@@ -40,7 +40,7 @@ describe('useLogSessionMetricEvents', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLogSessionMetricEvents());
+      const {result} = renderHook(() => useLogInSessionMetricEvents());
 
       result.current.logSessionMetricEvent('Enter Intro Portal');
 
@@ -70,7 +70,7 @@ describe('useLogSessionMetricEvents', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLogSessionMetricEvents());
+      const {result} = renderHook(() => useLogInSessionMetricEvents());
 
       result.current.logSessionMetricEvent('Enter Intro Portal');
 
@@ -97,7 +97,7 @@ describe('useLogSessionMetricEvents', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLogSessionMetricEvents());
+      const {result} = renderHook(() => useLogInSessionMetricEvents());
 
       result.current.logSessionMetricEvent('Enter Intro Portal');
 
@@ -129,7 +129,7 @@ describe('useLogSessionMetricEvents', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLogSessionMetricEvents());
+      const {result} = renderHook(() => useLogInSessionMetricEvents());
 
       result.current.conditionallyLogLeaveSessionMetricEvent();
 
@@ -157,7 +157,7 @@ describe('useLogSessionMetricEvents', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLogSessionMetricEvents());
+      const {result} = renderHook(() => useLogInSessionMetricEvents());
 
       result.current.conditionallyLogLeaveSessionMetricEvent();
 
@@ -183,7 +183,7 @@ describe('useLogSessionMetricEvents', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLogSessionMetricEvents());
+      const {result} = renderHook(() => useLogInSessionMetricEvents());
 
       result.current.conditionallyLogCompleteSessionMetricEvent();
 
@@ -211,7 +211,7 @@ describe('useLogSessionMetricEvents', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLogSessionMetricEvents());
+      const {result} = renderHook(() => useLogInSessionMetricEvents());
 
       result.current.conditionallyLogCompleteSessionMetricEvent();
 

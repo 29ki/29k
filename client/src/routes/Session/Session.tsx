@@ -45,7 +45,7 @@ import useUser from '../../lib/user/hooks/useUser';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 import useExerciseTheme from './hooks/useExerciseTheme';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
-import useLogSessionMetricEvents from './hooks/useLogSessionMetricEvents';
+import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
 
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
@@ -115,7 +115,7 @@ const Session = () => {
   const exercise = useExerciseById(session?.contentId);
   const theme = useExerciseTheme();
   const {logSessionMetricEvent, conditionallyLogCompleteSessionMetricEvent} =
-    useLogSessionMetricEvents();
+    useLogInSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession();
   const user = useUser();
 

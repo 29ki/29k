@@ -7,7 +7,6 @@ import {useCallback, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 
-import * as metrics from '../../../../lib/metrics';
 import Button from '../../../../common/components/Buttons/Button';
 import Byline from '../../../../common/components/Bylines/Byline';
 import Image from '../../../../common/components/Image/Image';
@@ -27,6 +26,7 @@ import DateTimePicker from '../../../../common/components/DateTimePicker/DateTim
 import {SPACINGS} from '../../../../common/constants/spacings';
 import EditSessionType from '../../../../common/components/EditSessionType/EditSessionType';
 import {formatExerciseName} from '../../../../common/utils/string';
+import useLogSessionMetricEvents from '../../../Session/hooks/useLogSessionMetricEvents';
 
 const TextWrapper = styled.View({
   flex: 2,
@@ -61,6 +61,7 @@ const SetDateTimeStep: React.FC<StepProps> = ({
   const [time, setTime] = useState<dayjs.Dayjs | undefined>();
   const {addSession} = useSessions();
   const exercise = useExerciseById(selectedExercise);
+  const logSessionMetricEvent = useLogSessionMetricEvents();
 
   const onChange = useCallback(
     (selectedDate: dayjs.Dayjs, selectedTime: dayjs.Dayjs) => {
@@ -82,14 +83,7 @@ const SetDateTimeStep: React.FC<StepProps> = ({
         language: i18n.resolvedLanguage as LANGUAGE_TAG,
       });
       setIsLoading(false);
-      metrics.logEvent('Create Sharing Session', {
-        'Sharing Session ID': session.id,
-        'Sharing Session Type': session.type,
-        'Sharing Session Start Time': session.startTime,
-        'Exercise ID': session.contentId,
-        Host: true,
-        Language: session.language,
-      });
+      logSessionMetricEvent('Create Sharing Session', session);
       goBack();
       navigate('SessionModal', {session});
     }
@@ -102,6 +96,7 @@ const SetDateTimeStep: React.FC<StepProps> = ({
     goBack,
     navigate,
     i18n.resolvedLanguage,
+    logSessionMetricEvent,
   ]);
 
   const cardImg = useMemo(

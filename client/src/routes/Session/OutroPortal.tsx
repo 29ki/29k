@@ -24,7 +24,7 @@ import Button from '../../common/components/Buttons/Button';
 import Gutters from '../../common/components/Gutters/Gutters';
 import AudioFader from './components/AudioFader/AudioFader';
 import useSessionState from './state/state';
-import useLogSessionMetricEvents from './hooks/useLogSessionMetricEvents';
+import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -62,7 +62,7 @@ const OutroPortal: React.FC = () => {
   const [readyToLeave, setReadyToLeave] = useState(false);
   const isFocused = useIsFocused();
   const {t} = useTranslation('Screen.Portal');
-  const {logSessionMetricEvent} = useLogSessionMetricEvents();
+  const {logSessionMetricEvent} = useLogInSessionMetricEvents();
 
   usePreventGoingBack();
   useNavigateWithFade();
