@@ -5,17 +5,17 @@ import {LANGUAGE_TAGS} from '../../i18n';
 
 const useToggleHiddenContent = () => {
   const {i18n} = useTranslation();
-  const setShowHiddenContent = useAppState(state => state.setShowHiddenContent);
+  const setSettings = useAppState(state => state.setSettings);
 
   const toggleHiddenContent = useCallback(
     (on: boolean) => {
-      setShowHiddenContent(on);
+      setSettings({showHiddenContent: on});
       // Needs to be removed for all languages,
       // otherwise they are not reloaded when switching language
       LANGUAGE_TAGS.forEach(lng => i18n.removeResourceBundle(lng, 'exercises'));
       i18n.reloadResources(undefined, 'exercises');
     },
-    [i18n, setShowHiddenContent],
+    [i18n, setSettings],
   );
 
   return toggleHiddenContent;

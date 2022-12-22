@@ -23,7 +23,9 @@ const DeveloperModal = () => {
   const {t} = useTranslation('Modal.Developer');
   const {toggle: toggleUiLib} = useUiLib();
   const toggleHiddenContent = useToggleHiddenContent();
-  const showHiddenContent = useAppState(state => state.showHiddenContent);
+  const showHiddenContent = useAppState(
+    state => state.settings.showHiddenContent,
+  );
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
 
