@@ -46,7 +46,7 @@ import Badge from '../../common/components/Badge/Badge';
 import useSessionStartTime from './hooks/useSessionStartTime';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import AudioFader from './components/AudioFader/AudioFader';
-import useLogSessionMetricEvents from './hooks/useLogSessionMetricEvents';
+import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -110,7 +110,7 @@ const IntroPortal: React.FC = () => {
   const isFocused = useIsFocused();
   useSubscribeToSessionIfFocused(sessionId);
   const sessionTime = useSessionStartTime(dayjs(session?.startTime));
-  const {logInSessionMetricEvent} = useLogSessionMetricEvents();
+  const {logSessionMetricEvent} = useLogInSessionMetricEvents();
 
   const introPortal = exercise?.introPortal;
   const textColor = exercise?.theme?.textColor;
@@ -120,9 +120,9 @@ const IntroPortal: React.FC = () => {
 
   useEffect(() => {
     if (session?.id) {
-      logInSessionMetricEvent('Enter Intro Portal');
+      logSessionMetricEvent('Enter Intro Portal');
     }
-  }, [logInSessionMetricEvent, session?.id]);
+  }, [logSessionMetricEvent, session?.id]);
 
   const navigateToSession = useCallback(
     () => navigate('Session', {sessionId: sessionId}),
@@ -139,9 +139,9 @@ const IntroPortal: React.FC = () => {
   const onStartPress = useCallback(() => {
     setStarted();
     if (session?.id) {
-      logInSessionMetricEvent('Start Sharing Session');
+      logSessionMetricEvent('Start Sharing Session');
     }
-  }, [setStarted, logInSessionMetricEvent, session?.id]);
+  }, [setStarted, logSessionMetricEvent, session?.id]);
 
   const onEndVideoLoad = () => {
     endVideoRef.current?.seek(0);

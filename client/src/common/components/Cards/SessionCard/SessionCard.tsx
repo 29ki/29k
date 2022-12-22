@@ -30,7 +30,7 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const sessionTime = useSessionStartTime(dayjs(startTime));
   const {isSessionPinned, togglePinSession} = usePinnedSessons();
-  const {logSessionMetricEvent} = useLogSessionMetricEvents();
+  const logSessionMetricEvent = useLogSessionMetricEvents();
 
   const sessionPinned = useMemo(
     () => isSessionPinned(session),
@@ -48,8 +48,8 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
         sessionId: session.id,
       },
     });
-    logSessionMetricEvent('Join Sharing Session');
-  }, [navigate, session.id, logSessionMetricEvent]);
+    logSessionMetricEvent('Join Sharing Session', session);
+  }, [navigate, session, logSessionMetricEvent]);
 
   const onContextPress = useCallback(
     () => navigate('SessionModal', {session: session}),

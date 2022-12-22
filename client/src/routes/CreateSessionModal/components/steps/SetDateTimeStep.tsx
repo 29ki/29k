@@ -61,7 +61,7 @@ const SetDateTimeStep: React.FC<StepProps> = ({
   const [time, setTime] = useState<dayjs.Dayjs | undefined>();
   const {addSession} = useSessions();
   const exercise = useExerciseById(selectedExercise);
-  const {logSessionMetricEvent} = useLogSessionMetricEvents();
+  const logSessionMetricEvent = useLogSessionMetricEvents();
 
   const onChange = useCallback(
     (selectedDate: dayjs.Dayjs, selectedTime: dayjs.Dayjs) => {
@@ -83,7 +83,7 @@ const SetDateTimeStep: React.FC<StepProps> = ({
         language: i18n.resolvedLanguage as LANGUAGE_TAG,
       });
       setIsLoading(false);
-      logSessionMetricEvent('Create Sharing Session');
+      logSessionMetricEvent('Create Sharing Session', session);
       goBack();
       navigate('SessionModal', {session});
     }

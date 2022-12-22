@@ -11,7 +11,7 @@ MockDate.set(mockNow); // Date.now()
 const mockLogSessionMetricEvent = jest.fn();
 jest.mock(
   '../../../routes/Session/hooks/useLogSessionMetricEvents',
-  () => () => ({logSessionMetricEvent: mockLogSessionMetricEvent}),
+  () => () => mockLogSessionMetricEvent,
 );
 
 beforeEach(() => {

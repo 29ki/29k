@@ -34,7 +34,7 @@ const AddSessionModal = () => {
   const {goBack, navigate, popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
   const [errorString, setErrorString] = useState<string | null>(null);
-  const {logSessionMetricEvent} = useLogSessionMetricEvents();
+  const logSessionMetricEvent = useLogSessionMetricEvents();
 
   const onCodeType = useCallback(() => {
     setErrorString(null);
@@ -44,7 +44,7 @@ const AddSessionModal = () => {
     async (value: Session['inviteCode']) => {
       try {
         const session = await joinSession(value);
-        logSessionMetricEvent('Add Sharing Session');
+        logSessionMetricEvent('Add Sharing Session', session);
         fetchSessions();
         goBack();
         navigate('SessionModal', {session: session});

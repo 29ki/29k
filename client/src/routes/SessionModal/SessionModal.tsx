@@ -149,7 +149,7 @@ const SessionModal = () => {
   const [sessionDate, setSessionDate] = useState<dayjs.Dayjs>(initialStartTime);
   const [sessionTime, setSessionTime] = useState<dayjs.Dayjs>(initialStartTime);
   const {togglePinSession, isSessionPinned} = usePinnedSessons();
-  const {logSessionMetricEvent} = useLogSessionMetricEvents();
+  const logSessionMetricEvent = useLogSessionMetricEvents();
 
   const sessionPinned = useMemo(
     () => isSessionPinned(session),
@@ -176,7 +176,7 @@ const SessionModal = () => {
         sessionId: session.id,
       },
     });
-    logSessionMetricEvent('Join Sharing Session');
+    logSessionMetricEvent('Join Sharing Session', session);
   }, [navigation, session, logSessionMetricEvent]);
 
   const onTogglePinSession = useCallback(() => {
@@ -191,15 +191,15 @@ const SessionModal = () => {
       dayjs(session.startTime),
       dayjs(session.startTime).add(30, 'minutes'),
     );
-    logSessionMetricEvent('Add Sharing Session To Calendar');
+    logSessionMetricEvent('Add Sharing Session To Calendar', session);
   }, [addToCalendar, exercise, session, logSessionMetricEvent]);
 
   const onToggleReminder = useCallback(() => {
     toggleReminder(!reminderEnabled);
     if (!reminderEnabled) {
-      logSessionMetricEvent('Add Sharing Session Reminder');
+      logSessionMetricEvent('Add Sharing Session Reminder', session);
     }
-  }, [reminderEnabled, toggleReminder, logSessionMetricEvent]);
+  }, [reminderEnabled, toggleReminder, session, logSessionMetricEvent]);
 
   const onShare = useCallback(() => {
     if (session.link) {
