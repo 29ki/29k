@@ -13,16 +13,21 @@ const useDeleteUser = () => {
   const [deletingUser, setDeletingUser] = useState(false);
 
   const deleteData = useCallback(async () => {
-    setDeletingUser(true);
-    await auth().currentUser?.delete();
-    resetAppState();
-    resetUserState(true);
-    setDeletingUser(false);
+    try {
+      setDeletingUser(true);
+      await auth().currentUser?.delete();
+      resetAppState();
+      resetUserState(true);
+      setDeletingUser(false);
+    } catch (e: any) {
+      setDeletingUser(false);
+      throw e;
+    }
   }, [resetAppState, resetUserState]);
 
   const deleteUser = useCallback(
     () =>
-      new Promise(resolve => {
+      new Promise((resolve, reject) => {
         Alert.alert(t('header'), t('text'), [
           {
             text: t('buttons.cancel'),
@@ -33,8 +38,12 @@ const useDeleteUser = () => {
             text: t('buttons.confirm'),
             style: 'destructive',
             onPress: async () => {
-              await deleteData();
-              resolve(true);
+              try {
+                await deleteData();
+                resolve(true);
+              } catch (e: any) {
+                reject(e);
+              }
             },
           },
         ]);
