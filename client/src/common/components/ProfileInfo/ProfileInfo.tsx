@@ -37,9 +37,9 @@ const StyledButton = styled(Button)<{customDisabled: boolean}>(
 const ProfileInfo = () => {
   const {t} = useTranslation('Component.ProfileInfo');
   const user = useUser();
-  const {changeProfilePicture, updatingProfilePicture} =
+  const {changeProfilePicture, isUpdatingProfilePicture} =
     useChangeProfilePicture();
-  const {updateProfileDetails, updatingProfileDetails} =
+  const {updateProfileDetails, isUpdatingProfileDetails} =
     useUpdateProfileDetails();
   const [displayName, setDisplayName] = useState(user?.displayName ?? '');
   const [nameMissing, setNameMissing] = useState(false);
@@ -84,7 +84,7 @@ const ProfileInfo = () => {
       <ProfilePicture
         pictureURL={user?.photoURL}
         hasError={pictureMissing}
-        loading={updatingProfilePicture}
+        loading={isUpdatingProfilePicture}
         onPress={changeProfilePicture}
         size={SPACINGS.NINTYSIX}
       />
@@ -102,8 +102,8 @@ const ProfileInfo = () => {
         <Spacer16 />
         <StyledButton
           customDisabled={displayName.length < 2 || !user?.photoURL}
-          disabled={updatingProfileDetails}
-          loading={updatingProfileDetails}
+          disabled={isUpdatingProfileDetails}
+          loading={isUpdatingProfileDetails}
           onPress={onSave}>
           {t('cta')}
         </StyledButton>

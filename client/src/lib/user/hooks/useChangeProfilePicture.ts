@@ -61,7 +61,8 @@ const uploadProfilePicture = async (
 
 const useChangeProfilePicture = () => {
   const {t} = useTranslation('Alert.ChangeProfilePicture');
-  const [updatingProfilePicture, setUpdatingProfilePicture] = useState(false);
+  const [isUpdatingProfilePicture, setIsUpdatingProfilePicture] =
+    useState(false);
 
   const changeProfilePicture = useCallback(async () => {
     if (!auth().currentUser) {
@@ -95,11 +96,11 @@ const useChangeProfilePicture = () => {
     const captureProfilePicture = async () => {
       try {
         const image = await openCamera(imagePickerOptions);
-        setUpdatingProfilePicture(true);
+        setIsUpdatingProfilePicture(true);
         await uploadProfilePicture(image.path, currentUser);
-        setUpdatingProfilePicture(false);
+        setIsUpdatingProfilePicture(false);
       } catch (error: any) {
-        setUpdatingProfilePicture(false);
+        setIsUpdatingProfilePicture(false);
         if (error.code !== E_PICKER_CANCELLED) {
           console.error(
             new Error('Select profile from camera failed:', {
@@ -158,12 +159,12 @@ const useChangeProfilePicture = () => {
           case optionIndex.LIBRARY:
             openPicker(imagePickerOptions).then(
               async image => {
-                setUpdatingProfilePicture(true);
+                setIsUpdatingProfilePicture(true);
                 await uploadProfilePicture(image.path, currentUser);
-                setUpdatingProfilePicture(false);
+                setIsUpdatingProfilePicture(false);
               },
               error => {
-                setUpdatingProfilePicture(false);
+                setIsUpdatingProfilePicture(false);
                 if (error.code !== E_PICKER_CANCELLED) {
                   console.error(
                     new Error('Select profile from library failed:', {
@@ -175,9 +176,9 @@ const useChangeProfilePicture = () => {
             );
             break;
           case optionIndex.REMOVE: {
-            setUpdatingProfilePicture(true);
+            setIsUpdatingProfilePicture(true);
             await removeProfilePicture(currentUser);
-            setUpdatingProfilePicture(false);
+            setIsUpdatingProfilePicture(false);
             break;
           }
           default:
@@ -185,9 +186,12 @@ const useChangeProfilePicture = () => {
         }
       },
     );
-  }, [t, setUpdatingProfilePicture]);
+  }, [t, setIsUpdatingProfilePicture]);
 
-  return {changeProfilePicture, updatingProfilePicture};
+  return {
+    changeProfilePicture,
+    isUpdatingProfilePicture,
+  };
 };
 
 export default useChangeProfilePicture;

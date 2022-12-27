@@ -10,17 +10,17 @@ const useDeleteUser = () => {
   const {t} = useTranslation('Component.DeleteData');
   const resetAppState = useAppState(state => state.reset);
   const resetUserState = useUserState(state => state.reset);
-  const [deletingUser, setDeletingUser] = useState(false);
+  const [isDeletingUser, setIsDeletingUser] = useState(false);
 
   const deleteData = useCallback(async () => {
     try {
-      setDeletingUser(true);
+      setIsDeletingUser(true);
       await auth().currentUser?.delete();
       resetAppState();
       resetUserState(true);
-      setDeletingUser(false);
+      setIsDeletingUser(false);
     } catch (e: any) {
-      setDeletingUser(false);
+      setIsDeletingUser(false);
       throw e;
     }
   }, [resetAppState, resetUserState]);
@@ -51,7 +51,7 @@ const useDeleteUser = () => {
     [t, deleteData],
   );
 
-  return {deleteUser, deletingUser};
+  return {deleteUser, isDeletingUser};
 };
 
 export default useDeleteUser;

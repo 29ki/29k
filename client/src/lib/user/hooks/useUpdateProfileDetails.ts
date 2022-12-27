@@ -8,12 +8,13 @@ type UpdateProfileDetails = (profileDetails: {
 }) => Promise<void>;
 
 const useUpdateProfileDetails = () => {
-  const [updatingProfileDetails, setUpdatingProfileDetails] = useState(false);
+  const [isUpdatingProfileDetails, setIsUpdatingProfileDetails] =
+    useState(false);
 
   const updateProfileDetails = useCallback<UpdateProfileDetails>(
     async ({displayName, email, password}) => {
       try {
-        setUpdatingProfileDetails(true);
+        setIsUpdatingProfileDetails(true);
 
         if (!auth().currentUser) {
           await auth().signInAnonymously();
@@ -49,16 +50,19 @@ const useUpdateProfileDetails = () => {
           await currentUser?.updateProfile({displayName});
         }
 
-        setUpdatingProfileDetails(false);
+        setIsUpdatingProfileDetails(false);
       } catch (e: any) {
-        setUpdatingProfileDetails(false);
+        setIsUpdatingProfileDetails(false);
         throw e;
       }
     },
-    [setUpdatingProfileDetails],
+    [setIsUpdatingProfileDetails],
   );
 
-  return {updateProfileDetails, updatingProfileDetails};
+  return {
+    updateProfileDetails,
+    isUpdatingProfileDetails,
+  };
 };
 
 export default useUpdateProfileDetails;
