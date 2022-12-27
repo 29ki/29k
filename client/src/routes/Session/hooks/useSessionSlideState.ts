@@ -16,7 +16,7 @@ const useSessionSlideState = (): SessionSlideState | null => {
   const excercise = useSessionExercise();
 
   return useMemo(() => {
-    if (!excercise || !exerciseState) {
+    if (!excercise || typeof exerciseState?.index !== 'number') {
       return null;
     }
 
@@ -31,7 +31,7 @@ const useSessionSlideState = (): SessionSlideState | null => {
       current,
       next,
     };
-  }, [excercise, exerciseState]);
+  }, [excercise, exerciseState?.index]);
 };
 
 export default useSessionSlideState;

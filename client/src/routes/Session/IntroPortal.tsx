@@ -46,6 +46,7 @@ import Badge from '../../common/components/Badge/Badge';
 import useSessionStartTime from './hooks/useSessionStartTime';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import AudioFader from './components/AudioFader/AudioFader';
+import useLogSessionMetricEvents from './hooks/useLogSessionMetricEvents';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -109,17 +110,24 @@ const IntroPortal: React.FC = () => {
   const isFocused = useIsFocused();
   useSubscribeToSessionIfFocused(sessionId);
   const sessionTime = useSessionStartTime(dayjs(session?.startTime));
+  const {logSessionMetricEvent} = useLogSessionMetricEvents();
 
   const introPortal = exercise?.introPortal;
   const textColor = exercise?.theme?.textColor;
   const started = session?.started;
 
+  usePreventGoingBack(leaveSessionWithConfirm);
+
+  useEffect(() => {
+    if (session?.id) {
+      logSessionMetricEvent('Enter Intro Portal');
+    }
+  }, [logSessionMetricEvent, session?.id]);
+
   const navigateToSession = useCallback(
     () => navigate('Session', {sessionId: sessionId}),
     [navigate, sessionId],
   );
-
-  usePreventGoingBack(leaveSessionWithConfirm);
 
   useEffect(() => {
     if (session?.started && !endVideoRef.current) {
@@ -127,6 +135,13 @@ const IntroPortal: React.FC = () => {
       navigateToSession();
     }
   }, [session?.started, navigateToSession]);
+
+  const onStartPress = useCallback(() => {
+    setStarted();
+    if (session?.id) {
+      logSessionMetricEvent('Start Sharing Session');
+    }
+  }, [setStarted, logSessionMetricEvent, session?.id]);
 
   const onEndVideoLoad = () => {
     endVideoRef.current?.seek(0);
@@ -219,7 +234,10 @@ const IntroPortal: React.FC = () => {
                 </Button>
               )}
               {isHost && (
-                <Button small disabled={session?.started} onPress={setStarted}>
+                <Button
+                  small
+                  disabled={session?.started}
+                  onPress={onStartPress}>
                   {session?.started ? t('sessionStarted') : t('startSession')}
                 </Button>
               )}

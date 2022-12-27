@@ -165,6 +165,20 @@ const SessionModal = () => {
     .utc()
     .isAfter(initialStartTime.subtract(10, 'minutes'));
 
+  const isHost = user?.uid === session.hostId;
+
+  const metricProperties = useMemo(
+    () => ({
+      'Sharing Session ID': session.id,
+      'Sharing Session Type': session.type,
+      'Sharing Session Start Time': session.startTime,
+      'Exercise ID': session.contentId,
+      Host: isHost,
+      Language: session.language,
+    }),
+    [session, isHost],
+  );
+
   const onJoin = useCallback(() => {
     navigation.popToTop();
     navigation.navigate('SessionStack', {
@@ -173,20 +187,8 @@ const SessionModal = () => {
         sessionId: session.id,
       },
     });
-    metrics.logEvent('Join Session', {
-      'Session Exercise ID': session.contentId,
-      'Session Language': session.language,
-      'Session Type': session.type,
-      'Session Start Time': session.startTime,
-    });
-  }, [
-    session.startTime,
-    session.type,
-    session.contentId,
-    session.language,
-    session.id,
-    navigation,
-  ]);
+    metrics.logEvent('Join Sharing Session', metricProperties);
+  }, [navigation, session.id, metricProperties]);
 
   const onTogglePinSession = useCallback(() => {
     togglePinSession(session);
@@ -200,41 +202,15 @@ const SessionModal = () => {
       dayjs(session.startTime),
       dayjs(session.startTime).add(30, 'minutes'),
     );
-    metrics.logEvent('Add Session To Calendar', {
-      'Session Exercise ID': session.contentId,
-      'Session Language': session.language,
-      'Session Type': session.type,
-      'Session Start Time': session.startTime,
-    });
-  }, [
-    exercise,
-    session.startTime,
-    session.type,
-    session.contentId,
-    session.language,
-    addToCalendar,
-    session.hostProfile?.displayName,
-    session.link,
-  ]);
+    metrics.logEvent('Add Sharing Session To Calendar', metricProperties);
+  }, [addToCalendar, exercise, session, metricProperties]);
 
   const onToggleReminder = useCallback(() => {
     toggleReminder(!reminderEnabled);
     if (!reminderEnabled) {
-      metrics.logEvent('Add Session Reminder', {
-        'Session Exercise ID': session.contentId,
-        'Session Language': session.language,
-        'Session Type': session.type,
-        'Session Start Time': session.startTime,
-      });
+      metrics.logEvent('Add Sharing Session Reminder', metricProperties);
     }
-  }, [
-    reminderEnabled,
-    session.contentId,
-    session.language,
-    session.type,
-    session.startTime,
-    toggleReminder,
-  ]);
+  }, [reminderEnabled, toggleReminder, metricProperties]);
 
   const onShare = useCallback(() => {
     if (session.link) {
@@ -363,15 +339,14 @@ const SessionModal = () => {
                   <Spacer8 />
                 </>
               )}
-              {user?.uid === session.hostId && (
+              {isHost ? (
                 <EditButton onPress={onEditMode}>
                   <SessionTimeBadge session={session} />
                   <EditIcon>
                     <PencilIcon />
                   </EditIcon>
                 </EditButton>
-              )}
-              {user?.uid !== session.hostId && (
+              ) : (
                 <SessionTimeBadge session={session} />
               )}
             </Row>
@@ -380,7 +355,7 @@ const SessionModal = () => {
           <Spacer16 />
           <Gutters>
             <IntersetedWrapper onPress={onTogglePinSession}>
-              <Interested active={sessionPinned} />
+              <Interested active={sessionPinned} onPress={onTogglePinSession} />
               <RadioButton
                 onPress={onTogglePinSession}
                 active={sessionPinned}

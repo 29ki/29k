@@ -5,9 +5,9 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
 import {useCallback, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-
 import styled from 'styled-components/native';
 
+import * as metrics from '../../../../lib/metrics';
 import Button from '../../../../common/components/Buttons/Button';
 import Byline from '../../../../common/components/Bylines/Byline';
 import Image from '../../../../common/components/Image/Image';
@@ -82,6 +82,14 @@ const SetDateTimeStep: React.FC<StepProps> = ({
         language: i18n.resolvedLanguage as LANGUAGE_TAG,
       });
       setIsLoading(false);
+      metrics.logEvent('Create Sharing Session', {
+        'Sharing Session ID': session.id,
+        'Sharing Session Type': session.type,
+        'Sharing Session Start Time': session.startTime,
+        'Exercise ID': session.contentId,
+        Host: true,
+        Language: session.language,
+      });
       goBack();
       navigate('SessionModal', {session});
     }
@@ -135,7 +143,12 @@ const SetDateTimeStep: React.FC<StepProps> = ({
         onToggle={onToggle}
       />
       <Spacer16 />
-      <Cta variant="secondary" small onPress={onSubmit} disabled={isLoading}>
+      <Cta
+        variant="secondary"
+        small
+        onPress={onSubmit}
+        loading={isLoading}
+        disabled={isLoading}>
         {t('setDateTime.cta')}
       </Cta>
       <Spacer16 />

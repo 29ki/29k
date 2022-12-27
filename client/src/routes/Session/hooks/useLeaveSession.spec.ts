@@ -21,6 +21,12 @@ jest.mock('../state/state', () =>
   jest.fn(fn => fn({reset: mockResetSessionState})),
 );
 
+const mockConditionallyLogLeaveSessionMetricEvent = jest.fn();
+jest.mock('./useLogSessionMetricEvents', () => () => ({
+  conditionallyLogLeaveSessionMetricEvent:
+    mockConditionallyLogLeaveSessionMetricEvent,
+}));
+
 afterEach(() => {
   jest.clearAllMocks();
 });
@@ -80,6 +86,9 @@ describe('useLeaveSession', () => {
       expect(alertConfirmMock).toHaveBeenCalledTimes(1);
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
       expect(mockResetSessionState).toHaveBeenCalledTimes(1);
+      expect(mockConditionallyLogLeaveSessionMetricEvent).toHaveBeenCalledTimes(
+        1,
+      );
       expect(navigation.navigate as jest.Mock).toHaveBeenCalledTimes(1);
     });
 

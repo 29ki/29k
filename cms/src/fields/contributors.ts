@@ -29,6 +29,10 @@ const contributionTypes = {
     symbol: '🫂',
     description: 'Core Team',
   },
+  community: {
+    symbol: '❤️',
+    description: 'Community',
+  },
   a11y: {
     symbol: '️️️️♿️',
     description: 'Accessibility',
