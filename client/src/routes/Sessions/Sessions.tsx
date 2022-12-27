@@ -106,9 +106,14 @@ const Sessions = () => {
   }, [fetchSessions]);
 
   const refreshPull = useCallback(async () => {
-    setIsLoading(true);
-    await fetchSessions();
-    setIsLoading(false);
+    try {
+      setIsLoading(true);
+      await fetchSessions();
+      setIsLoading(false);
+    } catch (e: any) {
+      setIsLoading(false);
+      throw e;
+    }
   }, [setIsLoading, fetchSessions]);
 
   const renderSession = ({item}: ListRenderItemInfo<Session>) => (
