@@ -27,7 +27,7 @@ describe('useDeleteUser', () => {
   it('shows a confirm dialogue', async () => {
     const {result} = renderHook(() => useDeleteUser());
 
-    result.current();
+    result.current.deleteUser();
 
     expect(alertConfirmMock).toHaveBeenCalledTimes(1);
     expect(alertConfirmMock).toHaveBeenCalledWith(
@@ -56,7 +56,7 @@ describe('useDeleteUser', () => {
 
     const {result} = renderHook(() => useDeleteUser());
 
-    expect(await result.current()).toBe(true);
+    expect(await result.current.deleteUser()).toBe(true);
     expect(alertConfirmMock).toHaveBeenCalledTimes(1);
     expect(auth().currentUser?.delete).toHaveBeenCalledTimes(1);
     expect(mockResetSessionState).toHaveBeenCalledTimes(1);
@@ -72,7 +72,7 @@ describe('useDeleteUser', () => {
 
     const {result} = renderHook(() => useDeleteUser());
 
-    expect(await result.current()).toBe(false);
+    expect(await result.current.deleteUser()).toBe(false);
     expect(alertConfirmMock).toHaveBeenCalledTimes(1);
     expect(auth().currentUser?.delete).toHaveBeenCalledTimes(0);
     expect(mockResetSessionState).toHaveBeenCalledTimes(0);
