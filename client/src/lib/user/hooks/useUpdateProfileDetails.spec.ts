@@ -17,7 +17,9 @@ describe('useUpdateProfileDetails', () => {
 
     const {result} = renderHook(() => useUpdateProfileDetails());
 
-    await result.current({displayName: 'Some Display Name'});
+    await result.current.updateProfileDetails({
+      displayName: 'Some Display Name',
+    });
 
     expect(auth().signInAnonymously).toHaveBeenCalledTimes(1);
   });
@@ -25,7 +27,9 @@ describe('useUpdateProfileDetails', () => {
   it('updates the users displayName', async () => {
     const {result} = renderHook(() => useUpdateProfileDetails());
 
-    await result.current({displayName: 'Some Display Name'});
+    await result.current.updateProfileDetails({
+      displayName: 'Some Display Name',
+    });
 
     expect(auth().currentUser?.updateProfile).toHaveBeenCalledTimes(1);
     expect(auth().currentUser?.updateProfile).toHaveBeenCalledWith({
@@ -39,7 +43,7 @@ describe('useUpdateProfileDetails', () => {
   it('allows setting displayName to empty string', async () => {
     const {result} = renderHook(() => useUpdateProfileDetails());
 
-    await result.current({displayName: ''});
+    await result.current.updateProfileDetails({displayName: ''});
 
     expect(auth().currentUser?.updateProfile).toHaveBeenCalledTimes(1);
     expect(auth().currentUser?.updateProfile).toHaveBeenCalledWith({
@@ -56,7 +60,9 @@ describe('useUpdateProfileDetails', () => {
     console.log('FOO', auth().currentUser);
     const {result} = renderHook(() => useUpdateProfileDetails());
 
-    await result.current({displayName: 'Some Display Name'});
+    await result.current.updateProfileDetails({
+      displayName: 'Some Display Name',
+    });
 
     expect(auth().currentUser?.updateProfile).toHaveBeenCalledTimes(0);
     expect(auth().currentUser?.updateEmail).toHaveBeenCalledTimes(0);
@@ -72,7 +78,10 @@ describe('useUpdateProfileDetails', () => {
       const {result} = renderHook(() => useUpdateProfileDetails());
 
       await expect(
-        async () => await result.current({email: 'some@email.address'}),
+        async () =>
+          await result.current.updateProfileDetails({
+            email: 'some@email.address',
+          }),
       ).rejects.toThrow('auth/password-missing');
 
       expect(auth().currentUser?.updateEmail).toHaveBeenCalledTimes(0);
@@ -88,7 +97,7 @@ describe('useUpdateProfileDetails', () => {
     it('updates the users email', async () => {
       const {result} = renderHook(() => useUpdateProfileDetails());
 
-      await result.current({email: 'some@email.address'});
+      await result.current.updateProfileDetails({email: 'some@email.address'});
 
       expect(auth().currentUser?.updateEmail).toHaveBeenCalledTimes(1);
       expect(auth().currentUser?.updateEmail).toHaveBeenCalledWith(
@@ -106,7 +115,7 @@ describe('useUpdateProfileDetails', () => {
 
       const {result} = renderHook(() => useUpdateProfileDetails());
 
-      await result.current({email: 'some@email.address'});
+      await result.current.updateProfileDetails({email: 'some@email.address'});
 
       expect(auth().currentUser?.updateProfile).toHaveBeenCalledTimes(0);
       expect(auth().currentUser?.updateEmail).toHaveBeenCalledTimes(0);
@@ -116,7 +125,7 @@ describe('useUpdateProfileDetails', () => {
     it('updates the users password', async () => {
       const {result} = renderHook(() => useUpdateProfileDetails());
 
-      await result.current({password: 'somepassword'});
+      await result.current.updateProfileDetails({password: 'somepassword'});
 
       expect(auth().currentUser?.updatePassword).toHaveBeenCalledTimes(1);
       expect(auth().currentUser?.updatePassword).toHaveBeenCalledWith(

@@ -30,21 +30,25 @@ const SignInModal = () => {
   const {popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
+  const [isSigningIn, setIsSigningIn] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const signIn = useCallback(async () => {
     try {
+      setIsSigningIn(true);
       if (auth().currentUser) {
         await auth().signOut();
       }
       await auth().signInWithEmailAndPassword(email, password);
+      setIsSigningIn(false);
       popToTop();
     } catch (e: any) {
+      setIsSigningIn(false);
       setError(e.code ?? e.message);
     }
-  }, [popToTop, email, password]);
+  }, [setIsSigningIn, popToTop, email, password]);
 
   return (
     <SheetModal>
@@ -82,7 +86,11 @@ const SignInModal = () => {
             <Spacer16 />
           </>
         )}
-        <StyledButton variant="primary" onPress={signIn}>
+        <StyledButton
+          variant="primary"
+          disabled={isSigningIn}
+          loading={isSigningIn}
+          onPress={signIn}>
           {t('signIn')}
         </StyledButton>
       </Gutters>

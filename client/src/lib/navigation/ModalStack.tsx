@@ -70,7 +70,7 @@ const ModalStack = () => {
     () => ({
       ...modalScreenOptions,
       // Please note - Having a fixed snap point as first value improves keyboard input focus on Android
-      snapPoints: [380, '75%', '100%'],
+      snapPoints: [460, '75%', '100%'],
       style: {
         // Using margin instead of topInset to make the shadow visible when snapped at 100%
         marginTop: top,
@@ -86,7 +86,7 @@ const ModalStack = () => {
     () => ({
       ...sheetModalScreenOptions,
       // Please note - Having a fixed snap point as first value improves keyboard input focus on Android
-      snapPoints: [250, '75%', '100%'],
+      snapPoints: [340, '100%'],
     }),
     [sheetModalScreenOptions],
   );
@@ -143,15 +143,15 @@ const ModalStack = () => {
         <Screen name={'PartnersModal'} component={PartnersModal} />
         <Screen name={'DeveloperModal'} component={DeveloperModal} />
         <Screen name={'ContactModal'} component={ContactModal} />
-      </Group>
-
-      <Group screenOptions={cardModalScreenOptions}>
-        <Screen name={'AddSessionModal'} component={AddSessionModal} />
         <Screen
           name={'SignInModal'}
           component={SignInModal}
           options={shortSheetModalScreenOptions}
         />
+      </Group>
+
+      <Group screenOptions={cardModalScreenOptions}>
+        <Screen name={'AddSessionModal'} component={AddSessionModal} />
       </Group>
     </Navigator>
   );
