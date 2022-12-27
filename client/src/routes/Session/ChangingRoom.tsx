@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useState} from 'react';
 import {
   RouteProp,
   useIsFocused,
@@ -116,7 +116,8 @@ const ChangingRoom = () => {
     setUserName,
     joinMeeting,
     preJoinMeeting,
-    hasAppPermissions,
+    hasCameraPermissions,
+    hasMicrophonePermissions,
   } = useContext(DailyContext);
 
   const session = useSessionState(state => state.session);
@@ -132,6 +133,9 @@ const ChangingRoom = () => {
   const user = useUser();
   const [localUserName, setLocalUserName] = useState(user?.displayName ?? '');
   const {logSessionMetricEvent} = useLogSessionMetricEvents();
+
+  const hasAudio = Boolean(me?.audioTrack);
+  const hasVideo = Boolean(me?.videoTrack);
 
   useEffect(() => {
     if (session?.id) {
@@ -151,11 +155,11 @@ const ChangingRoom = () => {
     }
   }, [isHost, me?.user_id, setSpotlightParticipant]);
 
-  const join = async () => {
+  const join = useCallback(async () => {
     setJoiningMeeting(true);
     if (session?.started) {
       await joinMeeting();
-      navigate('Session', {sessionId: sessionId});
+      navigate('Session', {sessionId});
     } else {
       await joinMeeting({
         subscribeToTracksAutomatically: false,
@@ -163,34 +167,87 @@ const ChangingRoom = () => {
           inPortal: true,
         },
       });
-      navigate('IntroPortal', {sessionId: sessionId});
+      navigate('IntroPortal', {sessionId});
     }
-  };
+  }, [setJoiningMeeting, sessionId, session?.started, joinMeeting, navigate]);
 
-  const permissionsAlert = () =>
-    Alert.alert(t('permissionsAlert.title'), t('permissionsAlert.message'), [
-      {
-        text: t('permissionsAlert.join'),
-        onPress: join,
-      },
-      {
-        style: 'cancel',
-        text: t('permissionsAlert.openSettings'),
-        onPress: () => Linking.openSettings(),
-      },
-    ]);
+  const permissionsAlert = useCallback(
+    () =>
+      Alert.alert(
+        t('permissionsAlert.join.title'),
+        t('permissionsAlert.join.message'),
+        [
+          {
+            text: t('permissionsAlert.join.dismiss'),
+            onPress: join,
+          },
+          {
+            style: 'cancel',
+            text: t('permissionsAlert.join.confirm'),
+            onPress: () => Linking.openSettings(),
+          },
+        ],
+      ),
+    [t, join],
+  );
 
-  const handleJoin = () => {
+  const joinPress = useCallback(() => {
     setUserName(localUserName);
-    if (hasAppPermissions()) {
+    if (hasCameraPermissions() && hasMicrophonePermissions()) {
       join();
     } else {
       permissionsAlert();
     }
-  };
+  }, [
+    localUserName,
+    setUserName,
+    hasCameraPermissions,
+    hasMicrophonePermissions,
+    join,
+    permissionsAlert,
+  ]);
 
-  const hasAudio = Boolean(me?.audioTrack);
-  const hasVideo = Boolean(me?.videoTrack);
+  const toggleAudioPress = useCallback(() => {
+    if (hasMicrophonePermissions()) {
+      toggleAudio(!hasAudio);
+    } else {
+      Alert.alert(
+        t('permissionsAlert.microphone.title'),
+        t('permissionsAlert.microphone.message'),
+        [
+          {
+            text: t('permissionsAlert.microphone.dismiss'),
+          },
+          {
+            style: 'cancel',
+            text: t('permissionsAlert.microphone.confirm'),
+            onPress: () => Linking.openSettings(),
+          },
+        ],
+      );
+    }
+  }, [t, hasMicrophonePermissions, toggleAudio, hasAudio]);
+
+  const toggleVideoPress = useCallback(() => {
+    if (hasCameraPermissions()) {
+      toggleVideo(!hasVideo);
+    } else {
+      Alert.alert(
+        t('permissionsAlert.camera.title'),
+        t('permissionsAlert.camera.message'),
+        [
+          {
+            text: t('permissionsAlert.camera.dismiss'),
+          },
+          {
+            style: 'cancel',
+            text: t('permissionsAlert.camera.confirm'),
+            onPress: () => Linking.openSettings(),
+          },
+        ],
+      );
+    }
+  }, [t, hasCameraPermissions, toggleVideo, hasVideo]);
 
   return (
     <Screen onPressBack={goBack}>
@@ -223,14 +280,14 @@ const ChangingRoom = () => {
               <Controls>
                 <IconButton
                   disabled
-                  onPress={() => toggleAudio(!hasAudio)}
+                  onPress={toggleAudioPress}
                   active={hasAudio}
                   variant="secondary"
                   Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
                 />
                 <Spacer16 />
                 <IconButton
-                  onPress={() => toggleVideo(!hasVideo)}
+                  onPress={toggleVideoPress}
                   active={hasVideo}
                   variant="secondary"
                   Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
@@ -250,7 +307,7 @@ const ChangingRoom = () => {
                 <Spacer28 />
                 <Button
                   variant="secondary"
-                  onPress={handleJoin}
+                  onPress={joinPress}
                   loading={joiningMeeting}
                   disabled={!localUserName.length || joiningMeeting}>
                   {t('join_button')}

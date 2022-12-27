@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useCallback, useContext, useEffect} from 'react';
 import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 
@@ -46,6 +46,7 @@ import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocu
 import useExerciseTheme from './hooks/useExerciseTheme';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import useLogSessionMetricEvents from './hooks/useLogSessionMetricEvents';
+import {Alert, Linking} from 'react-native';
 
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
@@ -91,6 +92,8 @@ const StyledHangUpIcon = () => <HangUpIcon fill={COLORS.ACTIVE} />;
 
 const Session = () => {
   const {
+    hasMicrophonePermissions,
+    hasCameraPermissions,
     setUserData,
     toggleAudio,
     toggleVideo,
@@ -118,6 +121,9 @@ const Session = () => {
     useLogSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession();
   const user = useUser();
+
+  const hasAudio = Boolean(me?.audioTrack);
+  const hasVideo = Boolean(me?.videoTrack);
 
   usePreventGoingBack(leaveSessionWithConfirm);
 
@@ -152,8 +158,47 @@ const Session = () => {
     setSubscribeToAllTracks();
   }, [setUserData, setSubscribeToAllTracks, user?.photoURL]);
 
-  const hasAudio = Boolean(me?.audioTrack);
-  const hasVideo = Boolean(me?.videoTrack);
+  const toggleAudioPress = useCallback(() => {
+    if (hasMicrophonePermissions()) {
+      toggleAudio(!hasAudio);
+    } else {
+      Alert.alert(
+        t('permissionsAlert.microphone.title'),
+        t('permissionsAlert.microphone.message'),
+        [
+          {
+            text: t('permissionsAlert.microphone.dismiss'),
+          },
+          {
+            style: 'cancel',
+            text: t('permissionsAlert.microphone.confirm'),
+            onPress: () => Linking.openSettings(),
+          },
+        ],
+      );
+    }
+  }, [t, hasMicrophonePermissions, toggleAudio, hasAudio]);
+
+  const toggleVideoPress = useCallback(() => {
+    if (hasCameraPermissions()) {
+      toggleVideo(!hasVideo);
+    } else {
+      Alert.alert(
+        t('permissionsAlert.camera.title'),
+        t('permissionsAlert.camera.message'),
+        [
+          {
+            text: t('permissionsAlert.camera.dismiss'),
+          },
+          {
+            style: 'cancel',
+            text: t('permissionsAlert.camera.confirm'),
+            onPress: () => Linking.openSettings(),
+          },
+        ],
+      );
+    }
+  }, [t, hasCameraPermissions, toggleVideo, hasVideo]);
 
   return (
     <Screen backgroundColor={theme?.backgroundColor}>
@@ -194,14 +239,14 @@ const Session = () => {
       <Spacer16 />
       <SessionControls>
         <IconButton
-          onPress={() => toggleAudio(!hasAudio)}
+          onPress={toggleAudioPress}
           active={!hasAudio}
           variant="secondary"
           Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
         />
         <Spacer12 />
         <IconButton
-          onPress={() => toggleVideo(!hasVideo)}
+          onPress={toggleVideoPress}
           active={!hasVideo}
           variant="secondary"
           Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
