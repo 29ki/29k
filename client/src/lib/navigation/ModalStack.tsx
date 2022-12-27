@@ -70,7 +70,7 @@ const ModalStack = () => {
     () => ({
       ...modalScreenOptions,
       // Please note - Having a fixed snap point as first value improves keyboard input focus on Android
-      snapPoints: [380, '75%', '100%'],
+      snapPoints: [460, '75%', '100%'],
       style: {
         // Using margin instead of topInset to make the shadow visible when snapped at 100%
         marginTop: top,
@@ -80,6 +80,15 @@ const ModalStack = () => {
       },
     }),
     [top],
+  );
+
+  const shortSheetModalScreenOptions = useMemo(
+    () => ({
+      ...sheetModalScreenOptions,
+      // Please note - Having a fixed snap point as first value improves keyboard input focus on Android
+      snapPoints: [340, '100%'],
+    }),
+    [sheetModalScreenOptions],
   );
 
   const tallSheetModalScreenOptions = useMemo(
@@ -114,7 +123,11 @@ const ModalStack = () => {
       <Group screenOptions={sheetModalScreenOptions}>
         <Screen name={'SessionModal'} component={SessionModal} />
         <Screen name={'CreateSessionModal'} component={CreateSessionModal} />
-        <Screen name={'UpgradeAccountModal'} component={UpgradeAccountModal} />
+        <Screen
+          name={'UpgradeAccountModal'}
+          component={UpgradeAccountModal}
+          options={shortSheetModalScreenOptions}
+        />
         <Screen
           name={'SessionUnavailableModal'}
           component={SessionUnavailableModal}
@@ -130,7 +143,11 @@ const ModalStack = () => {
         <Screen name={'PartnersModal'} component={PartnersModal} />
         <Screen name={'DeveloperModal'} component={DeveloperModal} />
         <Screen name={'ContactModal'} component={ContactModal} />
-        <Screen name={'SignInModal'} component={SignInModal} />
+        <Screen
+          name={'SignInModal'}
+          component={SignInModal}
+          options={shortSheetModalScreenOptions}
+        />
       </Group>
 
       <Group screenOptions={cardModalScreenOptions}>
