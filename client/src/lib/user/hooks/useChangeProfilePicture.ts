@@ -4,7 +4,7 @@ import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {openCamera, openPicker} from 'react-native-image-crop-picker';
 import {Alert, PermissionsAndroid, Platform} from 'react-native';
 import ActionSheet from 'react-native-action-sheet';
-import {useCallback} from 'react';
+import {useCallback, useState} from 'react';
 import {STORAGE_ENDPOINT} from 'config';
 
 // react-native-image-crop-picker does not export any error
@@ -61,8 +61,9 @@ const uploadProfilePicture = async (
 
 const useChangeProfilePicture = () => {
   const {t} = useTranslation('Alert.ChangeProfilePicture');
+  const [updatingProfilePicture, setUpdatingProfilePicture] = useState(false);
 
-  return useCallback(async () => {
+  const changeProfilePicture = useCallback(async () => {
     if (!auth().currentUser) {
       await auth().signInAnonymously();
     }
@@ -91,21 +92,22 @@ const useChangeProfilePicture = () => {
       forceJpg: true,
     };
 
-    const captureProfilePicture = () => {
-      openCamera(imagePickerOptions).then(
-        async image => {
-          await uploadProfilePicture(image.path, currentUser);
-        },
-        error => {
-          if (error.code !== E_PICKER_CANCELLED) {
-            console.error(
-              new Error('Select profile from camera failed:', {
-                cause: error,
-              }),
-            );
-          }
-        },
-      );
+    const captureProfilePicture = async () => {
+      try {
+        const image = await openCamera(imagePickerOptions);
+        setUpdatingProfilePicture(true);
+        await uploadProfilePicture(image.path, currentUser);
+        setUpdatingProfilePicture(false);
+      } catch (error: any) {
+        setUpdatingProfilePicture(false);
+        if (error.code !== E_PICKER_CANCELLED) {
+          console.error(
+            new Error('Select profile from camera failed:', {
+              cause: error,
+            }),
+          );
+        }
+      }
     };
 
     ActionSheet.showActionSheetWithOptions(
@@ -117,7 +119,7 @@ const useChangeProfilePicture = () => {
       },
       async buttonIndex => {
         switch (buttonIndex) {
-          case optionIndex.CAMERA:
+          case optionIndex.CAMERA: {
             if (Platform.OS !== 'android') {
               captureProfilePicture();
             } else {
@@ -152,12 +154,16 @@ const useChangeProfilePicture = () => {
               }
             }
             break;
+          }
           case optionIndex.LIBRARY:
             openPicker(imagePickerOptions).then(
               async image => {
+                setUpdatingProfilePicture(true);
                 await uploadProfilePicture(image.path, currentUser);
+                setUpdatingProfilePicture(false);
               },
               error => {
+                setUpdatingProfilePicture(false);
                 if (error.code !== E_PICKER_CANCELLED) {
                   console.error(
                     new Error('Select profile from library failed:', {
@@ -169,7 +175,9 @@ const useChangeProfilePicture = () => {
             );
             break;
           case optionIndex.REMOVE: {
-            removeProfilePicture(currentUser);
+            setUpdatingProfilePicture(true);
+            await removeProfilePicture(currentUser);
+            setUpdatingProfilePicture(false);
             break;
           }
           default:
@@ -177,7 +185,9 @@ const useChangeProfilePicture = () => {
         }
       },
     );
-  }, [t]);
+  }, [t, setUpdatingProfilePicture]);
+
+  return {changeProfilePicture, updatingProfilePicture};
 };
 
 export default useChangeProfilePicture;
