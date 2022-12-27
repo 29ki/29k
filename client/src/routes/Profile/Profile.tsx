@@ -75,7 +75,7 @@ const Profile = () => {
   const {top} = useSafeAreaInsets();
   const user = useUser();
   const isPublicHost = useIsPublicHost();
-  const deleteUser = useDeleteUser();
+  const {deleteUser} = useDeleteUser();
 
   const profileSettingsPress = useCallback(
     () => navigate('ProfileSettingsModal'),
