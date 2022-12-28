@@ -27,7 +27,7 @@ const ImageContainer = styled.View({
 type BylineProps = {
   pictureURL?: string;
   name?: string;
-  duration?: string;
+  duration?: number;
 };
 
 const Byline: React.FC<BylineProps> = ({pictureURL, name, duration}) => {
