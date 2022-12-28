@@ -195,14 +195,16 @@ const SessionModal = () => {
   }, [session, togglePinSession]);
 
   const onAddToCalendar = useCallback(() => {
-    addToCalendar(
-      exercise?.name,
-      session.hostProfile?.displayName,
-      session.link,
-      dayjs(session.startTime),
-      dayjs(session.startTime).add(30, 'minutes'),
-    );
-    metrics.logEvent('Add Sharing Session To Calendar', metricProperties);
+    if (session && exercise) {
+      addToCalendar(
+        exercise.name,
+        session.hostProfile?.displayName,
+        session.link,
+        dayjs(session.startTime),
+        dayjs(session.startTime).add(exercise.duration, 'minutes'),
+      );
+      metrics.logEvent('Add Sharing Session To Calendar', metricProperties);
+    }
   }, [addToCalendar, exercise, session, metricProperties]);
 
   const onToggleReminder = useCallback(() => {

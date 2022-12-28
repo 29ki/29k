@@ -74,7 +74,7 @@ export interface ExerciseSlideContentSlideContentLottie {
   durationTimer?: boolean;
   description?: string;
   source?: string;
-  duration?: string;
+  duration?: number;
   audio?: string;
 }
 
@@ -109,7 +109,7 @@ export interface ExerciseSlideReflectionSlideContentLottie {
   durationTimer?: boolean;
   description?: string;
   source?: string;
-  duration?: string;
+  duration?: number;
   audio?: string;
 }
 
@@ -144,7 +144,7 @@ export interface ExerciseSlideSharingSlideContentLottie {
   durationTimer?: boolean;
   description?: string;
   source?: string;
-  duration?: string;
+  duration?: number;
   audio?: string;
 }
 
@@ -186,7 +186,7 @@ export interface ExerciseSlideHostSlide {
 export interface Exercise {
   id: any;
   name: string;
-  duration: string;
+  duration: number;
   published: boolean;
   hidden?: boolean;
   card: ExerciseCard;
