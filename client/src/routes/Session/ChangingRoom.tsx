@@ -144,10 +144,20 @@ const ChangingRoom = () => {
   }, [logSessionMetricEvent, session?.id]);
 
   useEffect(() => {
-    if (isFocused && session?.url) {
-      preJoinMeeting(session?.url);
+    if (isFocused && session?.url && session?.hostToken && session?.userToken) {
+      preJoinMeeting(
+        session?.url,
+        isHost ? session.hostToken : session.userToken,
+      );
     }
-  }, [isFocused, session?.url, preJoinMeeting]);
+  }, [
+    isFocused,
+    session?.url,
+    session?.hostToken,
+    session?.userToken,
+    preJoinMeeting,
+    isHost,
+  ]);
 
   useEffect(() => {
     if (isHost && me?.user_id) {

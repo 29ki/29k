@@ -29,7 +29,18 @@ export const createSession = async (
   }: Pick<Session, 'contentId' | 'type' | 'startTime' | 'language'>,
 ) => {
   const {displayName} = await userModel.getPublicUserInfo(userId);
-  const dailyRoom = await dailyApi.createRoom(dayjs(startTime).add(2, 'hour'));
+  const expireDate = dayjs(startTime).add(2, 'hour');
+  const dailyRoom = await dailyApi.createRoom(expireDate);
+  const hostToken = await dailyApi.createToken(
+    dailyRoom.name,
+    expireDate,
+    true,
+  );
+  const userToken = await dailyApi.createToken(
+    dailyRoom.name,
+    expireDate,
+    false,
+  );
   let inviteCode = generateVerificationCode();
 
   while (await sessionModel.getSessionByInviteCode({inviteCode})) {
@@ -47,6 +58,8 @@ export const createSession = async (
     id: dailyRoom.id,
     dailyRoomName: dailyRoom.name,
     url: dailyRoom.url,
+    hostToken: hostToken.token,
+    userToken: userToken.token,
     language,
     contentId,
     link,

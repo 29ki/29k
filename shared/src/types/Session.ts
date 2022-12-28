@@ -21,6 +21,8 @@ type SessionFields = {
   contentId: string;
   inviteCode: number;
   hostId: string;
+  hostToken: string;
+  userToken: string;
   started: boolean;
   ended: boolean;
   type: SessionType;

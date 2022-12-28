@@ -29,6 +29,8 @@ type Room = {
   };
 };
 
+type Token = {token: string};
+
 export const createRoom = async (expireDate: Dayjs): Promise<Room> => {
   const res = await fetch(`${DAILY_API_URL}/rooms`, {
     method: 'POST',
@@ -47,6 +49,33 @@ export const createRoom = async (expireDate: Dayjs): Promise<Room> => {
 
   if (!res.ok) {
     throw new Error(`Failed creating room, ${await res.text()}`);
+  }
+
+  return res.json();
+};
+
+export const createToken = async (
+  roomName: string,
+  expireDate: Dayjs,
+  isOwner: boolean,
+): Promise<Token> => {
+  const res = await fetch(`${DAILY_API_URL}/meeting-tokens`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${DAILY_API_KEY}`,
+    },
+    body: JSON.stringify({
+      properties: {
+        room_name: roomName,
+        exp: expireDate.unix(),
+        is_owner: isOwner,
+      },
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Failed creating room token, ${await res.text()}`);
   }
 
   return res.json();

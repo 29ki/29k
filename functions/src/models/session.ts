@@ -88,6 +88,8 @@ export const getSessions = async (userId: string) => {
 export const addSession = async ({
   id,
   url,
+  hostToken,
+  userToken,
   language,
   contentId,
   hostId,
@@ -106,6 +108,8 @@ export const addSession = async ({
   const session = {
     id,
     url,
+    hostToken,
+    userToken,
     language,
     contentId,
     hostId,
