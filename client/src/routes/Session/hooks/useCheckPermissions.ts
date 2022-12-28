@@ -19,6 +19,7 @@ const useCheckPermissions = () => {
 
   const openSettings = useCallback(async () => {
     await Linking.openSettings();
+    // Restart JS-bundle to let permissions come into effect - on Android, iOS already does this.
     restartApp();
   }, [restartApp]);
 
