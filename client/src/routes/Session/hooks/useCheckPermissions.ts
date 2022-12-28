@@ -7,7 +7,7 @@ import {DailyContext} from '../../../lib/daily/DailyProvider';
 type Confirm = (
   keyPrefix: 'join' | 'camera' | 'microphone',
   onDismiss?: () => void,
-) => void;
+) => Promise<void>;
 
 type CheckPermissions = (onGranted: () => void, onDismiss?: () => void) => void;
 
@@ -24,50 +24,57 @@ const useCheckPermissions = () => {
   }, [restartApp]);
 
   const confirm = useCallback<Confirm>(
-    (keyPrefix, onDismiss = () => {}) => {
-      Alert.alert(t(`${keyPrefix}.title`), t(`${keyPrefix}.message`), [
-        {
-          text: t(`${keyPrefix}.dismiss`),
-          onPress: onDismiss,
-        },
-        {
-          style: 'cancel',
-          text: t(`${keyPrefix}.confirm`),
-          onPress: openSettings,
-        },
-      ]);
-    },
+    (keyPrefix, onDismiss = () => {}) =>
+      new Promise(resolve => {
+        Alert.alert(t(`${keyPrefix}.title`), t(`${keyPrefix}.message`), [
+          {
+            text: t(`${keyPrefix}.dismiss`),
+            onPress: async () => {
+              await onDismiss();
+              resolve();
+            },
+          },
+          {
+            style: 'cancel',
+            text: t(`${keyPrefix}.confirm`),
+            onPress: async () => {
+              await openSettings();
+              resolve();
+            },
+          },
+        ]);
+      }),
     [t, openSettings],
   );
 
   const checkJoinPermissions = useCallback<CheckPermissions>(
-    (onGranted, onDismiss) => {
+    async (onGranted, onDismiss) => {
       if (hasCameraPermissions() && hasMicrophonePermissions()) {
-        onGranted();
+        await onGranted();
       } else {
-        confirm('join', onDismiss ?? onGranted);
+        await confirm('join', onDismiss ?? onGranted);
       }
     },
     [hasCameraPermissions, hasMicrophonePermissions, confirm],
   );
 
   const checkCameraPermissions = useCallback<CheckPermissions>(
-    (onGranted, onDismiss = () => {}) => {
+    async (onGranted, onDismiss = () => {}) => {
       if (hasCameraPermissions()) {
-        onGranted();
+        await onGranted();
       } else {
-        confirm('camera', onDismiss);
+        await confirm('camera', onDismiss);
       }
     },
     [hasCameraPermissions, confirm],
   );
 
   const checkMicrophonePermissions = useCallback<CheckPermissions>(
-    (onGranted, onDismiss = () => {}) => {
+    async (onGranted, onDismiss = () => {}) => {
       if (hasMicrophonePermissions()) {
-        onGranted();
+        await onGranted();
       } else {
-        confirm('camera', onDismiss);
+        await confirm('camera', onDismiss);
       }
     },
     [hasMicrophonePermissions, confirm],
