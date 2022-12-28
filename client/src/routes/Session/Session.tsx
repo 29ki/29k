@@ -57,7 +57,7 @@ const ExerciseControl = styled(ContentControls)({
   bottom: SPACINGS.SIXTEEN,
   left: SPACINGS.SIXTEEN,
   right: SPACINGS.SIXTEEN,
-  zIndex: 1000,
+  zIndex: 1000, // To make sure it's always on top
 });
 
 const SessionControls = styled.View({
