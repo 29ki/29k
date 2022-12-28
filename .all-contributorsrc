@@ -37,30 +37,6 @@
       ]
     },
     {
-      "name": "Norrsken Foundation",
-      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671187940/Contributors/norrsken_rykuyx.png",
-      "profile": "https://www.norrsken.org/",
-      "contributions": [
-        "partner"
-      ]
-    },
-    {
-      "name": "Stiftelsen Ekskäret",
-      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671187937/Contributors/ekska%CC%88ret_oberpm.png",
-      "profile": "http://ekskaret.se/",
-      "contributions": [
-        "partner"
-      ]
-    },
-    {
-      "name": "Inner Development Goals",
-      "profile": "https://www.innerdevelopmentgoals.org/",
-      "contributions": [
-        "partner"
-      ],
-      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671191681/Contributors/IDG_lktccb.png"
-    },
-    {
       "name": "The Inner Foundation",
       "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671191180/Contributors/the_inner_foundation_nq3mwt.jpg",
       "profile": "https://www.theinnerfoundation.org/",
@@ -93,6 +69,30 @@
       ]
     },
     {
+      "name": "Norrsken Foundation",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671187940/Contributors/norrsken_rykuyx.png",
+      "profile": "https://www.norrsken.org/",
+      "contributions": [
+        "partner"
+      ]
+    },
+    {
+      "name": "Stiftelsen Ekskäret",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671187937/Contributors/ekska%CC%88ret_oberpm.png",
+      "profile": "http://ekskaret.se/",
+      "contributions": [
+        "partner"
+      ]
+    },
+    {
+      "name": "Inner Development Goals",
+      "profile": "https://www.innerdevelopmentgoals.org/",
+      "contributions": [
+        "partner"
+      ],
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671191681/Contributors/IDG_lktccb.png"
+    },
+    {
       "name": "Elise Lilliehöök",
       "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1665412985/Contributors/Elise%20Lillieh%C3%B6%C3%B6k.png",
       "profile": "https://www.linkedin.com/in/eliselilliehook/",
@@ -112,6 +112,16 @@
         "business",
         "coreTeam"
       ]
+    },
+    {
+      "name": "Pamela Von Sabljar",
+      "profile": "https://www.pamelavonsabljar.com/",
+      "contributions": [
+        "community",
+        "coreTeam",
+        "userExperience"
+      ],
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671658540/Contributors/Pamela_Von_Sabljar_epvb5v.jpg"
     },
     {
       "name": "Johanna Schwang",
@@ -536,6 +546,10 @@
     "coreTeam": {
       "symbol": "🫂",
       "description": "Core Team"
+    },
+    "community": {
+      "symbol": "❤️",
+      "description": "Community"
     }
   },
   "contributorsPerLine": 6,

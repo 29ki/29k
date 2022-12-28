@@ -48,11 +48,14 @@ const ProfileSettingsModal = () => {
   const {t} = useTranslation('Modal.ProfileSettings');
   const {popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
-  const changeProfilePicture = useChangeProfilePicture();
-  const updateProfileDetails = useUpdateProfileDetails();
-  const deleteUser = useDeleteUser();
+  const {changeProfilePicture, isUpdatingProfilePicture} =
+    useChangeProfilePicture();
+  const {updateProfileDetails, isUpdatingProfileDetails} =
+    useUpdateProfileDetails();
+  const {deleteUser, isDeletingUser} = useDeleteUser();
   const user = useUser();
 
+  const [isSigningOut, setIsSigningOut] = useState(false);
   const [displayName, setDisplayName] = useState(user?.displayName);
   const [email, setEmail] = useState(user?.email);
   const [password, setPassword] = useState('');
@@ -68,13 +71,24 @@ const ProfileSettingsModal = () => {
   }, [updateProfileDetails, popToTop, displayName, email, password]);
 
   const signOut = useCallback(async () => {
-    await auth().signOut();
-    popToTop();
-  }, [popToTop]);
+    setIsSigningOut(true);
+    try {
+      await auth().signOut();
+      setIsSigningOut(false);
+      popToTop();
+    } catch (e: any) {
+      setIsSigningOut(false);
+      setError(e.code ?? e.message);
+    }
+  }, [setIsSigningOut, popToTop]);
 
   const deleteData = useCallback(async () => {
-    if (await deleteUser()) {
-      popToTop();
+    try {
+      if (await deleteUser()) {
+        popToTop();
+      }
+    } catch (e: any) {
+      setError(e.code ?? e.message);
     }
   }, [deleteUser, popToTop]);
 
@@ -87,6 +101,7 @@ const ProfileSettingsModal = () => {
           <Picture
             pictureURL={user?.photoURL}
             letter={user?.displayName?.[0]}
+            loading={isUpdatingProfilePicture}
             onPress={changeProfilePicture}
           />
           <Spacer24 />
@@ -133,7 +148,11 @@ const ProfileSettingsModal = () => {
               <Spacer16 />
             </>
           )}
-          <StyledButton variant="primary" onPress={updateUser}>
+          <StyledButton
+            variant="primary"
+            onPress={updateUser}
+            disabled={isUpdatingProfileDetails}
+            loading={isUpdatingProfileDetails}>
             {t('save')}
           </StyledButton>
           {user && (
@@ -141,13 +160,21 @@ const ProfileSettingsModal = () => {
               <Spacer48 />
               {!user?.isAnonymous && (
                 <>
-                  <StyledButton variant="secondary" onPress={signOut}>
+                  <StyledButton
+                    variant="secondary"
+                    onPress={signOut}
+                    disabled={isSigningOut}
+                    loading={isSigningOut}>
                     {t('signOut')}
                   </StyledButton>
                   <Spacer16 />
                 </>
               )}
-              <DeleteButton variant="secondary" onPress={deleteData}>
+              <DeleteButton
+                variant="secondary"
+                onPress={deleteData}
+                disabled={isDeletingUser}
+                loading={isDeletingUser}>
                 {t('deleteData')}
               </DeleteButton>
             </>

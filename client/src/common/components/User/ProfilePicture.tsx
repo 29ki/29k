@@ -1,3 +1,4 @@
+import hexToRgba from 'hex-to-rgba';
 import React from 'react';
 import {TouchableOpacityProps, View, ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
@@ -35,6 +36,15 @@ const Letter = styled.Text.attrs({
   textAlign: 'center',
 }));
 
+const Spinner = styled.ActivityIndicator({
+  position: 'absolute',
+  left: 0,
+  top: 0,
+  right: 0,
+  bottom: 0,
+  backgroundColor: hexToRgba(COLORS.WHITE, 0.7),
+});
+
 const IconContainer = styled.View<{size: number}>(({size}) => ({
   width: size * 0.25,
   height: size * 0.25,
@@ -51,6 +61,7 @@ type ProfilePictureProps = {
   letter?: string;
   pictureURL?: string | null;
   hasError?: boolean;
+  loading?: boolean;
   onPress?: TouchableOpacityProps['onPress'];
   style?: ViewStyle;
 };
@@ -60,6 +71,7 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({
   letter,
   pictureURL,
   hasError,
+  loading,
   onPress,
   style,
 }) => {
@@ -70,6 +82,9 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({
           <Image source={{uri: pictureURL}} />
         ) : (
           <Letter size={size}>{(letter?.[0] || 'A').toUpperCase()}</Letter>
+        )}
+        {loading && (
+          <Spinner size={size < 40 ? 'small' : 'large'} color={COLORS.BLACK} />
         )}
       </ImageContainer>
       {onPress && (

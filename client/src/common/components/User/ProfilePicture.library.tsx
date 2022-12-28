@@ -77,5 +77,27 @@ export const AllTypes = () => (
       />
     </Wrapper>
     <Spacer16 />
+
+    <Heading16>Loading</Heading16>
+    <Spacer8 />
+    <Wrapper>
+      <ProfilePicture loading letter="A" />
+      <Spacer8 />
+      <ProfilePicture
+        loading
+        pictureURL="https://camo.githubusercontent.com/2281c4cf181309c6c41eb8e1388e4f3e9d192b8b1d8d2c7e1df042968c3e79cf/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f63757063616b652d32396b2f696d6167652f75706c6f61642f745f70726f66696c655f706963747572652f76313636353431333734302f436f6e7472696275746f72732f4e616d25323056752e706e673f733d313030"
+      />
+    </Wrapper>
+    <Spacer8 />
+    <Wrapper>
+      <ProfilePicture size={30} loading letter="A" />
+      <Spacer8 />
+      <ProfilePicture
+        size={30}
+        loading
+        pictureURL="https://camo.githubusercontent.com/2281c4cf181309c6c41eb8e1388e4f3e9d192b8b1d8d2c7e1df042968c3e79cf/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f63757063616b652d32396b2f696d6167652f75706c6f61642f745f70726f66696c655f706963747572652f76313636353431333734302f436f6e7472696275746f72732f4e616d25323056752e706e673f733d313030"
+      />
+    </Wrapper>
+    <Spacer16 />
   </ScreenWrapper>
 );

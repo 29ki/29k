@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {ListRenderItemInfo, RefreshControl, SectionList} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import LinearGradient from 'react-native-linear-gradient';
@@ -26,7 +26,6 @@ import Gutters from '../../common/components/Gutters/Gutters';
 import Button from '../../common/components/Buttons/Button';
 import SessionCard from '../../common/components/Cards/SessionCard/SessionCard';
 import {PlusIcon} from '../../common/components/Icons';
-import useSessionsState from './state/state';
 import Screen from '../../common/components/Screen/Screen';
 import {Heading18} from '../../common/components/Typography/Heading/Heading';
 
@@ -81,7 +80,7 @@ const AddSessionForm = () => {
 const Sessions = () => {
   const {t} = useTranslation('Screen.Sessions');
   const {fetchSessions, sessions, pinnedSessions} = useSessions();
-  const isLoading = useSessionsState(state => state.isLoading);
+  const [isLoading, setIsLoading] = useState(false);
 
   const sections = useMemo(() => {
     let sectionsList = [];
@@ -106,6 +105,17 @@ const Sessions = () => {
     fetchSessions();
   }, [fetchSessions]);
 
+  const refreshPull = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      await fetchSessions();
+      setIsLoading(false);
+    } catch (e: any) {
+      setIsLoading(false);
+      throw e;
+    }
+  }, [setIsLoading, fetchSessions]);
+
   const renderSession = ({item}: ListRenderItemInfo<Session>) => (
     <Gutters>
       <SessionCard session={item} />
@@ -122,7 +132,7 @@ const Sessions = () => {
         ItemSeparatorComponent={Spacer16}
         renderItem={renderSession}
         refreshControl={
-          <RefreshControl refreshing={isLoading} onRefresh={fetchSessions} />
+          <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }
         renderSectionHeader={({section: {title, type}}) => (
           <Gutters>
