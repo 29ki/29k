@@ -18,7 +18,7 @@ export const AllCards = () => (
   <ScreenWrapper>
     <Card
       title="A nice title"
-      duration="40"
+      duration={40}
       hostPictureURL="https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
       hostName="Jenny"
       image={{
@@ -32,7 +32,7 @@ export const AllCards = () => (
     <Spacer16 />
     <Card
       title="A nice title"
-      duration="40"
+      duration={40}
       hostPictureURL="https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
       hostName="Jenny WithALongName"
       image={{

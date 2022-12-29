@@ -69,7 +69,7 @@ const CTAButton = styled(Button)({
 
 type CardProps = {
   title?: string;
-  duration?: string;
+  duration?: number;
   image?: ImageSourcePropType;
   lottie?: AnimationObject;
   onPress: () => void;

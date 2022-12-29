@@ -37,11 +37,11 @@ const ParticipantPlaceholder = styled.View({
   overflow: 'hidden',
 });
 
-const AudioTogglerWrapper = styled.View({
+const AudioTogglerWrapper = styled.View<{inSlide?: boolean}>(({inSlide}) => ({
   position: 'absolute',
-  top: SPACINGS.SIXTEEN,
+  top: inSlide ? SPACINGS.FOURTYEIGHT : SPACINGS.SIXTEEN,
   right: SPACINGS.SIXTEEN,
-});
+}));
 
 const ParticipantAudio = styled(AudioIndicator)({
   height: 24,
@@ -93,11 +93,13 @@ const SpotlightGradient = styled(LinearGradient)({
 type ParticipantProps = {
   participant: DailyParticipant;
   topGradient?: boolean;
+  inSlide?: boolean;
 };
 
 const Participant: React.FC<ParticipantProps> = ({
   participant,
   topGradient,
+  inSlide,
 }) => {
   const {call} = useContext(DailyContext);
   const {t} = useTranslation('Screen.Session');
@@ -140,7 +142,7 @@ const Participant: React.FC<ParticipantProps> = ({
         />
       )}
       {isSessionHost ? (
-        <AudioTogglerWrapper>
+        <AudioTogglerWrapper inSlide={inSlide}>
           <AudioToggler
             muted={!participant.audioTrack}
             onToggle={onAudioToggle}

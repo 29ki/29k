@@ -1081,12 +1081,12 @@ PODS:
     - RNFBApp
   - RNGestureHandler (2.8.0):
     - React-Core
-  - RNImageCropPicker (0.38.1):
+  - RNImageCropPicker (0.39.0):
     - React-Core
     - React-RCTImage
-    - RNImageCropPicker/QBImagePickerController (= 0.38.1)
+    - RNImageCropPicker/QBImagePickerController (= 0.39.0)
     - TOCropViewController
-  - RNImageCropPicker/QBImagePickerController (0.38.1):
+  - RNImageCropPicker/QBImagePickerController (0.39.0):
     - React-Core
     - React-RCTImage
     - TOCropViewController
@@ -1132,7 +1132,7 @@ PODS:
   - RNSentry (4.12.0):
     - React-Core
     - Sentry/HybridSDK (= 7.31.3)
-  - RNSharedElement (0.8.4):
+  - RNSharedElement (0.8.7):
     - React-Core
   - RNSound (0.11.2):
     - React-Core
@@ -1437,14 +1437,14 @@ SPEC CHECKSUMS:
   RNFBFirestore: edaf1440a183aefcb887dc5ccee963b5c2a286f7
   RNFBStorage: cce752c3adefd5a9a7e9df3b87ec5b8d32fc5c01
   RNGestureHandler: 62232ba8f562f7dea5ba1b3383494eb5bf97a4d3
-  RNImageCropPicker: 648356d68fbf9911a1016b3e3723885d28373eda
+  RNImageCropPicker: 14fe1c29298fb4018f3186f455c475ab107da332
   RNLocalize: 0df7970cfc60389f00eb62fd7c097dc75af3fb4f
   RNNotifee: d585266dd69e1f355d26d074cbfdbdfa6c94b7d5
   RNReactNativeHapticFeedback: 1e3efeca9628ff9876ee7cdd9edec1b336913f8c
   RNReanimated: f0d66bda3d074c43c72a18f4fd4f4c26687bc1fd
   RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
   RNSentry: 4c09f4dd9740cb9b33e94303de5b6d0dbeb0737d
-  RNSharedElement: eb7d506733952d58634f34c82ec17e82f557e377
+  RNSharedElement: 14409838520c8b50850aa4d33e15d0b8afdf7052
   RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
   RNSVG: 3a79c0c4992213e4f06c08e62730c5e7b9e4dc17
   Sentry: 08884c523575ec0f6690d94ed3ccb0246a1600bf

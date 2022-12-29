@@ -13,7 +13,7 @@ const Host: React.FC<HostProps> = ({active}) => {
     return null;
   }
 
-  return <Participant participant={participantSpotlight} topGradient />;
+  return <Participant participant={participantSpotlight} topGradient inSlide />;
 };
 
 export default Host;
