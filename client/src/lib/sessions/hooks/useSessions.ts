@@ -6,7 +6,7 @@ import * as sessionApi from '../api/session';
 
 import useSessionsState from '../state/state';
 import {Session} from '../../../../../shared/src/types/Session';
-import usePinnedSessons from '../../../lib/user/hooks/usePinnedSessions';
+import usePinnedSessons from './usePinnedSessions';
 
 const useSessions = () => {
   const setIsLoading = useSessionsState(state => state.setIsLoading);

@@ -7,7 +7,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {DailyContext} from '../../../lib/daily/DailyProvider';
 import useSessionState from '../state/state';
 import {TabNavigatorProps} from '../../../lib/navigation/constants/routes';
-import useSessions from '../../Sessions/hooks/useSessions';
+import useSessions from '../../../lib/sessions/hooks/useSessions';
 import useSessionNotificationsState from '../state/sessionNotificationsState';
 import useLogInSessionMetricEvents from './useLogInSessionMetricEvents';
 

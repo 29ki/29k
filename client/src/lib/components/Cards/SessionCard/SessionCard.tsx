@@ -15,8 +15,8 @@ import Card from '../Card';
 import useSessionStartTime from '../../../../routes/Session/hooks/useSessionStartTime';
 import SessionTimeBadge from '../../SessionTimeBadge/SessionTimeBadge';
 import {formatExerciseName} from '../../../utils/string';
-import usePinnedSessons from '../../../user/hooks/usePinnedSessions';
-import useLogSessionMetricEvents from '../../../../routes/Session/hooks/useLogSessionMetricEvents';
+import usePinnedSessons from '../../../sessions/hooks/usePinnedSessions';
+import useLogSessionMetricEvents from '../../../sessions/hooks/useLogSessionMetricEvents';
 
 type SessionCardProps = {
   session: Session;

@@ -1,6 +1,6 @@
 import {useCallback} from 'react';
 import {Session} from '../../../../../shared/src/types/Session';
-import * as sessionApi from '../../Sessions/api/session';
+import * as sessionApi from '../../../lib/sessions/api/session';
 
 const useUpdateSession = (sessionId: Session['id']) => {
   const setStarted = useCallback(async () => {

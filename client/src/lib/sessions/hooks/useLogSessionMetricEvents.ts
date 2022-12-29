@@ -1,7 +1,7 @@
 import {useCallback} from 'react';
 import {Session} from '../../../../../shared/src/types/Session';
-import * as metrics from '../../../lib/metrics';
-import useUser from '../../../lib/user/hooks/useUser';
+import * as metrics from '../../metrics';
+import useUser from '../../user/hooks/useUser';
 
 type AllowedSharingEvents =
   | 'Create Sharing Session'

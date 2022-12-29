@@ -1,8 +1,8 @@
 import dayjs from 'dayjs';
 import {useTranslation} from 'react-i18next';
 import {Session} from '../../../../../shared/src/types/Session';
-import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import useTriggerNotification from '../../../lib/notifications/hooks/useTriggerNotification';
+import useExerciseById from '../../content/hooks/useExerciseById';
+import useTriggerNotification from '../../notifications/hooks/useTriggerNotification';
 
 const useSessionNotificationReminder = (session: Session) => {
   const {id, contentId, startTime, link} = session;

@@ -1,8 +1,8 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook} from '@testing-library/react-hooks';
 import {Session} from '../../../../../shared/src/types/Session';
-import {logEvent} from '../../../lib/metrics';
-import useUserState from '../../../lib/user/state/state';
+import {logEvent} from '../../metrics';
+import useUserState from '../../user/state/state';
 import useLogSessionMetricEvents from './useLogSessionMetricEvents';
 
 jest.mock('../../../lib/metrics');

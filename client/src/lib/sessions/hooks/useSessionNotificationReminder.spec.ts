@@ -1,6 +1,6 @@
 import {renderHook} from '@testing-library/react-hooks';
 import {Session} from '../../../../../shared/src/types/Session';
-import useTriggerNotification from '../../../lib/notifications/hooks/useTriggerNotification';
+import useTriggerNotification from '../../notifications/hooks/useTriggerNotification';
 
 import useSessionNotificationReminder from './useSessionNotificationReminder';
 

@@ -11,13 +11,13 @@ import {Spacer16, Spacer8} from '../../lib/components/Spacers/Spacer';
 import {Body16} from '../../lib/components/Typography/Body/Body';
 import VerificationCode from '../../lib/components/VerificationCode/VerificationCode';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
-import {joinSession} from '../Sessions/api/session';
-import useSessions from '../Sessions/hooks/useSessions';
+import {joinSession} from '../../lib/sessions/api/session';
+import useSessions from '../../lib/sessions/hooks/useSessions';
 import CardModal from '../../lib/components/Modals/CardModal';
 import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
 import Button from '../../lib/components/Buttons/Button';
 import {Session} from '../../../../shared/src/types/Session';
-import useLogSessionMetricEvents from '../Session/hooks/useLogSessionMetricEvents';
+import useLogSessionMetricEvents from '../../lib/sessions/hooks/useLogSessionMetricEvents';
 
 const ErrorText = styled(Body16)({color: COLORS.ERROR, textAlign: 'center'});
 const BodyText = styled(Body16)({textAlign: 'center'});

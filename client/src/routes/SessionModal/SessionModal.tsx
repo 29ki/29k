@@ -29,27 +29,27 @@ import {
   AppStackProps,
 } from '../../lib/navigation/constants/routes';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
-import useAddToCalendar from '../Sessions/hooks/useAddToCalendar';
-import useSessionNotificationReminder from '../Sessions/hooks/useSessionNotificationReminder';
+import useAddToCalendar from '../../lib/sessions/hooks/useAddToCalendar';
+import useSessionNotificationReminder from '../../lib/sessions/hooks/useSessionNotificationReminder';
 import {Body16} from '../../lib/components/Typography/Body/Body';
 import Byline from '../../lib/components/Bylines/Byline';
 import {formatExerciseName, formatInviteCode} from '../../lib/utils/string';
 import SessionTimeBadge from '../../lib/components/SessionTimeBadge/SessionTimeBadge';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import useUser from '../../lib/user/hooks/useUser';
-import useSessions from '../Sessions/hooks/useSessions';
+import useSessions from '../../lib/sessions/hooks/useSessions';
 import {PencilIcon, CalendarIcon} from '../../lib/components/Icons';
 import TouchableOpacity from '../../lib/components/TouchableOpacity/TouchableOpacity';
 import DateTimePicker from '../../lib/components/DateTimePicker/DateTimePicker';
-import {updateSession} from '../Sessions/api/session';
+import {updateSession} from '../../lib/sessions/api/session';
 import {Session, SessionType} from '../../../../shared/src/types/Session';
 import EditSessionType from '../../lib/components/EditSessionType/EditSessionType';
 import {SPACINGS} from '../../lib/constants/spacings';
 import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
 import Interested from '../../lib/components/Interested/Interested';
 import RadioButton from '../../lib/components/Buttons/RadioButton/RadioButton';
-import usePinnedSessons from '../../lib/user/hooks/usePinnedSessions';
-import useLogSessionMetricEvents from '../Session/hooks/useLogSessionMetricEvents';
+import usePinnedSessons from '../../lib/sessions/hooks/usePinnedSessions';
+import useLogSessionMetricEvents from '../../lib/sessions/hooks/useLogSessionMetricEvents';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',

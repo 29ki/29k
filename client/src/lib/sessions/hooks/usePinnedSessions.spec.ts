@@ -2,17 +2,14 @@ import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook, act} from '@testing-library/react-hooks';
 import MockDate from 'mockdate';
 import {Session} from '../../../../../shared/src/types/Session';
-import useUserState from '../state/state';
+import useUserState from '../../user/state/state';
 import usePinnedSessons from './usePinnedSessions';
 
 const mockNow = new Date('2022-12-10T10:00:00');
 MockDate.set(mockNow); // Date.now()
 
 const mockLogSessionMetricEvent = jest.fn();
-jest.mock(
-  '../../../routes/Session/hooks/useLogSessionMetricEvents',
-  () => () => mockLogSessionMetricEvent,
-);
+jest.mock('./useLogSessionMetricEvents', () => () => mockLogSessionMetricEvent);
 
 beforeEach(() => {
   jest.clearAllMocks();

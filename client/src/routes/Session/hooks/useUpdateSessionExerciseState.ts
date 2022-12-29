@@ -1,7 +1,7 @@
 import {useCallback} from 'react';
 import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 import {ExerciseState, Session} from '../../../../../shared/src/types/Session';
-import * as sessionApi from '../../Sessions/api/session';
+import * as sessionApi from '../../../lib/sessions/api/session';
 
 const useUpdateSessionExerciseState = (
   sessionId: Session['id'] | undefined,

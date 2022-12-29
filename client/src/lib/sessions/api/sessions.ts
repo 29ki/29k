@@ -1,5 +1,5 @@
 import {Session} from '../../../../../shared/src/types/Session';
-import apiClient from '../../../lib/apiClient/apiClient';
+import apiClient from '../../apiClient/apiClient';
 
 const SESSIONS_ENDPOINT = '/sessions';
 

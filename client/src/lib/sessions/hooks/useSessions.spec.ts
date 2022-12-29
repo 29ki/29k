@@ -5,7 +5,7 @@ import useSessionsState from '../state/state';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import {Session, SessionType} from '../../../../../shared/src/types/Session';
-import useUserState from '../../../lib/user/state/state';
+import useUserState from '../../user/state/state';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 
 dayjs.extend(utc);

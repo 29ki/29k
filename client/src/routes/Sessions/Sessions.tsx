@@ -6,7 +6,7 @@ import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useNavigation} from '@react-navigation/native';
 
-import useSessions from './hooks/useSessions';
+import useSessions from '../../lib/sessions/hooks/useSessions';
 
 import {Session} from '../../../../shared/src/types/Session';
 

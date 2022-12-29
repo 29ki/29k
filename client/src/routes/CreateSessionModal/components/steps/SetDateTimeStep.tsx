@@ -20,13 +20,13 @@ import {Display24} from '../../../../lib/components/Typography/Display/Display';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import {LANGUAGE_TAG} from '../../../../lib/i18n';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
-import useSessions from '../../../Sessions/hooks/useSessions';
+import useSessions from '../../../../lib/sessions/hooks/useSessions';
 import {StepProps} from '../../CreateSessionModal';
 import DateTimePicker from '../../../../lib/components/DateTimePicker/DateTimePicker';
 import {SPACINGS} from '../../../../lib/constants/spacings';
 import EditSessionType from '../../../../lib/components/EditSessionType/EditSessionType';
 import {formatExerciseName} from '../../../../lib/utils/string';
-import useLogSessionMetricEvents from '../../../Session/hooks/useLogSessionMetricEvents';
+import useLogSessionMetricEvents from '../../../../lib/sessions/hooks/useLogSessionMetricEvents';
 
 const TextWrapper = styled.View({
   flex: 2,
