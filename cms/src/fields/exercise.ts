@@ -34,7 +34,7 @@ export const SOCIAL_MEDIA: CmsField = {
     {
       label: '🪧 Title',
       name: 'title',
-      hint: 'Defaults to [📱 UI → DeepLink.JoinSessionInvite → title](#/collections/ui/entries/DeepLink.JoinSessionInvite)',
+      hint: `Defaults to ${NAME_FIELD.label}`,
       widget: 'string',
       i18n: true,
       required: false,
@@ -42,7 +42,6 @@ export const SOCIAL_MEDIA: CmsField = {
     {
       label: '📃 Description',
       name: 'description',
-      hint: 'Defaults to [📱 UI → DeepLink.JoinSessionInvite → description](#/collections/ui/entries/DeepLink.JoinSessionInvite)',
       widget: 'string',
       i18n: true,
       required: false,

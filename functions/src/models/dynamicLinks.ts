@@ -73,12 +73,11 @@ export const createSessionInviteLink = async (
   const t = i18next.getFixedT(language, 'DeepLink.JoinSessionInvite');
 
   const socialImageLink = socialMeta?.image ?? card?.image?.source;
-  const socialTitle = socialMeta?.title ?? t('title', {name});
-  const socialDescription =
-    socialMeta?.description ??
-    t('description', {
-      host,
-    });
+  const socialTitle = t('title', {title: socialMeta?.title ?? name});
+  const socialDescription = t('description', {
+    host,
+    description: socialMeta?.description,
+  });
 
   return createDynamicLink(`joinSessionInvite/${inviteCode}`, {
     socialImageLink,
