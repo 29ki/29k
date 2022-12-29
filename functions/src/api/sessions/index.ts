@@ -26,6 +26,15 @@ sessionsRouter.get('/', async ctx => {
   ctx.body = sessions;
 });
 
+sessionsRouter.get('/:id/sessionToken', async ctx => {
+  const {response, user, params} = ctx;
+
+  const token = await sessionsController.getSessionToken(user.id, params.id);
+
+  response.status = 200;
+  ctx.body = token;
+});
+
 const CreateSessionSchema = yup.object().shape({
   contentId: yup.string().required(),
   type: yup.mixed<SessionType>().oneOf(Object.values(SessionType)).required(),

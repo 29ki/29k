@@ -29,7 +29,8 @@ type Room = {
   };
 };
 
-type Token = {token: string};
+type DailyConfig = {domain_id: string};
+type DailyConfigCache = {domainId: string | null};
 
 export const createRoom = async (expireDate: Dayjs): Promise<Room> => {
   const res = await fetch(`${DAILY_API_URL}/rooms`, {
@@ -54,31 +55,32 @@ export const createRoom = async (expireDate: Dayjs): Promise<Room> => {
   return res.json();
 };
 
-export const createToken = async (
-  roomName: string,
-  expireDate: Dayjs,
-  isOwner: boolean,
-): Promise<Token> => {
-  const res = await fetch(`${DAILY_API_URL}/meeting-tokens`, {
-    method: 'POST',
+const DAILY_CONFIG_CACHE: DailyConfigCache = {domainId: null};
+
+export const getDomainId = async (): Promise<string> => {
+  if (DAILY_CONFIG_CACHE.domainId) {
+    return DAILY_CONFIG_CACHE.domainId;
+  }
+
+  const res = await fetch(`${DAILY_API_URL}`, {
+    method: 'GET',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${DAILY_API_KEY}`,
     },
-    body: JSON.stringify({
-      properties: {
-        room_name: roomName,
-        exp: expireDate.unix(),
-        is_owner: isOwner,
-      },
-    }),
   });
 
   if (!res.ok) {
-    throw new Error(`Failed creating room token, ${await res.text()}`);
+    throw new Error(`Failed getting daily domain, ${await res.text()}`);
   }
 
-  return res.json();
+  try {
+    const data = (await res.json()) as DailyConfig;
+    DAILY_CONFIG_CACHE.domainId = data.domain_id;
+    return data.domain_id;
+  } catch (error) {
+    throw new Error('Failed reading daily config', {cause: error});
+  }
 };
 
 export const updateRoom = async (

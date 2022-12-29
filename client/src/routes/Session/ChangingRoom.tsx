@@ -47,6 +47,7 @@ import useUser from '../../lib/user/hooks/useUser';
 import Image from '../../common/components/Image/Image';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 import useLogSessionMetricEvents from './hooks/useLogSessionMetricEvents';
+import {getSessionToken} from '../Sessions/api/session';
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'padding', android: undefined}),
@@ -144,20 +145,14 @@ const ChangingRoom = () => {
   }, [logSessionMetricEvent, session?.id]);
 
   useEffect(() => {
-    if (isFocused && session?.url && session?.hostToken && session?.userToken) {
-      preJoinMeeting(
-        session?.url,
-        isHost ? session.hostToken : session.userToken,
-      );
-    }
-  }, [
-    isFocused,
-    session?.url,
-    session?.hostToken,
-    session?.userToken,
-    preJoinMeeting,
-    isHost,
-  ]);
+    const preJoin = async () => {
+      if (isFocused && session?.url && session?.id) {
+        const token = await getSessionToken(session.id);
+        preJoinMeeting(session?.url, token);
+      }
+    };
+    preJoin();
+  }, [isFocused, session?.url, session?.id, preJoinMeeting]);
 
   useEffect(() => {
     if (isHost && me?.user_id) {

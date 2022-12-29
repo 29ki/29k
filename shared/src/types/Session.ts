@@ -15,14 +15,13 @@ type ExerciseStateFields = {
 
 type SessionFields = {
   id: string;
+  dailyRoomName: string;
   url: string;
   language: LANGUAGE_TAG;
   link?: string;
   contentId: string;
   inviteCode: number;
   hostId: string;
-  hostToken: string;
-  userToken: string;
   started: boolean;
   ended: boolean;
   type: SessionType;

@@ -9,6 +9,7 @@ import {JoinSessionError} from '../../../shared/src/errors/Session';
 import {ExerciseStateUpdate, UpdateSession} from '../api/sessions';
 import {generateVerificationCode, removeEmpty} from '../lib/utils';
 import {RequestError} from './errors/RequestError';
+import {generateSessionToken} from '../lib/dailyUtils';
 
 const mapSession = async (session: Session): Promise<Session> => {
   return {...session, hostProfile: await getPublicUserInfo(session.hostId)};
@@ -17,6 +18,23 @@ const mapSession = async (session: Session): Promise<Session> => {
 export const getSessions = async (userId: string): Promise<Session[]> => {
   const sessions = await sessionModel.getSessions(userId);
   return Promise.all(sessions.map(mapSession));
+};
+
+export const getSessionToken = async (
+  userId: string,
+  sessionId: Session['id'],
+) => {
+  const session = await sessionModel.getSessionById(sessionId);
+
+  if (!session) {
+    throw new Error('Session not found');
+  }
+
+  return generateSessionToken(
+    session.dailyRoomName,
+    session.hostId === userId,
+    dayjs(session.startTime).add(2, 'hours'),
+  );
 };
 
 export const createSession = async (
@@ -31,16 +49,6 @@ export const createSession = async (
   const {displayName} = await userModel.getPublicUserInfo(userId);
   const expireDate = dayjs(startTime).add(2, 'hour');
   const dailyRoom = await dailyApi.createRoom(expireDate);
-  const hostToken = await dailyApi.createToken(
-    dailyRoom.name,
-    expireDate,
-    true,
-  );
-  const userToken = await dailyApi.createToken(
-    dailyRoom.name,
-    expireDate,
-    false,
-  );
   let inviteCode = generateVerificationCode();
 
   while (await sessionModel.getSessionByInviteCode({inviteCode})) {
@@ -58,8 +66,6 @@ export const createSession = async (
     id: dailyRoom.id,
     dailyRoomName: dailyRoom.name,
     url: dailyRoom.url,
-    hostToken: hostToken.token,
-    userToken: userToken.token,
     language,
     contentId,
     link,
