@@ -8,6 +8,12 @@ import usePinnedSessons from './usePinnedSessions';
 const mockNow = new Date('2022-12-10T10:00:00');
 MockDate.set(mockNow); // Date.now()
 
+const mockLogSessionMetricEvent = jest.fn();
+jest.mock(
+  '../../../routes/Session/hooks/useLogSessionMetricEvents',
+  () => () => mockLogSessionMetricEvent,
+);
+
 beforeEach(() => {
   jest.clearAllMocks();
 });
@@ -68,6 +74,7 @@ describe('usePinnedSessions', () => {
         expect(result.current.pinnedSessions).toEqual([
           {id: 'session-id-1', expires: new Date('2023-01-10T10:00:00')},
         ]);
+        expect(mockLogSessionMetricEvent).toHaveBeenCalledTimes(1);
       });
 
       it('should remove existing session as pinned', async () => {
@@ -89,6 +96,7 @@ describe('usePinnedSessions', () => {
         });
 
         expect(result.current.pinnedSessions).toEqual([]);
+        expect(mockLogSessionMetricEvent).toHaveBeenCalledTimes(0);
       });
 
       it('should remove expired session as pinned on toggle on', async () => {
