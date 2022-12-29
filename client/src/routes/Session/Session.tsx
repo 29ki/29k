@@ -9,7 +9,7 @@ import {
   Spacer16,
   Spacer32,
   TopSafeArea,
-} from '../../common/components/Spacers/Spacer';
+} from '../../lib/components/Spacers/Spacer';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {SessionStackProps} from '../../lib/navigation/constants/routes';
 import {DailyContext} from '../../lib/daily/DailyProvider';
@@ -19,27 +19,27 @@ import useSessionParticipants from './hooks/useSessionParticipants';
 import useSessionSlideState from './hooks/useSessionSlideState';
 import useMuteAudioListener from './hooks/useMuteAudioListener';
 import ProgressBar from './components/ProgressBar/ProgressBar';
-import {SPACINGS} from '../../common/constants/spacings';
+import {SPACINGS} from '../../lib/constants/spacings';
 import ContentControls from './components/ContentControls/ContentControls';
 import {DailyUserData} from '../../../../shared/src/types/Session';
-import IconButton from '../../common/components/Buttons/IconButton/IconButton';
+import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
 import {
   FilmCameraIcon,
   FilmCameraOffIcon,
   HangUpIcon,
   MicrophoneIcon,
   MicrophoneOffIcon,
-} from '../../common/components/Icons';
+} from '../../lib/components/Icons';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 
 import useLeaveSession from './hooks/useLeaveSession';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import useIsSessionHost from './hooks/useIsSessionHost';
-import Button from '../../common/components/Buttons/Button';
+import Button from '../../lib/components/Buttons/Button';
 import useUpdateSession from './hooks/useUpdateSession';
 import {useTranslation} from 'react-i18next';
 import HostNotes from './components/HostNotes/HostNotes';
-import Screen from '../../common/components/Screen/Screen';
+import Screen from '../../lib/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../lib/user/hooks/useUser';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';

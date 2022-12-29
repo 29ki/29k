@@ -1,8 +1,8 @@
 import React from 'react';
 import {ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
-import {MicrophoneIcon} from '../../../../common/components/Icons/Microphone/Microphone';
-import {MicrophoneOffIcon} from '../../../../common/components/Icons/MicrophoneOff/MicrophoneOff';
+import {MicrophoneIcon} from '../../../../lib/components/Icons/Microphone/Microphone';
+import {MicrophoneOffIcon} from '../../../../lib/components/Icons/MicrophoneOff/MicrophoneOff';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 

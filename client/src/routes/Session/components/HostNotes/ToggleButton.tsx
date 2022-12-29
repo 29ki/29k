@@ -8,13 +8,13 @@ import Animated, {
 import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import {SPACINGS} from '../../../../common/constants/spacings';
+import {SPACINGS} from '../../../../lib/constants/spacings';
 
 import BaseButton, {
   BaseButtonProps,
-} from '../../../../common/components/Buttons/BaseButton';
-import {Body16} from '../../../../common/components/Typography/Body/Body';
-import {MinusIcon, PlusIcon} from '../../../../common/components/Icons';
+} from '../../../../lib/components/Buttons/BaseButton';
+import {Body16} from '../../../../lib/components/Typography/Body/Body';
+import {MinusIcon, PlusIcon} from '../../../../lib/components/Icons';
 
 const IconWrapper = styled.View({
   width: 21,

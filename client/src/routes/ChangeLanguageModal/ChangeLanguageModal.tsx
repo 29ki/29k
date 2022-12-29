@@ -1,12 +1,12 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import ActionRadioButton from '../../common/components/ActionList/ActionItems/ActionRadioButton';
-import ActionList from '../../common/components/ActionList/ActionList';
+import ActionRadioButton from '../../lib/components/ActionList/ActionItems/ActionRadioButton';
+import ActionList from '../../lib/components/ActionList/ActionList';
 
-import Gutters from '../../common/components/Gutters/Gutters';
-import SheetModal from '../../common/components/Modals/SheetModal';
-import {Spacer24} from '../../common/components/Spacers/Spacer';
-import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
+import Gutters from '../../lib/components/Gutters/Gutters';
+import SheetModal from '../../lib/components/Modals/SheetModal';
+import {Spacer24} from '../../lib/components/Spacers/Spacer';
+import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
 import {LANGUAGE_TAGS, LANGUAGES} from '../../lib/i18n';
 import useSetPreferredLanguage from '../../lib/i18n/hooks/useSetPreferedLanguage';
 

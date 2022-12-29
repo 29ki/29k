@@ -4,10 +4,10 @@ import {ScrollView} from 'react-native';
 import Video from 'react-native-video';
 import {SharedElement} from 'react-navigation-shared-element';
 import styled from 'styled-components/native';
-import Gutters from '../../common/components/Gutters/Gutters';
-import Screen from '../../common/components/Screen/Screen';
-import {Body16} from '../../common/components/Typography/Body/Body';
-import {Display36} from '../../common/components/Typography/Display/Display';
+import Gutters from '../../lib/components/Gutters/Gutters';
+import Screen from '../../lib/components/Screen/Screen';
+import {Body16} from '../../lib/components/Typography/Body/Body';
+import {Display36} from '../../lib/components/Typography/Display/Display';
 
 const StyledVideo = styled(Video).attrs({
   resizeMode: 'cover',

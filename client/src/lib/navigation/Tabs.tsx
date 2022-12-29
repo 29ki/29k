@@ -14,12 +14,12 @@ import {
   IconType,
   ProfileFillIcon,
   ProfileIcon,
-} from '../../common/components/Icons';
+} from '../components/Icons';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {TabNavigatorProps} from './constants/routes';
-import {SPACINGS} from '../../common/constants/spacings';
-import {Body14} from '../../common/components/Typography/Body/Body';
-import {BottomSafeArea} from '../../common/components/Spacers/Spacer';
+import {SPACINGS} from '../constants/spacings';
+import {Body14} from '../components/Typography/Body/Body';
+import {BottomSafeArea} from '../components/Spacers/Spacer';
 
 import ProfileStack from './ProfileStack';
 import Sessions from '../../routes/Sessions/Sessions';

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../../../shared/src/constants/colors';
-import Gutters from '../../../../../../common/components/Gutters/Gutters';
-import {Spacer4} from '../../../../../../common/components/Spacers/Spacer';
-import {Display16} from '../../../../../../common/components/Typography/Display/Display';
+import Gutters from '../../../../../../lib/components/Gutters/Gutters';
+import {Spacer4} from '../../../../../../lib/components/Spacers/Spacer';
+import {Display16} from '../../../../../../lib/components/Typography/Display/Display';
 import useExerciseTheme from '../../../../hooks/useExerciseTheme';
 
 type StyledTextProp = {textColor?: string};

@@ -2,10 +2,10 @@ import React from 'react';
 import {TouchableOpacity, Linking} from 'react-native';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {LinkIcon} from '../../../common/components/Icons';
-import {Spacer8} from '../../../common/components/Spacers/Spacer';
-import {Body14} from '../../../common/components/Typography/Body/Body';
-import {SPACINGS} from '../../../common/constants/spacings';
+import {LinkIcon} from '../../../lib/components/Icons';
+import {Spacer8} from '../../../lib/components/Spacers/Spacer';
+import {Body14} from '../../../lib/components/Typography/Body/Body';
+import {SPACINGS} from '../../../lib/constants/spacings';
 
 export type Contributor = {
   name: string;

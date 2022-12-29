@@ -3,14 +3,11 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
-import Gutters from '../../../common/components/Gutters/Gutters';
-import {Spacer8} from '../../../common/components/Spacers/Spacer';
-import TouchableOpacity from '../../../common/components/TouchableOpacity/TouchableOpacity';
-import {
-  Body18,
-  BodyItalic,
-} from '../../../common/components/Typography/Body/Body';
-import ProfilePicture from '../../../common/components/User/ProfilePicture';
+import Gutters from '../../../lib/components/Gutters/Gutters';
+import {Spacer8} from '../../../lib/components/Spacers/Spacer';
+import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
+import {Body18, BodyItalic} from '../../../lib/components/Typography/Body/Body';
+import ProfilePicture from '../../../lib/components/User/ProfilePicture';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import useUser from '../../../lib/user/hooks/useUser';
 
