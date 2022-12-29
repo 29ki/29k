@@ -1,93 +1,95 @@
 import {useNavigation} from '@react-navigation/native';
-import React from 'react';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import React, {useCallback, useMemo} from 'react';
+import {useTranslation} from 'react-i18next';
 import {ScrollView} from 'react-native';
-import Video from 'react-native-video';
 import {SharedElement} from 'react-navigation-shared-element';
 import styled from 'styled-components/native';
+import ActionButton from '../../common/components/ActionList/ActionItems/ActionButton';
+import ActionList from '../../common/components/ActionList/ActionList';
 import Gutters from '../../common/components/Gutters/Gutters';
+import {
+  SunUpIcon,
+  MegaphoneIcon,
+  EnvelopeIcon,
+} from '../../common/components/Icons';
 import Screen from '../../common/components/Screen/Screen';
-import {Body16} from '../../common/components/Typography/Body/Body';
-import {Display36} from '../../common/components/Typography/Display/Display';
+import {
+  BottomSafeArea,
+  Spacer16,
+  Spacer24,
+  Spacer32,
+  Spacer8,
+} from '../../common/components/Spacers/Spacer';
+import {Display24} from '../../common/components/Typography/Display/Display';
+import Markdown from '../../common/components/Typography/Markdown/Markdown';
+import {
+  ModalStackProps,
+  ProfileStackProps,
+} from '../../lib/navigation/constants/routes';
+import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 
-const StyledVideo = styled(Video).attrs({
-  resizeMode: 'cover',
-})({
-  width: '100%',
+const BlurbImage = styled.Image({
   aspectRatio: 1,
 });
 
 const AboutOverlay = () => {
-  const {goBack} = useNavigation();
+  const {goBack, navigate} =
+    useNavigation<
+      NativeStackNavigationProp<ProfileStackProps & ModalStackProps>
+    >();
+  const {t} = useTranslation('Overlay.About');
+  const isPublicHost = useIsPublicHost();
+
+  const source = useMemo(() => ({uri: t('image__image')}), [t]);
+
+  const earlyAccessInfoPress = useCallback(
+    () => navigate('EarlyAccessInfo'),
+    [navigate],
+  );
+
+  const publicHostAccessPress = useCallback(
+    () => navigate('UpgradeAccountModal'),
+    [navigate],
+  );
+
+  const contactPress = useCallback(() => navigate('ContactModal'), [navigate]);
+
   return (
     <Screen onPressBack={goBack}>
       <ScrollView>
         <SharedElement id="editorial.image">
-          <StyledVideo
-            source={{
-              uri: 'https://res.cloudinary.com/cupcake-29k/video/upload/v1671006405/Temp/20221201115453_tphsjc.mp4',
-            }}
-            poster="https://res.cloudinary.com/cupcake-29k/image/upload/v1671006827/Temp/poster_xzyxoq.jpg"
-            posterResizeMode="cover"
-            repeat
-          />
+          <BlurbImage source={source} />
         </SharedElement>
         <Gutters>
+          <Spacer16 />
           <SharedElement id="editorial.heading">
-            <Display36>{'Transitions effects'}</Display36>
+            <Display24>{t('heading')}</Display24>
           </SharedElement>
+          <Spacer16 />
           <SharedElement id="editorial.text">
-            <Body16>
-              {`If however the start- element and end elements are visually
-              different, then it can make sense to choose different values. For
-              instance, if you are transitioning from a with a white color to a
-              with a black color, then using animation="fade" will create a
-              cross-fade between them. If however the start- element and end
-              elements are visually different, then it can make sense to choose
-              different values. For instance, if you are transitioning from a
-              with a white color to a with a black color, then using
-              animation="fade" will create a cross-fade between them. If however
-              the start- element and end elements are visually different, then
-              it can make sense to choose different values. For instance, if you
-              are transitioning from a with a white color to a with a black
-              color, then using animation="fade" will create a cross-fade
-              between them. If however the start- element and end elements are
-              visually different, then it can make sense to choose different
-              values. For instance, if you are transitioning from a with a white
-              color to a with a black color, then using animation="fade" will
-              create a cross-fade between them. If however the start- element
-              and end elements are visually different, then it can make sense to
-              choose different values. For instance, if you are transitioning
-              from a with a white color to a with a black color, then using
-              animation="fade" will create a cross-fade between them. If however
-              the start- element and end elements are visually different, then
-              it can make sense to choose different values. For instance, if you
-              are transitioning from a with a white color to a with a black
-              color, then using animation="fade" will create a cross-fade
-              between them. If however the start- element and end elements are
-              visually different, then it can make sense to choose different
-              values. For instance, if you are transitioning from a with a white
-              color to a with a black color, then using animation="fade" will
-              create a cross-fade between them. If however the start- element
-              and end elements are visually different, then it can make sense to
-              choose different values. For instance, if you are transitioning
-              from a with a white color to a with a black color, then using
-              animation="fade" will create a cross-fade between them. If however
-              the start- element and end elements are visually different, then
-              it can make sense to choose different values. For instance, if you
-              are transitioning from a with a white color to a with a black
-              color, then using animation="fade" will create a cross-fade
-              between them. If however the start- element and end elements are
-              visually different, then it can make sense to choose different
-              values. For instance, if you are transitioning from a with a white
-              color to a with a black color, then using animation="fade" will
-              create a cross-fade between them. If however the start- element
-              and end elements are visually different, then it can make sense to
-              choose different values. For instance, if you are transitioning
-              from a with a white color to a with a black color, then using
-              animation="fade" will create a cross-fade between them.`}
-            </Body16>
+            <Markdown>{t('preamble__markdown')}</Markdown>
+            <Markdown>{t('body__markdown')}</Markdown>
           </SharedElement>
+          <Spacer8 />
+          <ActionList>
+            <ActionButton Icon={SunUpIcon} onPress={earlyAccessInfoPress}>
+              {t('Screen.Profile:earlyAccessInfo')}
+            </ActionButton>
+            {!isPublicHost && (
+              <ActionButton
+                Icon={MegaphoneIcon}
+                onPress={publicHostAccessPress}>
+                {t('Screen.Profile:publicHostAccess')}
+              </ActionButton>
+            )}
+            <ActionButton Icon={EnvelopeIcon} onPress={contactPress}>
+              {t('Screen.Profile:contact')}
+            </ActionButton>
+          </ActionList>
         </Gutters>
+        <Spacer24 />
+        <BottomSafeArea />
       </ScrollView>
     </Screen>
   );

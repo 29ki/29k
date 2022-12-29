@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {ENVIRONMENT} from 'config';
@@ -42,8 +42,19 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import useUser from '../../lib/user/hooks/useUser';
 import useDeleteUser from '../../lib/user/hooks/useDeleteUser';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
+import SETTINGS from '../../common/constants/settings';
+import {Display24} from '../../common/components/Typography/Display/Display';
+import {SharedElement} from 'react-navigation-shared-element';
+import TouchableOpacity from '../../common/components/TouchableOpacity/TouchableOpacity';
+import Markdown from '../../common/components/Typography/Markdown/Markdown';
 
 const HEADER_HEIGHT = 72;
+
+const BlurbImage = styled.Image({
+  aspectRatio: 1.7,
+  borderTopLeftRadius: SETTINGS.BORDER_RADIUS.ACTION_LISTS,
+  borderRightLeftRadius: SETTINGS.BORDER_RADIUS.ACTION_LISTS,
+});
 
 const Header = styled(LinearGradient).attrs({
   colors: [
@@ -88,6 +99,13 @@ const Profile = () => {
   );
 
   const signInPress = useCallback(() => navigate('SignInModal'), [navigate]);
+
+  const aboutPress = useCallback(() => navigate('AboutOverlay'), [navigate]);
+
+  const aboutBlurbSource = useMemo(
+    () => ({uri: t('Overlay.About:image__image')}),
+    [t],
+  );
 
   const earlyAccessInfoPress = useCallback(
     () => navigate('EarlyAccessInfo'),
@@ -154,6 +172,25 @@ const Profile = () => {
 
           <Heading16>{t('about')}</Heading16>
           <Spacer8 />
+          <ActionList>
+            <TouchableOpacity onPress={aboutPress}>
+              <SharedElement id="editorial.image">
+                <BlurbImage source={aboutBlurbSource} />
+              </SharedElement>
+              <Gutters>
+                <Spacer16 />
+                <SharedElement id="editorial.heading">
+                  <Display24>{t('Overlay.About:heading')}</Display24>
+                </SharedElement>
+                <Spacer8 />
+                <SharedElement id="editorial.text">
+                  <Markdown>{t('Overlay.About:preamble__markdown')}</Markdown>
+                </SharedElement>
+                <Spacer8 />
+              </Gutters>
+            </TouchableOpacity>
+          </ActionList>
+          <Spacer16 />
           <ActionList>
             <ActionButton Icon={SunUpIcon} onPress={earlyAccessInfoPress}>
               {t('earlyAccessInfo')}
