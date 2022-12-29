@@ -64,7 +64,7 @@ const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
   );
 
   const lottieDuration = useMemo(
-    () => parseInt(content.lottie?.duration ?? '60', 10),
+    () => content.lottie?.duration ?? 60,
     [content.lottie?.duration],
   );
 

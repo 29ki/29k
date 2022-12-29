@@ -46,7 +46,7 @@ import Badge from '../../common/components/Badge/Badge';
 import useSessionStartTime from './hooks/useSessionStartTime';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import AudioFader from './components/AudioFader/AudioFader';
-import useLogSessionMetricEvents from './hooks/useLogSessionMetricEvents';
+import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -110,7 +110,7 @@ const IntroPortal: React.FC = () => {
   const isFocused = useIsFocused();
   useSubscribeToSessionIfFocused(sessionId);
   const sessionTime = useSessionStartTime(dayjs(session?.startTime));
-  const {logSessionMetricEvent} = useLogSessionMetricEvents();
+  const {logSessionMetricEvent} = useLogInSessionMetricEvents();
 
   const introPortal = exercise?.introPortal;
   const textColor = exercise?.theme?.textColor;

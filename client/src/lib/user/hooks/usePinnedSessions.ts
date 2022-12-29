@@ -1,12 +1,14 @@
 import dayjs from 'dayjs';
 import {useCallback, useMemo} from 'react';
 import {Session} from '../../../../../shared/src/types/Session';
+import useLogSessionMetricEvents from '../../../routes/Session/hooks/useLogSessionMetricEvents';
 import useUserState from '../state/state';
 import useCurrentUserState from './useCurrentUserState';
 
 const usePinnedSessons = () => {
   const userState = useCurrentUserState();
   const setPinnedSessions = useUserState(state => state.setPinnedSessions);
+  const logSessionMetricEvent = useLogSessionMetricEvents();
 
   const pinnedSessions = useMemo(
     () => userState?.pinnedSessions ?? [],
@@ -32,9 +34,10 @@ const usePinnedSessons = () => {
             expires: dayjs(session.startTime).add(1, 'month').toDate(),
           },
         ]);
+        logSessionMetricEvent('Add Sharing Session To Interested', session);
       }
     },
-    [pinnedSessions, setPinnedSessions],
+    [pinnedSessions, setPinnedSessions, logSessionMetricEvent],
   );
 
   const isSessionPinned = useCallback(
