@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
+import ScreenWrapper from '../../uiLib/decorators/ScreenWrapper';
 import Badge from '../Badge/Badge';
 import {PlusIcon, PrivateIcon, PublicIcon} from '../Icons';
 import {Spacer16, Spacer4} from '../Spacers/Spacer';

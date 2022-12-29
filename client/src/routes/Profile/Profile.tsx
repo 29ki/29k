@@ -3,19 +3,19 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {ENVIRONMENT} from 'config';
 
-import Gutters from '../../common/components/Gutters/Gutters';
+import Gutters from '../../lib/components/Gutters/Gutters';
 import {
   Spacer16,
   Spacer32,
   Spacer8,
   TopSafeArea,
-} from '../../common/components/Spacers/Spacer';
+} from '../../lib/components/Spacers/Spacer';
 
-import {Heading16} from '../../common/components/Typography/Heading/Heading';
-import Screen from '../../common/components/Screen/Screen';
+import {Heading16} from '../../lib/components/Typography/Heading/Heading';
+import Screen from '../../lib/components/Screen/Screen';
 import {COLORS} from '../../../../shared/src/constants/colors';
-import ActionList from '../../common/components/ActionList/ActionList';
-import ActionButton from '../../common/components/ActionList/ActionItems/ActionButton';
+import ActionList from '../../lib/components/ActionList/ActionList';
+import ActionButton from '../../lib/components/ActionList/ActionItems/ActionButton';
 import {
   CheckedIcon,
   CommandIcon,
@@ -27,7 +27,7 @@ import {
   MegaphoneIcon,
   ProfileIcon,
   SunUpIcon,
-} from '../../common/components/Icons';
+} from '../../lib/components/Icons';
 import {useNavigation} from '@react-navigation/native';
 import {
   AppStackProps,

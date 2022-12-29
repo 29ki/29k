@@ -5,17 +5,17 @@ import {useTranslation} from 'react-i18next';
 import dayjs from 'dayjs';
 
 import {Session} from '../../../../../../shared/src/types/Session';
-import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
+import useExerciseById from '../../../content/hooks/useExerciseById';
 import {
   AppStackProps,
   ModalStackProps,
-} from '../../../../lib/navigation/constants/routes';
+} from '../../../navigation/constants/routes';
 import Card from '../Card';
 
 import useSessionStartTime from '../../../../routes/Session/hooks/useSessionStartTime';
 import SessionTimeBadge from '../../SessionTimeBadge/SessionTimeBadge';
 import {formatExerciseName} from '../../../utils/string';
-import usePinnedSessons from '../../../../lib/user/hooks/usePinnedSessions';
+import usePinnedSessons from '../../../user/hooks/usePinnedSessions';
 import useLogSessionMetricEvents from '../../../../routes/Session/hooks/useLogSessionMetricEvents';
 
 type SessionCardProps = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
+import ScreenWrapper from '../../uiLib/decorators/ScreenWrapper';
 import ActionButton from './ActionItems/ActionButton';
 import ActionList from './ActionList';
 import {ProfileIcon} from '../Icons';

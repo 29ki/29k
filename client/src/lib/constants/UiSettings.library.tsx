@@ -6,7 +6,7 @@ import {COLORS} from '../../../../shared/src/constants/colors';
 import {GUTTERS} from './spacings';
 
 import {Body16, Body14} from '../components/Typography/Body/Body';
-import ScreenWrapper from '../../lib/uiLib/decorators/ScreenWrapper';
+import ScreenWrapper from '../uiLib/decorators/ScreenWrapper';
 import * as Spacers from '../components/Spacers/Spacer';
 import {Spacer24, Spacer16, Spacer4} from '../components/Spacers/Spacer';
 

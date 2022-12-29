@@ -7,25 +7,25 @@ import {useCallback, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 
-import Button from '../../../../common/components/Buttons/Button';
-import Byline from '../../../../common/components/Bylines/Byline';
-import Image from '../../../../common/components/Image/Image';
-import Gutters from '../../../../common/components/Gutters/Gutters';
+import Button from '../../../../lib/components/Buttons/Button';
+import Byline from '../../../../lib/components/Bylines/Byline';
+import Image from '../../../../lib/components/Image/Image';
+import Gutters from '../../../../lib/components/Gutters/Gutters';
 import {
   Spacer16,
   Spacer28,
   Spacer8,
-} from '../../../../common/components/Spacers/Spacer';
-import {Display24} from '../../../../common/components/Typography/Display/Display';
+} from '../../../../lib/components/Spacers/Spacer';
+import {Display24} from '../../../../lib/components/Typography/Display/Display';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import {LANGUAGE_TAG} from '../../../../lib/i18n';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
 import useSessions from '../../../Sessions/hooks/useSessions';
 import {StepProps} from '../../CreateSessionModal';
-import DateTimePicker from '../../../../common/components/DateTimePicker/DateTimePicker';
-import {SPACINGS} from '../../../../common/constants/spacings';
-import EditSessionType from '../../../../common/components/EditSessionType/EditSessionType';
-import {formatExerciseName} from '../../../../common/utils/string';
+import DateTimePicker from '../../../../lib/components/DateTimePicker/DateTimePicker';
+import {SPACINGS} from '../../../../lib/constants/spacings';
+import EditSessionType from '../../../../lib/components/EditSessionType/EditSessionType';
+import {formatExerciseName} from '../../../../lib/utils/string';
 import useLogSessionMetricEvents from '../../../Session/hooks/useLogSessionMetricEvents';
 
 const TextWrapper = styled.View({

@@ -11,22 +11,22 @@ import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import {DailyMediaView} from '@daily-co/react-native-daily-js';
 
-import Button from '../../common/components/Buttons/Button';
-import Gutters from '../../common/components/Gutters/Gutters';
+import Button from '../../lib/components/Buttons/Button';
+import Gutters from '../../lib/components/Gutters/Gutters';
 import {
   FilmCameraIcon,
   FilmCameraOffIcon,
   MicrophoneIcon,
   MicrophoneOffIcon,
-} from '../../common/components/Icons';
+} from '../../lib/components/Icons';
 import {
   BottomSafeArea,
   Spacer16,
   Spacer28,
   Spacer48,
   TopSafeArea,
-} from '../../common/components/Spacers/Spacer';
-import {Body16} from '../../common/components/Typography/Body/Body';
+} from '../../lib/components/Spacers/Spacer';
+import {Body16} from '../../lib/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {DailyContext} from '../../lib/daily/DailyProvider';
 import useSessionState from './state/state';
@@ -35,16 +35,16 @@ import {
   SessionStackProps,
   TabNavigatorProps,
 } from '../../lib/navigation/constants/routes';
-import {SPACINGS} from '../../common/constants/spacings';
-import TextInput from '../../common/components/Typography/TextInput/TextInput';
+import {SPACINGS} from '../../lib/constants/spacings';
+import TextInput from '../../lib/components/Typography/TextInput/TextInput';
 import AudioIndicator from './components/Participants/AudioIdicator';
-import IconButton from '../../common/components/Buttons/IconButton/IconButton';
+import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
 import useUpdateSessionExerciseState from './hooks/useUpdateSessionExerciseState';
 import useIsSessionHost from './hooks/useIsSessionHost';
-import Screen from '../../common/components/Screen/Screen';
+import Screen from '../../lib/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../lib/user/hooks/useUser';
-import Image from '../../common/components/Image/Image';
+import Image from '../../lib/components/Image/Image';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
 

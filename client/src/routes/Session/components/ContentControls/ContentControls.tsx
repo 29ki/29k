@@ -13,12 +13,12 @@ import {
   Play,
   Pause,
   Rewind,
-} from '../../../../common/components/Icons';
+} from '../../../../lib/components/Icons';
 
 import useUpdateSessionExerciseState from '../../hooks/useUpdateSessionExerciseState';
-import {Spacer8} from '../../../../common/components/Spacers/Spacer';
-import Button from '../../../../common/components/Buttons/Button';
-import IconButton from '../../../../common/components/Buttons/IconButton/IconButton';
+import {Spacer8} from '../../../../lib/components/Spacers/Spacer';
+import Button from '../../../../lib/components/Buttons/Button';
+import IconButton from '../../../../lib/components/Buttons/IconButton/IconButton';
 import useSessionExercise from '../../hooks/useSessionExercise';
 
 const Wrapper = styled.View({

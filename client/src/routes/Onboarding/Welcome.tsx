@@ -4,10 +4,10 @@ import {useTranslation} from 'react-i18next';
 import {ScrollView} from 'react-native';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../shared/src/constants/colors';
-import Button from '../../common/components/Buttons/Button';
-import Gutters from '../../common/components/Gutters/Gutters';
-import Image from '../../common/components/Image/Image';
-import Screen from '../../common/components/Screen/Screen';
+import Button from '../../lib/components/Buttons/Button';
+import Gutters from '../../lib/components/Gutters/Gutters';
+import Image from '../../lib/components/Image/Image';
+import Screen from '../../lib/components/Screen/Screen';
 import {
   BottomSafeArea,
   Spacer16,
@@ -15,9 +15,9 @@ import {
   Spacer32,
   Spacer40,
   TopSafeArea,
-} from '../../common/components/Spacers/Spacer';
-import {Display24} from '../../common/components/Typography/Display/Display';
-import Markdown from '../../common/components/Typography/Markdown/Markdown';
+} from '../../lib/components/Spacers/Spacer';
+import {Display24} from '../../lib/components/Typography/Display/Display';
+import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 import useAppState from '../../lib/appState/state/state';
 import {AppStackProps} from '../../lib/navigation/constants/routes';
 

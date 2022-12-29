@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
+import ScreenWrapper from '../../uiLib/decorators/ScreenWrapper';
 import {
   Heading24,
   Heading22,

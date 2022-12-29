@@ -1,7 +1,7 @@
 import React from 'react';
 import {Alert} from 'react-native';
 import styled from 'styled-components/native';
-import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
+import ScreenWrapper from '../../uiLib/decorators/ScreenWrapper';
 import {Spacer16, Spacer8} from '../Spacers/Spacer';
 import {Heading16} from '../Typography/Heading/Heading';
 import ProfilePicture from './ProfilePicture';

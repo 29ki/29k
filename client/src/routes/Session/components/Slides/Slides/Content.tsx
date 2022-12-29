@@ -7,12 +7,9 @@ import {
   ExerciseSlideSharingSlide,
 } from '../../../../../../../shared/src/types/generated/Exercise';
 import Heading from './Blocks/Heading';
-import Image from '../../../../../common/components/Image/Image';
+import Image from '../../../../../lib/components/Image/Image';
 import Video from './Blocks/Video';
-import {
-  Spacer12,
-  Spacer8,
-} from '../../../../../common/components/Spacers/Spacer';
+import {Spacer12, Spacer8} from '../../../../../lib/components/Spacers/Spacer';
 import Text from './Blocks/Text';
 import Lottie from './Blocks/Lottie';
 

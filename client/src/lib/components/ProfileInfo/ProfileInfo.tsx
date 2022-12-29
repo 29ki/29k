@@ -5,10 +5,10 @@ import Button from '../Buttons/Button';
 import {Spacer16} from '../Spacers/Spacer';
 import {BottomSheetTextInput} from '../Typography/TextInput/TextInput';
 import {SPACINGS} from '../../constants/spacings';
-import useChangeProfilePicture from '../../../lib/user/hooks/useChangeProfilePicture';
-import useUpdateProfileDetails from '../../../lib/user/hooks/useUpdateProfileDetails';
+import useChangeProfilePicture from '../../user/hooks/useChangeProfilePicture';
+import useUpdateProfileDetails from '../../user/hooks/useUpdateProfileDetails';
 import ProfilePicture from '../User/ProfilePicture';
-import useUser from '../../../lib/user/hooks/useUser';
+import useUser from '../../user/hooks/useUser';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 
 const Container = styled.View({

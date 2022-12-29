@@ -1,5 +1,5 @@
 import create from 'zustand';
-import {IconType} from '../../../common/components/Icons';
+import {IconType} from '../../../lib/components/Icons';
 
 export type Notification = {
   text: string;
