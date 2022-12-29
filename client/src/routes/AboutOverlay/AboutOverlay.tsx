@@ -5,24 +5,23 @@ import {useTranslation} from 'react-i18next';
 import {ScrollView} from 'react-native';
 import {SharedElement} from 'react-navigation-shared-element';
 import styled from 'styled-components/native';
-import ActionButton from '../../common/components/ActionList/ActionItems/ActionButton';
-import ActionList from '../../common/components/ActionList/ActionList';
-import Gutters from '../../common/components/Gutters/Gutters';
+import ActionButton from '../../lib/components/ActionList/ActionItems/ActionButton';
+import ActionList from '../../lib/components/ActionList/ActionList';
+import Gutters from '../../lib/components/Gutters/Gutters';
 import {
   SunUpIcon,
   MegaphoneIcon,
   EnvelopeIcon,
-} from '../../common/components/Icons';
-import Screen from '../../common/components/Screen/Screen';
+} from '../../lib/components/Icons';
+import Screen from '../../lib/components/Screen/Screen';
 import {
   BottomSafeArea,
   Spacer16,
   Spacer24,
-  Spacer32,
   Spacer8,
-} from '../../common/components/Spacers/Spacer';
-import {Display24} from '../../common/components/Typography/Display/Display';
-import Markdown from '../../common/components/Typography/Markdown/Markdown';
+} from '../../lib/components/Spacers/Spacer';
+import {Display24} from '../../lib/components/Typography/Display/Display';
+import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 import {
   ModalStackProps,
   ProfileStackProps,

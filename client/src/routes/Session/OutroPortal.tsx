@@ -13,15 +13,12 @@ import useLeaveSession from './hooks/useLeaveSession';
 
 import Sentry from '../../lib/sentry';
 
-import {
-  BottomSafeArea,
-  TopSafeArea,
-} from '../../common/components/Spacers/Spacer';
-import {SPACINGS} from '../../common/constants/spacings';
+import {BottomSafeArea, TopSafeArea} from '../../lib/components/Spacers/Spacer';
+import {SPACINGS} from '../../lib/constants/spacings';
 import VideoBase from './components/VideoBase/VideoBase';
-import Screen from '../../common/components/Screen/Screen';
-import Button from '../../common/components/Buttons/Button';
-import Gutters from '../../common/components/Gutters/Gutters';
+import Screen from '../../lib/components/Screen/Screen';
+import Button from '../../lib/components/Buttons/Button';
+import Gutters from '../../lib/components/Gutters/Gutters';
 import AudioFader from './components/AudioFader/AudioFader';
 import useSessionState from './state/state';
 import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';

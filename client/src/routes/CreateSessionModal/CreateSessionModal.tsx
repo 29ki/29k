@@ -16,7 +16,7 @@ import {UserProfile} from '../../../../shared/src/types/User';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 import useUser from '../../lib/user/hooks/useUser';
 
-import SheetModal from '../../common/components/Modals/SheetModal';
+import SheetModal from '../../lib/components/Modals/SheetModal';
 
 import SelectTypeStep from './components/steps/SelectTypeStep';
 import SetDateTimeStep from './components/steps/SetDateTimeStep';

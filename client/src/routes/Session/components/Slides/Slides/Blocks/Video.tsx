@@ -5,7 +5,7 @@ import RNVideo, {VideoProperties, OnLoadData} from 'react-native-video';
 import useSessionState from '../../../../state/state';
 import VideoBase from '../../../VideoBase/VideoBase';
 import DurationTimer from '../../../DurationTimer/DurationTimer';
-import {LottiePlayerHandle} from '../../../../../../common/components/LottiePlayer/LottiePlayer';
+import {LottiePlayerHandle} from '../../../../../../lib/components/LottiePlayer/LottiePlayer';
 
 const VideoPlayer = styled(VideoBase)({
   flex: 1,

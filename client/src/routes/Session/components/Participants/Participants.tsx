@@ -6,7 +6,7 @@ import {curry} from 'ramda';
 
 import Participant from './Participant';
 import SessionNotifications from '../Notifications/SessionNotifications';
-import {SPACINGS} from '../../../../common/constants/spacings';
+import {SPACINGS} from '../../../../lib/constants/spacings';
 
 const VIDEO_WIDTH_PERCENTAGE = 0.4;
 

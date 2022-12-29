@@ -2,7 +2,7 @@ import hexToRgba from 'hex-to-rgba';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {GUTTERS} from '../../../common/constants/spacings';
+import {GUTTERS} from '../../../lib/constants/spacings';
 
 export const Header = styled(LinearGradient).attrs({
   colors: [

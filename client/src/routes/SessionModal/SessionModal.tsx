@@ -6,50 +6,50 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Alert, Share, View} from 'react-native';
 import styled from 'styled-components/native';
 
-import Button from '../../common/components/Buttons/Button';
-import Gutters from '../../common/components/Gutters/Gutters';
-import IconButton from '../../common/components/Buttons/IconButton/IconButton';
+import Button from '../../lib/components/Buttons/Button';
+import Gutters from '../../lib/components/Gutters/Gutters';
+import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
 import {
   BellIcon,
   PrivateIcon,
   PublicIcon,
   ShareIcon,
-} from '../../common/components/Icons';
-import Image from '../../common/components/Image/Image';
-import SheetModal from '../../common/components/Modals/SheetModal';
+} from '../../lib/components/Icons';
+import Image from '../../lib/components/Image/Image';
+import SheetModal from '../../lib/components/Modals/SheetModal';
 import {
   Spacer16,
   Spacer32,
   Spacer4,
   Spacer8,
-} from '../../common/components/Spacers/Spacer';
-import {Display24} from '../../common/components/Typography/Display/Display';
+} from '../../lib/components/Spacers/Spacer';
+import {Display24} from '../../lib/components/Typography/Display/Display';
 import {
   ModalStackProps,
   AppStackProps,
 } from '../../lib/navigation/constants/routes';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
-import useAddToCalendar from '../Sessions/hooks/useAddToCalendar';
-import useSessionNotificationReminder from '../Sessions/hooks/useSessionNotificationReminder';
-import {Body16} from '../../common/components/Typography/Body/Body';
-import Byline from '../../common/components/Bylines/Byline';
-import {formatExerciseName, formatInviteCode} from '../../common/utils/string';
-import SessionTimeBadge from '../../common/components/SessionTimeBadge/SessionTimeBadge';
+import useAddSessionToCalendar from '../../lib/sessions/hooks/useAddSessionToCalendar';
+import useSessionNotificationReminder from '../../lib/sessions/hooks/useSessionNotificationReminder';
+import {Body16} from '../../lib/components/Typography/Body/Body';
+import Byline from '../../lib/components/Bylines/Byline';
+import {formatExerciseName, formatInviteCode} from '../../lib/utils/string';
+import SessionTimeBadge from '../../lib/components/SessionTimeBadge/SessionTimeBadge';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import useUser from '../../lib/user/hooks/useUser';
-import useSessions from '../Sessions/hooks/useSessions';
-import {PencilIcon, CalendarIcon} from '../../common/components/Icons';
-import TouchableOpacity from '../../common/components/TouchableOpacity/TouchableOpacity';
-import DateTimePicker from '../../common/components/DateTimePicker/DateTimePicker';
-import {updateSession} from '../Sessions/api/session';
+import useSessions from '../../lib/sessions/hooks/useSessions';
+import {PencilIcon, CalendarIcon} from '../../lib/components/Icons';
+import TouchableOpacity from '../../lib/components/TouchableOpacity/TouchableOpacity';
+import DateTimePicker from '../../lib/components/DateTimePicker/DateTimePicker';
+import {updateSession} from '../../lib/sessions/api/session';
 import {Session, SessionType} from '../../../../shared/src/types/Session';
-import EditSessionType from '../../common/components/EditSessionType/EditSessionType';
-import {SPACINGS} from '../../common/constants/spacings';
-import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
-import Interested from '../../common/components/Interested/Interested';
-import RadioButton from '../../common/components/Buttons/RadioButton/RadioButton';
-import usePinnedSessons from '../../lib/user/hooks/usePinnedSessions';
-import useLogSessionMetricEvents from '../Session/hooks/useLogSessionMetricEvents';
+import EditSessionType from '../../lib/components/EditSessionType/EditSessionType';
+import {SPACINGS} from '../../lib/constants/spacings';
+import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
+import Interested from '../../lib/components/Interested/Interested';
+import RadioButton from '../../lib/components/Buttons/RadioButton/RadioButton';
+import usePinnedSessons from '../../lib/sessions/hooks/usePinnedSessions';
+import useLogSessionMetricEvents from '../../lib/sessions/hooks/useLogSessionMetricEvents';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',
@@ -157,7 +157,7 @@ const SessionModal = () => {
   );
   const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
 
-  const addToCalendar = useAddToCalendar();
+  const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session?.contentId);
   const {reminderEnabled, toggleReminder} =
     useSessionNotificationReminder(session);

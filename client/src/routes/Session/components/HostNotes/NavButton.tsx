@@ -2,7 +2,7 @@ import React from 'react';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import IconButton, {
   IconButtonProps,
-} from '../../../../common/components/Buttons/IconButton/IconButton';
+} from '../../../../lib/components/Buttons/IconButton/IconButton';
 
 const NavButton: React.FC<IconButtonProps> = ({
   Icon,
