@@ -3,7 +3,7 @@ import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import * as AddCalendarEvent from 'react-native-add-calendar-event';
 
-const useAddToCalendar = () => {
+const useAddSessionToCalendar = () => {
   const {t} = useTranslation('Component.AddToCalendar');
 
   return useCallback(
@@ -32,4 +32,4 @@ const useAddToCalendar = () => {
   );
 };
 
-export default useAddToCalendar;
+export default useAddSessionToCalendar;

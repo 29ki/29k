@@ -29,7 +29,7 @@ import {
   AppStackProps,
 } from '../../lib/navigation/constants/routes';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
-import useAddToCalendar from '../../lib/sessions/hooks/useAddToCalendar';
+import useAddSessionToCalendar from '../../lib/sessions/hooks/useAddSessionToCalendar';
 import useSessionNotificationReminder from '../../lib/sessions/hooks/useSessionNotificationReminder';
 import {Body16} from '../../lib/components/Typography/Body/Body';
 import Byline from '../../lib/components/Bylines/Byline';
@@ -157,7 +157,7 @@ const SessionModal = () => {
   );
   const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
 
-  const addToCalendar = useAddToCalendar();
+  const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session?.contentId);
   const {reminderEnabled, toggleReminder} =
     useSessionNotificationReminder(session);
