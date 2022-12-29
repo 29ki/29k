@@ -16,11 +16,17 @@ export const Alert = {
   alert: jest.fn(),
 };
 
+export const Linking = {
+  openURL: jest.fn(),
+  openSettings: jest.fn(),
+};
+
 export default Object.setPrototypeOf(
   {
     Platform,
     AppState,
     Alert,
+    Linking,
   },
   ReactNative,
 );
