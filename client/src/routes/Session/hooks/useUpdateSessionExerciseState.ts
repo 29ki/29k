@@ -18,7 +18,7 @@ const useUpdateSessionExerciseState = (
         return;
       }
 
-      return sessionApi.updateSessionExerciseState(sessionId, {
+      return sessionApi.updateExerciseState(sessionId, {
         index,
         playing: false,
       });
@@ -29,7 +29,7 @@ const useUpdateSessionExerciseState = (
   const setSpotlightParticipant = useCallback(
     async (dailySpotlightId: ExerciseState['dailySpotlightId']) => {
       if (sessionId) {
-        return sessionApi.updateSessionExerciseState(sessionId, {
+        return sessionApi.updateExerciseState(sessionId, {
           dailySpotlightId,
         });
       }
@@ -40,7 +40,7 @@ const useUpdateSessionExerciseState = (
   const setPlaying = useCallback(
     async (playing: ExerciseState['playing']) => {
       if (sessionId) {
-        return sessionApi.updateSessionExerciseState(sessionId, {playing});
+        return sessionApi.updateExerciseState(sessionId, {playing});
       }
     },
     [sessionId],

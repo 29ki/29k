@@ -65,7 +65,7 @@ export const joinSession = async (
   return response.json();
 };
 
-export const updateSessionExerciseState = async (
+export const updateExerciseState = async (
   id: string,
   data: Partial<ExerciseState>,
 ) => {
