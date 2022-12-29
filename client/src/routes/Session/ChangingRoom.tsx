@@ -6,7 +6,7 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {ActivityIndicator, Alert, Linking, Platform} from 'react-native';
+import {ActivityIndicator, Platform} from 'react-native';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import {DailyMediaView} from '@daily-co/react-native-daily-js';
@@ -47,6 +47,7 @@ import useUser from '../../lib/user/hooks/useUser';
 import Image from '../../lib/components/Image/Image';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
+import useCheckPermissions from './hooks/useCheckPermissions';
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'padding', android: undefined}),
@@ -110,15 +111,8 @@ const ChangingRoom = () => {
         SessionStackProps & TabNavigatorProps & ModalStackProps
       >
     >();
-  const {
-    toggleAudio,
-    toggleVideo,
-    setUserName,
-    joinMeeting,
-    preJoinMeeting,
-    hasCameraPermissions,
-    hasMicrophonePermissions,
-  } = useContext(DailyContext);
+  const {toggleAudio, toggleVideo, setUserName, joinMeeting, preJoinMeeting} =
+    useContext(DailyContext);
 
   const session = useSessionState(state => state.session);
   const {
@@ -133,6 +127,11 @@ const ChangingRoom = () => {
   const user = useUser();
   const [localUserName, setLocalUserName] = useState(user?.displayName ?? '');
   const {logSessionMetricEvent} = useLogInSessionMetricEvents();
+  const {
+    checkJoinPermissions,
+    checkCameraPermissions,
+    checkMicrophonePermissions,
+  } = useCheckPermissions();
 
   const hasAudio = Boolean(me?.audioTrack);
   const hasVideo = Boolean(me?.videoTrack);
@@ -171,83 +170,22 @@ const ChangingRoom = () => {
     }
   }, [setJoiningMeeting, sessionId, session?.started, joinMeeting, navigate]);
 
-  const permissionsAlert = useCallback(
-    () =>
-      Alert.alert(
-        t('permissionsAlert.join.title'),
-        t('permissionsAlert.join.message'),
-        [
-          {
-            text: t('permissionsAlert.join.dismiss'),
-            onPress: join,
-          },
-          {
-            style: 'cancel',
-            text: t('permissionsAlert.join.confirm'),
-            onPress: () => Linking.openSettings(),
-          },
-        ],
-      ),
-    [t, join],
-  );
-
   const joinPress = useCallback(() => {
     setUserName(localUserName);
-    if (hasCameraPermissions() && hasMicrophonePermissions()) {
-      join();
-    } else {
-      permissionsAlert();
-    }
-  }, [
-    localUserName,
-    setUserName,
-    hasCameraPermissions,
-    hasMicrophonePermissions,
-    join,
-    permissionsAlert,
-  ]);
+    checkJoinPermissions(join);
+  }, [localUserName, setUserName, checkJoinPermissions, join]);
 
   const toggleAudioPress = useCallback(() => {
-    if (hasMicrophonePermissions()) {
+    checkMicrophonePermissions(() => {
       toggleAudio(!hasAudio);
-    } else {
-      Alert.alert(
-        t('permissionsAlert.microphone.title'),
-        t('permissionsAlert.microphone.message'),
-        [
-          {
-            text: t('permissionsAlert.microphone.dismiss'),
-          },
-          {
-            style: 'cancel',
-            text: t('permissionsAlert.microphone.confirm'),
-            onPress: () => Linking.openSettings(),
-          },
-        ],
-      );
-    }
-  }, [t, hasMicrophonePermissions, toggleAudio, hasAudio]);
+    });
+  }, [checkMicrophonePermissions, toggleAudio, hasAudio]);
 
   const toggleVideoPress = useCallback(() => {
-    if (hasCameraPermissions()) {
+    checkCameraPermissions(() => {
       toggleVideo(!hasVideo);
-    } else {
-      Alert.alert(
-        t('permissionsAlert.camera.title'),
-        t('permissionsAlert.camera.message'),
-        [
-          {
-            text: t('permissionsAlert.camera.dismiss'),
-          },
-          {
-            style: 'cancel',
-            text: t('permissionsAlert.camera.confirm'),
-            onPress: () => Linking.openSettings(),
-          },
-        ],
-      );
-    }
-  }, [t, hasCameraPermissions, toggleVideo, hasVideo]);
+    });
+  }, [checkCameraPermissions, toggleVideo, hasVideo]);
 
   return (
     <Screen onPressBack={goBack}>

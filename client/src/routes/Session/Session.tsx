@@ -46,7 +46,7 @@ import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocu
 import useExerciseTheme from './hooks/useExerciseTheme';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
-import {Alert, Linking} from 'react-native';
+import useCheckPermissions from './hooks/useCheckPermissions';
 
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
@@ -93,8 +93,6 @@ const StyledHangUpIcon = () => <HangUpIcon fill={COLORS.ACTIVE} />;
 
 const Session = () => {
   const {
-    hasMicrophonePermissions,
-    hasCameraPermissions,
     setUserData,
     toggleAudio,
     toggleVideo,
@@ -121,6 +119,8 @@ const Session = () => {
   const {logSessionMetricEvent, conditionallyLogCompleteSessionMetricEvent} =
     useLogInSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession();
+  const {checkCameraPermissions, checkMicrophonePermissions} =
+    useCheckPermissions();
   const user = useUser();
 
   const hasAudio = Boolean(me?.audioTrack);
@@ -160,46 +160,16 @@ const Session = () => {
   }, [setUserData, setSubscribeToAllTracks, user?.photoURL]);
 
   const toggleAudioPress = useCallback(() => {
-    if (hasMicrophonePermissions()) {
+    checkMicrophonePermissions(() => {
       toggleAudio(!hasAudio);
-    } else {
-      Alert.alert(
-        t('permissionsAlert.microphone.title'),
-        t('permissionsAlert.microphone.message'),
-        [
-          {
-            text: t('permissionsAlert.microphone.dismiss'),
-          },
-          {
-            style: 'cancel',
-            text: t('permissionsAlert.microphone.confirm'),
-            onPress: () => Linking.openSettings(),
-          },
-        ],
-      );
-    }
-  }, [t, hasMicrophonePermissions, toggleAudio, hasAudio]);
+    });
+  }, [checkMicrophonePermissions, toggleAudio, hasAudio]);
 
   const toggleVideoPress = useCallback(() => {
-    if (hasCameraPermissions()) {
+    checkCameraPermissions(() => {
       toggleVideo(!hasVideo);
-    } else {
-      Alert.alert(
-        t('permissionsAlert.camera.title'),
-        t('permissionsAlert.camera.message'),
-        [
-          {
-            text: t('permissionsAlert.camera.dismiss'),
-          },
-          {
-            style: 'cancel',
-            text: t('permissionsAlert.camera.confirm'),
-            onPress: () => Linking.openSettings(),
-          },
-        ],
-      );
-    }
-  }, [t, hasCameraPermissions, toggleVideo, hasVideo]);
+    });
+  }, [checkCameraPermissions, toggleVideo, hasVideo]);
 
   return (
     <Screen backgroundColor={theme?.backgroundColor}>

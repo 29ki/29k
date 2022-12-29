@@ -1,6 +1,12 @@
 /* eslint-disable */
 /* tslint:disable */
 
+export interface ExerciseSocialMediaMetaTags {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
 export interface ExerciseCardImage {
   description?: string;
   source?: string;
@@ -189,6 +195,7 @@ export interface Exercise {
   duration: number;
   published: boolean;
   hidden?: boolean;
+  socialMeta?: ExerciseSocialMediaMetaTags;
   card: ExerciseCard;
   theme?: ExerciseTheme;
   introPortal?: ExerciseIntroPortal;

@@ -21,9 +21,18 @@ jest.mock('../../../content/content.json', () => ({
             },
           },
         },
+        'some-socialMeta-exercise-id': {
+          published: true,
+          name: 'Some Other Exercise',
+          socialMeta: {
+            title: 'Some custom social meta title',
+            description: 'Some custom social meta description',
+            image: 'http://some.custom.social.meta/image',
+          },
+        },
       },
       'DeepLink.JoinSessionInvite': {
-        title: 'Some link title: {{name}}',
+        title: 'Some link title: {{title}}',
         description: 'Some link description: {{host}}',
       },
     },
@@ -40,7 +49,7 @@ jest.mock('../../../content/content.json', () => ({
         },
       },
       'DeepLink.JoinSessionInvite': {
-        title: 'En länktitel: {{name}}',
+        title: 'En länktitel: {{title}}',
         description: 'En länkbeskrivning: {{host}}',
       },
     },
@@ -185,6 +194,49 @@ describe('createSessionInviteLink', () => {
             socialDescription: 'Some link description: Some Host Name',
             socialImageLink: 'http://some.image/source.en',
             socialTitle: 'Some link title: Some Exercise',
+          },
+        },
+      },
+    });
+
+    expect(shortLink).toBe('https://some.short/session/link');
+  });
+
+  it('supports custom social meta override', async () => {
+    mockCreate.mockResolvedValueOnce({
+      data: {
+        shortLink: 'https://some.short/session/link',
+      },
+    });
+
+    const shortLink = await createSessionInviteLink(
+      123456,
+      'some-socialMeta-exercise-id',
+      'Some Host Name',
+      'en',
+    );
+
+    expect(mockCreate).toHaveBeenCalledTimes(1);
+    expect(mockCreate).toHaveBeenCalledWith({
+      key: 'some-deep-link-api-key',
+      requestBody: {
+        dynamicLinkInfo: {
+          androidInfo: {
+            androidFallbackLink: 'http://some.android/fallback/link',
+            androidPackageName: 'some-deep-link-android-package-name',
+          },
+          domainUriPrefix: 'some-deep-link-domain-uri-prefix',
+          iosInfo: {
+            iosAppStoreId: 'some-deep-link-ios-appstore-id',
+            iosBundleId: 'some-deep-link-ios-bundle-id',
+            iosFallbackLink: 'http://some.ios/fallback/link',
+          },
+          link: 'http://some.deep/link/base/joinSessionInvite/123456',
+          navigationInfo: {enableForcedRedirect: false},
+          socialMetaTagInfo: {
+            socialDescription: 'Some link description: Some Host Name',
+            socialImageLink: 'http://some.custom.social.meta/image',
+            socialTitle: 'Some link title: Some custom social meta title',
           },
         },
       },
