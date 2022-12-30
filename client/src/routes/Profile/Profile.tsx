@@ -42,11 +42,11 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import useUser from '../../lib/user/hooks/useUser';
 import useDeleteUser from '../../lib/user/hooks/useDeleteUser';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
-import SETTINGS from '../../common/constants/settings';
-import {Display24} from '../../common/components/Typography/Display/Display';
+import SETTINGS from '../../lib/constants/settings';
+import {Display24} from '../../lib/components/Typography/Display/Display';
 import {SharedElement} from 'react-navigation-shared-element';
-import TouchableOpacity from '../../common/components/TouchableOpacity/TouchableOpacity';
-import Markdown from '../../common/components/Typography/Markdown/Markdown';
+import TouchableOpacity from '../../lib/components/TouchableOpacity/TouchableOpacity';
+import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 
 const HEADER_HEIGHT = 72;
 
