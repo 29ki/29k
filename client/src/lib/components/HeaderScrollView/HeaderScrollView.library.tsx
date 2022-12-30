@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import Gutters from '../Gutters/Gutters';
 import {ProfileIcon} from '../Icons';

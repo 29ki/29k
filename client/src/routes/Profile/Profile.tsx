@@ -17,9 +17,7 @@ import {COLORS} from '../../../../shared/src/constants/colors';
 import ActionList from '../../lib/components/ActionList/ActionList';
 import ActionButton from '../../lib/components/ActionList/ActionItems/ActionButton';
 import {
-  CheckedIcon,
   CommandIcon,
-  CommunityIcon,
   DeleteIcon,
   HangUpIcon,
   LanguagesIcon,

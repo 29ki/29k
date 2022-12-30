@@ -1,5 +1,5 @@
 import React from 'react';
-import {Platform, ScrollViewProps, StyleSheet} from 'react-native';
+import {ScrollViewProps, StyleSheet} from 'react-native';
 import Animated, {
   Extrapolation,
   interpolate,
