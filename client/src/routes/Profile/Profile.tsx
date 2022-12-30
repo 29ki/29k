@@ -32,6 +32,7 @@ import {useNavigation} from '@react-navigation/native';
 import {
   AppStackProps,
   ModalStackProps,
+  OverlayStackProps,
   ProfileStackProps,
 } from '../../lib/navigation/constants/routes';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -80,7 +81,7 @@ const Profile = () => {
   const {navigate} =
     useNavigation<
       NativeStackNavigationProp<
-        AppStackProps & ProfileStackProps & ModalStackProps
+        AppStackProps & ProfileStackProps & ModalStackProps & OverlayStackProps
       >
     >();
   const {top} = useSafeAreaInsets();
@@ -103,7 +104,7 @@ const Profile = () => {
   const aboutPress = useCallback(() => navigate('AboutOverlay'), [navigate]);
 
   const aboutBlurbSource = useMemo(
-    () => ({uri: t('Overlay.About:image__image')}),
+    () => ({uri: t('image__image', {ns: 'Overlay.About'})}),
     [t],
   );
 
@@ -180,11 +181,13 @@ const Profile = () => {
               <Gutters>
                 <Spacer16 />
                 <SharedElement id="editorial.heading">
-                  <Display24>{t('Overlay.About:heading')}</Display24>
+                  <Display24>{t('heading', {ns: 'Overlay.About'})}</Display24>
                 </SharedElement>
                 <Spacer8 />
                 <SharedElement id="editorial.text">
-                  <Markdown>{t('Overlay.About:preamble__markdown')}</Markdown>
+                  <Markdown>
+                    {t('preamble__markdown', {ns: 'Overlay.About'})}
+                  </Markdown>
                 </SharedElement>
                 <Spacer8 />
               </Gutters>

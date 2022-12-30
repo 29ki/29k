@@ -74,17 +74,17 @@ const AboutOverlay = () => {
           <Spacer8 />
           <ActionList>
             <ActionButton Icon={SunUpIcon} onPress={earlyAccessInfoPress}>
-              {t('Screen.Profile:earlyAccessInfo')}
+              {t('earlyAccessInfo', {ns: 'Screen.Profile'})}
             </ActionButton>
             {!isPublicHost && (
               <ActionButton
                 Icon={MegaphoneIcon}
                 onPress={publicHostAccessPress}>
-                {t('Screen.Profile:publicHostAccess')}
+                {t('publicHostAccess', {ns: 'Screen.Profile'})}
               </ActionButton>
             )}
             <ActionButton Icon={EnvelopeIcon} onPress={contactPress}>
-              {t('Screen.Profile:contact')}
+              {t('contact', {ns: 'Screen.Profile'})}
             </ActionButton>
           </ActionList>
         </Gutters>
