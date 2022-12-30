@@ -158,27 +158,33 @@ const Profile = () => {
 
           <Heading16>{t('about')}</Heading16>
           <Spacer8 />
-          <ActionList>
-            <TouchableOpacity onPress={aboutPress}>
-              <SharedElement id="about.image">
-                <BlurbImage source={aboutBlurbSource} resizeMode="cover" />
-              </SharedElement>
-              <Gutters>
-                <Spacer16 />
-                <SharedElement id="about.heading">
-                  <Display24>{t('heading', {ns: 'Overlay.About'})}</Display24>
-                </SharedElement>
-                <Spacer8 />
-                <SharedElement id="about.text">
-                  <Markdown>
-                    {t('preamble__markdown', {ns: 'Overlay.About'})}
-                  </Markdown>
-                </SharedElement>
-                <Spacer8 />
-              </Gutters>
-            </TouchableOpacity>
-          </ActionList>
-          <Spacer16 />
+          {t('heading', {ns: 'Overlay.About'}) && (
+            <>
+              <ActionList>
+                <TouchableOpacity onPress={aboutPress}>
+                  <SharedElement id="about.image">
+                    <BlurbImage source={aboutBlurbSource} resizeMode="cover" />
+                  </SharedElement>
+                  <Gutters>
+                    <Spacer16 />
+                    <SharedElement id="about.heading">
+                      <Display24>
+                        {t('heading', {ns: 'Overlay.About'})}
+                      </Display24>
+                    </SharedElement>
+                    <Spacer8 />
+                    <SharedElement id="about.text">
+                      <Markdown>
+                        {t('preamble__markdown', {ns: 'Overlay.About'})}
+                      </Markdown>
+                    </SharedElement>
+                    <Spacer8 />
+                  </Gutters>
+                </TouchableOpacity>
+              </ActionList>
+              <Spacer16 />
+            </>
+          )}
           <AboutActionList />
           <Spacer32 />
 
