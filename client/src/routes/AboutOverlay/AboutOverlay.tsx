@@ -2,12 +2,12 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {ScrollView} from 'react-native';
 import {SharedElement} from 'react-navigation-shared-element';
 import styled from 'styled-components/native';
 import ActionButton from '../../lib/components/ActionList/ActionItems/ActionButton';
 import ActionList from '../../lib/components/ActionList/ActionList';
 import Gutters from '../../lib/components/Gutters/Gutters';
+import HeaderScrollView from '../../lib/components/HeaderScrollView/HeaderScrollView';
 import {
   SunUpIcon,
   MegaphoneIcon,
@@ -28,9 +28,7 @@ import {
 } from '../../lib/navigation/constants/routes';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 
-const BlurbImage = styled.Image({
-  aspectRatio: 1,
-});
+const BlurbImage = styled.Image({height: '100%'});
 
 const AboutOverlay = () => {
   const {goBack, navigate} =
@@ -56,10 +54,12 @@ const AboutOverlay = () => {
 
   return (
     <Screen onPressBack={goBack}>
-      <ScrollView>
-        <SharedElement id="editorial.image">
-          <BlurbImage source={source} />
-        </SharedElement>
+      <HeaderScrollView
+        header={
+          <SharedElement id="editorial.image">
+            <BlurbImage source={source} resizeMode="cover" />
+          </SharedElement>
+        }>
         <Gutters>
           <Spacer16 />
           <SharedElement id="editorial.heading">
@@ -67,8 +67,9 @@ const AboutOverlay = () => {
           </SharedElement>
           <Spacer16 />
           <SharedElement id="editorial.text">
-            <Markdown>{t('preamble__markdown')}</Markdown>
-            <Markdown>{t('body__markdown')}</Markdown>
+            <Markdown>
+              {`${t('preamble__markdown')}\n\n${t('body__markdown')}`}
+            </Markdown>
           </SharedElement>
           <Spacer8 />
           <ActionList>
@@ -89,7 +90,7 @@ const AboutOverlay = () => {
         </Gutters>
         <Spacer24 />
         <BottomSafeArea />
-      </ScrollView>
+      </HeaderScrollView>
     </Screen>
   );
 };
