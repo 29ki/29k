@@ -68,12 +68,11 @@ Paragraph text **bold** *italic* ~~highlighted~~ http://29k.org
 * Unordered list item 1
 * Unordered list item 2
 * Unordered list with a lot of text that should line break.........
-&nbsp;
 
 1. Ordered list item 1
 2. Ordered list item 2
 3. Ordered list with a lot of text that should line break.........
-&nbsp;
+
 >BlockQuote example`}
     </MarkdownRenderer>
   </>

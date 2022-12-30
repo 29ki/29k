@@ -5,7 +5,6 @@ import {SharedElement} from 'react-navigation-shared-element';
 import styled from 'styled-components/native';
 import Gutters from '../../lib/components/Gutters/Gutters';
 import HeaderScrollView from '../../lib/components/HeaderScrollView/HeaderScrollView';
-
 import Screen from '../../lib/components/Screen/Screen';
 import {
   BottomSafeArea,
@@ -15,13 +14,13 @@ import {
 } from '../../lib/components/Spacers/Spacer';
 import {Display24} from '../../lib/components/Typography/Display/Display';
 import Markdown from '../../lib/components/Typography/Markdown/Markdown';
-import AboutActionList from './components/AboutActionList';
+import CommunityActionList from './components/CommunityActionList';
 
 const BlurbImage = styled.Image({height: '100%'});
 
-const AboutOverlay = () => {
+const CommunityOverlay = () => {
   const {goBack} = useNavigation();
-  const {t} = useTranslation('Overlay.About');
+  const {t} = useTranslation('Overlay.Community');
 
   const source = useMemo(() => ({uri: t('image__image')}), [t]);
 
@@ -29,23 +28,23 @@ const AboutOverlay = () => {
     <Screen onPressBack={goBack}>
       <HeaderScrollView
         header={
-          <SharedElement id="about.image">
+          <SharedElement id="community.image">
             <BlurbImage source={source} resizeMode="cover" />
           </SharedElement>
         }>
         <Gutters>
           <Spacer16 />
-          <SharedElement id="about.heading">
+          <SharedElement id="community.heading">
             <Display24>{t('heading')}</Display24>
           </SharedElement>
           <Spacer16 />
-          <SharedElement id="about.text">
+          <SharedElement id="community.text">
             <Markdown>
               {`${t('preamble__markdown')}\n\n${t('body__markdown')}`}
             </Markdown>
           </SharedElement>
           <Spacer8 />
-          <AboutActionList />
+          <CommunityActionList />
         </Gutters>
         <Spacer24 />
         <BottomSafeArea />
@@ -54,4 +53,4 @@ const AboutOverlay = () => {
   );
 };
 
-export default AboutOverlay;
+export default CommunityOverlay;

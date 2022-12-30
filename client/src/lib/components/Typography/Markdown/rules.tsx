@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import {View} from 'react-native';
 import {RenderRules} from 'react-native-markdown-display';
 
-import {Spacer16} from '../../Spacers/Spacer';
+import {Spacer16, Spacer8} from '../../Spacers/Spacer';
 
 const rules: RenderRules = {
   heading1: (node, children) => (
@@ -38,13 +38,13 @@ const rules: RenderRules = {
   bullet_list: (node, children) => (
     <Fragment key={node.key}>
       {children}
-      <Spacer16 />
+      <Spacer8 />
     </Fragment>
   ),
   ordered_list: (node, children) => (
     <Fragment key={node.key}>
       {children}
-      <Spacer16 />
+      <Spacer8 />
     </Fragment>
   ),
   blockquote: (node, children, parent, styles) => (

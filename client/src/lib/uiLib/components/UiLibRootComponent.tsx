@@ -8,6 +8,7 @@ import * as Typography from '../../components/Typography/Typography.library';
 import * as UiSettings from '../../constants/UiSettings.library';
 import * as Session from '../../../routes/Session/components/Session.library';
 import * as Screen from '../../components/Screen/Screen.library';
+import * as HeaderScrollView from '../../components/HeaderScrollView/HeaderScrollView.library';
 import * as Modals from '../../components/Modals/Modals.library';
 import * as ActionList from '../../components/ActionList/ActionList.library';
 import * as ProfilePicture from '../../components/User/ProfilePicture.library';
@@ -23,6 +24,7 @@ const menuItems: ComponentList = {
   Modals: [Modals],
   Typography: [Typography],
   Screen: [Screen],
+  HeaderScrollView: [HeaderScrollView],
   SessionComponents: [Session],
   ProfilePicture: [ProfilePicture],
   UiSettings: [UiSettings],
