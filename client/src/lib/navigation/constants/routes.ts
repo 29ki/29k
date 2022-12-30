@@ -29,6 +29,7 @@ export type AppStackProps = {
 export type OverlayStackProps = {
   App: NavigatorScreenParams<AppStackProps>;
   AboutOverlay: undefined;
+  CommunityOverlay: undefined;
 };
 
 export type ModalStackProps = {
