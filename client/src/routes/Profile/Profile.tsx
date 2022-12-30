@@ -21,12 +21,9 @@ import {
   CommandIcon,
   CommunityIcon,
   DeleteIcon,
-  EnvelopeIcon,
   HangUpIcon,
   LanguagesIcon,
-  MegaphoneIcon,
   ProfileIcon,
-  SunUpIcon,
 } from '../../lib/components/Icons';
 import {useNavigation} from '@react-navigation/native';
 import {
@@ -42,12 +39,13 @@ import hexToRgba from 'hex-to-rgba';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import useUser from '../../lib/user/hooks/useUser';
 import useDeleteUser from '../../lib/user/hooks/useDeleteUser';
-import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 import SETTINGS from '../../lib/constants/settings';
 import {Display24} from '../../lib/components/Typography/Display/Display';
 import {SharedElement} from 'react-navigation-shared-element';
 import TouchableOpacity from '../../lib/components/TouchableOpacity/TouchableOpacity';
 import Markdown from '../../lib/components/Typography/Markdown/Markdown';
+import AboutActionList from '../AboutOverlay/components/AboutActionList';
+import CommunityActionList from '../CommunityOverlay/components/CommunityActionList';
 
 const HEADER_HEIGHT = 72;
 
@@ -86,7 +84,6 @@ const Profile = () => {
     >();
   const {top} = useSafeAreaInsets();
   const user = useUser();
-  const isPublicHost = useIsPublicHost();
   const {deleteUser} = useDeleteUser();
 
   const profileSettingsPress = useCallback(
@@ -108,26 +105,14 @@ const Profile = () => {
     [t],
   );
 
-  const earlyAccessInfoPress = useCallback(
-    () => navigate('EarlyAccessInfo'),
+  const communityPress = useCallback(
+    () => navigate('CommunityOverlay'),
     [navigate],
   );
 
-  const publicHostAccessPress = useCallback(
-    () => navigate('UpgradeAccountModal'),
-    [navigate],
-  );
-
-  const contactPress = useCallback(() => navigate('ContactModal'), [navigate]);
-
-  const contributorsPress = useCallback(
-    () => navigate('ContributorsModal'),
-    [navigate],
-  );
-
-  const partnersPress = useCallback(
-    () => navigate('PartnersModal'),
-    [navigate],
+  const communityBlurbSource = useMemo(
+    () => ({uri: t('image__image', {ns: 'Overlay.Community'})}),
+    [t],
   );
 
   const developerPress = useCallback(
@@ -148,15 +133,15 @@ const Profile = () => {
           <Spacer8 />
           <ActionList>
             <ActionButton Icon={ProfileIcon} onPress={profileSettingsPress}>
-              {t('profileSettings')}
+              {t('actions.profileSettings')}
             </ActionButton>
             {(!user || user?.isAnonymous) && (
               <ActionButton Icon={HangUpIcon} onPress={signInPress}>
-                {t('signIn')}
+                {t('actions.signIn')}
               </ActionButton>
             )}
             <ActionButton Icon={LanguagesIcon} onPress={languagePress}>
-              {t('language')}
+              {t('actions.language')}
             </ActionButton>
           </ActionList>
           {user && (
@@ -164,7 +149,7 @@ const Profile = () => {
               <Spacer16 />
               <ActionList>
                 <ActionButton Icon={DeleteIcon} onPress={deleteUser}>
-                  {t('deleteData')}
+                  {t('actions.deleteData')}
                 </ActionButton>
               </ActionList>
             </>
@@ -175,16 +160,16 @@ const Profile = () => {
           <Spacer8 />
           <ActionList>
             <TouchableOpacity onPress={aboutPress}>
-              <SharedElement id="editorial.image">
+              <SharedElement id="about.image">
                 <BlurbImage source={aboutBlurbSource} resizeMode="cover" />
               </SharedElement>
               <Gutters>
                 <Spacer16 />
-                <SharedElement id="editorial.heading">
+                <SharedElement id="about.heading">
                   <Display24>{t('heading', {ns: 'Overlay.About'})}</Display24>
                 </SharedElement>
                 <Spacer8 />
-                <SharedElement id="editorial.text">
+                <SharedElement id="about.text">
                   <Markdown>
                     {t('preamble__markdown', {ns: 'Overlay.About'})}
                   </Markdown>
@@ -194,40 +179,48 @@ const Profile = () => {
             </TouchableOpacity>
           </ActionList>
           <Spacer16 />
-          <ActionList>
-            <ActionButton Icon={SunUpIcon} onPress={earlyAccessInfoPress}>
-              {t('earlyAccessInfo')}
-            </ActionButton>
-            {!isPublicHost && (
-              <ActionButton
-                Icon={MegaphoneIcon}
-                onPress={publicHostAccessPress}>
-                {t('publicHostAccess')}
-              </ActionButton>
-            )}
-            <ActionButton Icon={EnvelopeIcon} onPress={contactPress}>
-              {t('contact')}
-            </ActionButton>
-          </ActionList>
+          <AboutActionList />
           <Spacer32 />
+
           <Heading16>{t('community')}</Heading16>
           <Spacer8 />
-          <ActionList>
-            {/*
-            <ActionButton Icon={WandIcon}>{t('contribute')}</ActionButton>
-            */}
-            <ActionButton Icon={CommunityIcon} onPress={contributorsPress}>
-              {t('contributors')}
-            </ActionButton>
-            <ActionButton Icon={CheckedIcon} onPress={partnersPress}>
-              {t('partners')}
-            </ActionButton>
-          </ActionList>
+          {t('heading', {ns: 'Overlay.Community'}) && (
+            <>
+              <ActionList>
+                <TouchableOpacity onPress={communityPress}>
+                  <SharedElement id="community.image">
+                    <BlurbImage
+                      source={communityBlurbSource}
+                      resizeMode="cover"
+                    />
+                  </SharedElement>
+                  <Gutters>
+                    <Spacer16 />
+                    <SharedElement id="community.heading">
+                      <Display24>
+                        {t('heading', {ns: 'Overlay.Community'})}
+                      </Display24>
+                    </SharedElement>
+                    <Spacer8 />
+                    <SharedElement id="community.text">
+                      <Markdown>
+                        {t('preamble__markdown', {ns: 'Overlay.Community'})}
+                      </Markdown>
+                    </SharedElement>
+                    <Spacer8 />
+                  </Gutters>
+                </TouchableOpacity>
+              </ActionList>
+              <Spacer16 />
+            </>
+          )}
+          <CommunityActionList />
           <Spacer32 />
+
           {ENVIRONMENT !== 'production' && (
             <ActionList>
               <ActionButton Icon={CommandIcon} onPress={developerPress}>
-                {t('developer')}
+                {t('actions.developer')}
               </ActionButton>
             </ActionList>
           )}
