@@ -53,7 +53,7 @@ const HEADER_HEIGHT = 72;
 const BlurbImage = styled.Image({
   aspectRatio: 1.7,
   borderTopLeftRadius: SETTINGS.BORDER_RADIUS.ACTION_LISTS,
-  borderRightLeftRadius: SETTINGS.BORDER_RADIUS.ACTION_LISTS,
+  borderTopRightRadius: SETTINGS.BORDER_RADIUS.ACTION_LISTS,
 });
 
 const Header = styled(LinearGradient).attrs({
@@ -175,7 +175,7 @@ const Profile = () => {
           <ActionList>
             <TouchableOpacity onPress={aboutPress}>
               <SharedElement id="editorial.image">
-                <BlurbImage source={aboutBlurbSource} />
+                <BlurbImage source={aboutBlurbSource} resizeMode="cover" />
               </SharedElement>
               <Gutters>
                 <Spacer16 />
@@ -229,6 +229,7 @@ const Profile = () => {
             </ActionList>
           )}
         </Gutters>
+        <Spacer16 />
       </ScrollView>
     </Screen>
   );
