@@ -897,23 +897,24 @@
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
-"@daily-co/daily-js@^0.31.0":
-  version "0.31.0"
-  resolved "https://registry.yarnpkg.com/@daily-co/daily-js/-/daily-js-0.31.0.tgz#60d07dd8b70f8746def0182448af95058ac02463"
-  integrity sha512-kx4HNtrEDU+0vOlZLpmqc4SfecGi/yA8iZEf/8YRublPBqEpV0mfR8I/kirfn1MBFDqM28eacsqzEs22CN2xbQ==
+"@daily-co/daily-js@^0.36.1":
+  version "0.36.1"
+  resolved "https://registry.yarnpkg.com/@daily-co/daily-js/-/daily-js-0.36.1.tgz#ccf41ba4df92b65e6b8ff2ab7ceb0a3fd8229e46"
+  integrity sha512-W+pepVAHu872iCLhdYQj2nKYOrPbBk4oWc/crdcWnWwH/xQcocaWNBdKX63PGaXID08i8McabifZ8EgZ9dT5rw==
   dependencies:
     "@babel/runtime" "^7.12.5"
     bowser "^2.8.1"
+    dequal "^2.0.3"
     events "^3.1.0"
     fast-equals "^1.6.3"
     lodash "^4.17.15"
 
-"@daily-co/react-native-daily-js@^0.29.0":
-  version "0.29.0"
-  resolved "https://registry.yarnpkg.com/@daily-co/react-native-daily-js/-/react-native-daily-js-0.29.0.tgz#3eb200a0c9e408f12db4e8a5572c2cb509082ccb"
-  integrity sha512-9SCcnXT+/w4Onv69qpi4Kb1DGRYEoBETuTY+X8HciUKLRLE7X+gOkxZtALY7Zi/WNFS2iS2grX2Z/+BxWbMQUQ==
+"@daily-co/react-native-daily-js@^0.34.0":
+  version "0.34.0"
+  resolved "https://registry.yarnpkg.com/@daily-co/react-native-daily-js/-/react-native-daily-js-0.34.0.tgz#9664a133511861530c4439f70dc2109c3fcd5dc1"
+  integrity sha512-MGcQleBfQ1+DniJp2Il94ZpxicVG0J580vUdzfP+8dZfxtvP/1zpZbM6WFJn7tA2Amjnn3Y2EpInuAd5u6vYYw==
   dependencies:
-    "@daily-co/daily-js" "^0.31.0"
+    "@daily-co/daily-js" "^0.36.1"
     "@types/react-native-background-timer" "^2.0.0"
     react-native-url-polyfill "^1.1.2"
 
@@ -3807,6 +3808,11 @@ deprecated-react-native-prop-types@^2.2.0:
     "@react-native/normalize-color" "*"
     invariant "*"
     prop-types "*"
+
+dequal@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/dequal/-/dequal-2.0.3.tgz#2644214f1997d39ed0ee0ece72335490a7ac67be"
+  integrity sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==
 
 destroy@1.2.0:
   version "1.2.0"
