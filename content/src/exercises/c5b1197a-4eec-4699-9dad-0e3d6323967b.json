@@ -3,7 +3,8 @@
     "published": true,
     "hidden": true,
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#cdc9c7"
     },
     "introPortal": {
       "hostNotes": [
@@ -39,7 +40,10 @@
         ],
         "content": {
           "heading": "Setting boundaries",
-          "text": "– a cornerstone in relationships"
+          "text": "– a cornerstone in relationships",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672740678/Video/video_setting_boundaries_nzhbkj.mp4"
+          }
         }
       },
       {
@@ -54,7 +58,10 @@
         ],
         "content": {
           "text": "How do I communicate ny needs?",
-          "heading": "Needs not being met are... "
+          "heading": "Needs not being met are... ",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4"
+          }
         }
       },
       {
