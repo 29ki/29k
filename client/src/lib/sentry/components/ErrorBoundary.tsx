@@ -3,8 +3,8 @@ import styled from 'styled-components/native';
 import {ErrorBoundary as SentryErrorBoundary} from '@sentry/react-native';
 import {useTranslation} from 'react-i18next';
 
-import Gutters from '../../../common/components/Gutters/Gutters';
-import Markdown from '../../../common/components/Typography/Markdown/Markdown';
+import Gutters from '../../components/Gutters/Gutters';
+import Markdown from '../../components/Typography/Markdown/Markdown';
 
 const Container = styled(Gutters)({
   flex: 1,

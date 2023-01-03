@@ -25,7 +25,7 @@ jest.mock('../../../lib/daily/DailyProvider');
 jest.mock('./useSessionSlideState', () => jest.fn());
 
 const mockUseSessionSlideState = useSessionSlideState as jest.Mock;
-jest.mock('../../../common/components/Icons', () => ({
+jest.mock('../../../lib/components/Icons', () => ({
   MicrophoneOffIcon: 'MicOffIconComponent',
 }));
 

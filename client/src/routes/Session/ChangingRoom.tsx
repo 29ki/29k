@@ -6,27 +6,27 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {ActivityIndicator, Alert, Linking, Platform} from 'react-native';
+import {ActivityIndicator, Platform} from 'react-native';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import {DailyMediaView} from '@daily-co/react-native-daily-js';
 
-import Button from '../../common/components/Buttons/Button';
-import Gutters from '../../common/components/Gutters/Gutters';
+import Button from '../../lib/components/Buttons/Button';
+import Gutters from '../../lib/components/Gutters/Gutters';
 import {
   FilmCameraIcon,
   FilmCameraOffIcon,
   MicrophoneIcon,
   MicrophoneOffIcon,
-} from '../../common/components/Icons';
+} from '../../lib/components/Icons';
 import {
   BottomSafeArea,
   Spacer16,
   Spacer28,
   Spacer48,
   TopSafeArea,
-} from '../../common/components/Spacers/Spacer';
-import {Body16} from '../../common/components/Typography/Body/Body';
+} from '../../lib/components/Spacers/Spacer';
+import {Body16} from '../../lib/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {DailyContext} from '../../lib/daily/DailyProvider';
 import useSessionState from './state/state';
@@ -35,18 +35,19 @@ import {
   SessionStackProps,
   TabNavigatorProps,
 } from '../../lib/navigation/constants/routes';
-import {SPACINGS} from '../../common/constants/spacings';
-import TextInput from '../../common/components/Typography/TextInput/TextInput';
+import {SPACINGS} from '../../lib/constants/spacings';
+import TextInput from '../../lib/components/Typography/TextInput/TextInput';
 import AudioIndicator from './components/Participants/AudioIdicator';
-import IconButton from '../../common/components/Buttons/IconButton/IconButton';
+import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
 import useUpdateSessionExerciseState from './hooks/useUpdateSessionExerciseState';
 import useIsSessionHost from './hooks/useIsSessionHost';
-import Screen from '../../common/components/Screen/Screen';
+import Screen from '../../lib/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../lib/user/hooks/useUser';
-import Image from '../../common/components/Image/Image';
+import Image from '../../lib/components/Image/Image';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
-import useLogSessionMetricEvents from './hooks/useLogSessionMetricEvents';
+import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
+import useCheckPermissions from './hooks/useCheckPermissions';
 
 const Wrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'padding', android: undefined}),
@@ -110,15 +111,8 @@ const ChangingRoom = () => {
         SessionStackProps & TabNavigatorProps & ModalStackProps
       >
     >();
-  const {
-    toggleAudio,
-    toggleVideo,
-    setUserName,
-    joinMeeting,
-    preJoinMeeting,
-    hasCameraPermissions,
-    hasMicrophonePermissions,
-  } = useContext(DailyContext);
+  const {toggleAudio, toggleVideo, setUserName, joinMeeting, preJoinMeeting} =
+    useContext(DailyContext);
 
   const session = useSessionState(state => state.session);
   const {
@@ -132,7 +126,12 @@ const ChangingRoom = () => {
   const me = useLocalParticipant();
   const user = useUser();
   const [localUserName, setLocalUserName] = useState(user?.displayName ?? '');
-  const {logSessionMetricEvent} = useLogSessionMetricEvents();
+  const {logSessionMetricEvent} = useLogInSessionMetricEvents();
+  const {
+    checkJoinPermissions,
+    checkCameraPermissions,
+    checkMicrophonePermissions,
+  } = useCheckPermissions();
 
   const hasAudio = Boolean(me?.audioTrack);
   const hasVideo = Boolean(me?.videoTrack);
@@ -171,83 +170,22 @@ const ChangingRoom = () => {
     }
   }, [setJoiningMeeting, sessionId, session?.started, joinMeeting, navigate]);
 
-  const permissionsAlert = useCallback(
-    () =>
-      Alert.alert(
-        t('permissionsAlert.join.title'),
-        t('permissionsAlert.join.message'),
-        [
-          {
-            text: t('permissionsAlert.join.dismiss'),
-            onPress: join,
-          },
-          {
-            style: 'cancel',
-            text: t('permissionsAlert.join.confirm'),
-            onPress: () => Linking.openSettings(),
-          },
-        ],
-      ),
-    [t, join],
-  );
-
   const joinPress = useCallback(() => {
     setUserName(localUserName);
-    if (hasCameraPermissions() && hasMicrophonePermissions()) {
-      join();
-    } else {
-      permissionsAlert();
-    }
-  }, [
-    localUserName,
-    setUserName,
-    hasCameraPermissions,
-    hasMicrophonePermissions,
-    join,
-    permissionsAlert,
-  ]);
+    checkJoinPermissions(join);
+  }, [localUserName, setUserName, checkJoinPermissions, join]);
 
   const toggleAudioPress = useCallback(() => {
-    if (hasMicrophonePermissions()) {
+    checkMicrophonePermissions(() => {
       toggleAudio(!hasAudio);
-    } else {
-      Alert.alert(
-        t('permissionsAlert.microphone.title'),
-        t('permissionsAlert.microphone.message'),
-        [
-          {
-            text: t('permissionsAlert.microphone.dismiss'),
-          },
-          {
-            style: 'cancel',
-            text: t('permissionsAlert.microphone.confirm'),
-            onPress: () => Linking.openSettings(),
-          },
-        ],
-      );
-    }
-  }, [t, hasMicrophonePermissions, toggleAudio, hasAudio]);
+    });
+  }, [checkMicrophonePermissions, toggleAudio, hasAudio]);
 
   const toggleVideoPress = useCallback(() => {
-    if (hasCameraPermissions()) {
+    checkCameraPermissions(() => {
       toggleVideo(!hasVideo);
-    } else {
-      Alert.alert(
-        t('permissionsAlert.camera.title'),
-        t('permissionsAlert.camera.message'),
-        [
-          {
-            text: t('permissionsAlert.camera.dismiss'),
-          },
-          {
-            style: 'cancel',
-            text: t('permissionsAlert.camera.confirm'),
-            onPress: () => Linking.openSettings(),
-          },
-        ],
-      );
-    }
-  }, [t, hasCameraPermissions, toggleVideo, hasVideo]);
+    });
+  }, [checkCameraPermissions, toggleVideo, hasVideo]);
 
   return (
     <Screen onPressBack={goBack}>

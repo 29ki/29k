@@ -61,8 +61,8 @@ buck-out/
 /vendor/bundle/
 
 # Google services
-GoogleService-Info.plist
-google-services.json
+GoogleService-Info.plist*
+google-services.json*
 google-play-service.json
 
 # Sentry

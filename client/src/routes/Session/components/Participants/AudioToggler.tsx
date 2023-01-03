@@ -7,9 +7,9 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import {MicrophoneIcon} from '../../../../common/components/Icons/Microphone/Microphone';
-import {MicrophoneOffIcon} from '../../../../common/components/Icons/MicrophoneOff/MicrophoneOff';
-import TouchableOpacity from '../../../../common/components/TouchableOpacity/TouchableOpacity';
+import {MicrophoneIcon} from '../../../../lib/components/Icons/Microphone/Microphone';
+import {MicrophoneOffIcon} from '../../../../lib/components/Icons/MicrophoneOff/MicrophoneOff';
+import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 

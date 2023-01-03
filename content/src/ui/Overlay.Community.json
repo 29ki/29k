@@ -1,0 +1,21 @@
+{
+  "en": {
+    "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1672393912/Temp/community_hs8apo.jpg",
+    "heading": "",
+    "preamble__markdown": "",
+    "body__markdown": "",
+    "actions": {
+      "contribute": "How to contribute",
+      "contributors": "Contributors",
+      "partners": "Partners"
+    }
+  },
+  "pt": {
+    "actions": {
+      "contribute": "Como colaborar",
+      "contributors": "Colaboradores"
+    }
+  },
+  "sv": {},
+  "es": {}
+}

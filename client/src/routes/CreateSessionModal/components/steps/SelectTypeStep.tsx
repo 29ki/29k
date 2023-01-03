@@ -3,21 +3,21 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SessionType} from '../../../../../../shared/src/types/Session';
-import Byline from '../../../../common/components/Bylines/Byline';
-import Gutters from '../../../../common/components/Gutters/Gutters';
-import {PrivateIcon, PublicIcon} from '../../../../common/components/Icons';
-import Image from '../../../../common/components/Image/Image';
+import Byline from '../../../../lib/components/Bylines/Byline';
+import Gutters from '../../../../lib/components/Gutters/Gutters';
+import {PrivateIcon, PublicIcon} from '../../../../lib/components/Icons';
+import Image from '../../../../lib/components/Image/Image';
 import {
   Spacer16,
   Spacer28,
   Spacer8,
-} from '../../../../common/components/Spacers/Spacer';
-import TouchableOpacity from '../../../../common/components/TouchableOpacity/TouchableOpacity';
-import {Body16} from '../../../../common/components/Typography/Body/Body';
-import {Display24} from '../../../../common/components/Typography/Display/Display';
-import {ModalHeading} from '../../../../common/components/Typography/Heading/Heading';
-import {SPACINGS} from '../../../../common/constants/spacings';
-import {formatExerciseName} from '../../../../common/utils/string';
+} from '../../../../lib/components/Spacers/Spacer';
+import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
+import {Body16} from '../../../../lib/components/Typography/Body/Body';
+import {Display24} from '../../../../lib/components/Typography/Display/Display';
+import {ModalHeading} from '../../../../lib/components/Typography/Heading/Heading';
+import {SPACINGS} from '../../../../lib/constants/spacings';
+import {formatExerciseName} from '../../../../lib/utils/string';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import {StepProps} from '../../CreateSessionModal';
 

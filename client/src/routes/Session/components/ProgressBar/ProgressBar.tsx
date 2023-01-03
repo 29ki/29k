@@ -8,7 +8,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import {SPACINGS} from '../../../../common/constants/spacings';
+import {SPACINGS} from '../../../../lib/constants/spacings';
 
 const Wrapper = styled.View({
   flexDirection: 'row',

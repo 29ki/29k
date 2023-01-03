@@ -1,9 +1,9 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import Gutters from '../../../../common/components/Gutters/Gutters';
-import ProfileInfo from '../../../../common/components/ProfileInfo/ProfileInfo';
-import {Spacer16} from '../../../../common/components/Spacers/Spacer';
-import {ModalHeading} from '../../../../common/components/Typography/Heading/Heading';
+import Gutters from '../../../../lib/components/Gutters/Gutters';
+import ProfileInfo from '../../../../lib/components/ProfileInfo/ProfileInfo';
+import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
+import {ModalHeading} from '../../../../lib/components/Typography/Heading/Heading';
 import {StepProps} from '../../CreateSessionModal';
 
 const UpdateProfileStep: React.FC<StepProps> = () => {

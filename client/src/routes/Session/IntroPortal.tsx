@@ -13,23 +13,23 @@ import Video from 'react-native-video';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
-import Button from '../../common/components/Buttons/Button';
-import Gutters from '../../common/components/Gutters/Gutters';
+import Button from '../../lib/components/Buttons/Button';
+import Gutters from '../../lib/components/Gutters/Gutters';
 import {
   BottomSafeArea,
   Spacer16,
   Spacer8,
   TopSafeArea,
-} from '../../common/components/Spacers/Spacer';
-import {Body14} from '../../common/components/Typography/Body/Body';
+} from '../../lib/components/Spacers/Spacer';
+import {Body14} from '../../lib/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
-import {HKGroteskBold} from '../../common/constants/fonts';
+import {HKGroteskBold} from '../../lib/constants/fonts';
 import {
   ModalStackProps,
   SessionStackProps,
   TabNavigatorProps,
 } from '../../lib/navigation/constants/routes';
-import {SPACINGS} from '../../common/constants/spacings';
+import {SPACINGS} from '../../lib/constants/spacings';
 import useSessionState from './state/state';
 import useDailyState from '../../lib/daily/state/state';
 import useLeaveSession from './hooks/useLeaveSession';
@@ -38,15 +38,15 @@ import useIsSessionHost from './hooks/useIsSessionHost';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 import useUpdateSession from './hooks/useUpdateSession';
 import HostNotes from './components/HostNotes/HostNotes';
-import Screen from '../../common/components/Screen/Screen';
-import IconButton from '../../common/components/Buttons/IconButton/IconButton';
-import {ArrowLeftIcon} from '../../common/components/Icons';
+import Screen from '../../lib/components/Screen/Screen';
+import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
+import {ArrowLeftIcon} from '../../lib/components/Icons';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
-import Badge from '../../common/components/Badge/Badge';
+import Badge from '../../lib/components/Badge/Badge';
 import useSessionStartTime from './hooks/useSessionStartTime';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import AudioFader from './components/AudioFader/AudioFader';
-import useLogSessionMetricEvents from './hooks/useLogSessionMetricEvents';
+import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -110,7 +110,7 @@ const IntroPortal: React.FC = () => {
   const isFocused = useIsFocused();
   useSubscribeToSessionIfFocused(sessionId);
   const sessionTime = useSessionStartTime(dayjs(session?.startTime));
-  const {logSessionMetricEvent} = useLogSessionMetricEvents();
+  const {logSessionMetricEvent} = useLogInSessionMetricEvents();
 
   const introPortal = exercise?.introPortal;
   const textColor = exercise?.theme?.textColor;
