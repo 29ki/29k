@@ -15,7 +15,10 @@
       "contact": "Mantém-te em contacto",
       "publicHostAccess": "Acesso moderador público",
       "earlyAccessInfo": "Informações de acesso a esta versão inicial"
-    }
+    },
+    "preamble__markdown": "As sessões 29k FJN é uma nova aplicação, com sessões ao vivo abertas ou privadas para temas de saúde mental, bem-estar e desenvolvimento interior. O objetivo é incentivar comportamentos sustentáveis para as pessoas e para o planeta. Tem em atenção que as sessões 29k FJN estão em construção e numa fase de acesso controlado inicial.",
+    "body__markdown": "",
+    "heading": "Queres salvar o planeta e sentires-te bem?"
   },
   "sv": {},
   "es": {}
