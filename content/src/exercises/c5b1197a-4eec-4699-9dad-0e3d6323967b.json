@@ -79,7 +79,10 @@
         ],
         "content": {
           "heading": "Needs not being met right now",
-          "text": "How do I communicate needs?"
+          "text": "How do I communicate needs?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4"
+          }
         }
       },
       {
@@ -94,7 +97,10 @@
         ],
         "content": {
           "heading": "What boundaries, to whom?",
-          "text": "How will I communicate? When?"
+          "text": "How will I communicate? When?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4"
+          }
         }
       },
       {
@@ -109,7 +115,10 @@
         ],
         "content": {
           "heading": "What boundaries, to whom?",
-          "text": "How will I communicate them? When?"
+          "text": "How will I communicate them? When?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4"
+          }
         }
       },
       {
