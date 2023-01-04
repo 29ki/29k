@@ -1,26 +1,5 @@
 {
   "en": {
-    "published": true,
-    "hidden": true,
-    "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#cdc9c7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672829134/Video/portal1_setting_boundaries_b3rx64.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1672829114/Audio/portal_audio_setting_boundaries_t2pvwj.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1672829642/Images/cover_setting_boundaries_kx1idz.png"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672829133/Video/portal2_setting_boundaries_rhhun2.mp4"
-      }
-    },
     "slides": [
       {
         "type": "host",
@@ -50,7 +29,8 @@
           "heading": "Setting boundaries",
           "text": "– a cornerstone in relationships",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672740678/Video/video_setting_boundaries_nzhbkj.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672842470/Video/video_setting_boundaries_szzyff.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1672842495/Images/image_video_setting_boundaries_cmjbl2.png"
           }
         }
       },
@@ -140,7 +120,11 @@
           }
         ],
         "content": {
-          "heading": "Time to reach out"
+          "heading": "Time to reach out",
+          "lottie": {
+            "autoPlayLoop": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1672843496/Lottie/mission_setting_boundaries_cwycbr.json"
+          }
         }
       },
       {
@@ -158,9 +142,35 @@
         ]
       }
     ],
-    "id": "c5b1197a-4eec-4699-9dad-0e3d6323967b",
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#cdc9c7"
+    },
+    "hidden": true,
     "name": "Setting boundaries",
-    "duration": 30
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1672829642/Images/cover_setting_boundaries_kx1idz.png"
+      }
+    },
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672829134/Video/portal1_setting_boundaries_b3rx64.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1672829114/Audio/portal_audio_setting_boundaries_t2pvwj.mp3",
+        "preview": ""
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672835034/Video/portal2_setting_boundaries_craqov.mp4"
+      }
+    },
+    "id": "c5b1197a-4eec-4699-9dad-0e3d6323967b"
   },
   "pt": {
     "published": false,
