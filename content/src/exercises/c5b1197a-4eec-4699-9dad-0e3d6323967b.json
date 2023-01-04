@@ -3,14 +3,23 @@
     "published": true,
     "hidden": true,
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#cdc9c7"
     },
     "introPortal": {
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672829134/Video/portal1_setting_boundaries_b3rx64.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1672829114/Audio/portal_audio_setting_boundaries_t2pvwj.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1672829642/Images/cover_setting_boundaries_kx1idz.png"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672829133/Video/portal2_setting_boundaries_rhhun2.mp4"
+      }
     },
     "slides": [
       {
@@ -39,7 +48,10 @@
         ],
         "content": {
           "heading": "Setting boundaries",
-          "text": "– a cornerstone in relationships"
+          "text": "– a cornerstone in relationships",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672740678/Video/video_setting_boundaries_nzhbkj.mp4"
+          }
         }
       },
       {
@@ -54,7 +66,10 @@
         ],
         "content": {
           "text": "How do I communicate ny needs?",
-          "heading": "Needs not being met are... "
+          "heading": "Needs not being met are... ",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4"
+          }
         }
       },
       {
@@ -72,7 +87,10 @@
         ],
         "content": {
           "heading": "Needs not being met right now",
-          "text": "How do I communicate needs?"
+          "text": "How do I communicate needs?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4"
+          }
         }
       },
       {
@@ -87,7 +105,10 @@
         ],
         "content": {
           "heading": "What boundaries, to whom?",
-          "text": "How will I communicate? When?"
+          "text": "How will I communicate? When?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4"
+          }
         }
       },
       {
@@ -102,7 +123,10 @@
         ],
         "content": {
           "heading": "What boundaries, to whom?",
-          "text": "How will I communicate them? When?"
+          "text": "How will I communicate them? When?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4"
+          }
         }
       },
       {
