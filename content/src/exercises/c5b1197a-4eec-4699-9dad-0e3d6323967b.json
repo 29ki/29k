@@ -29,7 +29,8 @@
           "heading": "Setting boundaries",
           "text": "– a cornerstone in relationships",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672740678/Video/video_setting_boundaries_nzhbkj.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672842470/Video/video_setting_boundaries_szzyff.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1672842495/Images/image_video_setting_boundaries_cmjbl2.png"
           }
         }
       },
@@ -119,7 +120,11 @@
           }
         ],
         "content": {
-          "heading": "Time to reach out"
+          "heading": "Time to reach out",
+          "lottie": {
+            "autoPlayLoop": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1672843496/Lottie/mission_setting_boundaries_cwycbr.json"
+          }
         }
       },
       {
