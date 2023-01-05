@@ -19,5 +19,6 @@ export const generateSessionToken = async (
     exp: expireDate.unix(),
     o: isHost,
   };
+
   return jwt.sign(payload, DAILY_API_KEY);
 };

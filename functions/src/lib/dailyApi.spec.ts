@@ -3,7 +3,13 @@ import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
 
 enableFetchMocks();
 
-import {createRoom, deleteRoom, updateRoom} from './dailyApi';
+import {
+  createRoom,
+  DAILY_CONFIG_CACHE,
+  deleteRoom,
+  getDomainId,
+  updateRoom,
+} from './dailyApi';
 
 afterEach(() => {
   fetchMock.resetMocks();
@@ -114,6 +120,52 @@ describe('dailyApi', () => {
 
       await expect(deleteRoom('some-room-name')).rejects.toThrow(
         new Error('Failed deleting room, some-body'),
+      );
+    });
+  });
+
+  describe('getDomainId', () => {
+    it('calls Daily API to get domain id', async () => {
+      DAILY_CONFIG_CACHE.domainId = null;
+      fetchMock.mockResponseOnce(JSON.stringify({domain_id: 'some-domain-id'}));
+
+      const domainId = await getDomainId();
+
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+      expect(fetchMock).toHaveBeenCalledWith('https://api.daily.co/v1', {
+        headers: {
+          Authorization: 'Bearer some-api-endpoint',
+          'Content-Type': 'application/json',
+        },
+        method: 'GET',
+      });
+      expect(domainId).toEqual('some-domain-id');
+    });
+
+    it('should use cached value', async () => {
+      DAILY_CONFIG_CACHE.domainId = 'some-domain-id';
+
+      const domainId = await getDomainId();
+
+      expect(fetchMock).toHaveBeenCalledTimes(0);
+      expect(domainId).toEqual('some-domain-id');
+    });
+
+    it('throws when not ok', async () => {
+      DAILY_CONFIG_CACHE.domainId = null;
+      fetchMock.mockResponseOnce('some-body', {status: 500});
+
+      await expect(getDomainId()).rejects.toThrow(
+        new Error('Failed getting daily domain, some-body'),
+      );
+    });
+
+    it('throws when failed to parse response', async () => {
+      DAILY_CONFIG_CACHE.domainId = null;
+      fetchMock.mockResponseOnce('');
+
+      await expect(getDomainId()).rejects.toThrow(
+        new Error('Failed reading daily config'),
       );
     });
   });

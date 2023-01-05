@@ -55,7 +55,7 @@ export const createRoom = async (expireDate: Dayjs): Promise<Room> => {
   return res.json();
 };
 
-const DAILY_CONFIG_CACHE: DailyConfigCache = {domainId: null};
+export const DAILY_CONFIG_CACHE: DailyConfigCache = {domainId: null};
 
 export const getDomainId = async (): Promise<string> => {
   if (DAILY_CONFIG_CACHE.domainId) {
