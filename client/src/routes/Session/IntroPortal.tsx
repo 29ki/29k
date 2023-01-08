@@ -110,7 +110,7 @@ const IntroPortal: React.FC = () => {
   const isFocused = useIsFocused();
   useSubscribeToSessionIfFocused(sessionId);
   const sessionTime = useSessionStartTime(dayjs(session?.startTime));
-  const {logSessionMetricEvent} = useLogInSessionMetricEvents();
+  const logSessionMetricEvent = useLogInSessionMetricEvents();
 
   const introPortal = exercise?.introPortal;
   const textColor = exercise?.theme?.textColor;
