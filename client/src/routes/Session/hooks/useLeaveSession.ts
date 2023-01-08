@@ -13,6 +13,7 @@ import {
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 import useSessionNotificationsState from '../state/sessionNotificationsState';
 import useLogInSessionMetricEvents from './useLogInSessionMetricEvents';
+import useIsSessionHost from './useIsSessionHost';
 
 type ScreenNavigationProps = NativeStackNavigationProp<
   TabNavigatorProps & ModalStackProps
@@ -23,6 +24,7 @@ const useLeaveSession = () => {
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();
   const session = useSessionState(state => state.session);
+  const isHost = useIsSessionHost();
   const {fetchSessions} = useSessions();
   const logSessionMetricEvent = useLogInSessionMetricEvents();
 
@@ -33,7 +35,7 @@ const useLeaveSession = () => {
 
   const leaveSession = useCallback(async () => {
     const sessionId = session?.id ?? '';
-    const completed = session?.ended ?? true;
+    const completed = Boolean(session?.exerciseState?.completed);
 
     await leaveMeeting();
     resetSession();
@@ -42,10 +44,11 @@ const useLeaveSession = () => {
     fetchSessions();
 
     navigate('Sessions');
-    navigate('SessionFeedbackModal', {sessionId, completed});
+    navigate('SessionFeedbackModal', {sessionId, completed, isHost});
   }, [
     session?.id,
-    session?.ended,
+    session?.exerciseState?.completed,
+    isHost,
     leaveMeeting,
     resetSession,
     resetSessionNotifications,
