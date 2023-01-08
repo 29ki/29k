@@ -35,12 +35,12 @@ export type SharingSessionProperties = SharingSessionID &
 export type FeedbackAnswer = {
   'Feedback Answer'?: boolean;
 };
-export type FeedbackQuestionID = {
-  'Feedback Question ID': string;
+export type FeedbackQuestion = {
+  'Feedback Question': string;
 };
 export type FeedbackComment = {
   'Feedback Comment'?: string;
 };
 export type FeedbackProperties = FeedbackAnswer &
-  FeedbackQuestionID &
+  FeedbackQuestion &
   FeedbackComment;

@@ -31,6 +31,7 @@ import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import confetti from '../../assets/animations/confetti.json';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
+import {DEFAULT_LANGUAGE_TAG} from '../../lib/i18n';
 
 const Confetti = styled(AnimatedLottieView).attrs({
   source: confetti,
@@ -96,7 +97,7 @@ const SessionFeedbackModal = () => {
 
   const submit = useCallback(() => {
     metrics.logEvent('Sharing Session Feedback', {
-      'Feedback Question ID': 'foo',
+      'Feedback Question': t('question', {lng: DEFAULT_LANGUAGE_TAG}),
       'Feedback Answer': answer,
       'Feedback Comment': comment,
       'Sharing Session ID': sessionId,
@@ -104,7 +105,7 @@ const SessionFeedbackModal = () => {
       Host: isHost,
     });
     setSubmitted(true);
-  }, [sessionId, completed, isHost, answer, comment, setSubmitted]);
+  }, [t, sessionId, completed, isHost, answer, comment, setSubmitted]);
 
   useEffect(() => {
     if (submitted) {
