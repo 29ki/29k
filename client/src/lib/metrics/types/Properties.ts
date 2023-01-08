@@ -30,3 +30,17 @@ export type SharingSessionProperties = SharingSessionID &
   ExerciseID &
   Host &
   Language;
+
+// Feedback properties
+export type FeedbackAnswer = {
+  'Feedback Answer'?: boolean;
+};
+export type FeedbackQuestionID = {
+  'Feedback Question ID': string;
+};
+export type FeedbackComment = {
+  'Feedback Comment'?: string;
+};
+export type FeedbackProperties = FeedbackAnswer &
+  FeedbackQuestionID &
+  FeedbackComment;
