@@ -15,9 +15,6 @@ import SheetModal from '../../lib/components/Modals/SheetModal';
 import {
   Spacer16,
   Spacer24,
-  Spacer32,
-  Spacer40,
-  Spacer60,
   Spacer8,
   Spacer96,
 } from '../../lib/components/Spacers/Spacer';
@@ -27,14 +24,11 @@ import {
   Heading24,
   ModalHeading,
 } from '../../lib/components/Typography/Heading/Heading';
-import TextInput, {
-  BottomSheetTextInput,
-} from '../../lib/components/Typography/TextInput/TextInput';
+import {BottomSheetTextInput} from '../../lib/components/Typography/TextInput/TextInput';
 import * as metrics from '../../lib/metrics';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
 
 import confetti from '../../assets/animations/confetti.json';
-import {BottomSheetNavigatorProps} from '@th3rdwave/react-navigation-bottom-sheet';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 const Confetti = styled(AnimatedLottieView).attrs({
@@ -82,7 +76,7 @@ const SessionFeedbackModal = () => {
   const {popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {snapToIndex} = useBottomSheet();
-  const {sessionId, completed} = params;
+  const {sessionId, completed, isHost} = params;
 
   const [answer, setAnswer] = useState<undefined | boolean>();
   const [comment, setComment] = useState('');
@@ -105,9 +99,10 @@ const SessionFeedbackModal = () => {
       'Feedback Comment': comment,
       'Sharing Session ID': sessionId,
       'Sharing Session Completed': completed,
+      Host: isHost,
     });
     setSubmitted(true);
-  }, [sessionId, completed, answer, comment, setSubmitted]);
+  }, [sessionId, completed, isHost, answer, comment, setSubmitted]);
 
   useEffect(() => {
     if (submitted) {
