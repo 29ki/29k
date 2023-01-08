@@ -24,8 +24,7 @@ const useLeaveSession = () => {
   const {navigate} = useNavigation<ScreenNavigationProps>();
   const session = useSessionState(state => state.session);
   const {fetchSessions} = useSessions();
-  const {conditionallyLogLeaveSessionMetricEvent} =
-    useLogInSessionMetricEvents();
+  const logSessionMetricEvent = useLogInSessionMetricEvents();
 
   const resetSession = useSessionState(state => state.reset);
   const resetSessionNotifications = useSessionNotificationsState(
@@ -68,11 +67,13 @@ const useLeaveSession = () => {
 
           onPress: () => {
             leaveSession();
-            conditionallyLogLeaveSessionMetricEvent();
+            if (!session?.exerciseState?.completed) {
+              logSessionMetricEvent('Leave Sharing Session');
+            }
           },
         },
       ]),
-    [t, leaveSession, conditionallyLogLeaveSessionMetricEvent],
+    [t, leaveSession, session?.exerciseState?.completed, logSessionMetricEvent],
   );
 
   return {leaveSession, leaveSessionWithConfirm};
