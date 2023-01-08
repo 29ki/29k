@@ -35,7 +35,7 @@ describe('useLeaveSession', () => {
   const mockNavigate = jest.mocked(navigation.navigate);
 
   describe('leaveSession', () => {
-    it('leaves the call, resets the state and navigates on confirming', async () => {
+    it('leaves the call, resets the state and navigates', async () => {
       useSessionState.setState({
         session: {
           id: 'some-session-id',
@@ -48,13 +48,14 @@ describe('useLeaveSession', () => {
 
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
       expect(useSessionState.getState().session).toBe(null);
-      expect(mockNavigate).toHaveBeenCalledTimes(2);
+      expect(mockNavigate).toHaveBeenCalledTimes(1);
     });
 
-    it('navigates to session feedback modal with set params', async () => {
+    it('navigates to session feedback modal with set params if session is started', async () => {
       useSessionState.setState({
         session: {
           id: 'some-session-id',
+          started: true,
           hostId: 'some-host-id',
           exerciseState: {
             completed: true,
@@ -102,6 +103,7 @@ describe('useLeaveSession', () => {
       useSessionState.setState({
         session: {
           id: 'some-session-id',
+          started: true,
         } as Session,
       });
 
@@ -125,6 +127,7 @@ describe('useLeaveSession', () => {
       useSessionState.setState({
         session: {
           id: 'some-session-id',
+          started: true,
         } as Session,
       });
 
@@ -141,6 +144,7 @@ describe('useLeaveSession', () => {
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(0);
       expect(useSessionState.getState().session).toEqual({
         id: 'some-session-id',
+        started: true,
       });
       expect(mockNavigate).toHaveBeenCalledTimes(0);
     });

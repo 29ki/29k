@@ -34,9 +34,6 @@ const useLeaveSession = () => {
   );
 
   const leaveSession = useCallback(async () => {
-    const sessionId = session?.id ?? '';
-    const completed = Boolean(session?.exerciseState?.completed);
-
     await leaveMeeting();
     resetSession();
     resetSessionNotifications();
@@ -44,9 +41,17 @@ const useLeaveSession = () => {
     fetchSessions();
 
     navigate('Sessions');
-    navigate('SessionFeedbackModal', {sessionId, completed, isHost});
+
+    if (session?.started) {
+      navigate('SessionFeedbackModal', {
+        sessionId: session?.id,
+        completed: Boolean(session?.exerciseState?.completed),
+        isHost,
+      });
+    }
   }, [
     session?.id,
+    session?.started,
     session?.exerciseState?.completed,
     isHost,
     leaveMeeting,
