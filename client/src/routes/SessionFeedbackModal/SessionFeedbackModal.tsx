@@ -30,6 +30,7 @@ import {ModalStackProps} from '../../lib/navigation/constants/routes';
 
 import confetti from '../../assets/animations/confetti.json';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useTranslation} from 'react-i18next';
 
 const Confetti = styled(AnimatedLottieView).attrs({
   source: confetti,
@@ -71,6 +72,7 @@ const Submitted = styled.View({
 });
 
 const SessionFeedbackModal = () => {
+  const {t} = useTranslation('Modal.SessionFeedback');
   const {params} =
     useRoute<RouteProp<ModalStackProps, 'SessionFeedbackModal'>>();
   const {popToTop} =
@@ -116,7 +118,7 @@ const SessionFeedbackModal = () => {
       <SheetModal>
         <Submitted>
           <Confetti autoPlay />
-          <Heading24>Thank you!</Heading24>
+          <Heading24>{t('thankYou')}</Heading24>
         </Submitted>
       </SheetModal>
     );
@@ -125,10 +127,10 @@ const SessionFeedbackModal = () => {
   return (
     <SheetModal>
       <BottomSheetScrollView focusHook={useIsFocused}>
-        <ModalHeading>One last thing...</ModalHeading>
+        <ModalHeading>{t('title')}</ModalHeading>
         <Spacer24 />
         <Wrapper>
-          <Heading24>Was this meaningful for you?</Heading24>
+          <Heading24>{t('question')}</Heading24>
           <Spacer16 />
           <Votes>
             <TouchableOpacity onPress={thumbsUpPress}>
@@ -141,19 +143,19 @@ const SessionFeedbackModal = () => {
           </Votes>
           <Spacer96 />
 
-          <Heading16>Do you have any comments?</Heading16>
+          <Heading16>{t('comments')}</Heading16>
           <Spacer8 />
           <TextField
             multiline
             onChangeText={setComment}
             onSubmitEditing={submit}
             returnKeyType="send"
-            placeholder="Optional"
+            placeholder={t('commentsPlaceholder')}
             numberOfLines={3}
           />
 
           <Spacer16 />
-          <Button onPress={submit}>Submit</Button>
+          <Button onPress={submit}>{t('submit')}</Button>
           <Spacer24 />
         </Wrapper>
       </BottomSheetScrollView>
