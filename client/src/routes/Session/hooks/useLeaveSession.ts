@@ -6,17 +6,23 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import {DailyContext} from '../../../lib/daily/DailyProvider';
 import useSessionState from '../state/state';
-import {TabNavigatorProps} from '../../../lib/navigation/constants/routes';
+import {
+  ModalStackProps,
+  TabNavigatorProps,
+} from '../../../lib/navigation/constants/routes';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 import useSessionNotificationsState from '../state/sessionNotificationsState';
 import useLogInSessionMetricEvents from './useLogInSessionMetricEvents';
 
-type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
+type ScreenNavigationProps = NativeStackNavigationProp<
+  TabNavigatorProps & ModalStackProps
+>;
 
 const useLeaveSession = () => {
   const {t} = useTranslation('Component.ConfirmExitSession');
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();
+  const session = useSessionState(state => state.session);
   const {fetchSessions} = useSessions();
   const {conditionallyLogLeaveSessionMetricEvent} =
     useLogInSessionMetricEvents();
@@ -27,13 +33,20 @@ const useLeaveSession = () => {
   );
 
   const leaveSession = useCallback(async () => {
+    const sessionId = session?.id ?? '';
+    const completed = session?.ended ?? true;
+
     await leaveMeeting();
     resetSession();
     resetSessionNotifications();
 
     fetchSessions();
+
     navigate('Sessions');
+    navigate('SessionFeedbackModal', {sessionId, completed});
   }, [
+    session?.id,
+    session?.ended,
     leaveMeeting,
     resetSession,
     resetSessionNotifications,
