@@ -75,12 +75,14 @@ const OutroPortal: React.FC = () => {
 
   useEffect(() => {
     if (
+      session?.id &&
       !outroPortal?.video &&
       (!introPortal?.videoEnd || !introPortal?.videoLoop)
     ) {
       leaveSession();
     }
   }, [
+    session?.id,
     introPortal?.videoEnd,
     introPortal?.videoLoop,
     outroPortal?.video,
