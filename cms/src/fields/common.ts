@@ -42,6 +42,14 @@ export const NAME_FIELD: CmsField = {
   widget: 'string',
 };
 
+export const DESCRIPTION_FIELD: CmsField = {
+  label: '📃 Description',
+  name: 'description',
+  widget: 'markdown',
+  required: false,
+  i18n: true,
+};
+
 export const DURATION_FIELD: CmsField = {
   label: '⏱ Duration',
   name: 'duration',

@@ -50,6 +50,7 @@ import Interested from '../../lib/components/Interested/Interested';
 import RadioButton from '../../lib/components/Buttons/RadioButton/RadioButton';
 import usePinnedSessons from '../../lib/sessions/hooks/usePinnedSessions';
 import useLogSessionMetricEvents from '../../lib/sessions/hooks/useLogSessionMetricEvents';
+import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',
@@ -317,7 +318,15 @@ const SessionModal = () => {
           />
         </SpaceBetweenRow>
       </Content>
-      <Spacer8 />
+      {exercise?.description && (
+        <>
+          <Spacer16 />
+          <Gutters>
+            <Markdown>{exercise?.description}</Markdown>
+          </Gutters>
+        </>
+      )}
+      <Spacer16 />
       {!editMode && (
         <>
           <Gutters>
