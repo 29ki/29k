@@ -1,17 +1,5 @@
 {
   "en": {
-    "published": true,
-    "hidden": true,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
@@ -39,7 +27,11 @@
         ],
         "content": {
           "heading": "Setting boundaries",
-          "text": "– a cornerstone in relationships"
+          "text": "– a cornerstone in relationships",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672845530/Video/video_setting_boundaries_wt07na.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1672842495/Images/image_video_setting_boundaries_cmjbl2.png"
+          }
         }
       },
       {
@@ -54,7 +46,10 @@
         ],
         "content": {
           "text": "How do I communicate ny needs?",
-          "heading": "Needs not being met are... "
+          "heading": "Needs not being met are... ",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4"
+          }
         }
       },
       {
@@ -72,7 +67,10 @@
         ],
         "content": {
           "heading": "Needs not being met right now",
-          "text": "How do I communicate needs?"
+          "text": "How do I communicate needs?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4"
+          }
         }
       },
       {
@@ -87,7 +85,10 @@
         ],
         "content": {
           "heading": "What boundaries, to whom?",
-          "text": "How will I communicate? When?"
+          "text": "How will I communicate? When?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4"
+          }
         }
       },
       {
@@ -102,7 +103,10 @@
         ],
         "content": {
           "heading": "What boundaries, to whom?",
-          "text": "How will I communicate them? When?"
+          "text": "How will I communicate them? When?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4"
+          }
         }
       },
       {
@@ -116,7 +120,11 @@
           }
         ],
         "content": {
-          "heading": "Time to reach out"
+          "heading": "Time to reach out",
+          "lottie": {
+            "autoPlayLoop": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1672843496/Lottie/mission_setting_boundaries_cwycbr.json"
+          }
         }
       },
       {
@@ -134,9 +142,35 @@
         ]
       }
     ],
-    "id": "c5b1197a-4eec-4699-9dad-0e3d6323967b",
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#cdc9c7"
+    },
+    "hidden": true,
     "name": "Setting boundaries",
-    "duration": 30
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1672845216/Images/cover_setting_boundaries_eprgqj.png"
+      }
+    },
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672829134/Video/portal1_setting_boundaries_b3rx64.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1672829114/Audio/portal_audio_setting_boundaries_t2pvwj.mp3",
+        "preview": ""
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1672835034/Video/portal2_setting_boundaries_craqov.mp4"
+      }
+    },
+    "id": "c5b1197a-4eec-4699-9dad-0e3d6323967b"
   },
   "pt": {
     "published": false,
