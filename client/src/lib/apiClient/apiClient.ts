@@ -37,6 +37,7 @@ const getAuthorizationToken = async (): Promise<string> => {
         const firebaseError =
           error as FirebaseAuthTypes.NativeFirebaseAuthError;
         if (
+          firebaseError.code === 'auth/internal-error' ||
           firebaseError.code === 'auth/id-token-expired' ||
           firebaseError.code === 'auth/id-token-revoked'
         ) {
