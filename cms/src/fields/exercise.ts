@@ -43,6 +43,7 @@ export const SOCIAL_MEDIA: CmsField = {
     {
       label: '📃 Description',
       name: 'description',
+      hint: `Defaults to ${DESCRIPTION_FIELD.label}`,
       widget: 'string',
       i18n: true,
       required: false,
