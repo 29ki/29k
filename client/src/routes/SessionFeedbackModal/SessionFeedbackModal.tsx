@@ -5,7 +5,6 @@ import {
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
-import AnimatedLottieView from 'lottie-react-native';
 import React, {useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../shared/src/constants/colors';
@@ -28,17 +27,10 @@ import {BottomSheetTextInput} from '../../lib/components/Typography/TextInput/Te
 import * as metrics from '../../lib/metrics';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
 
-import confetti from '../../assets/animations/confetti.json';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import {DEFAULT_LANGUAGE_TAG} from '../../lib/i18n';
-
-const Confetti = styled(AnimatedLottieView).attrs({
-  source: confetti,
-})({
-  position: 'absolute',
-  width: '100%',
-});
+import {Display36} from '../../lib/components/Typography/Display/Display';
 
 const Votes = styled.View({
   flexDirection: 'row',
@@ -67,7 +59,7 @@ const TextField = styled(BottomSheetTextInput)({
 });
 
 const Submitted = styled.View({
-  height: 250,
+  height: 200,
   alignItems: 'center',
   justifyContent: 'center',
 });
@@ -109,17 +101,17 @@ const SessionFeedbackModal = () => {
 
   useEffect(() => {
     if (submitted) {
+      snapToIndex(0);
       const timer = setTimeout(popToTop, 3000);
       return () => clearTimeout(timer);
     }
-  }, [setSubmitted, submitted, popToTop]);
+  }, [submitted, snapToIndex, popToTop]);
 
   if (submitted) {
     return (
       <SheetModal>
         <Submitted>
-          <Confetti autoPlay />
-          <Heading24>{t('thankYou')}</Heading24>
+          <Display36>{t('thankYou')}</Display36>
         </Submitted>
       </SheetModal>
     );
@@ -135,11 +127,11 @@ const SessionFeedbackModal = () => {
           <Spacer16 />
           <Votes>
             <TouchableOpacity onPress={thumbsUpPress}>
-              <Vote selected={answer === true}>👍</Vote>
+              <Vote selected={answer === true}>{'👍'}</Vote>
             </TouchableOpacity>
             <Spacer16 />
             <TouchableOpacity onPress={thumbsDownPress}>
-              <Vote selected={answer === false}>👎</Vote>
+              <Vote selected={answer === false}>{'👎'}</Vote>
             </TouchableOpacity>
           </Votes>
           <Spacer96 />
@@ -149,8 +141,6 @@ const SessionFeedbackModal = () => {
           <TextField
             multiline
             onChangeText={setComment}
-            onSubmitEditing={submit}
-            returnKeyType="send"
             placeholder={t('commentsPlaceholder')}
             numberOfLines={3}
           />
