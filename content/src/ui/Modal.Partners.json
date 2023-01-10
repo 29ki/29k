@@ -5,7 +5,12 @@
     "corePartners": "Core partners",
     "partners": "Partners"
   },
-  "pt": {},
+  "pt": {
+    "title": "Parceiros",
+    "text": "Muito obrigada a todas estas organizações maravilhosas!",
+    "corePartners": "Parceiros principais",
+    "partners": "Parceiros"
+  },
   "sv": {},
   "es": {}
 }

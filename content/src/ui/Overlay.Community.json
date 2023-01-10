@@ -13,8 +13,10 @@
   "pt": {
     "actions": {
       "contribute": "Como colaborar",
-      "contributors": "Colaboradores"
-    }
+      "contributors": "Colaboradores",
+      "partners": "Parceiros"
+    },
+    "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1672393912/Temp/community_hs8apo.jpg"
   },
   "sv": {},
   "es": {}

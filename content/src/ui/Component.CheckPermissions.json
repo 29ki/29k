@@ -19,20 +19,34 @@
       "confirm": "Open Settings"
     }
   },
+  "pt": {
+    "join": {
+      "title": "Antes de entrares",
+      "message": "Não deste permissões à app para poderes ligar/desligar a câmara e/ou o microfone. Não há problema mas desta forma não vais poder aproveitar ao máximo a sessão.",
+      "join": "Participar mesmo assim",
+      "openSettings": "Abrir configurações",
+      "dismiss": "Entrar na mesma",
+      "confirm": "Abrir configurações"
+    },
+    "camera": {
+      "title": "Autorização de acesso à câmara recusada",
+      "message": "Permitir que as sessões 29k FJN tenham acesso à câmara para participares na sessão. Isto vai reiniciar a app 29k FJN.",
+      "dismiss": "Cancelar",
+      "confirm": "Abrir configurações"
+    },
+    "microphone": {
+      "title": "Autorização de acesso ao microfone recusada",
+      "message": "Permitir que as sessões 29k FJN tenham acesso ao microfone para participares na sessão. Isto vai reiniciar a app 29k FJN..",
+      "dismiss": "Cancelar",
+      "confirm": "Abrir configurações"
+    }
+  },
   "sv": {
     "join": {
       "title": "Innan du går med",
       "message": "Du har inte gett appen tillåtelse att använda kameran och mikrofonen. Det är helt upp till dig. Vi vill bara att du ska veta att du då inte kan delta fullt ut i sessionen.",
       "join": "Gå med ändå",
       "openSettings": "Ändra inställningar"
-    }
-  },
-  "pt": {
-    "join": {
-      "title": "Antes de entrares",
-      "message": "Não deste permissões à app para poderes ligar/desligar a câmara e/ou o microfone. Não há problema mas desta forma não vais poder aproveitar ao máximo a sessão.",
-      "join": "Participar mesmo assim",
-      "openSettings": "Abrir configurações"
     }
   },
   "es": {}
