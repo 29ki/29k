@@ -971,7 +971,7 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.29.0):
+  - react-native-daily-js (0.35.0):
     - React
   - react-native-safe-area-context (4.4.1):
     - RCT-Folly
@@ -984,7 +984,7 @@ PODS:
     - react-native-video/Video (= 5.2.1)
   - react-native-video/Video (5.2.1):
     - React-Core
-  - react-native-webrtc (1.94.1-daily.4):
+  - react-native-webrtc (1.94.1-daily.8):
     - React-Core
   - React-perflogger (0.69.5)
   - React-RCTActionSheet (0.69.5):
@@ -1132,7 +1132,7 @@ PODS:
   - RNSentry (4.12.0):
     - React-Core
     - Sentry/HybridSDK (= 7.31.3)
-  - RNSharedElement (0.8.7):
+  - RNSharedElement (0.8.8):
     - React-Core
   - RNSound (0.11.2):
     - React-Core
@@ -1412,10 +1412,10 @@ SPEC CHECKSUMS:
   React-logger: 15c734997c06fe9c9b88e528fb7757601e7a56df
   react-native-add-calendar-event: d7744f983d6770cc9e4f004db22bc4d4b4575f17
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: 97dfa84535efd4558cb5bce4846e64d263aa4655
+  react-native-daily-js: cac80d7de51b153a940060b2fae3f0f0e95e18c9
   react-native-safe-area-context: 99b24a0c5acd0d5dcac2b1a7f18c49ea317be99a
   react-native-video: c26780b224543c62d5e1b2a7244a5cd1b50e8253
-  react-native-webrtc: 1ef92e33b86c4130d7f0804ad00856d2fdfad566
+  react-native-webrtc: ba5088bd040d835cc5df17bb2245d9d27d5d2d70
   React-perflogger: 367418425c5e4a9f0f80385ee1eaacd2a7348f8e
   React-RCTActionSheet: e4885e7136f98ded1137cd3daccc05eaed97d5a6
   React-RCTAnimation: 7c5a74f301c9b763343ba98a3dd776ed2676993f
@@ -1444,7 +1444,7 @@ SPEC CHECKSUMS:
   RNReanimated: f0d66bda3d074c43c72a18f4fd4f4c26687bc1fd
   RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
   RNSentry: 4c09f4dd9740cb9b33e94303de5b6d0dbeb0737d
-  RNSharedElement: 14409838520c8b50850aa4d33e15d0b8afdf7052
+  RNSharedElement: 504fa28a235b12505b6daedbb452a9ec96809bd0
   RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
   RNSVG: 3a79c0c4992213e4f06c08e62730c5e7b9e4dc17
   Sentry: 08884c523575ec0f6690d94ed3ccb0246a1600bf

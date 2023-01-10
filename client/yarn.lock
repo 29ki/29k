@@ -918,9 +918,10 @@
     "@types/react-native-background-timer" "^2.0.0"
     react-native-url-polyfill "^1.1.2"
 
-"@daily-co/react-native-webrtc@https://github.com/29ki/daily-react-native-webrtc#fix-iOS-16-support":
-  version "1.94.1-daily.4"
-  resolved "https://github.com/29ki/daily-react-native-webrtc#c9ec9a8e6c1ff160c7f58d173853b3e1fa09a952"
+"@daily-co/react-native-webrtc@1.94.1-daily.8":
+  version "1.94.1-daily.8"
+  resolved "https://registry.yarnpkg.com/@daily-co/react-native-webrtc/-/react-native-webrtc-1.94.1-daily.8.tgz#b870a08167dd85e1de3a8799d50b4e6a2f597882"
+  integrity sha512-oOYY/amslF5X0ex1nD/sLEyXRsECqhWTlq4vWspld8SuiPtdgNt44x9Q7A1CkOBj22RGQIrzzDKxlCqbjhYbZQ==
   dependencies:
     "@types/react" "*"
     "@types/react-native" "*"
