@@ -121,7 +121,11 @@ const ModalStack = () => {
       <Screen name="OverlayStack" component={OverlayStack} />
 
       <Group screenOptions={sheetModalScreenOptions}>
-        <Screen name={'SessionModal'} component={SessionModal} />
+        <Screen
+          name={'SessionModal'}
+          component={SessionModal}
+          options={tallSheetModalScreenOptions}
+        />
         <Screen name={'CreateSessionModal'} component={CreateSessionModal} />
         <Screen
           name={'UpgradeAccountModal'}

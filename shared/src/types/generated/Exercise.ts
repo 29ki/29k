@@ -192,6 +192,7 @@ export interface ExerciseSlideHostSlide {
 export interface Exercise {
   id: any;
   name: string;
+  description?: string;
   duration: number;
   published: boolean;
   hidden?: boolean;
