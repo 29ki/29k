@@ -8270,10 +8270,10 @@ react-native-screens@^3.18.2:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
-react-native-shared-element@^0.8.7:
-  version "0.8.7"
-  resolved "https://registry.yarnpkg.com/react-native-shared-element/-/react-native-shared-element-0.8.7.tgz#d46738078514053246b966535af0ca86811236f3"
-  integrity sha512-msBdt6bwupsgML+nCbvqg4RnQ/qkL+98zYSJ1eHoGQkZW+okjLgpZx8hRswalN50hxNZfDW8nT/HEhdGZE6imQ==
+react-native-shared-element@^0.8.8:
+  version "0.8.8"
+  resolved "https://registry.yarnpkg.com/react-native-shared-element/-/react-native-shared-element-0.8.8.tgz#1a86ff54d7a96e22d270254d3e642869c7cb3ff3"
+  integrity sha512-ZjnsI9IXckzX5CFl2lbVX8Izn93zBfYw6knUtW41NZ/HAPVq6wlFuSxAhvFNJ4HRZ3FX6b8gUMDYuUfX7djj0A==
 
 "react-native-sound@https://github.com/29ki/react-native-sound#fix-iOS-16-support":
   version "0.11.2"
