@@ -3,10 +3,6 @@ import jwt from 'jsonwebtoken';
 import MockDate from 'mockdate';
 import {generateSessionToken} from './dailyUtils';
 
-jest.mock('./dailyApi', () => ({
-  getDomainId: () => Promise.resolve('some-domain-id'),
-}));
-
 MockDate.set('2023-01-05T11:47:35'); // NOW
 
 beforeEach(() => {
