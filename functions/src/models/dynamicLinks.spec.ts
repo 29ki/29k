@@ -15,6 +15,7 @@ jest.mock('../../../content/content.json', () => ({
         'some-exercise-id': {
           published: true,
           name: 'Some Exercise',
+          description: 'Some description',
           card: {
             image: {
               source: 'http://some.image/source.en',
@@ -24,6 +25,7 @@ jest.mock('../../../content/content.json', () => ({
         'some-socialMeta-exercise-id': {
           published: true,
           name: 'Some Other Exercise',
+          description: 'Some description',
           socialMeta: {
             title: 'Some custom social meta title',
             description: 'Some custom social meta description',
@@ -33,7 +35,7 @@ jest.mock('../../../content/content.json', () => ({
       },
       'DeepLink.JoinSessionInvite': {
         title: 'Some link title: {{title}}',
-        description: 'Some link description: {{host}}',
+        description: 'Some link description: {{host}} - {{description}}',
       },
     },
     sv: {
@@ -41,16 +43,22 @@ jest.mock('../../../content/content.json', () => ({
         'some-exercise-id': {
           published: true,
           name: 'En Övning',
+          description: 'En beskrivning',
           card: {
             image: {
               source: 'http://some.image/source.sv',
             },
           },
+          socialMeta: {
+            title: '',
+            description: '',
+            image: '',
+          },
         },
       },
       'DeepLink.JoinSessionInvite': {
         title: 'En länktitel: {{title}}',
-        description: 'En länkbeskrivning: {{host}}',
+        description: 'En länkbeskrivning: {{host}} - {{description}}',
       },
     },
   },
@@ -191,7 +199,8 @@ describe('createSessionInviteLink', () => {
           link: 'http://some.deep/link/base/joinSessionInvite/123456',
           navigationInfo: {enableForcedRedirect: false},
           socialMetaTagInfo: {
-            socialDescription: 'Some link description: Some Host Name',
+            socialDescription:
+              'Some link description: Some Host Name - Some description',
             socialImageLink: 'http://some.image/source.en',
             socialTitle: 'Some link title: Some Exercise',
           },
@@ -234,7 +243,8 @@ describe('createSessionInviteLink', () => {
           link: 'http://some.deep/link/base/joinSessionInvite/123456',
           navigationInfo: {enableForcedRedirect: false},
           socialMetaTagInfo: {
-            socialDescription: 'Some link description: Some Host Name',
+            socialDescription:
+              'Some link description: Some Host Name - Some custom social meta description',
             socialImageLink: 'http://some.custom.social.meta/image',
             socialTitle: 'Some link title: Some custom social meta title',
           },
@@ -277,7 +287,8 @@ describe('createSessionInviteLink', () => {
           link: 'http://some.deep/link/base/joinSessionInvite/123456',
           navigationInfo: {enableForcedRedirect: false},
           socialMetaTagInfo: {
-            socialDescription: 'En länkbeskrivning: Some Host Name',
+            socialDescription:
+              'En länkbeskrivning: Some Host Name - En beskrivning',
             socialImageLink: 'http://some.image/source.sv',
             socialTitle: 'En länktitel: En Övning',
           },

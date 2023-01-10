@@ -64,7 +64,7 @@ export const createSessionInviteLink = async (
   language: LANGUAGE_TAG,
 ) => {
   // @ts-expect-error variable/string litteral as key is not yet supported https://www.i18next.com/overview/typescript#type-error-template-literal
-  const {name, card, socialMeta} = i18next.t(contentId, {
+  const {name, description, card, socialMeta} = i18next.t(contentId, {
     lng: language,
     ns: 'exercises',
     returnObjects: true,
@@ -72,11 +72,11 @@ export const createSessionInviteLink = async (
 
   const t = i18next.getFixedT(language, 'DeepLink.JoinSessionInvite');
 
-  const socialImageLink = socialMeta?.image ?? card?.image?.source;
-  const socialTitle = t('title', {title: socialMeta?.title ?? name});
+  const socialImageLink = socialMeta?.image || card?.image?.source;
+  const socialTitle = t('title', {title: socialMeta?.title || name});
   const socialDescription = t('description', {
     host,
-    description: socialMeta?.description,
+    description: socialMeta?.description || description,
   });
 
   return createDynamicLink(`joinSessionInvite/${inviteCode}`, {
