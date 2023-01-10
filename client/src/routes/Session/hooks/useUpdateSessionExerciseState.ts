@@ -18,9 +18,12 @@ const useUpdateSessionExerciseState = (
         return;
       }
 
+      const completed = index === content.length - 1 ? true : undefined;
+
       return sessionApi.updateExerciseState(sessionId, {
         index,
         playing: false,
+        completed,
       });
     },
     [sessionId],

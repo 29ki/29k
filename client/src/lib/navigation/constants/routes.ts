@@ -46,4 +46,9 @@ export type ModalStackProps = {
   PartnersModal: undefined;
   DeveloperModal: undefined;
   ContactModal: undefined;
+  SessionFeedbackModal: {
+    sessionId: Session['id'];
+    completed: boolean;
+    isHost: boolean;
+  };
 };

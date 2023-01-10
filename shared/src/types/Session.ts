@@ -11,6 +11,7 @@ type ExerciseStateFields = {
   index: number;
   playing: boolean;
   dailySpotlightId?: string;
+  completed?: boolean;
 };
 
 type SessionFields = {

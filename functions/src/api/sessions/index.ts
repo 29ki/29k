@@ -150,6 +150,7 @@ const ExerciseStateUpdateSchema = yup
     playing: yup.boolean(),
     dailySpotlightId: yup.string(),
     ended: yup.boolean(),
+    completed: yup.boolean(),
   })
   .test(
     'nonEmptyObject',

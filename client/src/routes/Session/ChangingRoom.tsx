@@ -126,7 +126,7 @@ const ChangingRoom = () => {
   const me = useLocalParticipant();
   const user = useUser();
   const [localUserName, setLocalUserName] = useState(user?.displayName ?? '');
-  const {logSessionMetricEvent} = useLogInSessionMetricEvents();
+  const logSessionMetricEvent = useLogInSessionMetricEvents();
   const {
     checkJoinPermissions,
     checkCameraPermissions,

@@ -116,8 +116,7 @@ const Session = () => {
   const sessionSlideState = useSessionSlideState();
   const exercise = useExerciseById(session?.contentId);
   const theme = useExerciseTheme();
-  const {logSessionMetricEvent, conditionallyLogCompleteSessionMetricEvent} =
-    useLogInSessionMetricEvents();
+  const logSessionMetricEvent = useLogInSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession();
   const {checkCameraPermissions, checkMicrophonePermissions} =
     useCheckPermissions();
@@ -135,14 +134,10 @@ const Session = () => {
   }, [logSessionMetricEvent, session?.id]);
 
   useEffect(() => {
-    if (session?.id && sessionSlideState?.current) {
-      conditionallyLogCompleteSessionMetricEvent();
+    if (session?.exerciseState.completed) {
+      logSessionMetricEvent('Complete Sharing Session');
     }
-  }, [
-    conditionallyLogCompleteSessionMetricEvent,
-    session?.id,
-    sessionSlideState,
-  ]);
+  }, [session?.exerciseState?.completed, logSessionMetricEvent]);
 
   useEffect(() => {
     if (session?.ended) {

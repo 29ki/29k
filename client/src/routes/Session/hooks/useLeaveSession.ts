@@ -6,20 +6,27 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import {DailyContext} from '../../../lib/daily/DailyProvider';
 import useSessionState from '../state/state';
-import {TabNavigatorProps} from '../../../lib/navigation/constants/routes';
+import {
+  ModalStackProps,
+  TabNavigatorProps,
+} from '../../../lib/navigation/constants/routes';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 import useSessionNotificationsState from '../state/sessionNotificationsState';
 import useLogInSessionMetricEvents from './useLogInSessionMetricEvents';
+import useIsSessionHost from './useIsSessionHost';
 
-type ScreenNavigationProps = NativeStackNavigationProp<TabNavigatorProps>;
+type ScreenNavigationProps = NativeStackNavigationProp<
+  TabNavigatorProps & ModalStackProps
+>;
 
 const useLeaveSession = () => {
   const {t} = useTranslation('Component.ConfirmExitSession');
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();
+  const session = useSessionState(state => state.session);
+  const isHost = useIsSessionHost();
   const {fetchSessions} = useSessions();
-  const {conditionallyLogLeaveSessionMetricEvent} =
-    useLogInSessionMetricEvents();
+  const logSessionMetricEvent = useLogInSessionMetricEvents();
 
   const resetSession = useSessionState(state => state.reset);
   const resetSessionNotifications = useSessionNotificationsState(
@@ -32,8 +39,21 @@ const useLeaveSession = () => {
     resetSessionNotifications();
 
     fetchSessions();
+
     navigate('Sessions');
+
+    if (session?.started) {
+      navigate('SessionFeedbackModal', {
+        sessionId: session?.id,
+        completed: Boolean(session?.exerciseState?.completed),
+        isHost,
+      });
+    }
   }, [
+    session?.id,
+    session?.started,
+    session?.exerciseState?.completed,
+    isHost,
     leaveMeeting,
     resetSession,
     resetSessionNotifications,
@@ -55,11 +75,13 @@ const useLeaveSession = () => {
 
           onPress: () => {
             leaveSession();
-            conditionallyLogLeaveSessionMetricEvent();
+            if (!session?.exerciseState?.completed) {
+              logSessionMetricEvent('Leave Sharing Session');
+            }
           },
         },
       ]),
-    [t, leaveSession, conditionallyLogLeaveSessionMetricEvent],
+    [t, leaveSession, session?.exerciseState?.completed, logSessionMetricEvent],
   );
 
   return {leaveSession, leaveSessionWithConfirm};

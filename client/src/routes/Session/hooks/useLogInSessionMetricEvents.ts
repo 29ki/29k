@@ -3,7 +3,6 @@ import {useCallback} from 'react';
 import * as metrics from '../../../lib/metrics';
 import useUser from '../../../lib/user/hooks/useUser';
 import useSessionState from '../state/state';
-import useSessionSlideState from './useSessionSlideState';
 
 type AllowedSharingEvents =
   | 'Enter Changing Room'
@@ -17,7 +16,6 @@ type AllowedSharingEvents =
 const useLogInSessionMetricEvents = () => {
   const user = useUser();
   const session = useSessionState(state => state.session);
-  const slideState = useSessionSlideState();
 
   const logSessionMetricEvent = useCallback(
     (event: AllowedSharingEvents) => {
@@ -47,25 +45,7 @@ const useLogInSessionMetricEvents = () => {
     ],
   );
 
-  const conditionallyLogLeaveSessionMetricEvent = useCallback(() => {
-    if (slideState?.current && slideState?.next) {
-      // Only log if Not on last slide
-      logSessionMetricEvent('Leave Sharing Session');
-    }
-  }, [logSessionMetricEvent, slideState]);
-
-  const conditionallyLogCompleteSessionMetricEvent = useCallback(() => {
-    if (slideState?.current && !slideState?.next) {
-      // Only log if on last slide
-      logSessionMetricEvent('Complete Sharing Session');
-    }
-  }, [logSessionMetricEvent, slideState]);
-
-  return {
-    logSessionMetricEvent,
-    conditionallyLogLeaveSessionMetricEvent,
-    conditionallyLogCompleteSessionMetricEvent,
-  };
+  return logSessionMetricEvent;
 };
 
 export default useLogInSessionMetricEvents;

@@ -59,7 +59,7 @@ const OutroPortal: React.FC = () => {
   const [readyToLeave, setReadyToLeave] = useState(false);
   const isFocused = useIsFocused();
   const {t} = useTranslation('Screen.Portal');
-  const {logSessionMetricEvent} = useLogInSessionMetricEvents();
+  const logSessionMetricEvent = useLogInSessionMetricEvents();
 
   usePreventGoingBack();
   useNavigateWithFade();
@@ -75,12 +75,14 @@ const OutroPortal: React.FC = () => {
 
   useEffect(() => {
     if (
+      session?.id &&
       !outroPortal?.video &&
       (!introPortal?.videoEnd || !introPortal?.videoLoop)
     ) {
       leaveSession();
     }
   }, [
+    session?.id,
     introPortal?.videoEnd,
     introPortal?.videoLoop,
     outroPortal?.video,

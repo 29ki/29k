@@ -22,6 +22,7 @@ import DeveloperModal from '../../routes/DeveloperModal/DeveloperModal';
 import OverlayStack from './OverlayStack';
 import PartnersModal from '../../routes/Contributors/PartnersModal';
 import ContactModal from '../../routes/ConcactModal/ContactModal';
+import SessionFeedbackModal from '../../routes/SessionFeedbackModal/SessionFeedbackModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -86,7 +87,7 @@ const ModalStack = () => {
     () => ({
       ...sheetModalScreenOptions,
       // Please note - Having a fixed snap point as first value improves keyboard input focus on Android
-      snapPoints: [340, '100%'],
+      snapPoints: [340, '75%', '100%'],
     }),
     [sheetModalScreenOptions],
   );
@@ -150,6 +151,12 @@ const ModalStack = () => {
         <Screen
           name={'SignInModal'}
           component={SignInModal}
+          options={shortSheetModalScreenOptions}
+        />
+
+        <Screen
+          name={'SessionFeedbackModal'}
+          component={SessionFeedbackModal}
           options={shortSheetModalScreenOptions}
         />
       </Group>

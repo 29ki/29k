@@ -2,6 +2,8 @@ import {useNavigation} from '@react-navigation/native';
 import {act, renderHook} from '@testing-library/react-hooks';
 import {useTranslation} from 'react-i18next';
 import {Alert as AlertMock} from 'react-native';
+import {Session} from '../../../../../shared/src/types/Session';
+import useSessionState from '../state/state';
 import useLeaveSession from './useLeaveSession';
 
 const alertConfirmMock = AlertMock.alert as jest.Mock;
@@ -16,16 +18,11 @@ jest.mock('react', () => ({
   useContext: jest.fn(() => ({leaveMeeting: mockLeaveMeeting})),
 }));
 
-const mockResetSessionState = jest.fn();
-jest.mock('../state/state', () =>
-  jest.fn(fn => fn({reset: mockResetSessionState})),
+const mockLogSessionMetricEvent = jest.fn();
+jest.mock(
+  './useLogInSessionMetricEvents',
+  () => () => mockLogSessionMetricEvent,
 );
-
-const mockConditionallyLogLeaveSessionMetricEvent = jest.fn();
-jest.mock('./useLogInSessionMetricEvents', () => () => ({
-  conditionallyLogLeaveSessionMetricEvent:
-    mockConditionallyLogLeaveSessionMetricEvent,
-}));
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -35,16 +32,45 @@ describe('useLeaveSession', () => {
   const {t} = useTranslation();
   (t as unknown as jest.Mock).mockReturnValue('Some translation');
   const navigation = useNavigation();
+  const mockNavigate = jest.mocked(navigation.navigate);
 
   describe('leaveSession', () => {
-    it('leaves the call, resets the state and navigates on confirming', async () => {
+    it('leaves the call, resets the state and navigates', async () => {
+      useSessionState.setState({
+        session: {
+          id: 'some-session-id',
+        } as Session,
+      });
+
       const {result} = renderHook(() => useLeaveSession());
 
       await act(() => result.current.leaveSession());
 
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
-      expect(mockResetSessionState).toHaveBeenCalledTimes(1);
-      expect(navigation.navigate as jest.Mock).toHaveBeenCalledTimes(1);
+      expect(useSessionState.getState().session).toBe(null);
+      expect(mockNavigate).toHaveBeenCalledTimes(1);
+    });
+
+    it('navigates to session feedback modal with set params if session is started', async () => {
+      useSessionState.setState({
+        session: {
+          id: 'some-session-id',
+          started: true,
+          hostId: 'some-host-id',
+          exerciseState: {
+            completed: true,
+          },
+        } as Session,
+      });
+      const {result} = renderHook(() => useLeaveSession());
+
+      await act(() => result.current.leaveSession());
+
+      expect(mockNavigate).toHaveBeenCalledWith('SessionFeedbackModal', {
+        completed: true,
+        isHost: false,
+        sessionId: 'some-session-id',
+      });
     });
   });
 
@@ -74,6 +100,13 @@ describe('useLeaveSession', () => {
     });
 
     it('leaves the call, resets the state and navigates on confirming', async () => {
+      useSessionState.setState({
+        session: {
+          id: 'some-session-id',
+          started: true,
+        } as Session,
+      });
+
       alertConfirmMock.mockImplementationOnce((header, text, config) => {
         // Run the confirm action
         config[1].onPress();
@@ -85,14 +118,19 @@ describe('useLeaveSession', () => {
 
       expect(alertConfirmMock).toHaveBeenCalledTimes(1);
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
-      expect(mockResetSessionState).toHaveBeenCalledTimes(1);
-      expect(mockConditionallyLogLeaveSessionMetricEvent).toHaveBeenCalledTimes(
-        1,
-      );
-      expect(navigation.navigate as jest.Mock).toHaveBeenCalledTimes(1);
+      expect(useSessionState.getState().session).toBe(null);
+      expect(mockLogSessionMetricEvent).toHaveBeenCalledTimes(1);
+      expect(mockNavigate).toHaveBeenCalledTimes(2);
     });
 
     it('does nothing on dismiss', async () => {
+      useSessionState.setState({
+        session: {
+          id: 'some-session-id',
+          started: true,
+        } as Session,
+      });
+
       alertConfirmMock.mockImplementationOnce((header, text, config) => {
         // Run the dismiss action
         config[0].onPress();
@@ -104,8 +142,11 @@ describe('useLeaveSession', () => {
 
       expect(alertConfirmMock).toHaveBeenCalledTimes(1);
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(0);
-      expect(mockResetSessionState).toHaveBeenCalledTimes(0);
-      expect(navigation.navigate as jest.Mock).toHaveBeenCalledTimes(0);
+      expect(useSessionState.getState().session).toEqual({
+        id: 'some-session-id',
+        started: true,
+      });
+      expect(mockNavigate).toHaveBeenCalledTimes(0);
     });
   });
 });
