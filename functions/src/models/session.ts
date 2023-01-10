@@ -99,9 +99,7 @@ export const addSession = async ({
 }: Omit<
   Session,
   'exerciseState' | 'ended' | 'started' | 'userIds' | 'createdAt' | 'updatedAt'
-> & {
-  dailyRoomName: string;
-}) => {
+>) => {
   const now = Timestamp.now();
   const session = {
     id,

@@ -46,6 +46,7 @@ import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../lib/user/hooks/useUser';
 import Image from '../../lib/components/Image/Image';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
+import {getSessionToken} from '../../lib/sessions/api/session';
 import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
 import useCheckPermissions from './hooks/useCheckPermissions';
 
@@ -143,10 +144,14 @@ const ChangingRoom = () => {
   }, [logSessionMetricEvent, session?.id]);
 
   useEffect(() => {
-    if (isFocused && session?.url) {
-      preJoinMeeting(session?.url);
-    }
-  }, [isFocused, session?.url, preJoinMeeting]);
+    const preJoin = async () => {
+      if (isFocused && session?.url && session?.id) {
+        const token = await getSessionToken(session.id);
+        preJoinMeeting(session?.url, token);
+      }
+    };
+    preJoin();
+  }, [isFocused, session?.url, session?.id, preJoinMeeting]);
 
   useEffect(() => {
     if (isHost && me?.user_id) {

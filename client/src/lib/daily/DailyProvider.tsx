@@ -22,7 +22,7 @@ export type DailyProviderTypes = {
   call?: DailyCall;
   hasCameraPermissions: () => boolean;
   hasMicrophonePermissions: () => boolean;
-  preJoinMeeting: (url: string) => Promise<void>;
+  preJoinMeeting: (url: string, token: string) => Promise<void>;
   joinMeeting: (options?: DailyCallOptions) => Promise<void>;
   leaveMeeting: () => Promise<void>;
   toggleAudio: (enabled: boolean) => void;
@@ -102,10 +102,11 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   }, [daily]);
 
   const prepareMeeting = useCallback(
-    async (url: string) => {
+    async (url: string, token: string) => {
       if (daily.meetingState() !== 'joined-meeting') {
         await daily.preAuth({
-          url, // TODO should fetch also token from function in the future
+          url,
+          token,
         });
       }
     },
@@ -153,9 +154,9 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   );
 
   const preJoinMeeting = useCallback(
-    async (url: string) => {
+    async (url: string, token: string) => {
       if (daily.meetingState() === 'new') {
-        await prepareMeeting(url);
+        await prepareMeeting(url, token);
         await daily.startCamera({url});
       }
     },

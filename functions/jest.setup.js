@@ -3,6 +3,7 @@ process.env = Object.assign(process.env, {
   GIT_COMMIT_SHORT: 'some-git-commit-short',
   SENTRY_DSN: 'some-sentry-dsn',
   DAILY_API_KEY: 'some-api-endpoint',
+  DAILY_DOMAIN_ID: 'some-domain-id',
   DEEP_LINK_API_KEY: 'some-deep-link-api-key',
   DEEP_LINK_DOMAIN_URI_PREFIX: 'some-deep-link-domain-uri-prefix',
   DEEP_LINK_BASE_URL: 'http://some.deep/link/base/url',

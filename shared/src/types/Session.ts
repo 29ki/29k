@@ -16,6 +16,7 @@ type ExerciseStateFields = {
 
 type SessionFields = {
   id: string;
+  dailyRoomName: string;
   url: string;
   language: LANGUAGE_TAG;
   link?: string;
