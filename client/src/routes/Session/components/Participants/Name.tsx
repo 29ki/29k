@@ -2,7 +2,7 @@ import React from 'react';
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import styled from 'styled-components/native';
 
-import {Body16} from '../../../../common/components/Typography/Body/Body';
+import {Body16} from '../../../../lib/components/Typography/Body/Body';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {ViewStyle} from 'react-native';
 

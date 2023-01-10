@@ -1,94 +1,55 @@
 import {useNavigation} from '@react-navigation/native';
-import React from 'react';
-import {ScrollView} from 'react-native';
-import Video from 'react-native-video';
+import React, {useMemo} from 'react';
+import {useTranslation} from 'react-i18next';
 import {SharedElement} from 'react-navigation-shared-element';
 import styled from 'styled-components/native';
-import Gutters from '../../common/components/Gutters/Gutters';
-import Screen from '../../common/components/Screen/Screen';
-import {Body16} from '../../common/components/Typography/Body/Body';
-import {Display36} from '../../common/components/Typography/Display/Display';
+import Gutters from '../../lib/components/Gutters/Gutters';
+import HeaderScrollView from '../../lib/components/HeaderScrollView/HeaderScrollView';
 
-const StyledVideo = styled(Video).attrs({
-  resizeMode: 'cover',
-})({
-  width: '100%',
-  aspectRatio: 1,
-});
+import Screen from '../../lib/components/Screen/Screen';
+import {
+  BottomSafeArea,
+  Spacer16,
+  Spacer24,
+  Spacer8,
+} from '../../lib/components/Spacers/Spacer';
+import {Display24} from '../../lib/components/Typography/Display/Display';
+import Markdown from '../../lib/components/Typography/Markdown/Markdown';
+import AboutActionList from './components/AboutActionList';
+
+const BlurbImage = styled.Image({height: '100%'});
 
 const AboutOverlay = () => {
   const {goBack} = useNavigation();
+  const {t} = useTranslation('Overlay.About');
+
+  const source = useMemo(() => ({uri: t('image__image')}), [t]);
+
   return (
     <Screen onPressBack={goBack}>
-      <ScrollView>
-        <SharedElement id="editorial.image">
-          <StyledVideo
-            source={{
-              uri: 'https://res.cloudinary.com/cupcake-29k/video/upload/v1671006405/Temp/20221201115453_tphsjc.mp4',
-            }}
-            poster="https://res.cloudinary.com/cupcake-29k/image/upload/v1671006827/Temp/poster_xzyxoq.jpg"
-            posterResizeMode="cover"
-            repeat
-          />
-        </SharedElement>
+      <HeaderScrollView
+        header={
+          <SharedElement id="about.image">
+            <BlurbImage source={source} resizeMode="cover" />
+          </SharedElement>
+        }>
         <Gutters>
-          <SharedElement id="editorial.heading">
-            <Display36>{'Transitions effects'}</Display36>
+          <Spacer16 />
+          <SharedElement id="about.heading">
+            <Display24>{t('heading')}</Display24>
           </SharedElement>
-          <SharedElement id="editorial.text">
-            <Body16>
-              {`If however the start- element and end elements are visually
-              different, then it can make sense to choose different values. For
-              instance, if you are transitioning from a with a white color to a
-              with a black color, then using animation="fade" will create a
-              cross-fade between them. If however the start- element and end
-              elements are visually different, then it can make sense to choose
-              different values. For instance, if you are transitioning from a
-              with a white color to a with a black color, then using
-              animation="fade" will create a cross-fade between them. If however
-              the start- element and end elements are visually different, then
-              it can make sense to choose different values. For instance, if you
-              are transitioning from a with a white color to a with a black
-              color, then using animation="fade" will create a cross-fade
-              between them. If however the start- element and end elements are
-              visually different, then it can make sense to choose different
-              values. For instance, if you are transitioning from a with a white
-              color to a with a black color, then using animation="fade" will
-              create a cross-fade between them. If however the start- element
-              and end elements are visually different, then it can make sense to
-              choose different values. For instance, if you are transitioning
-              from a with a white color to a with a black color, then using
-              animation="fade" will create a cross-fade between them. If however
-              the start- element and end elements are visually different, then
-              it can make sense to choose different values. For instance, if you
-              are transitioning from a with a white color to a with a black
-              color, then using animation="fade" will create a cross-fade
-              between them. If however the start- element and end elements are
-              visually different, then it can make sense to choose different
-              values. For instance, if you are transitioning from a with a white
-              color to a with a black color, then using animation="fade" will
-              create a cross-fade between them. If however the start- element
-              and end elements are visually different, then it can make sense to
-              choose different values. For instance, if you are transitioning
-              from a with a white color to a with a black color, then using
-              animation="fade" will create a cross-fade between them. If however
-              the start- element and end elements are visually different, then
-              it can make sense to choose different values. For instance, if you
-              are transitioning from a with a white color to a with a black
-              color, then using animation="fade" will create a cross-fade
-              between them. If however the start- element and end elements are
-              visually different, then it can make sense to choose different
-              values. For instance, if you are transitioning from a with a white
-              color to a with a black color, then using animation="fade" will
-              create a cross-fade between them. If however the start- element
-              and end elements are visually different, then it can make sense to
-              choose different values. For instance, if you are transitioning
-              from a with a white color to a with a black color, then using
-              animation="fade" will create a cross-fade between them.`}
-            </Body16>
+          <Spacer16 />
+          <SharedElement id="about.text">
+            <Markdown>
+              {`${t('preamble__markdown')}\n\n${t('body__markdown')}`}
+            </Markdown>
           </SharedElement>
+          <Spacer8 />
+          <AboutActionList />
         </Gutters>
-      </ScrollView>
+        <Spacer24 />
+        <BottomSafeArea />
+      </HeaderScrollView>
     </Screen>
   );
 };

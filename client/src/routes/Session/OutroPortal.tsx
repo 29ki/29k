@@ -13,18 +13,15 @@ import useLeaveSession from './hooks/useLeaveSession';
 
 import Sentry from '../../lib/sentry';
 
-import {
-  BottomSafeArea,
-  TopSafeArea,
-} from '../../common/components/Spacers/Spacer';
-import {SPACINGS} from '../../common/constants/spacings';
+import {BottomSafeArea, TopSafeArea} from '../../lib/components/Spacers/Spacer';
+import {SPACINGS} from '../../lib/constants/spacings';
 import VideoBase from './components/VideoBase/VideoBase';
-import Screen from '../../common/components/Screen/Screen';
-import Button from '../../common/components/Buttons/Button';
-import Gutters from '../../common/components/Gutters/Gutters';
+import Screen from '../../lib/components/Screen/Screen';
+import Button from '../../lib/components/Buttons/Button';
+import Gutters from '../../lib/components/Gutters/Gutters';
 import AudioFader from './components/AudioFader/AudioFader';
 import useSessionState from './state/state';
-import useLogSessionMetricEvents from './hooks/useLogSessionMetricEvents';
+import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
 
 const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
@@ -62,7 +59,7 @@ const OutroPortal: React.FC = () => {
   const [readyToLeave, setReadyToLeave] = useState(false);
   const isFocused = useIsFocused();
   const {t} = useTranslation('Screen.Portal');
-  const {logSessionMetricEvent} = useLogSessionMetricEvents();
+  const logSessionMetricEvent = useLogInSessionMetricEvents();
 
   usePreventGoingBack();
   useNavigateWithFade();
@@ -78,12 +75,14 @@ const OutroPortal: React.FC = () => {
 
   useEffect(() => {
     if (
+      session?.id &&
       !outroPortal?.video &&
       (!introPortal?.videoEnd || !introPortal?.videoLoop)
     ) {
       leaveSession();
     }
   }, [
+    session?.id,
     introPortal?.videoEnd,
     introPortal?.videoLoop,
     outroPortal?.video,

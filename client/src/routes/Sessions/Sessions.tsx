@@ -6,14 +6,14 @@ import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useNavigation} from '@react-navigation/native';
 
-import useSessions from './hooks/useSessions';
+import useSessions from '../../lib/sessions/hooks/useSessions';
 
 import {Session} from '../../../../shared/src/types/Session';
 
-import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
+import {GUTTERS, SPACINGS} from '../../lib/constants/spacings';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
-import SETTINGS from '../../common/constants/settings';
+import SETTINGS from '../../lib/constants/settings';
 import {
   Spacer12,
   Spacer16,
@@ -21,13 +21,13 @@ import {
   Spacer60,
   Spacer8,
   TopSafeArea,
-} from '../../common/components/Spacers/Spacer';
-import Gutters from '../../common/components/Gutters/Gutters';
-import Button from '../../common/components/Buttons/Button';
-import SessionCard from '../../common/components/Cards/SessionCard/SessionCard';
-import {PlusIcon} from '../../common/components/Icons';
-import Screen from '../../common/components/Screen/Screen';
-import {Heading18} from '../../common/components/Typography/Heading/Heading';
+} from '../../lib/components/Spacers/Spacer';
+import Gutters from '../../lib/components/Gutters/Gutters';
+import Button from '../../lib/components/Buttons/Button';
+import SessionCard from '../../lib/components/Cards/SessionCard/SessionCard';
+import {PlusIcon} from '../../lib/components/Icons';
+import Screen from '../../lib/components/Screen/Screen';
+import {Heading18} from '../../lib/components/Typography/Heading/Heading';
 
 const AddButton = styled(Button)({
   flexDirection: 'row',

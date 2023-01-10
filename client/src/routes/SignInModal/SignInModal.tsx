@@ -3,18 +3,18 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import auth from '@react-native-firebase/auth';
 
-import {BottomSheetActionTextInput} from '../../common/components/ActionList/ActionItems/ActionTextInput';
-import ActionList from '../../common/components/ActionList/ActionList';
-import Button from '../../common/components/Buttons/Button';
+import {BottomSheetActionTextInput} from '../../lib/components/ActionList/ActionItems/ActionTextInput';
+import ActionList from '../../lib/components/ActionList/ActionList';
+import Button from '../../lib/components/Buttons/Button';
 
-import Gutters from '../../common/components/Gutters/Gutters';
-import SheetModal from '../../common/components/Modals/SheetModal';
-import {Spacer16, Spacer24} from '../../common/components/Spacers/Spacer';
-import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
+import Gutters from '../../lib/components/Gutters/Gutters';
+import SheetModal from '../../lib/components/Modals/SheetModal';
+import {Spacer16, Spacer24} from '../../lib/components/Spacers/Spacer';
+import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
-import {Body16} from '../../common/components/Typography/Body/Body';
+import {Body16} from '../../lib/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
 
 const StyledButton = styled(Button)({

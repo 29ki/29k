@@ -6,7 +6,13 @@
     "coreTeam": "Core team",
     "contributors": "Contributors"
   },
-  "pt": {},
+  "pt": {
+    "title": "Colaboradores",
+    "text": "Muito obrigada a todas estas pessoas maravilhosas!",
+    "founders": "Fundadores",
+    "coreTeam": "Equipa ",
+    "contributors": "Colaboradores"
+  },
   "sv": {},
   "es": {}
 }

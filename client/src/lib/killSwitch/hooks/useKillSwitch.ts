@@ -1,5 +1,5 @@
 import {useCallback} from 'react';
-import {DeviceInfo, getDeviceInfo} from '../../../common/utils/system';
+import {DeviceInfo, getDeviceInfo} from '../../utils/system';
 import apiClient from '../../apiClient/apiClient';
 import useKillSwitchState from '../state/state';
 

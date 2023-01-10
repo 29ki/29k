@@ -50,6 +50,57 @@
       }
     }
   },
+  "pt": {
+    "title": "Contactos",
+    "noEmailClientAlert": {
+      "title": "Não detetamos um email de cliente no teu dispositivo",
+      "message": "Queres copiar o nosso email para a área de transferência?"
+    },
+    "contactInformation": {
+      "heading": "Fundação 29k",
+      "email": {
+        "label": "hello+fjn@29k.org",
+        "email": "hello+fjn@29k.org",
+        "subject": ""
+      },
+      "www": {
+        "label": "29k.org",
+        "url": "https://29k.org"
+      },
+      "facebook": {
+        "label": "29k Facebook",
+        "url": "https://www.facebook.com/29.org/"
+      },
+      "instagram": {
+        "label": "29k Instagram",
+        "url": "https://www.instagram.com/29k_org/"
+      },
+      "chat": {
+        "label": "Chat da comunidade",
+        "url": "https://community.29k.org"
+      }
+    },
+    "partnerContactInformation": {
+      "heading": "Fundação José Neves",
+      "www": {
+        "label": "joseneves.org",
+        "url": "https://joseneves.org"
+      },
+      "email": {
+        "label": "hello@joseneves.org",
+        "email": "hello@joseneves.org",
+        "subject": ""
+      },
+      "facebook": {
+        "label": "FJN Facebook",
+        "url": "https://www.facebook.com/fundacaojoseneves"
+      },
+      "instagram": {
+        "label": "FJN Instagram",
+        "url": "https://www.instagram.com/fundacaojoseneves"
+      }
+    }
+  },
   "sv": {
     "title": "Kontakta oss",
     "noEmailClientAlert": {
@@ -94,53 +145,6 @@
       "instagram": {
         "label": "",
         "url": ""
-      }
-    }
-  },
-  "pt": {
-    "title": "Contactos",
-    "noEmailClientAlert": {
-      "title": "Não detetamos um email de cliente no teu dispositivo",
-      "message": "Queres copiar o nosso email para a área de transferência?"
-    },
-    "contactInformation": {
-      "heading": "Fundação 29k",
-      "email": {
-        "label": "hello+fjn@29k.org",
-        "email": "hello+fjn@29k.org",
-        "subject": ""
-      },
-      "www": {
-        "label": "29k.org",
-        "url": "https://29k.org"
-      },
-      "facebook": {
-        "label": "29k Facebook",
-        "url": "https://www.facebook.com/29.org/"
-      },
-      "instagram": {
-        "label": "29k Instagram",
-        "url": "https://www.instagram.com/29k_org/"
-      }
-    },
-    "partnerContactInformation": {
-      "heading": "Fundação José Neves",
-      "www": {
-        "label": "joseneves.org",
-        "url": "https://joseneves.org"
-      },
-      "email": {
-        "label": "hello@joseneves.org",
-        "email": "hello@joseneves.org",
-        "subject": ""
-      },
-      "facebook": {
-        "label": "FJN Facebook",
-        "url": "https://www.facebook.com/fundacaojoseneves"
-      },
-      "instagram": {
-        "label": "FJN Instagram",
-        "url": "https://www.instagram.com/fundacaojoseneves"
       }
     }
   },

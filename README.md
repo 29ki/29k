@@ -35,7 +35,7 @@ You can get early access to our open beta through iOS TestFlight and Android Pla
 
 ## Join Our Community
 
-Join our [Slack community](https://community.29k.org) if you need help, want to chat, or are thinking of a new feature. 
+Join our [Slack community](https://community.29k.org) if you need help, want to chat, or are thinking of a new feature.
 
 ## Documentation
 

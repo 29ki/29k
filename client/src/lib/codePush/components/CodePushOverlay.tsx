@@ -4,17 +4,17 @@ import codepush from 'react-native-code-push';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
 import {useTranslation} from 'react-i18next';
 
-import Button from '../../../common/components/Buttons/Button';
-import {Heading18} from '../../../common/components/Typography/Heading/Heading';
+import Button from '../../components/Buttons/Button';
+import {Heading18} from '../../components/Typography/Heading/Heading';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 
 import useCodePushState from '..//state/state';
 import useAppState from '../../appState/state/state';
 import useRestartApp from '../hooks/useRestartApp';
-import {Spacer16} from '../../../common/components/Spacers/Spacer';
-import {Body18} from '../../../common/components/Typography/Body/Body';
+import {Spacer16} from '../../components/Spacers/Spacer';
+import {Body18} from '../../components/Typography/Body/Body';
 import styled from 'styled-components/native';
-import {GUTTERS} from '../../../common/constants/spacings';
+import {GUTTERS} from '../../constants/spacings';
 import useKillSwitchState from '../../killSwitch/state/state';
 
 // import * as metrics from '../../lib/metrics';

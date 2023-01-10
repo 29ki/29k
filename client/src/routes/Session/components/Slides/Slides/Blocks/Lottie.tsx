@@ -6,7 +6,7 @@ import useSessionState from '../../../../state/state';
 import DurationTimer from '../../../DurationTimer/DurationTimer';
 import LPlayer, {
   LottiePlayerHandle,
-} from '../../../../../../common/components/LottiePlayer/LottiePlayer';
+} from '../../../../../../lib/components/LottiePlayer/LottiePlayer';
 import {VideoBase} from '../../../VideoBase/VideoBase';
 
 const LottiePlayer = styled(LPlayer)({

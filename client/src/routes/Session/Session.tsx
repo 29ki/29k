@@ -9,7 +9,7 @@ import {
   Spacer16,
   Spacer32,
   TopSafeArea,
-} from '../../common/components/Spacers/Spacer';
+} from '../../lib/components/Spacers/Spacer';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {SessionStackProps} from '../../lib/navigation/constants/routes';
 import {DailyContext} from '../../lib/daily/DailyProvider';
@@ -19,34 +19,34 @@ import useSessionParticipants from './hooks/useSessionParticipants';
 import useSessionSlideState from './hooks/useSessionSlideState';
 import useMuteAudioListener from './hooks/useMuteAudioListener';
 import ProgressBar from './components/ProgressBar/ProgressBar';
-import {SPACINGS} from '../../common/constants/spacings';
+import {SPACINGS} from '../../lib/constants/spacings';
 import ContentControls from './components/ContentControls/ContentControls';
 import {DailyUserData} from '../../../../shared/src/types/Session';
-import IconButton from '../../common/components/Buttons/IconButton/IconButton';
+import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
 import {
   FilmCameraIcon,
   FilmCameraOffIcon,
   HangUpIcon,
   MicrophoneIcon,
   MicrophoneOffIcon,
-} from '../../common/components/Icons';
+} from '../../lib/components/Icons';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 
 import useLeaveSession from './hooks/useLeaveSession';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import useIsSessionHost from './hooks/useIsSessionHost';
-import Button from '../../common/components/Buttons/Button';
+import Button from '../../lib/components/Buttons/Button';
 import useUpdateSession from './hooks/useUpdateSession';
 import {useTranslation} from 'react-i18next';
 import HostNotes from './components/HostNotes/HostNotes';
-import Screen from '../../common/components/Screen/Screen';
+import Screen from '../../lib/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../lib/user/hooks/useUser';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 import useExerciseTheme from './hooks/useExerciseTheme';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
-import useLogSessionMetricEvents from './hooks/useLogSessionMetricEvents';
-import {Alert, Linking} from 'react-native';
+import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
+import useCheckPermissions from './hooks/useCheckPermissions';
 
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
@@ -93,8 +93,6 @@ const StyledHangUpIcon = () => <HangUpIcon fill={COLORS.ACTIVE} />;
 
 const Session = () => {
   const {
-    hasMicrophonePermissions,
-    hasCameraPermissions,
     setUserData,
     toggleAudio,
     toggleVideo,
@@ -118,9 +116,10 @@ const Session = () => {
   const sessionSlideState = useSessionSlideState();
   const exercise = useExerciseById(session?.contentId);
   const theme = useExerciseTheme();
-  const {logSessionMetricEvent, conditionallyLogCompleteSessionMetricEvent} =
-    useLogSessionMetricEvents();
+  const logSessionMetricEvent = useLogInSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession();
+  const {checkCameraPermissions, checkMicrophonePermissions} =
+    useCheckPermissions();
   const user = useUser();
 
   const hasAudio = Boolean(me?.audioTrack);
@@ -135,14 +134,10 @@ const Session = () => {
   }, [logSessionMetricEvent, session?.id]);
 
   useEffect(() => {
-    if (session?.id && sessionSlideState?.current) {
-      conditionallyLogCompleteSessionMetricEvent();
+    if (session?.exerciseState.completed) {
+      logSessionMetricEvent('Complete Sharing Session');
     }
-  }, [
-    conditionallyLogCompleteSessionMetricEvent,
-    session?.id,
-    sessionSlideState,
-  ]);
+  }, [session?.exerciseState?.completed, logSessionMetricEvent]);
 
   useEffect(() => {
     if (session?.ended) {
@@ -160,46 +155,16 @@ const Session = () => {
   }, [setUserData, setSubscribeToAllTracks, user?.photoURL]);
 
   const toggleAudioPress = useCallback(() => {
-    if (hasMicrophonePermissions()) {
+    checkMicrophonePermissions(() => {
       toggleAudio(!hasAudio);
-    } else {
-      Alert.alert(
-        t('permissionsAlert.microphone.title'),
-        t('permissionsAlert.microphone.message'),
-        [
-          {
-            text: t('permissionsAlert.microphone.dismiss'),
-          },
-          {
-            style: 'cancel',
-            text: t('permissionsAlert.microphone.confirm'),
-            onPress: () => Linking.openSettings(),
-          },
-        ],
-      );
-    }
-  }, [t, hasMicrophonePermissions, toggleAudio, hasAudio]);
+    });
+  }, [checkMicrophonePermissions, toggleAudio, hasAudio]);
 
   const toggleVideoPress = useCallback(() => {
-    if (hasCameraPermissions()) {
+    checkCameraPermissions(() => {
       toggleVideo(!hasVideo);
-    } else {
-      Alert.alert(
-        t('permissionsAlert.camera.title'),
-        t('permissionsAlert.camera.message'),
-        [
-          {
-            text: t('permissionsAlert.camera.dismiss'),
-          },
-          {
-            style: 'cancel',
-            text: t('permissionsAlert.camera.confirm'),
-            onPress: () => Linking.openSettings(),
-          },
-        ],
-      );
-    }
-  }, [t, hasCameraPermissions, toggleVideo, hasVideo]);
+    });
+  }, [checkCameraPermissions, toggleVideo, hasVideo]);
 
   return (
     <Screen backgroundColor={theme?.backgroundColor}>

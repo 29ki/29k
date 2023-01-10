@@ -9,9 +9,9 @@
     }
   },
   "pt": {
-    "title": "Língua",
+    "title": "Idioma",
     "unsupportedLanguage": {
-      "title": "Língua não suportada totalmente",
+      "title": "Idioma não suportado totalmente",
       "message": "{{language}} ainda em desenvolvimento podendo não proporcionar a melhor experiência. Queres mudar na mesma para {{language}}?",
       "confirm": "Sim. mudar",
       "dismiss": "Não, obrigada/o"

@@ -12,6 +12,8 @@ import {
   VIDEO_FIELD,
   DURATION_FIELD,
   HIDDEN_FIELD,
+  IMAGE_FIELD,
+  DESCRIPTION_FIELD,
 } from './common';
 import {
   CONTENT_SLIDE,
@@ -20,6 +22,43 @@ import {
   REFLECTION_SLIDE,
   SHARING_SLIDE,
 } from './slides';
+import {CLOUDINARY_IMAGE_CONFIG} from './constants';
+
+export const SOCIAL_MEDIA: CmsField = {
+  label: '🔗 Social Media Meta Tags',
+  name: 'socialMeta',
+  widget: 'object',
+  collapsed: true,
+  required: false,
+  i18n: true,
+  fields: [
+    {
+      label: '🪧 Title',
+      name: 'title',
+      hint: `Defaults to ${NAME_FIELD.label}`,
+      widget: 'string',
+      i18n: true,
+      required: false,
+    },
+    {
+      label: '📃 Description',
+      name: 'description',
+      widget: 'string',
+      i18n: true,
+      required: false,
+    },
+    {
+      label: '🌅 Image',
+      name: 'image',
+      hint: `Defaults to ${CARD_FIELD.label} → ${IMAGE_FIELD.label}`,
+      widget: 'image',
+      required: false,
+      i18n: true,
+      allow_multiple: false,
+      media_library: CLOUDINARY_IMAGE_CONFIG,
+    },
+  ],
+};
 
 export const INTRO_PORTAL: CmsField = {
   label: '🌇 Intro Portal',
@@ -90,9 +129,11 @@ const EXERCISE_FIELDS: Array<CmsField> = applyDefaults(
   [
     ID_FIELD,
     NAME_FIELD,
+    DESCRIPTION_FIELD,
     DURATION_FIELD,
     PUBLISHED_FIELD,
     HIDDEN_FIELD,
+    SOCIAL_MEDIA,
     CARD_FIELD,
     THEME,
     INTRO_PORTAL,

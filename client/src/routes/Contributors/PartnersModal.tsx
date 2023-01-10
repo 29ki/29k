@@ -3,14 +3,14 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import content from '../../../../content/content.json';
 
-import SheetModal from '../../common/components/Modals/SheetModal';
+import SheetModal from '../../lib/components/Modals/SheetModal';
 import {
   BottomSafeArea,
   Spacer32,
   Spacer8,
-} from '../../common/components/Spacers/Spacer';
-import {Body16} from '../../common/components/Typography/Body/Body';
-import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
+} from '../../lib/components/Spacers/Spacer';
+import {Body16} from '../../lib/components/Typography/Body/Body';
+import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
 import {BottomGradient} from './components/BottomGradient';
 import {Contributor} from './components/Contributor';
 import {Header} from './components/Header';

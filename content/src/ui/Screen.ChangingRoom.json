@@ -2,53 +2,17 @@
   "en": {
     "placeholder": "Please type your name",
     "join_button": "Join",
-    "cameraOff": "Camera is off",
-    "permissionsAlert": {
-      "join": {
-        "title": "Before you join",
-        "message": "You haven’t given the app permissions to use camera and/or microphone.That’s ok, but you won’t be able to participate fully in the session.",
-        "dismiss": "Join anyway",
-        "confirm": "Open settings"
-      },
-      "camera": {
-        "title": "Permission for camera was denied",
-        "message": "Allow 29k sessions to access your camera so that you can participate in the session. This will restart the 29k session app. ",
-        "dismiss": "Cancel",
-        "confirm": "Open Settings"
-      },
-      "microphone": {
-        "title": "Permission for microphone was denied",
-        "message": "Allow 29k sessions to access your microphone so that you can participate in the session. This will restart the 29k session app. ",
-        "dismiss": "Cancel",
-        "confirm": "Open Settings"
-      }
-    }
+    "cameraOff": "Camera is off"
   },
   "pt": {
     "placeholder": "Por favor escreve o teu nome",
     "join_button": "Participar",
-    "cameraOff": "A câmara está desligada",
-    "permissionsAlert": {
-      "join": {
-        "title": "Antes de entrares",
-        "message": "Não deste permissões à app para poderes ligar/desligar a câmara e/ou o microfone. Não há problema mas desta forma não vais poder aproveitar ao máximo a sessão.",
-        "join": "Participar mesmo assim",
-        "openSettings": "Abrir configurações"
-      }
-    }
+    "cameraOff": "A câmara está desligada"
   },
   "sv": {
     "placeholder": "Skriv ditt namn",
     "join_button": "Gå med",
-    "cameraOff": "Kameran är av",
-    "permissionsAlert": {
-      "join": {
-        "title": "Innan du går med",
-        "message": "Du har inte gett appen tillåtelse att använda kameran och mikrofonen. Det är helt upp till dig. Vi vill bara att du ska veta att du då inte kan delta fullt ut i sessionen.",
-        "join": "Gå med ändå",
-        "openSettings": "Ändra inställningar"
-      }
-    }
+    "cameraOff": "Kameran är av"
   },
   "es": {}
 }

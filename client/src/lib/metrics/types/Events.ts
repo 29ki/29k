@@ -1,4 +1,10 @@
-import {SharingSessionProperties, SharingSessionDuration} from './Properties';
+import {
+  SharingSessionProperties,
+  SharingSessionDuration,
+  SharingSessionID,
+  FeedbackProperties,
+  Host,
+} from './Properties';
 
 type Events = {
   // Outside Sharing Sessions
@@ -18,6 +24,10 @@ type Events = {
   'Leave Sharing Session': SharingSessionProperties & SharingSessionDuration;
   'Complete Sharing Session': SharingSessionProperties & SharingSessionDuration;
   'Enter Outro Portal': SharingSessionProperties & SharingSessionDuration;
+
+  // Feedback
+  'Sharing Session Feedback': FeedbackProperties &
+    SharingSessionID & {'Sharing Session Completed': boolean} & Host;
 };
 
 export default Events;

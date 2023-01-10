@@ -1,40 +1,35 @@
 {
   "en": {
-    "contact": "Get in touch",
-    "signIn": "Sign in",
     "settings": "Settings",
     "community": "Community",
-    "developer": "Developer",
-    "profileSettings": "Profile settings",
     "noDisplayName": "Add your name",
-    "contribute": "How to contribute",
     "about": "29k Sessions",
-    "publicHostAccess": "Public host access",
-    "earlyAccessInfo": "Early access info",
-    "deleteData": "Delete my data",
-    "contributors": "Contributors",
-    "partners": "Partners",
-    "language": "Language"
+    "actions": {
+      "signIn": "Sign in",
+      "profileSettings": "Profile settings",
+      "deleteData": "Delete my data",
+      "developer": "Developer",
+      "language": "Language"
+    }
   },
   "pt": {
-    "contact": "Mantém-te em contacto",
-    "signIn": "Entrar",
     "settings": "Configurações",
     "community": "Comunidade",
-    "developer": "Programador",
-    "profileSettings": "Configurações do perfil",
     "noDisplayName": "Adiciona o teu nome",
-    "contribute": "Como colaborar",
     "about": "Sessões 29k FJN",
-    "publicHostAccess": "Acesso moderador público",
-    "earlyAccessInfo": "Informações de acesso a esta versão inicial",
-    "deleteData": "Remover os meus dados",
-    "contributors": "Colaboradores",
-    "language": "Língua"
+    "actions": {
+      "signIn": "Entrar",
+      "profileSettings": "Configurações do perfil",
+      "deleteData": "Remover os meus dados",
+      "developer": "Programador",
+      "language": "Idioma"
+    }
   },
   "sv": {
-    "signIn": "Logga in",
-    "language": "Språk"
+    "actions": {
+      "signIn": "Logga in",
+      "language": "Språk"
+    }
   },
   "es": {}
 }

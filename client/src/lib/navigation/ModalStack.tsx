@@ -11,7 +11,7 @@ import AddSessionModal from '../../routes/AddSessionModal/AddSessionModal';
 import UpgradeAccountModal from '../../routes/UpgradeAccountModal/UpgradeAccountModal';
 import SessionUnavailableModal from '../../routes/SessionUnavailableModal/SessionUnavailableModal';
 import {COLORS} from '../../../../shared/src/constants/colors';
-import SETTINGS from '../../common/constants/settings';
+import SETTINGS from '../constants/settings';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 import ChangeLanguageModal from '../../routes/ChangeLanguageModal/ChangeLanguageModal';
@@ -22,6 +22,7 @@ import DeveloperModal from '../../routes/DeveloperModal/DeveloperModal';
 import OverlayStack from './OverlayStack';
 import PartnersModal from '../../routes/Contributors/PartnersModal';
 import ContactModal from '../../routes/ConcactModal/ContactModal';
+import SessionFeedbackModal from '../../routes/SessionFeedbackModal/SessionFeedbackModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -86,7 +87,7 @@ const ModalStack = () => {
     () => ({
       ...sheetModalScreenOptions,
       // Please note - Having a fixed snap point as first value improves keyboard input focus on Android
-      snapPoints: [340, '100%'],
+      snapPoints: [340, '75%', '100%'],
     }),
     [sheetModalScreenOptions],
   );
@@ -121,7 +122,11 @@ const ModalStack = () => {
       <Screen name="OverlayStack" component={OverlayStack} />
 
       <Group screenOptions={sheetModalScreenOptions}>
-        <Screen name={'SessionModal'} component={SessionModal} />
+        <Screen
+          name={'SessionModal'}
+          component={SessionModal}
+          options={tallSheetModalScreenOptions}
+        />
         <Screen name={'CreateSessionModal'} component={CreateSessionModal} />
         <Screen
           name={'UpgradeAccountModal'}
@@ -146,6 +151,12 @@ const ModalStack = () => {
         <Screen
           name={'SignInModal'}
           component={SignInModal}
+          options={shortSheetModalScreenOptions}
+        />
+
+        <Screen
+          name={'SessionFeedbackModal'}
+          component={SessionFeedbackModal}
           options={shortSheetModalScreenOptions}
         />
       </Group>
