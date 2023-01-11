@@ -27,12 +27,17 @@ import {
   updateExerciseState,
   updateSession,
   getSessions,
+  getSessionToken,
 } from './sessions';
 import {getPublicUserInfo} from '../models/user';
 import {SessionType} from '../../../shared/src/types/Session';
 import dayjs from 'dayjs';
 import {RequestError} from './errors/RequestError';
-import {JoinSessionError} from '../../../shared/src/errors/Session';
+import {
+  JoinSessionError,
+  ValidateSessionError,
+} from '../../../shared/src/errors/Session';
+import {generateSessionToken} from '../lib/dailyUtils';
 
 jest.mock('../lib/utils', () => ({
   ...jest.requireActual('../lib/utils'),
@@ -42,6 +47,7 @@ jest.mock('../lib/dailyApi', () => mockDailyApi);
 jest.mock('../models/dynamicLinks', () => mockDynamicLinks);
 jest.mock('../models/session');
 jest.mock('../models/user');
+jest.mock('../lib/dailyUtils');
 
 const mockGetSessions = sessionModel.getSessions as jest.Mock;
 const mockAddSession = sessionModel.addSession as jest.Mock;
@@ -52,6 +58,7 @@ const mockUpdateExerciseState = sessionModel.updateExerciseState as jest.Mock;
 const mockGetSessionByInviteCode =
   sessionModel.getSessionByInviteCode as jest.Mock;
 const mockGetPublicUserInfo = getPublicUserInfo as jest.Mock;
+const mockGenerateSessionToken = generateSessionToken as jest.Mock;
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));
 
@@ -80,6 +87,59 @@ describe('sessions - controller', () => {
       expect(mockGetSessions).toHaveBeenCalledWith('all');
       expect(mockGetPublicUserInfo).toHaveBeenCalledTimes(1);
       expect(mockGetPublicUserInfo).toHaveBeenCalledWith('some-user-id');
+    });
+  });
+
+  describe('getSessionToken', () => {
+    it('should return token for existing private session', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        dailyRoomName: 'some-room-name',
+        hostId: 'some-host-id',
+        userIds: ['some-user-id'],
+        type: SessionType.private,
+      });
+      mockGenerateSessionToken.mockReturnValueOnce('some-token');
+
+      const result = await getSessionToken('some-user-id', 'some-session-id');
+
+      expect(result).toEqual('some-token');
+    });
+
+    it('should return token for existing public session', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        dailyRoomName: 'some-room-name',
+        hostId: 'some-host-id',
+        userIds: ['some-other-user-id'],
+        type: SessionType.public,
+      });
+      mockGenerateSessionToken.mockReturnValueOnce('some-token');
+
+      const result = await getSessionToken('some-user-id', 'some-session-id');
+
+      expect(result).toEqual('some-token');
+    });
+
+    it('should throw if session is not found', async () => {
+      mockGetSessionById.mockResolvedValueOnce(undefined);
+
+      await expect(
+        getSessionToken('some-user-id', 'some-session-id'),
+      ).rejects.toEqual(Error(ValidateSessionError.notFound));
+      expect(mockGenerateSessionToken).toHaveBeenCalledTimes(0);
+    });
+
+    it('should throw if user is not part of private session', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        dailyRoomName: 'some-room-name',
+        hostId: 'some-host-id',
+        userIds: ['some-other-user-id'],
+        type: SessionType.private,
+      });
+
+      await expect(
+        getSessionToken('some-user-id', 'some-session-id'),
+      ).rejects.toEqual(Error(ValidateSessionError.userNotFound));
+      expect(mockGenerateSessionToken).toHaveBeenCalledTimes(0);
     });
   });
 
@@ -216,7 +276,7 @@ describe('sessions - controller', () => {
       mockGetSessionById.mockResolvedValue({hostId: 'the-host-id'});
       await expect(
         removeSession('not-the-host-id', 'some-session-id'),
-      ).rejects.toEqual(Error('user-unauthorized'));
+      ).rejects.toEqual(Error(ValidateSessionError.userNotAuthorized));
     });
 
     it('should delete session and daily room', async () => {
@@ -309,7 +369,7 @@ describe('sessions - controller', () => {
       mockGetSessionById.mockResolvedValue({hostId: 'the-host-id'});
       await expect(
         updateSession('not-the-host-id', 'some-session-id', {started: true}),
-      ).rejects.toEqual(Error('user-unauthorized'));
+      ).rejects.toEqual(Error(ValidateSessionError.userNotAuthorized));
     });
 
     it('should update the room expiry date to new startTime + 2h', async () => {
@@ -389,7 +449,7 @@ describe('sessions - controller', () => {
         updateExerciseState('not-the-host-id', 'some-session-id', {
           index: 1,
         }),
-      ).rejects.toEqual(Error('user-unauthorized'));
+      ).rejects.toEqual(Error(ValidateSessionError.userNotAuthorized));
     });
 
     it('should throw if session is not found', async () => {
@@ -398,7 +458,7 @@ describe('sessions - controller', () => {
         updateExerciseState('not-the-host-id', 'some-session-id', {
           index: 1,
         }),
-      ).rejects.toEqual(Error('session-not-found'));
+      ).rejects.toEqual(Error(ValidateSessionError.notFound));
     });
 
     it('should update the session and return it', async () => {
