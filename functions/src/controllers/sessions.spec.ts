@@ -368,6 +368,7 @@ describe('sessions - controller', () => {
   describe('updateSession', () => {
     it('should throw if user is not the host', async () => {
       mockGetSessionById.mockResolvedValue({hostId: 'the-host-id'});
+      mockGetSessionStateById.mockResolvedValue({started: false});
       await expect(
         updateSessionState('not-the-host-id', 'some-session-id', {
           started: true,

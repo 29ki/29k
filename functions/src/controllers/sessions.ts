@@ -4,7 +4,11 @@ import * as sessionModel from '../models/session';
 import * as userModel from '../models/user';
 import {getPublicUserInfo} from '../models/user';
 import * as dailyApi from '../lib/dailyApi';
-import {Session, SessionState} from '../../../shared/src/types/Session';
+import {
+  Session,
+  SessionState,
+  SessionType,
+} from '../../../shared/src/types/Session';
 import {
   JoinSessionError,
   ValidateSessionError,
@@ -33,7 +37,10 @@ export const getSessionToken = async (
     throw new RequestError(ValidateSessionError.notFound);
   }
 
-  if (!session.userIds.find(id => id === userId)) {
+  if (
+    session.type === SessionType.private &&
+    !session.userIds.find(id => id === userId)
+  ) {
     throw new RequestError(ValidateSessionError.userNotFound);
   }
 
