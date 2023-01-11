@@ -4,3 +4,4 @@ export const removeSession = jest.fn();
 export const updateSession = jest.fn();
 export const updateExerciseState = jest.fn();
 export const joinSession = jest.fn();
+export const getSessionToken = jest.fn();
