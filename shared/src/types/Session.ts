@@ -10,7 +10,6 @@ export enum SessionType {
 type ExerciseStateFields = {
   index: number;
   playing: boolean;
-  dailySpotlightId?: string;
   completed?: boolean;
 };
 
