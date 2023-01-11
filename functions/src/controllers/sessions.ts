@@ -4,8 +4,11 @@ import * as sessionModel from '../models/session';
 import * as userModel from '../models/user';
 import {getPublicUserInfo} from '../models/user';
 import * as dailyApi from '../lib/dailyApi';
-import {Session} from '../../../shared/src/types/Session';
-import {JoinSessionError} from '../../../shared/src/errors/Session';
+import {Session, SessionType} from '../../../shared/src/types/Session';
+import {
+  JoinSessionError,
+  ValidateSessionError,
+} from '../../../shared/src/errors/Session';
 import {ExerciseStateUpdate, UpdateSession} from '../api/sessions';
 import {generateVerificationCode, removeEmpty} from '../lib/utils';
 import {RequestError} from './errors/RequestError';
@@ -27,7 +30,14 @@ export const getSessionToken = async (
   const session = await sessionModel.getSessionById(sessionId);
 
   if (!session) {
-    throw new Error('Session not found');
+    throw new RequestError(ValidateSessionError.notFound);
+  }
+
+  if (
+    session.type === SessionType.private &&
+    !session.userIds.find(id => id === userId)
+  ) {
+    throw new RequestError(ValidateSessionError.userNotFound);
   }
 
   return generateSessionToken(
@@ -89,7 +99,7 @@ export const removeSession = async (
   if (!session) return;
 
   if (userId !== session?.hostId) {
-    throw new Error('user-unauthorized');
+    throw new RequestError(ValidateSessionError.userNotAuthorized);
   }
 
   await Promise.all([
@@ -108,7 +118,7 @@ export const updateSession = async (
   };
 
   if (userId !== session?.hostId) {
-    throw new Error('user-unauthorized');
+    throw new RequestError(ValidateSessionError.userNotAuthorized);
   }
 
   if (data.startTime && session.startTime !== data.startTime) {
@@ -131,11 +141,11 @@ export const updateExerciseState = async (
   const session = (await sessionModel.getSessionById(sessionId)) as Session;
 
   if (!session) {
-    throw new Error('session-not-found');
+    throw new RequestError(ValidateSessionError.notFound);
   }
 
   if (userId !== session?.hostId) {
-    throw new Error('user-unauthorized');
+    throw new RequestError(ValidateSessionError.userNotAuthorized);
   }
 
   await sessionModel.updateExerciseState(sessionId, removeEmpty(data));

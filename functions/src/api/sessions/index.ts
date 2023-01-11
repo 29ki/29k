@@ -12,7 +12,10 @@ import {
   LANGUAGE_TAG,
   LANGUAGE_TAGS,
 } from '../../lib/i18n';
-import {JoinSessionError} from '../../../../shared/src/errors/Session';
+import {
+  JoinSessionError,
+  ValidateSessionError,
+} from '../../../../shared/src/errors/Session';
 import {RequestError} from '../../controllers/errors/RequestError';
 
 const sessionsRouter = createRouter();
@@ -27,12 +30,28 @@ sessionsRouter.get('/', async ctx => {
 });
 
 sessionsRouter.get('/:id/sessionToken', async ctx => {
-  const {response, user, params} = ctx;
+  const {user, params} = ctx;
 
-  const token = await sessionsController.getSessionToken(user.id, params.id);
+  try {
+    const token = await sessionsController.getSessionToken(user.id, params.id);
+    ctx.status = 200;
+    ctx.body = token;
+  } catch (error) {
+    const requestError = error as RequestError;
+    switch (requestError.code) {
+      case ValidateSessionError.notFound:
+        ctx.status = 404;
+        break;
 
-  response.status = 200;
-  ctx.body = token;
+      case ValidateSessionError.userNotFound:
+        ctx.status = 403;
+        break;
+
+      default:
+        throw error;
+    }
+    ctx.message = requestError.code;
+  }
 });
 
 const CreateSessionSchema = yup.object().shape({

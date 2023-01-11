@@ -6,7 +6,7 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {ActivityIndicator, Platform} from 'react-native';
+import {ActivityIndicator, Alert, Platform} from 'react-native';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import {DailyMediaView} from '@daily-co/react-native-daily-js';
@@ -138,20 +138,44 @@ const ChangingRoom = () => {
   const hasVideo = Boolean(me?.videoTrack);
 
   useEffect(() => {
-    if (session?.id) {
+    // If switching between sessions, the session will first be the old one
+    // and then beacome the current one by useSubscribeToSessionIfFocused.
+    // Only log metrics when session is the same as passed in by params
+    if (session?.id === sessionId) {
       logSessionMetricEvent('Enter Changing Room');
     }
-  }, [logSessionMetricEvent, session?.id]);
+  }, [logSessionMetricEvent, session?.id, sessionId]);
+
+  const preJoin = useCallback(
+    async (url: string, id: string) => {
+      try {
+        const token = await getSessionToken(id);
+        preJoinMeeting(url, token);
+      } catch (e: any) {
+        Alert.alert(
+          t('errorTitle'),
+          /* @ts-expect-error variable/string litteral as key is not yet supported https://www.i18next.com/overview/typescript#type-error-template-literal*/
+          t(`errors.${e.code ?? e.message}`),
+          [
+            {
+              onPress: goBack,
+              style: 'cancel',
+            },
+          ],
+        );
+      }
+    },
+    [goBack, t, preJoinMeeting],
+  );
 
   useEffect(() => {
-    const preJoin = async () => {
-      if (isFocused && session?.url && session?.id) {
-        const token = await getSessionToken(session.id);
-        preJoinMeeting(session?.url, token);
-      }
-    };
-    preJoin();
-  }, [isFocused, session?.url, session?.id, preJoinMeeting]);
+    // If switching between sessions, the session will first be the old one
+    // and then beacome the current one by useSubscribeToSessionIfFocused.
+    // Only pre join when the session is the same as passed in by params
+    if (isFocused && session?.url && session?.id && session?.id === sessionId) {
+      preJoin(session.url, session.id);
+    }
+  }, [isFocused, session?.url, session?.id, sessionId, preJoin]);
 
   useEffect(() => {
     if (isHost && me?.user_id) {
