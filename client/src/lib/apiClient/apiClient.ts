@@ -39,7 +39,8 @@ const getAuthorizationToken = async (): Promise<string> => {
         if (
           firebaseError.code === 'auth/internal-error' ||
           firebaseError.code === 'auth/id-token-expired' ||
-          firebaseError.code === 'auth/id-token-revoked'
+          firebaseError.code === 'auth/id-token-revoked' ||
+          firebaseError.code === 'auth/invalid-refresh'
         ) {
           await recreateUser();
           return await getAuthorizationToken();
