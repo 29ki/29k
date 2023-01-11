@@ -16,11 +16,11 @@ const useSessionSlideState = (): SessionSlideState | null => {
   const excercise = useSessionExercise();
 
   return useMemo(() => {
-    if (!excercise || !sessionState) {
+    if (!excercise || typeof sessionState?.index !== 'number') {
       return null;
     }
 
-    const index = sessionState.index;
+    const index = sessionState?.index;
     const previous = excercise.slides[index - 1];
     const current = excercise.slides[index];
     const next = excercise.slides[index + 1];
@@ -31,7 +31,7 @@ const useSessionSlideState = (): SessionSlideState | null => {
       current,
       next,
     };
-  }, [excercise, sessionState]);
+  }, [excercise, sessionState?.index]);
 };
 
 export default useSessionSlideState;

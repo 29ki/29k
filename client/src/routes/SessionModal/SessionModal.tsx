@@ -6,47 +6,51 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Alert, Share, View} from 'react-native';
 import styled from 'styled-components/native';
 
-import Button from '../../common/components/Buttons/Button';
-import Gutters from '../../common/components/Gutters/Gutters';
-import IconButton from '../../common/components/Buttons/IconButton/IconButton';
+import Button from '../../lib/components/Buttons/Button';
+import Gutters from '../../lib/components/Gutters/Gutters';
+import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
 import {
   BellIcon,
   PrivateIcon,
   PublicIcon,
   ShareIcon,
-} from '../../common/components/Icons';
-import Image from '../../common/components/Image/Image';
-import SheetModal from '../../common/components/Modals/SheetModal';
+} from '../../lib/components/Icons';
+import Image from '../../lib/components/Image/Image';
+import SheetModal from '../../lib/components/Modals/SheetModal';
 import {
   Spacer16,
   Spacer32,
   Spacer4,
   Spacer8,
-} from '../../common/components/Spacers/Spacer';
-import {Display24} from '../../common/components/Typography/Display/Display';
+} from '../../lib/components/Spacers/Spacer';
+import {Display24} from '../../lib/components/Typography/Display/Display';
 import {
   ModalStackProps,
   AppStackProps,
 } from '../../lib/navigation/constants/routes';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
-import useAddToCalendar from '../Sessions/hooks/useAddToCalendar';
-import useSessionNotificationReminder from '../Sessions/hooks/useSessionNotificationReminder';
-import {Body16} from '../../common/components/Typography/Body/Body';
-import Byline from '../../common/components/Bylines/Byline';
-import {formatExerciseName, formatInviteCode} from '../../common/utils/string';
-import * as metrics from '../../lib/metrics';
-import SessionTimeBadge from '../../common/components/SessionTimeBadge/SessionTimeBadge';
+import useAddSessionToCalendar from '../../lib/sessions/hooks/useAddSessionToCalendar';
+import useSessionNotificationReminder from '../../lib/sessions/hooks/useSessionNotificationReminder';
+import {Body16} from '../../lib/components/Typography/Body/Body';
+import Byline from '../../lib/components/Bylines/Byline';
+import {formatExerciseName, formatInviteCode} from '../../lib/utils/string';
+import SessionTimeBadge from '../../lib/components/SessionTimeBadge/SessionTimeBadge';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import useUser from '../../lib/user/hooks/useUser';
-import useSessions from '../Sessions/hooks/useSessions';
-import {PencilIcon, CalendarIcon} from '../../common/components/Icons';
-import TouchableOpacity from '../../common/components/TouchableOpacity/TouchableOpacity';
-import DateTimePicker from '../../common/components/DateTimePicker/DateTimePicker';
-import {updateSession} from '../Sessions/api/session';
+import useSessions from '../../lib/sessions/hooks/useSessions';
+import {PencilIcon, CalendarIcon} from '../../lib/components/Icons';
+import TouchableOpacity from '../../lib/components/TouchableOpacity/TouchableOpacity';
+import DateTimePicker from '../../lib/components/DateTimePicker/DateTimePicker';
+import {updateSession} from '../../lib/sessions/api/session';
 import {Session, SessionType} from '../../../../shared/src/types/Session';
-import EditSessionType from '../../common/components/EditSessionType/EditSessionType';
-import {SPACINGS} from '../../common/constants/spacings';
-import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
+import EditSessionType from '../../lib/components/EditSessionType/EditSessionType';
+import {SPACINGS} from '../../lib/constants/spacings';
+import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
+import Interested from '../../lib/components/Interested/Interested';
+import RadioButton from '../../lib/components/Buttons/RadioButton/RadioButton';
+import usePinnedSessons from '../../lib/sessions/hooks/usePinnedSessions';
+import useLogSessionMetricEvents from '../../lib/sessions/hooks/useLogSessionMetricEvents';
+import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',
@@ -96,6 +100,12 @@ const EditIcon = styled(View)({
   alignSelf: 'center',
 });
 
+const IntersetedWrapper = styled(TouchableOpacity)({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+});
+
 const DeleteButton = styled(Button)({
   backgroundColor: COLORS.DELETE,
 });
@@ -139,10 +149,16 @@ const SessionModal = () => {
   const initialStartTime = dayjs(session.startTime).utc();
   const [sessionDate, setSessionDate] = useState<dayjs.Dayjs>(initialStartTime);
   const [sessionTime, setSessionTime] = useState<dayjs.Dayjs>(initialStartTime);
+  const {togglePinSession, isSessionPinned} = usePinnedSessons();
+  const logSessionMetricEvent = useLogSessionMetricEvents();
 
+  const sessionPinned = useMemo(
+    () => isSessionPinned(session),
+    [isSessionPinned, session],
+  );
   const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
 
-  const addToCalendar = useAddToCalendar();
+  const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session?.contentId);
   const {reminderEnabled, toggleReminder} =
     useSessionNotificationReminder(session);
@@ -150,6 +166,8 @@ const SessionModal = () => {
   const startingNow = dayjs
     .utc()
     .isAfter(initialStartTime.subtract(10, 'minutes'));
+
+  const isHost = user?.uid === session.hostId;
 
   const onJoin = useCallback(() => {
     navigation.popToTop();
@@ -159,64 +177,32 @@ const SessionModal = () => {
         sessionId: session.id,
       },
     });
-    metrics.logEvent('Join Session', {
-      'Session Exercise ID': session.contentId,
-      'Session Language': session.language,
-      'Session Type': session.type,
-      'Session Start Time': session.startTime,
-    });
-  }, [
-    session.startTime,
-    session.type,
-    session.contentId,
-    session.language,
-    session.id,
-    navigation,
-  ]);
+    logSessionMetricEvent('Join Sharing Session', session);
+  }, [navigation, session, logSessionMetricEvent]);
+
+  const onTogglePinSession = useCallback(() => {
+    togglePinSession(session);
+  }, [session, togglePinSession]);
 
   const onAddToCalendar = useCallback(() => {
-    addToCalendar(
-      exercise?.name,
-      session.hostProfile?.displayName,
-      session.link,
-      dayjs(session.startTime),
-      dayjs(session.startTime).add(30, 'minutes'),
-    );
-    metrics.logEvent('Add Session To Calendar', {
-      'Session Exercise ID': session.contentId,
-      'Session Language': session.language,
-      'Session Type': session.type,
-      'Session Start Time': session.startTime,
-    });
-  }, [
-    exercise,
-    session.startTime,
-    session.type,
-    session.contentId,
-    session.language,
-    addToCalendar,
-    session.hostProfile?.displayName,
-    session.link,
-  ]);
+    if (session && exercise) {
+      addToCalendar(
+        exercise.name,
+        session.hostProfile?.displayName,
+        session.link,
+        dayjs(session.startTime),
+        dayjs(session.startTime).add(exercise.duration, 'minutes'),
+      );
+      logSessionMetricEvent('Add Sharing Session To Calendar', session);
+    }
+  }, [addToCalendar, exercise, session, logSessionMetricEvent]);
 
   const onToggleReminder = useCallback(() => {
     toggleReminder(!reminderEnabled);
     if (!reminderEnabled) {
-      metrics.logEvent('Add Session Reminder', {
-        'Session Exercise ID': session.contentId,
-        'Session Language': session.language,
-        'Session Type': session.type,
-        'Session Start Time': session.startTime,
-      });
+      logSessionMetricEvent('Add Sharing Session Reminder', session);
     }
-  }, [
-    reminderEnabled,
-    session.contentId,
-    session.language,
-    session.type,
-    session.startTime,
-    toggleReminder,
-  ]);
+  }, [reminderEnabled, toggleReminder, session, logSessionMetricEvent]);
 
   const onShare = useCallback(() => {
     if (session.link) {
@@ -332,7 +318,15 @@ const SessionModal = () => {
           />
         </SpaceBetweenRow>
       </Content>
-      <Spacer8 />
+      {exercise?.description && (
+        <>
+          <Spacer16 />
+          <Gutters>
+            <Markdown>{exercise?.description}</Markdown>
+          </Gutters>
+        </>
+      )}
+      <Spacer16 />
       {!editMode && (
         <>
           <Gutters>
@@ -345,18 +339,28 @@ const SessionModal = () => {
                   <Spacer8 />
                 </>
               )}
-              {user?.uid === session.hostId && (
+              {isHost ? (
                 <EditButton onPress={onEditMode}>
                   <SessionTimeBadge session={session} />
                   <EditIcon>
                     <PencilIcon />
                   </EditIcon>
                 </EditButton>
-              )}
-              {user?.uid !== session.hostId && (
+              ) : (
                 <SessionTimeBadge session={session} />
               )}
             </Row>
+          </Gutters>
+
+          <Spacer16 />
+          <Gutters>
+            <IntersetedWrapper onPress={onTogglePinSession}>
+              <Interested active={sessionPinned} onPress={onTogglePinSession} />
+              <RadioButton
+                onPress={onTogglePinSession}
+                active={sessionPinned}
+              />
+            </IntersetedWrapper>
           </Gutters>
 
           <Spacer16 />

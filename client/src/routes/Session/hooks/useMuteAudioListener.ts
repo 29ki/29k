@@ -1,6 +1,6 @@
 import {useContext, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
-import {MicrophoneOffIcon} from '../../../common/components/Icons';
+import {MicrophoneOffIcon} from '../../../lib/components/Icons';
 
 import {DailyContext} from '../../../lib/daily/DailyProvider';
 import useSessionNotificationsState from '../state/sessionNotificationsState';

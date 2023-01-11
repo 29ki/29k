@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useCallback, useContext, useEffect} from 'react';
 import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
@@ -11,43 +11,41 @@ import {
   Spacer16,
   Spacer32,
   TopSafeArea,
-} from '../../common/components/Spacers/Spacer';
+} from '../../lib/components/Spacers/Spacer';
 import {COLORS} from '../../../../shared/src/constants/colors';
-
 import {SessionStackProps} from '../../lib/navigation/constants/routes';
-
 import {DailyContext} from '../../lib/daily/DailyProvider';
-
 import ExerciseSlides from './components/ExerciseSlides/ExerciseSlides';
-
 import Participants from './components/Participants/Participants';
 import useSessionParticipants from './hooks/useSessionParticipants';
 import useSessionSlideState from './hooks/useSessionSlideState';
 import useMuteAudioListener from './hooks/useMuteAudioListener';
 import ProgressBar from './components/ProgressBar/ProgressBar';
-import {SPACINGS} from '../../common/constants/spacings';
+import {SPACINGS} from '../../lib/constants/spacings';
 import ContentControls from './components/ContentControls/ContentControls';
 import {DailyUserData} from '../../../../shared/src/types/Session';
-import IconButton from '../../common/components/Buttons/IconButton/IconButton';
+import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
 import {
   FilmCameraIcon,
   FilmCameraOffIcon,
   HangUpIcon,
   MicrophoneIcon,
   MicrophoneOffIcon,
-} from '../../common/components/Icons';
+} from '../../lib/components/Icons';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 import useLeaveSession from './hooks/useLeaveSession';
 import useIsSessionHost from './hooks/useIsSessionHost';
-import Button from '../../common/components/Buttons/Button';
+import Button from '../../lib/components/Buttons/Button';
 import HostNotes from './components/HostNotes/HostNotes';
-import Screen from '../../common/components/Screen/Screen';
+import Screen from '../../lib/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../lib/user/hooks/useUser';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 import useExerciseTheme from './hooks/useExerciseTheme';
 import useSessionExercise from './hooks/useSessionExercise';
 import useUpdateSessionState from './hooks/useUpdateSessionState';
+import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
+import useCheckPermissions from './hooks/useCheckPermissions';
 
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
@@ -58,6 +56,7 @@ const ExerciseControl = styled(ContentControls)({
   bottom: SPACINGS.SIXTEEN,
   left: SPACINGS.SIXTEEN,
   right: SPACINGS.SIXTEEN,
+  zIndex: 1000,
 });
 
 const SessionControls = styled.View({
@@ -116,9 +115,28 @@ const Session = () => {
   const sessionSlideState = useSessionSlideState();
   const exercise = useSessionExercise();
   const theme = useExerciseTheme();
+  const logSessionMetricEvent = useLogInSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession();
+  const {checkCameraPermissions, checkMicrophonePermissions} =
+    useCheckPermissions();
   const user = useUser();
+
+  const hasAudio = Boolean(me?.audioTrack);
+  const hasVideo = Boolean(me?.videoTrack);
+
   usePreventGoingBack(leaveSessionWithConfirm);
+
+  useEffect(() => {
+    if (sessionState?.id) {
+      logSessionMetricEvent('Enter Sharing Session');
+    }
+  }, [logSessionMetricEvent, sessionState?.id]);
+
+  useEffect(() => {
+    if (sessionState?.completed) {
+      logSessionMetricEvent('Complete Sharing Session');
+    }
+  }, [sessionState?.completed, logSessionMetricEvent]);
 
   useEffect(() => {
     if (sessionState?.ended) {
@@ -135,8 +153,17 @@ const Session = () => {
     setSubscribeToAllTracks();
   }, [setUserData, setSubscribeToAllTracks, user?.photoURL]);
 
-  const hasAudio = Boolean(me?.audioTrack);
-  const hasVideo = Boolean(me?.videoTrack);
+  const toggleAudioPress = useCallback(() => {
+    checkMicrophonePermissions(() => {
+      toggleAudio(!hasAudio);
+    });
+  }, [checkMicrophonePermissions, toggleAudio, hasAudio]);
+
+  const toggleVideoPress = useCallback(() => {
+    checkCameraPermissions(() => {
+      toggleVideo(!hasVideo);
+    });
+  }, [checkCameraPermissions, toggleVideo, hasVideo]);
 
   return (
     <Screen backgroundColor={theme?.backgroundColor}>
@@ -177,14 +204,14 @@ const Session = () => {
       <Spacer16 />
       <SessionControls>
         <IconButton
-          onPress={() => toggleAudio(!hasAudio)}
+          onPress={toggleAudioPress}
           active={!hasAudio}
           variant="secondary"
           Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
         />
         <Spacer12 />
         <IconButton
-          onPress={() => toggleVideo(!hasVideo)}
+          onPress={toggleVideoPress}
           active={!hasVideo}
           variant="secondary"
           Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}

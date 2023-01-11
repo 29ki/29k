@@ -1,22 +1,33 @@
-import {useCallback} from 'react';
+import {useCallback, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Alert} from 'react-native';
 import auth from '@react-native-firebase/auth';
 
 import useAppState from '../../appState/state/state';
+import useUserState from '../state/state';
 
 const useDeleteUser = () => {
   const {t} = useTranslation('Component.DeleteData');
   const resetAppState = useAppState(state => state.reset);
+  const resetUserState = useUserState(state => state.reset);
+  const [isDeletingUser, setIsDeletingUser] = useState(false);
 
   const deleteData = useCallback(async () => {
-    await auth().currentUser?.delete();
-    resetAppState();
-  }, [resetAppState]);
+    try {
+      setIsDeletingUser(true);
+      await auth().currentUser?.delete();
+      resetAppState();
+      resetUserState(true);
+      setIsDeletingUser(false);
+    } catch (e: any) {
+      setIsDeletingUser(false);
+      throw e;
+    }
+  }, [resetAppState, resetUserState]);
 
-  return useCallback(
+  const deleteUser = useCallback(
     () =>
-      new Promise(resolve => {
+      new Promise((resolve, reject) => {
         Alert.alert(t('header'), t('text'), [
           {
             text: t('buttons.cancel'),
@@ -27,14 +38,20 @@ const useDeleteUser = () => {
             text: t('buttons.confirm'),
             style: 'destructive',
             onPress: async () => {
-              await deleteData();
-              resolve(true);
+              try {
+                await deleteData();
+                resolve(true);
+              } catch (e: any) {
+                reject(e);
+              }
             },
           },
         ]);
       }),
     [t, deleteData],
   );
+
+  return {deleteUser, isDeletingUser};
 };
 
 export default useDeleteUser;

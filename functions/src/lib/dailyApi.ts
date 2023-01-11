@@ -46,7 +46,7 @@ export const createRoom = async (expireDate: Dayjs): Promise<Room> => {
   });
 
   if (!res.ok) {
-    throw new Error(`Failed creating room, ${res.body}`);
+    throw new Error(`Failed creating room, ${await res.text()}`);
   }
 
   return res.json();
@@ -72,7 +72,7 @@ export const updateRoom = async (
   });
 
   if (!res.ok) {
-    throw new Error(`Failed updating room, ${res.body}`);
+    throw new Error(`Failed updating room, ${await res.text()}`);
   }
 
   return res.json();
@@ -88,7 +88,7 @@ export const deleteRoom = async (name: string): Promise<Room> => {
   });
 
   if (!res.ok) {
-    throw new Error(`Failed deleting room, ${res.body}`);
+    throw new Error(`Failed deleting room, ${await res.text()}`);
   }
 
   return res.json();

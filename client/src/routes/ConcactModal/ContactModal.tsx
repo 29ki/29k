@@ -4,28 +4,28 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {Linking} from 'react-native';
 import styled from 'styled-components/native';
-import ActionButton from '../../common/components/ActionList/ActionItems/ActionButton';
-import ActionList from '../../common/components/ActionList/ActionList';
+import ActionButton from '../../lib/components/ActionList/ActionItems/ActionButton';
+import ActionList from '../../lib/components/ActionList/ActionList';
 
-import Gutters from '../../common/components/Gutters/Gutters';
+import Gutters from '../../lib/components/Gutters/Gutters';
 import {
   EnvelopeIcon,
   FacebookIcon,
   HomeIcon,
   InstagramIcon,
   SlackIcon,
-} from '../../common/components/Icons';
-import SheetModal from '../../common/components/Modals/SheetModal';
+} from '../../lib/components/Icons';
+import SheetModal from '../../lib/components/Modals/SheetModal';
 import {
   Spacer16,
   Spacer24,
   Spacer32,
   Spacer8,
-} from '../../common/components/Spacers/Spacer';
+} from '../../lib/components/Spacers/Spacer';
 import {
   Heading16,
   ModalHeading,
-} from '../../common/components/Typography/Heading/Heading';
+} from '../../lib/components/Typography/Heading/Heading';
 
 const ScrollView = styled(BottomSheetScrollView)({
   flex: 1,

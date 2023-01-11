@@ -1,15 +1,15 @@
 {
   "en": {
-    "title": "29k Session: {{name}}",
-    "description": "With {{host}}"
+    "title": "29k session {{title}}",
+    "description": "With {{host}} - {{description}}"
   },
   "pt": {
-    "title": "Sessão 29k FJN: {{name}}",
-    "description": "Com {{host}}"
+    "title": "Sessão 29k FJN: {{title}}",
+    "description": "Com {{host}} - {{description}}"
   },
   "sv": {
-    "title": "29k-session: {{name}}",
-    "description": "Med {{host}}"
+    "title": "29k-session: {{title}}",
+    "description": "Med {{host}} - {{description}}"
   },
   "es": {}
 }

@@ -118,6 +118,32 @@ describe('apiClient', () => {
     });
   });
 
+  it('recreates user if authorization header from server fails with auth/invalid-refresh', async () => {
+    (auth().currentUser?.getIdToken as jest.Mock)
+      .mockRejectedValueOnce({code: 'auth/invalid-refresh'})
+      .mockRejectedValueOnce({code: 'auth/invalid-refresh'})
+      .mockResolvedValueOnce('some-authorization-token');
+
+    await apiClient('/some-path');
+
+    expect(auth().currentUser?.getIdToken).toHaveBeenCalledTimes(3);
+    expect(auth().currentUser?.getIdToken).toHaveBeenCalledWith();
+    expect(auth().currentUser?.getIdToken).toHaveBeenCalledWith(true);
+
+    expect(auth().signOut).toHaveBeenCalledTimes(1);
+    expect(auth().signInAnonymously).toHaveBeenCalledTimes(1);
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept-Language': 'en',
+        'X-Correlation-ID': expect.any(String),
+        Authorization: 'bearer some-authorization-token',
+      },
+    });
+  });
+
   it('thows if authorization header from server fails on other errors', async () => {
     (auth().currentUser?.getIdToken as jest.Mock)
       .mockRejectedValueOnce(new Error('Failed to get token'))

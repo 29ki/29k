@@ -17,7 +17,7 @@ describe('useToggleHiddenContent', () => {
       result.current(true);
     });
 
-    expect(useAppState.getState().showHiddenContent).toBe(true);
+    expect(useAppState.getState().settings.showHiddenContent).toBe(true);
     expect(i18n.removeResourceBundle).toHaveBeenCalledTimes(4);
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('en', 'exercises');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('pt', 'exercises');
@@ -35,7 +35,7 @@ describe('useToggleHiddenContent', () => {
       result.current(false);
     });
 
-    expect(useAppState.getState().showHiddenContent).toBe(false);
+    expect(useAppState.getState().settings.showHiddenContent).toBe(false);
     expect(i18n.removeResourceBundle).toHaveBeenCalledTimes(4);
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('en', 'exercises');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('pt', 'exercises');

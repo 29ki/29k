@@ -5,12 +5,12 @@ import {
   Spacer24,
   Spacer4,
   Spacer8,
-} from '../../../common/components/Spacers/Spacer';
+} from '../../../lib/components/Spacers/Spacer';
 import {
   Body14,
   Body16,
   BodyBold,
-} from '../../../common/components/Typography/Body/Body';
+} from '../../../lib/components/Typography/Body/Body';
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
 import AudioIndicator from './Participants/AudioIdicator';
 import ProgressBar from './ProgressBar/ProgressBar';

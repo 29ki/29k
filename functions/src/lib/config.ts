@@ -16,6 +16,7 @@ const configValidation = {
   GIT_COMMIT_SHORT: str(),
   ENVIRONMENT: str(),
   DAILY_API_KEY: str(),
+  DAILY_DOMAIN_ID: str(),
   SENTRY_DSN: str(),
   DEEP_LINK_API_KEY: str(),
   DEEP_LINK_DOMAIN_URI_PREFIX: str(),

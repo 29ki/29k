@@ -7,7 +7,10 @@ import {createRouter} from '../../lib/routers';
 import {ROLES} from '../../../../shared/src/types/User';
 import * as sessionsController from '../../controllers/sessions';
 import {RequestError} from '../../controllers/errors/RequestError';
-import {JoinSessionError} from '../../../../shared/src/errors/Session';
+import {
+  JoinSessionError,
+  ValidateSessionError,
+} from '../../../../shared/src/errors/Session';
 import {SessionType} from '../../../../shared/src/types/Session';
 
 jest.mock('../../controllers/sessions');
@@ -18,6 +21,7 @@ const mockUpdateSession = sessionsController.updateSession as jest.Mock;
 const mockUpdateSessionState =
   sessionsController.updateSessionState as jest.Mock;
 const mockJoinSession = sessionsController.joinSession as jest.Mock;
+const mockGetSessionToken = sessionsController.getSessionToken as jest.Mock;
 
 jest.mock('../../models/session');
 
@@ -83,6 +87,45 @@ describe('/api/sessions', () => {
           startTime: expect.any(String),
         },
       ]);
+    });
+  });
+
+  describe('/:id/sessionToken', () => {
+    it('should return token', async () => {
+      mockGetSessionToken.mockResolvedValueOnce('some-token');
+
+      const response = await request(mockServer).get(
+        '/sessions/some-session-id/sessionToken',
+      );
+
+      expect(response.status).toBe(200);
+      expect(response.text).toEqual('some-token');
+    });
+
+    it('should return 404 if session is not found', async () => {
+      mockGetSessionToken.mockRejectedValueOnce(
+        new RequestError(ValidateSessionError.notFound),
+      );
+
+      const response = await request(mockServer).get(
+        '/sessions/some-session-id/sessionToken',
+      );
+
+      expect(response.status).toBe(404);
+      expect(response.text).toEqual(ValidateSessionError.notFound);
+    });
+
+    it('should return 403 if user is not part of session', async () => {
+      mockGetSessionToken.mockRejectedValueOnce(
+        new RequestError(ValidateSessionError.userNotFound),
+      );
+
+      const response = await request(mockServer).get(
+        '/sessions/some-session-id/sessionToken',
+      );
+
+      expect(response.status).toBe(403);
+      expect(response.text).toEqual(ValidateSessionError.userNotFound);
     });
   });
 

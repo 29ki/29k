@@ -1,29 +1,27 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 
-import ActionList from '../../common/components/ActionList/ActionList';
+import ActionList from '../../lib/components/ActionList/ActionList';
 
-import Gutters from '../../common/components/Gutters/Gutters';
-import SheetModal from '../../common/components/Modals/SheetModal';
-import {
-  Spacer16,
-  Spacer24,
-  Spacer8,
-} from '../../common/components/Spacers/Spacer';
-import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
-import ActionButton from '../../common/components/ActionList/ActionItems/ActionButton';
+import Gutters from '../../lib/components/Gutters/Gutters';
+import SheetModal from '../../lib/components/Modals/SheetModal';
+import {Spacer16, Spacer24, Spacer8} from '../../lib/components/Spacers/Spacer';
+import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
+import ActionButton from '../../lib/components/ActionList/ActionItems/ActionButton';
 import {useUiLib} from '../../lib/uiLib/hooks/useUiLib';
 import useToggleHiddenContent from '../../lib/i18n/hooks/useToggleHiddenContent';
 import useAppState from '../../lib/appState/state/state';
 import useClearUpdates from '../../lib/codePush/hooks/useClearUpdates';
 import useCheckForUpdate from '../../lib/codePush/hooks/useCheckForUpdate';
-import ActionSwitch from '../../common/components/ActionList/ActionItems/ActionSwitch';
+import ActionSwitch from '../../lib/components/ActionList/ActionItems/ActionSwitch';
 
 const DeveloperModal = () => {
   const {t} = useTranslation('Modal.Developer');
   const {toggle: toggleUiLib} = useUiLib();
   const toggleHiddenContent = useToggleHiddenContent();
-  const showHiddenContent = useAppState(state => state.showHiddenContent);
+  const showHiddenContent = useAppState(
+    state => state.settings.showHiddenContent,
+  );
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
 

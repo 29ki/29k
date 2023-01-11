@@ -1,8 +1,8 @@
 import {renderHook} from '@testing-library/react-hooks';
 import {useNavigation, useIsFocused} from '@react-navigation/native';
 import useSessionState from '../state/state';
-import useSessions from '../../Sessions/hooks/useSessions';
-jest.mock('../../Sessions/hooks/useSessions');
+import useSessions from '../../../lib/sessions/hooks/useSessions';
+jest.mock('../../../lib/sessions/hooks/useSessions');
 jest.mock('./useSubscribeToSession');
 
 const mockUseSessions = useSessions as jest.Mock;

@@ -42,12 +42,22 @@ export const NAME_FIELD: CmsField = {
   widget: 'string',
 };
 
+export const DESCRIPTION_FIELD: CmsField = {
+  label: '📃 Description',
+  name: 'description',
+  widget: 'markdown',
+  required: false,
+  i18n: true,
+};
+
 export const DURATION_FIELD: CmsField = {
   label: '⏱ Duration',
   name: 'duration',
+  hint: 'In minutes',
   i18n: 'duplicate',
   required: true,
   widget: 'number',
+  value_type: 'int',
 };
 
 export const IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {

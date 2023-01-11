@@ -18,17 +18,17 @@ import {
 import GestureRecognizer from 'react-native-swipe-gestures';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import SETTINGS from '../../../../common/constants/settings';
-import {SPACINGS} from '../../../../common/constants/spacings';
+import SETTINGS from '../../../../lib/constants/settings';
+import {SPACINGS} from '../../../../lib/constants/spacings';
 
 import useSessionExercise from '../../hooks/useSessionExercise';
 import useSessionSlideState from '../../hooks/useSessionSlideState';
 
-import {BackwardCircleIcon} from '../../../../common/components/Icons/BackwardCircle/BackwardCircle';
-import {Body14} from '../../../../common/components/Typography/Body/Body';
-import {ForwardCircleIcon} from '../../../../common/components/Icons/ForwardCircle/ForwardCircle';
-import Gutters from '../../../../common/components/Gutters/Gutters';
-import Markdown from '../../../../common/components/Typography/Markdown/Markdown';
+import {BackwardCircleIcon} from '../../../../lib/components/Icons/BackwardCircle/BackwardCircle';
+import {Body14} from '../../../../lib/components/Typography/Body/Body';
+import {ForwardCircleIcon} from '../../../../lib/components/Icons/ForwardCircle/ForwardCircle';
+import Gutters from '../../../../lib/components/Gutters/Gutters';
+import Markdown from '../../../../lib/components/Typography/Markdown/Markdown';
 import NavButton from './NavButton';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import {
@@ -36,8 +36,12 @@ import {
   Spacer4,
   Spacer8,
   TopSafeArea,
-} from '../../../../common/components/Spacers/Spacer';
+} from '../../../../lib/components/Spacers/Spacer';
 import ToggleButton from './ToggleButton';
+
+const NotesNavBtn = styled(NavButton)(({disabled}) => ({
+  opacity: disabled ? 0 : 1,
+}));
 
 const ShadowWrapper = styled.View({
   ...SETTINGS.BOXSHADOW,
@@ -205,7 +209,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
               />
               <GestureRecognizer onSwipeUp={() => setShowNotes(false)}>
                 <Navigation>
-                  <NavButton
+                  <NotesNavBtn
                     onPress={() =>
                       setScroll({
                         index: scroll.index - 1,
@@ -216,7 +220,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
                     disabled={scroll.index <= 0}
                   />
                   <Body14>{`${scroll.index + 1} / ${notes.length}`}</Body14>
-                  <NavButton
+                  <NotesNavBtn
                     onPress={() =>
                       setScroll({
                         index: scroll.index + 1,

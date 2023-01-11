@@ -5,21 +5,21 @@ import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 
-import SETTINGS from '../../../../common/constants/settings';
+import SETTINGS from '../../../../lib/constants/settings';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import {SPACINGS} from '../../../../common/constants/spacings';
+import {SPACINGS} from '../../../../lib/constants/spacings';
 
-import {Spacer16, Spacer24} from '../../../../common/components/Spacers/Spacer';
-import {ModalHeading} from '../../../../common/components/Typography/Heading/Heading';
+import {Spacer16, Spacer24} from '../../../../lib/components/Spacers/Spacer';
+import {ModalHeading} from '../../../../lib/components/Typography/Heading/Heading';
 import useExerciseIds from '../../../../lib/content/hooks/useExerciseIds';
 import {StepProps} from '../../CreateSessionModal';
-import Gutters from '../../../../common/components/Gutters/Gutters';
+import Gutters from '../../../../lib/components/Gutters/Gutters';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
-import {Display16} from '../../../../common/components/Typography/Display/Display';
-import Image from '../../../../common/components/Image/Image';
-import TouchableOpacity from '../../../../common/components/TouchableOpacity/TouchableOpacity';
-import {formatExerciseName} from '../../../../common/utils/string';
+import {Display16} from '../../../../lib/components/Typography/Display/Display';
+import Image from '../../../../lib/components/Image/Image';
+import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
+import {formatExerciseName} from '../../../../lib/utils/string';
 
 const Card = styled(TouchableOpacity)({
   flexDirection: 'row',

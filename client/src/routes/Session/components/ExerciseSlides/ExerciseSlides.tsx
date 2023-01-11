@@ -14,9 +14,10 @@ const Wrapper = styled.View({
   flex: 1,
 });
 
-const AnimatedView = styled(Animated.View)({
+const AnimatedView = styled(Animated.View)<{visible: boolean}>(({visible}) => ({
   ...StyleSheet.absoluteFillObject,
-});
+  zIndex: visible ? 1 : undefined,
+}));
 
 const Fade: React.FC<{children: React.ReactNode; visible: boolean}> = ({
   children,
@@ -32,7 +33,11 @@ const Fade: React.FC<{children: React.ReactNode; visible: boolean}> = ({
     opacity.value = withTiming(visible ? 1 : 0, {duration: 400});
   }, [opacity, visible]);
 
-  return <AnimatedView style={animatedStyles}>{children}</AnimatedView>;
+  return (
+    <AnimatedView visible={visible} style={animatedStyles}>
+      {children}
+    </AnimatedView>
+  );
 };
 
 type ExerciseSlidesProps = {

@@ -3,25 +3,25 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import auth from '@react-native-firebase/auth';
 
-import {BottomSheetActionTextInput} from '../../common/components/ActionList/ActionItems/ActionTextInput';
-import ActionList from '../../common/components/ActionList/ActionList';
-import Button from '../../common/components/Buttons/Button';
+import {BottomSheetActionTextInput} from '../../lib/components/ActionList/ActionItems/ActionTextInput';
+import ActionList from '../../lib/components/ActionList/ActionList';
+import Button from '../../lib/components/Buttons/Button';
 
-import Gutters from '../../common/components/Gutters/Gutters';
-import SheetModal from '../../common/components/Modals/SheetModal';
+import Gutters from '../../lib/components/Gutters/Gutters';
+import SheetModal from '../../lib/components/Modals/SheetModal';
 import {
   Spacer16,
   Spacer24,
   Spacer48,
-} from '../../common/components/Spacers/Spacer';
-import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
-import ProfilePicture from '../../common/components/User/ProfilePicture';
+} from '../../lib/components/Spacers/Spacer';
+import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
+import ProfilePicture from '../../lib/components/User/ProfilePicture';
 import useUser from '../../lib/user/hooks/useUser';
 import useChangeProfilePicture from '../../lib/user/hooks/useChangeProfilePicture';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
-import {Body16} from '../../common/components/Typography/Body/Body';
+import {Body16} from '../../lib/components/Typography/Body/Body';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import useUpdateProfileDetails from '../../lib/user/hooks/useUpdateProfileDetails';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
@@ -48,11 +48,14 @@ const ProfileSettingsModal = () => {
   const {t} = useTranslation('Modal.ProfileSettings');
   const {popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
-  const changeProfilePicture = useChangeProfilePicture();
-  const updateProfileDetails = useUpdateProfileDetails();
-  const deleteUser = useDeleteUser();
+  const {changeProfilePicture, isUpdatingProfilePicture} =
+    useChangeProfilePicture();
+  const {updateProfileDetails, isUpdatingProfileDetails} =
+    useUpdateProfileDetails();
+  const {deleteUser, isDeletingUser} = useDeleteUser();
   const user = useUser();
 
+  const [isSigningOut, setIsSigningOut] = useState(false);
   const [displayName, setDisplayName] = useState(user?.displayName);
   const [email, setEmail] = useState(user?.email);
   const [password, setPassword] = useState('');
@@ -68,13 +71,24 @@ const ProfileSettingsModal = () => {
   }, [updateProfileDetails, popToTop, displayName, email, password]);
 
   const signOut = useCallback(async () => {
-    await auth().signOut();
-    popToTop();
-  }, [popToTop]);
+    setIsSigningOut(true);
+    try {
+      await auth().signOut();
+      setIsSigningOut(false);
+      popToTop();
+    } catch (e: any) {
+      setIsSigningOut(false);
+      setError(e.code ?? e.message);
+    }
+  }, [setIsSigningOut, popToTop]);
 
   const deleteData = useCallback(async () => {
-    if (await deleteUser()) {
-      popToTop();
+    try {
+      if (await deleteUser()) {
+        popToTop();
+      }
+    } catch (e: any) {
+      setError(e.code ?? e.message);
     }
   }, [deleteUser, popToTop]);
 
@@ -87,6 +101,7 @@ const ProfileSettingsModal = () => {
           <Picture
             pictureURL={user?.photoURL}
             letter={user?.displayName?.[0]}
+            loading={isUpdatingProfilePicture}
             onPress={changeProfilePicture}
           />
           <Spacer24 />
@@ -133,7 +148,11 @@ const ProfileSettingsModal = () => {
               <Spacer16 />
             </>
           )}
-          <StyledButton variant="primary" onPress={updateUser}>
+          <StyledButton
+            variant="primary"
+            onPress={updateUser}
+            disabled={isUpdatingProfileDetails}
+            loading={isUpdatingProfileDetails}>
             {t('save')}
           </StyledButton>
           {user && (
@@ -141,13 +160,21 @@ const ProfileSettingsModal = () => {
               <Spacer48 />
               {!user?.isAnonymous && (
                 <>
-                  <StyledButton variant="secondary" onPress={signOut}>
+                  <StyledButton
+                    variant="secondary"
+                    onPress={signOut}
+                    disabled={isSigningOut}
+                    loading={isSigningOut}>
                     {t('signOut')}
                   </StyledButton>
                   <Spacer16 />
                 </>
               )}
-              <DeleteButton variant="secondary" onPress={deleteData}>
+              <DeleteButton
+                variant="secondary"
+                onPress={deleteData}
+                disabled={isDeletingUser}
+                loading={isDeletingUser}>
                 {t('deleteData')}
               </DeleteButton>
             </>

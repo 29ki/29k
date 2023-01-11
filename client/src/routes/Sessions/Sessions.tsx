@@ -1,33 +1,33 @@
-import React, {useEffect} from 'react';
-import {ListRenderItemInfo, RefreshControl} from 'react-native';
-import {FlatList} from 'react-native-gesture-handler';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import {ListRenderItemInfo, RefreshControl, SectionList} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useNavigation} from '@react-navigation/native';
 
-import useSessions from './hooks/useSessions';
+import useSessions from '../../lib/sessions/hooks/useSessions';
 
 import {Session} from '../../../../shared/src/types/Session';
 
-import {GUTTERS, SPACINGS} from '../../common/constants/spacings';
+import {GUTTERS, SPACINGS} from '../../lib/constants/spacings';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
-import SETTINGS from '../../common/constants/settings';
+import SETTINGS from '../../lib/constants/settings';
 import {
   Spacer12,
   Spacer16,
+  Spacer24,
   Spacer60,
   Spacer8,
   TopSafeArea,
-} from '../../common/components/Spacers/Spacer';
-import Gutters from '../../common/components/Gutters/Gutters';
-import Button from '../../common/components/Buttons/Button';
-import SessionCard from '../../common/components/Cards/SessionCard/SessionCard';
-import {PlusIcon} from '../../common/components/Icons';
-import useSessionsState from './state/state';
-import Screen from '../../common/components/Screen/Screen';
+} from '../../lib/components/Spacers/Spacer';
+import Gutters from '../../lib/components/Gutters/Gutters';
+import Button from '../../lib/components/Buttons/Button';
+import SessionCard from '../../lib/components/Cards/SessionCard/SessionCard';
+import {PlusIcon} from '../../lib/components/Icons';
+import Screen from '../../lib/components/Screen/Screen';
+import {Heading18} from '../../lib/components/Typography/Heading/Heading';
 
 const AddButton = styled(Button)({
   flexDirection: 'row',
@@ -78,13 +78,43 @@ const AddSessionForm = () => {
 };
 
 const Sessions = () => {
-  const {fetchSessions} = useSessions();
-  const isLoading = useSessionsState(state => state.isLoading);
-  const sessions = useSessionsState(state => state.sessions);
+  const {t} = useTranslation('Screen.Sessions');
+  const {fetchSessions, sessions, pinnedSessions} = useSessions();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const sections = useMemo(() => {
+    let sectionsList = [];
+    if (pinnedSessions.length > 0) {
+      sectionsList.push({
+        title: t('interested'),
+        data: pinnedSessions,
+        type: 'interested',
+      });
+    }
+    if (sessions.length > 0) {
+      sectionsList.push({
+        title: t('commingSessions'),
+        data: sessions,
+        type: 'comming',
+      });
+    }
+    return sectionsList;
+  }, [sessions, pinnedSessions, t]);
 
   useEffect(() => {
     fetchSessions();
   }, [fetchSessions]);
+
+  const refreshPull = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      await fetchSessions();
+      setIsLoading(false);
+    } catch (e: any) {
+      setIsLoading(false);
+      throw e;
+    }
+  }, [setIsLoading, fetchSessions]);
 
   const renderSession = ({item}: ListRenderItemInfo<Session>) => (
     <Gutters>
@@ -94,16 +124,23 @@ const Sessions = () => {
 
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
-      <FlatList
-        data={sessions}
+      <SectionList
+        sections={sections}
         keyExtractor={session => session.id}
         ListHeaderComponent={ListHeader}
         ListFooterComponent={Spacer60}
         ItemSeparatorComponent={Spacer16}
         renderItem={renderSession}
         refreshControl={
-          <RefreshControl refreshing={isLoading} onRefresh={fetchSessions} />
+          <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }
+        renderSectionHeader={({section: {title, type}}) => (
+          <Gutters>
+            {sections.length === 2 && type === 'comming' && <Spacer24 />}
+            <Heading18>{title}</Heading18>
+            <Spacer8 />
+          </Gutters>
+        )}
       />
 
       <FloatingForm>

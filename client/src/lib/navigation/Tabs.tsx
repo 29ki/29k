@@ -1,4 +1,5 @@
 import React from 'react';
+import {Platform} from 'react-native';
 import {
   BottomTabNavigationOptions,
   BottomTabBar,
@@ -13,17 +14,15 @@ import {
   IconType,
   ProfileFillIcon,
   ProfileIcon,
-} from '../../common/components/Icons';
+} from '../components/Icons';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {TabNavigatorProps} from './constants/routes';
-import {SPACINGS} from '../../common/constants/spacings';
-import {Body14} from '../../common/components/Typography/Body/Body';
+import {SPACINGS} from '../constants/spacings';
+import {Body14} from '../components/Typography/Body/Body';
+import {BottomSafeArea} from '../components/Spacers/Spacer';
 
-import Profile from '../../routes/Profile/Profile';
+import ProfileStack from './ProfileStack';
 import Sessions from '../../routes/Sessions/Sessions';
-
-import {Platform} from 'react-native';
-import {BottomSafeArea} from '../../common/components/Spacers/Spacer';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
 
@@ -82,8 +81,8 @@ const Tabs = () => {
         options={getTabOptions(HomeIcon, HomeFillIcon, t('home'))}
       />
       <Tab.Screen
-        name={'Profile'}
-        component={Profile}
+        name={'ProfileStack'}
+        component={ProfileStack}
         options={getTabOptions(ProfileIcon, ProfileFillIcon, t('profile'))}
       />
     </Tab.Navigator>

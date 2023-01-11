@@ -13,9 +13,25 @@ const contributionTypes = {
     symbol: '👥',
     description: 'People',
   },
+  founder: {
+    symbol: '🌱',
+    description: 'Founder',
+  },
+  corePartner: {
+    symbol: '🤲',
+    description: 'Core Partner',
+  },
+  partner: {
+    symbol: '🤝',
+    description: 'Partner',
+  },
   coreTeam: {
     symbol: '🫂',
     description: 'Core Team',
+  },
+  community: {
+    symbol: '❤️',
+    description: 'Community',
   },
   a11y: {
     symbol: '️️️️♿️',
@@ -169,7 +185,7 @@ const CONTRIBUTORS_FIELDS: Array<CmsField> = [
             default_transformations: [
               [
                 {
-                  transformation: 'profile_picture',
+                  transformation: 'profile_picture_square',
                 },
               ],
             ],

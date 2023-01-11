@@ -6,18 +6,18 @@ import styled from 'styled-components/native';
 
 import {JoinSessionError} from '../../../../shared/src/errors/Session';
 import {COLORS} from '../../../../shared/src/constants/colors';
-
-import Gutters from '../../common/components/Gutters/Gutters';
-import {Spacer16, Spacer8} from '../../common/components/Spacers/Spacer';
-import {Body16} from '../../common/components/Typography/Body/Body';
-import VerificationCode from '../../common/components/VerificationCode/VerificationCode';
+import Gutters from '../../lib/components/Gutters/Gutters';
+import {Spacer16, Spacer8} from '../../lib/components/Spacers/Spacer';
+import {Body16} from '../../lib/components/Typography/Body/Body';
+import VerificationCode from '../../lib/components/VerificationCode/VerificationCode';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
-import {joinSession} from '../Sessions/api/session';
-import useSessions from '../Sessions/hooks/useSessions';
-import CardModal from '../../common/components/Modals/CardModal';
-import {ModalHeading} from '../../common/components/Typography/Heading/Heading';
-import Button from '../../common/components/Buttons/Button';
+import {joinSession} from '../../lib/sessions/api/session';
+import useSessions from '../../lib/sessions/hooks/useSessions';
+import CardModal from '../../lib/components/Modals/CardModal';
+import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
+import Button from '../../lib/components/Buttons/Button';
 import {Session} from '../../../../shared/src/types/Session';
+import useLogSessionMetricEvents from '../../lib/sessions/hooks/useLogSessionMetricEvents';
 
 const ErrorText = styled(Body16)({color: COLORS.ERROR, textAlign: 'center'});
 const BodyText = styled(Body16)({textAlign: 'center'});
@@ -34,6 +34,7 @@ const AddSessionModal = () => {
   const {goBack, navigate, popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
   const [errorString, setErrorString] = useState<string | null>(null);
+  const logSessionMetricEvent = useLogSessionMetricEvents();
 
   const onCodeType = useCallback(() => {
     setErrorString(null);
@@ -43,6 +44,7 @@ const AddSessionModal = () => {
     async (value: Session['inviteCode']) => {
       try {
         const session = await joinSession(value);
+        logSessionMetricEvent('Add Sharing Session', session);
         fetchSessions();
         goBack();
         navigate('SessionModal', {session: session});
@@ -58,7 +60,7 @@ const AddSessionModal = () => {
         }
       }
     },
-    [fetchSessions, goBack, setErrorString, navigate, t],
+    [fetchSessions, goBack, setErrorString, navigate, t, logSessionMetricEvent],
   );
 
   const onPressCreate = useCallback(() => {

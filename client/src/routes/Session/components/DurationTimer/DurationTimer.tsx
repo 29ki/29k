@@ -4,7 +4,7 @@ import timer60s from '../../../../assets/animations/60s-timer.json';
 import {ViewStyle} from 'react-native';
 import LottiePlayer, {
   LottiePlayerHandle,
-} from '../../../../common/components/LottiePlayer/LottiePlayer';
+} from '../../../../lib/components/LottiePlayer/LottiePlayer';
 
 type DurationTimerProps = {
   style?: ViewStyle;

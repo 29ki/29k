@@ -11,6 +11,11 @@ jest.mock('../../appState/state/state', () =>
   jest.fn(fn => fn({reset: mockResetSessionState})),
 );
 
+const mockResetUserState = jest.fn();
+jest.mock('../state/state', () =>
+  jest.fn(fn => fn({reset: mockResetUserState})),
+);
+
 afterEach(() => {
   jest.clearAllMocks();
 });
@@ -22,7 +27,7 @@ describe('useDeleteUser', () => {
   it('shows a confirm dialogue', async () => {
     const {result} = renderHook(() => useDeleteUser());
 
-    result.current();
+    result.current.deleteUser();
 
     expect(alertConfirmMock).toHaveBeenCalledTimes(1);
     expect(alertConfirmMock).toHaveBeenCalledWith(
@@ -51,10 +56,12 @@ describe('useDeleteUser', () => {
 
     const {result} = renderHook(() => useDeleteUser());
 
-    expect(await result.current()).toBe(true);
+    expect(await result.current.deleteUser()).toBe(true);
     expect(alertConfirmMock).toHaveBeenCalledTimes(1);
     expect(auth().currentUser?.delete).toHaveBeenCalledTimes(1);
     expect(mockResetSessionState).toHaveBeenCalledTimes(1);
+    expect(mockResetUserState).toHaveBeenCalledTimes(1);
+    expect(mockResetUserState).toHaveBeenCalledWith(true);
   });
 
   it('does nothing on dismiss', async () => {
@@ -65,9 +72,10 @@ describe('useDeleteUser', () => {
 
     const {result} = renderHook(() => useDeleteUser());
 
-    expect(await result.current()).toBe(false);
+    expect(await result.current.deleteUser()).toBe(false);
     expect(alertConfirmMock).toHaveBeenCalledTimes(1);
     expect(auth().currentUser?.delete).toHaveBeenCalledTimes(0);
     expect(mockResetSessionState).toHaveBeenCalledTimes(0);
+    expect(mockResetUserState).toHaveBeenCalledTimes(0);
   });
 });

@@ -27,13 +27,6 @@ afterEach(() => {
 });
 
 describe('useUpdateSessionState', () => {
-  const useTestHook = (sessionId?: string) => {
-    const {navigateToIndex, setPlaying, setSpotlightParticipant} =
-      useUpdateSessionState(sessionId);
-
-    return {navigateToIndex, setPlaying, setSpotlightParticipant};
-  };
-
   describe('setSpotlightParticipant', () => {
     it('should call api when called', async () => {
       fetchMock.mockResponseOnce(
@@ -43,7 +36,7 @@ describe('useUpdateSessionState', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() => useTestHook('session-id'));
+      const {result} = renderHook(() => useUpdateSessionState('session-id'));
 
       await act(async () => {
         await result.current.setSpotlightParticipant('some-participant-id');
@@ -53,7 +46,7 @@ describe('useUpdateSessionState', () => {
     });
 
     it('should do nothing when session is undefined', async () => {
-      const {result} = renderHook(() => useTestHook());
+      const {result} = renderHook(() => useUpdateSessionState(undefined));
 
       await act(async () => {
         await result.current.setSpotlightParticipant('some-participant-id');
@@ -72,7 +65,7 @@ describe('useUpdateSessionState', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() => useTestHook('session-id'));
+      const {result} = renderHook(() => useUpdateSessionState('session-id'));
 
       await act(async () => {
         await result.current.setPlaying(true);
@@ -82,7 +75,7 @@ describe('useUpdateSessionState', () => {
     });
 
     it('should do nothing when session is undefined', async () => {
-      const {result} = renderHook(() => useTestHook());
+      const {result} = renderHook(() => useUpdateSessionState(undefined));
 
       await act(async () => {
         await result.current.setPlaying(true);
@@ -101,17 +94,46 @@ describe('useUpdateSessionState', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() => useTestHook('session-id'));
+      const {result} = renderHook(() => useUpdateSessionState('session-id'));
+
+      await act(async () => {
+        await result.current.navigateToIndex({index: 1, content: mockContent});
+      });
+
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+      expect(fetchMock).toHaveBeenCalledWith(
+        'some-api-endpoint/sessions/session-id/state',
+        expect.objectContaining({
+          body: '{"index":1,"playing":false}',
+        }),
+      );
+    });
+
+    it('sets completed=true when navigating to last index', async () => {
+      fetchMock.mockResponseOnce(
+        JSON.stringify({
+          data: 'some-data',
+        }),
+        {status: 200},
+      );
+
+      const {result} = renderHook(() => useUpdateSessionState('session-id'));
 
       await act(async () => {
         await result.current.navigateToIndex({index: 2, content: mockContent});
       });
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
+      expect(fetchMock).toHaveBeenCalledWith(
+        'some-api-endpoint/sessions/session-id/state',
+        expect.objectContaining({
+          body: '{"index":2,"playing":false,"completed":true}',
+        }),
+      );
     });
 
     it('should do nothing when session is undefined', async () => {
-      const {result} = renderHook(() => useTestHook());
+      const {result} = renderHook(() => useUpdateSessionState(undefined));
 
       await act(async () => {
         await result.current.navigateToIndex({index: 4, content: mockContent});
@@ -128,7 +150,7 @@ describe('useUpdateSessionState', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() => useTestHook('session-id'));
+      const {result} = renderHook(() => useUpdateSessionState('session-id'));
 
       await act(async () => {
         await result.current.navigateToIndex({index: 4, content: mockContent});
@@ -145,7 +167,7 @@ describe('useUpdateSessionState', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() => useTestHook('session-id'));
+      const {result} = renderHook(() => useUpdateSessionState('session-id'));
 
       await act(async () => {
         const invalidIndex = 4000;

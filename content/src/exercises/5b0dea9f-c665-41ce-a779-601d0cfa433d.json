@@ -21,7 +21,7 @@
         ],
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1668679655/Video/meditation_letting_go_of_controlmp4_sxgwig.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1671544231/Video/meditation_letting_go_of_control_xv1sx8.mov",
             "autoPlayLoop": false,
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1668093018/Audio/meditation_letting_go_of_control_becb1s.mp3",
             "durationTimer": true
@@ -41,7 +41,7 @@
         "content": {
           "heading": "What's in your beachball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669200641/Video/1min_letting_go_of_control_x23hr5.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1671534325/Video/timer1_letting_go_of_control_iydvpp.mp4"
           }
         }
       },
@@ -50,7 +50,7 @@
         "content": {
           "heading": "What's in your beachball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669214353/Video/2min_letting_go_of_control_bzv8ur.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1671543674/Video/timer2_letting_go_of_control_pfuvhb.mp4"
           }
         },
         "hostNotes": [
@@ -84,7 +84,7 @@
         "content": {
           "heading": "What if you let go of your beachball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669200641/Video/1min_letting_go_of_control_x23hr5.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1671534325/Video/timer1_letting_go_of_control_iydvpp.mp4"
           }
         }
       },
@@ -93,7 +93,7 @@
         "content": {
           "heading": "What if you let go of your beachball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669214353/Video/2min_letting_go_of_control_bzv8ur.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1671543674/Video/timer2_letting_go_of_control_pfuvhb.mp4"
           }
         },
         "hostNotes": [
@@ -135,10 +135,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
       }
     },
-    "duration": 40,
+    "duration": 30,
     "outroPortal": {
       "video": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667919819/Video/mission_letting_go_of_control_audio_is2nnv.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1671527730/Video/mission_letting_go_of_control.mp4_t6zweg.mp4"
       }
     },
     "introPortal": {
@@ -164,7 +164,7 @@
       "textColor": "#2AE2D7"
     },
     "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d",
-    "duration": 40
+    "duration": 30
   },
   "sv": {
     "published": false,
@@ -172,10 +172,10 @@
       "textColor": "#2AE2D7"
     },
     "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d",
-    "duration": 40
+    "duration": 30
   },
   "es": {
     "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d",
-    "duration": 40
+    "duration": 30
   }
 }

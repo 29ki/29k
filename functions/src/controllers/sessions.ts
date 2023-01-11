@@ -5,10 +5,14 @@ import * as userModel from '../models/user';
 import {getPublicUserInfo} from '../models/user';
 import * as dailyApi from '../lib/dailyApi';
 import {Session, SessionState} from '../../../shared/src/types/Session';
-import {JoinSessionError} from '../../../shared/src/errors/Session';
+import {
+  JoinSessionError,
+  ValidateSessionError,
+} from '../../../shared/src/errors/Session';
 import {SessionStateUpdate, UpdateSession} from '../api/sessions';
 import {generateVerificationCode, removeEmpty} from '../lib/utils';
 import {RequestError} from './errors/RequestError';
+import {generateSessionToken} from '../lib/dailyUtils';
 
 const mapSession = async (session: Session): Promise<Session> => {
   return {...session, hostProfile: await getPublicUserInfo(session.hostId)};
@@ -17,6 +21,27 @@ const mapSession = async (session: Session): Promise<Session> => {
 export const getSessions = async (userId: string): Promise<Session[]> => {
   const sessions = await sessionModel.getSessions(userId);
   return Promise.all(sessions.map(mapSession));
+};
+
+export const getSessionToken = async (
+  userId: string,
+  sessionId: Session['id'],
+) => {
+  const session = await sessionModel.getSessionById(sessionId);
+
+  if (!session) {
+    throw new RequestError(ValidateSessionError.notFound);
+  }
+
+  if (!session.userIds.find(id => id === userId)) {
+    throw new RequestError(ValidateSessionError.userNotFound);
+  }
+
+  return generateSessionToken(
+    session.dailyRoomName,
+    session.hostId === userId,
+    dayjs(session.startTime).add(2, 'hours'),
+  );
 };
 
 export const createSession = async (
@@ -29,7 +54,8 @@ export const createSession = async (
   }: Pick<Session, 'contentId' | 'type' | 'startTime' | 'language'>,
 ) => {
   const {displayName} = await userModel.getPublicUserInfo(userId);
-  const dailyRoom = await dailyApi.createRoom(dayjs(startTime).add(2, 'hour'));
+  const expireDate = dayjs(startTime).add(2, 'hour');
+  const dailyRoom = await dailyApi.createRoom(expireDate);
   let inviteCode = generateVerificationCode();
 
   while (await sessionModel.getSessionByInviteCode({inviteCode})) {
@@ -70,7 +96,7 @@ export const removeSession = async (
   if (!session) return;
 
   if (userId !== session?.hostId) {
-    throw new Error('user-unauthorized');
+    throw new RequestError(ValidateSessionError.userNotAuthorized);
   }
 
   await Promise.all([
@@ -89,7 +115,7 @@ export const updateSession = async (
   };
 
   if (userId !== session?.hostId) {
-    throw new Error('user-unauthorized');
+    throw new RequestError(ValidateSessionError.userNotAuthorized);
   }
 
   if (data.startTime && session.startTime !== data.startTime) {
@@ -115,11 +141,11 @@ export const updateSessionState = async (
   )) as SessionState;
 
   if (!session || !sessionState) {
-    throw new Error('session-not-found');
+    throw new RequestError(ValidateSessionError.notFound);
   }
 
   if (userId !== session?.hostId) {
-    throw new Error('user-unauthorized');
+    throw new RequestError(ValidateSessionError.userNotAuthorized);
   }
 
   if (data.ended) {

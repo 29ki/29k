@@ -3,7 +3,7 @@ import KillSwitch from '../../routes/KillSwitch/KillSwitch';
 import useKillSwitchState from '../killSwitch/state/state';
 import Tabs from './Tabs';
 import useNavigationState from './state/state';
-import SessionStackWrapper from './SessionStack';
+import SessionStack from './SessionStack';
 import {
   createNativeStackNavigator,
   NativeStackNavigationOptions,
@@ -12,7 +12,7 @@ import {AppStackProps} from './constants/routes';
 import Welcome from '../../routes/Onboarding/Welcome';
 import useAppState from '../appState/state/state';
 
-const AppStack = createNativeStackNavigator<AppStackProps>();
+const {Navigator, Screen, Group} = createNativeStackNavigator<AppStackProps>();
 
 const screenOptions: NativeStackNavigationOptions = {
   headerShown: false,
@@ -32,36 +32,30 @@ const fadeScreenOptions: NativeStackNavigationOptions = {
   gestureEnabled: false,
 };
 
-const AppStackWrapper = () => {
+const AppStack = () => {
   const isBlocking = useKillSwitchState(state => state.isBlocking);
   const fade = useNavigationState(state => state.navigateWithFade);
   const settings = useAppState(state => state.settings);
 
   return (
     // set this state using useNavigationWithFade to change animation to fade
-    <AppStack.Navigator screenOptions={slideScreenOptions}>
+    <Navigator screenOptions={slideScreenOptions}>
       {isBlocking ? (
-        <AppStack.Screen name={'KillSwitch'} component={KillSwitch} />
+        <Screen name={'KillSwitch'} component={KillSwitch} />
       ) : settings.showWelcome ? (
-        <AppStack.Screen name={'Welcome'} component={Welcome} />
+        <Screen name={'Welcome'} component={Welcome} />
       ) : (
-        <AppStack.Group
-          screenOptions={fade ? fadeScreenOptions : screenOptions}>
-          <AppStack.Screen name={'Tabs'} component={Tabs} />
-          <AppStack.Screen
+        <Group screenOptions={fade ? fadeScreenOptions : screenOptions}>
+          <Screen name={'Tabs'} component={Tabs} />
+          <Screen
             name={'SessionStack'}
-            component={SessionStackWrapper}
+            component={SessionStack}
             options={{gestureEnabled: false}}
           />
-          <AppStack.Screen
-            name={'EarlyAccessInfo'}
-            component={Welcome}
-            initialParams={{showBack: true}}
-          />
-        </AppStack.Group>
+        </Group>
       )}
-    </AppStack.Navigator>
+    </Navigator>
   );
 };
 
-export default AppStackWrapper;
+export default AppStack;

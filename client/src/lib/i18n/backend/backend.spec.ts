@@ -23,7 +23,9 @@ beforeEach(() => {
 describe('i18n - backend', () => {
   it('should only set published and non hidden exercises as default', () => {
     (useAppState.getState as jest.Mock).mockReturnValueOnce({
-      showHiddenContent: false,
+      settings: {
+        showHiddenContent: false,
+      },
     });
     const callbackMock = jest.fn();
     Backend.read('en', 'exercises', callbackMock);
@@ -36,7 +38,9 @@ describe('i18n - backend', () => {
 
   it('should set published and hidden exercises', () => {
     (useAppState.getState as jest.Mock).mockReturnValueOnce({
-      showHiddenContent: true,
+      settings: {
+        showHiddenContent: true,
+      },
     });
     const callbackMock = jest.fn();
     Backend.read('en', 'exercises', callbackMock);
@@ -50,7 +54,9 @@ describe('i18n - backend', () => {
 
   it('should handle other namespaces', () => {
     (useAppState.getState as jest.Mock).mockReturnValueOnce({
-      showHiddenContent: true,
+      settings: {
+        showHiddenContent: true,
+      },
     });
     const callbackMock = jest.fn();
     Backend.read('en', 'translations', callbackMock);

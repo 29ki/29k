@@ -14,10 +14,12 @@ type SessionStateFields = {
   started: boolean;
   ended: boolean;
   id: string;
+  completed?: boolean;
 };
 
 type SessionFields = {
   id: string;
+  dailyRoomName: string;
   url: string;
   language: LANGUAGE_TAG;
   link?: string;

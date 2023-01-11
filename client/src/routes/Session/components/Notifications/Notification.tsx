@@ -3,11 +3,11 @@ import Animated, {FadeInDown, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import {SPACINGS} from '../../../../common/constants/spacings';
+import {SPACINGS} from '../../../../lib/constants/spacings';
 
-import {Body16} from '../../../../common/components/Typography/Body/Body';
-import {Display22} from '../../../../common/components/Typography/Display/Display';
-import Image from '../../../../common/components/Image/Image';
+import {Body16} from '../../../../lib/components/Typography/Body/Body';
+import {Display22} from '../../../../lib/components/Typography/Display/Display';
+import Image from '../../../../lib/components/Image/Image';
 import {Notification as NotificationProps} from '../../state/sessionNotificationsState';
 
 const Wrapper = styled.View({
