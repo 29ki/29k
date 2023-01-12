@@ -46,7 +46,7 @@ const Lottie: React.FC<LottieProps> = ({
   const videoRef = useRef<RNVideo>(null);
   const timerRef = useRef<LottiePlayerHandle>(null);
   const [audioDuration, setAudioDuration] = useState(0);
-  const sessionState = useSessionState(({state}) => state);
+  const sessionState = useSessionState(state => state.sessionState);
   const setCurrentContentReachedEnd = useSessionState(
     state => state.setCurrentContentReachedEnd,
   );

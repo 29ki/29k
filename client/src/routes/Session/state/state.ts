@@ -3,12 +3,12 @@ import create from 'zustand';
 
 type State = {
   session: Session | null;
-  state: SessionState | null;
+  sessionState: SessionState | null;
   currentContentReachedEnd: boolean;
 };
 
 type Actions = {
-  setState: (sessionState: SessionState) => void;
+  setSessionState: (sessionState: SessionState) => void;
   setSession: (session: Session) => void;
   setCurrentContentReachedEnd: (currentContentReachedEnd: boolean) => void;
   reset: () => void;
@@ -16,13 +16,13 @@ type Actions = {
 
 const initialState: State = {
   session: null,
-  state: null,
+  sessionState: null,
   currentContentReachedEnd: false,
 };
 
 const useSessionState = create<State & Actions>()(set => ({
   ...initialState,
-  setState: state => set({state}),
+  setSessionState: sessionState => set({sessionState}),
   setSession: session => set({session}),
   setCurrentContentReachedEnd: currentContentReachedEnd =>
     set({currentContentReachedEnd}),

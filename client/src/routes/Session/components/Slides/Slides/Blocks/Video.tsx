@@ -43,7 +43,7 @@ const Video: React.FC<VideoProps> = ({
   const timerRef = useRef<LottiePlayerHandle>(null);
   const onEndRef = useRef<boolean>(false);
   const [duration, setDuration] = useState(0);
-  const sessionState = useSessionState(({state}) => state);
+  const sessionState = useSessionState(state => state.sessionState);
   const setCurrentContentReachedEnd = useSessionState(
     state => state.setCurrentContentReachedEnd,
   );

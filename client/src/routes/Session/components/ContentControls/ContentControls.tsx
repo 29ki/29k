@@ -51,7 +51,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   style,
 }) => {
   const isHost = useIsSessionHost();
-  const sessionState = useSessionState(({state}) => state);
+  const sessionState = useSessionState(state => state.sessionState);
   const currentContentReachedEnd = useSessionState(
     state => state.currentContentReachedEnd,
   );

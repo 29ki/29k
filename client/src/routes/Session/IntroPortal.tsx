@@ -95,7 +95,7 @@ const IntroPortal: React.FC = () => {
   const [joiningSession, setJoiningSession] = useState(false);
   const {t} = useTranslation('Screen.Portal');
   const startTime = useSessionState(state => state.session?.startTime);
-  const sessionState = useSessionState(({state}) => state);
+  const sessionState = useSessionState(state => state.sessionState);
   const exercise = useSessionExercise();
   const participants = useDailyState(state => state.participants);
   const participantsCount = Object.keys(participants ?? {}).length;

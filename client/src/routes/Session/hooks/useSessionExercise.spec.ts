@@ -41,7 +41,7 @@ describe('useSessionExercise', () => {
       session: {
         contentId: 'some-exercise-id',
       } as Session,
-      state: {index: 1} as SessionState,
+      sessionState: {index: 1} as SessionState,
     });
 
     const {result} = renderHook(() => useSessionExercise());
@@ -63,7 +63,7 @@ describe('useSessionExercise', () => {
       session: {
         contentId: 'some-exercise-id',
       } as Session,
-      state: {index: 1} as SessionState,
+      sessionState: {index: 1} as SessionState,
     });
 
     const {result, rerender} = renderHook(() => useSessionExercise());

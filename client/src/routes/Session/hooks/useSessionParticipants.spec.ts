@@ -48,7 +48,7 @@ describe('useSessionParticipants', () => {
       },
     });
     useSessionState.setState({
-      state: {
+      sessionState: {
         dailySpotlightId: 'some-spotlight-user-id',
       } as SessionState,
     });
@@ -90,7 +90,7 @@ describe('useSessionParticipants', () => {
       },
     });
     useSessionState.setState({
-      state: {
+      sessionState: {
         dailySpotlightId: 'some-spotlight-user-id',
       } as SessionState,
     });

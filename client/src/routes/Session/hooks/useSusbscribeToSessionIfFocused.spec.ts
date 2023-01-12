@@ -27,7 +27,7 @@ describe('useSubscribeToSessionIfFocused', () => {
 
   const useTestHook = ({exitOnEnded = true} = {}) => {
     useSubscribeToSessionIfFocused('session-id', {exitOnEnded});
-    const sessionState = useSessionState(({state}) => state);
+    const sessionState = useSessionState(state => state.sessionState);
     const session = useSessionState(state => state.session);
 
     return {sessionState, session};

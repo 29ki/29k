@@ -12,7 +12,7 @@ export type SessionSlideState = {
 };
 
 const useSessionSlideState = (): SessionSlideState | null => {
-  const sessionState = useSessionState(({state}) => state);
+  const sessionState = useSessionState(state => state.sessionState);
   const excercise = useSessionExercise();
 
   return useMemo(() => {

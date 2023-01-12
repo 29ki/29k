@@ -41,7 +41,7 @@ describe('useSessionSlideState', () => {
       session: {
         contentId: 'some-content',
       } as Session,
-      state: {
+      sessionState: {
         index: 1,
       } as SessionState,
     });
@@ -62,7 +62,7 @@ describe('useSessionSlideState', () => {
     };
     mockUseExerciseById.mockReturnValueOnce(exercise);
     useSessionState.setState({
-      state: {
+      sessionState: {
         index: 1,
       } as SessionState,
     });
@@ -82,7 +82,7 @@ describe('useSessionSlideState', () => {
     });
     useSessionState.setState({
       session: {contentId: 'some-content'} as Session,
-      state: {index: 0} as SessionState,
+      sessionState: {index: 0} as SessionState,
     });
 
     const {result} = renderHook(() => useSessionSlideState());

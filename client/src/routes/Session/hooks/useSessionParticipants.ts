@@ -9,7 +9,7 @@ const useSessionParticipants = () => {
   const participantsSortOrder = useDailyState(
     state => state.participantsSortOrder,
   );
-  const sessionState = useSessionState(({state}) => state);
+  const sessionState = useSessionState(state => state.sessionState);
   const slideState = useSessionExercise();
 
   const participants = [

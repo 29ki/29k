@@ -11,7 +11,7 @@ import useSessionSlideState from './useSessionSlideState';
 const useMuteAudioListener = () => {
   const {t} = useTranslation('Screen.Session');
   const {toggleAudio} = useContext(DailyContext);
-  const sessionState = useSessionState(({state}) => state);
+  const sessionState = useSessionState(state => state.sessionState);
   const slideState = useSessionSlideState();
   const isSessionHost = useIsSessionHost();
   const addNotification = useSessionNotificationsState(

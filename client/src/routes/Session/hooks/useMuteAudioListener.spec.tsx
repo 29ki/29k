@@ -40,7 +40,7 @@ describe('useMuteAudioListener', () => {
   describe('toggles audio', () => {
     it('should toggle audio when state is playing and current slide is not sharing', async () => {
       useSessionState.setState({
-        state: {
+        sessionState: {
           playing: true,
         } as SessionState,
       });
@@ -58,7 +58,7 @@ describe('useMuteAudioListener', () => {
 
     it('should not toggle audio when state is not playing', async () => {
       useSessionState.setState({
-        state: {playing: false} as SessionState,
+        sessionState: {playing: false} as SessionState,
       });
 
       mockUseSessionSlideState.mockReturnValueOnce({
@@ -74,7 +74,7 @@ describe('useMuteAudioListener', () => {
 
     it('should not toggle audio when current slide is sharing', async () => {
       useSessionState.setState({
-        state: {playing: true} as SessionState,
+        sessionState: {playing: true} as SessionState,
       });
 
       mockUseSessionSlideState.mockReturnValueOnce({
@@ -98,7 +98,7 @@ describe('useMuteAudioListener', () => {
         session: {
           hostId: 'i-am-the-host-id',
         } as Session,
-        state: {playing: true} as SessionState,
+        sessionState: {playing: true} as SessionState,
       });
 
       mockUseSessionSlideState.mockReturnValueOnce({

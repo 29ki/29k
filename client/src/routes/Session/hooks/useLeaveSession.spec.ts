@@ -56,7 +56,7 @@ describe('useLeaveSession', () => {
         session: {
           hostId: 'some-host-id',
         } as Session,
-        state: {
+        sessionState: {
           id: 'some-session-id',
           started: true,
           completed: true,
@@ -102,7 +102,7 @@ describe('useLeaveSession', () => {
     it('leaves the call, resets the state and navigates on confirming', async () => {
       useSessionState.setState({
         session: {id: 'some-session-id'} as Session,
-        state: {
+        sessionState: {
           id: 'some-session-id',
           started: true,
         } as SessionState,
@@ -120,7 +120,7 @@ describe('useLeaveSession', () => {
       expect(alertConfirmMock).toHaveBeenCalledTimes(1);
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
       expect(useSessionState.getState().session).toBe(null);
-      expect(useSessionState.getState().state).toBe(null);
+      expect(useSessionState.getState().sessionState).toBe(null);
       expect(mockLogSessionMetricEvent).toHaveBeenCalledTimes(1);
       expect(mockNavigate).toHaveBeenCalledTimes(2);
     });
@@ -128,7 +128,7 @@ describe('useLeaveSession', () => {
     it('does nothing on dismiss', async () => {
       useSessionState.setState({
         session: {id: 'some-session-id'} as Session,
-        state: {
+        sessionState: {
           id: 'some-session-id',
           started: true,
         } as SessionState,
@@ -148,7 +148,7 @@ describe('useLeaveSession', () => {
       expect(useSessionState.getState().session).toEqual({
         id: 'some-session-id',
       });
-      expect(useSessionState.getState().state).toEqual({
+      expect(useSessionState.getState().sessionState).toEqual({
         id: 'some-session-id',
         started: true,
       });

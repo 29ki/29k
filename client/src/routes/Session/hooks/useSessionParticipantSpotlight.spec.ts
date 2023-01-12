@@ -15,7 +15,7 @@ describe('useSessionParticipantSpotlight', () => {
       },
     });
     useSessionState.setState({
-      state: {
+      sessionState: {
         dailySpotlightId: 'some-spotlight-user-id',
       } as SessionState,
     });

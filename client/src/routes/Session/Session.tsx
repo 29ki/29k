@@ -111,7 +111,7 @@ const Session = () => {
   const {endSession} = useUpdateSessionState(sessionId);
   const me = useLocalParticipant();
   const isHost = useIsSessionHost();
-  const sessionState = useSessionState(({state}) => state);
+  const sessionState = useSessionState(state => state.sessionState);
   const sessionSlideState = useSessionSlideState();
   const exercise = useSessionExercise();
   const theme = useExerciseTheme();

@@ -17,7 +17,7 @@ const useSubscribeToSessionIfFocused = (
   options?: Options,
 ) => {
   const {exitOnEnded = true} = options ?? {};
-  const setSessionState = useSessionState(state => state.setState);
+  const setSessionState = useSessionState(state => state.setSessionState);
   const setSession = useSessionState(state => state.setSession);
   const {fetchSessions} = useSessions();
   const subscribeToSession = useSubscribeToSession(sessionId);

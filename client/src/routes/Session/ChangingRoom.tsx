@@ -116,7 +116,7 @@ const ChangingRoom = () => {
     useContext(DailyContext);
 
   const session = useSessionState(state => state.session);
-  const sessionState = useSessionState(({state}) => state);
+  const sessionState = useSessionState(state => state.sessionState);
   const {
     params: {sessionId: sessionId},
   } = useRoute<RouteProp<SessionStackProps, 'ChangingRoom'>>();
