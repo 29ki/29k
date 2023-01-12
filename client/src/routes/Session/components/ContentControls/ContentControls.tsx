@@ -15,10 +15,11 @@ import {
   Rewind,
 } from '../../../../lib/components/Icons';
 
-import useUpdateSessionExerciseState from '../../hooks/useUpdateSessionExerciseState';
+import useUpdateSessionState from '../../hooks/useUpdateSessionState';
 import {Spacer8} from '../../../../lib/components/Spacers/Spacer';
 import Button from '../../../../lib/components/Buttons/Button';
 import IconButton from '../../../../lib/components/Buttons/IconButton/IconButton';
+
 import useSessionExercise from '../../hooks/useSessionExercise';
 
 const Wrapper = styled.View({
@@ -50,7 +51,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   style,
 }) => {
   const isHost = useIsSessionHost();
-  const exerciseState = useSessionState(state => state.session?.exerciseState);
+  const sessionState = useSessionState(state => state.sessionState);
   const currentContentReachedEnd = useSessionState(
     state => state.currentContentReachedEnd,
   );
@@ -61,8 +62,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   const slideState = useSessionSlideState();
   const {t} = useTranslation('Screen.Session');
 
-  const {navigateToIndex, setPlaying} =
-    useUpdateSessionExerciseState(sessionId);
+  const {navigateToIndex, setPlaying} = useUpdateSessionState(sessionId);
 
   const onPrevPress = useCallback(() => {
     if (slideState && exercise?.slides) {
@@ -83,8 +83,8 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   }, [slideState, exercise?.slides, navigateToIndex]);
 
   const onResetPlayingPress = useCallback(
-    () => setPlaying(Boolean(exerciseState?.playing)),
-    [exerciseState?.playing, setPlaying],
+    () => setPlaying(Boolean(sessionState?.playing)),
+    [sessionState?.playing, setPlaying],
   );
 
   const onTogglePlayingPress = useCallback(() => {
@@ -92,16 +92,16 @@ const ContentControls: React.FC<ContentControlsProps> = ({
       setPlaying(true);
       setCurrentContentReachedEnd(false);
     } else {
-      setPlaying(!exerciseState?.playing);
+      setPlaying(!sessionState?.playing);
     }
   }, [
-    exerciseState?.playing,
+    sessionState?.playing,
     setPlaying,
     currentContentReachedEnd,
     setCurrentContentReachedEnd,
   ]);
 
-  if (!isHost || !exercise || !exerciseState || !slideState) {
+  if (!isHost || !exercise || !sessionState || !slideState) {
     return null;
   }
 
@@ -141,9 +141,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
               }
               variant="tertiary"
               Icon={
-                exerciseState.playing && !currentContentReachedEnd
-                  ? Pause
-                  : Play
+                sessionState.playing && !currentContentReachedEnd ? Pause : Play
               }
               onPress={onTogglePlayingPress}
             />

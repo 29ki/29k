@@ -23,7 +23,7 @@ const useLeaveSession = () => {
   const {t} = useTranslation('Component.ConfirmExitSession');
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();
-  const session = useSessionState(state => state.session);
+  const sessionState = useSessionState(state => state.sessionState);
   const isHost = useIsSessionHost();
   const {fetchSessions} = useSessions();
   const logSessionMetricEvent = useLogInSessionMetricEvents();
@@ -42,17 +42,17 @@ const useLeaveSession = () => {
 
     navigate('Sessions');
 
-    if (session?.started) {
+    if (sessionState?.started) {
       navigate('SessionFeedbackModal', {
-        sessionId: session?.id,
-        completed: Boolean(session?.exerciseState?.completed),
+        sessionId: sessionState?.id,
+        completed: Boolean(sessionState?.completed),
         isHost,
       });
     }
   }, [
-    session?.id,
-    session?.started,
-    session?.exerciseState?.completed,
+    sessionState?.id,
+    sessionState?.started,
+    sessionState?.completed,
     isHost,
     leaveMeeting,
     resetSession,
@@ -75,13 +75,13 @@ const useLeaveSession = () => {
 
           onPress: () => {
             leaveSession();
-            if (!session?.exerciseState?.completed) {
+            if (!sessionState?.completed) {
               logSessionMetricEvent('Leave Sharing Session');
             }
           },
         },
       ]),
-    [t, leaveSession, session?.exerciseState?.completed, logSessionMetricEvent],
+    [t, leaveSession, sessionState?.completed, logSessionMetricEvent],
   );
 
   return {leaveSession, leaveSessionWithConfirm};

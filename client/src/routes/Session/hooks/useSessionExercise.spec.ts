@@ -1,5 +1,5 @@
 import {renderHook} from '@testing-library/react-hooks';
-import {Session} from '../../../../../shared/src/types/Session';
+import {Session, SessionState} from '../../../../../shared/src/types/Session';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useSessionState from '../state/state';
 import useSessionExercise from './useSessionExercise';
@@ -40,8 +40,8 @@ describe('useSessionExercise', () => {
     useSessionState.setState({
       session: {
         contentId: 'some-exercise-id',
-        exerciseState: {index: 1},
       } as Session,
+      sessionState: {index: 1} as SessionState,
     });
 
     const {result} = renderHook(() => useSessionExercise());
@@ -62,8 +62,8 @@ describe('useSessionExercise', () => {
     useSessionState.setState({
       session: {
         contentId: 'some-exercise-id',
-        exerciseState: {index: 1},
       } as Session,
+      sessionState: {index: 1} as SessionState,
     });
 
     const {result, rerender} = renderHook(() => useSessionExercise());

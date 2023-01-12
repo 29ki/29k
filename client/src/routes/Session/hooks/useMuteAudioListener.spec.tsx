@@ -5,7 +5,7 @@ import {DailyParticipant} from '@daily-co/react-native-daily-js';
 
 import useSessionState from '../state/state';
 
-import {ExerciseState, Session} from '../../../../../shared/src/types/Session';
+import {Session, SessionState} from '../../../../../shared/src/types/Session';
 import {
   DailyContext,
   DailyProviderTypes,
@@ -40,9 +40,9 @@ describe('useMuteAudioListener', () => {
   describe('toggles audio', () => {
     it('should toggle audio when state is playing and current slide is not sharing', async () => {
       useSessionState.setState({
-        session: {
-          exerciseState: {playing: true} as ExerciseState,
-        } as Session,
+        sessionState: {
+          playing: true,
+        } as SessionState,
       });
 
       mockUseSessionSlideState.mockReturnValueOnce({
@@ -58,9 +58,7 @@ describe('useMuteAudioListener', () => {
 
     it('should not toggle audio when state is not playing', async () => {
       useSessionState.setState({
-        session: {
-          exerciseState: {playing: false} as ExerciseState,
-        } as Session,
+        sessionState: {playing: false} as SessionState,
       });
 
       mockUseSessionSlideState.mockReturnValueOnce({
@@ -76,9 +74,7 @@ describe('useMuteAudioListener', () => {
 
     it('should not toggle audio when current slide is sharing', async () => {
       useSessionState.setState({
-        session: {
-          exerciseState: {playing: true} as ExerciseState,
-        } as Session,
+        sessionState: {playing: true} as SessionState,
       });
 
       mockUseSessionSlideState.mockReturnValueOnce({
@@ -101,8 +97,8 @@ describe('useMuteAudioListener', () => {
       useSessionState.setState({
         session: {
           hostId: 'i-am-the-host-id',
-          exerciseState: {playing: true} as ExerciseState,
         } as Session,
+        sessionState: {playing: true} as SessionState,
       });
 
       mockUseSessionSlideState.mockReturnValueOnce({

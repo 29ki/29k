@@ -24,7 +24,7 @@ import {
   createSession,
   joinSession,
   removeSession,
-  updateExerciseState,
+  updateSessionState,
   updateSession,
   getSessions,
   getSessionToken,
@@ -52,9 +52,10 @@ jest.mock('../lib/dailyUtils');
 const mockGetSessions = sessionModel.getSessions as jest.Mock;
 const mockAddSession = sessionModel.addSession as jest.Mock;
 const mockGetSessionById = sessionModel.getSessionById as jest.Mock;
+const mockGetSessionStateById = sessionModel.getSessionStateById as jest.Mock;
 const mockDeleteSession = sessionModel.deleteSession as jest.Mock;
 const mockUpdateSession = sessionModel.updateSession as jest.Mock;
-const mockUpdateExerciseState = sessionModel.updateExerciseState as jest.Mock;
+const mockUpdateSessionState = sessionModel.updateSessionState as jest.Mock;
 const mockGetSessionByInviteCode =
   sessionModel.getSessionByInviteCode as jest.Mock;
 const mockGetPublicUserInfo = getPublicUserInfo as jest.Mock;
@@ -367,8 +368,11 @@ describe('sessions - controller', () => {
   describe('updateSession', () => {
     it('should throw if user is not the host', async () => {
       mockGetSessionById.mockResolvedValue({hostId: 'the-host-id'});
+      mockGetSessionStateById.mockResolvedValue({started: false});
       await expect(
-        updateSession('not-the-host-id', 'some-session-id', {started: true}),
+        updateSessionState('not-the-host-id', 'some-session-id', {
+          started: true,
+        }),
       ).rejects.toEqual(Error(ValidateSessionError.userNotAuthorized));
     });
 
@@ -420,20 +424,18 @@ describe('sessions - controller', () => {
       });
       mockGetSessionById.mockResolvedValueOnce({
         id: 'some-session-id',
-        started: true,
       }); // second call (returned value)
 
       const updatedSession = await updateSession(
         'the-host-id',
         'some-session-id',
-        {started: true},
+        {type: SessionType.private},
       );
       expect(mockUpdateSession).toHaveBeenCalledWith('some-session-id', {
-        started: true,
+        type: 'private',
       });
       expect(updatedSession).toEqual({
         id: 'some-session-id',
-        started: true,
         hostProfile: {
           displayName: 'some-name',
           photoURL: 'some-photo-url',
@@ -442,52 +444,76 @@ describe('sessions - controller', () => {
     });
   });
 
-  describe('updateExerciseState', () => {
+  describe('updateSessionState', () => {
     it('should throw if user is not the host', async () => {
-      mockGetSessionById.mockResolvedValue({hostId: 'the-host-id'});
+      mockGetSessionStateById.mockResolvedValueOnce({hostId: 'the-host-id'});
       await expect(
-        updateExerciseState('not-the-host-id', 'some-session-id', {
+        updateSessionState('not-the-host-id', 'some-session-id', {
           index: 1,
         }),
       ).rejects.toEqual(Error(ValidateSessionError.userNotAuthorized));
     });
 
     it('should throw if session is not found', async () => {
-      mockGetSessionById.mockResolvedValue(undefined);
+      mockGetSessionStateById.mockResolvedValueOnce(undefined);
       await expect(
-        updateExerciseState('not-the-host-id', 'some-session-id', {
+        updateSessionState('the-host-id', 'some-non-session-id', {
           index: 1,
         }),
       ).rejects.toEqual(Error(ValidateSessionError.notFound));
     });
 
-    it('should update the session and return it', async () => {
+    it('should update the session state and return it', async () => {
       mockGetSessionById.mockResolvedValueOnce({
         id: 'some-session-id',
-        dailyRoomName: 'some-daily-room-name',
         hostId: 'the-host-id',
       });
-      mockGetSessionById.mockResolvedValueOnce({
+      mockGetSessionStateById.mockResolvedValueOnce({
         id: 'some-session-id',
-        exerciseState: {index: 1},
-      }); // second call (returned value)
+        index: 1,
+      }); // first return (to check if it exists)
+      mockGetSessionStateById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        index: 1,
+      }); // returned value
 
-      const updatedSession = await updateExerciseState(
+      const updatedState = await updateSessionState(
         'the-host-id',
         'some-session-id',
         {index: 1},
       );
-      expect(mockUpdateExerciseState).toHaveBeenCalledWith('some-session-id', {
+      expect(mockUpdateSessionState).toHaveBeenCalledWith('some-session-id', {
         index: 1,
       });
-      expect(updatedSession).toEqual({
+      expect(updatedState).toEqual({id: 'some-session-id', index: 1});
+    });
+
+    it('should also update the session when is ended', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
         id: 'some-session-id',
-        exerciseState: {index: 1},
-        hostProfile: {
-          displayName: 'some-name',
-          photoURL: 'some-photo-url',
-        },
+        hostId: 'the-host-id',
       });
+      mockGetSessionStateById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        ended: true,
+      }); // first return (to check if it exists)
+      mockGetSessionStateById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        ended: true,
+      }); // returned value
+
+      const updatedState = await updateSessionState(
+        'the-host-id',
+        'some-session-id',
+        {ended: true},
+      );
+      expect(mockUpdateSession).toHaveBeenCalledWith('some-session-id', {
+        ended: true,
+      });
+      expect(mockUpdateSessionState).toHaveBeenCalledWith('some-session-id', {
+        ended: true,
+      });
+      expect(updatedState).toEqual({id: 'some-session-id', ended: true});
     });
   });
 });
