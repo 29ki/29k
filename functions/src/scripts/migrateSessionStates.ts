@@ -20,7 +20,7 @@ const firestore = admin.firestore();
 
   await Promise.all(
     snapshot.docs.map(async doc => {
-      const {id, started, ended, ...exerciseState} = getData<SessionData>(doc);
+      const {id, started, ended, exerciseState} = getData<SessionData>(doc);
 
       firestore
         .collection('sessions')
