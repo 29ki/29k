@@ -176,7 +176,6 @@ const ExerciseStateUpdateSchema = yup
   .object({
     index: yup.number(),
     playing: yup.boolean(),
-    dailySpotlightId: yup.string(),
     ended: yup.boolean(),
     completed: yup.boolean(),
   })

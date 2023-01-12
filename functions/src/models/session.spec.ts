@@ -394,32 +394,6 @@ describe('session model', () => {
         updatedAt: expect.any(String),
       });
     });
-
-    it('should update dailySpotlightId', async () => {
-      await updateExerciseState('some-session-id', {
-        dailySpotlightId: 'some-user-id',
-      });
-      const session = await getSessionById('some-session-id');
-
-      expect(session).toEqual({
-        id: 'some-session-id',
-        name: 'some-name',
-        url: 'some-url',
-        exerciseState: {
-          index: 0,
-          playing: false,
-          dailySpotlightId: 'some-user-id',
-          timestamp: expect.any(String),
-        },
-        hostId: 'some-user-id',
-        startTime: expect.any(String),
-        started: false,
-        ended: false,
-        userIds: ['*'],
-        createdAt: expect.any(String),
-        updatedAt: expect.any(String),
-      });
-    });
   });
 
   describe('deleteSession', () => {
