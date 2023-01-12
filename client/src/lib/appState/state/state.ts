@@ -1,5 +1,5 @@
 import create from 'zustand';
-import {persist} from 'zustand/middleware';
+import {createJSONStorage, persist} from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {LANGUAGE_TAG} from '../../i18n';
@@ -40,7 +40,7 @@ const useAppState = create<State & Actions>()(
     }),
     {
       name: 'appState',
-      getStorage: () => AsyncStorage,
+      storage: createJSONStorage(() => AsyncStorage),
       partialize: ({settings}) => ({
         settings,
       }),
