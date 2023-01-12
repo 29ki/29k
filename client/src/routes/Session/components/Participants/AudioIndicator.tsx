@@ -14,7 +14,7 @@ const Wrapper = styled.View({
   padding: 2,
 });
 
-type AudioIndicatorProps = {muted: boolean; style?: ViewStyle};
+export type AudioIndicatorProps = {muted: boolean; style?: ViewStyle};
 
 const AudioIndicator: React.FC<AudioIndicatorProps> = ({
   muted = false,

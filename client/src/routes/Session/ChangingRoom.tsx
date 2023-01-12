@@ -37,7 +37,7 @@ import {
 } from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../lib/constants/spacings';
 import TextInput from '../../lib/components/Typography/TextInput/TextInput';
-import AudioIndicator from './components/Participants/AudioIdicator';
+import AudioIndicator from './components/Participants/AudioIndicator';
 import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
 import useUpdateSessionExerciseState from './hooks/useUpdateSessionExerciseState';
 import useIsSessionHost from './hooks/useIsSessionHost';
