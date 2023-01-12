@@ -17,7 +17,6 @@ import ExerciseSlides from './components/ExerciseSlides/ExerciseSlides';
 import Participants from './components/Participants/Participants';
 import useSessionParticipants from './hooks/useSessionParticipants';
 import useSessionSlideState from './hooks/useSessionSlideState';
-import useMuteAudioListener from './hooks/useMuteAudioListener';
 import ProgressBar from './components/ProgressBar/ProgressBar';
 import {SPACINGS} from '../../lib/constants/spacings';
 import ContentControls from './components/ContentControls/ContentControls';
@@ -106,7 +105,6 @@ const Session = () => {
     useNavigation<NativeStackNavigationProp<SessionStackProps>>();
   const {t} = useTranslation('Screen.Session');
   useSubscribeToSessionIfFocused(sessionId, {exitOnEnded: false});
-  useMuteAudioListener();
 
   const participants = useSessionParticipants();
   const {setEnded} = useUpdateSession(sessionId);

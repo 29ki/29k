@@ -20,6 +20,7 @@ import {Spacer8} from '../../../../lib/components/Spacers/Spacer';
 import Button from '../../../../lib/components/Buttons/Button';
 import IconButton from '../../../../lib/components/Buttons/IconButton/IconButton';
 import useSessionExercise from '../../hooks/useSessionExercise';
+import useMuteAudio from '../../hooks/useMuteAudio';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -60,7 +61,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   const exercise = useSessionExercise();
   const slideState = useSessionSlideState();
   const {t} = useTranslation('Screen.Session');
-
+  const {conditionallyMuteParticipants} = useMuteAudio();
   const {navigateToIndex, setPlaying} =
     useUpdateSessionExerciseState(sessionId);
 
@@ -91,14 +92,19 @@ const ContentControls: React.FC<ContentControlsProps> = ({
     if (currentContentReachedEnd) {
       setPlaying(true);
       setCurrentContentReachedEnd(false);
+      conditionallyMuteParticipants(true, slideState?.current);
     } else {
-      setPlaying(!exerciseState?.playing);
+      const playing = !exerciseState?.playing;
+      setPlaying(playing);
+      conditionallyMuteParticipants(playing, slideState?.current);
     }
   }, [
     exerciseState?.playing,
+    slideState,
     setPlaying,
     currentContentReachedEnd,
     setCurrentContentReachedEnd,
+    conditionallyMuteParticipants,
   ]);
 
   if (!isHost || !exercise || !exerciseState || !slideState) {
