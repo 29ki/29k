@@ -43,17 +43,6 @@ const useUpdateSessionState = (sessionId: Session['id'] | undefined) => {
     [sessionId],
   );
 
-  const setSpotlightParticipant = useCallback(
-    async (dailySpotlightId: SessionState['dailySpotlightId']) => {
-      if (sessionId) {
-        return sessionApi.updateSessionState(sessionId, {
-          dailySpotlightId,
-        });
-      }
-    },
-    [sessionId],
-  );
-
   const setPlaying = useCallback(
     async (playing: SessionState['playing']) => {
       if (sessionId) {
@@ -66,18 +55,11 @@ const useUpdateSessionState = (sessionId: Session['id'] | undefined) => {
   return useMemo(
     () => ({
       navigateToIndex,
-      setSpotlightParticipant,
       setPlaying,
       startSession,
       endSession,
     }),
-    [
-      navigateToIndex,
-      setSpotlightParticipant,
-      setPlaying,
-      startSession,
-      endSession,
-    ],
+    [navigateToIndex, setPlaying, startSession, endSession],
   );
 };
 export default useUpdateSessionState;

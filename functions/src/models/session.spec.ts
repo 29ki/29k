@@ -331,23 +331,6 @@ describe('session model', () => {
         started: false,
       });
     });
-
-    it('should update dailySpotlightId', async () => {
-      await updateSessionState('some-session-id', {
-        dailySpotlightId: 'some-user-id',
-      });
-      const session = await getSessionStateById('some-session-id');
-
-      expect(session).toEqual({
-        dailySpotlightId: 'some-user-id',
-        ended: false,
-        id: 'some-session-id',
-        index: 2,
-        playing: true,
-        started: false,
-        timestamp: expect.any(String),
-      });
-    });
   });
 
   describe('deleteSession', () => {

@@ -39,8 +39,6 @@ import {SPACINGS} from '../../lib/constants/spacings';
 import TextInput from '../../lib/components/Typography/TextInput/TextInput';
 import AudioIndicator from './components/Participants/AudioIdicator';
 import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
-import useUpdateSessionState from './hooks/useUpdateSessionState';
-import useIsSessionHost from './hooks/useIsSessionHost';
 import Screen from '../../lib/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../lib/user/hooks/useUser';
@@ -128,8 +126,6 @@ const ChangingRoom = () => {
   } = useRoute<RouteProp<SessionStackProps, 'ChangingRoom'>>();
 
   useSubscribeToSessionIfFocused(sessionId);
-  const {setSpotlightParticipant} = useUpdateSessionState(sessionId);
-  const isHost = useIsSessionHost();
   const isFocused = useIsFocused();
   const me = useLocalParticipant();
   const user = useUser();
@@ -183,12 +179,6 @@ const ChangingRoom = () => {
       preJoin(session.url, session.id);
     }
   }, [isFocused, session?.url, session?.id, sessionId, preJoin]);
-
-  useEffect(() => {
-    if (isHost && me?.user_id) {
-      setSpotlightParticipant(me.user_id);
-    }
-  }, [isHost, me?.user_id, setSpotlightParticipant]);
 
   const join = useCallback(async () => {
     setJoiningMeeting(true);

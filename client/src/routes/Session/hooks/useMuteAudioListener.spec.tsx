@@ -1,7 +1,7 @@
 import React from 'react';
 import {renderHook} from '@testing-library/react-hooks';
-import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {useTranslation} from 'react-i18next';
+import {DailyParticipant} from '@daily-co/react-native-daily-js';
 
 import useSessionState from '../state/state';
 
@@ -13,7 +13,7 @@ import {
 import useMuteAudioListener from './useMuteAudioListener';
 import useSessionSlideState from './useSessionSlideState';
 import useSessionNotificationsState from '../state/sessionNotificationsState';
-import useUserState from '../../../lib/user/state/state';
+import useDailyState from '../../../lib/daily/state/state';
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -107,8 +107,10 @@ describe('useMuteAudioListener', () => {
     });
 
     it('should trigger mute notification for host', async () => {
-      useUserState.setState({
-        user: {uid: 'i-am-the-host-id'} as FirebaseAuthTypes.User,
+      useDailyState.setState({
+        participants: {
+          'some-daily-user-id': {local: true, owner: true} as DailyParticipant,
+        },
       });
 
       renderHook(() => useMuteAudioListener(), {
@@ -124,8 +126,10 @@ describe('useMuteAudioListener', () => {
     });
 
     it('should not trigger mute notification for non-host participants', () => {
-      useUserState.setState({
-        user: {uid: 'im-not-the-host-id'} as FirebaseAuthTypes.User,
+      useDailyState.setState({
+        participants: {
+          'some-daily-user-id': {local: true, owner: false} as DailyParticipant,
+        },
       });
 
       renderHook(() => useMuteAudioListener(), {

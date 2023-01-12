@@ -176,7 +176,6 @@ const SessionStateUpdateSchema = yup
     ended: yup.boolean(),
     index: yup.number(),
     playing: yup.boolean(),
-    dailySpotlightId: yup.string(),
     completed: yup.boolean(),
   })
   .test(

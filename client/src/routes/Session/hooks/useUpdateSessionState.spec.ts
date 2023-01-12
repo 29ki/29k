@@ -27,35 +27,6 @@ afterEach(() => {
 });
 
 describe('useUpdateSessionState', () => {
-  describe('setSpotlightParticipant', () => {
-    it('should call api when called', async () => {
-      fetchMock.mockResponseOnce(
-        JSON.stringify({
-          data: 'some-data',
-        }),
-        {status: 200},
-      );
-
-      const {result} = renderHook(() => useUpdateSessionState('session-id'));
-
-      await act(async () => {
-        await result.current.setSpotlightParticipant('some-participant-id');
-      });
-
-      expect(fetchMock).toHaveBeenCalledTimes(1);
-    });
-
-    it('should do nothing when session is undefined', async () => {
-      const {result} = renderHook(() => useUpdateSessionState(undefined));
-
-      await act(async () => {
-        await result.current.setSpotlightParticipant('some-participant-id');
-      });
-
-      expect(fetchMock).toHaveBeenCalledTimes(0);
-    });
-  });
-
   describe('setPlaying', () => {
     it('should call api when called', async () => {
       fetchMock.mockResponseOnce(

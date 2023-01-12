@@ -10,7 +10,6 @@ export enum SessionType {
 type SessionStateFields = {
   index: number;
   playing: boolean;
-  dailySpotlightId?: string;
   started: boolean;
   ended: boolean;
   id: string;
