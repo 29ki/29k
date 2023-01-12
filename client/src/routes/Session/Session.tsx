@@ -140,8 +140,7 @@ const Session = () => {
 
   useEffect(() => {
     if (sessionState?.ended) {
-      leaveMeeting();
-      navigate('OutroPortal');
+      leaveMeeting().then(() => navigate('OutroPortal'));
     }
   }, [sessionState?.ended, navigate, leaveMeeting]);
 
