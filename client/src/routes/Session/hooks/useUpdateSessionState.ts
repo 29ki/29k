@@ -1,4 +1,4 @@
-import {useCallback, useMemo} from 'react';
+import {useCallback} from 'react';
 import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 import {SessionState, Session} from '../../../../../shared/src/types/Session';
 import * as sessionApi from '../../../lib/sessions/api/session';
@@ -52,14 +52,11 @@ const useUpdateSessionState = (sessionId: Session['id'] | undefined) => {
     [sessionId],
   );
 
-  return useMemo(
-    () => ({
-      navigateToIndex,
-      setPlaying,
-      startSession,
-      endSession,
-    }),
-    [navigateToIndex, setPlaying, startSession, endSession],
-  );
+  return {
+    navigateToIndex,
+    setPlaying,
+    startSession,
+    endSession,
+  };
 };
 export default useUpdateSessionState;
