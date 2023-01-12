@@ -13,14 +13,14 @@ import useSubscribeToSession from './useSubscribeToSession';
 type Options = {exitOnEnded?: boolean};
 
 const useSubscribeToSessionIfFocused = (
-  sessionId: Session['id'],
+  session: Session,
   options?: Options,
 ) => {
   const {exitOnEnded = true} = options ?? {};
   const setSessionState = useSessionState(state => state.setSessionState);
   const setSession = useSessionState(state => state.setSession);
   const {fetchSessions} = useSessions();
-  const subscribeToSession = useSubscribeToSession(sessionId);
+  const subscribeToSession = useSubscribeToSession(session.id);
   const isFocused = useIsFocused();
 
   const {navigate} =
@@ -30,7 +30,7 @@ const useSubscribeToSessionIfFocused = (
 
   useEffect(() => {
     if (isFocused) {
-      return subscribeToSession((sessionState, session) => {
+      return subscribeToSession(sessionState => {
         if (!sessionState || !session || (exitOnEnded && sessionState?.ended)) {
           fetchSessions();
           navigate('Sessions');
@@ -50,6 +50,7 @@ const useSubscribeToSessionIfFocused = (
     navigate,
     setSessionState,
     setSession,
+    session,
   ]);
 };
 

@@ -88,7 +88,7 @@ const BackButton = styled(IconButton)({
 
 const IntroPortal: React.FC = () => {
   const {
-    params: {sessionId: sessionId},
+    params: {session},
   } = useRoute<RouteProp<SessionStackProps, 'IntroPortal'>>();
   const endVideoRef = useRef<Video>(null);
   const [loopVideoLoaded, setLoopVideoLoaded] = useState(false);
@@ -106,10 +106,10 @@ const IntroPortal: React.FC = () => {
         SessionStackProps & TabNavigatorProps & ModalStackProps
       >
     >();
-  const {startSession} = useUpdateSessionState(sessionId);
+  const {startSession} = useUpdateSessionState(session.id);
   const {leaveSessionWithConfirm} = useLeaveSession();
   const isFocused = useIsFocused();
-  useSubscribeToSessionIfFocused(sessionId);
+  useSubscribeToSessionIfFocused(session);
   const sessionTime = useSessionStartTime(dayjs(startTime));
   const logSessionMetricEvent = useLogInSessionMetricEvents();
   const introPortal = exercise?.introPortal;
@@ -125,8 +125,8 @@ const IntroPortal: React.FC = () => {
   }, [logSessionMetricEvent, sessionState?.id]);
 
   const navigateToSession = useCallback(
-    () => navigate('Session', {sessionId: sessionId}),
-    [navigate, sessionId],
+    () => navigate('Session', {session}),
+    [navigate, session],
   );
 
   useEffect(() => {

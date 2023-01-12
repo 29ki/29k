@@ -2,6 +2,7 @@ import {renderHook} from '@testing-library/react-hooks';
 import {useNavigation, useIsFocused} from '@react-navigation/native';
 import useSessionState from '../state/state';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
+import {Session} from '../../../../../shared/src/types/Session';
 jest.mock('../../../lib/sessions/hooks/useSessions');
 jest.mock('./useSubscribeToSession');
 
@@ -26,7 +27,9 @@ describe('useSubscribeToSessionIfFocused', () => {
   const navigation = useNavigation();
 
   const useTestHook = ({exitOnEnded = true} = {}) => {
-    useSubscribeToSessionIfFocused('session-id', {exitOnEnded});
+    useSubscribeToSessionIfFocused({id: 'session-id'} as Session, {
+      exitOnEnded,
+    });
     const sessionState = useSessionState(state => state.sessionState);
     const session = useSessionState(state => state.session);
 
@@ -44,14 +47,16 @@ describe('useSubscribeToSessionIfFocused', () => {
   it('should set live content state', () => {
     mockUseIsFocused.mockReturnValueOnce(true);
     mockSubscribeToSession.mockImplementation(cb =>
-      cb({id: 'test-id'}, {id: 'test-id'}),
+      cb({id: 'session-id', someStateProp: 'test'}),
     );
 
     const {result} = renderHook(() => useTestHook());
 
     expect(result.current).toEqual({
-      sessionState: {id: 'test-id'},
-      session: {id: 'test-id'},
+      sessionState: {id: 'session-id', someStateProp: 'test'},
+      session: {
+        id: 'session-id',
+      },
     });
   });
 

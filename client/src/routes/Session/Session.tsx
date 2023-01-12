@@ -99,16 +99,16 @@ const Session = () => {
     leaveMeeting,
   } = useContext(DailyContext);
   const {
-    params: {sessionId},
+    params: {session},
   } = useRoute<RouteProp<SessionStackProps, 'Session'>>();
   const {navigate} =
     useNavigation<NativeStackNavigationProp<SessionStackProps>>();
   const {t} = useTranslation('Screen.Session');
-  useSubscribeToSessionIfFocused(sessionId, {exitOnEnded: false});
+  useSubscribeToSessionIfFocused(session, {exitOnEnded: false});
   useMuteAudioListener();
 
   const participants = useSessionParticipants();
-  const {endSession} = useUpdateSessionState(sessionId);
+  const {endSession} = useUpdateSessionState(session.id);
   const me = useLocalParticipant();
   const isHost = useIsSessionHost();
   const sessionState = useSessionState(state => state.sessionState);
@@ -197,7 +197,7 @@ const Session = () => {
             )}
           </SpotlightContent>
         )}
-        <ExerciseControl sessionId={sessionId} />
+        <ExerciseControl sessionId={session.id} />
       </Spotlight>
       <Participants participants={participants} />
       <Spacer16 />

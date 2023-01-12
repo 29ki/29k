@@ -4,40 +4,30 @@ import {
   SessionState,
   Session,
   SessionStateData,
-  SessionData,
 } from '../../../../../shared/src/types/Session';
 import {getData} from '../../../../../shared/src/modelUtils/firestore';
-import {
-  getSession,
-  getSessionState,
-} from '../../../../../shared/src/modelUtils/session';
+import {getSessionState} from '../../../../../shared/src/modelUtils/session';
 
 const useSubscribeToSession = (sessionId: Session['id']) => {
   return useCallback(
-    (
-      onSnapshot: (
-        sessionState: SessionState | undefined,
-        session: Session | undefined,
-      ) => any,
-    ) => {
-      const sessionDoc = firestore().collection('sessions').doc(sessionId);
-      const stateDoc = sessionDoc.collection('state').doc(sessionId);
-
-      const sessionPromise = sessionDoc.get();
+    (onSnapshot: (sessionState: SessionState | undefined) => any) => {
+      const stateDoc = firestore()
+        .collection('sessions')
+        .doc(sessionId)
+        .collection('state')
+        .doc(sessionId);
 
       const unsubscribe = stateDoc.onSnapshot(
         snapshot => {
           if (!snapshot.exists) {
-            onSnapshot(undefined, undefined);
+            onSnapshot(undefined);
           }
 
           const sessionState = getSessionState(
             getData<SessionStateData>(snapshot),
           );
 
-          sessionPromise
-            .then(doc => getSession(getData<SessionData>(doc)))
-            .then(session => onSnapshot(sessionState, session));
+          onSnapshot(sessionState);
         },
         error =>
           console.debug(
