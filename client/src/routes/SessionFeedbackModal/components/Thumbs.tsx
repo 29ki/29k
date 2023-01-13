@@ -15,6 +15,7 @@ type ThumbProps = {
   active?: boolean;
   style?: SvgProps['style'];
 };
+
 export const ThumbsUp: React.FC<ThumbProps> = ({active = false, style}) => (
   <StyledSvg
     width="100%"
