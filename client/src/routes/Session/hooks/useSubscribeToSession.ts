@@ -1,22 +1,33 @@
 import {useCallback} from 'react';
 import firestore from '@react-native-firebase/firestore';
-import {Session, SessionData} from '../../../../../shared/src/types/Session';
+import {
+  SessionState,
+  Session,
+  SessionStateData,
+} from '../../../../../shared/src/types/Session';
 import {getData} from '../../../../../shared/src/modelUtils/firestore';
-import {getSession} from '../../../../../shared/src/modelUtils/session';
+import {getSessionState} from '../../../../../shared/src/modelUtils/session';
 
 const useSubscribeToSession = (sessionId: Session['id']) => {
   return useCallback(
-    (onSnapshot: (session: Session | undefined) => any) => {
-      const doc = firestore().collection('sessions').doc(sessionId);
+    (onSnapshot: (sessionState: SessionState | undefined) => any) => {
+      const stateDoc = firestore()
+        .collection('sessions')
+        .doc(sessionId)
+        .collection('state')
+        .doc(sessionId);
 
-      const unsubscribe = doc.onSnapshot(
+      const unsubscribe = stateDoc.onSnapshot(
         snapshot => {
           if (!snapshot.exists) {
             onSnapshot(undefined);
           }
 
-          const session = getSession(getData<SessionData>(snapshot));
-          onSnapshot(session);
+          const sessionState = getSessionState(
+            getData<SessionStateData>(snapshot),
+          );
+
+          onSnapshot(sessionState);
         },
         error =>
           console.debug(

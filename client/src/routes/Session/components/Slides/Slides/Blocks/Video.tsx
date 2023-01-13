@@ -43,7 +43,7 @@ const Video: React.FC<VideoProps> = ({
   const timerRef = useRef<LottiePlayerHandle>(null);
   const onEndRef = useRef<boolean>(false);
   const [duration, setDuration] = useState(0);
-  const exerciseState = useSessionState(state => state.session?.exerciseState);
+  const sessionState = useSessionState(state => state.sessionState);
   const setCurrentContentReachedEnd = useSessionState(
     state => state.setCurrentContentReachedEnd,
   );
@@ -55,10 +55,10 @@ const Video: React.FC<VideoProps> = ({
   }, []);
 
   useEffect(() => {
-    if (active && !autoPlayLoop && duration && exerciseState) {
+    if (active && !autoPlayLoop && duration && sessionState) {
       // Block is active, video and state is loaded
-      const playing = exerciseState.playing;
-      const timestamp = new Date(exerciseState.timestamp);
+      const playing = sessionState.playing;
+      const timestamp = new Date(sessionState.timestamp);
 
       // Reset onEndRef when playing
       if (playing) {
@@ -88,7 +88,7 @@ const Video: React.FC<VideoProps> = ({
         timestamp,
       };
     }
-  }, [active, autoPlayLoop, duration, previousState, exerciseState, seek]);
+  }, [active, autoPlayLoop, duration, previousState, sessionState, seek]);
 
   const onLoad = useCallback<(data: OnLoadData) => void>(
     data => {
@@ -96,6 +96,8 @@ const Video: React.FC<VideoProps> = ({
     },
     [setDuration],
   );
+
+  const paused = !active || (!sessionState?.playing && !autoPlayLoop);
 
   const onEnd = useCallback(() => {
     // seek(0) does not reset progress so a second onEnd is triggered
@@ -105,8 +107,6 @@ const Video: React.FC<VideoProps> = ({
       setCurrentContentReachedEnd(true);
     }
   }, [setCurrentContentReachedEnd, autoPlayLoop]);
-
-  const paused = !active || (!exerciseState?.playing && !autoPlayLoop);
 
   const videoProps: VideoProperties = useMemo(
     () => ({

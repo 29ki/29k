@@ -48,11 +48,17 @@ import {getSessionToken} from '../../lib/sessions/api/session';
 import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
 import useCheckPermissions from './hooks/useCheckPermissions';
 
-const Wrapper = styled.KeyboardAvoidingView.attrs({
+const KeyboardWrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'padding', android: undefined}),
 })({
   flex: 1,
   justifyContent: 'center',
+});
+
+const ScrollWrapper = styled.ScrollView.attrs({
+  contentContainerStyle: {flex: 1},
+})({
+  flex: 1,
 });
 
 const Controls = styled.View({
@@ -113,12 +119,12 @@ const ChangingRoom = () => {
   const {toggleAudio, toggleVideo, setUserName, joinMeeting, preJoinMeeting} =
     useContext(DailyContext);
 
-  const session = useSessionState(state => state.session);
+  const sessionState = useSessionState(state => state.sessionState);
   const {
-    params: {sessionId: sessionId},
+    params: {session},
   } = useRoute<RouteProp<SessionStackProps, 'ChangingRoom'>>();
 
-  useSubscribeToSessionIfFocused(sessionId);
+  useSubscribeToSessionIfFocused(session);
   const isFocused = useIsFocused();
   const me = useLocalParticipant();
   const user = useUser();
@@ -134,13 +140,8 @@ const ChangingRoom = () => {
   const hasVideo = Boolean(me?.videoTrack);
 
   useEffect(() => {
-    // If switching between sessions, the session will first be the old one
-    // and then beacome the current one by useSubscribeToSessionIfFocused.
-    // Only log metrics when session is the same as passed in by params
-    if (session?.id === sessionId) {
-      logSessionMetricEvent('Enter Changing Room');
-    }
-  }, [logSessionMetricEvent, session?.id, sessionId]);
+    logSessionMetricEvent('Enter Changing Room');
+  }, [logSessionMetricEvent]);
 
   const preJoin = useCallback(
     async (url: string, id: string) => {
@@ -168,16 +169,16 @@ const ChangingRoom = () => {
     // If switching between sessions, the session will first be the old one
     // and then beacome the current one by useSubscribeToSessionIfFocused.
     // Only pre join when the session is the same as passed in by params
-    if (isFocused && session?.url && session?.id && session?.id === sessionId) {
+    if (isFocused && session?.url && session?.id) {
       preJoin(session.url, session.id);
     }
-  }, [isFocused, session?.url, session?.id, sessionId, preJoin]);
+  }, [isFocused, session?.url, session?.id, preJoin]);
 
   const join = useCallback(async () => {
     setJoiningMeeting(true);
-    if (session?.started) {
+    if (sessionState?.started) {
       await joinMeeting();
-      navigate('Session', {sessionId});
+      navigate('Session', {session});
     } else {
       await joinMeeting({
         subscribeToTracksAutomatically: false,
@@ -185,13 +186,21 @@ const ChangingRoom = () => {
           inPortal: true,
         },
       });
-      navigate('IntroPortal', {sessionId});
+      navigate('IntroPortal', {session});
     }
-  }, [setJoiningMeeting, sessionId, session?.started, joinMeeting, navigate]);
+  }, [
+    setJoiningMeeting,
+    sessionState?.started,
+    joinMeeting,
+    navigate,
+    session,
+  ]);
 
   const joinPress = useCallback(() => {
-    setUserName(localUserName);
-    checkJoinPermissions(join);
+    if (localUserName) {
+      setUserName(localUserName);
+      checkJoinPermissions(join);
+    }
   }, [localUserName, setUserName, checkJoinPermissions, join]);
 
   const toggleAudioPress = useCallback(() => {
@@ -208,73 +217,76 @@ const ChangingRoom = () => {
 
   return (
     <Screen onPressBack={goBack}>
-      <TopSafeArea />
-      <Wrapper>
-        {!me ? (
-          <ActivityIndicator size="large" />
-        ) : (
-          <>
-            <VideoWrapper>
-              {isFocused && hasVideo ? (
-                <DailyMediaViewWrapper
-                  videoTrack={me?.videoTrack ?? null}
-                  audioTrack={me?.audioTrack ?? null}
-                  objectFit={'cover'}
-                  mirror={me?.local}
-                />
-              ) : user?.photoURL ? (
-                <ImageContainer>
-                  <Image source={{uri: user.photoURL}} />
-                </ImageContainer>
-              ) : (
-                <VideoText>{t('cameraOff')}</VideoText>
-              )}
-              <Audio muted={!hasAudio} />
-            </VideoWrapper>
+      <ScrollWrapper>
+        <TopSafeArea />
+        <KeyboardWrapper>
+          {!me ? (
+            <ActivityIndicator size="large" />
+          ) : (
+            <>
+              <VideoWrapper>
+                {isFocused && hasVideo ? (
+                  <DailyMediaViewWrapper
+                    videoTrack={me?.videoTrack ?? null}
+                    audioTrack={me?.audioTrack ?? null}
+                    objectFit={'cover'}
+                    mirror={me?.local}
+                  />
+                ) : user?.photoURL ? (
+                  <ImageContainer>
+                    <Image source={{uri: user.photoURL}} />
+                  </ImageContainer>
+                ) : (
+                  <VideoText>{t('cameraOff')}</VideoText>
+                )}
+                <Audio muted={!hasAudio} />
+              </VideoWrapper>
 
-            <Spacer28 />
-            <Gutters>
-              <Controls>
-                <IconButton
-                  disabled
-                  onPress={toggleAudioPress}
-                  active={hasAudio}
-                  variant="secondary"
-                  Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
-                />
-                <Spacer16 />
-                <IconButton
-                  onPress={toggleVideoPress}
-                  active={hasVideo}
-                  variant="secondary"
-                  Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
-                />
-              </Controls>
-              <Spacer48 />
-              <InputWrapper>
-                <StyledTextInput
-                  autoFocus
-                  onChangeText={setLocalUserName}
-                  autoCapitalize="words"
-                  autoCorrect={false}
-                  maxLength={20}
-                  value={localUserName}
-                  placeholder={t('placeholder')}
-                />
-                <Spacer28 />
-                <Button
-                  variant="secondary"
-                  onPress={joinPress}
-                  loading={joiningMeeting}
-                  disabled={!localUserName.length || joiningMeeting}>
-                  {t('join_button')}
-                </Button>
-              </InputWrapper>
-            </Gutters>
-          </>
-        )}
-      </Wrapper>
-      <BottomSafeArea minSize={SPACINGS.TWENTYEIGHT} />
+              <Spacer28 />
+              <Gutters>
+                <Controls>
+                  <IconButton
+                    disabled
+                    onPress={toggleAudioPress}
+                    active={hasAudio}
+                    variant="secondary"
+                    Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
+                  />
+                  <Spacer16 />
+                  <IconButton
+                    onPress={toggleVideoPress}
+                    active={hasVideo}
+                    variant="secondary"
+                    Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
+                  />
+                </Controls>
+                <Spacer48 />
+                <InputWrapper>
+                  <StyledTextInput
+                    autoFocus
+                    onChangeText={setLocalUserName}
+                    onSubmitEditing={joinPress}
+                    autoCapitalize="words"
+                    autoCorrect={false}
+                    maxLength={20}
+                    defaultValue={localUserName}
+                    placeholder={t('placeholder')}
+                  />
+                  <Spacer28 />
+                  <Button
+                    variant="secondary"
+                    onPress={joinPress}
+                    loading={joiningMeeting}
+                    disabled={!localUserName.length || joiningMeeting}>
+                    {t('join_button')}
+                  </Button>
+                </InputWrapper>
+              </Gutters>
+            </>
+          )}
+        </KeyboardWrapper>
+        <BottomSafeArea minSize={SPACINGS.TWENTYEIGHT} />
+      </ScrollWrapper>
     </Screen>
   );
 };

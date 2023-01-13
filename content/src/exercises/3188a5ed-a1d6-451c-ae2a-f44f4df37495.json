@@ -10,7 +10,14 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1673467668/Video/portal1_Drop_all_requirements_vpxa2p.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1673467641/Audio/portal_audio_Drop_all_requirements_dw8lju.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1673467668/Video/portal2_Drop_all_requirements_bvew1j.mp4"
+      }
     },
     "slides": [
       {

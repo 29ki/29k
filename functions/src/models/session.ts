@@ -6,20 +6,27 @@ import dayjs from 'dayjs';
 import {
   Session,
   SessionData,
+  SessionStateData,
   SessionType,
 } from '../../../shared/src/types/Session';
-import {getSession} from '../../../shared/src/modelUtils/session';
+import {
+  getSession,
+  getSessionState,
+} from '../../../shared/src/modelUtils/session';
 import {getData} from '../../../shared/src/modelUtils/firestore';
-import {ExerciseStateUpdate} from '../api/sessions';
+import {SessionStateUpdate} from '../api/sessions';
 import {removeEmpty} from '../lib/utils';
 
-const defaultExerciseState = {
+const defaultSessionState = {
   index: 0,
   playing: false,
   timestamp: Timestamp.now(),
+  started: false,
+  ended: false,
 };
 
 const SESSIONS_COLLECTION = 'sessions';
+const SESSION_STATE_SUB_COLLECTION = 'state';
 
 export const getSessionById = async (id: Session['id']) => {
   const sessionDoc = await firestore()
@@ -32,6 +39,21 @@ export const getSessionById = async (id: Session['id']) => {
   }
 
   return getSession(getData<SessionData>(sessionDoc));
+};
+
+export const getSessionStateById = async (id: Session['id']) => {
+  const sessionStateDoc = await firestore()
+    .collection(SESSIONS_COLLECTION)
+    .doc(id)
+    .collection(SESSION_STATE_SUB_COLLECTION)
+    .doc(id)
+    .get();
+
+  if (!sessionStateDoc.exists) {
+    return;
+  }
+
+  return getSessionState(getData<SessionStateData>(sessionStateDoc));
 };
 
 export const getSessionByInviteCode = async ({
@@ -96,10 +118,9 @@ export const addSession = async ({
   type,
   link,
   inviteCode,
-}: Omit<
-  Session,
-  'exerciseState' | 'ended' | 'started' | 'userIds' | 'createdAt' | 'updatedAt'
->) => {
+}: Omit<Session, 'ended' | 'userIds' | 'createdAt' | 'updatedAt'> & {
+  dailyRoomName: string;
+}) => {
   const now = Timestamp.now();
   const session = {
     id,
@@ -112,23 +133,28 @@ export const addSession = async ({
     link,
     inviteCode,
     startTime: Timestamp.fromDate(new Date(startTime)),
-    exerciseState: defaultExerciseState,
-    started: false,
-    ended: false,
     createdAt: now,
     updatedAt: now,
+    ended: false,
     // '*' means session is available for everyone/public enables one single query on getSessions
     userIds: type === SessionType.private ? [hostId] : ['*'],
   };
 
   const sessionDoc = firestore().collection(SESSIONS_COLLECTION).doc(id);
   await sessionDoc.set(session);
+  await sessionDoc
+    .collection(SESSION_STATE_SUB_COLLECTION)
+    .doc(id)
+    .set({id, ...defaultSessionState});
 
   return getSession(getData<SessionData>(await sessionDoc.get()));
 };
 
-export const deleteSession = (id: Session['id']) =>
-  firestore().collection(SESSIONS_COLLECTION).doc(id).delete();
+export const deleteSession = async (id: Session['id']) => {
+  const sessionDoc = firestore().collection(SESSIONS_COLLECTION).doc(id);
+  await sessionDoc.collection(SESSION_STATE_SUB_COLLECTION).doc(id).delete();
+  return sessionDoc.delete();
+};
 
 export const updateSession = async (
   id: Session['id'],
@@ -147,21 +173,27 @@ export const updateSession = async (
     .update({...updateValues, updatedAt: Timestamp.now()});
 };
 
-export const updateExerciseState = async (
+export const updateSessionState = async (
   id: Session['id'],
-  data: Partial<ExerciseStateUpdate>,
+  data: Partial<SessionStateUpdate>,
 ) => {
-  const sessionDocRef = firestore().collection(SESSIONS_COLLECTION).doc(id);
+  const sessionStateDocRef = firestore()
+    .collection(SESSIONS_COLLECTION)
+    .doc(id)
+    .collection(SESSION_STATE_SUB_COLLECTION)
+    .doc(id);
+
   await firestore().runTransaction(async transaction => {
-    const session = getData<SessionData>(await transaction.get(sessionDocRef));
-    const exerciseState = removeEmpty({
-      ...session.exerciseState,
+    const sessionState = getData<SessionStateData>(
+      await transaction.get(sessionStateDocRef),
+    );
+
+    const updatedSessionState = removeEmpty({
+      ...sessionState,
       ...data,
       timestamp: Timestamp.now(),
     });
-    await transaction.update(sessionDocRef, {
-      exerciseState,
-      updatedAt: Timestamp.now(),
-    });
+
+    await transaction.update(sessionStateDocRef, updatedSessionState);
   });
 };

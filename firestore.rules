@@ -19,6 +19,11 @@ service cloud.firestore {
       allow read: if request.auth != null;
       allow write: if false;
     }
+    
+    match /sessions/{session}/state/{state} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
   }
 
   
