@@ -194,6 +194,7 @@ export interface Exercise {
   name: string;
   description?: string;
   duration: number;
+  tags?: any[];
   published: boolean;
   hidden?: boolean;
   socialMeta?: ExerciseSocialMediaMetaTags;

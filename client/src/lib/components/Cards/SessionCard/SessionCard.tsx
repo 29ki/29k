@@ -67,6 +67,7 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
     <Card
       title={formatExerciseName(exercise)}
       duration={exercise?.duration}
+      tagIds={exercise?.tags}
       image={source}
       onPress={onContextPress}
       buttonText={sessionTime.isReadyToJoin ? t('join') : undefined}
