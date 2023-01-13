@@ -25,7 +25,7 @@ const SessionNotifications: React.FC<{
   const addNotification = useSessionNotificationsState(
     state => state.addNotification,
   );
-  const exerciseState = useSessionState(state => state.session?.exerciseState);
+  const sessionState = useSessionState(state => state.sessionState);
   const slideState = useSessionSlideState();
   const [muted, setWasMuted] = useState(Boolean(localParticipant?.audio));
 
@@ -34,7 +34,7 @@ const SessionNotifications: React.FC<{
   useEffect(() => {
     if (
       muted &&
-      exerciseState?.playing &&
+      sessionState?.playing &&
       slideState?.current.type !== 'sharing'
     ) {
       addNotification({
@@ -46,7 +46,7 @@ const SessionNotifications: React.FC<{
   }, [
     t,
     addNotification,
-    exerciseState?.playing,
+    sessionState?.playing,
     slideState,
     muted,
     setWasMuted,
