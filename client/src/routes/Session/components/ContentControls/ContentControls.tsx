@@ -21,6 +21,7 @@ import Button from '../../../../lib/components/Buttons/Button';
 import IconButton from '../../../../lib/components/Buttons/IconButton/IconButton';
 
 import useSessionExercise from '../../hooks/useSessionExercise';
+import useMuteAudio from '../../hooks/useMuteAudio';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -61,7 +62,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   const exercise = useSessionExercise();
   const slideState = useSessionSlideState();
   const {t} = useTranslation('Screen.Session');
-
+  const {conditionallyMuteParticipants} = useMuteAudio();
   const {navigateToIndex, setPlaying} = useUpdateSessionState(sessionId);
 
   const onPrevPress = useCallback(() => {
@@ -91,14 +92,19 @@ const ContentControls: React.FC<ContentControlsProps> = ({
     if (currentContentReachedEnd) {
       setPlaying(true);
       setCurrentContentReachedEnd(false);
+      conditionallyMuteParticipants(true, slideState?.current);
     } else {
-      setPlaying(!sessionState?.playing);
+      const playing = !sessionState?.playing;
+      setPlaying(playing);
+      conditionallyMuteParticipants(playing, slideState?.current);
     }
   }, [
     sessionState?.playing,
+    slideState,
     setPlaying,
     currentContentReachedEnd,
     setCurrentContentReachedEnd,
+    conditionallyMuteParticipants,
   ]);
 
   if (!isHost || !exercise || !sessionState || !slideState) {
