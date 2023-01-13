@@ -7,7 +7,6 @@ import {
 } from '@react-navigation/native';
 import React, {useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components/native';
-import {COLORS} from '../../../../shared/src/constants/colors';
 import Button from '../../lib/components/Buttons/Button';
 import Gutters from '../../lib/components/Gutters/Gutters';
 import SheetModal from '../../lib/components/Modals/SheetModal';
@@ -31,22 +30,16 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import {DEFAULT_LANGUAGE_TAG} from '../../lib/i18n';
 import {Display36} from '../../lib/components/Typography/Display/Display';
+import {ThumbsUp, ThumbsDown} from './components/Thumbs';
 
 const Votes = styled.View({
   flexDirection: 'row',
 });
 
-const Vote = styled.Text<{selected: boolean}>(({selected}) => ({
+const Vote = styled(TouchableOpacity)({
   width: 125,
   height: 125,
-  fontSize: 75,
-  lineHeight: 125,
-  textAlign: 'center',
-  borderRadius: 62.5,
-  borderWidth: 5,
-  borderColor: selected ? COLORS.PRIMARY : 'transparent',
-  overflow: 'hidden',
-}));
+});
 
 const Wrapper = styled(Gutters)({
   alignItems: 'center',
@@ -126,13 +119,13 @@ const SessionFeedbackModal = () => {
           <Heading24>{t('question')}</Heading24>
           <Spacer16 />
           <Votes>
-            <TouchableOpacity onPress={thumbsUpPress}>
-              <Vote selected={answer === true}>{'👍'}</Vote>
-            </TouchableOpacity>
+            <Vote onPress={thumbsUpPress}>
+              <ThumbsUp active={answer === true} />
+            </Vote>
             <Spacer16 />
-            <TouchableOpacity onPress={thumbsDownPress}>
-              <Vote selected={answer === false}>{'👎'}</Vote>
-            </TouchableOpacity>
+            <Vote onPress={thumbsDownPress}>
+              <ThumbsDown active={answer === false} />
+            </Vote>
           </Votes>
           <Spacer96 />
 
