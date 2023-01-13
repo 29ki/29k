@@ -6,10 +6,7 @@ import {COLORS} from '../../../../../shared/src/constants/colors';
 
 const StyledSvg = styled(Svg)<{active: boolean}>(({active}) => ({
   shadowColor: COLORS.BLACK,
-  shadowOffset: {
-    width: 0,
-    height: 0,
-  },
+  shadowOffset: '0 0',
   shadowOpacity: active ? 0.16 : 0,
   shadowRadius: 12,
 }));
