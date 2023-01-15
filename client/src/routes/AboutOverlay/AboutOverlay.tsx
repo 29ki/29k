@@ -1,6 +1,11 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useMemo} from 'react';
+import {
+  useFocusEffect,
+  useIsFocused,
+  useNavigation,
+} from '@react-navigation/native';
+import React, {useCallback, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
+import {InteractionManager} from 'react-native';
 import {SharedElement} from 'react-navigation-shared-element';
 import styled from 'styled-components/native';
 import Gutters from '../../lib/components/Gutters/Gutters';
@@ -15,6 +20,7 @@ import {
 } from '../../lib/components/Spacers/Spacer';
 import {Display24} from '../../lib/components/Typography/Display/Display';
 import Markdown from '../../lib/components/Typography/Markdown/Markdown';
+import useIsTransitioning from '../../lib/navigation/hooks/useIsTransitioning';
 import AboutActionList from './components/AboutActionList';
 
 const BlurbImage = styled.Image({height: '100%'});
@@ -22,11 +28,12 @@ const BlurbImage = styled.Image({height: '100%'});
 const AboutOverlay = () => {
   const {goBack} = useNavigation();
   const {t} = useTranslation('Overlay.About');
+  const isTransitioning = useIsTransitioning();
 
   const source = useMemo(() => ({uri: t('image__image')}), [t]);
 
   return (
-    <Screen onPressBack={goBack}>
+    <Screen onPressClose={isTransitioning ? undefined : goBack}>
       <HeaderScrollView
         header={
           <SharedElement id="about.image">
