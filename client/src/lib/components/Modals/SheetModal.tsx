@@ -5,10 +5,8 @@ import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import SETTINGS from '../../constants/settings';
-import {SPACINGS} from '../../constants/spacings';
-import {CloseIcon} from '../Icons';
+import CloseButton from '../Buttons/CloseButton/CloseButton';
 import {TopSafeArea} from '../Spacers/Spacer';
-import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 
 const Container = styled.View<{backgroundColor?: string}>(
   ({backgroundColor}) => ({
@@ -21,14 +19,10 @@ const Container = styled.View<{backgroundColor?: string}>(
   }),
 );
 
-const Close = styled(TouchableOpacity)({
+const Close = styled(CloseButton)({
   position: 'absolute',
   top: 24,
   right: 24,
-  width: SPACINGS.TWENTYEIGHT,
-  height: SPACINGS.TWENTYEIGHT,
-  borderRadius: 24,
-  backgroundColor: COLORS.BLACK,
 });
 
 type ModalProps = {
@@ -46,11 +40,7 @@ export const SheetModal: React.FC<ModalProps> = ({
     {children}
     {/* This is to compensate for the marginTop in ModalStack */}
     <TopSafeArea />
-    {onPressClose && (
-      <Close onPress={onPressClose}>
-        <CloseIcon fill={COLORS.WHITE} />
-      </Close>
-    )}
+    {onPressClose && <Close onPress={onPressClose} />}
   </Container>
 );
 
