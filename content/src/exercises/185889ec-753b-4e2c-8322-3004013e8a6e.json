@@ -14,11 +14,11 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1673626157/Video/portal1_Be_kind_to_yourself_HD_zf7i4r.mp4",
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673626157/Video/portal1_Be_kind_to_yourself_HD_zf7i4r.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1673626159/Video/portal2_Be_kind_to_yourself_HD_rv02xs.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673626159/Video/portal2_Be_kind_to_yourself_HD_rv02xs.mp4"
       }
     },
     "slides": [
@@ -48,7 +48,7 @@
         ],
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043753/Video/content_Be_kind_to_yourself_qfhuch.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043753/Video/content_Be_kind_to_yourself_qfhuch.mp4",
             "autoPlayLoop": true
           }
         }
@@ -66,7 +66,7 @@
         "content": {
           "heading": "What do you say to yourself?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4"
           }
         }
       },
@@ -75,7 +75,7 @@
         "content": {
           "heading": "What do you say to yourself?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
           }
         },
         "hostNotes": [
@@ -114,7 +114,7 @@
         "content": {
           "heading": "What would you say to a friend?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
           }
         },
         "hostNotes": [
@@ -163,11 +163,11 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043755/Video/portal1_Be_kind_to_yourself_u6lvok.mp4",
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/portal1_Be_kind_to_yourself_u6lvok.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043748/Video/portal2_Be_kind_to_yourself_rahxff.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043748/Video/portal2_Be_kind_to_yourself_rahxff.mp4"
       }
     },
     "slides": [
@@ -197,7 +197,7 @@
         ],
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043753/Video/content_Be_kind_to_yourself_qfhuch.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043753/Video/content_Be_kind_to_yourself_qfhuch.mp4",
             "autoPlayLoop": true
           }
         }
@@ -215,7 +215,7 @@
         "content": {
           "heading": "O que dirias a ti próprio/a?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4"
           }
         }
       },
@@ -224,7 +224,7 @@
         "content": {
           "heading": "O que dirias a ti próprio/a?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
           }
         },
         "hostNotes": [
@@ -263,7 +263,7 @@
         "content": {
           "heading": "O que dirias a uma amiga ou a um amigo?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
           }
         },
         "hostNotes": [
