@@ -59,7 +59,10 @@
           }
         ],
         "content": {
-          "heading": "What did you notice?"
+          "heading": "What did you notice?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1673869507/Video/timer_1min_Drop_all_requirements_dahizb.mp4"
+          }
         }
       },
       {
