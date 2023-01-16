@@ -1,0 +1,44 @@
+import React from 'react';
+import styled from 'styled-components/native';
+import {Tag as TagType} from '../../../../../../shared/src/types/generated/Tag';
+
+import {SPACINGS} from '../../../constants/spacings';
+import {Spacer4} from '../../Spacers/Spacer';
+import Tag from '../../Tag/Tag';
+
+const Container = styled.View({
+  flexWrap: 'wrap',
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginTop: -SPACINGS.FOUR,
+});
+
+const Wrapper = styled.View({
+  flexDirection: 'row',
+});
+
+type TagsProps = {
+  tags: Array<TagType>;
+  duration?: number;
+};
+
+const Tags: React.FC<TagsProps> = React.memo(({tags, duration}) => {
+  return (
+    <Container>
+      {duration && (
+        <Wrapper>
+          <Tag value={`${duration} min`} />
+          <Spacer4 />
+        </Wrapper>
+      )}
+      {tags.map(tag => (
+        <Wrapper key={tag.id}>
+          <Tag value={tag.tag} />
+          <Spacer4 />
+        </Wrapper>
+      ))}
+    </Container>
+  );
+});
+
+export default Tags;

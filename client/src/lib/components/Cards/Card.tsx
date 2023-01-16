@@ -15,7 +15,8 @@ import Byline from '../Bylines/Byline';
 import {Spacer4} from '../Spacers/Spacer';
 import Gutters from '../Gutters/Gutters';
 import Interested from '../Interested/Interested';
-import Tags from '../Tags/Tags';
+import Tags from './SessionCard/Tags';
+import {Tag} from '../../../../../shared/src/types/generated/Tag';
 
 const GraphicsWrapper = styled.View({
   width: 120,
@@ -76,7 +77,7 @@ const CTAButton = styled(Button)({
 type CardProps = {
   title?: string;
   duration?: number;
-  tagIds?: Array<string>;
+  tags: Array<Tag>;
   image?: ImageSourcePropType;
   lottie?: AnimationObject;
   onPress: () => void;
@@ -93,7 +94,7 @@ type CardProps = {
 export const Card: React.FC<CardProps> = ({
   title,
   duration,
-  tagIds,
+  tags,
   lottie,
   image,
   onPress,
@@ -111,7 +112,7 @@ export const Card: React.FC<CardProps> = ({
       <Wrapper onPress={onPress}>
         <ContentWrapper>
           <LeftCol>
-            <Tags tagIds={tagIds} duration={duration} />
+            <Tags tags={tags} duration={duration} />
             <Header>
               {title && <Display20 numberOfLines={2}>{title}</Display20>}
               <Spacer4 />

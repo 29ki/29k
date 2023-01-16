@@ -17,6 +17,7 @@ import SessionTimeBadge from '../../SessionTimeBadge/SessionTimeBadge';
 import {formatExerciseName} from '../../../utils/string';
 import usePinnedSessons from '../../../sessions/hooks/usePinnedSessions';
 import useLogSessionMetricEvents from '../../../sessions/hooks/useLogSessionMetricEvents';
+import useGetTagsById from '../../../content/hooks/useGetTagsById';
 
 type SessionCardProps = {
   session: Session;
@@ -31,6 +32,7 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
   const sessionTime = useSessionStartTime(dayjs(startTime));
   const {isSessionPinned, togglePinSession} = usePinnedSessons();
   const logSessionMetricEvent = useLogSessionMetricEvents();
+  const tags = useGetTagsById(exercise?.tags);
 
   const sessionPinned = useMemo(
     () => isSessionPinned(session),
@@ -67,7 +69,7 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
     <Card
       title={formatExerciseName(exercise)}
       duration={exercise?.duration}
-      tagIds={exercise?.tags}
+      tags={tags}
       image={source}
       onPress={onContextPress}
       buttonText={sessionTime.isReadyToJoin ? t('join') : undefined}
