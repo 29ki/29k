@@ -2,6 +2,7 @@
   "en": {
     "addToCalendar": "Add to cal",
     "join": "Join",
+    "minutesAbbreviation": "min",
     "counter": {
       "started": "Started"
     },
@@ -17,6 +18,7 @@
       "startsIn": "Inicia em"
     },
     "join": "Entrar",
+    "minutesAbbreviation": "min",
     "counter": {
       "started": "Iniciada"
     }
@@ -24,6 +26,7 @@
   "sv": {
     "addToCalendar": "Lägg till i kal.",
     "join": "Gå med",
+    "minutesAbbreviation": "min",
     "counter": {
       "started": "Startad"
     },

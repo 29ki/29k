@@ -19,6 +19,7 @@ export const AllCards = () => (
     <Card
       title="A nice title"
       duration={40}
+      tags={['Gratitude']}
       hostPictureURL="https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
       hostName="Jenny"
       image={{
@@ -32,6 +33,7 @@ export const AllCards = () => (
     <Spacer16 />
     <Card
       title="A nice title"
+      tags={[]}
       duration={40}
       hostPictureURL="https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
       hostName="Jenny WithALongName"
@@ -47,6 +49,7 @@ export const AllCards = () => (
     <Card
       title="A longer title and animation"
       lottie={lottieSource}
+      tags={[]}
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
       }}
@@ -58,6 +61,7 @@ export const AllCards = () => (
 
     <Card
       title="With reminder and menu"
+      tags={[]}
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
@@ -68,6 +72,7 @@ export const AllCards = () => (
     <Spacer16 />
     <Card
       title="Private session starts soon"
+      tags={[]}
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
@@ -82,6 +87,7 @@ export const AllCards = () => (
     <Spacer16 />
     <Card
       title="Session starts in 24h"
+      tags={[]}
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}

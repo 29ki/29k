@@ -1,27 +1,5 @@
 {
   "en": {
-    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
-    "name": "Pure simple love",
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
-      }
-    },
-    "introPortal": {
-      "type": "video",
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663143395/temp/portal-intro_h7qccz.mp4",
-        "audio": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663147750/temp/portal-intro-end_crzjih.mp4"
-      },
-      "hostNotes": [
-        {
-          "text": ">Start the session when you're ready to go."
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
@@ -112,21 +90,17 @@
         ]
       }
     ],
+    "name": "Pure simple love",
     "published": true,
-    "outroPortal": {
-      "video": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1664798564/temp/portal_outro_lpm80e.mp4"
-      }
-    },
-    "duration": 30
-  },
-  "pt": {
-    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
-    "name": "O amor puro e simples",
-    "duration": 30,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+      }
+    },
+    "duration": 30,
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1664798564/temp/portal_outro_lpm80e.mp4"
       }
     },
     "introPortal": {
@@ -144,6 +118,12 @@
         }
       ]
     },
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+  },
+  "pt": {
     "slides": [
       {
         "type": "host",
@@ -231,19 +211,51 @@
         ]
       }
     ],
+    "name": "O amor puro e simples",
     "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+      }
+    },
+    "duration": 30,
     "outroPortal": {
       "video": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1664798564/temp/portal_outro_lpm80e.mp4"
       }
-    }
+    },
+    "introPortal": {
+      "type": "video",
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663143395/temp/portal-intro_h7qccz.mp4",
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto:eco/v1663147750/temp/portal-intro-end_crzjih.mp4"
+      },
+      "hostNotes": [
+        {
+          "text": ">Start the session when you're ready to go."
+        }
+      ]
+    },
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
   },
   "sv": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139",
-    "duration": 30
+    "duration": 30,
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ]
   },
   "es": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139",
-    "duration": 30
+    "duration": 30,
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ]
   }
 }
