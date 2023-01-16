@@ -10,8 +10,8 @@ export const TAG_FIELDS: Array<CmsField> = [
     i18n: true,
   },
   {
-    label: '🔢 Featured order',
-    name: 'featuredOrder',
+    label: '🔢 Order',
+    name: 'order',
     i18n: 'duplicate',
     widget: 'number',
     hint: 'Where tags are featured low number will show first.',

@@ -2,18 +2,18 @@
   "en": {
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
     "tag": "Gratitude",
-    "featuredOrder": 1
+    "order": 1
   },
   "pt": {
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
-    "featuredOrder": 1
+    "order": 1
   },
   "sv": {
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
-    "featuredOrder": 1
+    "order": 1
   },
   "es": {
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
-    "featuredOrder": 1
+    "order": 1
   }
 }

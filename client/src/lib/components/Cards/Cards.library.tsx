@@ -19,7 +19,7 @@ export const AllCards = () => (
     <Card
       title="A nice title"
       duration={40}
-      tags={[{tag: 'Gratitude', featuredOrder: 1, id: 'some-id'}]}
+      tags={[{tag: 'Gratitude', order: 1, id: 'some-id'}]}
       hostPictureURL="https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
       hostName="Jenny"
       image={{

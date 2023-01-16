@@ -4,5 +4,5 @@
 export interface Tag {
   id: any;
   tag: string;
-  featuredOrder?: number;
+  order?: number;
 }
