@@ -1,7 +1,6 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
-import {Tag as TagType} from '../../../../../../shared/src/types/generated/Tag';
 
 import {SPACINGS} from '../../../constants/spacings';
 import {Spacer4} from '../../Spacers/Spacer';
