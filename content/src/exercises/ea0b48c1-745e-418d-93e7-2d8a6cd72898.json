@@ -19,7 +19,7 @@
         "type": "content",
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1665464756/Temp/Comp_8_jsv5jo.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464756/Temp/Comp_8_jsv5jo.mp4",
             "description": "",
             "preview": "",
             "autoPlayLoop": true
@@ -44,7 +44,7 @@
         "content": {
           "heading": "I would like to X, but I am so Y",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1665464767/Temp/Comp_4_wrr4ks.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464767/Temp/Comp_4_wrr4ks.mp4",
             "autoPlayLoop": false
           }
         },
@@ -62,7 +62,7 @@
         "content": {
           "heading": "Switch to AND. What happens?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1665464773/Temp/Comp_9_bsizws.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464773/Temp/Comp_9_bsizws.mp4",
             "autoPlayLoop": false
           }
         },
@@ -80,7 +80,7 @@
         "content": {
           "heading": "What happened when you switched to AND?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1665464766/Temp/Comp_10_ababts.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464766/Temp/Comp_10_ababts.mp4"
           }
         },
         "hostNotes": [
@@ -132,10 +132,10 @@
     },
     "introPortal": {
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1665480650/Temp/portal_no_sound_o7okas.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665480650/Temp/portal_no_sound_o7okas.mp4"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1665469668/Temp/Comp_13_1_xmcpyo.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665469668/Temp/Comp_13_1_xmcpyo.mp4"
       },
       "hostNotes": [
         {
@@ -167,7 +167,7 @@
         "type": "content",
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1665464756/Temp/Comp_8_jsv5jo.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464756/Temp/Comp_8_jsv5jo.mp4",
             "description": "",
             "preview": "",
             "autoPlayLoop": true
@@ -192,7 +192,7 @@
         "content": {
           "heading": "Eu quero fazer X, mas há um Y que",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1665464767/Temp/Comp_4_wrr4ks.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464767/Temp/Comp_4_wrr4ks.mp4",
             "autoPlayLoop": false
           }
         },
@@ -210,7 +210,7 @@
         "content": {
           "heading": "Muda para E. O que acontece?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1665464773/Temp/Comp_9_bsizws.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464773/Temp/Comp_9_bsizws.mp4",
             "autoPlayLoop": false
           }
         },
@@ -228,7 +228,7 @@
         "content": {
           "heading": "O que aconteceu quando mudaste para E?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1665464766/Temp/Comp_10_ababts.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464766/Temp/Comp_10_ababts.mp4"
           }
         },
         "hostNotes": [
@@ -288,10 +288,10 @@
     "duration": 30,
     "introPortal": {
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1665480650/Temp/portal_no_sound_o7okas.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665480650/Temp/portal_no_sound_o7okas.mp4"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1665469668/Temp/Comp_13_1_xmcpyo.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665469668/Temp/Comp_13_1_xmcpyo.mp4"
       },
       "hostNotes": [
         {
