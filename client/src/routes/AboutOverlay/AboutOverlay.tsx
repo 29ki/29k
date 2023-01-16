@@ -1,11 +1,6 @@
-import {
-  useFocusEffect,
-  useIsFocused,
-  useNavigation,
-} from '@react-navigation/native';
-import React, {useCallback, useMemo, useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import React, {useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {InteractionManager} from 'react-native';
 import {SharedElement} from 'react-navigation-shared-element';
 import styled from 'styled-components/native';
 import Gutters from '../../lib/components/Gutters/Gutters';

@@ -1,4 +1,4 @@
-import {useIsFocused, useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import React, {useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {SharedElement} from 'react-navigation-shared-element';
