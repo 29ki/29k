@@ -4,12 +4,16 @@ import * as sessionModel from '../models/session';
 import * as userModel from '../models/user';
 import {getPublicUserInfo} from '../models/user';
 import * as dailyApi from '../lib/dailyApi';
-import {Session, SessionType} from '../../../shared/src/types/Session';
+import {
+  Session,
+  SessionState,
+  SessionType,
+} from '../../../shared/src/types/Session';
 import {
   JoinSessionError,
   ValidateSessionError,
 } from '../../../shared/src/errors/Session';
-import {ExerciseStateUpdate, UpdateSession} from '../api/sessions';
+import {SessionStateUpdate, UpdateSession} from '../api/sessions';
 import {generateVerificationCode, removeEmpty} from '../lib/utils';
 import {RequestError} from './errors/RequestError';
 import {generateSessionToken} from '../lib/dailyUtils';
@@ -133,14 +137,17 @@ export const updateSession = async (
   return updatedSession ? mapSession(updatedSession) : undefined;
 };
 
-export const updateExerciseState = async (
+export const updateSessionState = async (
   userId: string,
   sessionId: Session['id'],
-  data: Partial<ExerciseStateUpdate>,
+  data: Partial<SessionStateUpdate>,
 ) => {
   const session = (await sessionModel.getSessionById(sessionId)) as Session;
+  const sessionState = (await sessionModel.getSessionStateById(
+    sessionId,
+  )) as SessionState;
 
-  if (!session) {
+  if (!session || !sessionState) {
     throw new RequestError(ValidateSessionError.notFound);
   }
 
@@ -148,9 +155,13 @@ export const updateExerciseState = async (
     throw new RequestError(ValidateSessionError.userNotAuthorized);
   }
 
-  await sessionModel.updateExerciseState(sessionId, removeEmpty(data));
-  const updatedSession = await sessionModel.getSessionById(sessionId);
-  return updatedSession ? mapSession(updatedSession) : undefined;
+  if (data.ended) {
+    sessionModel.updateSession(sessionId, {ended: true});
+  }
+
+  await sessionModel.updateSessionState(sessionId, removeEmpty(data));
+  const updatedState = await sessionModel.getSessionStateById(sessionId);
+  return updatedState ? updatedState : undefined;
 };
 
 export const joinSession = async (

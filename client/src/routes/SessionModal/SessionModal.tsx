@@ -174,7 +174,7 @@ const SessionModal = () => {
     navigation.navigate('SessionStack', {
       screen: 'ChangingRoom',
       params: {
-        sessionId: session.id,
+        session: session,
       },
     });
     logSessionMetricEvent('Join Sharing Session', session);

@@ -1,7 +1,7 @@
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import {renderHook} from '@testing-library/react-hooks';
-import {DailyUserData, Session} from '../../../../../shared/src/types/Session';
-import useSessionState from '../state/state';
+
+import {DailyUserData} from '../../../../../shared/src/types/Session';
 import useDailyState from '../../../lib/daily/state/state';
 import useSessionSlideState from './useSessionSlideState';
 import useSessionParticipants from './useSessionParticipants';
@@ -9,8 +9,12 @@ import useSessionParticipants from './useSessionParticipants';
 const mockUseSessionSlideState = useSessionSlideState as jest.Mock;
 jest.mock('./useSessionSlideState');
 
-const createParticipant = (id: string, userData?: DailyUserData) => ({
-  [id]: {user_id: id, userData} as DailyParticipant,
+const createParticipant = (
+  id: string,
+  userData?: DailyUserData,
+  owner = false,
+) => ({
+  [id]: {user_id: id, owner, userData} as DailyParticipant,
 });
 
 describe('useSessionParticipants', () => {
@@ -27,9 +31,9 @@ describe('useSessionParticipants', () => {
     const {result} = renderHook(() => useSessionParticipants());
 
     expect(result.current).toEqual([
-      {user_id: 'test-id-2'},
-      {user_id: 'test-id-3'},
-      {user_id: 'test-id-1'},
+      {user_id: 'test-id-2', owner: false},
+      {user_id: 'test-id-3', owner: false},
+      {user_id: 'test-id-1', owner: false},
     ]);
   });
 
@@ -40,21 +44,16 @@ describe('useSessionParticipants', () => {
 
     useDailyState.setState({
       participants: {
-        ...createParticipant('some-spotlight-user-id'),
+        ...createParticipant('some-spotlight-user-id', undefined, true),
         ...createParticipant('some-other-user-id'),
       },
-    });
-    useSessionState.setState({
-      session: {
-        exerciseState: {
-          dailySpotlightId: 'some-spotlight-user-id',
-        },
-      } as Session,
     });
 
     const {result} = renderHook(() => useSessionParticipants());
 
-    expect(result.current).toEqual([{user_id: 'some-other-user-id'}]);
+    expect(result.current).toEqual([
+      {user_id: 'some-other-user-id', owner: false},
+    ]);
   });
 
   it('returns all participants when no session spotlight participant', () => {
@@ -64,7 +63,7 @@ describe('useSessionParticipants', () => {
 
     useDailyState.setState({
       participants: {
-        ...createParticipant('some-spotlight-user-id'),
+        ...createParticipant('some-user-id'),
         ...createParticipant('some-other-user-id'),
       },
     });
@@ -72,8 +71,8 @@ describe('useSessionParticipants', () => {
     const {result} = renderHook(() => useSessionParticipants());
 
     expect(result.current).toEqual([
-      {user_id: 'some-spotlight-user-id'},
-      {user_id: 'some-other-user-id'},
+      {user_id: 'some-user-id', owner: false},
+      {user_id: 'some-other-user-id', owner: false},
     ]);
   });
 
@@ -84,23 +83,16 @@ describe('useSessionParticipants', () => {
 
     useDailyState.setState({
       participants: {
-        ...createParticipant('some-spotlight-user-id'),
+        ...createParticipant('some-spotlight-user-id', undefined, true),
         ...createParticipant('some-other-user-id'),
       },
-    });
-    useSessionState.setState({
-      session: {
-        exerciseState: {
-          dailySpotlightId: 'some-spotlight-user-id',
-        },
-      } as Session,
     });
 
     const {result} = renderHook(() => useSessionParticipants());
 
     expect(result.current).toEqual([
-      {user_id: 'some-spotlight-user-id'},
-      {user_id: 'some-other-user-id'},
+      {user_id: 'some-spotlight-user-id', owner: true},
+      {user_id: 'some-other-user-id', owner: false},
     ]);
   });
 
@@ -116,8 +108,12 @@ describe('useSessionParticipants', () => {
     const {result} = renderHook(() => useSessionParticipants());
 
     expect(result.current).toEqual([
-      {user_id: 'some-not-in-portal-user-id', userData: {inPortal: false}},
-      {user_id: 'some-without-user-data-user-id'},
+      {
+        user_id: 'some-not-in-portal-user-id',
+        userData: {inPortal: false},
+        owner: false,
+      },
+      {user_id: 'some-without-user-data-user-id', owner: false},
     ]);
   });
 });

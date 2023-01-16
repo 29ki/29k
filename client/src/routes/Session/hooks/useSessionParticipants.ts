@@ -1,5 +1,4 @@
 import {DailyUserData} from '../../../../../shared/src/types/Session';
-import useSessionState from '../state/state';
 import useDailyState from '../../../lib/daily/state/state';
 import useSessionExercise from './useSessionSlideState';
 import {omit, values} from 'ramda';
@@ -9,7 +8,6 @@ const useSessionParticipants = () => {
   const participantsSortOrder = useDailyState(
     state => state.participantsSortOrder,
   );
-  const exerciseState = useSessionState(state => state.session?.exerciseState);
   const slideState = useSessionExercise();
 
   const participants = [
@@ -21,13 +19,11 @@ const useSessionParticipants = () => {
     participant => !(participant.userData as DailyUserData)?.inPortal,
   );
 
-  if (!exerciseState?.dailySpotlightId || slideState?.current.type !== 'host') {
+  if (slideState?.current.type !== 'host') {
     return inSessionParticipants;
   }
 
-  return inSessionParticipants.filter(
-    participant => participant.user_id !== exerciseState?.dailySpotlightId,
-  );
+  return inSessionParticipants.filter(participant => !participant.owner);
 };
 
 export default useSessionParticipants;

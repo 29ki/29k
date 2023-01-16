@@ -28,8 +28,9 @@ import {
   getSessionById,
   getSessionByInviteCode,
   getSessions,
-  updateExerciseState,
+  updateSessionState,
   updateSession,
+  getSessionStateById,
 } from './session';
 import {SessionType} from '../../../shared/src/types/Session';
 
@@ -38,45 +39,64 @@ const sessions = [
     id: 'some-session-id',
     name: 'some-name',
     url: 'some-url',
-    exerciseState: {
-      index: 0,
-      playing: false,
-      timestamp: Timestamp.now(),
-    },
     hostId: 'some-user-id',
+    type: SessionType.public,
     startTime: Timestamp.now(),
-    started: false,
-    ended: false,
     userIds: ['*'],
     createdAt: Timestamp.now(),
     updatedAt: Timestamp.now(),
+    _collections: {
+      state: [
+        {
+          id: 'some-session-id',
+          index: 0,
+          playing: false,
+          started: false,
+          ended: false,
+          timestamp: Timestamp.now(),
+        },
+      ],
+    },
   },
   {
     id: 'some-other-session-id',
     name: 'some-other-name',
     url: 'some-other-url',
-    exerciseState: {
-      index: 0,
-      playing: false,
-      timestamp: Timestamp.now(),
-    },
     hostId: 'some-other-user-id',
     startTime: Timestamp.now(),
-    started: false,
-    ended: false,
+    type: SessionType.public,
     userIds: ['*'],
     createdAt: Timestamp.now(),
     updatedAt: Timestamp.now(),
+    _collections: {
+      state: [
+        {
+          id: 'some-other-session-id',
+          index: 0,
+          playing: false,
+          timestamp: Timestamp.now(),
+        },
+      ],
+    },
   },
 ];
 
-beforeEach(async () => {
-  await Promise.all(
-    sessions.map(session =>
-      firestore().collection('sessions').doc(session.id).set(session),
+beforeEach(
+  async () =>
+    await Promise.all(
+      sessions.map(session =>
+        Promise.all([
+          firestore()
+            .collection('sessions')
+            .doc(session.id)
+            .collection('state')
+            .doc(session.id)
+            .set(session._collections.state[0]),
+          firestore().collection('sessions').doc(session.id).set(session),
+        ]),
+      ),
     ),
-  );
-});
+);
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -87,18 +107,12 @@ describe('session model', () => {
     it('should get a session by its id', async () => {
       const session = await getSessionById('some-session-id');
       expect(session).toEqual({
-        ended: false,
-        exerciseState: {
-          index: 0,
-          playing: false,
-          timestamp: expect.any(String),
-        },
         hostId: 'some-user-id',
         id: 'some-session-id',
         name: 'some-name',
         startTime: expect.any(String),
-        started: false,
         url: 'some-url',
+        type: 'public',
         userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
@@ -129,35 +143,23 @@ describe('session model', () => {
       const sessions = await getSessions('some-non-id');
       expect(sessions).toEqual([
         {
-          ended: false,
-          exerciseState: {
-            index: 0,
-            playing: false,
-            timestamp: expect.any(String),
-          },
           hostId: 'some-user-id',
           id: 'some-session-id',
           name: 'some-name',
           startTime: expect.any(String),
-          started: false,
           url: 'some-url',
+          type: 'public',
           userIds: ['*'],
           createdAt: expect.any(String),
           updatedAt: expect.any(String),
         },
         {
-          ended: false,
-          exerciseState: {
-            index: 0,
-            playing: false,
-            timestamp: expect.any(String),
-          },
           hostId: 'some-other-user-id',
           id: 'some-other-session-id',
           name: 'some-other-name',
           startTime: expect.any(String),
-          started: false,
           url: 'some-other-url',
+          type: 'public',
           userIds: ['*'],
           createdAt: expect.any(String),
           updatedAt: expect.any(String),
@@ -210,19 +212,13 @@ describe('session model', () => {
         contentId: 'content-id',
         language: 'en',
         dailyRoomName: 'daily-room-name',
-        ended: false,
-        exerciseState: {
-          index: 0,
-          playing: false,
-          timestamp: expect.any(String),
-        },
         hostId: 'some-user-id',
         id: 'session-id',
         link: 'deep-link',
         startTime: startTime,
-        started: false,
         type: 'public',
         url: 'daily-url',
+        ended: false,
         userIds: ['*'],
         inviteCode: 1234,
         createdAt: expect.any(String),
@@ -248,20 +244,14 @@ describe('session model', () => {
         contentId: 'content-id',
         language: 'en',
         dailyRoomName: 'daily-room-name',
-        ended: false,
-        exerciseState: {
-          index: 0,
-          playing: false,
-          timestamp: expect.any(String),
-        },
         hostId: 'some-user-id',
         id: 'session-id',
         link: 'deep-link',
         startTime: startTime,
-        started: false,
         type: 'private',
         url: 'daily-url',
         userIds: ['some-user-id'],
+        ended: false,
         inviteCode: 1234,
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
@@ -270,46 +260,17 @@ describe('session model', () => {
   });
 
   describe('updateSession', () => {
-    it('should return updated session with started', async () => {
-      await updateSession('some-session-id', {started: true});
+    it('should return updated session with type', async () => {
+      await updateSession('some-session-id', {type: SessionType.private});
       const session = await getSessionById('some-session-id');
 
       expect(session).toEqual({
         id: 'some-session-id',
         name: 'some-name',
         url: 'some-url',
-        exerciseState: {
-          index: 0,
-          playing: false,
-          timestamp: expect.any(String),
-        },
         hostId: 'some-user-id',
         startTime: expect.any(String),
-        started: true,
-        ended: false,
-        userIds: ['*'],
-        createdAt: expect.any(String),
-        updatedAt: expect.any(String),
-      });
-    });
-
-    it('should return updated session with ended', async () => {
-      await updateSession('some-session-id', {ended: true});
-      const session = await getSessionById('some-session-id');
-
-      expect(session).toEqual({
-        id: 'some-session-id',
-        name: 'some-name',
-        url: 'some-url',
-        exerciseState: {
-          index: 0,
-          playing: false,
-          timestamp: expect.any(String),
-        },
-        hostId: 'some-user-id',
-        startTime: expect.any(String),
-        started: false,
-        ended: true,
+        type: SessionType.private,
         userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
@@ -325,15 +286,9 @@ describe('session model', () => {
         id: 'some-session-id',
         name: 'some-name',
         url: 'some-url',
-        exerciseState: {
-          index: 0,
-          playing: false,
-          timestamp: expect.any(String),
-        },
         hostId: 'some-user-id',
+        type: 'public',
         startTime: expect.any(String),
-        started: false,
-        ended: false,
         userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
@@ -341,83 +296,39 @@ describe('session model', () => {
     });
   });
 
-  describe('updateExerciseState', () => {
+  describe('updateSessionState', () => {
     it('should update playing', async () => {
-      await updateExerciseState('some-session-id', {
+      await updateSessionState('some-session-id', {
         playing: true,
       });
-      const session = await getSessionById('some-session-id');
+      const state = await getSessionStateById('some-session-id');
 
       expect(mockRunTransaction).toHaveBeenCalledTimes(1);
       expect(mockUpdateTransaction).toHaveBeenCalledTimes(1);
       expect(mockGetTransaction).toHaveBeenCalledTimes(1);
-      expect(session).toEqual({
+      expect(state).toEqual({
         ended: false,
-        exerciseState: {
-          index: 0,
-          playing: true,
-          timestamp: expect.any(String),
-        },
-        hostId: 'some-user-id',
         id: 'some-session-id',
-        name: 'some-name',
-        startTime: expect.any(String),
+        index: 0,
+        playing: true,
         started: false,
-        url: 'some-url',
-        userIds: ['*'],
-        createdAt: expect.any(String),
-        updatedAt: expect.any(String),
+        timestamp: expect.any(String),
       });
     });
 
     it('should update index', async () => {
-      await updateExerciseState('some-session-id', {
+      await updateSessionState('some-session-id', {
         index: 2,
       });
-      const session = await getSessionById('some-session-id');
+      const state = await getSessionStateById('some-session-id');
 
-      expect(session).toEqual({
-        id: 'some-session-id',
-        name: 'some-name',
-        url: 'some-url',
-        exerciseState: {
-          index: 2,
-          playing: false,
-          timestamp: expect.any(String),
-        },
-        hostId: 'some-user-id',
-        startTime: expect.any(String),
-        started: false,
+      expect(state).toEqual({
+        index: 2,
+        playing: true,
+        timestamp: expect.any(String),
         ended: false,
-        userIds: ['*'],
-        createdAt: expect.any(String),
-        updatedAt: expect.any(String),
-      });
-    });
-
-    it('should update dailySpotlightId', async () => {
-      await updateExerciseState('some-session-id', {
-        dailySpotlightId: 'some-user-id',
-      });
-      const session = await getSessionById('some-session-id');
-
-      expect(session).toEqual({
         id: 'some-session-id',
-        name: 'some-name',
-        url: 'some-url',
-        exerciseState: {
-          index: 0,
-          playing: false,
-          dailySpotlightId: 'some-user-id',
-          timestamp: expect.any(String),
-        },
-        hostId: 'some-user-id',
-        startTime: expect.any(String),
         started: false,
-        ended: false,
-        userIds: ['*'],
-        createdAt: expect.any(String),
-        updatedAt: expect.any(String),
       });
     });
   });
@@ -428,7 +339,9 @@ describe('session model', () => {
 
       expect(mockCollection).toHaveBeenCalledWith('sessions');
       expect(mockDoc).toHaveBeenCalledWith('some-session-id');
-      expect(mockDelete).toHaveBeenCalledTimes(1);
+      expect(mockCollection).toHaveBeenCalledWith('state');
+      expect(mockDoc).toHaveBeenCalledWith('some-session-id');
+      expect(mockDelete).toHaveBeenCalledTimes(2);
     });
   });
 });

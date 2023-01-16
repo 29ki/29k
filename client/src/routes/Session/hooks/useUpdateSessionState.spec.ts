@@ -1,6 +1,6 @@
 import {act, renderHook} from '@testing-library/react-hooks';
 
-import useUpdateSessionExerciseState from './useUpdateSessionExerciseState';
+import useUpdateSessionState from './useUpdateSessionState';
 import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
 import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 
@@ -26,40 +26,7 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe('useUpdateSessionExerciseState', () => {
-  describe('setSpotlightParticipant', () => {
-    it('should call api when called', async () => {
-      fetchMock.mockResponseOnce(
-        JSON.stringify({
-          data: 'some-data',
-        }),
-        {status: 200},
-      );
-
-      const {result} = renderHook(() =>
-        useUpdateSessionExerciseState('session-id'),
-      );
-
-      await act(async () => {
-        await result.current.setSpotlightParticipant('some-participant-id');
-      });
-
-      expect(fetchMock).toHaveBeenCalledTimes(1);
-    });
-
-    it('should do nothing when session is undefined', async () => {
-      const {result} = renderHook(() =>
-        useUpdateSessionExerciseState(undefined),
-      );
-
-      await act(async () => {
-        await result.current.setSpotlightParticipant('some-participant-id');
-      });
-
-      expect(fetchMock).toHaveBeenCalledTimes(0);
-    });
-  });
-
+describe('useUpdateSessionState', () => {
   describe('setPlaying', () => {
     it('should call api when called', async () => {
       fetchMock.mockResponseOnce(
@@ -69,9 +36,7 @@ describe('useUpdateSessionExerciseState', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() =>
-        useUpdateSessionExerciseState('session-id'),
-      );
+      const {result} = renderHook(() => useUpdateSessionState('session-id'));
 
       await act(async () => {
         await result.current.setPlaying(true);
@@ -81,9 +46,7 @@ describe('useUpdateSessionExerciseState', () => {
     });
 
     it('should do nothing when session is undefined', async () => {
-      const {result} = renderHook(() =>
-        useUpdateSessionExerciseState(undefined),
-      );
+      const {result} = renderHook(() => useUpdateSessionState(undefined));
 
       await act(async () => {
         await result.current.setPlaying(true);
@@ -102,9 +65,7 @@ describe('useUpdateSessionExerciseState', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() =>
-        useUpdateSessionExerciseState('session-id'),
-      );
+      const {result} = renderHook(() => useUpdateSessionState('session-id'));
 
       await act(async () => {
         await result.current.navigateToIndex({index: 1, content: mockContent});
@@ -112,7 +73,7 @@ describe('useUpdateSessionExerciseState', () => {
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(fetchMock).toHaveBeenCalledWith(
-        'some-api-endpoint/sessions/session-id/exerciseState',
+        'some-api-endpoint/sessions/session-id/state',
         expect.objectContaining({
           body: '{"index":1,"playing":false}',
         }),
@@ -127,9 +88,7 @@ describe('useUpdateSessionExerciseState', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() =>
-        useUpdateSessionExerciseState('session-id'),
-      );
+      const {result} = renderHook(() => useUpdateSessionState('session-id'));
 
       await act(async () => {
         await result.current.navigateToIndex({index: 2, content: mockContent});
@@ -137,7 +96,7 @@ describe('useUpdateSessionExerciseState', () => {
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(fetchMock).toHaveBeenCalledWith(
-        'some-api-endpoint/sessions/session-id/exerciseState',
+        'some-api-endpoint/sessions/session-id/state',
         expect.objectContaining({
           body: '{"index":2,"playing":false,"completed":true}',
         }),
@@ -145,9 +104,7 @@ describe('useUpdateSessionExerciseState', () => {
     });
 
     it('should do nothing when session is undefined', async () => {
-      const {result} = renderHook(() =>
-        useUpdateSessionExerciseState(undefined),
-      );
+      const {result} = renderHook(() => useUpdateSessionState(undefined));
 
       await act(async () => {
         await result.current.navigateToIndex({index: 4, content: mockContent});
@@ -164,9 +121,7 @@ describe('useUpdateSessionExerciseState', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() =>
-        useUpdateSessionExerciseState('session-id'),
-      );
+      const {result} = renderHook(() => useUpdateSessionState('session-id'));
 
       await act(async () => {
         await result.current.navigateToIndex({index: 4, content: mockContent});
@@ -183,9 +138,7 @@ describe('useUpdateSessionExerciseState', () => {
         {status: 200},
       );
 
-      const {result} = renderHook(() =>
-        useUpdateSessionExerciseState('session-id'),
-      );
+      const {result} = renderHook(() => useUpdateSessionState('session-id'));
 
       await act(async () => {
         const invalidIndex = 4000;

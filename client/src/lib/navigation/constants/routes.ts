@@ -13,9 +13,9 @@ export type TabNavigatorProps = {
 };
 
 export type SessionStackProps = {
-  ChangingRoom: {sessionId: string};
-  Session: {sessionId: string};
-  IntroPortal: {sessionId: string};
+  ChangingRoom: {session: Session};
+  Session: {session: Session};
+  IntroPortal: {session: Session};
   OutroPortal: undefined;
 };
 

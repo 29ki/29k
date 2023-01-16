@@ -7,10 +7,12 @@ export enum SessionType {
   private = 'private',
 }
 
-type ExerciseStateFields = {
+type SessionStateFields = {
   index: number;
   playing: boolean;
-  dailySpotlightId?: string;
+  started: boolean;
+  ended: boolean;
+  id: string;
   completed?: boolean;
 };
 
@@ -23,14 +25,13 @@ type SessionFields = {
   contentId: string;
   inviteCode: number;
   hostId: string;
-  started: boolean;
-  ended: boolean;
   type: SessionType;
   userIds: string[];
+  ended: boolean;
 };
 
 // Data stored in DB
-export type ExerciseStateData = ExerciseStateFields & {
+export type SessionStateData = SessionStateFields & {
   timestamp: Timestamp;
 };
 
@@ -38,11 +39,10 @@ export type SessionData = SessionFields & {
   startTime: Timestamp;
   createdAt: Timestamp;
   updatedAt: Timestamp;
-  exerciseState: ExerciseStateData;
 };
 
 // Applicaton schema
-export type ExerciseState = ExerciseStateFields & {
+export type SessionState = SessionStateFields & {
   timestamp: string;
 };
 
@@ -50,7 +50,6 @@ export type Session = SessionFields & {
   startTime: string;
   createdAt: string;
   updatedAt: string;
-  exerciseState: ExerciseState;
   hostProfile?: UserProfile;
 };
 

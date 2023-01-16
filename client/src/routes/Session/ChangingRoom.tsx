@@ -39,8 +39,6 @@ import {SPACINGS} from '../../lib/constants/spacings';
 import TextInput from '../../lib/components/Typography/TextInput/TextInput';
 import AudioIndicator from './components/Participants/AudioIdicator';
 import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
-import useUpdateSessionExerciseState from './hooks/useUpdateSessionExerciseState';
-import useIsSessionHost from './hooks/useIsSessionHost';
 import Screen from '../../lib/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../lib/user/hooks/useUser';
@@ -121,14 +119,12 @@ const ChangingRoom = () => {
   const {toggleAudio, toggleVideo, setUserName, joinMeeting, preJoinMeeting} =
     useContext(DailyContext);
 
-  const session = useSessionState(state => state.session);
+  const sessionState = useSessionState(state => state.sessionState);
   const {
-    params: {sessionId: sessionId},
+    params: {session},
   } = useRoute<RouteProp<SessionStackProps, 'ChangingRoom'>>();
 
-  useSubscribeToSessionIfFocused(sessionId);
-  const {setSpotlightParticipant} = useUpdateSessionExerciseState(sessionId);
-  const isHost = useIsSessionHost();
+  useSubscribeToSessionIfFocused(session);
   const isFocused = useIsFocused();
   const me = useLocalParticipant();
   const user = useUser();
@@ -144,13 +140,8 @@ const ChangingRoom = () => {
   const hasVideo = Boolean(me?.videoTrack);
 
   useEffect(() => {
-    // If switching between sessions, the session will first be the old one
-    // and then beacome the current one by useSubscribeToSessionIfFocused.
-    // Only log metrics when session is the same as passed in by params
-    if (session?.id === sessionId) {
-      logSessionMetricEvent('Enter Changing Room');
-    }
-  }, [logSessionMetricEvent, session?.id, sessionId]);
+    logSessionMetricEvent('Enter Changing Room');
+  }, [logSessionMetricEvent]);
 
   const preJoin = useCallback(
     async (url: string, id: string) => {
@@ -178,22 +169,16 @@ const ChangingRoom = () => {
     // If switching between sessions, the session will first be the old one
     // and then beacome the current one by useSubscribeToSessionIfFocused.
     // Only pre join when the session is the same as passed in by params
-    if (isFocused && session?.url && session?.id && session?.id === sessionId) {
+    if (isFocused && session?.url && session?.id) {
       preJoin(session.url, session.id);
     }
-  }, [isFocused, session?.url, session?.id, sessionId, preJoin]);
-
-  useEffect(() => {
-    if (isHost && me?.user_id) {
-      setSpotlightParticipant(me.user_id);
-    }
-  }, [isHost, me?.user_id, setSpotlightParticipant]);
+  }, [isFocused, session?.url, session?.id, preJoin]);
 
   const join = useCallback(async () => {
     setJoiningMeeting(true);
-    if (session?.started) {
+    if (sessionState?.started) {
       await joinMeeting();
-      navigate('Session', {sessionId});
+      navigate('Session', {session});
     } else {
       await joinMeeting({
         subscribeToTracksAutomatically: false,
@@ -201,9 +186,15 @@ const ChangingRoom = () => {
           inPortal: true,
         },
       });
-      navigate('IntroPortal', {sessionId});
+      navigate('IntroPortal', {session});
     }
-  }, [setJoiningMeeting, sessionId, session?.started, joinMeeting, navigate]);
+  }, [
+    setJoiningMeeting,
+    sessionState?.started,
+    joinMeeting,
+    navigate,
+    session,
+  ]);
 
   const joinPress = useCallback(() => {
     if (localUserName) {

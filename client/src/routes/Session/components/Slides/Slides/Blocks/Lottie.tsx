@@ -46,7 +46,7 @@ const Lottie: React.FC<LottieProps> = ({
   const videoRef = useRef<RNVideo>(null);
   const timerRef = useRef<LottiePlayerHandle>(null);
   const [audioDuration, setAudioDuration] = useState(0);
-  const exerciseState = useSessionState(state => state.session?.exerciseState);
+  const sessionState = useSessionState(state => state.sessionState);
   const setCurrentContentReachedEnd = useSessionState(
     state => state.setCurrentContentReachedEnd,
   );
@@ -70,11 +70,11 @@ const Lottie: React.FC<LottieProps> = ({
       active &&
       !autoPlayLoop &&
       (duration || audioDuration) &&
-      exerciseState
+      sessionState
     ) {
       // Block is active, video and state is loaded
-      const playing = exerciseState.playing;
-      const timestamp = new Date(exerciseState.timestamp);
+      const playing = sessionState.playing;
+      const timestamp = new Date(sessionState.timestamp);
 
       if (
         timestamp > previousState.current.timestamp &&
@@ -106,7 +106,7 @@ const Lottie: React.FC<LottieProps> = ({
     duration,
     audioDuration,
     previousState,
-    exerciseState,
+    sessionState,
     seek,
   ]);
 
@@ -123,7 +123,7 @@ const Lottie: React.FC<LottieProps> = ({
     }
   }, [setCurrentContentReachedEnd, autoPlayLoop]);
 
-  const paused = !active || (!exerciseState?.playing && !autoPlayLoop);
+  const paused = !active || (!sessionState?.playing && !autoPlayLoop);
 
   const timer = useMemo(
     () =>
