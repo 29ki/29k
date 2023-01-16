@@ -1,6 +1,8 @@
 import React, {useCallback, useContext, useEffect} from 'react';
 import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import useSessionState from './state/state';
 import {
@@ -17,7 +19,6 @@ import ExerciseSlides from './components/ExerciseSlides/ExerciseSlides';
 import Participants from './components/Participants/Participants';
 import useSessionParticipants from './hooks/useSessionParticipants';
 import useSessionSlideState from './hooks/useSessionSlideState';
-import useMuteAudioListener from './hooks/useMuteAudioListener';
 import ProgressBar from './components/ProgressBar/ProgressBar';
 import {SPACINGS} from '../../lib/constants/spacings';
 import ContentControls from './components/ContentControls/ContentControls';
@@ -31,20 +32,17 @@ import {
   MicrophoneOffIcon,
 } from '../../lib/components/Icons';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
-
 import useLeaveSession from './hooks/useLeaveSession';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import useIsSessionHost from './hooks/useIsSessionHost';
 import Button from '../../lib/components/Buttons/Button';
-import useUpdateSession from './hooks/useUpdateSession';
-import {useTranslation} from 'react-i18next';
 import HostNotes from './components/HostNotes/HostNotes';
 import Screen from '../../lib/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../lib/user/hooks/useUser';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 import useExerciseTheme from './hooks/useExerciseTheme';
-import useExerciseById from '../../lib/content/hooks/useExerciseById';
+import useSessionExercise from './hooks/useSessionExercise';
+import useUpdateSessionState from './hooks/useUpdateSessionState';
 import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
 import useCheckPermissions from './hooks/useCheckPermissions';
 
@@ -100,21 +98,20 @@ const Session = () => {
     leaveMeeting,
   } = useContext(DailyContext);
   const {
-    params: {sessionId},
+    params: {session},
   } = useRoute<RouteProp<SessionStackProps, 'Session'>>();
   const {navigate} =
     useNavigation<NativeStackNavigationProp<SessionStackProps>>();
   const {t} = useTranslation('Screen.Session');
-  useSubscribeToSessionIfFocused(sessionId, {exitOnEnded: false});
-  useMuteAudioListener();
+  useSubscribeToSessionIfFocused(session, {exitOnEnded: false});
 
   const participants = useSessionParticipants();
-  const {setEnded} = useUpdateSession(sessionId);
+  const {endSession} = useUpdateSessionState(session.id);
   const me = useLocalParticipant();
   const isHost = useIsSessionHost();
-  const session = useSessionState(state => state.session);
+  const sessionState = useSessionState(state => state.sessionState);
   const sessionSlideState = useSessionSlideState();
-  const exercise = useExerciseById(session?.contentId);
+  const exercise = useSessionExercise();
   const theme = useExerciseTheme();
   const logSessionMetricEvent = useLogInSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession();
@@ -128,23 +125,22 @@ const Session = () => {
   usePreventGoingBack(leaveSessionWithConfirm);
 
   useEffect(() => {
-    if (session?.id) {
+    if (sessionState?.id) {
       logSessionMetricEvent('Enter Sharing Session');
     }
-  }, [logSessionMetricEvent, session?.id]);
+  }, [logSessionMetricEvent, sessionState?.id]);
 
   useEffect(() => {
-    if (session?.exerciseState.completed) {
+    if (sessionState?.completed) {
       logSessionMetricEvent('Complete Sharing Session');
     }
-  }, [session?.exerciseState?.completed, logSessionMetricEvent]);
+  }, [sessionState?.completed, logSessionMetricEvent]);
 
   useEffect(() => {
-    if (session?.ended) {
-      leaveMeeting();
-      navigate('OutroPortal');
+    if (sessionState?.ended) {
+      leaveMeeting().then(() => navigate('OutroPortal'));
     }
-  }, [session?.ended, navigate, leaveMeeting]);
+  }, [sessionState?.ended, navigate, leaveMeeting]);
 
   useEffect(() => {
     setUserData({
@@ -173,7 +169,7 @@ const Session = () => {
           {!sessionSlideState?.next && (
             <>
               <Spacer16 />
-              <StyledButton small active onPress={setEnded}>
+              <StyledButton small active onPress={endSession}>
                 {t('endButton')}
               </StyledButton>
             </>
@@ -199,7 +195,7 @@ const Session = () => {
             )}
           </SpotlightContent>
         )}
-        <ExerciseControl sessionId={sessionId} />
+        <ExerciseControl sessionId={session.id} />
       </Spotlight>
       <Participants participants={participants} />
       <Spacer16 />

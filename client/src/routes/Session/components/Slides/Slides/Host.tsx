@@ -1,19 +1,19 @@
 import React from 'react';
 
-import useSessionParticipantSpotlight from '../../../hooks/useSessionParticipantSpotlight';
+import useSessionHost from '../../../hooks/useSessionHost';
 import Participant from '../../Participants/Participant';
 
 type HostProps = {
   active: boolean;
 };
 const Host: React.FC<HostProps> = ({active}) => {
-  const participantSpotlight = useSessionParticipantSpotlight();
+  const host = useSessionHost();
 
-  if (!active || !participantSpotlight) {
+  if (!active || !host) {
     return null;
   }
 
-  return <Participant participant={participantSpotlight} topGradient inSlide />;
+  return <Participant participant={host} topGradient inSlide />;
 };
 
 export default Host;

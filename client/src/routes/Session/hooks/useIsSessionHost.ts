@@ -1,11 +1,8 @@
-import useUser from '../../../lib/user/hooks/useUser';
-import useSessionState from '../state/state';
+import useSessionHost from './useSessionHost';
 
 const useIsSessionHost = () => {
-  const session = useSessionState(state => state.session);
-  const user = useUser();
-
-  return session?.hostId === user?.uid;
+  const host = useSessionHost();
+  return Boolean(host?.local);
 };
 
 export default useIsSessionHost;

@@ -136,8 +136,6 @@ sessionsRouter.put(
 
 const UpdateSessionSchema = yup
   .object({
-    started: yup.boolean(),
-    ended: yup.boolean(),
     startTime: yup.string(),
     type: yup.mixed<SessionType>().oneOf(Object.values(SessionType)),
   })
@@ -172,12 +170,12 @@ sessionsRouter.put(
   },
 );
 
-const ExerciseStateUpdateSchema = yup
+const SessionStateUpdateSchema = yup
   .object({
+    started: yup.boolean(),
+    ended: yup.boolean(),
     index: yup.number(),
     playing: yup.boolean(),
-    dailySpotlightId: yup.string(),
-    ended: yup.boolean(),
     completed: yup.boolean(),
   })
   .test(
@@ -186,24 +184,22 @@ const ExerciseStateUpdateSchema = yup
     test => Object.keys(test).length > 0,
   );
 
-export type ExerciseStateUpdate = yup.InferType<
-  typeof ExerciseStateUpdateSchema
->;
+export type SessionStateUpdate = yup.InferType<typeof SessionStateUpdateSchema>;
 
 sessionsRouter.put(
-  '/:id/exerciseState',
-  validator({body: ExerciseStateUpdateSchema}),
+  '/:id/state',
+  validator({body: SessionStateUpdateSchema}),
   async ctx => {
     const {id} = ctx.params;
-    const data = ctx.request.body as ExerciseStateUpdate;
+    const data = ctx.request.body as SessionStateUpdate;
 
     try {
-      const updatedSession = await sessionsController.updateExerciseState(
+      const updatedState = await sessionsController.updateSessionState(
         ctx.user.id,
         id,
         data,
       );
-      ctx.body = updatedSession;
+      ctx.body = updatedState;
     } catch (err) {
       ctx.status = 500;
       throw err;

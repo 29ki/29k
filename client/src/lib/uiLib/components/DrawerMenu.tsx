@@ -58,6 +58,7 @@ const DrawerContent: (
     const navState = navigation.getState();
     const activeRouteName = navState.routes[navState.index].name;
 
+    /* eslint-disable react/no-unstable-nested-components */
     const renderMenuItem = (parentName: string) => (_: any, name: string) =>
       (
         <MenuWrapper

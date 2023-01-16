@@ -1,3 +1,4 @@
+import {StyleSheet} from 'react-native';
 import {BottomSheetScrollView, useBottomSheet} from '@gorhom/bottom-sheet';
 import {
   RouteProp,
@@ -7,7 +8,6 @@ import {
 } from '@react-navigation/native';
 import React, {useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components/native';
-import {COLORS} from '../../../../shared/src/constants/colors';
 import Button from '../../lib/components/Buttons/Button';
 import Gutters from '../../lib/components/Gutters/Gutters';
 import SheetModal from '../../lib/components/Modals/SheetModal';
@@ -31,22 +31,35 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import {DEFAULT_LANGUAGE_TAG} from '../../lib/i18n';
 import {Display36} from '../../lib/components/Typography/Display/Display';
+import {ThumbsUp, ThumbsDown} from './components/Thumbs';
+import Video from 'react-native-video';
+
+const BackgroundVideo = styled(Video).attrs({
+  repeat: true,
+  resizeMode: 'cover',
+  source: {
+    uri: 'https://res.cloudinary.com/cupcake-29k/video/upload/v1673617872/Video/Submit_Session_Feedback_lrzi5l.mp4',
+  },
+})(({paused}) => ({
+  ...StyleSheet.absoluteFillObject,
+  opacity: paused ? 0 : 1, // Hide it when not playing to pre-load it a bit
+}));
+
+const ThankYou = styled(Display36)({
+  paddingTop: 150,
+  fontSize: 40,
+  lineHeight: 53,
+  textAlign: 'center',
+});
 
 const Votes = styled.View({
   flexDirection: 'row',
 });
 
-const Vote = styled.Text<{selected: boolean}>(({selected}) => ({
+const Vote = styled(TouchableOpacity)({
   width: 125,
   height: 125,
-  fontSize: 75,
-  lineHeight: 125,
-  textAlign: 'center',
-  borderRadius: 62.5,
-  borderWidth: 5,
-  borderColor: selected ? COLORS.PRIMARY : 'transparent',
-  overflow: 'hidden',
-}));
+});
 
 const Wrapper = styled(Gutters)({
   alignItems: 'center',
@@ -56,12 +69,6 @@ const Wrapper = styled(Gutters)({
 const TextField = styled(BottomSheetTextInput)({
   height: 80,
   width: '100%',
-});
-
-const Submitted = styled.View({
-  height: 200,
-  alignItems: 'center',
-  justifyContent: 'center',
 });
 
 const SessionFeedbackModal = () => {
@@ -101,55 +108,52 @@ const SessionFeedbackModal = () => {
 
   useEffect(() => {
     if (submitted) {
-      snapToIndex(0);
-      const timer = setTimeout(popToTop, 3000);
-      return () => clearTimeout(timer);
+      snapToIndex(1);
     }
-  }, [submitted, snapToIndex, popToTop]);
-
-  if (submitted) {
-    return (
-      <SheetModal>
-        <Submitted>
-          <Display36>{t('thankYou')}</Display36>
-        </Submitted>
-      </SheetModal>
-    );
-  }
+  }, [submitted, snapToIndex]);
 
   return (
-    <SheetModal>
-      <BottomSheetScrollView focusHook={useIsFocused}>
-        <ModalHeading>{t('title')}</ModalHeading>
-        <Spacer24 />
-        <Wrapper>
-          <Heading24>{t('question')}</Heading24>
-          <Spacer16 />
-          <Votes>
-            <TouchableOpacity onPress={thumbsUpPress}>
-              <Vote selected={answer === true}>{'👍'}</Vote>
-            </TouchableOpacity>
-            <Spacer16 />
-            <TouchableOpacity onPress={thumbsDownPress}>
-              <Vote selected={answer === false}>{'👎'}</Vote>
-            </TouchableOpacity>
-          </Votes>
-          <Spacer96 />
+    <SheetModal onPressClose={popToTop}>
+      <BackgroundVideo paused={!submitted} />
+      {submitted ? (
+        <Gutters big>
+          <ThankYou>{t('thankYou__text')}</ThankYou>
+        </Gutters>
+      ) : (
+        <>
+          <BottomSheetScrollView focusHook={useIsFocused}>
+            <ModalHeading>{t('title')}</ModalHeading>
+            <Spacer24 />
+            <Wrapper>
+              <Heading24>{t('question')}</Heading24>
+              <Spacer16 />
+              <Votes>
+                <Vote onPress={thumbsUpPress}>
+                  <ThumbsUp active={answer === true} />
+                </Vote>
+                <Spacer16 />
+                <Vote onPress={thumbsDownPress}>
+                  <ThumbsDown active={answer === false} />
+                </Vote>
+              </Votes>
+              <Spacer96 />
 
-          <Heading16>{t('comments')}</Heading16>
-          <Spacer8 />
-          <TextField
-            multiline
-            onChangeText={setComment}
-            placeholder={t('commentsPlaceholder')}
-            numberOfLines={3}
-          />
+              <Heading16>{t('comments')}</Heading16>
+              <Spacer8 />
+              <TextField
+                multiline
+                onChangeText={setComment}
+                placeholder={t('commentsPlaceholder')}
+                numberOfLines={3}
+              />
 
-          <Spacer16 />
-          <Button onPress={submit}>{t('submit')}</Button>
-          <Spacer24 />
-        </Wrapper>
-      </BottomSheetScrollView>
+              <Spacer16 />
+              <Button onPress={submit}>{t('submit')}</Button>
+              <Spacer24 />
+            </Wrapper>
+          </BottomSheetScrollView>
+        </>
+      )}
     </SheetModal>
   );
 };

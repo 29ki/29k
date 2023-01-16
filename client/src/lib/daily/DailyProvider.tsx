@@ -27,6 +27,7 @@ export type DailyProviderTypes = {
   leaveMeeting: () => Promise<void>;
   toggleAudio: (enabled: boolean) => void;
   toggleVideo: (enabled: boolean) => void;
+  muteAll: () => void;
   setUserName: (userName: string) => Promise<void>;
   setUserData: (userData: unknown) => Promise<void>;
   setSubscribeToAllTracks: () => void;
@@ -40,6 +41,7 @@ export const DailyContext = createContext<DailyProviderTypes>({
   leaveMeeting: () => Promise.resolve(),
   toggleAudio: () => {},
   toggleVideo: () => {},
+  muteAll: () => {},
   setUserName: () => Promise.resolve(),
   setUserData: () => Promise.resolve(),
   setSubscribeToAllTracks: () => {},
@@ -142,6 +144,19 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     [daily],
   );
 
+  const muteAll = useCallback(() => {
+    if (!daily) {
+      return;
+    }
+
+    const updates = Object.keys(daily.participants()).reduce(
+      (acc, id) => ({...acc, [id]: {setAudio: false}}),
+      {},
+    );
+
+    daily.updateParticipants(updates);
+  }, [daily]);
+
   const setUserName = useCallback(
     async (userName: string) => {
       if (!daily) {
@@ -236,6 +251,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
         leaveMeeting,
         toggleAudio,
         toggleVideo,
+        muteAll,
         setUserName,
         setUserData,
         setSubscribeToAllTracks,

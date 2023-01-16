@@ -12,6 +12,7 @@ import {PlusIcon} from '../Icons';
 import ToggleButton from '../../../routes/Session/components/HostNotes/ToggleButton';
 import TextButton from './TextButton/TextButton';
 import RadioButton from './RadioButton/RadioButton';
+import CloseButton from './CloseButton/CloseButton';
 
 const RowFullWidth = styled.View({
   flex: 1,
@@ -186,6 +187,14 @@ export const AllButtons = () => (
     </Body18>
     <Spacer8 />
     <TextButton title="Text button" onPress={() => {}} />
+    <Spacer16 />
+    <Body18>
+      <BodyBold>Close button</BodyBold>
+    </Body18>
+    <Spacer8 />
+    <ButtonWrapper>
+      <CloseButton onPress={() => {}} />
+    </ButtonWrapper>
     <Spacer16 />
     <Body18>
       <BodyBold>Toggle button</BodyBold>

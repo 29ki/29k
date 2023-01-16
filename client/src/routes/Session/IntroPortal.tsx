@@ -36,7 +36,7 @@ import useLeaveSession from './hooks/useLeaveSession';
 import VideoBase from './components/VideoBase/VideoBase';
 import useIsSessionHost from './hooks/useIsSessionHost';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
-import useUpdateSession from './hooks/useUpdateSession';
+import useUpdateSessionState from './hooks/useUpdateSessionState';
 import HostNotes from './components/HostNotes/HostNotes';
 import Screen from '../../lib/components/Screen/Screen';
 import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
@@ -44,7 +44,7 @@ import {ArrowLeftIcon} from '../../lib/components/Icons';
 import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
 import Badge from '../../lib/components/Badge/Badge';
 import useSessionStartTime from './hooks/useSessionStartTime';
-import useExerciseById from '../../lib/content/hooks/useExerciseById';
+import useSessionExercise from './hooks/useSessionExercise';
 import AudioFader from './components/AudioFader/AudioFader';
 import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
 
@@ -88,14 +88,15 @@ const BackButton = styled(IconButton)({
 
 const IntroPortal: React.FC = () => {
   const {
-    params: {sessionId: sessionId},
+    params: {session},
   } = useRoute<RouteProp<SessionStackProps, 'IntroPortal'>>();
   const endVideoRef = useRef<Video>(null);
   const [loopVideoLoaded, setLoopVideoLoaded] = useState(false);
   const [joiningSession, setJoiningSession] = useState(false);
   const {t} = useTranslation('Screen.Portal');
-  const session = useSessionState(state => state.session);
-  const exercise = useExerciseById(session?.contentId);
+  const startTime = useSessionState(state => state.session?.startTime);
+  const sessionState = useSessionState(state => state.sessionState);
+  const exercise = useSessionExercise();
   const participants = useDailyState(state => state.participants);
   const participantsCount = Object.keys(participants ?? {}).length;
   const isHost = useIsSessionHost();
@@ -105,43 +106,42 @@ const IntroPortal: React.FC = () => {
         SessionStackProps & TabNavigatorProps & ModalStackProps
       >
     >();
-  const {setStarted} = useUpdateSession(sessionId);
+  const {startSession} = useUpdateSessionState(session.id);
   const {leaveSessionWithConfirm} = useLeaveSession();
   const isFocused = useIsFocused();
-  useSubscribeToSessionIfFocused(sessionId);
-  const sessionTime = useSessionStartTime(dayjs(session?.startTime));
+  useSubscribeToSessionIfFocused(session);
+  const sessionTime = useSessionStartTime(dayjs(startTime));
   const logSessionMetricEvent = useLogInSessionMetricEvents();
-
   const introPortal = exercise?.introPortal;
   const textColor = exercise?.theme?.textColor;
-  const started = session?.started;
+  const started = sessionState?.started;
 
   usePreventGoingBack(leaveSessionWithConfirm);
 
   useEffect(() => {
-    if (session?.id) {
+    if (sessionState?.id) {
       logSessionMetricEvent('Enter Intro Portal');
     }
-  }, [logSessionMetricEvent, session?.id]);
+  }, [logSessionMetricEvent, sessionState?.id]);
 
   const navigateToSession = useCallback(
-    () => navigate('Session', {sessionId: sessionId}),
-    [navigate, sessionId],
+    () => navigate('Session', {session}),
+    [navigate, session],
   );
 
   useEffect(() => {
-    if (session?.started && !endVideoRef.current) {
+    if (sessionState?.started && !endVideoRef.current) {
       // If no video is defined, navigate directly
       navigateToSession();
     }
-  }, [session?.started, navigateToSession]);
+  }, [sessionState?.started, navigateToSession]);
 
   const onStartPress = useCallback(() => {
-    setStarted();
-    if (session?.id) {
+    startSession();
+    if (sessionState?.id) {
       logSessionMetricEvent('Start Sharing Session');
     }
-  }, [setStarted, logSessionMetricEvent, session?.id]);
+  }, [startSession, logSessionMetricEvent, sessionState?.id]);
 
   const onEndVideoLoad = () => {
     endVideoRef.current?.seek(0);
@@ -158,7 +158,7 @@ const IntroPortal: React.FC = () => {
   };
 
   const onLoopVideoEnd = () => {
-    if (session?.started) {
+    if (sessionState?.started) {
       ReactNativeHapticFeedback.trigger('impactHeavy');
       setJoiningSession(true);
     }
@@ -204,7 +204,7 @@ const IntroPortal: React.FC = () => {
           onReadyForDisplay={onLoopVideoLoad}
           onEnd={onLoopVideoEnd}
           paused={!isFocused}
-          repeat={!session?.started}
+          repeat={!sessionState?.started}
           source={loopVideoSource}
           resizeMode="cover"
           poster={introPortal?.videoLoop?.preview}
@@ -228,7 +228,7 @@ const IntroPortal: React.FC = () => {
                 Icon={ArrowLeftIcon}
                 noBackground
               />
-              {__DEV__ && session?.started && (
+              {__DEV__ && sessionState?.started && (
                 <Button small onPress={navigateToSession}>
                   {t('skipPortal')}
                 </Button>
@@ -236,9 +236,11 @@ const IntroPortal: React.FC = () => {
               {isHost && (
                 <Button
                   small
-                  disabled={session?.started}
+                  disabled={sessionState?.started}
                   onPress={onStartPress}>
-                  {session?.started ? t('sessionStarted') : t('startSession')}
+                  {sessionState?.started
+                    ? t('sessionStarted')
+                    : t('startSession')}
                 </Button>
               )}
             </TopBar>

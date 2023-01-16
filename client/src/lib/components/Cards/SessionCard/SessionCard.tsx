@@ -47,7 +47,7 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
     navigate('SessionStack', {
       screen: 'ChangingRoom',
       params: {
-        sessionId: session.id,
+        session,
       },
     });
     logSessionMetricEvent('Join Sharing Session', session);

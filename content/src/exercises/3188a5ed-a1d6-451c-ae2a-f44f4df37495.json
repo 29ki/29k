@@ -3,7 +3,8 @@
     "published": true,
     "hidden": true,
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#d56245"
     },
     "introPortal": {
       "hostNotes": [
@@ -12,11 +13,11 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1673467668/Video/portal1_Drop_all_requirements_vpxa2p.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1673467641/Audio/portal_audio_Drop_all_requirements_dw8lju.mp3"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1673869554/Audio/portal_audio_Drop_all_requirements_2_kospb1.mp3"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1673467668/Video/portal2_Drop_all_requirements_bvew1j.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
       }
     },
     "slides": [
@@ -58,7 +59,10 @@
           }
         ],
         "content": {
-          "heading": "What did you notice?"
+          "heading": "What did you notice?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1673869507/Video/timer_1min_Drop_all_requirements_dahizb.mp4"
+          }
         }
       },
       {

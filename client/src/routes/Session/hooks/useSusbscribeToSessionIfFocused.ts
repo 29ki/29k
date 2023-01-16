@@ -13,13 +13,14 @@ import useSubscribeToSession from './useSubscribeToSession';
 type Options = {exitOnEnded?: boolean};
 
 const useSubscribeToSessionIfFocused = (
-  sessionId: Session['id'],
+  session: Session,
   options?: Options,
 ) => {
   const {exitOnEnded = true} = options ?? {};
-  const setSessionState = useSessionState(state => state.setState);
+  const setSessionState = useSessionState(state => state.setSessionState);
+  const setSession = useSessionState(state => state.setSession);
   const {fetchSessions} = useSessions();
-  const subscribeToSession = useSubscribeToSession(sessionId);
+  const subscribeToSession = useSubscribeToSession(session.id);
   const isFocused = useIsFocused();
 
   const {navigate} =
@@ -29,15 +30,16 @@ const useSubscribeToSessionIfFocused = (
 
   useEffect(() => {
     if (isFocused) {
-      return subscribeToSession(session => {
-        if (!session || (exitOnEnded && session?.ended)) {
+      return subscribeToSession(sessionState => {
+        if (!sessionState || !session || (exitOnEnded && sessionState?.ended)) {
           fetchSessions();
           navigate('Sessions');
           navigate('SessionUnavailableModal');
           return;
         }
 
-        setSessionState(session);
+        setSession(session);
+        setSessionState(sessionState);
       });
     }
   }, [
@@ -47,6 +49,8 @@ const useSubscribeToSessionIfFocused = (
     fetchSessions,
     navigate,
     setSessionState,
+    setSession,
+    session,
   ]);
 };
 
