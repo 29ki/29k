@@ -44,7 +44,8 @@ const Byline: React.FC<BylineProps> = React.memo(
         </ImageContainer>
         <Spacer4 />
         <WrapText numberOfLines={2}>
-          {t('with')} {name} {duration ? `· ${duration} min` : ''}
+          {t('with')} {name}{' '}
+          {duration ? `· ${duration} ${t('minutesAbbreviation')}` : ''}
         </WrapText>
       </Container>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {Tag as TagType} from '../../../../../../shared/src/types/generated/Tag';
 
@@ -23,11 +24,13 @@ type TagsProps = {
 };
 
 const Tags: React.FC<TagsProps> = React.memo(({tags, duration}) => {
+  const {t} = useTranslation('Component.SessionCard');
+
   return (
     <Container>
       {duration && (
         <Wrapper>
-          <Tag value={`${duration} min`} />
+          <Tag value={`${duration} ${t('minutesAbbreviation')}`} />
           <Spacer4 />
         </Wrapper>
       )}
