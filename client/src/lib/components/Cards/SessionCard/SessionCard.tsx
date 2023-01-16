@@ -34,6 +34,8 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
   const logSessionMetricEvent = useLogSessionMetricEvents();
   const tags = useGetTagsById(exercise?.tags);
 
+  const tagStrings = useMemo(() => tags.map(tag => tag.tag), [tags]);
+
   const sessionPinned = useMemo(
     () => isSessionPinned(session),
     [isSessionPinned, session],
@@ -69,7 +71,7 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
     <Card
       title={formatExerciseName(exercise)}
       duration={exercise?.duration}
-      tags={tags}
+      tags={tagStrings}
       image={source}
       onPress={onContextPress}
       buttonText={sessionTime.isReadyToJoin ? t('join') : undefined}

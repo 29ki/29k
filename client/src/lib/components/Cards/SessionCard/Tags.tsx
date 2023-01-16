@@ -19,7 +19,7 @@ const Wrapper = styled.View({
 });
 
 type TagsProps = {
-  tags: Array<TagType>;
+  tags: Array<string>;
   duration?: number;
 };
 
@@ -35,8 +35,8 @@ const Tags: React.FC<TagsProps> = React.memo(({tags, duration}) => {
         </Wrapper>
       )}
       {tags.map(tag => (
-        <Wrapper key={tag.id}>
-          <Tag value={tag.tag} />
+        <Wrapper key={tag}>
+          <Tag value={tag} />
           <Spacer4 />
         </Wrapper>
       ))}

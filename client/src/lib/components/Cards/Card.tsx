@@ -16,7 +16,6 @@ import {Spacer4} from '../Spacers/Spacer';
 import Gutters from '../Gutters/Gutters';
 import Interested from '../Interested/Interested';
 import Tags from './SessionCard/Tags';
-import {Tag} from '../../../../../shared/src/types/generated/Tag';
 
 const GraphicsWrapper = styled.View({
   width: 120,
@@ -77,7 +76,7 @@ const CTAButton = styled(Button)({
 type CardProps = {
   title?: string;
   duration?: number;
-  tags: Array<Tag>;
+  tags: Array<string>;
   image?: ImageSourcePropType;
   lottie?: AnimationObject;
   onPress: () => void;
