@@ -23,7 +23,7 @@
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1671544231/Video/meditation_letting_go_of_control_xv1sx8.mov",
             "autoPlayLoop": false,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1668093018/Audio/meditation_letting_go_of_control_becb1s.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1668093018/Audio/meditation_letting_go_of_control_becb1s.mp3",
             "durationTimer": true
           }
         }
@@ -149,7 +149,7 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667919733/Video/portal1_letting_go_of_control_g0izpw.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667915462/Audio/portal_letting_go_of_controlmp3_eintur.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667915462/Audio/portal_letting_go_of_controlmp3_eintur.mp3"
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1668093279/Video/portal2_letting_go_of_control_bnzxxr.mp4",

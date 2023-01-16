@@ -15,7 +15,7 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1673626157/Video/portal1_Be_kind_to_yourself_HD_zf7i4r.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3"
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1673626159/Video/portal2_Be_kind_to_yourself_HD_rv02xs.mp4"
@@ -164,7 +164,7 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043755/Video/portal1_Be_kind_to_yourself_u6lvok.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3"
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1669043748/Video/portal2_Be_kind_to_yourself_rahxff.mp4"
