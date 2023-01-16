@@ -22,7 +22,7 @@
   "dependencies": {
     "@googleapis/firebasedynamiclinks": "^1.0.0",
     "@koa/router": "^12.0.0",
-    "@sentry/integrations": "^7.29.0",
+    "@sentry/integrations": "^7.30.0",
     "@sentry/node": "^7.29.0",
     "@slack/bolt": "^3.12.2",
     "@slack/web-api": "^6.8.0",
