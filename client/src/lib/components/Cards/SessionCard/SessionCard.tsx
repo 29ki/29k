@@ -36,11 +36,14 @@ const JoinButton: React.FC<{
   const {t} = useTranslation('Component.SessionCard');
   const sessionTime = useSessionStartTime(dayjs(startTime));
 
-  return (
-    <Button small variant="secondary" onPress={onPress}>
-      {sessionTime.isReadyToJoin ? t('join') : undefined}
-    </Button>
-  );
+  return sessionTime.isReadyToJoin ? (
+    <>
+      <Button small variant="secondary" onPress={onPress}>
+        {t('join')}
+      </Button>
+      <Spacer8 />
+    </>
+  ) : null;
 };
 
 type SessionCardProps = {
@@ -97,7 +100,6 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
       onPinnedPress={onPinnedPress}>
       <Row>
         <JoinButton onPress={onPress} startTime={startTime} />
-        <Spacer8 />
         <SessionTimeBadge session={session} />
       </Row>
     </Card>
