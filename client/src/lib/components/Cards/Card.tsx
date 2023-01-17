@@ -6,11 +6,9 @@ import AnimatedLottieView, {AnimationObject} from 'lottie-react-native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import SETTINGS from '../../constants/settings';
-import Button from '../Buttons/Button';
 import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display20} from '../Typography/Display/Display';
-import {IconType} from '../Icons';
 import Byline from '../Bylines/Byline';
 import {Spacer4} from '../Spacers/Spacer';
 import Gutters from '../Gutters/Gutters';
@@ -61,8 +59,6 @@ const Footer = styled(Gutters)({
   paddingBottom: SPACINGS.SIXTEEN,
 });
 
-const LeftFooter = styled.View({});
-
 const RightFooter = styled.View({
   alignItems: 'flex-end',
   flexDirection: 'row',
@@ -75,22 +71,14 @@ const RightFooterWrapper = styled.View({
   flex: 1,
 });
 
-const CTAButton = styled(Button)({
-  alignSelf: 'flex-start',
-  marginRight: SPACINGS.EIGHT,
-});
-
 type CardProps = {
   title?: string;
   tags?: Array<string>;
   image?: ImageSourcePropType;
   lottie?: AnimationObject;
   onPress: () => void;
-  onButtonPress?: () => void;
   onPinnedPress?: () => void;
-  buttonText?: string;
   children?: React.ReactNode;
-  ButtonIcon?: IconType;
   hostPictureURL?: string;
   hostName?: string;
   pinned: boolean;
@@ -102,11 +90,8 @@ export const Card: React.FC<CardProps> = ({
   lottie,
   image,
   onPress,
-  buttonText,
-  onButtonPress,
   onPinnedPress,
   children,
-  ButtonIcon,
   hostPictureURL,
   hostName,
   pinned,
@@ -140,19 +125,6 @@ export const Card: React.FC<CardProps> = ({
         </GraphicsWrapper>
       </ContentWrapper>
       <Footer>
-        <LeftFooter>
-          {buttonText && (
-            <>
-              <CTAButton
-                LeftIcon={ButtonIcon}
-                small
-                variant="secondary"
-                onPress={onButtonPress ? onButtonPress : onPress}>
-                {buttonText}
-              </CTAButton>
-            </>
-          )}
-        </LeftFooter>
         <RightFooter>
           <RightFooterWrapper>
             {children}

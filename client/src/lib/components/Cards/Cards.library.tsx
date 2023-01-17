@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 import ScreenWrapper from '../../uiLib/decorators/ScreenWrapper';
 import Badge from '../Badge/Badge';
-import {PlusIcon, PrivateIcon, PublicIcon} from '../Icons';
+import {PrivateIcon, PublicIcon} from '../Icons';
 import {Spacer16, Spacer4} from '../Spacers/Spacer';
 import {Body14} from '../Typography/Body/Body';
 import Card from './Card';
@@ -24,9 +24,7 @@ export const AllCards = () => (
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
-      buttonText="Join"
       onPress={() => {}}
-      ButtonIcon={PlusIcon}
       pinned={false}
     />
     <Spacer16 />
@@ -37,9 +35,7 @@ export const AllCards = () => (
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
-      buttonText="Join"
       onPress={() => {}}
-      ButtonIcon={PlusIcon}
       pinned={false}
     />
     <Spacer16 />
@@ -49,7 +45,6 @@ export const AllCards = () => (
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
       }}
-      buttonText="Go dance!"
       onPress={() => {}}
       pinned={false}
     />
@@ -60,7 +55,6 @@ export const AllCards = () => (
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
-      buttonText="Go dance!"
       onPress={() => {}}
       pinned={false}
     />
@@ -70,7 +64,6 @@ export const AllCards = () => (
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
-      buttonText="Join"
       pinned={false}
       onPress={() => {}}>
       <Row>
