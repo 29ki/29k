@@ -15,7 +15,7 @@ import Byline from '../Bylines/Byline';
 import {Spacer4} from '../Spacers/Spacer';
 import Gutters from '../Gutters/Gutters';
 import Interested from '../Interested/Interested';
-import Tags from './SessionCard/Tags';
+import Tag from '../Tag/Tag';
 
 const GraphicsWrapper = styled.View({
   width: 120,
@@ -42,6 +42,13 @@ const LeftCol = styled.View({
   flex: 2,
   justifyContent: 'space-between',
   padding: SPACINGS.SIXTEEN,
+});
+
+const Tags = styled.View({
+  flexWrap: 'wrap',
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginTop: -SPACINGS.FOUR,
 });
 
 const Header = styled.View({
@@ -75,7 +82,6 @@ const CTAButton = styled(Button)({
 
 type CardProps = {
   title?: string;
-  duration?: number;
   tags: Array<string>;
   image?: ImageSourcePropType;
   lottie?: AnimationObject;
@@ -92,7 +98,6 @@ type CardProps = {
 
 export const Card: React.FC<CardProps> = ({
   title,
-  duration,
   tags,
   lottie,
   image,
@@ -105,51 +110,56 @@ export const Card: React.FC<CardProps> = ({
   hostPictureURL,
   hostName,
   pinned,
-}) => {
-  return (
-    <>
-      <Wrapper onPress={onPress}>
-        <ContentWrapper>
-          <LeftCol>
-            <Tags tags={tags} duration={duration} />
-            <Header>
-              {title && <Display20 numberOfLines={2}>{title}</Display20>}
-              <Spacer4 />
-              <Byline pictureURL={hostPictureURL} name={hostName} />
-            </Header>
-          </LeftCol>
-          <GraphicsWrapper>
-            {lottie ? (
-              <Lottie source={lottie} autoPlay loop />
-            ) : image ? (
-              <Image resizeMode="contain" source={image} />
-            ) : null}
-          </GraphicsWrapper>
-        </ContentWrapper>
-        <Footer>
-          <LeftFooter>
-            {buttonText && (
+}) => (
+  <>
+    <Wrapper onPress={onPress}>
+      <ContentWrapper>
+        <LeftCol>
+          <Tags>
+            {tags.map(tag => (
               <>
-                <CTAButton
-                  LeftIcon={ButtonIcon}
-                  small
-                  variant="secondary"
-                  onPress={onButtonPress ? onButtonPress : onPress}>
-                  {buttonText}
-                </CTAButton>
+                <Tag>{tag}</Tag>
+                <Spacer4 />
               </>
-            )}
-          </LeftFooter>
-          <RightFooter>
-            <RightFooterWrapper>
-              {children}
-              <Interested active={pinned} onPress={onPinnedPress} />
-            </RightFooterWrapper>
-          </RightFooter>
-        </Footer>
-      </Wrapper>
-    </>
-  );
-};
+            ))}
+          </Tags>
+          <Header>
+            {title && <Display20 numberOfLines={2}>{title}</Display20>}
+            <Spacer4 />
+            <Byline pictureURL={hostPictureURL} name={hostName} />
+          </Header>
+        </LeftCol>
+        <GraphicsWrapper>
+          {lottie ? (
+            <Lottie source={lottie} autoPlay loop />
+          ) : image ? (
+            <Image resizeMode="contain" source={image} />
+          ) : null}
+        </GraphicsWrapper>
+      </ContentWrapper>
+      <Footer>
+        <LeftFooter>
+          {buttonText && (
+            <>
+              <CTAButton
+                LeftIcon={ButtonIcon}
+                small
+                variant="secondary"
+                onPress={onButtonPress ? onButtonPress : onPress}>
+                {buttonText}
+              </CTAButton>
+            </>
+          )}
+        </LeftFooter>
+        <RightFooter>
+          <RightFooterWrapper>
+            {children}
+            <Interested active={pinned} onPress={onPinnedPress} />
+          </RightFooterWrapper>
+        </RightFooter>
+      </Footer>
+    </Wrapper>
+  </>
+);
 
 export default Card;

@@ -14,12 +14,12 @@ const Container = styled.View({
 });
 
 type TagProps = {
-  value: string;
+  children: React.ReactNode;
 };
 
-const Tag: React.FC<TagProps> = ({value}) => (
+const Tag: React.FC<TagProps> = ({children}) => (
   <Container>
-    <Body12>{value}</Body12>
+    <Body12>{children}</Body12>
   </Container>
 );
 
