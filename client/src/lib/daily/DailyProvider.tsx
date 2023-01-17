@@ -15,7 +15,6 @@ import Daily, {
 } from '@daily-co/react-native-daily-js';
 import {isEmulator} from 'react-native-device-info';
 import useDailyState from './state/state';
-import useSetParticipantsSortOrder from '../../routes/Session/hooks/useSetParticipantsSortOrder';
 import Sentry from '../sentry';
 
 export type DailyProviderTypes = {
@@ -53,7 +52,9 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const resetState = useDailyState(state => state.reset);
   const setParticipant = useDailyState(state => state.setParticipant);
   const removeParticipant = useDailyState(state => state.removeParticipant);
-  const setParticipantsSortOrder = useSetParticipantsSortOrder();
+  const setParticipantsSortOrder = useDailyState(
+    state => state.setParticipantsSortOrder,
+  );
 
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(() => {
     const onParticipantJoined = ({
