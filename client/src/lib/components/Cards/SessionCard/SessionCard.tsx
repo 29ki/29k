@@ -2,22 +2,46 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
+import styled from 'styled-components/native';
 import dayjs from 'dayjs';
 
 import {Session} from '../../../../../../shared/src/types/Session';
+
+import {formatExerciseName} from '../../../utils/string';
+
 import useExerciseById from '../../../content/hooks/useExerciseById';
+import useSessionStartTime from '../../../../routes/Session/hooks/useSessionStartTime';
 import {
   AppStackProps,
   ModalStackProps,
 } from '../../../navigation/constants/routes';
-import Card from '../Card';
 
-import useSessionStartTime from '../../../../routes/Session/hooks/useSessionStartTime';
+import Card from '../Card';
 import SessionTimeBadge from '../../SessionTimeBadge/SessionTimeBadge';
-import {formatExerciseName} from '../../../utils/string';
 import usePinnedSessons from '../../../sessions/hooks/usePinnedSessions';
 import useLogSessionMetricEvents from '../../../sessions/hooks/useLogSessionMetricEvents';
-import useGetTagsById from '../../../content/hooks/useGetTagsById';
+import useGetSessionCardTags from './hooks/useGetSessionCardTags';
+import Button from '../../Buttons/Button';
+import {Spacer8} from '../../Spacers/Spacer';
+
+const Row = styled.View({
+  flexDirection: 'row',
+  alignItems: 'flex-end',
+});
+
+const JoinButton: React.FC<{
+  startTime: Session['startTime'];
+  onPress: () => void;
+}> = ({startTime, onPress}) => {
+  const {t} = useTranslation('Component.SessionCard');
+  const sessionTime = useSessionStartTime(dayjs(startTime));
+
+  return (
+    <Button small variant="secondary" onPress={onPress}>
+      {sessionTime.isReadyToJoin ? t('join') : undefined}
+    </Button>
+  );
+};
 
 type SessionCardProps = {
   session: Session;
@@ -26,20 +50,14 @@ type SessionCardProps = {
 const SessionCard: React.FC<SessionCardProps> = ({session}) => {
   const {contentId, startTime, hostProfile} = session;
   const exercise = useExerciseById(contentId);
-  const {t} = useTranslation('Component.SessionCard');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
-  const sessionTime = useSessionStartTime(dayjs(startTime));
-  const {isSessionPinned, togglePinSession} = usePinnedSessons();
   const logSessionMetricEvent = useLogSessionMetricEvents();
-  const tags = useGetTagsById(exercise?.tags);
 
-  const tagStrings = useMemo(() => tags.map(tag => tag.tag), [tags]);
+  const {isSessionPinned, togglePinSession} = usePinnedSessons();
+  const sessionPinned = isSessionPinned(session);
 
-  const sessionPinned = useMemo(
-    () => isSessionPinned(session),
-    [isSessionPinned, session],
-  );
+  const tags = useGetSessionCardTags(exercise);
 
   const onPinnedPress = useCallback(() => {
     togglePinSession(session);
@@ -70,17 +88,18 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
   return (
     <Card
       title={formatExerciseName(exercise)}
-      duration={exercise?.duration}
-      tags={tagStrings}
+      tags={tags}
       image={source}
       onPress={onContextPress}
-      buttonText={sessionTime.isReadyToJoin ? t('join') : undefined}
-      onButtonPress={onPress}
       hostPictureURL={hostProfile?.photoURL}
       hostName={hostProfile?.displayName}
       pinned={sessionPinned}
       onPinnedPress={onPinnedPress}>
-      <SessionTimeBadge session={session} />
+      <Row>
+        <JoinButton onPress={onPress} startTime={startTime} />
+        <Spacer8 />
+        <SessionTimeBadge session={session} />
+      </Row>
     </Card>
   );
 };

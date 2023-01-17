@@ -21,70 +21,113 @@ describe('Daily state', () => {
   });
 
   describe('setParticipantsSortOrder', () => {
-    it('sets participantsSortOrder state', () => {
+    it('should change order if participant is not first or second', () => {
+      useDailyState.setState({
+        participants: {
+          'user-1': {
+            session_id: 'session-id-1',
+            user_id: 'user-1',
+          } as DailyParticipant,
+          'user-2': {
+            session_id: 'session-id-2',
+            user_id: 'user-2',
+          } as DailyParticipant,
+          'user-3': {
+            session_id: 'session-id-3',
+            user_id: 'user-3',
+          } as DailyParticipant,
+        },
+        participantsSortOrder: ['user-1', 'user-2'],
+      });
       const {result} = renderHook(() => useDailyState());
 
       act(() => {
-        result.current.setParticipantsSortOrder(() => [
-          'some-id',
-          'some-other-id',
-        ]);
+        result.current.setParticipantsSortOrder('session-id-3');
       });
 
       expect(result.current.participantsSortOrder).toEqual([
-        'some-id',
-        'some-other-id',
+        'user-3',
+        'user-1',
+        'user-2',
       ]);
     });
 
-    it('gets the current sort order in the setter', () => {
+    it('should not change order if participant is already first', () => {
+      useDailyState.setState({
+        participants: {
+          'user-1': {
+            session_id: 'session-id-1',
+            user_id: 'user-1',
+          } as DailyParticipant,
+          'user-2': {
+            session_id: 'session-id-2',
+            user_id: 'user-2',
+          } as DailyParticipant,
+          'user-3': {
+            session_id: 'session-id-3',
+            user_id: 'user-3',
+          } as DailyParticipant,
+        },
+        participantsSortOrder: ['user-1', 'user-2'],
+      });
       const {result} = renderHook(() => useDailyState());
 
-      useDailyState.setState({
-        participantsSortOrder: ['some-previous-id'],
-      });
-
       act(() => {
-        result.current.setParticipantsSortOrder(participantIds => [
-          ...participantIds,
-          'some-id',
-          'some-other-id',
-        ]);
+        result.current.setParticipantsSortOrder('session-id-1');
       });
 
       expect(result.current.participantsSortOrder).toEqual([
-        'some-previous-id',
-        'some-id',
-        'some-other-id',
+        'user-1',
+        'user-2',
+      ]);
+    });
+
+    it('should not change order if participant is already second', () => {
+      useDailyState.setState({
+        participants: {
+          'user-1': {
+            session_id: 'session-id-1',
+            user_id: 'user-1',
+          } as DailyParticipant,
+          'user-2': {
+            session_id: 'session-id-2',
+            user_id: 'user-2',
+          } as DailyParticipant,
+          'user-3': {
+            session_id: 'session-id-3',
+            user_id: 'user-3',
+          } as DailyParticipant,
+        },
+        participantsSortOrder: ['user-1', 'user-2'],
+      });
+      const {result} = renderHook(() => useDailyState());
+
+      act(() => {
+        result.current.setParticipantsSortOrder('session-id-2');
+      });
+
+      expect(result.current.participantsSortOrder).toEqual([
+        'user-1',
+        'user-2',
       ]);
     });
   });
 
   describe('removeParticipant', () => {
     it('removed from participants and participantsSortOrder states', () => {
+      useDailyState.setState({
+        participants: {
+          'some-id': {
+            user_id: 'some-id',
+          } as DailyParticipant,
+          'some-other-id': {
+            user_id: 'some-other-id',
+          } as DailyParticipant,
+        },
+        participantsSortOrder: ['some-id', 'some-other-id'],
+      });
+
       const {result} = renderHook(() => useDailyState());
-
-      act(() => {
-        result.current.setParticipant('some-id', {
-          user_id: 'some-id',
-        } as DailyParticipant);
-        result.current.setParticipant('some-other-id', {
-          user_id: 'some-other-id',
-        } as DailyParticipant);
-        result.current.setParticipantsSortOrder(() => [
-          'some-id',
-          'some-other-id',
-        ]);
-      });
-
-      expect(result.current.participantsSortOrder).toEqual([
-        'some-id',
-        'some-other-id',
-      ]);
-      expect(result.current.participants).toEqual({
-        'some-id': {user_id: 'some-id'},
-        'some-other-id': {user_id: 'some-other-id'},
-      });
 
       act(() => {
         result.current.removeParticipant('some-id');
@@ -99,32 +142,19 @@ describe('Daily state', () => {
 
   describe('reset', () => {
     it('resets state to inital state', () => {
+      useDailyState.setState({
+        participants: {
+          'some-id': {
+            user_id: 'some-id',
+          } as DailyParticipant,
+          'some-other-id': {
+            user_id: 'some-other-id',
+          } as DailyParticipant,
+        },
+        participantsSortOrder: ['some-id', 'some-other-id'],
+      });
+
       const {result} = renderHook(() => useDailyState());
-
-      expect(result.current.participants).toEqual({});
-      expect(result.current.participantsSortOrder).toEqual([]);
-
-      act(() => {
-        result.current.setParticipant('some-id', {
-          user_id: 'some-id',
-        } as DailyParticipant);
-        result.current.setParticipant('some-other-id', {
-          user_id: 'some-other-id',
-        } as DailyParticipant);
-        result.current.setParticipantsSortOrder(() => [
-          'some-id',
-          'some-other-id',
-        ]);
-      });
-
-      expect(result.current.participantsSortOrder).toEqual([
-        'some-id',
-        'some-other-id',
-      ]);
-      expect(result.current.participants).toEqual({
-        'some-id': {user_id: 'some-id'},
-        'some-other-id': {user_id: 'some-other-id'},
-      });
 
       act(() => {
         result.current.reset();
