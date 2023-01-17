@@ -13,11 +13,11 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1673869554/Audio/portal_audio_Drop_all_requirements_2_kospb1.mp3"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
       }
     },
     "slides": [
@@ -61,7 +61,7 @@
         "content": {
           "heading": "What did you notice?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1673869507/Video/timer_1min_Drop_all_requirements_dahizb.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/timer_1min_Drop_all_requirements_dahizb.mp4"
           }
         }
       },
