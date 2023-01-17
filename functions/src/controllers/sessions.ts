@@ -17,6 +17,7 @@ import {SessionStateUpdate, UpdateSession} from '../api/sessions';
 import {generateVerificationCode, removeEmpty} from '../lib/utils';
 import {RequestError} from './errors/RequestError';
 import {generateSessionToken} from '../lib/dailyUtils';
+import {createRctUserId} from '../lib/id';
 
 const mapSession = async (session: Session): Promise<Session> => {
   return {...session, hostProfile: await getPublicUserInfo(session.hostId)};
@@ -44,7 +45,10 @@ export const getSessionToken = async (
     throw new RequestError(ValidateSessionError.userNotFound);
   }
 
+  const dailyUserId = createRctUserId(session.id, userId);
+
   return generateSessionToken(
+    dailyUserId,
     session.dailyRoomName,
     session.hostId === userId,
     dayjs(session.startTime).add(2, 'hours'),
