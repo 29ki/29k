@@ -82,7 +82,7 @@ const CTAButton = styled(Button)({
 
 type CardProps = {
   title?: string;
-  tags: Array<string>;
+  tags?: Array<string>;
   image?: ImageSourcePropType;
   lottie?: AnimationObject;
   onPress: () => void;
@@ -115,14 +115,16 @@ export const Card: React.FC<CardProps> = ({
     <Wrapper onPress={onPress}>
       <ContentWrapper>
         <LeftCol>
-          <Tags>
-            {tags.map(tag => (
-              <>
-                <Tag>{tag}</Tag>
-                <Spacer4 />
-              </>
-            ))}
-          </Tags>
+          {tags && (
+            <Tags>
+              {tags.map(tag => (
+                <>
+                  <Tag>{tag}</Tag>
+                  <Spacer4 />
+                </>
+              ))}
+            </Tags>
+          )}
           <Header>
             {title && <Display20 numberOfLines={2}>{title}</Display20>}
             <Spacer4 />
