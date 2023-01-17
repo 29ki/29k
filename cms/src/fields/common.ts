@@ -1,4 +1,9 @@
-import {CmsField, CmsFieldBase, CmsFieldObject} from 'netlify-cms-core';
+import {
+  CmsField,
+  CmsFieldBase,
+  CmsFieldObject,
+  CmsFieldRelation,
+} from 'netlify-cms-core';
 import {
   CLOUDINARY_AUDIO_CONFIG,
   CLOUDINARY_IMAGE_CONFIG,
@@ -190,4 +195,17 @@ export const CARD_FIELD: CmsFieldBase & CmsFieldObject = {
   widget: 'object',
   collapsed: true,
   fields: [IMAGE_FIELD],
+};
+
+export const TAGS_FIELD: CmsFieldBase & CmsFieldRelation = {
+  label: '🏷 Tags',
+  name: 'tags',
+  widget: 'relation',
+  collection: 'tags',
+  search_fields: ['tag'],
+  value_field: 'id',
+  display_fields: ['tag'],
+  multiple: true,
+  i18n: 'duplicate',
+  required: false,
 };

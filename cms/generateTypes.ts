@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as process from 'child_process';
 import createNetlifyTypes from 'netlify-ts';
 import {Collection} from 'netlify-ts/lib/types';
-import {exercises} from './src/collections/collections';
+import {exercises, tags} from './src/collections/collections';
 
 const OUTPUT_PATH = '../shared/src/types/generated';
 
@@ -24,6 +24,7 @@ const createTypeFile = (collection: Collection) => {
 
 const main = () => {
   ([exercises] as unknown as Array<Collection>).forEach(createTypeFile);
+  ([tags] as unknown as Array<Collection>).forEach(createTypeFile);
 };
 
 main();
