@@ -8,7 +8,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import Video from 'react-native-video';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
