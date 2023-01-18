@@ -59,11 +59,11 @@ const Wrapper = styled.View({
 const HandleContainerTopBar = styled(Animated.View).attrs({
   entering: FadeIn.duration(600),
 })({
-  padding: 10,
+  padding: SPACINGS.FOUR,
 });
 
 const HandleContainer = styled.View({
-  padding: 10,
+  padding: SPACINGS.FOUR,
 });
 
 // Same styling as https://github.com/gorhom/react-native-bottom-sheet
