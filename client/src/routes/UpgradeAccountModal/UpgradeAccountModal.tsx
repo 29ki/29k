@@ -125,12 +125,14 @@ const UpgradeAccountModal = () => {
     if ((!needToUpgrade || haveRequested) && !upgradeComplete) {
       return (
         <>
-          <ModalHeading>
-            {haveRequested ? t('requestComplete') : t('text')}
-          </ModalHeading>
+          {errorString && <ErrorText>{errorString}</ErrorText>}
+          {!errorString && (
+            <ModalHeading>
+              {haveRequested ? t('requestComplete') : t('text')}
+            </ModalHeading>
+          )}
           {!user?.isAnonymous && (
             <>
-              {errorString && <ErrorText>{errorString}</ErrorText>}
               <Spacer16 />
               <VerificationCode
                 hasError={Boolean(errorString)}
