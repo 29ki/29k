@@ -14,7 +14,7 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1673869554/Audio/portal_audio_Drop_all_requirements_2_kospb1.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1673961694/Audio/portal_audio_Drop_all_requirements_gapless_m16i4k.mp3"
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
@@ -44,7 +44,9 @@
         ],
         "content": {
           "video": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1671549746/Audio/Meditation_Drop_all_requirements.wav"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1671549746/Audio/Meditation_Drop_all_requirements.wav",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673974099/Video/meditation_Drop_all_requirements_a2a7ws.mp4",
+            "durationTimer": true
           }
         }
       },

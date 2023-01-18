@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {ImageSourcePropType} from 'react-native';
 import styled from 'styled-components/native';
 import AnimatedLottieView, {AnimationObject} from 'lottie-react-native';
@@ -75,7 +75,7 @@ type CardProps = {
   title?: string;
   tags?: Array<string>;
   image?: ImageSourcePropType;
-  lottie?: AnimationObject;
+  lottie?: AnimationObject | {uri: string};
   onPress: () => void;
   onPinnedPress?: () => void;
   children?: React.ReactNode;
@@ -103,10 +103,10 @@ export const Card: React.FC<CardProps> = ({
           {tags && (
             <Tags>
               {tags.map(tag => (
-                <>
+                <Fragment key={tag}>
                   <Tag>{tag}</Tag>
                   <Spacer4 />
-                </>
+                </Fragment>
               ))}
             </Tags>
           )}

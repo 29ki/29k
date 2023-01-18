@@ -74,7 +74,7 @@ const SpotlightContent = styled.View({
   flex: 1,
 });
 
-const FloatingHostNotes = styled(HostNotes)({
+const Top = styled.View({
   position: 'absolute',
   top: 0,
   right: 0,
@@ -165,7 +165,8 @@ const Session = () => {
   return (
     <Screen backgroundColor={theme?.backgroundColor}>
       {isHost && (
-        <FloatingHostNotes>
+        <Top>
+          <HostNotes />
           {!sessionSlideState?.next && (
             <>
               <Spacer16 />
@@ -174,7 +175,7 @@ const Session = () => {
               </StyledButton>
             </>
           )}
-        </FloatingHostNotes>
+        </Top>
       )}
       <TopSafeArea />
       <Spotlight>

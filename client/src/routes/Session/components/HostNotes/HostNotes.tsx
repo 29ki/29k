@@ -1,24 +1,17 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import styled from 'styled-components/native';
 import {FlatList} from 'react-native-gesture-handler';
-import Animated, {
-  Easing,
-  FadeInUp,
-  SlideOutUp,
-  FadeIn,
-} from 'react-native-reanimated';
 import {useTranslation} from 'react-i18next';
 import {
-  Dimensions,
+  FlatListProps,
+  LayoutChangeEvent,
+  ListRenderItem,
   NativeScrollEvent,
   NativeSyntheticEvent,
   View,
   ViewStyle,
 } from 'react-native';
-import GestureRecognizer from 'react-native-swipe-gestures';
 
-import {COLORS} from '../../../../../../shared/src/constants/colors';
-import SETTINGS from '../../../../lib/constants/settings';
 import {SPACINGS} from '../../../../lib/constants/spacings';
 
 import useSessionExercise from '../../hooks/useSessionExercise';
@@ -38,43 +31,18 @@ import {
   TopSafeArea,
 } from '../../../../lib/components/Spacers/Spacer';
 import ToggleButton from './ToggleButton';
+import TopSheet from './TopSheet';
+import {COLORS} from '../../../../../../shared/src/constants/colors';
+import {ExerciseSlideContentSlideHostNote} from '../../../../../../shared/src/types/generated/Exercise';
 
 const NotesNavBtn = styled(NavButton)(({disabled}) => ({
   opacity: disabled ? 0 : 1,
 }));
 
-const ShadowWrapper = styled.View({
-  ...SETTINGS.BOXSHADOW,
-  borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not showing on Android
-  borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS, // adding borderRadius somehow fixes elevation not showing on Android
-});
-
-const Wrapper = styled.View({
-  borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS,
-  borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS,
+const Wrapper = styled(View)({
   backgroundColor: COLORS.WHITE,
-  zIndex: 2,
+  zIndex: 1,
 });
-
-const HandleContainerTopBar = styled(Animated.View).attrs({
-  entering: FadeIn.duration(600),
-})({
-  padding: 10,
-});
-
-const HandleContainer = styled.View({
-  padding: 10,
-});
-
-// Same styling as https://github.com/gorhom/react-native-bottom-sheet
-const Handle = styled.View({
-  alignSelf: 'center',
-  width: (7.5 * Dimensions.get('window').width) / 100,
-  height: 4,
-  borderRadius: 4,
-  backgroundColor: COLORS.GREYDARK,
-});
-
 const TopBar = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
@@ -84,15 +52,6 @@ const Progress = styled(ProgressBar)({
   flex: 1,
 });
 
-const NotesWrapper = styled(Animated.View).attrs({
-  entering: FadeInUp.duration(300).easing(Easing.bezierFn(0.34, 1.56, 0.64, 1)),
-  exiting: SlideOutUp.duration(600),
-})({
-  borderBottomLeftRadius: SETTINGS.BORDER_RADIUS.CARDS,
-  borderBottomRightRadius: SETTINGS.BORDER_RADIUS.CARDS,
-  backgroundColor: COLORS.WHITE,
-  marginTop: -25,
-});
 const Navigation = styled.View({
   flexDirection: 'row',
   justifyContent: 'space-between',
@@ -103,17 +62,14 @@ const ListItem = styled.View<{width: number}>(({width}) => ({
   width,
 }));
 
+const keyExtractor: FlatListProps<any>['keyExtractor'] = (_, i) => `notes-${i}`;
+
 type HostNotesProps = {
   introPortal?: boolean;
   style?: ViewStyle;
-  children?: React.ReactNode;
 };
 
-const HostNotes: React.FC<HostNotesProps> = ({
-  introPortal,
-  style,
-  children,
-}) => {
+const HostNotes = React.memo<HostNotesProps>(({introPortal, style}) => {
   const listRef = useRef<FlatList>(null);
   const [showNotes, setShowNotes] = useState(introPortal ? true : false);
   const [containerWidth, setContainerWidth] = useState(0);
@@ -147,102 +103,113 @@ const HostNotes: React.FC<HostNotesProps> = ({
     [scroll.animated, scroll.index],
   );
 
+  const toggleNotes = useCallback(
+    () => setShowNotes(prevShowNotes => !prevShowNotes),
+    [setShowNotes],
+  );
+
+  const updateContainerWidth = useCallback(
+    (event: LayoutChangeEvent) => {
+      setContainerWidth(event.nativeEvent.layout.width);
+    },
+    [setContainerWidth],
+  );
+
+  const getItemLayout = useCallback(
+    (
+      data: ExerciseSlideContentSlideHostNote[] | null | undefined,
+      index: number,
+    ) => ({
+      length: listItemWidth,
+      offset: listItemWidth * index,
+      index,
+    }),
+    [listItemWidth],
+  );
+
+  const renderItem = useCallback<
+    ListRenderItem<ExerciseSlideContentSlideHostNote>
+  >(
+    ({item}) => (
+      <ListItem width={listItemWidth}>
+        <Markdown>{item.text}</Markdown>
+      </ListItem>
+    ),
+    [listItemWidth],
+  );
+
+  const scrollToNext = useCallback(() => {
+    setScroll(currentScroll => ({
+      index: currentScroll.index + 1,
+      animated: true,
+    }));
+  }, [setScroll]);
+
+  const scrollToPrevious = useCallback(() => {
+    setScroll(currentScroll => ({
+      index: currentScroll.index - 1,
+      animated: true,
+    }));
+  }, [setScroll]);
+
   return (
     <View style={style}>
-      <ShadowWrapper>
-        <Wrapper
-          onLayout={event => {
-            setContainerWidth(event.nativeEvent.layout.width);
-          }}>
-          <TopSafeArea />
-          <Gutters>
-            <Spacer4 />
-            <GestureRecognizer onSwipeDown={() => setShowNotes(true)}>
-              <TopBar>
-                <Progress
-                  index={sessionSlideState?.index}
-                  length={exercise?.slides.length}
-                />
-                <Spacer8 />
-                <ToggleButton
-                  disabled={!notes}
-                  isToggled={showNotes}
-                  title={t('notes')}
-                  onPress={() => setShowNotes(prevShowNotes => !prevShowNotes)}
-                />
-              </TopBar>
-              {!showNotes && notes && (
-                <HandleContainerTopBar>
-                  <Handle />
-                </HandleContainerTopBar>
-              )}
-            </GestureRecognizer>
-            <Spacer4 />
-          </Gutters>
-        </Wrapper>
-        {showNotes && notes && (
-          <NotesWrapper>
-            <Gutters>
-              <Spacer32 />
-              <FlatList
-                getItemLayout={(data, index) => ({
-                  length: listItemWidth,
-                  offset: listItemWidth * index,
-                  index,
-                })}
-                ref={listRef}
-                data={notes}
-                pagingEnabled
-                onMomentumScrollEnd={calculatePageIndex}
-                keyExtractor={(_, i) => `notes-${i}`}
-                initialScrollIndex={scroll.index}
-                snapToInterval={listItemWidth}
-                disableIntervalMomentum={true}
-                showsHorizontalScrollIndicator={false}
-                scrollEnabled={Boolean(notes.length)}
-                renderItem={({item}) => (
-                  <ListItem width={listItemWidth}>
-                    <Markdown>{item.text}</Markdown>
-                  </ListItem>
-                )}
-                horizontal
-              />
-              <GestureRecognizer onSwipeUp={() => setShowNotes(false)}>
-                <Navigation>
-                  <NotesNavBtn
-                    onPress={() =>
-                      setScroll({
-                        index: scroll.index - 1,
-                        animated: true,
-                      })
-                    }
-                    Icon={BackwardCircleIcon}
-                    disabled={scroll.index <= 0}
-                  />
-                  <Body14>{`${scroll.index + 1} / ${notes.length}`}</Body14>
-                  <NotesNavBtn
-                    onPress={() =>
-                      setScroll({
-                        index: scroll.index + 1,
-                        animated: true,
-                      })
-                    }
-                    Icon={ForwardCircleIcon}
-                    disabled={scroll.index >= notes.length - 1}
-                  />
-                </Navigation>
-                <HandleContainer>
-                  <Handle />
-                </HandleContainer>
-              </GestureRecognizer>
-            </Gutters>
+      <Wrapper onLayout={updateContainerWidth}>
+        <TopSafeArea />
+        <Gutters>
+          <Spacer4 />
+          <TopBar>
+            <Progress
+              index={sessionSlideState?.index}
+              length={exercise?.slides.length}
+            />
             <Spacer8 />
-          </NotesWrapper>
-        )}
-      </ShadowWrapper>
-      {children && children}
+            <ToggleButton
+              disabled={!notes}
+              isToggled={showNotes}
+              title={t('notes')}
+              onPress={toggleNotes}
+            />
+          </TopBar>
+        </Gutters>
+      </Wrapper>
+      {notes && (
+        <TopSheet expand={showNotes} onChange={setShowNotes}>
+          <Gutters>
+            <Spacer32 />
+            <FlatList
+              getItemLayout={getItemLayout}
+              ref={listRef}
+              data={notes}
+              pagingEnabled
+              snapToAlignment="start"
+              decelerationRate="fast"
+              showsHorizontalScrollIndicator={false}
+              onMomentumScrollEnd={calculatePageIndex}
+              keyExtractor={keyExtractor}
+              initialScrollIndex={scroll.index}
+              scrollEnabled={Boolean(notes.length)}
+              renderItem={renderItem}
+              horizontal
+            />
+            <Navigation>
+              <NotesNavBtn
+                onPress={scrollToPrevious}
+                Icon={BackwardCircleIcon}
+                disabled={scroll.index <= 0}
+              />
+              <Body14>{`${scroll.index + 1} / ${notes.length}`}</Body14>
+              <NotesNavBtn
+                onPress={scrollToNext}
+                Icon={ForwardCircleIcon}
+                disabled={scroll.index >= notes.length - 1}
+              />
+            </Navigation>
+          </Gutters>
+        </TopSheet>
+      )}
     </View>
   );
-};
+});
 
 export default HostNotes;

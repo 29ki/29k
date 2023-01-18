@@ -81,10 +81,20 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
     [navigate, session],
   );
 
-  const source = useMemo(
+  const image = useMemo(
     () => ({
       uri: exercise?.card?.image?.source,
     }),
+    [exercise],
+  );
+
+  const lottie = useMemo(
+    () =>
+      exercise?.card?.lottie?.source
+        ? {
+            uri: exercise?.card?.lottie?.source,
+          }
+        : undefined,
     [exercise],
   );
 
@@ -92,7 +102,8 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
     <Card
       title={formatExerciseName(exercise)}
       tags={tags}
-      image={source}
+      image={image}
+      lottie={lottie}
       onPress={onContextPress}
       hostPictureURL={hostProfile?.photoURL}
       hostName={hostProfile?.displayName}

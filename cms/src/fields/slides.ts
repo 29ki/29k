@@ -7,7 +7,6 @@ import {
 
 import {
   IMAGE_FIELD,
-  LOTTE_FIELD,
   LOTTIE_FIELD_WITH_AUDIO,
   VIDEO_FIELD_WITH_AUDIO,
 } from './common';

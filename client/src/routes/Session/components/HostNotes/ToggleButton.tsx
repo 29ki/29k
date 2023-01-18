@@ -45,6 +45,11 @@ const AnimatedMinusIcon = () => {
   );
 };
 
+const Button = styled(BaseButton)({
+  height: 25,
+  backgroundColor: COLORS.WHITE,
+});
+
 const ButtonText = styled(Body16)<{disabled?: boolean}>(({disabled}) => ({
   height: SPACINGS.TWENTY,
   color: disabled ? COLORS.GREYMEDIUM : COLORS.BLACK,
@@ -64,12 +69,17 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
   title,
 }) => {
   return (
-    <BaseButton
+    <Button
       small
       variant="tertiary"
-      style={disabled && {backgroundColor: COLORS.WHITE}}
       disabled={disabled}
-      onPress={onPress}>
+      onPress={onPress}
+      hitSlop={{
+        top: 10,
+        right: 10,
+        bottom: 10,
+        left: 20,
+      }}>
       <>
         <ButtonText disabled={disabled}>{title}</ButtonText>
         {isToggled ? (
@@ -82,7 +92,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
           </IconWrapper>
         )}
       </>
-    </BaseButton>
+    </Button>
   );
 };
 
