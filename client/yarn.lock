@@ -8305,9 +8305,9 @@ react-native-url-polyfill@^1.1.2:
   dependencies:
     whatwg-url-without-unicode "8.0.0-3"
 
-"react-native-video@https://github.com/29ki/react-native-video#fix-iOS-16-support":
+"react-native-video@https://github.com/29ki/react-native-video-5.2.1#repeat-ios-using-av-player-looper":
   version "5.2.1"
-  resolved "https://github.com/29ki/react-native-video#b58c9c472a4ba3d77b4757093cab073afdd17cfa"
+  resolved "https://github.com/29ki/react-native-video-5.2.1#dcc98b0963c145c201bde7244e03de7a2385dae7"
   dependencies:
     deprecated-react-native-prop-types "^2.2.0"
     keymirror "^0.1.1"
