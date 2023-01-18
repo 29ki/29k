@@ -86,6 +86,50 @@ const BackButton = styled(IconButton)({
   marginLeft: -SPACINGS.SIXTEEN,
 });
 
+const Status: React.FC = () => {
+  const {t} = useTranslation('Screen.Portal');
+  const exercise = useSessionExercise();
+  const textColor = exercise?.theme?.textColor;
+  const sessionState = useSessionState(state => state.sessionState);
+  const startTime = useSessionState(state => state.session?.startTime);
+  const sessionTime = useSessionStartTime(dayjs(startTime));
+  const started = sessionState?.started;
+  const participants = useDailyState(state => state.participants);
+  const participantsCount = Object.keys(participants ?? {}).length;
+
+  return (
+    <PortalStatus>
+      <StatusItem>
+        <StatusText themeColor={textColor}>
+          {sessionTime.isStartingShortly
+            ? t('counterLabel.starts')
+            : t('counterLabel.startsIn')}
+        </StatusText>
+        <Spacer8 />
+
+        <Badge
+          themeColor={textColor ?? textColor}
+          text={
+            started
+              ? t('counterLabel.started')
+              : sessionTime.isStartingShortly
+              ? t('counterLabel.shortly')
+              : sessionTime.time
+          }
+        />
+      </StatusItem>
+
+      {participantsCount > 1 && (
+        <StatusItem>
+          <StatusText themeColor={textColor}>{t('participants')}</StatusText>
+          <Spacer8 />
+          <Badge themeColor={textColor} text={participantsCount} />
+        </StatusItem>
+      )}
+    </PortalStatus>
+  );
+};
+
 const IntroPortal: React.FC = () => {
   const {
     params: {session},
@@ -94,11 +138,10 @@ const IntroPortal: React.FC = () => {
   const [loopVideoLoaded, setLoopVideoLoaded] = useState(false);
   const [joiningSession, setJoiningSession] = useState(false);
   const {t} = useTranslation('Screen.Portal');
-  const startTime = useSessionState(state => state.session?.startTime);
+
   const sessionState = useSessionState(state => state.sessionState);
   const exercise = useSessionExercise();
-  const participants = useDailyState(state => state.participants);
-  const participantsCount = Object.keys(participants ?? {}).length;
+
   const isHost = useIsSessionHost();
   const {navigate} =
     useNavigation<
@@ -110,11 +153,10 @@ const IntroPortal: React.FC = () => {
   const {leaveSessionWithConfirm} = useLeaveSession();
   const isFocused = useIsFocused();
   useSubscribeToSessionIfFocused(session);
-  const sessionTime = useSessionStartTime(dayjs(startTime));
+
   const logSessionMetricEvent = useLogInSessionMetricEvents();
   const introPortal = exercise?.introPortal;
   const textColor = exercise?.theme?.textColor;
-  const started = sessionState?.started;
 
   usePreventGoingBack(leaveSessionWithConfirm);
 
@@ -244,37 +286,7 @@ const IntroPortal: React.FC = () => {
                 </Button>
               )}
             </TopBar>
-            <PortalStatus>
-              <StatusItem>
-                <StatusText themeColor={textColor}>
-                  {sessionTime.isStartingShortly
-                    ? t('counterLabel.starts')
-                    : t('counterLabel.startsIn')}
-                </StatusText>
-                <Spacer8 />
-
-                <Badge
-                  themeColor={textColor ?? textColor}
-                  text={
-                    started
-                      ? t('counterLabel.started')
-                      : sessionTime.isStartingShortly
-                      ? t('counterLabel.shortly')
-                      : sessionTime.time
-                  }
-                />
-              </StatusItem>
-
-              {participantsCount > 1 && (
-                <StatusItem>
-                  <StatusText themeColor={textColor}>
-                    {t('participants')}
-                  </StatusText>
-                  <Spacer8 />
-                  <Badge themeColor={textColor} text={participantsCount} />
-                </StatusItem>
-              )}
-            </PortalStatus>
+            <Status />
           </Content>
         )}
       </Wrapper>

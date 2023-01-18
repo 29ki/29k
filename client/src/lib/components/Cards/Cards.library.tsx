@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 import ScreenWrapper from '../../uiLib/decorators/ScreenWrapper';
 import Badge from '../Badge/Badge';
-import {PlusIcon, PrivateIcon, PublicIcon} from '../Icons';
+import {PrivateIcon, PublicIcon} from '../Icons';
 import {Spacer16, Spacer4} from '../Spacers/Spacer';
 import {Body14} from '../Typography/Body/Body';
 import Card from './Card';
@@ -18,42 +18,33 @@ export const AllCards = () => (
   <ScreenWrapper>
     <Card
       title="A nice title"
-      duration={40}
       tags={['Gratitude']}
       hostPictureURL="https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
       hostName="Jenny"
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
-      buttonText="Join"
       onPress={() => {}}
-      ButtonIcon={PlusIcon}
       pinned={false}
     />
     <Spacer16 />
     <Card
       title="A nice title"
-      tags={[]}
-      duration={40}
       hostPictureURL="https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
       hostName="Jenny WithALongName"
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
-      buttonText="Join"
       onPress={() => {}}
-      ButtonIcon={PlusIcon}
       pinned={false}
     />
     <Spacer16 />
     <Card
       title="A longer title and animation"
       lottie={lottieSource}
-      tags={[]}
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
       }}
-      buttonText="Go dance!"
       onPress={() => {}}
       pinned={false}
     />
@@ -61,22 +52,18 @@ export const AllCards = () => (
 
     <Card
       title="With reminder and menu"
-      tags={[]}
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
-      buttonText="Go dance!"
       onPress={() => {}}
       pinned={false}
     />
     <Spacer16 />
     <Card
       title="Private session starts soon"
-      tags={[]}
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
-      buttonText="Join"
       pinned={false}
       onPress={() => {}}>
       <Row>
@@ -87,7 +74,6 @@ export const AllCards = () => (
     <Spacer16 />
     <Card
       title="Session starts in 24h"
-      tags={[]}
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}

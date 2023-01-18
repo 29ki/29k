@@ -1,9 +1,12 @@
+import {useMemo} from 'react';
 import useDailyState from '../../../lib/daily/state/state';
 
 const useSessionHost = () => {
-  const participantSpotlight = useDailyState(state => state.participants);
+  const participants = useDailyState(state => state.participants);
 
-  return Object.values(participantSpotlight).find(p => p.owner);
+  return useMemo(() => {
+    return Object.values(participants).find(p => p.owner);
+  }, [participants]);
 };
 
 export default useSessionHost;
