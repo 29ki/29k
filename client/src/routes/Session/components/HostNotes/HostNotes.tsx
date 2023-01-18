@@ -3,6 +3,9 @@ import styled from 'styled-components/native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useTranslation} from 'react-i18next';
 import {
+  FlatListProps,
+  LayoutChangeEvent,
+  ListRenderItem,
   NativeScrollEvent,
   NativeSyntheticEvent,
   View,
@@ -30,12 +33,13 @@ import {
 import ToggleButton from './ToggleButton';
 import TopSheet from './TopSheet';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
+import {ExerciseSlideContentSlideHostNote} from '../../../../../../shared/src/types/generated/Exercise';
 
 const NotesNavBtn = styled(NavButton)(({disabled}) => ({
   opacity: disabled ? 0 : 1,
 }));
 
-const Wrapper = styled.View({
+const Wrapper = styled(View)({
   backgroundColor: COLORS.WHITE,
   zIndex: 1,
 });
@@ -57,6 +61,8 @@ const Navigation = styled.View({
 const ListItem = styled.View<{width: number}>(({width}) => ({
   width,
 }));
+
+const keyExtractor: FlatListProps<any>['keyExtractor'] = (_, i) => `notes-${i}`;
 
 type HostNotesProps = {
   introPortal?: boolean;
@@ -102,12 +108,53 @@ const HostNotes = React.memo<HostNotesProps>(({introPortal, style}) => {
     [setShowNotes],
   );
 
+  const updateContainerWidth = useCallback(
+    (event: LayoutChangeEvent) => {
+      setContainerWidth(event.nativeEvent.layout.width);
+    },
+    [setContainerWidth],
+  );
+
+  const getItemLayout = useCallback(
+    (
+      data: ExerciseSlideContentSlideHostNote[] | null | undefined,
+      index: number,
+    ) => ({
+      length: listItemWidth,
+      offset: listItemWidth * index,
+      index,
+    }),
+    [listItemWidth],
+  );
+
+  const renderItem = useCallback<
+    ListRenderItem<ExerciseSlideContentSlideHostNote>
+  >(
+    ({item}) => (
+      <ListItem width={listItemWidth}>
+        <Markdown>{item.text}</Markdown>
+      </ListItem>
+    ),
+    [listItemWidth],
+  );
+
+  const scrollToNext = useCallback(() => {
+    setScroll(currentScroll => ({
+      index: currentScroll.index + 1,
+      animated: true,
+    }));
+  }, [setScroll]);
+
+  const scrollToPrevious = useCallback(() => {
+    setScroll(currentScroll => ({
+      index: currentScroll.index - 1,
+      animated: true,
+    }));
+  }, [setScroll]);
+
   return (
     <View style={style}>
-      <Wrapper
-        onLayout={event => {
-          setContainerWidth(event.nativeEvent.layout.width);
-        }}>
+      <Wrapper onLayout={updateContainerWidth}>
         <TopSafeArea />
         <Gutters>
           <Spacer4 />
@@ -131,47 +178,29 @@ const HostNotes = React.memo<HostNotesProps>(({introPortal, style}) => {
           <Gutters>
             <Spacer32 />
             <FlatList
-              getItemLayout={(data, index) => ({
-                length: listItemWidth,
-                offset: listItemWidth * index,
-                index,
-              })}
+              getItemLayout={getItemLayout}
               ref={listRef}
               data={notes}
               pagingEnabled
-              onMomentumScrollEnd={calculatePageIndex}
-              keyExtractor={(_, i) => `notes-${i}`}
-              initialScrollIndex={scroll.index}
-              snapToInterval={listItemWidth}
-              disableIntervalMomentum={true}
+              snapToAlignment="start"
+              decelerationRate="fast"
               showsHorizontalScrollIndicator={false}
+              onMomentumScrollEnd={calculatePageIndex}
+              keyExtractor={keyExtractor}
+              initialScrollIndex={scroll.index}
               scrollEnabled={Boolean(notes.length)}
-              renderItem={({item}) => (
-                <ListItem width={listItemWidth}>
-                  <Markdown>{item.text}</Markdown>
-                </ListItem>
-              )}
+              renderItem={renderItem}
               horizontal
             />
             <Navigation>
               <NotesNavBtn
-                onPress={() =>
-                  setScroll({
-                    index: scroll.index - 1,
-                    animated: true,
-                  })
-                }
+                onPress={scrollToPrevious}
                 Icon={BackwardCircleIcon}
                 disabled={scroll.index <= 0}
               />
               <Body14>{`${scroll.index + 1} / ${notes.length}`}</Body14>
               <NotesNavBtn
-                onPress={() =>
-                  setScroll({
-                    index: scroll.index + 1,
-                    animated: true,
-                  })
-                }
+                onPress={scrollToNext}
                 Icon={ForwardCircleIcon}
                 disabled={scroll.index >= notes.length - 1}
               />
