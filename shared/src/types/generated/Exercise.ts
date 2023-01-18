@@ -42,6 +42,19 @@ export interface ExerciseIntroPortalVideoEnd {
   preview?: string;
 }
 
+export interface ExerciseIntroPortalLottieLoop {
+  description?: string;
+  source?: string;
+  audio?: string;
+  duration?: number;
+}
+
+export interface ExerciseIntroPortalLottieEnd {
+  description?: string;
+  source?: string;
+  duration?: number;
+}
+
 export interface ExerciseIntroPortalHostNote {
   text: string;
 }
@@ -49,6 +62,8 @@ export interface ExerciseIntroPortalHostNote {
 export interface ExerciseIntroPortal {
   videoLoop?: ExerciseIntroPortalVideoLoop;
   videoEnd?: ExerciseIntroPortalVideoEnd;
+  lottieLoop?: ExerciseIntroPortalLottieLoop;
+  lottieEnd?: ExerciseIntroPortalLottieEnd;
   hostNotes?: ExerciseIntroPortalHostNote[];
 }
 

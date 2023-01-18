@@ -34,6 +34,7 @@ import useSessionState from './state/state';
 import useDailyState from '../../lib/daily/state/state';
 import useLeaveSession from './hooks/useLeaveSession';
 import VideoBase from './components/VideoBase/VideoBase';
+import LottiePlayer from '../../lib/components/LottiePlayer/LottiePlayer';
 import useIsSessionHost from './hooks/useIsSessionHost';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 import useUpdateSessionState from './hooks/useUpdateSessionState';
@@ -47,8 +48,17 @@ import useSessionStartTime from './hooks/useSessionStartTime';
 import useSessionExercise from './hooks/useSessionExercise';
 import AudioFader from './components/AudioFader/AudioFader';
 import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
+import LottiePlayerAnimated from '../../lib/components/LottiePlayer/LottiePlayerAnimated';
 
 const VideoStyled = styled(VideoBase)({
+  ...StyleSheet.absoluteFillObject,
+});
+
+const LottieStyled = styled(LottiePlayer)({
+  ...StyleSheet.absoluteFillObject,
+});
+
+const LottieAnimatedStyled = styled(LottiePlayerAnimated)({
   ...StyleSheet.absoluteFillObject,
 });
 
@@ -135,12 +145,14 @@ const IntroPortal: React.FC = () => {
     params: {session},
   } = useRoute<RouteProp<SessionStackProps, 'IntroPortal'>>();
   const endVideoRef = useRef<Video>(null);
-  const [loopVideoLoaded, setLoopVideoLoaded] = useState(false);
   const [joiningSession, setJoiningSession] = useState(false);
   const {t} = useTranslation('Screen.Portal');
 
   const sessionState = useSessionState(state => state.sessionState);
   const exercise = useSessionExercise();
+  const [loopContentLoaded, setLoopContentLoaded] = useState(
+    Boolean(exercise?.introPortal?.lottieLoop?.source),
+  );
 
   const isHost = useIsSessionHost();
   const {navigate} =
@@ -172,11 +184,15 @@ const IntroPortal: React.FC = () => {
   );
 
   useEffect(() => {
-    if (sessionState?.started && !endVideoRef.current) {
+    if (
+      sessionState?.started &&
+      !endVideoRef.current &&
+      !introPortal?.videoEnd?.source
+    ) {
       // If no video is defined, navigate directly
       navigateToSession();
     }
-  }, [sessionState?.started, navigateToSession]);
+  }, [sessionState?.started, introPortal?.videoEnd, navigateToSession]);
 
   const onStartPress = useCallback(() => {
     startSession();
@@ -189,22 +205,29 @@ const IntroPortal: React.FC = () => {
     endVideoRef.current?.seek(0);
   };
 
-  const onEndVideoEnd = () => {
+  const onEndContentEnd = () => {
+    console.log('END!!!!', joiningSession);
+
     if (joiningSession) {
       navigateToSession();
     }
   };
 
   const onLoopVideoLoad = () => {
-    setLoopVideoLoaded(true);
+    setLoopContentLoaded(true);
   };
 
-  const onLoopVideoEnd = () => {
+  const onLoopContentEnd = () => {
     if (sessionState?.started) {
       ReactNativeHapticFeedback.trigger('impactHeavy');
       setJoiningSession(true);
     }
   };
+
+  const audioSource = useMemo(
+    () => introPortal?.lottieLoop?.audio ?? introPortal?.videoLoop?.audio,
+    [introPortal?.lottieLoop, introPortal?.videoLoop],
+  );
 
   const endVideoSource = useMemo(
     () => introPortal?.videoEnd && {uri: introPortal.videoEnd?.source},
@@ -216,23 +239,45 @@ const IntroPortal: React.FC = () => {
     [introPortal?.videoLoop],
   );
 
+  const loopLottieSource = useMemo(
+    () =>
+      introPortal?.lottieLoop?.source && {uri: introPortal.lottieLoop?.source},
+    [introPortal?.lottieLoop],
+  );
+
+  const endLottieSource = useMemo(
+    () =>
+      introPortal?.lottieEnd?.source && {uri: introPortal.lottieEnd?.source},
+    [introPortal?.lottieEnd],
+  );
+
   return (
     <Screen>
       {!isHost && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
-      {isFocused && loopVideoLoaded && introPortal?.videoLoop?.audio && (
+      {isFocused && loopContentLoaded && audioSource && (
         <AudioFader
-          source={introPortal?.videoLoop?.audio}
-          paused={!loopVideoLoaded}
+          source={audioSource}
+          paused={!loopContentLoaded}
           volume={joiningSession ? 0 : 1}
           duration={joiningSession ? 5000 : 10000}
           repeat
         />
       )}
-      {endVideoSource && (
+
+      {endLottieSource && (
+        <LottieStyled
+          onEnd={onEndContentEnd}
+          paused={!joiningSession || !isFocused}
+          source={endLottieSource}
+          repeat={false}
+          duration={introPortal?.lottieEnd?.duration ?? 5}
+        />
+      )}
+      {!endLottieSource && endVideoSource && (
         <VideoStyled
           ref={endVideoRef}
           onReadyForDisplay={onEndVideoLoad}
-          onEnd={onEndVideoEnd}
+          onEnd={onEndContentEnd}
           paused={!joiningSession || !isFocused}
           source={endVideoSource}
           resizeMode="cover"
@@ -241,10 +286,20 @@ const IntroPortal: React.FC = () => {
         />
       )}
 
-      {!joiningSession && loopVideoSource && (
+      {!joiningSession && loopLottieSource && (
+        <LottieAnimatedStyled
+          onEnd={onLoopContentEnd}
+          paused={!isFocused}
+          repeat={!sessionState?.started}
+          source={loopLottieSource}
+          duration={introPortal?.lottieLoop?.duration ?? 5}
+        />
+      )}
+
+      {!joiningSession && !loopLottieSource && loopVideoSource && (
         <VideoStyled
           onReadyForDisplay={onLoopVideoLoad}
-          onEnd={onLoopVideoEnd}
+          onEnd={onLoopContentEnd}
           paused={!isFocused}
           repeat={!sessionState?.started}
           source={loopVideoSource}

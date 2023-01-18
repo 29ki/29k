@@ -116,9 +116,20 @@
         {
           "text": ">Start the session when you're ready to go."
         }
-      ]
+      ],
+      "lottieLoop": {
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
+        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1673963309/portal1_setting_boundaries_lottie_t5zl7f.json",
+        "duration": 5
+      },
+      "lottieEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1668597206/Lottie/default_timer_ge9wis.json",
+        "duration": 5
+      }
     },
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
   },
   "pt": {
@@ -235,19 +246,47 @@
         {
           "text": ">Start the session when you're ready to go."
         }
-      ]
+      ],
+      "lottieLoop": {
+        "duration": 5
+      },
+      "lottieEnd": {
+        "duration": 5
+      }
     },
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
   },
   "sv": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139",
     "duration": 30,
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"]
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "introPortal": {
+      "lottieLoop": {
+        "duration": 5
+      },
+      "lottieEnd": {
+        "duration": 5
+      }
+    }
   },
   "es": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139",
     "duration": 30,
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"]
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "introPortal": {
+      "lottieLoop": {
+        "duration": 5
+      },
+      "lottieEnd": {
+        "duration": 5
+      }
+    }
   }
 }
