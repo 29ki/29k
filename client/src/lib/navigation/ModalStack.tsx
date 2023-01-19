@@ -129,11 +129,6 @@ const ModalStack = () => {
         />
         <Screen name={'CreateSessionModal'} component={CreateSessionModal} />
         <Screen
-          name={'UpgradeAccountModal'}
-          component={UpgradeAccountModal}
-          options={shortSheetModalScreenOptions}
-        />
-        <Screen
           name={'SessionUnavailableModal'}
           component={SessionUnavailableModal}
         />
@@ -163,6 +158,7 @@ const ModalStack = () => {
 
       <Group screenOptions={cardModalScreenOptions}>
         <Screen name={'AddSessionModal'} component={AddSessionModal} />
+        <Screen name={'UpgradeAccountModal'} component={UpgradeAccountModal} />
       </Group>
     </Navigator>
   );

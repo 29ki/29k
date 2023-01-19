@@ -4,14 +4,14 @@ import {useTranslation} from 'react-i18next';
 import auth from '@react-native-firebase/auth';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import Button from '../../lib/components/Buttons/Button';
-import {Spacer16} from '../../lib/components/Spacers/Spacer';
+import {Spacer16, Spacer8} from '../../lib/components/Spacers/Spacer';
 import {BottomSheetTextInput} from '../../lib/components/Typography/TextInput/TextInput';
 import {Body16} from '../../lib/components/Typography/Body/Body';
 import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
 import Gutters from '../../lib/components/Gutters/Gutters';
 import {requestPromotion, verifyPromotion} from '../Profile/api/user';
 import styled from 'styled-components/native';
-import SheetModal from '../../lib/components/Modals/SheetModal';
+import CardModal from '../../lib/components/Modals/CardModal';
 import useUserState from '../../lib/user/state/state';
 import VerificationCode from '../../lib/components/VerificationCode/VerificationCode';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
@@ -20,15 +20,18 @@ import {COLORS} from '../../../../shared/src/constants/colors';
 import useUserClaims from '../../lib/user/hooks/useUserClaims';
 
 const ErrorText = styled(Body16)({color: COLORS.ERROR, textAlign: 'center'});
-
+const ButtonWrapper = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'center',
+});
 const SuccessText = styled(Body16)({textAlign: 'center'});
+const BodyText = styled(Body16)({textAlign: 'center'});
 
 const UpgradeAccountModal = () => {
   const {t} = useTranslation('Modal.UpgradeAccount');
   const {params} =
     useRoute<RouteProp<ModalStackProps, 'UpgradeAccountModal'>>();
   const user = useUserState(state => state.user);
-  const [haveCode, setHaveCode] = useState(Boolean(params?.code));
   const [haveRequested, setHaveRequested] = useState(false);
   const [upgradeComplete, setUpgradeComplete] = useState(false);
   const [email, setEmail] = useState('');
@@ -89,7 +92,7 @@ const UpgradeAccountModal = () => {
   };
 
   const renderContent = () => {
-    if (!haveRequested && needToUpgrade && !haveCode && !upgradeComplete) {
+    if (!haveRequested && needToUpgrade && !upgradeComplete) {
       return (
         <>
           <ModalHeading>{t('needToUpgrade')}</ModalHeading>
@@ -119,43 +122,41 @@ const UpgradeAccountModal = () => {
       );
     }
 
-    if ((!needToUpgrade || haveRequested) && !haveCode && !upgradeComplete) {
+    if ((!needToUpgrade || haveRequested) && !upgradeComplete) {
       return (
         <>
-          <ModalHeading>
-            {haveRequested ? t('requestComplete') : t('text')}
-          </ModalHeading>
-          <Spacer16 />
-          {!haveRequested && (
-            <Button onPress={requestCode}>{t('requestCodeButton')}</Button>
+          {errorString && <ErrorText>{errorString}</ErrorText>}
+          {!errorString && (
+            <ModalHeading>
+              {haveRequested ? t('requestComplete') : t('text')}
+            </ModalHeading>
           )}
-          <Spacer16 />
           {!user?.isAnonymous && (
-            <Button onPress={() => setHaveCode(true)}>
-              {t('haveCodeButton')}
-            </Button>
+            <>
+              <Spacer16 />
+              <VerificationCode
+                hasError={Boolean(errorString)}
+                prefillCode={params?.code}
+                onCodeType={() => {
+                  setErrorString(null);
+                }}
+                onCodeCompleted={onCodeCompleted}
+              />
+            </>
           )}
-        </>
-      );
-    }
+          <Spacer8 />
 
-    if (haveCode && !upgradeComplete) {
-      return (
-        <>
-          {errorString ? (
-            <ErrorText>{errorString}</ErrorText>
-          ) : (
-            <ModalHeading>{t('enterCode')}</ModalHeading>
+          {!haveRequested && (
+            <>
+              <BodyText>{t('or')}</BodyText>
+              <Spacer8 />
+              <ButtonWrapper>
+                <Button onPress={requestCode}>{t('requestCodeButton')}</Button>
+              </ButtonWrapper>
+            </>
           )}
+
           <Spacer16 />
-          <VerificationCode
-            hasError={Boolean(errorString)}
-            prefillCode={params?.code}
-            onCodeType={() => {
-              setErrorString(null);
-            }}
-            onCodeCompleted={onCodeCompleted}
-          />
         </>
       );
     }
@@ -169,9 +170,9 @@ const UpgradeAccountModal = () => {
   };
 
   return (
-    <SheetModal>
+    <CardModal>
       <Gutters>{renderContent()}</Gutters>
-    </SheetModal>
+    </CardModal>
   );
 };
 
