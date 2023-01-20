@@ -81,7 +81,10 @@
           }
         ],
         "content": {
-          "heading": "What did you notice?"
+          "heading": "What did you notice?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674218382/Video/timer_2min_Drop_all_requirements_sshrtx.mp4"
+          }
         }
       },
       {
