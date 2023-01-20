@@ -33,7 +33,7 @@
     "@react-native-firebase/storage": "^16.5.0",
     "@react-navigation/bottom-tabs": "^6.5.2",
     "@react-navigation/drawer": "^6.5.6",
-    "@react-navigation/native": "^6.1.1",
+    "@react-navigation/native": "^6.1.2",
     "@react-navigation/native-stack": "^6.9.7",
     "@react-navigation/stack": "^6.3.10",
     "@sentry/react-native": "^4.12.0",
