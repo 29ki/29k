@@ -4,6 +4,7 @@ import CONTRIBUTORS_FIELDS from '../fields/contributors';
 import * as content from '../../../content/content.json';
 import {generateFilesCollectionFromi18nFiles} from '../lib/i18n';
 import EXERCISE_DEFAULTS_FIELDS from '../fields/defaults';
+import {TAG_FIELDS} from '../fields/tag';
 
 export const exercises: CmsCollection = {
   name: 'exercises',
@@ -46,6 +47,23 @@ export const settings: CmsCollection = {
   editor: {
     preview: false,
   },
+};
+
+export const tags: CmsCollection = {
+  name: 'tags',
+  label: '🏷 Tags',
+  label_singular: 'Tag',
+  folder: '/content/src/tags',
+  identifier_field: 'id',
+  fields: TAG_FIELDS,
+  slug: '{{id}}',
+  summary: '{{fields.tag}}',
+  extension: 'json',
+  create: true,
+  format: 'json',
+  delete: true,
+  publish: true,
+  i18n: true,
 };
 
 export const other: CmsCollection = {

@@ -1,12 +1,15 @@
 {
   "en": {
-    "with": "with"
+    "with": "with",
+    "minutesAbbreviation": "min"
   },
   "sv": {
-    "with": "med"
+    "with": "med",
+    "minutesAbbreviation": "min"
   },
   "pt": {
-    "with": "com"
+    "with": "com",
+    "minutesAbbreviation": "min"
   },
   "es": {}
 }

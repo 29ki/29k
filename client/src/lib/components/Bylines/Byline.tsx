@@ -30,23 +30,26 @@ type BylineProps = {
   duration?: number;
 };
 
-const Byline: React.FC<BylineProps> = ({pictureURL, name, duration}) => {
-  const {t} = useTranslation('Component.Byline');
-  if (!pictureURL && !name) {
-    return null;
-  }
+const Byline: React.FC<BylineProps> = React.memo(
+  ({pictureURL, name, duration}) => {
+    const {t} = useTranslation('Component.Byline');
+    if (!pictureURL && !name) {
+      return null;
+    }
 
-  return (
-    <Container>
-      <ImageContainer>
-        {pictureURL && <Image source={{uri: pictureURL}} />}
-      </ImageContainer>
-      <Spacer4 />
-      <WrapText numberOfLines={2}>
-        {t('with')} {name} {'·'} {duration} {'min'}
-      </WrapText>
-    </Container>
-  );
-};
+    return (
+      <Container>
+        <ImageContainer>
+          {pictureURL && <Image source={{uri: pictureURL}} />}
+        </ImageContainer>
+        <Spacer4 />
+        <WrapText numberOfLines={2}>
+          {t('with')} {name}{' '}
+          {duration ? `· ${duration} ${t('minutesAbbreviation')}` : ''}
+        </WrapText>
+      </Container>
+    );
+  },
+);
 
 export default Byline;

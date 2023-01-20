@@ -21,9 +21,9 @@
         ],
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1671544231/Video/meditation_letting_go_of_control_xv1sx8.mov",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673871362/Video/meditation_letting_go_of_control_mplxsm.mp4",
             "autoPlayLoop": false,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1668093018/Audio/meditation_letting_go_of_control_becb1s.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1668093018/Audio/meditation_letting_go_of_control_becb1s.mp3",
             "durationTimer": true
           }
         }
@@ -41,7 +41,7 @@
         "content": {
           "heading": "What's in your beachball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1671534325/Video/timer1_letting_go_of_control_iydvpp.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673875921/Video/timer1_letting_go_of_control_z1x47a.mp4"
           }
         }
       },
@@ -50,7 +50,7 @@
         "content": {
           "heading": "What's in your beachball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1671543674/Video/timer2_letting_go_of_control_pfuvhb.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673879667/Video/timer2_letting_go_of_control_nxhgat.mp4"
           }
         },
         "hostNotes": [
@@ -84,7 +84,7 @@
         "content": {
           "heading": "What if you let go of your beachball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1671534325/Video/timer1_letting_go_of_control_iydvpp.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673875921/Video/timer1_letting_go_of_control_z1x47a.mp4"
           }
         }
       },
@@ -93,7 +93,7 @@
         "content": {
           "heading": "What if you let go of your beachball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1671543674/Video/timer2_letting_go_of_control_pfuvhb.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673879667/Video/timer2_letting_go_of_control_nxhgat.mp4"
           }
         },
         "hostNotes": [
@@ -138,7 +138,7 @@
     "duration": 30,
     "outroPortal": {
       "video": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1671527730/Video/mission_letting_go_of_control.mp4_t6zweg.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1671527730/Video/mission_letting_go_of_control.mp4_t6zweg.mp4"
       }
     },
     "introPortal": {
@@ -148,11 +148,11 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667919733/Video/portal1_letting_go_of_control_g0izpw.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1667915462/Audio/portal_letting_go_of_controlmp3_eintur.mp3"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667919733/Video/portal1_letting_go_of_control_g0izpw.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667915462/Audio/portal_letting_go_of_controlmp3_eintur.mp3"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto:eco/v1668093279/Video/portal2_letting_go_of_control_bnzxxr.mp4",
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1668093279/Video/portal2_letting_go_of_control_bnzxxr.mp4",
         "preview": ""
       }
     },

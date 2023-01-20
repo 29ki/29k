@@ -5,6 +5,7 @@ import {
 import config from '../lib/config';
 import i18next, {LANGUAGE_TAG} from '../lib/i18n';
 import type {Exercise} from '../../../shared/src/types/generated/Exercise';
+import {StringMap} from 'i18next';
 
 const dynamicLinks = firebasedynamiclinks('v1');
 
@@ -73,7 +74,17 @@ export const createSessionInviteLink = async (
   const t = i18next.getFixedT(language, 'DeepLink.JoinSessionInvite');
 
   const socialImageLink = socialMeta?.image || card?.image?.source;
-  const socialTitle = t('title', {title: socialMeta?.title || name});
+  // Need to tell what type it is since we get
+  // Type instantiation is excessively deep and possibly infinite.
+  const socialTitle = t<
+    'title',
+    string,
+    StringMap,
+    'DeepLink.JoinSessionInvite',
+    {
+      title: string;
+    }
+  >('title', {title: socialMeta?.title || name});
   const socialDescription = t('description', {
     host,
     description: socialMeta?.description || description,

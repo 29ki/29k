@@ -8,8 +8,9 @@ const exercises = generateI18NResources(
 );
 
 const ui = generateI18NResources(getContentByType('ui'));
+const tags = generateI18NResources(getContentByType('tags'), 'tags');
 
-const i18n = mergeDeepRight(ui, exercises);
+const i18n = mergeDeepRight(mergeDeepRight(ui, exercises), tags);
 
 const {contributors} = JSON.parse(
   readFileSync('../.all-contributorsrc', {encoding: 'utf8'}),
