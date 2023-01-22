@@ -89,7 +89,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#d56245"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Drop all requirements",
     "published": true,
     "card": {
