@@ -147,12 +147,13 @@ describe('useSessions', () => {
   });
 
   describe('sessions', () => {
-    it('should return sessions that are not pinned', async () => {
+    it('should return sessions that are not pinned and not hosted by user', async () => {
       useSessionsState.setState({
         isLoading: false,
         sessions: [
           {id: 'session-id-1'},
           {id: 'session-id-2'},
+          {id: 'session-id-3', hostId: 'user-id'},
         ] as Array<Session>,
       });
       useUserState.setState({
@@ -171,12 +172,13 @@ describe('useSessions', () => {
       expect(result.current.sessions).toEqual([{id: 'session-id-2'}]);
     });
 
-    it('should return sessions when no session is pinned', async () => {
+    it('should return sessions not hosted by user when no session is pinned', async () => {
       useSessionsState.setState({
         isLoading: false,
         sessions: [
           {id: 'session-id-1'},
           {id: 'session-id-2'},
+          {id: 'session-id-3', hostId: 'user-id'},
         ] as Array<Session>,
       });
       useUserState.setState({
@@ -194,12 +196,13 @@ describe('useSessions', () => {
   });
 
   describe('pinnedSessions', () => {
-    it('should return pinned sessions', () => {
+    it('should return pinned sessions not hosted by user', () => {
       useSessionsState.setState({
         isLoading: false,
         sessions: [
           {id: 'session-id-1'},
           {id: 'session-id-2'},
+          {id: 'session-id-3', hostId: 'user-id'},
         ] as Array<Session>,
       });
       useUserState.setState({
@@ -216,6 +219,35 @@ describe('useSessions', () => {
       const {result} = renderHook(() => useSessions());
 
       expect(result.current.pinnedSessions).toEqual([{id: 'session-id-1'}]);
+    });
+  });
+
+  describe('hostedSessions', () => {
+    it('should return sessions hosted by user', () => {
+      useSessionsState.setState({
+        isLoading: false,
+        sessions: [
+          {id: 'session-id-1'},
+          {id: 'session-id-2'},
+          {id: 'session-id-3', hostId: 'user-id'},
+        ] as Array<Session>,
+      });
+      useUserState.setState({
+        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
+        userState: {
+          'user-id': {
+            pinnedSessions: [
+              {id: 'session-id-1', expires: new Date('2022-12-20')},
+            ],
+          },
+        },
+      });
+
+      const {result} = renderHook(() => useSessions());
+
+      expect(result.current.hostedSessions).toEqual([
+        {id: 'session-id-3', hostId: 'user-id'},
+      ]);
     });
   });
 });
