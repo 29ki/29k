@@ -24,7 +24,7 @@
         ],
         "content": {
           "video": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1671549746/Audio/Meditation_Drop_all_requirements.wav",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674481870/Audio/meditation-drop-all-requirements_i39o6u.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673974099/Video/meditation_Drop_all_requirements_a2a7ws.mp4",
             "durationTimer": true
           }
@@ -112,7 +112,8 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
       }
     },
-    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495"
+    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+    "description": "A mindful break for busy days."
   },
   "pt": {
     "published": false,
