@@ -1,5 +1,6 @@
 import {Session, SessionState} from '../../../../../shared/src/types/Session';
 import apiClient from '../../../lib/apiClient/apiClient';
+import Sentry from '../../sentry';
 
 const SESSIONS_ENDPOINT = '/sessions';
 
@@ -27,6 +28,26 @@ export const addSession = async ({
     return response.json();
   } catch (cause) {
     throw new Error('Could not create a session', {cause});
+  }
+};
+
+export const updateInterestedCount = async (id: string, increment: boolean) => {
+  try {
+    const response = await apiClient(
+      `${SESSIONS_ENDPOINT}/${id}/interestedCount`,
+      {
+        method: 'PUT',
+        body: JSON.stringify({increment}),
+      },
+    );
+
+    if (!response.ok) {
+      Sentry.captureMessage(await response.text(), 'error');
+    }
+  } catch (cause) {
+    Sentry.captureException(
+      new Error('Could not update interested count on session', {cause}),
+    );
   }
 };
 

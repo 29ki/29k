@@ -170,6 +170,27 @@ sessionsRouter.put(
   },
 );
 
+const InterestedCountSchema = yup.object({increment: yup.boolean().required()});
+
+export type InterestedCountUpdate = yup.InferType<typeof InterestedCountSchema>;
+
+sessionsRouter.put(
+  '/:id/interestedCount',
+  validator({body: InterestedCountSchema}),
+  async ctx => {
+    const {id} = ctx.params;
+    const body = ctx.request.body as InterestedCountUpdate;
+
+    try {
+      await sessionsController.updateInterestedCount(id, body.increment);
+      ctx.status = 200;
+    } catch (err) {
+      ctx.status = 500;
+      throw err;
+    }
+  },
+);
+
 const SessionStateUpdateSchema = yup
   .object({
     started: yup.boolean(),

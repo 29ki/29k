@@ -28,6 +28,7 @@ import {
   updateSession,
   getSessions,
   getSessionToken,
+  updateInterestedCount,
 } from './sessions';
 import {getPublicUserInfo} from '../models/user';
 import {SessionType} from '../../../shared/src/types/Session';
@@ -55,6 +56,8 @@ const mockGetSessionById = sessionModel.getSessionById as jest.Mock;
 const mockGetSessionStateById = sessionModel.getSessionStateById as jest.Mock;
 const mockDeleteSession = sessionModel.deleteSession as jest.Mock;
 const mockUpdateSession = sessionModel.updateSession as jest.Mock;
+const mockUpdateInterestedCount =
+  sessionModel.updateInterestedCount as jest.Mock;
 const mockUpdateSessionState = sessionModel.updateSessionState as jest.Mock;
 const mockGetSessionByInviteCode =
   sessionModel.getSessionByInviteCode as jest.Mock;
@@ -207,6 +210,7 @@ describe('sessions - controller', () => {
         type: 'public',
         url: 'http://fake.daily/url',
         inviteCode: 123456,
+        interestedCount: 0,
       });
       expect(session).toMatchObject({
         hostId: 'some-user-id',
@@ -261,6 +265,7 @@ describe('sessions - controller', () => {
         type: 'public',
         url: 'http://fake.daily/url',
         inviteCode: 654321, // Code generated on the second try
+        interestedCount: 0,
       });
       expect(session).toMatchObject({
         hostId: 'some-user-id',
@@ -441,6 +446,17 @@ describe('sessions - controller', () => {
           photoURL: 'some-photo-url',
         },
       });
+    });
+  });
+
+  describe('updateInterestedCount', () => {
+    it('should update intersted count', async () => {
+      await updateInterestedCount('some-session-id', true);
+
+      expect(mockUpdateInterestedCount).toHaveBeenCalledWith(
+        'some-session-id',
+        true,
+      );
     });
   });
 
