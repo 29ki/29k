@@ -1,26 +1,5 @@
 {
   "en": {
-    "published": true,
-    "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#ffffff"
-    },
-    "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
-    "name": "Be kind to yourself",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673626157/Video/portal1_Be_kind_to_yourself_HD_zf7i4r.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673626159/Video/portal2_Be_kind_to_yourself_HD_rv02xs.mp4"
-      }
-    },
     "slides": [
       {
         "type": "host",
@@ -141,12 +120,34 @@
         ]
       }
     ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#ffffff"
+    },
+    "name": "Be kind to yourself",
+    "published": true,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
       }
     },
-    "duration": 40
+    "duration": 40,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673626157/Video/portal1_Be_kind_to_yourself_HD_zf7i4r.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673626159/Video/portal2_Be_kind_to_yourself_HD_rv02xs.mp4"
+      }
+    },
+    "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
+    "description": "Find an inner ally."
   },
   "pt": {
     "published": true,
