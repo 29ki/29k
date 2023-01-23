@@ -8,7 +8,10 @@ describe('useCurrentUserState', () => {
     useUserState.setState({
       user: {uid: 'user-id'} as FirebaseAuthTypes.User,
       userState: {
-        'user-id': {pinnedSessions: [{id: 'session-id', expires: new Date()}]},
+        'user-id': {
+          pinnedSessions: [{id: 'session-id', expires: new Date()}],
+          completedSessions: [{id: 'other-session-id'}],
+        },
       },
     });
 
@@ -16,6 +19,7 @@ describe('useCurrentUserState', () => {
 
     expect(result.current).toEqual({
       pinnedSessions: [{id: 'session-id', expires: expect.any(Date)}],
+      completedSessions: [{id: 'other-session-id'}],
     });
   });
 });

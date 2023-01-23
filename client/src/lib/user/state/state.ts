@@ -9,7 +9,14 @@ type PinnedSession = {
   expires: Date;
 };
 
-type UserState = {pinnedSessions: Array<PinnedSession>};
+type CompletedSession = {
+  id: string;
+};
+
+type UserState = {
+  pinnedSessions: Array<PinnedSession>;
+  completedSessions: Array<CompletedSession>;
+};
 
 type State = {
   user: FirebaseAuthTypes.User | null;
@@ -25,6 +32,7 @@ type Actions = {
     claims: State['claims'];
   }) => void;
   setPinnedSessions: (pinnedSessions: Array<PinnedSession>) => void;
+  setCompletedSessions: (completedSessions: Array<CompletedSession>) => void;
   reset: (isDelete?: boolean) => void;
 };
 
@@ -52,6 +60,19 @@ const useUserState = create<State & Actions>()(
             userState: lensSet(
               userStateLens(user.uid, 'pinnedSessions'),
               pinnedSessions,
+              userState,
+            ),
+          });
+        }
+      },
+      setCompletedSessions: completedSessions => {
+        const user = get().user;
+        const userState = get().userState;
+        if (user) {
+          set({
+            userState: lensSet(
+              userStateLens(user.uid, 'completedSessions'),
+              completedSessions,
               userState,
             ),
           });

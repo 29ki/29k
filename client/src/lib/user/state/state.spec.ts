@@ -28,6 +28,7 @@ describe('user - state', () => {
         userState: {
           'user-id': {
             pinnedSessions: [{id: 'other-session-id', expires: new Date()}],
+            completedSessions: [{id: 'other-session-id'}],
           },
         },
       });
@@ -51,6 +52,7 @@ describe('user - state', () => {
         userState: {
           'user-id-2': {
             pinnedSessions: [{id: 'other-session-id', expires: new Date()}],
+            completedSessions: [{id: 'other-session-id'}],
           },
         },
       });
@@ -72,6 +74,72 @@ describe('user - state', () => {
     });
   });
 
+  describe('setCompletedSessions', () => {
+    it('should set pinned sessions on empty userState', () => {
+      useUserState.setState({
+        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
+        userState: {},
+      });
+
+      const {result} = renderHook(() => useUserState());
+
+      act(() => {
+        result.current.setCompletedSessions([{id: 'session-id'}]);
+      });
+
+      expect(result.current.userState['user-id'].completedSessions).toEqual([
+        {id: 'session-id'},
+      ]);
+    });
+
+    it('should replace completed session on existing userState', () => {
+      useUserState.setState({
+        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
+        userState: {
+          'user-id': {
+            pinnedSessions: [],
+            completedSessions: [{id: 'session-id'}],
+          },
+        },
+      });
+
+      const {result} = renderHook(() => useUserState());
+
+      act(() => {
+        result.current.setCompletedSessions([{id: 'session-id'}]);
+      });
+
+      expect(result.current.userState['user-id'].completedSessions).toEqual([
+        {id: 'session-id'},
+      ]);
+    });
+
+    it('should keep other users state', () => {
+      useUserState.setState({
+        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
+        userState: {
+          'user-id-2': {
+            pinnedSessions: [],
+            completedSessions: [{id: 'session-id'}],
+          },
+        },
+      });
+
+      const {result} = renderHook(() => useUserState());
+
+      act(() => {
+        result.current.setCompletedSessions([{id: 'session-id'}]);
+      });
+
+      expect(result.current.userState['user-id'].completedSessions).toEqual([
+        {id: 'session-id'},
+      ]);
+      expect(result.current.userState['user-id-2'].completedSessions).toEqual([
+        {id: 'session-id'},
+      ]);
+    });
+  });
+
   describe('reset', () => {
     it('should keep user state when not deleted', () => {
       useUserState.setState({
@@ -79,6 +147,7 @@ describe('user - state', () => {
         userState: {
           'user-id': {
             pinnedSessions: [{id: 'session-id', expires: new Date()}],
+            completedSessions: [{id: 'completed-session-id'}],
           },
         },
       });
@@ -100,9 +169,11 @@ describe('user - state', () => {
         userState: {
           'user-id': {
             pinnedSessions: [{id: 'session-id', expires: new Date()}],
+            completedSessions: [{id: 'completed-session-id'}],
           },
           'user-id-2': {
             pinnedSessions: [{id: 'session-id', expires: new Date()}],
+            completedSessions: [{id: 'completed-session-id'}],
           },
         },
       });
