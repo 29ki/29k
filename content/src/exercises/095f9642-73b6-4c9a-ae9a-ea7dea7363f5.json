@@ -118,8 +118,11 @@
         }
       ]
     },
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
-    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+    "description": "Bring a precious moment to the limelight."
   },
   "pt": {
     "slides": [
@@ -237,17 +240,23 @@
         }
       ]
     },
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
   },
   "sv": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139",
     "duration": 30,
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"]
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ]
   },
   "es": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139",
     "duration": 30,
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"]
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ]
   }
 }
