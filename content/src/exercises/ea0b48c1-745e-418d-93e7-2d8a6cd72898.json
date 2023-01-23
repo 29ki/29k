@@ -1,8 +1,5 @@
 {
   "en": {
-    "published": true,
-    "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
-    "name": "Bring your feelings along",
     "slides": [
       {
         "type": "host",
@@ -130,6 +127,14 @@
       "backgroundColor": "#f1d0b0",
       "textColor": "#2E2E2E"
     },
+    "name": "Bring your feelings along",
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665470221/Temp/card_image-13_uoyugo.png"
+      }
+    },
+    "duration": 30,
     "introPortal": {
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665480650/Temp/portal_no_sound_o7okas.mp4"
@@ -143,12 +148,8 @@
         }
       ]
     },
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665470221/Temp/card_image-13_uoyugo.png"
-      }
-    },
-    "duration": 30
+    "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+    "description": "How we talk to ourselves can change how we act."
   },
   "pt": {
     "slides": [
