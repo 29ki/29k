@@ -1,4 +1,4 @@
-import create from 'zustand';
+import {create} from 'zustand';
 import {IconType} from '../../../lib/components/Icons';
 
 export type Notification = {

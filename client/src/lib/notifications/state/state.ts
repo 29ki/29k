@@ -1,5 +1,5 @@
 import {Notification} from '@notifee/react-native';
-import create from 'zustand';
+import {create} from 'zustand';
 
 type State = {
   notifications: {[key: string]: Notification | undefined};
