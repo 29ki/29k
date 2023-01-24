@@ -11,6 +11,7 @@ type PinnedSession = {
 
 type CompletedSession = {
   id: string;
+  completedAt: Date;
 };
 
 type UserState = {

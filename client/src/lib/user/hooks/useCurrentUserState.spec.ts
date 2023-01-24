@@ -10,7 +10,9 @@ describe('useCurrentUserState', () => {
       userState: {
         'user-id': {
           pinnedSessions: [{id: 'session-id', expires: new Date()}],
-          completedSessions: [{id: 'other-session-id'}],
+          completedSessions: [
+            {id: 'other-session-id', completedAt: new Date()},
+          ],
         },
       },
     });
@@ -19,7 +21,9 @@ describe('useCurrentUserState', () => {
 
     expect(result.current).toEqual({
       pinnedSessions: [{id: 'session-id', expires: expect.any(Date)}],
-      completedSessions: [{id: 'other-session-id'}],
+      completedSessions: [
+        {id: 'other-session-id', completedAt: expect.any(Date)},
+      ],
     });
   });
 });
