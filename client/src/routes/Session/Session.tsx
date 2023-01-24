@@ -141,7 +141,7 @@ const Session = () => {
     if (sessionState?.completed) {
       addCompletedSession({
         id: sessionState?.id,
-        completedAt: dayjs().toDate(),
+        completedAt: dayjs().utc().toDate(),
       });
       logSessionMetricEvent('Complete Sharing Session');
     }
