@@ -236,13 +236,7 @@ describe('useSessions', () => {
       });
       useUserState.setState({
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,
-        userState: {
-          'user-id': {
-            pinnedSessions: [
-              {id: 'session-id-1', expires: new Date('2022-12-20')},
-            ],
-          },
-        },
+        userState: {},
       });
 
       const {result} = renderHook(() => useSessions());
