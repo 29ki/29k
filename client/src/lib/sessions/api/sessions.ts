@@ -15,3 +15,16 @@ export const fetchSessions = async (): Promise<Session[]> => {
     throw new Error('Could not fetch sessions', {cause});
   }
 };
+
+export const fetchSession = async (id: Session['id']): Promise<Session[]> => {
+  try {
+    const response = await apiClient(`${SESSIONS_ENDPOINT}/${id}`);
+    if (!response.ok) {
+      throw new Error(await response.text());
+    }
+
+    return response.json();
+  } catch (cause) {
+    throw new Error('Could not fetch completed sessions', {cause});
+  }
+};

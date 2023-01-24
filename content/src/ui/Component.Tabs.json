@@ -1,14 +1,17 @@
 {
   "en": {
     "home": "Home",
+    "plan": "Plan",
     "profile": "Profile"
   },
   "sv": {
     "home": "Hem",
+    "plan": "",
     "profile": "Profil"
   },
   "pt": {
     "home": "Início",
+    "plan": "",
     "profile": "Perfil"
   },
   "es": {}

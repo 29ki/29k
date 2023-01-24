@@ -23,6 +23,7 @@ import {BottomSafeArea} from '../components/Spacers/Spacer';
 
 import ProfileStack from './ProfileStack';
 import Sessions from '../../routes/Sessions/Sessions';
+import Plan from '../../routes/Plan/Plan';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
 
@@ -79,6 +80,11 @@ const Tabs = () => {
         name={'Sessions'}
         component={Sessions}
         options={getTabOptions(HomeIcon, HomeFillIcon, t('home'))}
+      />
+      <Tab.Screen
+        name={'Plan'}
+        component={Plan}
+        options={getTabOptions(ProfileIcon, ProfileFillIcon, t('plan'))}
       />
       <Tab.Screen
         name={'ProfileStack'}
