@@ -20,7 +20,8 @@
         "content": {
           "heading": "Pure simple love",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328548/temp/audio_meditation_2_b3hwge.mp4"
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328548/temp/audio_meditation_2_b3hwge.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_meditation_pure_simple_love_wex49u.png"
           },
           "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
         },
@@ -38,7 +39,8 @@
         "content": {
           "heading": "How did this meditation affect you?",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/1_min_eto52x.mp4"
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/1_min_eto52x.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_timer1min_pure_simple_love_jahzvt.png"
           },
           "text": "What can you bring for the rest of the day?"
         },
@@ -56,7 +58,8 @@
         "content": {
           "heading": "How did this meditation affect you?",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/2_min_fr9hsu.mp4"
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/2_min_fr9hsu.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_timer2min_pure_simple_love_czlzbh.png"
           },
           "text": "What can you bring for the rest of the day?"
         },
@@ -107,7 +110,8 @@
       "type": "video",
       "videoLoop": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
-        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3"
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png"
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
