@@ -24,6 +24,7 @@ type SessionFields = {
   link?: string;
   contentId: string;
   inviteCode: number;
+  interestedCount: number;
   hostId: string;
   type: SessionType;
   userIds: string[];

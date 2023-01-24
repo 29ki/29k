@@ -31,6 +31,7 @@ import {
   updateSessionState,
   updateSession,
   getSessionStateById,
+  updateInterestedCount,
 } from './session';
 import {SessionType} from '../../../shared/src/types/Session';
 
@@ -43,6 +44,7 @@ const sessions = [
     type: SessionType.public,
     startTime: Timestamp.now(),
     userIds: ['*'],
+    interestedCount: 0,
     createdAt: Timestamp.now(),
     updatedAt: Timestamp.now(),
     _collections: {
@@ -66,6 +68,7 @@ const sessions = [
     startTime: Timestamp.now(),
     type: SessionType.public,
     userIds: ['*'],
+    interestedCount: 1,
     createdAt: Timestamp.now(),
     updatedAt: Timestamp.now(),
     _collections: {
@@ -114,6 +117,7 @@ describe('session model', () => {
         url: 'some-url',
         type: 'public',
         userIds: ['*'],
+        interestedCount: 0,
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -150,6 +154,7 @@ describe('session model', () => {
           url: 'some-url',
           type: 'public',
           userIds: ['*'],
+          interestedCount: 0,
           createdAt: expect.any(String),
           updatedAt: expect.any(String),
         },
@@ -161,6 +166,7 @@ describe('session model', () => {
           url: 'some-other-url',
           type: 'public',
           userIds: ['*'],
+          interestedCount: 1,
           createdAt: expect.any(String),
           updatedAt: expect.any(String),
         },
@@ -206,6 +212,7 @@ describe('session model', () => {
         startTime: startTime,
         hostId: 'some-user-id',
         inviteCode: 1234,
+        interestedCount: 0,
       });
 
       expect(session).toEqual({
@@ -221,6 +228,7 @@ describe('session model', () => {
         ended: false,
         userIds: ['*'],
         inviteCode: 1234,
+        interestedCount: 0,
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -238,6 +246,7 @@ describe('session model', () => {
         startTime: startTime,
         hostId: 'some-user-id',
         inviteCode: 1234,
+        interestedCount: 0,
       });
 
       expect(session).toEqual({
@@ -253,6 +262,7 @@ describe('session model', () => {
         userIds: ['some-user-id'],
         ended: false,
         inviteCode: 1234,
+        interestedCount: 0,
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -269,6 +279,7 @@ describe('session model', () => {
         name: 'some-name',
         url: 'some-url',
         hostId: 'some-user-id',
+        interestedCount: 0,
         startTime: expect.any(String),
         type: SessionType.private,
         userIds: ['*'],
@@ -288,11 +299,44 @@ describe('session model', () => {
         url: 'some-url',
         hostId: 'some-user-id',
         type: 'public',
+        interestedCount: 0,
         startTime: expect.any(String),
         userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
+    });
+  });
+
+  describe('updateInterestedCount', () => {
+    it('should increment interested count', async () => {
+      await updateInterestedCount('some-session-id', true);
+      const session = await getSessionById('some-session-id');
+
+      expect(mockRunTransaction).toHaveBeenCalledTimes(1);
+      expect(mockUpdateTransaction).toHaveBeenCalledTimes(1);
+      expect(mockGetTransaction).toHaveBeenCalledTimes(1);
+      expect(session).toMatchObject({interestedCount: 1});
+    });
+
+    it('should decrease interested count', async () => {
+      await updateInterestedCount('some-other-session-id', false);
+      const session = await getSessionById('some-other-session-id');
+
+      expect(mockRunTransaction).toHaveBeenCalledTimes(1);
+      expect(mockUpdateTransaction).toHaveBeenCalledTimes(1);
+      expect(mockGetTransaction).toHaveBeenCalledTimes(1);
+      expect(session).toMatchObject({interestedCount: 0});
+    });
+
+    it('should not decrease interested count of zero', async () => {
+      await updateInterestedCount('some-other-session-id', false);
+      const session = await getSessionById('some-session-id');
+
+      expect(mockRunTransaction).toHaveBeenCalledTimes(1);
+      expect(mockUpdateTransaction).toHaveBeenCalledTimes(1);
+      expect(mockGetTransaction).toHaveBeenCalledTimes(1);
+      expect(session).toMatchObject({interestedCount: 0});
     });
   });
 
