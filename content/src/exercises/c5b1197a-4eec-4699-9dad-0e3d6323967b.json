@@ -48,7 +48,8 @@
           "text": "How do I communicate ny needs?",
           "heading": "Needs not being met are... ",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_boundaries_mza6w9.png"
           }
         }
       },
@@ -69,7 +70,8 @@
           "heading": "Needs not being met right now",
           "text": "How do I communicate needs?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_2_boundaries_sazbko.png"
           }
         }
       },
@@ -87,7 +89,8 @@
           "heading": "What boundaries, to whom?",
           "text": "How will I communicate? When?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_boundaries_mza6w9.png"
           }
         }
       },
@@ -105,7 +108,8 @@
           "heading": "What boundaries, to whom?",
           "text": "How will I communicate them? When?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_2_boundaries_sazbko.png"
           }
         }
       },
@@ -161,7 +165,7 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672829134/Video/portal1_setting_boundaries_b3rx64.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207970/Audio/portal_audio_setting_boundaries_mixdown_gapless_e33ufm.m4a",
-        "preview": ""
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554570/Images/thumb_portal_setting_boundaries_mlg0yv.png"
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672835034/Video/portal2_setting_boundaries_craqov.mp4"
