@@ -74,8 +74,8 @@ describe('user - state', () => {
     });
   });
 
-  describe('setCompletedSessions', () => {
-    it('should set pinned sessions on empty userState', () => {
+  describe('addCompletedSession', () => {
+    it('should set completed sessions on empty userState', () => {
       useUserState.setState({
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,
         userState: {},
@@ -84,7 +84,7 @@ describe('user - state', () => {
       const {result} = renderHook(() => useUserState());
 
       act(() => {
-        result.current.setCompletedSessions([{id: 'session-id'}]);
+        result.current.addCompletedSession({id: 'session-id'});
       });
 
       expect(result.current.userState['user-id'].completedSessions).toEqual([
@@ -92,7 +92,7 @@ describe('user - state', () => {
       ]);
     });
 
-    it('should replace completed session on existing userState', () => {
+    it('should add completed session on existing userState', () => {
       useUserState.setState({
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,
         userState: {
@@ -106,11 +106,12 @@ describe('user - state', () => {
       const {result} = renderHook(() => useUserState());
 
       act(() => {
-        result.current.setCompletedSessions([{id: 'session-id'}]);
+        result.current.addCompletedSession({id: 'another-session-id'});
       });
 
       expect(result.current.userState['user-id'].completedSessions).toEqual([
         {id: 'session-id'},
+        {id: 'another-session-id'},
       ]);
     });
 
@@ -128,7 +129,7 @@ describe('user - state', () => {
       const {result} = renderHook(() => useUserState());
 
       act(() => {
-        result.current.setCompletedSessions([{id: 'session-id'}]);
+        result.current.addCompletedSession({id: 'session-id'});
       });
 
       expect(result.current.userState['user-id'].completedSessions).toEqual([

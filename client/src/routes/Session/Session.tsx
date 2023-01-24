@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useMemo} from 'react';
+import React, {useCallback, useContext, useEffect} from 'react';
 import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
@@ -119,13 +119,7 @@ const Session = () => {
   const {checkCameraPermissions, checkMicrophonePermissions} =
     useCheckPermissions();
   const user = useUser();
-  const {setCompletedSessions} = useUserState();
-  const userState = useUserState(state => state.userState);
-
-  const completedSessions = useMemo(
-    () => userState?.completedSessions ?? [],
-    [userState],
-  );
+  const {addCompletedSession} = useUserState();
 
   const hasAudio = Boolean(me?.audioTrack);
   const hasVideo = Boolean(me?.videoTrack);
@@ -140,10 +134,15 @@ const Session = () => {
 
   useEffect(() => {
     if (sessionState?.completed) {
-      setCompletedSessions([...completedSessions, {id: session.id}]);
+      addCompletedSession({id: sessionState?.id});
       logSessionMetricEvent('Complete Sharing Session');
     }
-  }, [sessionState?.completed, logSessionMetricEvent]);
+  }, [
+    sessionState?.completed,
+    sessionState?.id,
+    logSessionMetricEvent,
+    addCompletedSession,
+  ]);
 
   useEffect(() => {
     if (sessionState?.ended) {
