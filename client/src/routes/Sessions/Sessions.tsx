@@ -79,27 +79,35 @@ const AddSessionForm = () => {
 
 const Sessions = () => {
   const {t} = useTranslation('Screen.Sessions');
-  const {fetchSessions, sessions, pinnedSessions} = useSessions();
+  const {fetchSessions, sessions, pinnedSessions, hostedSessions} =
+    useSessions();
   const [isLoading, setIsLoading] = useState(false);
 
   const sections = useMemo(() => {
     let sectionsList = [];
+    if (hostedSessions.length > 0) {
+      sectionsList.push({
+        title: t('sections.hostedBy'),
+        data: hostedSessions,
+        type: 'hostedBy',
+      });
+    }
     if (pinnedSessions.length > 0) {
       sectionsList.push({
-        title: t('interested'),
+        title: t('sections.interested'),
         data: pinnedSessions,
         type: 'interested',
       });
     }
     if (sessions.length > 0) {
       sectionsList.push({
-        title: t('commingSessions'),
+        title: t('sections.comming'),
         data: sessions,
         type: 'comming',
       });
     }
     return sectionsList;
-  }, [sessions, pinnedSessions, t]);
+  }, [sessions, pinnedSessions, hostedSessions, t]);
 
   useEffect(() => {
     fetchSessions();
@@ -136,7 +144,7 @@ const Sessions = () => {
         }
         renderSectionHeader={({section: {title, type}}) => (
           <Gutters>
-            {sections.length === 2 && type === 'comming' && <Spacer24 />}
+            {sections[0].type !== type && <Spacer24 />}
             <Heading18>{title}</Heading18>
             <Spacer8 />
           </Gutters>

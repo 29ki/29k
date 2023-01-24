@@ -2,20 +2,29 @@
   "en": {
     "heading": "Sessions",
     "add": "Join or add session",
-    "interested": "Interested",
-    "commingSessions": "Upcoming sessions"
+    "sections": {
+      "hostedBy": "Your sessions",
+      "interested": "Interested",
+      "comming": "Upcoming sessions"
+    }
   },
   "pt": {
     "heading": "Sessões",
     "add": "Junta-te ou adiciona sessão",
-    "interested": "Favorito",
-    "commingSessions": "Próximas sessões"
+    "sections": {
+      "hostedBy": "Suas sessões",
+      "interested": "Favorito",
+      "comming": "Próximas sessões"
+    }
   },
   "sv": {
     "heading": "Sessioner",
     "add": "Add session",
-    "interested": "Intresserad",
-    "commingSessions": "Kommande sessioner"
+    "sections": {
+      "hostedBy": "Dina sessioner",
+      "interested": "Intresserad",
+      "comming": "Kommande sessioner"
+    }
   },
   "es": {}
 }
