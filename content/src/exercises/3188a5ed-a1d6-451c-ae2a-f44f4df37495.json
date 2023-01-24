@@ -26,7 +26,8 @@
           "video": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674481870/Audio/meditation-drop-all-requirements_i39o6u.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673974099/Video/meditation_Drop_all_requirements_a2a7ws.mp4",
-            "durationTimer": true
+            "durationTimer": true,
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_meditation_drop_all_requirements_ve8rdm.png"
           }
         }
       },
@@ -43,7 +44,8 @@
         "content": {
           "heading": "What did you notice?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/timer_1min_Drop_all_requirements_dahizb.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/timer_1min_Drop_all_requirements_dahizb.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer1min_drop_all_requirements_qebhbc.png"
           }
         }
       },
@@ -63,7 +65,8 @@
         "content": {
           "heading": "What did you notice?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1674383225/Video/meditation_2_Drop_all_requirements_jeizf0.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1674383225/Video/meditation_2_Drop_all_requirements_jeizf0.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer2min_drop_all_requirements_hzwrlc.png"
           }
         }
       },
@@ -106,7 +109,8 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207952/Audio/Drop_all_requirements_mixdown_gapless_mrnwhp.m4a"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207952/Audio/Drop_all_requirements_mixdown_gapless_mrnwhp.m4a",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_portal_drop_all_requirements_ns9mqy.png"
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
