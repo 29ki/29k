@@ -28,6 +28,7 @@ describe('usePinnedSessions', () => {
             pinnedSessions: [
               {id: 'session-id-1', expires: new Date('2022-12-20')},
             ],
+            completedSessions: [],
           },
         },
       });
@@ -47,6 +48,7 @@ describe('usePinnedSessions', () => {
             pinnedSessions: [
               {id: 'session-id-1', expires: new Date('2022-12-20')},
             ],
+            completedSessions: [],
           },
         },
       });
@@ -90,6 +92,7 @@ describe('usePinnedSessions', () => {
               pinnedSessions: [
                 {id: 'session-id-1', expires: new Date('2022-12-20')},
               ],
+              completedSessions: [],
             },
           },
         });
@@ -117,6 +120,7 @@ describe('usePinnedSessions', () => {
               pinnedSessions: [
                 {id: 'session-id-1', expires: new Date('2022-11-09')},
               ],
+              completedSessions: [],
             },
           },
         });
@@ -141,6 +145,7 @@ describe('usePinnedSessions', () => {
                 {id: 'session-id-1', expires: new Date('2022-11-09')},
                 {id: 'session-id-2', expires: new Date('2022-12-20')},
               ],
+              completedSessions: [],
             },
           },
         });
