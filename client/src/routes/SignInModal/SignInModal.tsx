@@ -68,10 +68,10 @@ const SignInModal = () => {
             defaultValue={email}
           />
           <BottomSheetActionTextInput
-            textContentType="newPassword"
+            textContentType="password"
             secureTextEntry
             autoCapitalize="none"
-            autoComplete="password-new"
+            autoComplete="current-password"
             autoCorrect={false}
             onSubmitEditing={signIn}
             placeholder={t('password')}
