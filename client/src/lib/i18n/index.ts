@@ -39,6 +39,10 @@ export const init = () =>
       // Removing them in buildContent creates somewhat of a mess in backend adding them back.
       resources: omitExercises(content.i18n),
       partialBundledLanguages: true,
+      returnNull: false,
+      interpolation: {
+        escapeValue: false, // react already safes from xss
+      },
     });
 
 i18next.on('languageChanged', languageTag => {

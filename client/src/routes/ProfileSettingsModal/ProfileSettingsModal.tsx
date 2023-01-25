@@ -143,7 +143,6 @@ const ProfileSettingsModal = () => {
           <Spacer16 />
           {error && (
             <>
-              {/* @ts-expect-error variable/string litteral as key is not yet supported https://www.i18next.com/overview/typescript#type-error-template-literal*/}
               <Error>{t(`errors.${error}`)}</Error>
               <Spacer16 />
             </>
