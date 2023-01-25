@@ -1,25 +1,5 @@
 {
   "en": {
-    "published": true,
-    "hidden": true,
-    "theme": {
-      "textColor": "#F9F8F4",
-      "backgroundColor": "#d56245"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1673961694/Audio/portal_audio_Drop_all_requirements_gapless_m16i4k.mp3"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
-      }
-    },
     "slides": [
       {
         "type": "host",
@@ -81,7 +61,10 @@
           }
         ],
         "content": {
-          "heading": "What did you notice?"
+          "heading": "What did you notice?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1674383225/Video/meditation_2_Drop_all_requirements_jeizf0.mp4"
+          }
         }
       },
       {
@@ -102,9 +85,34 @@
         ]
       }
     ],
-    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#d56245"
+    },
+    "hidden": false,
     "name": "Drop all requirements",
-    "duration": 30
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
+      }
+    },
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207952/Audio/Drop_all_requirements_mixdown_gapless_mrnwhp.m4a"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
+      }
+    },
+    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495"
   },
   "pt": {
     "published": false,

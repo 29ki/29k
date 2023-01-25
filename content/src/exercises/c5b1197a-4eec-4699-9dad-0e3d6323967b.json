@@ -143,12 +143,12 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#cdc9c7"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Setting boundaries",
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1672845216/Images/cover_setting_boundaries_eprgqj.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395860/Images/card_setting_boundaries_yrv35w.png"
       }
     },
     "duration": 30,
@@ -160,7 +160,7 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672829134/Video/portal1_setting_boundaries_b3rx64.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1673899969/Audio/portal_audio_setting_boundaries_gapless_rzbpym.mp3",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207970/Audio/portal_audio_setting_boundaries_mixdown_gapless_e33ufm.m4a",
         "preview": ""
       },
       "videoEnd": {

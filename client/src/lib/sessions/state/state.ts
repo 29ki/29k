@@ -1,5 +1,5 @@
 import {Session} from '../../../../../shared/src/types/Session';
-import create from 'zustand';
+import {create} from 'zustand';
 
 type State = {
   isLoading: boolean;

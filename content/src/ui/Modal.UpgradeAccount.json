@@ -15,8 +15,9 @@
       "verificationAlreadyClaimed": "The code have already been used.",
       "verificationFailed": "Incorrect code, try again."
     },
-    "text": "To host open sessions you need to be an approved 29k host. Send request for approval here .",
+    "text": "Register as a host to create public sessions",
     "requestCodeButton": "Request a code",
+    "or": "or",
     "button": "Create account",
     "password": "Passsword",
     "email": "Email"
@@ -39,6 +40,7 @@
     },
     "text": "Como moderador oficial da 29k FJN pode registar-te aqui para criar sessões públicas.",
     "requestCodeButton": "Pedir um código",
+    "or": "ou",
     "button": "Atualizar",
     "password": "Password",
     "email": "Email"
@@ -61,6 +63,7 @@
     },
     "text": "Du behöver registrera dig för att kunna skapa publika sessioner.",
     "requestCodeButton": "Begär kod",
+    "or": "eller",
     "button": "Uppgradera",
     "password": "Lösenord",
     "email": "Epost"

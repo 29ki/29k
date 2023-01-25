@@ -1,5 +1,5 @@
 import {Session, SessionState} from '../../../../../shared/src/types/Session';
-import create from 'zustand';
+import {create} from 'zustand';
 
 type State = {
   session: Session | null;

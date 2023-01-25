@@ -1,5 +1,5 @@
 import CodePush from 'react-native-code-push';
-import create from 'zustand';
+import {create} from 'zustand';
 
 type State = {
   status: CodePush.SyncStatus;
