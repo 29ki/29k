@@ -33,6 +33,7 @@ const getShadow = (shadow?: boolean) => {
       shadowOffset: `0 -${SPACINGS.EIGHT}px`,
       shadowRadius: 20,
       shadowOpacity: 0.1,
+      elevation: 5,
     };
   }
   return {};
