@@ -17,6 +17,7 @@ import {
 } from '../../../navigation/constants/routes';
 
 import Card from '../Card';
+import WalletCard from '../WalletCard';
 import SessionTimeBadge from '../../SessionTimeBadge/SessionTimeBadge';
 import usePinnedSessons from '../../../sessions/hooks/usePinnedSessions';
 import useLogSessionMetricEvents from '../../../sessions/hooks/useLogSessionMetricEvents';
@@ -46,13 +47,36 @@ const JoinButton: React.FC<{
   ) : null;
 };
 
-type SessionCardProps = {
-  session: Session;
+const WalletResolver: React.FC<{
+  expandedComponent: React.ReactNode;
+  foldedComponent: React.ReactNode;
+  startTime: Session['startTime'];
+  hasCardBefore: boolean;
+}> = ({expandedComponent, foldedComponent, startTime, hasCardBefore}) => {
+  const sessionTime = useSessionStartTime(dayjs(startTime));
+
+  if (!hasCardBefore && sessionTime.isReadyToJoin) {
+    return <>{expandedComponent}</>;
+  }
+  return <>{foldedComponent}</>;
 };
 
-const SessionCard: React.FC<SessionCardProps> = ({session}) => {
+type SessionCardProps = {
+  session: Session;
+  standAlone: boolean;
+  hasCardBefore: boolean;
+  hasCardAfter: boolean;
+};
+
+const SessionCard: React.FC<SessionCardProps> = ({
+  session,
+  standAlone,
+  hasCardBefore,
+  hasCardAfter,
+}) => {
   const {contentId, startTime, hostProfile} = session;
   const exercise = useExerciseById(contentId);
+  const {t} = useTranslation('Component.SessionCard');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const logSessionMetricEvent = useLogSessionMetricEvents();
@@ -98,22 +122,65 @@ const SessionCard: React.FC<SessionCardProps> = ({session}) => {
     [exercise],
   );
 
+  if (standAlone) {
+    return (
+      <Card
+        title={formatExerciseName(exercise)}
+        tags={tags}
+        image={image}
+        lottie={lottie}
+        onPress={onContextPress}
+        hostPictureURL={hostProfile?.photoURL}
+        hostName={hostProfile?.displayName}
+        pinned={sessionPinned}
+        onPinnedPress={onPinnedPress}>
+        <Row>
+          <JoinButton onPress={onPress} startTime={startTime} />
+          <SessionTimeBadge session={session} />
+        </Row>
+      </Card>
+    );
+  }
+
   return (
-    <Card
-      title={formatExerciseName(exercise)}
-      tags={tags}
-      image={image}
-      lottie={lottie}
-      onPress={onContextPress}
-      hostPictureURL={hostProfile?.photoURL}
-      hostName={hostProfile?.displayName}
-      pinned={sessionPinned}
-      onPinnedPress={onPinnedPress}>
-      <Row>
-        <JoinButton onPress={onPress} startTime={startTime} />
-        <SessionTimeBadge session={session} />
-      </Row>
-    </Card>
+    <WalletResolver
+      startTime={startTime}
+      hasCardBefore={hasCardBefore}
+      foldedComponent={
+        <WalletCard
+          title={formatExerciseName(exercise)}
+          image={image}
+          lottie={lottie}
+          hostPictureURL={hostProfile?.photoURL}
+          hostName={hostProfile?.displayName}
+          onPress={onContextPress}
+          hasCardBefore={hasCardBefore}
+          hasCardAfter={hasCardAfter}>
+          <SessionTimeBadge session={session} />
+        </WalletCard>
+      }
+      expandedComponent={
+        <Card
+          inWallet
+          title={formatExerciseName(exercise)}
+          tags={tags}
+          image={image}
+          lottie={lottie}
+          onPress={onContextPress}
+          hostPictureURL={hostProfile?.photoURL}
+          hostName={hostProfile?.displayName}
+          pinned={sessionPinned}
+          onPinnedPress={onPinnedPress}>
+          <Row>
+            <Button small variant="secondary" onPress={onPress}>
+              {t('join')}
+            </Button>
+            <Spacer8 />
+            <SessionTimeBadge session={session} />
+          </Row>
+        </Card>
+      }
+    />
   );
 };
 
