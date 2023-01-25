@@ -14,6 +14,7 @@ import {
   ModalStackProps,
 } from '../../../lib/navigation/constants/routes';
 import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
+import useUserState from '../../../lib/user/state/state';
 
 const AboutActionList = () => {
   const {navigate} =
@@ -24,14 +25,18 @@ const AboutActionList = () => {
 
   const isPublicHost = useIsPublicHost();
 
+  const isAnonymous = useUserState(state => state.user?.isAnonymous);
   const earlyAccessInfoPress = useCallback(
     () => navigate('EarlyAccessInfo'),
     [navigate],
   );
 
   const publicHostAccessPress = useCallback(
-    () => navigate('UpgradeAccountModal'),
-    [navigate],
+    () =>
+      isAnonymous
+        ? navigate('UpgradeAccountModal')
+        : navigate('RequestPublicHostModal'),
+    [navigate, isAnonymous],
   );
 
   const contactPress = useCallback(() => navigate('ContactModal'), [navigate]);

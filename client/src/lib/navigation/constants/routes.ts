@@ -38,7 +38,8 @@ export type ModalStackProps = {
   SessionUnavailableModal: undefined;
   AddSessionModal?: {inviteCode?: number};
   CreateSessionModal: undefined;
-  UpgradeAccountModal?: {code: string};
+  UpgradeAccountModal?: undefined;
+  RequestPublicHostModal?: {code?: string; haveRequested?: boolean};
   ChangeLanguageModal: undefined;
   ProfileSettingsModal: undefined;
   SignInModal: undefined;
