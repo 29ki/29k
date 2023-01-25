@@ -1,17 +1,5 @@
 {
   "en": {
-    "published": true,
-    "hidden": true,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
@@ -91,9 +79,22 @@
         ]
       }
     ],
-    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": true,
     "name": "The willingness stance",
-    "duration": 30
+    "published": true,
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
+    "description": "Stop fighting unwanted inner experiences and instead use your energy where it matters."
   },
   "pt": {
     "published": false,
