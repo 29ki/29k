@@ -24,6 +24,7 @@ import {
   SHARING_SLIDE,
 } from './slides';
 import {CLOUDINARY_IMAGE_CONFIG} from './constants';
+import {JSONObject} from '../../../shared/src/types/JSON';
 
 export const SOCIAL_MEDIA: CmsField = {
   label: '🔗 Social Media Meta Tags',
@@ -143,7 +144,7 @@ const EXERCISE_FIELDS: Array<CmsField> = applyDefaults(
     OUTRO_PORTAL,
     SLIDES,
   ],
-  defaults,
+  defaults as JSONObject,
 );
 
 export default EXERCISE_FIELDS;
