@@ -150,6 +150,10 @@ export type UpdateSession = yup.InferType<typeof UpdateSessionSchema>;
 sessionsRouter.put(
   '/:id',
   validator({body: UpdateSessionSchema}),
+  restrictAccessToRole<UpdateSession>(
+    'publicHost',
+    ({type}) => type === SessionType.public,
+  ),
   async ctx => {
     const {id} = ctx.params;
     const body = ctx.request.body as UpdateSession;
