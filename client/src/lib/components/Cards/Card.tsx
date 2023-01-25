@@ -14,6 +14,9 @@ import {Spacer4} from '../Spacers/Spacer';
 import Gutters from '../Gutters/Gutters';
 import Interested from '../Interested/Interested';
 import Tag from '../Tag/Tag';
+import {WALLET_CARD_HEIGHT} from './WalletCard';
+
+const CARD_HEIGHT = 184;
 
 const GraphicsWrapper = styled.View({
   width: 120,
@@ -24,11 +27,18 @@ const Lottie = styled(AnimatedLottieView)({
   aspectRatio: '1',
 });
 
+const WalletWrapper = styled.View<{inWallet?: boolean}>(({inWallet}) => ({
+  justifyContent: 'space-between',
+  backgroundColor: COLORS.CREAM,
+  borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
+  height: inWallet ? CARD_HEIGHT + WALLET_CARD_HEIGHT * 0.5 : CARD_HEIGHT,
+}));
+
 const Wrapper = styled(TouchableOpacity)({
   justifyContent: 'space-between',
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
   backgroundColor: COLORS.CREAM,
-  height: 184,
+  height: CARD_HEIGHT,
 });
 
 const ContentWrapper = styled.View({
@@ -60,13 +70,8 @@ const Footer = styled(Gutters)({
 });
 
 const RightFooter = styled.View({
-  alignItems: 'flex-end',
-  flexDirection: 'row',
-  flex: 1,
-});
-
-const RightFooterWrapper = styled.View({
   justifyContent: 'space-between',
+  alignItems: 'flex-end',
   flexDirection: 'row',
   flex: 1,
 });
@@ -82,6 +87,7 @@ type CardProps = {
   hostPictureURL?: string;
   hostName?: string;
   pinned: boolean;
+  inWallet?: boolean;
 };
 
 export const Card: React.FC<CardProps> = ({
@@ -95,8 +101,9 @@ export const Card: React.FC<CardProps> = ({
   hostPictureURL,
   hostName,
   pinned,
+  inWallet,
 }) => (
-  <>
+  <WalletWrapper inWallet={inWallet}>
     <Wrapper onPress={onPress}>
       <ContentWrapper>
         <LeftCol>
@@ -126,14 +133,12 @@ export const Card: React.FC<CardProps> = ({
       </ContentWrapper>
       <Footer>
         <RightFooter>
-          <RightFooterWrapper>
-            {children}
-            <Interested active={pinned} onPress={onPinnedPress} />
-          </RightFooterWrapper>
+          {children}
+          <Interested active={pinned} onPress={onPinnedPress} />
         </RightFooter>
       </Footer>
     </Wrapper>
-  </>
+  </WalletWrapper>
 );
 
 export default Card;

@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
-import {ListRenderItemInfo, RefreshControl, SectionList} from 'react-native';
+import {RefreshControl, SectionList} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
@@ -28,6 +28,13 @@ import SessionCard from '../../lib/components/Cards/SessionCard/SessionCard';
 import {PlusIcon} from '../../lib/components/Icons';
 import Screen from '../../lib/components/Screen/Screen';
 import {Heading18} from '../../lib/components/Typography/Heading/Heading';
+import {SectionListRenderItem} from 'react-native';
+
+type Section = {
+  title: string;
+  data: Session[];
+  type: 'hostedBy' | 'interested' | 'comming';
+};
 
 const AddButton = styled(Button)({
   flexDirection: 'row',
@@ -84,7 +91,7 @@ const Sessions = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const sections = useMemo(() => {
-    let sectionsList = [];
+    let sectionsList: Section[] = [];
     if (hostedSessions.length > 0) {
       sectionsList.push({
         title: t('sections.hostedBy'),
@@ -124,11 +131,26 @@ const Sessions = () => {
     }
   }, [setIsLoading, fetchSessions]);
 
-  const renderSession = ({item}: ListRenderItemInfo<Session>) => (
-    <Gutters>
-      <SessionCard session={item} />
-    </Gutters>
-  );
+  const renderSession: SectionListRenderItem<Session, Section> = ({
+    item,
+    section,
+    index,
+  }) => {
+    const standAlone = section.type === 'comming' || section.data.length === 1;
+    const hasCardBefore = index > 0;
+    const hasCardAfter = index !== section.data.length - 1;
+    return (
+      <Gutters>
+        <SessionCard
+          session={item}
+          standAlone={standAlone}
+          hasCardBefore={hasCardBefore}
+          hasCardAfter={hasCardAfter}
+        />
+        {standAlone && <Spacer16 />}
+      </Gutters>
+    );
+  };
 
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
@@ -137,7 +159,6 @@ const Sessions = () => {
         keyExtractor={session => session.id}
         ListHeaderComponent={ListHeader}
         ListFooterComponent={Spacer60}
-        ItemSeparatorComponent={Spacer16}
         renderItem={renderSession}
         refreshControl={
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
