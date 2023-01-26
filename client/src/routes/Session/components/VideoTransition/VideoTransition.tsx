@@ -24,14 +24,13 @@ const reverseVideo = (url: string) => {
 
 const useVideoSource = (source: string | undefined, reverse = false) =>
   useMemo(
-    () => source && {uri: reverse ? source : reverseVideo(source)},
+    () => source && {uri: reverse ? reverseVideo(source) : source},
     [source, reverse],
   );
 
-const VideoStyled = styled(VideoBase)(({paused}) => ({
-  opacity: paused ? 0 : 1,
+const VideoStyled = styled(VideoBase)({
   ...StyleSheet.absoluteFillObject,
-}));
+});
 
 type VideoTransitionProps = {
   startSource?: string;
