@@ -28,9 +28,10 @@ const useVideoSource = (source: string | undefined, reverse = false) =>
     [source, reverse],
   );
 
-const VideoStyled = styled(VideoBase)({
+const VideoStyled = styled(VideoBase)(({paused}) => ({
+  opacity: paused ? 0 : 1,
   ...StyleSheet.absoluteFillObject,
-});
+}));
 
 type VideoTransitionProps = {
   startSource?: string;
