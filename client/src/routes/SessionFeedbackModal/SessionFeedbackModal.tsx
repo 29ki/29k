@@ -16,7 +16,6 @@ import {
   Spacer24,
   Spacer60,
   Spacer8,
-  Spacer96,
 } from '../../lib/components/Spacers/Spacer';
 import TouchableOpacity from '../../lib/components/TouchableOpacity/TouchableOpacity';
 import {
