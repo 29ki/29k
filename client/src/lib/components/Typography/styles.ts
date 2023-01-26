@@ -33,6 +33,12 @@ const textStyles = StyleSheet.create({
     lineHeight: 29,
     fontFamily: PlayfairDisplayRegular,
   },
+  Display20: {
+    color: COLORS.BLACK,
+    fontSize: 20,
+    lineHeight: 27,
+    fontFamily: PlayfairDisplayRegular,
+  },
   Display18: {
     color: COLORS.BLACK,
     fontSize: 18,
@@ -98,6 +104,12 @@ const textStyles = StyleSheet.create({
     color: COLORS.BLACK,
     fontSize: 14,
     lineHeight: 18,
+    fontFamily: HKGroteskRegular,
+  },
+  Body12: {
+    color: COLORS.BLACK,
+    fontSize: 12,
+    lineHeight: 16,
     fontFamily: HKGroteskRegular,
   },
   BodyBold: {

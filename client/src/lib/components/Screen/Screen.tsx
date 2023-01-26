@@ -1,5 +1,5 @@
 import React from 'react';
-import {ViewProps} from 'react-native';
+import {View, ViewProps} from 'react-native';
 import LinearGradient, {
   LinearGradientProps,
 } from 'react-native-linear-gradient';
@@ -7,6 +7,7 @@ import {EdgeInsets, useSafeAreaInsets} from 'react-native-safe-area-context';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
+import CloseButton from '../Buttons/CloseButton/CloseButton';
 import IconButton from '../Buttons/IconButton/IconButton';
 import {ArrowLeftIcon} from '../Icons';
 
@@ -25,15 +26,18 @@ type TopBarWrapperProps = ViewProps & {
 const TopBarWrapper = styled.View<TopBarWrapperProps>(
   ({floating, safeArea}) => ({
     zIndex: 100,
-    flexDirection: 'row',
-    alignItems: 'center',
     paddingTop: safeArea.top,
     height: safeArea.top + SPACINGS.FOURTYFOUR,
     width: '100%',
-    justifyContent: 'space-between',
     position: floating ? 'absolute' : 'relative',
   }),
 );
+
+const Close = styled(CloseButton)({
+  position: 'absolute',
+  right: 20,
+  top: 10,
+});
 
 type OverlayProps = LinearGradientProps & {safeArea: EdgeInsets};
 
@@ -50,6 +54,7 @@ type ScreenProps = {
   textColor?: string;
   children: React.ReactNode;
   onPressBack?: () => void;
+  onPressClose?: () => void;
   floatingTopBar?: boolean;
   topBarOverlay?: boolean;
 };
@@ -59,6 +64,7 @@ const Screen: React.FC<ScreenProps> = ({
   textColor,
   children,
   onPressBack,
+  onPressClose,
   floatingTopBar = true,
   topBarOverlay = false,
 }) => {
@@ -66,7 +72,7 @@ const Screen: React.FC<ScreenProps> = ({
 
   return (
     <Wrapper backgroundColor={backgroundColor}>
-      {onPressBack && (
+      {(onPressBack || onPressClose) && (
         <TopBarWrapper floating={floatingTopBar} safeArea={safeArea}>
           {topBarOverlay && (
             <Overlay
@@ -81,13 +87,18 @@ const Screen: React.FC<ScreenProps> = ({
               safeArea={safeArea}
             />
           )}
-          <IconButton
-            Icon={ArrowLeftIcon}
-            onPress={onPressBack}
-            noBackground
-            fill={textColor}
-            variant="tertiary"
-          />
+          <View>
+            {onPressBack && (
+              <IconButton
+                Icon={ArrowLeftIcon}
+                onPress={onPressBack}
+                noBackground
+                fill={textColor}
+                variant="tertiary"
+              />
+            )}
+            {onPressClose && <Close onPress={onPressClose} />}
+          </View>
         </TopBarWrapper>
       )}
       {children}

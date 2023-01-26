@@ -198,8 +198,8 @@ describe('useSessions', () => {
       useSessionsState.setState({
         isLoading: false,
         sessions: [
-          {id: 'session-id-1', started: false},
-          {id: 'session-id-2', started: false},
+          {id: 'session-id-1'},
+          {id: 'session-id-2'},
         ] as Array<Session>,
       });
       useUserState.setState({
@@ -215,9 +215,7 @@ describe('useSessions', () => {
 
       const {result} = renderHook(() => useSessions());
 
-      expect(result.current.pinnedSessions).toEqual([
-        {id: 'session-id-1', started: false},
-      ]);
+      expect(result.current.pinnedSessions).toEqual([{id: 'session-id-1'}]);
     });
   });
 });

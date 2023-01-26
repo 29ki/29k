@@ -2,7 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import {act, renderHook} from '@testing-library/react-hooks';
 import {useTranslation} from 'react-i18next';
 import {Alert as AlertMock} from 'react-native';
-import {Session} from '../../../../../shared/src/types/Session';
+import {Session, SessionState} from '../../../../../shared/src/types/Session';
 import useSessionState from '../state/state';
 import useLeaveSession from './useLeaveSession';
 
@@ -54,13 +54,13 @@ describe('useLeaveSession', () => {
     it('navigates to session feedback modal with set params if session is started', async () => {
       useSessionState.setState({
         session: {
+          hostId: 'some-host-id',
+        } as Session,
+        sessionState: {
           id: 'some-session-id',
           started: true,
-          hostId: 'some-host-id',
-          exerciseState: {
-            completed: true,
-          },
-        } as Session,
+          completed: true,
+        } as SessionState,
       });
       const {result} = renderHook(() => useLeaveSession());
 
@@ -101,10 +101,11 @@ describe('useLeaveSession', () => {
 
     it('leaves the call, resets the state and navigates on confirming', async () => {
       useSessionState.setState({
-        session: {
+        session: {id: 'some-session-id'} as Session,
+        sessionState: {
           id: 'some-session-id',
           started: true,
-        } as Session,
+        } as SessionState,
       });
 
       alertConfirmMock.mockImplementationOnce((header, text, config) => {
@@ -119,16 +120,18 @@ describe('useLeaveSession', () => {
       expect(alertConfirmMock).toHaveBeenCalledTimes(1);
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
       expect(useSessionState.getState().session).toBe(null);
+      expect(useSessionState.getState().sessionState).toBe(null);
       expect(mockLogSessionMetricEvent).toHaveBeenCalledTimes(1);
       expect(mockNavigate).toHaveBeenCalledTimes(2);
     });
 
     it('does nothing on dismiss', async () => {
       useSessionState.setState({
-        session: {
+        session: {id: 'some-session-id'} as Session,
+        sessionState: {
           id: 'some-session-id',
           started: true,
-        } as Session,
+        } as SessionState,
       });
 
       alertConfirmMock.mockImplementationOnce((header, text, config) => {
@@ -143,6 +146,9 @@ describe('useLeaveSession', () => {
       expect(alertConfirmMock).toHaveBeenCalledTimes(1);
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(0);
       expect(useSessionState.getState().session).toEqual({
+        id: 'some-session-id',
+      });
+      expect(useSessionState.getState().sessionState).toEqual({
         id: 'some-session-id',
         started: true,
       });

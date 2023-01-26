@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useCallback, useEffect, useMemo, useState} from 'react';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import isToday from 'dayjs/plugin/isToday';
@@ -12,45 +12,24 @@ const useSessionStartTime = (startTime: dayjs.Dayjs) => {
   const [now, setNow] = useState(dayjs());
   const [active, setActive] = useState(false);
 
-  useEffect(() => {
-    if (active) {
-      return;
-    }
+  const isStarted = useCallback(() => now.isAfter(startTime), [startTime, now]);
 
-    if (startTime.isToday()) {
-      setActive(true);
-    }
-  }, [active, now, startTime]);
+  const isStartingShortly = useCallback(
+    () => now.add(1, 'minute').isAfter(startTime),
+    [startTime, now],
+  );
 
-  useEffect(() => {
-    if (!active) {
-      return;
-    }
+  const isReadyToJoin = useCallback(
+    () => now.add(10, 'minutes').isAfter(startTime),
+    [startTime, now],
+  );
 
-    const interval = setInterval(() => {
-      setNow(dayjs());
-    }, 1000);
+  const isInLessThanAnHour = useCallback(
+    () => now.add(1, 'hour').isAfter(startTime),
+    [now, startTime],
+  );
 
-    return () => clearInterval(interval);
-  }, [active]);
-
-  const isStarted = () => {
-    return now.isAfter(startTime);
-  };
-
-  const isStartingShortly = () => {
-    return now.add(1, 'minute').isAfter(startTime);
-  };
-
-  const isReadyToJoin = () => {
-    return now.add(10, 'minutes').isAfter(startTime);
-  };
-
-  const isInLessThanAnHour = () => {
-    return now.add(1, 'hour').isAfter(startTime);
-  };
-
-  const getTime = () => {
+  const getTime = useCallback(() => {
     const diff = dayjs.duration(startTime.diff(now));
 
     if (!startTime.isToday()) {
@@ -65,15 +44,38 @@ const useSessionStartTime = (startTime: dayjs.Dayjs) => {
       minutes: diff.minutes(),
       seconds: diff.seconds(),
     });
-  };
+  }, [startTime, now, t]);
 
-  return {
-    isStartingShortly: isStartingShortly(),
-    isReadyToJoin: isReadyToJoin(),
-    isStarted: isStarted(),
-    time: getTime(),
-    isInLessThanAnHour: isInLessThanAnHour(),
-  };
+  useEffect(() => {
+    const started = isStarted();
+
+    if (started) {
+      setActive(false);
+    } else if (startTime.isToday()) {
+      setActive(true);
+    }
+  }, [active, now, startTime, isStarted]);
+
+  useEffect(() => {
+    if (!active) {
+      return;
+    }
+
+    const interval = setInterval(() => setNow(dayjs()), 1000);
+
+    return () => clearInterval(interval);
+  }, [active]);
+
+  return useMemo(
+    () => ({
+      isStartingShortly: isStartingShortly(),
+      isReadyToJoin: isReadyToJoin(),
+      isStarted: isStarted(),
+      time: getTime(),
+      isInLessThanAnHour: isInLessThanAnHour(),
+    }),
+    [isStartingShortly, isReadyToJoin, isStarted, isInLessThanAnHour, getTime],
+  );
 };
 
 export default useSessionStartTime;

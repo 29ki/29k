@@ -1,4 +1,5 @@
 import React from 'react';
+import {Alert} from 'react-native';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import Gutters from '../Gutters/Gutters';
@@ -45,6 +46,22 @@ export const SheetModalWithBackgroundColor = () => (
     <SheetModal backgroundColor={COLORS.ACTIVE}>
       <Gutters>
         <ModalHeading>Sheet Modal With Background Color</ModalHeading>
+        <Spacer16 />
+        <Body16>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s.
+        </Body16>
+      </Gutters>
+    </SheetModal>
+  </SheetWrapper>
+);
+
+export const SheetModalWithCloseButton = () => (
+  <SheetWrapper>
+    <SheetModal onPressClose={() => Alert.alert('Close!')}>
+      <Gutters>
+        <ModalHeading>Sheet Modal With Close Button</ModalHeading>
         <Spacer16 />
         <Body16>
           Lorem Ipsum is simply dummy text of the printing and typesetting

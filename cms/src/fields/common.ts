@@ -1,4 +1,9 @@
-import {CmsField, CmsFieldBase, CmsFieldObject} from 'netlify-cms-core';
+import {
+  CmsField,
+  CmsFieldBase,
+  CmsFieldObject,
+  CmsFieldRelation,
+} from 'netlify-cms-core';
 import {
   CLOUDINARY_AUDIO_CONFIG,
   CLOUDINARY_IMAGE_CONFIG,
@@ -111,7 +116,6 @@ export const LOTTE_FIELD: CmsFieldBase & CmsFieldObject = {
       allow_multiple: false,
       media_library: CLOUDINARY_IMAGE_CONFIG,
     },
-    {...DURATION_FIELD, hint: 'Duration in seconds', required: false},
   ],
 };
 
@@ -180,6 +184,7 @@ export const LOTTIE_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
       ...AUDIO_FIELD,
       hint: 'Animation will automatically loop while playing.',
     },
+    {...DURATION_FIELD, hint: 'Duration in seconds', required: false},
   ],
 };
 
@@ -189,5 +194,18 @@ export const CARD_FIELD: CmsFieldBase & CmsFieldObject = {
   i18n: true,
   widget: 'object',
   collapsed: true,
-  fields: [IMAGE_FIELD],
+  fields: [IMAGE_FIELD, {...LOTTE_FIELD, hint: 'Overrides image'}],
+};
+
+export const TAGS_FIELD: CmsFieldBase & CmsFieldRelation = {
+  label: '🏷 Tags',
+  name: 'tags',
+  widget: 'relation',
+  collection: 'tags',
+  search_fields: ['tag'],
+  value_field: 'id',
+  display_fields: ['tag'],
+  multiple: true,
+  i18n: 'duplicate',
+  required: false,
 };

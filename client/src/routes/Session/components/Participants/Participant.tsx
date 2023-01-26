@@ -123,9 +123,9 @@ const Participant: React.FC<ParticipantProps> = ({
 
   const onAudioToggle = useCallback(
     (muted: boolean) => {
-      call?.updateParticipant(participant.user_id, {setAudio: !muted});
+      call?.updateParticipant(participant.session_id, {setAudio: !muted});
     },
-    [call, participant.user_id],
+    [call, participant.session_id],
   );
 
   return (

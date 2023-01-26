@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect} from 'react';
+import React, {useCallback, useContext, useEffect, useState} from 'react';
 import {DailyEventObject} from '@daily-co/react-native-daily-js';
 import {useTranslation} from 'react-i18next';
 import {View, ViewStyle} from 'react-native';
@@ -9,6 +9,9 @@ import {DailyUserData} from '../../../../../../shared/src/types/Session';
 import useSessionNotificationsState from '../../state/sessionNotificationsState';
 import useLocalParticipant from '../../../../lib/daily/hooks/useLocalParticipant';
 import TimedNotification from './TimedNotification';
+import useSessionState from '../../state/state';
+import useSessionSlideState from '../../hooks/useSessionSlideState';
+import {MicrophoneOffIcon} from '../../../../lib/components/Icons';
 
 const SessionNotifications: React.FC<{
   style?: ViewStyle;
@@ -21,6 +24,43 @@ const SessionNotifications: React.FC<{
   );
   const addNotification = useSessionNotificationsState(
     state => state.addNotification,
+  );
+  const sessionState = useSessionState(state => state.sessionState);
+  const slideState = useSessionSlideState();
+  const [muted, setWasMuted] = useState(Boolean(localParticipant?.audio));
+
+  // State updates and events from daily comes in random order
+  // Check if audio was muted and reset it after notifying
+  useEffect(() => {
+    if (
+      muted &&
+      sessionState?.playing &&
+      slideState?.current.type !== 'sharing'
+    ) {
+      addNotification({
+        text: t('notifications.muted'),
+        Icon: MicrophoneOffIcon,
+      });
+      setWasMuted(false);
+    }
+  }, [
+    t,
+    addNotification,
+    sessionState?.playing,
+    slideState,
+    muted,
+    setWasMuted,
+  ]);
+
+  const trackStopped = useCallback(
+    (event: DailyEventObject<'track-stopped'> | undefined) => {
+      const participant = event?.participant;
+
+      if (participant?.local && !participant.audio) {
+        setWasMuted(true);
+      }
+    },
+    [setWasMuted],
   );
 
   const participantJoined = useCallback(
@@ -69,13 +109,21 @@ const SessionNotifications: React.FC<{
     call?.on('participant-joined', participantJoined);
     call?.on('participant-left', participantLeft);
     call?.on('network-quality-change', networkQualityChange);
+    call?.on('track-stopped', trackStopped);
 
     return () => {
       call?.off('participant-joined', participantJoined);
       call?.off('participant-left', participantLeft);
       call?.off('network-quality-change', networkQualityChange);
+      call?.off('track-stopped', trackStopped);
     };
-  }, [call, participantJoined, participantLeft, networkQualityChange]);
+  }, [
+    call,
+    participantJoined,
+    participantLeft,
+    networkQualityChange,
+    trackStopped,
+  ]);
 
   return (
     <View style={style} pointerEvents="none">

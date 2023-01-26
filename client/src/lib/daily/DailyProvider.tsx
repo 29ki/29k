@@ -15,7 +15,6 @@ import Daily, {
 } from '@daily-co/react-native-daily-js';
 import {isEmulator} from 'react-native-device-info';
 import useDailyState from './state/state';
-import useSetParticipantsSortOrder from '../../routes/Session/hooks/useSetParticipantsSortOrder';
 import Sentry from '../sentry';
 
 export type DailyProviderTypes = {
@@ -27,6 +26,7 @@ export type DailyProviderTypes = {
   leaveMeeting: () => Promise<void>;
   toggleAudio: (enabled: boolean) => void;
   toggleVideo: (enabled: boolean) => void;
+  muteAll: () => void;
   setUserName: (userName: string) => Promise<void>;
   setUserData: (userData: unknown) => Promise<void>;
   setSubscribeToAllTracks: () => void;
@@ -40,6 +40,7 @@ export const DailyContext = createContext<DailyProviderTypes>({
   leaveMeeting: () => Promise.resolve(),
   toggleAudio: () => {},
   toggleVideo: () => {},
+  muteAll: () => {},
   setUserName: () => Promise.resolve(),
   setUserData: () => Promise.resolve(),
   setSubscribeToAllTracks: () => {},
@@ -51,7 +52,9 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const resetState = useDailyState(state => state.reset);
   const setParticipant = useDailyState(state => state.setParticipant);
   const removeParticipant = useDailyState(state => state.removeParticipant);
-  const setParticipantsSortOrder = useSetParticipantsSortOrder();
+  const setParticipantsSortOrder = useDailyState(
+    state => state.setParticipantsSortOrder,
+  );
 
   const eventHandlers = useMemo<Array<[DailyEvent, (obj: any) => void]>>(() => {
     const onParticipantJoined = ({
@@ -141,6 +144,19 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     },
     [daily],
   );
+
+  const muteAll = useCallback(() => {
+    if (!daily) {
+      return;
+    }
+
+    const updates = Object.keys(daily.participants()).reduce(
+      (acc, id) => ({...acc, [id]: {setAudio: false}}),
+      {},
+    );
+
+    daily.updateParticipants(updates);
+  }, [daily]);
 
   const setUserName = useCallback(
     async (userName: string) => {
@@ -236,6 +252,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
         leaveMeeting,
         toggleAudio,
         toggleVideo,
+        muteAll,
         setUserName,
         setUserData,
         setSubscribeToAllTracks,

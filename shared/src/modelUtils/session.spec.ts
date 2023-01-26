@@ -1,6 +1,6 @@
 import {Timestamp} from 'firebase-admin/firestore';
-import {SessionData} from '../types/Session';
-import {getSession} from './session';
+import {SessionData, SessionStateData} from '../types/Session';
+import {getSession, getSessionState} from './session';
 
 describe('session', () => {
   describe('getSession', () => {
@@ -11,17 +11,28 @@ describe('session', () => {
         startTime: Timestamp.fromDate(someDate),
         createdAt: Timestamp.fromDate(someDate),
         updatedAt: Timestamp.fromDate(someDate),
-        exerciseState: {
-          timestamp: Timestamp.fromDate(someDate),
-        },
       } as SessionData;
 
       expect(getSession(sessionData)).toEqual({
         id: 'some-session-id',
-        exerciseState: {timestamp: '2022-11-16T00:00:00.000Z'},
         createdAt: '2022-11-16T00:00:00.000Z',
         startTime: '2022-11-16T00:00:00.000Z',
         updatedAt: '2022-11-16T00:00:00.000Z',
+      });
+    });
+  });
+
+  describe('getSessionState', () => {
+    it('should transform session state data firestore timestamps into dates', async () => {
+      const someDate = new Date('2022-11-16');
+      const sessionStateData = {
+        id: 'some-session-id',
+        timestamp: Timestamp.fromDate(someDate),
+      } as SessionStateData;
+
+      expect(getSessionState(sessionStateData)).toEqual({
+        id: 'some-session-id',
+        timestamp: '2022-11-16T00:00:00.000Z',
       });
     });
   });
