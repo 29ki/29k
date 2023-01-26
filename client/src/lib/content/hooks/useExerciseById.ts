@@ -8,8 +8,7 @@ const useExerciseById = (id: string | undefined): Exercise | null => {
   return useMemo(
     () =>
       id
-        ? // @ts-expect-error variable/string litteral as key is not yet supported https://www.i18next.com/overview/typescript#type-error-template-literal
-          (t(id, {
+        ? (t(id, {
             returnObjects: true,
           }) as Exercise)
         : null,

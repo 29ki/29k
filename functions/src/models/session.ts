@@ -118,6 +118,7 @@ export const addSession = async ({
   type,
   link,
   inviteCode,
+  interestedCount,
 }: Omit<Session, 'ended' | 'userIds' | 'createdAt' | 'updatedAt'> & {
   dailyRoomName: string;
 }) => {
@@ -132,6 +133,7 @@ export const addSession = async ({
     type,
     link,
     inviteCode,
+    interestedCount,
     startTime: Timestamp.fromDate(new Date(startTime)),
     createdAt: now,
     updatedAt: now,
@@ -171,6 +173,22 @@ export const updateSession = async (
     .collection(SESSIONS_COLLECTION)
     .doc(id)
     .update({...updateValues, updatedAt: Timestamp.now()});
+};
+
+export const updateInterestedCount = async (
+  id: Session['id'],
+  increment: boolean,
+) => {
+  const sessionRef = firestore().collection(SESSIONS_COLLECTION).doc(id);
+
+  await firestore().runTransaction(async transaction => {
+    const session = getData<SessionData>(await transaction.get(sessionRef));
+    transaction.update(sessionRef, {
+      interestedCount: increment
+        ? session.interestedCount + 1
+        : Math.max(session.interestedCount - 1, 0),
+    });
+  });
 };
 
 export const updateSessionState = async (

@@ -28,6 +28,7 @@ init({
   supportedLngs: LANGUAGE_TAGS,
   fallbackLng: DEFAULT_LANGUAGE_TAG,
   resources: resources,
+  returnNull: false,
 });
 
 export default i18next;

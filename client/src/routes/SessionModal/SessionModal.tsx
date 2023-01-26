@@ -51,6 +51,7 @@ import RadioButton from '../../lib/components/Buttons/RadioButton/RadioButton';
 import usePinnedSessons from '../../lib/sessions/hooks/usePinnedSessions';
 import useLogSessionMetricEvents from '../../lib/sessions/hooks/useLogSessionMetricEvents';
 import Markdown from '../../lib/components/Typography/Markdown/Markdown';
+import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',
@@ -141,6 +142,7 @@ const SessionModal = () => {
 
   const {t} = useTranslation('Modal.Session');
   const user = useUser();
+  const isPublicHost = useIsPublicHost();
   const {deleteSession, fetchSessions} = useSessions();
   const [editMode, setEditMode] = useState(false);
   const [editTypeMode, setEditTypeMode] = useState(false);
@@ -412,11 +414,15 @@ const SessionModal = () => {
           )}
           {!editTypeMode && (
             <>
-              <EditSessionType
-                sessionType={selectedType}
-                onPress={onEditType}
-              />
-              <Spacer16 />
+              {isPublicHost && (
+                <>
+                  <EditSessionType
+                    sessionType={selectedType}
+                    onPress={onEditType}
+                  />
+                  <Spacer16 />
+                </>
+              )}
               <DateTimePicker
                 initialDateTime={initialStartTime}
                 minimumDate={dayjs().local()}

@@ -5,10 +5,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on dealing with stressful situations. We’ll be doing a short introduction, listen to a meditation exercise, followed by reflection and then finally sharing."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance and willingness.\n\nWe’ll be doing a short introduction, followed by a meditation, time for reflection and then finally sharing our experiences."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Let’s start with a mini check-in. What brought you here today? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ]
       },
@@ -16,18 +16,18 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "When we’re stressed the perceived expectations on us are higher than our resources. One common symptom is that thoughts and feelings spin round and round in our heads and bodies."
+            "text": "There is often a lot going on inside of us. Thoughts, feelings and sensations pop up without us having any control of their occurance."
           },
           {
-            "text": " In the upcoming meditation we’ll practice getting a break from the spinning wheel and get some distance to our thoughts. It can help us gain persepctive, relax and change priorities.\n\nPress play to start the meditation."
+            "text": "Some things we tend to resist. Anxiety, worry, thoughts of death, fears of the future are common examples. When they show up, we may try to push them away. Think about something else. Distract ourselves."
+          },
+          {
+            "text": "But science tells us that the things we try to get rid of, have a tendency to come knocking over and over again. Welcoming those things with willingness and openness can be a smarter strategy in the long run. Let’s try it out.\n\n> Press play to start the meditation"
           }
         ],
         "content": {
           "video": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674481870/Audio/meditation-drop-all-requirements_i39o6u.mp3",
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673974099/Video/meditation_Drop_all_requirements_a2a7ws.mp4",
-            "durationTimer": true,
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_meditation_drop_all_requirements_ve8rdm.png"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674649500/Audio/meditation-the-willingness-stance_obipte.mp3"
           }
         }
       },
@@ -35,18 +35,15 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat did you notice as you changed focus to the short to do-list?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat was it like, taking a willing attitude towards your stressful thought? Did you notice any differences between the two occasions?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
-          "heading": "What did you notice?",
-          "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/timer_1min_Drop_all_requirements_dahizb.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer1min_drop_all_requirements_qebhbc.png"
-          }
+          "heading": "How did you experience the willingness stance? ",
+          "text": "Any difference?"
         }
       },
       {
@@ -56,31 +53,25 @@
             "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for  2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
         "content": {
-          "heading": "What did you notice?",
-          "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1674383225/Video/meditation_2_Drop_all_requirements_jeizf0.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer2min_drop_all_requirements_hzwrlc.png"
-          }
+          "heading": "How did you experience the willingness stance?",
+          "text": "Any difference?"
         }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life."
+            "text": "Well done. If you’re up for it, you can continue with a mission for the rest of this day.\n\nWhenever you notice you are resisting something on the inside, open up your willingness stance and try to instead welcoming that experience."
           },
           {
-            "text": "In stressful periods recovery is key. Let’s give ourselves some care and gain perspective by taking a step back and take a breathing break at least once a day for the coming week."
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nWhat will you bring for the rest of your day from this? Please answer in two-three words."
+            "text": "Science tells us that allowing difficult things on the inside may open up new possibilities to choose our actions and act for purpose.\n\nBefore we leave this space let’s do a mini check-out. How do you feel now, has anything shifted? Please answer in two-three words."
           },
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
@@ -89,35 +80,21 @@
       }
     ],
     "theme": {
-      "textColor": "#F9F8F4",
-      "backgroundColor": "#d56245"
+      "textColor": "#2AE2D7"
     },
-    "hidden": false,
-    "name": "Drop all requirements",
+    "hidden": true,
+    "name": "The willingness stance",
     "published": true,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
-      }
-    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207952/Audio/Drop_all_requirements_mixdown_gapless_mrnwhp.m4a",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_portal_drop_all_requirements_ns9mqy.png"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
-      }
+      ]
     },
-    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
-    "description": "A mindful break for busy days."
+    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
+    "description": "Stop fighting unwanted inner experiences and instead use your energy where it matters."
   },
   "pt": {
     "published": false,
@@ -184,7 +161,7 @@
         ]
       }
     ],
-    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
     "duration": 30
   },
   "sv": {
@@ -252,7 +229,7 @@
         ]
       }
     ],
-    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
     "duration": 30
   },
   "es": {
@@ -320,7 +297,7 @@
         ]
       }
     ],
-    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
     "duration": 30
   }
 }

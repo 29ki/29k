@@ -149,17 +149,12 @@ const ChangingRoom = () => {
         const token = await getSessionToken(id);
         preJoinMeeting(url, token);
       } catch (e: any) {
-        Alert.alert(
-          t('errorTitle'),
-          /* @ts-expect-error variable/string litteral as key is not yet supported https://www.i18next.com/overview/typescript#type-error-template-literal*/
-          t(`errors.${e.code ?? e.message}`),
-          [
-            {
-              onPress: goBack,
-              style: 'cancel',
-            },
-          ],
-        );
+        Alert.alert(t('errorTitle'), t(`errors.${e.code ?? e.message}`), [
+          {
+            onPress: goBack,
+            style: 'cancel',
+          },
+        ]);
       }
     },
     [goBack, t, preJoinMeeting],
