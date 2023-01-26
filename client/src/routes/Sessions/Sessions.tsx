@@ -170,6 +170,7 @@ const Sessions = () => {
             <Spacer8 />
           </Gutters>
         )}
+        stickySectionHeadersEnabled={false}
       />
 
       <FloatingForm>
