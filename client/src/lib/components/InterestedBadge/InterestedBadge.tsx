@@ -5,9 +5,10 @@ import {BodyBold} from '../Typography/Body/Body';
 
 const Container = styled.View({
   backgroundColor: COLORS.PRIMARY,
-  paddingVertical: 2,
+  paddingVertical: 3,
   paddingHorizontal: 6,
   borderRadius: 6,
+  alignSelf: 'center',
 });
 
 const Text = styled(BodyBold)({
