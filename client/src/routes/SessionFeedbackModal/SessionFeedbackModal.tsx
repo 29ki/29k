@@ -14,6 +14,7 @@ import SheetModal from '../../lib/components/Modals/SheetModal';
 import {
   Spacer16,
   Spacer24,
+  Spacer60,
   Spacer8,
   Spacer96,
 } from '../../lib/components/Spacers/Spacer';
@@ -57,8 +58,8 @@ const Votes = styled.View({
 });
 
 const Vote = styled(TouchableOpacity)({
-  width: 125,
-  height: 125,
+  width: 160,
+  height: 160,
 });
 
 const Wrapper = styled(Gutters)({
@@ -126,17 +127,15 @@ const SessionFeedbackModal = () => {
             <Spacer24 />
             <Wrapper>
               <Heading24>{t('question')}</Heading24>
-              <Spacer16 />
               <Votes>
                 <Vote onPress={thumbsUpPress}>
                   <ThumbsUp active={answer === true} />
                 </Vote>
-                <Spacer16 />
                 <Vote onPress={thumbsDownPress}>
                   <ThumbsDown active={answer === false} />
                 </Vote>
               </Votes>
-              <Spacer96 />
+              <Spacer60 />
 
               <Heading16>{t('comments')}</Heading16>
               <Spacer8 />
