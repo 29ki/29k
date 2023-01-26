@@ -357,7 +357,11 @@ const SessionModal = () => {
           <Spacer16 />
           <Gutters>
             <IntersetedWrapper onPress={onTogglePinSession}>
-              <Interested active={sessionPinned} onPress={onTogglePinSession} />
+              <Interested
+                active={sessionPinned}
+                onPress={onTogglePinSession}
+                showIcon
+              />
               <RadioButton
                 onPress={onTogglePinSession}
                 active={sessionPinned}
