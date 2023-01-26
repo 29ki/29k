@@ -150,6 +150,10 @@ export type UpdateSession = yup.InferType<typeof UpdateSessionSchema>;
 sessionsRouter.put(
   '/:id',
   validator({body: UpdateSessionSchema}),
+  restrictAccessToRole<UpdateSession>(
+    'publicHost',
+    ({type}) => type === SessionType.public,
+  ),
   async ctx => {
     const {id} = ctx.params;
     const body = ctx.request.body as UpdateSession;
@@ -163,6 +167,27 @@ sessionsRouter.put(
 
       ctx.status = 200;
       ctx.body = updatedSession;
+    } catch (err) {
+      ctx.status = 500;
+      throw err;
+    }
+  },
+);
+
+const InterestedCountSchema = yup.object({increment: yup.boolean().required()});
+
+export type InterestedCountUpdate = yup.InferType<typeof InterestedCountSchema>;
+
+sessionsRouter.put(
+  '/:id/interestedCount',
+  validator({body: InterestedCountSchema}),
+  async ctx => {
+    const {id} = ctx.params;
+    const body = ctx.request.body as InterestedCountUpdate;
+
+    try {
+      await sessionsController.updateInterestedCount(id, body.increment);
+      ctx.status = 200;
     } catch (err) {
       ctx.status = 500;
       throw err;

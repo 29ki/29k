@@ -1,5 +1,5 @@
 // https://github.com/pmndrs/zustand/blob/main/docs/guides/testing.mdx#typescript-usage
-import actualCreate, {StateCreator} from 'zustand';
+import {create as actualCreate, StateCreator} from 'zustand';
 // const actualCreate = jest.requireActual('zustand') // if using jest
 import {act} from '@testing-library/react-hooks';
 
@@ -7,7 +7,7 @@ import {act} from '@testing-library/react-hooks';
 const storeResetFns = new Set<() => void>();
 
 // when creating a store, we get its initial state, create a reset function and add it in the set
-const create =
+export const create =
   () =>
   <S>(createState: StateCreator<S>) => {
     const store = actualCreate<S>(createState);
@@ -20,5 +20,3 @@ const create =
 beforeEach(() => {
   act(() => storeResetFns.forEach(resetFn => resetFn()));
 });
-
-export default create;

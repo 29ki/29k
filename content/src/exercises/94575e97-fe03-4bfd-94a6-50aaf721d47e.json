@@ -27,7 +27,8 @@
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667298005/Audio/Agnes_bell_kmwzos_eznpow.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667297532/Video/Accepting_thoughts_and_feelings_meditation_cn20lx.mp4",
             "autoPlayLoop": false,
-            "durationTimer": true
+            "durationTimer": true,
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554615/Images/thumb_meditation_accepting_thoughts_and..._id4tgl.png"
           }
         }
       },
@@ -44,7 +45,8 @@
         "content": {
           "heading": "What did you notice?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317097/Video/1min_Accepting_thoughts_and_feelings_xdvlcn.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317097/Video/1min_Accepting_thoughts_and_feelings_xdvlcn.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554615/Images/thumb_timer1min_accepting_thoughts_and..._izhwhy.png"
           }
         }
       },
@@ -53,7 +55,8 @@
         "content": {
           "heading": "What did you notice?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317099/Video/2min_Accepting_thoughts_and_feelings_b9bxvx.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317099/Video/2min_Accepting_thoughts_and_feelings_b9bxvx.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_timer2min_accepting_thoughts_and..._lzejn1.png"
           }
         },
         "hostNotes": [
@@ -108,13 +111,15 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_portal_accepting_thoughts_and..._ozmmt2.png"
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317594/Video/portal2_Accepting_thoughts_and_feelings_iyqnuk.mp4"
       }
     },
-    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
+    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
+    "description": "Accepting what's going on inside can help us do more of what matters."
   },
   "pt": {
     "slides": [

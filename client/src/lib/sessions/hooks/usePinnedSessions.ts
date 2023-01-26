@@ -4,6 +4,7 @@ import {Session} from '../../../../../shared/src/types/Session';
 import useLogSessionMetricEvents from './useLogSessionMetricEvents';
 import useUserState from '../../user/state/state';
 import useCurrentUserState from '../../user/hooks/useCurrentUserState';
+import {updateInterestedCount} from '../api/session';
 
 const usePinnedSessons = () => {
   const userState = useCurrentUserState();
@@ -26,6 +27,7 @@ const usePinnedSessons = () => {
         setPinnedSessions(
           currentPinnedSessions.filter(ps => ps.id !== session.id),
         );
+        updateInterestedCount(session.id, false);
       } else {
         setPinnedSessions([
           ...currentPinnedSessions,
@@ -34,6 +36,7 @@ const usePinnedSessons = () => {
             expires: dayjs(session.startTime).add(1, 'month').toDate(),
           },
         ]);
+        updateInterestedCount(session.id, true);
         logSessionMetricEvent('Add Sharing Session To Interested', session);
       }
     },

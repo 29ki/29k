@@ -12,8 +12,14 @@ export interface ExerciseCardImage {
   source?: string;
 }
 
+export interface ExerciseCardLottie {
+  description?: string;
+  source?: string;
+}
+
 export interface ExerciseCard {
   image?: ExerciseCardImage;
+  lottie?: ExerciseCardLottie;
 }
 
 export type ExerciseThemeTextColorOptions = '#F9F8F4' | '#2E2E2E';
@@ -80,8 +86,8 @@ export interface ExerciseSlideContentSlideContentLottie {
   durationTimer?: boolean;
   description?: string;
   source?: string;
-  duration?: number;
   audio?: string;
+  duration?: number;
 }
 
 export interface ExerciseSlideContentSlideContent {
@@ -115,8 +121,8 @@ export interface ExerciseSlideReflectionSlideContentLottie {
   durationTimer?: boolean;
   description?: string;
   source?: string;
-  duration?: number;
   audio?: string;
+  duration?: number;
 }
 
 export interface ExerciseSlideReflectionSlideContent {
@@ -150,8 +156,8 @@ export interface ExerciseSlideSharingSlideContentLottie {
   durationTimer?: boolean;
   description?: string;
   source?: string;
-  duration?: number;
   audio?: string;
+  duration?: number;
 }
 
 export interface ExerciseSlideSharingSlideContent {

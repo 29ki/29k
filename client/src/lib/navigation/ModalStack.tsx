@@ -9,6 +9,7 @@ import SessionModal from '../../routes/SessionModal/SessionModal';
 import CreateSessionModal from '../../routes/CreateSessionModal/CreateSessionModal';
 import AddSessionModal from '../../routes/AddSessionModal/AddSessionModal';
 import UpgradeAccountModal from '../../routes/UpgradeAccountModal/UpgradeAccountModal';
+import RequestPublicHostModal from '../../routes/RequestPublicHostModal/RequestPublicHostModal';
 import SessionUnavailableModal from '../../routes/SessionUnavailableModal/SessionUnavailableModal';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import SETTINGS from '../constants/settings';
@@ -129,11 +130,6 @@ const ModalStack = () => {
         />
         <Screen name={'CreateSessionModal'} component={CreateSessionModal} />
         <Screen
-          name={'UpgradeAccountModal'}
-          component={UpgradeAccountModal}
-          options={shortSheetModalScreenOptions}
-        />
-        <Screen
           name={'SessionUnavailableModal'}
           component={SessionUnavailableModal}
         />
@@ -159,10 +155,20 @@ const ModalStack = () => {
           component={SessionFeedbackModal}
           options={shortSheetModalScreenOptions}
         />
+
+        <Screen
+          name={'UpgradeAccountModal'}
+          component={UpgradeAccountModal}
+          options={shortSheetModalScreenOptions}
+        />
       </Group>
 
       <Group screenOptions={cardModalScreenOptions}>
         <Screen name={'AddSessionModal'} component={AddSessionModal} />
+        <Screen
+          name={'RequestPublicHostModal'}
+          component={RequestPublicHostModal}
+        />
       </Group>
     </Navigator>
   );

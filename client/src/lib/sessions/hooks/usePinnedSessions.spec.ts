@@ -3,11 +3,14 @@ import {renderHook, act} from '@testing-library/react-hooks';
 import MockDate from 'mockdate';
 import {Session} from '../../../../../shared/src/types/Session';
 import useUserState from '../../user/state/state';
+import {updateInterestedCount} from '../api/session';
 import usePinnedSessons from './usePinnedSessions';
 
 const mockNow = new Date('2022-12-10T10:00:00');
 MockDate.set(mockNow); // Date.now()
 
+jest.mock('../api/session');
+const mockUpdateInterestedCount = updateInterestedCount as jest.Mock;
 const mockLogSessionMetricEvent = jest.fn();
 jest.mock('./useLogSessionMetricEvents', () => () => mockLogSessionMetricEvent);
 
@@ -25,6 +28,7 @@ describe('usePinnedSessions', () => {
             pinnedSessions: [
               {id: 'session-id-1', expires: new Date('2022-12-20')},
             ],
+            completedSessions: [],
           },
         },
       });
@@ -44,6 +48,7 @@ describe('usePinnedSessions', () => {
             pinnedSessions: [
               {id: 'session-id-1', expires: new Date('2022-12-20')},
             ],
+            completedSessions: [],
           },
         },
       });
@@ -72,6 +77,11 @@ describe('usePinnedSessions', () => {
           {id: 'session-id-1', expires: new Date('2023-01-10T10:00:00')},
         ]);
         expect(mockLogSessionMetricEvent).toHaveBeenCalledTimes(1);
+        expect(mockUpdateInterestedCount).toHaveBeenCalledTimes(1);
+        expect(mockUpdateInterestedCount).toHaveBeenCalledWith(
+          'session-id-1',
+          true,
+        );
       });
 
       it('should remove existing session as pinned', async () => {
@@ -82,6 +92,7 @@ describe('usePinnedSessions', () => {
               pinnedSessions: [
                 {id: 'session-id-1', expires: new Date('2022-12-20')},
               ],
+              completedSessions: [],
             },
           },
         });
@@ -94,6 +105,11 @@ describe('usePinnedSessions', () => {
 
         expect(result.current.pinnedSessions).toEqual([]);
         expect(mockLogSessionMetricEvent).toHaveBeenCalledTimes(0);
+        expect(mockUpdateInterestedCount).toHaveBeenCalledTimes(1);
+        expect(mockUpdateInterestedCount).toHaveBeenCalledWith(
+          'session-id-1',
+          false,
+        );
       });
 
       it('should remove expired session as pinned on toggle on', async () => {
@@ -104,6 +120,7 @@ describe('usePinnedSessions', () => {
               pinnedSessions: [
                 {id: 'session-id-1', expires: new Date('2022-11-09')},
               ],
+              completedSessions: [],
             },
           },
         });
@@ -128,6 +145,7 @@ describe('usePinnedSessions', () => {
                 {id: 'session-id-1', expires: new Date('2022-11-09')},
                 {id: 'session-id-2', expires: new Date('2022-12-20')},
               ],
+              completedSessions: [],
             },
           },
         });

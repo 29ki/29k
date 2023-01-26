@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {ImageSourcePropType} from 'react-native';
 import styled from 'styled-components/native';
 import AnimatedLottieView, {AnimationObject} from 'lottie-react-native';
@@ -6,16 +6,16 @@ import AnimatedLottieView, {AnimationObject} from 'lottie-react-native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import SETTINGS from '../../constants/settings';
-import Button from '../Buttons/Button';
 import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display20} from '../Typography/Display/Display';
-import {IconType} from '../Icons';
 import Byline from '../Bylines/Byline';
 import {Spacer4} from '../Spacers/Spacer';
 import Gutters from '../Gutters/Gutters';
-import Interested from '../Interested/Interested';
 import Tag from '../Tag/Tag';
+import {WALLET_CARD_HEIGHT} from './WalletCard';
+
+const CARD_HEIGHT = 184;
 
 const GraphicsWrapper = styled.View({
   width: 120,
@@ -26,11 +26,18 @@ const Lottie = styled(AnimatedLottieView)({
   aspectRatio: '1',
 });
 
+const WalletWrapper = styled.View<{inWallet?: boolean}>(({inWallet}) => ({
+  justifyContent: 'space-between',
+  backgroundColor: COLORS.CREAM,
+  borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
+  height: inWallet ? CARD_HEIGHT + WALLET_CARD_HEIGHT * 0.5 : CARD_HEIGHT,
+}));
+
 const Wrapper = styled(TouchableOpacity)({
   justifyContent: 'space-between',
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
   backgroundColor: COLORS.CREAM,
-  height: 184,
+  height: CARD_HEIGHT,
 });
 
 const ContentWrapper = styled.View({
@@ -57,43 +64,23 @@ const Header = styled.View({
 });
 
 const Footer = styled(Gutters)({
-  flexDirection: 'row',
-  paddingBottom: SPACINGS.SIXTEEN,
-});
-
-const LeftFooter = styled.View({});
-
-const RightFooter = styled.View({
+  justifyContent: 'space-between',
   alignItems: 'flex-end',
   flexDirection: 'row',
   flex: 1,
-});
-
-const RightFooterWrapper = styled.View({
-  justifyContent: 'space-between',
-  flexDirection: 'row',
-  flex: 1,
-});
-
-const CTAButton = styled(Button)({
-  alignSelf: 'flex-start',
-  marginRight: SPACINGS.EIGHT,
+  paddingBottom: SPACINGS.SIXTEEN,
 });
 
 type CardProps = {
   title?: string;
   tags?: Array<string>;
   image?: ImageSourcePropType;
-  lottie?: AnimationObject;
+  lottie?: AnimationObject | {uri: string};
   onPress: () => void;
-  onButtonPress?: () => void;
-  onPinnedPress?: () => void;
-  buttonText?: string;
   children?: React.ReactNode;
-  ButtonIcon?: IconType;
   hostPictureURL?: string;
   hostName?: string;
-  pinned: boolean;
+  inWallet?: boolean;
 };
 
 export const Card: React.FC<CardProps> = ({
@@ -102,26 +89,22 @@ export const Card: React.FC<CardProps> = ({
   lottie,
   image,
   onPress,
-  buttonText,
-  onButtonPress,
-  onPinnedPress,
   children,
-  ButtonIcon,
   hostPictureURL,
   hostName,
-  pinned,
+  inWallet,
 }) => (
-  <>
+  <WalletWrapper inWallet={inWallet}>
     <Wrapper onPress={onPress}>
       <ContentWrapper>
         <LeftCol>
           {tags && (
             <Tags>
               {tags.map(tag => (
-                <>
+                <Fragment key={tag}>
                   <Tag>{tag}</Tag>
                   <Spacer4 />
-                </>
+                </Fragment>
               ))}
             </Tags>
           )}
@@ -139,29 +122,9 @@ export const Card: React.FC<CardProps> = ({
           ) : null}
         </GraphicsWrapper>
       </ContentWrapper>
-      <Footer>
-        <LeftFooter>
-          {buttonText && (
-            <>
-              <CTAButton
-                LeftIcon={ButtonIcon}
-                small
-                variant="secondary"
-                onPress={onButtonPress ? onButtonPress : onPress}>
-                {buttonText}
-              </CTAButton>
-            </>
-          )}
-        </LeftFooter>
-        <RightFooter>
-          <RightFooterWrapper>
-            {children}
-            <Interested active={pinned} onPress={onPinnedPress} />
-          </RightFooterWrapper>
-        </RightFooter>
-      </Footer>
+      <Footer>{children}</Footer>
     </Wrapper>
-  </>
+  </WalletWrapper>
 );
 
 export default Card;

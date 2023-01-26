@@ -1,25 +1,5 @@
 {
   "en": {
-    "published": true,
-    "hidden": true,
-    "theme": {
-      "textColor": "#F9F8F4",
-      "backgroundColor": "#d56245"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1673869554/Audio/portal_audio_Drop_all_requirements_2_kospb1.mp3"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
-      }
-    },
     "slides": [
       {
         "type": "host",
@@ -39,12 +19,15 @@
             "text": "When we’re stressed the perceived expectations on us are higher than our resources. One common symptom is that thoughts and feelings spin round and round in our heads and bodies."
           },
           {
-            "text": " In the upcoming meditation we’ll practice getting a break from the spinning wheel and get some distance to our thoughts. It can help us gain persepctive, relax and change priorities.\n\nPress play to start the meditation."
+            "text": " In the upcoming meditation we’ll practice getting a break from the spinning wheel and get some distance to our thoughts. It can help us gain persepctive, relax and change priorities.\n\n> Press play to start the meditation."
           }
         ],
         "content": {
           "video": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1671549746/Audio/Meditation_Drop_all_requirements.wav"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674481870/Audio/meditation-drop-all-requirements_i39o6u.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673974099/Video/meditation_Drop_all_requirements_a2a7ws.mp4",
+            "durationTimer": true,
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_meditation_drop_all_requirements_ve8rdm.png"
           }
         }
       },
@@ -61,7 +44,8 @@
         "content": {
           "heading": "What did you notice?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/timer_1min_Drop_all_requirements_dahizb.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/timer_1min_Drop_all_requirements_dahizb.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer1min_drop_all_requirements_qebhbc.png"
           }
         }
       },
@@ -79,7 +63,11 @@
           }
         ],
         "content": {
-          "heading": "What did you notice?"
+          "heading": "What did you notice?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1674383225/Video/meditation_2_Drop_all_requirements_jeizf0.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer2min_drop_all_requirements_hzwrlc.png"
+          }
         }
       },
       {
@@ -100,9 +88,36 @@
         ]
       }
     ],
-    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#d56245"
+    },
+    "hidden": false,
     "name": "Drop all requirements",
-    "duration": 30
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
+      }
+    },
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207952/Audio/Drop_all_requirements_mixdown_gapless_mrnwhp.m4a",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_portal_drop_all_requirements_ns9mqy.png"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
+      }
+    },
+    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+    "description": "A mindful break for busy days."
   },
   "pt": {
     "published": false,

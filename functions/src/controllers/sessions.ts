@@ -90,6 +90,7 @@ export const createSession = async (
     type,
     startTime,
     inviteCode,
+    interestedCount: 0,
     hostId: userId,
   });
 
@@ -139,6 +140,13 @@ export const updateSession = async (
   await sessionModel.updateSession(sessionId, removeEmpty(data));
   const updatedSession = await sessionModel.getSessionById(sessionId);
   return updatedSession ? mapSession(updatedSession) : undefined;
+};
+
+export const updateInterestedCount = async (
+  sessionId: Session['id'],
+  increment: boolean,
+) => {
+  await sessionModel.updateInterestedCount(sessionId, increment);
 };
 
 export const updateSessionState = async (

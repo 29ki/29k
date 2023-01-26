@@ -1,6 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {StyleSheet} from 'react-native';
-import Video from 'react-native-video';
+import React, {useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
@@ -11,39 +9,15 @@ import useNavigateWithFade from '../../lib/navigation/hooks/useNavigateWithFade'
 import useSessionExercise from './hooks/useSessionExercise';
 import useLeaveSession from './hooks/useLeaveSession';
 
-import Sentry from '../../lib/sentry';
-
 import {BottomSafeArea, TopSafeArea} from '../../lib/components/Spacers/Spacer';
 import {SPACINGS} from '../../lib/constants/spacings';
-import VideoBase from './components/VideoBase/VideoBase';
 import Screen from '../../lib/components/Screen/Screen';
 import Button from '../../lib/components/Buttons/Button';
 import Gutters from '../../lib/components/Gutters/Gutters';
 import AudioFader from './components/AudioFader/AudioFader';
 import useSessionState from './state/state';
 import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
-
-const VideoStyled = styled(VideoBase)({
-  ...StyleSheet.absoluteFillObject,
-  flex: 1,
-});
-
-const reverseVideo = (url: string) => {
-  const transformFlags = (url.match(/cloudinary.*\/upload\/?(.*)\/v/) ?? [])[1];
-
-  if (transformFlags === undefined) {
-    Sentry.captureException(
-      new Error('Could not reverse the video - Invalid url'),
-    );
-    return url;
-  }
-
-  if (transformFlags === '') {
-    return url.replace('/upload/v', '/upload/e_reverse/v');
-  } else {
-    return url.replace(transformFlags, `${transformFlags},e_reverse`);
-  }
-};
+import {VideoTransition} from './components/VideoTransition/VideoTransition';
 
 const TopBar = styled(Gutters)({
   justifyContent: 'flex-end',
@@ -51,14 +25,16 @@ const TopBar = styled(Gutters)({
 });
 
 const OutroPortal: React.FC = () => {
-  const loopingVid = useRef<Video>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  const {t} = useTranslation('Screen.Portal');
+
+  const [isReadyForDisplay, setIsReadyForDisplay] = useState(false);
+  const [isReadyToLeave, setIsReadyToLeave] = useState(false);
+
   const session = useSessionState(state => state.session);
   const exercise = useSessionExercise();
   const {leaveSession} = useLeaveSession();
-  const [readyToLeave, setReadyToLeave] = useState(false);
   const isFocused = useIsFocused();
-  const {t} = useTranslation('Screen.Portal');
+
   const logSessionMetricEvent = useLogInSessionMetricEvents();
 
   usePreventGoingBack();
@@ -89,78 +65,50 @@ const OutroPortal: React.FC = () => {
     leaveSession,
   ]);
 
-  if (
-    outroPortal?.video?.source &&
-    (!introPortal?.videoLoop?.source || !introPortal?.videoEnd?.source)
-  ) {
-    return null;
-  }
+  const onVideoReadyForDisplay = useCallback(() => {
+    setIsReadyForDisplay(true);
+  }, [setIsReadyForDisplay]);
 
-  const onEndVideoLoad = () => {
-    loopingVid.current?.seek(0);
-    setVideoLoaded(true);
-  };
-
-  const onLoopVideoEnd = () => {
+  const onVideoTransition = () => {
     ReactNativeHapticFeedback.trigger('impactHeavy');
-    setReadyToLeave(true);
+    setIsReadyToLeave(true);
   };
 
   return (
     <Screen>
       <TopSafeArea minSize={SPACINGS.SIXTEEN} />
 
-      {!outroPortal?.video?.source &&
-        introPortal?.videoLoop?.source &&
-        introPortal?.videoEnd?.source && (
+      {outroPortal?.video?.source ? (
+        <VideoTransition
+          endSource={outroPortal.video.source}
+          endPosterSource={outroPortal.video?.preview}
+          onEnd={onVideoTransition}
+        />
+      ) : (
+        introPortal?.videoEnd?.source &&
+        introPortal?.videoLoop?.source && (
           <>
             {isFocused && introPortal?.videoLoop?.audio && (
               <AudioFader
                 source={introPortal?.videoLoop.audio}
                 repeat
-                paused={!videoLoaded}
-                volume={readyToLeave ? 1 : 0}
-                duration={readyToLeave ? 20000 : 5000}
+                paused={!isReadyForDisplay}
+                volume={isReadyToLeave ? 1 : 0}
+                duration={isReadyToLeave ? 20000 : 5000}
               />
             )}
-            <VideoStyled
-              ref={loopingVid}
-              onLoad={onEndVideoLoad}
-              paused={!readyToLeave || !isFocused}
-              source={{uri: reverseVideo(introPortal.videoLoop.source)}}
-              resizeMode="cover"
-              posterResizeMode="cover"
-              repeat={true}
+            <VideoTransition
+              startSource={introPortal.videoEnd.source}
+              loopSource={introPortal.videoLoop.source}
+              reverse
+              onTransition={onVideoTransition}
+              onReadyForDisplay={onVideoReadyForDisplay}
             />
-
-            {!readyToLeave && (
-              <VideoStyled
-                onEnd={onLoopVideoEnd}
-                paused={!isFocused}
-                muted={true}
-                source={{uri: reverseVideo(introPortal.videoEnd.source)}}
-                resizeMode="cover"
-                poster={introPortal.videoEnd?.preview}
-                posterResizeMode="cover"
-              />
-            )}
           </>
-        )}
-
-      {outroPortal?.video?.source && (
-        <VideoStyled
-          ref={loopingVid}
-          onLoad={() => {
-            loopingVid.current?.seek(0);
-            onLoopVideoEnd();
-          }}
-          source={{uri: outroPortal.video.source}}
-          resizeMode="cover"
-          poster={outroPortal.video?.preview}
-          posterResizeMode="cover"
-        />
+        )
       )}
-      {readyToLeave && (
+
+      {isReadyToLeave && (
         <TopBar>
           <Button variant="secondary" small onPress={leaveSession}>
             {t('leavePortal')}
