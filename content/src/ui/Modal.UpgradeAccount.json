@@ -1,69 +1,18 @@
 {
   "en": {
-    "success": {
-      "header": "Success!",
-      "text": "You're now able to create and host open sessions for every 29k user to join!"
-    },
-    "enterCode": "Enter your code",
-    "activateButton": "Activate settings",
-    "haveCodeButton": "I have a code",
-    "requestComplete": "We've now registered your request. As soon as it's approved we'll email you a verification code.",
-    "needToUpgrade": "To host open sessions you need to be an approved 29k host.",
-    "errors": {
-      "verificationNotFound": "We could not find any host-open-sessions-request for this user.",
-      "verificationDeclined": "The request was not accepted.",
-      "verificationAlreadyClaimed": "The code have already been used.",
-      "verificationFailed": "Incorrect code, try again."
-    },
-    "text": "Register as a host to create public sessions",
-    "requestCodeButton": "Request a code",
-    "or": "or",
+    "title": "Register as a host to create public sessions",
     "button": "Create account",
     "password": "Passsword",
     "email": "Email"
   },
   "pt": {
-    "success": {
-      "header": "Sucesso!",
-      "text": "Já podes criar e moderar sessões para todos os utilizadores da 29k FJN!"
-    },
-    "enterCode": "Introduz o código",
-    "activateButton": "Ativar configurações",
-    "haveCodeButton": "Tenho um código",
-    "requestComplete": "Registamos o teu pedido. Logo que seja aprovado enviamos um email com um código de validação.",
-    "needToUpgrade": "Para seres um/a moderador/a oficial tens de te registar.",
-    "errors": {
-      "verificationNotFound": "Não conseguimos encontrar nenhum pedido público de moderação para este utilizador.",
-      "verificationDeclined": "O pedido foi recusado.",
-      "verificationAlreadyClaimed": "O código já foi utilizado.",
-      "verificationFailed": "Validação falhou."
-    },
-    "text": "Como moderador oficial da 29k FJN pode registar-te aqui para criar sessões públicas.",
-    "requestCodeButton": "Pedir um código",
-    "or": "ou",
+    "title": "Para seres um/a moderador/a oficial tens de te registar.",
     "button": "Atualizar",
     "password": "Password",
     "email": "Email"
   },
   "sv": {
-    "success": {
-      "header": "Success!",
-      "text": "You're now able to create and host sessions open for every 29k user to join!"
-    },
-    "enterCode": "Skriv in din kod",
-    "activateButton": "Aktivera inställningar",
-    "haveCodeButton": "Jag har en kod",
-    "requestComplete": "Vi har tagit emot din begäran. När den är godkänd får du ett mail med en verifikationskod. ",
-    "needToUpgrade": "För att hålla i publika sessioner behöver du skapa ett konto.",
-    "errors": {
-      "verificationNotFound": "Vi kunde inte hitta någon begäran från denna användare.",
-      "verificationDeclined": "Begäran godkändes inte",
-      "verificationAlreadyClaimed": "Koden har redan använts.",
-      "verificationFailed": "Ogiltig kod, försök igen."
-    },
-    "text": "Du behöver registrera dig för att kunna skapa publika sessioner.",
-    "requestCodeButton": "Begär kod",
-    "or": "eller",
+    "title": "För att hålla i publika sessioner behöver du skapa ett konto.",
     "button": "Uppgradera",
     "password": "Lösenord",
     "email": "Epost"
