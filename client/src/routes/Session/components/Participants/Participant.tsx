@@ -13,12 +13,13 @@ import useExerciseTheme from '../../hooks/useExerciseTheme';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../../lib/constants/spacings';
 import {Display36} from '../../../../lib/components/Typography/Display/Display';
-import AudioIndicator from './AudioIdicator';
+import AudioIndicator, {AudioIndicatorProps} from './AudioIndicator';
 import Name from './Name';
 import Image from '../../../../lib/components/Image/Image';
 import useIsSessionHost from '../../hooks/useIsSessionHost';
 import AudioToggler from './AudioToggler';
 import {DailyContext} from '../../../../lib/daily/DailyProvider';
+import VideoOffIndicator from './VideoOffIndicator';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -43,14 +44,26 @@ const AudioTogglerWrapper = styled.View<{inSlide?: boolean}>(({inSlide}) => ({
   right: SPACINGS.SIXTEEN,
 }));
 
-const ParticipantAudio = styled(AudioIndicator)({
-  height: 24,
-  width: 24,
-  borderRadius: 45,
-  backgroundColor: COLORS.BLACK_TRANSPARENT,
-  padding: 2,
+type ParticipantAudioProps = AudioIndicatorProps & {noPermission?: boolean};
+
+const ParticipantAudio = styled(AudioIndicator)<ParticipantAudioProps>(
+  ({noPermission}) => ({
+    height: 24,
+    width: 24,
+    borderRadius: 45,
+    backgroundColor: noPermission
+      ? COLORS.RED_TRANSPARENT_50
+      : COLORS.BLACK_TRANSPARENT,
+    padding: 2,
+    position: 'absolute',
+    top: SPACINGS.SIXTEEN,
+    right: SPACINGS.SIXTEEN,
+  }),
+);
+
+const ParticipantVideoOff = styled(VideoOffIndicator)({
   position: 'absolute',
-  top: SPACINGS.SIXTEEN,
+  top: SPACINGS.FOURTYEIGHT,
   right: SPACINGS.SIXTEEN,
 });
 const NameGradient = styled(LinearGradient).attrs({
@@ -141,7 +154,8 @@ const Participant: React.FC<ParticipantProps> = ({
           colors={[hexToRgba(background, 1), hexToRgba(background, 0)]}
         />
       )}
-      {isSessionHost ? (
+
+      {isSessionHost && !participant.tracks.audio.blocked?.byPermissions ? (
         <AudioTogglerWrapper inSlide={inSlide}>
           <AudioToggler
             muted={!participant.audioTrack}
@@ -149,7 +163,13 @@ const Participant: React.FC<ParticipantProps> = ({
           />
         </AudioTogglerWrapper>
       ) : (
-        <ParticipantAudio muted={!participant.audioTrack} />
+        <ParticipantAudio
+          muted={!participant.audioTrack}
+          noPermission={participant.tracks.audio.blocked?.byPermissions}
+        />
+      )}
+      {participant.tracks.video.blocked?.byPermissions && (
+        <ParticipantVideoOff />
       )}
     </Wrapper>
   );
