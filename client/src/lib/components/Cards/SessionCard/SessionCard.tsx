@@ -23,11 +23,20 @@ import usePinnedSessons from '../../../sessions/hooks/usePinnedSessions';
 import useLogSessionMetricEvents from '../../../sessions/hooks/useLogSessionMetricEvents';
 import useGetSessionCardTags from './hooks/useGetSessionCardTags';
 import Button from '../../Buttons/Button';
-import {Spacer8} from '../../Spacers/Spacer';
+import {Spacer4, Spacer8} from '../../Spacers/Spacer';
+import useUser from '../../../user/hooks/useUser';
+import InterestedBadge from '../../InterestedBadge/InterestedBadge';
+import Interested from '../../Interested/Interested';
 
 const Row = styled.View({
   flexDirection: 'row',
   alignItems: 'flex-end',
+});
+
+const InterestedWrapper = styled.View({
+  flexDirection: 'row',
+  flex: 1,
+  justifyContent: 'flex-end',
 });
 
 const JoinButton: React.FC<{
@@ -76,6 +85,9 @@ const SessionCard: React.FC<SessionCardProps> = ({
 }) => {
   const {contentId, startTime, hostProfile} = session;
   const exercise = useExerciseById(contentId);
+  const user = useUser();
+  const isHost = user?.uid === session.hostId;
+  const showNumberOfInterested = session.interestedCount > 0;
   const {t} = useTranslation('Component.SessionCard');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
@@ -122,6 +134,30 @@ const SessionCard: React.FC<SessionCardProps> = ({
     [exercise],
   );
 
+  const interestedContent = useMemo(() => {
+    if (isHost && showNumberOfInterested) {
+      return (
+        <>
+          <InterestedBadge count={session.interestedCount} />
+          <Spacer4 />
+          <Interested active showIcon={false} />
+        </>
+      );
+    }
+
+    if (!isHost) {
+      return (
+        <Interested active={sessionPinned} showIcon onPress={onPinnedPress} />
+      );
+    }
+  }, [
+    isHost,
+    showNumberOfInterested,
+    sessionPinned,
+    onPinnedPress,
+    session.interestedCount,
+  ]);
+
   if (standAlone) {
     return (
       <Card
@@ -131,12 +167,12 @@ const SessionCard: React.FC<SessionCardProps> = ({
         lottie={lottie}
         onPress={onContextPress}
         hostPictureURL={hostProfile?.photoURL}
-        hostName={hostProfile?.displayName}
-        pinned={sessionPinned}
-        onPinnedPress={onPinnedPress}>
+        hostName={hostProfile?.displayName}>
         <Row>
           <JoinButton onPress={onPress} startTime={startTime} />
           <SessionTimeBadge session={session} />
+          <Spacer8 />
+          <InterestedWrapper>{interestedContent}</InterestedWrapper>
         </Row>
       </Card>
     );
@@ -156,7 +192,13 @@ const SessionCard: React.FC<SessionCardProps> = ({
           onPress={onContextPress}
           hasCardBefore={hasCardBefore}
           hasCardAfter={hasCardAfter}>
-          <SessionTimeBadge session={session} />
+          <Row>
+            <SessionTimeBadge session={session} />
+            <Spacer8 />
+            {isHost && showNumberOfInterested && (
+              <InterestedBadge count={session.interestedCount} />
+            )}
+          </Row>
         </WalletCard>
       }
       expandedComponent={
@@ -168,15 +210,15 @@ const SessionCard: React.FC<SessionCardProps> = ({
           lottie={lottie}
           onPress={onContextPress}
           hostPictureURL={hostProfile?.photoURL}
-          hostName={hostProfile?.displayName}
-          pinned={sessionPinned}
-          onPinnedPress={onPinnedPress}>
+          hostName={hostProfile?.displayName}>
           <Row>
             <Button small variant="secondary" onPress={onPress}>
               {t('join')}
             </Button>
             <Spacer8 />
             <SessionTimeBadge session={session} />
+            <Spacer8 />
+            <InterestedWrapper>{interestedContent}</InterestedWrapper>
           </Row>
         </Card>
       }
