@@ -12,7 +12,6 @@ import {Display20} from '../Typography/Display/Display';
 import Byline from '../Bylines/Byline';
 import {Spacer4} from '../Spacers/Spacer';
 import Gutters from '../Gutters/Gutters';
-import Interested from '../Interested/Interested';
 import Tag from '../Tag/Tag';
 import {WALLET_CARD_HEIGHT} from './WalletCard';
 
@@ -65,15 +64,11 @@ const Header = styled.View({
 });
 
 const Footer = styled(Gutters)({
-  flexDirection: 'row',
-  paddingBottom: SPACINGS.SIXTEEN,
-});
-
-const RightFooter = styled.View({
   justifyContent: 'space-between',
   alignItems: 'flex-end',
   flexDirection: 'row',
   flex: 1,
+  paddingBottom: SPACINGS.SIXTEEN,
 });
 
 type CardProps = {
@@ -82,11 +77,9 @@ type CardProps = {
   image?: ImageSourcePropType;
   lottie?: AnimationObject | {uri: string};
   onPress: () => void;
-  onPinnedPress?: () => void;
   children?: React.ReactNode;
   hostPictureURL?: string;
   hostName?: string;
-  pinned: boolean;
   inWallet?: boolean;
 };
 
@@ -96,11 +89,9 @@ export const Card: React.FC<CardProps> = ({
   lottie,
   image,
   onPress,
-  onPinnedPress,
   children,
   hostPictureURL,
   hostName,
-  pinned,
   inWallet,
 }) => (
   <WalletWrapper inWallet={inWallet}>
@@ -131,12 +122,7 @@ export const Card: React.FC<CardProps> = ({
           ) : null}
         </GraphicsWrapper>
       </ContentWrapper>
-      <Footer>
-        <RightFooter>
-          {children}
-          <Interested active={pinned} onPress={onPinnedPress} />
-        </RightFooter>
-      </Footer>
+      <Footer>{children}</Footer>
     </Wrapper>
   </WalletWrapper>
 );

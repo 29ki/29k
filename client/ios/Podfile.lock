@@ -971,7 +971,7 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.35.0):
+  - react-native-daily-js (0.36.0):
     - React
   - react-native-safe-area-context (4.4.1):
     - RCT-Folly
@@ -1058,28 +1058,28 @@ PODS:
     - React-Core
   - RNDeviceInfo (10.3.0):
     - React-Core
-  - RNFBApp (16.5.0):
+  - RNFBApp (16.5.1):
     - Firebase/CoreOnly (= 10.3.0)
     - React-Core
-  - RNFBAuth (16.5.0):
+  - RNFBAuth (16.5.1):
     - Firebase/Auth (= 10.3.0)
     - React-Core
     - RNFBApp
-  - RNFBDynamicLinks (16.5.0):
+  - RNFBDynamicLinks (16.5.1):
     - Firebase/DynamicLinks (= 10.3.0)
     - GoogleUtilities/AppDelegateSwizzler
     - React-Core
     - RNFBApp
-  - RNFBFirestore (16.5.0):
+  - RNFBFirestore (16.5.1):
     - Firebase/Firestore (= 10.3.0)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - React-Core
     - RNFBApp
-  - RNFBStorage (16.5.0):
+  - RNFBStorage (16.5.1):
     - Firebase/Storage (= 10.3.0)
     - React-Core
     - RNFBApp
-  - RNGestureHandler (2.8.0):
+  - RNGestureHandler (2.9.0):
     - React-Core
   - RNImageCropPicker (0.39.0):
     - React-Core
@@ -1412,7 +1412,7 @@ SPEC CHECKSUMS:
   React-logger: 15c734997c06fe9c9b88e528fb7757601e7a56df
   react-native-add-calendar-event: d7744f983d6770cc9e4f004db22bc4d4b4575f17
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: cac80d7de51b153a940060b2fae3f0f0e95e18c9
+  react-native-daily-js: b1d93c1fa1f4aa250c23ff4a09d09a81e8700a21
   react-native-safe-area-context: 99b24a0c5acd0d5dcac2b1a7f18c49ea317be99a
   react-native-video: c26780b224543c62d5e1b2a7244a5cd1b50e8253
   react-native-webrtc: ba5088bd040d835cc5df17bb2245d9d27d5d2d70
@@ -1431,12 +1431,12 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: 8616bd5a58af409453ea4e1b246521bb76578d60
   RNDateTimePicker: 0530a73a6f3a1a85814cbde0802736993b9e675e
   RNDeviceInfo: 4701f0bf2a06b34654745053db0ce4cb0c53ada7
-  RNFBApp: 2b3e57f4eecd9cfe8a5dd2ea8ed27a87fbc6eada
-  RNFBAuth: 0d480b9223fd9832e8a7ed314fa8c223b7ec8dfd
-  RNFBDynamicLinks: f5ce579405932828dd668d4217597e633f73d270
-  RNFBFirestore: edaf1440a183aefcb887dc5ccee963b5c2a286f7
-  RNFBStorage: cce752c3adefd5a9a7e9df3b87ec5b8d32fc5c01
-  RNGestureHandler: 62232ba8f562f7dea5ba1b3383494eb5bf97a4d3
+  RNFBApp: 1f48f0e6e976f8b7cc1ead051479fa4051727eb8
+  RNFBAuth: c57900be8bfa907b6172c3a033f7a02befae7708
+  RNFBDynamicLinks: 73cc22d7ad126d9c07ac5ea962fd7e08ed5a964d
+  RNFBFirestore: 69bf9ecff41ce008453374e4514d7aa9a83ec863
+  RNFBStorage: 23b655528e056a5b6631c2c2c057a4f55906c46f
+  RNGestureHandler: 071d7a9ad81e8b83fe7663b303d132406a7d8f39
   RNImageCropPicker: 14fe1c29298fb4018f3186f455c475ab107da332
   RNLocalize: 0df7970cfc60389f00eb62fd7c097dc75af3fb4f
   RNNotifee: da8dcf09f079ea22f46e239d7c406e10d4525a5f

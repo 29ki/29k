@@ -18,6 +18,7 @@ const StarIconWrapper = styled.View({
 
 type InterestedProps = {
   active: boolean;
+  showIcon?: boolean;
   onPress?: () => void;
 };
 
@@ -25,13 +26,15 @@ const Body = styled(BodyBold)<InterestedProps>(({active}) => ({
   color: active ? COLORS.PRIMARY : COLORS.GREYDARK,
 }));
 
-const Interested: React.FC<InterestedProps> = ({active, onPress}) => {
+const Interested: React.FC<InterestedProps> = ({active, showIcon, onPress}) => {
   const {t} = useTranslation('Component.Interested');
   return (
     <Container onPress={onPress}>
-      <StarIconWrapper>
-        <StarIcon fill={active ? COLORS.PRIMARY : COLORS.GREYDARK} />
-      </StarIconWrapper>
+      {showIcon && (
+        <StarIconWrapper>
+          <StarIcon fill={active ? COLORS.PRIMARY : COLORS.GREYDARK} />
+        </StarIconWrapper>
+      )}
       <Body active={active}>{t('text')}</Body>
     </Container>
   );

@@ -26,7 +26,6 @@ export const AllCards = () => (
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
       onPress={() => {}}
-      pinned={false}
     />
     <Spacer16 />
     <Card
@@ -37,7 +36,6 @@ export const AllCards = () => (
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
       onPress={() => {}}
-      pinned={false}
     />
     <Spacer16 />
     <Card
@@ -47,7 +45,6 @@ export const AllCards = () => (
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
       }}
       onPress={() => {}}
-      pinned={false}
     />
     <Spacer16 />
 
@@ -57,7 +54,6 @@ export const AllCards = () => (
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
       onPress={() => {}}
-      pinned={false}
     />
     <Spacer16 />
     <Card
@@ -65,7 +61,6 @@ export const AllCards = () => (
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
-      pinned={false}
       onPress={() => {}}>
       <Row>
         <Spacer4 />
@@ -78,7 +73,6 @@ export const AllCards = () => (
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
-      pinned
       onPress={() => {}}>
       <Row>
         <Body14>{'Starts in'}</Body14>
