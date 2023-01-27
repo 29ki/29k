@@ -3,7 +3,7 @@ import {firestore} from 'firebase-admin';
 import {Timestamp} from 'firebase-admin/firestore';
 
 const EVENTS_COLLECTION = 'metrics-events';
-//const USER_PROPERTIES_COLLECTION = 'metrics-user-properties';
+const USER_PROPERTIES_COLLECTION = 'metrics-user-properties';
 
 type Property = boolean | number | string;
 type Properties = {[key: string]: Property};
@@ -14,12 +14,25 @@ export const logEvent = async (
   event: string,
   properties: Properties = {},
 ) => {
-  const metricsCollection = firestore().collection(EVENTS_COLLECTION);
+  await firestore()
+    .collection(EVENTS_COLLECTION)
+    .add({
+      userId,
+      timestamp: Timestamp.fromDate(timestamp),
+      event,
+      properties,
+    });
+};
 
-  await metricsCollection.add({
-    userId,
-    timestamp: Timestamp.fromDate(timestamp),
-    event,
-    properties,
-  });
+export const setUserProperties = async (
+  userId: string,
+  properties: Properties = {},
+) => {
+  await firestore()
+    .collection(USER_PROPERTIES_COLLECTION)
+    .doc(userId)
+    .update({
+      ...properties,
+      updatedAt: Timestamp.now(),
+    });
 };

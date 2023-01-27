@@ -10,8 +10,13 @@ mockFirebase(
   {includeIdsInData: false, mutable: true},
 );
 
-import {mockAdd, mockCollection} from 'firestore-jest-mock/mocks/firestore';
-import {logEvent} from './metrics';
+import {
+  mockAdd,
+  mockCollection,
+  mockDoc,
+  mockUpdate,
+} from 'firestore-jest-mock/mocks/firestore';
+import {logEvent, setUserProperties} from './metrics';
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -57,6 +62,33 @@ describe('metrics model', () => {
         timestamp: expect.any(Timestamp),
         userId: 'some-user-id',
         properties: {},
+      });
+    });
+  });
+
+  describe('setUserProperties', () => {
+    it('Updates metrics-user-properties collection', async () => {
+      await setUserProperties('some-user-id', {
+        'Some Property': 'Some Value',
+      });
+
+      expect(mockCollection).toHaveBeenCalledWith('metrics-user-properties');
+      expect(mockDoc).toHaveBeenCalledWith('some-user-id');
+      expect(mockUpdate).toHaveBeenCalledTimes(1);
+      expect(mockUpdate).toHaveBeenCalledWith({
+        'Some Property': 'Some Value',
+        updatedAt: expect.any(Timestamp),
+      });
+    });
+
+    it('Accepts undefined properties', async () => {
+      await setUserProperties('some-user-id');
+
+      expect(mockCollection).toHaveBeenCalledWith('metrics-user-properties');
+
+      expect(mockUpdate).toHaveBeenCalledTimes(1);
+      expect(mockUpdate).toHaveBeenCalledWith({
+        updatedAt: expect.any(Timestamp),
       });
     });
   });
