@@ -13,13 +13,13 @@ const logEventBodySchema = yup.object().shape({
   properties: properties(),
 });
 
-type MetricsEvent = yup.InferType<typeof logEventBodySchema>;
+type Body = yup.InferType<typeof logEventBodySchema>;
 
 export const logEventRouter = router.post(
   '/',
   validator({body: logEventBodySchema}),
   async ({request, response}) => {
-    const {userId, timestamp, event, properties} = request.body as MetricsEvent;
+    const {userId, timestamp, event, properties} = request.body as Body;
 
     await metricsModel.logEvent(userId, new Date(timestamp), event, properties);
 
