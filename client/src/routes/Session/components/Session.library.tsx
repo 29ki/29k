@@ -12,7 +12,7 @@ import {
   BodyBold,
 } from '../../../lib/components/Typography/Body/Body';
 import ScreenWrapper from '../../../lib/uiLib/decorators/ScreenWrapper';
-import AudioIndicator from './Participants/AudioIdicator';
+import AudioIndicator from './Participants/AudioIndicator';
 import ProgressBar from './ProgressBar/ProgressBar';
 import HostNotes from './HostNotes/HostNotes';
 import Notification from './Notifications/Notification';
