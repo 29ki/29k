@@ -7,7 +7,7 @@ import {properties} from '../lib/validation';
 const router = createMetricsRouter();
 
 const userPropertiesParamsSchema = yup.object({
-  id: yup.string().uuid().required(),
+  userId: yup.string().uuid().required(),
 });
 const userPropertiesBodySchema = properties();
 
@@ -15,16 +15,16 @@ type Params = yup.InferType<typeof userPropertiesParamsSchema>;
 type Body = yup.InferType<typeof userPropertiesBodySchema>;
 
 export const userPropertiesRouter = router.post(
-  '/:id',
+  '/:userId',
   validator({
     params: userPropertiesParamsSchema,
     body: userPropertiesBodySchema,
   }),
   async ({params, request, response}) => {
-    const {id} = params as Params;
+    const {userId} = params as Params;
     const properties = request.body as Body;
 
-    await metricsModel.setUserProperties(id, properties);
+    await metricsModel.setUserProperties(userId, properties);
 
     response.status = 200;
     return;
