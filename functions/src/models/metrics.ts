@@ -31,8 +31,11 @@ export const setUserProperties = async (
   await firestore()
     .collection(USER_PROPERTIES_COLLECTION)
     .doc(userId)
-    .update({
-      ...properties,
-      updatedAt: Timestamp.now(),
-    });
+    .set(
+      {
+        ...properties,
+        updatedAt: Timestamp.now(),
+      },
+      {merge: true},
+    );
 };

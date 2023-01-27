@@ -14,7 +14,7 @@ import {
   mockAdd,
   mockCollection,
   mockDoc,
-  mockUpdate,
+  mockSet,
 } from 'firestore-jest-mock/mocks/firestore';
 import {logEvent, setUserProperties} from './metrics';
 
@@ -74,11 +74,14 @@ describe('metrics model', () => {
 
       expect(mockCollection).toHaveBeenCalledWith('metrics-user-properties');
       expect(mockDoc).toHaveBeenCalledWith('some-user-id');
-      expect(mockUpdate).toHaveBeenCalledTimes(1);
-      expect(mockUpdate).toHaveBeenCalledWith({
-        'Some Property': 'Some Value',
-        updatedAt: expect.any(Timestamp),
-      });
+      expect(mockSet).toHaveBeenCalledTimes(1);
+      expect(mockSet).toHaveBeenCalledWith(
+        {
+          'Some Property': 'Some Value',
+          updatedAt: expect.any(Timestamp),
+        },
+        {merge: true},
+      );
     });
 
     it('Accepts undefined properties', async () => {
@@ -86,10 +89,13 @@ describe('metrics model', () => {
 
       expect(mockCollection).toHaveBeenCalledWith('metrics-user-properties');
 
-      expect(mockUpdate).toHaveBeenCalledTimes(1);
-      expect(mockUpdate).toHaveBeenCalledWith({
-        updatedAt: expect.any(Timestamp),
-      });
+      expect(mockSet).toHaveBeenCalledTimes(1);
+      expect(mockSet).toHaveBeenCalledWith(
+        {
+          updatedAt: expect.any(Timestamp),
+        },
+        {merge: true},
+      );
     });
   });
 });
