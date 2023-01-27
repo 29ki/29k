@@ -8,6 +8,7 @@ type State = {
 };
 
 type Actions = {
+  setPartialSessionState: (sessionState: Partial<SessionState>) => void;
   setSessionState: (sessionState: SessionState) => void;
   setSession: (session: Session) => void;
   setCurrentContentReachedEnd: (currentContentReachedEnd: boolean) => void;
@@ -20,8 +21,14 @@ const initialState: State = {
   currentContentReachedEnd: false,
 };
 
-const useSessionState = create<State & Actions>()(set => ({
+const useSessionState = create<State & Actions>()((set, get) => ({
   ...initialState,
+  setPartialSessionState: (sessionState: Partial<SessionState>) => {
+    const existingState = get().sessionState;
+    if (existingState) {
+      set({sessionState: {...existingState, ...sessionState}});
+    }
+  },
   setSessionState: sessionState => set({sessionState}),
   setSession: session => set({session}),
   setCurrentContentReachedEnd: currentContentReachedEnd =>

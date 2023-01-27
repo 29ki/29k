@@ -182,7 +182,7 @@ const Session: React.FC = () => {
     <Screen backgroundColor={theme?.backgroundColor}>
       {isHost && (
         <Top>
-          <HostNotes />
+          <HostNotes exercise={exercise} />
           {!sessionSlideState?.next && (
             <>
               <Spacer16 />

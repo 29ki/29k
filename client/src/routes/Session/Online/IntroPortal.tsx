@@ -154,7 +154,7 @@ const IntroPortal: React.FC = () => {
       />
       {isHost && (
         <>
-          <HostNotes introPortal />
+          <HostNotes introPortal exercise={exercise} />
           <Spacer16 />
         </>
       )}

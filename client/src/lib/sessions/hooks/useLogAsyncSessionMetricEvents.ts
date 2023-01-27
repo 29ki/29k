@@ -5,6 +5,7 @@ import useUser from '../../user/hooks/useUser';
 
 type AllowedSharingEvents =
   | 'Create Async Session'
+  | 'Enter Intro Portal'
   | 'Completed Async Session'
   | 'Share Async Session';
 
