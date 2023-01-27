@@ -8,3 +8,5 @@ export const createApiRouter = () =>
   new Router<DefaultState, LanguageContext & FirebaseAuthContext>();
 
 export const createSlackRouter = () => new Router<DefaultState, SlackContext>();
+
+export const createMetricsRouter = () => new Router<DefaultState>();
