@@ -2,7 +2,7 @@ import request from 'supertest';
 import Koa from 'koa';
 import {userRouter} from '.';
 import createMockServer from '../lib/createMockServer';
-import {createRouter} from '../../lib/routers';
+import {createApiRouter} from '../../lib/routers';
 
 import {
   requestPublicHostRole,
@@ -15,7 +15,7 @@ jest.mock('../../controllers/publicHostRequests');
 const mockRequestPublicHostRole = requestPublicHostRole as jest.Mock;
 const mockVerifyRequest = verifyPublicHostRequest as jest.Mock;
 
-const router = createRouter();
+const router = createApiRouter();
 router.use('/user', userRouter.routes());
 const mockServer = createMockServer(
   async (ctx: Koa.Context, next: Koa.Next) => {
