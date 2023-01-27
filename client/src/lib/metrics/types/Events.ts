@@ -25,6 +25,11 @@ type Events = {
   'Complete Sharing Session': SharingSessionProperties & SharingSessionDuration;
   'Enter Outro Portal': SharingSessionProperties & SharingSessionDuration;
 
+  // Async Sharing Sessions
+  'Create Async Session': SharingSessionProperties;
+  'Completed Async Session': SharingSessionProperties;
+  'Share Async Session': SharingSessionProperties;
+
   // Feedback
   'Sharing Session Feedback': FeedbackProperties &
     SharingSessionID & {'Sharing Session Completed': boolean} & Host;

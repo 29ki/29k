@@ -3,14 +3,14 @@ import {
   createNativeStackNavigator,
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
-import {SessionStackProps} from './constants/routes';
-import Session from '../../routes/Session/Session';
-import ChangingRoom from '../../routes/Session/ChangingRoom';
-import IntroPortal from '../../routes/Session/IntroPortal';
-import OutroPortal from '../../routes/Session/OutroPortal';
+import {AsyncSessionStackProps} from './constants/routes';
+import Session from '../../routes/Session/Async/Session';
+import IntroPortal from '../../routes/Session/Async/IntroPortal';
+import OutroPortal from '../../routes/Session/Async/OutroPortal';
 import DailyProvider from '../daily/DailyProvider';
 
-const {Navigator, Screen} = createNativeStackNavigator<SessionStackProps>();
+const {Navigator, Screen} =
+  createNativeStackNavigator<AsyncSessionStackProps>();
 
 const screenOptions: NativeStackNavigationOptions = {
   headerShown: false,
@@ -19,10 +19,9 @@ const screenOptions: NativeStackNavigationOptions = {
   gestureEnabled: false,
 };
 
-const SessionStack = () => (
+const AsyncSessionStack = () => (
   <DailyProvider>
     <Navigator screenOptions={screenOptions}>
-      <Screen name={'ChangingRoom'} component={ChangingRoom} />
       <Screen name={'IntroPortal'} component={IntroPortal} />
       <Screen name={'Session'} component={Session} />
       <Screen name={'OutroPortal'} component={OutroPortal} />
@@ -30,4 +29,4 @@ const SessionStack = () => (
   </DailyProvider>
 );
 
-export default SessionStack;
+export default AsyncSessionStack;

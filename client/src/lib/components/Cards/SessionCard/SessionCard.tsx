@@ -103,7 +103,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
   }, [session, togglePinSession]);
 
   const onPress = useCallback(() => {
-    navigate('SessionStack', {
+    navigate('OnlineSessionStack', {
       screen: 'ChangingRoom',
       params: {
         session,

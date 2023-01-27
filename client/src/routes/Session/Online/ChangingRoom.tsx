@@ -11,42 +11,42 @@ import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import {DailyMediaView} from '@daily-co/react-native-daily-js';
 
-import Button from '../../lib/components/Buttons/Button';
-import Gutters from '../../lib/components/Gutters/Gutters';
+import Button from '../../../lib/components/Buttons/Button';
+import Gutters from '../../../lib/components/Gutters/Gutters';
 import {
   FilmCameraIcon,
   FilmCameraOffIcon,
   MicrophoneIcon,
   MicrophoneOffIcon,
-} from '../../lib/components/Icons';
+} from '../../../lib/components/Icons';
 import {
   BottomSafeArea,
   Spacer16,
   Spacer28,
   Spacer48,
   TopSafeArea,
-} from '../../lib/components/Spacers/Spacer';
-import {Body16} from '../../lib/components/Typography/Body/Body';
-import {COLORS} from '../../../../shared/src/constants/colors';
-import {DailyContext} from '../../lib/daily/DailyProvider';
-import useSessionState from './state/state';
+} from '../../../lib/components/Spacers/Spacer';
+import {Body16} from '../../../lib/components/Typography/Body/Body';
+import {COLORS} from '../../../../../shared/src/constants/colors';
+import {DailyContext} from '../../../lib/daily/DailyProvider';
+import useSessionState from '../state/state';
 import {
   ModalStackProps,
-  SessionStackProps,
+  OnlineSessionStackProps,
   TabNavigatorProps,
-} from '../../lib/navigation/constants/routes';
-import {SPACINGS} from '../../lib/constants/spacings';
-import TextInput from '../../lib/components/Typography/TextInput/TextInput';
-import AudioIndicator from './components/Participants/AudioIdicator';
-import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
-import Screen from '../../lib/components/Screen/Screen';
-import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
-import useUser from '../../lib/user/hooks/useUser';
-import Image from '../../lib/components/Image/Image';
-import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
-import {getSessionToken} from '../../lib/sessions/api/session';
-import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
-import useCheckPermissions from './hooks/useCheckPermissions';
+} from '../../../lib/navigation/constants/routes';
+import {SPACINGS} from '../../../lib/constants/spacings';
+import TextInput from '../../../lib/components/Typography/TextInput/TextInput';
+import AudioIndicator from '../components/Participants/AudioIdicator';
+import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
+import Screen from '../../../lib/components/Screen/Screen';
+import useLocalParticipant from '../../../lib/daily/hooks/useLocalParticipant';
+import useUser from '../../../lib/user/hooks/useUser';
+import Image from '../../../lib/components/Image/Image';
+import useSubscribeToSessionIfFocused from '../hooks/useSusbscribeToSessionIfFocused';
+import {getSessionToken} from '../../../lib/sessions/api/session';
+import useLogInSessionMetricEvents from '../hooks/useLogInSessionMetricEvents';
+import useCheckPermissions from '../hooks/useCheckPermissions';
 
 const KeyboardWrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'padding', android: undefined}),
@@ -113,7 +113,7 @@ const ChangingRoom = () => {
   const {goBack, navigate} =
     useNavigation<
       NativeStackNavigationProp<
-        SessionStackProps & TabNavigatorProps & ModalStackProps
+        OnlineSessionStackProps & TabNavigatorProps & ModalStackProps
       >
     >();
   const {toggleAudio, toggleVideo, setUserName, joinMeeting, preJoinMeeting} =
@@ -122,7 +122,7 @@ const ChangingRoom = () => {
   const sessionState = useSessionState(state => state.sessionState);
   const {
     params: {session},
-  } = useRoute<RouteProp<SessionStackProps, 'ChangingRoom'>>();
+  } = useRoute<RouteProp<OnlineSessionStackProps, 'ChangingRoom'>>();
 
   useSubscribeToSessionIfFocused(session);
   const isFocused = useIsFocused();

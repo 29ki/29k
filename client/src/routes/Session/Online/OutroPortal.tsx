@@ -4,20 +4,23 @@ import {useTranslation} from 'react-i18next';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useIsFocused} from '@react-navigation/native';
 
-import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
-import useNavigateWithFade from '../../lib/navigation/hooks/useNavigateWithFade';
-import useSessionExercise from './hooks/useSessionExercise';
-import useLeaveSession from './hooks/useLeaveSession';
+import usePreventGoingBack from '../../../lib/navigation/hooks/usePreventGoingBack';
+import useNavigateWithFade from '../../../lib/navigation/hooks/useNavigateWithFade';
+import useSessionExercise from './../hooks/useSessionExercise';
+import useLeaveSession from './../hooks/useLeaveSession';
 
-import {BottomSafeArea, TopSafeArea} from '../../lib/components/Spacers/Spacer';
-import {SPACINGS} from '../../lib/constants/spacings';
-import Screen from '../../lib/components/Screen/Screen';
-import Button from '../../lib/components/Buttons/Button';
-import Gutters from '../../lib/components/Gutters/Gutters';
-import AudioFader from './components/AudioFader/AudioFader';
-import useSessionState from './state/state';
-import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
-import {VideoTransition} from './components/VideoTransition/VideoTransition';
+import {
+  BottomSafeArea,
+  TopSafeArea,
+} from '../../../lib/components/Spacers/Spacer';
+import {SPACINGS} from '../../../lib/constants/spacings';
+import Screen from '../../../lib/components/Screen/Screen';
+import Button from '../../../lib/components/Buttons/Button';
+import Gutters from '../../../lib/components/Gutters/Gutters';
+import AudioFader from './../components/AudioFader/AudioFader';
+import useSessionState from './../state/state';
+import useLogInSessionMetricEvents from './../hooks/useLogInSessionMetricEvents';
+import {VideoTransition} from './../components/VideoTransition/VideoTransition';
 
 const TopBar = styled(Gutters)({
   justifyContent: 'flex-end',

@@ -5,28 +5,28 @@ import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
 
-import {SPACINGS} from '../../lib/constants/spacings';
-import {COLORS} from '../../../../shared/src/constants/colors';
+import {SPACINGS} from '../../../lib/constants/spacings';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 
-import {DailyUserData} from '../../../../shared/src/types/Session';
-import {SessionStackProps} from '../../lib/navigation/constants/routes';
-import {DailyContext} from '../../lib/daily/DailyProvider';
+import {DailyUserData} from '../../../../../shared/src/types/Session';
+import {OnlineSessionStackProps} from '../../../lib/navigation/constants/routes';
+import {DailyContext} from '../../../lib/daily/DailyProvider';
 
-import useSessionState from './state/state';
-import useSessionParticipants from './hooks/useSessionParticipants';
-import useSessionSlideState from './hooks/useSessionSlideState';
-import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
-import useLeaveSession from './hooks/useLeaveSession';
-import useIsSessionHost from './hooks/useIsSessionHost';
-import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
-import useUser from '../../lib/user/hooks/useUser';
-import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
-import useExerciseTheme from './hooks/useExerciseTheme';
-import useSessionExercise from './hooks/useSessionExercise';
-import useUpdateSessionState from './hooks/useUpdateSessionState';
-import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
-import useCheckPermissions from './hooks/useCheckPermissions';
-import useUserState from '../../lib/user/state/state';
+import useSessionState from '../state/state';
+import useSessionParticipants from '../hooks/useSessionParticipants';
+import useSessionSlideState from '../hooks/useSessionSlideState';
+import usePreventGoingBack from '../../../lib/navigation/hooks/usePreventGoingBack';
+import useLeaveSession from '../hooks/useLeaveSession';
+import useIsSessionHost from '../hooks/useIsSessionHost';
+import useLocalParticipant from '../../../lib/daily/hooks/useLocalParticipant';
+import useUser from '../../../lib/user/hooks/useUser';
+import useSubscribeToSessionIfFocused from '../hooks/useSusbscribeToSessionIfFocused';
+import useExerciseTheme from '../hooks/useExerciseTheme';
+import useSessionExercise from '../hooks/useSessionExercise';
+import useUpdateSessionState from '../hooks/useUpdateSessionState';
+import useLogInSessionMetricEvents from '../hooks/useLogInSessionMetricEvents';
+import useCheckPermissions from '../hooks/useCheckPermissions';
+import useUserState from '../../../lib/user/state/state';
 
 import {
   BottomSafeArea,
@@ -34,23 +34,23 @@ import {
   Spacer16,
   Spacer32,
   TopSafeArea,
-} from '../../lib/components/Spacers/Spacer';
+} from '../../../lib/components/Spacers/Spacer';
 
-import ExerciseSlides from './components/ExerciseSlides/ExerciseSlides';
-import Participants from './components/Participants/Participants';
-import ProgressBar from './components/ProgressBar/ProgressBar';
-import ContentControls from './components/ContentControls/ContentControls';
-import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
+import ExerciseSlides from '../components/ExerciseSlides/ExerciseSlides';
+import Participants from '../components/Participants/Participants';
+import ProgressBar from '../components/ProgressBar/ProgressBar';
+import ContentControls from '../components/ContentControls/ContentControls';
+import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
 import {
   FilmCameraIcon,
   FilmCameraOffIcon,
   HangUpIcon,
   MicrophoneIcon,
   MicrophoneOffIcon,
-} from '../../lib/components/Icons';
-import Button from '../../lib/components/Buttons/Button';
-import HostNotes from './components/HostNotes/HostNotes';
-import Screen from '../../lib/components/Screen/Screen';
+} from '../../../lib/components/Icons';
+import Button from '../../../lib/components/Buttons/Button';
+import HostNotes from '../components/HostNotes/HostNotes';
+import Screen from '../../../lib/components/Screen/Screen';
 
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
@@ -95,7 +95,7 @@ const StyledButton = styled(Button)({
 
 const StyledHangUpIcon = () => <HangUpIcon fill={COLORS.ACTIVE} />;
 
-const Session = () => {
+const Session: React.FC = () => {
   const {
     setUserData,
     toggleAudio,
@@ -105,9 +105,9 @@ const Session = () => {
   } = useContext(DailyContext);
   const {
     params: {session},
-  } = useRoute<RouteProp<SessionStackProps, 'Session'>>();
+  } = useRoute<RouteProp<OnlineSessionStackProps, 'Session'>>();
   const {navigate} =
-    useNavigation<NativeStackNavigationProp<SessionStackProps>>();
+    useNavigation<NativeStackNavigationProp<OnlineSessionStackProps>>();
   const {t} = useTranslation('Screen.Session');
   useSubscribeToSessionIfFocused(session, {exitOnEnded: false});
 

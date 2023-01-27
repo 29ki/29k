@@ -3,7 +3,8 @@ import KillSwitch from '../../routes/KillSwitch/KillSwitch';
 import useKillSwitchState from '../killSwitch/state/state';
 import Tabs from './Tabs';
 import useNavigationState from './state/state';
-import SessionStack from './SessionStack';
+import OnlineSessionStack from './OnlineSessionStack';
+import AsyncSessionStack from './AsyncSessionStack';
 import {
   createNativeStackNavigator,
   NativeStackNavigationOptions,
@@ -48,8 +49,13 @@ const AppStack = () => {
         <Group screenOptions={fade ? fadeScreenOptions : screenOptions}>
           <Screen name={'Tabs'} component={Tabs} />
           <Screen
-            name={'SessionStack'}
-            component={SessionStack}
+            name={'OnlineSessionStack'}
+            component={OnlineSessionStack}
+            options={{gestureEnabled: false}}
+          />
+          <Screen
+            name={'AsyncSessionStack'}
+            component={AsyncSessionStack}
             options={{gestureEnabled: false}}
           />
         </Group>

@@ -10,34 +10,34 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
-import Button from '../../lib/components/Buttons/Button';
-import Gutters from '../../lib/components/Gutters/Gutters';
+import Button from '../../../lib/components/Buttons/Button';
+import Gutters from '../../../lib/components/Gutters/Gutters';
 import {
   BottomSafeArea,
   Spacer16,
   TopSafeArea,
-} from '../../lib/components/Spacers/Spacer';
+} from '../../../lib/components/Spacers/Spacer';
 import {
   ModalStackProps,
-  SessionStackProps,
+  OnlineSessionStackProps,
   TabNavigatorProps,
-} from '../../lib/navigation/constants/routes';
-import {SPACINGS} from '../../lib/constants/spacings';
-import useSessionState from './state/state';
-import useLeaveSession from './hooks/useLeaveSession';
-import useIsSessionHost from './hooks/useIsSessionHost';
-import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
-import useUpdateSessionState from './hooks/useUpdateSessionState';
-import HostNotes from './components/HostNotes/HostNotes';
-import Screen from '../../lib/components/Screen/Screen';
-import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
-import {ArrowLeftIcon} from '../../lib/components/Icons';
-import useSubscribeToSessionIfFocused from './hooks/useSusbscribeToSessionIfFocused';
-import useSessionExercise from './hooks/useSessionExercise';
-import AudioFader from './components/AudioFader/AudioFader';
-import useLogInSessionMetricEvents from './hooks/useLogInSessionMetricEvents';
-import PortalStatus from './components/PortalStatus/PortalStatus';
-import {VideoTransition} from './components/VideoTransition/VideoTransition';
+} from '../../../lib/navigation/constants/routes';
+import {SPACINGS} from '../../../lib/constants/spacings';
+import useSessionState from './../state/state';
+import useLeaveSession from './../hooks/useLeaveSession';
+import useIsSessionHost from './../hooks/useIsSessionHost';
+import usePreventGoingBack from '../../../lib/navigation/hooks/usePreventGoingBack';
+import useUpdateSessionState from './../hooks/useUpdateSessionState';
+import HostNotes from './../components/HostNotes/HostNotes';
+import Screen from '../../../lib/components/Screen/Screen';
+import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
+import {ArrowLeftIcon} from '../../../lib/components/Icons';
+import useSubscribeToSessionIfFocused from './../hooks/useSusbscribeToSessionIfFocused';
+import useSessionExercise from './../hooks/useSessionExercise';
+import AudioFader from './../components/AudioFader/AudioFader';
+import useLogInSessionMetricEvents from './../hooks/useLogInSessionMetricEvents';
+import PortalStatus from './../components/PortalStatus/PortalStatus';
+import {VideoTransition} from './../components/VideoTransition/VideoTransition';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -61,7 +61,7 @@ const BackButton = styled(IconButton)({
 const IntroPortal: React.FC = () => {
   const {
     params: {session},
-  } = useRoute<RouteProp<SessionStackProps, 'IntroPortal'>>();
+  } = useRoute<RouteProp<OnlineSessionStackProps, 'IntroPortal'>>();
   const {t} = useTranslation('Screen.Portal');
 
   const [isReadyForDisplay, setIsReadyForDisplay] = useState(false);
@@ -74,7 +74,7 @@ const IntroPortal: React.FC = () => {
   const {navigate} =
     useNavigation<
       NativeStackNavigationProp<
-        SessionStackProps & TabNavigatorProps & ModalStackProps
+        OnlineSessionStackProps & TabNavigatorProps & ModalStackProps
       >
     >();
   const {startSession} = useUpdateSessionState(session.id);
@@ -184,7 +184,7 @@ const IntroPortal: React.FC = () => {
                 </Button>
               )}
             </TopBar>
-            <PortalStatus />
+            {session.type !== 'async' && <PortalStatus />}
           </Content>
         )}
       </Wrapper>
