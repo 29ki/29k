@@ -22,7 +22,7 @@ afterAll(() => {
   mockServer.close();
 });
 
-describe('/api/metrics', () => {
+describe('/metrics/logEvent', () => {
   describe('Success', () => {
     it('Accepts incoming events', async () => {
       const response = await request(mockServer)
