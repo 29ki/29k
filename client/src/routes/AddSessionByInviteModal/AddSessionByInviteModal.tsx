@@ -15,23 +15,17 @@ import {joinSession} from '../../lib/sessions/api/session';
 import useSessions from '../../lib/sessions/hooks/useSessions';
 import CardModal from '../../lib/components/Modals/CardModal';
 import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
-import Button from '../../lib/components/Buttons/Button';
 import {Session} from '../../../../shared/src/types/Session';
 import useLogSessionMetricEvents from '../../lib/sessions/hooks/useLogSessionMetricEvents';
 
 const ErrorText = styled(Body16)({color: COLORS.ERROR, textAlign: 'center'});
-const BodyText = styled(Body16)({textAlign: 'center'});
-const ButtonWrapper = styled.View({
-  flexDirection: 'row',
-  justifyContent: 'center',
-});
 
 const AddSessionModal = () => {
   const {t} = useTranslation('Modal.JoinSession');
   const {params: {inviteCode} = {}} =
-    useRoute<RouteProp<ModalStackProps, 'AddSessionModal'>>();
+    useRoute<RouteProp<ModalStackProps, 'AddSessionByInviteModal'>>();
   const {fetchSessions} = useSessions();
-  const {goBack, navigate, popToTop} =
+  const {goBack, navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
   const [errorString, setErrorString] = useState<string | null>(null);
   const logSessionMetricEvent = useLogSessionMetricEvents();
@@ -63,11 +57,6 @@ const AddSessionModal = () => {
     [fetchSessions, goBack, setErrorString, navigate, t, logSessionMetricEvent],
   );
 
-  const onPressCreate = useCallback(() => {
-    popToTop();
-    navigate('CreateSessionModal');
-  }, [popToTop, navigate]);
-
   return (
     <CardModal>
       <Gutters>
@@ -84,11 +73,6 @@ const AddSessionModal = () => {
           onCodeCompleted={onCodeCompleted}
         />
         <Spacer8 />
-        <BodyText>{t('create.or')}</BodyText>
-        <Spacer8 />
-        <ButtonWrapper>
-          <Button onPress={onPressCreate}>{t('create.cta')}</Button>
-        </ButtonWrapper>
       </Gutters>
     </CardModal>
   );

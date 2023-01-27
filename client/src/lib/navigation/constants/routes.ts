@@ -36,7 +36,7 @@ export type ModalStackProps = {
   OverlayStack: NavigatorScreenParams<OverlayStackProps>;
   SessionModal: {session: Session};
   SessionUnavailableModal: undefined;
-  AddSessionModal?: {inviteCode?: number};
+  AddSessionByInviteModal?: {inviteCode?: number};
   CreateSessionModal: undefined;
   UpgradeAccountModal?: undefined;
   RequestPublicHostModal?: {code?: string; haveRequested?: boolean};

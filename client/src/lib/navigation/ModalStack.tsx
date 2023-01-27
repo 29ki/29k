@@ -7,7 +7,7 @@ import {
 import {ModalStackProps} from './constants/routes';
 import SessionModal from '../../routes/SessionModal/SessionModal';
 import CreateSessionModal from '../../routes/CreateSessionModal/CreateSessionModal';
-import AddSessionModal from '../../routes/AddSessionModal/AddSessionModal';
+import AddSessionByInviteModal from '../../routes/AddSessionByInviteModal/AddSessionByInviteModal';
 import UpgradeAccountModal from '../../routes/UpgradeAccountModal/UpgradeAccountModal';
 import RequestPublicHostModal from '../../routes/RequestPublicHostModal/RequestPublicHostModal';
 import SessionUnavailableModal from '../../routes/SessionUnavailableModal/SessionUnavailableModal';
@@ -164,7 +164,10 @@ const ModalStack = () => {
       </Group>
 
       <Group screenOptions={cardModalScreenOptions}>
-        <Screen name={'AddSessionModal'} component={AddSessionModal} />
+        <Screen
+          name={'AddSessionByInviteModal'}
+          component={AddSessionByInviteModal}
+        />
         <Screen
           name={'RequestPublicHostModal'}
           component={RequestPublicHostModal}

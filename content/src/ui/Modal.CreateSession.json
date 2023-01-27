@@ -1,5 +1,7 @@
 {
   "en": {
+    "description": "Start by selecting who you want to do a session with.",
+    "joinByInviteCta": "Join by invite code",
     "selectContent": {
       "title": "Choose exercise"
     },
@@ -28,6 +30,8 @@
     }
   },
   "pt": {
+    "description": "Start by selecting who you want to do a session with.",
+    "joinByInviteCta": "Junta-te por código de convite",
     "selectContent": {
       "title": "Escolhe um exercício"
     },
@@ -56,6 +60,8 @@
     }
   },
   "sv": {
+    "description": "Börja med att välja vem du vill göra sessionen med.",
+    "joinByInviteCta": "Använd kod för att gå med",
     "selectContent": {
       "title": "Välj övning"
     },

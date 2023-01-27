@@ -3,8 +3,9 @@ import {LANGUAGE_TAG} from '../constants/i18n';
 import {UserProfile} from './User';
 
 export enum SessionType {
-  public = 'public',
+  async = 'async',
   private = 'private',
+  public = 'public',
 }
 
 type SessionStateFields = {

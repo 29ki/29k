@@ -34,7 +34,8 @@ export type StepProps = {
   selectedExercise: Exercise['id'] | undefined;
   setSelectedExercise: Dispatch<SetStateAction<StepProps['selectedExercise']>>;
   nextStep: () => void;
-  prevStep: () => void;
+  firstStep: () => void;
+  lastStep: () => void;
   isPublicHost: boolean;
   selectedType: SessionType | undefined;
   userProfile: UserProfile;
@@ -43,12 +44,12 @@ export type StepProps = {
 
 const publicHostSteps = (hasProfile: boolean) =>
   hasProfile
-    ? [SelectContentStep, SelectTypeStep, SetDateTimeStep]
-    : [UpdateProfileStep, SelectContentStep, SelectTypeStep, SetDateTimeStep];
+    ? [SelectTypeStep, SelectContentStep, SetDateTimeStep]
+    : [SelectTypeStep, UpdateProfileStep, SelectContentStep, SetDateTimeStep];
 const normalUserSteps = (hasProfile: boolean) =>
   hasProfile
-    ? [SelectContentStep, SetDateTimeStep]
-    : [UpdateProfileStep, SelectContentStep, SetDateTimeStep];
+    ? [SelectTypeStep, SelectContentStep, SetDateTimeStep]
+    : [SelectTypeStep, UpdateProfileStep, SelectContentStep, SetDateTimeStep];
 
 const CreateSessionModal = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -70,22 +71,27 @@ const CreateSessionModal = () => {
     [user?.displayName, user?.photoURL],
   );
 
-  const CurrentStepComponent: React.FC<StepProps> = useMemo(
+  const currentSteps = useMemo(
     () =>
-      isPublicHost
-        ? publicHostSteps(hasProfile)[currentStep]
-        : normalUserSteps(hasProfile)[currentStep],
-    [isPublicHost, currentStep, hasProfile],
+      isPublicHost ? publicHostSteps(hasProfile) : normalUserSteps(hasProfile),
+    [isPublicHost, hasProfile],
   );
 
-  const prevStep = useCallback(
-    () => setCurrentStep(currentStep - 1),
-    [currentStep],
+  const CurrentStepComponent: React.FC<StepProps> = useMemo(
+    () => currentSteps[currentStep],
+    [currentSteps, currentStep],
   );
 
   const nextStep = useCallback(
     () => setCurrentStep(currentStep + 1),
     [currentStep],
+  );
+
+  const firstStep = useCallback(() => setCurrentStep(0), []);
+
+  const lastStep = useCallback(
+    () => setCurrentStep(currentSteps.length - 1),
+    [currentSteps],
   );
 
   return (
@@ -99,7 +105,8 @@ const CreateSessionModal = () => {
           setSelectedType={setSelectedType}
           userProfile={userProfile}
           nextStep={nextStep}
-          prevStep={prevStep}
+          firstStep={firstStep}
+          lastStep={lastStep}
           isPublicHost={isPublicHost}
         />
       </Step>
