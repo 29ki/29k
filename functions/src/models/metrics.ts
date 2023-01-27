@@ -1,8 +1,9 @@
+import 'firebase-functions';
 import {firestore} from 'firebase-admin';
 import {Timestamp} from 'firebase-admin/firestore';
 
-const METRICS_COLLECTION = 'metrics';
-//const METRICS_USER_PROPERTIES = 'metrics-user-properties';
+const EVENTS_COLLECTION = 'metrics-events';
+//const USER_PROPERTIES_COLLECTION = 'metrics-user-properties';
 
 type Property = boolean | number | string;
 type Properties = {[key: string]: Property};
@@ -11,9 +12,9 @@ export const logEvent = async (
   userId: string,
   timestamp: Date,
   event: string,
-  properties?: Properties,
+  properties: Properties = {},
 ) => {
-  const metricsCollection = firestore().collection(METRICS_COLLECTION);
+  const metricsCollection = firestore().collection(EVENTS_COLLECTION);
 
   await metricsCollection.add({
     userId,
