@@ -2,6 +2,7 @@ import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {API_ENDPOINT} from 'config';
 import i18next, {DEFAULT_LANGUAGE_TAG} from '../../lib/i18n';
 import {getCorrelationId} from '../sentry';
+import {trimSlashes} from '../utils/string';
 
 const signOutAndSignIn = async () => {
   if (auth().currentUser) {
@@ -62,8 +63,6 @@ const getAuthorizationHeader = async () => {
     return {Authorization: `bearer ${token}`};
   }
 };
-
-const trimSlashes = (str: string) => str.replace(/^\/+|\/+$/g, '');
 
 const apiClient = async (input: string, init?: RequestInit | undefined) => {
   const doFetch = async () => {
