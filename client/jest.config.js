@@ -6,6 +6,7 @@ process.env = Object.assign(process.env, {
   ANDROID_CODE_PUSH_DEPLOYMENT_KEY: 'some-android-code-push-deployment-key',
   POSTHOG_API_KEY: 'some-posthog-api-key',
   API_ENDPOINT: 'some-api-endpoint',
+  METRICS_ENDPOINT: 'some-metrics-endpoint',
   STORAGE_ENDPOINT: 'some-storage-endpoint',
   GIT_COMMIT_SHORT: 'some-git-hash',
   SENTRY_DSN: 'some-sentry-dsn',
