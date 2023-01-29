@@ -1,5 +1,6 @@
 import {useCallback, useState} from 'react';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
+import {ensureUserCreated} from '..';
 
 type UpdateProfileDetails = (profileDetails: {
   displayName?: FirebaseAuthTypes.User['displayName'];
@@ -16,9 +17,7 @@ const useUpdateProfileDetails = () => {
       try {
         setIsUpdatingProfileDetails(true);
 
-        if (!auth().currentUser) {
-          await auth().signInAnonymously();
-        }
+        await ensureUserCreated();
 
         const currentUser = auth().currentUser;
 
