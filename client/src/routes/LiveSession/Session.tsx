@@ -119,8 +119,8 @@ const Session: React.FC = () => {
   const sessionSlideState = useSessionSlideState();
   const exercise = useSessionExercise();
   const theme = useExerciseTheme();
-  const logSessionMetricEvent = useLogInSessionMetricEvents();
-  const {leaveSessionWithConfirm} = useLeaveSession();
+  const {logLiveSessionMetricEvent} = useLogInSessionMetricEvents();
+  const {leaveSessionWithConfirm} = useLeaveSession(session.type);
   const {checkCameraPermissions, checkMicrophonePermissions} =
     useCheckPermissions();
   const user = useUser();
@@ -133,9 +133,9 @@ const Session: React.FC = () => {
 
   useEffect(() => {
     if (sessionState?.id) {
-      logSessionMetricEvent('Enter Sharing Session');
+      logLiveSessionMetricEvent('Enter Sharing Session');
     }
-  }, [logSessionMetricEvent, sessionState?.id]);
+  }, [logLiveSessionMetricEvent, sessionState?.id]);
 
   useEffect(() => {
     if (sessionState?.completed) {
@@ -143,12 +143,12 @@ const Session: React.FC = () => {
         id: sessionState?.id,
         completedAt: dayjs.utc().toDate(),
       });
-      logSessionMetricEvent('Complete Sharing Session');
+      logLiveSessionMetricEvent('Complete Sharing Session');
     }
   }, [
     sessionState?.completed,
     sessionState?.id,
-    logSessionMetricEvent,
+    logLiveSessionMetricEvent,
     addCompletedSession,
   ]);
 

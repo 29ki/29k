@@ -129,7 +129,7 @@ const ChangingRoom = () => {
   const me = useLocalParticipant();
   const user = useUser();
   const [localUserName, setLocalUserName] = useState(user?.displayName ?? '');
-  const logSessionMetricEvent = useLogInSessionMetricEvents();
+  const {logLiveSessionMetricEvent} = useLogInSessionMetricEvents();
   const {
     checkJoinPermissions,
     checkCameraPermissions,
@@ -140,8 +140,8 @@ const ChangingRoom = () => {
   const hasVideo = Boolean(me?.videoTrack);
 
   useEffect(() => {
-    logSessionMetricEvent('Enter Changing Room');
-  }, [logSessionMetricEvent]);
+    logLiveSessionMetricEvent('Enter Changing Room');
+  }, [logLiveSessionMetricEvent]);
 
   const preJoin = useCallback(
     async (url: string, id: string) => {

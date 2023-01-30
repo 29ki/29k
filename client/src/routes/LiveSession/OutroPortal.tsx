@@ -18,6 +18,7 @@ import AudioFader from '../../lib/session/components/AudioFader/AudioFader';
 import useSessionState from '../../lib/session/state/state';
 import useLogInSessionMetricEvents from '../../lib/session/hooks/useLogInSessionMetricEvents';
 import {VideoTransition} from '../../lib/session/components/VideoTransition/VideoTransition';
+import {SessionType} from '../../../../shared/src/types/Session';
 
 const TopBar = styled(Gutters)({
   justifyContent: 'flex-end',
@@ -32,10 +33,10 @@ const OutroPortal: React.FC = () => {
 
   const session = useSessionState(state => state.session);
   const exercise = useSessionExercise();
-  const {leaveSession} = useLeaveSession();
+  const {leaveSession} = useLeaveSession(SessionType.private);
   const isFocused = useIsFocused();
 
-  const logSessionMetricEvent = useLogInSessionMetricEvents();
+  const {logLiveSessionMetricEvent} = useLogInSessionMetricEvents();
 
   usePreventGoingBack();
   useNavigateWithFade();
@@ -45,9 +46,9 @@ const OutroPortal: React.FC = () => {
 
   useEffect(() => {
     if (session?.id) {
-      logSessionMetricEvent('Enter Outro Portal');
+      logLiveSessionMetricEvent('Enter Outro Portal');
     }
-  }, [logSessionMetricEvent, session?.id]);
+  }, [logLiveSessionMetricEvent, session?.id]);
 
   useEffect(() => {
     if (
