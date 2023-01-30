@@ -33,6 +33,7 @@ import {
 import useLogAsyncSessionMetricEvents from '../../../../lib/sessions/hooks/useLogAsyncSessionMetricEvents';
 import {LANGUAGE_TAG} from '../../../../lib/i18n';
 import {generateId} from '../../../../lib/utils/id';
+import useSessionState from '../../../../lib/session/state/state';
 
 const Card = styled(TouchableOpacity)({
   flexDirection: 'row',
@@ -88,6 +89,7 @@ const SelectContentStep: React.FC<StepProps> = ({
   const {navigate, popToTop} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const exerciseIds = useExerciseIds();
+  const setAsyncSession = useSessionState(state => state.setAsyncSession);
   const logAsyncSessionMetricEvent = useLogAsyncSessionMetricEvents();
 
   const {t, i18n} = useTranslation('Modal.CreateSession');
@@ -101,6 +103,7 @@ const SelectContentStep: React.FC<StepProps> = ({
         contentId: exerciseId,
         language: i18n.resolvedLanguage as LANGUAGE_TAG,
       };
+      setAsyncSession(session);
       navigate('AsyncSessionStack', {
         screen: 'IntroPortal',
         params: {
@@ -109,7 +112,12 @@ const SelectContentStep: React.FC<StepProps> = ({
       });
       logAsyncSessionMetricEvent('Create Async Session', session);
     },
-    [navigate, logAsyncSessionMetricEvent, i18n.resolvedLanguage],
+    [
+      navigate,
+      logAsyncSessionMetricEvent,
+      setAsyncSession,
+      i18n.resolvedLanguage,
+    ],
   );
 
   const renderItem = useCallback(

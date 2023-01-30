@@ -1,7 +1,7 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook} from '@testing-library/react-hooks';
 import dayjs from 'dayjs';
-import {Session} from '../../../../../shared/src/types/Session';
+import {AsyncSession, Session} from '../../../../../shared/src/types/Session';
 import {logEvent} from '../../../lib/metrics';
 import useUserState from '../../../lib/user/state/state';
 import useSessionState from '../state/state';
@@ -21,91 +21,155 @@ beforeEach(() => {
 });
 
 describe('useLogInSessionMetricEvents', () => {
-  it('logs events with specific properties', () => {
-    useUserState.setState({
-      user: {
-        uid: 'some-user-id',
-      } as FirebaseAuthTypes.User,
+  describe('logLiveSessionMetricEvent', () => {
+    it('logs events with specific properties', () => {
+      useUserState.setState({
+        user: {
+          uid: 'some-user-id',
+        } as FirebaseAuthTypes.User,
+      });
+
+      useSessionState.setState({
+        session: {
+          id: 'some-session-id',
+          type: 'private',
+          hostId: 'some-host-id',
+          startTime: '2022-02-02T02:02:02Z',
+          contentId: 'some-content-id',
+          language: 'en',
+        } as Session,
+      });
+
+      const {result} = renderHook(() => useLogInSessionMetricEvents());
+
+      result.current.logLiveSessionMetricEvent('Enter Intro Portal');
+
+      expect(mockedLogEvent).toHaveBeenCalledTimes(1);
+      expect(mockedLogEvent).toHaveBeenCalledWith('Enter Intro Portal', {
+        'Sharing Session ID': 'some-session-id',
+        'Sharing Session Type': 'private',
+        'Sharing Session Start Time': '2022-02-02T02:02:02Z',
+        'Sharing Session Duration': expect.any(Number),
+        'Exercise ID': 'some-content-id',
+        Language: 'en',
+        Host: false,
+      });
     });
 
-    useSessionState.setState({
-      session: {
-        id: 'some-session-id',
-        type: 'private',
-        hostId: 'some-host-id',
-        startTime: '2022-02-02T02:02:02Z',
-        contentId: 'some-content-id',
-        language: 'en',
-      } as Session,
+    it('resolves the host event property', () => {
+      useUserState.setState({
+        user: {
+          uid: 'some-user-id',
+        } as FirebaseAuthTypes.User,
+      });
+
+      useSessionState.setState({
+        session: {
+          id: 'some-session-id',
+          hostId: 'some-user-id',
+        } as Session,
+      });
+
+      const {result} = renderHook(() => useLogInSessionMetricEvents());
+
+      result.current.logLiveSessionMetricEvent('Enter Intro Portal');
+
+      expect(mockedLogEvent).toHaveBeenCalledTimes(1);
+      expect(mockedLogEvent).toHaveBeenCalledWith(
+        'Enter Intro Portal',
+        expect.objectContaining({
+          Host: true,
+        }),
+      );
     });
 
-    const {result} = renderHook(() => useLogInSessionMetricEvents());
+    it('resolves the duration event property', () => {
+      useUserState.setState({
+        user: {
+          uid: 'some-user-id',
+        } as FirebaseAuthTypes.User,
+      });
 
-    result.current('Enter Intro Portal');
+      useSessionState.setState({
+        session: {
+          id: 'some-session-id',
+          startTime: dayjs().subtract(1, 'hour').toISOString(),
+        } as Session,
+      });
 
-    expect(mockedLogEvent).toHaveBeenCalledTimes(1);
-    expect(mockedLogEvent).toHaveBeenCalledWith('Enter Intro Portal', {
-      'Sharing Session ID': 'some-session-id',
-      'Sharing Session Type': 'private',
-      'Sharing Session Start Time': '2022-02-02T02:02:02Z',
-      'Sharing Session Duration': expect.any(Number),
-      'Exercise ID': 'some-content-id',
-      Language: 'en',
-      Host: false,
+      const {result} = renderHook(() => useLogInSessionMetricEvents());
+
+      result.current.logLiveSessionMetricEvent('Enter Intro Portal');
+
+      expect(mockedLogEvent).toHaveBeenCalledTimes(1);
+      expect(mockedLogEvent).toHaveBeenCalledWith(
+        'Enter Intro Portal',
+        expect.objectContaining({
+          'Sharing Session Duration': 3600,
+        }),
+      );
     });
   });
 
-  it('resolves the host event property', () => {
-    useUserState.setState({
-      user: {
-        uid: 'some-user-id',
-      } as FirebaseAuthTypes.User,
+  describe('logAsyncSessionMetricEvent', () => {
+    it('logs events with specific properties', () => {
+      useUserState.setState({
+        user: {
+          uid: 'some-user-id',
+        } as FirebaseAuthTypes.User,
+      });
+
+      useSessionState.setState({
+        asyncSession: {
+          id: 'some-session-id',
+          type: 'private',
+          startTime: '2022-02-02T02:02:02Z',
+          contentId: 'some-content-id',
+          language: 'en',
+        } as AsyncSession,
+      });
+
+      const {result} = renderHook(() => useLogInSessionMetricEvents());
+
+      result.current.logAsyncSessionMetricEvent('Enter Intro Portal');
+
+      expect(mockedLogEvent).toHaveBeenCalledTimes(1);
+      expect(mockedLogEvent).toHaveBeenCalledWith('Enter Intro Portal', {
+        'Sharing Session ID': 'some-session-id',
+        'Sharing Session Type': 'private',
+        'Sharing Session Start Time': '2022-02-02T02:02:02Z',
+        'Sharing Session Duration': expect.any(Number),
+        'Exercise ID': 'some-content-id',
+        Language: 'en',
+        Host: false,
+      });
     });
 
-    useSessionState.setState({
-      session: {
-        id: 'some-session-id',
-        hostId: 'some-user-id',
-      } as Session,
+    it('resolves the duration event property', () => {
+      useUserState.setState({
+        user: {
+          uid: 'some-user-id',
+        } as FirebaseAuthTypes.User,
+      });
+
+      useSessionState.setState({
+        asyncSession: {
+          id: 'some-session-id',
+          startTime: dayjs().subtract(1, 'hour').toISOString(),
+        } as unknown as AsyncSession,
+      });
+
+      const {result} = renderHook(() => useLogInSessionMetricEvents());
+
+      result.current.logAsyncSessionMetricEvent('Enter Intro Portal');
+
+      expect(mockedLogEvent).toHaveBeenCalledTimes(1);
+      expect(mockedLogEvent).toHaveBeenCalledWith(
+        'Enter Intro Portal',
+        expect.objectContaining({
+          'Sharing Session Duration': 3600,
+        }),
+      );
     });
-
-    const {result} = renderHook(() => useLogInSessionMetricEvents());
-
-    result.current('Enter Intro Portal');
-
-    expect(mockedLogEvent).toHaveBeenCalledTimes(1);
-    expect(mockedLogEvent).toHaveBeenCalledWith(
-      'Enter Intro Portal',
-      expect.objectContaining({
-        Host: true,
-      }),
-    );
-  });
-
-  it('resolves the duration event property', () => {
-    useUserState.setState({
-      user: {
-        uid: 'some-user-id',
-      } as FirebaseAuthTypes.User,
-    });
-
-    useSessionState.setState({
-      session: {
-        id: 'some-session-id',
-        startTime: dayjs().subtract(1, 'hour').toISOString(),
-      } as Session,
-    });
-
-    const {result} = renderHook(() => useLogInSessionMetricEvents());
-
-    result.current('Enter Intro Portal');
-
-    expect(mockedLogEvent).toHaveBeenCalledTimes(1);
-    expect(mockedLogEvent).toHaveBeenCalledWith(
-      'Enter Intro Portal',
-      expect.objectContaining({
-        'Sharing Session Duration': 3600,
-      }),
-    );
   });
 });

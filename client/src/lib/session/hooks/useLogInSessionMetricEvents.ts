@@ -15,37 +15,65 @@ type AllowedSharingEvents =
 
 const useLogInSessionMetricEvents = () => {
   const user = useUser();
-  const session = useSessionState(state => state.session);
+  const liveSession = useSessionState(state => state.session);
+  const asyncSession = useSessionState(state => state.asyncSession);
 
-  const logSessionMetricEvent = useCallback(
+  const logLiveSessionMetricEvent = useCallback(
     (event: AllowedSharingEvents) => {
-      if (session?.id && user?.uid) {
+      if (liveSession?.id && user?.uid) {
         metrics.logEvent(event, {
-          'Sharing Session ID': session.id,
-          'Sharing Session Type': session.type,
-          'Sharing Session Start Time': session.startTime,
+          'Sharing Session ID': liveSession.id,
+          'Sharing Session Type': liveSession.type,
+          'Sharing Session Start Time': liveSession.startTime,
           'Sharing Session Duration': dayjs().diff(
-            session.startTime,
+            liveSession.startTime,
             'seconds',
           ),
-          'Exercise ID': session.contentId,
-          Host: user.uid === session.hostId,
-          Language: session.language,
+          'Exercise ID': liveSession.contentId,
+          Host: user.uid === liveSession?.hostId,
+          Language: liveSession.language,
         });
       }
     },
     [
       user?.uid,
-      session?.id,
-      session?.type,
-      session?.startTime,
-      session?.contentId,
-      session?.hostId,
-      session?.language,
+      liveSession?.id,
+      liveSession?.type,
+      liveSession?.startTime,
+      liveSession?.hostId,
+      liveSession?.contentId,
+      liveSession?.language,
     ],
   );
 
-  return logSessionMetricEvent;
+  const logAsyncSessionMetricEvent = useCallback(
+    (event: AllowedSharingEvents) => {
+      if (asyncSession?.id && user?.uid) {
+        metrics.logEvent(event, {
+          'Sharing Session ID': asyncSession.id,
+          'Sharing Session Type': asyncSession.type,
+          'Sharing Session Start Time': asyncSession.startTime,
+          'Sharing Session Duration': dayjs().diff(
+            asyncSession.startTime,
+            'seconds',
+          ),
+          'Exercise ID': asyncSession.contentId,
+          Host: false,
+          Language: asyncSession.language,
+        });
+      }
+    },
+    [
+      user?.uid,
+      asyncSession?.id,
+      asyncSession?.type,
+      asyncSession?.startTime,
+      asyncSession?.contentId,
+      asyncSession?.language,
+    ],
+  );
+
+  return {logLiveSessionMetricEvent, logAsyncSessionMetricEvent};
 };
 
 export default useLogInSessionMetricEvents;
