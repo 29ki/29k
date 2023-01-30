@@ -173,7 +173,7 @@ const SessionModal = () => {
 
   const onJoin = useCallback(() => {
     navigation.popToTop();
-    navigation.navigate('SessionStack', {
+    navigation.navigate('LiveSessionStack', {
       screen: 'ChangingRoom',
       params: {
         session: session,

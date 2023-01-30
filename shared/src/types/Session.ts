@@ -55,6 +55,14 @@ export type Session = SessionFields & {
   hostProfile?: UserProfile;
 };
 
+export type AsyncSession = {
+  type: SessionType;
+  id: string;
+  contentId: string;
+  startTime: string;
+  language: LANGUAGE_TAG;
+};
+
 export type DailyUserData = {
   inPortal: boolean;
   photoURL?: string;

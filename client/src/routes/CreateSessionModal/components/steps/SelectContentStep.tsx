@@ -1,9 +1,10 @@
 import React, {useMemo} from 'react';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
-import {useIsFocused} from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
+import dayjs from 'dayjs';
 
 import SETTINGS from '../../../../lib/constants/settings';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
@@ -20,6 +21,18 @@ import {Display16} from '../../../../lib/components/Typography/Display/Display';
 import Image from '../../../../lib/components/Image/Image';
 import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {formatExerciseName} from '../../../../lib/utils/string';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {
+  AppStackProps,
+  ModalStackProps,
+} from '../../../../lib/navigation/constants/routes';
+import {
+  AsyncSession,
+  SessionType,
+} from '../../../../../../shared/src/types/Session';
+import useLogAsyncSessionMetricEvents from '../../../../lib/sessions/hooks/useLogAsyncSessionMetricEvents';
+import {LANGUAGE_TAG} from '../../../../lib/i18n';
+import {generateId} from '../../../../lib/utils/id';
 
 const Card = styled(TouchableOpacity)({
   flexDirection: 'row',
@@ -70,22 +83,51 @@ const ContentCard: React.FC<{
 const SelectContentStep: React.FC<StepProps> = ({
   nextStep,
   setSelectedExercise,
+  selectedType,
 }) => {
+  const {navigate, popToTop} =
+    useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const exerciseIds = useExerciseIds();
+  const logAsyncSessionMetricEvent = useLogAsyncSessionMetricEvents();
 
-  const {t} = useTranslation('Modal.CreateSession');
+  const {t, i18n} = useTranslation('Modal.CreateSession');
+
+  const startAsyncSession = useCallback(
+    (exerciseId: string) => {
+      const session: AsyncSession = {
+        type: SessionType.async,
+        id: generateId(),
+        startTime: dayjs().utc().toJSON(),
+        contentId: exerciseId,
+        language: i18n.resolvedLanguage as LANGUAGE_TAG,
+      };
+      navigate('AsyncSessionStack', {
+        screen: 'IntroPortal',
+        params: {
+          session,
+        },
+      });
+      logAsyncSessionMetricEvent('Create Async Session', session);
+    },
+    [navigate, logAsyncSessionMetricEvent, i18n.resolvedLanguage],
+  );
 
   const renderItem = useCallback(
     ({item}: {item: Exercise['id']}) => (
       <ContentCard
         onPress={() => {
           setSelectedExercise(item);
-          nextStep();
+          if (selectedType === 'async') {
+            popToTop();
+            startAsyncSession(item);
+          } else {
+            nextStep();
+          }
         }}
         exerciseId={item}
       />
     ),
-    [setSelectedExercise, nextStep],
+    [setSelectedExercise, nextStep, popToTop, startAsyncSession, selectedType],
   );
 
   return (
