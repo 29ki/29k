@@ -17,17 +17,20 @@ type SessionStateFields = {
   completed?: boolean;
 };
 
-type SessionFields = {
+type SessionBaseFileds = {
   id: string;
+  type: SessionType;
+  contentId: string;
+  language: LANGUAGE_TAG;
+};
+
+type SessionFields = SessionBaseFileds & {
   dailyRoomName: string;
   url: string;
-  language: LANGUAGE_TAG;
   link?: string;
-  contentId: string;
   inviteCode: number;
   interestedCount: number;
   hostId: string;
-  type: SessionType;
   userIds: string[];
   ended: boolean;
 };
@@ -55,13 +58,7 @@ export type Session = SessionFields & {
   hostProfile?: UserProfile;
 };
 
-export type AsyncSession = {
-  type: SessionType;
-  id: string;
-  contentId: string;
-  startTime: string;
-  language: LANGUAGE_TAG;
-};
+export type AsyncSession = SessionBaseFileds & {startTime: string};
 
 export type DailyUserData = {
   inPortal: boolean;
