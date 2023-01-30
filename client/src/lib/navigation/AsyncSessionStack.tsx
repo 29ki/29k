@@ -4,10 +4,9 @@ import {
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 import {AsyncSessionStackProps} from './constants/routes';
-import Session from '../../routes/Session/Async/Session';
-import IntroPortal from '../../routes/Session/Async/IntroPortal';
-import OutroPortal from '../../routes/Session/Async/OutroPortal';
-import DailyProvider from '../daily/DailyProvider';
+import Session from '../../routes/AsyncSession/Session';
+import IntroPortal from '../../routes/AsyncSession/IntroPortal';
+import OutroPortal from '../../routes/AsyncSession/OutroPortal';
 
 const {Navigator, Screen} =
   createNativeStackNavigator<AsyncSessionStackProps>();
@@ -20,13 +19,11 @@ const screenOptions: NativeStackNavigationOptions = {
 };
 
 const AsyncSessionStack = () => (
-  <DailyProvider>
-    <Navigator screenOptions={screenOptions}>
-      <Screen name={'IntroPortal'} component={IntroPortal} />
-      <Screen name={'Session'} component={Session} />
-      <Screen name={'OutroPortal'} component={OutroPortal} />
-    </Navigator>
-  </DailyProvider>
+  <Navigator screenOptions={screenOptions}>
+    <Screen name={'IntroPortal'} component={IntroPortal} />
+    <Screen name={'Session'} component={Session} />
+    <Screen name={'OutroPortal'} component={OutroPortal} />
+  </Navigator>
 );
 
 export default AsyncSessionStack;

@@ -12,7 +12,7 @@ export type TabNavigatorProps = {
   Sessions: undefined;
 };
 
-export type OnlineSessionStackProps = {
+export type LiveSessionStackProps = {
   ChangingRoom: {session: Session};
   Session: {session: Session};
   IntroPortal: {session: Session};
@@ -29,7 +29,7 @@ export type AppStackProps = {
   KillSwitch: undefined;
   Welcome?: {showBack: boolean};
   Tabs: NavigatorScreenParams<TabNavigatorProps>;
-  OnlineSessionStack: NavigatorScreenParams<OnlineSessionStackProps>;
+  LiveSessionStack: NavigatorScreenParams<LiveSessionStackProps>;
   AsyncSessionStack: NavigatorScreenParams<AsyncSessionStackProps>;
 };
 
