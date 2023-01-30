@@ -20,8 +20,6 @@ type UserState = {
   metricsUid?: string;
 };
 
-type GetCurrentUserState = () => UserState | undefined;
-
 type SetCurrentUserState = (
   setter:
     | Partial<UserState>
@@ -43,7 +41,6 @@ type Actions = {
   }) => void;
   setPinnedSessions: (pinnedSessions: Array<PinnedSession>) => void;
   addCompletedSession: (completedSession: CompletedSession) => void;
-  getCurrentUserState: GetCurrentUserState;
   setCurrentUserState: SetCurrentUserState;
   reset: (isDelete?: boolean) => void;
 };
@@ -54,28 +51,31 @@ const initialState: State = {
   userState: {},
 };
 
+type GetCurrentUserStateSelector = (state: State) => UserState | undefined;
+export const getCurrentUserStateSelector: GetCurrentUserStateSelector = ({
+  user,
+  userState,
+}) => {
+  if (user?.uid) {
+    return userState[user.uid];
+  }
+};
+
 const useUserState = create<State & Actions>()(
   persist(
     (set, get) => {
-      const getCurrentUserState: GetCurrentUserState = () => {
-        const {user, userState} = get();
-        if (user?.uid) {
-          return userState[user.uid];
-        }
-      };
-
       const setCurrentUserState: SetCurrentUserState = setter => {
         const {user} = get();
         if (user?.uid) {
-          const state = getCurrentUserState() ?? {};
+          const currentState = getCurrentUserStateSelector(get()) ?? {};
           const newState =
-            typeof setter === 'function' ? setter(state) : setter;
+            typeof setter === 'function' ? setter(currentState) : setter;
 
           set(({userState}) => ({
             userState: {
               ...userState,
               [user.uid]: {
-                ...state,
+                ...currentState,
                 ...newState,
               },
             },
@@ -89,12 +89,11 @@ const useUserState = create<State & Actions>()(
         setClaims: claims => set({claims}),
         setUserAndClaims: ({user, claims}) => set({user, claims}),
 
-        getCurrentUserState,
         setCurrentUserState,
         setPinnedSessions: pinnedSessions =>
           setCurrentUserState({pinnedSessions}),
         addCompletedSession: completedSession =>
-          setCurrentUserState(({completedSessions = []}) => ({
+          setCurrentUserState(({completedSessions = []} = {}) => ({
             completedSessions: [...completedSessions, completedSession],
           })),
 
