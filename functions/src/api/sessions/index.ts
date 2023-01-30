@@ -3,7 +3,7 @@ import validator from 'koa-yup-validator';
 import 'firebase-functions';
 
 import {SessionType} from '../../../../shared/src/types/Session';
-import {createRouter} from '../../lib/routers';
+import {createApiRouter} from '../../lib/routers';
 import restrictAccessToRole from '../lib/restrictAccessToRole';
 
 import * as sessionsController from '../../controllers/sessions';
@@ -18,7 +18,7 @@ import {
 } from '../../../../shared/src/errors/Session';
 import {RequestError} from '../../controllers/errors/RequestError';
 
-const sessionsRouter = createRouter();
+const sessionsRouter = createApiRouter();
 
 sessionsRouter.get('/', async ctx => {
   const {response, user} = ctx;
