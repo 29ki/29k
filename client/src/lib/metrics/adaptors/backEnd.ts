@@ -3,7 +3,9 @@ import dayjs from 'dayjs';
 import 'react-native-get-random-values';
 import * as uuid from 'uuid';
 import {getCorrelationId} from '../../sentry';
-import useUserState from '../../user/state/state';
+import useUserState, {
+  getCurrentUserStateSelector,
+} from '../../user/state/state';
 import {trimSlashes} from '../../utils/string';
 import {
   Init,
@@ -14,11 +16,11 @@ import {
 } from '../types/Adaptor';
 
 const getMetricsUid = async () => {
-  const {user, getCurrentUserState, setCurrentUserState} =
-    useUserState.getState();
+  const state = useUserState.getState();
+  const {user, setCurrentUserState} = state;
 
   if (user) {
-    const uid = getCurrentUserState()?.metricsUid;
+    const uid = getCurrentUserStateSelector(state)?.metricsUid;
 
     if (uid) {
       return uid;
