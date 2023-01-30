@@ -57,7 +57,7 @@ describe('useUpdateProfileDetails', () => {
   it("only updates displayName if it's changed", async () => {
     (auth().currentUser as FirebaseAuthTypes.User).displayName =
       'Some Display Name';
-    console.log('FOO', auth().currentUser);
+
     const {result} = renderHook(() => useUpdateProfileDetails());
 
     await result.current.updateProfileDetails({

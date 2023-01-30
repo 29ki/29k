@@ -1,7 +1,7 @@
 const onUserChanged = jest.fn().mockReturnValue(() => {});
-const signInAnonymously = jest.fn();
-const signInWithCredential = jest.fn();
-const signOut = jest.fn();
+const signInAnonymously = jest.fn().mockResolvedValue();
+const signInWithCredential = jest.fn().mockResolvedValue();
+const signOut = jest.fn().mockResolvedValue();
 
 const deleteMock = jest.fn();
 const getIdToken = jest.fn();

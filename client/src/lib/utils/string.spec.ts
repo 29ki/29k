@@ -1,5 +1,5 @@
 import {Exercise} from '../../../../shared/src/types/generated/Exercise';
-import {formatExerciseName, formatInviteCode} from './string';
+import {formatExerciseName, formatInviteCode, trimSlashes} from './string';
 
 describe('formatInviteCode', () => {
   it('adds space every three digits', () => {
@@ -18,5 +18,11 @@ describe('formatExerciseName', () => {
     expect(formatExerciseName({name: 'Test'} as unknown as Exercise)).toEqual(
       'Test',
     );
+  });
+});
+
+describe('trimSlashes', () => {
+  it('trims slashes', () => {
+    expect(trimSlashes('/foo/bar/')).toBe('foo/bar');
   });
 });
