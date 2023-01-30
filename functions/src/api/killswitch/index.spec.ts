@@ -3,7 +3,7 @@ import request from 'supertest';
 import {killSwitchRouter} from './index';
 import createMockServer from '../lib/createMockServer';
 
-import {createRouter} from '../../lib/routers';
+import {createApiRouter} from '../../lib/routers';
 
 jest.mock('../../../../content/content.json', () => ({
   i18n: {
@@ -52,7 +52,7 @@ jest.mock('../../../../content/content.json', () => ({
   },
 }));
 
-const router = createRouter();
+const router = createApiRouter();
 router.use('/killSwitch', killSwitchRouter.routes());
 const mockServer = createMockServer(router.routes(), router.allowedMethods());
 

@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
-import {createRouter} from '../../lib/routers';
+import {createApiRouter} from '../../lib/routers';
 import {VerificationError} from '../../../../shared/src/errors/User';
 import {
   requestPublicHostRole,
@@ -8,7 +8,7 @@ import {
 } from '../../controllers/publicHostRequests';
 import {RequestError} from '../../controllers/errors/RequestError';
 
-const userRouter = createRouter();
+const userRouter = createApiRouter();
 
 userRouter.post('/requestPublicHost', async ctx => {
   const {id} = ctx.user;
