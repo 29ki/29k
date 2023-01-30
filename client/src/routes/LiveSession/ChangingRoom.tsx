@@ -37,7 +37,7 @@ import {
 } from '../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../lib/constants/spacings';
 import TextInput from '../../lib/components/Typography/TextInput/TextInput';
-import AudioIndicator from '../../lib/session/components/Participants/AudioIdicator';
+import AudioIndicator from '../../lib/session/components/Participants/AudioIndicator';
 import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
 import Screen from '../../lib/components/Screen/Screen';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';

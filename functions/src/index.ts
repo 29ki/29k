@@ -3,3 +3,4 @@ admin.initializeApp();
 
 export * from './api';
 export * from './slack';
+export * from './metrics';

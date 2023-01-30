@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import {Spacer24, Spacer4, Spacer8} from '../../components/Spacers/Spacer';
 import {Body14, Body16, BodyBold} from '../../components/Typography/Body/Body';
 import ScreenWrapper from '../../uiLib/decorators/ScreenWrapper';
-import AudioIndicator from './Participants/AudioIdicator';
+import AudioIndicator from './Participants/AudioIndicator';
 import ProgressBar from './ProgressBar/ProgressBar';
 import HostNotes from './HostNotes/HostNotes';
 import Notification from './Notifications/Notification';

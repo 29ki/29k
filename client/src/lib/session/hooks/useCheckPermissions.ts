@@ -74,7 +74,7 @@ const useCheckPermissions = () => {
       if (hasMicrophonePermissions()) {
         await onGranted();
       } else {
-        await confirm('camera', onDismiss);
+        await confirm('microphone', onDismiss);
       }
     },
     [hasMicrophonePermissions, confirm],
