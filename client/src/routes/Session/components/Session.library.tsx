@@ -21,7 +21,7 @@ const Row = styled.View({flexDirection: 'row'});
 
 export const UI = () => (
   <>
-    <HostNotes />
+    <HostNotes exercise={null} />
     <ScreenWrapper>
       <Body14>
         <BodyBold>Progress bar</BodyBold>
