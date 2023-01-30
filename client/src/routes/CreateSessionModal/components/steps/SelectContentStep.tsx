@@ -4,6 +4,7 @@ import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
+import dayjs from 'dayjs';
 
 import SETTINGS from '../../../../lib/constants/settings';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
@@ -31,7 +32,7 @@ import {
 } from '../../../../../../shared/src/types/Session';
 import useLogAsyncSessionMetricEvents from '../../../../lib/sessions/hooks/useLogAsyncSessionMetricEvents';
 import {LANGUAGE_TAG} from '../../../../lib/i18n';
-import dayjs from 'dayjs';
+import {generateId} from '../../../../lib/utils/id';
 
 const Card = styled(TouchableOpacity)({
   flexDirection: 'row',
@@ -95,7 +96,7 @@ const SelectContentStep: React.FC<StepProps> = ({
     (exerciseId: string) => {
       const session: AsyncSession = {
         type: SessionType.async,
-        id: 'test', // TODO generate,
+        id: generateId(),
         startTime: dayjs().utc().toJSON(),
         contentId: exerciseId,
         language: i18n.resolvedLanguage as LANGUAGE_TAG,
