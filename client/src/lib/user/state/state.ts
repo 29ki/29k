@@ -145,8 +145,4 @@ const useUserState = create<State & Actions>()(
   ),
 );
 
-useUserState.subscribe(state =>
-  console.log('user state', JSON.stringify(state.userState, null, 2)),
-);
-
 export default useUserState;
