@@ -1,9 +1,12 @@
 import Events from './Events';
 import CoreProperties from './CoreProperties';
 import UserProperties from './UserProperties';
+import React from 'react';
 
 type AnyUserProperty = Partial<UserProperties>;
 type AnyCoreProperty = Partial<CoreProperties>;
+
+export type MetricsProvider = React.FC<{children: React.ReactNode}>;
 
 export type Init = () => Promise<void>;
 

@@ -6,6 +6,9 @@ import {LANGUAGE_TAG} from '../../i18n';
 export type Language = {Language: LANGUAGE_TAG};
 export type Host = {Host: boolean};
 
+// Navigation properties
+export type ScreenName = {'Screen Name': string};
+
 // Exercise properties
 export type ExerciseID = {
   'Exercise ID': Exercise['id'];

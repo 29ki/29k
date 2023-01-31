@@ -2,19 +2,23 @@ import React from 'react';
 import {
   Init,
   LogEvent,
+  MetricsProvider as MetricsProviderType,
   SetConsent,
   SetCoreProperties,
   SetUserProperties,
 } from './types/Adaptor';
-import {Provider as PostHogProvider} from './adaptors/postHog';
+import {PostHogMetricsProvider} from './adaptors/postHog';
+import {BackEndMetricsProvider} from './adaptors/backEnd';
 import * as postHog from './adaptors/postHog';
 import * as backEnd from './adaptors/backEnd';
 
 export const DEFAULT_CONSENT = true;
 
-export const MetricsProvider: React.FC<{children: React.ReactNode}> = ({
-  children,
-}) => <PostHogProvider>{children}</PostHogProvider>;
+export const MetricsProvider: MetricsProviderType = ({children}) => (
+  <BackEndMetricsProvider>
+    <PostHogMetricsProvider>{children}</PostHogMetricsProvider>
+  </BackEndMetricsProvider>
+);
 
 export const init: Init = async () => {
   await Promise.all([postHog.init(), backEnd.init()]);

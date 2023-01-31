@@ -4,9 +4,13 @@ import {
   SharingSessionID,
   FeedbackProperties,
   Host,
+  ScreenName,
 } from './Properties';
 
 type Events = {
+  // Navigation
+  Screen: ScreenName;
+
   // Outside Sharing Sessions
   'Create Sharing Session': SharingSessionProperties;
   'Join Sharing Session': SharingSessionProperties;
