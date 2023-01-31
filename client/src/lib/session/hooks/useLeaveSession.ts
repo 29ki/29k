@@ -12,9 +12,10 @@ import {
 } from '../../../lib/navigation/constants/routes';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 import useSessionNotificationsState from '../state/sessionNotificationsState';
-import useLogInSessionMetricEvents from './useLogInSessionMetricEvents';
+import useLiveSessionMetricEvents from './useLiveSessionMetricEvents';
 import useIsSessionHost from './useIsSessionHost';
 import {SessionType} from '../../../../../shared/src/types/Session';
+import useAsyncSessionMetricEvents from './useAsyncSessionMetricEvents';
 
 type ScreenNavigationProps = NativeStackNavigationProp<
   TabNavigatorProps & ModalStackProps
@@ -27,8 +28,8 @@ const useLeaveSession = (sessionType: SessionType) => {
   const sessionState = useSessionState(state => state.sessionState);
   const isHost = useIsSessionHost();
   const {fetchSessions} = useSessions();
-  const {logLiveSessionMetricEvent, logAsyncSessionMetricEvent} =
-    useLogInSessionMetricEvents();
+  const logLiveSessionMetricEvent = useLiveSessionMetricEvents();
+  const logAsyncSessionMetricEvent = useAsyncSessionMetricEvents();
 
   const resetSession = useSessionState(state => state.reset);
   const resetSessionNotifications = useSessionNotificationsState(

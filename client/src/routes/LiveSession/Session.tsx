@@ -24,7 +24,7 @@ import useSubscribeToSessionIfFocused from '../../lib/session/hooks/useSusbscrib
 import useExerciseTheme from '../../lib/session/hooks/useExerciseTheme';
 import useSessionExercise from '../../lib/session/hooks/useSessionExercise';
 import useUpdateSessionState from '../../lib/session/hooks/useUpdateSessionState';
-import useLogInSessionMetricEvents from '../../lib/session/hooks/useLogInSessionMetricEvents';
+import useLiveSessionMetricEvents from '../../lib/session/hooks/useLiveSessionMetricEvents';
 import useCheckPermissions from '../../lib/session/hooks/useCheckPermissions';
 import useUserState from '../../lib/user/state/state';
 
@@ -119,7 +119,7 @@ const Session: React.FC = () => {
   const sessionSlideState = useSessionSlideState();
   const exercise = useSessionExercise();
   const theme = useExerciseTheme();
-  const {logLiveSessionMetricEvent} = useLogInSessionMetricEvents();
+  const logSessionMetricEvent = useLiveSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession(session.type);
   const {checkCameraPermissions, checkMicrophonePermissions} =
     useCheckPermissions();
@@ -133,9 +133,9 @@ const Session: React.FC = () => {
 
   useEffect(() => {
     if (sessionState?.id) {
-      logLiveSessionMetricEvent('Enter Sharing Session');
+      logSessionMetricEvent('Enter Sharing Session');
     }
-  }, [logLiveSessionMetricEvent, sessionState?.id]);
+  }, [logSessionMetricEvent, sessionState?.id]);
 
   useEffect(() => {
     if (sessionState?.completed) {
@@ -143,12 +143,12 @@ const Session: React.FC = () => {
         id: sessionState?.id,
         completedAt: dayjs.utc().toDate(),
       });
-      logLiveSessionMetricEvent('Complete Sharing Session');
+      logSessionMetricEvent('Complete Sharing Session');
     }
   }, [
     sessionState?.completed,
     sessionState?.id,
-    logLiveSessionMetricEvent,
+    logSessionMetricEvent,
     addCompletedSession,
   ]);
 

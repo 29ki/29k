@@ -24,10 +24,14 @@ jest.mock('react', () => ({
 
 const mockLogLiveSessionMetricEvent = jest.fn();
 const mockLogAsyncSessionMetricEvent = jest.fn();
-jest.mock('./useLogInSessionMetricEvents', () => () => ({
-  logLiveSessionMetricEvent: mockLogLiveSessionMetricEvent,
-  logAsyncSessionMetricEvent: mockLogAsyncSessionMetricEvent,
-}));
+jest.mock(
+  './useLiveSessionMetricEvents',
+  () => () => mockLogLiveSessionMetricEvent,
+);
+jest.mock(
+  './useAsyncSessionMetricEvents',
+  () => () => mockLogAsyncSessionMetricEvent,
+);
 
 afterEach(() => {
   jest.clearAllMocks();

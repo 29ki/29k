@@ -16,7 +16,7 @@ import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack'
 import IntroPortalComponent from '../../lib/session/components/IntroPortal/IntroPortal';
 import useUpdateAsyncSessionState from '../../lib/session/hooks/useUpdateAsyncSessionState';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
-import useLogInSessionMetricEvents from '../../lib/session/hooks/useLogInSessionMetricEvents';
+import useAsyncSessionMetricEvents from '../../lib/session/hooks/useAsyncSessionMetricEvents';
 
 const IntroPortal: React.FC = () => {
   const {
@@ -33,18 +33,18 @@ const IntroPortal: React.FC = () => {
   const {startSession} = useUpdateAsyncSessionState(session);
   const {leaveSessionWithConfirm} = useLeaveSession(session.type);
   const isFocused = useIsFocused();
-  const {logAsyncSessionMetricEvent} = useLogInSessionMetricEvents();
+  const logSessionMetricEvent = useAsyncSessionMetricEvents();
 
   usePreventGoingBack(leaveSessionWithConfirm);
 
   useEffect(() => {
-    logAsyncSessionMetricEvent('Enter Intro Portal');
-  }, [logAsyncSessionMetricEvent]);
+    logSessionMetricEvent('Enter Intro Portal');
+  }, [logSessionMetricEvent]);
 
   const onStartSession = useCallback(() => {
     startSession();
-    logAsyncSessionMetricEvent('Start Sharing Session');
-  }, [startSession, logAsyncSessionMetricEvent]);
+    logSessionMetricEvent('Start Sharing Session');
+  }, [startSession, logSessionMetricEvent]);
 
   const navigateToSession = useCallback(
     () => navigate('Session', {session}),

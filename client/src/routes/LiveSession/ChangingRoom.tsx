@@ -45,7 +45,7 @@ import useUser from '../../lib/user/hooks/useUser';
 import Image from '../../lib/components/Image/Image';
 import useSubscribeToSessionIfFocused from '../../lib/session/hooks/useSusbscribeToSessionIfFocused';
 import {getSessionToken} from '../../lib/sessions/api/session';
-import useLogInSessionMetricEvents from '../../lib/session/hooks/useLogInSessionMetricEvents';
+import useLiveSessionMetricEvents from '../../lib/session/hooks/useLiveSessionMetricEvents';
 import useCheckPermissions from '../../lib/session/hooks/useCheckPermissions';
 
 const KeyboardWrapper = styled.KeyboardAvoidingView.attrs({
@@ -129,7 +129,7 @@ const ChangingRoom = () => {
   const me = useLocalParticipant();
   const user = useUser();
   const [localUserName, setLocalUserName] = useState(user?.displayName ?? '');
-  const {logLiveSessionMetricEvent} = useLogInSessionMetricEvents();
+  const logSessionMetricEvent = useLiveSessionMetricEvents();
   const {
     checkJoinPermissions,
     checkCameraPermissions,
@@ -140,8 +140,8 @@ const ChangingRoom = () => {
   const hasVideo = Boolean(me?.videoTrack);
 
   useEffect(() => {
-    logLiveSessionMetricEvent('Enter Changing Room');
-  }, [logLiveSessionMetricEvent]);
+    logSessionMetricEvent('Enter Changing Room');
+  }, [logSessionMetricEvent]);
 
   const preJoin = useCallback(
     async (url: string, id: string) => {
