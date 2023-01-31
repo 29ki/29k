@@ -53,5 +53,5 @@ export const setUserProperties: SetUserProperties = async properties => {
 
 export const setCoreProperties: SetCoreProperties = async properties => {
   coreProperties = {...coreProperties, ...properties};
-  await setUserProperties(properties);
+  await setUserProperties(coreProperties);
 };
