@@ -3,7 +3,7 @@ import useUserState, {
   getCurrentUserStateSelector,
 } from '../../../../user/state/state';
 
-const getMetricsUid = async () => {
+const getMetricsUid = () => {
   const state = useUserState.getState();
   const {user, setCurrentUserState} = state;
 
