@@ -25,7 +25,7 @@ const useUpdateAsyncSessionState = (session: AsyncSession) => {
   }, [session?.id, setSessionState]);
 
   const endSession = useCallback(async () => {
-    setPartialSessionState({ended: true});
+    setPartialSessionState({ended: true, timestamp: dayjs.utc().toJSON()});
   }, [setPartialSessionState]);
 
   const navigateToIndex = useCallback(
@@ -41,14 +41,19 @@ const useUpdateAsyncSessionState = (session: AsyncSession) => {
       }
 
       const completed = index === content.length - 1 ? true : undefined;
-      setPartialSessionState({index, playing: false, completed});
+      setPartialSessionState({
+        index,
+        playing: false,
+        completed,
+        timestamp: dayjs.utc().toJSON(),
+      });
     },
     [setPartialSessionState],
   );
 
   const setPlaying = useCallback(
     async (playing: SessionState['playing']) => {
-      setPartialSessionState({playing});
+      setPartialSessionState({playing, timestamp: dayjs.utc().toJSON()});
     },
     [setPartialSessionState],
   );
