@@ -24,7 +24,7 @@ import useSubscribeToSessionIfFocused from '../../lib/session/hooks/useSusbscrib
 import useExerciseTheme from '../../lib/session/hooks/useExerciseTheme';
 import useSessionExercise from '../../lib/session/hooks/useSessionExercise';
 import useUpdateSessionState from '../../lib/session/hooks/useUpdateSessionState';
-import useLogInSessionMetricEvents from '../../lib/session/hooks/useLogInSessionMetricEvents';
+import useLiveSessionMetricEvents from '../../lib/session/hooks/useLiveSessionMetricEvents';
 import useCheckPermissions from '../../lib/session/hooks/useCheckPermissions';
 import useUserState from '../../lib/user/state/state';
 
@@ -119,8 +119,8 @@ const Session: React.FC = () => {
   const sessionSlideState = useSessionSlideState();
   const exercise = useSessionExercise();
   const theme = useExerciseTheme();
-  const logSessionMetricEvent = useLogInSessionMetricEvents();
-  const {leaveSessionWithConfirm} = useLeaveSession();
+  const logSessionMetricEvent = useLiveSessionMetricEvents();
+  const {leaveSessionWithConfirm} = useLeaveSession(session.type);
   const {checkCameraPermissions, checkMicrophonePermissions} =
     useCheckPermissions();
   const user = useUser();

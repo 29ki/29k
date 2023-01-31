@@ -2,10 +2,10 @@ import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook} from '@testing-library/react-hooks';
 import dayjs from 'dayjs';
 import {Session} from '../../../../../shared/src/types/Session';
-import {logEvent} from '../../../lib/metrics';
-import useUserState from '../../../lib/user/state/state';
+import {logEvent} from '../../metrics';
+import useUserState from '../../user/state/state';
 import useSessionState from '../state/state';
-import useLogInSessionMetricEvents from './useLogInSessionMetricEvents';
+import useLiveSessionMetricEvents from './useLiveSessionMetricEvents';
 
 jest.mock('../../../lib/metrics');
 
@@ -20,7 +20,7 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-describe('useLogInSessionMetricEvents', () => {
+describe('useLiveSessionMetricEvents', () => {
   it('logs events with specific properties', () => {
     useUserState.setState({
       user: {
@@ -39,7 +39,7 @@ describe('useLogInSessionMetricEvents', () => {
       } as Session,
     });
 
-    const {result} = renderHook(() => useLogInSessionMetricEvents());
+    const {result} = renderHook(() => useLiveSessionMetricEvents());
 
     result.current('Enter Intro Portal');
 
@@ -69,7 +69,7 @@ describe('useLogInSessionMetricEvents', () => {
       } as Session,
     });
 
-    const {result} = renderHook(() => useLogInSessionMetricEvents());
+    const {result} = renderHook(() => useLiveSessionMetricEvents());
 
     result.current('Enter Intro Portal');
 
@@ -96,7 +96,7 @@ describe('useLogInSessionMetricEvents', () => {
       } as Session,
     });
 
-    const {result} = renderHook(() => useLogInSessionMetricEvents());
+    const {result} = renderHook(() => useLiveSessionMetricEvents());
 
     result.current('Enter Intro Portal');
 

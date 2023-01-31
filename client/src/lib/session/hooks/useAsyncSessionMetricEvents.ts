@@ -1,11 +1,10 @@
 import dayjs from 'dayjs';
 import {useCallback} from 'react';
-import * as metrics from '../../../lib/metrics';
-import useUser from '../../../lib/user/hooks/useUser';
+import * as metrics from '../../metrics';
+import useUser from '../../user/hooks/useUser';
 import useSessionState from '../state/state';
 
 type AllowedSharingEvents =
-  | 'Enter Changing Room'
   | 'Enter Intro Portal'
   | 'Start Sharing Session'
   | 'Enter Sharing Session'
@@ -13,9 +12,9 @@ type AllowedSharingEvents =
   | 'Complete Sharing Session'
   | 'Enter Outro Portal';
 
-const useLogInSessionMetricEvents = () => {
+const useAsyncSessionMetricEvents = () => {
   const user = useUser();
-  const session = useSessionState(state => state.session);
+  const session = useSessionState(state => state.asyncSession);
 
   const logSessionMetricEvent = useCallback(
     (event: AllowedSharingEvents) => {
@@ -29,7 +28,7 @@ const useLogInSessionMetricEvents = () => {
             'seconds',
           ),
           'Exercise ID': session.contentId,
-          Host: user.uid === session.hostId,
+          Host: false,
           Language: session.language,
         });
       }
@@ -40,7 +39,6 @@ const useLogInSessionMetricEvents = () => {
       session?.type,
       session?.startTime,
       session?.contentId,
-      session?.hostId,
       session?.language,
     ],
   );
@@ -48,4 +46,4 @@ const useLogInSessionMetricEvents = () => {
   return logSessionMetricEvent;
 };
 
-export default useLogInSessionMetricEvents;
+export default useAsyncSessionMetricEvents;

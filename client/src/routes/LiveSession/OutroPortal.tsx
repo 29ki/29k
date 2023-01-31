@@ -16,8 +16,9 @@ import Button from '../../lib/components/Buttons/Button';
 import Gutters from '../../lib/components/Gutters/Gutters';
 import AudioFader from '../../lib/session/components/AudioFader/AudioFader';
 import useSessionState from '../../lib/session/state/state';
-import useLogInSessionMetricEvents from '../../lib/session/hooks/useLogInSessionMetricEvents';
+import useLiveSessionMetricEvents from '../../lib/session/hooks/useLiveSessionMetricEvents';
 import {VideoTransition} from '../../lib/session/components/VideoTransition/VideoTransition';
+import {SessionType} from '../../../../shared/src/types/Session';
 
 const TopBar = styled(Gutters)({
   justifyContent: 'flex-end',
@@ -32,10 +33,10 @@ const OutroPortal: React.FC = () => {
 
   const session = useSessionState(state => state.session);
   const exercise = useSessionExercise();
-  const {leaveSession} = useLeaveSession();
+  const {leaveSession} = useLeaveSession(SessionType.private);
   const isFocused = useIsFocused();
 
-  const logSessionMetricEvent = useLogInSessionMetricEvents();
+  const logSessionMetricEvent = useLiveSessionMetricEvents();
 
   usePreventGoingBack();
   useNavigateWithFade();

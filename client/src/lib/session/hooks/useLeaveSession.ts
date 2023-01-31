@@ -12,21 +12,24 @@ import {
 } from '../../../lib/navigation/constants/routes';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 import useSessionNotificationsState from '../state/sessionNotificationsState';
-import useLogInSessionMetricEvents from './useLogInSessionMetricEvents';
+import useLiveSessionMetricEvents from './useLiveSessionMetricEvents';
 import useIsSessionHost from './useIsSessionHost';
+import {SessionType} from '../../../../../shared/src/types/Session';
+import useAsyncSessionMetricEvents from './useAsyncSessionMetricEvents';
 
 type ScreenNavigationProps = NativeStackNavigationProp<
   TabNavigatorProps & ModalStackProps
 >;
 
-const useLeaveSession = () => {
+const useLeaveSession = (sessionType: SessionType) => {
   const {t} = useTranslation('Component.ConfirmExitSession');
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();
   const sessionState = useSessionState(state => state.sessionState);
   const isHost = useIsSessionHost();
   const {fetchSessions} = useSessions();
-  const logSessionMetricEvent = useLogInSessionMetricEvents();
+  const logLiveSessionMetricEvent = useLiveSessionMetricEvents();
+  const logAsyncSessionMetricEvent = useAsyncSessionMetricEvents();
 
   const resetSession = useSessionState(state => state.reset);
   const resetSessionNotifications = useSessionNotificationsState(
@@ -34,7 +37,10 @@ const useLeaveSession = () => {
   );
 
   const leaveSession = useCallback(async () => {
-    await leaveMeeting();
+    if (sessionType !== 'async') {
+      await leaveMeeting();
+    }
+
     resetSession();
     resetSessionNotifications();
 
@@ -50,6 +56,7 @@ const useLeaveSession = () => {
       });
     }
   }, [
+    sessionType,
     sessionState?.id,
     sessionState?.started,
     sessionState?.completed,
@@ -76,12 +83,23 @@ const useLeaveSession = () => {
           onPress: () => {
             leaveSession();
             if (!sessionState?.completed) {
-              logSessionMetricEvent('Leave Sharing Session');
+              if (sessionType === 'async') {
+                logAsyncSessionMetricEvent('Leave Sharing Session');
+              } else {
+                logLiveSessionMetricEvent('Leave Sharing Session');
+              }
             }
           },
         },
       ]),
-    [t, leaveSession, sessionState?.completed, logSessionMetricEvent],
+    [
+      sessionType,
+      t,
+      leaveSession,
+      sessionState?.completed,
+      logLiveSessionMetricEvent,
+      logAsyncSessionMetricEvent,
+    ],
   );
 
   return {leaveSession, leaveSessionWithConfirm};

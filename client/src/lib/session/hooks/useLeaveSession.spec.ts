@@ -2,7 +2,11 @@ import {useNavigation} from '@react-navigation/native';
 import {act, renderHook} from '@testing-library/react-hooks';
 import {useTranslation} from 'react-i18next';
 import {Alert as AlertMock} from 'react-native';
-import {Session, SessionState} from '../../../../../shared/src/types/Session';
+import {
+  Session,
+  SessionState,
+  SessionType,
+} from '../../../../../shared/src/types/Session';
 import useSessionState from '../state/state';
 import useLeaveSession from './useLeaveSession';
 
@@ -18,10 +22,15 @@ jest.mock('react', () => ({
   useContext: jest.fn(() => ({leaveMeeting: mockLeaveMeeting})),
 }));
 
-const mockLogSessionMetricEvent = jest.fn();
+const mockLogLiveSessionMetricEvent = jest.fn();
+const mockLogAsyncSessionMetricEvent = jest.fn();
 jest.mock(
-  './useLogInSessionMetricEvents',
-  () => () => mockLogSessionMetricEvent,
+  './useLiveSessionMetricEvents',
+  () => () => mockLogLiveSessionMetricEvent,
+);
+jest.mock(
+  './useAsyncSessionMetricEvents',
+  () => () => mockLogAsyncSessionMetricEvent,
 );
 
 afterEach(() => {
@@ -42,11 +51,27 @@ describe('useLeaveSession', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLeaveSession());
+      const {result} = renderHook(() => useLeaveSession(SessionType.private));
 
       await act(() => result.current.leaveSession());
 
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
+      expect(useSessionState.getState().session).toBe(null);
+      expect(mockNavigate).toHaveBeenCalledTimes(1);
+    });
+
+    it('resets the state and navigates on async sessions', async () => {
+      useSessionState.setState({
+        session: {
+          id: 'some-session-id',
+        } as Session,
+      });
+
+      const {result} = renderHook(() => useLeaveSession(SessionType.async));
+
+      await act(() => result.current.leaveSession());
+
+      expect(mockLeaveMeeting).toHaveBeenCalledTimes(0);
       expect(useSessionState.getState().session).toBe(null);
       expect(mockNavigate).toHaveBeenCalledTimes(1);
     });
@@ -62,7 +87,7 @@ describe('useLeaveSession', () => {
           completed: true,
         } as SessionState,
       });
-      const {result} = renderHook(() => useLeaveSession());
+      const {result} = renderHook(() => useLeaveSession(SessionType.public));
 
       await act(() => result.current.leaveSession());
 
@@ -76,7 +101,7 @@ describe('useLeaveSession', () => {
 
   describe('leaveSessionWithConfirm', () => {
     it('shows a confirm dialogue on leaving the session', async () => {
-      const {result} = renderHook(() => useLeaveSession());
+      const {result} = renderHook(() => useLeaveSession(SessionType.private));
 
       await act(() => result.current.leaveSessionWithConfirm());
 
@@ -113,7 +138,7 @@ describe('useLeaveSession', () => {
         config[1].onPress();
       });
 
-      const {result} = renderHook(() => useLeaveSession());
+      const {result} = renderHook(() => useLeaveSession(SessionType.private));
 
       await act(() => result.current.leaveSessionWithConfirm());
 
@@ -121,7 +146,33 @@ describe('useLeaveSession', () => {
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
       expect(useSessionState.getState().session).toBe(null);
       expect(useSessionState.getState().sessionState).toBe(null);
-      expect(mockLogSessionMetricEvent).toHaveBeenCalledTimes(1);
+      expect(mockLogLiveSessionMetricEvent).toHaveBeenCalledTimes(1);
+      expect(mockNavigate).toHaveBeenCalledTimes(2);
+    });
+
+    it('resets the state and navigates on confirming on async sessions', async () => {
+      useSessionState.setState({
+        session: {id: 'some-session-id'} as Session,
+        sessionState: {
+          id: 'some-session-id',
+          started: true,
+        } as SessionState,
+      });
+
+      alertConfirmMock.mockImplementationOnce((header, text, config) => {
+        // Run the confirm action
+        config[1].onPress();
+      });
+
+      const {result} = renderHook(() => useLeaveSession(SessionType.async));
+
+      await act(() => result.current.leaveSessionWithConfirm());
+
+      expect(alertConfirmMock).toHaveBeenCalledTimes(1);
+      expect(mockLeaveMeeting).toHaveBeenCalledTimes(0);
+      expect(useSessionState.getState().session).toBe(null);
+      expect(useSessionState.getState().sessionState).toBe(null);
+      expect(mockLogAsyncSessionMetricEvent).toHaveBeenCalledTimes(1);
       expect(mockNavigate).toHaveBeenCalledTimes(2);
     });
 
@@ -139,7 +190,7 @@ describe('useLeaveSession', () => {
         config[0].onPress();
       });
 
-      const {result} = renderHook(() => useLeaveSession());
+      const {result} = renderHook(() => useLeaveSession(SessionType.public));
 
       await act(() => result.current.leaveSessionWithConfirm());
 
