@@ -1,15 +1,15 @@
-import type * as MetricsType from '.';
+import type * as BackEndAdaptorType from '.';
 import getMetricsUid from './utils/getMetricsUid';
 import metricsClient from './utils/metricsClient';
 
 jest.mock('./utils/getMetricsUid');
 jest.mock('./utils/metricsClient');
 
-let metrics: typeof MetricsType;
+let backEnd: typeof BackEndAdaptorType;
 beforeEach(() => {
   jest.isolateModules(() => {
     // Metrics library is unfortunately statefull with coreProperties
-    metrics = require('./index');
+    backEnd = require('./index');
   });
 });
 
@@ -23,7 +23,7 @@ describe('logEvent', () => {
     jest.useFakeTimers().setSystemTime(new Date('2022-02-02'));
     jest.mocked(getMetricsUid).mockReturnValueOnce('some-metrics-uid');
 
-    await metrics.logEvent('Screen', {'Screen Name': 'foo'});
+    await backEnd.logEvent('Screen', {'Screen Name': 'foo'});
 
     expect(metricsClient).toHaveBeenCalledTimes(1);
     expect(metricsClient).toHaveBeenCalledWith('logEvent/some-metrics-uid', {
@@ -35,7 +35,7 @@ describe('logEvent', () => {
   it('does not send events if metricsUid is undefined', async () => {
     jest.mocked(getMetricsUid).mockReturnValueOnce(undefined);
 
-    await metrics.logEvent('Screen', {'Screen Name': 'foo'});
+    await backEnd.logEvent('Screen', {'Screen Name': 'foo'});
 
     expect(metricsClient).toHaveBeenCalledTimes(0);
   });
@@ -45,7 +45,7 @@ describe('setUserProperties', () => {
   it('sends properties to back-end', async () => {
     jest.mocked(getMetricsUid).mockReturnValueOnce('some-metrics-uid');
 
-    await metrics.setUserProperties({'App Git Commit': 'some-git-commit'});
+    await backEnd.setUserProperties({'App Git Commit': 'some-git-commit'});
 
     expect(metricsClient).toHaveBeenCalledTimes(1);
     expect(metricsClient).toHaveBeenCalledWith(
@@ -60,7 +60,7 @@ describe('setUserProperties', () => {
   it('does not send properties if metricsUid is undefined', async () => {
     jest.mocked(getMetricsUid).mockReturnValueOnce(undefined);
 
-    await metrics.setUserProperties({'App Git Commit': 'some-git-commit'});
+    await backEnd.setUserProperties({'App Git Commit': 'some-git-commit'});
 
     expect(metricsClient).toHaveBeenCalledTimes(0);
   });
@@ -70,7 +70,7 @@ describe('setCoreProperties', () => {
   it('calls setUserProperties', async () => {
     jest.mocked(getMetricsUid).mockReturnValueOnce('some-metrics-uid');
 
-    await metrics.setCoreProperties({'App Git Commit': 'some-git-commit'});
+    await backEnd.setCoreProperties({'App Git Commit': 'some-git-commit'});
 
     expect(metricsClient).toHaveBeenCalledTimes(1);
     expect(metricsClient).toHaveBeenCalledWith(
@@ -89,8 +89,8 @@ describe('setCoreProperties', () => {
       .mockReturnValueOnce('some-metrics-uid')
       .mockReturnValueOnce('some-metrics-uid');
 
-    await metrics.setCoreProperties({'App Git Commit': 'some-git-commit'});
-    await metrics.logEvent('Screen', {'Screen Name': 'some-screen'});
+    await backEnd.setCoreProperties({'App Git Commit': 'some-git-commit'});
+    await backEnd.logEvent('Screen', {'Screen Name': 'some-screen'});
 
     expect(metricsClient).toHaveBeenCalledTimes(2);
     expect(metricsClient).toHaveBeenCalledWith(
@@ -109,7 +109,7 @@ describe('setCoreProperties', () => {
   it('does not send properties if metricsUid is undefined', async () => {
     jest.mocked(getMetricsUid).mockReturnValueOnce(undefined);
 
-    await metrics.setCoreProperties({'App Git Commit': 'some-git-commit'});
+    await backEnd.setCoreProperties({'App Git Commit': 'some-git-commit'});
 
     expect(metricsClient).toHaveBeenCalledTimes(0);
   });
