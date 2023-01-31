@@ -19,7 +19,7 @@ export const PostHogMetricsProvider: MetricsProvider = ({children}) => (
 
 const initPostHog = async () => {
   if (!POSTHOG_API_KEY) {
-    return initPromise;
+    return;
   }
 
   if (!initPromise) {
@@ -27,7 +27,7 @@ const initPostHog = async () => {
       host: 'https://eu.posthog.com',
     }));
 
-    setConsent(DEFAULT_CONSENT);
+    await setConsent(DEFAULT_CONSENT);
   }
 
   return initPromise;
