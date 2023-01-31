@@ -5,7 +5,7 @@ import {createJSONStorage, persist} from 'zustand/middleware';
 import {omit} from 'ramda';
 
 import {Session} from '../../../../../shared/src/types/Session';
-import {v0} from './migrateVersion0';
+import migrate from './migration';
 
 const USER_STATE_VERSION = 1;
 
@@ -35,13 +35,15 @@ type SetCurrentUserState = (
     | ((userState: Partial<UserState>) => Partial<UserState>),
 ) => void;
 
-type State = {
+export type State = {
   user: FirebaseAuthTypes.User | null;
   claims: FirebaseAuthTypes.IdTokenResult['claims'];
   userState: {[key: string]: UserState};
 };
 
-type Actions = {
+export type PersistedState = Pick<State, 'userState'>;
+
+export type Actions = {
   setUser: (user: State['user']) => void;
   setClaims: (claims: State['claims']) => void;
   setUserAndClaims: (state: {
@@ -126,21 +128,9 @@ const useUserState = create<State & Actions>()(
       storage: createJSONStorage(() => AsyncStorage),
       partialize: ({userState}) => ({userState}),
       // In dev I had change this with the app closed (android)
-      // otherwise the "migrate" functions does not run
+      // otherwise the "migrate" functions does not run due to diff failure
       version: USER_STATE_VERSION,
-      migrate: async (persistedState, version) => {
-        const persisted = persistedState as {userState: State['userState']};
-
-        if (version === 0) {
-          const newState: State['userState'] = {};
-          for (const [userId, state] of Object.entries(persisted.userState)) {
-            newState[userId] = await v0.migrateState(state as UserState);
-          }
-          return {userState: newState} as unknown as State & Actions;
-        }
-
-        return {userState: persisted.userState} as unknown as State & Actions;
-      },
+      migrate,
     },
   ),
 );
