@@ -42,12 +42,12 @@ export type StepProps = {
   setSelectedType: Dispatch<SetStateAction<StepProps['selectedType']>>;
 };
 
-const publicHostSteps = (hasProfile: boolean) =>
-  hasProfile
+const publicHostSteps = (skipProfile: boolean) =>
+  skipProfile
     ? [SelectTypeStep, SelectContentStep, SetDateTimeStep]
     : [SelectTypeStep, UpdateProfileStep, SelectContentStep, SetDateTimeStep];
-const normalUserSteps = (hasProfile: boolean) =>
-  hasProfile
+const normalUserSteps = (skipProfile: boolean) =>
+  skipProfile
     ? [SelectTypeStep, SelectContentStep, SetDateTimeStep]
     : [SelectTypeStep, UpdateProfileStep, SelectContentStep, SetDateTimeStep];
 
@@ -73,8 +73,10 @@ const CreateSessionModal = () => {
 
   const currentSteps = useMemo(
     () =>
-      isPublicHost ? publicHostSteps(hasProfile) : normalUserSteps(hasProfile),
-    [isPublicHost, hasProfile],
+      isPublicHost
+        ? publicHostSteps(selectedType === 'async' || hasProfile)
+        : normalUserSteps(selectedType === 'async' || hasProfile),
+    [isPublicHost, hasProfile, selectedType],
   );
 
   const CurrentStepComponent: React.FC<StepProps> = useMemo(

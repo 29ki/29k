@@ -3,9 +3,9 @@ import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useSessionState from '../state/state';
 
 const useSessionExercise = (): Exercise | null => {
-  const contentId = useSessionState(state => state.session?.contentId);
-  const excercise = useExerciseById(contentId);
-  return contentId ? excercise : null;
+  const liveSession = useSessionState(state => state.session);
+  const asyncSession = useSessionState(state => state.asyncSession);
+  return useExerciseById(liveSession?.contentId ?? asyncSession?.contentId);
 };
 
 export default useSessionExercise;

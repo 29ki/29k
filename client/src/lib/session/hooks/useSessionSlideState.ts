@@ -13,17 +13,17 @@ export type SessionSlideState = {
 
 const useSessionSlideState = (): SessionSlideState | null => {
   const sessionState = useSessionState(state => state.sessionState);
-  const excercise = useSessionExercise();
+  const exercise = useSessionExercise();
 
   return useMemo(() => {
-    if (!excercise || typeof sessionState?.index !== 'number') {
+    if (!exercise || typeof sessionState?.index !== 'number') {
       return null;
     }
 
     const index = sessionState?.index;
-    const previous = excercise.slides[index - 1];
-    const current = excercise.slides[index];
-    const next = excercise.slides[index + 1];
+    const previous = exercise.slides[index - 1];
+    const current = exercise.slides[index];
+    const next = exercise.slides[index + 1];
 
     return {
       index,
@@ -31,7 +31,7 @@ const useSessionSlideState = (): SessionSlideState | null => {
       current,
       next,
     };
-  }, [excercise, sessionState?.index]);
+  }, [exercise, sessionState?.index]);
 };
 
 export default useSessionSlideState;

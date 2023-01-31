@@ -37,8 +37,8 @@ const useSessionState = create<State & Actions>()((set, get) => ({
     }
   },
   setSessionState: sessionState => set({sessionState}),
-  setSession: session => set({session}),
-  setAsyncSession: asyncSession => set({asyncSession}),
+  setSession: session => set({session, asyncSession: null}),
+  setAsyncSession: asyncSession => set({asyncSession, session: null}),
   setCurrentContentReachedEnd: currentContentReachedEnd =>
     set({currentContentReachedEnd}),
   reset: () => set(initialState),

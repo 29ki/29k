@@ -1,11 +1,9 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
 import {ViewStyle} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
-import useIsSessionHost from '../../../session/hooks/useIsSessionHost';
-import useSessionState from '../../state/state';
-import useSessionSlideState from '../../../session/hooks/useSessionSlideState';
+import {SessionSlideState} from '../../../session/hooks/useSessionSlideState';
 
 import {
   ChevronRight,
@@ -15,13 +13,11 @@ import {
   Rewind,
 } from '../../../components/Icons';
 
-import useUpdateSessionState from '../../../session/hooks/useUpdateSessionState';
 import {Spacer8} from '../../../components/Spacers/Spacer';
 import Button from '../../../components/Buttons/Button';
 import IconButton from '../../../components/Buttons/IconButton/IconButton';
-
-import useSessionExercise from '../../../session/hooks/useSessionExercise';
-import useMuteAudio from '../../../session/hooks/useMuteAudio';
+import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
+import {SessionState} from '../../../../../../shared/src/types/Session';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -43,71 +39,31 @@ const IconSlideButton = styled(IconButton)(({disabled}) => ({
 }));
 
 type ContentControlsProps = {
-  sessionId: string;
   style?: ViewStyle;
+  exercise: Exercise | null;
+  isHost: boolean;
+  sessionState: SessionState | null;
+  currentContentReachedEnd: boolean;
+  slideState: SessionSlideState | null;
+  onPrevPress: () => void;
+  onNextPress: () => void;
+  onResetPlayingPress: () => void;
+  onTogglePlayingPress: () => void;
 };
 
 const ContentControls: React.FC<ContentControlsProps> = ({
-  sessionId,
   style,
+  isHost,
+  sessionState,
+  currentContentReachedEnd,
+  slideState,
+  onPrevPress,
+  onNextPress,
+  onResetPlayingPress,
+  onTogglePlayingPress,
 }) => {
-  const isHost = useIsSessionHost();
-  const sessionState = useSessionState(state => state.sessionState);
-  const currentContentReachedEnd = useSessionState(
-    state => state.currentContentReachedEnd,
-  );
-  const setCurrentContentReachedEnd = useSessionState(
-    state => state.setCurrentContentReachedEnd,
-  );
-  const exercise = useSessionExercise();
-  const slideState = useSessionSlideState();
   const {t} = useTranslation('Screen.Session');
-  const {conditionallyMuteParticipants} = useMuteAudio();
-  const {navigateToIndex, setPlaying} = useUpdateSessionState(sessionId);
-
-  const onPrevPress = useCallback(() => {
-    if (slideState && exercise?.slides) {
-      navigateToIndex({
-        index: slideState.index - 1,
-        content: exercise?.slides,
-      });
-    }
-  }, [slideState, exercise?.slides, navigateToIndex]);
-
-  const onNextPress = useCallback(() => {
-    if (slideState && exercise?.slides) {
-      navigateToIndex({
-        index: slideState.index + 1,
-        content: exercise?.slides,
-      });
-    }
-  }, [slideState, exercise?.slides, navigateToIndex]);
-
-  const onResetPlayingPress = useCallback(
-    () => setPlaying(Boolean(sessionState?.playing)),
-    [sessionState?.playing, setPlaying],
-  );
-
-  const onTogglePlayingPress = useCallback(() => {
-    if (currentContentReachedEnd) {
-      setPlaying(true);
-      setCurrentContentReachedEnd(false);
-      conditionallyMuteParticipants(true, slideState?.current);
-    } else {
-      const playing = !sessionState?.playing;
-      setPlaying(playing);
-      conditionallyMuteParticipants(playing, slideState?.current);
-    }
-  }, [
-    sessionState?.playing,
-    slideState,
-    setPlaying,
-    currentContentReachedEnd,
-    setCurrentContentReachedEnd,
-    conditionallyMuteParticipants,
-  ]);
-
-  if (!isHost || !exercise || !sessionState || !slideState) {
+  if (!isHost || !sessionState || !slideState) {
     return null;
   }
 

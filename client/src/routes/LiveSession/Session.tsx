@@ -51,6 +51,7 @@ import {
 import Button from '../../lib/components/Buttons/Button';
 import HostNotes from '../../lib/session/components/HostNotes/HostNotes';
 import Screen from '../../lib/components/Screen/Screen';
+import useMuteAudio from '../../lib/session/hooks/useMuteAudio';
 
 const Spotlight = styled.View({
   aspectRatio: '0.9375',
@@ -111,13 +112,19 @@ const Session: React.FC = () => {
   const {t} = useTranslation('Screen.Session');
   useSubscribeToSessionIfFocused(session, {exitOnEnded: false});
 
+  const exercise = useSessionExercise();
   const participants = useSessionParticipants();
   const {endSession} = useUpdateSessionState(session.id);
   const me = useLocalParticipant();
   const isHost = useIsSessionHost();
   const sessionState = useSessionState(state => state.sessionState);
+  const currentContentReachedEnd = useSessionState(
+    state => state.currentContentReachedEnd,
+  );
+  const setCurrentContentReachedEnd = useSessionState(
+    state => state.setCurrentContentReachedEnd,
+  );
   const sessionSlideState = useSessionSlideState();
-  const exercise = useSessionExercise();
   const theme = useExerciseTheme();
   const logSessionMetricEvent = useLiveSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession(session.type);
@@ -125,6 +132,8 @@ const Session: React.FC = () => {
     useCheckPermissions();
   const user = useUser();
   const {addCompletedSession} = useUserState();
+  const {navigateToIndex, setPlaying} = useUpdateSessionState(session.id);
+  const {conditionallyMuteParticipants} = useMuteAudio();
 
   const hasAudio = Boolean(me?.audioTrack);
   const hasVideo = Boolean(me?.videoTrack);
@@ -178,6 +187,48 @@ const Session: React.FC = () => {
     });
   }, [checkCameraPermissions, toggleVideo, hasVideo]);
 
+  const onPrevPress = useCallback(() => {
+    if (sessionSlideState && exercise?.slides) {
+      navigateToIndex({
+        index: sessionSlideState.index - 1,
+        content: exercise?.slides,
+      });
+    }
+  }, [sessionSlideState, exercise?.slides, navigateToIndex]);
+
+  const onNextPress = useCallback(() => {
+    if (sessionSlideState && exercise?.slides) {
+      navigateToIndex({
+        index: sessionSlideState.index + 1,
+        content: exercise?.slides,
+      });
+    }
+  }, [sessionSlideState, exercise?.slides, navigateToIndex]);
+
+  const onResetPlayingPress = useCallback(
+    () => setPlaying(Boolean(sessionState?.playing)),
+    [sessionState?.playing, setPlaying],
+  );
+
+  const onTogglePlayingPress = useCallback(() => {
+    if (currentContentReachedEnd) {
+      setPlaying(true);
+      setCurrentContentReachedEnd(false);
+      conditionallyMuteParticipants(true, sessionSlideState?.current);
+    } else {
+      const playing = !sessionState?.playing;
+      setPlaying(playing);
+      conditionallyMuteParticipants(playing, sessionSlideState?.current);
+    }
+  }, [
+    sessionState?.playing,
+    sessionSlideState,
+    setPlaying,
+    currentContentReachedEnd,
+    setCurrentContentReachedEnd,
+    conditionallyMuteParticipants,
+  ]);
+
   return (
     <Screen backgroundColor={theme?.backgroundColor}>
       {isHost && (
@@ -212,7 +263,17 @@ const Session: React.FC = () => {
             )}
           </SpotlightContent>
         )}
-        <ExerciseControl sessionId={session.id} />
+        <ExerciseControl
+          exercise={exercise}
+          isHost={isHost}
+          sessionState={sessionState}
+          slideState={sessionSlideState}
+          currentContentReachedEnd={currentContentReachedEnd}
+          onPrevPress={onPrevPress}
+          onNextPress={onNextPress}
+          onResetPlayingPress={onResetPlayingPress}
+          onTogglePlayingPress={onTogglePlayingPress}
+        />
       </Spotlight>
       <Participants participants={participants} />
       <Spacer16 />
