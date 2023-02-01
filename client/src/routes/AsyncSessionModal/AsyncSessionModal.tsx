@@ -1,8 +1,7 @@
-import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {RouteProp, useRoute} from '@react-navigation/native';
 import dayjs from 'dayjs';
-import React from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
 
@@ -13,10 +12,7 @@ import Image from '../../lib/components/Image/Image';
 import SheetModal from '../../lib/components/Modals/SheetModal';
 import {Spacer16, Spacer32, Spacer4} from '../../lib/components/Spacers/Spacer';
 import {Display24} from '../../lib/components/Typography/Display/Display';
-import {
-  ModalStackProps,
-  AppStackProps,
-} from '../../lib/navigation/constants/routes';
+import {ModalStackProps} from '../../lib/navigation/constants/routes';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import {formatExerciseName} from '../../lib/utils/string';
 import {COLORS} from '../../../../shared/src/constants/colors';
@@ -25,9 +21,12 @@ import Byline from '../../lib/components/Bylines/Byline';
 import useUser from '../../lib/user/hooks/useUser';
 import {CheckIcon} from '../../lib/components/Icons/Check/Check';
 import {Body14} from '../../lib/components/Typography/Body/Body';
-import useSessionStartTime from '../../lib/session/hooks/useSessionStartTime';
 import Badge from '../../lib/components/Badge/Badge';
-import {ProfileFillIcon, ProfileIcon} from '../../lib/components/Icons';
+import {ProfileFillIcon} from '../../lib/components/Icons';
+import useUserState, {
+  getCompletedSessionByIdSelector,
+} from '../../lib/user/state/state';
+import useStartAsyncSession from '../../lib/session/hooks/useStartAsyncSession';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -59,19 +58,30 @@ const ChekIconWrapper = styled(View)({
   alignSelf: 'center',
 });
 
+const ButtonWrapper = styled.View({flexDirection: 'row'});
+
 const AsyncSessionModal = () => {
   const {
     params: {session},
   } = useRoute<RouteProp<ModalStackProps, 'AsyncSessionModal'>>();
-  const {t} = useTranslation('Modal.Session');
+  const {t} = useTranslation('Modal.AsyncSession');
   const user = useUser();
-  const sessionTime = dayjs(session.startTime);
+  const completedSession = useUserState(state =>
+    getCompletedSessionByIdSelector(state, session.id),
+  );
+  const startSession = useStartAsyncSession();
 
-  const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
+  const sessionTime = useMemo(
+    () => dayjs(completedSession?.completedAt),
+    [completedSession?.completedAt],
+  );
+
+  const onStartSession = useCallback(() => {
+    startSession(session.contentId);
+  }, [session, startSession]);
 
   const exercise = useExerciseById(session?.contentId);
-
-  if (!session || !exercise) {
+  if (!completedSession || !exercise) {
     return null;
   }
 
@@ -109,13 +119,19 @@ const AsyncSessionModal = () => {
           <ChekIconWrapper>
             <CheckIcon fill={COLORS.PRIMARY} />
           </ChekIconWrapper>
-          <Body14>{'Completed'}</Body14>
+          <Body14>{t('completed')}</Body14>
           <Spacer4 />
           <Badge
             text={sessionTime.format('ddd, D MMM')}
             Icon={<ProfileFillIcon />}
           />
         </Row>
+        <Spacer16 />
+        <ButtonWrapper>
+          <Button small variant="secondary" onPress={onStartSession}>
+            {t('doAgainButton')}
+          </Button>
+        </ButtonWrapper>
       </Gutters>
     </SheetModal>
   );

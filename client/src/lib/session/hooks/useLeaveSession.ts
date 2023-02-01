@@ -49,18 +49,20 @@ const useLeaveSession = (sessionType: SessionType) => {
 
     navigate('Sessions');
 
-    if (sessionState?.started) {
-      if (sessionType === SessionType.async && asyncSession) {
-        navigate('AsyncSessionModal', {
-          session: asyncSession,
-        });
-      } else {
-        navigate('SessionFeedbackModal', {
-          sessionId: sessionState?.id,
-          completed: Boolean(sessionState?.completed),
-          isHost,
-        });
-      }
+    if (sessionState?.started && sessionType !== SessionType.async) {
+      navigate('SessionFeedbackModal', {
+        sessionId: sessionState?.id,
+        completed: Boolean(sessionState?.completed),
+        isHost,
+      });
+    } else if (
+      sessionState?.completed &&
+      sessionType === SessionType.async &&
+      asyncSession
+    ) {
+      navigate('AsyncSessionModal', {
+        session: asyncSession,
+      });
     }
   }, [
     sessionType,
