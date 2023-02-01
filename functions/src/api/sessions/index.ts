@@ -54,6 +54,31 @@ sessionsRouter.get('/:id/sessionToken', async ctx => {
   }
 });
 
+sessionsRouter.get('/:id', async ctx => {
+  const {user, params} = ctx;
+
+  try {
+    const session = await sessionsController.getSession(user.id, params.id);
+    ctx.status = 200;
+    ctx.body = session;
+  } catch (error) {
+    const requestError = error as RequestError;
+    switch (requestError.code) {
+      case ValidateSessionError.notFound:
+        ctx.status = 404;
+        break;
+
+      case ValidateSessionError.userNotFound:
+        ctx.status = 403;
+        break;
+
+      default:
+        throw error;
+    }
+    ctx.message = requestError.code;
+  }
+});
+
 const CreateSessionSchema = yup.object().shape({
   contentId: yup.string().required(),
   type: yup.mixed<SessionType>().oneOf(Object.values(SessionType)).required(),

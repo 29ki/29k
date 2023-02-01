@@ -150,6 +150,10 @@ const Session: React.FC = () => {
     if (sessionState?.completed) {
       addCompletedSession({
         id: sessionState?.id,
+        hostId: session.hostId,
+        type: session.type,
+        language: session.language,
+        contentId: session.contentId,
         completedAt: dayjs.utc().toDate(),
       });
       logSessionMetricEvent('Complete Sharing Session');
@@ -157,6 +161,7 @@ const Session: React.FC = () => {
   }, [
     sessionState?.completed,
     sessionState?.id,
+    session,
     logSessionMetricEvent,
     addCompletedSession,
   ]);
