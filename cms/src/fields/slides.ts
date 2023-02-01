@@ -8,6 +8,7 @@ import {
 import {
   IMAGE_FIELD,
   LOTTIE_FIELD_WITH_AUDIO,
+  VIDEO_FIELD,
   VIDEO_FIELD_WITH_AUDIO,
 } from './common';
 
@@ -105,7 +106,7 @@ export const HOST_SLIDE: CmsFieldBase & CmsFieldObject = {
   name: SLIDE_TYPES.HOST,
   widget: 'object',
   collapsed: true,
-  fields: [HOST_NOTES],
+  fields: [HOST_NOTES, VIDEO_FIELD],
 };
 
 export const CONTENT_SLIDE: CmsFieldBase & CmsFieldObject = {

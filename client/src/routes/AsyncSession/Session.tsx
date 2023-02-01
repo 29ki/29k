@@ -52,9 +52,17 @@ const SessionControls = styled.View({
   justifyContent: 'flex-start',
 });
 
-const SpotlightContent = styled.View({
-  aspectRatio: '0.9375',
-});
+const SpotlightContent = styled.View<{isHostVideo: boolean}>(
+  ({isHostVideo}) => ({
+    flex: 1,
+
+    // height: '100%',
+    // width: '100%',
+    // height: isHostVideo ? '100%' : undefined,
+    // width: isHostVideo ? '100%' : undefined,
+    // aspectRatio: !isHostVideo ? '0.9375' : undefined,
+  }),
+);
 
 const Top = styled.View({
   position: 'absolute',
@@ -178,17 +186,22 @@ const Session: React.FC = () => {
 
       <Spotlight>
         {sessionSlideState && (
-          <SpotlightContent>
-            <Spacer32 />
+          // <SpotlightContent
+          //   isHostVideo={sessionSlideState.current.type === 'host'}>
+          <>
+            {/* <Spacer32 /> */}
             <ExerciseSlides
               index={sessionSlideState.index}
               current={sessionSlideState.current}
               previous={sessionSlideState.previous}
               next={sessionSlideState.next}
+              sessionType={session.type}
             />
-          </SpotlightContent>
+          </>
+          // </SpotlightContent>
         )}
         <ExerciseControl
+          sessionType={session.type}
           exercise={exercise}
           isHost={true}
           sessionState={sessionState}

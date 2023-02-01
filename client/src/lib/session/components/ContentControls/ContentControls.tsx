@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import styled from 'styled-components/native';
 import {ViewStyle} from 'react-native';
 import {useTranslation} from 'react-i18next';
@@ -17,7 +17,10 @@ import {Spacer8} from '../../../components/Spacers/Spacer';
 import Button from '../../../components/Buttons/Button';
 import IconButton from '../../../components/Buttons/IconButton/IconButton';
 import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
-import {SessionState} from '../../../../../../shared/src/types/Session';
+import {
+  SessionState,
+  SessionType,
+} from '../../../../../../shared/src/types/Session';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -40,6 +43,7 @@ const IconSlideButton = styled(IconButton)(({disabled}) => ({
 
 type ContentControlsProps = {
   style?: ViewStyle;
+  sessionType: SessionType;
   exercise: Exercise | null;
   isHost: boolean;
   sessionState: SessionState | null;
@@ -53,6 +57,7 @@ type ContentControlsProps = {
 
 const ContentControls: React.FC<ContentControlsProps> = ({
   style,
+  sessionType,
   isHost,
   sessionState,
   currentContentReachedEnd,
@@ -63,6 +68,29 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   onTogglePlayingPress,
 }) => {
   const {t} = useTranslation('Screen.Session');
+
+  const slideType = slideState?.current.type;
+  const hasAutoPlayLoop =
+    slideType !== 'host' &&
+    (slideState?.current.content?.video?.autoPlayLoop ||
+      slideState?.current.content?.lottie?.autoPlayLoop);
+  const isDisabled =
+    slideType !== 'host' &&
+    !slideState?.current.content?.video &&
+    !slideState?.current.content?.lottie;
+
+  const shouldRenderMediaControls = useMemo(() => {
+    if (slideType === 'host' && sessionType === SessionType.async) {
+      return true;
+    }
+
+    if (slideType !== 'host' && !hasAutoPlayLoop) {
+      return true;
+    }
+
+    return false;
+  }, [sessionType, slideType, hasAutoPlayLoop]);
+
   if (!isHost || !sessionState || !slideState) {
     return null;
   }
@@ -78,37 +106,29 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         onPress={onPrevPress}>
         {t('controls.prev')}
       </SlideButton>
-      {slideState.current.type !== 'host' &&
-        !slideState.current.content?.video?.autoPlayLoop &&
-        !slideState.current.content?.lottie?.autoPlayLoop && (
-          <MediaControls>
-            <IconSlideButton
-              small
-              elevated
-              disabled={
-                !slideState.current.content?.video &&
-                !slideState.current.content?.lottie
-              }
-              variant="tertiary"
-              Icon={Rewind}
-              onPress={onResetPlayingPress}
-            />
-            <Spacer8 />
-            <IconSlideButton
-              small
-              elevated
-              disabled={
-                !slideState.current.content?.video &&
-                !slideState.current.content?.lottie
-              }
-              variant="tertiary"
-              Icon={
-                sessionState.playing && !currentContentReachedEnd ? Pause : Play
-              }
-              onPress={onTogglePlayingPress}
-            />
-          </MediaControls>
-        )}
+      {shouldRenderMediaControls && (
+        <MediaControls>
+          <IconSlideButton
+            small
+            elevated
+            disabled={isDisabled}
+            variant="tertiary"
+            Icon={Rewind}
+            onPress={onResetPlayingPress}
+          />
+          <Spacer8 />
+          <IconSlideButton
+            small
+            elevated
+            disabled={isDisabled}
+            variant="tertiary"
+            Icon={
+              sessionState.playing && !currentContentReachedEnd ? Pause : Play
+            }
+            onPress={onTogglePlayingPress}
+          />
+        </MediaControls>
+      )}
       <SlideButton
         small
         elevated

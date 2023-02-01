@@ -172,6 +172,12 @@ export interface ExerciseSlideHostSlideHostNote {
   text: string;
 }
 
+export interface ExerciseSlideHostSlideVideo {
+  description?: string;
+  source?: string;
+  preview?: string;
+}
+
 export interface ExerciseSlideContentSlide {
   type: 'content';
   hostNotes?: ExerciseSlideContentSlideHostNote[];
@@ -193,6 +199,7 @@ export interface ExerciseSlideSharingSlide {
 export interface ExerciseSlideHostSlide {
   type: 'host';
   hostNotes?: ExerciseSlideHostSlideHostNote[];
+  video?: ExerciseSlideHostSlideVideo;
 }
 
 export interface Exercise {

@@ -16,6 +16,7 @@ import Lottie from './Blocks/Lottie';
 const GraphicsWrapper = styled.View({
   flex: 1,
 });
+
 const TextWrapper = styled.View({
   justifyContent: 'center',
   flex: 1,
