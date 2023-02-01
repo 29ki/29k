@@ -12,6 +12,9 @@ import {
 import getMetricsUid from './utils/getMetricsUid';
 import metricsClient from './utils/metricsClient';
 import useNavigationTracker from './hooks/useNavigationTracker';
+import {DEFAULT_CONSENT} from '../..';
+
+let haveConsent = DEFAULT_CONSENT;
 
 let coreProperties = {};
 
@@ -22,9 +25,13 @@ export const BackEndMetricsProvider: MetricsProvider = ({children}) => {
 
 export const init: Init = async () => {};
 
+export const setConsent: SetConsent = async enabled => {
+  haveConsent = enabled;
+};
+
 export const logEvent: LogEvent = async (event, properties) => {
   const uid = getMetricsUid();
-  if (uid) {
+  if (uid && haveConsent) {
     await metricsClient(`logEvent/${uid}`, {
       method: 'POST',
       body: JSON.stringify({
@@ -39,11 +46,9 @@ export const logEvent: LogEvent = async (event, properties) => {
   }
 };
 
-export const setConsent: SetConsent = async () => {};
-
 export const setUserProperties: SetUserProperties = async properties => {
   const uid = getMetricsUid();
-  if (uid) {
+  if (uid && haveConsent) {
     await metricsClient(`userProperties/${uid}`, {
       method: 'POST',
       body: JSON.stringify(properties),

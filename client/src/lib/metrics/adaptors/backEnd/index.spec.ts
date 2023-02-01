@@ -5,6 +5,10 @@ import metricsClient from './utils/metricsClient';
 jest.mock('./utils/getMetricsUid');
 jest.mock('./utils/metricsClient');
 
+jest.mock('../../index', () => ({
+  DEFAULT_CONSENT: true,
+}));
+
 let backEnd: typeof BackEndAdaptorType;
 beforeEach(() => {
   jest.isolateModules(() => {
@@ -39,6 +43,15 @@ describe('logEvent', () => {
 
     expect(metricsClient).toHaveBeenCalledTimes(0);
   });
+
+  it('does not send events if no consent is given', async () => {
+    jest.mocked(getMetricsUid).mockReturnValueOnce('some-metrics-uid');
+    backEnd.setConsent(false);
+
+    await backEnd.logEvent('Screen', {'Screen Name': 'foo'});
+
+    expect(metricsClient).toHaveBeenCalledTimes(0);
+  });
 });
 
 describe('setUserProperties', () => {
@@ -59,6 +72,15 @@ describe('setUserProperties', () => {
 
   it('does not send properties if metricsUid is undefined', async () => {
     jest.mocked(getMetricsUid).mockReturnValueOnce(undefined);
+
+    await backEnd.setUserProperties({'App Git Commit': 'some-git-commit'});
+
+    expect(metricsClient).toHaveBeenCalledTimes(0);
+  });
+
+  it('does not send events if no consent is given', async () => {
+    jest.mocked(getMetricsUid).mockReturnValueOnce('some-metrics-uid');
+    backEnd.setConsent(false);
 
     await backEnd.setUserProperties({'App Git Commit': 'some-git-commit'});
 
