@@ -5,3 +5,5 @@ export const formatInviteCode = (code: number) =>
 
 export const formatExerciseName = (exercise: Exercise | null) =>
   exercise?.hidden ? `${exercise.name} (WIP)` : exercise?.name;
+
+export const trimSlashes = (str: string) => str.replace(/^\/+|\/+$/g, '');

@@ -1,6 +1,6 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook, act} from '@testing-library/react-hooks';
-import useUserState from './state';
+import useUserState, {CompletedSession} from './state';
 
 describe('user - state', () => {
   describe('setPinnedState', () => {
@@ -86,12 +86,11 @@ describe('user - state', () => {
       act(() => {
         result.current.addCompletedSession({
           id: 'session-id',
-          completedAt: new Date(),
-        });
+        } as CompletedSession);
       });
 
       expect(result.current.userState['user-id'].completedSessions).toEqual([
-        {id: 'session-id', completedAt: expect.any(Date)},
+        {id: 'session-id'},
       ]);
     });
 
@@ -101,7 +100,7 @@ describe('user - state', () => {
         userState: {
           'user-id': {
             pinnedSessions: [],
-            completedSessions: [{id: 'session-id', completedAt: new Date()}],
+            completedSessions: [{id: 'session-id'} as CompletedSession],
           },
         },
       });
@@ -111,13 +110,12 @@ describe('user - state', () => {
       act(() => {
         result.current.addCompletedSession({
           id: 'another-session-id',
-          completedAt: new Date(),
-        });
+        } as CompletedSession);
       });
 
       expect(result.current.userState['user-id'].completedSessions).toEqual([
-        {id: 'session-id', completedAt: expect.any(Date)},
-        {id: 'another-session-id', completedAt: expect.any(Date)},
+        {id: 'session-id'},
+        {id: 'another-session-id'},
       ]);
     });
 
@@ -127,7 +125,7 @@ describe('user - state', () => {
         userState: {
           'user-id-2': {
             pinnedSessions: [],
-            completedSessions: [{id: 'session-id', completedAt: new Date()}],
+            completedSessions: [{id: 'session-id'} as CompletedSession],
           },
         },
       });
@@ -137,15 +135,14 @@ describe('user - state', () => {
       act(() => {
         result.current.addCompletedSession({
           id: 'session-id',
-          completedAt: new Date(),
-        });
+        } as CompletedSession);
       });
 
       expect(result.current.userState['user-id'].completedSessions).toEqual([
-        {id: 'session-id', completedAt: expect.any(Date)},
+        {id: 'session-id'},
       ]);
       expect(result.current.userState['user-id-2'].completedSessions).toEqual([
-        {id: 'session-id', completedAt: expect.any(Date)},
+        {id: 'session-id'},
       ]);
     });
   });
@@ -158,7 +155,7 @@ describe('user - state', () => {
           'user-id': {
             pinnedSessions: [{id: 'pinned-session-id', expires: new Date()}],
             completedSessions: [
-              {id: 'completed-session-id', completedAt: new Date()},
+              {id: 'completed-session-id'} as CompletedSession,
             ],
           },
         },
@@ -174,7 +171,7 @@ describe('user - state', () => {
         {id: 'pinned-session-id', expires: expect.any(Date)},
       ]);
       expect(result.current.userState['user-id'].completedSessions).toEqual([
-        {id: 'completed-session-id', completedAt: expect.any(Date)},
+        {id: 'completed-session-id'},
       ]);
     });
 
@@ -185,13 +182,13 @@ describe('user - state', () => {
           'user-id': {
             pinnedSessions: [{id: 'pinned-session-id', expires: new Date()}],
             completedSessions: [
-              {id: 'completed-session-id', completedAt: new Date()},
+              {id: 'completed-session-id'} as CompletedSession,
             ],
           },
           'user-id-2': {
             pinnedSessions: [{id: 'pinned-session-id', expires: new Date()}],
             completedSessions: [
-              {id: 'completed-session-id', completedAt: new Date()},
+              {id: 'completed-session-id'} as CompletedSession,
             ],
           },
         },
@@ -208,7 +205,7 @@ describe('user - state', () => {
         {id: 'pinned-session-id', expires: expect.any(Date)},
       ]);
       expect(result.current.userState['user-id-2'].completedSessions).toEqual([
-        {id: 'completed-session-id', completedAt: expect.any(Date)},
+        {id: 'completed-session-id'},
       ]);
     });
   });
