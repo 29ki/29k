@@ -15,6 +15,7 @@ type WrapperProps = {backgroundColor?: string};
 const Wrapper = styled.View<WrapperProps>(({backgroundColor}) => ({
   flex: 1,
   backgroundColor: backgroundColor ?? COLORS.WHITE,
+  justifyContent: 'center',
 }));
 
 type SlideProps = {

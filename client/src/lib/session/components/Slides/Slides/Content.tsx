@@ -12,6 +12,7 @@ import Video from './Blocks/Video';
 import {Spacer12, Spacer8} from '../../../../components/Spacers/Spacer';
 import Text from './Blocks/Text';
 import Lottie from './Blocks/Lottie';
+import ContentWrapper from '../../ContentWrapper/ContentWrapper';
 
 const GraphicsWrapper = styled.View({
   flex: 1,
@@ -67,7 +68,7 @@ const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
   );
 
   return (
-    <>
+    <ContentWrapper>
       <Spacer12 />
       {!content.video && !content.image && !content.lottie && (
         <TextWrapper>
@@ -114,7 +115,7 @@ const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
           <Image resizeMode="contain" source={imageSource} />
         </GraphicsWrapper>
       ) : null}
-    </>
+    </ContentWrapper>
   );
 };
 

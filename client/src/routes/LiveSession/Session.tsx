@@ -52,10 +52,7 @@ import Button from '../../lib/components/Buttons/Button';
 import HostNotes from '../../lib/session/components/HostNotes/HostNotes';
 import Screen from '../../lib/components/Screen/Screen';
 import useMuteAudio from '../../lib/session/hooks/useMuteAudio';
-
-const Spotlight = styled.View({
-  aspectRatio: '0.9375',
-});
+import ContentWrapper from '../../lib/session/components/ContentWrapper/ContentWrapper';
 
 const ExerciseControl = styled(ContentControls)({
   position: 'absolute',
@@ -75,10 +72,6 @@ const Progress = styled(ProgressBar)({
   left: SPACINGS.SIXTEEN,
   right: SPACINGS.SIXTEEN,
   top: SPACINGS.EIGHT,
-});
-
-const SpotlightContent = styled.View({
-  flex: 1,
 });
 
 const Top = styled.View({
@@ -245,10 +238,10 @@ const Session: React.FC = () => {
         </Top>
       )}
       <TopSafeArea />
-      <Spotlight>
+      {isHost && <Spacer32 />}
+      <ContentWrapper>
         {sessionSlideState && (
-          <SpotlightContent>
-            {isHost && <Spacer32 />}
+          <>
             <ExerciseSlides
               index={sessionSlideState.index}
               current={sessionSlideState.current}
@@ -262,7 +255,7 @@ const Session: React.FC = () => {
                 length={exercise?.slides.length}
               />
             )}
-          </SpotlightContent>
+          </>
         )}
         <ExerciseControl
           sessionType={session.type}
@@ -276,7 +269,7 @@ const Session: React.FC = () => {
           onResetPlayingPress={onResetPlayingPress}
           onTogglePlayingPress={onTogglePlayingPress}
         />
-      </Spotlight>
+      </ContentWrapper>
       <Participants participants={participants} />
       <Spacer16 />
       <SessionControls>
