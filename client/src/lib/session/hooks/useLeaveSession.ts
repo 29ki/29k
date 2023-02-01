@@ -26,6 +26,7 @@ const useLeaveSession = (sessionType: SessionType) => {
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();
   const sessionState = useSessionState(state => state.sessionState);
+  const asyncSession = useSessionState(state => state.asyncSession);
   const isHost = useIsSessionHost();
   const {fetchSessions} = useSessions();
   const logLiveSessionMetricEvent = useLiveSessionMetricEvents();
@@ -49,14 +50,21 @@ const useLeaveSession = (sessionType: SessionType) => {
     navigate('Sessions');
 
     if (sessionState?.started) {
-      navigate('SessionFeedbackModal', {
-        sessionId: sessionState?.id,
-        completed: Boolean(sessionState?.completed),
-        isHost,
-      });
+      if (sessionType === SessionType.async && asyncSession) {
+        navigate('AsyncSessionModal', {
+          session: asyncSession,
+        });
+      } else {
+        navigate('SessionFeedbackModal', {
+          sessionId: sessionState?.id,
+          completed: Boolean(sessionState?.completed),
+          isHost,
+        });
+      }
     }
   }, [
     sessionType,
+    asyncSession,
     sessionState?.id,
     sessionState?.started,
     sessionState?.completed,

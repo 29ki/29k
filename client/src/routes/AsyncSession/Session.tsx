@@ -120,9 +120,9 @@ const Session: React.FC = () => {
 
   useEffect(() => {
     if (sessionState?.ended) {
-      navigate('OutroPortal');
+      navigate('OutroPortal', {session});
     }
-  }, [sessionState?.ended, navigate]);
+  }, [sessionState?.ended, navigate, session]);
 
   const onPrevPress = useCallback(() => {
     if (sessionSlideState && exercise?.slides) {
