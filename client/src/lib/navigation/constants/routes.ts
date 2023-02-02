@@ -16,13 +16,13 @@ export type LiveSessionStackProps = {
   ChangingRoom: {session: Session};
   Session: {session: Session};
   IntroPortal: {session: Session};
-  OutroPortal: undefined;
+  OutroPortal: {session: Session};
 };
 
 export type AsyncSessionStackProps = {
   IntroPortal: {session: AsyncSession};
   Session: {session: AsyncSession};
-  OutroPortal: undefined;
+  OutroPortal: {session: AsyncSession};
 };
 
 export type AppStackProps = {
@@ -42,6 +42,7 @@ export type OverlayStackProps = {
 export type ModalStackProps = {
   OverlayStack: NavigatorScreenParams<OverlayStackProps>;
   SessionModal: {session: Session};
+  AsyncSessionModal: {session: AsyncSession};
   SessionUnavailableModal: undefined;
   AddSessionByInviteModal?: {inviteCode?: number};
   CreateSessionModal: undefined;

@@ -6,6 +6,7 @@ import {
 
 import {ModalStackProps} from './constants/routes';
 import SessionModal from '../../routes/SessionModal/SessionModal';
+import AsyncSessionModal from '../../routes/AsyncSessionModal/AsyncSessionModal';
 import CreateSessionModal from '../../routes/CreateSessionModal/CreateSessionModal';
 import AddSessionByInviteModal from '../../routes/AddSessionByInviteModal/AddSessionByInviteModal';
 import UpgradeAccountModal from '../../routes/UpgradeAccountModal/UpgradeAccountModal';
@@ -126,6 +127,11 @@ const ModalStack = () => {
         <Screen
           name={'SessionModal'}
           component={SessionModal}
+          options={tallSheetModalScreenOptions}
+        />
+        <Screen
+          name={'AsyncSessionModal'}
+          component={AsyncSessionModal}
           options={tallSheetModalScreenOptions}
         />
         <Screen name={'CreateSessionModal'} component={CreateSessionModal} />

@@ -168,9 +168,9 @@ const Session: React.FC = () => {
 
   useEffect(() => {
     if (sessionState?.ended) {
-      leaveMeeting().then(() => navigate('OutroPortal'));
+      leaveMeeting().then(() => navigate('OutroPortal', {session}));
     }
-  }, [sessionState?.ended, navigate, leaveMeeting]);
+  }, [sessionState?.ended, navigate, leaveMeeting, session]);
 
   useEffect(() => {
     setUserData({
