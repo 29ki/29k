@@ -15,35 +15,21 @@ export type ExerciseID = {
 };
 
 // Sharing Session properties - named "Sharing Session" to not be confused with a user "session" in PostHog
-export type SharingSessionID = {
+export type SharingSessionProperties = {
   'Sharing Session ID': Session['id'];
-};
-export type SharingSessionType = {
   'Sharing Session Type': Session['type'];
-};
-export type SharingSessionStartTime = {
   'Sharing Session Start Time': Session['startTime'];
 };
 export type SharingSessionDuration = {
   'Sharing Session Duration': number; // Seconds
 };
-export type SharingSessionProperties = SharingSessionID &
-  SharingSessionType &
-  SharingSessionStartTime &
-  ExerciseID &
-  Host &
-  Language;
 
 // Feedback properties
-export type FeedbackAnswer = {
-  'Feedback Answer'?: boolean;
-};
-export type FeedbackQuestion = {
+export type FeedbackProperties = ExerciseID & {
   'Feedback Question': string;
-};
-export type FeedbackComment = {
+  'Feedback Answer': boolean;
   'Feedback Comment'?: string;
+  'Sharing Session ID'?: string;
+  'Sharing Session Completed': boolean;
+  Host?: boolean;
 };
-export type FeedbackProperties = FeedbackAnswer &
-  FeedbackQuestion &
-  FeedbackComment;

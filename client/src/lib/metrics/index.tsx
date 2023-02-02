@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Init,
   LogEvent,
+  LogFeedback,
   MetricsProvider as MetricsProviderType,
   SetConsent,
   SetCoreProperties,
@@ -35,6 +36,22 @@ export const logEvent: LogEvent = async (event, properties) => {
   await Promise.all([
     postHog.logEvent(event, properties),
     backEnd.logEvent(event, properties),
+  ]);
+};
+
+export const logFeedback: LogFeedback = async feedback => {
+  await Promise.all([
+    logEvent('Sharing Session Feedback', {
+      'Exercise ID': feedback.exerciseId,
+      'Sharing Session Completed': feedback.completed,
+      'Sharing Session ID': feedback.sessionId,
+      Host: feedback.host,
+      'Feedback Question': feedback.question,
+      'Feedback Answer': feedback.answer,
+      'Feedback Comment': feedback.comment,
+    }),
+    postHog.logFeeback(feedback),
+    backEnd.logFeeback(feedback),
   ]);
 };
 

@@ -2,6 +2,7 @@ import Events from './Events';
 import CoreProperties from './CoreProperties';
 import UserProperties from './UserProperties';
 import React from 'react';
+import {Feedback} from '../../../../../shared/src/types/Feedback';
 
 type AnyUserProperty = Partial<UserProperties>;
 type AnyCoreProperty = Partial<CoreProperties>;
@@ -16,6 +17,8 @@ export type LogEvent = <Event extends keyof Events>(
   event: Event,
   properties: Events[Event] extends object ? Events[Event] : undefined,
 ) => Promise<void>;
+
+export type LogFeedback = (feedback: Feedback) => Promise<void>;
 
 export type SetUserProperties = (
   properties: AnyUserProperty & AnyCoreProperty,
