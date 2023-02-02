@@ -26,6 +26,7 @@ describe('feedback - controller', () => {
 
       const feedback = {
         exerciseId: 'some-exercise-id',
+        completed: true,
         question: 'Some question?',
         answer: true,
         comment: 'Some comment!',
@@ -34,9 +35,10 @@ describe('feedback - controller', () => {
 
       expect(metricsModel.addFeedback).toHaveBeenCalledTimes(1);
       expect(metricsModel.addFeedback).toHaveBeenCalledWith({
+        exerciseId: 'some-exercise-id',
+        completed: true,
         answer: true,
         comment: 'Some comment!',
-        exerciseId: 'some-exercise-id',
         question: 'Some question?',
       });
       expect(slack.sendFeedbackMessage).toHaveBeenCalledTimes(1);
@@ -61,6 +63,7 @@ describe('feedback - controller', () => {
 
       const feedback = {
         exerciseId: 'some-exercise-id',
+        completed: true,
         question: 'Some question?',
         answer: true,
       };
@@ -68,8 +71,9 @@ describe('feedback - controller', () => {
 
       expect(metricsModel.addFeedback).toHaveBeenCalledTimes(1);
       expect(metricsModel.addFeedback).toHaveBeenCalledWith({
-        answer: true,
         exerciseId: 'some-exercise-id',
+        completed: true,
+        answer: true,
         question: 'Some question?',
       });
       expect(slack.sendFeedbackMessage).toHaveBeenCalledTimes(0);
