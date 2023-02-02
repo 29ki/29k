@@ -1,6 +1,7 @@
 import {
   init,
   logEvent,
+  logFeedback,
   setConsent,
   setCoreProperties,
   setUserProperties,
@@ -10,6 +11,10 @@ import * as postHog from './adaptors/postHog';
 
 jest.mock('./adaptors/backEnd');
 jest.mock('./adaptors/postHog');
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
 
 describe('init', () => {
   it('calls backEnd and postHog adaptors', async () => {
@@ -42,6 +47,65 @@ describe('logEvent', () => {
     expect(postHog.logEvent).toHaveBeenCalledTimes(1);
     expect(postHog.logEvent).toHaveBeenCalledWith('Screen', {
       'Screen Name': 'some-screen',
+    });
+  });
+});
+
+describe('logFeedback', () => {
+  it('calls backEnd and postHog adaptors', async () => {
+    await logFeedback({
+      exerciseId: 'some-exercise-id',
+      completed: true,
+      sessionId: 'some-session-id',
+      host: true,
+
+      question: 'Some question?',
+      answer: true,
+      comment: 'Some comment!',
+    });
+
+    expect(backEnd.logFeeback).toHaveBeenCalledTimes(1);
+    expect(backEnd.logFeeback).toHaveBeenCalledWith({
+      exerciseId: 'some-exercise-id',
+      completed: true,
+      sessionId: 'some-session-id',
+      host: true,
+
+      question: 'Some question?',
+      answer: true,
+      comment: 'Some comment!',
+    });
+    expect(postHog.logFeeback).toHaveBeenCalledTimes(1);
+    expect(postHog.logFeeback).toHaveBeenCalledWith({
+      exerciseId: 'some-exercise-id',
+      completed: true,
+      sessionId: 'some-session-id',
+      host: true,
+
+      question: 'Some question?',
+      answer: true,
+      comment: 'Some comment!',
+    });
+
+    expect(backEnd.logEvent).toHaveBeenCalledTimes(1);
+    expect(backEnd.logEvent).toHaveBeenCalledWith('Sharing Session Feedback', {
+      'Exercise ID': 'some-exercise-id',
+      'Feedback Answer': true,
+      'Feedback Comment': 'Some comment!',
+      'Feedback Question': 'Some question?',
+      Host: true,
+      'Sharing Session Completed': true,
+      'Sharing Session ID': 'some-session-id',
+    });
+    expect(postHog.logEvent).toHaveBeenCalledTimes(1);
+    expect(postHog.logEvent).toHaveBeenCalledWith('Sharing Session Feedback', {
+      'Exercise ID': 'some-exercise-id',
+      'Feedback Answer': true,
+      'Feedback Comment': 'Some comment!',
+      'Feedback Question': 'Some question?',
+      Host: true,
+      'Sharing Session Completed': true,
+      'Sharing Session ID': 'some-session-id',
     });
   });
 });

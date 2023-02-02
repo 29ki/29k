@@ -5,6 +5,7 @@ import {DEFAULT_CONSENT} from '../..';
 import {
   Init,
   LogEvent,
+  LogFeedback,
   MetricsProvider,
   SetCoreProperties,
   SetUserProperties,
@@ -45,6 +46,8 @@ export const setConsent = async (haveConsent: boolean) =>
 export const logEvent: LogEvent = async (event, properties) => {
   await postHog?.capture(event, properties);
 };
+
+export const logFeeback: LogFeedback = async () => {};
 
 export const setUserProperties: SetUserProperties = async properties => {
   await postHog?.identify(undefined, properties);

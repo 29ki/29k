@@ -4,6 +4,7 @@ import 'react-native-get-random-values';
 import {
   Init,
   LogEvent,
+  LogFeedback,
   MetricsProvider,
   SetConsent,
   SetCoreProperties,
@@ -27,6 +28,13 @@ export const init: Init = async () => {};
 
 export const setConsent: SetConsent = async enabled => {
   haveConsent = enabled;
+};
+
+export const logFeeback: LogFeedback = async feedback => {
+  await metricsClient('logFeedback', {
+    method: 'POST',
+    body: JSON.stringify(feedback),
+  });
 };
 
 export const logEvent: LogEvent = async (event, properties) => {

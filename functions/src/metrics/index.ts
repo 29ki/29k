@@ -7,6 +7,7 @@ import {createMetricsRouter} from '../lib/routers';
 import localErrorHandler from '../lib/localErrorHandler';
 import {logEventRouter} from './logEvent';
 import {userPropertiesRouter} from './userProperties';
+import {feedbackRouter} from './logFeedback';
 
 const app = new Koa();
 
@@ -15,6 +16,7 @@ app.on('error', localErrorHandler);
 
 const rootRouter = createMetricsRouter();
 rootRouter.use('/logEvent', logEventRouter.routes());
+rootRouter.use('/logFeedback', feedbackRouter.routes());
 rootRouter.use('/userProperties', userPropertiesRouter.routes());
 
 app

@@ -4,17 +4,26 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {createJSONStorage, persist} from 'zustand/middleware';
 import {omit} from 'ramda';
 
+import {Session} from '../../../../../shared/src/types/Session';
+import migrate from './migration';
+
+const USER_STATE_VERSION = 1;
+
 type PinnedSession = {
   id: string;
   expires: Date;
 };
 
-type CompletedSession = {
-  id: string;
+export type CompletedSession = {
+  id: Session['id'];
+  hostId: Session['hostId'];
+  contentId: Session['contentId'];
+  language: Session['language'];
+  type: Session['type'];
   completedAt: Date;
 };
 
-type UserState = {
+export type UserState = {
   pinnedSessions?: Array<PinnedSession>;
   completedSessions?: Array<CompletedSession>;
   metricsUid?: string;
@@ -26,13 +35,15 @@ type SetCurrentUserState = (
     | ((userState: Partial<UserState>) => Partial<UserState>),
 ) => void;
 
-type State = {
+export type State = {
   user: FirebaseAuthTypes.User | null;
   claims: FirebaseAuthTypes.IdTokenResult['claims'];
   userState: {[key: string]: UserState};
 };
 
-type Actions = {
+export type PersistedState = Pick<State, 'userState'>;
+
+export type Actions = {
   setUser: (user: State['user']) => void;
   setClaims: (claims: State['claims']) => void;
   setUserAndClaims: (state: {
@@ -116,6 +127,10 @@ const useUserState = create<State & Actions>()(
       name: 'userState',
       storage: createJSONStorage(() => AsyncStorage),
       partialize: ({userState}) => ({userState}),
+      // In dev I had change this with the app closed (android)
+      // otherwise the "migrate" functions does not run due to diff failure
+      version: USER_STATE_VERSION,
+      migrate,
     },
   ),
 );

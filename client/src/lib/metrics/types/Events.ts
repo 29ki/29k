@@ -1,9 +1,7 @@
 import {
   SharingSessionProperties,
   SharingSessionDuration,
-  SharingSessionID,
   FeedbackProperties,
-  Host,
   ScreenName,
 } from './Properties';
 
@@ -30,8 +28,7 @@ type Events = {
   'Enter Outro Portal': SharingSessionProperties & SharingSessionDuration;
 
   // Feedback
-  'Sharing Session Feedback': FeedbackProperties &
-    SharingSessionID & {'Sharing Session Completed': boolean} & Host;
+  'Sharing Session Feedback': FeedbackProperties;
 };
 
 export default Events;
