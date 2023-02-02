@@ -23,7 +23,12 @@ const migrateCompletedSessions = (
 ): Promise<CurrentUserState['completedSessions']> =>
   Promise.all(
     completedSessions.map(async ({id, completedAt}) => {
-      const {hostId, contentId, language, type} = await getSession(id);
+      const {
+        hostId,
+        exerciseId: contentId,
+        language,
+        type,
+      } = await getSession(id);
 
       return {
         id,

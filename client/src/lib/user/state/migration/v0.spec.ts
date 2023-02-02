@@ -33,7 +33,7 @@ describe('v0', () => {
   it('should populate completed sessions with relevant session props', async () => {
     getSessionMock.mockResolvedValue({
       hostId: 'host-id',
-      contentId: 'content-id',
+      exerciseId: 'exercise-id',
       language: 'session-language',
       type: 'session-type',
     });
@@ -52,7 +52,7 @@ describe('v0', () => {
         {
           id: 'session-id-1',
           hostId: 'host-id',
-          contentId: 'content-id',
+          contentId: 'exercise-id',
           language: 'session-language',
           type: 'session-type',
           completedAt: expect.any(Date),
@@ -60,7 +60,7 @@ describe('v0', () => {
         {
           id: 'session-id-2',
           hostId: 'host-id',
-          contentId: 'content-id',
+          contentId: 'exercise-id',
           language: 'session-language',
           type: 'session-type',
           completedAt: expect.any(Date),

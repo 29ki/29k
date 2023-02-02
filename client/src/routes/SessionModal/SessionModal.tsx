@@ -161,7 +161,7 @@ const SessionModal = () => {
   const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
 
   const addToCalendar = useAddSessionToCalendar();
-  const exercise = useExerciseById(session?.contentId);
+  const exercise = useExerciseById(session?.exerciseId);
   const {reminderEnabled, toggleReminder} =
     useSessionNotificationReminder(session);
 

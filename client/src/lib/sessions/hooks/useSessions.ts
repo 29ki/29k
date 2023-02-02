@@ -24,18 +24,18 @@ const useSessions = () => {
 
   const addSession = useCallback(
     async ({
-      contentId,
+      exerciseId,
       type,
       startTime,
       language,
     }: {
-      contentId: Session['contentId'];
+      exerciseId: Session['exerciseId'];
       type: Session['type'];
       startTime: dayjs.Dayjs;
       language: Session['language'];
     }) => {
       const session = await sessionApi.addSession({
-        contentId,
+        exerciseId,
         type,
         startTime: startTime.toJSON(),
         language,

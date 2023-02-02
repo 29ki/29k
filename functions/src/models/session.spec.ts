@@ -206,7 +206,7 @@ describe('session model', () => {
         language: 'en',
         dailyRoomName: 'daily-room-name',
         url: 'daily-url',
-        contentId: 'content-id',
+        exerciseId: 'content-id',
         link: 'deep-link',
         type: SessionType.public,
         startTime: startTime,
@@ -216,7 +216,7 @@ describe('session model', () => {
       });
 
       expect(session).toEqual({
-        contentId: 'content-id',
+        exerciseId: 'content-id',
         language: 'en',
         dailyRoomName: 'daily-room-name',
         hostId: 'some-user-id',
@@ -240,7 +240,7 @@ describe('session model', () => {
         language: 'en',
         dailyRoomName: 'daily-room-name',
         url: 'daily-url',
-        contentId: 'content-id',
+        exerciseId: 'content-id',
         link: 'deep-link',
         type: SessionType.private,
         startTime: startTime,
@@ -250,7 +250,7 @@ describe('session model', () => {
       });
 
       expect(session).toEqual({
-        contentId: 'content-id',
+        exerciseId: 'content-id',
         language: 'en',
         dailyRoomName: 'daily-room-name',
         hostId: 'some-user-id',

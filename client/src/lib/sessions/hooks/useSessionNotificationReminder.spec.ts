@@ -25,7 +25,7 @@ describe('useSessionNotificationReminder', () => {
     const {result} = renderHook(() =>
       useSessionNotificationReminder({
         id: 'some-session-id',
-        contentId: 'some-content-id',
+        exerciseId: 'some-content-id',
       } as Session),
     );
 
@@ -44,7 +44,7 @@ describe('useSessionNotificationReminder', () => {
     const {result} = renderHook(() =>
       useSessionNotificationReminder({
         id: 'some-session-id',
-        contentId: 'some-content-id',
+        exerciseId: 'some-content-id',
         link: 'http://some.deep/link',
       } as Session),
     );
@@ -69,7 +69,7 @@ describe('useSessionNotificationReminder', () => {
     const {result} = renderHook(() =>
       useSessionNotificationReminder({
         id: 'some-session-id',
-        contentId: 'some-content-id',
+        exerciseId: 'some-content-id',
       } as Session),
     );
 

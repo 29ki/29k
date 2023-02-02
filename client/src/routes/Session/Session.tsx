@@ -144,7 +144,7 @@ const Session = () => {
         hostId: session.hostId,
         type: session.type,
         language: session.language,
-        contentId: session.contentId,
+        contentId: session.exerciseId,
         completedAt: dayjs.utc().toDate(),
       });
       logSessionMetricEvent('Complete Sharing Session');

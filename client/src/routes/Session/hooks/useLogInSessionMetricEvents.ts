@@ -28,7 +28,7 @@ const useLogInSessionMetricEvents = () => {
             session.startTime,
             'seconds',
           ),
-          'Exercise ID': session.contentId,
+          'Exercise ID': session.exerciseId,
           Host: user.uid === session.hostId,
           Language: session.language,
         });
@@ -39,7 +39,7 @@ const useLogInSessionMetricEvents = () => {
       session?.id,
       session?.type,
       session?.startTime,
-      session?.contentId,
+      session?.exerciseId,
       session?.hostId,
       session?.language,
     ],

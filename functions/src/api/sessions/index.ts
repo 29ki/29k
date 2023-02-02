@@ -80,7 +80,7 @@ sessionsRouter.get('/:id', async ctx => {
 });
 
 const CreateSessionSchema = yup.object().shape({
-  contentId: yup.string().required(),
+  exerciseId: yup.string().required(),
   type: yup.mixed<SessionType>().oneOf(Object.values(SessionType)).required(),
   startTime: yup.string().required(),
   language: yup
@@ -99,12 +99,12 @@ sessionsRouter.post(
     ({type}) => type === SessionType.public,
   ),
   async ctx => {
-    const {contentId, type, startTime, language} = ctx.request
+    const {exerciseId, type, startTime, language} = ctx.request
       .body as CreateSession;
     const {user} = ctx;
 
     ctx.body = await sessionsController.createSession(user.id, {
-      contentId,
+      exerciseId,
       type,
       startTime,
       language,

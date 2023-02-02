@@ -22,7 +22,7 @@ type SessionFields = {
   url: string;
   language: LANGUAGE_TAG;
   link?: string;
-  contentId: string;
+  exerciseId: string;
   inviteCode: number;
   interestedCount: number;
   hostId: string;

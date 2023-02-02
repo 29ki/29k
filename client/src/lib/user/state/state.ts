@@ -17,7 +17,7 @@ type PinnedSession = {
 export type CompletedSession = {
   id: Session['id'];
   hostId: Session['hostId'];
-  contentId: Session['contentId'];
+  contentId: Session['exerciseId'];
   language: Session['language'];
   type: Session['type'];
   completedAt: Date;
