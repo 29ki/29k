@@ -16,7 +16,7 @@ import {
   mockDoc,
   mockSet,
 } from 'firestore-jest-mock/mocks/firestore';
-import {logEvent, setUserProperties} from './metrics';
+import {addFeedback, logEvent, setUserProperties} from './metrics';
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -96,6 +96,28 @@ describe('metrics model', () => {
         },
         {merge: true},
       );
+    });
+  });
+
+  describe('addFeedback', () => {
+    it('Inserts feedback into metricsFeedback collection', async () => {
+      const feedback = {
+        exerciseId: 'some-exercise-id',
+        question: 'Some question?',
+        answer: true,
+        comment: 'Some comments!',
+      };
+      await addFeedback(feedback);
+
+      expect(mockCollection).toHaveBeenCalledWith('metricsFeedback');
+      expect(mockAdd).toHaveBeenCalledTimes(1);
+      expect(mockAdd).toHaveBeenCalledWith({
+        exerciseId: 'some-exercise-id',
+        question: 'Some question?',
+        answer: true,
+        comment: 'Some comments!',
+        createdAt: expect.any(Timestamp),
+      });
     });
   });
 });

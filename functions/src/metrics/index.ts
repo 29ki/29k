@@ -7,6 +7,7 @@ import {createMetricsRouter} from '../lib/routers';
 import localErrorHandler from '../lib/localErrorHandler';
 import {logEventRouter} from './logEvent';
 import {userPropertiesRouter} from './userProperties';
+import {feedbackRouter} from './feedback';
 
 const app = new Koa();
 
@@ -16,6 +17,7 @@ app.on('error', localErrorHandler);
 const rootRouter = createMetricsRouter();
 rootRouter.use('/logEvent', logEventRouter.routes());
 rootRouter.use('/userProperties', userPropertiesRouter.routes());
+rootRouter.use('/feedback', feedbackRouter.routes());
 
 app
   .use(firebaseBodyParser())
