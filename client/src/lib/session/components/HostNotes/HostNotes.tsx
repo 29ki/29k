@@ -68,14 +68,15 @@ const keyExtractor: FlatListProps<any>['keyExtractor'] = (_, i) => `notes-${i}`;
 
 type HostNotesProps = {
   introPortal?: boolean;
+  isAsync?: boolean;
   style?: ViewStyle;
   exercise: Exercise | null;
 };
 
 const HostNotes = React.memo<HostNotesProps>(
-  ({introPortal, style, exercise}) => {
+  ({introPortal, isAsync, style, exercise}) => {
     const listRef = useRef<FlatList>(null);
-    const [showNotes, setShowNotes] = useState(introPortal ? true : false);
+    const [showNotes, setShowNotes] = useState(false);
     const [containerWidth, setContainerWidth] = useState(0);
     const listItemWidth = containerWidth - SPACINGS.THIRTYTWO;
     const [scroll, setScroll] = useState({index: 0, animated: false});
@@ -105,6 +106,19 @@ const HostNotes = React.memo<HostNotesProps>(
         }),
       [scroll.animated, scroll.index],
     );
+
+    useEffect(() => {
+      if (
+        introPortal ||
+        (isAsync &&
+          (sessionSlideState?.current.type === 'content' ||
+            sessionSlideState?.current.type === 'reflection'))
+      ) {
+        setShowNotes(true);
+      } else {
+        setShowNotes(false);
+      }
+    }, [sessionSlideState, setShowNotes, introPortal, isAsync]);
 
     const toggleNotes = useCallback(
       () => setShowNotes(prevShowNotes => !prevShowNotes),
