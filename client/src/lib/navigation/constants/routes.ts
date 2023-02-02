@@ -1,5 +1,6 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 
+import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {Session} from '../../../../../shared/src/types/Session';
 
 export type ProfileStackProps = {
@@ -48,6 +49,7 @@ export type ModalStackProps = {
   DeveloperModal: undefined;
   ContactModal: undefined;
   SessionFeedbackModal: {
+    exerciseId: Exercise['id'];
     sessionId: Session['id'];
     completed: boolean;
     isHost: boolean;
