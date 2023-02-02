@@ -103,6 +103,7 @@ describe('metrics model', () => {
     it('Inserts feedback into metricsFeedback collection', async () => {
       const feedback = {
         exerciseId: 'some-exercise-id',
+        completed: true,
         question: 'Some question?',
         answer: true,
         comment: 'Some comments!',
@@ -113,6 +114,7 @@ describe('metrics model', () => {
       expect(mockAdd).toHaveBeenCalledTimes(1);
       expect(mockAdd).toHaveBeenCalledWith({
         exerciseId: 'some-exercise-id',
+        completed: true,
         question: 'Some question?',
         answer: true,
         comment: 'Some comments!',
