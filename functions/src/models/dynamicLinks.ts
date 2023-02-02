@@ -4,7 +4,7 @@ import {
 } from '@googleapis/firebasedynamiclinks';
 import config from '../lib/config';
 import i18next, {LANGUAGE_TAG} from '../lib/i18n';
-import type {Exercise} from '../../../shared/src/types/generated/Exercise';
+import {getExerciseById} from '../lib/exercise';
 
 const dynamicLinks = firebasedynamiclinks('v1');
 
@@ -59,15 +59,17 @@ export const createDynamicLink = async (
 
 export const createSessionInviteLink = async (
   inviteCode: number,
-  contentId: string,
+  exerciseId: string,
   host: string | undefined,
   language: LANGUAGE_TAG,
 ) => {
-  const {name, description, card, socialMeta} = i18next.t(contentId, {
-    lng: language,
-    ns: 'exercises',
-    returnObjects: true,
-  }) as Exercise;
+  const exercise = getExerciseById(exerciseId);
+
+  if (!exercise) {
+    return;
+  }
+
+  const {name, description, card, socialMeta} = exercise;
 
   const t = i18next.getFixedT(language, 'DeepLink.JoinSessionInvite');
 
