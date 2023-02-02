@@ -19,17 +19,20 @@ export type SharingSessionProperties = {
   'Sharing Session ID': Session['id'];
   'Sharing Session Type': Session['type'];
   'Sharing Session Start Time': Session['startTime'];
-};
+} & ExerciseID &
+  Host &
+  Language;
+
 export type SharingSessionDuration = {
   'Sharing Session Duration': number; // Seconds
 };
 
 // Feedback properties
-export type FeedbackProperties = ExerciseID & {
+export type FeedbackProperties = {
   'Feedback Question': string;
   'Feedback Answer': boolean;
   'Feedback Comment'?: string;
   'Sharing Session ID'?: string;
   'Sharing Session Completed': boolean;
   Host?: boolean;
-};
+} & ExerciseID;

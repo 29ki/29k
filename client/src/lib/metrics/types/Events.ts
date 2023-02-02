@@ -1,11 +1,8 @@
 import {
   SharingSessionProperties,
   SharingSessionDuration,
-  SharingSessionID,
   FeedbackProperties,
-  Host,
   ScreenName,
-  ExerciseID,
 } from './Properties';
 
 type Events = {
