@@ -157,7 +157,7 @@ const Session: React.FC = () => {
   return (
     <Screen backgroundColor={theme?.backgroundColor}>
       <Top>
-        <HostNotes isAsync exercise={exercise} />
+        <HostNotes async exercise={exercise} />
         {!sessionSlideState?.next && (
           <>
             <Spacer16 />

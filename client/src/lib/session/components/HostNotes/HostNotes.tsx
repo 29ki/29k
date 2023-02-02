@@ -36,6 +36,7 @@ import {
   Exercise,
   ExerciseSlideContentSlideHostNote,
 } from '../../../../../../shared/src/types/generated/Exercise';
+import useResolveHostNotes from '../../hooks/useResolveHostNotes';
 
 const NotesNavBtn = styled(NavButton)(({disabled}) => ({
   opacity: disabled ? 0 : 1,
@@ -68,13 +69,13 @@ const keyExtractor: FlatListProps<any>['keyExtractor'] = (_, i) => `notes-${i}`;
 
 type HostNotesProps = {
   introPortal?: boolean;
-  isAsync?: boolean;
+  async?: boolean;
   style?: ViewStyle;
   exercise: Exercise | null;
 };
 
 const HostNotes = React.memo<HostNotesProps>(
-  ({introPortal, isAsync, style, exercise}) => {
+  ({introPortal, async, style, exercise}) => {
     const listRef = useRef<FlatList>(null);
     const [showNotes, setShowNotes] = useState(false);
     const [containerWidth, setContainerWidth] = useState(0);
@@ -82,10 +83,12 @@ const HostNotes = React.memo<HostNotesProps>(
     const [scroll, setScroll] = useState({index: 0, animated: false});
     const sessionSlideState = useSessionSlideState();
     const {t} = useTranslation('Component.HostNotes');
-
-    const notes = introPortal
-      ? exercise?.introPortal?.hostNotes
-      : sessionSlideState?.current.hostNotes;
+    const notes = useResolveHostNotes(
+      introPortal,
+      exercise,
+      sessionSlideState,
+      async,
+    );
 
     const calculatePageIndex = useCallback(
       (e: NativeSyntheticEvent<NativeScrollEvent>) =>
@@ -110,7 +113,7 @@ const HostNotes = React.memo<HostNotesProps>(
     useEffect(() => {
       if (
         introPortal ||
-        (isAsync &&
+        (async &&
           (sessionSlideState?.current.type === 'content' ||
             sessionSlideState?.current.type === 'reflection'))
       ) {
@@ -118,7 +121,7 @@ const HostNotes = React.memo<HostNotesProps>(
       } else {
         setShowNotes(false);
       }
-    }, [sessionSlideState, setShowNotes, introPortal, isAsync]);
+    }, [sessionSlideState, setShowNotes, introPortal, async]);
 
     const toggleNotes = useCallback(
       () => setShowNotes(prevShowNotes => !prevShowNotes),
