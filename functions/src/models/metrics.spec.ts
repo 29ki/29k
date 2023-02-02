@@ -24,7 +24,7 @@ afterEach(() => {
 
 describe('metrics model', () => {
   describe('logEvent', () => {
-    it('Inserts events into the metrics-events collection', async () => {
+    it('Inserts events into the metricsEvents collection', async () => {
       await logEvent(
         'some-user-id',
         new Date('2022-02-02T02:02:02Z'),
@@ -34,7 +34,7 @@ describe('metrics model', () => {
         },
       );
 
-      expect(mockCollection).toHaveBeenCalledWith('metrics-events');
+      expect(mockCollection).toHaveBeenCalledWith('metricsEvents');
 
       expect(mockAdd).toHaveBeenCalledTimes(1);
       expect(mockAdd).toHaveBeenCalledWith({
@@ -54,7 +54,7 @@ describe('metrics model', () => {
         'Some Event Name',
       );
 
-      expect(mockCollection).toHaveBeenCalledWith('metrics-events');
+      expect(mockCollection).toHaveBeenCalledWith('metricsEvents');
 
       expect(mockAdd).toHaveBeenCalledTimes(1);
       expect(mockAdd).toHaveBeenCalledWith({
@@ -67,12 +67,12 @@ describe('metrics model', () => {
   });
 
   describe('setUserProperties', () => {
-    it('Updates metrics-user-properties collection', async () => {
+    it('Updates metricsUserProperties collection', async () => {
       await setUserProperties('some-user-id', {
         'Some Property': 'Some Value',
       });
 
-      expect(mockCollection).toHaveBeenCalledWith('metrics-user-properties');
+      expect(mockCollection).toHaveBeenCalledWith('metricsUserProperties');
       expect(mockDoc).toHaveBeenCalledWith('some-user-id');
       expect(mockSet).toHaveBeenCalledTimes(1);
       expect(mockSet).toHaveBeenCalledWith(
@@ -87,7 +87,7 @@ describe('metrics model', () => {
     it('Accepts undefined properties', async () => {
       await setUserProperties('some-user-id');
 
-      expect(mockCollection).toHaveBeenCalledWith('metrics-user-properties');
+      expect(mockCollection).toHaveBeenCalledWith('metricsUserProperties');
 
       expect(mockSet).toHaveBeenCalledTimes(1);
       expect(mockSet).toHaveBeenCalledWith(
