@@ -3,6 +3,7 @@ import {Alert} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import auth from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
 
@@ -13,8 +14,7 @@ import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
 import Gutters from '../../lib/components/Gutters/Gutters';
 import CardModal from '../../lib/components/Modals/CardModal';
 
-import {requestPromotion} from '../Profile/api/user';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {requestPromotion} from '../../lib/user/api/user';
 
 const UpgradeAccountModal = () => {
   const {t} = useTranslation('Modal.UpgradeAccount');

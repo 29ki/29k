@@ -14,7 +14,7 @@ import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
 import CardModal from '../../lib/components/Modals/CardModal';
 import VerificationCode from '../../lib/components/VerificationCode/VerificationCode';
 
-import {requestPromotion, verifyPromotion} from '../Profile/api/user';
+import {requestPromotion, verifyPromotion} from '../../lib/user/api/user';
 
 import useUserState from '../../lib/user/state/state';
 import useUserClaims from '../../lib/user/hooks/useUserClaims';

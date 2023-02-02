@@ -1,9 +1,7 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
-import {ListRenderItemInfo, RefreshControl, SectionList} from 'react-native';
+import {RefreshControl, SectionList} from 'react-native';
 
 import useSessions from '../../lib/sessions/hooks/useSessions';
-
-import {Session} from '../../../../shared/src/types/Session';
 
 import {COLORS} from '../../../../shared/src/constants/colors';
 
@@ -18,7 +16,7 @@ import Gutters from '../../lib/components/Gutters/Gutters';
 import Screen from '../../lib/components/Screen/Screen';
 import {Heading18} from '../../lib/components/Typography/Heading/Heading';
 import useCompletedSessions from '../../lib/sessions/hooks/useCompletedSessions';
-import {Body16} from '../../lib/components/Typography/Body/Body';
+import SessionCard from './components/SessionCard';
 
 const ListHeader = () => (
   <>
@@ -69,12 +67,6 @@ const Plan = () => {
     }
   }, [setIsLoading, fetchSessions]);
 
-  const renderSession = ({item}: ListRenderItemInfo<Session>) => (
-    <Gutters>
-      <Body16>- {item.id}</Body16>
-    </Gutters>
-  );
-
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
       <SectionList
@@ -83,7 +75,7 @@ const Plan = () => {
         ListHeaderComponent={ListHeader}
         ListFooterComponent={Spacer60}
         ItemSeparatorComponent={Spacer16}
-        renderItem={renderSession}
+        renderItem={SessionCard}
         refreshControl={
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }
