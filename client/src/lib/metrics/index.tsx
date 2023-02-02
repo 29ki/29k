@@ -4,7 +4,6 @@ import {POSTHOG_API_KEY} from 'config';
 import Events from './types/Events';
 import CoreProperties from './types/CoreProperties';
 import UserProperties from './types/UserProperties';
-import {Feedback} from '../../../../shared/src/types/Feedback';
 
 const DEFAULT_CONSENT = true;
 
@@ -59,11 +58,6 @@ export const setUserProperties = (
 ) => postHog?.identify(undefined, properties);
 
 export const setCoreProperties = (properties: AnyCoreProperty) => {
-  postHog?.register(properties);
-  setUserProperties(properties);
-};
-
-export const logFeedback = (feedback: Feedback) => {
   postHog?.register(properties);
   setUserProperties(properties);
 };
