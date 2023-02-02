@@ -1,0 +1,12 @@
+{
+  "fields": [
+    {"name": "exerciseId", "type": "string"},
+    {"name": "completed", "type": "boolean"},
+    {"name": "sessionId", "type": "string"},
+    {"name": "host", "type": "boolean"},
+    {"name": "question", "type": "string"},
+    {"name": "answer", "type": "boolean"},
+    {"name": "comment", "type": "string"},
+    {"name": "createdAt", "type": "timestamp"}
+  ]
+}
