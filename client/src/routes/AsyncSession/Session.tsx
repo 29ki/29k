@@ -176,14 +176,14 @@ const Session: React.FC = () => {
               current={sessionSlideState.current}
               previous={sessionSlideState.previous}
               next={sessionSlideState.next}
-              sessionType={session.type}
+              async
             />
           </>
         )}
         <ExerciseControl
-          sessionType={session.type}
+          async
           exercise={exercise}
-          isHost={true}
+          isHost
           sessionState={sessionState}
           slideState={sessionSlideState}
           currentContentReachedEnd={currentContentReachedEnd}

@@ -247,7 +247,6 @@ const Session: React.FC = () => {
               current={sessionSlideState.current}
               previous={sessionSlideState.previous}
               next={sessionSlideState.next}
-              sessionType={session.type}
             />
             {!isHost && (
               <Progress
@@ -258,7 +257,6 @@ const Session: React.FC = () => {
           </>
         )}
         <ExerciseControl
-          sessionType={session.type}
           exercise={exercise}
           isHost={isHost}
           sessionState={sessionState}

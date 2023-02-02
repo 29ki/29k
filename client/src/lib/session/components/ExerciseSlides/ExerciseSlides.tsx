@@ -9,7 +9,6 @@ import Animated, {
 
 import {ExerciseSlide} from '../../../../../../shared/src/types/Content';
 import {Slide} from '../Slides/Slide';
-import {SessionType} from '../../../../../../shared/src/types/Session';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -46,7 +45,7 @@ type ExerciseSlidesProps = {
   current: ExerciseSlide;
   previous?: ExerciseSlide;
   next?: ExerciseSlide;
-  sessionType: SessionType;
+  async?: boolean;
 };
 
 const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
@@ -54,36 +53,21 @@ const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
   current,
   previous,
   next,
-  sessionType,
+  async,
 }) => (
   // "Pre load" previous and next slide
   <Wrapper>
     {previous && (
       <Fade visible={false} key={index - 1}>
-        <Slide
-          sessionType={sessionType}
-          slide={previous}
-          active={false}
-          key="slide"
-        />
+        <Slide async={async} slide={previous} active={false} key="slide" />
       </Fade>
     )}
     <Fade visible={true} key={index}>
-      <Slide
-        sessionType={sessionType}
-        slide={current}
-        active={true}
-        key="slide"
-      />
+      <Slide async={async} slide={current} active={true} key="slide" />
     </Fade>
     {next && (
       <Fade visible={false} key={index + 1}>
-        <Slide
-          sessionType={sessionType}
-          slide={next}
-          active={false}
-          key="slide"
-        />
+        <Slide async={async} slide={next} active={false} key="slide" />
       </Fade>
     )}
   </Wrapper>

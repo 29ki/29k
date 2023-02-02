@@ -35,8 +35,13 @@ type ContentProps = {
     | ExerciseSlideSharingSlide
     | ExerciseSlideReflectionSlide;
   active: boolean;
+  async?: boolean;
 };
-const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
+const Content: React.FC<ContentProps> = ({
+  slide: {content = {}},
+  active,
+  async,
+}) => {
   const videoSource = useMemo(
     () => ({uri: content?.video?.source}),
     [content.video?.source],
@@ -76,11 +81,12 @@ const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
           {content.text && <Text>{content.text}</Text>}
         </TextWrapper>
       )}
-      {(content.video || content.image || content.lottie) &&
+      {!async &&
+        (content.video || content.image || content.lottie) &&
         content.heading && <Heading>{content.heading}</Heading>}
-      {(content.video || content.image || content.lottie) && content.text && (
-        <Text>{content.text}</Text>
-      )}
+      {!async &&
+        (content.video || content.image || content.lottie) &&
+        content.text && <Text>{content.text}</Text>}
 
       {content.lottie ? (
         <GraphicsWrapper>

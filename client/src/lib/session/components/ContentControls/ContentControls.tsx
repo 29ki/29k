@@ -17,10 +17,7 @@ import {Spacer8} from '../../../components/Spacers/Spacer';
 import Button from '../../../components/Buttons/Button';
 import IconButton from '../../../components/Buttons/IconButton/IconButton';
 import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
-import {
-  SessionState,
-  SessionType,
-} from '../../../../../../shared/src/types/Session';
+import {SessionState} from '../../../../../../shared/src/types/Session';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -43,7 +40,7 @@ const IconSlideButton = styled(IconButton)(({disabled}) => ({
 
 type ContentControlsProps = {
   style?: ViewStyle;
-  sessionType: SessionType;
+  async?: boolean;
   exercise: Exercise | null;
   isHost: boolean;
   sessionState: SessionState | null;
@@ -57,7 +54,7 @@ type ContentControlsProps = {
 
 const ContentControls: React.FC<ContentControlsProps> = ({
   style,
-  sessionType,
+  async,
   isHost,
   sessionState,
   currentContentReachedEnd,
@@ -80,7 +77,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
     !slideState?.current.content?.lottie;
 
   const shouldRenderMediaControls = useMemo(() => {
-    if (slideType === 'host' && sessionType === SessionType.async) {
+    if (slideType === 'host' && async) {
       return true;
     }
 
@@ -89,7 +86,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
     }
 
     return false;
-  }, [sessionType, slideType, hasAutoPlayLoop]);
+  }, [async, slideType, hasAutoPlayLoop]);
 
   if (!isHost || !sessionState || !slideState) {
     return null;
