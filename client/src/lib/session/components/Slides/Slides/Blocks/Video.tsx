@@ -112,8 +112,8 @@ const Video: React.FC<VideoProps> = ({
     () => ({
       source,
       poster: preview,
-      resizeMode: 'contain',
-      posterResizeMode: 'contain',
+      resizeMode: 'cover',
+      posterResizeMode: 'cover',
       paused,
     }),
     [paused, preview, source],

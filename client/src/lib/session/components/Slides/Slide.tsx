@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import styled from 'styled-components/native';
+import hexToRgba from 'hex-to-rgba';
+import LinearGradient from 'react-native-linear-gradient';
 
 import {ExerciseSlide} from '../../../../../../shared/src/types/Content';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
@@ -18,6 +20,14 @@ const Wrapper = styled.View<WrapperProps>(({backgroundColor}) => ({
   justifyContent: 'center',
 }));
 
+const BottomVideoGradient = styled(LinearGradient)({
+  position: 'absolute',
+  left: 0,
+  right: 0,
+  bottom: 0,
+  height: 80,
+});
+
 type SlideProps = {
   slide: ExerciseSlide;
   active: boolean;
@@ -26,12 +36,20 @@ type SlideProps = {
 
 export const Slide = React.memo(({slide, active, sessionType}: SlideProps) => {
   const theme = useExerciseTheme();
+  const background = theme?.backgroundColor ?? COLORS.WHITE;
+  const colors = useMemo(
+    () => [hexToRgba(background, 0), hexToRgba(background, 1)],
+    [background],
+  );
 
   return (
     <Wrapper backgroundColor={theme?.backgroundColor}>
       {slide.type === 'host' &&
         (sessionType === SessionType.async ? (
-          <HostVideo active={active} slide={slide} />
+          <>
+            <HostVideo active={active} slide={slide} />
+            <BottomVideoGradient colors={colors} />
+          </>
         ) : (
           <Host active={active} />
         ))}

@@ -17,11 +17,7 @@ import useLeaveSession from '../../lib/session/hooks/useLeaveSession';
 import useAsyncSessionMetricEvents from '../../lib/session/hooks/useAsyncSessionMetricEvents';
 import useUserState from '../../lib/user/state/state';
 
-import {
-  BottomSafeArea,
-  Spacer16,
-  Spacer32,
-} from '../../lib/components/Spacers/Spacer';
+import {BottomSafeArea, Spacer16} from '../../lib/components/Spacers/Spacer';
 
 import ExerciseSlides from '../../lib/session/components/ExerciseSlides/ExerciseSlides';
 import ContentControls from '../../lib/session/components/ContentControls/ContentControls';
@@ -52,24 +48,12 @@ const SessionControls = styled.View({
   justifyContent: 'flex-start',
 });
 
-const SpotlightContent = styled.View<{isHostVideo: boolean}>(
-  ({isHostVideo}) => ({
-    flex: 1,
-
-    // height: '100%',
-    // width: '100%',
-    // height: isHostVideo ? '100%' : undefined,
-    // width: isHostVideo ? '100%' : undefined,
-    // aspectRatio: !isHostVideo ? '0.9375' : undefined,
-  }),
-);
-
 const Top = styled.View({
   position: 'absolute',
   top: 0,
   right: 0,
   left: 0,
-  zIndex: 1,
+  zIndex: 1000,
 });
 
 const StyledButton = styled(Button)({
@@ -186,10 +170,7 @@ const Session: React.FC = () => {
 
       <Spotlight>
         {sessionSlideState && (
-          // <SpotlightContent
-          //   isHostVideo={sessionSlideState.current.type === 'host'}>
           <>
-            {/* <Spacer32 /> */}
             <ExerciseSlides
               index={sessionSlideState.index}
               current={sessionSlideState.current}
@@ -198,7 +179,6 @@ const Session: React.FC = () => {
               sessionType={session.type}
             />
           </>
-          // </SpotlightContent>
         )}
         <ExerciseControl
           sessionType={session.type}
