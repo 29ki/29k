@@ -2,11 +2,11 @@ import {getAuth} from 'firebase-admin/auth';
 import {updatePublicHostRequest} from '../../models/publicHostRequests';
 import {createPublicHostCodeLink} from '../../models/dynamicLinks';
 import {RequestAction} from '../../lib/constants/requestAction';
-import {updatePublicHostRequestMessage, parseMessage} from '../../lib/slack';
+import {updatePublicHostRequestMessage, parseMessage} from '../../models/slack';
 import {slackHandler} from './slack';
 import {SlackError, SlackErrorCode} from '../../controllers/errors/SlackError';
 
-jest.mock('../../lib/slack');
+jest.mock('../../models/slack');
 jest.mock('../../models/publicHostRequests');
 jest.mock('../../models/dynamicLinks');
 

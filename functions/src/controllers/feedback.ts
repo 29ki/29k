@@ -1,6 +1,6 @@
 import * as metricsModel from '../models/metrics';
 import {Feedback} from '../../../shared/src/types/Feedback';
-import * as slack from '../lib/slack';
+import * as slack from '../models/slack';
 import {getExerciseById} from '../lib/exercise';
 
 export const addFeedback = async (feedback: Feedback) => {

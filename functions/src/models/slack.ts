@@ -1,7 +1,7 @@
 import {WebClient} from '@slack/web-api';
 import {SlackError, SlackErrorCode} from '../controllers/errors/SlackError';
-import config from './config';
-import {RequestAction} from './constants/requestAction';
+import config from '../lib/config';
+import {RequestAction} from '../lib/constants/requestAction';
 
 const {
   SLACK_OAUTH_TOKEN,

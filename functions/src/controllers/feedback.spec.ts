@@ -1,11 +1,11 @@
 import * as metricsModel from '../models/metrics';
 import * as feedbackController from './feedback';
-import * as slack from '../lib/slack';
+import * as slack from '../models/slack';
 import {getExerciseById} from '../lib/exercise';
 import {Exercise} from '../../../shared/src/types/generated/Exercise';
 
 jest.mock('../models/metrics');
-jest.mock('../lib/slack');
+jest.mock('../models/slack');
 jest.mock('../lib/exercise');
 
 beforeEach(async () => {

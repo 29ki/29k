@@ -1,5 +1,5 @@
 import {SlackError, SlackErrorCode} from '../controllers/errors/SlackError';
-import {RequestAction} from './constants/requestAction';
+import {RequestAction} from '../lib/constants/requestAction';
 import {
   parseMessage,
   sendFeedbackMessage,
@@ -22,7 +22,7 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-describe('slack', () => {
+describe('slack model', () => {
   describe('parseMessage', () => {
     it('should parse valid message', () => {
       expect(
