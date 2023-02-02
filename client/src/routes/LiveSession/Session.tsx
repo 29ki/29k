@@ -143,6 +143,10 @@ const Session: React.FC = () => {
     if (sessionState?.completed) {
       addCompletedSession({
         id: sessionState?.id,
+        hostId: session.hostId,
+        type: session.type,
+        language: session.language,
+        contentId: session.contentId,
         completedAt: dayjs.utc().toDate(),
       });
       logSessionMetricEvent('Complete Sharing Session');
@@ -150,15 +154,16 @@ const Session: React.FC = () => {
   }, [
     sessionState?.completed,
     sessionState?.id,
+    session,
     logSessionMetricEvent,
     addCompletedSession,
   ]);
 
   useEffect(() => {
     if (sessionState?.ended) {
-      leaveMeeting().then(() => navigate('OutroPortal'));
+      leaveMeeting().then(() => navigate('OutroPortal', {session}));
     }
-  }, [sessionState?.ended, navigate, leaveMeeting]);
+  }, [sessionState?.ended, navigate, leaveMeeting, session]);
 
   useEffect(() => {
     setUserData({

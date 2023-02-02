@@ -1,6 +1,6 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook} from '@testing-library/react-hooks';
-import useUserState from '../state/state';
+import useUserState, {CompletedSession} from '../state/state';
 import useCurrentUserState from './useCurrentUserState';
 
 describe('useCurrentUserState', () => {
@@ -11,7 +11,10 @@ describe('useCurrentUserState', () => {
         'user-id': {
           pinnedSessions: [{id: 'session-id', expires: new Date()}],
           completedSessions: [
-            {id: 'other-session-id', completedAt: new Date()},
+            {
+              id: 'other-session-id',
+              completedAt: new Date(),
+            } as CompletedSession,
           ],
         },
       },

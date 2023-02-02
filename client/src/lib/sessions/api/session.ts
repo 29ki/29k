@@ -71,6 +71,18 @@ export const updateSession = async (
   }
 };
 
+export const getSession = async (id: Session['id']): Promise<Session> => {
+  const response = await apiClient(`${SESSIONS_ENDPOINT}/${id}`, {
+    method: 'GET',
+  });
+
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+
+  return response.json();
+};
+
 export const getSessionToken = async (id: Session['id']): Promise<string> => {
   const response = await apiClient(`${SESSIONS_ENDPOINT}/${id}/sessionToken`, {
     method: 'GET',

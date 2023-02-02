@@ -3,7 +3,6 @@ import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import dayjs from 'dayjs';
 
 import {SPACINGS} from '../../lib/constants/spacings';
 import {COLORS} from '../../../../shared/src/constants/colors';
@@ -96,25 +95,31 @@ const Session: React.FC = () => {
   }, [logSessionMetricEvent, sessionState?.id]);
 
   useEffect(() => {
-    if (sessionState?.completed) {
+    if (sessionState?.completed && exercise?.id) {
       addCompletedSession({
         id: sessionState?.id,
-        completedAt: dayjs.utc().toDate(),
+        completedAt: new Date(),
+        contentId: exercise?.id,
+        language: session.language,
+        type: session.type,
       });
       logSessionMetricEvent('Complete Sharing Session');
     }
   }, [
     sessionState?.completed,
     sessionState?.id,
+    exercise?.id,
+    session.language,
+    session.type,
     logSessionMetricEvent,
     addCompletedSession,
   ]);
 
   useEffect(() => {
     if (sessionState?.ended) {
-      navigate('OutroPortal');
+      navigate('OutroPortal', {session});
     }
-  }, [sessionState?.ended, navigate]);
+  }, [sessionState?.ended, navigate, session]);
 
   const onPrevPress = useCallback(() => {
     if (sessionSlideState && exercise?.slides) {

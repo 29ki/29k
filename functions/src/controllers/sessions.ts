@@ -51,6 +51,23 @@ export const getSessionToken = async (
   );
 };
 
+export const getSession = async (userId: string, sessionId: Session['id']) => {
+  const session = await sessionModel.getSessionById(sessionId);
+
+  if (!session) {
+    throw new RequestError(ValidateSessionError.notFound);
+  }
+
+  if (
+    session.type === SessionType.private &&
+    !session.userIds.find(id => id === userId)
+  ) {
+    throw new RequestError(ValidateSessionError.userNotFound);
+  }
+
+  return mapSession(session);
+};
+
 export const createSession = async (
   userId: string,
   {

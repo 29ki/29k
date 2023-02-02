@@ -3,6 +3,7 @@ import {act, renderHook} from '@testing-library/react-hooks';
 import {useTranslation} from 'react-i18next';
 import {Alert as AlertMock} from 'react-native';
 import {
+  AsyncSession,
   Session,
   SessionState,
   SessionType,
@@ -152,10 +153,11 @@ describe('useLeaveSession', () => {
 
     it('resets the state and navigates on confirming on async sessions', async () => {
       useSessionState.setState({
-        session: {id: 'some-session-id'} as Session,
+        asyncSession: {id: 'some-session-id'} as AsyncSession,
         sessionState: {
           id: 'some-session-id',
           started: true,
+          completed: true,
         } as SessionState,
       });
 
@@ -172,7 +174,6 @@ describe('useLeaveSession', () => {
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(0);
       expect(useSessionState.getState().session).toBe(null);
       expect(useSessionState.getState().sessionState).toBe(null);
-      expect(mockLogAsyncSessionMetricEvent).toHaveBeenCalledTimes(1);
       expect(mockNavigate).toHaveBeenCalledTimes(2);
     });
 
