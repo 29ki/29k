@@ -41,6 +41,27 @@ describe('logEvent', () => {
   });
 });
 
+describe('logFeedback', () => {
+  it('sends feedback to back-end', async () => {
+    await backEnd.logFeeback({
+      exerciseId: 'some-exercise-id',
+      completed: true,
+      sessionId: 'some-session-id',
+      host: true,
+
+      question: 'Some question?',
+      answer: true,
+      comment: 'Some comment!',
+    });
+
+    expect(metricsClient).toHaveBeenCalledTimes(1);
+    expect(metricsClient).toHaveBeenCalledWith('logFeedback', {
+      body: '{"exerciseId":"some-exercise-id","completed":true,"sessionId":"some-session-id","host":true,"question":"Some question?","answer":true,"comment":"Some comment!"}',
+      method: 'POST',
+    });
+  });
+});
+
 describe('setUserProperties', () => {
   it('sends properties to back-end', async () => {
     jest.mocked(getMetricsUid).mockReturnValueOnce('some-metrics-uid');
