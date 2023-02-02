@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import {StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import Animated, {
   useAnimatedStyle,
@@ -7,7 +8,6 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import {ExerciseSlide} from '../../../../../../shared/src/types/Content';
-import {StyleSheet} from 'react-native';
 import {Slide} from '../Slides/Slide';
 
 const Wrapper = styled.View({
@@ -45,6 +45,7 @@ type ExerciseSlidesProps = {
   current: ExerciseSlide;
   previous?: ExerciseSlide;
   next?: ExerciseSlide;
+  async?: boolean;
 };
 
 const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
@@ -52,20 +53,21 @@ const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
   current,
   previous,
   next,
+  async,
 }) => (
   // "Pre load" previous and next slide
   <Wrapper>
     {previous && (
       <Fade visible={false} key={index - 1}>
-        <Slide slide={previous} active={false} key="slide" />
+        <Slide async={async} slide={previous} active={false} key="slide" />
       </Fade>
     )}
     <Fade visible={true} key={index}>
-      <Slide slide={current} active={true} key="slide" />
+      <Slide async={async} slide={current} active={true} key="slide" />
     </Fade>
     {next && (
       <Fade visible={false} key={index + 1}>
-        <Slide slide={next} active={false} key="slide" />
+        <Slide async={async} slide={next} active={false} key="slide" />
       </Fade>
     )}
   </Wrapper>

@@ -12,10 +12,12 @@ import Video from './Blocks/Video';
 import {Spacer12, Spacer8} from '../../../../components/Spacers/Spacer';
 import Text from './Blocks/Text';
 import Lottie from './Blocks/Lottie';
+import ContentWrapper from '../../ContentWrapper/ContentWrapper';
 
 const GraphicsWrapper = styled.View({
   flex: 1,
 });
+
 const TextWrapper = styled.View({
   justifyContent: 'center',
   flex: 1,
@@ -33,8 +35,13 @@ type ContentProps = {
     | ExerciseSlideSharingSlide
     | ExerciseSlideReflectionSlide;
   active: boolean;
+  async?: boolean;
 };
-const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
+const Content: React.FC<ContentProps> = ({
+  slide: {content = {}},
+  active,
+  async,
+}) => {
   const videoSource = useMemo(
     () => ({uri: content?.video?.source}),
     [content.video?.source],
@@ -66,7 +73,7 @@ const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
   );
 
   return (
-    <>
+    <ContentWrapper>
       <Spacer12 />
       {!content.video && !content.image && !content.lottie && (
         <TextWrapper>
@@ -74,11 +81,12 @@ const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
           {content.text && <Text>{content.text}</Text>}
         </TextWrapper>
       )}
-      {(content.video || content.image || content.lottie) &&
+      {!async &&
+        (content.video || content.image || content.lottie) &&
         content.heading && <Heading>{content.heading}</Heading>}
-      {(content.video || content.image || content.lottie) && content.text && (
-        <Text>{content.text}</Text>
-      )}
+      {!async &&
+        (content.video || content.image || content.lottie) &&
+        content.text && <Text>{content.text}</Text>}
 
       {content.lottie ? (
         <GraphicsWrapper>
@@ -113,7 +121,7 @@ const Content: React.FC<ContentProps> = ({slide: {content = {}}, active}) => {
           <Image resizeMode="contain" source={imageSource} />
         </GraphicsWrapper>
       ) : null}
-    </>
+    </ContentWrapper>
   );
 };
 

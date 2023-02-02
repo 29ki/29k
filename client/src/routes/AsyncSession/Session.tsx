@@ -16,11 +16,7 @@ import useLeaveSession from '../../lib/session/hooks/useLeaveSession';
 import useAsyncSessionMetricEvents from '../../lib/session/hooks/useAsyncSessionMetricEvents';
 import useUserState from '../../lib/user/state/state';
 
-import {
-  BottomSafeArea,
-  Spacer16,
-  Spacer32,
-} from '../../lib/components/Spacers/Spacer';
+import {BottomSafeArea, Spacer16} from '../../lib/components/Spacers/Spacer';
 
 import ExerciseSlides from '../../lib/session/components/ExerciseSlides/ExerciseSlides';
 import ContentControls from '../../lib/session/components/ContentControls/ContentControls';
@@ -51,16 +47,12 @@ const SessionControls = styled.View({
   justifyContent: 'flex-start',
 });
 
-const SpotlightContent = styled.View({
-  aspectRatio: '0.9375',
-});
-
 const Top = styled.View({
   position: 'absolute',
   top: 0,
   right: 0,
   left: 0,
-  zIndex: 1,
+  zIndex: 1000,
 });
 
 const StyledButton = styled(Button)({
@@ -170,7 +162,7 @@ const Session: React.FC = () => {
   return (
     <Screen backgroundColor={theme?.backgroundColor}>
       <Top>
-        <HostNotes exercise={exercise} />
+        <HostNotes async exercise={exercise} />
         {!sessionSlideState?.next && (
           <>
             <Spacer16 />
@@ -183,19 +175,20 @@ const Session: React.FC = () => {
 
       <Spotlight>
         {sessionSlideState && (
-          <SpotlightContent>
-            <Spacer32 />
+          <>
             <ExerciseSlides
               index={sessionSlideState.index}
               current={sessionSlideState.current}
               previous={sessionSlideState.previous}
               next={sessionSlideState.next}
+              async
             />
-          </SpotlightContent>
+          </>
         )}
         <ExerciseControl
+          async
           exercise={exercise}
-          isHost={true}
+          isHost
           sessionState={sessionState}
           slideState={sessionSlideState}
           currentContentReachedEnd={currentContentReachedEnd}
