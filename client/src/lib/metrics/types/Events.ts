@@ -1,12 +1,14 @@
 import {
   SharingSessionProperties,
   SharingSessionDuration,
-  SharingSessionID,
   FeedbackProperties,
-  Host,
+  ScreenName,
 } from './Properties';
 
 type Events = {
+  // Navigation
+  Screen: ScreenName;
+
   // Outside Sharing Sessions
   'Create Sharing Session': SharingSessionProperties;
   'Join Sharing Session': SharingSessionProperties;
@@ -31,8 +33,7 @@ type Events = {
   'Share Async Session': SharingSessionProperties;
 
   // Feedback
-  'Sharing Session Feedback': FeedbackProperties &
-    SharingSessionID & {'Sharing Session Completed': boolean} & Host;
+  'Sharing Session Feedback': FeedbackProperties;
 };
 
 export default Events;

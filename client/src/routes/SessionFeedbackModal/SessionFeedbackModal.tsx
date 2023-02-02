@@ -78,7 +78,7 @@ const SessionFeedbackModal = () => {
   const {popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {snapToIndex} = useBottomSheet();
-  const {sessionId, completed, isHost} = params;
+  const {exerciseId, sessionId, completed, isHost} = params;
 
   const [answer, setAnswer] = useState<undefined | boolean>();
   const [comment, setComment] = useState('');
@@ -95,16 +95,28 @@ const SessionFeedbackModal = () => {
   }, [snapToIndex, setAnswer]);
 
   const submit = useCallback(() => {
-    metrics.logEvent('Sharing Session Feedback', {
-      'Feedback Question': t('question', {lng: DEFAULT_LANGUAGE_TAG}),
-      'Feedback Answer': answer,
-      'Feedback Comment': comment,
-      'Sharing Session ID': sessionId,
-      'Sharing Session Completed': completed,
-      Host: isHost,
-    });
-    setSubmitted(true);
-  }, [t, sessionId, completed, isHost, answer, comment, setSubmitted]);
+    if (answer) {
+      metrics.logFeedback({
+        exerciseId,
+        sessionId,
+        completed,
+        question: t('question', {lng: DEFAULT_LANGUAGE_TAG}),
+        answer,
+        comment,
+        host: isHost,
+      });
+      setSubmitted(true);
+    }
+  }, [
+    t,
+    exerciseId,
+    sessionId,
+    completed,
+    isHost,
+    answer,
+    comment,
+    setSubmitted,
+  ]);
 
   useEffect(() => {
     if (submitted) {

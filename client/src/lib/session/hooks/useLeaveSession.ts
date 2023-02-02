@@ -25,6 +25,7 @@ const useLeaveSession = (sessionType: SessionType) => {
   const {t} = useTranslation('Component.ConfirmExitSession');
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();
+  const session = useSessionState(state => state.session);
   const sessionState = useSessionState(state => state.sessionState);
   const asyncSession = useSessionState(state => state.asyncSession);
   const isHost = useIsSessionHost();
@@ -49,9 +50,14 @@ const useLeaveSession = (sessionType: SessionType) => {
 
     navigate('Sessions');
 
-    if (sessionState?.started && sessionType !== SessionType.async) {
+    if (
+      session?.id &&
+      sessionState?.started &&
+      sessionType !== SessionType.async
+    ) {
       navigate('SessionFeedbackModal', {
-        sessionId: sessionState?.id,
+        exerciseId: session.contentId,
+        sessionId: session.id,
         completed: Boolean(sessionState?.completed),
         isHost,
       });
@@ -67,7 +73,8 @@ const useLeaveSession = (sessionType: SessionType) => {
   }, [
     sessionType,
     asyncSession,
-    sessionState?.id,
+    session?.id,
+    session?.contentId,
     sessionState?.started,
     sessionState?.completed,
     isHost,

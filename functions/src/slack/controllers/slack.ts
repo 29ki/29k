@@ -5,7 +5,7 @@ import {
   parseMessage,
   SlackPayload,
   updatePublicHostRequestMessage,
-} from '../../lib/slack';
+} from '../../models/slack';
 import {generateVerificationCode} from '../../lib/utils';
 import {createPublicHostCodeLink} from '../../models/dynamicLinks';
 import {updatePublicHostRequest} from '../../models/publicHostRequests';

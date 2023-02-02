@@ -1,7 +1,8 @@
 import {SlackError, SlackErrorCode} from '../controllers/errors/SlackError';
-import {RequestAction} from './constants/requestAction';
+import {RequestAction} from '../lib/constants/requestAction';
 import {
   parseMessage,
+  sendFeedbackMessage,
   sendPublicHostRequestMessage,
   updatePublicHostRequestMessage,
 } from './slack';
@@ -21,7 +22,7 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-describe('slack', () => {
+describe('slack model', () => {
   describe('parseMessage', () => {
     it('should parse valid message', () => {
       expect(
@@ -154,6 +155,65 @@ describe('slack', () => {
           new SlackError(SlackErrorCode.couldNotUpdateMessage, 'error cause'),
         );
       }
+    });
+  });
+
+  describe('sendFeedbackMessage', () => {
+    it('should send expected message to slack', async () => {
+      await sendFeedbackMessage(
+        'Some Exercise Name',
+        'https://some.image/url',
+        'Some question?',
+        true,
+        'Some comment!',
+      );
+
+      expect(mockPostMessage).toHaveBeenCalledTimes(1);
+      expect(mockPostMessage).toHaveBeenCalledWith({
+        blocks: [
+          {text: {text: 'Some question?', type: 'plain_text'}, type: 'header'},
+          {
+            accessory: {
+              alt_text: 'exercise',
+              image_url: 'https://some.image/url',
+              type: 'image',
+            },
+            text: {
+              text: '*Answer:* 👍\n\n*Exercise:*\nSome Exercise Name\n\n*Comment:*\nSome comment!',
+              type: 'mrkdwn',
+            },
+            type: 'section',
+          },
+        ],
+        channel: '#some-channel',
+        username: 'Some Bot',
+      });
+    });
+
+    it("doesn't require an exercise or image", async () => {
+      await sendFeedbackMessage(
+        undefined,
+        undefined,
+        'Some question?',
+        true,
+        'Some comment!',
+      );
+
+      expect(mockPostMessage).toHaveBeenCalledTimes(1);
+      expect(mockPostMessage).toHaveBeenCalledWith({
+        blocks: [
+          {text: {text: 'Some question?', type: 'plain_text'}, type: 'header'},
+          {
+            text: {
+              text: '*Answer:* 👍\n\n*Exercise:*\nunknown\n\n*Comment:*\nSome comment!',
+              type: 'mrkdwn',
+            },
+            type: 'section',
+          },
+        ],
+        channel: '#some-channel',
+        username: 'Some Bot',
+      });
     });
   });
 });

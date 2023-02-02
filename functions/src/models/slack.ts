@@ -1,10 +1,14 @@
 import {WebClient} from '@slack/web-api';
 import {SlackError, SlackErrorCode} from '../controllers/errors/SlackError';
-import config from './config';
-import {RequestAction} from './constants/requestAction';
+import config from '../lib/config';
+import {RequestAction} from '../lib/constants/requestAction';
 
-const {SLACK_OAUTH_TOKEN, SLACK_BOT_NAME, SLACK_PUBLIC_HOST_REQUESTS_CHANNEL} =
-  config;
+const {
+  SLACK_OAUTH_TOKEN,
+  SLACK_BOT_NAME,
+  SLACK_PUBLIC_HOST_REQUESTS_CHANNEL,
+  SLACK_FEEDBACK_CHANNEL,
+} = config;
 
 const createSlackClient = () => {
   if (SLACK_BOT_NAME && SLACK_OAUTH_TOKEN) {
@@ -95,6 +99,39 @@ const createResponseBlocks = (
   },
 ];
 
+const createFeedbackBlocks = (
+  exercise = 'unknown',
+  image: string | undefined,
+  question: string,
+  answer: boolean,
+  comment: string,
+) => [
+  {
+    type: 'header',
+    text: {
+      type: 'plain_text',
+      text: question,
+    },
+  },
+  {
+    type: 'section',
+    text: {
+      type: 'mrkdwn',
+      text:
+        `*Answer:* ${answer ? '👍' : '👎'}\n\n` +
+        `*Exercise:*\n${exercise}\n\n` +
+        `*Comment:*\n${comment}`,
+    },
+    ...(image && {
+      accessory: {
+        type: 'image',
+        image_url: image,
+        alt_text: 'exercise',
+      },
+    }),
+  },
+];
+
 export type SlackPayload = {
   message: {ts: string};
   actions: Array<{action_id: string; value: string}>;
@@ -146,5 +183,33 @@ export const updatePublicHostRequestMessage = async (
     });
   } catch (error) {
     throw new SlackError(SlackErrorCode.couldNotUpdateMessage, error);
+  }
+};
+
+export const sendFeedbackMessage = async (
+  exercise: string | undefined,
+  image: string | undefined,
+  question: string,
+  answer: boolean,
+  comment: string,
+) => {
+  if (SLACK_FEEDBACK_CHANNEL) {
+    try {
+      const slackClient = createSlackClient();
+
+      await slackClient.chat.postMessage({
+        blocks: createFeedbackBlocks(
+          exercise,
+          image,
+          question,
+          answer,
+          comment,
+        ),
+        username: SLACK_BOT_NAME,
+        channel: `#${SLACK_FEEDBACK_CHANNEL}`,
+      });
+    } catch (error) {
+      throw new SlackError(SlackErrorCode.couldNotSendMessage, error);
+    }
   }
 };

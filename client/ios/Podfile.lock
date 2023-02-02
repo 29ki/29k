@@ -606,7 +606,7 @@ PODS:
   - BoringSSL-GRPC/Interface (0.0.24)
   - BVLinearGradient (2.6.2):
     - React-Core
-  - CodePush (7.0.5):
+  - CodePush (7.1.0):
     - Base64 (~> 1.1)
     - JWT (~> 3.0.0-beta.12)
     - React-Core
@@ -973,7 +973,9 @@ PODS:
     - React-Core
   - react-native-daily-js (0.36.0):
     - React
-  - react-native-safe-area-context (4.4.1):
+  - react-native-get-random-values (1.8.0):
+    - React-Core
+  - react-native-safe-area-context (4.5.0):
     - RCT-Folly
     - RCTRequired
     - RCTTypeSafety
@@ -1058,24 +1060,24 @@ PODS:
     - React-Core
   - RNDeviceInfo (10.3.0):
     - React-Core
-  - RNFBApp (16.5.1):
+  - RNFBApp (16.7.0):
     - Firebase/CoreOnly (= 10.3.0)
     - React-Core
-  - RNFBAuth (16.5.1):
+  - RNFBAuth (16.7.0):
     - Firebase/Auth (= 10.3.0)
     - React-Core
     - RNFBApp
-  - RNFBDynamicLinks (16.5.1):
+  - RNFBDynamicLinks (16.7.0):
     - Firebase/DynamicLinks (= 10.3.0)
     - GoogleUtilities/AppDelegateSwizzler
     - React-Core
     - RNFBApp
-  - RNFBFirestore (16.5.1):
+  - RNFBFirestore (16.7.0):
     - Firebase/Firestore (= 10.3.0)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - React-Core
     - RNFBApp
-  - RNFBStorage (16.5.1):
+  - RNFBStorage (16.7.0):
     - Firebase/Storage (= 10.3.0)
     - React-Core
     - RNFBApp
@@ -1099,7 +1101,7 @@ PODS:
     - React-Core
   - RNReactNativeHapticFeedback (1.14.0):
     - React-Core
-  - RNReanimated (2.14.1):
+  - RNReanimated (2.14.4):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -1126,10 +1128,10 @@ PODS:
     - React-RCTText
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.18.2):
+  - RNScreens (3.19.0):
     - React-Core
     - React-RCTImage
-  - RNSentry (4.13.0):
+  - RNSentry (4.14.0):
     - React-Core
     - Sentry/HybridSDK (= 7.31.5)
   - RNSharedElement (0.8.8):
@@ -1139,7 +1141,7 @@ PODS:
     - RNSound/Core (= 0.11.2)
   - RNSound/Core (0.11.2):
     - React-Core
-  - RNSVG (13.6.0):
+  - RNSVG (13.7.0):
     - React-Core
   - Sentry/HybridSDK (7.31.5)
   - SSZipArchive (2.2.3)
@@ -1174,6 +1176,7 @@ DEPENDENCIES:
   - react-native-add-calendar-event (from `../node_modules/react-native-add-calendar-event`)
   - react-native-background-timer (from `../node_modules/react-native-background-timer`)
   - "react-native-daily-js (from `../node_modules/@daily-co/react-native-daily-js`)"
+  - react-native-get-random-values (from `../node_modules/react-native-get-random-values`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-video (from `../node_modules/react-native-video`)
   - "react-native-webrtc (from `../node_modules/@daily-co/react-native-webrtc`)"
@@ -1292,6 +1295,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-background-timer"
   react-native-daily-js:
     :path: "../node_modules/@daily-co/react-native-daily-js"
+  react-native-get-random-values:
+    :path: "../node_modules/react-native-get-random-values"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-video:
@@ -1369,7 +1374,7 @@ SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   BVLinearGradient: 34a999fda29036898a09c6a6b728b0b4189e1a44
-  CodePush: ef496b6fd053012e985e3d4a0ab9f9dbf2739eac
+  CodePush: dce1b253fde81078249ea9cd4b948e4ac7b761a9
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 0045cf98ca4a48af3bf7108d85b1c243740fa289
   FBReactNativeSpec: 82e74141263f8c962e288f5cd6b5d149cdc8afe1
@@ -1413,7 +1418,8 @@ SPEC CHECKSUMS:
   react-native-add-calendar-event: d7744f983d6770cc9e4f004db22bc4d4b4575f17
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
   react-native-daily-js: b1d93c1fa1f4aa250c23ff4a09d09a81e8700a21
-  react-native-safe-area-context: 99b24a0c5acd0d5dcac2b1a7f18c49ea317be99a
+  react-native-get-random-values: a6ea6a8a65dc93e96e24a11105b1a9c8cfe1d72a
+  react-native-safe-area-context: 39c2d8be3328df5d437ac1700f4f3a4f75716acc
   react-native-video: c26780b224543c62d5e1b2a7244a5cd1b50e8253
   react-native-webrtc: ba5088bd040d835cc5df17bb2245d9d27d5d2d70
   React-perflogger: 367418425c5e4a9f0f80385ee1eaacd2a7348f8e
@@ -1431,22 +1437,22 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: 8616bd5a58af409453ea4e1b246521bb76578d60
   RNDateTimePicker: 0530a73a6f3a1a85814cbde0802736993b9e675e
   RNDeviceInfo: 4701f0bf2a06b34654745053db0ce4cb0c53ada7
-  RNFBApp: 1f48f0e6e976f8b7cc1ead051479fa4051727eb8
-  RNFBAuth: c57900be8bfa907b6172c3a033f7a02befae7708
-  RNFBDynamicLinks: 73cc22d7ad126d9c07ac5ea962fd7e08ed5a964d
-  RNFBFirestore: 69bf9ecff41ce008453374e4514d7aa9a83ec863
-  RNFBStorage: 23b655528e056a5b6631c2c2c057a4f55906c46f
+  RNFBApp: 1ee535dcb7773ca612d3a2e53a1f78f8f2fb6abf
+  RNFBAuth: 58ab8f774f9ff45707f2bfbf4fd74e8f7b4220b9
+  RNFBDynamicLinks: 7c409b3d7f0fdad7aaf96837db627a6c554e58aa
+  RNFBFirestore: 4fcf5ea5a3c8db867a5fc789322fb7abf53a7652
+  RNFBStorage: a587bb285b6f783e11ef16a539b697fddfaa5f6e
   RNGestureHandler: 071d7a9ad81e8b83fe7663b303d132406a7d8f39
   RNImageCropPicker: 14fe1c29298fb4018f3186f455c475ab107da332
   RNLocalize: 0df7970cfc60389f00eb62fd7c097dc75af3fb4f
   RNNotifee: da8dcf09f079ea22f46e239d7c406e10d4525a5f
   RNReactNativeHapticFeedback: 1e3efeca9628ff9876ee7cdd9edec1b336913f8c
-  RNReanimated: 1da6ab05b5591b76606da2f30b309550fdc3f7d5
-  RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
-  RNSentry: acebe4104a6f5915ae871eb59dc73f13dcc92ef7
+  RNReanimated: ba021107f1dd90cb04c35c5d639392d5da27d065
+  RNScreens: ea4cd3a853063cda19a4e3c28d2e52180c80f4eb
+  RNSentry: 7e90aec2633d2fdad8aeb839c9915e4376fd27d1
   RNSharedElement: 504fa28a235b12505b6daedbb452a9ec96809bd0
   RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
-  RNSVG: 3a79c0c4992213e4f06c08e62730c5e7b9e4dc17
+  RNSVG: d787d64ca06b9158e763ad2638a8c4edce00782a
   Sentry: 4c9babff9034785067c896fd580b1f7de44da020
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
