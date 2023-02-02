@@ -63,7 +63,7 @@ export const createSessionInviteLink = async (
   host: string | undefined,
   language: LANGUAGE_TAG,
 ) => {
-  const exercise = getExerciseById(exerciseId);
+  const exercise = getExerciseById(exerciseId, language);
 
   if (!exercise) {
     return;
