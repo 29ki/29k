@@ -11,7 +11,6 @@ import {
   TabNavigatorProps,
 } from '../../../lib/navigation/constants/routes';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
-import useSessionNotificationsState from '../state/sessionNotificationsState';
 import useLogInSessionMetricEvents from './useLogInSessionMetricEvents';
 import useIsSessionHost from './useIsSessionHost';
 
@@ -30,14 +29,10 @@ const useLeaveSession = () => {
   const logSessionMetricEvent = useLogInSessionMetricEvents();
 
   const resetSession = useSessionState(state => state.reset);
-  const resetSessionNotifications = useSessionNotificationsState(
-    state => state.reset,
-  );
 
   const leaveSession = useCallback(async () => {
     await leaveMeeting();
     resetSession();
-    resetSessionNotifications();
 
     fetchSessions();
 
@@ -59,7 +54,6 @@ const useLeaveSession = () => {
     isHost,
     leaveMeeting,
     resetSession,
-    resetSessionNotifications,
     navigate,
     fetchSessions,
   ]);
