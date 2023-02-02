@@ -185,7 +185,7 @@ describe('slack model', () => {
             type: 'section',
           },
         ],
-        channel: '#test',
+        channel: '#some-channel',
         username: 'Some Bot',
       });
     });
@@ -211,7 +211,7 @@ describe('slack model', () => {
             type: 'section',
           },
         ],
-        channel: '#test',
+        channel: '#some-channel',
         username: 'Some Bot',
       });
     });
