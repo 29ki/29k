@@ -11,6 +11,7 @@ import useExerciseTheme from '../../hooks/useExerciseTheme';
 
 import Host from './Slides/Host';
 import HostVideo from './Slides/HostVideo';
+import Sharing from './Slides/Sharing';
 
 type WrapperProps = {backgroundColor?: string};
 const Wrapper = styled.View<WrapperProps>(({backgroundColor}) => ({
@@ -58,9 +59,12 @@ export const Slide = React.memo(({slide, active, async}: SlideProps) => {
       {slide.type === 'reflection' && (
         <Content async={async} slide={slide} active={active} />
       )}
-      {slide.type === 'sharing' && (
-        <Content async={async} slide={slide} active={active} />
-      )}
+      {slide.type === 'sharing' &&
+        (async ? (
+          <Sharing />
+        ) : (
+          <Content async={async} slide={slide} active={active} />
+        ))}
     </Wrapper>
   );
 });
