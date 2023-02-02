@@ -7,6 +7,10 @@ const router = createMetricsRouter();
 
 const feedbackBodySchema = yup.object({
   exerciseId: yup.string().required(),
+  sessionId: yup.string(),
+  completed: yup.boolean().required(),
+  host: yup.boolean(),
+
   question: yup.string().required(),
   answer: yup.boolean().required(),
   comment: yup.string(),
