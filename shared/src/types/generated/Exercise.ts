@@ -43,7 +43,8 @@ export interface ExerciseIntroPortalVideoEnd {
 }
 
 export interface ExerciseIntroPortalHostNote {
-  text: string;
+  text?: string;
+  asyncText?: string;
 }
 
 export interface ExerciseIntroPortal {
@@ -64,7 +65,8 @@ export interface ExerciseOutroPortal {
 }
 
 export interface ExerciseSlideContentSlideHostNote {
-  text: string;
+  text?: string;
+  asyncText?: string;
 }
 
 export interface ExerciseSlideContentSlideContentImage {
@@ -99,7 +101,8 @@ export interface ExerciseSlideContentSlideContent {
 }
 
 export interface ExerciseSlideReflectionSlideHostNote {
-  text: string;
+  text?: string;
+  asyncText?: string;
 }
 
 export interface ExerciseSlideReflectionSlideContentImage {
@@ -134,7 +137,8 @@ export interface ExerciseSlideReflectionSlideContent {
 }
 
 export interface ExerciseSlideSharingSlideHostNote {
-  text: string;
+  text?: string;
+  asyncText?: string;
 }
 
 export interface ExerciseSlideSharingSlideContentImage {
@@ -169,7 +173,14 @@ export interface ExerciseSlideSharingSlideContent {
 }
 
 export interface ExerciseSlideHostSlideHostNote {
-  text: string;
+  text?: string;
+  asyncText?: string;
+}
+
+export interface ExerciseSlideHostSlideVideo {
+  description?: string;
+  source?: string;
+  preview?: string;
 }
 
 export interface ExerciseSlideContentSlide {
@@ -193,6 +204,7 @@ export interface ExerciseSlideSharingSlide {
 export interface ExerciseSlideHostSlide {
   type: 'host';
   hostNotes?: ExerciseSlideHostSlideHostNote[];
+  video?: ExerciseSlideHostSlideVideo;
 }
 
 export interface Exercise {
@@ -203,6 +215,7 @@ export interface Exercise {
   tags?: any[];
   published: boolean;
   hidden?: boolean;
+  async?: boolean;
   socialMeta?: ExerciseSocialMediaMetaTags;
   card: ExerciseCard;
   theme?: ExerciseTheme;

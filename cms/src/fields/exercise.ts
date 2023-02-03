@@ -15,6 +15,7 @@ import {
   IMAGE_FIELD,
   DESCRIPTION_FIELD,
   TAGS_FIELD,
+  ASYNC_FIELD,
 } from './common';
 import {
   CONTENT_SLIDE,
@@ -137,6 +138,7 @@ const EXERCISE_FIELDS: Array<CmsField> = applyDefaults(
     TAGS_FIELD,
     PUBLISHED_FIELD,
     HIDDEN_FIELD,
+    ASYNC_FIELD,
     SOCIAL_MEDIA,
     CARD_FIELD,
     THEME,
