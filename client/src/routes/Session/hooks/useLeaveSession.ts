@@ -23,6 +23,7 @@ const useLeaveSession = () => {
   const {t} = useTranslation('Component.ConfirmExitSession');
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();
+  const session = useSessionState(state => state.session);
   const sessionState = useSessionState(state => state.sessionState);
   const isHost = useIsSessionHost();
   const {fetchSessions} = useSessions();
@@ -42,15 +43,17 @@ const useLeaveSession = () => {
 
     navigate('Sessions');
 
-    if (sessionState?.started) {
+    if (session?.id && sessionState?.started) {
       navigate('SessionFeedbackModal', {
-        sessionId: sessionState?.id,
+        exerciseId: session.contentId,
+        sessionId: session.id,
         completed: Boolean(sessionState?.completed),
         isHost,
       });
     }
   }, [
-    sessionState?.id,
+    session?.id,
+    session?.contentId,
     sessionState?.started,
     sessionState?.completed,
     isHost,

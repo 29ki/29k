@@ -46,10 +46,12 @@ const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
 
   // Update metrics user properties on user changes
   useEffect(() => {
-    metrics.setUserProperties({
-      Anonymous: user?.isAnonymous,
-      'Public Host': isPublicHost,
-    });
+    if (user) {
+      metrics.setUserProperties({
+        Anonymous: user?.isAnonymous,
+        'Public Host': isPublicHost,
+      });
+    }
   }, [user, isPublicHost]);
 
   return <>{children}</>;

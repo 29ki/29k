@@ -15,6 +15,7 @@ process.env = Object.assign(process.env, {
   DEEP_LINK_IOS_FALLBACK_LINK: 'http://some.ios/fallback/link',
   SLACK_BOT_NAME: 'Some Bot',
   SLACK_PUBLIC_HOST_REQUESTS_CHANNEL: 'some-channel',
+  SLACK_FEEDBACK_CHANNEL: 'some-channel',
   SLACK_OAUTH_TOKEN: 'some-slack-oath-token',
   SLACK_SIGNING_SECRET: 'some-slack-signing-secret',
 });

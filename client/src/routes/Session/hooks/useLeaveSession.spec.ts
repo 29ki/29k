@@ -54,10 +54,11 @@ describe('useLeaveSession', () => {
     it('navigates to session feedback modal with set params if session is started', async () => {
       useSessionState.setState({
         session: {
+          id: 'some-session-id',
           hostId: 'some-host-id',
+          contentId: 'some-exercise-id',
         } as Session,
         sessionState: {
-          id: 'some-session-id',
           started: true,
           completed: true,
         } as SessionState,
@@ -67,9 +68,10 @@ describe('useLeaveSession', () => {
       await act(() => result.current.leaveSession());
 
       expect(mockNavigate).toHaveBeenCalledWith('SessionFeedbackModal', {
+        exerciseId: 'some-exercise-id',
         completed: true,
-        isHost: false,
         sessionId: 'some-session-id',
+        isHost: false,
       });
     });
   });

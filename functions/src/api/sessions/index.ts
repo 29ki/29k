@@ -3,7 +3,7 @@ import validator from 'koa-yup-validator';
 import 'firebase-functions';
 
 import {SessionType} from '../../../../shared/src/types/Session';
-import {createRouter} from '../../lib/routers';
+import {createApiRouter} from '../../lib/routers';
 import restrictAccessToRole from '../lib/restrictAccessToRole';
 
 import * as sessionsController from '../../controllers/sessions';
@@ -18,7 +18,7 @@ import {
 } from '../../../../shared/src/errors/Session';
 import {RequestError} from '../../controllers/errors/RequestError';
 
-const sessionsRouter = createRouter();
+const sessionsRouter = createApiRouter();
 
 sessionsRouter.get('/', async ctx => {
   const {response, user} = ctx;
@@ -36,6 +36,31 @@ sessionsRouter.get('/:id/sessionToken', async ctx => {
     const token = await sessionsController.getSessionToken(user.id, params.id);
     ctx.status = 200;
     ctx.body = token;
+  } catch (error) {
+    const requestError = error as RequestError;
+    switch (requestError.code) {
+      case ValidateSessionError.notFound:
+        ctx.status = 404;
+        break;
+
+      case ValidateSessionError.userNotFound:
+        ctx.status = 403;
+        break;
+
+      default:
+        throw error;
+    }
+    ctx.message = requestError.code;
+  }
+});
+
+sessionsRouter.get('/:id', async ctx => {
+  const {user, params} = ctx;
+
+  try {
+    const session = await sessionsController.getSession(user.id, params.id);
+    ctx.status = 200;
+    ctx.body = session;
   } catch (error) {
     const requestError = error as RequestError;
     switch (requestError.code) {

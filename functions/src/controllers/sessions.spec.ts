@@ -29,6 +29,7 @@ import {
   getSessions,
   getSessionToken,
   updateInterestedCount,
+  getSession,
 } from './sessions';
 import {getPublicUserInfo} from '../models/user';
 import {SessionType} from '../../../shared/src/types/Session';
@@ -91,6 +92,67 @@ describe('sessions - controller', () => {
       expect(mockGetSessions).toHaveBeenCalledWith('all');
       expect(mockGetPublicUserInfo).toHaveBeenCalledTimes(1);
       expect(mockGetPublicUserInfo).toHaveBeenCalledWith('some-user-id');
+    });
+  });
+
+  describe('getSession', () => {
+    it('should return the private session', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        dailyRoomName: 'some-room-name',
+        hostId: 'some-host-id',
+        userIds: ['some-user-id'],
+        type: SessionType.private,
+      });
+
+      const result = await getSession('some-user-id', 'some-session-id');
+
+      expect(result).toEqual({
+        dailyRoomName: 'some-room-name',
+        hostId: 'some-host-id',
+        hostProfile: {displayName: 'some-name', photoURL: 'some-photo-url'},
+        type: 'private',
+        userIds: ['some-user-id'],
+      });
+    });
+
+    it('should return existing public session', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        dailyRoomName: 'some-room-name',
+        hostId: 'some-host-id',
+        userIds: ['some-other-user-id'],
+        type: SessionType.public,
+      });
+
+      const result = await getSession('some-user-id', 'some-session-id');
+
+      expect(result).toEqual({
+        dailyRoomName: 'some-room-name',
+        hostId: 'some-host-id',
+        hostProfile: {displayName: 'some-name', photoURL: 'some-photo-url'},
+        type: 'public',
+        userIds: ['some-other-user-id'],
+      });
+    });
+
+    it('should throw if session is not found', async () => {
+      mockGetSessionById.mockResolvedValueOnce(undefined);
+
+      await expect(
+        getSessionToken('some-user-id', 'some-session-id'),
+      ).rejects.toEqual(Error(ValidateSessionError.notFound));
+    });
+
+    it('should throw if user is not part of private session', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        dailyRoomName: 'some-room-name',
+        hostId: 'some-host-id',
+        userIds: ['some-other-user-id'],
+        type: SessionType.private,
+      });
+
+      await expect(
+        getSession('some-user-id', 'some-session-id'),
+      ).rejects.toEqual(Error(ValidateSessionError.userNotFound));
     });
   });
 

@@ -1,14 +1,19 @@
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
-import {createRouter} from '../../lib/routers';
-import {VerificationError} from '../../../../shared/src/errors/User';
+
+import {createApiRouter} from '../../lib/routers';
+import {
+  UserProfileError,
+  VerificationError,
+} from '../../../../shared/src/errors/User';
 import {
   requestPublicHostRole,
   verifyPublicHostRequest,
 } from '../../controllers/publicHostRequests';
 import {RequestError} from '../../controllers/errors/RequestError';
+import {getProfile} from '../../controllers/user';
 
-const userRouter = createRouter();
+const userRouter = createApiRouter();
 
 userRouter.post('/requestPublicHost', async ctx => {
   const {id} = ctx.user;
@@ -77,5 +82,22 @@ userRouter.put(
     }
   },
 );
+
+userRouter.get('/:id', async ctx => {
+  try {
+    const userProfile = await getProfile(ctx.params.id);
+    ctx.body = userProfile;
+  } catch (error) {
+    const requestError = error as RequestError;
+    switch (requestError.code) {
+      case UserProfileError.userNotFound:
+        ctx.status = 404;
+        break;
+      default:
+        throw error;
+    }
+    ctx.message = requestError.code;
+  }
+});
 
 export {userRouter};

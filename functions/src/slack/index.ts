@@ -11,10 +11,10 @@ const app = new Koa();
 app.on('error', sentryErrorHandler);
 app.on('error', localErrorHandler);
 
-const slackIntegrationRouter = createSlackRouter();
-slackIntegrationRouter.use('/', slackRouter.routes());
+const rootRouter = createSlackRouter();
+rootRouter.use('/', slackRouter.routes());
 
-app.use(verifySlackRequest()).use(slackIntegrationRouter.routes());
+app.use(verifySlackRequest()).use(rootRouter.routes());
 
 export const slack = onRequest(
   {

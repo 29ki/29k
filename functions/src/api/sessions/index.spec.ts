@@ -3,7 +3,7 @@ import Koa from 'koa';
 
 import {sessionsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
-import {createRouter} from '../../lib/routers';
+import {createApiRouter} from '../../lib/routers';
 import {ROLES} from '../../../../shared/src/types/User';
 import * as sessionsController from '../../controllers/sessions';
 import {RequestError} from '../../controllers/errors/RequestError';
@@ -24,11 +24,12 @@ const mockUpdateSessionState =
   sessionsController.updateSessionState as jest.Mock;
 const mockJoinSession = sessionsController.joinSession as jest.Mock;
 const mockGetSessionToken = sessionsController.getSessionToken as jest.Mock;
+const mockGetSession = sessionsController.getSession as jest.Mock;
 
 jest.mock('../../models/session');
 
 const getMockCustomClaims = jest.fn();
-const router = createRouter();
+const router = createApiRouter();
 router.use('/sessions', sessionsRouter.routes());
 const mockServer = createMockServer(
   async (ctx: Koa.Context, next: Koa.Next) => {
@@ -128,6 +129,57 @@ describe('/api/sessions', () => {
 
       expect(response.status).toBe(403);
       expect(response.text).toEqual(ValidateSessionError.userNotFound);
+    });
+
+    describe('/:id', () => {
+      it('should return session', async () => {
+        mockGetSession.mockResolvedValueOnce({
+          id: 'some-session-id',
+          name: 'some-name',
+          url: 'some-url',
+          hostId: 'some-user-id',
+          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+        });
+
+        const response = await request(mockServer).get(
+          '/sessions/some-session-id',
+        );
+
+        expect(response.status).toBe(200);
+        expect(response.body).toEqual({
+          id: 'some-session-id',
+          name: 'some-name',
+          url: 'some-url',
+          hostId: 'some-user-id',
+          startTime: expect.any(String),
+        });
+      });
+
+      it('should return 404 if session is not found', async () => {
+        mockGetSession.mockRejectedValueOnce(
+          new RequestError(ValidateSessionError.notFound),
+        );
+
+        const response = await request(mockServer).get(
+          '/sessions/some-session-id',
+        );
+
+        expect(response.status).toBe(404);
+        expect(response.text).toEqual(ValidateSessionError.notFound);
+      });
+
+      it('should return 403 if user is not part of session', async () => {
+        mockGetSession.mockRejectedValueOnce(
+          new RequestError(ValidateSessionError.userNotFound),
+        );
+
+        const response = await request(mockServer).get(
+          '/sessions/some-session-id',
+        );
+
+        expect(response.status).toBe(403);
+        expect(response.text).toEqual(ValidateSessionError.userNotFound);
+      });
     });
   });
 
