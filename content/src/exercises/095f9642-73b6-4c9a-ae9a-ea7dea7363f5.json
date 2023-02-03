@@ -16,7 +16,11 @@
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started.",
             "asyncText": "Now, check-in with yourself. How are you feeling right now?\n\nSo, let’s get started."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675419802/Video/async_intro_pure_simpe_love_eng_i9ezqv.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675420628/Images/thumb_async_intro_outro_pure_simple_love_p7bjul.jpg"
+        }
       },
       {
         "type": "content",
@@ -98,7 +102,11 @@
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675420255/Video/async_outro_pure_simple_love_eng_t6seiq.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675420628/Images/thumb_async_intro_outro_pure_simple_love_p7bjul.jpg"
+        }
       }
     ],
     "name": "Pure simple love",
@@ -130,9 +138,7 @@
         }
       ]
     },
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
+    "tags": [],
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
     "description": "A guided meditation that brings a precious moment into the limelight. Practicing noticing what's working can help us feel happier and more fulfilled, and counteract our brains natural tendency to focus on the negative."
   },
@@ -252,23 +258,17 @@
         }
       ]
     },
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
+    "tags": [],
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
   },
   "sv": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139",
     "duration": 30,
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    "tags": []
   },
   "es": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139",
     "duration": 30,
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    "tags": []
   }
 }
