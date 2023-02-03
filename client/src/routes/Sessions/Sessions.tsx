@@ -75,7 +75,7 @@ const AddSessionForm = () => {
   return (
     <AddSessionWrapper>
       <AddButton
-        onPress={() => navigate('AddSessionModal')}
+        onPress={() => navigate('CreateSessionModal')}
         LeftIcon={PlusIcon}>
         {t('add')}
       </AddButton>
