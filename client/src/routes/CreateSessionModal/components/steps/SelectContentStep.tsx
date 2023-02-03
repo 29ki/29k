@@ -11,10 +11,8 @@ import {SPACINGS} from '../../../../lib/constants/spacings';
 
 import {Spacer16, Spacer24} from '../../../../lib/components/Spacers/Spacer';
 import {ModalHeading} from '../../../../lib/components/Typography/Heading/Heading';
-import useExerciseIds from '../../../../lib/content/hooks/useExerciseIds';
 import {StepProps} from '../../CreateSessionModal';
 import Gutters from '../../../../lib/components/Gutters/Gutters';
-import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
 import {Display16} from '../../../../lib/components/Typography/Display/Display';
 import Image from '../../../../lib/components/Image/Image';
@@ -27,6 +25,7 @@ import {
 } from '../../../../lib/navigation/constants/routes';
 import {SessionType} from '../../../../../../shared/src/types/Session';
 import useStartAsyncSession from '../../../../lib/session/hooks/useStartAsyncSession';
+import useGetExercisesByType from '../../../../lib/content/hooks/useGetExercisesByType';
 
 const Card = styled(TouchableOpacity)({
   flexDirection: 'row',
@@ -50,10 +49,9 @@ const CardImageWrapper = styled.View({
 });
 
 const ContentCard: React.FC<{
-  exerciseId: Exercise['id'];
+  exercise: Exercise;
   onPress: () => void;
-}> = ({exerciseId, onPress}) => {
-  const exercise = useExerciseById(exerciseId);
+}> = ({exercise, onPress}) => {
   const exerciseImg = useMemo(
     () => ({uri: exercise?.card?.image?.source}),
     [exercise],
@@ -81,23 +79,23 @@ const SelectContentStep: React.FC<StepProps> = ({
 }) => {
   const {popToTop} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
-  const exerciseIds = useExerciseIds();
+  const exercises = useGetExercisesByType(selectedType);
   const startSession = useStartAsyncSession();
   const {t} = useTranslation('Modal.CreateSession');
 
   const renderItem = useCallback(
-    ({item}: {item: Exercise['id']}) => (
+    ({item}: {item: Exercise}) => (
       <ContentCard
         onPress={() => {
-          setSelectedExercise(item);
+          setSelectedExercise(item.id);
           if (selectedType === SessionType.async) {
             popToTop();
-            startSession(item);
+            startSession(item.id);
           } else {
             nextStep();
           }
         }}
-        exerciseId={item}
+        exercise={item}
       />
     ),
     [setSelectedExercise, nextStep, popToTop, startSession, selectedType],
@@ -113,7 +111,7 @@ const SelectContentStep: React.FC<StepProps> = ({
           </>
         }
         focusHook={useIsFocused}
-        data={exerciseIds}
+        data={exercises}
         ItemSeparatorComponent={Spacer16}
         renderItem={renderItem}
       />

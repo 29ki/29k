@@ -25,6 +25,7 @@ import Button from '../../../../lib/components/Buttons/Button';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
+import useGetExercisesByType from '../../../../lib/content/hooks/useGetExercisesByType';
 
 const TypeItemWrapper = styled.View({
   flexDirection: 'row',
@@ -93,6 +94,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
   const {t} = useTranslation('Modal.CreateSession');
   const {navigate, popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
+  const asyncExercises = useGetExercisesByType(SessionType.async);
 
   const renderIcon = useCallback((type: SessionType) => {
     switch (type) {
@@ -110,6 +112,9 @@ const SelectTypeStep: React.FC<StepProps> = ({
       Object.values(SessionType)
         .filter(type => type !== 'public' || isPublicHost)
         .filter(type => type !== 'async' || !selectedExercise)
+        .filter(type =>
+          type === 'async' && asyncExercises.length === 0 ? false : true,
+        )
         .map((type, i, arr) => (
           <TypeItemWrapper key={i}>
             <TypeItem
@@ -136,6 +141,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
       renderIcon,
       isPublicHost,
       selectedExercise,
+      asyncExercises,
     ],
   );
 
