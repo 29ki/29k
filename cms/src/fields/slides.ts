@@ -38,7 +38,7 @@ export const HOST_NOTES: CmsFieldBase & CmsFieldList = {
       minimal: true,
     },
     {
-      label: '📝 Async Text',
+      label: '🥷 Async Text',
       name: 'asyncText',
       widget: 'markdown',
       required: false,
