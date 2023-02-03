@@ -4,13 +4,13 @@ import {useTranslation} from 'react-i18next';
 import {View, ViewStyle} from 'react-native';
 import dayjs from 'dayjs';
 
-import {DailyContext} from '../../../../lib/daily/DailyProvider';
+import {DailyContext} from '../../../daily/DailyProvider';
 import {DailyUserData} from '../../../../../../shared/src/types/Session';
-import useLocalParticipant from '../../../../lib/daily/hooks/useLocalParticipant';
+import useLocalParticipant from '../../../daily/hooks/useLocalParticipant';
 import TimedNotification from './TimedNotification';
 import useSessionState from '../../state/state';
 import useSessionSlideState from '../../hooks/useSessionSlideState';
-import {MicrophoneOffIcon} from '../../../../lib/components/Icons';
+import {MicrophoneOffIcon} from '../../../components/Icons';
 
 const SessionNotifications: React.FC<{
   style?: ViewStyle;
