@@ -30,6 +30,16 @@ export const PUBLISHED_FIELD: CmsField = {
   hint: "This will make it included in the app. For work in progress, use in combination with hidden and the 'Show work in progress' switch in the app to access it only in staging.",
 };
 
+export const ASYNC_FIELD: CmsField = {
+  label: '🏝 Async',
+  name: 'async',
+  widget: 'boolean',
+  required: false,
+  default: false,
+  i18n: true,
+  hint: 'This will make the exercise available as async',
+};
+
 export const HIDDEN_FIELD: CmsField = {
   label: '🙈 Hidden',
   name: 'hidden',

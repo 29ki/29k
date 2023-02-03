@@ -8,23 +8,18 @@ service cloud.firestore {
   // }
   //
   // would allow read and write on a session even if a specific
-  // sessions/session rule is specified below. 
+  // sessions/session rule is specified below.
   // Firebse looks for any condition that allows something for a document.
-  // https://firebase.google.com/docs/firestore/security/rules-structure#overlapping_match_statements 
-  // We must be specific about what documents we allow 
-  
+  // https://firebase.google.com/docs/firestore/security/rules-structure#overlapping_match_statements
+  // We must be specific about what documents we allow
+
 
   match /databases/{database}/documents {
-     match /sessions/{session} {
-      allow read: if request.auth != null;
-      allow write: if false;
-    }
-    
     match /sessions/{session}/state/{state} {
       allow read: if request.auth != null;
       allow write: if false;
     }
   }
 
-  
+
 }

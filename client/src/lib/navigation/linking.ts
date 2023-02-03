@@ -24,7 +24,7 @@ const resolveNotificationUrl = async (
 const config: LinkingOptions<ModalStackProps>['config'] = {
   initialRouteName: 'OverlayStack',
   screens: {
-    AddSessionModal: 'joinSessionInvite/:inviteCode',
+    AddSessionByInviteModal: 'joinSessionInvite/:inviteCode',
     UpgradeAccountModal: 'verifyPublicHostCode/:code',
   },
 };
