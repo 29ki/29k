@@ -6,11 +6,10 @@ import dayjs from 'dayjs';
 
 import {DailyContext} from '../../../daily/DailyProvider';
 import {DailyUserData} from '../../../../../../shared/src/types/Session';
-import useSessionNotificationsState from '../../state/sessionNotificationsState';
 import useLocalParticipant from '../../../daily/hooks/useLocalParticipant';
 import TimedNotification from './TimedNotification';
 import useSessionState from '../../state/state';
-import useSessionSlideState from '../../../session/hooks/useSessionSlideState';
+import useSessionSlideState from '../../hooks/useSessionSlideState';
 import {MicrophoneOffIcon} from '../../../components/Icons';
 
 const SessionNotifications: React.FC<{
@@ -19,12 +18,8 @@ const SessionNotifications: React.FC<{
   const {call} = useContext(DailyContext);
   const {t} = useTranslation('Screen.Session');
   const localParticipant = useLocalParticipant();
-  const notifications = useSessionNotificationsState(
-    state => state.notifications,
-  );
-  const addNotification = useSessionNotificationsState(
-    state => state.addNotification,
-  );
+  const notifications = useSessionState(state => state.notifications);
+  const addNotification = useSessionState(state => state.addNotification);
   const sessionState = useSessionState(state => state.sessionState);
   const slideState = useSessionSlideState();
   const [muted, setWasMuted] = useState(Boolean(localParticipant?.audio));

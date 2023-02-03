@@ -8,7 +8,7 @@ import {SPACINGS} from '../../../constants/spacings';
 import {Body16} from '../../../components/Typography/Body/Body';
 import {Display22} from '../../../components/Typography/Display/Display';
 import Image from '../../../components/Image/Image';
-import {Notification as NotificationProps} from '../../state/sessionNotificationsState';
+import {Notification as NotificationProps} from '../../state/state';
 
 const Wrapper = styled.View({
   backgroundColor: COLORS.WHITE_TRANSPARENT_80,
