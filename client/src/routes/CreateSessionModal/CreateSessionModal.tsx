@@ -79,6 +79,20 @@ const CreateSessionModal = () => {
     [isPublicHost, hasProfile, selectedType],
   );
 
+  const backgroundColor = useMemo(() => {
+    const skipProfile = selectedType === 'async' || hasProfile;
+    if (currentStep === 0) {
+      return COLORS.WHITE;
+    }
+    if (skipProfile && currentStep === 1) {
+      return COLORS.WHITE;
+    }
+    if (!skipProfile && currentStep === 2) {
+      return COLORS.WHITE;
+    }
+    return COLORS.CREAM;
+  }, [hasProfile, selectedType, currentStep]);
+
   const CurrentStepComponent: React.FC<StepProps> = useMemo(
     () => currentSteps[currentStep],
     [currentSteps, currentStep],
@@ -97,8 +111,7 @@ const CreateSessionModal = () => {
   );
 
   return (
-    <SheetModal
-      backgroundColor={currentStep === 0 ? COLORS.WHITE : COLORS.CREAM}>
+    <SheetModal backgroundColor={backgroundColor}>
       <Step>
         <CurrentStepComponent
           selectedExercise={selectedExercise}
