@@ -25,7 +25,11 @@ const useUpdateAsyncSessionState = (session: AsyncSession) => {
   }, [session?.id, setSessionState]);
 
   const endSession = useCallback(async () => {
-    setPartialSessionState({ended: true, timestamp: dayjs.utc().toJSON()});
+    setPartialSessionState({
+      ended: true,
+      playing: false,
+      timestamp: dayjs.utc().toJSON(),
+    });
   }, [setPartialSessionState]);
 
   const navigateToIndex = useCallback(
