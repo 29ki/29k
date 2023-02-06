@@ -2496,10 +2496,10 @@ anymatch@^3.0.3:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-appcenter-cli@^2.13.0:
-  version "2.13.0"
-  resolved "https://registry.yarnpkg.com/appcenter-cli/-/appcenter-cli-2.13.0.tgz#bc09cc815e28476ffce3aeb7ea1ad1a9b49de0b7"
-  integrity sha512-i59WalDtStHtFjZZHplBaH4tV6HK+PrHh+Qatt5p+cAipzo8ZiyhI0L8GH4kIty5xfUZhfUL3QN5xxOnqno4BA==
+appcenter-cli@^2.13.1:
+  version "2.13.1"
+  resolved "https://registry.yarnpkg.com/appcenter-cli/-/appcenter-cli-2.13.1.tgz#e4735e94f23a3f3a6ba6a1271ff3cb6f69569f28"
+  integrity sha512-boDIj2sMOgTpciqzrK4A34k7ZCTUfuY2EeFZdYPvby+l6P68DY8yxQJSDBEh3DhOXURjWrF8e7RHxqvw5YQHwA==
   dependencies:
     "@xmldom/xmldom" "0.7.7"
     abort-controller "3.0.0"
