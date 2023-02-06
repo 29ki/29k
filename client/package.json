@@ -68,7 +68,6 @@
     "react-native-shared-element": "^0.8.8",
     "react-native-sound": "https://github.com/29ki/react-native-sound#fix-iOS-16-support",
     "react-native-svg": "^13.7.0",
-    "react-native-uuid": "^2.0.1",
     "react-native-video": "https://github.com/29ki/react-native-video-5.2.1#repeat-ios-using-av-player-looper",
     "react-navigation-shared-element": "^3.1.3",
     "styled-components": "^5.3.6",

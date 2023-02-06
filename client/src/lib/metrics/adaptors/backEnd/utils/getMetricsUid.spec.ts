@@ -1,9 +1,9 @@
-import * as uuid from 'uuid';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import useUserState from '../../../../user/state/state';
 import getMetricsUid from './getMetricsUid';
+import {generateId} from '../../../../utils/id';
 
-jest.mock('uuid');
+jest.mock('../../../../utils/id');
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -24,7 +24,7 @@ describe('getMetricsUid', () => {
   });
 
   it('generates a new if no metricsUid is set', () => {
-    jest.mocked(uuid.v4).mockReturnValueOnce('some-uuid');
+    jest.mocked(generateId).mockReturnValueOnce('some-uuid');
     useUserState.setState({
       user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
       userState: {},
