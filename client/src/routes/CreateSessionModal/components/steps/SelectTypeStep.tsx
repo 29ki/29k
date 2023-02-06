@@ -27,11 +27,12 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
 import useGetExercisesByType from '../../../../lib/content/hooks/useGetExercisesByType';
 
-const TypeItemWrapper = styled.View({
+const TypeItemWrapper = styled.View<{isLast: boolean}>(({isLast}) => ({
   flexDirection: 'row',
   height: 96,
   flex: 1,
-});
+  marginRight: !isLast ? SPACINGS.SIXTEEN : undefined,
+}));
 
 const TextWrapper = styled.View({
   flex: 2,
@@ -116,7 +117,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
           type === 'async' && asyncExercises.length === 0 ? false : true,
         )
         .map((type, i, arr) => (
-          <TypeItemWrapper key={i}>
+          <TypeItemWrapper key={i} isLast={i === arr.length - 1}>
             <TypeItem
               onPress={() => {
                 setSelectedType(type);
@@ -130,7 +131,6 @@ const SelectTypeStep: React.FC<StepProps> = ({
               label={t(`selectType.${type}.title`)}
               Icon={renderIcon(type)}
             />
-            {i < arr.length - 1 && <Spacer16 />}
           </TypeItemWrapper>
         )),
     [
