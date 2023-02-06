@@ -258,7 +258,7 @@ const ChangingRoom = () => {
                 <Spacer48 />
                 <InputWrapper>
                   <StyledTextInput
-                    autoFocus={!Boolean(user?.displayName)}
+                    autoFocus={!user?.displayName}
                     onChangeText={setLocalUserName}
                     onSubmitEditing={joinPress}
                     autoCapitalize="words"
