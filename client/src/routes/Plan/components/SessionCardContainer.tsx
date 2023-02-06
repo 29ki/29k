@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import {useCallback, useEffect, useState} from 'react';
-import {ListRenderItemInfo, SectionListRenderItem} from 'react-native';
+import {SectionListRenderItem} from 'react-native';
 
 import {Session} from '../../../../../shared/src/types/Session';
 import {Section} from '../Plan';
