@@ -42,7 +42,7 @@ describe('useLogSessionMetricEvents', () => {
       expect(mockedLogEvent).toHaveBeenCalledWith('Create Sharing Session', {
         'Sharing Session ID': 'some-session-id',
         'Sharing Session Type': 'private',
-        'Sharing Session Method': 'live',
+        'Sharing Session Mode': 'live',
         'Sharing Session Start Time': '2022-02-02T02:02:02Z',
         'Exercise ID': 'some-content-id',
         Language: 'en',

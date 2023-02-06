@@ -23,7 +23,7 @@ const useLiveSessionMetricEvents = () => {
         metrics.logEvent(event, {
           'Sharing Session ID': session.id,
           'Sharing Session Type': session.type,
-          'Sharing Session Method': 'live',
+          'Sharing Session Mode': 'live',
           'Sharing Session Start Time': session.startTime,
           'Sharing Session Duration': dayjs().diff(
             session.startTime,
