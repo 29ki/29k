@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
-import {RefreshControl, SectionList} from 'react-native';
+import {RefreshControl, SectionList as RNSectionList} from 'react-native';
 
 import useSessions from '../../lib/sessions/hooks/useSessions';
 
@@ -16,7 +16,17 @@ import Gutters from '../../lib/components/Gutters/Gutters';
 import Screen from '../../lib/components/Screen/Screen';
 import {Heading18} from '../../lib/components/Typography/Heading/Heading';
 import useCompletedSessions from '../../lib/sessions/hooks/useCompletedSessions';
-import SessionCard from './components/SessionCard';
+import SessionCardContainer from './components/SessionCardContainer';
+import {CompletedSession} from '../../lib/user/state/state';
+import {Session} from '../../../../shared/src/types/Session';
+
+export type Section = {
+  title: string;
+  data: Session[] | CompletedSession[];
+  type: 'interested' | 'completed';
+};
+
+const SectionList = RNSectionList<Session | CompletedSession, Section>;
 
 const ListHeader = () => (
   <>
@@ -32,7 +42,7 @@ const Plan = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const sections = useMemo(() => {
-    let sectionsList = [];
+    let sectionsList: Section[] = [];
 
     if (completedSessions.length > 0) {
       sectionsList.push({
@@ -44,8 +54,9 @@ const Plan = () => {
 
     if (hostedSessions.length > 0 || pinnedSessions.length > 0) {
       sectionsList.push({
-        title: 'Upcoming',
+        title: 'Now',
         data: [...pinnedSessions, ...hostedSessions],
+        type: 'interested',
       });
     }
 
@@ -75,7 +86,7 @@ const Plan = () => {
         ListHeaderComponent={ListHeader}
         ListFooterComponent={Spacer60}
         ItemSeparatorComponent={Spacer16}
-        renderItem={SessionCard}
+        renderItem={SessionCardContainer}
         refreshControl={
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }
