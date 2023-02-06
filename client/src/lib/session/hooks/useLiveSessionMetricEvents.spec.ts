@@ -47,6 +47,7 @@ describe('useLiveSessionMetricEvents', () => {
     expect(mockedLogEvent).toHaveBeenCalledWith('Enter Intro Portal', {
       'Sharing Session ID': 'some-session-id',
       'Sharing Session Type': 'private',
+      'Sharing Session Method': 'live',
       'Sharing Session Start Time': '2022-02-02T02:02:02Z',
       'Sharing Session Duration': expect.any(Number),
       'Exercise ID': 'some-content-id',

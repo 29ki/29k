@@ -22,6 +22,7 @@ const useAsyncSessionMetricEvents = () => {
         metrics.logEvent(event, {
           'Sharing Session ID': session.id,
           'Sharing Session Type': session.type,
+          'Sharing Session Method': 'async',
           'Sharing Session Start Time': session.startTime,
           'Sharing Session Duration': dayjs().diff(
             session.startTime,
