@@ -15,7 +15,7 @@ describe('useExerciseTheme', () => {
 
   it('returns current session exercise theme', async () => {
     useSessionState.setState({
-      session: {contentId: 'some-content-id'} as Session,
+      session: {exerciseId: 'some-content-id'} as Session,
     });
 
     const {result} = renderHook(() => useExerciseTheme());

@@ -33,7 +33,7 @@ describe('useAsyncSessionMetricEvents', () => {
         id: 'some-session-id',
         type: 'private',
         startTime: '2022-02-02T02:02:02Z',
-        contentId: 'some-content-id',
+        exerciseId: 'some-exercise-id',
         language: 'en',
       } as AsyncSession,
     });
@@ -49,7 +49,7 @@ describe('useAsyncSessionMetricEvents', () => {
       'Sharing Session Mode': 'async',
       'Sharing Session Start Time': '2022-02-02T02:02:02Z',
       'Sharing Session Duration': expect.any(Number),
-      'Exercise ID': 'some-content-id',
+      'Exercise ID': 'some-exercise-id',
       Language: 'en',
       Host: false,
     });

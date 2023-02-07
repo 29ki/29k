@@ -23,7 +23,7 @@ const useLogSessionMetricEvents = () => {
           'Sharing Session Type': session.type,
           'Sharing Session Mode': 'live',
           'Sharing Session Start Time': session.startTime,
-          'Exercise ID': session.contentId,
+          'Exercise ID': session.exerciseId,
           Host: user.uid === session.hostId,
           Language: session.language,
         });

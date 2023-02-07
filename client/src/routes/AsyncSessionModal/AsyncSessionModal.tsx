@@ -77,10 +77,10 @@ const AsyncSessionModal = () => {
   );
 
   const onStartSession = useCallback(() => {
-    startSession(session.contentId);
+    startSession(session.exerciseId);
   }, [session, startSession]);
 
-  const exercise = useExerciseById(session?.contentId);
+  const exercise = useExerciseById(session?.exerciseId);
   if (!completedSession || !exercise) {
     return null;
   }

@@ -34,7 +34,7 @@ describe('useLiveSessionMetricEvents', () => {
         type: 'private',
         hostId: 'some-host-id',
         startTime: '2022-02-02T02:02:02Z',
-        contentId: 'some-content-id',
+        exerciseId: 'some-content-id',
         language: 'en',
       } as Session,
     });
