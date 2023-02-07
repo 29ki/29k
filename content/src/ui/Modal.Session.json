@@ -25,7 +25,7 @@
     },
     "join": "Join",
     "shareMessage": "{{link}} Session code {{code}}",
-    "description": "Add to calendar, set reminder or share the code to invite friends"
+    "description": "Add to calendar, set reminder or share invite"
   },
   "pt": {
     "edit": "Alterar",
