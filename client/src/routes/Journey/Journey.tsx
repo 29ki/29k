@@ -73,8 +73,8 @@ const renderSession: SectionListRenderItem<JourneySession, Section> = ({
   }
 };
 
-const Plan = () => {
-  // const {t} = useTranslation('Screen.Plan');
+const Journey = () => {
+  // const {t} = useTranslation('Screen.Journey');
   const {fetchSessions, pinnedSessions, hostedSessions} = useSessions();
   const {completedSessions} = useCompletedSessions();
   const [isLoading, setIsLoading] = useState(false);
@@ -141,4 +141,4 @@ const Plan = () => {
   );
 };
 
-export default Plan;
+export default Journey;

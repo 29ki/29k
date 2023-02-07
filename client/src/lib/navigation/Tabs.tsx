@@ -14,6 +14,8 @@ import {
   IconType,
   ProfileFillIcon,
   ProfileIcon,
+  JourneyIcon,
+  JourneyFillIcon,
 } from '../components/Icons';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {TabNavigatorProps} from './constants/routes';
@@ -23,7 +25,7 @@ import {BottomSafeArea} from '../components/Spacers/Spacer';
 
 import ProfileStack from './ProfileStack';
 import Sessions from '../../routes/Sessions/Sessions';
-import Plan from '../../routes/Plan/Plan';
+import Journey from '../../routes/Journey/Journey';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
 
@@ -82,9 +84,9 @@ const Tabs = () => {
         options={getTabOptions(HomeIcon, HomeFillIcon, t('home'))}
       />
       <Tab.Screen
-        name={'Plan'}
-        component={Plan}
-        options={getTabOptions(ProfileIcon, ProfileFillIcon, t('plan'))}
+        name={'Journey'}
+        component={Journey}
+        options={getTabOptions(JourneyIcon, JourneyFillIcon, t('journey'))}
       />
       <Tab.Screen
         name={'ProfileStack'}
