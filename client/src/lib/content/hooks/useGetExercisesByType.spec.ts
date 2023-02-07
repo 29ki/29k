@@ -2,10 +2,7 @@ import {renderHook} from '@testing-library/react-hooks';
 import {SessionType} from '../../../../../shared/src/types/Session';
 import useGetExercisesByType from './useGetExercisesByType';
 
-const mockT = jest
-  .fn()
-  .mockReturnValueOnce({id: 'some-exercise-id'})
-  .mockReturnValueOnce({id: 'some-async-exercise-id', async: true});
+const mockT = jest.fn();
 
 const mockGetDataByLanguage = jest.fn().mockReturnValue({
   exercises: {'some-exercise-id': {}, 'some-async-exercise-id': {}},
@@ -21,11 +18,15 @@ jest.mock('react-i18next', () => ({
 }));
 
 afterEach(() => {
-  jest.resetAllMocks();
+  jest.clearAllMocks();
 });
 
 describe('useGetExercisesByType', () => {
   it('returns async enabled translated exercises', () => {
+    mockT
+      .mockReturnValueOnce({id: 'some-exercise-id'})
+      .mockReturnValueOnce({id: 'some-async-exercise-id', async: true});
+
     const {result} = renderHook(() => useGetExercisesByType(SessionType.async));
 
     expect(mockT).toHaveBeenCalledTimes(2);
@@ -40,7 +41,11 @@ describe('useGetExercisesByType', () => {
   });
 
   // For some reasong it can't find {t} the second time, skipping for now
-  it.skip('returns all translated exercises', () => {
+  it('returns all translated exercises', () => {
+    mockT
+      .mockReturnValueOnce({id: 'some-exercise-id'})
+      .mockReturnValueOnce({id: 'some-async-exercise-id', async: true});
+
     const {result} = renderHook(() =>
       useGetExercisesByType(SessionType.private),
     );
