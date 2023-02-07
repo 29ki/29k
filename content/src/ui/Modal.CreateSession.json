@@ -1,12 +1,12 @@
 {
   "en": {
-    "description": "Start by selecting who you want to do a session with.",
+    "description": "Create session with…",
     "joinByInviteCta": "Join by invite code",
     "selectContent": {
       "title": "Choose exercise"
     },
     "selectType": {
-      "title": "Create session with...",
+      "title": "",
       "public": {
         "title": "Anyone"
       },
@@ -21,8 +21,8 @@
       "title": "Choose a time",
       "cta": "Create session",
       "sessionType": {
-        "private": "Session with Friends",
-        "public": "Session with Anyone"
+        "private": "Session with friends",
+        "public": "Session with anyone"
       }
     },
     "profile": {

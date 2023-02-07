@@ -4,6 +4,7 @@ import Koa from 'koa';
 import {killSwitchRouter} from './killswitch';
 import {sessionsRouter} from './sessions';
 import {userRouter} from './user';
+import {postsRouter} from './posts';
 import sentryErrorHandler from '../lib/sentry';
 import firebaseBodyParser from '../lib/firebaseBodyParser';
 import languageResolver from './lib/languageResolver';
@@ -20,7 +21,8 @@ const rootRouter = createApiRouter();
 rootRouter
   .use('/sessions', sessionsRouter.routes())
   .use('/killSwitch', killSwitchRouter.routes())
-  .use('/user', userRouter.routes());
+  .use('/user', userRouter.routes())
+  .use('/posts', postsRouter.routes());
 
 app
   .use(firebaseBodyParser())
