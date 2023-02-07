@@ -23,5 +23,5 @@ export type PostData = PostFields & {
 };
 
 export type PostParams = Omit<PostFields, 'id' | 'userId' | 'approved'> & {
-  public?: boolean;
+  anonymous: boolean;
 };

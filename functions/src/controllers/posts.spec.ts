@@ -31,7 +31,7 @@ describe('posts - controller', () => {
           exerciseId: 'some-exercise-id',
           language: 'en',
           text: 'some text',
-          public: true,
+          anonymous: false,
         } as PostParams,
         'some-user-id',
       );
@@ -51,7 +51,7 @@ describe('posts - controller', () => {
           exerciseId: 'some-exercise-id',
           language: 'en',
           text: 'some text',
-          public: false,
+          anonymous: true,
         } as PostParams,
         'some-user-id',
       );

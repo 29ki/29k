@@ -29,8 +29,8 @@ export const getPostsByExerciseId = async (
 
 export const createPost = async (postParams: PostParams, userId: string) => {
   const postData = {
-    ...omit(['public'], postParams),
-    userId: postParams.public ? userId : null,
+    ...omit(['anonymous'], postParams),
+    userId: postParams.anonymous === false ? userId : null,
     approved: true,
   };
   await postModel.addPost(postData);

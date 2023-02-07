@@ -82,7 +82,7 @@ describe('/api/posts', () => {
       const response = await request(mockServer).post('/posts').send({
         exerciseId: 'some-exercise-id',
         text: 'some text',
-        public: true,
+        anonymous: true,
         language: 'en',
       });
 
@@ -90,7 +90,7 @@ describe('/api/posts', () => {
         {
           exerciseId: 'some-exercise-id',
           text: 'some text',
-          public: true,
+          anonymous: true,
           language: 'en',
         },
         'some-user-id',
