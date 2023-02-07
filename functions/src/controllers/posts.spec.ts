@@ -7,7 +7,7 @@ import {
   deletePost,
 } from '../models/post';
 import {getPublicUserInfo} from '../models/user';
-import {Post} from '../../../shared/src/types/Post';
+import {Post, PostParams} from '../../../shared/src/types/Post';
 import {PostError} from '../../../shared/src/errors/Post';
 import {RequestError} from './errors/RequestError';
 
@@ -27,15 +27,39 @@ beforeEach(async () => {
 
 describe('posts - controller', () => {
   describe('addPost', () => {
-    it('saves post', async () => {
-      await postsController.createPost('some-user-id', {
+    it('saves post with user set', async () => {
+      await postsController.createPost(
+        {
+          exerciseId: 'some-exercise-id',
+          language: 'en',
+          text: 'some text',
+          public: true,
+        } as PostParams,
+        'some-user-id',
+      );
+
+      expect(mockAddPost).toHaveBeenCalledWith({
+        userId: 'some-user-id',
+        approved: true,
         exerciseId: 'some-exercise-id',
         language: 'en',
         text: 'some text',
       });
+    });
+
+    it('saves post without user set', async () => {
+      await postsController.createPost(
+        {
+          exerciseId: 'some-exercise-id',
+          language: 'en',
+          text: 'some text',
+          public: false,
+        } as PostParams,
+        'some-user-id',
+      );
 
       expect(mockAddPost).toHaveBeenCalledWith({
-        userId: 'some-user-id',
+        userId: null,
         approved: true,
         exerciseId: 'some-exercise-id',
         language: 'en',
@@ -116,14 +140,37 @@ describe('posts - controller', () => {
   });
 
   describe('updatePost', () => {
-    it('should update post', async () => {
+    it('should update post with user set', async () => {
       mockGetPostById.mockResolvedValueOnce({userId: 'some-user-id'} as Post);
-      await postsController.updatePost('some-user-id', 'some-post-id', {
-        text: 'some text',
-      });
+      await postsController.updatePost(
+        'some-post-id',
+        {
+          text: 'some text',
+          public: true,
+        } as PostParams,
+        'some-user-id',
+      );
 
       expect(mockUpdatePost).toHaveBeenCalledWith('some-post-id', {
         text: 'some text',
+        userId: 'some-user-id',
+      });
+    });
+
+    it('should update post with no user set', async () => {
+      mockGetPostById.mockResolvedValueOnce({userId: 'some-user-id'} as Post);
+      await postsController.updatePost(
+        'some-post-id',
+        {
+          text: 'some text',
+          public: false,
+        } as PostParams,
+        'some-user-id',
+      );
+
+      expect(mockUpdatePost).toHaveBeenCalledWith('some-post-id', {
+        text: 'some text',
+        userId: null,
       });
     });
 
@@ -131,25 +178,15 @@ describe('posts - controller', () => {
       mockGetPostById.mockResolvedValueOnce(undefined);
 
       try {
-        await postsController.updatePost('some-user-id', 'some-post-id', {
-          text: 'some text',
-        });
+        await postsController.updatePost(
+          'some-post-id',
+          {
+            text: 'some text',
+          } as PostParams,
+          'some-user-id',
+        );
       } catch (error) {
         expect(error).toEqual(new RequestError(PostError.notFound));
-      }
-    });
-
-    it('should not update post not belonging to user', async () => {
-      mockGetPostById.mockResolvedValueOnce({
-        userId: 'some-other-user-id',
-      } as Post);
-
-      try {
-        await postsController.updatePost('some-user-id', 'some-post-id', {
-          text: 'some text',
-        });
-      } catch (error) {
-        expect(error).toEqual(new RequestError(PostError.userNotAuthorized));
       }
     });
   });
@@ -157,7 +194,7 @@ describe('posts - controller', () => {
   describe('deletePost', () => {
     it('should delete post', async () => {
       mockGetPostById.mockResolvedValueOnce({userId: 'some-user-id'} as Post);
-      await postsController.deletePost('some-user-id', 'some-post-id');
+      await postsController.deletePost('some-post-id');
 
       expect(mockDeletePost).toHaveBeenCalledWith('some-post-id');
     });
@@ -166,21 +203,9 @@ describe('posts - controller', () => {
       mockGetPostById.mockResolvedValueOnce(undefined);
 
       try {
-        await postsController.deletePost('some-user-id', 'some-post-id');
+        await postsController.deletePost('some-post-id');
       } catch (error) {
         expect(error).toEqual(new RequestError(PostError.notFound));
-      }
-    });
-
-    it('should not delete post not belonging to user', async () => {
-      mockGetPostById.mockResolvedValueOnce({
-        userId: 'some-other-user-id',
-      } as Post);
-
-      try {
-        await postsController.deletePost('some-user-id', 'some-post-id');
-      } catch (error) {
-        expect(error).toEqual(new RequestError(PostError.userNotAuthorized));
       }
     });
   });

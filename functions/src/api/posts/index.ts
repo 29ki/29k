@@ -45,7 +45,7 @@ postsRouter.post('/', validator({body: CreatePostSchema}), async ctx => {
   const {id} = ctx.user;
   const postData = ctx.request.body as CreatePostData;
 
-  await createPost(id, postData);
+  await createPost(postData, id);
   ctx.response.status = 200;
 });
 
@@ -62,17 +62,13 @@ postsRouter.put('/:postId', validator({body: UpdatePostSchema}), async ctx => {
   const postData = ctx.request.body as UpdatePostData;
 
   try {
-    await updatePost(id, postId, postData);
+    await updatePost(postId, postData, id);
     ctx.response.status = 200;
   } catch (error) {
     const requestError = error as RequestError;
     switch (requestError.code) {
       case PostError.notFound:
         ctx.status = 404;
-        break;
-
-      case PostError.userNotAuthorized:
-        ctx.status = 401;
         break;
 
       default:
@@ -83,21 +79,16 @@ postsRouter.put('/:postId', validator({body: UpdatePostSchema}), async ctx => {
 });
 
 postsRouter.delete('/:postId', async ctx => {
-  const {id} = ctx.user;
   const {postId} = ctx.params;
 
   try {
-    await deletePost(id, postId);
+    await deletePost(postId);
     ctx.response.status = 200;
   } catch (error) {
     const requestError = error as RequestError;
     switch (requestError.code) {
       case PostError.notFound:
         ctx.status = 404;
-        break;
-
-      case PostError.userNotAuthorized:
-        ctx.status = 401;
         break;
 
       default:

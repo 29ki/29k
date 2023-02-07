@@ -88,12 +88,15 @@ describe('/api/posts', () => {
         language: 'en',
       });
 
-      expect(mockCreatePost).toHaveBeenCalledWith('some-user-id', {
-        exerciseId: 'some-exercise-id',
-        text: 'some text',
-        public: true,
-        language: 'en',
-      });
+      expect(mockCreatePost).toHaveBeenCalledWith(
+        {
+          exerciseId: 'some-exercise-id',
+          text: 'some text',
+          public: true,
+          language: 'en',
+        },
+        'some-user-id',
+      );
       expect(response.status).toBe(200);
     });
   });
@@ -107,11 +110,11 @@ describe('/api/posts', () => {
         });
 
       expect(mockUpdatePost).toHaveBeenCalledWith(
-        'some-user-id',
         'some-post-id',
         {
           public: false,
         },
+        'some-user-id',
       );
       expect(response.status).toBe(200);
     });
@@ -124,11 +127,11 @@ describe('/api/posts', () => {
         });
 
       expect(mockUpdatePost).toHaveBeenCalledWith(
-        'some-user-id',
         'some-post-id',
         {
           text: 'some new text',
         },
+        'some-user-id',
       );
       expect(response.status).toBe(200);
     });
@@ -138,10 +141,7 @@ describe('/api/posts', () => {
     it('should delete post', async () => {
       const response = await request(mockServer).delete('/posts/some-post-id');
 
-      expect(mockDeletePost).toHaveBeenCalledWith(
-        'some-user-id',
-        'some-post-id',
-      );
+      expect(mockDeletePost).toHaveBeenCalledWith('some-post-id');
       expect(response.status).toBe(200);
     });
   });
