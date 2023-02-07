@@ -61,12 +61,14 @@ const renderSession: SectionListRenderItem<JourneySession, Section> = ({
     );
   } else {
     return (
-      <SessionCard
-        session={item as Session}
-        standAlone={standAlone}
-        hasCardBefore={hasCardBefore}
-        hasCardAfter={hasCardAfter}
-      />
+      <Gutters>
+        <SessionCard
+          session={item as Session}
+          standAlone={standAlone}
+          hasCardBefore={hasCardBefore}
+          hasCardAfter={hasCardAfter}
+        />
+      </Gutters>
     );
   }
 };
@@ -117,7 +119,6 @@ const Plan = () => {
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
       <SectionList
-        inverted={true}
         initialScrollIndex={completedSessions.length + 1}
         sections={sections}
         keyExtractor={session => session.id}

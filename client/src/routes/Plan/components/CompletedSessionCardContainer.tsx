@@ -28,7 +28,7 @@ const SessionCardContainer: React.FC<CompletedSessionCardContainerProps> = ({
   );
 
   useEffect(() => {
-    if (profile) {
+    if (profile || !session.hostId) {
       return;
     }
 
