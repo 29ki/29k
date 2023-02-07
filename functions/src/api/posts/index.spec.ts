@@ -8,14 +8,12 @@ import {createApiRouter} from '../../lib/routers';
 import {
   createPost,
   deletePost,
-  updatePost,
   getPostsByExerciseId,
 } from '../../controllers/posts';
 
 jest.mock('../../controllers/posts');
 
 const mockCreatePost = jest.mocked(createPost);
-const mockUpdatePost = jest.mocked(updatePost);
 const mockDeletePost = jest.mocked(deletePost);
 const mockGetPostsByExerciseId = jest.mocked(getPostsByExerciseId);
 
@@ -94,42 +92,6 @@ describe('/api/posts', () => {
           text: 'some text',
           public: true,
           language: 'en',
-        },
-        'some-user-id',
-      );
-      expect(response.status).toBe(200);
-    });
-  });
-
-  describe('put', () => {
-    it('should update post with public flag', async () => {
-      const response = await request(mockServer)
-        .put('/posts/some-post-id')
-        .send({
-          public: false,
-        });
-
-      expect(mockUpdatePost).toHaveBeenCalledWith(
-        'some-post-id',
-        {
-          public: false,
-        },
-        'some-user-id',
-      );
-      expect(response.status).toBe(200);
-    });
-
-    it('should update post with text', async () => {
-      const response = await request(mockServer)
-        .put('/posts/some-post-id')
-        .send({
-          text: 'some new text',
-        });
-
-      expect(mockUpdatePost).toHaveBeenCalledWith(
-        'some-post-id',
-        {
-          text: 'some new text',
         },
         'some-user-id',
       );

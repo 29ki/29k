@@ -3,7 +3,6 @@ import {
   addPost,
   getPostsByExerciseId,
   getPostById,
-  updatePost,
   deletePost,
 } from '../models/post';
 import {getPublicUserInfo} from '../models/user';
@@ -17,7 +16,6 @@ jest.mock('../models/user');
 const mockAddPost = jest.mocked(addPost);
 const mockGetPostsByExerciseId = jest.mocked(getPostsByExerciseId);
 const mockGetPostById = jest.mocked(getPostById);
-const mockUpdatePost = jest.mocked(updatePost);
 const mockDeletePost = jest.mocked(deletePost);
 const mockGetPublicUserInfo = jest.mocked(getPublicUserInfo);
 
@@ -136,58 +134,6 @@ describe('posts - controller', () => {
           userId: 'some-user-id',
         },
       ]);
-    });
-  });
-
-  describe('updatePost', () => {
-    it('should update post with user set', async () => {
-      mockGetPostById.mockResolvedValueOnce({userId: 'some-user-id'} as Post);
-      await postsController.updatePost(
-        'some-post-id',
-        {
-          text: 'some text',
-          public: true,
-        } as PostParams,
-        'some-user-id',
-      );
-
-      expect(mockUpdatePost).toHaveBeenCalledWith('some-post-id', {
-        text: 'some text',
-        userId: 'some-user-id',
-      });
-    });
-
-    it('should update post with no user set', async () => {
-      mockGetPostById.mockResolvedValueOnce({userId: 'some-user-id'} as Post);
-      await postsController.updatePost(
-        'some-post-id',
-        {
-          text: 'some text',
-          public: false,
-        } as PostParams,
-        'some-user-id',
-      );
-
-      expect(mockUpdatePost).toHaveBeenCalledWith('some-post-id', {
-        text: 'some text',
-        userId: null,
-      });
-    });
-
-    it('should not update post if no post was found', async () => {
-      mockGetPostById.mockResolvedValueOnce(undefined);
-
-      try {
-        await postsController.updatePost(
-          'some-post-id',
-          {
-            text: 'some text',
-          } as PostParams,
-          'some-user-id',
-        );
-      } catch (error) {
-        expect(error).toEqual(new RequestError(PostError.notFound));
-      }
     });
   });
 

@@ -7,7 +7,6 @@ import {
   createPost,
   deletePost,
   getPostsByExerciseId,
-  updatePost,
 } from '../../controllers/posts';
 import {RequestError} from '../../controllers/errors/RequestError';
 
@@ -49,35 +48,6 @@ postsRouter.post('/', validator({body: CreatePostSchema}), async ctx => {
 
   await createPost(postData, id);
   ctx.response.status = 200;
-});
-
-const UpdatePostSchema = yup.object().shape({
-  text: yup.string().default(undefined),
-  public: yup.boolean().default(undefined),
-});
-
-type UpdatePostData = yup.InferType<typeof UpdatePostSchema>;
-
-postsRouter.put('/:postId', validator({body: UpdatePostSchema}), async ctx => {
-  const {id} = ctx.user;
-  const {postId} = ctx.params;
-  const postData = ctx.request.body as UpdatePostData;
-
-  try {
-    await updatePost(postId, postData, id);
-    ctx.response.status = 200;
-  } catch (error) {
-    const requestError = error as RequestError;
-    switch (requestError.code) {
-      case PostError.notFound:
-        ctx.status = 404;
-        break;
-
-      default:
-        throw error;
-    }
-    ctx.message = requestError.code;
-  }
 });
 
 postsRouter.delete('/:postId', async ctx => {

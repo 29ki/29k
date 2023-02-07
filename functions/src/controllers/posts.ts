@@ -1,6 +1,6 @@
 import {omit} from 'ramda';
 import {PostError} from '../../../shared/src/errors/Post';
-import {PostParams, PostUpdateParams} from '../../../shared/src/types/Post';
+import {PostParams} from '../../../shared/src/types/Post';
 import * as postModel from '../models/post';
 import {getPublicUserInfo} from '../models/user';
 import {RequestError} from './errors/RequestError';
@@ -34,25 +34,6 @@ export const createPost = async (postParams: PostParams, userId: string) => {
     approved: true,
   };
   await postModel.addPost(postData);
-};
-
-export const updatePost = async (
-  postId: string,
-  postParams: PostUpdateParams,
-  userId: string,
-) => {
-  const existingPost = await postModel.getPostById(postId);
-
-  if (!existingPost) {
-    throw new RequestError(PostError.notFound);
-  }
-
-  const postUpdateData = {
-    ...omit(['public'], postParams),
-    userId: postParams.public ? userId : null,
-  };
-
-  await postModel.updatePost(postId, postUpdateData);
 };
 
 export const deletePost = async (postId: string) => {
