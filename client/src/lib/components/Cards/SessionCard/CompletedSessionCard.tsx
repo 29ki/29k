@@ -11,10 +11,11 @@ import WalletCard from '../WalletCard';
 import Badge from '../../Badge/Badge';
 import {Body14} from '../../Typography/Body/Body';
 import styled from 'styled-components/native';
-import {CheckIcon, CommunityIcon} from '../../Icons';
+import {CheckIcon, CommunityIcon, ProfileFillIcon} from '../../Icons';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Spacer4} from '../../Spacers/Spacer';
 import dayjs from 'dayjs';
+import {SessionType} from '../../../../../../shared/src/types/Session';
 
 type CompletedSessionCardProps = {
   session: CompletedSession;
@@ -40,7 +41,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
   hasCardBefore,
   hasCardAfter,
 }) => {
-  const {contentId, completedAt} = session;
+  const {contentId, completedAt, type} = session;
   const exercise = useExerciseById(contentId);
 
   const onContextPress = useCallback(() => {}, []);
@@ -81,7 +82,9 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
         <Spacer4 />
         <Badge
           text={dayjs(completedAt).format('ddd, D MMM')}
-          Icon={<CommunityIcon />}
+          Icon={
+            type === SessionType.async ? <ProfileFillIcon /> : <CommunityIcon />
+          }
         />
       </Row>
     </WalletCard>
