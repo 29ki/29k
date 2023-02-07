@@ -1,4 +1,5 @@
 import admin from 'firebase-admin';
+import {FieldValue} from 'firebase-admin/firestore';
 
 const {GOOGLE_APPLICATION_CREDENTIALS} = process.env;
 
@@ -21,7 +22,7 @@ const firestore = admin.firestore();
       const {id, contentId} = doc.data();
 
       await firestore.collection('sessions').doc(id).update({
-        contentId: undefined,
+        contentId: FieldValue.delete(),
         exerciseId: contentId,
       });
     }),
