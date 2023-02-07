@@ -1,6 +1,4 @@
 import admin from 'firebase-admin';
-import {getData} from '../../../shared/src/modelUtils/firestore';
-import {SessionData} from '../../../shared/src/types/Session';
 
 const {GOOGLE_APPLICATION_CREDENTIALS} = process.env;
 
@@ -20,7 +18,7 @@ const firestore = admin.firestore();
 
   await Promise.all(
     snapshot.docs.map(async doc => {
-      const {id, started, ended, exerciseState} = getData<SessionData>(doc);
+      const {id, started, ended, exerciseState} = doc.data();
 
       firestore
         .collection('sessions')
