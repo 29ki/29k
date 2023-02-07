@@ -20,7 +20,7 @@ type SessionStateFields = {
 type SessionBaseFileds = {
   id: string;
   type: SessionType;
-  contentId: string;
+  exerciseId: string;
   language: LANGUAGE_TAG;
 };
 

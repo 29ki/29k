@@ -82,7 +82,7 @@ describe('useLeaveSession', () => {
         session: {
           id: 'some-session-id',
           hostId: 'some-host-id',
-          contentId: 'some-exercise-id',
+          exerciseId: 'some-exercise-id',
         } as Session,
         sessionState: {
           started: true,

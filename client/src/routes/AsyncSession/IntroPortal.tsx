@@ -23,7 +23,7 @@ const IntroPortal: React.FC = () => {
     params: {session},
   } = useRoute<RouteProp<AsyncSessionStackProps, 'IntroPortal'>>();
 
-  const exercise = useExerciseById(session.contentId);
+  const exercise = useExerciseById(session.exerciseId);
   const {navigate} =
     useNavigation<
       NativeStackNavigationProp<

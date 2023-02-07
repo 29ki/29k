@@ -20,7 +20,7 @@ const useLogAsyncSessionMetricEvents = () => {
           'Sharing Session Type': session.type,
           'Sharing Session Mode': 'async',
           'Sharing Session Start Time': session.startTime,
-          'Exercise ID': session.contentId,
+          'Exercise ID': session.exerciseId,
           Host: false,
           Language: session.language,
         });
