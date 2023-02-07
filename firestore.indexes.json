@@ -77,10 +77,6 @@
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "public",
-          "order": "ASCENDING"
-        },
-        {
           "fieldPath": "createdAt",
           "order": "DESCENDING"
         }
