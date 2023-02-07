@@ -137,7 +137,7 @@ describe('/api/posts', () => {
   });
 
   describe('delete', () => {
-    it('should update post with public flag', async () => {
+    it('should delete post', async () => {
       const response = await request(mockServer).delete('/posts/some-post-id');
 
       expect(mockDeletePost).toHaveBeenCalledWith(
