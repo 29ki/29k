@@ -71,7 +71,7 @@ const SignInModal = () => {
             textContentType="password"
             secureTextEntry
             autoCapitalize="none"
-            autoComplete="current-password"
+            autoComplete="password"
             autoCorrect={false}
             onSubmitEditing={signIn}
             placeholder={t('password')}
