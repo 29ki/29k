@@ -9,6 +9,10 @@ import useSessions from '../../lib/sessions/hooks/useSessions';
 
 import {COLORS} from '../../../../shared/src/constants/colors';
 
+import {JourneySession} from './types/Session';
+import {Session} from '../../../../shared/src/types/Session';
+import {CompletedSession} from '../../lib/user/state/state';
+
 import {
   Spacer16,
   Spacer24,
@@ -21,14 +25,7 @@ import Screen from '../../lib/components/Screen/Screen';
 import {Heading18} from '../../lib/components/Typography/Heading/Heading';
 import useCompletedSessions from '../../lib/sessions/hooks/useCompletedSessions';
 import CompletedSessionCardContainer from './components/CompletedSessionCardContainer';
-import {CompletedSession} from '../../lib/user/state/state';
-import {Session} from '../../../../shared/src/types/Session';
 import SessionCard from '../../lib/components/Cards/SessionCard/SessionCard';
-
-interface JourneySession {
-  id: Session['id'];
-  __type?: 'completed';
-}
 
 export type Section = {
   title: string;
