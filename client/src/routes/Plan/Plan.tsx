@@ -1,5 +1,9 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
-import {RefreshControl, SectionList as RNSectionList} from 'react-native';
+import {
+  RefreshControl,
+  SectionList as RNSectionList,
+  SectionListRenderItem,
+} from 'react-native';
 
 import useSessions from '../../lib/sessions/hooks/useSessions';
 
@@ -16,17 +20,23 @@ import Gutters from '../../lib/components/Gutters/Gutters';
 import Screen from '../../lib/components/Screen/Screen';
 import {Heading18} from '../../lib/components/Typography/Heading/Heading';
 import useCompletedSessions from '../../lib/sessions/hooks/useCompletedSessions';
-import SessionCardContainer from './components/SessionCardContainer';
+import CompletedSessionCardContainer from './components/CompletedSessionCardContainer';
 import {CompletedSession} from '../../lib/user/state/state';
 import {Session} from '../../../../shared/src/types/Session';
+import SessionCard from '../../lib/components/Cards/SessionCard/SessionCard';
+
+interface JourneySession {
+  id: Session['id'];
+  __type?: 'completed';
+}
 
 export type Section = {
   title: string;
-  data: Session[] | CompletedSession[];
+  data: JourneySession[];
   type: 'interested' | 'completed';
 };
 
-const SectionList = RNSectionList<Session | CompletedSession, Section>;
+const SectionList = RNSectionList<JourneySession, Section>;
 
 const ListHeader = () => (
   <>
@@ -34,6 +44,35 @@ const ListHeader = () => (
     <Spacer16 />
   </>
 );
+
+const renderSession: SectionListRenderItem<JourneySession, Section> = ({
+  section,
+  item,
+  index,
+}) => {
+  const standAlone = section.data.length === 1;
+  const hasCardBefore = index > 0;
+  const hasCardAfter = index !== section.data.length - 1;
+
+  if (item.__type === 'completed') {
+    return (
+      <CompletedSessionCardContainer
+        session={item as CompletedSession}
+        hasCardBefore={hasCardBefore}
+        hasCardAfter={hasCardAfter}
+      />
+    );
+  } else {
+    return (
+      <SessionCard
+        session={item as Session}
+        standAlone={standAlone}
+        hasCardBefore={hasCardBefore}
+        hasCardAfter={hasCardAfter}
+      />
+    );
+  }
+};
 
 const Plan = () => {
   // const {t} = useTranslation('Screen.Plan');
@@ -47,7 +86,7 @@ const Plan = () => {
     if (completedSessions.length > 0) {
       sectionsList.push({
         title: 'Completed',
-        data: completedSessions,
+        data: completedSessions.map(s => ({...s, __type: 'completed'})),
         type: 'completed',
       });
     }
@@ -81,12 +120,14 @@ const Plan = () => {
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
       <SectionList
+        inverted={true}
+        initialScrollIndex={completedSessions.length + 1}
         sections={sections}
         keyExtractor={session => session.id}
         ListHeaderComponent={ListHeader}
         ListFooterComponent={Spacer60}
         ItemSeparatorComponent={Spacer16}
-        renderItem={SessionCardContainer}
+        renderItem={renderSession}
         refreshControl={
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }

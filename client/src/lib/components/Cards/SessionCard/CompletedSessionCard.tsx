@@ -1,6 +1,7 @@
 import React, {useCallback, useMemo} from 'react';
 
 import {CompletedSession} from '../../../user/state/state';
+import {UserProfile} from '../../../../../../shared/src/types/User';
 
 import useExerciseById from '../../../content/hooks/useExerciseById';
 
@@ -10,16 +11,18 @@ import WalletCard from '../WalletCard';
 
 type CompletedSessionCardProps = {
   session: CompletedSession;
+  hostProfile: UserProfile | null;
   hasCardBefore: boolean;
   hasCardAfter: boolean;
 };
 
 const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
   session,
+  hostProfile,
   hasCardBefore,
   hasCardAfter,
 }) => {
-  const {contentId, hostProfile} = session;
+  const {contentId} = session;
   const exercise = useExerciseById(contentId);
 
   const onContextPress = useCallback(() => {}, []);
