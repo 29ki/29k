@@ -21,6 +21,7 @@ const useLogSessionMetricEvents = () => {
         metrics.logEvent(event, {
           'Sharing Session ID': session.id,
           'Sharing Session Type': session.type,
+          'Sharing Session Mode': 'live',
           'Sharing Session Start Time': session.startTime,
           'Exercise ID': session.exerciseId,
           Host: user.uid === session.hostId,

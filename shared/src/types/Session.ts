@@ -3,8 +3,9 @@ import {LANGUAGE_TAG} from '../constants/i18n';
 import {UserProfile} from './User';
 
 export enum SessionType {
-  public = 'public',
+  async = 'async',
   private = 'private',
+  public = 'public',
 }
 
 type SessionStateFields = {
@@ -16,17 +17,20 @@ type SessionStateFields = {
   completed?: boolean;
 };
 
-type SessionFields = {
+type SessionBaseFileds = {
   id: string;
+  type: SessionType;
+  exerciseId: string;
+  language: LANGUAGE_TAG;
+};
+
+type SessionFields = SessionBaseFileds & {
   dailyRoomName: string;
   url: string;
-  language: LANGUAGE_TAG;
   link?: string;
-  exerciseId: string;
   inviteCode: number;
   interestedCount: number;
   hostId: string;
-  type: SessionType;
   userIds: string[];
   ended: boolean;
 };
@@ -53,6 +57,8 @@ export type Session = SessionFields & {
   updatedAt: string;
   hostProfile?: UserProfile;
 };
+
+export type AsyncSession = SessionBaseFileds & {startTime: string};
 
 export type DailyUserData = {
   inPortal: boolean;

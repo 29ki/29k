@@ -6,7 +6,7 @@ import * as Cards from '../../components/Cards/Cards.library';
 import * as Icons from '../../components/Icons/Icons.library';
 import * as Typography from '../../components/Typography/Typography.library';
 import * as UiSettings from '../../constants/UiSettings.library';
-import * as Session from '../../../routes/Session/components/Session.library';
+import * as Session from '../../session/components/Session.library';
 import * as Screen from '../../components/Screen/Screen.library';
 import * as HeaderScrollView from '../../components/HeaderScrollView/HeaderScrollView.library';
 import * as Modals from '../../components/Modals/Modals.library';

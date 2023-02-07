@@ -92,7 +92,7 @@ export const WalletCard: React.FC<WalletCardProps> = ({
     onPress={onPress}>
     <ContentWrapper>
       <LeftCol>
-        {title && <Display16>{title}</Display16>}
+        {title && <Display16 numberOfLines={1}>{title}</Display16>}
         <Spacer2 />
         <Byline small pictureURL={hostPictureURL} name={hostName} />
         <Spacer2 />

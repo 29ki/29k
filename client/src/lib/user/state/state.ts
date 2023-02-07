@@ -16,8 +16,8 @@ type PinnedSession = {
 
 export type CompletedSession = {
   id: Session['id'];
-  hostId: Session['hostId'];
-  contentId: Session['exerciseId'];
+  hostId?: Session['hostId'];
+  exerciseId: Session['exerciseId'];
   language: Session['language'];
   type: Session['type'];
   completedAt: Date;
@@ -71,6 +71,18 @@ export const getCurrentUserStateSelector: GetCurrentUserStateSelector = ({
     return userState[user.uid];
   }
 };
+
+type GetCompletedSessionByIdSelector = (
+  state: State,
+  sessionId: string,
+) => CompletedSession | undefined;
+export const getCompletedSessionByIdSelector: GetCompletedSessionByIdSelector =
+  ({user, userState}, sessionId) => {
+    if (user?.uid) {
+      const state = userState[user.uid] as UserState | undefined;
+      return state?.completedSessions?.find(cs => cs.id === sessionId);
+    }
+  };
 
 const useUserState = create<State & Actions>()(
   persist(

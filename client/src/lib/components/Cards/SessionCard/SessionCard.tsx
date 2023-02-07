@@ -10,7 +10,7 @@ import {Session} from '../../../../../../shared/src/types/Session';
 import {formatExerciseName} from '../../../utils/string';
 
 import useExerciseById from '../../../content/hooks/useExerciseById';
-import useSessionStartTime from '../../../../routes/Session/hooks/useSessionStartTime';
+import useSessionStartTime from '../../../session/hooks/useSessionStartTime';
 import {
   AppStackProps,
   ModalStackProps,
@@ -103,7 +103,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
   }, [session, togglePinSession]);
 
   const onPress = useCallback(() => {
-    navigate('SessionStack', {
+    navigate('LiveSessionStack', {
       screen: 'ChangingRoom',
       params: {
         session,

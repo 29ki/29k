@@ -5,15 +5,22 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on love and connection to ourselves and others.\n\nWe’ll be doing a short meditation together, then we’ll take a moment to reflect on our own, and the final step is to share with each other what we experienced."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on love and connection to ourselves and others.\n\nWe’ll be doing a short meditation together, then we’ll take a moment to reflect on our own, and the final step is to share with each other what we experienced.",
+            "asyncText": "Welcome, this session is about love and connection to ourselves and others. \n\nThere will be a short meditation, a moment to reflect, and the final step is to share what we experienced."
           },
           {
-            "text": "Before we move on into the session, let's ground ourselves in the here and now. Focusing on our breathing for three circles of Inhale and exhale.\n\n> Inhale & exhale slowly x3"
+            "text": "Before we move on into the session, let's ground ourselves in the here and now. Focusing on our breathing for three circles of inhale and exhale.\n\n> Inhale & exhale slowly x3",
+            "asyncText": "Before we move on into the session, let's ground ourselves in the here and now. Focusing on our breathing for three circles of inhale and exhale.\n\n> Inhale & exhale slowly x3"
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started.",
+            "asyncText": "Now, check-in with yourself. How are you feeling right now?\n\nSo, let’s get started."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675419802/Video/async_intro_pure_simpe_love_eng_i9ezqv.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675420628/Images/thumb_async_intro_outro_pure_simple_love_p7bjul.jpg"
+        }
       },
       {
         "type": "content",
@@ -46,10 +53,12 @@
         },
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did this meditation affect you?\n\nWhat can you bring from this for the rest of your day?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did this meditation affect you?\n\nWhat can you bring from this for the rest of your day?",
+            "asyncText": "Take 1 minute to reflect. \n\nHow did this meditation affect you? \n\nWhat can you bring from this for the rest of your day?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nOkay, that’s 1 minute. Let’s move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nOkay, that’s 1 minute. Let’s move on.",
+            "asyncText": "Take notes on a piece of paper or just mental notes in your head. There is no right or wrong here, our answers are our own.\n\n> Press play to start the timer."
           }
         ]
       },
@@ -79,18 +88,25 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "We've just thought of a moment of love in our live and put one of life’s precious moment into the limelight. To help us balance our brains natural efforts to make us survive by focusing on the negative."
+            "text": "We've just thought of a moment of love in our live and put one of life’s precious moment into the limelight. To help us balance our brains natural efforts to make us survive by focusing on the negative.",
+            "asyncText": "We've just thought of a moment of love in our lives and put one of life’s precious moment into the limelight. To help us balance our brains natural efforts to make us survive by focusing on the negative."
           },
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nSet a reminder at a random time of the day for a week. When the reminder goes on, reflect on a loving moment from the last 24 hours. Notice what it feels like on the inside, in your body."
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nSet a reminder at a random time of the day for a week. When the reminder goes on, reflect on a loving moment from the last 24 hours. Notice what it feels like on the inside, in your body.",
+            "asyncText": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nSet a reminder at a random time of the day for a week. When the reminder goes on, reflect on a loving moment from the last 24 hours. Notice what it feels like on the inside, in your body."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words.",
+            "asyncText": "Before leaving this space, check-in with yourself again:\n\nHow are you feeling right now? Has anything shifted?\n\nWhen you’re ready, finish this session at your own pace."
           },
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675420255/Video/async_outro_pure_simple_love_eng_t6seiq.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675420628/Images/thumb_async_intro_outro_pure_simple_love_p7bjul.jpg"
+        }
       }
     ],
     "name": "Pure simple love",
@@ -122,10 +138,9 @@
         }
       ]
     },
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
+    "tags": [],
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+    "async": true,
     "description": "A guided meditation that brings a precious moment into the limelight. Practicing noticing what's working can help us feel happier and more fulfilled, and counteract our brains natural tendency to focus on the negative."
   },
   "pt": {
@@ -244,23 +259,17 @@
         }
       ]
     },
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
+    "tags": [],
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
   },
   "sv": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139",
     "duration": 30,
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    "tags": []
   },
   "es": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139",
     "duration": 30,
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    "tags": []
   }
 }

@@ -50,7 +50,7 @@ const SetDateTimeStep: React.FC<StepProps> = ({
   selectedType,
   isPublicHost,
   userProfile,
-  prevStep,
+  firstStep,
 }) => {
   const {t, i18n} = useTranslation('Modal.CreateSession');
   const {expand, collapse} = useBottomSheet();
@@ -109,6 +109,10 @@ const SetDateTimeStep: React.FC<StepProps> = ({
     [expand, collapse],
   );
 
+  const onEditSessionType = useCallback(() => {
+    firstStep();
+  }, [firstStep]);
+
   return (
     <Gutters>
       <Spacer8 />
@@ -129,7 +133,10 @@ const SetDateTimeStep: React.FC<StepProps> = ({
       </Row>
       <Spacer28 />
       {isPublicHost && selectedType && (
-        <EditSessionType sessionType={selectedType} onPress={prevStep} />
+        <EditSessionType
+          sessionType={selectedType}
+          onPress={onEditSessionType}
+        />
       )}
       <Spacer16 />
       <DateTimePicker

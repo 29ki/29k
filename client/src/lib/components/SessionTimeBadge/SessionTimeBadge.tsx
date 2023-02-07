@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 
 import {Session} from '../../../../../shared/src/types/Session';
-import useSessionStartTime from '../../../routes/Session/hooks/useSessionStartTime';
+import useSessionStartTime from '../../session/hooks/useSessionStartTime';
 
 import Badge from '../Badge/Badge';
 import {PrivateIcon, PublicIcon} from '../Icons';
