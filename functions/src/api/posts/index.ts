@@ -19,11 +19,13 @@ import {
 
 const postsRouter = createApiRouter();
 
+const POSTS_LIMIT = 20;
+
 postsRouter.get('/:exerciseId', async ctx => {
   const {response} = ctx;
   const {exerciseId} = ctx.params;
 
-  const posts = await getPostsByExerciseId(exerciseId, 10);
+  const posts = await getPostsByExerciseId(exerciseId, POSTS_LIMIT);
 
   response.status = 200;
   ctx.body = posts;

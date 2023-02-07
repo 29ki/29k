@@ -60,7 +60,7 @@ describe('/api/posts', () => {
 
       expect(mockGetPostsByExerciseId).toHaveBeenCalledWith(
         'some-exercise-id',
-        10,
+        20,
       );
       expect(response.status).toBe(200);
       expect(response.body).toEqual([
