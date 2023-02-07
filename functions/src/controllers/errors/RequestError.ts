@@ -6,6 +6,7 @@ import {
   JoinSessionError,
   ValidateSessionError,
 } from '../../../../shared/src/errors/Session';
+import {PostError} from '../../../../shared/src/errors/Post';
 
 export class RequestError extends Error {
   constructor(
@@ -13,7 +14,8 @@ export class RequestError extends Error {
       | VerificationError
       | JoinSessionError
       | ValidateSessionError
-      | UserProfileError,
+      | UserProfileError
+      | PostError,
   ) {
     super(code);
     this.code = code;
@@ -23,5 +25,6 @@ export class RequestError extends Error {
     | VerificationError
     | JoinSessionError
     | ValidateSessionError
-    | UserProfileError;
+    | UserProfileError
+    | PostError;
 }
