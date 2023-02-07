@@ -26,11 +26,12 @@ import {Heading18} from '../../lib/components/Typography/Heading/Heading';
 import useCompletedSessions from '../../lib/sessions/hooks/useCompletedSessions';
 import CompletedSessionCardContainer from './components/CompletedSessionCardContainer';
 import SessionCard from '../../lib/components/Cards/SessionCard/SessionCard';
+import {useTranslation} from 'react-i18next';
 
 export type Section = {
   title: string;
   data: JourneySession[];
-  type: 'interested' | 'completed';
+  type: 'interested' | 'completed' | 'hosted';
 };
 
 const SectionList = RNSectionList<JourneySession, Section>;
@@ -74,7 +75,7 @@ const renderSession: SectionListRenderItem<JourneySession, Section> = ({
 };
 
 const Journey = () => {
-  // const {t} = useTranslation('Screen.Journey');
+  const {t} = useTranslation('Screen.Journey');
   const {fetchSessions, pinnedSessions, hostedSessions} = useSessions();
   const {completedSessions} = useCompletedSessions();
   const [isLoading, setIsLoading] = useState(false);
@@ -84,22 +85,30 @@ const Journey = () => {
 
     if (completedSessions.length > 0) {
       sectionsList.push({
-        title: 'Completed',
+        title: t('headings.completed'),
         data: completedSessions.map(s => ({...s, __type: 'completed'})),
         type: 'completed',
       });
     }
 
-    if (hostedSessions.length > 0 || pinnedSessions.length > 0) {
+    if (hostedSessions.length > 0) {
       sectionsList.push({
-        title: 'Now',
-        data: [...pinnedSessions, ...hostedSessions],
+        title: t('headings.hosted'),
+        data: hostedSessions,
+        type: 'hosted',
+      });
+    }
+
+    if (pinnedSessions.length > 0) {
+      sectionsList.push({
+        title: t('headings.interested'),
+        data: pinnedSessions,
         type: 'interested',
       });
     }
 
     return sectionsList;
-  }, [pinnedSessions, hostedSessions, completedSessions]);
+  }, [pinnedSessions, hostedSessions, completedSessions, t]);
 
   useEffect(() => {
     fetchSessions();
