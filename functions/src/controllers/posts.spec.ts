@@ -31,7 +31,6 @@ describe('posts - controller', () => {
       await postsController.createPost('some-user-id', {
         exerciseId: 'some-exercise-id',
         language: 'en',
-        public: true,
         text: 'some text',
       });
 
@@ -40,7 +39,6 @@ describe('posts - controller', () => {
         approved: true,
         exerciseId: 'some-exercise-id',
         language: 'en',
-        public: true,
         text: 'some text',
       });
     });
@@ -121,11 +119,11 @@ describe('posts - controller', () => {
     it('should update post', async () => {
       mockGetPostById.mockResolvedValueOnce({userId: 'some-user-id'} as Post);
       await postsController.updatePost('some-user-id', 'some-post-id', {
-        public: true,
+        text: 'some text',
       });
 
       expect(mockUpdatePost).toHaveBeenCalledWith('some-post-id', {
-        public: true,
+        text: 'some text',
       });
     });
 
@@ -134,7 +132,7 @@ describe('posts - controller', () => {
 
       try {
         await postsController.updatePost('some-user-id', 'some-post-id', {
-          public: true,
+          text: 'some text',
         });
       } catch (error) {
         expect(error).toEqual(new RequestError(PostError.notFound));
@@ -148,7 +146,7 @@ describe('posts - controller', () => {
 
       try {
         await postsController.updatePost('some-user-id', 'some-post-id', {
-          public: true,
+          text: 'some text',
         });
       } catch (error) {
         expect(error).toEqual(new RequestError(PostError.userNotAuthorized));

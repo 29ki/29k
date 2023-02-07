@@ -32,7 +32,6 @@ export const getPostsByExerciseId = async (
     .collection(POSTS_COLLECTION)
     .where('exerciseId', '==', exerciseId)
     .where('approved', '==', true)
-    .where('public', '==', true)
     .orderBy('createdAt', 'desc')
     .limit(limit * 2) // We need overfetching to be able to skip posts with insufficient text length
     .get();

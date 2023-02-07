@@ -7,7 +7,6 @@ export type PostFields = {
   exerciseId: string;
   userId?: string;
   language: LANGUAGE_TAG;
-  public: boolean;
   approved: boolean;
   text: string;
 };

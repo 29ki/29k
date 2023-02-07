@@ -24,7 +24,6 @@ const posts = [
     exerciseId: 'some-exercise-id',
     userId: 'some-user-id',
     language: 'en',
-    public: true,
     approved: true,
     text: 'some sharing text',
     createdAt: Timestamp.now(),
@@ -35,7 +34,6 @@ const posts = [
     exerciseId: 'some-other-exercise-id',
     userId: 'some-other-user-id',
     language: 'en',
-    public: true,
     approved: true,
     text: 'some other sharing text',
     createdAt: Timestamp.now(),
@@ -63,7 +61,6 @@ describe('post model', () => {
         exerciseId: 'some-exercise-id',
         userId: 'some-user-id',
         language: 'en',
-        public: true,
         approved: true,
         text: 'some sharing text',
         createdAt: expect.any(String),
@@ -86,7 +83,6 @@ describe('post model', () => {
         'some-exercise-id',
       );
       expect(mockWhere).toHaveBeenCalledWith('approved', '==', true);
-      expect(mockWhere).toHaveBeenCalledWith('public', '==', true);
       expect(mockOrderBy).toHaveBeenCalledWith('createdAt', 'desc');
       expect(mockLimit).toHaveBeenCalledWith(10 * 2);
     });
@@ -98,7 +94,6 @@ describe('post model', () => {
         exerciseId: 'some-exercise-id',
         userId: 'some-user-id',
         approved: true,
-        public: true,
         language: 'en',
         text: 'some text',
       });
@@ -108,7 +103,6 @@ describe('post model', () => {
         exerciseId: 'some-exercise-id',
         userId: 'some-user-id',
         approved: true,
-        public: true,
         language: 'en',
         text: 'some text',
         createdAt: expect.any(String),
