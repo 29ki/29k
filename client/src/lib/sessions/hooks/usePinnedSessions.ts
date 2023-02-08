@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import {useCallback, useMemo} from 'react';
-import {Session} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/types/Session';
 import useLogSessionMetricEvents from './useLogSessionMetricEvents';
 import useUserState from '../../user/state/state';
 import useCurrentUserState from '../../user/hooks/useCurrentUserState';
@@ -17,7 +17,7 @@ const usePinnedSessons = () => {
   );
 
   const togglePinSession = useCallback(
-    (session: Session) => {
+    (session: LiveSession) => {
       const now = dayjs();
       const currentPinnedSessions = pinnedSessions.filter(s =>
         now.isBefore(s.expires),
@@ -44,7 +44,7 @@ const usePinnedSessons = () => {
   );
 
   const isSessionPinned = useCallback(
-    (session: Session) =>
+    (session: LiveSession) =>
       Boolean(pinnedSessions.find(ps => ps.id === session.id)),
     [pinnedSessions],
   );

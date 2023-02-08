@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {createJSONStorage, persist} from 'zustand/middleware';
 import {omit} from 'ramda';
 
-import {Session} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/types/Session';
 import migrate from './migration';
 
 const USER_STATE_VERSION = 2;
@@ -15,11 +15,11 @@ type PinnedSession = {
 };
 
 export type CompletedSession = {
-  id: Session['id'];
-  hostId?: Session['hostId'];
-  exerciseId: Session['exerciseId'];
-  language: Session['language'];
-  type: Session['type'];
+  id: LiveSession['id'];
+  hostId?: LiveSession['hostId'];
+  exerciseId: LiveSession['exerciseId'];
+  language: LiveSession['language'];
+  type: LiveSession['type'];
   completedAt: Date;
 };
 

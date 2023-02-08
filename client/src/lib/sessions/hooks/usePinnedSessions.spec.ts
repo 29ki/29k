@@ -1,7 +1,7 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook, act} from '@testing-library/react-hooks';
 import MockDate from 'mockdate';
-import {Session} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/types/Session';
 import useUserState from '../../user/state/state';
 import {updateInterestedCount} from '../api/session';
 import usePinnedSessons from './usePinnedSessions';
@@ -36,7 +36,7 @@ describe('usePinnedSessions', () => {
       const {result} = renderHook(() => usePinnedSessons());
 
       expect(
-        result.current.isSessionPinned({id: 'session-id-1'} as Session),
+        result.current.isSessionPinned({id: 'session-id-1'} as LiveSession),
       ).toBe(true);
     });
 
@@ -56,7 +56,7 @@ describe('usePinnedSessions', () => {
       const {result} = renderHook(() => usePinnedSessons());
 
       expect(
-        result.current.isSessionPinned({id: 'session-id-2'} as Session),
+        result.current.isSessionPinned({id: 'session-id-2'} as LiveSession),
       ).toBe(false);
     });
 
@@ -70,7 +70,7 @@ describe('usePinnedSessions', () => {
         const {result} = renderHook(() => usePinnedSessons());
 
         act(() => {
-          result.current.togglePinSession({id: 'session-id-1'} as Session);
+          result.current.togglePinSession({id: 'session-id-1'} as LiveSession);
         });
 
         expect(result.current.pinnedSessions).toEqual([
@@ -100,7 +100,7 @@ describe('usePinnedSessions', () => {
         const {result} = renderHook(() => usePinnedSessons());
 
         act(() => {
-          result.current.togglePinSession({id: 'session-id-1'} as Session);
+          result.current.togglePinSession({id: 'session-id-1'} as LiveSession);
         });
 
         expect(result.current.pinnedSessions).toEqual([]);
@@ -128,7 +128,7 @@ describe('usePinnedSessions', () => {
         const {result} = renderHook(() => usePinnedSessons());
 
         act(() => {
-          result.current.togglePinSession({id: 'session-id-2'} as Session);
+          result.current.togglePinSession({id: 'session-id-2'} as LiveSession);
         });
 
         expect(result.current.pinnedSessions).toEqual([
@@ -153,7 +153,7 @@ describe('usePinnedSessions', () => {
         const {result} = renderHook(() => usePinnedSessons());
 
         act(() => {
-          result.current.togglePinSession({id: 'session-id-2'} as Session);
+          result.current.togglePinSession({id: 'session-id-2'} as LiveSession);
         });
 
         expect(result.current.pinnedSessions).toEqual([]);

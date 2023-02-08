@@ -1,4 +1,4 @@
-import {Session} from '../../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../../shared/src/types/Session';
 import {
   PersistedState,
   State as CurrentState,
@@ -12,11 +12,11 @@ type V1PinnedSession = {
 };
 
 type V1CompletedSession = {
-  id: Session['id'];
-  hostId?: Session['hostId'];
-  contentId: Session['exerciseId'];
-  language: Session['language'];
-  type: Session['type'];
+  id: LiveSession['id'];
+  hostId?: LiveSession['hostId'];
+  contentId: LiveSession['exerciseId'];
+  language: LiveSession['language'];
+  type: LiveSession['type'];
   completedAt: Date;
 };
 

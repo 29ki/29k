@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import dayjs from 'dayjs';
 
-import {Session} from '../../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../../shared/src/types/Session';
 
 import {formatExerciseName} from '../../../utils/string';
 
@@ -40,7 +40,7 @@ const InterestedWrapper = styled.View({
 });
 
 const JoinButton: React.FC<{
-  startTime: Session['startTime'];
+  startTime: LiveSession['startTime'];
   onPress: () => void;
 }> = ({startTime, onPress}) => {
   const {t} = useTranslation('Component.SessionCard');
@@ -59,7 +59,7 @@ const JoinButton: React.FC<{
 const WalletResolver: React.FC<{
   expandedComponent: React.ReactNode;
   foldedComponent: React.ReactNode;
-  startTime: Session['startTime'];
+  startTime: LiveSession['startTime'];
   hasCardBefore: boolean;
 }> = ({expandedComponent, foldedComponent, startTime, hasCardBefore}) => {
   const sessionTime = useSessionStartTime(dayjs(startTime));
@@ -71,7 +71,7 @@ const WalletResolver: React.FC<{
 };
 
 type SessionCardProps = {
-  session: Session;
+  session: LiveSession;
   standAlone: boolean;
   hasCardBefore: boolean;
   hasCardAfter: boolean;

@@ -1,7 +1,7 @@
 import {renderHook} from '@testing-library/react-hooks';
 import {
   AsyncSession,
-  Session,
+  LiveSession,
   SessionState,
 } from '../../../../../shared/src/types/Session';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
@@ -18,7 +18,7 @@ describe('useSessionExercise', () => {
     useSessionState.setState({
       session: {
         id: 'test',
-      } as Session,
+      } as LiveSession,
       asyncSession: {
         id: 'test',
       } as AsyncSession,
@@ -50,7 +50,7 @@ describe('useSessionExercise', () => {
     useSessionState.setState({
       session: {
         exerciseId: 'some-exercise-id',
-      } as Session,
+      } as LiveSession,
       asyncSession: null,
       sessionState: {index: 1} as SessionState,
     });
@@ -96,7 +96,7 @@ describe('useSessionExercise', () => {
     useSessionState.setState({
       session: {
         exerciseId: 'some-exercise-id',
-      } as Session,
+      } as LiveSession,
       sessionState: {index: 1} as SessionState,
     });
 

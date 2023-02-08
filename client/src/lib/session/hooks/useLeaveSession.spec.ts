@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import {Alert as AlertMock} from 'react-native';
 import {
   AsyncSession,
-  Session,
+  LiveSession,
   SessionState,
   SessionMode,
 } from '../../../../../shared/src/types/Session';
@@ -49,7 +49,7 @@ describe('useLeaveSession', () => {
       useSessionState.setState({
         session: {
           id: 'some-session-id',
-        } as Session,
+        } as LiveSession,
       });
 
       const {result} = renderHook(() => useLeaveSession(SessionMode.live));
@@ -65,7 +65,7 @@ describe('useLeaveSession', () => {
       useSessionState.setState({
         session: {
           id: 'some-session-id',
-        } as Session,
+        } as LiveSession,
       });
 
       const {result} = renderHook(() => useLeaveSession(SessionMode.async));
@@ -83,7 +83,7 @@ describe('useLeaveSession', () => {
           id: 'some-session-id',
           hostId: 'some-host-id',
           exerciseId: 'some-exercise-id',
-        } as Session,
+        } as LiveSession,
         sessionState: {
           started: true,
           completed: true,
@@ -129,7 +129,7 @@ describe('useLeaveSession', () => {
 
     it('leaves the call, resets the state and navigates on confirming', async () => {
       useSessionState.setState({
-        session: {id: 'some-session-id'} as Session,
+        session: {id: 'some-session-id'} as LiveSession,
         sessionState: {
           id: 'some-session-id',
           started: true,
@@ -181,7 +181,7 @@ describe('useLeaveSession', () => {
 
     it('does nothing on dismiss', async () => {
       useSessionState.setState({
-        session: {id: 'some-session-id'} as Session,
+        session: {id: 'some-session-id'} as LiveSession,
         sessionState: {
           id: 'some-session-id',
           started: true,

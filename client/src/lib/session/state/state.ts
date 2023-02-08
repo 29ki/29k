@@ -1,6 +1,6 @@
 import {
   AsyncSession,
-  Session,
+  LiveSession,
   SessionState,
 } from '../../../../../shared/src/types/Session';
 import {create} from 'zustand';
@@ -16,7 +16,7 @@ export type Notification = {
 };
 
 type State = {
-  session: Session | null;
+  session: LiveSession | null;
   asyncSession: AsyncSession | null;
   sessionState: SessionState | null;
   currentContentReachedEnd: boolean;
@@ -26,7 +26,7 @@ type State = {
 type Actions = {
   setPartialSessionState: (sessionState: Partial<SessionState>) => void;
   setSessionState: (sessionState: SessionState) => void;
-  setSession: (session: Session) => void;
+  setSession: (session: LiveSession) => void;
   setAsyncSession: (asyncSession: AsyncSession) => void;
   setCurrentContentReachedEnd: (currentContentReachedEnd: boolean) => void;
   addNotification: (notification: Notification) => void;

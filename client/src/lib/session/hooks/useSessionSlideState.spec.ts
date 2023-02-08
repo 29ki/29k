@@ -1,5 +1,8 @@
 import {renderHook} from '@testing-library/react-hooks';
-import {Session, SessionState} from '../../../../../shared/src/types/Session';
+import {
+  LiveSession,
+  SessionState,
+} from '../../../../../shared/src/types/Session';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useSessionState from '../state/state';
 import useSessionSlideState from './useSessionSlideState';
@@ -15,7 +18,7 @@ describe('useSessionSlideState', () => {
       session: {
         exerciseId: 'some-content-id',
         id: 'test',
-      } as Session,
+      } as LiveSession,
     });
 
     const {result} = renderHook(() => useSessionSlideState());
@@ -40,7 +43,7 @@ describe('useSessionSlideState', () => {
     useSessionState.setState({
       session: {
         exerciseId: 'some-content',
-      } as Session,
+      } as LiveSession,
       sessionState: {
         index: 1,
       } as SessionState,
@@ -81,7 +84,7 @@ describe('useSessionSlideState', () => {
       slides: [{type: 'slide-1'}],
     });
     useSessionState.setState({
-      session: {exerciseId: 'some-content'} as Session,
+      session: {exerciseId: 'some-content'} as LiveSession,
       sessionState: {index: 0} as SessionState,
     });
 
