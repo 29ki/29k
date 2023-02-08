@@ -134,6 +134,7 @@ const Journey = () => {
         ListHeaderComponent={ListHeader}
         ListFooterComponent={Spacer60}
         ItemSeparatorComponent={Spacer16}
+        stickySectionHeadersEnabled={true}
         renderItem={renderSession}
         refreshControl={
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
