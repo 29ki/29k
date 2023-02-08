@@ -16,7 +16,7 @@ describe('useSessionExercise', () => {
   it('should return null if no exercise exists', () => {
     mockUseExerciseById.mockReturnValueOnce(null);
     useSessionState.setState({
-      session: {
+      liveSession: {
         id: 'test',
       } as LiveSession,
       asyncSession: {
@@ -33,7 +33,7 @@ describe('useSessionExercise', () => {
   it('should return null if no session exists', () => {
     mockUseExerciseById.mockReturnValueOnce(null);
     useSessionState.setState({
-      session: null,
+      liveSession: null,
       asyncSession: null,
     });
     const {result} = renderHook(() => useSessionExercise());
@@ -48,7 +48,7 @@ describe('useSessionExercise', () => {
       slides: [{type: 'slide-1'}, {type: 'slide-2'}, {type: 'slide-3'}],
     });
     useSessionState.setState({
-      session: {
+      liveSession: {
         exerciseId: 'some-exercise-id',
       } as LiveSession,
       asyncSession: null,
@@ -73,7 +73,7 @@ describe('useSessionExercise', () => {
       asyncSession: {
         exerciseId: 'some-exercise-id',
       } as AsyncSession,
-      session: null,
+      liveSession: null,
       sessionState: {index: 1} as SessionState,
     });
 
@@ -94,7 +94,7 @@ describe('useSessionExercise', () => {
 
     mockUseExerciseById.mockReturnValueOnce(exercise);
     useSessionState.setState({
-      session: {
+      liveSession: {
         exerciseId: 'some-exercise-id',
       } as LiveSession,
       sessionState: {index: 1} as SessionState,

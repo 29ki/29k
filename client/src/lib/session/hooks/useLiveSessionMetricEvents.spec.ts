@@ -29,7 +29,7 @@ describe('useLiveSessionMetricEvents', () => {
     });
 
     useSessionState.setState({
-      session: {
+      liveSession: {
         id: 'some-session-id',
         type: 'private',
         mode: 'live',
@@ -65,7 +65,7 @@ describe('useLiveSessionMetricEvents', () => {
     });
 
     useSessionState.setState({
-      session: {
+      liveSession: {
         id: 'some-session-id',
         hostId: 'some-user-id',
       } as LiveSession,
@@ -92,7 +92,7 @@ describe('useLiveSessionMetricEvents', () => {
     });
 
     useSessionState.setState({
-      session: {
+      liveSession: {
         id: 'some-session-id',
         startTime: dayjs().subtract(1, 'hour').toISOString(),
       } as LiveSession,

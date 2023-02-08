@@ -24,7 +24,7 @@ const useLeaveSession = (sessionMode: SessionMode) => {
   const {t} = useTranslation('Component.ConfirmExitSession');
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();
-  const session = useSessionState(state => state.session);
+  const session = useSessionState(state => state.liveSession);
   const sessionState = useSessionState(state => state.sessionState);
   const asyncSession = useSessionState(state => state.asyncSession);
   const isHost = useIsSessionHost();

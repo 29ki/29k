@@ -31,7 +31,7 @@ describe('useSubscribeToSessionIfFocused', () => {
       exitOnEnded,
     });
     const sessionState = useSessionState(state => state.sessionState);
-    const session = useSessionState(state => state.session);
+    const session = useSessionState(state => state.liveSession);
 
     return {sessionState, session};
   };

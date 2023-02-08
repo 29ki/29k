@@ -15,7 +15,7 @@ describe('useSessionSlideState', () => {
   it('should return null if no exercise exists', () => {
     mockUseExerciseById.mockReturnValueOnce(null);
     useSessionState.setState({
-      session: {
+      liveSession: {
         exerciseId: 'some-content-id',
         id: 'test',
       } as LiveSession,
@@ -29,7 +29,7 @@ describe('useSessionSlideState', () => {
   it('should return null if no session exists', () => {
     mockUseExerciseById.mockReturnValueOnce({});
     useSessionState.setState({
-      session: null,
+      liveSession: null,
     });
     const {result} = renderHook(() => useSessionSlideState());
 
@@ -41,7 +41,7 @@ describe('useSessionSlideState', () => {
       slides: [{type: 'slide-1'}, {type: 'slide-2'}, {type: 'slide-3'}],
     });
     useSessionState.setState({
-      session: {
+      liveSession: {
         exerciseId: 'some-content',
       } as LiveSession,
       sessionState: {
@@ -84,7 +84,7 @@ describe('useSessionSlideState', () => {
       slides: [{type: 'slide-1'}],
     });
     useSessionState.setState({
-      session: {exerciseId: 'some-content'} as LiveSession,
+      liveSession: {exerciseId: 'some-content'} as LiveSession,
       sessionState: {index: 0} as SessionState,
     });
 

@@ -16,7 +16,7 @@ export type Notification = {
 };
 
 type State = {
-  session: LiveSession | null;
+  liveSession: LiveSession | null;
   asyncSession: AsyncSession | null;
   sessionState: SessionState | null;
   currentContentReachedEnd: boolean;
@@ -26,7 +26,7 @@ type State = {
 type Actions = {
   setPartialSessionState: (sessionState: Partial<SessionState>) => void;
   setSessionState: (sessionState: SessionState) => void;
-  setSession: (session: LiveSession) => void;
+  setLiveSession: (liveSession: LiveSession) => void;
   setAsyncSession: (asyncSession: AsyncSession) => void;
   setCurrentContentReachedEnd: (currentContentReachedEnd: boolean) => void;
   addNotification: (notification: Notification) => void;
@@ -34,7 +34,7 @@ type Actions = {
 };
 
 const initialState: State = {
-  session: null,
+  liveSession: null,
   asyncSession: null,
   sessionState: null,
   currentContentReachedEnd: false,
@@ -50,8 +50,8 @@ const useSessionState = create<State & Actions>()((set, get) => ({
     }
   },
   setSessionState: sessionState => set({sessionState}),
-  setSession: session => set({session, asyncSession: null}),
-  setAsyncSession: asyncSession => set({asyncSession, session: null}),
+  setLiveSession: liveSession => set({liveSession, asyncSession: null}),
+  setAsyncSession: asyncSession => set({asyncSession, liveSession: null}),
   setCurrentContentReachedEnd: currentContentReachedEnd =>
     set({currentContentReachedEnd}),
   addNotification: notification =>
