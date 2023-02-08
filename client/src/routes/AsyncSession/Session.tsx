@@ -102,6 +102,7 @@ const Session: React.FC = () => {
         exerciseId: exercise?.id,
         language: session.language,
         type: session.type,
+        mode: session.mode,
       });
       logSessionMetricEvent('Complete Sharing Session');
     }
@@ -111,6 +112,7 @@ const Session: React.FC = () => {
     exercise?.id,
     session.language,
     session.type,
+    session.mode,
     logSessionMetricEvent,
     addCompletedSession,
   ]);

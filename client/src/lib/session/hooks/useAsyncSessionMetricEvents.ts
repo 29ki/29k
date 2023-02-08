@@ -38,6 +38,7 @@ const useAsyncSessionMetricEvents = () => {
       user?.uid,
       session?.id,
       session?.type,
+      session?.mode,
       session?.startTime,
       session?.exerciseId,
       session?.language,

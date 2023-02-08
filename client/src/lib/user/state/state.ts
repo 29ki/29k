@@ -7,7 +7,7 @@ import {omit} from 'ramda';
 import {LiveSession} from '../../../../../shared/src/types/Session';
 import migrate from './migration';
 
-const USER_STATE_VERSION = 2;
+const USER_STATE_VERSION = 3;
 
 type PinnedSession = {
   id: string;
@@ -20,6 +20,7 @@ export type CompletedSession = {
   exerciseId: LiveSession['exerciseId'];
   language: LiveSession['language'];
   type: LiveSession['type'];
+  mode: LiveSession['mode'];
   completedAt: Date;
 };
 
