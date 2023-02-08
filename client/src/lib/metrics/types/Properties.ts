@@ -5,7 +5,6 @@ import {LANGUAGE_TAG} from '../../i18n';
 // General properties
 export type Language = {Language: LANGUAGE_TAG};
 export type Host = {Host: boolean};
-export type Mode = 'live' | 'async';
 
 // Navigation properties
 export type ScreenName = {'Screen Name': string};
@@ -19,7 +18,7 @@ export type ExerciseID = {
 export type SharingSessionProperties = {
   'Sharing Session ID': Session['id'];
   'Sharing Session Type': Session['type'];
-  'Sharing Session Mode': Mode;
+  'Sharing Session Mode': Session['mode'];
   'Sharing Session Start Time': Session['startTime'];
 } & ExerciseID &
   Host &

@@ -1,6 +1,6 @@
 import {renderHook} from '@testing-library/react-hooks';
-import {SessionType} from '../../../../../shared/src/types/Session';
-import useGetExercisesByType from './useGetExercisesByType';
+import {SessionMode} from '../../../../../shared/src/types/Session';
+import useGetExercisesByMode from './useGetExercisesByMode';
 
 const mockT = jest.fn();
 
@@ -21,13 +21,13 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe('useGetExercisesByType', () => {
+describe('useGetExercisesByMode', () => {
   it('returns async enabled translated exercises', () => {
     mockT
       .mockReturnValueOnce({id: 'some-exercise-id'})
       .mockReturnValueOnce({id: 'some-async-exercise-id', async: true});
 
-    const {result} = renderHook(() => useGetExercisesByType(SessionType.async));
+    const {result} = renderHook(() => useGetExercisesByMode(SessionMode.async));
 
     expect(mockT).toHaveBeenCalledTimes(2);
     expect(mockT).toHaveBeenCalledWith('some-exercise-id', {
@@ -46,9 +46,7 @@ describe('useGetExercisesByType', () => {
       .mockReturnValueOnce({id: 'some-exercise-id'})
       .mockReturnValueOnce({id: 'some-async-exercise-id', async: true});
 
-    const {result} = renderHook(() =>
-      useGetExercisesByType(SessionType.private),
-    );
+    const {result} = renderHook(() => useGetExercisesByMode(SessionMode.live));
 
     expect(result.current).toEqual([
       {id: 'some-exercise-id'},

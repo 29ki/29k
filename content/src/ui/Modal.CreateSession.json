@@ -7,13 +7,13 @@
     },
     "selectType": {
       "title": "",
-      "public": {
+      "live-public": {
         "title": "Anyone"
       },
-      "private": {
+      "live-private": {
         "title": "Friends"
       },
-      "async": {
+      "async-public": {
         "title": "Myself"
       }
     },
@@ -37,13 +37,13 @@
     },
     "selectType": {
       "title": "Criar sessão com...",
-      "public": {
+      "live-public": {
         "title": "Qualquer pessoa"
       },
-      "private": {
+      "live-private": {
         "title": "Os meus amigos"
       },
-      "async": {
+      "async-public": {
         "title": "Comigo"
       }
     },
@@ -67,13 +67,13 @@
     },
     "selectType": {
       "title": "Skapa session för...",
-      "public": {
+      "live-public": {
         "title": "Alla"
       },
-      "private": {
+      "live-private": {
         "title": "Mina vänner"
       },
-      "async": {
+      "async-public": {
         "title": "Mig själv"
       }
     },
