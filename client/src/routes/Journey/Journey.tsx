@@ -27,6 +27,8 @@ import useCompletedSessions from '../../lib/sessions/hooks/useCompletedSessions'
 import CompletedSessionCardContainer from './components/CompletedSessionCardContainer';
 import SessionCard from '../../lib/components/Cards/SessionCard/SessionCard';
 import {useTranslation} from 'react-i18next';
+import {Display24} from '../../lib/components/Typography/Display/Display';
+import styled from 'styled-components/native';
 
 export type Section = {
   title: string;
@@ -35,6 +37,12 @@ export type Section = {
 };
 
 const SectionList = RNSectionList<JourneySession, Section>;
+
+const Container = styled.View({
+  alignItems: 'center',
+  justifyContent: 'center',
+  flex: 1,
+});
 
 const ListHeader = () => (
   <>
@@ -124,6 +132,16 @@ const Journey = () => {
       throw e;
     }
   }, [setIsLoading, fetchSessions]);
+
+  if (!sections.length) {
+    return (
+      <Screen backgroundColor={COLORS.GREYLIGHTEST}>
+        <Container>
+          <Display24>{'🌱 Your journey has just begun'}</Display24>
+        </Container>
+      </Screen>
+    );
+  }
 
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
