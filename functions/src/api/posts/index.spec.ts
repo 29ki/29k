@@ -45,7 +45,7 @@ describe('/api/posts', () => {
         {
           id: 'some-id',
           exerciseId: 'some',
-          sharingId: 'some-haring-id',
+          sharingId: 'some-sharing-id',
           text: 'some text',
           userId: 'some-user-id',
           userProfile: {displayName: 'some name', photoURL: 'some-url'},
@@ -66,7 +66,7 @@ describe('/api/posts', () => {
         {
           id: 'some-id',
           exerciseId: 'some',
-          sharingId: 'some-haring-id',
+          sharingId: 'some-sharing-id',
           text: 'some text',
           userId: 'some-user-id',
           userProfile: {displayName: 'some name', photoURL: 'some-url'},
