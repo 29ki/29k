@@ -145,6 +145,7 @@ const Session: React.FC = () => {
         id: sessionState?.id,
         hostId: session.hostId,
         type: session.type,
+        mode: session.mode,
         language: session.language,
         exerciseId: session.exerciseId,
         completedAt: dayjs.utc().toDate(),
