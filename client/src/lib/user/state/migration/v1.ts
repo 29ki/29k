@@ -1,6 +1,5 @@
 import {Session} from '../../../../../../shared/src/types/Session';
-import {State as CurrentState, UserState as CurrentUserState} from '../state';
-import {V2State} from './v2';
+import {V2State, V2UserState} from './v2';
 
 // Types as they were in v1
 type V1PinnedSession = {
@@ -29,7 +28,7 @@ export type V1State = {
 
 const migrateCompletedSessions = (
   completedSessions: V1CompletedSession[],
-): CurrentUserState['completedSessions'] =>
+): V2UserState['completedSessions'] =>
   completedSessions.map(({contentId, ...rest}) => ({
     ...rest,
     exerciseId: contentId,
@@ -37,9 +36,9 @@ const migrateCompletedSessions = (
 
 const migrateUserState = async (
   userState: V1UserState,
-): Promise<CurrentUserState> => {
+): Promise<V2UserState> => {
   if (!userState.completedSessions) {
-    return userState as CurrentUserState;
+    return userState as V2UserState;
   }
 
   return {
@@ -52,10 +51,10 @@ const migrateUserState = async (
 
 const migrateUserStates = async (
   userStates: V1State['userState'],
-): Promise<CurrentState['userState']> => {
+): Promise<V2State['userState']> => {
   const userState = await Promise.all(
     Object.entries(userStates).map(
-      async ([userId, state]): Promise<[string, CurrentUserState]> => [
+      async ([userId, state]): Promise<[string, V2UserState]> => [
         userId,
         await migrateUserState(state),
       ],
