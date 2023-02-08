@@ -2,8 +2,12 @@ import type {Timestamp} from 'firebase-admin/firestore';
 import {LANGUAGE_TAG} from '../constants/i18n';
 import {UserProfile} from './User';
 
-export enum SessionType {
+export enum SessionMode {
   async = 'async',
+  live = 'live',
+}
+
+export enum SessionType {
   private = 'private',
   public = 'public',
 }
@@ -19,6 +23,7 @@ type SessionStateFields = {
 
 type SessionBaseFileds = {
   id: string;
+  mode: SessionMode;
   type: SessionType;
   exerciseId: string;
   language: LANGUAGE_TAG;

@@ -8,7 +8,7 @@ import {Session} from '../../../../../shared/src/types/Session';
 import migrate from './migration';
 import {UserProfile} from '../../../../../shared/src/types/User';
 
-const USER_STATE_VERSION = 2;
+const USER_STATE_VERSION = 3;
 
 type PinnedSession = {
   id: string;
@@ -21,6 +21,7 @@ export type CompletedSession = {
   exerciseId: Session['exerciseId'];
   language: Session['language'];
   type: Session['type'];
+  mode: Session['mode'];
   completedAt: Date;
   hostProfile?: UserProfile;
 };

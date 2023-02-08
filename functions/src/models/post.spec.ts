@@ -22,6 +22,7 @@ const posts = [
   {
     id: 'some-post-id',
     exerciseId: 'some-exercise-id',
+    sharingId: 'some-sharing-id',
     userId: 'some-user-id',
     language: 'en',
     approved: true,
@@ -32,6 +33,7 @@ const posts = [
   {
     id: 'some-other-id',
     exerciseId: 'some-other-exercise-id',
+    sharingId: 'some-other-sharing-id',
     userId: 'some-other-user-id',
     language: 'en',
     approved: true,
@@ -59,6 +61,7 @@ describe('post model', () => {
       expect(post).toEqual({
         id: 'some-post-id',
         exerciseId: 'some-exercise-id',
+        sharingId: 'some-sharing-id',
         userId: 'some-user-id',
         language: 'en',
         approved: true,
@@ -92,6 +95,7 @@ describe('post model', () => {
     it('should add and return post', async () => {
       const post = await addPost({
         exerciseId: 'some-exercise-id',
+        sharingId: 'some-sharing-id',
         userId: 'some-user-id',
         approved: true,
         language: 'en',
@@ -101,6 +105,7 @@ describe('post model', () => {
       expect(post).toEqual({
         id: expect.any(String),
         exerciseId: 'some-exercise-id',
+        sharingId: 'some-sharing-id',
         userId: 'some-user-id',
         approved: true,
         language: 'en',

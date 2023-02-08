@@ -23,9 +23,9 @@ import {
   AppStackProps,
   ModalStackProps,
 } from '../../../../lib/navigation/constants/routes';
-import {SessionType} from '../../../../../../shared/src/types/Session';
+import {SessionMode} from '../../../../../../shared/src/types/Session';
 import useStartAsyncSession from '../../../../lib/session/hooks/useStartAsyncSession';
-import useGetExercisesByType from '../../../../lib/content/hooks/useGetExercisesByType';
+import useGetExercisesByMode from '../../../../lib/content/hooks/useGetExercisesByMode';
 
 const Card = styled(TouchableOpacity)({
   flexDirection: 'row',
@@ -75,11 +75,11 @@ const ContentCard: React.FC<{
 const SelectContentStep: React.FC<StepProps> = ({
   nextStep,
   setSelectedExercise,
-  selectedType,
+  selectedModeAndType,
 }) => {
   const {popToTop} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
-  const exercises = useGetExercisesByType(selectedType);
+  const exercises = useGetExercisesByMode(selectedModeAndType?.mode);
   const startSession = useStartAsyncSession();
   const {t} = useTranslation('Modal.CreateSession');
 
@@ -88,7 +88,7 @@ const SelectContentStep: React.FC<StepProps> = ({
       <ContentCard
         onPress={() => {
           setSelectedExercise(item.id);
-          if (selectedType === SessionType.async) {
+          if (selectedModeAndType?.mode === SessionMode.async) {
             popToTop();
             startSession(item.id);
           } else {
@@ -98,7 +98,13 @@ const SelectContentStep: React.FC<StepProps> = ({
         exercise={item}
       />
     ),
-    [setSelectedExercise, nextStep, popToTop, startSession, selectedType],
+    [
+      setSelectedExercise,
+      nextStep,
+      popToTop,
+      startSession,
+      selectedModeAndType,
+    ],
   );
 
   return (

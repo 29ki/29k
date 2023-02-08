@@ -32,6 +32,7 @@ describe('useLogSessionMetricEvents', () => {
       result.current('Create Sharing Session', {
         id: 'some-session-id',
         type: 'private',
+        mode: 'live',
         hostId: 'some-host-id',
         startTime: '2022-02-02T02:02:02Z',
         exerciseId: 'some-content-id',

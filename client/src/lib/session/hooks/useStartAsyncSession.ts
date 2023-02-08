@@ -5,6 +5,7 @@ import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import {
   AsyncSession,
+  SessionMode,
   SessionType,
 } from '../../../../../shared/src/types/Session';
 import {LANGUAGE_TAG} from '../../i18n';
@@ -26,7 +27,8 @@ const useStartAsyncSession = () => {
   return useCallback(
     (exerciseId: string) => {
       const session: AsyncSession = {
-        type: SessionType.async,
+        type: SessionType.private,
+        mode: SessionMode.async,
         id: generateId(),
         startTime: dayjs().toJSON(),
         exerciseId,

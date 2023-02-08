@@ -70,7 +70,8 @@
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
-        ]
+        ],
+        "id": "sharing-1"
       },
       {
         "type": "reflection",
@@ -105,7 +106,8 @@
           {
             "text": "Time to share again. Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much for sharing."
           }
-        ]
+        ],
+        "id": "sharing-2"
       },
       {
         "type": "host",
@@ -244,7 +246,8 @@
           {
             "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou para os que houver tempo) compartilhem individualmente. Carrega play para iniciar a contagem de tempo. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
-        ]
+        ],
+        "id": "sharing-1"
       },
       {
         "type": "reflection",
@@ -277,7 +280,8 @@
           {
             "text": "Hora de partilhar de novo. Quem gostaria de começar?\n\n> Deixa que todos (ou para os que houver tempo) compartilhem individualmente. Carrega play para iniciar a contagem de tempo. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
-        ]
+        ],
+        "id": "sharing-2"
       },
       {
         "type": "host",

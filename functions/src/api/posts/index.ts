@@ -10,12 +10,6 @@ import {
 } from '../../controllers/posts';
 import {RequestError} from '../../controllers/errors/RequestError';
 
-import {
-  DEFAULT_LANGUAGE_TAG,
-  LANGUAGE_TAG,
-  LANGUAGE_TAGS,
-} from '../../lib/i18n';
-
 const postsRouter = createApiRouter();
 
 const POSTS_LIMIT = 20;
@@ -32,21 +26,19 @@ postsRouter.get('/:exerciseId', async ctx => {
 
 const CreatePostSchema = yup.object().shape({
   exerciseId: yup.string().required(),
+  sharingId: yup.string().required(),
   text: yup.string().required(),
   anonymous: yup.boolean().default(true),
-  language: yup
-    .mixed<LANGUAGE_TAG>()
-    .oneOf(LANGUAGE_TAGS)
-    .default(DEFAULT_LANGUAGE_TAG),
 });
 
 type CreatePostData = yup.InferType<typeof CreatePostSchema>;
 
 postsRouter.post('/', validator({body: CreatePostSchema}), async ctx => {
   const {id} = ctx.user;
+  const language = ctx.language;
   const postData = ctx.request.body as CreatePostData;
 
-  await createPost(postData, id);
+  await createPost({...postData, language}, id);
   ctx.response.status = 200;
 });
 

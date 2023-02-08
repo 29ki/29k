@@ -1,8 +1,11 @@
-import React, {useCallback, useMemo} from 'react';
+import React, {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import {SessionType} from '../../../../../../shared/src/types/Session';
+import {
+  SessionMode,
+  SessionType,
+} from '../../../../../../shared/src/types/Session';
 import Gutters from '../../../../lib/components/Gutters/Gutters';
 import {
   LogoIcon,
@@ -25,9 +28,9 @@ import Button from '../../../../lib/components/Buttons/Button';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
-import useGetExercisesByType from '../../../../lib/content/hooks/useGetExercisesByType';
+import useGetExercisesByMode from '../../../../lib/content/hooks/useGetExercisesByMode';
 
-const TypeItemWrapper = styled.View<{isLast: boolean}>(({isLast}) => ({
+const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
   height: 96,
   flex: 1,
@@ -86,7 +89,7 @@ const TypeItem: React.FC<{
 );
 
 const SelectTypeStep: React.FC<StepProps> = ({
-  setSelectedType,
+  setSelectedModeAndType,
   nextStep,
   lastStep,
   isPublicHost,
@@ -95,60 +98,25 @@ const SelectTypeStep: React.FC<StepProps> = ({
   const {t} = useTranslation('Modal.CreateSession');
   const {navigate, popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
-  const asyncExercises = useGetExercisesByType(SessionType.async);
-
-  const renderIcon = useCallback((type: SessionType) => {
-    switch (type) {
-      case 'async':
-        return <ProfileFillIcon />;
-      case 'private':
-        return <PrivateIcon />;
-      default:
-        return <PublicIcon />;
-    }
-  }, []);
-
-  const sessionTypes = useMemo(
-    () =>
-      Object.values(SessionType)
-        .filter(type => type !== 'public' || isPublicHost)
-        .filter(type => type !== 'async' || !selectedExercise)
-        .filter(type =>
-          type === 'async' && asyncExercises.length === 0 ? false : true,
-        )
-        .map((type, i, arr) => (
-          <TypeItemWrapper key={i} isLast={i === arr.length - 1}>
-            <TypeItem
-              onPress={() => {
-                setSelectedType(type);
-                if (selectedExercise) {
-                  // Already selected exercise, here to change type
-                  lastStep();
-                } else {
-                  nextStep();
-                }
-              }}
-              label={t(`selectType.${type}.title`)}
-              Icon={renderIcon(type)}
-            />
-          </TypeItemWrapper>
-        )),
-    [
-      t,
-      nextStep,
-      lastStep,
-      setSelectedType,
-      renderIcon,
-      isPublicHost,
-      selectedExercise,
-      asyncExercises,
-    ],
-  );
+  const asyncExercises = useGetExercisesByMode(SessionMode.async);
 
   const onJoinByInvite = useCallback(() => {
     popToTop();
     navigate('AddSessionByInviteModal');
   }, [popToTop, navigate]);
+
+  const onTypePress = useCallback(
+    (mode: SessionMode, type: SessionType) => () => {
+      setSelectedModeAndType({mode, type});
+      if (selectedExercise) {
+        // Already selected exercise, here to change type
+        lastStep();
+      } else {
+        nextStep();
+      }
+    },
+    [setSelectedModeAndType, selectedExercise, lastStep, nextStep],
+  );
 
   return (
     <Gutters>
@@ -165,7 +133,33 @@ const SelectTypeStep: React.FC<StepProps> = ({
       <Spacer28 />
       <TypeItemHeading>{t('selectType.title')}</TypeItemHeading>
       <Spacer16 />
-      <Row>{sessionTypes}</Row>
+      <Row>
+        {Boolean(asyncExercises.length) && (
+          <TypeItemWrapper>
+            <TypeItem
+              onPress={onTypePress(SessionMode.async, SessionType.public)}
+              label={t('selectType.async-public.title')}
+              Icon={<ProfileFillIcon />}
+            />
+          </TypeItemWrapper>
+        )}
+        <TypeItemWrapper isLast={!isPublicHost}>
+          <TypeItem
+            onPress={onTypePress(SessionMode.live, SessionType.private)}
+            label={t('selectType.live-private.title')}
+            Icon={<PrivateIcon />}
+          />
+        </TypeItemWrapper>
+        {isPublicHost && (
+          <TypeItemWrapper isLast>
+            <TypeItem
+              onPress={onTypePress(SessionMode.live, SessionType.public)}
+              label={t('selectType.live-public.title')}
+              Icon={<PublicIcon />}
+            />
+          </TypeItemWrapper>
+        )}
+      </Row>
       <Spacer16 />
       <ButtonWrapper>
         <Button variant="secondary" onPress={onJoinByInvite}>

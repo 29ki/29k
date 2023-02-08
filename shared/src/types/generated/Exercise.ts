@@ -203,6 +203,7 @@ export interface ExerciseSlideReflectionSlide {
 
 export interface ExerciseSlideSharingSlide {
   type: 'sharing';
+  id: string;
   hostNotes?: ExerciseSlideSharingSlideHostNote[];
   content?: ExerciseSlideSharingSlideContent;
 }
