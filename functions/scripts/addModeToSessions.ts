@@ -1,5 +1,4 @@
 import admin from 'firebase-admin';
-import {FieldValue} from 'firebase-admin/firestore';
 
 const {GOOGLE_APPLICATION_CREDENTIALS} = process.env;
 
@@ -19,7 +18,7 @@ const firestore = admin.firestore();
 
   await Promise.all(
     snapshot.docs.map(async doc => {
-      const {id, contentId} = doc.data();
+      const {id} = doc.data();
 
       await firestore.collection('sessions').doc(id).update({
         mode: 'live',
