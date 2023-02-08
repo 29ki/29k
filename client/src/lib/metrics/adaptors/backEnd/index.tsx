@@ -26,13 +26,11 @@ export const BackEndMetricsProvider: MetricsProvider = ({children}) => {
 export const init: Init = async () => {};
 
 export const setConsent: SetConsent = async enabled => {
-  console.log('setConsent', enabled);
   haveConsent = enabled;
 };
 
 export const logEvent: LogEvent = async (event, properties) => {
   const uid = getMetricsUid();
-  console.log('LOG', uid, haveConsent);
   if (uid && haveConsent) {
     await metricsClient(`logEvent/${uid}`, {
       method: 'POST',
