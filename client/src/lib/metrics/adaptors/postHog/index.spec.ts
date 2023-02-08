@@ -12,7 +12,7 @@ jest.mock('posthog-react-native', () => ({
   initAsync: jest.fn(() => mockPostHogClient),
 }));
 
-jest.mock('../../index', () => ({
+jest.mock('../../constants', () => ({
   DEFAULT_CONSENT: false,
 }));
 

@@ -5,10 +5,12 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on dealing with stressful situations. We’ll be doing a short introduction, listen to a meditation exercise, followed by reflection and then finally sharing."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on dealing with stressful situations. We’ll be doing a short introduction, listen to a meditation exercise, followed by reflection and then finally sharing.",
+            "asyncText": "Welcome! This session is about dealing with stressful situations. (I am x…) There will be a meditation exercise, a moment to reflect, and the final step is to share what we experienced."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started.",
+            "asyncText": "Before we move on into the session, check-in with yourself for a few seconds. What brought you here today?\n\n…\n\nLet’s get started."
           }
         ]
       },
@@ -16,10 +18,12 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "When we’re stressed the perceived expectations on us are higher than our resources. One common symptom is that thoughts and feelings spin round and round in our heads and bodies."
+            "text": "When we're stressed, our perceived expectations often exceed our resources. This can lead to a feeling of being overwhelmed, with thoughts and feelings spinning round and round in our heads and bodies.",
+            "asyncText": "When we're stressed, our perceived expectations often exceed our resources. This can lead to a feeling of being overwhelmed, with thoughts and feelings spinning round and round in our heads and bodies."
           },
           {
-            "text": " In the upcoming meditation we’ll practice getting a break from the spinning wheel and get some distance to our thoughts. It can help us gain persepctive, relax and change priorities.\n\n> Press play to start the meditation."
+            "text": "In this meditation, we'll practice taking a break from the spinning wheel and gaining some distance from our thoughts. This can help us gain perspective, relax, and change our priorities.\n\n> Press play to start the meditation.",
+            "asyncText": "In this meditation, we'll practice taking a break from the spinning wheel and gaining some distance from our thoughts. This can help us gain perspective, relax, and change our priorities.\n\n> Press play to start the meditation."
           }
         ],
         "content": {
@@ -35,10 +39,12 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat did you notice as you changed focus to the short to do-list?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat did you notice as you changed focus to the short to do-list?",
+            "asyncText": "Take 1 minute to reflect. \n\nWhat did you notice as you changed focus to the short to do-list?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on.",
+            "asyncText": "Take notes on a piece of paper or just mental notes in your head. There are no right or wrong answers, so whatever comes up is okay.\n\n> Press play to start the timer."
           }
         ],
         "content": {
@@ -68,22 +74,27 @@
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1674383225/Video/meditation_2_Drop_all_requirements_jeizf0.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer2min_drop_all_requirements_hzwrlc.png"
           }
-        }
+        },
+        "id": "sharing"
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life."
+            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.",
+            "asyncText": "Well done! If you're up for it, you can continue what we started here today with a mission to bring this into your everyday life. In times of stress, recovery is essential."
           },
           {
-            "text": "In stressful periods recovery is key. Let’s give ourselves some care and gain perspective by taking a step back and take a breathing break at least once a day for the coming week."
+            "text": "In stressful periods recovery is key. Let’s give ourselves some care and gain perspective by taking a step back and take a breathing break at least once a day for the coming week.",
+            "asyncText": "Let's give ourselves some care and gain perspective by taking a step back and taking a breathing break at least once a day for the coming week."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nWhat will you bring for the rest of your day from this? Please answer in two-three words."
+            "text": "Before we leave this space let’s do a mini check-out. \n\nWhat will you bring for the rest of your day from this? Please answer in two-three words.",
+            "asyncText": "Before leaving this space, check-out with yourself. \n\nWhat will you bring from this session for the rest of today?"
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience.",
+            "asyncText": "When you’re ready, finish the session to go to the exit experience."
           }
         ]
       }
@@ -167,7 +178,8 @@
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
-        ]
+        ],
+        "id": "sharing"
       },
       {
         "type": "host",

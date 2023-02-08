@@ -4,9 +4,9 @@ import {Timestamp} from 'firebase-admin/firestore';
 import {getData} from '../../../shared/src/modelUtils/firestore';
 import {PostData, PostFields, Post} from '../../../shared/src/types/Post';
 import {getPost} from '../../../shared/src/modelUtils/post';
+import {SHARING_POST_MIN_LENGTH} from '../lib/constants/post';
 
 const POSTS_COLLECTION = 'posts';
-const SHARING_POST_MIN_LENGTH = 20;
 
 const keepSufficientSharingPostLength = (
   snapshot: firestore.QueryDocumentSnapshot<firestore.DocumentData>,

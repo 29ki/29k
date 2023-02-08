@@ -6,18 +6,31 @@ import {
   deletePost,
 } from '../models/post';
 import {getPublicUserInfo} from '../models/user';
+import {sendPostMessage} from '../models/slack';
 import {Post, PostParams} from '../../../shared/src/types/Post';
 import {PostError} from '../../../shared/src/errors/Post';
+import {getSharingSlideById} from '../../../shared/src/content/exercise';
 import {RequestError} from './errors/RequestError';
+import {getExerciseById} from '../lib/exercise';
+import {
+  Exercise,
+  ExerciseSlideSharingSlide,
+} from '../../../shared/src/types/generated/Exercise';
 
 jest.mock('../models/post');
 jest.mock('../models/user');
+jest.mock('../lib/exercise');
+jest.mock('../models/slack');
+jest.mock('../../../shared/src/content/exercise');
 
 const mockAddPost = jest.mocked(addPost);
 const mockGetPostsByExerciseId = jest.mocked(getPostsByExerciseId);
 const mockGetPostById = jest.mocked(getPostById);
 const mockDeletePost = jest.mocked(deletePost);
 const mockGetPublicUserInfo = jest.mocked(getPublicUserInfo);
+const mockGetExerciseById = jest.mocked(getExerciseById);
+const mockGetSharingSlideById = jest.mocked(getSharingSlideById);
+const mockSendPostMessage = jest.mocked(sendPostMessage);
 
 beforeEach(async () => {
   jest.clearAllMocks();
@@ -26,9 +39,27 @@ beforeEach(async () => {
 describe('posts - controller', () => {
   describe('addPost', () => {
     it('saves post with user set', async () => {
+      mockGetExerciseById.mockReturnValueOnce({
+        id: 'some-exercise-id',
+        name: 'some exercise name',
+      } as Exercise);
+      mockGetSharingSlideById.mockReturnValueOnce({
+        content: {heading: 'some question'},
+      } as ExerciseSlideSharingSlide);
+      mockAddPost.mockResolvedValueOnce({
+        id: 'some-post-id',
+        exerciseId: 'some-exercise-id',
+        sharingId: 'some-sharing-id',
+        text: 'some text',
+        language: 'en',
+        approved: true,
+        userId: 'some-user-id',
+      } as Post);
+
       await postsController.createPost(
         {
           exerciseId: 'some-exercise-id',
+          sharingId: 'some-sharing-id',
           language: 'en',
           text: 'some text',
           anonymous: false,
@@ -36,19 +67,45 @@ describe('posts - controller', () => {
         'some-user-id',
       );
 
+      expect(mockAddPost).toHaveBeenCalledTimes(1);
       expect(mockAddPost).toHaveBeenCalledWith({
         userId: 'some-user-id',
         approved: true,
         exerciseId: 'some-exercise-id',
+        sharingId: 'some-sharing-id',
         language: 'en',
         text: 'some text',
       });
+      expect(mockSendPostMessage).toHaveBeenCalledTimes(1);
+      expect(mockSendPostMessage).toHaveBeenCalledWith(
+        'some-post-id',
+        'some exercise name',
+        'some question',
+        'some text',
+        'en',
+      );
     });
 
     it('saves post without user set', async () => {
+      mockGetExerciseById.mockReturnValueOnce({
+        id: 'some-exercise-id',
+        name: 'some exercise name',
+      } as Exercise);
+      mockGetSharingSlideById.mockReturnValueOnce({
+        content: {heading: 'some question'},
+      } as ExerciseSlideSharingSlide);
+      mockAddPost.mockResolvedValueOnce({
+        id: 'some-post-id',
+        exerciseId: 'some-exercise-id',
+        sharingId: 'some-sharing-id',
+        text: 'some text',
+        language: 'en',
+        approved: true,
+      } as Post);
       await postsController.createPost(
         {
           exerciseId: 'some-exercise-id',
+          sharingId: 'some-sharing-id',
           language: 'en',
           text: 'some text',
           anonymous: true,
@@ -56,13 +113,23 @@ describe('posts - controller', () => {
         'some-user-id',
       );
 
+      expect(mockAddPost).toHaveBeenCalledTimes(1);
       expect(mockAddPost).toHaveBeenCalledWith({
         userId: null,
         approved: true,
         exerciseId: 'some-exercise-id',
+        sharingId: 'some-sharing-id',
         language: 'en',
         text: 'some text',
       });
+      expect(mockSendPostMessage).toHaveBeenCalledTimes(1);
+      expect(mockSendPostMessage).toHaveBeenCalledWith(
+        'some-post-id',
+        'some exercise name',
+        'some question',
+        'some text',
+        'en',
+      );
     });
   });
 

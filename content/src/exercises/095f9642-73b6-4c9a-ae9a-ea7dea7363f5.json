@@ -82,7 +82,8 @@
           {
             "text": "Who would like to start?\n\n> Let up to six people share one by one. Press play to start the timer. Re-start for each new person.\n\nThank you so much everyone."
           }
-        ]
+        ],
+        "id": "sharing"
       },
       {
         "type": "host",
@@ -211,7 +212,8 @@
           {
             "text": "Quem gostaria de começar?\n\n> Deixa até 6 pessoas partilharem individualmente. Carrega play para iniciar a contagem de tempo. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
-        ]
+        ],
+        "id": "sharing"
       },
       {
         "type": "host",

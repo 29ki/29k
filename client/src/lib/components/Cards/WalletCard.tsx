@@ -42,10 +42,11 @@ const getShadow = (shadow?: boolean) => {
 const Wrapper = styled(TouchableOpacity)<{
   hasCardBefore: boolean;
   hasCardAfter: boolean;
-}>(({hasCardBefore, hasCardAfter}) => ({
+  completed?: boolean;
+}>(({hasCardBefore, hasCardAfter, completed}) => ({
   justifyContent: 'space-between',
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
-  backgroundColor: COLORS.CREAM,
+  backgroundColor: completed ? COLORS.LIGHT_GREEN : COLORS.CREAM,
   marginTop: hasCardBefore ? -(WALLET_CARD_HEIGHT * 0.5) : undefined,
   height: hasCardAfter ? WALLET_CARD_HEIGHT * 1.5 : WALLET_CARD_HEIGHT,
   ...getShadow(hasCardBefore),
@@ -73,6 +74,7 @@ type WalletCardProps = {
   children?: React.ReactNode;
   hasCardBefore: boolean;
   hasCardAfter: boolean;
+  completed?: boolean;
 };
 
 export const WalletCard: React.FC<WalletCardProps> = ({
@@ -84,11 +86,13 @@ export const WalletCard: React.FC<WalletCardProps> = ({
   onPress,
   hasCardBefore,
   hasCardAfter,
+  completed,
   children,
 }) => (
   <Wrapper
     hasCardBefore={hasCardBefore}
     hasCardAfter={hasCardAfter}
+    completed={completed}
     onPress={onPress}>
     <ContentWrapper>
       <LeftCol>

@@ -52,3 +52,5 @@ export * from './Slack/Slack';
 export * from './SunUp/SunUp';
 export * from './Star/Star';
 export * from './Wand/Wand';
+export * from './Journey/Journey';
+export * from './JourneyFill/JourneyFill';

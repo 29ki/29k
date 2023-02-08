@@ -24,6 +24,7 @@ const mockServer = createMockServer(
     ctx.user = {
       id: 'some-user-id',
     };
+    ctx.language = 'en';
     await next();
   },
   router.routes(),
@@ -45,6 +46,7 @@ describe('/api/posts', () => {
         {
           id: 'some-id',
           exerciseId: 'some',
+          sharingId: 'some-sharing-id',
           text: 'some text',
           userId: 'some-user-id',
           userProfile: {displayName: 'some name', photoURL: 'some-url'},
@@ -65,6 +67,7 @@ describe('/api/posts', () => {
         {
           id: 'some-id',
           exerciseId: 'some',
+          sharingId: 'some-sharing-id',
           text: 'some text',
           userId: 'some-user-id',
           userProfile: {displayName: 'some name', photoURL: 'some-url'},
@@ -81,14 +84,15 @@ describe('/api/posts', () => {
     it('should create post', async () => {
       const response = await request(mockServer).post('/posts').send({
         exerciseId: 'some-exercise-id',
+        sharingId: 'some-sharing-id',
         text: 'some text',
         anonymous: true,
-        language: 'en',
       });
 
       expect(mockCreatePost).toHaveBeenCalledWith(
         {
           exerciseId: 'some-exercise-id',
+          sharingId: 'some-sharing-id',
           text: 'some text',
           anonymous: true,
           language: 'en',

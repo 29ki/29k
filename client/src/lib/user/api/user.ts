@@ -1,5 +1,6 @@
 import {VerificationError} from '../../../../../shared/src/errors/User';
-import apiClient from '../../../lib/apiClient/apiClient';
+import {UserProfile} from '../../../../../shared/src/types/User';
+import apiClient from '../../apiClient/apiClient';
 
 const USER_ENDPOINT = '/user';
 
@@ -41,5 +42,21 @@ export const verifyPromotion = async (
     return;
   } catch (cause) {
     throw new Error('Could not promote user', {cause});
+  }
+};
+
+export const getProfile = async (userId: string): Promise<UserProfile> => {
+  try {
+    const response = await apiClient(`${USER_ENDPOINT}/${userId}`, {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      throw new Error(await response.text());
+    }
+
+    return response.json();
+  } catch (cause) {
+    throw new Error('Could get user profile', {cause});
   }
 };

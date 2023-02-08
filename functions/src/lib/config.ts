@@ -30,6 +30,7 @@ const configValidation = {
   SLACK_BOT_NAME: str(),
   SLACK_PUBLIC_HOST_REQUESTS_CHANNEL: str(),
   SLACK_FEEDBACK_CHANNEL: str(),
+  SLACK_SHARING_POSTS_CHANNEL: str(),
   SLACK_OAUTH_TOKEN: str(),
   SLACK_SIGNING_SECRET: str(),
 };

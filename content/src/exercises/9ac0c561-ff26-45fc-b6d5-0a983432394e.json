@@ -62,7 +62,8 @@
         "content": {
           "heading": "How did you experience the willingness stance?",
           "text": "Any difference?"
-        }
+        },
+        "id": "sharing"
       },
       {
         "type": "host",

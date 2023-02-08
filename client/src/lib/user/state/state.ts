@@ -6,6 +6,7 @@ import {omit} from 'ramda';
 
 import {LiveSession} from '../../../../../shared/src/types/Session';
 import migrate from './migration';
+import {UserProfile} from '../../../../../shared/src/types/User';
 
 const USER_STATE_VERSION = 3;
 
@@ -22,6 +23,7 @@ export type CompletedSession = {
   type: LiveSession['type'];
   mode: LiveSession['mode'];
   completedAt: Date;
+  hostProfile?: UserProfile;
 };
 
 export type UserState = {

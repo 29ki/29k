@@ -17,9 +17,15 @@ export interface ExerciseCardLottie {
   source?: string;
 }
 
+export interface ExerciseCardHost {
+  displayName?: string;
+  photoURL?: string;
+}
+
 export interface ExerciseCard {
   image?: ExerciseCardImage;
   lottie?: ExerciseCardLottie;
+  host?: ExerciseCardHost;
 }
 
 export type ExerciseThemeTextColorOptions = '#F9F8F4' | '#2E2E2E';
@@ -197,6 +203,7 @@ export interface ExerciseSlideReflectionSlide {
 
 export interface ExerciseSlideSharingSlide {
   type: 'sharing';
+  id: string;
   hostNotes?: ExerciseSlideSharingSlideHostNote[];
   content?: ExerciseSlideSharingSlideContent;
 }
