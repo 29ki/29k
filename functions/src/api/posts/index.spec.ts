@@ -24,6 +24,7 @@ const mockServer = createMockServer(
     ctx.user = {
       id: 'some-user-id',
     };
+    ctx.language = 'en';
     await next();
   },
   router.routes(),
@@ -86,7 +87,6 @@ describe('/api/posts', () => {
         sharingId: 'some-sharing-id',
         text: 'some text',
         anonymous: true,
-        language: 'en',
       });
 
       expect(mockCreatePost).toHaveBeenCalledWith(
