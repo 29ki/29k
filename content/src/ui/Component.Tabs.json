@@ -1,17 +1,15 @@
 {
   "en": {
     "home": "Home",
-    "plan": "Plan",
+    "journey": "Journey",
     "profile": "Profile"
   },
   "sv": {
     "home": "Hem",
-    "plan": "",
     "profile": "Profil"
   },
   "pt": {
     "home": "Início",
-    "plan": "",
     "profile": "Perfil"
   },
   "es": {}
