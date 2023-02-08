@@ -29,7 +29,7 @@ const useStartAsyncSession = () => {
         type: SessionType.async,
         id: generateId(),
         startTime: dayjs().toJSON(),
-        contentId: exerciseId,
+        exerciseId,
         language: i18n.resolvedLanguage as LANGUAGE_TAG,
       };
       setAsyncSession(session);

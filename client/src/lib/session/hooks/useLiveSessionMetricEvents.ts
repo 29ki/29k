@@ -29,7 +29,7 @@ const useLiveSessionMetricEvents = () => {
             session.startTime,
             'seconds',
           ),
-          'Exercise ID': session.contentId,
+          'Exercise ID': session.exerciseId,
           Host: user.uid === session?.hostId,
           Language: session.language,
         });
@@ -41,7 +41,7 @@ const useLiveSessionMetricEvents = () => {
       session?.type,
       session?.startTime,
       session?.hostId,
-      session?.contentId,
+      session?.exerciseId,
       session?.language,
     ],
   );

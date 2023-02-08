@@ -49,7 +49,7 @@ describe('useSessionExercise', () => {
     });
     useSessionState.setState({
       session: {
-        contentId: 'some-exercise-id',
+        exerciseId: 'some-exercise-id',
       } as Session,
       asyncSession: null,
       sessionState: {index: 1} as SessionState,
@@ -71,7 +71,7 @@ describe('useSessionExercise', () => {
     });
     useSessionState.setState({
       asyncSession: {
-        contentId: 'some-exercise-id',
+        exerciseId: 'some-exercise-id',
       } as AsyncSession,
       session: null,
       sessionState: {index: 1} as SessionState,
@@ -95,7 +95,7 @@ describe('useSessionExercise', () => {
     mockUseExerciseById.mockReturnValueOnce(exercise);
     useSessionState.setState({
       session: {
-        contentId: 'some-exercise-id',
+        exerciseId: 'some-exercise-id',
       } as Session,
       sessionState: {index: 1} as SessionState,
     });

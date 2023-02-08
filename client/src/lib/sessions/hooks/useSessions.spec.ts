@@ -77,7 +77,7 @@ describe('useSessions', () => {
 
       await act(async () => {
         const session = await result.current.addSession({
-          contentId: 'some-content-id',
+          exerciseId: 'some-exercise-id',
           type: SessionType.public,
           startTime,
           language: 'en',
@@ -92,7 +92,7 @@ describe('useSessions', () => {
 
       expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/sessions', {
         body: JSON.stringify({
-          contentId: 'some-content-id',
+          exerciseId: 'some-exercise-id',
           type: 'public',
           startTime: '1994-03-08T00:00:00.000Z',
           language: 'en',

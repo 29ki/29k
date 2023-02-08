@@ -79,7 +79,7 @@ const Top = styled.View({
   top: 0,
   right: 0,
   left: 0,
-  zIndex: 1,
+  zIndex: 1000,
 });
 
 const StyledButton = styled(Button)({
@@ -146,7 +146,7 @@ const Session: React.FC = () => {
         hostId: session.hostId,
         type: session.type,
         language: session.language,
-        contentId: session.contentId,
+        exerciseId: session.exerciseId,
         completedAt: dayjs.utc().toDate(),
       });
       logSessionMetricEvent('Complete Sharing Session');

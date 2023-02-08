@@ -5,10 +5,10 @@ import useExerciseById from '../../content/hooks/useExerciseById';
 import useTriggerNotification from '../../notifications/hooks/useTriggerNotification';
 
 const useSessionNotificationReminder = (session: Session) => {
-  const {id, contentId, startTime, link} = session;
+  const {id, exerciseId, startTime, link} = session;
 
   const {t} = useTranslation('Component.SessionReminder');
-  const exercise = useExerciseById(contentId);
+  const exercise = useExerciseById(exerciseId);
 
   const {
     triggerNotification,

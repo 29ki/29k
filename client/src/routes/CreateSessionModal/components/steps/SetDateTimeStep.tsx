@@ -77,7 +77,7 @@ const SetDateTimeStep: React.FC<StepProps> = ({
 
       setIsLoading(true);
       const session = await addSession({
-        contentId: selectedExercise,
+        exerciseId: selectedExercise,
         type: selectedType,
         startTime: sessionDateTime,
         language: i18n.resolvedLanguage as LANGUAGE_TAG,

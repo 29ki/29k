@@ -129,7 +129,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#b9535f"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Letting go of control",
     "published": true,
     "card": {

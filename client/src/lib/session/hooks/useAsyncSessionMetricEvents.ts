@@ -28,7 +28,7 @@ const useAsyncSessionMetricEvents = () => {
             session.startTime,
             'seconds',
           ),
-          'Exercise ID': session.contentId,
+          'Exercise ID': session.exerciseId,
           Host: false,
           Language: session.language,
         });
@@ -39,7 +39,7 @@ const useAsyncSessionMetricEvents = () => {
       session?.id,
       session?.type,
       session?.startTime,
-      session?.contentId,
+      session?.exerciseId,
       session?.language,
     ],
   );
