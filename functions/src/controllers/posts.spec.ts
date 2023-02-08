@@ -9,8 +9,9 @@ import {getPublicUserInfo} from '../models/user';
 import {sendPostMessage} from '../models/slack';
 import {Post, PostParams} from '../../../shared/src/types/Post';
 import {PostError} from '../../../shared/src/errors/Post';
+import {getSharingSlideById} from '../../../shared/src/content/exercise';
 import {RequestError} from './errors/RequestError';
-import {getExerciseById, getSharingSlideById} from '../lib/exercise';
+import {getExerciseById} from '../lib/exercise';
 import {
   Exercise,
   ExerciseSlideSharingSlide,
@@ -20,6 +21,7 @@ jest.mock('../models/post');
 jest.mock('../models/user');
 jest.mock('../lib/exercise');
 jest.mock('../models/slack');
+jest.mock('../../../shared/src/content/exercise');
 
 const mockAddPost = jest.mocked(addPost);
 const mockGetPostsByExerciseId = jest.mocked(getPostsByExerciseId);

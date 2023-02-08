@@ -1,7 +1,8 @@
 import {omit} from 'ramda';
 import {PostError} from '../../../shared/src/errors/Post';
+import {getSharingSlideById} from '../../../shared/src/content/exercise';
 import {PostParams} from '../../../shared/src/types/Post';
-import {getExerciseById, getSharingSlideById} from '../lib/exercise';
+import {getExerciseById} from '../lib/exercise';
 import * as postModel from '../models/post';
 import {sendPostMessage} from '../models/slack';
 import {getPublicUserInfo} from '../models/user';
