@@ -10,7 +10,7 @@ import useSessions from '../../lib/sessions/hooks/useSessions';
 import {COLORS} from '../../../../shared/src/constants/colors';
 
 import {JourneySession} from './types/Session';
-import {Session} from '../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../shared/src/types/Session';
 import {CompletedSession} from '../../lib/user/state/state';
 
 import {
@@ -72,7 +72,7 @@ const renderSession: SectionListRenderItem<JourneySession, Section> = ({
     return (
       <Gutters>
         <SessionCard
-          session={item as Session}
+          session={item as LiveSession}
           standAlone={standAlone}
           hasCardBefore={hasCardBefore}
           hasCardAfter={hasCardAfter}
