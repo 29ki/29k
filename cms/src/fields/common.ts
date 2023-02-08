@@ -20,6 +20,15 @@ export const ID_FIELD: CmsField = {
   meta: false,
 };
 
+export const MANUAL_ID_FIELD: CmsField = {
+  label: '✍️ 🆔',
+  name: 'id',
+  widget: 'string',
+  i18n: false,
+  required: true,
+  default: 'sharing',
+};
+
 export const PUBLISHED_FIELD: CmsField = {
   label: '📢 Published',
   name: 'published',

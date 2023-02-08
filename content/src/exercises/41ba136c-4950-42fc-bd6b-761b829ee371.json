@@ -62,7 +62,8 @@
         ],
         "content": {
           "heading": "What difference could the STOP-skill do for you?"
-        }
+        },
+        "id": "sharing"
       },
       {
         "type": "host",

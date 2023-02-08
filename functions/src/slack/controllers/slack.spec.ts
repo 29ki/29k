@@ -1,21 +1,30 @@
 import {getAuth} from 'firebase-admin/auth';
 import {updatePublicHostRequest} from '../../models/publicHostRequests';
 import {createPublicHostCodeLink} from '../../models/dynamicLinks';
+import {updatePost} from '../../models/post';
 import {RequestAction} from '../../lib/constants/requestAction';
-import {updatePublicHostRequestMessage, parseMessage} from '../../models/slack';
+import {
+  updatePublicHostRequestMessage,
+  updatePostMessageAsHidden,
+  parseMessage,
+} from '../../models/slack';
 import {slackHandler} from './slack';
 import {SlackError, SlackErrorCode} from '../../controllers/errors/SlackError';
 
 jest.mock('../../models/slack');
 jest.mock('../../models/publicHostRequests');
 jest.mock('../../models/dynamicLinks');
+jest.mock('../../models/post');
 
-const mockUpdatePublicHostRequestMessage =
-  updatePublicHostRequestMessage as jest.Mock;
-const mockParseMessage = parseMessage as jest.Mock;
+const mockUpdatePublicHostRequestMessage = jest.mocked(
+  updatePublicHostRequestMessage,
+);
+const mockParseMessage = jest.mocked(parseMessage);
 const mockGetUser = getAuth().getUser as jest.Mock;
-const mockUpdatePublicHostRequest = updatePublicHostRequest as jest.Mock;
-const mockCreatePublicHostCodeLink = createPublicHostCodeLink as jest.Mock;
+const mockUpdatePublicHostRequest = jest.mocked(updatePublicHostRequest);
+const mockCreatePublicHostCodeLink = jest.mocked(createPublicHostCodeLink);
+const mockUpdatePostMessageAsHidden = jest.mocked(updatePostMessageAsHidden);
+const mockUpdatePost = jest.mocked(updatePost);
 
 beforeEach(async () => {
   jest.clearAllMocks();
@@ -27,12 +36,13 @@ describe('slack', () => {
       mockCreatePublicHostCodeLink.mockResolvedValueOnce(
         'http://some.deep/verification/link',
       );
-      mockParseMessage.mockReturnValueOnce([
-        'some-channel-id',
-        'some-ts',
-        RequestAction.ACCEPT_PUBLIC_HOST_ROLE,
-        'some-user-id',
-      ]);
+      mockParseMessage.mockReturnValueOnce({
+        channelId: 'some-channel-id',
+        ts: 'some-ts',
+        actionId: RequestAction.ACCEPT_PUBLIC_HOST_ROLE,
+        value: 'some-user-id',
+        originalBlocks: [],
+      });
       mockGetUser.mockResolvedValueOnce({
         email: 'some@email.com',
         uid: 'some-user-id',
@@ -56,12 +66,13 @@ describe('slack', () => {
     });
 
     it('should update request to declined and notify in slack', async () => {
-      mockParseMessage.mockReturnValueOnce([
-        'some-channel-id',
-        'some-ts',
-        RequestAction.DECLINE_PUBLIC_HOST_ROLE,
-        'some-user-id',
-      ]);
+      mockParseMessage.mockReturnValueOnce({
+        channelId: 'some-channel-id',
+        ts: 'some-ts',
+        actionId: RequestAction.DECLINE_PUBLIC_HOST_ROLE,
+        value: 'some-user-id',
+        originalBlocks: [],
+      });
       mockGetUser.mockResolvedValueOnce({
         email: 'some@email.com',
         uid: 'some-user-id',
@@ -119,12 +130,13 @@ describe('slack', () => {
     });
 
     it('should throw if user has no email', async () => {
-      mockParseMessage.mockReturnValueOnce([
-        'some-channel-id',
-        'some-ts',
-        RequestAction.ACCEPT_PUBLIC_HOST_ROLE,
-        'some-user-id',
-      ]);
+      mockParseMessage.mockReturnValueOnce({
+        channelId: 'some-channel-id',
+        ts: 'some-ts',
+        actionId: RequestAction.ACCEPT_PUBLIC_HOST_ROLE,
+        value: 'some-user-id',
+        originalBlocks: [],
+      });
       mockGetUser.mockResolvedValueOnce({
         uid: 'some-user-id',
       });
@@ -137,6 +149,31 @@ describe('slack', () => {
 
       expect(mockUpdatePublicHostRequest).toHaveBeenCalledTimes(0);
       expect(mockUpdatePublicHostRequestMessage).toHaveBeenCalledTimes(0);
+    });
+  });
+
+  describe('postAction', () => {
+    it('should update post and send message', async () => {
+      mockParseMessage.mockReturnValueOnce({
+        channelId: 'some-channel-id',
+        ts: 'some-ts',
+        actionId: RequestAction.HIDE_SHARING_POST,
+        value: 'some-post-id',
+        originalBlocks: [],
+      });
+
+      await slackHandler(JSON.stringify({}));
+
+      expect(mockUpdatePost).toHaveBeenCalledTimes(1);
+      expect(mockUpdatePost).toHaveBeenCalledWith('some-post-id', {
+        approved: false,
+      });
+      expect(mockUpdatePostMessageAsHidden).toHaveBeenCalledTimes(1);
+      expect(mockUpdatePostMessageAsHidden).toHaveBeenCalledWith(
+        'some-channel-id',
+        'some-ts',
+        [],
+      );
     });
   });
 });
