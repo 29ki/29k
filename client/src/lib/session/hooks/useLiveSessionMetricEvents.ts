@@ -39,6 +39,7 @@ const useLiveSessionMetricEvents = () => {
       user?.uid,
       session?.id,
       session?.type,
+      session?.mode,
       session?.startTime,
       session?.hostId,
       session?.exerciseId,
