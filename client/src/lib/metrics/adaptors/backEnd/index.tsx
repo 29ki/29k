@@ -12,7 +12,7 @@ import {
 import getMetricsUid from './utils/getMetricsUid';
 import metricsClient from './utils/metricsClient';
 import useNavigationTracker from './hooks/useNavigationTracker';
-import {DEFAULT_CONSENT} from '../..';
+import {DEFAULT_CONSENT} from '../../constants';
 
 let haveConsent = DEFAULT_CONSENT;
 
@@ -26,11 +26,13 @@ export const BackEndMetricsProvider: MetricsProvider = ({children}) => {
 export const init: Init = async () => {};
 
 export const setConsent: SetConsent = async enabled => {
+  console.log('setConsent', enabled);
   haveConsent = enabled;
 };
 
 export const logEvent: LogEvent = async (event, properties) => {
   const uid = getMetricsUid();
+  console.log('LOG', uid, haveConsent);
   if (uid && haveConsent) {
     await metricsClient(`logEvent/${uid}`, {
       method: 'POST',
