@@ -18,7 +18,7 @@ const useLogAsyncSessionMetricEvents = () => {
         metrics.logEvent(event, {
           'Sharing Session ID': session.id,
           'Sharing Session Type': session.type,
-          'Sharing Session Mode': 'async',
+          'Sharing Session Mode': session.mode,
           'Sharing Session Start Time': session.startTime,
           'Exercise ID': session.exerciseId,
           Host: false,

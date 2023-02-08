@@ -82,13 +82,18 @@ const CreateSessionModal = () => {
   const currentSteps = useMemo(
     () =>
       isPublicHost
-        ? publicHostSteps(selectedModeAndType?.mode === 'async' || hasProfile)
-        : normalUserSteps(selectedModeAndType?.mode === 'async' || hasProfile),
+        ? publicHostSteps(
+            selectedModeAndType?.mode === SessionMode.async || hasProfile,
+          )
+        : normalUserSteps(
+            selectedModeAndType?.mode === SessionMode.async || hasProfile,
+          ),
     [isPublicHost, hasProfile, selectedModeAndType],
   );
 
   const backgroundColor = useMemo(() => {
-    const skipProfile = selectedModeAndType?.mode === 'async' || hasProfile;
+    const skipProfile =
+      selectedModeAndType?.mode === SessionMode.async || hasProfile;
     if (currentStep === 0) {
       return COLORS.WHITE;
     }

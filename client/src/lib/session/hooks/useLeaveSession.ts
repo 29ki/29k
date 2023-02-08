@@ -35,7 +35,7 @@ const useLeaveSession = (sessionMode: SessionMode) => {
   const resetSession = useSessionState(state => state.reset);
 
   const leaveSession = useCallback(async () => {
-    if (sessionMode !== 'async') {
+    if (sessionMode !== SessionMode.async) {
       await leaveMeeting();
     }
 
@@ -94,7 +94,7 @@ const useLeaveSession = (sessionMode: SessionMode) => {
           onPress: () => {
             leaveSession();
             if (!sessionState?.completed) {
-              if (sessionMode === 'async') {
+              if (sessionMode === SessionMode.async) {
                 logAsyncSessionMetricEvent('Leave Sharing Session');
               } else {
                 logLiveSessionMetricEvent('Leave Sharing Session');

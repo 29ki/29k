@@ -32,6 +32,7 @@ describe('useAsyncSessionMetricEvents', () => {
       asyncSession: {
         id: 'some-session-id',
         type: 'private',
+        mode: 'async',
         startTime: '2022-02-02T02:02:02Z',
         exerciseId: 'some-exercise-id',
         language: 'en',
