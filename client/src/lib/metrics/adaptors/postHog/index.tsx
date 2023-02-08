@@ -1,7 +1,7 @@
 import React from 'react';
 import PostHog, {PostHogProvider} from 'posthog-react-native';
 import {POSTHOG_API_KEY} from 'config';
-import {DEFAULT_CONSENT} from '../..';
+import {DEFAULT_CONSENT} from '../../constants';
 import {
   Init,
   LogEvent,
