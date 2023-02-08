@@ -6,6 +6,7 @@ import {omit} from 'ramda';
 
 import {Session} from '../../../../../shared/src/types/Session';
 import migrate from './migration';
+import {UserProfile} from '../../../../../shared/src/types/User';
 
 const USER_STATE_VERSION = 3;
 
@@ -22,6 +23,7 @@ export type CompletedSession = {
   type: Session['type'];
   mode: Session['mode'];
   completedAt: Date;
+  hostProfile?: UserProfile;
 };
 
 export type UserState = {
