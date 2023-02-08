@@ -6,6 +6,7 @@ import dayjs from 'dayjs';
 import {
   Session,
   SessionData,
+  SessionMode,
   SessionStateData,
   SessionType,
 } from '../../../shared/src/types/Session';
@@ -119,7 +120,7 @@ export const addSession = async ({
   link,
   inviteCode,
   interestedCount,
-}: Omit<Session, 'ended' | 'userIds' | 'createdAt' | 'updatedAt'> & {
+}: Omit<Session, 'mode' | 'ended' | 'userIds' | 'createdAt' | 'updatedAt'> & {
   dailyRoomName: string;
 }) => {
   const now = Timestamp.now();
@@ -131,6 +132,7 @@ export const addSession = async ({
     hostId,
     dailyRoomName,
     type,
+    mode: SessionMode.live,
     link,
     inviteCode,
     interestedCount,
