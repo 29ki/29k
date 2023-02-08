@@ -9,7 +9,7 @@ import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
 
 import {Exercise} from '../../../../shared/src/types/generated/Exercise';
-import {SessionType} from '../../../../shared/src/types/Session';
+import {SessionMode, SessionType} from '../../../../shared/src/types/Session';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {UserProfile} from '../../../../shared/src/types/User';
 
@@ -30,6 +30,13 @@ export const Step = styled(Animated.View).attrs({
   flex: 1,
 });
 
+export type SelectedModeAndType =
+  | {
+      mode: SessionMode;
+      type: SessionType;
+    }
+  | undefined;
+
 export type StepProps = {
   selectedExercise: Exercise['id'] | undefined;
   setSelectedExercise: Dispatch<SetStateAction<StepProps['selectedExercise']>>;
@@ -37,9 +44,11 @@ export type StepProps = {
   firstStep: () => void;
   lastStep: () => void;
   isPublicHost: boolean;
-  selectedType: SessionType | undefined;
+  selectedModeAndType: SelectedModeAndType;
   userProfile: UserProfile;
-  setSelectedType: Dispatch<SetStateAction<StepProps['selectedType']>>;
+  setSelectedModeAndType: Dispatch<
+    SetStateAction<StepProps['selectedModeAndType']>
+  >;
 };
 
 const publicHostSteps = (skipProfile: boolean) =>
@@ -58,9 +67,8 @@ const CreateSessionModal = () => {
   >();
   const isPublicHost = useIsPublicHost();
   const user = useUser();
-  const [selectedType, setSelectedType] = useState<SessionType | undefined>(
-    isPublicHost ? undefined : SessionType.private,
-  );
+  const [selectedModeAndType, setSelectedModeAndType] =
+    useState<SelectedModeAndType>(undefined);
 
   const hasProfile = Boolean(user?.displayName) && Boolean(user?.photoURL);
   const userProfile = useMemo(
@@ -74,13 +82,13 @@ const CreateSessionModal = () => {
   const currentSteps = useMemo(
     () =>
       isPublicHost
-        ? publicHostSteps(selectedType === 'async' || hasProfile)
-        : normalUserSteps(selectedType === 'async' || hasProfile),
-    [isPublicHost, hasProfile, selectedType],
+        ? publicHostSteps(selectedModeAndType?.mode === 'async' || hasProfile)
+        : normalUserSteps(selectedModeAndType?.mode === 'async' || hasProfile),
+    [isPublicHost, hasProfile, selectedModeAndType],
   );
 
   const backgroundColor = useMemo(() => {
-    const skipProfile = selectedType === 'async' || hasProfile;
+    const skipProfile = selectedModeAndType?.mode === 'async' || hasProfile;
     if (currentStep === 0) {
       return COLORS.WHITE;
     }
@@ -91,7 +99,7 @@ const CreateSessionModal = () => {
       return COLORS.WHITE;
     }
     return COLORS.CREAM;
-  }, [hasProfile, selectedType, currentStep]);
+  }, [hasProfile, selectedModeAndType, currentStep]);
 
   const CurrentStepComponent: React.FC<StepProps> = useMemo(
     () => currentSteps[currentStep],
@@ -116,8 +124,8 @@ const CreateSessionModal = () => {
         <CurrentStepComponent
           selectedExercise={selectedExercise}
           setSelectedExercise={setSelectedExercise}
-          selectedType={selectedType}
-          setSelectedType={setSelectedType}
+          selectedModeAndType={selectedModeAndType}
+          setSelectedModeAndType={setSelectedModeAndType}
           userProfile={userProfile}
           nextStep={nextStep}
           firstStep={firstStep}

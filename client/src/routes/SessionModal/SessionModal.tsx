@@ -279,21 +279,19 @@ const SessionModal = () => {
 
   const sessionTypes = useMemo(
     () =>
-      Object.values(SessionType)
-        .filter(type => type !== 'async')
-        .map((type, i, arr) => (
-          <TypeItemWrapper key={i}>
-            <TypeItem
-              onPress={() => {
-                setSelectedType(type);
-                setEditTypeMode(false);
-              }}
-              label={t(`selectType.${type}.title`)}
-              Icon={type === 'private' ? <PrivateIcon /> : <PublicIcon />}
-            />
-            {i < arr.length - 1 && <Spacer16 />}
-          </TypeItemWrapper>
-        )),
+      Object.values(SessionType).map((type, i, arr) => (
+        <TypeItemWrapper key={i}>
+          <TypeItem
+            onPress={() => {
+              setSelectedType(type);
+              setEditTypeMode(false);
+            }}
+            label={t(`selectType.${type}.title`)}
+            Icon={type === 'private' ? <PrivateIcon /> : <PublicIcon />}
+          />
+          {i < arr.length - 1 && <Spacer16 />}
+        </TypeItemWrapper>
+      )),
     [t],
   );
 

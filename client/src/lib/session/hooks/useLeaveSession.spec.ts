@@ -6,7 +6,7 @@ import {
   AsyncSession,
   Session,
   SessionState,
-  SessionType,
+  SessionMode,
 } from '../../../../../shared/src/types/Session';
 import useSessionState from '../state/state';
 import useLeaveSession from './useLeaveSession';
@@ -52,7 +52,7 @@ describe('useLeaveSession', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLeaveSession(SessionType.private));
+      const {result} = renderHook(() => useLeaveSession(SessionMode.live));
 
       await act(() => result.current.leaveSession());
 
@@ -68,7 +68,7 @@ describe('useLeaveSession', () => {
         } as Session,
       });
 
-      const {result} = renderHook(() => useLeaveSession(SessionType.async));
+      const {result} = renderHook(() => useLeaveSession(SessionMode.async));
 
       await act(() => result.current.leaveSession());
 
@@ -89,7 +89,7 @@ describe('useLeaveSession', () => {
           completed: true,
         } as SessionState,
       });
-      const {result} = renderHook(() => useLeaveSession(SessionType.public));
+      const {result} = renderHook(() => useLeaveSession(SessionMode.live));
 
       await act(() => result.current.leaveSession());
 
@@ -104,7 +104,7 @@ describe('useLeaveSession', () => {
 
   describe('leaveSessionWithConfirm', () => {
     it('shows a confirm dialogue on leaving the session', async () => {
-      const {result} = renderHook(() => useLeaveSession(SessionType.private));
+      const {result} = renderHook(() => useLeaveSession(SessionMode.live));
 
       await act(() => result.current.leaveSessionWithConfirm());
 
@@ -141,7 +141,7 @@ describe('useLeaveSession', () => {
         config[1].onPress();
       });
 
-      const {result} = renderHook(() => useLeaveSession(SessionType.private));
+      const {result} = renderHook(() => useLeaveSession(SessionMode.live));
 
       await act(() => result.current.leaveSessionWithConfirm());
 
@@ -168,7 +168,7 @@ describe('useLeaveSession', () => {
         config[1].onPress();
       });
 
-      const {result} = renderHook(() => useLeaveSession(SessionType.async));
+      const {result} = renderHook(() => useLeaveSession(SessionMode.async));
 
       await act(() => result.current.leaveSessionWithConfirm());
 
@@ -193,7 +193,7 @@ describe('useLeaveSession', () => {
         config[0].onPress();
       });
 
-      const {result} = renderHook(() => useLeaveSession(SessionType.public));
+      const {result} = renderHook(() => useLeaveSession(SessionMode.live));
 
       await act(() => result.current.leaveSessionWithConfirm());
 

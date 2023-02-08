@@ -82,7 +82,7 @@ const Session: React.FC = () => {
   const sessionSlideState = useSessionSlideState();
   const theme = exercise?.theme;
   const logSessionMetricEvent = useAsyncSessionMetricEvents();
-  const {leaveSessionWithConfirm} = useLeaveSession(session.type);
+  const {leaveSessionWithConfirm} = useLeaveSession(session.mode);
   const {addCompletedSession} = useUserState();
   const {navigateToIndex, setPlaying} = useUpdateAsyncSessionState(session);
 

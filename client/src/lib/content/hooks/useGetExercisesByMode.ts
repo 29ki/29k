@@ -1,11 +1,11 @@
 import {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import {SessionType} from '../../../../../shared/src/types/Session';
+import {SessionMode} from '../../../../../shared/src/types/Session';
 
 import useExerciseIds from './useExerciseIds';
 
-const useGetExercisesByType = (sessionType?: SessionType) => {
+const useGetExercisesByMode = (sessionMode?: SessionMode) => {
   const {t} = useTranslation('exercises');
   const exerciseIds = useExerciseIds();
 
@@ -20,8 +20,8 @@ const useGetExercisesByType = (sessionType?: SessionType) => {
   return useMemo(() => {
     return exerciseIds
       .map(getExerciseById)
-      .filter(e => (sessionType === SessionType.async ? e.async : true));
-  }, [exerciseIds, getExerciseById, sessionType]);
+      .filter(e => (sessionMode === SessionMode.async ? e.async : true));
+  }, [exerciseIds, getExerciseById, sessionMode]);
 };
 
-export default useGetExercisesByType;
+export default useGetExercisesByMode;
