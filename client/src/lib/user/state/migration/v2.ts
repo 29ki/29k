@@ -1,42 +1,50 @@
-import {Session} from '../../../../../../shared/src/types/Session';
-import {State as CurrentState, UserState as CurrentUserState} from '../state';
-import {V2State} from './v2';
+import {
+  Session,
+  SessionMode,
+  SessionType,
+} from '../../../../../../shared/src/types/Session';
+import {
+  PersistedState,
+  State as CurrentState,
+  UserState as CurrentUserState,
+} from '../state';
 
-// Types as they were in v1
-type V1PinnedSession = {
+// Types as they were in v2
+type V2PinnedSession = {
   id: string;
   expires: Date;
 };
 
-type V1CompletedSession = {
+type V2CompletedSession = {
   id: Session['id'];
   hostId?: Session['hostId'];
-  contentId: Session['exerciseId'];
+  exerciseId: Session['exerciseId'];
   language: Session['language'];
-  type: Session['type'];
+  type: 'public' | 'private' | 'async';
   completedAt: Date;
 };
 
-export type V1UserState = {
-  pinnedSessions?: Array<V1PinnedSession>;
-  completedSessions?: Array<V1CompletedSession>;
+export type V2UserState = {
+  pinnedSessions?: Array<V2PinnedSession>;
+  completedSessions?: Array<V2CompletedSession>;
   metricsUid?: string;
 };
 
-export type V1State = {
-  userState: {[key: string]: V1UserState};
+export type V2State = {
+  userState: {[key: string]: V2UserState};
 };
 
 const migrateCompletedSessions = (
-  completedSessions: V1CompletedSession[],
+  completedSessions: V2CompletedSession[],
 ): CurrentUserState['completedSessions'] =>
-  completedSessions.map(({contentId, ...rest}) => ({
+  completedSessions.map(({type, ...rest}) => ({
     ...rest,
-    exerciseId: contentId,
+    type: type === 'async' ? SessionType.public : SessionType[type],
+    mode: type === 'async' ? SessionMode.async : SessionMode.live,
   }));
 
 const migrateUserState = async (
-  userState: V1UserState,
+  userState: V2UserState,
 ): Promise<CurrentUserState> => {
   if (!userState.completedSessions) {
     return userState as CurrentUserState;
@@ -51,7 +59,7 @@ const migrateUserState = async (
 };
 
 const migrateUserStates = async (
-  userStates: V1State['userState'],
+  userStates: V2State['userState'],
 ): Promise<CurrentState['userState']> => {
   const userState = await Promise.all(
     Object.entries(userStates).map(
@@ -71,7 +79,7 @@ const migrateUserStates = async (
   );
 };
 
-export default async (state: V1State): Promise<V2State> => ({
+export default async (state: V2State): Promise<PersistedState> => ({
   ...state,
   userState: await migrateUserStates(state.userState),
 });
