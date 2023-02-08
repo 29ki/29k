@@ -8,6 +8,7 @@ import {
 import {
   IMAGE_FIELD,
   LOTTIE_FIELD_WITH_AUDIO,
+  MANUAL_ID_FIELD,
   VIDEO_FIELD,
   VIDEO_FIELD_WITH_AUDIO,
 } from './common';
@@ -159,7 +160,12 @@ export const SHARING_SLIDE: CmsFieldBase & CmsFieldObject = {
   name: SLIDE_TYPES.SHARING,
   widget: 'object',
   collapsed: true,
+  summary: '{{content.heading}} - ({{id}})',
   fields: [
+    {
+      ...MANUAL_ID_FIELD,
+      hint: 'If there are several sharing slides, add a uniqe id to separate them. Duplicate them over languages if refering to the same sharing',
+    },
     HOST_NOTES,
     {
       label: 'Content',

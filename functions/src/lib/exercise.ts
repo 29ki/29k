@@ -1,4 +1,7 @@
-import {Exercise} from '../../../shared/src/types/generated/Exercise';
+import {
+  Exercise,
+  ExerciseSlideSharingSlide,
+} from '../../../shared/src/types/generated/Exercise';
 import i18next, {DEFAULT_LANGUAGE_TAG, LANGUAGE_TAG} from './i18n';
 
 export const getExerciseById = (
@@ -16,4 +19,15 @@ export const getExerciseById = (
   }
 
   return;
+};
+
+export const getSharingSlideById = (
+  exercise: Exercise | undefined,
+  sharingId: string,
+) => {
+  return exercise?.slides
+    .filter(s => s.type === 'sharing')
+    .find(s => (s as ExerciseSlideSharingSlide)?.id === sharingId) as
+    | ExerciseSlideSharingSlide
+    | undefined;
 };

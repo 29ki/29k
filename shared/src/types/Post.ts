@@ -5,6 +5,7 @@ import {UserProfile} from './User';
 export type PostFields = {
   id: string;
   exerciseId: string;
+  sharingId: string;
   userId: string | null;
   language: LANGUAGE_TAG;
   approved: boolean;

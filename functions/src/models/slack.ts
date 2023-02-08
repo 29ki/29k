@@ -1,13 +1,17 @@
-import {WebClient} from '@slack/web-api';
+import {WebClient, KnownBlock} from '@slack/web-api';
 import {SlackError, SlackErrorCode} from '../controllers/errors/SlackError';
 import config from '../lib/config';
+import {SHARING_POST_MIN_LENGTH} from '../lib/constants/post';
 import {RequestAction} from '../lib/constants/requestAction';
+import {DEFAULT_LANGUAGE_TAG, LANGUAGE_TAG} from '../lib/i18n';
+import {translate} from '../lib/translation';
 
 const {
   SLACK_OAUTH_TOKEN,
   SLACK_BOT_NAME,
   SLACK_PUBLIC_HOST_REQUESTS_CHANNEL,
   SLACK_FEEDBACK_CHANNEL,
+  SLACK_SHARING_POSTS_CHANNEL,
 } = config;
 
 const createSlackClient = () => {
@@ -23,7 +27,7 @@ const createSlackClient = () => {
   };
 };
 
-const createRequestBlocks = (userId: string, email: string) => [
+const createPublicHostRequestBlocks = (userId: string, email: string) => [
   {
     type: 'divider',
   },
@@ -68,7 +72,7 @@ const createRequestBlocks = (userId: string, email: string) => [
   },
 ];
 
-const createResponseBlocks = (
+const createPublicHostResponseBlocks = (
   email: string,
   link = '',
   verificationCode?: number,
@@ -98,6 +102,77 @@ const createResponseBlocks = (
     type: 'divider',
   },
 ];
+
+const createPostBlocks = (
+  postId: string,
+  exercise = 'unknown',
+  question = 'unknown',
+  originalText: string,
+  translatedText: string | undefined,
+  language: LANGUAGE_TAG,
+) => {
+  const text = translatedText
+    ? `*${question}*\n` +
+      `${translatedText}\n\n` +
+      `*[Original Message]*\n` +
+      `${originalText}\n\n` +
+      `*Langauge:* ${language}\n`
+    : `*${question}*\n` + `${originalText}\n\n`;
+
+  const blocks = [
+    {
+      type: 'header',
+      text: {
+        type: 'plain_text',
+        text: exercise,
+      },
+    },
+    {
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text,
+      },
+    },
+  ];
+
+  if (originalText.length >= SHARING_POST_MIN_LENGTH) {
+    return [
+      ...blocks,
+      {
+        type: 'actions',
+        elements: [
+          {
+            type: 'button',
+            text: {text: 'Hide sharing post', type: 'plain_text'},
+            value: postId,
+            style: 'danger',
+            action_id: RequestAction.HIDE_SHARING_POST,
+          },
+        ],
+      },
+    ];
+  } else {
+    return [
+      ...blocks,
+      {
+        type: 'section',
+        text: {
+          type: 'plain_text',
+          text: "❌ This post is hidden because it's too short",
+        },
+      },
+    ];
+  }
+};
+
+const hiddenPostBlock = {
+  type: 'section',
+  text: {
+    type: 'plain_text',
+    text: '❌ This post is hidden',
+  },
+};
 
 const createFeedbackBlocks = (
   exercise = 'unknown',
@@ -133,7 +208,7 @@ const createFeedbackBlocks = (
 ];
 
 export type SlackPayload = {
-  message: {ts: string};
+  message: {ts: string; blocks: KnownBlock[]};
   actions: Array<{action_id: string; value: string}>;
   channel: {id: string};
 };
@@ -141,10 +216,11 @@ export type SlackPayload = {
 export const parseMessage = (slackPayload: SlackPayload) => {
   const channelId = slackPayload.channel.id;
   const ts = slackPayload.message.ts;
-  const action_id = slackPayload.actions[0].action_id;
-  const userId = slackPayload.actions[0].value;
+  const originalBlocks = slackPayload.message.blocks;
+  const actionId = slackPayload.actions[0].action_id;
+  const value = slackPayload.actions[0].value;
 
-  return [channelId, ts, action_id, userId];
+  return {channelId, ts, actionId, value, originalBlocks};
 };
 
 export const sendPublicHostRequestMessage = async (
@@ -156,7 +232,7 @@ export const sendPublicHostRequestMessage = async (
       const slackClient = createSlackClient();
 
       await slackClient.chat.postMessage({
-        blocks: createRequestBlocks(userId, email),
+        blocks: createPublicHostRequestBlocks(userId, email),
         username: SLACK_BOT_NAME,
         channel: `#${SLACK_PUBLIC_HOST_REQUESTS_CHANNEL}`,
       });
@@ -177,7 +253,7 @@ export const updatePublicHostRequestMessage = async (
     const slackClient = createSlackClient();
 
     await slackClient.chat.update({
-      blocks: createResponseBlocks(email, link, verificationCode),
+      blocks: createPublicHostResponseBlocks(email, link, verificationCode),
       channel: channelId,
       ts,
     });
@@ -211,5 +287,61 @@ export const sendFeedbackMessage = async (
     } catch (error) {
       throw new SlackError(SlackErrorCode.couldNotSendMessage, error);
     }
+  }
+};
+
+export const sendPostMessage = async (
+  postId: string,
+  exercise: string | undefined,
+  question: string | undefined,
+  originalText: string,
+  language: LANGUAGE_TAG,
+) => {
+  if (SLACK_SHARING_POSTS_CHANNEL) {
+    try {
+      const slackClient = createSlackClient();
+
+      const translatedText =
+        language !== DEFAULT_LANGUAGE_TAG
+          ? await translate(originalText, language, DEFAULT_LANGUAGE_TAG)
+          : undefined;
+
+      await slackClient.chat.postMessage({
+        blocks: createPostBlocks(
+          postId,
+          exercise,
+          question,
+          originalText,
+          translatedText,
+          language,
+        ),
+        username: SLACK_BOT_NAME,
+        channel: `#${SLACK_SHARING_POSTS_CHANNEL}`,
+      });
+    } catch (error) {
+      throw new SlackError(SlackErrorCode.couldNotSendMessage, error);
+    }
+  }
+};
+
+export const updatePostMessageAsHidden = async (
+  channelId: string,
+  ts: string,
+  originalBlocks: KnownBlock[],
+) => {
+  try {
+    const slackClient = createSlackClient();
+
+    const blocksWithoutAction = originalBlocks.filter(
+      block => block.type !== 'actions',
+    );
+
+    await slackClient.chat.update({
+      blocks: [...blocksWithoutAction, hiddenPostBlock],
+      channel: channelId,
+      ts,
+    });
+  } catch (error) {
+    throw new SlackError(SlackErrorCode.couldNotUpdateMessage, error);
   }
 };

@@ -1,9 +1,12 @@
 import {SlackError, SlackErrorCode} from '../controllers/errors/SlackError';
 import {RequestAction} from '../lib/constants/requestAction';
+import {translate} from '../lib/translation';
 import {
   parseMessage,
   sendFeedbackMessage,
+  sendPostMessage,
   sendPublicHostRequestMessage,
+  updatePostMessageAsHidden,
   updatePublicHostRequestMessage,
 } from './slack';
 
@@ -17,6 +20,8 @@ jest.mock('@slack/web-api', () => ({
     },
   })),
 }));
+jest.mock('../lib/translation');
+const mockedTranslate = jest.mocked(translate);
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -28,15 +33,16 @@ describe('slack model', () => {
       expect(
         parseMessage({
           channel: {id: 'some-channel-id'},
-          message: {ts: 'some-ts'},
+          message: {ts: 'some-ts', blocks: []},
           actions: [{action_id: 'some-action-id', value: 'some-user-id'}],
         }),
-      ).toEqual([
-        'some-channel-id',
-        'some-ts',
-        'some-action-id',
-        'some-user-id',
-      ]);
+      ).toEqual({
+        channelId: 'some-channel-id',
+        ts: 'some-ts',
+        actionId: 'some-action-id',
+        value: 'some-user-id',
+        originalBlocks: [],
+      });
     });
   });
 
@@ -213,6 +219,187 @@ describe('slack model', () => {
         ],
         channel: '#some-channel',
         username: 'Some Bot',
+      });
+    });
+  });
+
+  describe('sendPostMessage', () => {
+    it('should send expected message to slack with translation', async () => {
+      mockedTranslate.mockResolvedValueOnce('some translated text');
+      await sendPostMessage(
+        'some-post-id',
+        'some exercise',
+        'some question',
+        'some text that is longer than 20 chars',
+        'sv',
+      );
+
+      expect(mockPostMessage).toHaveBeenCalledTimes(1);
+      expect(mockPostMessage).toHaveBeenLastCalledWith({
+        blocks: [
+          {
+            type: 'header',
+            text: {
+              type: 'plain_text',
+              text: 'some exercise',
+            },
+          },
+          {
+            type: 'section',
+            text: {
+              type: 'mrkdwn',
+              text:
+                `*some question*\n` +
+                `some translated text\n\n` +
+                `*[Original Message]*\n` +
+                `some text that is longer than 20 chars\n\n` +
+                `*Langauge:* sv\n`,
+            },
+          },
+          {
+            type: 'actions',
+            elements: [
+              {
+                type: 'button',
+                text: {text: 'Hide sharing post', type: 'plain_text'},
+                value: 'some-post-id',
+                style: 'danger',
+                action_id: RequestAction.HIDE_SHARING_POST,
+              },
+            ],
+          },
+        ],
+        channel: '#some-channel',
+        username: 'Some Bot',
+      });
+    });
+
+    it('should send expected message to slack without translation', async () => {
+      await sendPostMessage(
+        'some-post-id',
+        'some exercise',
+        'some question',
+        'some text that is longer than 20 chars',
+        'en',
+      );
+
+      expect(mockedTranslate).toHaveBeenCalledTimes(0);
+      expect(mockPostMessage).toHaveBeenCalledTimes(1);
+      expect(mockPostMessage).toHaveBeenLastCalledWith({
+        blocks: [
+          {
+            type: 'header',
+            text: {
+              type: 'plain_text',
+              text: 'some exercise',
+            },
+          },
+          {
+            type: 'section',
+            text: {
+              type: 'mrkdwn',
+              text:
+                `*some question*\n` +
+                `some text that is longer than 20 chars\n\n`,
+            },
+          },
+          {
+            type: 'actions',
+            elements: [
+              {
+                type: 'button',
+                text: {text: 'Hide sharing post', type: 'plain_text'},
+                value: 'some-post-id',
+                style: 'danger',
+                action_id: RequestAction.HIDE_SHARING_POST,
+              },
+            ],
+          },
+        ],
+        channel: '#some-channel',
+        username: 'Some Bot',
+      });
+    });
+
+    it('should send expected message to slack with short message', async () => {
+      mockedTranslate.mockResolvedValueOnce('some translated text');
+      await sendPostMessage(
+        'some-post-id',
+        'some exercise',
+        'some question',
+        'some text',
+        'sv',
+      );
+
+      expect(mockPostMessage).toHaveBeenCalledTimes(1);
+      expect(mockPostMessage).toHaveBeenLastCalledWith({
+        blocks: [
+          {
+            type: 'header',
+            text: {
+              type: 'plain_text',
+              text: 'some exercise',
+            },
+          },
+          {
+            type: 'section',
+            text: {
+              type: 'mrkdwn',
+              text:
+                `*some question*\n` +
+                `some translated text\n\n` +
+                `*[Original Message]*\n` +
+                `some text\n\n` +
+                `*Langauge:* sv\n`,
+            },
+          },
+          {
+            type: 'section',
+            text: {
+              type: 'plain_text',
+              text: "❌ This post is hidden because it's too short",
+            },
+          },
+        ],
+        channel: '#some-channel',
+        username: 'Some Bot',
+      });
+    });
+  });
+
+  describe('updatePostMessageAsHidden', () => {
+    it('should update message as expected', async () => {
+      updatePostMessageAsHidden('some-channel-id', 'some-ts', [
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: 'some text',
+          },
+        },
+        {type: 'actions', elements: []},
+      ]);
+
+      expect(mockUpdate).toHaveBeenCalledTimes(1);
+      expect(mockUpdate).toHaveBeenCalledWith({
+        blocks: [
+          {
+            type: 'section',
+            text: {
+              type: 'mrkdwn',
+              text: 'some text',
+            },
+          },
+          {
+            type: 'section',
+            text: {
+              type: 'plain_text',
+              text: '❌ This post is hidden',
+            },
+          },
+        ],
+        channel: 'some-channel-id',
+        ts: 'some-ts',
       });
     });
   });

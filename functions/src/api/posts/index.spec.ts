@@ -45,6 +45,7 @@ describe('/api/posts', () => {
         {
           id: 'some-id',
           exerciseId: 'some',
+          sharingId: 'some-haring-id',
           text: 'some text',
           userId: 'some-user-id',
           userProfile: {displayName: 'some name', photoURL: 'some-url'},
@@ -65,6 +66,7 @@ describe('/api/posts', () => {
         {
           id: 'some-id',
           exerciseId: 'some',
+          sharingId: 'some-haring-id',
           text: 'some text',
           userId: 'some-user-id',
           userProfile: {displayName: 'some name', photoURL: 'some-url'},
@@ -81,6 +83,7 @@ describe('/api/posts', () => {
     it('should create post', async () => {
       const response = await request(mockServer).post('/posts').send({
         exerciseId: 'some-exercise-id',
+        sharingId: 'some-sharing-id',
         text: 'some text',
         anonymous: true,
         language: 'en',
@@ -89,6 +92,7 @@ describe('/api/posts', () => {
       expect(mockCreatePost).toHaveBeenCalledWith(
         {
           exerciseId: 'some-exercise-id',
+          sharingId: 'some-sharing-id',
           text: 'some text',
           anonymous: true,
           language: 'en',

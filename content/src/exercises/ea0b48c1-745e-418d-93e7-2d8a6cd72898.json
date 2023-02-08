@@ -93,7 +93,8 @@
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one.\n>\n> Press play to start the timer. Re-start for each new sharing. \n\nThank you everyone."
           }
-        ]
+        ],
+        "id": "sharing"
       },
       {
         "type": "content",

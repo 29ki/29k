@@ -32,6 +32,7 @@ postsRouter.get('/:exerciseId', async ctx => {
 
 const CreatePostSchema = yup.object().shape({
   exerciseId: yup.string().required(),
+  sharingId: yup.string().required(),
   text: yup.string().required(),
   anonymous: yup.boolean().default(true),
   language: yup

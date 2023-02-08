@@ -1,7 +1,9 @@
 import {omit} from 'ramda';
 import {PostError} from '../../../shared/src/errors/Post';
 import {PostParams} from '../../../shared/src/types/Post';
+import {getExerciseById, getSharingSlideById} from '../lib/exercise';
 import * as postModel from '../models/post';
+import {sendPostMessage} from '../models/slack';
 import {getPublicUserInfo} from '../models/user';
 import {RequestError} from './errors/RequestError';
 
@@ -33,7 +35,19 @@ export const createPost = async (postParams: PostParams, userId: string) => {
     userId: postParams.anonymous === false ? userId : null,
     approved: true,
   };
-  await postModel.addPost(postData);
+
+  const {id, exerciseId, sharingId, text, language} = await postModel.addPost(
+    postData,
+  );
+  const exercise = getExerciseById(exerciseId, language);
+  const sharingSlide = getSharingSlideById(exercise, sharingId);
+  await sendPostMessage(
+    id,
+    exercise?.name,
+    sharingSlide?.content?.heading,
+    text,
+    language,
+  );
 };
 
 export const deletePost = async (postId: string) => {
