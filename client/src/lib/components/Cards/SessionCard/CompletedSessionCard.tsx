@@ -41,8 +41,8 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
   hasCardBefore,
   hasCardAfter,
 }) => {
-  const {contentId, completedAt, type} = session;
-  const exercise = useExerciseById(contentId);
+  const {exerciseId, completedAt, type} = session;
+  const exercise = useExerciseById(exerciseId);
 
   const onContextPress = useCallback(() => {}, []);
 
