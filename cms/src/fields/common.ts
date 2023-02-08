@@ -102,6 +102,33 @@ export const IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
   ],
 };
 
+export const HOST_PROFILE_FIELD: CmsFieldBase & CmsFieldObject = {
+  label: '🦹‍♂️ Host',
+  name: 'host',
+  widget: 'object',
+  collapsed: true,
+  required: false,
+  i18n: true,
+  fields: [
+    {
+      label: '📃 Name',
+      name: 'displayName',
+      widget: 'string',
+      required: false,
+      i18n: true,
+    },
+    {
+      label: '🌅 Profile image',
+      name: 'photoURL',
+      widget: 'image',
+      required: false,
+      i18n: true,
+      allow_multiple: false,
+      media_library: CLOUDINARY_IMAGE_CONFIG,
+    },
+  ],
+};
+
 export const LOTTE_FIELD: CmsFieldBase & CmsFieldObject = {
   label: '💃 Lottie',
   name: 'lottie',
@@ -204,7 +231,11 @@ export const CARD_FIELD: CmsFieldBase & CmsFieldObject = {
   i18n: true,
   widget: 'object',
   collapsed: true,
-  fields: [IMAGE_FIELD, {...LOTTE_FIELD, hint: 'Overrides image'}],
+  fields: [
+    IMAGE_FIELD,
+    {...LOTTE_FIELD, hint: 'Overrides image'},
+    {...HOST_PROFILE_FIELD, hint: 'Only used for the Async version'},
+  ],
 };
 
 export const TAGS_FIELD: CmsFieldBase & CmsFieldRelation = {
