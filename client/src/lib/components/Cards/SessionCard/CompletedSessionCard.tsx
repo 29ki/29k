@@ -15,10 +15,7 @@ import {CheckIcon, CommunityIcon, ProfileFillIcon} from '../../Icons';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Spacer4} from '../../Spacers/Spacer';
 import dayjs from 'dayjs';
-import {
-  SessionMode,
-  SessionType,
-} from '../../../../../../shared/src/types/Session';
+import {SessionMode} from '../../../../../../shared/src/types/Session';
 
 type CompletedSessionCardProps = {
   session: CompletedSession;
