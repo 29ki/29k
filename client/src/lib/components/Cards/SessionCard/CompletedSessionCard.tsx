@@ -15,7 +15,10 @@ import {CheckIcon, CommunityIcon, ProfileFillIcon} from '../../Icons';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Spacer4} from '../../Spacers/Spacer';
 import dayjs from 'dayjs';
-import {SessionType} from '../../../../../../shared/src/types/Session';
+import {
+  SessionMode,
+  SessionType,
+} from '../../../../../../shared/src/types/Session';
 
 type CompletedSessionCardProps = {
   session: CompletedSession;
@@ -41,7 +44,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
   hasCardBefore,
   hasCardAfter,
 }) => {
-  const {exerciseId, completedAt, type} = session;
+  const {exerciseId, completedAt, mode} = session;
   const exercise = useExerciseById(exerciseId);
 
   const onContextPress = useCallback(() => {}, []);
@@ -83,7 +86,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
         <Badge
           text={dayjs(completedAt).format('ddd, D MMM')}
           Icon={
-            type === SessionType.async ? <ProfileFillIcon /> : <CommunityIcon />
+            mode === SessionMode.async ? <ProfileFillIcon /> : <CommunityIcon />
           }
         />
       </Row>
