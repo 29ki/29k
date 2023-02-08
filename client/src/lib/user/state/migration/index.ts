@@ -1,22 +1,23 @@
 import {PersistOptions} from 'zustand/middleware';
 
-import migrateV0 from './v0';
-import {Actions, PersistedState, State, UserState} from '../state';
+import {Actions, PersistedState, State} from '../state';
+import migrateV0, {V0State} from './v0';
+import migrateV1, {V1State} from './v1';
 
 const migrate: Required<
   PersistOptions<State & Actions, PersistedState>
 >['migrate'] = async (persistedState, version) => {
-  const {userState} = persistedState as PersistedState;
+  let state = persistedState;
 
   if (version === 0) {
-    const newState: State['userState'] = {};
-    for (const [userId, state] of Object.entries(userState)) {
-      newState[userId] = await migrateV0(state as UserState);
-    }
-    return {userState: newState} as unknown as State & Actions;
+    state = await migrateV0(state as V0State);
   }
 
-  return {userState} as unknown as State & Actions;
+  if (version <= 1) {
+    state = await migrateV1(state as V1State);
+  }
+
+  return state as State & Actions;
 };
 
 export default migrate;

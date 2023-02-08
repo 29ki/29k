@@ -51,7 +51,7 @@ const useLeaveSession = (sessionType: SessionType) => {
       sessionType !== SessionType.async
     ) {
       navigate('SessionFeedbackModal', {
-        exerciseId: session.contentId,
+        exerciseId: session.exerciseId,
         sessionId: session.id,
         completed: Boolean(sessionState?.completed),
         isHost,
@@ -69,7 +69,7 @@ const useLeaveSession = (sessionType: SessionType) => {
     sessionType,
     asyncSession,
     session?.id,
-    session?.contentId,
+    session?.exerciseId,
     sessionState?.started,
     sessionState?.completed,
     isHost,

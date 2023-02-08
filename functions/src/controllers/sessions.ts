@@ -75,11 +75,11 @@ export const getSession = async (userId: string, sessionId: Session['id']) => {
 export const createSession = async (
   userId: string,
   {
-    contentId,
+    exerciseId,
     type,
     startTime,
     language,
-  }: Pick<Session, 'contentId' | 'type' | 'startTime' | 'language'>,
+  }: Pick<Session, 'exerciseId' | 'type' | 'startTime' | 'language'>,
 ) => {
   const {displayName} = await userModel.getPublicUserInfo(userId);
   const expireDate = dayjs(startTime).add(2, 'hour');
@@ -92,7 +92,7 @@ export const createSession = async (
 
   const link = await createSessionInviteLink(
     inviteCode,
-    contentId,
+    exerciseId,
     displayName,
     language,
   );
@@ -102,7 +102,7 @@ export const createSession = async (
     dailyRoomName: dailyRoom.name,
     url: dailyRoom.url,
     language,
-    contentId,
+    exerciseId: exerciseId,
     link,
     type,
     startTime,

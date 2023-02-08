@@ -1,7 +1,7 @@
-import * as uuid from 'uuid';
 import useUserState, {
   getCurrentUserStateSelector,
 } from '../../../../user/state/state';
+import {generateId} from '../../../../utils/id';
 
 const getMetricsUid = () => {
   const state = useUserState.getState();
@@ -14,7 +14,7 @@ const getMetricsUid = () => {
       return uid;
     }
 
-    const newUid = uuid.v4();
+    const newUid = generateId();
 
     setCurrentUserState({metricsUid: newUid});
 

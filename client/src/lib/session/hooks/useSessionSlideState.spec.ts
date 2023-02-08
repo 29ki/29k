@@ -13,7 +13,7 @@ describe('useSessionSlideState', () => {
     mockUseExerciseById.mockReturnValueOnce(null);
     useSessionState.setState({
       session: {
-        contentId: 'some-content-id',
+        exerciseId: 'some-content-id',
         id: 'test',
       } as Session,
     });
@@ -39,7 +39,7 @@ describe('useSessionSlideState', () => {
     });
     useSessionState.setState({
       session: {
-        contentId: 'some-content',
+        exerciseId: 'some-content',
       } as Session,
       sessionState: {
         index: 1,
@@ -81,7 +81,7 @@ describe('useSessionSlideState', () => {
       slides: [{type: 'slide-1'}],
     });
     useSessionState.setState({
-      session: {contentId: 'some-content'} as Session,
+      session: {exerciseId: 'some-content'} as Session,
       sessionState: {index: 0} as SessionState,
     });
 

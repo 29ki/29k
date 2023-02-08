@@ -194,7 +194,7 @@ describe('/api/sessions', () => {
         const response = await request(mockServer)
           .post('/sessions')
           .send({
-            contentId: 'some-content-id',
+            exerciseId: 'some-content-id',
             type: 'public',
             startTime,
           })
@@ -212,7 +212,7 @@ describe('/api/sessions', () => {
         const response = await request(mockServer)
           .post('/sessions')
           .send({
-            contentId: 'some-content-id',
+            exerciseId: 'some-content-id',
             type: 'public',
             startTime,
           })

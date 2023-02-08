@@ -5,12 +5,12 @@ import Sentry from '../../sentry';
 const SESSIONS_ENDPOINT = '/sessions';
 
 export const addSession = async ({
-  contentId,
+  exerciseId,
   type,
   startTime,
   language,
 }: {
-  contentId: Session['contentId'];
+  exerciseId: Session['exerciseId'];
   type: Session['type'];
   startTime: Session['startTime'];
   language: Session['language'];
@@ -18,7 +18,7 @@ export const addSession = async ({
   try {
     const response = await apiClient(SESSIONS_ENDPOINT, {
       method: 'POST',
-      body: JSON.stringify({contentId, type, startTime, language}),
+      body: JSON.stringify({exerciseId, type, startTime, language}),
     });
 
     if (!response.ok) {

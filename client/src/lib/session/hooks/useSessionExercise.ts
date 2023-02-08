@@ -5,7 +5,7 @@ import useSessionState from '../state/state';
 const useSessionExercise = (): Exercise | null => {
   const liveSession = useSessionState(state => state.session);
   const asyncSession = useSessionState(state => state.asyncSession);
-  return useExerciseById(liveSession?.contentId ?? asyncSession?.contentId);
+  return useExerciseById(liveSession?.exerciseId ?? asyncSession?.exerciseId);
 };
 
 export default useSessionExercise;

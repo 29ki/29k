@@ -1,6 +1,5 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import 'react-native-get-random-values';
 import {
   Init,
   LogEvent,
@@ -13,7 +12,7 @@ import {
 import getMetricsUid from './utils/getMetricsUid';
 import metricsClient from './utils/metricsClient';
 import useNavigationTracker from './hooks/useNavigationTracker';
-import {DEFAULT_CONSENT} from '../..';
+import {DEFAULT_CONSENT} from '../../constants';
 
 let haveConsent = DEFAULT_CONSENT;
 

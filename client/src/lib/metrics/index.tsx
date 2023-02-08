@@ -13,8 +13,6 @@ import {BackEndMetricsProvider} from './adaptors/backEnd';
 import * as postHog from './adaptors/postHog';
 import * as backEnd from './adaptors/backEnd';
 
-export const DEFAULT_CONSENT = true;
-
 export const MetricsProvider: MetricsProviderType = ({children}) => (
   <BackEndMetricsProvider>
     <PostHogMetricsProvider>{children}</PostHogMetricsProvider>

@@ -78,7 +78,7 @@ const Session: React.FC = () => {
   const setCurrentContentReachedEnd = useSessionState(
     state => state.setCurrentContentReachedEnd,
   );
-  const exercise = useExerciseById(session.contentId);
+  const exercise = useExerciseById(session.exerciseId);
   const sessionSlideState = useSessionSlideState();
   const theme = exercise?.theme;
   const logSessionMetricEvent = useAsyncSessionMetricEvents();
@@ -99,7 +99,7 @@ const Session: React.FC = () => {
       addCompletedSession({
         id: sessionState?.id,
         completedAt: new Date(),
-        contentId: exercise?.id,
+        exerciseId: exercise?.id,
         language: session.language,
         type: session.type,
       });

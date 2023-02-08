@@ -83,8 +83,8 @@ const SessionCard: React.FC<SessionCardProps> = ({
   hasCardBefore,
   hasCardAfter,
 }) => {
-  const {contentId, startTime, hostProfile} = session;
-  const exercise = useExerciseById(contentId);
+  const {exerciseId, startTime, hostProfile} = session;
+  const exercise = useExerciseById(exerciseId);
   const user = useUser();
   const isHost = user?.uid === session.hostId;
   const showNumberOfInterested = session.interestedCount > 0;

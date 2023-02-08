@@ -8,7 +8,7 @@ import {Session} from '../../../../../shared/src/types/Session';
 import migrate from './migration';
 import {UserProfile} from '../../../../../shared/src/types/User';
 
-const USER_STATE_VERSION = 1;
+const USER_STATE_VERSION = 2;
 
 type PinnedSession = {
   id: string;
@@ -18,7 +18,7 @@ type PinnedSession = {
 export type CompletedSession = {
   id: Session['id'];
   hostId?: Session['hostId'];
-  contentId: Session['contentId'];
+  exerciseId: Session['exerciseId'];
   language: Session['language'];
   type: Session['type'];
   completedAt: Date;
@@ -140,7 +140,7 @@ const useUserState = create<State & Actions>()(
     {
       name: 'userState',
       storage: createJSONStorage(() => AsyncStorage),
-      partialize: ({userState}) => ({userState}),
+      partialize: ({userState}): PersistedState => ({userState}),
       // In dev I had change this with the app closed (android)
       // otherwise the "migrate" functions does not run due to diff failure
       version: USER_STATE_VERSION,

@@ -215,7 +215,7 @@ describe('sessions - controller', () => {
         hostId: 'some-user-id',
       });
       await createSession('some-user-id', {
-        contentId: 'some-content-id',
+        exerciseId: 'some-exercise-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
         language: 'en',
@@ -231,14 +231,14 @@ describe('sessions - controller', () => {
       });
       mockGenerateVerificationCode.mockReturnValue(123456);
       await createSession('some-user-id', {
-        contentId: 'some-content-id',
+        exerciseId: 'some-exercise-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
         language: 'en',
       });
       expect(mockDynamicLinks.createSessionInviteLink).toHaveBeenCalledWith(
         123456,
-        'some-content-id',
+        'some-exercise-id',
         'some-name',
         'en',
       );
@@ -255,14 +255,14 @@ describe('sessions - controller', () => {
       });
 
       const session = await createSession('some-user-id', {
-        contentId: 'some-content-id',
+        exerciseId: 'some-exercise-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
         language: 'en',
       });
 
       expect(mockAddSession).toHaveBeenCalledWith({
-        contentId: 'some-content-id',
+        exerciseId: 'some-exercise-id',
         language: 'en',
         dailyRoomName: 'some-fake-daily-room-name',
         hostId: 'some-user-id',
@@ -302,7 +302,7 @@ describe('sessions - controller', () => {
       });
 
       const session = await createSession('some-user-id', {
-        contentId: 'some-content-id',
+        exerciseId: 'some-exercise-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
         language: 'en',
@@ -317,7 +317,7 @@ describe('sessions - controller', () => {
       });
 
       expect(mockAddSession).toHaveBeenCalledWith({
-        contentId: 'some-content-id',
+        exerciseId: 'some-exercise-id',
         language: 'en',
         dailyRoomName: 'some-fake-daily-room-name',
         hostId: 'some-user-id',
