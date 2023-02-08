@@ -1,6 +1,5 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import 'react-native-get-random-values';
 import {
   Init,
   LogEvent,
