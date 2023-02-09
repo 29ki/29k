@@ -1,7 +1,7 @@
 import {renderHook} from '@testing-library/react-hooks';
 import {
   AsyncSession,
-  Session,
+  LiveSession,
   SessionState,
 } from '../../../../../shared/src/types/Session';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
@@ -16,9 +16,9 @@ describe('useSessionExercise', () => {
   it('should return null if no exercise exists', () => {
     mockUseExerciseById.mockReturnValueOnce(null);
     useSessionState.setState({
-      session: {
+      liveSession: {
         id: 'test',
-      } as Session,
+      } as LiveSession,
       asyncSession: {
         id: 'test',
       } as AsyncSession,
@@ -33,7 +33,7 @@ describe('useSessionExercise', () => {
   it('should return null if no session exists', () => {
     mockUseExerciseById.mockReturnValueOnce(null);
     useSessionState.setState({
-      session: null,
+      liveSession: null,
       asyncSession: null,
     });
     const {result} = renderHook(() => useSessionExercise());
@@ -48,9 +48,9 @@ describe('useSessionExercise', () => {
       slides: [{type: 'slide-1'}, {type: 'slide-2'}, {type: 'slide-3'}],
     });
     useSessionState.setState({
-      session: {
+      liveSession: {
         exerciseId: 'some-exercise-id',
-      } as Session,
+      } as LiveSession,
       asyncSession: null,
       sessionState: {index: 1} as SessionState,
     });
@@ -73,7 +73,7 @@ describe('useSessionExercise', () => {
       asyncSession: {
         exerciseId: 'some-exercise-id',
       } as AsyncSession,
-      session: null,
+      liveSession: null,
       sessionState: {index: 1} as SessionState,
     });
 
@@ -94,9 +94,9 @@ describe('useSessionExercise', () => {
 
     mockUseExerciseById.mockReturnValueOnce(exercise);
     useSessionState.setState({
-      session: {
+      liveSession: {
         exerciseId: 'some-exercise-id',
-      } as Session,
+      } as LiveSession,
       sessionState: {index: 1} as SessionState,
     });
 

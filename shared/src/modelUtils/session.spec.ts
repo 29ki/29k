@@ -1,5 +1,5 @@
 import {Timestamp} from 'firebase-admin/firestore';
-import {SessionData, SessionStateData} from '../types/Session';
+import {LiveSessionData, SessionStateData} from '../types/Session';
 import {getSession, getSessionState} from './session';
 
 describe('session', () => {
@@ -11,7 +11,7 @@ describe('session', () => {
         startTime: Timestamp.fromDate(someDate),
         createdAt: Timestamp.fromDate(someDate),
         updatedAt: Timestamp.fromDate(someDate),
-      } as SessionData;
+      } as LiveSessionData;
 
       expect(getSession(sessionData)).toEqual({
         id: 'some-session-id',

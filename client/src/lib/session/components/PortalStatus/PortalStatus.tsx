@@ -36,7 +36,7 @@ const PortalStatus: React.FC = () => {
   const exercise = useSessionExercise();
   const textColor = exercise?.theme?.textColor;
   const sessionState = useSessionState(state => state.sessionState);
-  const startTime = useSessionState(state => state.session?.startTime);
+  const startTime = useSessionState(state => state.liveSession?.startTime);
   const sessionTime = useSessionStartTime(dayjs(startTime));
   const started = sessionState?.started;
   const participants = useDailyState(state => state.participants);

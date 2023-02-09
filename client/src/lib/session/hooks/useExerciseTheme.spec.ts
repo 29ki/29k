@@ -1,7 +1,7 @@
 import {renderHook} from '@testing-library/react-hooks';
 import {useTranslation} from 'react-i18next';
 
-import {Session} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/types/Session';
 import useSessionState from '../state/state';
 import useExerciseTheme from './useExerciseTheme';
 
@@ -15,7 +15,7 @@ describe('useExerciseTheme', () => {
 
   it('returns current session exercise theme', async () => {
     useSessionState.setState({
-      session: {exerciseId: 'some-content-id'} as Session,
+      liveSession: {exerciseId: 'some-content-id'} as LiveSession,
     });
 
     const {result} = renderHook(() => useExerciseTheme());

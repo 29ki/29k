@@ -1,9 +1,9 @@
-import {Session} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/types/Session';
 import apiClient from '../../apiClient/apiClient';
 
 const SESSIONS_ENDPOINT = '/sessions';
 
-export const fetchSessions = async (): Promise<Session[]> => {
+export const fetchSessions = async (): Promise<LiveSession[]> => {
   try {
     const response = await apiClient(SESSIONS_ENDPOINT);
     if (!response.ok) {

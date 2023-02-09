@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import {Alert as AlertMock} from 'react-native';
 import {
   AsyncSession,
-  Session,
+  LiveSession,
   SessionState,
   SessionMode,
 } from '../../../../../shared/src/types/Session';
@@ -47,9 +47,9 @@ describe('useLeaveSession', () => {
   describe('leaveSession', () => {
     it('leaves the call, resets the state and navigates', async () => {
       useSessionState.setState({
-        session: {
+        liveSession: {
           id: 'some-session-id',
-        } as Session,
+        } as LiveSession,
       });
 
       const {result} = renderHook(() => useLeaveSession(SessionMode.live));
@@ -57,15 +57,15 @@ describe('useLeaveSession', () => {
       await act(() => result.current.leaveSession());
 
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
-      expect(useSessionState.getState().session).toBe(null);
+      expect(useSessionState.getState().liveSession).toBe(null);
       expect(mockNavigate).toHaveBeenCalledTimes(1);
     });
 
     it('resets the state and navigates on async sessions', async () => {
       useSessionState.setState({
-        session: {
+        liveSession: {
           id: 'some-session-id',
-        } as Session,
+        } as LiveSession,
       });
 
       const {result} = renderHook(() => useLeaveSession(SessionMode.async));
@@ -73,17 +73,17 @@ describe('useLeaveSession', () => {
       await act(() => result.current.leaveSession());
 
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(0);
-      expect(useSessionState.getState().session).toBe(null);
+      expect(useSessionState.getState().liveSession).toBe(null);
       expect(mockNavigate).toHaveBeenCalledTimes(1);
     });
 
     it('navigates to session feedback modal with set params if session is started', async () => {
       useSessionState.setState({
-        session: {
+        liveSession: {
           id: 'some-session-id',
           hostId: 'some-host-id',
           exerciseId: 'some-exercise-id',
-        } as Session,
+        } as LiveSession,
         sessionState: {
           started: true,
           completed: true,
@@ -129,7 +129,7 @@ describe('useLeaveSession', () => {
 
     it('leaves the call, resets the state and navigates on confirming', async () => {
       useSessionState.setState({
-        session: {id: 'some-session-id'} as Session,
+        liveSession: {id: 'some-session-id'} as LiveSession,
         sessionState: {
           id: 'some-session-id',
           started: true,
@@ -147,7 +147,7 @@ describe('useLeaveSession', () => {
 
       expect(alertConfirmMock).toHaveBeenCalledTimes(1);
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
-      expect(useSessionState.getState().session).toBe(null);
+      expect(useSessionState.getState().liveSession).toBe(null);
       expect(useSessionState.getState().sessionState).toBe(null);
       expect(mockLogLiveSessionMetricEvent).toHaveBeenCalledTimes(1);
       expect(mockNavigate).toHaveBeenCalledTimes(2);
@@ -174,14 +174,14 @@ describe('useLeaveSession', () => {
 
       expect(alertConfirmMock).toHaveBeenCalledTimes(1);
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(0);
-      expect(useSessionState.getState().session).toBe(null);
+      expect(useSessionState.getState().liveSession).toBe(null);
       expect(useSessionState.getState().sessionState).toBe(null);
       expect(mockNavigate).toHaveBeenCalledTimes(2);
     });
 
     it('does nothing on dismiss', async () => {
       useSessionState.setState({
-        session: {id: 'some-session-id'} as Session,
+        liveSession: {id: 'some-session-id'} as LiveSession,
         sessionState: {
           id: 'some-session-id',
           started: true,
@@ -199,7 +199,7 @@ describe('useLeaveSession', () => {
 
       expect(alertConfirmMock).toHaveBeenCalledTimes(1);
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(0);
-      expect(useSessionState.getState().session).toEqual({
+      expect(useSessionState.getState().liveSession).toEqual({
         id: 'some-session-id',
       });
       expect(useSessionState.getState().sessionState).toEqual({

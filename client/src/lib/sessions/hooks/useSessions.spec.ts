@@ -4,7 +4,10 @@ import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
 import useSessionsState from '../state/state';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import {Session, SessionType} from '../../../../../shared/src/types/Session';
+import {
+  LiveSession,
+  SessionType,
+} from '../../../../../shared/src/types/Session';
 import useUserState from '../../user/state/state';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 
@@ -154,7 +157,7 @@ describe('useSessions', () => {
           {id: 'session-id-1'},
           {id: 'session-id-2'},
           {id: 'session-id-3', hostId: 'user-id'},
-        ] as Array<Session>,
+        ] as Array<LiveSession>,
       });
       useUserState.setState({
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,
@@ -180,7 +183,7 @@ describe('useSessions', () => {
           {id: 'session-id-1'},
           {id: 'session-id-2'},
           {id: 'session-id-3', hostId: 'user-id'},
-        ] as Array<Session>,
+        ] as Array<LiveSession>,
       });
       useUserState.setState({
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,
@@ -204,7 +207,7 @@ describe('useSessions', () => {
           {id: 'session-id-1'},
           {id: 'session-id-2'},
           {id: 'session-id-3', hostId: 'user-id'},
-        ] as Array<Session>,
+        ] as Array<LiveSession>,
       });
       useUserState.setState({
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,
@@ -232,7 +235,7 @@ describe('useSessions', () => {
           {id: 'session-id-1'},
           {id: 'session-id-2'},
           {id: 'session-id-3', hostId: 'user-id'},
-        ] as Array<Session>,
+        ] as Array<LiveSession>,
       });
       useUserState.setState({
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,

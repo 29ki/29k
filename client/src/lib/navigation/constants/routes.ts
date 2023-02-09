@@ -1,7 +1,10 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import {AsyncSession, Session} from '../../../../../shared/src/types/Session';
+import {
+  AsyncSession,
+  LiveSession,
+} from '../../../../../shared/src/types/Session';
 
 export type ProfileStackProps = {
   Profile: undefined;
@@ -15,10 +18,10 @@ export type TabNavigatorProps = {
 };
 
 export type LiveSessionStackProps = {
-  ChangingRoom: {session: Session};
-  Session: {session: Session};
-  IntroPortal: {session: Session};
-  OutroPortal: {session: Session};
+  ChangingRoom: {session: LiveSession};
+  Session: {session: LiveSession};
+  IntroPortal: {session: LiveSession};
+  OutroPortal: {session: LiveSession};
 };
 
 export type AsyncSessionStackProps = {
@@ -43,7 +46,7 @@ export type OverlayStackProps = {
 
 export type ModalStackProps = {
   OverlayStack: NavigatorScreenParams<OverlayStackProps>;
-  SessionModal: {session: Session};
+  SessionModal: {session: LiveSession};
   AsyncSessionModal: {session: AsyncSession};
   SessionUnavailableModal: undefined;
   AddSessionByInviteModal?: {inviteCode?: number};
@@ -59,7 +62,7 @@ export type ModalStackProps = {
   ContactModal: undefined;
   SessionFeedbackModal: {
     exerciseId: Exercise['id'];
-    sessionId: Session['id'];
+    sessionId: LiveSession['id'];
     completed: boolean;
     isHost: boolean;
   };

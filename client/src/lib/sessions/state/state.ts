@@ -1,9 +1,9 @@
-import {Session} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/types/Session';
 import {create} from 'zustand';
 
 type State = {
   isLoading: boolean;
-  sessions: Session[] | null;
+  sessions: LiveSession[] | null;
 };
 
 type Actions = {
