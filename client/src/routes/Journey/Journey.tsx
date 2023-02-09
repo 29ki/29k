@@ -168,7 +168,9 @@ const Journey = () => {
     <Screen backgroundColor={COLORS.PURE_WHITE}>
       <SectionList
         sections={sections}
-        initialScrollIndex={completedSessions.length + 0.2}
+        initialScrollIndex={
+          completedSessions.length ? completedSessions.length + 0.2 : 0
+        }
         getItemLayout={getItemLayout}
         keyExtractor={session => session.id}
         ListHeaderComponent={ListHeader}
