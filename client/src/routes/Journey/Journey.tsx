@@ -29,6 +29,7 @@ import SessionCard from '../../lib/components/Cards/SessionCard/SessionCard';
 import {useTranslation} from 'react-i18next';
 import {Display24} from '../../lib/components/Typography/Display/Display';
 import styled from 'styled-components/native';
+import dayjs from 'dayjs';
 
 export type Section = {
   title: string;
@@ -101,7 +102,9 @@ const Journey = () => {
     if (hostedSessions.length > 0 || pinnedSessions.length > 0) {
       sectionsList.push({
         title: t('headings.planned'),
-        data: [...hostedSessions, ...pinnedSessions],
+        data: [...hostedSessions, ...pinnedSessions].sort((a, b) =>
+          dayjs(a.startTime).isBefore(dayjs(b.startTime)) ? -1 : 1,
+        ),
         type: 'planned',
       });
     }
