@@ -149,7 +149,7 @@ const Journey = () => {
         offset = index * WALLET_CARD_HEIGHT;
       }
 
-      return {length, offset: offset, index};
+      return {length, offset, index};
     },
     [],
   );
