@@ -14,7 +14,8 @@
           }
         ],
         "video": {
-          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1675942333/Video/Async_intro_Accepting_thoughts_and_feelilngs_rd98sd.mov"
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1675942333/Video/Async_intro_Accepting_thoughts_and_feelilngs_rd98sd.mov",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675942887/Images/Thumb_async_intro_outro_Accepting_thoughts_and_feelings_yahp1a.jpg"
         }
       },
       {
@@ -95,7 +96,8 @@
           }
         ],
         "video": {
-          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675942341/Video/Async_outro_Accepting_thoughts_and_feelilngs_thr0r1.mov"
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675942341/Video/Async_outro_Accepting_thoughts_and_feelilngs_thr0r1.mov",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675942887/Images/Thumb_async_intro_outro_Accepting_thoughts_and_feelings_yahp1a.jpg"
         }
       }
     ],
@@ -108,6 +110,10 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
+      },
+      "host": {
+        "displayName": "Lisa",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675942887/Images/Thumb_async_intro_outro_Accepting_thoughts_and_feelings_yahp1a.jpg"
       }
     },
     "duration": 30,
