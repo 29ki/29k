@@ -29,11 +29,12 @@ import SessionCard from '../../lib/components/Cards/SessionCard/SessionCard';
 import {useTranslation} from 'react-i18next';
 import {Display24} from '../../lib/components/Typography/Display/Display';
 import styled from 'styled-components/native';
+import dayjs from 'dayjs';
 
 export type Section = {
   title: string;
   data: JourneySession[];
-  type: 'interested' | 'completed' | 'hosted';
+  type: 'planned' | 'completed';
 };
 
 const SectionList = RNSectionList<JourneySession, Section>;
@@ -56,7 +57,6 @@ const renderSession: SectionListRenderItem<JourneySession, Section> = ({
   item,
   index,
 }) => {
-  const standAlone = section.data.length === 1;
   const hasCardBefore = index > 0;
   const hasCardAfter = index !== section.data.length - 1;
 
@@ -73,7 +73,7 @@ const renderSession: SectionListRenderItem<JourneySession, Section> = ({
       <Gutters>
         <SessionCard
           session={item as LiveSession}
-          standAlone={standAlone}
+          standAlone={true}
           hasCardBefore={hasCardBefore}
           hasCardAfter={hasCardAfter}
         />
@@ -99,19 +99,13 @@ const Journey = () => {
       });
     }
 
-    if (hostedSessions.length > 0) {
+    if (hostedSessions.length > 0 || pinnedSessions.length > 0) {
       sectionsList.push({
-        title: t('headings.hosted'),
-        data: hostedSessions,
-        type: 'hosted',
-      });
-    }
-
-    if (pinnedSessions.length > 0) {
-      sectionsList.push({
-        title: t('headings.interested'),
-        data: pinnedSessions,
-        type: 'interested',
+        title: t('headings.planned'),
+        data: [...hostedSessions, ...pinnedSessions].sort((a, b) =>
+          dayjs(a.startTime).isBefore(dayjs(b.startTime)) ? -1 : 1,
+        ),
+        type: 'planned',
       });
     }
 
@@ -137,7 +131,7 @@ const Journey = () => {
     return (
       <Screen backgroundColor={COLORS.GREYLIGHTEST}>
         <Container>
-          <Display24>{'🌱 Your journey has just begun'}</Display24>
+          <Display24>{t('fallback')}</Display24>
         </Container>
       </Screen>
     );
@@ -146,7 +140,6 @@ const Journey = () => {
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
       <SectionList
-        initialScrollIndex={completedSessions.length + 1}
         sections={sections}
         keyExtractor={session => session.id}
         ListHeaderComponent={ListHeader}

@@ -2,9 +2,9 @@
   "en": {
     "headings": {
       "completed": "Completed",
-      "hosted": "Your sessions",
-      "interested": "Interested"
-    }
+      "planned": "Your planned sessions"
+    },
+    "fallback": "🌱 Your journey has just begun"
   },
   "pt": {},
   "sv": {},
