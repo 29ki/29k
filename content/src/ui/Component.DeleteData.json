@@ -1,16 +1,16 @@
 {
   "en": {
-    "header": "Delete user & data",
-    "text": "Are you sure you want to delete your user and all data?",
-    "buttons": {
+    "title": "Delete user & data",
+    "message": "Are you sure you want to delete your user and all data?",
+    "actions": {
       "cancel": "No",
       "confirm": "Yes, delete"
     }
   },
   "pt": {
-    "header": "Remover utilizador e dados",
-    "text": "Tens a certeza que queres remover o teu utilizador e os teus dados?",
-    "buttons": {
+    "title": "Remover utilizador e dados",
+    "message": "Tens a certeza que queres remover o teu utilizador e os teus dados?",
+    "actions": {
       "cancel": "Não",
       "confirm": "Sim, remover"
     }
