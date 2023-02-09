@@ -1,4 +1,4 @@
-import {RouteProp, useRoute} from '@react-navigation/native';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import dayjs from 'dayjs';
 import React, {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
@@ -22,11 +22,12 @@ import useUser from '../../lib/user/hooks/useUser';
 import {CheckIcon} from '../../lib/components/Icons/Check/Check';
 import {Body14} from '../../lib/components/Typography/Body/Body';
 import Badge from '../../lib/components/Badge/Badge';
-import {ProfileFillIcon} from '../../lib/components/Icons';
+import {CommunityIcon, ProfileFillIcon} from '../../lib/components/Icons';
 import useUserState, {
   getCompletedSessionByIdSelector,
 } from '../../lib/user/state/state';
-import useStartAsyncSession from '../../lib/session/hooks/useStartAsyncSession';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {SessionMode} from '../../../../shared/src/types/Session';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -60,16 +61,17 @@ const ChekIconWrapper = styled(View)({
 
 const ButtonWrapper = styled.View({flexDirection: 'row'});
 
-const AsyncSessionModal = () => {
+const CompletedSessionModal = () => {
   const {
     params: {session},
-  } = useRoute<RouteProp<ModalStackProps, 'AsyncSessionModal'>>();
+  } = useRoute<RouteProp<ModalStackProps, 'CompletedSessionModal'>>();
+  const {navigate} =
+    useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {t} = useTranslation('Modal.AsyncSession');
   const user = useUser();
   const completedSession = useUserState(state =>
     getCompletedSessionByIdSelector(state, session.id),
   );
-  const startSession = useStartAsyncSession();
 
   const sessionTime = useMemo(
     () => dayjs(completedSession?.completedAt),
@@ -77,8 +79,8 @@ const AsyncSessionModal = () => {
   );
 
   const onStartSession = useCallback(() => {
-    startSession(session.exerciseId);
-  }, [session, startSession]);
+    navigate('CreateSessionModal', {exerciseId: session.exerciseId});
+  }, [session, navigate]);
 
   const exercise = useExerciseById(session?.exerciseId);
   if (!completedSession || !exercise) {
@@ -94,8 +96,14 @@ const AsyncSessionModal = () => {
             <Display24>{formatExerciseName(exercise)}</Display24>
             <Spacer4 />
             <Byline
-              pictureURL={user?.photoURL ? user.photoURL : undefined}
-              name={user?.displayName ? user.displayName : undefined}
+              pictureURL={
+                user?.photoURL ? user.photoURL : exercise.card.host?.photoURL
+              }
+              name={
+                user?.displayName
+                  ? user.displayName
+                  : exercise.card.host?.displayName
+              }
             />
           </TitleContainer>
           <Spacer32 />
@@ -123,7 +131,13 @@ const AsyncSessionModal = () => {
           <Spacer4 />
           <Badge
             text={sessionTime.format('ddd, D MMM')}
-            Icon={<ProfileFillIcon />}
+            Icon={
+              session.mode === SessionMode.async ? (
+                <ProfileFillIcon />
+              ) : (
+                <CommunityIcon />
+              )
+            }
           />
         </Row>
         <Spacer16 />
@@ -137,4 +151,4 @@ const AsyncSessionModal = () => {
   );
 };
 
-export default AsyncSessionModal;
+export default CompletedSessionModal;
