@@ -2,6 +2,7 @@ import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {
   RefreshControl,
   SectionList as RNSectionList,
+  SectionListData,
   SectionListRenderItem,
 } from 'react-native';
 
@@ -30,6 +31,8 @@ import {useTranslation} from 'react-i18next';
 import {Display24} from '../../lib/components/Typography/Display/Display';
 import styled from 'styled-components/native';
 import dayjs from 'dayjs';
+import {WALLET_CARD_HEIGHT} from '../../lib/components/Cards/WalletCard';
+import {CARD_HEIGHT} from '../../lib/components/Cards/Card';
 
 export type Section = {
   title: string;
@@ -127,6 +130,29 @@ const Journey = () => {
     }
   }, [setIsLoading, fetchSessions]);
 
+  const getItemLayout = useCallback(
+    (
+      data: SectionListData<JourneySession, Section>[] | null,
+      index: number,
+    ): {length: number; offset: number; index: number} => {
+      let offset = 0,
+        length = null;
+
+      if (index >= completedSessions.length) {
+        const plannedSessionsOffsetCount = index - completedSessions.length;
+        length = CARD_HEIGHT;
+        offset += completedSessions.length * WALLET_CARD_HEIGHT;
+        offset += plannedSessionsOffsetCount * CARD_HEIGHT;
+      } else {
+        length = WALLET_CARD_HEIGHT;
+        offset = index * WALLET_CARD_HEIGHT;
+      }
+
+      return {length, offset: offset, index};
+    },
+    [completedSessions],
+  );
+
   if (!sections.length) {
     return (
       <Screen backgroundColor={COLORS.GREYLIGHTEST}>
@@ -141,6 +167,8 @@ const Journey = () => {
     <Screen backgroundColor={COLORS.PURE_WHITE}>
       <SectionList
         sections={sections}
+        initialScrollIndex={completedSessions.length + 1.2}
+        getItemLayout={getItemLayout}
         keyExtractor={session => session.id}
         ListHeaderComponent={ListHeader}
         ListFooterComponent={Spacer60}
