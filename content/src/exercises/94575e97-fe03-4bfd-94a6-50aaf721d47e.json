@@ -12,7 +12,10 @@
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started.",
             "asyncText": "Before we get started, check-in with yourself. How are you feeling right now?\n\nLet’s get started."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1675942333/Video/Async_intro_Accepting_thoughts_and_feelilngs_rd98sd.mov"
+        }
       },
       {
         "type": "content",
@@ -90,7 +93,10 @@
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675942341/Video/Async_outro_Accepting_thoughts_and_feelilngs_thr0r1.mov"
+        }
       }
     ],
     "theme": {
