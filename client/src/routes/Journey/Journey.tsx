@@ -136,12 +136,13 @@ const Journey = () => {
       index: number,
     ): {length: number; offset: number; index: number} => {
       let offset = 0,
-        length = null;
+        length = null,
+        completedSessionsLength = data?.[0].data?.length || 0;
 
-      if (index >= completedSessions.length) {
-        const plannedSessionsOffsetCount = index - completedSessions.length;
+      if (index >= completedSessionsLength) {
+        const plannedSessionsOffsetCount = index - completedSessionsLength;
         length = CARD_HEIGHT;
-        offset += completedSessions.length * WALLET_CARD_HEIGHT;
+        offset += completedSessionsLength * WALLET_CARD_HEIGHT;
         offset += plannedSessionsOffsetCount * CARD_HEIGHT;
       } else {
         length = WALLET_CARD_HEIGHT;
@@ -150,7 +151,7 @@ const Journey = () => {
 
       return {length, offset: offset, index};
     },
-    [completedSessions],
+    [],
   );
 
   if (!sections.length) {
@@ -167,7 +168,7 @@ const Journey = () => {
     <Screen backgroundColor={COLORS.PURE_WHITE}>
       <SectionList
         sections={sections}
-        initialScrollIndex={completedSessions.length + 1.2}
+        initialScrollIndex={completedSessions.length + 0.2}
         getItemLayout={getItemLayout}
         keyExtractor={session => session.id}
         ListHeaderComponent={ListHeader}
