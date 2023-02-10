@@ -61,7 +61,7 @@ const useLeaveSession = (sessionMode: SessionMode) => {
       sessionMode === SessionMode.async &&
       asyncSession
     ) {
-      navigate('AsyncSessionModal', {
+      navigate('CompletedSessionModal', {
         session: asyncSession,
       });
     }

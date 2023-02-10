@@ -5,6 +5,7 @@ import {
   AsyncSession,
   LiveSession,
 } from '../../../../../shared/src/types/Session';
+import {CompletedSession} from '../../user/state/state';
 
 export type ProfileStackProps = {
   Profile: undefined;
@@ -47,10 +48,10 @@ export type OverlayStackProps = {
 export type ModalStackProps = {
   OverlayStack: NavigatorScreenParams<OverlayStackProps>;
   SessionModal: {session: LiveSession};
-  AsyncSessionModal: {session: AsyncSession};
+  CompletedSessionModal: {session: AsyncSession | CompletedSession};
   SessionUnavailableModal: undefined;
   AddSessionByInviteModal?: {inviteCode?: number};
-  CreateSessionModal: undefined;
+  CreateSessionModal: {exerciseId?: Exercise['id']};
   UpgradeAccountModal?: undefined;
   RequestPublicHostModal?: {code?: string; haveRequested?: boolean};
   ChangeLanguageModal: undefined;
