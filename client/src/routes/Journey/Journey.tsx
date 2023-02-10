@@ -158,7 +158,7 @@ const Journey = () => {
   );
 
   useEffect(() => {
-    if (isFocused && sections[1].data.length && completedSessions.length) {
+    if (isFocused && sections[1]?.data?.length && completedSessions.length) {
       listRef.current?.scrollToLocation({
         itemIndex: 0,
         sectionIndex: 1,
