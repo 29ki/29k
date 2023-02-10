@@ -146,7 +146,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "`Start the session when you're ready to go.`"
+          "text": "> Start the session when you're ready to go."
         }
       ],
       "videoLoop": {
