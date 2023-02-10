@@ -2,6 +2,7 @@
   "fields": [
     {"name": "Anonymous", "type": "boolean"},
     {"name": "Public Host", "type": "boolean"},
+    {"name": "Langauge", "type": "string"},
     {"name": "updatedAt", "type": "timestamp"}
   ]
 }
