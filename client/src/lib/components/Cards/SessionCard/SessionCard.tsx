@@ -19,7 +19,6 @@ import {
 import Card from '../Card';
 import WalletCard from '../WalletCard';
 import SessionTimeBadge from '../../SessionTimeBadge/SessionTimeBadge';
-import usePinnedSessions from '../../../sessions/hooks/usePinnedSessions';
 import useLogSessionMetricEvents from '../../../sessions/hooks/useLogSessionMetricEvents';
 import useGetSessionCardTags from './hooks/useGetSessionCardTags';
 import Button from '../../Buttons/Button';
@@ -27,7 +26,7 @@ import {Spacer4, Spacer8} from '../../Spacers/Spacer';
 import useUser from '../../../user/hooks/useUser';
 import InterestedBadge from '../../InterestedBadge/InterestedBadge';
 import Interested from '../../Interested/Interested';
-import usePinSession from '../../../sessions/hooks/usePinSession';
+import usePinSession from '../../../session/hooks/usePinSession';
 
 const Row = styled.View({
   flexDirection: 'row',

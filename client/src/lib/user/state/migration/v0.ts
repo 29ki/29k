@@ -1,4 +1,4 @@
-import {getSession} from '../../../sessions/api/session';
+import {getSession} from '../../../session/api/session';
 import {V1State, V1UserState} from './v1';
 
 // Types as they were in v0

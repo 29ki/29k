@@ -1,4 +1,4 @@
-import {getSession} from '../../../sessions/api/session';
+import {getSession} from '../../../session/api/session';
 import v0, {V0State, V0UserState} from './v0';
 
 jest.mock('../../../sessions/api/session');

@@ -1,10 +1,10 @@
 import dayjs from 'dayjs';
 import {useCallback, useMemo} from 'react';
 import {LiveSession} from '../../../../../shared/src/types/Session';
-import useUserState from '../../user/state/state';
 import {updateInterestedCount} from '../api/session';
-import useLogSessionMetricEvents from './useLogSessionMetricEvents';
-import usePinnedSessions from './usePinnedSessions';
+import useLogSessionMetricEvents from '../../sessions/hooks/useLogSessionMetricEvents';
+import usePinnedSessions from '../../sessions/hooks/usePinnedSessions';
+import useUserState from '../../user/state/state';
 
 const usePinSession = (session: LiveSession) => {
   const pinnedSessions = usePinnedSessions();

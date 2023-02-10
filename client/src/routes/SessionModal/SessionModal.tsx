@@ -41,18 +41,17 @@ import useSessions from '../../lib/sessions/hooks/useSessions';
 import {PencilIcon, CalendarIcon} from '../../lib/components/Icons';
 import TouchableOpacity from '../../lib/components/TouchableOpacity/TouchableOpacity';
 import DateTimePicker from '../../lib/components/DateTimePicker/DateTimePicker';
-import {updateSession} from '../../lib/sessions/api/session';
+import {updateSession} from '../../lib/session/api/session';
 import {LiveSession, SessionType} from '../../../../shared/src/types/Session';
 import EditSessionType from '../../lib/components/EditSessionType/EditSessionType';
 import {SPACINGS} from '../../lib/constants/spacings';
 import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
 import Interested from '../../lib/components/Interested/Interested';
 import RadioButton from '../../lib/components/Buttons/RadioButton/RadioButton';
-import usePinnedSessions from '../../lib/sessions/hooks/usePinnedSessions';
 import useLogSessionMetricEvents from '../../lib/sessions/hooks/useLogSessionMetricEvents';
 import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
-import usePinSession from '../../lib/sessions/hooks/usePinSession';
+import usePinSession from '../../lib/session/hooks/usePinSession';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',

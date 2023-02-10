@@ -4,7 +4,7 @@ import {
   SessionState,
   LiveSession,
 } from '../../../../../shared/src/types/Session';
-import * as sessionApi from '../../../lib/sessions/api/session';
+import * as sessionApi from '../api/session';
 
 const useUpdateSessionState = (sessionId: LiveSession['id'] | undefined) => {
   const startSession = useCallback(async () => {
