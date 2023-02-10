@@ -151,7 +151,7 @@ const SessionModal = () => {
   const initialStartTime = dayjs(session.startTime).utc();
   const [sessionDate, setSessionDate] = useState<dayjs.Dayjs>(initialStartTime);
   const [sessionTime, setSessionTime] = useState<dayjs.Dayjs>(initialStartTime);
-  const {togglePinSession, isSessionPinned} = usePinSession(session);
+  const {togglePinned, isPinned} = usePinSession(session);
   const logSessionMetricEvent = useLogSessionMetricEvents();
 
   const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
@@ -348,16 +348,9 @@ const SessionModal = () => {
 
           <Spacer16 />
           <Gutters>
-            <IntersetedWrapper onPress={togglePinSession}>
-              <Interested
-                active={isSessionPinned}
-                onPress={togglePinSession}
-                showIcon
-              />
-              <RadioButton
-                onPress={togglePinSession}
-                active={isSessionPinned}
-              />
+            <IntersetedWrapper onPress={togglePinned}>
+              <Interested active={isPinned} onPress={togglePinned} showIcon />
+              <RadioButton onPress={togglePinned} active={isPinned} />
             </IntersetedWrapper>
           </Gutters>
 

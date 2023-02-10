@@ -11,7 +11,7 @@ const usePinSession = (session: LiveSession) => {
   const setPinnedSessions = useUserState(state => state.setPinnedSessions);
   const logSessionMetricEvent = useLogSessionMetricEvents();
 
-  const togglePinSession = useCallback(() => {
+  const togglePinned = useCallback(() => {
     const now = dayjs();
     const currentPinnedSessions = pinnedSessions.filter(s =>
       now.isBefore(s.expires),
@@ -36,12 +36,12 @@ const usePinSession = (session: LiveSession) => {
     }
   }, [session, pinnedSessions, setPinnedSessions, logSessionMetricEvent]);
 
-  const isSessionPinned = useMemo(
+  const isPinned = useMemo(
     () => Boolean(pinnedSessions.find(ps => ps.id === session.id)),
     [session, pinnedSessions],
   );
 
-  return {togglePinSession, isSessionPinned};
+  return {togglePinned, isPinned};
 };
 
 export default usePinSession;

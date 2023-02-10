@@ -19,7 +19,7 @@ beforeEach(() => {
 });
 
 describe('usePinSession', () => {
-  describe('isSessionPinned', () => {
+  describe('isPinned', () => {
     it('should return true when session is pinnded', () => {
       useUserState.setState({
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,
@@ -36,7 +36,7 @@ describe('usePinSession', () => {
         usePinSession({id: 'session-id-1'} as LiveSession),
       );
 
-      expect(result.current.isSessionPinned).toBe(true);
+      expect(result.current.isPinned).toBe(true);
     });
 
     it('should return false when session is not pinnded', () => {
@@ -55,11 +55,11 @@ describe('usePinSession', () => {
         usePinSession({id: 'session-id-2'} as LiveSession),
       );
 
-      expect(result.current.isSessionPinned).toBe(false);
+      expect(result.current.isPinned).toBe(false);
     });
   });
 
-  describe('togglePinSession', () => {
+  describe('togglePin', () => {
     it('should add session as pinned', async () => {
       useUserState.setState({
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,
@@ -71,7 +71,7 @@ describe('usePinSession', () => {
       );
 
       act(() => {
-        result.current.togglePinSession();
+        result.current.togglePinned();
       });
 
       expect(useUserState.getState().userState).toEqual(
@@ -108,7 +108,7 @@ describe('usePinSession', () => {
       );
 
       act(() => {
-        result.current.togglePinSession();
+        result.current.togglePinned();
       });
 
       expect(useUserState.getState().userState).toEqual(
@@ -143,7 +143,7 @@ describe('usePinSession', () => {
       );
 
       act(() => {
-        result.current.togglePinSession();
+        result.current.togglePinned();
       });
 
       expect(useUserState.getState().userState).toEqual(
@@ -175,7 +175,7 @@ describe('usePinSession', () => {
       );
 
       act(() => {
-        result.current.togglePinSession();
+        result.current.togglePinned();
       });
 
       expect(useUserState.getState().userState).toEqual(

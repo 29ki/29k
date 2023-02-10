@@ -92,7 +92,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const logSessionMetricEvent = useLogSessionMetricEvents();
-  const {isSessionPinned, togglePinSession} = usePinSession(session);
+  const {isPinned, togglePinned} = usePinSession(session);
 
   const tags = useGetSessionCardTags(exercise);
 
@@ -140,19 +140,13 @@ const SessionCard: React.FC<SessionCardProps> = ({
     }
 
     if (!isHost) {
-      return (
-        <Interested
-          active={isSessionPinned}
-          showIcon
-          onPress={togglePinSession}
-        />
-      );
+      return <Interested active={isPinned} showIcon onPress={togglePinned} />;
     }
   }, [
     isHost,
     showNumberOfInterested,
-    isSessionPinned,
-    togglePinSession,
+    isPinned,
+    togglePinned,
     session.interestedCount,
   ]);
 
