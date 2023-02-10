@@ -48,10 +48,11 @@ import {SPACINGS} from '../../lib/constants/spacings';
 import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
 import Interested from '../../lib/components/Interested/Interested';
 import RadioButton from '../../lib/components/Buttons/RadioButton/RadioButton';
-import usePinnedSessons from '../../lib/sessions/hooks/usePinnedSessions';
+import usePinnedSessions from '../../lib/sessions/hooks/usePinnedSessions';
 import useLogSessionMetricEvents from '../../lib/sessions/hooks/useLogSessionMetricEvents';
 import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
+import usePinSession from '../../lib/sessions/hooks/usePinSession';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',
@@ -151,13 +152,9 @@ const SessionModal = () => {
   const initialStartTime = dayjs(session.startTime).utc();
   const [sessionDate, setSessionDate] = useState<dayjs.Dayjs>(initialStartTime);
   const [sessionTime, setSessionTime] = useState<dayjs.Dayjs>(initialStartTime);
-  const {togglePinSession, isSessionPinned} = usePinnedSessons();
+  const {togglePinSession, isSessionPinned} = usePinSession(session);
   const logSessionMetricEvent = useLogSessionMetricEvents();
 
-  const sessionPinned = useMemo(
-    () => isSessionPinned(session),
-    [isSessionPinned, session],
-  );
   const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
 
   const addToCalendar = useAddSessionToCalendar();
@@ -181,10 +178,6 @@ const SessionModal = () => {
     });
     logSessionMetricEvent('Join Sharing Session', session);
   }, [navigation, session, logSessionMetricEvent]);
-
-  const onTogglePinSession = useCallback(() => {
-    togglePinSession(session);
-  }, [session, togglePinSession]);
 
   const onAddToCalendar = useCallback(() => {
     if (session && exercise) {
@@ -356,15 +349,15 @@ const SessionModal = () => {
 
           <Spacer16 />
           <Gutters>
-            <IntersetedWrapper onPress={onTogglePinSession}>
+            <IntersetedWrapper onPress={togglePinSession}>
               <Interested
-                active={sessionPinned}
-                onPress={onTogglePinSession}
+                active={isSessionPinned}
+                onPress={togglePinSession}
                 showIcon
               />
               <RadioButton
-                onPress={onTogglePinSession}
-                active={sessionPinned}
+                onPress={togglePinSession}
+                active={isSessionPinned}
               />
             </IntersetedWrapper>
           </Gutters>
