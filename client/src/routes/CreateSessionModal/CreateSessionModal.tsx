@@ -58,13 +58,12 @@ const steps = ({
 }: {
   skipProfile: boolean;
   skipContent: boolean;
-}): React.FC<StepProps>[] =>
-  [
-    SelectTypeStep,
-    ...(skipProfile ? [] : [UpdateProfileStep]),
-    ...(skipContent ? [] : [SelectContentStep]),
-    SetDateTimeStep,
-  ].filter(Boolean);
+}): React.FC<StepProps>[] => [
+  SelectTypeStep,
+  ...(skipProfile ? [] : [UpdateProfileStep]),
+  ...(skipContent ? [] : [SelectContentStep]),
+  SetDateTimeStep,
+];
 
 const CreateSessionModal = () => {
   const {params} = useRoute<RouteProp<ModalStackProps, 'CreateSessionModal'>>();
