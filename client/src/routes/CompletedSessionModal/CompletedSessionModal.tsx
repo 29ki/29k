@@ -67,7 +67,7 @@ const CompletedSessionModal = () => {
   } = useRoute<RouteProp<ModalStackProps, 'CompletedSessionModal'>>();
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
-  const {t} = useTranslation('Modal.AsyncSession');
+  const {t} = useTranslation('Modal.CompletedSession');
   const user = useUser();
   const completedSession = useUserState(state =>
     getCompletedSessionByIdSelector(state, session.id),
