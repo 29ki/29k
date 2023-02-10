@@ -17,6 +17,7 @@ import {COLORS} from '../../../../shared/src/constants/colors';
 import ActionList from '../../lib/components/ActionList/ActionList';
 import ActionButton from '../../lib/components/ActionList/ActionItems/ActionButton';
 import {
+  BellIcon,
   CommandIcon,
   DeleteIcon,
   HangUpIcon,
@@ -44,6 +45,8 @@ import TouchableOpacity from '../../lib/components/TouchableOpacity/TouchableOpa
 import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 import AboutActionList from '../AboutOverlay/components/AboutActionList';
 import CommunityActionList from '../CommunityOverlay/components/CommunityActionList';
+import ActionSwitch from '../../lib/components/ActionList/ActionItems/ActionSwitch';
+import useNotificationSetting from '../../lib/notifications/hooks/useNotificationSetting';
 
 const HEADER_HEIGHT = 72;
 
@@ -83,6 +86,8 @@ const Profile = () => {
   const {top} = useSafeAreaInsets();
   const user = useUser();
   const {deleteUser} = useDeleteUser();
+  const {notificationsEnabled, setNotificationsEnabled} =
+    useNotificationSetting();
 
   const profileSettingsPress = useCallback(
     () => navigate('ProfileSettingsModal'),
@@ -141,6 +146,12 @@ const Profile = () => {
             <ActionButton Icon={LanguagesIcon} onPress={languagePress}>
               {t('actions.language')}
             </ActionButton>
+            <ActionSwitch
+              Icon={BellIcon}
+              onValueChange={setNotificationsEnabled}
+              value={notificationsEnabled}>
+              {t('actions.notifications')}
+            </ActionSwitch>
           </ActionList>
           {user && (
             <>

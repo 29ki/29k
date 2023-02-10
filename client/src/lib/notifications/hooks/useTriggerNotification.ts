@@ -4,6 +4,7 @@ import {find} from 'ramda';
 
 import useNotificationsState from '../state/state';
 import useResumeFromBackgrounded from '../../appState/hooks/useResumeFromBackgrounded';
+import useNotificationSetting from './useNotificationSetting';
 
 export const getTriggerNotificationById = async (id: string) => {
   const notifications = await notifee.getTriggerNotifications();
@@ -12,6 +13,7 @@ export const getTriggerNotificationById = async (id: string) => {
 };
 
 const useTriggerNotification = (id: string) => {
+  const {setNotificationsEnabled} = useNotificationSetting();
   const triggerNotification = useNotificationsState(
     state => state.notifications[id],
   );
@@ -45,8 +47,7 @@ const useTriggerNotification = (id: string) => {
       timestamp: number,
     ) => {
       if (timestamp > new Date().getTime()) {
-        // TODO: handle declined permissions better
-        await notifee.requestPermission();
+        await setNotificationsEnabled(true);
 
         const trigger: TimestampTrigger = {
           type: TriggerType.TIMESTAMP,
@@ -72,7 +73,7 @@ const useTriggerNotification = (id: string) => {
         await notifee.createTriggerNotification(notification, trigger);
       }
     },
-    [id, setNotification],
+    [setNotificationsEnabled, id, setNotification],
   );
 
   const removeTriggerNotification = async () => {

@@ -28,14 +28,14 @@ const useDeleteUser = () => {
   const deleteUser = useCallback(
     () =>
       new Promise((resolve, reject) => {
-        Alert.alert(t('header'), t('text'), [
+        Alert.alert(t('title'), t('message'), [
           {
-            text: t('buttons.cancel'),
+            text: t('actions.cancel'),
             style: 'cancel',
             onPress: () => resolve(false),
           },
           {
-            text: t('buttons.confirm'),
+            text: t('actions.confirm'),
             style: 'destructive',
             onPress: async () => {
               try {

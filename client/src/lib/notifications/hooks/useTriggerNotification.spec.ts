@@ -1,5 +1,9 @@
 import {act, renderHook} from '@testing-library/react-hooks';
-import notifee, {EventType, Event} from '@notifee/react-native';
+import notifee, {
+  EventType,
+  Event,
+  TriggerNotification,
+} from '@notifee/react-native';
 import {AppState} from 'react-native';
 
 import useTriggerNotification from './useTriggerNotification';
@@ -9,7 +13,6 @@ const mockCreateTriggerNotification =
   notifee.createTriggerNotification as jest.Mock;
 const mockGetTriggerNotifications =
   notifee.getTriggerNotifications as jest.Mock;
-const mockRequestPermission = notifee.requestPermission as jest.Mock;
 const mockCancelTriggerNotification =
   notifee.cancelTriggerNotification as jest.Mock;
 const mockAddEventListener = AppState.addEventListener as jest.Mock;
@@ -19,6 +22,12 @@ mockAddEventListener.mockImplementation(() => {
   return {remove: jest.fn()};
 });
 
+const mockSetNotificationsEnabled = jest.fn();
+
+jest.mock('./useNotificationSetting', () => () => ({
+  setNotificationsEnabled: mockSetNotificationsEnabled,
+}));
+
 afterEach(() => {
   jest.clearAllMocks();
 });
@@ -26,7 +35,7 @@ afterEach(() => {
 describe('useTriggerNotification', () => {
   it('sets a trigger notification', async () => {
     mockGetTriggerNotifications.mockResolvedValueOnce([
-      {notification: {id: 'some-id'}},
+      {notification: {id: 'some-id'}} as TriggerNotification,
     ]);
 
     const {result, waitForNextUpdate} = renderHook(() =>
@@ -47,7 +56,7 @@ describe('useTriggerNotification', () => {
     });
 
     expect(result.current.triggerNotification).toMatchObject({id: 'some-id'});
-    expect(mockRequestPermission).toHaveBeenCalledTimes(1);
+    expect(mockSetNotificationsEnabled).toHaveBeenCalledTimes(1);
     expect(mockCreateTriggerNotification).toHaveBeenCalledTimes(1);
     expect(mockCreateTriggerNotification).toHaveBeenCalledWith(
       {
@@ -70,7 +79,7 @@ describe('useTriggerNotification', () => {
     expect(result.all.length).toBe(3);
   });
 
-  it('does not set reminders for dates in the pas', async () => {
+  it('does not set reminders for dates in the past', async () => {
     const {result} = renderHook(() => useTriggerNotification('some-id'));
 
     await act(async () => {
@@ -83,13 +92,13 @@ describe('useTriggerNotification', () => {
     });
 
     expect(result.current.triggerNotification).toBe(undefined);
-    expect(mockRequestPermission).toHaveBeenCalledTimes(0);
+    expect(mockSetNotificationsEnabled).toHaveBeenCalledTimes(0);
     expect(mockCreateTriggerNotification).toHaveBeenCalledTimes(0);
   });
 
   it('supports removing the notification', async () => {
     mockGetTriggerNotifications.mockResolvedValueOnce([
-      {notification: {id: 'some-id'}},
+      {notification: {id: 'some-id'}} as TriggerNotification,
     ]);
 
     const {result, waitForNextUpdate} = renderHook(() =>
@@ -115,7 +124,9 @@ describe('useTriggerNotification', () => {
   it('supports removing the notification on resume', async () => {
     AppState.currentState = 'background';
     mockGetTriggerNotifications
-      .mockResolvedValueOnce([{notification: {id: 'some-id'}}])
+      .mockResolvedValueOnce([
+        {notification: {id: 'some-id'}} as TriggerNotification,
+      ])
       .mockResolvedValueOnce([]);
 
     let eventCallback = (_: string) => Promise.resolve();
@@ -143,7 +154,7 @@ describe('useTriggerNotification', () => {
 
   it('adds notification on TRIGGER_NOTIFICATION_CREATED', async () => {
     mockGetTriggerNotifications.mockResolvedValue([
-      {notification: {id: 'some-id'}},
+      {notification: {id: 'some-id'}} as TriggerNotification,
     ]);
 
     type EventCallback = (event?: Event) => Promise<void>;
@@ -174,7 +185,7 @@ describe('useTriggerNotification', () => {
     type EventCallback = (event?: Event) => Promise<void>;
     let eventCallback: EventCallback = () => Promise.resolve();
     mockOnForegroundEvent.mockImplementation(callback => {
-      eventCallback = callback;
+      eventCallback = callback as EventCallback;
     });
 
     const {result} = renderHook(() => useTriggerNotification('some-id'));
