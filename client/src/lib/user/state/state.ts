@@ -26,9 +26,30 @@ export type CompletedSession = {
   hostProfile?: UserProfile;
 };
 
+export type PostPayload = {
+  sessionId: string;
+  exerciseId: string;
+  sharingId: string;
+  isPublic: boolean;
+  isAnonymous: boolean;
+  text: string;
+};
+
+export type FeedbackPayload = {
+  like: boolean;
+  text?: string;
+};
+
+export type Event = {
+  type: 'post' | 'feedback';
+  payload: PostPayload | FeedbackPayload;
+  timestamp: Date;
+};
+
 export type UserState = {
   pinnedSessions?: Array<PinnedSession>;
   completedSessions?: Array<CompletedSession>;
+  events?: Array<Event>;
   metricsUid?: string;
 };
 
@@ -55,6 +76,7 @@ export type Actions = {
   }) => void;
   setPinnedSessions: (pinnedSessions: Array<PinnedSession>) => void;
   addCompletedSession: (completedSession: CompletedSession) => void;
+  addEvent: (event: Event) => void;
   setCurrentUserState: SetCurrentUserState;
   reset: (isDelete?: boolean) => void;
 };
@@ -121,6 +143,10 @@ const useUserState = create<State & Actions>()(
         addCompletedSession: completedSession =>
           setCurrentUserState(({completedSessions = []} = {}) => ({
             completedSessions: [...completedSessions, completedSession],
+          })),
+        addEvent: event =>
+          setCurrentUserState(({events = []} = {}) => ({
+            events: [...events, event],
           })),
 
         reset: isDelete => {

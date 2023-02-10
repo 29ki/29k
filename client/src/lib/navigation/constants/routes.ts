@@ -2,6 +2,7 @@ import {NavigatorScreenParams} from '@react-navigation/native';
 
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {AsyncSession, Session} from '../../../../../shared/src/types/Session';
+import {UserProfile} from '../../../../../shared/src/types/User';
 
 export type ProfileStackProps = {
   Profile: undefined;
@@ -45,6 +46,11 @@ export type ModalStackProps = {
   OverlayStack: NavigatorScreenParams<OverlayStackProps>;
   SessionModal: {session: Session};
   AsyncSessionModal: {session: AsyncSession};
+  SharingModal: {exerciseId: string};
+  SharingPostModal: {
+    userProfile?: UserProfile;
+    text: string;
+  };
   SessionUnavailableModal: undefined;
   AddSessionByInviteModal?: {inviteCode?: number};
   CreateSessionModal: undefined;

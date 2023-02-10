@@ -25,6 +25,8 @@ import OverlayStack from './OverlayStack';
 import PartnersModal from '../../routes/Contributors/PartnersModal';
 import ContactModal from '../../routes/ConcactModal/ContactModal';
 import SessionFeedbackModal from '../../routes/SessionFeedbackModal/SessionFeedbackModal';
+import SharingModal from '../../routes/SharingModal/SharingModal';
+import SharingPostModal from '../../routes/SharingPostModal/SharingPostModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -132,6 +134,16 @@ const ModalStack = () => {
         <Screen
           name={'AsyncSessionModal'}
           component={AsyncSessionModal}
+          options={tallSheetModalScreenOptions}
+        />
+        <Screen
+          name={'SharingModal'}
+          component={SharingModal}
+          options={tallSheetModalScreenOptions}
+        />
+        <Screen
+          name={'SharingPostModal'}
+          component={SharingPostModal}
           options={tallSheetModalScreenOptions}
         />
         <Screen name={'CreateSessionModal'} component={CreateSessionModal} />
