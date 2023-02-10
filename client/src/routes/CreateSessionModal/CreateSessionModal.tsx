@@ -44,7 +44,6 @@ export type StepProps = {
   setSelectedExercise: Dispatch<SetStateAction<StepProps['selectedExercise']>>;
   nextStep: () => void;
   firstStep: () => void;
-  lastStep: () => void;
   isPublicHost: boolean;
   selectedModeAndType: SelectedModeAndType;
   userProfile: UserProfile;
@@ -62,10 +61,10 @@ const steps = ({
 }): React.FC<StepProps>[] =>
   [
     SelectTypeStep,
-    skipProfile ? undefined : UpdateProfileStep,
-    skipContent ? undefined : SelectContentStep,
+    ...(skipProfile ? [] : [UpdateProfileStep]),
+    ...(skipContent ? [] : [SelectContentStep]),
     SetDateTimeStep,
-  ].filter(Boolean) as React.FC<StepProps>[];
+  ].filter(Boolean);
 
 const CreateSessionModal = () => {
   const {params} = useRoute<RouteProp<ModalStackProps, 'CreateSessionModal'>>();
@@ -124,11 +123,6 @@ const CreateSessionModal = () => {
 
   const firstStep = useCallback(() => setCurrentStep(0), []);
 
-  const lastStep = useCallback(
-    () => setCurrentStep(currentSteps.length - 1),
-    [currentSteps],
-  );
-
   return (
     <SheetModal backgroundColor={backgroundColor}>
       <Step>
@@ -140,7 +134,6 @@ const CreateSessionModal = () => {
           userProfile={userProfile}
           nextStep={nextStep}
           firstStep={firstStep}
-          lastStep={lastStep}
           isPublicHost={isPublicHost}
         />
       </Step>
