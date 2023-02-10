@@ -77,6 +77,7 @@ const renderSession: SectionListRenderItem<JourneySession, Section> = ({
           hasCardBefore={hasCardBefore}
           hasCardAfter={hasCardAfter}
         />
+        <Spacer16 />
       </Gutters>
     );
   }
@@ -144,7 +145,6 @@ const Journey = () => {
         keyExtractor={session => session.id}
         ListHeaderComponent={ListHeader}
         ListFooterComponent={Spacer60}
-        ItemSeparatorComponent={Spacer16}
         stickySectionHeadersEnabled={true}
         renderItem={renderSession}
         refreshControl={
