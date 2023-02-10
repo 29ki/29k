@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {
   RefreshControl,
   SectionList as RNSectionList,
@@ -33,6 +33,7 @@ import styled from 'styled-components/native';
 import dayjs from 'dayjs';
 import {WALLET_CARD_HEIGHT} from '../../lib/components/Cards/WalletCard';
 import {CARD_HEIGHT} from '../../lib/components/Cards/Card';
+import {useIsFocused} from '@react-navigation/native';
 
 export type Section = {
   title: string;
@@ -90,6 +91,8 @@ const Journey = () => {
   const {fetchSessions, pinnedSessions, hostedSessions} = useSessions();
   const {completedSessions} = useCompletedSessions();
   const [isLoading, setIsLoading] = useState(false);
+  const isFocused = useIsFocused();
+  const listRef = useRef<RNSectionList<JourneySession, Section>>(null);
 
   const sections = useMemo(() => {
     let sectionsList: Section[] = [];
@@ -154,6 +157,16 @@ const Journey = () => {
     [],
   );
 
+  useEffect(() => {
+    if (isFocused && sections.length) {
+      listRef.current?.scrollToLocation({
+        itemIndex: 0,
+        sectionIndex: 1,
+        viewOffset: 50,
+      });
+    }
+  }, [isFocused, sections.length]);
+
   if (!sections.length) {
     return (
       <Screen backgroundColor={COLORS.GREYLIGHTEST}>
@@ -167,6 +180,7 @@ const Journey = () => {
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
       <SectionList
+        ref={listRef}
         sections={sections}
         initialScrollIndex={
           completedSessions.length ? completedSessions.length + 0.2 : 0
