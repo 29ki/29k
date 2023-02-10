@@ -145,7 +145,7 @@ const Journey = () => {
         keyExtractor={session => session.id}
         ListHeaderComponent={ListHeader}
         ListFooterComponent={Spacer60}
-        stickySectionHeadersEnabled={true}
+        stickySectionHeadersEnabled={false}
         renderItem={renderSession}
         refreshControl={
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
