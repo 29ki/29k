@@ -158,14 +158,14 @@ const Journey = () => {
   );
 
   useEffect(() => {
-    if (isFocused && sections.length) {
+    if (isFocused && sections[1].data.length && completedSessions.length) {
       listRef.current?.scrollToLocation({
         itemIndex: 0,
         sectionIndex: 1,
         viewOffset: 50,
       });
     }
-  }, [isFocused, sections.length]);
+  }, [isFocused, completedSessions.length, sections]);
 
   if (!sections.length) {
     return (
