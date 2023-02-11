@@ -13,6 +13,8 @@ jest.mock('../api/session');
 const mockUpdateInterestedCount = updateInterestedCount as jest.Mock;
 const mockLogSessionMetricEvent = jest.fn();
 jest.mock('./useLogSessionMetricEvents', () => () => mockLogSessionMetricEvent);
+const mockConfirmToggleReminder = jest.fn();
+jest.mock('./useConfirmSessionReminder', () => () => mockConfirmToggleReminder);
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -83,6 +85,8 @@ describe('usePinSession', () => {
           },
         }),
       );
+      expect(mockConfirmToggleReminder).toHaveBeenCalledTimes(1);
+      expect(mockConfirmToggleReminder).toHaveBeenCalledWith(true);
       expect(mockLogSessionMetricEvent).toHaveBeenCalledTimes(1);
       expect(mockUpdateInterestedCount).toHaveBeenCalledTimes(1);
       expect(mockUpdateInterestedCount).toHaveBeenCalledWith(
@@ -118,6 +122,8 @@ describe('usePinSession', () => {
           },
         }),
       );
+      expect(mockConfirmToggleReminder).toHaveBeenCalledTimes(1);
+      expect(mockConfirmToggleReminder).toHaveBeenCalledWith(false);
       expect(mockLogSessionMetricEvent).toHaveBeenCalledTimes(0);
       expect(mockUpdateInterestedCount).toHaveBeenCalledTimes(1);
       expect(mockUpdateInterestedCount).toHaveBeenCalledWith(
