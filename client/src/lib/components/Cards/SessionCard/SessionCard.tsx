@@ -26,7 +26,7 @@ import {Spacer4, Spacer8} from '../../Spacers/Spacer';
 import useUser from '../../../user/hooks/useUser';
 import InterestedBadge from '../../InterestedBadge/InterestedBadge';
 import Interested from '../../Interested/Interested';
-import usePinSession from '../../../session/hooks/usePinSession';
+import usePinSession from '../../../sessions/hooks/usePinSession';
 
 const Row = styled.View({
   flexDirection: 'row',

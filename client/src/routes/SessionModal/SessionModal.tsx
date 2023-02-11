@@ -51,7 +51,7 @@ import RadioButton from '../../lib/components/Buttons/RadioButton/RadioButton';
 import useLogSessionMetricEvents from '../../lib/sessions/hooks/useLogSessionMetricEvents';
 import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
-import usePinSession from '../../lib/session/hooks/usePinSession';
+import usePinSession from '../../lib/sessions/hooks/usePinSession';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',
