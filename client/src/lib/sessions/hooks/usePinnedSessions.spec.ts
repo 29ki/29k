@@ -7,7 +7,7 @@ import usePinnedSessions from './usePinnedSessions';
 const mockNow = new Date('2022-12-10T10:00:00');
 MockDate.set(mockNow); // Date.now()
 
-jest.mock('../../session/api/session');
+jest.mock('../api/session');
 const mockLogSessionMetricEvent = jest.fn();
 jest.mock('./useLogSessionMetricEvents', () => () => mockLogSessionMetricEvent);
 

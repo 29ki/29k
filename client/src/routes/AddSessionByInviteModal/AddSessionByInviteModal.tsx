@@ -11,7 +11,7 @@ import {Spacer16, Spacer8} from '../../lib/components/Spacers/Spacer';
 import {Body16} from '../../lib/components/Typography/Body/Body';
 import VerificationCode from '../../lib/components/VerificationCode/VerificationCode';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
-import {joinSession} from '../../lib/session/api/session';
+import {joinSession} from '../../lib/sessions/api/session';
 import useSessions from '../../lib/sessions/hooks/useSessions';
 import CardModal from '../../lib/components/Modals/CardModal';
 import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';

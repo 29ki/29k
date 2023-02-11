@@ -41,7 +41,7 @@ import useSessions from '../../lib/sessions/hooks/useSessions';
 import {PencilIcon, CalendarIcon} from '../../lib/components/Icons';
 import TouchableOpacity from '../../lib/components/TouchableOpacity/TouchableOpacity';
 import DateTimePicker from '../../lib/components/DateTimePicker/DateTimePicker';
-import {updateSession} from '../../lib/session/api/session';
+import {updateSession} from '../../lib/sessions/api/session';
 import {LiveSession, SessionType} from '../../../../shared/src/types/Session';
 import EditSessionType from '../../lib/components/EditSessionType/EditSessionType';
 import {SPACINGS} from '../../lib/constants/spacings';

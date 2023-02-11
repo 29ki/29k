@@ -2,7 +2,7 @@ import {useCallback, useMemo} from 'react';
 import dayjs from 'dayjs';
 
 import * as sessionsApi from '../api/sessions';
-import * as sessionApi from '../../session/api/session';
+import * as sessionApi from '../api/session';
 
 import useSessionsState from '../state/state';
 import {LiveSession} from '../../../../../shared/src/types/Session';
