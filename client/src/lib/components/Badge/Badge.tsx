@@ -10,7 +10,7 @@ import {Body14} from '../Typography/Body/Body';
 
 const Wrapper = styled.View<{themeColor?: string}>(({themeColor}) => ({
   backgroundColor: themeColor ? COLORS.BLACK_TRANSPARENT_15 : COLORS.PURE_WHITE,
-  paddingVertical: 2,
+  paddingVertical: 1,
   paddingHorizontal: SPACINGS.EIGHT,
   borderRadius: SPACINGS.EIGHT,
   flexDirection: 'row',
