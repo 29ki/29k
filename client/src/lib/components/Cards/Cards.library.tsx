@@ -64,7 +64,7 @@ export const AllCards = () => (
       onPress={() => {}}>
       <Row>
         <Spacer4 />
-        <Badge text="03:43s" Icon={<PrivateIcon />} />
+        <Badge text="03:43s" IconAfter={<PrivateIcon />} />
       </Row>
     </Card>
     <Spacer16 />
@@ -77,7 +77,7 @@ export const AllCards = () => (
       <Row>
         <Body14>{'Starts in'}</Body14>
         <Spacer4 />
-        <Badge text="12:43" Icon={<PublicIcon />} />
+        <Badge text="12:43" IconAfter={<PublicIcon />} />
       </Row>
     </Card>
     <Spacer16 />

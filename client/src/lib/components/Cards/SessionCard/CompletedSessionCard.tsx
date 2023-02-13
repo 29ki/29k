@@ -94,7 +94,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
         <Spacer4 />
         <Badge
           text={dayjs(completedAt).format('ddd, D MMM')}
-          Icon={
+          IconAfter={
             mode === SessionMode.async ? <ProfileFillIcon /> : <CommunityIcon />
           }
         />

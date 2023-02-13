@@ -27,19 +27,31 @@ const BadgeIcon = styled.View({
 });
 
 type BadgeProps = {
-  Icon?: React.ReactNode;
+  IconBefore?: React.ReactNode;
+  IconAfter?: React.ReactNode;
   text: string | React.ReactNode;
   themeColor?: string;
 };
 
-const Badge: React.FC<BadgeProps> = ({Icon, text, themeColor}) => {
+const Badge: React.FC<BadgeProps> = ({
+  IconBefore,
+  IconAfter,
+  text,
+  themeColor,
+}) => {
   return (
     <Wrapper themeColor={themeColor}>
+      {IconBefore && (
+        <>
+          <BadgeIcon>{IconBefore}</BadgeIcon>
+          <Spacer4 />
+        </>
+      )}
       <StatusText themeColor={themeColor}>{text}</StatusText>
-      {Icon && (
+      {IconAfter && (
         <>
           <Spacer4 />
-          <BadgeIcon>{Icon}</BadgeIcon>
+          <BadgeIcon>{IconAfter}</BadgeIcon>
         </>
       )}
     </Wrapper>

@@ -13,7 +13,7 @@ import {Post} from '../../../../../../../shared/src/types/Post';
 import Button from '../../../../components/Buttons/Button';
 import Gutters from '../../../../components/Gutters/Gutters';
 import {PlusIcon} from '../../../../components/Icons';
-import {Spacer16, Spacer32} from '../../../../components/Spacers/Spacer';
+import {Spacer16, Spacer48} from '../../../../components/Spacers/Spacer';
 import {Body16} from '../../../../components/Typography/Body/Body';
 import {
   Display24,
@@ -224,7 +224,7 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
               </>
             )}
           </Gutters>
-          <Spacer32 />
+          <Spacer48 />
         </Content>
       </ScrollView>
     </Wrapper>

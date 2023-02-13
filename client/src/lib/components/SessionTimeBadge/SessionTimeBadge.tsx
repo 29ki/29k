@@ -34,7 +34,9 @@ const SessionTimeBadge: React.FC<{session: LiveSession}> = ({session}) => {
       )}
       <Badge
         text={sessionTime.isStarted ? t('counter.started') : sessionTime.time}
-        Icon={session.type === 'private' ? <PrivateIcon /> : <PublicIcon />}
+        IconAfter={
+          session.type === 'private' ? <PrivateIcon /> : <PublicIcon />
+        }
       />
     </Row>
   );
