@@ -20,6 +20,8 @@ const useReminderNotificationsSetting = () => {
         permission.authorizationStatus >= AuthorizationStatus.AUTHORIZED &&
           Boolean(userState?.reminderNotifications),
       );
+    } else {
+      setEnabled(undefined);
     }
   }, [setEnabled, userState?.reminderNotifications]);
 

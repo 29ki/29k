@@ -26,7 +26,7 @@ afterEach(() => {
 
 describe('useReminderNotificationsSetting', () => {
   describe('reminderNotifications', () => {
-    it('is enabled if permission is AUTHORIZED and notificationEnabled = true', async () => {
+    it('is enabled if permission is AUTHORIZED and reminderNotifications = true', async () => {
       mockGetNotificationSettings.mockResolvedValueOnce({
         authorizationStatus: AuthorizationStatus.AUTHORIZED,
       } as NotificationSettings);
@@ -46,7 +46,7 @@ describe('useReminderNotificationsSetting', () => {
       expect(result.current.remindersEnabled).toBe(true);
     });
 
-    it('is enabled if permission is PROVISIONAL and notificationEnabled == true', async () => {
+    it('is enabled if permission is PROVISIONAL and reminderNotifications == true', async () => {
       mockGetNotificationSettings.mockResolvedValueOnce({
         authorizationStatus: AuthorizationStatus.PROVISIONAL,
       } as NotificationSettings);
@@ -66,7 +66,7 @@ describe('useReminderNotificationsSetting', () => {
       expect(result.current.remindersEnabled).toBe(true);
     });
 
-    it('is disabled if notificationEnabled == false', async () => {
+    it('is disabled if reminderNotifications == false', async () => {
       mockGetNotificationSettings.mockResolvedValueOnce({
         authorizationStatus: AuthorizationStatus.AUTHORIZED,
       } as NotificationSettings);
@@ -125,10 +125,26 @@ describe('useReminderNotificationsSetting', () => {
       expect(mockGetNotificationSettings).toHaveBeenCalledTimes(1);
       expect(result.current.remindersEnabled).toBe(false);
     });
+
+    it('is undefined if reminderNotifications == undefined', async () => {
+      mockGetNotificationSettings.mockResolvedValueOnce({
+        authorizationStatus: AuthorizationStatus.AUTHORIZED,
+      } as NotificationSettings);
+
+      useUserState.setState({
+        user: {uid: 'some-uid'} as FirebaseAuthTypes.User,
+        userState: {'some-uid': {reminderNotifications: undefined}},
+      });
+
+      const {result} = renderHook(() => useReminderNotificationsSetting());
+
+      expect(mockGetNotificationSettings).toHaveBeenCalledTimes(1);
+      expect(result.current.remindersEnabled).toBe(undefined);
+    });
   });
 
   describe('setRemindersEnabled', () => {
-    it('requests permission and sets notificationEnabled to true', async () => {
+    it('requests permission and sets reminderNotifications to true', async () => {
       mockRequestPermission.mockResolvedValueOnce(undefined);
       useUserState.setState({
         user: {uid: 'some-uid'} as FirebaseAuthTypes.User,
@@ -147,7 +163,7 @@ describe('useReminderNotificationsSetting', () => {
       );
     });
 
-    it('clears all notifications and set notificationEnabled to false', async () => {
+    it('clears all notifications and set reminderNotifications to false', async () => {
       mockRequestPermission.mockResolvedValueOnce(undefined);
       useUserState.setState({
         user: {uid: 'some-uid'} as FirebaseAuthTypes.User,
