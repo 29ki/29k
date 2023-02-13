@@ -3,13 +3,15 @@ import {renderHook} from '@testing-library/react-hooks';
 
 import useConfirmSessionReminder from './useConfirmSessionReminder';
 import {LiveSession} from '../../../../../shared/src/types/Session';
-import useNotificationSetting from '../../notifications/hooks/useNotificationSetting';
+import useReminderNotificationsSetting from '../../notifications/hooks/useReminderNotificationsSetting';
 
 const mockAlert = jest.mocked(Alert.alert);
 
-const mockSetNotificationsEnabled = jest.fn();
-const mockUseNotificationSetting = jest.mocked(useNotificationSetting);
-jest.mock('../../notifications/hooks/useNotificationSetting');
+const mockSetRemindersEnabled = jest.fn();
+const mockUseReminderNotificationsSetting = jest.mocked(
+  useReminderNotificationsSetting,
+);
+jest.mock('../../notifications/hooks/useReminderNotificationsSetting');
 
 const mockToggleReminder = jest.fn();
 jest.mock('../../sessions/hooks/useSessionNotificationReminder', () => () => ({
@@ -19,11 +21,11 @@ jest.mock('../../sessions/hooks/useSessionNotificationReminder', () => () => ({
 afterEach(jest.clearAllMocks);
 
 describe('useConfirmSessionReminder', () => {
-  describe('notificationsEnabled == true', () => {
+  describe('reminderNotifications == true', () => {
     beforeEach(() => {
-      mockUseNotificationSetting.mockReturnValueOnce({
-        notificationsEnabled: true,
-        setNotificationsEnabled: mockSetNotificationsEnabled,
+      mockUseReminderNotificationsSetting.mockReturnValueOnce({
+        remindersEnabled: true,
+        setRemindersEnabled: mockSetRemindersEnabled,
       });
     });
 
@@ -50,11 +52,11 @@ describe('useConfirmSessionReminder', () => {
     });
   });
 
-  describe('notificationsEnabled == false', () => {
+  describe('reminderNotifications == false', () => {
     beforeEach(() => {
-      mockUseNotificationSetting.mockReturnValueOnce({
-        notificationsEnabled: false,
-        setNotificationsEnabled: mockSetNotificationsEnabled,
+      mockUseReminderNotificationsSetting.mockReturnValueOnce({
+        remindersEnabled: false,
+        setRemindersEnabled: mockSetRemindersEnabled,
       });
     });
 
@@ -79,11 +81,11 @@ describe('useConfirmSessionReminder', () => {
     });
   });
 
-  describe('notificationsEnabled == undefined', () => {
+  describe('reminderNotifications == undefined', () => {
     beforeEach(() => {
-      mockUseNotificationSetting.mockReturnValueOnce({
-        notificationsEnabled: undefined,
-        setNotificationsEnabled: mockSetNotificationsEnabled,
+      mockUseReminderNotificationsSetting.mockReturnValueOnce({
+        remindersEnabled: undefined,
+        setRemindersEnabled: mockSetRemindersEnabled,
       });
     });
 
@@ -125,8 +127,8 @@ describe('useConfirmSessionReminder', () => {
 
       expect(mockAlert).toHaveBeenCalledTimes(1);
       expect(mockToggleReminder).toHaveBeenCalledTimes(0);
-      expect(mockSetNotificationsEnabled).toHaveBeenCalledTimes(1);
-      expect(mockSetNotificationsEnabled).toHaveBeenCalledWith(false);
+      expect(mockSetRemindersEnabled).toHaveBeenCalledTimes(1);
+      expect(mockSetRemindersEnabled).toHaveBeenCalledWith(false);
     });
 
     it('does nothing on cancel', async () => {
@@ -145,7 +147,7 @@ describe('useConfirmSessionReminder', () => {
 
       expect(mockAlert).toHaveBeenCalledTimes(1);
       expect(mockToggleReminder).toHaveBeenCalledTimes(0);
-      expect(mockSetNotificationsEnabled).toHaveBeenCalledTimes(0);
+      expect(mockSetRemindersEnabled).toHaveBeenCalledTimes(0);
     });
 
     it('enables notification reminders on confirm', async () => {
@@ -163,7 +165,7 @@ describe('useConfirmSessionReminder', () => {
       await result.current(true);
 
       expect(mockAlert).toHaveBeenCalledTimes(1);
-      expect(mockSetNotificationsEnabled).toHaveBeenCalledTimes(0);
+      expect(mockSetRemindersEnabled).toHaveBeenCalledTimes(0);
       expect(mockToggleReminder).toHaveBeenCalledTimes(1);
       expect(mockToggleReminder).toHaveBeenCalledWith(true);
     });
@@ -183,7 +185,7 @@ describe('useConfirmSessionReminder', () => {
       await result.current(false);
 
       expect(mockAlert).toHaveBeenCalledTimes(0);
-      expect(mockSetNotificationsEnabled).toHaveBeenCalledTimes(0);
+      expect(mockSetRemindersEnabled).toHaveBeenCalledTimes(0);
       expect(mockToggleReminder).toHaveBeenCalledTimes(0);
     });
   });

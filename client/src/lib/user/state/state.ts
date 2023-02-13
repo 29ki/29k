@@ -30,7 +30,7 @@ export type UserState = {
   pinnedSessions?: Array<PinnedSession>;
   completedSessions?: Array<CompletedSession>;
   metricsUid?: string;
-  notificationsEnabled?: boolean;
+  reminderNotifications?: boolean;
 };
 
 type SetCurrentUserState = (

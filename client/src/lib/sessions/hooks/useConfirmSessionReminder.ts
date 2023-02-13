@@ -2,24 +2,24 @@ import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Alert} from 'react-native';
 import {LiveSession} from '../../../../../shared/src/types/Session';
-import useNotificationSetting from '../../notifications/hooks/useNotificationSetting';
+import useReminderNotificationsSetting from '../../notifications/hooks/useReminderNotificationsSetting';
 import useSessionNotificationReminder from './useSessionNotificationReminder';
 
 const useConfirmSessionReminder = (session: LiveSession) => {
   const {t} = useTranslation('Component.ConfirmSessionReminder');
   const {toggleReminder} = useSessionNotificationReminder(session);
-  const {notificationsEnabled, setNotificationsEnabled} =
-    useNotificationSetting();
+  const {remindersEnabled, setRemindersEnabled} =
+    useReminderNotificationsSetting();
 
   const confirmToggleReminder = useCallback(
     async (enable: boolean) => {
-      if (enable && notificationsEnabled === undefined) {
+      if (enable && remindersEnabled === undefined) {
         Alert.alert(t('title'), t('message'), [
           {
             text: t('actions.dismiss'),
             style: 'destructive',
             onPress: async () => {
-              await setNotificationsEnabled(false);
+              await setRemindersEnabled(false);
             },
           },
           {
@@ -32,11 +32,11 @@ const useConfirmSessionReminder = (session: LiveSession) => {
             },
           },
         ]);
-      } else if (notificationsEnabled) {
+      } else if (remindersEnabled) {
         await toggleReminder(enable);
       }
     },
-    [t, notificationsEnabled, setNotificationsEnabled, toggleReminder],
+    [t, remindersEnabled, setRemindersEnabled, toggleReminder],
   );
 
   return confirmToggleReminder;
