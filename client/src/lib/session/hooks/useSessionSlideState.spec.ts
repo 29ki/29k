@@ -1,5 +1,8 @@
 import {renderHook} from '@testing-library/react-hooks';
-import {Session, SessionState} from '../../../../../shared/src/types/Session';
+import {
+  LiveSession,
+  SessionState,
+} from '../../../../../shared/src/types/Session';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useSessionState from '../state/state';
 import useSessionSlideState from './useSessionSlideState';
@@ -12,10 +15,10 @@ describe('useSessionSlideState', () => {
   it('should return null if no exercise exists', () => {
     mockUseExerciseById.mockReturnValueOnce(null);
     useSessionState.setState({
-      session: {
+      liveSession: {
         exerciseId: 'some-content-id',
         id: 'test',
-      } as Session,
+      } as LiveSession,
     });
 
     const {result} = renderHook(() => useSessionSlideState());
@@ -26,7 +29,7 @@ describe('useSessionSlideState', () => {
   it('should return null if no session exists', () => {
     mockUseExerciseById.mockReturnValueOnce({});
     useSessionState.setState({
-      session: null,
+      liveSession: null,
     });
     const {result} = renderHook(() => useSessionSlideState());
 
@@ -38,9 +41,9 @@ describe('useSessionSlideState', () => {
       slides: [{type: 'slide-1'}, {type: 'slide-2'}, {type: 'slide-3'}],
     });
     useSessionState.setState({
-      session: {
+      liveSession: {
         exerciseId: 'some-content',
-      } as Session,
+      } as LiveSession,
       sessionState: {
         index: 1,
       } as SessionState,
@@ -81,7 +84,7 @@ describe('useSessionSlideState', () => {
       slides: [{type: 'slide-1'}],
     });
     useSessionState.setState({
-      session: {exerciseId: 'some-content'} as Session,
+      liveSession: {exerciseId: 'some-content'} as LiveSession,
       sessionState: {index: 0} as SessionState,
     });
 

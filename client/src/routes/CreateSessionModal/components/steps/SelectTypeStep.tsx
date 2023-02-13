@@ -91,9 +91,7 @@ const TypeItem: React.FC<{
 const SelectTypeStep: React.FC<StepProps> = ({
   setSelectedModeAndType,
   nextStep,
-  lastStep,
   isPublicHost,
-  selectedExercise,
 }) => {
   const {t} = useTranslation('Modal.CreateSession');
   const {navigate, popToTop} =
@@ -108,14 +106,9 @@ const SelectTypeStep: React.FC<StepProps> = ({
   const onTypePress = useCallback(
     (mode: SessionMode, type: SessionType) => () => {
       setSelectedModeAndType({mode, type});
-      if (selectedExercise) {
-        // Already selected exercise, here to change type
-        lastStep();
-      } else {
-        nextStep();
-      }
+      nextStep();
     },
-    [setSelectedModeAndType, selectedExercise, lastStep, nextStep],
+    [setSelectedModeAndType, nextStep],
   );
 
   return (

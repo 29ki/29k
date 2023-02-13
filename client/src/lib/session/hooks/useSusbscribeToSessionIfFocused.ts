@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import useSessionState from '../state/state';
-import {Session} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/types/Session';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -13,12 +13,12 @@ import useSubscribeToSession from './useSubscribeToSession';
 type Options = {exitOnEnded?: boolean};
 
 const useSubscribeToSessionIfFocused = (
-  session: Session,
+  session: LiveSession,
   options?: Options,
 ) => {
   const {exitOnEnded = true} = options ?? {};
   const setSessionState = useSessionState(state => state.setSessionState);
-  const setSession = useSessionState(state => state.setSession);
+  const setSession = useSessionState(state => state.setLiveSession);
   const {fetchSessions} = useSessions();
   const subscribeToSession = useSubscribeToSession(session.id);
   const isFocused = useIsFocused();

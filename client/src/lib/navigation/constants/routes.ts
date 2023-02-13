@@ -1,8 +1,12 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import {AsyncSession, Session} from '../../../../../shared/src/types/Session';
 import {UserProfile} from '../../../../../shared/src/types/User';
+import {
+  AsyncSession,
+  LiveSession,
+} from '../../../../../shared/src/types/Session';
+import {CompletedSession} from '../../user/state/state';
 
 export type ProfileStackProps = {
   Profile: undefined;
@@ -16,10 +20,10 @@ export type TabNavigatorProps = {
 };
 
 export type LiveSessionStackProps = {
-  ChangingRoom: {session: Session};
-  Session: {session: Session};
-  IntroPortal: {session: Session};
-  OutroPortal: {session: Session};
+  ChangingRoom: {session: LiveSession};
+  Session: {session: LiveSession};
+  IntroPortal: {session: LiveSession};
+  OutroPortal: {session: LiveSession};
 };
 
 export type AsyncSessionStackProps = {
@@ -44,8 +48,8 @@ export type OverlayStackProps = {
 
 export type ModalStackProps = {
   OverlayStack: NavigatorScreenParams<OverlayStackProps>;
-  SessionModal: {session: Session};
-  AsyncSessionModal: {session: AsyncSession};
+  SessionModal: {session: LiveSession};
+  CompletedSessionModal: {session: AsyncSession | CompletedSession};
   SharingModal: {exerciseId: string};
   SharingPostModal: {
     userProfile?: UserProfile;
@@ -53,7 +57,7 @@ export type ModalStackProps = {
   };
   SessionUnavailableModal: undefined;
   AddSessionByInviteModal?: {inviteCode?: number};
-  CreateSessionModal: undefined;
+  CreateSessionModal: {exerciseId?: Exercise['id']};
   UpgradeAccountModal?: undefined;
   RequestPublicHostModal?: {code?: string; haveRequested?: boolean};
   ChangeLanguageModal: undefined;
@@ -65,7 +69,7 @@ export type ModalStackProps = {
   ContactModal: undefined;
   SessionFeedbackModal: {
     exerciseId: Exercise['id'];
-    sessionId: Session['id'];
+    sessionId: LiveSession['id'];
     completed: boolean;
     isHost: boolean;
   };

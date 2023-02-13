@@ -15,7 +15,7 @@ import Gutters from '../Gutters/Gutters';
 import Tag from '../Tag/Tag';
 import {WALLET_CARD_HEIGHT} from './WalletCard';
 
-const CARD_HEIGHT = 184;
+export const CARD_HEIGHT = 184;
 
 const GraphicsWrapper = styled.View({
   width: 120,

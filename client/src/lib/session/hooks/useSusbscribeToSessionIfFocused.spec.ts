@@ -2,7 +2,7 @@ import {renderHook} from '@testing-library/react-hooks';
 import {useNavigation, useIsFocused} from '@react-navigation/native';
 import useSessionState from '../state/state';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
-import {Session} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/types/Session';
 jest.mock('../../../lib/sessions/hooks/useSessions');
 jest.mock('./useSubscribeToSession');
 
@@ -27,11 +27,11 @@ describe('useSubscribeToSessionIfFocused', () => {
   const navigation = useNavigation();
 
   const useTestHook = ({exitOnEnded = true} = {}) => {
-    useSubscribeToSessionIfFocused({id: 'session-id'} as Session, {
+    useSubscribeToSessionIfFocused({id: 'session-id'} as LiveSession, {
       exitOnEnded,
     });
     const sessionState = useSessionState(state => state.sessionState);
-    const session = useSessionState(state => state.session);
+    const session = useSessionState(state => state.liveSession);
 
     return {sessionState, session};
   };

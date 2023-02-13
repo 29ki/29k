@@ -5,10 +5,12 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 40 minutes on connecting with- and being kind to ourselves.\n\nWe’ll be doing some reflection exercises and there will be opportunities to share those reflections with each other."
+            "text": "Welcome. I am X and today we will work for around 40 minutes on connecting with- and being kind to ourselves.\n\nWe’ll be doing some reflection exercises and there will be opportunities to share those reflections with each other.",
+            "asyncText": "Welcome to this session, on connecting with- and being kind to ourselves. (I am x).\n\nThere will be two reflection exercises and after each an opportunity to share what we experienced."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started.",
+            "asyncText": "Before we get started, check-in with yourself. How are you feeling right now?\n\nLet’s get started."
           }
         ]
       },
@@ -37,10 +39,12 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 2 minutes to reflect on our own.\n\nThink of a situation when you felt down. When you failed at something and doubted yourself. How do you usually react to and treat yourself in such situations? What do you say to yourself? What tone do you use?"
+            "text": "Now we’ll take 2 minutes to reflect on our own.\n\nThink of a situation when you felt down. When you failed at something and doubted yourself. How do you usually react to and treat yourself in such situations? What do you say to yourself? What tone do you use?",
+            "asyncText": "Take 1 minute to reflect on a situation when you felt down. When you failed at something and doubted yourself. How do you react to, and treat yourself in such situations? What do you say to yourself? What tone do you use?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 2 minutes starting now.\n\n> Push play to start the timer.\n\nThat’s 2 minutes and it’s time to move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong answer, our responses are our own. 2 minutes starting now.\n\n> Press play to start the timer.\n\nThat’s 2 minutes and it’s time to move on.",
+            "asyncText": "Take notes on a piece of paper or just mental notes in your head. There is no right or wrong answer. Our responses are our own.One way to practice self-compassion is by taking a different perspective.\n\nTake another minute to reflect upon how you react when a friend is feeling down, is putting themselves down or perhaps is doubting their ability.\n\nPress play to start the timer."
           }
         ],
         "content": {
@@ -68,7 +72,7 @@
             "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
         "id": "sharing-1"
@@ -86,10 +90,12 @@
         },
         "hostNotes": [
           {
-            "text": "One way to practice self-compassion is by taking a different perspective. Think about how you react when a friend is feeling down, is putting themselves down or perhaps is doubting their ability. \n\nHow do you usually react? What do you say or do? What tone do you use?"
+            "text": "One way of practicing self-compassion is taking a different perspective. Think about how you would respond to a friend who is feeling down, self-critical, or uncertain. What do you say or do? What kind of tone do you take?",
+            "asyncText": "One way to practice self-compassion is by taking a different perspective.\n\nTake another minute to reflect upon how you react when a friend is feeling down, is putting themselves down or perhaps is doubting their ability."
           },
           {
-            "text": "If you want to, you can take notes on a piece of paper or just mental notes in your head. And remember, there is no right or wrong here, our answers are our own. 2 minutes starting now.\n\n> Push play to start the timer.\n\nThat’s 2 minutes and it’s time to move on."
+            "text": "Again, take notes on a piece of paper or just mental notes. 2 minutes starting now.\n\n> Press play to start the timer.\n\nThat’s 2 minutes and it’s time to move on.",
+            "asyncText": "How do you react? What do you say or do? What tone do you use??\n\n> Press play to start the timer."
           }
         ]
       },
@@ -104,7 +110,7 @@
         },
         "hostNotes": [
           {
-            "text": "Time to share again. Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much for sharing."
+            "text": "Time to share again. Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much for sharing."
           }
         ],
         "id": "sharing-2"
@@ -113,13 +119,16 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life."
+            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.",
+            "asyncText": "Well done. If you’re up for it, you can continue what we started here today with a mission."
           },
           {
-            "text": "In the coming days, see if you can try to be kinder to yourself. Especially in difficult situations. Use the idea of clothespins and start by becoming aware of what your inner voice sounds like. Next, see if you can choose to talk and react to yourself in the same way you would if it were a friend. Notice how it makes you feel."
+            "text": "In the coming days, be kind to yourself. Especially in difficult situations. Try using the idea of clothespins to become aware of your inner voice. Then, choose to talk and react to yourself in the same way you would if it were a friend. Notice how it makes you feel.",
+            "asyncText": "In the coming days, be kind to yourself. Especially in difficult situations. Try using the idea of clothespins to become aware of your inner voice. Then, choose to talk and react to yourself in the same way you would if it were a friend. Notice how it makes you feel."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out.\n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Before we leave this space let’s do a mini check-out.\n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words.",
+            "asyncText": "Before leaving this space, check-in with yourself again: How are you feeling right now? Has anything shifted?\n\nWhen you’re ready, finish this session at your own pace."
           },
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."

@@ -1,9 +1,12 @@
 import {useCallback} from 'react';
 import {ExerciseSlide} from '../../../../../shared/src/types/Content';
-import {SessionState, Session} from '../../../../../shared/src/types/Session';
+import {
+  SessionState,
+  LiveSession,
+} from '../../../../../shared/src/types/Session';
 import * as sessionApi from '../../../lib/sessions/api/session';
 
-const useUpdateSessionState = (sessionId: Session['id'] | undefined) => {
+const useUpdateSessionState = (sessionId: LiveSession['id'] | undefined) => {
   const startSession = useCallback(async () => {
     if (sessionId) {
       sessionApi.updateSessionState(sessionId, {

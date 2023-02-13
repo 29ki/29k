@@ -1,5 +1,5 @@
 import {
-  Session,
+  LiveSession,
   SessionMode,
   SessionType,
 } from '../../../../../../shared/src/types/Session';
@@ -16,10 +16,10 @@ type V2PinnedSession = {
 };
 
 type V2CompletedSession = {
-  id: Session['id'];
-  hostId?: Session['hostId'];
-  exerciseId: Session['exerciseId'];
-  language: Session['language'];
+  id: LiveSession['id'];
+  hostId?: LiveSession['hostId'];
+  exerciseId: LiveSession['exerciseId'];
+  language: LiveSession['language'];
   type: 'public' | 'private' | 'async';
   completedAt: Date;
 };

@@ -8,7 +8,7 @@ import {useNavigation} from '@react-navigation/native';
 
 import useSessions from '../../lib/sessions/hooks/useSessions';
 
-import {Session} from '../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../shared/src/types/Session';
 
 import {GUTTERS, SPACINGS} from '../../lib/constants/spacings';
 import {COLORS} from '../../../../shared/src/constants/colors';
@@ -32,7 +32,7 @@ import {SectionListRenderItem} from 'react-native';
 
 type Section = {
   title: string;
-  data: Session[];
+  data: LiveSession[];
   type: 'hostedBy' | 'interested' | 'comming';
 };
 
@@ -75,7 +75,7 @@ const AddSessionForm = () => {
   return (
     <AddSessionWrapper>
       <AddButton
-        onPress={() => navigate('CreateSessionModal')}
+        onPress={() => navigate('CreateSessionModal', {exerciseId: undefined})}
         LeftIcon={PlusIcon}>
         {t('add')}
       </AddButton>
@@ -131,7 +131,7 @@ const Sessions = () => {
     }
   }, [setIsLoading, fetchSessions]);
 
-  const renderSession: SectionListRenderItem<Session, Section> = ({
+  const renderSession: SectionListRenderItem<LiveSession, Section> = ({
     item,
     section,
     index,

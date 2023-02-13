@@ -29,7 +29,7 @@ type SessionBaseFileds = {
   language: LANGUAGE_TAG;
 };
 
-type SessionFields = SessionBaseFileds & {
+type LiveSessionFields = SessionBaseFileds & {
   dailyRoomName: string;
   url: string;
   link?: string;
@@ -45,7 +45,7 @@ export type SessionStateData = SessionStateFields & {
   timestamp: Timestamp;
 };
 
-export type SessionData = SessionFields & {
+export type LiveSessionData = LiveSessionFields & {
   startTime: Timestamp;
   createdAt: Timestamp;
   updatedAt: Timestamp;
@@ -56,7 +56,7 @@ export type SessionState = SessionStateFields & {
   timestamp: string;
 };
 
-export type Session = SessionFields & {
+export type LiveSession = LiveSessionFields & {
   startTime: string;
   createdAt: string;
   updatedAt: string;

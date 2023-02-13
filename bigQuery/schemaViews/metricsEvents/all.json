@@ -18,7 +18,8 @@
         {"name": "Sharing Session Duration", "type": "number"},
         {"name": "Sharing Session ID", "type": "string"},
         {"name": "Sharing Session Start Time", "type": "string"},
-        {"name": "Sharing Session Type", "type": "string"}
+        {"name": "Sharing Session Type", "type": "string"},
+        {"name": "Sharing Session Mode", "type": "string"}
       ]
     }
   ]

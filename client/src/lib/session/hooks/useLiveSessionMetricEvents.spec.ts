@@ -1,7 +1,7 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook} from '@testing-library/react-hooks';
 import dayjs from 'dayjs';
-import {Session} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/types/Session';
 import {logEvent} from '../../metrics';
 import useUserState from '../../user/state/state';
 import useSessionState from '../state/state';
@@ -29,7 +29,7 @@ describe('useLiveSessionMetricEvents', () => {
     });
 
     useSessionState.setState({
-      session: {
+      liveSession: {
         id: 'some-session-id',
         type: 'private',
         mode: 'live',
@@ -37,7 +37,7 @@ describe('useLiveSessionMetricEvents', () => {
         startTime: '2022-02-02T02:02:02Z',
         exerciseId: 'some-content-id',
         language: 'en',
-      } as Session,
+      } as LiveSession,
     });
 
     const {result} = renderHook(() => useLiveSessionMetricEvents());
@@ -65,10 +65,10 @@ describe('useLiveSessionMetricEvents', () => {
     });
 
     useSessionState.setState({
-      session: {
+      liveSession: {
         id: 'some-session-id',
         hostId: 'some-user-id',
-      } as Session,
+      } as LiveSession,
     });
 
     const {result} = renderHook(() => useLiveSessionMetricEvents());
@@ -92,10 +92,10 @@ describe('useLiveSessionMetricEvents', () => {
     });
 
     useSessionState.setState({
-      session: {
+      liveSession: {
         id: 'some-session-id',
         startTime: dayjs().subtract(1, 'hour').toISOString(),
-      } as Session,
+      } as LiveSession,
     });
 
     const {result} = renderHook(() => useLiveSessionMetricEvents());

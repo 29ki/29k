@@ -42,7 +42,7 @@ import {PencilIcon, CalendarIcon} from '../../lib/components/Icons';
 import TouchableOpacity from '../../lib/components/TouchableOpacity/TouchableOpacity';
 import DateTimePicker from '../../lib/components/DateTimePicker/DateTimePicker';
 import {updateSession} from '../../lib/sessions/api/session';
-import {Session, SessionType} from '../../../../shared/src/types/Session';
+import {LiveSession, SessionType} from '../../../../shared/src/types/Session';
 import EditSessionType from '../../lib/components/EditSessionType/EditSessionType';
 import {SPACINGS} from '../../lib/constants/spacings';
 import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
@@ -138,7 +138,7 @@ const SessionModal = () => {
     params: {session: initialSessionData},
   } = useRoute<RouteProp<ModalStackProps, 'SessionModal'>>();
 
-  const [session, setSession] = useState<Session>(initialSessionData);
+  const [session, setSession] = useState<LiveSession>(initialSessionData);
 
   const {t} = useTranslation('Modal.Session');
   const user = useUser();

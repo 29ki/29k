@@ -15,7 +15,7 @@ type AllowedSharingEvents =
 
 const useLiveSessionMetricEvents = () => {
   const user = useUser();
-  const session = useSessionState(state => state.session);
+  const session = useSessionState(state => state.liveSession);
 
   const logSessionMetricEvent = useCallback(
     (event: AllowedSharingEvents) => {

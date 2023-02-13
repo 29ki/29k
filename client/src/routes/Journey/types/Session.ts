@@ -1,6 +1,6 @@
-import {Session} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/types/Session';
 
 export interface JourneySession {
-  id: Session['id'];
+  id: LiveSession['id'];
   __type?: 'completed';
 }
