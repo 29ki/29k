@@ -23,7 +23,7 @@ import {SessionMode} from '../../../../../../shared/src/types/Session';
 
 type CompletedSessionCardProps = {
   session: CompletedSession;
-  hostProfile: UserProfile | null;
+  hostProfile: UserProfile | undefined;
   hasCardBefore: boolean;
   hasCardAfter: boolean;
 };
@@ -54,8 +54,8 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
     >();
 
   const onContextPress = useCallback(
-    () => navigate('CompletedSessionModal', {session}),
-    [navigate, session],
+    () => navigate('CompletedSessionModal', {session, hostProfile}),
+    [navigate, session, hostProfile],
   );
 
   const image = useMemo(

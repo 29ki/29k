@@ -29,6 +29,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
 import useGetExercisesByMode from '../../../../lib/content/hooks/useGetExercisesByMode';
+import useStartAsyncSession from '../../../../lib/session/hooks/useStartAsyncSession';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -92,11 +93,13 @@ const SelectTypeStep: React.FC<StepProps> = ({
   setSelectedModeAndType,
   nextStep,
   isPublicHost,
+  selectedExercise,
 }) => {
   const {t} = useTranslation('Modal.CreateSession');
   const {navigate, popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const asyncExercises = useGetExercisesByMode(SessionMode.async);
+  const startSession = useStartAsyncSession();
 
   const onJoinByInvite = useCallback(() => {
     popToTop();
@@ -106,9 +109,21 @@ const SelectTypeStep: React.FC<StepProps> = ({
   const onTypePress = useCallback(
     (mode: SessionMode, type: SessionType) => () => {
       setSelectedModeAndType({mode, type});
-      nextStep();
+
+      if (mode === SessionMode.async) {
+        popToTop();
+        startSession(selectedExercise);
+      } else {
+        nextStep();
+      }
     },
-    [setSelectedModeAndType, nextStep],
+    [
+      setSelectedModeAndType,
+      nextStep,
+      startSession,
+      popToTop,
+      selectedExercise,
+    ],
   );
 
   return (
