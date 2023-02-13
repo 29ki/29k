@@ -70,7 +70,7 @@ const OtherPostCard: React.FC<OtherPostCardProps> = ({text, userProfile}) => {
     <SharingCard onPress={onPress} height={cardHeight}>
       <BylineUser user={userProfile} />
       <Spacer8 />
-      <SharingText numberOfLines={numberOfLines}>{text + text}</SharingText>
+      <SharingText numberOfLines={numberOfLines}>{text}</SharingText>
       <BottomGradient colors={gradientColors} />
     </SharingCard>
   );
