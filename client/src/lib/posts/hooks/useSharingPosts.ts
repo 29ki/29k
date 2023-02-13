@@ -12,6 +12,7 @@ const useSharingPosts = (exerciseId?: string) => {
     state => getCurrentUserStateSelector(state)?.events,
   );
   const session = useSessionState(state => state.asyncSession);
+
   const getSharingPosts = useCallback(async () => {
     if (exerciseId) {
       return fetchPosts(exerciseId);
@@ -30,24 +31,20 @@ const useSharingPosts = (exerciseId?: string) => {
         if (isPublic) {
           await addPost(exerciseId, sharingId, text, isAnonymous);
         }
-        addEvent({
-          type: 'post',
-          payload: {
-            exerciseId,
-            sessionId: session.id,
-            sharingId,
-            isPublic,
-            isAnonymous,
-            text,
-          },
-          timestamp: new Date(),
+        addEvent('post', {
+          exerciseId,
+          sessionId: session.id,
+          sharingId,
+          isPublic,
+          isAnonymous,
+          text,
         });
       }
     },
     [exerciseId, session?.id, addEvent],
   );
 
-  const getSharingPostForSessionId = useCallback(
+  const getSharingPostForSession = useCallback(
     (sessionId: string, sharingId: string) => {
       return events
         ?.filter(event => event.type === 'post')
@@ -63,7 +60,7 @@ const useSharingPosts = (exerciseId?: string) => {
     [events, exerciseId],
   );
 
-  return {getSharingPosts, getSharingPostForSessionId, addSharingPost};
+  return {getSharingPosts, getSharingPostForSession, addSharingPost};
 };
 
 export default useSharingPosts;

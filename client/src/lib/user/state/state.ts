@@ -76,7 +76,7 @@ export type Actions = {
   }) => void;
   setPinnedSessions: (pinnedSessions: Array<PinnedSession>) => void;
   addCompletedSession: (completedSession: CompletedSession) => void;
-  addEvent: (event: Event) => void;
+  addEvent: (type: Event['type'], event: Event['payload']) => void;
   setCurrentUserState: SetCurrentUserState;
   reset: (isDelete?: boolean) => void;
 };
@@ -144,11 +144,11 @@ const useUserState = create<State & Actions>()(
           setCurrentUserState(({completedSessions = []} = {}) => ({
             completedSessions: [...completedSessions, completedSession],
           })),
-        addEvent: event =>
+        addEvent: (type, payload) => {
           setCurrentUserState(({events = []} = {}) => ({
-            events: [...events, event],
-          })),
-
+            events: [...events, {type, payload, timestamp: new Date()}],
+          }));
+        },
         reset: isDelete => {
           const {user} = get();
           if (isDelete && user?.uid) {

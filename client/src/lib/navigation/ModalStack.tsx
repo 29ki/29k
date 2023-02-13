@@ -105,6 +105,15 @@ const ModalStack = () => {
     [sheetModalScreenOptions],
   );
 
+  const fullSheetModalScreenOptions = useMemo(
+    () => ({
+      ...sheetModalScreenOptions,
+      // Please note - Having a fixed snap point as first value improves keyboard input focus on Android
+      snapPoints: [800, '100%'],
+    }),
+    [sheetModalScreenOptions],
+  );
+
   const cardModalScreenOptions = useMemo(
     () => ({
       ...modalScreenOptions,
@@ -139,7 +148,7 @@ const ModalStack = () => {
         <Screen
           name={'SharingModal'}
           component={SharingModal}
-          options={tallSheetModalScreenOptions}
+          options={fullSheetModalScreenOptions}
         />
         <Screen
           name={'SharingPostModal'}

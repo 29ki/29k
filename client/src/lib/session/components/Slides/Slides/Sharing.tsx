@@ -97,7 +97,7 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
   const user = useUser();
   const session = useSessionState(state => state.asyncSession);
   const theme = useExerciseTheme();
-  const {getSharingPosts, getSharingPostForSessionId} = useSharingPosts(
+  const {getSharingPosts, getSharingPostForSession} = useSharingPosts(
     session?.exerciseId,
   );
 
@@ -121,12 +121,12 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
 
   const sharingPost = useMemo(() => {
     if (session?.id) {
-      const post = getSharingPostForSessionId(session.id, slide.id);
+      const post = getSharingPostForSession(session.id, slide.id);
       if (post) {
         return {text: post.text, isPublic: post.isPublic};
       }
     }
-  }, [session?.id, slide.id, getSharingPostForSessionId]);
+  }, [session?.id, slide.id, getSharingPostForSession]);
 
   const onLayout = useCallback(
     (event: LayoutChangeEvent) => {
