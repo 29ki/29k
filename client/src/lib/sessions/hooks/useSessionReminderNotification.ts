@@ -4,7 +4,7 @@ import {LiveSession} from '../../../../../shared/src/types/Session';
 import useExerciseById from '../../content/hooks/useExerciseById';
 import useTriggerNotification from '../../notifications/hooks/useTriggerNotification';
 
-const useSessionNotificationReminder = (session: LiveSession) => {
+const useSessionReminderNotification = (session: LiveSession) => {
   const {id, exerciseId, startTime, link} = session;
 
   const {t} = useTranslation('Component.SessionReminder');
@@ -31,4 +31,4 @@ const useSessionNotificationReminder = (session: LiveSession) => {
   return {reminderEnabled, toggleReminder};
 };
 
-export default useSessionNotificationReminder;
+export default useSessionReminderNotification;

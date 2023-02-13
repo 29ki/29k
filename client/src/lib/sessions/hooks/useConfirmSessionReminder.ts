@@ -3,11 +3,11 @@ import {useTranslation} from 'react-i18next';
 import {Alert} from 'react-native';
 import {LiveSession} from '../../../../../shared/src/types/Session';
 import useReminderNotificationsSetting from '../../notifications/hooks/useReminderNotificationsSetting';
-import useSessionNotificationReminder from './useSessionNotificationReminder';
+import useSessionReminderNotification from './useSessionReminderNotification';
 
 const useConfirmSessionReminder = (session: LiveSession) => {
   const {t} = useTranslation('Component.ConfirmSessionReminder');
-  const {toggleReminder} = useSessionNotificationReminder(session);
+  const {toggleReminder} = useSessionReminderNotification(session);
   const {remindersEnabled, setRemindersEnabled} =
     useReminderNotificationsSetting();
 

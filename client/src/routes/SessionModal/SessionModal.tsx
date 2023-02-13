@@ -30,7 +30,7 @@ import {
 } from '../../lib/navigation/constants/routes';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import useAddSessionToCalendar from '../../lib/sessions/hooks/useAddSessionToCalendar';
-import useSessionNotificationReminder from '../../lib/sessions/hooks/useSessionNotificationReminder';
+import useSessionReminderNotification from '../../lib/sessions/hooks/useSessionReminderNotification';
 import {Body16} from '../../lib/components/Typography/Body/Body';
 import Byline from '../../lib/components/Bylines/Byline';
 import {formatExerciseName, formatInviteCode} from '../../lib/utils/string';
@@ -159,7 +159,7 @@ const SessionModal = () => {
   const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session?.exerciseId);
   const {reminderEnabled, toggleReminder} =
-    useSessionNotificationReminder(session);
+    useSessionReminderNotification(session);
 
   const startingNow = dayjs
     .utc()
