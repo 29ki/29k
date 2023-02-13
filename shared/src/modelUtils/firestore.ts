@@ -7,5 +7,5 @@ interface RetrivableData {
 
 export const getData = <T>(document: RetrivableData) => {
   const data = document.data();
-  return {...data, id: document.id} as T;
+  return {...data, id: data?.id ? data.id : document.id} as T;
 };
