@@ -5,6 +5,7 @@ import {
   AsyncSession,
   LiveSession,
 } from '../../../../../shared/src/types/Session';
+import {UserProfile} from '../../../../../shared/src/types/User';
 import {CompletedSession} from '../../user/state/state';
 
 export type ProfileStackProps = {
@@ -48,7 +49,10 @@ export type OverlayStackProps = {
 export type ModalStackProps = {
   OverlayStack: NavigatorScreenParams<OverlayStackProps>;
   SessionModal: {session: LiveSession};
-  CompletedSessionModal: {session: AsyncSession | CompletedSession};
+  CompletedSessionModal: {
+    session: AsyncSession | CompletedSession;
+    hostProfile?: UserProfile;
+  };
   SessionUnavailableModal: undefined;
   AddSessionByInviteModal?: {inviteCode?: number};
   CreateSessionModal: {exerciseId?: Exercise['id']};
