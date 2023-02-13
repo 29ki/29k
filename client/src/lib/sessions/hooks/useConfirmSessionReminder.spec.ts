@@ -165,7 +165,8 @@ describe('useConfirmSessionReminder', () => {
       await result.current(true);
 
       expect(mockAlert).toHaveBeenCalledTimes(1);
-      expect(mockSetRemindersEnabled).toHaveBeenCalledTimes(0);
+      expect(mockSetRemindersEnabled).toHaveBeenCalledTimes(1);
+      expect(mockSetRemindersEnabled).toHaveBeenCalledWith(true);
       expect(mockToggleReminder).toHaveBeenCalledTimes(1);
       expect(mockToggleReminder).toHaveBeenCalledWith(true);
     });

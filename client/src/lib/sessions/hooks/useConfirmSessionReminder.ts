@@ -28,6 +28,7 @@ const useConfirmSessionReminder = (session: LiveSession) => {
           {
             text: t('actions.confirm'),
             onPress: async () => {
+              await setRemindersEnabled(true);
               await toggleReminder(true);
             },
           },
