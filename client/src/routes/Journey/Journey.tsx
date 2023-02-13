@@ -182,9 +182,6 @@ const Journey = () => {
       <SectionList
         ref={listRef}
         sections={sections}
-        initialScrollIndex={
-          completedSessions.length ? completedSessions.length + 0.2 : 0
-        }
         getItemLayout={getItemLayout}
         keyExtractor={session => session.id}
         ListHeaderComponent={ListHeader}
