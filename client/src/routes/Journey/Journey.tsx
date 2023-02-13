@@ -1,7 +1,8 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {
   RefreshControl,
   SectionList as RNSectionList,
+  SectionListData,
   SectionListRenderItem,
 } from 'react-native';
 
@@ -30,6 +31,9 @@ import {useTranslation} from 'react-i18next';
 import {Display24} from '../../lib/components/Typography/Display/Display';
 import styled from 'styled-components/native';
 import dayjs from 'dayjs';
+import {WALLET_CARD_HEIGHT} from '../../lib/components/Cards/WalletCard';
+import {CARD_HEIGHT} from '../../lib/components/Cards/Card';
+import {useIsFocused} from '@react-navigation/native';
 
 export type Section = {
   title: string;
@@ -88,6 +92,8 @@ const Journey = () => {
   const {fetchSessions, pinnedSessions, hostedSessions} = useSessions();
   const {completedSessions} = useCompletedSessions();
   const [isLoading, setIsLoading] = useState(false);
+  const isFocused = useIsFocused();
+  const listRef = useRef<RNSectionList<JourneySession, Section>>(null);
 
   const sections = useMemo(() => {
     let sectionsList: Section[] = [];
@@ -128,6 +134,40 @@ const Journey = () => {
     }
   }, [setIsLoading, fetchSessions]);
 
+  const getItemLayout = useCallback(
+    (
+      data: SectionListData<JourneySession, Section>[] | null,
+      index: number,
+    ): {length: number; offset: number; index: number} => {
+      let offset = 0,
+        length = null,
+        completedSessionsLength = data?.[0].data?.length || 0;
+
+      if (index >= completedSessionsLength) {
+        const plannedSessionsOffsetCount = index - completedSessionsLength;
+        length = CARD_HEIGHT;
+        offset += completedSessionsLength * WALLET_CARD_HEIGHT;
+        offset += plannedSessionsOffsetCount * CARD_HEIGHT;
+      } else {
+        length = WALLET_CARD_HEIGHT;
+        offset = index * WALLET_CARD_HEIGHT;
+      }
+
+      return {length, offset, index};
+    },
+    [],
+  );
+
+  useEffect(() => {
+    if (isFocused && sections[1]?.data?.length && completedSessions.length) {
+      listRef.current?.scrollToLocation({
+        itemIndex: 0,
+        sectionIndex: 1,
+        viewOffset: 50,
+      });
+    }
+  }, [isFocused, completedSessions.length, sections]);
+
   if (!sections.length) {
     return (
       <Screen backgroundColor={COLORS.GREYLIGHTEST}>
@@ -141,7 +181,9 @@ const Journey = () => {
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
       <SectionList
+        ref={listRef}
         sections={sections}
+        getItemLayout={getItemLayout}
         keyExtractor={session => session.id}
         ListHeaderComponent={ListHeader}
         ListFooterComponent={Spacer60}
