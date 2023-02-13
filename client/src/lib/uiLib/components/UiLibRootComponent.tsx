@@ -7,6 +7,7 @@ import * as Icons from '../../components/Icons/Icons.library';
 import * as Typography from '../../components/Typography/Typography.library';
 import * as UiSettings from '../../constants/UiSettings.library';
 import * as Session from '../../session/components/Session.library';
+import * as Interested from '../../components/Interested/Interested.library';
 import * as Screen from '../../components/Screen/Screen.library';
 import * as HeaderScrollView from '../../components/HeaderScrollView/HeaderScrollView.library';
 import * as Modals from '../../components/Modals/Modals.library';
@@ -25,6 +26,7 @@ const menuItems: ComponentList = {
   Typography: [Typography],
   Screen: [Screen],
   HeaderScrollView: [HeaderScrollView],
+  Interested: [Interested],
   SessionComponents: [Session],
   ProfilePicture: [ProfilePicture],
   UiSettings: [UiSettings],
