@@ -82,7 +82,7 @@
     "@testing-library/react-hooks": "^8.0.1",
     "@types/i18next": "^13.0.0",
     "@types/jest": "^29.4.0",
-    "@types/ramda": "^0.28.22",
+    "@types/ramda": "^0.28.23",
     "@types/react-native": "^0.67.3",
     "@types/react-native-video": "^5.0.14",
     "@types/react-test-renderer": "^18.0.0",
