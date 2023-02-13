@@ -1,7 +1,6 @@
 import {renderHook} from '@testing-library/react-hooks';
 import notifee, {
   AuthorizationStatus,
-  Notification,
   NotificationSettings,
 } from '@notifee/react-native';
 
