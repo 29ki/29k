@@ -1,12 +1,14 @@
 import {renderHook} from '@testing-library/react-hooks';
 import notifee, {
   AuthorizationStatus,
+  Notification,
   NotificationSettings,
 } from '@notifee/react-native';
 
 import useUserState from '../../user/state/state';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import useReminderNotificationsSetting from './useReminderNotificationsSetting';
+import useNotificationsState from '../state/state';
 
 const mockGetNotificationSettings = jest.mocked(
   notifee.getNotificationSettings,
@@ -151,6 +153,9 @@ describe('useReminderNotificationsSetting', () => {
       useUserState.setState({
         user: {uid: 'some-uid'} as FirebaseAuthTypes.User,
       });
+      useNotificationsState.setState({
+        notifications: {'some-id': {id: 'some-notification-id'}},
+      });
 
       const {result} = renderHook(() => useReminderNotificationsSetting());
 
@@ -162,6 +167,9 @@ describe('useReminderNotificationsSetting', () => {
         expect.objectContaining({
           userState: {'some-uid': {reminderNotifications: false}},
         }),
+      );
+      expect(useNotificationsState.getState()).toEqual(
+        expect.objectContaining({notifications: {}}),
       );
     });
   });

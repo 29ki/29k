@@ -3,11 +3,13 @@ import notifee, {AuthorizationStatus} from '@notifee/react-native';
 import useCurrentUserState from '../../user/hooks/useCurrentUserState';
 import useUserState from '../../user/state/state';
 import useRequestNotificationPermission from './useRequestNotificationPermission';
+import useNotificationsState from '../state/state';
 
 const useReminderNotificationsSetting = () => {
   const userState = useCurrentUserState();
   const setUserState = useUserState(state => state.setCurrentUserState);
   const [remindersEnabled, setEnabled] = useState<boolean | undefined>();
+  const resetNotificationState = useNotificationsState(state => state.reset);
   const requestPermission = useRequestNotificationPermission();
 
   const checkPermission = useCallback(async () => {
@@ -27,11 +29,12 @@ const useReminderNotificationsSetting = () => {
         await requestPermission();
       } else {
         await notifee.cancelAllNotifications();
+        resetNotificationState();
       }
 
       setUserState({reminderNotifications: enabled});
     },
-    [requestPermission, setUserState],
+    [requestPermission, resetNotificationState, setUserState],
   );
 
   useEffect(() => {
