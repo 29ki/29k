@@ -11,12 +11,7 @@ import {SPACINGS} from '../../lib/constants/spacings';
 import {Body14} from '../../lib/components/Typography/Body/Body';
 import BylineUser from '../../lib/components/Bylines/BylineUser';
 
-import {
-  RouteProp,
-  useIsFocused,
-  useNavigation,
-  useRoute,
-} from '@react-navigation/native';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
 
 const TextWrapper = styled.View({
@@ -33,7 +28,7 @@ const SharingPostModal = () => {
 
   return (
     <SheetModal onPressClose={goBack} backgroundColor={COLORS.WHITE}>
-      <BottomSheetScrollView focusHook={useIsFocused}>
+      <BottomSheetScrollView>
         <Gutters>
           <BylineUser user={userProfile} />
           <Spacer16 />
