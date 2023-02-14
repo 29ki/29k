@@ -143,15 +143,19 @@ const Profile = () => {
                 {t('actions.signIn')}
               </ActionButton>
             )}
-            <ActionButton Icon={LanguagesIcon} onPress={languagePress}>
-              {t('actions.language')}
-            </ActionButton>
-            <ActionSwitch
-              Icon={BellIcon}
-              onValueChange={setRemindersEnabled}
-              value={remindersEnabled}>
-              {t('actions.notifications')}
-            </ActionSwitch>
+            {user && (
+              <>
+                <ActionButton Icon={LanguagesIcon} onPress={languagePress}>
+                  {t('actions.language')}
+                </ActionButton>
+                <ActionSwitch
+                  Icon={BellIcon}
+                  onValueChange={setRemindersEnabled}
+                  value={remindersEnabled}>
+                  {t('actions.notifications')}
+                </ActionSwitch>
+              </>
+            )}
           </ActionList>
           {user && (
             <>
