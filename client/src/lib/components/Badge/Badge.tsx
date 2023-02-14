@@ -22,8 +22,8 @@ const StatusText = styled(Body14)<{themeColor?: string}>(({themeColor}) => ({
   fontFamily: HKGroteskBold,
 }));
 const BadgeIcon = styled.View({
-  width: 21,
-  height: 21,
+  width: 20,
+  height: 20,
 });
 
 type BadgeProps = {

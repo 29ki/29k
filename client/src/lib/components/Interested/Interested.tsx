@@ -1,5 +1,6 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
+import {ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {BellFillIcon, StarFillIcon, StarIcon} from '../Icons';
@@ -14,6 +15,7 @@ const Container = styled.TouchableOpacity({
 const IconWrapper = styled.View({
   width: 22,
   height: 22,
+  marginLeft: -4,
 });
 
 const Count = styled(BodyBold)({
@@ -21,7 +23,7 @@ const Count = styled(BodyBold)({
   fontSize: 14,
   lineHeight: 18,
   backgroundColor: COLORS.PRIMARY,
-  paddingVertical: 3,
+  paddingVertical: 2,
   paddingHorizontal: 6,
   borderRadius: 6,
   overflow: 'hidden',
@@ -32,6 +34,7 @@ type InterestedProps = {
   active?: boolean;
   count?: number;
   reminder?: boolean;
+  style?: ViewStyle;
   onPress?: () => void;
 };
 
@@ -44,11 +47,12 @@ const Interested: React.FC<InterestedProps> = ({
   active,
   reminder,
   count,
+  style,
   onPress,
 }) => {
   const {t} = useTranslation('Component.Interested');
   return (
-    <Container onPress={onPress} disabled={!onPress}>
+    <Container style={style} onPress={onPress} disabled={!onPress}>
       {reminder ? (
         <IconWrapper>
           <BellFillIcon fill={COLORS.PRIMARY} />
