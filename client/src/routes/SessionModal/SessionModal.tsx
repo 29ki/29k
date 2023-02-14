@@ -10,6 +10,7 @@ import Button from '../../lib/components/Buttons/Button';
 import Gutters from '../../lib/components/Gutters/Gutters';
 import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
 import {
+  BellFillIcon,
   BellIcon,
   PrivateIcon,
   PublicIcon,
@@ -369,9 +370,9 @@ const SessionModal = () => {
                   />
                   <Spacer16 />
                   <IconButton
-                    Icon={BellIcon}
-                    variant="secondary"
-                    active={reminderEnabled}
+                    Icon={reminderEnabled ? BellFillIcon : BellIcon}
+                    // Toggling variant instead of active state for nicer UI
+                    variant={reminderEnabled ? 'primary' : 'secondary'}
                     onPress={onToggleReminder}
                   />
                   <Spacer16 />
