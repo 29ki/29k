@@ -72,10 +72,10 @@ const useTriggerNotification = (id: string) => {
     [id, setNotification],
   );
 
-  const removeTriggerNotification = async () => {
+  const removeTriggerNotification = useCallback(async () => {
     await notifee.cancelTriggerNotification(id);
     setNotification(id, undefined);
-  };
+  }, [setNotification, id]);
 
   return {
     triggerNotification,

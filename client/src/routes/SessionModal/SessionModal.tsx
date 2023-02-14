@@ -52,6 +52,7 @@ import useLogSessionMetricEvents from '../../lib/sessions/hooks/useLogSessionMet
 import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 import usePinSession from '../../lib/sessions/hooks/usePinSession';
+import useConfirmSessionReminder from '../../lib/sessions/hooks/useConfirmSessionReminder';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',
@@ -160,6 +161,7 @@ const SessionModal = () => {
   const exercise = useExerciseById(session?.exerciseId);
   const {reminderEnabled, toggleReminder} =
     useSessionReminderNotification(session);
+  const confirmToggleReminder = useConfirmSessionReminder(session);
 
   const startingNow = dayjs
     .utc()
@@ -268,6 +270,13 @@ const SessionModal = () => {
       setEditTypeMode(false);
     }
   }, [editMode]);
+
+  useEffect(() => {
+    if (isHost) {
+      // Allways try to set / update reminders for hosts
+      confirmToggleReminder(true);
+    }
+  }, [isHost, confirmToggleReminder]);
 
   const sessionTypes = useMemo(
     () =>

@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import {LiveSession} from '../../../../../shared/src/types/Session';
 import useExerciseById from '../../content/hooks/useExerciseById';
@@ -18,15 +19,25 @@ const useSessionReminderNotification = (session: LiveSession) => {
 
   const reminderEnabled = Boolean(triggerNotification);
 
-  const toggleReminder = async (enable = true) =>
-    enable
-      ? setTriggerNotification(
-          t('title', {exercise: exercise?.name}),
-          t('body'),
-          link,
-          dayjs(startTime).subtract(10, 'minutes').valueOf(),
-        )
-      : removeTriggerNotification();
+  const toggleReminder = useCallback(
+    async (enable = true) =>
+      enable
+        ? setTriggerNotification(
+            t('title', {exercise: exercise?.name}),
+            t('body'),
+            link,
+            dayjs(startTime).subtract(10, 'minutes').valueOf(),
+          )
+        : removeTriggerNotification(),
+    [
+      setTriggerNotification,
+      removeTriggerNotification,
+      exercise?.name,
+      link,
+      startTime,
+      t,
+    ],
+  );
 
   return {reminderEnabled, toggleReminder};
 };
