@@ -40,8 +40,6 @@ describe('useReminderNotificationsSetting', () => {
         useReminderNotificationsSetting(),
       );
 
-      await waitForNextUpdate();
-
       expect(mockGetNotificationSettings).toHaveBeenCalledTimes(1);
       expect(result.current.remindersEnabled).toBe(true);
     });
@@ -60,8 +58,6 @@ describe('useReminderNotificationsSetting', () => {
         useReminderNotificationsSetting(),
       );
 
-      await waitForNextUpdate();
-
       expect(mockGetNotificationSettings).toHaveBeenCalledTimes(1);
       expect(result.current.remindersEnabled).toBe(true);
     });
@@ -79,8 +75,6 @@ describe('useReminderNotificationsSetting', () => {
       const {result, waitForNextUpdate} = renderHook(() =>
         useReminderNotificationsSetting(),
       );
-
-      await waitForNextUpdate();
 
       expect(mockGetNotificationSettings).toHaveBeenCalledTimes(1);
       expect(result.current.remindersEnabled).toBe(false);
