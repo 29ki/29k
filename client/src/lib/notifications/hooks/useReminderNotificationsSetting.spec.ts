@@ -36,9 +36,7 @@ describe('useReminderNotificationsSetting', () => {
         userState: {'some-uid': {reminderNotifications: true}},
       });
 
-      const {result, waitForNextUpdate} = renderHook(() =>
-        useReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => useReminderNotificationsSetting());
 
       expect(mockGetNotificationSettings).toHaveBeenCalledTimes(1);
       expect(result.current.remindersEnabled).toBe(true);
@@ -54,9 +52,7 @@ describe('useReminderNotificationsSetting', () => {
         userState: {'some-uid': {reminderNotifications: true}},
       });
 
-      const {result, waitForNextUpdate} = renderHook(() =>
-        useReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => useReminderNotificationsSetting());
 
       expect(mockGetNotificationSettings).toHaveBeenCalledTimes(1);
       expect(result.current.remindersEnabled).toBe(true);
@@ -72,9 +68,7 @@ describe('useReminderNotificationsSetting', () => {
         userState: {'some-uid': {reminderNotifications: false}},
       });
 
-      const {result, waitForNextUpdate} = renderHook(() =>
-        useReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => useReminderNotificationsSetting());
 
       expect(mockGetNotificationSettings).toHaveBeenCalledTimes(1);
       expect(result.current.remindersEnabled).toBe(false);
