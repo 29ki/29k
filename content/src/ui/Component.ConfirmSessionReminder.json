@@ -4,7 +4,7 @@
     "message": "Do you want to be reminded when your upcoming sessions are about to start?",
     "actions": {
       "dismiss": "No",
-      "cancel": "Not now",
+      "cancel": "Maybe later",
       "confirm": "Yes"
     }
   },
