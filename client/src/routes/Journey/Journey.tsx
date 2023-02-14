@@ -101,11 +101,7 @@ const Journey = () => {
     if (completedSessions.length > 0) {
       sectionsList.push({
         title: t('headings.completed'),
-        data: completedSessions
-          .sort((a, b) =>
-            dayjs(a.completedAt).isAfter(dayjs(b.completedAt)) ? -1 : 1,
-          )
-          .map(s => ({...s, __type: 'completed'})),
+        data: completedSessions.map(s => ({...s, __type: 'completed'})),
         type: 'completed',
       });
     }
