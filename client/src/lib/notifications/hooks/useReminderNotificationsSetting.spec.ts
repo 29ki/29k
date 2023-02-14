@@ -1,4 +1,4 @@
-import {renderHook} from '@testing-library/react-hooks';
+import {act, renderHook} from '@testing-library/react-hooks';
 import notifee, {
   AuthorizationStatus,
   NotificationSettings,
@@ -152,7 +152,9 @@ describe('useReminderNotificationsSetting', () => {
 
       const {result} = renderHook(() => useReminderNotificationsSetting());
 
-      await result.current.setRemindersEnabled(true);
+      await act(async () => {
+        await result.current.setRemindersEnabled(true);
+      });
 
       expect(mockRequestPermission).toHaveBeenCalledTimes(1);
       expect(mockCancelAllNotifications).toHaveBeenCalledTimes(0);
@@ -174,7 +176,9 @@ describe('useReminderNotificationsSetting', () => {
 
       const {result} = renderHook(() => useReminderNotificationsSetting());
 
-      await result.current.setRemindersEnabled(false);
+      await act(async () => {
+        await result.current.setRemindersEnabled(false);
+      });
 
       expect(mockRequestPermission).toHaveBeenCalledTimes(0);
       expect(mockCancelAllNotifications).toHaveBeenCalledTimes(1);
