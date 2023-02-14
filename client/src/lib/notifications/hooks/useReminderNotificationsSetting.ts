@@ -3,42 +3,47 @@ import notifee, {AuthorizationStatus} from '@notifee/react-native';
 import useCurrentUserState from '../../user/hooks/useCurrentUserState';
 import useUserState from '../../user/state/state';
 import useRequestNotificationPermission from './useRequestNotificationPermission';
+import useNotificationsState from '../state/state';
 
-const useNotificationSetting = () => {
+const useReminderNotificationsSetting = () => {
   const userState = useCurrentUserState();
   const setUserState = useUserState(state => state.setCurrentUserState);
-  const [notificationsEnabled, setEnabled] = useState<boolean | undefined>();
+  const [remindersEnabled, setEnabled] = useState<boolean | undefined>();
+  const resetNotificationState = useNotificationsState(state => state.reset);
   const requestPermission = useRequestNotificationPermission();
 
   const checkPermission = useCallback(async () => {
     const permission = await notifee.getNotificationSettings();
 
-    if (userState?.notificationsEnabled !== undefined) {
+    if (userState?.reminderNotifications !== undefined) {
       setEnabled(
         permission.authorizationStatus >= AuthorizationStatus.AUTHORIZED &&
-          Boolean(userState?.notificationsEnabled),
+          Boolean(userState?.reminderNotifications),
       );
+    } else {
+      setEnabled(undefined);
     }
-  }, [setEnabled, userState?.notificationsEnabled]);
+  }, [setEnabled, userState?.reminderNotifications]);
 
-  const setNotificationsEnabled = useCallback(
+  const setRemindersEnabled = useCallback(
     async (enabled: boolean) => {
       if (enabled) {
         await requestPermission();
       } else {
         await notifee.cancelAllNotifications();
+        resetNotificationState();
       }
 
-      setUserState({notificationsEnabled: enabled});
+      setUserState({reminderNotifications: enabled});
     },
-    [requestPermission, setUserState],
+    [requestPermission, resetNotificationState, setUserState],
   );
 
   useEffect(() => {
     checkPermission();
   }, [checkPermission]);
 
-  return {notificationsEnabled, setNotificationsEnabled};
+  return {remindersEnabled, setRemindersEnabled};
 };
 
-export default useNotificationSetting;
+export default useReminderNotificationsSetting;

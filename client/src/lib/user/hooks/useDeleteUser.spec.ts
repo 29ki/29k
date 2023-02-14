@@ -3,6 +3,7 @@ import {useTranslation} from 'react-i18next';
 import {Alert as AlertMock} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import useDeleteUser from './useDeleteUser';
+import {act} from 'react-test-renderer';
 
 const alertConfirmMock = AlertMock.alert as jest.Mock;
 
@@ -27,7 +28,9 @@ describe('useDeleteUser', () => {
   it('shows a confirm dialogue', async () => {
     const {result} = renderHook(() => useDeleteUser());
 
-    result.current.deleteUser();
+    act(() => {
+      result.current.deleteUser();
+    });
 
     expect(alertConfirmMock).toHaveBeenCalledTimes(1);
     expect(alertConfirmMock).toHaveBeenCalledWith(
@@ -56,7 +59,10 @@ describe('useDeleteUser', () => {
 
     const {result} = renderHook(() => useDeleteUser());
 
-    expect(await result.current.deleteUser()).toBe(true);
+    await act(async () => {
+      expect(await result.current.deleteUser()).toBe(true);
+    });
+
     expect(alertConfirmMock).toHaveBeenCalledTimes(1);
     expect(auth().currentUser?.delete).toHaveBeenCalledTimes(1);
     expect(mockResetSessionState).toHaveBeenCalledTimes(1);
@@ -72,7 +78,10 @@ describe('useDeleteUser', () => {
 
     const {result} = renderHook(() => useDeleteUser());
 
-    expect(await result.current.deleteUser()).toBe(false);
+    await act(async () => {
+      expect(await result.current.deleteUser()).toBe(false);
+    });
+
     expect(alertConfirmMock).toHaveBeenCalledTimes(1);
     expect(auth().currentUser?.delete).toHaveBeenCalledTimes(0);
     expect(mockResetSessionState).toHaveBeenCalledTimes(0);

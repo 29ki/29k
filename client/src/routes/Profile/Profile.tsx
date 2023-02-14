@@ -46,7 +46,7 @@ import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 import AboutActionList from '../AboutOverlay/components/AboutActionList';
 import CommunityActionList from '../CommunityOverlay/components/CommunityActionList';
 import ActionSwitch from '../../lib/components/ActionList/ActionItems/ActionSwitch';
-import useNotificationSetting from '../../lib/notifications/hooks/useNotificationSetting';
+import useReminderNotificationsSetting from '../../lib/notifications/hooks/useReminderNotificationsSetting';
 
 const HEADER_HEIGHT = 72;
 
@@ -86,8 +86,8 @@ const Profile = () => {
   const {top} = useSafeAreaInsets();
   const user = useUser();
   const {deleteUser} = useDeleteUser();
-  const {notificationsEnabled, setNotificationsEnabled} =
-    useNotificationSetting();
+  const {remindersEnabled, setRemindersEnabled} =
+    useReminderNotificationsSetting();
 
   const profileSettingsPress = useCallback(
     () => navigate('ProfileSettingsModal'),
@@ -143,15 +143,19 @@ const Profile = () => {
                 {t('actions.signIn')}
               </ActionButton>
             )}
-            <ActionButton Icon={LanguagesIcon} onPress={languagePress}>
-              {t('actions.language')}
-            </ActionButton>
-            <ActionSwitch
-              Icon={BellIcon}
-              onValueChange={setNotificationsEnabled}
-              value={notificationsEnabled}>
-              {t('actions.notifications')}
-            </ActionSwitch>
+            {user && (
+              <>
+                <ActionButton Icon={LanguagesIcon} onPress={languagePress}>
+                  {t('actions.language')}
+                </ActionButton>
+                <ActionSwitch
+                  Icon={BellIcon}
+                  onValueChange={setRemindersEnabled}
+                  value={remindersEnabled}>
+                  {t('actions.notifications')}
+                </ActionSwitch>
+              </>
+            )}
           </ActionList>
           {user && (
             <>

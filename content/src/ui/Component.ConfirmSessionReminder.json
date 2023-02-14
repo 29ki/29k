@@ -1,0 +1,14 @@
+{
+  "en": {
+    "title": "Reminder notifications",
+    "message": "Do want to be reminded when your upcoming sessions are about to start?",
+    "actions": {
+      "dismiss": "No",
+      "cancel": "Not now",
+      "confirm": "Yes"
+    }
+  },
+  "pt": {},
+  "sv": {},
+  "es": {}
+}

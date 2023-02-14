@@ -2,7 +2,7 @@ import {
   LiveSession,
   SessionState,
 } from '../../../../../shared/src/types/Session';
-import apiClient from '../../../lib/apiClient/apiClient';
+import apiClient from '../../apiClient/apiClient';
 import Sentry from '../../sentry';
 
 const SESSIONS_ENDPOINT = '/sessions';
