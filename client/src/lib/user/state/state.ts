@@ -51,7 +51,7 @@ export type UserState = {
   completedSessions?: Array<CompletedSession>;
   events?: Array<Event>;
   metricsUid?: string;
-  notificationsEnabled?: boolean;
+  reminderNotifications?: boolean;
 };
 
 type SetCurrentUserState = (

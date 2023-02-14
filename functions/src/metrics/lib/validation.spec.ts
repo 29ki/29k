@@ -44,7 +44,7 @@ describe('properties', () => {
 
   it('throws on null', () => {
     expect(() => propertiesSchema.validateSync(null)).toThrow(
-      'invalid properties type',
+      'this cannot be null',
     );
   });
 

@@ -10,6 +10,7 @@ import Button from '../../lib/components/Buttons/Button';
 import Gutters from '../../lib/components/Gutters/Gutters';
 import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
 import {
+  BellFillIcon,
   BellIcon,
   PrivateIcon,
   PublicIcon,
@@ -30,7 +31,7 @@ import {
 } from '../../lib/navigation/constants/routes';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import useAddSessionToCalendar from '../../lib/sessions/hooks/useAddSessionToCalendar';
-import useSessionNotificationReminder from '../../lib/sessions/hooks/useSessionNotificationReminder';
+import useSessionReminderNotification from '../../lib/sessions/hooks/useSessionReminderNotification';
 import {Body16} from '../../lib/components/Typography/Body/Body';
 import Byline from '../../lib/components/Bylines/Byline';
 import {formatExerciseName, formatInviteCode} from '../../lib/utils/string';
@@ -47,11 +48,11 @@ import EditSessionType from '../../lib/components/EditSessionType/EditSessionTyp
 import {SPACINGS} from '../../lib/constants/spacings';
 import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
 import Interested from '../../lib/components/Interested/Interested';
-import RadioButton from '../../lib/components/Buttons/RadioButton/RadioButton';
-import usePinnedSessons from '../../lib/sessions/hooks/usePinnedSessions';
 import useLogSessionMetricEvents from '../../lib/sessions/hooks/useLogSessionMetricEvents';
 import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
+import usePinSession from '../../lib/sessions/hooks/usePinSession';
+import useConfirmSessionReminder from '../../lib/sessions/hooks/useConfirmSessionReminder';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',
@@ -101,10 +102,10 @@ const EditIcon = styled(View)({
   alignSelf: 'center',
 });
 
-const IntersetedWrapper = styled(TouchableOpacity)({
+const FullInterested = styled(Interested)({
+  flex: 1,
   flexDirection: 'row',
-  justifyContent: 'space-between',
-  alignItems: 'center',
+  justifyContent: 'flex-end',
 });
 
 const DeleteButton = styled(Button)({
@@ -151,19 +152,16 @@ const SessionModal = () => {
   const initialStartTime = dayjs(session.startTime).utc();
   const [sessionDate, setSessionDate] = useState<dayjs.Dayjs>(initialStartTime);
   const [sessionTime, setSessionTime] = useState<dayjs.Dayjs>(initialStartTime);
-  const {togglePinSession, isSessionPinned} = usePinnedSessons();
+  const {togglePinned, isPinned} = usePinSession(session);
   const logSessionMetricEvent = useLogSessionMetricEvents();
 
-  const sessionPinned = useMemo(
-    () => isSessionPinned(session),
-    [isSessionPinned, session],
-  );
   const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
 
   const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session?.exerciseId);
   const {reminderEnabled, toggleReminder} =
-    useSessionNotificationReminder(session);
+    useSessionReminderNotification(session);
+  const confirmToggleReminder = useConfirmSessionReminder(session);
 
   const startingNow = dayjs
     .utc()
@@ -181,10 +179,6 @@ const SessionModal = () => {
     });
     logSessionMetricEvent('Join Sharing Session', session);
   }, [navigation, session, logSessionMetricEvent]);
-
-  const onTogglePinSession = useCallback(() => {
-    togglePinSession(session);
-  }, [session, togglePinSession]);
 
   const onAddToCalendar = useCallback(() => {
     if (session && exercise) {
@@ -277,6 +271,13 @@ const SessionModal = () => {
     }
   }, [editMode]);
 
+  useEffect(() => {
+    if (isHost) {
+      // Allways try to set / update reminders for hosts
+      confirmToggleReminder(true);
+    }
+  }, [isHost, confirmToggleReminder]);
+
   const sessionTypes = useMemo(
     () =>
       Object.values(SessionType).map((type, i, arr) => (
@@ -342,33 +343,26 @@ const SessionModal = () => {
                 </>
               )}
               {isHost ? (
-                <EditButton onPress={onEditMode}>
-                  <SessionTimeBadge session={session} />
-                  <EditIcon>
-                    <PencilIcon />
-                  </EditIcon>
-                </EditButton>
+                <>
+                  <EditButton onPress={onEditMode}>
+                    <SessionTimeBadge session={session} />
+                    <EditIcon>
+                      <PencilIcon />
+                    </EditIcon>
+                  </EditButton>
+                  <FullInterested
+                    active={isPinned}
+                    count={session.interestedCount}
+                  />
+                </>
               ) : (
-                <SessionTimeBadge session={session} />
+                <>
+                  <SessionTimeBadge session={session} />
+                  <FullInterested active={isPinned} onPress={togglePinned} />
+                </>
               )}
             </Row>
           </Gutters>
-
-          <Spacer16 />
-          <Gutters>
-            <IntersetedWrapper onPress={onTogglePinSession}>
-              <Interested
-                active={sessionPinned}
-                onPress={onTogglePinSession}
-                showIcon
-              />
-              <RadioButton
-                onPress={onTogglePinSession}
-                active={sessionPinned}
-              />
-            </IntersetedWrapper>
-          </Gutters>
-
           <Spacer16 />
 
           <Gutters>
@@ -384,9 +378,9 @@ const SessionModal = () => {
                   />
                   <Spacer16 />
                   <IconButton
-                    Icon={BellIcon}
-                    variant="secondary"
-                    active={reminderEnabled}
+                    Icon={reminderEnabled ? BellFillIcon : BellIcon}
+                    // Toggling variant instead of active state for nicer UI
+                    variant={reminderEnabled ? 'primary' : 'secondary'}
                     onPress={onToggleReminder}
                   />
                   <Spacer16 />

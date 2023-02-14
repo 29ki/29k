@@ -7,7 +7,7 @@
     "actions": {
       "signIn": "Sign in",
       "profileSettings": "Profile settings",
-      "notifications": "Notifications",
+      "notifications": "Reminder notifications",
       "deleteData": "Delete my data",
       "developer": "Developer",
       "language": "Language"

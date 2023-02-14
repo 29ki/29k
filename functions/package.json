@@ -23,8 +23,8 @@
     "@google-cloud/translate": "^7.1.0",
     "@googleapis/firebasedynamiclinks": "^1.0.0",
     "@koa/router": "^12.0.0",
-    "@sentry/integrations": "^7.36.0",
-    "@sentry/node": "^7.36.0",
+    "@sentry/integrations": "^7.37.2",
+    "@sentry/node": "^7.37.1",
     "@slack/bolt": "^3.12.2",
     "@slack/web-api": "^6.8.1",
     "@types/i18next": "^13.0.0",
@@ -41,7 +41,7 @@
     "ramda": "^0.28.0",
     "semver": "^7.3.8",
     "uuid": "^9.0.0",
-    "yup": "^0.32.11"
+    "yup": "^1.0.0"
   },
   "devDependencies": {
     "@sentry/cli": "^2.12.0",
@@ -55,9 +55,9 @@
     "@types/semver": "^7.3.13",
     "@types/supertest": "^2.0.12",
     "@types/uuid": "^9.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.50.0",
-    "@typescript-eslint/parser": "^5.50.0",
-    "eslint": "^8.33.0",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/parser": "^5.51.0",
+    "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",

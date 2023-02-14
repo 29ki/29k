@@ -1,59 +1,16 @@
-import dayjs from 'dayjs';
-import {useCallback, useMemo} from 'react';
-import {LiveSession} from '../../../../../shared/src/types/Session';
-import useLogSessionMetricEvents from './useLogSessionMetricEvents';
-import useUserState from '../../user/state/state';
-import useCurrentUserState from '../../user/hooks/useCurrentUserState';
-import {updateInterestedCount} from '../api/session';
+import {useMemo} from 'react';
 
-const usePinnedSessons = () => {
+import useCurrentUserState from '../../user/hooks/useCurrentUserState';
+
+const usePinnedSessions = () => {
   const userState = useCurrentUserState();
-  const setPinnedSessions = useUserState(state => state.setPinnedSessions);
-  const logSessionMetricEvent = useLogSessionMetricEvents();
 
   const pinnedSessions = useMemo(
     () => userState?.pinnedSessions ?? [],
-    [userState],
+    [userState?.pinnedSessions],
   );
 
-  const togglePinSession = useCallback(
-    (session: LiveSession) => {
-      const now = dayjs();
-      const currentPinnedSessions = pinnedSessions.filter(s =>
-        now.isBefore(s.expires),
-      );
-
-      if (currentPinnedSessions.find(ps => ps.id === session.id)) {
-        setPinnedSessions(
-          currentPinnedSessions.filter(ps => ps.id !== session.id),
-        );
-        updateInterestedCount(session.id, false);
-      } else {
-        setPinnedSessions([
-          ...currentPinnedSessions,
-          {
-            id: session.id,
-            expires: dayjs(session.startTime).add(1, 'month').toDate(),
-          },
-        ]);
-        updateInterestedCount(session.id, true);
-        logSessionMetricEvent('Add Sharing Session To Interested', session);
-      }
-    },
-    [pinnedSessions, setPinnedSessions, logSessionMetricEvent],
-  );
-
-  const isSessionPinned = useCallback(
-    (session: LiveSession) =>
-      Boolean(pinnedSessions.find(ps => ps.id === session.id)),
-    [pinnedSessions],
-  );
-
-  return {
-    pinnedSessions,
-    togglePinSession,
-    isSessionPinned,
-  };
+  return pinnedSessions;
 };
 
-export default usePinnedSessons;
+export default usePinnedSessions;

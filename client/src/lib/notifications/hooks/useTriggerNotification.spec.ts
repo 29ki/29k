@@ -22,12 +22,6 @@ mockAddEventListener.mockImplementation(() => {
   return {remove: jest.fn()};
 });
 
-const mockSetNotificationsEnabled = jest.fn();
-
-jest.mock('./useNotificationSetting', () => () => ({
-  setNotificationsEnabled: mockSetNotificationsEnabled,
-}));
-
 afterEach(() => {
   jest.clearAllMocks();
 });
@@ -56,7 +50,6 @@ describe('useTriggerNotification', () => {
     });
 
     expect(result.current.triggerNotification).toMatchObject({id: 'some-id'});
-    expect(mockSetNotificationsEnabled).toHaveBeenCalledTimes(1);
     expect(mockCreateTriggerNotification).toHaveBeenCalledTimes(1);
     expect(mockCreateTriggerNotification).toHaveBeenCalledWith(
       {
@@ -92,7 +85,6 @@ describe('useTriggerNotification', () => {
     });
 
     expect(result.current.triggerNotification).toBe(undefined);
-    expect(mockSetNotificationsEnabled).toHaveBeenCalledTimes(0);
     expect(mockCreateTriggerNotification).toHaveBeenCalledTimes(0);
   });
 
