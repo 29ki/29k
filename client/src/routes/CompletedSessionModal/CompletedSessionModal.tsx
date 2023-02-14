@@ -19,7 +19,6 @@ import {formatExerciseName} from '../../lib/utils/string';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 import Byline from '../../lib/components/Bylines/Byline';
-import useUser from '../../lib/user/hooks/useUser';
 import {CheckIcon} from '../../lib/components/Icons/Check/Check';
 import {Body14} from '../../lib/components/Typography/Body/Body';
 import Badge from '../../lib/components/Badge/Badge';
@@ -36,6 +35,7 @@ import {complement, isNil} from 'ramda';
 import MyPostCard from '../../lib/session/components/Posts/MyPostCard';
 import {FlatList} from 'react-native-gesture-handler';
 import {SPACINGS} from '../../lib/constants/spacings';
+import useUser from '../../lib/user/hooks/useUser';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -82,15 +82,15 @@ const ButtonWrapper = styled.View({flexDirection: 'row'});
 
 const CompletedSessionModal = () => {
   const {
-    params: {session},
+    params: {session, hostProfile},
   } = useRoute<RouteProp<ModalStackProps, 'CompletedSessionModal'>>();
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {t} = useTranslation('Modal.CompletedSession');
-  const user = useUser();
   const completedSession = useUserState(state =>
     getCompletedSessionByIdSelector(state, session.id),
   );
+  const user = useUser();
 
   const sessionTime = useMemo(
     () => dayjs(completedSession?.completedAt),
@@ -161,11 +161,13 @@ const CompletedSessionModal = () => {
               <Spacer4 />
               <Byline
                 pictureURL={
-                  user?.photoURL ? user.photoURL : exercise.card.host?.photoURL
+                  hostProfile?.photoURL
+                    ? hostProfile.photoURL
+                    : exercise.card.host?.photoURL
                 }
                 name={
-                  user?.displayName
-                    ? user.displayName
+                  hostProfile?.displayName
+                    ? hostProfile.displayName
                     : exercise.card.host?.displayName
                 }
               />

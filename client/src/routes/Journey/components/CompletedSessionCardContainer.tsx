@@ -20,7 +20,7 @@ const SessionCardContainer: React.FC<CompletedSessionCardContainerProps> = ({
   hasCardBefore,
   hasCardAfter,
 }) => {
-  const [profile, setProfile] = useState<UserProfile | null>(null);
+  const [profile, setProfile] = useState<UserProfile | undefined>(undefined);
 
   const fetchUserProfile = useCallback(
     async (id: string) => setProfile(await getProfile(id)),

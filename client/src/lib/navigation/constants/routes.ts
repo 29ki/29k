@@ -49,7 +49,10 @@ export type OverlayStackProps = {
 export type ModalStackProps = {
   OverlayStack: NavigatorScreenParams<OverlayStackProps>;
   SessionModal: {session: LiveSession};
-  CompletedSessionModal: {session: AsyncSession | CompletedSession};
+  CompletedSessionModal: {
+    session: AsyncSession | CompletedSession;
+    hostProfile?: UserProfile;
+  };
   SharingModal: {exerciseId: string};
   SharingPostModal: {
     userProfile?: UserProfile;
