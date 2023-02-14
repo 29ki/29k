@@ -4,11 +4,16 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import ActionButton from '../../../lib/components/ActionList/ActionItems/ActionButton';
 import ActionList from '../../../lib/components/ActionList/ActionList';
-import {CommunityIcon, CheckedIcon} from '../../../lib/components/Icons';
+import {
+  CommunityIcon,
+  CheckedIcon,
+  WandIcon,
+} from '../../../lib/components/Icons';
 import {
   ProfileStackProps,
   ModalStackProps,
 } from '../../../lib/navigation/constants/routes';
+import {Linking} from 'react-native';
 
 const CommunityActionList = () => {
   const {navigate} =
@@ -16,6 +21,12 @@ const CommunityActionList = () => {
       NativeStackNavigationProp<ProfileStackProps & ModalStackProps>
     >();
   const {t} = useTranslation('Overlay.Community');
+
+  const contributePress = useCallback(
+    () =>
+      Linking.openURL('https://wiki.29k.org/community-contribution-central'),
+    [],
+  );
 
   const contributorsPress = useCallback(
     () => navigate('ContributorsModal'),
@@ -30,9 +41,9 @@ const CommunityActionList = () => {
   return (
     <ActionList>
       <ActionList>
-        {/*
-            <ActionButton Icon={WandIcon}>{t('actions.contribute')}</ActionButton>
-            */}
+        <ActionButton Icon={WandIcon} onPress={contributePress}>
+          {t('actions.contribute')}
+        </ActionButton>
         <ActionButton Icon={CommunityIcon} onPress={contributorsPress}>
           {t('actions.contributors')}
         </ActionButton>
