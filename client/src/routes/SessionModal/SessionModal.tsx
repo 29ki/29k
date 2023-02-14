@@ -48,7 +48,6 @@ import EditSessionType from '../../lib/components/EditSessionType/EditSessionTyp
 import {SPACINGS} from '../../lib/constants/spacings';
 import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
 import Interested from '../../lib/components/Interested/Interested';
-import RadioButton from '../../lib/components/Buttons/RadioButton/RadioButton';
 import useLogSessionMetricEvents from '../../lib/sessions/hooks/useLogSessionMetricEvents';
 import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
@@ -102,10 +101,10 @@ const EditIcon = styled(View)({
   alignSelf: 'center',
 });
 
-const IntersetedWrapper = styled(TouchableOpacity)({
+const FullInterested = styled(Interested)({
+  flex: 1,
   flexDirection: 'row',
-  justifyContent: 'space-between',
-  alignItems: 'center',
+  justifyContent: 'flex-end',
 });
 
 const DeleteButton = styled(Button)({
@@ -335,26 +334,26 @@ const SessionModal = () => {
                 </>
               )}
               {isHost ? (
-                <EditButton onPress={onEditMode}>
-                  <SessionTimeBadge session={session} />
-                  <EditIcon>
-                    <PencilIcon />
-                  </EditIcon>
-                </EditButton>
+                <>
+                  <EditButton onPress={onEditMode}>
+                    <SessionTimeBadge session={session} />
+                    <EditIcon>
+                      <PencilIcon />
+                    </EditIcon>
+                  </EditButton>
+                  <FullInterested
+                    active={isPinned}
+                    count={session.interestedCount}
+                  />
+                </>
               ) : (
-                <SessionTimeBadge session={session} />
+                <>
+                  <SessionTimeBadge session={session} />
+                  <FullInterested active={isPinned} onPress={togglePinned} />
+                </>
               )}
             </Row>
           </Gutters>
-
-          <Spacer16 />
-          <Gutters>
-            <IntersetedWrapper onPress={togglePinned}>
-              <Interested active={isPinned} onPress={togglePinned} showIcon />
-              <RadioButton onPress={togglePinned} active={isPinned} />
-            </IntersetedWrapper>
-          </Gutters>
-
           <Spacer16 />
 
           <Gutters>
