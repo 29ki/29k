@@ -10,7 +10,7 @@ import {Body14} from '../Typography/Body/Body';
 
 const Wrapper = styled.View<{themeColor?: string}>(({themeColor}) => ({
   backgroundColor: themeColor ? COLORS.BLACK_TRANSPARENT_15 : COLORS.PURE_WHITE,
-  paddingVertical: 2,
+  paddingVertical: 1,
   paddingHorizontal: SPACINGS.EIGHT,
   borderRadius: SPACINGS.EIGHT,
   flexDirection: 'row',
@@ -22,8 +22,8 @@ const StatusText = styled(Body14)<{themeColor?: string}>(({themeColor}) => ({
   fontFamily: HKGroteskBold,
 }));
 const BadgeIcon = styled.View({
-  width: 21,
-  height: 21,
+  width: 20,
+  height: 20,
 });
 
 type BadgeProps = {
