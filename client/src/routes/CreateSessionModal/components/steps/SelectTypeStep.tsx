@@ -110,7 +110,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
     (mode: SessionMode, type: SessionType) => () => {
       setSelectedModeAndType({mode, type});
 
-      if (mode === SessionMode.async) {
+      if (mode === SessionMode.async && selectedExercise) {
         popToTop();
         startSession(selectedExercise);
       } else {
