@@ -8,7 +8,9 @@ import useNotificationsState from '../state/state';
 const useReminderNotificationsSetting = () => {
   const userState = useCurrentUserState();
   const setUserState = useUserState(state => state.setCurrentUserState);
-  const [remindersEnabled, setEnabled] = useState<boolean | undefined>();
+  const [remindersEnabled, setEnabled] = useState<boolean | undefined>(
+    userState?.reminderNotifications,
+  );
   const resetNotificationState = useNotificationsState(state => state.reset);
   const requestPermission = useRequestNotificationPermission();
 
