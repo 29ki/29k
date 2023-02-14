@@ -22,19 +22,18 @@ import SessionTimeBadge from '../../SessionTimeBadge/SessionTimeBadge';
 import useLogSessionMetricEvents from '../../../sessions/hooks/useLogSessionMetricEvents';
 import useGetSessionCardTags from './hooks/useGetSessionCardTags';
 import Button from '../../Buttons/Button';
-import {Spacer4, Spacer8} from '../../Spacers/Spacer';
+import {Spacer8} from '../../Spacers/Spacer';
 import useUser from '../../../user/hooks/useUser';
-import InterestedBadge from '../../InterestedBadge/InterestedBadge';
 import Interested from '../../Interested/Interested';
 import usePinSession from '../../../sessions/hooks/usePinSession';
+import useSessionReminderNotification from '../../../sessions/hooks/useSessionReminderNotification';
 
 const Row = styled.View({
   flexDirection: 'row',
   alignItems: 'flex-end',
 });
 
-const InterestedWrapper = styled.View({
-  flexDirection: 'row',
+const FullInterested = styled(Interested)({
   flex: 1,
   justifyContent: 'flex-end',
 });
@@ -86,14 +85,15 @@ const SessionCard: React.FC<SessionCardProps> = ({
   const {exerciseId, startTime, hostProfile} = session;
   const exercise = useExerciseById(exerciseId);
   const user = useUser();
-  const isHost = user?.uid === session.hostId;
-  const showNumberOfInterested = session.interestedCount > 0;
   const {t} = useTranslation('Component.SessionCard');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const logSessionMetricEvent = useLogSessionMetricEvents();
-  const {isPinned, togglePinned} = usePinSession(session);
+  const {isPinned} = usePinSession(session);
+  const {reminderEnabled} = useSessionReminderNotification(session);
 
+  const isHost = user?.uid === session.hostId;
+  const interestedCount = isHost ? session.interestedCount : undefined;
   const tags = useGetSessionCardTags(exercise);
 
   const onPress = useCallback(() => {
@@ -128,28 +128,6 @@ const SessionCard: React.FC<SessionCardProps> = ({
     [exercise],
   );
 
-  const interestedContent = useMemo(() => {
-    if (isHost && showNumberOfInterested) {
-      return (
-        <>
-          <InterestedBadge count={session.interestedCount} />
-          <Spacer4 />
-          <Interested active showIcon={false} />
-        </>
-      );
-    }
-
-    if (!isHost) {
-      return <Interested active={isPinned} showIcon onPress={togglePinned} />;
-    }
-  }, [
-    isHost,
-    showNumberOfInterested,
-    isPinned,
-    togglePinned,
-    session.interestedCount,
-  ]);
-
   if (standAlone) {
     return (
       <Card
@@ -164,7 +142,11 @@ const SessionCard: React.FC<SessionCardProps> = ({
           <JoinButton onPress={onPress} startTime={startTime} />
           <SessionTimeBadge session={session} />
           <Spacer8 />
-          <InterestedWrapper>{interestedContent}</InterestedWrapper>
+          <FullInterested
+            active={isPinned}
+            reminder={reminderEnabled}
+            count={interestedCount}
+          />
         </Row>
       </Card>
     );
@@ -191,9 +173,11 @@ const SessionCard: React.FC<SessionCardProps> = ({
           <Row>
             <SessionTimeBadge session={session} />
             <Spacer8 />
-            {isHost && showNumberOfInterested && (
-              <InterestedBadge count={session.interestedCount} />
-            )}
+            <Interested
+              compact
+              reminder={reminderEnabled}
+              count={interestedCount}
+            />
           </Row>
         </WalletCard>
       }
@@ -218,7 +202,11 @@ const SessionCard: React.FC<SessionCardProps> = ({
             <Spacer8 />
             <SessionTimeBadge session={session} />
             <Spacer8 />
-            <InterestedWrapper>{interestedContent}</InterestedWrapper>
+            <FullInterested
+              active={isPinned}
+              reminder={reminderEnabled}
+              count={interestedCount}
+            />
           </Row>
         </Card>
       }
