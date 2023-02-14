@@ -2,7 +2,7 @@ import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import dayjs from 'dayjs';
 import React, {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {ListRenderItem, View} from 'react-native';
+import {View} from 'react-native';
 import styled from 'styled-components/native';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 
@@ -25,16 +25,14 @@ import Badge from '../../lib/components/Badge/Badge';
 import {CommunityIcon, ProfileFillIcon} from '../../lib/components/Icons';
 import useUserState, {
   getCompletedSessionByIdSelector,
-  PostPayload,
 } from '../../lib/user/state/state';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {SessionMode} from '../../../../shared/src/types/Session';
+import {PostEvent} from '../../../../shared/src/types/Event';
 import useSharingPosts from '../../lib/posts/hooks/useSharingPosts';
 import {ExerciseSlideSharingSlide} from '../../../../shared/src/types/generated/Exercise';
 import {complement, isNil} from 'ramda';
 import MyPostCard from '../../lib/session/components/Posts/MyPostCard';
-import {FlatList} from 'react-native-gesture-handler';
-import {SPACINGS} from '../../lib/constants/spacings';
 import useUser from '../../lib/user/hooks/useUser';
 
 const Content = styled(Gutters)({
@@ -67,17 +65,6 @@ const ChekIconWrapper = styled(View)({
   alignSelf: 'center',
 });
 
-const PostsList = styled(FlatList)({
-  flexGrow: 0,
-  width: '100%',
-}) as unknown as FlatList;
-
-const ItemWrapper = styled.View<{isLast: boolean}>(({isLast}) => ({
-  paddingLeft: SPACINGS.SIXTEEN,
-  paddingRight: isLast ? SPACINGS.SIXTEEN : undefined,
-  paddingTop: SPACINGS.SIXTEEN,
-}));
-
 const ButtonWrapper = styled.View({flexDirection: 'row'});
 
 const CompletedSessionModal = () => {
@@ -106,16 +93,26 @@ const CompletedSessionModal = () => {
 
   const sharingPosts = useMemo(() => {
     if (session.mode === SessionMode.async) {
-      const posts = exercise?.slides
-        .filter(s => s.type === 'sharing')
-        .map(s =>
-          getSharingPostForSession(
-            session.id,
-            (s as ExerciseSlideSharingSlide).id,
-          ),
-        )
-        .filter(complement(isNil)) as PostPayload[];
-      return [...posts];
+      return [
+        ...(exercise?.slides
+          .filter(s => s.type === 'sharing')
+          .map(s =>
+            getSharingPostForSession(
+              session.id,
+              (s as ExerciseSlideSharingSlide).id,
+            ),
+          )
+          .filter(complement(isNil)) as PostEvent[]),
+        ...(exercise?.slides
+          .filter(s => s.type === 'sharing')
+          .map(s =>
+            getSharingPostForSession(
+              session.id,
+              (s as ExerciseSlideSharingSlide).id,
+            ),
+          )
+          .filter(complement(isNil)) as PostEvent[]),
+      ];
     }
   }, [getSharingPostForSession, exercise, session]);
 
@@ -127,24 +124,6 @@ const CompletedSessionModal = () => {
       };
     }
   }, [user]);
-
-  const renderItem = useCallback<ListRenderItem<PostPayload>>(
-    ({item, index}) => {
-      return (
-        <ItemWrapper isLast={index === sharingPosts!.length - 1}>
-          <MyPostCard
-            text={item.text}
-            isPublic={item.isPublic}
-            userProfile={userProfile}
-            inList
-          />
-        </ItemWrapper>
-      );
-    },
-    [sharingPosts, userProfile],
-  );
-
-  const keyExtractor = useCallback((item: PostPayload) => item.sharingId, []);
 
   if (!completedSession || !exercise) {
     return null;
@@ -210,25 +189,16 @@ const CompletedSessionModal = () => {
         {sharingPosts && sharingPosts.length > 0 && (
           <>
             <Spacer16 />
-            {sharingPosts.length > 1 ? (
-              <PostsList
-                renderItem={renderItem}
-                keyExtractor={keyExtractor}
-                horizontal
-                data={sharingPosts}
-                snapToAlignment="start"
-                decelerationRate="fast"
-                showsHorizontalScrollIndicator={false}
-              />
-            ) : (
-              <Gutters>
+            <Gutters>
+              {sharingPosts.map((post, index) => (
                 <MyPostCard
-                  text={sharingPosts[0].text}
-                  isPublic={sharingPosts[0].isPublic}
+                  key={index}
+                  text={post.payload.text}
+                  isPublic={post.payload.isPublic}
                   userProfile={userProfile}
                 />
-              </Gutters>
-            )}
+              ))}
+            </Gutters>
           </>
         )}
         <Spacer16 />

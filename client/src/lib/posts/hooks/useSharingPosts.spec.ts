@@ -2,11 +2,12 @@ import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook, act} from '@testing-library/react-hooks';
 import {Post} from '../../../../../shared/src/types/Post';
 import {AsyncSession} from '../../../../../shared/src/types/Session';
-import useSessionState from '../../session/state/state';
-import useUserState, {
+import {
   FeedbackPayload,
   PostPayload,
-} from '../../user/state/state';
+} from '../../../../../shared/src/types/Event';
+import useSessionState from '../../session/state/state';
+import useUserState from '../../user/state/state';
 import {fetchPosts, addPost} from '../api/posts';
 import useSharingPosts from './useSharingPosts';
 
@@ -29,20 +30,24 @@ describe('useSharingPosts', () => {
       ]);
       const {result} = renderHook(() => useSharingPosts('some-exercise-id'));
 
-      const posts = await result.current.getSharingPosts();
+      await act(async () => {
+        const posts = await result.current.getSharingPosts();
 
-      expect(posts).toEqual([{id: 'some-post-id'}]);
-      expect(mockFetchPosts).toHaveBeenCalledTimes(1);
-      expect(mockFetchPosts).toHaveBeenCalledWith('some-exercise-id');
+        expect(posts).toEqual([{id: 'some-post-id'}]);
+        expect(mockFetchPosts).toHaveBeenCalledTimes(1);
+        expect(mockFetchPosts).toHaveBeenCalledWith('some-exercise-id');
+      });
     });
 
     it('should return empty list if no exerciseId', async () => {
       const {result} = renderHook(() => useSharingPosts(undefined));
 
-      const posts = await result.current.getSharingPosts();
+      await act(async () => {
+        const posts = await result.current.getSharingPosts();
 
-      expect(posts).toEqual([]);
-      expect(mockFetchPosts).toHaveBeenCalledTimes(0);
+        expect(posts).toEqual([]);
+        expect(mockFetchPosts).toHaveBeenCalledTimes(0);
+      });
     });
   });
 
@@ -241,10 +246,95 @@ describe('useSharingPosts', () => {
       );
 
       expect(posts).toEqual({
-        exerciseId: 'some-exercise-id',
-        sessionId: 'some-session-id',
-        sharingId: 'some-sharing-id',
+        type: 'post',
+        payload: {
+          exerciseId: 'some-exercise-id',
+          sessionId: 'some-session-id',
+          sharingId: 'some-sharing-id',
+        },
+        timestamp: expect.any(Date),
       });
+    });
+  });
+
+  describe('getSharingPostForExcercise', () => {
+    it('should filter out relevant sharing post events', () => {
+      useUserState.setState({
+        user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
+        userState: {
+          'some-user-id': {
+            events: [
+              {
+                type: 'feedback',
+                payload: {} as FeedbackPayload,
+                timestamp: new Date(),
+              },
+              {
+                type: 'post',
+                payload: {
+                  exerciseId: 'some-exercise-id',
+                  sessionId: 'some-session-id',
+                  sharingId: 'some-sharing-id',
+                } as PostPayload,
+                timestamp: new Date(),
+              },
+              {
+                type: 'post',
+                payload: {
+                  exerciseId: 'some-exercise-id',
+                  sessionId: 'some-other-session-id',
+                  sharingId: 'some-sharing-id',
+                } as PostPayload,
+                timestamp: new Date(),
+              },
+              {
+                type: 'post',
+                payload: {
+                  exerciseId: 'some-exercise-id',
+                  sessionId: 'some-session-id',
+                  sharingId: 'some-other-sharing-id',
+                } as PostPayload,
+                timestamp: new Date(),
+              },
+              {
+                type: 'post',
+                payload: {
+                  exerciseId: 'some-other-exercise-id',
+                  sessionId: 'some-session-id',
+                  sharingId: 'some-ohter-sharing-id',
+                } as PostPayload,
+                timestamp: new Date(),
+              },
+            ],
+          },
+        },
+      });
+
+      const {result} = renderHook(() => useSharingPosts('some-exercise-id'));
+
+      const posts =
+        result.current.getSharingPostsForExercise('some-sharing-id');
+
+      expect(posts).toEqual([
+        {
+          type: 'post',
+          payload: {
+            exerciseId: 'some-exercise-id',
+            sessionId: 'some-session-id',
+            sharingId: 'some-sharing-id',
+          },
+          timestamp: expect.any(Date),
+        },
+        {
+          type: 'post',
+          payload: {
+            exerciseId: 'some-exercise-id',
+            sessionId: 'some-other-session-id',
+            sharingId: 'some-sharing-id',
+          },
+          timestamp: expect.any(Date),
+        },
+      ]);
     });
   });
 });

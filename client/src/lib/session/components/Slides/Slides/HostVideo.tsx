@@ -43,6 +43,8 @@ const HostVideo: React.FC<HostVideoProps> = ({
     return null;
   }
 
+  console.log(videoSource, active);
+
   return (
     <VideoWrapper>
       <Video source={videoSource} active={active} preview={video.preview} />

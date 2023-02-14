@@ -1,4 +1,4 @@
-import {useIsFocused, useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import hexToRgba from 'hex-to-rgba';
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
@@ -9,16 +9,21 @@ import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
 import {ExerciseSlideSharingSlide} from '../../../../../../../shared/src/types/generated/Exercise';
+import {PostEvent} from '../../../../../../../shared/src/types/Event';
 import {Post} from '../../../../../../../shared/src/types/Post';
 import Button from '../../../../components/Buttons/Button';
 import Gutters from '../../../../components/Gutters/Gutters';
 import {PlusIcon} from '../../../../components/Icons';
-import {Spacer16, Spacer48} from '../../../../components/Spacers/Spacer';
-import {Body16} from '../../../../components/Typography/Body/Body';
 import {
-  Display24,
-  Display28,
-} from '../../../../components/Typography/Display/Display';
+  Spacer16,
+  Spacer4,
+  Spacer60,
+  Spacer8,
+  TopSafeArea,
+} from '../../../../components/Spacers/Spacer';
+import {Body16} from '../../../../components/Typography/Body/Body';
+import {Display24} from '../../../../components/Typography/Display/Display';
+import {HKGroteskBold} from '../../../../constants/fonts';
 import {SPACINGS} from '../../../../constants/spacings';
 import {
   AppStackProps,
@@ -36,22 +41,26 @@ const Wrapper = styled.View({
 });
 
 const TopGradient = styled(LinearGradient)({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  height: 80,
-  zIndex: 1,
+  height: 60,
+  justifyContent: 'flex-end',
 });
 
 const Content = styled.View({
   flex: 1,
-  marginTop: 80,
+  marginTop: -SPACINGS.SIXTEEN,
 });
 
-const StyledHeader = styled(Display28)<{textColor?: string}>(({textColor}) => ({
+const StickyHeader = styled(Body16)<{textColor?: string}>(({textColor}) => ({
   textAlign: 'left',
   color: textColor ?? COLORS.BLACK,
+  fontFamily: HKGroteskBold,
+  marginTop: -SPACINGS.FOURTY,
+}));
+
+const StyledHeader = styled(Body16)<{textColor?: string}>(({textColor}) => ({
+  textAlign: 'left',
+  color: textColor ?? COLORS.BLACK,
+  fontFamily: HKGroteskBold,
 }));
 
 const StyledSubHeader = styled(Display24)<{textColor?: string}>(
@@ -86,32 +95,42 @@ const EmptyListComponent = styled.View({
 
 type SharingProps = {
   slide: ExerciseSlideSharingSlide;
+  active: boolean;
 };
 
-const Sharing: React.FC<SharingProps> = ({slide}) => {
+const Sharing: React.FC<SharingProps> = ({slide, active}) => {
   const scrollRef = useRef<ScrollView>(null);
-  const isFocused = useIsFocused();
   const {t} = useTranslation('Component.Sharing');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const user = useUser();
+  const [postListHeight, setPostListHeight] = useState(0);
   const session = useSessionState(state => state.asyncSession);
   const theme = useExerciseTheme();
-  const {getSharingPosts, getSharingPostForSession} = useSharingPosts(
-    session?.exerciseId,
-  );
+  const {
+    getSharingPosts,
+    getSharingPostForSession,
+    getSharingPostsForExercise,
+  } = useSharingPosts(session?.exerciseId);
 
   const background = theme?.backgroundColor ?? COLORS.WHITE;
   const topGradientColors = useMemo(
-    () => [hexToRgba(background, 1), hexToRgba(background, 0)],
+    () => [
+      hexToRgba(background, 1),
+      hexToRgba(background, 1),
+      hexToRgba(background, 1),
+      hexToRgba(background, 0),
+    ],
     [background],
   );
+
   const [posts, setPosts] = useState<Post[]>([]);
-  const [postListHeight, setPostListHeight] = useState(0);
 
   useEffect(() => {
-    getSharingPosts().then(setPosts);
-  }, [getSharingPosts]);
+    if (active) {
+      getSharingPosts().then(setPosts);
+    }
+  }, [getSharingPosts, active]);
 
   const onAddSharing = useCallback(() => {
     if (session?.exerciseId) {
@@ -119,14 +138,27 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
     }
   }, [session?.exerciseId, navigate]);
 
-  const sharingPost = useMemo(() => {
+  const currentPostEvent = useMemo(() => {
     if (session?.id) {
-      const post = getSharingPostForSession(session.id, slide.id);
-      if (post) {
-        return {text: post.text, isPublic: post.isPublic};
-      }
+      return getSharingPostForSession(session.id, slide.id);
     }
   }, [session?.id, slide.id, getSharingPostForSession]);
+
+  const previousPosts = useMemo(() => {
+    if (session?.id) {
+      return getSharingPostsForExercise(slide.id).filter(
+        e => e.payload.sessionId !== currentPostEvent?.payload.sessionId,
+      );
+    }
+    return [];
+  }, [session?.id, slide.id, getSharingPostsForExercise, currentPostEvent]);
+
+  const allMyPosts = useMemo(() => {
+    if (currentPostEvent) {
+      return [currentPostEvent, ...previousPosts];
+    }
+    return previousPosts;
+  }, [currentPostEvent, previousPosts]);
 
   const onLayout = useCallback(
     (event: LayoutChangeEvent) => {
@@ -136,12 +168,13 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
   );
 
   useEffect(() => {
-    if (sharingPost && isFocused) {
+    if (active) {
+      // Wait until oters posts has rendered
       requestAnimationFrame(() => {
         scrollRef.current?.scrollTo({y: postListHeight, animated: true});
       });
     }
-  }, [sharingPost, postListHeight, isFocused]);
+  }, [postListHeight, active]);
 
   const userProfile = useMemo(() => {
     if (user?.displayName) {
@@ -152,7 +185,7 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
     }
   }, [user]);
 
-  const renderItem = useCallback<ListRenderItem<Post>>(
+  const renderOtherItem = useCallback<ListRenderItem<Post>>(
     ({item, index}) => {
       return (
         <ItemWrapper isLast={index === posts.length - 1}>
@@ -163,22 +196,40 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
     [posts],
   );
 
-  const keyExtractor = useCallback((item: Post) => item.id, []);
+  const otherKeyExtractor = useCallback((item: Post) => item.id, []);
+
+  const renderMyItem = useCallback<ListRenderItem<PostEvent>>(
+    ({item, index}) => {
+      return (
+        <ItemWrapper isLast={index === allMyPosts.length - 1}>
+          <OtherPostCard text={item.payload.text} userProfile={userProfile} />
+        </ItemWrapper>
+      );
+    },
+    [allMyPosts, userProfile],
+  );
+
+  const myKeyExtractor = useCallback(
+    (item: PostEvent) => item.payload.sessionId,
+    [],
+  );
 
   return (
     <Wrapper>
-      <TopGradient colors={topGradientColors} />
-      <ScrollView ref={scrollRef}>
-        <Content>
+      <TopSafeArea />
+      <ScrollView stickyHeaderIndices={[0]} ref={scrollRef}>
+        <TopGradient colors={topGradientColors}>
           <Gutters>
-            <StyledHeader textColor={theme?.textColor}>
+            <StickyHeader textColor={theme?.textColor}>
               {t('othersHeading')}
-            </StyledHeader>
+            </StickyHeader>
           </Gutters>
+        </TopGradient>
+        <Content>
           <PostsList
             onLayout={onLayout}
-            renderItem={renderItem}
-            keyExtractor={keyExtractor}
+            renderItem={renderOtherItem}
+            keyExtractor={otherKeyExtractor}
             ListEmptyComponent={
               <EmptyListComponent>
                 <Gutters>
@@ -194,37 +245,60 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
             decelerationRate="fast"
             showsHorizontalScrollIndicator={false}
           />
-          <Gutters>
-            {sharingPost ? (
-              <>
-                <StyledSubHeader textColor={theme?.textColor}>
+
+          {currentPostEvent && previousPosts.length === 0 && (
+            <Gutters>
+              <StyledHeader textColor={theme?.textColor}>
+                {t('reflectionLabel')}
+              </StyledHeader>
+              <Spacer16 />
+              <MyPostCard
+                text={currentPostEvent.payload.text}
+                isPublic={currentPostEvent.payload.isPublic}
+                userProfile={userProfile}
+              />
+            </Gutters>
+          )}
+
+          {previousPosts.length > 0 && (
+            <>
+              <Gutters>
+                <StyledHeader textColor={theme?.textColor}>
                   {t('reflectionLabel')}
-                </StyledSubHeader>
-                <Spacer16 />
-                <MyPostCard
-                  text={sharingPost.text}
-                  isPublic={sharingPost.isPublic}
-                  userProfile={userProfile}
-                />
-              </>
-            ) : (
-              <>
-                <StyledSubHeader textColor={theme?.textColor}>
-                  {slide.content?.heading}
-                </StyledSubHeader>
-                <Spacer16 />
-                <ButtonWrapper>
-                  <Button
-                    variant="secondary"
-                    onPress={onAddSharing}
-                    LeftIcon={PlusIcon}>
-                    {t('addReflectionCta')}
-                  </Button>
-                </ButtonWrapper>
-              </>
-            )}
-          </Gutters>
-          <Spacer48 />
+                </StyledHeader>
+              </Gutters>
+              <Spacer4 />
+              <PostsList
+                renderItem={renderMyItem}
+                keyExtractor={myKeyExtractor}
+                horizontal
+                data={allMyPosts}
+                snapToAlignment="start"
+                decelerationRate="fast"
+                showsHorizontalScrollIndicator={false}
+              />
+            </>
+          )}
+
+          {!currentPostEvent && (
+            <Gutters>
+              <StyledSubHeader textColor={theme?.textColor}>
+                {slide.content?.heading}
+              </StyledSubHeader>
+              <Spacer16 />
+              <ButtonWrapper>
+                <Button
+                  variant="secondary"
+                  onPress={onAddSharing}
+                  LeftIcon={PlusIcon}>
+                  {t('addReflectionCta')}
+                </Button>
+              </ButtonWrapper>
+            </Gutters>
+          )}
+
+          <Spacer60 />
+          <Spacer8 />
         </Content>
       </ScrollView>
     </Wrapper>

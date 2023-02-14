@@ -61,7 +61,7 @@ export const Slide = React.memo(({slide, active, async}: SlideProps) => {
       )}
       {slide.type === 'sharing' &&
         (async ? (
-          <Sharing slide={slide} />
+          <Sharing slide={slide} active={active} />
         ) : (
           <Content async={async} slide={slide} active={active} />
         ))}

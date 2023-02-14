@@ -7,6 +7,14 @@ import {omit} from 'ramda';
 import {LiveSession} from '../../../../../shared/src/types/Session';
 import migrate from './migration';
 import {UserProfile} from '../../../../../shared/src/types/User';
+import {
+  Event,
+  EventData,
+  FeedbackEvent,
+  FeedbackEventData,
+  PostEvent,
+  PostEventData,
+} from '../../../../../shared/src/types/Event';
 
 const USER_STATE_VERSION = 3;
 
@@ -24,26 +32,6 @@ export type CompletedSession = {
   mode: LiveSession['mode'];
   completedAt: Date;
   hostProfile?: UserProfile;
-};
-
-export type PostPayload = {
-  sessionId: string;
-  exerciseId: string;
-  sharingId: string;
-  isPublic: boolean;
-  isAnonymous: boolean;
-  text: string;
-};
-
-export type FeedbackPayload = {
-  like: boolean;
-  text?: string;
-};
-
-export type Event = {
-  type: 'post' | 'feedback';
-  payload: PostPayload | FeedbackPayload;
-  timestamp: Date;
 };
 
 export type UserState = {
@@ -77,7 +65,7 @@ export type Actions = {
   }) => void;
   setPinnedSessions: (pinnedSessions: Array<PinnedSession>) => void;
   addCompletedSession: (completedSession: CompletedSession) => void;
-  addEvent: (type: Event['type'], event: Event['payload']) => void;
+  addEvent: (event: EventData) => void;
   setCurrentUserState: SetCurrentUserState;
   reset: (isDelete?: boolean) => void;
 };
@@ -109,6 +97,43 @@ export const getCompletedSessionByIdSelector: GetCompletedSessionByIdSelector =
       return state?.completedSessions?.find(cs => cs.id === sessionId);
     }
   };
+
+type GetPostEventsSelector = (state: State) => PostEvent[];
+export const getPostEventsSelector: GetPostEventsSelector = ({
+  user,
+  userState,
+}) => {
+  if (user?.uid) {
+    const state = userState[user.uid] as UserState | undefined;
+    if (state?.events) {
+      return state.events.filter(e => e.type === 'post') as PostEvent[];
+    }
+  }
+  return [];
+};
+
+type GetFeedbackEventsSelector = (state: State) => FeedbackEvent[];
+export const getFeedbackEventsSelector: GetFeedbackEventsSelector = ({
+  user,
+  userState,
+}) => {
+  if (user?.uid) {
+    const state = userState[user.uid] as UserState | undefined;
+    if (state?.events) {
+      return state.events.filter(e => e.type === 'feedback') as FeedbackEvent[];
+    }
+  }
+  return [];
+};
+
+const getTypedEvent = (event: EventData) => {
+  switch (event.type) {
+    case 'post':
+      return event as PostEventData;
+    default:
+      return event as FeedbackEventData; // some type has to be the fallback
+  }
+};
 
 const useUserState = create<State & Actions>()(
   persist(
@@ -145,9 +170,10 @@ const useUserState = create<State & Actions>()(
           setCurrentUserState(({completedSessions = []} = {}) => ({
             completedSessions: [...completedSessions, completedSession],
           })),
-        addEvent: (type, payload) => {
+        addEvent: event => {
+          const typedEventData = getTypedEvent(event);
           setCurrentUserState(({events = []} = {}) => ({
-            events: [...events, {type, payload, timestamp: new Date()}],
+            events: [...events, {...typedEventData, timestamp: new Date()}],
           }));
         },
         reset: isDelete => {
