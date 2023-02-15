@@ -13,7 +13,7 @@ const ParticipantsWrapper = styled.View({
   flexWrap: 'wrap',
 });
 
-const VideoView = styled.View<{stump: boolean; height: number}>(
+const StyledParticipant = styled(Participant)<{stump: boolean; height: number}>(
   ({stump, height}) => ({
     width: stump ? '100%' : '50%',
     height,
@@ -50,13 +50,13 @@ const Participants: React.FC<ParticipantsProps> = ({
   return (
     <ParticipantsWrapper>
       {participants.map((participant, i) => (
-        <VideoView
+        <StyledParticipant
           key={participant.user_id}
+          participant={participant}
           height={participantHeight}
           // Last and odd participant - stump
-          stump={i === participants.length - 1 && !(i % 2)}>
-          <Participant participant={participant} />
-        </VideoView>
+          stump={i === participants.length - 1 && !(i % 2)}
+        />
       ))}
 
       <Notifications />
