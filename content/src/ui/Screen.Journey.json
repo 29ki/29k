@@ -8,10 +8,10 @@
   },
   "pt": {
     "headings": {
-      "completed": "Completas",
+      "completed": "Concluídas",
       "planned": "Sessões planeadas"
     },
-    "fallback": "🌱 A tua jornada está a iniciar"
+    "fallback": "🌱 A tua jornada está a começar"
   },
   "sv": {},
   "es": {}
