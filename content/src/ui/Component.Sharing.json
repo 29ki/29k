@@ -11,11 +11,6 @@
     "addReflectionCta": "Lägg till din reflketion",
     "reflectionLabel": "Vad du sa:"
   },
-  "pt": {
-    "othersHeading": "What others said:",
-    "emptyText": "No sharings for this exercise yet...",
-    "addReflectionCta": "Add your reflection",
-    "reflectionLabel": "What you said:"
-  },
+  "pt": {},
   "es": {}
 }
