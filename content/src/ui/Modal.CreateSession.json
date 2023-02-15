@@ -30,7 +30,7 @@
     }
   },
   "pt": {
-    "description": "Start by selecting who you want to do a session with.",
+    "description": "Criar sessão com...",
     "joinByInviteCta": "Junta-te por código de convite",
     "selectContent": {
       "title": "Escolhe um exercício"
