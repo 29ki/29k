@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect} from 'react';
+import React, {useCallback, useContext, useEffect, useState} from 'react';
 import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
@@ -53,6 +53,8 @@ import HostNotes from '../../lib/session/components/HostNotes/HostNotes';
 import Screen from '../../lib/components/Screen/Screen';
 import useMuteAudio from '../../lib/session/hooks/useMuteAudio';
 import ContentWrapper from '../../lib/session/components/ContentWrapper/ContentWrapper';
+import {LayoutChangeEvent} from 'react-native';
+import AutoScrollView from '../../lib/components/AutoScrollView/AutoScrollView';
 
 const ExerciseControl = styled(ContentControls)({
   position: 'absolute',
@@ -105,6 +107,7 @@ const Session: React.FC = () => {
   const {t} = useTranslation('Screen.Session');
   useSubscribeToSessionIfFocused(session, {exitOnEnded: false});
 
+  const [scrollHeight, setScrollHeight] = useState(0);
   const exercise = useSessionExercise();
   const participants = useSessionParticipants();
   const {endSession} = useUpdateSessionState(session.id);
@@ -228,6 +231,10 @@ const Session: React.FC = () => {
     conditionallyMuteParticipants,
   ]);
 
+  const onScrollLayout = useCallback((event: LayoutChangeEvent) => {
+    setScrollHeight(event.nativeEvent.layout.height);
+  }, []);
+
   return (
     <Screen backgroundColor={theme?.backgroundColor}>
       {isHost && (
@@ -245,36 +252,41 @@ const Session: React.FC = () => {
       )}
       <TopSafeArea />
       {isHost && <Spacer32 />}
-      <ContentWrapper>
-        {sessionSlideState && (
-          <>
-            <ExerciseSlides
-              index={sessionSlideState.index}
-              current={sessionSlideState.current}
-              previous={sessionSlideState.previous}
-              next={sessionSlideState.next}
-            />
-            {!isHost && (
-              <Progress
+      <AutoScrollView onLayout={onScrollLayout}>
+        <ContentWrapper>
+          {sessionSlideState && (
+            <>
+              <ExerciseSlides
                 index={sessionSlideState.index}
-                length={exercise?.slides.length}
+                current={sessionSlideState.current}
+                previous={sessionSlideState.previous}
+                next={sessionSlideState.next}
               />
-            )}
-          </>
-        )}
-        <ExerciseControl
-          exercise={exercise}
-          isHost={isHost}
-          sessionState={sessionState}
-          slideState={sessionSlideState}
-          currentContentReachedEnd={currentContentReachedEnd}
-          onPrevPress={onPrevPress}
-          onNextPress={onNextPress}
-          onResetPlayingPress={onResetPlayingPress}
-          onTogglePlayingPress={onTogglePlayingPress}
+              {!isHost && (
+                <Progress
+                  index={sessionSlideState.index}
+                  length={exercise?.slides.length}
+                />
+              )}
+            </>
+          )}
+          <ExerciseControl
+            exercise={exercise}
+            isHost={isHost}
+            sessionState={sessionState}
+            slideState={sessionSlideState}
+            currentContentReachedEnd={currentContentReachedEnd}
+            onPrevPress={onPrevPress}
+            onNextPress={onNextPress}
+            onResetPlayingPress={onResetPlayingPress}
+            onTogglePlayingPress={onTogglePlayingPress}
+          />
+        </ContentWrapper>
+        <Participants
+          containerHeight={scrollHeight}
+          participants={participants}
         />
-      </ContentWrapper>
-      <Participants participants={participants} />
+      </AutoScrollView>
       <Spacer16 />
       <SessionControls>
         <IconButton
