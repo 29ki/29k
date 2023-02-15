@@ -74,6 +74,8 @@ const initialState: State = {
   userState: {},
 };
 
+// We don't use selectors but for this case we do :)
+// This should only be used in hooks where we can memoize with useCallback or useMemo
 type GetCurrentUserStateSelector = (state: State) => UserState | undefined;
 export const getCurrentUserStateSelector: GetCurrentUserStateSelector = ({
   user,
