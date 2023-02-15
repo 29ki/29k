@@ -1,5 +1,6 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook, act} from '@testing-library/react-hooks';
+import {PostPayload} from '../../../../../shared/src/types/Event';
 import useUserState, {CompletedSession} from './state';
 
 describe('user - state', () => {
@@ -147,6 +148,118 @@ describe('user - state', () => {
     });
   });
 
+  describe('addEvent', () => {
+    it('should add post event to empty userState', () => {
+      useUserState.setState({
+        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
+        userState: {},
+      });
+
+      const {result} = renderHook(() => useUserState());
+
+      act(() => {
+        result.current.addEvent({
+          type: 'post',
+          payload: {
+            sessionId: 'some-session-id',
+          } as PostPayload,
+        });
+      });
+
+      expect(result.current.userState['user-id'].events).toEqual([
+        {
+          type: 'post',
+          payload: {sessionId: 'some-session-id'},
+          timestamp: expect.any(Date),
+        },
+      ]);
+    });
+
+    it('should add post event on existing userState', () => {
+      useUserState.setState({
+        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
+        userState: {
+          'user-id': {
+            events: [
+              {
+                type: 'post',
+                payload: {sessionId: 'some-session-id'} as PostPayload,
+                timestamp: new Date(),
+              },
+            ],
+          },
+        },
+      });
+
+      const {result} = renderHook(() => useUserState());
+
+      act(() => {
+        result.current.addEvent({
+          type: 'post',
+          payload: {
+            sessionId: 'some-other-session-id',
+          } as PostPayload,
+        });
+      });
+
+      expect(result.current.userState['user-id'].events).toEqual([
+        {
+          type: 'post',
+          payload: {sessionId: 'some-session-id'},
+          timestamp: expect.any(Date),
+        },
+        {
+          type: 'post',
+          payload: {sessionId: 'some-other-session-id'},
+          timestamp: expect.any(Date),
+        },
+      ]);
+    });
+
+    it('should keep other users state', () => {
+      useUserState.setState({
+        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
+        userState: {
+          'user-id-2': {
+            events: [
+              {
+                type: 'post',
+                payload: {sessionId: 'some-session-id'} as PostPayload,
+                timestamp: new Date(),
+              },
+            ],
+          },
+        },
+      });
+
+      const {result} = renderHook(() => useUserState());
+
+      act(() => {
+        result.current.addEvent({
+          type: 'post',
+          payload: {
+            sessionId: 'some-other-session-id',
+          } as PostPayload,
+        });
+      });
+
+      expect(result.current.userState['user-id'].events).toEqual([
+        {
+          type: 'post',
+          payload: {sessionId: 'some-other-session-id'},
+          timestamp: expect.any(Date),
+        },
+      ]);
+      expect(result.current.userState['user-id-2'].events).toEqual([
+        {
+          type: 'post',
+          payload: {sessionId: 'some-session-id'},
+          timestamp: expect.any(Date),
+        },
+      ]);
+    });
+  });
+
   describe('reset', () => {
     it('should keep user state when not deleted', () => {
       useUserState.setState({
@@ -156,6 +269,13 @@ describe('user - state', () => {
             pinnedSessions: [{id: 'pinned-session-id', expires: new Date()}],
             completedSessions: [
               {id: 'completed-session-id'} as CompletedSession,
+            ],
+            events: [
+              {
+                type: 'post',
+                payload: {sessionId: 'some-session-id'} as PostPayload,
+                timestamp: new Date(),
+              },
             ],
           },
         },
@@ -173,6 +293,13 @@ describe('user - state', () => {
       expect(result.current.userState['user-id'].completedSessions).toEqual([
         {id: 'completed-session-id'},
       ]);
+      expect(result.current.userState['user-id'].events).toEqual([
+        {
+          type: 'post',
+          payload: {sessionId: 'some-session-id'},
+          timestamp: expect.any(Date),
+        },
+      ]);
     });
 
     it('should delete only current user state deleted', () => {
@@ -184,11 +311,25 @@ describe('user - state', () => {
             completedSessions: [
               {id: 'completed-session-id'} as CompletedSession,
             ],
+            events: [
+              {
+                type: 'post',
+                payload: {sessionId: 'some-session-id'} as PostPayload,
+                timestamp: new Date(),
+              },
+            ],
           },
           'user-id-2': {
             pinnedSessions: [{id: 'pinned-session-id', expires: new Date()}],
             completedSessions: [
               {id: 'completed-session-id'} as CompletedSession,
+            ],
+            events: [
+              {
+                type: 'post',
+                payload: {sessionId: 'some-session-id'} as PostPayload,
+                timestamp: new Date(),
+              },
             ],
           },
         },
@@ -206,6 +347,13 @@ describe('user - state', () => {
       ]);
       expect(result.current.userState['user-id-2'].completedSessions).toEqual([
         {id: 'completed-session-id'},
+      ]);
+      expect(result.current.userState['user-id-2'].events).toEqual([
+        {
+          type: 'post',
+          payload: {sessionId: 'some-session-id'},
+          timestamp: expect.any(Date),
+        },
       ]);
     });
   });

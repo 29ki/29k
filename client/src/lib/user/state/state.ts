@@ -10,9 +10,7 @@ import {UserProfile} from '../../../../../shared/src/types/User';
 import {
   Event,
   EventData,
-  FeedbackEvent,
   FeedbackEventData,
-  PostEvent,
   PostEventData,
 } from '../../../../../shared/src/types/Event';
 
@@ -84,46 +82,6 @@ export const getCurrentUserStateSelector: GetCurrentUserStateSelector = ({
   if (user?.uid) {
     return userState[user.uid];
   }
-};
-
-type GetCompletedSessionByIdSelector = (
-  state: State,
-  sessionId: string,
-) => CompletedSession | undefined;
-export const getCompletedSessionByIdSelector: GetCompletedSessionByIdSelector =
-  ({user, userState}, sessionId) => {
-    if (user?.uid) {
-      const state = userState[user.uid] as UserState | undefined;
-      return state?.completedSessions?.find(cs => cs.id === sessionId);
-    }
-  };
-
-type GetPostEventsSelector = (state: State) => PostEvent[];
-export const getPostEventsSelector: GetPostEventsSelector = ({
-  user,
-  userState,
-}) => {
-  if (user?.uid) {
-    const state = userState[user.uid] as UserState | undefined;
-    if (state?.events) {
-      return state.events.filter(e => e.type === 'post') as PostEvent[];
-    }
-  }
-  return [];
-};
-
-type GetFeedbackEventsSelector = (state: State) => FeedbackEvent[];
-export const getFeedbackEventsSelector: GetFeedbackEventsSelector = ({
-  user,
-  userState,
-}) => {
-  if (user?.uid) {
-    const state = userState[user.uid] as UserState | undefined;
-    if (state?.events) {
-      return state.events.filter(e => e.type === 'feedback') as FeedbackEvent[];
-    }
-  }
-  return [];
 };
 
 const getTypedEvent = (event: EventData) => {

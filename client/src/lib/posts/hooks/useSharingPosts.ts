@@ -1,12 +1,13 @@
 import {useCallback} from 'react';
 
 import useSessionState from '../../session/state/state';
-import useUserState, {getPostEventsSelector} from '../../user/state/state';
+import useEvents from '../../user/hooks/useEvents';
+import useUserState from '../../user/state/state';
 import {addPost, fetchPosts} from '../api/posts';
 
 const useSharingPosts = (exerciseId?: string) => {
   const addEvent = useUserState(state => state.addEvent);
-  const events = useUserState(state => getPostEventsSelector(state));
+  const {postEvents} = useEvents();
   const session = useSessionState(state => state.asyncSession);
 
   const getSharingPosts = useCallback(async () => {
@@ -45,19 +46,19 @@ const useSharingPosts = (exerciseId?: string) => {
 
   const getSharingPostForSession = useCallback(
     (sessionId: string, sharingId: string) => {
-      return events.find(
+      return postEvents.find(
         event =>
           event.payload.exerciseId === exerciseId &&
           event.payload.sessionId === sessionId &&
           event.payload.sharingId === sharingId,
       );
     },
-    [events, exerciseId],
+    [postEvents, exerciseId],
   );
 
   const getSharingPostsForExercise = useCallback(
     (sharingId: string) => {
-      return events
+      return postEvents
         .filter(
           event =>
             event.payload.exerciseId === exerciseId &&
@@ -68,7 +69,7 @@ const useSharingPosts = (exerciseId?: string) => {
             new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime(),
         );
     },
-    [events, exerciseId],
+    [postEvents, exerciseId],
   );
 
   return {

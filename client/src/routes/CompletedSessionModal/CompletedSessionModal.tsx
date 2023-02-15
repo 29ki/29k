@@ -23,9 +23,6 @@ import {CheckIcon} from '../../lib/components/Icons/Check/Check';
 import {Body14} from '../../lib/components/Typography/Body/Body';
 import Badge from '../../lib/components/Badge/Badge';
 import {CommunityIcon, ProfileFillIcon} from '../../lib/components/Icons';
-import useUserState, {
-  getCompletedSessionByIdSelector,
-} from '../../lib/user/state/state';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {SessionMode} from '../../../../shared/src/types/Session';
 import {PostEvent} from '../../../../shared/src/types/Event';
@@ -34,6 +31,7 @@ import {ExerciseSlideSharingSlide} from '../../../../shared/src/types/generated/
 import {complement, isNil} from 'ramda';
 import MyPostCard from '../../lib/session/components/Posts/MyPostCard';
 import useUser from '../../lib/user/hooks/useUser';
+import useCompletedSessionById from '../../lib/user/hooks/useCompletedSessionById';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -74,9 +72,7 @@ const CompletedSessionModal = () => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {t} = useTranslation('Modal.CompletedSession');
-  const completedSession = useUserState(state =>
-    getCompletedSessionByIdSelector(state, session.id),
-  );
+  const completedSession = useCompletedSessionById(session.id);
   const user = useUser();
 
   const sessionTime = useMemo(
