@@ -2,11 +2,11 @@
   "en": {
     "text__markdown": "# Something went wrong!\n\nOh no! We made a misstake. We're working on fixing it as soon as possible.\n\nIf the problem persist please contact [help@29k.org](mailto:help@29k.org)."
   },
+  "pt": {
+    "text__markdown": "# Alguma coisa correu mal!\n\nOh, não! Encontrámos um erro. Verifica a tua ligação à Internet e tenta outra vez.\n\nSe o problema persistir, por favor contacta [help+fjn@29k.org](mailto:help+fjn@29k.org)"
+  },
   "sv": {
     "text__markdown": "# Något gick fel!\n\nÅh, nej! Vi har gjort ett misstag. Vi jobbar på att lösa problemet så snart som möjligt.\n\nOm problemet kvarstår kontakta [help@29k.org](mailto:help@29k.org)"
-  },
-  "pt": {
-    "text__markdown": "# Alguma coisa correu mal!\n\nOh, não! Econtrámos um erro. Verifica a tua ligação à Internet e tenta outra vez.\n\nSe o problema persistir, por favor contacta [help+fjn@29k.org](mailto:help+fjn@29k.org)"
   },
   "es": {}
 }
