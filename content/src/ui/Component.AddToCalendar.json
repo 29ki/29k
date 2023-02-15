@@ -4,15 +4,15 @@
     "notes": "{{name}}\nWith {{host}}\n{{url}}",
     "location": "29k app"
   },
+  "pt": {
+    "title": "Sessão 29k FJN - {{name}}",
+    "notes": "{{name}}\nCom {{host}}\n{{url}}",
+    "location": "29k FJN app"
+  },
   "sv": {
     "title": "29k-session: {{name}}",
     "notes": "{{name}}\nMed {{host}}\n{{url}}",
     "location": "29k-appen"
-  },
-  "pt": {
-    "title": "Sessão - {{name}}",
-    "notes": "{{name}}\nCom {{host}}\n{{url}}",
-    "location": "29k FJN app"
   },
   "es": {}
 }
