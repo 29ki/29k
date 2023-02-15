@@ -94,7 +94,7 @@ const SharingModal = () => {
   const user = useUser();
   const sessionState = useSessionSlideState();
   const {addSharingPost} = useSharingPosts(exerciseId);
-  const [isPublic, setIsPublic] = useState(false);
+  const [isPublic, setIsPublic] = useState(true);
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [text, setText] = useState('');
 
@@ -202,18 +202,20 @@ const SharingModal = () => {
             <Button variant="primary" onPress={onSubmit}>
               {t('submitCta')}
             </Button>
-            <ActionWrapper>
-              <AnonymousText disabled={!isPublic || !user?.displayName}>
-                {t('anonymousLabel')}
-              </AnonymousText>
-              <Spacer8 />
-              <Switch
-                trackColor={trackColor}
-                onValueChange={setIsAnonymous}
-                value={isPublic && (isAnonymous || !user?.displayName)}
-                disabled={!isPublic || Boolean(user?.isAnonymous)}
-              />
-            </ActionWrapper>
+            {isPublic && (
+              <ActionWrapper>
+                <AnonymousText disabled={!isPublic || !user?.displayName}>
+                  {t('anonymousLabel')}
+                </AnonymousText>
+                <Spacer8 />
+                <Switch
+                  trackColor={trackColor}
+                  onValueChange={setIsAnonymous}
+                  value={isPublic && (isAnonymous || !user?.displayName)}
+                  disabled={!isPublic || Boolean(user?.isAnonymous)}
+                />
+              </ActionWrapper>
+            )}
           </Row>
         </Gutters>
       </BottomSheetScrollView>

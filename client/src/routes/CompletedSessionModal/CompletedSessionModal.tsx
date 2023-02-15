@@ -89,26 +89,15 @@ const CompletedSessionModal = () => {
 
   const sharingPosts = useMemo(() => {
     if (session.mode === SessionMode.async) {
-      return [
-        ...(exercise?.slides
-          .filter(s => s.type === 'sharing')
-          .map(s =>
-            getSharingPostForSession(
-              session.id,
-              (s as ExerciseSlideSharingSlide).id,
-            ),
-          )
-          .filter(complement(isNil)) as PostEvent[]),
-        ...(exercise?.slides
-          .filter(s => s.type === 'sharing')
-          .map(s =>
-            getSharingPostForSession(
-              session.id,
-              (s as ExerciseSlideSharingSlide).id,
-            ),
-          )
-          .filter(complement(isNil)) as PostEvent[]),
-      ];
+      return exercise?.slides
+        .filter(s => s.type === 'sharing')
+        .map(s =>
+          getSharingPostForSession(
+            session.id,
+            (s as ExerciseSlideSharingSlide).id,
+          ),
+        )
+        .filter(complement(isNil)) as PostEvent[];
     }
   }, [getSharingPostForSession, exercise, session]);
 
