@@ -16,18 +16,29 @@ import {
   ModalStackProps,
 } from '../../../navigation/constants/routes';
 import BylineUser from '../../../components/Bylines/BylineUser';
-import {Spacer8} from '../../../components/Spacers/Spacer';
+import {Spacer4, Spacer8} from '../../../components/Spacers/Spacer';
 import hexToRgba from 'hex-to-rgba';
+import Badge from '../../../components/Badge/Badge';
+import {EarthIcon, PrivateEyeIcon} from '../../../components/Icons';
+import dayjs from 'dayjs';
+
+export const CARD_WIDTH = 216;
+const CARD_LARGE_HEIGHT = 280;
+const CARD_SMALL_HEIGHT = 216;
 
 const SharingCard = styled(TouchableOpacity)<{height: number}>(({height}) => ({
   backgroundColor: COLORS.CREAM,
   borderRadius: 24,
   height,
-  width: 216,
+  width: CARD_WIDTH,
   padding: SPACINGS.SIXTEEN,
   marginBottom: SPACINGS.TWENTYFOUR,
   ...SETTINGS.BOXSHADOW,
 }));
+
+const SharingAttributesWrapper = styled.View({
+  flexDirection: 'row',
+});
 
 const SharingText = styled(Body14)({
   flex: 1,
@@ -42,19 +53,23 @@ const BottomGradient = styled(LinearGradient)({
   height: 40,
 });
 
-export const LARGE_HEIGHT = 280;
-export const SMALL_HEIGHT = 216;
-
-type OtherPostCardProps = {
+type ListPostCardProps = {
   userProfile?: UserProfile;
   text: string;
+  sharingAt?: Date;
+  isPublic?: boolean;
 };
 
-const OtherPostCard: React.FC<OtherPostCardProps> = ({text, userProfile}) => {
+const ListPostCard: React.FC<ListPostCardProps> = ({
+  text,
+  userProfile,
+  sharingAt,
+  isPublic,
+}) => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const screenHeight = Dimensions.get('screen').height;
-  const cardHeight = screenHeight > 750 ? LARGE_HEIGHT : SMALL_HEIGHT;
+  const cardHeight = screenHeight > 750 ? CARD_LARGE_HEIGHT : CARD_SMALL_HEIGHT;
   const numberOfLines = screenHeight > 750 ? 11 : 8;
 
   const onPress = useCallback(() => {
@@ -66,9 +81,27 @@ const OtherPostCard: React.FC<OtherPostCardProps> = ({text, userProfile}) => {
     [],
   );
 
+  const timeStamp = useMemo(() => {
+    if (sharingAt) {
+      return dayjs(sharingAt).format('ddd, D MMM');
+    }
+  }, [sharingAt]);
+
   return (
     <SharingCard onPress={onPress} height={cardHeight}>
       <BylineUser user={userProfile} />
+      {timeStamp && (
+        <>
+          <Spacer4 />
+          <SharingAttributesWrapper>
+            <Badge
+              IconAfter={isPublic ? <EarthIcon /> : <PrivateEyeIcon />}
+              text={timeStamp}
+            />
+          </SharingAttributesWrapper>
+        </>
+      )}
+
       <Spacer8 />
       <SharingText numberOfLines={numberOfLines}>{text}</SharingText>
       <BottomGradient colors={gradientColors} />
@@ -76,4 +109,4 @@ const OtherPostCard: React.FC<OtherPostCardProps> = ({text, userProfile}) => {
   );
 };
 
-export default OtherPostCard;
+export default ListPostCard;

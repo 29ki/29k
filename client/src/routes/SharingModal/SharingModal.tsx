@@ -81,9 +81,9 @@ const SharingInput = styled(BottomSheetTextInput)({
   height: 250,
 });
 
-const AnonymousText = styled(Body16)<{disabled: boolean}>(({disabled}) => ({
-  color: disabled ? COLORS.GREYDARK : COLORS.BLACK,
-}));
+const AnonymousText = styled(Body16)({
+  color: COLORS.BLACK,
+});
 
 const SharingModal = () => {
   const {
@@ -130,12 +130,7 @@ const SharingModal = () => {
     }
   }, [sessionState]);
 
-  const trackColor = useMemo(() => {
-    if (isPublic) {
-      return {true: COLORS.PRIMARY};
-    }
-    return {false: COLORS.GREYLIGHT};
-  }, [isPublic]);
+  const trackColor = useMemo(() => ({true: COLORS.PRIMARY}), []);
 
   const onSubmit = useCallback(() => {
     if (sharingId) {
@@ -199,20 +194,20 @@ const SharingModal = () => {
           />
           <Spacer16 />
           <Row>
-            <Button variant="primary" onPress={onSubmit}>
+            <Button
+              variant="primary"
+              disabled={text.length < 5}
+              onPress={onSubmit}>
               {t('submitCta')}
             </Button>
-            {isPublic && (
+            {isPublic && user?.displayName && (
               <ActionWrapper>
-                <AnonymousText disabled={!isPublic || !user?.displayName}>
-                  {t('anonymousLabel')}
-                </AnonymousText>
+                <AnonymousText>{t('anonymousLabel')}</AnonymousText>
                 <Spacer8 />
                 <Switch
                   trackColor={trackColor}
                   onValueChange={setIsAnonymous}
-                  value={isPublic && (isAnonymous || !user?.displayName)}
-                  disabled={!isPublic || Boolean(user?.isAnonymous)}
+                  value={isAnonymous}
                 />
               </ActionWrapper>
             )}

@@ -158,12 +158,9 @@ describe('user - state', () => {
       const {result} = renderHook(() => useUserState());
 
       act(() => {
-        result.current.addUserEvent({
-          type: 'post',
-          payload: {
-            sessionId: 'some-session-id',
-          } as PostPayload,
-        });
+        result.current.addUserEvent('post', {
+          sessionId: 'some-session-id',
+        } as PostPayload);
       });
 
       expect(result.current.userState['user-id'].userEvents).toEqual([
@@ -194,12 +191,9 @@ describe('user - state', () => {
       const {result} = renderHook(() => useUserState());
 
       act(() => {
-        result.current.addUserEvent({
-          type: 'post',
-          payload: {
-            sessionId: 'some-other-session-id',
-          } as PostPayload,
-        });
+        result.current.addUserEvent('post', {
+          sessionId: 'some-other-session-id',
+        } as PostPayload);
       });
 
       expect(result.current.userState['user-id'].userEvents).toEqual([
@@ -235,12 +229,9 @@ describe('user - state', () => {
       const {result} = renderHook(() => useUserState());
 
       act(() => {
-        result.current.addUserEvent({
-          type: 'post',
-          payload: {
-            sessionId: 'some-other-session-id',
-          } as PostPayload,
-        });
+        result.current.addUserEvent('post', {
+          sessionId: 'some-other-session-id',
+        } as PostPayload);
       });
 
       expect(result.current.userState['user-id'].userEvents).toEqual([

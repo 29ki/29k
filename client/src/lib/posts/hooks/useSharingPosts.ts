@@ -28,16 +28,13 @@ const useSharingPosts = (exerciseId?: string) => {
         if (isPublic) {
           await addPost(exerciseId, sharingId, text, isAnonymous);
         }
-        addEvent({
-          type: 'post',
-          payload: {
-            exerciseId,
-            sessionId: session.id,
-            sharingId,
-            isPublic,
-            isAnonymous,
-            text,
-          },
+        addEvent('post', {
+          exerciseId,
+          sessionId: session.id,
+          sharingId,
+          isPublic,
+          isAnonymous,
+          text,
         });
       }
     },

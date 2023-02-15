@@ -34,7 +34,7 @@ import useUser from '../../../../user/hooks/useUser';
 import useExerciseTheme from '../../../hooks/useExerciseTheme';
 import useSessionState from '../../../state/state';
 import MyPostCard from '../../Posts/MyPostCard';
-import OtherPostCard from '../../Posts/OtherPostCard';
+import ListPostCard, {CARD_WIDTH} from '../../Posts/ListPostCard';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -189,7 +189,7 @@ const Sharing: React.FC<SharingProps> = ({slide, active}) => {
     ({item, index}) => {
       return (
         <ItemWrapper isLast={index === posts.length - 1}>
-          <OtherPostCard text={item.text} userProfile={item.userProfile} />
+          <ListPostCard text={item.text} userProfile={item.userProfile} />
         </ItemWrapper>
       );
     },
@@ -202,7 +202,12 @@ const Sharing: React.FC<SharingProps> = ({slide, active}) => {
     ({item, index}) => {
       return (
         <ItemWrapper isLast={index === allMyPosts.length - 1}>
-          <OtherPostCard text={item.payload.text} userProfile={userProfile} />
+          <ListPostCard
+            text={item.payload.text}
+            userProfile={userProfile}
+            isPublic={item.payload.isPublic}
+            sharingAt={item.timestamp}
+          />
         </ItemWrapper>
       );
     },
@@ -241,8 +246,9 @@ const Sharing: React.FC<SharingProps> = ({slide, active}) => {
             }
             horizontal
             data={posts}
-            snapToAlignment="start"
+            snapToAlignment="center"
             decelerationRate="fast"
+            snapToInterval={CARD_WIDTH + SPACINGS.SIXTEEN}
             showsHorizontalScrollIndicator={false}
           />
 
@@ -273,9 +279,10 @@ const Sharing: React.FC<SharingProps> = ({slide, active}) => {
                 keyExtractor={myKeyExtractor}
                 horizontal
                 data={allMyPosts}
-                snapToAlignment="start"
+                snapToAlignment="center"
                 decelerationRate="fast"
                 showsHorizontalScrollIndicator={false}
+                snapToInterval={CARD_WIDTH + SPACINGS.SIXTEEN}
               />
             </>
           )}
