@@ -1,13 +1,13 @@
 import {useCallback} from 'react';
 
 import useSessionState from '../../session/state/state';
-import useEvents from '../../user/hooks/useEvents';
+import useUserEvents from '../../user/hooks/useUserEvents';
 import useUserState from '../../user/state/state';
 import {addPost, fetchPosts} from '../api/posts';
 
 const useSharingPosts = (exerciseId?: string) => {
-  const addEvent = useUserState(state => state.addEvent);
-  const {postEvents} = useEvents();
+  const addEvent = useUserState(state => state.addUserEvent);
+  const {postEvents} = useUserEvents();
   const session = useSessionState(state => state.asyncSession);
 
   const getSharingPosts = useCallback(async () => {

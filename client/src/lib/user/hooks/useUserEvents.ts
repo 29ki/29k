@@ -2,10 +2,10 @@ import {useMemo} from 'react';
 import {FeedbackEvent, PostEvent} from '../../../../../shared/src/types/Event';
 import useUserState, {getCurrentUserStateSelector} from '../state/state';
 
-const useEvents = () => {
+const useUserEvents = () => {
   const events = useUserState(state =>
     getCurrentUserStateSelector(state),
-  )?.events;
+  )?.userEvents;
 
   const postEvents = useMemo(() => {
     if (events) {
@@ -30,4 +30,4 @@ const useEvents = () => {
   );
 };
 
-export default useEvents;
+export default useUserEvents;

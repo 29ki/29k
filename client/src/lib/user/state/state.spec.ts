@@ -148,7 +148,7 @@ describe('user - state', () => {
     });
   });
 
-  describe('addEvent', () => {
+  describe('addUserEvent', () => {
     it('should add post event to empty userState', () => {
       useUserState.setState({
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,
@@ -158,7 +158,7 @@ describe('user - state', () => {
       const {result} = renderHook(() => useUserState());
 
       act(() => {
-        result.current.addEvent({
+        result.current.addUserEvent({
           type: 'post',
           payload: {
             sessionId: 'some-session-id',
@@ -166,7 +166,7 @@ describe('user - state', () => {
         });
       });
 
-      expect(result.current.userState['user-id'].events).toEqual([
+      expect(result.current.userState['user-id'].userEvents).toEqual([
         {
           type: 'post',
           payload: {sessionId: 'some-session-id'},
@@ -180,7 +180,7 @@ describe('user - state', () => {
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,
         userState: {
           'user-id': {
-            events: [
+            userEvents: [
               {
                 type: 'post',
                 payload: {sessionId: 'some-session-id'} as PostPayload,
@@ -194,7 +194,7 @@ describe('user - state', () => {
       const {result} = renderHook(() => useUserState());
 
       act(() => {
-        result.current.addEvent({
+        result.current.addUserEvent({
           type: 'post',
           payload: {
             sessionId: 'some-other-session-id',
@@ -202,7 +202,7 @@ describe('user - state', () => {
         });
       });
 
-      expect(result.current.userState['user-id'].events).toEqual([
+      expect(result.current.userState['user-id'].userEvents).toEqual([
         {
           type: 'post',
           payload: {sessionId: 'some-session-id'},
@@ -221,7 +221,7 @@ describe('user - state', () => {
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,
         userState: {
           'user-id-2': {
-            events: [
+            userEvents: [
               {
                 type: 'post',
                 payload: {sessionId: 'some-session-id'} as PostPayload,
@@ -235,7 +235,7 @@ describe('user - state', () => {
       const {result} = renderHook(() => useUserState());
 
       act(() => {
-        result.current.addEvent({
+        result.current.addUserEvent({
           type: 'post',
           payload: {
             sessionId: 'some-other-session-id',
@@ -243,14 +243,14 @@ describe('user - state', () => {
         });
       });
 
-      expect(result.current.userState['user-id'].events).toEqual([
+      expect(result.current.userState['user-id'].userEvents).toEqual([
         {
           type: 'post',
           payload: {sessionId: 'some-other-session-id'},
           timestamp: expect.any(Date),
         },
       ]);
-      expect(result.current.userState['user-id-2'].events).toEqual([
+      expect(result.current.userState['user-id-2'].userEvents).toEqual([
         {
           type: 'post',
           payload: {sessionId: 'some-session-id'},
@@ -270,7 +270,7 @@ describe('user - state', () => {
             completedSessions: [
               {id: 'completed-session-id'} as CompletedSession,
             ],
-            events: [
+            userEvents: [
               {
                 type: 'post',
                 payload: {sessionId: 'some-session-id'} as PostPayload,
@@ -293,7 +293,7 @@ describe('user - state', () => {
       expect(result.current.userState['user-id'].completedSessions).toEqual([
         {id: 'completed-session-id'},
       ]);
-      expect(result.current.userState['user-id'].events).toEqual([
+      expect(result.current.userState['user-id'].userEvents).toEqual([
         {
           type: 'post',
           payload: {sessionId: 'some-session-id'},
@@ -311,7 +311,7 @@ describe('user - state', () => {
             completedSessions: [
               {id: 'completed-session-id'} as CompletedSession,
             ],
-            events: [
+            userEvents: [
               {
                 type: 'post',
                 payload: {sessionId: 'some-session-id'} as PostPayload,
@@ -324,7 +324,7 @@ describe('user - state', () => {
             completedSessions: [
               {id: 'completed-session-id'} as CompletedSession,
             ],
-            events: [
+            userEvents: [
               {
                 type: 'post',
                 payload: {sessionId: 'some-session-id'} as PostPayload,
@@ -348,7 +348,7 @@ describe('user - state', () => {
       expect(result.current.userState['user-id-2'].completedSessions).toEqual([
         {id: 'completed-session-id'},
       ]);
-      expect(result.current.userState['user-id-2'].events).toEqual([
+      expect(result.current.userState['user-id-2'].userEvents).toEqual([
         {
           type: 'post',
           payload: {sessionId: 'some-session-id'},

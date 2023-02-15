@@ -26,8 +26,8 @@ export type FeedbackEvent = BaseEvent & {
   payload: FeedbackPayload;
 };
 
-export type Event = PostEvent | FeedbackEvent;
+export type UserEvent = PostEvent | FeedbackEvent;
 
 export type PostEventData = Omit<PostEvent, 'timestamp'>;
 export type FeedbackEventData = Omit<FeedbackEvent, 'timestamp'>;
-export type EventData = Omit<Event, 'timestamp'>;
+export type UserEventData = Omit<UserEvent, 'timestamp'>;

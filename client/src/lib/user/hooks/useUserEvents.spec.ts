@@ -5,15 +5,15 @@ import {
   PostPayload,
 } from '../../../../../shared/src/types/Event';
 import useUserState from '../state/state';
-import useEvents from './useEvents';
+import useUserEvents from './useUserEvents';
 
-describe('useEvents', () => {
+describe('useUserEvents', () => {
   it('should return current events', () => {
     useUserState.setState({
       user: {uid: 'user-id'} as FirebaseAuthTypes.User,
       userState: {
         'user-id': {
-          events: [
+          userEvents: [
             {
               type: 'post',
               payload: {sessionId: 'some-session-id'} as PostPayload,
@@ -29,7 +29,7 @@ describe('useEvents', () => {
       },
     });
 
-    const {result} = renderHook(() => useEvents());
+    const {result} = renderHook(() => useUserEvents());
 
     expect(result.current.postEvents).toEqual([
       {
@@ -52,7 +52,7 @@ describe('useEvents', () => {
       user: {uid: 'user-id'} as FirebaseAuthTypes.User,
       userState: {
         'user-id': {
-          events: [
+          userEvents: [
             {
               type: 'post',
               payload: {sessionId: 'some-session-id'} as PostPayload,
@@ -68,7 +68,7 @@ describe('useEvents', () => {
       },
     });
 
-    const {result, rerender} = renderHook(() => useEvents());
+    const {result, rerender} = renderHook(() => useUserEvents());
 
     const postEvents = result.current.postEvents;
     const feedbackEvents = result.current.feedbackEvents;

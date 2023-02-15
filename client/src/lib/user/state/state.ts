@@ -8,8 +8,8 @@ import {LiveSession} from '../../../../../shared/src/types/Session';
 import migrate from './migration';
 import {UserProfile} from '../../../../../shared/src/types/User';
 import {
-  Event,
-  EventData,
+  UserEvent,
+  UserEventData,
   FeedbackEventData,
   PostEventData,
 } from '../../../../../shared/src/types/Event';
@@ -35,7 +35,7 @@ export type CompletedSession = {
 export type UserState = {
   pinnedSessions?: Array<PinnedSession>;
   completedSessions?: Array<CompletedSession>;
-  events?: Array<Event>;
+  userEvents?: Array<UserEvent>;
   metricsUid?: string;
   reminderNotifications?: boolean;
 };
@@ -63,7 +63,7 @@ export type Actions = {
   }) => void;
   setPinnedSessions: (pinnedSessions: Array<PinnedSession>) => void;
   addCompletedSession: (completedSession: CompletedSession) => void;
-  addEvent: (event: EventData) => void;
+  addUserEvent: (event: UserEventData) => void;
   setCurrentUserState: SetCurrentUserState;
   reset: (isDelete?: boolean) => void;
 };
@@ -86,7 +86,7 @@ export const getCurrentUserStateSelector: GetCurrentUserStateSelector = ({
   }
 };
 
-const getTypedEvent = (event: EventData) => {
+const getTypedEvent = (event: UserEventData) => {
   switch (event.type) {
     case 'post':
       return event as PostEventData;
@@ -130,10 +130,10 @@ const useUserState = create<State & Actions>()(
           setCurrentUserState(({completedSessions = []} = {}) => ({
             completedSessions: [...completedSessions, completedSession],
           })),
-        addEvent: event => {
+        addUserEvent: event => {
           const typedEventData = getTypedEvent(event);
-          setCurrentUserState(({events = []} = {}) => ({
-            events: [...events, {...typedEventData, timestamp: new Date()}],
+          setCurrentUserState(({userEvents: events = []} = {}) => ({
+            userEvents: [...events, {...typedEventData, timestamp: new Date()}],
           }));
         },
         reset: isDelete => {

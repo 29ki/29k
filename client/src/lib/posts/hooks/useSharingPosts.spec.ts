@@ -80,7 +80,9 @@ describe('useSharingPosts', () => {
         'some text',
         false,
       );
-      expect(useUserState.getState().userState['some-user-id'].events).toEqual([
+      expect(
+        useUserState.getState().userState['some-user-id'].userEvents,
+      ).toEqual([
         {
           type: 'post',
           payload: {
@@ -118,7 +120,9 @@ describe('useSharingPosts', () => {
       });
 
       expect(mockAddPost).toHaveBeenCalledTimes(0);
-      expect(useUserState.getState().userState['some-user-id'].events).toEqual([
+      expect(
+        useUserState.getState().userState['some-user-id'].userEvents,
+      ).toEqual([
         {
           type: 'post',
           payload: {
@@ -154,7 +158,7 @@ describe('useSharingPosts', () => {
       );
 
       expect(mockAddPost).toHaveBeenCalledTimes(0);
-      expect(useUserState.getState().userState['some-user-id'].events).toBe(
+      expect(useUserState.getState().userState['some-user-id'].userEvents).toBe(
         undefined,
       );
     });
@@ -179,7 +183,7 @@ describe('useSharingPosts', () => {
       );
 
       expect(mockAddPost).toHaveBeenCalledTimes(0);
-      expect(useUserState.getState().userState['some-user-id'].events).toBe(
+      expect(useUserState.getState().userState['some-user-id'].userEvents).toBe(
         undefined,
       );
     });
@@ -191,7 +195,7 @@ describe('useSharingPosts', () => {
         user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
         userState: {
           'some-user-id': {
-            events: [
+            userEvents: [
               {
                 type: 'feedback',
                 payload: {} as FeedbackPayload,
@@ -263,7 +267,7 @@ describe('useSharingPosts', () => {
         user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
         userState: {
           'some-user-id': {
-            events: [
+            userEvents: [
               {
                 type: 'feedback',
                 payload: {} as FeedbackPayload,
