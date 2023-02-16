@@ -25,4 +25,4 @@ const Text: React.FC<{children: React.ReactNode}> = ({children}) => {
   );
 };
 
-export default Text;
+export default React.memo(Text);

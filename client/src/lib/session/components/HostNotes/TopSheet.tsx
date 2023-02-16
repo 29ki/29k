@@ -63,117 +63,118 @@ type SheetProps = {
   style?: ViewStyle;
   children: React.ReactNode;
 };
-const TopSheet = React.memo<SheetProps>(
-  ({expand = false, onChange = () => {}, style, children}) => {
-    const [contentHeight, setContentHeight] = useState(0);
+const TopSheet: React.FC<SheetProps> = ({
+  expand = false,
+  onChange = () => {},
+  style,
+  children,
+}) => {
+  const [contentHeight, setContentHeight] = useState(0);
 
-    // Fixed values (for snap positions)
-    const minimisedHeight = HANDLE_HEIGHT;
-    const expandedHeight = contentHeight + HANDLE_HEIGHT;
+  // Fixed values (for snap positions)
+  const minimisedHeight = HANDLE_HEIGHT;
+  const expandedHeight = contentHeight + HANDLE_HEIGHT;
 
-    // Animated values
-    const expanded = useSharedValue(expand);
-    const sheetHeight = useSharedValue(
-      expand ? expandedHeight : minimisedHeight,
-    );
+  // Animated values
+  const expanded = useSharedValue(expand);
+  const sheetHeight = useSharedValue(expand ? expandedHeight : minimisedHeight);
 
-    const updateContentHeight = useCallback(
-      ({
-        nativeEvent: {
-          layout: {height},
-        },
-      }: LayoutChangeEvent) => {
-        // Height can diff on decimals - only update if diff is > 1
-        if (Math.abs(height - contentHeight) > 1) {
-          setContentHeight(height);
+  const updateContentHeight = useCallback(
+    ({
+      nativeEvent: {
+        layout: {height},
+      },
+    }: LayoutChangeEvent) => {
+      // Height can diff on decimals - only update if diff is > 1
+      if (Math.abs(height - contentHeight) > 1) {
+        setContentHeight(height);
+      }
+    },
+    [setContentHeight, contentHeight],
+  );
+
+  const updateHeight = useCallback(
+    (height: number) => {
+      'worklet';
+      sheetHeight.value = withSpring(height, springConfig);
+    },
+    [sheetHeight],
+  );
+
+  useEffect(() => {
+    // React to content height change
+    updateHeight(expanded.value ? expandedHeight : minimisedHeight);
+  }, [updateHeight, expandedHeight, minimisedHeight, expanded]);
+
+  useEffect(() => {
+    // React to expand prop change
+    if (expanded.value !== expand) {
+      expanded.value = expand;
+      updateHeight(expand ? expandedHeight : minimisedHeight);
+    }
+  }, [expanded, updateHeight, minimisedHeight, expandedHeight, expand]);
+
+  useDerivedValue(() => {
+    // Run onChange callback
+    runOnJS(onChange)(expanded.value);
+  }, [expanded.value]);
+
+  const onGestureEvent = useAnimatedGestureHandler(
+    {
+      // Set the context value to the sheet's current height value
+      onStart: (_ev, ctx: any) => {
+        'worklet';
+        ctx.offsetY = sheetHeight.value;
+      },
+      // Update the sheet's height value based on the gesture
+      onActive: (ev, ctx: any) => {
+        'worklet';
+        const height = ctx.offsetY + ev.translationY;
+        if (height >= minimisedHeight) {
+          sheetHeight.value = height;
         }
       },
-      [setContentHeight, contentHeight],
-    );
-
-    const updateHeight = useCallback(
-      (height: number) => {
+      // Snap the sheet to the correct position once the gesture ends
+      onEnd: () => {
+        // 'worklet' directive is required for animations to work based on shared values
         'worklet';
-        sheetHeight.value = withSpring(height, springConfig);
+
+        // Update the sheet's position with spring animation
+        if (
+          !expanded.value &&
+          sheetHeight.value > minimisedHeight + DRAG_BUFFER
+        ) {
+          updateHeight(expandedHeight);
+          expanded.value = true;
+        } else if (
+          expanded.value &&
+          sheetHeight.value < expandedHeight - DRAG_BUFFER
+        ) {
+          updateHeight(minimisedHeight);
+          expanded.value = false;
+        } else {
+          updateHeight(expanded.value ? expandedHeight : minimisedHeight);
+        }
       },
-      [sheetHeight],
-    );
+    },
+    [updateHeight, minimisedHeight, expandedHeight],
+  );
 
-    useEffect(() => {
-      // React to content height change
-      updateHeight(expanded.value ? expandedHeight : minimisedHeight);
-    }, [updateHeight, expandedHeight, minimisedHeight, expanded]);
+  const sheetHeightAnimatedStyle = useAnimatedStyle(() => ({
+    // The 'worklet' directive is included with useAnimatedStyle hook by default
+    height: sheetHeight.value,
+  }));
 
-    useEffect(() => {
-      // React to expand prop change
-      if (expanded.value !== expand) {
-        expanded.value = expand;
-        updateHeight(expand ? expandedHeight : minimisedHeight);
-      }
-    }, [expanded, updateHeight, minimisedHeight, expandedHeight, expand]);
+  return (
+    <Container style={style}>
+      <PanGestureHandler onGestureEvent={onGestureEvent}>
+        <SheetWrapper style={sheetHeightAnimatedStyle}>
+          <Content onLayout={updateContentHeight}>{children}</Content>
+          <Handle />
+        </SheetWrapper>
+      </PanGestureHandler>
+    </Container>
+  );
+};
 
-    useDerivedValue(() => {
-      // Run onChange callback
-      runOnJS(onChange)(expanded.value);
-    }, [expanded.value]);
-
-    const onGestureEvent = useAnimatedGestureHandler(
-      {
-        // Set the context value to the sheet's current height value
-        onStart: (_ev, ctx: any) => {
-          'worklet';
-          ctx.offsetY = sheetHeight.value;
-        },
-        // Update the sheet's height value based on the gesture
-        onActive: (ev, ctx: any) => {
-          'worklet';
-          const height = ctx.offsetY + ev.translationY;
-          if (height >= minimisedHeight) {
-            sheetHeight.value = height;
-          }
-        },
-        // Snap the sheet to the correct position once the gesture ends
-        onEnd: () => {
-          // 'worklet' directive is required for animations to work based on shared values
-          'worklet';
-
-          // Update the sheet's position with spring animation
-          if (
-            !expanded.value &&
-            sheetHeight.value > minimisedHeight + DRAG_BUFFER
-          ) {
-            updateHeight(expandedHeight);
-            expanded.value = true;
-          } else if (
-            expanded.value &&
-            sheetHeight.value < expandedHeight - DRAG_BUFFER
-          ) {
-            updateHeight(minimisedHeight);
-            expanded.value = false;
-          } else {
-            updateHeight(expanded.value ? expandedHeight : minimisedHeight);
-          }
-        },
-      },
-      [updateHeight, minimisedHeight, expandedHeight],
-    );
-
-    const sheetHeightAnimatedStyle = useAnimatedStyle(() => ({
-      // The 'worklet' directive is included with useAnimatedStyle hook by default
-      height: sheetHeight.value,
-    }));
-
-    return (
-      <Container style={style}>
-        <PanGestureHandler onGestureEvent={onGestureEvent}>
-          <SheetWrapper style={sheetHeightAnimatedStyle}>
-            <Content onLayout={updateContentHeight}>{children}</Content>
-            <Handle />
-          </SheetWrapper>
-        </PanGestureHandler>
-      </Container>
-    );
-  },
-);
-
-export default TopSheet;
+export default React.memo(TopSheet);

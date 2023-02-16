@@ -51,4 +51,4 @@ const HostVideo: React.FC<HostVideoProps> = ({
   );
 };
 
-export default HostVideo;
+export default React.memo(HostVideo);

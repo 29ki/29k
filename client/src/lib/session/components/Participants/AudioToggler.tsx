@@ -94,4 +94,4 @@ const AudioToggler: React.FC<AudioTogglerProps> = ({
   );
 };
 
-export default AudioToggler;
+export default React.memo(AudioToggler);

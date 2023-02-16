@@ -27,10 +27,9 @@ const StyledVideo = styled(VideoBase)({
   shadowColor: COLORS.WHITE_TRANSPARENT_01, // Removes ugly frame on iPhone 13 mini (found in thread: https://github.com/react-native-video/react-native-video/issues/1638)
 });
 
-const StyledVideoBase = React.memo(
-  React.forwardRef<RNVideo, Omit<VideoProperties, CommonProps>>(
-    (props, ref) => <StyledVideo {...props} ref={ref} />,
-  ),
-);
+const StyledVideoBase = React.forwardRef<
+  RNVideo,
+  Omit<VideoProperties, CommonProps>
+>((props, ref) => <StyledVideo {...props} ref={ref} />);
 
-export default StyledVideoBase;
+export default React.memo(StyledVideoBase);

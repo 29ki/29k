@@ -34,7 +34,7 @@ type SlideProps = {
   async?: boolean;
 };
 
-export const Slide = React.memo(({slide, active, async}: SlideProps) => {
+const Slide = ({slide, active, async}: SlideProps) => {
   const theme = useExerciseTheme();
   const background = theme?.backgroundColor ?? COLORS.WHITE;
   const colors = useMemo(
@@ -67,4 +67,6 @@ export const Slide = React.memo(({slide, active, async}: SlideProps) => {
         ))}
     </Wrapper>
   );
-});
+};
+
+export default React.memo(Slide);

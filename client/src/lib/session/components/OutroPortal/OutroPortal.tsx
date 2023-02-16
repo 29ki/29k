@@ -12,7 +12,7 @@ import Gutters from '../../../components/Gutters/Gutters';
 import Screen from '../../../components/Screen/Screen';
 import {BottomSafeArea, TopSafeArea} from '../../../components/Spacers/Spacer';
 import {SPACINGS} from '../../../constants/spacings';
-import {VideoTransition} from '../VideoTransition/VideoTransition';
+import VideoTransition from '../VideoTransition/VideoTransition';
 import AudioFader from '../AudioFader/AudioFader';
 import Button from '../../../components/Buttons/Button';
 

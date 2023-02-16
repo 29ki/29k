@@ -125,4 +125,4 @@ const Content: React.FC<ContentProps> = ({
   );
 };
 
-export default Content;
+export default React.memo(Content);

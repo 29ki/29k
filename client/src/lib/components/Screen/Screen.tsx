@@ -106,4 +106,4 @@ const Screen: React.FC<ScreenProps> = ({
   );
 };
 
-export default Screen;
+export default React.memo(Screen);

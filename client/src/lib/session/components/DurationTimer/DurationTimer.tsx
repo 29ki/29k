@@ -27,4 +27,4 @@ const DurationTimer = forwardRef<LottiePlayerHandle, DurationTimerProps>(
   },
 );
 
-export default DurationTimer;
+export default React.memo(DurationTimer);

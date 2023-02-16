@@ -47,104 +47,105 @@ type VideoTransitionProps = {
   onTransition?: () => void;
   onEnd?: () => void;
 };
-export const VideoTransition = React.memo<VideoTransitionProps>(
-  ({
-    startSource,
-    startPosterSource,
-    loopSource,
-    loopPosterSource,
-    endSource,
-    endPosterSource,
-    reverse = false,
-    loop = true,
-    paused = false,
-    onReadyForDisplay = () => {},
-    onTransition = () => {},
-    onEnd = () => {},
-  }) => {
-    const startVideoRef = useRef<Video>(null);
-    const loopVideoRef = useRef<Video>(null);
-    const endVideoRef = useRef<Video>(null);
-    const [isLooping, setIsLooping] = useState(startSource ? false : true);
-    const [isEnding, setIsEnding] = useState(loopSource ? false : true);
 
-    const startVideoSource = useVideoSource(startSource, reverse);
-    const loopVideoSource = useVideoSource(loopSource, reverse);
-    const endVideoSource = useVideoSource(endSource, reverse);
+const VideoTransition: React.FC<VideoTransitionProps> = ({
+  startSource,
+  startPosterSource,
+  loopSource,
+  loopPosterSource,
+  endSource,
+  endPosterSource,
+  reverse = false,
+  loop = true,
+  paused = false,
+  onReadyForDisplay = () => {},
+  onTransition = () => {},
+  onEnd = () => {},
+}) => {
+  const startVideoRef = useRef<Video>(null);
+  const loopVideoRef = useRef<Video>(null);
+  const endVideoRef = useRef<Video>(null);
+  const [isLooping, setIsLooping] = useState(startSource ? false : true);
+  const [isEnding, setIsEnding] = useState(loopSource ? false : true);
 
-    const onStartReadyForDisplay = useCallback(() => {
-      startVideoRef.current?.seek(0);
-      onReadyForDisplay();
-    }, [onReadyForDisplay]);
+  const startVideoSource = useVideoSource(startSource, reverse);
+  const loopVideoSource = useVideoSource(loopSource, reverse);
+  const endVideoSource = useVideoSource(endSource, reverse);
 
-    const onLoopReadyForDisplay = useCallback(() => {
-      loopVideoRef.current?.seek(0);
-      onReadyForDisplay();
-    }, [onReadyForDisplay]);
+  const onStartReadyForDisplay = useCallback(() => {
+    startVideoRef.current?.seek(0);
+    onReadyForDisplay();
+  }, [onReadyForDisplay]);
 
-    const onEndReadyForDisplay = useCallback(() => {
-      endVideoRef.current?.seek(0);
-      onReadyForDisplay();
-    }, [onReadyForDisplay]);
+  const onLoopReadyForDisplay = useCallback(() => {
+    loopVideoRef.current?.seek(0);
+    onReadyForDisplay();
+  }, [onReadyForDisplay]);
 
-    const onStartEnd = useCallback(() => {
-      if (loop) {
-        setIsLooping(true);
-        onTransition();
-      }
-    }, [loop, setIsLooping, onTransition]);
+  const onEndReadyForDisplay = useCallback(() => {
+    endVideoRef.current?.seek(0);
+    onReadyForDisplay();
+  }, [onReadyForDisplay]);
 
-    const onLoopEnd = useCallback(() => {
-      if (!loop) {
-        setIsEnding(true);
-        onTransition();
-      }
-    }, [loop, setIsEnding, onTransition]);
+  const onStartEnd = useCallback(() => {
+    if (loop) {
+      setIsLooping(true);
+      onTransition();
+    }
+  }, [loop, setIsLooping, onTransition]);
 
-    return (
-      <>
-        {loopVideoSource && (
-          <VideoStyled
-            ref={loopVideoRef}
-            source={loopVideoSource}
-            resizeMode="cover"
-            poster={loopPosterSource}
-            posterResizeMode="cover"
-            onReadyForDisplay={onLoopReadyForDisplay}
-            onEnd={onLoopEnd}
-            paused={paused || !isLooping}
-            repeat={loop}
-            muted
-          />
-        )}
+  const onLoopEnd = useCallback(() => {
+    if (!loop) {
+      setIsEnding(true);
+      onTransition();
+    }
+  }, [loop, setIsEnding, onTransition]);
 
-        {startVideoSource && (
-          <VideoStyled
-            ref={startVideoRef}
-            source={startVideoSource}
-            resizeMode="cover"
-            poster={startPosterSource}
-            posterResizeMode="cover"
-            onReadyForDisplay={onStartReadyForDisplay}
-            onEnd={onStartEnd}
-            paused={paused || isLooping}
-            muted
-          />
-        )}
+  return (
+    <>
+      {loopVideoSource && (
+        <VideoStyled
+          ref={loopVideoRef}
+          source={loopVideoSource}
+          resizeMode="cover"
+          poster={loopPosterSource}
+          posterResizeMode="cover"
+          onReadyForDisplay={onLoopReadyForDisplay}
+          onEnd={onLoopEnd}
+          paused={paused || !isLooping}
+          repeat={loop}
+          muted
+        />
+      )}
 
-        {endVideoSource && (
-          <VideoStyled
-            ref={endVideoRef}
-            source={endVideoSource}
-            resizeMode="cover"
-            poster={endPosterSource}
-            posterResizeMode="cover"
-            onReadyForDisplay={onEndReadyForDisplay}
-            onEnd={onEnd}
-            paused={paused || !isEnding}
-          />
-        )}
-      </>
-    );
-  },
-);
+      {startVideoSource && (
+        <VideoStyled
+          ref={startVideoRef}
+          source={startVideoSource}
+          resizeMode="cover"
+          poster={startPosterSource}
+          posterResizeMode="cover"
+          onReadyForDisplay={onStartReadyForDisplay}
+          onEnd={onStartEnd}
+          paused={paused || isLooping}
+          muted
+        />
+      )}
+
+      {endVideoSource && (
+        <VideoStyled
+          ref={endVideoRef}
+          source={endVideoSource}
+          resizeMode="cover"
+          poster={endPosterSource}
+          posterResizeMode="cover"
+          onReadyForDisplay={onEndReadyForDisplay}
+          onEnd={onEnd}
+          paused={paused || !isEnding}
+        />
+      )}
+    </>
+  );
+};
+
+export default React.memo(VideoTransition);
