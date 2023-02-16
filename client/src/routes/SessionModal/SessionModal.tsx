@@ -389,12 +389,11 @@ const SessionModal = () => {
 
               {session.link && (
                 <>
-                  <Button
+                  <IconButton
                     variant="secondary"
                     onPress={onShare}
-                    LeftIcon={ShareIcon}>
-                    {formatInviteCode(session.inviteCode)}
-                  </Button>
+                    Icon={ShareIcon}
+                  />
                 </>
               )}
             </Row>
