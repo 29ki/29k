@@ -68,10 +68,10 @@ const SignInModal = () => {
             defaultValue={email}
           />
           <BottomSheetActionTextInput
-            textContentType="newPassword"
+            textContentType="password"
             secureTextEntry
             autoCapitalize="none"
-            autoComplete="password-new"
+            autoComplete="password"
             autoCorrect={false}
             onSubmitEditing={signIn}
             placeholder={t('password')}
@@ -81,7 +81,6 @@ const SignInModal = () => {
         <Spacer16 />
         {error && (
           <>
-            {/* @ts-expect-error variable/string litteral as key is not yet supported https://www.i18next.com/overview/typescript#type-error-template-literal*/}
             <Error>{t(`errors.${error}`)}</Error>
             <Spacer16 />
           </>

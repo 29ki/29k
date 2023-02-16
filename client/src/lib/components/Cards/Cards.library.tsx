@@ -7,6 +7,7 @@ import {PrivateIcon, PublicIcon} from '../Icons';
 import {Spacer16, Spacer4} from '../Spacers/Spacer';
 import {Body14} from '../Typography/Body/Body';
 import Card from './Card';
+import WalletCard from './WalletCard';
 
 const lottieSource = require('../../../assets/animations/mandala.json');
 const Row = styled.View({
@@ -25,7 +26,6 @@ export const AllCards = () => (
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
       onPress={() => {}}
-      pinned={false}
     />
     <Spacer16 />
     <Card
@@ -36,7 +36,6 @@ export const AllCards = () => (
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
       onPress={() => {}}
-      pinned={false}
     />
     <Spacer16 />
     <Card
@@ -46,7 +45,6 @@ export const AllCards = () => (
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
       }}
       onPress={() => {}}
-      pinned={false}
     />
     <Spacer16 />
 
@@ -56,7 +54,6 @@ export const AllCards = () => (
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
       onPress={() => {}}
-      pinned={false}
     />
     <Spacer16 />
     <Card
@@ -64,11 +61,10 @@ export const AllCards = () => (
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
-      pinned={false}
       onPress={() => {}}>
       <Row>
         <Spacer4 />
-        <Badge text="03:43s" Icon={<PrivateIcon />} />
+        <Badge text="03:43s" IconAfter={<PrivateIcon />} />
       </Row>
     </Card>
     <Spacer16 />
@@ -77,13 +73,27 @@ export const AllCards = () => (
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}
-      pinned
       onPress={() => {}}>
       <Row>
         <Body14>{'Starts in'}</Body14>
         <Spacer4 />
-        <Badge text="12:43" Icon={<PublicIcon />} />
+        <Badge text="12:43" IconAfter={<PublicIcon />} />
       </Row>
     </Card>
+    <Spacer16 />
+    <WalletCard
+      hasCardAfter={false}
+      hasCardBefore={false}
+      title="Private session starts soon"
+      image={{
+        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
+      }}
+      hostPictureURL="https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
+      hostName="Jenny"
+      onPress={() => {}}>
+      <Row>
+        <Badge text="03:43s" />
+      </Row>
+    </WalletCard>
   </ScreenWrapper>
 );

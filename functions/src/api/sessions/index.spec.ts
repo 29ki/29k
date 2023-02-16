@@ -3,7 +3,7 @@ import Koa from 'koa';
 
 import {sessionsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
-import {createRouter} from '../../lib/routers';
+import {createApiRouter} from '../../lib/routers';
 import {ROLES} from '../../../../shared/src/types/User';
 import * as sessionsController from '../../controllers/sessions';
 import {RequestError} from '../../controllers/errors/RequestError';
@@ -18,15 +18,18 @@ const mockGetSessions = sessionsController.getSessions as jest.Mock;
 const mockCreateSession = sessionsController.createSession as jest.Mock;
 const mockRemoveSession = sessionsController.removeSession as jest.Mock;
 const mockUpdateSession = sessionsController.updateSession as jest.Mock;
+const mockUpdateInterestedCount =
+  sessionsController.updateInterestedCount as jest.Mock;
 const mockUpdateSessionState =
   sessionsController.updateSessionState as jest.Mock;
 const mockJoinSession = sessionsController.joinSession as jest.Mock;
 const mockGetSessionToken = sessionsController.getSessionToken as jest.Mock;
+const mockGetSession = sessionsController.getSession as jest.Mock;
 
 jest.mock('../../models/session');
 
 const getMockCustomClaims = jest.fn();
-const router = createRouter();
+const router = createApiRouter();
 router.use('/sessions', sessionsRouter.routes());
 const mockServer = createMockServer(
   async (ctx: Koa.Context, next: Koa.Next) => {
@@ -127,63 +130,116 @@ describe('/api/sessions', () => {
       expect(response.status).toBe(403);
       expect(response.text).toEqual(ValidateSessionError.userNotFound);
     });
+
+    describe('/:id', () => {
+      it('should return session', async () => {
+        mockGetSession.mockResolvedValueOnce({
+          id: 'some-session-id',
+          name: 'some-name',
+          url: 'some-url',
+          hostId: 'some-user-id',
+          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+        });
+
+        const response = await request(mockServer).get(
+          '/sessions/some-session-id',
+        );
+
+        expect(response.status).toBe(200);
+        expect(response.body).toEqual({
+          id: 'some-session-id',
+          name: 'some-name',
+          url: 'some-url',
+          hostId: 'some-user-id',
+          startTime: expect.any(String),
+        });
+      });
+
+      it('should return 404 if session is not found', async () => {
+        mockGetSession.mockRejectedValueOnce(
+          new RequestError(ValidateSessionError.notFound),
+        );
+
+        const response = await request(mockServer).get(
+          '/sessions/some-session-id',
+        );
+
+        expect(response.status).toBe(404);
+        expect(response.text).toEqual(ValidateSessionError.notFound);
+      });
+
+      it('should return 403 if user is not part of session', async () => {
+        mockGetSession.mockRejectedValueOnce(
+          new RequestError(ValidateSessionError.userNotFound),
+        );
+
+        const response = await request(mockServer).get(
+          '/sessions/some-session-id',
+        );
+
+        expect(response.status).toBe(403);
+        expect(response.text).toEqual(ValidateSessionError.userNotFound);
+      });
+    });
   });
 
   describe('POST', () => {
-    const startTime = new Date('1994-03-08T07:24:00').toISOString();
+    describe('/:id', () => {
+      const startTime = new Date('1994-03-08T07:24:00').toISOString();
 
-    it('should return newly created session', async () => {
-      getMockCustomClaims.mockReturnValueOnce({role: ROLES.publicHost});
+      it('should return newly created session', async () => {
+        getMockCustomClaims.mockReturnValueOnce({role: ROLES.publicHost});
 
-      mockCreateSession.mockResolvedValueOnce({id: 'new-session'});
-      const response = await request(mockServer)
-        .post('/sessions')
-        .send({
-          contentId: 'some-content-id',
-          type: 'public',
-          startTime,
-        })
-        .set('Accept', 'application/json');
+        mockCreateSession.mockResolvedValueOnce({id: 'new-session'});
+        const response = await request(mockServer)
+          .post('/sessions')
+          .send({
+            exerciseId: 'some-content-id',
+            type: 'public',
+            startTime,
+          })
+          .set('Accept', 'application/json');
 
-      expect(response.status).toBe(200);
-      expect(response.body).toEqual({
-        id: 'new-session',
+        expect(response.status).toBe(200);
+        expect(response.body).toEqual({
+          id: 'new-session',
+        });
       });
-    });
 
-    it('should require user to be publicHost', async () => {
-      getMockCustomClaims.mockReturnValueOnce({role: 'not-public-host'});
+      it('should require user to be publicHost', async () => {
+        getMockCustomClaims.mockReturnValueOnce({role: 'not-public-host'});
 
-      const response = await request(mockServer)
-        .post('/sessions')
-        .send({
-          contentId: 'some-content-id',
-          type: 'public',
-          startTime,
-        })
-        .set('Accept', 'application/json');
+        const response = await request(mockServer)
+          .post('/sessions')
+          .send({
+            exerciseId: 'some-content-id',
+            type: 'public',
+            startTime,
+          })
+          .set('Accept', 'application/json');
 
-      expect(response.status).toBe(401);
-    });
+        expect(response.status).toBe(401);
+      });
 
-    it('should fail without session data', async () => {
-      getMockCustomClaims.mockReturnValueOnce({role: ROLES.publicHost});
-      const response = await request(mockServer)
-        .post('/sessions')
-        .set('Accept', 'application/json');
+      it('should fail without session data', async () => {
+        getMockCustomClaims.mockReturnValueOnce({role: ROLES.publicHost});
+        const response = await request(mockServer)
+          .post('/sessions')
+          .set('Accept', 'application/json');
 
-      expect(response.status).toBe(500);
-      expect(response.text).toEqual('Internal Server Error');
-    });
+        expect(response.status).toBe(500);
+        expect(response.text).toEqual('Internal Server Error');
+      });
 
-    it('should fail if controller throws', async () => {
-      mockCreateSession.mockRejectedValueOnce(
-        new Error('some error text') as never,
-      );
-      const response = await request(mockServer)
-        .post('/sessions')
-        .send({name: 'the name'});
-      expect(response.status).toBe(500);
+      it('should fail if controller throws', async () => {
+        mockCreateSession.mockRejectedValueOnce(
+          new Error('some error text') as never,
+        );
+        const response = await request(mockServer)
+          .post('/sessions')
+          .send({name: 'the name'});
+        expect(response.status).toBe(500);
+      });
     });
   });
 
@@ -215,6 +271,32 @@ describe('/api/sessions', () => {
       const response = await request(mockServer)
         .put('/sessions/some-other-session-id')
         .send({started: true})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(500);
+      expect(response.text).toEqual('Internal Server Error');
+    });
+  });
+
+  describe('PUT /:id/interestedCount', () => {
+    it('should return updated session', async () => {
+      const response = await request(mockServer)
+        .put('/sessions/some-session-id/interestedCount')
+        .send({increment: true})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(200);
+      expect(mockUpdateInterestedCount).toHaveBeenCalledWith(
+        'some-session-id',
+        true,
+      );
+    });
+
+    it('should fail when update rejects', async () => {
+      mockUpdateInterestedCount.mockRejectedValueOnce(new Error('some-error'));
+      const response = await request(mockServer)
+        .put('/sessions/some-session-id/interestedCount')
+        .send({increment: true})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(500);

@@ -14,8 +14,8 @@ import SheetModal from '../../lib/components/Modals/SheetModal';
 import {
   Spacer16,
   Spacer24,
+  Spacer60,
   Spacer8,
-  Spacer96,
 } from '../../lib/components/Spacers/Spacer';
 import TouchableOpacity from '../../lib/components/TouchableOpacity/TouchableOpacity';
 import {
@@ -57,8 +57,8 @@ const Votes = styled.View({
 });
 
 const Vote = styled(TouchableOpacity)({
-  width: 125,
-  height: 125,
+  width: 160,
+  height: 160,
 });
 
 const Wrapper = styled(Gutters)({
@@ -78,7 +78,7 @@ const SessionFeedbackModal = () => {
   const {popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {snapToIndex} = useBottomSheet();
-  const {sessionId, completed, isHost} = params;
+  const {exerciseId, sessionId, completed, isHost} = params;
 
   const [answer, setAnswer] = useState<undefined | boolean>();
   const [comment, setComment] = useState('');
@@ -95,16 +95,28 @@ const SessionFeedbackModal = () => {
   }, [snapToIndex, setAnswer]);
 
   const submit = useCallback(() => {
-    metrics.logEvent('Sharing Session Feedback', {
-      'Feedback Question': t('question', {lng: DEFAULT_LANGUAGE_TAG}),
-      'Feedback Answer': answer,
-      'Feedback Comment': comment,
-      'Sharing Session ID': sessionId,
-      'Sharing Session Completed': completed,
-      Host: isHost,
-    });
-    setSubmitted(true);
-  }, [t, sessionId, completed, isHost, answer, comment, setSubmitted]);
+    if (answer) {
+      metrics.logFeedback({
+        exerciseId,
+        sessionId,
+        completed,
+        question: t('question', {lng: DEFAULT_LANGUAGE_TAG}),
+        answer,
+        comment,
+        host: isHost,
+      });
+      setSubmitted(true);
+    }
+  }, [
+    t,
+    exerciseId,
+    sessionId,
+    completed,
+    isHost,
+    answer,
+    comment,
+    setSubmitted,
+  ]);
 
   useEffect(() => {
     if (submitted) {
@@ -126,17 +138,15 @@ const SessionFeedbackModal = () => {
             <Spacer24 />
             <Wrapper>
               <Heading24>{t('question')}</Heading24>
-              <Spacer16 />
               <Votes>
                 <Vote onPress={thumbsUpPress}>
                   <ThumbsUp active={answer === true} />
                 </Vote>
-                <Spacer16 />
                 <Vote onPress={thumbsDownPress}>
                   <ThumbsDown active={answer === false} />
                 </Vote>
               </Votes>
-              <Spacer96 />
+              <Spacer60 />
 
               <Heading16>{t('comments')}</Heading16>
               <Spacer8 />

@@ -1,7 +1,10 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
-import {Session, SessionType} from '../../../../../shared/src/types/Session';
+import {
+  LiveSession,
+  SessionType,
+} from '../../../../../shared/src/types/Session';
 import {ChevronLeft, PrivateIcon, PublicIcon} from '../Icons';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Body16} from '../Typography/Body/Body';
@@ -17,7 +20,7 @@ const IconWrapper = styled.View({
 });
 
 const EditSessionType: React.FC<{
-  sessionType: Session['type'];
+  sessionType: LiveSession['type'];
   onPress: () => void;
 }> = ({sessionType, onPress}) => {
   const {t} = useTranslation('Component.EditSessionType');

@@ -4,8 +4,7 @@ import {
 } from '@googleapis/firebasedynamiclinks';
 import config from '../lib/config';
 import i18next, {LANGUAGE_TAG} from '../lib/i18n';
-import type {Exercise} from '../../../shared/src/types/generated/Exercise';
-import {StringMap} from 'i18next';
+import {getExerciseById} from '../lib/exercise';
 
 const dynamicLinks = firebasedynamiclinks('v1');
 
@@ -60,31 +59,22 @@ export const createDynamicLink = async (
 
 export const createSessionInviteLink = async (
   inviteCode: number,
-  contentId: string,
+  exerciseId: string,
   host: string | undefined,
   language: LANGUAGE_TAG,
 ) => {
-  // @ts-expect-error variable/string litteral as key is not yet supported https://www.i18next.com/overview/typescript#type-error-template-literal
-  const {name, description, card, socialMeta} = i18next.t(contentId, {
-    lng: language,
-    ns: 'exercises',
-    returnObjects: true,
-  }) as Exercise;
+  const exercise = getExerciseById(exerciseId, language);
+
+  if (!exercise) {
+    return;
+  }
+
+  const {name, description, card, socialMeta} = exercise;
 
   const t = i18next.getFixedT(language, 'DeepLink.JoinSessionInvite');
 
   const socialImageLink = socialMeta?.image || card?.image?.source;
-  // Need to tell what type it is since we get
-  // Type instantiation is excessively deep and possibly infinite.
-  const socialTitle = t<
-    'title',
-    string,
-    StringMap,
-    'DeepLink.JoinSessionInvite',
-    {
-      title: string;
-    }
-  >('title', {title: socialMeta?.title || name});
+  const socialTitle = t('title', {title: socialMeta?.title || name});
   const socialDescription = t('description', {
     host,
     description: socialMeta?.description || description,

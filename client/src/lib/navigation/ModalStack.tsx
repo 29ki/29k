@@ -6,9 +6,11 @@ import {
 
 import {ModalStackProps} from './constants/routes';
 import SessionModal from '../../routes/SessionModal/SessionModal';
+import CompletedSessionModal from '../../routes/CompletedSessionModal/CompletedSessionModal';
 import CreateSessionModal from '../../routes/CreateSessionModal/CreateSessionModal';
-import AddSessionModal from '../../routes/AddSessionModal/AddSessionModal';
+import AddSessionByInviteModal from '../../routes/AddSessionByInviteModal/AddSessionByInviteModal';
 import UpgradeAccountModal from '../../routes/UpgradeAccountModal/UpgradeAccountModal';
+import RequestPublicHostModal from '../../routes/RequestPublicHostModal/RequestPublicHostModal';
 import SessionUnavailableModal from '../../routes/SessionUnavailableModal/SessionUnavailableModal';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import SETTINGS from '../constants/settings';
@@ -23,6 +25,8 @@ import OverlayStack from './OverlayStack';
 import PartnersModal from '../../routes/Contributors/PartnersModal';
 import ContactModal from '../../routes/ConcactModal/ContactModal';
 import SessionFeedbackModal from '../../routes/SessionFeedbackModal/SessionFeedbackModal';
+import SharingModal from '../../routes/SharingModal/SharingModal';
+import SharingPostModal from '../../routes/SharingPostModal/SharingPostModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -101,6 +105,15 @@ const ModalStack = () => {
     [sheetModalScreenOptions],
   );
 
+  const fullSheetModalScreenOptions = useMemo(
+    () => ({
+      ...sheetModalScreenOptions,
+      // Please note - Having a fixed snap point as first value improves keyboard input focus on Android
+      snapPoints: [800, '100%'],
+    }),
+    [sheetModalScreenOptions],
+  );
+
   const cardModalScreenOptions = useMemo(
     () => ({
       ...modalScreenOptions,
@@ -127,12 +140,22 @@ const ModalStack = () => {
           component={SessionModal}
           options={tallSheetModalScreenOptions}
         />
-        <Screen name={'CreateSessionModal'} component={CreateSessionModal} />
         <Screen
-          name={'UpgradeAccountModal'}
-          component={UpgradeAccountModal}
-          options={shortSheetModalScreenOptions}
+          name={'CompletedSessionModal'}
+          component={CompletedSessionModal}
+          options={tallSheetModalScreenOptions}
         />
+        <Screen
+          name={'SharingModal'}
+          component={SharingModal}
+          options={fullSheetModalScreenOptions}
+        />
+        <Screen
+          name={'SharingPostModal'}
+          component={SharingPostModal}
+          options={tallSheetModalScreenOptions}
+        />
+        <Screen name={'CreateSessionModal'} component={CreateSessionModal} />
         <Screen
           name={'SessionUnavailableModal'}
           component={SessionUnavailableModal}
@@ -159,10 +182,23 @@ const ModalStack = () => {
           component={SessionFeedbackModal}
           options={shortSheetModalScreenOptions}
         />
+
+        <Screen
+          name={'UpgradeAccountModal'}
+          component={UpgradeAccountModal}
+          options={shortSheetModalScreenOptions}
+        />
       </Group>
 
       <Group screenOptions={cardModalScreenOptions}>
-        <Screen name={'AddSessionModal'} component={AddSessionModal} />
+        <Screen
+          name={'AddSessionByInviteModal'}
+          component={AddSessionByInviteModal}
+        />
+        <Screen
+          name={'RequestPublicHostModal'}
+          component={RequestPublicHostModal}
+        />
       </Group>
     </Navigator>
   );

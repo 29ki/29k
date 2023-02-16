@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components/native';
 
 import typeStyles from '../styles';
@@ -7,8 +8,12 @@ const BaseHeading = styled.Text.attrs({
   selectable: true,
 })({});
 
-export const Heading24 = styled(BaseHeading)(typeStyles.Heading24);
-export const Heading22 = styled(BaseHeading)(typeStyles.Heading22);
-export const Heading18 = styled(BaseHeading)(typeStyles.Heading18);
-export const Heading16 = styled(BaseHeading)(typeStyles.Heading16);
-export const ModalHeading = styled(BaseHeading)(typeStyles.ModalHeading);
+const MemoizedBaseHeading = React.memo(BaseHeading);
+
+export const Heading24 = styled(MemoizedBaseHeading)(typeStyles.Heading24);
+export const Heading22 = styled(MemoizedBaseHeading)(typeStyles.Heading22);
+export const Heading18 = styled(MemoizedBaseHeading)(typeStyles.Heading18);
+export const Heading16 = styled(MemoizedBaseHeading)(typeStyles.Heading16);
+export const ModalHeading = styled(MemoizedBaseHeading)(
+  typeStyles.ModalHeading,
+);

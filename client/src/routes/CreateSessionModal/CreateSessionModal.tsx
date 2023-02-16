@@ -9,7 +9,7 @@ import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
 
 import {Exercise} from '../../../../shared/src/types/generated/Exercise';
-import {SessionType} from '../../../../shared/src/types/Session';
+import {SessionMode, SessionType} from '../../../../shared/src/types/Session';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {UserProfile} from '../../../../shared/src/types/User';
 
@@ -22,6 +22,8 @@ import SelectTypeStep from './components/steps/SelectTypeStep';
 import SetDateTimeStep from './components/steps/SetDateTimeStep';
 import SelectContentStep from './components/steps/SelectContentStep';
 import UpdateProfileStep from './components/steps/ProfileStep';
+import {RouteProp, useRoute} from '@react-navigation/native';
+import {ModalStackProps} from '../../lib/navigation/constants/routes';
 
 export const Step = styled(Animated.View).attrs({
   entering: FadeIn.duration(300),
@@ -30,36 +32,49 @@ export const Step = styled(Animated.View).attrs({
   flex: 1,
 });
 
+export type SelectedModeAndType =
+  | {
+      mode: SessionMode;
+      type: SessionType;
+    }
+  | undefined;
+
 export type StepProps = {
   selectedExercise: Exercise['id'] | undefined;
   setSelectedExercise: Dispatch<SetStateAction<StepProps['selectedExercise']>>;
   nextStep: () => void;
-  prevStep: () => void;
+  firstStep: () => void;
   isPublicHost: boolean;
-  selectedType: SessionType | undefined;
+  selectedModeAndType: SelectedModeAndType;
   userProfile: UserProfile;
-  setSelectedType: Dispatch<SetStateAction<StepProps['selectedType']>>;
+  setSelectedModeAndType: Dispatch<
+    SetStateAction<StepProps['selectedModeAndType']>
+  >;
 };
 
-const publicHostSteps = (hasProfile: boolean) =>
-  hasProfile
-    ? [SelectContentStep, SelectTypeStep, SetDateTimeStep]
-    : [UpdateProfileStep, SelectContentStep, SelectTypeStep, SetDateTimeStep];
-const normalUserSteps = (hasProfile: boolean) =>
-  hasProfile
-    ? [SelectContentStep, SetDateTimeStep]
-    : [UpdateProfileStep, SelectContentStep, SetDateTimeStep];
+const steps = ({
+  skipProfile,
+  skipContent,
+}: {
+  skipProfile: boolean;
+  skipContent: boolean;
+}): React.FC<StepProps>[] => [
+  SelectTypeStep,
+  ...(skipProfile ? [] : [UpdateProfileStep]),
+  ...(skipContent ? [] : [SelectContentStep]),
+  SetDateTimeStep,
+];
 
 const CreateSessionModal = () => {
+  const {params} = useRoute<RouteProp<ModalStackProps, 'CreateSessionModal'>>();
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedExercise, setSelectedExercise] = useState<
     Exercise['id'] | undefined
-  >();
+  >(params.exerciseId);
   const isPublicHost = useIsPublicHost();
   const user = useUser();
-  const [selectedType, setSelectedType] = useState<SessionType | undefined>(
-    isPublicHost ? undefined : SessionType.private,
-  );
+  const [selectedModeAndType, setSelectedModeAndType] =
+    useState<SelectedModeAndType>(undefined);
 
   const hasProfile = Boolean(user?.displayName) && Boolean(user?.photoURL);
   const userProfile = useMemo(
@@ -70,17 +85,34 @@ const CreateSessionModal = () => {
     [user?.displayName, user?.photoURL],
   );
 
-  const CurrentStepComponent: React.FC<StepProps> = useMemo(
+  const currentSteps = useMemo(
     () =>
-      isPublicHost
-        ? publicHostSteps(hasProfile)[currentStep]
-        : normalUserSteps(hasProfile)[currentStep],
-    [isPublicHost, currentStep, hasProfile],
+      steps({
+        skipContent: Boolean(params.exerciseId),
+        skipProfile:
+          selectedModeAndType?.mode === SessionMode.async || hasProfile,
+      }),
+    [hasProfile, selectedModeAndType, params.exerciseId],
   );
 
-  const prevStep = useCallback(
-    () => setCurrentStep(currentStep - 1),
-    [currentStep],
+  const backgroundColor = useMemo(() => {
+    const skipProfile =
+      selectedModeAndType?.mode === SessionMode.async || hasProfile;
+    if (currentStep === 0) {
+      return COLORS.WHITE;
+    }
+    if (skipProfile && currentStep === 1) {
+      return COLORS.WHITE;
+    }
+    if (!skipProfile && currentStep === 2) {
+      return COLORS.WHITE;
+    }
+    return COLORS.CREAM;
+  }, [hasProfile, selectedModeAndType, currentStep]);
+
+  const CurrentStepComponent: React.FC<StepProps> = useMemo(
+    () => currentSteps[currentStep],
+    [currentSteps, currentStep],
   );
 
   const nextStep = useCallback(
@@ -88,18 +120,19 @@ const CreateSessionModal = () => {
     [currentStep],
   );
 
+  const firstStep = useCallback(() => setCurrentStep(0), []);
+
   return (
-    <SheetModal
-      backgroundColor={currentStep === 0 ? COLORS.WHITE : COLORS.CREAM}>
+    <SheetModal backgroundColor={backgroundColor}>
       <Step>
         <CurrentStepComponent
           selectedExercise={selectedExercise}
           setSelectedExercise={setSelectedExercise}
-          selectedType={selectedType}
-          setSelectedType={setSelectedType}
+          selectedModeAndType={selectedModeAndType}
+          setSelectedModeAndType={setSelectedModeAndType}
           userProfile={userProfile}
           nextStep={nextStep}
-          prevStep={prevStep}
+          firstStep={firstStep}
           isPublicHost={isPublicHost}
         />
       </Step>

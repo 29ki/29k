@@ -16,8 +16,8 @@ import {
   DESCRIPTION_FIELD,
   TAGS_FIELD,
   LOTTIE_FIELD_WITH_AUDIO,
-  LOTTIE_FIELD,
   LOTTIE_FIELD_WITH_DURATION,
+  ASYNC_FIELD,
 } from './common';
 import {
   CONTENT_SLIDE,
@@ -27,6 +27,7 @@ import {
   SHARING_SLIDE,
 } from './slides';
 import {CLOUDINARY_IMAGE_CONFIG} from './constants';
+import {JSONObject} from '../../../shared/src/types/JSON';
 
 export const SOCIAL_MEDIA: CmsField = {
   label: '🔗 Social Media Meta Tags',
@@ -151,6 +152,7 @@ const EXERCISE_FIELDS: Array<CmsField> = applyDefaults(
     TAGS_FIELD,
     PUBLISHED_FIELD,
     HIDDEN_FIELD,
+    ASYNC_FIELD,
     SOCIAL_MEDIA,
     CARD_FIELD,
     THEME,
@@ -158,7 +160,7 @@ const EXERCISE_FIELDS: Array<CmsField> = applyDefaults(
     OUTRO_PORTAL,
     SLIDES,
   ],
-  defaults,
+  defaults as JSONObject,
 );
 
 export default EXERCISE_FIELDS;

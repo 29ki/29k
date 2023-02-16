@@ -1,6 +1,6 @@
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import {omit, without} from 'ramda';
-import create from 'zustand';
+import {create} from 'zustand';
 
 type State = {
   participants: {

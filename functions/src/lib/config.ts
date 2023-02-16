@@ -17,6 +17,7 @@ const configValidation = {
   ENVIRONMENT: str(),
   DAILY_API_KEY: str(),
   DAILY_DOMAIN_ID: str(),
+  DAILY_ID_SALT: str(),
   SENTRY_DSN: str(),
   DEEP_LINK_API_KEY: str(),
   DEEP_LINK_DOMAIN_URI_PREFIX: str(),
@@ -28,6 +29,8 @@ const configValidation = {
   DEEP_LINK_IOS_FALLBACK_LINK: str(),
   SLACK_BOT_NAME: str(),
   SLACK_PUBLIC_HOST_REQUESTS_CHANNEL: str(),
+  SLACK_FEEDBACK_CHANNEL: str(),
+  SLACK_SHARING_POSTS_CHANNEL: str(),
   SLACK_OAUTH_TOKEN: str(),
   SLACK_SIGNING_SECRET: str(),
 };

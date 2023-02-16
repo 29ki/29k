@@ -6,6 +6,7 @@ import {Alert, PermissionsAndroid, Platform} from 'react-native';
 import ActionSheet from 'react-native-action-sheet';
 import {useCallback, useState} from 'react';
 import {STORAGE_ENDPOINT} from 'config';
+import {ensureUserCreated} from '..';
 
 // react-native-image-crop-picker does not export any error
 const E_PICKER_CANCELLED = 'E_PICKER_CANCELLED';
@@ -65,9 +66,7 @@ const useChangeProfilePicture = () => {
     useState(false);
 
   const changeProfilePicture = useCallback(async () => {
-    if (!auth().currentUser) {
-      await auth().signInAnonymously();
-    }
+    await ensureUserCreated();
 
     const currentUser = auth().currentUser;
 

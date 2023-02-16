@@ -53,15 +53,15 @@
   "pt": {
     "title": "Contactos",
     "noEmailClientAlert": {
-      "title": "Não detetamos um email de cliente no teu dispositivo",
+      "title": "Não detetamos um cliente de email no teu dispositivo",
       "message": "Queres copiar o nosso email para a área de transferência?"
     },
     "contactInformation": {
-      "heading": "Fundação 29k",
+      "heading": "29k FJN",
       "email": {
         "label": "hello+fjn@29k.org",
         "email": "hello+fjn@29k.org",
-        "subject": ""
+        "subject": "29k FJN"
       },
       "www": {
         "label": "29k.org",

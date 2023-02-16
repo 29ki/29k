@@ -5,7 +5,7 @@ import * as userModel from '../models/user';
 import {getPublicUserInfo} from '../models/user';
 import * as dailyApi from '../lib/dailyApi';
 import {
-  Session,
+  LiveSession,
   SessionState,
   SessionType,
 } from '../../../shared/src/types/Session';
@@ -17,19 +17,20 @@ import {SessionStateUpdate, UpdateSession} from '../api/sessions';
 import {generateVerificationCode, removeEmpty} from '../lib/utils';
 import {RequestError} from './errors/RequestError';
 import {generateSessionToken} from '../lib/dailyUtils';
+import {createRctUserId} from '../lib/id';
 
-const mapSession = async (session: Session): Promise<Session> => {
+const mapSession = async (session: LiveSession): Promise<LiveSession> => {
   return {...session, hostProfile: await getPublicUserInfo(session.hostId)};
 };
 
-export const getSessions = async (userId: string): Promise<Session[]> => {
+export const getSessions = async (userId: string): Promise<LiveSession[]> => {
   const sessions = await sessionModel.getSessions(userId);
   return Promise.all(sessions.map(mapSession));
 };
 
 export const getSessionToken = async (
   userId: string,
-  sessionId: Session['id'],
+  sessionId: LiveSession['id'],
 ) => {
   const session = await sessionModel.getSessionById(sessionId);
 
@@ -44,21 +45,44 @@ export const getSessionToken = async (
     throw new RequestError(ValidateSessionError.userNotFound);
   }
 
+  const dailyUserId = createRctUserId(session.id, userId);
+
   return generateSessionToken(
+    dailyUserId,
     session.dailyRoomName,
     session.hostId === userId,
     dayjs(session.startTime).add(2, 'hours'),
   );
 };
 
+export const getSession = async (
+  userId: string,
+  sessionId: LiveSession['id'],
+) => {
+  const session = await sessionModel.getSessionById(sessionId);
+
+  if (!session) {
+    throw new RequestError(ValidateSessionError.notFound);
+  }
+
+  if (
+    session.type === SessionType.private &&
+    !session.userIds.find(id => id === userId)
+  ) {
+    throw new RequestError(ValidateSessionError.userNotFound);
+  }
+
+  return mapSession(session);
+};
+
 export const createSession = async (
   userId: string,
   {
-    contentId,
+    exerciseId,
     type,
     startTime,
     language,
-  }: Pick<Session, 'contentId' | 'type' | 'startTime' | 'language'>,
+  }: Pick<LiveSession, 'exerciseId' | 'type' | 'startTime' | 'language'>,
 ) => {
   const {displayName} = await userModel.getPublicUserInfo(userId);
   const expireDate = dayjs(startTime).add(2, 'hour');
@@ -71,7 +95,7 @@ export const createSession = async (
 
   const link = await createSessionInviteLink(
     inviteCode,
-    contentId,
+    exerciseId,
     displayName,
     language,
   );
@@ -81,11 +105,12 @@ export const createSession = async (
     dailyRoomName: dailyRoom.name,
     url: dailyRoom.url,
     language,
-    contentId,
+    exerciseId: exerciseId,
     link,
     type,
     startTime,
     inviteCode,
+    interestedCount: 0,
     hostId: userId,
   });
 
@@ -94,9 +119,11 @@ export const createSession = async (
 
 export const removeSession = async (
   userId: string,
-  sessionId: Session['id'],
+  sessionId: LiveSession['id'],
 ) => {
-  const session = (await sessionModel.getSessionById(sessionId)) as Session & {
+  const session = (await sessionModel.getSessionById(
+    sessionId,
+  )) as LiveSession & {
     dailyRoomName: string;
   };
 
@@ -114,10 +141,12 @@ export const removeSession = async (
 
 export const updateSession = async (
   userId: string,
-  sessionId: Session['id'],
+  sessionId: LiveSession['id'],
   data: Partial<UpdateSession>,
 ) => {
-  const session = (await sessionModel.getSessionById(sessionId)) as Session & {
+  const session = (await sessionModel.getSessionById(
+    sessionId,
+  )) as LiveSession & {
     dailyRoomName: string;
   };
 
@@ -137,12 +166,19 @@ export const updateSession = async (
   return updatedSession ? mapSession(updatedSession) : undefined;
 };
 
+export const updateInterestedCount = async (
+  sessionId: LiveSession['id'],
+  increment: boolean,
+) => {
+  await sessionModel.updateInterestedCount(sessionId, increment);
+};
+
 export const updateSessionState = async (
   userId: string,
-  sessionId: Session['id'],
+  sessionId: LiveSession['id'],
   data: Partial<SessionStateUpdate>,
 ) => {
-  const session = (await sessionModel.getSessionById(sessionId)) as Session;
+  const session = (await sessionModel.getSessionById(sessionId)) as LiveSession;
   const sessionState = (await sessionModel.getSessionStateById(
     sessionId,
   )) as SessionState;
@@ -166,17 +202,17 @@ export const updateSessionState = async (
 
 export const joinSession = async (
   userId: string,
-  inviteCode: Session['inviteCode'],
+  inviteCode: LiveSession['inviteCode'],
 ) => {
   const session = (await sessionModel.getSessionByInviteCode({
     inviteCode,
-  })) as Session;
+  })) as LiveSession;
 
   if (!session) {
     const unavailableSession = (await sessionModel.getSessionByInviteCode({
       inviteCode,
       activeOnly: false,
-    })) as Session;
+    })) as LiveSession;
 
     if (unavailableSession) {
       throw new RequestError(JoinSessionError.notAvailable);

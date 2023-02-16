@@ -6,6 +6,7 @@ export const COLORS = {
   WHITE: '#F9F8F4',
   CREAM: '#FBF5E9',
   PURE_WHITE: '#FFFFFF',
+  LIGHT_GREEN: '#D0E2DA',
 
   // Greyscale
   GREYLIGHTEST: '#F5F3EB',
@@ -26,4 +27,5 @@ export const COLORS = {
   WHITE_TRANSPARENT: 'rgba(255, 255, 255, 0.15)',
   WHITE_TRANSPARENT_80: 'rgba(255, 255, 255, 0.8)',
   WHITE_TRANSPARENT_01: 'rgba(255, 255, 255, 0.01)',
+  RED_TRANSPARENT_50: 'rgba(222, 34, 34, 0.5)',
 };

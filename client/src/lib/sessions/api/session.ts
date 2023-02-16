@@ -1,23 +1,27 @@
-import {Session, SessionState} from '../../../../../shared/src/types/Session';
-import apiClient from '../../../lib/apiClient/apiClient';
+import {
+  LiveSession,
+  SessionState,
+} from '../../../../../shared/src/types/Session';
+import apiClient from '../../apiClient/apiClient';
+import Sentry from '../../sentry';
 
 const SESSIONS_ENDPOINT = '/sessions';
 
 export const addSession = async ({
-  contentId,
+  exerciseId,
   type,
   startTime,
   language,
 }: {
-  contentId: Session['contentId'];
-  type: Session['type'];
-  startTime: Session['startTime'];
-  language: Session['language'];
-}): Promise<Session> => {
+  exerciseId: LiveSession['exerciseId'];
+  type: LiveSession['type'];
+  startTime: LiveSession['startTime'];
+  language: LiveSession['language'];
+}): Promise<LiveSession> => {
   try {
     const response = await apiClient(SESSIONS_ENDPOINT, {
       method: 'POST',
-      body: JSON.stringify({contentId, type, startTime, language}),
+      body: JSON.stringify({exerciseId, type, startTime, language}),
     });
 
     if (!response.ok) {
@@ -30,10 +34,30 @@ export const addSession = async ({
   }
 };
 
+export const updateInterestedCount = async (id: string, increment: boolean) => {
+  try {
+    const response = await apiClient(
+      `${SESSIONS_ENDPOINT}/${id}/interestedCount`,
+      {
+        method: 'PUT',
+        body: JSON.stringify({increment}),
+      },
+    );
+
+    if (!response.ok) {
+      Sentry.captureMessage(await response.text(), 'error');
+    }
+  } catch (cause) {
+    Sentry.captureException(
+      new Error('Could not update interested count on session', {cause}),
+    );
+  }
+};
+
 export const updateSession = async (
   id: string,
-  data: Partial<Pick<Session, 'startTime' | 'type'>>,
-): Promise<Session> => {
+  data: Partial<Pick<LiveSession, 'startTime' | 'type'>>,
+): Promise<LiveSession> => {
   try {
     const response = await apiClient(`${SESSIONS_ENDPOINT}/${id}`, {
       method: 'PUT',
@@ -50,7 +74,23 @@ export const updateSession = async (
   }
 };
 
-export const getSessionToken = async (id: Session['id']): Promise<string> => {
+export const getSession = async (
+  id: LiveSession['id'],
+): Promise<LiveSession> => {
+  const response = await apiClient(`${SESSIONS_ENDPOINT}/${id}`, {
+    method: 'GET',
+  });
+
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+
+  return response.json();
+};
+
+export const getSessionToken = async (
+  id: LiveSession['id'],
+): Promise<string> => {
   const response = await apiClient(`${SESSIONS_ENDPOINT}/${id}/sessionToken`, {
     method: 'GET',
   });
@@ -63,8 +103,8 @@ export const getSessionToken = async (id: Session['id']): Promise<string> => {
 };
 
 export const joinSession = async (
-  inviteCode: Session['inviteCode'],
-): Promise<Session> => {
+  inviteCode: LiveSession['inviteCode'],
+): Promise<LiveSession> => {
   const response = await apiClient(`${SESSIONS_ENDPOINT}/joinSession`, {
     method: 'PUT',
     body: JSON.stringify({inviteCode}),

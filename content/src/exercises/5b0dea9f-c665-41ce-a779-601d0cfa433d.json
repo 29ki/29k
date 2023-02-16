@@ -63,7 +63,8 @@
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
-        ]
+        ],
+        "id": "sharing-1"
       },
       {
         "type": "reflection",
@@ -103,7 +104,8 @@
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
-        ]
+        ],
+        "id": "sharing-2"
       },
       {
         "type": "host",
@@ -125,9 +127,9 @@
     ],
     "theme": {
       "textColor": "#F9F8F4",
-      "backgroundColor": "#c25f6c"
+      "backgroundColor": "#b9535f"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Letting go of control",
     "published": true,
     "card": {
@@ -144,7 +146,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "`Start the session when you're ready to go.`"
+          "text": "> Start the session when you're ready to go."
         }
       ],
       "videoLoop": {
@@ -156,7 +158,8 @@
         "preview": ""
       }
     },
-    "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d"
+    "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+    "description": "Trying to control what we feel or think tends to backfire. In this exercise we practice letting go of a futile struggle, and instead use our energy for what matters."
   },
   "pt": {
     "published": false,

@@ -13,10 +13,10 @@
     "placeholder": "Por favor escreve o teu nome",
     "join_button": "Participar",
     "cameraOff": "A câmara está desligada",
-    "errorTitle": "Could not join session.",
+    "errorTitle": "Não consigo juntar-me à sessão.",
     "errors": {
-      "validateSession/not-found": "Could not find session.",
-      "validateSession/user-not-found": "User not part of session."
+      "validateSession/not-found": "Não consigo encontrar a sessão.",
+      "validateSession/user-not-found": "Utilizador não faz parte da sessão."
     }
   },
   "sv": {

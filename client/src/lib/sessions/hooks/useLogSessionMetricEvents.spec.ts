@@ -1,6 +1,6 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook} from '@testing-library/react-hooks';
-import {Session} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/types/Session';
 import {logEvent} from '../../metrics';
 import useUserState from '../../user/state/state';
 import useLogSessionMetricEvents from './useLogSessionMetricEvents';
@@ -32,16 +32,18 @@ describe('useLogSessionMetricEvents', () => {
       result.current('Create Sharing Session', {
         id: 'some-session-id',
         type: 'private',
+        mode: 'live',
         hostId: 'some-host-id',
         startTime: '2022-02-02T02:02:02Z',
-        contentId: 'some-content-id',
+        exerciseId: 'some-content-id',
         language: 'en',
-      } as Session);
+      } as LiveSession);
 
       expect(mockedLogEvent).toHaveBeenCalledTimes(1);
       expect(mockedLogEvent).toHaveBeenCalledWith('Create Sharing Session', {
         'Sharing Session ID': 'some-session-id',
         'Sharing Session Type': 'private',
+        'Sharing Session Mode': 'live',
         'Sharing Session Start Time': '2022-02-02T02:02:02Z',
         'Exercise ID': 'some-content-id',
         Language: 'en',
@@ -61,7 +63,7 @@ describe('useLogSessionMetricEvents', () => {
       result.current('Create Sharing Session', {
         id: 'some-session-id',
         hostId: 'some-user-id',
-      } as Session);
+      } as LiveSession);
 
       expect(mockedLogEvent).toHaveBeenCalledTimes(1);
       expect(mockedLogEvent).toHaveBeenCalledWith(

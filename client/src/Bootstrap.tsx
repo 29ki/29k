@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
+import {useTranslation} from 'react-i18next';
 
-import * as i18n from './lib/i18n';
+import * as i18nLib from './lib/i18n';
 import * as sentry from './lib/sentry';
 import * as metrics from './lib/metrics';
 
@@ -13,14 +14,17 @@ import {GIT_COMMIT_SHORT} from 'config';
 import useUser from './lib/user/hooks/useUser';
 import useIsPublicHost from './lib/user/hooks/useIsPublicHost';
 import usePreferredLanguage from './lib/i18n/hooks/usePreferredLanguage';
+import {LANGUAGE_TAG} from './lib/i18n';
 
-i18n.init();
+i18nLib.init();
 sentry.init();
 metrics.init();
 
 const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
   useAuthenticateUser();
   usePreferredLanguage();
+
+  const {i18n} = useTranslation();
 
   const setIsColdStarted = useAppState(state => state.setIsColdStarted);
   const checkKillSwitch = useKillSwitch();
@@ -46,11 +50,14 @@ const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
 
   // Update metrics user properties on user changes
   useEffect(() => {
-    metrics.setUserProperties({
-      Anonymous: user?.isAnonymous,
-      'Public Host': isPublicHost,
-    });
-  }, [user, isPublicHost]);
+    if (user) {
+      metrics.setUserProperties({
+        Anonymous: user?.isAnonymous,
+        'Public Host': isPublicHost,
+        Language: i18n.resolvedLanguage as LANGUAGE_TAG,
+      });
+    }
+  }, [user, isPublicHost, i18n.resolvedLanguage]);
 
   return <>{children}</>;
 };

@@ -1,0 +1,20 @@
+{
+  "en": {
+    "title": "You have denied permission.",
+    "message": "Open settings to give us permission to send you notifications",
+    "actions": {
+      "cancel": "Cancel",
+      "confirm": "Open Settings"
+    }
+  },
+  "pt": {
+    "title": "Não deste permissão.",
+    "message": "Abre as configurações para nos dares permissão para enviar notificações",
+    "actions": {
+      "cancel": "Cancelar",
+      "confirm": "Abrir configurações"
+    }
+  },
+  "sv": {},
+  "es": {}
+}

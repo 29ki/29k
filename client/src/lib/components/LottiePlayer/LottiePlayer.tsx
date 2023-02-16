@@ -85,4 +85,4 @@ const LottiePlayer = forwardRef<LottiePlayerHandle, LottiePlayerProps>(
   },
 );
 
-export default LottiePlayer;
+export default React.memo(LottiePlayer);

@@ -1,11 +1,11 @@
 import {
-  Session,
-  SessionData,
+  LiveSession,
+  LiveSessionData,
   SessionState,
   SessionStateData,
 } from '../types/Session';
 
-export const getSession = (session: SessionData): Session => ({
+export const getSession = (session: LiveSessionData): LiveSession => ({
   ...session,
   startTime: session.startTime.toDate().toISOString(),
   createdAt: session.createdAt.toDate().toISOString(),

@@ -1,10 +1,13 @@
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import {Session} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/types/Session';
 import {LANGUAGE_TAG} from '../../i18n';
 
 // General properties
 export type Language = {Language: LANGUAGE_TAG};
 export type Host = {Host: boolean};
+
+// Navigation properties
+export type ScreenName = {'Screen Name': string};
 
 // Exercise properties
 export type ExerciseID = {
@@ -12,35 +15,25 @@ export type ExerciseID = {
 };
 
 // Sharing Session properties - named "Sharing Session" to not be confused with a user "session" in PostHog
-export type SharingSessionID = {
-  'Sharing Session ID': Session['id'];
-};
-export type SharingSessionType = {
-  'Sharing Session Type': Session['type'];
-};
-export type SharingSessionStartTime = {
-  'Sharing Session Start Time': Session['startTime'];
-};
-export type SharingSessionDuration = {
-  'Sharing Session Duration': number; // Seconds
-};
-export type SharingSessionProperties = SharingSessionID &
-  SharingSessionType &
-  SharingSessionStartTime &
-  ExerciseID &
+export type SharingSessionProperties = {
+  'Sharing Session ID': LiveSession['id'];
+  'Sharing Session Type': LiveSession['type'];
+  'Sharing Session Mode': LiveSession['mode'];
+  'Sharing Session Start Time': LiveSession['startTime'];
+} & ExerciseID &
   Host &
   Language;
 
+export type SharingSessionDuration = {
+  'Sharing Session Duration': number; // Seconds
+};
+
 // Feedback properties
-export type FeedbackAnswer = {
-  'Feedback Answer'?: boolean;
-};
-export type FeedbackQuestion = {
+export type FeedbackProperties = {
   'Feedback Question': string;
-};
-export type FeedbackComment = {
+  'Feedback Answer': boolean;
   'Feedback Comment'?: string;
-};
-export type FeedbackProperties = FeedbackAnswer &
-  FeedbackQuestion &
-  FeedbackComment;
+  'Sharing Session ID'?: string;
+  'Sharing Session Completed': boolean;
+  Host?: boolean;
+} & ExerciseID;

@@ -7,6 +7,7 @@
     "actions": {
       "signIn": "Sign in",
       "profileSettings": "Profile settings",
+      "notifications": "Notify if interested",
       "deleteData": "Delete my data",
       "developer": "Developer",
       "language": "Language"
@@ -22,7 +23,8 @@
       "profileSettings": "Configurações do perfil",
       "deleteData": "Remover os meus dados",
       "developer": "Programador",
-      "language": "Idioma"
+      "language": "Idioma",
+      "notifications": "Notificações"
     }
   },
   "sv": {

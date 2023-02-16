@@ -1,17 +1,19 @@
 {
   "en": {
+    "description": "Create session with…",
+    "joinByInviteCta": "Join by invite code",
     "selectContent": {
       "title": "Choose exercise"
     },
     "selectType": {
-      "title": "Create session with...",
-      "public": {
+      "title": "",
+      "live-public": {
         "title": "Anyone"
       },
-      "private": {
+      "live-private": {
         "title": "Friends"
       },
-      "async": {
+      "async-public": {
         "title": "Myself"
       }
     },
@@ -19,8 +21,8 @@
       "title": "Choose a time",
       "cta": "Create session",
       "sessionType": {
-        "private": "Session with Friends",
-        "public": "Session with Anyone"
+        "private": "Session with friends",
+        "public": "Session with anyone"
       }
     },
     "profile": {
@@ -28,18 +30,20 @@
     }
   },
   "pt": {
+    "description": "Criar sessão com...",
+    "joinByInviteCta": "Junta-te por código de convite",
     "selectContent": {
       "title": "Escolhe um exercício"
     },
     "selectType": {
       "title": "Criar sessão com...",
-      "public": {
+      "live-public": {
         "title": "Qualquer pessoa"
       },
-      "private": {
+      "live-private": {
         "title": "Os meus amigos"
       },
-      "async": {
+      "async-public": {
         "title": "Comigo"
       }
     },
@@ -56,18 +60,20 @@
     }
   },
   "sv": {
+    "description": "Börja med att välja vem du vill göra sessionen med.",
+    "joinByInviteCta": "Använd kod för att gå med",
     "selectContent": {
       "title": "Välj övning"
     },
     "selectType": {
       "title": "Skapa session för...",
-      "public": {
+      "live-public": {
         "title": "Alla"
       },
-      "private": {
+      "live-private": {
         "title": "Mina vänner"
       },
-      "async": {
+      "async-public": {
         "title": "Mig själv"
       }
     },

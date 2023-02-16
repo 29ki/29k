@@ -1,5 +1,5 @@
 import {Notification} from '@notifee/react-native';
-import create from 'zustand';
+import {create} from 'zustand';
 
 type State = {
   notifications: {[key: string]: Notification | undefined};
@@ -10,6 +10,7 @@ type Actions = {
     id: string | undefined,
     notification: Notification | undefined,
   ) => void;
+  reset: () => void;
 };
 
 const initialState: State = {
@@ -29,6 +30,7 @@ const useNotificationsState = create<State & Actions>()(set => ({
         [id]: notification,
       },
     })),
+  reset: () => set(initialState),
 }));
 
 export default useNotificationsState;

@@ -1,16 +1,30 @@
-import {VerificationError} from '../../../../shared/src/errors/User';
+import {
+  UserProfileError,
+  VerificationError,
+} from '../../../../shared/src/errors/User';
 import {
   JoinSessionError,
   ValidateSessionError,
 } from '../../../../shared/src/errors/Session';
+import {PostError} from '../../../../shared/src/errors/Post';
 
 export class RequestError extends Error {
   constructor(
-    code: VerificationError | JoinSessionError | ValidateSessionError,
+    code:
+      | VerificationError
+      | JoinSessionError
+      | ValidateSessionError
+      | UserProfileError
+      | PostError,
   ) {
     super(code);
     this.code = code;
   }
 
-  code: VerificationError | JoinSessionError | ValidateSessionError;
+  code:
+    | VerificationError
+    | JoinSessionError
+    | ValidateSessionError
+    | UserProfileError
+    | PostError;
 }

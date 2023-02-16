@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
-import {useIsFocused} from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
@@ -11,15 +11,21 @@ import {SPACINGS} from '../../../../lib/constants/spacings';
 
 import {Spacer16, Spacer24} from '../../../../lib/components/Spacers/Spacer';
 import {ModalHeading} from '../../../../lib/components/Typography/Heading/Heading';
-import useExerciseIds from '../../../../lib/content/hooks/useExerciseIds';
 import {StepProps} from '../../CreateSessionModal';
 import Gutters from '../../../../lib/components/Gutters/Gutters';
-import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
 import {Display16} from '../../../../lib/components/Typography/Display/Display';
 import Image from '../../../../lib/components/Image/Image';
 import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {formatExerciseName} from '../../../../lib/utils/string';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {
+  AppStackProps,
+  ModalStackProps,
+} from '../../../../lib/navigation/constants/routes';
+import {SessionMode} from '../../../../../../shared/src/types/Session';
+import useStartAsyncSession from '../../../../lib/session/hooks/useStartAsyncSession';
+import useGetExercisesByMode from '../../../../lib/content/hooks/useGetExercisesByMode';
 
 const Card = styled(TouchableOpacity)({
   flexDirection: 'row',
@@ -43,10 +49,9 @@ const CardImageWrapper = styled.View({
 });
 
 const ContentCard: React.FC<{
-  exerciseId: Exercise['id'];
+  exercise: Exercise;
   onPress: () => void;
-}> = ({exerciseId, onPress}) => {
-  const exercise = useExerciseById(exerciseId);
+}> = ({exercise, onPress}) => {
   const exerciseImg = useMemo(
     () => ({uri: exercise?.card?.image?.source}),
     [exercise],
@@ -70,22 +75,36 @@ const ContentCard: React.FC<{
 const SelectContentStep: React.FC<StepProps> = ({
   nextStep,
   setSelectedExercise,
+  selectedModeAndType,
 }) => {
-  const exerciseIds = useExerciseIds();
-
+  const {popToTop} =
+    useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
+  const exercises = useGetExercisesByMode(selectedModeAndType?.mode);
+  const startSession = useStartAsyncSession();
   const {t} = useTranslation('Modal.CreateSession');
 
   const renderItem = useCallback(
-    ({item}: {item: Exercise['id']}) => (
+    ({item}: {item: Exercise}) => (
       <ContentCard
         onPress={() => {
-          setSelectedExercise(item);
-          nextStep();
+          setSelectedExercise(item.id);
+          if (selectedModeAndType?.mode === SessionMode.async) {
+            popToTop();
+            startSession(item.id);
+          } else {
+            nextStep();
+          }
         }}
-        exerciseId={item}
+        exercise={item}
       />
     ),
-    [setSelectedExercise, nextStep],
+    [
+      setSelectedExercise,
+      nextStep,
+      popToTop,
+      startSession,
+      selectedModeAndType,
+    ],
   );
 
   return (
@@ -98,7 +117,7 @@ const SelectContentStep: React.FC<StepProps> = ({
           </>
         }
         focusHook={useIsFocused}
-        data={exerciseIds}
+        data={exercises}
         ItemSeparatorComponent={Spacer16}
         renderItem={renderItem}
       />

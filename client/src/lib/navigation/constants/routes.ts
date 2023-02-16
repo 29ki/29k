@@ -1,6 +1,12 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 
-import {Session} from '../../../../../shared/src/types/Session';
+import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
+import {UserProfile} from '../../../../../shared/src/types/User';
+import {
+  AsyncSession,
+  LiveSession,
+} from '../../../../../shared/src/types/Session';
+import {CompletedSession} from '../../user/state/state';
 
 export type ProfileStackProps = {
   Profile: undefined;
@@ -10,20 +16,28 @@ export type ProfileStackProps = {
 export type TabNavigatorProps = {
   ProfileStack: NavigatorScreenParams<ProfileStackProps>;
   Sessions: undefined;
+  Journey: undefined;
 };
 
-export type SessionStackProps = {
-  ChangingRoom: {session: Session};
-  Session: {session: Session};
-  IntroPortal: {session: Session};
-  OutroPortal: undefined;
+export type LiveSessionStackProps = {
+  ChangingRoom: {session: LiveSession};
+  Session: {session: LiveSession};
+  IntroPortal: {session: LiveSession};
+  OutroPortal: {session: LiveSession};
+};
+
+export type AsyncSessionStackProps = {
+  IntroPortal: {session: AsyncSession};
+  Session: {session: AsyncSession};
+  OutroPortal: {session: AsyncSession};
 };
 
 export type AppStackProps = {
   KillSwitch: undefined;
   Welcome?: {showBack: boolean};
   Tabs: NavigatorScreenParams<TabNavigatorProps>;
-  SessionStack: NavigatorScreenParams<SessionStackProps>;
+  LiveSessionStack: NavigatorScreenParams<LiveSessionStackProps>;
+  AsyncSessionStack: NavigatorScreenParams<AsyncSessionStackProps>;
 };
 
 export type OverlayStackProps = {
@@ -34,11 +48,21 @@ export type OverlayStackProps = {
 
 export type ModalStackProps = {
   OverlayStack: NavigatorScreenParams<OverlayStackProps>;
-  SessionModal: {session: Session};
+  SessionModal: {session: LiveSession};
+  CompletedSessionModal: {
+    session: AsyncSession | CompletedSession;
+    hostProfile?: UserProfile;
+  };
+  SharingModal: {exerciseId: string};
+  SharingPostModal: {
+    userProfile?: UserProfile;
+    text: string;
+  };
   SessionUnavailableModal: undefined;
-  AddSessionModal?: {inviteCode?: number};
-  CreateSessionModal: undefined;
-  UpgradeAccountModal?: {code: string};
+  AddSessionByInviteModal?: {inviteCode?: number};
+  CreateSessionModal: {exerciseId?: Exercise['id']};
+  UpgradeAccountModal?: undefined;
+  RequestPublicHostModal?: {code?: string; haveRequested?: boolean};
   ChangeLanguageModal: undefined;
   ProfileSettingsModal: undefined;
   SignInModal: undefined;
@@ -47,7 +71,8 @@ export type ModalStackProps = {
   DeveloperModal: undefined;
   ContactModal: undefined;
   SessionFeedbackModal: {
-    sessionId: Session['id'];
+    exerciseId: Exercise['id'];
+    sessionId: LiveSession['id'];
     completed: boolean;
     isHost: boolean;
   };

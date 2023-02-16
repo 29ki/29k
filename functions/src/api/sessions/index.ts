@@ -3,7 +3,7 @@ import validator from 'koa-yup-validator';
 import 'firebase-functions';
 
 import {SessionType} from '../../../../shared/src/types/Session';
-import {createRouter} from '../../lib/routers';
+import {createApiRouter} from '../../lib/routers';
 import restrictAccessToRole from '../lib/restrictAccessToRole';
 
 import * as sessionsController from '../../controllers/sessions';
@@ -18,7 +18,7 @@ import {
 } from '../../../../shared/src/errors/Session';
 import {RequestError} from '../../controllers/errors/RequestError';
 
-const sessionsRouter = createRouter();
+const sessionsRouter = createApiRouter();
 
 sessionsRouter.get('/', async ctx => {
   const {response, user} = ctx;
@@ -54,8 +54,33 @@ sessionsRouter.get('/:id/sessionToken', async ctx => {
   }
 });
 
+sessionsRouter.get('/:id', async ctx => {
+  const {user, params} = ctx;
+
+  try {
+    const session = await sessionsController.getSession(user.id, params.id);
+    ctx.status = 200;
+    ctx.body = session;
+  } catch (error) {
+    const requestError = error as RequestError;
+    switch (requestError.code) {
+      case ValidateSessionError.notFound:
+        ctx.status = 404;
+        break;
+
+      case ValidateSessionError.userNotFound:
+        ctx.status = 403;
+        break;
+
+      default:
+        throw error;
+    }
+    ctx.message = requestError.code;
+  }
+});
+
 const CreateSessionSchema = yup.object().shape({
-  contentId: yup.string().required(),
+  exerciseId: yup.string().required(),
   type: yup.mixed<SessionType>().oneOf(Object.values(SessionType)).required(),
   startTime: yup.string().required(),
   language: yup
@@ -74,12 +99,12 @@ sessionsRouter.post(
     ({type}) => type === SessionType.public,
   ),
   async ctx => {
-    const {contentId, type, startTime, language} = ctx.request
+    const {exerciseId, type, startTime, language} = ctx.request
       .body as CreateSession;
     const {user} = ctx;
 
     ctx.body = await sessionsController.createSession(user.id, {
-      contentId,
+      exerciseId,
       type,
       startTime,
       language,
@@ -150,6 +175,10 @@ export type UpdateSession = yup.InferType<typeof UpdateSessionSchema>;
 sessionsRouter.put(
   '/:id',
   validator({body: UpdateSessionSchema}),
+  restrictAccessToRole<UpdateSession>(
+    'publicHost',
+    ({type}) => type === SessionType.public,
+  ),
   async ctx => {
     const {id} = ctx.params;
     const body = ctx.request.body as UpdateSession;
@@ -163,6 +192,27 @@ sessionsRouter.put(
 
       ctx.status = 200;
       ctx.body = updatedSession;
+    } catch (err) {
+      ctx.status = 500;
+      throw err;
+    }
+  },
+);
+
+const InterestedCountSchema = yup.object({increment: yup.boolean().required()});
+
+export type InterestedCountUpdate = yup.InferType<typeof InterestedCountSchema>;
+
+sessionsRouter.put(
+  '/:id/interestedCount',
+  validator({body: InterestedCountSchema}),
+  async ctx => {
+    const {id} = ctx.params;
+    const body = ctx.request.body as InterestedCountUpdate;
+
+    try {
+      await sessionsController.updateInterestedCount(id, body.increment);
+      ctx.status = 200;
     } catch (err) {
       ctx.status = 500;
       throw err;

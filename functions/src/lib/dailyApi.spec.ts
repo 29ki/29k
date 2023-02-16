@@ -28,6 +28,7 @@ describe('dailyApi', () => {
         },
         method: 'POST',
         body: JSON.stringify({
+          privacy: 'private',
           properties: {
             exp: 1577840461,
             start_audio_off: true,

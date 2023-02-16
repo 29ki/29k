@@ -1,0 +1,18 @@
+{
+  "en": {
+    "headings": {
+      "completed": "Completed",
+      "planned": "Your planned sessions"
+    },
+    "fallback": "🌱 Your journey has just begun"
+  },
+  "pt": {
+    "headings": {
+      "completed": "Concluídas",
+      "planned": "Sessões planeadas"
+    },
+    "fallback": "🌱 A tua jornada está a começar"
+  },
+  "sv": {},
+  "es": {}
+}

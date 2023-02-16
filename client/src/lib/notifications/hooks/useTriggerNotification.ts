@@ -45,9 +45,6 @@ const useTriggerNotification = (id: string) => {
       timestamp: number,
     ) => {
       if (timestamp > new Date().getTime()) {
-        // TODO: handle declined permissions better
-        await notifee.requestPermission();
-
         const trigger: TimestampTrigger = {
           type: TriggerType.TIMESTAMP,
           timestamp,
@@ -75,10 +72,10 @@ const useTriggerNotification = (id: string) => {
     [id, setNotification],
   );
 
-  const removeTriggerNotification = async () => {
+  const removeTriggerNotification = useCallback(async () => {
     await notifee.cancelTriggerNotification(id);
     setNotification(id, undefined);
-  };
+  }, [setNotification, id]);
 
   return {
     triggerNotification,

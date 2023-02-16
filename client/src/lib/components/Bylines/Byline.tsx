@@ -5,7 +5,7 @@ import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import Image from '../Image/Image';
 import {Spacer4} from '../Spacers/Spacer';
-import {Body14} from '../Typography/Body/Body';
+import {Body12, Body14} from '../Typography/Body/Body';
 
 const Container = styled.View({
   flexDirection: 'row',
@@ -14,24 +14,26 @@ const Container = styled.View({
 });
 
 const WrapText = styled(Body14)({flex: 1});
+const WrapTextSmall = styled(Body12)({flex: 1});
 
-const ImageContainer = styled.View({
+const ImageContainer = styled.View<{small?: boolean}>(({small}) => ({
   backgroundColor: COLORS.GREYMEDIUM,
-  width: SPACINGS.TWENTYFOUR,
-  height: SPACINGS.TWENTYFOUR,
+  width: small ? SPACINGS.SIXTEEN : SPACINGS.TWENTYFOUR,
+  height: small ? SPACINGS.SIXTEEN : SPACINGS.TWENTYFOUR,
   borderRadius: SPACINGS.TWELVE,
   overflow: 'hidden',
   shadowColor: COLORS.GREYDARK,
-});
+}));
 
 type BylineProps = {
   pictureURL?: string;
   name?: string;
   duration?: number;
+  small?: boolean;
 };
 
 const Byline: React.FC<BylineProps> = React.memo(
-  ({pictureURL, name, duration}) => {
+  ({pictureURL, name, duration, small}) => {
     const {t} = useTranslation('Component.Byline');
     if (!pictureURL && !name) {
       return null;
@@ -39,14 +41,20 @@ const Byline: React.FC<BylineProps> = React.memo(
 
     return (
       <Container>
-        <ImageContainer>
+        <ImageContainer small={small}>
           {pictureURL && <Image source={{uri: pictureURL}} />}
         </ImageContainer>
         <Spacer4 />
-        <WrapText numberOfLines={2}>
-          {t('with')} {name}{' '}
-          {duration ? `· ${duration} ${t('minutesAbbreviation')}` : ''}
-        </WrapText>
+        {small ? (
+          <WrapTextSmall numberOfLines={1}>
+            {`${t('with')} ${name}`}
+          </WrapTextSmall>
+        ) : (
+          <WrapText numberOfLines={2}>
+            {t('with')} {name}{' '}
+            {duration ? `· ${duration} ${t('minutesAbbreviation')}` : ''}
+          </WrapText>
+        )}
       </Container>
     );
   },

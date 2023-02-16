@@ -17,6 +17,7 @@ import {COLORS} from '../../../../shared/src/constants/colors';
 import ActionList from '../../lib/components/ActionList/ActionList';
 import ActionButton from '../../lib/components/ActionList/ActionItems/ActionButton';
 import {
+  BellIcon,
   CommandIcon,
   DeleteIcon,
   HangUpIcon,
@@ -44,6 +45,8 @@ import TouchableOpacity from '../../lib/components/TouchableOpacity/TouchableOpa
 import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 import AboutActionList from '../AboutOverlay/components/AboutActionList';
 import CommunityActionList from '../CommunityOverlay/components/CommunityActionList';
+import ActionSwitch from '../../lib/components/ActionList/ActionItems/ActionSwitch';
+import useReminderNotificationsSetting from '../../lib/notifications/hooks/useReminderNotificationsSetting';
 
 const HEADER_HEIGHT = 72;
 
@@ -83,6 +86,8 @@ const Profile = () => {
   const {top} = useSafeAreaInsets();
   const user = useUser();
   const {deleteUser} = useDeleteUser();
+  const {remindersEnabled, setRemindersEnabled} =
+    useReminderNotificationsSetting();
 
   const profileSettingsPress = useCallback(
     () => navigate('ProfileSettingsModal'),
@@ -138,9 +143,19 @@ const Profile = () => {
                 {t('actions.signIn')}
               </ActionButton>
             )}
-            <ActionButton Icon={LanguagesIcon} onPress={languagePress}>
-              {t('actions.language')}
-            </ActionButton>
+            {user && (
+              <>
+                <ActionButton Icon={LanguagesIcon} onPress={languagePress}>
+                  {t('actions.language')}
+                </ActionButton>
+                <ActionSwitch
+                  Icon={BellIcon}
+                  onValueChange={setRemindersEnabled}
+                  value={remindersEnabled}>
+                  {t('actions.notifications')}
+                </ActionSwitch>
+              </>
+            )}
           </ActionList>
           {user && (
             <>

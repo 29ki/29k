@@ -5,12 +5,18 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance.\n\nWe’ll be doing a short introduction, do a meditation exercise followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance.\n\nWe’ll be doing a short introduction, do a meditation exercise followed by time for reflection and sharing with each other.",
+            "asyncText": "Welcome, this session is all about acceptance.\n\nThere will be a short meditation, a moment to reflect, and then sharing what we experienced."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started.",
+            "asyncText": "Before we get started, check-in with yourself. How are you feeling right now?\n\nLet’s get started."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675960916/Video/async_intro_Accepting_thoughts_and_feelings_umuyry.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675954575/Images/async_thumbnail_Accepting_thoughts_and_feelings_yaur8a.jpg"
+        }
       },
       {
         "type": "content",
@@ -27,7 +33,8 @@
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667298005/Audio/Agnes_bell_kmwzos_eznpow.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667297532/Video/Accepting_thoughts_and_feelings_meditation_cn20lx.mp4",
             "autoPlayLoop": false,
-            "durationTimer": true
+            "durationTimer": true,
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554615/Images/thumb_meditation_accepting_thoughts_and..._id4tgl.png"
           }
         }
       },
@@ -35,16 +42,19 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own. \n\nWhat did you notice during the exercise? What can you bring from this for the rest of your day?"
+            "text": "Now we’ll take 1 minute to reflect on our own. \n\nWhat did you notice during the exercise? What can you bring from this for the rest of your day?",
+            "asyncText": "Take 1 minute to reflect.\n\nWhat did you notice during the exercise? What can you bring from this for the rest of your day?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Push play to start the timer.\n\nThat’s 1 minute. Let’s move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Push play to start the timer.\n\nThat’s 1 minute. Let’s move on.",
+            "asyncText": "Take notes on a piece of paper or just mental notes in your head. There is no right or wrong here, our answers are our own.\n\n> Press play to start the timer."
           }
         ],
         "content": {
           "heading": "What did you notice?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317097/Video/1min_Accepting_thoughts_and_feelings_xdvlcn.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317097/Video/1min_Accepting_thoughts_and_feelings_xdvlcn.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554615/Images/thumb_timer1min_accepting_thoughts_and..._izhwhy.png"
           }
         }
       },
@@ -53,7 +63,8 @@
         "content": {
           "heading": "What did you notice?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317099/Video/2min_Accepting_thoughts_and_feelings_b9bxvx.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317099/Video/2min_Accepting_thoughts_and_feelings_b9bxvx.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_timer2min_accepting_thoughts_and..._lzejn1.png"
           }
         },
         "hostNotes": [
@@ -66,21 +77,28 @@
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
-        ]
+        ],
+        "id": "sharing"
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission.\n\nAs you’ve reflected on what you can bring from this to the rest of your day, take this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you."
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission.\n\nAs you’ve reflected on what you can bring from this to the rest of your day, take this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you.",
+            "asyncText": "Well done. If you’re up for it, you can continue what we started here today with a mission.\n\nAs you’ve reflected on what you can bring from this to the rest of your day, take this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out.\n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Before we leave this space let’s do a mini check-out.\n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words.",
+            "asyncText": "Before leaving this space, check-in with yourself again:\n\nHow are you feeling right now? Has anything shifted?\n\nWhen you’re ready, finish this session at your own pace."
           },
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675960919/Video/async_outro_Accepting_thoughts_and_feelings_jpyrdo.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675954575/Images/async_thumbnail_Accepting_thoughts_and_feelings_yaur8a.jpg"
+        }
       }
     ],
     "theme": {
@@ -92,6 +110,10 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
+      },
+      "host": {
+        "displayName": "Lisa",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675943058/Images/Lisa_host_wkrcf3.jpg"
       }
     },
     "duration": 30,
@@ -108,13 +130,16 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_portal_accepting_thoughts_and..._ozmmt2.png"
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317594/Video/portal2_Accepting_thoughts_and_feelings_iyqnuk.mp4"
       }
     },
-    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
+    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
+    "async": true,
+    "description": "A guided meditation exercise on accepting what's going on inside. Practicing acceptance can help us do more of what matters, and has proven to be an effective way of dealing with inner experiences."
   },
   "pt": {
     "slides": [
@@ -183,7 +208,8 @@
           {
             "text": "Quem gostaria de começar?\n\n> Deixa todas as pessoas (ou aquelas para que houver tempo) partilharem individualmente. Carrega play para iniciar a contagem de tempo.\n>\n> Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
-        ]
+        ],
+        "id": "sharing"
       },
       {
         "type": "host",

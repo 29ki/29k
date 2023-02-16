@@ -1,0 +1,22 @@
+{
+  "en": {
+    "title": "Reminder notifications",
+    "message": "Do you want to be reminded when your upcoming sessions are about to start?",
+    "actions": {
+      "dismiss": "No",
+      "cancel": "Maybe later",
+      "confirm": "Yes"
+    }
+  },
+  "pt": {
+    "title": "Notificações",
+    "message": "Queres ser alertada/o quando as tuas sessões estiverem para iniciar?",
+    "actions": {
+      "dismiss": "Não",
+      "cancel": "Talvez mais tarde",
+      "confirm": "Sim"
+    }
+  },
+  "sv": {},
+  "es": {}
+}

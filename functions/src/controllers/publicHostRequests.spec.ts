@@ -17,11 +17,11 @@ import {
   verifyPublicHostRequest,
 } from './publicHostRequests';
 import {RequestError} from './errors/RequestError';
-import {sendPublicHostRequestMessage} from '../lib/slack';
+import {sendPublicHostRequestMessage} from '../models/slack';
 import {VerificationError} from '../../../shared/src/errors/User';
 
 jest.mock('../models/publicHostRequests');
-jest.mock('../lib/slack');
+jest.mock('../models/slack');
 
 const mockGetPublicHostRequestByUserId =
   getPublicHostRequestByUserId as jest.Mock;

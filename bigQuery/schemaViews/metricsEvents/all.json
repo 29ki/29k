@@ -1,0 +1,26 @@
+{
+  "fields": [
+    {"name": "event", "type": "string"},
+    {"name": "userId", "type": "string"},
+    {"name": "timestamp", "type": "timestamp", "column_name": "createdAt"},
+    {
+      "name": "properties",
+      "type": "map",
+      "fields": [
+        {"name": "Exercise ID", "type": "string"},
+        {"name": "Feedback Answer", "type": "boolean"},
+        {"name": "Feedback Comment", "type": "string"},
+        {"name": "Feedback Question", "type": "string"},
+        {"name": "Host", "type": "string"},
+        {"name": "Language", "type": "string"},
+        {"name": "Screen Name", "type": "string"},
+        {"name": "Sharing Session Completed", "type": "string"},
+        {"name": "Sharing Session Duration", "type": "number"},
+        {"name": "Sharing Session ID", "type": "string"},
+        {"name": "Sharing Session Start Time", "type": "string"},
+        {"name": "Sharing Session Type", "type": "string"},
+        {"name": "Sharing Session Mode", "type": "string"}
+      ]
+    }
+  ]
+}

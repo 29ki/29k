@@ -15,4 +15,4 @@ const Markdown: React.FC<{children: React.ReactNode}> = ({children}) => (
   </MarkdownDisplayTyped>
 );
 
-export default Markdown;
+export default React.memo(Markdown);

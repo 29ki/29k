@@ -47,10 +47,10 @@ const CardImageWrapper = styled.View({
 
 const SetDateTimeStep: React.FC<StepProps> = ({
   selectedExercise,
-  selectedType,
+  selectedModeAndType,
   isPublicHost,
   userProfile,
-  prevStep,
+  firstStep,
 }) => {
   const {t, i18n} = useTranslation('Modal.CreateSession');
   const {expand, collapse} = useBottomSheet();
@@ -72,13 +72,13 @@ const SetDateTimeStep: React.FC<StepProps> = ({
   );
 
   const onSubmit = useCallback(async () => {
-    if (selectedExercise && selectedType && date && time) {
+    if (selectedExercise && selectedModeAndType?.type && date && time) {
       const sessionDateTime = date.hour(time.hour()).minute(time.minute());
 
       setIsLoading(true);
       const session = await addSession({
-        contentId: selectedExercise,
-        type: selectedType,
+        exerciseId: selectedExercise,
+        type: selectedModeAndType.type,
         startTime: sessionDateTime,
         language: i18n.resolvedLanguage as LANGUAGE_TAG,
       });
@@ -89,7 +89,7 @@ const SetDateTimeStep: React.FC<StepProps> = ({
     }
   }, [
     selectedExercise,
-    selectedType,
+    selectedModeAndType,
     date,
     time,
     addSession,
@@ -108,6 +108,10 @@ const SetDateTimeStep: React.FC<StepProps> = ({
     (expanded: boolean) => (expanded ? expand() : collapse()),
     [expand, collapse],
   );
+
+  const onEditSessionType = useCallback(() => {
+    firstStep();
+  }, [firstStep]);
 
   return (
     <Gutters>
@@ -128,8 +132,11 @@ const SetDateTimeStep: React.FC<StepProps> = ({
         </CardImageWrapper>
       </Row>
       <Spacer28 />
-      {isPublicHost && selectedType && (
-        <EditSessionType sessionType={selectedType} onPress={prevStep} />
+      {isPublicHost && selectedModeAndType?.type && (
+        <EditSessionType
+          sessionType={selectedModeAndType.type}
+          onPress={onEditSessionType}
+        />
       )}
       <Spacer16 />
       <DateTimePicker

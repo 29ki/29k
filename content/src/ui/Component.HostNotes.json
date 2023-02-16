@@ -1,12 +1,12 @@
 {
   "en": {
-    "notes": "Notes"
+    "notes": "Guide"
+  },
+  "pt": {
+    "notes": "Guia"
   },
   "sv": {
     "notes": "Manus"
-  },
-  "pt": {
-    "notes": "Notas"
   },
   "es": {}
 }

@@ -1,14 +1,5 @@
-import {useMemo} from 'react';
-import useUserState from '../state/state';
-import useUser from './useUser';
+import useUserState, {getCurrentUserStateSelector} from '../state/state';
 
-const useCurrentUserState = () => {
-  const user = useUser();
-  const userState = useUserState(state => state.userState);
-  return useMemo(
-    () => (user ? userState[user.uid] : undefined),
-    [user, userState],
-  );
-};
+const useCurrentUserState = () => useUserState(getCurrentUserStateSelector);
 
 export default useCurrentUserState;

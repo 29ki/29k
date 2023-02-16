@@ -28,6 +28,8 @@ import {
   updateSession,
   getSessions,
   getSessionToken,
+  updateInterestedCount,
+  getSession,
 } from './sessions';
 import {getPublicUserInfo} from '../models/user';
 import {SessionType} from '../../../shared/src/types/Session';
@@ -55,6 +57,8 @@ const mockGetSessionById = sessionModel.getSessionById as jest.Mock;
 const mockGetSessionStateById = sessionModel.getSessionStateById as jest.Mock;
 const mockDeleteSession = sessionModel.deleteSession as jest.Mock;
 const mockUpdateSession = sessionModel.updateSession as jest.Mock;
+const mockUpdateInterestedCount =
+  sessionModel.updateInterestedCount as jest.Mock;
 const mockUpdateSessionState = sessionModel.updateSessionState as jest.Mock;
 const mockGetSessionByInviteCode =
   sessionModel.getSessionByInviteCode as jest.Mock;
@@ -88,6 +92,67 @@ describe('sessions - controller', () => {
       expect(mockGetSessions).toHaveBeenCalledWith('all');
       expect(mockGetPublicUserInfo).toHaveBeenCalledTimes(1);
       expect(mockGetPublicUserInfo).toHaveBeenCalledWith('some-user-id');
+    });
+  });
+
+  describe('getSession', () => {
+    it('should return the private session', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        dailyRoomName: 'some-room-name',
+        hostId: 'some-host-id',
+        userIds: ['some-user-id'],
+        type: SessionType.private,
+      });
+
+      const result = await getSession('some-user-id', 'some-session-id');
+
+      expect(result).toEqual({
+        dailyRoomName: 'some-room-name',
+        hostId: 'some-host-id',
+        hostProfile: {displayName: 'some-name', photoURL: 'some-photo-url'},
+        type: 'private',
+        userIds: ['some-user-id'],
+      });
+    });
+
+    it('should return existing public session', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        dailyRoomName: 'some-room-name',
+        hostId: 'some-host-id',
+        userIds: ['some-other-user-id'],
+        type: SessionType.public,
+      });
+
+      const result = await getSession('some-user-id', 'some-session-id');
+
+      expect(result).toEqual({
+        dailyRoomName: 'some-room-name',
+        hostId: 'some-host-id',
+        hostProfile: {displayName: 'some-name', photoURL: 'some-photo-url'},
+        type: 'public',
+        userIds: ['some-other-user-id'],
+      });
+    });
+
+    it('should throw if session is not found', async () => {
+      mockGetSessionById.mockResolvedValueOnce(undefined);
+
+      await expect(
+        getSessionToken('some-user-id', 'some-session-id'),
+      ).rejects.toEqual(Error(ValidateSessionError.notFound));
+    });
+
+    it('should throw if user is not part of private session', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        dailyRoomName: 'some-room-name',
+        hostId: 'some-host-id',
+        userIds: ['some-other-user-id'],
+        type: SessionType.private,
+      });
+
+      await expect(
+        getSession('some-user-id', 'some-session-id'),
+      ).rejects.toEqual(Error(ValidateSessionError.userNotFound));
     });
   });
 
@@ -150,7 +215,7 @@ describe('sessions - controller', () => {
         hostId: 'some-user-id',
       });
       await createSession('some-user-id', {
-        contentId: 'some-content-id',
+        exerciseId: 'some-exercise-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
         language: 'en',
@@ -166,14 +231,14 @@ describe('sessions - controller', () => {
       });
       mockGenerateVerificationCode.mockReturnValue(123456);
       await createSession('some-user-id', {
-        contentId: 'some-content-id',
+        exerciseId: 'some-exercise-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
         language: 'en',
       });
       expect(mockDynamicLinks.createSessionInviteLink).toHaveBeenCalledWith(
         123456,
-        'some-content-id',
+        'some-exercise-id',
         'some-name',
         'en',
       );
@@ -190,14 +255,14 @@ describe('sessions - controller', () => {
       });
 
       const session = await createSession('some-user-id', {
-        contentId: 'some-content-id',
+        exerciseId: 'some-exercise-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
         language: 'en',
       });
 
       expect(mockAddSession).toHaveBeenCalledWith({
-        contentId: 'some-content-id',
+        exerciseId: 'some-exercise-id',
         language: 'en',
         dailyRoomName: 'some-fake-daily-room-name',
         hostId: 'some-user-id',
@@ -207,6 +272,7 @@ describe('sessions - controller', () => {
         type: 'public',
         url: 'http://fake.daily/url',
         inviteCode: 123456,
+        interestedCount: 0,
       });
       expect(session).toMatchObject({
         hostId: 'some-user-id',
@@ -236,7 +302,7 @@ describe('sessions - controller', () => {
       });
 
       const session = await createSession('some-user-id', {
-        contentId: 'some-content-id',
+        exerciseId: 'some-exercise-id',
         type: SessionType.public,
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
         language: 'en',
@@ -251,7 +317,7 @@ describe('sessions - controller', () => {
       });
 
       expect(mockAddSession).toHaveBeenCalledWith({
-        contentId: 'some-content-id',
+        exerciseId: 'some-exercise-id',
         language: 'en',
         dailyRoomName: 'some-fake-daily-room-name',
         hostId: 'some-user-id',
@@ -261,6 +327,7 @@ describe('sessions - controller', () => {
         type: 'public',
         url: 'http://fake.daily/url',
         inviteCode: 654321, // Code generated on the second try
+        interestedCount: 0,
       });
       expect(session).toMatchObject({
         hostId: 'some-user-id',
@@ -441,6 +508,17 @@ describe('sessions - controller', () => {
           photoURL: 'some-photo-url',
         },
       });
+    });
+  });
+
+  describe('updateInterestedCount', () => {
+    it('should update intersted count', async () => {
+      await updateInterestedCount('some-session-id', true);
+
+      expect(mockUpdateInterestedCount).toHaveBeenCalledWith(
+        'some-session-id',
+        true,
+      );
     });
   });
 

@@ -1,21 +1,28 @@
 import request from 'supertest';
 import Koa from 'koa';
+
 import {userRouter} from '.';
 import createMockServer from '../lib/createMockServer';
-import {createRouter} from '../../lib/routers';
+import {createApiRouter} from '../../lib/routers';
 
 import {
   requestPublicHostRole,
   verifyPublicHostRequest,
 } from '../../controllers/publicHostRequests';
 import {RequestError} from '../../controllers/errors/RequestError';
-import {VerificationError} from '../../../../shared/src/errors/User';
+import {
+  UserProfileError,
+  VerificationError,
+} from '../../../../shared/src/errors/User';
+import {getProfile} from '../../controllers/user';
 
 jest.mock('../../controllers/publicHostRequests');
+jest.mock('../../controllers/user');
+
 const mockRequestPublicHostRole = requestPublicHostRole as jest.Mock;
 const mockVerifyRequest = verifyPublicHostRequest as jest.Mock;
 
-const router = createRouter();
+const router = createApiRouter();
 router.use('/user', userRouter.routes());
 const mockServer = createMockServer(
   async (ctx: Koa.Context, next: Koa.Next) => {
@@ -134,6 +141,40 @@ describe('/api/user', () => {
       expect(mockVerifyRequest).toHaveBeenCalledWith('some-user-id', 123456);
       expect(response.status).toBe(404);
       expect(response.text).toBe(VerificationError.verificationFailed);
+    });
+  });
+
+  describe('/:id', () => {
+    it('should reply with user info', async () => {
+      const mockedGetProfile = jest.mocked(getProfile).mockResolvedValueOnce({
+        displayName: 'some-name',
+        photoURL: 'some-photo-url',
+      });
+
+      const response = await request(mockServer)
+        .get('/user/some-user-id')
+        .send();
+
+      expect(mockedGetProfile).toHaveBeenCalledTimes(1);
+      expect(mockedGetProfile).toHaveBeenCalledWith('some-user-id');
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({
+        displayName: 'some-name',
+        photoURL: 'some-photo-url',
+      });
+    });
+
+    it('should return 404 if user not found', async () => {
+      jest
+        .mocked(getProfile)
+        .mockRejectedValueOnce(new RequestError(UserProfileError.userNotFound));
+
+      const response = await request(mockServer)
+        .get('/user/non-existing-id')
+        .send();
+
+      expect(response.status).toBe(404);
+      expect(response.text).toBe(UserProfileError.userNotFound);
     });
   });
 });

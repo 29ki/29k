@@ -3,8 +3,8 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 
-import {Session} from '../../../../../shared/src/types/Session';
-import useSessionStartTime from '../../../routes/Session/hooks/useSessionStartTime';
+import {LiveSession} from '../../../../../shared/src/types/Session';
+import useSessionStartTime from '../../session/hooks/useSessionStartTime';
 
 import Badge from '../Badge/Badge';
 import {PrivateIcon, PublicIcon} from '../Icons';
@@ -16,7 +16,7 @@ const Row = styled.View({
   alignItems: 'center',
 });
 
-const SessionTimeBadge: React.FC<{session: Session}> = ({session}) => {
+const SessionTimeBadge: React.FC<{session: LiveSession}> = ({session}) => {
   const {t} = useTranslation('Component.SessionTimeBadge');
   const sessionTime = useSessionStartTime(dayjs(session.startTime));
 
@@ -34,7 +34,9 @@ const SessionTimeBadge: React.FC<{session: Session}> = ({session}) => {
       )}
       <Badge
         text={sessionTime.isStarted ? t('counter.started') : sessionTime.time}
-        Icon={session.type === 'private' ? <PrivateIcon /> : <PublicIcon />}
+        IconAfter={
+          session.type === 'private' ? <PrivateIcon /> : <PublicIcon />
+        }
       />
     </Row>
   );

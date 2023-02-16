@@ -37,6 +37,7 @@ export const createRoom = async (expireDate: Dayjs): Promise<Room> => {
       Authorization: `Bearer ${DAILY_API_KEY}`,
     },
     body: JSON.stringify({
+      privacy: 'private',
       properties: {
         exp: expireDate.unix(),
         start_audio_off: true,
