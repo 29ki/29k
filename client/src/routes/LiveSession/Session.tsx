@@ -55,6 +55,7 @@ import useMuteAudio from '../../lib/session/hooks/useMuteAudio';
 import ContentWrapper from '../../lib/session/components/ContentWrapper/ContentWrapper';
 import {LayoutChangeEvent} from 'react-native';
 import AutoScrollView from '../../lib/components/AutoScrollView/AutoScrollView';
+import SessionNotifications from '../../lib/session/components/Notifications/SessionNotifications';
 
 const ExerciseControl = styled(ContentControls)({
   position: 'absolute',
@@ -91,6 +92,19 @@ const StyledButton = styled(Button)({
 });
 
 const StyledHangUpIcon = () => <HangUpIcon fill={COLORS.ACTIVE} />;
+
+const Notifications = styled(SessionNotifications)({
+  position: 'absolute',
+  minHeight: 1000,
+  left: 0,
+  right: 0,
+  bottom: '100%',
+  padding: SPACINGS.EIGHT,
+  paddingBottom: SPACINGS.TWENTYFOUR,
+  overflow: 'hidden',
+  alignItems: 'flex-end',
+  justifyContent: 'flex-end',
+});
 
 const Session: React.FC = () => {
   const {
@@ -290,6 +304,7 @@ const Session: React.FC = () => {
       </AutoScrollView>
       <Spacer16 />
       <SessionControls>
+        <Notifications />
         <IconButton
           onPress={toggleAudioPress}
           active={!hasAudio}

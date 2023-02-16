@@ -4,10 +4,8 @@ import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import styled from 'styled-components/native';
 
 import Participant from './Participant';
-import SessionNotifications from '../Notifications/SessionNotifications';
-import {SPACINGS} from '../../../constants/spacings';
 
-const ParticipantsWrapper = styled.View({
+const Container = styled.View({
   flexShrink: 0,
   flexDirection: 'row',
   flexWrap: 'wrap',
@@ -20,17 +18,6 @@ const StyledParticipant = styled(Participant)<{stump: boolean; height: number}>(
     height,
   }),
 );
-
-const Notifications = styled(SessionNotifications)({
-  position: 'absolute',
-  left: SPACINGS.EIGHT,
-  right: SPACINGS.EIGHT,
-  top: SPACINGS.EIGHT,
-  bottom: SPACINGS.EIGHT,
-  overflow: 'hidden',
-  alignItems: 'flex-end',
-  justifyContent: 'flex-end',
-});
 
 type ParticipantsProps = {
   containerHeight: number;
@@ -49,7 +36,7 @@ const Participants: React.FC<ParticipantsProps> = ({
     containerHeight - dimensions.width - (participants.length > 2 ? 50 : 0);
 
   return (
-    <ParticipantsWrapper>
+    <Container>
       {participants.map((participant, i) => (
         <StyledParticipant
           key={participant.user_id}
@@ -59,9 +46,7 @@ const Participants: React.FC<ParticipantsProps> = ({
           stump={i === participants.length - 1 && !(i % 2)}
         />
       ))}
-
-      <Notifications />
-    </ParticipantsWrapper>
+    </Container>
   );
 };
 
