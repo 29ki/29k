@@ -167,7 +167,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance and letting go of control.\\\n\\\nWe’ll be doing a short meditation together, then we’ll take a moment to reflect on our own, and the final step is to share with each other."
+            "text": "Bem-vindos. Eu sou a/o X e hoje vamos focar-nos durante 30 minutos na aceitação e renúncia ao controlo.\\\n\\\nFaremos uma breve meditação juntos. Depois teremos um momento de reflexão individual e o passo final será partilharmos uns com os outros a nossa experiência desta sessão."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -308,7 +308,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go."
+          "text": "> Começa a sessão quando estiveres pronta/o."
         }
       ],
       "videoLoop": {
