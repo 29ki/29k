@@ -8,7 +8,7 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import {ExerciseSlide} from '../../../../../../shared/src/types/Content';
-import {Slide} from '../Slides/Slide';
+import Slide from '../Slides/Slide';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -19,26 +19,26 @@ const AnimatedView = styled(Animated.View)<{visible: boolean}>(({visible}) => ({
   zIndex: visible ? 1 : undefined,
 }));
 
-const Fade: React.FC<{children: React.ReactNode; visible: boolean}> = ({
-  children,
-  visible,
-}) => {
-  const opacity = useSharedValue(visible ? 1 : 0);
+const Fade: React.FC<{children: React.ReactNode; visible: boolean}> =
+  React.memo(({children, visible}) => {
+    const opacity = useSharedValue(visible ? 1 : 0);
 
-  const animatedStyles = useAnimatedStyle(() => ({
-    opacity: opacity.value,
-  }));
+    const animatedStyles = useAnimatedStyle(() => ({
+      opacity: opacity.value,
+    }));
 
-  useEffect(() => {
-    opacity.value = withTiming(visible ? 1 : 0, {duration: 400});
-  }, [opacity, visible]);
+    useEffect(() => {
+      opacity.value = withTiming(visible ? 1 : 0, {duration: 400});
+    }, [opacity, visible]);
 
-  return (
-    <AnimatedView visible={visible} style={animatedStyles}>
-      {children}
-    </AnimatedView>
-  );
-};
+    return (
+      <AnimatedView visible={visible} style={animatedStyles}>
+        {children}
+      </AnimatedView>
+    );
+  });
+
+Fade.displayName = 'Fade';
 
 type ExerciseSlidesProps = {
   index: number;
@@ -73,4 +73,4 @@ const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
   </Wrapper>
 );
 
-export default ExerciseSlides;
+export default React.memo(ExerciseSlides);

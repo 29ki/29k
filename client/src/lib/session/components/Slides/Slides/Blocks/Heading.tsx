@@ -25,4 +25,4 @@ const Heading: React.FC<{children: React.ReactNode}> = ({children}) => {
   );
 };
 
-export default Heading;
+export default React.memo(Heading);

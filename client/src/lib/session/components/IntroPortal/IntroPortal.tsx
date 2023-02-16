@@ -15,7 +15,7 @@ import {
 import Gutters from '../../../components/Gutters/Gutters';
 import IconButton from '../../../components/Buttons/IconButton/IconButton';
 import AudioFader from '../AudioFader/AudioFader';
-import {VideoTransition} from '../VideoTransition/VideoTransition';
+import VideoTransition from '../VideoTransition/VideoTransition';
 import HostNotes from '../HostNotes/HostNotes';
 import {ArrowLeftIcon} from '../../../components/Icons';
 import Button from '../../../components/Buttons/Button';

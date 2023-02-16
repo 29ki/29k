@@ -139,4 +139,4 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   );
 };
 
-export default ContentControls;
+export default React.memo(ContentControls);

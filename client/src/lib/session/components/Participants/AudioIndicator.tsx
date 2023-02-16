@@ -29,4 +29,4 @@ const AudioIndicator: React.FC<AudioIndicatorProps> = ({
   </Wrapper>
 );
 
-export default AudioIndicator;
+export default React.memo(AudioIndicator);

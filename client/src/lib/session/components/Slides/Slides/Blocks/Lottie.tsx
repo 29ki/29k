@@ -177,4 +177,4 @@ const Lottie: React.FC<LottieProps> = ({
   );
 };
 
-export default Lottie;
+export default React.memo(Lottie);

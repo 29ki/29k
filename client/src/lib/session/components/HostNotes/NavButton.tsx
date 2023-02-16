@@ -21,4 +21,4 @@ const NavButton: React.FC<IconButtonProps> = ({
   />
 );
 
-export default NavButton;
+export default React.memo(NavButton);

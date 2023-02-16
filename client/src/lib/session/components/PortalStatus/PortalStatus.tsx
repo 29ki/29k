@@ -75,4 +75,4 @@ const PortalStatus: React.FC = () => {
   );
 };
 
-export default PortalStatus;
+export default React.memo(PortalStatus);

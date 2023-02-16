@@ -1,3 +1,4 @@
+import {useMemo} from 'react';
 import {DailyUserData} from '../../../../../shared/src/types/Session';
 import useDailyState from '../../../lib/daily/state/state';
 import useSessionExercise from './useSessionSlideState';
@@ -10,20 +11,24 @@ const useSessionParticipants = () => {
   );
   const slideState = useSessionExercise();
 
-  const participants = [
-    ...participantsSortOrder.map(id => participantsObj[id]),
-    ...values(omit(participantsSortOrder, participantsObj)),
-  ];
+  const isHostSlide = slideState?.current.type === 'host';
 
-  const inSessionParticipants = participants.filter(
-    participant => !(participant.userData as DailyUserData)?.inPortal,
-  );
+  return useMemo(() => {
+    const participants = [
+      ...participantsSortOrder.map(id => participantsObj[id]),
+      ...values(omit(participantsSortOrder, participantsObj)),
+    ];
 
-  if (slideState?.current.type !== 'host') {
+    const inSessionParticipants = participants.filter(
+      participant => !(participant.userData as DailyUserData)?.inPortal,
+    );
+
+    if (isHostSlide) {
+      return inSessionParticipants.filter(participant => !participant.owner);
+    }
+
     return inSessionParticipants;
-  }
-
-  return inSessionParticipants.filter(participant => !participant.owner);
+  }, [participantsObj, participantsSortOrder, isHostSlide]);
 };
 
 export default useSessionParticipants;

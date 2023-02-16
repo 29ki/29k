@@ -27,4 +27,4 @@ const ParticipantName: React.FC<ParticipantNameProps> = ({
   style,
 }) => <Name style={style}>{renderName(participant, suffix)}</Name>;
 
-export default ParticipantName;
+export default React.memo(ParticipantName);

@@ -135,4 +135,4 @@ const SessionNotifications: React.FC<{
   );
 };
 
-export default SessionNotifications;
+export default React.memo(SessionNotifications);

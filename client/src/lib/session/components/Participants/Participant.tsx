@@ -174,4 +174,5 @@ const Participant: React.FC<ParticipantProps> = ({
     </Wrapper>
   );
 };
-export default Participant;
+
+export default React.memo(Participant);

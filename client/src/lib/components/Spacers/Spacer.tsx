@@ -16,46 +16,48 @@ const Spacer = styled.View<Spacer>(({size}) => ({
   minWidth: size,
 }));
 
+const MemoizedSpacer = React.memo(Spacer);
+
 export const Spacer4: React.FC = props => (
-  <Spacer {...props} size={SPACINGS.FOUR} />
+  <MemoizedSpacer {...props} size={SPACINGS.FOUR} />
 );
 export const Spacer8: React.FC = props => (
-  <Spacer {...props} size={SPACINGS.EIGHT} />
+  <MemoizedSpacer {...props} size={SPACINGS.EIGHT} />
 );
 export const Spacer12: React.FC = props => (
-  <Spacer {...props} size={SPACINGS.TWELVE} />
+  <MemoizedSpacer {...props} size={SPACINGS.TWELVE} />
 );
 export const Spacer16: React.FC = props => (
-  <Spacer {...props} size={SPACINGS.SIXTEEN} />
+  <MemoizedSpacer {...props} size={SPACINGS.SIXTEEN} />
 );
 export const Spacer20: React.FC = props => (
-  <Spacer {...props} size={SPACINGS.TWENTY} />
+  <MemoizedSpacer {...props} size={SPACINGS.TWENTY} />
 );
 export const Spacer24: React.FC = props => (
-  <Spacer {...props} size={SPACINGS.TWENTYFOUR} />
+  <MemoizedSpacer {...props} size={SPACINGS.TWENTYFOUR} />
 );
 export const Spacer28: React.FC = props => (
-  <Spacer {...props} size={SPACINGS.TWENTYEIGHT} />
+  <MemoizedSpacer {...props} size={SPACINGS.TWENTYEIGHT} />
 );
 export const Spacer32: React.FC = props => (
-  <Spacer {...props} size={SPACINGS.THIRTYTWO} />
+  <MemoizedSpacer {...props} size={SPACINGS.THIRTYTWO} />
 );
 export const Spacer40: React.FC = props => (
-  <Spacer {...props} size={SPACINGS.FOURTY} />
+  <MemoizedSpacer {...props} size={SPACINGS.FOURTY} />
 );
 export const Spacer48: React.FC = props => (
-  <Spacer {...props} size={SPACINGS.FOURTYEIGHT} />
+  <MemoizedSpacer {...props} size={SPACINGS.FOURTYEIGHT} />
 );
 export const Spacer60: React.FC = props => (
-  <Spacer {...props} size={SPACINGS.SIXTY} />
+  <MemoizedSpacer {...props} size={SPACINGS.SIXTY} />
 );
 export const Spacer96: React.FC = props => (
-  <Spacer {...props} size={SPACINGS.NINTYSIX} />
+  <MemoizedSpacer {...props} size={SPACINGS.NINTYSIX} />
 );
 
 export const TopSafeArea = ({minSize = 0}) => (
-  <Spacer size={Math.max(useSafeAreaInsets().top, minSize)} />
+  <MemoizedSpacer size={Math.max(useSafeAreaInsets().top, minSize)} />
 );
 export const BottomSafeArea = ({minSize = 0}) => (
-  <Spacer size={Math.max(useSafeAreaInsets().bottom, minSize)} />
+  <MemoizedSpacer size={Math.max(useSafeAreaInsets().bottom, minSize)} />
 );
