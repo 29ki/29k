@@ -7,6 +7,12 @@ import {omit} from 'ramda';
 import {LiveSession} from '../../../../../shared/src/types/Session';
 import migrate from './migration';
 import {UserProfile} from '../../../../../shared/src/types/User';
+import {
+  UserEvent,
+  UserEventData,
+  FeedbackEventData,
+  PostEventData,
+} from '../../../../../shared/src/types/Event';
 
 const USER_STATE_VERSION = 3;
 
@@ -29,6 +35,7 @@ export type CompletedSession = {
 export type UserState = {
   pinnedSessions?: Array<PinnedSession>;
   completedSessions?: Array<CompletedSession>;
+  userEvents?: Array<UserEvent>;
   metricsUid?: string;
   reminderNotifications?: boolean;
 };
@@ -56,6 +63,10 @@ export type Actions = {
   }) => void;
   setPinnedSessions: (pinnedSessions: Array<PinnedSession>) => void;
   addCompletedSession: (completedSession: CompletedSession) => void;
+  addUserEvent: (
+    type: UserEvent['type'],
+    payload: UserEvent['payload'],
+  ) => void;
   setCurrentUserState: SetCurrentUserState;
   reset: (isDelete?: boolean) => void;
 };
@@ -66,6 +77,8 @@ const initialState: State = {
   userState: {},
 };
 
+// We don't use selectors but for this case we do :)
+// This should only be used in hooks where we can memoize with useCallback or useMemo
 type GetCurrentUserStateSelector = (state: State) => UserState | undefined;
 export const getCurrentUserStateSelector: GetCurrentUserStateSelector = ({
   user,
@@ -76,17 +89,14 @@ export const getCurrentUserStateSelector: GetCurrentUserStateSelector = ({
   }
 };
 
-type GetCompletedSessionByIdSelector = (
-  state: State,
-  sessionId: string,
-) => CompletedSession | undefined;
-export const getCompletedSessionByIdSelector: GetCompletedSessionByIdSelector =
-  ({user, userState}, sessionId) => {
-    if (user?.uid) {
-      const state = userState[user.uid] as UserState | undefined;
-      return state?.completedSessions?.find(cs => cs.id === sessionId);
-    }
-  };
+const getTypedEvent = (event: UserEventData) => {
+  switch (event.type) {
+    case 'post':
+      return event as PostEventData;
+    default:
+      return event as FeedbackEventData; // some type has to be the fallback
+  }
+};
 
 const useUserState = create<State & Actions>()(
   persist(
@@ -123,7 +133,12 @@ const useUserState = create<State & Actions>()(
           setCurrentUserState(({completedSessions = []} = {}) => ({
             completedSessions: [...completedSessions, completedSession],
           })),
-
+        addUserEvent: (type, payload) => {
+          const typedEventData = getTypedEvent({type, payload});
+          setCurrentUserState(({userEvents: events = []} = {}) => ({
+            userEvents: [...events, {...typedEventData, timestamp: new Date()}],
+          }));
+        },
         reset: isDelete => {
           const {user} = get();
           if (isDelete && user?.uid) {

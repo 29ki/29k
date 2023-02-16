@@ -1,11 +1,11 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
+import {UserProfile} from '../../../../../shared/src/types/User';
 import {
   AsyncSession,
   LiveSession,
 } from '../../../../../shared/src/types/Session';
-import {UserProfile} from '../../../../../shared/src/types/User';
 import {CompletedSession} from '../../user/state/state';
 
 export type ProfileStackProps = {
@@ -52,6 +52,11 @@ export type ModalStackProps = {
   CompletedSessionModal: {
     session: AsyncSession | CompletedSession;
     hostProfile?: UserProfile;
+  };
+  SharingModal: {exerciseId: string};
+  SharingPostModal: {
+    userProfile?: UserProfile;
+    text: string;
   };
   SessionUnavailableModal: undefined;
   AddSessionByInviteModal?: {inviteCode?: number};

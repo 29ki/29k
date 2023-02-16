@@ -81,6 +81,10 @@ const ContentControls: React.FC<ContentControlsProps> = ({
       return true;
     }
 
+    if (slideType === 'sharing' && async) {
+      return false;
+    }
+
     if (slideType !== 'host' && !hasAutoPlayLoop) {
       return true;
     }

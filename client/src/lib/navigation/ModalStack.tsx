@@ -25,6 +25,8 @@ import OverlayStack from './OverlayStack';
 import PartnersModal from '../../routes/Contributors/PartnersModal';
 import ContactModal from '../../routes/ConcactModal/ContactModal';
 import SessionFeedbackModal from '../../routes/SessionFeedbackModal/SessionFeedbackModal';
+import SharingModal from '../../routes/SharingModal/SharingModal';
+import SharingPostModal from '../../routes/SharingPostModal/SharingPostModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -103,6 +105,15 @@ const ModalStack = () => {
     [sheetModalScreenOptions],
   );
 
+  const fullSheetModalScreenOptions = useMemo(
+    () => ({
+      ...sheetModalScreenOptions,
+      // Please note - Having a fixed snap point as first value improves keyboard input focus on Android
+      snapPoints: [800, '100%'],
+    }),
+    [sheetModalScreenOptions],
+  );
+
   const cardModalScreenOptions = useMemo(
     () => ({
       ...modalScreenOptions,
@@ -132,6 +143,16 @@ const ModalStack = () => {
         <Screen
           name={'CompletedSessionModal'}
           component={CompletedSessionModal}
+          options={tallSheetModalScreenOptions}
+        />
+        <Screen
+          name={'SharingModal'}
+          component={SharingModal}
+          options={fullSheetModalScreenOptions}
+        />
+        <Screen
+          name={'SharingPostModal'}
+          component={SharingPostModal}
           options={tallSheetModalScreenOptions}
         />
         <Screen name={'CreateSessionModal'} component={CreateSessionModal} />

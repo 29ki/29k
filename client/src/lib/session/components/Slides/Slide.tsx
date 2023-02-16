@@ -61,7 +61,7 @@ const Slide = ({slide, active, async}: SlideProps) => {
       )}
       {slide.type === 'sharing' &&
         (async ? (
-          <Sharing />
+          <Sharing slide={slide} active={active} />
         ) : (
           <Content async={async} slide={slide} active={active} />
         ))}

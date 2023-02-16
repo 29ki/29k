@@ -1,12 +1,16 @@
 {
   "en": {
-    "text": "Sharing with others is comming soon..."
+    "othersHeading": "What others said:",
+    "emptyText": "No sharings for this exercise yet...",
+    "addReflectionCta": "Add your reflection",
+    "reflectionLabel": "What you said:"
   },
-  "pt": {
-    "text": "A partilha com os outros estará disponível brevemente..."
-  },
+  "pt": {},
   "sv": {
-    "text": "Delning med andra kommer snart..."
+    "othersHeading": "Vad andra delade:",
+    "emptyText": "Ännu inga delningar för denna övning...",
+    "addReflectionCta": "Lägg till din reflketion",
+    "reflectionLabel": "Vad du sa:"
   },
   "es": {}
 }

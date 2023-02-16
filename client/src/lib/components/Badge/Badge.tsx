@@ -21,28 +21,41 @@ const StatusText = styled(Body14)<{themeColor?: string}>(({themeColor}) => ({
   color: themeColor ? themeColor : COLORS.BLACK,
   fontFamily: HKGroteskBold,
 }));
+
 const BadgeIcon = styled.View({
   width: 20,
   height: 20,
 });
 
 type BadgeProps = {
-  Icon?: React.ReactNode;
+  IconBefore?: React.ReactNode;
+  IconAfter?: React.ReactNode;
   text: string | React.ReactNode;
   themeColor?: string;
 };
 
-const Badge: React.FC<BadgeProps> = ({Icon, text, themeColor}) => {
+const Badge: React.FC<BadgeProps> = ({
+  IconBefore,
+  IconAfter,
+  text,
+  themeColor,
+}) => {
   return (
     <Wrapper themeColor={themeColor}>
+      {IconBefore && (
+        <>
+          <BadgeIcon>{IconBefore}</BadgeIcon>
+          <Spacer4 />
+        </>
+      )}
       <StatusText themeColor={themeColor}>{text}</StatusText>
-      {Icon && (
+      {IconAfter && (
         <>
           <Spacer4 />
-          <BadgeIcon>{Icon}</BadgeIcon>
+          <BadgeIcon>{IconAfter}</BadgeIcon>
         </>
       )}
     </Wrapper>
   );
 };
-export default Badge;
+export default React.memo(Badge);

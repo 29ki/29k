@@ -53,7 +53,6 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
   return (
     <Screen>
       <TopSafeArea minSize={SPACINGS.SIXTEEN} />
-
       {outroPortal?.video?.source ? (
         <VideoTransition
           endSource={outroPortal.video.source}
