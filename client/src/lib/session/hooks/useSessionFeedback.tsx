@@ -2,24 +2,21 @@ import {useCallback} from 'react';
 import {Feedback} from '../../../../../shared/src/types/Feedback';
 import * as metrics from '../../metrics';
 
-import useEvents from '../../user/hooks/useEvents';
+import useUserEvents from '../../user/hooks/useUserEvents';
 import useUserState from '../../user/state/state';
 
 const useSessionFeedback = () => {
-  const addEvent = useUserState(state => state.addEvent);
-  const {feedbackEvents} = useEvents();
+  const addUserEvent = useUserState(state => state.addUserEvent);
+  const {feedbackEvents} = useUserEvents();
 
   const addSessionFeedback = useCallback(
     (feedback: Feedback) => {
       if (feedback.sessionId) {
-        addEvent({
-          type: 'feedback',
-          payload: {
-            answer: feedback.answer,
-            comment: feedback.comment,
-            exerciseId: feedback.exerciseId,
-            sessionId: feedback.sessionId,
-          },
+        addUserEvent('feedback', {
+          answer: feedback.answer,
+          comment: feedback.comment,
+          exerciseId: feedback.exerciseId,
+          sessionId: feedback.sessionId,
         });
       }
       metrics.logFeedback({
@@ -32,7 +29,7 @@ const useSessionFeedback = () => {
         host: feedback.host,
       });
     },
-    [addEvent],
+    [addUserEvent],
   );
 
   const getFeedbacksForSession = useCallback(

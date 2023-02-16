@@ -21,7 +21,7 @@ describe('useUserEvents', () => {
             },
             {
               type: 'feedback',
-              payload: {text: 'some text'} as FeedbackPayload,
+              payload: {comment: 'some text'} as FeedbackPayload,
               timestamp: new Date(),
             },
           ],
@@ -41,7 +41,7 @@ describe('useUserEvents', () => {
     expect(result.current.feedbackEvents).toEqual([
       {
         type: 'feedback',
-        payload: {text: 'some text'},
+        payload: {comment: 'some text'},
         timestamp: expect.any(Date),
       },
     ]);
@@ -60,7 +60,7 @@ describe('useUserEvents', () => {
             },
             {
               type: 'feedback',
-              payload: {text: 'some text'} as FeedbackPayload,
+              payload: {comment: 'some text'} as FeedbackPayload,
               timestamp: new Date(),
             },
           ],

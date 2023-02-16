@@ -60,7 +60,9 @@ describe('useSessionFeedback', () => {
         });
       });
 
-      expect(useUserState.getState().userState['some-user-id'].events).toEqual([
+      expect(
+        useUserState.getState().userState['some-user-id'].userEvents,
+      ).toEqual([
         {
           payload: {
             answer: true,
