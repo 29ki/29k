@@ -74,6 +74,7 @@ const Progress = styled(ProgressBar)({
   left: SPACINGS.SIXTEEN,
   right: SPACINGS.SIXTEEN,
   top: SPACINGS.EIGHT,
+  zIndex: 1,
 });
 
 const Top = styled.View({
