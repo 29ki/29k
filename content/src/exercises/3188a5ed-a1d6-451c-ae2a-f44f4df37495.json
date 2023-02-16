@@ -149,7 +149,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on dealing with stressful situations. We’ll be doing a short introduction, listen to a meditation exercise, followed by reflection and then finally sharing.",
+            "text": "Bem-vindos. Eu sou o/a X e hoje vamos estar juntos durante 30 minutos a refletir sobre como lidar com situações stressantes.  Faremos uma breve introdução, um exercício de meditação e teremos depois um momento de reflexão e partilha conjunta.",
             "asyncText": "Welcome! This session is about dealing with stressful situations. (I am x…) There will be a meditation exercise, a moment to reflect, and the final step is to share what we experienced."
           },
           {
@@ -271,7 +271,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Começa a sessão quando estiveres pronta/o."
         }
       ],
       "videoLoop": {
