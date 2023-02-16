@@ -39,10 +39,10 @@ const AudioToggler: React.FC<AudioTogglerProps> = ({
   onToggle,
   allowUnmute = false,
 }) => {
-  const iconOffset = useSharedValue(0);
-  const iconBackground = useSharedValue(0);
-  const iconBackgroundOpacity = useSharedValue(0.5);
-  const backgroundOpacity = useSharedValue(0);
+  const iconOffset = useSharedValue(muted ? 14 : 0);
+  const backgroundOpacity = useSharedValue(muted ? 0 : 1);
+  const iconBackground = useSharedValue(muted ? 0 : 255);
+  const iconBackgroundOpacity = useSharedValue(muted ? 0.5 : 1);
 
   const iconAnimatedStyles = useAnimatedStyle(() => ({
     transform: [{translateX: iconOffset.value}],

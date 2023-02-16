@@ -3,6 +3,7 @@ import {
   DailyParticipant,
 } from '@daily-co/react-native-daily-js';
 import React, {useCallback, useContext} from 'react';
+import {ViewStyle} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
@@ -107,12 +108,14 @@ type ParticipantProps = {
   participant: DailyParticipant;
   topGradient?: boolean;
   inSlide?: boolean;
+  style?: ViewStyle;
 };
 
 const Participant: React.FC<ParticipantProps> = ({
   participant,
   topGradient,
   inSlide,
+  style,
 }) => {
   const {call} = useContext(DailyContext);
   const {t} = useTranslation('Screen.Session');
@@ -129,7 +132,7 @@ const Participant: React.FC<ParticipantProps> = ({
   );
 
   return (
-    <Wrapper>
+    <Wrapper style={style}>
       {participant.videoTrack ? (
         <DailyMediaViewWrapper
           videoTrack={participant.videoTrack ?? null}
