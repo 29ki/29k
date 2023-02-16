@@ -173,14 +173,14 @@
         "type": "content",
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464756/Temp/Comp_8_jsv5jo.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675088653/Video/Videos%20PT/content_PT_lqccsc.mp4",
             "description": "",
             "preview": "",
             "autoPlayLoop": true
           },
           "image": {
             "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1646061249/Illustrations_Tests/take-test_c4qa3u.png",
-            "description": "When BUT gets in the way"
+            "description": "quando o MAS se intromete no nosso caminho"
           },
           "heading": ""
         },
@@ -198,7 +198,7 @@
         "content": {
           "heading": "Eu quero fazer X, mas há um Y que",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464767/Temp/Comp_4_wrr4ks.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675088658/Video/Videos%20PT/timer_but_1min_PT_xhuwxr.mp4",
             "autoPlayLoop": false
           }
         },
@@ -216,7 +216,7 @@
         "content": {
           "heading": "Muda para E. O que acontece?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464773/Temp/Comp_9_bsizws.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675088658/Video/Videos%20PT/timer_and_1min_PT_xy7jly.mp4",
             "autoPlayLoop": false
           }
         },
@@ -234,7 +234,7 @@
         "content": {
           "heading": "O que aconteceu quando mudaste para E?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464766/Temp/Comp_10_ababts.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675088657/Video/Videos%20PT/timer2min_PT_derxb3.mp4"
           }
         },
         "hostNotes": [
@@ -288,16 +288,17 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665470221/Temp/card_image-13_uoyugo.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675416485/Images/card_bring_your_fee..PT_vf9to7.png"
       }
     },
     "duration": 30,
     "introPortal": {
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665480650/Temp/portal_no_sound_o7okas.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675257549/Video/Videos%20PT/portal_PT_bring_your_fee.._w8ogim.mp4",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_portal_bring_your_feel..._dthhdh.png"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665469668/Temp/Comp_13_1_xmcpyo.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675088653/Video/Videos%20PT/portal2_PT_bring_your_fee.._jqpgxi.mp4"
       },
       "hostNotes": [
         {
@@ -305,7 +306,8 @@
         }
       ]
     },
-    "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898"
+    "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+    "description": "A forma como falamos connosco afeta as nossas ações. Neste exercício, praticamos a consciência da nossa conversa interior e experimentamos trocar palavras que podem abrir novas possibilidades para agirmos com significado."
   },
   "sv": {
     "published": false,
