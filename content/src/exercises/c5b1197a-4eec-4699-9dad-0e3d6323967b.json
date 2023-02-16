@@ -177,40 +177,58 @@
     "description": "Relationships are essential for our wellbeing, and sometimes it's hard to set healthy boundaries. In this exercise we practice communicating our needs in an assertive way. Setting boundaries can help us feel better about ourselves, create sustainable relationships and make us more resilient to relationship challenges."
   },
   "pt": {
-    "published": false,
-    "hidden": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around <x> minutes on <theme of the session>\n\nWe’ll be doing <rough explanation of session - ex. meditation followed by time for reflection and sharing with each other>."
+            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on relationships and healthy boundaries.\n\nWe’ll be doing an introduction, listening to a video, and two rounds of reflections and sharing those reflections."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Before we get going, let’s take a few mindful breaths.\n\n> Inhale & exhale slowly 3 times.\n\nLet’s start with a mini check-in.\n\nHow are you feeling right now? Please answer in two-three words."
+          },
+          {
+            "text": "X, would you like to start and then pass it on?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Relationships are extremely important for us humans. Our brains have evolved to be social, and our survival systems know very well that being accepted by others is essential."
+          },
+          {
+            "text": "And sometimes that mechanism can make it hard to set boundaries. Stand up for ourselves. Communicate what we need. Let’s look at this video to learn more.\n\n> Press play to start the video"
+          }
+        ],
+        "content": {
+          "heading": "Setting boundaries",
+          "text": "– a cornerstone in relationships",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672845530/Video/video_setting_boundaries_wt07na.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1672842495/Images/image_video_setting_boundaries_cmjbl2.png"
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take <X minutes> to reflect on our own.\n\n<Main question> <Further explanations of main question if needed>"
+            "text": "Take 2 minutes to reflect on your own on these two questions.\n\n1. Examine which of your needs aren’t being met or expressed at the moment.\n2. How do you communicate your needs at the moment?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. <X minutes> starting now.\n\n> Push play to start the timer.\n\nThat’s <X minutes> and it’s time to move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. \\\n2 minutes starting now.\n\n> Press play to start the timer.\n\nThat’s 2 minutes and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "text": "How do I communicate my needs?",
+          "heading": "Needs not being met are... ",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_boundaries_mza6w9.png"
+          }
+        }
       },
       {
         "type": "sharing",
@@ -219,30 +237,121 @@
             "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for <x minutes> as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "The sharing question is: What's stopping you from expressing your needs?\n\nWho would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
-        ]
+        ],
+        "content": {
+          "heading": "What's stopping you from expressing your needs?",
+          "text": "",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_2_boundaries_sazbko.png"
+          }
+        },
+        "id": "sharing-1"
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Let’s get back into reflection mode. Take 2 minutes to reflect on your own on these questions:\n\n1. Where would it be useful for you to set up boundaries, and in relation to whom?"
+          },
+          {
+            "text": "2. How could you communicate your boundaries in a calm yet assertive way?"
+          }
+        ],
+        "content": {
+          "heading": "What boundaries, to whom?",
+          "text": "How will I communicate?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_boundaries_mza6w9.png"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "And now on to sharing again. The question for the sharing is: How could you benefit from setting up healthy boundaries? \n\nThere will again be a timer set for 2 minutes. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one.\\\n> Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "content": {
+          "heading": "How could you benefit from setting up healthy boundaries?",
+          "text": "",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_2_boundaries_sazbko.png"
+          }
+        },
+        "id": "sharing-2"
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Well done for your openness to explore your needs and your willingness to set healthy boundaries to meet them."
+          },
+          {
+            "text": "Your mission to continue what we started here today is to go ahead and talk to the people you’ve identified about your intentions. If that’s not possible right now, book a time this week to do so."
+          }
+        ],
+        "content": {
+          "heading": "Time to reach out",
+          "lottie": {
+            "autoPlayLoop": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1672843496/Lottie/mission_setting_boundaries_cwycbr.json"
+          }
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\n<mission description>"
+            "text": "Before we leave this space let’s do a mini check-out.\\\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       }
     ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#cdc9c7"
+    },
+    "hidden": false,
+    "name": "Estabelecer Limites",
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395860/Images/card_setting_boundaries_yrv35w.png"
+      }
+    },
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672829134/Video/portal1_setting_boundaries_b3rx64.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207970/Audio/portal_audio_setting_boundaries_mixdown_gapless_e33ufm.m4a",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554570/Images/thumb_portal_setting_boundaries_mlg0yv.png"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672835034/Video/portal2_setting_boundaries_craqov.mp4"
+      }
+    },
     "id": "c5b1197a-4eec-4699-9dad-0e3d6323967b",
-    "duration": 30
+    "description": "Relationships are essential for our wellbeing, and sometimes it's hard to set healthy boundaries. In this exercise we practice communicating our needs in an assertive way. Setting boundaries can help us feel better about ourselves, create sustainable relationships and make us more resilient to relationship challenges."
   },
   "sv": {
     "published": false,
