@@ -41,4 +41,4 @@ const RadioButton: React.FC<RadioButtonProps> = ({
   </TouchableOpacity>
 );
 
-export default RadioButton;
+export default React.memo(RadioButton);

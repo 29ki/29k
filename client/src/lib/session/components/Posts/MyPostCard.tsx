@@ -57,4 +57,4 @@ const MyPostCard: React.FC<MyPostCardProps> = ({
   );
 };
 
-export default MyPostCard;
+export default React.memo(MyPostCard);

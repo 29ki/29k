@@ -40,4 +40,4 @@ const BylineUser: React.FC<BylineUserProps> = React.memo(({user}) => {
   );
 });
 
-export default BylineUser;
+export default React.memo(BylineUser);

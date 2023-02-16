@@ -41,4 +41,4 @@ const SharingPostModal = () => {
   );
 };
 
-export default SharingPostModal;
+export default React.memo(SharingPostModal);

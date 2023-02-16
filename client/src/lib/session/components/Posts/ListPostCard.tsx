@@ -109,4 +109,4 @@ const ListPostCard: React.FC<ListPostCardProps> = ({
   );
 };
 
-export default ListPostCard;
+export default React.memo(ListPostCard);

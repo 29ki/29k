@@ -218,4 +218,4 @@ const SharingModal = () => {
   );
 };
 
-export default SharingModal;
+export default React.memo(SharingModal);

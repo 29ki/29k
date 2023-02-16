@@ -21,6 +21,7 @@ const StatusText = styled(Body14)<{themeColor?: string}>(({themeColor}) => ({
   color: themeColor ? themeColor : COLORS.BLACK,
   fontFamily: HKGroteskBold,
 }));
+
 const BadgeIcon = styled.View({
   width: 20,
   height: 20,
@@ -57,4 +58,4 @@ const Badge: React.FC<BadgeProps> = ({
     </Wrapper>
   );
 };
-export default Badge;
+export default React.memo(Badge);
