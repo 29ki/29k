@@ -23,7 +23,6 @@ const AutoScrollView: React.FC<ScrollViewProps> = ({
           layout: {width, height},
         },
       } = event;
-      console.log('container');
       setContainerDimensions({width, height});
       onLayout(event);
     },
@@ -51,4 +50,4 @@ const AutoScrollView: React.FC<ScrollViewProps> = ({
   );
 };
 
-export default AutoScrollView;
+export default React.memo(AutoScrollView);
