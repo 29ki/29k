@@ -15,6 +15,7 @@ const ParticipantsWrapper = styled.View({
 
 const StyledParticipant = styled(Participant)<{stump: boolean; height: number}>(
   ({stump, height}) => ({
+    flex: 'auto',
     width: stump ? '100%' : '50%',
     height,
   }),
