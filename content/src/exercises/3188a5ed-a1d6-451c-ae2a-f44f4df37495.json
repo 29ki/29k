@@ -12,7 +12,11 @@
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started.",
             "asyncText": "Before we move on into the session, check-in with yourself for a few seconds. What brought you here today?\n\n…\n\nLet’s get started."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676394656/Video/async_intro_drop_all_requirements_h7ah3c.mov",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676455405/Images/async_intro_drop_all_requirements_h22e4v.png"
+        }
       },
       {
         "type": "content",
@@ -96,7 +100,11 @@
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience.",
             "asyncText": "When you’re ready, finish the session to go to the exit experience."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676394659/Video/async_outro_drop_all_requirements_kuxqiv.mov",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676455405/Images/async_outro_drop_all_requirements_ntxvdp.png"
+        }
       }
     ],
     "theme": {
@@ -109,6 +117,10 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
+      },
+      "host": {
+        "displayName": "Ints Ivanovskis",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     },
     "duration": 30,
@@ -128,6 +140,7 @@
       }
     },
     "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+    "async": true,
     "description": "Guided meditation for a mindful break during busy days. Re-focusing and grounding ourselves can help reduce stress, reprioritize and give our minds a refreshing break."
   },
   "pt": {

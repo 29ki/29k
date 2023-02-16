@@ -8,7 +8,15 @@
       "confirm": "Yes"
     }
   },
-  "pt": {},
+  "pt": {
+    "title": "Notificações",
+    "message": "Queres ser alertada/o quando as tuas sessões estiverem para iniciar?",
+    "actions": {
+      "dismiss": "Não",
+      "cancel": "Talvez mais tarde",
+      "confirm": "Sim"
+    }
+  },
   "sv": {},
   "es": {}
 }

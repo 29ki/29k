@@ -7,7 +7,14 @@
     "submit": "Submit",
     "thankYou__text": "Thank you\nso much\nfor your\nfeedback!"
   },
+  "pt": {
+    "title": "Um último pedido...",
+    "question": "Isto teve significado para ti?",
+    "comments": "Tens algum comentário?",
+    "commentsPlaceholder": "Opcional...",
+    "submit": "Enviar",
+    "thankYou__text": "Muito\nobrigada\npelo teu\ncontributo!"
+  },
   "sv": {},
-  "pt": {},
   "es": {}
 }

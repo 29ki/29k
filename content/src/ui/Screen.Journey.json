@@ -6,7 +6,13 @@
     },
     "fallback": "🌱 Your journey has just begun"
   },
-  "pt": {},
+  "pt": {
+    "headings": {
+      "completed": "Concluídas",
+      "planned": "Sessões planeadas"
+    },
+    "fallback": "🌱 A tua jornada está a começar"
+  },
   "sv": {},
   "es": {}
 }

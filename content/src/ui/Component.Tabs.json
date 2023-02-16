@@ -4,13 +4,14 @@
     "journey": "Journey",
     "profile": "Profile"
   },
+  "pt": {
+    "home": "Início",
+    "profile": "Perfil",
+    "journey": "Jornada"
+  },
   "sv": {
     "home": "Hem",
     "profile": "Profil"
-  },
-  "pt": {
-    "home": "Início",
-    "profile": "Perfil"
   },
   "es": {}
 }
