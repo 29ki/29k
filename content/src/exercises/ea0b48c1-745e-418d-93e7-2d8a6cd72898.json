@@ -173,14 +173,14 @@
         "type": "content",
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464756/Temp/Comp_8_jsv5jo.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675088653/Video/Videos%20PT/content_PT_lqccsc.mp4",
             "description": "",
             "preview": "",
             "autoPlayLoop": true
           },
           "image": {
             "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1646061249/Illustrations_Tests/take-test_c4qa3u.png",
-            "description": "When BUT gets in the way"
+            "description": "quando o MAS se intromete no nosso caminho"
           },
           "heading": ""
         },
@@ -198,7 +198,7 @@
         "content": {
           "heading": "Eu quero fazer X, mas há um Y que",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464767/Temp/Comp_4_wrr4ks.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675088658/Video/Videos%20PT/timer_but_1min_PT_xhuwxr.mp4",
             "autoPlayLoop": false
           }
         },
@@ -216,7 +216,7 @@
         "content": {
           "heading": "Muda para E. O que acontece?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464773/Temp/Comp_9_bsizws.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675088658/Video/Videos%20PT/timer_and_1min_PT_xy7jly.mp4",
             "autoPlayLoop": false
           }
         },
@@ -234,7 +234,7 @@
         "content": {
           "heading": "O que aconteceu quando mudaste para E?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464766/Temp/Comp_10_ababts.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675088657/Video/Videos%20PT/timer2min_PT_derxb3.mp4"
           }
         },
         "hostNotes": [
