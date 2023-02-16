@@ -81,4 +81,4 @@ const IconButton: React.FC<IconButtonProps> = ({
   </StyledIconButton>
 );
 
-export default IconButton;
+export default React.memo(IconButton);

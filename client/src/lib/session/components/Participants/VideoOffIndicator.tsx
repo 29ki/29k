@@ -21,4 +21,4 @@ const VideoOffIndicator: React.FC<VideoOffIndicatorProps> = ({style}) => (
   </Wrapper>
 );
 
-export default VideoOffIndicator;
+export default React.memo(VideoOffIndicator);

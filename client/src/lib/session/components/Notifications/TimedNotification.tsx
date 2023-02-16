@@ -32,4 +32,4 @@ const TimedNotification: React.FC<NotificationProps> = ({
   return null;
 };
 
-export default TimedNotification;
+export default React.memo(TimedNotification);

@@ -9,48 +9,52 @@ type AudioFaderProps = {
   source: string;
 };
 
-const AudioFader = React.memo<AudioFaderProps>(
-  ({duration = 5000, volume = 1, paused, repeat, source}) => {
-    const [currentVolume, setVolume] = useState(0);
-    const [loaded, setLoaded] = useState(false);
+const AudioFader: React.FC<AudioFaderProps> = ({
+  duration = 5000,
+  volume = 1,
+  paused,
+  repeat,
+  source,
+}) => {
+  const [currentVolume, setVolume] = useState(0);
+  const [loaded, setLoaded] = useState(false);
 
-    const updateVolume = useCallback(
-      (step: number) => (v: number) => {
-        if (v > volume) {
-          return Math.max(v - step, volume);
-        } else {
-          return Math.min(v + step, volume);
-        }
-      },
-      [volume],
-    );
+  const updateVolume = useCallback(
+    (step: number) => (v: number) => {
+      if (v > volume) {
+        return Math.max(v - step, volume);
+      } else {
+        return Math.min(v + step, volume);
+      }
+    },
+    [volume],
+  );
 
-    useEffect(() => {
-      const ms = 100;
-      const step = ms / duration;
+  useEffect(() => {
+    const ms = 100;
+    const step = ms / duration;
 
-      const interval = setInterval(() => {
-        if (loaded && !paused) {
-          setVolume(updateVolume(step));
-        }
-      }, ms);
+    const interval = setInterval(() => {
+      if (loaded && !paused) {
+        setVolume(updateVolume(step));
+      }
+    }, ms);
 
-      return () => clearInterval(interval);
-    }, [duration, updateVolume, loaded, paused]);
+    return () => clearInterval(interval);
+  }, [duration, updateVolume, loaded, paused]);
 
-    const onLoad = useCallback(() => setLoaded(true), [setLoaded]);
+  const onLoad = useCallback(() => setLoaded(true), [setLoaded]);
 
-    return (
-      <Audio
-        paused={paused}
-        repeat={repeat}
-        volume={currentVolume}
-        onLoad={onLoad}
-        source={source}
-        mixWithOthers
-      />
-    );
-  },
-);
+  return (
+    <Audio
+      paused={paused}
+      repeat={repeat}
+      volume={currentVolume}
+      onLoad={onLoad}
+      source={source}
+      mixWithOthers
+    />
+  );
+};
 
-export default AudioFader;
+export default React.memo(AudioFader);

@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components/native';
 
 const ContentWrapper = styled.View({
@@ -5,4 +6,4 @@ const ContentWrapper = styled.View({
   aspectRatio: '1',
 });
 
-export default ContentWrapper;
+export default React.memo(ContentWrapper);

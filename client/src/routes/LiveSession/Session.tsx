@@ -303,4 +303,4 @@ const Session: React.FC = () => {
   );
 };
 
-export default Session;
+export default React.memo(Session);

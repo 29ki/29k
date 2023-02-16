@@ -57,4 +57,4 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   </Wrapper>
 );
 
-export default ProgressBar;
+export default React.memo(ProgressBar);

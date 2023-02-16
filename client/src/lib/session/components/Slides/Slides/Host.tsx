@@ -16,4 +16,4 @@ const Host: React.FC<HostProps> = ({active}) => {
   return <Participant participant={host} topGradient inSlide />;
 };
 
-export default Host;
+export default React.memo(Host);

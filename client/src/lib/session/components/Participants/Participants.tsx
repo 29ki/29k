@@ -65,4 +65,4 @@ const Participants: React.FC<ParticipantsProps> = ({participants}) => {
   );
 };
 
-export default Participants;
+export default React.memo(Participants);

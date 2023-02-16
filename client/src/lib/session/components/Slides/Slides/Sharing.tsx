@@ -312,4 +312,4 @@ const Sharing: React.FC<SharingProps> = ({slide, active}) => {
   );
 };
 
-export default Sharing;
+export default React.memo(Sharing);

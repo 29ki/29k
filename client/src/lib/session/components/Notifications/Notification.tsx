@@ -73,4 +73,4 @@ const Notification: React.FC<NotificationProps> = ({
   </Animated.View>
 );
 
-export default Notification;
+export default React.memo(Notification);
