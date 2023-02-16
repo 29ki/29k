@@ -162,12 +162,166 @@
     "description": "Trying to control what we feel or think tends to backfire. In this exercise we practice letting go of a futile struggle, and instead use our energy for what matters."
   },
   "pt": {
-    "published": false,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Bem-vindos. Eu sou a/o X e hoje vamos focar-nos durante 30 minutos na aceitação e renúncia ao controlo.\\\n\\\nFaremos uma breve meditação juntos. Depois teremos um momento de reflexão individual e o passo final será partilharmos uns com os outros a nossa experiência desta sessão."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Podes responder em duas três palavras. X, queres começar?\n\n> Deixa todos os presentes, inclusive tu, fazerem o check-in individualmente.\n\nObrigado a todos por fazerem o check-in. Vamos começar!"
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Quando surgem emoções difíceis, muitos de nós têm a tendência natural de as tentar controlar. **O impulso de controlar as coisas dá-nos a sensação de estarmos no comando**. No entanto, a ciência diz-nos, que isso é apenas uma **ilusão**.\n\nEncontra uma posição confortável, relaxa os ombros. Vamos fazer uma meditação em conjunto.\n\n> Carrega em play para começar a meditação."
+          }
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673871362/Video/meditation_letting_go_of_control_mplxsm.mp4",
+            "autoPlayLoop": false,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676558671/FJN/Meditations/DESISTE_DO_CONTROLO_-_02_20_tarqcm_rnkwta.mp3",
+            "durationTimer": true
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Vamos reservar um minuto para uma reflexão individual.\n\nO que está na tua bola de praia? O que estás a empurrar para baixo da superfície?"
+          },
+          {
+            "text": "Podes tomar notas numa folha de papel ou apenas notas mentais. E lembra-te que não há certos nem errados aqui. 1 minuto a começar agora.\n\n> Carrega no Play para começar o temporizador.\n\nMuito bem, já passou um minuto. Vamos prosseguir."
+          }
+        ],
+        "content": {
+          "heading": "O que está na tua bola de praia?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673875921/Video/timer1_letting_go_of_control_z1x47a.mp4"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "content": {
+          "heading": "O que está na tua bola de praia?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673879667/Video/timer2_letting_go_of_control_nxhgat.mp4"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos entrar na parte da partilha. E temos três regras para isso:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir**. Não há necessidade de corrigir, ajudar ou dar conselhos neste espaço. Estamos apenas a presenciar e a explorar o que nós e os outros estão a sentir."
+          },
+          {
+            "text": "3. **Tudo no nosso interior é bem-vindo**. Raiva, amor, ódio, tristeza. O que quer que apareça. Não há certos nem errados. É o que é.\n\nTeremos um temporizador de 2 minutos como referência. Se não quiseres partilhar podes dizer “passo”."
+          },
+          {
+            "text": "Quem quer começar?\n\n> Deixa que todos (ou aqueles para que houver tempo) partilhem individualmente. Recomeça o temporizador para cada nova partilha.\n\nMuito obrigada/o a todos."
+          }
+        ],
+        "id": "sharing-1"
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Quanto mais tempo e esforço gastamos a tentar controlar as nossas emoções, mais elas tendem a ditar as nossas vidas. O mesmo se aplica para muitas coisas na vida. Às vezes, acreditamos que quanto **mais controlo** temos, **mais perto** estaremos de alcançar os nossos **objetivos**.\n\nPor vezes isso pode ser verdade…"
+          },
+          {
+            "text": "Mas quando ficamos presos nesse ciclo de tentar controlar tudo e todos à nossa volta, acabamos por **divergir dos nossos valores**. Ou então, passam-nos ao lado ocasiões importantes e acabamos por não participar no que é realmente importante para nós."
+          },
+          {
+            "text": "Agora vamos ter mais 1 minuto de reflexão individual.\n\nE se não te importasses com a  tua bola de praia? O que significaria isso para ti? O que farias de diferente?"
+          },
+          {
+            "text": "1 minuto a começar agora.\n\n> Carregue em play para começar o temporizador.\n\nMuito bem, já passou um minuto. Vamos prosseguir."
+          }
+        ],
+        "content": {
+          "heading": "E se largasses a tua bola de praia?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673875921/Video/timer1_letting_go_of_control_z1x47a.mp4"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "content": {
+          "heading": "E se largasses a tua bola de praia?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673879667/Video/timer2_letting_go_of_control_nxhgat.mp4"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Está na altura de mais uma ronda de partilha.\n\nE se deixasses a tua bola de praia fluir?\n\nVamos ter um temporizador com 2 minutos indicativos. Se não quiseres partilhar, podes simplesmente dizer “passo”."
+          },
+          {
+            "text": "Quem quer começar?\n\n> Deixa que todos (ou aqueles para que houver tempo) partilhem individualmente. Recomeça o temporizador para cada nova partilha.\n\nMuito obrigada/o a todos."
+          }
+        ],
+        "id": "sharing-2"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Abdicar do controlo pode parecer **assustador**, arriscado e muito **desconfortável**. Ao praticarmos a aceitação, podemos aprender a criar espaço para um leque de emoções e experiências sem tentarmos fugir, reprimir ou lutar com as que não gostamos. Isso permite-nos redirecionar a nossa atenção e usar a nossa energia para o que realmente importa."
+          },
+          {
+            "text": "Excelente trabalho. Sugerimos-te como missão continuar o que começamos aqui hoje e levares isto para o teu dia-a-dia.\n\nPara o resto do dia de hoje e amanhã, vê se consegues perceber quando estás perante  emoções difíceis e se as estás a empurrar para baixo. De seguida refoca-te e vê se ao acolhê-las ou apenas deixá-las estar te ajuda a agir de forma diferente. Faz mais do que é realmente importante para ti e sintoniza-te com as tuas emoções."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo te sentes agora? Mudou alguma coisa? Podes responder em duas ou três palavras."
+          },
+          {
+            "text": "Quem quer começar?\n\n> Deixa todos os presentes na sessão fazerem o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out e por estarem presentes na sessão de hoje.\n\n> Acaba a sessão para que todos sejam encaminhados para a experiência de saída."
+          }
+        ]
+      }
+    ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#b9535f"
+    },
+    "hidden": false,
+    "name": "Desiste do controlo",
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
+      }
+    },
+    "duration": 30,
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1671527730/Video/mission_letting_go_of_control.mp4_t6zweg.mp4"
+      }
+    },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Começa a sessão quando estiveres pronta/o."
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667919733/Video/portal1_letting_go_of_control_g0izpw.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667915462/Audio/portal_letting_go_of_controlmp3_eintur.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1668093279/Video/portal2_letting_go_of_control_bnzxxr.mp4",
+        "preview": ""
+      }
     },
     "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d",
-    "duration": 30
+    "description": "Tentar controlar o que sentimos ou pensamos tende a ser contraproducente. Neste exercício vamos aprender a renunciar a essa luta inútil e em vez disso usarmos a nossa energia para o que interessa."
   },
   "sv": {
     "published": false,
