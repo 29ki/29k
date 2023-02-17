@@ -1,7 +1,7 @@
 export type Feedback = {
   exerciseId: string;
   completed: boolean;
-  sessionId?: string;
+  sessionId: string;
   host?: boolean;
 
   question: string;

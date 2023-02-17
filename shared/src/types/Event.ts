@@ -8,8 +8,11 @@ export type PostPayload = {
 };
 
 export type FeedbackPayload = {
-  like: boolean;
-  text?: string;
+  question: string;
+  answer: boolean;
+  comment?: string;
+  exerciseId: string;
+  sessionId: string;
 };
 
 type BaseEvent = {
