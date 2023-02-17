@@ -22,7 +22,7 @@ import {SessionMode} from '../../../../../../shared/src/types/Session';
 import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
 
 type CompletedSessionCardProps = {
-  session: CompletedSessionEvent;
+  completedSessionEvent: CompletedSessionEvent;
   hostProfile: UserProfile | undefined;
   hasCardBefore: boolean;
   hasCardAfter: boolean;
@@ -40,7 +40,7 @@ const ChekIconWrapper = styled.View({
 });
 
 const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
-  session,
+  completedSessionEvent,
   hostProfile,
   hasCardBefore,
   hasCardAfter,
@@ -49,7 +49,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
   const {
     payload: {mode, exerciseId},
     timestamp,
-  } = session;
+  } = completedSessionEvent;
   const exercise = useExerciseById(exerciseId);
   const {navigate} =
     useNavigation<
@@ -59,10 +59,10 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
   const onContextPress = useCallback(
     () =>
       navigate('CompletedSessionModal', {
-        completedSessionEvent: session,
+        completedSessionEvent,
         hostProfile,
       }),
-    [navigate, session, hostProfile],
+    [navigate, completedSessionEvent, hostProfile],
   );
 
   const image = useMemo(

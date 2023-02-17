@@ -10,13 +10,13 @@ import CompletedSessionCard from '../../../lib/components/Cards/SessionCard/Comp
 import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 
 type CompletedSessionCardContainerProps = {
-  session: CompletedSessionEvent;
+  completedSessionEvent: CompletedSessionEvent;
   hasCardBefore: boolean;
   hasCardAfter: boolean;
 };
 
 const SessionCardContainer: React.FC<CompletedSessionCardContainerProps> = ({
-  session,
+  completedSessionEvent,
   hasCardBefore,
   hasCardAfter,
 }) => {
@@ -28,17 +28,17 @@ const SessionCardContainer: React.FC<CompletedSessionCardContainerProps> = ({
   );
 
   useEffect(() => {
-    if (profile || !session.payload.hostId) {
+    if (profile || !completedSessionEvent.payload.hostId) {
       return;
     }
 
-    fetchUserProfile(session.payload.hostId);
-  }, [fetchUserProfile, session.payload.hostId, profile]);
+    fetchUserProfile(completedSessionEvent.payload.hostId);
+  }, [fetchUserProfile, completedSessionEvent.payload.hostId, profile]);
 
   return (
     <Gutters>
       <CompletedSessionCard
-        session={session}
+        completedSessionEvent={completedSessionEvent}
         hostProfile={profile}
         hasCardBefore={hasCardBefore}
         hasCardAfter={hasCardAfter}

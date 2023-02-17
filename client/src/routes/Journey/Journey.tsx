@@ -67,7 +67,7 @@ const renderSession: SectionListRenderItem<JourneySession, Section> = ({
   if (item.completedSession) {
     return (
       <CompletedSessionCardContainer
-        session={item.completedSession as CompletedSessionEvent}
+        completedSessionEvent={item.completedSession as CompletedSessionEvent}
         hasCardBefore={hasCardBefore}
         hasCardAfter={hasCardAfter}
       />
