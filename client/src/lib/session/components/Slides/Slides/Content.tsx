@@ -13,6 +13,8 @@ import {Spacer12, Spacer8} from '../../../../components/Spacers/Spacer';
 import Text from './Blocks/Text';
 import Lottie from './Blocks/Lottie';
 import ContentWrapper from '../../ContentWrapper/ContentWrapper';
+import LottieTransition from '../../VideoTransition/LottieTransition';
+import useSessionState from '../../../state/state';
 
 const GraphicsWrapper = styled.View({
   flex: 1,

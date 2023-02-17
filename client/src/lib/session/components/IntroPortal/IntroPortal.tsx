@@ -1,7 +1,8 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+import {StyleSheet} from 'react-native';
 
 import {SPACINGS} from '../../../constants/spacings';
 import useSessionState from '../../state/state';
@@ -19,6 +20,9 @@ import VideoTransition from '../VideoTransition/VideoTransition';
 import HostNotes from '../HostNotes/HostNotes';
 import {ArrowLeftIcon} from '../../../components/Icons';
 import Button from '../../../components/Buttons/Button';
+import LottieTransition from '../VideoTransition/LottieTransition';
+import LottiePlayer from '../../../components/LottiePlayer/LottiePlayer';
+import AnimatedLottieView from 'lottie-react-native';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -37,6 +41,15 @@ const TopBar = styled(Gutters)({
 
 const BackButton = styled(IconButton)({
   marginLeft: -SPACINGS.SIXTEEN,
+});
+
+const LottieStyled = styled(LottiePlayer)(({paused}) => ({
+  opacity: paused ? 0 : 1,
+  ...StyleSheet.absoluteFillObject,
+}));
+
+const StyledLottie = styled(AnimatedLottieView)({
+  ...StyleSheet.absoluteFillObject,
 });
 
 type IntroPortalProps = {
@@ -58,9 +71,12 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   onNavigateToSession,
   statusComponent,
 }) => {
+  const lottieRef = useRef<AnimatedLottieView>(null);
   const {t} = useTranslation('Screen.Portal');
 
-  const [isReadyForDisplay, setIsReadyForDisplay] = useState(false);
+  const [isReadyForDisplay, setIsReadyForDisplay] = useState(
+    Boolean(exercise?.introPortal?.lottieLoop?.source),
+  );
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const sessionState = useSessionState(state => state.sessionState);
@@ -69,13 +85,22 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   const textColor = exercise?.theme?.textColor;
 
   useEffect(() => {
-    if (sessionState?.started && !introPortal?.videoLoop?.source) {
+    lottieRef.current?.pause();
+  }, []);
+
+  useEffect(() => {
+    if (
+      sessionState?.started &&
+      !introPortal?.videoLoop?.source &&
+      !introPortal?.videoLoop?.source
+    ) {
       // If no video is defined, navigate directly
       onNavigateToSession();
     }
   }, [
     sessionState?.started,
     introPortal?.videoLoop?.source,
+    introPortal?.lottieLoop?.source,
     onNavigateToSession,
   ]);
 
@@ -92,28 +117,65 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     onNavigateToSession();
   }, [onNavigateToSession]);
 
+  const audioSource = useMemo(() => {
+    if (introPortal?.lottieLoop?.audio) {
+      return introPortal?.lottieLoop?.audio;
+    }
+    return introPortal?.videoLoop?.audio;
+  }, [introPortal]);
+
+  console.log('REnder');
+
   return (
     <Screen>
       {!isHost && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
-      {isFocused && introPortal?.videoLoop?.audio && (
+      {isFocused && audioSource && (
         <AudioFader
-          source={introPortal?.videoLoop?.audio}
+          source={audioSource}
           paused={!isReadyForDisplay}
           volume={isTransitioning ? 0 : 1}
           duration={isTransitioning ? 5000 : 10000}
           repeat
         />
       )}
-      <VideoTransition
-        loopSource={introPortal?.videoLoop?.source}
-        loopPosterSource={introPortal?.videoLoop?.preview}
-        endSource={introPortal?.videoEnd?.source}
-        loop={!sessionState?.started}
-        paused={!isFocused}
-        onReadyForDisplay={onVideoReadyForDisplay}
-        onTransition={onVideoTransition}
-        onEnd={onVideoEnd}
-      />
+      {introPortal?.lottieLoop?.source ? (
+        // <LottieStyled
+        //   source={{uri: introPortal?.lottieLoop?.source}}
+        //   paused={false}
+        //   repeat={false}
+        //   duration={10}
+        // />
+        // <LottieTransition
+        //   loopSource={introPortal.lottieLoop.source}
+        //   loopDuration={introPortal.lottieLoop.duration}
+        //   endSource={introPortal.lottieEnd?.source}
+        //   loop={!sessionState?.started}
+        //   endDuration={introPortal.lottieEnd?.duration}
+        //   onTransition={onVideoTransition}
+        //   onEnd={onVideoEnd}
+        // />
+        <StyledLottie
+          onAnimationFinish={onVideoEnd}
+          source={{uri: introPortal.lottieLoop.source}}
+          speed={10}
+          loop={false}
+          autoPlay={false}
+          // progress={progress}
+          resizeMode="contain"
+          ref={lottieRef}
+        />
+      ) : (
+        <VideoTransition
+          loopSource={introPortal?.videoLoop?.source}
+          loopPosterSource={introPortal?.videoLoop?.preview}
+          endSource={introPortal?.videoEnd?.source}
+          loop={!sessionState?.started}
+          paused={!isFocused}
+          onReadyForDisplay={onVideoReadyForDisplay}
+          onTransition={onVideoTransition}
+          onEnd={onVideoEnd}
+        />
+      )}
       {isHost && (
         <>
           <HostNotes introPortal exercise={exercise} />
@@ -139,7 +201,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
                 <Button
                   small
                   disabled={sessionState?.started}
-                  onPress={onStartSession}>
+                  onPress={() => lottieRef.current?.play()}>
                   {sessionState?.started
                     ? t('sessionStarted')
                     : t('startSession')}

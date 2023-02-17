@@ -144,11 +144,11 @@
       ],
       "lottieLoop": {
         "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
-        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1673963309/portal1_setting_boundaries_lottie_t5zl7f.json",
+        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1672843496/Lottie/mission_setting_boundaries_cwycbr.json",
         "duration": 5
       },
       "lottieEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1668597206/Lottie/default_timer_ge9wis.json",
+        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1672843496/Lottie/mission_setting_boundaries_cwycbr.json",
         "duration": 5
       }
     },
@@ -286,11 +286,27 @@
   "sv": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139",
     "duration": 30,
-    "tags": []
+    "tags": [],
+    "introPortal": {
+      "lottieLoop": {
+        "duration": 5
+      },
+      "lottieEnd": {
+        "duration": 5
+      }
+    }
   },
   "es": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139",
     "duration": 30,
-    "tags": []
+    "tags": [],
+    "introPortal": {
+      "lottieLoop": {
+        "duration": 5
+      },
+      "lottieEnd": {
+        "duration": 5
+      }
+    }
   }
 }
