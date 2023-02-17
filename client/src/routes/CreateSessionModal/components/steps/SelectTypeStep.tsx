@@ -19,11 +19,7 @@ import {
   Spacer8,
 } from '../../../../lib/components/Spacers/Spacer';
 import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
-import {
-  Body14,
-  Body16,
-  BodyBold,
-} from '../../../../lib/components/Typography/Body/Body';
+import {Body16} from '../../../../lib/components/Typography/Body/Body';
 import {Display24} from '../../../../lib/components/Typography/Display/Display';
 import {ModalHeading} from '../../../../lib/components/Typography/Heading/Heading';
 import {SPACINGS} from '../../../../lib/constants/spacings';
