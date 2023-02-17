@@ -1,26 +1,19 @@
-import {useCallback, useMemo} from 'react';
+import {useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {SessionMode} from '../../../../../shared/src/types/Session';
 
 import useExerciseIds from './useExerciseIds';
+import useGetExerciseById from './useGetExerciseById';
 
 const useGetExercisesByMode = (sessionMode?: SessionMode) => {
   const {t} = useTranslation('exercises');
   const exerciseIds = useExerciseIds();
-
-  const getExerciseById = useCallback(
-    (id: string) =>
-      t(id, {
-        returnObjects: true,
-      }) as Exercise,
-    [t],
-  );
+  const getExerciseById = useGetExerciseById();
 
   return useMemo(() => {
     return exerciseIds
-      .map(getExerciseById)
-      .filter(e => (sessionMode === SessionMode.async ? e.async : true));
+      .map(exerciseId => getExerciseById(exerciseId))
+      .filter(e => (e && sessionMode === SessionMode.async ? e.async : true));
   }, [exerciseIds, getExerciseById, sessionMode]);
 };
 
