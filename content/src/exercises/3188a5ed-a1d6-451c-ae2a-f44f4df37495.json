@@ -241,8 +241,8 @@
             "asyncText": "Antes de sairmos deste espaço, vamos fazer um mini check-out. \n\nO que podes trazer para o resto do teu dia depois desta sessão?"
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience.",
-            "asyncText": "When you’re ready, finish the session to go to the exit experience."
+            "text": "Quem quer começar?\n\n> Deixa todos os presentes fazerem o check-out individualmente\n\nObrigada/o a todos por fazerem o check-out e terem estado presentes hoje nesta sessão.\n\n> Conclui a sessão para encaminhar os presentes para a experiência de saída.",
+            "asyncText": "Quando estiveres pronta/o termina a sessão para ires para a experiência de saída."
           }
         ],
         "video": {
