@@ -8,7 +8,7 @@ import SheetModal from '../../lib/components/Modals/SheetModal';
 import {Spacer16} from '../../lib/components/Spacers/Spacer';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../lib/constants/spacings';
-import {Body14} from '../../lib/components/Typography/Body/Body';
+import {Body18} from '../../lib/components/Typography/Body/Body';
 import BylineUser from '../../lib/components/Bylines/BylineUser';
 
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
@@ -33,7 +33,7 @@ const SharingPostModal = () => {
           <BylineUser user={userProfile} />
           <Spacer16 />
           <TextWrapper>
-            <Body14>{text}</Body14>
+            <Body18>{text}</Body18>
           </TextWrapper>
         </Gutters>
       </BottomSheetScrollView>
