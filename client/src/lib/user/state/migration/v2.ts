@@ -1,5 +1,4 @@
 import {LiveSession} from '../../../../../../shared/src/types/Session';
-import {PersistedState} from '../state';
 import {V3SessionMode, V3SessionType, V3State, V3UserState} from './v3';
 
 // Types as they were in v2
@@ -72,7 +71,7 @@ const migrateUserStates = async (
   );
 };
 
-export default async (state: V2State): Promise<PersistedState> => ({
+export default async (state: V2State): Promise<V3State> => ({
   ...state,
   userState: await migrateUserStates(state.userState),
 });
