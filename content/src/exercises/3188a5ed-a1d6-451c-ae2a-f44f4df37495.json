@@ -144,73 +144,148 @@
     "description": "Guided meditation for a mindful break during busy days. Re-focusing and grounding ourselves can help reduce stress, reprioritize and give our minds a refreshing break."
   },
   "pt": {
-    "published": false,
-    "hidden": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around <x> minutes on <theme of the session>\n\nWe’ll be doing <rough explanation of session - ex. meditation followed by time for reflection and sharing with each other>."
+            "text": "Bem-vindos. Eu sou o/a X e hoje vamos estar juntos durante 30 minutos a refletir sobre como lidar com situações stressantes.  Faremos uma breve introdução, um exercício de meditação e teremos depois um momento de reflexão e partilha conjunta.",
+            "asyncText": "Bem-vinda/o! Nesta sessão vamos refletir sobre como lidar com situações stressantes. Faremos um exercício de meditação e teremos depois um momento de reflexão e partilha da experiência."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um mini check-in. Como te sentes agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusivé tu, façam check-in individual\n\nObrigada/o a todos pelo check-in. Vamos começar.",
+            "asyncText": "Antes de iniciarmos a sessão, faz uns segundos de check-in contigo própria/o. O que te trouxe aqui hoje?\n\n…\n\nVamos começar."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676394656/Video/async_intro_drop_all_requirements_h7ah3c.mov",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676455405/Images/async_intro_drop_all_requirements_h22e4v.png"
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Quando estamos stressados, é frequente as nossas expectativas excederem os nossos recursos. Isso pode levar-nos a uma sensação de sobrecarga, com turbilhões de pensamentos e sensações nas nossas mentes e corpos.",
+            "asyncText": "Quando estamos stressados, é frequente as nossas expectativas excederem os nossos recursos. Isso pode levar-nos a uma sensação de sobrecarga, com turbilhões de pensamentos e sensações nas nossas mentes e corpos."
+          },
+          {
+            "text": "Nesta meditação, vamos praticar fazer uma pausa no meio da correria e ganhar algum distanciamento face aos nossos pensamentos. Isso pode ajudar-nos a ganhar uma nova perspetiva, relaxar e mudar de prioridades.\n\n> Carrega no play para iniciar a meditação",
+            "asyncText": "Nesta meditação, vamos praticar fazer uma pausa no meio da correria e ganhar algum distanciamento face aos nossos pensamentos. Isso pode ajudar-nos a ganhar uma nova perspetiva, relaxar e mudar de prioridades.\n\n> Carrega no play para iniciar a meditação"
+          }
+        ],
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676565911/FJN/Meditations/DEIXA_CAIR_TODAS_AS_EXIGENCIAS_-_06_31_hvdwyj_ncrpgs.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673974099/Video/meditation_Drop_all_requirements_a2a7ws.mp4",
+            "durationTimer": true,
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_meditation_drop_all_requirements_ve8rdm.png"
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take <X minutes> to reflect on our own.\n\n<Main question> <Further explanations of main question if needed>"
+            "text": "Agora vamos reservar 1 minuto para refletirmos individualmente.\n\nO que notaste ao mudares a tua atenção para a lista de tarefas mais curta?",
+            "asyncText": "Agora vamos reservar 1 minuto para refletirmos individualmente.\n\nO que notaste ao mudares a tua atenção para a lista de tarefas mais curta?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. <X minutes> starting now.\n\n> Push play to start the timer.\n\nThat’s <X minutes> and it’s time to move on."
+            "text": "Se quiseres, podes tomar notas em papel ou apenas notas mentais. E lembra-te que não há certos nem errados aqui. As tuas respostas são as tuas respostas. 1 minuto a partir de agora.\n\n> Carrega no play para iniciar o cronómetro.\n\nOk, passou um minuto. Vamos continuar.",
+            "asyncText": "Se quiseres, podes tomar notas em papel ou apenas notas mentais. E lembra-te que não há certos nem errados aqui. Tudo o que te lembres é válido.\n\n> Carrega no play para iniciar o cronómetro."
           }
-        ]
+        ],
+        "content": {
+          "heading": "O que sentiste?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/timer_1min_Drop_all_requirements_dahizb.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer1min_drop_all_requirements_qebhbc.png"
+          }
+        }
       },
       {
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Agora vamos entrar na parte da partilha. E temos três regras para isso:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir.** Neste espaço não há necessidade de corrigir, ajudar ou dar conselhos. Estamos apenas a presenciar e a explorar o que nós e os outros estão a atravessar."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for <x minutes> as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Tudo no nosso interior é bem-vindo.** Raiva, amor, ódio, tristeza. O que quer que apareça. Não há certos nem errados. É o que é.\n\nTeremos um temporizador de 2 minutos como referência. Se não quiseres partilhar podes dizer “passo”."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Quem quer começar?\n\n> Deixa todos (tantos quantos possível dentro do tempo estipulado) partilhem individualmente. Reinicia o cronómetro para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
         ],
+        "content": {
+          "heading": "O que sentiste?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1674383225/Video/meditation_2_Drop_all_requirements_jeizf0.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer2min_drop_all_requirements_hzwrlc.png"
+          }
+        },
         "id": "sharing"
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\n<mission description>"
+            "text": "Parabéns. Propomos-te uma missão importante. Levar para o teu dia a dia o que começamos aqui hoje.",
+            "asyncText": "Parabéns. Propomos-te uma missão importante. Levar para o teu dia a dia o que começamos aqui hoje. Em alturas de stress a recuperação é fundamental."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Em períodos de stress a recuperação é essencial. Vamos cuidar de nós mesmos e ganhar perspetiva ao tirarmos uma pausa para respirarmos pelo menos uma vez ao dia ao longo da semana.",
+            "asyncText": "Em períodos de stress a recuperação é essencial. Vamos cuidar de nós mesmos e ganhar perspetiva ao tirarmos uma pausa para respirarmos pelo menos uma vez ao dia ao longo da semana."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out. \n\nO que podes trazer para o resto do teu dia depois desta sessão? Responde em duas ou três palavras.",
+            "asyncText": "Antes de sairmos deste espaço, vamos fazer um mini check-out. \n\nO que podes trazer para o resto do teu dia depois desta sessão?"
+          },
+          {
+            "text": "Quem quer começar?\n\n> Deixa todos os presentes fazerem o check-out individualmente\n\nObrigada/o a todos por fazerem o check-out e terem estado presentes hoje nesta sessão.\n\n> Conclui a sessão para encaminhar os presentes para a experiência de saída.",
+            "asyncText": "Quando estiveres pronta/o termina a sessão para ires para a experiência de saída."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676394659/Video/async_outro_drop_all_requirements_kuxqiv.mov",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676455405/Images/async_outro_drop_all_requirements_ntxvdp.png"
+        }
       }
     ],
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#d56245"
+    },
+    "hidden": false,
+    "name": "Deixa cair todas as exigências",
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
+      },
+      "host": {
+        "displayName": "Ints Ivanovskis",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    },
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Começa a sessão quando estiveres pronta/o."
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207952/Audio/Drop_all_requirements_mixdown_gapless_mrnwhp.m4a",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_portal_drop_all_requirements_ns9mqy.png"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
+      }
+    },
     "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
-    "duration": 30
+    "async": true,
+    "description": "Uma meditação guiada para uma pausa consciente nos dias mais atarefados. Re-focar a nossa atenção e ancorarmo-nos no presente pode ajudar-nos a reduzir o stress, compreender as prioridades e refrescar a mente."
   },
   "sv": {
     "published": false,
