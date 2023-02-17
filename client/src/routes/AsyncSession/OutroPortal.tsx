@@ -2,17 +2,17 @@ import React, {useEffect} from 'react';
 import {RouteProp, useRoute} from '@react-navigation/native';
 
 import useLeaveSession from '../../lib/session/hooks/useLeaveSession';
-import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import useAsyncSessionMetricEvents from '../../lib/session/hooks/useAsyncSessionMetricEvents';
 
 import OutroPortalComponent from '../../lib/session/components/OutroPortal/OutroPortal';
 import {AsyncSessionStackProps} from '../../lib/navigation/constants/routes';
+import useSessionExercise from '../../lib/session/hooks/useSessionExercise';
 
 const OutroPortal: React.FC = () => {
   const {
     params: {session},
   } = useRoute<RouteProp<AsyncSessionStackProps, 'OutroPortal'>>();
-  const exercise = useExerciseById(session.exerciseId);
+  const exercise = useSessionExercise();
   const {leaveSession} = useLeaveSession(session.mode);
   const logSessionMetricEvent = useAsyncSessionMetricEvents();
 

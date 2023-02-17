@@ -15,15 +15,15 @@ import useLeaveSession from '../../lib/session/hooks/useLeaveSession';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 import IntroPortalComponent from '../../lib/session/components/IntroPortal/IntroPortal';
 import useUpdateAsyncSessionState from '../../lib/session/hooks/useUpdateAsyncSessionState';
-import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import useAsyncSessionMetricEvents from '../../lib/session/hooks/useAsyncSessionMetricEvents';
+import useSessionExercise from '../../lib/session/hooks/useSessionExercise';
 
 const IntroPortal: React.FC = () => {
   const {
     params: {session},
   } = useRoute<RouteProp<AsyncSessionStackProps, 'IntroPortal'>>();
 
-  const exercise = useExerciseById(session.exerciseId);
+  const exercise = useSessionExercise();
   const {navigate} =
     useNavigation<
       NativeStackNavigationProp<
