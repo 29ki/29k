@@ -1,12 +1,10 @@
 import {useMemo} from 'react';
-import {useTranslation} from 'react-i18next';
 import {SessionMode} from '../../../../../shared/src/types/Session';
 
 import useExerciseIds from './useExerciseIds';
 import useGetExerciseById from './useGetExerciseById';
 
 const useGetExercisesByMode = (sessionMode?: SessionMode) => {
-  const {t} = useTranslation('exercises');
   const exerciseIds = useExerciseIds();
   const getExerciseById = useGetExerciseById();
 
