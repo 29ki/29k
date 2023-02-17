@@ -11,14 +11,12 @@ const useSessionFeedback = () => {
 
   const addSessionFeedback = useCallback(
     (feedback: Feedback) => {
-      if (feedback.sessionId) {
-        addUserEvent('feedback', {
-          answer: feedback.answer,
-          comment: feedback.comment,
-          exerciseId: feedback.exerciseId,
-          sessionId: feedback.sessionId,
-        });
-      }
+      addUserEvent('feedback', {
+        answer: feedback.answer,
+        comment: feedback.comment,
+        exerciseId: feedback.exerciseId,
+        sessionId: feedback.sessionId,
+      });
       metrics.logFeedback({
         exerciseId: feedback.exerciseId,
         sessionId: feedback.sessionId,
@@ -32,7 +30,7 @@ const useSessionFeedback = () => {
     [addUserEvent],
   );
 
-  const getFeedbacksForSession = useCallback(
+  const getFeedbackForSession = useCallback(
     (sessionId: string) => {
       return feedbackEvents.find(
         event => event.payload.sessionId === sessionId,
@@ -54,7 +52,7 @@ const useSessionFeedback = () => {
   );
 
   return {
-    getFeedbacksForSession,
+    getFeedbackForSession,
     getFeedbacksForExercise,
     addSessionFeedback,
   };
