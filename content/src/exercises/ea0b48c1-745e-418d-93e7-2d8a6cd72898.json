@@ -175,7 +175,7 @@
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675088653/Video/Videos%20PT/content_PT_lqccsc.mp4",
             "description": "",
-            "preview": "",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676619281/Images/Images%20PT/thumb_PT_content_bring_your_feel..._p1gxny.png",
             "autoPlayLoop": true
           },
           "image": {
