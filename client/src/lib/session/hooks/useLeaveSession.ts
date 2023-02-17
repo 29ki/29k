@@ -15,6 +15,7 @@ import useLiveSessionMetricEvents from './useLiveSessionMetricEvents';
 import useIsSessionHost from './useIsSessionHost';
 import {SessionMode} from '../../../../../shared/src/types/Session';
 import useAsyncSessionMetricEvents from './useAsyncSessionMetricEvents';
+import useCompletedSessionById from '../../user/hooks/useCompletedSessionById';
 
 type ScreenNavigationProps = NativeStackNavigationProp<
   TabNavigatorProps & ModalStackProps
@@ -27,6 +28,7 @@ const useLeaveSession = (sessionMode: SessionMode) => {
   const session = useSessionState(state => state.liveSession);
   const sessionState = useSessionState(state => state.sessionState);
   const asyncSession = useSessionState(state => state.asyncSession);
+  const completedSessionEvent = useCompletedSessionById(asyncSession?.id);
   const isHost = useIsSessionHost();
   const {fetchSessions} = useSessions();
   const logLiveSessionMetricEvent = useLiveSessionMetricEvents();
@@ -59,15 +61,15 @@ const useLeaveSession = (sessionMode: SessionMode) => {
     } else if (
       sessionState?.completed &&
       sessionMode === SessionMode.async &&
-      asyncSession
+      completedSessionEvent
     ) {
       navigate('CompletedSessionModal', {
-        session: asyncSession,
+        completedSessionEvent: completedSessionEvent,
       });
     }
   }, [
     sessionMode,
-    asyncSession,
+    completedSessionEvent,
     session?.id,
     session?.exerciseId,
     sessionState?.started,

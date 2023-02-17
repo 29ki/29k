@@ -5,7 +5,6 @@ import dayjs from 'dayjs';
 import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
 
-import {CompletedSession} from '../../../user/state/state';
 import {UserProfile} from '../../../../../../shared/src/types/User';
 import {ModalStackProps} from '../../../navigation/constants/routes';
 
@@ -20,9 +19,10 @@ import {CheckIcon, CommunityIcon, ProfileFillIcon} from '../../Icons';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Spacer4} from '../../Spacers/Spacer';
 import {SessionMode} from '../../../../../../shared/src/types/Session';
+import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
 
 type CompletedSessionCardProps = {
-  session: CompletedSession;
+  session: CompletedSessionEvent;
   hostProfile: UserProfile | undefined;
   hasCardBefore: boolean;
   hasCardAfter: boolean;
@@ -46,7 +46,10 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
   hasCardAfter,
 }) => {
   const {t} = useTranslation('Component.CompletedSessionCard');
-  const {exerciseId, completedAt, mode} = session;
+  const {
+    payload: {mode, exerciseId},
+    timestamp,
+  } = session;
   const exercise = useExerciseById(exerciseId);
   const {navigate} =
     useNavigation<
@@ -54,7 +57,11 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
     >();
 
   const onContextPress = useCallback(
-    () => navigate('CompletedSessionModal', {session, hostProfile}),
+    () =>
+      navigate('CompletedSessionModal', {
+        completedSessionEvent: session,
+        hostProfile,
+      }),
     [navigate, session, hostProfile],
   );
 
@@ -93,7 +100,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
         <Body14>{t('completed')}</Body14>
         <Spacer4 />
         <Badge
-          text={dayjs(completedAt).format('ddd, D MMM')}
+          text={dayjs(timestamp).format('ddd, D MMM')}
           IconAfter={
             mode === SessionMode.async ? <ProfileFillIcon /> : <CommunityIcon />
           }

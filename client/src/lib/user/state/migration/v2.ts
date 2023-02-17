@@ -1,13 +1,6 @@
-import {
-  LiveSession,
-  SessionMode,
-  SessionType,
-} from '../../../../../../shared/src/types/Session';
-import {
-  PersistedState,
-  State as CurrentState,
-  UserState as CurrentUserState,
-} from '../state';
+import {LiveSession} from '../../../../../../shared/src/types/Session';
+import {PersistedState} from '../state';
+import {V3SessionMode, V3SessionType, V3State, V3UserState} from './v3';
 
 // Types as they were in v2
 type V2PinnedSession = {
@@ -36,18 +29,18 @@ export type V2State = {
 
 const migrateCompletedSessions = (
   completedSessions: V2CompletedSession[],
-): CurrentUserState['completedSessions'] =>
+): V3UserState['completedSessions'] =>
   completedSessions.map(({type, ...rest}) => ({
     ...rest,
-    type: type === 'async' ? SessionType.public : SessionType[type],
-    mode: type === 'async' ? SessionMode.async : SessionMode.live,
+    type: type === 'async' ? V3SessionType.public : V3SessionType[type],
+    mode: type === 'async' ? V3SessionMode.async : V3SessionMode.live,
   }));
 
 const migrateUserState = async (
   userState: V2UserState,
-): Promise<CurrentUserState> => {
+): Promise<V3UserState> => {
   if (!userState.completedSessions) {
-    return userState as CurrentUserState;
+    return userState as V3UserState;
   }
 
   return {
@@ -60,10 +53,10 @@ const migrateUserState = async (
 
 const migrateUserStates = async (
   userStates: V2State['userState'],
-): Promise<CurrentState['userState']> => {
+): Promise<V3State['userState']> => {
   const userState = await Promise.all(
     Object.entries(userStates).map(
-      async ([userId, state]): Promise<[string, CurrentUserState]> => [
+      async ([userId, state]): Promise<[string, V3UserState]> => [
         userId,
         await migrateUserState(state),
       ],
