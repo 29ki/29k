@@ -166,17 +166,17 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "When we're stressed, our perceived expectations often exceed our resources. This can lead to a feeling of being overwhelmed, with thoughts and feelings spinning round and round in our heads and bodies.",
-            "asyncText": "When we're stressed, our perceived expectations often exceed our resources. This can lead to a feeling of being overwhelmed, with thoughts and feelings spinning round and round in our heads and bodies."
+            "text": "Quando estamos stressados, é frequente as nossas expectativas excederem os nossos recursos. Isso pode levar-nos a uma sensação de sobrecarga, com turbilhões de pensamentos e sensações nas nossas mentes e corpos.",
+            "asyncText": "Quando estamos stressados, é frequente as nossas expectativas excederem os nossos recursos. Isso pode levar-nos a uma sensação de sobrecarga, com turbilhões de pensamentos e sensações nas nossas mentes e corpos."
           },
           {
-            "text": "In this meditation, we'll practice taking a break from the spinning wheel and gaining some distance from our thoughts. This can help us gain perspective, relax, and change our priorities.\n\n> Press play to start the meditation.",
-            "asyncText": "In this meditation, we'll practice taking a break from the spinning wheel and gaining some distance from our thoughts. This can help us gain perspective, relax, and change our priorities.\n\n> Press play to start the meditation."
+            "text": "Nesta meditação, vamos praticar fazer uma pausa no meio da correria e ganhar algum distanciamento face aos nossos pensamentos. Isso pode ajudar-nos a ganhar uma nova perspetiva, relaxar e mudar de prioridades.\n\n> Carrega no play para iniciar a meditação",
+            "asyncText": "Nesta meditação, vamos praticar fazer uma pausa no meio da correria e ganhar algum distanciamento face aos nossos pensamentos. Isso pode ajudar-nos a ganhar uma nova perspetiva, relaxar e mudar de prioridades.\n\n> Carrega no play para iniciar a meditação"
           }
         ],
         "content": {
           "video": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674481870/Audio/meditation-drop-all-requirements_i39o6u.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676565911/FJN/Meditations/DEIXA_CAIR_TODAS_AS_EXIGENCIAS_-_06_31_hvdwyj_ncrpgs.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673974099/Video/meditation_Drop_all_requirements_a2a7ws.mp4",
             "durationTimer": true,
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_meditation_drop_all_requirements_ve8rdm.png"
