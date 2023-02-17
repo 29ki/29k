@@ -28,6 +28,9 @@
         "content": {
           "video": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674649500/Audio/meditation-the-willingness-stance_obipte.mp3"
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_audio_white_hkuobg.json"
           }
         }
       },
@@ -43,7 +46,10 @@
         ],
         "content": {
           "heading": "How did you experience the willingness stance? ",
-          "text": "Any difference?"
+          "text": "Any difference?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_1min_white_lkci1z.json"
+          }
         }
       },
       {
@@ -61,7 +67,10 @@
         ],
         "content": {
           "heading": "How did you experience the willingness stance?",
-          "text": "Any difference?"
+          "text": "Any difference?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          }
         },
         "id": "sharing"
       },
@@ -81,11 +90,17 @@
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#267ae4"
     },
     "hidden": true,
     "name": "The willingness stance",
     "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676639667/Images/placeholder_image_card_nxt9yf.png"
+      }
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
