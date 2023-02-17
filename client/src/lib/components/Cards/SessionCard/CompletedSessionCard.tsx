@@ -15,7 +15,7 @@ import {formatExerciseName} from '../../../utils/string';
 import WalletCard from '../WalletCard';
 import Badge from '../../Badge/Badge';
 import {Body14} from '../../Typography/Body/Body';
-import {CheckIcon, CommunityIcon, ProfileFillIcon} from '../../Icons';
+import {CheckIcon, CommunityIcon, MeIcon} from '../../Icons';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Spacer4} from '../../Spacers/Spacer';
 import {SessionMode} from '../../../../../../shared/src/types/Session';
@@ -102,7 +102,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
         <Badge
           text={dayjs(timestamp).format('ddd, D MMM')}
           IconAfter={
-            mode === SessionMode.async ? <ProfileFillIcon /> : <CommunityIcon />
+            mode === SessionMode.async ? <MeIcon /> : <CommunityIcon />
           }
         />
       </Row>
