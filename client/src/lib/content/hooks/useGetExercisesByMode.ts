@@ -11,7 +11,7 @@ const useGetExercisesByMode = (sessionMode?: SessionMode) => {
   return useMemo(() => {
     return exerciseIds
       .map(exerciseId => getExerciseById(exerciseId))
-      .filter(e => (e && sessionMode === SessionMode.async ? e.async : true));
+      .filter(e => (sessionMode === SessionMode.async ? e.async : true));
   }, [exerciseIds, getExerciseById, sessionMode]);
 };
 
