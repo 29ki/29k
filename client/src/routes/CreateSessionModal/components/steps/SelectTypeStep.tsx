@@ -19,7 +19,11 @@ import {
   Spacer8,
 } from '../../../../lib/components/Spacers/Spacer';
 import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
-import {Body16} from '../../../../lib/components/Typography/Body/Body';
+import {
+  Body14,
+  Body16,
+  BodyBold,
+} from '../../../../lib/components/Typography/Body/Body';
 import {Display24} from '../../../../lib/components/Typography/Display/Display';
 import {ModalHeading} from '../../../../lib/components/Typography/Heading/Heading';
 import {SPACINGS} from '../../../../lib/constants/spacings';
@@ -66,6 +70,12 @@ const Row = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
+});
+
+const Centered = styled.View({
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
 });
 
 const LogoWrapper = styled.View({
@@ -168,6 +178,10 @@ const SelectTypeStep: React.FC<StepProps> = ({
           </TypeItemWrapper>
         )}
       </Row>
+      <Spacer16 />
+      <Centered>
+        <Body16>{t('or')}</Body16>
+      </Centered>
       <Spacer16 />
       <ButtonWrapper>
         <Button variant="secondary" onPress={onJoinByInvite}>
