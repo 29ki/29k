@@ -1,13 +1,17 @@
 import {useMemo} from 'react';
 
-import useCurrentUserState from '../../user/hooks/useCurrentUserState';
+import useUserEvents from '../../user/hooks/useUserEvents';
 
 const useCompletedSessions = () => {
-  const userState = useCurrentUserState();
+  const {completedSessionEvents} = useUserEvents();
 
   const completedSessions = useMemo(
-    () => userState?.completedSessions ?? [],
-    [userState],
+    () =>
+      completedSessionEvents.sort(
+        (a, b) =>
+          new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime(),
+      ),
+    [completedSessionEvents],
   );
 
   return {

@@ -31,7 +31,6 @@ import {ExerciseSlideSharingSlide} from '../../../../shared/src/types/generated/
 import {complement, isNil} from 'ramda';
 import MyPostCard from '../../lib/session/components/Posts/MyPostCard';
 import useUser from '../../lib/user/hooks/useUser';
-import useCompletedSessionById from '../../lib/user/hooks/useCompletedSessionById';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -67,39 +66,36 @@ const ButtonWrapper = styled.View({flexDirection: 'row'});
 
 const CompletedSessionModal = () => {
   const {
-    params: {session, hostProfile},
+    params: {completedSessionEvent, hostProfile},
   } = useRoute<RouteProp<ModalStackProps, 'CompletedSessionModal'>>();
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {t} = useTranslation('Modal.CompletedSession');
-  const completedSession = useCompletedSessionById(session.id);
+  const {payload, timestamp} = completedSessionEvent;
   const user = useUser();
 
-  const sessionTime = useMemo(
-    () => dayjs(completedSession?.completedAt),
-    [completedSession?.completedAt],
-  );
+  const sessionTime = useMemo(() => dayjs(timestamp), [timestamp]);
 
   const onStartSession = useCallback(() => {
-    navigate('CreateSessionModal', {exerciseId: session.exerciseId});
-  }, [session, navigate]);
+    navigate('CreateSessionModal', {exerciseId: payload.exerciseId});
+  }, [payload, navigate]);
 
-  const exercise = useExerciseById(session?.exerciseId);
+  const exercise = useExerciseById(payload.exerciseId);
   const {getSharingPostForSession} = useSharingPosts(exercise?.id);
 
   const sharingPosts = useMemo(() => {
-    if (session.mode === SessionMode.async) {
+    if (payload.mode === SessionMode.async) {
       return exercise?.slides
         .filter(s => s.type === 'sharing')
         .map(s =>
           getSharingPostForSession(
-            session.id,
+            payload.id,
             (s as ExerciseSlideSharingSlide).id,
           ),
         )
         .filter(complement(isNil)) as PostEvent[];
     }
-  }, [getSharingPostForSession, exercise, session]);
+  }, [getSharingPostForSession, exercise, payload]);
 
   const userProfile = useMemo(() => {
     if (user?.displayName) {
@@ -110,7 +106,7 @@ const CompletedSessionModal = () => {
     }
   }, [user]);
 
-  if (!completedSession || !exercise) {
+  if (!exercise) {
     return null;
   }
 
@@ -162,7 +158,7 @@ const CompletedSessionModal = () => {
             <Badge
               text={sessionTime.format('ddd, D MMM')}
               IconAfter={
-                session.mode === SessionMode.async ? (
+                payload.mode === SessionMode.async ? (
                   <ProfileFillIcon />
                 ) : (
                   <CommunityIcon />

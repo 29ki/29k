@@ -5,7 +5,6 @@ import dayjs from 'dayjs';
 import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
 
-import {CompletedSession} from '../../../user/state/state';
 import {UserProfile} from '../../../../../../shared/src/types/User';
 import {ModalStackProps} from '../../../navigation/constants/routes';
 
@@ -20,9 +19,10 @@ import {CheckIcon, CommunityIcon, ProfileFillIcon} from '../../Icons';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Spacer4} from '../../Spacers/Spacer';
 import {SessionMode} from '../../../../../../shared/src/types/Session';
+import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
 
 type CompletedSessionCardProps = {
-  session: CompletedSession;
+  completedSessionEvent: CompletedSessionEvent;
   hostProfile: UserProfile | undefined;
   hasCardBefore: boolean;
   hasCardAfter: boolean;
@@ -40,13 +40,16 @@ const ChekIconWrapper = styled.View({
 });
 
 const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
-  session,
+  completedSessionEvent,
   hostProfile,
   hasCardBefore,
   hasCardAfter,
 }) => {
   const {t} = useTranslation('Component.CompletedSessionCard');
-  const {exerciseId, completedAt, mode} = session;
+  const {
+    payload: {mode, exerciseId},
+    timestamp,
+  } = completedSessionEvent;
   const exercise = useExerciseById(exerciseId);
   const {navigate} =
     useNavigation<
@@ -54,8 +57,12 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
     >();
 
   const onContextPress = useCallback(
-    () => navigate('CompletedSessionModal', {session, hostProfile}),
-    [navigate, session, hostProfile],
+    () =>
+      navigate('CompletedSessionModal', {
+        completedSessionEvent,
+        hostProfile,
+      }),
+    [navigate, completedSessionEvent, hostProfile],
   );
 
   const image = useMemo(
@@ -93,7 +100,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
         <Body14>{t('completed')}</Body14>
         <Spacer4 />
         <Badge
-          text={dayjs(completedAt).format('ddd, D MMM')}
+          text={dayjs(timestamp).format('ddd, D MMM')}
           IconAfter={
             mode === SessionMode.async ? <ProfileFillIcon /> : <CommunityIcon />
           }
