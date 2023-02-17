@@ -12,20 +12,13 @@ const useSessionFeedback = () => {
   const addSessionFeedback = useCallback(
     (feedback: Feedback) => {
       addUserEvent('feedback', {
-        answer: feedback.answer,
-        comment: feedback.comment,
-        exerciseId: feedback.exerciseId,
-        sessionId: feedback.sessionId,
-      });
-      metrics.logFeedback({
-        exerciseId: feedback.exerciseId,
-        sessionId: feedback.sessionId,
-        completed: feedback.completed,
         question: feedback.question,
         answer: feedback.answer,
         comment: feedback.comment,
-        host: feedback.host,
+        exerciseId: feedback.exerciseId,
+        sessionId: feedback.sessionId,
       });
+      metrics.logFeedback(feedback);
     },
     [addUserEvent],
   );

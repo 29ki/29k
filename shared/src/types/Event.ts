@@ -8,6 +8,7 @@ export type PostPayload = {
 };
 
 export type FeedbackPayload = {
+  question: string;
   answer: boolean;
   comment?: string;
   exerciseId: string;
