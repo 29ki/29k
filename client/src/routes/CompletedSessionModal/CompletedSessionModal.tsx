@@ -176,7 +176,9 @@ const CompletedSessionModal = () => {
                   key={index}
                   text={post.payload.text}
                   isPublic={post.payload.isPublic}
-                  userProfile={userProfile}
+                  userProfile={
+                    !post.payload.isAnonymous ? userProfile : undefined
+                  }
                 />
               ))}
             </Gutters>
