@@ -1,5 +1,8 @@
 import {omit, uniqBy} from 'ramda';
-import {UserEvent as CurrentUserEvent} from '../../../../../../shared/src/types/Event';
+import {
+  CompletedSessionEvent,
+  UserEvent as CurrentUserEvent,
+} from '../../../../../../shared/src/types/Event';
 import {LANGUAGE_TAG} from '../../../i18n';
 import {
   PersistedState,
@@ -80,13 +83,13 @@ export type V3State = {
 
 const migrateCompletedSessionsToEvents = (
   completedSessions: V3CompletedSession[],
-): CurrentUserEvent[] => {
+): CompletedSessionEvent[] => {
   const sessions = uniqBy(s => s.id, completedSessions);
   return sessions.map(s => ({
     type: 'completedSession',
     payload: omit(['completedAt'], s),
     timestamp: new Date(s.completedAt),
-  })) as unknown as CurrentUserEvent[];
+  })) as unknown as CompletedSessionEvent[];
 };
 
 const migrateUserState = async (
