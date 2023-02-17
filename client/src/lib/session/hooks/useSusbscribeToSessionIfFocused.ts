@@ -32,7 +32,6 @@ const useSubscribeToSessionIfFocused = (
     >();
 
   useEffect(() => {
-    console.log('SET STATE');
     setSession(session);
     setExercise(getExerciseById(session.exerciseId));
   }, [session, setSession, setExercise, getExerciseById]);
