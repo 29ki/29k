@@ -64,7 +64,7 @@ const useLeaveSession = (sessionMode: SessionMode) => {
       completedSessionEvent
     ) {
       navigate('CompletedSessionModal', {
-        completedSessionEvent: completedSessionEvent,
+        completedSessionEvent,
       });
     }
   }, [

@@ -10,7 +10,7 @@ import {
   UserEventData,
   FeedbackEventData,
   PostEventData,
-  CompltedSessionEventData,
+  CompletedSessionEventData,
 } from '../../../../../shared/src/types/Event';
 
 const USER_STATE_VERSION = 4;
@@ -80,7 +80,7 @@ const getTypedEvent = (event: UserEventData) => {
     case 'post':
       return event as PostEventData;
     case 'completedSession':
-      return event as CompltedSessionEventData;
+      return event as CompletedSessionEventData;
     default:
       return event as FeedbackEventData; // some type has to be the fallback
   }

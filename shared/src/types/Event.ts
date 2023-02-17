@@ -48,5 +48,8 @@ export type UserEvent = PostEvent | FeedbackEvent | CompletedSessionEvent;
 
 export type PostEventData = Omit<PostEvent, 'timestamp'>;
 export type FeedbackEventData = Omit<FeedbackEvent, 'timestamp'>;
-export type CompltedSessionEventData = Omit<CompletedSessionEvent, 'timestamp'>;
+export type CompletedSessionEventData = Omit<
+  CompletedSessionEvent,
+  'timestamp'
+>;
 export type UserEventData = Omit<UserEvent, 'timestamp'>;
