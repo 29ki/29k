@@ -229,16 +229,16 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.",
-            "asyncText": "Well done! If you're up for it, you can continue what we started here today with a mission to bring this into your everyday life. In times of stress, recovery is essential."
+            "text": "Parabéns. Propomos-te uma missão importante. Levar para o teu dia a dia o que começamos aqui hoje.",
+            "asyncText": "Parabéns. Propomos-te uma missão importante. Levar para o teu dia a dia o que começamos aqui hoje. Em alturas de stress a recuperação é fundamental."
           },
           {
-            "text": "In stressful periods recovery is key. Let’s give ourselves some care and gain perspective by taking a step back and take a breathing break at least once a day for the coming week.",
-            "asyncText": "Let's give ourselves some care and gain perspective by taking a step back and taking a breathing break at least once a day for the coming week."
+            "text": "Em períodos de stress a recuperação é essencial. Vamos cuidar de nós mesmos e ganhar perspetiva ao tirarmos uma pausa para respirarmos pelo menos uma vez ao dia ao longo da semana.",
+            "asyncText": "Em períodos de stress a recuperação é essencial. Vamos cuidar de nós mesmos e ganhar perspetiva ao tirarmos uma pausa para respirarmos pelo menos uma vez ao dia ao longo da semana."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nWhat will you bring for the rest of your day from this? Please answer in two-three words.",
-            "asyncText": "Before leaving this space, check-out with yourself. \n\nWhat will you bring from this session for the rest of today?"
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out. \n\nO que podes trazer para o resto do teu dia depois desta sessão? Responde em duas ou três palavras.",
+            "asyncText": "Antes de sairmos deste espaço, vamos fazer um mini check-out. \n\nO que podes trazer para o resto do teu dia depois desta sessão?"
           },
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience.",
