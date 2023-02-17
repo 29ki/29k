@@ -69,6 +69,7 @@ describe('useSessionFeedback', () => {
             comment: 'comment',
             exerciseId: 'exercise-id',
             sessionId: 'session-id',
+            question: 'question',
           },
           timestamp: expect.any(Date),
           type: 'feedback',
