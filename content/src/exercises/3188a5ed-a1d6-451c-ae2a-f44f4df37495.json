@@ -150,11 +150,11 @@
         "hostNotes": [
           {
             "text": "Bem-vindos. Eu sou o/a X e hoje vamos estar juntos durante 30 minutos a refletir sobre como lidar com situações stressantes.  Faremos uma breve introdução, um exercício de meditação e teremos depois um momento de reflexão e partilha conjunta.",
-            "asyncText": "Bem-vinda/o! Nesta sessão vamos refletir sobre como lidar com situações stressantes.  Faremos um exercício de meditação e teremos depois um momento de reflexão e partilha da experiência."
+            "asyncText": "Bem-vinda/o! Nesta sessão vamos refletir sobre como lidar com situações stressantes. Faremos um exercício de meditação e teremos depois um momento de reflexão e partilha da experiência."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started.",
-            "asyncText": "Before we move on into the session, check-in with yourself for a few seconds. What brought you here today?\n\n…\n\nLet’s get started."
+            "text": "Vamos começar com um mini check-in. Como te sentes agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusivé tu, façam check-in individual\n\nObrigada/o a todos pelo check-in. Vamos começar.",
+            "asyncText": "Antes de iniciarmos a sessão, faz uns segundos de check-in contigo própria/o. O que te trouxe aqui hoje?\n\n…\n\nVamos começar."
           }
         ],
         "video": {
