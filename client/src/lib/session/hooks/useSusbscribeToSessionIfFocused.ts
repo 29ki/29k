@@ -22,6 +22,7 @@ const useSubscribeToSessionIfFocused = (
   const setSessionState = useSessionState(state => state.setSessionState);
   const setSession = useSessionState(state => state.setLiveSession);
   const setExercise = useSessionState(state => state.setExercise);
+  const reset = useSessionState(state => state.reset);
   const {fetchSessions} = useSessions();
   const subscribeToSession = useSubscribeToSession(session.id);
   const isFocused = useIsFocused();
@@ -40,6 +41,7 @@ const useSubscribeToSessionIfFocused = (
     if (isFocused) {
       return subscribeToSession(sessionState => {
         if (!sessionState || !session || (exitOnEnded && sessionState?.ended)) {
+          reset();
           fetchSessions();
           navigate('Sessions');
           navigate('SessionUnavailableModal');
@@ -55,6 +57,7 @@ const useSubscribeToSessionIfFocused = (
     exitOnEnded,
     fetchSessions,
     navigate,
+    reset,
     setSessionState,
     setSession,
     session,
