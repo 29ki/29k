@@ -3,7 +3,6 @@ import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import dayjs from 'dayjs';
 
 import {SPACINGS} from '../../lib/constants/spacings';
 import {COLORS} from '../../../../shared/src/constants/colors';
@@ -140,7 +139,7 @@ const Session: React.FC = () => {
   const {checkCameraPermissions, checkMicrophonePermissions} =
     useCheckPermissions();
   const user = useUser();
-  const {addCompletedSession} = useUserState();
+  const {addUserEvent} = useUserState();
   const {navigateToIndex, setPlaying} = useUpdateSessionState(session.id);
   const {conditionallyMuteParticipants} = useMuteAudio();
 
@@ -157,14 +156,13 @@ const Session: React.FC = () => {
 
   useEffect(() => {
     if (sessionState?.completed) {
-      addCompletedSession({
+      addUserEvent('completedSession', {
         id: sessionState?.id,
         hostId: session.hostId,
         type: session.type,
         mode: session.mode,
         language: session.language,
         exerciseId: session.exerciseId,
-        completedAt: dayjs.utc().toDate(),
       });
       logSessionMetricEvent('Complete Sharing Session');
     }
@@ -173,7 +171,7 @@ const Session: React.FC = () => {
     sessionState?.id,
     session,
     logSessionMetricEvent,
-    addCompletedSession,
+    addUserEvent,
   ]);
 
   useEffect(() => {

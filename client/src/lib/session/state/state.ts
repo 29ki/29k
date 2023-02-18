@@ -1,11 +1,12 @@
+import {omit} from 'ramda';
+import {create} from 'zustand';
 import {
   AsyncSession,
   LiveSession,
   SessionState,
 } from '../../../../../shared/src/types/Session';
-import {create} from 'zustand';
-import {IconType} from '../../../lib/components/Icons';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
+import {IconType} from '../../../lib/components/Icons';
 
 export type Notification = {
   text: string;
@@ -50,7 +51,11 @@ const useSessionState = create<State & Actions>()((set, get) => ({
   setPartialSessionState: (sessionState: Partial<SessionState>) => {
     const existingState = get().sessionState;
     if (existingState) {
-      set({sessionState: {...existingState, ...sessionState}});
+      const completed = existingState?.completed;
+      const newSessionState = completed
+        ? omit(['completed'], sessionState)
+        : sessionState;
+      set({sessionState: {...existingState, ...newSessionState}});
     }
   },
   setSessionState: sessionState => set({sessionState}),

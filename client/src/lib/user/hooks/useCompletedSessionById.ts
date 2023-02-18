@@ -1,16 +1,14 @@
 import {useMemo} from 'react';
-import useUserState, {getCurrentUserStateSelector} from '../state/state';
+import useUserEvents from './useUserEvents';
 
 const useCompletedSessionById = (sessionId?: string) => {
-  const completedSessions = useUserState(state =>
-    getCurrentUserStateSelector(state),
-  )?.completedSessions;
+  const {completedSessionEvents} = useUserEvents();
 
   return useMemo(() => {
-    if (sessionId && completedSessions) {
-      return completedSessions.find(cs => cs.id === sessionId);
+    if (sessionId && completedSessionEvents) {
+      return completedSessionEvents.find(cs => cs.payload.id === sessionId);
     }
-  }, [sessionId, completedSessions]);
+  }, [sessionId, completedSessionEvents]);
 };
 
 export default useCompletedSessionById;

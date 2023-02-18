@@ -82,7 +82,7 @@ const Session: React.FC = () => {
   const theme = exercise?.theme;
   const logSessionMetricEvent = useAsyncSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession(session.mode);
-  const {addCompletedSession} = useUserState();
+  const {addUserEvent} = useUserState();
   const {navigateToIndex, setPlaying} = useUpdateAsyncSessionState(session);
 
   usePreventGoingBack(leaveSessionWithConfirm);
@@ -95,9 +95,8 @@ const Session: React.FC = () => {
 
   useEffect(() => {
     if (sessionState?.completed && exercise?.id) {
-      addCompletedSession({
+      addUserEvent('completedSession', {
         id: sessionState?.id,
-        completedAt: new Date(),
         exerciseId: exercise?.id,
         language: session.language,
         type: session.type,
@@ -113,7 +112,7 @@ const Session: React.FC = () => {
     session.type,
     session.mode,
     logSessionMetricEvent,
-    addCompletedSession,
+    addUserEvent,
   ]);
 
   useEffect(() => {

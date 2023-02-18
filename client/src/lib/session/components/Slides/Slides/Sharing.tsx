@@ -103,7 +103,8 @@ const Sharing: React.FC<SharingProps> = ({slide, active}) => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const user = useUser();
-  const [postListHeight, setPostListHeight] = useState(0);
+  const [otherPostListHeight, setOhterPostListHeight] = useState(0);
+  const [myPostListHeight, setMyPostListHeight] = useState(0);
   const session = useSessionState(state => state.asyncSession);
   const theme = useSessionState(state => state.exercise?.theme);
   const {
@@ -159,21 +160,31 @@ const Sharing: React.FC<SharingProps> = ({slide, active}) => {
     return previousPosts;
   }, [currentPostEvent, previousPosts]);
 
-  const onLayout = useCallback(
+  const onOhterPostListLayout = useCallback(
     (event: LayoutChangeEvent) => {
-      setPostListHeight(event.nativeEvent.layout.height);
+      setOhterPostListHeight(event.nativeEvent.layout.height);
     },
-    [setPostListHeight],
+    [setOhterPostListHeight],
+  );
+
+  const onMyPostListLayout = useCallback(
+    (event: LayoutChangeEvent) => {
+      setMyPostListHeight(event.nativeEvent.layout.height);
+    },
+    [setMyPostListHeight],
   );
 
   useEffect(() => {
     if (active) {
       // Wait until oters posts has rendered
       requestAnimationFrame(() => {
-        scrollRef.current?.scrollTo({y: postListHeight, animated: true});
+        scrollRef.current?.scrollTo({
+          y: otherPostListHeight + myPostListHeight,
+          animated: true,
+        });
       });
     }
-  }, [postListHeight, active]);
+  }, [otherPostListHeight, myPostListHeight, active]);
 
   const userProfile = useMemo(() => {
     if (user?.displayName) {
@@ -203,7 +214,7 @@ const Sharing: React.FC<SharingProps> = ({slide, active}) => {
         <ItemWrapper isLast={index === allMyPosts.length - 1}>
           <ListPostCard
             text={item.payload.text}
-            userProfile={userProfile}
+            userProfile={!item.payload.isAnonymous ? userProfile : undefined}
             isPublic={item.payload.isPublic}
             sharingAt={item.timestamp}
           />
@@ -231,7 +242,7 @@ const Sharing: React.FC<SharingProps> = ({slide, active}) => {
         </TopGradient>
         <Content>
           <PostsList
-            onLayout={onLayout}
+            onLayout={onOhterPostListLayout}
             renderItem={renderOtherItem}
             keyExtractor={otherKeyExtractor}
             ListEmptyComponent={
@@ -260,7 +271,11 @@ const Sharing: React.FC<SharingProps> = ({slide, active}) => {
               <MyPostCard
                 text={currentPostEvent.payload.text}
                 isPublic={currentPostEvent.payload.isPublic}
-                userProfile={userProfile}
+                userProfile={
+                  !currentPostEvent.payload.isAnonymous
+                    ? userProfile
+                    : undefined
+                }
               />
             </Gutters>
           )}
@@ -274,6 +289,7 @@ const Sharing: React.FC<SharingProps> = ({slide, active}) => {
               </Gutters>
               <Spacer4 />
               <PostsList
+                onLayout={onMyPostListLayout}
                 renderItem={renderMyItem}
                 keyExtractor={myKeyExtractor}
                 horizontal
