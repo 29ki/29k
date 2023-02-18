@@ -18,17 +18,17 @@ import useIsSessionHost from '../../lib/session/hooks/useIsSessionHost';
 import usePreventGoingBack from '../../lib/navigation/hooks/usePreventGoingBack';
 import useUpdateSessionState from '../../lib/session/hooks/useUpdateSessionState';
 import useSubscribeToSessionIfFocused from '../../lib/session//hooks/useSusbscribeToSessionIfFocused';
-import useSessionExercise from '../../lib/session//hooks/useSessionExercise';
 import IntroPortalComponent from '../../lib/session/components/IntroPortal/IntroPortal';
 import PortalStatus from '../../lib/session/components/PortalStatus/PortalStatus';
 import useLiveSessionMetricEvents from '../../lib/session/hooks/useLiveSessionMetricEvents';
+import useSessionState from '../../lib/session/state/state';
 
 const IntroPortal: React.FC = () => {
   const {
     params: {session},
   } = useRoute<RouteProp<LiveSessionStackProps, 'IntroPortal'>>();
 
-  const exercise = useSessionExercise();
+  const exercise = useSessionState(state => state.exercise);
   const isHost = useIsSessionHost();
   const {navigate} =
     useNavigation<

@@ -6,7 +6,6 @@ import useSessionState from '../../state/state';
 import useDailyState from '../../../daily/state/state';
 import Badge from '../../../components/Badge/Badge';
 import useSessionStartTime from '../../../session/hooks/useSessionStartTime';
-import useSessionExercise from '../../../session/hooks/useSessionExercise';
 import styled from 'styled-components/native';
 import {Body14} from '../../../components/Typography/Body/Body';
 import Gutters from '../../../components/Gutters/Gutters';
@@ -33,7 +32,7 @@ export const Container = styled(Gutters)({
 
 const PortalStatus: React.FC = () => {
   const {t} = useTranslation('Screen.Portal');
-  const exercise = useSessionExercise();
+  const exercise = useSessionState(state => state.exercise);
   const textColor = exercise?.theme?.textColor;
   const sessionState = useSessionState(state => state.sessionState);
   const startTime = useSessionState(state => state.liveSession?.startTime);

@@ -27,7 +27,6 @@ import HostNotes from '../../lib/session/components/HostNotes/HostNotes';
 import Screen from '../../lib/components/Screen/Screen';
 import useUpdateAsyncSessionState from '../../lib/session/hooks/useUpdateAsyncSessionState';
 import Gutters from '../../lib/components/Gutters/Gutters';
-import useSessionExercise from '../../lib/session/hooks/useSessionExercise';
 
 const Spotlight = styled.View({
   flex: 1,
@@ -78,7 +77,7 @@ const Session: React.FC = () => {
   const setCurrentContentReachedEnd = useSessionState(
     state => state.setCurrentContentReachedEnd,
   );
-  const exercise = useSessionExercise();
+  const exercise = useSessionState(state => state.exercise);
   const sessionSlideState = useSessionSlideState();
   const theme = exercise?.theme;
   const logSessionMetricEvent = useAsyncSessionMetricEvents();

@@ -6,13 +6,13 @@ import useAsyncSessionMetricEvents from '../../lib/session/hooks/useAsyncSession
 
 import OutroPortalComponent from '../../lib/session/components/OutroPortal/OutroPortal';
 import {AsyncSessionStackProps} from '../../lib/navigation/constants/routes';
-import useSessionExercise from '../../lib/session/hooks/useSessionExercise';
+import useSessionState from '../../lib/session/state/state';
 
 const OutroPortal: React.FC = () => {
   const {
     params: {session},
   } = useRoute<RouteProp<AsyncSessionStackProps, 'OutroPortal'>>();
-  const exercise = useSessionExercise();
+  const exercise = useSessionState(state => state.exercise);
   const {leaveSession} = useLeaveSession(session.mode);
   const logSessionMetricEvent = useAsyncSessionMetricEvents();
 

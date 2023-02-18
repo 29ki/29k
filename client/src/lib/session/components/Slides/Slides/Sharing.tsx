@@ -31,7 +31,6 @@ import {
 } from '../../../../navigation/constants/routes';
 import useSharingPosts from '../../../../posts/hooks/useSharingPosts';
 import useUser from '../../../../user/hooks/useUser';
-import useExerciseTheme from '../../../hooks/useExerciseTheme';
 import useSessionState from '../../../state/state';
 import MyPostCard from '../../Posts/MyPostCard';
 import ListPostCard, {CARD_WIDTH} from '../../Posts/ListPostCard';
@@ -106,7 +105,7 @@ const Sharing: React.FC<SharingProps> = ({slide, active}) => {
   const user = useUser();
   const [postListHeight, setPostListHeight] = useState(0);
   const session = useSessionState(state => state.asyncSession);
-  const theme = useExerciseTheme();
+  const theme = useSessionState(state => state.exercise?.theme);
   const {
     getSharingPosts,
     getSharingPostForSession,

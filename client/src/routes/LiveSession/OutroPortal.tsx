@@ -3,7 +3,7 @@ import {RouteProp, useRoute} from '@react-navigation/native';
 
 import useLeaveSession from '../../lib/session/hooks/useLeaveSession';
 import useLiveSessionMetricEvents from '../../lib/session/hooks/useLiveSessionMetricEvents';
-import useSessionExercise from '../../lib/session/hooks/useSessionExercise';
+import useSessionState from '../../lib/session/state/state';
 
 import OutroPortalComponent from '../../lib/session/components/OutroPortal/OutroPortal';
 import {LiveSessionStackProps} from '../../lib/navigation/constants/routes';
@@ -12,7 +12,7 @@ const OutroPortal: React.FC = () => {
   const {
     params: {session},
   } = useRoute<RouteProp<LiveSessionStackProps, 'OutroPortal'>>();
-  const exercise = useSessionExercise();
+  const exercise = useSessionState(state => state.exercise);
   const {leaveSession} = useLeaveSession(session.mode);
   const logSessionMetricEvent = useLiveSessionMetricEvents();
 

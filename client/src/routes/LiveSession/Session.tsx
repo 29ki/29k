@@ -21,8 +21,6 @@ import useIsSessionHost from '../../lib/session/hooks/useIsSessionHost';
 import useLocalParticipant from '../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../lib/user/hooks/useUser';
 import useSubscribeToSessionIfFocused from '../../lib/session/hooks/useSusbscribeToSessionIfFocused';
-import useExerciseTheme from '../../lib/session/hooks/useExerciseTheme';
-import useSessionExercise from '../../lib/session/hooks/useSessionExercise';
 import useUpdateSessionState from '../../lib/session/hooks/useUpdateSessionState';
 import useLiveSessionMetricEvents from '../../lib/session/hooks/useLiveSessionMetricEvents';
 import useCheckPermissions from '../../lib/session/hooks/useCheckPermissions';
@@ -123,12 +121,13 @@ const Session: React.FC = () => {
   useSubscribeToSessionIfFocused(session, {exitOnEnded: false});
 
   const [scrollHeight, setScrollHeight] = useState(0);
-  const exercise = useSessionExercise();
+  const exercise = useSessionState(state => state.exercise);
   const participants = useSessionParticipants();
   const {endSession} = useUpdateSessionState(session.id);
   const me = useLocalParticipant();
   const isHost = useIsSessionHost();
   const sessionState = useSessionState(state => state.sessionState);
+  const theme = useSessionState(state => state.exercise?.theme);
   const currentContentReachedEnd = useSessionState(
     state => state.currentContentReachedEnd,
   );
@@ -136,7 +135,6 @@ const Session: React.FC = () => {
     state => state.setCurrentContentReachedEnd,
   );
   const sessionSlideState = useSessionSlideState();
-  const theme = useExerciseTheme();
   const logSessionMetricEvent = useLiveSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession(session.mode);
   const {checkCameraPermissions, checkMicrophonePermissions} =
