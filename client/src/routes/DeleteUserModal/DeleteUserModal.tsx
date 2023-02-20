@@ -36,9 +36,9 @@ const DeleteUserModal = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const {deleteUser} = useDeleteUser();
+  const {deleteUser, isDeletingUser} = useDeleteUser();
 
-  const signIn = useCallback(async () => {
+  const onConfirm = useCallback(async () => {
     try {
       setIsSigningIn(true);
       await auth().signInWithEmailAndPassword(email, password);
@@ -63,7 +63,7 @@ const DeleteUserModal = () => {
             autoCapitalize="none"
             autoComplete="email"
             autoCorrect={false}
-            onSubmitEditing={signIn}
+            onSubmitEditing={onConfirm}
             placeholder={t('email')}
             onChangeText={setEmail}
             defaultValue={email}
@@ -74,7 +74,7 @@ const DeleteUserModal = () => {
             autoCapitalize="none"
             autoComplete="password"
             autoCorrect={false}
-            onSubmitEditing={signIn}
+            onSubmitEditing={onConfirm}
             placeholder={t('password')}
             onChangeText={setPassword}
           />
@@ -88,10 +88,10 @@ const DeleteUserModal = () => {
         )}
         <StyledButton
           variant="primary"
-          disabled={isSigningIn || !email || !password}
-          loading={isSigningIn}
-          onPress={signIn}>
-          {t('signIn')}
+          disabled={isSigningIn || isDeletingUser || !email || !password}
+          loading={isSigningIn || isDeletingUser}
+          onPress={onConfirm}>
+          {t('confirm')}
         </StyledButton>
       </Gutters>
     </SheetModal>
