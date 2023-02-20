@@ -27,6 +27,7 @@ import ContactModal from '../../routes/ConcactModal/ContactModal';
 import SessionFeedbackModal from '../../routes/SessionFeedbackModal/SessionFeedbackModal';
 import SharingModal from '../../routes/SharingModal/SharingModal';
 import SharingPostModal from '../../routes/SharingPostModal/SharingPostModal';
+import DeleteUserModal from '../../routes/DeleteUserModal/DeleteUserModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -174,6 +175,12 @@ const ModalStack = () => {
         <Screen
           name={'SignInModal'}
           component={SignInModal}
+          options={shortSheetModalScreenOptions}
+        />
+
+        <Screen
+          name={'DeleteUserModal'}
+          component={DeleteUserModal}
           options={shortSheetModalScreenOptions}
         />
 
