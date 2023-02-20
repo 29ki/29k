@@ -5,18 +5,10 @@ import LottiePlayer, {
   LottiePlayerHandle,
 } from '../../../components/LottiePlayer/LottiePlayer';
 
-const LottieWrapper = styled.View<{paused: boolean}>(({paused}) => ({
+const LottieStyled = styled(LottiePlayer)<{paused: boolean}>(({paused}) => ({
   opacity: paused ? 0 : 1,
   ...StyleSheet.absoluteFillObject,
 }));
-
-const LottieStyled = styled(LottiePlayer)({
-  flex: 1,
-});
-
-const LottieStyledWithoutOpacity = styled(LottiePlayer)({
-  ...StyleSheet.absoluteFillObject,
-});
 
 type LottieTransitionProps = {
   startSource?: string;
@@ -28,6 +20,7 @@ type LottieTransitionProps = {
   loop?: boolean;
   paused?: boolean;
   onTransition?: () => void;
+  onReadyForDisplay?: () => void;
   onEnd?: () => void;
 };
 
@@ -81,24 +74,22 @@ const LottieTransition: React.FC<LottieTransitionProps> = ({
     }
   }, [loop, setIsEnding, onTransition]);
 
-  console.log('transition render', loop, paused || !isLooping);
+  console.log('duration', loopDuration);
 
   return (
     <>
-      {/* {lottieLoopSource && loopDuration && (
-        <LottieWrapper paused={paused || !isLooping}>
-          <LottieStyled
-            ref={loopVideoRef}
-            source={lottieLoopSource}
-            onEnd={onLoopEnd}
-            paused={paused || !isLooping}
-            repeat={loop}
-            duration={20}
-          />
-        </LottieWrapper>
-      )} */}
+      {lottieLoopSource && loopDuration && (
+        <LottieStyled
+          ref={loopVideoRef}
+          source={lottieLoopSource}
+          onEnd={onLoopEnd}
+          paused={paused || !isLooping}
+          repeat={loop}
+          duration={loopDuration}
+        />
+      )}
 
-      {/* {lottieStartSource && startDuration && (
+      {lottieStartSource && startDuration && (
         <LottieStyled
           ref={startVideoRef}
           source={lottieStartSource}
@@ -107,19 +98,17 @@ const LottieTransition: React.FC<LottieTransitionProps> = ({
           repeat={loop}
           duration={startDuration}
         />
-      )}*/}
+      )}
 
       {lottieEndSource && endDuration && (
-        <LottieWrapper paused={false}>
-          <LottieStyled
-            ref={endVideoRef}
-            source={lottieEndSource}
-            onEnd={onEnd}
-            paused={paused || !isEnding}
-            repeat={false}
-            duration={endDuration}
-          />
-        </LottieWrapper>
+        <LottieStyled
+          ref={endVideoRef}
+          source={lottieEndSource}
+          onEnd={onEnd}
+          paused={paused || !isEnding}
+          repeat={false}
+          duration={endDuration}
+        />
       )}
     </>
   );

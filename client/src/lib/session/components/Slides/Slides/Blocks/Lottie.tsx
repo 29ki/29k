@@ -8,7 +8,6 @@ import LPlayer, {
   LottiePlayerHandle,
 } from '../../../../../components/LottiePlayer/LottiePlayer';
 import {VideoBase} from '../../../VideoBase/VideoBase';
-import LottieTransition from '../../../VideoTransition/LottieTransition';
 
 const LottiePlayer = styled(LPlayer)({
   flex: 1,
@@ -43,7 +42,6 @@ const Lottie: React.FC<LottieProps> = ({
   duration,
   autoPlayLoop = false,
   durationTimer = false,
-  end,
 }) => {
   const lottieRef = useRef<LottiePlayerHandle>(null);
   const videoRef = useRef<RNVideo>(null);
@@ -167,12 +165,6 @@ const Lottie: React.FC<LottieProps> = ({
 
   return (
     <>
-      {/* <LottieTransition
-        loopSource={source.uri}
-        loopDuration={duration}
-        loop={false}
-        onEnd={onEnd}
-      /> */}
       <LottiePlayer
         paused={paused}
         source={source}
