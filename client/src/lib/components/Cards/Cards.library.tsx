@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 import ScreenWrapper from '../../uiLib/decorators/ScreenWrapper';
 import Badge from '../Badge/Badge';
-import {PrivateIcon, PublicIcon} from '../Icons';
+import {MeIcon, CommunityIcon} from '../Icons';
 import {Spacer16, Spacer4} from '../Spacers/Spacer';
 import {Body14} from '../Typography/Body/Body';
 import Card from './Card';
@@ -64,7 +64,7 @@ export const AllCards = () => (
       onPress={() => {}}>
       <Row>
         <Spacer4 />
-        <Badge text="03:43s" IconAfter={<PrivateIcon />} />
+        <Badge text="03:43s" IconAfter={<MeIcon />} />
       </Row>
     </Card>
     <Spacer16 />
@@ -77,7 +77,7 @@ export const AllCards = () => (
       <Row>
         <Body14>{'Starts in'}</Body14>
         <Spacer4 />
-        <Badge text="12:43" IconAfter={<PublicIcon />} />
+        <Badge text="12:43" IconAfter={<CommunityIcon />} />
       </Row>
     </Card>
     <Spacer16 />

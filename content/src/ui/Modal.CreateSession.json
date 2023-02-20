@@ -27,7 +27,8 @@
     },
     "profile": {
       "text": "To create and host a session you need a user name and profile picture."
-    }
+    },
+    "or": "or"
   },
   "pt": {
     "description": "Criar sessão com...",
@@ -83,7 +84,8 @@
     },
     "profile": {
       "text": "För att hålla i sessioner behöver du ett namn och en profilbild."
-    }
+    },
+    "or": "eller"
   },
   "es": {}
 }

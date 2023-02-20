@@ -22,9 +22,9 @@ import Byline from '../../lib/components/Bylines/Byline';
 import {CheckIcon} from '../../lib/components/Icons/Check/Check';
 import {Body14} from '../../lib/components/Typography/Body/Body';
 import Badge from '../../lib/components/Badge/Badge';
-import {CommunityIcon, ProfileFillIcon} from '../../lib/components/Icons';
+import {CommunityIcon, FriendsIcon, MeIcon} from '../../lib/components/Icons';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {SessionMode} from '../../../../shared/src/types/Session';
+import {SessionMode, SessionType} from '../../../../shared/src/types/Session';
 import {PostEvent} from '../../../../shared/src/types/Event';
 import useSharingPosts from '../../lib/posts/hooks/useSharingPosts';
 import {ExerciseSlideSharingSlide} from '../../../../shared/src/types/generated/Exercise';
@@ -159,9 +159,11 @@ const CompletedSessionModal = () => {
               text={sessionTime.format('ddd, D MMM')}
               IconAfter={
                 payload.mode === SessionMode.async ? (
-                  <ProfileFillIcon />
-                ) : (
+                  <MeIcon />
+                ) : payload.type === SessionType.public ? (
                   <CommunityIcon />
+                ) : (
+                  <FriendsIcon />
                 )
               }
             />
