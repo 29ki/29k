@@ -18,9 +18,14 @@ import {Spacer16, Spacer24} from '../../lib/components/Spacers/Spacer';
 import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
 import {BottomSheetActionTextInput} from '../../lib/components/ActionList/ActionItems/ActionTextInput';
 import {Body16} from '../../lib/components/Typography/Body/Body';
+import {SPACINGS} from '../../lib/constants/spacings';
 
 const StyledButton = styled(Button)({
   alignSelf: 'flex-start',
+});
+
+const Row = styled.View({
+  padding: SPACINGS.SIXTEEN,
 });
 
 const Error = styled(Body16)({
@@ -33,13 +38,16 @@ const DeleteUserModal = () => {
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
   const [isSigningIn, setIsSigningIn] = useState(false);
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const {deleteUser, isDeletingUser} = useDeleteUser();
 
   const onConfirm = useCallback(async () => {
     try {
+      const email = auth().currentUser?.email;
+      if (!email) {
+        return;
+      }
       setIsSigningIn(true);
       await auth().signInWithEmailAndPassword(email, password);
       setIsSigningIn(false);
@@ -49,7 +57,7 @@ const DeleteUserModal = () => {
       setIsSigningIn(false);
       setError(e.code ?? e.message);
     }
-  }, [setIsSigningIn, popToTop, deleteUser, email, password]);
+  }, [setIsSigningIn, popToTop, deleteUser, password]);
 
   return (
     <SheetModal>
@@ -57,17 +65,10 @@ const DeleteUserModal = () => {
         <ModalHeading>{t('title')}</ModalHeading>
         <Spacer24 />
         <ActionList>
-          <BottomSheetActionTextInput
-            textContentType="emailAddress"
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoComplete="email"
-            autoCorrect={false}
-            onSubmitEditing={onConfirm}
-            placeholder={t('email')}
-            onChangeText={setEmail}
-            defaultValue={email}
-          />
+          <Row>
+            <Body16>{auth().currentUser?.email}</Body16>
+          </Row>
+
           <BottomSheetActionTextInput
             textContentType="password"
             secureTextEntry
@@ -88,7 +89,7 @@ const DeleteUserModal = () => {
         )}
         <StyledButton
           variant="primary"
-          disabled={isSigningIn || isDeletingUser || !email || !password}
+          disabled={isSigningIn || isDeletingUser || !password}
           loading={isSigningIn || isDeletingUser}
           onPress={onConfirm}>
           {t('confirm')}
