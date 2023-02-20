@@ -171,7 +171,7 @@ const Lottie: React.FC<LottieProps> = ({
         duration={duration}
         ref={lottieRef}
         onEnd={onEnd}
-        repeat={false}
+        repeat={autoPlayLoop}
       />
       {timer}
     </>
