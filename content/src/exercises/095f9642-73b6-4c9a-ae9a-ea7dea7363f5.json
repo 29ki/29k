@@ -214,12 +214,12 @@
       {
         "type": "sharing",
         "content": {
-          "heading": "How did this meditation affect you?",
+          "heading": "O que sentiste com esta meditação? Como te afetou?",
           "video": {
             "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/2_min_fr9hsu.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_timer2min_pure_simple_love_czlzbh.png"
           },
-          "text": "What can you bring for the rest of the day?"
+          "text": "O que podes trazer para o resto do dia?"
         },
         "hostNotes": [
           {
@@ -238,19 +238,19 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "We've just thought of a moment of love in our live and put one of life’s precious moment into the limelight. To help us balance our brains natural efforts to make us survive by focusing on the negative.",
-            "asyncText": "We've just thought of a moment of love in our lives and put one of life’s precious moment into the limelight. To help us balance our brains natural efforts to make us survive by focusing on the negative."
+            "text": "Acabamos de pensar num momento de amor nas nossas vidas. É muito importante focarmos nestes momentos preciosos, para tentar equilibrar o esforço natural que o nosso cérebro faz de focar nos aspetos negativos.",
+            "asyncText": "Acabamos de pensar num momento de amor nas nossas vidas. É muito importante focarmos nestes momentos preciosos, para tentar equilibrar o esforço natural que o nosso cérebro faz de focar nos aspetos negativos."
           },
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nSet a reminder at a random time of the day for a week. When the reminder goes on, reflect on a loving moment from the last 24 hours. Notice what it feels like on the inside, in your body.",
-            "asyncText": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nSet a reminder at a random time of the day for a week. When the reminder goes on, reflect on a loving moment from the last 24 hours. Notice what it feels like on the inside, in your body."
+            "text": "Parabéns. Gostava de vos deixar uma pequena missão, se estiverem dispostos a isso. Tornar este exercício um hábito no vosso dia a dia.\n\nDefine um lembrete num horário aleatório do dia e, quando o lembrete for ativado, reserva uns instantes para refletir sobre um momento positivo da tua vida nas últimas 24 horas. Ao fazer isso, observa como te sentes interiormente e com o teu corpo.",
+            "asyncText": "Parabéns. Gostava de te deixar uma pequena missão, se estiveres disposto a isso. Tornar este exercício um hábito no teu dia a dia.\n\nDefine um lembrete num horário aleatório do dia e, quando o lembrete for ativado, reserva uns instantes para refletir sobre um momento positivo da tua vida nas últimas 24 horas. Ao fazer isso, observa como te sentes interiormente e com o teu corpo."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words.",
-            "asyncText": "Before leaving this space, check-in with yourself again:\n\nHow are you feeling right now? Has anything shifted?\n\nWhen you’re ready, finish this session at your own pace."
+            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.\n\nComo te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras.",
+            "asyncText": "Antes de saíres deste nosso espaço fazer de novo um mini check-in:\n\nComo te estás a sentir agora? Mudou alguma coisa?\n\nQuando estiveres pronta/o termina a sessão ao teu ritmo."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Quem gostaria de começar?\n\n> Permite que todos na sessão façam um check-out individual.\n\nObrigada/o a todos por este check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão enviando todos os participantes para a experiência de saída."
           }
         ],
         "video": {
