@@ -147,7 +147,8 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Bem-vindos. Eu sou a/o X e hoje vamos estar juntos durante 30 minutos a refletir acerca de aceitação.\n\nFaremos uma breve introdução, um exercício de meditação e teremos depois um momento de reflexão e partilha conjunta."
+            "text": "Bem-vindos. Eu sou a/o X e hoje vamos estar juntos durante 30 minutos a refletir acerca de aceitação.\n\nFaremos uma breve introdução, um exercício de meditação e teremos depois um momento de reflexão e partilha conjunta.",
+            "asyncText": "Bem-vinda/o. Nesta sessão vamos refletir acerca da aceitação.\n\nFaremos um breve exercício de meditação e teremos depois um momento de reflexão e partilha desta experiência."
           },
           {
             "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
