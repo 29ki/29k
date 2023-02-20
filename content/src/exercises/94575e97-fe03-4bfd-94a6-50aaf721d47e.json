@@ -151,9 +151,14 @@
             "asyncText": "Bem-vinda/o. Nesta sessão vamos refletir acerca da aceitação.\n\nFaremos um breve exercício de meditação e teremos depois um momento de reflexão e partilha desta experiência."
           },
           {
-            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
+            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar.",
+            "asyncText": "Antes de iniciar faz um mini check-in contigo própria/o. Como te estás a sentir?\n\nVamos começar."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675960916/Video/async_intro_Accepting_thoughts_and_feelings_umuyry.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675954575/Images/async_thumbnail_Accepting_thoughts_and_feelings_yaur8a.jpg"
+        }
       },
       {
         "type": "content",
@@ -179,16 +184,19 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Vamos agora reservar 1 minuto para refletir individualmente.\n\nO que sentiste ao fazer esta meditação? Como te afetou? O que podes aproveitar desta experiência para o resto do teu dia?"
+            "text": "Vamos agora reservar 1 minuto para refletir individualmente.\n\nO que sentiste ao fazer esta meditação? Como te afetou? O que podes aproveitar desta experiência para o resto do teu dia?",
+            "asyncText": "Reserva 1 minuto para refletir.\n\nO que sentiste ao fazer esta meditação? Como te afetou? O que podes aproveitar desta experiência para o resto do teu dia?"
           },
           {
-            "text": "Se quiseres, podes tomar notas numa folha de papel ou apenas algumas notas mentais. E lembra-te, não há um certo ou errado aqui. São as nossas respostas e perspetivas próprias. 1 minuto a partir de agora.\n\n> Carrega em play para iniciar o cronómetro.  \n\nOk, passou 1 minuto. Vamos continuar."
+            "text": "Se quiseres, podes tomar notas numa folha de papel ou apenas algumas notas mentais. E lembra-te, não há um certo ou errado aqui. São as nossas respostas e perspetivas próprias. 1 minuto a partir de agora.\n\n> Carrega em play para iniciar o cronómetro.  \n\nOk, passou 1 minuto. Vamos continuar.",
+            "asyncText": "Se quiseres, podes tomar notas numa folha de papel ou apenas algumas notas mentais. E lembra-te, não há um certo ou errado aqui. São as tuas respostas e perspetivas próprias.\n\n> Carrega em play para iniciar o cronómetro."
           }
         ],
         "content": {
           "heading": "O que sentiste?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317097/Video/1min_Accepting_thoughts_and_feelings_xdvlcn.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317097/Video/1min_Accepting_thoughts_and_feelings_xdvlcn.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554615/Images/thumb_timer1min_accepting_thoughts_and..._izhwhy.png"
           }
         }
       },
@@ -197,7 +205,8 @@
         "content": {
           "heading": "O que sentiste?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317099/Video/2min_Accepting_thoughts_and_feelings_b9bxvx.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317099/Video/2min_Accepting_thoughts_and_feelings_b9bxvx.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_timer2min_accepting_thoughts_and..._lzejn1.png"
           }
         },
         "hostNotes": [
@@ -217,15 +226,21 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Parabéns. Se estiverem com disposição podem continuar o que começamos aqui hoje com uma missão.\n\nAo refletires sobre o que podes aproveitar deste exercício para o resto do dia, aproveita a oportunidade para criares espaço para os teus temas internos durante o resto do dia e vê onde isso te leva."
+            "text": "Parabéns. Se estiverem com disposição podem continuar o que começamos aqui hoje com uma missão.\n\nAo refletires sobre o que podes aproveitar deste exercício para o resto do dia, aproveita a oportunidade para criares espaço para os teus temas internos durante o resto do dia e vê onde isso te leva.",
+            "asyncText": "Parabéns. Se estiveres com disposição podes continuar o que começamos aqui hoje com uma missão.\n\nAo refletires sobre o que podes aproveitar deste exercício para o resto do dia, aproveita a oportunidade para criares espaço para os teus temas internos durante o resto do dia e vê onde isso te leva."
           },
           {
-            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.\n\nComo te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras."
+            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.\n\nComo te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras.",
+            "asyncText": "Antes de saíres deste nosso espaço faz de novo um mini check-in contigo própria/o.\n\nComo te estás a sentir agora? Mudou alguma coisa?\n\nQuando estiveres pronta/o, termina a sessão ao teu ritmo."
           },
           {
             "text": "Quem gostaria de começar?\n\n> Permite que todos na sessão façam um check-out individual.\n\nObrigada/o a todos por este check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão enviando todos os participantes para a experiência de saída."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675960919/Video/async_outro_Accepting_thoughts_and_feelings_jpyrdo.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675954575/Images/async_thumbnail_Accepting_thoughts_and_feelings_yaur8a.jpg"
+        }
       }
     ],
     "theme": {
