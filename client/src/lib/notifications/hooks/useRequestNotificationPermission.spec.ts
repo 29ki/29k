@@ -32,14 +32,16 @@ describe('useRequestNotificationPermission', () => {
     });
   });
 
-  it('prompts the user if permission is DENIED', async () => {
+  it('throws and prompts the user if permission is DENIED', async () => {
     mockRequestPermission.mockResolvedValueOnce({
       authorizationStatus: AuthorizationStatus.DENIED,
     } as NotificationSettings);
 
     const {result} = renderHook(() => useRequestNotificationPermission());
 
-    const settings = await result.current();
+    await expect(result.current()).rejects.toThrow(
+      'Notification permission denied',
+    );
 
     expect(mockRequestPermission).toHaveBeenCalledTimes(1);
     expect(mockAlert).toHaveBeenCalledTimes(1);
@@ -55,9 +57,6 @@ describe('useRequestNotificationPermission', () => {
         },
       ],
     );
-    expect(settings).toEqual({
-      authorizationStatus: AuthorizationStatus.DENIED,
-    });
   });
 
   it('opens settings from prompt', async () => {
@@ -74,7 +73,9 @@ describe('useRequestNotificationPermission', () => {
 
     const {result} = renderHook(() => useRequestNotificationPermission());
 
-    await result.current();
+    await expect(result.current()).rejects.toThrow(
+      'Notification permission denied',
+    );
 
     expect(mockOpenSettings).toHaveBeenCalledTimes(1);
   });
