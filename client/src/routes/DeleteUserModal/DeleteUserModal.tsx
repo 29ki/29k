@@ -1,51 +1,63 @@
 import React, {useCallback, useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import auth from '@react-native-firebase/auth';
 
-import {BottomSheetActionTextInput} from '../../lib/components/ActionList/ActionItems/ActionTextInput';
+import {ModalStackProps} from '../../lib/navigation/constants/routes';
+import {COLORS} from '../../../../shared/src/constants/colors';
+
+import useDeleteUser from '../../lib/user/hooks/useDeleteUser';
+
 import ActionList from '../../lib/components/ActionList/ActionList';
 import Button from '../../lib/components/Buttons/Button';
-
 import Gutters from '../../lib/components/Gutters/Gutters';
 import SheetModal from '../../lib/components/Modals/SheetModal';
 import {Spacer16, Spacer24} from '../../lib/components/Spacers/Spacer';
 import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {ModalStackProps} from '../../lib/navigation/constants/routes';
+import {BottomSheetActionTextInput} from '../../lib/components/ActionList/ActionItems/ActionTextInput';
 import {Body16} from '../../lib/components/Typography/Body/Body';
-import {COLORS} from '../../../../shared/src/constants/colors';
+import {SPACINGS} from '../../lib/constants/spacings';
 
 const StyledButton = styled(Button)({
   alignSelf: 'flex-start',
+});
+
+const Row = styled.View({
+  padding: SPACINGS.SIXTEEN,
 });
 
 const Error = styled(Body16)({
   color: COLORS.ERROR,
 });
 
-const SignInModal = () => {
-  const {t} = useTranslation('Modal.SignIn');
+const DeleteUserModal = () => {
+  const {t} = useTranslation('Modal.DeleteUser');
   const {popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
   const [isSigningIn, setIsSigningIn] = useState(false);
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const {deleteUser, isDeletingUser} = useDeleteUser();
 
-  const signIn = useCallback(async () => {
+  const onConfirm = useCallback(async () => {
     try {
+      const email = auth().currentUser?.email;
+      if (!email) {
+        return;
+      }
       setIsSigningIn(true);
       await auth().signInWithEmailAndPassword(email, password);
       setIsSigningIn(false);
+      await deleteUser();
       popToTop();
     } catch (e: any) {
       setIsSigningIn(false);
       setError(e.code ?? e.message);
     }
-  }, [setIsSigningIn, popToTop, email, password]);
+  }, [setIsSigningIn, popToTop, deleteUser, password]);
 
   return (
     <SheetModal>
@@ -53,24 +65,17 @@ const SignInModal = () => {
         <ModalHeading>{t('title')}</ModalHeading>
         <Spacer24 />
         <ActionList>
-          <BottomSheetActionTextInput
-            textContentType="emailAddress"
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoComplete="email"
-            autoCorrect={false}
-            onSubmitEditing={signIn}
-            placeholder={t('email')}
-            onChangeText={setEmail}
-            defaultValue={email}
-          />
+          <Row>
+            <Body16>{auth().currentUser?.email}</Body16>
+          </Row>
+
           <BottomSheetActionTextInput
             textContentType="password"
             secureTextEntry
             autoCapitalize="none"
             autoComplete="password"
             autoCorrect={false}
-            onSubmitEditing={signIn}
+            onSubmitEditing={onConfirm}
             placeholder={t('password')}
             onChangeText={setPassword}
           />
@@ -84,14 +89,14 @@ const SignInModal = () => {
         )}
         <StyledButton
           variant="primary"
-          disabled={isSigningIn || !email || !password}
-          loading={isSigningIn}
-          onPress={signIn}>
-          {t('signIn')}
+          disabled={isSigningIn || isDeletingUser || !password}
+          loading={isSigningIn || isDeletingUser}
+          onPress={onConfirm}>
+          {t('confirm')}
         </StyledButton>
       </Gutters>
     </SheetModal>
   );
 };
 
-export default SignInModal;
+export default DeleteUserModal;

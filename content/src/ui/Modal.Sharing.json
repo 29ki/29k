@@ -7,7 +7,14 @@
     "submitCta": "Submit",
     "anonymousLabel": "Post anonymously"
   },
-  "pt": {},
+  "pt": {
+    "header": "A tua reflexão",
+    "description": "Quem pode ver a tua reflexão?",
+    "publicLabel": "Todos",
+    "onlyMeLabel": "Só eu",
+    "submitCta": "Submeter",
+    "anonymousLabel": "Submeter como anónimo"
+  },
   "sv": {
     "header": "Din reflektion",
     "description": "Vem kan se din delning?",

@@ -2,6 +2,7 @@ import React, {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {ENVIRONMENT} from 'config';
+import auth from '@react-native-firebase/auth';
 
 import Gutters from '../../lib/components/Gutters/Gutters';
 import {
@@ -123,6 +124,14 @@ const Profile = () => {
     [navigate],
   );
 
+  const deleteDataPress = useCallback(async () => {
+    if (auth().currentUser?.isAnonymous) {
+      await deleteUser();
+    } else {
+      navigate('DeleteUserModal');
+    }
+  }, [deleteUser, navigate]);
+
   return (
     <Screen>
       <TopSafeArea />
@@ -161,7 +170,7 @@ const Profile = () => {
             <>
               <Spacer16 />
               <ActionList>
-                <ActionButton Icon={DeleteIcon} onPress={deleteUser}>
+                <ActionButton Icon={DeleteIcon} onPress={deleteDataPress}>
                   {t('actions.deleteData')}
                 </ActionButton>
               </ActionList>
