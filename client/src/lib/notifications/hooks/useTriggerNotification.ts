@@ -4,6 +4,7 @@ import {find} from 'ramda';
 
 import useNotificationsState from '../state/state';
 import useResumeFromBackgrounded from '../../appState/hooks/useResumeFromBackgrounded';
+import useRequestNotificationPermission from './useRequestNotificationPermission';
 
 export const getTriggerNotificationById = async (id: string) => {
   const notifications = await notifee.getTriggerNotifications();
@@ -12,6 +13,7 @@ export const getTriggerNotificationById = async (id: string) => {
 };
 
 const useTriggerNotification = (id: string) => {
+  const requestPermission = useRequestNotificationPermission();
   const triggerNotification = useNotificationsState(
     state => state.notifications[id],
   );
@@ -45,6 +47,8 @@ const useTriggerNotification = (id: string) => {
       timestamp: number,
     ) => {
       if (timestamp > new Date().getTime()) {
+        await requestPermission();
+
         const trigger: TimestampTrigger = {
           type: TriggerType.TIMESTAMP,
           timestamp,
@@ -69,7 +73,7 @@ const useTriggerNotification = (id: string) => {
         await notifee.createTriggerNotification(notification, trigger);
       }
     },
-    [id, setNotification],
+    [id, requestPermission, setNotification],
   );
 
   const removeTriggerNotification = useCallback(async () => {
