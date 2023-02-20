@@ -162,8 +162,8 @@
             "asyncText": "Antes de prosseguirmos para a sessão, vamos ancorar-nos no aqui e agora. Focando na nossa respiração vamos fazer três ciclos lentos de inspiração e expiração.\n\n> Inspirar & expirar lentamente x3"
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started.",
-            "asyncText": "Now, check-in with yourself. How are you feeling right now?\n\nSo, let’s get started."
+            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar.",
+            "asyncText": "Faz um check-in contigo. Como te estás a sentir?\n\nVamos começar."
           }
         ],
         "video": {
@@ -174,40 +174,40 @@
       {
         "type": "content",
         "content": {
-          "heading": "Pure simple love",
+          "heading": "O amor puro e simples",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328548/temp/audio_meditation_2_b3hwge.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1670322252/FJN/Live%20Sessions/meditation_pure_simple_love_pt_awrfo6_pf7qo7.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_meditation_pure_simple_love_wex49u.png"
           },
           "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
         },
         "hostNotes": [
           {
-            "text": "Sometimes it feels like life goes on and on in a never ending treadmill. And even though we may have beautiful things in our lives, our brains are programmed to focus on the things that don’t work. The problems. Potential threats. Things in our lives that we need to solve."
+            "text": "Por vezes parece que a vida se desenrola sempre de uma forma monótona e sem fim. E mesmo tendo muitas coisas positivas nas nossas vidas, os nossos cérebros são programados para se concentrarem nas coisas que não funcionam e são mais negativas. Os problemas. As ameaças potenciais. Coisas que precisamos de resolver nas nossas vidas."
           },
           {
-            "text": "Reminding ourselves of what’s working takes an effort. And now we’re gonna do just that. Taking a few minutes to recall a moment of love in our lives together. It's a practice that has been proven to promote happiness, a sense of purpose and slow our systems down a bit.\n\n> Press play to start the meditation."
+            "text": "Lembrarmo-nos do que está a correr bem nas nossas vidas exige um esforço. Vamos agora fazer exatamente isso. Tirar alguns minutos para nos relembrarmos de um momento de amor nas nossas vidas. É uma prática provada de promoção de felicidade, sentido de propósito que nos ajuda também a acalmar.\n\n> Carrega no play para iniciar a meditação."
           }
         ]
       },
       {
         "type": "reflection",
         "content": {
-          "heading": "How did this meditation affect you?",
+          "heading": "O que sentiste com esta meditação? Como te afetou?",
           "video": {
             "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/1_min_eto52x.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_timer1min_pure_simple_love_jahzvt.png"
           },
-          "text": "What can you bring for the rest of the day?"
+          "text": "O que podes trazer para o resto do dia?"
         },
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did this meditation affect you?\n\nWhat can you bring from this for the rest of your day?",
-            "asyncText": "Take 1 minute to reflect. \n\nHow did this meditation affect you? \n\nWhat can you bring from this for the rest of your day?"
+            "text": "Vamos agora reservar 1 minuto para refletir individualmente.\n\nO que sentiste ao fazer esta meditação? Como te afetou?\n\nO que podes aproveitar desta experiência para o resto do seu dia?",
+            "asyncText": "Reserva 1 minuto para refletir.\n\nO que sentiste ao fazer esta meditação? Como te afetou?\n\nO que podes aproveitar desta experiência para o resto do seu dia?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nOkay, that’s 1 minute. Let’s move on.",
-            "asyncText": "Take notes on a piece of paper or just mental notes in your head. There is no right or wrong here, our answers are our own.\n\n> Press play to start the timer."
+            "text": "Se quiseres, podes tomar notas numa folha de papel ou apenas algumas notas mentais. E lembra-te, não há um certo ou errado aqui. São as nossas respostas e perspetivas próprias. 1 minuto a partir de agora.\n\n> Carrega em play para iniciar o cronómetro.\n\nOk, já passou 1 minuto. Vamos lá.",
+            "asyncText": "Se quiseres, podes tomar notas numa folha de papel ou apenas algumas notas mentais. E lembra-te, não há um certo ou errado aqui. São as tuas respostas e perspetivas próprias. \n\n> Carrega em play para iniciar o cronómetro."
           }
         ]
       },
