@@ -66,6 +66,7 @@ export type ModalStackProps = {
   ChangeLanguageModal: undefined;
   ProfileSettingsModal: undefined;
   SignInModal: undefined;
+  DeleteUserModal: undefined;
   ContributorsModal: undefined;
   PartnersModal: undefined;
   DeveloperModal: undefined;
