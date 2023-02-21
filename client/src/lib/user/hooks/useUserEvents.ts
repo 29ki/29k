@@ -1,5 +1,9 @@
 import {useMemo} from 'react';
-import {FeedbackEvent, PostEvent} from '../../../../../shared/src/types/Event';
+import {
+  CompletedSessionEvent,
+  FeedbackEvent,
+  PostEvent,
+} from '../../../../../shared/src/types/Event';
 import useUserState, {getCurrentUserStateSelector} from '../state/state';
 
 const useUserEvents = () => {
@@ -21,12 +25,22 @@ const useUserEvents = () => {
     return [];
   }, [events]);
 
+  const completedSessionEvents = useMemo(() => {
+    if (events) {
+      return events.filter(
+        e => e.type === 'completedSession',
+      ) as CompletedSessionEvent[];
+    }
+    return [];
+  }, [events]);
+
   return useMemo(
     () => ({
       postEvents,
       feedbackEvents,
+      completedSessionEvents,
     }),
-    [postEvents, feedbackEvents],
+    [postEvents, feedbackEvents, completedSessionEvents],
   );
 };
 

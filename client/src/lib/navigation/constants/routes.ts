@@ -6,7 +6,7 @@ import {
   AsyncSession,
   LiveSession,
 } from '../../../../../shared/src/types/Session';
-import {CompletedSession} from '../../user/state/state';
+import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 
 export type ProfileStackProps = {
   Profile: undefined;
@@ -50,7 +50,7 @@ export type ModalStackProps = {
   OverlayStack: NavigatorScreenParams<OverlayStackProps>;
   SessionModal: {session: LiveSession};
   CompletedSessionModal: {
-    session: AsyncSession | CompletedSession;
+    completedSessionEvent: CompletedSessionEvent;
     hostProfile?: UserProfile;
   };
   SharingModal: {exerciseId: string};
@@ -66,6 +66,7 @@ export type ModalStackProps = {
   ChangeLanguageModal: undefined;
   ProfileSettingsModal: undefined;
   SignInModal: undefined;
+  DeleteUserModal: undefined;
   ContributorsModal: undefined;
   PartnersModal: undefined;
   DeveloperModal: undefined;

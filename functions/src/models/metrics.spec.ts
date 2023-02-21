@@ -107,6 +107,7 @@ describe('metrics model', () => {
         question: 'Some question?',
         answer: true,
         comment: 'Some comments!',
+        sessionId: 'session-id',
       };
       await addFeedback(feedback);
 
@@ -118,6 +119,7 @@ describe('metrics model', () => {
         question: 'Some question?',
         answer: true,
         comment: 'Some comments!',
+        sessionId: 'session-id',
         createdAt: expect.any(Timestamp),
       });
     });

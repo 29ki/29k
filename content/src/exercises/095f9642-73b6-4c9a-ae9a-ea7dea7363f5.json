@@ -154,28 +154,39 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Bem-vindos. Eu sou a/o X e hoje vamos estar juntos durante 30 minutos a refletir acerca de amor e conexão com nós próprios e com os outros.\n\nFaremos uma breve meditação juntos. Depois teremos um momento de reflexão acerca de nós próprios e o passo final é partilharmos uns com os outros a nossa experiência nesta sessão."
+            "text": "Bem-vindos. Eu sou a/o X e hoje vamos estar juntos durante 30 minutos a refletir acerca do amor e da conexão com nós próprios e com os outros.\n\nFaremos uma breve meditação juntos. Depois teremos um momento de reflexão individual e o passo final é partilharmos uns com os outros a nossa experiência nesta sessão.",
+            "asyncText": "Bem-vinda/o, nesta sessão vamos refletir acerca do amor e da conexão com nós próprios e com os outros.\n\nFaremos uma breve meditação, teremos um momento de reflexão e o passo final será partilhar a nossa experiência nesta sessão."
           },
           {
-            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
+            "text": "Antes de prosseguirmos para a sessão, vamos ancorar-nos no aqui e agora. Focando na nossa respiração vamos fazer três ciclos lentos de inspiração e expiração.\n\n> Inspirar & expirar lentamente x3",
+            "asyncText": "Antes de prosseguirmos para a sessão, vamos ancorar-nos no aqui e agora. Focando na nossa respiração vamos fazer três ciclos lentos de inspiração e expiração.\n\n> Inspirar & expirar lentamente x3"
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar.",
+            "asyncText": "Faz um check-in contigo. Como te estás a sentir?\n\nVamos começar."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675956726/Video/async_intro_pure_simple_love_eng_vbozum.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675960044/Images/thumb_async_pure%20simple_love_q6jg7c.png"
+        }
       },
       {
         "type": "content",
         "content": {
           "heading": "O amor puro e simples",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1670322252/FJN/Live%20Sessions/meditation_pure_simple_love_pt_awrfo6_pf7qo7.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1670322252/FJN/Live%20Sessions/meditation_pure_simple_love_pt_awrfo6_pf7qo7.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_meditation_pure_simple_love_wex49u.png"
           },
           "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
         },
         "hostNotes": [
           {
-            "text": "Às vezes parece que a vida se desenrola sempre de uma forma monótona e sem fim. E mesmo tendo muitas coisas positivas nas nossas vidas, os nossos cérebros são programados para se concentrarem nas coisas que não funcionam e são mais negativas. Os problemas. Ameaças potenciais. Coisas que precisamos de resolver nas nossas vidas."
+            "text": "Por vezes parece que a vida se desenrola sempre de uma forma monótona e sem fim. E mesmo tendo muitas coisas positivas nas nossas vidas, os nossos cérebros são programados para se concentrarem nas coisas que não funcionam e são mais negativas. Os problemas. As ameaças potenciais. Coisas que precisamos de resolver nas nossas vidas."
           },
           {
-            "text": "Lembrar-nos do que está a correr bem exige um esforço. Vamos agora fazer exatamente isso. Tirar alguns minutos para nos relembrarmos de um momento de amor nas nossas vidas.\n\n> Carrega no play para iniciar a meditação."
+            "text": "Lembrarmo-nos do que está a correr bem nas nossas vidas exige um esforço. Vamos agora fazer exatamente isso. Tirar alguns minutos para nos relembrarmos de um momento de amor nas nossas vidas. É uma prática provada de promoção de felicidade, sentido de propósito que nos ajuda também a acalmar.\n\n> Carrega no play para iniciar a meditação."
           }
         ]
       },
@@ -184,16 +195,19 @@
         "content": {
           "heading": "O que sentiste com esta meditação? Como te afetou?",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/1_min_eto52x.mp4"
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/1_min_eto52x.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_timer1min_pure_simple_love_jahzvt.png"
           },
           "text": "O que podes trazer para o resto do dia?"
         },
         "hostNotes": [
           {
-            "text": "Vamos agora reservar 1 minuto para refletir individualmente.\n\nO que sentiste ao fazer esta meditação? Como te afetou?\n\nO que podes aproveitar desta experiência para o resto do seu dia?"
+            "text": "Vamos agora reservar 1 minuto para refletir individualmente.\n\nO que sentiste ao fazer esta meditação? Como te afetou?\n\nO que podes aproveitar desta experiência para o resto do seu dia?",
+            "asyncText": "Reserva 1 minuto para refletir.\n\nO que sentiste ao fazer esta meditação? Como te afetou?\n\nO que podes aproveitar desta experiência para o resto do seu dia?"
           },
           {
-            "text": "Se quiseres, podes tomar notas numa folha de papel ou apenas algumas notas mentais. E lembra-te, não há um certo ou errado aqui. São as nossas respostas e perspetivas próprias. 1 minuto a partir de agora.\n\n> Carregar em play para iniciar o cronómetro.\n\nOk, isso é 1 minuto. Vamos lá."
+            "text": "Se quiseres, podes tomar notas numa folha de papel ou apenas algumas notas mentais. E lembra-te, não há um certo ou errado aqui. São as nossas respostas e perspetivas próprias. 1 minuto a partir de agora.\n\n> Carrega em play para iniciar o cronómetro.\n\nOk, já passou 1 minuto. Vamos lá.",
+            "asyncText": "Se quiseres, podes tomar notas numa folha de papel ou apenas algumas notas mentais. E lembra-te, não há um certo ou errado aqui. São as tuas respostas e perspetivas próprias. \n\n> Carrega em play para iniciar o cronómetro."
           }
         ]
       },
@@ -202,16 +216,17 @@
         "content": {
           "heading": "O que sentiste com esta meditação? Como te afetou?",
           "video": {
-            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/2_min_fr9hsu.mp4"
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/2_min_fr9hsu.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_timer2min_pure_simple_love_czlzbh.png"
           },
           "text": "O que podes trazer para o resto do dia?"
         },
         "hostNotes": [
           {
-            "text": "Vamos agora entrar na parte de partilha deste exercício. Temos três regras importantes:\n\n1. **O que é dito aqui, fica aqui.**\n2. **O teu trabalho como participante é apenas ouvir.** Não há necessidade de ajudar ou dar conselhos neste espaço. Estamos apenas a partilhar e a tentar entender o que nós mesmos e os outros estão a passar."
+            "text": "Vamos agora entrar na parte de partilha deste exercício. Temos três regras importantes:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir.** Não há necessidade de ajudar ou dar conselhos neste espaço. Estamos apenas a partilhar e a tentar entender o que nós mesmos e os outros estão a passar."
           },
           {
-            "text": "3. **Tudo no nosso interior está bem**. Raiva, amor, ódio, tristeza. O que quer que apareça. Não há certos ou errados.\n\nTeremos um temporizador de 2 minutos como indicador, mas terás o tempo que quiseres. Se não quiseres partilhar, podes dizer 'passar'."
+            "text": "3. **Tudo no nosso interior está bem.** Raiva, amor, ódio, tristeza. O que quer que apareça. Não há certos ou errados. É o que é.\n\nTeremos um temporizador de 2 minutos como indicador. Se não quiseres partilhar, podes dizer 'passo'."
           },
           {
             "text": "Quem gostaria de começar?\n\n> Deixa até 6 pessoas partilharem individualmente. Carrega play para iniciar a contagem de tempo. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
@@ -223,18 +238,25 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Acabamos de pensar num momento de amor nas nossas vidas. É muito importante focarmos nestes momentos preciosos, para tentar equilibrar o esforço natural que o nosso cérebro faz de focar nos aspetos negativos."
+            "text": "Acabamos de pensar num momento de amor nas nossas vidas. É muito importante focarmos nestes momentos preciosos, para tentar equilibrar o esforço natural que o nosso cérebro faz de focar nos aspetos negativos.",
+            "asyncText": "Acabamos de pensar num momento de amor nas nossas vidas. É muito importante focarmos nestes momentos preciosos, para tentar equilibrar o esforço natural que o nosso cérebro faz de focar nos aspetos negativos."
           },
           {
-            "text": "Parabéns. Gostava de vos deixar uma pequena missão, se estiverem dispostos a isso. Tornar este exercício um hábito no vosso dia a dia.\n\nDefinam um lembrete num horário aleatório do dia e, quando o lembrete for ativado, reserva uns instantes para refletir sobre um momento positivo da tua vida nas últimas 24 horas. Ao fazer isso, observa como te sentes interiormente e com o teu corpo."
+            "text": "Parabéns. Gostava de vos deixar uma pequena missão, se estiverem dispostos a isso. Tornar este exercício um hábito no vosso dia a dia.\n\nDefine um lembrete num horário aleatório do dia e, quando o lembrete for ativado, reserva uns instantes para refletir sobre um momento positivo da tua vida nas últimas 24 horas. Ao fazer isso, observa como te sentes interiormente e com o teu corpo.",
+            "asyncText": "Parabéns. Gostava de te deixar uma pequena missão, se estiveres disposto a isso. Tornar este exercício um hábito no teu dia a dia.\n\nDefine um lembrete num horário aleatório do dia e, quando o lembrete for ativado, reserva uns instantes para refletir sobre um momento positivo da tua vida nas últimas 24 horas. Ao fazer isso, observa como te sentes interiormente e com o teu corpo."
           },
           {
-            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.\n\nComo te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras."
+            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.\n\nComo te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras.",
+            "asyncText": "Antes de saíres deste nosso espaço fazer de novo um mini check-in:\n\nComo te estás a sentir agora? Mudou alguma coisa?\n\nQuando estiveres pronta/o termina a sessão ao teu ritmo."
           },
           {
-            "text": "Quem gostaria de começar?\n\n> Permite que todos na sessão façam um check-out individual.\n\nObrigado a todos por este check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão enviando todos os participantes para a experiência de saída."
+            "text": "Quem gostaria de começar?\n\n> Permite que todos na sessão façam um check-out individual.\n\nObrigada/o a todos por este check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão enviando todos os participantes para a experiência de saída."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675958263/Video/async_outro_pure_simple_love_kjkjaq.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/v1675960044/Images/thumb_async_pure%20simple_love_q6jg7c.png"
+        }
       }
     ],
     "name": "O amor puro e simples",
@@ -242,6 +264,10 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+      },
+      "host": {
+        "displayName": "Jenny 29k",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675420628/Images/thumb_async_intro_outro_pure_simple_love_p7bjul.jpg"
       }
     },
     "duration": 30,
@@ -254,19 +280,21 @@
       "type": "video",
       "videoLoop": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
-        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3"
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png"
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
       },
       "hostNotes": [
         {
-          "text": ">Start the session when you're ready to go."
+          "text": "> Começa a sessão quando estiveres pronta/o."
         }
       ]
     },
     "tags": [],
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+    "async": true,
     "description": "Uma meditação guiada que traz um momento especial para o centro da nossa atenção. Praticar a perceção do que está a funcionar bem pode ajudar-nos a sentirmo-nos mais felizes e realizados, e a neutralizar a tendência natural do nosso cérebro para focar no negativo."
   },
   "sv": {

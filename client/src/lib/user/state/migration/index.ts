@@ -4,6 +4,7 @@ import {Actions, PersistedState, State} from '../state';
 import migrateV0, {V0State} from './v0';
 import migrateV1, {V1State} from './v1';
 import migrateV2, {V2State} from './v2';
+import migrateV3, {V3State} from './v3';
 
 const migrate: Required<
   PersistOptions<State & Actions, PersistedState>
@@ -20,6 +21,10 @@ const migrate: Required<
 
   if (version <= 2) {
     state = await migrateV2(state as V2State);
+  }
+
+  if (version <= 3) {
+    state = await migrateV3(state as V3State);
   }
 
   return state as State & Actions;

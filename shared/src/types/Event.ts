@@ -1,3 +1,6 @@
+import {LiveSession} from './Session';
+import {UserProfile} from './User';
+
 export type PostPayload = {
   sessionId: string;
   exerciseId: string;
@@ -8,8 +11,21 @@ export type PostPayload = {
 };
 
 export type FeedbackPayload = {
-  like: boolean;
-  text?: string;
+  question: string;
+  answer: boolean;
+  comment?: string;
+  exerciseId: string;
+  sessionId: string;
+};
+
+export type CompletedSessionPayload = {
+  id: LiveSession['id'];
+  hostId?: LiveSession['hostId'];
+  exerciseId: LiveSession['exerciseId'];
+  language: LiveSession['language'];
+  type: LiveSession['type'];
+  mode: LiveSession['mode'];
+  hostProfile?: UserProfile;
 };
 
 type BaseEvent = {
@@ -26,8 +42,17 @@ export type FeedbackEvent = BaseEvent & {
   payload: FeedbackPayload;
 };
 
-export type UserEvent = PostEvent | FeedbackEvent;
+export type CompletedSessionEvent = BaseEvent & {
+  type: 'completedSession';
+  payload: CompletedSessionPayload;
+};
+
+export type UserEvent = PostEvent | FeedbackEvent | CompletedSessionEvent;
 
 export type PostEventData = Omit<PostEvent, 'timestamp'>;
 export type FeedbackEventData = Omit<FeedbackEvent, 'timestamp'>;
+export type CompletedSessionEventData = Omit<
+  CompletedSessionEvent,
+  'timestamp'
+>;
 export type UserEventData = Omit<UserEvent, 'timestamp'>;

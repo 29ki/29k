@@ -12,7 +12,6 @@ import {COLORS} from '../../../../shared/src/constants/colors';
 
 import {JourneySession} from './types/Session';
 import {LiveSession} from '../../../../shared/src/types/Session';
-import {CompletedSession} from '../../lib/user/state/state';
 
 import {
   Spacer16,
@@ -34,6 +33,7 @@ import dayjs from 'dayjs';
 import {WALLET_CARD_HEIGHT} from '../../lib/components/Cards/WalletCard';
 import {CARD_HEIGHT} from '../../lib/components/Cards/Card';
 import {useIsFocused} from '@react-navigation/native';
+import {CompletedSessionEvent} from '../../../../shared/src/types/Event';
 
 export type Section = {
   title: string;
@@ -64,10 +64,10 @@ const renderSession: SectionListRenderItem<JourneySession, Section> = ({
   const hasCardBefore = index > 0;
   const hasCardAfter = index !== section.data.length - 1;
 
-  if (item.__type === 'completed') {
+  if (item.completedSession) {
     return (
       <CompletedSessionCardContainer
-        session={item as CompletedSession}
+        completedSessionEvent={item.completedSession as CompletedSessionEvent}
         hasCardBefore={hasCardBefore}
         hasCardAfter={hasCardAfter}
       />
@@ -101,7 +101,10 @@ const Journey = () => {
     if (completedSessions.length > 0) {
       sectionsList.push({
         title: t('headings.completed'),
-        data: completedSessions.map(s => ({...s, __type: 'completed'})),
+        data: completedSessions.map(s => ({
+          completedSession: s,
+          id: s.payload.id,
+        })),
         type: 'completed',
       });
     }

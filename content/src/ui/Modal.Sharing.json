@@ -1,17 +1,24 @@
 {
   "en": {
     "header": "Your reflection",
-    "description": "Who can see your post? Your post may appear in feed.",
-    "publicLabel": "Public",
+    "description": "Who can see your post?",
+    "publicLabel": "Everyone",
     "onlyMeLabel": "Only me",
     "submitCta": "Submit",
     "anonymousLabel": "Post anonymously"
   },
-  "pt": {},
+  "pt": {
+    "header": "A tua reflexão",
+    "description": "Quem pode ver a tua reflexão?",
+    "publicLabel": "Todos",
+    "onlyMeLabel": "Só eu",
+    "submitCta": "Submeter",
+    "anonymousLabel": "Submeter como anónimo"
+  },
   "sv": {
     "header": "Din reflektion",
-    "description": "Vem kan se din delning? Din delning kan synas i flödet.",
-    "publicLabel": "Publik",
+    "description": "Vem kan se din delning?",
+    "publicLabel": "Alla",
     "onlyMeLabel": "Bara jag",
     "submitCta": "Posta",
     "anonymousLabel": "Posta anonymnt"

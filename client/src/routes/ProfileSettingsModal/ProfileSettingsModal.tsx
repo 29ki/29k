@@ -46,7 +46,7 @@ const Error = styled(Body16)({
 
 const ProfileSettingsModal = () => {
   const {t} = useTranslation('Modal.ProfileSettings');
-  const {popToTop} =
+  const {popToTop, navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {changeProfilePicture, isUpdatingProfilePicture} =
     useChangeProfilePicture();
@@ -84,13 +84,16 @@ const ProfileSettingsModal = () => {
 
   const deleteData = useCallback(async () => {
     try {
-      if (await deleteUser()) {
+      if (auth().currentUser?.isAnonymous) {
+        await deleteUser();
         popToTop();
+      } else {
+        navigate('DeleteUserModal');
       }
     } catch (e: any) {
       setError(e.code ?? e.message);
     }
-  }, [deleteUser, popToTop]);
+  }, [navigate, popToTop, deleteUser]);
 
   return (
     <SheetModal>

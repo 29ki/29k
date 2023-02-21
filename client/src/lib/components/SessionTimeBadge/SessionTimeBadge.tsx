@@ -7,7 +7,7 @@ import {LiveSession} from '../../../../../shared/src/types/Session';
 import useSessionStartTime from '../../session/hooks/useSessionStartTime';
 
 import Badge from '../Badge/Badge';
-import {PrivateIcon, PublicIcon} from '../Icons';
+import {FriendsIcon, CommunityIcon} from '../Icons';
 import {Spacer4} from '../Spacers/Spacer';
 import {Body14} from '../Typography/Body/Body';
 
@@ -35,7 +35,7 @@ const SessionTimeBadge: React.FC<{session: LiveSession}> = ({session}) => {
       <Badge
         text={sessionTime.isStarted ? t('counter.started') : sessionTime.time}
         IconAfter={
-          session.type === 'private' ? <PrivateIcon /> : <PublicIcon />
+          session.type === 'private' ? <FriendsIcon /> : <CommunityIcon />
         }
       />
     </Row>

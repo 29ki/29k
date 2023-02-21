@@ -30,6 +30,7 @@ describe('feedback - controller', () => {
         question: 'Some question?',
         answer: true,
         comment: 'Some comment!',
+        sessionId: 'session-id',
       };
       await feedbackController.addFeedback(feedback);
 
@@ -40,6 +41,7 @@ describe('feedback - controller', () => {
         answer: true,
         comment: 'Some comment!',
         question: 'Some question?',
+        sessionId: 'session-id',
       });
       expect(slack.sendFeedbackMessage).toHaveBeenCalledTimes(1);
       expect(slack.sendFeedbackMessage).toHaveBeenCalledWith(
@@ -66,6 +68,7 @@ describe('feedback - controller', () => {
         completed: true,
         question: 'Some question?',
         answer: true,
+        sessionId: 'session-id',
       };
       await feedbackController.addFeedback(feedback);
 
@@ -75,6 +78,7 @@ describe('feedback - controller', () => {
         completed: true,
         answer: true,
         question: 'Some question?',
+        sessionId: 'session-id',
       });
       expect(slack.sendFeedbackMessage).toHaveBeenCalledTimes(0);
     });

@@ -5,7 +5,12 @@
     "addReflectionCta": "Add your reflection",
     "reflectionLabel": "What you said:"
   },
-  "pt": {},
+  "pt": {
+    "othersHeading": "O que os outros disseram:",
+    "emptyText": "Ainda não há partilhas para este exercício...",
+    "addReflectionCta": "Adiciona a tua reflexão",
+    "reflectionLabel": "O que disseste:"
+  },
   "sv": {
     "othersHeading": "Vad andra delade:",
     "emptyText": "Ännu inga delningar för denna övning...",

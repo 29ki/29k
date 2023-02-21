@@ -47,8 +47,9 @@ describe('/metrics/logFeedback', () => {
       expect(response.status).toBe(200);
     });
 
-    it('Accepts undefined sessionId, host and comment', async () => {
+    it('Accepts undefined host and comment', async () => {
       const response = await request(mockServer).post('/logFeedback').send({
+        sessionId: 'some-session-id',
         exerciseId: 'some-exercise-id',
         completed: true,
         question: 'Some question?',
@@ -57,6 +58,7 @@ describe('/metrics/logFeedback', () => {
 
       expect(addFeedback).toHaveBeenCalledTimes(1);
       expect(addFeedback).toHaveBeenCalledWith({
+        sessionId: 'some-session-id',
         exerciseId: 'some-exercise-id',
         completed: true,
         question: 'Some question?',

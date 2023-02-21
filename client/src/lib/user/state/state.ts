@@ -4,37 +4,24 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {createJSONStorage, persist} from 'zustand/middleware';
 import {omit} from 'ramda';
 
-import {LiveSession} from '../../../../../shared/src/types/Session';
 import migrate from './migration';
-import {UserProfile} from '../../../../../shared/src/types/User';
 import {
   UserEvent,
   UserEventData,
   FeedbackEventData,
   PostEventData,
+  CompletedSessionEventData,
 } from '../../../../../shared/src/types/Event';
 
-const USER_STATE_VERSION = 3;
+const USER_STATE_VERSION = 4;
 
 type PinnedSession = {
   id: string;
   expires: Date;
 };
 
-export type CompletedSession = {
-  id: LiveSession['id'];
-  hostId?: LiveSession['hostId'];
-  exerciseId: LiveSession['exerciseId'];
-  language: LiveSession['language'];
-  type: LiveSession['type'];
-  mode: LiveSession['mode'];
-  completedAt: Date;
-  hostProfile?: UserProfile;
-};
-
 export type UserState = {
   pinnedSessions?: Array<PinnedSession>;
-  completedSessions?: Array<CompletedSession>;
   userEvents?: Array<UserEvent>;
   metricsUid?: string;
   reminderNotifications?: boolean;
@@ -62,7 +49,6 @@ export type Actions = {
     claims: State['claims'];
   }) => void;
   setPinnedSessions: (pinnedSessions: Array<PinnedSession>) => void;
-  addCompletedSession: (completedSession: CompletedSession) => void;
   addUserEvent: (
     type: UserEvent['type'],
     payload: UserEvent['payload'],
@@ -93,6 +79,8 @@ const getTypedEvent = (event: UserEventData) => {
   switch (event.type) {
     case 'post':
       return event as PostEventData;
+    case 'completedSession':
+      return event as CompletedSessionEventData;
     default:
       return event as FeedbackEventData; // some type has to be the fallback
   }
@@ -129,10 +117,6 @@ const useUserState = create<State & Actions>()(
         setCurrentUserState,
         setPinnedSessions: pinnedSessions =>
           setCurrentUserState({pinnedSessions}),
-        addCompletedSession: completedSession =>
-          setCurrentUserState(({completedSessions = []} = {}) => ({
-            completedSessions: [...completedSessions, completedSession],
-          })),
         addUserEvent: (type, payload) => {
           const typedEventData = getTypedEvent({type, payload});
           setCurrentUserState(({userEvents: events = []} = {}) => ({

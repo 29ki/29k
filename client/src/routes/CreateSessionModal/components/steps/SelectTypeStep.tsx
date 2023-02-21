@@ -8,10 +8,10 @@ import {
 } from '../../../../../../shared/src/types/Session';
 import Gutters from '../../../../lib/components/Gutters/Gutters';
 import {
+  CommunityIcon,
   LogoIcon,
-  PrivateIcon,
-  ProfileFillIcon,
-  PublicIcon,
+  FriendsIcon,
+  MeIcon,
 } from '../../../../lib/components/Icons';
 import {
   Spacer16,
@@ -66,6 +66,12 @@ const Row = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
+});
+
+const Centered = styled.View({
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
 });
 
 const LogoWrapper = styled.View({
@@ -147,7 +153,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
             <TypeItem
               onPress={onTypePress(SessionMode.async, SessionType.public)}
               label={t('selectType.async-public.title')}
-              Icon={<ProfileFillIcon />}
+              Icon={<MeIcon />}
             />
           </TypeItemWrapper>
         )}
@@ -155,7 +161,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
           <TypeItem
             onPress={onTypePress(SessionMode.live, SessionType.private)}
             label={t('selectType.live-private.title')}
-            Icon={<PrivateIcon />}
+            Icon={<FriendsIcon />}
           />
         </TypeItemWrapper>
         {isPublicHost && (
@@ -163,11 +169,15 @@ const SelectTypeStep: React.FC<StepProps> = ({
             <TypeItem
               onPress={onTypePress(SessionMode.live, SessionType.public)}
               label={t('selectType.live-public.title')}
-              Icon={<PublicIcon />}
+              Icon={<CommunityIcon />}
             />
           </TypeItemWrapper>
         )}
       </Row>
+      <Spacer16 />
+      <Centered>
+        <Body16>{t('or')}</Body16>
+      </Centered>
       <Spacer16 />
       <ButtonWrapper>
         <Button variant="secondary" onPress={onJoinByInvite}>

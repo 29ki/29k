@@ -24,7 +24,6 @@ import {
   ModalHeading,
 } from '../../lib/components/Typography/Heading/Heading';
 import {BottomSheetTextInput} from '../../lib/components/Typography/TextInput/TextInput';
-import * as metrics from '../../lib/metrics';
 import {ModalStackProps} from '../../lib/navigation/constants/routes';
 
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -33,6 +32,7 @@ import {DEFAULT_LANGUAGE_TAG} from '../../lib/i18n';
 import {Display36} from '../../lib/components/Typography/Display/Display';
 import {ThumbsUp, ThumbsDown} from './components/Thumbs';
 import Video from 'react-native-video';
+import useSessionFeedback from '../../lib/session/hooks/useSessionFeedback';
 
 const BackgroundVideo = styled(Video).attrs({
   repeat: true,
@@ -79,6 +79,7 @@ const SessionFeedbackModal = () => {
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {snapToIndex} = useBottomSheet();
   const {exerciseId, sessionId, completed, isHost} = params;
+  const {addSessionFeedback} = useSessionFeedback();
 
   const [answer, setAnswer] = useState<undefined | boolean>();
   const [comment, setComment] = useState('');
@@ -96,7 +97,7 @@ const SessionFeedbackModal = () => {
 
   const submit = useCallback(() => {
     if (answer) {
-      metrics.logFeedback({
+      addSessionFeedback({
         exerciseId,
         sessionId,
         completed,
@@ -116,6 +117,7 @@ const SessionFeedbackModal = () => {
     answer,
     comment,
     setSubmitted,
+    addSessionFeedback,
   ]);
 
   useEffect(() => {

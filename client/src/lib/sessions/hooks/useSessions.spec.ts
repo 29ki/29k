@@ -166,7 +166,6 @@ describe('useSessions', () => {
             pinnedSessions: [
               {id: 'session-id-1', expires: new Date('2022-12-20')},
             ],
-            completedSessions: [],
           },
         },
       });
@@ -216,7 +215,6 @@ describe('useSessions', () => {
             pinnedSessions: [
               {id: 'session-id-1', expires: new Date('2022-12-20')},
             ],
-            completedSessions: [],
           },
         },
       });

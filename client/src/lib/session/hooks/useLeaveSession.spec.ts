@@ -1,13 +1,16 @@
+import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
 import {act, renderHook} from '@testing-library/react-hooks';
 import {useTranslation} from 'react-i18next';
 import {Alert as AlertMock} from 'react-native';
+import {CompletedSessionPayload} from '../../../../../shared/src/types/Event';
 import {
   AsyncSession,
   LiveSession,
   SessionState,
   SessionMode,
 } from '../../../../../shared/src/types/Session';
+import useUserState from '../../user/state/state';
 import useSessionState from '../state/state';
 import useLeaveSession from './useLeaveSession';
 
@@ -161,6 +164,20 @@ describe('useLeaveSession', () => {
           started: true,
           completed: true,
         } as SessionState,
+      });
+      useUserState.setState({
+        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
+        userState: {
+          'user-id': {
+            userEvents: [
+              {
+                type: 'completedSession',
+                payload: {id: 'some-session-id'} as CompletedSessionPayload,
+                timestamp: new Date(),
+              },
+            ],
+          },
+        },
       });
 
       alertConfirmMock.mockImplementationOnce((header, text, config) => {
