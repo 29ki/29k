@@ -93,7 +93,7 @@ describe('useSharingPosts', () => {
             isAnonymous: false,
             text: 'some text',
           } as PostPayload,
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
       ]);
     });
@@ -133,7 +133,7 @@ describe('useSharingPosts', () => {
             isAnonymous: false,
             text: 'some text',
           } as PostPayload,
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
       ]);
     });
@@ -199,7 +199,7 @@ describe('useSharingPosts', () => {
               {
                 type: 'feedback',
                 payload: {} as FeedbackPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
               {
                 type: 'post',
@@ -208,7 +208,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-session-id',
                   sharingId: 'some-sharing-id',
                 } as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
               {
                 type: 'post',
@@ -217,7 +217,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-session-id',
                   sharingId: 'some-sharing-id',
                 } as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
               {
                 type: 'post',
@@ -226,7 +226,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-ohter-session-id',
                   sharingId: 'some-sharing-id',
                 } as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
               {
                 type: 'post',
@@ -235,7 +235,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-session-id',
                   sharingId: 'some-ohter-sharing-id',
                 } as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
             ],
           },
@@ -256,7 +256,7 @@ describe('useSharingPosts', () => {
           sessionId: 'some-session-id',
           sharingId: 'some-sharing-id',
         },
-        timestamp: expect.any(Date),
+        timestamp: expect.any(String),
       });
     });
   });
@@ -271,7 +271,7 @@ describe('useSharingPosts', () => {
               {
                 type: 'feedback',
                 payload: {} as FeedbackPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
               {
                 type: 'post',
@@ -280,7 +280,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-session-id',
                   sharingId: 'some-sharing-id',
                 } as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
               {
                 type: 'post',
@@ -289,7 +289,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-other-session-id',
                   sharingId: 'some-sharing-id',
                 } as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
               {
                 type: 'post',
@@ -298,7 +298,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-session-id',
                   sharingId: 'some-other-sharing-id',
                 } as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
               {
                 type: 'post',
@@ -307,7 +307,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-session-id',
                   sharingId: 'some-ohter-sharing-id',
                 } as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
             ],
           },
@@ -327,7 +327,7 @@ describe('useSharingPosts', () => {
             sessionId: 'some-session-id',
             sharingId: 'some-sharing-id',
           },
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
         {
           type: 'post',
@@ -336,7 +336,7 @@ describe('useSharingPosts', () => {
             sessionId: 'some-other-session-id',
             sharingId: 'some-sharing-id',
           },
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
       ]);
     });

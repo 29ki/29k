@@ -71,7 +71,7 @@ describe('useSessionFeedback', () => {
             sessionId: 'session-id',
             question: 'question',
           },
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
           type: 'feedback',
         },
       ]);

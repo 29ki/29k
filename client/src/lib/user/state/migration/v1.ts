@@ -13,7 +13,7 @@ type V1CompletedSession = {
   contentId: LiveSession['exerciseId'];
   language: LiveSession['language'];
   type: LiveSession['type'];
-  completedAt: Date;
+  completedAt: string; // is deserialized as string
 };
 
 export type V1UserState = {

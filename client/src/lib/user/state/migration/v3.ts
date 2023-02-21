@@ -24,7 +24,7 @@ type V3CompletedSession = {
   type: V3SessionType;
   mode: V3SessionMode;
   hostProfile?: V3UserProfile;
-  completedAt: Date;
+  completedAt: string; // is deserialized as string
 };
 
 type V3UserProfile = {
@@ -57,13 +57,13 @@ type V3FeedbackPayload = {
 };
 
 type V3PostEvent = {
-  timestamp: Date;
+  timestamp: String;
   type: 'post';
   payload: V3PostPayload;
 };
 
 type V3FeedbackEvent = {
-  timestamp: Date;
+  timestamp: String;
   type: 'feedback';
   payload: V3FeedbackPayload;
 };
@@ -88,7 +88,7 @@ const migrateCompletedSessionsToEvents = (
   return sessions.map(s => ({
     type: 'completedSession',
     payload: omit(['completedAt'], s),
-    timestamp: new Date(s.completedAt),
+    timestamp: s.completedAt,
   })) as unknown as CompletedSessionEvent[];
 };
 
