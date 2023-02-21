@@ -5,6 +5,11 @@ function instanceOfAnimationObject(object: any): object is AnimationObject {
   return 'v' in object;
 }
 
+// This exists since there are several bugs when supplying source as
+// {uri: 'https://some.json'}
+// * The animation starts playing directly even when autoPlay is false
+// * onAnimationFinnish do not fire
+// Issue reported here https://github.com/lottie-react-native/lottie-react-native/issues/968
 const useFetchLottie = (source: AnimatedLottieViewProps['source']) => {
   const [content, setContent] = useState<
     AnimatedLottieViewProps['source'] | null
