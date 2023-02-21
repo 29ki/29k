@@ -20,7 +20,8 @@ const useSessionParticipants = () => {
     ];
 
     const inSessionParticipants = participants.filter(
-      participant => !(participant.userData as DailyUserData)?.inPortal,
+      participant =>
+        participant && !(participant.userData as DailyUserData)?.inPortal,
     );
 
     if (isHostSlide) {
