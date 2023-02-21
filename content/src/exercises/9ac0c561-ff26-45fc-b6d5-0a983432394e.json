@@ -108,7 +108,14 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676972774/Video/portal1_the_willingnes_stance_nxm6x0.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676972801/Audio/portal_audio_the_willingnes_stance_pxrzfe.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676972774/Video/portal2_the_willingnes_stance_sbasyu.mp4"
+      }
     },
     "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
     "description": "Guided meditation to stop fighting unwanted inner experiences and instead use our energy where it matters. Accepting inner hardships can help us redirect our focus and propel us into meaningful action."
