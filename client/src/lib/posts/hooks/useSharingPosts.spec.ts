@@ -15,6 +15,12 @@ jest.mock('../api/posts');
 
 const mockFetchPosts = jest.mocked(fetchPosts);
 const mockAddPost = jest.mocked(addPost);
+const mockLogAsyncPostMetricEvent = jest.fn();
+
+jest.mock(
+  '../../session/hooks/useAsyncPostMetricEvents',
+  () => () => mockLogAsyncPostMetricEvent,
+);
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -80,6 +86,12 @@ describe('useSharingPosts', () => {
         'some text',
         false,
       );
+      expect(mockLogAsyncPostMetricEvent).toHaveBeenCalledTimes(1);
+      expect(mockLogAsyncPostMetricEvent).toHaveBeenCalledWith(
+        'Create Async Post',
+        true,
+        false,
+      );
       expect(
         useUserState.getState().userState['some-user-id'].userEvents,
       ).toEqual([
@@ -120,6 +132,12 @@ describe('useSharingPosts', () => {
       });
 
       expect(mockAddPost).toHaveBeenCalledTimes(0);
+      expect(mockLogAsyncPostMetricEvent).toHaveBeenCalledTimes(1);
+      expect(mockLogAsyncPostMetricEvent).toHaveBeenCalledWith(
+        'Create Async Post',
+        false,
+        false,
+      );
       expect(
         useUserState.getState().userState['some-user-id'].userEvents,
       ).toEqual([
@@ -158,6 +176,7 @@ describe('useSharingPosts', () => {
       );
 
       expect(mockAddPost).toHaveBeenCalledTimes(0);
+      expect(mockLogAsyncPostMetricEvent).toHaveBeenCalledTimes(0);
       expect(useUserState.getState().userState['some-user-id'].userEvents).toBe(
         undefined,
       );
@@ -183,6 +202,7 @@ describe('useSharingPosts', () => {
       );
 
       expect(mockAddPost).toHaveBeenCalledTimes(0);
+      expect(mockLogAsyncPostMetricEvent).toHaveBeenCalledTimes(0);
       expect(useUserState.getState().userState['some-user-id'].userEvents).toBe(
         undefined,
       );

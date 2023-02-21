@@ -1,4 +1,5 @@
 import {useCallback} from 'react';
+import useAsyncPostMetricEvents from '../../session/hooks/useAsyncPostMetricEvents';
 
 import useSessionState from '../../session/state/state';
 import useUserEvents from '../../user/hooks/useUserEvents';
@@ -9,6 +10,7 @@ const useSharingPosts = (exerciseId?: string) => {
   const addEvent = useUserState(state => state.addUserEvent);
   const {postEvents} = useUserEvents();
   const session = useSessionState(state => state.asyncSession);
+  const logAsyncPostMetricEvent = useAsyncPostMetricEvents();
 
   const getSharingPosts = useCallback(async () => {
     if (exerciseId) {
@@ -36,9 +38,10 @@ const useSharingPosts = (exerciseId?: string) => {
           isAnonymous,
           text,
         });
+        logAsyncPostMetricEvent('Create Async Post', isPublic, isAnonymous);
       }
     },
-    [exerciseId, session?.id, addEvent],
+    [exerciseId, session?.id, addEvent, logAsyncPostMetricEvent],
   );
 
   const getSharingPostForSession = useCallback(

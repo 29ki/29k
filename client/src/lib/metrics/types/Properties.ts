@@ -28,6 +28,11 @@ export type SharingSessionDuration = {
   'Sharing Session Duration': number; // Seconds
 };
 
+export type SharingSessionPost = {
+  'Sharing Session Post Public': boolean;
+  'Sharing Session Post Anonymous': boolean;
+};
+
 // Feedback properties
 export type FeedbackProperties = {
   'Feedback Question': string;

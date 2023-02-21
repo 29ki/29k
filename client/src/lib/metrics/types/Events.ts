@@ -3,6 +3,7 @@ import {
   SharingSessionDuration,
   FeedbackProperties,
   ScreenName,
+  SharingSessionPost,
 } from './Properties';
 
 type Events = {
@@ -29,6 +30,7 @@ type Events = {
 
   // Async Sharing Sessions
   'Create Async Session': SharingSessionProperties;
+  'Create Async Post': SharingSessionProperties & SharingSessionPost;
   'Completed Async Session': SharingSessionProperties;
   'Share Async Session': SharingSessionProperties;
 
