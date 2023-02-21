@@ -4,7 +4,7 @@ import {COLORS} from '../../../../../../../../shared/src/constants/colors';
 import Gutters from '../../../../../components/Gutters/Gutters';
 import {Spacer4} from '../../../../../components/Spacers/Spacer';
 import {Display16} from '../../../../../components/Typography/Display/Display';
-import useExerciseTheme from '../../../../hooks/useExerciseTheme';
+import useSessionState from '../../../../state/state';
 
 type StyledTextProp = {textColor?: string};
 const StyledText = styled(Display16)<StyledTextProp>(({textColor}) => ({
@@ -13,7 +13,7 @@ const StyledText = styled(Display16)<StyledTextProp>(({textColor}) => ({
 }));
 
 const Text: React.FC<{children: React.ReactNode}> = ({children}) => {
-  const theme = useExerciseTheme();
+  const theme = useSessionState(state => state.exercise?.theme);
 
   return (
     <Gutters>

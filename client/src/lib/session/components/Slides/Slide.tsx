@@ -6,8 +6,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {ExerciseSlide} from '../../../../../../shared/src/types/Content';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import Content from './Slides/Content';
-
-import useExerciseTheme from '../../hooks/useExerciseTheme';
+import useSessionState from '../../state/state';
 
 import Host from './Slides/Host';
 import HostVideo from './Slides/HostVideo';
@@ -35,7 +34,7 @@ type SlideProps = {
 };
 
 const Slide = ({slide, active, async}: SlideProps) => {
-  const theme = useExerciseTheme();
+  const theme = useSessionState(state => state.exercise?.theme);
   const background = theme?.backgroundColor ?? COLORS.WHITE;
   const colors = useMemo(
     () => [hexToRgba(background, 0), hexToRgba(background, 1)],
