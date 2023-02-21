@@ -117,7 +117,9 @@ describe('useCheckForUpdate', () => {
 
       await act(async () => {
         await expect(result.current.checkCodePush()).rejects.toThrow(
-          new Error('Code Push check failed'),
+          new Error('Code Push check failed', {
+            cause: new Error('Some Random Error'),
+          }),
         );
       });
 

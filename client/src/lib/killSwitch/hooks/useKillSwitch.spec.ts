@@ -215,7 +215,9 @@ describe('useKillSwitch', () => {
 
       await act(async () => {
         await expect(result.current.checkKillSwitch()).rejects.toThrow(
-          new Error('Kill Switch failed'),
+          new Error('Kill Switch failed', {
+            cause: new Error('Some Random Error'),
+          }),
         );
       });
 
@@ -245,7 +247,9 @@ describe('useKillSwitch', () => {
 
       await act(async () => {
         await expect(result.current.checkKillSwitch()).rejects.toThrow(
-          new Error('Kill Switch failed'),
+          new Error('Kill Switch failed', {
+            cause: new Error('Network request failed'),
+          }),
         );
       });
 
@@ -275,7 +279,9 @@ describe('useKillSwitch', () => {
 
       await act(async () => {
         await expect(result.current.checkKillSwitch()).rejects.toThrow(
-          new Error('Failed to read Kill Switch body'),
+          new Error('Failed to read Kill Switch body', {
+            cause: new Error('Unexpected token o in JSON at position 1'),
+          }),
         );
       });
 
