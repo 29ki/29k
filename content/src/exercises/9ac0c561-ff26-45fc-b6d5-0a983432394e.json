@@ -99,7 +99,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676639667/Images/placeholder_image_card_nxt9yf.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676992253/Images/card_image_the_willingnes_stance_e2yekr.png"
       }
     },
     "duration": 30,
@@ -110,11 +110,12 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676972774/Video/portal1_the_willingnes_stance_nxm6x0.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676972801/Audio/portal_audio_the_willingnes_stance_pxrzfe.mp3"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal1_the_willingnes_stance_cosgwx.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676972801/Audio/portal_audio_the_willingnes_stance_pxrzfe.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676991354/Images/portal_the_willingnes_stance_thumbnail_hvcvof.png"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676972774/Video/portal2_the_willingnes_stance_sbasyu.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal2_the_willingnes_stance_kti6ub.mp4"
       }
     },
     "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
