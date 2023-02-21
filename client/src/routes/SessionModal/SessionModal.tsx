@@ -12,7 +12,7 @@ import IconButton from '../../lib/components/Buttons/IconButton/IconButton';
 import {
   BellFillIcon,
   BellIcon,
-  CommandIcon,
+  CommunityIcon,
   FriendsIcon,
   ShareIcon,
 } from '../../lib/components/Icons';
@@ -288,7 +288,7 @@ const SessionModal = () => {
               setEditTypeMode(false);
             }}
             label={t(`selectType.${type}.title`)}
-            Icon={type === 'private' ? <FriendsIcon /> : <CommandIcon />}
+            Icon={type === 'private' ? <FriendsIcon /> : <CommunityIcon />}
           />
           {i < arr.length - 1 && <Spacer16 />}
         </TypeItemWrapper>
