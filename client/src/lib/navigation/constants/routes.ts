@@ -51,7 +51,6 @@ export type ModalStackProps = {
   SessionModal: {session: LiveSession};
   CompletedSessionModal: {
     completedSessionEvent: CompletedSessionEvent;
-    hostProfile?: UserProfile;
   };
   SharingModal: {exerciseId: string};
   SharingPostModal: {

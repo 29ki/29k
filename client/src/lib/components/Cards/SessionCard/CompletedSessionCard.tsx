@@ -20,6 +20,7 @@ import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Spacer4} from '../../Spacers/Spacer';
 import {SessionMode} from '../../../../../../shared/src/types/Session';
 import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
+import useUserProfile from '../../../user/hooks/useUserProfile';
 
 type CompletedSessionCardProps = {
   completedSessionEvent: CompletedSessionEvent;
@@ -41,7 +42,6 @@ const ChekIconWrapper = styled.View({
 
 const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
   completedSessionEvent,
-  hostProfile,
   hasCardBefore,
   hasCardAfter,
 }) => {
@@ -51,6 +51,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
     timestamp,
   } = completedSessionEvent;
   const exercise = useExerciseById(exerciseId);
+  const hostProfile = useUserProfile(completedSessionEvent.payload.hostId);
   const {navigate} =
     useNavigation<
       NativeStackNavigationProp<ModalStackProps, 'CompletedSessionModal'>
@@ -60,9 +61,8 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
     () =>
       navigate('CompletedSessionModal', {
         completedSessionEvent,
-        hostProfile,
       }),
-    [navigate, completedSessionEvent, hostProfile],
+    [navigate, completedSessionEvent],
   );
 
   const image = useMemo(

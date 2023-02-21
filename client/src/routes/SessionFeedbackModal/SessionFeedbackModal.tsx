@@ -33,6 +33,7 @@ import {Display36} from '../../lib/components/Typography/Display/Display';
 import {ThumbsUp, ThumbsDown} from './components/Thumbs';
 import Video from 'react-native-video';
 import useSessionFeedback from '../../lib/session/hooks/useSessionFeedback';
+import useCompletedSessionById from '../../lib/user/hooks/useCompletedSessionById';
 
 const BackgroundVideo = styled(Video).attrs({
   repeat: true,
@@ -75,11 +76,13 @@ const SessionFeedbackModal = () => {
   const {t} = useTranslation('Modal.SessionFeedback');
   const {params} =
     useRoute<RouteProp<ModalStackProps, 'SessionFeedbackModal'>>();
-  const {popToTop} =
+  const {popToTop, navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {snapToIndex} = useBottomSheet();
   const {exerciseId, sessionId, completed, isHost} = params;
   const {addSessionFeedback} = useSessionFeedback();
+
+  const completedSessionEvent = useCompletedSessionById(sessionId);
 
   const [answer, setAnswer] = useState<undefined | boolean>();
   const [comment, setComment] = useState('');
@@ -108,7 +111,15 @@ const SessionFeedbackModal = () => {
       });
       setSubmitted(true);
     }
+
+    if (completedSessionEvent) {
+      navigate('CompletedSessionModal', {
+        completedSessionEvent,
+      });
+    }
   }, [
+    completedSessionEvent,
+    navigate,
     t,
     exerciseId,
     sessionId,

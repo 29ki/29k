@@ -31,6 +31,7 @@ import {ExerciseSlideSharingSlide} from '../../../../shared/src/types/generated/
 import {complement, isNil} from 'ramda';
 import MyPostCard from '../../lib/session/components/Posts/MyPostCard';
 import useUser from '../../lib/user/hooks/useUser';
+import useUserProfile from '../../lib/user/hooks/useUserProfile';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -66,10 +67,11 @@ const ButtonWrapper = styled.View({flexDirection: 'row'});
 
 const CompletedSessionModal = () => {
   const {
-    params: {completedSessionEvent, hostProfile},
+    params: {completedSessionEvent},
   } = useRoute<RouteProp<ModalStackProps, 'CompletedSessionModal'>>();
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
+  const hostProfile = useUserProfile(completedSessionEvent.payload.hostId);
   const {t} = useTranslation('Modal.CompletedSession');
   const {payload, timestamp} = completedSessionEvent;
   const user = useUser();

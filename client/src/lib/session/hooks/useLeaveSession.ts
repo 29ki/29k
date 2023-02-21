@@ -15,7 +15,6 @@ import useLiveSessionMetricEvents from './useLiveSessionMetricEvents';
 import useIsSessionHost from './useIsSessionHost';
 import {SessionMode} from '../../../../../shared/src/types/Session';
 import useAsyncSessionMetricEvents from './useAsyncSessionMetricEvents';
-import useCompletedSessionById from '../../user/hooks/useCompletedSessionById';
 
 type ScreenNavigationProps = NativeStackNavigationProp<
   TabNavigatorProps & ModalStackProps
@@ -25,10 +24,10 @@ const useLeaveSession = (sessionMode: SessionMode) => {
   const {t} = useTranslation('Component.ConfirmExitSession');
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();
-  const session = useSessionState(state => state.liveSession);
+  const liveSession = useSessionState(state => state.liveSession);
   const sessionState = useSessionState(state => state.sessionState);
   const asyncSession = useSessionState(state => state.asyncSession);
-  const completedSessionEvent = useCompletedSessionById(asyncSession?.id);
+
   const isHost = useIsSessionHost();
   const {fetchSessions} = useSessions();
   const logLiveSessionMetricEvent = useLiveSessionMetricEvents();
@@ -37,6 +36,9 @@ const useLeaveSession = (sessionMode: SessionMode) => {
   const resetSession = useSessionState(state => state.reset);
 
   const leaveSession = useCallback(async () => {
+    const session =
+      sessionMode === SessionMode.async ? asyncSession : liveSession;
+
     if (sessionMode !== SessionMode.async) {
       await leaveMeeting();
     }
@@ -47,31 +49,18 @@ const useLeaveSession = (sessionMode: SessionMode) => {
 
     navigate('Sessions');
 
-    if (
-      session?.id &&
-      sessionState?.started &&
-      sessionMode !== SessionMode.async
-    ) {
+    if (session?.id && sessionState?.started) {
       navigate('SessionFeedbackModal', {
         exerciseId: session.exerciseId,
         sessionId: session.id,
         completed: Boolean(sessionState?.completed),
         isHost,
       });
-    } else if (
-      sessionState?.completed &&
-      sessionMode === SessionMode.async &&
-      completedSessionEvent
-    ) {
-      navigate('CompletedSessionModal', {
-        completedSessionEvent,
-      });
     }
   }, [
+    asyncSession,
+    liveSession,
     sessionMode,
-    completedSessionEvent,
-    session?.id,
-    session?.exerciseId,
     sessionState?.started,
     sessionState?.completed,
     isHost,
