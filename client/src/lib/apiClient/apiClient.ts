@@ -1,4 +1,6 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {API_ENDPOINT} from 'config';
+import dayjs from 'dayjs';
 import i18next, {DEFAULT_LANGUAGE_TAG} from '../../lib/i18n';
 import {getCorrelationId} from '../sentry';
 import {getAuthorizationToken, recreateUser} from '../user';
@@ -13,11 +15,13 @@ const getAuthorizationHeader = async () => {
 };
 
 const apiClient = async (input: string, init?: RequestInit | undefined) => {
+  const endpoint = `${trimSlashes(API_ENDPOINT)}/${trimSlashes(input)}`;
+
   const doFetch = async () => {
     const authHeader = await getAuthorizationHeader();
     const correlationId = getCorrelationId();
 
-    return fetch(`${trimSlashes(API_ENDPOINT)}/${trimSlashes(input)}`, {
+    return fetch(endpoint, {
       ...init,
       headers: {
         'Content-Type': 'application/json',
@@ -28,6 +32,16 @@ const apiClient = async (input: string, init?: RequestInit | undefined) => {
       },
     });
   };
+
+  const storage = await AsyncStorage.getItem(endpoint);
+  if (storage) {
+    const cache = JSON.parse(storage);
+
+    if (dayjs.utc(cache.expiry).isAfter(dayjs.utc())) {
+      console.log(cache);
+      return {json: () => Promise.resolve(cache.data), ok: true};
+    }
+  }
 
   const response = await doFetch();
 
@@ -47,6 +61,18 @@ const apiClient = async (input: string, init?: RequestInit | undefined) => {
   if (response.status === 400) {
     await recreateUser();
     return await doFetch();
+  }
+
+  const cacheAge = response.headers.get('cache-control')?.split('=')[1];
+
+  if (cacheAge) {
+    AsyncStorage.setItem(
+      endpoint,
+      JSON.stringify({
+        data: await response.json(),
+        expiry: dayjs.utc().add(Number(cacheAge), 'seconds').toDate(),
+      }),
+    );
   }
 
   return response;
