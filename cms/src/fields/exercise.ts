@@ -15,6 +15,8 @@ import {
   IMAGE_FIELD,
   DESCRIPTION_FIELD,
   TAGS_FIELD,
+  LOTTIE_FIELD_WITH_AUDIO,
+  LOTTIE_FIELD_WITH_DURATION,
   ASYNC_FIELD,
 } from './common';
 import {
@@ -74,6 +76,18 @@ export const INTRO_PORTAL: CmsField = {
   fields: [
     {...VIDEO_FIELD_WITH_AUDIO, label: '🎥 Video Loop', name: 'videoLoop'},
     {...VIDEO_FIELD, label: '🎥 Video End', name: 'videoEnd'},
+    {
+      ...LOTTIE_FIELD_WITH_AUDIO,
+      label: '💃 Lottie Loop',
+      name: 'lottieLoop',
+      hint: 'Overrides Video Loop',
+    },
+    {
+      ...LOTTIE_FIELD_WITH_DURATION,
+      label: '💃 Lottie End',
+      name: 'lottieEnd',
+      hint: 'Overrides Video End',
+    },
     HOST_NOTES,
   ],
 };

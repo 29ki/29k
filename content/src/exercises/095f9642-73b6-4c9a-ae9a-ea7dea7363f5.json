@@ -141,7 +141,16 @@
         {
           "text": ">Start the session when you're ready to go."
         }
-      ]
+      ],
+      "lottieLoop": {
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
+        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1672843496/Lottie/mission_setting_boundaries_cwycbr.json",
+        "duration": 5
+      },
+      "lottieEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1672843496/Lottie/mission_setting_boundaries_cwycbr.json",
+        "duration": 5
+      }
     },
     "tags": [],
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
@@ -290,7 +299,13 @@
         {
           "text": "> Começa a sessão quando estiveres pronta/o."
         }
-      ]
+      ],
+      "lottieLoop": {
+        "duration": 5
+      },
+      "lottieEnd": {
+        "duration": 5
+      }
     },
     "tags": [],
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
@@ -300,11 +315,27 @@
   "sv": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139",
     "duration": 30,
-    "tags": []
+    "tags": [],
+    "introPortal": {
+      "lottieLoop": {
+        "duration": 5
+      },
+      "lottieEnd": {
+        "duration": 5
+      }
+    }
   },
   "es": {
     "id": "97aff230-7e8c-45d3-9bd9-5efc6d54c139",
     "duration": 30,
-    "tags": []
+    "tags": [],
+    "introPortal": {
+      "lottieLoop": {
+        "duration": 5
+      },
+      "lottieEnd": {
+        "duration": 5
+      }
+    }
   }
 }

@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
@@ -19,6 +19,7 @@ import VideoTransition from '../VideoTransition/VideoTransition';
 import HostNotes from '../HostNotes/HostNotes';
 import {ArrowLeftIcon} from '../../../components/Icons';
 import Button from '../../../components/Buttons/Button';
+import LottieTransition from '../LottieTransition/LottieTransition';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -60,7 +61,9 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
 }) => {
   const {t} = useTranslation('Screen.Portal');
 
-  const [isReadyForDisplay, setIsReadyForDisplay] = useState(false);
+  const [isReadyForDisplay, setIsReadyForDisplay] = useState(
+    Boolean(exercise?.introPortal?.lottieLoop?.source),
+  );
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const sessionState = useSessionState(state => state.sessionState);
@@ -69,13 +72,18 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   const textColor = exercise?.theme?.textColor;
 
   useEffect(() => {
-    if (sessionState?.started && !introPortal?.videoLoop?.source) {
+    if (
+      sessionState?.started &&
+      !introPortal?.videoLoop?.source &&
+      !introPortal?.videoLoop?.source
+    ) {
       // If no video is defined, navigate directly
       onNavigateToSession();
     }
   }, [
     sessionState?.started,
     introPortal?.videoLoop?.source,
+    introPortal?.lottieLoop?.source,
     onNavigateToSession,
   ]);
 
@@ -92,28 +100,47 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     onNavigateToSession();
   }, [onNavigateToSession]);
 
+  const audioSource = useMemo(() => {
+    if (introPortal?.lottieLoop?.audio) {
+      return introPortal?.lottieLoop?.audio;
+    }
+    return introPortal?.videoLoop?.audio;
+  }, [introPortal]);
+
   return (
     <Screen>
       {!isHost && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
-      {isFocused && introPortal?.videoLoop?.audio && (
+      {isFocused && audioSource && (
         <AudioFader
-          source={introPortal?.videoLoop?.audio}
+          source={audioSource}
           paused={!isReadyForDisplay}
           volume={isTransitioning ? 0 : 1}
           duration={isTransitioning ? 5000 : 10000}
           repeat
         />
       )}
-      <VideoTransition
-        loopSource={introPortal?.videoLoop?.source}
-        loopPosterSource={introPortal?.videoLoop?.preview}
-        endSource={introPortal?.videoEnd?.source}
-        loop={!sessionState?.started}
-        paused={!isFocused}
-        onReadyForDisplay={onVideoReadyForDisplay}
-        onTransition={onVideoTransition}
-        onEnd={onVideoEnd}
-      />
+      {introPortal?.lottieLoop?.source ? (
+        <LottieTransition
+          loopSource={introPortal.lottieLoop.source}
+          loopDuration={introPortal.lottieLoop.duration}
+          endSource={introPortal.lottieEnd?.source}
+          loop={!sessionState?.started}
+          endDuration={introPortal.lottieEnd?.duration}
+          onTransition={onVideoTransition}
+          onEnd={onVideoEnd}
+        />
+      ) : (
+        <VideoTransition
+          loopSource={introPortal?.videoLoop?.source}
+          loopPosterSource={introPortal?.videoLoop?.preview}
+          endSource={introPortal?.videoEnd?.source}
+          loop={!sessionState?.started}
+          paused={!isFocused}
+          onReadyForDisplay={onVideoReadyForDisplay}
+          onTransition={onVideoTransition}
+          onEnd={onVideoEnd}
+        />
+      )}
       {isHost && (
         <>
           <HostNotes introPortal exercise={exercise} />

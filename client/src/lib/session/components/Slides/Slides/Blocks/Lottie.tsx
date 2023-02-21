@@ -33,6 +33,7 @@ type LottieProps = {
   preview?: string;
   autoPlayLoop?: boolean;
   durationTimer?: boolean;
+  end?: () => void;
 };
 const Lottie: React.FC<LottieProps> = ({
   active,

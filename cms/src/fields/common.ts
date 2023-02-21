@@ -222,10 +222,45 @@ export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
   ],
 };
 
-export const LOTTIE_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
-  ...LOTTE_FIELD,
+export const LOTTIE_FIELD: CmsFieldBase & CmsFieldObject = {
+  label: '💃 Lottie',
+  name: 'lottie',
+  widget: 'object',
+  collapsed: true,
+  required: false,
+  i18n: true,
   fields: [
-    ...LOTTE_FIELD.fields,
+    {
+      label: '📃 Description',
+      name: 'description',
+      widget: 'string',
+      required: false,
+      i18n: true,
+    },
+    {
+      label: '💃 Lottie file',
+      name: 'source',
+      widget: 'file',
+      required: false,
+      i18n: true,
+      allow_multiple: false,
+      media_library: CLOUDINARY_IMAGE_CONFIG,
+    },
+  ],
+};
+
+export const LOTTIE_FIELD_WITH_DURATION = {
+  ...LOTTIE_FIELD,
+  fields: [
+    ...LOTTIE_FIELD.fields,
+    {...DURATION_FIELD, hint: 'Duration in seconds', required: false},
+  ],
+};
+
+export const LOTTIE_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
+  ...LOTTIE_FIELD_WITH_DURATION,
+  fields: [
+    ...LOTTIE_FIELD.fields,
     {
       ...AUDIO_FIELD,
       hint: 'Animation will automatically loop while playing.',
