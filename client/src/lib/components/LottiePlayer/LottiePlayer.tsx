@@ -65,7 +65,7 @@ const LottiePlayer = forwardRef<LottiePlayerHandle, LottiePlayerProps>(
           // No imperative API for seeking
           setProgress(seconds / duration);
         }
-        // Allways pause or resume after seek
+        // Always pause or resume after seek
         togglePaused(paused);
       },
       [togglePaused, duration, paused],
@@ -95,7 +95,7 @@ const LottiePlayer = forwardRef<LottiePlayerHandle, LottiePlayerProps>(
         <AnimatedLottieView
           onAnimationFinish={onAnimationFinish}
           source={lottieSource}
-          duration={duration ? duration * 60 : 1}
+          duration={duration ? 60 / duration : 1}
           loop={repeat}
           autoPlay={!paused}
           progress={progress}
