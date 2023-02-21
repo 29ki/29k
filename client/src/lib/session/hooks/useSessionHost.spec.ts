@@ -7,8 +7,8 @@ describe('useSessionHost', () => {
   it('returns the host', () => {
     useDailyState.setState({
       participants: {
-        'some-spotlight-user-id': {
-          user_id: 'some-spotlight-user-id',
+        'some-spotlight-session-id': {
+          session_id: 'some-spotlight-session-id',
           owner: true,
         } as DailyParticipant,
       },
@@ -17,7 +17,7 @@ describe('useSessionHost', () => {
     const {result} = renderHook(() => useSessionHost());
 
     expect(result.current).toEqual({
-      user_id: 'some-spotlight-user-id',
+      session_id: 'some-spotlight-session-id',
       owner: true,
     });
   });
@@ -25,8 +25,8 @@ describe('useSessionHost', () => {
   it('returns undefined when no host is found', () => {
     useDailyState.setState({
       participants: {
-        'some-spotlight-user-id': {
-          user_id: 'some-spotlight-user-id',
+        'some-spotlight-session-id': {
+          session_id: 'some-spotlight-session-id',
           owner: false,
         } as DailyParticipant,
       },
