@@ -8,6 +8,7 @@ import React, {
 } from 'react';
 import AnimatedLottieView, {AnimatedLottieViewProps} from 'lottie-react-native';
 import {View, ViewStyle} from 'react-native';
+import useFetchLottie from './hooks/useFetchLottie';
 
 export type LottiePlayerProps = {
   style?: ViewStyle;
@@ -26,6 +27,7 @@ export type LottiePlayerHandle = {
 const LottiePlayer = forwardRef<LottiePlayerHandle, LottiePlayerProps>(
   ({style, source, paused, onEnd, duration = 60, repeat = false}, ref) => {
     const lottieRef = useRef<AnimatedLottieView>(null);
+    const lottieSource = useFetchLottie(source);
     const [progress, setProgress] = useState(0);
 
     const togglePaused = useCallback((pause: boolean) => {
@@ -66,11 +68,15 @@ const LottiePlayer = forwardRef<LottiePlayerHandle, LottiePlayerProps>(
       togglePaused(paused);
     }, [paused, togglePaused]);
 
+    if (!lottieSource) {
+      return null;
+    }
+
     return (
       <View style={style}>
         <AnimatedLottieView
           onAnimationFinish={onAnimationFinish}
-          source={source}
+          source={lottieSource}
           speed={duration ? 60 / duration : 1}
           loop={repeat}
           autoPlay={!paused}
