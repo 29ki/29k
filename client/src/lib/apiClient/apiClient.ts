@@ -1,13 +1,8 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {API_ENDPOINT} from 'config';
-import dayjs from 'dayjs';
 import i18next, {DEFAULT_LANGUAGE_TAG} from '../../lib/i18n';
 import {getCorrelationId} from '../sentry';
 import {getAuthorizationToken, recreateUser} from '../user';
 import {trimSlashes} from '../utils/string';
-import {parse as parseCacheControl} from 'cache-control-parser';
-
-const runtimeCacheRefs = new Map();
 
 const getAuthorizationHeader = async () => {
   const token = await getAuthorizationToken();
@@ -36,21 +31,6 @@ const apiClient = async (input: string, init?: RequestInit | undefined) => {
     });
   };
 
-  const storage = await AsyncStorage.getItem(`api-cache@${endpoint}`);
-  if (storage) {
-    const cache = JSON.parse(storage);
-
-    if (dayjs.utc(cache.expiry).isAfter(dayjs.utc())) {
-      if (!runtimeCacheRefs.get(endpoint)) {
-        runtimeCacheRefs.set(endpoint, cache.data);
-      }
-      return {
-        json: () => Promise.resolve(runtimeCacheRefs.get(endpoint)),
-        ok: true,
-      } as Response;
-    }
-  }
-
   const response = await doFetch();
 
   /*
@@ -69,27 +49,6 @@ const apiClient = async (input: string, init?: RequestInit | undefined) => {
   if (response.status === 400) {
     await recreateUser();
     return await doFetch();
-  }
-
-  const cacheControlStr = response.headers.get('cache-control');
-  if (cacheControlStr) {
-    const cacheControl = parseCacheControl(cacheControlStr);
-
-    if (cacheControl['max-age']) {
-      const data = await response.json();
-
-      runtimeCacheRefs.set(endpoint, data);
-      AsyncStorage.setItem(
-        `api-cache@${endpoint}`,
-        JSON.stringify({
-          data,
-          expiry: dayjs
-            .utc()
-            .add(cacheControl['max-age'], 'seconds')
-            .toString(),
-        }),
-      );
-    }
   }
 
   return response;
