@@ -126,7 +126,7 @@ const useUserState = create<State & Actions>()(
           setCurrentUserState(({userEvents: events = []} = {}) => ({
             userEvents: [
               ...events,
-              {...typedEventData, timestamp: dayjs().utc().toISOString()},
+              {...typedEventData, timestamp: dayjs().utc().toJSON()},
             ],
           }));
         },
