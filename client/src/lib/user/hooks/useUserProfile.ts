@@ -14,7 +14,8 @@ const useUserProfile = (userId: string | undefined) => {
     }),
     [user?.displayName, user?.photoURL],
   );
-  const isHost = user?.uid !== userId;
+
+  const isHost = user?.uid === userId;
 
   const {data: userProfile} = useGet<UserProfile>(
     `${USER_ENDPOINT}/${userId}`,
@@ -23,7 +24,7 @@ const useUserProfile = (userId: string | undefined) => {
     },
   );
 
-  return user?.uid === userId ? ownProfile : userProfile;
+  return isHost ? ownProfile : userProfile;
 };
 
 export default useUserProfile;

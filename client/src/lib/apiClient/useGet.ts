@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState} from 'react';
+import {useCallback, useEffect, useMemo, useState} from 'react';
 
 import apiClient from './apiClient';
 
@@ -34,7 +34,7 @@ const useGet = <T>(endpoint: string, options: {skip: boolean}) => {
     }
   }, [doFetch, options.skip]);
 
-  return {error, data};
+  return useMemo(() => ({error, data}), [error, data]);
 };
 
 export default useGet;

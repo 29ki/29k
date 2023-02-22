@@ -1,15 +1,21 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook} from '@testing-library/react-hooks';
-import {getProfile} from '../api/user';
+import useGet from '../../apiClient/useGet';
 
 import useUserState from '../state/state';
 import useUserProfile from './useUserProfile';
 
-jest.mock('../api/user');
-const mockedGetProfile = jest.mocked(getProfile);
+jest.mock('../../apiClient/useGet');
+const mockedUseGet = jest.mocked(useGet);
+
+afterEach(jest.clearAllMocks);
 
 describe('useUserProfile', () => {
   it('should return user state profile data instead of making a request', () => {
+    mockedUseGet.mockReturnValueOnce({
+      data: undefined,
+      error: undefined,
+    });
     useUserState.setState({
       user: {
         uid: 'user-id',
@@ -24,13 +30,17 @@ describe('useUserProfile', () => {
       displayName: 'display-name',
       photoURL: 'photo-url',
     });
-    expect(mockedGetProfile).toHaveBeenCalledTimes(0);
+    expect(mockedUseGet).toHaveBeenCalledTimes(1);
+    expect(mockedUseGet).toHaveBeenCalledWith('/user/user-id', {skip: true});
   });
 
   it('should request user profile data', async () => {
-    mockedGetProfile.mockResolvedValue({
-      displayName: 'some-display-name',
-      photoURL: 'some-photo-url',
+    mockedUseGet.mockReturnValueOnce({
+      data: {
+        displayName: 'some-display-name',
+        photoURL: 'some-photo-url',
+      },
+      error: undefined,
     });
     useUserState.setState({
       user: {
@@ -42,11 +52,13 @@ describe('useUserProfile', () => {
 
     const {result} = renderHook(() => useUserProfile('some-user-id'));
 
-    await result.current;
-    expect(mockedGetProfile).toHaveBeenCalledTimes(1);
     expect(result.current).toEqual({
       displayName: 'some-display-name',
       photoURL: 'some-photo-url',
+    });
+    expect(mockedUseGet).toHaveBeenCalledTimes(1);
+    expect(mockedUseGet).toHaveBeenCalledWith('/user/some-user-id', {
+      skip: false,
     });
   });
 });
