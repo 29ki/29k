@@ -25,7 +25,8 @@ const StyledButton = styled(Button)({
 });
 
 const Row = styled.View({
-  padding: SPACINGS.SIXTEEN,
+  paddingLeft: SPACINGS.SIXTEEN,
+  padding: SPACINGS.TWELVE,
 });
 
 const Error = styled(Body16)({
@@ -64,11 +65,10 @@ const DeleteUserModal = () => {
       <Gutters>
         <ModalHeading>{t('title')}</ModalHeading>
         <Spacer24 />
+        <Row>
+          <Body16>{auth().currentUser?.email}</Body16>
+        </Row>
         <ActionList>
-          <Row>
-            <Body16>{auth().currentUser?.email}</Body16>
-          </Row>
-
           <BottomSheetActionTextInput
             textContentType="password"
             secureTextEntry
