@@ -15,7 +15,7 @@ describe('useCurrentUserState', () => {
             {
               type: 'post',
               payload: {sessionId: 'some-session-id'} as PostPayload,
-              timestamp: new Date(),
+              timestamp: new Date().toISOString(),
             },
           ],
         },
@@ -30,7 +30,7 @@ describe('useCurrentUserState', () => {
         {
           type: 'post',
           payload: {sessionId: 'some-session-id'} as PostPayload,
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
       ],
     });

@@ -28,7 +28,7 @@ describe('v3', () => {
             {
               type: 'post',
               payload: {sessionId: 'session-id-1'} as unknown as V3PostPayload,
-              timestamp: new Date(),
+              timestamp: new Date().toISOString(),
             },
           ],
           completedSessions: [
@@ -39,7 +39,7 @@ describe('v3', () => {
               language: 'en',
               type: 'public',
               mode: 'live',
-              completedAt: new Date(),
+              completedAt: new Date().toISOString(),
             },
             {
               id: 'session-id-1',
@@ -48,7 +48,7 @@ describe('v3', () => {
               language: 'en',
               type: 'public',
               mode: 'live',
-              completedAt: new Date(),
+              completedAt: new Date().toISOString(),
             },
             {
               id: 'session-id-2',
@@ -57,7 +57,7 @@ describe('v3', () => {
               language: 'en',
               type: 'private',
               mode: 'live',
-              completedAt: new Date(),
+              completedAt: new Date().toISOString(),
             },
             {
               id: 'session-id-3',
@@ -66,7 +66,7 @@ describe('v3', () => {
               language: 'sv',
               type: 'public',
               mode: 'async',
-              completedAt: new Date(),
+              completedAt: new Date().toISOString(),
             },
           ],
         } as V3UserState,
@@ -85,7 +85,7 @@ describe('v3', () => {
               payload: {
                 sessionId: 'session-id-1',
               },
-              timestamp: expect.any(Date),
+              timestamp: expect.any(String),
             },
             {
               type: 'completedSession',
@@ -97,7 +97,7 @@ describe('v3', () => {
                 type: 'public',
                 mode: 'live',
               },
-              timestamp: expect.any(Date),
+              timestamp: expect.any(String),
             },
             {
               type: 'completedSession',
@@ -109,7 +109,7 @@ describe('v3', () => {
                 type: 'private',
                 mode: 'live',
               },
-              timestamp: expect.any(Date),
+              timestamp: expect.any(String),
             },
             {
               type: 'completedSession',
@@ -121,7 +121,7 @@ describe('v3', () => {
                 type: 'public',
                 mode: 'async',
               },
-              timestamp: expect.any(Date),
+              timestamp: expect.any(String),
             },
           ],
         },
@@ -143,7 +143,7 @@ describe('v3', () => {
               language: 'en',
               type: 'public',
               mode: 'live',
-              completedAt: new Date(),
+              completedAt: new Date().toISOString(),
             },
             {
               id: 'session-id-1',
@@ -152,7 +152,7 @@ describe('v3', () => {
               language: 'en',
               type: 'public',
               mode: 'live',
-              completedAt: new Date(),
+              completedAt: new Date().toISOString(),
             },
             {
               id: 'session-id-2',
@@ -161,7 +161,7 @@ describe('v3', () => {
               language: 'en',
               type: 'private',
               mode: 'live',
-              completedAt: new Date(),
+              completedAt: new Date().toISOString(),
             },
             {
               id: 'session-id-3',
@@ -170,7 +170,7 @@ describe('v3', () => {
               language: 'sv',
               type: 'public',
               mode: 'async',
-              completedAt: new Date(),
+              completedAt: new Date().toISOString(),
             },
           ],
         } as V3UserState,
@@ -194,7 +194,7 @@ describe('v3', () => {
                 type: 'public',
                 mode: 'live',
               },
-              timestamp: expect.any(Date),
+              timestamp: expect.any(String),
             },
             {
               type: 'completedSession',
@@ -206,7 +206,7 @@ describe('v3', () => {
                 type: 'private',
                 mode: 'live',
               },
-              timestamp: expect.any(Date),
+              timestamp: expect.any(String),
             },
             {
               type: 'completedSession',
@@ -218,7 +218,7 @@ describe('v3', () => {
                 type: 'public',
                 mode: 'async',
               },
-              timestamp: expect.any(Date),
+              timestamp: expect.any(String),
             },
           ],
         },

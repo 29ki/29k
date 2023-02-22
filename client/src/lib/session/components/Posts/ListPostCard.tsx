@@ -56,7 +56,7 @@ const BottomGradient = styled(LinearGradient)({
 type ListPostCardProps = {
   userProfile?: UserProfile;
   text: string;
-  sharingAt?: Date;
+  sharingAt?: string;
   isPublic?: boolean;
 };
 
@@ -83,7 +83,7 @@ const ListPostCard: React.FC<ListPostCardProps> = ({
 
   const timeStamp = useMemo(() => {
     if (sharingAt) {
-      return dayjs(sharingAt).format('ddd, D MMM');
+      return dayjs(sharingAt).local().format('ddd, D MMM');
     }
   }, [sharingAt]);
 
