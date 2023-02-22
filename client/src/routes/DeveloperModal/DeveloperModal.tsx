@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 
 import ActionList from '../../lib/components/ActionList/ActionList';
@@ -14,6 +14,7 @@ import useAppState from '../../lib/appState/state/state';
 import useClearUpdates from '../../lib/codePush/hooks/useClearUpdates';
 import useCheckForUpdate from '../../lib/codePush/hooks/useCheckForUpdate';
 import ActionSwitch from '../../lib/components/ActionList/ActionItems/ActionSwitch';
+import useUserState from '../../lib/user/state/state';
 
 const DeveloperModal = () => {
   const {t} = useTranslation('Modal.Developer');
@@ -24,6 +25,11 @@ const DeveloperModal = () => {
   );
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
+  const setCurrentUserState = useUserState(state => state.setCurrentUserState);
+
+  const clearUserHistory = useCallback(() => {
+    setCurrentUserState({userEvents: undefined, pinnedSessions: undefined});
+  }, [setCurrentUserState]);
 
   return (
     <SheetModal>
@@ -43,6 +49,12 @@ const DeveloperModal = () => {
           <ActionButton onPress={clearUpdates}>{t('clearUpdate')}</ActionButton>
           <ActionButton onPress={checkForUpdate}>
             {t('checkUpdate')}
+          </ActionButton>
+        </ActionList>
+        <Spacer8 />
+        <ActionList>
+          <ActionButton onPress={clearUserHistory}>
+            {t('clearHistory')}
           </ActionButton>
         </ActionList>
         <Spacer16 />
