@@ -5,7 +5,6 @@ import dayjs from 'dayjs';
 import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
 
-import {UserProfile} from '../../../../../../shared/src/types/User';
 import {ModalStackProps} from '../../../navigation/constants/routes';
 
 import useExerciseById from '../../../content/hooks/useExerciseById';
@@ -24,7 +23,6 @@ import useUserProfile from '../../../user/hooks/useUserProfile';
 
 type CompletedSessionCardProps = {
   completedSessionEvent: CompletedSessionEvent;
-  hostProfile: UserProfile | undefined;
   hasCardBefore: boolean;
   hasCardAfter: boolean;
 };

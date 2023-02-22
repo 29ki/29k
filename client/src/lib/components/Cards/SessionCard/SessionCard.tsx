@@ -27,6 +27,7 @@ import useUser from '../../../user/hooks/useUser';
 import Interested from '../../Interested/Interested';
 import usePinSession from '../../../sessions/hooks/usePinSession';
 import useSessionReminderNotification from '../../../sessions/hooks/useSessionReminderNotification';
+import useUserProfile from '../../../user/hooks/useUserProfile';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -82,7 +83,8 @@ const SessionCard: React.FC<SessionCardProps> = ({
   hasCardBefore,
   hasCardAfter,
 }) => {
-  const {exerciseId, startTime, hostProfile} = session;
+  const {exerciseId, startTime} = session;
+  const hostProfile = useUserProfile(session.hostId);
   const exercise = useExerciseById(exerciseId);
   const user = useUser();
   const {t} = useTranslation('Component.SessionCard');

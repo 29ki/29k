@@ -5,6 +5,9 @@ import i18next, {DEFAULT_LANGUAGE_TAG} from '../../lib/i18n';
 import {getCorrelationId} from '../sentry';
 import {getAuthorizationToken, recreateUser} from '../user';
 import {trimSlashes} from '../utils/string';
+import {parse as parseCacheControl} from 'cache-control-parser';
+
+const runtimeCacheRefs = new Map();
 
 const getAuthorizationHeader = async () => {
   const token = await getAuthorizationToken();
@@ -33,13 +36,18 @@ const apiClient = async (input: string, init?: RequestInit | undefined) => {
     });
   };
 
-  const storage = await AsyncStorage.getItem(endpoint);
+  const storage = await AsyncStorage.getItem(`api-cache@${endpoint}`);
   if (storage) {
     const cache = JSON.parse(storage);
 
     if (dayjs.utc(cache.expiry).isAfter(dayjs.utc())) {
-      console.log(cache);
-      return {json: () => Promise.resolve(cache.data), ok: true};
+      if (!runtimeCacheRefs.get(endpoint)) {
+        runtimeCacheRefs.set(endpoint, cache.data);
+      }
+      return {
+        json: () => Promise.resolve(runtimeCacheRefs.get(endpoint)),
+        ok: true,
+      } as Response;
     }
   }
 
@@ -63,16 +71,25 @@ const apiClient = async (input: string, init?: RequestInit | undefined) => {
     return await doFetch();
   }
 
-  const cacheAge = response.headers.get('cache-control')?.split('=')[1];
+  const cacheControlStr = response.headers.get('cache-control');
+  if (cacheControlStr) {
+    const cacheControl = parseCacheControl(cacheControlStr);
 
-  if (cacheAge) {
-    AsyncStorage.setItem(
-      endpoint,
-      JSON.stringify({
-        data: await response.json(),
-        expiry: dayjs.utc().add(Number(cacheAge), 'seconds').toDate(),
-      }),
-    );
+    if (cacheControl['max-age']) {
+      const data = await response.json();
+
+      runtimeCacheRefs.set(endpoint, data);
+      AsyncStorage.setItem(
+        `api-cache@${endpoint}`,
+        JSON.stringify({
+          data,
+          expiry: dayjs
+            .utc()
+            .add(cacheControl['max-age'], 'seconds')
+            .toString(),
+        }),
+      );
+    }
   }
 
   return response;

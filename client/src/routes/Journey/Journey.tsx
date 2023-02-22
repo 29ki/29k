@@ -24,7 +24,6 @@ import Gutters from '../../lib/components/Gutters/Gutters';
 import Screen from '../../lib/components/Screen/Screen';
 import {Heading18} from '../../lib/components/Typography/Heading/Heading';
 import useCompletedSessions from '../../lib/sessions/hooks/useCompletedSessions';
-import CompletedSessionCardContainer from './components/CompletedSessionCardContainer';
 import SessionCard from '../../lib/components/Cards/SessionCard/SessionCard';
 import {useTranslation} from 'react-i18next';
 import {Display24} from '../../lib/components/Typography/Display/Display';
@@ -34,6 +33,7 @@ import {WALLET_CARD_HEIGHT} from '../../lib/components/Cards/WalletCard';
 import {CARD_HEIGHT} from '../../lib/components/Cards/Card';
 import {useIsFocused} from '@react-navigation/native';
 import {CompletedSessionEvent} from '../../../../shared/src/types/Event';
+import CompletedSessionCard from '../../lib/components/Cards/SessionCard/CompletedSessionCard';
 
 export type Section = {
   title: string;
@@ -66,7 +66,7 @@ const renderSession: SectionListRenderItem<JourneySession, Section> = ({
 
   if (item.completedSession) {
     return (
-      <CompletedSessionCardContainer
+      <CompletedSessionCard
         completedSessionEvent={item.completedSession as CompletedSessionEvent}
         hasCardBefore={hasCardBefore}
         hasCardAfter={hasCardAfter}

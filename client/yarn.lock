@@ -3177,6 +3177,11 @@ cache-base@^1.0.1:
     union-value "^1.0.0"
     unset-value "^1.0.0"
 
+cache-control-parser@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/cache-control-parser/-/cache-control-parser-2.0.2.tgz#0d3102df1f41705c669527351848c989b2a39541"
+  integrity sha512-Yc+ZAsvcyE7gIyidu+HPXNr0tt0CMpn+BN1uTaSs6t9vWMNtZQPOlAC9Jm2hXFno5iSRNigdxPT9TcJMQgS0vA==
+
 cacheable-lookup@^6.0.4:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/cacheable-lookup/-/cacheable-lookup-6.1.0.tgz#0330a543471c61faa4e9035db583aad753b36385"

@@ -1,22 +1,28 @@
-import {useCallback, useEffect, useState} from 'react';
+import {useMemo} from 'react';
 import {UserProfile} from '../../../../../shared/src/types/User';
-import {getProfile} from '../api/user';
+import useGet from '../../apiClient/useGet';
+import useUser from './useUser';
+
+const USER_ENDPOINT = '/user';
 
 const useUserProfile = (userId: string | undefined) => {
-  const [profile, setProfile] = useState<UserProfile>();
+  const user = useUser();
+  const ownProfile = useMemo(
+    () => ({
+      displayName: user?.displayName ?? undefined,
+      photoURL: user?.photoURL ?? undefined,
+    }),
+    [user?.displayName, user?.photoURL],
+  );
+  const isHost = user?.uid !== userId;
+  const {data: userProfile} = useGet<UserProfile>(
+    `${USER_ENDPOINT}/${userId}`,
+    {
+      abort: isHost,
+    },
+  );
 
-  const fetchProfile = useCallback(async () => {
-    if (!userId) {
-      return;
-    }
-    setProfile(await getProfile(userId));
-  }, [userId]);
-
-  useEffect(() => {
-    fetchProfile();
-  }, [fetchProfile, userId]);
-
-  return profile;
+  return user?.uid === userId ? ownProfile : userProfile;
 };
 
 export default useUserProfile;
