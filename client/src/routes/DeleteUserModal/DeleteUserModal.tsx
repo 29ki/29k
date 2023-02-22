@@ -26,7 +26,8 @@ const StyledButton = styled(Button)({
 
 const Row = styled.View({
   paddingLeft: SPACINGS.SIXTEEN,
-  padding: SPACINGS.TWELVE,
+  paddingTop: SPACINGS.TWELVE,
+  paddingBottom: SPACINGS.TWELVE,
 });
 
 const Error = styled(Body16)({
