@@ -14,6 +14,7 @@ export type ProfileStackProps = {
 };
 
 export type TabNavigatorProps = {
+  Home: undefined;
   ProfileStack: NavigatorScreenParams<ProfileStackProps>;
   Sessions: undefined;
   Journey: undefined;

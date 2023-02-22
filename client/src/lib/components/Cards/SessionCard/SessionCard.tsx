@@ -17,7 +17,7 @@ import {
 } from '../../../navigation/constants/routes';
 
 import Card from '../Card';
-import WalletCard from '../WalletCard';
+import SessionWalletCard from '../WalletCards/SessionWalletCard';
 import SessionTimeBadge from '../../SessionTimeBadge/SessionTimeBadge';
 import useLogSessionMetricEvents from '../../../sessions/hooks/useLogSessionMetricEvents';
 import useGetSessionCardTags from './hooks/useGetSessionCardTags';
@@ -157,7 +157,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
       startTime={startTime}
       hasCardBefore={hasCardBefore}
       foldedComponent={
-        <WalletCard
+        <SessionWalletCard
           title={formatExerciseName(exercise)}
           image={image}
           lottie={lottie}
@@ -179,7 +179,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
               count={interestedCount}
             />
           </Row>
-        </WalletCard>
+        </SessionWalletCard>
       }
       expandedComponent={
         <Card

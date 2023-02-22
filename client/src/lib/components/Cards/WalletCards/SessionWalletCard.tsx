@@ -3,15 +3,19 @@ import {ImageSourcePropType} from 'react-native';
 import styled from 'styled-components/native';
 import AnimatedLottieView, {AnimationObject} from 'lottie-react-native';
 
-import {COLORS} from '../../../../../shared/src/constants/colors';
-import {SPACINGS} from '../../constants/spacings';
-import SETTINGS from '../../constants/settings';
-import Image from '../Image/Image';
-import {Display16} from '../Typography/Display/Display';
-import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
-import Byline from '../Bylines/Byline';
+import {SPACINGS} from '../../../constants/spacings';
+import Image from '../../Image/Image';
+import {Display16} from '../../Typography/Display/Display';
+import Byline from '../../Bylines/Byline';
+import WalletCardBase, {WalletCardBaseProps} from './WalletCardBase';
 
 export const WALLET_CARD_HEIGHT = 80;
+
+const ContentWrapper = styled.View({
+  flex: 1,
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+});
 
 const GraphicsWrapper = styled.View({
   width: 64,
@@ -26,58 +30,21 @@ const Lottie = styled(AnimatedLottieView)({
 
 const Spacer2 = styled.View({height: 2});
 
-const getShadow = (shadow?: boolean) => {
-  if (shadow) {
-    return {
-      shadowColor: COLORS.BLACK,
-      shadowOffset: `0 -${SPACINGS.EIGHT}px`,
-      shadowRadius: 20,
-      shadowOpacity: 0.1,
-      elevation: 5,
-    };
-  }
-  return {};
-};
-
-const Wrapper = styled(TouchableOpacity)<{
-  hasCardBefore: boolean;
-  hasCardAfter: boolean;
-  completed?: boolean;
-}>(({hasCardBefore, hasCardAfter, completed}) => ({
-  justifyContent: 'space-between',
-  borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
-  backgroundColor: completed ? COLORS.LIGHT_GREEN : COLORS.CREAM,
-  marginTop: hasCardBefore ? -(WALLET_CARD_HEIGHT * 0.5) : undefined,
-  height: hasCardAfter ? WALLET_CARD_HEIGHT * 1.5 : WALLET_CARD_HEIGHT,
-  ...getShadow(hasCardBefore),
-}));
-
-const ContentWrapper = styled.View({
-  flex: 1,
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-});
-
 const LeftCol = styled.View({
   flex: 1,
   paddingHorizontal: SPACINGS.SIXTEEN,
   paddingVertical: SPACINGS.EIGHT,
 });
 
-type WalletCardProps = {
+type SessionWalletCardProps = WalletCardBaseProps & {
   title?: string;
   image?: ImageSourcePropType;
   lottie?: AnimationObject | {uri: string};
   hostPictureURL?: string;
   hostName?: string;
-  onPress: () => void;
-  children?: React.ReactNode;
-  hasCardBefore: boolean;
-  hasCardAfter: boolean;
-  completed?: boolean;
 };
 
-export const WalletCard: React.FC<WalletCardProps> = ({
+export const SessionWalletCard: React.FC<SessionWalletCardProps> = ({
   title,
   lottie,
   image,
@@ -89,7 +56,7 @@ export const WalletCard: React.FC<WalletCardProps> = ({
   completed,
   children,
 }) => (
-  <Wrapper
+  <WalletCardBase
     hasCardBefore={hasCardBefore}
     hasCardAfter={hasCardAfter}
     completed={completed}
@@ -110,7 +77,7 @@ export const WalletCard: React.FC<WalletCardProps> = ({
         ) : null}
       </GraphicsWrapper>
     </ContentWrapper>
-  </Wrapper>
+  </WalletCardBase>
 );
 
-export default WalletCard;
+export default SessionWalletCard;

@@ -30,7 +30,7 @@ import {useTranslation} from 'react-i18next';
 import {Display24} from '../../lib/components/Typography/Display/Display';
 import styled from 'styled-components/native';
 import dayjs from 'dayjs';
-import {WALLET_CARD_HEIGHT} from '../../lib/components/Cards/WalletCard';
+import {WALLET_CARD_HEIGHT} from '../../lib/components/Cards/WalletCards/SessionWalletCard';
 import {CARD_HEIGHT} from '../../lib/components/Cards/Card';
 import {useIsFocused} from '@react-navigation/native';
 import {CompletedSessionEvent} from '../../../../shared/src/types/Event';

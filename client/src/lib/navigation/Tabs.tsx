@@ -16,6 +16,7 @@ import {
   ProfileIcon,
   JourneyIcon,
   JourneyFillIcon,
+  LogoIcon,
 } from '../components/Icons';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {TabNavigatorProps} from './constants/routes';
@@ -24,10 +25,16 @@ import {Body14} from '../components/Typography/Body/Body';
 import {BottomSafeArea} from '../components/Spacers/Spacer';
 
 import ProfileStack from './ProfileStack';
-import Sessions from '../../routes/Sessions/Sessions';
+import Home from '../../routes/Home/Home';
 import Journey from '../../routes/Journey/Journey';
+import Sessions from '../../routes/Sessions/Sessions';
+import styled from 'styled-components/native';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
+
+const StyledText = styled(Body14)<{color: string}>(({color}) => ({
+  color,
+}));
 
 // This component overrides the way SafeAreaInsets are handled so we have better styling control.
 const TabBar: React.FC<BottomTabBarProps> = ({
@@ -70,8 +77,13 @@ const getTabOptions: (
   ActiveIcon: IconType,
   label: string,
 ) => BottomTabNavigationOptions = (InactiveIcon, ActiveIcon, label) => ({
-  tabBarIcon: ({focused}) => (focused ? <ActiveIcon /> : <InactiveIcon />),
-  tabBarLabel: () => <Body14>{label}</Body14>,
+  tabBarIcon: ({focused}) =>
+    focused ? <ActiveIcon /> : <InactiveIcon fill={COLORS.GREYDARK} />,
+  tabBarLabel: ({focused}) => (
+    <StyledText color={focused ? COLORS.BLACK : COLORS.GREYDARK}>
+      {label}
+    </StyledText>
+  ),
 });
 
 const Tabs = () => {
@@ -79,9 +91,14 @@ const Tabs = () => {
   return (
     <Tab.Navigator screenOptions={screenOptions} tabBar={TabBar}>
       <Tab.Screen
+        name={'Home'}
+        component={Home}
+        options={getTabOptions(HomeIcon, HomeFillIcon, t('home'))}
+      />
+      <Tab.Screen
         name={'Sessions'}
         component={Sessions}
-        options={getTabOptions(HomeIcon, HomeFillIcon, t('home'))}
+        options={getTabOptions(LogoIcon, LogoIcon, t('sessions'))}
       />
       <Tab.Screen
         name={'Journey'}
