@@ -2,7 +2,7 @@ import {useCallback, useEffect, useState} from 'react';
 
 import apiClient from './apiClient';
 
-const useGet = <T>(endpoint: string, options: {abort: boolean}) => {
+const useGet = <T>(endpoint: string, options: {skip: boolean}) => {
   const [data, setData] = useState<T>();
   const [error, setError] = useState<Error>();
   // const [loading, setLoading] = useState<Boolean>(false);
@@ -29,10 +29,10 @@ const useGet = <T>(endpoint: string, options: {abort: boolean}) => {
   }, [data, endpoint]);
 
   useEffect(() => {
-    if (!options.abort) {
+    if (!options.skip) {
       doFetch();
     }
-  }, [doFetch, options.abort]);
+  }, [doFetch, options.skip]);
 
   return {error, data};
 };
