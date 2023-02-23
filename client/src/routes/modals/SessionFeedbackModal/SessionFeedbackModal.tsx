@@ -113,17 +113,7 @@ const SessionFeedbackModal = () => {
       });
       setSubmitted(true);
     }
-
-    popToTop();
-    if (completedSessionEvent) {
-      navigate('CompletedSessionModal', {
-        completedSessionEvent,
-      });
-    }
   }, [
-    popToTop,
-    completedSessionEvent,
-    navigate,
     t,
     exerciseId,
     sessionId,
