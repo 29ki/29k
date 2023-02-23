@@ -1,21 +1,17 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook} from '@testing-library/react-hooks';
-import useGet from '../../apiClient/useGet';
+import {getProfile} from '../api/user';
 
 import useUserState from '../state/state';
 import useUserProfile from './useUserProfile';
 
-jest.mock('../../apiClient/useGet');
-const mockedUseGet = jest.mocked(useGet);
+jest.mock('../api/user');
+const mockGetProfile = jest.mocked(getProfile);
 
 afterEach(jest.clearAllMocks);
 
 describe('useUserProfile', () => {
-  it('should return user state profile data instead of making a request', () => {
-    mockedUseGet.mockReturnValueOnce({
-      data: undefined,
-      error: undefined,
-    });
+  it('should return user state data', async () => {
     useUserState.setState({
       user: {
         uid: 'user-id',
@@ -30,17 +26,13 @@ describe('useUserProfile', () => {
       displayName: 'display-name',
       photoURL: 'photo-url',
     });
-    expect(mockedUseGet).toHaveBeenCalledTimes(1);
-    expect(mockedUseGet).toHaveBeenCalledWith('/user/user-id', {skip: true});
+    expect(mockGetProfile).toHaveBeenCalledTimes(0);
   });
 
   it('should request user profile data', async () => {
-    mockedUseGet.mockReturnValueOnce({
-      data: {
-        displayName: 'some-display-name',
-        photoURL: 'some-photo-url',
-      },
-      error: undefined,
+    mockGetProfile.mockResolvedValueOnce({
+      displayName: 'some-display-name',
+      photoURL: 'some-photo-url',
     });
     useUserState.setState({
       user: {
@@ -50,15 +42,16 @@ describe('useUserProfile', () => {
       } as FirebaseAuthTypes.User,
     });
 
-    const {result} = renderHook(() => useUserProfile('some-user-id'));
+    const {result, waitForNextUpdate} = renderHook(() =>
+      useUserProfile('some-user-id'),
+    );
 
+    await waitForNextUpdate();
     expect(result.current).toEqual({
       displayName: 'some-display-name',
       photoURL: 'some-photo-url',
     });
-    expect(mockedUseGet).toHaveBeenCalledTimes(1);
-    expect(mockedUseGet).toHaveBeenCalledWith('/user/some-user-id', {
-      skip: false,
-    });
+    expect(mockGetProfile).toHaveBeenCalledTimes(1);
+    expect(mockGetProfile).toHaveBeenCalledWith('some-user-id');
   });
 });

@@ -1,30 +1,40 @@
-import {useMemo} from 'react';
+import {useCallback, useEffect, useMemo, useState} from 'react';
 import {UserProfile} from '../../../../../shared/src/types/User';
-import useGet from '../../apiClient/useGet';
+import {getProfile} from '../api/user';
 import useUser from './useUser';
 
-const USER_ENDPOINT = '/user';
-
-const useUserProfile = (userId: string | undefined) => {
+const useUserProfile = (userId: string | undefined): UserProfile => {
   const user = useUser();
-  const ownProfile = useMemo(
-    () => ({
-      displayName: user?.displayName ?? undefined,
-      photoURL: user?.photoURL ?? undefined,
-    }),
-    [user?.displayName, user?.photoURL],
-  );
-
   const isHost = user?.uid === userId;
 
-  const {data: userProfile} = useGet<UserProfile>(
-    `${USER_ENDPOINT}/${userId}`,
-    {
-      skip: isHost,
-    },
-  );
+  const [profile, setProfile] = useState<UserProfile>();
 
-  return isHost ? ownProfile : userProfile;
+  const fetchProfile = useCallback(async () => {
+    if (!userId) {
+      return;
+    }
+
+    setProfile(await getProfile(userId));
+  }, [userId]);
+
+  useEffect(() => {
+    if (!isHost) {
+      fetchProfile();
+    } else {
+      setProfile({
+        photoURL: user?.photoURL || undefined,
+        displayName: user?.displayName || undefined,
+      });
+    }
+  }, [fetchProfile, userId, isHost, user?.displayName, user?.photoURL]);
+
+  return useMemo(
+    () => ({
+      photoURL: profile?.photoURL,
+      displayName: profile?.displayName,
+    }),
+    [profile?.displayName, profile?.photoURL],
+  );
 };
 
 export default useUserProfile;
