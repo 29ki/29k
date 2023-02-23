@@ -88,11 +88,6 @@ const Tabs = () => {
         component={Journey}
         options={getTabOptions(JourneyIcon, JourneyFillIcon, t('journey'))}
       />
-      <Tab.Screen
-        name={'ProfileStack'}
-        component={ProfileStack}
-        options={getTabOptions(ProfileIcon, ProfileFillIcon, t('profile'))}
-      />
     </Tab.Navigator>
   );
 };

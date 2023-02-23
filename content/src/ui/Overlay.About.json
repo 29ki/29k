@@ -1,0 +1,24 @@
+{
+  "en": {
+    "settings": "Settings",
+    "community": "Community",
+    "about": "About 29k",
+    "actions": {
+      "developer": "Developer"
+    }
+  },
+  "pt": {
+    "settings": "Configurações",
+    "community": "Comunidade",
+    "actions": {
+      "developer": "Programador"
+    }
+  },
+  "sv": {
+    "actions": {
+      "signIn": "Logga in",
+      "language": "Språk"
+    }
+  },
+  "es": {}
+}
