@@ -114,12 +114,14 @@ const SessionFeedbackModal = () => {
       setSubmitted(true);
     }
 
+    popToTop();
     if (completedSessionEvent) {
       navigate('CompletedSessionModal', {
         completedSessionEvent,
       });
     }
   }, [
+    popToTop,
     completedSessionEvent,
     navigate,
     t,
@@ -139,8 +141,17 @@ const SessionFeedbackModal = () => {
     }
   }, [submitted, snapToIndex]);
 
+  const handleClose = useCallback(() => {
+    popToTop();
+    if (completedSessionEvent) {
+      navigate('CompletedSessionModal', {
+        completedSessionEvent,
+      });
+    }
+  }, [completedSessionEvent, popToTop, navigate]);
+
   return (
-    <SheetModal onPressClose={popToTop}>
+    <SheetModal onPressClose={handleClose}>
       <BackgroundVideo paused={!submitted} />
       {submitted ? (
         <Gutters big>
