@@ -15,12 +15,11 @@ const useGet = <T>(
   const doFetch = useCallback(async () => {
     try {
       // setLoading(true);
-      const cachedResponse = await CacheControl.getItem<T>(endpoint);
+      const cachedData = await CacheControl.getItem<T>(endpoint);
 
-      if (cachedResponse) {
-        if (cachedResponse !== data) {
-          setData(cachedResponse);
-        }
+      if (cachedData) {
+        setData(cachedData);
+        // setLoading(false);
         return;
       }
 
@@ -44,14 +43,18 @@ const useGet = <T>(
             cacheControl['max-age'],
           );
         }
+
+        setData(await CacheControl.getItem<T>(endpoint));
+        // setLoading(false);
+        return;
       }
 
       setData(await response.json());
       // setLoading(false);
     } catch (cause) {
-      setError(new Error('Could get user profile', {cause}));
+      setError(new Error('Could not get user profile', {cause}));
     }
-  }, [data, endpoint]);
+  }, [endpoint]);
 
   useEffect(() => {
     if (!options.skip) {
