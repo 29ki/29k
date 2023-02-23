@@ -7,13 +7,12 @@ import {
   BottomTabBarProps,
 } from '@react-navigation/bottom-tabs';
 import {useTranslation} from 'react-i18next';
+import styled from 'styled-components/native';
 
 import {
   HomeFillIcon,
   HomeIcon,
   IconType,
-  ProfileFillIcon,
-  ProfileIcon,
   JourneyIcon,
   JourneyFillIcon,
   LogoIcon,
@@ -24,11 +23,9 @@ import {SPACINGS} from '../constants/spacings';
 import {Body14} from '../components/Typography/Body/Body';
 import {BottomSafeArea} from '../components/Spacers/Spacer';
 
-import ProfileStack from './ProfileStack';
-import Home from '../../routes/Home/Home';
-import Journey from '../../routes/Journey/Journey';
-import Sessions from '../../routes/Sessions/Sessions';
-import styled from 'styled-components/native';
+import Home from '../../routes/screens/Home/Home';
+import Journey from '../../routes/screens/Journey/Journey';
+import Sessions from '../../routes/screens/Sessions/Sessions';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
 
@@ -104,11 +101,6 @@ const Tabs = () => {
         name={'Journey'}
         component={Journey}
         options={getTabOptions(JourneyIcon, JourneyFillIcon, t('journey'))}
-      />
-      <Tab.Screen
-        name={'ProfileStack'}
-        component={ProfileStack}
-        options={getTabOptions(ProfileIcon, ProfileFillIcon, t('profile'))}
       />
     </Tab.Navigator>
   );

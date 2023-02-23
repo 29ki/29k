@@ -43,7 +43,7 @@ const useSubscribeToSessionIfFocused = (
         if (!sessionState || !session || (exitOnEnded && sessionState?.ended)) {
           reset();
           fetchSessions();
-          navigate('Sessions');
+          navigate('Home');
           navigate('SessionUnavailableModal');
           return;
         }

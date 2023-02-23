@@ -4,9 +4,9 @@ import {
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 import {AsyncSessionStackProps} from './constants/routes';
-import Session from '../../routes/AsyncSession/Session';
-import IntroPortal from '../../routes/AsyncSession/IntroPortal';
-import OutroPortal from '../../routes/AsyncSession/OutroPortal';
+import Session from '../../routes/screens/AsyncSession/Session';
+import IntroPortal from '../../routes/screens/AsyncSession/IntroPortal';
+import OutroPortal from '../../routes/screens/AsyncSession/OutroPortal';
 
 const {Navigator, Screen} =
   createNativeStackNavigator<AsyncSessionStackProps>();

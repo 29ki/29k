@@ -13,6 +13,7 @@ import * as HeaderScrollView from '../../components/HeaderScrollView/HeaderScrol
 import * as Modals from '../../components/Modals/Modals.library';
 import * as ActionList from '../../components/ActionList/ActionList.library';
 import * as ProfilePicture from '../../components/User/ProfilePicture.library';
+import * as TopBar from '../../components/TopBar/TopBar.library';
 
 export type ComponentLibrary = {[key: string]: React.ComponentType};
 export type ComponentList = {[key: string]: Array<ComponentLibrary>};
@@ -25,6 +26,7 @@ const menuItems: ComponentList = {
   Modals: [Modals],
   Typography: [Typography],
   Screen: [Screen],
+  TopBar: [TopBar],
   HeaderScrollView: [HeaderScrollView],
   Interested: [Interested],
   SessionComponents: [Session],

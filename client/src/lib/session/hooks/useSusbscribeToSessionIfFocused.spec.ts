@@ -115,7 +115,7 @@ describe('useSubscribeToSessionIfFocused', () => {
     });
 
     expect(fetchSessionsMock).toHaveBeenCalledTimes(1);
-    expect(navigation.navigate).toHaveBeenCalledWith('Sessions');
+    expect(navigation.navigate).toHaveBeenCalledWith('Home');
     expect(navigation.navigate).toHaveBeenCalledWith('SessionUnavailableModal');
   });
 
@@ -131,7 +131,7 @@ describe('useSubscribeToSessionIfFocused', () => {
     });
 
     expect(fetchSessionsMock).toHaveBeenCalledTimes(1);
-    expect(navigation.navigate).toHaveBeenCalledWith('Sessions');
+    expect(navigation.navigate).toHaveBeenCalledWith('Home');
     expect(navigation.navigate).toHaveBeenCalledWith('SessionUnavailableModal');
   });
 

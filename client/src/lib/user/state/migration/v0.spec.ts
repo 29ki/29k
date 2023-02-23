@@ -53,8 +53,8 @@ describe('v0', () => {
         'some-uid': {
           pinnedSessions: [{id: 'some-session'}],
           completedSessions: [
-            {id: 'session-id-1', completedAt: new Date()},
-            {id: 'session-id-2', completedAt: new Date()},
+            {id: 'session-id-1', completedAt: new Date().toISOString()},
+            {id: 'session-id-2', completedAt: new Date().toISOString()},
           ],
         } as V0UserState,
       },
@@ -73,7 +73,7 @@ describe('v0', () => {
               contentId: 'exercise-id',
               language: 'session-language',
               type: 'session-type',
-              completedAt: expect.any(Date),
+              completedAt: expect.any(String),
             },
             {
               id: 'session-id-2',
@@ -81,7 +81,7 @@ describe('v0', () => {
               contentId: 'exercise-id',
               language: 'session-language',
               type: 'session-type',
-              completedAt: expect.any(Date),
+              completedAt: expect.any(String),
             },
           ],
         },

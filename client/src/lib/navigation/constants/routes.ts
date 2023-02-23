@@ -8,14 +8,8 @@ import {
 } from '../../../../../shared/src/types/Session';
 import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 
-export type ProfileStackProps = {
-  Profile: undefined;
-  EarlyAccessInfo?: {showBack: boolean};
-};
-
 export type TabNavigatorProps = {
   Home: undefined;
-  ProfileStack: NavigatorScreenParams<ProfileStackProps>;
   Sessions: undefined;
   Journey: undefined;
 };
@@ -43,8 +37,10 @@ export type AppStackProps = {
 
 export type OverlayStackProps = {
   App: NavigatorScreenParams<AppStackProps>;
+  AboutEditorialOverlay: undefined;
+  CommunityEditorialOverlay: undefined;
   AboutOverlay: undefined;
-  CommunityOverlay: undefined;
+  EarlyAccessInfoOverlay?: {showBack: boolean};
 };
 
 export type ModalStackProps = {

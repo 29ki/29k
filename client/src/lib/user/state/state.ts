@@ -3,6 +3,8 @@ import {create} from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {createJSONStorage, persist} from 'zustand/middleware';
 import {omit} from 'ramda';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 
 import migrate from './migration';
 import {
@@ -12,6 +14,8 @@ import {
   PostEventData,
   CompletedSessionEventData,
 } from '../../../../../shared/src/types/Event';
+
+dayjs.extend(utc);
 
 const USER_STATE_VERSION = 4;
 
@@ -120,7 +124,10 @@ const useUserState = create<State & Actions>()(
         addUserEvent: (type, payload) => {
           const typedEventData = getTypedEvent({type, payload});
           setCurrentUserState(({userEvents: events = []} = {}) => ({
-            userEvents: [...events, {...typedEventData, timestamp: new Date()}],
+            userEvents: [
+              ...events,
+              {...typedEventData, timestamp: dayjs().utc().toJSON()},
+            ],
           }));
         },
         reset: isDelete => {

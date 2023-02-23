@@ -9,7 +9,7 @@ type V0PinnedSession = {
 
 type V0CompletedSession = {
   id: string;
-  completedAt: Date;
+  completedAt: string; // is deserialized as string
 };
 
 export type V0UserState = {

@@ -3,71 +3,62 @@ import {ScrollView} from 'react-native';
 import {Display36} from '../Typography/Display/Display';
 import Screen from './Screen';
 
-export const DefaultScreen = () => (
+const ShortContent = () => (
+  <Display36>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    Lorem Ipsum has been the industry's standard dummy text ever since the
+    1500s.
+  </Display36>
+);
+
+const LongContent = () => (
+  <ScrollView>
+    <ShortContent />
+    <ShortContent />
+    <ShortContent />
+    <ShortContent />
+    <ShortContent />
+    <ShortContent />
+    <ShortContent />
+    <ShortContent />
+  </ScrollView>
+);
+
+export const Default = () => (
   <Screen>
-    <ScrollView>
-      <Display36>
-        DefaultScreen. Lorem Ipsum is simply dummy text of the printing and
-        typesetting industry. Lorem Ipsum has been the industry's standard dummy
-        text ever since the 1500s.
-      </Display36>
-    </ScrollView>
-  </Screen>
-);
-export const DefaultWithBackgroundColor = () => (
-  <Screen backgroundColor="red">
-    <ScrollView>
-      <Display36>
-        DefaultWithBackgroundColor. Lorem Ipsum is simply dummy text of the
-        printing and typesetting industry. Lorem Ipsum has been the industry's
-        standard dummy text ever since the 1500s.
-      </Display36>
-    </ScrollView>
-  </Screen>
-);
-export const DefaultWithTextColor = () => (
-  <Screen textColor="red" onPressBack={() => {}}>
-    <ScrollView>
-      <Display36>
-        DefaultWithTextColor. Lorem Ipsum is simply dummy text of the printing
-        and typesetting industry. Lorem Ipsum has been the industry's standard
-        dummy text ever since the 1500s.
-      </Display36>
-    </ScrollView>
+    <ShortContent />
   </Screen>
 );
 
-export const WithBackAndCloseButton = () => (
-  <Screen floatingTopBar={false} onPressBack={() => {}} onPressClose={() => {}}>
-    <ScrollView>
-      <Display36>
-        WithBackButton. Lorem Ipsum is simply dummy text of the printing and
-        typesetting industry. Lorem Ipsum has been the industry's standard dummy
-        text ever since the 1500s.
-      </Display36>
-    </ScrollView>
+export const BackgroundColor = () => (
+  <Screen backgroundColor="#FF0000">
+    <LongContent />
   </Screen>
 );
-export const WithBackAndCloseButtonFloating = () => (
+
+export const BackButton = () => (
   <Screen onPressBack={() => {}} onPressClose={() => {}}>
-    <ScrollView>
-      <Display36>
-        WithBackButtonFloating. Lorem Ipsum is simply dummy text of the printing
-        and typesetting industry. Lorem Ipsum has been the industry's standard
-        dummy text ever since the 1500s.
-      </Display36>
-    </ScrollView>
+    <LongContent />
   </Screen>
 );
 
-export const WithTopBarWithOverlay = () => (
-  <Screen topBarOverlay onPressBack={() => {}} backgroundColor="#ff8164">
-    <ScrollView>
-      <Display36>
-        WithTopBarWithOverlay. Lorem Ipsum is simply dummy text of the printing
-        and typesetting industry. Lorem Ipsum has been the industry's standard
-        dummy text ever since the 1500s.
-      </Display36>
-    </ScrollView>
+export const CloseButton = () => (
+  <Screen onPressClose={() => {}}>
+    <LongContent />
+  </Screen>
+);
+
+export const EllipsisButton = () => (
+  <Screen onPressEllipsis={() => {}}>
+    <LongContent />
+  </Screen>
+);
+
+export const BackEllipsisAndCloseButton = () => (
+  <Screen
+    onPressBack={() => {}}
+    onPressClose={() => {}}
+    onPressEllipsis={() => {}}>
+    <LongContent />
   </Screen>
 );
