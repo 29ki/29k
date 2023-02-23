@@ -26,10 +26,6 @@ sessionsRouter.get('/', async ctx => {
     typeof query.exerciseId === 'string' ? query.exerciseId : undefined;
 
   const sessions = await sessionsController.getSessions(user.id, exerciseId);
-
-  if (exerciseId) {
-    ctx.set({'cache-control': 'max-age=90'});
-  }
   response.status = 200;
   ctx.body = sessions;
 });

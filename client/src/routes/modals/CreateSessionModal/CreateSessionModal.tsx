@@ -5,7 +5,6 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import styled from 'styled-components/native';
 
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
@@ -27,13 +26,9 @@ import SelectContentStep from './components/steps/SelectContentStep';
 import UpdateProfileStep from './components/steps/ProfileStep';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
+import Fade from '../../../lib/components/Fade/Fade';
 
-export const Step = styled(Animated.View).attrs({
-  entering: FadeIn.duration(300),
-  exiting: FadeOut.duration(300),
-})({
-  flex: 1,
-});
+const Wrapper = styled.View({flex: 1});
 
 export type SelectedModeAndType =
   | {
@@ -116,8 +111,18 @@ const CreateSessionModal = () => {
     return COLORS.CREAM;
   }, [hasProfile, selectedModeAndType, currentStep]);
 
+  const PreviousStepComponent: React.FC<StepProps> = useMemo(
+    () => currentSteps[currentStep - 1],
+    [currentSteps, currentStep],
+  );
+
   const CurrentStepComponent: React.FC<StepProps> = useMemo(
     () => currentSteps[currentStep],
+    [currentSteps, currentStep],
+  );
+
+  const NextStepComponent: React.FC<StepProps> = useMemo(
+    () => currentSteps[currentStep + 1],
     [currentSteps, currentStep],
   );
 
@@ -130,19 +135,54 @@ const CreateSessionModal = () => {
 
   return (
     <SheetModal backgroundColor={backgroundColor}>
-      <Step>
-        <CurrentStepComponent
-          selectedExercise={selectedExercise}
-          discover={discover}
-          setSelectedExercise={setSelectedExercise}
-          selectedModeAndType={selectedModeAndType}
-          setSelectedModeAndType={setSelectedModeAndType}
-          userProfile={userProfile}
-          nextStep={nextStep}
-          firstStep={firstStep}
-          isPublicHost={isPublicHost}
-        />
-      </Step>
+      <Wrapper>
+        {PreviousStepComponent && (
+          <Fade visible={false} key={currentStep - 1}>
+            <PreviousStepComponent
+              selectedExercise={selectedExercise}
+              discover={discover}
+              setSelectedExercise={setSelectedExercise}
+              selectedModeAndType={selectedModeAndType}
+              setSelectedModeAndType={setSelectedModeAndType}
+              userProfile={userProfile}
+              nextStep={nextStep}
+              firstStep={firstStep}
+              isPublicHost={isPublicHost}
+              key="step"
+            />
+          </Fade>
+        )}
+        <Fade visible={true} key={currentStep}>
+          <CurrentStepComponent
+            selectedExercise={selectedExercise}
+            discover={discover}
+            setSelectedExercise={setSelectedExercise}
+            selectedModeAndType={selectedModeAndType}
+            setSelectedModeAndType={setSelectedModeAndType}
+            userProfile={userProfile}
+            nextStep={nextStep}
+            firstStep={firstStep}
+            isPublicHost={isPublicHost}
+            key="step"
+          />
+        </Fade>
+        {NextStepComponent && (
+          <Fade visible={false} key={currentStep + 1}>
+            <NextStepComponent
+              selectedExercise={selectedExercise}
+              discover={discover}
+              setSelectedExercise={setSelectedExercise}
+              selectedModeAndType={selectedModeAndType}
+              setSelectedModeAndType={setSelectedModeAndType}
+              userProfile={userProfile}
+              nextStep={nextStep}
+              firstStep={firstStep}
+              isPublicHost={isPublicHost}
+              key="step"
+            />
+          </Fade>
+        )}
+      </Wrapper>
     </SheetModal>
   );
 };
