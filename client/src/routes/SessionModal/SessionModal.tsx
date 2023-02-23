@@ -53,7 +53,6 @@ import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 import useIsPublicHost from '../../lib/user/hooks/useIsPublicHost';
 import usePinSession from '../../lib/sessions/hooks/usePinSession';
 import useConfirmSessionReminder from '../../lib/sessions/hooks/useConfirmSessionReminder';
-import useUserProfile from '../../lib/user/hooks/useUserProfile';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',
@@ -144,7 +143,6 @@ const SessionModal = () => {
 
   const {t} = useTranslation('Modal.Session');
   const user = useUser();
-  const hostProfile = useUserProfile(session.hostId);
   const isPublicHost = useIsPublicHost();
   const {deleteSession, fetchSessions} = useSessions();
   const [editMode, setEditMode] = useState(false);
@@ -186,14 +184,14 @@ const SessionModal = () => {
     if (session && exercise) {
       addToCalendar(
         exercise.name,
-        hostProfile?.displayName,
+        session.hostProfile?.displayName,
         session.link,
         dayjs(session.startTime),
         dayjs(session.startTime).add(exercise.duration, 'minutes'),
       );
       logSessionMetricEvent('Add Sharing Session To Calendar', session);
     }
-  }, [addToCalendar, exercise, hostProfile, session, logSessionMetricEvent]);
+  }, [addToCalendar, exercise, session, logSessionMetricEvent]);
 
   const onToggleReminder = useCallback(() => {
     toggleReminder(!reminderEnabled);
@@ -311,8 +309,8 @@ const SessionModal = () => {
             <Display24>{formatExerciseName(exercise)}</Display24>
             <Spacer4 />
             <Byline
-              pictureURL={hostProfile?.photoURL}
-              name={hostProfile?.displayName}
+              pictureURL={session.hostProfile?.photoURL}
+              name={session.hostProfile?.displayName}
               duration={exercise?.duration}
             />
           </TitleContainer>
