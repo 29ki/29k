@@ -17,7 +17,7 @@ const Profile = styled(Gutters)({
 });
 
 const MiniProfile = () => {
-  const {t} = useTranslation('Screen.Profile');
+  const {t} = useTranslation('Component.MiniProfile');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const user = useUser();
