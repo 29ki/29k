@@ -33,7 +33,6 @@ export const getSessions = async (
     );
     return Promise.all(sessions.map(mapSession));
   }
-  console.log('here', exerciseId);
 
   const sessions = await sessionModel.getSessions(userId);
   return Promise.all(sessions.map(mapSession));
