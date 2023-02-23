@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {Platform, StatusBar} from 'react-native';
+import {Platform} from 'react-native';
 import {SharedElement} from 'react-navigation-shared-element';
 import styled from 'styled-components/native';
 import Gutters from '../../lib/components/Gutters/Gutters';

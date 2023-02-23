@@ -1,10 +1,8 @@
 import React from 'react';
-import {View} from 'react-native';
 import {TopSafeArea} from '../Spacers/Spacer';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import TopBar from './TopBar';
 import {Display20, Display36} from '../Typography/Display/Display';
-import styled from 'styled-components/native';
 
 export const Default = () => (
   <>

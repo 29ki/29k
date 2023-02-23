@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, View} from 'react-native';
+import {ScrollView} from 'react-native';
 import {Display36} from '../Typography/Display/Display';
 import Screen from './Screen';
 

@@ -5,12 +5,10 @@ import LinearGradient, {
   LinearGradientProps,
 } from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
-import {COLORS} from '../../../../../shared/src/constants/colors';
-import IconButton from '../Buttons/IconButton/IconButton';
 import {ArrowLeftIcon, EllipsisIcon} from '../Icons';
 import CloseButton from '../Buttons/CloseButton/CloseButton';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
-import {Spacer16, Spacer20, Spacer8} from '../Spacers/Spacer';
+import {Spacer16, Spacer8} from '../Spacers/Spacer';
 
 const Wrapper = styled.View<{backgroundColor?: string}>(
   ({backgroundColor}) => ({
