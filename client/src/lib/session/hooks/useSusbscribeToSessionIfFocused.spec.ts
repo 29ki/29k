@@ -68,7 +68,7 @@ describe('useSubscribeToSessionIfFocused', () => {
     expect(result.current).toEqual({sessionState: null, session: null});
 
     expect(fetchSessionsMock).toHaveBeenCalledTimes(1);
-    expect(navigation.navigate).toHaveBeenCalledWith('Sessions');
+    expect(navigation.navigate).toHaveBeenCalledWith('Home');
     expect(navigation.navigate).toHaveBeenCalledWith('SessionUnavailableModal');
   });
 
@@ -80,7 +80,7 @@ describe('useSubscribeToSessionIfFocused', () => {
     expect(result.current).toEqual({session: null, sessionState: null});
 
     expect(fetchSessionsMock).toHaveBeenCalledTimes(1);
-    expect(navigation.navigate).toHaveBeenCalledWith('Sessions');
+    expect(navigation.navigate).toHaveBeenCalledWith('Home');
     expect(navigation.navigate).toHaveBeenCalledWith('SessionUnavailableModal');
   });
 
