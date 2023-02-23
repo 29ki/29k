@@ -21,7 +21,7 @@ const AboutActionList = () => {
     useNavigation<
       NativeStackNavigationProp<OverlayStackProps & ModalStackProps>
     >();
-  const {t} = useTranslation('Overlay.About');
+  const {t} = useTranslation('Overlay.AboutEditorial');
 
   const isPublicHost = useIsPublicHost();
 

@@ -5,10 +5,10 @@ import {
   createSharedElementStackNavigator,
   SharedElementsComponentConfig,
 } from 'react-navigation-shared-element';
-import AboutOverlay from '../../routes/AboutEditorialOverlay/AboutEditorialOverlay';
-import CommunityOverlay from '../../routes/CommunityEditorialOverlay/CommunityEditorialOverlay';
-import Welcome from '../../routes/Onboarding/Welcome';
-import Profile from '../../routes/AboutOverlay/AboutOverlay';
+import AboutOverlay from '../../routes/AboutOverlay/AboutOverlay';
+import EarlyAccessInfoOverlay from '../../routes/Onboarding/Welcome';
+import AboutEditorialOverlay from '../../routes/AboutEditorialOverlay/AboutEditorialOverlay';
+import CommunityEditorialOverlay from '../../routes/CommunityEditorialOverlay/CommunityEditorialOverlay';
 import SETTINGS from '../constants/settings';
 import AppStack from './AppStack';
 import {OverlayStackProps} from './constants/routes';
@@ -62,20 +62,20 @@ const communitySharedElements: SharedElementsComponentConfig = () => [
 const OverlayStack = () => (
   <Navigator screenOptions={screenOptions} detachInactiveScreens={false}>
     <Screen name="App" component={AppStack} options={{presentation: 'card'}} />
-    <Screen name="AboutOverlay" component={Profile} />
+    <Screen name="AboutOverlay" component={AboutOverlay} />
     <Screen
       name="EarlyAccessInfoOverlay"
-      component={Welcome}
+      component={EarlyAccessInfoOverlay}
       initialParams={{showBack: true}}
     />
     <Screen
       name="AboutEditorialOverlay"
-      component={AboutOverlay}
+      component={AboutEditorialOverlay}
       sharedElements={aboutSharedElements}
     />
     <Screen
       name="CommunityEditorialOverlay"
-      component={CommunityOverlay}
+      component={CommunityEditorialOverlay}
       sharedElements={communitySharedElements}
     />
   </Navigator>

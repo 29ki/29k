@@ -15,7 +15,7 @@ import {Linking} from 'react-native';
 const CommunityActionList = () => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
-  const {t} = useTranslation('Overlay.Community');
+  const {t} = useTranslation('Overlay.CommunityEditorial');
 
   const contributePress = useCallback(
     () =>

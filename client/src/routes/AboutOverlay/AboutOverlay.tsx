@@ -19,10 +19,8 @@ import ActionButton from '../../lib/components/ActionList/ActionItems/ActionButt
 import {CommandIcon} from '../../lib/components/Icons';
 import {useNavigation} from '@react-navigation/native';
 import {
-  AppStackProps,
   ModalStackProps,
   OverlayStackProps,
-  ProfileStackProps,
 } from '../../lib/navigation/constants/routes';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import SETTINGS from '../../lib/constants/settings';
@@ -43,12 +41,10 @@ const BlurbImage = styled.Image({
 });
 
 const Profile = () => {
-  const {t} = useTranslation('Screen.Profile');
+  const {t} = useTranslation('Overlay.About');
   const {navigate, goBack} =
     useNavigation<
-      NativeStackNavigationProp<
-        AppStackProps & ProfileStackProps & ModalStackProps & OverlayStackProps
-      >
+      NativeStackNavigationProp<ModalStackProps & OverlayStackProps>
     >();
 
   const aboutPress = useCallback(
@@ -57,17 +53,17 @@ const Profile = () => {
   );
 
   const aboutBlurbSource = useMemo(
-    () => ({uri: t('image__image', {ns: 'Overlay.About'})}),
+    () => ({uri: t('image__image', {ns: 'Overlay.AboutEditorial'})}),
     [t],
   );
 
   const communityPress = useCallback(
-    () => navigate('CommunityOverlay'),
+    () => navigate('CommunityEditorialOverlay'),
     [navigate],
   );
 
   const communityBlurbSource = useMemo(
-    () => ({uri: t('image__image', {ns: 'Overlay.Community'})}),
+    () => ({uri: t('image__image', {ns: 'Overlay.CommunityEditorial'})}),
     [t],
   );
 
@@ -85,7 +81,7 @@ const Profile = () => {
           <Spacer24 />
           <Heading16>{t('about')}</Heading16>
           <Spacer8 />
-          {t('heading', {ns: 'Overlay.About'}) && (
+          {t('heading', {ns: 'Overlay.AboutEditorial'}) && (
             <>
               <ActionList>
                 <TouchableOpacity onPress={aboutPress}>
@@ -96,13 +92,15 @@ const Profile = () => {
                     <Spacer16 />
                     <SharedElement id="about.heading">
                       <Display24>
-                        {t('heading', {ns: 'Overlay.About'})}
+                        {t('heading', {ns: 'Overlay.AboutEditorial'})}
                       </Display24>
                     </SharedElement>
                     <Spacer8 />
                     <SharedElement id="about.text">
                       <Markdown>
-                        {t('preamble__markdown', {ns: 'Overlay.About'})}
+                        {t('preamble__markdown', {
+                          ns: 'Overlay.AboutEditorial',
+                        })}
                       </Markdown>
                     </SharedElement>
                     <Spacer8 />
@@ -117,7 +115,7 @@ const Profile = () => {
 
           <Heading16>{t('community')}</Heading16>
           <Spacer8 />
-          {t('heading', {ns: 'Overlay.Community'}) && (
+          {t('heading', {ns: 'Overlay.CommunityEditorial'}) && (
             <>
               <ActionList>
                 <TouchableOpacity onPress={communityPress}>
@@ -131,13 +129,15 @@ const Profile = () => {
                     <Spacer16 />
                     <SharedElement id="community.heading">
                       <Display24>
-                        {t('heading', {ns: 'Overlay.Community'})}
+                        {t('heading', {ns: 'Overlay.CommunityEditorial'})}
                       </Display24>
                     </SharedElement>
                     <Spacer8 />
                     <SharedElement id="community.text">
                       <Markdown>
-                        {t('preamble__markdown', {ns: 'Overlay.Community'})}
+                        {t('preamble__markdown', {
+                          ns: 'Overlay.CommunityEditorial',
+                        })}
                       </Markdown>
                     </SharedElement>
                     <Spacer8 />
