@@ -9,7 +9,7 @@ import {
 import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 
 export type TabNavigatorProps = {
-  Sessions: undefined;
+  Home: undefined;
   Journey: undefined;
 };
 
