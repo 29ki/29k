@@ -5,10 +5,10 @@ import {
   createSharedElementStackNavigator,
   SharedElementsComponentConfig,
 } from 'react-navigation-shared-element';
-import AboutOverlay from '../../routes/AboutOverlay/AboutOverlay';
-import EarlyAccessInfoOverlay from '../../routes/Onboarding/Welcome';
-import AboutEditorialOverlay from '../../routes/AboutEditorialOverlay/AboutEditorialOverlay';
-import CommunityEditorialOverlay from '../../routes/CommunityEditorialOverlay/CommunityEditorialOverlay';
+import AboutOverlay from '../../routes/overlays/AboutOverlay/AboutOverlay';
+import EarlyAccessInfoOverlay from '../../routes/screens/EarlyAccessInfo/EarlyAccessInfo';
+import AboutEditorialOverlay from '../../routes/overlays/AboutEditorialOverlay/AboutEditorialOverlay';
+import CommunityEditorialOverlay from '../../routes/overlays/CommunityEditorialOverlay/CommunityEditorialOverlay';
 import SETTINGS from '../constants/settings';
 import AppStack from './AppStack';
 import {OverlayStackProps} from './constants/routes';

@@ -21,8 +21,8 @@ import {SPACINGS} from '../constants/spacings';
 import {Body14} from '../components/Typography/Body/Body';
 import {BottomSafeArea} from '../components/Spacers/Spacer';
 
-import Home from '../../routes/Home/Home';
-import Journey from '../../routes/Journey/Journey';
+import Home from '../../routes/screens/Home/Home';
+import Journey from '../../routes/screens/Journey/Journey';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
 
