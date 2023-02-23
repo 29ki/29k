@@ -73,11 +73,13 @@ const renderSession: SectionListRenderItem<JourneySession, Section> = ({
 
   if (item.completedSession) {
     return (
-      <CompletedSessionCard
-        completedSessionEvent={item.completedSession as CompletedSessionEvent}
-        hasCardBefore={hasCardBefore}
-        hasCardAfter={hasCardAfter}
-      />
+      <Gutters>
+        <CompletedSessionCard
+          completedSessionEvent={item.completedSession as CompletedSessionEvent}
+          hasCardBefore={hasCardBefore}
+          hasCardAfter={hasCardAfter}
+        />
+      </Gutters>
     );
   } else {
     return (
