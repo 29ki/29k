@@ -42,6 +42,8 @@ export type AppStackProps = {
 
 export type OverlayStackProps = {
   App: NavigatorScreenParams<AppStackProps>;
+  AboutEditorialOverlay: undefined;
+  CommunityEditorialOverlay: undefined;
   AboutOverlay: undefined;
   CommunityOverlay: undefined;
 };

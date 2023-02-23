@@ -9,17 +9,12 @@ import {
   CheckedIcon,
   WandIcon,
 } from '../../../lib/components/Icons';
-import {
-  ProfileStackProps,
-  ModalStackProps,
-} from '../../../lib/navigation/constants/routes';
+import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import {Linking} from 'react-native';
 
 const CommunityActionList = () => {
   const {navigate} =
-    useNavigation<
-      NativeStackNavigationProp<ProfileStackProps & ModalStackProps>
-    >();
+    useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {t} = useTranslation('Overlay.Community');
 
   const contributePress = useCallback(
