@@ -3,35 +3,35 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
-import Gutters from '../../../lib/components/Gutters/Gutters';
-import {Spacer8} from '../../../lib/components/Spacers/Spacer';
-import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
-import {Body18, BodyItalic} from '../../../lib/components/Typography/Body/Body';
-import ProfilePicture from '../../../lib/components/User/ProfilePicture';
-import {ModalStackProps} from '../../../lib/navigation/constants/routes';
-import useUser from '../../../lib/user/hooks/useUser';
+import {Spacer8} from '../Spacers/Spacer';
+import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
+import {Body18, BodyItalic} from '../Typography/Body/Body';
+import ProfilePicture from '../User/ProfilePicture';
+import {ModalStackProps} from '../../navigation/constants/routes';
+import useUser from '../../user/hooks/useUser';
+import Gutters from '../Gutters/Gutters';
 
-const Wrapper = styled(Gutters)({
+const Profile = styled(Gutters)({
   flexDirection: 'row',
   alignItems: 'center',
 });
 
-const ProfileMini = () => {
+const MiniProfile = () => {
   const {t} = useTranslation('Screen.Profile');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const user = useUser();
 
-  const onPress = useCallback(
+  const onPressProfile = useCallback(
     () => navigate('ProfileSettingsModal'),
     [navigate],
   );
 
   return (
-    <TouchableOpacity onPress={onPress}>
-      <Wrapper>
+    <TouchableOpacity onPress={onPressProfile}>
+      <Profile>
         <ProfilePicture
-          size={30}
+          size={32}
           pictureURL={user?.photoURL}
           letter={user?.displayName?.[0]}
         />
@@ -39,9 +39,9 @@ const ProfileMini = () => {
         <Body18>
           {user?.displayName || <BodyItalic>{t('noDisplayName')}</BodyItalic>}
         </Body18>
-      </Wrapper>
+      </Profile>
     </TouchableOpacity>
   );
 };
 
-export default ProfileMini;
+export default MiniProfile;
