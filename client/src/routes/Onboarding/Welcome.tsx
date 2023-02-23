@@ -20,6 +20,7 @@ import {Display24} from '../../lib/components/Typography/Display/Display';
 import Markdown from '../../lib/components/Typography/Markdown/Markdown';
 import useAppState from '../../lib/appState/state/state';
 import {AppStackProps} from '../../lib/navigation/constants/routes';
+import TopBar from '../../lib/components/TopBar/TopBar';
 
 const Wrapper = styled(Gutters).attrs({big: true})({
   flex: 1,
@@ -53,10 +54,15 @@ const Welcome = () => {
   }, [setSettings]);
 
   return (
-    <Screen
-      backgroundColor={COLORS.CREAM}
-      onPressBack={showBack ? goBack : undefined}>
-      <TopSafeArea />
+    <Screen backgroundColor={COLORS.CREAM}>
+      {showBack ? (
+        <>
+          <Spacer16 />
+          <TopBar backgroundColor={COLORS.CREAM} onPressClose={goBack} fade />
+        </>
+      ) : (
+        <TopSafeArea />
+      )}
       <ScrollView>
         <Wrapper>
           <Spacer32 />
