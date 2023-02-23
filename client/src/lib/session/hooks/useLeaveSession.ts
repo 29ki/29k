@@ -47,8 +47,6 @@ const useLeaveSession = (sessionMode: SessionMode) => {
 
     fetchSessions();
 
-    navigate('Home');
-
     if (session?.id && sessionState?.started) {
       navigate('SessionFeedbackModal', {
         exerciseId: session.exerciseId,
@@ -56,7 +54,11 @@ const useLeaveSession = (sessionMode: SessionMode) => {
         completed: Boolean(sessionState?.completed),
         isHost,
       });
+    } else {
+      navigate('Home');
     }
+
+    resetSession();
   }, [
     asyncSession,
     liveSession,
