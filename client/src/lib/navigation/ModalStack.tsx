@@ -5,29 +5,29 @@ import {
 } from '@th3rdwave/react-navigation-bottom-sheet';
 
 import {ModalStackProps} from './constants/routes';
-import SessionModal from '../../routes/SessionModal/SessionModal';
-import CompletedSessionModal from '../../routes/CompletedSessionModal/CompletedSessionModal';
-import CreateSessionModal from '../../routes/CreateSessionModal/CreateSessionModal';
-import AddSessionByInviteModal from '../../routes/AddSessionByInviteModal/AddSessionByInviteModal';
-import UpgradeAccountModal from '../../routes/UpgradeAccountModal/UpgradeAccountModal';
-import RequestPublicHostModal from '../../routes/RequestPublicHostModal/RequestPublicHostModal';
-import SessionUnavailableModal from '../../routes/SessionUnavailableModal/SessionUnavailableModal';
+import SessionModal from '../../routes/modals/SessionModal/SessionModal';
+import CompletedSessionModal from '../../routes/modals/CompletedSessionModal/CompletedSessionModal';
+import CreateSessionModal from '../../routes/modals/CreateSessionModal/CreateSessionModal';
+import AddSessionByInviteModal from '../../routes/modals/AddSessionByInviteModal/AddSessionByInviteModal';
+import UpgradeAccountModal from '../../routes/modals/UpgradeAccountModal/UpgradeAccountModal';
+import RequestPublicHostModal from '../../routes/modals/RequestPublicHostModal/RequestPublicHostModal';
+import SessionUnavailableModal from '../../routes/modals/SessionUnavailableModal/SessionUnavailableModal';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import SETTINGS from '../constants/settings';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
-import ChangeLanguageModal from '../../routes/ChangeLanguageModal/ChangeLanguageModal';
-import ProfileSettingsModal from '../../routes/ProfileSettingsModal/ProfileSettingsModal';
-import SignInModal from '../../routes/SignInModal/SignInModal';
-import ContributorsModal from '../../routes/Contributors/ContributorsModal';
-import DeveloperModal from '../../routes/DeveloperModal/DeveloperModal';
+import ChangeLanguageModal from '../../routes/modals/ChangeLanguageModal/ChangeLanguageModal';
+import ProfileSettingsModal from '../../routes/modals/ProfileSettingsModal/ProfileSettingsModal';
+import SignInModal from '../../routes/modals/SignInModal/SignInModal';
+import ContributorsModal from '../../routes/modals/Contributors/ContributorsModal';
+import DeveloperModal from '../../routes/modals/DeveloperModal/DeveloperModal';
 import OverlayStack from './OverlayStack';
-import PartnersModal from '../../routes/Contributors/PartnersModal';
-import ContactModal from '../../routes/ConcactModal/ContactModal';
-import SessionFeedbackModal from '../../routes/SessionFeedbackModal/SessionFeedbackModal';
-import SharingModal from '../../routes/SharingModal/SharingModal';
-import SharingPostModal from '../../routes/SharingPostModal/SharingPostModal';
-import DeleteUserModal from '../../routes/DeleteUserModal/DeleteUserModal';
+import PartnersModal from '../../routes/modals/Contributors/PartnersModal';
+import ContactModal from '../../routes/modals/ConcactModal/ContactModal';
+import SessionFeedbackModal from '../../routes/modals/SessionFeedbackModal/SessionFeedbackModal';
+import SharingModal from '../../routes/modals/SharingModal/SharingModal';
+import SharingPostModal from '../../routes/modals/SharingPostModal/SharingPostModal';
+import DeleteUserModal from '../../routes/modals/DeleteUserModal/DeleteUserModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
