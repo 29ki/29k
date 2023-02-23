@@ -6,7 +6,6 @@
       "title": "Choose exercise"
     },
     "selectType": {
-      "title": "",
       "live-public": {
         "title": "Anyone"
       },
@@ -28,7 +27,9 @@
     "profile": {
       "text": "To create and host a session you need a user name and profile picture."
     },
-    "or": "or"
+    "or": "or",
+    "orJoinUpcoming": "Or join upcoming sessions",
+    "noUpcomingSessions": "🌱 No upcoming sessions yet."
   },
   "pt": {
     "description": "Criar sessão com...",
@@ -37,7 +38,6 @@
       "title": "Escolhe um exercício"
     },
     "selectType": {
-      "title": "Criar sessão com...",
       "live-public": {
         "title": "Qualquer pessoa"
       },
@@ -61,13 +61,12 @@
     }
   },
   "sv": {
-    "description": "Börja med att välja vem du vill göra sessionen med.",
+    "description": "Skapa session för...",
     "joinByInviteCta": "Använd kod för att gå med",
     "selectContent": {
       "title": "Välj övning"
     },
     "selectType": {
-      "title": "Skapa session för...",
       "live-public": {
         "title": "Alla"
       },
@@ -85,7 +84,9 @@
     "profile": {
       "text": "För att hålla i sessioner behöver du ett namn och en profilbild."
     },
-    "or": "eller"
+    "or": "eller",
+    "orJoinUpcoming": "Eller gå med i kommande sessioner",
+    "noUpcomingSessions": "🌱 Finns ännu inga kommande sessioner."
   },
   "es": {}
 }

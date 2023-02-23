@@ -21,9 +21,11 @@ import {RequestError} from '../../controllers/errors/RequestError';
 const sessionsRouter = createApiRouter();
 
 sessionsRouter.get('/', async ctx => {
-  const {response, user} = ctx;
+  const {response, user, query} = ctx;
+  const exerciseId =
+    typeof query.exerciseId === 'string' ? query.exerciseId : undefined;
 
-  const sessions = await sessionsController.getSessions(user.id);
+  const sessions = await sessionsController.getSessions(user.id, exerciseId);
 
   response.status = 200;
   ctx.body = sessions;

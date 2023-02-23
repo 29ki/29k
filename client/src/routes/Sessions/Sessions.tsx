@@ -1,3 +1,5 @@
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import hexToRgba from 'hex-to-rgba';
 import React, {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
@@ -19,6 +21,8 @@ import {
 import {Heading16} from '../../lib/components/Typography/Heading/Heading';
 import useExerciseById from '../../lib/content/hooks/useExerciseById';
 import useExerciseIds from '../../lib/content/hooks/useExerciseIds';
+import {ModalStackProps} from '../../lib/navigation/constants/routes';
+import {formatExerciseName} from '../../lib/utils/string';
 
 const BottomGradient = styled(LinearGradient)({
   position: 'absolute',
@@ -38,6 +42,8 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
   hasCardBefore,
   hasCardAfter,
 }) => {
+  const {navigate} =
+    useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const exercise = useExerciseById(exerciseId);
 
   const image = useMemo(() => {
@@ -47,8 +53,8 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
   }, [exercise]);
 
   const onPress = useCallback(() => {
-    console.log(exerciseId);
-  }, [exerciseId]);
+    navigate('CreateSessionModal', {exerciseId, discover: true});
+  }, [exerciseId, navigate]);
 
   if (!exercise) {
     return null;
@@ -56,7 +62,7 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
 
   return (
     <ExerciseWalletCard
-      title={exercise.name}
+      title={formatExerciseName(exercise)}
       image={image}
       hasCardBefore={hasCardBefore}
       hasCardAfter={hasCardAfter}

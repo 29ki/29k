@@ -74,6 +74,7 @@ type SessionCardProps = {
   standAlone: boolean;
   hasCardBefore: boolean;
   hasCardAfter: boolean;
+  onBeforeContextPress?: () => void;
 };
 
 const SessionCard: React.FC<SessionCardProps> = ({
@@ -81,6 +82,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
   standAlone,
   hasCardBefore,
   hasCardAfter,
+  onBeforeContextPress,
 }) => {
   const {exerciseId, startTime, hostProfile} = session;
   const exercise = useExerciseById(exerciseId);
@@ -106,10 +108,12 @@ const SessionCard: React.FC<SessionCardProps> = ({
     logSessionMetricEvent('Join Sharing Session', session);
   }, [navigate, session, logSessionMetricEvent]);
 
-  const onContextPress = useCallback(
-    () => navigate('SessionModal', {session: session}),
-    [navigate, session],
-  );
+  const onContextPress = useCallback(() => {
+    if (onBeforeContextPress) {
+      onBeforeContextPress();
+    }
+    navigate('SessionModal', {session: session});
+  }, [navigate, session, onBeforeContextPress]);
 
   const image = useMemo(
     () => ({

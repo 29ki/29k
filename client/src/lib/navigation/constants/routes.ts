@@ -61,7 +61,7 @@ export type ModalStackProps = {
   };
   SessionUnavailableModal: undefined;
   AddSessionByInviteModal?: {inviteCode?: number};
-  CreateSessionModal: {exerciseId?: Exercise['id']};
+  CreateSessionModal: {exerciseId?: Exercise['id']; discover?: boolean};
   UpgradeAccountModal?: undefined;
   RequestPublicHostModal?: {code?: string; haveRequested?: boolean};
   ChangeLanguageModal: undefined;

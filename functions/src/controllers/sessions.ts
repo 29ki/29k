@@ -23,7 +23,18 @@ const mapSession = async (session: LiveSession): Promise<LiveSession> => {
   return {...session, hostProfile: await getPublicUserInfo(session.hostId)};
 };
 
-export const getSessions = async (userId: string): Promise<LiveSession[]> => {
+export const getSessions = async (
+  userId: string,
+  exerciseId?: string,
+): Promise<LiveSession[]> => {
+  if (exerciseId) {
+    const sessions = await sessionModel.getPublicSessionsByExerciseId(
+      exerciseId,
+    );
+    return Promise.all(sessions.map(mapSession));
+  }
+  console.log('here', exerciseId);
+
   const sessions = await sessionModel.getSessions(userId);
   return Promise.all(sessions.map(mapSession));
 };

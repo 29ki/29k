@@ -8,6 +8,19 @@ import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
 
 export const WALLET_CARD_HEIGHT = 80;
 
+const getShadow = (shadow?: boolean) => {
+  if (shadow) {
+    return {
+      shadowColor: COLORS.BLACK,
+      shadowOffset: `0 -${SPACINGS.EIGHT}px`,
+      shadowRadius: 20,
+      shadowOpacity: 0.1,
+      elevation: 5,
+    };
+  }
+  return {};
+};
+
 const Wrapper = styled(TouchableOpacity)<{
   hasCardBefore: boolean;
   hasCardAfter: boolean;
@@ -18,11 +31,7 @@ const Wrapper = styled(TouchableOpacity)<{
   backgroundColor: completed ? COLORS.LIGHT_GREEN : COLORS.CREAM,
   marginTop: hasCardBefore ? -(WALLET_CARD_HEIGHT * 0.5) : undefined,
   height: hasCardAfter ? WALLET_CARD_HEIGHT * 1.5 : WALLET_CARD_HEIGHT,
-  shadowColor: COLORS.BLACK,
-  shadowOffset: `0 -${SPACINGS.EIGHT}px`,
-  shadowRadius: 20,
-  shadowOpacity: 0.1,
-  elevation: 5,
+  ...getShadow(hasCardBefore),
 }));
 
 export type WalletCardBaseProps = {

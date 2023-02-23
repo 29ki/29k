@@ -108,6 +108,25 @@ export const getSessions = async (userId: string) => {
   return snapshot.docs.map(doc => getSession(getData<LiveSessionData>(doc)));
 };
 
+export const getPublicSessionsByExerciseId = async (exerciseId: string) => {
+  const sessionsCollection = firestore().collection(SESSIONS_COLLECTION);
+  const snapshot = await sessionsCollection
+    .where('ended', '==', false)
+    .where(
+      'startTime',
+      '>',
+      Timestamp.fromDate(
+        dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
+      ),
+    )
+    .where('exerciseId', '==', exerciseId)
+    .where('type', '==', SessionType.public)
+    .orderBy('startTime', 'asc')
+    .get();
+
+  return snapshot.docs.map(doc => getSession(getData<LiveSessionData>(doc)));
+};
+
 export const addSession = async ({
   id,
   url,

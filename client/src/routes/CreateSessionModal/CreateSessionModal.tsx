@@ -40,7 +40,8 @@ export type SelectedModeAndType =
   | undefined;
 
 export type StepProps = {
-  selectedExercise: Exercise['id'] | undefined;
+  selectedExercise?: string;
+  discover?: boolean;
   setSelectedExercise: Dispatch<SetStateAction<StepProps['selectedExercise']>>;
   nextStep: () => void;
   firstStep: () => void;
@@ -66,11 +67,13 @@ const steps = ({
 ];
 
 const CreateSessionModal = () => {
-  const {params} = useRoute<RouteProp<ModalStackProps, 'CreateSessionModal'>>();
+  const {
+    params: {exerciseId, discover},
+  } = useRoute<RouteProp<ModalStackProps, 'CreateSessionModal'>>();
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedExercise, setSelectedExercise] = useState<
     Exercise['id'] | undefined
-  >(params.exerciseId);
+  >(exerciseId);
   const isPublicHost = useIsPublicHost();
   const user = useUser();
   const [selectedModeAndType, setSelectedModeAndType] =
@@ -88,11 +91,11 @@ const CreateSessionModal = () => {
   const currentSteps = useMemo(
     () =>
       steps({
-        skipContent: Boolean(params.exerciseId),
+        skipContent: Boolean(exerciseId),
         skipProfile:
           selectedModeAndType?.mode === SessionMode.async || hasProfile,
       }),
-    [hasProfile, selectedModeAndType, params.exerciseId],
+    [hasProfile, selectedModeAndType, exerciseId],
   );
 
   const backgroundColor = useMemo(() => {
@@ -127,6 +130,7 @@ const CreateSessionModal = () => {
       <Step>
         <CurrentStepComponent
           selectedExercise={selectedExercise}
+          discover={discover}
           setSelectedExercise={setSelectedExercise}
           selectedModeAndType={selectedModeAndType}
           setSelectedModeAndType={setSelectedModeAndType}
