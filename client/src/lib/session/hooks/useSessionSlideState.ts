@@ -2,7 +2,6 @@ import {useMemo} from 'react';
 
 import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 import useSessionState from '../state/state';
-import useSessionExercise from './useSessionExercise';
 
 export type SessionSlideState = {
   index: number;
@@ -13,7 +12,7 @@ export type SessionSlideState = {
 
 const useSessionSlideState = (): SessionSlideState | null => {
   const sessionState = useSessionState(state => state.sessionState);
-  const exercise = useSessionExercise();
+  const exercise = useSessionState(state => state.exercise);
 
   return useMemo(() => {
     if (!exercise || typeof sessionState?.index !== 'number') {

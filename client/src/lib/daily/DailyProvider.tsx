@@ -60,19 +60,19 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     const onParticipantJoined = ({
       participant,
     }: DailyEventObject<'participant-joined'>) => {
-      setParticipant(participant.user_id, participant);
+      setParticipant(participant.session_id, participant);
     };
 
     const onParticipantUpdated = ({
       participant,
     }: DailyEventObject<'participant-updated'>) => {
-      setParticipant(participant.user_id, participant);
+      setParticipant(participant.session_id, participant);
     };
 
     const onParticipantLeft = ({
       participant,
     }: DailyEventObject<'participant-left'>) => {
-      removeParticipant(participant.user_id);
+      removeParticipant(participant.session_id);
     };
 
     const onActiveSpeakerChange = ({

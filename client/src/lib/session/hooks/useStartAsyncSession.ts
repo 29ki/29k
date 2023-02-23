@@ -8,6 +8,7 @@ import {
   SessionMode,
   SessionType,
 } from '../../../../../shared/src/types/Session';
+import useGetExerciseById from '../../content/hooks/useGetExerciseById';
 import {LANGUAGE_TAG} from '../../i18n';
 import {
   AppStackProps,
@@ -22,6 +23,8 @@ const useStartAsyncSession = () => {
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const {i18n} = useTranslation();
   const setAsyncSession = useSessionState(state => state.setAsyncSession);
+  const setExercise = useSessionState(state => state.setExercise);
+  const getExerciseById = useGetExerciseById();
   const logAsyncSessionMetricEvent = useLogAsyncSessionMetricEvents();
 
   return useCallback(
@@ -34,7 +37,9 @@ const useStartAsyncSession = () => {
         exerciseId,
         language: i18n.resolvedLanguage as LANGUAGE_TAG,
       };
+      const exercise = getExerciseById(session.exerciseId, session.language);
       setAsyncSession(session);
+      setExercise(exercise);
       navigate('AsyncSessionStack', {
         screen: 'IntroPortal',
         params: {
@@ -47,6 +52,8 @@ const useStartAsyncSession = () => {
       navigate,
       logAsyncSessionMetricEvent,
       setAsyncSession,
+      setExercise,
+      getExerciseById,
       i18n.resolvedLanguage,
     ],
   );

@@ -4,7 +4,7 @@ import {create} from 'zustand';
 
 type State = {
   participants: {
-    [user_id: string]: DailyParticipant;
+    [session_id: string]: DailyParticipant;
   };
   participantsSortOrder: string[];
 };
@@ -39,24 +39,17 @@ const useDailyState = create<State & Actions>()((set, get) => ({
     })),
 
   setParticipantsSortOrder: sessionId => {
-    const {participants, participantsSortOrder} = get();
-    const participantsList = Object.values(participants);
-    const userId = participantsList.find(
-      p => p.session_id === sessionId,
-    )?.user_id;
-
-    if (userId) {
-      if (
-        userId !== participantsSortOrder[0] &&
-        userId !== participantsSortOrder[1]
-      ) {
-        set({
-          participantsSortOrder: [
-            userId,
-            ...without([userId], participantsSortOrder),
-          ],
-        });
-      }
+    const {participantsSortOrder} = get();
+    if (
+      sessionId !== participantsSortOrder[0] &&
+      sessionId !== participantsSortOrder[1]
+    ) {
+      set({
+        participantsSortOrder: [
+          sessionId,
+          ...without([sessionId], participantsSortOrder),
+        ],
+      });
     }
   },
 

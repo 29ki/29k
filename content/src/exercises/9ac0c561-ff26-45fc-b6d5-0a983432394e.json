@@ -30,8 +30,9 @@
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674649500/Audio/meditation-the-willingness-stance_obipte.mp3"
           },
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_white_sufmbz.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674649500/Audio/meditation-the-willingness-stance_obipte.mp3"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674649500/Audio/meditation-the-willingness-stance_obipte.mp3",
+            "durationTimer": true
           }
         }
       },
@@ -94,12 +95,12 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#267ae4"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "The willingness stance",
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676639667/Images/placeholder_image_card_nxt9yf.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676992253/Images/card_image_the_willingnes_stance_e2yekr.png"
       }
     },
     "duration": 30,
@@ -108,7 +109,15 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal1_the_willingnes_stance_cosgwx.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676972801/Audio/portal_audio_the_willingnes_stance_pxrzfe.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676991354/Images/portal_the_willingnes_stance_thumbnail_hvcvof.png"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal2_the_willingnes_stance_kti6ub.mp4"
+      }
     },
     "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
     "description": "Guided meditation to stop fighting unwanted inner experiences and instead use our energy where it matters. Accepting inner hardships can help us redirect our focus and propel us into meaningful action."

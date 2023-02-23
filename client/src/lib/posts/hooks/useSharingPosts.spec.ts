@@ -15,6 +15,12 @@ jest.mock('../api/posts');
 
 const mockFetchPosts = jest.mocked(fetchPosts);
 const mockAddPost = jest.mocked(addPost);
+const mockLogAsyncPostMetricEvent = jest.fn();
+
+jest.mock(
+  '../../session/hooks/useAsyncPostMetricEvents',
+  () => () => mockLogAsyncPostMetricEvent,
+);
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -80,6 +86,12 @@ describe('useSharingPosts', () => {
         'some text',
         false,
       );
+      expect(mockLogAsyncPostMetricEvent).toHaveBeenCalledTimes(1);
+      expect(mockLogAsyncPostMetricEvent).toHaveBeenCalledWith(
+        'Create Async Post',
+        true,
+        false,
+      );
       expect(
         useUserState.getState().userState['some-user-id'].userEvents,
       ).toEqual([
@@ -93,7 +105,7 @@ describe('useSharingPosts', () => {
             isAnonymous: false,
             text: 'some text',
           } as PostPayload,
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
       ]);
     });
@@ -120,6 +132,12 @@ describe('useSharingPosts', () => {
       });
 
       expect(mockAddPost).toHaveBeenCalledTimes(0);
+      expect(mockLogAsyncPostMetricEvent).toHaveBeenCalledTimes(1);
+      expect(mockLogAsyncPostMetricEvent).toHaveBeenCalledWith(
+        'Create Async Post',
+        false,
+        false,
+      );
       expect(
         useUserState.getState().userState['some-user-id'].userEvents,
       ).toEqual([
@@ -133,7 +151,7 @@ describe('useSharingPosts', () => {
             isAnonymous: false,
             text: 'some text',
           } as PostPayload,
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
       ]);
     });
@@ -158,6 +176,7 @@ describe('useSharingPosts', () => {
       );
 
       expect(mockAddPost).toHaveBeenCalledTimes(0);
+      expect(mockLogAsyncPostMetricEvent).toHaveBeenCalledTimes(0);
       expect(useUserState.getState().userState['some-user-id'].userEvents).toBe(
         undefined,
       );
@@ -183,6 +202,7 @@ describe('useSharingPosts', () => {
       );
 
       expect(mockAddPost).toHaveBeenCalledTimes(0);
+      expect(mockLogAsyncPostMetricEvent).toHaveBeenCalledTimes(0);
       expect(useUserState.getState().userState['some-user-id'].userEvents).toBe(
         undefined,
       );
@@ -199,7 +219,7 @@ describe('useSharingPosts', () => {
               {
                 type: 'feedback',
                 payload: {} as FeedbackPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
               {
                 type: 'post',
@@ -208,7 +228,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-session-id',
                   sharingId: 'some-sharing-id',
                 } as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
               {
                 type: 'post',
@@ -217,7 +237,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-session-id',
                   sharingId: 'some-sharing-id',
                 } as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
               {
                 type: 'post',
@@ -226,7 +246,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-ohter-session-id',
                   sharingId: 'some-sharing-id',
                 } as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
               {
                 type: 'post',
@@ -235,7 +255,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-session-id',
                   sharingId: 'some-ohter-sharing-id',
                 } as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
             ],
           },
@@ -256,7 +276,7 @@ describe('useSharingPosts', () => {
           sessionId: 'some-session-id',
           sharingId: 'some-sharing-id',
         },
-        timestamp: expect.any(Date),
+        timestamp: expect.any(String),
       });
     });
   });
@@ -271,7 +291,7 @@ describe('useSharingPosts', () => {
               {
                 type: 'feedback',
                 payload: {} as FeedbackPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
               {
                 type: 'post',
@@ -280,7 +300,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-session-id',
                   sharingId: 'some-sharing-id',
                 } as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
               {
                 type: 'post',
@@ -289,7 +309,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-other-session-id',
                   sharingId: 'some-sharing-id',
                 } as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
               {
                 type: 'post',
@@ -298,7 +318,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-session-id',
                   sharingId: 'some-other-sharing-id',
                 } as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
               {
                 type: 'post',
@@ -307,7 +327,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-session-id',
                   sharingId: 'some-ohter-sharing-id',
                 } as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
             ],
           },
@@ -327,7 +347,7 @@ describe('useSharingPosts', () => {
             sessionId: 'some-session-id',
             sharingId: 'some-sharing-id',
           },
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
         {
           type: 'post',
@@ -336,7 +356,7 @@ describe('useSharingPosts', () => {
             sessionId: 'some-other-session-id',
             sharingId: 'some-sharing-id',
           },
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
       ]);
     });

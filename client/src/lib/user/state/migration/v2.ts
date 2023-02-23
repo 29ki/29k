@@ -13,7 +13,7 @@ type V2CompletedSession = {
   exerciseId: LiveSession['exerciseId'];
   language: LiveSession['language'];
   type: 'public' | 'private' | 'async';
-  completedAt: Date;
+  completedAt: string; // is deserialized as string
 };
 
 export type V2UserState = {

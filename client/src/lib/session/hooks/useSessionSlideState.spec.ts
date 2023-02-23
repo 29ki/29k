@@ -1,24 +1,16 @@
 import {renderHook} from '@testing-library/react-hooks';
+import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {
   LiveSession,
   SessionState,
 } from '../../../../../shared/src/types/Session';
-import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useSessionState from '../state/state';
 import useSessionSlideState from './useSessionSlideState';
 
-jest.mock('../../../lib/content/hooks/useExerciseById', () => jest.fn());
-
-const mockUseExerciseById = useExerciseById as jest.Mock;
-
 describe('useSessionSlideState', () => {
   it('should return null if no exercise exists', () => {
-    mockUseExerciseById.mockReturnValueOnce(null);
     useSessionState.setState({
-      liveSession: {
-        exerciseId: 'some-content-id',
-        id: 'test',
-      } as LiveSession,
+      exercise: null,
     });
 
     const {result} = renderHook(() => useSessionSlideState());
@@ -27,7 +19,6 @@ describe('useSessionSlideState', () => {
   });
 
   it('should return null if no session exists', () => {
-    mockUseExerciseById.mockReturnValueOnce({});
     useSessionState.setState({
       liveSession: null,
     });
@@ -37,9 +28,6 @@ describe('useSessionSlideState', () => {
   });
 
   it('should return slide state', () => {
-    mockUseExerciseById.mockReturnValueOnce({
-      slides: [{type: 'slide-1'}, {type: 'slide-2'}, {type: 'slide-3'}],
-    });
     useSessionState.setState({
       liveSession: {
         exerciseId: 'some-content',
@@ -47,32 +35,33 @@ describe('useSessionSlideState', () => {
       sessionState: {
         index: 1,
       } as SessionState,
+      exercise: {
+        slides: [{type: 'content'}, {type: 'host'}, {type: 'reflection'}],
+      } as Exercise,
     });
 
     const {result} = renderHook(() => useSessionSlideState());
 
     expect(result.current).toEqual({
       index: 1,
-      current: {type: 'slide-2'},
-      next: {type: 'slide-3'},
-      previous: {type: 'slide-1'},
+      current: {type: 'host'},
+      next: {type: 'reflection'},
+      previous: {type: 'content'},
     });
   });
 
   it('should memoize return', () => {
-    const exercise = {
-      slides: [{type: 'slide-1'}, {type: 'slide-2'}, {type: 'slide-3'}],
-    };
-    mockUseExerciseById.mockReturnValueOnce(exercise);
     useSessionState.setState({
       sessionState: {
         index: 1,
       } as SessionState,
+      exercise: {
+        slides: [{type: 'content'}, {type: 'host'}, {type: 'reflection'}],
+      } as Exercise,
     });
 
     const {result, rerender} = renderHook(() => useSessionSlideState());
 
-    mockUseExerciseById.mockReturnValueOnce(exercise);
     rerender();
 
     expect(result.all.length).toBe(2);
@@ -80,19 +69,19 @@ describe('useSessionSlideState', () => {
   });
 
   it('should return only current slide', () => {
-    mockUseExerciseById.mockReturnValueOnce({
-      slides: [{type: 'slide-1'}],
-    });
     useSessionState.setState({
       liveSession: {exerciseId: 'some-content'} as LiveSession,
       sessionState: {index: 0} as SessionState,
+      exercise: {
+        slides: [{type: 'content'}],
+      } as Exercise,
     });
 
     const {result} = renderHook(() => useSessionSlideState());
 
     expect(result.current).toEqual({
       index: 0,
-      current: {type: 'slide-1'},
+      current: {type: 'content'},
       next: undefined,
       previous: undefined,
     });
