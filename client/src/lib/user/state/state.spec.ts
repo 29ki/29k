@@ -92,7 +92,7 @@ describe('user - state', () => {
         {
           type: 'post',
           payload: {sessionId: 'some-session-id'},
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
       ]);
     });
@@ -106,7 +106,7 @@ describe('user - state', () => {
               {
                 type: 'post',
                 payload: {sessionId: 'some-session-id'} as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
             ],
           },
@@ -125,12 +125,12 @@ describe('user - state', () => {
         {
           type: 'post',
           payload: {sessionId: 'some-session-id'},
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
         {
           type: 'post',
           payload: {sessionId: 'some-other-session-id'},
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
       ]);
     });
@@ -144,7 +144,7 @@ describe('user - state', () => {
               {
                 type: 'post',
                 payload: {sessionId: 'some-session-id'} as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
             ],
           },
@@ -163,14 +163,14 @@ describe('user - state', () => {
         {
           type: 'post',
           payload: {sessionId: 'some-other-session-id'},
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
       ]);
       expect(result.current.userState['user-id-2'].userEvents).toEqual([
         {
           type: 'post',
           payload: {sessionId: 'some-session-id'},
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
       ]);
     });
@@ -187,7 +187,7 @@ describe('user - state', () => {
               {
                 type: 'post',
                 payload: {sessionId: 'some-session-id'} as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
             ],
           },
@@ -207,7 +207,7 @@ describe('user - state', () => {
         {
           type: 'post',
           payload: {sessionId: 'some-session-id'},
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
       ]);
     });
@@ -222,7 +222,7 @@ describe('user - state', () => {
               {
                 type: 'post',
                 payload: {sessionId: 'some-session-id'} as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
             ],
           },
@@ -232,7 +232,7 @@ describe('user - state', () => {
               {
                 type: 'post',
                 payload: {sessionId: 'some-session-id'} as PostPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
             ],
           },
@@ -253,7 +253,7 @@ describe('user - state', () => {
         {
           type: 'post',
           payload: {sessionId: 'some-session-id'},
-          timestamp: expect.any(Date),
+          timestamp: expect.any(String),
         },
       ]);
     });

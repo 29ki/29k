@@ -173,7 +173,7 @@ describe('useLeaveSession', () => {
               {
                 type: 'completedSession',
                 payload: {id: 'some-session-id'} as CompletedSessionPayload,
-                timestamp: new Date(),
+                timestamp: new Date().toISOString(),
               },
             ],
           },

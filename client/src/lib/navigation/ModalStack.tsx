@@ -165,7 +165,7 @@ const ModalStack = () => {
         <Screen
           name={'ProfileSettingsModal'}
           component={ProfileSettingsModal}
-          options={tallSheetModalScreenOptions}
+          options={fullSheetModalScreenOptions}
         />
 
         <Screen name={'ContributorsModal'} component={ContributorsModal} />

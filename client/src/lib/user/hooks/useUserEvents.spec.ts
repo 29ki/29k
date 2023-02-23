@@ -17,12 +17,12 @@ describe('useUserEvents', () => {
             {
               type: 'post',
               payload: {sessionId: 'some-session-id'} as PostPayload,
-              timestamp: new Date(),
+              timestamp: new Date().toISOString(),
             },
             {
               type: 'feedback',
               payload: {comment: 'some text'} as FeedbackPayload,
-              timestamp: new Date(),
+              timestamp: new Date().toISOString(),
             },
           ],
         },
@@ -35,14 +35,14 @@ describe('useUserEvents', () => {
       {
         type: 'post',
         payload: {sessionId: 'some-session-id'},
-        timestamp: expect.any(Date),
+        timestamp: expect.any(String),
       },
     ]);
     expect(result.current.feedbackEvents).toEqual([
       {
         type: 'feedback',
         payload: {comment: 'some text'},
-        timestamp: expect.any(Date),
+        timestamp: expect.any(String),
       },
     ]);
   });
@@ -56,12 +56,12 @@ describe('useUserEvents', () => {
             {
               type: 'post',
               payload: {sessionId: 'some-session-id'} as PostPayload,
-              timestamp: new Date(),
+              timestamp: new Date().toISOString(),
             },
             {
               type: 'feedback',
               payload: {comment: 'some text'} as FeedbackPayload,
-              timestamp: new Date(),
+              timestamp: new Date().toISOString(),
             },
           ],
         },

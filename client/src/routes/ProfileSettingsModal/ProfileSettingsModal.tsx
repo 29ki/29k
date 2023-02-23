@@ -12,7 +12,7 @@ import SheetModal from '../../lib/components/Modals/SheetModal';
 import {
   Spacer16,
   Spacer24,
-  Spacer48,
+  Spacer32,
 } from '../../lib/components/Spacers/Spacer';
 import {ModalHeading} from '../../lib/components/Typography/Heading/Heading';
 import ProfilePicture from '../../lib/components/User/ProfilePicture';
@@ -26,6 +26,15 @@ import {COLORS} from '../../../../shared/src/constants/colors';
 import useUpdateProfileDetails from '../../lib/user/hooks/useUpdateProfileDetails';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import useDeleteUser from '../../lib/user/hooks/useDeleteUser';
+import ActionButton from '../../lib/components/ActionList/ActionItems/ActionButton';
+import ActionSwitch from '../../lib/components/ActionList/ActionItems/ActionSwitch';
+import {
+  HangUpIcon,
+  LanguagesIcon,
+  BellIcon,
+  DeleteIcon,
+} from '../../lib/components/Icons';
+import useReminderNotificationsSetting from '../../lib/notifications/hooks/useReminderNotificationsSetting';
 
 const Picture = styled(ProfilePicture)({
   width: 144,
@@ -34,10 +43,6 @@ const Picture = styled(ProfilePicture)({
 
 const StyledButton = styled(Button)({
   alignSelf: 'flex-start',
-});
-
-const DeleteButton = styled(StyledButton)({
-  backgroundColor: COLORS.ERROR,
 });
 
 const Error = styled(Body16)({
@@ -52,16 +57,17 @@ const ProfileSettingsModal = () => {
     useChangeProfilePicture();
   const {updateProfileDetails, isUpdatingProfileDetails} =
     useUpdateProfileDetails();
-  const {deleteUser, isDeletingUser} = useDeleteUser();
+  const {deleteUser} = useDeleteUser();
   const user = useUser();
+  const {remindersEnabled, setRemindersEnabled} =
+    useReminderNotificationsSetting();
 
-  const [isSigningOut, setIsSigningOut] = useState(false);
   const [displayName, setDisplayName] = useState(user?.displayName);
   const [email, setEmail] = useState(user?.email);
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const updateUser = useCallback(async () => {
+  const updateUserPress = useCallback(async () => {
     try {
       await updateProfileDetails({displayName, email, password});
       popToTop();
@@ -70,19 +76,23 @@ const ProfileSettingsModal = () => {
     }
   }, [updateProfileDetails, popToTop, displayName, email, password]);
 
-  const signOut = useCallback(async () => {
-    setIsSigningOut(true);
+  const languagePress = useCallback(
+    () => navigate('ChangeLanguageModal'),
+    [navigate],
+  );
+
+  const signInPress = useCallback(() => navigate('SignInModal'), [navigate]);
+
+  const signOutPress = useCallback(async () => {
     try {
       await auth().signOut();
-      setIsSigningOut(false);
       popToTop();
     } catch (e: any) {
-      setIsSigningOut(false);
       setError(e.code ?? e.message);
     }
-  }, [setIsSigningOut, popToTop]);
+  }, [popToTop]);
 
-  const deleteData = useCallback(async () => {
+  const deleteDataPress = useCallback(async () => {
     try {
       if (auth().currentUser?.isAnonymous) {
         await deleteUser();
@@ -112,7 +122,7 @@ const ProfileSettingsModal = () => {
             <BottomSheetActionTextInput
               textContentType="nickname"
               keyboardType="default"
-              onSubmitEditing={updateUser}
+              onSubmitEditing={updateUserPress}
               placeholder={t('displayName')}
               onChangeText={setDisplayName}
               defaultValue={displayName}
@@ -123,7 +133,7 @@ const ProfileSettingsModal = () => {
               autoCapitalize="none"
               autoComplete="email"
               autoCorrect={false}
-              onSubmitEditing={updateUser}
+              onSubmitEditing={updateUserPress}
               placeholder={t('email')}
               onChangeText={setEmail}
               defaultValue={email}
@@ -134,7 +144,7 @@ const ProfileSettingsModal = () => {
               autoCapitalize="none"
               autoComplete="password-new"
               autoCorrect={false}
-              onSubmitEditing={updateUser}
+              onSubmitEditing={updateUserPress}
               placeholder={
                 user?.isAnonymous === false
                   ? t('changePassword')
@@ -152,33 +162,52 @@ const ProfileSettingsModal = () => {
           )}
           <StyledButton
             variant="primary"
-            onPress={updateUser}
+            onPress={updateUserPress}
             disabled={isUpdatingProfileDetails}
             loading={isUpdatingProfileDetails}>
             {t('save')}
           </StyledButton>
+          <Spacer32 />
+
+          <ActionList>
+            {(!user || user?.isAnonymous) && (
+              <ActionButton Icon={HangUpIcon} onPress={signInPress}>
+                {t('actions.signIn')}
+              </ActionButton>
+            )}
+            {user && (
+              <>
+                <ActionButton Icon={LanguagesIcon} onPress={languagePress}>
+                  {t('actions.language')}
+                </ActionButton>
+                <ActionSwitch
+                  Icon={BellIcon}
+                  onValueChange={setRemindersEnabled}
+                  value={remindersEnabled}>
+                  {t('actions.notifications')}
+                </ActionSwitch>
+              </>
+            )}
+          </ActionList>
+          {user && !user?.isAnonymous && (
+            <>
+              <Spacer16 />
+
+              <ActionList>
+                <ActionButton Icon={HangUpIcon} onPress={signOutPress}>
+                  {t('actions.signOut')}
+                </ActionButton>
+              </ActionList>
+            </>
+          )}
           {user && (
             <>
-              <Spacer48 />
-              {!user?.isAnonymous && (
-                <>
-                  <StyledButton
-                    variant="secondary"
-                    onPress={signOut}
-                    disabled={isSigningOut}
-                    loading={isSigningOut}>
-                    {t('signOut')}
-                  </StyledButton>
-                  <Spacer16 />
-                </>
-              )}
-              <DeleteButton
-                variant="secondary"
-                onPress={deleteData}
-                disabled={isDeletingUser}
-                loading={isDeletingUser}>
-                {t('deleteData')}
-              </DeleteButton>
+              <Spacer16 />
+              <ActionList>
+                <ActionButton Icon={DeleteIcon} onPress={deleteDataPress}>
+                  {t('actions.deleteData')}
+                </ActionButton>
+              </ActionList>
             </>
           )}
         </Gutters>

@@ -16,13 +16,12 @@ import {LiveSession} from '../../../../shared/src/types/Session';
 import {
   Spacer16,
   Spacer24,
-  Spacer60,
-  Spacer8,
+  Spacer48,
   TopSafeArea,
 } from '../../lib/components/Spacers/Spacer';
 import Gutters from '../../lib/components/Gutters/Gutters';
 import Screen from '../../lib/components/Screen/Screen';
-import {Heading18} from '../../lib/components/Typography/Heading/Heading';
+import {Heading16} from '../../lib/components/Typography/Heading/Heading';
 import useCompletedSessions from '../../lib/sessions/hooks/useCompletedSessions';
 import SessionCard from '../../lib/components/Cards/SessionCard/SessionCard';
 import {useTranslation} from 'react-i18next';
@@ -31,9 +30,15 @@ import styled from 'styled-components/native';
 import dayjs from 'dayjs';
 import {WALLET_CARD_HEIGHT} from '../../lib/components/Cards/WalletCard';
 import {CARD_HEIGHT} from '../../lib/components/Cards/Card';
-import {useIsFocused} from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {CompletedSessionEvent} from '../../../../shared/src/types/Event';
 import CompletedSessionCard from '../../lib/components/Cards/SessionCard/CompletedSessionCard';
+import StickyHeading from '../../lib/components/StickyHeading/StickyHeading';
+import TopBar from '../../lib/components/TopBar/TopBar';
+import MiniProfile from '../../lib/components/MiniProfile/MiniProfile';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {OverlayStackProps} from '../../lib/navigation/constants/routes';
+import {SPACINGS} from '../../lib/constants/spacings';
 
 export type Section = {
   title: string;
@@ -49,11 +54,12 @@ const Container = styled.View({
   flex: 1,
 });
 
-const ListHeader = () => (
-  <>
-    <TopSafeArea />
-    <Spacer16 />
-  </>
+const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
+  section: {title},
+}) => (
+  <StickyHeading backgroundColor={COLORS.PURE_WHITE}>
+    <Heading16>{title}</Heading16>
+  </StickyHeading>
 );
 
 const renderSession: SectionListRenderItem<JourneySession, Section> = ({
@@ -89,6 +95,8 @@ const renderSession: SectionListRenderItem<JourneySession, Section> = ({
 
 const Journey = () => {
   const {t} = useTranslation('Screen.Journey');
+  const {navigate} =
+    useNavigation<NativeStackNavigationProp<OverlayStackProps>>();
   const {fetchSessions, pinnedSessions, hostedSessions} = useSessions();
   const {completedSessions} = useCompletedSessions();
   const [isLoading, setIsLoading] = useState(false);
@@ -173,9 +181,19 @@ const Journey = () => {
     }
   }, [isFocused, completedSessions.length, sections]);
 
+  const onPressEllipsis = useCallback(() => {
+    navigate('AboutOverlay');
+  }, [navigate]);
+
   if (!sections.length) {
     return (
       <Screen backgroundColor={COLORS.GREYLIGHTEST}>
+        <TopSafeArea />
+        <TopBar
+          backgroundColor={COLORS.GREYLIGHTEST}
+          onPressEllipsis={onPressEllipsis}>
+          <MiniProfile />
+        </TopBar>
         <Container>
           <Display24>{t('fallback')}</Display24>
         </Container>
@@ -185,25 +203,25 @@ const Journey = () => {
 
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
+      <TopSafeArea minSize={SPACINGS.SIXTEEN} />
+      <TopBar
+        backgroundColor={COLORS.PURE_WHITE}
+        onPressEllipsis={onPressEllipsis}>
+        <MiniProfile />
+      </TopBar>
       <SectionList
         ref={listRef}
         sections={sections}
         getItemLayout={getItemLayout}
         keyExtractor={session => session.id}
-        ListHeaderComponent={ListHeader}
-        ListFooterComponent={Spacer60}
-        stickySectionHeadersEnabled={false}
+        ListHeaderComponent={Spacer24}
+        ListFooterComponent={Spacer48}
+        stickySectionHeadersEnabled
+        renderSectionHeader={renderSectionHeader}
         renderItem={renderSession}
         refreshControl={
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }
-        renderSectionHeader={({section: {title, type}}) => (
-          <Gutters>
-            {sections[0].type !== type && <Spacer24 />}
-            <Heading18>{title}</Heading18>
-            <Spacer8 />
-          </Gutters>
-        )}
       />
     </Screen>
   );

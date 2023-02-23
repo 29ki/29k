@@ -14,7 +14,7 @@ describe('useCompletedSessionById', () => {
             {
               type: 'completedSession',
               payload: {id: 'some-session-id'} as CompletedSessionPayload,
-              timestamp: new Date(),
+              timestamp: new Date().toISOString(),
             },
           ],
         },
@@ -28,7 +28,7 @@ describe('useCompletedSessionById', () => {
     expect(result.current).toEqual({
       type: 'completedSession',
       payload: {id: 'some-session-id'},
-      timestamp: expect.any(Date),
+      timestamp: expect.any(String),
     });
   });
 
@@ -41,7 +41,7 @@ describe('useCompletedSessionById', () => {
             {
               type: 'completedSession',
               payload: {id: 'some-session-id'} as CompletedSessionPayload,
-              timestamp: new Date(),
+              timestamp: new Date().toISOString(),
             },
           ],
         },
