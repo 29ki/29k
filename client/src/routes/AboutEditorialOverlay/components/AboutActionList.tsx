@@ -10,8 +10,8 @@ import {
   EnvelopeIcon,
 } from '../../../lib/components/Icons';
 import {
-  ProfileStackProps,
   ModalStackProps,
+  OverlayStackProps,
 } from '../../../lib/navigation/constants/routes';
 import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
 import useUserState from '../../../lib/user/state/state';
@@ -19,15 +19,15 @@ import useUserState from '../../../lib/user/state/state';
 const AboutActionList = () => {
   const {navigate} =
     useNavigation<
-      NativeStackNavigationProp<ProfileStackProps & ModalStackProps>
+      NativeStackNavigationProp<OverlayStackProps & ModalStackProps>
     >();
-  const {t} = useTranslation('Overlay.About');
+  const {t} = useTranslation('Overlay.AboutEditorial');
 
   const isPublicHost = useIsPublicHost();
 
   const isAnonymous = useUserState(state => state.user?.isAnonymous);
   const earlyAccessInfoPress = useCallback(
-    () => navigate('EarlyAccessInfo'),
+    () => navigate('EarlyAccessInfoOverlay'),
     [navigate],
   );
 

@@ -45,7 +45,7 @@ const useLeaveSession = (sessionMode: SessionMode) => {
 
     fetchSessions();
 
-    navigate('Sessions');
+    navigate('Home');
 
     if (
       session?.id &&

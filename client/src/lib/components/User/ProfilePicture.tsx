@@ -77,7 +77,11 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({
 }) => {
   return (
     <View style={style}>
-      <ImageContainer size={size} hasError={hasError} onPress={onPress}>
+      <ImageContainer
+        size={size}
+        hasError={hasError}
+        onPress={onPress}
+        disabled={!onPress}>
         {pictureURL ? (
           <Image source={{uri: pictureURL}} />
         ) : (
