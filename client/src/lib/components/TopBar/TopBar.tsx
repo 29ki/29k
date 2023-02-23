@@ -10,7 +10,7 @@ import IconButton from '../Buttons/IconButton/IconButton';
 import {ArrowLeftIcon, EllipsisIcon} from '../Icons';
 import CloseButton from '../Buttons/CloseButton/CloseButton';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
-import {Spacer16, Spacer20} from '../Spacers/Spacer';
+import {Spacer16, Spacer20, Spacer8} from '../Spacers/Spacer';
 
 const Wrapper = styled.View<{backgroundColor?: string}>(
   ({backgroundColor}) => ({
@@ -82,7 +82,7 @@ const TopBar: React.FC<TopBarProps> = ({
     <Row>
       {onPressBack && (
         <>
-          <Spacer16 />
+          <Spacer8 />
           <Button onPress={onPressBack}>
             <ArrowLeftIcon />
           </Button>
