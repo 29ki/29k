@@ -58,7 +58,8 @@
     },
     "profile": {
       "text": "Para poderes ser um moderador autorizado tens de colocar o teu nome e a tua fotografia."
-    }
+    },
+    "or": "ou"
   },
   "sv": {
     "description": "Börja med att välja vem du vill göra sessionen med.",
