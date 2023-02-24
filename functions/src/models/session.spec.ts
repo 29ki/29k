@@ -205,7 +205,10 @@ describe('session model', () => {
 
   describe('getPublicSessionsByExerciseId', () => {
     it('should get sessions', async () => {
-      const sessions = await getPublicSessionsByExerciseId('some-exercise-id');
+      const sessions = await getPublicSessionsByExerciseId(
+        'some-user-id',
+        'some-exercise-id',
+      );
       expect(sessions).toEqual([
         {
           hostId: 'some-user-id',
@@ -237,7 +240,7 @@ describe('session model', () => {
     });
 
     it('should apply expected filters', async () => {
-      await getPublicSessionsByExerciseId('some-exercise-id');
+      await getPublicSessionsByExerciseId('some-user-id', 'some-exercise-id');
       expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
       expect(mockWhere).toHaveBeenCalledWith(
         'startTime',
@@ -249,11 +252,14 @@ describe('session model', () => {
         '==',
         'some-exercise-id',
       );
-      expect(mockWhere).toHaveBeenCalledWith('type', '==', SessionType.public);
+      expect(mockWhere).toHaveBeenCalledWith('userIds', 'array-contains-any', [
+        '*',
+        'some-user-id',
+      ]);
     });
 
     it('should order by startime', async () => {
-      await getPublicSessionsByExerciseId('some-exercise-id');
+      await getPublicSessionsByExerciseId('some-user-id', 'some-exercise-id');
       expect(mockOrderBy).toHaveBeenCalledWith('startTime', 'asc');
     });
   });

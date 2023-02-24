@@ -29,6 +29,7 @@ export const getSessions = async (
 ): Promise<LiveSession[]> => {
   if (exerciseId) {
     const sessions = await sessionModel.getPublicSessionsByExerciseId(
+      userId,
       exerciseId,
     );
     return Promise.all(sessions.map(mapSession));

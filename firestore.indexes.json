@@ -73,8 +73,8 @@
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "type",
-          "order": "ASCENDING"
+          "fieldPath": "userIds",
+          "arrayConfig": "CONTAINS"
         },
         {
           "fieldPath": "startTime",

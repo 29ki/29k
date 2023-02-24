@@ -109,6 +109,7 @@ describe('sessions - controller', () => {
       expect(sessions[0].hostProfile?.photoURL).toEqual('some-photo-url');
       expect(mockGetPublicSesssionsByExerciseId).toHaveBeenCalledTimes(1);
       expect(mockGetPublicSesssionsByExerciseId).toHaveBeenCalledWith(
+        'all',
         'some-exercise-id',
       );
       expect(mockGetPublicUserInfo).toHaveBeenCalledTimes(1);
