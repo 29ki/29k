@@ -7,6 +7,7 @@ import {MeIcon, CommunityIcon} from '../Icons';
 import {Spacer16, Spacer4} from '../Spacers/Spacer';
 import {Body14} from '../Typography/Body/Body';
 import Card from './Card';
+import ExerciseWalletCard from './WalletCards/ExerciseWalletCard';
 import SessionWalletCard from './WalletCards/SessionWalletCard';
 
 const lottieSource = require('../../../assets/animations/mandala.json');
@@ -95,5 +96,34 @@ export const AllCards = () => (
         <Badge text="03:43s" />
       </Row>
     </SessionWalletCard>
+    <Spacer16 />
+    <ExerciseWalletCard
+      hasCardAfter={false}
+      hasCardBefore={false}
+      title="Some exercise name"
+      image={{
+        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
+      }}
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <ExerciseWalletCard
+      hasCardAfter={true}
+      hasCardBefore={false}
+      title="First in wallet"
+      image={{
+        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
+      }}
+      onPress={() => {}}
+    />
+    <ExerciseWalletCard
+      hasCardAfter={false}
+      hasCardBefore={true}
+      title="Last in wallet"
+      image={{
+        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
+      }}
+      onPress={() => {}}
+    />
   </ScreenWrapper>
 );
