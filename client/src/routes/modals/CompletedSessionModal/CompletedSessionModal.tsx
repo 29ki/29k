@@ -79,7 +79,7 @@ const CompletedSessionModal = () => {
   const {
     params: {completedSessionEvent, hostProfile},
   } = useRoute<RouteProp<ModalStackProps, 'CompletedSessionModal'>>();
-  const {navigate} =
+  const {navigate, popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {t} = useTranslation('Modal.CompletedSession');
   const {payload, timestamp} = completedSessionEvent;
@@ -88,8 +88,9 @@ const CompletedSessionModal = () => {
   const sessionTime = useMemo(() => dayjs(timestamp), [timestamp]);
 
   const onStartSession = useCallback(() => {
+    popToTop();
     navigate('CreateSessionModal', {exerciseId: payload.exerciseId});
-  }, [payload, navigate]);
+  }, [payload, navigate, popToTop]);
 
   const exercise = useExerciseById(payload.exerciseId);
   const {getSharingPostForSession} = useSharingPosts(exercise?.id);
