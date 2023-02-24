@@ -3,8 +3,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import hexToRgba from 'hex-to-rgba';
 import React, {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {ListRenderItem} from 'react-native';
-import {FlatList} from 'react-native-gesture-handler';
+import {SectionList, SectionListRenderItem} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 
@@ -16,7 +15,7 @@ import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
 import Screen from '../../../lib/components/Screen/Screen';
 import {
   Spacer24,
-  Spacer60,
+  Spacer48,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
@@ -29,6 +28,11 @@ import {
   OverlayStackProps,
 } from '../../../lib/navigation/constants/routes';
 import {formatExerciseName} from '../../../lib/utils/string';
+
+type Section = {
+  title: string;
+  data: Exercise[];
+};
 
 const BottomGradient = styled(LinearGradient)({
   position: 'absolute',
@@ -43,6 +47,7 @@ type ExerciseCardProps = {
   hasCardBefore: boolean;
   hasCardAfter: boolean;
 };
+
 const ExerciseCard: React.FC<ExerciseCardProps> = ({
   exercise,
   hasCardBefore,
@@ -90,10 +95,30 @@ const Sessions = () => {
     navigate('AboutOverlay');
   }, [navigate]);
 
-  const renderItem = useCallback<ListRenderItem<Exercise>>(
-    ({item, index}) => {
+  const sections = useMemo(() => {
+    return [
+      {
+        title: t('sessionsHeading'),
+        data: exercises,
+      } as Section,
+    ];
+  }, [exercises, t]);
+
+  const renderSectionHeader = useCallback<
+    (info: {section: Section}) => React.ReactElement
+  >(
+    ({section: {title}}) => (
+      <StickyHeading backgroundColor={COLORS.PURE_WHITE}>
+        <Heading16>{title}</Heading16>
+      </StickyHeading>
+    ),
+    [],
+  );
+
+  const renderItem = useCallback<SectionListRenderItem<Exercise, Section>>(
+    ({item, section, index}) => {
       const hasCardBefore = index > 0;
-      const hasCardAfter = index !== exercises.length - 1;
+      const hasCardAfter = index !== section.data.length - 1;
       return (
         <Gutters>
           <ExerciseCard
@@ -104,12 +129,8 @@ const Sessions = () => {
         </Gutters>
       );
     },
-    [exercises],
+    [],
   );
-
-  const stickyHeaderIndices = useMemo(() => [0], []);
-
-  const keyExtractor = useCallback((item: Exercise) => item.id, []);
 
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
@@ -119,19 +140,14 @@ const Sessions = () => {
         onPressEllipsis={onPressEllipsis}>
         <MiniProfile />
       </TopBar>
-      <Spacer24 />
-
-      <FlatList
-        data={exercises}
+      <SectionList
+        sections={sections}
+        keyExtractor={exercise => exercise.id}
+        ListHeaderComponent={Spacer24}
+        ListFooterComponent={Spacer48}
+        stickySectionHeadersEnabled
+        renderSectionHeader={renderSectionHeader}
         renderItem={renderItem}
-        keyExtractor={keyExtractor}
-        stickyHeaderIndices={stickyHeaderIndices}
-        ListHeaderComponent={
-          <StickyHeading backgroundColor={COLORS.PURE_WHITE}>
-            <Heading16>{t('sessionsHeading')}</Heading16>
-          </StickyHeading>
-        }
-        ListFooterComponent={Spacer60}
       />
       <BottomGradient colors={colors} />
     </Screen>
