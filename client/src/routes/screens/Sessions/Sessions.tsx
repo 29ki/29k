@@ -14,11 +14,11 @@ import Gutters from '../../../lib/components/Gutters/Gutters';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
 import Screen from '../../../lib/components/Screen/Screen';
 import {
-  Spacer16,
+  Spacer24,
   Spacer60,
-  Spacer8,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
+import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import {SPACINGS} from '../../../lib/constants/spacings';
@@ -108,6 +108,8 @@ const Sessions = () => {
     [exerciseIds],
   );
 
+  const stickyHeaderIndices = useMemo(() => [0], []);
+
   const keyExtractor = useCallback((id: string) => id, []);
 
   return (
@@ -118,17 +120,17 @@ const Sessions = () => {
         onPressEllipsis={onPressEllipsis}>
         <MiniProfile />
       </TopBar>
-      <Spacer16 />
+      <Spacer24 />
 
       <FlatList
         data={exerciseIds}
         renderItem={renderItem}
         keyExtractor={keyExtractor}
+        stickyHeaderIndices={stickyHeaderIndices}
         ListHeaderComponent={
-          <Gutters>
+          <StickyHeading backgroundColor={COLORS.PURE_WHITE}>
             <Heading16>{t('sessionsHeading')}</Heading16>
-            <Spacer8 />
-          </Gutters>
+          </StickyHeading>
         }
         ListFooterComponent={Spacer60}
       />
