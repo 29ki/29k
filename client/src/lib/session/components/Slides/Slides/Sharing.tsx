@@ -94,10 +94,9 @@ const EmptyListComponent = styled.View({
 
 type SharingProps = {
   slide: ExerciseSlideSharingSlide;
-  active: boolean;
 };
 
-const Sharing: React.FC<SharingProps> = ({slide, active}) => {
+const Sharing: React.FC<SharingProps> = ({slide}) => {
   const scrollRef = useRef<ScrollView>(null);
   const {t} = useTranslation('Component.Sharing');
   const {navigate} =
@@ -127,10 +126,8 @@ const Sharing: React.FC<SharingProps> = ({slide, active}) => {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
-    if (active) {
-      getSharingPosts().then(setPosts);
-    }
-  }, [getSharingPosts, active]);
+    getSharingPosts().then(setPosts);
+  }, [getSharingPosts]);
 
   const onAddSharing = useCallback(() => {
     if (session?.exerciseId) {
@@ -175,16 +172,13 @@ const Sharing: React.FC<SharingProps> = ({slide, active}) => {
   );
 
   useEffect(() => {
-    if (active) {
-      // Wait until oters posts has rendered
-      requestAnimationFrame(() => {
-        scrollRef.current?.scrollTo({
-          y: otherPostListHeight + myPostListHeight,
-          animated: true,
-        });
+    requestAnimationFrame(() => {
+      scrollRef.current?.scrollTo({
+        y: otherPostListHeight + myPostListHeight,
+        animated: true,
       });
-    }
-  }, [otherPostListHeight, myPostListHeight, active]);
+    });
+  }, [otherPostListHeight, myPostListHeight]);
 
   const userProfile = useMemo(() => {
     if (user?.displayName) {

@@ -66,7 +66,7 @@ const useSharingPosts = (exerciseId?: string) => {
         )
         .sort(
           (a, b) =>
-            new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime(),
+            new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime(),
         );
     },
     [postEvents, exerciseId],
