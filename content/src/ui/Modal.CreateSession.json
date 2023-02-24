@@ -29,7 +29,7 @@
     },
     "or": "or",
     "orJoinUpcoming": "Or join upcoming sessions",
-    "noUpcomingSessions": "🌱 No upcoming sessions yet."
+    "noUpcomingSessions": "🌱 No planned sessions."
   },
   "pt": {
     "description": "Criar sessão com...",
@@ -87,7 +87,7 @@
     },
     "or": "eller",
     "orJoinUpcoming": "Eller gå med i kommande sessioner",
-    "noUpcomingSessions": "🌱 Finns ännu inga kommande sessioner."
+    "noUpcomingSessions": "🌱 Inga planerade sessioner."
   },
   "es": {}
 }

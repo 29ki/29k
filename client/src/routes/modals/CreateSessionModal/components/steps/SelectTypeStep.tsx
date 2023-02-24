@@ -115,6 +115,7 @@ const EmptyListContainer = styled.View({
   alignItems: 'center',
   justifyContent: 'center',
   flex: 1,
+  height: 200,
 });
 
 const SelectTypeStep: React.FC<StepProps> = ({
@@ -240,13 +241,13 @@ const SelectTypeStep: React.FC<StepProps> = ({
           renderItem={renderItem}
           keyExtractor={keyExtractor}
           ListEmptyComponent={
-            isLoadingSessions ? (
-              <Spinner color={COLORS.BLACK} />
-            ) : (
-              <EmptyListContainer>
+            <EmptyListContainer>
+              {isLoadingSessions ? (
+                <Spinner color={COLORS.BLACK} />
+              ) : (
                 <Display18>{t('noUpcomingSessions')}</Display18>
-              </EmptyListContainer>
-            )
+              )}
+            </EmptyListContainer>
           }
           ListHeaderComponent={
             <Gutters>
