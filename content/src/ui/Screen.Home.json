@@ -1,15 +1,30 @@
 {
   "en": {
-    "heading": "Exercise a life of hope - with others",
-    "button": "Breathing meditation"
-  },
-  "sv": {
-    "heading": "För ett meningsfullt liv – med andra",
-    "button": "Andningsövning"
+    "heading": "Sessions",
+    "add": "Session",
+    "sections": {
+      "hostedBy": "Your sessions",
+      "interested": "Interested",
+      "comming": "Upcoming sessions"
+    }
   },
   "pt": {
-    "button": "Meditação - Respiração",
-    "heading": "Experimenta uma vida de esperança - com os outros"
+    "heading": "Sessões",
+    "add": "Junta-te ou adiciona sessão",
+    "sections": {
+      "hostedBy": "As tuas sessões",
+      "interested": "Favorito",
+      "comming": "Próximas sessões"
+    }
+  },
+  "sv": {
+    "heading": "Sessioner",
+    "add": "Add session",
+    "sections": {
+      "hostedBy": "Dina sessioner",
+      "interested": "Intresserad",
+      "comming": "Kommande sessioner"
+    }
   },
   "es": {}
 }

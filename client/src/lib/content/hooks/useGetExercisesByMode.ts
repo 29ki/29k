@@ -1,18 +1,16 @@
 import {useMemo} from 'react';
 import {SessionMode} from '../../../../../shared/src/types/Session';
 
-import useExerciseIds from './useExerciseIds';
-import useGetExerciseById from './useGetExerciseById';
+import useExercises from './useExercises';
 
 const useGetExercisesByMode = (sessionMode?: SessionMode) => {
-  const exerciseIds = useExerciseIds();
-  const getExerciseById = useGetExerciseById();
+  const exercises = useExercises();
 
   return useMemo(() => {
-    return exerciseIds
-      .map(exerciseId => getExerciseById(exerciseId))
-      .filter(e => (sessionMode === SessionMode.async ? e.async : true));
-  }, [exerciseIds, getExerciseById, sessionMode]);
+    return exercises.filter(e =>
+      sessionMode === SessionMode.async ? e.async : true,
+    );
+  }, [exercises, sessionMode]);
 };
 
 export default useGetExercisesByMode;

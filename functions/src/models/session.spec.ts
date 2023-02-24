@@ -32,6 +32,7 @@ import {
   updateSession,
   getSessionStateById,
   updateInterestedCount,
+  getPublicSessionsByExerciseId,
 } from './session';
 import {SessionType} from '../../../shared/src/types/Session';
 
@@ -41,6 +42,7 @@ const sessions = [
     name: 'some-name',
     url: 'some-url',
     hostId: 'some-user-id',
+    exerciseId: 'some-exercise-id',
     type: SessionType.public,
     startTime: Timestamp.now(),
     userIds: ['*'],
@@ -65,6 +67,7 @@ const sessions = [
     name: 'some-other-name',
     url: 'some-other-url',
     hostId: 'some-other-user-id',
+    exerciseId: 'some-exercise-id',
     startTime: Timestamp.now(),
     type: SessionType.public,
     userIds: ['*'],
@@ -113,6 +116,7 @@ describe('session model', () => {
         hostId: 'some-user-id',
         id: 'some-session-id',
         name: 'some-name',
+        exerciseId: 'some-exercise-id',
         startTime: expect.any(String),
         url: 'some-url',
         type: 'public',
@@ -150,6 +154,7 @@ describe('session model', () => {
           hostId: 'some-user-id',
           id: 'some-session-id',
           name: 'some-name',
+          exerciseId: 'some-exercise-id',
           startTime: expect.any(String),
           url: 'some-url',
           type: 'public',
@@ -162,6 +167,7 @@ describe('session model', () => {
           hostId: 'some-other-user-id',
           id: 'some-other-session-id',
           name: 'some-other-name',
+          exerciseId: 'some-exercise-id',
           startTime: expect.any(String),
           url: 'some-other-url',
           type: 'public',
@@ -193,6 +199,67 @@ describe('session model', () => {
 
     it('should order by startime', async () => {
       await getSessions('some-user-id');
+      expect(mockOrderBy).toHaveBeenCalledWith('startTime', 'asc');
+    });
+  });
+
+  describe('getPublicSessionsByExerciseId', () => {
+    it('should get sessions', async () => {
+      const sessions = await getPublicSessionsByExerciseId(
+        'some-user-id',
+        'some-exercise-id',
+      );
+      expect(sessions).toEqual([
+        {
+          hostId: 'some-user-id',
+          id: 'some-session-id',
+          name: 'some-name',
+          exerciseId: 'some-exercise-id',
+          startTime: expect.any(String),
+          url: 'some-url',
+          type: 'public',
+          userIds: ['*'],
+          interestedCount: 0,
+          createdAt: expect.any(String),
+          updatedAt: expect.any(String),
+        },
+        {
+          hostId: 'some-other-user-id',
+          id: 'some-other-session-id',
+          name: 'some-other-name',
+          exerciseId: 'some-exercise-id',
+          startTime: expect.any(String),
+          url: 'some-other-url',
+          type: 'public',
+          userIds: ['*'],
+          interestedCount: 1,
+          createdAt: expect.any(String),
+          updatedAt: expect.any(String),
+        },
+      ]);
+    });
+
+    it('should apply expected filters', async () => {
+      await getPublicSessionsByExerciseId('some-user-id', 'some-exercise-id');
+      expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
+      expect(mockWhere).toHaveBeenCalledWith(
+        'startTime',
+        '>',
+        expect.any(Timestamp),
+      );
+      expect(mockWhere).toHaveBeenCalledWith(
+        'exerciseId',
+        '==',
+        'some-exercise-id',
+      );
+      expect(mockWhere).toHaveBeenCalledWith('userIds', 'array-contains-any', [
+        '*',
+        'some-user-id',
+      ]);
+    });
+
+    it('should order by startime', async () => {
+      await getPublicSessionsByExerciseId('some-user-id', 'some-exercise-id');
       expect(mockOrderBy).toHaveBeenCalledWith('startTime', 'asc');
     });
   });
@@ -281,6 +348,7 @@ describe('session model', () => {
         name: 'some-name',
         url: 'some-url',
         hostId: 'some-user-id',
+        exerciseId: 'some-exercise-id',
         interestedCount: 0,
         startTime: expect.any(String),
         type: SessionType.private,
@@ -300,6 +368,7 @@ describe('session model', () => {
         name: 'some-name',
         url: 'some-url',
         hostId: 'some-user-id',
+        exerciseId: 'some-exercise-id',
         type: 'public',
         interestedCount: 0,
         startTime: expect.any(String),

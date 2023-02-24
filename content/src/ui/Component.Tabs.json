@@ -1,6 +1,7 @@
 {
   "en": {
     "home": "Home",
+    "sessions": "Sessions",
     "journey": "Journey",
     "profile": "Profile"
   },
@@ -11,6 +12,7 @@
   },
   "sv": {
     "home": "Hem",
+    "sessions": "Sessioner",
     "profile": "Profil"
   },
   "es": {}

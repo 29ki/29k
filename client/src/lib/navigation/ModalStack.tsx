@@ -156,7 +156,15 @@ const ModalStack = () => {
           component={SharingPostModal}
           options={tallSheetModalScreenOptions}
         />
-        <Screen name={'CreateSessionModal'} component={CreateSessionModal} />
+        <Screen
+          name={'CreateSessionModal'}
+          component={CreateSessionModal}
+          options={props =>
+            props.route.params.discover
+              ? fullSheetModalScreenOptions
+              : sheetModalScreenOptions
+          }
+        />
         <Screen
           name={'SessionUnavailableModal'}
           component={SessionUnavailableModal}

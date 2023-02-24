@@ -17,7 +17,7 @@ import {
 } from '../../../navigation/constants/routes';
 
 import Card from '../Card';
-import WalletCard from '../WalletCard';
+import SessionWalletCard from '../WalletCards/SessionWalletCard';
 import SessionTimeBadge from '../../SessionTimeBadge/SessionTimeBadge';
 import useLogSessionMetricEvents from '../../../sessions/hooks/useLogSessionMetricEvents';
 import useGetSessionCardTags from './hooks/useGetSessionCardTags';
@@ -74,6 +74,7 @@ type SessionCardProps = {
   standAlone: boolean;
   hasCardBefore: boolean;
   hasCardAfter: boolean;
+  onBeforeContextPress?: () => void;
 };
 
 const SessionCard: React.FC<SessionCardProps> = ({
@@ -81,6 +82,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
   standAlone,
   hasCardBefore,
   hasCardAfter,
+  onBeforeContextPress,
 }) => {
   const {exerciseId, startTime, hostProfile} = session;
   const exercise = useExerciseById(exerciseId);
@@ -106,10 +108,12 @@ const SessionCard: React.FC<SessionCardProps> = ({
     logSessionMetricEvent('Join Sharing Session', session);
   }, [navigate, session, logSessionMetricEvent]);
 
-  const onContextPress = useCallback(
-    () => navigate('SessionModal', {session: session}),
-    [navigate, session],
-  );
+  const onContextPress = useCallback(() => {
+    if (onBeforeContextPress) {
+      onBeforeContextPress();
+    }
+    navigate('SessionModal', {session: session});
+  }, [navigate, session, onBeforeContextPress]);
 
   const image = useMemo(
     () => ({
@@ -157,7 +161,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
       startTime={startTime}
       hasCardBefore={hasCardBefore}
       foldedComponent={
-        <WalletCard
+        <SessionWalletCard
           title={formatExerciseName(exercise)}
           image={image}
           lottie={lottie}
@@ -179,7 +183,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
               count={interestedCount}
             />
           </Row>
-        </WalletCard>
+        </SessionWalletCard>
       }
       expandedComponent={
         <Card
