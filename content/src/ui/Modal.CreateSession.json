@@ -1,10 +1,11 @@
 {
   "en": {
-    "description": "Create session with…",
+    "or": "or",
     "joinByInviteCta": "Join by invite code",
-    "selectContent": {
-      "title": "Choose exercise"
+    "profile": {
+      "text": "To create and host a session you need a user name and profile picture."
     },
+    "orJoinUpcoming": "Or join upcoming sessions",
     "selectType": {
       "live-public": {
         "title": "Anyone"
@@ -16,6 +17,8 @@
         "title": "Myself"
       }
     },
+    "noUpcomingSessions": "🌱 No planned sessions.",
+    "description": "Create session with…",
     "setDateTime": {
       "title": "Choose a time",
       "cta": "Create session",
@@ -24,19 +27,17 @@
         "public": "Session with anyone"
       }
     },
-    "profile": {
-      "text": "To create and host a session you need a user name and profile picture."
-    },
-    "or": "or",
-    "orJoinUpcoming": "Or join upcoming sessions",
-    "noUpcomingSessions": "🌱 No planned sessions."
+    "selectContent": {
+      "title": "Choose exercise"
+    }
   },
   "pt": {
-    "description": "Criar sessão com...",
+    "or": "ou",
     "joinByInviteCta": "Junta-te por código de convite",
-    "selectContent": {
-      "title": "Escolhe um exercício"
+    "profile": {
+      "text": "Para poderes ser um moderador autorizado tens de colocar o teu nome e a tua fotografia."
     },
+    "orJoinUpcoming": "Ou junta-te a uma sessão futura",
     "selectType": {
       "live-public": {
         "title": "Qualquer pessoa"
@@ -48,6 +49,8 @@
         "title": "Comigo"
       }
     },
+    "noUpcomingSessions": "🌱 Não há sessões planeadas",
+    "description": "Criar sessão com...",
     "setDateTime": {
       "title": "Escolhe o horário",
       "cta": "Criar sessão",
@@ -56,17 +59,17 @@
         "public": "Sessão pública"
       }
     },
-    "profile": {
-      "text": "Para poderes ser um moderador autorizado tens de colocar o teu nome e a tua fotografia."
-    },
-    "or": "ou"
+    "selectContent": {
+      "title": "Escolhe um exercício"
+    }
   },
   "sv": {
-    "description": "Skapa session för...",
+    "or": "eller",
     "joinByInviteCta": "Använd kod för att gå med",
-    "selectContent": {
-      "title": "Välj övning"
+    "profile": {
+      "text": "För att hålla i sessioner behöver du ett namn och en profilbild."
     },
+    "orJoinUpcoming": "Eller gå med i kommande sessioner",
     "selectType": {
       "live-public": {
         "title": "Alla"
@@ -78,16 +81,15 @@
         "title": "Mig själv"
       }
     },
+    "noUpcomingSessions": "🌱 Inga planerade sessioner.",
+    "description": "Skapa session för...",
     "setDateTime": {
       "title": "Välj tid",
       "cta": "Skapa session"
     },
-    "profile": {
-      "text": "För att hålla i sessioner behöver du ett namn och en profilbild."
-    },
-    "or": "eller",
-    "orJoinUpcoming": "Eller gå med i kommande sessioner",
-    "noUpcomingSessions": "🌱 Inga planerade sessioner."
+    "selectContent": {
+      "title": "Välj övning"
+    }
   },
   "es": {}
 }
