@@ -9,6 +9,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
+import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import ExerciseWalletCard from '../../../lib/components/Cards/WalletCards/ExerciseWalletCard';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
@@ -22,8 +23,7 @@ import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import {SPACINGS} from '../../../lib/constants/spacings';
-import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import useExerciseIds from '../../../lib/content/hooks/useExerciseIds';
+import useExercises from '../../../lib/content/hooks/useExercises';
 import {
   ModalStackProps,
   OverlayStackProps,
@@ -39,18 +39,17 @@ const BottomGradient = styled(LinearGradient)({
 });
 
 type ExerciseCardProps = {
-  exerciseId: string;
+  exercise: Exercise;
   hasCardBefore: boolean;
   hasCardAfter: boolean;
 };
 const ExerciseCard: React.FC<ExerciseCardProps> = ({
-  exerciseId,
+  exercise,
   hasCardBefore,
   hasCardAfter,
 }) => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
-  const exercise = useExerciseById(exerciseId);
 
   const image = useMemo(() => {
     if (exercise?.card?.image) {
@@ -59,8 +58,8 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
   }, [exercise]);
 
   const onPress = useCallback(() => {
-    navigate('CreateSessionModal', {exerciseId, discover: true});
-  }, [exerciseId, navigate]);
+    navigate('CreateSessionModal', {exerciseId: exercise.id, discover: true});
+  }, [exercise, navigate]);
 
   if (!exercise) {
     return null;
@@ -80,7 +79,7 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
 const Sessions = () => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<OverlayStackProps>>();
-  const exerciseIds = useExerciseIds();
+  const exercises = useExercises();
   const {t} = useTranslation('Screen.Sessions');
   const colors = useMemo(
     () => [hexToRgba(COLORS.WHITE, 0), hexToRgba(COLORS.WHITE, 1)],
@@ -91,26 +90,26 @@ const Sessions = () => {
     navigate('AboutOverlay');
   }, [navigate]);
 
-  const renderItem = useCallback<ListRenderItem<string>>(
+  const renderItem = useCallback<ListRenderItem<Exercise>>(
     ({item, index}) => {
       const hasCardBefore = index > 0;
-      const hasCardAfter = index !== exerciseIds.length - 1;
+      const hasCardAfter = index !== exercises.length - 1;
       return (
         <Gutters>
           <ExerciseCard
-            exerciseId={item}
+            exercise={item}
             hasCardBefore={hasCardBefore}
             hasCardAfter={hasCardAfter}
           />
         </Gutters>
       );
     },
-    [exerciseIds],
+    [exercises],
   );
 
   const stickyHeaderIndices = useMemo(() => [0], []);
 
-  const keyExtractor = useCallback((id: string) => id, []);
+  const keyExtractor = useCallback((item: Exercise) => item.id, []);
 
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
@@ -123,7 +122,7 @@ const Sessions = () => {
       <Spacer24 />
 
       <FlatList
-        data={exerciseIds}
+        data={exercises}
         renderItem={renderItem}
         keyExtractor={keyExtractor}
         stickyHeaderIndices={stickyHeaderIndices}
