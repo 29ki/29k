@@ -52,6 +52,8 @@ jest.mock('../models/user');
 jest.mock('../lib/dailyUtils');
 
 const mockGetSessions = sessionModel.getSessions as jest.Mock;
+const mockGetPublicSesssionsByExerciseId =
+  sessionModel.getPublicSessionsByExerciseId as jest.Mock;
 const mockAddSession = sessionModel.addSession as jest.Mock;
 const mockGetSessionById = sessionModel.getSessionById as jest.Mock;
 const mockGetSessionStateById = sessionModel.getSessionStateById as jest.Mock;
@@ -90,6 +92,25 @@ describe('sessions - controller', () => {
       expect(sessions[0].hostProfile?.photoURL).toEqual('some-photo-url');
       expect(mockGetSessions).toHaveBeenCalledTimes(1);
       expect(mockGetSessions).toHaveBeenCalledWith('all');
+      expect(mockGetPublicUserInfo).toHaveBeenCalledTimes(1);
+      expect(mockGetPublicUserInfo).toHaveBeenCalledWith('some-user-id');
+    });
+
+    it('should get public sessions by exerciseId with host profile', async () => {
+      mockGetPublicSesssionsByExerciseId.mockResolvedValueOnce([
+        {
+          hostId: 'some-user-id',
+        },
+      ]);
+
+      const sessions = await getSessions('all', 'some-exercise-id');
+
+      expect(sessions[0].hostProfile?.displayName).toEqual('some-name');
+      expect(sessions[0].hostProfile?.photoURL).toEqual('some-photo-url');
+      expect(mockGetPublicSesssionsByExerciseId).toHaveBeenCalledTimes(1);
+      expect(mockGetPublicSesssionsByExerciseId).toHaveBeenCalledWith(
+        'some-exercise-id',
+      );
       expect(mockGetPublicUserInfo).toHaveBeenCalledTimes(1);
       expect(mockGetPublicUserInfo).toHaveBeenCalledWith('some-user-id');
     });
