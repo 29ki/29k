@@ -13,7 +13,7 @@ import Byline from '../Bylines/Byline';
 import {Spacer4} from '../Spacers/Spacer';
 import Gutters from '../Gutters/Gutters';
 import Tag from '../Tag/Tag';
-import {WALLET_CARD_HEIGHT} from './WalletCard';
+import {WALLET_CARD_HEIGHT} from './WalletCards/SessionWalletCard';
 
 export const CARD_HEIGHT = 184;
 

@@ -1,8 +1,9 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
 import {
+  LiveSession,
   SessionMode,
   SessionType,
 } from '../../../../../../../shared/src/types/Session';
@@ -15,20 +16,31 @@ import {
 } from '../../../../../lib/components/Icons';
 import {
   Spacer16,
+  Spacer24,
   Spacer28,
+  Spacer40,
   Spacer8,
 } from '../../../../../lib/components/Spacers/Spacer';
 import TouchableOpacity from '../../../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {Body16} from '../../../../../lib/components/Typography/Body/Body';
-import {Display24} from '../../../../../lib/components/Typography/Display/Display';
-import {ModalHeading} from '../../../../../lib/components/Typography/Heading/Heading';
+import {
+  Display18,
+  Display24,
+} from '../../../../../lib/components/Typography/Display/Display';
 import {SPACINGS} from '../../../../../lib/constants/spacings';
 import {StepProps} from '../../CreateSessionModal';
 import Button from '../../../../../lib/components/Buttons/Button';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import useGetExerciseById from '../../../../../lib/content/hooks/useGetExerciseById';
+import {formatExerciseName} from '../../../../../lib/utils/string';
+import Image from '../../../../../lib/components/Image/Image';
+import {ActivityIndicator, ListRenderItem} from 'react-native';
+import SessionCard from '../../../../../lib/components/Cards/SessionCard/SessionCard';
+import {Heading16} from '../../../../../lib/components/Typography/Heading/Heading';
+import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
+import {fetchSessions} from '../../../../../lib/sessions/api/sessions';
 import {ModalStackProps} from '../../../../../lib/navigation/constants/routes';
-import useGetExercisesByMode from '../../../../../lib/content/hooks/useGetExercisesByMode';
 import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsyncSession';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
@@ -57,9 +69,8 @@ const TypeWrapper = styled(TouchableOpacity)({
   paddingHorizontal: SPACINGS.SIXTEEN,
 });
 
-const TypeItemHeading = styled(ModalHeading)({
+const TypeItemHeading = styled(Body16)({
   textAlign: 'left',
-  paddingHorizontal: SPACINGS.EIGHT,
 });
 
 const Row = styled.View({
@@ -95,17 +106,52 @@ const TypeItem: React.FC<{
   </TypeWrapper>
 );
 
+const Spinner = styled(ActivityIndicator)({
+  marginRight: -SPACINGS.EIGHT,
+  marginLeft: SPACINGS.EIGHT,
+});
+
+const EmptyListContainer = styled.View({
+  alignItems: 'center',
+  justifyContent: 'center',
+  flex: 1,
+  height: 200,
+});
+
 const SelectTypeStep: React.FC<StepProps> = ({
   setSelectedModeAndType,
   nextStep,
   isPublicHost,
   selectedExercise,
+  discover,
 }) => {
   const {t} = useTranslation('Modal.CreateSession');
   const {navigate, popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
-  const asyncExercises = useGetExercisesByMode(SessionMode.async);
+  const getExerciseById = useGetExerciseById();
   const startSession = useStartAsyncSession();
+  const [sessions, setSessions] = useState<Array<LiveSession>>([]);
+  const [isLoadingSessions, setIsLoadingSessions] = useState(false);
+
+  useEffect(() => {
+    if (discover && selectedExercise) {
+      setIsLoadingSessions(true);
+      fetchSessions(selectedExercise).then(loadedSessions => {
+        setSessions(loadedSessions);
+        setIsLoadingSessions(false);
+      });
+    }
+  }, [setSessions, setIsLoadingSessions, selectedExercise, discover]);
+
+  const exercise = useMemo(
+    () => (selectedExercise ? getExerciseById(selectedExercise) : null),
+    [getExerciseById, selectedExercise],
+  );
+
+  const exerciseImage = useMemo(
+    () => (exercise?.card?.image ? {uri: exercise.card.image.source} : null),
+    [exercise],
+  );
 
   const onJoinByInvite = useCallback(() => {
     popToTop();
@@ -132,23 +178,32 @@ const SelectTypeStep: React.FC<StepProps> = ({
     ],
   );
 
-  return (
-    <Gutters>
-      <Spacer8 />
+  const renderItem = useCallback<ListRenderItem<LiveSession>>(
+    ({item, index}) => {
+      const hasCardBefore = index > 0;
+      const hasCardAfter = index !== sessions.length - 1;
+
+      return (
+        <Gutters>
+          <SessionCard
+            session={item}
+            hasCardBefore={hasCardBefore}
+            hasCardAfter={hasCardAfter}
+            standAlone={false}
+            onBeforeContextPress={popToTop}
+          />
+        </Gutters>
+      );
+    },
+    [sessions, popToTop],
+  );
+
+  const keyExtractor = useCallback((item: LiveSession) => item.id, []);
+
+  const typeSelection = useMemo(
+    () => (
       <Row>
-        <TextWrapper>
-          <Display24>{t('description')}</Display24>
-        </TextWrapper>
-        <Spacer16 />
-        <LogoWrapper>
-          <LogoIcon />
-        </LogoWrapper>
-      </Row>
-      <Spacer28 />
-      <TypeItemHeading>{t('selectType.title')}</TypeItemHeading>
-      <Spacer16 />
-      <Row>
-        {Boolean(asyncExercises.length) && (
+        {(!exercise || exercise.async) && (
           <TypeItemWrapper>
             <TypeItem
               onPress={onTypePress(SessionMode.async, SessionType.public)}
@@ -174,6 +229,66 @@ const SelectTypeStep: React.FC<StepProps> = ({
           </TypeItemWrapper>
         )}
       </Row>
+    ),
+    [exercise, isPublicHost, onTypePress, t],
+  );
+
+  if (discover && exercise) {
+    return (
+      <>
+        <BottomSheetFlatList
+          data={sessions}
+          renderItem={renderItem}
+          keyExtractor={keyExtractor}
+          ListEmptyComponent={
+            <EmptyListContainer>
+              {isLoadingSessions ? (
+                <Spinner color={COLORS.BLACK} />
+              ) : (
+                <Display18>{t('noUpcomingSessions')}</Display18>
+              )}
+            </EmptyListContainer>
+          }
+          ListHeaderComponent={
+            <Gutters>
+              <Row>
+                <TextWrapper>
+                  <Display24>{formatExerciseName(exercise)}</Display24>
+                </TextWrapper>
+                <Spacer16 />
+                <LogoWrapper>
+                  {exerciseImage && <Image source={exerciseImage} />}
+                </LogoWrapper>
+              </Row>
+              <Spacer28 />
+              <TypeItemHeading>{t('description')}</TypeItemHeading>
+              <Spacer16 />
+              {typeSelection}
+              <Spacer40 />
+              <Heading16>{t('orJoinUpcoming')}</Heading16>
+              <Spacer16 />
+            </Gutters>
+          }
+        />
+        <Spacer24 />
+      </>
+    );
+  }
+
+  return (
+    <Gutters>
+      <Spacer8 />
+      <Row>
+        <TextWrapper>
+          <Display24>{t('description')}</Display24>
+        </TextWrapper>
+        <Spacer16 />
+        <LogoWrapper>
+          <LogoIcon />
+        </LogoWrapper>
+      </Row>
+      <Spacer28 />
+      {typeSelection}
       <Spacer16 />
       <Centered>
         <Body16>{t('or')}</Body16>

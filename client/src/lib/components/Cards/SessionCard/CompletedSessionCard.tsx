@@ -11,7 +11,7 @@ import useExerciseById from '../../../content/hooks/useExerciseById';
 
 import {formatExerciseName} from '../../../utils/string';
 
-import WalletCard from '../WalletCard';
+import SessionWalletCard from '../WalletCards/SessionWalletCard';
 import Badge from '../../Badge/Badge';
 import {Body14} from '../../Typography/Body/Body';
 import {CheckIcon, CommunityIcon, MeIcon} from '../../Icons';
@@ -81,7 +81,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
   );
 
   return (
-    <WalletCard
+    <SessionWalletCard
       title={formatExerciseName(exercise)}
       image={image}
       lottie={lottie}
@@ -104,7 +104,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
           }
         />
       </Row>
-    </WalletCard>
+    </SessionWalletCard>
   );
 };
 

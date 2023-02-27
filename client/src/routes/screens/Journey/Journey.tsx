@@ -15,12 +15,13 @@ import useSessions from '../../../lib/sessions/hooks/useSessions';
 import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessions';
 
 import {JourneySession} from './types/Session';
+import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 import {LiveSession} from '../../../../../shared/src/types/Session';
 
 import {OverlayStackProps} from '../../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {WALLET_CARD_HEIGHT} from '../../../lib/components/Cards/WalletCard';
+import {WALLET_CARD_HEIGHT} from '../../../lib/components/Cards/WalletCards/SessionWalletCard';
 import {CARD_HEIGHT} from '../../../lib/components/Cards/Card';
 
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -35,7 +36,7 @@ import Screen from '../../../lib/components/Screen/Screen';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
-import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
+
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';

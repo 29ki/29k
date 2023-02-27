@@ -31,6 +31,7 @@ describe('useGetExercisesByMode', () => {
 
     expect(mockT).toHaveBeenCalledTimes(2);
     expect(mockT).toHaveBeenCalledWith('some-exercise-id', {
+      lng: 'en',
       returnObjects: true,
     });
     expect(mockGetDataByLanguage).toHaveBeenCalledTimes(1);

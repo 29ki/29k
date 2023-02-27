@@ -10,6 +10,7 @@ import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 
 export type TabNavigatorProps = {
   Home: undefined;
+  Sessions: undefined;
   Journey: undefined;
 };
 
@@ -55,7 +56,7 @@ export type ModalStackProps = {
   };
   SessionUnavailableModal: undefined;
   AddSessionByInviteModal?: {inviteCode?: number};
-  CreateSessionModal: {exerciseId?: Exercise['id']};
+  CreateSessionModal: {exerciseId?: Exercise['id']; discover?: boolean};
   UpgradeAccountModal?: undefined;
   RequestPublicHostModal?: {code?: string; haveRequested?: boolean};
   ChangeLanguageModal: undefined;
