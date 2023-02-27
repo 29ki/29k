@@ -42,7 +42,7 @@ const useLeaveSession = (sessionMode: SessionMode) => {
     if (sessionMode !== SessionMode.async) {
       await leaveMeeting();
     }
-    
+
     navigate('Home');
     if (session?.id && sessionState?.started) {
       navigate('SessionFeedbackModal', {
@@ -51,7 +51,7 @@ const useLeaveSession = (sessionMode: SessionMode) => {
         completed: Boolean(sessionState?.completed),
         isHost,
       });
-    } 
+    }
 
     fetchSessions();
     resetSession();
