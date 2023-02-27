@@ -528,10 +528,10 @@
     teeny-request "^8.0.0"
     uuid "^8.0.0"
 
-"@google-cloud/translate@^7.1.1":
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/@google-cloud/translate/-/translate-7.1.1.tgz#8cddbc709c5ca1e57bbea4c60d8f667d5d0104e6"
-  integrity sha512-Fl8pXjnEe0hVY6qOzx9eIXQq8Av+lNqRZrwwvhhC2DnrFf5FfKtoGWZE3UNv6Qdt2t3x0RHW/QeleXr/9vNxBA==
+"@google-cloud/translate@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/translate/-/translate-7.2.0.tgz#ed287ce1de9bb61e58a40c6aac94e39b6eb9f52d"
+  integrity sha512-V1D7Mp+Izz3zjz0g+L0b8AL9dYw0MmdsactlvZv05kUgo+l8DNcmgQn4y3QtIEiyMzbg1F6SilpWLpB7W0p3/Q==
   dependencies:
     "@google-cloud/common" "^4.0.0"
     "@google-cloud/promisify" "^3.0.0"
