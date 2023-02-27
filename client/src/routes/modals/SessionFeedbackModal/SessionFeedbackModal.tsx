@@ -101,7 +101,7 @@ const SessionFeedbackModal = () => {
   }, [snapToIndex, setAnswer]);
 
   const submit = useCallback(() => {
-    if (answer) {
+    if (answer !== undefined) {
       addSessionFeedback({
         exerciseId,
         sessionId,
