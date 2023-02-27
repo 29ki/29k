@@ -86,6 +86,7 @@ userRouter.put(
 userRouter.get('/:id', async ctx => {
   try {
     const userProfile = await getProfile(ctx.params.id);
+    ctx.set('Cache-Control', 'max-age=1800');
     ctx.body = userProfile;
   } catch (error) {
     const requestError = error as RequestError;

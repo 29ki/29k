@@ -5,6 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
+import {complement, isNil} from 'ramda';
 
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -39,7 +40,7 @@ import {
 import {PostEvent} from '../../../../../shared/src/types/Event';
 import useSharingPosts from '../../../lib/posts/hooks/useSharingPosts';
 import {ExerciseSlideSharingSlide} from '../../../../../shared/src/types/generated/Exercise';
-import {complement, isNil} from 'ramda';
+import useUserProfile from '../../../lib/user/hooks/useUserProfile';
 import MyPostCard from '../../../lib/session/components/Posts/MyPostCard';
 import useUser from '../../../lib/user/hooks/useUser';
 
@@ -77,10 +78,11 @@ const ButtonWrapper = styled.View({flexDirection: 'row'});
 
 const CompletedSessionModal = () => {
   const {
-    params: {completedSessionEvent, hostProfile},
+    params: {completedSessionEvent},
   } = useRoute<RouteProp<ModalStackProps, 'CompletedSessionModal'>>();
   const {navigate, popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
+  const hostProfile = useUserProfile(completedSessionEvent.payload.hostId);
   const {t} = useTranslation('Modal.CompletedSession');
   const {payload, timestamp} = completedSessionEvent;
   const user = useUser();

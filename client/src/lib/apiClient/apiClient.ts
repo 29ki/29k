@@ -13,11 +13,13 @@ const getAuthorizationHeader = async () => {
 };
 
 const apiClient = async (input: string, init?: RequestInit | undefined) => {
+  const endpoint = `${trimSlashes(API_ENDPOINT)}/${trimSlashes(input)}`;
+
   const doFetch = async () => {
     const authHeader = await getAuthorizationHeader();
     const correlationId = getCorrelationId();
 
-    return fetch(`${trimSlashes(API_ENDPOINT)}/${trimSlashes(input)}`, {
+    return fetch(endpoint, {
       ...init,
       headers: {
         'Content-Type': 'application/json',
