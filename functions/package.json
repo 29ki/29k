@@ -41,7 +41,7 @@
     "ramda": "^0.28.0",
     "semver": "^7.3.8",
     "uuid": "^9.0.0",
-    "yup": "^1.0.0"
+    "yup": "^1.0.1"
   },
   "devDependencies": {
     "@sentry/cli": "^2.13.0",
