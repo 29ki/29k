@@ -8,7 +8,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import CompletedSessionCardContainer from '../../../lib/components/Cards/SessionCard/CompletedSessionCardContainer';
+import CompletedSessionCard from '../../../lib/components/Cards/SessionCard/CompletedSessionCard';
 import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
 import CompletedSessionsCount from '../../../lib/components/CompletedSessionsCount/CompletedSessionsCount';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -128,7 +128,7 @@ const Collection = () => {
       return (
         <Gutters>
           {completedExerciseEvent ? (
-            <CompletedSessionCardContainer
+            <CompletedSessionCard
               completedSessionEvent={completedExerciseEvent}
               hasCardBefore={hasCardBefore}
               hasCardAfter={hasCardAfter}

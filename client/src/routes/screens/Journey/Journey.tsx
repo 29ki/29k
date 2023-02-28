@@ -34,7 +34,7 @@ import {
 
 import Screen from '../../../lib/components/Screen/Screen';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
-import CompletedSessionCardContainer from '../../../lib/components/Cards/SessionCard/CompletedSessionCardContainer';
+import CompletedSessionCard from '../../../lib/components/Cards/SessionCard/CompletedSessionCard';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
 
@@ -75,7 +75,7 @@ const renderSession: SectionListRenderItem<JourneySession, Section> = ({
   if (item.completedSession) {
     return (
       <Gutters>
-        <CompletedSessionCardContainer
+        <CompletedSessionCard
           completedSessionEvent={item.completedSession as CompletedSessionEvent}
           hasCardBefore={hasCardBefore}
           hasCardAfter={hasCardAfter}
