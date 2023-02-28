@@ -71,6 +71,7 @@ export const getSessionByInviteCode = async ({
   const result = await (activeOnly
     ? query
         .where('ended', '==', false)
+        .orderBy('closingTime')
         .where('closingTime', '>', Timestamp.now())
     : query
   )
@@ -88,8 +89,9 @@ export const getSessions = async (userId: string) => {
   const sessionsCollection = firestore().collection(SESSIONS_COLLECTION);
   const snapshot = await sessionsCollection
     .where('ended', '==', false)
-    .where('closingTime', '>', Timestamp.now())
     .where('userIds', 'array-contains-any', ['*', userId])
+    .orderBy('closingTime')
+    .where('closingTime', '>', Timestamp.now())
     .orderBy('startTime', 'asc')
     .get();
 
@@ -103,9 +105,10 @@ export const getPublicSessionsByExerciseId = async (
   const sessionsCollection = firestore().collection(SESSIONS_COLLECTION);
   const snapshot = await sessionsCollection
     .where('ended', '==', false)
-    .where('closingTime', '>', Timestamp.now())
     .where('exerciseId', '==', exerciseId)
     .where('userIds', 'array-contains-any', ['*', userId])
+    .orderBy('closingTime')
+    .where('closingTime', '>', Timestamp.now())
     .orderBy('startTime', 'asc')
     .get();
 
