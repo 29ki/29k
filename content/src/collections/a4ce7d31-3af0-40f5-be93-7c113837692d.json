@@ -1,0 +1,34 @@
+{
+  "en": {
+    "id": "a4ce7d31-3af0-40f5-be93-7c113837692d",
+    "name": "Second Playlist",
+    "exercises": [
+      "c5b1197a-4eec-4699-9dad-0e3d6323967b",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ],
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1671006827/Temp/poster_xzyxoq.jpg"
+    }
+  },
+  "pt": {
+    "id": "a4ce7d31-3af0-40f5-be93-7c113837692d",
+    "exercises": [
+      "c5b1197a-4eec-4699-9dad-0e3d6323967b",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ]
+  },
+  "sv": {
+    "id": "a4ce7d31-3af0-40f5-be93-7c113837692d",
+    "exercises": [
+      "c5b1197a-4eec-4699-9dad-0e3d6323967b",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ]
+  },
+  "es": {
+    "id": "a4ce7d31-3af0-40f5-be93-7c113837692d",
+    "exercises": [
+      "c5b1197a-4eec-4699-9dad-0e3d6323967b",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ]
+  }
+}

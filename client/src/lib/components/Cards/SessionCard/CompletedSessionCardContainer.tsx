@@ -3,10 +3,9 @@ import {useCallback, useEffect, useState} from 'react';
 
 import {UserProfile} from '../../../../../../shared/src/types/User';
 
-import {getProfile} from '../../../../lib/user/api/user';
+import {getProfile} from '../../../user/api/user';
 
-import Gutters from '../../../../lib/components/Gutters/Gutters';
-import CompletedSessionCard from '../../../../lib/components/Cards/SessionCard/CompletedSessionCard';
+import CompletedSessionCard from './CompletedSessionCard';
 import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
 
 type CompletedSessionCardContainerProps = {
@@ -15,11 +14,9 @@ type CompletedSessionCardContainerProps = {
   hasCardAfter: boolean;
 };
 
-const SessionCardContainer: React.FC<CompletedSessionCardContainerProps> = ({
-  completedSessionEvent,
-  hasCardBefore,
-  hasCardAfter,
-}) => {
+const CompletedSessionCardContainer: React.FC<
+  CompletedSessionCardContainerProps
+> = ({completedSessionEvent, hasCardBefore, hasCardAfter}) => {
   const [profile, setProfile] = useState<UserProfile | undefined>(undefined);
 
   const fetchUserProfile = useCallback(
@@ -36,15 +33,13 @@ const SessionCardContainer: React.FC<CompletedSessionCardContainerProps> = ({
   }, [fetchUserProfile, completedSessionEvent.payload.hostId, profile]);
 
   return (
-    <Gutters>
-      <CompletedSessionCard
-        completedSessionEvent={completedSessionEvent}
-        hostProfile={profile}
-        hasCardBefore={hasCardBefore}
-        hasCardAfter={hasCardAfter}
-      />
-    </Gutters>
+    <CompletedSessionCard
+      completedSessionEvent={completedSessionEvent}
+      hostProfile={profile}
+      hasCardBefore={hasCardBefore}
+      hasCardAfter={hasCardAfter}
+    />
   );
 };
 
-export default SessionCardContainer;
+export default React.memo(CompletedSessionCardContainer);

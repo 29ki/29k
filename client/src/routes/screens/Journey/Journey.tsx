@@ -23,7 +23,7 @@ import Gutters from '../../../lib/components/Gutters/Gutters';
 import Screen from '../../../lib/components/Screen/Screen';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessions';
-import CompletedSessionCardContainer from './components/CompletedSessionCardContainer';
+import CompletedSessionCardContainer from '../../../lib/components/Cards/SessionCard/CompletedSessionCardContainer';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import {useTranslation} from 'react-i18next';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
@@ -73,11 +73,13 @@ const renderSession: SectionListRenderItem<JourneySession, Section> = ({
 
   if (item.completedSession) {
     return (
-      <CompletedSessionCardContainer
-        completedSessionEvent={item.completedSession as CompletedSessionEvent}
-        hasCardBefore={hasCardBefore}
-        hasCardAfter={hasCardAfter}
-      />
+      <Gutters>
+        <CompletedSessionCardContainer
+          completedSessionEvent={item.completedSession as CompletedSessionEvent}
+          hasCardBefore={hasCardBefore}
+          hasCardAfter={hasCardAfter}
+        />
+      </Gutters>
     );
   } else {
     return (

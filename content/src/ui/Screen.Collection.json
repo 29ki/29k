@@ -1,13 +1,14 @@
 {
   "en": {
-    "collectionsHeading": "Collections",
+    "collectionHeading": "Collection",
+    "addToJourney": "Add to my journey",
     "sessionsHeading": "Sessions"
   },
   "pt": {
     "sessionsHeading": "Sessões"
   },
   "sv": {
-    "collectionsHeading": "Samlingar",
+    "collectionHeading": "Samling",
     "sessionsHeading": "Sessioner"
   },
   "es": {}

@@ -5,7 +5,14 @@ import {
   DEFAULT_LANGUAGE_TAG,
   LANGUAGE_TAGS,
 } from '../../shared/src/constants/i18n';
-import {exercises, other, settings, tags, ui} from './collections/collections';
+import {
+  exercises,
+  other,
+  collections,
+  settings,
+  tags,
+  ui,
+} from './collections/collections';
 import {Widget as uniqueIdWidget} from './widgets/uniqueIdWidget';
 
 CMS.init({
@@ -36,7 +43,7 @@ CMS.init({
       locales: LANGUAGE_TAGS,
       default_locale: DEFAULT_LANGUAGE_TAG,
     },
-    collections: [exercises, ui, settings, tags, other],
+    collections: [exercises, ui, settings, tags, collections, other],
   },
 });
 

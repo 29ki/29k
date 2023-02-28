@@ -5,6 +5,7 @@ import * as content from '../../../content/content.json';
 import {generateFilesCollectionFromi18nFiles} from '../lib/i18n';
 import EXERCISE_DEFAULTS_FIELDS from '../fields/defaults';
 import {TAG_FIELDS} from '../fields/tag';
+import {COLLECTION_FIELDS} from '../fields/collection';
 
 export const exercises: CmsCollection = {
   name: 'exercises',
@@ -58,6 +59,23 @@ export const tags: CmsCollection = {
   fields: TAG_FIELDS,
   slug: '{{id}}',
   summary: '{{fields.tag}}',
+  extension: 'json',
+  create: true,
+  format: 'json',
+  delete: true,
+  publish: true,
+  i18n: true,
+};
+
+export const collections: CmsCollection = {
+  name: 'collections',
+  label: '🎤 Collections',
+  label_singular: 'collection',
+  folder: '/content/src/collections',
+  identifier_field: 'id',
+  fields: COLLECTION_FIELDS,
+  slug: '{{id}}',
+  summary: '{{fields.name}}',
   extension: 'json',
   create: true,
   format: 'json',
