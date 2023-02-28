@@ -588,6 +588,28 @@ describe('sessions - controller', () => {
       expect(updatedState).toEqual({id: 'some-session-id', index: 1});
     });
 
+    it('should update the session closingTime when started', async () => {
+      mockGetSessionStateById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        started: true,
+      }); // first return (to check if it exists)
+      mockGetSessionStateById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        started: true,
+      }); // returned value
+
+      const updatedState = await updateSessionState(
+        'the-host-id',
+        'some-session-id',
+        {started: true},
+      );
+
+      expect(mockUpdateSession).toHaveBeenCalledWith('some-session-id', {
+        closingTime: '2022-10-10T09:05:00.000Z',
+      });
+      expect(updatedState).toEqual({id: 'some-session-id', started: true});
+    });
+
     it('should also update the session when is ended', async () => {
       mockGetSessionById.mockResolvedValueOnce({
         id: 'some-session-id',

@@ -46,6 +46,7 @@ export type SessionStateData = SessionStateFields & {
 };
 
 export type LiveSessionData = LiveSessionFields & {
+  closingTime: Timestamp;
   startTime: Timestamp;
   createdAt: Timestamp;
   updatedAt: Timestamp;
@@ -57,6 +58,7 @@ export type SessionState = SessionStateFields & {
 };
 
 export type LiveSession = LiveSessionFields & {
+  closingTime: string;
   startTime: string;
   createdAt: string;
   updatedAt: string;
