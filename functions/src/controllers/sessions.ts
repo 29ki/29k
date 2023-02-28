@@ -208,7 +208,7 @@ export const updateSessionState = async (
 
   if (data.started) {
     sessionModel.updateSession(sessionId, {
-      closingTime: dayjs().add(5, 'minutes').toString(),
+      closingTime: dayjs().add(5, 'minutes').toISOString(),
     });
   }
 
