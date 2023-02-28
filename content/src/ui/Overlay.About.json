@@ -1,26 +1,25 @@
 {
   "en": {
-    "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1672393909/Temp/about_rgmk8x.jpg",
-    "heading": "Want to save the planet and feel good along the way?",
-    "preamble__markdown": "29k sessions is a new free app from 29k, with open or private, hosted live sessions for mental health, wellbeing and inner development. All to accelerate sustainable behaviors for people and planet. Please observe that 29k sessions is under construction and in early access stage.",
-    "body__markdown": "In the 29k sessions app you can already now:\n\n* Get support for mental health, wellbeing and inner development to accelerate sustainable behaviors for people and planet.\n* Join open live sessions with accredited hosts (psychologists or trained volunteers).\n* Invite your community, friends or colleagues and host your own private sessions in the app or around the kitchen table.\n* Get inspired by others' reflections, and share your own.\n\n29k sessions is firmly grounded in psychological research for coping with life in both ups and downs, feeling good and thriving.\n\nWe are a non-profit organisation on a mission to make all the amazing research and tools on mental health, behavioral change, wellbeing, and inner development accessible for all.\n\n**Join our early access-community** on **[Slack](https://join.slack.com/t/29kcommunity/shared_invite/zt-1kedro4zn-wO0yLixyvVyxdukm0viiOA)** or drop us an email at **[earlyaccess@29k.org](mailto:earlyaccess@29k.org)** to:\n\n* Report bugs.\n* Suggest improvements.\n* Ideas for new content or functionality.\n* Become a volunteer host for open sessions.",
+    "settings": "Settings",
+    "community": "Community",
+    "about": "About 29k",
     "actions": {
-      "contact": "Get in touch",
-      "publicHostAccess": "Public host access",
-      "earlyAccessInfo": "Early access info"
+      "developer": "Developer"
     }
   },
   "pt": {
+    "settings": "Configurações",
+    "community": "Comunidade",
     "actions": {
-      "contact": "Mantém-te em contacto",
-      "publicHostAccess": "Acesso moderador público",
-      "earlyAccessInfo": "Informações de acesso a esta versão inicial"
+      "developer": "Programador"
     },
-    "preamble__markdown": "As sessões 29k FJN é uma nova aplicação grátis, com sessões ao vivo abertas ou privadas para temas de saúde mental, bem-estar e desenvolvimento interior. O objetivo é incentivar comportamentos sustentáveis para as pessoas e para o planeta. Tem em atenção que as sessões 29k FJN estão em construção e numa fase de acesso controlado inicial.",
-    "body__markdown": "Na aplicação sessões 29k FJN já podes::\n\n* Obter apoio em aspetos relacionados com a tua saúde mental, bem-estar e desenvolvimento interior que podem por exemplo contribuir para desenvolver comportamentos sustentáveis para as pessoas e para o planeta.\n* Participar em sessões abertas ao vivo com moderadores credenciados (psicólogos ou voluntários treinados).\n* Convidar e tua comunidade, amigos ou colegas e organizar as tuas próprias sessões privadas.\n* Inspirar-te nas reflexões das outras pessoas e compartilhar as tuas.\n\nAs sessões 29k FJN estão fundamentadas em investigação na área da psicologia em como lidar com a vida e com os seus altos e baixos, sentindo-nos bem e prosperando.\n\nSomos uma organização sem fins lucrativos com a missão de tornar toda a investigação e ferramentas incríveis sobre saúde mental, mudança comportamental, bem-estar e desenvolvimento interior acessíveis a todos.\n\n**Junta-te à nossa comunidade de utilizadores de teste** no **[Slack](https://join.slack.com/t/29kcommunity/shared_invite/zt-1kedro4zn-wO0yLixyvVyxdukm0viiOA)** ou envia-nos um email para **[earlyaccess@29k.org](mailto:earlyaccess@29k.org)** com estes temas:\n\n* Reportar erros.\n* Sugerir melhorias.\n* Ideias para novos conteúdos ou funcionalidades.\n* Torna-te um/a moderador/a voluntário/a para sessões abertas.",
-    "heading": "Queres salvar o planeta e sentires-te bem no processo?",
-    "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1672393909/Temp/about_rgmk8x.jpg"
+    "about": "Acerca da 29k FJN"
   },
-  "sv": {},
+  "sv": {
+    "actions": {
+      "signIn": "Logga in",
+      "language": "Språk"
+    }
+  },
   "es": {}
 }

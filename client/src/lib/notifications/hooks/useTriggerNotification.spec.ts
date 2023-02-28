@@ -8,6 +8,9 @@ import {AppState} from 'react-native';
 
 import useTriggerNotification from './useTriggerNotification';
 import useNotificationsState from '../state/state';
+import useRequestNotificationPermission from './useRequestNotificationPermission';
+
+jest.mock('./useRequestNotificationPermission');
 
 const mockCreateTriggerNotification =
   notifee.createTriggerNotification as jest.Mock;
@@ -21,6 +24,11 @@ const mockOnForegroundEvent = notifee.onForegroundEvent as jest.Mock;
 mockAddEventListener.mockImplementation(() => {
   return {remove: jest.fn()};
 });
+
+const mockRequestPermission = jest.fn().mockResolvedValue(undefined);
+jest
+  .mocked(useRequestNotificationPermission)
+  .mockReturnValue(mockRequestPermission);
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -49,6 +57,7 @@ describe('useTriggerNotification', () => {
       );
     });
 
+    expect(mockRequestPermission).toHaveBeenCalledTimes(1);
     expect(result.current.triggerNotification).toMatchObject({id: 'some-id'});
     expect(mockCreateTriggerNotification).toHaveBeenCalledTimes(1);
     expect(mockCreateTriggerNotification).toHaveBeenCalledWith(
@@ -84,6 +93,7 @@ describe('useTriggerNotification', () => {
       );
     });
 
+    expect(mockRequestPermission).toHaveBeenCalledTimes(0);
     expect(result.current.triggerNotification).toBe(undefined);
     expect(mockCreateTriggerNotification).toHaveBeenCalledTimes(0);
   });

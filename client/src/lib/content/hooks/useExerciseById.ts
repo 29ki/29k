@@ -1,18 +1,13 @@
 import {useMemo} from 'react';
-import {useTranslation} from 'react-i18next';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
+import useGetExerciseById from './useGetExerciseById';
 
 const useExerciseById = (id: string | undefined): Exercise | null => {
-  const {t} = useTranslation('exercises');
+  const getExerciseById = useGetExerciseById();
 
   return useMemo(
-    () =>
-      id
-        ? (t(id, {
-            returnObjects: true,
-          }) as Exercise)
-        : null,
-    [id, t],
+    () => (id ? getExerciseById(id) : null),
+    [getExerciseById, id],
   );
 };
 

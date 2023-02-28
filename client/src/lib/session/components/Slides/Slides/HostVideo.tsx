@@ -3,7 +3,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import hexToRgba from 'hex-to-rgba';
 
-import useExerciseTheme from '../../../hooks/useExerciseTheme';
+import useSessionState from '../../../state/state';
 
 import {ExerciseSlideHostSlide} from '../../../../../../../shared/src/types/generated/Exercise';
 import Video from './Blocks/Video';
@@ -31,7 +31,7 @@ const HostVideo: React.FC<HostVideoProps> = ({
   slide: {video = null},
   active,
 }) => {
-  const theme = useExerciseTheme();
+  const theme = useSessionState(state => state.exercise?.theme);
   const videoSource = useMemo(() => ({uri: video?.source}), [video?.source]);
   const background = theme?.backgroundColor ?? COLORS.WHITE;
   const colors = useMemo(

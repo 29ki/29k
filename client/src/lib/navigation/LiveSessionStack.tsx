@@ -4,10 +4,10 @@ import {
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 import {LiveSessionStackProps} from './constants/routes';
-import Session from '../../routes/LiveSession/Session';
-import ChangingRoom from '../../routes/LiveSession/ChangingRoom';
-import IntroPortal from '../../routes/LiveSession/IntroPortal';
-import OutroPortal from '../../routes/LiveSession/OutroPortal';
+import Session from '../../routes/screens/LiveSession/Session';
+import ChangingRoom from '../../routes/screens/LiveSession/ChangingRoom';
+import IntroPortal from '../../routes/screens/LiveSession/IntroPortal';
+import OutroPortal from '../../routes/screens/LiveSession/OutroPortal';
 import DailyProvider from '../daily/DailyProvider';
 
 const {Navigator, Screen} = createNativeStackNavigator<LiveSessionStackProps>();

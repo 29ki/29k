@@ -29,7 +29,7 @@ export type CompletedSessionPayload = {
 };
 
 type BaseEvent = {
-  timestamp: Date;
+  timestamp: string;
 };
 
 export type PostEvent = BaseEvent & {

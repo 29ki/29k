@@ -9,12 +9,17 @@
       "auth/weak-password": "The provided value for the password user property is invalid. It must be a string with at least six characters."
     },
     "displayName": "What should we call you?",
-    "signOut": "Sign out",
-    "deleteData": "Delete my data",
     "title": "Profile Settings",
     "email": "E-mail",
     "setPassword": "Set a password",
-    "save": "Save changes"
+    "save": "Save changes",
+    "actions": {
+      "signIn": "Sign in",
+      "signOut": "Sign out",
+      "notifications": "Automatic reminders",
+      "deleteData": "Delete my data",
+      "language": "Language"
+    }
   },
   "pt": {
     "changePassword": "Alterar password",
@@ -26,12 +31,18 @@
       "auth/weak-password": "Password inválida. Tem de ter pelo menos 6 carateres."
     },
     "displayName": "Como te devemos chamar?",
-    "signOut": "Sair",
-    "deleteData": "Remover os meus dados",
     "title": "Configurações do perfil",
     "email": "Email",
     "setPassword": "Definir password",
-    "save": "Gravar alterações"
+    "save": "Gravar alterações",
+    "actions": {
+      "signIn": "Entrar",
+      "signOut": "Sair",
+      "profileSettings": "Configurações do perfil",
+      "deleteData": "Remover os meus dados",
+      "language": "Idioma",
+      "notifications": "Notificações"
+    }
   },
   "sv": {},
   "es": {}

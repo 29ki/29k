@@ -1,5 +1,5 @@
 import React from 'react';
-import KillSwitch from '../../routes/KillSwitch/KillSwitch';
+import KillSwitch from '../../routes/screens/KillSwitch/KillSwitch';
 import useKillSwitchState from '../killSwitch/state/state';
 import Tabs from './Tabs';
 import useNavigationState from './state/state';
@@ -10,7 +10,7 @@ import {
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 import {AppStackProps} from './constants/routes';
-import Welcome from '../../routes/Onboarding/Welcome';
+import EarlyAccessInfo from '../../routes/screens/EarlyAccessInfo/EarlyAccessInfo';
 import useAppState from '../appState/state/state';
 
 const {Navigator, Screen, Group} = createNativeStackNavigator<AppStackProps>();
@@ -44,7 +44,7 @@ const AppStack = () => {
       {isBlocking ? (
         <Screen name={'KillSwitch'} component={KillSwitch} />
       ) : settings.showWelcome ? (
-        <Screen name={'Welcome'} component={Welcome} />
+        <Screen name={'Welcome'} component={EarlyAccessInfo} />
       ) : (
         <Group screenOptions={fade ? fadeScreenOptions : screenOptions}>
           <Screen name={'Tabs'} component={Tabs} />

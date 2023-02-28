@@ -8,13 +8,8 @@ import {
 } from '../../../../../shared/src/types/Session';
 import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 
-export type ProfileStackProps = {
-  Profile: undefined;
-  EarlyAccessInfo?: {showBack: boolean};
-};
-
 export type TabNavigatorProps = {
-  ProfileStack: NavigatorScreenParams<ProfileStackProps>;
+  Home: undefined;
   Sessions: undefined;
   Journey: undefined;
 };
@@ -42,8 +37,10 @@ export type AppStackProps = {
 
 export type OverlayStackProps = {
   App: NavigatorScreenParams<AppStackProps>;
+  AboutEditorialOverlay: undefined;
+  CommunityEditorialOverlay: undefined;
   AboutOverlay: undefined;
-  CommunityOverlay: undefined;
+  EarlyAccessInfoOverlay?: {showBack: boolean};
 };
 
 export type ModalStackProps = {
@@ -51,7 +48,6 @@ export type ModalStackProps = {
   SessionModal: {session: LiveSession};
   CompletedSessionModal: {
     completedSessionEvent: CompletedSessionEvent;
-    hostProfile?: UserProfile;
   };
   SharingModal: {exerciseId: string};
   SharingPostModal: {
@@ -60,7 +56,7 @@ export type ModalStackProps = {
   };
   SessionUnavailableModal: undefined;
   AddSessionByInviteModal?: {inviteCode?: number};
-  CreateSessionModal: {exerciseId?: Exercise['id']};
+  CreateSessionModal: {exerciseId?: Exercise['id']; discover?: boolean};
   UpgradeAccountModal?: undefined;
   RequestPublicHostModal?: {code?: string; haveRequested?: boolean};
   ChangeLanguageModal: undefined;

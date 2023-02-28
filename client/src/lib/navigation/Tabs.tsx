@@ -7,15 +7,15 @@ import {
   BottomTabBarProps,
 } from '@react-navigation/bottom-tabs';
 import {useTranslation} from 'react-i18next';
+import styled from 'styled-components/native';
 
 import {
   HomeFillIcon,
   HomeIcon,
   IconType,
-  ProfileFillIcon,
-  ProfileIcon,
   JourneyIcon,
   JourneyFillIcon,
+  LogoIcon,
 } from '../components/Icons';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {TabNavigatorProps} from './constants/routes';
@@ -23,11 +23,15 @@ import {SPACINGS} from '../constants/spacings';
 import {Body14} from '../components/Typography/Body/Body';
 import {BottomSafeArea} from '../components/Spacers/Spacer';
 
-import ProfileStack from './ProfileStack';
-import Sessions from '../../routes/Sessions/Sessions';
-import Journey from '../../routes/Journey/Journey';
+import Home from '../../routes/screens/Home/Home';
+import Journey from '../../routes/screens/Journey/Journey';
+import Sessions from '../../routes/screens/Sessions/Sessions';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
+
+const StyledText = styled(Body14)<{color: string}>(({color}) => ({
+  color,
+}));
 
 // This component overrides the way SafeAreaInsets are handled so we have better styling control.
 const TabBar: React.FC<BottomTabBarProps> = ({
@@ -70,8 +74,13 @@ const getTabOptions: (
   ActiveIcon: IconType,
   label: string,
 ) => BottomTabNavigationOptions = (InactiveIcon, ActiveIcon, label) => ({
-  tabBarIcon: ({focused}) => (focused ? <ActiveIcon /> : <InactiveIcon />),
-  tabBarLabel: () => <Body14>{label}</Body14>,
+  tabBarIcon: ({focused}) =>
+    focused ? <ActiveIcon /> : <InactiveIcon fill={COLORS.GREYDARK} />,
+  tabBarLabel: ({focused}) => (
+    <StyledText color={focused ? COLORS.BLACK : COLORS.GREYDARK}>
+      {label}
+    </StyledText>
+  ),
 });
 
 const Tabs = () => {
@@ -79,19 +88,19 @@ const Tabs = () => {
   return (
     <Tab.Navigator screenOptions={screenOptions} tabBar={TabBar}>
       <Tab.Screen
+        name={'Home'}
+        component={Home}
+        options={getTabOptions(HomeIcon, HomeFillIcon, t('home'))}
+      />
+      <Tab.Screen
         name={'Sessions'}
         component={Sessions}
-        options={getTabOptions(HomeIcon, HomeFillIcon, t('home'))}
+        options={getTabOptions(LogoIcon, LogoIcon, t('sessions'))}
       />
       <Tab.Screen
         name={'Journey'}
         component={Journey}
         options={getTabOptions(JourneyIcon, JourneyFillIcon, t('journey'))}
-      />
-      <Tab.Screen
-        name={'ProfileStack'}
-        component={ProfileStack}
-        options={getTabOptions(ProfileIcon, ProfileFillIcon, t('profile'))}
       />
     </Tab.Navigator>
   );

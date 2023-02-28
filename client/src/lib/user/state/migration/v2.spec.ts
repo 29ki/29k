@@ -31,7 +31,7 @@ describe('v2', () => {
               exerciseId: 'exercise-id',
               language: 'en',
               type: 'public',
-              completedAt: new Date(),
+              completedAt: new Date().toISOString(),
             },
             {
               id: 'session-id-2',
@@ -39,7 +39,7 @@ describe('v2', () => {
               exerciseId: 'exercise-id',
               language: 'en',
               type: 'private',
-              completedAt: new Date(),
+              completedAt: new Date().toISOString(),
             },
             {
               id: 'session-id-3',
@@ -47,7 +47,7 @@ describe('v2', () => {
               exerciseId: 'exercise-id',
               language: 'sv',
               type: 'async',
-              completedAt: new Date(),
+              completedAt: new Date().toISOString(),
             },
           ],
         } as V2UserState,
@@ -68,7 +68,7 @@ describe('v2', () => {
               language: 'en',
               type: 'public',
               mode: 'live',
-              completedAt: expect.any(Date),
+              completedAt: expect.any(String),
             },
             {
               id: 'session-id-2',
@@ -77,7 +77,7 @@ describe('v2', () => {
               language: 'en',
               type: 'private',
               mode: 'live',
-              completedAt: expect.any(Date),
+              completedAt: expect.any(String),
             },
             {
               id: 'session-id-3',
@@ -86,7 +86,7 @@ describe('v2', () => {
               language: 'sv',
               type: 'public',
               mode: 'async',
-              completedAt: expect.any(Date),
+              completedAt: expect.any(String),
             },
           ],
         },

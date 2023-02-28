@@ -5,14 +5,13 @@ import dayjs from 'dayjs';
 import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
 
-import {UserProfile} from '../../../../../../shared/src/types/User';
 import {ModalStackProps} from '../../../navigation/constants/routes';
 
 import useExerciseById from '../../../content/hooks/useExerciseById';
 
 import {formatExerciseName} from '../../../utils/string';
 
-import WalletCard from '../WalletCard';
+import SessionWalletCard from '../WalletCards/SessionWalletCard';
 import Badge from '../../Badge/Badge';
 import {Body14} from '../../Typography/Body/Body';
 import {CheckIcon, CommunityIcon, MeIcon} from '../../Icons';
@@ -20,10 +19,10 @@ import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Spacer4} from '../../Spacers/Spacer';
 import {SessionMode} from '../../../../../../shared/src/types/Session';
 import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
+import useUserProfile from '../../../user/hooks/useUserProfile';
 
 type CompletedSessionCardProps = {
   completedSessionEvent: CompletedSessionEvent;
-  hostProfile: UserProfile | undefined;
   hasCardBefore: boolean;
   hasCardAfter: boolean;
 };
@@ -41,7 +40,6 @@ const ChekIconWrapper = styled.View({
 
 const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
   completedSessionEvent,
-  hostProfile,
   hasCardBefore,
   hasCardAfter,
 }) => {
@@ -51,6 +49,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
     timestamp,
   } = completedSessionEvent;
   const exercise = useExerciseById(exerciseId);
+  const hostProfile = useUserProfile(completedSessionEvent.payload.hostId);
   const {navigate} =
     useNavigation<
       NativeStackNavigationProp<ModalStackProps, 'CompletedSessionModal'>
@@ -60,9 +59,8 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
     () =>
       navigate('CompletedSessionModal', {
         completedSessionEvent,
-        hostProfile,
       }),
-    [navigate, completedSessionEvent, hostProfile],
+    [navigate, completedSessionEvent],
   );
 
   const image = useMemo(
@@ -83,7 +81,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
   );
 
   return (
-    <WalletCard
+    <SessionWalletCard
       title={formatExerciseName(exercise)}
       image={image}
       lottie={lottie}
@@ -106,7 +104,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
           }
         />
       </Row>
-    </WalletCard>
+    </SessionWalletCard>
   );
 };
 

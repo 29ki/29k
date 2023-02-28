@@ -39,7 +39,7 @@ const Participants: React.FC<ParticipantsProps> = ({
     <Container>
       {participants.map((participant, i) => (
         <StyledParticipant
-          key={participant.user_id}
+          key={participant.session_id}
           participant={participant}
           height={participantHeight}
           // Last and odd participant - stump

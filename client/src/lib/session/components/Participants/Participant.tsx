@@ -10,7 +10,6 @@ import styled from 'styled-components/native';
 import hexToRgba from 'hex-to-rgba';
 
 import {DailyUserData} from '../../../../../../shared/src/types/Session';
-import useExerciseTheme from '../../hooks/useExerciseTheme';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../constants/spacings';
 import {Display36} from '../../../components/Typography/Display/Display';
@@ -21,6 +20,7 @@ import useIsSessionHost from '../../../session/hooks/useIsSessionHost';
 import AudioToggler from './AudioToggler';
 import {DailyContext} from '../../../daily/DailyProvider';
 import VideoOffIndicator from './VideoOffIndicator';
+import useSessionState from '../../state/state';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -120,7 +120,7 @@ const Participant: React.FC<ParticipantProps> = ({
   const {call} = useContext(DailyContext);
   const {t} = useTranslation('Screen.Session');
   const photoURL = (participant?.userData as DailyUserData)?.photoURL;
-  const theme = useExerciseTheme();
+  const theme = useSessionState(state => state.exercise?.theme);
   const background = theme?.backgroundColor ?? COLORS.WHITE;
   const isSessionHost = useIsSessionHost();
 

@@ -2,16 +2,20 @@ import {renderHook} from '@testing-library/react-hooks';
 import {useNavigation, useIsFocused} from '@react-navigation/native';
 import useSessionState from '../state/state';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
-import {LiveSession} from '../../../../../shared/src/types/Session';
-jest.mock('../../../lib/sessions/hooks/useSessions');
-jest.mock('./useSubscribeToSession');
-
-const mockUseSessions = useSessions as jest.Mock;
-const mockuseSubscribeToSession = useSubscribeToSession as jest.Mock;
-const mockUseIsFocused = useIsFocused as jest.Mock;
-
 import useSubscribeToSessionIfFocused from './useSusbscribeToSessionIfFocused';
 import useSubscribeToSession from './useSubscribeToSession';
+import useGetExerciseById from '../../content/hooks/useGetExerciseById';
+import {LiveSession} from '../../../../../shared/src/types/Session';
+import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
+
+jest.mock('../../../lib/sessions/hooks/useSessions');
+jest.mock('./useSubscribeToSession');
+jest.mock('../../content/hooks/useGetExerciseById');
+
+const mockUseSessions = jest.mocked(useSessions);
+const mockuseSubscribeToSession = jest.mocked(useSubscribeToSession);
+const mockUseIsFocused = jest.mocked(useIsFocused);
+const mockUseGetExerciseById = jest.mocked(useGetExerciseById);
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -19,21 +23,35 @@ afterEach(() => {
 
 describe('useSubscribeToSessionIfFocused', () => {
   const fetchSessionsMock = jest.fn();
-  mockUseSessions.mockReturnValue({fetchSessions: fetchSessionsMock});
+  mockUseSessions.mockReturnValue({
+    fetchSessions: fetchSessionsMock,
+  } as any);
 
   const mockSubscribeToSession = jest.fn();
   mockuseSubscribeToSession.mockReturnValue(mockSubscribeToSession);
 
+  const mockGetExerciseById = jest
+    .fn()
+    .mockReturnValue({name: 'Some Exercise'} as Exercise);
+  mockUseGetExerciseById.mockReturnValue(mockGetExerciseById);
+
   const navigation = useNavigation();
 
+  const mockSession = {
+    id: 'session-id',
+    exerciseId: 'some-exercise-id',
+    language: 'sv',
+  } as LiveSession;
+
   const useTestHook = ({exitOnEnded = true} = {}) => {
-    useSubscribeToSessionIfFocused({id: 'session-id'} as LiveSession, {
+    useSubscribeToSessionIfFocused(mockSession, {
       exitOnEnded,
     });
     const sessionState = useSessionState(state => state.sessionState);
     const session = useSessionState(state => state.liveSession);
+    const exercise = useSessionState(state => state.exercise);
 
-    return {sessionState, session};
+    return {sessionState, session, exercise};
   };
 
   it('should subscribe to live session document', async () => {
@@ -44,7 +62,33 @@ describe('useSubscribeToSessionIfFocused', () => {
     expect(mockSubscribeToSession).toHaveBeenCalledWith(expect.any(Function));
   });
 
-  it('should set live content state', () => {
+  it('should set session state on mount', () => {
+    const {result} = renderHook(() => useTestHook());
+
+    expect(result.current).toEqual(
+      expect.objectContaining({
+        session: {
+          id: 'session-id',
+          exerciseId: 'some-exercise-id',
+          language: 'sv',
+        },
+      }),
+    );
+  });
+
+  it('should set session exercise state on mount', () => {
+    const {result} = renderHook(() => useTestHook());
+
+    expect(result.current).toEqual(
+      expect.objectContaining({
+        exercise: {
+          name: 'Some Exercise',
+        },
+      }),
+    );
+  });
+
+  it('should set current session state', () => {
     mockUseIsFocused.mockReturnValueOnce(true);
     mockSubscribeToSession.mockImplementation(cb =>
       cb({id: 'session-id', someStateProp: 'test'}),
@@ -52,12 +96,11 @@ describe('useSubscribeToSessionIfFocused', () => {
 
     const {result} = renderHook(() => useTestHook());
 
-    expect(result.current).toEqual({
-      sessionState: {id: 'session-id', someStateProp: 'test'},
-      session: {
-        id: 'session-id',
-      },
-    });
+    expect(result.current).toEqual(
+      expect.objectContaining({
+        sessionState: {id: 'session-id', someStateProp: 'test'},
+      }),
+    );
   });
 
   it('should handle when session does not exist', () => {
@@ -65,10 +108,14 @@ describe('useSubscribeToSessionIfFocused', () => {
     mockSubscribeToSession.mockImplementationOnce(cb => cb(undefined));
 
     const {result} = renderHook(() => useTestHook());
-    expect(result.current).toEqual({sessionState: null, session: null});
+    expect(result.current).toEqual({
+      sessionState: null,
+      session: null,
+      exercise: null,
+    });
 
     expect(fetchSessionsMock).toHaveBeenCalledTimes(1);
-    expect(navigation.navigate).toHaveBeenCalledWith('Sessions');
+    expect(navigation.navigate).toHaveBeenCalledWith('Home');
     expect(navigation.navigate).toHaveBeenCalledWith('SessionUnavailableModal');
   });
 
@@ -77,10 +124,14 @@ describe('useSubscribeToSessionIfFocused', () => {
     mockSubscribeToSession.mockImplementationOnce(cb => cb({ended: true}));
 
     const {result} = renderHook(() => useTestHook());
-    expect(result.current).toEqual({session: null, sessionState: null});
+    expect(result.current).toEqual({
+      session: null,
+      sessionState: null,
+      exercise: null,
+    });
 
     expect(fetchSessionsMock).toHaveBeenCalledTimes(1);
-    expect(navigation.navigate).toHaveBeenCalledWith('Sessions');
+    expect(navigation.navigate).toHaveBeenCalledWith('Home');
     expect(navigation.navigate).toHaveBeenCalledWith('SessionUnavailableModal');
   });
 

@@ -26,6 +26,8 @@ const useRequestNotificationPermission = () => {
           onPress: openSettings,
         },
       ]);
+
+      throw new Error('Notification permission denied');
     }
 
     return permission;

@@ -3,7 +3,7 @@
     "title": "Authenticate to delete your data",
     "email": "E-mail",
     "password": "Password",
-    "signIn": "Confirm",
+    "confirm": "Confirm",
     "errors": {
       "auth/invalid-email": "Wrong e-mail and/or password",
       "auth/wrong-password": "Wrong e-mail and/or password",

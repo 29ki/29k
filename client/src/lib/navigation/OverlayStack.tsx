@@ -1,14 +1,15 @@
-import {
-  CardStyleInterpolators,
-  StackNavigationOptions,
-} from '@react-navigation/stack';
+import {StackNavigationOptions} from '@react-navigation/stack';
 import React from 'react';
+import {Platform} from 'react-native';
 import {
   createSharedElementStackNavigator,
   SharedElementsComponentConfig,
 } from 'react-navigation-shared-element';
-import AboutOverlay from '../../routes/AboutOverlay/AboutOverlay';
-import CommunityOverlay from '../../routes/CommunityOverlay/CommunityOverlay';
+import AboutOverlay from '../../routes/overlays/AboutOverlay/AboutOverlay';
+import EarlyAccessInfoOverlay from '../../routes/screens/EarlyAccessInfo/EarlyAccessInfo';
+import AboutEditorialOverlay from '../../routes/overlays/AboutEditorialOverlay/AboutEditorialOverlay';
+import CommunityEditorialOverlay from '../../routes/overlays/CommunityEditorialOverlay/CommunityEditorialOverlay';
+import SETTINGS from '../constants/settings';
 import AppStack from './AppStack';
 import {OverlayStackProps} from './constants/routes';
 
@@ -17,7 +18,13 @@ const {Navigator, Screen} =
 
 const screenOptions: StackNavigationOptions = {
   headerShown: false,
-  cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
+  presentation: 'modal',
+  cardStyle: Platform.select({
+    ios: {
+      borderTopLeftRadius: SETTINGS.BORDER_RADIUS.CARDS,
+      borderTopRightRadius: SETTINGS.BORDER_RADIUS.CARDS,
+    },
+  }),
 };
 
 const aboutSharedElements: SharedElementsComponentConfig = () => [
@@ -53,16 +60,22 @@ const communitySharedElements: SharedElementsComponentConfig = () => [
 ];
 
 const OverlayStack = () => (
-  <Navigator screenOptions={screenOptions}>
-    <Screen name="App" component={AppStack} />
+  <Navigator screenOptions={screenOptions} detachInactiveScreens={false}>
+    <Screen name="App" component={AppStack} options={{presentation: 'card'}} />
+    <Screen name="AboutOverlay" component={AboutOverlay} />
     <Screen
-      name="AboutOverlay"
-      component={AboutOverlay}
+      name="EarlyAccessInfoOverlay"
+      component={EarlyAccessInfoOverlay}
+      initialParams={{showBack: true}}
+    />
+    <Screen
+      name="AboutEditorialOverlay"
+      component={AboutEditorialOverlay}
       sharedElements={aboutSharedElements}
     />
     <Screen
-      name="CommunityOverlay"
-      component={CommunityOverlay}
+      name="CommunityEditorialOverlay"
+      component={CommunityEditorialOverlay}
       sharedElements={communitySharedElements}
     />
   </Navigator>
