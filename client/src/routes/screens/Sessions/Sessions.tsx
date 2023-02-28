@@ -19,7 +19,9 @@ import Screen from '../../../lib/components/Screen/Screen';
 import {
   Spacer16,
   Spacer20,
+  Spacer32,
   Spacer48,
+  Spacer8,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
@@ -112,7 +114,7 @@ const Sessions = () => {
             <Gutters>
               <Spacer20 />
               <Heading16>{t('collectionsHeading')}</Heading16>
-              <Spacer16 />
+              <Spacer8 />
               <FlatList
                 data={collections}
                 keyExtractor={collection => collection.id}
@@ -128,6 +130,7 @@ const Sessions = () => {
                   </>
                 )}
               />
+              <Spacer32 />
             </Gutters>
           ) : null
         }
