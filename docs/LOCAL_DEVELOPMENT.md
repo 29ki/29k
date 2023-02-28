@@ -16,8 +16,10 @@ yarn start
 ...or against an existing remote Firebase project:
 
 ```
-yarn start:remote --project <firebase-project>
+GOOGLE_APPLICATION_CREDENTIALS=path/to/credentials yarn start:remote --project <firebase-project>
 ```
+
+the credentials are available on bitwarden as `Cupcake <env> - Firebase Service Account`
 
 ## Client
 
