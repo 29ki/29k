@@ -47,6 +47,7 @@ const sessions = [
     startTime: Timestamp.now(),
     userIds: ['*'],
     interestedCount: 0,
+    closingTime: Timestamp.now(),
     createdAt: Timestamp.now(),
     updatedAt: Timestamp.now(),
     _collections: {
@@ -72,6 +73,7 @@ const sessions = [
     type: SessionType.public,
     userIds: ['*'],
     interestedCount: 1,
+    closingTime: Timestamp.now(),
     createdAt: Timestamp.now(),
     updatedAt: Timestamp.now(),
     _collections: {
@@ -118,6 +120,7 @@ describe('session model', () => {
         name: 'some-name',
         exerciseId: 'some-exercise-id',
         startTime: expect.any(String),
+        closingTime: expect.any(String),
         url: 'some-url',
         type: 'public',
         userIds: ['*'],
@@ -139,7 +142,7 @@ describe('session model', () => {
       expect(mockWhere).toHaveBeenCalledWith('inviteCode', '==', 12345);
       expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
       expect(mockWhere).toHaveBeenCalledWith(
-        'startTime',
+        'closingTime',
         '>',
         expect.any(Timestamp),
       );
@@ -156,6 +159,7 @@ describe('session model', () => {
           name: 'some-name',
           exerciseId: 'some-exercise-id',
           startTime: expect.any(String),
+          closingTime: expect.any(String),
           url: 'some-url',
           type: 'public',
           userIds: ['*'],
@@ -169,6 +173,7 @@ describe('session model', () => {
           name: 'some-other-name',
           exerciseId: 'some-exercise-id',
           startTime: expect.any(String),
+          closingTime: expect.any(String),
           url: 'some-other-url',
           type: 'public',
           userIds: ['*'],
@@ -183,7 +188,7 @@ describe('session model', () => {
       await getSessions('some-user-id');
       expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
       expect(mockWhere).toHaveBeenCalledWith(
-        'startTime',
+        'closingTime',
         '>',
         expect.any(Timestamp),
       );
@@ -216,6 +221,7 @@ describe('session model', () => {
           name: 'some-name',
           exerciseId: 'some-exercise-id',
           startTime: expect.any(String),
+          closingTime: expect.any(String),
           url: 'some-url',
           type: 'public',
           userIds: ['*'],
@@ -229,6 +235,7 @@ describe('session model', () => {
           name: 'some-other-name',
           exerciseId: 'some-exercise-id',
           startTime: expect.any(String),
+          closingTime: expect.any(String),
           url: 'some-other-url',
           type: 'public',
           userIds: ['*'],
@@ -243,7 +250,7 @@ describe('session model', () => {
       await getPublicSessionsByExerciseId('some-user-id', 'some-exercise-id');
       expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
       expect(mockWhere).toHaveBeenCalledWith(
-        'startTime',
+        'closingTime',
         '>',
         expect.any(Timestamp),
       );
@@ -265,7 +272,8 @@ describe('session model', () => {
   });
 
   describe('addSession', () => {
-    const startTime = new Date('1994-03-08T07:24:00').toISOString();
+    const startTime = new Date('1994-03-08T07:30:00').toISOString();
+    const closingTime = new Date('1994-03-08T08:00:00').toISOString();
 
     it('should return public session', async () => {
       const session = await addSession({
@@ -289,7 +297,8 @@ describe('session model', () => {
         hostId: 'some-user-id',
         id: 'session-id',
         link: 'deep-link',
-        startTime: startTime,
+        startTime,
+        closingTime,
         type: 'public',
         mode: 'live',
         url: 'daily-url',
@@ -311,7 +320,7 @@ describe('session model', () => {
         exerciseId: 'content-id',
         link: 'deep-link',
         type: SessionType.private,
-        startTime: startTime,
+        startTime,
         hostId: 'some-user-id',
         inviteCode: 1234,
         interestedCount: 0,
@@ -324,7 +333,7 @@ describe('session model', () => {
         hostId: 'some-user-id',
         id: 'session-id',
         link: 'deep-link',
-        startTime: startTime,
+        startTime,
         type: 'private',
         mode: 'live',
         url: 'daily-url',
@@ -332,6 +341,7 @@ describe('session model', () => {
         ended: false,
         inviteCode: 1234,
         interestedCount: 0,
+        closingTime,
         createdAt: expect.any(String),
         updatedAt: expect.any(String),
       });
@@ -351,6 +361,7 @@ describe('session model', () => {
         exerciseId: 'some-exercise-id',
         interestedCount: 0,
         startTime: expect.any(String),
+        closingTime: expect.any(String),
         type: SessionType.private,
         userIds: ['*'],
         createdAt: expect.any(String),
@@ -372,6 +383,7 @@ describe('session model', () => {
         type: 'public',
         interestedCount: 0,
         startTime: expect.any(String),
+        closingTime: expect.any(String),
         userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),

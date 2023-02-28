@@ -206,6 +206,12 @@ export const updateSessionState = async (
     sessionModel.updateSession(sessionId, {ended: true});
   }
 
+  if (data.started) {
+    sessionModel.updateSession(sessionId, {
+      closingTime: dayjs().add(5, 'minutes').toString(),
+    });
+  }
+
   await sessionModel.updateSessionState(sessionId, removeEmpty(data));
   const updatedState = await sessionModel.getSessionStateById(sessionId);
   return updatedState ? updatedState : undefined;
