@@ -37,6 +37,6 @@ const firestore = admin.firestore();
   );
 
   console.log(
-    `${snapshot.docs.length} session docs updated with closingTime (startTime + 5min).`,
+    `${snapshot.docs.length} session docs updated with closingTime (startTime + 30 min).`,
   );
 })();
