@@ -128,10 +128,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance and willingness.\n\nWe’ll be doing a short introduction, followed by a meditation, time for reflection and then finally sharing our experiences."
+            "text": "Sejam bem-vindos. Eu sou o/a X e hoje vamos dedicar cerca de 30 minutos à aceitação e predisposição.\n\nVamos fazer uma apresentação breve, seguida de uma meditação, tempo de reflexão e por fim vamos partilhar as nossas experiências uns com os outros."
           },
           {
-            "text": "Let’s start with a mini check-in. What brought you here today? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um mini check-in. O que te traz aqui hoje? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusivé tu, façam um check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
           }
         ]
       },
@@ -230,7 +230,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Começa a sessão quando estiveres pronta/o."
         }
       ],
       "videoLoop": {
