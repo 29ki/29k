@@ -31,7 +31,7 @@
     "@react-native-firebase/dynamic-links": "^17.1.0",
     "@react-native-firebase/firestore": "^17.1.0",
     "@react-native-firebase/storage": "^17.1.0",
-    "@react-navigation/bottom-tabs": "^6.5.4",
+    "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/drawer": "^6.6.2",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
