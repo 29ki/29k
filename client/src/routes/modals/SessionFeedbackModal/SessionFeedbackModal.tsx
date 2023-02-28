@@ -6,8 +6,12 @@ import {
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useTranslation} from 'react-i18next';
 import React, {useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components/native';
+import Video from 'react-native-video';
+
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
@@ -26,12 +30,11 @@ import {
 import {BottomSheetTextInput} from '../../../lib/components/Typography/TextInput/TextInput';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {useTranslation} from 'react-i18next';
 import {DEFAULT_LANGUAGE_TAG} from '../../../lib/i18n';
 import {Display36} from '../../../lib/components/Typography/Display/Display';
 import {ThumbsUp, ThumbsDown} from './components/Thumbs';
-import Video from 'react-native-video';
+
+import useCompletedSessionById from '../../../lib/user/hooks/useCompletedSessionById';
 import useSessionFeedback from '../../../lib/session/hooks/useSessionFeedback';
 
 const BackgroundVideo = styled(Video).attrs({
@@ -75,11 +78,13 @@ const SessionFeedbackModal = () => {
   const {t} = useTranslation('Modal.SessionFeedback');
   const {params} =
     useRoute<RouteProp<ModalStackProps, 'SessionFeedbackModal'>>();
-  const {popToTop} =
+  const {popToTop, navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {snapToIndex} = useBottomSheet();
   const {exerciseId, sessionId, completed, isHost} = params;
   const {addSessionFeedback} = useSessionFeedback();
+
+  const completedSessionEvent = useCompletedSessionById(sessionId);
 
   const [answer, setAnswer] = useState<undefined | boolean>();
   const [comment, setComment] = useState('');
@@ -96,7 +101,7 @@ const SessionFeedbackModal = () => {
   }, [snapToIndex, setAnswer]);
 
   const submit = useCallback(() => {
-    if (answer) {
+    if (answer !== undefined) {
       addSessionFeedback({
         exerciseId,
         sessionId,
@@ -126,8 +131,17 @@ const SessionFeedbackModal = () => {
     }
   }, [submitted, snapToIndex]);
 
+  const handleClose = useCallback(() => {
+    popToTop();
+    if (completedSessionEvent) {
+      navigate('CompletedSessionModal', {
+        completedSessionEvent,
+      });
+    }
+  }, [completedSessionEvent, popToTop, navigate]);
+
   return (
-    <SheetModal onPressClose={popToTop}>
+    <SheetModal onPressClose={handleClose}>
       <BackgroundVideo paused={!submitted} />
       {submitted ? (
         <Gutters big>

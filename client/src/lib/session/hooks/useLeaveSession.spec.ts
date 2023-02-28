@@ -154,6 +154,13 @@ describe('useLeaveSession', () => {
       expect(useSessionState.getState().sessionState).toBe(null);
       expect(mockLogLiveSessionMetricEvent).toHaveBeenCalledTimes(1);
       expect(mockNavigate).toHaveBeenCalledTimes(2);
+      expect(mockNavigate).toHaveBeenCalledWith('Home');
+      expect(mockNavigate).toHaveBeenCalledWith('SessionFeedbackModal', {
+        completed: false,
+        exerciseId: undefined,
+        isHost: false,
+        sessionId: 'some-session-id',
+      });
     });
 
     it('resets the state and navigates on confirming on async sessions', async () => {
@@ -194,6 +201,13 @@ describe('useLeaveSession', () => {
       expect(useSessionState.getState().liveSession).toBe(null);
       expect(useSessionState.getState().sessionState).toBe(null);
       expect(mockNavigate).toHaveBeenCalledTimes(2);
+      expect(mockNavigate).toHaveBeenCalledWith('Home');
+      expect(mockNavigate).toHaveBeenCalledWith('SessionFeedbackModal', {
+        completed: true,
+        exerciseId: undefined,
+        isHost: false,
+        sessionId: 'some-session-id',
+      });
     });
 
     it('does nothing on dismiss', async () => {
