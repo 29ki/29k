@@ -13,6 +13,7 @@ import {
   FeedbackEventData,
   PostEventData,
   CompletedSessionEventData,
+  OngoingSessionEventData,
 } from '../../../../../shared/src/types/Event';
 
 dayjs.extend(utc);
@@ -64,6 +65,7 @@ export type Actions = {
     type: UserEvent['type'],
     payload: UserEvent['payload'],
   ) => void;
+  removeUserEvent: (filter: (event: UserEvent) => boolean) => void;
   setCurrentUserState: SetCurrentUserState;
   reset: (isDelete?: boolean) => void;
 };
@@ -92,6 +94,8 @@ const getTypedEvent = (event: UserEventData) => {
       return event as PostEventData;
     case 'completedSession':
       return event as CompletedSessionEventData;
+    case 'ongoingSession':
+      return event as OngoingSessionEventData;
     default:
       return event as FeedbackEventData; // some type has to be the fallback
   }
@@ -137,6 +141,11 @@ const useUserState = create<State & Actions>()(
               ...events,
               {...typedEventData, timestamp: dayjs().utc().toJSON()},
             ],
+          }));
+        },
+        removeUserEvent: filterFn => {
+          setCurrentUserState(({userEvents: events = []} = {}) => ({
+            userEvents: events.filter(e => !filterFn(e)),
           }));
         },
         reset: isDelete => {
