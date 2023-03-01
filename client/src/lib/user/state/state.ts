@@ -24,7 +24,7 @@ type PinnedSession = {
   expires: Date;
 };
 
-type SavedCollection = {
+export type SavedCollection = {
   id: string;
   statedAt: string;
 };

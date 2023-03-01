@@ -10,9 +10,9 @@ import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import CollectionCard, {
+import CollectionListCard, {
   CARD_WIDTH,
-} from '../../../lib/components/Cards/CollectionCard/CollectionCard';
+} from '../../../lib/components/Cards/CollectionCards/CollectionListCard';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
 import Screen from '../../../lib/components/Screen/Screen';
@@ -125,7 +125,7 @@ const Sessions = () => {
                 horizontal
                 renderItem={({item}) => (
                   <>
-                    <CollectionCard collection={item} />
+                    <CollectionListCard collection={item} />
                     <Spacer16 />
                   </>
                 )}

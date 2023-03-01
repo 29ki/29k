@@ -2,6 +2,7 @@
   "en": {
     "headings": {
       "completed": "Completed",
+      "collections": "Collections",
       "planned": "Your planned sessions"
     },
     "fallback": "🌱 Your journey has just begun"

@@ -14,7 +14,7 @@ import {useIsFocused, useNavigation} from '@react-navigation/native';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessions';
 
-import {JourneySession} from './types/Session';
+import {JourneyItem} from './types/JourneyItem';
 import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 import {LiveSession} from '../../../../../shared/src/types/Session';
 
@@ -41,14 +41,16 @@ import {Display24} from '../../../lib/components/Typography/Display/Display';
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
+import useSavedCollections from '../../../lib/user/hooks/useSavedCollections';
+import CollectionFullCard from '../../../lib/components/Cards/CollectionCards/CollectionFullCard';
 
 export type Section = {
   title: string;
-  data: JourneySession[];
-  type: 'planned' | 'completed';
+  data: JourneyItem[];
+  type: 'planned' | 'completed' | 'collections';
 };
 
-const SectionList = RNSectionList<JourneySession, Section>;
+const SectionList = RNSectionList<JourneyItem, Section>;
 
 const Container = styled.View({
   alignItems: 'center',
@@ -64,7 +66,7 @@ const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
   </StickyHeading>
 );
 
-const renderSession: SectionListRenderItem<JourneySession, Section> = ({
+const renderSession: SectionListRenderItem<JourneyItem, Section> = ({
   section,
   item,
   index,
@@ -82,19 +84,28 @@ const renderSession: SectionListRenderItem<JourneySession, Section> = ({
         />
       </Gutters>
     );
-  } else {
+  }
+
+  if (item.savedCollection) {
     return (
       <Gutters>
-        <SessionCard
-          session={item as LiveSession}
-          standAlone={true}
-          hasCardBefore={hasCardBefore}
-          hasCardAfter={hasCardAfter}
-        />
+        <CollectionFullCard collectionId={item.id} />
         <Spacer16 />
       </Gutters>
     );
   }
+
+  return (
+    <Gutters>
+      <SessionCard
+        session={item as LiveSession}
+        standAlone={true}
+        hasCardBefore={hasCardBefore}
+        hasCardAfter={hasCardAfter}
+      />
+      <Spacer16 />
+    </Gutters>
+  );
 };
 
 const Journey = () => {
@@ -103,9 +114,10 @@ const Journey = () => {
     useNavigation<NativeStackNavigationProp<OverlayStackProps>>();
   const {fetchSessions, pinnedSessions, hostedSessions} = useSessions();
   const {completedSessions} = useCompletedSessions();
+  const {savedCollections} = useSavedCollections();
   const [isLoading, setIsLoading] = useState(false);
   const isFocused = useIsFocused();
-  const listRef = useRef<RNSectionList<JourneySession, Section>>(null);
+  const listRef = useRef<RNSectionList<JourneyItem, Section>>(null);
 
   const sections = useMemo(() => {
     let sectionsList: Section[] = [];
@@ -121,6 +133,17 @@ const Journey = () => {
       });
     }
 
+    if (savedCollections.length > 0) {
+      sectionsList.push({
+        title: t('headings.collections'),
+        data: savedCollections.map(s => ({
+          savedCollection: s,
+          id: s.id,
+        })),
+        type: 'collections',
+      });
+    }
+
     if (hostedSessions.length > 0 || pinnedSessions.length > 0) {
       sectionsList.push({
         title: t('headings.planned'),
@@ -132,7 +155,7 @@ const Journey = () => {
     }
 
     return sectionsList;
-  }, [pinnedSessions, hostedSessions, completedSessions, t]);
+  }, [pinnedSessions, hostedSessions, completedSessions, savedCollections, t]);
 
   useEffect(() => {
     fetchSessions();
@@ -151,7 +174,7 @@ const Journey = () => {
 
   const getItemLayout = useCallback(
     (
-      data: SectionListData<JourneySession, Section>[] | null,
+      data: SectionListData<JourneyItem, Section>[] | null,
       index: number,
     ): {length: number; offset: number; index: number} => {
       let offset = 0,

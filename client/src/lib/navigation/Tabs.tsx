@@ -24,8 +24,8 @@ import {Body14} from '../components/Typography/Body/Body';
 import {BottomSafeArea} from '../components/Spacers/Spacer';
 
 import Home from '../../routes/screens/Home/Home';
-import Journey from '../../routes/screens/Journey/Journey';
 import SessionsStack from './SessionsStack';
+import JourneyStack from './JourneyStack';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
 
@@ -98,8 +98,8 @@ const Tabs = () => {
         options={getTabOptions(LogoIcon, LogoIcon, t('sessions'))}
       />
       <Tab.Screen
-        name={'Journey'}
-        component={Journey}
+        name={'JourneyStack'}
+        component={JourneyStack}
         options={getTabOptions(JourneyIcon, JourneyFillIcon, t('journey'))}
       />
     </Tab.Navigator>
