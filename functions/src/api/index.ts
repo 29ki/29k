@@ -3,6 +3,7 @@ import Koa from 'koa';
 
 import {killSwitchRouter} from './killswitch';
 import {sessionsRouter} from './sessions';
+import {sessionsCountRouter} from './sessionsCount';
 import {userRouter} from './user';
 import {postsRouter} from './posts';
 import sentryErrorHandler from '../lib/sentry';
@@ -20,6 +21,7 @@ app.on('error', localErrorHandler);
 const rootRouter = createApiRouter();
 rootRouter
   .use('/sessions', sessionsRouter.routes())
+  .use('/sessionsCount', sessionsCountRouter.routes())
   .use('/killSwitch', killSwitchRouter.routes())
   .use('/user', userRouter.routes())
   .use('/posts', postsRouter.routes());
