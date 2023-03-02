@@ -4,11 +4,7 @@ import {
   UserEvent as CurrentUserEvent,
 } from '../../../../../../shared/src/types/Event';
 import {LANGUAGE_TAG} from '../../../i18n';
-import {
-  PersistedState,
-  State as CurrentState,
-  UserState as CurrentUserState,
-} from '../state';
+import {V4State, V4UserState} from './v4';
 
 // Types as they were in v3
 type V3PinnedSession = {
@@ -94,9 +90,9 @@ const migrateCompletedSessionsToEvents = (
 
 const migrateUserState = async (
   userState: V3UserState,
-): Promise<CurrentUserState> => {
+): Promise<V4UserState> => {
   if (!userState.completedSessions) {
-    return userState as CurrentUserState;
+    return userState as V4UserState;
   }
 
   return {
@@ -106,15 +102,15 @@ const migrateUserState = async (
       ...migrateCompletedSessionsToEvents(userState.completedSessions),
     ],
     completedSessions: undefined,
-  } as CurrentUserState;
+  } as V4UserState;
 };
 
 const migrateUserStates = async (
   userStates: V3State['userState'],
-): Promise<CurrentState['userState']> => {
+): Promise<V4State['userState']> => {
   const userState = await Promise.all(
     Object.entries(userStates).map(
-      async ([userId, state]): Promise<[string, CurrentUserState]> => [
+      async ([userId, state]): Promise<[string, V4UserState]> => [
         userId,
         await migrateUserState(state),
       ],
@@ -130,7 +126,7 @@ const migrateUserStates = async (
   );
 };
 
-export default async (state: V3State): Promise<PersistedState> => ({
+export default async (state: V3State): Promise<V4State> => ({
   ...state,
   userState: await migrateUserStates(state.userState),
 });
