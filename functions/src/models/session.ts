@@ -71,13 +71,8 @@ export const getSessionByInviteCode = async ({
   const result = await (activeOnly
     ? query
         .where('ended', '==', false)
-        .where(
-          'startTime',
-          '>',
-          Timestamp.fromDate(
-            dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
-          ),
-        )
+        .orderBy('closingTime')
+        .where('closingTime', '>', Timestamp.now())
     : query
   )
     .orderBy('startTime', 'asc')
@@ -94,14 +89,9 @@ export const getSessions = async (userId: string) => {
   const sessionsCollection = firestore().collection(SESSIONS_COLLECTION);
   const snapshot = await sessionsCollection
     .where('ended', '==', false)
-    .where(
-      'startTime',
-      '>',
-      Timestamp.fromDate(
-        dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
-      ),
-    )
     .where('userIds', 'array-contains-any', ['*', userId])
+    .orderBy('closingTime')
+    .where('closingTime', '>', Timestamp.now())
     .orderBy('startTime', 'asc')
     .get();
 
@@ -115,15 +105,10 @@ export const getPublicSessionsByExerciseId = async (
   const sessionsCollection = firestore().collection(SESSIONS_COLLECTION);
   const snapshot = await sessionsCollection
     .where('ended', '==', false)
-    .where(
-      'startTime',
-      '>',
-      Timestamp.fromDate(
-        dayjs(Timestamp.now().toDate()).subtract(30, 'minute').toDate(),
-      ),
-    )
     .where('exerciseId', '==', exerciseId)
     .where('userIds', 'array-contains-any', ['*', userId])
+    .orderBy('closingTime')
+    .where('closingTime', '>', Timestamp.now())
     .orderBy('startTime', 'asc')
     .get();
 
@@ -144,7 +129,7 @@ export const addSession = async ({
   interestedCount,
 }: Omit<
   LiveSession,
-  'mode' | 'ended' | 'userIds' | 'createdAt' | 'updatedAt'
+  'mode' | 'ended' | 'userIds' | 'createdAt' | 'updatedAt' | 'closingTime'
 > & {
   dailyRoomName: string;
 }) => {
@@ -167,6 +152,9 @@ export const addSession = async ({
     ended: false,
     // '*' means session is available for everyone/public enables one single query on getSessions
     userIds: type === SessionType.private ? [hostId] : ['*'],
+    closingTime: Timestamp.fromDate(
+      dayjs(startTime).add(30, 'minutes').toDate(),
+    ),
   };
 
   const sessionDoc = firestore().collection(SESSIONS_COLLECTION).doc(id);
@@ -193,6 +181,9 @@ export const updateSession = async (
     ...data,
     ...(data.startTime
       ? {startTime: Timestamp.fromDate(new Date(data.startTime))}
+      : {}),
+    ...(data.closingTime
+      ? {closingTime: Timestamp.fromDate(new Date(data.closingTime))}
       : {}),
   };
 

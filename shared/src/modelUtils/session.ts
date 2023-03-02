@@ -8,6 +8,7 @@ import {
 export const getSession = (session: LiveSessionData): LiveSession => ({
   ...session,
   startTime: session.startTime.toDate().toISOString(),
+  closingTime: session.closingTime.toDate().toISOString(),
   createdAt: session.createdAt.toDate().toISOString(),
   updatedAt: session.updatedAt.toDate().toISOString(),
 });

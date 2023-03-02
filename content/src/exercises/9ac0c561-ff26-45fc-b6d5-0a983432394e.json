@@ -123,72 +123,127 @@
     "description": "Guided meditation to stop fighting unwanted inner experiences and instead use our energy where it matters. Accepting inner hardships can help us redirect our focus and propel us into meaningful action."
   },
   "pt": {
-    "published": false,
-    "hidden": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around <x> minutes on <theme of the session>\n\nWe’ll be doing <rough explanation of session - ex. meditation followed by time for reflection and sharing with each other>."
+            "text": "Sejam bem-vindos. Eu sou o/a X e hoje vamos dedicar cerca de 30 minutos à aceitação e predisposição.\n\nVamos fazer uma apresentação breve, seguida de uma meditação, tempo de reflexão e por fim vamos partilhar as nossas experiências uns com os outros."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um mini check-in. O que te traz aqui hoje? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusivé tu, façam um check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
           }
         ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "É comum termos muita coisa a acontecer dentro de nós. Pensamentos, emoções e sensações que aparecem sem termos qualquer controlo sobre a ocorrência das mesmas."
+          },
+          {
+            "text": "Tentamos resistir a algumas destas coisas. Ansiedade, preocupação, medo da morte, medos sobre o futuro são alguns exemplos comuns. Quando aparecem, podemos tentar afastá-los. Pensar sobre outra coisa. Distrairmo-nos."
+          },
+          {
+            "text": "Mas a ciência diz-nos que as coisas das quais nos queremos livrar tendem a persistir. Acolher essas coisas com boa vontade e abertura pode ser uma estratégia mais sensata a longo prazo. Vamos experimentar.\n\n> Carrega no *play* para iniciar a meditação"
+          }
+        ],
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1677594879/FJN/Meditations/Medita%C3%A7%C3%B5es_18_-_The_willingness_stance_rc9qk6_wlc2n9.mp3"
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1677594879/FJN/Meditations/Medita%C3%A7%C3%B5es_18_-_The_willingness_stance_rc9qk6_wlc2n9.mp3",
+            "durationTimer": true
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take <X minutes> to reflect on our own.\n\n<Main question> <Further explanations of main question if needed>"
+            "text": "Vamos reservar um minuto para refletirmos individualmente.\n\nComo foi, ficar predisposto perante um pensamento stressante? Notaste alguma diferença entre as duas ocasiões?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. <X minutes> starting now.\n\n> Push play to start the timer.\n\nThat’s <X minutes> and it’s time to move on."
+            "text": "Se quiseres, pode tomar notas no papel ou apenas notas mentais. E lembra-te que não há certos nem errados aqui. As tuas respostas são as tuas respostas. 1 minuto a partir de agora.\n\n> Carrega no *play* para iniciar o cronómetro.\n\nOk, passou um minuto. Vamos continuar."
           }
-        ]
+        ],
+        "content": {
+          "heading": "Como experienciaste a predisposição?",
+          "text": "Alguma diferença?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
+        }
       },
       {
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Agora vamos entrar na parte da partilha. E temos três regras para isso:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir.** Neste espaço não há necessidade de corrigir, ajudar ou dar conselhos. Estamos apenas a presenciar e a explorar o que nós e os outros estão a atravessar."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for <x minutes> as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Tudo no nosso interior é bem-vindo**. Raiva, amor, ódio, tristeza. O que quer que apareça. Não há certos nem errados. É o que é.\n\nTeremos um temporizador de 2 minutos como referência. Se não quiseres partilhar podes dizer “passo”."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Quem quer começar?\n\n> Deixa todos (tantos quantos possível dentro do tempo estipulado) partilharem, um de cada vez. Carrega *play* para iniciar o cronómetro. Reinicia o cronómetro para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
-        ]
+        ],
+        "content": {
+          "heading": "Como experienciaste a predisposição?",
+          "text": "Alguma diferença?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          }
+        },
+        "id": "sharing"
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\n<mission description>"
+            "text": "Muito bem. Se estiveres com disposição, lançamos-te um desafio para o resto deste dia.\n\nSempre que te apercebas que estás a resistir a algo no teu interior, permite-te ficar predisposta/o e tenta em vez disso acolher essa experiência."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "A ciência diz-nos que ao permitirmos sentir coisas desagradáveis no nosso interior, podemos abrir novas possibilidades de escolha face às nossas ações e agirmos com propósito.\n\nAntes de sairmos deste espaço, vamos fazer um mini check-out. Como te sentes agora, mudou alguma coisa? Podes responder em duas ou três palavras."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Quem quer começar?\n\n> Deixa todos os presentes fazerem o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out e estarem presentes hoje nesta sessão.\n\n> Conclui a sessão para encaminhar os presentes para a experiência de saída."
           }
         ]
       }
     ],
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#267ae4"
+    },
+    "hidden": false,
+    "name": "Estar Predisposto",
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676992253/Images/card_image_the_willingnes_stance_e2yekr.png"
+      }
+    },
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Começa a sessão quando estiveres pronta/o."
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal1_the_willingnes_stance_cosgwx.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676972801/Audio/portal_audio_the_willingnes_stance_pxrzfe.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676991354/Images/portal_the_willingnes_stance_thumbnail_hvcvof.png"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal2_the_willingnes_stance_kti6ub.mp4"
+      }
+    },
     "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
-    "duration": 30
+    "description": "Uma meditação guiada para parar a luta interior e canalizar a nossa energia para o que realmente importa. Aceitar os desafios internos pode ajudar-nos a redirecionar o nosso foco e impulsionar-nos para ações com significado."
   },
   "sv": {
     "published": false,
