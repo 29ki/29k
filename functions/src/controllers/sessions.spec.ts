@@ -20,7 +20,6 @@ const mockDailyApi = {
 const mockGenerateVerificationCode = jest.fn();
 
 import * as sessionModel from '../models/session';
-import * as completedSessionsCountModel from '../models/completedSessionsCount';
 import {
   createSession,
   joinSession,
@@ -31,7 +30,6 @@ import {
   getSessionToken,
   updateInterestedCount,
   getSession,
-  getCompletedSessionsCount,
 } from './sessions';
 import {getPublicUserInfo} from '../models/user';
 import {SessionType} from '../../../shared/src/types/Session';
@@ -42,7 +40,6 @@ import {
   ValidateSessionError,
 } from '../../../shared/src/errors/Session';
 import {generateSessionToken} from '../lib/dailyUtils';
-import {CompletedSessionsCount} from '../../../shared/src/types/CompletedSessions';
 
 jest.mock('../lib/utils', () => ({
   ...jest.requireActual('../lib/utils'),
@@ -51,7 +48,6 @@ jest.mock('../lib/utils', () => ({
 jest.mock('../lib/dailyApi', () => mockDailyApi);
 jest.mock('../models/dynamicLinks', () => mockDynamicLinks);
 jest.mock('../models/session');
-jest.mock('../models/completedSessionsCount');
 jest.mock('../models/user');
 jest.mock('../lib/dailyUtils');
 
@@ -70,9 +66,6 @@ const mockGetSessionByInviteCode =
   sessionModel.getSessionByInviteCode as jest.Mock;
 const mockGetPublicUserInfo = getPublicUserInfo as jest.Mock;
 const mockGenerateSessionToken = generateSessionToken as jest.Mock;
-const mockGetCompletedSessionsCount = jest.mocked(
-  completedSessionsCountModel.getCompletedSessionsCount,
-);
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));
 
@@ -121,24 +114,6 @@ describe('sessions - controller', () => {
       );
       expect(mockGetPublicUserInfo).toHaveBeenCalledTimes(1);
       expect(mockGetPublicUserInfo).toHaveBeenCalledWith('some-user-id');
-    });
-  });
-
-  describe('getCompletedSessionsCount', () => {
-    it('should return completed sessions count', async () => {
-      mockGetCompletedSessionsCount.mockResolvedValueOnce([
-        {
-          exerciseId: 'some-exercise-id',
-          publicCount: 1,
-        } as CompletedSessionsCount,
-      ]);
-
-      expect(await getCompletedSessionsCount()).toEqual([
-        {
-          exerciseId: 'some-exercise-id',
-          publicCount: 1,
-        },
-      ]);
     });
   });
 
