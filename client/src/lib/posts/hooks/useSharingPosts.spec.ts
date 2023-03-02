@@ -291,7 +291,7 @@ describe('useSharingPosts', () => {
               {
                 type: 'feedback',
                 payload: {} as FeedbackPayload,
-                timestamp: new Date().toISOString(),
+                timestamp: new Date('2023-01-01').toISOString(),
               },
               {
                 type: 'post',
@@ -300,7 +300,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-session-id',
                   sharingId: 'some-sharing-id',
                 } as PostPayload,
-                timestamp: new Date().toISOString(),
+                timestamp: new Date('2023-01-04').toISOString(),
               },
               {
                 type: 'post',
@@ -309,7 +309,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-other-session-id',
                   sharingId: 'some-sharing-id',
                 } as PostPayload,
-                timestamp: new Date().toISOString(),
+                timestamp: new Date('2023-01-03').toISOString(),
               },
               {
                 type: 'post',
@@ -318,7 +318,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-session-id',
                   sharingId: 'some-other-sharing-id',
                 } as PostPayload,
-                timestamp: new Date().toISOString(),
+                timestamp: new Date('2023-01-02').toISOString(),
               },
               {
                 type: 'post',
@@ -327,7 +327,7 @@ describe('useSharingPosts', () => {
                   sessionId: 'some-session-id',
                   sharingId: 'some-ohter-sharing-id',
                 } as PostPayload,
-                timestamp: new Date().toISOString(),
+                timestamp: new Date('2023-01-01').toISOString(),
               },
             ],
           },

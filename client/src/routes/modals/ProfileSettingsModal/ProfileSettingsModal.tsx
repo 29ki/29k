@@ -35,6 +35,7 @@ import {
   DeleteIcon,
 } from '../../../lib/components/Icons';
 import useReminderNotificationsSetting from '../../../lib/notifications/hooks/useReminderNotificationsSetting';
+import useSignOutUser from '../../../lib/user/hooks/useSignOutUser';
 
 const Picture = styled(ProfilePicture)({
   width: 144,
@@ -58,6 +59,7 @@ const ProfileSettingsModal = () => {
   const {updateProfileDetails, isUpdatingProfileDetails} =
     useUpdateProfileDetails();
   const {deleteUser} = useDeleteUser();
+  const signOut = useSignOutUser();
   const user = useUser();
   const {remindersEnabled, setRemindersEnabled} =
     useReminderNotificationsSetting();
@@ -85,12 +87,14 @@ const ProfileSettingsModal = () => {
 
   const signOutPress = useCallback(async () => {
     try {
-      await auth().signOut();
-      popToTop();
+      const result = await signOut();
+      if (result) {
+        popToTop();
+      }
     } catch (e: any) {
       setError(e.code ?? e.message);
     }
-  }, [popToTop]);
+  }, [signOut, popToTop]);
 
   const deleteDataPress = useCallback(async () => {
     try {
