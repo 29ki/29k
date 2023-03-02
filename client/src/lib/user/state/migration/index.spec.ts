@@ -3,11 +3,13 @@ import v0 from './v0';
 import v1 from './v1';
 import v2 from './v2';
 import v3 from './v3';
+import v4 from './v4';
 
 jest.mock('./v0', () => jest.fn((state: unknown) => state));
 jest.mock('./v1', () => jest.fn((state: unknown) => state));
 jest.mock('./v2', () => jest.fn((state: unknown) => state));
 jest.mock('./v3', () => jest.fn((state: unknown) => state));
+jest.mock('./v4', () => jest.fn((state: unknown) => state));
 
 afterEach(jest.clearAllMocks);
 
@@ -27,6 +29,8 @@ describe('migrate', () => {
       expect(v2).toHaveBeenCalledWith(persistedState);
       expect(v3).toHaveBeenCalledTimes(1);
       expect(v3).toHaveBeenCalledWith(persistedState);
+      expect(v4).toHaveBeenCalledTimes(1);
+      expect(v4).toHaveBeenCalledWith(persistedState);
     });
   });
 
@@ -40,6 +44,8 @@ describe('migrate', () => {
       expect(v2).toHaveBeenCalledWith(persistedState);
       expect(v3).toHaveBeenCalledTimes(1);
       expect(v3).toHaveBeenCalledWith(persistedState);
+      expect(v4).toHaveBeenCalledTimes(1);
+      expect(v4).toHaveBeenCalledWith(persistedState);
     });
   });
 
@@ -52,6 +58,8 @@ describe('migrate', () => {
       expect(v2).toHaveBeenCalledWith(persistedState);
       expect(v3).toHaveBeenCalledTimes(1);
       expect(v3).toHaveBeenCalledWith(persistedState);
+      expect(v4).toHaveBeenCalledTimes(1);
+      expect(v4).toHaveBeenCalledWith(persistedState);
     });
   });
 
@@ -63,6 +71,20 @@ describe('migrate', () => {
       expect(v2).toHaveBeenCalledTimes(0);
       expect(v3).toHaveBeenCalledTimes(1);
       expect(v3).toHaveBeenCalledWith(persistedState);
+      expect(v4).toHaveBeenCalledTimes(1);
+      expect(v4).toHaveBeenCalledWith(persistedState);
+    });
+  });
+
+  describe('version 4', () => {
+    it('migrates from 4 upwards', async () => {
+      await migrate(persistedState, 4);
+      expect(v0).toHaveBeenCalledTimes(0);
+      expect(v1).toHaveBeenCalledTimes(0);
+      expect(v2).toHaveBeenCalledTimes(0);
+      expect(v3).toHaveBeenCalledTimes(0);
+      expect(v4).toHaveBeenCalledTimes(1);
+      expect(v4).toHaveBeenCalledWith(persistedState);
     });
   });
 });

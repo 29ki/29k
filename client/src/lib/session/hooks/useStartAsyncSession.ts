@@ -30,7 +30,7 @@ const useStartAsyncSession = () => {
   return useCallback(
     (exerciseId: string) => {
       const session: AsyncSession = {
-        type: SessionType.private,
+        type: SessionType.public,
         mode: SessionMode.async,
         id: generateId(),
         startTime: dayjs().toJSON(),
