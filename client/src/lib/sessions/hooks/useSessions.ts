@@ -64,32 +64,31 @@ const useSessions = () => {
 
   const upcomingSessions = useMemo(
     () =>
-      (sessions ?? []).filter(
-        s =>
-          !ongoingSessions.find(o => o.id === s.id) && s.hostId !== user?.uid,
-      ),
-    [sessions, ongoingSessions, user],
+      (sessions ?? []).filter(s => !ongoingSessions.find(o => o.id === s.id)),
+    [sessions, ongoingSessions],
   );
 
   const userHostedSessions = useMemo(
-    () => (sessions ?? []).filter(s => s.hostId === user?.uid),
-    [user, sessions],
+    () => (upcomingSessions ?? []).filter(s => s.hostId === user?.uid),
+    [user, upcomingSessions],
   );
 
   const userPinnedSessions = useMemo(
     () =>
-      (upcomingSessions ?? []).filter(s =>
-        pinnedSessions.find(ps => ps.id === s.id),
+      (upcomingSessions ?? []).filter(
+        s =>
+          pinnedSessions.find(ps => ps.id === s.id) && s.hostId !== user?.uid,
       ),
-    [upcomingSessions, pinnedSessions],
+    [upcomingSessions, pinnedSessions, user],
   );
 
   const unpinnedSessions = useMemo(
     () =>
       (upcomingSessions ?? []).filter(
-        s => !pinnedSessions.find(ps => ps.id === s.id),
+        s =>
+          !pinnedSessions.find(ps => ps.id === s.id) && s.hostId !== user?.uid,
       ),
-    [upcomingSessions, pinnedSessions],
+    [upcomingSessions, pinnedSessions, user],
   );
 
   return {

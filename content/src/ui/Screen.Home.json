@@ -5,7 +5,8 @@
     "sections": {
       "hostedBy": "Your sessions",
       "interested": "Interested",
-      "comming": "Upcoming sessions"
+      "comming": "Upcoming sessions",
+      "ongoing": "Ongoing sessions"
     }
   },
   "pt": {
@@ -14,7 +15,8 @@
     "sections": {
       "hostedBy": "As tuas sessões",
       "interested": "Favorito",
-      "comming": "Próximas sessões"
+      "comming": "Próximas sessões",
+      "ongoing": "Sessões em curso"
     }
   },
   "sv": {
@@ -23,7 +25,8 @@
     "sections": {
       "hostedBy": "Dina sessioner",
       "interested": "Intresserad",
-      "comming": "Kommande sessioner"
+      "comming": "Kommande sessioner",
+      "ongoing": "Pågående sessioner"
     }
   },
   "es": {}
