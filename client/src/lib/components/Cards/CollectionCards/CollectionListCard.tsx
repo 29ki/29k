@@ -10,8 +10,7 @@ import Image from '../../Image/Image';
 import {Display16} from '../../Typography/Display/Display';
 import {SPACINGS} from '../../../constants/spacings';
 import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
-import CompletedSessionsCount from '../../CompletedSessionsCount/CompletedSessionsCount';
-import {Spacer16} from '../../Spacers/Spacer';
+import {Spacer8} from '../../Spacers/Spacer';
 
 type CollectionCardProps = {
   collection: Collection;
@@ -67,10 +66,7 @@ const CollectionCard: React.FC<CollectionCardProps> = ({collection}) => {
           <Image source={image} />
         </GraphicsWrapper>
       </ImageContainer>
-      <CompletedSessionsCount
-        collection={collection}
-        emptyComponent={<Spacer16 />}
-      />
+      <Spacer8 />
     </Container>
   );
 };

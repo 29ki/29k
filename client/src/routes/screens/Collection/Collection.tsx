@@ -10,7 +10,6 @@ import {COLORS} from '../../../../../shared/src/constants/colors';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import CompletedSessionCard from '../../../lib/components/Cards/SessionCard/CompletedSessionCard';
 import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
-import CompletedSessionsCount from '../../../lib/components/CompletedSessionsCount/CompletedSessionsCount';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import Image from '../../../lib/components/Image/Image';
 import Screen from '../../../lib/components/Screen/Screen';
@@ -164,10 +163,7 @@ const Collection = () => {
                 <LeftColumn>
                   <Spacer8 />
                   <Display20 numberOfLines={3}>{collection?.name}</Display20>
-                  <CompletedSessionsCount
-                    collection={collection}
-                    emptyComponent={<Spacer8 />}
-                  />
+                  <Spacer8 />
                 </LeftColumn>
                 <GraphicsWrapper>
                   <Image source={image} />

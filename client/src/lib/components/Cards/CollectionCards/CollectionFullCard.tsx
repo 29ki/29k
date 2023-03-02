@@ -9,7 +9,6 @@ import Image from '../../Image/Image';
 import {Display20} from '../../Typography/Display/Display';
 import {SPACINGS} from '../../../constants/spacings';
 import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
-import CompletedSessionsCount from '../../CompletedSessionsCount/CompletedSessionsCount';
 import {Spacer4, Spacer8} from '../../Spacers/Spacer';
 import useCollectionById from '../../../content/hooks/useCollectionById';
 import SessionProgress from '../../SessionProgress/SessionProgress';
@@ -93,10 +92,7 @@ const CollectionFullCard: React.FC<CollectionFullCardProps> = ({
         <LeftColumn>
           <Spacer8 />
           <Display20 numberOfLines={3}>{collection?.name}</Display20>
-          <CompletedSessionsCount
-            collection={collection}
-            emptyComponent={<Spacer8 />}
-          />
+          <Spacer8 />
         </LeftColumn>
 
         <GraphicsWrapper>
