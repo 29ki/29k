@@ -10,6 +10,7 @@ Sentry.init({
   dist: ENVIRONMENT,
   release: GIT_COMMIT_SHORT || 'development',
   environment: ENVIRONMENT,
+  maxValueLength: 750,
   integrations: [
     new RewriteFrames({
       // This is the root in Google Cloud Functions and needs to be stripped from all paths to match source maps
