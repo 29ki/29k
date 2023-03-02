@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
@@ -11,6 +11,7 @@ import {Display16} from '../../Typography/Display/Display';
 import {SPACINGS} from '../../../constants/spacings';
 import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
 import CompletedSessionsCount from '../../CompletedSessionsCount/CompletedSessionsCount';
+import {Spacer16} from '../../Spacers/Spacer';
 
 type CollectionCardProps = {
   collection: Collection;
@@ -45,7 +46,6 @@ const CollectionCard: React.FC<CollectionCardProps> = ({collection}) => {
     useNavigation<
       NativeStackNavigationProp<SessionsStackProps, 'Collection'>
     >();
-  const [completedSessionCount] = useState(0); // TODO: get this from some storage
 
   const image = useMemo(
     () => ({
@@ -60,17 +60,17 @@ const CollectionCard: React.FC<CollectionCardProps> = ({collection}) => {
 
   return (
     <Container onPress={onPress}>
-      <Display16>{collection.name}</Display16>
+      <Display16>{collection.name + 'sdfsdfsdf dsfdsfsdf'}</Display16>
 
       <ImageContainer>
         <GraphicsWrapper>
           <Image source={image} />
         </GraphicsWrapper>
       </ImageContainer>
-
-      {completedSessionCount > 0 && (
-        <CompletedSessionsCount count={completedSessionCount} />
-      )}
+      <CompletedSessionsCount
+        collection={collection}
+        emptyComponent={<Spacer16 />}
+      />
     </Container>
   );
 };

@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
@@ -38,6 +38,7 @@ const LeftColumn = styled.View({
   flex: 1,
   height: 134,
   justifyContent: 'space-between',
+  paddingVertical: SPACINGS.EIGHT,
 });
 
 const GraphicsWrapper = styled.View({
@@ -55,7 +56,6 @@ const CollectionFullCard: React.FC<CollectionFullCardProps> = ({
   const collection = useCollectionById(collectionId);
   const savedCollection = useSavedCollectionById(collectionId);
   const {getCompletedSessionByExerciseId} = useCompletedSessionByTime();
-  const [completedSessionCount] = useState(0); // TODO: get this from some storage
 
   const image = useMemo(
     () => ({
@@ -93,11 +93,10 @@ const CollectionFullCard: React.FC<CollectionFullCardProps> = ({
         <LeftColumn>
           <Spacer8 />
           <Display20 numberOfLines={3}>{collection?.name}</Display20>
-          {completedSessionCount > 0 ? (
-            <CompletedSessionsCount count={completedSessionCount} />
-          ) : (
-            <Spacer8 />
-          )}
+          <CompletedSessionsCount
+            collection={collection}
+            emptyComponent={<Spacer8 />}
+          />
         </LeftColumn>
 
         <GraphicsWrapper>

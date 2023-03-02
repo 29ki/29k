@@ -1,7 +1,7 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import hexToRgba from 'hex-to-rgba';
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {SectionList, SectionListRenderItem, Switch} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -77,7 +77,6 @@ const Collection = () => {
   const getExerciseById = useGetExerciseById();
   const {getCompletedSessionByExerciseId} = useCompletedSessionByTime();
   const {toggleSaved, isSaved} = useSaveCollection(collectionId);
-  const [completedSessionCount] = useState(0); // TODO: get this from some storage
 
   const colors = useMemo(
     () => [hexToRgba(COLORS.WHITE, 0), hexToRgba(COLORS.WHITE, 1)],
@@ -165,11 +164,10 @@ const Collection = () => {
                 <LeftColumn>
                   <Spacer8 />
                   <Display20 numberOfLines={3}>{collection?.name}</Display20>
-                  {completedSessionCount > 0 ? (
-                    <CompletedSessionsCount count={completedSessionCount} />
-                  ) : (
-                    <Spacer8 />
-                  )}
+                  <CompletedSessionsCount
+                    collection={collection}
+                    emptyComponent={<Spacer8 />}
+                  />
                 </LeftColumn>
                 <GraphicsWrapper>
                   <Image source={image} />
