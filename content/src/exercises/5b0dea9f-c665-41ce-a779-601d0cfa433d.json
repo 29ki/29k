@@ -5,10 +5,13 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance and letting go of control.\\\n\\\nWe’ll be doing a short meditation together, then we’ll take a moment to reflect on our own, and the final step is to share with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance and letting go of control.\\\n\\\nWe’ll be listening to a short audio file together, then we’ll take a two rounds to reflect on our own, and two rounds to share with each other."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Before moving on into the exercise, let's ground ourselves in the here and now with 3 cycles of breathing.\n\n> Inhale and exhale slowly x 3"
+          },
+          {
+            "text": "Let’s do a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s move on."
           }
         ]
       },
