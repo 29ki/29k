@@ -5,10 +5,13 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance and letting go of control.\\\n\\\nWe’ll be doing a short meditation together, then we’ll take a moment to reflect on our own, and the final step is to share with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance and letting go of control.\\\n\\\nWe’ll be listening to a short audio file together, then we’ll take a two rounds to reflect on our own, and two rounds to share with each other."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Before moving on into the exercise, let's ground ourselves in the here and now with 3 cycles of breathing.\n\n> Inhale and exhale slowly x 3"
+          },
+          {
+            "text": "Let’s do a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s move on."
           }
         ]
       },
@@ -16,7 +19,7 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "When difficult feelings arise, many of us have a natural tendency to try to control them. The **impulse to control things can make us feel in charge**. But science shows that this is just an **illusion.**\n\nFind a comfortable position, relax your shoulders. Let's do this meditation together. \n\n> Push play to start the meditation."
+            "text": "When difficult feelings arise, many of us have a natural tendency to try to control them. The **impulse to control things can make us feel in charge**. But science shows that this is just an **illusion.**\n\nFind a comfortable position, relax your shoulders. Let's listen to this story together. \n\n> Press play to start the meditation."
           }
         ],
         "content": {
@@ -35,7 +38,7 @@
             "text": "Now we’ll take a minute to reflect on our own.\n\nWhat's in your own beach ball? What is it that you are pushing below the surface?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Push play to start the timer.\n\nOkay, that’s 1 minute. Let’s move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nOkay, that’s 1 minute. Let’s move on."
           }
         ],
         "content": {
@@ -79,7 +82,7 @@
             "text": "Now we’ll take a minute to reflect on our own again.\n\nWhat if you let go of your beachball? What would that mean to you? What would you do differently?"
           },
           {
-            "text": "1 minute starting now.\n\n> Push play to start the timer.\n\nOkay, that’s 1 minute. Let’s move on."
+            "text": "1 minute starting now.\n\n> Press play to start the timer.\n\nOkay, that’s 1 minute. Let’s move on."
           }
         ],
         "content": {
@@ -99,10 +102,10 @@
         },
         "hostNotes": [
           {
-            "text": "Time for a next round of sharing.\n\nWhat if you let go of your beachball?\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "Time for a next round of sharing.\n\nWhat if you let go of your beachball? What would that mean to you? What would you do differently?\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
         "id": "sharing-2"
@@ -114,7 +117,7 @@
             "text": "Letting go of control may seem **scary**, risky and very **uncomfortable**. By practicing **acceptance,** we can learn how to **make room** for a range of feelings and experiences, without trying to escape, numb or fight the ones we don’t want or like. This allows us to redirect our focus and instead spend our energy on all things that are important to us."
           },
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nFor the rest of today and tomorrow, see if you can notice when you have difficult feelings and are trying to push them away. Then re-focus and see if welcoming them, or just letting them be there with you, can help you act differently. Do more of what’s important to you and bring your feelings along."
+            "text": "If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nFor the rest of today and tomorrow, see if you can notice when you have difficult feelings and are trying to push them away. Then re-focus and see if welcoming them, or just letting them be there with you, can help you act differently. Do more of what’s important to you and bring your feelings along."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
