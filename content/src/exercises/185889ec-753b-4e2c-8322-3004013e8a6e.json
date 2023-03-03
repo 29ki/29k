@@ -244,7 +244,8 @@
         "content": {
           "heading": "O que dirias a ti próprio/a?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_3_be_kind_to_yourself_orn39r.png"
           }
         },
         "hostNotes": [
@@ -284,7 +285,8 @@
         "content": {
           "heading": "O que dirias a uma amiga ou a um amigo?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_3_be_kind_to_yourself_orn39r.png"
           }
         },
         "hostNotes": [
@@ -298,18 +300,25 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Parabéns. Se estiverem dispostos a isso, podem tornar o que começamos aqui hoje um hábito positivo no vosso dia a dia."
+            "text": "Parabéns. Se estiverem dispostos a isso, podem tornar o que começamos aqui hoje um hábito positivo no vosso dia a dia.",
+            "asyncText": "Parabéns. Se estiveres disposta/o a isso, podes tornar o que começamos aqui hoje num hábito positivo do teu dia a dia."
           },
           {
-            "text": "Nos próximos dias, tenta ser mais gentil contigo. Especialmente em situações difíceis. Usa a ideia das molas da roupa e começa a perceber como soa a tua voz interior. Em seguida, vê se consegues falar e reagir contigo da mesma forma que o farias com uma amiga ou amigo. Observa como isso te faz sentir."
+            "text": "Nos próximos dias, tenta ser mais gentil contigo. Especialmente em situações difíceis. Usa a ideia das molas da roupa e começa a perceber como soa a tua voz interior. Em seguida, vê se consegues falar e reagir contigo da mesma forma que o farias com uma amiga ou amigo. Observa como isso te faz sentir.",
+            "asyncText": "Nos próximos dias, tenta ser mais gentil contigo. Especialmente em situações difíceis. Usa a ideia das molas da roupa e começa a perceber como soa a tua voz interior. Em seguida, vê se consegues falar e reagir contigo da mesma forma que o farias com uma amiga ou amigo. Observa como isso te faz sentir."
           },
           {
-            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.\n\nComo te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras."
+            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.\n\nComo te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras.",
+            "asyncText": "Antes de saíres deste nosso espaço faz um mini check-in. Como te estás a sentir agora? Mudou alguma coisa?\n\nQuando estiveres pronta/o termina a sessão ao teu ritmo."
           },
           {
             "text": "Quem gostaria de começar?\n\n> Permite que todos na sessão façam um check-out individual.\n\nObrigado a todos por este check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão enviando todos os participantes para a experiência de saída."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1677835705/Video/bekindtoyourself_async_outro_aadtym.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1677835944/Images/thumb_host_bekindtoyourself_ysmcnz.png"
+        }
       }
     ],
     "theme": {
