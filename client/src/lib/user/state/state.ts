@@ -26,12 +26,12 @@ type PinnedSession = {
 
 export type PinnedCollection = {
   id: string;
-  statedAt: string;
+  startedAt: string;
 };
 
 export type UserState = {
   pinnedSessions?: Array<PinnedSession>;
-  pinnedCollection?: Array<PinnedCollection>;
+  pinnedCollections?: Array<PinnedCollection>;
   userEvents?: Array<UserEvent>;
   metricsUid?: string;
   reminderNotifications?: boolean;
@@ -128,8 +128,8 @@ const useUserState = create<State & Actions>()(
         setCurrentUserState,
         setPinnedSessions: pinnedSessions =>
           setCurrentUserState({pinnedSessions}),
-        setPinnedCollections: pinnedCollection =>
-          setCurrentUserState({pinnedCollection}),
+        setPinnedCollections: pinnedCollections =>
+          setCurrentUserState({pinnedCollections}),
         addUserEvent: (type, payload) => {
           const typedEventData = getTypedEvent({type, payload});
           setCurrentUserState(({userEvents: events = []} = {}) => ({

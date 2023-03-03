@@ -6,8 +6,8 @@ const usePinnedCollectionById = (collectionId?: string) => {
   const userState = useCurrentUserState();
 
   return useMemo(
-    () => userState?.pinnedCollection?.find(sc => sc.id === collectionId),
-    [userState?.pinnedCollection, collectionId],
+    () => userState?.pinnedCollections?.find(sc => sc.id === collectionId),
+    [userState?.pinnedCollections, collectionId],
   );
 };
 

@@ -32,7 +32,7 @@ const CollectionCardContainer: React.FC<CollectionCardContainer> = ({
     if (collection && savedCollection) {
       return collection.exercises
         .map(id =>
-          getCompletedSessionByExerciseId(id, savedCollection.statedAt)
+          getCompletedSessionByExerciseId(id, savedCollection.startedAt)
             ? true
             : false,
         )

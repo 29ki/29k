@@ -121,7 +121,7 @@ const Collection = () => {
       const hasCardBefore = index > 0;
       const hasCardAfter = index !== section.data.length - 1;
       const completedExerciseEvent = savedCollection
-        ? getCompletedSessionByExerciseId(item.id, savedCollection.statedAt)
+        ? getCompletedSessionByExerciseId(item.id, savedCollection.startedAt)
         : undefined;
       return (
         <Gutters>

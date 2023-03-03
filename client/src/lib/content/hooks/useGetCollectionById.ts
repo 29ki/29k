@@ -6,12 +6,19 @@ import {LANGUAGE_TAG} from '../../i18n';
 const useGetCollectionById = () => {
   const {t} = useTranslation('collections');
 
+  // If there are no collections t return the given input
+  // Check that it's actually an object
   return useCallback(
-    (id: string, language?: LANGUAGE_TAG) =>
-      t(id, {
+    (id: string, language?: LANGUAGE_TAG) => {
+      const collection = t(id, {
         returnObjects: true,
         lng: language,
-      }) as Collection,
+      });
+      if (typeof collection === 'object') {
+        return collection as Collection;
+      }
+      return null;
+    },
     [t],
   );
 };

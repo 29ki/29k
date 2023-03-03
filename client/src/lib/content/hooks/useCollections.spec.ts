@@ -45,6 +45,31 @@ describe('useCollections', () => {
     expect(result.current).toEqual([{name: 'aaa'}, {name: 'bbb'}]);
   });
 
+  it('should filter out collections not found', () => {
+    mockGetDataByLanguage.mockReturnValue({
+      collections: {
+        'some-collection-id': {name: 'some name'},
+        'some-other-collection-id': {name: 'some other name'},
+      },
+    });
+    mockGetCollectionById
+      .mockReturnValueOnce({name: 'aaa'})
+      .mockReturnValueOnce(null);
+
+    const {result} = renderHook(() => useCollections());
+
+    expect(mockGetCollectionById).toHaveBeenCalledTimes(2);
+    expect(mockGetCollectionById).toHaveBeenCalledWith(
+      'some-collection-id',
+      'en',
+    );
+    expect(mockGetCollectionById).toHaveBeenCalledWith(
+      'some-other-collection-id',
+      'en',
+    );
+    expect(result.current).toEqual([{name: 'aaa'}]);
+  });
+
   it('should return collections sorted by name with user preferred language', () => {
     mockGetDataByLanguage.mockReturnValueOnce({
       collections: {
@@ -75,5 +100,15 @@ describe('useCollections', () => {
       'sv',
     );
     expect(result.current).toEqual([{name: 'aaa'}, {name: 'bbb'}]);
+  });
+
+  it('should return empty list if no collections', () => {
+    mockGetDataByLanguage.mockReturnValueOnce({});
+
+    const {result} = renderHook(() => useCollections());
+
+    expect(mockGetCollectionById).toHaveBeenCalledTimes(0);
+
+    expect(result.current).toEqual([]);
   });
 });
