@@ -185,10 +185,12 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Bem-vindos. Eu sou X e hoje vamos estar juntos durante 40 minutos para nos conectarmos e sermos gentis connosco.\n\nFaremos alguns exercícios de reflexão e teremos oportunidades para partilhar essas reflexões uns com os outros."
+            "text": "Bem-vindos. Eu sou X e hoje vamos estar juntos durante 40 minutos para nos conectarmos e sermos gentis connosco.\n\nFaremos alguns exercícios de reflexão e teremos oportunidades para partilhar essas reflexões uns com os outros.",
+            "asyncText": "Bem-vinda/o a esta sessão acerca de nos conectarmos e sermos gentis connosco.\n\nFaremos dois exercícios de reflexão e teremos oportunidades para partilhar o que sentimos."
           },
           {
-            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam o check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
+            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam o check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar.",
+            "asyncText": "Antes de iniciarmos faz um pequeno check-in. Como te estás a sentir neste momento?\n\nVamos começar."
           }
         ]
       },
