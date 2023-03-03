@@ -192,7 +192,11 @@
             "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam o check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar.",
             "asyncText": "Antes de iniciarmos faz um pequeno check-in. Como te estás a sentir neste momento?\n\nVamos começar."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1677835713/Video/bekindtoyourself_async_intro_sqmu9o.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1677835944/Images/thumb_host_bekindtoyourself_ysmcnz.png"
+        }
       },
       {
         "type": "content",
@@ -210,7 +214,8 @@
         "content": {
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043753/Video/content_Be_kind_to_yourself_qfhuch.mp4",
-            "autoPlayLoop": true
+            "autoPlayLoop": true,
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_content_be_kind_to_yourself_hn38hz.png"
           }
         }
       },
@@ -218,10 +223,12 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Agora vamos ficar 2 minutos a refletir individualmente.\n\nPensa numa situação em que te sentiste mal. Quando falhaste e duvidaste de ti. Como costumas reagir e como te tratas nessas situações? O que dizes a ti mesma/o? Que tom usas?"
+            "text": "Agora vamos ficar 2 minutos a refletir individualmente.\n\nPensa numa situação em que te sentiste em baixo. Quando falhaste e duvidaste de ti. Como costumas reagir e como te tratas nessas situações? O que dizes a ti mesma/o? Que tom usas?",
+            "asyncText": "Reserva um minuto para pensares numa situação em que te sentiste em baixo. Quando falhaste e duvidaste de ti. Como costumas reagir e como te tratas nessas situações? O que dizes a ti mesma/o? Que tom usas?"
           },
           {
-            "text": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Vamos começar agora durante 2 minutos.\n\n> Carrega no play para iniciar o cronômetro.\n\nSão 2 minutos e é hora de continuar em frente."
+            "text": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Vamos começar agora durante 2 minutos.\n\n> Carrega no play para iniciar o cronômetro.\n\nSão 2 minutos e é hora de continuar em frente.",
+            "asyncText": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Uma forma de praticar a autocompaixão é assumir uma perspetiva diferente.\n\nReserva outro minuto para refletires como reages quando um/a amigo/a se sente em baixo, se está a deitar abaixo ou está simplesmente a duvidar das suas capacidades.\n\ncarrega no play para iniciar o cronómetro."
           }
         ],
         "content": {
