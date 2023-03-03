@@ -7,6 +7,8 @@ import {MeIcon, CommunityIcon} from '../Icons';
 import {Spacer16, Spacer4} from '../Spacers/Spacer';
 import {Body14} from '../Typography/Body/Body';
 import Card from './Card';
+import CollectionFullCard from './CollectionCards/CollectionFullCard';
+import CollectionListCard from './CollectionCards/CollectionListCard';
 import ExerciseWalletCard from './WalletCards/ExerciseWalletCard';
 import SessionWalletCard from './WalletCards/SessionWalletCard';
 
@@ -120,6 +122,23 @@ export const AllCards = () => (
       hasCardAfter={false}
       hasCardBefore={true}
       title="Last in wallet"
+      image={{
+        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
+      }}
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <CollectionFullCard
+      title="Collection Card full size"
+      image={{
+        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
+      }}
+      progressItems={[true, true, false, false, false]}
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <CollectionListCard
+      title="Collection Card in List"
       image={{
         uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
       }}

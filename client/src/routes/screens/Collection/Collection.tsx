@@ -28,8 +28,8 @@ import useCollectionById from '../../../lib/content/hooks/useCollectionById';
 import useGetExerciseById from '../../../lib/content/hooks/useGetExerciseById';
 import {SessionsStackProps} from '../../../lib/navigation/constants/routes';
 import useCompletedSessionByTime from '../../../lib/user/hooks/useCompletedSessionByTime';
-import useSaveCollection from '../../../lib/user/hooks/useSaveCollection';
-import useSavedCollectionById from '../../../lib/user/hooks/useSavedCollection';
+import usePinCollection from '../../../lib/user/hooks/usePinCollection';
+import usePinnedCollectionById from '../../../lib/user/hooks/usePinnedCollectionById';
 
 type Section = {
   title: string;
@@ -72,10 +72,10 @@ const Collection = () => {
     useNavigation<NativeStackNavigationProp<SessionsStackProps>>();
   const {t} = useTranslation('Screen.Collection');
   const collection = useCollectionById(collectionId);
-  const savedCollection = useSavedCollectionById(collectionId);
+  const savedCollection = usePinnedCollectionById(collectionId);
   const getExerciseById = useGetExerciseById();
   const {getCompletedSessionByExerciseId} = useCompletedSessionByTime();
-  const {toggleSaved, isSaved} = useSaveCollection(collectionId);
+  const {togglePinned, isPinned} = usePinCollection(collectionId);
 
   const colors = useMemo(
     () => [hexToRgba(COLORS.WHITE, 0), hexToRgba(COLORS.WHITE, 1)],
@@ -175,8 +175,8 @@ const Collection = () => {
                 <Body16>{t('addToJourney')}</Body16>
                 <Switch
                   trackColor={trackColor}
-                  value={isSaved}
-                  onValueChange={toggleSaved}
+                  value={isPinned}
+                  onValueChange={togglePinned}
                 />
               </Row>
               <Spacer24 />

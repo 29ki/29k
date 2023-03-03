@@ -41,8 +41,8 @@ import {Display24} from '../../../lib/components/Typography/Display/Display';
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
-import useSavedCollections from '../../../lib/user/hooks/useSavedCollections';
-import CollectionFullCard from '../../../lib/components/Cards/CollectionCards/CollectionFullCard';
+import usePinnedCollections from '../../../lib/user/hooks/usePinnedCollections';
+import CollectionCardContainer from './components/CollectionCardContainer';
 
 export type Section = {
   title: string;
@@ -89,7 +89,7 @@ const renderSession: SectionListRenderItem<JourneyItem, Section> = ({
   if (item.savedCollection) {
     return (
       <Gutters>
-        <CollectionFullCard collectionId={item.id} />
+        <CollectionCardContainer collectionId={item.id} />
         <Spacer16 />
       </Gutters>
     );
@@ -114,7 +114,7 @@ const Journey = () => {
     useNavigation<NativeStackNavigationProp<OverlayStackProps>>();
   const {fetchSessions, pinnedSessions, hostedSessions} = useSessions();
   const {completedSessions} = useCompletedSessions();
-  const {savedCollections} = useSavedCollections();
+  const {pinnedCollections} = usePinnedCollections();
   const [isLoading, setIsLoading] = useState(false);
   const isFocused = useIsFocused();
   const listRef = useRef<RNSectionList<JourneyItem, Section>>(null);
@@ -133,10 +133,10 @@ const Journey = () => {
       });
     }
 
-    if (savedCollections.length > 0) {
+    if (pinnedCollections.length > 0) {
       sectionsList.push({
         title: t('headings.collections'),
-        data: savedCollections.map(s => ({
+        data: pinnedCollections.map(s => ({
           savedCollection: s,
           id: s.id,
         })),
@@ -155,7 +155,7 @@ const Journey = () => {
     }
 
     return sectionsList;
-  }, [pinnedSessions, hostedSessions, completedSessions, savedCollections, t]);
+  }, [pinnedSessions, hostedSessions, completedSessions, pinnedCollections, t]);
 
   useEffect(() => {
     fetchSessions();
