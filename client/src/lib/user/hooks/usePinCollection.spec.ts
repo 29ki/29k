@@ -3,6 +3,15 @@ import {act, renderHook} from '@testing-library/react-hooks';
 import useUserState from '../state/state';
 import usePinCollection from './usePinCollection';
 
+jest.mock(
+  '../../content/hooks/useGetCollectionById',
+  () => () =>
+    jest
+      .fn()
+      .mockReturnValueOnce({id: 'some-collection-id'})
+      .mockReturnValueOnce({id: 'some-other-collection-id'}),
+);
+
 describe('usePinCollection', () => {
   it('should add collection as pinned', () => {
     useUserState.setState({
