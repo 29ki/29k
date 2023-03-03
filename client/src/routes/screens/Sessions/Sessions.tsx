@@ -4,18 +4,24 @@ import hexToRgba from 'hex-to-rgba';
 import React, {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {SectionList, SectionListRenderItem} from 'react-native';
+import {FlatList} from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import ExerciseWalletCard from '../../../lib/components/Cards/WalletCards/ExerciseWalletCard';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
 import Screen from '../../../lib/components/Screen/Screen';
+import CollectionCardContainer, {
+  CARD_WIDTH,
+} from './components/CollectionCardContainer';
 import {
-  Spacer24,
+  Spacer16,
+  Spacer20,
+  Spacer32,
   Spacer48,
+  Spacer8,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
@@ -23,11 +29,9 @@ import TopBar from '../../../lib/components/TopBar/TopBar';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import useExercises from '../../../lib/content/hooks/useExercises';
-import {
-  ModalStackProps,
-  OverlayStackProps,
-} from '../../../lib/navigation/constants/routes';
-import {formatExerciseName} from '../../../lib/utils/string';
+import useCollections from '../../../lib/content/hooks/useCollections';
+import {OverlayStackProps} from '../../../lib/navigation/constants/routes';
+import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
 
 type Section = {
   title: string;
@@ -42,49 +46,11 @@ const BottomGradient = styled(LinearGradient)({
   height: 40,
 });
 
-type ExerciseCardProps = {
-  exercise: Exercise;
-  hasCardBefore: boolean;
-  hasCardAfter: boolean;
-};
-
-const ExerciseCard: React.FC<ExerciseCardProps> = ({
-  exercise,
-  hasCardBefore,
-  hasCardAfter,
-}) => {
-  const {navigate} =
-    useNavigation<NativeStackNavigationProp<ModalStackProps>>();
-
-  const image = useMemo(() => {
-    if (exercise?.card?.image) {
-      return {uri: exercise.card.image.source};
-    }
-  }, [exercise]);
-
-  const onPress = useCallback(() => {
-    navigate('CreateSessionModal', {exerciseId: exercise.id, discover: true});
-  }, [exercise, navigate]);
-
-  if (!exercise) {
-    return null;
-  }
-
-  return (
-    <ExerciseWalletCard
-      title={formatExerciseName(exercise)}
-      image={image}
-      hasCardBefore={hasCardBefore}
-      hasCardAfter={hasCardAfter}
-      onPress={onPress}
-    />
-  );
-};
-
 const Sessions = () => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<OverlayStackProps>>();
   const exercises = useExercises();
+  const collections = useCollections();
   const {t} = useTranslation('Screen.Sessions');
   const colors = useMemo(
     () => [hexToRgba(COLORS.WHITE, 0), hexToRgba(COLORS.WHITE, 1)],
@@ -95,7 +61,7 @@ const Sessions = () => {
     navigate('AboutOverlay');
   }, [navigate]);
 
-  const sections = useMemo(() => {
+  const exerciseSections = useMemo(() => {
     return [
       {
         title: t('sessionsHeading'),
@@ -104,7 +70,7 @@ const Sessions = () => {
     ];
   }, [exercises, t]);
 
-  const renderSectionHeader = useCallback<
+  const renderExerciseSectionHeader = useCallback<
     (info: {section: Section}) => React.ReactElement
   >(
     ({section: {title}}) => (
@@ -115,22 +81,21 @@ const Sessions = () => {
     [],
   );
 
-  const renderItem = useCallback<SectionListRenderItem<Exercise, Section>>(
-    ({item, section, index}) => {
-      const hasCardBefore = index > 0;
-      const hasCardAfter = index !== section.data.length - 1;
-      return (
-        <Gutters>
-          <ExerciseCard
-            exercise={item}
-            hasCardBefore={hasCardBefore}
-            hasCardAfter={hasCardAfter}
-          />
-        </Gutters>
-      );
-    },
-    [],
-  );
+  const renderExerciseItem = useCallback<
+    SectionListRenderItem<Exercise, Section>
+  >(({item, section, index}) => {
+    const hasCardBefore = index > 0;
+    const hasCardAfter = index !== section.data.length - 1;
+    return (
+      <Gutters>
+        <ExerciseCardContainer
+          exercise={item}
+          hasCardBefore={hasCardBefore}
+          hasCardAfter={hasCardAfter}
+        />
+      </Gutters>
+    );
+  }, []);
 
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
@@ -140,14 +105,38 @@ const Sessions = () => {
         onPressEllipsis={onPressEllipsis}>
         <MiniProfile />
       </TopBar>
+
       <SectionList
-        sections={sections}
+        sections={exerciseSections}
         keyExtractor={exercise => exercise.id}
-        ListHeaderComponent={Spacer24}
+        ListHeaderComponent={
+          collections.length > 0 ? (
+            <Gutters>
+              <Spacer20 />
+              <Heading16>{t('collectionsHeading')}</Heading16>
+              <Spacer8 />
+              <FlatList
+                data={collections}
+                keyExtractor={collection => collection.id}
+                snapToAlignment="center"
+                decelerationRate="fast"
+                snapToInterval={CARD_WIDTH + SPACINGS.SIXTEEN}
+                showsHorizontalScrollIndicator={false}
+                horizontal
+                renderItem={({item}) => (
+                  <>
+                    <CollectionCardContainer collection={item} />
+                    <Spacer16 />
+                  </>
+                )}
+              />
+              <Spacer32 />
+            </Gutters>
+          ) : null
+        }
+        renderSectionHeader={renderExerciseSectionHeader}
         ListFooterComponent={Spacer48}
-        stickySectionHeadersEnabled
-        renderSectionHeader={renderSectionHeader}
-        renderItem={renderItem}
+        renderItem={renderExerciseItem}
       />
       <BottomGradient colors={colors} />
     </Screen>

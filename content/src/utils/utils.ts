@@ -1,4 +1,4 @@
-import {readFileSync, readdirSync} from 'fs';
+import {readFileSync, readdirSync, existsSync} from 'fs';
 import * as path from 'path';
 import {LANGUAGE_TAG, LANGUAGE_TAGS} from '../../../shared/src/constants/i18n';
 
@@ -8,26 +8,29 @@ type Content<T> = Record<string, LocalizedContent<T>>;
 export const getContentByType = <T>(type: string) => {
   const dirPath = path.resolve('src', type);
 
-  const dirFiles = readdirSync(dirPath);
+  if (existsSync(dirPath)) {
+    const dirFiles = readdirSync(dirPath);
 
-  return dirFiles.reduce((files, fileName) => {
-    const filePath = path.resolve(dirPath, fileName);
-    const fileKey = path.basename(fileName, '.json');
-    const file = readFileSync(filePath, {encoding: 'utf8'});
-    const fileJSON = JSON.parse(file) as LocalizedContent<T>;
+    return dirFiles.reduce((files, fileName) => {
+      const filePath = path.resolve(dirPath, fileName);
+      const fileKey = path.basename(fileName, '.json');
+      const file = readFileSync(filePath, {encoding: 'utf8'});
+      const fileJSON = JSON.parse(file) as LocalizedContent<T>;
 
-    // Make sure the content defines all available languages
-    LANGUAGE_TAGS.forEach(languageTag => {
-      if (fileJSON[languageTag] === undefined) {
-        throw new Error(`${languageTag} is not defined for ${filePath}`);
-      }
-    });
+      // Make sure the content defines all available languages
+      LANGUAGE_TAGS.forEach(languageTag => {
+        if (fileJSON[languageTag] === undefined) {
+          throw new Error(`${languageTag} is not defined for ${filePath}`);
+        }
+      });
 
-    return {
-      ...files,
-      [fileKey]: fileJSON,
-    };
-  }, {} as Content<T>);
+      return {
+        ...files,
+        [fileKey]: fileJSON,
+      };
+    }, {} as Content<T>);
+  }
+  return {} as Content<T>;
 };
 
 /*
