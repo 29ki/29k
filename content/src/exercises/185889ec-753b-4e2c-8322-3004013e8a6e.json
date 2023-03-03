@@ -228,13 +228,14 @@
           },
           {
             "text": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Vamos começar agora durante 2 minutos.\n\n> Carrega no play para iniciar o cronômetro.\n\nSão 2 minutos e é hora de continuar em frente.",
-            "asyncText": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Uma forma de praticar a autocompaixão é assumir uma perspetiva diferente.\n\nReserva outro minuto para refletires como reages quando um/a amigo/a se sente em baixo, se está a deitar abaixo ou está simplesmente a duvidar das suas capacidades.\n\ncarrega no play para iniciar o cronómetro."
+            "asyncText": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Uma forma de praticar a autocompaixão é assumir uma perspetiva diferente.\n\nReserva outro minuto para refletires como reages quando um/a amigo/a se sente em baixo, se está a deitar abaixo ou está simplesmente a duvidar das suas capacidades.\n\nCarrega no play para iniciar o cronómetro."
           }
         ],
         "content": {
           "heading": "O que dirias a ti próprio/a?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_2_be_kind_to_yourself_pii45p.png"
           }
         }
       },
