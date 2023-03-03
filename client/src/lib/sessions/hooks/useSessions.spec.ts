@@ -8,11 +8,6 @@ import {SessionType} from '../../../../../shared/src/types/Session';
 import useUserState from '../../user/state/state';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 
-const mockedGetOngoingSessions = jest.fn().mockResolvedValue([]);
-jest.mock('../../session/hooks/useOngoingSessions', () => () => ({
-  getOngoingSessions: mockedGetOngoingSessions,
-}));
-
 dayjs.extend(utc);
 
 enableFetchMocks();
@@ -154,12 +149,7 @@ describe('useSessions', () => {
   describe('sessions', () => {
     beforeEach(() => {
       fetchMock.mockResponseOnce(
-        JSON.stringify([
-          {id: 'session-id-1'},
-          {id: 'session-id-2'},
-          {id: 'session-id-3', hostId: 'user-id'},
-          {id: 'session-id-4', hostId: 'user-id'},
-        ]),
+        JSON.stringify([{id: 'session-id-1'}, {id: 'session-id-2'}]),
         {status: 200},
       );
     });
@@ -202,34 +192,12 @@ describe('useSessions', () => {
         {id: 'session-id-2'},
       ]);
     });
-
-    it('should filter out ongoing sessions', async () => {
-      useUserState.setState({
-        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
-        userState: {},
-      });
-
-      mockedGetOngoingSessions.mockResolvedValueOnce([{id: 'session-id-2'}]);
-
-      const {result} = renderHook(() => useSessions());
-
-      await act(async () => {
-        await result.current.fetchSessions();
-      });
-
-      expect(result.current.sessions).toEqual([{id: 'session-id-1'}]);
-    });
   });
 
   describe('pinnedSessions', () => {
     beforeEach(() => {
       fetchMock.mockResponseOnce(
-        JSON.stringify([
-          {id: 'session-id-1'},
-          {id: 'session-id-2'},
-          {id: 'session-id-3', hostId: 'user-id'},
-          {id: 'session-id-4', hostId: 'user-id'},
-        ]),
+        JSON.stringify([{id: 'session-id-1'}, {id: 'session-id-2'}]),
         {status: 200},
       );
     });
@@ -241,29 +209,6 @@ describe('useSessions', () => {
           'user-id': {
             pinnedSessions: [
               {id: 'session-id-1', expires: new Date('2022-12-20')},
-            ],
-          },
-        },
-      });
-
-      const {result} = renderHook(() => useSessions());
-
-      await act(async () => {
-        await result.current.fetchSessions();
-      });
-
-      expect(result.current.pinnedSessions).toEqual([{id: 'session-id-1'}]);
-    });
-
-    it('should filter out ongoing sessions', async () => {
-      mockedGetOngoingSessions.mockResolvedValueOnce([{id: 'session-id-2'}]);
-      useUserState.setState({
-        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
-        userState: {
-          'user-id': {
-            pinnedSessions: [
-              {id: 'session-id-1', expires: new Date('2022-12-20')},
-              {id: 'session-id-2', expires: new Date('2022-12-20')},
             ],
           },
         },
@@ -307,35 +252,6 @@ describe('useSessions', () => {
       expect(result.current.hostedSessions).toEqual([
         {id: 'session-id-3', hostId: 'user-id'},
         {id: 'session-id-4', hostId: 'user-id'},
-      ]);
-    });
-
-    it('should filter ongoing session out', async () => {
-      mockedGetOngoingSessions.mockResolvedValueOnce([{id: 'session-id-4'}]);
-
-      useUserState.setState({
-        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
-        userState: {
-          'user-id': {
-            userEvents: [
-              {
-                type: 'ongoingSession',
-                payload: {id: 'session-id-4'},
-                timestamp: new Date().toString(),
-              },
-            ],
-          },
-        },
-      });
-
-      const {result} = renderHook(() => useSessions());
-
-      await act(async () => {
-        await result.current.fetchSessions();
-      });
-
-      expect(result.current.hostedSessions).toEqual([
-        {id: 'session-id-3', hostId: 'user-id'},
       ]);
     });
   });

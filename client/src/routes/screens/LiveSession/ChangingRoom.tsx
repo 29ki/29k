@@ -47,7 +47,6 @@ import useSubscribeToSessionIfFocused from '../../../lib/session/hooks/useSusbsc
 import {getSessionToken} from '../../../lib/sessions/api/session';
 import useLiveSessionMetricEvents from '../../../lib/session/hooks/useLiveSessionMetricEvents';
 import useCheckPermissions from '../../../lib/session/hooks/useCheckPermissions';
-import useOngoingSessions from '../../../lib/session/hooks/useOngoingSessions';
 
 const KeyboardWrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'padding', android: undefined}),
@@ -136,14 +135,9 @@ const ChangingRoom = () => {
     checkCameraPermissions,
     checkMicrophonePermissions,
   } = useCheckPermissions();
-  const {addOngoingSession} = useOngoingSessions();
 
   const hasAudio = Boolean(me?.audioTrack);
   const hasVideo = Boolean(me?.videoTrack);
-
-  useEffect(() => {
-    addOngoingSession(session.id);
-  }, [addOngoingSession, session.id]);
 
   useEffect(() => {
     logSessionMetricEvent('Enter Changing Room');
@@ -198,6 +192,7 @@ const ChangingRoom = () => {
   ]);
 
   const joinPress = useCallback(() => {
+    // TODO: Add joined user
     if (localUserName) {
       setUserName(localUserName);
       checkJoinPermissions(join);

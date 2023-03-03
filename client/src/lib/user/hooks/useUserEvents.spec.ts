@@ -3,7 +3,6 @@ import {renderHook} from '@testing-library/react-hooks';
 import {
   CompletedSessionPayload,
   FeedbackPayload,
-  OngoingSessionEventPayload,
   PostPayload,
 } from '../../../../../shared/src/types/Event';
 import useUserState from '../state/state';
@@ -29,11 +28,6 @@ describe('useUserEvents', () => {
             {
               type: 'completedSession',
               payload: {id: 'some-session-id'} as CompletedSessionPayload,
-              timestamp: new Date().toISOString(),
-            },
-            {
-              type: 'ongoingSession',
-              payload: {id: 'some-session-id'} as OngoingSessionEventPayload,
               timestamp: new Date().toISOString(),
             },
           ],
@@ -64,13 +58,6 @@ describe('useUserEvents', () => {
         timestamp: expect.any(String),
       },
     ]);
-    expect(result.current.ongoingSessionEvents).toEqual([
-      {
-        type: 'ongoingSession',
-        payload: {id: 'some-session-id'},
-        timestamp: expect.any(String),
-      },
-    ]);
   });
 
   it('should memoize the result', () => {
@@ -94,11 +81,6 @@ describe('useUserEvents', () => {
               payload: {id: 'some-session-id'} as CompletedSessionPayload,
               timestamp: new Date().toISOString(),
             },
-            {
-              type: 'ongoingSession',
-              payload: {id: 'some-session-id'} as OngoingSessionEventPayload,
-              timestamp: new Date().toISOString(),
-            },
           ],
         },
       },
@@ -109,7 +91,6 @@ describe('useUserEvents', () => {
     const postEvents = result.current.postEvents;
     const feedbackEvents = result.current.feedbackEvents;
     const completedSessionEvents = result.current.completedSessionEvents;
-    const ongoingSessionEvents = result.current.ongoingSessionEvents;
 
     rerender();
 
@@ -117,6 +98,5 @@ describe('useUserEvents', () => {
     expect(result.current.postEvents).toBe(postEvents);
     expect(result.current.feedbackEvents).toBe(feedbackEvents);
     expect(result.current.completedSessionEvents).toBe(completedSessionEvents);
-    expect(result.current.ongoingSessionEvents).toBe(ongoingSessionEvents);
   });
 });

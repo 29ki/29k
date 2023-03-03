@@ -1,4 +1,4 @@
-import {useCallback, useMemo, useState} from 'react';
+import {useCallback, useMemo} from 'react';
 import dayjs from 'dayjs';
 
 import * as sessionsApi from '../api/sessions';
@@ -8,23 +8,19 @@ import useSessionsState from '../state/state';
 import {LiveSession} from '../../../../../shared/src/types/Session';
 import usePinnedSessions from './usePinnedSessions';
 import useUser from '../../user/hooks/useUser';
-import useOngoingSessions from '../../session/hooks/useOngoingSessions';
 
 const useSessions = () => {
   const setIsLoading = useSessionsState(state => state.setIsLoading);
   const setSessions = useSessionsState(state => state.setSessions);
   const sessions = useSessionsState(state => state.sessions);
-  const [ongoingSessions, setOngoingSessions] = useState<LiveSession[]>([]);
   const pinnedSessions = usePinnedSessions();
   const user = useUser();
-  const {getOngoingSessions} = useOngoingSessions();
 
   const fetchSessions = useCallback(async () => {
     setIsLoading(true);
-    setOngoingSessions(await getOngoingSessions());
     setSessions(await sessionsApi.fetchSessions());
     setIsLoading(false);
-  }, [setIsLoading, setSessions, getOngoingSessions]);
+  }, [setIsLoading, setSessions]);
 
   const addSession = useCallback(
     async ({
@@ -62,40 +58,33 @@ const useSessions = () => {
     [fetchSessions],
   );
 
-  const upcomingSessions = useMemo(
-    () =>
-      (sessions ?? []).filter(s => !ongoingSessions.find(o => o.id === s.id)),
-    [sessions, ongoingSessions],
-  );
-
   const userHostedSessions = useMemo(
-    () => (upcomingSessions ?? []).filter(s => s.hostId === user?.uid),
-    [user, upcomingSessions],
+    () => (sessions ?? []).filter(s => s.hostId === user?.uid),
+    [user, sessions],
   );
 
   const userPinnedSessions = useMemo(
     () =>
-      (upcomingSessions ?? []).filter(
+      (sessions ?? []).filter(
         s =>
           pinnedSessions.find(ps => ps.id === s.id) && s.hostId !== user?.uid,
       ),
-    [upcomingSessions, pinnedSessions, user],
+    [sessions, pinnedSessions, user],
   );
 
   const unpinnedSessions = useMemo(
     () =>
-      (upcomingSessions ?? []).filter(
+      (sessions ?? []).filter(
         s =>
           !pinnedSessions.find(ps => ps.id === s.id) && s.hostId !== user?.uid,
       ),
-    [upcomingSessions, pinnedSessions, user],
+    [sessions, pinnedSessions, user],
   );
 
   return {
     fetchSessions,
     addSession,
     deleteSession,
-    ongoingSessions,
     sessions: unpinnedSessions,
     pinnedSessions: userPinnedSessions,
     hostedSessions: userHostedSessions,

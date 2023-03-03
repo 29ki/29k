@@ -2,7 +2,6 @@ import {useMemo} from 'react';
 import {
   CompletedSessionEvent,
   FeedbackEvent,
-  OngoingSessionEvent,
   PostEvent,
 } from '../../../../../shared/src/types/Event';
 import useUserState, {getCurrentUserStateSelector} from '../state/state';
@@ -35,23 +34,13 @@ const useUserEvents = () => {
     return [];
   }, [events]);
 
-  const ongoingSessionEvents = useMemo(() => {
-    if (events) {
-      return events.filter(
-        e => e.type === 'ongoingSession',
-      ) as OngoingSessionEvent[];
-    }
-    return [];
-  }, [events]);
-
   return useMemo(
     () => ({
       postEvents,
       feedbackEvents,
       completedSessionEvents,
-      ongoingSessionEvents,
     }),
-    [postEvents, feedbackEvents, completedSessionEvents, ongoingSessionEvents],
+    [postEvents, feedbackEvents, completedSessionEvents],
   );
 };
 

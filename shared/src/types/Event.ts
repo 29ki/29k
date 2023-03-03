@@ -28,10 +28,6 @@ export type CompletedSessionPayload = {
   hostProfile?: UserProfile;
 };
 
-export type OngoingSessionEventPayload = {
-  id: LiveSession['id'];
-};
-
 type BaseEvent = {
   timestamp: string;
 };
@@ -51,16 +47,7 @@ export type CompletedSessionEvent = BaseEvent & {
   payload: CompletedSessionPayload;
 };
 
-export type OngoingSessionEvent = BaseEvent & {
-  type: 'ongoingSession';
-  payload: OngoingSessionEventPayload;
-};
-
-export type UserEvent =
-  | PostEvent
-  | FeedbackEvent
-  | CompletedSessionEvent
-  | OngoingSessionEvent;
+export type UserEvent = PostEvent | FeedbackEvent | CompletedSessionEvent;
 
 export type PostEventData = Omit<PostEvent, 'timestamp'>;
 export type FeedbackEventData = Omit<FeedbackEvent, 'timestamp'>;
@@ -69,4 +56,3 @@ export type CompletedSessionEventData = Omit<
   'timestamp'
 >;
 export type UserEventData = Omit<UserEvent, 'timestamp'>;
-export type OngoingSessionEventData = Omit<OngoingSessionEvent, 'timestamp'>;

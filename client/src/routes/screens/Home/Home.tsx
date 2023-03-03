@@ -38,7 +38,7 @@ import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 type Section = {
   title: string;
   data: LiveSession[];
-  type: 'hostedBy' | 'interested' | 'comming' | 'ongoing';
+  type: 'hostedBy' | 'interested' | 'comming';
 };
 
 const AddButton = styled(Button)({
@@ -103,13 +103,8 @@ const Home = () => {
   const {t} = useTranslation('Screen.Home');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<OverlayStackProps>>();
-  const {
-    fetchSessions,
-    sessions,
-    pinnedSessions,
-    hostedSessions,
-    ongoingSessions,
-  } = useSessions();
+  const {fetchSessions, sessions, pinnedSessions, hostedSessions} =
+    useSessions();
   const [isLoading, setIsLoading] = useState(false);
 
   const sections = useMemo(() => {
@@ -128,13 +123,6 @@ const Home = () => {
         type: 'interested',
       });
     }
-    if (ongoingSessions.length > 0) {
-      sectionsList.push({
-        title: t('sections.ongoing'),
-        data: ongoingSessions,
-        type: 'ongoing',
-      });
-    }
     if (sessions.length > 0) {
       sectionsList.push({
         title: t('sections.comming'),
@@ -143,7 +131,7 @@ const Home = () => {
       });
     }
     return sectionsList;
-  }, [sessions, pinnedSessions, hostedSessions, ongoingSessions, t]);
+  }, [sessions, pinnedSessions, hostedSessions, t]);
 
   useEffect(() => {
     fetchSessions();

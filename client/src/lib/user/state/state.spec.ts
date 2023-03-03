@@ -1,6 +1,6 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook, act} from '@testing-library/react-hooks';
-import {PostPayload, UserEvent} from '../../../../../shared/src/types/Event';
+import {PostPayload} from '../../../../../shared/src/types/Event';
 import useUserState from './state';
 
 describe('user - state', () => {
@@ -172,45 +172,6 @@ describe('user - state', () => {
           payload: {sessionId: 'some-session-id'},
           timestamp: expect.any(String),
         },
-      ]);
-    });
-  });
-
-  describe('removeUserEvent', () => {
-    it('should remove ongoingSession events only from current user', () => {
-      useUserState.setState({
-        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
-        userState: {
-          'other-user-id': {
-            userEvents: [
-              {type: 'ongoingSession', payload: {id: 'some-id'}},
-              {type: 'ongoingSession', payload: {id: 'some-id-2'}},
-            ] as UserEvent[],
-          },
-          'user-id': {
-            userEvents: [
-              {type: 'ongoingSession', payload: {id: 'some-id'}},
-              {type: 'ongoingSession', payload: {id: 'some-id'}},
-              {type: 'post', payload: {id: 'some-id'}},
-              {type: 'completedSession', payload: {id: 'some-id'}},
-            ] as UserEvent[],
-          },
-        },
-      });
-
-      const {result} = renderHook(() => useUserState());
-
-      act(() => {
-        result.current.removeUserEvent(e => e.type === 'ongoingSession');
-      });
-
-      expect(result.current.userState['user-id'].userEvents).toEqual([
-        {payload: {id: 'some-id'}, type: 'post'},
-        {payload: {id: 'some-id'}, type: 'completedSession'},
-      ]);
-      expect(result.current.userState['other-user-id'].userEvents).toEqual([
-        {payload: {id: 'some-id'}, type: 'ongoingSession'},
-        {payload: {id: 'some-id-2'}, type: 'ongoingSession'},
       ]);
     });
   });
