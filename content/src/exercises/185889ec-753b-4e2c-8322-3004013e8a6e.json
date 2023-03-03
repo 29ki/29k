@@ -185,12 +185,18 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Bem-vindos. Eu sou X e hoje vamos estar juntos durante 40 minutos para nos conectarmos e sermos gentis connosco.\n\nFaremos alguns exercícios de reflexão e teremos oportunidades para partilhar essas reflexões uns com os outros."
+            "text": "Bem-vindos. Eu sou X e hoje vamos estar juntos durante 40 minutos para nos conectarmos e sermos gentis connosco.\n\nFaremos alguns exercícios de reflexão e teremos oportunidades para partilhar essas reflexões uns com os outros.",
+            "asyncText": "Bem-vinda/o a esta sessão acerca de nos conectarmos e sermos gentis connosco.\n\nFaremos dois exercícios de reflexão e teremos oportunidades para partilhar o que sentimos."
           },
           {
-            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam o check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
+            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam o check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar.",
+            "asyncText": "Antes de iniciarmos faz um pequeno check-in. Como te estás a sentir neste momento?\n\nVamos começar."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1677835713/Video/bekindtoyourself_async_intro_sqmu9o.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1677835944/Images/thumb_host_bekindtoyourself_ysmcnz.png"
+        }
       },
       {
         "type": "content",
@@ -208,7 +214,8 @@
         "content": {
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043753/Video/content_Be_kind_to_yourself_qfhuch.mp4",
-            "autoPlayLoop": true
+            "autoPlayLoop": true,
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_content_be_kind_to_yourself_hn38hz.png"
           }
         }
       },
@@ -216,16 +223,19 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Agora vamos ficar 2 minutos a refletir individualmente.\n\nPensa numa situação em que te sentiste mal. Quando falhaste e duvidaste de ti. Como costumas reagir e como te tratas nessas situações? O que dizes a ti mesma/o? Que tom usas?"
+            "text": "Agora vamos ficar 2 minutos a refletir individualmente.\n\nPensa numa situação em que te sentiste em baixo. Quando falhaste e duvidaste de ti. Como costumas reagir e como te tratas nessas situações? O que dizes a ti mesma/o? Que tom usas?",
+            "asyncText": "Reserva um minuto para pensares numa situação em que te sentiste em baixo. Quando falhaste e duvidaste de ti. Como costumas reagir e como te tratas nessas situações? O que dizes a ti mesma/o? Que tom usas?"
           },
           {
-            "text": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Vamos começar agora durante 2 minutos.\n\n> Carrega no play para iniciar o cronômetro.\n\nSão 2 minutos e é hora de continuar em frente."
+            "text": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Vamos começar agora durante 2 minutos.\n\n> Carrega no play para iniciar o cronômetro.\n\nSão 2 minutos e é hora de continuar em frente.",
+            "asyncText": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Uma forma de praticar a autocompaixão é assumir uma perspetiva diferente.\n\nReserva outro minuto para refletires como reages quando um/a amigo/a se sente em baixo, se está a deitar abaixo ou está simplesmente a duvidar das suas capacidades.\n\nCarrega no play para iniciar o cronómetro."
           }
         ],
         "content": {
           "heading": "O que dirias a ti próprio/a?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_2_be_kind_to_yourself_pii45p.png"
           }
         }
       },
@@ -234,7 +244,8 @@
         "content": {
           "heading": "O que dirias a ti próprio/a?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_3_be_kind_to_yourself_orn39r.png"
           }
         },
         "hostNotes": [
@@ -274,7 +285,8 @@
         "content": {
           "heading": "O que dirias a uma amiga ou a um amigo?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_3_be_kind_to_yourself_orn39r.png"
           }
         },
         "hostNotes": [
@@ -288,18 +300,25 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Parabéns. Se estiverem dispostos a isso, podem tornar o que começamos aqui hoje um hábito positivo no vosso dia a dia."
+            "text": "Parabéns. Se estiverem dispostos a isso, podem tornar o que começamos aqui hoje um hábito positivo no vosso dia a dia.",
+            "asyncText": "Parabéns. Se estiveres disposta/o a isso, podes tornar o que começamos aqui hoje num hábito positivo do teu dia a dia."
           },
           {
-            "text": "Nos próximos dias, tenta ser mais gentil contigo. Especialmente em situações difíceis. Usa a ideia das molas da roupa e começa a perceber como soa a tua voz interior. Em seguida, vê se consegues falar e reagir contigo da mesma forma que o farias com uma amiga ou amigo. Observa como isso te faz sentir."
+            "text": "Nos próximos dias, tenta ser mais gentil contigo. Especialmente em situações difíceis. Usa a ideia das molas da roupa e começa a perceber como soa a tua voz interior. Em seguida, vê se consegues falar e reagir contigo da mesma forma que o farias com uma amiga ou amigo. Observa como isso te faz sentir.",
+            "asyncText": "Nos próximos dias, tenta ser mais gentil contigo. Especialmente em situações difíceis. Usa a ideia das molas da roupa e começa a perceber como soa a tua voz interior. Em seguida, vê se consegues falar e reagir contigo da mesma forma que o farias com uma amiga ou amigo. Observa como isso te faz sentir."
           },
           {
-            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.\n\nComo te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras."
+            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.\n\nComo te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras.",
+            "asyncText": "Antes de saíres deste nosso espaço faz um mini check-in. Como te estás a sentir agora? Mudou alguma coisa?\n\nQuando estiveres pronta/o termina a sessão ao teu ritmo."
           },
           {
             "text": "Quem gostaria de começar?\n\n> Permite que todos na sessão façam um check-out individual.\n\nObrigado a todos por este check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão enviando todos os participantes para a experiência de saída."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1677835705/Video/bekindtoyourself_async_outro_aadtym.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1677835944/Images/thumb_host_bekindtoyourself_ysmcnz.png"
+        }
       }
     ],
     "theme": {
@@ -311,6 +330,10 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
+      },
+      "host": {
+        "displayName": "Emil",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1677835944/Images/thumb_host_bekindtoyourself_ysmcnz.png"
       }
     },
     "duration": 40,
@@ -321,14 +344,16 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/portal1_Be_kind_to_yourself_u6lvok.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673626157/Video/portal1_Be_kind_to_yourself_HD_zf7i4r.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_portal_be_kind_to_yourself_garwgm.png"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043748/Video/portal2_Be_kind_to_yourself_rahxff.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673626159/Video/portal2_Be_kind_to_yourself_HD_rv02xs.mp4"
       }
     },
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
+    "async": true,
     "description": "Muitas vezes somos duros connosco e mais compassivos com os outros. Neste exercício vamos aprender a encontrar um aliado interior compassivo que nos acompanhe em situações difíceis. A autocompaixão pode ajudar-nos a sentir mais felizes e satisfeitos com nós mesmos."
   },
   "sv": {
