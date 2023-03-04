@@ -44,7 +44,7 @@ import useLocalParticipant from '../../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../../lib/user/hooks/useUser';
 import Image from '../../../lib/components/Image/Image';
 import useSubscribeToSessionIfFocused from '../../../lib/session/hooks/useSusbscribeToSessionIfFocused';
-import {getSessionToken} from '../../../lib/sessions/api/session';
+import {getSessionToken, joinSession} from '../../../lib/sessions/api/session';
 import useLiveSessionMetricEvents from '../../../lib/session/hooks/useLiveSessionMetricEvents';
 import useCheckPermissions from '../../../lib/session/hooks/useCheckPermissions';
 
@@ -191,13 +191,19 @@ const ChangingRoom = () => {
     session,
   ]);
 
-  const joinPress = useCallback(() => {
-    // TODO: Add joined user
+  const joinPress = useCallback(async () => {
+    joinSession(session.inviteCode);
     if (localUserName) {
       setUserName(localUserName);
       checkJoinPermissions(join);
     }
-  }, [localUserName, setUserName, checkJoinPermissions, join]);
+  }, [
+    localUserName,
+    setUserName,
+    checkJoinPermissions,
+    join,
+    session.inviteCode,
+  ]);
 
   const toggleAudioPress = useCallback(() => {
     checkMicrophonePermissions(() => {

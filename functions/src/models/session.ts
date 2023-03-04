@@ -29,6 +29,11 @@ const defaultSessionState = {
 const SESSIONS_COLLECTION = 'sessions';
 const SESSION_STATE_SUB_COLLECTION = 'state';
 
+const sessionClosingRange = () =>
+  Timestamp.fromDate(
+    dayjs(Timestamp.now().toDate()).subtract(30, 'minutes').toDate(),
+  );
+
 export const getSessionById = async (id: LiveSession['id']) => {
   const sessionDoc = await firestore()
     .collection(SESSIONS_COLLECTION)
@@ -72,7 +77,7 @@ export const getSessionByInviteCode = async ({
     ? query
         .where('ended', '==', false)
         .orderBy('closingTime')
-        .where('closingTime', '>', Timestamp.now())
+        .where('closingTime', '>', sessionClosingRange())
     : query
   )
     .orderBy('startTime', 'asc')
@@ -91,7 +96,7 @@ export const getSessions = async (userId: string) => {
     .where('ended', '==', false)
     .where('userIds', 'array-contains-any', ['*', userId])
     .orderBy('closingTime')
-    .where('closingTime', '>', Timestamp.now())
+    .where('closingTime', '>', sessionClosingRange())
     .orderBy('startTime', 'asc')
     .get();
 
@@ -108,7 +113,7 @@ export const getPublicSessionsByExerciseId = async (
     .where('exerciseId', '==', exerciseId)
     .where('userIds', 'array-contains-any', ['*', userId])
     .orderBy('closingTime')
-    .where('closingTime', '>', Timestamp.now())
+    .where('closingTime', '>', sessionClosingRange())
     .orderBy('startTime', 'asc')
     .get();
 
