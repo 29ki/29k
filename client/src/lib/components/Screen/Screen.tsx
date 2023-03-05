@@ -50,18 +50,11 @@ const Screen: React.FC<ScreenProps> = ({
   return (
     <Wrapper backgroundColor={backgroundColor}>
       {children}
-      {title && (
-        <FloatingTopBar>
-          <TopSafeArea />
-          <TitleRow>
-            <Body16>{title}</Body16>
-          </TitleRow>
-        </FloatingTopBar>
-      )}
-      {(onPressBack || onPressClose || onPressEllipsis) && (
+      {(title || onPressBack || onPressClose || onPressEllipsis) && (
         <FloatingTopBar>
           <TopSafeArea />
           <TopBar
+            title={title}
             onPressBack={onPressBack}
             onPressClose={onPressClose}
             onPressEllipsis={onPressEllipsis}
