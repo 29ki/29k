@@ -1,6 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import hexToRgba from 'hex-to-rgba';
 import React, {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {SectionList, SectionListRenderItem} from 'react-native';
