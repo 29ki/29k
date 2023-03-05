@@ -11,6 +11,13 @@ export const Default = () => (
   </>
 );
 
+export const Title = () => (
+  <>
+    <TopSafeArea />
+    <TopBar title="Title" />
+  </>
+);
+
 export const BackButton = () => (
   <>
     <TopSafeArea />
@@ -64,6 +71,7 @@ export const Everything = () => (
   <>
     <TopSafeArea />
     <TopBar
+      title="Title"
       backgroundColor={COLORS.GREYDARK}
       onPressBack={() => {}}
       onPressClose={() => {}}
