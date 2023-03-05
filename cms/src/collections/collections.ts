@@ -82,6 +82,9 @@ export const collections: CmsCollection = {
   delete: true,
   publish: true,
   i18n: true,
+  editor: {
+    preview: false,
+  },
 };
 
 export const other: CmsCollection = {
