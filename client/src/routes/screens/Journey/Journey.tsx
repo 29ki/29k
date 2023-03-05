@@ -43,6 +43,7 @@ import TopBar from '../../../lib/components/TopBar/TopBar';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
 import usePinnedCollections from '../../../lib/user/hooks/usePinnedCollections';
 import CollectionCardContainer from './components/CollectionCardContainer';
+import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 
 export type Section = {
   title: string;
@@ -250,6 +251,7 @@ const Journey = () => {
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }
       />
+      <BottomFade />
     </Screen>
   );
 };

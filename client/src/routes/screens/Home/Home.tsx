@@ -1,17 +1,15 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {RefreshControl, SectionList} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useNavigation} from '@react-navigation/native';
-import hexToRgba from 'hex-to-rgba';
 
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 
 import {LiveSession} from '../../../../../shared/src/types/Session';
 
-import {GUTTERS, SPACINGS} from '../../../lib/constants/spacings';
+import {SPACINGS} from '../../../lib/constants/spacings';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {
   ModalStackProps,
@@ -23,7 +21,6 @@ import {
   Spacer16,
   Spacer24,
   Spacer48,
-  Spacer8,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -36,6 +33,7 @@ import {SectionListRenderItem} from 'react-native';
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
+import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 
 type Section = {
   title: string;
@@ -44,28 +42,15 @@ type Section = {
 };
 
 const AddButton = styled(Button)({
-  flexDirection: 'row',
-  justifyContent: 'center',
-  alignItems: 'center',
-});
-
-const AddSessionWrapper = styled.View({
-  flexDirection: 'row',
-  justifyContent: 'center',
+  alignSelf: 'center',
   ...SETTINGS.BOXSHADOW,
 });
 
-const FloatingForm = styled(LinearGradient).attrs({
-  colors: [hexToRgba(COLORS.WHITE, 0), hexToRgba(COLORS.WHITE, 1)],
-})({
+const AddSessionWrapper = styled.View({
   position: 'absolute',
   left: 0,
   right: 0,
   bottom: 0,
-  paddingHorizontal: GUTTERS.BIG,
-  paddingTop: SPACINGS.TWENTYFOUR,
-  passingBottom: SPACINGS.TWELVE,
-  zIndex: 2,
 });
 
 const AddSessionForm = () => {
@@ -80,7 +65,7 @@ const AddSessionForm = () => {
         LeftIcon={PlusIcon}>
         {t('add')}
       </AddButton>
-      <Spacer8 />
+      <Spacer12 />
     </AddSessionWrapper>
   );
 };
@@ -187,11 +172,8 @@ const Home = () => {
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }
       />
-
-      <FloatingForm>
-        <AddSessionForm />
-        <Spacer12 />
-      </FloatingForm>
+      <BottomFade />
+      <AddSessionForm />
     </Screen>
   );
 };
