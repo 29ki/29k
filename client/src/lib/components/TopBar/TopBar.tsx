@@ -34,6 +34,7 @@ type FadeProps = {
 const Fade = styled(LinearGradient).attrs<FadeProps, LinearGradientProps>(
   ({backgroundColor}) => ({
     colors: [hexToRgba(backgroundColor, 1), hexToRgba(backgroundColor, 0)],
+    pointerEvents: 'none',
   }),
 )<FadeProps>({
   position: 'absolute',
@@ -42,7 +43,6 @@ const Fade = styled(LinearGradient).attrs<FadeProps, LinearGradientProps>(
   right: 0,
   top: '100%',
   backgroundColor: 'none',
-  pointerEvents: 'none',
 });
 
 const Button = styled(TouchableOpacity).attrs({
