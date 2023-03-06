@@ -33,6 +33,10 @@ const contributionTypes = {
     symbol: '❤️',
     description: 'Community',
   },
+  host: {
+    symbol: '🧑‍🏫',
+    description: 'Session host',
+  },
   a11y: {
     symbol: '️️️️♿️',
     description: 'Accessibility',

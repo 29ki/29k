@@ -119,7 +119,8 @@
       "contributions": [
         "community",
         "coreTeam",
-        "userExperience"
+        "userExperience",
+        "host"
       ],
       "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1671658540/Contributors/Pamela_Von_Sabljar_epvb5v.jpg"
     },
@@ -130,7 +131,8 @@
       "contributions": [
         "financial",
         "people",
-        "coreTeam"
+        "coreTeam",
+        "host"
       ]
     },
     {
@@ -143,7 +145,8 @@
         "userTesting",
         "projectManagement",
         "business",
-        "coreTeam"
+        "coreTeam",
+        "host"
       ]
     },
     {
@@ -167,7 +170,8 @@
         "content",
         "research",
         "business",
-        "coreTeam"
+        "coreTeam",
+        "host"
       ]
     },
     {
@@ -514,6 +518,14 @@
       ],
       "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1669213656/Contributors/Alexandra%20S%C3%B6derlund.jpg",
       "profile": "https://alexandrasoderlund.wixsite.com/portfolio"
+    },
+    {
+      "name": "Andrei Criulean",
+      "contributions": [
+        "host"
+      ],
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1678102468/Contributors/Andrei_Criulean_rgeqwk.jpg",
+      "profile": "https://www.linkedin.com/in/andreicriulean/"
     }
   ],
   "types": {
@@ -521,9 +533,21 @@
       "symbol": "📣",
       "description": "Marketing"
     },
-    "userExperience": {
-      "symbol": "✨",
-      "description": "User Experience"
+    "partner": {
+      "symbol": "🤝",
+      "description": "Partner"
+    },
+    "host": {
+      "symbol": "🧑‍🏫",
+      "description": "Session host"
+    },
+    "corePartner": {
+      "symbol": "🤲",
+      "description": "Core Partner"
+    },
+    "community": {
+      "symbol": "❤️",
+      "description": "Community"
     },
     "people": {
       "symbol": "👥",
@@ -533,21 +557,13 @@
       "symbol": "🌱",
       "description": "Founder"
     },
-    "corePartner": {
-      "symbol": "🤲",
-      "description": "Core Partner"
-    },
-    "partner": {
-      "symbol": "🤝",
-      "description": "Partner"
+    "userExperience": {
+      "symbol": "✨",
+      "description": "User Experience"
     },
     "coreTeam": {
       "symbol": "🫂",
       "description": "Core Team"
-    },
-    "community": {
-      "symbol": "❤️",
-      "description": "Community"
     }
   },
   "contributorsPerLine": 6,
