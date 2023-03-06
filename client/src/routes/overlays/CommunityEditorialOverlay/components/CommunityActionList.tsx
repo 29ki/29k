@@ -8,7 +8,6 @@ import {
   CommunityIcon,
   CheckedIcon,
   WandIcon,
-  MeIcon,
   FriendsIcon,
 } from '../../../../lib/components/Icons';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
