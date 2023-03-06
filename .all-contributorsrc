@@ -526,6 +526,13 @@
       ],
       "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1678102468/Contributors/Andrei_Criulean_rgeqwk.jpg",
       "profile": "https://www.linkedin.com/in/andreicriulean/"
+    },
+    {
+      "name": "Blerim Salihi",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1678106863/Contributors/Blerim_Salihi_jyrhpz.png",
+      "contributions": [
+        "host"
+      ]
     }
   ],
   "types": {
