@@ -1,5 +1,5 @@
 import React from 'react';
-import {ViewStyle} from 'react-native';
+import {StyleSheet, ViewStyle} from 'react-native';
 import hexToRgba from 'hex-to-rgba';
 import LinearGradient, {
   LinearGradientProps,
@@ -9,6 +9,7 @@ import {ArrowLeftIcon, EllipsisIcon} from '../Icons';
 import CloseButton from '../Buttons/CloseButton/CloseButton';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Spacer16, Spacer8} from '../Spacers/Spacer';
+import {Body16} from '../Typography/Body/Body';
 
 const Wrapper = styled.View<{backgroundColor?: string}>(
   ({backgroundColor}) => ({
@@ -17,7 +18,14 @@ const Wrapper = styled.View<{backgroundColor?: string}>(
   }),
 );
 
+const Title = styled.View({
+  ...StyleSheet.absoluteFillObject,
+  alignItems: 'center',
+  justifyContent: 'center',
+});
+
 const Row = styled.View({
+  minHeight: 30,
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -63,6 +71,7 @@ type TopBarProps = {
   onPressEllipsis?: () => void;
   onPressClose?: () => void;
   fade?: boolean;
+  title?: string;
   style?: ViewStyle;
   children?: React.ReactNode;
 };
@@ -73,11 +82,15 @@ const TopBar: React.FC<TopBarProps> = ({
   onPressEllipsis,
   onPressClose,
   fade,
+  title,
   style,
   children,
 }) => (
   <Wrapper style={style} backgroundColor={backgroundColor}>
     <Row>
+      <Title>
+        <Body16>{title}</Body16>
+      </Title>
       {onPressBack && (
         <>
           <Spacer8 />
