@@ -5,21 +5,28 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance and letting go of control.\\\n\\\nWe’ll be listening to a short audio file together, then we’ll take a two rounds to reflect on our own, and two rounds to share with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance and letting go of control.\\\n\\\nWe’ll be listening to a short audio file together, then we’ll take a two rounds to reflect on our own, and two rounds to share with each other.",
+            "asyncText": "Welcome, this session is about acceptance and letting go of control. \n\nThere will be a short audio file, two rounds of reflection, and two options to share what we experienced."
           },
           {
-            "text": "Before moving on into the exercise, let's ground ourselves in the here and now with 3 cycles of breathing.\n\n> Inhale and exhale slowly x 3"
+            "text": "Before moving on into the exercise, let's ground ourselves in the here and now with 3 cycles of breathing.\n\n> Inhale and exhale slowly x 3",
+            "asyncText": "Before moving on into the exercise, let's get grounded in the here and now with 3 cycles of breathing.\n\n> Inhale and exhale slowly x 3"
           },
           {
-            "text": "Let’s do a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s move on."
+            "text": "Let’s do a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s move on.",
+            "asyncText": "And now, check-in with yourself. How are you feeling right now?\n\nLet’s get started."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678114850/Video/Async_intro_Lettinggoofcontrol_ydrq9h.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678117195/Images/Thumb_host_Lettinggoofcontrol.png"
+        }
       },
       {
         "type": "content",
         "hostNotes": [
           {
-            "text": "When difficult feelings arise, many of us have a natural tendency to try to control them. The **impulse to control things can make us feel in charge**. But science shows that this is just an **illusion.**\n\nFind a comfortable position, relax your shoulders. Let's listen to this story together. \n\n> Press play to start the meditation."
+            "text": "When difficult feelings arise, many of us have a natural tendency to try to control them. The **impulse to control things can make us feel in charge**. But science shows that this is just an **illusion.**\n\nFind a comfortable position, relax your shoulders. Let's listen to this story together. \n\n> Press play to start."
           }
         ],
         "content": {
@@ -35,14 +42,16 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take a minute to reflect on our own.\n\nWhat's in your own beach ball? What is it that you are pushing below the surface?"
+            "text": "Now we’ll take a minute to reflect on our own.\n\nWhat's in your own beach ball? What is it that you are pushing below the surface?",
+            "asyncText": "Take 1 minute to reflect.\n\nWhats in your beach ball? What is it that you are pushing below the surface?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nOkay, that’s 1 minute. Let’s move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nOkay, that’s 1 minute. Let’s move on.",
+            "asyncText": "Take notes on a piece of paper or just mental notes in your head. There is no right or wrong here, our answers are our own.\n\n> Press play to start the timer."
           }
         ],
         "content": {
-          "heading": "What's in your beachball?",
+          "heading": "What's in your beach ball?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673875921/Video/timer1_letting_go_of_control_z1x47a.mp4"
           }
@@ -51,7 +60,7 @@
       {
         "type": "sharing",
         "content": {
-          "heading": "What's in your beachball?",
+          "heading": "What's in your beach ball?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673879667/Video/timer2_letting_go_of_control_nxhgat.mp4"
           }
@@ -73,20 +82,23 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "The more time and effort we spend trying to control our feelings, the more they tend to dictate our lives. The same goes for a lot of things in life. Sometimes we believe that the **more** **control** we have, the **closer** we will get to reaching our **goals**.\n\nThat can be true in some instances..."
+            "text": "The more time and effort we spend trying to control our feelings, the more they tend to dictate our lives. The same goes for a lot of things in life. Sometimes we believe that the **more** **control** we have, the **closer** we will get to reaching our **goals**.\n\nThat can be true in some instances...",
+            "asyncText": "The more time and effort we spend trying to control our feelings, the more they tend to dictate our lives. The same goes for a lot of things in life. Sometimes we believe that the **more** **control** we have, the **closer** we will get to reaching our **goals**.\n\nThat can be true in some instances."
           },
           {
-            "text": "But when we get stuck in a loop of trying to control ourselves and the events around us, we often end up **diverging** **from our values.** Or miss out on participating in important occasions that actually matter to us."
+            "text": "But when we get stuck in a loop of trying to control ourselves and the events around us, we often end up **diverging** **from our values.** Or miss out on participating in important occasions that actually matter to us.",
+            "asyncText": "But when we get stuck in a loop of trying to control ourselves and the events around us, we often end up diverging from our values. Or miss out on participating in important occasions that actually matter to us."
           },
           {
-            "text": "Now we’ll take a minute to reflect on our own again.\n\nWhat if you let go of your beachball? What would that mean to you? What would you do differently?"
+            "text": "Now we’ll take a minute to reflect on our own again.\n\nWhat if you let go of your beachball? What would that mean to you? What would you do differently?",
+            "asyncText": "Take another minute to reflect: What if you let go of your beachball? What would that mean to you? What would you do differently?\n\n> Press play to start the timer"
           },
           {
             "text": "1 minute starting now.\n\n> Press play to start the timer.\n\nOkay, that’s 1 minute. Let’s move on."
           }
         ],
         "content": {
-          "heading": "What if you let go of your beachball?",
+          "heading": "What if you let go of your beach ball?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673875921/Video/timer1_letting_go_of_control_z1x47a.mp4"
           }
@@ -95,7 +107,7 @@
       {
         "type": "sharing",
         "content": {
-          "heading": "What if you let go of your beachball?",
+          "heading": "What if you let go of your beach ball?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673879667/Video/timer2_letting_go_of_control_nxhgat.mp4"
           }
@@ -114,18 +126,25 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Letting go of control may seem **scary**, risky and very **uncomfortable**. By practicing **acceptance,** we can learn how to **make room** for a range of feelings and experiences, without trying to escape, numb or fight the ones we don’t want or like. This allows us to redirect our focus and instead spend our energy on all things that are important to us."
+            "text": "Letting go of control may seem scary, risky and very uncomfortable. By practicing acceptance, we can learn how to make room for a range of feelings and experiences, without trying to escape, numb or fight the ones we don’t want or like. This allows us to redirect our focus and instead spend our energy on all things that are important to us.",
+            "asyncText": "Letting go of control may seem scary, risky and very uncomfortable. By practicing acceptance, we can learn how to make room for a range of feelings and experiences, without trying to escape, numb or fight the ones we don’t want or like. This allows us to redirect our focus and instead spend our energy on all things that are important to us."
           },
           {
-            "text": "If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nFor the rest of today and tomorrow, see if you can notice when you have difficult feelings and are trying to push them away. Then re-focus and see if welcoming them, or just letting them be there with you, can help you act differently. Do more of what’s important to you and bring your feelings along."
+            "text": "If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nFor the rest of today and tomorrow, see if you can notice when you have difficult feelings and are trying to push them away. Then re-focus and see if welcoming them, or just letting them be there with you, can help you act differently. Do more of what’s important to you and bring your feelings along.",
+            "asyncText": "If you’re up for it, you can continue what we started here today with a mission.\n\nFor the rest of today and tomorrow, see if you can notice when you have difficult feelings and are trying to push them away. Then re-focus and see if welcoming them, or just letting them be there with you, can help you act differently. Do more of what’s important to you and bring your feelings along."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words.",
+            "asyncText": "Before leaving this space, check-in with yourself again: How are you feeling right now? Has anything shifted?\n\nWhen you’re ready, finish this session at your own pace."
           },
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678115304/Video/Async_Outro_Lettinggoofcontrol_xqtqcv.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678117195/Images/Thumb_host_Lettinggoofcontrol.png"
+        }
       }
     ],
     "theme": {
@@ -138,6 +157,10 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
+      },
+      "host": {
+        "displayName": "Jenny 29k",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678117195/Images/Thumb_host_Lettinggoofcontrol.png"
       }
     },
     "duration": 30,
@@ -162,6 +185,7 @@
       }
     },
     "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+    "async": true,
     "description": "Trying to control what we feel or think tends to backfire. In this exercise we practice letting go of a futile struggle, and instead use our energy for what matters."
   },
   "pt": {
