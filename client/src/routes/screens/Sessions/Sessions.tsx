@@ -1,12 +1,9 @@
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import hexToRgba from 'hex-to-rgba';
 import React, {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {SectionList, SectionListRenderItem} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
-import LinearGradient from 'react-native-linear-gradient';
-import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
@@ -32,19 +29,12 @@ import useExercises from '../../../lib/content/hooks/useExercises';
 import useCollections from '../../../lib/content/hooks/useCollections';
 import {OverlayStackProps} from '../../../lib/navigation/constants/routes';
 import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
+import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 
 type Section = {
   title: string;
   data: Exercise[];
 };
-
-const BottomGradient = styled(LinearGradient)({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  bottom: 0,
-  height: 40,
-});
 
 const Sessions = () => {
   const {navigate} =
@@ -52,10 +42,6 @@ const Sessions = () => {
   const exercises = useExercises();
   const collections = useCollections();
   const {t} = useTranslation('Screen.Sessions');
-  const colors = useMemo(
-    () => [hexToRgba(COLORS.WHITE, 0), hexToRgba(COLORS.WHITE, 1)],
-    [],
-  );
 
   const onPressEllipsis = useCallback(() => {
     navigate('AboutOverlay');
@@ -138,7 +124,7 @@ const Sessions = () => {
         ListFooterComponent={Spacer48}
         renderItem={renderExerciseItem}
       />
-      <BottomGradient colors={colors} />
+      <BottomFade />
     </Screen>
   );
 };
