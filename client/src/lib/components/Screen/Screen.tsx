@@ -3,7 +3,6 @@ import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {TopSafeArea} from '../Spacers/Spacer';
 import TopBar from '../TopBar/TopBar';
-import {Body16} from '../Typography/Body/Body';
 
 type BackgroundColorProp = {
   backgroundColor: string;
@@ -20,14 +19,6 @@ const FloatingTopBar = styled.View({
   right: 0,
   top: 0,
   zIndex: 1,
-});
-
-const TitleRow = styled.View({
-  flexDirection: 'row',
-  justifyContent: 'center',
-  alignItems: 'center',
-  height: 30,
-  zIndex: 0,
 });
 
 type ScreenProps = {
@@ -50,18 +41,11 @@ const Screen: React.FC<ScreenProps> = ({
   return (
     <Wrapper backgroundColor={backgroundColor}>
       {children}
-      {title && (
-        <FloatingTopBar>
-          <TopSafeArea />
-          <TitleRow>
-            <Body16>{title}</Body16>
-          </TitleRow>
-        </FloatingTopBar>
-      )}
-      {(onPressBack || onPressClose || onPressEllipsis) && (
+      {(title || onPressBack || onPressClose || onPressEllipsis) && (
         <FloatingTopBar>
           <TopSafeArea />
           <TopBar
+            title={title}
             onPressBack={onPressBack}
             onPressClose={onPressClose}
             onPressEllipsis={onPressEllipsis}
