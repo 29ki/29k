@@ -1,4 +1,11 @@
-import React, {useCallback, useContext, useEffect, useState} from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+import {LayoutChangeEvent, ScrollView} from 'react-native';
 import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
@@ -50,7 +57,6 @@ import HostNotes from '../../../lib/session/components/HostNotes/HostNotes';
 import Screen from '../../../lib/components/Screen/Screen';
 import useMuteAudio from '../../../lib/session/hooks/useMuteAudio';
 import ContentWrapper from '../../../lib/session/components/ContentWrapper/ContentWrapper';
-import {LayoutChangeEvent} from 'react-native';
 import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
 import SessionNotifications from '../../../lib/session/components/Notifications/SessionNotifications';
 
@@ -119,6 +125,7 @@ const Session: React.FC = () => {
   const {t} = useTranslation('Screen.Session');
   useSubscribeToSessionIfFocused(session, {exitOnEnded: false});
 
+  const scrollView = useRef<ScrollView>(null);
   const [scrollHeight, setScrollHeight] = useState(0);
   const exercise = useSessionState(state => state.exercise);
   const participants = useSessionParticipants();
@@ -187,6 +194,10 @@ const Session: React.FC = () => {
     } as DailyUserData);
     setSubscribeToAllTracks();
   }, [setUserData, setSubscribeToAllTracks, user?.photoURL]);
+
+  useEffect(() => {
+    scrollView.current?.scrollTo({y: 0, animated: true});
+  }, [sessionSlideState?.index]);
 
   const toggleAudioPress = useCallback(() => {
     checkMicrophonePermissions(() => {
@@ -263,7 +274,7 @@ const Session: React.FC = () => {
       )}
       <TopSafeArea />
       {isHost && <Spacer32 />}
-      <AutoScrollView onLayout={onScrollLayout}>
+      <AutoScrollView onLayout={onScrollLayout} ref={scrollView}>
         <ContentWrapper>
           {sessionSlideState && (
             <>
