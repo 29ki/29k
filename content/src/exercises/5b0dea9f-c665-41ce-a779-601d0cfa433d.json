@@ -6,7 +6,7 @@
         "hostNotes": [
           {
             "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance and letting go of control.\\\n\\\nWe’ll be listening to a short audio file together, then we’ll take a two rounds to reflect on our own, and two rounds to share with each other.",
-            "asyncText": "Welcome, this session is about acceptance and letting go of control. (My name is…)\n\nThere will be a short audio file, two rounds of reflection, and two options to share what we experienced."
+            "asyncText": "Welcome, this session is about acceptance and letting go of control. \n\nThere will be a short audio file, two rounds of reflection, and two options to share what we experienced."
           },
           {
             "text": "Before moving on into the exercise, let's ground ourselves in the here and now with 3 cycles of breathing.\n\n> Inhale and exhale slowly x 3",
@@ -26,7 +26,7 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "When difficult feelings arise, many of us have a natural tendency to try to control them. The **impulse to control things can make us feel in charge**. But science shows that this is just an **illusion.**\n\nFind a comfortable position, relax your shoulders. Let's listen to this story together. \n\n> Press play to start the meditation."
+            "text": "When difficult feelings arise, many of us have a natural tendency to try to control them. The **impulse to control things can make us feel in charge**. But science shows that this is just an **illusion.**\n\nFind a comfortable position, relax your shoulders. Let's listen to this story together. \n\n> Press play to start."
           }
         ],
         "content": {
@@ -51,7 +51,7 @@
           }
         ],
         "content": {
-          "heading": "What's in your beachball?",
+          "heading": "What's in your beach ball?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673875921/Video/timer1_letting_go_of_control_z1x47a.mp4"
           }
@@ -60,7 +60,7 @@
       {
         "type": "sharing",
         "content": {
-          "heading": "What's in your beachball?",
+          "heading": "What's in your beach ball?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673879667/Video/timer2_letting_go_of_control_nxhgat.mp4"
           }
@@ -98,7 +98,7 @@
           }
         ],
         "content": {
-          "heading": "What if you let go of your beachball?",
+          "heading": "What if you let go of your beach ball?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673875921/Video/timer1_letting_go_of_control_z1x47a.mp4"
           }
@@ -107,7 +107,7 @@
       {
         "type": "sharing",
         "content": {
-          "heading": "What if you let go of your beachball?",
+          "heading": "What if you let go of your beach ball?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673879667/Video/timer2_letting_go_of_control_nxhgat.mp4"
           }
@@ -126,8 +126,8 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Letting go of control may seem **scary**, risky and very **uncomfortable**. By practicing **acceptance,** we can learn how to **make room** for a range of feelings and experiences, without trying to escape, numb or fight the ones we don’t want or like. This allows us to redirect our focus and instead spend our energy on all things that are important to us.",
-            "asyncText": "Letting go of control may seem **scary**, risky and very **uncomfortable**. By practicing **acceptance,** we can learn how to **make room** for a range of feelings and experiences, without trying to escape, numb or fight the ones we don’t want or like. This allows us to redirect our focus and instead spend our energy on all things that are important to us."
+            "text": "Letting go of control may seem scary, risky and very uncomfortable. By practicing acceptance, we can learn how to make room for a range of feelings and experiences, without trying to escape, numb or fight the ones we don’t want or like. This allows us to redirect our focus and instead spend our energy on all things that are important to us.",
+            "asyncText": "Letting go of control may seem scary, risky and very uncomfortable. By practicing acceptance, we can learn how to make room for a range of feelings and experiences, without trying to escape, numb or fight the ones we don’t want or like. This allows us to redirect our focus and instead spend our energy on all things that are important to us."
           },
           {
             "text": "If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nFor the rest of today and tomorrow, see if you can notice when you have difficult feelings and are trying to push them away. Then re-focus and see if welcoming them, or just letting them be there with you, can help you act differently. Do more of what’s important to you and bring your feelings along.",
@@ -140,7 +140,11 @@
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678115304/Video/Async_Outro_Lettinggoofcontrol_xqtqcv.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678117195/Images/Thumb_host_Lettinggoofcontrol.png"
+        }
       }
     ],
     "theme": {
