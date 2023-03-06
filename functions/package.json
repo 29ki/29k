@@ -23,7 +23,7 @@
     "@google-cloud/translate": "^7.2.0",
     "@googleapis/firebasedynamiclinks": "^1.0.0",
     "@koa/router": "^12.0.0",
-    "@sentry/integrations": "^7.38.0",
+    "@sentry/integrations": "^7.41.0",
     "@sentry/node": "^7.41.0",
     "@slack/bolt": "^3.12.2",
     "@slack/web-api": "^6.8.1",
