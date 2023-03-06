@@ -157,6 +157,10 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
+      },
+      "host": {
+        "displayName": "Jenny 29k",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678117195/Images/Thumb_host_Lettinggoofcontrol.png"
       }
     },
     "duration": 30,
