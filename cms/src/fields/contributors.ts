@@ -200,6 +200,7 @@ const CONTRIBUTORS_FIELDS: Array<CmsField> = [
         label: 'Profile URL',
         name: 'profile',
         widget: 'string',
+        required: false,
       },
       {
         label: 'GitHub username',
