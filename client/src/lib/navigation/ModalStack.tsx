@@ -28,6 +28,7 @@ import SessionFeedbackModal from '../../routes/modals/SessionFeedbackModal/Sessi
 import SharingModal from '../../routes/modals/SharingModal/SharingModal';
 import SharingPostModal from '../../routes/modals/SharingPostModal/SharingPostModal';
 import DeleteUserModal from '../../routes/modals/DeleteUserModal/DeleteUserModal';
+import HostsModal from '../../routes/modals/Contributors/HostsModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -177,6 +178,7 @@ const ModalStack = () => {
         />
 
         <Screen name={'ContributorsModal'} component={ContributorsModal} />
+        <Screen name={'HostsModal'} component={HostsModal} />
         <Screen name={'PartnersModal'} component={PartnersModal} />
         <Screen name={'DeveloperModal'} component={DeveloperModal} />
         <Screen name={'ContactModal'} component={ContactModal} />

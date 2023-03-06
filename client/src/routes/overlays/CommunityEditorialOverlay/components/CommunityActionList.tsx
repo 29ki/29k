@@ -8,6 +8,7 @@ import {
   CommunityIcon,
   CheckedIcon,
   WandIcon,
+  FriendsIcon,
 } from '../../../../lib/components/Icons';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
 import {Linking} from 'react-native';
@@ -28,6 +29,8 @@ const CommunityActionList = () => {
     [navigate],
   );
 
+  const hostsPress = useCallback(() => navigate('HostsModal'), [navigate]);
+
   const partnersPress = useCallback(
     () => navigate('PartnersModal'),
     [navigate],
@@ -41,6 +44,9 @@ const CommunityActionList = () => {
         </ActionButton>
         <ActionButton Icon={CommunityIcon} onPress={contributorsPress}>
           {t('actions.contributors')}
+        </ActionButton>
+        <ActionButton Icon={FriendsIcon} onPress={hostsPress}>
+          {t('actions.hosts')}
         </ActionButton>
         <ActionButton Icon={CheckedIcon} onPress={partnersPress}>
           {t('actions.partners')}

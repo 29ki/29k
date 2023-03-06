@@ -74,8 +74,8 @@ const ContributorsModal = () => {
               .filter(
                 ({contributions}) =>
                   !contributions.includes('founder') &&
-                  !contributions.includes('partner') &&
-                  !contributions.includes('coreTeam'),
+                  !contributions.includes('coreTeam') &&
+                  !contributions.includes('host'),
               )
               .map(contributor => (
                 <Contributor
