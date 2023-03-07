@@ -198,7 +198,8 @@
           },
           {
             "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Podes responder em duas três palavras. X, queres começar?\n\n> Deixa todos os presentes, inclusive tu, fazerem o check-in individualmente.\n\nObrigado a todos por fazerem o check-in. Vamos começar!"
-          }
+          },
+          {}
         ]
       },
       {
@@ -324,6 +325,10 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
+      },
+      "host": {
+        "displayName": "Jenny 29k",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678117195/Images/Thumb_host_Lettinggoofcontrol.png"
       }
     },
     "duration": 30,
@@ -348,6 +353,7 @@
       }
     },
     "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+    "async": true,
     "description": "Tentar controlar o que sentimos ou pensamos tende a ser contraproducente. Neste exercício vamos aprender a renunciar a essa luta inútil e em vez disso usarmos a nossa energia para o que interessa."
   },
   "sv": {
