@@ -65,8 +65,9 @@ const useSessions = () => {
 
   const userPinnedSessions = useMemo(
     () =>
-      (sessions ?? []).filter(s =>
-        pinnedSessions.find(ps => ps.id === s.id && s.hostId !== user?.uid),
+      (sessions ?? []).filter(
+        s =>
+          pinnedSessions.find(ps => ps.id === s.id) && s.hostId !== user?.uid,
       ),
     [sessions, pinnedSessions, user],
   );
