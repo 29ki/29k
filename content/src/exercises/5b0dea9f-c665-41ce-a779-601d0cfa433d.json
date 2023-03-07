@@ -203,15 +203,19 @@
           },
           {
             "text": "Vamos fazer agora um mini check-in. Como te estás a sentir agora? Podes responder em duas três palavras. X, queres começar?\n\n> Deixa todos os presentes, inclusive tu, fazerem o check-in individualmente.\n\nObrigado a todos por fazerem o check-in. Vamos começar!",
-            "asyncText": "Faz agora um ckech-in contigo. Como te estás a sentir?\n\nVamos comelar."
+            "asyncText": "Faz agora um ckech-in contigo. Como te estás a sentir?\n\nVamos começar."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678114850/Video/Async_intro_Lettinggoofcontrol_ydrq9h.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678117195/Images/Thumb_host_Lettinggoofcontrol.png"
+        }
       },
       {
         "type": "content",
         "hostNotes": [
           {
-            "text": "Quando surgem emoções difíceis, muitos de nós têm a tendência natural de as tentar controlar. **O impulso de controlar as coisas dá-nos a sensação de estarmos no comando**. No entanto, a ciência diz-nos, que isso é apenas uma **ilusão**.\n\nEncontra uma posição confortável, relaxa os ombros. Vamos fazer uma meditação em conjunto.\n\n> Carrega em play para começar a meditação."
+            "text": "Quando surgem emoções difíceis, muitos de nós têm a tendência natural de as tentar controlar. **O impulso de controlar as coisas dá-nos a sensação de estarmos no comando**. No entanto, a ciência diz-nos, que isso é apenas uma **ilusão**.\n\nEncontra uma posição confortável, relaxa os ombros. Vamos fazer uma reflexão em conjunto.\n\n> Carrega em play para iniciar."
           }
         ],
         "content": {
@@ -227,10 +231,12 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Vamos reservar um minuto para uma reflexão individual.\n\nO que está na tua bola de praia? O que estás a empurrar para baixo da superfície?"
+            "text": "Vamos reservar um minuto para uma reflexão individual.\n\nO que está na tua bola de praia? O que estás a empurrar para baixo da superfície?",
+            "asyncText": "Reserva 1 minuto para refletir.\n\nO que está na tua bola de praia? O que estás a empurrar para baixo da superfície?"
           },
           {
-            "text": "Podes tomar notas numa folha de papel ou apenas notas mentais. E lembra-te que não há certos nem errados aqui. 1 minuto a começar agora.\n\n> Carrega no Play para começar o temporizador.\n\nMuito bem, já passou um minuto. Vamos prosseguir."
+            "text": "Podes tomar notas numa folha de papel ou apenas notas mentais. E lembra-te que não há certos nem errados aqui. 1 minuto a começar agora.\n\n> Carrega no Play para começar o temporizador.\n\nMuito bem, já passou um minuto. Vamos prosseguir.",
+            "asyncText": "Podes tomar notas numa folha de papel ou apenas notas mentais. E lembra-te que não há certos nem errados aqui. 1 minuto a começar agora.\n\n> Carrega no Play para começar o temporizador."
           }
         ],
         "content": {
@@ -265,13 +271,16 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Quanto mais tempo e esforço gastamos a tentar controlar as nossas emoções, mais elas tendem a ditar as nossas vidas. O mesmo se aplica para muitas coisas na vida. Às vezes, acreditamos que quanto **mais controlo** temos, **mais perto** estaremos de alcançar os nossos **objetivos**.\n\nPor vezes isso pode ser verdade…"
+            "text": "Quanto mais tempo e esforço gastamos a tentar controlar as nossas emoções, mais elas tendem a ditar as nossas vidas. O mesmo se aplica para muitas coisas na vida. Às vezes, acreditamos que quanto **mais controlo** temos, **mais perto** estaremos de alcançar os nossos **objetivos**.\n\nPor vezes isso pode ser verdade…",
+            "asyncText": "Quanto mais tempo e esforço gastamos a tentar controlar as nossas emoções, mais elas tendem a ditar as nossas vidas. O mesmo se aplica para muitas coisas na vida. Às vezes, acreditamos que quanto **mais controlo** temos, **mais perto** estaremos de alcançar os nossos **objetivos**.\n\nPor vezes isso pode ser verdade…"
           },
           {
-            "text": "Mas quando ficamos presos nesse ciclo de tentar controlar tudo e todos à nossa volta, acabamos por **divergir dos nossos valores**. Ou então, passam-nos ao lado ocasiões importantes e acabamos por não participar no que é realmente importante para nós."
+            "text": "Mas quando ficamos presos nesse ciclo de tentar controlar tudo e todos à nossa volta, acabamos por **divergir dos nossos valores**. Ou então, passam-nos ao lado ocasiões importantes e acabamos por não participar no que é realmente importante para nós.",
+            "asyncText": "Mas quando ficamos presos nesse ciclo de tentar controlar tudo e todos à nossa volta, acabamos por **divergir dos nossos valores**. Ou então, passam-nos ao lado ocasiões importantes e acabamos por não participar no que é realmente importante para nós."
           },
           {
-            "text": "Agora vamos ter mais 1 minuto de reflexão individual.\n\nE se não te importasses com a  tua bola de praia? O que significaria isso para ti? O que farias de diferente?"
+            "text": "Agora vamos ter mais 1 minuto de reflexão individual.\n\nE se não te importasses com a tua bola de praia? O que significaria isso para ti? O que farias de diferente?",
+            "asyncText": "Reserva mais 1 minuto de reflexão individual. E se não te importasses com a tua bola de praia? O que significaria isso para ti? O que farias de diferente?\n\n> Carrega no play para iniciar o cronómetro"
           },
           {
             "text": "1 minuto a começar agora.\n\n> Carregue em play para começar o temporizador.\n\nMuito bem, já passou um minuto. Vamos prosseguir."
@@ -306,18 +315,25 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Abdicar do controlo pode parecer **assustador**, arriscado e muito **desconfortável**. Ao praticarmos a aceitação, podemos aprender a criar espaço para um leque de emoções e experiências sem tentarmos fugir, reprimir ou lutar com as que não gostamos. Isso permite-nos redirecionar a nossa atenção e usar a nossa energia para o que realmente importa."
+            "text": "Abdicar do controlo pode parecer **assustador**, arriscado e muito **desconfortável**. Ao praticarmos a aceitação, podemos aprender a criar espaço para um leque de emoções e experiências sem tentarmos fugir, reprimir ou lutar com as que não gostamos. Isso permite-nos redirecionar a nossa atenção e usar a nossa energia para o que realmente importa.",
+            "asyncText": "Abdicar do controlo pode parecer **assustador**, arriscado e muito **desconfortável**. Ao praticarmos a aceitação, podemos aprender a criar espaço para um leque de emoções e experiências sem tentarmos fugir, reprimir ou lutar com as que não gostamos. Isso permite-nos redirecionar a nossa atenção e usar a nossa energia para o que realmente importa."
           },
           {
-            "text": "Excelente trabalho. Sugerimos-te como missão continuar o que começamos aqui hoje e levares isto para o teu dia-a-dia.\n\nPara o resto do dia de hoje e amanhã, vê se consegues perceber quando estás perante  emoções difíceis e se as estás a empurrar para baixo. De seguida refoca-te e vê se ao acolhê-las ou apenas deixá-las estar te ajuda a agir de forma diferente. Faz mais do que é realmente importante para ti e sintoniza-te com as tuas emoções."
+            "text": "Excelente trabalho. Sugerimos-te como missão continuar o que começamos aqui hoje e levares isto para o teu dia-a-dia.\n\nPara o resto do dia de hoje e amanhã, vê se consegues perceber quando estás perante  emoções difíceis e se as estás a empurrar para baixo. De seguida refoca-te e vê se ao acolhê-las ou apenas deixá-las estar te ajuda a agir de forma diferente. Faz mais do que é realmente importante para ti e sintoniza-te com as tuas emoções.",
+            "asyncText": "Excelente trabalho. Sugerimos-te como missão continuar o que começamos aqui hoje e levares isto para o teu dia-a-dia.\n\nPara o resto do dia de hoje e amanhã, vê se consegues perceber quando estás perante  emoções difíceis e se as estás a empurrar para baixo. De seguida refoca-te e vê se ao acolhê-las ou apenas deixá-las estar te ajuda a agir de forma diferente. Faz mais do que é realmente importante para ti e sintoniza-te com as tuas emoções."
           },
           {
-            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo te sentes agora? Mudou alguma coisa? Podes responder em duas ou três palavras."
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo te sentes agora? Mudou alguma coisa? Podes responder em duas ou três palavras.",
+            "asyncText": "Antes de saíres deste espaço, faz novamente um check-in contigo. Como te estás a sentir? Sentiste alguma mudança?\n\nQuando estiveres pronta/o termina a sessão ao teu ritmo."
           },
           {
             "text": "Quem quer começar?\n\n> Deixa todos os presentes na sessão fazerem o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out e por estarem presentes na sessão de hoje.\n\n> Acaba a sessão para que todos sejam encaminhados para a experiência de saída."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678115304/Video/Async_Outro_Lettinggoofcontrol_xqtqcv.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678117195/Images/Thumb_host_Lettinggoofcontrol.png"
+        }
       }
     ],
     "theme": {
