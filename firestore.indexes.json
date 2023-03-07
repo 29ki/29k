@@ -161,6 +161,10 @@
           "order": "ASCENDING"
         },
         {
+          "fieldPath": "sharingId",
+          "order": "ASCENDING"
+        },
+        {
           "fieldPath": "approved",
           "order": "ASCENDING"
         },

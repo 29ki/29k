@@ -37,11 +37,14 @@ describe('useSharingPosts', () => {
       const {result} = renderHook(() => useSharingPosts('some-exercise-id'));
 
       await act(async () => {
-        const posts = await result.current.getSharingPosts();
+        const posts = await result.current.getSharingPosts('some-sharing-id');
 
         expect(posts).toEqual([{id: 'some-post-id'}]);
         expect(mockFetchPosts).toHaveBeenCalledTimes(1);
-        expect(mockFetchPosts).toHaveBeenCalledWith('some-exercise-id');
+        expect(mockFetchPosts).toHaveBeenCalledWith(
+          'some-exercise-id',
+          'some-sharing-id',
+        );
       });
     });
 
@@ -49,7 +52,7 @@ describe('useSharingPosts', () => {
       const {result} = renderHook(() => useSharingPosts(undefined));
 
       await act(async () => {
-        const posts = await result.current.getSharingPosts();
+        const posts = await result.current.getSharingPosts('some-sharing-id');
 
         expect(posts).toEqual([]);
         expect(mockFetchPosts).toHaveBeenCalledTimes(0);
