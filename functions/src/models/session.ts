@@ -185,7 +185,12 @@ export const updateSession = async (
   const updateValues = {
     ...data,
     ...(data.startTime
-      ? {startTime: Timestamp.fromDate(new Date(data.startTime))}
+      ? {
+          startTime: Timestamp.fromDate(new Date(data.startTime)),
+          closingTime: Timestamp.fromDate(
+            dayjs(data.startTime).add(30, 'minutes').toDate(),
+          ),
+        }
       : {}),
     ...(data.closingTime
       ? {closingTime: Timestamp.fromDate(new Date(data.closingTime))}
