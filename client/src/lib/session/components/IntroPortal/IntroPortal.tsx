@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
@@ -19,6 +19,9 @@ import VideoTransition from '../VideoTransition/VideoTransition';
 import HostNotes from '../HostNotes/HostNotes';
 import {ArrowLeftIcon} from '../../../components/Icons';
 import Button from '../../../components/Buttons/Button';
+import VideoLooper from '../../../components/VideoLooper/VideoLooper';
+import {StyleSheet} from 'react-native';
+import VideoLooperType from '../../../../../types/VideoLooper';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -38,6 +41,11 @@ const TopBar = styled(Gutters)({
 const BackButton = styled(IconButton)({
   marginLeft: -SPACINGS.SIXTEEN,
 });
+
+const VideoLooperStyled = styled(VideoLooper)(({paused}) => ({
+  opacity: paused ? 0 : 1,
+  ...StyleSheet.absoluteFillObject,
+}));
 
 type IntroPortalProps = {
   exercise: Exercise | null;
@@ -104,7 +112,18 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
           repeat
         />
       )}
-      <VideoTransition
+      {introPortal?.videoLoop?.source && (
+        <VideoLooperStyled
+          loopSource={introPortal.videoLoop.source}
+          endSource={introPortal.videoEnd?.source}
+          repeat={!sessionState?.started}
+          paused={!isFocused}
+          onReadyForDisplay={onVideoReadyForDisplay}
+          onTransition={onVideoTransition}
+          onEnd={onVideoEnd}
+        />
+      )}
+      {/* <VideoTransition
         loopSource={introPortal?.videoLoop?.source}
         loopPosterSource={introPortal?.videoLoop?.preview}
         endSource={introPortal?.videoEnd?.source}
@@ -113,7 +132,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
         onReadyForDisplay={onVideoReadyForDisplay}
         onTransition={onVideoTransition}
         onEnd={onVideoEnd}
-      />
+      /> */}
       {isHost && (
         <>
           <HostNotes introPortal exercise={exercise} />

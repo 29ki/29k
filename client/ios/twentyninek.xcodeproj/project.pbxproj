@@ -16,6 +16,15 @@
 		172FD1A660FA43AF8390F756 /* HKGrotesk-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D23A9D3469D04DCBA3B5B6DE /* HKGrotesk-ThinItalic.ttf */; };
 		1AF1549406FE42B5B87DF3CD /* PlayfairDisplay-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B969669E9C09454993930592 /* PlayfairDisplay-ExtraBold.ttf */; };
 		1CADA6E67B504D9EA69F73FA /* HKGrotesk-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8268BC6140D4234847163B1 /* HKGrotesk-BoldItalic.ttf */; };
+		20AC302B29B612980083FDD0 /* VideoLooperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC302A29B612980083FDD0 /* VideoLooperView.swift */; };
+		20AC302C29B612980083FDD0 /* VideoLooperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC302A29B612980083FDD0 /* VideoLooperView.swift */; };
+		20AC302D29B612980083FDD0 /* VideoLooperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC302A29B612980083FDD0 /* VideoLooperView.swift */; };
+		20AC302F29B612F40083FDD0 /* VideoLooperManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AC302E29B612F40083FDD0 /* VideoLooperManager.m */; };
+		20AC303029B612F40083FDD0 /* VideoLooperManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AC302E29B612F40083FDD0 /* VideoLooperManager.m */; };
+		20AC303129B612F40083FDD0 /* VideoLooperManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AC302E29B612F40083FDD0 /* VideoLooperManager.m */; };
+		20AC303529B6146F0083FDD0 /* VideoLooperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC303429B6146F0083FDD0 /* VideoLooperManager.swift */; };
+		20AC303629B6146F0083FDD0 /* VideoLooperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC303429B6146F0083FDD0 /* VideoLooperManager.swift */; };
+		20AC303729B6146F0083FDD0 /* VideoLooperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC303429B6146F0083FDD0 /* VideoLooperManager.swift */; };
 		2534018508E87E505AF96201 /* Pods_production.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3917496B3DD7B39A251F220E /* Pods_production.framework */; };
 		358C4F2723F64259BA21F041 /* HKGrotesk-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F984EB2C23C413EAD170059 /* HKGrotesk-SemiBoldItalic.ttf */; };
 		36303A0928D9B0910025F147 /* PlayfairDisplay-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64EC0C45BF0040A2AEAB9C0F /* PlayfairDisplay-Italic.ttf */; };
@@ -127,6 +136,10 @@
 		141DCBF6D58B416E9DC98C69 /* HKGrotesk-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-Italic.ttf"; path = "../src/assets/fonts/HKGrotesk-Italic.ttf"; sourceTree = "<group>"; };
 		1F92E01E06E64E5F936FE9CB /* HKGrotesk-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-BlackItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-BlackItalic.ttf"; sourceTree = "<group>"; };
 		20A763052861E2FE0007087C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		20AC302A29B612980083FDD0 /* VideoLooperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLooperView.swift; sourceTree = "<group>"; };
+		20AC302E29B612F40083FDD0 /* VideoLooperManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoLooperManager.m; sourceTree = "<group>"; };
+		20AC303429B6146F0083FDD0 /* VideoLooperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLooperManager.swift; sourceTree = "<group>"; };
+		20AC303829B614FB0083FDD0 /* dev-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dev-Bridging-Header.h"; sourceTree = "<group>"; };
 		2F984EB2C23C413EAD170059 /* HKGrotesk-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-SemiBoldItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		35E0C7EB316048939A75C305 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Regular.ttf"; path = "../src/assets/fonts/PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		3690D88D2865064200A0F937 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = twentyninek/Images.xcassets; sourceTree = "<group>"; };
@@ -211,6 +224,10 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				20AC302A29B612980083FDD0 /* VideoLooperView.swift */,
+				20AC302E29B612F40083FDD0 /* VideoLooperManager.m */,
+				20AC303429B6146F0083FDD0 /* VideoLooperManager.swift */,
+				20AC303829B614FB0083FDD0 /* dev-Bridging-Header.h */,
 			);
 			name = twentyninek;
 			sourceTree = "<group>";
@@ -431,7 +448,13 @@
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1420;
+					};
+					36B9FA0C28625FFA00563812 = {
+						LastSwiftMigration = 1420;
+					};
+					7880A5102862029F0063B482 = {
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -936,6 +959,9 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				20AC303529B6146F0083FDD0 /* VideoLooperManager.swift in Sources */,
+				20AC302F29B612F40083FDD0 /* VideoLooperManager.m in Sources */,
+				20AC302B29B612980083FDD0 /* VideoLooperView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -945,6 +971,9 @@
 			files = (
 				36B9FA1028625FFA00563812 /* AppDelegate.mm in Sources */,
 				36B9FA1128625FFA00563812 /* main.m in Sources */,
+				20AC303729B6146F0083FDD0 /* VideoLooperManager.swift in Sources */,
+				20AC303129B612F40083FDD0 /* VideoLooperManager.m in Sources */,
+				20AC302D29B612980083FDD0 /* VideoLooperView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -954,6 +983,9 @@
 			files = (
 				7880A5142862029F0063B482 /* AppDelegate.mm in Sources */,
 				7880A5152862029F0063B482 /* main.m in Sources */,
+				20AC303629B6146F0083FDD0 /* VideoLooperManager.swift in Sources */,
+				20AC303029B612F40083FDD0 /* VideoLooperManager.m in Sources */,
+				20AC302C29B612980083FDD0 /* VideoLooperView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -987,6 +1019,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake;
 				PRODUCT_NAME = production;
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.twentyninek.app.cupcake";
+				SWIFT_OBJC_BRIDGING_HEADER = "production-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1019,6 +1052,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake;
 				PRODUCT_NAME = production;
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore org.twentyninek.app.cupcake";
+				SWIFT_OBJC_BRIDGING_HEADER = "production-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1053,6 +1087,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.twentyninek.app.cupcake.dev";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development org.twentyninek.app.cupcake.dev";
+				SWIFT_OBJC_BRIDGING_HEADER = "dev-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1088,6 +1123,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.twentyninek.app.cupcake.dev";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore org.twentyninek.app.cupcake.dev";
+				SWIFT_OBJC_BRIDGING_HEADER = "dev-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1120,6 +1156,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.twentyninek.app.cupcake.staging";
+				SWIFT_OBJC_BRIDGING_HEADER = "staging-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1152,6 +1189,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore org.twentyninek.app.cupcake.staging";
+				SWIFT_OBJC_BRIDGING_HEADER = "staging-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

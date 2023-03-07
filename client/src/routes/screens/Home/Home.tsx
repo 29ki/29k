@@ -167,6 +167,23 @@ const Home = () => {
     navigate('AboutOverlay');
   }, [navigate]);
 
+  // return (
+  //   <Screen>
+  //     <TopSafeArea minSize={SPACINGS.SIXTEEN} />
+  //     <TopBar
+  //       backgroundColor={COLORS.PURE_WHITE}
+  //       onPressEllipsis={onPressEllipsis}>
+  //       <MiniProfile />
+  //     </TopBar>
+  //     <Spacer96 />
+  //     <VideoLooper
+  //       loopSrc="https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4"
+  //       endSrc="https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
+  //       onEnd={() => console.log('END!!!!!!!!!!!!')}
+  //       repeat={repeat}
+  //     />
+  //   </Screen>
+  // );
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
       <TopSafeArea minSize={SPACINGS.SIXTEEN} />
