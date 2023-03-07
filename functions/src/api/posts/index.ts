@@ -6,7 +6,7 @@ import {PostError} from '../../../../shared/src/errors/Post';
 import {
   createPost,
   deletePost,
-  getPostsByExerciseId,
+  getPostsByExerciseAndSharingId,
 } from '../../controllers/posts';
 import {RequestError} from '../../controllers/errors/RequestError';
 
@@ -14,11 +14,15 @@ const postsRouter = createApiRouter();
 
 const POSTS_LIMIT = 20;
 
-postsRouter.get('/:exerciseId', async ctx => {
+postsRouter.get('/:exerciseId/:sharingId', async ctx => {
   const {response} = ctx;
-  const {exerciseId} = ctx.params;
+  const {exerciseId, sharingId} = ctx.params;
 
-  const posts = await getPostsByExerciseId(exerciseId, POSTS_LIMIT);
+  const posts = await getPostsByExerciseAndSharingId(
+    exerciseId,
+    sharingId,
+    POSTS_LIMIT,
+  );
 
   response.status = 200;
   ctx.body = posts;

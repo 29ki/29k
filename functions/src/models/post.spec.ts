@@ -16,7 +16,7 @@ import {
 import {firestore} from 'firebase-admin';
 import {Timestamp} from 'firebase-admin/firestore';
 
-import {addPost, getPostById, getPostsByExerciseId} from './post';
+import {addPost, getPostById, getPostsByExerciseAndSharingId} from './post';
 
 const posts = [
   {
@@ -77,14 +77,19 @@ describe('post model', () => {
     });
   });
 
-  describe('getPostsByExerciseId', () => {
+  describe('getPostsByExerciseAndSharingId', () => {
     it('should filter by exerciseId, approved and public', async () => {
-      await getPostsByExerciseId('some-exercise-id', 10);
+      await getPostsByExerciseAndSharingId(
+        'some-exercise-id',
+        'sharing-id',
+        10,
+      );
       expect(mockWhere).toHaveBeenCalledWith(
         'exerciseId',
         '==',
         'some-exercise-id',
       );
+      expect(mockWhere).toHaveBeenCalledWith('sharingId', '==', 'sharing-id');
       expect(mockWhere).toHaveBeenCalledWith('approved', '==', true);
       expect(mockOrderBy).toHaveBeenCalledWith('createdAt', 'desc');
       expect(mockLimit).toHaveBeenCalledWith(10 * 2);
