@@ -6,9 +6,13 @@ import {
   setCoreProperties,
   setUserProperties,
 } from '.';
+import {getCurrentRouteName} from '../navigation/utils/routes';
 import * as backEnd from './adaptors/backEnd';
 import * as postHog from './adaptors/postHog';
 
+const mockGetCurrentRouteName = jest.mocked(getCurrentRouteName);
+
+jest.mock('../navigation/utils/routes');
 jest.mock('./adaptors/backEnd');
 jest.mock('./adaptors/postHog');
 
@@ -46,6 +50,43 @@ describe('logEvent', () => {
     });
     expect(postHog.logEvent).toHaveBeenCalledTimes(1);
     expect(postHog.logEvent).toHaveBeenCalledWith('Screen', {
+      'Screen Name': 'some-screen',
+    });
+  });
+
+  it('adds Origin property as current route name', async () => {
+    mockGetCurrentRouteName.mockReturnValueOnce('Some Origin');
+
+    await logEvent('Screen', {'Screen Name': 'some-screen'});
+
+    expect(backEnd.logEvent).toHaveBeenCalledTimes(1);
+    expect(backEnd.logEvent).toHaveBeenCalledWith('Screen', {
+      Origin: 'Some Origin',
+      'Screen Name': 'some-screen',
+    });
+    expect(postHog.logEvent).toHaveBeenCalledTimes(1);
+    expect(postHog.logEvent).toHaveBeenCalledWith('Screen', {
+      Origin: 'Some Origin',
+      'Screen Name': 'some-screen',
+    });
+  });
+
+  it('allows override of Origin property', async () => {
+    mockGetCurrentRouteName.mockReturnValueOnce('Some Origin');
+
+    await logEvent('Screen', {
+      Origin: 'Some Other Origin',
+      'Screen Name': 'some-screen',
+    });
+
+    expect(backEnd.logEvent).toHaveBeenCalledTimes(1);
+    expect(backEnd.logEvent).toHaveBeenCalledWith('Screen', {
+      Origin: 'Some Other Origin',
+      'Screen Name': 'some-screen',
+    });
+    expect(postHog.logEvent).toHaveBeenCalledTimes(1);
+    expect(postHog.logEvent).toHaveBeenCalledWith('Screen', {
+      Origin: 'Some Other Origin',
       'Screen Name': 'some-screen',
     });
   });
