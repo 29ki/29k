@@ -9,7 +9,7 @@ import {Linking} from 'react-native';
 import {utils} from '@react-native-firebase/app';
 import {DEEP_LINK_SCHEMA, DEEP_LINK_PREFIX} from 'config';
 
-import {ModalStackProps} from './constants/routes';
+import {RootNavigationProps} from './constants/routes';
 
 const resolveNotificationUrl = async (
   source: InitialNotification | EventDetail | null,
@@ -21,7 +21,7 @@ const resolveNotificationUrl = async (
 };
 
 // Deep link configuration
-const config: LinkingOptions<ModalStackProps>['config'] = {
+const config: LinkingOptions<RootNavigationProps>['config'] = {
   initialRouteName: 'OverlayStack',
   screens: {
     AddSessionByInviteModal: 'joinSessionInvite/:inviteCode',
@@ -30,7 +30,7 @@ const config: LinkingOptions<ModalStackProps>['config'] = {
 };
 
 // Linking setup
-const linking: LinkingOptions<ModalStackProps> = {
+const linking: LinkingOptions<RootNavigationProps> = {
   config,
 
   prefixes: [DEEP_LINK_SCHEMA, DEEP_LINK_PREFIX],

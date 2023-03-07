@@ -84,3 +84,5 @@ export type ModalStackProps = {
     isHost: boolean;
   };
 };
+
+export type RootNavigationProps = ModalStackProps;
