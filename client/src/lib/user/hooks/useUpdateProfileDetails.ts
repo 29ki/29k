@@ -2,11 +2,15 @@ import {useCallback, useState} from 'react';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {ensureUserCreated} from '..';
 
-type UpdateProfileDetails = (profileDetails: {
+export type ProfileDetails = {
   displayName?: FirebaseAuthTypes.User['displayName'];
   email?: FirebaseAuthTypes.User['email'];
   password?: string;
-}) => Promise<void>;
+};
+
+export type UpdateProfileDetails = (
+  profileDetails: ProfileDetails,
+) => Promise<void>;
 
 const useUpdateProfileDetails = () => {
   const [isUpdatingProfileDetails, setIsUpdatingProfileDetails] =

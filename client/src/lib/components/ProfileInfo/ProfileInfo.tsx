@@ -1,6 +1,9 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+
 import Button from '../Buttons/Button';
 import {Spacer16} from '../Spacers/Spacer';
 import {BottomSheetTextInput} from '../Typography/TextInput/TextInput';
@@ -10,6 +13,7 @@ import useUpdateProfileDetails from '../../user/hooks/useUpdateProfileDetails';
 import ProfilePicture from '../User/ProfilePicture';
 import useUser from '../../user/hooks/useUser';
 import {COLORS} from '../../../../../shared/src/constants/colors';
+import {ModalStackProps} from '../../navigation/constants/routes';
 
 const Container = styled.View({
   alignItems: 'center',
@@ -36,6 +40,10 @@ const StyledButton = styled(Button)<{customDisabled: boolean}>(
 
 const ProfileInfo = () => {
   const {t} = useTranslation('Component.ProfileInfo');
+  const {navigate} =
+    useNavigation<
+      NativeStackNavigationProp<ModalStackProps, 'UpdateProfileDetailsModal'>
+    >();
   const user = useUser();
   const {changeProfilePicture, isUpdatingProfilePicture} =
     useChangeProfilePicture();
@@ -68,7 +76,13 @@ const ProfileInfo = () => {
     if (displayName.length <= 2) {
       setNameMissing(true);
     } else {
-      await updateProfileDetails({displayName});
+      try {
+        await updateProfileDetails({displayName});
+      } catch (err: any) {
+        if (err.code ?? err.message === 'auth/requires-recent-login') {
+          navigate('UpdateProfileDetailsModal', {displayName});
+        }
+      }
       setNameMissing(false);
     }
 
@@ -77,7 +91,7 @@ const ProfileInfo = () => {
     } else {
       setPictureMissing(false);
     }
-  }, [user, displayName, updateProfileDetails]);
+  }, [user, displayName, updateProfileDetails, navigate]);
 
   return (
     <Container>

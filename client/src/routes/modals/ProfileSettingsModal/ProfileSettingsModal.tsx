@@ -74,9 +74,13 @@ const ProfileSettingsModal = () => {
       await updateProfileDetails({displayName, email, password});
       popToTop();
     } catch (e: any) {
-      setError(e.code ?? e.message);
+      if (e.code ?? e.message === 'auth/requires-recent-login') {
+        navigate('UpdateProfileDetailsModal', {displayName, email, password});
+      } else {
+        setError(e.code ?? e.message);
+      }
     }
-  }, [updateProfileDetails, popToTop, displayName, email, password]);
+  }, [updateProfileDetails, popToTop, displayName, email, password, navigate]);
 
   const languagePress = useCallback(
     () => navigate('ChangeLanguageModal'),
