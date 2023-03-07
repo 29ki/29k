@@ -194,7 +194,8 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Bem-vindos. Eu sou a/o X e hoje vamos focar-nos durante 30 minutos na aceitação e renúncia ao controlo.\\\n\\\nFaremos uma breve meditação juntos. Depois teremos um momento de reflexão individual e o passo final será partilharmos uns com os outros a nossa experiência desta sessão."
+            "text": "Bem-vindos. Eu sou a/o X e hoje vamos focar-nos durante 30 minutos na aceitação e renúncia ao controlo.\\\n\\\nFaremos uma breve meditação juntos. Depois teremos um momento de reflexão individual e o passo final será partilharmos uns com os outros a nossa experiência desta sessão.",
+            "asyncText": "Bem-vinda/o a esta sessão acerca da aceitação e da renúncia ao controlo.\\\n\\\nTeremos um pequeno Faremos uma breve meditação juntos. Depois teremos um momento de reflexão individual e o passo final será partilharmos uns com os outros a nossa experiência desta sessão."
           },
           {
             "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Podes responder em duas três palavras. X, queres começar?\n\n> Deixa todos os presentes, inclusive tu, fazerem o check-in individualmente.\n\nObrigado a todos por fazerem o check-in. Vamos começar!"
