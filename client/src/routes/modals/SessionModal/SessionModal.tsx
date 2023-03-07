@@ -173,6 +173,7 @@ const SessionModal = () => {
   const isHost = user?.uid === session.hostId;
 
   const onJoin = useCallback(() => {
+    logSessionMetricEvent('Join Sharing Session', session); // Log before navigating for correct Origin property in event
     navigation.popToTop();
     navigation.navigate('LiveSessionStack', {
       screen: 'ChangingRoom',
@@ -180,7 +181,6 @@ const SessionModal = () => {
         session: session,
       },
     });
-    logSessionMetricEvent('Join Sharing Session', session);
   }, [navigation, session, logSessionMetricEvent]);
 
   const onAddToCalendar = useCallback(() => {
