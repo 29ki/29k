@@ -7,7 +7,6 @@ import {
   LiveSession,
 } from '../../../../../shared/src/types/Session';
 import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
-import {ProfileDetails} from '../../user/hooks/useUpdateProfileDetails';
 
 export type TabNavigatorProps = {
   Home: undefined;
@@ -74,7 +73,6 @@ export type ModalStackProps = {
   ProfileSettingsModal: undefined;
   SignInModal: undefined;
   DeleteUserModal: undefined;
-  UpdateProfileDetailsModal: ProfileDetails;
   ContributorsModal: undefined;
   HostsModal: undefined;
   PartnersModal: undefined;

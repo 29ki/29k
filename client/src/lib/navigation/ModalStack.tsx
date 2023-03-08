@@ -29,7 +29,6 @@ import SharingModal from '../../routes/modals/SharingModal/SharingModal';
 import SharingPostModal from '../../routes/modals/SharingPostModal/SharingPostModal';
 import DeleteUserModal from '../../routes/modals/DeleteUserModal/DeleteUserModal';
 import HostsModal from '../../routes/modals/Contributors/HostsModal';
-import UpdateProfileDetailsModal from '../../routes/modals/UpdateProfileDetailsModal/UpdateProfileDetailsModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -192,12 +191,6 @@ const ModalStack = () => {
         <Screen
           name={'DeleteUserModal'}
           component={DeleteUserModal}
-          options={shortSheetModalScreenOptions}
-        />
-
-        <Screen
-          name={'UpdateProfileDetailsModal'}
-          component={UpdateProfileDetailsModal}
           options={shortSheetModalScreenOptions}
         />
 

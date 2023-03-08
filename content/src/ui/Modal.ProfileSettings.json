@@ -1,6 +1,7 @@
 {
   "en": {
     "changePassword": "Change password",
+    "currentPassword": "Current password",
     "errors": {
       "auth/invalid-display-name": "The provided value for the displayName user property is invalid. It must be a non-empty string.",
       "auth/email-already-in-use": "The provided email is already in use by an existing user.",

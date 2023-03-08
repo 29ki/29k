@@ -67,20 +67,24 @@ const ProfileSettingsModal = () => {
   const [displayName, setDisplayName] = useState(user?.displayName);
   const [email, setEmail] = useState(user?.email);
   const [password, setPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
   const [error, setError] = useState('');
 
   const updateUserPress = useCallback(async () => {
     try {
-      await updateProfileDetails({displayName, email, password});
+      await updateProfileDetails({displayName, email, password, newPassword});
       popToTop();
     } catch (e: any) {
-      if (e.code ?? e.message === 'auth/requires-recent-login') {
-        navigate('UpdateProfileDetailsModal', {displayName, email, password});
-      } else {
-        setError(e.code ?? e.message);
-      }
+      setError(e.code ?? e.message);
     }
-  }, [updateProfileDetails, popToTop, displayName, email, password, navigate]);
+  }, [
+    updateProfileDetails,
+    popToTop,
+    displayName,
+    email,
+    password,
+    newPassword,
+  ]);
 
   const languagePress = useCallback(
     () => navigate('ChangeLanguageModal'),
@@ -146,6 +150,18 @@ const ProfileSettingsModal = () => {
               onChangeText={setEmail}
               defaultValue={email}
             />
+            {user && !user?.isAnonymous && (
+              <BottomSheetActionTextInput
+                textContentType="currentPassword"
+                secureTextEntry
+                autoCapitalize="none"
+                autoComplete="password-current"
+                autoCorrect={false}
+                onSubmitEditing={updateUserPress}
+                placeholder={t('currentPassword')}
+                onChangeText={setPassword}
+              />
+            )}
             <BottomSheetActionTextInput
               textContentType="newPassword"
               secureTextEntry
@@ -158,7 +174,7 @@ const ProfileSettingsModal = () => {
                   ? t('changePassword')
                   : t('setPassword')
               }
-              onChangeText={setPassword}
+              onChangeText={setNewPassword}
             />
           </ActionList>
           <Spacer16 />

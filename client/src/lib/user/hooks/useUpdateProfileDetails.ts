@@ -6,6 +6,7 @@ export type ProfileDetails = {
   displayName?: FirebaseAuthTypes.User['displayName'];
   email?: FirebaseAuthTypes.User['email'];
   password?: string;
+  newPassword?: string;
 };
 
 export type UpdateProfileDetails = (
@@ -17,7 +18,7 @@ const useUpdateProfileDetails = () => {
     useState(false);
 
   const updateProfileDetails = useCallback<UpdateProfileDetails>(
-    async ({displayName, email, password}) => {
+    async ({displayName, email, password, newPassword}) => {
       try {
         setIsUpdatingProfileDetails(true);
 
@@ -26,23 +27,39 @@ const useUpdateProfileDetails = () => {
         const currentUser = auth().currentUser;
 
         if (currentUser?.isAnonymous && email) {
-          if (!password) {
+          if (!newPassword) {
             throw new Error('auth/password-missing');
           }
           const emailAndPasswordCredentials = auth.EmailAuthProvider.credential(
             email,
-            password,
+            newPassword,
           );
           await currentUser?.linkWithCredential(emailAndPasswordCredentials);
 
           // We get auth/id-token-revoked if not signIn again
           await auth().signInWithCredential(emailAndPasswordCredentials);
         } else {
-          if (email && email !== currentUser?.email) {
-            await currentUser?.updateEmail(email);
-          }
-          if (password) {
-            await currentUser?.updatePassword(password);
+          const emailChanged = email && email !== currentUser?.email;
+
+          if (emailChanged || newPassword) {
+            if (!password) {
+              throw new Error('auth/password-missing');
+            }
+            if (!currentUser?.email) {
+              throw new Error('auth/email-missing');
+            }
+
+            await auth().signInWithEmailAndPassword(
+              currentUser.email,
+              password,
+            );
+
+            if (email && email !== currentUser.email) {
+              await currentUser.updateEmail(email);
+            }
+            if (newPassword) {
+              await currentUser.updatePassword(newPassword);
+            }
           }
         }
 
