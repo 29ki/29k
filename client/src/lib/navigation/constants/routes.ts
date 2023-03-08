@@ -7,10 +7,7 @@ import {
   LiveSession,
 } from '../../../../../shared/src/types/Session';
 import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
-import {
-  ProfileDetails,
-  UpdateProfileDetails,
-} from '../../user/hooks/useUpdateProfileDetails';
+import {ProfileDetails} from '../../user/hooks/useUpdateProfileDetails';
 
 export type TabNavigatorProps = {
   Home: undefined;
