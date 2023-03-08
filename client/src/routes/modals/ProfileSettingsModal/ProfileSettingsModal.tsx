@@ -152,10 +152,10 @@ const ProfileSettingsModal = () => {
             />
             {user && !user?.isAnonymous && (
               <BottomSheetActionTextInput
-                textContentType="currentPassword"
+                textContentType="password"
                 secureTextEntry
                 autoCapitalize="none"
-                autoComplete="password-current"
+                autoComplete="password"
                 autoCorrect={false}
                 onSubmitEditing={updateUserPress}
                 placeholder={t('currentPassword')}
@@ -166,7 +166,6 @@ const ProfileSettingsModal = () => {
               textContentType="newPassword"
               secureTextEntry
               autoCapitalize="none"
-              autoComplete="password-new"
               autoCorrect={false}
               onSubmitEditing={updateUserPress}
               placeholder={
