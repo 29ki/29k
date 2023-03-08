@@ -4,6 +4,7 @@ import {
   Init,
   LogEvent,
   LogFeedback,
+  LogNavigation,
   MetricsProvider,
   SetConsent,
   SetCoreProperties,
@@ -11,17 +12,15 @@ import {
 } from '../../types/Adaptor';
 import getMetricsUid from './utils/getMetricsUid';
 import metricsClient from './utils/metricsClient';
-import useNavigationTracker from './hooks/useNavigationTracker';
 import {DEFAULT_CONSENT} from '../../constants';
 
 let haveConsent = DEFAULT_CONSENT;
 
 let coreProperties = {};
 
-export const BackEndMetricsProvider: MetricsProvider = ({children}) => {
-  useNavigationTracker();
-  return <>{children}</>;
-};
+export const BackEndMetricsProvider: MetricsProvider = ({children}) => (
+  <>{children}</>
+);
 
 export const init: Init = async () => {};
 
@@ -44,6 +43,13 @@ export const logEvent: LogEvent = async (event, properties) => {
       }),
     });
   }
+};
+
+export const logNavigation: LogNavigation = async (screenName, properties) => {
+  await logEvent('Screen', {
+    ...properties,
+    'Screen Name': screenName,
+  });
 };
 
 export const logFeeback: LogFeedback = async feedback => {

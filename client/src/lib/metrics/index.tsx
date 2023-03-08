@@ -3,6 +3,7 @@ import {
   Init,
   LogEvent,
   LogFeedback,
+  LogNavigation,
   MetricsProvider as MetricsProviderType,
   SetConsent,
   SetCoreProperties,
@@ -13,12 +14,16 @@ import {BackEndMetricsProvider} from './adaptors/backEnd';
 import * as postHog from './adaptors/postHog';
 import * as backEnd from './adaptors/backEnd';
 import {getCurrentRouteName} from '../navigation/utils/routes';
+import useNavigationTracker from './hooks/useNavigationTracker';
 
-export const MetricsProvider: MetricsProviderType = ({children}) => (
-  <BackEndMetricsProvider>
-    <PostHogMetricsProvider>{children}</PostHogMetricsProvider>
-  </BackEndMetricsProvider>
-);
+export const MetricsProvider: MetricsProviderType = ({children}) => {
+  useNavigationTracker();
+  return (
+    <BackEndMetricsProvider>
+      <PostHogMetricsProvider>{children}</PostHogMetricsProvider>
+    </BackEndMetricsProvider>
+  );
+};
 
 export const init: Init = async () => {
   await Promise.all([postHog.init(), backEnd.init()]);
@@ -40,6 +45,13 @@ export const logEvent: LogEvent = async (event, properties) => {
   await Promise.all([
     postHog.logEvent(event, props),
     backEnd.logEvent(event, props),
+  ]);
+};
+
+export const logNavigation: LogNavigation = async (screenName, properties) => {
+  await Promise.all([
+    postHog.logNavigation(screenName, properties),
+    backEnd.logNavigation(screenName, properties),
   ]);
 };
 

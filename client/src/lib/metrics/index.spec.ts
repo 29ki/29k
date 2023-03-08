@@ -1,6 +1,7 @@
 import {
   init,
   logEvent,
+  logNavigation,
   logFeedback,
   setConsent,
   setCoreProperties,
@@ -88,6 +89,21 @@ describe('logEvent', () => {
     expect(postHog.logEvent).toHaveBeenCalledWith('Screen', {
       Origin: 'Some Other Origin',
       'Screen Name': 'some-screen',
+    });
+  });
+});
+
+describe('logNavigation', () => {
+  it('calls backEnd and postHog adaptors', async () => {
+    await logNavigation('Some Screen', {Origin: 'some-origin'});
+
+    expect(backEnd.logNavigation).toHaveBeenCalledTimes(1);
+    expect(backEnd.logNavigation).toHaveBeenCalledWith('Some Screen', {
+      Origin: 'some-origin',
+    });
+    expect(postHog.logNavigation).toHaveBeenCalledTimes(1);
+    expect(postHog.logNavigation).toHaveBeenCalledWith('Some Screen', {
+      Origin: 'some-origin',
     });
   });
 });
