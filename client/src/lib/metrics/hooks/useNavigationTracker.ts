@@ -4,7 +4,7 @@
 */
 import {useNavigation, useNavigationState} from '@react-navigation/native';
 import {useCallback, useEffect} from 'react';
-import {logEvent} from '..';
+import {logNavigation} from '../';
 
 const useNavigationTracker = () => {
   const routes = useNavigationState(state => state?.routes);
@@ -25,7 +25,12 @@ const useNavigationTracker = () => {
       name = route.name;
     }
 
-    logEvent('Screen', {'Screen Name': name || 'Unknown'});
+    logNavigation(
+      name || 'Unknown',
+      currentRoute?.params?.origin && {
+        Origin: currentRoute.params.origin,
+      },
+    );
   }, [navigation]);
 
   useEffect(() => {

@@ -21,6 +21,11 @@ export type LogEvent = <Event extends keyof Events>(
     : DefaultProperties,
 ) => Promise<void>;
 
+export type LogNavigation = (
+  screenName: string,
+  properties?: Omit<Events['Screen'], 'Screen Name'> & DefaultProperties,
+) => Promise<void>;
+
 export type LogFeedback = (feedback: Feedback) => Promise<void>;
 
 export type SetUserProperties = (

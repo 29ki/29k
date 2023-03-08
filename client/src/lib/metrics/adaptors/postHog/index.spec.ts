@@ -3,6 +3,7 @@ import type * as PostHogType from '.';
 
 const mockPostHogClient = {
   capture: jest.fn(),
+  screen: jest.fn(),
   identify: jest.fn(),
   register: jest.fn(),
   optIn: jest.fn(),
@@ -90,6 +91,24 @@ describe('logEvent', () => {
     expect(mockPostHogClient.capture).toHaveBeenCalledTimes(1);
     expect(mockPostHogClient.capture).toHaveBeenCalledWith('Screen', {
       'Screen Name': 'some-screen',
+    });
+  });
+});
+
+describe('logNavigation', () => {
+  it('requires an init first', async () => {
+    await postHog.logNavigation('Some Screen');
+
+    expect(mockPostHogClient.screen).toHaveBeenCalledTimes(0);
+  });
+
+  it('calls capture', async () => {
+    await postHog.init();
+    await postHog.logNavigation('Some Screen', {Origin: 'some-origin'});
+
+    expect(mockPostHogClient.screen).toHaveBeenCalledTimes(1);
+    expect(mockPostHogClient.screen).toHaveBeenCalledWith('Some Screen', {
+      Origin: 'some-origin',
     });
   });
 });

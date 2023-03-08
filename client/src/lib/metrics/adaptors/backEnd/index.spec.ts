@@ -54,6 +54,21 @@ describe('logEvent', () => {
   });
 });
 
+describe('logNavigation', () => {
+  it('logs Screen events', async () => {
+    jest.useFakeTimers().setSystemTime(new Date('2022-02-02'));
+    jest.mocked(getMetricsUid).mockReturnValueOnce('some-metrics-uid');
+
+    await backEnd.logNavigation('Some Screen', {Origin: 'some-origin'});
+
+    expect(metricsClient).toHaveBeenCalledTimes(1);
+    expect(metricsClient).toHaveBeenCalledWith('logEvent/some-metrics-uid', {
+      body: '{"timestamp":"2022-02-02T00:00:00.000Z","event":"Screen","properties":{"Origin":"some-origin","Screen Name":"Some Screen"}}',
+      method: 'POST',
+    });
+  });
+});
+
 describe('logFeedback', () => {
   it('sends feedback to back-end', async () => {
     await backEnd.logFeeback({
