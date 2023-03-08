@@ -7,7 +7,9 @@
       "auth/email-already-in-use": "The provided email is already in use by an existing user.",
       "auth/invalid-email": "The provided value for the email user property is invalid. It must be a string email address.",
       "auth/password-missing": "To set an e-mail address you also need to provide a password.",
-      "auth/weak-password": "The provided value for the password user property is invalid. It must be a string with at least six characters."
+      "auth/current-password-missing": "To update your profile please provide your current password.",
+      "auth/weak-password": "The provided value for the password user property is invalid. It must be a string with at least six characters.",
+      "auth/wrong-password": "Incorrect password, please try again."
     },
     "displayName": "What should we call you?",
     "title": "Profile Settings",

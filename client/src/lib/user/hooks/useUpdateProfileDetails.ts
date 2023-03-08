@@ -43,10 +43,10 @@ const useUpdateProfileDetails = () => {
 
           if (emailChanged || newPassword) {
             if (!password) {
-              throw new Error('auth/password-missing');
+              throw new Error('auth/current-password-missing');
             }
-            if (!currentUser?.email) {
-              throw new Error('auth/email-missing');
+            if (!currentUser?.email || !email) {
+              throw new Error('auth/invalid-email');
             }
 
             await auth().signInWithEmailAndPassword(
@@ -54,7 +54,7 @@ const useUpdateProfileDetails = () => {
               password,
             );
 
-            if (email && email !== currentUser.email) {
+            if (email !== currentUser.email) {
               await currentUser.updateEmail(email);
             }
             if (newPassword) {
