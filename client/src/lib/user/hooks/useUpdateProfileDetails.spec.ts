@@ -102,20 +102,46 @@ describe('useUpdateProfileDetails', () => {
   describe('isAnonymous = false', () => {
     beforeEach(() => {
       (auth().currentUser as FirebaseAuthTypes.User).isAnonymous = false;
+      auth().signInWithEmailAndPassword = jest.fn();
+      (auth().currentUser as FirebaseAuthTypes.User).email =
+        'some@email.address';
     });
 
-    it('updates the users email', async () => {
+    it('signs in with proper email and password to renew token', async () => {
       const {result} = renderHook(() => useUpdateProfileDetails());
 
       await act(async () => {
         await result.current.updateProfileDetails({
-          email: 'some@email.address',
+          email: 'some-new@email.address',
+          password: '1234',
         });
       });
 
+      expect(auth().signInWithEmailAndPassword).toHaveBeenCalledTimes(1);
+      expect(auth().signInWithEmailAndPassword).toHaveBeenCalledWith(
+        'some@email.address',
+        '1234',
+      );
+    });
+
+    it('updates the users email after singing in', async () => {
+      const {result} = renderHook(() => useUpdateProfileDetails());
+
+      await act(async () => {
+        await result.current.updateProfileDetails({
+          email: 'some-new@email.address',
+          password: '1234',
+        });
+      });
+
+      expect(auth().signInWithEmailAndPassword).toHaveBeenCalledTimes(1);
+      expect(auth().signInWithEmailAndPassword).toHaveBeenCalledWith(
+        'some@email.address',
+        '1234',
+      );
       expect(auth().currentUser?.updateEmail).toHaveBeenCalledTimes(1);
       expect(auth().currentUser?.updateEmail).toHaveBeenCalledWith(
-        'some@email.address',
+        'some-new@email.address',
       );
 
       expect(auth().currentUser?.updateProfile).toHaveBeenCalledTimes(0);
@@ -124,8 +150,6 @@ describe('useUpdateProfileDetails', () => {
 
     it("only updates email if it's changed", async () => {
       (auth().currentUser as FirebaseAuthTypes.User).isAnonymous = false;
-      (auth().currentUser as FirebaseAuthTypes.User).email =
-        'some@email.address';
 
       const {result} = renderHook(() => useUpdateProfileDetails());
 
@@ -144,12 +168,16 @@ describe('useUpdateProfileDetails', () => {
       const {result} = renderHook(() => useUpdateProfileDetails());
 
       await act(async () => {
-        await result.current.updateProfileDetails({password: 'somepassword'});
+        await result.current.updateProfileDetails({
+          email: 'some@email.address',
+          password: 'somepassword',
+          newPassword: 'newpassword',
+        });
       });
 
       expect(auth().currentUser?.updatePassword).toHaveBeenCalledTimes(1);
       expect(auth().currentUser?.updatePassword).toHaveBeenCalledWith(
-        'somepassword',
+        'newpassword',
       );
 
       expect(auth().currentUser?.updateEmail).toHaveBeenCalledTimes(0);
