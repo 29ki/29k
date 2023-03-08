@@ -102,7 +102,7 @@ describe('logNavigation', () => {
     expect(mockPostHogClient.screen).toHaveBeenCalledTimes(0);
   });
 
-  it('calls capture', async () => {
+  it('calls screen', async () => {
     await postHog.init();
     await postHog.logNavigation('Some Screen', {Origin: 'some-origin'});
 
