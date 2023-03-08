@@ -19,7 +19,7 @@ const resolveNotificationUrl = async (
 };
 
 export const getInitialURL = async () =>
-  resolveNotificationUrl(await notifee.getInitialNotification());
+  await resolveNotificationUrl(await notifee.getInitialNotification());
 
 export const addEventListener = (handler: (url: string) => void) =>
   notifee.onForegroundEvent(async ({type, detail}) => {
