@@ -540,6 +540,14 @@
       "contributions": [
         "host"
       ]
+    },
+    {
+      "contributions": [
+        "host"
+      ],
+      "name": "Alex Blakeson",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1678304256/Contributors/Alex_Blakeson_g0c12p.png",
+      "profile": "https://www.linkedin.com/in/alexblakeson/"
     }
   ],
   "types": {
