@@ -5,10 +5,10 @@ import * as dynamicLinks from './linkHandlers/dynamicLinks';
 import * as notifications from './linkHandlers/notifications';
 import * as nativeLinks from './linkHandlers/nativeLinks';
 
-import {ModalStackProps} from './constants/routes';
+import {RootNavigationProps} from './constants/routes';
 
 // Deep link configuration
-const config: LinkingOptions<ModalStackProps>['config'] = {
+const config: LinkingOptions<RootNavigationProps>['config'] = {
   initialRouteName: 'OverlayStack',
   screens: {
     AddSessionByInviteModal: 'joinSessionInvite/:inviteCode',
@@ -16,7 +16,7 @@ const config: LinkingOptions<ModalStackProps>['config'] = {
   },
 };
 
-const linking: LinkingOptions<ModalStackProps> = {
+const linking: LinkingOptions<RootNavigationProps> = {
   config,
 
   prefixes: [DEEP_LINK_SCHEMA, DEEP_LINK_PREFIX],
