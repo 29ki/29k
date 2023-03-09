@@ -1,4 +1,5 @@
 import React from 'react';
+import debug from 'debug';
 import {
   Init,
   LogEvent,
@@ -16,6 +17,8 @@ import * as backEnd from './adaptors/backEnd';
 import {getCurrentRouteName} from '../navigation/utils/routes';
 import useNavigationTracker from './hooks/useNavigationTracker';
 
+const logDebug = debug('client:metrics');
+
 export const MetricsProvider: MetricsProviderType = ({children}) => {
   useNavigationTracker();
   return (
@@ -30,6 +33,7 @@ export const init: Init = async () => {
 };
 
 export const setConsent: SetConsent = async (haveConsent: boolean) => {
+  logDebug('setConsent', haveConsent);
   await Promise.all([
     postHog.setConsent(haveConsent),
     backEnd.setConsent(haveConsent),
@@ -42,6 +46,8 @@ export const logEvent: LogEvent = async (event, properties) => {
     ...properties,
   };
 
+  logDebug('logEvent %s %p', event, props);
+
   await Promise.all([
     postHog.logEvent(event, props),
     backEnd.logEvent(event, props),
@@ -49,6 +55,8 @@ export const logEvent: LogEvent = async (event, properties) => {
 };
 
 export const logNavigation: LogNavigation = async (screenName, properties) => {
+  logDebug('logNavigation %s %p', screenName, properties);
+
   await Promise.all([
     postHog.logNavigation(screenName, properties),
     backEnd.logNavigation(screenName, properties),
@@ -56,6 +64,8 @@ export const logNavigation: LogNavigation = async (screenName, properties) => {
 };
 
 export const logFeedback: LogFeedback = async feedback => {
+  logDebug('logFeedback %p', feedback);
+
   await Promise.all([
     logEvent('Sharing Session Feedback', {
       'Exercise ID': feedback.exerciseId,
@@ -72,6 +82,8 @@ export const logFeedback: LogFeedback = async feedback => {
 };
 
 export const setUserProperties: SetUserProperties = async properties => {
+  logDebug('setUserProperties %p', properties);
+
   await Promise.all([
     postHog.setUserProperties(properties),
     backEnd.setUserProperties(properties),
@@ -79,6 +91,8 @@ export const setUserProperties: SetUserProperties = async properties => {
 };
 
 export const setCoreProperties: SetCoreProperties = async properties => {
+  logDebug('setCoreProperties %p', properties);
+
   await Promise.all([
     postHog.setCoreProperties(properties),
     backEnd.setCoreProperties(properties),
