@@ -71,23 +71,38 @@ const VideoTransition: React.FC<VideoTransitionProps> = ({
     }
   }, [loop, onTransition]);
 
+  const sources = useMemo(
+    () => ({
+      start: startVideoSource,
+      loop: loopVideoSource,
+      end: endVideoSource,
+    }),
+    [startVideoSource, loopVideoSource, endVideoSource],
+  );
+
+  const mutes = useMemo(
+    () => ({
+      loop: true,
+      start: true,
+      end: false,
+    }),
+    [],
+  );
+
+  const posters = useMemo(
+    () => ({
+      start: startPosterSource,
+      loop: loopPosterSource,
+      end: endPosterSource,
+    }),
+    [startPosterSource, loopPosterSource, endPosterSource],
+  );
+
   return (
     <VideoLooperStyled
-      sources={{
-        start: startVideoSource,
-        loop: loopVideoSource,
-        end: endVideoSource,
-      }}
-      mutes={{
-        loop: true,
-        start: true,
-        end: false,
-      }}
-      posters={{
-        start: startPosterSource,
-        loop: loopPosterSource,
-        end: endPosterSource,
-      }}
+      sources={sources}
+      mutes={mutes}
+      posters={posters}
       onReadyForDisplay={onReadyForDisplay}
       onStartEnd={onTransition}
       onLoopEnd={onLoopEnd}
