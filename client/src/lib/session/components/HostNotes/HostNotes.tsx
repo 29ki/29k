@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useTranslation} from 'react-i18next';
 import {
+  Dimensions,
   FlatListProps,
   LayoutChangeEvent,
   ListRenderItem,
@@ -82,8 +83,6 @@ const HostNotes: React.FC<HostNotesProps> = ({
 }) => {
   const listRef = useRef<FlatList>(null);
   const [showNotes, setShowNotes] = useState(introPortal ? true : false);
-  const [containerWidth, setContainerWidth] = useState(0);
-  const listItemWidth = containerWidth - SPACINGS.THIRTYTWO;
   const [scroll, setScroll] = useState({index: 0, animated: false});
   const sessionSlideState = useSessionSlideState();
   const {t} = useTranslation('Component.HostNotes');
@@ -94,13 +93,16 @@ const HostNotes: React.FC<HostNotesProps> = ({
     async,
   );
 
+  const containerWidth = Dimensions.get('screen').width;
+  const listItemWidth = containerWidth - SPACINGS.THIRTYTWO;
+
   const calculatePageIndex = useCallback(
     (e: NativeSyntheticEvent<NativeScrollEvent>) =>
       setScroll({
         index: Math.round(e?.nativeEvent?.contentOffset?.x / containerWidth),
         animated: true,
       }),
-    [containerWidth],
+    [],
   );
 
   useEffect(() => setScroll({index: 0, animated: false}), [notes]);
@@ -132,13 +134,6 @@ const HostNotes: React.FC<HostNotesProps> = ({
     [setShowNotes],
   );
 
-  const updateContainerWidth = useCallback(
-    (event: LayoutChangeEvent) => {
-      setContainerWidth(event.nativeEvent.layout.width);
-    },
-    [setContainerWidth],
-  );
-
   const getItemLayout = useCallback(
     (
       data: ExerciseSlideContentSlideHostNote[] | null | undefined,
@@ -156,7 +151,9 @@ const HostNotes: React.FC<HostNotesProps> = ({
   >(
     ({item}) => (
       <ListItem width={listItemWidth}>
-        <Markdown>{item.text}</Markdown>
+        <View>
+          <Markdown>{item.text}</Markdown>
+        </View>
       </ListItem>
     ),
     [listItemWidth],
@@ -178,7 +175,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
 
   return (
     <View style={style}>
-      <Wrapper onLayout={updateContainerWidth}>
+      <Wrapper>
         <TopSafeArea />
         <Gutters>
           <Spacer4 />
