@@ -1134,8 +1134,6 @@ PODS:
   - RNSentry (4.14.0):
     - React-Core
     - Sentry/HybridSDK (= 7.31.5)
-  - RNSharedElement (0.8.8):
-    - React-Core
   - RNSound (0.11.2):
     - React-Core
     - RNSound/Core (= 0.11.2)
@@ -1208,7 +1206,6 @@ DEPENDENCIES:
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - "RNSentry (from `../node_modules/@sentry/react-native`)"
-  - RNSharedElement (from `../node_modules/react-native-shared-element`)
   - RNSound (from `../node_modules/react-native-sound`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -1359,8 +1356,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-screens"
   RNSentry:
     :path: "../node_modules/@sentry/react-native"
-  RNSharedElement:
-    :path: "../node_modules/react-native-shared-element"
   RNSound:
     :path: "../node_modules/react-native-sound"
   RNSVG:
@@ -1450,7 +1445,6 @@ SPEC CHECKSUMS:
   RNReanimated: ba021107f1dd90cb04c35c5d639392d5da27d065
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
   RNSentry: 7e90aec2633d2fdad8aeb839c9915e4376fd27d1
-  RNSharedElement: 504fa28a235b12505b6daedbb452a9ec96809bd0
   RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
   RNSVG: d787d64ca06b9158e763ad2638a8c4edce00782a
   Sentry: 4c9babff9034785067c896fd580b1f7de44da020
