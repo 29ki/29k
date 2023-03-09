@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import {createSessionInviteLink} from '../models/dynamicLinks';
 import * as sessionModel from '../models/session';
 import * as userModel from '../models/user';
+import * as completedSessionsCountModel from '../models/completedSessionsCount';
 import {getPublicUserInfo} from '../models/user';
 import * as dailyApi from '../lib/dailyApi';
 import {
@@ -90,6 +91,10 @@ export const getSession = async (
   }
 
   return mapSession(session);
+};
+
+export const getCompletedSessionsCount = async () => {
+  return completedSessionsCountModel.getCompletedSessionsCount();
 };
 
 export const createSession = async (
@@ -210,6 +215,12 @@ export const updateSessionState = async (
 
   if (data.ended) {
     sessionModel.updateSession(sessionId, {ended: true});
+    completedSessionsCountModel.addCompletedSessionsCount(
+      session.exerciseId,
+      0,
+      session.type === SessionType.private ? 1 : 0,
+      session.type === SessionType.public ? 1 : 0,
+    );
   }
 
   if (data.started) {
