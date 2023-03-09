@@ -1,9 +1,8 @@
-import React, {useCallback, useMemo, useRef, useState} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import Sentry from '../../../sentry';
 import styled from 'styled-components/native';
-import Video from 'react-native-video';
 import {StyleSheet} from 'react-native';
-import VideoBase from '../VideoBase/VideoBase';
+import VideoLooper from '../../../components/VideoLooper/VideoLooper';
 
 const reverseVideo = (url: string) => {
   const transformFlags = (url.match(/cloudinary.*\/upload\/?(.*)\/v/) ?? [])[1];
@@ -24,11 +23,11 @@ const reverseVideo = (url: string) => {
 
 const useVideoSource = (source: string | undefined, reverse = false) =>
   useMemo(
-    () => source && {uri: reverse ? reverseVideo(source) : source},
+    () => (source && reverse ? reverseVideo(source) : source),
     [source, reverse],
   );
 
-const VideoStyled = styled(VideoBase)(({paused}) => ({
+const VideoLooperStyled = styled(VideoLooper)(({paused}) => ({
   opacity: paused ? 0 : 1,
   ...StyleSheet.absoluteFillObject,
 }));
@@ -62,89 +61,41 @@ const VideoTransition: React.FC<VideoTransitionProps> = ({
   onTransition = () => {},
   onEnd = () => {},
 }) => {
-  const startVideoRef = useRef<Video>(null);
-  const loopVideoRef = useRef<Video>(null);
-  const endVideoRef = useRef<Video>(null);
-  const [isLooping, setIsLooping] = useState(startSource ? false : true);
-  const [isEnding, setIsEnding] = useState(loopSource ? false : true);
-
   const startVideoSource = useVideoSource(startSource, reverse);
   const loopVideoSource = useVideoSource(loopSource, reverse);
   const endVideoSource = useVideoSource(endSource, reverse);
 
-  const onStartReadyForDisplay = useCallback(() => {
-    startVideoRef.current?.seek(0);
-    onReadyForDisplay();
-  }, [onReadyForDisplay]);
-
-  const onLoopReadyForDisplay = useCallback(() => {
-    loopVideoRef.current?.seek(0);
-    onReadyForDisplay();
-  }, [onReadyForDisplay]);
-
-  const onEndReadyForDisplay = useCallback(() => {
-    endVideoRef.current?.seek(0);
-    onReadyForDisplay();
-  }, [onReadyForDisplay]);
-
-  const onStartEnd = useCallback(() => {
-    if (loop) {
-      setIsLooping(true);
-      onTransition();
-    }
-  }, [loop, setIsLooping, onTransition]);
-
   const onLoopEnd = useCallback(() => {
     if (!loop) {
-      setIsEnding(true);
       onTransition();
     }
-  }, [loop, setIsEnding, onTransition]);
+  }, [loop, onTransition]);
 
   return (
-    <>
-      {loopVideoSource && (
-        <VideoStyled
-          ref={loopVideoRef}
-          source={loopVideoSource}
-          resizeMode="cover"
-          poster={loopPosterSource}
-          posterResizeMode="cover"
-          onReadyForDisplay={onLoopReadyForDisplay}
-          onEnd={onLoopEnd}
-          paused={paused || !isLooping}
-          repeat={loop}
-          muted
-        />
-      )}
-
-      {startVideoSource && (
-        <VideoStyled
-          ref={startVideoRef}
-          source={startVideoSource}
-          resizeMode="cover"
-          poster={startPosterSource}
-          posterResizeMode="cover"
-          onReadyForDisplay={onStartReadyForDisplay}
-          onEnd={onStartEnd}
-          paused={paused || isLooping}
-          muted
-        />
-      )}
-
-      {endVideoSource && (
-        <VideoStyled
-          ref={endVideoRef}
-          source={endVideoSource}
-          resizeMode="cover"
-          poster={endPosterSource}
-          posterResizeMode="cover"
-          onReadyForDisplay={onEndReadyForDisplay}
-          onEnd={onEnd}
-          paused={paused || !isEnding}
-        />
-      )}
-    </>
+    <VideoLooperStyled
+      sources={{
+        start: startVideoSource,
+        loop: loopVideoSource,
+        end: endVideoSource,
+      }}
+      mutes={{
+        loop: true,
+        start: true,
+        end: false,
+      }}
+      posters={{
+        start: startPosterSource,
+        loop: loopPosterSource,
+        end: endPosterSource,
+      }}
+      onReadyForDisplay={onReadyForDisplay}
+      onStartEnd={onTransition}
+      onLoopEnd={onLoopEnd}
+      onTransition={onTransition}
+      onEnd={onEnd}
+      repeat={loop}
+      paused={paused}
+    />
   );
 };
 

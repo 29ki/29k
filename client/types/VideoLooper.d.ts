@@ -1,15 +1,14 @@
-// import React from 'react';
-
 export interface VideoLooperProperties extends ViewProps {
-  loopSource: String;
-  startSource?: String;
-  endSource?: String;
-  repeat: boolean;
-  paused: boolean;
+  sources: {start?: string; loop?: string; end?: string};
+  posters?: {start?: string; loop?: string; end?: string};
+  mutes: {start?: boolean; loop?: boolean; end?: boolean};
+  repeat?: boolean;
+  paused?: boolean;
+  onStartEnd?: () => void;
   onLoopEnd?: () => void;
   onEnd?: () => void;
-  onReadyForDisplay: () => void;
-  onTransition: () => void;
+  onReadyForDisplay?: () => void;
+  onTransition?: () => void;
 }
 
 export default class VideoLooper extends React.Component<VideoLooperProperties> {
