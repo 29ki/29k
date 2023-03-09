@@ -126,8 +126,8 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
-    getSharingPosts().then(setPosts);
-  }, [getSharingPosts]);
+    getSharingPosts(slide.id).then(setPosts);
+  }, [getSharingPosts, slide.id]);
 
   const onAddSharing = useCallback(() => {
     if (session?.exerciseId) {

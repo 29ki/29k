@@ -7,6 +7,7 @@ import useCollectionById from '../../../../lib/content/hooks/useCollectionById';
 import usePinnedCollectionById from '../../../../lib/user/hooks/usePinnedCollectionById';
 import useCompletedSessionByTime from '../../../../lib/user/hooks/useCompletedSessionByTime';
 import CollectionFullCard from '../../../../lib/components/Cards/CollectionCards/CollectionFullCard';
+import useExercisesByCollectionId from '../../../../lib/content/hooks/useExercisesByCollectionId';
 
 type CollectionCardContainer = {
   collectionId: string;
@@ -19,6 +20,7 @@ const CollectionCardContainer: React.FC<CollectionCardContainer> = ({
     useNavigation<NativeStackNavigationProp<JourneyStackProps, 'Collection'>>();
   const collection = useCollectionById(collectionId);
   const savedCollection = usePinnedCollectionById(collectionId);
+  const exercises = useExercisesByCollectionId(collectionId);
   const {getCompletedSessionByExerciseId} = useCompletedSessionByTime();
 
   const image = useMemo(
@@ -29,19 +31,19 @@ const CollectionCardContainer: React.FC<CollectionCardContainer> = ({
   );
 
   const items = useMemo(() => {
-    if (collection && savedCollection) {
-      return collection.exercises
-        .map(id =>
-          getCompletedSessionByExerciseId(id, savedCollection.startedAt)
+    if (exercises.length > 0 && savedCollection) {
+      return exercises
+        .map(e =>
+          getCompletedSessionByExerciseId(e.id, savedCollection.startedAt)
             ? true
             : false,
         )
         .sort(a => (a ? -1 : 1));
     } else if (collection) {
-      return collection.exercises.map(() => false);
+      return exercises.map(() => false);
     }
     return [];
-  }, [collection, savedCollection, getCompletedSessionByExerciseId]);
+  }, [collection, savedCollection, exercises, getCompletedSessionByExerciseId]);
 
   const onPress = useCallback(() => {
     navigate('Collection', {collectionId: collection?.id});

@@ -1,7 +1,7 @@
 import React, {Suspense} from 'react';
 
 import Navigation from './lib/navigation/Navigation';
-import ModalStack from './lib/navigation/ModalStack';
+import {MetricsProvider} from './lib/metrics';
 
 import codePush, {CodePushOverlay} from './lib/codePush';
 import {UiLibProvider} from './lib/uiLib/hooks/useUiLib';
@@ -14,7 +14,7 @@ import styled from 'styled-components/native';
 const GestureHandler = styled(GestureHandlerRootView)({
   flex: 1,
 });
-import {MetricsProvider} from './lib/metrics';
+import RootNavigator from './lib/navigation/RootNavigator';
 
 const App = () => (
   <ErrorBoundary>
@@ -25,7 +25,7 @@ const App = () => (
             <MetricsProvider>
               <Bootstrap>
                 <Suspense>
-                  <ModalStack />
+                  <RootNavigator />
                   <CodePushOverlay />
                 </Suspense>
               </Bootstrap>

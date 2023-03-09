@@ -8,14 +8,14 @@ import {createApiRouter} from '../../lib/routers';
 import {
   createPost,
   deletePost,
-  getPostsByExerciseId,
+  getPostsByExerciseAndSharingId,
 } from '../../controllers/posts';
 
 jest.mock('../../controllers/posts');
 
 const mockCreatePost = jest.mocked(createPost);
 const mockDeletePost = jest.mocked(deletePost);
-const mockGetPostsByExerciseId = jest.mocked(getPostsByExerciseId);
+const mockGetPostsByExerciseId = jest.mocked(getPostsByExerciseAndSharingId);
 
 const router = createApiRouter();
 router.use('/posts', postsRouter.routes());
@@ -56,10 +56,13 @@ describe('/api/posts', () => {
           updatedAt: '2022-01-01T00:00:00Z',
         },
       ]);
-      const response = await request(mockServer).get('/posts/some-exercise-id');
+      const response = await request(mockServer).get(
+        '/posts/some-exercise-id/sharing-id',
+      );
 
       expect(mockGetPostsByExerciseId).toHaveBeenCalledWith(
         'some-exercise-id',
+        'sharing-id',
         20,
       );
       expect(response.status).toBe(200);

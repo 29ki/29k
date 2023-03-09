@@ -12,12 +12,15 @@ const useSharingPosts = (exerciseId?: string) => {
   const session = useSessionState(state => state.asyncSession);
   const logAsyncPostMetricEvent = useAsyncPostMetricEvents();
 
-  const getSharingPosts = useCallback(async () => {
-    if (exerciseId) {
-      return fetchPosts(exerciseId);
-    }
-    return [];
-  }, [exerciseId]);
+  const getSharingPosts = useCallback(
+    async (sharingId: string) => {
+      if (exerciseId) {
+        return fetchPosts(exerciseId, sharingId);
+      }
+      return [];
+    },
+    [exerciseId],
+  );
 
   const addSharingPost = useCallback(
     async (

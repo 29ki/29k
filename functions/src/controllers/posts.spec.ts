@@ -1,7 +1,7 @@
 import * as postsController from './posts';
 import {
   addPost,
-  getPostsByExerciseId,
+  getPostsByExerciseAndSharingId,
   getPostById,
   deletePost,
 } from '../models/post';
@@ -24,7 +24,9 @@ jest.mock('../models/slack');
 jest.mock('../../../shared/src/content/exercise');
 
 const mockAddPost = jest.mocked(addPost);
-const mockGetPostsByExerciseId = jest.mocked(getPostsByExerciseId);
+const mockGetPostsByExerciseAndSharingId = jest.mocked(
+  getPostsByExerciseAndSharingId,
+);
 const mockGetPostById = jest.mocked(getPostById);
 const mockDeletePost = jest.mocked(deletePost);
 const mockGetPublicUserInfo = jest.mocked(getPublicUserInfo);
@@ -133,9 +135,9 @@ describe('posts - controller', () => {
     });
   });
 
-  describe('getPostsByExerciseId', () => {
+  describe('getPostsByExerciseAndSharingId', () => {
     it('should return posts and add userProfile', async () => {
-      mockGetPostsByExerciseId.mockResolvedValueOnce([
+      mockGetPostsByExerciseAndSharingId.mockResolvedValueOnce([
         {
           id: 'some-post-id',
           userId: 'some-user-id',
@@ -146,8 +148,9 @@ describe('posts - controller', () => {
         photoURL: 'some-url',
       });
 
-      const posts = await postsController.getPostsByExerciseId(
+      const posts = await postsController.getPostsByExerciseAndSharingId(
         'some-exercise-id',
+        'sharing-id',
         10,
       );
 
@@ -161,14 +164,15 @@ describe('posts - controller', () => {
     });
 
     it('should return posts and skip user profile if no userId', async () => {
-      mockGetPostsByExerciseId.mockResolvedValueOnce([
+      mockGetPostsByExerciseAndSharingId.mockResolvedValueOnce([
         {
           id: 'some-post-id',
         } as Post,
       ]);
 
-      const posts = await postsController.getPostsByExerciseId(
+      const posts = await postsController.getPostsByExerciseAndSharingId(
         'some-exercise-id',
+        'sharing-id',
         10,
       );
 
@@ -181,7 +185,7 @@ describe('posts - controller', () => {
     });
 
     it('should return posts and allow user lookup to fail', async () => {
-      mockGetPostsByExerciseId.mockResolvedValueOnce([
+      mockGetPostsByExerciseAndSharingId.mockResolvedValueOnce([
         {
           id: 'some-post-id',
           userId: 'some-user-id',
@@ -189,8 +193,9 @@ describe('posts - controller', () => {
       ]);
       mockGetPublicUserInfo.mockRejectedValueOnce('some error');
 
-      const posts = await postsController.getPostsByExerciseId(
+      const posts = await postsController.getPostsByExerciseAndSharingId(
         'some-exercise-id',
+        'sharing-id',
         10,
       );
 

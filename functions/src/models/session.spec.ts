@@ -369,8 +369,8 @@ describe('session model', () => {
       });
     });
 
-    it('should return updated session with startTime', async () => {
-      const startTime = new Date('1994-03-08T07:24:00').toISOString();
+    it('should return updated session with startTime and closingTime', async () => {
+      const startTime = new Date('1994-03-08T07:00:00.000Z').toISOString();
       await updateSession('some-session-id', {startTime});
       const session = await getSessionById('some-session-id');
 
@@ -382,8 +382,8 @@ describe('session model', () => {
         exerciseId: 'some-exercise-id',
         type: 'public',
         interestedCount: 0,
-        startTime: expect.any(String),
-        closingTime: expect.any(String),
+        startTime: '1994-03-08T07:00:00.000Z',
+        closingTime: '1994-03-08T07:30:00.000Z',
         userIds: ['*'],
         createdAt: expect.any(String),
         updatedAt: expect.any(String),

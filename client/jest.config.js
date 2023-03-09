@@ -10,6 +10,8 @@ process.env = Object.assign(process.env, {
   STORAGE_ENDPOINT: 'some-storage-endpoint',
   GIT_COMMIT_SHORT: 'some-git-hash',
   SENTRY_DSN: 'some-sentry-dsn',
+  DEEP_LINK_SCHEMA: 'some-deep-link-schema',
+  DEEP_LINK_PREFIX: 'some-deep-link-prefix',
 });
 const modules = ['react-native', '@react-native', '@notifee'];
 

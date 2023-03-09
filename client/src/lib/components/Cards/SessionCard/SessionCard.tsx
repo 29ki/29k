@@ -99,13 +99,13 @@ const SessionCard: React.FC<SessionCardProps> = ({
   const tags = useGetSessionCardTags(exercise);
 
   const onPress = useCallback(() => {
+    logSessionMetricEvent('Join Sharing Session', session); // Log before navigating for correct Origin property in event
     navigate('LiveSessionStack', {
       screen: 'ChangingRoom',
       params: {
         session,
       },
     });
-    logSessionMetricEvent('Join Sharing Session', session);
   }, [navigate, session, logSessionMetricEvent]);
 
   const onContextPress = useCallback(() => {
