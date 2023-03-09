@@ -9,6 +9,7 @@ import {
 type Events = {
   // Navigation
   Screen: ScreenName;
+  'Open Link': {URL: string};
 
   // Outside Sharing Sessions
   'Create Sharing Session': SharingSessionProperties;

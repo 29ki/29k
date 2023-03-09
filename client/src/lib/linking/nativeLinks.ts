@@ -1,6 +1,18 @@
 import {Linking} from 'react-native';
+import * as metrics from '../metrics';
 import {appendOrigin} from './utils/url';
 
+export const openURL = async (URL: string) => {
+  metrics.logEvent('Open Link', {URL});
+
+  if (!(await Linking.canOpenURL(URL))) {
+    return;
+  }
+
+  try {
+    await Linking.openURL(URL);
+  } catch (e) {}
+};
 
 export const getInitialURL = async () => {
   const url = await Linking.getInitialURL();
