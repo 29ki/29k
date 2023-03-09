@@ -31,12 +31,33 @@ class VideoLooperView: RCTView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
+    NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(applicationDidEnterBackground(notification:)),
+        name: UIApplication.didEnterBackgroundNotification,
+        object: nil
+    )
+
+    NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(applicationDidBecomeActiveNotification(notification:)),
+        name: UIApplication.didBecomeActiveNotification,
+        object: nil
+    )
     setupView()
   }
  
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     setupView()
+  }
+  
+  @objc func applicationDidEnterBackground(notification:NSNotification!) {
+    self._playerLayer?.player = nil
+  }
+
+  @objc func applicationDidBecomeActiveNotification(notification:NSNotification!) {
+    self._playerLayer?.player = self._player
   }
   
   override func layoutSubviews() {
@@ -70,6 +91,13 @@ class VideoLooperView: RCTView {
     self.layer.needsDisplayOnBoundsChange = true
   }
   
+  private func configureAudio() {
+    do {
+      let session = AVAudioSession.sharedInstance()
+      try session.setCategory(session.category, options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
+    } catch {}
+  }
+  
   private func addLoopItemObservers() {
     guard let items = self._player?.items() else { return }
     removeItemObservers()
@@ -79,16 +107,32 @@ class VideoLooperView: RCTView {
   }
   
   private func addStartItemObserver(item: AVPlayerItem) {
-    NotificationCenter.default.addObserver(self, selector: #selector(startPlayerItemDidPlayToEnd), name: .AVPlayerItemDidPlayToEndTime, object: item)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(startPlayerItemDidPlayToEnd),
+      name: .AVPlayerItemDidPlayToEndTime,
+      object: item)
   }
   
   private func addLoopItemObserver(item: AVPlayerItem) {
-    NotificationCenter.default.addObserver(self, selector: #selector(loopPlayerItemDidPlayToEnd), name: .AVPlayerItemDidPlayToEndTime, object: item)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(loopPlayerItemDidPlayToEnd),
+      name: .AVPlayerItemDidPlayToEndTime,
+      object: item)
   }
   
   private func addEndItemObserver(item: AVPlayerItem) {
-    NotificationCenter.default.addObserver(self, selector: #selector(endPlayerItemDidPlayToEnd), name: .AVPlayerItemDidPlayToEndTime, object: item)
-    item.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.status), context: &playerItemContext)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(endPlayerItemDidPlayToEnd),
+      name: .AVPlayerItemDidPlayToEndTime,
+      object: item)
+    
+    item.addObserver(
+      self,
+      forKeyPath: #keyPath(AVPlayerItem.status),
+      context: &playerItemContext)
   }
   
   private func removeItemObservers() {
@@ -99,7 +143,10 @@ class VideoLooperView: RCTView {
   }
   
   private func removeItemObserver(item: AVPlayerItem) {
-    NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: item)
+    NotificationCenter.default.removeObserver(
+      self,
+      name: .AVPlayerItemDidPlayToEndTime,
+      object: item)
   }
   
   private func setVolume(muted: Bool) {
@@ -168,6 +215,7 @@ class VideoLooperView: RCTView {
         self.onReadyForDisplay!(event)
       }
       
+      self.configureAudio()
       self._player?.play()
     }
   }
@@ -178,6 +226,11 @@ class VideoLooperView: RCTView {
   
   @objc func setPaused(_ val: Bool) {
     self._pause = val
+    
+    if (self._pause != val) {
+      self.configureAudio()
+    }
+    
     if val {
       self._player?.play()
     } else {
