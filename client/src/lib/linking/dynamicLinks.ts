@@ -1,6 +1,6 @@
 import dynamicLinks from '@react-native-firebase/dynamic-links';
 import {utils} from '@react-native-firebase/app';
-import {appendOrigin} from './utils';
+import {appendOrigin} from './utils/url';
 
 export const getInitialURL = async () => {
   const {isAvailable} = utils().playServicesAvailability;

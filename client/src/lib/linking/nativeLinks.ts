@@ -1,5 +1,6 @@
 import {Linking} from 'react-native';
-import {appendOrigin} from './utils';
+import {appendOrigin} from './utils/url';
+
 
 export const getInitialURL = async () => {
   const url = await Linking.getInitialURL();
