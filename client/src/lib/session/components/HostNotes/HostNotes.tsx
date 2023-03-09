@@ -5,7 +5,6 @@ import {useTranslation} from 'react-i18next';
 import {
   Dimensions,
   FlatListProps,
-  LayoutChangeEvent,
   ListRenderItem,
   NativeScrollEvent,
   NativeSyntheticEvent,
@@ -102,7 +101,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
         index: Math.round(e?.nativeEvent?.contentOffset?.x / containerWidth),
         animated: true,
       }),
-    [],
+    [containerWidth],
   );
 
   useEffect(() => setScroll({index: 0, animated: false}), [notes]);
@@ -151,9 +150,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
   >(
     ({item}) => (
       <ListItem width={listItemWidth}>
-        <View>
-          <Markdown>{item.text}</Markdown>
-        </View>
+        <Markdown>{item.text}</Markdown>
       </ListItem>
     ),
     [listItemWidth],
