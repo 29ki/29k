@@ -25,7 +25,6 @@ import {
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import SETTINGS from '../../../lib/constants/settings';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
-import {SharedElement} from 'react-navigation-shared-element';
 import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
 import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import AboutActionList from '../AboutEditorialOverlay/components/AboutActionList';
@@ -85,24 +84,18 @@ const Profile = () => {
             <>
               <ActionList>
                 <TouchableOpacity onPress={aboutPress}>
-                  <SharedElement id="about.image">
-                    <BlurbImage source={aboutBlurbSource} resizeMode="cover" />
-                  </SharedElement>
+                  <BlurbImage source={aboutBlurbSource} resizeMode="cover" />
                   <Gutters>
                     <Spacer16 />
-                    <SharedElement id="about.heading">
-                      <Display24>
-                        {t('heading', {ns: 'Overlay.AboutEditorial'})}
-                      </Display24>
-                    </SharedElement>
+                    <Display24>
+                      {t('heading', {ns: 'Overlay.AboutEditorial'})}
+                    </Display24>
                     <Spacer8 />
-                    <SharedElement id="about.text">
-                      <Markdown>
-                        {t('preamble__markdown', {
-                          ns: 'Overlay.AboutEditorial',
-                        })}
-                      </Markdown>
-                    </SharedElement>
+                    <Markdown>
+                      {t('preamble__markdown', {
+                        ns: 'Overlay.AboutEditorial',
+                      })}
+                    </Markdown>
                     <Spacer8 />
                   </Gutters>
                 </TouchableOpacity>
@@ -119,27 +112,21 @@ const Profile = () => {
             <>
               <ActionList>
                 <TouchableOpacity onPress={communityPress}>
-                  <SharedElement id="community.image">
-                    <BlurbImage
-                      source={communityBlurbSource}
-                      resizeMode="cover"
-                    />
-                  </SharedElement>
+                  <BlurbImage
+                    source={communityBlurbSource}
+                    resizeMode="cover"
+                  />
                   <Gutters>
                     <Spacer16 />
-                    <SharedElement id="community.heading">
-                      <Display24>
-                        {t('heading', {ns: 'Overlay.CommunityEditorial'})}
-                      </Display24>
-                    </SharedElement>
+                    <Display24>
+                      {t('heading', {ns: 'Overlay.CommunityEditorial'})}
+                    </Display24>
                     <Spacer8 />
-                    <SharedElement id="community.text">
-                      <Markdown>
-                        {t('preamble__markdown', {
-                          ns: 'Overlay.CommunityEditorial',
-                        })}
-                      </Markdown>
-                    </SharedElement>
+                    <Markdown>
+                      {t('preamble__markdown', {
+                        ns: 'Overlay.CommunityEditorial',
+                      })}
+                    </Markdown>
                     <Spacer8 />
                   </Gutters>
                 </TouchableOpacity>
