@@ -18,8 +18,6 @@ const usePinCollection = (collectionId: string) => {
         pinnedCollections.filter(ps => ps.id !== collectionId),
       );
     } else {
-      console.log('here');
-
       setPinnedCollections([
         ...pinnedCollections,
         {
