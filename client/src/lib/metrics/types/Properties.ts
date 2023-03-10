@@ -47,6 +47,6 @@ export type FeedbackProperties = {
   Host?: boolean;
 } & ExerciseID;
 
-// Feedback properties
+// Collection properties
 export type CollectionID = {'Collection ID': string};
 export type CollectionProperties = CollectionID;
