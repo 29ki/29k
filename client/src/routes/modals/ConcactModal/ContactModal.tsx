@@ -2,10 +2,10 @@ import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import {useIsFocused} from '@react-navigation/native';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {Linking} from 'react-native';
 import styled from 'styled-components/native';
 import ActionButton from '../../../lib/components/ActionList/ActionItems/ActionButton';
 import ActionList from '../../../lib/components/ActionList/ActionList';
+import * as linking from '../../../lib/linking/nativeLinks';
 
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import {
@@ -35,9 +35,7 @@ const ContactModal = () => {
   const {t} = useTranslation('Modal.Contact');
 
   const linkPress = (url: string) => () => {
-    try {
-      Linking.openURL(url);
-    } catch (e) {}
+    linking.openURL(url);
   };
 
   return (

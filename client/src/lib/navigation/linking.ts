@@ -1,9 +1,9 @@
 import {LinkingOptions} from '@react-navigation/native';
 import {DEEP_LINK_SCHEMA, DEEP_LINK_PREFIX} from 'config';
 
-import * as dynamicLinks from './linkHandlers/dynamicLinks';
-import * as notifications from './linkHandlers/notifications';
-import * as nativeLinks from './linkHandlers/nativeLinks';
+import * as dynamicLinks from '../linking/dynamicLinks';
+import * as notifications from '../linking/notifications';
+import * as nativeLinks from '../linking/nativeLinks';
 
 import {RootNavigationProps} from './constants/routes';
 

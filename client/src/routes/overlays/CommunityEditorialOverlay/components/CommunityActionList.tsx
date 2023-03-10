@@ -11,7 +11,7 @@ import {
   FriendsIcon,
 } from '../../../../lib/components/Icons';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
-import {Linking} from 'react-native';
+import * as linking from '../../../../lib/linking/nativeLinks';
 
 const CommunityActionList = () => {
   const {navigate} =
@@ -20,7 +20,7 @@ const CommunityActionList = () => {
 
   const contributePress = useCallback(
     () =>
-      Linking.openURL('https://wiki.29k.org/community-contribution-central'),
+      linking.openURL('https://wiki.29k.org/community-contribution-central'),
     [],
   );
 

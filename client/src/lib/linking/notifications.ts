@@ -4,7 +4,7 @@ import notifee, {
   EventType,
   InitialNotification,
 } from '@notifee/react-native';
-import {appendOrigin} from './utils';
+import {appendOrigin} from './utils/url';
 
 const resolveNotificationUrl = async (
   source: InitialNotification | EventDetail | null,

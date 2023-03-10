@@ -1,4 +1,4 @@
-import {appendOrigin} from './utils';
+import {appendOrigin} from './url';
 
 describe('appendOrigin', () => {
   it('adds origin search param to url', () => {
