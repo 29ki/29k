@@ -1,7 +1,12 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {act, renderHook} from '@testing-library/react-hooks';
+import {logEvent} from '../../metrics';
 import useUserState from '../state/state';
 import usePinCollection from './usePinCollection';
+
+const mockLogEvent = jest.mocked(logEvent);
+
+jest.mock('../../metrics');
 
 jest.mock(
   '../../content/hooks/useGetCollectionById',
@@ -35,6 +40,10 @@ describe('usePinCollection', () => {
         },
       }),
     );
+    expect(mockLogEvent).toHaveBeenCalledTimes(1);
+    expect(mockLogEvent).toHaveBeenCalledWith('Add Collection To Journey', {
+      'Collection ID': 'some-collection-id',
+    });
   });
 
   it('should remove collection as pinned', () => {

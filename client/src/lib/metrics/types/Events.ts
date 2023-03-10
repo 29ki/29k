@@ -4,6 +4,7 @@ import {
   FeedbackProperties,
   ScreenName,
   SharingSessionPost,
+  CollectionProperties,
 } from './Properties';
 
 type Events = {
@@ -37,6 +38,9 @@ type Events = {
 
   // Feedback
   'Sharing Session Feedback': FeedbackProperties;
+
+  // Collections
+  'Add Collection To Journey': CollectionProperties;
 };
 
 export default Events;
