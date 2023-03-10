@@ -1667,39 +1667,39 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-plugin/-/eslint-plugin-1.2.0.tgz#7d6d789ae8edf73dc9bed1246cd48277edea8066"
   integrity sha512-o6aam+0Ug1xGK3ABYmBm0B1YuEKfM/5kaoZO0eHbZwSpw9UzDX4G5y4Nx/K20FHqUmJHkZmLvOUFYwN4N+HqKA==
 
-"@react-native-firebase/app@^17.3.0":
-  version "17.3.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-17.3.0.tgz#f89b120dbf4bd9812028785a7d0485f1091bbb53"
-  integrity sha512-anQ4ITkoLgyAgRc8mX6Le2kc6nSNQEs4IWSYehxQU2hTNePqQdCq6XI2KgSo2sSgU3ZoS5YAEJgDFOBNB1U/lA==
+"@react-native-firebase/app@^17.3.2":
+  version "17.3.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-17.3.2.tgz#c39dd34f5389ff65845c5d67313bbf2371275a8f"
+  integrity sha512-JPA9PuD3il2/FERnsW5bC/PbXdcBcVMtk4V0vL8YgLh+jQg+E3qQTQmeWn9eOWTYJb6BYOiiNHTdTglvqoo5Cg==
   dependencies:
     "@expo/config-plugins" "^5.0.4"
     opencollective-postinstall "^2.0.1"
     superstruct "^0.6.2"
 
-"@react-native-firebase/auth@^17.3.0":
-  version "17.3.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-17.3.0.tgz#eabbc9f7bdfcd1d73e670a3bce9a3742cd7b7f21"
-  integrity sha512-G7udjNEUk+ujzfzXScZpVAc0bByls4MLK5XrtP9RUGJpIIRXd8RzY4+atbBztaLLgvGMnKHtYA+9KXZTmG2v4g==
+"@react-native-firebase/auth@^17.3.2":
+  version "17.3.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-17.3.2.tgz#a2e9f3de72842aedfe016c7acceb99262e349747"
+  integrity sha512-YvVvKTwpMMWnDThKh4btgAh6XYo7ie1hwwrTOGNd8Vpsr+nGmiPPB0COdiVaQu8KWX1CzPbOuxJdPwWaz9lW/w==
   dependencies:
     "@expo/config-plugins" "^5.0.4"
     plist "^3.0.5"
 
-"@react-native-firebase/dynamic-links@^17.3.0":
-  version "17.3.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/dynamic-links/-/dynamic-links-17.3.0.tgz#c1920f050838f19a6e3c6fe40aef5ca61249bbd7"
-  integrity sha512-0vEI0Ah7nwTIBgGxdyJvWBqOmFcTzVw3lbGEIzxNm863nPcWN/GJodgHEyhHpGs1ipDhYfqnr6moPixnbnrYMQ==
+"@react-native-firebase/dynamic-links@^17.3.2":
+  version "17.3.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/dynamic-links/-/dynamic-links-17.3.2.tgz#a965b71e84c1e0d99a6dc3f9eb6ef8dc870f15cc"
+  integrity sha512-iBANo9TFdVStxXjRw+EtwF3bCxEiLJzms1yyuYuqrSQb8bVOeD+ViJXbF4XAlzti04ut+L1kY3avEUV9IoCM5g==
   dependencies:
     "@expo/config-plugins" "^5.0.4"
 
-"@react-native-firebase/firestore@^17.3.0":
-  version "17.3.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-17.3.0.tgz#b3642e0185fa27066ca3805fc225d18dc9bd3afc"
-  integrity sha512-pfh0/KAjdruplIosiEHMDt8ALTCk+sMBD+HNCtHwU8J8MrkCfzY0yAKtDMJasrQ7AHC5Py0E4/6rCe2IbdEH5g==
+"@react-native-firebase/firestore@^17.3.2":
+  version "17.3.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-17.3.2.tgz#1b15d65bd0cb042f48cbbb4b85eeff0c0dcb5796"
+  integrity sha512-ZqdtYcZExAdfFXIntfy5/hTRK8jAyZnQCbpCyvC3O8f1m4C2pDo57xLzTdukORtJjiBGkxBpcULLBrSbOJ/SXw==
 
-"@react-native-firebase/storage@^17.3.0":
-  version "17.3.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-17.3.0.tgz#21b2b766754c51e9da5ffd8a7880a50fe7cd4ce9"
-  integrity sha512-SsnEirsL4Vi5quvi56iFBA5s3WSNYo2QPkoemR6C/XuF7FAkAD8JXVaVIfHJs2B3DKXn5KSHnbzIgsLWF4o0Xg==
+"@react-native-firebase/storage@^17.3.2":
+  version "17.3.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-17.3.2.tgz#f5d75c9ce2fc05da437fecb0900de4314c5cf9a1"
+  integrity sha512-Pojwd5SuM8lvJBDfVV9ylyTOb8bwildhdAetLgyIdvyVwE9QqzpZoOebb283ceJ0h6OdznHiR66JJStcyclUwg==
 
 "@react-native/assets@1.0.0":
   version "1.0.0"
@@ -8319,10 +8319,10 @@ react-native-codegen@^0.69.2:
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
 
-react-native-device-info@^10.3.0:
-  version "10.3.0"
-  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-10.3.0.tgz#6bab64d84d3415dd00cc446c73ec5e2e61fddbe7"
-  integrity sha512-/ziZN1sA1REbJTv5mQZ4tXggcTvSbct+u5kCaze8BmN//lbxcTvWsU6NQd4IihLt89VkbX+14IGc9sVApSxd/w==
+react-native-device-info@^10.4.0:
+  version "10.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-10.4.0.tgz#9d90706641941d7da8ab7b316a37d3111eb231e4"
+  integrity sha512-Z37e0HtpBvfkPRgv4xN7lXpvmJyzjwCXSFTXEkw6m2UgnnIsWlOD02Avu4hJXBlIMMazaW3ZLKal3o9h3AYvCw==
 
 react-native-dotenv@^3.4.8:
   version "3.4.8"
@@ -8376,10 +8376,10 @@ react-native-linear-gradient@^2.6.2:
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.6.2.tgz#56598a76832724b2afa7889747635b5c80948f38"
   integrity sha512-Z8Xxvupsex+9BBFoSYS87bilNPWcRfRsGC0cpJk72Nxb5p2nEkGSBv73xZbEHnW2mUFvP+huYxrVvjZkr/gRjQ==
 
-react-native-localize@^2.2.4:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/react-native-localize/-/react-native-localize-2.2.4.tgz#3bc46ade48499ab9df61bf17a9b66633a5ba9bb9"
-  integrity sha512-gVmbyAEQQnBQ8vKlAQchFfIISeId3qT6Lc7LHmKF39nsYWX9KN4PHuG6Hk+7gduMI6IHKeZGKcLsOdh6wvN6cg==
+react-native-localize@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/react-native-localize/-/react-native-localize-2.2.5.tgz#5f59c9482f2264a16d2f08e2b9a79071349a70dc"
+  integrity sha512-w0bBZ4X/lkErNXb5T+cQfUKgEv2+28o7jZhK/vPesf91D4yQKUCtS7Uz0s1AnRXYKOyTm3TCUgFuRVqKzuWlMQ==
 
 react-native-markdown-display@^7.0.0-alpha.2:
   version "7.0.0-alpha.2"
@@ -8424,19 +8424,14 @@ react-native-screens@^3.20.0:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
-react-native-shared-element@^0.8.8:
-  version "0.8.8"
-  resolved "https://registry.yarnpkg.com/react-native-shared-element/-/react-native-shared-element-0.8.8.tgz#1a86ff54d7a96e22d270254d3e642869c7cb3ff3"
-  integrity sha512-ZjnsI9IXckzX5CFl2lbVX8Izn93zBfYw6knUtW41NZ/HAPVq6wlFuSxAhvFNJ4HRZ3FX6b8gUMDYuUfX7djj0A==
-
 "react-native-sound@https://github.com/29ki/react-native-sound#fix-iOS-16-support":
   version "0.11.2"
   resolved "https://github.com/29ki/react-native-sound#904cca8cff5e98e25c5abf03c1d454d5aa507f43"
 
-react-native-svg@^13.7.0:
-  version "13.7.0"
-  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-13.7.0.tgz#be2ffb935e996762543dd7376bdc910722f7a43c"
-  integrity sha512-WR5CIURvee5cAfvMhmdoeOjh1SC8KdLq5u5eFsz4pbYzCtIFClGSkLnNgkMSDMVV5LV0qQa4jeIk75ieIBzaDA==
+react-native-svg@^13.8.0:
+  version "13.8.0"
+  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-13.8.0.tgz#b6a22cf77f8098f910490a13aeb160a37e182f97"
+  integrity sha512-G8Mx6W86da+vFimZBJvA93POw8yz0fgDS5biy6oIjMWVJVQSDzCyzwO/zY0yuZmCDhKSZzogl5m0wXXvW2OcTA==
   dependencies:
     css-select "^5.1.0"
     css-tree "^1.1.3"
@@ -8495,13 +8490,6 @@ react-native@0.69.5:
     use-sync-external-store "^1.0.0"
     whatwg-fetch "^3.0.0"
     ws "^6.1.4"
-
-react-navigation-shared-element@^3.1.3:
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/react-navigation-shared-element/-/react-navigation-shared-element-3.1.3.tgz#c75084ca8cab09063297a39ff1110de0dc732aab"
-  integrity sha512-U1BZp7dEdcTNHggfkq3WEBlJeg4HwFhFdj7a0i0Uql/7mg2IHQg/bZaqM2jQvJITkABge6Hz5fZixIF8jyzpkg==
-  dependencies:
-    hoist-non-react-statics "^3.3.2"
 
 react-refresh@^0.4.0:
   version "0.4.3"
