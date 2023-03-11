@@ -118,33 +118,15 @@ const Picker: React.FC<PickerProps> = ({
     onChange(selectedDateTime, selectedDateTime);
   }, [selectedDateTime, minimumDate, onChange]);
 
-  const onSetDate: DateTimePickerProps['setValue'] = useCallback(
+  const setDateTime: DateTimePickerProps['setValue'] = useCallback(
     value => {
-      let sessionDateTime = value
-        .hour(selectedDateTime.hour())
-        .minute(selectedDateTime.minute());
-
-      if (minimumDate && sessionDateTime.isBefore(minimumDate.utc())) {
-        sessionDateTime = minimumDate.utc();
-      }
-
-      setSelectedDateTime(sessionDateTime);
+      setSelectedDateTime(
+        minimumDate && value.isBefore(minimumDate.utc())
+          ? minimumDate.utc()
+          : value,
+      );
     },
-    [minimumDate, selectedDateTime],
-  );
-  const onSetTime: DateTimePickerProps['setValue'] = useCallback(
-    value => {
-      let sessionDateTime = selectedDateTime
-        .hour(value.hour())
-        .minute(value.minute());
-
-      if (minimumDate && sessionDateTime.isBefore(minimumDate.utc())) {
-        sessionDateTime = minimumDate.utc();
-      }
-
-      setSelectedDateTime(sessionDateTime);
-    },
-    [minimumDate, selectedDateTime],
+    [minimumDate],
   );
 
   const onDatePress = useCallback(() => {
@@ -179,7 +161,7 @@ const Picker: React.FC<PickerProps> = ({
           <DateTimePicker
             mode="date"
             selectedValue={selectedDateTime}
-            setValue={onSetDate}
+            setValue={setDateTime}
             close={onClose}
             minimumDate={minimumDate}
             maximumDate={maximumDate}
@@ -198,7 +180,7 @@ const Picker: React.FC<PickerProps> = ({
             mode="time"
             minimumDate={minimumDate}
             selectedValue={selectedDateTime}
-            setValue={onSetTime}
+            setValue={setDateTime}
             close={onClose}
           />
         )}
