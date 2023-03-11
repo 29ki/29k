@@ -38,14 +38,23 @@ const SelectedText = styled(Body16)<{isActive?: boolean}>(({isActive}) => ({
   color: isActive ? COLORS.PRIMARY : COLORS.BLACK,
 }));
 
-const DateTimePicker: React.FC<{
+type DateTimePickerProps = {
   mode: 'date' | 'time';
   selectedValue: dayjs.Dayjs;
-  setValue: Dispatch<SetStateAction<dayjs.Dayjs>>;
+  setValue: (value: dayjs.Dayjs) => void;
   close: () => void;
   maximumDate?: dayjs.Dayjs;
   minimumDate?: dayjs.Dayjs;
-}> = ({mode, setValue, selectedValue, close, minimumDate, maximumDate}) => {
+};
+
+const DateTimePicker: React.FC<DateTimePickerProps> = ({
+  mode,
+  setValue,
+  selectedValue,
+  close,
+  minimumDate,
+  maximumDate,
+}) => {
   const onChangeIos = useCallback(
     (_: DateTimePickerEvent, value: Date | undefined) =>
       setValue(dayjs(value).utc()),
@@ -70,8 +79,8 @@ const DateTimePicker: React.FC<{
           display={mode === 'date' ? 'inline' : 'spinner'}
           value={selectedValue.local().toDate()}
           onChange={onChangeIos}
-          minimumDate={mode === 'date' ? minimumDate?.toDate() : undefined}
-          maximumDate={mode === 'date' ? maximumDate?.toDate() : undefined}
+          minimumDate={minimumDate?.toDate()}
+          maximumDate={maximumDate?.toDate()}
         />
       );
 
@@ -81,8 +90,8 @@ const DateTimePicker: React.FC<{
           mode={mode}
           display={mode === 'date' ? 'calendar' : 'clock'}
           value={selectedValue.local().toDate()}
-          minimumDate={mode === 'date' ? minimumDate?.toDate() : undefined}
-          maximumDate={mode === 'date' ? maximumDate?.toDate() : undefined}
+          minimumDate={minimumDate?.toDate()}
+          maximumDate={maximumDate?.toDate()}
           onChange={onChangeAndroid}
         />
       );
@@ -107,14 +116,41 @@ const Picker: React.FC<PickerProps> = ({
   onToggle = () => {},
 }) => {
   const {t} = useTranslation('Component.DateTimePicker');
-  const [selectedDate, setSelectedDate] = useState(initialDateTime);
-  const [selectedTime, setSelectedTime] = useState(initialDateTime);
+  const [selectedDateTime, setSelectedDateTime] = useState(initialDateTime);
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [showTimePicker, setShowTimePicker] = useState(false);
 
-  useEffect(
-    () => onChange(selectedDate, selectedTime),
-    [selectedDate, selectedTime, onChange],
+  useEffect(() => {
+    onChange(selectedDateTime, selectedDateTime);
+  }, [selectedDateTime, minimumDate, onChange]);
+
+  const onSetDate: DateTimePickerProps['setValue'] = useCallback(
+    value => {
+      let sessionDateTime = value
+        .hour(selectedDateTime.hour())
+        .minute(selectedDateTime.minute());
+
+      if (minimumDate && sessionDateTime.isBefore(minimumDate)) {
+        sessionDateTime = minimumDate;
+      }
+
+      setSelectedDateTime(sessionDateTime);
+    },
+    [minimumDate, selectedDateTime],
+  );
+  const onSetTime: DateTimePickerProps['setValue'] = useCallback(
+    value => {
+      let sessionDateTime = selectedDateTime
+        .hour(value.hour())
+        .minute(value.minute());
+
+      if (minimumDate && sessionDateTime.isBefore(minimumDate)) {
+        sessionDateTime = minimumDate;
+      }
+
+      setSelectedDateTime(sessionDateTime);
+    },
+    [minimumDate, selectedDateTime],
   );
 
   const onDatePress = useCallback(() => {
@@ -142,14 +178,14 @@ const Picker: React.FC<PickerProps> = ({
             <BodyBold>{t('date')}</BodyBold>
           </Body16>
           <SelectedText isActive={showDatePicker}>
-            {selectedDate.local().format('dddd, D MMM')}
+            {selectedDateTime.local().format('dddd, D MMM')}
           </SelectedText>
         </Row>
         {showDatePicker && (
           <DateTimePicker
             mode="date"
-            selectedValue={selectedDate}
-            setValue={setSelectedDate}
+            selectedValue={selectedDateTime}
+            setValue={onSetDate}
             close={onClose}
             minimumDate={minimumDate}
             maximumDate={maximumDate}
@@ -160,14 +196,15 @@ const Picker: React.FC<PickerProps> = ({
             <BodyBold>{t('time')}</BodyBold>
           </Body16>
           <SelectedText isActive={showTimePicker}>
-            {selectedTime.local().format('LT')}
+            {selectedDateTime.local().format('LT')}
           </SelectedText>
         </Row>
         {showTimePicker && (
           <DateTimePicker
             mode="time"
-            selectedValue={selectedTime}
-            setValue={setSelectedTime}
+            minimumDate={minimumDate}
+            selectedValue={selectedDateTime}
+            setValue={onSetTime}
             close={onClose}
           />
         )}
