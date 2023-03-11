@@ -417,7 +417,7 @@ const SessionModal = () => {
               )}
               <DateTimePicker
                 initialDateTime={initialStartTime}
-                minimumDate={dayjs().local()}
+                minimumDate={dayjs()}
                 onChange={onChange}
               />
               <Spacer16 />
