@@ -124,8 +124,8 @@ const Picker: React.FC<PickerProps> = ({
         .hour(selectedDateTime.hour())
         .minute(selectedDateTime.minute());
 
-      if (minimumDate && sessionDateTime.isBefore(minimumDate)) {
-        sessionDateTime = minimumDate;
+      if (minimumDate && sessionDateTime.isBefore(minimumDate.utc())) {
+        sessionDateTime = minimumDate.utc();
       }
 
       setSelectedDateTime(sessionDateTime);
@@ -138,8 +138,8 @@ const Picker: React.FC<PickerProps> = ({
         .hour(value.hour())
         .minute(value.minute());
 
-      if (minimumDate && sessionDateTime.isBefore(minimumDate)) {
-        sessionDateTime = minimumDate;
+      if (minimumDate && sessionDateTime.isBefore(minimumDate.utc())) {
+        sessionDateTime = minimumDate.utc();
       }
 
       setSelectedDateTime(sessionDateTime);
@@ -155,14 +155,14 @@ const Picker: React.FC<PickerProps> = ({
 
   const onTimePress = useCallback(() => {
     setShowDatePicker(false);
-    setShowTimePicker(!showDatePicker);
-    onToggle(!showDatePicker);
-  }, [setShowTimePicker, showDatePicker, onToggle]);
+    setShowTimePicker(!showTimePicker);
+    onToggle(!showTimePicker);
+  }, [setShowTimePicker, showTimePicker, onToggle]);
 
-  const onClose = useCallback(
-    () => setShowDatePicker(false),
-    [setShowDatePicker],
-  );
+  const onClose = useCallback(() => {
+    setShowDatePicker(false);
+    setShowTimePicker(false);
+  }, [setShowDatePicker]);
 
   return (
     <>
