@@ -2,13 +2,7 @@ import RNDateTimePicker, {
   DateTimePickerEvent,
 } from '@react-native-community/datetimepicker';
 import dayjs from 'dayjs';
-import React, {
-  Dispatch,
-  SetStateAction,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {Platform} from 'react-native';
 import styled from 'styled-components/native';
 import utc from 'dayjs/plugin/utc';
