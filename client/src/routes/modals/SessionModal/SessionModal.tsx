@@ -153,8 +153,8 @@ const SessionModal = () => {
   const [selectedType, setSelectedType] = useState(session?.type);
 
   const initialStartTime = dayjs(session.startTime).utc();
-  const [sessionDate, setSessionDate] = useState<dayjs.Dayjs>(initialStartTime);
-  const [sessionTime, setSessionTime] = useState<dayjs.Dayjs>(initialStartTime);
+  const [sessionDateTime, setSessionDateTime] =
+    useState<dayjs.Dayjs>(initialStartTime);
   const {togglePinned, isPinned} = usePinSession(session);
   const logSessionMetricEvent = useLogSessionMetricEvents();
 
@@ -231,10 +231,6 @@ const SessionModal = () => {
   }, [t, navigation, deleteSession, session.id]);
 
   const onUpdateSession = useCallback(async () => {
-    const sessionDateTime = sessionDate
-      .hour(sessionTime.hour())
-      .minute(sessionTime.minute());
-
     const updatedSession = await updateSession(session.id, {
       startTime: sessionDateTime.utc().toISOString(),
       type: selectedType,
@@ -247,18 +243,14 @@ const SessionModal = () => {
     setSession,
     fetchSessions,
     setEditMode,
-    sessionTime,
-    sessionDate,
     session.id,
     selectedType,
+    sessionDateTime,
   ]);
 
   const onChange = useCallback(
-    (date: dayjs.Dayjs, time: dayjs.Dayjs) => {
-      setSessionDate(date);
-      setSessionTime(time);
-    },
-    [setSessionDate, setSessionTime],
+    (dateTime: dayjs.Dayjs) => setSessionDateTime(dateTime),
+    [setSessionDateTime],
   );
 
   const onEditMode = useCallback(() => setEditMode(true), [setEditMode]);
@@ -425,7 +417,7 @@ const SessionModal = () => {
               )}
               <DateTimePicker
                 initialDateTime={initialStartTime}
-                minimumDate={dayjs().local()}
+                minimumDate={dayjs()}
                 onChange={onChange}
               />
               <Spacer16 />
