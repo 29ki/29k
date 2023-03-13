@@ -20,7 +20,7 @@
     "test": "yarn build:content && yarn test:ts && yarn test:lint && yarn test:jest"
   },
   "dependencies": {
-    "@daily-co/react-native-daily-js": "^0.36.0",
+    "@daily-co/react-native-daily-js": "^0.38.0",
     "@daily-co/react-native-webrtc": "1.94.1-daily.8",
     "@gorhom/bottom-sheet": "^4.4.5",
     "@notifee/react-native": "^7.5.0",
