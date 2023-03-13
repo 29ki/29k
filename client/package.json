@@ -69,7 +69,7 @@
     "react-native-sound": "https://github.com/29ki/react-native-sound#fix-iOS-16-support",
     "react-native-svg": "^13.8.0",
     "react-native-video": "https://github.com/29ki/react-native-video-5.2.1#repeat-ios-using-av-player-looper",
-    "styled-components": "^5.3.6",
+    "styled-components": "^5.3.8",
     "uuid": "^9.0.0",
     "zustand": "^4.3.6"
   },
