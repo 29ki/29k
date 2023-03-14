@@ -8,6 +8,11 @@ import {
 } from './Properties';
 
 type Events = {
+  // Application lifecycle events
+  'Application Opened': undefined;
+  'Application Became Active': undefined;
+  'Application Backgrounded': undefined;
+
   // Navigation
   Screen: ScreenName;
   'Open Link': {URL: string};

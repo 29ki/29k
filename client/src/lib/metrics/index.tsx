@@ -16,10 +16,12 @@ import * as postHog from './adaptors/postHog';
 import * as backEnd from './adaptors/backEnd';
 import {getCurrentRouteName} from '../navigation/utils/routes';
 import useNavigationTracker from './hooks/useNavigationTracker';
+import useLifecycleTracker from './hooks/useLifecycleTracker';
 
 const logDebug = debug('client:metrics');
 
 export const MetricsProvider: MetricsProviderType = ({children}) => {
+  useLifecycleTracker();
   useNavigationTracker();
   return (
     <BackEndMetricsProvider>
