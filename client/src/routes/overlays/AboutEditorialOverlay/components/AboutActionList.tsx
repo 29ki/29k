@@ -41,6 +41,11 @@ const AboutActionList = () => {
 
   const contactPress = useCallback(() => navigate('ContactModal'), [navigate]);
 
+  const safetyToolkitPress = useCallback(
+    () => navigate('SafetyToolkitModal'),
+    [navigate],
+  );
+
   return (
     <ActionList>
       <ActionButton Icon={SunUpIcon} onPress={earlyAccessInfoPress}>
@@ -53,6 +58,9 @@ const AboutActionList = () => {
       )}
       <ActionButton Icon={EnvelopeIcon} onPress={contactPress}>
         {t('actions.contact')}
+      </ActionButton>
+      <ActionButton Icon={EnvelopeIcon} onPress={safetyToolkitPress}>
+        {t('actions.safetyToolkit')}
       </ActionButton>
     </ActionList>
   );

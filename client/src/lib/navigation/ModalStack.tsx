@@ -29,6 +29,8 @@ import SharingModal from '../../routes/modals/SharingModal/SharingModal';
 import SharingPostModal from '../../routes/modals/SharingPostModal/SharingPostModal';
 import DeleteUserModal from '../../routes/modals/DeleteUserModal/DeleteUserModal';
 import HostsModal from '../../routes/modals/Contributors/HostsModal';
+import SafetyToolkitModal from '../../routes/modals/SafetyToolkitModal/SafetyToolkitModal';
+import ReportModal from '../../routes/modals/ReportModal/ReportModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -203,6 +205,18 @@ const ModalStack = () => {
         <Screen
           name={'UpgradeAccountModal'}
           component={UpgradeAccountModal}
+          options={shortSheetModalScreenOptions}
+        />
+
+        <Screen
+          name={'SafetyToolkitModal'}
+          component={SafetyToolkitModal}
+          options={shortSheetModalScreenOptions}
+        />
+
+        <Screen
+          name={'ReportModal'}
+          component={ReportModal}
           options={shortSheetModalScreenOptions}
         />
       </Group>
