@@ -217,7 +217,7 @@ const ModalStack = () => {
         <Screen
           name={'ReportModal'}
           component={ReportModal}
-          options={shortSheetModalScreenOptions}
+          options={tallSheetModalScreenOptions}
         />
       </Group>
 

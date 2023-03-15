@@ -207,33 +207,6 @@ const createFeedbackBlocks = (
   },
 ];
 
-const createReportBlock = (
-  question = 'unknown',
-  originalText: string,
-  translatedText: string | undefined,
-  language: LANGUAGE_TAG,
-) => {
-  const text = translatedText
-    ? `*${question}*\n` +
-      `${translatedText}\n\n` +
-      `*[Original Message]*\n` +
-      `${originalText}\n\n` +
-      `*Langauge:* ${language}\n`
-    : `*${question}*\n` + `${originalText}\n\n`;
-
-  const blocks = [
-    {
-      type: 'section',
-      text: {
-        type: 'mrkdwn',
-        text,
-      },
-    },
-  ];
-
-  return blocks;
-};
-
 export type SlackPayload = {
   message: {ts: string; blocks: KnownBlock[]};
   actions: Array<{action_id: string; value: string}>;
@@ -370,35 +343,5 @@ export const updatePostMessageAsHidden = async (
     });
   } catch (error) {
     throw new SlackError(SlackErrorCode.couldNotUpdateMessage, error);
-  }
-};
-
-export const sendReportMessage = async (
-  question: string | undefined,
-  originalText: string,
-  language: LANGUAGE_TAG,
-) => {
-  if (SLACK_SHARING_POSTS_CHANNEL) {
-    try {
-      const slackClient = createSlackClient();
-
-      const translatedText =
-        language !== DEFAULT_LANGUAGE_TAG
-          ? await translate(originalText, language, DEFAULT_LANGUAGE_TAG)
-          : undefined;
-
-      await slackClient.chat.postMessage({
-        blocks: createReportBlock(
-          question,
-          originalText,
-          translatedText,
-          language,
-        ),
-        username: SLACK_BOT_NAME,
-        channel: `#${SLACK_SHARING_POSTS_CHANNEL}`,
-      });
-    } catch (error) {
-      throw new SlackError(SlackErrorCode.couldNotSendMessage, error);
-    }
   }
 };

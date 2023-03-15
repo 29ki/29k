@@ -24,7 +24,7 @@ rootRouter
   .use('/killSwitch', killSwitchRouter.routes())
   .use('/user', userRouter.routes())
   .use('/posts', postsRouter.routes())
-  .use('report', reportRouter.routes());
+  .use('/report', reportRouter.routes());
 
 app
   .use(firebaseBodyParser())
