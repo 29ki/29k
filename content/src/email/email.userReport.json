@@ -1,0 +1,23 @@
+{
+  "en": {
+    "subject": "Your feedback to 29k",
+    "subject_feedback": "Your feedback to 29k",
+    "subject_misbehaviour": "Your report to 29k",
+    "subject_tech_issue": "Your tech issue report to 29k",
+    "body__markdown": "This message was sent from the 29k app:"
+  },
+  "sv": {
+    "subject": "Din feedback till 29k",
+    "subject_feedback": "Din feedback till 29k",
+    "subject_misbehaviour": "Din rapport till 29k",
+    "subject_tech_issue": "Ditt teknikproblem med 29k",
+    "body__markdown": "Det här meddelandet skickades från 29k-appen:"
+  },
+  "pt": {
+    "subject": "Os teus comentários para a 29k FJN",
+    "subject_feedback": "Os teus comentários para a 29k FJN",
+    "subject_misbehaviour": "O teu relatório de mau comportamento para a 29k FJN",
+    "subject_tech_issue": "O teu relatório de problemas técnicos para a 29k FJN",
+    "body__markdown": "Esta mensagem foi enviada da aplicação 29k FJN:"
+  }
+}

@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import {useTranslation} from 'react-i18next';
 
 import ActionList from '../../../lib/components/ActionList/ActionList';
@@ -10,8 +10,6 @@ import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
 
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-
-import {Body16} from '../../../lib/components/Typography/Body/Body';
 
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 
