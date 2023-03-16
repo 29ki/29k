@@ -137,12 +137,12 @@ const CompletedSessionModal = () => {
                 pictureURL={
                   hostProfile?.photoURL
                     ? hostProfile.photoURL
-                    : exercise.card.host?.photoURL
+                    : exercise.card?.host?.photoURL
                 }
                 name={
                   hostProfile?.displayName
                     ? hostProfile.displayName
-                    : exercise.card.host?.displayName
+                    : exercise.card?.host?.displayName
                 }
               />
             </TitleContainer>

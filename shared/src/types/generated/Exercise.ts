@@ -224,7 +224,7 @@ export interface Exercise {
   hidden?: boolean;
   async?: boolean;
   socialMeta?: ExerciseSocialMediaMetaTags;
-  card: ExerciseCard;
+  card?: ExerciseCard;
   theme?: ExerciseTheme;
   introPortal?: ExerciseIntroPortal;
   outroPortal?: ExerciseOutroPortal;
