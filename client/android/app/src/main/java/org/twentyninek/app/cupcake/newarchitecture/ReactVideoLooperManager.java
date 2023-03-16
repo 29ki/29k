@@ -30,8 +30,18 @@ public class ReactVideoLooperManager extends SimpleViewManager<ReactVideoLooperV
     view.setSources(sources);
   }
 
+  @ReactProp(name = "mutes")
+  public void setMutes(ReactVideoLooperView view, ReadableMap mutes) throws IOException {
+    view.setMutes(mutes);
+  }
+
   @ReactProp(name = "repeat")
   public void setRepeat(ReactVideoLooperView view, boolean repeat) {
     view.setRepeat(repeat);
+  }
+
+  @ReactProp(name = "paused")
+  public void setPaused(ReactVideoLooperView view, boolean paused) {
+    view.setPaused(paused);
   }
 }

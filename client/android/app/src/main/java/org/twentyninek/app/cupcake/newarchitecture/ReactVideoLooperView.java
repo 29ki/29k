@@ -1,239 +1,178 @@
 package org.twentyninek.app.cupcake.newarchitecture;
 
 import android.graphics.Matrix;
-import android.graphics.SurfaceTexture;
-import android.media.MediaPlayer;
-import android.net.Uri;
-import android.provider.MediaStore;
-import android.util.AttributeSet;
-import android.view.Surface;
+import android.os.Handler;
 import android.view.TextureView;
-import android.webkit.CookieManager;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.facebook.react.bridge.ReadableMap;
-import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.react.uimanager.ThemedReactContext;
-import com.facebook.react.uimanager.events.RCTEventEmitter;
+import com.google.android.exoplayer2.ExoPlayer;
+import com.google.android.exoplayer2.MediaItem;
+import com.google.android.exoplayer2.Player;
+import com.google.android.exoplayer2.analytics.AnalyticsListener;
+import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.upstream.DataSource;
+import com.google.android.exoplayer2.upstream.DefaultDataSource;
+import com.google.android.exoplayer2.video.VideoSize;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Map;
 
-class Size {
+enum ReactEvents {
+  EVENT_ON_START_END("onStartEnd"),
+  EVENT_ON_END("onEnd"),
+  EVENT_ON_READY_FOR_DISPLAY("onReadyForDisplay"),
+  EVENT_ON_TRANSITION("onTransition");
 
-  private int mWidth;
-  private int mHeight;
+  private final String mName;
 
-  public Size(int width, int height) {
-    mWidth = width;
-    mHeight = height;
+  ReactEvents(final String name) {
+    mName = name;
   }
 
-  public int getWidth() {
-    return mWidth;
-  }
-
-  public int getHeight() {
-    return mHeight;
+  @Override
+  public String toString() {
+    return mName;
   }
 }
-
-public class ReactVideoLooperView extends TextureView implements TextureView.SurfaceTextureListener,
-  MediaPlayer.OnVideoSizeChangedListener {
-
-  public enum Events {
-    EVENT_ON_START_END("onStartEnd"),
-    EVENT_ON_LOOP_END("onLoopEnd"),
-    EVENT_ON_END("onEnd"),
-    EVENT_ON_READY_FOR_DISPLAY("onReadyForDisplay"),
-    EVENT_ON_TRANSITION("onTransition");
-
-    private final String mName;
-
-    Events(final String name) {
-      mName = name;
+public class ReactVideoLooperView extends TextureView {
+  private class Listener implements AnalyticsListener {
+    @Override
+    public void onVideoSizeChanged(EventTime eventTime, VideoSize videoSize) {
+      AnalyticsListener.super.onVideoSizeChanged(eventTime, videoSize);
+      scaleVideoSize(videoSize.width, videoSize.height);
     }
 
     @Override
-    public String toString() {
-      return mName;
+    public void onMediaItemTransition(EventTime eventTime, @Nullable MediaItem mediaItem, int reason) {
+      AnalyticsListener.super.onMediaItemTransition(eventTime, mediaItem, reason);
+      if (mediaItem == _startMediaItem) {
+        sendEvent(_themedReactContext, ReactEvents.EVENT_ON_START_END.toString());
+      } else if (mediaItem == _endMediaItem) {
+        _player.setVolume(_mutes.getOrDefault("end", false) ? 0.0f : 1.0f);
+      }
+      else if (reason != Player.MEDIA_ITEM_TRANSITION_REASON_REPEAT) {
+        sendEvent(_themedReactContext, ReactEvents.EVENT_ON_TRANSITION.toString());
+      }
+    }
+
+    @Override
+    public void onPlaybackStateChanged(EventTime eventTime, int state) {
+      AnalyticsListener.super.onPlaybackStateChanged(eventTime, state);
+      if (state == Player.STATE_READY) {
+        if (_startMediaItem != null) {
+          _player.setVolume(_mutes.getOrDefault("start", false) ? 0.0f : 1.0f);
+        } else if (_loopMediaItem != null) {
+          _player.setVolume(_mutes.getOrDefault("loop", false) ? 0.0f : 1.0f);
+        }
+
+        sendEvent(_themedReactContext, ReactEvents.EVENT_ON_READY_FOR_DISPLAY.toString());
+      }
+      if (state == Player.STATE_ENDED) {
+        sendEvent(_themedReactContext, ReactEvents.EVENT_ON_END.toString());
+      }
     }
   }
-  private MediaPlayer mLoopMediaPlayer;
-  private MediaPlayer mEndMediaPlayer;
-  private ThemedReactContext themedReactContext;
-  private RCTEventEmitter mEventEmitter;
-  private SurfaceTexture mSurfaceTexture;
+  private ThemedReactContext _themedReactContext;
+  private ExoPlayer _player;
+  private Listener _listener;
+  private HashMap<String, Boolean> _mutes;
+  private MediaItem _startMediaItem;
+  private MediaItem _loopMediaItem;
+  private MediaItem _endMediaItem;
+  private boolean _repeat;
+
   public ReactVideoLooperView(ThemedReactContext context) {
     super(context);
-    themedReactContext = context;
-    setUpView();
-  }
-
-  public ReactVideoLooperView(ThemedReactContext context, AttributeSet attrs) {
-    super(context, attrs);
-  }
-
-  public ReactVideoLooperView(ThemedReactContext context, AttributeSet attrs, int defStyleAttr) {
-    super(context, attrs, defStyleAttr);
-  }
-
-  private void setUpView() {
+    _themedReactContext = context;
     initializeMediaPlayer();
   }
 
   private void sendEvent(ThemedReactContext reactContext,
-                         String eventName,
-                         @Nullable WritableMap params) {
+                         String eventName) {
     reactContext
       .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-      .emit(eventName, params);
+      .emit(eventName, null);
   }
 
   private void initializeMediaPlayer() {
-    if (mLoopMediaPlayer == null) {
-      mLoopMediaPlayer = new MediaPlayer();
-      mLoopMediaPlayer.setOnVideoSizeChangedListener(this);
-      setSurfaceTextureListener(this);
-    } else {
-      mLoopMediaPlayer.reset();
+    if (_player == null) {
+      _player = new ExoPlayer.Builder(_themedReactContext).build();
+      _listener = new Listener();
+      _player.addAnalyticsListener(_listener);
     }
   }
-
-  private void setSource(String source, MediaPlayer mediaPlayer) throws IOException {
-    CookieManager cookieManager = CookieManager.getInstance();
-
-    Uri parsedUrl = Uri.parse(source);
-    Uri.Builder builtUrl = parsedUrl.buildUpon();
-
-    String cookie = cookieManager.getCookie(builtUrl.build().toString());
-
-    Map<String, String> headers = new HashMap<String, String>();
-
-    if (cookie != null) {
-      headers.put("Cookie", cookie);
-    }
-
-    mediaPlayer.setDataSource(themedReactContext, parsedUrl, headers);
-  }
-
   public void setSources(ReadableMap sources) throws IOException {
-    String startSource = sources.getString("start");
-    String loopSource = sources.getString("loop");
-    String endSource = sources.getString("end");
+    ReactVideoLooperView self = this;
+    new Handler().postDelayed(new Runnable() {
+      @Override
+      public void run() {
+        String startSource = sources.getString("start");
+        String loopSource = sources.getString("loop");
+        String endSource = sources.getString("end");
 
-    initializeMediaPlayer();
+        DataSource.Factory dataSourceFactory = new DefaultDataSource.Factory(self._themedReactContext);
 
-    if (loopSource != null) {
-        mLoopMediaPlayer.setLooping(true);
-        mLoopMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-          @Override
-          public void onPrepared(MediaPlayer mediaPlayer) {
-            sendEvent(themedReactContext, Events.EVENT_ON_READY_FOR_DISPLAY.toString(), null);
-            mLoopMediaPlayer.start();
-            if (endSource != null) {
-              try {
-                prepareEndMediaPlayer(endSource);
-              } catch (IOException e) {}
-            }
-          }
-        });
+        if (startSource != null) {
+          self._startMediaItem = MediaItem.fromUri(startSource);
+          MediaSource startMediaSource =
+            new ProgressiveMediaSource.Factory(dataSourceFactory)
+              .createMediaSource(self._startMediaItem);
+          self._player.addMediaSource(startMediaSource);
+        }
+        if (loopSource != null) {
+          self._loopMediaItem = MediaItem.fromUri(loopSource);
+          MediaSource loopMediaSource =
+            new ProgressiveMediaSource.Factory(dataSourceFactory)
+              .createMediaSource(self._loopMediaItem);
+          self._player.addMediaSource(loopMediaSource);
+        }
+        if (endSource != null) {
+          self._endMediaItem = MediaItem.fromUri(endSource);
+          MediaSource endMediaSource =
+            new ProgressiveMediaSource.Factory(dataSourceFactory)
+              .createMediaSource(self._endMediaItem);
+          self._player.addMediaSource(endMediaSource);
+        }
 
-        mLoopMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-          @Override
-          public void onCompletion(MediaPlayer mediaPlayer) {
-            sendEvent(themedReactContext, Events.EVENT_ON_TRANSITION.toString(), null);
-            mLoopMediaPlayer.release();
-            mEndMediaPlayer.setSurface(new Surface(mSurfaceTexture));
-          }
-        });
+        if (self._startMediaItem == null && self._loopMediaItem != null && self._repeat) {
+          self._player.setRepeatMode(Player.REPEAT_MODE_ONE);
+        }
 
-        setSource(loopSource, mLoopMediaPlayer);
-        mLoopMediaPlayer.prepareAsync();
-        mLoopMediaPlayer.setLooping(false);
-    }
+        self._player.setVideoTextureView(self);
+        self._player.prepare();
+        self._player.setPlayWhenReady(true);
+        self._player.setVolume(1.0f);
+      }
+    }, 1);
+
   }
 
-  private void prepareEndMediaPlayer(String endSource) throws IOException {
-    mEndMediaPlayer = new MediaPlayer();
-    setSource(endSource, mEndMediaPlayer);
-
-    mEndMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-      @Override
-      public void onPrepared(MediaPlayer mediaPlayer) {
-        sendEvent(themedReactContext, Events.EVENT_ON_TRANSITION.toString(), null);
-        mLoopMediaPlayer.setNextMediaPlayer(mEndMediaPlayer);
-      }
-    });
-
-    mEndMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-      @Override
-      public void onCompletion(MediaPlayer mediaPlayer) {
-        sendEvent(themedReactContext, Events.EVENT_ON_END.toString(), null);
-      }
-    });
-
-    mEndMediaPlayer.prepareAsync();
+  public void setMutes(ReadableMap mutes) {
+    _mutes = new HashMap<String, Boolean>();
+    _mutes.put("start", mutes.getBoolean("start"));
+    _mutes.put("loop", mutes.getBoolean("loop"));
+    _mutes.put("end", mutes.getBoolean("end"));
   }
 
   public void setRepeat(boolean repeat) {
-    if (mLoopMediaPlayer != null) {
-      mLoopMediaPlayer.setLooping(repeat);
+    _repeat = repeat;
+    if (repeat && _loopMediaItem != null) {
+      _player.setRepeatMode(Player.REPEAT_MODE_ONE);
+    } else {
+      _player.setRepeatMode(Player.REPEAT_MODE_OFF);
     }
   }
 
-  @Override
-  public void onVideoSizeChanged(MediaPlayer mediaPlayer, int width, int height) {
-    scaleVideoSize(width, height);
-  }
-
-  @Override
-  public void onSurfaceTextureAvailable(@NonNull SurfaceTexture surfaceTexture, int width, int height) {
-    mSurfaceTexture = surfaceTexture;
-    if (mLoopMediaPlayer != null) {
-      mLoopMediaPlayer.setSurface(new Surface(mSurfaceTexture));
-    }
-  }
-
-  @Override
-  public void onSurfaceTextureSizeChanged(@NonNull SurfaceTexture surfaceTexture, int i, int i1) {
-
-  }
-
-  @Override
-  public boolean onSurfaceTextureDestroyed(@NonNull SurfaceTexture surfaceTexture) {
-    return false;
-  }
-
-  @Override
-  public void onSurfaceTextureUpdated(@NonNull SurfaceTexture surfaceTexture) {}
-
-  @Override
-  protected void onDetachedFromWindow() {
-    super.onDetachedFromWindow();
-    if (mLoopMediaPlayer != null) {
-      try {
-        if (mLoopMediaPlayer.isPlaying()) {
-          mLoopMediaPlayer.stop();
-        }
-        mLoopMediaPlayer.release();
-        mLoopMediaPlayer = null;
-      } catch (Exception e) {
-        mLoopMediaPlayer = null;
-      }
-    }
-
-    if (mEndMediaPlayer != null) {
-      if (mEndMediaPlayer.isPlaying()) {
-        mEndMediaPlayer.stop();
-      }
-      mEndMediaPlayer.release();
-      mEndMediaPlayer = null;
+  public void setPaused(boolean paused) {
+    if (paused) {
+      _player.pause();
+    } else {
+      _player.play();
     }
   }
 
@@ -248,6 +187,17 @@ public class ReactVideoLooperView extends TextureView implements TextureView.Sur
     Matrix matrix = scaleManager.getScaleMatrix(ScalableType.CENTER_CROP);
     if (matrix != null) {
       setTransform(matrix);
+    }
+  }
+
+  @Override
+  protected void onDetachedFromWindow() {
+    super.onDetachedFromWindow();
+    if (_player != null) {
+      _player.removeAnalyticsListener(_listener);
+      _player.release();
+      _player = null;
+      _listener = null;
     }
   }
 }
