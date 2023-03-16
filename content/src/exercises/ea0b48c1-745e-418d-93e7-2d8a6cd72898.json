@@ -5,7 +5,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome.\n\nI am X and today we will work for around 30 minutes on opening up to our feelings with acceptance and intentionally choosing our actions. We’ll be doing a short intro, then reflect on our own and share with each other. \n\nAnd a heads up that you will need pen and paper during the exercise."
+            "text": "Welcome.\n\nI am X and today we will work for around 30 minutes on opening up to our feelings with acceptance and intentionally choosing our actions. We’ll be doing a short intro, then reflect on our own and share with each other. \n\nAnd a heads up that you will need pen and paper."
+          },
+          {
+            "text": "Before moving on into the exercise, let's ground ourselves in the present moment with three cycles of breathing.\n\n> Inhale + exhale slowly 3 times"
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -48,7 +51,7 @@
         },
         "hostNotes": [
           {
-            "text": "Now we’ll take a minute to reflect on our own. For this step you’ll need a piece of paper.\n\nMost of us have recurring thoughts like *I want to do x, **BUT** I am so y.* It can make us feel like we need to get rid of y, before we do x."
+            "text": "Now we’ll take a minute to reflect on our own. For this step you’ll need a piece of paper.\n\nMost of us have recurring thoughts like *I want to do this, **BUT** I am so that.* It can make us feel like we need to get rid of that, before we do this."
           },
           {
             "text": "See if you can find one or two recent thoughts that contains something you want, but don’t do for a reason on the inside. Write them down. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s one minute. Let’s move on."
@@ -67,7 +70,7 @@
         },
         "hostNotes": [
           {
-            "text": "The next step is to replace your **BUT** with an **AND** in your sentences. Then read them out loud for yourself. \n\nWhat happens to them, and to you, when you do that?"
+            "text": "The next step is to replace your **BUT** with an **AND** in your sentences. Then read them out loud to yourself. \n\nWhat happens to them, and to you, when you do that?"
           },
           {
             "text": "1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s one minute. Let’s move on."
@@ -94,7 +97,7 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one.\n>\n> Press play to start the timer. Re-start for each new sharing. \n\nThank you everyone."
           }
         ],
-        "id": "sharing"
+        "id": "sharing1"
       },
       {
         "type": "content",
