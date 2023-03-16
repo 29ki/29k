@@ -46,10 +46,18 @@ const VideoLooper: React.FC<VideoLooperProperties> = ({
     }
   }, [setShowPoster, onReadyForDisplay]);
 
+  // Needed to explicitly hook up event listeners to Android
   useEffect(() => {
     DeviceEventEmitter.addListener('onReadyForDisplay', onReady);
+
     if (rest.onEnd) {
       DeviceEventEmitter.addListener('onEnd', rest.onEnd);
+    }
+    if (rest.onStartEnd) {
+      DeviceEventEmitter.addListener('onStartEnd', rest.onStartEnd);
+    }
+    if (rest.onTransition) {
+      DeviceEventEmitter.addListener('onTransition', rest.onTransition);
     }
 
     return () => DeviceEventEmitter.removeAllListeners();
