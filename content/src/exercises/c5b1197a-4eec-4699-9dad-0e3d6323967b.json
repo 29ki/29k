@@ -5,10 +5,12 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on relationships and healthy boundaries.\n\nWe’ll be doing an introduction, listening to a video, and two rounds of reflections and sharing those reflections."
+            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on relationships and healthy boundaries.\n\nWe’ll be doing an introduction, listening to a video, and two rounds of reflections and sharing those reflections.",
+            "asyncText": "Welcome. This session is about relationships and healthy boundaries. \n\nThere will be a mini-video-lecture, a moment to reflect, and then sharing what we experienced."
           },
           {
-            "text": "Before we get going, let’s take a few mindful breaths.\n\n> Inhale & exhale slowly 3 times.\n\nLet’s start with a mini check-in.\n\nHow are you feeling right now? Please answer in two-three words."
+            "text": "Before we get going, let’s take a few mindful breaths.\n\n> Inhale & exhale slowly 3 times.\n\nLet’s start with a mini check-in.\n\nHow are you feeling right now? Please answer in two-three words.",
+            "asyncText": "Before we get started, let’s take a few mindful breaths.\n\n…\n\nLet’s get started."
           },
           {
             "text": "X, would you like to start and then pass it on?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -38,7 +40,7 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Take 2 minutes to reflect on your own on these two questions.\n\n1. Examine which of your needs aren’t being met or expressed at the moment.\n2. How do you communicate your needs at the moment?"
+            "text": "Take 2 minutes to reflect on your own on these two questions.\n\n1. Which of your needs aren’t being met or expressed at the moment?\n2. How do you communicate your needs at the moment?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. \\\n2 minutes starting now.\n\n> Press play to start the timer.\n\nThat’s 2 minutes and it’s time to move on."
@@ -49,7 +51,8 @@
           "heading": "Needs not being met are... ",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_boundaries_mza6w9.png"
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_boundaries_mza6w9.png",
+            "durationTimer": true
           }
         }
       },
