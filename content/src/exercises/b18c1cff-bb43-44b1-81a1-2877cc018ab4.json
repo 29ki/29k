@@ -25,6 +25,10 @@
         "content": {
           "video": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674665235/Audio/meditation-breathing-anchor_mbrlw8.mp3"
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674665235/Audio/meditation-breathing-anchor_mbrlw8.mp3"
           }
         }
       },
@@ -39,7 +43,10 @@
           }
         ],
         "content": {
-          "heading": "What was it like to just observe and breathe?"
+          "heading": "What was it like to just observe and breathe?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -56,7 +63,10 @@
           }
         ],
         "content": {
-          "heading": "What was it like to just observe and breathe?"
+          "heading": "What was it like to just observe and breathe?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
         },
         "id": "sharing"
       },
@@ -76,18 +86,33 @@
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f0c7d1"
     },
     "hidden": true,
     "name": "Breathing anchor",
     "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1678973954/Images/card_image_breathing_anchor_vibuvl.png"
+      }
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678973899/Video/portal1_breathing_anchor_iv6ljo.mp4",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678973955/Images/portal1_breathing_anchor_thumbnail_a9slfm.png",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1678973982/Audio/portal_audio_breathing_anchor_ul2agi.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678973897/Video/portal2_breathing_anchor_yzwgnb.mp4",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678973955/Images/portal1_breathing_anchor_thumbnail_a9slfm.png"
+      }
     },
     "id": "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
     "description": "Guided meditation for grounding ourselves in the present moment with our breathing. Present moment awareness can help us reduce rumination and stress as well as improve decision-making."
