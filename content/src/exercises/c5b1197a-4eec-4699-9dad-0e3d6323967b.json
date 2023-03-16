@@ -85,10 +85,12 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Let’s get back into reflection mode. Take 2 minutes to reflect on your own on these questions:\n\n1. Where would it be useful for you to set up boundaries, and in relation to whom?"
+            "text": "Let’s get back into reflection mode. Take 2 minutes to reflect on your own on these questions:\n\n1. Where would it be useful for you to set up boundaries, and in relation to whom?",
+            "asyncText": "Now it’s back into reflection mode. Take 2 minutes to reflect on these questions:\n\n1. Where would it be useful for you to set up boundaries and in relation to whom?"
           },
           {
-            "text": "2. How could you communicate your boundaries in a calm yet assertive way?"
+            "text": "2. How could you communicate your boundaries in a calm yet assertive way?",
+            "asyncText": "2. How could you communicate your boundaries in a calm yet assertive way?"
           }
         ],
         "content": {
@@ -104,15 +106,15 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "And now on to sharing again. The question for the sharing is: How could you benefit from setting up healthy boundaries? \n\nThere will again be a timer set for 2 minutes. If you don’t want to share you can always say ‘pass’."
+            "text": "And now on to sharing again.\n\n1. Where would it be useful for you to set up boundaries and in relation to whom?\n2. How could you communicate your boundaries in a calm yet assertive way?\n\nThere will again be a timer set for 2 minutes. If you don’t want to share you can always say ‘pass’."
           },
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one.\\\n> Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
         "content": {
-          "heading": "How could you benefit from setting up healthy boundaries?",
-          "text": "",
+          "heading": "What boundaries, to whom?",
+          "text": "How will I communicate?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_2_boundaries_sazbko.png"
@@ -124,10 +126,12 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Well done for your openness to explore your needs and your willingness to set healthy boundaries to meet them."
+            "text": "Well done for your openness to explore your needs and your willingness to set healthy boundaries to meet them.",
+            "asyncText": "Well done for your openness to explore your needs and your willingness to set healthy boundaries to meet them."
           },
           {
-            "text": "Your mission to continue what we started here today is to go ahead and talk to the people you’ve identified about your intentions. If that’s not possible right now, book a time this week to do so."
+            "text": "Your mission to continue what we started here today is to go ahead and talk to the people you’ve identified about your intentions. If that’s not possible right now, book a time this week to do so.",
+            "asyncText": "Now it’s time to go ahead and talk to the people you’ve identified about your intentions. If that’s not possible right now, book a time this week to do so."
           }
         ],
         "content": {
@@ -142,10 +146,12 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Before we leave this space let’s do a mini check-out.\\\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Before we leave this space let’s do a mini check-out.\\\nWhat would it mean to you to set healthy boundaries? Please answer in two-three words.",
+            "asyncText": "Well done. Before leaving this space, check-in with yourself again:\n\nWhat would it mean to you to set healthy boundaries?"
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience.",
+            "asyncText": "When you’re ready, finish this session at your own pace."
           }
         ]
       }
