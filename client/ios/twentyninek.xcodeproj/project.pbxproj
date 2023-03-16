@@ -1019,7 +1019,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake;
 				PRODUCT_NAME = production;
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.twentyninek.app.cupcake";
-				SWIFT_OBJC_BRIDGING_HEADER = "production-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1052,7 +1052,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake;
 				PRODUCT_NAME = production;
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore org.twentyninek.app.cupcake";
-				SWIFT_OBJC_BRIDGING_HEADER = "production-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1156,7 +1156,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.twentyninek.app.cupcake.staging";
-				SWIFT_OBJC_BRIDGING_HEADER = "staging-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1189,7 +1189,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore org.twentyninek.app.cupcake.staging";
-				SWIFT_OBJC_BRIDGING_HEADER = "staging-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
