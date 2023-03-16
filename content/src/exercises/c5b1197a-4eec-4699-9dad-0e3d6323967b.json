@@ -5,10 +5,12 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on relationships and healthy boundaries.\n\nWe’ll be doing an introduction, listening to a video, and two rounds of reflections and sharing those reflections."
+            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on relationships and healthy boundaries.\n\nWe’ll be doing an introduction, listening to a video, and two rounds of reflections and sharing those reflections.",
+            "asyncText": "Welcome. This session is about relationships and healthy boundaries. \n\nThere will be a mini-video-lecture, a moment to reflect, and then sharing what we experienced."
           },
           {
-            "text": "Before we get going, let’s take a few mindful breaths.\n\n> Inhale & exhale slowly 3 times.\n\nLet’s start with a mini check-in.\n\nHow are you feeling right now? Please answer in two-three words."
+            "text": "Before we get going, let’s take a few mindful breaths.\n\n> Inhale & exhale slowly 3 times.\n\nLet’s start with a mini check-in.\n\nHow are you feeling right now? Please answer in two-three words.",
+            "asyncText": "Before we get started, let’s take a few mindful breaths.\n\n…\n\nLet’s get started."
           },
           {
             "text": "X, would you like to start and then pass it on?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -38,18 +40,21 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Take 2 minutes to reflect on your own on these two questions.\n\n1. Examine which of your needs aren’t being met or expressed at the moment.\n2. How do you communicate your needs at the moment?"
+            "text": "Take 2 minutes to reflect on your own on these two questions.\n\n1. Which of your needs aren’t being met or expressed at the moment?\n2. Why are these needs not met or expressed?",
+            "asyncText": "Take 2 minutes to reflect.\n\n1. Which of your needs aren’t being met or expressed at the moment?\n2. Why are these needs not met or expressed?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. \\\n2 minutes starting now.\n\n> Press play to start the timer.\n\nThat’s 2 minutes and it’s time to move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. \\\n2 minutes starting now.\n\n> Press play to start the timer.\n\nThat’s 2 minutes and it’s time to move on.",
+            "asyncText": "Take notes on a piece of paper or just mental notes in your head. There is no right or wrong here, our answers are our own.\n\n> Press play to start the timer."
           }
         ],
         "content": {
-          "text": "How do I communicate my needs?",
+          "text": "Why not?",
           "heading": "Needs not being met are... ",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_boundaries_mza6w9.png"
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_boundaries_mza6w9.png",
+            "durationTimer": true
           }
         }
       },
@@ -63,12 +68,12 @@
             "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "The sharing question is: What's stopping you from expressing your needs?\n\nWho would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
         "content": {
-          "heading": "What's stopping you from expressing your needs?",
-          "text": "",
+          "heading": "Needs not being met are...",
+          "text": "Why not?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_2_boundaries_sazbko.png"
@@ -80,10 +85,12 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Let’s get back into reflection mode. Take 2 minutes to reflect on your own on these questions:\n\n1. Where would it be useful for you to set up boundaries, and in relation to whom?"
+            "text": "Let’s get back into reflection mode. Take 2 minutes to reflect on your own on these questions:\n\n1. Where would it be useful for you to set up boundaries, and in relation to whom?",
+            "asyncText": "Now it’s back into reflection mode. Take 2 minutes to reflect on these questions:\n\n1. Where would it be useful for you to set up boundaries and in relation to whom?"
           },
           {
-            "text": "2. How could you communicate your boundaries in a calm yet assertive way?"
+            "text": "2. How could you communicate your boundaries in a calm yet assertive way?",
+            "asyncText": "2. How could you communicate your boundaries in a calm yet assertive way?"
           }
         ],
         "content": {
@@ -99,15 +106,15 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "And now on to sharing again. The question for the sharing is: How could you benefit from setting up healthy boundaries? \n\nThere will again be a timer set for 2 minutes. If you don’t want to share you can always say ‘pass’."
+            "text": "And now on to sharing again.\n\n1. Where would it be useful for you to set up boundaries and in relation to whom?\n2. How could you communicate your boundaries in a calm yet assertive way?\n\nThere will again be a timer set for 2 minutes. If you don’t want to share you can always say ‘pass’."
           },
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one.\\\n> Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
         "content": {
-          "heading": "How could you benefit from setting up healthy boundaries?",
-          "text": "",
+          "heading": "What boundaries, to whom?",
+          "text": "How will I communicate?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_2_boundaries_sazbko.png"
@@ -119,10 +126,12 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Well done for your openness to explore your needs and your willingness to set healthy boundaries to meet them."
+            "text": "Well done for your openness to explore your needs and your willingness to set healthy boundaries to meet them.",
+            "asyncText": "Well done for your openness to explore your needs and your willingness to set healthy boundaries to meet them."
           },
           {
-            "text": "Your mission to continue what we started here today is to go ahead and talk to the people you’ve identified about your intentions. If that’s not possible right now, book a time this week to do so."
+            "text": "Your mission to continue what we started here today is to go ahead and talk to the people you’ve identified about your intentions. If that’s not possible right now, book a time this week to do so.",
+            "asyncText": "Now it’s time to go ahead and talk to the people you’ve identified about your intentions. If that’s not possible right now, book a time this week to do so."
           }
         ],
         "content": {
@@ -137,10 +146,12 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Before we leave this space let’s do a mini check-out.\\\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Before we leave this space let’s do a mini check-out.\\\nWhat would it mean to you to set healthy boundaries? Please answer in two-three words.",
+            "asyncText": "Well done. Before leaving this space, check-in with yourself again:\n\nWhat would it mean to you to set healthy boundaries?"
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience.",
+            "asyncText": "When you’re ready, finish this session at your own pace."
           }
         ]
       }
