@@ -1,8 +1,12 @@
 import sendgrid from '@sendgrid/mail';
 import dayjs from 'dayjs';
+import {ReportParams} from '../api/report';
 
 import config from '../lib/config';
-import {Params, renderUserReportHtml} from '../lib/emailTemplates/report';
+import {
+  renderUserReportHtml,
+  renderUserReportText,
+} from '../lib/emailTemplates/report';
 import i18next, {LANGUAGE_TAG} from '../lib/i18n';
 
 const TO_HELP = {
@@ -23,7 +27,7 @@ const createReportEmail = (
     emailTo: string | string[];
     emailFrom?: string;
     message: string;
-    params: Params;
+    params: ReportParams;
   },
 ) => {
   const t = i18next.getFixedT(language, 'email.userReport');
@@ -40,10 +44,10 @@ const createReportEmail = (
       : {}),
 
     subject: `Your report to 29k sessions - ${dayjs().format('DD/MM/YYYY')}`,
-    text: message,
+    text: renderUserReportText({body: t('body'), content: message, params}),
     html: renderUserReportHtml({
       content: message,
-      body: t('body__markdown'),
+      body: t('body'),
       params,
     }),
     categories: ['Report from user'],
@@ -61,7 +65,7 @@ export const sendReportEmail = ({
   userEmail?: string;
   text: string;
   language: LANGUAGE_TAG;
-  params: Params;
+  params: ReportParams;
 }) =>
   sendgrid.send(
     createReportEmail(language, {

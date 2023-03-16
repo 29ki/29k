@@ -1,20 +1,9 @@
 import Handlebars from 'handlebars';
 import memoize from 'fast-memoize';
 import mjml from 'mjml';
-import {remark} from 'remark';
-import html from 'remark-html';
-import strip from 'strip-markdown';
 
 import {htmlLight, textWihtoutUnsubscribe} from './template';
-
-const remarkHtml = remark().use(html);
-const remarkStrip = remark().use(strip);
-
-export const parseMarkdown = (str: string) =>
-  remarkHtml.processSync(str).toString();
-
-export const stripMarkdown = (str: string) =>
-  remarkStrip.processSync(str).toString();
+import {ReportParams} from '../../api/report';
 
 const htmlTemplate = memoize(() =>
   Handlebars.compile(`
@@ -41,17 +30,6 @@ const textTemplate = memoize(() =>
 {{/each}}`),
 );
 
-export type Params = {
-  screen: string;
-  key: string;
-  model: string;
-  os: string;
-  osVersion: number;
-  nativeVersion: string;
-  bundleVersion: number;
-  gitCommit: string;
-};
-
 export const renderUserReportMjml = ({
   body,
   content,
@@ -59,10 +37,10 @@ export const renderUserReportMjml = ({
 }: {
   body: string;
   content: string;
-  params: Params;
+  params: ReportParams;
 }) => {
   const template = htmlTemplate();
-  return htmlLight(template({body: parseMarkdown(body), content, params}));
+  return htmlLight(template({body, content, params}));
 };
 
 export const renderUserReportHtml = ({
@@ -72,7 +50,7 @@ export const renderUserReportHtml = ({
 }: {
   body: string;
   content: string;
-  params: Params;
+  params: ReportParams;
 }) => {
   return mjml(renderUserReportMjml({body, content, params})).html;
 };
@@ -84,10 +62,8 @@ export const renderUserReportText = ({
 }: {
   body: string;
   content: string;
-  params: Params;
+  params: ReportParams;
 }) => {
   const template = textTemplate();
-  return textWihtoutUnsubscribe(
-    template({body: stripMarkdown(body), content, params}),
-  );
+  return textWihtoutUnsubscribe(template({body, content, params}));
 };

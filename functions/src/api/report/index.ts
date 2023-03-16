@@ -4,22 +4,34 @@ import validator from 'koa-yup-validator';
 import {createApiRouter} from '../../lib/routers';
 
 import {createReport} from '../../controllers/report';
-import {Params} from '../../lib/emailTemplates/report';
 
 const reportRouter = createApiRouter();
+
+const ReportParamsSchema = yup.object().shape({
+  screen: yup.string(),
+  key: yup.string(),
+  model: yup.string(),
+  os: yup.string(),
+  osVersion: yup.string(),
+  nativeVersion: yup.string(),
+  bundleVersion: yup.string(),
+  gitCommit: yup.string(),
+});
 
 const CreateReportSchema = yup.object().shape({
   text: yup.string().required(),
   email: yup.string(),
-  params: yup.object(),
+  params: ReportParamsSchema,
 });
+
 type CreateReportData = yup.InferType<typeof CreateReportSchema>;
+export type ReportParams = yup.InferType<typeof ReportParamsSchema>;
 
 reportRouter.post('/', validator({body: CreateReportSchema}), async ctx => {
   const language = ctx.language;
   const data = ctx.request.body as CreateReportData;
 
-  await createReport({...data, params: data.params as Params, language});
+  await createReport({...data, language});
   ctx.response.status = 200;
 });
 

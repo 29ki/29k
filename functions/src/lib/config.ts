@@ -34,7 +34,6 @@ const configValidation = {
   SLACK_OAUTH_TOKEN: str(),
   SLACK_SIGNING_SECRET: str(),
   SENDGRID_API_KEY: str(),
-  SLACK_REPORTS_CHANNEL: str(),
 };
 
 export default cleanEnv(process.env, configValidation);
