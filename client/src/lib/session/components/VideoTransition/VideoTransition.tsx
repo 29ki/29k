@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo} from 'react';
+import React, {useMemo} from 'react';
 import Sentry from '../../../sentry';
 import styled from 'styled-components/native';
 import {StyleSheet} from 'react-native';
@@ -65,12 +65,6 @@ const VideoTransition: React.FC<VideoTransitionProps> = ({
   const loopVideoSource = useVideoSource(loopSource, reverse);
   const endVideoSource = useVideoSource(endSource, reverse);
 
-  const onLoopEnd = useCallback(() => {
-    if (!loop) {
-      onTransition();
-    }
-  }, [loop, onTransition]);
-
   const sources = useMemo(
     () => ({
       start: startVideoSource,
@@ -105,7 +99,6 @@ const VideoTransition: React.FC<VideoTransitionProps> = ({
       posters={posters}
       onReadyForDisplay={onReadyForDisplay}
       onStartEnd={onTransition}
-      onLoopEnd={onLoopEnd}
       onTransition={onTransition}
       onEnd={onEnd}
       repeat={loop}

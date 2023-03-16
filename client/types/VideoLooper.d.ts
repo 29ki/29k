@@ -5,7 +5,6 @@ export interface VideoLooperProperties extends ViewProps {
   repeat?: boolean;
   paused?: boolean;
   onStartEnd?: () => void;
-  onLoopEnd?: () => void;
   onEnd?: () => void;
   onReadyForDisplay?: () => void;
   onTransition?: () => void;
