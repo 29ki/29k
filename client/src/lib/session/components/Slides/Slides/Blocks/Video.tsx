@@ -152,7 +152,7 @@ const Video: React.FC<VideoProps> = ({
         ref={videoRef}
         onLoad={onLoad}
         onEnd={onEnd}
-        repeat={autoPlayLoop}
+        repeat={true}
       />
       {timer}
     </>

@@ -1,5 +1,9 @@
-import React, {useCallback, useMemo, useState} from 'react';
-import {requireNativeComponent, StyleSheet} from 'react-native';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import {
+  requireNativeComponent,
+  StyleSheet,
+  DeviceEventEmitter,
+} from 'react-native';
 import styled from 'styled-components/native';
 import {VideoLooperProperties} from '../../../../types/VideoLooper';
 
@@ -41,6 +45,15 @@ const VideoLooper: React.FC<VideoLooperProperties> = ({
       onReadyForDisplay();
     }
   }, [setShowPoster, onReadyForDisplay]);
+
+  useEffect(() => {
+    DeviceEventEmitter.addListener('onReadyForDisplay', onReady);
+    if (rest.onEnd) {
+      DeviceEventEmitter.addListener('onEnd', rest.onEnd);
+    }
+
+    return () => DeviceEventEmitter.removeAllListeners();
+  }, [onReady, rest]);
 
   return (
     <Container>
