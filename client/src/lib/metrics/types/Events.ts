@@ -4,11 +4,18 @@ import {
   FeedbackProperties,
   ScreenName,
   SharingSessionPost,
+  CollectionProperties,
 } from './Properties';
 
 type Events = {
+  // Application lifecycle events
+  'Application Opened': undefined;
+  'Application Became Active': undefined;
+  'Application Backgrounded': undefined;
+
   // Navigation
   Screen: ScreenName;
+  'Open Link': {URL: string};
 
   // Outside Sharing Sessions
   'Create Sharing Session': SharingSessionProperties;
@@ -36,6 +43,9 @@ type Events = {
 
   // Feedback
   'Sharing Session Feedback': FeedbackProperties;
+
+  // Collections
+  'Add Collection To Journey': CollectionProperties;
 };
 
 export default Events;

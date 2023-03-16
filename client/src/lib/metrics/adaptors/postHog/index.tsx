@@ -20,7 +20,7 @@ export const PostHogMetricsProvider: MetricsProvider = ({children}) => (
     client={postHog}
     autocapture={{
       captureTouches: false,
-      captureLifecycleEvents: true,
+      captureLifecycleEvents: false, // Handled by MetricsProvider
       captureScreens: false, // Handled by MetricsProvider
     }}>
     {children}

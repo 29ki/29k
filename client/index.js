@@ -1,9 +1,15 @@
+import {DEBUG} from 'config';
+import debug from 'debug';
 import {AppRegistry, LogBox} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
 
 import App from './src/App';
+
+debug.enable(DEBUG);
+// %O doesn't output new lines for some reason
+debug.formatters.p = value => JSON.stringify(value, null, 2);
 
 LogBox.ignoreLogs([
   /*

@@ -10,11 +10,11 @@ import ErrorBoundary from './lib/sentry/components/ErrorBoundary';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
+import RootNavigator from './lib/navigation/RootNavigator';
 
 const GestureHandler = styled(GestureHandlerRootView)({
   flex: 1,
 });
-import RootNavigator from './lib/navigation/RootNavigator';
 
 const App = () => (
   <ErrorBoundary>

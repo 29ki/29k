@@ -1,3 +1,4 @@
+import debug from 'debug';
 import {useCallback} from 'react';
 import {Platform} from 'react-native';
 import codePush, {DownloadProgress} from 'react-native-code-push';
@@ -6,6 +7,8 @@ import {
   ANDROID_CODE_PUSH_DEPLOYMENT_KEY,
 } from 'config';
 import useCodePushState from '../state/state';
+
+const logDebug = debug('client:codePush');
 
 const deploymentKey = Platform.select({
   android: ANDROID_CODE_PUSH_DEPLOYMENT_KEY,
@@ -23,19 +26,19 @@ const {
 const logStatus = (status: codePush.SyncStatus) => {
   switch (status) {
     case CHECKING_FOR_UPDATE:
-      console.log('[CodePush] Checking for updates');
+      logDebug('Checking for updates');
       break;
     case DOWNLOADING_PACKAGE:
-      console.log('[CodePush] Downloading package');
+      logDebug('Downloading package');
       break;
     case INSTALLING_UPDATE:
-      console.log('[CodePush] Installing update');
+      logDebug('Installing update');
       break;
     case UP_TO_DATE:
-      console.log('[CodePush] Up-to-date');
+      logDebug('Up-to-date');
       break;
     case UPDATE_INSTALLED:
-      console.log('[CodePush] Update installed');
+      logDebug('Update installed');
       break;
     default:
       break;

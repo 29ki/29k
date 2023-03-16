@@ -46,3 +46,7 @@ export type FeedbackProperties = {
   'Sharing Session Completed': boolean;
   Host?: boolean;
 } & ExerciseID;
+
+// Collection properties
+export type CollectionID = {'Collection ID': string};
+export type CollectionProperties = CollectionID;
