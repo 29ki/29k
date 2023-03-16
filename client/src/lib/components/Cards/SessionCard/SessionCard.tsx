@@ -140,8 +140,10 @@ const SessionCard: React.FC<SessionCardProps> = ({
         image={image}
         lottie={lottie}
         onPress={onContextPress}
-        hostPictureURL={hostProfile?.photoURL || exercise?.card.host?.photoURL}
-        hostName={hostProfile?.displayName || exercise?.card.host?.displayName}>
+        hostPictureURL={hostProfile?.photoURL || exercise?.card?.host?.photoURL}
+        hostName={
+          hostProfile?.displayName || exercise?.card?.host?.displayName
+        }>
         <Row>
           <JoinButton onPress={onPress} startTime={startTime} />
           <SessionTimeBadge session={session} />
@@ -166,10 +168,10 @@ const SessionCard: React.FC<SessionCardProps> = ({
           image={image}
           lottie={lottie}
           hostPictureURL={
-            hostProfile?.photoURL || exercise?.card.host?.photoURL
+            hostProfile?.photoURL || exercise?.card?.host?.photoURL
           }
           hostName={
-            hostProfile?.displayName || exercise?.card.host?.displayName
+            hostProfile?.displayName || exercise?.card?.host?.displayName
           }
           onPress={onContextPress}
           hasCardBefore={hasCardBefore}
@@ -194,10 +196,10 @@ const SessionCard: React.FC<SessionCardProps> = ({
           lottie={lottie}
           onPress={onContextPress}
           hostPictureURL={
-            hostProfile?.photoURL || exercise?.card.host?.photoURL
+            hostProfile?.photoURL || exercise?.card?.host?.photoURL
           }
           hostName={
-            hostProfile?.displayName || exercise?.card.host?.displayName
+            hostProfile?.displayName || exercise?.card?.host?.displayName
           }>
           <Row>
             <Button small variant="secondary" onPress={onPress}>
