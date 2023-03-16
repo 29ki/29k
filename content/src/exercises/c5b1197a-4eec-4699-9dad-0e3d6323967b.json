@@ -40,14 +40,16 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Take 2 minutes to reflect on your own on these two questions.\n\n1. Which of your needs aren’t being met or expressed at the moment?\n2. How do you communicate your needs at the moment?"
+            "text": "Take 2 minutes to reflect on your own on these two questions.\n\n1. Which of your needs aren’t being met or expressed at the moment?\n2. Why are these needs not met or expressed?",
+            "asyncText": "Take 2 minutes to reflect.\n\n1. Which of your needs aren’t being met or expressed at the moment?\n2. Why are these needs not met or expressed?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. \\\n2 minutes starting now.\n\n> Press play to start the timer.\n\nThat’s 2 minutes and it’s time to move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. \\\n2 minutes starting now.\n\n> Press play to start the timer.\n\nThat’s 2 minutes and it’s time to move on.",
+            "asyncText": "Take notes on a piece of paper or just mental notes in your head. There is no right or wrong here, our answers are our own.\n\n> Press play to start the timer."
           }
         ],
         "content": {
-          "text": "How do I communicate my needs?",
+          "text": "Why not?",
           "heading": "Needs not being met are... ",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4",
@@ -66,12 +68,12 @@
             "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "The sharing question is: What's stopping you from expressing your needs?\n\nWho would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
         "content": {
-          "heading": "What's stopping you from expressing your needs?",
-          "text": "",
+          "heading": "Needs not being met are...",
+          "text": "Why not?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_2_boundaries_sazbko.png"
