@@ -139,7 +139,7 @@
 		20AC302A29B612980083FDD0 /* VideoLooperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLooperView.swift; sourceTree = "<group>"; };
 		20AC302E29B612F40083FDD0 /* VideoLooperManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoLooperManager.m; sourceTree = "<group>"; };
 		20AC303429B6146F0083FDD0 /* VideoLooperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLooperManager.swift; sourceTree = "<group>"; };
-		20AC303829B614FB0083FDD0 /* dev-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dev-Bridging-Header.h"; sourceTree = "<group>"; };
+		20AC303829B614FB0083FDD0 /* VideoLooper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoLooper-Bridging-Header.h"; sourceTree = "<group>"; };
 		2F984EB2C23C413EAD170059 /* HKGrotesk-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-SemiBoldItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		35E0C7EB316048939A75C305 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Regular.ttf"; path = "../src/assets/fonts/PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		3690D88D2865064200A0F937 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = twentyninek/Images.xcassets; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 				20AC302A29B612980083FDD0 /* VideoLooperView.swift */,
 				20AC302E29B612F40083FDD0 /* VideoLooperManager.m */,
 				20AC303429B6146F0083FDD0 /* VideoLooperManager.swift */,
-				20AC303829B614FB0083FDD0 /* dev-Bridging-Header.h */,
+				20AC303829B614FB0083FDD0 /* VideoLooper-Bridging-Header.h */,
 			);
 			name = twentyninek;
 			sourceTree = "<group>";
@@ -1087,7 +1087,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.twentyninek.app.cupcake.dev";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development org.twentyninek.app.cupcake.dev 1670427175";
-				SWIFT_OBJC_BRIDGING_HEADER = "dev-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1123,7 +1123,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.twentyninek.app.cupcake.dev";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore org.twentyninek.app.cupcake.dev";
-				SWIFT_OBJC_BRIDGING_HEADER = "dev-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

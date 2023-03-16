@@ -173,7 +173,6 @@ class VideoLooperView: RCTView {
   // MARK: react props handlers
   
   @objc var onStartEnd: RCTDirectEventBlock?
-  @objc var onLoopEnd: RCTDirectEventBlock?
   @objc var onEnd: RCTDirectEventBlock?
   @objc var onTransition: RCTDirectEventBlock?
   @objc var onReadyForDisplay: RCTDirectEventBlock?
@@ -321,11 +320,6 @@ class VideoLooperView: RCTView {
     guard let lastItem = currentItems.last else { return }
     
     if self._repeat {
-      if onLoopEnd != nil {
-        let event = [AnyHashable: Any]()
-        onLoopEnd!(event)
-      }
-    
       self._player?.insert(AVPlayerItem(asset: lastItem.asset), after: lastItem)
       self.addLoopItemObservers()
     } else if self._endAsset != nil {
