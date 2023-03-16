@@ -116,7 +116,7 @@
             "text": "This can allow us to spend time and energy on the things that are important to us – even when they come with difficult emotions. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life."
           },
           {
-            "text": "For the coming three days, see if you can notice when you talk to yourself with “I want to do x, BUT I’m so y”-sentences. When you do, replace your BUTs with ANDs and see if you notice any difference in how you behave."
+            "text": "For the coming three days, see if you can notice when you talk to yourself with “I want to do this, BUT I’m so that”-sentences. When you do, replace your BUTs with ANDs and see if you notice any difference in how you behave."
           }
         ],
         "content": {
@@ -129,10 +129,12 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Before we leave this space let’s do a mini check-out. How are you feeling right now? Has anything shifted? Please answer in two-three words.\n\nWho would like to start?"
+            "text": "Before we leave this space let’s do a mini check-out. How are you feeling right now? Has anything shifted? Please answer in two-three words.\n\nWho would like to start?",
+            "asyncText": "Well done.\n\nBefore leaving this space, check-in with yourself again."
           },
           {
-            "text": "> Let everyone check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "> Let everyone check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience.",
+            "asyncText": "How are you feeling right now? Has anything shifted? \n\nWhen you’re ready, finish this session at your own pace."
           }
         ]
       }
