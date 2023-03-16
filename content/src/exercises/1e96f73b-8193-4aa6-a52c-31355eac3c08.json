@@ -12,7 +12,11 @@
             "text": "Let’s start with a mini check-in. What brought you here today? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started.",
             "asyncText": "Before we get started, check-in with yourself. What brought you here today?\n\nLet’s get started."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678967008/The_way_out_is_through_intro_rnvvyx.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678967010/The_way_out_is_through_thumb_fxakco.png"
+        }
       },
       {
         "type": "content",
@@ -78,7 +82,11 @@
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678967008/The_way_out_is_through_outro_waudnc.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678967010/The_way_out_is_through_thumb_fxakco.png"
+        }
       }
     ],
     "theme": {
