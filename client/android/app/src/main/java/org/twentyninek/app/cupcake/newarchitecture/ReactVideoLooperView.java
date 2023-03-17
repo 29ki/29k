@@ -1,6 +1,8 @@
 package org.twentyninek.app.cupcake.newarchitecture;
 
+import android.content.Context;
 import android.graphics.Matrix;
+import android.media.AudioManager;
 import android.os.Handler;
 import android.view.TextureView;
 
@@ -10,15 +12,18 @@ import androidx.annotation.Nullable;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.react.uimanager.ThemedReactContext;
+import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.analytics.AnalyticsListener;
+import com.google.android.exoplayer2.audio.AudioAttributes;
 import com.google.android.exoplayer2.ext.okhttp.OkHttpDataSource;
 import com.google.android.exoplayer2.source.DefaultMediaSourceFactory;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.upstream.DefaultLoadErrorHandlingPolicy;
+import com.google.android.exoplayer2.upstream.cache.CacheDataSource;
 import com.google.android.exoplayer2.video.VideoSize;
 
 import java.io.IOException;
@@ -59,7 +64,7 @@ public class ReactVideoLooperView extends TextureView {
       if (mediaItem == _startMediaItem) {
         sendEvent(_themedReactContext, ReactEvents.EVENT_ON_START_END.toString());
       } else if (mediaItem == _endMediaItem) {
-        _player.setVolume(_mutes.getOrDefault("end", false) ? 0.0f : 1.0f);
+        //_player.setVolume(_mutes.getOrDefault("end", false) ? 0.0f : 1.0f);
       }
       else if (reason != Player.MEDIA_ITEM_TRANSITION_REASON_REPEAT) {
         sendEvent(_themedReactContext, ReactEvents.EVENT_ON_TRANSITION.toString());
@@ -71,9 +76,9 @@ public class ReactVideoLooperView extends TextureView {
       AnalyticsListener.super.onPlaybackStateChanged(eventTime, state);
       if (state == Player.STATE_READY) {
         if (_startMediaItem != null) {
-          _player.setVolume(_mutes.getOrDefault("start", false) ? 0.0f : 1.0f);
+          //_player.setVolume(_mutes.getOrDefault("start", false) ? 0.0f : 1.0f);
         } else if (_loopMediaItem != null) {
-          _player.setVolume(_mutes.getOrDefault("loop", false) ? 0.0f : 1.0f);
+          //_player.setVolume(_mutes.getOrDefault("loop", false) ? 0.0f : 1.0f);
         }
 
         sendEvent(_themedReactContext, ReactEvents.EVENT_ON_READY_FOR_DISPLAY.toString());
@@ -85,6 +90,7 @@ public class ReactVideoLooperView extends TextureView {
   }
   private ThemedReactContext _themedReactContext;
   private ExoPlayer _player;
+  private AudioManager _audioManager;
   private Listener _listener;
   private HashMap<String, Boolean> _mutes;
   private MediaItem _startMediaItem;
@@ -97,6 +103,7 @@ public class ReactVideoLooperView extends TextureView {
     super(context);
     _themedReactContext = context;
     initializeMediaPlayer();
+    _audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
   }
 
   private void sendEvent(ThemedReactContext reactContext,
@@ -108,17 +115,49 @@ public class ReactVideoLooperView extends TextureView {
 
   private OkHttpDataSource.Factory createOkHttpFactory() {
     OkHttpClient client = new OkHttpClient.Builder().build();
-    return new OkHttpDataSource.Factory((Request r) -> client.newCall(r));
+    OkHttpDataSource.Factory factory = new OkHttpDataSource.Factory((Request r) -> client.newCall(r));
+    //CacheDataSource.Factory cacheFactory = new CacheDataSource.Factory().setUpstreamDataSourceFactory(factory);
+    return factory;
   }
 
   private void initializeMediaPlayer() {
     if (_player == null) {
+      AudioAttributes audioAttributes = new AudioAttributes.Builder()
+        .setUsage(C.USAGE_MEDIA)
+        .setContentType(C.AUDIO_CONTENT_TYPE_MOVIE)
+        .setAllowedCapturePolicy(C.ALLOW_CAPTURE_BY_ALL)
+        .build();
       _player = new ExoPlayer.Builder(_themedReactContext)
         .setMediaSourceFactory(new DefaultMediaSourceFactory(createOkHttpFactory()))
+        .setAudioAttributes(audioAttributes, true)
         .build();
       _listener = new Listener();
       _player.addAnalyticsListener(_listener);
     }
+  }
+
+  private void requestAudioFocus() {
+    _audioManager.requestAudioFocus(new AudioManager.OnAudioFocusChangeListener() {
+        @Override
+        public void onAudioFocusChange(int focusChange) {
+          switch (focusChange) {
+            case AudioManager.AUDIOFOCUS_LOSS:
+              _player.pause();
+              _audioManager.abandonAudioFocus(this);
+              break;
+            default:
+              break;
+          }
+
+          if (_player != null) {
+            if (focusChange ==  AudioManager.AUDIOFOCUS_GAIN) {
+                _player.setVolume(1.0f);
+              }
+            }
+          }
+      },
+      AudioManager.STREAM_MUSIC,
+      AudioManager.AUDIOFOCUS_GAIN);
   }
   public void setSources(ReadableMap sources) throws IOException {
     ReactVideoLooperView self = this;
@@ -165,6 +204,7 @@ public class ReactVideoLooperView extends TextureView {
         self._player.prepare();
         self._player.setPlayWhenReady(true);
         self._player.setVolume(1.0f);
+        //self.requestAudioFocus();
       }
     }, 1);
 

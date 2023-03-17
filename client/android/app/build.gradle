@@ -306,6 +306,8 @@ dependencies {
 
     implementation "com.squareup.okhttp3:okhttp:" + '$OKHTTP_VERSION'
 
+    implementation "androidx.work:work-runtime:2.8.0"
+
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
     }
