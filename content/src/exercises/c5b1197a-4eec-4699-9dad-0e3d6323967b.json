@@ -17,7 +17,7 @@
           }
         ],
         "video": {
-          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679059022/intro_setting_boundaries_1_hiivpp.mp4",
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679059022/Video/intro_setting_boundaries_1_hiivpp.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679059308/Images/AsyncHostthumbSettingBoundaries.png"
         }
       },
@@ -159,7 +159,7 @@
           }
         ],
         "video": {
-          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679059266/AsyncOutroSettingBoundaries_qiedlk.mp4",
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679059266/Video/AsyncOutroSettingBoundaries_qiedlk.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679059308/Images/AsyncHostthumbSettingBoundaries.png"
         }
       }
