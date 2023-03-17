@@ -13,14 +13,10 @@ const collections = generateI18NResources(
   getContentByType('collections'),
   'collections',
 );
-const email = generateI18NResources(getContentByType('email'), 'email');
 
 const i18n = mergeDeepRight(
-  mergeDeepRight(
-    mergeDeepRight(mergeDeepRight(mergeDeepRight(ui, exercises), tags)),
-    collections,
-  ),
-  email,
+  mergeDeepRight(mergeDeepRight(ui, exercises), tags),
+  collections,
 );
 
 const {contributors} = JSON.parse(
