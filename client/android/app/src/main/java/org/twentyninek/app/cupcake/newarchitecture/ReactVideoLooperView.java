@@ -4,6 +4,7 @@ import android.graphics.Matrix;
 import android.os.Handler;
 import android.view.TextureView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.facebook.react.bridge.ReadableMap;
@@ -13,14 +14,19 @@ import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.analytics.AnalyticsListener;
+import com.google.android.exoplayer2.ext.okhttp.OkHttpDataSource;
+import com.google.android.exoplayer2.source.DefaultMediaSourceFactory;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.ProgressiveMediaSource;
-import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.DefaultDataSource;
+import com.google.android.exoplayer2.upstream.DefaultLoadErrorHandlingPolicy;
 import com.google.android.exoplayer2.video.VideoSize;
 
 import java.io.IOException;
 import java.util.HashMap;
+
+import okhttp3.Call;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 
 enum ReactEvents {
   EVENT_ON_START_END("onStartEnd"),
@@ -85,6 +91,7 @@ public class ReactVideoLooperView extends TextureView {
   private MediaItem _loopMediaItem;
   private MediaItem _endMediaItem;
   private boolean _repeat;
+  private int minLoadRetryCount = 3;
 
   public ReactVideoLooperView(ThemedReactContext context) {
     super(context);
@@ -99,9 +106,16 @@ public class ReactVideoLooperView extends TextureView {
       .emit(eventName, null);
   }
 
+  private OkHttpDataSource.Factory createOkHttpFactory() {
+    OkHttpClient client = new OkHttpClient.Builder().build();
+    return new OkHttpDataSource.Factory((Request r) -> client.newCall(r));
+  }
+
   private void initializeMediaPlayer() {
     if (_player == null) {
-      _player = new ExoPlayer.Builder(_themedReactContext).build();
+      _player = new ExoPlayer.Builder(_themedReactContext)
+        .setMediaSourceFactory(new DefaultMediaSourceFactory(createOkHttpFactory()))
+        .build();
       _listener = new Listener();
       _player.addAnalyticsListener(_listener);
     }
@@ -115,26 +129,30 @@ public class ReactVideoLooperView extends TextureView {
         String loopSource = sources.getString("loop");
         String endSource = sources.getString("end");
 
-        DataSource.Factory dataSourceFactory = new DefaultDataSource.Factory(self._themedReactContext);
+        //DataSource.Factory dataSourceFactory = new DefaultDataSource.Factory(self._themedReactContext);
+        OkHttpDataSource.Factory okHttpDataSourceFactory = createOkHttpFactory();
 
         if (startSource != null) {
           self._startMediaItem = MediaItem.fromUri(startSource);
           MediaSource startMediaSource =
-            new ProgressiveMediaSource.Factory(dataSourceFactory)
+            new ProgressiveMediaSource.Factory(okHttpDataSourceFactory)
+              .setLoadErrorHandlingPolicy(new DefaultLoadErrorHandlingPolicy(minLoadRetryCount))
               .createMediaSource(self._startMediaItem);
           self._player.addMediaSource(startMediaSource);
         }
         if (loopSource != null) {
           self._loopMediaItem = MediaItem.fromUri(loopSource);
           MediaSource loopMediaSource =
-            new ProgressiveMediaSource.Factory(dataSourceFactory)
+            new ProgressiveMediaSource.Factory(okHttpDataSourceFactory)
+              .setLoadErrorHandlingPolicy(new DefaultLoadErrorHandlingPolicy(minLoadRetryCount))
               .createMediaSource(self._loopMediaItem);
           self._player.addMediaSource(loopMediaSource);
         }
         if (endSource != null) {
           self._endMediaItem = MediaItem.fromUri(endSource);
           MediaSource endMediaSource =
-            new ProgressiveMediaSource.Factory(dataSourceFactory)
+            new ProgressiveMediaSource.Factory(okHttpDataSourceFactory)
+              .setLoadErrorHandlingPolicy(new DefaultLoadErrorHandlingPolicy(minLoadRetryCount))
               .createMediaSource(self._endMediaItem);
           self._player.addMediaSource(endMediaSource);
         }
