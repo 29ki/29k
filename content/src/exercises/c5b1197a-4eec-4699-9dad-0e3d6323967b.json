@@ -15,7 +15,11 @@
           {
             "text": "X, would you like to start and then pass it on?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679059022/intro_setting_boundaries_1_hiivpp.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679059308/Images/AsyncHostthumbSettingBoundaries.png"
+        }
       },
       {
         "type": "content",
@@ -153,7 +157,11 @@
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience.",
             "asyncText": "When you’re ready, finish this session at your own pace."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679059266/AsyncOutroSettingBoundaries_qiedlk.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679059308/Images/AsyncHostthumbSettingBoundaries.png"
+        }
       }
     ],
     "theme": {
@@ -166,6 +174,10 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395860/Images/card_setting_boundaries_yrv35w.png"
+      },
+      "host": {
+        "displayName": "Maria 29k",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679059308/Images/AsyncHostthumbSettingBoundaries.png"
       }
     },
     "duration": 30,
@@ -185,6 +197,7 @@
       }
     },
     "id": "c5b1197a-4eec-4699-9dad-0e3d6323967b",
+    "async": true,
     "description": "Relationships are essential for our wellbeing, and sometimes it's hard to set healthy boundaries. In this exercise we practice communicating our needs in an assertive way. Setting boundaries can help us feel better about ourselves, create sustainable relationships and make us more resilient to relationship challenges."
   },
   "pt": {
