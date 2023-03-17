@@ -914,10 +914,10 @@
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
-"@daily-co/daily-js@^0.38.0":
-  version "0.38.0"
-  resolved "https://registry.yarnpkg.com/@daily-co/daily-js/-/daily-js-0.38.0.tgz#3e9e05f83c8021dca168bed4ba119f65eb289e8b"
-  integrity sha512-q3hq1tuN/SdPu/d8oe5jjHWz7OZXqdETrkYNogLBfCQHydpE/I/VFLCBuSlWUpt720H6tmq6rycLHbeN5dmwEA==
+"@daily-co/daily-js@^0.40.0":
+  version "0.40.0"
+  resolved "https://registry.yarnpkg.com/@daily-co/daily-js/-/daily-js-0.40.0.tgz#8e2e78fe95ae0d93999c0808828c10082bdaa37a"
+  integrity sha512-T4CwcsJP96vYXwaBKuDftAN0S+aUsaYVC9QplKVgl9ftK2ZB5xrZZ2D8zgT1nVGGaCb6WekVg5SogbocJQVFPw==
   dependencies:
     "@babel/runtime" "^7.12.5"
     bowser "^2.8.1"
@@ -926,12 +926,12 @@
     fast-equals "^1.6.3"
     lodash "^4.17.15"
 
-"@daily-co/react-native-daily-js@^0.36.0":
-  version "0.36.0"
-  resolved "https://registry.yarnpkg.com/@daily-co/react-native-daily-js/-/react-native-daily-js-0.36.0.tgz#fed17761d28ccb7e89563120ee57fc5533438ed1"
-  integrity sha512-jrH8lM4w7a6s7Is/+5fJQnUrERetEI8N8ruiuAvJx2TsYwBZEZiatrmZzssecQ2Ed/C1RG4N8Jj6T8Xzl71Qvg==
+"@daily-co/react-native-daily-js@^0.38.0":
+  version "0.38.0"
+  resolved "https://registry.yarnpkg.com/@daily-co/react-native-daily-js/-/react-native-daily-js-0.38.0.tgz#bcb19e1357e20ed634e2ac0f3814b4068f5fa2c8"
+  integrity sha512-PVKUEkYuJxCrbzsnaoCN5Z8oQ4N1bAsNzrENZgHICoN69S1CGxgAKQ1/exblKLe4H73/0ka5KHaj3LQL53UjoQ==
   dependencies:
-    "@daily-co/daily-js" "^0.38.0"
+    "@daily-co/daily-js" "^0.40.0"
     "@types/react-native-background-timer" "^2.0.0"
     react-native-url-polyfill "^1.1.2"
 
@@ -8374,10 +8374,10 @@ react-native-linear-gradient@^2.6.2:
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.6.2.tgz#56598a76832724b2afa7889747635b5c80948f38"
   integrity sha512-Z8Xxvupsex+9BBFoSYS87bilNPWcRfRsGC0cpJk72Nxb5p2nEkGSBv73xZbEHnW2mUFvP+huYxrVvjZkr/gRjQ==
 
-react-native-localize@^2.2.5:
-  version "2.2.5"
-  resolved "https://registry.yarnpkg.com/react-native-localize/-/react-native-localize-2.2.5.tgz#5f59c9482f2264a16d2f08e2b9a79071349a70dc"
-  integrity sha512-w0bBZ4X/lkErNXb5T+cQfUKgEv2+28o7jZhK/vPesf91D4yQKUCtS7Uz0s1AnRXYKOyTm3TCUgFuRVqKzuWlMQ==
+react-native-localize@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/react-native-localize/-/react-native-localize-2.2.6.tgz#484f8c700bc629f230066e819265f80f6dd3ef58"
+  integrity sha512-EZETlC1ZlW/4g6xfsNCwAkAw5BDL2A6zk/08JjFR/GRGxYuKRD7iP1hHn1+h6DEu+xROjPpoNeXfMER2vkTVIQ==
 
 react-native-markdown-display@^7.0.0-alpha.2:
   version "7.0.0-alpha.2"
@@ -8389,10 +8389,10 @@ react-native-markdown-display@^7.0.0-alpha.2:
     prop-types "^15.7.2"
     react-native-fit-image "^1.5.5"
 
-react-native-reanimated@^2.14.4:
-  version "2.14.4"
-  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-2.14.4.tgz#3fa3da4e7b99f5dfb28f86bcf24d9d1024d38836"
-  integrity sha512-DquSbl7P8j4SAmc+kRdd75Ianm8G+IYQ9T4AQ6lrpLVeDkhZmjWI0wkutKWnp6L7c5XNVUrFDUf69dwETLCItQ==
+react-native-reanimated@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-3.0.2.tgz#8f7284fab2b0cd949779429e48f32d19a966bbd6"
+  integrity sha512-8Et90yTI9yxchGbDP79k391XZqc/64zNbASbGy8X3Vgv4EbZ1M3IkKwcIbZmbVwpA804VJ6V9nJAGUh9fP0LrA==
   dependencies:
     "@babel/plugin-transform-object-assign" "^7.16.7"
     "@babel/preset-typescript" "^7.16.7"
