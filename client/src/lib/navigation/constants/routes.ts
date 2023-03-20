@@ -86,6 +86,7 @@ export type ModalStackProps = {
   };
   SafetyToolkitModal: undefined;
   ReportModal: undefined;
+  CalmDownModal: undefined;
 };
 
 export type RootNavigationProps = ModalStackProps;

@@ -34,7 +34,9 @@ const SafetyToolkitModal = () => {
             <ActionButton Icon={HangUpIcon} onPress={() => {}}>
               {t('actions.faq')}
             </ActionButton>
-            <ActionButton Icon={HangUpIcon} onPress={() => {}}>
+            <ActionButton
+              Icon={HangUpIcon}
+              onPress={() => navigate('CalmDownModal')}>
               {t('actions.calmDown')}
             </ActionButton>
             <ActionButton

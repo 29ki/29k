@@ -31,6 +31,7 @@ import DeleteUserModal from '../../routes/modals/DeleteUserModal/DeleteUserModal
 import HostsModal from '../../routes/modals/Contributors/HostsModal';
 import SafetyToolkitModal from '../../routes/modals/SafetyToolkitModal/SafetyToolkitModal';
 import ReportModal from '../../routes/modals/ReportModal/ReportModal';
+import CalmDownModal from '../../routes/modals/CalmDownModal/CalmDownModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -217,6 +218,11 @@ const ModalStack = () => {
         <Screen
           name={'ReportModal'}
           component={ReportModal}
+          options={tallSheetModalScreenOptions}
+        />
+        <Screen
+          name={'CalmDownModal'}
+          component={CalmDownModal}
           options={tallSheetModalScreenOptions}
         />
       </Group>
