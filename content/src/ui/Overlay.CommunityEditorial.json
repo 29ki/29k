@@ -1,11 +1,11 @@
 {
   "en": {
     "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1672393912/Temp/community_hs8apo.jpg",
-    "heading": "",
+    "heading": "Contribute",
     "preamble__markdown": "We're free for personal use. \n\nWe don’t sell any data. \n\nWe don’t do ads. \n\nOur only focus is to build the best app in the world, to assist as many as possible to improve mental wellbeing, thrive and contribute to a better future for all. \n\nWant to help out? [Donate here.](donorbox.org/29ksessions1)\n\nWant to use 29k sessions within a corporate? Contact [maria@29k.org.](mailto:maria@29k.org)",
     "body__markdown": "",
     "actions": {
-      "contribute": "Contribute",
+      "contribute": "Ways to contribute",
       "contributors": "Contributors",
       "hosts": "Session hosts",
       "partners": "Partners"
