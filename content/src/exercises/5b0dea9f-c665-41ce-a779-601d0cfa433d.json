@@ -18,8 +18,8 @@
           }
         ],
         "video": {
-          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678114850/Video/Async_intro_Lettinggoofcontrol_ydrq9h.mp4",
-          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678117195/Images/Thumb_host_Lettinggoofcontrol.png"
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679331088/Video/IntroLettingGoOfControl_p2xzg9.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679331097/Images/hostThumbLettingGo_l9vxv4.jpg"
         }
       },
       {
@@ -142,8 +142,8 @@
           }
         ],
         "video": {
-          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678115304/Video/Async_Outro_Lettinggoofcontrol_xqtqcv.mp4",
-          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678117195/Images/Thumb_host_Lettinggoofcontrol.png"
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679331092/Video/OutroLettingGoOfControl_x8cyes.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679331097/Images/hostThumbLettingGo_l9vxv4.jpg"
         }
       }
     ],
@@ -160,7 +160,7 @@
       },
       "host": {
         "displayName": "Jenny 29k",
-        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678117195/Images/Thumb_host_Lettinggoofcontrol.png"
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679331097/Images/hostThumbLettingGo_l9vxv4.jpg"
       }
     },
     "duration": 30,
