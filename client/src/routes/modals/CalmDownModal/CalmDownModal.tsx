@@ -12,7 +12,7 @@ import {useIsFocused} from '@react-navigation/native';
 import {Spacer16} from '../../../lib/components/Spacers/Spacer';
 import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
-import {Pause, Play, Rewind} from '../../../lib/components/Icons';
+import {Pause, Play} from '../../../lib/components/Icons';
 import styled from 'styled-components/native';
 import Audio from '../../../lib/audio/components/Audio';
 
