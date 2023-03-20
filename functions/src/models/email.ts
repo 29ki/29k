@@ -16,6 +16,13 @@ const TO_HELP = {
   es: 'help@29k.org',
 };
 
+const FROM_APP = {
+  en: 'app@29k.org',
+  sv: 'app@29k.org',
+  pt: 'app@29k.org',
+  es: 'app@29k-org',
+};
+
 const createReportEmail = (
   language: LANGUAGE_TAG,
   {
@@ -34,7 +41,7 @@ const createReportEmail = (
 
   return {
     to: emailTo,
-    from: 'app@29k.org',
+    from: FROM_APP[language] || FROM_APP['en'],
     ...(emailFrom
       ? {
           replyTo: {
@@ -43,7 +50,7 @@ const createReportEmail = (
         }
       : {}),
 
-    subject: `Your report to 29k sessions - ${dayjs().format('DD/MM/YYYY')}`,
+    subject: `${t('subject')} - ${dayjs().format('DD/MM/YYYY')}`,
     text: renderUserReportText({body: t('body'), content: message, params}),
     html: renderUserReportHtml({
       content: message,
@@ -57,12 +64,12 @@ const createReportEmail = (
 sendgrid.setApiKey(config.SENDGRID_API_KEY);
 
 export const sendReportEmail = ({
-  userEmail,
+  email,
   text,
   language,
   params,
 }: {
-  userEmail?: string;
+  email?: string;
   text: string;
   language: LANGUAGE_TAG;
   params: ReportParams;
@@ -70,7 +77,7 @@ export const sendReportEmail = ({
   sendgrid.send(
     createReportEmail(language, {
       emailTo: TO_HELP[language] || TO_HELP['en'],
-      emailFrom: userEmail,
+      emailFrom: email,
       message: text,
       params,
     }),
