@@ -1031,23 +1031,10 @@
     lru_map "^0.3.3"
     tslib "^1.9.3"
 
-"@sentry/types@7.41.0":
-  version "7.41.0"
-  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.41.0.tgz#3d53432a3d7693a31b606d3083ab9203c56f5aec"
-  integrity sha512-4z9VdObynwd64i0VHCqkeIAHmsFzapL21qN41Brzb7jY/eGxjn/0rxInDGH+vkoE9qacGqiYfWj4vRNPLsC/bw==
-
 "@sentry/types@7.42.0":
   version "7.42.0"
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.42.0.tgz#e5019cd41a8c4a98c296e2ff28d6adab4b2eb14e"
   integrity sha512-Ga0xaBIR/peuXQ88hI9a5TNY3GLNoH8jpsgPaAjAtRHkLsTx0y3AR+PrD7pUysza9QjvG+Qux01DRvLgaNKOHA==
-
-"@sentry/utils@7.41.0":
-  version "7.41.0"
-  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-7.41.0.tgz#54224dba668dd8c8feb0ff1b4f39938b8fdefd3b"
-  integrity sha512-SL+MGitvkakbkrOTb48rDuJp9GYx/veB6EOzYygh49+zwz4DGM7dD4/rvf/mVlgmXUzPgdGDgkVmxgX3nT7I7g==
-  dependencies:
-    "@sentry/types" "7.41.0"
-    tslib "^1.9.3"
 
 "@sentry/utils@7.42.0":
   version "7.42.0"
@@ -1057,10 +1044,10 @@
     "@sentry/types" "7.42.0"
     tslib "^1.9.3"
 
-"@shopify/jest-koa-mocks@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@shopify/jest-koa-mocks/-/jest-koa-mocks-5.0.1.tgz#fba490b6b7985fbb571eb9974897d396a3642e94"
-  integrity sha512-4YskS9q8+TEHNoyopmuoy2XyhInyqeOl7CF5ShJs19sm6m0EA/jGGvgf/osv2PeTfuf42/L2G9CzWUSg49yTSg==
+"@shopify/jest-koa-mocks@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@shopify/jest-koa-mocks/-/jest-koa-mocks-5.0.2.tgz#8076af408478ea6aa50260e96c5cbfe49b41b80f"
+  integrity sha512-95VHFl6vKnF8UurPDC92yUXySDKPl0ikujVouCwdf68RssQvCgP59romFSPISL26YB2bAFOtyNIkSO0vhzI83Q==
   dependencies:
     koa "^2.13.4"
     node-mocks-http "^1.11.0"
