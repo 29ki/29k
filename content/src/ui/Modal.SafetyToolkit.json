@@ -6,7 +6,8 @@
       "calmDown": "Calm down",
       "report": "Report",
       "helplines": "Emergency helplines"
-    }
+    },
+    "helplines_url": "https://29k.org/helplines"
   },
   "pt": {},
   "sv": {},

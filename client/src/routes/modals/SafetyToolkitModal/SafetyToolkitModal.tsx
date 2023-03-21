@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 
 import ActionList from '../../../lib/components/ActionList/ActionList';
@@ -18,11 +18,23 @@ import ActionButton from '../../../lib/components/ActionList/ActionItems/ActionB
 import {HangUpIcon} from '../../../lib/components/Icons';
 import {Spacer16} from '../../../lib/components/Spacers/Spacer';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
+import * as linking from '../../../lib/linking/nativeLinks';
 
 const SafetyToolkitModal = () => {
   const {t} = useTranslation('Modal.SafetyToolkit');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
+
+  const onFaqPress = useCallback(() => {}, []);
+  const onCalmDownPress = useCallback(
+    () => navigate('CalmDownModal'),
+    [navigate],
+  );
+  const onReportPress = useCallback(() => navigate('ReportModal'), [navigate]);
+  const onHelplinesPress = useCallback(
+    () => linking.openURL(t('helplines_url')),
+    [t],
+  );
 
   return (
     <SheetModal>
@@ -31,20 +43,16 @@ const SafetyToolkitModal = () => {
           <ModalHeading>{t('title')}</ModalHeading>
           <Spacer16 />
           <ActionList>
-            <ActionButton Icon={HangUpIcon} onPress={() => {}}>
+            <ActionButton Icon={HangUpIcon} onPress={onFaqPress}>
               {t('actions.faq')}
             </ActionButton>
-            <ActionButton
-              Icon={HangUpIcon}
-              onPress={() => navigate('CalmDownModal')}>
+            <ActionButton Icon={HangUpIcon} onPress={onCalmDownPress}>
               {t('actions.calmDown')}
             </ActionButton>
-            <ActionButton
-              Icon={HangUpIcon}
-              onPress={() => navigate('ReportModal')}>
+            <ActionButton Icon={HangUpIcon} onPress={onReportPress}>
               {t('actions.report')}
             </ActionButton>
-            <ActionButton Icon={HangUpIcon} onPress={() => {}}>
+            <ActionButton Icon={HangUpIcon} onPress={onHelplinesPress}>
               {t('actions.helplines')}
             </ActionButton>
           </ActionList>
