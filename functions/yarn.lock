@@ -1044,10 +1044,10 @@
     "@sentry/types" "7.42.0"
     tslib "^1.9.3"
 
-"@shopify/jest-koa-mocks@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@shopify/jest-koa-mocks/-/jest-koa-mocks-5.0.1.tgz#fba490b6b7985fbb571eb9974897d396a3642e94"
-  integrity sha512-4YskS9q8+TEHNoyopmuoy2XyhInyqeOl7CF5ShJs19sm6m0EA/jGGvgf/osv2PeTfuf42/L2G9CzWUSg49yTSg==
+"@shopify/jest-koa-mocks@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@shopify/jest-koa-mocks/-/jest-koa-mocks-5.0.2.tgz#8076af408478ea6aa50260e96c5cbfe49b41b80f"
+  integrity sha512-95VHFl6vKnF8UurPDC92yUXySDKPl0ikujVouCwdf68RssQvCgP59romFSPISL26YB2bAFOtyNIkSO0vhzI83Q==
   dependencies:
     koa "^2.13.4"
     node-mocks-http "^1.11.0"
