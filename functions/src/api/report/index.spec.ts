@@ -8,7 +8,7 @@ import {createApiRouter} from '../../lib/routers';
 import * as reportController from '../../controllers/report';
 
 jest.mock('../../controllers/report');
-const mockCreateReport = reportController.createReport as jest.Mock;
+const mockCreateReport = jest.mocked(reportController.createReport);
 
 const router = createApiRouter();
 router.use('/report', reportRouter.routes());

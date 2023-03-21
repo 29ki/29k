@@ -9,6 +9,4 @@ type ReportData = {
   params: ReportParams;
 };
 
-export const createReport = async (data: ReportData) => {
-  await sendReportEmail(data);
-};
+export const createReport = async (data: ReportData) => sendReportEmail(data);
