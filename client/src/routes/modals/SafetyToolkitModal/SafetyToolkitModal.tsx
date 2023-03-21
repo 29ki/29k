@@ -25,7 +25,7 @@ const SafetyToolkitModal = () => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
-  const onFaqPress = useCallback(() => {}, []);
+  const onFaqPress = useCallback(() => linking.openURL(t('faq_url')), [t]);
   const onCalmDownPress = useCallback(
     () => navigate('CalmDownModal'),
     [navigate],
