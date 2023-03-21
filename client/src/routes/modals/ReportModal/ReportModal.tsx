@@ -40,12 +40,15 @@ const ReportModal = () => {
   const user = useUser();
   const [text, setText] = useState<string>();
   const [email, setEmail] = useState<string>();
+  const {popToTop} =
+    useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
   const onSubmit = useCallback(() => {
     if (text?.length) {
       submitReport({text, email});
+      popToTop();
     }
-  }, [text, email]);
+  }, [text, email, popToTop]);
 
   return (
     <SheetModal>
@@ -74,7 +77,7 @@ const ReportModal = () => {
             autoCorrect={false}
             placeholder={t('emailPlaceholder')}
             onChangeText={setEmail}
-            value={user?.email || undefined}
+            defaultValue={user?.email || undefined}
           />
           <Spacer16 />
 
