@@ -23,6 +23,14 @@ import {
 import Button from '../../../lib/components/Buttons/Button';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {BottomSheetTextInput} from '../../../lib/components/Typography/TextInput/TextInput';
+import {Display24} from '../../../lib/components/Typography/Display/Display';
+
+const Container = styled.View({
+  alignItems: 'center',
+  justifyContent: 'center',
+  flex: 1,
+  height: 250,
+});
 
 const ReportInput = styled(BottomSheetTextInput)({
   borderRadius: SPACINGS.SIXTEEN,
@@ -43,56 +51,62 @@ const ReportModal = () => {
   const user = useUser();
   const [text, setText] = useState<string>();
   const [email, setEmail] = useState<string>();
-  const {popToTop} =
-    useNavigation<NativeStackNavigationProp<ModalStackProps>>();
+  const [submitted, setSubmitted] = useState<boolean>(false);
 
   const onSubmit = useCallback(() => {
     if (text?.length) {
       submitReport({text, email});
-      popToTop();
+      setSubmitted(true);
     }
-  }, [text, email, popToTop]);
+  }, [text, email]);
 
   return (
     <SheetModal>
       <BottomSheetScrollView focusHook={useIsFocused}>
-        <Gutters>
-          <ModalHeading>{t('title')}</ModalHeading>
-          <Spacer16 />
-          <Heading16>{t('reportHeading')}</Heading16>
-          <Spacer8 />
-          <ReportInput
-            placeholder={t('reportPlaceholder')}
-            editable
-            multiline
-            onChangeText={setText}
-            textAlignVertical="top"
-          />
-          <Spacer16 />
+        {submitted ? (
+          <Container>
+            <Display24>{t('confirmationText')}</Display24>
+          </Container>
+        ) : (
+          <Gutters>
+            <ModalHeading>{t('title')}</ModalHeading>
+            <Spacer16 />
 
-          <Heading16>{t('emailHeading')}</Heading16>
-          <Spacer8 />
-          <BottomSheetTextInput
-            textContentType="emailAddress"
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoComplete="email"
-            autoCorrect={false}
-            placeholder={t('emailPlaceholder')}
-            onChangeText={setEmail}
-            defaultValue={user?.email || undefined}
-          />
-          <Spacer16 />
-
-          <ButtonWrapper>
-            <Button
-              variant="secondary"
-              onPress={onSubmit}
-              disabled={!text?.length}>
-              {t('confirmButton')}
-            </Button>
-          </ButtonWrapper>
-        </Gutters>
+            <>
+              <Heading16>{t('reportHeading')}</Heading16>
+              <Spacer8 />
+              <ReportInput
+                placeholder={t('reportPlaceholder')}
+                editable
+                multiline
+                onChangeText={setText}
+                textAlignVertical="top"
+              />
+              <Spacer16 />
+              <Heading16>{t('emailHeading')}</Heading16>
+              <Spacer8 />
+              <BottomSheetTextInput
+                textContentType="emailAddress"
+                keyboardType="email-address"
+                autoCapitalize="none"
+                autoComplete="email"
+                autoCorrect={false}
+                placeholder={t('emailPlaceholder')}
+                onChangeText={setEmail}
+                defaultValue={user?.email || undefined}
+              />
+              <Spacer16 />
+              <ButtonWrapper>
+                <Button
+                  variant="secondary"
+                  onPress={onSubmit}
+                  disabled={!text?.length}>
+                  {t('confirmButton')}
+                </Button>
+              </ButtonWrapper>
+            </>
+          </Gutters>
+        )}
       </BottomSheetScrollView>
     </SheetModal>
   );
