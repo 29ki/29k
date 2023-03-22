@@ -1,11 +1,8 @@
 import React, {useCallback, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
-import {useIsFocused, useNavigation} from '@react-navigation/native';
+import {useIsFocused} from '@react-navigation/native';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-
-import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../lib/constants/spacings';
