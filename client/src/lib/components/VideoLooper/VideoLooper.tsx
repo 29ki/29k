@@ -3,6 +3,7 @@ import {
   requireNativeComponent,
   StyleSheet,
   DeviceEventEmitter,
+  EmitterSubscription,
 } from 'react-native';
 import styled from 'styled-components/native';
 import {VideoLooperProperties} from '../../../../types/VideoLooper';
@@ -48,19 +49,36 @@ const VideoLooper: React.FC<VideoLooperProperties> = ({
 
   // Needed to explicitly hook up event listeners to Android
   useEffect(() => {
-    DeviceEventEmitter.addListener('onReadyForDisplay', onReady);
+    let onEndListener: EmitterSubscription | undefined;
+    let onStartEndListener: EmitterSubscription | undefined;
+    let onTransitionListener: EmitterSubscription | undefined;
+    const onReadyForDisplayListener = DeviceEventEmitter.addListener(
+      'onReadyForDisplay',
+      onReady,
+    );
 
     if (rest.onEnd) {
-      DeviceEventEmitter.addListener('onEnd', rest.onEnd);
+      onEndListener = DeviceEventEmitter.addListener('onEnd', rest.onEnd);
     }
     if (rest.onStartEnd) {
-      DeviceEventEmitter.addListener('onStartEnd', rest.onStartEnd);
+      onStartEndListener = DeviceEventEmitter.addListener(
+        'onStartEnd',
+        rest.onStartEnd,
+      );
     }
     if (rest.onTransition) {
-      DeviceEventEmitter.addListener('onTransition', rest.onTransition);
+      onTransitionListener = DeviceEventEmitter.addListener(
+        'onTransition',
+        rest.onTransition,
+      );
     }
 
-    return () => DeviceEventEmitter.removeAllListeners();
+    return () => {
+      onReadyForDisplayListener.remove();
+      onEndListener?.remove();
+      onStartEndListener?.remove();
+      onTransitionListener?.remove();
+    };
   }, [onReady, rest]);
 
   return (

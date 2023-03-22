@@ -1,6 +1,7 @@
 package org.twentyninek.app.cupcake.newarchitecture;
 
 import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
@@ -26,7 +27,7 @@ public class ReactVideoLooperManager extends SimpleViewManager<ReactVideoLooperV
   }
 
   @ReactProp(name = "sources")
-  public void setSources(ReactVideoLooperView view, ReadableMap sources) throws IOException {
+  public void setSources(ReactVideoLooperView view, ReadableArray sources) throws IOException {
     view.setSources(sources);
   }
 
@@ -43,5 +44,13 @@ public class ReactVideoLooperManager extends SimpleViewManager<ReactVideoLooperV
   @ReactProp(name = "paused")
   public void setPaused(ReactVideoLooperView view, boolean paused) {
     view.setPaused(paused);
+  }
+  @ReactProp(name = "volume")
+  public void setVolume(ReactVideoLooperView view, double volume) {
+    view.setVolume(volume);
+  }
+  @ReactProp(name = "audioOnly")
+  public void setAudioOnly(ReactVideoLooperView view, boolean audioOnly) {
+    view.setAudioOnly(audioOnly);
   }
 }

@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import Sentry from '../../../sentry';
 import styled from 'styled-components/native';
 import {StyleSheet} from 'react-native';

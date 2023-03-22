@@ -19,6 +19,7 @@ import HostNotes from '../HostNotes/HostNotes';
 import {ArrowLeftIcon} from '../../../components/Icons';
 import Button from '../../../components/Buttons/Button';
 import VideoTransition from '../VideoTransition/VideoTransition';
+import VideoLooper from '../../../components/VideoLooper/VideoLooper';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -95,6 +96,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   return (
     <Screen>
       {!isHost && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
+
       {isFocused && introPortal?.videoLoop?.audio && (
         <AudioFader
           source={introPortal?.videoLoop?.audio}

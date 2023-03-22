@@ -4,6 +4,8 @@ export interface VideoLooperProperties extends ViewProps {
   mutes: {start?: boolean; loop?: boolean; end?: boolean};
   repeat?: boolean;
   paused?: boolean;
+  volume?: number;
+  audioOnly?: boolean;
   onStartEnd?: () => void;
   onEnd?: () => void;
   onReadyForDisplay?: () => void;

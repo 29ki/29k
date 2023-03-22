@@ -1,7 +1,5 @@
-import React, {useEffect, useImperativeHandle} from 'react';
-import type RNSound from 'react-native-sound';
-import Sound from 'react-native-sound';
-import useAudio from '../hooks/useAudio';
+import React, {useCallback, useEffect, useImperativeHandle} from 'react';
+import Sound, {eventEmitter} from '../../components/Sound/Sound';
 
 type AudioProps = {
   source: string;
@@ -9,10 +7,10 @@ type AudioProps = {
   repeat?: boolean;
   volume?: number;
   mixWithOthers?: boolean;
-  onLoad?: (sound: RNSound) => void;
+  onLoad?: (sound: typeof Sound) => void;
 };
 
-const Audio = React.forwardRef<RNSound | undefined, AudioProps>(
+const Audio = React.forwardRef<typeof Sound | undefined, AudioProps>(
   (
     {
       source,
@@ -24,38 +22,47 @@ const Audio = React.forwardRef<RNSound | undefined, AudioProps>(
     },
     ref,
   ) => {
-    const sound = useAudio(source);
-
     // Expose sound as ref
-    useImperativeHandle(ref, () => sound, [sound]);
+    useImperativeHandle(ref, () => Sound, []);
 
-    useEffect(() => {
-      if (onLoad && sound) {
-        onLoad(sound);
+    const onLoadCallback = useCallback(() => {
+      if (onLoad) {
+        onLoad(Sound);
       }
-    }, [sound, onLoad]);
+    }, [onLoad]);
 
     useEffect(() => {
-      sound?.setNumberOfLoops(repeat ? -1 : 0);
-    }, [sound, repeat]);
+      eventEmitter.addListener('onLoad', onLoadCallback);
+      Sound.prepare(source, !paused, repeat);
+    }, [source, paused, repeat, onLoadCallback]);
+
+    useEffect(() => {
+      if (onLoad) {
+        onLoad(Sound);
+      }
+    }, [onLoad]);
+
+    useEffect(() => {
+      Sound.setRepeat(repeat);
+    }, [repeat]);
 
     useEffect(() => {
       if (paused) {
-        sound?.pause();
+        Sound.pause();
       } else {
-        sound?.play();
+        Sound.play();
       }
-    }, [sound, paused, mixWithOthers]);
+    }, [paused]);
 
     useEffect(() => {
-      if (sound) {
-        Sound.setCategory(undefined, mixWithOthers);
-      }
-    }, [sound, mixWithOthers]);
+      Sound.setVolume(volume);
+    }, [volume]);
 
     useEffect(() => {
-      sound?.setVolume(volume);
-    }, [sound, volume]);
+      return () => {
+        Sound.release();
+      };
+    }, []);
 
     return null;
   },
