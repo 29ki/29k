@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
@@ -18,8 +18,9 @@ import AudioFader from '../AudioFader/AudioFader';
 import HostNotes from '../HostNotes/HostNotes';
 import {ArrowLeftIcon} from '../../../components/Icons';
 import Button from '../../../components/Buttons/Button';
-import VideoTransition from '../VideoTransition/VideoTransition';
-import VideoLooper from '../../../components/VideoLooper/VideoLooper';
+import VideoTransition, {
+  VideoLooperHandle,
+} from '../VideoTransition/VideoTransition';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -61,6 +62,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
 }) => {
   const {t} = useTranslation('Screen.Portal');
 
+  const videoRef = useRef<VideoLooperHandle>(null);
   const [isReadyForDisplay, setIsReadyForDisplay] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -93,6 +95,12 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     onNavigateToSession();
   }, [onNavigateToSession]);
 
+  useEffect(() => {
+    if (sessionState?.started) {
+      videoRef.current?.setRepeat(false);
+    }
+  }, [sessionState?.started]);
+
   return (
     <Screen>
       {!isHost && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
@@ -108,10 +116,10 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
       )}
       {isFocused && introPortal?.videoLoop?.source && (
         <VideoTransition
+          ref={videoRef}
           loopSource={introPortal?.videoLoop?.source}
-          loopPosterSource={introPortal?.videoLoop?.preview}
+          posterSource={introPortal?.videoLoop?.preview}
           endSource={introPortal?.videoEnd?.source}
-          loop={!sessionState?.started}
           paused={!isFocused}
           onReadyForDisplay={onVideoReadyForDisplay}
           onTransition={onVideoTransition}

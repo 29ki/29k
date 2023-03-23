@@ -46,19 +46,13 @@ const AudioFader: React.FC<AudioFaderProps> = ({
   const onLoad = useCallback(() => setLoaded(true), [setLoaded]);
 
   const sources = useMemo(() => {
-    return {loop: source};
-  }, [source]);
-
-  const mutes = useMemo(() => {
-    return {loop: false, start: false, end: false};
-  }, []);
+    return [{source, repeat}];
+  }, [source, repeat]);
 
   return (
     <VideoLooper
       sources={sources}
-      mutes={mutes}
       paused={paused}
-      repeat={repeat}
       volume={currentVolume}
       onReadyForDisplay={onLoad}
     />

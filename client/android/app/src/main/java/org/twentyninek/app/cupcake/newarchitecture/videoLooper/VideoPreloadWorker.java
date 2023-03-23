@@ -1,4 +1,4 @@
-package org.twentyninek.app.cupcake.newarchitecture;
+package org.twentyninek.app.cupcake.newarchitecture.videoLooper;
 
 import android.app.IntentService;
 import android.content.Intent;

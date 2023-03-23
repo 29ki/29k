@@ -1,17 +1,18 @@
-export interface VideoLooperProperties extends ViewProps {
-  sources: {start?: string; loop?: string; end?: string};
-  posters?: {start?: string; loop?: string; end?: string};
-  mutes: {start?: boolean; loop?: boolean; end?: boolean};
+export interface SourceConfig {
+  source: string;
   repeat?: boolean;
+  muted?: boolean;
+}
+export interface VideoLooperProperties extends ViewProps {
+  sources: Array<SourceConfig>;
+  poster?: string;
   paused?: boolean;
+  repeat?: boolean;
   volume?: number;
   audioOnly?: boolean;
-  onStartEnd?: () => void;
   onEnd?: () => void;
   onReadyForDisplay?: () => void;
   onTransition?: () => void;
 }
 
-export default class VideoLooper extends React.Component<VideoLooperProperties> {
-  seek(time: number): void;
-}
+export default class VideoLooper extends React.Component<VideoLooperProperties> {}

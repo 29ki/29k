@@ -1,6 +1,7 @@
-package org.twentyninek.app.cupcake.newarchitecture;
+package org.twentyninek.app.cupcake.newarchitecture.videoLooper;
 
 import android.graphics.Matrix;
+
 enum PivotPoint {
   LEFT_TOP,
   LEFT_CENTER,

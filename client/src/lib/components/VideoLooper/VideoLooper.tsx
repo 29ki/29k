@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React from 'react';
 import {
   requireNativeComponent,
   StyleSheet,
@@ -23,70 +23,77 @@ const Image = styled.Image({
   ...StyleSheet.absoluteFillObject,
 });
 
-const VideoLooper: React.FC<VideoLooperProperties> = ({
-  posters,
-  onReadyForDisplay,
-  ...rest
-}) => {
-  const [showPoster, setShowPoster] = useState(true);
+class VideoLooper extends React.Component<
+  VideoLooperProperties,
+  {showPoster: boolean; posterSource?: {uri: string}; repeat?: boolean}
+> {
+  onEndListener: EmitterSubscription | undefined;
+  onTransitionListener: EmitterSubscription | undefined;
+  onReadyForDisplayListener: EmitterSubscription | undefined;
 
-  const posterSource = useMemo(() => {
-    if (rest.sources.start) {
-      return {uri: posters?.start};
-    }
-    if (rest.sources.end) {
-      return {uri: posters?.end};
-    }
-    return {uri: posters?.loop};
-  }, [posters, rest.sources]);
-
-  const onReady = useCallback(() => {
-    setShowPoster(false);
-    if (onReadyForDisplay) {
-      onReadyForDisplay();
-    }
-  }, [setShowPoster, onReadyForDisplay]);
-
-  // Needed to explicitly hook up event listeners to Android
-  useEffect(() => {
-    let onEndListener: EmitterSubscription | undefined;
-    let onStartEndListener: EmitterSubscription | undefined;
-    let onTransitionListener: EmitterSubscription | undefined;
-    const onReadyForDisplayListener = DeviceEventEmitter.addListener(
-      'onReadyForDisplay',
-      onReady,
-    );
-
-    if (rest.onEnd) {
-      onEndListener = DeviceEventEmitter.addListener('onEnd', rest.onEnd);
-    }
-    if (rest.onStartEnd) {
-      onStartEndListener = DeviceEventEmitter.addListener(
-        'onStartEnd',
-        rest.onStartEnd,
-      );
-    }
-    if (rest.onTransition) {
-      onTransitionListener = DeviceEventEmitter.addListener(
-        'onTransition',
-        rest.onTransition,
-      );
-    }
-
-    return () => {
-      onReadyForDisplayListener.remove();
-      onEndListener?.remove();
-      onStartEndListener?.remove();
-      onTransitionListener?.remove();
+  constructor(props: VideoLooperProperties) {
+    super(props);
+    this.setRepeat = this.setRepeat.bind(this);
+    this.onReady = this.onReady.bind(this);
+    const {poster} = props;
+    this.state = {
+      showPoster: poster ? true : false,
+      posterSource: poster ? {uri: poster} : undefined,
     };
-  }, [onReady, rest]);
+  }
 
-  return (
-    <Container>
-      <StyledRNVideoLooper {...rest} onReadyForDisplay={onReady} />
-      {showPoster && posterSource && <Image source={posterSource} />}
-    </Container>
-  );
-};
+  componentDidMount() {
+    this.onReadyForDisplayListener = DeviceEventEmitter.addListener(
+      'onReadyForDisplay',
+      this.onReady,
+    );
+    if (this.props.onEnd) {
+      this.onEndListener = DeviceEventEmitter.addListener(
+        'onEnd',
+        this.props.onEnd,
+      );
+    }
+    if (this.props.onTransition) {
+      this.onTransitionListener = DeviceEventEmitter.addListener(
+        'onTransition',
+        this.props.onTransition,
+      );
+    }
+  }
+
+  componentWillUnmount() {
+    this.onReadyForDisplayListener?.remove();
+    this.onEndListener?.remove();
+    this.onTransitionListener?.remove();
+  }
+
+  setRepeat(repeat: boolean) {
+    this.setState({repeat});
+  }
+
+  onReady() {
+    this.setState({showPoster: false});
+    if (this.props.onReadyForDisplay) {
+      this.props.onReadyForDisplay();
+    }
+  }
+
+  render() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const {poster, onReadyForDisplay, ...rest} = this.props;
+    return (
+      <Container>
+        <StyledRNVideoLooper
+          {...rest}
+          repeat={this.state.repeat}
+          onReadyForDisplay={this.onReady}
+        />
+        {this.state.showPoster && this.state.posterSource && (
+          <Image source={this.state.posterSource} />
+        )}
+      </Container>
+    );
+  }
+}
 
 export default VideoLooper;
