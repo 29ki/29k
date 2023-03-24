@@ -327,10 +327,11 @@
         "hostNotes": [
           {
             "text": "Parabéns pela abertura em explorares as tuas necessidades e vontade de estabelecer limites saudáveis.",
-            "asyncText": ""
+            "asyncText": "Parabéns pela abertura em explorares as tuas necessidades e vontade de estabelecer limites saudáveis."
           },
           {
-            "text": "Para continuares a missão que começaste aqui hoje deves ir falar com as pessoas que indentificaste nas tuas intenções. Se isso não for possível agora, agenda algum tempo ainda esta semana para o fazeres."
+            "text": "Para continuares a missão que começaste aqui hoje deves ir falar com as pessoas que indentificaste nas tuas intenções. Se isso não for possível agora, agenda algum tempo ainda esta semana para o fazeres.",
+            "asyncText": "Agora está na hora de continuares e falares acerca das tuas intenções com as pessoas que identificaste. Se isso não for possível agora, reserva algum tempo esta semana para o fazeres."
           }
         ],
         "content": {
@@ -345,12 +346,18 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\\\nComo te sentes agora? Mudou alguma coisa? Responde em duas ou três palavras."
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\\\nComo te sentes agora? Mudou alguma coisa? Responde em duas ou três palavras.",
+            "asyncText": "Parabéns. Antes de saíres deste espaço, faz de novo um check-in contigo:\n\nO que significa para ti estabelecer limites saudáveis?"
           },
           {
-            "text": "Quem quer começar?\n\n> Deixa todos os presentes fazerem o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out e estarem presentes hoje nesta sessão.\n\n> Conclui a sessão para encaminhar os presentes para a experiência de saída."
+            "text": "Quem quer começar?\n\n> Deixa todos os presentes fazerem o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out e estarem presentes hoje nesta sessão.\n\n> Conclui a sessão para encaminhar os presentes para a experiência de saída.",
+            "asyncText": "Quando estiveres pronta/o termina esta sessão ao teu ritmo."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679059266/Video/AsyncOutroSettingBoundaries_qiedlk.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679059308/Images/AsyncHostthumbSettingBoundaries.png"
+        }
       }
     ],
     "theme": {
