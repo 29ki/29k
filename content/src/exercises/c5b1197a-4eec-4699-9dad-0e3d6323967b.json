@@ -210,7 +210,8 @@
             "asyncText": "Bem-vinda/o. Nesta sessão vamos trabalhar nas nossas relações e no estabelecimento de limites saudáveis.\n\nVamos assistir a um vídeo, fazer um momento de reflexão e depois partilhar a nossa experiência."
           },
           {
-            "text": "Antes de começarmos, vamos fazer algumas respirações conscientes.\n\n> Lentamente inspira e expira 3 vezes.\n\nVamos começar com um mini check-in.\n\nComo te estás a sentir? Responde em duas ou três palavras."
+            "text": "Antes de começarmos, vamos fazer algumas respirações conscientes.\n\n> Lentamente inspira e expira 3 vezes.\n\nVamos começar com um mini check-in.\n\nComo te estás a sentir? Responde em duas ou três palavras.",
+            "asyncText": "Antes de começarmos, vamos fazer algumas respirações conscientes.\n\n…\n\nVamos começar."
           },
           {
             "text": "X, queres começar e depois passas a palavra?\n\n> Deixa todos os presentes, contando contigo, fazerem o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos a isto!"
@@ -240,14 +241,16 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Dedica 2 minutos para refletir nestas duas questões.\n\n1. Verifica quais das tuas necessidades não estão satisfeitas ou expressas neste momento.\n2. Como comunicas as tuas necessidades neste momento?"
+            "text": "Dedica 2 minutos para refletir nestas duas questões.\n\n1. Verifica quais das tuas necessidades não estão satisfeitas ou expressas neste momento.\n2. Como comunicas as tuas necessidades neste momento?",
+            "asyncText": "Dedica 2 minutos para refletir nestas duas questões.\n\n1. Verifica quais das tuas necessidades não estão satisfeitas ou expressas neste momento.\n2. Como comunicas as tuas necessidades neste momento?"
           },
           {
-            "text": "Podes tomar notas numa folha de papel ou apenas notas mentais. E lembra-te que não há certo nem errado aqui. As nossas respostas são as nossas respostas. 2 minutos a começar agora.\n\n> Carrega em play para iniciar o temporizador.\n\nJá passaram 2 minutos e está na altura de avançarmos."
+            "text": "Podes tomar notas numa folha de papel ou apenas notas mentais. E lembra-te que não há certo nem errado aqui. As nossas respostas são as nossas respostas. 2 minutos a começar agora.\n\n> Carrega em play para iniciar o cronómetro.\n\nJá passaram 2 minutos e está na altura de avançarmos.",
+            "asyncText": "Podes tomar notas numa folha de papel ou apenas notas mentais. E lembra-te que não há certo nem errado aqui. As nossas respostas são as nossas respostas. \n\n> Carrega em play para iniciar o cronómetro."
           }
         ],
         "content": {
-          "text": "Como comunico as minhas necessidades?",
+          "text": "Porque não?",
           "heading": "As necessidades não satisfeitas são…",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4",
@@ -269,8 +272,8 @@
           }
         ],
         "content": {
-          "heading": "O que te impede de expressar as tuas necessidades?",
-          "text": "",
+          "heading": "As necessidades não satisfeitas são…",
+          "text": "Porque não?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_2_boundaries_sazbko.png"
@@ -282,10 +285,12 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Vamos voltar ao modo de partilha. Reserva 2 minutos para refletir nestas questões:\n\n1. Onde seria útil estabeleceres limites, em relação a quem?"
+            "text": "Vamos voltar ao modo de reflexão. Reserva 2 minutos para refletir nestas questões:\n\n1. Onde seria útil estabeleceres limites e em relação a quem?",
+            "asyncText": "Vamos voltar ao modo de reflexão. Reserva 2 minutos para refletir nestas questões:\n\n1. Onde seria útil estabeleceres limites e em relação a quem?"
           },
           {
-            "text": "2. Como poderás comunicar os teus limites de forma calma e ainda assim de forma assertiva?"
+            "text": "2. Como poderás comunicar os teus limites de forma calma e ainda assim de forma assertiva?",
+            "asyncText": "2. Como poderás comunicar os teus limites de forma calma e ainda assim de forma assertiva?"
           }
         ],
         "content": {
@@ -301,15 +306,15 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "E agora mais uma partilha. E a questão é: Como podias beneficiar por estabelecer limites saudáveis?\n\nMais uma vez teremos 2 minutos cada. Se não quiseres partilhar podes simplesmente dizer “passo”."
+            "text": "E agora mais uma partilha. E a questão é: Como podias beneficiar por estabelecer limites saudáveis?\n\n1. Onde seria útil para ti estabelecer limites e em relação a quem?\n2. Como poderias comunicar os teus limites de uma forma calma mas assertiva?\n\nMais uma vez teremos 2 minutos cada. Se não quiseres partilhar podes simplesmente dizer “passo”."
           },
           {
             "text": "Quem quer começar?\n\n> Deixa todos (tantos quantos possível dentro do tempo estipulado) partilharem de forma individual. Reinicia o cronómetro para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
         ],
         "content": {
-          "heading": "Como podias beneficiar por estabelecer limites saudáveis?",
-          "text": "",
+          "heading": "Que limites, para quem?",
+          "text": "Como vou comunicar?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_2_boundaries_sazbko.png"
@@ -321,7 +326,8 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Parabéns pela abertura em explorares as tuas necessidades e vontade de estabelecer limites saudáveis."
+            "text": "Parabéns pela abertura em explorares as tuas necessidades e vontade de estabelecer limites saudáveis.",
+            "asyncText": ""
           },
           {
             "text": "Para continuares a missão que começaste aqui hoje deves ir falar com as pessoas que indentificaste nas tuas intenções. Se isso não for possível agora, agenda algum tempo ainda esta semana para o fazeres."
