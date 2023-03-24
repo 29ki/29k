@@ -55,6 +55,7 @@ const AudioFader: React.FC<AudioFaderProps> = ({
       paused={paused}
       volume={currentVolume}
       onReadyForDisplay={onLoad}
+      audioOnly
     />
   );
 };
