@@ -8,14 +8,20 @@ import {HKGroteskBold} from '../../constants/fonts';
 import {Spacer4} from '../Spacers/Spacer';
 import {Body14} from '../Typography/Body/Body';
 
-const Wrapper = styled.View<{themeColor?: string}>(({themeColor}) => ({
-  backgroundColor: themeColor ? COLORS.BLACK_TRANSPARENT_15 : COLORS.PURE_WHITE,
-  paddingVertical: 1,
-  paddingHorizontal: SPACINGS.EIGHT,
-  borderRadius: SPACINGS.EIGHT,
-  flexDirection: 'row',
-  alignItems: 'center',
-}));
+const Wrapper = styled.View<{themeColor?: string; completed?: boolean}>(
+  ({themeColor, completed}) => ({
+    backgroundColor: completed
+      ? '#A9DAC0'
+      : themeColor
+      ? COLORS.BLACK_TRANSPARENT_15
+      : COLORS.PURE_WHITE,
+    paddingVertical: 1,
+    paddingHorizontal: SPACINGS.EIGHT,
+    borderRadius: SPACINGS.EIGHT,
+    flexDirection: 'row',
+    alignItems: 'center',
+  }),
+);
 
 const StatusText = styled(Body14)<{themeColor?: string}>(({themeColor}) => ({
   color: themeColor ? themeColor : COLORS.BLACK,
@@ -32,6 +38,7 @@ type BadgeProps = {
   IconAfter?: React.ReactNode;
   text: string | React.ReactNode;
   themeColor?: string;
+  completed: boolean;
 };
 
 const Badge: React.FC<BadgeProps> = ({
@@ -39,9 +46,10 @@ const Badge: React.FC<BadgeProps> = ({
   IconAfter,
   text,
   themeColor,
+  completed,
 }) => {
   return (
-    <Wrapper themeColor={themeColor}>
+    <Wrapper themeColor={themeColor} completed={completed}>
       {IconBefore && (
         <>
           <BadgeIcon>{IconBefore}</BadgeIcon>

@@ -34,7 +34,6 @@ import {
 
 import Screen from '../../../lib/components/Screen/Screen';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
-import CompletedSessionCard from '../../../lib/components/Cards/SessionCard/CompletedSessionCard';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
 
@@ -44,6 +43,7 @@ import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
 import usePinnedCollections from '../../../lib/user/hooks/usePinnedCollections';
 import CollectionCardContainer from './components/CollectionCardContainer';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
+import JourneyNode from './components/JourneyNode';
 
 export type Section = {
   title: string;
@@ -78,11 +78,7 @@ const renderSession: SectionListRenderItem<JourneyItem, Section> = ({
   if (item.completedSession) {
     return (
       <Gutters>
-        <CompletedSessionCard
-          completedSessionEvent={item.completedSession as CompletedSessionEvent}
-          hasCardBefore={hasCardBefore}
-          hasCardAfter={hasCardAfter}
-        />
+        <JourneyNode completedSessionEvent={item.completedSession} />
       </Gutters>
     );
   }
