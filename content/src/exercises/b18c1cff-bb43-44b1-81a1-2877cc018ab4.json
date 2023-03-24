@@ -124,10 +124,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on grounding ourselves right here and now.\n\nWe’ll be doing a short introduction, then a meditation exercise, reflect and then finally share our experience with each other"
+            "text": "Olá, o meu nome é X e hoje vamos trabalhar cerca de 30 min em ancorarmo-nos no aqui e agora.\n\nVamos fazer uma pequena apresentação, seguida de uma meditação, reflexão e por fim vamos partilhar a nossa experiência uns com os outros."
           },
           {
-            "text": "Let’s start with a mini check-in. What are you grateful for right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um mini check-in. Do que é que estás grata/o agora? Podes responder em duas ou três palavras. Quem gostaria de começar?\n\n> Permite que todos na sessão, inclusivé tu, façam check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
           }
         ]
       },
@@ -221,7 +221,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Começa a sessão quando estiveres pronta/o"
         }
       ],
       "videoLoop": {
