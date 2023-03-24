@@ -206,7 +206,8 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Sejam bem-vindos!\n\nEu sou X e nos próximos 30 minutos vamos trabalhar nas nossas relações e no estabelecimento de limites saudáveis.\n\nVamos ter uma introdução, assistir a um vídeo e duas rondas de reflexão e partilha."
+            "text": "Sejam bem-vindos!\n\nEu sou X e nos próximos 30 minutos vamos trabalhar nas nossas relações e no estabelecimento de limites saudáveis.\n\nVamos ter uma introdução, assistir a um vídeo e duas rondas de reflexão e partilha.",
+            "asyncText": "Bem-vinda/o. Nesta sessão vamos trabalhar nas nossas relações e no estabelecimento de limites saudáveis.\n\nVamos assistir a um vídeo, fazer um momento de reflexão e depois partilhar a nossa experiência."
           },
           {
             "text": "Antes de começarmos, vamos fazer algumas respirações conscientes.\n\n> Lentamente inspira e expira 3 vezes.\n\nVamos começar com um mini check-in.\n\nComo te estás a sentir? Responde em duas ou três palavras."
@@ -356,6 +357,10 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395860/Images/card_setting_boundaries_yrv35w.png"
+      },
+      "host": {
+        "displayName": "Maria 29k",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679059308/Images/AsyncHostthumbSettingBoundaries.png"
       }
     },
     "duration": 30,
