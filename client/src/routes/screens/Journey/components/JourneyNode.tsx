@@ -29,7 +29,7 @@ const Container = styled.View({
   flexDirection: 'row',
   borderLeft: 1,
   borderLeftWidth: 1,
-  height: 127,
+  height: 110,
   marginLeft: 22 / 2,
 });
 
