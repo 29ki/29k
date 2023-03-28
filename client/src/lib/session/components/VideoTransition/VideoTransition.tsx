@@ -28,10 +28,9 @@ const useVideoSource = (source: string | undefined, reverse = false) =>
     [source, reverse],
   );
 
-const VideoLooperStyled = styled(VideoLooper)(({paused}) => ({
-  opacity: paused ? 0 : 1,
+const VideoLooperStyled = styled(VideoLooper)({
   ...StyleSheet.absoluteFillObject,
-}));
+});
 
 type VideoTransitionProps = {
   startSource?: string;
@@ -44,10 +43,6 @@ type VideoTransitionProps = {
   onReadyForDisplay?: () => void;
   onTransition?: () => void;
   onEnd?: () => void;
-};
-
-export type VideoLooperHandle = {
-  setRepeat: (releat: boolean) => void;
 };
 
 const VideoTransition: React.FC<VideoTransitionProps> = ({

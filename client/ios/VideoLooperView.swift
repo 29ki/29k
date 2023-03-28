@@ -13,7 +13,6 @@ struct ItemConfig: Equatable {
 
 class VideoLooperView: RCTView {
 
-  private var _playerLayer: AVPlayerLayer?
   private var _player: AVQueuePlayer?
   private var _audioPlayer: AVAudioPlayer?
   private var _repeat: Bool = false
@@ -22,6 +21,8 @@ class VideoLooperView: RCTView {
   private var _itemConfigs: Array<ItemConfig>
   private var _volume: Float = 1.0
   
+  override static var layerClass: AnyClass { AVPlayerLayer.self }
+  private var _playerLayer: AVPlayerLayer  { layer as! AVPlayerLayer }
   
   override init(frame: CGRect) {
     self._itemConfigs = []
@@ -49,22 +50,20 @@ class VideoLooperView: RCTView {
   }
   
   @objc func applicationDidEnterBackground(notification:NSNotification!) {
-    self._playerLayer?.player = nil
+    self._playerLayer.player = nil
   }
 
   @objc func applicationDidBecomeActiveNotification(notification:NSNotification!) {
-    self._playerLayer?.player = self._player
+    self._playerLayer.player = self._player
   }
   
   override func layoutSubviews() {
     super.layoutSubviews()
     CATransaction.begin()
     CATransaction.setAnimationDuration(0)
-    _playerLayer?.frame = bounds
+    _playerLayer.frame = bounds
     CATransaction.commit()
   }
-  
-  
   
   deinit {
     NotificationCenter.default.removeObserver(self)
@@ -76,19 +75,17 @@ class VideoLooperView: RCTView {
   }
   
   func removePlayerLayer() {
-    _playerLayer?.removeFromSuperlayer()
-    _playerLayer = nil
+    _playerLayer.removeFromSuperlayer()
   }
  
   private func setupView() {
     _player = AVQueuePlayer()
-    _playerLayer = AVPlayerLayer(player: _player!)
+    _player?.preventsDisplaySleepDuringVideoPlayback = true
+    _playerLayer.player = _player
     
-    guard let playerLayer = _playerLayer else { fatalError("Error creating player layer") }
-    playerLayer.videoGravity = .resizeAspectFill
-    playerLayer.frame = self.layer.bounds
-    playerLayer.needsDisplayOnBoundsChange = true
-    self.layer.addSublayer(playerLayer)
+    _playerLayer.videoGravity = .resizeAspectFill
+    _playerLayer.frame = self.layer.bounds
+    _playerLayer.needsDisplayOnBoundsChange = true
     self.layer.needsDisplayOnBoundsChange = true
   }
   
@@ -199,57 +196,59 @@ class VideoLooperView: RCTView {
   @objc func setSources(_ sources: NSArray) {
     DispatchQueue.global(qos: .default).async {
       self.delay().then { [weak self] in
-        guard let self = self else { return }
-        if self._audioOnly {
-          let firstConfig = sources[0] as! NSDictionary
-          self.setUpAudio(
-            source: firstConfig["source"] as! NSString,
-            shouldRepeat: firstConfig["repeat"] == nil ? false : firstConfig["repeat"] as! Bool)
-        } else {
-          let configs = sources.map {
-            self.createConfig(config: $0 as! NSDictionary)
-          }
-          all(configs).then { loadedConfigs in
-              self._itemConfigs = loadedConfigs
-              
-              for itemConfig in self._itemConfigs {
-                if (itemConfig.shouldRepeat) {
-                  let playerItem1 = AVPlayerItem(asset: itemConfig.asset)
-                  let playerItem2 = AVPlayerItem(asset: itemConfig.asset)
-                  let lastItem = self._player?.items().last;
-                  self._player?.insert(playerItem1, after: lastItem)
-                  self._player?.insert(playerItem2, after: playerItem1)
-                  self.addLoopItemObserver(item: playerItem1)
-                  self.addLoopItemObserver(item: playerItem2)
-                } else {
-                  let playerItem = AVPlayerItem(asset: itemConfig.asset)
-                  let lastItem = self._player?.items().last;
-                  self._player?.insert(playerItem, after: lastItem)
-                  self.addItemObserver(item: playerItem)
-                }
+      guard let self = self else { return }
+      if self._audioOnly {
+        let firstConfig = sources[0] as! NSDictionary
+        self.setUpAudio(
+          source: firstConfig["source"] as! NSString,
+          shouldRepeat: firstConfig["repeat"] == nil ? false : firstConfig["repeat"] as! Bool)
+      } else {
+        let configs = sources.map {
+          self.createConfig(config: $0 as! NSDictionary)
+        }
+        all(configs).then { loadedConfigs in
+            self._itemConfigs = loadedConfigs
+            
+            for itemConfig in self._itemConfigs {
+              if (itemConfig.shouldRepeat) {
+                let playerItem1 = AVPlayerItem(asset: itemConfig.asset)
+                let playerItem2 = AVPlayerItem(asset: itemConfig.asset)
+                let lastItem = self._player?.items().last;
+                self._player?.insert(playerItem1, after: lastItem)
+                self._player?.insert(playerItem2, after: playerItem1)
+                self.addLoopItemObserver(item: playerItem1)
+                self.addLoopItemObserver(item: playerItem2)
+              } else {
+                let playerItem = AVPlayerItem(asset: itemConfig.asset)
+                let lastItem = self._player?.items().last;
+                self._player?.insert(playerItem, after: lastItem)
+                self.addItemObserver(item: playerItem)
               }
-              
-              if self._itemConfigs.count == 1 {
-                if !self._itemConfigs[0].shouldRepeat {
-                  self._player?.actionAtItemEnd = .pause
-                }
+            }
+          
+            if self._itemConfigs.count == 1 {
+              if !self._itemConfigs[0].shouldRepeat {
+                self._player?.actionAtItemEnd = .pause
               }
-              
-              if self._itemConfigs[0].shouldRepeat {
-                self._repeat = true;
-              }
-              
-              self.setMuted(muted: self._itemConfigs[0].isMuted)
-              
-              if self.onReadyForDisplay != nil {
-                let event = [AnyHashable: Any]()
-                self.onReadyForDisplay!(event)
-              }
-              
-              self.configureAudio()
+            }
+            
+            if self._itemConfigs[0].shouldRepeat {
+              self._repeat = true;
+            }
+          
+            self.setMuted(muted: self._itemConfigs[0].isMuted)
+            
+            if self.onReadyForDisplay != nil {
+              let event = [AnyHashable: Any]()
+              self.onReadyForDisplay!(event)
+            }
+            
+            self.configureAudio()
+            if (!self._pause) {
               self._player?.play()
             }
           }
+        }
       }
     }
   }

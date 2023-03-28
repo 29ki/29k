@@ -56,7 +56,6 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
       {outroPortal?.video?.source ? (
         <VideoTransition
           endSource={outroPortal.video.source}
-          posterSource={outroPortal.video?.preview}
           onEnd={onVideoTransition}
         />
       ) : (
