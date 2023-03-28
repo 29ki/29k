@@ -1,10 +1,4 @@
-import React, {
-  forwardRef,
-  useCallback,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-} from 'react';
+import React, {useMemo} from 'react';
 import Sentry from '../../../sentry';
 import styled from 'styled-components/native';
 import {StyleSheet} from 'react-native';
@@ -43,10 +37,10 @@ type VideoTransitionProps = {
   startSource?: string;
   loopSource?: string;
   endSource?: string;
-  posterSource?: string;
   reverse?: boolean;
   loop?: boolean;
   paused?: boolean;
+  repeat?: boolean;
   onReadyForDisplay?: () => void;
   onTransition?: () => void;
   onEnd?: () => void;
@@ -56,58 +50,45 @@ export type VideoLooperHandle = {
   setRepeat: (releat: boolean) => void;
 };
 
-const VideoTransition = forwardRef<VideoLooperHandle, VideoTransitionProps>(
-  (
-    {
-      startSource,
-      loopSource,
-      endSource,
-      posterSource,
-      reverse = false,
-      paused = false,
-      onReadyForDisplay = () => {},
-      onTransition = () => {},
-      onEnd = () => {},
-    },
-    ref,
-  ) => {
-    const videoLooperRef = useRef<VideoLooper>(null);
-    const startVideoSource = useVideoSource(startSource, reverse);
-    const loopVideoSource = useVideoSource(loopSource, reverse);
-    const endVideoSource = useVideoSource(endSource, reverse);
+const VideoTransition: React.FC<VideoTransitionProps> = ({
+  startSource,
+  loopSource,
+  endSource,
+  reverse = false,
+  paused = false,
+  repeat = false,
+  onReadyForDisplay = () => {},
+  onTransition = () => {},
+  onEnd = () => {},
+}) => {
+  const startVideoSource = useVideoSource(startSource, reverse);
+  const loopVideoSource = useVideoSource(loopSource, reverse);
+  const endVideoSource = useVideoSource(endSource, reverse);
 
-    const setRepeat = useCallback((repeat: boolean) => {
-      videoLooperRef.current?.setRepeat(repeat);
-    }, []);
+  const sourceConfigs: Array<SourceConfig> = useMemo(() => {
+    const configs: Array<SourceConfig> = [];
+    if (startVideoSource) {
+      configs.push({source: startVideoSource, muted: true});
+    }
+    if (loopVideoSource) {
+      configs.push({source: loopVideoSource, muted: true, repeat: true});
+    }
+    if (endVideoSource) {
+      configs.push({source: endVideoSource});
+    }
+    return configs;
+  }, [startVideoSource, loopVideoSource, endVideoSource]);
 
-    useImperativeHandle(ref, () => ({setRepeat}), [setRepeat]);
-
-    const sourceConfigs: Array<SourceConfig> = useMemo(() => {
-      const configs: Array<SourceConfig> = [];
-      if (startVideoSource) {
-        configs.push({source: startVideoSource, muted: true});
-      }
-      if (loopVideoSource) {
-        configs.push({source: loopVideoSource, muted: true, repeat: true});
-      }
-      if (endVideoSource) {
-        configs.push({source: endVideoSource});
-      }
-      return configs;
-    }, [startVideoSource, loopVideoSource, endVideoSource]);
-
-    return (
-      <VideoLooperStyled
-        ref={videoLooperRef}
-        sources={sourceConfigs}
-        poster={posterSource}
-        onReadyForDisplay={onReadyForDisplay}
-        onTransition={onTransition}
-        onEnd={onEnd}
-        paused={paused}
-      />
-    );
-  },
-);
+  return (
+    <VideoLooperStyled
+      sources={sourceConfigs}
+      onReadyForDisplay={onReadyForDisplay}
+      onTransition={onTransition}
+      onEnd={onEnd}
+      paused={paused}
+      repeat={repeat}
+    />
+  );
+};
 
 export default React.memo(VideoTransition);

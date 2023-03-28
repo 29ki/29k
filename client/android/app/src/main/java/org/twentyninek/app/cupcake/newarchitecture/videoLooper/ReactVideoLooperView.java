@@ -1,8 +1,10 @@
 package org.twentyninek.app.cupcake.newarchitecture.videoLooper;
 
-import android.graphics.Matrix;
 import android.os.Handler;
-import android.view.TextureView;
+import android.view.Gravity;
+import android.view.SurfaceView;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import androidx.annotation.Nullable;
 
@@ -16,11 +18,8 @@ import com.google.android.exoplayer2.analytics.AnalyticsListener;
 import com.google.android.exoplayer2.ext.okhttp.OkHttpDataSource;
 import com.google.android.exoplayer2.source.DefaultMediaSourceFactory;
 import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.source.ProgressiveMediaSource;
-import com.google.android.exoplayer2.upstream.DefaultLoadErrorHandlingPolicy;
 import com.google.android.exoplayer2.video.VideoSize;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -44,12 +43,18 @@ enum ReactEvents {
     return mName;
   }
 }
-public class ReactVideoLooperView extends TextureView {
+public class ReactVideoLooperView extends FrameLayout {
   private class Listener implements AnalyticsListener {
     @Override
     public void onVideoSizeChanged(EventTime eventTime, VideoSize videoSize) {
       AnalyticsListener.super.onVideoSizeChanged(eventTime, videoSize);
-      scaleVideoSize(videoSize.width, videoSize.height);
+      boolean isInitialRatio = _layout.getAspectRatio() == 0;
+      _layout.setAspectRatio(videoSize.height == 0 ? 1 : (videoSize.width * videoSize.pixelWidthHeightRatio) / videoSize.height);
+
+      // React native workaround for measuring and layout on initial load.
+      if (isInitialRatio) {
+        post(measureAndLayout);
+      }
     }
 
     @Override
@@ -88,17 +93,60 @@ public class ReactVideoLooperView extends TextureView {
     }
   }
   private ThemedReactContext _themedReactContext;
+  private SurfaceView _surfaceView;
+  private ViewGroup.LayoutParams _layoutParams;
+  private final AspectRatioFrameLayout _layout;
   private ExoPlayer _player;
   private Listener _listener;
   private List<MediaItemConfig> _mediaItemConfigs = new ArrayList<>();
   private float _volume = 0.0f;
   private boolean _audioOnly = false;
-  private int minLoadRetryCount = 3;
+  private boolean _paused = true;
+
 
   public ReactVideoLooperView(ThemedReactContext context) {
     super(context);
     _themedReactContext = context;
+
+    _layoutParams = new ViewGroup.LayoutParams(new ViewGroup.LayoutParams(
+      ViewGroup.LayoutParams.MATCH_PARENT,
+      ViewGroup.LayoutParams.MATCH_PARENT));
+
+    FrameLayout.LayoutParams aspectRatioParams = new FrameLayout.LayoutParams(
+      FrameLayout.LayoutParams.MATCH_PARENT,
+      FrameLayout.LayoutParams.MATCH_PARENT);
+    aspectRatioParams.gravity = Gravity.CENTER;
+
+    _layout = new AspectRatioFrameLayout(context);
+    _layout.setLayoutParams(aspectRatioParams);
+    _layout.setResizeMode(ResizeMode.RESIZE_MODE_CENTER_CROP);
+
+    _surfaceView = new SurfaceView(context);
+    _surfaceView.setLayoutParams(new ViewGroup.LayoutParams(
+      ViewGroup.LayoutParams.MATCH_PARENT,
+      ViewGroup.LayoutParams.MATCH_PARENT));
+    _layout.addView(_surfaceView);
+
+    addViewInLayout(_layout, 0, aspectRatioParams);
+
     initializeMediaPlayer();
+    VideoCacheManager.getInstance().prepare(context);
+  }
+
+  private final Runnable measureAndLayout = new Runnable() {
+    @Override
+    public void run() {
+      measure(
+        MeasureSpec.makeMeasureSpec(getWidth(), MeasureSpec.EXACTLY),
+        MeasureSpec.makeMeasureSpec(getHeight(), MeasureSpec.EXACTLY));
+      layout(getLeft(), getTop(), getRight(), getBottom());
+    }
+  };
+
+  @Override
+  public void requestLayout() {
+    super.requestLayout();
+    post(measureAndLayout);
   }
 
   private void sendEvent(ThemedReactContext reactContext,
@@ -111,21 +159,21 @@ public class ReactVideoLooperView extends TextureView {
   private OkHttpDataSource.Factory createOkHttpFactory() {
     OkHttpClient client = new OkHttpClient.Builder().build();
     OkHttpDataSource.Factory factory = new OkHttpDataSource.Factory((Request r) -> client.newCall(r));
-    //CacheDataSource.Factory cacheFactory = new CacheDataSource.Factory().setUpstreamDataSourceFactory(factory);
     return factory;
   }
 
   private void initializeMediaPlayer() {
     if (_player == null) {
       _player = new ExoPlayer.Builder(_themedReactContext)
-        .setMediaSourceFactory(new DefaultMediaSourceFactory(createOkHttpFactory()))
+        .setMediaSourceFactory(new DefaultMediaSourceFactory(VideoCacheManager.getInstance().getCachedDataSourceFactory()))
         .build();
 
       _listener = new Listener();
       _player.addAnalyticsListener(_listener);
     }
   }
-  public void setSources(ReadableArray sources) throws IOException {
+
+  public void setSources(ReadableArray sources) {
     ReactVideoLooperView self = this;
     new Handler().postDelayed(new Runnable() {
       @Override
@@ -135,11 +183,13 @@ public class ReactVideoLooperView extends TextureView {
         List<MediaSource> mediaSources = new ArrayList<>();
         for (Object source: sources.toArrayList()) {
           HashMap<String, Object> mediaItemConfig = (HashMap<String, Object>)source;
-          MediaItem mediaItem = MediaItem.fromUri((String)mediaItemConfig.get("source"));
-          MediaSource mediaSource =
-            new ProgressiveMediaSource.Factory(okHttpDataSourceFactory)
-              .setLoadErrorHandlingPolicy(new DefaultLoadErrorHandlingPolicy(minLoadRetryCount))
-              .createMediaSource(mediaItem);
+          MediaItem mediaItem = new MediaItem.Builder()
+            .setUri((String)mediaItemConfig.get("source"))
+            .setCustomCacheKey((String)mediaItemConfig.get("source"))
+            .build();
+
+          VideoCacheManager.getInstance().preCache((String)mediaItemConfig.get("source"));
+          MediaSource mediaSource = VideoCacheManager.getInstance().getCachedMediaSource(mediaItem);
           mediaSources.add(mediaSource);
           _mediaItemConfigs.add(new MediaItemConfig(
             (String)mediaItemConfig.get("source"),
@@ -161,10 +211,10 @@ public class ReactVideoLooperView extends TextureView {
         _player.setVolume(firstMediaItemConfig.getMuted() ? 0.0f : _volume);
 
         if (!self._audioOnly) {
-          self._player.setVideoTextureView(self);
+          self._player.setVideoSurfaceView(self._surfaceView);
         }
         self._player.prepare();
-        self._player.setPlayWhenReady(true);
+        self._player.setPlayWhenReady(!self._paused);
       }
     }, 1);
 
@@ -179,6 +229,7 @@ public class ReactVideoLooperView extends TextureView {
   }
 
   public void setPaused(boolean paused) {
+    _paused = paused;
     if (paused) {
       _player.pause();
     } else {
@@ -195,25 +246,12 @@ public class ReactVideoLooperView extends TextureView {
     _audioOnly = audioOnly;
   }
 
-  private void scaleVideoSize(int videoWidth, int videoHeight) {
-    if (videoWidth == 0 || videoHeight == 0) {
-      return;
-    }
-
-    Size viewSize = new Size(getWidth(), getHeight());
-    Size videoSize = new Size(videoWidth, videoHeight);
-    ScaleManager scaleManager = new ScaleManager(viewSize, videoSize);
-    Matrix matrix = scaleManager.getScaleMatrix(ScalableType.CENTER_CROP);
-    if (matrix != null) {
-      setTransform(matrix);
-    }
-  }
-
   @Override
   protected void onDetachedFromWindow() {
     super.onDetachedFromWindow();
     if (_player != null) {
       _player.removeAnalyticsListener(_listener);
+      _player.clearVideoSurfaceView(_surfaceView);
       _player.release();
       _player = null;
       _listener = null;

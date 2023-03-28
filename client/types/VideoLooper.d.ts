@@ -5,7 +5,6 @@ export interface SourceConfig {
 }
 export interface VideoLooperProperties extends ViewProps {
   sources: Array<SourceConfig>;
-  poster?: string;
   paused?: boolean;
   repeat?: boolean;
   volume?: number;

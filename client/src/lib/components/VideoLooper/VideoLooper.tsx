@@ -18,35 +18,22 @@ const Container = styled.View({
 const StyledRNVideoLooper = styled(RNVideoLooper)({
   ...StyleSheet.absoluteFillObject,
 });
-
-const Image = styled.Image({
-  ...StyleSheet.absoluteFillObject,
-});
-
-class VideoLooper extends React.Component<
-  VideoLooperProperties,
-  {showPoster: boolean; posterSource?: {uri: string}; repeat?: boolean}
-> {
+class VideoLooper extends React.Component<VideoLooperProperties> {
   onEndListener: EmitterSubscription | undefined;
   onTransitionListener: EmitterSubscription | undefined;
   onReadyForDisplayListener: EmitterSubscription | undefined;
 
   constructor(props: VideoLooperProperties) {
     super(props);
-    this.setRepeat = this.setRepeat.bind(this);
-    this.onReady = this.onReady.bind(this);
-    const {poster} = props;
-    this.state = {
-      showPoster: poster ? true : false,
-      posterSource: poster ? {uri: poster} : undefined,
-    };
   }
 
   componentDidMount() {
-    this.onReadyForDisplayListener = DeviceEventEmitter.addListener(
-      'onReadyForDisplay',
-      this.onReady,
-    );
+    if (this.props.onReadyForDisplay) {
+      this.onReadyForDisplayListener = DeviceEventEmitter.addListener(
+        'onReadyForDisplay',
+        this.props.onReadyForDisplay,
+      );
+    }
     if (this.props.onEnd) {
       this.onEndListener = DeviceEventEmitter.addListener(
         'onEnd',
@@ -67,30 +54,10 @@ class VideoLooper extends React.Component<
     this.onTransitionListener?.remove();
   }
 
-  setRepeat(repeat: boolean) {
-    this.setState({repeat});
-  }
-
-  onReady() {
-    this.setState({showPoster: false});
-    if (this.props.onReadyForDisplay) {
-      this.props.onReadyForDisplay();
-    }
-  }
-
   render() {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const {poster, onReadyForDisplay, ...rest} = this.props;
     return (
       <Container>
-        <StyledRNVideoLooper
-          {...rest}
-          repeat={this.state.repeat}
-          onReadyForDisplay={this.onReady}
-        />
-        {this.state.showPoster && this.state.posterSource && (
-          <Image source={this.state.posterSource} />
-        )}
+        <StyledRNVideoLooper {...this.props} />
       </Container>
     );
   }
