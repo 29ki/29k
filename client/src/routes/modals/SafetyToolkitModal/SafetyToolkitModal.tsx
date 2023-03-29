@@ -15,7 +15,12 @@ import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 
 import ActionButton from '../../../lib/components/ActionList/ActionItems/ActionButton';
 
-import {HangUpIcon} from '../../../lib/components/Icons';
+import {
+  QuestionIcon,
+  SparklesIcon,
+  ReportIcon,
+  HelplinesIcon,
+} from '../../../lib/components/Icons';
 import {Spacer16} from '../../../lib/components/Spacers/Spacer';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import * as linking from '../../../lib/linking/nativeLinks';
@@ -43,16 +48,16 @@ const SafetyToolkitModal = () => {
           <ModalHeading>{t('title')}</ModalHeading>
           <Spacer16 />
           <ActionList>
-            <ActionButton Icon={HangUpIcon} onPress={onFaqPress}>
+            <ActionButton Icon={QuestionIcon} onPress={onFaqPress}>
               {t('actions.faq')}
             </ActionButton>
-            <ActionButton Icon={HangUpIcon} onPress={onCalmDownPress}>
+            <ActionButton Icon={SparklesIcon} onPress={onCalmDownPress}>
               {t('actions.calmDown')}
             </ActionButton>
-            <ActionButton Icon={HangUpIcon} onPress={onReportPress}>
+            <ActionButton Icon={ReportIcon} onPress={onReportPress}>
               {t('actions.report')}
             </ActionButton>
-            <ActionButton Icon={HangUpIcon} onPress={onHelplinesPress}>
+            <ActionButton Icon={HelplinesIcon} onPress={onHelplinesPress}>
               {t('actions.helplines')}
             </ActionButton>
           </ActionList>

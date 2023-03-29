@@ -8,6 +8,7 @@ import {
   SunUpIcon,
   MegaphoneIcon,
   EnvelopeIcon,
+  SafetyIcon,
 } from '../../../../lib/components/Icons';
 import {
   ModalStackProps,
@@ -59,7 +60,7 @@ const AboutActionList = () => {
       <ActionButton Icon={EnvelopeIcon} onPress={contactPress}>
         {t('actions.contact')}
       </ActionButton>
-      <ActionButton Icon={EnvelopeIcon} onPress={safetyToolkitPress}>
+      <ActionButton Icon={SafetyIcon} onPress={safetyToolkitPress}>
         {t('actions.safetyToolkit')}
       </ActionButton>
     </ActionList>
