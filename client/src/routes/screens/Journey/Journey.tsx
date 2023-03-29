@@ -18,7 +18,10 @@ import {JourneyItem} from './types/JourneyItem';
 import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 import {LiveSession} from '../../../../../shared/src/types/Session';
 
-import {OverlayStackProps} from '../../../lib/navigation/constants/routes';
+import {
+  ModalStackProps,
+  OverlayStackProps,
+} from '../../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {WALLET_CARD_HEIGHT} from '../../../lib/components/Cards/WalletCards/SessionWalletCard';
@@ -28,6 +31,7 @@ import Gutters from '../../../lib/components/Gutters/Gutters';
 import {
   Spacer16,
   Spacer24,
+  Spacer32,
   Spacer48,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
@@ -44,6 +48,12 @@ import usePinnedCollections from '../../../lib/user/hooks/usePinnedCollections';
 import CollectionCardContainer from './components/CollectionCardContainer';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 import JourneyNode from './components/JourneyNode';
+import useUserEvents from '../../../lib/user/hooks/useUserEvents';
+import {partition, takeLast} from 'ramda';
+import {Body12} from '../../../lib/components/Typography/Body/Body';
+import Button from '../../../lib/components/Buttons/Button';
+
+const COMPLETED_SESSION_LIMIT = 5;
 
 export type Section = {
   title: string;
@@ -108,13 +118,21 @@ const renderSession: SectionListRenderItem<JourneyItem, Section> = ({
 const Journey = () => {
   const {t} = useTranslation('Screen.Journey');
   const {navigate} =
-    useNavigation<NativeStackNavigationProp<OverlayStackProps>>();
+    useNavigation<
+      NativeStackNavigationProp<OverlayStackProps & ModalStackProps>
+    >();
   const {fetchSessions, pinnedSessions, hostedSessions} = useSessions();
   const {completedSessions} = useCompletedSessions();
   const {pinnedCollections} = usePinnedCollections();
   const [isLoading, setIsLoading] = useState(false);
   const isFocused = useIsFocused();
   const listRef = useRef<RNSectionList<JourneyItem, Section>>(null);
+  const {feedbackEvents} = useUserEvents();
+
+  const [positiveFeedbacks] = useMemo(
+    () => partition(f => f.payload.answer, feedbackEvents),
+    [feedbackEvents],
+  );
 
   const sections = useMemo(() => {
     let sectionsList: Section[] = [];
@@ -122,7 +140,7 @@ const Journey = () => {
     if (completedSessions.length > 0) {
       sectionsList.push({
         title: t('headings.completed'),
-        data: completedSessions.map(s => ({
+        data: takeLast(COMPLETED_SESSION_LIMIT, completedSessions).map(s => ({
           completedSession: s,
           id: s.payload.id,
         })),
@@ -157,6 +175,11 @@ const Journey = () => {
   useEffect(() => {
     fetchSessions();
   }, [fetchSessions]);
+
+  const onPositivePress = useCallback(
+    () => navigate('CompletedSessionsModal', {filterSetting: 'feedback'}),
+    [navigate],
+  );
 
   const refreshPull = useCallback(async () => {
     try {
@@ -247,6 +270,14 @@ const Journey = () => {
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }
       />
+      <Gutters>
+        <Button
+          onPress={
+            onPositivePress
+          }>{`${positiveFeedbacks.length} positive`}</Button>
+      </Gutters>
+      <Spacer32 />
+      <Spacer32 />
       <BottomFade />
     </Screen>
   );
