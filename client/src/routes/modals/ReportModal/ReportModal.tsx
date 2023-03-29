@@ -22,7 +22,7 @@ import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {BottomSheetTextInput} from '../../../lib/components/Typography/TextInput/TextInput';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
 
-const Container = styled.View({
+const Container = styled(Gutters)({
   alignItems: 'center',
   justifyContent: 'center',
   flex: 1,
