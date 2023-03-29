@@ -15,7 +15,7 @@ import useSessions from '../../../lib/sessions/hooks/useSessions';
 import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessions';
 
 import {JourneyItem} from './types/JourneyItem';
-import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
+
 import {LiveSession} from '../../../../../shared/src/types/Session';
 
 import {
@@ -31,7 +31,6 @@ import Gutters from '../../../lib/components/Gutters/Gutters';
 import {
   Spacer16,
   Spacer24,
-  Spacer32,
   Spacer48,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
@@ -50,8 +49,10 @@ import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 import JourneyNode from './components/JourneyNode';
 import useUserEvents from '../../../lib/user/hooks/useUserEvents';
 import {partition, takeLast} from 'ramda';
-import {Body12} from '../../../lib/components/Typography/Body/Body';
-import Button from '../../../lib/components/Buttons/Button';
+
+import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
+import {ThumbsUpWithoutPadding} from '../../modals/SessionFeedbackModal/components/Thumbs';
+import FilterStatus from './components/FilterStatus';
 
 const COMPLETED_SESSION_LIMIT = 5;
 
@@ -61,12 +62,32 @@ export type Section = {
   type: 'planned' | 'completed' | 'collections';
 };
 
-const SectionList = RNSectionList<JourneyItem, Section>;
+const SectionList = styled(RNSectionList<JourneyItem, Section>)({
+  flex: 1,
+});
 
 const Container = styled.View({
   alignItems: 'center',
   justifyContent: 'center',
   flex: 1,
+});
+
+const Row = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+});
+
+const FilterContainer = styled(TouchableOpacity)({
+  width: 103,
+  backgroundColor: '#A9DAC1',
+  borderRadius: 16,
+  padding: 11,
+});
+
+const IconWrapper = styled.View({
+  width: 22,
+  height: 22,
 });
 
 const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
@@ -76,44 +97,6 @@ const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
     <Heading16>{title}</Heading16>
   </StickyHeading>
 );
-
-const renderSession: SectionListRenderItem<JourneyItem, Section> = ({
-  section,
-  item,
-  index,
-}) => {
-  const hasCardBefore = index > 0;
-  const hasCardAfter = index !== section.data.length - 1;
-
-  if (item.completedSession) {
-    return (
-      <Gutters>
-        <JourneyNode completedSessionEvent={item.completedSession} />
-      </Gutters>
-    );
-  }
-
-  if (item.savedCollection) {
-    return (
-      <Gutters>
-        <CollectionCardContainer collectionId={item.id} />
-        <Spacer16 />
-      </Gutters>
-    );
-  }
-
-  return (
-    <Gutters>
-      <SessionCard
-        session={item as LiveSession}
-        standAlone={true}
-        hasCardBefore={hasCardBefore}
-        hasCardAfter={hasCardAfter}
-      />
-      <Spacer16 />
-    </Gutters>
-  );
-};
 
 const Journey = () => {
   const {t} = useTranslation('Screen.Journey');
@@ -232,6 +215,57 @@ const Journey = () => {
     navigate('AboutOverlay');
   }, [navigate]);
 
+  const renderSession = useCallback<
+    SectionListRenderItem<JourneyItem, Section>
+  >(
+    ({section, item, index}) => {
+      const hasCardBefore = index > 0;
+      const hasCardAfter = index !== section.data.length - 1;
+
+      if (item.completedSession) {
+        return (
+          <Gutters>
+            <JourneyNode completedSessionEvent={item.completedSession} />
+            {item.completedSession && !hasCardAfter && (
+              <>
+                <Spacer16 />
+                <FilterStatus
+                  onPress={onPositivePress}
+                  Icon={ThumbsUpWithoutPadding}
+                  heading={`${positiveFeedbacks.length}`}
+                  description={'Meaningful sessions'}
+                />
+                <Spacer16 />
+              </>
+            )}
+          </Gutters>
+        );
+      }
+
+      if (item.savedCollection) {
+        return (
+          <Gutters>
+            <CollectionCardContainer collectionId={item.id} />
+            <Spacer16 />
+          </Gutters>
+        );
+      }
+
+      return (
+        <Gutters>
+          <SessionCard
+            session={item as LiveSession}
+            standAlone={true}
+            hasCardBefore={hasCardBefore}
+            hasCardAfter={hasCardAfter}
+          />
+          <Spacer16 />
+        </Gutters>
+      );
+    },
+    [onPositivePress, positiveFeedbacks.length],
+  );
+
   if (!sections.length) {
     return (
       <Screen backgroundColor={COLORS.GREYLIGHTEST}>
@@ -270,14 +304,7 @@ const Journey = () => {
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }
       />
-      <Gutters>
-        <Button
-          onPress={
-            onPositivePress
-          }>{`${positiveFeedbacks.length} positive`}</Button>
-      </Gutters>
-      <Spacer32 />
-      <Spacer32 />
+      <Spacer16 />
       <BottomFade />
     </Screen>
   );

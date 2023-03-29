@@ -229,7 +229,7 @@ const ModalStack = () => {
         <Screen
           name={'CompletedSessionsModal'}
           component={CompletedSessionsModal}
-          options={shortSheetModalScreenOptions}
+          options={fullSheetModalScreenOptions}
         />
       </Group>
 
