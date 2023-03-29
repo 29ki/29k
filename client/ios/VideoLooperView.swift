@@ -253,6 +253,16 @@ class VideoLooperView: RCTView {
     }
   }
   
+  @objc func setSeek(_ val: NSNumber) {
+    guard let currentItem = _player?.currentItem else { return }
+    let timeScale: Int = 1000
+    let cmSeekTime: CMTime = CMTimeMakeWithSeconds(Float64(truncating: val), preferredTimescale: Int32(timeScale))
+    let current: CMTime = currentItem.currentTime()
+    guard CMTimeCompare(current, cmSeekTime) != 0 else { return }
+    
+    _player?.seek(to: cmSeekTime)
+  }
+  
   @objc func setRepeat(_ val: Bool) {
     _repeat = val
   }

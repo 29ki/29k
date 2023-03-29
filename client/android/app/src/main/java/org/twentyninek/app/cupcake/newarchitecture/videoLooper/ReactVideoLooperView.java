@@ -217,7 +217,10 @@ public class ReactVideoLooperView extends FrameLayout {
         self._player.setPlayWhenReady(!self._paused);
       }
     }, 1);
+  }
 
+  public void setSeek(double to) {
+    _player.seekTo((long)to * 1000L);
   }
 
   public void setRepeat(boolean repeat) {

@@ -30,6 +30,11 @@ public class ReactVideoLooperManager extends SimpleViewManager<ReactVideoLooperV
     view.setSources(sources);
   }
 
+  @ReactProp(name = "seek")
+  public void setSeek(ReactVideoLooperView view, double to) throws IOException {
+    view.setSeek(to);
+  }
+
   @ReactProp(name = "repeat")
   public void setRepeat(ReactVideoLooperView view, boolean repeat) {
     view.setRepeat(repeat);
