@@ -1,6 +1,8 @@
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
 import AnimatedLottieView from 'lottie-react-native';
-import React, {useMemo} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
@@ -19,9 +21,11 @@ import {
 } from '../../../../lib/components/Icons';
 import Image from '../../../../lib/components/Image/Image';
 import {Spacer8} from '../../../../lib/components/Spacers/Spacer';
+import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {Display16} from '../../../../lib/components/Typography/Display/Display';
 import {SPACINGS} from '../../../../lib/constants/spacings';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
+import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
 import useUserProfile from '../../../../lib/user/hooks/useUserProfile';
 
 type CompletedSessionCardProps = {
@@ -32,7 +36,7 @@ const Lottie = styled(AnimatedLottieView)({
   aspectRatio: '1',
 });
 
-const Container = styled.View({
+const Container = styled(TouchableOpacity)({
   flexDirection: 'row',
   borderLeft: 1,
   borderLeftWidth: 1,
@@ -91,6 +95,19 @@ const JourneyNode: React.FC<CompletedSessionCardProps> = ({
   const exercise = useExerciseById(exerciseId);
   const hostProfile = useUserProfile(hostId);
 
+  const {navigate} =
+    useNavigation<
+      NativeStackNavigationProp<ModalStackProps, 'CompletedSessionModal'>
+    >();
+
+  const openCompleteSessionModal = useCallback(
+    () =>
+      navigate('CompletedSessionModal', {
+        completedSessionEvent,
+      }),
+    [navigate, completedSessionEvent],
+  );
+
   const image = useMemo(
     () => ({
       uri: exercise?.card?.image?.source,
@@ -109,7 +126,7 @@ const JourneyNode: React.FC<CompletedSessionCardProps> = ({
   );
 
   return (
-    <Container>
+    <Container onPress={openCompleteSessionModal}>
       <Node>
         <InnerNode />
       </Node>
