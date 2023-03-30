@@ -119,75 +119,123 @@
     "description": "Guided meditation for grounding ourselves in the present moment with our breathing. Present moment awareness can help us reduce rumination and stress as well as improve decision-making."
   },
   "pt": {
-    "published": false,
-    "hidden": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Olá, o meu nome é X e hoje vamos trabalhar cerca de 30 min em ancorarmo-nos no aqui e agora.\n\nVamos fazer uma pequena apresentação, seguida de uma meditação, reflexão e por fim vamos partilhar a nossa experiência uns com os outros."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um mini check-in. Do que é que estás grata/o agora? Podes responder em duas ou três palavras. Quem gostaria de começar?\n\n> Permite que todos na sessão, inclusive tu, façam check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
           }
         ]
       },
       {
-        "type": "content"
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Às vezes passamos a vida a pensar num futuro improvável ou a vasculhar as experiências do passado. Estarmos presentes aqui e agora pode ajudar-nos a ganhar perspetiva, sermos mais abertos ao que a vida nos tem para oferecer e desfrutarmos do que está mesmo em frente do nosso nariz."
+          },
+          {
+            "text": "Este exercício de meditação que vamos fazer agora, permite-nos praticar a atenção plena no momento presente e assumirmos uma postura de observação. Vamos começar.\n\n> Carrega no play para iniciar a meditação."
+          }
+        ],
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674665235/Audio/meditation-breathing-anchor_mbrlw8.mp3"
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1679065398/FJN/Meditations/A_ANCORA_DA_RESPIRACAO_-_07_16_ic8tnb_m7tjbt.mp3",
+            "durationTimer": true
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Vamos reservar 1 minuto para refletir individualmente.\n\nComo te sentiste ao dar um passo atrás e observar? Deixar as coisas irem e virem com o foco na respiração."
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Se quiseres, podes tomar notas num papel ou apenas notas mentais. E lembra-te que não há certos nem errados aqui. As tuas respostas são as tuas respostas. 1 minuto a partir de agora.\n\n> Carrega no play para iniciar o cronómetro.\n\nOk, passou um minuto. Vamos continuar."
           }
-        ]
+        ],
+        "content": {
+          "heading": "Como te sentiste apenas a observar e respirar?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        }
       },
       {
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Agora vamos entrar na parte da partilha. E temos três regras para isso:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir**. Neste espaço não há necessidade de corrigir, ajudar ou dar conselhos. Estamos apenas a presenciar e a explorar o que nós e os outros estão a atravessar."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Tudo no nosso interior é bem-vindo.** Raiva, amor, ódio, tristeza. O que quer que apareça. Não há certos nem errados. É o que é.\n\nTeremos um temporizador de 2 minutos como referência. Se não quiseres partilhar podes dizer “passo”."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Quem gostaria de começar?\n\n> Deixa todos (tantos quantos possível dentro do tempo estipulado) partilharem individualmente. Reinicia o cronómetro para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
-        ]
+        ],
+        "content": {
+          "heading": "Como te sentiste apenas a observar e respirar?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
+        "id": "sharing"
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Muito bem. Deixamos-te o desafio de levares para o teu dia-a-dia o que começamos aqui hoje. Nos próximos três dias, dedica alguns minutos do teu dia para te ancorares no presente com a tua respiração."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Pode ser uma forma para construíres os teus próprios recursos e resiliência.\n\nAntes de sairmos deste espaço vamos fazer um mini check-out.\n\nO que vais levar daqui contigo para o resto do teu dia? Responde por favor em duas ou três palavras."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Quem gostaria de começar?\n\n> Deixa todas as pessoas fazerem o check-out individualmente.\n\nObrigada/o a todos pelo check-out e por terem participado nesta sessão.\n\n> Termina a sessão enviando toda a gente para a experiência de saída."
           }
         ]
       }
     ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f0c7d1"
+    },
+    "hidden": false,
+    "name": "A respiração como âncora",
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1678973954/Images/card_image_breathing_anchor_vibuvl.png"
+      }
+    },
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Começa a sessão quando estiveres pronta/o"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678973899/Video/portal1_breathing_anchor_iv6ljo.mp4",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678973955/Images/portal1_breathing_anchor_thumbnail_a9slfm.png",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1678973982/Audio/portal_audio_breathing_anchor_ul2agi.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678973897/Video/portal2_breathing_anchor_yzwgnb.mp4",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678973955/Images/portal1_breathing_anchor_thumbnail_a9slfm.png"
+      }
+    },
     "id": "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
-    "duration": 30
+    "description": "Uma meditação guiada para nos ancorarmos no momento presente através da nossa respiração. A consciência do momento presente pode ajudar-nos a reduzir a ruminação e o stress assim como melhorar a nossa capacidade de decisão."
   },
   "sv": {
     "published": false,
