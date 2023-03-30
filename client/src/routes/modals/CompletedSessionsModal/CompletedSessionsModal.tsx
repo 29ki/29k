@@ -1,5 +1,5 @@
 import {RouteProp, useRoute} from '@react-navigation/native';
-import React, {useCallback, useMemo} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {ListRenderItem} from 'react-native';
 import styled from 'styled-components/native';
@@ -29,6 +29,10 @@ import {
   FriendsIcon,
   MeIcon,
 } from '../../../lib/components/Icons';
+import {
+  SessionMode,
+  SessionType,
+} from '../../../../../shared/src/types/Session';
 
 const Row = styled(Gutters)({
   flexDirection: 'row',
@@ -42,6 +46,10 @@ const CompletedSessionsModal = () => {
   } = useRoute<RouteProp<ModalStackProps, 'CompletedSessionsModal'>>();
   const {completedSessions} = useCompletedSessions();
   const {feedbackEvents} = useUserEvents();
+  const [selectedMode, setSelectedMode] = useState<
+    SessionMode.async | SessionType.public | SessionType.private
+  >();
+  const [selectedFeedback, setSelectedFeedback] = useState<boolean>();
 
   const [positiveFeedbacks, negativeFeedbacks] = useMemo(
     () => partition(f => f.payload.answer, feedbackEvents),
@@ -70,7 +78,11 @@ const CompletedSessionsModal = () => {
   const data = useMemo(() => {
     if (filterSetting === 'feedback') {
       return feedbackEvents
-        .filter(({payload}) => payload.answer)
+        .filter(({payload}) =>
+          selectedFeedback !== undefined
+            ? payload.answer === selectedFeedback
+            : true,
+        )
         .map(feedbackEvent =>
           completedSessions.find(
             completedSessionEvent =>
@@ -81,8 +93,28 @@ const CompletedSessionsModal = () => {
         .filter(Boolean) as CompletedSessionEvent[];
     }
 
+    if (filterSetting === 'mode') {
+      return completedSessions.filter(({payload}) => {
+        if (selectedMode) {
+          if (selectedMode === SessionMode.async) {
+            return payload.mode === selectedMode;
+          } else {
+            return payload.type === selectedMode;
+          }
+        } else {
+          return true;
+        }
+      });
+    }
+
     return completedSessions;
-  }, [completedSessions, filterSetting, feedbackEvents]);
+  }, [
+    completedSessions,
+    filterSetting,
+    feedbackEvents,
+    selectedFeedback,
+    selectedMode,
+  ]);
 
   const Footer = useMemo(
     () => (
@@ -91,15 +123,23 @@ const CompletedSessionsModal = () => {
         {filterSetting === 'feedback' && (
           <Row>
             <FilterStatus
+              selected={selectedFeedback === true}
               Icon={ThumbsUpWithoutPadding}
-              onPress={() => {}}
+              onPress={() =>
+                setSelectedFeedback(selectedFeedback ? undefined : true)
+              }
               heading={`${positiveFeedbacks.length}`}
               description={'Meaningful\nsessions'}
             />
             <Spacer16 />
             <FilterStatus
+              selected={selectedFeedback === false}
               Icon={ThumbsDownWithoutPadding}
-              onPress={() => {}}
+              onPress={() =>
+                setSelectedFeedback(
+                  selectedFeedback === false ? undefined : false,
+                )
+              }
               heading={`${negativeFeedbacks.length}`}
               description={'Not meaningful\nsessions'}
             />
@@ -110,23 +150,45 @@ const CompletedSessionsModal = () => {
           <Row>
             <FilterStatus
               Icon={MeIcon}
-              onPress={() => {}}
+              selected={selectedMode === SessionMode.async}
+              onPress={() =>
+                setSelectedMode(
+                  selectedMode !== SessionMode.async
+                    ? SessionMode.async
+                    : undefined,
+                )
+              }
               heading={`${asyncSessions?.length}`}
               description={'Just me'}
             />
-
+            <Spacer16 />
             {privateSessions?.length && (
               <FilterStatus
                 Icon={FriendsIcon}
-                onPress={() => {}}
+                selected={selectedMode === SessionType.private}
+                onPress={() =>
+                  setSelectedMode(
+                    selectedMode !== SessionType.private
+                      ? SessionType.private
+                      : undefined,
+                  )
+                }
                 heading={`${privateSessions?.length}`}
                 description={'My friends'}
               />
             )}
+            <Spacer16 />
             {publicSessions?.length && (
               <FilterStatus
                 Icon={CommunityIcon}
-                onPress={() => {}}
+                selected={selectedMode === SessionType.public}
+                onPress={() =>
+                  setSelectedMode(
+                    selectedMode !== SessionType.public
+                      ? SessionType.public
+                      : undefined,
+                  )
+                }
                 heading={`${publicSessions?.length}`}
                 description={'Anyone'}
               />
@@ -143,6 +205,8 @@ const CompletedSessionsModal = () => {
       privateSessions?.length,
       publicSessions?.length,
       filterSetting,
+      selectedMode,
+      selectedFeedback,
     ],
   );
 

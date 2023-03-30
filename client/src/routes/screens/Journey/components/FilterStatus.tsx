@@ -12,16 +12,20 @@ const Row = styled.View({
   alignItems: 'center',
 });
 
-const FilterContainer = styled(TouchableOpacity)({
-  minWidth: 110,
-  backgroundColor: '#A9DAC1',
-  borderRadius: 16,
-  padding: 11,
-});
+const FilterContainer = styled(TouchableOpacity)<{selected: boolean}>(
+  ({selected}) => ({
+    backgroundColor: '#A9DAC1',
+    borderRadius: 16,
+    padding: 11,
+    flex: 1,
+    minHeight: 96,
+    border: selected ? '1px #2F5A40' : 'none',
+  }),
+);
 
 const IconWrapper = styled.View({
-  width: 22,
-  height: 22,
+  width: 24,
+  height: 24,
 });
 
 const FilterStatus: React.FC<{
@@ -29,8 +33,9 @@ const FilterStatus: React.FC<{
   onPress: () => void;
   heading: string;
   description: string;
-}> = ({onPress, Icon, heading, description}) => (
-  <FilterContainer onPress={onPress}>
+  selected?: boolean;
+}> = ({onPress, Icon, heading, description, selected = false}) => (
+  <FilterContainer selected={selected} onPress={onPress}>
     <Row>
       <IconWrapper>
         <Icon />
