@@ -171,7 +171,10 @@ class VideoLooperView: RCTView {
         self._audioPlayer = try AVAudioPlayer(data: data)
         self._audioPlayer?.numberOfLoops = shouldRepeat ? -1 : 0
         self._audioPlayer?.volume = self._volume
-        self._audioPlayer?.play();
+        
+        if (!self._pause) {
+          self._audioPlayer?.play();
+        }
         self.configureAudio()
       } catch {
         print("Error creating audioPlayer \(error)")
@@ -254,6 +257,8 @@ class VideoLooperView: RCTView {
   }
   
   @objc func setSeek(_ val: NSNumber) {
+    _audioPlayer?.currentTime = TimeInterval(val.int64Value)
+    
     guard let currentItem = _player?.currentItem else { return }
     let timeScale: Int = 1000
     let cmSeekTime: CMTime = CMTimeMakeWithSeconds(Float64(truncating: val), preferredTimescale: Int32(timeScale))
