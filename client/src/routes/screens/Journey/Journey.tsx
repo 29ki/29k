@@ -53,6 +53,7 @@ import {partition, takeLast} from 'ramda';
 import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {ThumbsUpWithoutPadding} from '../../modals/SessionFeedbackModal/components/Thumbs';
 import FilterStatus from './components/FilterStatus';
+import {LogoIcon} from '../../../lib/components/Icons';
 
 const COMPLETED_SESSION_LIMIT = 5;
 
@@ -164,6 +165,11 @@ const Journey = () => {
     [navigate],
   );
 
+  const onTotalPress = useCallback(
+    () => navigate('CompletedSessionsModal', {filterSetting: 'mode'}),
+    [navigate],
+  );
+
   const refreshPull = useCallback(async () => {
     try {
       setIsLoading(true);
@@ -229,12 +235,21 @@ const Journey = () => {
             {item.completedSession && !hasCardAfter && (
               <>
                 <Spacer16 />
-                <FilterStatus
-                  onPress={onPositivePress}
-                  Icon={ThumbsUpWithoutPadding}
-                  heading={`${positiveFeedbacks.length}`}
-                  description={'Meaningful sessions'}
-                />
+                <Row>
+                  <FilterStatus
+                    onPress={onTotalPress}
+                    Icon={LogoIcon}
+                    heading={`${completedSessions.length}`}
+                    description={'Total\nsessions'}
+                  />
+                  <Spacer16 />
+                  <FilterStatus
+                    onPress={onPositivePress}
+                    Icon={ThumbsUpWithoutPadding}
+                    heading={`${positiveFeedbacks.length}`}
+                    description={'Meaningful\nsessions'}
+                  />
+                </Row>
                 <Spacer16 />
               </>
             )}

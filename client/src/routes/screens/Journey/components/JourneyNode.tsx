@@ -6,10 +6,17 @@ import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 
 import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
-import {SessionMode} from '../../../../../../shared/src/types/Session';
+import {
+  SessionMode,
+  SessionType,
+} from '../../../../../../shared/src/types/Session';
 import Badge from '../../../../lib/components/Badge/Badge';
 import Byline from '../../../../lib/components/Bylines/Byline';
-import {CommunityIcon, MeIcon} from '../../../../lib/components/Icons';
+import {
+  CommunityIcon,
+  FriendsIcon,
+  MeIcon,
+} from '../../../../lib/components/Icons';
 import Image from '../../../../lib/components/Image/Image';
 import {Spacer8} from '../../../../lib/components/Spacers/Spacer';
 import {Display16} from '../../../../lib/components/Typography/Display/Display';
@@ -78,7 +85,7 @@ const JourneyNode: React.FC<CompletedSessionCardProps> = ({
   completedSessionEvent,
 }) => {
   const {
-    payload: {mode, exerciseId, hostId},
+    payload: {mode, exerciseId, hostId, type},
     timestamp,
   } = completedSessionEvent;
   const exercise = useExerciseById(exerciseId);
@@ -113,7 +120,13 @@ const JourneyNode: React.FC<CompletedSessionCardProps> = ({
               <Badge
                 text={dayjs(timestamp).format('ddd, D MMM HH:mm')}
                 IconAfter={
-                  mode === SessionMode.async ? <MeIcon /> : <CommunityIcon />
+                  mode === SessionMode.async ? (
+                    <MeIcon />
+                  ) : type === SessionType.private ? (
+                    <FriendsIcon />
+                  ) : (
+                    <CommunityIcon />
+                  )
                 }
                 completed
               />

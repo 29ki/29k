@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import {ListRenderItem} from 'react-native';
 import styled from 'styled-components/native';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
-import {partition} from 'ramda';
+import {groupBy, partition} from 'ramda';
 
 import Gutters from '../../../lib/components/Gutters/Gutters';
 
@@ -24,10 +24,16 @@ import {
 } from '../SessionFeedbackModal/components/Thumbs';
 
 import {Spacer16, Spacer32} from '../../../lib/components/Spacers/Spacer';
+import {
+  CommunityIcon,
+  FriendsIcon,
+  MeIcon,
+} from '../../../lib/components/Icons';
 
 const Row = styled(Gutters)({
   flexDirection: 'row',
   alignItems: 'center',
+  justifyContent: 'space-between',
 });
 
 const CompletedSessionsModal = () => {
@@ -40,6 +46,16 @@ const CompletedSessionsModal = () => {
   const [positiveFeedbacks, negativeFeedbacks] = useMemo(
     () => partition(f => f.payload.answer, feedbackEvents),
     [feedbackEvents],
+  );
+
+  const {live: liveSessions, async: asyncSessions} = useMemo(
+    () => groupBy(s => s.payload.mode, completedSessions),
+    [completedSessions],
+  );
+
+  const {private: privateSessions, public: publicSessions} = useMemo(
+    () => groupBy(s => s.payload.type, liveSessions ?? []),
+    [liveSessions],
   );
 
   const renderItem = useCallback<ListRenderItem<CompletedSessionEvent>>(
@@ -72,24 +88,62 @@ const CompletedSessionsModal = () => {
     () => (
       <>
         <Spacer32 />
-        <Row>
-          <FilterStatus
-            Icon={ThumbsUpWithoutPadding}
-            onPress={() => {}}
-            heading={`${positiveFeedbacks.length}`}
-            description={'Meaningful sessions'}
-          />
-          <Spacer16 />
-          <FilterStatus
-            Icon={ThumbsDownWithoutPadding}
-            onPress={() => {}}
-            heading={`${negativeFeedbacks.length}`}
-            description={'Not meaningful sessions'}
-          />
-        </Row>
+        {filterSetting === 'feedback' && (
+          <Row>
+            <FilterStatus
+              Icon={ThumbsUpWithoutPadding}
+              onPress={() => {}}
+              heading={`${positiveFeedbacks.length}`}
+              description={'Meaningful\nsessions'}
+            />
+            <Spacer16 />
+            <FilterStatus
+              Icon={ThumbsDownWithoutPadding}
+              onPress={() => {}}
+              heading={`${negativeFeedbacks.length}`}
+              description={'Not meaningful\nsessions'}
+            />
+          </Row>
+        )}
+
+        {filterSetting === 'mode' && (
+          <Row>
+            <FilterStatus
+              Icon={MeIcon}
+              onPress={() => {}}
+              heading={`${asyncSessions?.length}`}
+              description={'Just me'}
+            />
+
+            {privateSessions?.length && (
+              <FilterStatus
+                Icon={FriendsIcon}
+                onPress={() => {}}
+                heading={`${privateSessions?.length}`}
+                description={'My friends'}
+              />
+            )}
+            {publicSessions?.length && (
+              <FilterStatus
+                Icon={CommunityIcon}
+                onPress={() => {}}
+                heading={`${publicSessions?.length}`}
+                description={'Anyone'}
+              />
+            )}
+          </Row>
+        )}
+        <Spacer32 />
       </>
     ),
-    [positiveFeedbacks.length, negativeFeedbacks.length],
+    [
+      positiveFeedbacks?.length,
+      negativeFeedbacks?.length,
+      asyncSessions?.length,
+      privateSessions?.length,
+      publicSessions?.length,
+      filterSetting,
+    ],
   );
 
   return (

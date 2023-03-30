@@ -13,7 +13,7 @@ const Row = styled.View({
 });
 
 const FilterContainer = styled(TouchableOpacity)({
-  width: 150,
+  minWidth: 110,
   backgroundColor: '#A9DAC1',
   borderRadius: 16,
   padding: 11,
