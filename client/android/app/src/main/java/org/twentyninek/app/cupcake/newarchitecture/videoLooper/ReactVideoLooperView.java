@@ -2,7 +2,7 @@ package org.twentyninek.app.cupcake.newarchitecture.videoLooper;
 
 import android.os.Handler;
 import android.view.Gravity;
-import android.view.SurfaceView;
+import android.view.TextureView;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
@@ -93,8 +93,7 @@ public class ReactVideoLooperView extends FrameLayout {
     }
   }
   private ThemedReactContext _themedReactContext;
-  private SurfaceView _surfaceView;
-  private ViewGroup.LayoutParams _layoutParams;
+  private TextureView _textureView;
   private final AspectRatioFrameLayout _layout;
   private ExoPlayer _player;
   private Listener _listener;
@@ -108,10 +107,6 @@ public class ReactVideoLooperView extends FrameLayout {
     super(context);
     _themedReactContext = context;
 
-    _layoutParams = new ViewGroup.LayoutParams(new ViewGroup.LayoutParams(
-      ViewGroup.LayoutParams.MATCH_PARENT,
-      ViewGroup.LayoutParams.MATCH_PARENT));
-
     FrameLayout.LayoutParams aspectRatioParams = new FrameLayout.LayoutParams(
       FrameLayout.LayoutParams.MATCH_PARENT,
       FrameLayout.LayoutParams.MATCH_PARENT);
@@ -121,11 +116,14 @@ public class ReactVideoLooperView extends FrameLayout {
     _layout.setLayoutParams(aspectRatioParams);
     _layout.setResizeMode(ResizeMode.RESIZE_MODE_CENTER_CROP);
 
-    _surfaceView = new SurfaceView(context);
-    _surfaceView.setLayoutParams(new ViewGroup.LayoutParams(
+    ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(
       ViewGroup.LayoutParams.MATCH_PARENT,
-      ViewGroup.LayoutParams.MATCH_PARENT));
-    _layout.addView(_surfaceView);
+      ViewGroup.LayoutParams.MATCH_PARENT);
+
+    _textureView = new TextureView(context);
+    _textureView.setLayoutParams(layoutParams);
+    _textureView.setOpaque(false);
+    _layout.addView(_textureView, 0, layoutParams);
 
     addViewInLayout(_layout, 0, aspectRatioParams);
 
@@ -167,7 +165,6 @@ public class ReactVideoLooperView extends FrameLayout {
       _player = new ExoPlayer.Builder(_themedReactContext)
         .setMediaSourceFactory(new DefaultMediaSourceFactory(VideoCacheManager.getInstance().getCachedDataSourceFactory()))
         .build();
-
       _listener = new Listener();
       _player.addAnalyticsListener(_listener);
     }
@@ -211,7 +208,7 @@ public class ReactVideoLooperView extends FrameLayout {
         _player.setVolume(firstMediaItemConfig.getMuted() ? 0.0f : _volume);
 
         if (!self._audioOnly) {
-          self._player.setVideoSurfaceView(self._surfaceView);
+          self._player.setVideoTextureView(self._textureView);
         }
         self._player.prepare();
         self._player.setPlayWhenReady(!self._paused);
@@ -254,7 +251,7 @@ public class ReactVideoLooperView extends FrameLayout {
     super.onDetachedFromWindow();
     if (_player != null) {
       _player.removeAnalyticsListener(_listener);
-      _player.clearVideoSurfaceView(_surfaceView);
+      _player.clearVideoTextureView(_textureView);
       _player.release();
       _player = null;
       _listener = null;
