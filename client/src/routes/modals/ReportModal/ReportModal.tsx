@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
-import {useIsFocused} from '@react-navigation/native';
+import {RouteProp, useIsFocused, useRoute} from '@react-navigation/native';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -21,6 +21,7 @@ import Button from '../../../lib/components/Buttons/Button';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {BottomSheetTextInput} from '../../../lib/components/Typography/TextInput/TextInput';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
+import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 
 const Container = styled(Gutters)({
   alignItems: 'center',
@@ -50,12 +51,16 @@ const ReportModal = () => {
   const [email, setEmail] = useState<string>();
   const [submitted, setSubmitted] = useState<boolean>(false);
 
+  const {
+    params: {originScreen},
+  } = useRoute<RouteProp<ModalStackProps, 'ReportModal'>>();
+
   const onSubmit = useCallback(() => {
     if (text?.length) {
-      submitReport({text, email});
+      submitReport({text, email, screen: originScreen});
       setSubmitted(true);
     }
-  }, [text, email]);
+  }, [text, email, originScreen]);
 
   return (
     <SheetModal>

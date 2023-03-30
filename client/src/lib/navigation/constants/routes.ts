@@ -85,7 +85,7 @@ export type ModalStackProps = {
     isHost: boolean;
   };
   SafetyToolkitModal: undefined;
-  ReportModal: undefined;
+  ReportModal: {originScreen: string};
   CalmDownModal: undefined;
 };
 

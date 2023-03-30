@@ -24,6 +24,7 @@ import {
 import {Spacer16} from '../../../lib/components/Spacers/Spacer';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import * as linking from '../../../lib/linking/nativeLinks';
+import {getCurrentRouteName} from '../../../lib/navigation/utils/routes';
 
 const SafetyToolkitModal = () => {
   const {t} = useTranslation('Modal.SafetyToolkit');
@@ -35,7 +36,11 @@ const SafetyToolkitModal = () => {
     () => navigate('CalmDownModal'),
     [navigate],
   );
-  const onReportPress = useCallback(() => navigate('ReportModal'), [navigate]);
+  const screen = getCurrentRouteName() as string;
+  const onReportPress = useCallback(
+    () => navigate('ReportModal', {originScreen: screen}),
+    [navigate, screen],
+  );
   const onHelplinesPress = useCallback(
     () => linking.openURL(t('helplines_url')),
     [t],
