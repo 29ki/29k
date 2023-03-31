@@ -217,8 +217,11 @@ const Journey = () => {
 
       if (item.completedSession) {
         return (
-          <Gutters>
-            <JourneyNode completedSessionEvent={item.completedSession} />
+          <Gutters key={item.completedSession.payload.id}>
+            <JourneyNode
+              index={index}
+              completedSessionEvent={item.completedSession}
+            />
             {item.completedSession && !hasCardAfter && (
               <>
                 <Spacer16 />

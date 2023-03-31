@@ -68,9 +68,9 @@ const CompletedSessionsModal = () => {
   );
 
   const renderItem = useCallback<ListRenderItem<CompletedSessionEvent>>(
-    ({item}) => (
-      <Gutters>
-        <JourneyNode completedSessionEvent={item} />
+    ({item, index}) => (
+      <Gutters key={item.payload.id}>
+        <JourneyNode index={index} completedSessionEvent={item} />
       </Gutters>
     ),
     [],
@@ -130,7 +130,7 @@ const CompletedSessionsModal = () => {
                 setSelectedFeedback(selectedFeedback ? undefined : true)
               }
               heading={`${positiveFeedbacks.length}`}
-              description={t('meaninful')}
+              description={t('meaningful')}
             />
             <Spacer16 />
             <FilterStatus
@@ -142,7 +142,7 @@ const CompletedSessionsModal = () => {
                 )
               }
               heading={`${negativeFeedbacks.length}`}
-              description={t('notMeaninful')}
+              description={t('notMeaningful')}
             />
           </Row>
         )}
