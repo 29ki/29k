@@ -30,6 +30,12 @@ export const Default = () => (
   </Screen>
 );
 
+export const Title = () => (
+  <Screen title="Title">
+    <LongContent />
+  </Screen>
+);
+
 export const BackgroundColor = () => (
   <Screen backgroundColor="#FF0000">
     <LongContent />

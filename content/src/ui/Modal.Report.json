@@ -1,0 +1,14 @@
+{
+  "en": {
+    "title": "Report",
+    "reportHeading": "What would you like to report?",
+    "reportPlaceholder": "Share your thoughts so we can improve",
+    "emailHeading": "Reply to:",
+    "emailPlaceholder": "Type the email you want us to reply to.",
+    "confirmButton": "Send report",
+    "confirmationText": "Thank you for reaching out 🌱"
+  },
+  "pt": {},
+  "sv": {},
+  "es": {}
+}

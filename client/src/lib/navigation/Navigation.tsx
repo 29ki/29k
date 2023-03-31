@@ -1,8 +1,13 @@
 import React from 'react';
-import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
+import {
+  createNavigationContainerRef,
+  DefaultTheme,
+  NavigationContainer,
+} from '@react-navigation/native';
 
 import {COLORS} from '../../../../shared/src/constants/colors';
 import linking from './linking';
+import {RootNavigationProps} from './constants/routes';
 
 const navTheme = {
   ...DefaultTheme,
@@ -12,8 +17,11 @@ const navTheme = {
   },
 };
 
+export const navigationRef =
+  createNavigationContainerRef<RootNavigationProps>();
+
 const Navigation: React.FC<{children: React.ReactNode}> = ({children}) => (
-  <NavigationContainer theme={navTheme} linking={linking}>
+  <NavigationContainer theme={navTheme} linking={linking} ref={navigationRef}>
     {children}
   </NavigationContainer>
 );

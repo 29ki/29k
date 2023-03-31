@@ -114,5 +114,5 @@ export const ui: CmsCollection = generateFilesCollectionFromi18nFiles(
   'ui',
   '📱 UI',
   content.i18n,
-  [exercises.name],
+  [exercises.name, tags.name, collections.name],
 );

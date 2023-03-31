@@ -25,7 +25,7 @@ import {Body16} from '../../../lib/components/Typography/Body/Body';
 import {Display20} from '../../../lib/components/Typography/Display/Display';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import useCollectionById from '../../../lib/content/hooks/useCollectionById';
-import useGetExerciseById from '../../../lib/content/hooks/useGetExerciseById';
+import useExercisesByCollectionId from '../../../lib/content/hooks/useExercisesByCollectionId';
 import {SessionsStackProps} from '../../../lib/navigation/constants/routes';
 import useCompletedSessionByTime from '../../../lib/user/hooks/useCompletedSessionByTime';
 import usePinCollection from '../../../lib/user/hooks/usePinCollection';
@@ -72,8 +72,8 @@ const Collection = () => {
     useNavigation<NativeStackNavigationProp<SessionsStackProps>>();
   const {t} = useTranslation('Screen.Collection');
   const collection = useCollectionById(collectionId);
+  const exercises = useExercisesByCollectionId(collectionId);
   const savedCollection = usePinnedCollectionById(collectionId);
-  const getExerciseById = useGetExerciseById();
   const {getCompletedSessionByExerciseId} = useCompletedSessionByTime();
   const {togglePinned, isPinned} = usePinCollection(collectionId);
 
@@ -92,16 +92,13 @@ const Collection = () => {
   const trackColor = useMemo(() => ({true: COLORS.PRIMARY}), []);
 
   const exerciseSections = useMemo(() => {
-    const exercises = collection?.exercises
-      .map(id => getExerciseById(id))
-      .filter(Boolean) as Array<Exercise>;
     return [
       {
         title: t('sessionsHeading'),
         data: exercises,
       } as Section,
     ];
-  }, [collection, getExerciseById, t]);
+  }, [exercises, t]);
 
   const renderExerciseSectionHeader = useCallback<
     (info: {section: Section}) => React.ReactElement

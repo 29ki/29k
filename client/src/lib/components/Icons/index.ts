@@ -58,3 +58,8 @@ export * from './StarFill/StarFill';
 export * from './Wand/Wand';
 export * from './Journey/Journey';
 export * from './JourneyFill/JourneyFill';
+export * from './Safety/Safety';
+export * from './Question/Question';
+export * from './Sparkles/Sparkles';
+export * from './Report/Report';
+export * from './Helplines/Helplines';

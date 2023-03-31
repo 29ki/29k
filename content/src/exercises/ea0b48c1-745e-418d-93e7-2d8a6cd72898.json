@@ -5,12 +5,22 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome.\n\nI am X and today we will work for around 30 minutes on opening up to our feelings with acceptance and intentionally choosing our actions. We’ll be doing a short intro, then reflect on our own and share with each other. \n\nAnd a heads up that you will need pen and paper during the exercise."
+            "text": "Welcome.\n\nI am X and today we will work for around 30 minutes on opening up to our feelings with acceptance and intentionally choosing our actions. We’ll be doing a short intro, then reflect on our own and share with each other. \n\nAnd a heads up that you will need pen and paper.",
+            "asyncText": "Welcome. This session is about opening up to our feelings with acceptance and intentionally choosing our actions.\n\nThere will be a short introduction, two moments to reflect on how we talk to ourselves, and then sharing what we experienced."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Before moving on into the exercise, let's ground ourselves in the present moment with three cycles of breathing.\n\n> Inhale + exhale slowly 3 times",
+            "asyncText": "Let’s take a moment to ground ourselves in the present moment with three cycles of breathing.\n\n> Inhale + exhale slowly 3 times"
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started.",
+            "asyncText": "Now, check-in with yourself. How are you feeling right now?\n\nLet’s get started."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679310089/Video/AsyncIntroBringYourFeelingsAlong.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679310510/Images/AsyncThumbHostBringYourFeelingsAlong.png"
+        }
       },
       {
         "type": "content",
@@ -39,7 +49,7 @@
       {
         "type": "reflection",
         "content": {
-          "heading": "I would like to X, but I am so Y",
+          "heading": "I would like to do this, but I am so that",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464767/Temp/Comp_4_wrr4ks.mp4",
             "autoPlayLoop": false,
@@ -48,10 +58,12 @@
         },
         "hostNotes": [
           {
-            "text": "Now we’ll take a minute to reflect on our own. For this step you’ll need a piece of paper.\n\nMost of us have recurring thoughts like *I want to do x, **BUT** I am so y.* It can make us feel like we need to get rid of y, before we do x."
+            "text": "Now we’ll take a minute to reflect on our own. For this step you’ll need a piece of paper.\n\nMost of us have recurring thoughts like *I want to do this, **BUT** I am so that.* It can make us feel like we need to get rid of that, before we do this.",
+            "asyncText": "Take 1 minute to reflect. For this step you’ll need a piece of paper.\n\nMost of us have recurring thoughts like “I want to do this, but I am so that”. It can make us feel like we need to get rid of that, before we do this."
           },
           {
-            "text": "See if you can find one or two recent thoughts that contains something you want, but don’t do for a reason on the inside. Write them down. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s one minute. Let’s move on."
+            "text": "See if you can find one or two recent thoughts that contains something you want, but don’t do for a reason on the inside. Write them down. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s one minute. Let’s move on.",
+            "asyncText": "See if you can find a recent thought that contains something you want but don’t do for a reason on the inside. Write them down.\n\n> Press play to start the timer."
           }
         ]
       },
@@ -67,10 +79,12 @@
         },
         "hostNotes": [
           {
-            "text": "The next step is to replace your **BUT** with an **AND** in your sentences. Then read them out loud for yourself. \n\nWhat happens to them, and to you, when you do that?"
+            "text": "The next step is to replace your **BUT** with an **AND** in your sentences. Then read them out loud to yourself. \n\nWhat happens to them, and to you, when you do that?",
+            "asyncText": "The next step is to replace your **BUT** with an **AND** in your sentences. \n\nThen read them out loud to yourself."
           },
           {
-            "text": "1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s one minute. Let’s move on."
+            "text": "1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s one minute. Let’s move on.",
+            "asyncText": "What happens to them and to you when you do that?\n\n> Press play to start the timer."
           }
         ]
       },
@@ -94,7 +108,7 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one.\n>\n> Press play to start the timer. Re-start for each new sharing. \n\nThank you everyone."
           }
         ],
-        "id": "sharing"
+        "id": "sharing1"
       },
       {
         "type": "content",
@@ -106,7 +120,7 @@
             "text": "This can allow us to spend time and energy on the things that are important to us – even when they come with difficult emotions. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life."
           },
           {
-            "text": "For the coming three days, see if you can notice when you talk to yourself with “I want to do x, BUT I’m so y”-sentences. When you do, replace your BUTs with ANDs and see if you notice any difference in how you behave."
+            "text": "For the coming three days, see if you can notice when you talk to yourself with “I want to do this, BUT I’m so that”-sentences. When you do, replace your BUTs with ANDs and see if you notice any difference in how you behave."
           }
         ],
         "content": {
@@ -119,12 +133,18 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Before we leave this space let’s do a mini check-out. How are you feeling right now? Has anything shifted? Please answer in two-three words.\n\nWho would like to start?"
+            "text": "Before we leave this space let’s do a mini check-out. How are you feeling right now? Has anything shifted? Please answer in two-three words.\n\nWho would like to start?",
+            "asyncText": "Well done.\n\nBefore leaving this space, check-in with yourself again."
           },
           {
-            "text": "> Let everyone check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "> Let everyone check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience.",
+            "asyncText": "How are you feeling right now? Has anything shifted? \n\nWhen you’re ready, finish this session at your own pace."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679310075/Video/OutroBringYourFeelingAlong_pakygt.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679310510/Images/AsyncThumbHostBringYourFeelingsAlong.png"
+        }
       }
     ],
     "theme": {
@@ -136,6 +156,10 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675416302/Images/card_bring_your_fee.._cs3oph.png"
+      },
+      "host": {
+        "displayName": "Jenny 29k",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679310510/Images/AsyncThumbHostBringYourFeelingsAlong.png"
       }
     },
     "duration": 30,
@@ -154,6 +178,7 @@
       ]
     },
     "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+    "async": true,
     "description": "How we talk to ourselves affect how we act. In this exercise we practice awareness of our self-talk, and try out how word-switching can be used to open new possibilities to act in meaningful ways."
   },
   "pt": {

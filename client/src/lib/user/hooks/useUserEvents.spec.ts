@@ -1,6 +1,7 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook} from '@testing-library/react-hooks';
 import {
+  CompletedSessionPayload,
   FeedbackPayload,
   PostPayload,
 } from '../../../../../shared/src/types/Event';
@@ -24,6 +25,11 @@ describe('useUserEvents', () => {
               payload: {comment: 'some text'} as FeedbackPayload,
               timestamp: new Date().toISOString(),
             },
+            {
+              type: 'completedSession',
+              payload: {id: 'some-session-id'} as CompletedSessionPayload,
+              timestamp: new Date().toISOString(),
+            },
           ],
         },
       },
@@ -45,6 +51,13 @@ describe('useUserEvents', () => {
         timestamp: expect.any(String),
       },
     ]);
+    expect(result.current.completedSessionEvents).toEqual([
+      {
+        type: 'completedSession',
+        payload: {id: 'some-session-id'},
+        timestamp: expect.any(String),
+      },
+    ]);
   });
 
   it('should memoize the result', () => {
@@ -63,6 +76,11 @@ describe('useUserEvents', () => {
               payload: {comment: 'some text'} as FeedbackPayload,
               timestamp: new Date().toISOString(),
             },
+            {
+              type: 'completedSession',
+              payload: {id: 'some-session-id'} as CompletedSessionPayload,
+              timestamp: new Date().toISOString(),
+            },
           ],
         },
       },
@@ -72,11 +90,13 @@ describe('useUserEvents', () => {
 
     const postEvents = result.current.postEvents;
     const feedbackEvents = result.current.feedbackEvents;
+    const completedSessionEvents = result.current.completedSessionEvents;
 
     rerender();
 
     // Check that they are the same reference
     expect(result.current.postEvents).toBe(postEvents);
     expect(result.current.feedbackEvents).toBe(feedbackEvents);
+    expect(result.current.completedSessionEvents).toBe(completedSessionEvents);
   });
 });

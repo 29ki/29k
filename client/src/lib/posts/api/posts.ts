@@ -3,9 +3,12 @@ import apiClient from '../../apiClient/apiClient';
 
 const POSTS_ENDPOINT = '/posts';
 
-export const fetchPosts = async (exerciseId: string): Promise<Post[]> => {
+export const fetchPosts = async (
+  exerciseId: string,
+  sharingId: string,
+): Promise<Post[]> => {
   try {
-    const endpont = `${POSTS_ENDPOINT}/${exerciseId}`;
+    const endpont = `${POSTS_ENDPOINT}/${exerciseId}/${sharingId}`;
     const response = await apiClient(endpont);
     if (!response.ok) {
       throw new Error(await response.text());

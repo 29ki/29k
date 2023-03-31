@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {ActivityIndicator, Image as RNImage, Linking} from 'react-native';
+import {ActivityIndicator, Image as RNImage} from 'react-native';
 import styled from 'styled-components/native';
 import Button from '../../components/Buttons/Button';
 import Gutters from '../../components/Gutters/Gutters';
@@ -9,6 +9,7 @@ import Markdown from '../../components/Typography/Markdown/Markdown';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import useKillSwitch from '../hooks/useKillSwitch';
 import useKillSwitchState from '../state/state';
+import * as linking from '../../linking/nativeLinks';
 
 const Container = styled.View({
   flex: 1,
@@ -31,7 +32,7 @@ const KillSwitchMessage = () => {
 
   const handleLinkButton = () => {
     if (message?.button && 'link' in message.button) {
-      Linking.openURL(message.button.link);
+      linking.openURL(message.button.link);
     }
   };
 

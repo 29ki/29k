@@ -3,8 +3,8 @@ import styled from 'styled-components/native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useTranslation} from 'react-i18next';
 import {
+  Dimensions,
   FlatListProps,
-  LayoutChangeEvent,
   ListRenderItem,
   NativeScrollEvent,
   NativeSyntheticEvent,
@@ -82,8 +82,6 @@ const HostNotes: React.FC<HostNotesProps> = ({
 }) => {
   const listRef = useRef<FlatList>(null);
   const [showNotes, setShowNotes] = useState(introPortal ? true : false);
-  const [containerWidth, setContainerWidth] = useState(0);
-  const listItemWidth = containerWidth - SPACINGS.THIRTYTWO;
   const [scroll, setScroll] = useState({index: 0, animated: false});
   const sessionSlideState = useSessionSlideState();
   const {t} = useTranslation('Component.HostNotes');
@@ -93,6 +91,9 @@ const HostNotes: React.FC<HostNotesProps> = ({
     sessionSlideState,
     async,
   );
+
+  const containerWidth = Dimensions.get('screen').width;
+  const listItemWidth = containerWidth - SPACINGS.THIRTYTWO;
 
   const calculatePageIndex = useCallback(
     (e: NativeSyntheticEvent<NativeScrollEvent>) =>
@@ -130,13 +131,6 @@ const HostNotes: React.FC<HostNotesProps> = ({
   const toggleNotes = useCallback(
     () => setShowNotes(prevShowNotes => !prevShowNotes),
     [setShowNotes],
-  );
-
-  const updateContainerWidth = useCallback(
-    (event: LayoutChangeEvent) => {
-      setContainerWidth(event.nativeEvent.layout.width);
-    },
-    [setContainerWidth],
   );
 
   const getItemLayout = useCallback(
@@ -178,7 +172,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
 
   return (
     <View style={style}>
-      <Wrapper onLayout={updateContainerWidth}>
+      <Wrapper>
         <TopSafeArea />
         <Gutters>
           <Spacer4 />

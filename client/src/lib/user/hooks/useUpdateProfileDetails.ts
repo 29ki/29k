@@ -2,18 +2,23 @@ import {useCallback, useState} from 'react';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {ensureUserCreated} from '..';
 
-type UpdateProfileDetails = (profileDetails: {
+export type ProfileDetails = {
   displayName?: FirebaseAuthTypes.User['displayName'];
   email?: FirebaseAuthTypes.User['email'];
   password?: string;
-}) => Promise<void>;
+  newPassword?: string;
+};
+
+export type UpdateProfileDetails = (
+  profileDetails: ProfileDetails,
+) => Promise<void>;
 
 const useUpdateProfileDetails = () => {
   const [isUpdatingProfileDetails, setIsUpdatingProfileDetails] =
     useState(false);
 
   const updateProfileDetails = useCallback<UpdateProfileDetails>(
-    async ({displayName, email, password}) => {
+    async ({displayName, email, password, newPassword}) => {
       try {
         setIsUpdatingProfileDetails(true);
 
@@ -22,23 +27,39 @@ const useUpdateProfileDetails = () => {
         const currentUser = auth().currentUser;
 
         if (currentUser?.isAnonymous && email) {
-          if (!password) {
+          if (!newPassword) {
             throw new Error('auth/password-missing');
           }
           const emailAndPasswordCredentials = auth.EmailAuthProvider.credential(
             email,
-            password,
+            newPassword,
           );
           await currentUser?.linkWithCredential(emailAndPasswordCredentials);
 
           // We get auth/id-token-revoked if not signIn again
           await auth().signInWithCredential(emailAndPasswordCredentials);
         } else {
-          if (email && email !== currentUser?.email) {
-            await currentUser?.updateEmail(email);
-          }
-          if (password) {
-            await currentUser?.updatePassword(password);
+          const emailChanged = email && email !== currentUser?.email;
+
+          if (emailChanged || newPassword) {
+            if (!password) {
+              throw new Error('auth/current-password-missing');
+            }
+            if (!currentUser?.email || !email) {
+              throw new Error('auth/invalid-email');
+            }
+
+            await auth().signInWithEmailAndPassword(
+              currentUser.email,
+              password,
+            );
+
+            if (email !== currentUser.email) {
+              await currentUser.updateEmail(email);
+            }
+            if (newPassword) {
+              await currentUser.updatePassword(newPassword);
+            }
           }
         }
 

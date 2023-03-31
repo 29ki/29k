@@ -3,8 +3,12 @@ import {LiveSession} from '../../../../../shared/src/types/Session';
 import {LANGUAGE_TAG} from '../../i18n';
 
 // General properties
+export type Origin = {Origin?: string}; // Where is the event originating from
 export type Language = {Language: LANGUAGE_TAG};
 export type Host = {Host: boolean};
+
+// Properties available to all events
+export type DefaultProperties = Origin | undefined;
 
 // Navigation properties
 export type ScreenName = {'Screen Name': string};
@@ -42,3 +46,7 @@ export type FeedbackProperties = {
   'Sharing Session Completed': boolean;
   Host?: boolean;
 } & ExerciseID;
+
+// Collection properties
+export type CollectionID = {'Collection ID': string};
+export type CollectionProperties = CollectionID;

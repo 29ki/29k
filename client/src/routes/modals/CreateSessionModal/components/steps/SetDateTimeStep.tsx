@@ -57,24 +57,19 @@ const SetDateTimeStep: React.FC<StepProps> = ({
   const {goBack, navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
   const [isLoading, setIsLoading] = useState(false);
-  const [date, setDate] = useState<dayjs.Dayjs | undefined>();
-  const [time, setTime] = useState<dayjs.Dayjs | undefined>();
+  const [sessionDateTime, setSessionDateTime] = useState<dayjs.Dayjs>(dayjs());
+
   const {addSession} = useSessions();
   const exercise = useExerciseById(selectedExercise);
   const logSessionMetricEvent = useLogSessionMetricEvents();
 
   const onChange = useCallback(
-    (selectedDate: dayjs.Dayjs, selectedTime: dayjs.Dayjs) => {
-      setDate(selectedDate);
-      setTime(selectedTime);
-    },
-    [setDate, setTime],
+    (selectedDateTime: dayjs.Dayjs) => setSessionDateTime(selectedDateTime),
+    [setSessionDateTime],
   );
 
   const onSubmit = useCallback(async () => {
-    if (selectedExercise && selectedModeAndType?.type && date && time) {
-      const sessionDateTime = date.hour(time.hour()).minute(time.minute());
-
+    if (selectedExercise && selectedModeAndType?.type) {
       setIsLoading(true);
       const session = await addSession({
         exerciseId: selectedExercise,
@@ -88,10 +83,9 @@ const SetDateTimeStep: React.FC<StepProps> = ({
       navigate('SessionModal', {session});
     }
   }, [
+    sessionDateTime,
     selectedExercise,
     selectedModeAndType,
-    date,
-    time,
     addSession,
     goBack,
     navigate,

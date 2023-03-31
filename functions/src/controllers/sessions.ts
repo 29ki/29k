@@ -1,3 +1,4 @@
+import {Timestamp} from 'firebase-admin/firestore';
 import dayjs from 'dayjs';
 import {createSessionInviteLink} from '../models/dynamicLinks';
 import * as sessionModel from '../models/session';
@@ -23,20 +24,25 @@ const mapSession = async (session: LiveSession): Promise<LiveSession> => {
   return {...session, hostProfile: await getPublicUserInfo(session.hostId)};
 };
 
+const isSessionOpen = (session: LiveSession): boolean =>
+  dayjs(session.closingTime).isAfter(dayjs(Timestamp.now().toDate()));
+
+const isUserAllowedToJoin = (session: LiveSession, userId: string) =>
+  isSessionOpen(session) ||
+  session.userIds.includes(userId) ||
+  session.hostId === userId;
+
 export const getSessions = async (
   userId: string,
   exerciseId?: string,
 ): Promise<LiveSession[]> => {
-  if (exerciseId) {
-    const sessions = await sessionModel.getPublicSessionsByExerciseId(
-      userId,
-      exerciseId,
-    );
-    return Promise.all(sessions.map(mapSession));
-  }
+  const sessions = await (exerciseId
+    ? sessionModel.getPublicSessionsByExerciseId(userId, exerciseId)
+    : sessionModel.getSessions(userId));
 
-  const sessions = await sessionModel.getSessions(userId);
-  return Promise.all(sessions.map(mapSession));
+  return Promise.all(
+    sessions.filter(s => isUserAllowedToJoin(s, userId)).map(mapSession),
+  );
 };
 
 export const getSessionToken = async (

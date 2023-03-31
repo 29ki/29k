@@ -6,6 +6,7 @@ import {
   Init,
   LogEvent,
   LogFeedback,
+  LogNavigation,
   MetricsProvider,
   SetCoreProperties,
   SetUserProperties,
@@ -15,7 +16,15 @@ let postHog: PostHog | undefined;
 let initPromise: Promise<PostHog> | undefined;
 
 export const PostHogMetricsProvider: MetricsProvider = ({children}) => (
-  <PostHogProvider client={postHog}>{children}</PostHogProvider>
+  <PostHogProvider
+    client={postHog}
+    autocapture={{
+      captureTouches: false,
+      captureLifecycleEvents: false, // Handled by MetricsProvider
+      captureScreens: false, // Handled by MetricsProvider
+    }}>
+    {children}
+  </PostHogProvider>
 );
 
 const initPostHog = async () => {
@@ -45,6 +54,10 @@ export const setConsent = async (haveConsent: boolean) =>
 
 export const logEvent: LogEvent = async (event, properties) => {
   await postHog?.capture(event, properties);
+};
+
+export const logNavigation: LogNavigation = async (screenName, properties) => {
+  await postHog?.screen(screenName, properties);
 };
 
 export const logFeeback: LogFeedback = async () => {};

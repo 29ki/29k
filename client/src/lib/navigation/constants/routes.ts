@@ -74,6 +74,7 @@ export type ModalStackProps = {
   SignInModal: undefined;
   DeleteUserModal: undefined;
   ContributorsModal: undefined;
+  HostsModal: undefined;
   PartnersModal: undefined;
   DeveloperModal: undefined;
   ContactModal: undefined;
@@ -83,4 +84,9 @@ export type ModalStackProps = {
     completed: boolean;
     isHost: boolean;
   };
+  SafetyToolkitModal: undefined;
+  ReportModal: {originScreen: string};
+  CalmDownModal: undefined;
 };
+
+export type RootNavigationProps = ModalStackProps;

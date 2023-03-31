@@ -1,7 +1,10 @@
+import debug from 'debug';
 import {useCallback} from 'react';
 import {DeviceInfo, getDeviceInfo} from '../../utils/system';
 import apiClient from '../../apiClient/apiClient';
 import useKillSwitchState from '../state/state';
+
+const logDebug = debug('client:killSwitch');
 
 type KillSwitchReponseBody = {
   requiresBundleUpdate?: boolean;
@@ -90,9 +93,7 @@ const useKillSwitch = () => {
       gitCommit,
     });
 
-    console.log(
-      `[KillSwitch] checking status @ ${os}${osVersion}@${nativeVersion}`,
-    );
+    logDebug(`checking status @ ${os}${osVersion}@${nativeVersion}`);
     const response = await fetchKillSwitch(url);
 
     const data = await getResponseData(response);
@@ -101,19 +102,17 @@ const useKillSwitch = () => {
       data as KillSwitchReponseBody;
 
     if (requiresBundleUpdate) {
-      console.log(
-        `[KillSwitch] requires bundle update @ ${os}${osVersion}@${nativeVersion}`,
-      );
+      logDebug(`requires bundle update @ ${os}${osVersion}@${nativeVersion}`);
       setState({requiresBundleUpdate: true});
     }
 
     if (response.ok) {
-      console.log(`[KillSwitch] ok @ ${os}${osVersion}@${nativeVersion}`);
+      logDebug(`ok @ ${os}${osVersion}@${nativeVersion}`);
       setState({isBlocking: false});
       return;
     }
 
-    console.log(`[KillSwitch] not ok @ ${os}${osVersion}@${nativeVersion}`);
+    logDebug(`not ok @ ${os}${osVersion}@${nativeVersion}`);
 
     setState({
       isBlocking: true,

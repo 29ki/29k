@@ -28,6 +28,10 @@ import SessionFeedbackModal from '../../routes/modals/SessionFeedbackModal/Sessi
 import SharingModal from '../../routes/modals/SharingModal/SharingModal';
 import SharingPostModal from '../../routes/modals/SharingPostModal/SharingPostModal';
 import DeleteUserModal from '../../routes/modals/DeleteUserModal/DeleteUserModal';
+import HostsModal from '../../routes/modals/Contributors/HostsModal';
+import SafetyToolkitModal from '../../routes/modals/SafetyToolkitModal/SafetyToolkitModal';
+import ReportModal from '../../routes/modals/ReportModal/ReportModal';
+import CalmDownModal from '../../routes/modals/CalmDownModal/CalmDownModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -177,6 +181,7 @@ const ModalStack = () => {
         />
 
         <Screen name={'ContributorsModal'} component={ContributorsModal} />
+        <Screen name={'HostsModal'} component={HostsModal} />
         <Screen name={'PartnersModal'} component={PartnersModal} />
         <Screen name={'DeveloperModal'} component={DeveloperModal} />
         <Screen name={'ContactModal'} component={ContactModal} />
@@ -202,6 +207,23 @@ const ModalStack = () => {
           name={'UpgradeAccountModal'}
           component={UpgradeAccountModal}
           options={shortSheetModalScreenOptions}
+        />
+
+        <Screen
+          name={'SafetyToolkitModal'}
+          component={SafetyToolkitModal}
+          options={shortSheetModalScreenOptions}
+        />
+
+        <Screen
+          name={'ReportModal'}
+          component={ReportModal}
+          options={tallSheetModalScreenOptions}
+        />
+        <Screen
+          name={'CalmDownModal'}
+          component={CalmDownModal}
+          options={tallSheetModalScreenOptions}
         />
       </Group>
 

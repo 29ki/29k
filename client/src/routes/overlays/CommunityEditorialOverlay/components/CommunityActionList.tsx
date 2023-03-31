@@ -8,9 +8,10 @@ import {
   CommunityIcon,
   CheckedIcon,
   WandIcon,
+  FriendsIcon,
 } from '../../../../lib/components/Icons';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
-import {Linking} from 'react-native';
+import * as linking from '../../../../lib/linking/nativeLinks';
 
 const CommunityActionList = () => {
   const {navigate} =
@@ -19,7 +20,7 @@ const CommunityActionList = () => {
 
   const contributePress = useCallback(
     () =>
-      Linking.openURL('https://wiki.29k.org/community-contribution-central'),
+      linking.openURL('https://wiki.29k.org/community-contribution-central'),
     [],
   );
 
@@ -27,6 +28,8 @@ const CommunityActionList = () => {
     () => navigate('ContributorsModal'),
     [navigate],
   );
+
+  const hostsPress = useCallback(() => navigate('HostsModal'), [navigate]);
 
   const partnersPress = useCallback(
     () => navigate('PartnersModal'),
@@ -41,6 +44,9 @@ const CommunityActionList = () => {
         </ActionButton>
         <ActionButton Icon={CommunityIcon} onPress={contributorsPress}>
           {t('actions.contributors')}
+        </ActionButton>
+        <ActionButton Icon={FriendsIcon} onPress={hostsPress}>
+          {t('actions.hosts')}
         </ActionButton>
         <ActionButton Icon={CheckedIcon} onPress={partnersPress}>
           {t('actions.partners')}

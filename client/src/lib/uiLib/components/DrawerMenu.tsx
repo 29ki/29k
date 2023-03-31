@@ -99,11 +99,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({items}) => {
   const {toggle: onClose} = useUiLib();
 
   return (
-    <NavigationContainer
-      independent={true}
-      onUnhandledAction={navAction =>
-        console.log('navigation action', navAction)
-      }>
+    <NavigationContainer independent={true}>
       <View />
       <Drawer.Navigator
         screenOptions={{headerShown: false}}
