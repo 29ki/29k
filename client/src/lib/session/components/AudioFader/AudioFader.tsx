@@ -1,5 +1,8 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import Audio from '../../../audio/components/Audio';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import styled from 'styled-components/native';
+import VideoLooper from '../../../components/VideoLooper/VideoLooper';
+
+const AudioOnlyPlayer = styled(VideoLooper)({display: 'none'});
 
 type AudioFaderProps = {
   duration?: number;
@@ -7,6 +10,7 @@ type AudioFaderProps = {
   paused?: boolean;
   repeat?: boolean;
   source: string;
+  isLive?: boolean;
 };
 
 const AudioFader: React.FC<AudioFaderProps> = ({
@@ -15,6 +19,7 @@ const AudioFader: React.FC<AudioFaderProps> = ({
   paused,
   repeat,
   source,
+  isLive,
 }) => {
   const [currentVolume, setVolume] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -45,14 +50,17 @@ const AudioFader: React.FC<AudioFaderProps> = ({
 
   const onLoad = useCallback(() => setLoaded(true), [setLoaded]);
 
+  const sources = useMemo(() => {
+    return [{source, repeat}];
+  }, [source, repeat]);
+
   return (
-    <Audio
+    <AudioOnlyPlayer
+      sources={sources}
       paused={paused}
-      repeat={repeat}
       volume={currentVolume}
       onLoad={onLoad}
-      source={source}
-      mixWithOthers
+      mixWithOthers={isLive}
     />
   );
 };

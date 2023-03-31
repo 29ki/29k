@@ -20,7 +20,7 @@
     "test": "yarn build:content && yarn test:ts && yarn test:lint && yarn test:jest"
   },
   "dependencies": {
-    "@daily-co/react-native-daily-js": "^0.38.0",
+    "@daily-co/react-native-daily-js": "^0.39.0",
     "@daily-co/react-native-webrtc": "1.94.1-daily.8",
     "@gorhom/bottom-sheet": "^4.4.5",
     "@notifee/react-native": "^7.5.0",
@@ -63,7 +63,7 @@
     "react-native-linear-gradient": "^2.6.2",
     "react-native-localize": "^2.2.6",
     "react-native-markdown-display": "^7.0.0-alpha.2",
-    "react-native-reanimated": "^3.0.2",
+    "react-native-reanimated": "^2.14.4",
     "react-native-safe-area-context": "^4.5.0",
     "react-native-screens": "^3.20.0",
     "react-native-sound": "https://github.com/29ki/react-native-sound#fix-iOS-16-support",
