@@ -90,7 +90,6 @@ public class ReactVideoLooperView extends FrameLayout {
         long duration = _player.getDuration();
         WritableMap eventData = Arguments.createMap();
         eventData.putDouble("duration", duration / 1000D);
-        System.out.println(String.format("DURATION!!!!!!!!!!!!!!!!! %d", duration));
         sendEvent(_themedReactContext, ReactEvents.EVENT_ON_LOAD.toString(), eventData);
       }
       if (state == Player.STATE_ENDED) {
