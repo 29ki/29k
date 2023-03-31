@@ -5,6 +5,7 @@ import {killSwitchRouter} from './killswitch';
 import {sessionsRouter} from './sessions';
 import {userRouter} from './user';
 import {postsRouter} from './posts';
+import {reportRouter} from './report';
 import sentryErrorHandler from '../lib/sentry';
 import firebaseBodyParser from '../lib/firebaseBodyParser';
 import languageResolver from './lib/languageResolver';
@@ -22,7 +23,8 @@ rootRouter
   .use('/sessions', sessionsRouter.routes())
   .use('/killSwitch', killSwitchRouter.routes())
   .use('/user', userRouter.routes())
-  .use('/posts', postsRouter.routes());
+  .use('/posts', postsRouter.routes())
+  .use('/report', reportRouter.routes());
 
 app
   .use(firebaseBodyParser())

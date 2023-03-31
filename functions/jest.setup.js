@@ -19,6 +19,7 @@ process.env = Object.assign(process.env, {
   SLACK_SHARING_POSTS_CHANNEL: 'some-channel',
   SLACK_OAUTH_TOKEN: 'some-slack-oath-token',
   SLACK_SIGNING_SECRET: 'some-slack-signing-secret',
+  SENDGRID_API_KEY: 'some-sending-grid-api-key'
 });
 
 global.console = {

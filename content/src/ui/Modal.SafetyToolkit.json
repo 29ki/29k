@@ -1,0 +1,16 @@
+{
+  "en": {
+    "title": "Safety toolkit",
+    "actions": {
+      "faq": "Frequently asked questions",
+      "calmDown": "Calm down",
+      "report": "Report",
+      "helplines": "Emergency helplines"
+    },
+    "helplines_url": "https://wiki.29k.org/emergency-helplines",
+    "faq_url": "https://wiki.29k.org/29k-sessions-faq"
+  },
+  "pt": {},
+  "sv": {},
+  "es": {}
+}
