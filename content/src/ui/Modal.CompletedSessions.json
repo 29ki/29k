@@ -1,6 +1,11 @@
 {
   "en": {
-    "title": ""
+    "title": "",
+    "meaningful": "Meaningful\nsessions",
+    "notMeaningful": "Not meaningful\nsessions",
+    "async": "Just me",
+    "private": "My friends",
+    "public": "Anyone"
   },
   "pt": {},
   "sv": {},

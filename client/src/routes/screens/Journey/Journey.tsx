@@ -50,7 +50,6 @@ import JourneyNode from './components/JourneyNode';
 import useUserEvents from '../../../lib/user/hooks/useUserEvents';
 import {partition, takeLast} from 'ramda';
 
-import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {ThumbsUpWithoutPadding} from '../../modals/SessionFeedbackModal/components/Thumbs';
 import FilterStatus from './components/FilterStatus';
 import {LogoIcon} from '../../../lib/components/Icons';
@@ -77,18 +76,6 @@ const Row = styled.View({
   flexDirection: 'row',
   justifyContent: 'space-between',
   alignItems: 'center',
-});
-
-const FilterContainer = styled(TouchableOpacity)({
-  width: 103,
-  backgroundColor: '#A9DAC1',
-  borderRadius: 16,
-  padding: 11,
-});
-
-const IconWrapper = styled.View({
-  width: 22,
-  height: 22,
 });
 
 const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
@@ -278,7 +265,12 @@ const Journey = () => {
         </Gutters>
       );
     },
-    [onPositivePress, positiveFeedbacks.length],
+    [
+      onPositivePress,
+      positiveFeedbacks.length,
+      completedSessions.length,
+      onTotalPress,
+    ],
   );
 
   if (!sections.length) {

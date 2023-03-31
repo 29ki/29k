@@ -38,7 +38,7 @@ type BadgeProps = {
   IconAfter?: React.ReactNode;
   text: string | React.ReactNode;
   themeColor?: string;
-  completed: boolean;
+  completed?: boolean;
 };
 
 const Badge: React.FC<BadgeProps> = ({
@@ -46,7 +46,7 @@ const Badge: React.FC<BadgeProps> = ({
   IconAfter,
   text,
   themeColor,
-  completed,
+  completed = false,
 }) => {
   return (
     <Wrapper themeColor={themeColor} completed={completed}>

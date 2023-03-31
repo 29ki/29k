@@ -44,6 +44,7 @@ const CompletedSessionsModal = () => {
   const {
     params: {filterSetting},
   } = useRoute<RouteProp<ModalStackProps, 'CompletedSessionsModal'>>();
+  const {t} = useTranslation('Modal.CompletedSessions');
   const {completedSessions} = useCompletedSessions();
   const {feedbackEvents} = useUserEvents();
   const [selectedMode, setSelectedMode] = useState<
@@ -129,7 +130,7 @@ const CompletedSessionsModal = () => {
                 setSelectedFeedback(selectedFeedback ? undefined : true)
               }
               heading={`${positiveFeedbacks.length}`}
-              description={'Meaningful\nsessions'}
+              description={t('meaninful')}
             />
             <Spacer16 />
             <FilterStatus
@@ -141,7 +142,7 @@ const CompletedSessionsModal = () => {
                 )
               }
               heading={`${negativeFeedbacks.length}`}
-              description={'Not meaningful\nsessions'}
+              description={t('notMeaninful')}
             />
           </Row>
         )}
@@ -159,7 +160,7 @@ const CompletedSessionsModal = () => {
                 )
               }
               heading={`${asyncSessions?.length}`}
-              description={'Just me'}
+              description={t('async')}
             />
             <Spacer16 />
             {privateSessions?.length && (
@@ -174,7 +175,7 @@ const CompletedSessionsModal = () => {
                   )
                 }
                 heading={`${privateSessions?.length}`}
-                description={'My friends'}
+                description={t('private')}
               />
             )}
             <Spacer16 />
@@ -190,7 +191,7 @@ const CompletedSessionsModal = () => {
                   )
                 }
                 heading={`${publicSessions?.length}`}
-                description={'Anyone'}
+                description={t('public')}
               />
             )}
           </Row>
@@ -207,6 +208,7 @@ const CompletedSessionsModal = () => {
       filterSetting,
       selectedMode,
       selectedFeedback,
+      t,
     ],
   );
 
