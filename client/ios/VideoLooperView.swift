@@ -20,6 +20,7 @@ class VideoLooperView: RCTView {
   private var _pause: Bool = false
   private var _itemConfigs: Array<ItemConfig>
   private var _volume: Float = 1.0
+  private var _mixWithOhters: Bool = false;
   
   override static var layerClass: AnyClass { AVPlayerLayer.self }
   private var _playerLayer: AVPlayerLayer  { layer as! AVPlayerLayer }
@@ -81,6 +82,8 @@ class VideoLooperView: RCTView {
   private func setupView() {
     _player = AVQueuePlayer()
     _player?.preventsDisplaySleepDuringVideoPlayback = true
+    _player?.allowsExternalPlayback = false
+    _player?.automaticallyWaitsToMinimizeStalling = true
     _playerLayer.player = _player
     
     _playerLayer.videoGravity = .resizeAspectFill
@@ -92,8 +95,15 @@ class VideoLooperView: RCTView {
   private func configureAudio() {
     do {
       let session = AVAudioSession.sharedInstance()
-      try session.setCategory(.playAndRecord, options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
-    } catch {}
+      if (_mixWithOhters) {
+        try session.setCategory(.playAndRecord, options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
+        try session.setActive(true)
+      } else {
+        try session.setCategory(.playback)
+      }
+    } catch {
+      
+    }
   }
   
   private func addItemObserver(item: AVPlayerItem) {
@@ -163,19 +173,14 @@ class VideoLooperView: RCTView {
       guard let data = data else { return }
       do {
         
-        if self.onReadyForDisplay != nil {
+        if self.onLoad != nil {
           let event = [AnyHashable: Any]()
-          self.onReadyForDisplay!(event)
+          self.onLoad!(event)
         }
         
         self._audioPlayer = try AVAudioPlayer(data: data)
         self._audioPlayer?.numberOfLoops = shouldRepeat ? -1 : 0
         self._audioPlayer?.volume = self._volume
-        
-        if (!self._pause) {
-          self._audioPlayer?.play();
-        }
-        self.configureAudio()
       } catch {
         print("Error creating audioPlayer \(error)")
       }
@@ -194,7 +199,7 @@ class VideoLooperView: RCTView {
   
   @objc var onEnd: RCTDirectEventBlock?
   @objc var onTransition: RCTDirectEventBlock?
-  @objc var onReadyForDisplay: RCTDirectEventBlock?
+  @objc var onLoad: RCTDirectEventBlock?
   
   @objc func setSources(_ sources: NSArray) {
     DispatchQueue.global(qos: .default).async {
@@ -241,14 +246,15 @@ class VideoLooperView: RCTView {
           
             self.setMuted(muted: self._itemConfigs[0].isMuted)
             
-            if self.onReadyForDisplay != nil {
-              let event = [AnyHashable: Any]()
-              self.onReadyForDisplay!(event)
-            }
-            
-            self.configureAudio()
-            if (!self._pause) {
-              self._player?.play()
+            if self.onLoad != nil {
+              var event = [AnyHashable: Any]()
+              let firstItem = self._player?.items().first
+              if firstItem != nil {
+                let duration = Float(CMTimeGetSeconds(firstItem!.asset.duration))
+                event["duration"] = NSNumber(value: duration)
+              }
+              print("*************** onLOad", event)
+              self.onLoad!(event)
             }
           }
         }
@@ -273,30 +279,32 @@ class VideoLooperView: RCTView {
   }
   
   @objc func setPaused(_ val: Bool) {
-    _pause = val
-    
-    if (_pause != val) {
-      configureAudio()
-    }
-    
     if val {
       _player?.pause()
       _audioPlayer?.pause()
     } else {
-      _player?.play()
+      if _pause != val {
+        configureAudio()
+      }
+      _player?.playImmediately(atRate: 1.0)
       _audioPlayer?.play()
     }
+    
+    _pause = val
   }
   
   @objc func setAudioOnly(_ val: Bool) {
     _audioOnly = val
   }
   
+  @objc func setMixWithOthers(_ val: Bool) {
+    _mixWithOhters = val
+  }
+  
   @objc func setVolume(_ val: NSNumber?) {
     _volume = val?.floatValue ?? 0
     _player?.volume = _volume
     _audioPlayer?.volume = _volume
-    configureAudio()
   }
   
   // MARK: Observers

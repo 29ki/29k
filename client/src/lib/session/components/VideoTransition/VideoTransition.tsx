@@ -38,6 +38,7 @@ type VideoTransitionProps = {
   endSource?: string;
   reverse?: boolean;
   loop?: boolean;
+  isLive?: boolean;
   paused?: boolean;
   repeat?: boolean;
   onReadyForDisplay?: () => void;
@@ -49,6 +50,7 @@ const VideoTransition: React.FC<VideoTransitionProps> = ({
   startSource,
   loopSource,
   endSource,
+  isLive,
   reverse = false,
   paused = false,
   repeat = false,
@@ -77,11 +79,12 @@ const VideoTransition: React.FC<VideoTransitionProps> = ({
   return (
     <VideoLooperStyled
       sources={sourceConfigs}
-      onReadyForDisplay={onReadyForDisplay}
+      onLoad={onReadyForDisplay}
       onTransition={onTransition}
       onEnd={onEnd}
       paused={paused}
       repeat={repeat}
+      mixWithOthers={isLive}
     />
   );
 };

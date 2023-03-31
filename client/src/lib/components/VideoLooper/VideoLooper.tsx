@@ -13,25 +13,38 @@ const RNVideoLooper =
 
 const Container = styled.View({
   ...StyleSheet.absoluteFillObject,
+  overflow: 'hidden',
 });
 
 const StyledRNVideoLooper = styled(RNVideoLooper)({
   ...StyleSheet.absoluteFillObject,
 });
-class VideoLooper extends React.Component<VideoLooperProperties> {
+
+type VideoLooperProps = Omit<VideoLooperProperties, 'seek'>;
+type VideoLooperState = {seek?: number};
+class VideoLooper extends React.Component<VideoLooperProps, VideoLooperState> {
   onEndListener: EmitterSubscription | undefined;
   onTransitionListener: EmitterSubscription | undefined;
-  onReadyForDisplayListener: EmitterSubscription | undefined;
+  onLoadListener: EmitterSubscription | undefined;
 
-  constructor(props: VideoLooperProperties) {
+  constructor(props: VideoLooperProps) {
     super(props);
+    this.seek = this.seek.bind(this);
+    this.onLoad = this.onLoad.bind(this);
+    this.state = {};
+  }
+
+  onLoad(event: any) {
+    if (this.props.onLoad) {
+      this.props.onLoad(event.nativeEvent);
+    }
   }
 
   componentDidMount() {
-    if (this.props.onReadyForDisplay) {
-      this.onReadyForDisplayListener = DeviceEventEmitter.addListener(
-        'onReadyForDisplay',
-        this.props.onReadyForDisplay,
+    if (this.props.onLoad) {
+      this.onLoadListener = DeviceEventEmitter.addListener(
+        'onLoad',
+        this.props.onLoad,
       );
     }
     if (this.props.onEnd) {
@@ -49,15 +62,34 @@ class VideoLooper extends React.Component<VideoLooperProperties> {
   }
 
   componentWillUnmount() {
-    this.onReadyForDisplayListener?.remove();
+    this.onLoadListener?.remove();
     this.onEndListener?.remove();
     this.onTransitionListener?.remove();
   }
 
+  componentDidUpdate(
+    _: Readonly<VideoLooperProps>,
+    prevState: Readonly<VideoLooperState>,
+  ) {
+    if (prevState.seek !== undefined) {
+      this.setState({seek: undefined});
+    }
+  }
+
+  seek(to: number) {
+    this.setState({seek: to});
+  }
+
   render() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const {onLoad, ...rest} = this.props;
     return (
       <Container>
-        <StyledRNVideoLooper {...this.props} />
+        <StyledRNVideoLooper
+          seek={this.state.seek}
+          onLoad={this.onLoad}
+          {...rest}
+        />
       </Container>
     );
   }

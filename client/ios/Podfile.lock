@@ -973,7 +973,7 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.36.0):
+  - react-native-daily-js (0.39.0):
     - React
   - react-native-get-random-values (1.8.0):
     - React-Core
@@ -1422,7 +1422,7 @@ SPEC CHECKSUMS:
   React-logger: 15c734997c06fe9c9b88e528fb7757601e7a56df
   react-native-add-calendar-event: d7744f983d6770cc9e4f004db22bc4d4b4575f17
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: b1d93c1fa1f4aa250c23ff4a09d09a81e8700a21
+  react-native-daily-js: 71463fdf8ad5471c295f5530bce27ac78f19a6a4
   react-native-get-random-values: a6ea6a8a65dc93e96e24a11105b1a9c8cfe1d72a
   react-native-safe-area-context: 39c2d8be3328df5d437ac1700f4f3a4f75716acc
   react-native-video: c26780b224543c62d5e1b2a7244a5cd1b50e8253

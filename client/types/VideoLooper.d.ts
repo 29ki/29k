@@ -9,8 +9,10 @@ export interface VideoLooperProperties extends ViewProps {
   repeat?: boolean;
   volume?: number;
   audioOnly?: boolean;
+  seek?: number;
+  mixWithOthers?: boolean;
   onEnd?: () => void;
-  onReadyForDisplay?: () => void;
+  onLoad?: ({duration: number}) => void;
   onTransition?: () => void;
 }
 

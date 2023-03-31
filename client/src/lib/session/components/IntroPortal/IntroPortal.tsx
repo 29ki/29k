@@ -43,6 +43,7 @@ type IntroPortalProps = {
   exercise: Exercise | null;
   isHost: boolean;
   isFocused: boolean;
+  isLive?: boolean;
   onStartSession: () => void;
   onLeaveSession: () => void;
   onNavigateToSession: () => void;
@@ -53,6 +54,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   exercise,
   isHost,
   isFocused,
+  isLive,
   onStartSession,
   onLeaveSession,
   onNavigateToSession,
@@ -79,7 +81,12 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   ]);
 
   const onVideoReadyForDisplay = useCallback(() => {
-    setIsReadyForDisplay(true);
+    // TODO remove this timeout when daily is not joined
+    // until after the portal is done
+    // https://www.notion.so/29k/Early-Access-2794500652b34c64b0aff0dbbc53e0ab?pvs=4#2f566fc8ac87402aa92eb6798b469918
+    setTimeout(() => {
+      setIsReadyForDisplay(true);
+    }, 2000);
   }, [setIsReadyForDisplay]);
 
   const onVideoTransition = useCallback(() => {
@@ -101,6 +108,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
           paused={!isReadyForDisplay}
           volume={isTransitioning ? 0 : 1}
           duration={isTransitioning ? 5000 : 10000}
+          isLive={isLive}
           repeat
         />
       )}
@@ -113,6 +121,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
           onReadyForDisplay={onVideoReadyForDisplay}
           onTransition={onVideoTransition}
           onEnd={onVideoEnd}
+          isLive={isLive}
         />
       )}
 

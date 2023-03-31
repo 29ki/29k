@@ -8,7 +8,9 @@ import android.widget.FrameLayout;
 
 import androidx.annotation.Nullable;
 
+import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.google.android.exoplayer2.ExoPlayer;
@@ -29,7 +31,7 @@ import okhttp3.Request;
 
 enum ReactEvents {
   EVENT_ON_END("onEnd"),
-  EVENT_ON_READY_FOR_DISPLAY("onReadyForDisplay"),
+  EVENT_ON_LOAD("onLoad"),
   EVENT_ON_TRANSITION("onTransition");
 
   private final String mName;
@@ -76,7 +78,7 @@ public class ReactVideoLooperView extends FrameLayout {
           _player.setRepeatMode(Player.REPEAT_MODE_OFF);
         }
 
-        sendEvent(_themedReactContext, ReactEvents.EVENT_ON_TRANSITION.toString());
+        sendEvent(_themedReactContext, ReactEvents.EVENT_ON_TRANSITION.toString(), null);
       }
     }
 
@@ -85,10 +87,14 @@ public class ReactVideoLooperView extends FrameLayout {
       AnalyticsListener.super.onPlaybackStateChanged(eventTime, state);
       if (state == Player.STATE_READY) {
         _player.setVolume(_mediaItemConfigs.get(0).getMuted() ? 0.0f : _volume);
-        sendEvent(_themedReactContext, ReactEvents.EVENT_ON_READY_FOR_DISPLAY.toString());
+        long duration = _player.getDuration();
+        WritableMap eventData = Arguments.createMap();
+        eventData.putDouble("duration", duration / 1000D);
+        System.out.println(String.format("DURATION!!!!!!!!!!!!!!!!! %d", duration));
+        sendEvent(_themedReactContext, ReactEvents.EVENT_ON_LOAD.toString(), eventData);
       }
       if (state == Player.STATE_ENDED) {
-        sendEvent(_themedReactContext, ReactEvents.EVENT_ON_END.toString());
+        sendEvent(_themedReactContext, ReactEvents.EVENT_ON_END.toString(), null);
       }
     }
   }
@@ -148,10 +154,10 @@ public class ReactVideoLooperView extends FrameLayout {
   }
 
   private void sendEvent(ThemedReactContext reactContext,
-                         String eventName) {
+                         String eventName, @Nullable WritableMap properties) {
     reactContext
       .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-      .emit(eventName, null);
+      .emit(eventName, properties);
   }
 
   private OkHttpDataSource.Factory createOkHttpFactory() {

@@ -1,17 +1,17 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import styled from 'styled-components/native';
-import RNVideo, {VideoProperties, OnLoadData} from 'react-native-video';
 
 import useSessionState from '../../../../state/state';
-import VideoBase from '../../../VideoBase/VideoBase';
 import DurationTimer from '../../../DurationTimer/DurationTimer';
 import {LottiePlayerHandle} from '../../../../../components/LottiePlayer/LottiePlayer';
+import {VideoLooperProperties} from '../../../../../../../types/VideoLooper';
+import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
 
-const VideoPlayer = styled(VideoBase)({
+const VideoPlayer = styled(VideoLooper)({
   flex: 1,
 });
 
-const AudioPlayer = styled(VideoBase)({
+const AudioPlayer = styled(VideoLooper)({
   display: 'none',
 });
 
@@ -24,22 +24,23 @@ const Duration = styled(DurationTimer)({
 });
 
 type VideoProps = {
-  source: VideoProperties['source'];
-  audioSource?: VideoProperties['source'];
+  source?: string;
+  audioSource?: string;
   active: boolean;
   preview?: string;
   autoPlayLoop?: boolean;
   durationTimer?: boolean;
+  isLive?: boolean;
 };
 const Video: React.FC<VideoProps> = ({
   active,
   source,
   audioSource,
-  preview,
+  isLive,
   autoPlayLoop = false,
   durationTimer = false,
 }) => {
-  const videoRef = useRef<RNVideo>(null);
+  const videoRef = useRef<VideoLooper>(null);
   const timerRef = useRef<LottiePlayerHandle>(null);
   const onEndRef = useRef<boolean>(false);
   const [duration, setDuration] = useState(0);
@@ -70,6 +71,7 @@ const Video: React.FC<VideoProps> = ({
         previousState.current.playing === playing
       ) {
         // State is equal, but newer - reset to beginning
+
         seek(0);
       } else if (timestamp < previousState.current.timestamp && playing) {
         // State is old - compensate time played
@@ -90,7 +92,7 @@ const Video: React.FC<VideoProps> = ({
     }
   }, [active, autoPlayLoop, duration, previousState, sessionState, seek]);
 
-  const onLoad = useCallback<(data: OnLoadData) => void>(
+  const onLoad = useCallback<(data: {duration: number}) => void>(
     data => {
       setDuration(data.duration);
     },
@@ -108,16 +110,18 @@ const Video: React.FC<VideoProps> = ({
     }
   }, [setCurrentContentReachedEnd, autoPlayLoop]);
 
-  const videoProps: VideoProperties = useMemo(
-    () => ({
-      source,
-      poster: preview,
-      resizeMode: 'cover',
-      posterResizeMode: 'cover',
-      paused,
-    }),
-    [paused, preview, source],
-  );
+  const videoSource: VideoLooperProperties['sources'] = useMemo(() => {
+    if (source) {
+      return [{source, muted: audioSource ? true : false, repeat: true}];
+    }
+    return [];
+  }, [source, audioSource]);
+
+  const audioSources = useMemo(() => {
+    if (audioSource) {
+      return [{source: audioSource, repeat: autoPlayLoop}];
+    }
+  }, [audioSource, autoPlayLoop]);
 
   const timer = useMemo(
     () =>
@@ -127,19 +131,23 @@ const Video: React.FC<VideoProps> = ({
     [durationTimer, paused, duration],
   );
 
-  if (audioSource) {
+  if (audioSources) {
     // If audio source is available we allways loop the video and handle the audio separateley as the primary playing source
     return (
       <>
         <AudioPlayer
-          source={audioSource}
-          audioOnly
+          sources={audioSources}
           ref={videoRef}
+          volume={1}
           onLoad={onLoad}
-          repeat={autoPlayLoop}
           paused={paused}
+          mixWithOthers={isLive}
         />
-        <VideoPlayer {...videoProps} muted repeat />
+        <VideoPlayer
+          sources={videoSource}
+          paused={paused}
+          mixWithOthers={isLive}
+        />
         {timer}
       </>
     );
@@ -148,11 +156,13 @@ const Video: React.FC<VideoProps> = ({
   return (
     <>
       <VideoPlayer
-        {...videoProps}
+        sources={videoSource}
+        paused={paused}
         ref={videoRef}
+        volume={1}
         onLoad={onLoad}
         onEnd={onEnd}
-        repeat={true}
+        mixWithOthers={isLive}
       />
       {timer}
     </>
