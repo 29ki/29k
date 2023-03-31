@@ -253,7 +253,6 @@ class VideoLooperView: RCTView {
                 let duration = Float(CMTimeGetSeconds(firstItem!.asset.duration))
                 event["duration"] = NSNumber(value: duration)
               }
-              print("*************** onLOad", event)
               self.onLoad!(event)
             }
           }
