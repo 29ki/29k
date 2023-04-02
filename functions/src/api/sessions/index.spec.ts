@@ -3,7 +3,7 @@ import Koa from 'koa';
 
 import {sessionsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
-import {createApiRouter} from '../../lib/routers';
+import {createApiAuthRouter} from '../../lib/routers';
 import {ROLES} from '../../../../shared/src/types/User';
 import * as sessionsController from '../../controllers/sessions';
 import {RequestError} from '../../controllers/errors/RequestError';
@@ -29,7 +29,7 @@ const mockGetSession = sessionsController.getSession as jest.Mock;
 jest.mock('../../models/session');
 
 const getMockCustomClaims = jest.fn();
-const router = createApiRouter();
+const router = createApiAuthRouter();
 router.use('/sessions', sessionsRouter.routes());
 const mockServer = createMockServer(
   async (ctx: Koa.Context, next: Koa.Next) => {

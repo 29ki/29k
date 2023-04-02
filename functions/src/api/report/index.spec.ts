@@ -3,14 +3,14 @@ import Koa from 'koa';
 
 import {reportRouter} from '.';
 import createMockServer from '../lib/createMockServer';
-import {createApiRouter} from '../../lib/routers';
+import {createApiAuthRouter} from '../../lib/routers';
 
 import * as reportController from '../../controllers/report';
 
 jest.mock('../../controllers/report');
 const mockCreateReport = jest.mocked(reportController.createReport);
 
-const router = createApiRouter();
+const router = createApiAuthRouter();
 router.use('/report', reportRouter.routes());
 const mockServer = createMockServer(
   async (ctx: Koa.Context, next: Koa.Next) => {
