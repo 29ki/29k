@@ -3,7 +3,7 @@ import Koa from 'koa';
 
 import {createApiPreAuthRouter, createApiAuthRouter} from '../lib/routers';
 import {killSwitchRouter} from './killswitch';
-import {sessionsRouter} from './sessions';
+import {sessionsRouter, sessionsPreAuthRouter} from './sessions';
 import {userRouter} from './user';
 import {postsRouter} from './posts';
 import {reportRouter} from './report';
@@ -19,7 +19,9 @@ app.on('error', sentryErrorHandler);
 app.on('error', localErrorHandler);
 
 const preAuthRouter = createApiPreAuthRouter();
-preAuthRouter.use('/killSwitch', killSwitchRouter.routes());
+preAuthRouter
+  .use('/killSwitch', killSwitchRouter.routes())
+  .use('/sessions', sessionsPreAuthRouter.routes());
 
 const authRouter = createApiAuthRouter();
 authRouter
