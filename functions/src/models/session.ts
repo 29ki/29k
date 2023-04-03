@@ -90,32 +90,28 @@ export const getSessionByInviteCode = async ({
   return getSession(getData<LiveSessionData>(result.docs[0]));
 };
 
-export const getSessions = async (userId: string) => {
-  const sessionsCollection = firestore().collection(SESSIONS_COLLECTION);
-  const snapshot = await sessionsCollection
-    .where('ended', '==', false)
-    .where('userIds', 'array-contains-any', ['*', userId])
-    .orderBy('closingTime')
-    .where('closingTime', '>', sessionClosingRange())
-    .orderBy('startTime', 'asc')
-    .get();
-
-  return snapshot.docs.map(doc => getSession(getData<LiveSessionData>(doc)));
-};
-
-export const getPublicSessionsByExerciseId = async (
-  userId: string,
-  exerciseId: string,
+export const getSessions = async (
+  userId?: string,
+  exerciseId?: string,
+  limit?: number,
 ) => {
-  const sessionsCollection = firestore().collection(SESSIONS_COLLECTION);
-  const snapshot = await sessionsCollection
+  let query = firestore()
+    .collection(SESSIONS_COLLECTION)
+    .where('userIds', 'array-contains-any', userId ? ['*', userId] : ['*'])
     .where('ended', '==', false)
-    .where('exerciseId', '==', exerciseId)
-    .where('userIds', 'array-contains-any', ['*', userId])
     .orderBy('closingTime')
     .where('closingTime', '>', sessionClosingRange())
-    .orderBy('startTime', 'asc')
-    .get();
+    .orderBy('startTime', 'asc');
+
+  if (exerciseId) {
+    query = query.where('exerciseId', '==', exerciseId);
+  }
+
+  if (limit) {
+    query = query.limit(limit);
+  }
+
+  const snapshot = await query.get();
 
   return snapshot.docs.map(doc => getSession(getData<LiveSessionData>(doc)));
 };
