@@ -52,8 +52,6 @@ jest.mock('../models/user');
 jest.mock('../lib/dailyUtils');
 
 const mockGetSessions = sessionModel.getSessions as jest.Mock;
-const mockGetPublicSesssionsByExerciseId =
-  sessionModel.getPublicSessionsByExerciseId as jest.Mock;
 const mockAddSession = sessionModel.addSession as jest.Mock;
 const mockGetSessionById = sessionModel.getSessionById as jest.Mock;
 const mockGetSessionStateById = sessionModel.getSessionStateById as jest.Mock;
@@ -94,13 +92,13 @@ describe('sessions - controller', () => {
       expect(sessions[0].hostProfile?.displayName).toEqual('some-name');
       expect(sessions[0].hostProfile?.photoURL).toEqual('some-photo-url');
       expect(mockGetSessions).toHaveBeenCalledTimes(1);
-      expect(mockGetSessions).toHaveBeenCalledWith('all');
+      expect(mockGetSessions).toHaveBeenCalledWith('all', undefined);
       expect(mockGetPublicUserInfo).toHaveBeenCalledTimes(1);
       expect(mockGetPublicUserInfo).toHaveBeenCalledWith('some-user-id');
     });
 
     it('should get public sessions by exerciseId with host profile', async () => {
-      mockGetPublicSesssionsByExerciseId.mockResolvedValueOnce([
+      mockGetSessions.mockResolvedValueOnce([
         {
           closingTime: '2022-10-10T10:00:00.000Z',
           hostId: 'some-user-id',
@@ -108,14 +106,14 @@ describe('sessions - controller', () => {
         },
       ]);
 
-      const sessions = await getSessions('all', 'some-exercise-id');
+      const sessions = await getSessions('some-user-id', 'some-exercise-id');
 
       expect(sessions).toHaveLength(1);
       expect(sessions[0].hostProfile?.displayName).toEqual('some-name');
       expect(sessions[0].hostProfile?.photoURL).toEqual('some-photo-url');
-      expect(mockGetPublicSesssionsByExerciseId).toHaveBeenCalledTimes(1);
-      expect(mockGetPublicSesssionsByExerciseId).toHaveBeenCalledWith(
-        'all',
+      expect(mockGetSessions).toHaveBeenCalledTimes(1);
+      expect(mockGetSessions).toHaveBeenCalledWith(
+        'some-user-id',
         'some-exercise-id',
       );
       expect(mockGetPublicUserInfo).toHaveBeenCalledTimes(1);
@@ -123,48 +121,32 @@ describe('sessions - controller', () => {
     });
 
     it('should filter out sessions that have been closed', async () => {
-      const sessions = [
+      mockGetSessions.mockResolvedValueOnce([
         {
           closingTime: '2022-10-10T09:00:00.000Z',
           hostId: 'some-user-id',
           userIds: ['*'],
         },
-      ];
-      mockGetSessions.mockResolvedValueOnce(sessions);
-      mockGetPublicSesssionsByExerciseId.mockResolvedValueOnce(sessions);
+      ]);
 
-      const sessions1 = await getSessions('all');
-      const sessions2 = await getSessions('all', 'some-exercise-id');
+      const sessions = await getSessions('all');
 
-      expect(sessions1).toHaveLength(0);
-      expect(sessions2).toHaveLength(0);
+      expect(sessions).toHaveLength(0);
     });
 
     it('should include closed sessions containing userid (aka user has joined)', async () => {
-      const sessions = [
+      mockGetSessions.mockResolvedValueOnce([
         {
           closingTime: '2022-10-10T09:00:00.000Z',
           hostId: 'other-user-id',
-          userIds: ['*', 'some-user-id'],
-        },
-      ];
-      mockGetSessions.mockResolvedValueOnce(sessions);
-      mockGetPublicSesssionsByExerciseId.mockResolvedValueOnce(sessions);
-
-      const sessions1 = await getSessions('some-user-id');
-      const sessions2 = await getSessions('some-user-id', 'some-exercise-id');
-
-      expect(sessions1).toHaveLength(1);
-      expect(sessions2).toHaveLength(1);
-      expect(sessions1).toEqual([
-        {
-          closingTime: '2022-10-10T09:00:00.000Z',
-          hostId: 'other-user-id',
-          hostProfile: {displayName: 'some-name', photoURL: 'some-photo-url'},
           userIds: ['*', 'some-user-id'],
         },
       ]);
-      expect(sessions2).toEqual([
+
+      const sessions = await getSessions('some-user-id');
+
+      expect(sessions).toHaveLength(1);
+      expect(sessions).toEqual([
         {
           closingTime: '2022-10-10T09:00:00.000Z',
           hostId: 'other-user-id',
@@ -175,30 +157,18 @@ describe('sessions - controller', () => {
     });
 
     it('should include closed sessions which userid is the host', async () => {
-      const sessions = [
+      mockGetSessions.mockResolvedValueOnce([
         {
           closingTime: '2022-10-10T09:00:00.000Z',
           hostId: 'host-user-id',
-          userIds: ['*'],
-        },
-      ];
-      mockGetSessions.mockResolvedValueOnce(sessions);
-      mockGetPublicSesssionsByExerciseId.mockResolvedValueOnce(sessions);
-
-      const sessions1 = await getSessions('host-user-id');
-      const sessions2 = await getSessions('host-user-id', 'some-exercise-id');
-
-      expect(sessions1).toHaveLength(1);
-      expect(sessions2).toHaveLength(1);
-      expect(sessions1).toEqual([
-        {
-          closingTime: '2022-10-10T09:00:00.000Z',
-          hostId: 'host-user-id',
-          hostProfile: {displayName: 'some-name', photoURL: 'some-photo-url'},
           userIds: ['*'],
         },
       ]);
-      expect(sessions2).toEqual([
+
+      const sessions = await getSessions('host-user-id');
+
+      expect(sessions).toHaveLength(1);
+      expect(sessions).toEqual([
         {
           closingTime: '2022-10-10T09:00:00.000Z',
           hostId: 'host-user-id',

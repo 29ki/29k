@@ -36,13 +36,19 @@ export const getSessions = async (
   userId: string,
   exerciseId?: string,
 ): Promise<LiveSession[]> => {
-  const sessions = await (exerciseId
-    ? sessionModel.getPublicSessionsByExerciseId(userId, exerciseId)
-    : sessionModel.getSessions(userId));
+  const sessions = await sessionModel.getSessions(userId, exerciseId);
 
   return Promise.all(
     sessions.filter(s => isUserAllowedToJoin(s, userId)).map(mapSession),
   );
+};
+
+export const getNextPublicSessions = async (
+  limit?: number,
+): Promise<LiveSession[]> => {
+  const sessions = await sessionModel.getSessions(undefined, undefined, limit);
+
+  return Promise.all(sessions.map(mapSession));
 };
 
 export const getSessionToken = async (
