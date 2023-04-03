@@ -33,6 +33,7 @@ import {
   SessionMode,
   SessionType,
 } from '../../../../../shared/src/types/Session';
+import useGetSessionsByFeedback from './hooks/useGetSessionsByFeedback';
 
 const Row = styled(Gutters)({
   flexDirection: 'row',
@@ -51,6 +52,7 @@ const CompletedSessionsModal = () => {
     SessionMode.async | SessionType.public | SessionType.private
   >();
   const [selectedFeedback, setSelectedFeedback] = useState<boolean>();
+  const getSessionsByFeedback = useGetSessionsByFeedback();
 
   const [positiveFeedbacks, negativeFeedbacks] = useMemo(
     () => partition(f => f.payload.answer, feedbackEvents),
@@ -78,30 +80,15 @@ const CompletedSessionsModal = () => {
 
   const data = useMemo(() => {
     if (filterSetting === 'feedback') {
-      return feedbackEvents
-        .filter(({payload}) =>
-          selectedFeedback !== undefined
-            ? payload.answer === selectedFeedback
-            : true,
-        )
-        .map(feedbackEvent =>
-          completedSessions.find(
-            completedSessionEvent =>
-              completedSessionEvent.payload.id ===
-              feedbackEvent.payload.sessionId,
-          ),
-        )
-        .filter(Boolean) as CompletedSessionEvent[];
+      return getSessionsByFeedback(selectedFeedback);
     }
 
     if (filterSetting === 'mode') {
       return completedSessions.filter(({payload}) => {
         if (selectedMode) {
-          if (selectedMode === SessionMode.async) {
-            return payload.mode === selectedMode;
-          } else {
-            return payload.type === selectedMode;
-          }
+          selectedMode === SessionMode.async
+            ? payload.mode === selectedMode
+            : payload.type === selectedMode;
         } else {
           return true;
         }
@@ -112,9 +99,9 @@ const CompletedSessionsModal = () => {
   }, [
     completedSessions,
     filterSetting,
-    feedbackEvents,
     selectedFeedback,
     selectedMode,
+    getSessionsByFeedback,
   ]);
 
   const Footer = useMemo(
