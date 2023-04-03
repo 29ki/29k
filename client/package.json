@@ -71,7 +71,7 @@
     "react-native-video": "https://github.com/29ki/react-native-video-5.2.1#repeat-ios-using-av-player-looper",
     "styled-components": "^5.3.9",
     "uuid": "^9.0.0",
-    "zustand": "^4.3.6"
+    "zustand": "^4.3.7"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
