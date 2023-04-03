@@ -3,7 +3,7 @@ import Koa from 'koa';
 
 import {userRouter} from '.';
 import createMockServer from '../lib/createMockServer';
-import {createApiRouter} from '../../lib/routers';
+import {createApiAuthRouter} from '../../lib/routers';
 
 import {
   requestPublicHostRole,
@@ -22,7 +22,7 @@ jest.mock('../../controllers/user');
 const mockRequestPublicHostRole = requestPublicHostRole as jest.Mock;
 const mockVerifyRequest = verifyPublicHostRequest as jest.Mock;
 
-const router = createApiRouter();
+const router = createApiAuthRouter();
 router.use('/user', userRouter.routes());
 const mockServer = createMockServer(
   async (ctx: Koa.Context, next: Koa.Next) => {

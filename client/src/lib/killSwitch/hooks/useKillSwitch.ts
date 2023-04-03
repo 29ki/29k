@@ -40,7 +40,7 @@ const useKillSwitch = () => {
       setState({isLoading: true});
 
       try {
-        return await apiClient(url);
+        return await apiClient(url, undefined, false);
       } catch (cause: any) {
         // Do not block the user on network issues
         setState({

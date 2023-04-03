@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 import {lt, valid} from 'semver';
-import {createApiRouter} from '../../lib/routers';
+import {createApiPreAuthRouter} from '../../lib/routers';
 import i18next from '../../lib/i18n';
 
 // Binary kill switch, this will permanently disable the entire app.
@@ -43,7 +43,7 @@ const acceptedBundleVersion = (
   return bundleVersionNumber >= MIN_BUNDLE_VERSION[version][platform];
 };
 
-const router = createApiRouter();
+const router = createApiPreAuthRouter();
 
 type RequestQuery = {
   version: string;
