@@ -7,7 +7,6 @@ import Promises
 
 struct ItemConfig: Equatable {
   var asset: AVAsset
-  var isMuted = false
   var shouldRepeat = false
 }
 
@@ -136,10 +135,6 @@ class VideoLooperView: RCTView {
       object: item)
   }
   
-  private func setMuted(muted: Bool) {
-    _player?.isMuted = muted;
-  }
-  
   private func loadAsset(source: NSString?) -> Promise<AVAsset?> {
     return Promise<AVAsset?> { fullfill, reject in
       if source == nil {
@@ -158,7 +153,6 @@ class VideoLooperView: RCTView {
       self.loadAsset(source: config["source"] as? NSString).then { asset in
         fullfill(ItemConfig(
           asset: asset!,
-          isMuted: config["muted"] == nil ? false : config["muted"] as! Bool,
           shouldRepeat: config["repeat"] == nil ? false : config["repeat"] as! Bool
         ))
       }
@@ -173,14 +167,17 @@ class VideoLooperView: RCTView {
       guard let data = data else { return }
       do {
         
-        if self.onLoad != nil {
-          let event = [AnyHashable: Any]()
-          self.onLoad!(event)
-        }
-        
         self._audioPlayer = try AVAudioPlayer(data: data)
         self._audioPlayer?.numberOfLoops = shouldRepeat ? -1 : 0
         self._audioPlayer?.volume = self._volume
+        
+        if self.onLoad != nil {
+          var event = [AnyHashable: Any]()
+          if self._audioPlayer?.duration != nil {
+            event["duration"] = NSNumber(value: self._audioPlayer!.duration)
+          }
+          self.onLoad!(event)
+        }
       } catch {
         print("Error creating audioPlayer \(error)")
       }
@@ -243,8 +240,6 @@ class VideoLooperView: RCTView {
             if self._itemConfigs[0].shouldRepeat {
               self._repeat = true;
             }
-          
-            self.setMuted(muted: self._itemConfigs[0].isMuted)
             
             if self.onLoad != nil {
               var event = [AnyHashable: Any]()
@@ -263,7 +258,6 @@ class VideoLooperView: RCTView {
   
   @objc func setSeek(_ val: NSNumber) {
     _audioPlayer?.currentTime = TimeInterval(val.int64Value)
-    
     guard let currentItem = _player?.currentItem else { return }
     let timeScale: Int = 1000
     let cmSeekTime: CMTime = CMTimeMakeWithSeconds(Float64(truncating: val), preferredTimescale: Int32(timeScale))
@@ -271,6 +265,7 @@ class VideoLooperView: RCTView {
     guard CMTimeCompare(current, cmSeekTime) != 0 else { return }
     
     _player?.seek(to: cmSeekTime)
+    
   }
   
   @objc func setRepeat(_ val: Bool) {
@@ -280,12 +275,14 @@ class VideoLooperView: RCTView {
   @objc func setPaused(_ val: Bool) {
     if val {
       _player?.pause()
+      _player?.rate = 0.0
       _audioPlayer?.pause()
     } else {
       if _pause != val {
         configureAudio()
       }
       _player?.playImmediately(atRate: 1.0)
+      _player?.rate = 1.0
       _audioPlayer?.play()
     }
     
@@ -317,7 +314,6 @@ class VideoLooperView: RCTView {
     let currentIndex = _itemConfigs.firstIndex(where: {$0.asset == item?.asset})
     if (_itemConfigs.indices.contains(currentIndex! + 1)) {
       let nextItem = _itemConfigs[currentIndex! + 1]
-      setMuted(muted: nextItem.isMuted)
       _repeat = nextItem.shouldRepeat
     }
     
@@ -350,11 +346,6 @@ class VideoLooperView: RCTView {
         addLoopItemObserver(item: playerItem)
       }
     } else {
-      let currentConfigIndex = _itemConfigs.firstIndex(where: {$0.asset == item?.asset})
-      if currentConfigIndex != nil && _itemConfigs.indices.contains(currentConfigIndex! + 1) {
-        setMuted(muted: _itemConfigs[currentConfigIndex! + 1].isMuted)
-      }
-      
       if onTransition != nil {
         let event = [AnyHashable: Any]()
         onTransition!(event)

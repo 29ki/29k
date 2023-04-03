@@ -1,12 +1,16 @@
 package org.twentyninek.app.cupcake.newarchitecture.videoLooper;
 
+import androidx.annotation.Nullable;
+
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
 
 import java.io.IOException;
+import java.util.Map;
 
 public class ReactVideoLooperManager extends SimpleViewManager<ReactVideoLooperView> {
   public static final String REACT_CLASS = "VideoLooper";
@@ -23,6 +27,15 @@ public class ReactVideoLooperManager extends SimpleViewManager<ReactVideoLooperV
   public ReactVideoLooperView createViewInstance(ThemedReactContext context) {
     ReactVideoLooperView view = new ReactVideoLooperView(context);
     return view;
+  }
+
+  @Override
+  public @Nullable Map<String, Object> getExportedCustomDirectEventTypeConstants() {
+    MapBuilder.Builder<String, Object> builder = MapBuilder.builder();
+    for (ReactEvents event : ReactEvents.values()) {
+      builder.put(event.toString(), MapBuilder.of("registrationName", event.toString()));
+    }
+    return builder.build();
   }
 
   @ReactProp(name = "sources")

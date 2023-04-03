@@ -11,8 +11,8 @@ import androidx.annotation.Nullable;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.WritableMap;
-import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.react.uimanager.ThemedReactContext;
+import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.Player;
@@ -29,22 +29,6 @@ import java.util.List;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
-enum ReactEvents {
-  EVENT_ON_END("onEnd"),
-  EVENT_ON_LOAD("onLoad"),
-  EVENT_ON_TRANSITION("onTransition");
-
-  private final String mName;
-
-  ReactEvents(final String name) {
-    mName = name;
-  }
-
-  @Override
-  public String toString() {
-    return mName;
-  }
-}
 public class ReactVideoLooperView extends FrameLayout {
   private class Listener implements AnalyticsListener {
     @Override
@@ -70,8 +54,6 @@ public class ReactVideoLooperView extends FrameLayout {
           .findFirst()
           .get();
 
-        _player.setVolume(nextConfig.getMuted() ? 0.0f : _volume);
-
         if (nextConfig.getRepeat()) {
           _player.setRepeatMode(Player.REPEAT_MODE_ONE);
         } else {
@@ -85,12 +67,14 @@ public class ReactVideoLooperView extends FrameLayout {
     @Override
     public void onPlaybackStateChanged(EventTime eventTime, int state) {
       AnalyticsListener.super.onPlaybackStateChanged(eventTime, state);
-      if (state == Player.STATE_READY) {
-        _player.setVolume(_mediaItemConfigs.get(0).getMuted() ? 0.0f : _volume);
+      if (state == Player.STATE_READY && _onLoadStarted) {
         long duration = _player.getDuration();
         WritableMap eventData = Arguments.createMap();
         eventData.putDouble("duration", duration / 1000D);
         sendEvent(_themedReactContext, ReactEvents.EVENT_ON_LOAD.toString(), eventData);
+
+        setKeepScreenOn(true);
+        _onLoadStarted = false;
       }
       if (state == Player.STATE_ENDED) {
         sendEvent(_themedReactContext, ReactEvents.EVENT_ON_END.toString(), null);
@@ -102,6 +86,7 @@ public class ReactVideoLooperView extends FrameLayout {
   private final AspectRatioFrameLayout _layout;
   private ExoPlayer _player;
   private Listener _listener;
+  private boolean _onLoadStarted = false;
   private List<MediaItemConfig> _mediaItemConfigs = new ArrayList<>();
   private float _volume = 0.0f;
   private boolean _audioOnly = false;
@@ -155,8 +140,8 @@ public class ReactVideoLooperView extends FrameLayout {
   private void sendEvent(ThemedReactContext reactContext,
                          String eventName, @Nullable WritableMap properties) {
     reactContext
-      .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-      .emit(eventName, properties);
+      .getJSModule(RCTEventEmitter.class)
+      .receiveEvent(getId(), eventName, properties);
   }
 
   private OkHttpDataSource.Factory createOkHttpFactory() {
@@ -196,7 +181,6 @@ public class ReactVideoLooperView extends FrameLayout {
           _mediaItemConfigs.add(new MediaItemConfig(
             (String)mediaItemConfig.get("source"),
             (boolean)mediaItemConfig.getOrDefault("repeat", false),
-            (boolean)mediaItemConfig.getOrDefault("muted", false),
             mediaItem
           ));
         }
@@ -210,13 +194,13 @@ public class ReactVideoLooperView extends FrameLayout {
         if (firstMediaItemConfig.getRepeat()) {
           _player.setRepeatMode(Player.REPEAT_MODE_ONE);
         }
-        _player.setVolume(firstMediaItemConfig.getMuted() ? 0.0f : _volume);
 
         if (!self._audioOnly) {
           self._player.setVideoTextureView(self._textureView);
         }
         self._player.prepare();
         self._player.setPlayWhenReady(!self._paused);
+        self._onLoadStarted = true;
       }
     }, 1);
   }

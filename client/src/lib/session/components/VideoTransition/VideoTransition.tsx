@@ -41,6 +41,7 @@ type VideoTransitionProps = {
   isLive?: boolean;
   paused?: boolean;
   repeat?: boolean;
+  muted?: boolean;
   onReadyForDisplay?: () => void;
   onTransition?: () => void;
   onEnd?: () => void;
@@ -54,6 +55,7 @@ const VideoTransition: React.FC<VideoTransitionProps> = ({
   reverse = false,
   paused = false,
   repeat = false,
+  muted = false,
   onReadyForDisplay = () => {},
   onTransition = () => {},
   onEnd = () => {},
@@ -65,10 +67,10 @@ const VideoTransition: React.FC<VideoTransitionProps> = ({
   const sourceConfigs: Array<SourceConfig> = useMemo(() => {
     const configs: Array<SourceConfig> = [];
     if (startVideoSource) {
-      configs.push({source: startVideoSource, muted: true});
+      configs.push({source: startVideoSource});
     }
     if (loopVideoSource) {
-      configs.push({source: loopVideoSource, muted: true, repeat: true});
+      configs.push({source: loopVideoSource, repeat: true});
     }
     if (endVideoSource) {
       configs.push({source: endVideoSource});
@@ -81,6 +83,7 @@ const VideoTransition: React.FC<VideoTransitionProps> = ({
       sources={sourceConfigs}
       onLoad={onReadyForDisplay}
       onTransition={onTransition}
+      volume={muted ? 0 : 1}
       onEnd={onEnd}
       paused={paused}
       repeat={repeat}
