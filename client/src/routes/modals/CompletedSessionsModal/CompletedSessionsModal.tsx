@@ -1,10 +1,7 @@
 import {RouteProp, useRoute} from '@react-navigation/native';
 import React, {useCallback, useMemo, useState} from 'react';
-import {useTranslation} from 'react-i18next';
 import {ListRenderItem} from 'react-native';
-import styled from 'styled-components/native';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
-import {groupBy, partition} from 'ramda';
 
 import Gutters from '../../../lib/components/Gutters/Gutters';
 
@@ -16,58 +13,27 @@ import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessions';
 
 import JourneyNode from '../../screens/Journey/components/JourneyNode';
-import useUserEvents from '../../../lib/user/hooks/useUserEvents';
-import FilterStatus from '../../screens/Journey/components/FilterStatus';
-import {
-  ThumbsDownWithoutPadding,
-  ThumbsUpWithoutPadding,
-} from '../SessionFeedbackModal/components/Thumbs';
 
-import {Spacer16, Spacer32} from '../../../lib/components/Spacers/Spacer';
-import {
-  CommunityIcon,
-  FriendsIcon,
-  MeIcon,
-} from '../../../lib/components/Icons';
+import {Spacer32} from '../../../lib/components/Spacers/Spacer';
+
 import {
   SessionMode,
   SessionType,
 } from '../../../../../shared/src/types/Session';
 import useGetSessionsByFeedback from './hooks/useGetSessionsByFeedback';
-
-const Row = styled(Gutters)({
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-});
+import FeedbackFilters from './components/FeedbackFilters';
+import ModeFilters from './components/ModeFilters';
 
 const CompletedSessionsModal = () => {
   const {
     params: {filterSetting},
   } = useRoute<RouteProp<ModalStackProps, 'CompletedSessionsModal'>>();
-  const {t} = useTranslation('Modal.CompletedSessions');
   const {completedSessions} = useCompletedSessions();
-  const {feedbackEvents} = useUserEvents();
   const [selectedMode, setSelectedMode] = useState<
     SessionMode.async | SessionType.public | SessionType.private
   >();
   const [selectedFeedback, setSelectedFeedback] = useState<boolean>();
   const getSessionsByFeedback = useGetSessionsByFeedback();
-
-  const [positiveFeedbacks, negativeFeedbacks] = useMemo(
-    () => partition(f => f.payload.answer, feedbackEvents),
-    [feedbackEvents],
-  );
-
-  const {live: liveSessions, async: asyncSessions} = useMemo(
-    () => groupBy(s => s.payload.mode, completedSessions),
-    [completedSessions],
-  );
-
-  const {private: privateSessions, public: publicSessions} = useMemo(
-    () => groupBy(s => s.payload.type, liveSessions ?? []),
-    [liveSessions],
-  );
 
   const renderItem = useCallback<ListRenderItem<CompletedSessionEvent>>(
     ({item, index}) => (
@@ -109,94 +75,19 @@ const CompletedSessionsModal = () => {
       <>
         <Spacer32 />
         {filterSetting === 'feedback' && (
-          <Row>
-            <FilterStatus
-              selected={selectedFeedback === true}
-              Icon={ThumbsUpWithoutPadding}
-              onPress={() =>
-                setSelectedFeedback(selectedFeedback ? undefined : true)
-              }
-              heading={`${positiveFeedbacks.length}`}
-              description={t('meaningful')}
-            />
-            <Spacer16 />
-            <FilterStatus
-              selected={selectedFeedback === false}
-              Icon={ThumbsDownWithoutPadding}
-              onPress={() =>
-                setSelectedFeedback(
-                  selectedFeedback === false ? undefined : false,
-                )
-              }
-              heading={`${negativeFeedbacks.length}`}
-              description={t('notMeaningful')}
-            />
-          </Row>
+          <FeedbackFilters
+            selectedFeedback={selectedFeedback}
+            onChange={setSelectedFeedback}
+          />
         )}
 
         {filterSetting === 'mode' && (
-          <Row>
-            <FilterStatus
-              Icon={MeIcon}
-              selected={selectedMode === SessionMode.async}
-              onPress={() =>
-                setSelectedMode(
-                  selectedMode !== SessionMode.async
-                    ? SessionMode.async
-                    : undefined,
-                )
-              }
-              heading={`${asyncSessions?.length}`}
-              description={t('async')}
-            />
-            <Spacer16 />
-            {privateSessions?.length && (
-              <FilterStatus
-                Icon={FriendsIcon}
-                selected={selectedMode === SessionType.private}
-                onPress={() =>
-                  setSelectedMode(
-                    selectedMode !== SessionType.private
-                      ? SessionType.private
-                      : undefined,
-                  )
-                }
-                heading={`${privateSessions?.length}`}
-                description={t('private')}
-              />
-            )}
-            <Spacer16 />
-            {publicSessions?.length && (
-              <FilterStatus
-                Icon={CommunityIcon}
-                selected={selectedMode === SessionType.public}
-                onPress={() =>
-                  setSelectedMode(
-                    selectedMode !== SessionType.public
-                      ? SessionType.public
-                      : undefined,
-                  )
-                }
-                heading={`${publicSessions?.length}`}
-                description={t('public')}
-              />
-            )}
-          </Row>
+          <ModeFilters selectedMode={selectedMode} onChange={setSelectedMode} />
         )}
         <Spacer32 />
       </>
     ),
-    [
-      positiveFeedbacks?.length,
-      negativeFeedbacks?.length,
-      asyncSessions?.length,
-      privateSessions?.length,
-      publicSessions?.length,
-      filterSetting,
-      selectedMode,
-      selectedFeedback,
-      t,
-    ],
+    [filterSetting, selectedMode, selectedFeedback],
   );
 
   return (
