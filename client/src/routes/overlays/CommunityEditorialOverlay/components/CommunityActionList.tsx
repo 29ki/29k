@@ -28,7 +28,7 @@ const CommunityActionList = () => {
   const donatePress = useCallback(() => linking.openURL(t('donateLink')), [t]);
   const contributePress = useCallback(
     () => linking.openURL(t('contributeLink')),
-    [],
+    [t],
   );
 
   const contributorsPress = useCallback(
