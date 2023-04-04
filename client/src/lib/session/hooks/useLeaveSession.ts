@@ -14,8 +14,9 @@ import useSessions from '../../../lib/sessions/hooks/useSessions';
 import useLiveSessionMetricEvents from './useLiveSessionMetricEvents';
 import useIsSessionHost from './useIsSessionHost';
 import {
+  AsyncSession,
+  LiveSession,
   SessionMode,
-  SessionType,
 } from '../../../../../shared/src/types/Session';
 import useAsyncSessionMetricEvents from './useAsyncSessionMetricEvents';
 
@@ -23,16 +24,11 @@ type ScreenNavigationProps = NativeStackNavigationProp<
   TabNavigatorProps & ModalStackProps
 >;
 
-const useLeaveSession = (
-  sessionMode: SessionMode,
-  sessionType: SessionType,
-) => {
+const useLeaveSession = (session: LiveSession | AsyncSession) => {
   const {t} = useTranslation('Component.ConfirmExitSession');
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();
-  const liveSession = useSessionState(state => state.liveSession);
   const sessionState = useSessionState(state => state.sessionState);
-  const asyncSession = useSessionState(state => state.asyncSession);
 
   const isHost = useIsSessionHost();
   const {fetchSessions} = useSessions();
@@ -42,10 +38,7 @@ const useLeaveSession = (
   const resetSession = useSessionState(state => state.reset);
 
   const leaveSession = useCallback(async () => {
-    const session =
-      sessionMode === SessionMode.async ? asyncSession : liveSession;
-
-    if (sessionMode !== SessionMode.async) {
+    if (session.mode !== SessionMode.async) {
       await leaveMeeting();
     }
 
@@ -56,21 +49,18 @@ const useLeaveSession = (
         sessionId: session.id,
         completed: Boolean(sessionState?.completed),
         isHost,
-        sessionMode,
-        sessionType,
+        sessionMode: session.mode,
+        sessionType: session.type,
       });
     }
 
     fetchSessions();
     resetSession();
   }, [
-    asyncSession,
-    liveSession,
     sessionState?.started,
     sessionState?.completed,
     isHost,
-    sessionMode,
-    sessionType,
+    session,
     leaveMeeting,
     resetSession,
     navigate,
@@ -92,7 +82,7 @@ const useLeaveSession = (
           onPress: () => {
             leaveSession();
             if (!sessionState?.completed) {
-              if (sessionMode === SessionMode.async) {
+              if (session.mode === SessionMode.async) {
                 logAsyncSessionMetricEvent('Leave Sharing Session');
               } else {
                 logLiveSessionMetricEvent('Leave Sharing Session');
@@ -102,7 +92,7 @@ const useLeaveSession = (
         },
       ]),
     [
-      sessionMode,
+      session.mode,
       t,
       leaveSession,
       sessionState?.completed,
