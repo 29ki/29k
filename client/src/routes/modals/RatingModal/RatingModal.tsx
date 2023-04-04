@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {IOS_APPSTORE_ID, ANDROID_PACKAGE_NAME} from 'config';
 import Gutters from '../../../lib/components/Gutters/Gutters';
-import SheetModal from '../../../lib/components/Modals/SheetModal';
+import CardModal from '../../../lib/components/Modals/CardModal';
 
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 
@@ -16,7 +16,6 @@ import {Spacer16} from '../../../lib/components/Spacers/Spacer';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import Button from '../../../lib/components/Buttons/Button';
-import {SPACINGS} from '../../../lib/constants/spacings';
 import {logEvent} from '../../../lib/metrics';
 
 const RATING_OPTIONS = {
@@ -34,10 +33,18 @@ const STORE_TYPE = Platform.select({
 const Container = styled.View({
   flex: 1,
   alignItems: 'center',
-  marginTop: SPACINGS.FOURTYEIGHT,
 });
 
-const RatingButton = styled(Button)({
+const ActionRow = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-around',
+});
+
+const YesButton = styled(Button)({
+  alignSelf: 'center',
+});
+
+const NoButton = styled(Button)({
   alignSelf: 'center',
 });
 
@@ -56,19 +63,22 @@ const RatingModal = () => {
   }, [goBack]);
 
   return (
-    <SheetModal onPressClose={goBack}>
+    <CardModal>
       <Container>
         <Gutters>
           <Heading16>{t('title', {storeType: STORE_TYPE})}</Heading16>
           <Spacer16 />
           <Body16>{t('description')}</Body16>
           <Spacer16 />
-          <RatingButton variant="primary" onPress={handleRatingRequest}>
-            {t('agree')}
-          </RatingButton>
+          <ActionRow>
+            <YesButton onPress={handleRatingRequest}>{t('yes')}</YesButton>
+            <NoButton variant="secondary" onPress={goBack}>
+              {t('no')}
+            </NoButton>
+          </ActionRow>
         </Gutters>
       </Container>
-    </SheetModal>
+    </CardModal>
   );
 };
 

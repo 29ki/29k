@@ -217,12 +217,6 @@ const ModalStack = () => {
         />
 
         <Screen
-          name={'RatingModal'}
-          component={RatingModal}
-          options={shortSheetModalScreenOptions}
-        />
-
-        <Screen
           name={'ReportModal'}
           component={ReportModal}
           options={tallSheetModalScreenOptions}
@@ -243,6 +237,7 @@ const ModalStack = () => {
           name={'RequestPublicHostModal'}
           component={RequestPublicHostModal}
         />
+        <Screen name={'RatingModal'} component={RatingModal} />
       </Group>
     </Navigator>
   );
