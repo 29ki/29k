@@ -90,14 +90,31 @@ export const getSessionByInviteCode = async ({
   return getSession(getData<LiveSessionData>(result.docs[0]));
 };
 
-export const getSessions = async (
-  userId?: string,
+export const getUpcomingPublicSessions = async (limit?: number) => {
+  let query = firestore()
+    .collection(SESSIONS_COLLECTION)
+    .where('type', '==', SessionType.public)
+    .where('ended', '==', false)
+    .where('startTime', '>', Timestamp.now())
+    .orderBy('startTime', 'asc');
+
+  if (limit) {
+    query = query.limit(limit);
+  }
+
+  const snapshot = await query.get();
+
+  return snapshot.docs.map(doc => getSession(getData<LiveSessionData>(doc)));
+};
+
+export const getSessionsByUserId = async (
+  userId: string,
   exerciseId?: string,
   limit?: number,
 ) => {
   let query = firestore()
     .collection(SESSIONS_COLLECTION)
-    .where('userIds', 'array-contains-any', userId ? ['*', userId] : ['*'])
+    .where('userIds', 'array-contains-any', ['*', userId])
     .where('ended', '==', false)
     .orderBy('closingTime')
     .where('closingTime', '>', sessionClosingRange())

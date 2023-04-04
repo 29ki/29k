@@ -26,7 +26,8 @@ import {
   removeSession,
   updateSessionState,
   updateSession,
-  getSessions,
+  getSessionsByUserId,
+  getUpcomingPublicSessions,
   getSessionToken,
   updateInterestedCount,
   getSession,
@@ -51,7 +52,9 @@ jest.mock('../models/session');
 jest.mock('../models/user');
 jest.mock('../lib/dailyUtils');
 
-const mockGetSessions = sessionModel.getSessions as jest.Mock;
+const mockGetSessionsByUserId = sessionModel.getSessionsByUserId as jest.Mock;
+const mockGetUpcomingPublicSessions =
+  sessionModel.getUpcomingPublicSessions as jest.Mock;
 const mockAddSession = sessionModel.addSession as jest.Mock;
 const mockGetSessionById = sessionModel.getSessionById as jest.Mock;
 const mockGetSessionStateById = sessionModel.getSessionStateById as jest.Mock;
@@ -76,9 +79,9 @@ beforeEach(async () => {
 });
 
 describe('sessions - controller', () => {
-  describe('getSessions', () => {
+  describe('getSessionsByUserId', () => {
     it('should get sessions with host profile', async () => {
-      mockGetSessions.mockResolvedValueOnce([
+      mockGetSessionsByUserId.mockResolvedValueOnce([
         {
           closingTime: '2022-10-10T10:00:00.000Z',
           hostId: 'some-user-id',
@@ -86,19 +89,19 @@ describe('sessions - controller', () => {
         },
       ]);
 
-      const sessions = await getSessions('all');
+      const sessions = await getSessionsByUserId('all');
 
       expect(sessions).toHaveLength(1);
       expect(sessions[0].hostProfile?.displayName).toEqual('some-name');
       expect(sessions[0].hostProfile?.photoURL).toEqual('some-photo-url');
-      expect(mockGetSessions).toHaveBeenCalledTimes(1);
-      expect(mockGetSessions).toHaveBeenCalledWith('all', undefined);
+      expect(mockGetSessionsByUserId).toHaveBeenCalledTimes(1);
+      expect(mockGetSessionsByUserId).toHaveBeenCalledWith('all', undefined);
       expect(mockGetPublicUserInfo).toHaveBeenCalledTimes(1);
       expect(mockGetPublicUserInfo).toHaveBeenCalledWith('some-user-id');
     });
 
     it('should get public sessions by exerciseId with host profile', async () => {
-      mockGetSessions.mockResolvedValueOnce([
+      mockGetSessionsByUserId.mockResolvedValueOnce([
         {
           closingTime: '2022-10-10T10:00:00.000Z',
           hostId: 'some-user-id',
@@ -106,13 +109,16 @@ describe('sessions - controller', () => {
         },
       ]);
 
-      const sessions = await getSessions('some-user-id', 'some-exercise-id');
+      const sessions = await getSessionsByUserId(
+        'some-user-id',
+        'some-exercise-id',
+      );
 
       expect(sessions).toHaveLength(1);
       expect(sessions[0].hostProfile?.displayName).toEqual('some-name');
       expect(sessions[0].hostProfile?.photoURL).toEqual('some-photo-url');
-      expect(mockGetSessions).toHaveBeenCalledTimes(1);
-      expect(mockGetSessions).toHaveBeenCalledWith(
+      expect(mockGetSessionsByUserId).toHaveBeenCalledTimes(1);
+      expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
         'some-user-id',
         'some-exercise-id',
       );
@@ -121,7 +127,7 @@ describe('sessions - controller', () => {
     });
 
     it('should filter out sessions that have been closed', async () => {
-      mockGetSessions.mockResolvedValueOnce([
+      mockGetSessionsByUserId.mockResolvedValueOnce([
         {
           closingTime: '2022-10-10T09:00:00.000Z',
           hostId: 'some-user-id',
@@ -129,13 +135,13 @@ describe('sessions - controller', () => {
         },
       ]);
 
-      const sessions = await getSessions('all');
+      const sessions = await getSessionsByUserId('all');
 
       expect(sessions).toHaveLength(0);
     });
 
     it('should include closed sessions containing userid (aka user has joined)', async () => {
-      mockGetSessions.mockResolvedValueOnce([
+      mockGetSessionsByUserId.mockResolvedValueOnce([
         {
           closingTime: '2022-10-10T09:00:00.000Z',
           hostId: 'other-user-id',
@@ -143,7 +149,7 @@ describe('sessions - controller', () => {
         },
       ]);
 
-      const sessions = await getSessions('some-user-id');
+      const sessions = await getSessionsByUserId('some-user-id');
 
       expect(sessions).toHaveLength(1);
       expect(sessions).toEqual([
@@ -157,7 +163,7 @@ describe('sessions - controller', () => {
     });
 
     it('should include closed sessions which userid is the host', async () => {
-      mockGetSessions.mockResolvedValueOnce([
+      mockGetSessionsByUserId.mockResolvedValueOnce([
         {
           closingTime: '2022-10-10T09:00:00.000Z',
           hostId: 'host-user-id',
@@ -165,7 +171,7 @@ describe('sessions - controller', () => {
         },
       ]);
 
-      const sessions = await getSessions('host-user-id');
+      const sessions = await getSessionsByUserId('host-user-id');
 
       expect(sessions).toHaveLength(1);
       expect(sessions).toEqual([
@@ -176,6 +182,37 @@ describe('sessions - controller', () => {
           userIds: ['*'],
         },
       ]);
+    });
+  });
+
+  describe('getUpcomingPublicSessions', () => {
+    it('should get sessions with host profile', async () => {
+      mockGetUpcomingPublicSessions.mockResolvedValueOnce([
+        {
+          closingTime: '2022-10-10T10:00:00.000Z',
+          hostId: 'some-user-id',
+          userIds: ['*'],
+        },
+      ]);
+
+      const sessions = await getUpcomingPublicSessions();
+
+      expect(sessions).toHaveLength(1);
+      expect(sessions[0].hostProfile?.displayName).toEqual('some-name');
+      expect(sessions[0].hostProfile?.photoURL).toEqual('some-photo-url');
+      expect(mockGetUpcomingPublicSessions).toHaveBeenCalledTimes(1);
+      expect(mockGetUpcomingPublicSessions).toHaveBeenCalledWith(undefined);
+      expect(mockGetPublicUserInfo).toHaveBeenCalledTimes(1);
+      expect(mockGetPublicUserInfo).toHaveBeenCalledWith('some-user-id');
+    });
+
+    it('supports limiting the query', async () => {
+      mockGetUpcomingPublicSessions.mockResolvedValueOnce([]);
+
+      await getUpcomingPublicSessions(4);
+
+      expect(mockGetUpcomingPublicSessions).toHaveBeenCalledTimes(1);
+      expect(mockGetUpcomingPublicSessions).toHaveBeenCalledWith(4);
     });
   });
 
