@@ -3,7 +3,7 @@ import Rate from 'react-native-rate';
 import {Platform} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
-
+import {IOS_APPSTORE_ID, ANDROID_PACKAGE_NAME} from 'config';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 
@@ -20,8 +20,8 @@ import {SPACINGS} from '../../../lib/constants/spacings';
 import {logEvent} from '../../../lib/metrics';
 
 const RATING_OPTIONS = {
-  AppleAppID: '', // TODO Replace with correct id
-  GooglePackageName: 'org.twentyninek.app.cupcake',
+  AppleAppID: IOS_APPSTORE_ID,
+  GooglePackageName: ANDROID_PACKAGE_NAME,
   preferInApp: true,
   openAppStoreIfInAppFails: true,
 };
@@ -48,12 +48,9 @@ const RatingModal = () => {
   const handleRatingRequest = useCallback(() => {
     goBack();
 
-    Rate.rate(RATING_OPTIONS, (success: boolean, error: string) => {
+    Rate.rate(RATING_OPTIONS, (success: boolean) => {
       if (success) {
         logEvent('Rating Request Opened', undefined);
-      }
-      if (error) {
-        console.error(new Error('Unable to open rating', {cause: error}));
       }
     });
   }, [goBack]);

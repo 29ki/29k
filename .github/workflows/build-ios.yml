@@ -35,6 +35,7 @@ jobs:
       DOTENV_STORAGE_ENDPOINT: ${{ secrets.STORAGE_ENDPOINT }}
       DOTENV_DEEP_LINK_PREFIX: ${{ secrets.DEEP_LINK_SCHEMA }}
       DOTENV_DEEP_LINK_SCHEMA: ${{ secrets.DEEP_LINK_PREFIX }}
+      DOTENV_IOS_APPSTORE_ID: ${{ secrets.IOS_APPSTORE_ID }}
 
       IOS_APPLE_ID: ${{ secrets.IOS_APPLE_ID }}
       IOS_APP_STORE_TEAM_ID: ${{ secrets.IOS_APP_STORE_TEAM_ID }}
