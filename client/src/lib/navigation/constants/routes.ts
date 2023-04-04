@@ -5,6 +5,8 @@ import {UserProfile} from '../../../../../shared/src/types/User';
 import {
   AsyncSession,
   LiveSession,
+  SessionMode,
+  SessionType,
 } from '../../../../../shared/src/types/Session';
 import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 
@@ -83,6 +85,8 @@ export type ModalStackProps = {
     sessionId: LiveSession['id'];
     completed: boolean;
     isHost: boolean;
+    sessionType: SessionType;
+    sessionMode: SessionMode;
   };
   SafetyToolkitModal: undefined;
   ReportModal: {originScreen: string};

@@ -7,6 +7,7 @@ import {
   setCoreProperties,
   setUserProperties,
 } from '.';
+import {SessionMode, SessionType} from '../../../../shared/src/types/Session';
 import {getCurrentRouteName} from '../navigation/utils/routes';
 import * as backEnd from './adaptors/backEnd';
 import * as postHog from './adaptors/postHog';
@@ -119,6 +120,8 @@ describe('logFeedback', () => {
       question: 'Some question?',
       answer: true,
       comment: 'Some comment!',
+      sessionType: SessionType.public,
+      sessionMode: SessionMode.live,
     });
 
     expect(backEnd.logFeeback).toHaveBeenCalledTimes(1);
@@ -131,6 +134,8 @@ describe('logFeedback', () => {
       question: 'Some question?',
       answer: true,
       comment: 'Some comment!',
+      sessionType: SessionType.public,
+      sessionMode: SessionMode.live,
     });
     expect(postHog.logFeeback).toHaveBeenCalledTimes(1);
     expect(postHog.logFeeback).toHaveBeenCalledWith({
@@ -142,6 +147,8 @@ describe('logFeedback', () => {
       question: 'Some question?',
       answer: true,
       comment: 'Some comment!',
+      sessionType: SessionType.public,
+      sessionMode: SessionMode.live,
     });
 
     expect(backEnd.logEvent).toHaveBeenCalledTimes(1);
@@ -153,6 +160,8 @@ describe('logFeedback', () => {
       Host: true,
       'Sharing Session Completed': true,
       'Sharing Session ID': 'some-session-id',
+      'Sharing Session Type': SessionType.public,
+      'Sharing Session Mode': SessionMode.live,
     });
     expect(postHog.logEvent).toHaveBeenCalledTimes(1);
     expect(postHog.logEvent).toHaveBeenCalledWith('Sharing Session Feedback', {
@@ -163,6 +172,8 @@ describe('logFeedback', () => {
       Host: true,
       'Sharing Session Completed': true,
       'Sharing Session ID': 'some-session-id',
+      'Sharing Session Type': SessionType.public,
+      'Sharing Session Mode': SessionMode.live,
     });
   });
 });

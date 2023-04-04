@@ -16,6 +16,7 @@ import {
   mockDoc,
   mockSet,
 } from 'firestore-jest-mock/mocks/firestore';
+import {SessionMode, SessionType} from '../../../shared/src/types/Session';
 import {addFeedback, logEvent, setUserProperties} from './metrics';
 
 afterEach(() => {
@@ -108,6 +109,8 @@ describe('metrics model', () => {
         answer: true,
         comment: 'Some comments!',
         sessionId: 'session-id',
+        sessionType: SessionType.public,
+        sessionMode: SessionMode.live,
       };
       await addFeedback(feedback);
 
@@ -121,6 +124,8 @@ describe('metrics model', () => {
         comment: 'Some comments!',
         sessionId: 'session-id',
         createdAt: expect.any(Timestamp),
+        sessionType: SessionType.public,
+        sessionMode: SessionMode.live,
       });
     });
   });
