@@ -20,6 +20,7 @@ const FilterContainer = styled(TouchableOpacity)<{selected: boolean}>(
     flex: 1,
     minHeight: 96,
     border: selected ? '1px #2F5A40' : 'none',
+    flexGrow: 1 / 2,
   }),
 );
 

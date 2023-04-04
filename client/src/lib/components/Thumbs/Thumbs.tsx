@@ -32,12 +32,12 @@ export const ThumbsDown = styled(ThumbsUp)({
   transform: 'scaleY(-1)',
 });
 
-export const ThumbsUpWithoutPadding: React.FC<Pick<ThumbProps, 'style'>> = ({
-  style,
-}) => (
+export const ThumbsUpWithoutPadding: React.FC<ThumbProps> = ({style}) => (
   <Container style={style}>
     <Image
-      source={require('../../../../assets/images/thumbs-up-without-padding.png')}
+      source={{
+        uri: 'https://res.cloudinary.com/cupcake-29k/image/upload/c_crop,w_175/v1680611522/Images/thumbs-up_naq01y.png',
+      }}
     />
   </Container>
 );

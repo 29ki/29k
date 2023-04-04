@@ -70,32 +70,40 @@ const ModeFilters: React.FC<{
 
   return (
     <Row>
-      <FilterStatus
-        Icon={MeIcon}
-        selected={selectedMode === SessionMode.async}
-        onPress={onAsyncPress}
-        heading={`${asyncSessions?.length}`}
-        description={t('async')}
-      />
-      <Spacer16 />
-      {privateSessions?.length && (
+      {asyncSessions?.length && (
         <FilterStatus
-          Icon={FriendsIcon}
-          selected={selectedMode === SessionType.private}
-          onPress={onPrivatePress}
-          heading={`${privateSessions?.length}`}
-          description={t('private')}
+          Icon={MeIcon}
+          selected={selectedMode === SessionMode.async}
+          onPress={onAsyncPress}
+          heading={`${asyncSessions?.length}`}
+          description={t('async')}
         />
       )}
-      <Spacer16 />
+
+      {privateSessions?.length && (
+        <>
+          <Spacer16 />
+          <FilterStatus
+            Icon={FriendsIcon}
+            selected={selectedMode === SessionType.private}
+            onPress={onPrivatePress}
+            heading={`${privateSessions?.length}`}
+            description={t('private')}
+          />
+        </>
+      )}
+
       {publicSessions?.length && (
-        <FilterStatus
-          Icon={CommunityIcon}
-          selected={selectedMode === SessionType.public}
-          onPress={onPublicPress}
-          heading={`${publicSessions?.length}`}
-          description={t('public')}
-        />
+        <>
+          <Spacer16 />
+          <FilterStatus
+            Icon={CommunityIcon}
+            selected={selectedMode === SessionType.public}
+            onPress={onPublicPress}
+            heading={`${publicSessions?.length}`}
+            description={t('public')}
+          />
+        </>
       )}
     </Row>
   );

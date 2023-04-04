@@ -43,23 +43,21 @@ const FeedbackFilters: React.FC<{
 
   return (
     <Row>
-      <Row>
-        <FilterStatus
-          selected={selectedFeedback === true}
-          Icon={ThumbsUpWithoutPadding}
-          onPress={onThumbsUpPress}
-          heading={`${positiveFeedbacks.length}`}
-          description={t('meaningful')}
-        />
-        <Spacer16 />
-        <FilterStatus
-          selected={selectedFeedback === false}
-          Icon={ThumbsDownWithoutPadding}
-          onPress={onThumbsDownPress}
-          heading={`${negativeFeedbacks.length}`}
-          description={t('notMeaningful')}
-        />
-      </Row>
+      <FilterStatus
+        selected={selectedFeedback === true}
+        Icon={ThumbsUpWithoutPadding}
+        onPress={onThumbsUpPress}
+        heading={`${positiveFeedbacks.length}`}
+        description={t('meaningful')}
+      />
+      <Spacer16 />
+      <FilterStatus
+        selected={selectedFeedback === false}
+        Icon={ThumbsDownWithoutPadding}
+        onPress={onThumbsDownPress}
+        heading={`${negativeFeedbacks.length}`}
+        description={t('notMeaningful')}
+      />
     </Row>
   );
 };
