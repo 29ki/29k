@@ -50,7 +50,7 @@ import JourneyNode from './components/JourneyNode';
 import useUserEvents from '../../../lib/user/hooks/useUserEvents';
 import {partition, takeLast} from 'ramda';
 
-import {ThumbsUpWithoutPadding} from '../../modals/SessionFeedbackModal/components/Thumbs';
+import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
 import FilterStatus from './components/FilterStatus';
 import {LogoIcon} from '../../../lib/components/Icons';
 

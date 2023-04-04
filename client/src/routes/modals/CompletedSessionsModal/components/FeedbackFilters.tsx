@@ -9,7 +9,7 @@ import FilterStatus from '../../../screens/Journey/components/FilterStatus';
 import {
   ThumbsDownWithoutPadding,
   ThumbsUpWithoutPadding,
-} from '../../SessionFeedbackModal/components/Thumbs';
+} from '../../../../lib/components/Thumbs/Thumbs';
 import useUserEvents from '../../../../lib/user/hooks/useUserEvents';
 import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
 import {useTranslation} from 'react-i18next';

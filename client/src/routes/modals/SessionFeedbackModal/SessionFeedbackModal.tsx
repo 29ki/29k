@@ -32,7 +32,7 @@ import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 
 import {DEFAULT_LANGUAGE_TAG} from '../../../lib/i18n';
 import {Display36} from '../../../lib/components/Typography/Display/Display';
-import {ThumbsUp, ThumbsDown} from './components/Thumbs';
+import {ThumbsUp, ThumbsDown} from '../../../lib/components/Thumbs/Thumbs';
 
 import useCompletedSessionById from '../../../lib/user/hooks/useCompletedSessionById';
 import useSessionFeedback from '../../../lib/session/hooks/useSessionFeedback';
