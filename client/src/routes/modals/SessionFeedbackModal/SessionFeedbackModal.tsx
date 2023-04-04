@@ -81,7 +81,8 @@ const SessionFeedbackModal = () => {
   const {popToTop, navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {snapToIndex} = useBottomSheet();
-  const {exerciseId, sessionId, completed, isHost} = params;
+  const {exerciseId, sessionId, completed, isHost, sessionMode, sessionType} =
+    params;
   const {addSessionFeedback} = useSessionFeedback();
 
   const completedSessionEvent = useCompletedSessionById(sessionId);
@@ -110,6 +111,8 @@ const SessionFeedbackModal = () => {
         answer,
         comment,
         host: isHost,
+        sessionType,
+        sessionMode,
       });
       setSubmitted(true);
     }
@@ -121,6 +124,8 @@ const SessionFeedbackModal = () => {
     isHost,
     answer,
     comment,
+    sessionType,
+    sessionMode,
     setSubmitted,
     addSessionFeedback,
   ]);

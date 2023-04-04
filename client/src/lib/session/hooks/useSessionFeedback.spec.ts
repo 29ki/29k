@@ -4,6 +4,10 @@ import {renderHook, act} from '@testing-library/react-hooks';
 import useUserState from '../../user/state/state';
 import useSessionFeedback from './useSessionFeedback';
 import {logFeedback} from '../../metrics';
+import {
+  SessionMode,
+  SessionType,
+} from '../../../../../shared/src/types/Session';
 
 jest.mock('../../metrics');
 const mockedLogEvent = jest.mocked(logFeedback);
@@ -26,6 +30,8 @@ describe('useSessionFeedback', () => {
           comment: 'comment',
           question: 'question',
           host: true,
+          sessionType: SessionType.public,
+          sessionMode: SessionMode.live,
         });
       });
 
@@ -38,6 +44,8 @@ describe('useSessionFeedback', () => {
         host: true,
         question: 'question',
         sessionId: 'session-id',
+        sessionType: SessionType.public,
+        sessionMode: SessionMode.live,
       });
     });
 
@@ -57,6 +65,8 @@ describe('useSessionFeedback', () => {
           comment: 'comment',
           question: 'question',
           host: true,
+          sessionType: SessionType.public,
+          sessionMode: SessionMode.live,
         });
       });
 

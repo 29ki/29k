@@ -37,7 +37,7 @@ const IntroPortal: React.FC = () => {
       >
     >();
   const {startSession} = useUpdateSessionState(session.id);
-  const {leaveSessionWithConfirm} = useLeaveSession(session.mode);
+  const {leaveSessionWithConfirm} = useLeaveSession(session);
   const isFocused = useIsFocused();
   const logSessionMetricEvent = useLiveSessionMetricEvents();
   useSubscribeToSessionIfFocused(session);

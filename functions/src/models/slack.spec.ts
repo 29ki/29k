@@ -1,3 +1,4 @@
+import {SessionMode, SessionType} from '../../../shared/src/types/Session';
 import {SlackError, SlackErrorCode} from '../controllers/errors/SlackError';
 import {RequestAction} from '../lib/constants/requestAction';
 import {translate} from '../lib/translation';
@@ -172,6 +173,8 @@ describe('slack model', () => {
         'Some question?',
         true,
         'Some comment!',
+        SessionType.public,
+        SessionMode.live,
       );
 
       expect(mockPostMessage).toHaveBeenCalledTimes(1);
@@ -185,7 +188,7 @@ describe('slack model', () => {
               type: 'image',
             },
             text: {
-              text: '*Answer:* 👍\n\n*Exercise:*\nSome Exercise Name\n\n*Comment:*\nSome comment!',
+              text: '*Answer:* 👍\n\n*Exercise:*\nSome Exercise Name (live - public)\n\n*Comment:*\nSome comment!',
               type: 'mrkdwn',
             },
             type: 'section',
@@ -196,13 +199,15 @@ describe('slack model', () => {
       });
     });
 
-    it("doesn't require an exercise or image", async () => {
+    it("doesn't require, exercise, image, session mode or session type", async () => {
       await sendFeedbackMessage(
         undefined,
         undefined,
         'Some question?',
         true,
         'Some comment!',
+        undefined,
+        undefined,
       );
 
       expect(mockPostMessage).toHaveBeenCalledTimes(1);
@@ -211,7 +216,7 @@ describe('slack model', () => {
           {text: {text: 'Some question?', type: 'plain_text'}, type: 'header'},
           {
             text: {
-              text: '*Answer:* 👍\n\n*Exercise:*\nunknown\n\n*Comment:*\nSome comment!',
+              text: '*Answer:* 👍\n\n*Exercise:*\nunknown ( - )\n\n*Comment:*\nSome comment!',
               type: 'mrkdwn',
             },
             type: 'section',
