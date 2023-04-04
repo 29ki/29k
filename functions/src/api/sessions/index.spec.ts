@@ -1,7 +1,7 @@
 import request from 'supertest';
 import Koa from 'koa';
 
-import {sessionsPreAuthRouter, sessionsRouter} from '.';
+import {sessionsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {createApiAuthRouter} from '../../lib/routers';
 import {ROLES} from '../../../../shared/src/types/User';
@@ -14,9 +14,8 @@ import {
 import {SessionType} from '../../../../shared/src/types/Session';
 
 jest.mock('../../controllers/sessions');
-const mockGetSessions = sessionsController.getSessions as jest.Mock;
-const mockGetNextPublicSessions =
-  sessionsController.getNextPublicSessions as jest.Mock;
+const mockGetSessionsByUserId =
+  sessionsController.getSessionsByUserId as jest.Mock;
 const mockCreateSession = sessionsController.createSession as jest.Mock;
 const mockRemoveSession = sessionsController.removeSession as jest.Mock;
 const mockUpdateSession = sessionsController.updateSession as jest.Mock;
@@ -32,7 +31,6 @@ jest.mock('../../models/session');
 
 const getMockCustomClaims = jest.fn();
 const router = createApiAuthRouter();
-router.use('/sessions', sessionsPreAuthRouter.routes());
 router.use('/sessions', sessionsRouter.routes());
 const mockServer = createMockServer(
   async (ctx: Koa.Context, next: Koa.Next) => {
@@ -57,7 +55,7 @@ afterAll(() => {
 describe('/api/sessions', () => {
   describe('GET /', () => {
     it('should get sessions', async () => {
-      mockGetSessions.mockResolvedValueOnce([
+      mockGetSessionsByUserId.mockResolvedValueOnce([
         {
           id: 'some-session-id',
           name: 'some-name',
@@ -76,7 +74,10 @@ describe('/api/sessions', () => {
 
       const response = await request(mockServer).get('/sessions');
 
-      expect(mockGetSessions).toHaveBeenCalledWith('some-user-id', undefined);
+      expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
+        'some-user-id',
+        undefined,
+      );
       expect(response.status).toBe(200);
       expect(response.body).toEqual([
         {
@@ -97,7 +98,7 @@ describe('/api/sessions', () => {
     });
 
     it('should get sessions by exerciseId', async () => {
-      mockGetSessions.mockResolvedValueOnce([
+      mockGetSessionsByUserId.mockResolvedValueOnce([
         {
           id: 'some-session-id',
           name: 'some-name',
@@ -120,7 +121,7 @@ describe('/api/sessions', () => {
         '/sessions?exerciseId=some-exercise-id',
       );
 
-      expect(mockGetSessions).toHaveBeenCalledWith(
+      expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
         'some-user-id',
         'some-exercise-id',
       );
@@ -141,47 +142,6 @@ describe('/api/sessions', () => {
           hostId: 'some-other-user-id',
           exerciseId: 'some-exercise-id',
           startTime: expect.any(String),
-        },
-      ]);
-    });
-  });
-
-  describe('GET /next', () => {
-    it('should return next public sessions', async () => {
-      mockGetNextPublicSessions.mockResolvedValueOnce([
-        {
-          id: 'some-session-id',
-          name: 'some-name',
-          url: 'some-url',
-          hostId: 'some-user-id',
-          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
-        },
-        {
-          id: 'some-other-session-id',
-          name: 'some-other-name',
-          url: 'some-other-url',
-          hostId: 'some-other-user-id',
-          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
-        },
-      ]);
-
-      const response = await request(mockServer).get('/sessions/next');
-
-      expect(response.status).toBe(200);
-      expect(response.body).toEqual([
-        {
-          id: 'some-session-id',
-          name: 'some-name',
-          url: 'some-url',
-          hostId: 'some-user-id',
-          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
-        },
-        {
-          id: 'some-other-session-id',
-          name: 'some-other-name',
-          url: 'some-other-url',
-          hostId: 'some-other-user-id',
-          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
         },
       ]);
     });

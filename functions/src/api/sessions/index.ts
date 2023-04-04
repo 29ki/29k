@@ -3,7 +3,7 @@ import validator from 'koa-yup-validator';
 import 'firebase-functions';
 
 import {SessionType} from '../../../../shared/src/types/Session';
-import {createApiAuthRouter, createApiPreAuthRouter} from '../../lib/routers';
+import {createApiAuthRouter} from '../../lib/routers';
 import restrictAccessToRole from '../lib/restrictAccessToRole';
 
 import * as sessionsController from '../../controllers/sessions';
@@ -19,22 +19,16 @@ import {
 import {RequestError} from '../../controllers/errors/RequestError';
 
 const sessionsRouter = createApiAuthRouter();
-const sessionsPreAuthRouter = createApiPreAuthRouter();
-
-sessionsPreAuthRouter.get('/next', async ctx => {
-  const {response} = ctx;
-
-  const sessions = await sessionsController.getNextPublicSessions(3);
-  response.status = 200;
-  ctx.body = sessions;
-});
 
 sessionsRouter.get('/', async ctx => {
   const {response, user, query} = ctx;
   const exerciseId =
     typeof query.exerciseId === 'string' ? query.exerciseId : undefined;
 
-  const sessions = await sessionsController.getSessions(user.id, exerciseId);
+  const sessions = await sessionsController.getSessionsByUserId(
+    user.id,
+    exerciseId,
+  );
   response.status = 200;
   ctx.body = sessions;
 });
@@ -267,4 +261,4 @@ sessionsRouter.put(
   },
 );
 
-export {sessionsPreAuthRouter, sessionsRouter};
+export {sessionsRouter};
