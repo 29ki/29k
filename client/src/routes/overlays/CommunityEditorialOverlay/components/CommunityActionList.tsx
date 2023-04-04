@@ -2,6 +2,7 @@ import React, {useCallback} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
+
 import ActionButton from '../../../../lib/components/ActionList/ActionItems/ActionButton';
 import ActionList from '../../../../lib/components/ActionList/ActionList';
 import {
@@ -9,6 +10,8 @@ import {
   CheckedIcon,
   WandIcon,
   FriendsIcon,
+  EnvelopeIcon,
+  HeartIcon,
 } from '../../../../lib/components/Icons';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
 import * as linking from '../../../../lib/linking/nativeLinks';
@@ -18,9 +21,13 @@ const CommunityActionList = () => {
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {t} = useTranslation('Overlay.CommunityEditorial');
 
+  const corporatePress = useCallback(
+    () => linking.openURL(t('corporateLink')),
+    [t],
+  );
+  const donatePress = useCallback(() => linking.openURL(t('donateLink')), [t]);
   const contributePress = useCallback(
-    () =>
-      linking.openURL('https://wiki.29k.org/community-contribution-central'),
+    () => linking.openURL(t('contributeLink')),
     [],
   );
 
@@ -39,6 +46,12 @@ const CommunityActionList = () => {
   return (
     <ActionList>
       <ActionList>
+        <ActionButton Icon={HeartIcon} onPress={donatePress}>
+          {t('actions.donate')}
+        </ActionButton>
+        <ActionButton Icon={EnvelopeIcon} onPress={corporatePress}>
+          {t('actions.corporate')}
+        </ActionButton>
         <ActionButton Icon={WandIcon} onPress={contributePress}>
           {t('actions.contribute')}
         </ActionButton>
