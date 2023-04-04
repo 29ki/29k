@@ -1,6 +1,6 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import dayjs from 'dayjs';
-import React, {useCallback, useMemo} from 'react';
+import React, {useCallback, useEffect, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
@@ -43,6 +43,7 @@ import {ExerciseSlideSharingSlide} from '../../../../../shared/src/types/generat
 import useUserProfile from '../../../lib/user/hooks/useUserProfile';
 import MyPostCard from '../../../lib/session/components/Posts/MyPostCard';
 import useUser from '../../../lib/user/hooks/useUser';
+import useRating from '../../../lib/appState/hooks/useRating';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -86,8 +87,15 @@ const CompletedSessionModal = () => {
   const {t} = useTranslation('Modal.CompletedSession');
   const {payload, timestamp} = completedSessionEvent;
   const user = useUser();
+  const askForRating = useRating();
 
   const sessionTime = useMemo(() => dayjs(timestamp), [timestamp]);
+
+  useEffect(() => {
+    if (askForRating(completedSessionEvent.payload.id)) {
+      navigate('RatingModal');
+    }
+  }, [askForRating, navigate, completedSessionEvent.payload.id]);
 
   const onStartSession = useCallback(() => {
     popToTop();

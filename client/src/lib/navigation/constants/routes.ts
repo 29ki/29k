@@ -87,6 +87,7 @@ export type ModalStackProps = {
   SafetyToolkitModal: undefined;
   ReportModal: {originScreen: string};
   CalmDownModal: undefined;
+  RatingModal: undefined;
 };
 
 export type RootNavigationProps = ModalStackProps;
