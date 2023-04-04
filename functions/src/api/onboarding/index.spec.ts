@@ -2,7 +2,7 @@ import request from 'supertest';
 
 import {onboardingRouter} from '.';
 import createMockServer from '../lib/createMockServer';
-import {createApiAuthRouter} from '../../lib/routers';
+import {createApiPreAuthRouter} from '../../lib/routers';
 
 import * as sessionsController from '../../controllers/sessions';
 import {LiveSession} from '../../../../shared/src/types/Session';
@@ -12,7 +12,7 @@ const mockGetUpcomingPublicSessions = jest.mocked(
   sessionsController.getUpcomingPublicSessions,
 );
 
-const router = createApiAuthRouter();
+const router = createApiPreAuthRouter();
 router.use('/onboarding', onboardingRouter.routes());
 const mockServer = createMockServer(router.routes(), router.allowedMethods());
 
@@ -38,6 +38,7 @@ describe('/api/onboarding', () => {
       const response = await request(mockServer).get('/onboarding/sessions');
 
       expect(mockGetUpcomingPublicSessions).toHaveBeenCalledTimes(1);
+      expect(mockGetUpcomingPublicSessions).toHaveBeenCalledWith(undefined);
       expect(response.status).toBe(200);
       expect(response.body).toEqual([
         {
@@ -47,6 +48,14 @@ describe('/api/onboarding', () => {
           id: 'some-other-session-id',
         },
       ]);
+    });
+
+    it('supports limiting the results', async () => {
+      mockGetUpcomingPublicSessions.mockResolvedValueOnce([]);
+      await request(mockServer).get('/onboarding/sessions?limit=4');
+
+      expect(mockGetUpcomingPublicSessions).toHaveBeenCalledTimes(1);
+      expect(mockGetUpcomingPublicSessions).toHaveBeenCalledWith(4);
     });
   });
 });
