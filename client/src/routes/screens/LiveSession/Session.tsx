@@ -142,7 +142,7 @@ const Session: React.FC = () => {
   );
   const sessionSlideState = useSessionSlideState();
   const logSessionMetricEvent = useLiveSessionMetricEvents();
-  const {leaveSessionWithConfirm} = useLeaveSession(session.mode);
+  const {leaveSessionWithConfirm} = useLeaveSession(session.mode, session.type);
   const {checkCameraPermissions, checkMicrophonePermissions} =
     useCheckPermissions();
   const user = useUser();

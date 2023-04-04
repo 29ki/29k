@@ -1,4 +1,5 @@
 import {WebClient, KnownBlock} from '@slack/web-api';
+import {SessionMode, SessionType} from '../../../shared/src/types/Session';
 import {SlackError, SlackErrorCode} from '../controllers/errors/SlackError';
 import config from '../lib/config';
 import {SHARING_POST_MIN_LENGTH} from '../lib/constants/post';
@@ -180,6 +181,8 @@ const createFeedbackBlocks = (
   question: string,
   answer: boolean,
   comment: string,
+  sessionType: SessionType | undefined,
+  sessionMode: SessionMode | undefined,
 ) => [
   {
     type: 'header',
@@ -194,7 +197,9 @@ const createFeedbackBlocks = (
       type: 'mrkdwn',
       text:
         `*Answer:* ${answer ? '👍' : '👎'}\n\n` +
-        `*Exercise:*\n${exercise}\n\n` +
+        `*Exercise:*\n${exercise} (${sessionMode ? sessionMode : ''} - ${
+          sessionType ? sessionType : ''
+        })\n\n` +
         `*Comment:*\n${comment}`,
     },
     ...(image && {
@@ -268,6 +273,8 @@ export const sendFeedbackMessage = async (
   question: string,
   answer: boolean,
   comment: string,
+  sessionType: SessionType | undefined,
+  sessionMode: SessionMode | undefined,
 ) => {
   if (SLACK_FEEDBACK_CHANNEL) {
     try {
@@ -280,6 +287,8 @@ export const sendFeedbackMessage = async (
           question,
           answer,
           comment,
+          sessionType,
+          sessionMode,
         ),
         username: SLACK_BOT_NAME,
         channel: `#${SLACK_FEEDBACK_CHANNEL}`,
