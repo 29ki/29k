@@ -52,7 +52,7 @@ const CompletedSessionsModal = () => {
     if (filterSetting === 'mode') {
       return completedSessions.filter(({payload}) => {
         if (selectedMode) {
-          selectedMode === SessionMode.async
+          return selectedMode === SessionMode.async
             ? payload.mode === selectedMode
             : payload.type === selectedMode;
         } else {
