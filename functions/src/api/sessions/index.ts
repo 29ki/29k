@@ -25,7 +25,10 @@ sessionsRouter.get('/', async ctx => {
   const exerciseId =
     typeof query.exerciseId === 'string' ? query.exerciseId : undefined;
 
-  const sessions = await sessionsController.getSessions(user.id, exerciseId);
+  const sessions = await sessionsController.getSessionsByUserId(
+    user.id,
+    exerciseId,
+  );
   response.status = 200;
   ctx.body = sessions;
 });

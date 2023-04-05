@@ -7,6 +7,7 @@ import {sessionsRouter} from './sessions';
 import {userRouter} from './user';
 import {postsRouter} from './posts';
 import {reportRouter} from './report';
+import {onboardingRouter} from './onboarding';
 import sentryErrorHandler from '../lib/sentry';
 import firebaseBodyParser from '../lib/firebaseBodyParser';
 import languageResolver from './lib/languageResolver';
@@ -19,7 +20,9 @@ app.on('error', sentryErrorHandler);
 app.on('error', localErrorHandler);
 
 const preAuthRouter = createApiPreAuthRouter();
-preAuthRouter.use('/killSwitch', killSwitchRouter.routes());
+preAuthRouter
+  .use('/killSwitch', killSwitchRouter.routes())
+  .use('/onboarding', onboardingRouter.routes());
 
 const authRouter = createApiAuthRouter();
 authRouter

@@ -123,7 +123,6 @@ const SelectTypeStep: React.FC<StepProps> = ({
   nextStep,
   isPublicHost,
   selectedExercise,
-  discover,
 }) => {
   const {t} = useTranslation('Modal.CreateSession');
   const {navigate, popToTop} =
@@ -134,14 +133,14 @@ const SelectTypeStep: React.FC<StepProps> = ({
   const [isLoadingSessions, setIsLoadingSessions] = useState(false);
 
   useEffect(() => {
-    if (discover && selectedExercise) {
+    if (selectedExercise) {
       setIsLoadingSessions(true);
       fetchSessions(selectedExercise).then(loadedSessions => {
         setSessions(loadedSessions);
         setIsLoadingSessions(false);
       });
     }
-  }, [setSessions, setIsLoadingSessions, selectedExercise, discover]);
+  }, [setSessions, setIsLoadingSessions, selectedExercise]);
 
   const exercise = useMemo(
     () => (selectedExercise ? getExerciseById(selectedExercise) : null),
@@ -233,7 +232,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
     [exercise, isPublicHost, onTypePress, t],
   );
 
-  if (discover && exercise) {
+  if (exercise) {
     return (
       <>
         <BottomSheetFlatList
