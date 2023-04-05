@@ -10,12 +10,9 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import dayjs from 'dayjs';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
-
-import useSessions from '../../../lib/sessions/hooks/useSessions';
-import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessions';
+import {partition, takeLast} from 'ramda';
 
 import {JourneyItem} from './types/JourneyItem';
-
 import {LiveSession} from '../../../../../shared/src/types/Session';
 
 import {
@@ -27,29 +24,28 @@ import {COLORS} from '../../../../../shared/src/constants/colors';
 import {WALLET_CARD_HEIGHT} from '../../../lib/components/Cards/WalletCards/SessionWalletCard';
 import {CARD_HEIGHT} from '../../../lib/components/Cards/Card';
 
-import Gutters from '../../../lib/components/Gutters/Gutters';
+import useSessions from '../../../lib/sessions/hooks/useSessions';
+import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessions';
+import usePinnedCollections from '../../../lib/user/hooks/usePinnedCollections';
+import useUserEvents from '../../../lib/user/hooks/useUserEvents';
+
 import {
   Spacer16,
   Spacer24,
   Spacer48,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
-
+import Gutters from '../../../lib/components/Gutters/Gutters';
 import Screen from '../../../lib/components/Screen/Screen';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
-
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
-import usePinnedCollections from '../../../lib/user/hooks/usePinnedCollections';
 import CollectionCardContainer from './components/CollectionCardContainer';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 import JourneyNode from './components/JourneyNode';
-import useUserEvents from '../../../lib/user/hooks/useUserEvents';
-import {partition, takeLast} from 'ramda';
-
 import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
 import FilterStatus from './components/FilterStatus';
 import {LogoIcon} from '../../../lib/components/Icons';
