@@ -21,10 +21,16 @@ export const ThumbsUp: React.FC<ThumbProps> = ({active = false, style}) => (
   <Container style={style}>
     {active && (
       <Image
-        source={require('../../../assets/images/thumbs-up-silouette.png')}
+        source={{
+          uri: 'https://res.cloudinary.com/cupcake-29k/image/upload/v1680682515/Images/thumbs-up-silouette_pfryjv.png',
+        }}
       />
     )}
-    <Image source={require('../../../assets/images/thumbs-up.png')} />
+    <Image
+      source={{
+        uri: 'https://res.cloudinary.com/cupcake-29k/image/upload/v1680611522/Images/thumbs-up_naq01y.png',
+      }}
+    />
   </Container>
 );
 
