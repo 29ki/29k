@@ -2,9 +2,14 @@
   "en": {
     "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1672393912/Temp/community_hs8apo.jpg",
     "heading": "Support 29k sessions",
-    "preamble__markdown": "We're free for personal use. \\\nWe don’t sell any data. \\\nWe don’t do ads. \\\nOur only focus is to build the best app in the world, to assist as many as possible to improve mental wellbeing, thrive and contribute to a better future for all. \\\nWant to support us? [Donate here.](https://donorbox.org/29ksessions1)\\\nTo use 29k sessions within a corporate, please contact [maria@29k.org.](mailto:maria@29k.org)",
+    "preamble__markdown": "We're free for personal use. \\\nWe don’t sell any data. \\\nWe don’t do ads. \\\nOur only focus is to build the best app in the world, to assist as many as possible to improve mental wellbeing, thrive and contribute to a better future for all.",
     "body__markdown": "",
+    "donateLink": "https://donorbox.org/29ksessions1",
+    "corporateLink": "mailto:maria@29k.org",
+    "contributeLink": "https://wiki.29k.org/community-contribution-central",
     "actions": {
+      "donate": "Donate",
+      "corporate": "For corporate use",
       "contribute": "All ways to contribute",
       "contributors": "Contributors",
       "hosts": "Session hosts",

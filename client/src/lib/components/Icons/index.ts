@@ -63,3 +63,4 @@ export * from './Question/Question';
 export * from './Sparkles/Sparkles';
 export * from './Report/Report';
 export * from './Helplines/Helplines';
+export * from './Heart/Heart';
