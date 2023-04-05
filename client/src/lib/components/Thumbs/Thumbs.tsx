@@ -21,10 +21,10 @@ export const ThumbsUp: React.FC<ThumbProps> = ({active = false, style}) => (
   <Container style={style}>
     {active && (
       <Image
-        source={require('../../../../assets/images/thumbs-up-silouette.png')}
+        source={require('../../../assets/images/thumbs-up-silouette.png')}
       />
     )}
-    <Image source={require('../../../../assets/images/thumbs-up.png')} />
+    <Image source={require('../../../assets/images/thumbs-up.png')} />
   </Container>
 );
 
