@@ -49,7 +49,7 @@
     "ramda": "^0.28.0",
     "react": "18.2.0",
     "react-i18next": "^12.2.0",
-    "react-native": "0.69.5",
+    "react-native": "0.69.9",
     "react-native-action-sheet": "^2.2.0",
     "react-native-add-calendar-event": "^4.0.0",
     "react-native-background-timer": "^2.3.1",
