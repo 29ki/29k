@@ -32,17 +32,23 @@ const isUserAllowedToJoin = (session: LiveSession, userId: string) =>
   session.userIds.includes(userId) ||
   session.hostId === userId;
 
-export const getSessions = async (
+export const getSessionsByUserId = async (
   userId: string,
   exerciseId?: string,
 ): Promise<LiveSession[]> => {
-  const sessions = await (exerciseId
-    ? sessionModel.getPublicSessionsByExerciseId(userId, exerciseId)
-    : sessionModel.getSessions(userId));
+  const sessions = await sessionModel.getSessionsByUserId(userId, exerciseId);
 
   return Promise.all(
     sessions.filter(s => isUserAllowedToJoin(s, userId)).map(mapSession),
   );
+};
+
+export const getUpcomingPublicSessions = async (
+  limit?: number,
+): Promise<LiveSession[]> => {
+  const sessions = await sessionModel.getUpcomingPublicSessions(limit);
+
+  return Promise.all(sessions.map(mapSession));
 };
 
 export const getSessionToken = async (
