@@ -24,10 +24,10 @@
             "text": "Everyone feels lost at some point.\n\nThis can often show up when we’re faced with uncertainty, go through a key transition or realize that the things we do just don’t feel so meaningful anymore."
           },
           {
-            "text": "Realizing that our life could be different can be uncomfortable at first. We are naturally hard-wired to stick to what’s familiar, which makes it hard to make the leap."
+            "text": "Realizing that our life could be different can be uncomfortable. We are hard-wired to stick to what’s familiar, making it hard to change."
           },
           {
-            "text": "But feeling lost can also motivate us to act differently. After all, if everything was fine, there would be no need to change."
+            "text": "Maybe we don’t know what we want. Let’s start with a look in the rearview mirror for guidance."
           }
         ]
       },
@@ -35,12 +35,12 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nThink back to a time in your life when you’ve felt a sense of meaning and purpose. One example could be a time when you were working towards something that really mattered to you.",
-            "asyncText": "Take 1 minute to reflect.\n\nThink back to a time in your life when you’ve felt a sense of meaning and purpose. One example could be a time when you were working towards something that really mattered to you."
+            "text": "Now we’ll take 1 minute to reflect on our own.\\\nThink back to a time in your life when you’ve felt a sense of meaning and purpose, small or big does not matter. One example could be a time when you were working towards something that really mattered to you.",
+            "asyncText": "Take 1 minute to reflect.\\\nThink back to a time in your life when you’ve felt a sense of meaning and purpose, small or big does not matter. One example could be a time when you were working towards something that really mattered to you."
           },
           {
-            "text": "Recall a snapshot from that time. What was the situation? Where were you? Was anyone with you?",
-            "asyncText": "Recall a snapshot from that time. What was the situation? Where were you? Was anyone with you?"
+            "text": "Recall a snapshot from that time. \\\nWhat was the situation? \\\nWhere were you? \\\nWas anyone with you?",
+            "asyncText": "Recall a snapshot from that time. \\\nWhat was the situation? \\\nWhere were you? \\\nWas anyone with you?"
           },
           {
             "text": "Take notes on a piece of paper. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on.",
