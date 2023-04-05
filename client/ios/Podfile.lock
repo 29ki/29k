@@ -1060,7 +1060,7 @@ PODS:
     - React-Core
   - RNDateTimePicker (7.0.0):
     - React-Core
-  - RNDeviceInfo (10.5.0):
+  - RNDeviceInfo (10.5.1):
     - React-Core
   - RNFBApp (17.3.2):
     - Firebase/CoreOnly (= 10.6.0)
@@ -1096,10 +1096,10 @@ PODS:
     - TOCropViewController
   - RNLocalize (2.2.6):
     - React-Core
-  - RNNotifee (7.5.0):
+  - RNNotifee (7.6.1):
     - React-Core
-    - RNNotifee/NotifeeCore (= 7.5.0)
-  - RNNotifee/NotifeeCore (7.5.0):
+    - RNNotifee/NotifeeCore (= 7.6.1)
+  - RNNotifee/NotifeeCore (7.6.1):
     - React-Core
   - RNRate (1.2.12):
     - React-Core
@@ -1143,7 +1143,7 @@ PODS:
     - RNSound/Core (= 0.11.2)
   - RNSound/Core (0.11.2):
     - React-Core
-  - RNSVG (13.8.0):
+  - RNSVG (13.9.0):
     - React-Core
   - Sentry/HybridSDK (8.3.2):
     - SentryPrivate (= 8.3.2)
@@ -1444,7 +1444,7 @@ SPEC CHECKSUMS:
   ReactCommon: ab1003b81be740fecd82509c370a45b1a7dda0c1
   RNCAsyncStorage: b90b71f45b8b97be43bc4284e71a6af48ac9f547
   RNDateTimePicker: 66cb21772d462d02efc6826adac37f1fd40984cf
-  RNDeviceInfo: 1d0af8eafb25c0391c548df5143d69e4a6a2bc71
+  RNDeviceInfo: fb81318c9cd5ebe30ebf12bcd046d818c87f9b53
   RNFBApp: dd22a306a31189e99126a35962498c83b06520ab
   RNFBAuth: c0dbc7680a3181e460fdc2b4ba80851363c6946d
   RNFBDynamicLinks: 31246d22f0bcda1b3022b89c97483fc079cc3025
@@ -1453,14 +1453,13 @@ SPEC CHECKSUMS:
   RNGestureHandler: 071d7a9ad81e8b83fe7663b303d132406a7d8f39
   RNImageCropPicker: 14fe1c29298fb4018f3186f455c475ab107da332
   RNLocalize: d4b8af4e442d4bcca54e68fc687a2129b4d71a81
-  RNNotifee: 053c0ace9c73634709a0214fd9c436a5777a562f
-  RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
+  RNNotifee: bdc064c29f4d558046f51f0c3ae02bab4fd3cd85
   RNReactNativeHapticFeedback: 6d24decfa94e037c2ecc312407d2a057b7933f10
   RNReanimated: ba021107f1dd90cb04c35c5d639392d5da27d065
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
   RNSentry: 6f67e29b26d5cb687c5c8f6e2dc3351b8b80b605
   RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
-  RNSVG: c1e76b81c76cdcd34b4e1188852892dc280eb902
+  RNSVG: 53c661b76829783cdaf9b7a57258f3d3b4c28315
   Sentry: e16896bd4be235a2713bdb4f47db199102902ac8
   SentryPrivate: af44a161d76b7ce8c6b26e388f52a253b93fa35c
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
