@@ -1001,7 +1001,7 @@
 				CODE_SIGN_ENTITLEMENTS = production.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 83;
+				CURRENT_PROJECT_VERSION = 85;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
@@ -1035,7 +1035,7 @@
 				CODE_SIGN_ENTITLEMENTS = production.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 83;
+				CURRENT_PROJECT_VERSION = 85;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1067,7 +1067,7 @@
 				CODE_SIGN_ENTITLEMENTS = dev.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 83;
+				CURRENT_PROJECT_VERSION = 85;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
@@ -1103,7 +1103,7 @@
 				CODE_SIGN_ENTITLEMENTS = dev.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 83;
+				CURRENT_PROJECT_VERSION = 85;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 68Y57ZGKLJ;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
@@ -1138,7 +1138,7 @@
 				CODE_SIGN_ENTITLEMENTS = staging.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 83;
+				CURRENT_PROJECT_VERSION = 85;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
@@ -1172,7 +1172,7 @@
 				CODE_SIGN_ENTITLEMENTS = staging.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 83;
+				CURRENT_PROJECT_VERSION = 85;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

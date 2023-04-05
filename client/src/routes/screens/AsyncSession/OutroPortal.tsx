@@ -13,7 +13,7 @@ const OutroPortal: React.FC = () => {
     params: {session},
   } = useRoute<RouteProp<AsyncSessionStackProps, 'OutroPortal'>>();
   const exercise = useSessionState(state => state.exercise);
-  const {leaveSession} = useLeaveSession(session.mode);
+  const {leaveSession} = useLeaveSession(session);
   const logSessionMetricEvent = useAsyncSessionMetricEvents();
 
   const outroPortal = exercise?.outroPortal;
