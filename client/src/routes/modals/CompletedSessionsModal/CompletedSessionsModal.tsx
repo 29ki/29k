@@ -14,7 +14,7 @@ import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessio
 
 import JourneyNode from '../../screens/Journey/components/JourneyNode';
 
-import {Spacer32} from '../../../lib/components/Spacers/Spacer';
+import {Spacer12, Spacer32} from '../../../lib/components/Spacers/Spacer';
 
 import {
   SessionMode,
@@ -70,10 +70,10 @@ const CompletedSessionsModal = () => {
     getSessionsByFeedback,
   ]);
 
-  const Footer = useMemo(
+  const Filters = useMemo(
     () => (
       <>
-        <Spacer32 />
+        <Spacer12 />
         {filterSetting === 'feedback' && (
           <FeedbackFilters
             selectedFeedback={selectedFeedback}
@@ -84,7 +84,7 @@ const CompletedSessionsModal = () => {
         {filterSetting === 'mode' && (
           <ModeFilters selectedMode={selectedMode} onChange={setSelectedMode} />
         )}
-        <Spacer32 />
+        <Spacer12 />
       </>
     ),
     [filterSetting, selectedMode, selectedFeedback],
@@ -95,7 +95,8 @@ const CompletedSessionsModal = () => {
       <BottomSheetFlatList
         data={data}
         renderItem={renderItem}
-        ListFooterComponent={Footer}
+        ListHeaderComponent={data.length > 5 ? Filters : null}
+        ListFooterComponent={Filters}
       />
     </SheetModal>
   );
