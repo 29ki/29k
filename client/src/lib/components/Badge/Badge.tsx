@@ -11,7 +11,7 @@ import {Body14} from '../Typography/Body/Body';
 const Wrapper = styled.View<{themeColor?: string; completed?: boolean}>(
   ({themeColor, completed}) => ({
     backgroundColor: completed
-      ? '#A9DAC0'
+      ? COLORS.MEDIUM_GREEN
       : themeColor
       ? COLORS.BLACK_TRANSPARENT_15
       : COLORS.PURE_WHITE,
