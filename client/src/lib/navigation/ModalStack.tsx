@@ -32,7 +32,6 @@ import HostsModal from '../../routes/modals/Contributors/HostsModal';
 import SafetyToolkitModal from '../../routes/modals/SafetyToolkitModal/SafetyToolkitModal';
 import ReportModal from '../../routes/modals/ReportModal/ReportModal';
 import CalmDownModal from '../../routes/modals/CalmDownModal/CalmDownModal';
-import RatingModal from '../../routes/modals/RatingModal/RatingModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -237,7 +236,6 @@ const ModalStack = () => {
           name={'RequestPublicHostModal'}
           component={RequestPublicHostModal}
         />
-        <Screen name={'RatingModal'} component={RatingModal} />
       </Group>
     </Navigator>
   );
