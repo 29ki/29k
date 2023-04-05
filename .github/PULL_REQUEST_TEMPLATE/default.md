@@ -21,7 +21,7 @@ We must be able to understand the design of your change from this description. I
 
 ### Verification Process
 
-⚠️ Have considered if this change should requires a bundle update? Ask your peers for advice if you're unsure.
+⚠️ Have considered if this change should require a bundle update? Ask your peers for advice if you're unsure.
 
 <!--
 
