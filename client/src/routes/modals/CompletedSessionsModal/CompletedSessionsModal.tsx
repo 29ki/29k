@@ -14,7 +14,7 @@ import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessio
 
 import JourneyNode from '../../screens/Journey/components/JourneyNode';
 
-import {Spacer12} from '../../../lib/components/Spacers/Spacer';
+import {Spacer12, Spacer32} from '../../../lib/components/Spacers/Spacer';
 
 import {
   SessionMode,
@@ -70,7 +70,7 @@ const CompletedSessionsModal = () => {
     getSessionsByFeedback,
   ]);
 
-  const Filters = useMemo(
+  const filters = useMemo(
     () => (
       <>
         <Spacer12 />
@@ -84,10 +84,29 @@ const CompletedSessionsModal = () => {
         {filterSetting === 'mode' && (
           <ModeFilters selectedMode={selectedMode} onChange={setSelectedMode} />
         )}
-        <Spacer12 />
       </>
     ),
     [filterSetting, selectedMode, selectedFeedback],
+  );
+
+  const header = useMemo(
+    () => (
+      <>
+        {filters}
+        <Spacer12 />
+      </>
+    ),
+    [filters],
+  );
+
+  const footer = useMemo(
+    () => (
+      <>
+        {filters}
+        <Spacer32 />
+      </>
+    ),
+    [filters],
   );
 
   return (
@@ -95,8 +114,8 @@ const CompletedSessionsModal = () => {
       <BottomSheetFlatList
         data={data}
         renderItem={renderItem}
-        ListHeaderComponent={data.length > 5 ? Filters : null}
-        ListFooterComponent={Filters}
+        ListHeaderComponent={data.length > 5 ? header : null}
+        ListFooterComponent={footer}
       />
     </SheetModal>
   );
