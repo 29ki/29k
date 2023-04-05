@@ -37,7 +37,7 @@ const IntroPortal: React.FC = () => {
       >
     >();
   const {startSession} = useUpdateSessionState(session.id);
-  const {leaveSessionWithConfirm} = useLeaveSession(session.mode);
+  const {leaveSessionWithConfirm} = useLeaveSession(session);
   const isFocused = useIsFocused();
   const logSessionMetricEvent = useLiveSessionMetricEvents();
   useSubscribeToSessionIfFocused(session);
@@ -63,6 +63,7 @@ const IntroPortal: React.FC = () => {
       exercise={exercise}
       isFocused={isFocused}
       isHost={isHost}
+      isLive
       onStartSession={onStartSession}
       onLeaveSession={leaveSessionWithConfirm}
       onNavigateToSession={navigateToSession}

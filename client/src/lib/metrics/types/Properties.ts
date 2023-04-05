@@ -1,5 +1,9 @@
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {
+  LiveSession,
+  SessionMode,
+  SessionType,
+} from '../../../../../shared/src/types/Session';
 import {LANGUAGE_TAG} from '../../i18n';
 
 // General properties
@@ -21,8 +25,8 @@ export type ExerciseID = {
 // Sharing Session properties - named "Sharing Session" to not be confused with a user "session" in PostHog
 export type SharingSessionProperties = {
   'Sharing Session ID': LiveSession['id'];
-  'Sharing Session Type': LiveSession['type'];
-  'Sharing Session Mode': LiveSession['mode'];
+  'Sharing Session Type': SessionType;
+  'Sharing Session Mode': SessionMode;
   'Sharing Session Start Time': LiveSession['startTime'];
 } & ExerciseID &
   Host &
@@ -44,6 +48,8 @@ export type FeedbackProperties = {
   'Feedback Comment'?: string;
   'Sharing Session ID'?: string;
   'Sharing Session Completed': boolean;
+  'Sharing Session Type': SessionType;
+  'Sharing Session Mode': SessionMode;
   Host?: boolean;
 } & ExerciseID;
 

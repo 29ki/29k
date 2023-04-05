@@ -15,6 +15,8 @@ export const addFeedback = async (feedback: Feedback) => {
       feedback.question,
       feedback.answer,
       feedback.comment,
+      feedback.sessionType,
+      feedback.sessionMode,
     );
   }
 };
