@@ -77,6 +77,8 @@ export const logFeedback: LogFeedback = async feedback => {
       'Feedback Question': feedback.question,
       'Feedback Answer': feedback.answer,
       'Feedback Comment': feedback.comment,
+      'Sharing Session Type': feedback.sessionType,
+      'Sharing Session Mode': feedback.sessionMode,
     }),
     postHog.logFeeback(feedback),
     backEnd.logFeeback(feedback),

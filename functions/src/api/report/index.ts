@@ -1,11 +1,11 @@
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 
-import {createApiRouter} from '../../lib/routers';
+import {createApiAuthRouter} from '../../lib/routers';
 
 import {createReport} from '../../controllers/report';
 
-const reportRouter = createApiRouter();
+const reportRouter = createApiAuthRouter();
 
 const ReportParamsSchema = yup.object().shape({
   screen: yup.string(),

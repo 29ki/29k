@@ -3,7 +3,7 @@ import Koa from 'koa';
 
 import {postsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
-import {createApiRouter} from '../../lib/routers';
+import {createApiAuthRouter} from '../../lib/routers';
 
 import {
   createPost,
@@ -17,7 +17,7 @@ const mockCreatePost = jest.mocked(createPost);
 const mockDeletePost = jest.mocked(deletePost);
 const mockGetPostsByExerciseId = jest.mocked(getPostsByExerciseAndSharingId);
 
-const router = createApiRouter();
+const router = createApiAuthRouter();
 router.use('/posts', postsRouter.routes());
 const mockServer = createMockServer(
   async (ctx: Koa.Context, next: Koa.Next) => {

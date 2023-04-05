@@ -15,10 +15,10 @@ import {
 import Gutters from '../../../components/Gutters/Gutters';
 import IconButton from '../../../components/Buttons/IconButton/IconButton';
 import AudioFader from '../AudioFader/AudioFader';
-import VideoTransition from '../VideoTransition/VideoTransition';
 import HostNotes from '../HostNotes/HostNotes';
 import {ArrowLeftIcon} from '../../../components/Icons';
 import Button from '../../../components/Buttons/Button';
+import VideoTransition from '../VideoTransition/VideoTransition';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -43,6 +43,7 @@ type IntroPortalProps = {
   exercise: Exercise | null;
   isHost: boolean;
   isFocused: boolean;
+  isLive?: boolean;
   onStartSession: () => void;
   onLeaveSession: () => void;
   onNavigateToSession: () => void;
@@ -53,13 +54,13 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   exercise,
   isHost,
   isFocused,
+  isLive,
   onStartSession,
   onLeaveSession,
   onNavigateToSession,
   statusComponent,
 }) => {
   const {t} = useTranslation('Screen.Portal');
-
   const [isReadyForDisplay, setIsReadyForDisplay] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -80,7 +81,12 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   ]);
 
   const onVideoReadyForDisplay = useCallback(() => {
-    setIsReadyForDisplay(true);
+    // TODO remove this timeout when daily is not joined
+    // until after the portal is done
+    // https://www.notion.so/29k/Early-Access-2794500652b34c64b0aff0dbbc53e0ab?pvs=4#2f566fc8ac87402aa92eb6798b469918
+    setTimeout(() => {
+      setIsReadyForDisplay(true);
+    }, 2000);
   }, [setIsReadyForDisplay]);
 
   const onVideoTransition = useCallback(() => {
@@ -95,25 +101,30 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   return (
     <Screen>
       {!isHost && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
+
       {isFocused && introPortal?.videoLoop?.audio && (
         <AudioFader
           source={introPortal?.videoLoop?.audio}
           paused={!isReadyForDisplay}
           volume={isTransitioning ? 0 : 1}
           duration={isTransitioning ? 5000 : 10000}
+          isLive={isLive}
           repeat
         />
       )}
-      <VideoTransition
-        loopSource={introPortal?.videoLoop?.source}
-        loopPosterSource={introPortal?.videoLoop?.preview}
-        endSource={introPortal?.videoEnd?.source}
-        loop={!sessionState?.started}
-        paused={!isFocused}
-        onReadyForDisplay={onVideoReadyForDisplay}
-        onTransition={onVideoTransition}
-        onEnd={onVideoEnd}
-      />
+      {isFocused && introPortal?.videoLoop?.source && (
+        <VideoTransition
+          repeat={!sessionState?.started}
+          loopSource={introPortal?.videoLoop?.source}
+          endSource={introPortal?.videoEnd?.source}
+          paused={!isFocused}
+          onReadyForDisplay={onVideoReadyForDisplay}
+          onTransition={onVideoTransition}
+          onEnd={onVideoEnd}
+          isLive={isLive}
+        />
+      )}
+
       {isHost && (
         <>
           <HostNotes introPortal exercise={exercise} />

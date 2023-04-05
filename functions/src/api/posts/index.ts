@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 
-import {createApiRouter} from '../../lib/routers';
+import {createApiAuthRouter} from '../../lib/routers';
 import {PostError} from '../../../../shared/src/errors/Post';
 import {
   createPost,
@@ -10,7 +10,7 @@ import {
 } from '../../controllers/posts';
 import {RequestError} from '../../controllers/errors/RequestError';
 
-const postsRouter = createApiRouter();
+const postsRouter = createApiAuthRouter();
 
 const POSTS_LIMIT = 20;
 

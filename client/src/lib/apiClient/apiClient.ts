@@ -1,8 +1,11 @@
+import debug from 'debug';
 import {API_ENDPOINT} from 'config';
 import i18next, {DEFAULT_LANGUAGE_TAG} from '../../lib/i18n';
 import {getCorrelationId} from '../sentry';
 import {getAuthorizationToken, recreateUser} from '../user';
 import {trimSlashes} from '../utils/string';
+
+const logDebug = debug('client:apiClient');
 
 const getAuthorizationHeader = async () => {
   const token = await getAuthorizationToken();
@@ -12,14 +15,18 @@ const getAuthorizationHeader = async () => {
   }
 };
 
-const apiClient = async (input: string, init?: RequestInit | undefined) => {
+const apiClient = async (
+  input: string,
+  init?: RequestInit | undefined,
+  authorize = true,
+) => {
   const endpoint = `${trimSlashes(API_ENDPOINT)}/${trimSlashes(input)}`;
 
   const doFetch = async () => {
-    const authHeader = await getAuthorizationHeader();
+    const authHeader = authorize ? await getAuthorizationHeader() : undefined;
     const correlationId = getCorrelationId();
 
-    return fetch(endpoint, {
+    const requestInit = {
       ...init,
       headers: {
         'Content-Type': 'application/json',
@@ -28,7 +35,11 @@ const apiClient = async (input: string, init?: RequestInit | undefined) => {
         ...authHeader,
         ...init?.headers,
       },
-    });
+    };
+
+    logDebug('fetch %s %p', endpoint, requestInit);
+
+    return fetch(endpoint, requestInit);
   };
 
   const response = await doFetch();

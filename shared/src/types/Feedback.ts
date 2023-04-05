@@ -1,3 +1,5 @@
+import {SessionMode, SessionType} from './Session';
+
 export type Feedback = {
   exerciseId: string;
   completed: boolean;
@@ -7,4 +9,7 @@ export type Feedback = {
   question: string;
   answer: boolean;
   comment?: string;
+
+  sessionMode: SessionMode;
+  sessionType: SessionType;
 };
