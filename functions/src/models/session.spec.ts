@@ -18,6 +18,7 @@ import {
   mockWhere,
   mockDelete,
   mockDoc,
+  mockLimit,
 } from 'firestore-jest-mock/mocks/firestore';
 import {firestore} from 'firebase-admin';
 import {Timestamp} from 'firebase-admin/firestore';
@@ -27,12 +28,12 @@ import {
   deleteSession,
   getSessionById,
   getSessionByInviteCode,
-  getSessions,
+  getSessionsByUserId,
   updateSessionState,
   updateSession,
   getSessionStateById,
   updateInterestedCount,
-  getPublicSessionsByExerciseId,
+  getUpcomingPublicSessions,
 } from './session';
 import {SessionType} from '../../../shared/src/types/Session';
 
@@ -149,9 +150,9 @@ describe('session model', () => {
     });
   });
 
-  describe('getSessions', () => {
+  describe('getSessionsByUserId', () => {
     it('should get sessions', async () => {
-      const sessions = await getSessions('some-non-id');
+      const sessions = await getSessionsByUserId('some-non-id');
       expect(sessions).toEqual([
         {
           hostId: 'some-user-id',
@@ -185,7 +186,7 @@ describe('session model', () => {
     });
 
     it('should filter out old sessions', async () => {
-      await getSessions('some-user-id');
+      await getSessionsByUserId('some-user-id');
       expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
       expect(mockWhere).toHaveBeenCalledWith(
         'closingTime',
@@ -194,26 +195,38 @@ describe('session model', () => {
       );
     });
 
-    it('should filter for public sessions and sessions that the user belongs to', async () => {
-      await getSessions('some-user-id');
+    it('should filter for public sessions and by user id', async () => {
+      await getSessionsByUserId('some-user-id');
       expect(mockWhere).toHaveBeenCalledWith('userIds', 'array-contains-any', [
         '*',
         'some-user-id',
       ]);
     });
 
+    it('supports support filtering by exercises id', async () => {
+      await getSessionsByUserId('some-user-id', 'some-exercise-id');
+      expect(mockWhere).toHaveBeenCalledWith(
+        'exerciseId',
+        '==',
+        'some-exercise-id',
+      );
+    });
+
     it('should order by startime', async () => {
-      await getSessions('some-user-id');
+      await getSessionsByUserId('some-user-id');
       expect(mockOrderBy).toHaveBeenCalledWith('startTime', 'asc');
+    });
+
+    it('supports limiting query result', async () => {
+      await getSessionsByUserId('some-user-id', undefined, 5);
+      expect(mockLimit).toHaveBeenCalledWith(5);
     });
   });
 
-  describe('getPublicSessionsByExerciseId', () => {
-    it('should get sessions', async () => {
-      const sessions = await getPublicSessionsByExerciseId(
-        'some-user-id',
-        'some-exercise-id',
-      );
+  describe('getUpcomingPublicSessions', () => {
+    it('should get upcoming public sessions', async () => {
+      const sessions = await getUpcomingPublicSessions();
+
       expect(sessions).toEqual([
         {
           hostId: 'some-user-id',
@@ -246,28 +259,29 @@ describe('session model', () => {
       ]);
     });
 
-    it('should apply expected filters', async () => {
-      await getPublicSessionsByExerciseId('some-user-id', 'some-exercise-id');
+    it('should only return public sessions', async () => {
+      await getUpcomingPublicSessions();
+      expect(mockWhere).toHaveBeenCalledWith('type', '==', 'public');
+    });
+
+    it('should filter out old sessions', async () => {
+      await getUpcomingPublicSessions();
       expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
       expect(mockWhere).toHaveBeenCalledWith(
-        'closingTime',
+        'startTime',
         '>',
         expect.any(Timestamp),
       );
-      expect(mockWhere).toHaveBeenCalledWith(
-        'exerciseId',
-        '==',
-        'some-exercise-id',
-      );
-      expect(mockWhere).toHaveBeenCalledWith('userIds', 'array-contains-any', [
-        '*',
-        'some-user-id',
-      ]);
     });
 
     it('should order by startime', async () => {
-      await getPublicSessionsByExerciseId('some-user-id', 'some-exercise-id');
+      await getUpcomingPublicSessions();
       expect(mockOrderBy).toHaveBeenCalledWith('startTime', 'asc');
+    });
+
+    it('supports limiting query result', async () => {
+      await getUpcomingPublicSessions(5);
+      expect(mockLimit).toHaveBeenCalledWith(5);
     });
   });
 
