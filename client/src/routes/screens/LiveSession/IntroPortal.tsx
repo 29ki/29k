@@ -63,6 +63,7 @@ const IntroPortal: React.FC = () => {
       exercise={exercise}
       isFocused={isFocused}
       isHost={isHost}
+      isLive
       onStartSession={onStartSession}
       onLeaveSession={leaveSessionWithConfirm}
       onNavigateToSession={navigateToSession}
