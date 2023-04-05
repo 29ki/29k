@@ -22,13 +22,13 @@ export const ThumbsUp: React.FC<ThumbProps> = ({active = false, style}) => (
     {active && (
       <Image
         source={{
-          uri: 'https://res.cloudinary.com/cupcake-29k/image/upload/v1680682515/Images/thumbs-up-silouette_pfryjv.png',
+          uri: 'thumbs_up_silouette',
         }}
       />
     )}
     <Image
       source={{
-        uri: 'https://res.cloudinary.com/cupcake-29k/image/upload/v1680611522/Images/thumbs-up_naq01y.png',
+        uri: 'thumbs_up',
       }}
     />
   </Container>
@@ -38,16 +38,10 @@ export const ThumbsDown = styled(ThumbsUp)({
   transform: 'scaleY(-1)',
 });
 
-export const ThumbsUpWithoutPadding: React.FC<ThumbProps> = ({style}) => (
-  <Container style={style}>
-    <Image
-      source={{
-        uri: 'https://res.cloudinary.com/cupcake-29k/image/upload/c_crop,w_175/v1680611522/Images/thumbs-up_naq01y.png',
-      }}
-    />
-  </Container>
-);
+export const ThumbsUpWithoutPadding = styled(ThumbsUp)({
+  transform: 'scale(2.4)',
+});
 
 export const ThumbsDownWithoutPadding = styled(ThumbsUpWithoutPadding)({
-  transform: 'scaleY(-1)',
+  transform: 'scale(2.4, -2.4)',
 });
