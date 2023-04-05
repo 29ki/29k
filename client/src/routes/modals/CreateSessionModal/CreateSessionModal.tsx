@@ -66,7 +66,7 @@ const steps = ({
 
 const CreateSessionModal = () => {
   const {
-    params: {exerciseId, discover},
+    params: {exerciseId},
   } = useRoute<RouteProp<ModalStackProps, 'CreateSessionModal'>>();
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedExercise, setSelectedExercise] = useState<
@@ -140,7 +140,6 @@ const CreateSessionModal = () => {
           <Fade visible={false} key={currentStep - 1}>
             <PreviousStepComponent
               selectedExercise={selectedExercise}
-              discover={discover}
               setSelectedExercise={setSelectedExercise}
               selectedModeAndType={selectedModeAndType}
               setSelectedModeAndType={setSelectedModeAndType}
@@ -155,7 +154,6 @@ const CreateSessionModal = () => {
         <Fade visible={true} key={currentStep}>
           <CurrentStepComponent
             selectedExercise={selectedExercise}
-            discover={discover}
             setSelectedExercise={setSelectedExercise}
             selectedModeAndType={selectedModeAndType}
             setSelectedModeAndType={setSelectedModeAndType}
@@ -170,7 +168,6 @@ const CreateSessionModal = () => {
           <Fade visible={false} key={currentStep + 1}>
             <NextStepComponent
               selectedExercise={selectedExercise}
-              discover={discover}
               setSelectedExercise={setSelectedExercise}
               selectedModeAndType={selectedModeAndType}
               setSelectedModeAndType={setSelectedModeAndType}

@@ -634,20 +634,20 @@ PODS:
   - Firebase/Storage (10.6.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 10.6.0)
-  - FirebaseAppCheckInterop (10.6.0)
+  - FirebaseAppCheckInterop (10.7.0)
   - FirebaseAuth (10.6.0):
     - FirebaseCore (~> 10.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
     - GoogleUtilities/Environment (~> 7.8)
     - GTMSessionFetcher/Core (< 4.0, >= 2.1)
-  - FirebaseAuthInterop (10.6.0)
+  - FirebaseAuthInterop (10.7.0)
   - FirebaseCore (10.6.0):
     - FirebaseCoreInternal (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/Logger (~> 7.8)
-  - FirebaseCoreExtension (10.6.0):
+  - FirebaseCoreExtension (10.7.0):
     - FirebaseCore (~> 10.0)
-  - FirebaseCoreInternal (10.6.0):
+  - FirebaseCoreInternal (10.7.0):
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
   - FirebaseDynamicLinks (10.6.0):
     - FirebaseCore (~> 10.0)
@@ -757,7 +757,9 @@ PODS:
     - nanopb/encode (= 2.30909.0)
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
-  - PromisesObjC (2.1.1)
+  - PromisesObjC (2.2.0)
+  - PromisesSwift (2.2.0):
+    - PromisesObjC (= 2.2.0)
   - RCT-Folly (2021.06.28.00-v2):
     - boost
     - DoubleConversion
@@ -971,7 +973,7 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.38.0):
+  - react-native-daily-js (0.39.0):
     - React
   - react-native-get-random-values (1.8.0):
     - React-Core
@@ -1054,11 +1056,11 @@ PODS:
     - React-jsi (= 0.69.9)
     - React-logger (= 0.69.9)
     - React-perflogger (= 0.69.9)
-  - RNCAsyncStorage (1.17.11):
+  - RNCAsyncStorage (1.18.1):
     - React-Core
-  - RNDateTimePicker (6.7.5):
+  - RNDateTimePicker (7.0.0):
     - React-Core
-  - RNDeviceInfo (10.4.0):
+  - RNDeviceInfo (10.5.1):
     - React-Core
   - RNFBApp (17.3.2):
     - Firebase/CoreOnly (= 10.6.0)
@@ -1094,14 +1096,14 @@ PODS:
     - TOCropViewController
   - RNLocalize (2.2.6):
     - React-Core
-  - RNNotifee (7.5.0):
+  - RNNotifee (7.6.1):
     - React-Core
-    - RNNotifee/NotifeeCore (= 7.5.0)
-  - RNNotifee/NotifeeCore (7.5.0):
+    - RNNotifee/NotifeeCore (= 7.6.1)
+  - RNNotifee/NotifeeCore (7.6.1):
     - React-Core
-  - RNReactNativeHapticFeedback (1.14.0):
+  - RNReactNativeHapticFeedback (2.0.2):
     - React-Core
-  - RNReanimated (3.0.2):
+  - RNReanimated (2.14.4):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -1131,17 +1133,19 @@ PODS:
   - RNScreens (3.20.0):
     - React-Core
     - React-RCTImage
-  - RNSentry (4.14.0):
+  - RNSentry (5.2.0):
     - React-Core
-    - Sentry/HybridSDK (= 7.31.5)
+    - Sentry/HybridSDK (= 8.3.2)
   - RNSound (0.11.2):
     - React-Core
     - RNSound/Core (= 0.11.2)
   - RNSound/Core (0.11.2):
     - React-Core
-  - RNSVG (13.8.0):
+  - RNSVG (13.9.0):
     - React-Core
-  - Sentry/HybridSDK (7.31.5)
+  - Sentry/HybridSDK (8.3.2):
+    - SentryPrivate (= 8.3.2)
+  - SentryPrivate (8.3.2)
   - SSZipArchive (2.2.3)
   - TOCropViewController (2.6.1)
   - Yoga (1.14.0)
@@ -1156,6 +1160,7 @@ DEPENDENCIES:
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - lottie-ios (from `../node_modules/lottie-ios`)
   - lottie-react-native (from `../node_modules/lottie-react-native`)
+  - PromisesSwift
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
@@ -1235,7 +1240,9 @@ SPEC REPOS:
     - Libuv-gRPC
     - nanopb
     - PromisesObjC
+    - PromisesSwift
     - Sentry
+    - SentryPrivate
     - SSZipArchive
     - TOCropViewController
 
@@ -1374,12 +1381,12 @@ SPEC CHECKSUMS:
   FBLazyVector: d3c1d2923b1009f4e709e8f1b793dedf5b323454
   FBReactNativeSpec: d460df7d796ed4979c6cd4e092145b63eb28b5bb
   Firebase: f13680471b021937f2230ea8503c7809d8c29806
-  FirebaseAppCheckInterop: 13e5394346a811e7158cc136c01f10e3302a3514
+  FirebaseAppCheckInterop: 8e907eea79958960a8bd2058e067f31e03a7914b
   FirebaseAuth: 743e5cd568af59d6d99a91ea9300843672515cf7
-  FirebaseAuthInterop: e407335bca1938d65c58db8f4ad14b3c1f862a82
+  FirebaseAuthInterop: 46201190fe90ef1f581513eb0f9fa3d7820e7d6d
   FirebaseCore: fa80ad16a62d52f67274b5b88304c3a318bbf9a4
-  FirebaseCoreExtension: 318e5ee9ad4092b00423c2bddd51c3f5c3585973
-  FirebaseCoreInternal: c7cd505e2136811096b225ac388d6254a2622362
+  FirebaseCoreExtension: f17247ba8c61e4d3c8d136b5e2de3cb4ac6a85b6
+  FirebaseCoreInternal: 8845798510aae74703467480f71ac613788d0696
   FirebaseDynamicLinks: 99c501143953e925681a37aade96bb2db34b30ca
   FirebaseFirestore: f91b23a3c71448475d17163baf916d5d20d01609
   FirebaseStorage: 10d4f43a4ef98e7554da72197ad52216686ea990
@@ -1395,7 +1402,8 @@ SPEC CHECKSUMS:
   lottie-ios: 8f97d3271e155c2d688875c29cd3c74908aef5f8
   lottie-react-native: 3e722c63015fdb9c27638b0a77969fc412067c18
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
-  PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
+  PromisesSwift: cf9eb58666a43bbe007302226e510b16c1e10959
   RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
   RCTRequired: fe80e9f71dd15939e5399dd94d0aa0e5e069d592
   RCTTypeSafety: 4c802f7c4b9e7c55470e7fc56d50385cbfcce89b
@@ -1412,7 +1420,7 @@ SPEC CHECKSUMS:
   React-logger: 96d904c5bc87c2660d48e6a36fb2edf65f9cfb11
   react-native-add-calendar-event: d7744f983d6770cc9e4f004db22bc4d4b4575f17
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: eaf679c1158125632a0862ce4a277f8aeb24aa13
+  react-native-daily-js: 71463fdf8ad5471c295f5530bce27ac78f19a6a4
   react-native-get-random-values: a6ea6a8a65dc93e96e24a11105b1a9c8cfe1d72a
   react-native-safe-area-context: 39c2d8be3328df5d437ac1700f4f3a4f75716acc
   react-native-video: c26780b224543c62d5e1b2a7244a5cd1b50e8253
@@ -1429,9 +1437,9 @@ SPEC CHECKSUMS:
   React-RCTVibration: ea899478e6f10ee526f476f769ab33211be2addd
   React-runtimeexecutor: df1518d092e8c74cafddc56690d1ac386ec24d7a
   ReactCommon: fac40473e2c4117522384027ab33ad0cb6717dc5
-  RNCAsyncStorage: 8616bd5a58af409453ea4e1b246521bb76578d60
-  RNDateTimePicker: 65e1d202799460b286ff5e741d8baf54695e8abd
-  RNDeviceInfo: 749f2e049dcd79e2e44f134f66b73a06951b5066
+  RNCAsyncStorage: b90b71f45b8b97be43bc4284e71a6af48ac9f547
+  RNDateTimePicker: 66cb21772d462d02efc6826adac37f1fd40984cf
+  RNDeviceInfo: fb81318c9cd5ebe30ebf12bcd046d818c87f9b53
   RNFBApp: dd22a306a31189e99126a35962498c83b06520ab
   RNFBAuth: c0dbc7680a3181e460fdc2b4ba80851363c6946d
   RNFBDynamicLinks: 31246d22f0bcda1b3022b89c97483fc079cc3025
@@ -1440,18 +1448,19 @@ SPEC CHECKSUMS:
   RNGestureHandler: 071d7a9ad81e8b83fe7663b303d132406a7d8f39
   RNImageCropPicker: 14fe1c29298fb4018f3186f455c475ab107da332
   RNLocalize: d4b8af4e442d4bcca54e68fc687a2129b4d71a81
-  RNNotifee: 053c0ace9c73634709a0214fd9c436a5777a562f
-  RNReactNativeHapticFeedback: 1e3efeca9628ff9876ee7cdd9edec1b336913f8c
-  RNReanimated: 87782e7e1fd44b404cf3cc1bbab266bb9b84a35d
+  RNNotifee: bdc064c29f4d558046f51f0c3ae02bab4fd3cd85
+  RNReactNativeHapticFeedback: 6d24decfa94e037c2ecc312407d2a057b7933f10
+  RNReanimated: ba021107f1dd90cb04c35c5d639392d5da27d065
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
-  RNSentry: 7e90aec2633d2fdad8aeb839c9915e4376fd27d1
+  RNSentry: 6f67e29b26d5cb687c5c8f6e2dc3351b8b80b605
   RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
-  RNSVG: c1e76b81c76cdcd34b4e1188852892dc280eb902
-  Sentry: 4c9babff9034785067c896fd580b1f7de44da020
+  RNSVG: 53c661b76829783cdaf9b7a57258f3d3b4c28315
+  Sentry: e16896bd4be235a2713bdb4f47db199102902ac8
+  SentryPrivate: af44a161d76b7ce8c6b26e388f52a253b93fa35c
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
   Yoga: 7a4d48cfb35dfa542151e615fa73c1a0d88caf21
 
-PODFILE CHECKSUM: 0bf9025b6001e2e7d7c3fc0200004bb5018eded2
+PODFILE CHECKSUM: c02d6bf3ddbb12b31972cfec277c2a34a553e27f
 
 COCOAPODS: 1.12.0

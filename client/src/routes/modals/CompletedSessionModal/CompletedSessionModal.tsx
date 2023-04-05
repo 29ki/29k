@@ -91,7 +91,9 @@ const CompletedSessionModal = () => {
 
   const onStartSession = useCallback(() => {
     popToTop();
-    navigate('CreateSessionModal', {exerciseId: payload.exerciseId});
+    navigate('CreateSessionModal', {
+      exerciseId: payload.exerciseId,
+    });
   }, [payload, navigate, popToTop]);
 
   const exercise = useExerciseById(payload.exerciseId);

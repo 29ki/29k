@@ -32,20 +32,19 @@ const HostVideo: React.FC<HostVideoProps> = ({
   active,
 }) => {
   const theme = useSessionState(state => state.exercise?.theme);
-  const videoSource = useMemo(() => ({uri: video?.source}), [video?.source]);
   const background = theme?.backgroundColor ?? COLORS.WHITE;
   const colors = useMemo(
     () => [hexToRgba(background, 0), hexToRgba(background, 1)],
     [background],
   );
 
-  if (!video) {
+  if (!video?.source) {
     return null;
   }
 
   return (
     <VideoWrapper>
-      <Video source={videoSource} active={active} preview={video.preview} />
+      <Video source={video.source} active={active} preview={video.preview} />
       <BottomGradient colors={colors} />
     </VideoWrapper>
   );

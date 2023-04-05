@@ -50,6 +50,25 @@ describe('apiClient', () => {
     });
   });
 
+  it('does not add authorization header when authorize = false', async () => {
+    mockedGetAuthorizationToken.mockResolvedValueOnce(
+      'some-authorization-token',
+    );
+
+    await apiClient('/some-path', undefined, false);
+
+    expect(getAuthorizationToken).toHaveBeenCalledTimes(0);
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/some-path', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept-Language': 'en',
+        'X-Correlation-ID': expect.any(String),
+      },
+    });
+  });
+
   it('recreates user when server responds with 401 and calls server again', async () => {
     mockedGetAuthorizationToken.mockResolvedValueOnce(
       'some-authorization-token',

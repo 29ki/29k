@@ -27,7 +27,7 @@ const ExerciseCardContainer: React.FC<ExerciseCardContainerProps> = ({
   }, [exercise]);
 
   const onPress = useCallback(() => {
-    navigate('CreateSessionModal', {exerciseId: exercise.id, discover: true});
+    navigate('CreateSessionModal', {exerciseId: exercise.id});
   }, [exercise, navigate]);
 
   if (!exercise) {

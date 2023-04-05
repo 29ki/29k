@@ -5,6 +5,7 @@ import createMockServer from '../lib/createMockServer';
 
 import {createMetricsRouter} from '../../lib/routers';
 import {addFeedback} from '../../controllers/feedback';
+import {SessionMode, SessionType} from '../../../../shared/src/types/Session';
 
 jest.mock('../../controllers/feedback');
 
@@ -31,6 +32,8 @@ describe('/metrics/logFeedback', () => {
         question: 'Some question?',
         answer: true,
         comment: 'Some comment!',
+        sessionType: SessionType.public,
+        sessionMode: SessionMode.live,
       });
 
       expect(addFeedback).toHaveBeenCalledTimes(1);
@@ -42,6 +45,8 @@ describe('/metrics/logFeedback', () => {
         question: 'Some question?',
         answer: true,
         comment: 'Some comment!',
+        sessionType: SessionType.public,
+        sessionMode: SessionMode.live,
       });
 
       expect(response.status).toBe(200);
@@ -54,6 +59,8 @@ describe('/metrics/logFeedback', () => {
         completed: true,
         question: 'Some question?',
         answer: true,
+        sessionType: SessionType.public,
+        sessionMode: SessionMode.live,
       });
 
       expect(addFeedback).toHaveBeenCalledTimes(1);
@@ -63,6 +70,8 @@ describe('/metrics/logFeedback', () => {
         completed: true,
         question: 'Some question?',
         answer: true,
+        sessionType: SessionType.public,
+        sessionMode: SessionMode.live,
       });
 
       expect(response.status).toBe(200);
@@ -111,6 +120,36 @@ describe('/metrics/logFeedback', () => {
         exerciseId: 'some-exercise-id',
         completed: true,
         question: 'Some question?',
+      });
+
+      expect(addFeedback).toHaveBeenCalledTimes(0);
+
+      expect(response.status).toBe(500);
+    });
+
+    it('Requires sessionType', async () => {
+      const response = await request(mockServer).post('/logFeedback').send({
+        sessionId: 'some-session-id',
+        exerciseId: 'some-exercise-id',
+        completed: true,
+        question: 'Some question?',
+        answer: true,
+        sessionMode: SessionMode.live,
+      });
+
+      expect(addFeedback).toHaveBeenCalledTimes(0);
+
+      expect(response.status).toBe(500);
+    });
+
+    it('Requires sessionMode', async () => {
+      const response = await request(mockServer).post('/logFeedback').send({
+        sessionId: 'some-session-id',
+        exerciseId: 'some-exercise-id',
+        completed: true,
+        question: 'Some question?',
+        answer: true,
+        sessionType: SessionType.public,
       });
 
       expect(addFeedback).toHaveBeenCalledTimes(0);

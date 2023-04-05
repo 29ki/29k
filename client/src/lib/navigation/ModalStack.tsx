@@ -164,7 +164,7 @@ const ModalStack = () => {
           name={'CreateSessionModal'}
           component={CreateSessionModal}
           options={props =>
-            props.route.params.discover
+            props.route.params.exerciseId
               ? fullSheetModalScreenOptions
               : sheetModalScreenOptions
           }

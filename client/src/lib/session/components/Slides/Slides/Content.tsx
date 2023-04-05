@@ -42,16 +42,6 @@ const Content: React.FC<ContentProps> = ({
   active,
   async,
 }) => {
-  const videoSource = useMemo(
-    () => ({uri: content?.video?.source}),
-    [content.video?.source],
-  );
-
-  const audioSource = useMemo(
-    () => (content?.video?.audio ? {uri: content.video.audio} : undefined),
-    [content?.video?.audio],
-  );
-
   const imageSource = useMemo(
     () => ({uri: content?.image?.source}),
     [content?.image?.source],
@@ -106,12 +96,13 @@ const Content: React.FC<ContentProps> = ({
           <Spacer8 />
           <VideoWrapper>
             <Video
-              source={videoSource}
-              audioSource={audioSource}
+              source={content.video.source}
+              audioSource={content.video.audio}
               active={active}
               preview={content.video.preview}
               autoPlayLoop={content.video.autoPlayLoop}
               durationTimer={content.video.durationTimer}
+              isLive={!async}
             />
           </VideoWrapper>
         </GraphicsWrapper>

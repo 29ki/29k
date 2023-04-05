@@ -3,6 +3,7 @@ import * as feedbackController from './feedback';
 import * as slack from '../models/slack';
 import {getExerciseById} from '../lib/exercise';
 import {Exercise} from '../../../shared/src/types/generated/Exercise';
+import {SessionMode, SessionType} from '../../../shared/src/types/Session';
 
 jest.mock('../models/metrics');
 jest.mock('../models/slack');
@@ -31,6 +32,8 @@ describe('feedback - controller', () => {
         answer: true,
         comment: 'Some comment!',
         sessionId: 'session-id',
+        sessionType: SessionType.public,
+        sessionMode: SessionMode.live,
       };
       await feedbackController.addFeedback(feedback);
 
@@ -42,6 +45,8 @@ describe('feedback - controller', () => {
         comment: 'Some comment!',
         question: 'Some question?',
         sessionId: 'session-id',
+        sessionType: SessionType.public,
+        sessionMode: SessionMode.live,
       });
       expect(slack.sendFeedbackMessage).toHaveBeenCalledTimes(1);
       expect(slack.sendFeedbackMessage).toHaveBeenCalledWith(
@@ -50,6 +55,8 @@ describe('feedback - controller', () => {
         'Some question?',
         true,
         'Some comment!',
+        SessionType.public,
+        SessionMode.live,
       );
     });
 
@@ -69,6 +76,8 @@ describe('feedback - controller', () => {
         question: 'Some question?',
         answer: true,
         sessionId: 'session-id',
+        sessionType: SessionType.public,
+        sessionMode: SessionMode.live,
       };
       await feedbackController.addFeedback(feedback);
 
@@ -79,6 +88,8 @@ describe('feedback - controller', () => {
         answer: true,
         question: 'Some question?',
         sessionId: 'session-id',
+        sessionType: SessionType.public,
+        sessionMode: SessionMode.live,
       });
       expect(slack.sendFeedbackMessage).toHaveBeenCalledTimes(0);
     });

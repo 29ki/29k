@@ -1,4 +1,8 @@
 import type * as BackEndAdaptorType from '.';
+import {
+  SessionMode,
+  SessionType,
+} from '../../../../../../shared/src/types/Session';
 import getMetricsUid from './utils/getMetricsUid';
 import metricsClient from './utils/metricsClient';
 
@@ -80,11 +84,13 @@ describe('logFeedback', () => {
       question: 'Some question?',
       answer: true,
       comment: 'Some comment!',
+      sessionType: SessionType.public,
+      sessionMode: SessionMode.live,
     });
 
     expect(metricsClient).toHaveBeenCalledTimes(1);
     expect(metricsClient).toHaveBeenCalledWith('logFeedback', {
-      body: '{"exerciseId":"some-exercise-id","completed":true,"sessionId":"some-session-id","host":true,"question":"Some question?","answer":true,"comment":"Some comment!"}',
+      body: '{"exerciseId":"some-exercise-id","completed":true,"sessionId":"some-session-id","host":true,"question":"Some question?","answer":true,"comment":"Some comment!","sessionType":"public","sessionMode":"live"}',
       method: 'POST',
     });
   });
