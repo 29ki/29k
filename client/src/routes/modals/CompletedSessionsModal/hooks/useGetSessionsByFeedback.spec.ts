@@ -7,7 +7,6 @@ import {
   CompletedSessionPayload,
   FeedbackPayload,
 } from '../../../../../../shared/src/types/Event';
-import {act} from 'react-test-renderer';
 
 beforeEach(() => {
   jest.clearAllMocks();

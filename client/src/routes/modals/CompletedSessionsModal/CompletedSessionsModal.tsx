@@ -14,7 +14,7 @@ import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessio
 
 import JourneyNode from '../../screens/Journey/components/JourneyNode';
 
-import {Spacer12, Spacer32} from '../../../lib/components/Spacers/Spacer';
+import {Spacer12} from '../../../lib/components/Spacers/Spacer';
 
 import {
   SessionMode,
