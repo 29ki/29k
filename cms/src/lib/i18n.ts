@@ -2,7 +2,7 @@
 // https://github.com/reimertz/netlify-cms/commit/8ebe03a08e4aaab8fa038caf226dd425c8e7b1b2
 
 import {CmsCollection, CmsField} from 'netlify-cms-core';
-import {Resource, ResourceKey} from 'i18next';
+import {Resource, ResourceKey, ResourceLanguage} from 'i18next';
 import {DEFAULT_LANGUAGE_TAG} from '../../../shared/src/constants/i18n';
 
 const SUPPORTED_KEYBASED_WIDGETS = [
@@ -94,11 +94,11 @@ export const generateFilesCollectionFromi18nFiles = (
   folderName: string,
   label: string,
   i18nResources: Resource,
-  exclude: Array<string>,
+  excludeFn: (resource: [string, ResourceKey]) => boolean,
 ): CmsCollection => {
   const filteredResources = Object.entries(
     i18nResources[DEFAULT_LANGUAGE_TAG],
-  ).filter(resouce => !exclude.find(e => e === resouce[0]));
+  ).filter(excludeFn);
 
   return {
     label,
