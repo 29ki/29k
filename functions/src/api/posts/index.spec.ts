@@ -49,7 +49,11 @@ describe('/api/posts', () => {
           sharingId: 'some-sharing-id',
           text: 'some text',
           userId: 'some-user-id',
-          userProfile: {displayName: 'some name', photoURL: 'some-url'},
+          userProfile: {
+            uid: 'some-user-id',
+            displayName: 'some name',
+            photoURL: 'some-url',
+          },
           approved: true,
           language: 'en',
           createdAt: '2022-01-01T00:00:00Z',

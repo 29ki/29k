@@ -1,6 +1,6 @@
 import type {Timestamp} from 'firebase-admin/firestore';
 import {LANGUAGE_TAG} from '../constants/i18n';
-import {UserProfile} from './User';
+import {User} from './User';
 
 export enum SessionMode {
   async = 'async',
@@ -62,7 +62,7 @@ export type LiveSession = LiveSessionFields & {
   startTime: string;
   createdAt: string;
   updatedAt: string;
-  hostProfile?: UserProfile;
+  hostProfile?: User;
 };
 
 export type AsyncSession = SessionBaseFileds & {startTime: string};

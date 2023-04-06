@@ -1,5 +1,5 @@
 import {VerificationError} from '../../../../../shared/src/errors/User';
-import {UserProfile} from '../../../../../shared/src/types/User';
+import {UserData, User} from '../../../../../shared/src/types/User';
 import apiClient from '../../apiClient/apiClient';
 
 const USER_ENDPOINT = '/user';
@@ -45,9 +45,9 @@ export const verifyPromotion = async (
   }
 };
 
-export const getProfile = async (userId: string): Promise<UserProfile> => {
+export const getUser = async (userId: string): Promise<User> => {
   try {
-    const response = await apiClient(`${USER_ENDPOINT}/${userId}`, {
+    const response = await apiClient(`${USER_ENDPOINT}/temp/${userId}`, {
       method: 'GET',
     });
 
@@ -57,6 +57,41 @@ export const getProfile = async (userId: string): Promise<UserProfile> => {
 
     return response.json();
   } catch (cause) {
-    throw new Error('Could get user profile', {cause});
+    throw new Error('Could not get user profile', {cause});
+  }
+};
+
+export const getMe = async (): Promise<UserData> => {
+  try {
+    const response = await apiClient(USER_ENDPOINT, {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      throw new Error(await response.text());
+    }
+
+    return response.json();
+  } catch (cause) {
+    throw new Error('Could not get user profile', {cause});
+  }
+};
+
+export const updateUser = async (
+  data: Partial<Omit<UserData, 'id' | 'profile'>>,
+) => {
+  try {
+    const response = await apiClient(USER_ENDPOINT, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error(await response.text());
+    }
+
+    return;
+  } catch (cause) {
+    throw new Error('Could not update user', {cause});
   }
 };

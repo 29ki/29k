@@ -158,7 +158,8 @@ const SessionModal = () => {
   const {togglePinned, isPinned} = usePinSession(session);
   const logSessionMetricEvent = useLogSessionMetricEvents();
 
-  const navigation = useNavigation<NativeStackNavigationProp<AppStackProps>>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
 
   const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session?.exerciseId);
@@ -253,6 +254,11 @@ const SessionModal = () => {
     [setSessionDateTime],
   );
 
+  const onHostPress = useCallback(() => {
+    navigation.popToTop();
+    navigation.navigate('HostInfoModal', {host: session.hostProfile});
+  }, [navigation, session.hostProfile]);
+
   const onEditMode = useCallback(() => setEditMode(true), [setEditMode]);
 
   const onEditType = useCallback(
@@ -303,11 +309,13 @@ const SessionModal = () => {
           <TitleContainer>
             <Display24>{formatExerciseName(exercise)}</Display24>
             <Spacer4 />
-            <Byline
-              pictureURL={session.hostProfile?.photoURL}
-              name={session.hostProfile?.displayName}
-              duration={exercise?.duration}
-            />
+            <TouchableOpacity onPress={onHostPress}>
+              <Byline
+                pictureURL={session.hostProfile?.photoURL}
+                name={session.hostProfile?.displayName}
+                duration={exercise?.duration}
+              />
+            </TouchableOpacity>
           </TitleContainer>
           <Spacer32 />
           <ImageContainer

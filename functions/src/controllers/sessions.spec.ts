@@ -32,7 +32,7 @@ import {
   updateInterestedCount,
   getSession,
 } from './sessions';
-import {getPublicUserInfo} from '../models/user';
+import {getAuthUserInfo} from '../models/auth';
 import {SessionType} from '../../../shared/src/types/Session';
 import dayjs from 'dayjs';
 import {RequestError} from './errors/RequestError';
@@ -65,7 +65,7 @@ const mockUpdateInterestedCount =
 const mockUpdateSessionState = sessionModel.updateSessionState as jest.Mock;
 const mockGetSessionByInviteCode =
   sessionModel.getSessionByInviteCode as jest.Mock;
-const mockGetPublicUserInfo = getPublicUserInfo as jest.Mock;
+const mockGetPublicUserInfo = getAuthUserInfo as jest.Mock;
 const mockGenerateSessionToken = generateSessionToken as jest.Mock;
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));

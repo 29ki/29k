@@ -2,16 +2,13 @@ import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 
 import {createApiAuthRouter} from '../../lib/routers';
-import {
-  UserProfileError,
-  VerificationError,
-} from '../../../../shared/src/errors/User';
+import {UserError, VerificationError} from '../../../../shared/src/errors/User';
 import {
   requestPublicHostRole,
   verifyPublicHostRequest,
 } from '../../controllers/publicHostRequests';
 import {RequestError} from '../../controllers/errors/RequestError';
-import {getProfile} from '../../controllers/user';
+import {getMe, getUser, updateUser} from '../../controllers/user';
 
 const userRouter = createApiAuthRouter();
 
@@ -83,21 +80,70 @@ userRouter.put(
   },
 );
 
-userRouter.get('/:id', async ctx => {
+userRouter.get('/', async ctx => {
   try {
-    const userProfile = await getProfile(ctx.params.id);
-    ctx.set('Cache-Control', 'max-age=1800');
-    ctx.body = userProfile;
+    const {id} = ctx.user;
+    const me = await getMe(id);
+    ctx.body = me;
   } catch (error) {
     const requestError = error as RequestError;
     switch (requestError.code) {
-      case UserProfileError.userNotFound:
+      case UserError.userNotFound:
         ctx.status = 404;
         break;
       default:
         throw error;
     }
     ctx.message = requestError.code;
+  }
+});
+
+userRouter.get('/:id', async ctx => {
+  try {
+    const user = await getUser(ctx.params.id);
+    ctx.set('Cache-Control', 'max-age=1800');
+    ctx.body = user;
+  } catch (error) {
+    const requestError = error as RequestError;
+    switch (requestError.code) {
+      case UserError.userNotFound:
+        ctx.status = 404;
+        break;
+      default:
+        throw error;
+    }
+    ctx.message = requestError.code;
+  }
+});
+
+userRouter.get('/temp/:id', async ctx => {
+  try {
+    const user = await getUser(ctx.params.id);
+    ctx.body = user;
+  } catch (error) {
+    const requestError = error as RequestError;
+    switch (requestError.code) {
+      case UserError.userNotFound:
+        ctx.status = 404;
+        break;
+      default:
+        throw error;
+    }
+    ctx.message = requestError.code;
+  }
+});
+
+const UpdateUserSchema = yup.object().shape({
+  description: yup.string(),
+});
+
+userRouter.post('/', validator({body: UpdateUserSchema}), async ctx => {
+  try {
+    const {id} = ctx.user;
+    await updateUser(id, ctx.state.validated.body);
+    ctx.status = 200;
+  } catch (error) {
+    ctx.status = 500;
   }
 });
 

@@ -5,7 +5,7 @@ import {
   getPostById,
   deletePost,
 } from '../models/post';
-import {getPublicUserInfo} from '../models/user';
+import {getAuthUserInfo} from '../models/auth';
 import {sendPostMessage} from '../models/slack';
 import {Post, PostParams} from '../../../shared/src/types/Post';
 import {PostError} from '../../../shared/src/errors/Post';
@@ -29,7 +29,7 @@ const mockGetPostsByExerciseAndSharingId = jest.mocked(
 );
 const mockGetPostById = jest.mocked(getPostById);
 const mockDeletePost = jest.mocked(deletePost);
-const mockGetPublicUserInfo = jest.mocked(getPublicUserInfo);
+const mockGetPublicUserInfo = jest.mocked(getAuthUserInfo);
 const mockGetExerciseById = jest.mocked(getExerciseById);
 const mockGetSharingSlideById = jest.mocked(getSharingSlideById);
 const mockSendPostMessage = jest.mocked(sendPostMessage);
@@ -144,6 +144,7 @@ describe('posts - controller', () => {
         } as Post,
       ]);
       mockGetPublicUserInfo.mockResolvedValueOnce({
+        uid: 'some-user-id',
         displayName: 'some name',
         photoURL: 'some-url',
       });
@@ -158,7 +159,11 @@ describe('posts - controller', () => {
         {
           id: 'some-post-id',
           userId: 'some-user-id',
-          userProfile: {displayName: 'some name', photoURL: 'some-url'},
+          userProfile: {
+            uid: 'some-user-id',
+            displayName: 'some name',
+            photoURL: 'some-url',
+          },
         },
       ]);
     });

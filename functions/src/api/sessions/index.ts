@@ -24,10 +24,12 @@ sessionsRouter.get('/', async ctx => {
   const {response, user, query} = ctx;
   const exerciseId =
     typeof query.exerciseId === 'string' ? query.exerciseId : undefined;
+  const hostId = typeof query.hostId === 'string' ? query.hostId : undefined;
 
   const sessions = await sessionsController.getSessionsByUserId(
     user.id,
     exerciseId,
+    hostId,
   );
   response.status = 200;
   ctx.body = sessions;

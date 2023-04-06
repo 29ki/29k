@@ -1,8 +1,13 @@
+import {UserRecord} from 'firebase-admin/auth';
+
 export const ROLES = {
   publicHost: 'publicHost',
 };
 
-export type UserProfile = {
-  displayName?: string;
-  photoURL?: string;
+export type UserProfile = Pick<UserRecord, 'uid' | 'displayName' | 'photoURL'>;
+
+export type UserData = {
+  description?: string;
 };
+
+export type User = UserProfile & UserData;

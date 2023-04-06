@@ -1,12 +1,12 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook} from '@testing-library/react-hooks';
-import {getProfile} from '../api/user';
+import {getUser} from '../api/user';
 
 import useUserState from '../state/state';
 import useUserProfile from './useUserProfile';
 
 jest.mock('../api/user');
-const mockGetProfile = jest.mocked(getProfile);
+const mockGetProfile = jest.mocked(getUser);
 
 afterEach(jest.clearAllMocks);
 

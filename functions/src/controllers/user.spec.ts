@@ -1,8 +1,8 @@
-import * as userModel from '../models/user';
-import {getProfile} from './user';
+import * as userModel from '../models/auth';
+import {getUser} from './user';
 
 import {RequestError} from './errors/RequestError';
-import {UserProfileError} from '../../../shared/src/errors/User';
+import {UserError} from '../../../shared/src/errors/User';
 
 jest.mock('../models/user');
 
@@ -14,15 +14,17 @@ describe('user - controller', () => {
   describe('getProfile', () => {
     it('should get user profile', async () => {
       const mockedGetPublicUserInfo = jest
-        .mocked(userModel.getPublicUserInfo)
+        .mocked(userModel.getAuthUserInfo)
         .mockResolvedValueOnce({
+          uid: 'some-user-id',
           displayName: 'some-name',
           photoURL: 'some-photo-url',
         });
 
-      const profile = await getProfile('user-id');
+      const profile = await getUser('user-id');
 
       expect(profile).toEqual({
+        uid: 'some-user-id',
         displayName: 'some-name',
         photoURL: 'some-photo-url',
       });
@@ -32,10 +34,12 @@ describe('user - controller', () => {
     });
 
     it('should throw if user not found', async () => {
-      jest.mocked(userModel.getPublicUserInfo).mockResolvedValueOnce({});
+      jest
+        .mocked(userModel.getAuthUserInfo)
+        .mockResolvedValueOnce({uid: 'some-user-id'});
 
-      await expect(getProfile('some-non-existing-user-id')).rejects.toEqual(
-        new RequestError(UserProfileError.userNotFound),
+      await expect(getUser('some-non-existing-user-id')).rejects.toEqual(
+        new RequestError(UserError.userNotFound),
       );
     });
   });

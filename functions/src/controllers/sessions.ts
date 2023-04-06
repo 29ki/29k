@@ -1,9 +1,9 @@
 import {Timestamp} from 'firebase-admin/firestore';
 import dayjs from 'dayjs';
 import {createSessionInviteLink} from '../models/dynamicLinks';
+import {getUser} from './user';
 import * as sessionModel from '../models/session';
-import * as userModel from '../models/user';
-import {getPublicUserInfo} from '../models/user';
+import * as userModel from '../models/auth';
 import * as dailyApi from '../lib/dailyApi';
 import {
   LiveSession,
@@ -21,7 +21,7 @@ import {generateSessionToken} from '../lib/dailyUtils';
 import {createRctUserId} from '../lib/id';
 
 const mapSession = async (session: LiveSession): Promise<LiveSession> => {
-  return {...session, hostProfile: await getPublicUserInfo(session.hostId)};
+  return {...session, hostProfile: await getUser(session.hostId)};
 };
 
 const isSessionOpen = (session: LiveSession): boolean =>
@@ -35,8 +35,13 @@ const isUserAllowedToJoin = (session: LiveSession, userId: string) =>
 export const getSessionsByUserId = async (
   userId: string,
   exerciseId?: string,
+  hostId?: string,
 ): Promise<LiveSession[]> => {
-  const sessions = await sessionModel.getSessionsByUserId(userId, exerciseId);
+  const sessions = await sessionModel.getSessionsByUserId(
+    userId,
+    exerciseId,
+    hostId,
+  );
 
   return Promise.all(
     sessions.filter(s => isUserAllowedToJoin(s, userId)).map(mapSession),
@@ -107,7 +112,7 @@ export const createSession = async (
     language,
   }: Pick<LiveSession, 'exerciseId' | 'type' | 'startTime' | 'language'>,
 ) => {
-  const {displayName} = await userModel.getPublicUserInfo(userId);
+  const {displayName} = await userModel.getAuthUserInfo(userId);
   const expireDate = dayjs(startTime).add(2, 'hour');
   const dailyRoom = await dailyApi.createRoom(expireDate);
   let inviteCode = generateVerificationCode();
