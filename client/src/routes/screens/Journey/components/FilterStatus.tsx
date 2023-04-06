@@ -25,8 +25,8 @@ const FilterContainer = styled(TouchableOpacity)<{selected: boolean}>(
 );
 
 const IconWrapper = styled.View({
-  width: 24,
-  height: 24,
+  width: 30,
+  height: 30,
 });
 
 const FilterStatus: React.FC<{
