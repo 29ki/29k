@@ -5,6 +5,7 @@ import {Spacer4} from '../../../../lib/components/Spacers/Spacer';
 import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {Body16} from '../../../../lib/components/Typography/Body/Body';
 import {Display28} from '../../../../lib/components/Typography/Display/Display';
+import {COLORS} from '../../../../../../shared/src/constants/colors';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -14,12 +15,12 @@ const Row = styled.View({
 
 const FilterContainer = styled(TouchableOpacity)<{selected: boolean}>(
   ({selected}) => ({
-    backgroundColor: '#A9DAC1',
+    backgroundColor: COLORS.MEDIUM_GREEN,
     borderRadius: 16,
     padding: 11,
     flex: 1,
     minHeight: 96,
-    border: selected ? '1px #2F5A40' : 'none',
+    border: selected ? `1px ${COLORS.PRIMARY}` : 'none',
     flexGrow: 1 / 2,
   }),
 );
