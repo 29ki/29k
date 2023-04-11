@@ -46,7 +46,7 @@
     "lottie-ios": "3.4.4",
     "lottie-react-native": "^5.1.5",
     "posthog-react-native": "^2.5.2",
-    "ramda": "^0.28.0",
+    "ramda": "^0.29.0",
     "react": "18.2.0",
     "react-i18next": "^12.2.0",
     "react-native": "0.69.9",
