@@ -21,6 +21,8 @@ We must be able to understand the design of your change from this description. I
 
 ### Verification Process
 
+⚠️ Have considered if this change should require a bundle update? Ask your peers for advice if you're unsure.
+
 <!--
 
 What process did you follow to verify that the change has not introduced any regressions? Describe the actions you performed (including buttons you clicked, text you typed, commands you ran, etc.), and describe the results you observed.

@@ -4,10 +4,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {LANGUAGE_TAG} from '../../i18n';
 
+export const APP_RATING_REVISION = 1;
+
 export type Settings = {
   showWelcome: boolean;
   preferredLanguage?: LANGUAGE_TAG;
   showHiddenContent: boolean;
+  appRatedRevision?: number;
 };
 
 type State = {
