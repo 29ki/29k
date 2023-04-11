@@ -77,6 +77,7 @@ describe('/api/sessions', () => {
       expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
         'some-user-id',
         undefined,
+        undefined,
       );
       expect(response.status).toBe(200);
       expect(response.body).toEqual([
@@ -124,6 +125,7 @@ describe('/api/sessions', () => {
       expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
         'some-user-id',
         'some-exercise-id',
+        undefined,
       );
       expect(response.status).toBe(200);
       expect(response.body).toEqual([
@@ -141,6 +143,56 @@ describe('/api/sessions', () => {
           url: 'some-other-url',
           hostId: 'some-other-user-id',
           exerciseId: 'some-exercise-id',
+          startTime: expect.any(String),
+        },
+      ]);
+    });
+
+    it('should get sessions by hostId', async () => {
+      mockGetSessionsByUserId.mockResolvedValueOnce([
+        {
+          id: 'some-session-id-1',
+          name: 'some-name-1',
+          url: 'some-url',
+          hostId: 'some-other-user-id',
+          exerciseId: 'some-exercise-id',
+          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+        },
+        {
+          id: 'some-session-id-2',
+          name: 'some-name-2',
+          url: 'some-url',
+          hostId: 'some-other-user-id',
+          exerciseId: 'some-other-exercise-id',
+          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+        },
+      ]);
+
+      const response = await request(mockServer).get(
+        '/sessions?hostId=some-other-user-id',
+      );
+
+      expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
+        'some-user-id',
+        undefined,
+        'some-other-user-id',
+      );
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual([
+        {
+          id: 'some-session-id-1',
+          name: 'some-name-1',
+          url: 'some-url',
+          hostId: 'some-other-user-id',
+          exerciseId: 'some-exercise-id',
+          startTime: expect.any(String),
+        },
+        {
+          id: 'some-session-id-2',
+          name: 'some-name-2',
+          url: 'some-url',
+          hostId: 'some-other-user-id',
+          exerciseId: 'some-other-exercise-id',
           startTime: expect.any(String),
         },
       ]);

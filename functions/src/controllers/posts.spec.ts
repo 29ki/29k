@@ -18,7 +18,7 @@ import {
 } from '../../../shared/src/types/generated/Exercise';
 
 jest.mock('../models/post');
-jest.mock('../models/user');
+jest.mock('../models/auth');
 jest.mock('../lib/exercise');
 jest.mock('../models/slack');
 jest.mock('../../../shared/src/content/exercise');

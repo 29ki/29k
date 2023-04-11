@@ -81,44 +81,15 @@ userRouter.put(
 );
 
 userRouter.get('/', async ctx => {
-  try {
-    const {id} = ctx.user;
-    const me = await getMe(id);
-    ctx.body = me;
-  } catch (error) {
-    const requestError = error as RequestError;
-    switch (requestError.code) {
-      case UserError.userNotFound:
-        ctx.status = 404;
-        break;
-      default:
-        throw error;
-    }
-    ctx.message = requestError.code;
-  }
+  const {id} = ctx.user;
+  const me = await getMe(id);
+  ctx.body = me;
 });
 
 userRouter.get('/:id', async ctx => {
   try {
     const user = await getUser(ctx.params.id);
     ctx.set('Cache-Control', 'max-age=1800');
-    ctx.body = user;
-  } catch (error) {
-    const requestError = error as RequestError;
-    switch (requestError.code) {
-      case UserError.userNotFound:
-        ctx.status = 404;
-        break;
-      default:
-        throw error;
-    }
-    ctx.message = requestError.code;
-  }
-});
-
-userRouter.get('/temp/:id', async ctx => {
-  try {
-    const user = await getUser(ctx.params.id);
     ctx.body = user;
   } catch (error) {
     const requestError = error as RequestError;

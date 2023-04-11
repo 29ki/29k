@@ -11,7 +11,7 @@ import {
 } from '../../controllers/publicHostRequests';
 import {RequestError} from '../../controllers/errors/RequestError';
 import {UserError, VerificationError} from '../../../../shared/src/errors/User';
-import {getUser} from '../../controllers/user';
+import {getMe, getUser} from '../../controllers/user';
 
 jest.mock('../../controllers/publicHostRequests');
 jest.mock('../../controllers/user');
@@ -138,6 +138,34 @@ describe('/api/user', () => {
       expect(mockVerifyRequest).toHaveBeenCalledWith('some-user-id', 123456);
       expect(response.status).toBe(404);
       expect(response.text).toBe(VerificationError.verificationFailed);
+    });
+  });
+
+  describe('/', () => {
+    it('should reply with user data', async () => {
+      const mockedGetMe = jest.mocked(getMe).mockResolvedValueOnce({
+        description: 'some description',
+      });
+
+      const response = await request(mockServer).get('/user').send();
+
+      expect(mockedGetMe).toHaveBeenCalledTimes(1);
+      expect(mockedGetMe).toHaveBeenCalledWith('some-user-id');
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({
+        description: 'some description',
+      });
+    });
+
+    it('should reply with empty if user has no data', async () => {
+      const mockedGetMe = jest.mocked(getMe).mockResolvedValueOnce({});
+
+      const response = await request(mockServer).get('/user').send();
+
+      expect(mockedGetMe).toHaveBeenCalledTimes(1);
+      expect(mockedGetMe).toHaveBeenCalledWith('some-user-id');
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({});
     });
   });
 

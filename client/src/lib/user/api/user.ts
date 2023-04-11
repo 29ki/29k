@@ -47,7 +47,7 @@ export const verifyPromotion = async (
 
 export const getUser = async (userId: string): Promise<User> => {
   try {
-    const response = await apiClient(`${USER_ENDPOINT}/temp/${userId}`, {
+    const response = await apiClient(`${USER_ENDPOINT}/${userId}`, {
       method: 'GET',
     });
 
