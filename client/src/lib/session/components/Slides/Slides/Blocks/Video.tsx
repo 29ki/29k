@@ -104,7 +104,6 @@ const Video: React.FC<VideoProps> = ({
   const onEnd = useCallback(() => {
     // seek(0) does not reset progress so a second onEnd is triggered
     // Check that the progressRef is not set back to zero to trigger a reset
-
     if (!autoPlayLoop && !onEndRef.current) {
       onEndRef.current = true;
       setCurrentContentReachedEnd(true);
