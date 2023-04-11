@@ -104,6 +104,7 @@ const Video: React.FC<VideoProps> = ({
   const onEnd = useCallback(() => {
     // seek(0) does not reset progress so a second onEnd is triggered
     // Check that the progressRef is not set back to zero to trigger a reset
+
     if (!autoPlayLoop && !onEndRef.current) {
       onEndRef.current = true;
       setCurrentContentReachedEnd(true);
@@ -112,7 +113,14 @@ const Video: React.FC<VideoProps> = ({
 
   const videoSource: VideoLooperProperties['sources'] = useMemo(() => {
     if (source) {
-      return [{source, muted: audioSource ? true : false, repeat: true}];
+      return [
+        {
+          source,
+          muted: audioSource ? true : false,
+          // If audio source is available we allways loop the video and handle the audio separateley as the primary playing source
+          repeat: audioSource ? true : false,
+        },
+      ];
     }
     return [];
   }, [source, audioSource]);
@@ -132,7 +140,6 @@ const Video: React.FC<VideoProps> = ({
   );
 
   if (audioSources) {
-    // If audio source is available we allways loop the video and handle the audio separateley as the primary playing source
     return (
       <>
         <AudioPlayer
