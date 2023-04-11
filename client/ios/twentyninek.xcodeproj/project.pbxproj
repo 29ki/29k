@@ -124,6 +124,8 @@
 		FB406F7E72B143368045E1E2 /* PlayfairDisplay-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70541B4723CC4589BC286F20 /* PlayfairDisplay-SemiBoldItalic.ttf */; };
 		FCDDAFDDFE4F4A1FABA34E33 /* HKGrotesk-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6955B7D500CF486496F2FAC1 /* HKGrotesk-Thin.ttf */; };
 		FF3F319A6B6F454CB98D805C /* HKGrotesk-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB7EF2B3981F4C15B5A80B41 /* HKGrotesk-LightItalic.ttf */; };
+		D9DA50FFABC643769DFF37AB /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 76B1F4061D2649A39C176DC7 /* thumbs_up.png */; };
+		E95EF658CA8247E9A32317C5 /* thumbs_up_silouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 607182B0D44E4F54BA0D394B /* thumbs_up_silouette.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -186,6 +188,8 @@
 		FDC97632AC9A41E683B57B63 /* HKGrotesk-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-ExtraBold.ttf"; path = "../src/assets/fonts/HKGrotesk-ExtraBold.ttf"; sourceTree = "<group>"; };
 		FF83EDE6720045869984C7B3 /* HKGrotesk-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-Black.ttf"; path = "../src/assets/fonts/HKGrotesk-Black.ttf"; sourceTree = "<group>"; };
 		FFCEF1E2F3828B576D8B9B3D /* Pods-staging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-staging.release.xcconfig"; path = "Target Support Files/Pods-staging/Pods-staging.release.xcconfig"; sourceTree = "<group>"; };
+		76B1F4061D2649A39C176DC7 /* thumbs_up.png */ = {isa = PBXFileReference; name = "thumbs_up.png"; path = "../src/assets/images/thumbs_up.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		607182B0D44E4F54BA0D394B /* thumbs_up_silouette.png */ = {isa = PBXFileReference; name = "thumbs_up_silouette.png"; path = "../src/assets/images/thumbs_up_silouette.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +269,8 @@
 				35E0C7EB316048939A75C305 /* PlayfairDisplay-Regular.ttf */,
 				47BAB9D11CC441EE8D9AD069 /* PlayfairDisplay-SemiBold.ttf */,
 				70541B4723CC4589BC286F20 /* PlayfairDisplay-SemiBoldItalic.ttf */,
+				76B1F4061D2649A39C176DC7 /* thumbs_up.png */,
+				607182B0D44E4F54BA0D394B /* thumbs_up_silouette.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -516,6 +522,8 @@
 				10E70385B2454591A7657B4B /* PlayfairDisplay-Regular.ttf in Resources */,
 				A2D0FF0B865E4996AAAEED8C /* PlayfairDisplay-SemiBold.ttf in Resources */,
 				FB406F7E72B143368045E1E2 /* PlayfairDisplay-SemiBoldItalic.ttf in Resources */,
+				D9DA50FFABC643769DFF37AB /* thumbs_up.png in Resources */,
+				E95EF658CA8247E9A32317C5 /* thumbs_up_silouette.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
