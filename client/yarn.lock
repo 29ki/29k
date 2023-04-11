@@ -1451,10 +1451,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@notifee/react-native@^7.5.0":
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/@notifee/react-native/-/react-native-7.5.0.tgz#3d846b6a607a6352e798a3440cd3880c005a7d56"
-  integrity sha512-FR1xzQI2KpMyLuM7YZyHHjCcOXbjAcBWMeRlarro8peujr6gJZSg4j2Aw4o8O4ifMHDopFrovwyK1uYBaB9MUg==
+"@notifee/react-native@^7.6.1":
+  version "7.6.1"
+  resolved "https://registry.yarnpkg.com/@notifee/react-native/-/react-native-7.6.1.tgz#e215428787396ec57ea424106cc88666f7efe70d"
+  integrity sha512-OjhLPODh6FICYZmF9/0UZbcl2JPaPpcrWi1Cvs/OLFbPSJTIEwPZgXFrCHv/cA3wUX4YQCXreSqQGSVQgvNItQ==
 
 "@pnpm/network.ca-file@^1.0.1":
   version "1.0.1"
@@ -7870,10 +7870,10 @@ promise-polyfill@^8.1.3:
   resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-8.2.3.tgz#2edc7e4b81aff781c88a0d577e5fe9da822107c6"
   integrity sha512-Og0+jCRQetV84U8wVjMNccfGCnMQ9mGs9Hv78QFe+pSDD3gWTpz0y+1QCuxy5d/vBFuZ3iwP2eycAkvqIMPmWg==
 
-promise@^8.0.3:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/promise/-/promise-8.1.0.tgz#697c25c3dfe7435dd79fcd58c38a135888eaf05e"
-  integrity sha512-W04AqnILOL/sPRXziNicCjSNRruLAuIHEOVBazepu0545DDNGYHz7ar9ZgZ1fMU8/MA4mVxp5rkBWRi6OXIy3Q==
+promise@^8.2.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/promise/-/promise-8.3.0.tgz#8cb333d1edeb61ef23869fbb8a4ea0279ab60e0a"
+  integrity sha512-rZPNPKTOYVNEEKFaq1HqTgOwZD+4/YHS5ukLzQCypkj+OkYx7iv0mA91lJlpPPZ8vMau3IIGj5Qlwrx+8iiSmg==
   dependencies:
     asap "~2.0.6"
 
@@ -8130,10 +8130,10 @@ react-native-codegen@^0.69.2:
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
 
-react-native-device-info@^10.5.0:
-  version "10.5.0"
-  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-10.5.0.tgz#fb098f3c5fe763af3d0a07a4d92e26102989085c"
-  integrity sha512-o39xwi92aPDc8ZtlN0sX2ZJQGKv1BZqNgZZ9sSFDm25acQj2WD9G8/6KBcoQSqDROl9b2o44hahF4stWMAKtcw==
+react-native-device-info@^10.5.1:
+  version "10.5.1"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-10.5.1.tgz#16a24e2b32c14af1b00994019c850ad2088b30f3"
+  integrity sha512-fOoynmthZnoP7avXpUE/RP8F6Fw/ThFd3aF2C+jbyNCls9+ls4SKU7/opQJvZxd2/9vo//jBJ8AEloEcTpBIqw==
 
 react-native-dotenv@^3.4.8:
   version "3.4.8"
@@ -8202,6 +8202,11 @@ react-native-markdown-display@^7.0.0-alpha.2:
     prop-types "^15.7.2"
     react-native-fit-image "^1.5.5"
 
+react-native-rate@^1.2.12:
+  version "1.2.12"
+  resolved "https://registry.yarnpkg.com/react-native-rate/-/react-native-rate-1.2.12.tgz#d4307b2994f9c849b987eb65599ec467db4aee04"
+  integrity sha512-A/z3s7Zth08aXcJnru6S4p71NG8acx2w5LhIfItwTJUbQruNJugk8WrN51dLBCSDv8W33kbS5YoUT4M9jOP5gA==
+
 react-native-reanimated@^2.14.4:
   version "2.14.4"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-2.14.4.tgz#3fa3da4e7b99f5dfb28f86bcf24d9d1024d38836"
@@ -8239,10 +8244,10 @@ react-native-screens@^3.20.0:
   version "0.11.2"
   resolved "https://github.com/29ki/react-native-sound#904cca8cff5e98e25c5abf03c1d454d5aa507f43"
 
-react-native-svg@^13.8.0:
-  version "13.8.0"
-  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-13.8.0.tgz#b6a22cf77f8098f910490a13aeb160a37e182f97"
-  integrity sha512-G8Mx6W86da+vFimZBJvA93POw8yz0fgDS5biy6oIjMWVJVQSDzCyzwO/zY0yuZmCDhKSZzogl5m0wXXvW2OcTA==
+react-native-svg@^13.9.0:
+  version "13.9.0"
+  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-13.9.0.tgz#8df8a690dd00362601f074dec5d3a86dd0f99c7f"
+  integrity sha512-Ey18POH0dA0ob/QiwCBVrxIiwflhYuw0P0hBlOHeY4J5cdbs8ngdKHeWC/Kt9+ryP6fNoEQ1PUgPYw2Bs/rp5Q==
   dependencies:
     css-select "^5.1.0"
     css-tree "^1.1.3"
@@ -8263,10 +8268,10 @@ react-native-url-polyfill@^1.1.2:
     prop-types "^15.7.2"
     shaka-player "^2.5.9"
 
-react-native@0.69.5:
-  version "0.69.5"
-  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.69.5.tgz#959142bfef21beed837160b54aa17313f5e1898f"
-  integrity sha512-4Psrj1nDMLQjBXVH8n3UikzOHQc8+sa6NbxZQR0XKtpx8uC3HiJBgX+/FIum/RWxfi5J/Dt/+A2gLGmq2Hps8g==
+react-native@0.69.9:
+  version "0.69.9"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.69.9.tgz#c988dfc2e21b3b586d35a8cc57b102537e760edc"
+  integrity sha512-I1xqIn47RWxBToO4E6yqyIPSaK9mZnMiscMfrFpWjQr3Gdkicr9y+twmtrRszxaLdQLjHzh/M3y4qOqc3hZnpg==
   dependencies:
     "@jest/create-cache-key-function" "^27.0.1"
     "@react-native-community/cli" "^8.0.4"
@@ -8289,7 +8294,7 @@ react-native@0.69.5:
     mkdirp "^0.5.1"
     nullthrows "^1.1.1"
     pretty-format "^26.5.2"
-    promise "^8.0.3"
+    promise "^8.2.0"
     react-devtools-core "4.24.0"
     react-native-codegen "^0.69.2"
     react-native-gradle-plugin "^0.0.7"

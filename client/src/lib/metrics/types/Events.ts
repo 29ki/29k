@@ -43,6 +43,7 @@ type Events = {
 
   // Feedback
   'Sharing Session Feedback': FeedbackProperties;
+  'Rating Request Opened': undefined;
 
   // Collections
   'Add Collection To Journey': CollectionProperties;

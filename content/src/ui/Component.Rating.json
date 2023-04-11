@@ -1,0 +1,13 @@
+{
+  "en": {
+    "header": "Give a review",
+    "text": "Thanks! Would you mind rating our app in the {{storeType}}?",
+    "buttons": {
+      "cancel": "No thanks",
+      "confirm": "Yes, of course!"
+    }
+  },
+  "sv": {},
+  "pt": {},
+  "es": {}
+}
