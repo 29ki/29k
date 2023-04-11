@@ -122,6 +122,7 @@ const CompletedSessionModal = () => {
   const userProfile = useMemo(() => {
     if (user?.displayName) {
       return {
+        uid: user.uid,
         displayName: user.displayName,
         photoURL: user.photoURL ? user.photoURL : undefined,
       };

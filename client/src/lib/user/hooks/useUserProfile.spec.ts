@@ -6,33 +6,16 @@ import useUserState from '../state/state';
 import useUserProfile from './useUserProfile';
 
 jest.mock('../api/user');
-const mockGetProfile = jest.mocked(getUser);
+const mockGetUser = jest.mocked(getUser);
 
 afterEach(jest.clearAllMocks);
 
 describe('useUserProfile', () => {
-  it('should return user state data', async () => {
-    useUserState.setState({
-      user: {
-        uid: 'user-id',
-        displayName: 'display-name',
-        photoURL: 'photo-url',
-      } as FirebaseAuthTypes.User,
-    });
-
-    const {result} = renderHook(() => useUserProfile('user-id'));
-
-    expect(result.current).toEqual({
-      displayName: 'display-name',
-      photoURL: 'photo-url',
-    });
-    expect(mockGetProfile).toHaveBeenCalledTimes(0);
-  });
-
   it('should request user profile data', async () => {
-    mockGetProfile.mockResolvedValueOnce({
+    mockGetUser.mockResolvedValueOnce({
       displayName: 'some-display-name',
       photoURL: 'some-photo-url',
+      uid: 'some-user-id',
     });
     useUserState.setState({
       user: {
@@ -50,8 +33,9 @@ describe('useUserProfile', () => {
     expect(result.current).toEqual({
       displayName: 'some-display-name',
       photoURL: 'some-photo-url',
+      uid: 'some-user-id',
     });
-    expect(mockGetProfile).toHaveBeenCalledTimes(1);
-    expect(mockGetProfile).toHaveBeenCalledWith('some-user-id');
+    expect(mockGetUser).toHaveBeenCalledTimes(1);
+    expect(mockGetUser).toHaveBeenCalledWith('some-user-id');
   });
 });

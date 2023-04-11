@@ -3,8 +3,10 @@ import auth from '@react-native-firebase/auth';
 
 import useUserState from '../state/state';
 import {getMe} from '../api/user';
+import useUser from './useUser';
 
 const useAuthenticateUser = () => {
+  const user = useUser();
   const setUserAndClaims = useUserState(state => state.setUserAndClaims);
   const setData = useUserState(state => state.setData);
   const resetUser = useUserState(state => state.reset);
@@ -19,13 +21,17 @@ const useAuthenticateUser = () => {
           user: currentUser,
           claims: idToken.claims,
         });
-        const data = await getMe();
-        setData(data);
       }
     });
 
     return unsubscribe;
-  }, [setUserAndClaims, setData, resetUser]);
+  }, [setUserAndClaims, resetUser]);
+
+  useEffect(() => {
+    if (user?.uid) {
+      getMe().then(setData);
+    }
+  }, [user?.uid, setData]);
 };
 
 export default useAuthenticateUser;
