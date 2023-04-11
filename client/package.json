@@ -91,7 +91,7 @@
     "@types/uuid": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
-    "appcenter-cli": "^2.13.3",
+    "appcenter-cli": "^2.13.4",
     "babel-jest": "^29.5.0",
     "eslint": "^8.37.0",
     "eslint-plugin-i18next": "^6.0.0-8",
