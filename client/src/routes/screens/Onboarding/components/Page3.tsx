@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import Gutters from '../../../../lib/components/Gutters/Gutters';
 import Heading from './Heading';
 import {useTranslation} from 'react-i18next';
