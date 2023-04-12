@@ -8,7 +8,7 @@ const exercises = generateI18NResources(
 );
 
 const ui = generateI18NResources(getContentByType('ui'));
-const email = generateI18NResources(getContentByType('email'));
+const email = generateI18NResources(getContentByType('email'), 'email');
 const tags = generateI18NResources(getContentByType('tags'), 'tags');
 const collections = generateI18NResources(
   getContentByType('collections'),

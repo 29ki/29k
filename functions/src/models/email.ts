@@ -37,7 +37,7 @@ const createReportEmail = (
     params: ReportParams;
   },
 ) => {
-  const t = i18next.getFixedT(language, 'email.userReport');
+  const t = i18next.getFixedT(language, 'email');
 
   return {
     to: emailTo,
@@ -50,11 +50,15 @@ const createReportEmail = (
         }
       : {}),
 
-    subject: `${t('subject')} - ${dayjs().format('DD/MM/YYYY')}`,
-    text: renderUserReportText({body: t('body'), content: message, params}),
+    subject: `${t('userReport.subject')} - ${dayjs().format('DD/MM/YYYY')}`,
+    text: renderUserReportText({
+      body: t('userReport.body'),
+      content: message,
+      params,
+    }),
     html: renderUserReportHtml({
       content: message,
-      body: t('body'),
+      body: t('userReport.body'),
       params,
     }),
     categories: ['Report from user'],

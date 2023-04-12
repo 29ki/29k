@@ -6,6 +6,7 @@ import {generateFilesCollectionFromi18nFiles} from '../lib/i18n';
 import EXERCISE_DEFAULTS_FIELDS from '../fields/defaults';
 import {TAG_FIELDS} from '../fields/tag';
 import {COLLECTION_FIELDS} from '../fields/collection';
+import {DEFAULT_LANGUAGE_TAG} from '../../../shared/src/constants/i18n';
 
 export const exercises: CmsCollection = {
   name: 'exercises',
@@ -113,19 +114,13 @@ export const other: CmsCollection = {
 export const email: CmsCollection = generateFilesCollectionFromi18nFiles(
   'email',
   '💌 Email',
-  content.i18n,
-  resouce =>
-    ![exercises.name, tags.name, collections.name].find(
-      e => e === resouce[0],
-    ) && resouce[0].includes('email.'),
+  content.i18n[DEFAULT_LANGUAGE_TAG].email,
+  [],
 );
 
 export const ui: CmsCollection = generateFilesCollectionFromi18nFiles(
   'ui',
   '📱 UI',
-  content.i18n,
-  resouce =>
-    ![exercises.name, tags.name, collections.name].find(
-      e => e === resouce[0],
-    ) && !resouce[0].includes('email.'),
+  content.i18n[DEFAULT_LANGUAGE_TAG],
+  [exercises.name, tags.name, collections.name, email.name],
 );
