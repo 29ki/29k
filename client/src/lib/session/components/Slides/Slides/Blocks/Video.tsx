@@ -112,7 +112,14 @@ const Video: React.FC<VideoProps> = ({
 
   const videoSource: VideoLooperProperties['sources'] = useMemo(() => {
     if (source) {
-      return [{source, muted: audioSource ? true : false, repeat: true}];
+      return [
+        {
+          source,
+          muted: audioSource ? true : false,
+          // If audio source is available we allways loop the video and handle the audio separateley as the primary playing source
+          repeat: audioSource ? true : false,
+        },
+      ];
     }
     return [];
   }, [source, audioSource]);
@@ -132,7 +139,6 @@ const Video: React.FC<VideoProps> = ({
   );
 
   if (audioSources) {
-    // If audio source is available we allways loop the video and handle the audio separateley as the primary playing source
     return (
       <>
         <AudioPlayer
