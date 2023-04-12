@@ -5,7 +5,10 @@
       "collections": "Collections",
       "planned": "Your planned sessions"
     },
-    "fallback": "🌱 Your journey has just begun"
+    "fallback": "🌱 Your journey has just begun",
+    "meaninfulSessions": "Meaningful\nsessions",
+    "totalSessions": "Total\nsessions",
+    "hostedSessions": "Hosted\nsessions"
   },
   "pt": {
     "headings": {

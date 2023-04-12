@@ -21,13 +21,27 @@ export const ThumbsUp: React.FC<ThumbProps> = ({active = false, style}) => (
   <Container style={style}>
     {active && (
       <Image
-        source={require('../../../../assets/images/thumbs-up-silouette.png')}
+        source={{
+          uri: 'thumbs_up_silouette',
+        }}
       />
     )}
-    <Image source={require('../../../../assets/images/thumbs-up.png')} />
+    <Image
+      source={{
+        uri: 'thumbs_up',
+      }}
+    />
   </Container>
 );
 
 export const ThumbsDown = styled(ThumbsUp)({
   transform: 'scaleY(-1)',
+});
+
+export const ThumbsUpWithoutPadding = styled(ThumbsUp)({
+  transform: 'scale(2)',
+});
+
+export const ThumbsDownWithoutPadding = styled(ThumbsUpWithoutPadding)({
+  transform: 'scale(2, -2)',
 });
