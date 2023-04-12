@@ -1,21 +1,21 @@
 import i18next, {LANGUAGE_TAG} from '../i18n';
 
 const getHeaderProps = (lng: LANGUAGE_TAG) => {
-  const t = i18next.getFixedT(lng, 'email.header');
+  const t = i18next.getFixedT(lng, 'email');
 
-  return {headerImageURL: t('header__image')};
+  return {headerImageURL: t('header.header__image')};
 };
 
 const getFooterProps = (lng: LANGUAGE_TAG) => {
-  const t = i18next.getFixedT(lng, 'email.footer');
+  const t = i18next.getFixedT(lng, 'email');
 
   return {
-    homeImageURL: t('home__image'),
-    homeURL: t('homeURL'),
-    instagramURL: t('instagramURL'),
-    facebookURL: t('facebookURL'),
-    donateImageUri: t('donate__image'),
-    unsubscribeText: t('unsubscribe.text'),
+    homeImageURL: t('footer.home__image'),
+    homeURL: t('footer.homeURL'),
+    instagramURL: t('footer.instagramURL'),
+    facebookURL: t('footer.facebookURL'),
+    donateImageUri: t('footer.donate__image'),
+    unsubscribeText: t('footer.unsubscribe.text'),
   };
 };
 
