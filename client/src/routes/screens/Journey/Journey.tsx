@@ -49,6 +49,8 @@ import JourneyNode from './components/JourneyNode';
 import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
 import FilterStatus from './components/FilterStatus';
 import {LogoIcon} from '../../../lib/components/Icons';
+import useUser from '../../../lib/user/hooks/useUser';
+import Image from '../../../lib/components/Image/Image';
 
 const COMPLETED_SESSION_LIMIT = 5;
 
@@ -74,6 +76,15 @@ const Row = styled.View({
   alignItems: 'center',
 });
 
+const ImageContainer = styled.View<{small?: boolean}>(() => ({
+  backgroundColor: COLORS.GREYMEDIUM,
+  width: SPACINGS.TWENTYFOUR,
+  height: SPACINGS.TWENTYFOUR,
+  borderRadius: SPACINGS.TWELVE,
+  overflow: 'hidden',
+  shadowColor: COLORS.GREYDARK,
+}));
+
 const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
   section: {title},
 }) => (
@@ -89,12 +100,13 @@ const Journey = () => {
       NativeStackNavigationProp<OverlayStackProps & ModalStackProps>
     >();
   const {fetchSessions, pinnedSessions, hostedSessions} = useSessions();
-  const {completedSessions} = useCompletedSessions();
+  const {completedSessions, completedHostedSessions} = useCompletedSessions();
   const {pinnedCollections} = usePinnedCollections();
   const [isLoading, setIsLoading] = useState(false);
   const isFocused = useIsFocused();
   const listRef = useRef<RNSectionList<JourneyItem, Section>>(null);
   const {feedbackEvents} = useUserEvents();
+  const user = useUser();
 
   const [positiveFeedbacks] = useMemo(
     () => partition(f => f.payload.answer, feedbackEvents),
@@ -151,6 +163,20 @@ const Journey = () => {
   const onTotalPress = useCallback(
     () => navigate('CompletedSessionsModal', {filterSetting: 'mode'}),
     [navigate],
+  );
+
+  const onHostedPress = useCallback(
+    () => navigate('CompletedSessionsModal', {filterSetting: 'host'}),
+    [navigate],
+  );
+
+  const UserPic = useCallback(
+    () => (
+      <ImageContainer>
+        {user?.photoURL && <Image source={{uri: user.photoURL}} />}
+      </ImageContainer>
+    ),
+    [user],
   );
 
   const refreshPull = useCallback(async () => {
@@ -226,15 +252,30 @@ const Journey = () => {
                     onPress={onTotalPress}
                     Icon={LogoIcon}
                     heading={`${completedSessions.length}`}
-                    description={'Total\nsessions'}
+                    description={t('totalSessions')}
                   />
-                  <Spacer16 />
-                  <FilterStatus
-                    onPress={onPositivePress}
-                    Icon={ThumbsUpWithoutPadding}
-                    heading={`${positiveFeedbacks.length}`}
-                    description={'Meaningful\nsessions'}
-                  />
+                  {positiveFeedbacks.length ? (
+                    <>
+                      <Spacer16 />
+                      <FilterStatus
+                        onPress={onPositivePress}
+                        Icon={ThumbsUpWithoutPadding}
+                        heading={`${positiveFeedbacks.length}`}
+                        description={t('meaninfulSessions')}
+                      />
+                    </>
+                  ) : null}
+                  {completedHostedSessions.length ? (
+                    <>
+                      <Spacer16 />
+                      <FilterStatus
+                        onPress={onHostedPress}
+                        Icon={UserPic}
+                        heading={`${completedHostedSessions.length}`}
+                        description={t('hostedSessions')}
+                      />
+                    </>
+                  ) : null}
                 </Row>
                 <Spacer16 />
               </>
@@ -265,10 +306,14 @@ const Journey = () => {
       );
     },
     [
-      onPositivePress,
       positiveFeedbacks.length,
       completedSessions.length,
+      completedHostedSessions.length,
       onTotalPress,
+      onHostedPress,
+      onPositivePress,
+      t,
+      UserPic,
     ],
   );
 

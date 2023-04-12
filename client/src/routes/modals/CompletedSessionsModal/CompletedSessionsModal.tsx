@@ -28,7 +28,7 @@ const CompletedSessionsModal = () => {
   const {
     params: {filterSetting},
   } = useRoute<RouteProp<ModalStackProps, 'CompletedSessionsModal'>>();
-  const {completedSessions} = useCompletedSessions();
+  const {completedSessions, completedHostedSessions} = useCompletedSessions();
   const [selectedMode, setSelectedMode] = useState<
     SessionMode.async | SessionType.public | SessionType.private
   >();
@@ -61,8 +61,13 @@ const CompletedSessionsModal = () => {
       });
     }
 
+    if (filterSetting === 'host') {
+      return completedHostedSessions;
+    }
+
     return completedSessions;
   }, [
+    completedHostedSessions,
     completedSessions,
     filterSetting,
     selectedFeedback,
