@@ -92,16 +92,16 @@ class VideoLooperView: RCTView {
   }
   
   private func configureAudio() {
-    do {
-      let session = AVAudioSession.sharedInstance()
-      if (_mixWithOhters) {
-        try session.setCategory(.playAndRecord, options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
-        try session.setActive(true)
-      } else {
-        try session.setCategory(.playback)
-      }
-    } catch {
-      
+    if _player?.isMuted != true {
+      do {
+        let session = AVAudioSession.sharedInstance()
+        if (_mixWithOhters) {
+          try session.setCategory(.playAndRecord, options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
+          try session.setActive(true)
+        } else {
+          try session.setCategory(.playback)
+        }
+      } catch {}
     }
   }
   
@@ -141,9 +141,25 @@ class VideoLooperView: RCTView {
         fullfill(nil)
         return
       }
-      let loopAsset = AVAsset(url: URL(string: source! as String)!)
-      loopAsset.loadValuesAsynchronously(forKeys: ["duration", "playable"]) {
-        fullfill(loopAsset)
+      
+      var asset: AVAsset? = nil
+      if source?.hasPrefix("http") == true {
+        asset = AVAsset(url: URL(string: source! as String)!)
+      } else {
+        let url = Bundle.main.url(
+          forResource: source!.deletingPathExtension as String,
+          withExtension: source!.pathExtension)
+        if (url != nil) {
+          asset = AVAsset(url: url!)
+        }
+      }
+      
+      if asset != nil {
+        asset!.loadValuesAsynchronously(forKeys: ["duration", "playable"]) {
+          fullfill(asset)
+        }
+      } else {
+        fullfill(nil)
       }
     }
   }
@@ -190,7 +206,7 @@ class VideoLooperView: RCTView {
             fulfill(())
         })
     }
-}
+  }
   
   // MARK: react props handlers
   
@@ -301,6 +317,11 @@ class VideoLooperView: RCTView {
     _volume = val?.floatValue ?? 0
     _player?.volume = _volume
     _audioPlayer?.volume = _volume
+  }
+  
+  @objc func setMuted(_ val: Bool) {
+    _player?.isMuted = val
+    _audioPlayer?.volume = val ? 0 : _volume
   }
   
   // MARK: Observers
