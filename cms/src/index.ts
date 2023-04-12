@@ -12,6 +12,7 @@ import {
   settings,
   tags,
   ui,
+  email,
 } from './collections/collections';
 import {Widget as uniqueIdWidget} from './widgets/uniqueIdWidget';
 
@@ -43,7 +44,7 @@ CMS.init({
       locales: LANGUAGE_TAGS,
       default_locale: DEFAULT_LANGUAGE_TAG,
     },
-    collections: [exercises, ui, settings, tags, collections, other],
+    collections: [exercises, ui, settings, tags, collections, other, email],
   },
 });
 
