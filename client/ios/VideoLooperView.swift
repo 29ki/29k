@@ -141,9 +141,25 @@ class VideoLooperView: RCTView {
         fullfill(nil)
         return
       }
-      let loopAsset = AVAsset(url: URL(string: source! as String)!)
-      loopAsset.loadValuesAsynchronously(forKeys: ["duration", "playable"]) {
-        fullfill(loopAsset)
+      
+      var asset: AVAsset? = nil
+      if source?.hasPrefix("http") == true {
+        asset = AVAsset(url: URL(string: source! as String)!)
+      } else {
+        let url = Bundle.main.url(
+          forResource: source!.deletingPathExtension as String,
+          withExtension: source!.pathExtension)
+        if (url != nil) {
+          asset = AVAsset(url: url!)
+        }
+      }
+      
+      if asset != nil {
+        asset!.loadValuesAsynchronously(forKeys: ["duration", "playable"]) {
+          fullfill(asset)
+        }
+      } else {
+        fullfill(nil)
       }
     }
   }
@@ -190,7 +206,7 @@ class VideoLooperView: RCTView {
             fulfill(())
         })
     }
-}
+  }
   
   // MARK: react props handlers
   
