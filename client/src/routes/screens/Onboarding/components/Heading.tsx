@@ -2,13 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Display36} from '../../../../lib/components/Typography/Display/Display';
-import Svg, {
-  SvgProps,
-  Ellipse,
-  Defs,
-  RadialGradient,
-  Stop,
-} from 'react-native-svg';
+import BackgroundGradient from './BackgroundGradient';
 
 const Container = styled.View({
   alignItems: 'center',
@@ -16,29 +10,10 @@ const Container = styled.View({
   zIndex: -1,
 });
 
-const Gradient = (props: SvgProps) => (
-  <Svg viewBox="0 0 355 274" {...props}>
-    <Ellipse cx={177.5} cy={137} fill="url(#a)" rx={177.5} ry={137} />
-    <Defs>
-      <RadialGradient
-        id="a"
-        cx={0}
-        cy={0}
-        r={1}
-        gradientTransform="matrix(0 137 -177.5 0 177.5 137)"
-        gradientUnits="userSpaceOnUse">
-        <Stop stopColor="#1F282F" />
-        <Stop offset={0.38} stopColor="#1F282F" stopOpacity={0.6} />
-        <Stop offset={1} stopColor="#1F282F" stopOpacity={0} />
-      </RadialGradient>
-    </Defs>
-  </Svg>
-);
-
-const Background = styled(Gradient)({
+const Background = styled(BackgroundGradient)({
   position: 'absolute',
-  width: '200%',
-  height: '300%',
+  width: '100%',
+  height: '200%',
 });
 
 const StyledHeading = styled(Display36)({

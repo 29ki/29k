@@ -27,6 +27,7 @@ import {PlayfairDisplayMedium} from '../../../lib/constants/fonts';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {AppStackProps} from '../../../lib/navigation/constants/routes';
+import BackgroundGradient from './components/BackgroundGradient';
 
 const {width: WINDOW_WIDTH, height: WINDOW_HEIGHT} = Dimensions.get('window');
 
@@ -42,25 +43,6 @@ const Background = styled.Image.attrs({
   height: BACKGROUND_HEIGHT,
   width: BACKGROUND_WIDTH,
 });
-
-const Gradient = (props: SvgProps) => (
-  <Svg viewBox="0 0 375 264" fill="none" {...props}>
-    <Ellipse cx={171.5} cy={132} fill="url(#a)" rx={254.5} ry={132} />
-    <Defs>
-      <RadialGradient
-        id="a"
-        cx={0}
-        cy={0}
-        r={1}
-        gradientTransform="matrix(0 132 -254.5 0 171.5 132)"
-        gradientUnits="userSpaceOnUse">
-        <Stop offset={0.083} stopColor="#3F4E3A" />
-        <Stop offset={0.552} stopColor="#3F4E3A" stopOpacity={0.6} />
-        <Stop offset={1} stopColor="#3F4E3A" stopOpacity={0} />
-      </RadialGradient>
-    </Defs>
-  </Svg>
-);
 
 const Sun = (props: SvgProps) => (
   <Svg width="100%" height="100%" viewBox="0 0 375 499" fill="none" {...props}>
@@ -93,7 +75,7 @@ const Sunrise = styled(Animated.View)({
   top: (WINDOW_HEIGHT - SUNSET_HEIGHT) / 2,
 });
 
-const HeadingBackground = styled(Gradient)({
+const HeadingBackground = styled(BackgroundGradient).attrs({color: '#3F4E3A'})({
   position: 'absolute',
   alignSelf: 'center',
   bottom: '21%',
