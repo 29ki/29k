@@ -4,8 +4,8 @@ import {IconType} from '..';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import Icon from '../Icon';
 
-export const ChevronLeft: IconType = ({fill = COLORS.BLACK}) => (
-  <Icon>
+export const ChevronLeftIcon: IconType = ({fill = COLORS.BLACK, style}) => (
+  <Icon style={style}>
     <Path
       d="M18.5 7.5 11 15l7.5 7.5"
       stroke={fill}

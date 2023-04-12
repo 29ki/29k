@@ -7,7 +7,7 @@ import {SessionSlideState} from '../../../session/hooks/useSessionSlideState';
 
 import {
   ChevronRight,
-  ChevronLeft,
+  ChevronLeftIcon,
   Play,
   Pause,
   Rewind,
@@ -101,7 +101,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
       <SlideButton
         variant="tertiary"
         small
-        LeftIcon={ChevronLeft}
+        LeftIcon={ChevronLeftIcon}
         disabled={!slideState.previous}
         elevated
         onPress={onPrevPress}>
