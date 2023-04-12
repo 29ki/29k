@@ -70,7 +70,7 @@ const Name = styled(Body14)({
 const Video = styled(VideoLooper).attrs({
   paused: false,
   repeat: true,
-  volume: 0,
+  muted: true,
 })({});
 
 const Page2 = () => {
@@ -84,8 +84,7 @@ const Page2 = () => {
             <Video
               sources={[
                 {
-                  source:
-                    'https://res.cloudinary.com/cupcake-29k/video/upload/v1676394656/Video/async_intro_drop_all_requirements_h7ah3c.mov',
+                  source: 'onboarding_person1.mp4',
                   repeat: true,
                 },
               ]}
@@ -100,8 +99,7 @@ const Page2 = () => {
             <Video
               sources={[
                 {
-                  source:
-                    'https://res.cloudinary.com/cupcake-29k/video/upload/v1679332634/Video/IntroPureSimpleLove_uqxfle.mp4',
+                  source: 'onboarding_person2.mp4',
                   repeat: true,
                 },
               ]}
@@ -116,8 +114,7 @@ const Page2 = () => {
             <Video
               sources={[
                 {
-                  source:
-                    'https://res.cloudinary.com/cupcake-29k/video/upload/v1678967008/Video/The_way_out_is_through_outro_waudnc.mp4',
+                  source: 'onboarding_person3.mp4',
                   repeat: true,
                 },
               ]}
