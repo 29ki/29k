@@ -61,6 +61,10 @@
 		3690D88E2865064200A0F937 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3690D88D2865064200A0F937 /* Images.xcassets */; };
 		3690D88F2865069800A0F937 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3690D88D2865064200A0F937 /* Images.xcassets */; };
 		3690D8902865069900A0F937 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3690D88D2865064200A0F937 /* Images.xcassets */; };
+		36A3687629E69FFD00B8E859 /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 76B1F4061D2649A39C176DC7 /* thumbs_up.png */; };
+		36A3687729E69FFD00B8E859 /* thumbs_up_silouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 607182B0D44E4F54BA0D394B /* thumbs_up_silouette.png */; };
+		36A3687829E69FFE00B8E859 /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 76B1F4061D2649A39C176DC7 /* thumbs_up.png */; };
+		36A3687929E69FFE00B8E859 /* thumbs_up_silouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 607182B0D44E4F54BA0D394B /* thumbs_up_silouette.png */; };
 		36B9FA1028625FFA00563812 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		36B9FA1128625FFA00563812 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		36B9FA1628625FFA00563812 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -129,6 +133,8 @@
 		A2D0FF0B865E4996AAAEED8C /* PlayfairDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47BAB9D11CC441EE8D9AD069 /* PlayfairDisplay-SemiBold.ttf */; };
 		CD86BEA31AC24020B0EDF7F9 /* HKGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7A9AC015F0444D78702CDB8 /* HKGrotesk-Medium.ttf */; };
 		D27C808E13974943B12A51A1 /* HKGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38098D4E3BE44FE192B788F7 /* HKGrotesk-Light.ttf */; };
+		D9DA50FFABC643769DFF37AB /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 76B1F4061D2649A39C176DC7 /* thumbs_up.png */; };
+		E95EF658CA8247E9A32317C5 /* thumbs_up_silouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 607182B0D44E4F54BA0D394B /* thumbs_up_silouette.png */; };
 		F972E6872EEC4680BFA871D4 /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D604BD0BA9D4700B61615BC /* PlayfairDisplay-Bold.ttf */; };
 		FB406F7E72B143368045E1E2 /* PlayfairDisplay-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70541B4723CC4589BC286F20 /* PlayfairDisplay-SemiBoldItalic.ttf */; };
 		FCDDAFDDFE4F4A1FABA34E33 /* HKGrotesk-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6955B7D500CF486496F2FAC1 /* HKGrotesk-Thin.ttf */; };
@@ -165,6 +171,7 @@
 		4668E18F3B364E8FBEE4855C /* HKGrotesk-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-SemiBold.ttf"; path = "../src/assets/fonts/HKGrotesk-SemiBold.ttf"; sourceTree = "<group>"; };
 		47BAB9D11CC441EE8D9AD069 /* PlayfairDisplay-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-SemiBold.ttf"; path = "../src/assets/fonts/PlayfairDisplay-SemiBold.ttf"; sourceTree = "<group>"; };
 		5D604BD0BA9D4700B61615BC /* PlayfairDisplay-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Bold.ttf"; path = "../src/assets/fonts/PlayfairDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		607182B0D44E4F54BA0D394B /* thumbs_up_silouette.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = thumbs_up_silouette.png; path = ../src/assets/images/thumbs_up_silouette.png; sourceTree = "<group>"; };
 		61A8F5BA383445C59ADAA18A /* PlayfairDisplay-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/PlayfairDisplay-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		624F908A7D658EB04E2EA6F1 /* Pods-staging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-staging.debug.xcconfig"; path = "Target Support Files/Pods-staging/Pods-staging.debug.xcconfig"; sourceTree = "<group>"; };
 		64EC0C45BF0040A2AEAB9C0F /* PlayfairDisplay-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Italic.ttf"; path = "../src/assets/fonts/PlayfairDisplay-Italic.ttf"; sourceTree = "<group>"; };
@@ -542,6 +549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36C49FEF28D8AA11001878A6 /* HKGrotesk-Light.ttf in Resources */,
+				36A3687829E69FFE00B8E859 /* thumbs_up.png in Resources */,
 				36303A1728D9B0910025F147 /* PlayfairDisplay-ExtraBold.ttf in Resources */,
 				36303A1828D9B0910025F147 /* PlayfairDisplay-SemiBold.ttf in Resources */,
 				36C49FEC28D8AA11001878A6 /* HKGrotesk-Medium.ttf in Resources */,
@@ -555,6 +563,7 @@
 				36210DED29DEDA0300552260 /* thumbs_up.png in Resources */,
 				36C49FF328D8AA11001878A6 /* HKGrotesk-ExtraBoldItalic.ttf in Resources */,
 				3690D8902865069900A0F937 /* Images.xcassets in Resources */,
+				36A3687929E69FFE00B8E859 /* thumbs_up_silouette.png in Resources */,
 				36303A1C28D9B0910025F147 /* PlayfairDisplay-SemiBoldItalic.ttf in Resources */,
 				36C49FE528D8AA11001878A6 /* HKGrotesk-Thin.ttf in Resources */,
 				36303A2028D9B0910025F147 /* PlayfairDisplay-ExtraBoldItalic.ttf in Resources */,
@@ -585,6 +594,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36C49FDD28D8AA11001878A6 /* HKGrotesk-Light.ttf in Resources */,
+				36A3687629E69FFD00B8E859 /* thumbs_up.png in Resources */,
 				36303A0B28D9B0910025F147 /* PlayfairDisplay-ExtraBold.ttf in Resources */,
 				36303A0C28D9B0910025F147 /* PlayfairDisplay-SemiBold.ttf in Resources */,
 				36C49FDA28D8AA11001878A6 /* HKGrotesk-Medium.ttf in Resources */,
@@ -598,6 +608,7 @@
 				36210DEA29DEDA0300552260 /* thumbs_up.png in Resources */,
 				36C49FE128D8AA11001878A6 /* HKGrotesk-ExtraBoldItalic.ttf in Resources */,
 				7880A5192862029F0063B482 /* LaunchScreen.storyboard in Resources */,
+				36A3687729E69FFD00B8E859 /* thumbs_up_silouette.png in Resources */,
 				36303A1028D9B0910025F147 /* PlayfairDisplay-SemiBoldItalic.ttf in Resources */,
 				36C49FD328D8AA11001878A6 /* HKGrotesk-Thin.ttf in Resources */,
 				36303A1428D9B0910025F147 /* PlayfairDisplay-ExtraBoldItalic.ttf in Resources */,
@@ -1025,7 +1036,7 @@
 				CODE_SIGN_ENTITLEMENTS = production.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 86;
+				CURRENT_PROJECT_VERSION = 87;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
@@ -1033,7 +1044,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.18.0;
+				MARKETING_VERSION = 2.20.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1059,14 +1070,14 @@
 				CODE_SIGN_ENTITLEMENTS = production.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 86;
+				CURRENT_PROJECT_VERSION = 87;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.18.0;
+				MARKETING_VERSION = 2.20.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1091,7 +1102,7 @@
 				CODE_SIGN_ENTITLEMENTS = dev.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 86;
+				CURRENT_PROJECT_VERSION = 87;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
@@ -1100,7 +1111,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.18.0;
+				MARKETING_VERSION = 2.20.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1127,7 +1138,7 @@
 				CODE_SIGN_ENTITLEMENTS = dev.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 86;
+				CURRENT_PROJECT_VERSION = 87;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 68Y57ZGKLJ;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
@@ -1135,7 +1146,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.18.0;
+				MARKETING_VERSION = 2.20.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1162,7 +1173,7 @@
 				CODE_SIGN_ENTITLEMENTS = staging.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 86;
+				CURRENT_PROJECT_VERSION = 87;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
@@ -1170,7 +1181,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.18.0;
+				MARKETING_VERSION = 2.20.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1196,14 +1207,14 @@
 				CODE_SIGN_ENTITLEMENTS = staging.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 86;
+				CURRENT_PROJECT_VERSION = 87;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.18.0;
+				MARKETING_VERSION = 2.20.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",

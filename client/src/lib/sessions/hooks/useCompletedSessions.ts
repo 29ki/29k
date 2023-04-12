@@ -1,9 +1,11 @@
 import {useMemo} from 'react';
 
 import useUserEvents from '../../user/hooks/useUserEvents';
+import useUser from '../../user/hooks/useUser';
 
 const useCompletedSessions = () => {
   const {completedSessionEvents} = useUserEvents();
+  const user = useUser();
 
   const completedSessions = useMemo(
     () =>
@@ -14,8 +16,15 @@ const useCompletedSessions = () => {
     [completedSessionEvents],
   );
 
+  const completedHostedSessions = useMemo(
+    () =>
+      completedSessions.filter(({payload: {hostId}}) => hostId === user?.uid),
+    [completedSessions, user?.uid],
+  );
+
   return {
     completedSessions,
+    completedHostedSessions,
   };
 };
 

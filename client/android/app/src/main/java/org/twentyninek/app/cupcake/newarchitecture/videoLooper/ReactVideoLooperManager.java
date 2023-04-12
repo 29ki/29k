@@ -57,6 +57,11 @@ public class ReactVideoLooperManager extends SimpleViewManager<ReactVideoLooperV
   public void setPaused(ReactVideoLooperView view, boolean paused) {
     view.setPaused(paused);
   }
+  
+  @ReactProp(name = "muted")
+  public void setMuted(ReactVideoLooperView view, boolean muted) {
+    view.setMuted(muted);
+  }
 
   @ReactProp(name = "volume")
   public void setVolume(ReactVideoLooperView view, double volume) {

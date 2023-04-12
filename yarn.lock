@@ -1459,10 +1459,10 @@ finalhandler@1.2.0:
     statuses "2.0.1"
     unpipe "~1.0.0"
 
-firebase-tools@^11.25.2:
-  version "11.25.2"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-11.25.2.tgz#608c50df2a84bc03985f258243125880f3142368"
-  integrity sha512-rKMLosFFlbrBsia11eN8EN6GL3+eOxtq75dbkMOMTUrsckAYgz+JTSoLL+WLksh+eG1aklEtE4K5n1lbmTGzRg==
+firebase-tools@^11.25.3:
+  version "11.25.3"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-11.25.3.tgz#8cec4b73430acb4e60cfd5308297ed0133b7b03c"
+  integrity sha512-gcM7O9mjhDs8UjtAJjHxUuSX2ZHufXJU7+GheXTlZVA+Uj5RRoAt6AU/FmtcqQtfhr2TNwADebgiVFzVlkLoUg==
   dependencies:
     "@google-cloud/pubsub" "^3.0.1"
     abort-controller "^3.0.0"
@@ -3884,9 +3884,9 @@ verror@1.10.0:
     extsprintf "^1.2.0"
 
 vm2@^3.9.8:
-  version "3.9.11"
-  resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.9.11.tgz#a880f510a606481719ec3f9803b940c5805a06fe"
-  integrity sha512-PFG8iJRSjvvBdisowQ7iVF580DXb1uCIiGaXgm7tynMR1uTBlv7UJlB1zdv5KJ+Tmq1f0Upnj3fayoEOPpCBKg==
+  version "3.9.15"
+  resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.9.15.tgz#c544e6a9bc31e4e40d2e5f532342cf799ea56a6e"
+  integrity sha512-XqNqknHGw2avJo13gbIwLNZUumvrSHc9mLqoadFZTpo3KaNEJoe1I0lqTFhRXmXD7WkLyG01aaraXdXT0pa4ag==
   dependencies:
     acorn "^8.7.0"
     acorn-walk "^8.2.0"
