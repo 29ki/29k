@@ -10,3 +10,4 @@ firestore.initializeFirestore(admin.initializeApp(), {
 export * from './api';
 export * from './slack';
 export * from './metrics';
+export * from './users';

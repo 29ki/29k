@@ -1,5 +1,5 @@
 import {getAuth} from 'firebase-admin/auth';
-import {UserProfile} from '../../../shared/src/types/User';
+import {UserProfile, ROLE} from '../../../shared/src/types/User';
 
 export const getAuthUserInfo = async (userId: string): Promise<UserProfile> => {
   const user = await getAuth().getUser(userId);
@@ -9,4 +9,8 @@ export const getAuthUserInfo = async (userId: string): Promise<UserProfile> => {
     displayName: user.displayName,
     photoURL: user.photoURL,
   };
+};
+
+export const updateRole = async (userId: string, role: ROLE | null) => {
+  await getAuth().setCustomUserClaims(userId, {role});
 };

@@ -4,7 +4,7 @@ import Koa from 'koa';
 import {sessionsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {createApiAuthRouter} from '../../lib/routers';
-import {ROLES} from '../../../../shared/src/types/User';
+import {ROLE} from '../../../../shared/src/types/User';
 import * as sessionsController from '../../controllers/sessions';
 import {RequestError} from '../../controllers/errors/RequestError';
 import {
@@ -293,7 +293,7 @@ describe('/api/sessions', () => {
     const startTime = new Date('1994-03-08T07:24:00').toISOString();
 
     it('should return newly created session', async () => {
-      getMockCustomClaims.mockReturnValueOnce({role: ROLES.publicHost});
+      getMockCustomClaims.mockReturnValueOnce({role: ROLE.publicHost});
 
       mockCreateSession.mockResolvedValueOnce({id: 'new-session'});
       const response = await request(mockServer)
@@ -327,7 +327,7 @@ describe('/api/sessions', () => {
     });
 
     it('should fail without session data', async () => {
-      getMockCustomClaims.mockReturnValueOnce({role: ROLES.publicHost});
+      getMockCustomClaims.mockReturnValueOnce({role: ROLE.publicHost});
       const response = await request(mockServer)
         .post('/sessions')
         .set('Accept', 'application/json');

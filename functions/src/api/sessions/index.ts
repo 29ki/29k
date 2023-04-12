@@ -17,6 +17,7 @@ import {
   ValidateSessionError,
 } from '../../../../shared/src/errors/Session';
 import {RequestError} from '../../controllers/errors/RequestError';
+import {ROLE} from '../../../../shared/src/types/User';
 
 const sessionsRouter = createApiAuthRouter();
 
@@ -101,7 +102,7 @@ sessionsRouter.post(
   '/',
   validator({body: CreateSessionSchema}),
   restrictAccessToRole<CreateSession>(
-    'publicHost',
+    ROLE.publicHost,
     ({type}) => type === SessionType.public,
   ),
   async ctx => {
@@ -182,7 +183,7 @@ sessionsRouter.put(
   '/:id',
   validator({body: UpdateSessionSchema}),
   restrictAccessToRole<UpdateSession>(
-    'publicHost',
+    ROLE.publicHost,
     ({type}) => type === SessionType.public,
   ),
   async ctx => {
