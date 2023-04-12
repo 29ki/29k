@@ -93,7 +93,7 @@ export const generateFieldFromI18n = ([key, value]: [
 export const generateFilesCollectionFromi18nFiles = (
   folderName: string,
   label: string,
-  i18nResources: Resource,
+  i18nResources: ResourceLanguage,
   exclude: Array<string>,
 ): CmsCollection => {
   const filteredResources = Object.entries(i18nResources).filter(
