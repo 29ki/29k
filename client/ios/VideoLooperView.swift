@@ -92,16 +92,16 @@ class VideoLooperView: RCTView {
   }
   
   private func configureAudio() {
-    do {
-      let session = AVAudioSession.sharedInstance()
-      if (_mixWithOhters) {
-        try session.setCategory(.playAndRecord, options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
-        try session.setActive(true)
-      } else {
-        try session.setCategory(.playback)
-      }
-    } catch {
-      
+    if _player?.isMuted != true {
+      do {
+        let session = AVAudioSession.sharedInstance()
+        if (_mixWithOhters) {
+          try session.setCategory(.playAndRecord, options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
+          try session.setActive(true)
+        } else {
+          try session.setCategory(.playback)
+        }
+      } catch {}
     }
   }
   
@@ -317,6 +317,11 @@ class VideoLooperView: RCTView {
     _volume = val?.floatValue ?? 0
     _player?.volume = _volume
     _audioPlayer?.volume = _volume
+  }
+  
+  @objc func setMuted(_ val: Bool) {
+    _player?.isMuted = val
+    _audioPlayer?.volume = val ? 0 : _volume
   }
   
   // MARK: Observers

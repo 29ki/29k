@@ -258,6 +258,12 @@ public class ReactVideoLooperView extends FrameLayout {
     }
   }
 
+  public void setMuted(boolean muted) {
+    if (_player != null) {
+      _player.setVolume(muted ? 0f : _volume);
+    }
+  }
+
   public void setAudioOnly(boolean audioOnly) {
     _audioOnly = audioOnly;
   }
