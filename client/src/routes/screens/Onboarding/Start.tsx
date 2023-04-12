@@ -11,7 +11,6 @@ import Svg, {
   Defs,
   RadialGradient,
   Stop,
-  Ellipse,
 } from 'react-native-svg';
 import styled from 'styled-components/native';
 import Gutters from '../../../lib/components/Gutters/Gutters';
