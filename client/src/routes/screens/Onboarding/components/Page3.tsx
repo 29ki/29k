@@ -11,23 +11,23 @@ import {
 import {Display24} from '../../../../lib/components/Typography/Display/Display';
 import styled from 'styled-components/native';
 import Markdown from '../../../../lib/components/Typography/Markdown/Markdown';
+import {Platform} from 'react-native';
 
 const BlurbImage = styled.Image({
   aspectRatio: 2.2,
 });
 
+const imageSource = {
+  uri: Platform.select({android: 'community', ios: 'community.jpg'}),
+};
+
 const Page3 = () => {
   const {t} = useTranslation('Screen.Onboarding');
-
-  const communityBlurbSource = useMemo(
-    () => ({uri: t('page3.card.image__image')}),
-    [t],
-  );
 
   return (
     <Gutters>
       <ActionList>
-        <BlurbImage source={communityBlurbSource} resizeMode="cover" />
+        <BlurbImage source={imageSource} resizeMode="cover" />
         <Gutters>
           <Spacer16 />
           <Display24>{t('page3.card.heading')}</Display24>
