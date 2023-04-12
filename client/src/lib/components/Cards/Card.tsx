@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {ImageSourcePropType} from 'react-native';
+import {ImageSourcePropType, ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
 import AnimatedLottieView, {AnimationObject} from 'lottie-react-native';
 
@@ -81,6 +81,7 @@ type CardProps = {
   hostPictureURL?: string;
   hostName?: string;
   inWallet?: boolean;
+  style?: ViewStyle;
 };
 
 export const Card: React.FC<CardProps> = ({
@@ -93,8 +94,9 @@ export const Card: React.FC<CardProps> = ({
   hostPictureURL,
   hostName,
   inWallet,
+  style,
 }) => (
-  <WalletWrapper inWallet={inWallet}>
+  <WalletWrapper inWallet={inWallet} style={style}>
     <Wrapper onPress={onPress}>
       <ContentWrapper>
         <LeftCol>
