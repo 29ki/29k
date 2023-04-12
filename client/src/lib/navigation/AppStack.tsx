@@ -10,7 +10,6 @@ import {
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 import {AppStackProps} from './constants/routes';
-import EarlyAccessInfo from '../../routes/screens/EarlyAccessInfo/EarlyAccessInfo';
 import useAppState from '../appState/state/state';
 import Onboarding from '../../routes/screens/Onboarding/Onboarding';
 import Start from '../../routes/screens/Onboarding/Start';
@@ -31,8 +30,13 @@ const slideScreenOptions: NativeStackNavigationOptions = {
 const fadeScreenOptions: NativeStackNavigationOptions = {
   ...screenOptions,
   animation: 'fade',
-  animationDuration: 2000,
+  animationDuration: 400,
   gestureEnabled: false,
+};
+
+const slowFadeScreenOptions: NativeStackNavigationOptions = {
+  ...fadeScreenOptions,
+  animationDuration: 2000,
 };
 
 const AppStack = () => {
@@ -42,35 +46,32 @@ const AppStack = () => {
 
   return (
     // set this state using useNavigationWithFade to change animation to fade
-    <Navigator
-      screenOptions={slideScreenOptions}
-      initialRouteName={settings.showOnboarding ? 'Start' : 'Tabs'}>
+    <Navigator screenOptions={slideScreenOptions}>
       {isBlocking ? (
         <Screen name="KillSwitch" component={KillSwitch} />
+      ) : settings.showOnboarding ? (
+        <Group screenOptions={fadeScreenOptions}>
+          <Screen name="Start" component={Start} />
+          <Screen
+            name="Onboarding"
+            component={Onboarding}
+            options={fadeScreenOptions}
+          />
+        </Group>
       ) : (
-        <>
-          <Group screenOptions={fadeScreenOptions}>
-            <Screen name="Start" component={Start} />
-            <Screen
-              name="Onboarding"
-              component={Onboarding}
-              options={fadeScreenOptions}
-            />
-          </Group>
-          <Group screenOptions={fade ? fadeScreenOptions : screenOptions}>
-            <Screen name="Tabs" component={Tabs} />
-            <Screen
-              name="LiveSessionStack"
-              component={LiveSessionStack}
-              options={{gestureEnabled: false}}
-            />
-            <Screen
-              name="AsyncSessionStack"
-              component={AsyncSessionStack}
-              options={{gestureEnabled: false}}
-            />
-          </Group>
-        </>
+        <Group screenOptions={fade ? slowFadeScreenOptions : screenOptions}>
+          <Screen name="Tabs" component={Tabs} />
+          <Screen
+            name="LiveSessionStack"
+            component={LiveSessionStack}
+            options={{gestureEnabled: false}}
+          />
+          <Screen
+            name="AsyncSessionStack"
+            component={AsyncSessionStack}
+            options={{gestureEnabled: false}}
+          />
+        </Group>
       )}
     </Navigator>
   );
