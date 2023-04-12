@@ -10,6 +10,7 @@ export type Settings = {
   showWelcome: boolean;
   preferredLanguage?: LANGUAGE_TAG;
   showHiddenContent: boolean;
+  showOnboarding: boolean;
   appRatedRevision?: number;
 };
 
@@ -29,6 +30,7 @@ const initialState: State = {
   settings: {
     showHiddenContent: false,
     showWelcome: true,
+    showOnboarding: true,
   },
 };
 

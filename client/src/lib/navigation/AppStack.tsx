@@ -12,6 +12,8 @@ import {
 import {AppStackProps} from './constants/routes';
 import EarlyAccessInfo from '../../routes/screens/EarlyAccessInfo/EarlyAccessInfo';
 import useAppState from '../appState/state/state';
+import Onboarding from '../../routes/screens/Onboarding/Onboarding';
+import Start from '../../routes/screens/Onboarding/Start';
 
 const {Navigator, Screen, Group} = createNativeStackNavigator<AppStackProps>();
 
@@ -40,25 +42,35 @@ const AppStack = () => {
 
   return (
     // set this state using useNavigationWithFade to change animation to fade
-    <Navigator screenOptions={slideScreenOptions}>
+    <Navigator
+      screenOptions={slideScreenOptions}
+      initialRouteName={settings.showOnboarding ? 'Start' : 'Tabs'}>
       {isBlocking ? (
-        <Screen name={'KillSwitch'} component={KillSwitch} />
-      ) : settings.showWelcome ? (
-        <Screen name={'Welcome'} component={EarlyAccessInfo} />
+        <Screen name="KillSwitch" component={KillSwitch} />
       ) : (
-        <Group screenOptions={fade ? fadeScreenOptions : screenOptions}>
-          <Screen name={'Tabs'} component={Tabs} />
-          <Screen
-            name={'LiveSessionStack'}
-            component={LiveSessionStack}
-            options={{gestureEnabled: false}}
-          />
-          <Screen
-            name={'AsyncSessionStack'}
-            component={AsyncSessionStack}
-            options={{gestureEnabled: false}}
-          />
-        </Group>
+        <>
+          <Group screenOptions={fadeScreenOptions}>
+            <Screen name="Start" component={Start} />
+            <Screen
+              name="Onboarding"
+              component={Onboarding}
+              options={fadeScreenOptions}
+            />
+          </Group>
+          <Group screenOptions={fade ? fadeScreenOptions : screenOptions}>
+            <Screen name="Tabs" component={Tabs} />
+            <Screen
+              name="LiveSessionStack"
+              component={LiveSessionStack}
+              options={{gestureEnabled: false}}
+            />
+            <Screen
+              name="AsyncSessionStack"
+              component={AsyncSessionStack}
+              options={{gestureEnabled: false}}
+            />
+          </Group>
+        </>
       )}
     </Navigator>
   );
