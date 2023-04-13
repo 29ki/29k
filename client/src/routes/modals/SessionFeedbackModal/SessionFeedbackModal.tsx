@@ -32,10 +32,11 @@ import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 
 import {DEFAULT_LANGUAGE_TAG} from '../../../lib/i18n';
 import {Display36} from '../../../lib/components/Typography/Display/Display';
-import {ThumbsUp, ThumbsDown} from './components/Thumbs';
+import {ThumbsUp, ThumbsDown} from '../../../lib/components/Thumbs/Thumbs';
 
 import useCompletedSessionById from '../../../lib/user/hooks/useCompletedSessionById';
 import useSessionFeedback from '../../../lib/session/hooks/useSessionFeedback';
+import useRating from '../../../lib/rating/hooks/useRating';
 
 const BackgroundVideo = styled(Video).attrs({
   repeat: true,
@@ -84,6 +85,7 @@ const SessionFeedbackModal = () => {
   const {exerciseId, sessionId, completed, isHost, sessionMode, sessionType} =
     params;
   const {addSessionFeedback} = useSessionFeedback();
+  const askForRating = useRating();
 
   const completedSessionEvent = useCompletedSessionById(sessionId);
 
@@ -143,7 +145,11 @@ const SessionFeedbackModal = () => {
         completedSessionEvent,
       });
     }
-  }, [completedSessionEvent, popToTop, navigate]);
+
+    if (answer) {
+      askForRating();
+    }
+  }, [completedSessionEvent, popToTop, navigate, askForRating, answer]);
 
   return (
     <SheetModal onPressClose={handleClose}>

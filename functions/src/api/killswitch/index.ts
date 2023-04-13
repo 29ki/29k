@@ -9,14 +9,14 @@ import i18next from '../../lib/i18n';
 const KILL_SWITCH = false;
 
 // Specify the minimum required app native version.
-const MIN_APP_VERSION = '2.16.0';
+const MIN_APP_VERSION = '2.17.0';
 
 // Specify the minimum required bundle version.
 const MIN_BUNDLE_VERSION: {[key: string]: {android: number; ios: number}} = {
   [MIN_APP_VERSION]: {
     // Allways require update to the latest version
-    android: 10000,
-    ios: 10000,
+    android: 1102,
+    ios: 1099,
   },
 };
 

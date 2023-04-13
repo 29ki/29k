@@ -92,6 +92,9 @@ export type ModalStackProps = {
   ReportModal: {originScreen: string};
   CalmDownModal: undefined;
   HostInfoModal: {host?: User};
+  CompletedSessionsModal: {
+    filterSetting: 'mode' | 'feedback' | 'host';
+  };
 };
 
 export type RootNavigationProps = ModalStackProps;

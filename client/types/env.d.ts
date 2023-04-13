@@ -10,4 +10,6 @@ declare module 'config' {
   export const SENTRY_DSN: string;
   export const DEEP_LINK_SCHEMA: string;
   export const DEEP_LINK_PREFIX: string;
+  export const IOS_APPSTORE_ID: string;
+  export const ANDROID_PACKAGE_NAME: string;
 }

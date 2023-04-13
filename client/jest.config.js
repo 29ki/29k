@@ -12,6 +12,8 @@ process.env = Object.assign(process.env, {
   SENTRY_DSN: 'some-sentry-dsn',
   DEEP_LINK_SCHEMA: 'some-deep-link-schema',
   DEEP_LINK_PREFIX: 'some-deep-link-prefix',
+  IOS_APPSTORE_ID: 'some-app-store-id',
+  ANDROID_PACKAGE_NAME: 'some-android-package-name',
 });
 const modules = ['react-native', '@react-native', '@notifee'];
 
