@@ -73,6 +73,27 @@ const Video = styled(VideoLooper).attrs({
   muted: true,
 })({});
 
+const person1Sources = [
+  {
+    source: 'onboarding_person1.mp4',
+    repeat: true,
+  },
+];
+
+const person2Sources = [
+  {
+    source: 'onboarding_person2.mp4',
+    repeat: true,
+  },
+];
+
+const person3Sources = [
+  {
+    source: 'onboarding_person3.mp4',
+    repeat: true,
+  },
+];
+
 const Page2 = () => {
   const {t} = useTranslation('Screen.Onboarding');
 
@@ -81,14 +102,7 @@ const Page2 = () => {
       <Squares>
         <Square1>
           <Frame>
-            <Video
-              sources={[
-                {
-                  source: 'onboarding_person1.mp4',
-                  repeat: true,
-                },
-              ]}
-            />
+            <Video sources={person1Sources} />
             <NameWrapper>
               <Name>{t('page2.name1')}</Name>
             </NameWrapper>
@@ -96,14 +110,7 @@ const Page2 = () => {
         </Square1>
         <Square2>
           <Frame>
-            <Video
-              sources={[
-                {
-                  source: 'onboarding_person2.mp4',
-                  repeat: true,
-                },
-              ]}
-            />
+            <Video sources={person2Sources} />
             <NameWrapper>
               <Name>{t('page2.name2')}</Name>
             </NameWrapper>
@@ -111,14 +118,7 @@ const Page2 = () => {
         </Square2>
         <Square3>
           <Frame>
-            <Video
-              sources={[
-                {
-                  source: 'onboarding_person3.mp4',
-                  repeat: true,
-                },
-              ]}
-            />
+            <Video sources={person3Sources} />
             <NameWrapper>
               <Name>{t('page2.name3')}</Name>
             </NameWrapper>
