@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import {Dimensions, Platform, StatusBar, StyleSheet} from 'react-native';
 import Animated, {
   interpolate,
@@ -53,6 +53,8 @@ const Onboarding = () => {
   const {t} = useTranslation('Screen.Onboarding');
   const setSettings = useAppState(state => state.setSettings);
 
+  const [lastPage, setLastPage] = useState(false);
+
   const screensX = useSharedValue(0);
   const scrollX = useSharedValue(0);
 
@@ -83,6 +85,13 @@ const Onboarding = () => {
     },
   });
 
+  const onPageChange = useCallback(
+    (index: number, count: number) => {
+      setLastPage(index === count - 1);
+    },
+    [setLastPage],
+  );
+
   const onContinuePress = useCallback(() => {
     screensX.value = withTiming(screensX.value - WINDOW_WIDTH, {duration: 400});
   }, [screensX]);
@@ -97,9 +106,11 @@ const Onboarding = () => {
       <Screens style={screensStyle}>
         <Background style={backgroundStyle} />
         <Screen>
-          <AboutCarousel onScroll={onScroll} />
+          <AboutCarousel onScroll={onScroll} onPageChange={onPageChange} />
           <ContinueButton onPress={onContinuePress}>
-            <BodyBold>{t('continueButton')}</BodyBold>
+            <BodyBold>
+              {lastPage ? t('continueButton') : t('skipButton')}
+            </BodyBold>
           </ContinueButton>
         </Screen>
         <Screen>

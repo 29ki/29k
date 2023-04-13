@@ -65,8 +65,12 @@ const AnimatedDot: React.FC<{active: boolean}> = ({active}) => {
 
 type AboutCarouselProps = {
   onScroll: ScrollViewProps['onScroll'];
+  onPageChange: (index: number, count: number) => void;
 };
-const AboutCarousel: React.FC<AboutCarouselProps> = ({onScroll}) => {
+const AboutCarousel: React.FC<AboutCarouselProps> = ({
+  onScroll,
+  onPageChange,
+}) => {
   const scrollViewRef = useRef<Animated.ScrollView>(null);
   const [pageCount, setPageCount] = useState(0);
   const [pageIndex, setPageIndex] = useState(0);
@@ -80,9 +84,11 @@ const AboutCarousel: React.FC<AboutCarouselProps> = ({onScroll}) => {
 
   const onMomentumScrollEnd = useCallback(
     (e: NativeSyntheticEvent<NativeScrollEvent>) => {
-      setPageIndex(Math.round(e.nativeEvent.contentOffset.x / WINDOW_WIDTH));
+      const index = Math.round(e.nativeEvent.contentOffset.x / WINDOW_WIDTH);
+      setPageIndex(index);
+      onPageChange(index, pageCount);
     },
-    [setPageIndex],
+    [setPageIndex, onPageChange, pageCount],
   );
 
   return (
