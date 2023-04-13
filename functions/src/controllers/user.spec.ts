@@ -1,9 +1,10 @@
 import * as authModel from '../models/auth';
 import * as userModel from '../models/user';
-import {getMe, getUser, updateUser} from './user';
+import {getMe, getPublicHosts, getUser, updateUser} from './user';
 
 import {RequestError} from './errors/RequestError';
 import {UserError} from '../../../shared/src/errors/User';
+import {ROLE} from '../../../shared/src/types/User';
 
 jest.mock('../models/auth');
 jest.mock('../models/user');
@@ -38,6 +39,64 @@ describe('user - controller', () => {
       expect(mockedGetUser).toBeCalledTimes(1);
       expect(mockedGetUser).toHaveBeenCalledWith('some-user-id');
       expect(data).toEqual({});
+    });
+  });
+
+  describe('getPublicHosts', () => {
+    it('should merge auth user info with user data', async () => {
+      const mockedGetUsers = jest
+        .mocked(userModel.getUsers)
+        .mockResolvedValueOnce([
+          {
+            id: 'some-user-id',
+            description: 'some description',
+            role: ROLE.publicHost,
+          },
+          {
+            id: 'some-other-user-id',
+            description: 'some other description',
+            role: ROLE.publicHost,
+          },
+        ]);
+      const mockedGetPublicUserInfo = jest
+        .mocked(authModel.getAuthUserInfo)
+        .mockResolvedValueOnce({
+          uid: 'some-user-id',
+          displayName: 'Some Name',
+          photoURL: 'http://pic.png',
+        })
+        .mockResolvedValueOnce({
+          uid: 'some-other-user-id',
+          displayName: 'Some Other Name',
+          photoURL: 'http://pic2.png',
+        });
+
+      const hosts = await getPublicHosts();
+
+      expect(hosts).toEqual([
+        {
+          description: 'some description',
+          role: ROLE.publicHost,
+          uid: 'some-user-id',
+          displayName: 'Some Name',
+          photoURL: 'http://pic.png',
+        },
+        {
+          description: 'some other description',
+          role: ROLE.publicHost,
+          uid: 'some-other-user-id',
+          displayName: 'Some Other Name',
+          photoURL: 'http://pic2.png',
+        },
+      ]);
+
+      expect(mockedGetUsers).toHaveBeenCalledTimes(1);
+      expect(mockedGetUsers).toHaveBeenCalledWith({role: ROLE.publicHost});
+      expect(mockedGetPublicUserInfo).toHaveBeenCalledTimes(2);
+      expect(mockedGetPublicUserInfo).toHaveBeenCalledWith('some-user-id');
+      expect(mockedGetPublicUserInfo).toHaveBeenCalledWith(
+        'some-other-user-id',
+      );
     });
   });
 

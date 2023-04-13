@@ -8,7 +8,12 @@ import {
   verifyPublicHostRequest,
 } from '../../controllers/publicHostRequests';
 import {RequestError} from '../../controllers/errors/RequestError';
-import {getMe, getUser, updateUser} from '../../controllers/user';
+import {
+  getMe,
+  getPublicHosts,
+  getUser,
+  updateUser,
+} from '../../controllers/user';
 
 const userRouter = createApiAuthRouter();
 
@@ -79,6 +84,11 @@ userRouter.put(
     }
   },
 );
+
+userRouter.get('/publicHosts', async ctx => {
+  const publicHosts = await getPublicHosts();
+  ctx.body = publicHosts;
+});
 
 userRouter.get('/', async ctx => {
   const {id} = ctx.user;

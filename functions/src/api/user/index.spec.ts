@@ -11,7 +11,8 @@ import {
 } from '../../controllers/publicHostRequests';
 import {RequestError} from '../../controllers/errors/RequestError';
 import {UserError, VerificationError} from '../../../../shared/src/errors/User';
-import {getMe, getUser} from '../../controllers/user';
+import {getMe, getPublicHosts, getUser} from '../../controllers/user';
+import {ROLE} from '../../../../shared/src/types/User';
 
 jest.mock('../../controllers/publicHostRequests');
 jest.mock('../../controllers/user');
@@ -166,6 +167,38 @@ describe('/api/user', () => {
       expect(mockedGetMe).toHaveBeenCalledWith('some-user-id');
       expect(response.status).toBe(200);
       expect(response.body).toEqual({});
+    });
+  });
+
+  describe('/publicHosts', () => {
+    it('should reply with public hosts', async () => {
+      const mockedGetPublicHosts = jest
+        .mocked(getPublicHosts)
+        .mockResolvedValueOnce([
+          {
+            description: 'some description',
+            role: ROLE.publicHost,
+            uid: 'some-user-id',
+            displayName: 'Some Name',
+            photoURL: 'http://pic.png',
+          },
+        ]);
+
+      const response = await request(mockServer)
+        .get('/user/publicHosts')
+        .send();
+
+      expect(mockedGetPublicHosts).toHaveBeenCalledTimes(1);
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual([
+        {
+          description: 'some description',
+          role: ROLE.publicHost,
+          uid: 'some-user-id',
+          displayName: 'Some Name',
+          photoURL: 'http://pic.png',
+        },
+      ]);
     });
   });
 

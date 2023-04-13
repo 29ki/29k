@@ -1,4 +1,5 @@
 import {mockFirebase} from 'firestore-jest-mock';
+import {ROLE} from '../../../shared/src/types/User';
 
 mockFirebase(
   {
@@ -10,9 +11,10 @@ mockFirebase(
 );
 
 import {firestore} from 'firebase-admin';
+import {mockWhere} from 'firestore-jest-mock/mocks/firestore';
 import {Timestamp} from 'firebase-admin/firestore';
 
-import {getUser, updateUser} from './user';
+import {getUser, getUsers, updateUser} from './user';
 
 const users = [
   {
@@ -24,6 +26,12 @@ const users = [
     id: 'some-other-user-id',
     description: 'some other description',
     updatedAt: Timestamp.now(),
+  },
+  {
+    id: 'some-host-user-id',
+    description: 'some other description',
+    updatedAt: Timestamp.now(),
+    role: ROLE.publicHost,
   },
 ];
 
@@ -52,6 +60,36 @@ describe('user - model', () => {
     it('should get null if no user found', async () => {
       const user = await getUser('some-nonexisting-id');
       expect(user).toEqual(null);
+    });
+  });
+
+  describe('getUsers', () => {
+    it('should get all users if no filter is provided', async () => {
+      const users = await getUsers({});
+      expect(users).toEqual([
+        {
+          id: 'some-user-id',
+          description: 'some description',
+          updatedAt: expect.any(Timestamp),
+        },
+        {
+          id: 'some-other-user-id',
+          description: 'some other description',
+          updatedAt: expect.any(Timestamp),
+        },
+        {
+          id: 'some-host-user-id',
+          description: 'some other description',
+          updatedAt: expect.any(Timestamp),
+          role: ROLE.publicHost,
+        },
+      ]);
+      expect(mockWhere).toHaveBeenCalledTimes(0);
+    });
+
+    it('should apply filters', async () => {
+      await getUsers({role: ROLE.publicHost});
+      expect(mockWhere).toHaveBeenCalledWith('role', '==', ROLE.publicHost);
     });
   });
 

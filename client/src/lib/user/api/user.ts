@@ -77,6 +77,22 @@ export const getMe = async (): Promise<UserData> => {
   }
 };
 
+export const getPublicHosts = async (): Promise<Array<User>> => {
+  try {
+    const response = await apiClient(`${USER_ENDPOINT}/publicHosts`, {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      throw new Error(await response.text());
+    }
+
+    return response.json();
+  } catch (cause) {
+    throw new Error('Could not get public hosts', {cause});
+  }
+};
+
 export const updateUser = async (
   data: Partial<Omit<UserData, 'id' | 'profile'>>,
 ) => {
