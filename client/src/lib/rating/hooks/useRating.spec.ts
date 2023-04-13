@@ -28,7 +28,7 @@ describe('useRating', () => {
     useAppState.setState({
       settings: {
         appRatedRevision: APP_RATING_REVISION - 1,
-        showWelcome: false,
+        showOnboarding: true,
         showHiddenContent: false,
       },
     });
@@ -62,7 +62,7 @@ describe('useRating', () => {
     useAppState.setState({
       settings: {
         appRatedRevision: APP_RATING_REVISION,
-        showWelcome: false,
+        showOnboarding: true,
         showHiddenContent: false,
       },
     });

@@ -27,6 +27,7 @@ import useUser from '../../../user/hooks/useUser';
 import Interested from '../../Interested/Interested';
 import usePinSession from '../../../sessions/hooks/usePinSession';
 import useSessionReminderNotification from '../../../sessions/hooks/useSessionReminderNotification';
+import {ViewStyle} from 'react-native';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -71,18 +72,20 @@ const WalletResolver: React.FC<{
 
 type SessionCardProps = {
   session: LiveSession;
-  standAlone: boolean;
-  hasCardBefore: boolean;
-  hasCardAfter: boolean;
+  standAlone?: boolean;
+  hasCardBefore?: boolean;
+  hasCardAfter?: boolean;
   onBeforeContextPress?: () => void;
+  style?: ViewStyle;
 };
 
 const SessionCard: React.FC<SessionCardProps> = ({
   session,
-  standAlone,
-  hasCardBefore,
-  hasCardAfter,
+  standAlone = true,
+  hasCardBefore = false,
+  hasCardAfter = false,
   onBeforeContextPress,
+  style,
 }) => {
   const {exerciseId, startTime, hostProfile} = session;
   const exercise = useExerciseById(exerciseId);
@@ -141,9 +144,8 @@ const SessionCard: React.FC<SessionCardProps> = ({
         lottie={lottie}
         onPress={onContextPress}
         hostPictureURL={hostProfile?.photoURL || exercise?.card?.host?.photoURL}
-        hostName={
-          hostProfile?.displayName || exercise?.card?.host?.displayName
-        }>
+        hostName={hostProfile?.displayName || exercise?.card?.host?.displayName}
+        style={style}>
         <Row>
           <JoinButton onPress={onPress} startTime={startTime} />
           <SessionTimeBadge session={session} />

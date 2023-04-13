@@ -1,0 +1,34 @@
+{
+  "en": {
+    "start": {
+      "heading1": "A thriving planet starts with",
+      "heading2": "a thriving you"
+    },
+    "page1": {
+      "heading__text": "Science-based\npsychological tools"
+    },
+    "page2": {
+      "heading__text": "Meaningful\nconnections",
+      "name1": "Ints",
+      "name2": "Jenny",
+      "name3": "Lisa"
+    },
+    "page3": {
+      "heading__text": "For the\ngreater good",
+      "card": {
+        "heading": "A non-profit organisation",
+        "text__markdown": "We are free for personal use, we don't sell any data, we don't do ads.\nOur focus is to build the best app in the world, to assist wellbeing, thrive and contribute to a better future for all."
+      }
+    },
+    "page4": {
+      "sessions__text": "Guided exercises and meditations\nfor new perspectives on life.\n\nOn your own, with\nfriends or new connections.",
+      "journey__text": "Your own personal path\ntowards a more thriving life."
+    },
+    "skipButton": "Skip",
+    "continueButton": "Continue",
+    "getStartedButton": "Get Started"
+  },
+  "pt": {},
+  "sv": {},
+  "es": {}
+}
