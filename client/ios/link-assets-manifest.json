@@ -120,6 +120,14 @@
     {
       "path": "src/assets/fonts/PlayfairDisplay-SemiBoldItalic.ttf",
       "sha1": "40a657362292d89706dd22620f21cc42fcef4020"
+    },
+    {
+      "path": "src/assets/images/thumbs_up.png",
+      "sha1": "0068d430ac23fa13c907410324e899e944d1d876"
+    },
+    {
+      "path": "src/assets/images/thumbs_up_silouette.png",
+      "sha1": "39e527b200424e6e364ff492a811c9cc310c45a5"
     }
   ]
 }

@@ -5,4 +5,5 @@ export interface JourneyItem {
   id: string;
   completedSession?: CompletedSessionEvent;
   savedCollection?: PinnedCollection;
+  completedSessionsFilter?: boolean;
 }

@@ -10,40 +10,49 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import dayjs from 'dayjs';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
-
-import useSessions from '../../../lib/sessions/hooks/useSessions';
-import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessions';
+import {partition, takeLast} from 'ramda';
 
 import {JourneyItem} from './types/JourneyItem';
-import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 import {LiveSession} from '../../../../../shared/src/types/Session';
 
-import {OverlayStackProps} from '../../../lib/navigation/constants/routes';
+import {
+  ModalStackProps,
+  OverlayStackProps,
+} from '../../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {WALLET_CARD_HEIGHT} from '../../../lib/components/Cards/WalletCards/SessionWalletCard';
 import {CARD_HEIGHT} from '../../../lib/components/Cards/Card';
 
-import Gutters from '../../../lib/components/Gutters/Gutters';
+import useSessions from '../../../lib/sessions/hooks/useSessions';
+import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessions';
+import usePinnedCollections from '../../../lib/user/hooks/usePinnedCollections';
+import useUserEvents from '../../../lib/user/hooks/useUserEvents';
+
 import {
   Spacer16,
   Spacer24,
   Spacer48,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
-
+import Gutters from '../../../lib/components/Gutters/Gutters';
 import Screen from '../../../lib/components/Screen/Screen';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
-import CompletedSessionCard from '../../../lib/components/Cards/SessionCard/CompletedSessionCard';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
-
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
-import usePinnedCollections from '../../../lib/user/hooks/usePinnedCollections';
 import CollectionCardContainer from './components/CollectionCardContainer';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
+import JourneyNode from './components/JourneyNode';
+import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
+import FilterStatus from './components/FilterStatus';
+import {LogoIcon} from '../../../lib/components/Icons';
+import useUser from '../../../lib/user/hooks/useUser';
+import Image from '../../../lib/components/Image/Image';
+
+const COMPLETED_SESSION_LIMIT = 5;
 
 export type Section = {
   title: string;
@@ -51,13 +60,30 @@ export type Section = {
   type: 'planned' | 'completed' | 'collections';
 };
 
-const SectionList = RNSectionList<JourneyItem, Section>;
+const SectionList = styled(RNSectionList<JourneyItem, Section>)({
+  flex: 1,
+});
 
 const Container = styled.View({
   alignItems: 'center',
   justifyContent: 'center',
   flex: 1,
 });
+
+const Row = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+});
+
+const ImageContainer = styled.View<{small?: boolean}>(() => ({
+  backgroundColor: COLORS.GREYMEDIUM,
+  width: SPACINGS.TWENTYFOUR,
+  height: SPACINGS.TWENTYFOUR,
+  borderRadius: SPACINGS.TWELVE,
+  overflow: 'hidden',
+  shadowColor: COLORS.GREYDARK,
+}));
 
 const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
   section: {title},
@@ -67,58 +93,25 @@ const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
   </StickyHeading>
 );
 
-const renderSession: SectionListRenderItem<JourneyItem, Section> = ({
-  section,
-  item,
-  index,
-}) => {
-  const hasCardBefore = index > 0;
-  const hasCardAfter = index !== section.data.length - 1;
-
-  if (item.completedSession) {
-    return (
-      <Gutters>
-        <CompletedSessionCard
-          completedSessionEvent={item.completedSession as CompletedSessionEvent}
-          hasCardBefore={hasCardBefore}
-          hasCardAfter={hasCardAfter}
-        />
-      </Gutters>
-    );
-  }
-
-  if (item.savedCollection) {
-    return (
-      <Gutters>
-        <CollectionCardContainer collectionId={item.id} />
-        <Spacer16 />
-      </Gutters>
-    );
-  }
-
-  return (
-    <Gutters>
-      <SessionCard
-        session={item as LiveSession}
-        standAlone={true}
-        hasCardBefore={hasCardBefore}
-        hasCardAfter={hasCardAfter}
-      />
-      <Spacer16 />
-    </Gutters>
-  );
-};
-
 const Journey = () => {
   const {t} = useTranslation('Screen.Journey');
   const {navigate} =
-    useNavigation<NativeStackNavigationProp<OverlayStackProps>>();
+    useNavigation<
+      NativeStackNavigationProp<OverlayStackProps & ModalStackProps>
+    >();
   const {fetchSessions, pinnedSessions, hostedSessions} = useSessions();
-  const {completedSessions} = useCompletedSessions();
+  const {completedSessions, completedHostedSessions} = useCompletedSessions();
   const {pinnedCollections} = usePinnedCollections();
   const [isLoading, setIsLoading] = useState(false);
   const isFocused = useIsFocused();
   const listRef = useRef<RNSectionList<JourneyItem, Section>>(null);
+  const {feedbackEvents} = useUserEvents();
+  const user = useUser();
+
+  const [positiveFeedbacks] = useMemo(
+    () => partition(f => f.payload.answer, feedbackEvents),
+    [feedbackEvents],
+  );
 
   const sections = useMemo(() => {
     let sectionsList: Section[] = [];
@@ -126,7 +119,7 @@ const Journey = () => {
     if (completedSessions.length > 0) {
       sectionsList.push({
         title: t('headings.completed'),
-        data: completedSessions.map(s => ({
+        data: takeLast(COMPLETED_SESSION_LIMIT, completedSessions).map(s => ({
           completedSession: s,
           id: s.payload.id,
         })),
@@ -161,6 +154,30 @@ const Journey = () => {
   useEffect(() => {
     fetchSessions();
   }, [fetchSessions]);
+
+  const onPositivePress = useCallback(
+    () => navigate('CompletedSessionsModal', {filterSetting: 'feedback'}),
+    [navigate],
+  );
+
+  const onTotalPress = useCallback(
+    () => navigate('CompletedSessionsModal', {filterSetting: 'mode'}),
+    [navigate],
+  );
+
+  const onHostedPress = useCallback(
+    () => navigate('CompletedSessionsModal', {filterSetting: 'host'}),
+    [navigate],
+  );
+
+  const UserPic = useCallback(
+    () => (
+      <ImageContainer>
+        {user?.photoURL && <Image source={{uri: user.photoURL}} />}
+      </ImageContainer>
+    ),
+    [user],
+  );
 
   const refreshPull = useCallback(async () => {
     try {
@@ -213,6 +230,93 @@ const Journey = () => {
     navigate('AboutOverlay');
   }, [navigate]);
 
+  const renderSession = useCallback<
+    SectionListRenderItem<JourneyItem, Section>
+  >(
+    ({section, item, index}) => {
+      const hasCardBefore = index > 0;
+      const hasCardAfter = index !== section.data.length - 1;
+
+      if (item.completedSession) {
+        return (
+          <Gutters key={item.completedSession.payload.id}>
+            <JourneyNode
+              index={index}
+              completedSessionEvent={item.completedSession}
+            />
+            {item.completedSession && !hasCardAfter && (
+              <>
+                <Spacer16 />
+                <Row>
+                  <FilterStatus
+                    onPress={onTotalPress}
+                    Icon={LogoIcon}
+                    heading={`${completedSessions.length}`}
+                    description={t('totalSessions')}
+                  />
+                  {positiveFeedbacks.length ? (
+                    <>
+                      <Spacer16 />
+                      <FilterStatus
+                        onPress={onPositivePress}
+                        Icon={ThumbsUpWithoutPadding}
+                        heading={`${positiveFeedbacks.length}`}
+                        description={t('meaninfulSessions')}
+                      />
+                    </>
+                  ) : null}
+                  {completedHostedSessions.length ? (
+                    <>
+                      <Spacer16 />
+                      <FilterStatus
+                        onPress={onHostedPress}
+                        Icon={UserPic}
+                        heading={`${completedHostedSessions.length}`}
+                        description={t('hostedSessions')}
+                      />
+                    </>
+                  ) : null}
+                </Row>
+                <Spacer16 />
+              </>
+            )}
+          </Gutters>
+        );
+      }
+
+      if (item.savedCollection) {
+        return (
+          <Gutters>
+            <CollectionCardContainer collectionId={item.id} />
+            <Spacer16 />
+          </Gutters>
+        );
+      }
+
+      return (
+        <Gutters>
+          <SessionCard
+            session={item as LiveSession}
+            standAlone={true}
+            hasCardBefore={hasCardBefore}
+            hasCardAfter={hasCardAfter}
+          />
+          <Spacer16 />
+        </Gutters>
+      );
+    },
+    [
+      positiveFeedbacks.length,
+      completedSessions.length,
+      completedHostedSessions.length,
+      onTotalPress,
+      onHostedPress,
+      onPositivePress,
+      t,
+      UserPic,
+    ],
+  );
+
   if (!sections.length) {
     return (
       <Screen backgroundColor={COLORS.GREYLIGHTEST}>
@@ -251,6 +355,7 @@ const Journey = () => {
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }
       />
+      <Spacer16 />
       <BottomFade />
     </Screen>
   );

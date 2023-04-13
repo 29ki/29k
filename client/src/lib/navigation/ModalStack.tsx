@@ -32,6 +32,7 @@ import HostsModal from '../../routes/modals/Contributors/HostsModal';
 import SafetyToolkitModal from '../../routes/modals/SafetyToolkitModal/SafetyToolkitModal';
 import ReportModal from '../../routes/modals/ReportModal/ReportModal';
 import CalmDownModal from '../../routes/modals/CalmDownModal/CalmDownModal';
+import CompletedSessionsModal from '../../routes/modals/CompletedSessionsModal/CompletedSessionsModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -224,6 +225,11 @@ const ModalStack = () => {
           name={'CalmDownModal'}
           component={CalmDownModal}
           options={tallSheetModalScreenOptions}
+        />
+        <Screen
+          name={'CompletedSessionsModal'}
+          component={CompletedSessionsModal}
+          options={fullSheetModalScreenOptions}
         />
       </Group>
 
