@@ -13,6 +13,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import Heading from './Heading';
 import {Spacer28} from '../../../../lib/components/Spacers/Spacer';
+import getFallbackSessions from './fallbackSessions';
 
 const Cards = styled(Animated.View)({
   flex: 1,
@@ -73,13 +74,19 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
 const Page1 = () => {
   const {t} = useTranslation('Screen.Onboarding');
   const opacity = useSharedValue(0);
-  const [sessions, setSessions] = useState<LiveSession[]>([]);
+  const [sessions, setSessions] = useState<LiveSession[]>(
+    getFallbackSessions(),
+  );
 
   useEffect(() => {
     apiClient('onboarding/sessions?limit=3', undefined, false)
       .then(response => response.json())
       .then(response => {
-        setSessions(response.reverse());
+        if (response && response.length) {
+          setSessions(response.reverse());
+        }
+      })
+      .finally(() => {
         opacity.value = withTiming(1, {duration: 1000});
       });
   }, [opacity]);
