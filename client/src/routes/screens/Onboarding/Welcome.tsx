@@ -108,7 +108,7 @@ const ContinueButton = styled(Button)({
   alignSelf: 'center',
 });
 
-const Start = () => {
+const Welcome = () => {
   const {t} = useTranslation('Screen.Onboarding');
   const {navigate} = useNavigation<NativeStackNavigationProp<AppStackProps>>();
 
@@ -147,4 +147,4 @@ const Start = () => {
   );
 };
 
-export default Start;
+export default Welcome;

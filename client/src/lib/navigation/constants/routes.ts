@@ -41,7 +41,7 @@ export type AsyncSessionStackProps = {
 
 export type AppStackProps = {
   KillSwitch: undefined;
-  Start: undefined;
+  Welcome: undefined;
   Onboarding: undefined;
   Tabs?: NavigatorScreenParams<TabNavigatorProps>;
   LiveSessionStack: NavigatorScreenParams<LiveSessionStackProps>;

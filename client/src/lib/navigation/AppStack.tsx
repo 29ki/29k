@@ -12,7 +12,7 @@ import {
 import {AppStackProps} from './constants/routes';
 import useAppState from '../appState/state/state';
 import Onboarding from '../../routes/screens/Onboarding/Onboarding';
-import Start from '../../routes/screens/Onboarding/Start';
+import Welcome from '../../routes/screens/Onboarding/Welcome';
 
 const {Navigator, Screen, Group} = createNativeStackNavigator<AppStackProps>();
 
@@ -51,7 +51,7 @@ const AppStack = () => {
         <Screen name="KillSwitch" component={KillSwitch} />
       ) : settings.showOnboarding ? (
         <Group screenOptions={fadeScreenOptions}>
-          <Screen name="Start" component={Start} />
+          <Screen name="Welcome" component={Welcome} />
           <Screen
             name="Onboarding"
             component={Onboarding}
