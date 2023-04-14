@@ -10,7 +10,7 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import dayjs from 'dayjs';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
-import {partition, takeLast, groupBy} from 'ramda';
+import {partition, groupBy} from 'ramda';
 
 import {JourneyItem} from './types/JourneyItem';
 import {LiveSession} from '../../../../../shared/src/types/Session';
@@ -51,8 +51,6 @@ import FilterStatus from './components/FilterStatus';
 import {LogoIcon} from '../../../lib/components/Icons';
 import useUser from '../../../lib/user/hooks/useUser';
 import Image from '../../../lib/components/Image/Image';
-
-const COMPLETED_SESSION_LIMIT = 5;
 
 export type Section = {
   title: string;
@@ -204,7 +202,7 @@ const Journey = () => {
     ): {length: number; offset: number; index: number} => {
       let offset = 0,
         length = null,
-        completedSessionsLength = data?.[0].data?.length || 0;
+        completedSessionsLength = completedSessions.length ?? 0;
 
       if (index >= completedSessionsLength) {
         const plannedSessionsOffsetCount = index - completedSessionsLength;
@@ -218,7 +216,7 @@ const Journey = () => {
 
       return {length, offset, index};
     },
-    [],
+    [completedSessions],
   );
 
   useEffect(() => {
@@ -250,6 +248,8 @@ const Journey = () => {
             <JourneyNode
               index={index}
               completedSessionEvent={item.completedSession}
+              isLast={!hasCardAfter}
+              isFirst={!hasCardBefore}
             />
             {item.completedSession && !hasCardAfter && (
               <>
@@ -358,6 +358,7 @@ const Journey = () => {
         stickySectionHeadersEnabled
         renderSectionHeader={renderSectionHeader}
         renderItem={renderSession}
+        initialNumToRender={5}
         refreshControl={
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }

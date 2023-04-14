@@ -1,6 +1,10 @@
-import {RouteProp, useRoute} from '@react-navigation/native';
-import React, {useCallback, useMemo, useState} from 'react';
-import {ListRenderItem} from 'react-native';
+import {RouteProp, useIsFocused, useRoute} from '@react-navigation/native';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import {
+  SectionList as RNSectionList,
+  SectionListData,
+  SectionListRenderItem,
+} from 'react-native';
 import {BottomSheetSectionList} from '@gorhom/bottom-sheet';
 import dayjs from 'dayjs';
 import {groupBy} from 'ramda';
@@ -29,6 +33,8 @@ import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 
+const LIST_ITEM_HEIGHT = 110;
+
 type Section = {
   title: string;
   data: CompletedSessionEvent[];
@@ -52,15 +58,8 @@ const CompletedSessionsModal = () => {
   >();
   const [selectedFeedback, setSelectedFeedback] = useState<boolean>();
   const getSessionsByFeedback = useGetSessionsByFeedback();
-
-  const renderItem = useCallback<ListRenderItem<CompletedSessionEvent>>(
-    ({item, index}) => (
-      <Gutters key={item.payload.id}>
-        <JourneyNode index={index} completedSessionEvent={item} />
-      </Gutters>
-    ),
-    [],
-  );
+  const isFocused = useIsFocused();
+  const listRef = useRef<RNSectionList<CompletedSessionEvent, Section>>(null);
 
   const data = useMemo(() => {
     let sessions = completedSessions;
@@ -99,6 +98,25 @@ const CompletedSessionsModal = () => {
     selectedMode,
     getSessionsByFeedback,
   ]);
+
+  const renderItem = useCallback<
+    SectionListRenderItem<CompletedSessionEvent, Section>
+  >(
+    ({item, index, section}) => (
+      <Gutters key={item.payload.id}>
+        <JourneyNode
+          index={index}
+          completedSessionEvent={item}
+          isFirst={data.indexOf(section) === 0 && index === 0}
+          isLast={
+            data.indexOf(section) === data.length - 1 &&
+            index === section.data.length - 1
+          }
+        />
+      </Gutters>
+    ),
+    [data],
+  );
 
   const filters = useMemo(
     () => (
@@ -153,10 +171,36 @@ const CompletedSessionsModal = () => {
     [filters],
   );
 
+  useEffect(() => {
+    if (isFocused) {
+      console.log('scrollto');
+      requestAnimationFrame(() =>
+        listRef.current?.scrollToLocation({
+          itemIndex: data[data.length - 1].data.length + 1,
+          sectionIndex: data.length - 1,
+        }),
+      );
+    }
+  }, [isFocused, data]);
+
+  const getItemLayout = useCallback(
+    (
+      _: SectionListData<CompletedSessionEvent, Section>[] | null,
+      index: number,
+    ) => ({
+      length: LIST_ITEM_HEIGHT,
+      offset: LIST_ITEM_HEIGHT * index,
+      index,
+    }),
+    [],
+  );
+
   return (
-    <SheetModal>
+    <SheetModal backgroundColor={COLORS.PURE_WHITE}>
       <BottomSheetSectionList
+        ref={listRef}
         sections={data}
+        getItemLayout={getItemLayout}
         renderItem={renderItem}
         ListHeaderComponent={data.length > 5 ? header : null}
         ListFooterComponent={footer}

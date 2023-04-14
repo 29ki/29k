@@ -29,9 +29,15 @@ import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
 import useUserProfile from '../../../../lib/user/hooks/useUserProfile';
 
+const NODE_TOP_MARGIN = 32;
+const FULL_HEIGHT = 110;
+const NODE_SIZE = 22;
+
 type JourneyNodeProps = {
   completedSessionEvent: CompletedSessionEvent;
   index: number;
+  isLast: boolean;
+  isFirst: boolean;
 };
 
 const Lottie = styled(AnimatedLottieView)({
@@ -42,9 +48,7 @@ const AnimatedContainer = styled(Animated.View)({});
 
 const Container = styled(TouchableOpacity)({
   flexDirection: 'row',
-  borderLeft: 1,
-  borderLeftWidth: 1,
-  height: 110,
+  height: FULL_HEIGHT,
   marginLeft: 22 / 2,
 });
 
@@ -56,21 +60,36 @@ const ContentContainer = styled.View({
 
 const Node = styled.View({
   marginLeft: -(22 / 2),
-  height: 22,
-  width: 22,
+  height: NODE_SIZE,
+  width: NODE_SIZE,
   border: 1,
-  borderRadius: 22 / 2,
-  marginTop: 32,
+  borderRadius: NODE_SIZE / 2,
+  marginTop: NODE_TOP_MARGIN,
   backgroundColor: COLORS.WHITE,
   alignItems: 'center',
   justifyContent: 'center',
 });
 
+const Line = styled.View<{isLast: boolean; isFirst: boolean}>(
+  ({isLast, isFirst}) => ({
+    height: isLast
+      ? NODE_TOP_MARGIN
+      : isFirst
+      ? FULL_HEIGHT - (NODE_TOP_MARGIN + NODE_SIZE)
+      : FULL_HEIGHT,
+    width: 1,
+    marginTop: isFirst ? NODE_TOP_MARGIN + NODE_SIZE : 0,
+    backgroundColor: COLORS.BLACK,
+    position: 'absolute',
+    left: -1,
+  }),
+);
+
 const InnerNode = styled.View({
   height: 14,
   width: 14,
   borderRadius: 14 / 2,
-  backgroundColor: '#A9DAC0',
+  backgroundColor: COLORS.MEDIUM_GREEN,
 });
 
 const Row = styled.View({
@@ -92,6 +111,8 @@ const Spacer2 = styled.View({height: 2});
 const JourneyNode: React.FC<JourneyNodeProps> = ({
   completedSessionEvent,
   index,
+  isLast = false,
+  isFirst = false,
 }) => {
   const {
     payload: {mode, exerciseId, hostId, type},
@@ -136,6 +157,7 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
       entering={FadeIn.delay(index * 100)}
       exiting={FadeOut}>
       <Container onPress={openCompleteSessionModal}>
+        <Line isLast={isLast} isFirst={isFirst} />
         <Node>
           <InnerNode />
         </Node>
