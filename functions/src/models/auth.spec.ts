@@ -4,7 +4,7 @@ import {getAuthUserInfo} from './auth';
 const mockGetUser = getAuth().getUser as jest.Mock;
 
 describe('auth - model', () => {
-  describe('getPublicUserInfo', () => {
+  describe('getAuthUserInfo', () => {
     it('should return user profile info', async () => {
       mockGetUser.mockResolvedValueOnce({
         displayName: 'some-name',

@@ -197,7 +197,6 @@ const ProfileSettingsModal = () => {
             <DescriptionInput
               autoCapitalize="none"
               keyboardType="default"
-              //onSubmitEditing={updateUserPress}
               placeholder={
                 'Add a desctiption that will be shown when you host a session'
               }
