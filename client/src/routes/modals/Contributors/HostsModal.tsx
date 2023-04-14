@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {useNavigation} from '@react-navigation/native';
@@ -19,9 +19,9 @@ import {
   AppStackProps,
   ModalStackProps,
 } from '../../../lib/navigation/constants/routes';
-import ProfilePicture from '../../../lib/components/User/ProfilePicture';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {ActivityIndicator} from 'react-native';
+import {Contributor} from './components/Contributor';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -33,30 +33,25 @@ const Spinner = styled(ActivityIndicator)({
   marginTop: SPACINGS.EIGHT,
 });
 
-const ProfileWrapper = styled.View({
-  width: '33%',
-  padding: SPACINGS.EIGHT,
-});
-
 const Profile: React.FC<{host: User}> = ({host}) => {
   const {navigate, popToTop} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
+
+  const contributor = useMemo<Contributor>(
+    () => ({
+      name: host.displayName ?? '',
+      avatar_url: host.photoURL,
+      contributions: [],
+    }),
+    [host],
+  );
 
   const onPress = useCallback(() => {
     popToTop();
     navigate('HostInfoModal', {host});
   }, [navigate, popToTop, host]);
 
-  return (
-    <ProfileWrapper>
-      <ProfilePicture
-        letter={host.displayName}
-        pictureURL={host.photoURL}
-        size={100}
-        onPress={onPress}
-      />
-    </ProfileWrapper>
-  );
+  return <Contributor contributor={contributor} onPress={onPress} />;
 };
 
 const HostsModal = () => {
