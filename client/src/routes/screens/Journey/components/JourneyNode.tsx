@@ -46,44 +46,37 @@ const Lottie = styled(AnimatedLottieView)({
 
 const AnimatedContainer = styled(Animated.View)({});
 
-const Container = styled(TouchableOpacity)({
+const Container = styled(TouchableOpacity)<{isFirst: boolean}>(({isFirst}) => ({
   flexDirection: 'row',
-  height: FULL_HEIGHT,
-  marginLeft: 22 / 2,
-});
+  height: isFirst ? FULL_HEIGHT - NODE_TOP_MARGIN : FULL_HEIGHT,
+  marginLeft: NODE_SIZE / 2,
+}));
 
-const ContentContainer = styled.View({
-  marginTop: 32,
+const ContentContainer = styled.View<{isFirst: boolean}>(({isFirst}) => ({
+  marginTop: isFirst ? 0 : NODE_TOP_MARGIN,
   marginLeft: SPACINGS.FOUR,
   flex: 1,
-});
+}));
 
-const Node = styled.View({
-  marginLeft: -(22 / 2),
+const Node = styled.View<{isFirst: boolean}>(({isFirst}) => ({
+  marginLeft: -(NODE_SIZE / 2),
   height: NODE_SIZE,
   width: NODE_SIZE,
   border: 1,
   borderRadius: NODE_SIZE / 2,
-  marginTop: NODE_TOP_MARGIN,
+  marginTop: isFirst ? 0 : NODE_TOP_MARGIN,
   backgroundColor: COLORS.WHITE,
   alignItems: 'center',
   justifyContent: 'center',
-});
+}));
 
-const Line = styled.View<{isLast: boolean; isFirst: boolean}>(
-  ({isLast, isFirst}) => ({
-    height: isLast
-      ? NODE_TOP_MARGIN
-      : isFirst
-      ? FULL_HEIGHT - (NODE_TOP_MARGIN + NODE_SIZE)
-      : FULL_HEIGHT,
-    width: 1,
-    marginTop: isFirst ? NODE_TOP_MARGIN + NODE_SIZE : 0,
-    backgroundColor: COLORS.BLACK,
-    position: 'absolute',
-    left: -1,
-  }),
-);
+const Line = styled.View<{isLast: boolean}>(({isLast}) => ({
+  height: isLast ? NODE_TOP_MARGIN : FULL_HEIGHT,
+  width: 1,
+  backgroundColor: COLORS.BLACK,
+  position: 'absolute',
+  left: -1,
+}));
 
 const InnerNode = styled.View({
   height: 14,
@@ -156,12 +149,12 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
       layout={Layout.springify()}
       entering={FadeIn.delay(index * 100)}
       exiting={FadeOut}>
-      <Container onPress={openCompleteSessionModal}>
-        <Line isLast={isLast} isFirst={isFirst} />
-        <Node>
+      <Container isFirst={isFirst} onPress={openCompleteSessionModal}>
+        <Line isLast={isLast} />
+        <Node isFirst={isFirst}>
           <InnerNode />
         </Node>
-        <ContentContainer>
+        <ContentContainer isFirst={isFirst}>
           <Row>
             <Column>
               <Row>
