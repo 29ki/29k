@@ -1,40 +1,23 @@
 import {useCallback, useEffect, useMemo, useState} from 'react';
-import {UserProfile} from '../../../../../shared/src/types/User';
-import {getProfile} from '../api/user';
-import useUser from './useUser';
+import {User} from '../../../../../shared/src/types/User';
+import {getUser} from '../api/user';
 
-const useUserProfile = (userId: string | undefined): UserProfile => {
-  const user = useUser();
-  const isHost = user?.uid === userId;
-
-  const [profile, setProfile] = useState<UserProfile>();
+const useUserProfile = (userId: string | undefined): User | undefined => {
+  const [user, setUser] = useState<User>();
 
   const fetchProfile = useCallback(async () => {
     if (!userId) {
       return;
     }
 
-    setProfile(await getProfile(userId));
+    setUser(await getUser(userId));
   }, [userId]);
 
   useEffect(() => {
-    if (!isHost) {
-      fetchProfile();
-    } else {
-      setProfile({
-        photoURL: user?.photoURL || undefined,
-        displayName: user?.displayName || undefined,
-      });
-    }
-  }, [fetchProfile, userId, isHost, user?.displayName, user?.photoURL]);
+    fetchProfile();
+  }, [fetchProfile]);
 
-  return useMemo(
-    () => ({
-      photoURL: profile?.photoURL,
-      displayName: profile?.displayName,
-    }),
-    [profile?.displayName, profile?.photoURL],
-  );
+  return useMemo(() => user, [user]);
 };
 
 export default useUserProfile;

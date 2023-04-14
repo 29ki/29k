@@ -185,6 +185,7 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
       return {
         displayName: user.displayName,
         photoURL: user.photoURL ? user.photoURL : undefined,
+        uid: user.uid,
       };
     }
   }, [user]);

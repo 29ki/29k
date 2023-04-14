@@ -1,7 +1,7 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import {UserProfile} from '../../../../../shared/src/types/User';
+import {User, UserProfile} from '../../../../../shared/src/types/User';
 import {
   AsyncSession,
   LiveSession,
@@ -91,6 +91,7 @@ export type ModalStackProps = {
   SafetyToolkitModal: undefined;
   ReportModal: {originScreen: string};
   CalmDownModal: undefined;
+  HostInfoModal: {host?: User};
   CompletedSessionsModal: {
     filterSetting: 'mode' | 'feedback' | 'host';
   };

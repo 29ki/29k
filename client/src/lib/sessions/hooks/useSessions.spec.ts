@@ -105,7 +105,7 @@ describe('useSessions', () => {
         method: 'POST',
       });
 
-      expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/sessions', {
+      expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/sessions?', {
         headers: {
           'Content-Type': 'application/json',
           'Accept-Language': 'en',
@@ -136,7 +136,7 @@ describe('useSessions', () => {
         },
       );
 
-      expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/sessions', {
+      expect(fetchMock).toHaveBeenCalledWith('some-api-endpoint/sessions?', {
         headers: {
           'Content-Type': 'application/json',
           'Accept-Language': 'en',

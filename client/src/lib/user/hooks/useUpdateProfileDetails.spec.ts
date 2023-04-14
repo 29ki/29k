@@ -2,8 +2,14 @@ import {clone} from 'ramda';
 import {act, renderHook} from '@testing-library/react-hooks';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import useUpdateProfileDetails from './useUpdateProfileDetails';
+import useUserState from '../state/state';
+import {updateUser} from '../api/user';
 
 const authOriginalMock = clone(auth());
+
+jest.mock('../api/user');
+
+const mockUpdateUser = jest.mocked(updateUser);
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -42,6 +48,7 @@ describe('useUpdateProfileDetails', () => {
 
     expect(auth().currentUser?.updateEmail).toHaveBeenCalledTimes(0);
     expect(auth().currentUser?.updatePassword).toHaveBeenCalledTimes(0);
+    expect(mockUpdateUser).toHaveBeenCalledTimes(0);
   });
 
   it('allows setting displayName to empty string', async () => {
@@ -58,6 +65,7 @@ describe('useUpdateProfileDetails', () => {
 
     expect(auth().currentUser?.updateEmail).toHaveBeenCalledTimes(0);
     expect(auth().currentUser?.updatePassword).toHaveBeenCalledTimes(0);
+    expect(mockUpdateUser).toHaveBeenCalledTimes(0);
   });
 
   it("only updates displayName if it's changed", async () => {
@@ -75,6 +83,102 @@ describe('useUpdateProfileDetails', () => {
     expect(auth().currentUser?.updateProfile).toHaveBeenCalledTimes(0);
     expect(auth().currentUser?.updateEmail).toHaveBeenCalledTimes(0);
     expect(auth().currentUser?.updatePassword).toHaveBeenCalledTimes(0);
+    expect(mockUpdateUser).toHaveBeenCalledTimes(0);
+  });
+
+  it('updates users description', async () => {
+    useUserState.setState({
+      user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
+      data: {description: 'some description'},
+    });
+    mockUpdateUser.mockResolvedValueOnce();
+
+    const useTestHook = () => {
+      const data = useUserState(state => state.data);
+      const {updateProfileDetails} = useUpdateProfileDetails();
+      return {
+        updateProfileDetails,
+        data,
+      };
+    };
+
+    const {result} = renderHook(() => useTestHook());
+
+    await act(async () => {
+      await result.current.updateProfileDetails({
+        description: 'some updated description',
+      });
+    });
+
+    expect(auth().currentUser?.updateProfile).toHaveBeenCalledTimes(0);
+    expect(auth().currentUser?.updateEmail).toHaveBeenCalledTimes(0);
+    expect(auth().currentUser?.updatePassword).toHaveBeenCalledTimes(0);
+    expect(mockUpdateUser).toHaveBeenCalledTimes(1);
+    expect(result.current.data?.description).toEqual(
+      'some updated description',
+    );
+  });
+
+  it('allows setting description to empty string', async () => {
+    useUserState.setState({
+      user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
+      data: {description: 'some description'},
+    });
+    mockUpdateUser.mockResolvedValueOnce();
+
+    const useTestHook = () => {
+      const data = useUserState(state => state.data);
+      const {updateProfileDetails} = useUpdateProfileDetails();
+      return {
+        updateProfileDetails,
+        data,
+      };
+    };
+
+    const {result} = renderHook(() => useTestHook());
+
+    await act(async () => {
+      await result.current.updateProfileDetails({
+        description: '',
+      });
+    });
+
+    expect(auth().currentUser?.updateProfile).toHaveBeenCalledTimes(0);
+    expect(auth().currentUser?.updateEmail).toHaveBeenCalledTimes(0);
+    expect(auth().currentUser?.updatePassword).toHaveBeenCalledTimes(0);
+    expect(mockUpdateUser).toHaveBeenCalledTimes(1);
+    expect(result.current.data?.description).toEqual('');
+  });
+
+  it("only updates description if it's changed", async () => {
+    useUserState.setState({
+      user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
+      data: {description: 'some description'},
+    });
+    mockUpdateUser.mockResolvedValueOnce();
+
+    const useTestHook = () => {
+      const data = useUserState(state => state.data);
+      const {updateProfileDetails} = useUpdateProfileDetails();
+      return {
+        updateProfileDetails,
+        data,
+      };
+    };
+
+    const {result} = renderHook(() => useTestHook());
+
+    await act(async () => {
+      await result.current.updateProfileDetails({
+        description: 'some description',
+      });
+    });
+
+    expect(auth().currentUser?.updateProfile).toHaveBeenCalledTimes(0);
+    expect(auth().currentUser?.updateEmail).toHaveBeenCalledTimes(0);
+    expect(auth().currentUser?.updatePassword).toHaveBeenCalledTimes(0);
+    expect(mockUpdateUser).toHaveBeenCalledTimes(0);
+    expect(result.current.data?.description).toEqual('some description');
   });
 
   describe('isAnonymous = true', () => {

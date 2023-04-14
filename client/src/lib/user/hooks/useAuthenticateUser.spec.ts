@@ -2,6 +2,9 @@ import {renderHook, act} from '@testing-library/react-hooks';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import useAuthenticateUser from './useAuthenticateUser';
 import useUserState from '../state/state';
+import {getMe} from '../api/user';
+
+jest.mock('../api/user');
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -14,6 +17,7 @@ describe('useAuthenticateUser', () => {
         someClaim: 'some-value',
       },
     } as unknown as FirebaseAuthTypes.IdTokenResult);
+    jest.mocked(getMe).mockResolvedValueOnce({});
 
     let userChangedCallback = (user: FirebaseAuthTypes.User | null) => user;
     (auth().onUserChanged as jest.Mock).mockImplementationOnce(
@@ -51,6 +55,7 @@ describe('useAuthenticateUser', () => {
         uid: 'some-user-id',
       } as FirebaseAuthTypes.User,
     });
+    jest.mocked(getMe).mockResolvedValueOnce({});
 
     let userChangedCallback = (user: FirebaseAuthTypes.User | null) => user;
     (auth().onUserChanged as jest.Mock).mockImplementationOnce(
@@ -88,5 +93,45 @@ describe('useAuthenticateUser', () => {
     unmount();
 
     expect(mockUnsubscribe).toHaveBeenCalledTimes(1);
+  });
+
+  it('should fetch user data if uid changed', async () => {
+    useUserState.setState({
+      user: {
+        uid: 'some-user-id',
+      } as FirebaseAuthTypes.User,
+    });
+    jest.mocked(getMe).mockResolvedValueOnce({description: 'some description'});
+
+    const useTestHook = () => {
+      useAuthenticateUser();
+      const data = useUserState(state => state.data);
+
+      return data;
+    };
+
+    await act(async () => {
+      const rendered = renderHook(useTestHook);
+      await rendered.waitForValueToChange(
+        () => rendered.result.current?.description,
+      );
+      expect(rendered.result.current?.description).toEqual('some description');
+    });
+  });
+
+  it('should not fetch user data if uid is undefined', async () => {
+    useUserState.setState({
+      user: null,
+    });
+
+    const useTestHook = () => {
+      useAuthenticateUser();
+      const data = useUserState(state => state.data);
+
+      return data;
+    };
+
+    renderHook(useTestHook);
+    expect(jest.mocked(getMe)).toHaveBeenCalledTimes(0);
   });
 });

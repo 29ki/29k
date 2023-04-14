@@ -1,7 +1,4 @@
-import {
-  UserProfileError,
-  VerificationError,
-} from '../../../../shared/src/errors/User';
+import {UserError, VerificationError} from '../../../../shared/src/errors/User';
 import {
   JoinSessionError,
   ValidateSessionError,
@@ -14,7 +11,7 @@ export class RequestError extends Error {
       | VerificationError
       | JoinSessionError
       | ValidateSessionError
-      | UserProfileError
+      | UserError
       | PostError,
   ) {
     super(code);
@@ -25,6 +22,6 @@ export class RequestError extends Error {
     | VerificationError
     | JoinSessionError
     | ValidateSessionError
-    | UserProfileError
+    | UserError
     | PostError;
 }

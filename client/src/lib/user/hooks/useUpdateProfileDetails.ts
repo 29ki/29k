@@ -1,12 +1,15 @@
 import {useCallback, useState} from 'react';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {ensureUserCreated} from '..';
+import {updateUser} from '../api/user';
+import useUserState from '../state/state';
 
 export type ProfileDetails = {
   displayName?: FirebaseAuthTypes.User['displayName'];
   email?: FirebaseAuthTypes.User['email'];
   password?: string;
   newPassword?: string;
+  description?: string;
 };
 
 export type UpdateProfileDetails = (
@@ -16,9 +19,11 @@ export type UpdateProfileDetails = (
 const useUpdateProfileDetails = () => {
   const [isUpdatingProfileDetails, setIsUpdatingProfileDetails] =
     useState(false);
+  const userData = useUserState(state => state.data);
+  const setUserData = useUserState(state => state.setData);
 
   const updateProfileDetails = useCallback<UpdateProfileDetails>(
-    async ({displayName, email, password, newPassword}) => {
+    async ({displayName, email, password, newPassword, description}) => {
       try {
         setIsUpdatingProfileDetails(true);
 
@@ -70,13 +75,18 @@ const useUpdateProfileDetails = () => {
           await currentUser?.updateProfile({displayName});
         }
 
+        if (description !== userData?.description) {
+          await updateUser({description});
+          setUserData({description});
+        }
+
         setIsUpdatingProfileDetails(false);
       } catch (e: any) {
         setIsUpdatingProfileDetails(false);
         throw e;
       }
     },
-    [setIsUpdatingProfileDetails],
+    [setIsUpdatingProfileDetails, userData, setUserData],
   );
 
   return {

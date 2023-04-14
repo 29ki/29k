@@ -1,8 +1,14 @@
-export const ROLES = {
-  publicHost: 'publicHost',
+import {UserRecord} from 'firebase-admin/auth';
+
+export enum ROLE {
+  publicHost = 'publicHost',
+}
+
+export type UserProfile = Pick<UserRecord, 'uid' | 'displayName' | 'photoURL'>;
+
+export type UserData = {
+  description?: string;
+  role?: ROLE;
 };
 
-export type UserProfile = {
-  displayName?: string;
-  photoURL?: string;
-};
+export type User = UserProfile & UserData;
