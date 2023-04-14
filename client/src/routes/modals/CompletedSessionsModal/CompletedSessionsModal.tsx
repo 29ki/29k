@@ -164,6 +164,7 @@ const CompletedSessionsModal = () => {
   const footer = useMemo(
     () => (
       <>
+        <Spacer12 />
         {filters}
         <Spacer32 />
       </>
