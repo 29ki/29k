@@ -1,7 +1,9 @@
 import {RouteProp, useRoute} from '@react-navigation/native';
 import React, {useCallback, useMemo, useState} from 'react';
 import {ListRenderItem} from 'react-native';
-import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
+import {BottomSheetSectionList} from '@gorhom/bottom-sheet';
+import dayjs from 'dayjs';
+import {groupBy} from 'ramda';
 
 import Gutters from '../../../lib/components/Gutters/Gutters';
 
@@ -23,6 +25,22 @@ import {
 import useGetSessionsByFeedback from './hooks/useGetSessionsByFeedback';
 import FeedbackFilters from './components/FeedbackFilters';
 import ModeFilters from './components/ModeFilters';
+import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
+import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
+import {COLORS} from '../../../../../shared/src/constants/colors';
+
+type Section = {
+  title: string;
+  data: CompletedSessionEvent[];
+};
+
+const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
+  section: {title},
+}) => (
+  <StickyHeading backgroundColor={COLORS.PURE_WHITE}>
+    <Heading16>{title}</Heading16>
+  </StickyHeading>
+);
 
 const CompletedSessionsModal = () => {
   const {
@@ -45,12 +63,14 @@ const CompletedSessionsModal = () => {
   );
 
   const data = useMemo(() => {
+    let sessions = completedSessions;
+
     if (filterSetting === 'feedback') {
-      return getSessionsByFeedback(selectedFeedback);
+      sessions = getSessionsByFeedback(selectedFeedback);
     }
 
     if (filterSetting === 'mode') {
-      return completedSessions.filter(({payload}) => {
+      sessions = completedSessions.filter(({payload}) => {
         if (selectedMode) {
           return selectedMode === SessionMode.async
             ? payload.mode === selectedMode
@@ -62,10 +82,15 @@ const CompletedSessionsModal = () => {
     }
 
     if (filterSetting === 'host') {
-      return completedHostedSessions;
+      sessions = completedHostedSessions;
     }
 
-    return completedSessions;
+    return Object.entries(
+      groupBy(event => dayjs(event.timestamp).format('MMM, YYYY'), sessions),
+    ).map(([month, events]) => ({
+      title: month,
+      data: events,
+    }));
   }, [
     completedHostedSessions,
     completedSessions,
@@ -86,12 +111,26 @@ const CompletedSessionsModal = () => {
           />
         )}
 
-        {filterSetting === 'mode' && (
-          <ModeFilters selectedMode={selectedMode} onChange={setSelectedMode} />
+        {['mode', 'host'].includes(filterSetting) && (
+          <ModeFilters
+            completedSessions={
+              filterSetting === 'host'
+                ? completedHostedSessions
+                : completedSessions
+            }
+            selectedMode={selectedMode}
+            onChange={setSelectedMode}
+          />
         )}
       </>
     ),
-    [filterSetting, selectedMode, selectedFeedback],
+    [
+      filterSetting,
+      selectedMode,
+      selectedFeedback,
+      completedHostedSessions,
+      completedSessions,
+    ],
   );
 
   const header = useMemo(
@@ -116,11 +155,12 @@ const CompletedSessionsModal = () => {
 
   return (
     <SheetModal>
-      <BottomSheetFlatList
-        data={data}
+      <BottomSheetSectionList
+        sections={data}
         renderItem={renderItem}
         ListHeaderComponent={data.length > 5 ? header : null}
         ListFooterComponent={footer}
+        renderSectionHeader={renderSectionHeader}
       />
     </SheetModal>
   );

@@ -17,6 +17,7 @@ import {
 import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
 
 import useCompletedSessions from '../../../../lib/sessions/hooks/useCompletedSessions';
+import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
 
 const Row = styled(Gutters)({
   flexDirection: 'row',
@@ -25,6 +26,7 @@ const Row = styled(Gutters)({
 });
 
 const ModeFilters: React.FC<{
+  completedSessions: CompletedSessionEvent[];
   selectedMode?: SessionMode.async | SessionType.public | SessionType.private;
   onChange: (
     selectedMode?:
@@ -33,9 +35,8 @@ const ModeFilters: React.FC<{
       | SessionType.private
       | undefined,
   ) => void;
-}> = ({selectedMode, onChange}) => {
+}> = ({selectedMode, completedSessions, onChange}) => {
   const {t} = useTranslation('Modal.CompletedSessions');
-  const {completedSessions} = useCompletedSessions();
   const {live: liveSessions, async: asyncSessions} = useMemo(
     () => groupBy(s => s.payload.mode, completedSessions),
     [completedSessions],
@@ -70,41 +71,32 @@ const ModeFilters: React.FC<{
 
   return (
     <Row>
-      {asyncSessions?.length && (
-        <FilterStatus
-          Icon={MeIcon}
-          selected={selectedMode === SessionMode.async}
-          onPress={onAsyncPress}
-          heading={`${asyncSessions?.length}`}
-          description={t('async')}
-        />
-      )}
-
-      {privateSessions?.length && (
-        <>
-          <Spacer16 />
-          <FilterStatus
-            Icon={FriendsIcon}
-            selected={selectedMode === SessionType.private}
-            onPress={onPrivatePress}
-            heading={`${privateSessions?.length}`}
-            description={t('private')}
-          />
-        </>
-      )}
-
-      {publicSessions?.length && (
-        <>
-          <Spacer16 />
-          <FilterStatus
-            Icon={CommunityIcon}
-            selected={selectedMode === SessionType.public}
-            onPress={onPublicPress}
-            heading={`${publicSessions?.length}`}
-            description={t('public')}
-          />
-        </>
-      )}
+      <FilterStatus
+        Icon={MeIcon}
+        selected={selectedMode === SessionMode.async}
+        onPress={onAsyncPress}
+        heading={`${asyncSessions?.length ?? 0}`}
+        description={t('async')}
+        disabled={!asyncSessions?.length}
+      />
+      <Spacer16 />
+      <FilterStatus
+        Icon={FriendsIcon}
+        selected={selectedMode === SessionType.private}
+        onPress={onPrivatePress}
+        heading={`${privateSessions?.length ?? 0}`}
+        description={t('private')}
+        disabled={!privateSessions?.length}
+      />
+      <Spacer16 />
+      <FilterStatus
+        Icon={CommunityIcon}
+        selected={selectedMode === SessionType.public}
+        onPress={onPublicPress}
+        heading={`${publicSessions?.length ?? 0}`}
+        description={t('public')}
+        disabled={!publicSessions?.length}
+      />
     </Row>
   );
 };

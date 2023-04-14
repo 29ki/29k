@@ -36,8 +36,16 @@ const FilterStatus: React.FC<{
   heading: string;
   description: string;
   selected?: boolean;
-}> = ({onPress, Icon, heading, description, selected = false}) => (
-  <FilterContainer selected={selected} onPress={onPress}>
+  disabled?: boolean;
+}> = ({
+  onPress,
+  Icon,
+  heading,
+  description,
+  selected = false,
+  disabled = false,
+}) => (
+  <FilterContainer selected={selected} onPress={onPress} disabled={disabled}>
     <Row>
       <IconWrapper>
         <Icon />

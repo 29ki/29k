@@ -10,7 +10,7 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import dayjs from 'dayjs';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
-import {partition, takeLast} from 'ramda';
+import {partition, takeLast, groupBy} from 'ramda';
 
 import {JourneyItem} from './types/JourneyItem';
 import {LiveSession} from '../../../../../shared/src/types/Session';
@@ -117,13 +117,20 @@ const Journey = () => {
     let sectionsList: Section[] = [];
 
     if (completedSessions.length > 0) {
-      sectionsList.push({
-        title: t('headings.completed'),
-        data: takeLast(COMPLETED_SESSION_LIMIT, completedSessions).map(s => ({
-          completedSession: s,
-          id: s.payload.id,
-        })),
-        type: 'completed',
+      Object.entries(
+        groupBy(
+          item => dayjs(item.timestamp).format('MMM, YYYY'),
+          completedSessions,
+        ),
+      ).forEach(([month, items]) => {
+        sectionsList.push({
+          title: month,
+          data: items.map(s => ({
+            completedSession: s,
+            id: s.payload.id,
+          })),
+          type: 'completed',
+        });
       });
     }
 
