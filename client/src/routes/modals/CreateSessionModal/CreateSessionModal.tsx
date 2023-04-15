@@ -45,7 +45,7 @@ export type StepProps = {
   firstStep: () => void;
   isPublicHost: boolean;
   selectedModeAndType: SelectedModeAndType;
-  userProfile: UserProfile;
+  userProfile: UserProfile | undefined;
   setSelectedModeAndType: Dispatch<
     SetStateAction<StepProps['selectedModeAndType']>
   >;
@@ -79,11 +79,15 @@ const CreateSessionModal = () => {
 
   const hasProfile = Boolean(user?.displayName) && Boolean(user?.photoURL);
   const userProfile = useMemo(
-    () => ({
-      displayName: user?.displayName ?? undefined,
-      photoURL: user?.photoURL ?? undefined,
-    }),
-    [user?.displayName, user?.photoURL],
+    () =>
+      user?.uid
+        ? {
+            uid: user?.uid,
+            displayName: user?.displayName ?? undefined,
+            photoURL: user?.photoURL ?? undefined,
+          }
+        : undefined,
+    [user?.uid, user?.displayName, user?.photoURL],
   );
 
   const currentSteps = useMemo(

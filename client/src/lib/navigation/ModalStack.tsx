@@ -32,6 +32,7 @@ import HostsModal from '../../routes/modals/Contributors/HostsModal';
 import SafetyToolkitModal from '../../routes/modals/SafetyToolkitModal/SafetyToolkitModal';
 import ReportModal from '../../routes/modals/ReportModal/ReportModal';
 import CalmDownModal from '../../routes/modals/CalmDownModal/CalmDownModal';
+import HostInfoModal from '../../routes/modals/HostInfoModal/HostInfoModal';
 import CompletedSessionsModal from '../../routes/modals/CompletedSessionsModal/CompletedSessionsModal';
 
 const {Navigator, Screen, Group} =
@@ -179,6 +180,11 @@ const ModalStack = () => {
           name={'ProfileSettingsModal'}
           component={ProfileSettingsModal}
           options={fullSheetModalScreenOptions}
+        />
+        <Screen
+          name={'HostInfoModal'}
+          component={HostInfoModal}
+          options={tallSheetModalScreenOptions}
         />
 
         <Screen name={'ContributorsModal'} component={ContributorsModal} />

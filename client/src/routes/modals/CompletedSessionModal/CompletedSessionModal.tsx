@@ -43,6 +43,7 @@ import {ExerciseSlideSharingSlide} from '../../../../../shared/src/types/generat
 import useUserProfile from '../../../lib/user/hooks/useUserProfile';
 import MyPostCard from '../../../lib/session/components/Posts/MyPostCard';
 import useUser from '../../../lib/user/hooks/useUser';
+import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -96,6 +97,11 @@ const CompletedSessionModal = () => {
     });
   }, [payload, navigate, popToTop]);
 
+  const onHostPress = useCallback(() => {
+    popToTop();
+    navigate('HostInfoModal', {host: hostProfile});
+  }, [navigate, popToTop, hostProfile]);
+
   const exercise = useExerciseById(payload.exerciseId);
   const {getSharingPostForSession} = useSharingPosts(exercise?.id);
 
@@ -116,6 +122,7 @@ const CompletedSessionModal = () => {
   const userProfile = useMemo(() => {
     if (user?.displayName) {
       return {
+        uid: user.uid,
         displayName: user.displayName,
         photoURL: user.photoURL ? user.photoURL : undefined,
       };
@@ -135,18 +142,20 @@ const CompletedSessionModal = () => {
             <TitleContainer>
               <Display24>{formatExerciseName(exercise)}</Display24>
               <Spacer4 />
-              <Byline
-                pictureURL={
-                  hostProfile?.photoURL
-                    ? hostProfile.photoURL
-                    : exercise.card?.host?.photoURL
-                }
-                name={
-                  hostProfile?.displayName
-                    ? hostProfile.displayName
-                    : exercise.card?.host?.displayName
-                }
-              />
+              <TouchableOpacity onPress={onHostPress}>
+                <Byline
+                  pictureURL={
+                    hostProfile?.photoURL
+                      ? hostProfile.photoURL
+                      : exercise.card?.host?.photoURL
+                  }
+                  name={
+                    hostProfile?.displayName
+                      ? hostProfile.displayName
+                      : exercise.card?.host?.displayName
+                  }
+                />
+              </TouchableOpacity>
             </TitleContainer>
             <Spacer32 />
             <ImageContainer

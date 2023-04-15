@@ -75,6 +75,7 @@ type SessionCardProps = {
   standAlone?: boolean;
   hasCardBefore?: boolean;
   hasCardAfter?: boolean;
+  disableHostPress?: boolean;
   onBeforeContextPress?: () => void;
   style?: ViewStyle;
 };
@@ -84,6 +85,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
   standAlone = true,
   hasCardBefore = false,
   hasCardAfter = false,
+  disableHostPress,
   onBeforeContextPress,
   style,
 }) => {
@@ -118,6 +120,10 @@ const SessionCard: React.FC<SessionCardProps> = ({
     navigate('SessionModal', {session: session});
   }, [navigate, session, onBeforeContextPress]);
 
+  const onHostPress = useCallback(() => {
+    navigate('HostInfoModal', {host: hostProfile});
+  }, [navigate, hostProfile]);
+
   const image = useMemo(
     () => ({
       uri: exercise?.card?.image?.source,
@@ -143,6 +149,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
         image={image}
         lottie={lottie}
         onPress={onContextPress}
+        onHostPress={!disableHostPress ? onHostPress : undefined}
         hostPictureURL={hostProfile?.photoURL || exercise?.card?.host?.photoURL}
         hostName={hostProfile?.displayName || exercise?.card?.host?.displayName}
         style={style}>

@@ -14,6 +14,7 @@ import {
   PostEventData,
   CompletedSessionEventData,
 } from '../../../../../shared/src/types/Event';
+import {UserData} from '../../../../../shared/src/types/User';
 
 dayjs.extend(utc);
 
@@ -45,6 +46,7 @@ type SetCurrentUserState = (
 
 export type State = {
   user: FirebaseAuthTypes.User | null;
+  data: UserData | null;
   claims: FirebaseAuthTypes.IdTokenResult['claims'];
   userState: {[key: string]: UserState};
 };
@@ -54,6 +56,7 @@ export type PersistedState = Pick<State, 'userState'>;
 export type Actions = {
   setUser: (user: State['user']) => void;
   setClaims: (claims: State['claims']) => void;
+  setData: (data: Partial<UserData>) => void;
   setUserAndClaims: (state: {
     user: State['user'];
     claims: State['claims'];
@@ -70,6 +73,7 @@ export type Actions = {
 
 const initialState: State = {
   user: null,
+  data: null,
   claims: {},
   userState: {},
 };
@@ -122,9 +126,9 @@ const useUserState = create<State & Actions>()(
       return {
         ...initialState,
         setUser: user => set({user}),
+        setData: data => set(state => ({data: {...state.data, ...data}})),
         setClaims: claims => set({claims}),
         setUserAndClaims: ({user, claims}) => set({user, claims}),
-
         setCurrentUserState,
         setPinnedSessions: pinnedSessions =>
           setCurrentUserState({pinnedSessions}),

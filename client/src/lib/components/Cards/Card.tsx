@@ -77,6 +77,7 @@ type CardProps = {
   image?: ImageSourcePropType;
   lottie?: AnimationObject | {uri: string};
   onPress: () => void;
+  onHostPress?: () => void;
   children?: React.ReactNode;
   hostPictureURL?: string;
   hostName?: string;
@@ -90,6 +91,7 @@ export const Card: React.FC<CardProps> = ({
   lottie,
   image,
   onPress,
+  onHostPress,
   children,
   hostPictureURL,
   hostName,
@@ -113,7 +115,13 @@ export const Card: React.FC<CardProps> = ({
           <Header>
             {title && <Display20 numberOfLines={2}>{title}</Display20>}
             <Spacer4 />
-            <Byline pictureURL={hostPictureURL} name={hostName} />
+            {onHostPress ? (
+              <TouchableOpacity onPress={onHostPress}>
+                <Byline pictureURL={hostPictureURL} name={hostName} />
+              </TouchableOpacity>
+            ) : (
+              <Byline pictureURL={hostPictureURL} name={hostName} />
+            )}
           </Header>
         </LeftCol>
         <GraphicsWrapper>

@@ -4,7 +4,7 @@ import Koa from 'koa';
 import {sessionsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {createApiAuthRouter} from '../../lib/routers';
-import {ROLES} from '../../../../shared/src/types/User';
+import {ROLE} from '../../../../shared/src/types/User';
 import * as sessionsController from '../../controllers/sessions';
 import {RequestError} from '../../controllers/errors/RequestError';
 import {
@@ -77,6 +77,7 @@ describe('/api/sessions', () => {
       expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
         'some-user-id',
         undefined,
+        undefined,
       );
       expect(response.status).toBe(200);
       expect(response.body).toEqual([
@@ -124,6 +125,7 @@ describe('/api/sessions', () => {
       expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
         'some-user-id',
         'some-exercise-id',
+        undefined,
       );
       expect(response.status).toBe(200);
       expect(response.body).toEqual([
@@ -141,6 +143,56 @@ describe('/api/sessions', () => {
           url: 'some-other-url',
           hostId: 'some-other-user-id',
           exerciseId: 'some-exercise-id',
+          startTime: expect.any(String),
+        },
+      ]);
+    });
+
+    it('should get sessions by hostId', async () => {
+      mockGetSessionsByUserId.mockResolvedValueOnce([
+        {
+          id: 'some-session-id-1',
+          name: 'some-name-1',
+          url: 'some-url',
+          hostId: 'some-other-user-id',
+          exerciseId: 'some-exercise-id',
+          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+        },
+        {
+          id: 'some-session-id-2',
+          name: 'some-name-2',
+          url: 'some-url',
+          hostId: 'some-other-user-id',
+          exerciseId: 'some-other-exercise-id',
+          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+        },
+      ]);
+
+      const response = await request(mockServer).get(
+        '/sessions?hostId=some-other-user-id',
+      );
+
+      expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
+        'some-user-id',
+        undefined,
+        'some-other-user-id',
+      );
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual([
+        {
+          id: 'some-session-id-1',
+          name: 'some-name-1',
+          url: 'some-url',
+          hostId: 'some-other-user-id',
+          exerciseId: 'some-exercise-id',
+          startTime: expect.any(String),
+        },
+        {
+          id: 'some-session-id-2',
+          name: 'some-name-2',
+          url: 'some-url',
+          hostId: 'some-other-user-id',
+          exerciseId: 'some-other-exercise-id',
           startTime: expect.any(String),
         },
       ]);
@@ -241,7 +293,7 @@ describe('/api/sessions', () => {
     const startTime = new Date('1994-03-08T07:24:00').toISOString();
 
     it('should return newly created session', async () => {
-      getMockCustomClaims.mockReturnValueOnce({role: ROLES.publicHost});
+      getMockCustomClaims.mockReturnValueOnce({role: ROLE.publicHost});
 
       mockCreateSession.mockResolvedValueOnce({id: 'new-session'});
       const response = await request(mockServer)
@@ -275,7 +327,7 @@ describe('/api/sessions', () => {
     });
 
     it('should fail without session data', async () => {
-      getMockCustomClaims.mockReturnValueOnce({role: ROLES.publicHost});
+      getMockCustomClaims.mockReturnValueOnce({role: ROLE.publicHost});
       const response = await request(mockServer)
         .post('/sessions')
         .set('Accept', 'application/json');

@@ -165,10 +165,10 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
               <Byline
                 small
                 pictureURL={
-                  hostProfile.photoURL ?? exercise?.card?.host?.photoURL
+                  hostProfile?.photoURL ?? exercise?.card?.host?.photoURL
                 }
                 name={
-                  hostProfile.displayName ?? exercise?.card?.host?.displayName
+                  hostProfile?.displayName ?? exercise?.card?.host?.displayName
                 }
               />
             </Column>

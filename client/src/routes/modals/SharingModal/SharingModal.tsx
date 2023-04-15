@@ -99,14 +99,15 @@ const SharingModal = () => {
   const [text, setText] = useState('');
 
   const userProfile = useMemo(() => {
-    if (user?.displayName) {
+    if (user?.uid && user?.displayName) {
       return {
+        uid: user.uid,
         displayName: user.displayName,
         photoURL: user?.photoURL ? user?.photoURL : undefined,
       };
     }
     return undefined;
-  }, [user?.displayName, user?.photoURL]);
+  }, [user?.uid, user?.displayName, user?.photoURL]);
 
   const setPrivate = useCallback(() => {
     setIsPublic(false);

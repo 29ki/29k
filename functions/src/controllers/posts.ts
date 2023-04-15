@@ -5,12 +5,12 @@ import {PostParams} from '../../../shared/src/types/Post';
 import {getExerciseById} from '../lib/exercise';
 import * as postModel from '../models/post';
 import {sendPostMessage} from '../models/slack';
-import {getPublicUserInfo} from '../models/user';
+import {getAuthUserInfo} from '../models/auth';
 import {RequestError} from './errors/RequestError';
 
 const safeGetPublicHostInfo = async (userId: string) => {
   try {
-    return await getPublicUserInfo(userId);
+    return await getAuthUserInfo(userId);
   } catch {
     return undefined;
   }
