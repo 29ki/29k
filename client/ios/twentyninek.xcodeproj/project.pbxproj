@@ -14,7 +14,6 @@
 		138532B582134608831ADCA4 /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A592D3B045465ABD8A445D /* thumbs_up.png */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		1512FC240ED54E8995767D69 /* onboarding_person3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2FC87B911138498CBDDBAC9E /* onboarding_person3.mp4 */; };
 		16100098A2D940DA9BE28E7B /* community.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 517149CE9100443385774B2B /* community.jpg */; };
 		172FD1A660FA43AF8390F756 /* HKGrotesk-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D23A9D3469D04DCBA3B5B6DE /* HKGrotesk-ThinItalic.ttf */; };
 		1AF1549406FE42B5B87DF3CD /* PlayfairDisplay-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B969669E9C09454993930592 /* PlayfairDisplay-ExtraBold.ttf */; };
@@ -32,6 +31,14 @@
 		358C4F2723F64259BA21F041 /* HKGrotesk-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F984EB2C23C413EAD170059 /* HKGrotesk-SemiBoldItalic.ttf */; };
 		361F9F1F29E7F454007FB783 /* community.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 517149CE9100443385774B2B /* community.jpg */; };
 		361F9F2029E7F455007FB783 /* community.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 517149CE9100443385774B2B /* community.jpg */; };
+		361F9F2129E82A19007FB783 /* clouds.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EB835C82F5AF42F9BBD20510 /* clouds.mp4 */; };
+		361F9F2229E82A19007FB783 /* onboarding_person3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AB9FAD3B9AA14AE99DB78B2B /* onboarding_person3.mp4 */; };
+		361F9F2329E82A19007FB783 /* onboarding_person2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 172A632C62C94DC496520E49 /* onboarding_person2.mp4 */; };
+		361F9F2429E82A19007FB783 /* onboarding_person1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 062AADD3FF4E4829B2149508 /* onboarding_person1.mp4 */; };
+		361F9F2529E82A19007FB783 /* clouds.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EB835C82F5AF42F9BBD20510 /* clouds.mp4 */; };
+		361F9F2629E82A19007FB783 /* onboarding_person3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AB9FAD3B9AA14AE99DB78B2B /* onboarding_person3.mp4 */; };
+		361F9F2729E82A19007FB783 /* onboarding_person2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 172A632C62C94DC496520E49 /* onboarding_person2.mp4 */; };
+		361F9F2829E82A19007FB783 /* onboarding_person1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 062AADD3FF4E4829B2149508 /* onboarding_person1.mp4 */; };
 		36210DE829DEDA0300552260 /* thumbs_up_silouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 7697D543D27245AFB5F40FE5 /* thumbs_up_silouette.png */; };
 		36210DE929DEDA0300552260 /* forest.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7F60DFD1E4B498AA08A6194 /* forest.jpg */; };
 		36210DEA29DEDA0300552260 /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A592D3B045465ABD8A445D /* thumbs_up.png */; };
@@ -128,16 +135,17 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8727A0AB20AF410ABD115722 /* thumbs_up_silouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 7697D543D27245AFB5F40FE5 /* thumbs_up_silouette.png */; };
 		8EA1C749FD07419CAFAC8F1E /* PlayfairDisplay-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FB1C4107AC3466188F02C93 /* PlayfairDisplay-BlackItalic.ttf */; };
-		931519A920404545875CB457 /* clouds.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6D187D0D9E144180A232E7C2 /* clouds.mp4 */; };
+		98BF6EAE9C6143289B2D95DA /* onboarding_person1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 062AADD3FF4E4829B2149508 /* onboarding_person1.mp4 */; };
 		98BF7BD01AC94730A9EBBCF8 /* HKGrotesk-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 141DCBF6D58B416E9DC98C69 /* HKGrotesk-Italic.ttf */; };
+		9D27BEBF1BD04453AAF8C0D7 /* clouds.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EB835C82F5AF42F9BBD20510 /* clouds.mp4 */; };
 		9FAB75AE36C241759B2D6102 /* HKGrotesk-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7B0369A69A5459EBF311F36 /* HKGrotesk-MediumItalic.ttf */; };
 		A004DA0332A84139837B70E3 /* HKGrotesk-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDC97632AC9A41E683B57B63 /* HKGrotesk-ExtraBold.ttf */; };
 		A0396F9773F344FE8F381035 /* HKGrotesk-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8B60BFB051E4200971A1E5D /* HKGrotesk-ExtraBoldItalic.ttf */; };
 		A2D0FF0B865E4996AAAEED8C /* PlayfairDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47BAB9D11CC441EE8D9AD069 /* PlayfairDisplay-SemiBold.ttf */; };
+		C3C4ADD88EA9474987AF7E4D /* onboarding_person3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AB9FAD3B9AA14AE99DB78B2B /* onboarding_person3.mp4 */; };
 		CD86BEA31AC24020B0EDF7F9 /* HKGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7A9AC015F0444D78702CDB8 /* HKGrotesk-Medium.ttf */; };
-		D26984A6BDDE40ECB3FE6CF3 /* onboarding_person2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 331C71A89515438AA418CB99 /* onboarding_person2.mp4 */; };
 		D27C808E13974943B12A51A1 /* HKGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38098D4E3BE44FE192B788F7 /* HKGrotesk-Light.ttf */; };
-		E3C041258DAE4BCC8906DB0F /* onboarding_person1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BCC22A19137241CBB5CE1510 /* onboarding_person1.mp4 */; };
+		F7C70B64B22C475CB69A4AD7 /* onboarding_person2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 172A632C62C94DC496520E49 /* onboarding_person2.mp4 */; };
 		F972E6872EEC4680BFA871D4 /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D604BD0BA9D4700B61615BC /* PlayfairDisplay-Bold.ttf */; };
 		FB406F7E72B143368045E1E2 /* PlayfairDisplay-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70541B4723CC4589BC286F20 /* PlayfairDisplay-SemiBoldItalic.ttf */; };
 		FCDDAFDDFE4F4A1FABA34E33 /* HKGrotesk-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6955B7D500CF486496F2FAC1 /* HKGrotesk-Thin.ttf */; };
@@ -146,6 +154,7 @@
 
 /* Begin PBXFileReference section */
 		01BAF1252BA3DE022FAA03C1 /* Pods_dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		062AADD3FF4E4829B2149508 /* onboarding_person1.mp4 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = onboarding_person1.mp4; path = ../src/assets/videos/onboarding_person1.mp4; sourceTree = "<group>"; };
 		0C60BDAB4BE94BBC97B83082 /* PlayfairDisplay-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Black.ttf"; path = "../src/assets/fonts/PlayfairDisplay-Black.ttf"; sourceTree = "<group>"; };
 		12A592D3B045465ABD8A445D /* thumbs_up.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = thumbs_up.png; path = ../src/assets/images/thumbs_up.png; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* production.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = production.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +162,7 @@
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = twentyninek/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = twentyninek/main.m; sourceTree = "<group>"; };
 		141DCBF6D58B416E9DC98C69 /* HKGrotesk-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-Italic.ttf"; path = "../src/assets/fonts/HKGrotesk-Italic.ttf"; sourceTree = "<group>"; };
+		172A632C62C94DC496520E49 /* onboarding_person2.mp4 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = onboarding_person2.mp4; path = ../src/assets/videos/onboarding_person2.mp4; sourceTree = "<group>"; };
 		1F92E01E06E64E5F936FE9CB /* HKGrotesk-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-BlackItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-BlackItalic.ttf"; sourceTree = "<group>"; };
 		20A763052861E2FE0007087C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		20AC302A29B612980083FDD0 /* VideoLooperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLooperView.swift; sourceTree = "<group>"; };
@@ -160,8 +170,6 @@
 		20AC303429B6146F0083FDD0 /* VideoLooperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLooperManager.swift; sourceTree = "<group>"; };
 		20AC303829B614FB0083FDD0 /* VideoLooper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoLooper-Bridging-Header.h"; sourceTree = "<group>"; };
 		2F984EB2C23C413EAD170059 /* HKGrotesk-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-SemiBoldItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		2FC87B911138498CBDDBAC9E /* onboarding_person3.mp4 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = onboarding_person3.mp4; path = ../src/assets/videos/onboarding_person3.mp4; sourceTree = "<group>"; };
-		331C71A89515438AA418CB99 /* onboarding_person2.mp4 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = onboarding_person2.mp4; path = ../src/assets/videos/onboarding_person2.mp4; sourceTree = "<group>"; };
 		35E0C7EB316048939A75C305 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Regular.ttf"; path = "../src/assets/fonts/PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		3690D88D2865064200A0F937 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = twentyninek/Images.xcassets; sourceTree = "<group>"; };
 		36ADA2EE28FF3F04003294E1 /* production.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = production.entitlements; sourceTree = "<group>"; };
@@ -182,7 +190,6 @@
 		624F908A7D658EB04E2EA6F1 /* Pods-staging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-staging.debug.xcconfig"; path = "Target Support Files/Pods-staging/Pods-staging.debug.xcconfig"; sourceTree = "<group>"; };
 		64EC0C45BF0040A2AEAB9C0F /* PlayfairDisplay-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Italic.ttf"; path = "../src/assets/fonts/PlayfairDisplay-Italic.ttf"; sourceTree = "<group>"; };
 		6955B7D500CF486496F2FAC1 /* HKGrotesk-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-Thin.ttf"; path = "../src/assets/fonts/HKGrotesk-Thin.ttf"; sourceTree = "<group>"; };
-		6D187D0D9E144180A232E7C2 /* clouds.mp4 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = clouds.mp4; path = ../src/assets/videos/clouds.mp4; sourceTree = "<group>"; };
 		6F88E6EBC89A3FCABE465890 /* Pods-dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dev.debug.xcconfig"; path = "Target Support Files/Pods-dev/Pods-dev.debug.xcconfig"; sourceTree = "<group>"; };
 		70541B4723CC4589BC286F20 /* PlayfairDisplay-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-SemiBoldItalic.ttf"; path = "../src/assets/fonts/PlayfairDisplay-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		7697D543D27245AFB5F40FE5 /* thumbs_up_silouette.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = thumbs_up_silouette.png; path = ../src/assets/images/thumbs_up_silouette.png; sourceTree = "<group>"; };
@@ -195,15 +202,16 @@
 		A04E9BC6F04F675C7BAB9A0B /* Pods_staging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_staging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A056520304664C35A018EACD /* HKGrotesk-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-Bold.ttf"; path = "../src/assets/fonts/HKGrotesk-Bold.ttf"; sourceTree = "<group>"; };
 		A25751351AC74C9899C05A2B /* PlayfairDisplay-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-BoldItalic.ttf"; path = "../src/assets/fonts/PlayfairDisplay-BoldItalic.ttf"; sourceTree = "<group>"; };
+		AB9FAD3B9AA14AE99DB78B2B /* onboarding_person3.mp4 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = onboarding_person3.mp4; path = ../src/assets/videos/onboarding_person3.mp4; sourceTree = "<group>"; };
 		B8268BC6140D4234847163B1 /* HKGrotesk-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-BoldItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-BoldItalic.ttf"; sourceTree = "<group>"; };
 		B969669E9C09454993930592 /* PlayfairDisplay-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-ExtraBold.ttf"; path = "../src/assets/fonts/PlayfairDisplay-ExtraBold.ttf"; sourceTree = "<group>"; };
-		BCC22A19137241CBB5CE1510 /* onboarding_person1.mp4 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = onboarding_person1.mp4; path = ../src/assets/videos/onboarding_person1.mp4; sourceTree = "<group>"; };
 		BF33B8F1B88F43168FDB6B0F /* HKGrotesk-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-ExtraLight.ttf"; path = "../src/assets/fonts/HKGrotesk-ExtraLight.ttf"; sourceTree = "<group>"; };
 		C7A9AC015F0444D78702CDB8 /* HKGrotesk-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-Medium.ttf"; path = "../src/assets/fonts/HKGrotesk-Medium.ttf"; sourceTree = "<group>"; };
 		CB7EF2B3981F4C15B5A80B41 /* HKGrotesk-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-LightItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-LightItalic.ttf"; sourceTree = "<group>"; };
 		D23A9D3469D04DCBA3B5B6DE /* HKGrotesk-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-ThinItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-ThinItalic.ttf"; sourceTree = "<group>"; };
 		D4DC8D4A3FCD42879BD2D25D /* HKGrotesk-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-Regular.ttf"; path = "../src/assets/fonts/HKGrotesk-Regular.ttf"; sourceTree = "<group>"; };
 		E7B0369A69A5459EBF311F36 /* HKGrotesk-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-MediumItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-MediumItalic.ttf"; sourceTree = "<group>"; };
+		EB835C82F5AF42F9BBD20510 /* clouds.mp4 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = clouds.mp4; path = ../src/assets/videos/clouds.mp4; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EFA4006C7CCA4AB2B2917E80 /* HKGrotesk-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-ExtraLightItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		F0732F29855A4EE089F76599 /* PlayfairDisplay-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Medium.ttf"; path = "../src/assets/fonts/PlayfairDisplay-Medium.ttf"; sourceTree = "<group>"; };
@@ -296,10 +304,10 @@
 				12A592D3B045465ABD8A445D /* thumbs_up.png */,
 				7697D543D27245AFB5F40FE5 /* thumbs_up_silouette.png */,
 				517149CE9100443385774B2B /* community.jpg */,
-				6D187D0D9E144180A232E7C2 /* clouds.mp4 */,
-				BCC22A19137241CBB5CE1510 /* onboarding_person1.mp4 */,
-				331C71A89515438AA418CB99 /* onboarding_person2.mp4 */,
-				2FC87B911138498CBDDBAC9E /* onboarding_person3.mp4 */,
+				EB835C82F5AF42F9BBD20510 /* clouds.mp4 */,
+				062AADD3FF4E4829B2149508 /* onboarding_person1.mp4 */,
+				172A632C62C94DC496520E49 /* onboarding_person2.mp4 */,
+				AB9FAD3B9AA14AE99DB78B2B /* onboarding_person3.mp4 */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -564,10 +572,10 @@
 				138532B582134608831ADCA4 /* thumbs_up.png in Resources */,
 				8727A0AB20AF410ABD115722 /* thumbs_up_silouette.png in Resources */,
 				16100098A2D940DA9BE28E7B /* community.jpg in Resources */,
-				931519A920404545875CB457 /* clouds.mp4 in Resources */,
-				E3C041258DAE4BCC8906DB0F /* onboarding_person1.mp4 in Resources */,
-				D26984A6BDDE40ECB3FE6CF3 /* onboarding_person2.mp4 in Resources */,
-				1512FC240ED54E8995767D69 /* onboarding_person3.mp4 in Resources */,
+				9D27BEBF1BD04453AAF8C0D7 /* clouds.mp4 in Resources */,
+				98BF6EAE9C6143289B2D95DA /* onboarding_person1.mp4 in Resources */,
+				F7C70B64B22C475CB69A4AD7 /* onboarding_person2.mp4 in Resources */,
+				C3C4ADD88EA9474987AF7E4D /* onboarding_person3.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,11 +584,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				36C49FEF28D8AA11001878A6 /* HKGrotesk-Light.ttf in Resources */,
+				361F9F2829E82A19007FB783 /* onboarding_person1.mp4 in Resources */,
+				361F9F2629E82A19007FB783 /* onboarding_person3.mp4 in Resources */,
 				36303A1728D9B0910025F147 /* PlayfairDisplay-ExtraBold.ttf in Resources */,
 				36303A1828D9B0910025F147 /* PlayfairDisplay-SemiBold.ttf in Resources */,
 				36C49FEC28D8AA11001878A6 /* HKGrotesk-Medium.ttf in Resources */,
 				36303A1A28D9B0910025F147 /* PlayfairDisplay-Medium.ttf in Resources */,
 				36303A1928D9B0910025F147 /* PlayfairDisplay-BoldItalic.ttf in Resources */,
+				361F9F2529E82A19007FB783 /* clouds.mp4 in Resources */,
 				36B9FA1628625FFA00563812 /* LaunchScreen.storyboard in Resources */,
 				36303A1528D9B0910025F147 /* PlayfairDisplay-Italic.ttf in Resources */,
 				36210DEB29DEDA0300552260 /* thumbs_up_silouette.png in Resources */,
@@ -606,6 +617,7 @@
 				36303A1628D9B0910025F147 /* PlayfairDisplay-Regular.ttf in Resources */,
 				36C49FE828D8AA11001878A6 /* HKGrotesk-ExtraBold.ttf in Resources */,
 				36B9FA23286260E500563812 /* GoogleService-Info.plist in Resources */,
+				361F9F2729E82A19007FB783 /* onboarding_person2.mp4 in Resources */,
 				36210DEC29DEDA0300552260 /* forest.jpg in Resources */,
 				36C49FE728D8AA11001878A6 /* HKGrotesk-BlackItalic.ttf in Resources */,
 				36C49FF528D8AA11001878A6 /* HKGrotesk-BoldItalic.ttf in Resources */,
@@ -621,11 +633,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				36C49FDD28D8AA11001878A6 /* HKGrotesk-Light.ttf in Resources */,
+				361F9F2429E82A19007FB783 /* onboarding_person1.mp4 in Resources */,
+				361F9F2229E82A19007FB783 /* onboarding_person3.mp4 in Resources */,
 				36303A0B28D9B0910025F147 /* PlayfairDisplay-ExtraBold.ttf in Resources */,
 				36303A0C28D9B0910025F147 /* PlayfairDisplay-SemiBold.ttf in Resources */,
 				36C49FDA28D8AA11001878A6 /* HKGrotesk-Medium.ttf in Resources */,
 				36303A0E28D9B0910025F147 /* PlayfairDisplay-Medium.ttf in Resources */,
 				36303A0D28D9B0910025F147 /* PlayfairDisplay-BoldItalic.ttf in Resources */,
+				361F9F2129E82A19007FB783 /* clouds.mp4 in Resources */,
 				3690D88F2865069800A0F937 /* Images.xcassets in Resources */,
 				36303A0928D9B0910025F147 /* PlayfairDisplay-Italic.ttf in Resources */,
 				36210DE829DEDA0300552260 /* thumbs_up_silouette.png in Resources */,
@@ -651,6 +666,7 @@
 				36303A0A28D9B0910025F147 /* PlayfairDisplay-Regular.ttf in Resources */,
 				36C49FD628D8AA11001878A6 /* HKGrotesk-ExtraBold.ttf in Resources */,
 				7880A529286204820063B482 /* GoogleService-Info.plist in Resources */,
+				361F9F2329E82A19007FB783 /* onboarding_person2.mp4 in Resources */,
 				36210DE929DEDA0300552260 /* forest.jpg in Resources */,
 				36C49FD528D8AA11001878A6 /* HKGrotesk-BlackItalic.ttf in Resources */,
 				36C49FE328D8AA11001878A6 /* HKGrotesk-BoldItalic.ttf in Resources */,
