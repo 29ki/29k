@@ -139,19 +139,19 @@
     },
     {
       "path": "src/assets/videos/clouds.mp4",
-      "sha1": "443d77a786fe9219b390deb57644cb87df654913"
+      "sha1": "e922b24ea439dfba39962a13e51ca7573597f357"
     },
     {
       "path": "src/assets/videos/onboarding_person1.mp4",
-      "sha1": "3251087842e42c653ac6c236091843161c482f60"
+      "sha1": "9312f1584c8c06f24cff1516e14f4c00d70dc869"
     },
     {
       "path": "src/assets/videos/onboarding_person2.mp4",
-      "sha1": "4b3b68968a787089684cb26b43d24a3d10631262"
+      "sha1": "2004218cb9e407e69ca21008ff0ccde992e03bcc"
     },
     {
       "path": "src/assets/videos/onboarding_person3.mp4",
-      "sha1": "5bf267153d431649019b3f1c0211b4ebc8031d09"
+      "sha1": "beebcc40488541aa6e465589b34ebc206ba7b805"
     }
   ]
 }
