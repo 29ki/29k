@@ -60,6 +60,7 @@ const CompletedSessionsModal = () => {
   const getSessionsByFeedback = useGetSessionsByFeedback();
   const isFocused = useIsFocused();
   const listRef = useRef<RNSectionList<CompletedSessionEvent, Section>>(null);
+  const [listItems, setListItems] = useState<CompletedSessionEvent[]>(0);
 
   const data = useMemo(() => {
     let sessions = completedSessions;
@@ -84,6 +85,7 @@ const CompletedSessionsModal = () => {
       sessions = completedHostedSessions;
     }
 
+    setListItems(sessions);
     return Object.entries(
       groupBy(event => dayjs(event.timestamp).format('MMM, YYYY'), sessions),
     ).map(([month, events]) => ({
@@ -97,26 +99,8 @@ const CompletedSessionsModal = () => {
     selectedFeedback,
     selectedMode,
     getSessionsByFeedback,
+    setListItems,
   ]);
-
-  const renderItem = useCallback<
-    SectionListRenderItem<CompletedSessionEvent, Section>
-  >(
-    ({item, index, section}) => (
-      <Gutters key={item.payload.id}>
-        <JourneyNode
-          index={index}
-          completedSessionEvent={item}
-          isFirst={data.indexOf(section) === 0 && index === 0}
-          isLast={
-            data.indexOf(section) === data.length - 1 &&
-            index === section.data.length - 1
-          }
-        />
-      </Gutters>
-    ),
-    [data],
-  );
 
   const filters = useMemo(
     () => (
@@ -151,14 +135,23 @@ const CompletedSessionsModal = () => {
     ],
   );
 
-  const header = useMemo(
-    () => (
-      <>
-        {filters}
-        <Spacer12 />
-      </>
+  const renderItem = useCallback<
+    SectionListRenderItem<CompletedSessionEvent, Section>
+  >(
+    ({item, index, section}) => (
+      <Gutters key={item.payload.id}>
+        <JourneyNode
+          index={index}
+          completedSessionEvent={item}
+          isFirst={data.indexOf(section) === 0 && index === 0}
+          isLast={
+            data.indexOf(section) === data.length - 1 &&
+            index === section.data.length - 1
+          }
+        />
+      </Gutters>
     ),
-    [filters],
+    [data],
   );
 
   const footer = useMemo(
@@ -167,6 +160,7 @@ const CompletedSessionsModal = () => {
         <Spacer12 />
         {filters}
         <Spacer32 />
+        <Spacer32 />
       </>
     ),
     [filters],
@@ -174,15 +168,12 @@ const CompletedSessionsModal = () => {
 
   useEffect(() => {
     if (isFocused) {
-      console.log('scrollto');
-      requestAnimationFrame(() =>
-        listRef.current?.scrollToLocation({
-          itemIndex: data[data.length - 1].data.length + 1,
-          sectionIndex: data.length - 1,
-        }),
-      );
+      listRef.current?.scrollToLocation({
+        itemIndex: listItems.length,
+        sectionIndex: data.length - 1,
+      });
     }
-  }, [isFocused, data]);
+  }, [isFocused, data, listItems.length]);
 
   const getItemLayout = useCallback(
     (
@@ -203,10 +194,10 @@ const CompletedSessionsModal = () => {
         sections={data}
         getItemLayout={getItemLayout}
         renderItem={renderItem}
-        ListHeaderComponent={data.length > 5 ? header : null}
-        ListFooterComponent={footer}
         renderSectionHeader={renderSectionHeader}
+        ListFooterComponent={listItems.length <= 5 ? footer : null}
       />
+      {listItems.length > 5 && footer}
     </SheetModal>
   );
 };
