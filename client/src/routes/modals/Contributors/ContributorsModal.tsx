@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import content from '../../../../../content/content.json';
@@ -16,6 +16,7 @@ import {Contributor} from './components/Contributor';
 import {Header} from './components/Header';
 import {ScrollView} from './components/ScrollView';
 import {ContributorsList} from './components/ContributorsList';
+import * as linking from '../../../lib/linking/nativeLinks';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -28,6 +29,23 @@ const contributors: Contributor[] = (
     !contributions.includes('corePartner') &&
     !contributions.includes('partner'),
 );
+
+const ContributorWrapper: React.FC<{contributor: Contributor}> = ({
+  contributor,
+}) => {
+  const onPress = useCallback(() => {
+    if (contributor.profile) {
+      linking.openURL(contributor.profile);
+    }
+  }, [contributor]);
+
+  return (
+    <Contributor
+      onPress={contributor.profile ? onPress : undefined}
+      contributor={contributor}
+    />
+  );
+};
 
 const ContributorsModal = () => {
   const {t} = useTranslation('Modal.Contributors');
@@ -47,9 +65,9 @@ const ContributorsModal = () => {
             {contributors
               .filter(({contributions}) => contributions.includes('founder'))
               .map(contributor => (
-                <Contributor
+                <ContributorWrapper
                   key={contributor.name}
-                  contributor={contributor as Contributor}
+                  contributor={contributor}
                 />
               ))}
           </ContributorsList>
