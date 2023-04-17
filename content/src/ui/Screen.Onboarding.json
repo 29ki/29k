@@ -16,8 +16,8 @@
     "page3": {
       "heading__text": "For the\ngreater good",
       "card": {
-        "heading": "A non-profit organisation",
-        "text__markdown": "We are free for personal use, we don't sell any data, we don't do ads.\n\nOur focus is to build the best app in the world, to assist wellbeing, thrive and contribute to a better future for all."
+        "heading": "Non-profit",
+        "text__markdown": "We're free for personal use.\\\nWe don't sell data. We don't do ads.\\\nSo that you can focus on practicing wellbeing, thrive, and contribute to a better future for all."
       }
     },
     "page4": {
@@ -26,7 +26,7 @@
     },
     "skipButton": "Skip",
     "continueButton": "Continue",
-    "getStartedButton": "Get Started"
+    "getStartedButton": "Get started"
   },
   "pt": {},
   "sv": {},
