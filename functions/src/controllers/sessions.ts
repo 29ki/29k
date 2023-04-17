@@ -3,7 +3,8 @@ import dayjs from 'dayjs';
 import {createSessionInviteLink} from '../models/dynamicLinks';
 import {getUser} from './user';
 import * as sessionModel from '../models/session';
-import * as userModel from '../models/auth';
+import * as authModel from '../models/auth';
+import * as userModel from '../models/user';
 import * as dailyApi from '../lib/dailyApi';
 import {
   LiveSession,
@@ -112,7 +113,7 @@ export const createSession = async (
     language,
   }: Pick<LiveSession, 'exerciseId' | 'type' | 'startTime' | 'language'>,
 ) => {
-  const {displayName} = await userModel.getAuthUserInfo(userId);
+  const {displayName} = await authModel.getAuthUserInfo(userId);
   const expireDate = dayjs(startTime).add(2, 'hour');
   const dailyRoom = await dailyApi.createRoom(expireDate);
   let inviteCode = generateVerificationCode();
@@ -221,6 +222,14 @@ export const updateSessionState = async (
 
   if (data.ended) {
     sessionModel.updateSession(sessionId, {ended: true});
+  }
+
+  if (data.completed) {
+    const prop =
+      session.type === SessionType.private
+        ? 'hostedPrivateCount'
+        : 'hostedPublicCount';
+    userModel.updateHostedCount(userId, prop);
   }
 
   if (data.started) {

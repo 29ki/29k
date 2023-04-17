@@ -1,7 +1,7 @@
 import {firestore} from 'firebase-admin';
 import {Timestamp} from 'firebase-admin/firestore';
 import {getData} from '../../../shared/src/modelUtils/firestore';
-import {UserData} from '../../../shared/src/types/User';
+import {HostedCount, UserData} from '../../../shared/src/types/User';
 
 const USERS_COLLECTION = 'users';
 
@@ -16,6 +16,26 @@ export const updateUser = async (id: string, userData: Partial<UserData>) => {
     .collection(USERS_COLLECTION)
     .doc(id)
     .set({...userData, updatedAt: now}, {merge: true});
+};
+
+export const updateHostedCount = async (
+  id: string,
+  countProperty: keyof HostedCount,
+) => {
+  const userRef = firestore().collection(USERS_COLLECTION).doc(id);
+  await firestore().runTransaction(async transaction => {
+    const document = await transaction.get(userRef);
+    const user = document.exists ? getData<UserData>(document) : {};
+    const updatedAt = Timestamp.now();
+    transaction.set(
+      userRef,
+      {
+        [countProperty]: (user[countProperty] ?? 0) + 1,
+        updatedAt,
+      },
+      {merge: true},
+    );
+  });
 };
 
 export const getUsers = async (filters: Partial<UserFilters>) => {
