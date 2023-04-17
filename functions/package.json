@@ -48,7 +48,7 @@
     "yup": "^1.0.2"
   },
   "devDependencies": {
-    "@sentry/cli": "^2.17.0",
+    "@sentry/cli": "^2.17.2",
     "@shopify/jest-koa-mocks": "^5.1.1",
     "@types/jest": "^28.1.7",
     "@types/koa": "^2.13.6",
