@@ -17,7 +17,6 @@ import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.analytics.AnalyticsListener;
-import com.google.android.exoplayer2.ext.okhttp.OkHttpDataSource;
 import com.google.android.exoplayer2.source.DefaultMediaSourceFactory;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.video.VideoSize;
@@ -26,10 +25,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-
 public class ReactVideoLooperView extends FrameLayout {
+
   private class Listener implements AnalyticsListener {
     @Override
     public void onVideoSizeChanged(EventTime eventTime, VideoSize videoSize) {
@@ -67,14 +64,13 @@ public class ReactVideoLooperView extends FrameLayout {
     @Override
     public void onPlaybackStateChanged(EventTime eventTime, int state) {
       AnalyticsListener.super.onPlaybackStateChanged(eventTime, state);
-      if (state == Player.STATE_READY && _onLoadStarted) {
+      if (state == Player.STATE_READY) {
         long duration = _player.getDuration();
         WritableMap eventData = Arguments.createMap();
         eventData.putDouble("duration", duration / 1000D);
         sendEvent(_themedReactContext, ReactEvents.EVENT_ON_LOAD.toString(), eventData);
 
         setKeepScreenOn(true);
-        _onLoadStarted = false;
       }
       if (state == Player.STATE_ENDED) {
         sendEvent(_themedReactContext, ReactEvents.EVENT_ON_END.toString(), null);
@@ -86,7 +82,6 @@ public class ReactVideoLooperView extends FrameLayout {
   private final AspectRatioFrameLayout _layout;
   private ExoPlayer _player;
   private Listener _listener;
-  private boolean _onLoadStarted = false;
   private List<MediaItemConfig> _mediaItemConfigs = new ArrayList<>();
   private float _volume = 0.0f;
   private boolean _audioOnly = false;
@@ -117,7 +112,6 @@ public class ReactVideoLooperView extends FrameLayout {
 
     addViewInLayout(_layout, 0, aspectRatioParams);
 
-    initializeMediaPlayer();
     VideoCacheManager.getInstance().prepare(context);
   }
 
@@ -144,50 +138,75 @@ public class ReactVideoLooperView extends FrameLayout {
       .receiveEvent(getId(), eventName, properties);
   }
 
-  private OkHttpDataSource.Factory createOkHttpFactory() {
-    OkHttpClient client = new OkHttpClient.Builder().build();
-    OkHttpDataSource.Factory factory = new OkHttpDataSource.Factory((Request r) -> client.newCall(r));
-    return factory;
-  }
-
-  private void initializeMediaPlayer() {
+  private void initializeMediaPlayer(boolean isLocal) {
     if (_player == null) {
-      _player = new ExoPlayer.Builder(_themedReactContext)
-        .setMediaSourceFactory(new DefaultMediaSourceFactory(VideoCacheManager.getInstance().getCachedDataSourceFactory()))
-        .build();
+      if (isLocal) {
+        _player = new ExoPlayer.Builder(_themedReactContext).build();
+      } else {
+        _player = new ExoPlayer.Builder(_themedReactContext)
+          .setMediaSourceFactory(new DefaultMediaSourceFactory(VideoCacheManager.getInstance().getCachedDataSourceFactory()))
+          .build();
+      }
+
       _listener = new Listener();
       _player.addAnalyticsListener(_listener);
     }
   }
 
+  private String prepareLocalUri(String src) {
+    return String.format("asset:///custom/%s", src);
+  }
+
+  private boolean isLocalAsset(String src) {
+    if (src.startsWith("https://") || src.startsWith("http://")) {
+      return false;
+    }
+    return true;
+  }
   public void setSources(ReadableArray sources) {
-    ReactVideoLooperView self = this;
     new Handler().postDelayed(new Runnable() {
       @Override
       public void run() {
-        OkHttpDataSource.Factory okHttpDataSourceFactory = createOkHttpFactory();
-
         List<MediaSource> mediaSources = new ArrayList<>();
-        for (Object source: sources.toArrayList()) {
-          HashMap<String, Object> mediaItemConfig = (HashMap<String, Object>)source;
-          MediaItem mediaItem = new MediaItem.Builder()
-            .setUri((String)mediaItemConfig.get("source"))
-            .setCustomCacheKey((String)mediaItemConfig.get("source"))
-            .build();
+        List<MediaItem> mediaItems = new ArrayList<>();
+        boolean isLocal = false;
+        for (Object sourceConfig: sources.toArrayList()) {
+          HashMap<String, Object> mediaItemConfig = (HashMap<String, Object>)sourceConfig;
+          String source = (String)mediaItemConfig.get("source");
 
-          VideoCacheManager.getInstance().preCache((String)mediaItemConfig.get("source"));
-          MediaSource mediaSource = VideoCacheManager.getInstance().getCachedMediaSource(mediaItem);
-          mediaSources.add(mediaSource);
+          // We only allow only remote or only local so it's ok to set this several times
+          isLocal = isLocalAsset(source);
+
+          MediaItem mediaItem;
+          if (isLocal) {
+            mediaItem = new MediaItem.Builder()
+              .setUri(prepareLocalUri(source))
+              .build();
+            mediaItems.add(mediaItem);
+          } else {
+            mediaItem = new MediaItem.Builder()
+              .setUri(source)
+              .setCustomCacheKey(source)
+              .build();
+
+            VideoCacheManager.getInstance().preCache((String)mediaItemConfig.get("source"));
+            MediaSource mediaSource = VideoCacheManager.getInstance().getCachedMediaSource(mediaItem);
+            mediaSources.add(mediaSource);
+          }
           _mediaItemConfigs.add(new MediaItemConfig(
-            (String)mediaItemConfig.get("source"),
+            source,
             (boolean)mediaItemConfig.getOrDefault("repeat", false),
             mediaItem
           ));
         }
 
+        initializeMediaPlayer(isLocal);
+
         // Make sure all configs are present, this could trigger events depending on configs
-        for (MediaSource mediaSource: mediaSources) {
-          _player.addMediaSource(mediaSource);
+        if (mediaSources.size() > 0) {
+          _player.addMediaSources(mediaSources);
+        } else if (mediaItems.size() > 0) {
+          _player.addMediaItems(mediaItems);
         }
 
         MediaItemConfig firstMediaItemConfig = _mediaItemConfigs.get(0);
@@ -195,40 +214,54 @@ public class ReactVideoLooperView extends FrameLayout {
           _player.setRepeatMode(Player.REPEAT_MODE_ONE);
         }
 
-        if (!self._audioOnly) {
-          self._player.setVideoTextureView(self._textureView);
+        if (!_audioOnly) {
+          _player.setVideoTextureView(_textureView);
         }
-        self._player.prepare();
-        self._player.setPlayWhenReady(!self._paused);
-        self._onLoadStarted = true;
+        _player.setVolume(_volume);
+        _player.prepare();
+        _player.setPlayWhenReady(!_paused);
       }
     }, 1);
   }
 
   public void setSeek(double to) {
-    _player.seekTo((long)to * 1000L);
+    if (_player != null) {
+      _player.seekTo((long)to * 1000L);
+    }
   }
 
   public void setRepeat(boolean repeat) {
-    if (repeat) {
-      _player.setRepeatMode(Player.REPEAT_MODE_ONE);
-    } else {
-      _player.setRepeatMode(Player.REPEAT_MODE_OFF);
+    if (_player != null) {
+      if (repeat) {
+        _player.setRepeatMode(Player.REPEAT_MODE_ONE);
+      } else {
+        _player.setRepeatMode(Player.REPEAT_MODE_OFF);
+      }
     }
   }
 
   public void setPaused(boolean paused) {
     _paused = paused;
-    if (paused) {
-      _player.pause();
-    } else {
-      _player.play();
+    if (_player != null) {
+      if (paused) {
+        _player.pause();
+      } else {
+        _player.play();
+      }
     }
   }
 
   public void setVolume(double volume) {
     _volume = (float)volume;
-    _player.setVolume(_volume);
+    if (_player != null) {
+      _player.setVolume(_volume);
+    }
+  }
+
+  public void setMuted(boolean muted) {
+    if (_player != null) {
+      _player.setVolume(muted ? 0f : _volume);
+    }
   }
 
   public void setAudioOnly(boolean audioOnly) {

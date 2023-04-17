@@ -5,7 +5,7 @@ import {
   LiveSession,
   SessionType,
 } from '../../../../../shared/src/types/Session';
-import {ChevronLeft, FriendsIcon, CommunityIcon} from '../Icons';
+import {ChevronLeftIcon, FriendsIcon, CommunityIcon} from '../Icons';
 import {Spacer4} from '../Spacers/Spacer';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Body16} from '../Typography/Body/Body';
@@ -30,7 +30,7 @@ const EditSessionType: React.FC<{
     <TouchableOpacity onPress={onPress}>
       <Row>
         <IconWrapper>
-          <ChevronLeft />
+          <ChevronLeftIcon />
         </IconWrapper>
         <IconWrapper>
           {sessionType === SessionType.private ? (

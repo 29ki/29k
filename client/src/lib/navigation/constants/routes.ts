@@ -41,8 +41,9 @@ export type AsyncSessionStackProps = {
 
 export type AppStackProps = {
   KillSwitch: undefined;
-  Welcome?: {showBack: boolean};
-  Tabs: NavigatorScreenParams<TabNavigatorProps>;
+  Welcome: undefined;
+  Onboarding: undefined;
+  Tabs?: NavigatorScreenParams<TabNavigatorProps>;
   LiveSessionStack: NavigatorScreenParams<LiveSessionStackProps>;
   AsyncSessionStack: NavigatorScreenParams<AsyncSessionStackProps>;
 };
@@ -52,7 +53,6 @@ export type OverlayStackProps = {
   AboutEditorialOverlay: undefined;
   CommunityEditorialOverlay: undefined;
   AboutOverlay: undefined;
-  EarlyAccessInfoOverlay?: {showBack: boolean};
 };
 
 export type ModalStackProps = {

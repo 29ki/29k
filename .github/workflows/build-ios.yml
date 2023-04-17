@@ -51,6 +51,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          lfs: 'true'
 
       - name: Use Ruby 2.7.2
         uses: ruby/setup-ruby@v1

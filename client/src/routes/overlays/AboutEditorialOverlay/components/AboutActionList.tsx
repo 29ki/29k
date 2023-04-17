@@ -5,7 +5,6 @@ import {useTranslation} from 'react-i18next';
 import ActionButton from '../../../../lib/components/ActionList/ActionItems/ActionButton';
 import ActionList from '../../../../lib/components/ActionList/ActionList';
 import {
-  SunUpIcon,
   MegaphoneIcon,
   EnvelopeIcon,
   SafetyIcon,
@@ -27,10 +26,6 @@ const AboutActionList = () => {
   const isPublicHost = useIsPublicHost();
 
   const isAnonymous = useUserState(state => state.user?.isAnonymous);
-  const earlyAccessInfoPress = useCallback(
-    () => navigate('EarlyAccessInfoOverlay'),
-    [navigate],
-  );
 
   const publicHostAccessPress = useCallback(
     () =>
@@ -49,9 +44,6 @@ const AboutActionList = () => {
 
   return (
     <ActionList>
-      <ActionButton Icon={SunUpIcon} onPress={earlyAccessInfoPress}>
-        {t('actions.earlyAccessInfo')}
-      </ActionButton>
       {!isPublicHost && (
         <ActionButton Icon={MegaphoneIcon} onPress={publicHostAccessPress}>
           {t('actions.publicHostAccess')}
