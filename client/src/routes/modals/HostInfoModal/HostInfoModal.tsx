@@ -9,13 +9,17 @@ import {
   AppStackProps,
   ModalStackProps,
 } from '../../../lib/navigation/constants/routes';
-import {Spacer16, Spacer32} from '../../../lib/components/Spacers/Spacer';
+import {
+  Spacer16,
+  Spacer32,
+  Spacer4,
+} from '../../../lib/components/Spacers/Spacer';
 import {
   Heading18,
   Heading24,
 } from '../../../lib/components/Typography/Heading/Heading';
 import Gutters from '../../../lib/components/Gutters/Gutters';
-import {Body18} from '../../../lib/components/Typography/Body/Body';
+import {Body16, Body18} from '../../../lib/components/Typography/Body/Body';
 import {useTranslation} from 'react-i18next';
 import {fetchSessions} from '../../../lib/sessions/api/sessions';
 import {LiveSession} from '../../../../../shared/src/types/Session';
@@ -23,14 +27,17 @@ import {ActivityIndicator, ListRenderItem} from 'react-native';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {Display18} from '../../../lib/components/Typography/Display/Display';
+import {
+  Display18,
+  Display28,
+} from '../../../lib/components/Typography/Display/Display';
 import {SPACINGS} from '../../../lib/constants/spacings';
+import {CommunityIcon, FriendsIcon} from '../../../lib/components/Icons';
 
 const EmptyListContainer = styled.View({
   alignItems: 'center',
   justifyContent: 'center',
   flex: 1,
-  height: 200,
 });
 
 const Spinner = styled(ActivityIndicator)({
@@ -41,6 +48,30 @@ const Spinner = styled(ActivityIndicator)({
 const Picture = styled(ProfilePicture)({
   width: 144,
   alignSelf: 'center',
+});
+
+const Row = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+});
+
+const TextRow = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+});
+
+const CountContainer = styled.View({
+  backgroundColor: COLORS.MEDIUM_GREEN,
+  borderRadius: 16,
+  padding: SPACINGS.EIGHT,
+  flex: 1,
+  minHeight: SPACINGS.NINTYSIX,
+});
+
+const IconWrapper = styled.View({
+  width: 30,
+  height: 30,
 });
 
 const HostInfoModal: React.FC = () => {
@@ -106,6 +137,30 @@ const HostInfoModal: React.FC = () => {
             <Heading24>{host?.displayName}</Heading24>
             <Spacer16 />
             <Body18>{host?.description}</Body18>
+            <Spacer32 />
+            <Row>
+              <CountContainer>
+                <TextRow>
+                  <IconWrapper>
+                    <CommunityIcon />
+                  </IconWrapper>
+                  <Display28>{host?.hostedPublicCount ?? 0}</Display28>
+                </TextRow>
+                <Spacer4 />
+                <Body16>{t('publicSessions')}</Body16>
+              </CountContainer>
+              <Spacer16 />
+              <CountContainer>
+                <TextRow>
+                  <IconWrapper>
+                    <FriendsIcon />
+                  </IconWrapper>
+                  <Display28>{host?.hostedPrivateCount ?? 0}</Display28>
+                </TextRow>
+                <Spacer4 />
+                <Body16>{t('privateSessions')}</Body16>
+              </CountContainer>
+            </Row>
             <Spacer32 />
             <Heading18>{t('sessions')}</Heading18>
             <Spacer16 />
