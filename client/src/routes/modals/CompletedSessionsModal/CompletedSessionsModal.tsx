@@ -5,7 +5,7 @@ import {
   SectionListData,
   SectionListRenderItem,
 } from 'react-native';
-import {BottomSheetSectionList} from '@gorhom/bottom-sheet';
+import {BottomSheetSectionList, useBottomSheet} from '@gorhom/bottom-sheet';
 import dayjs from 'dayjs';
 import {groupBy} from 'ramda';
 
@@ -49,6 +49,7 @@ const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
 );
 
 const CompletedSessionsModal = () => {
+  const {animatedIndex} = useBottomSheet();
   const {
     params: {filterSetting},
   } = useRoute<RouteProp<ModalStackProps, 'CompletedSessionsModal'>>();
@@ -58,7 +59,6 @@ const CompletedSessionsModal = () => {
   >();
   const [selectedFeedback, setSelectedFeedback] = useState<boolean>();
   const getSessionsByFeedback = useGetSessionsByFeedback();
-  const isFocused = useIsFocused();
   const listRef = useRef<RNSectionList<CompletedSessionEvent, Section>>(null);
   const [listItems, setListItems] = useState<CompletedSessionEvent[]>([]);
 
@@ -168,20 +168,17 @@ const CompletedSessionsModal = () => {
   );
 
   useEffect(() => {
-    if (isFocused) {
-      // This is necessary for the scroll to work: https://github.com/gorhom/react-native-bottom-sheet/issues/459
-      setTimeout(() => {
-        const lastSectionIndex = data.length - 1;
-        const lastItemIndex = data[lastSectionIndex].data.length - 1;
+    if (animatedIndex.value > -1) {
+      const lastSectionIndex = data.length - 1;
+      const lastItemIndex = data[lastSectionIndex].data.length - 1;
 
-        listRef.current?.scrollToLocation({
-          itemIndex: lastItemIndex,
-          sectionIndex: lastSectionIndex,
-          animated: true,
-        });
-      }, 1000);
+      listRef.current?.scrollToLocation({
+        itemIndex: lastItemIndex,
+        sectionIndex: lastSectionIndex,
+        animated: true,
+      });
     }
-  }, [isFocused, data, listItems.length]);
+  }, [data, animatedIndex.value]);
 
   const getItemLayout = useCallback(
     (
@@ -200,6 +197,7 @@ const CompletedSessionsModal = () => {
       <BottomSheetSectionList
         ref={listRef}
         sections={data}
+        focusHook={useIsFocused}
         getItemLayout={getItemLayout}
         renderItem={renderItem}
         renderSectionHeader={renderSectionHeader}
