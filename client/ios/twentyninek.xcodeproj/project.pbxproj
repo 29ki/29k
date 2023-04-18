@@ -113,6 +113,8 @@
 		36EE4A1229EE919A00795841 /* clouds.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9F96356237624EFF865AE911 /* clouds.mp4 */; };
 		36EE4A1329EE919A00795841 /* onboarding_person1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 886DE006BDE2419C9A28CA55 /* onboarding_person1.mp4 */; };
 		36EE4A1429EE919A00795841 /* onboarding_person3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5E65577751A442C9A89337E6 /* onboarding_person3.mp4 */; };
+		36EE4A1729EE973900795841 /* community.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11C7F314F4714C2F8F532671 /* community.jpg */; };
+		36EE4A1829EE973A00795841 /* community.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11C7F314F4714C2F8F532671 /* community.jpg */; };
 		389B54A26CD447569B799C13 /* HKGrotesk-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F92E01E06E64E5F936FE9CB /* HKGrotesk-BlackItalic.ttf */; };
 		3CB0510228624EBF009F0527 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20A763052861E2FE0007087C /* GoogleService-Info.plist */; };
 		4165E584BCCE4696A369367F /* onboarding_person2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B6008BB1F74B44A6834189D2 /* onboarding_person2.mp4 */; };
@@ -153,7 +155,7 @@
 /* Begin PBXFileReference section */
 		01BAF1252BA3DE022FAA03C1 /* Pods_dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C60BDAB4BE94BBC97B83082 /* PlayfairDisplay-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Black.ttf"; path = "../src/assets/fonts/PlayfairDisplay-Black.ttf"; sourceTree = "<group>"; };
-		11C7F314F4714C2F8F532671 /* community.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = community.jpg; path = ../src/assets/images/community.jpg; sourceTree = "<group>"; };
+		11C7F314F4714C2F8F532671 /* community.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = community.jpg; path = ../src/assets/images/community.jpg; sourceTree = "<group>"; };
 		12A592D3B045465ABD8A445D /* thumbs_up.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = thumbs_up.png; path = ../src/assets/images/thumbs_up.png; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* production.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = production.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = twentyninek/AppDelegate.h; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 				36210DEB29DEDA0300552260 /* thumbs_up_silouette.png in Resources */,
 				36C49FF428D8AA11001878A6 /* HKGrotesk-Black.ttf in Resources */,
 				36C49FE428D8AA11001878A6 /* HKGrotesk-Regular.ttf in Resources */,
+				36EE4A1829EE973A00795841 /* community.jpg in Resources */,
 				36EE4A1329EE919A00795841 /* onboarding_person1.mp4 in Resources */,
 				36210DED29DEDA0300552260 /* thumbs_up.png in Resources */,
 				36C49FF328D8AA11001878A6 /* HKGrotesk-ExtraBoldItalic.ttf in Resources */,
@@ -642,6 +645,7 @@
 				36210DE829DEDA0300552260 /* thumbs_up_silouette.png in Resources */,
 				36C49FE228D8AA11001878A6 /* HKGrotesk-Black.ttf in Resources */,
 				36C49FD228D8AA11001878A6 /* HKGrotesk-Regular.ttf in Resources */,
+				36EE4A1729EE973900795841 /* community.jpg in Resources */,
 				36EE4A0F29EE919900795841 /* onboarding_person1.mp4 in Resources */,
 				36210DEA29DEDA0300552260 /* thumbs_up.png in Resources */,
 				36C49FE128D8AA11001878A6 /* HKGrotesk-ExtraBoldItalic.ttf in Resources */,
