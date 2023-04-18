@@ -1,7 +1,13 @@
-import {RouteProp, useRoute} from '@react-navigation/native';
-import React, {useCallback, useMemo, useState} from 'react';
-import {ListRenderItem} from 'react-native';
-import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
+import {RouteProp, useIsFocused, useRoute} from '@react-navigation/native';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import {
+  SectionList as RNSectionList,
+  SectionListData,
+  SectionListRenderItem,
+} from 'react-native';
+import {BottomSheetSectionList} from '@gorhom/bottom-sheet';
+import dayjs from 'dayjs';
+import {groupBy} from 'ramda';
 
 import Gutters from '../../../lib/components/Gutters/Gutters';
 
@@ -23,6 +29,24 @@ import {
 import useGetSessionsByFeedback from './hooks/useGetSessionsByFeedback';
 import FeedbackFilters from './components/FeedbackFilters';
 import ModeFilters from './components/ModeFilters';
+import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
+import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
+import {COLORS} from '../../../../../shared/src/constants/colors';
+
+const LIST_ITEM_HEIGHT = 110;
+
+type Section = {
+  title: string;
+  data: CompletedSessionEvent[];
+};
+
+const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
+  section: {title},
+}) => (
+  <StickyHeading backgroundColor={COLORS.PURE_WHITE}>
+    <Heading16>{title}</Heading16>
+  </StickyHeading>
+);
 
 const CompletedSessionsModal = () => {
   const {
@@ -34,23 +58,19 @@ const CompletedSessionsModal = () => {
   >();
   const [selectedFeedback, setSelectedFeedback] = useState<boolean>();
   const getSessionsByFeedback = useGetSessionsByFeedback();
-
-  const renderItem = useCallback<ListRenderItem<CompletedSessionEvent>>(
-    ({item, index}) => (
-      <Gutters key={item.payload.id}>
-        <JourneyNode index={index} completedSessionEvent={item} />
-      </Gutters>
-    ),
-    [],
-  );
+  const isFocused = useIsFocused();
+  const listRef = useRef<RNSectionList<CompletedSessionEvent, Section>>(null);
+  const [listItems, setListItems] = useState<CompletedSessionEvent[]>([]);
 
   const data = useMemo(() => {
+    let sessions = completedSessions;
+
     if (filterSetting === 'feedback') {
-      return getSessionsByFeedback(selectedFeedback);
+      sessions = getSessionsByFeedback(selectedFeedback);
     }
 
     if (filterSetting === 'mode') {
-      return completedSessions.filter(({payload}) => {
+      sessions = completedSessions.filter(({payload}) => {
         if (selectedMode) {
           return selectedMode === SessionMode.async
             ? payload.mode === selectedMode
@@ -62,10 +82,16 @@ const CompletedSessionsModal = () => {
     }
 
     if (filterSetting === 'host') {
-      return completedHostedSessions;
+      sessions = completedHostedSessions;
     }
 
-    return completedSessions;
+    setListItems(sessions);
+    return Object.entries(
+      groupBy(event => dayjs(event.timestamp).format('MMM, YYYY'), sessions),
+    ).map(([month, events]) => ({
+      title: month,
+      data: events,
+    }));
   }, [
     completedHostedSessions,
     completedSessions,
@@ -73,6 +99,7 @@ const CompletedSessionsModal = () => {
     selectedFeedback,
     selectedMode,
     getSessionsByFeedback,
+    setListItems,
   ]);
 
   const filters = useMemo(
@@ -86,42 +113,99 @@ const CompletedSessionsModal = () => {
           />
         )}
 
-        {filterSetting === 'mode' && (
-          <ModeFilters selectedMode={selectedMode} onChange={setSelectedMode} />
+        {['mode', 'host'].includes(filterSetting) && (
+          <ModeFilters
+            completedSessions={
+              filterSetting === 'host'
+                ? completedHostedSessions
+                : completedSessions
+            }
+            selectedMode={selectedMode}
+            onChange={setSelectedMode}
+            showAsync={filterSetting !== 'host'}
+          />
         )}
       </>
     ),
-    [filterSetting, selectedMode, selectedFeedback],
+    [
+      filterSetting,
+      selectedMode,
+      selectedFeedback,
+      completedHostedSessions,
+      completedSessions,
+    ],
   );
 
-  const header = useMemo(
-    () => (
-      <>
-        {filters}
-        <Spacer12 />
-      </>
+  const renderItem = useCallback<
+    SectionListRenderItem<CompletedSessionEvent, Section>
+  >(
+    ({item, index, section}) => (
+      <Gutters key={item.payload.id}>
+        <JourneyNode
+          index={index}
+          completedSessionEvent={item}
+          isFirst={data.indexOf(section) === 0 && index === 0}
+          isLast={
+            data.indexOf(section) === data.length - 1 &&
+            index === section.data.length - 1
+          }
+        />
+      </Gutters>
     ),
-    [filters],
+    [data],
   );
 
   const footer = useMemo(
     () => (
       <>
+        <Spacer12 />
         {filters}
+        <Spacer32 />
         <Spacer32 />
       </>
     ),
     [filters],
   );
 
+  useEffect(() => {
+    if (isFocused) {
+      // This is necessary for the scroll to work: https://github.com/gorhom/react-native-bottom-sheet/issues/459
+      setTimeout(() => {
+        const lastSectionIndex = data.length - 1;
+        const lastItemIndex = data[lastSectionIndex].data.length - 1;
+
+        listRef.current?.scrollToLocation({
+          itemIndex: lastItemIndex,
+          sectionIndex: lastSectionIndex,
+          animated: true,
+        });
+      }, 1000);
+    }
+  }, [isFocused, data, listItems.length]);
+
+  const getItemLayout = useCallback(
+    (
+      _: SectionListData<CompletedSessionEvent, Section>[] | null,
+      index: number,
+    ) => ({
+      length: LIST_ITEM_HEIGHT,
+      offset: LIST_ITEM_HEIGHT * index,
+      index,
+    }),
+    [],
+  );
+
   return (
-    <SheetModal>
-      <BottomSheetFlatList
-        data={data}
+    <SheetModal backgroundColor={COLORS.PURE_WHITE}>
+      <BottomSheetSectionList
+        ref={listRef}
+        sections={data}
+        getItemLayout={getItemLayout}
         renderItem={renderItem}
-        ListHeaderComponent={data.length > 5 ? header : null}
-        ListFooterComponent={footer}
+        renderSectionHeader={renderSectionHeader}
+        ListFooterComponent={listItems.length <= 5 ? footer : null}
       />
+      {listItems.length > 5 && footer}
     </SheetModal>
   );
 };

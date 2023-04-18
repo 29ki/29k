@@ -29,9 +29,15 @@ import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
 import useUserProfile from '../../../../lib/user/hooks/useUserProfile';
 
+const NODE_TOP_MARGIN = 32;
+const FULL_HEIGHT = 110;
+const NODE_SIZE = 22;
+
 type JourneyNodeProps = {
   completedSessionEvent: CompletedSessionEvent;
   index: number;
+  isLast: boolean;
+  isFirst: boolean;
 };
 
 const Lottie = styled(AnimatedLottieView)({
@@ -40,37 +46,43 @@ const Lottie = styled(AnimatedLottieView)({
 
 const AnimatedContainer = styled(Animated.View)({});
 
-const Container = styled(TouchableOpacity)({
+const Container = styled(TouchableOpacity)<{isFirst: boolean}>(({isFirst}) => ({
   flexDirection: 'row',
-  borderLeft: 1,
-  borderLeftWidth: 1,
-  height: 110,
-  marginLeft: 22 / 2,
-});
+  height: isFirst ? FULL_HEIGHT - NODE_TOP_MARGIN : FULL_HEIGHT,
+  marginLeft: NODE_SIZE / 2,
+}));
 
-const ContentContainer = styled.View({
-  marginTop: 32,
+const ContentContainer = styled.View<{isFirst: boolean}>(({isFirst}) => ({
+  marginTop: isFirst ? 0 : NODE_TOP_MARGIN,
   marginLeft: SPACINGS.FOUR,
   flex: 1,
-});
+}));
 
-const Node = styled.View({
-  marginLeft: -(22 / 2),
-  height: 22,
-  width: 22,
+const Node = styled.View<{isFirst: boolean}>(({isFirst}) => ({
+  marginLeft: -(NODE_SIZE / 2),
+  height: NODE_SIZE,
+  width: NODE_SIZE,
   border: 1,
-  borderRadius: 22 / 2,
-  marginTop: 32,
+  borderRadius: NODE_SIZE / 2,
+  marginTop: isFirst ? 0 : NODE_TOP_MARGIN,
   backgroundColor: COLORS.WHITE,
   alignItems: 'center',
   justifyContent: 'center',
-});
+}));
+
+const Line = styled.View<{isLast: boolean}>(({isLast}) => ({
+  height: isLast ? NODE_TOP_MARGIN : FULL_HEIGHT,
+  width: 1,
+  backgroundColor: COLORS.BLACK,
+  position: 'absolute',
+  left: -1,
+}));
 
 const InnerNode = styled.View({
   height: 14,
   width: 14,
   borderRadius: 14 / 2,
-  backgroundColor: '#A9DAC0',
+  backgroundColor: COLORS.MEDIUM_GREEN,
 });
 
 const Row = styled.View({
@@ -92,6 +104,8 @@ const Spacer2 = styled.View({height: 2});
 const JourneyNode: React.FC<JourneyNodeProps> = ({
   completedSessionEvent,
   index,
+  isLast = false,
+  isFirst = false,
 }) => {
   const {
     payload: {mode, exerciseId, hostId, type},
@@ -135,11 +149,12 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
       layout={Layout.springify()}
       entering={FadeIn.delay(index * 100)}
       exiting={FadeOut}>
-      <Container onPress={openCompleteSessionModal}>
-        <Node>
+      <Container isFirst={isFirst} onPress={openCompleteSessionModal}>
+        <Line isLast={isLast} />
+        <Node isFirst={isFirst}>
           <InnerNode />
         </Node>
-        <ContentContainer>
+        <ContentContainer isFirst={isFirst}>
           <Row>
             <Column>
               <Row>
