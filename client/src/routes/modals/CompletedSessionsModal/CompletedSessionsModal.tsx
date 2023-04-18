@@ -60,7 +60,7 @@ const CompletedSessionsModal = () => {
   const getSessionsByFeedback = useGetSessionsByFeedback();
   const isFocused = useIsFocused();
   const listRef = useRef<RNSectionList<CompletedSessionEvent, Section>>(null);
-  const [listItems, setListItems] = useState<CompletedSessionEvent[]>(0);
+  const [listItems, setListItems] = useState<CompletedSessionEvent[]>([]);
 
   const data = useMemo(() => {
     let sessions = completedSessions;
@@ -168,10 +168,16 @@ const CompletedSessionsModal = () => {
 
   useEffect(() => {
     if (isFocused) {
-      listRef.current?.scrollToLocation({
-        itemIndex: listItems.length,
-        sectionIndex: data.length - 1,
-      });
+      setTimeout(() => {
+        const lastSectionIndex = data.length - 1;
+        const lastItemIndex = data[lastSectionIndex].data.length - 1;
+
+        listRef.current?.scrollToLocation({
+          itemIndex: lastItemIndex,
+          sectionIndex: lastSectionIndex,
+          animated: true,
+        });
+      }, 1000);
     }
   }, [isFocused, data, listItems.length]);
 

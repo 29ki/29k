@@ -120,6 +120,14 @@ const ModalStack = () => {
     [sheetModalScreenOptions],
   );
 
+  const fullyExtendedSheetModalScreenOptions = useMemo(
+    () => ({
+      ...sheetModalScreenOptions,
+      snapPoints: ['100%'],
+    }),
+    [sheetModalScreenOptions],
+  );
+
   const cardModalScreenOptions = useMemo(
     () => ({
       ...modalScreenOptions,
@@ -229,7 +237,7 @@ const ModalStack = () => {
         <Screen
           name={'CompletedSessionsModal'}
           component={CompletedSessionsModal}
-          options={fullSheetModalScreenOptions}
+          options={fullyExtendedSheetModalScreenOptions}
         />
       </Group>
 
