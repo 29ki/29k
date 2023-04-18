@@ -190,7 +190,11 @@ class VideoLooperView: RCTView {
           fullfill(asset)
         }
       } else {
-        fullfill(nil)
+        reject(
+          NSError(
+            domain: "",
+            code: -1,
+            userInfo: [NSLocalizedDescriptionKey: "\(String(describing: source)) not found"]))
       }
     }
   }
@@ -202,6 +206,8 @@ class VideoLooperView: RCTView {
           asset: asset!,
           shouldRepeat: config["repeat"] == nil ? false : config["repeat"] as! Bool
         ))
+      }.catch { error in
+        reject(error)
       }
     }
   }
@@ -226,7 +232,9 @@ class VideoLooperView: RCTView {
           self.onLoad!(event)
         }
       } catch {
-        print("Error creating audioPlayer \(error)")
+        if (self.onError != nil) {
+          self.onError!(["cause": "Error creating audioPlayer \(error)"])
+        }
       }
     }
   }
@@ -244,6 +252,7 @@ class VideoLooperView: RCTView {
   @objc var onEnd: RCTDirectEventBlock?
   @objc var onTransition: RCTDirectEventBlock?
   @objc var onLoad: RCTDirectEventBlock?
+  @objc var onError: RCTDirectEventBlock?
   
   @objc func setSources(_ sources: NSArray) {
     DispatchQueue.global(qos: .default).async {
@@ -296,6 +305,10 @@ class VideoLooperView: RCTView {
                 event["duration"] = NSNumber(value: duration)
               }
               self.onLoad!(event)
+            }
+          }.catch { error in
+            if (self.onError != nil) {
+              self.onError!(["cause": "Could not load asset \(error)"])
             }
           }
         }
