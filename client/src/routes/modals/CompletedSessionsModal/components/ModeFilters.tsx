@@ -28,6 +28,7 @@ const Row = styled(Gutters)({
 const ModeFilters: React.FC<{
   completedSessions: CompletedSessionEvent[];
   selectedMode?: SessionMode.async | SessionType.public | SessionType.private;
+  showAsync?: boolean;
   onChange: (
     selectedMode?:
       | SessionMode.async
@@ -35,7 +36,7 @@ const ModeFilters: React.FC<{
       | SessionType.private
       | undefined,
   ) => void;
-}> = ({selectedMode, completedSessions, onChange}) => {
+}> = ({selectedMode, completedSessions, showAsync = true, onChange}) => {
   const {t} = useTranslation('Modal.CompletedSessions');
   const {live: liveSessions, async: asyncSessions} = useMemo(
     () => groupBy(s => s.payload.mode, completedSessions),
@@ -71,15 +72,19 @@ const ModeFilters: React.FC<{
 
   return (
     <Row>
-      <FilterStatus
-        Icon={MeIcon}
-        selected={selectedMode === SessionMode.async}
-        onPress={onAsyncPress}
-        heading={`${asyncSessions?.length ?? 0}`}
-        description={t('async')}
-        disabled={!asyncSessions?.length}
-      />
-      <Spacer16 />
+      {showAsync && (
+        <>
+          <FilterStatus
+            Icon={MeIcon}
+            selected={selectedMode === SessionMode.async}
+            onPress={onAsyncPress}
+            heading={`${asyncSessions?.length ?? 0}`}
+            description={t('async')}
+            disabled={!asyncSessions?.length}
+          />
+          <Spacer16 />
+        </>
+      )}
       <FilterStatus
         Icon={FriendsIcon}
         selected={selectedMode === SessionType.private}

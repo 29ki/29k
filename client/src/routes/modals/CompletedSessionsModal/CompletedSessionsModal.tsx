@@ -122,6 +122,7 @@ const CompletedSessionsModal = () => {
             }
             selectedMode={selectedMode}
             onChange={setSelectedMode}
+            showAsync={filterSetting !== 'host'}
           />
         )}
       </>
