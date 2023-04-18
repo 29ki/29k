@@ -1,5 +1,7 @@
 {
   "en": {
+    "publicSessions": "Public\nSessions",
+    "privateSessions": "Private\nSessions",
     "sessions": "Upcoming sessions",
     "noUpcomingSessions": "🌱 No planned sessions."
   },
