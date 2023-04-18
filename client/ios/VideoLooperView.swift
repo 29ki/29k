@@ -40,6 +40,13 @@ class VideoLooperView: RCTView {
         name: UIApplication.didBecomeActiveNotification,
         object: nil
     )
+    
+    NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(playerInterruption(notification:)),
+        name: AVAudioSession.interruptionNotification,
+        object: nil
+    )
     setupView()
   }
  
@@ -55,6 +62,30 @@ class VideoLooperView: RCTView {
 
   @objc func applicationDidBecomeActiveNotification(notification:NSNotification!) {
     self._playerLayer.player = self._player
+    self._player?.play()
+  }
+  
+  @objc func playerInterruption(notification: NSNotification) {
+    guard let userInfo = notification.userInfo,
+    let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
+    let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
+      return
+    }
+    if type == .began {
+      self._player?.pause()
+    }
+    else if type == .ended {
+      guard let optionsValue = userInfo[AVAudioSessionInterruptionOptionKey] as? UInt else {
+        return
+      }
+      let options = AVAudioSession.InterruptionOptions(rawValue: optionsValue)
+      if options.contains(.shouldResume) {
+        // Interruption Ended - playback should resume
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self._player?.play()
+        }
+      }
+    }
   }
   
   override func layoutSubviews() {

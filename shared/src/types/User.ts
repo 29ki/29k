@@ -6,7 +6,12 @@ export enum ROLE {
 
 export type UserProfile = Pick<UserRecord, 'uid' | 'displayName' | 'photoURL'>;
 
-export type UserData = {
+export type HostedCount = {
+  hostedPublicCount?: number;
+  hostedPrivateCount?: number;
+};
+
+export type UserData = HostedCount & {
   description?: string;
   role?: ROLE;
 };

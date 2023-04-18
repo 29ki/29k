@@ -42,6 +42,7 @@ import {
 import {generateSessionToken} from '../lib/dailyUtils';
 import {getUser} from './user';
 import {getAuthUserInfo} from '../models/auth';
+import {incrementHostedCount} from '../models/user';
 
 jest.mock('../lib/utils', () => ({
   ...jest.requireActual('../lib/utils'),
@@ -52,6 +53,7 @@ jest.mock('../models/dynamicLinks', () => mockDynamicLinks);
 jest.mock('../models/session');
 jest.mock('./user');
 jest.mock('../models/auth');
+jest.mock('../models/user');
 jest.mock('../lib/dailyUtils');
 
 const mockGetSessionsByUserId = sessionModel.getSessionsByUserId as jest.Mock;
@@ -70,6 +72,7 @@ const mockGetSessionByInviteCode =
 const mockGetUser = getUser as jest.Mock;
 const mockGetAuthUserInfo = getAuthUserInfo as jest.Mock;
 const mockGenerateSessionToken = generateSessionToken as jest.Mock;
+const mockIncrementHostedCount = jest.mocked(incrementHostedCount);
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));
 
@@ -770,6 +773,74 @@ describe('sessions - controller', () => {
         ended: true,
       });
       expect(updatedState).toEqual({id: 'some-session-id', ended: true});
+    });
+
+    it('should update number of hosted sessions when public session was completed', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        hostId: 'the-host-id',
+        type: SessionType.public,
+      });
+      mockGetSessionStateById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        ended: true,
+      }); // first return (to check if it exists)
+      mockGetSessionStateById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        ended: true,
+        completed: true,
+      }); // returned value
+
+      const updatedState = await updateSessionState(
+        'the-host-id',
+        'some-session-id',
+        {completed: true},
+      );
+
+      expect(mockIncrementHostedCount).toHaveBeenCalledTimes(1);
+      expect(mockIncrementHostedCount).toHaveBeenCalledWith(
+        'the-host-id',
+        'hostedPublicCount',
+      );
+      expect(updatedState).toEqual({
+        id: 'some-session-id',
+        ended: true,
+        completed: true,
+      });
+    });
+
+    it('should update number of hosted sessions when private session was completed', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        hostId: 'the-host-id',
+        type: SessionType.private,
+      });
+      mockGetSessionStateById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        ended: true,
+      }); // first return (to check if it exists)
+      mockGetSessionStateById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        ended: true,
+        completed: true,
+      }); // returned value
+
+      const updatedState = await updateSessionState(
+        'the-host-id',
+        'some-session-id',
+        {completed: true},
+      );
+
+      expect(mockIncrementHostedCount).toHaveBeenCalledTimes(1);
+      expect(mockIncrementHostedCount).toHaveBeenCalledWith(
+        'the-host-id',
+        'hostedPrivateCount',
+      );
+      expect(updatedState).toEqual({
+        id: 'some-session-id',
+        ended: true,
+        completed: true,
+      });
     });
   });
 });
