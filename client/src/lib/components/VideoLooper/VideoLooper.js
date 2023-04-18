@@ -39,6 +39,9 @@ class VideoLooper extends React.Component {
 
   onError(event) {
     Sentry.captureMessage(event.nativeEvent.cause);
+    if (this.props.onError) {
+      this.props.onError(event.nativeEvent);
+    }
   }
 
   seek(to) {
