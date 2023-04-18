@@ -16,7 +16,6 @@ import {
 } from '../../../../lib/components/Icons';
 import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
 
-import useCompletedSessions from '../../../../lib/sessions/hooks/useCompletedSessions';
 import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
 
 const Row = styled(Gutters)({
