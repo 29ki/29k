@@ -4030,10 +4030,10 @@ firebase-functions@^4.0.2:
     express "^4.17.1"
     node-fetch "^2.6.7"
 
-firebase-tools@^11.25.3:
-  version "11.25.3"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-11.25.3.tgz#8cec4b73430acb4e60cfd5308297ed0133b7b03c"
-  integrity sha512-gcM7O9mjhDs8UjtAJjHxUuSX2ZHufXJU7+GheXTlZVA+Uj5RRoAt6AU/FmtcqQtfhr2TNwADebgiVFzVlkLoUg==
+firebase-tools@^11.27.0:
+  version "11.27.0"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-11.27.0.tgz#e17d7e3da438f2db62ad5a1e0d035a4ccfc25f02"
+  integrity sha512-ZZPkclcv1wc0v3ObtDcH0bI+hKbV4ASpJ21OE+fwv5p5iQiYBp0lXSF3u94eW2cV5KoUvsSZIL7L6CjlCv+T5Q==
   dependencies:
     "@google-cloud/pubsub" "^3.0.1"
     abort-controller "^3.0.0"
