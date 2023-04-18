@@ -218,7 +218,7 @@ describe('session model', () => {
     });
 
     it('supports limiting query result', async () => {
-      await getSessionsByUserId('some-user-id', undefined, 5);
+      await getSessionsByUserId('some-user-id', undefined, undefined, 5);
       expect(mockLimit).toHaveBeenCalledWith(5);
     });
   });

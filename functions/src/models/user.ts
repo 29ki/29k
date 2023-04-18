@@ -1,13 +1,64 @@
-import {getAuth} from 'firebase-admin/auth';
-import {UserProfile} from '../../../shared/src/types/User';
+import {firestore} from 'firebase-admin';
+import {Timestamp} from 'firebase-admin/firestore';
+import {getData} from '../../../shared/src/modelUtils/firestore';
+import {HostedCount, UserData} from '../../../shared/src/types/User';
 
-export const getPublicUserInfo = async (
-  userId: string,
-): Promise<UserProfile> => {
-  const user = await getAuth().getUser(userId);
+const USERS_COLLECTION = 'users';
 
-  return {
-    displayName: user.displayName,
-    photoURL: user.photoURL,
-  };
+type User = UserData & {id: string};
+type UserFilters = {
+  role: string;
+};
+
+export const updateUser = async (id: string, userData: Partial<UserData>) => {
+  const now = Timestamp.now();
+  await firestore()
+    .collection(USERS_COLLECTION)
+    .doc(id)
+    .set({...userData, updatedAt: now}, {merge: true});
+};
+
+export const incrementHostedCount = async (
+  id: string,
+  countProperty: keyof HostedCount,
+) => {
+  const userRef = firestore().collection(USERS_COLLECTION).doc(id);
+  await firestore().runTransaction(async transaction => {
+    const document = await transaction.get(userRef);
+    const user = document.exists ? getData<UserData>(document) : {};
+    const updatedAt = Timestamp.now();
+    transaction.set(
+      userRef,
+      {
+        [countProperty]: (user[countProperty] ?? 0) + 1,
+        updatedAt,
+      },
+      {merge: true},
+    );
+  });
+};
+
+export const getUsers = async (filters: Partial<UserFilters>) => {
+  const ref = firestore().collection(USERS_COLLECTION);
+  let query: FirebaseFirestore.Query<FirebaseFirestore.DocumentData> | null =
+    null;
+
+  for (const prop of Object.keys(filters)) {
+    if (query === null) {
+      query = ref.where(prop, '==', filters[prop as keyof UserFilters]);
+    } else {
+      query = query.where(prop, '==', filters[prop as keyof UserFilters]);
+    }
+  }
+
+  const snapshot = await (query ?? ref).get();
+  return snapshot.docs.map(doc => getData<User>(doc));
+};
+
+export const getUser = async (id: string) => {
+  const userRef = await firestore().collection(USERS_COLLECTION).doc(id).get();
+  if (userRef.exists) {
+    return getData<UserData>(userRef);
+  }
+  return null;
 };

@@ -1,28 +1,70 @@
-import React from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
-import content from '../../../../../content/content.json';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {BottomSafeArea, Spacer8} from '../../../lib/components/Spacers/Spacer';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
 import {BottomGradient} from './components/BottomGradient';
-import {Contributor} from './components/Contributor';
 import {Header} from './components/Header';
 import {ScrollView} from './components/ScrollView';
 import {ContributorsList} from './components/ContributorsList';
+import {getPublicHosts} from '../../../lib/user/api/user';
+import {User} from '../../../../../shared/src/types/User';
+
+import {
+  AppStackProps,
+  ModalStackProps,
+} from '../../../lib/navigation/constants/routes';
+import {SPACINGS} from '../../../lib/constants/spacings';
+import {ActivityIndicator} from 'react-native';
+import {Contributor} from './components/Contributor';
 
 const Wrapper = styled.View({
   flex: 1,
 });
 
-const hosts: Contributor[] = (content.contributors as Contributor[]).filter(
-  ({contributions}) => contributions.includes('host'),
-);
+const Spinner = styled(ActivityIndicator)({
+  marginRight: -SPACINGS.EIGHT,
+  marginLeft: SPACINGS.EIGHT,
+  marginTop: SPACINGS.EIGHT,
+});
+
+const Profile: React.FC<{host: User}> = ({host}) => {
+  const {navigate, popToTop} =
+    useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
+
+  const contributor = useMemo<Contributor>(
+    () => ({
+      name: host.displayName ?? '',
+      avatar_url: host.photoURL,
+      contributions: [],
+    }),
+    [host],
+  );
+
+  const onPress = useCallback(() => {
+    popToTop();
+    navigate('HostInfoModal', {host});
+  }, [navigate, popToTop, host]);
+
+  return <Contributor contributor={contributor} onPress={onPress} />;
+};
 
 const HostsModal = () => {
   const {t} = useTranslation('Modal.Hosts');
+  const [isLoading, setIsLoading] = useState(false);
+  const [hosts, setHosts] = useState<Array<User>>([]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    getPublicHosts()
+      .then(setHosts)
+      .finally(() => setIsLoading(false));
+  }, [setIsLoading]);
 
   return (
     <SheetModal>
@@ -34,16 +76,18 @@ const HostsModal = () => {
         </Header>
 
         <ScrollView>
-          <ContributorsList>
-            {hosts.map(contributor => (
-              <Contributor
-                key={contributor.name}
-                contributor={contributor as Contributor}
-              />
-            ))}
-          </ContributorsList>
+          {isLoading ? (
+            <Spinner />
+          ) : (
+            <ContributorsList>
+              {hosts.map(host => (
+                <Profile host={host} key={host.uid} />
+              ))}
+            </ContributorsList>
+          )}
           <BottomSafeArea />
         </ScrollView>
+
         <BottomGradient />
       </Wrapper>
     </SheetModal>

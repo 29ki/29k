@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">29k sessions</string>
+    <string name="app_name">Aware</string>
     <string moduleConfig="true" name="CodePushDeploymentKey"></string>
 </resources>

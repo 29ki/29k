@@ -1,17 +1,6 @@
-import React from 'react';
-import {Path} from 'react-native-svg';
-import {IconType} from '..';
-import {COLORS} from '../../../../../../shared/src/constants/colors';
-import Icon from '../Icon';
+import styled from 'styled-components/native';
+import {ChevronLeftIcon} from '..';
 
-export const ChevronRight: IconType = ({fill = COLORS.BLACK}) => (
-  <Icon>
-    <Path
-      d="M11.5 22.5 19 15l-7.5-7.5"
-      stroke={fill}
-      strokeWidth={1.5}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </Icon>
-);
+export const ChevronRight = styled(ChevronLeftIcon)({
+  transform: 'scaleX(-1)',
+});

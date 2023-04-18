@@ -122,12 +122,36 @@
       "sha1": "40a657362292d89706dd22620f21cc42fcef4020"
     },
     {
+      "path": "src/assets/images/community.jpg",
+      "sha1": "6dabebfc46dcdaf34dce92e70bbbc31a16e549d5"
+    },
+    {
+      "path": "src/assets/images/forest.jpg",
+      "sha1": "4c6d5694b37203a6a8746f80ca837c5aaa164068"
+    },
+    {
       "path": "src/assets/images/thumbs_up.png",
       "sha1": "0068d430ac23fa13c907410324e899e944d1d876"
     },
     {
       "path": "src/assets/images/thumbs_up_silouette.png",
       "sha1": "39e527b200424e6e364ff492a811c9cc310c45a5"
+    },
+    {
+      "path": "src/assets/videos/clouds.mp4",
+      "sha1": "443d77a786fe9219b390deb57644cb87df654913"
+    },
+    {
+      "path": "src/assets/videos/onboarding_person1.mp4",
+      "sha1": "3251087842e42c653ac6c236091843161c482f60"
+    },
+    {
+      "path": "src/assets/videos/onboarding_person2.mp4",
+      "sha1": "4b3b68968a787089684cb26b43d24a3d10631262"
+    },
+    {
+      "path": "src/assets/videos/onboarding_person3.mp4",
+      "sha1": "5bf267153d431649019b3f1c0211b4ebc8031d09"
     }
   ]
 }

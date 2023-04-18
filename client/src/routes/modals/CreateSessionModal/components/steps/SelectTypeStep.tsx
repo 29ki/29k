@@ -42,6 +42,7 @@ import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
 import {fetchSessions} from '../../../../../lib/sessions/api/sessions';
 import {ModalStackProps} from '../../../../../lib/navigation/constants/routes';
 import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsyncSession';
+import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -259,6 +260,12 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   {exerciseImage && <Image source={exerciseImage} />}
                 </LogoWrapper>
               </Row>
+              {exercise.description && (
+                <>
+                  <Spacer16 />
+                  <Markdown>{exercise.description}</Markdown>
+                </>
+              )}
               <Spacer28 />
               <TypeItemHeading>{t('description')}</TypeItemHeading>
               <Spacer16 />

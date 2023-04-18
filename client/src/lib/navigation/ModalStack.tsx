@@ -32,6 +32,7 @@ import HostsModal from '../../routes/modals/Contributors/HostsModal';
 import SafetyToolkitModal from '../../routes/modals/SafetyToolkitModal/SafetyToolkitModal';
 import ReportModal from '../../routes/modals/ReportModal/ReportModal';
 import CalmDownModal from '../../routes/modals/CalmDownModal/CalmDownModal';
+import HostInfoModal from '../../routes/modals/HostInfoModal/HostInfoModal';
 import CompletedSessionsModal from '../../routes/modals/CompletedSessionsModal/CompletedSessionsModal';
 
 const {Navigator, Screen, Group} =
@@ -188,6 +189,11 @@ const ModalStack = () => {
           component={ProfileSettingsModal}
           options={fullSheetModalScreenOptions}
         />
+        <Screen
+          name={'HostInfoModal'}
+          component={HostInfoModal}
+          options={tallSheetModalScreenOptions}
+        />
 
         <Screen name={'ContributorsModal'} component={ContributorsModal} />
         <Screen name={'HostsModal'} component={HostsModal} />
@@ -237,6 +243,7 @@ const ModalStack = () => {
         <Screen
           name={'CompletedSessionsModal'}
           component={CompletedSessionsModal}
+          // Fullscreen is necessary for the scroll to work: https://github.com/gorhom/react-native-bottom-sheet/issues/459
           options={fullyExtendedSheetModalScreenOptions}
         />
       </Group>

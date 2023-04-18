@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>29k sessions</string>
+	<string>Aware</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -38,7 +38,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>87</string>
+	<string>93</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationCategoryType</key>
@@ -153,6 +153,6 @@
 		<string>https://dev.app.cupcake.29k.org/</string>
 	</array>
 	<key>FirebaseDeepLinkPasteboardRetrievalEnabled</key>
-	<false/>
+	<true/>
 </dict>
 </plist>

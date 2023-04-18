@@ -10,11 +10,9 @@ import {
   verifyPublicHostRequest,
 } from '../../controllers/publicHostRequests';
 import {RequestError} from '../../controllers/errors/RequestError';
-import {
-  UserProfileError,
-  VerificationError,
-} from '../../../../shared/src/errors/User';
-import {getProfile} from '../../controllers/user';
+import {UserError, VerificationError} from '../../../../shared/src/errors/User';
+import {getMe, getPublicHosts, getUser} from '../../controllers/user';
+import {ROLE} from '../../../../shared/src/types/User';
 
 jest.mock('../../controllers/publicHostRequests');
 jest.mock('../../controllers/user');
@@ -144,9 +142,70 @@ describe('/api/user', () => {
     });
   });
 
+  describe('/', () => {
+    it('should reply with user data', async () => {
+      const mockedGetMe = jest.mocked(getMe).mockResolvedValueOnce({
+        description: 'some description',
+      });
+
+      const response = await request(mockServer).get('/user').send();
+
+      expect(mockedGetMe).toHaveBeenCalledTimes(1);
+      expect(mockedGetMe).toHaveBeenCalledWith('some-user-id');
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({
+        description: 'some description',
+      });
+    });
+
+    it('should reply with empty if user has no data', async () => {
+      const mockedGetMe = jest.mocked(getMe).mockResolvedValueOnce({});
+
+      const response = await request(mockServer).get('/user').send();
+
+      expect(mockedGetMe).toHaveBeenCalledTimes(1);
+      expect(mockedGetMe).toHaveBeenCalledWith('some-user-id');
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({});
+    });
+  });
+
+  describe('/publicHosts', () => {
+    it('should reply with public hosts', async () => {
+      const mockedGetPublicHosts = jest
+        .mocked(getPublicHosts)
+        .mockResolvedValueOnce([
+          {
+            description: 'some description',
+            role: ROLE.publicHost,
+            uid: 'some-user-id',
+            displayName: 'Some Name',
+            photoURL: 'http://pic.png',
+          },
+        ]);
+
+      const response = await request(mockServer)
+        .get('/user/publicHosts')
+        .send();
+
+      expect(mockedGetPublicHosts).toHaveBeenCalledTimes(1);
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual([
+        {
+          description: 'some description',
+          role: ROLE.publicHost,
+          uid: 'some-user-id',
+          displayName: 'Some Name',
+          photoURL: 'http://pic.png',
+        },
+      ]);
+    });
+  });
+
   describe('/:id', () => {
     it('should reply with user info', async () => {
-      const mockedGetProfile = jest.mocked(getProfile).mockResolvedValueOnce({
+      const mockedGetProfile = jest.mocked(getUser).mockResolvedValueOnce({
+        uid: 'some-user-id',
         displayName: 'some-name',
         photoURL: 'some-photo-url',
       });
@@ -159,6 +218,7 @@ describe('/api/user', () => {
       expect(mockedGetProfile).toHaveBeenCalledWith('some-user-id');
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
+        uid: 'some-user-id',
         displayName: 'some-name',
         photoURL: 'some-photo-url',
       });
@@ -166,15 +226,15 @@ describe('/api/user', () => {
 
     it('should return 404 if user not found', async () => {
       jest
-        .mocked(getProfile)
-        .mockRejectedValueOnce(new RequestError(UserProfileError.userNotFound));
+        .mocked(getUser)
+        .mockRejectedValueOnce(new RequestError(UserError.userNotFound));
 
       const response = await request(mockServer)
         .get('/user/non-existing-id')
         .send();
 
       expect(response.status).toBe(404);
-      expect(response.text).toBe(UserProfileError.userNotFound);
+      expect(response.text).toBe(UserError.userNotFound);
     });
   });
 });

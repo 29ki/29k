@@ -1,6 +1,6 @@
 import {getAuth} from 'firebase-admin/auth';
 import {VerificationError} from '../../../shared/src/errors/User';
-import {ROLES} from '../../../shared/src/types/User';
+import {ROLE} from '../../../shared/src/types/User';
 import {sendPublicHostRequestMessage} from '../models/slack';
 import {
   addPublicHostRequest,
@@ -8,6 +8,7 @@ import {
   updatePublicHostRequest,
 } from '../models/publicHostRequests';
 import {RequestError} from './errors/RequestError';
+import {updateUser} from '../models/user';
 
 export const requestPublicHostRole = async (userId: string) => {
   const user = await getAuth().getUser(userId);
@@ -48,6 +49,6 @@ export const verifyPublicHostRequest = async (
     throw new RequestError(VerificationError.verificationFailed);
   }
 
-  await getAuth().setCustomUserClaims(userId, {role: ROLES.publicHost});
+  await updateUser(userId, {role: ROLE.publicHost});
   await updatePublicHostRequest(userId, 'verified');
 };

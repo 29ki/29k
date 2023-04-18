@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {ImageSourcePropType} from 'react-native';
+import {ImageSourcePropType, ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
 import AnimatedLottieView, {AnimationObject} from 'lottie-react-native';
 
@@ -77,10 +77,12 @@ type CardProps = {
   image?: ImageSourcePropType;
   lottie?: AnimationObject | {uri: string};
   onPress: () => void;
+  onHostPress?: () => void;
   children?: React.ReactNode;
   hostPictureURL?: string;
   hostName?: string;
   inWallet?: boolean;
+  style?: ViewStyle;
 };
 
 export const Card: React.FC<CardProps> = ({
@@ -89,12 +91,14 @@ export const Card: React.FC<CardProps> = ({
   lottie,
   image,
   onPress,
+  onHostPress,
   children,
   hostPictureURL,
   hostName,
   inWallet,
+  style,
 }) => (
-  <WalletWrapper inWallet={inWallet}>
+  <WalletWrapper inWallet={inWallet} style={style}>
     <Wrapper onPress={onPress}>
       <ContentWrapper>
         <LeftCol>
@@ -111,7 +115,13 @@ export const Card: React.FC<CardProps> = ({
           <Header>
             {title && <Display20 numberOfLines={2}>{title}</Display20>}
             <Spacer4 />
-            <Byline pictureURL={hostPictureURL} name={hostName} />
+            {onHostPress ? (
+              <TouchableOpacity onPress={onHostPress}>
+                <Byline pictureURL={hostPictureURL} name={hostName} />
+              </TouchableOpacity>
+            ) : (
+              <Byline pictureURL={hostPictureURL} name={hostName} />
+            )}
           </Header>
         </LeftCol>
         <GraphicsWrapper>

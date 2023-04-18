@@ -1,5 +1,5 @@
 import {getAuth} from 'firebase-admin/auth';
-import {ROLES} from '../../../../shared/src/types/User';
+import {ROLE} from '../../../../shared/src/types/User';
 import {FirebaseAuthContext} from './firebaseAuth';
 import restrictAccessToRole from './restrictAccessToRole';
 
@@ -9,12 +9,12 @@ afterEach(() => {
 
 describe('restrictAccessToRole', () => {
   it('allows access if user have right access role', async () => {
-    const middleware = restrictAccessToRole('publicHost');
+    const middleware = restrictAccessToRole(ROLE.publicHost);
 
     const ctx = {
       user: {
         id: 'some-user-id',
-        customClaims: {role: ROLES.publicHost},
+        customClaims: {role: ROLE.publicHost},
       },
     } as unknown as FirebaseAuthContext;
     const next = jest.fn();
@@ -26,14 +26,14 @@ describe('restrictAccessToRole', () => {
 
   it('allows access if user have right access role and input needs it', async () => {
     const middleware = restrictAccessToRole<{type: string}>(
-      'publicHost',
+      ROLE.publicHost,
       ({type}) => type === 'public',
     );
 
     const ctx = {
       user: {
         id: 'some-user-id',
-        customClaims: {role: ROLES.publicHost},
+        customClaims: {role: ROLE.publicHost},
       },
       request: {
         body: {type: 'public'},
@@ -48,7 +48,7 @@ describe('restrictAccessToRole', () => {
 
   it('allows access if input does not need access role', async () => {
     const middleware = restrictAccessToRole<{type: string}>(
-      'publicHost',
+      ROLE.publicHost,
       ({type}) => type === 'public',
     );
 
@@ -73,7 +73,7 @@ describe('restrictAccessToRole', () => {
     });
 
     const middleware = restrictAccessToRole<{type: string}>(
-      'publicHost',
+      ROLE.publicHost,
       ({type}) => type === 'public',
     );
 
@@ -98,7 +98,7 @@ describe('restrictAccessToRole', () => {
       customClaims: {role: 'some-other-role'},
     });
 
-    const middleware = restrictAccessToRole('publicHost');
+    const middleware = restrictAccessToRole(ROLE.publicHost);
 
     const ctx = {
       user: {
@@ -125,7 +125,7 @@ describe('restrictAccessToRole', () => {
       customClaims: undefined,
     });
 
-    const middleware = restrictAccessToRole('publicHost');
+    const middleware = restrictAccessToRole(ROLE.publicHost);
 
     const ctx = {
       user: {
@@ -151,7 +151,7 @@ describe('restrictAccessToRole', () => {
     });
 
     const middleware = restrictAccessToRole<{type: string}>(
-      'publicHost',
+      ROLE.publicHost,
       ({type}) => type === 'public',
     );
 

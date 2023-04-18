@@ -40,6 +40,13 @@ class VideoLooperView: RCTView {
         name: UIApplication.didBecomeActiveNotification,
         object: nil
     )
+    
+    NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(playerInterruption(notification:)),
+        name: AVAudioSession.interruptionNotification,
+        object: nil
+    )
     setupView()
   }
  
@@ -55,6 +62,30 @@ class VideoLooperView: RCTView {
 
   @objc func applicationDidBecomeActiveNotification(notification:NSNotification!) {
     self._playerLayer.player = self._player
+    self._player?.play()
+  }
+  
+  @objc func playerInterruption(notification: NSNotification) {
+    guard let userInfo = notification.userInfo,
+    let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
+    let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
+      return
+    }
+    if type == .began {
+      self._player?.pause()
+    }
+    else if type == .ended {
+      guard let optionsValue = userInfo[AVAudioSessionInterruptionOptionKey] as? UInt else {
+        return
+      }
+      let options = AVAudioSession.InterruptionOptions(rawValue: optionsValue)
+      if options.contains(.shouldResume) {
+        // Interruption Ended - playback should resume
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self._player?.play()
+        }
+      }
+    }
   }
   
   override func layoutSubviews() {
@@ -92,16 +123,16 @@ class VideoLooperView: RCTView {
   }
   
   private func configureAudio() {
-    do {
-      let session = AVAudioSession.sharedInstance()
-      if (_mixWithOhters) {
-        try session.setCategory(.playAndRecord, options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
-        try session.setActive(true)
-      } else {
-        try session.setCategory(.playback)
-      }
-    } catch {
-      
+    if _player?.isMuted != true {
+      do {
+        let session = AVAudioSession.sharedInstance()
+        if (_mixWithOhters) {
+          try session.setCategory(.playAndRecord, options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
+          try session.setActive(true)
+        } else {
+          try session.setCategory(.playback)
+        }
+      } catch {}
     }
   }
   
@@ -141,9 +172,25 @@ class VideoLooperView: RCTView {
         fullfill(nil)
         return
       }
-      let loopAsset = AVAsset(url: URL(string: source! as String)!)
-      loopAsset.loadValuesAsynchronously(forKeys: ["duration", "playable"]) {
-        fullfill(loopAsset)
+      
+      var asset: AVAsset? = nil
+      if source?.hasPrefix("http") == true {
+        asset = AVAsset(url: URL(string: source! as String)!)
+      } else {
+        let url = Bundle.main.url(
+          forResource: source!.deletingPathExtension as String,
+          withExtension: source!.pathExtension)
+        if (url != nil) {
+          asset = AVAsset(url: url!)
+        }
+      }
+      
+      if asset != nil {
+        asset!.loadValuesAsynchronously(forKeys: ["duration", "playable"]) {
+          fullfill(asset)
+        }
+      } else {
+        fullfill(nil)
       }
     }
   }
@@ -190,7 +237,7 @@ class VideoLooperView: RCTView {
             fulfill(())
         })
     }
-}
+  }
   
   // MARK: react props handlers
   
@@ -301,6 +348,11 @@ class VideoLooperView: RCTView {
     _volume = val?.floatValue ?? 0
     _player?.volume = _volume
     _audioPlayer?.volume = _volume
+  }
+  
+  @objc func setMuted(_ val: Bool) {
+    _player?.isMuted = val
+    _audioPlayer?.volume = val ? 0 : _volume
   }
   
   // MARK: Observers

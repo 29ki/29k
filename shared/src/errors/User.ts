@@ -7,6 +7,6 @@ export enum VerificationError {
   verificationFailed = 'verification/failed',
 }
 
-export enum UserProfileError {
+export enum UserError {
   userNotFound = 'userProfile/user-not-found',
 }

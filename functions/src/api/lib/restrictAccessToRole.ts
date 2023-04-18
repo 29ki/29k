@@ -1,12 +1,9 @@
 import {Next} from 'koa';
-import {ROLES} from '../../../../shared/src/types/User';
+import {ROLE} from '../../../../shared/src/types/User';
 import {FirebaseAuthContext} from './firebaseAuth';
 
 const restrictAccessToRole =
-  <T>(
-    role: keyof typeof ROLES,
-    inputNeedsRole: (body: T) => boolean = () => true,
-  ) =>
+  <T>(role: ROLE, inputNeedsRole: (body: T) => boolean = () => true) =>
   async (ctx: FirebaseAuthContext, next: Next) => {
     const {customClaims} = ctx.user;
 

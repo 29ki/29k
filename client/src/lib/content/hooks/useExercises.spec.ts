@@ -39,7 +39,7 @@ describe('useExercises', () => {
     useAppState.setState({
       settings: {
         preferredLanguage: 'sv',
-        showWelcome: false,
+        showOnboarding: true,
         showHiddenContent: false,
       },
     });

@@ -7,9 +7,9 @@ import {LANGUAGE_TAG} from '../../i18n';
 export const APP_RATING_REVISION = 1;
 
 export type Settings = {
-  showWelcome: boolean;
   preferredLanguage?: LANGUAGE_TAG;
   showHiddenContent: boolean;
+  showOnboarding: boolean;
   appRatedRevision?: number;
 };
 
@@ -28,7 +28,7 @@ const initialState: State = {
   isColdStarted: true,
   settings: {
     showHiddenContent: false,
-    showWelcome: true,
+    showOnboarding: true,
   },
 };
 

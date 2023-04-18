@@ -1,7 +1,7 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import {UserProfile} from '../../../../../shared/src/types/User';
+import {User, UserProfile} from '../../../../../shared/src/types/User';
 import {
   AsyncSession,
   LiveSession,
@@ -41,8 +41,9 @@ export type AsyncSessionStackProps = {
 
 export type AppStackProps = {
   KillSwitch: undefined;
-  Welcome?: {showBack: boolean};
-  Tabs: NavigatorScreenParams<TabNavigatorProps>;
+  Welcome: undefined;
+  Onboarding: undefined;
+  Tabs?: NavigatorScreenParams<TabNavigatorProps>;
   LiveSessionStack: NavigatorScreenParams<LiveSessionStackProps>;
   AsyncSessionStack: NavigatorScreenParams<AsyncSessionStackProps>;
 };
@@ -52,7 +53,6 @@ export type OverlayStackProps = {
   AboutEditorialOverlay: undefined;
   CommunityEditorialOverlay: undefined;
   AboutOverlay: undefined;
-  EarlyAccessInfoOverlay?: {showBack: boolean};
 };
 
 export type ModalStackProps = {
@@ -91,6 +91,7 @@ export type ModalStackProps = {
   SafetyToolkitModal: undefined;
   ReportModal: {originScreen: string};
   CalmDownModal: undefined;
+  HostInfoModal: {host?: User};
   CompletedSessionsModal: {
     filterSetting: 'mode' | 'feedback' | 'host';
   };

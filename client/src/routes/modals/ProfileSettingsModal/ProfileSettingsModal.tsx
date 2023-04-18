@@ -36,6 +36,8 @@ import {
 } from '../../../lib/components/Icons';
 import useReminderNotificationsSetting from '../../../lib/notifications/hooks/useReminderNotificationsSetting';
 import useSignOutUser from '../../../lib/user/hooks/useSignOutUser';
+import {SPACINGS} from '../../../lib/constants/spacings';
+import useUserState from '../../../lib/user/state/state';
 
 const Picture = styled(ProfilePicture)({
   width: 144,
@@ -44,6 +46,14 @@ const Picture = styled(ProfilePicture)({
 
 const StyledButton = styled(Button)({
   alignSelf: 'flex-start',
+});
+
+const DescriptionInput = styled(BottomSheetActionTextInput).attrs({
+  multiline: true,
+  numberOfLines: 2,
+})({
+  maxHeight: SPACINGS.NINTYSIX,
+  minHeight: SPACINGS.NINTYSIX,
 });
 
 const Error = styled(Body16)({
@@ -61,6 +71,7 @@ const ProfileSettingsModal = () => {
   const {deleteUser} = useDeleteUser();
   const signOut = useSignOutUser();
   const user = useUser();
+  const userData = useUserState(state => state.data);
   const {remindersEnabled, setRemindersEnabled} =
     useReminderNotificationsSetting();
 
@@ -68,11 +79,18 @@ const ProfileSettingsModal = () => {
   const [email, setEmail] = useState(user?.email);
   const [password, setPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
+  const [description, setDescription] = useState(userData?.description);
   const [error, setError] = useState('');
 
   const updateUserPress = useCallback(async () => {
     try {
-      await updateProfileDetails({displayName, email, password, newPassword});
+      await updateProfileDetails({
+        displayName,
+        email,
+        password,
+        newPassword,
+        description,
+      });
       popToTop();
     } catch (e: any) {
       setError(e.code ?? e.message);
@@ -84,6 +102,7 @@ const ProfileSettingsModal = () => {
     email,
     password,
     newPassword,
+    description,
   ]);
 
   const languagePress = useCallback(
@@ -174,6 +193,15 @@ const ProfileSettingsModal = () => {
                   : t('setPassword')
               }
               onChangeText={setNewPassword}
+            />
+            <DescriptionInput
+              autoCapitalize="none"
+              keyboardType="default"
+              placeholder={
+                'Add a desctiption that will be shown when you host a session'
+              }
+              onChangeText={setDescription}
+              defaultValue={description}
             />
           </ActionList>
           <Spacer16 />

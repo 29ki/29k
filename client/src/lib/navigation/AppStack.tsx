@@ -10,8 +10,9 @@ import {
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 import {AppStackProps} from './constants/routes';
-import EarlyAccessInfo from '../../routes/screens/EarlyAccessInfo/EarlyAccessInfo';
 import useAppState from '../appState/state/state';
+import Onboarding from '../../routes/screens/Onboarding/Onboarding';
+import Welcome from '../../routes/screens/Onboarding/Welcome';
 
 const {Navigator, Screen, Group} = createNativeStackNavigator<AppStackProps>();
 
@@ -29,8 +30,13 @@ const slideScreenOptions: NativeStackNavigationOptions = {
 const fadeScreenOptions: NativeStackNavigationOptions = {
   ...screenOptions,
   animation: 'fade',
-  animationDuration: 2000,
+  animationDuration: 400,
   gestureEnabled: false,
+};
+
+const slowFadeScreenOptions: NativeStackNavigationOptions = {
+  ...fadeScreenOptions,
+  animationDuration: 2000,
 };
 
 const AppStack = () => {
@@ -42,19 +48,26 @@ const AppStack = () => {
     // set this state using useNavigationWithFade to change animation to fade
     <Navigator screenOptions={slideScreenOptions}>
       {isBlocking ? (
-        <Screen name={'KillSwitch'} component={KillSwitch} />
-      ) : settings.showWelcome ? (
-        <Screen name={'Welcome'} component={EarlyAccessInfo} />
-      ) : (
-        <Group screenOptions={fade ? fadeScreenOptions : screenOptions}>
-          <Screen name={'Tabs'} component={Tabs} />
+        <Screen name="KillSwitch" component={KillSwitch} />
+      ) : settings.showOnboarding ? (
+        <Group screenOptions={fadeScreenOptions}>
+          <Screen name="Welcome" component={Welcome} />
           <Screen
-            name={'LiveSessionStack'}
+            name="Onboarding"
+            component={Onboarding}
+            options={fadeScreenOptions}
+          />
+        </Group>
+      ) : (
+        <Group screenOptions={fade ? slowFadeScreenOptions : screenOptions}>
+          <Screen name="Tabs" component={Tabs} />
+          <Screen
+            name="LiveSessionStack"
             component={LiveSessionStack}
             options={{gestureEnabled: false}}
           />
           <Screen
-            name={'AsyncSessionStack'}
+            name="AsyncSessionStack"
             component={AsyncSessionStack}
             options={{gestureEnabled: false}}
           />

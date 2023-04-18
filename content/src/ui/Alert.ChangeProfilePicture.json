@@ -1,36 +1,36 @@
 {
   "en": {
-    "ok": "OK",
-    "title": "Edit profile picture",
     "removeButtonTitle": "Remove",
-    "takePhotoButtonTitle": "Take photo",
+    "alertCameraSettings": "Please open your system settings, and give 29k access to your camera.",
+    "alertCameraWhy": "Aware needs to use your camera to take your profile picture.",
     "chooseFromLibraryButtonTitle": "Choose from Library",
     "cancelButtonTitle": "Cancel",
     "alertCameraTitle": "Camera permission required",
-    "alertCameraWhy": "29k needs to use your camera to take your profile picture.",
-    "alertCameraSettings": "Please open your system settings, and give 29k access to your camera."
-  },
-  "sv": {
-    "ok": "Okej",
-    "title": "Redigera profilbild",
-    "removeButtonTitle": "Radera",
-    "takePhotoButtonTitle": "Ta en bild",
-    "chooseFromLibraryButtonTitle": "Välj från bibliotek",
-    "cancelButtonTitle": "Avbryt",
-    "alertCameraTitle": "Åtkomst till kameran",
-    "alertCameraWhy": "29k behöver åtkomst till kameran för att ta din profilbild.",
-    "alertCameraSettings": "Öppna din telefons inställningar för att ge 29k åtkomst till din kamera."
+    "title": "Edit profile picture",
+    "takePhotoButtonTitle": "Take photo",
+    "ok": "OK"
   },
   "pt": {
-    "ok": "OK",
-    "title": "Alterar imagem de perfil",
     "removeButtonTitle": "Remover",
-    "takePhotoButtonTitle": "Tirar uma foto",
+    "alertCameraSettings": "Por favor, vai às configurações do sistema e dá acesso à 29k FJN para utilizar a tua câmara.",
+    "alertCameraWhy": "A 29k FJN precisa de utilizar a tua câmara para tirar a foto de perfil.",
     "chooseFromLibraryButtonTitle": "Selecionar da biblioteca",
     "cancelButtonTitle": "Cancelar",
     "alertCameraTitle": "Necessária permissão de acesso à câmara",
-    "alertCameraWhy": "A 29k FJN precisa de utilizar a tua câmara para tirar a foto de perfil.",
-    "alertCameraSettings": "Por favor, vai às configurações do sistema e dá acesso à 29k FJN para utilizar a tua câmara."
+    "title": "Alterar imagem de perfil",
+    "takePhotoButtonTitle": "Tirar uma foto",
+    "ok": "OK"
+  },
+  "sv": {
+    "removeButtonTitle": "Radera",
+    "alertCameraSettings": "Öppna din telefons inställningar för att ge 29k åtkomst till din kamera.",
+    "alertCameraWhy": "29k behöver åtkomst till kameran för att ta din profilbild.",
+    "chooseFromLibraryButtonTitle": "Välj från bibliotek",
+    "cancelButtonTitle": "Avbryt",
+    "alertCameraTitle": "Åtkomst till kameran",
+    "title": "Redigera profilbild",
+    "takePhotoButtonTitle": "Ta en bild",
+    "ok": "Okej"
   },
   "es": {}
 }

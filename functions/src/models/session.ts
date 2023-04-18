@@ -110,6 +110,7 @@ export const getUpcomingPublicSessions = async (limit?: number) => {
 export const getSessionsByUserId = async (
   userId: string,
   exerciseId?: string,
+  hostId?: string,
   limit?: number,
 ) => {
   let query = firestore()
@@ -122,6 +123,10 @@ export const getSessionsByUserId = async (
 
   if (exerciseId) {
     query = query.where('exerciseId', '==', exerciseId);
+  }
+
+  if (hostId) {
+    query = query.where('hostId', '==', hostId);
   }
 
   if (limit) {

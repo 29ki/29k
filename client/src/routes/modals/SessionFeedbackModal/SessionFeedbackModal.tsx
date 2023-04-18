@@ -10,7 +10,6 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import React, {useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components/native';
-import Video from 'react-native-video';
 
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -37,13 +36,17 @@ import {ThumbsUp, ThumbsDown} from '../../../lib/components/Thumbs/Thumbs';
 import useCompletedSessionById from '../../../lib/user/hooks/useCompletedSessionById';
 import useSessionFeedback from '../../../lib/session/hooks/useSessionFeedback';
 import useRating from '../../../lib/rating/hooks/useRating';
+import VideoLooper from '../../../lib/components/VideoLooper/VideoLooper';
 
-const BackgroundVideo = styled(Video).attrs({
+const BackgroundVideo = styled(VideoLooper).attrs({
   repeat: true,
-  resizeMode: 'cover',
-  source: {
-    uri: 'https://res.cloudinary.com/cupcake-29k/video/upload/v1673617872/Video/Submit_Session_Feedback_lrzi5l.mp4',
-  },
+  muted: true,
+  sources: [
+    {
+      source: 'clouds.mp4',
+      repeat: true,
+    },
+  ],
 })(({paused}) => ({
   ...StyleSheet.absoluteFillObject,
   opacity: paused ? 0 : 1, // Hide it when not playing to pre-load it a bit

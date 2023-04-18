@@ -40,9 +40,9 @@ class VideoLooper extends React.Component {
   }
 
   render() {
-    const {onLoad, ...rest} = this.props;
+    const {onLoad, style, ...rest} = this.props;
     return (
-      <Container>
+      <Container style={style}>
         <StyledRNVideoLooper
           ref={this._assignRoot}
           onLoad={this.onLoad}

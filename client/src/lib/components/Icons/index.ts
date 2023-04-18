@@ -1,11 +1,13 @@
 import React from 'react';
-import {ColorValue} from 'react-native';
+import {ColorValue, ViewStyle} from 'react-native';
 
 export type IconType = React.FC<{
   fill?: ColorValue;
+  style?: ViewStyle;
 }>;
 
 export * from './ArrowLeft/ArrowLeft';
+export * from './ArrowRight/ArrowRight';
 export * from './Back/Back';
 export * from './BackwardCircle/BackwardCircle';
 export * from './Bell/Bell';

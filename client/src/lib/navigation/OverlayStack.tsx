@@ -5,7 +5,6 @@ import {
   StackNavigationOptions,
 } from '@react-navigation/stack';
 import AboutOverlay from '../../routes/overlays/AboutOverlay/AboutOverlay';
-import EarlyAccessInfoOverlay from '../../routes/screens/EarlyAccessInfo/EarlyAccessInfo';
 import AboutEditorialOverlay from '../../routes/overlays/AboutEditorialOverlay/AboutEditorialOverlay';
 import CommunityEditorialOverlay from '../../routes/overlays/CommunityEditorialOverlay/CommunityEditorialOverlay';
 import SETTINGS from '../constants/settings';
@@ -29,11 +28,6 @@ const OverlayStack = () => (
   <Navigator screenOptions={screenOptions}>
     <Screen name="App" component={AppStack} />
     <Screen name="AboutOverlay" component={AboutOverlay} />
-    <Screen
-      name="EarlyAccessInfoOverlay"
-      component={EarlyAccessInfoOverlay}
-      initialParams={{showBack: true}}
-    />
     <Screen name="AboutEditorialOverlay" component={AboutEditorialOverlay} />
     <Screen
       name="CommunityEditorialOverlay"

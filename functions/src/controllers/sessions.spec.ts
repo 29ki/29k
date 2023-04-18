@@ -32,7 +32,6 @@ import {
   updateInterestedCount,
   getSession,
 } from './sessions';
-import {getPublicUserInfo} from '../models/user';
 import {SessionType} from '../../../shared/src/types/Session';
 import dayjs from 'dayjs';
 import {RequestError} from './errors/RequestError';
@@ -41,6 +40,9 @@ import {
   ValidateSessionError,
 } from '../../../shared/src/errors/Session';
 import {generateSessionToken} from '../lib/dailyUtils';
+import {getUser} from './user';
+import {getAuthUserInfo} from '../models/auth';
+import {incrementHostedCount} from '../models/user';
 
 jest.mock('../lib/utils', () => ({
   ...jest.requireActual('../lib/utils'),
@@ -49,6 +51,8 @@ jest.mock('../lib/utils', () => ({
 jest.mock('../lib/dailyApi', () => mockDailyApi);
 jest.mock('../models/dynamicLinks', () => mockDynamicLinks);
 jest.mock('../models/session');
+jest.mock('./user');
+jest.mock('../models/auth');
 jest.mock('../models/user');
 jest.mock('../lib/dailyUtils');
 
@@ -65,15 +69,25 @@ const mockUpdateInterestedCount =
 const mockUpdateSessionState = sessionModel.updateSessionState as jest.Mock;
 const mockGetSessionByInviteCode =
   sessionModel.getSessionByInviteCode as jest.Mock;
-const mockGetPublicUserInfo = getPublicUserInfo as jest.Mock;
+const mockGetUser = getUser as jest.Mock;
+const mockGetAuthUserInfo = getAuthUserInfo as jest.Mock;
 const mockGenerateSessionToken = generateSessionToken as jest.Mock;
+const mockIncrementHostedCount = jest.mocked(incrementHostedCount);
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));
 
-mockGetPublicUserInfo.mockResolvedValue({
+mockGetUser.mockResolvedValue({
+  uid: 'the-host-id',
   displayName: 'some-name',
   photoURL: 'some-photo-url',
 });
+
+mockGetAuthUserInfo.mockResolvedValue({
+  uid: 'the-host-id',
+  displayName: 'some-name',
+  photoURL: 'some-photo-url',
+});
+
 beforeEach(async () => {
   jest.clearAllMocks();
 });
@@ -95,9 +109,13 @@ describe('sessions - controller', () => {
       expect(sessions[0].hostProfile?.displayName).toEqual('some-name');
       expect(sessions[0].hostProfile?.photoURL).toEqual('some-photo-url');
       expect(mockGetSessionsByUserId).toHaveBeenCalledTimes(1);
-      expect(mockGetSessionsByUserId).toHaveBeenCalledWith('all', undefined);
-      expect(mockGetPublicUserInfo).toHaveBeenCalledTimes(1);
-      expect(mockGetPublicUserInfo).toHaveBeenCalledWith('some-user-id');
+      expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
+        'all',
+        undefined,
+        undefined,
+      );
+      expect(mockGetUser).toHaveBeenCalledTimes(1);
+      expect(mockGetUser).toHaveBeenCalledWith('some-user-id');
     });
 
     it('should get public sessions by exerciseId with host profile', async () => {
@@ -121,9 +139,10 @@ describe('sessions - controller', () => {
       expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
         'some-user-id',
         'some-exercise-id',
+        undefined,
       );
-      expect(mockGetPublicUserInfo).toHaveBeenCalledTimes(1);
-      expect(mockGetPublicUserInfo).toHaveBeenCalledWith('some-user-id');
+      expect(mockGetUser).toHaveBeenCalledTimes(1);
+      expect(mockGetUser).toHaveBeenCalledWith('some-user-id');
     });
 
     it('should filter out sessions that have been closed', async () => {
@@ -144,7 +163,7 @@ describe('sessions - controller', () => {
       mockGetSessionsByUserId.mockResolvedValueOnce([
         {
           closingTime: '2022-10-10T09:00:00.000Z',
-          hostId: 'other-user-id',
+          hostId: 'the-host-id',
           userIds: ['*', 'some-user-id'],
         },
       ]);
@@ -155,8 +174,12 @@ describe('sessions - controller', () => {
       expect(sessions).toEqual([
         {
           closingTime: '2022-10-10T09:00:00.000Z',
-          hostId: 'other-user-id',
-          hostProfile: {displayName: 'some-name', photoURL: 'some-photo-url'},
+          hostId: 'the-host-id',
+          hostProfile: {
+            uid: 'the-host-id',
+            displayName: 'some-name',
+            photoURL: 'some-photo-url',
+          },
           userIds: ['*', 'some-user-id'],
         },
       ]);
@@ -166,19 +189,23 @@ describe('sessions - controller', () => {
       mockGetSessionsByUserId.mockResolvedValueOnce([
         {
           closingTime: '2022-10-10T09:00:00.000Z',
-          hostId: 'host-user-id',
+          hostId: 'the-host-id',
           userIds: ['*'],
         },
       ]);
 
-      const sessions = await getSessionsByUserId('host-user-id');
+      const sessions = await getSessionsByUserId('the-host-id');
 
       expect(sessions).toHaveLength(1);
       expect(sessions).toEqual([
         {
           closingTime: '2022-10-10T09:00:00.000Z',
-          hostId: 'host-user-id',
-          hostProfile: {displayName: 'some-name', photoURL: 'some-photo-url'},
+          hostId: 'the-host-id',
+          hostProfile: {
+            uid: 'the-host-id',
+            displayName: 'some-name',
+            photoURL: 'some-photo-url',
+          },
           userIds: ['*'],
         },
       ]);
@@ -202,8 +229,8 @@ describe('sessions - controller', () => {
       expect(sessions[0].hostProfile?.photoURL).toEqual('some-photo-url');
       expect(mockGetUpcomingPublicSessions).toHaveBeenCalledTimes(1);
       expect(mockGetUpcomingPublicSessions).toHaveBeenCalledWith(undefined);
-      expect(mockGetPublicUserInfo).toHaveBeenCalledTimes(1);
-      expect(mockGetPublicUserInfo).toHaveBeenCalledWith('some-user-id');
+      expect(mockGetUser).toHaveBeenCalledTimes(1);
+      expect(mockGetUser).toHaveBeenCalledWith('some-user-id');
     });
 
     it('supports limiting the query', async () => {
@@ -220,7 +247,7 @@ describe('sessions - controller', () => {
     it('should return the private session', async () => {
       mockGetSessionById.mockResolvedValueOnce({
         dailyRoomName: 'some-room-name',
-        hostId: 'some-host-id',
+        hostId: 'the-host-id',
         userIds: ['some-user-id'],
         type: SessionType.private,
       });
@@ -229,8 +256,12 @@ describe('sessions - controller', () => {
 
       expect(result).toEqual({
         dailyRoomName: 'some-room-name',
-        hostId: 'some-host-id',
-        hostProfile: {displayName: 'some-name', photoURL: 'some-photo-url'},
+        hostId: 'the-host-id',
+        hostProfile: {
+          uid: 'the-host-id',
+          displayName: 'some-name',
+          photoURL: 'some-photo-url',
+        },
         type: 'private',
         userIds: ['some-user-id'],
       });
@@ -239,7 +270,7 @@ describe('sessions - controller', () => {
     it('should return existing public session', async () => {
       mockGetSessionById.mockResolvedValueOnce({
         dailyRoomName: 'some-room-name',
-        hostId: 'some-host-id',
+        hostId: 'the-host-id',
         userIds: ['some-other-user-id'],
         type: SessionType.public,
       });
@@ -248,8 +279,12 @@ describe('sessions - controller', () => {
 
       expect(result).toEqual({
         dailyRoomName: 'some-room-name',
-        hostId: 'some-host-id',
-        hostProfile: {displayName: 'some-name', photoURL: 'some-photo-url'},
+        hostId: 'the-host-id',
+        hostProfile: {
+          uid: 'the-host-id',
+          displayName: 'some-name',
+          photoURL: 'some-photo-url',
+        },
         type: 'public',
         userIds: ['some-other-user-id'],
       });
@@ -370,7 +405,7 @@ describe('sessions - controller', () => {
       mockAddSession.mockResolvedValueOnce({
         hostId: 'some-user-id',
       });
-      mockGetPublicUserInfo.mockResolvedValueOnce({
+      mockGetUser.mockResolvedValueOnce({
         displayName: 'some-name',
         photoURL: 'some-photo-url',
       });
@@ -417,7 +452,7 @@ describe('sessions - controller', () => {
       mockAddSession.mockResolvedValueOnce({
         hostId: 'some-user-id',
       });
-      mockGetPublicUserInfo.mockResolvedValueOnce({
+      mockGetUser.mockResolvedValueOnce({
         displayName: 'some-name',
         photoURL: 'some-photo-url',
       });
@@ -507,6 +542,7 @@ describe('sessions - controller', () => {
         id: 'some-session-id',
         userIds: ['some-other-user-id', 'some-user-id'],
         hostProfile: {
+          uid: 'the-host-id',
           displayName: 'some-name',
           photoURL: 'some-photo-url',
         },
@@ -546,6 +582,7 @@ describe('sessions - controller', () => {
       expect(joinedSession).toEqual({
         id: 'some-session-id',
         hostProfile: {
+          uid: 'the-host-id',
           displayName: 'some-name',
           photoURL: 'some-photo-url',
         },
@@ -625,6 +662,7 @@ describe('sessions - controller', () => {
       expect(updatedSession).toEqual({
         id: 'some-session-id',
         hostProfile: {
+          uid: 'the-host-id',
           displayName: 'some-name',
           photoURL: 'some-photo-url',
         },
@@ -735,6 +773,74 @@ describe('sessions - controller', () => {
         ended: true,
       });
       expect(updatedState).toEqual({id: 'some-session-id', ended: true});
+    });
+
+    it('should update number of hosted sessions when public session was completed', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        hostId: 'the-host-id',
+        type: SessionType.public,
+      });
+      mockGetSessionStateById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        ended: true,
+      }); // first return (to check if it exists)
+      mockGetSessionStateById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        ended: true,
+        completed: true,
+      }); // returned value
+
+      const updatedState = await updateSessionState(
+        'the-host-id',
+        'some-session-id',
+        {completed: true},
+      );
+
+      expect(mockIncrementHostedCount).toHaveBeenCalledTimes(1);
+      expect(mockIncrementHostedCount).toHaveBeenCalledWith(
+        'the-host-id',
+        'hostedPublicCount',
+      );
+      expect(updatedState).toEqual({
+        id: 'some-session-id',
+        ended: true,
+        completed: true,
+      });
+    });
+
+    it('should update number of hosted sessions when private session was completed', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        hostId: 'the-host-id',
+        type: SessionType.private,
+      });
+      mockGetSessionStateById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        ended: true,
+      }); // first return (to check if it exists)
+      mockGetSessionStateById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        ended: true,
+        completed: true,
+      }); // returned value
+
+      const updatedState = await updateSessionState(
+        'the-host-id',
+        'some-session-id',
+        {completed: true},
+      );
+
+      expect(mockIncrementHostedCount).toHaveBeenCalledTimes(1);
+      expect(mockIncrementHostedCount).toHaveBeenCalledWith(
+        'the-host-id',
+        'hostedPrivateCount',
+      );
+      expect(updatedState).toEqual({
+        id: 'some-session-id',
+        ended: true,
+        completed: true,
+      });
     });
   });
 });
