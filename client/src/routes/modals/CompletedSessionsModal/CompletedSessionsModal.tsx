@@ -169,6 +169,7 @@ const CompletedSessionsModal = () => {
 
   useEffect(() => {
     if (isFocused) {
+      // This is necessary for the scroll to work: https://github.com/gorhom/react-native-bottom-sheet/issues/459
       setTimeout(() => {
         const lastSectionIndex = data.length - 1;
         const lastItemIndex = data[lastSectionIndex].data.length - 1;

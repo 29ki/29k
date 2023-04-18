@@ -237,6 +237,7 @@ const ModalStack = () => {
         <Screen
           name={'CompletedSessionsModal'}
           component={CompletedSessionsModal}
+          // Fullscreen is necessary for the scroll to work: https://github.com/gorhom/react-native-bottom-sheet/issues/459
           options={fullyExtendedSheetModalScreenOptions}
         />
       </Group>
