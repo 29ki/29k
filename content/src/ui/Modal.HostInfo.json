@@ -1,7 +1,7 @@
 {
   "en": {
-    "publicSessions": "Public\nSessions",
-    "privateSessions": "Private\nSessions",
+    "publicSessions": "With\nAnyone",
+    "privateSessions": "With\nFriends",
     "sessions": "Upcoming sessions",
     "noUpcomingSessions": "🌱 No planned sessions."
   },
