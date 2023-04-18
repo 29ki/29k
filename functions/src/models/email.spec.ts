@@ -38,19 +38,19 @@ describe('email', () => {
         categories: ['Report from user'],
         from: 'app@29k.org',
         html: 'email-html-code',
-        subject: 'Your feedback to 29k - 10/12/2022',
+        subject: 'Your feedback to Aware - 10/12/2022',
         text: 'email-plain-text',
         to: 'help@29k.org',
       });
       expect(renderUserReportHtmlMock).toHaveBeenCalledTimes(1);
       expect(renderUserReportHtmlMock).toHaveBeenCalledWith({
-        body: 'This message was sent from the 29k app:',
+        body: 'This message was sent from the Aware app:',
         content: 'some report text',
         params: {gitCommit: 'some commit hash'},
       });
       expect(renderUserReportTextMock).toHaveBeenCalledTimes(1);
       expect(renderUserReportTextMock).toHaveBeenCalledWith({
-        body: 'This message was sent from the 29k app:',
+        body: 'This message was sent from the Aware app:',
         content: 'some report text',
         params: {gitCommit: 'some commit hash'},
       });

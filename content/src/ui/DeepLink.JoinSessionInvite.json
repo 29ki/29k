@@ -4,11 +4,11 @@
     "description": "With {{host}} - {{description}}"
   },
   "pt": {
-    "title": "Sessão 29k FJN: {{title}}",
+    "title": "Sessão Aware FJN: {{title}}",
     "description": "Com {{host}} - {{description}}"
   },
   "sv": {
-    "title": "29k-session: {{title}}",
+    "title": "Aware-session: {{title}}",
     "description": "Med {{host}} - {{description}}"
   },
   "es": {}

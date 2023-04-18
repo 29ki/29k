@@ -5,14 +5,14 @@
     "location": "Aware app"
   },
   "pt": {
-    "title": "Sessão 29k FJN - {{name}}",
+    "title": "Sessão Aware FJN - {{name}}",
     "notes": "{{name}}\nCom {{host}}\n{{url}}",
-    "location": "29k FJN app"
+    "location": "Aware FJN app"
   },
   "sv": {
-    "title": "29k-session: {{name}}",
+    "title": "Aware-session: {{name}}",
     "notes": "{{name}}\nMed {{host}}\n{{url}}",
-    "location": "29k-appen"
+    "location": "Aware-appen"
   },
   "es": {}
 }

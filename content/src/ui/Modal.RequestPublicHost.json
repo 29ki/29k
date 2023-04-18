@@ -2,7 +2,7 @@
   "en": {
     "success": {
       "header": "Success!",
-      "text": "You're now able to create and host open sessions for every 29k user to join!"
+      "text": "You're now able to create and host open sessions for every Aware user to join!"
     },
     "enterCode": "Enter your code",
     "activateButton": "Activate settings",
@@ -21,7 +21,7 @@
   "pt": {
     "success": {
       "header": "Sucesso!",
-      "text": "Já podes criar e moderar sessões para todos os utilizadores da 29k FJN!"
+      "text": "Já podes criar e moderar sessões para todos os utilizadores da Aware FJN!"
     },
     "enterCode": "Introduz o código",
     "activateButton": "Ativar configurações",
@@ -33,14 +33,14 @@
       "verificationAlreadyClaimed": "O código já foi utilizado.",
       "verificationFailed": "Validação falhou."
     },
-    "text": "Como moderador oficial da 29k FJN pode registar-te aqui para criar sessões públicas.",
+    "text": "Como moderador oficial da Aware FJN pode registar-te aqui para criar sessões públicas.",
     "requestCodeButton": "Pedir um código",
     "or": "ou"
   },
   "sv": {
     "success": {
       "header": "Success!",
-      "text": "You're now able to create and host sessions open for every 29k user to join!"
+      "text": "You're now able to create and host sessions open for every Aware user to join!"
     },
     "enterCode": "Skriv in din kod",
     "activateButton": "Aktivera inställningar",
