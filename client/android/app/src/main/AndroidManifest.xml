@@ -44,7 +44,8 @@
             <category android:name="android.intent.category.BROWSABLE" />
 
             <data android:scheme="https" />
-            <data android:host="${deepLinkHost}" />
+            <data android:host="${deepLinkHost1}" />
+            <data android:host="${deepLinkHost2}" />
         </intent-filter>
       </activity>
     </application>
