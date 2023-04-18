@@ -29,7 +29,6 @@ import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
 import useUserProfile from '../../../../lib/user/hooks/useUserProfile';
 
-const NODE_TOP_MARGIN = 32;
 const FULL_HEIGHT = 110;
 const NODE_SIZE = 22;
 
@@ -37,7 +36,6 @@ type JourneyNodeProps = {
   completedSessionEvent: CompletedSessionEvent;
   index: number;
   isLast: boolean;
-  isFirst: boolean;
 };
 
 const Lottie = styled(AnimatedLottieView)({
@@ -46,32 +44,30 @@ const Lottie = styled(AnimatedLottieView)({
 
 const AnimatedContainer = styled(Animated.View)({});
 
-const Container = styled(TouchableOpacity)<{isFirst: boolean}>(({isFirst}) => ({
+const Container = styled(TouchableOpacity)({
   flexDirection: 'row',
-  height: isFirst ? FULL_HEIGHT - NODE_TOP_MARGIN : FULL_HEIGHT,
+  height: FULL_HEIGHT,
   marginLeft: NODE_SIZE / 2,
-}));
+});
 
-const ContentContainer = styled.View<{isFirst: boolean}>(({isFirst}) => ({
-  marginTop: isFirst ? 0 : NODE_TOP_MARGIN,
+const ContentContainer = styled.View({
   marginLeft: SPACINGS.FOUR,
   flex: 1,
-}));
+});
 
-const Node = styled.View<{isFirst: boolean}>(({isFirst}) => ({
+const Node = styled.View({
   marginLeft: -(NODE_SIZE / 2),
   height: NODE_SIZE,
   width: NODE_SIZE,
   border: 1,
   borderRadius: NODE_SIZE / 2,
-  marginTop: isFirst ? 0 : NODE_TOP_MARGIN,
   backgroundColor: COLORS.WHITE,
   alignItems: 'center',
   justifyContent: 'center',
-}));
+});
 
 const Line = styled.View<{isLast: boolean}>(({isLast}) => ({
-  height: isLast ? NODE_TOP_MARGIN : FULL_HEIGHT,
+  height: isLast ? 0 : FULL_HEIGHT,
   width: 1,
   backgroundColor: COLORS.BLACK,
   position: 'absolute',
@@ -105,7 +101,6 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
   completedSessionEvent,
   index,
   isLast = false,
-  isFirst = false,
 }) => {
   const {
     payload: {mode, exerciseId, hostId, type},
@@ -149,12 +144,12 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
       layout={Layout.springify()}
       entering={FadeIn.delay(index * 100)}
       exiting={FadeOut}>
-      <Container isFirst={isFirst} onPress={openCompleteSessionModal}>
+      <Container onPress={openCompleteSessionModal}>
         <Line isLast={isLast} />
-        <Node isFirst={isFirst}>
+        <Node>
           <InnerNode />
         </Node>
-        <ContentContainer isFirst={isFirst}>
+        <ContentContainer>
           <Row>
             <Column>
               <Row>

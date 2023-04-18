@@ -20,7 +20,7 @@ import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessio
 
 import JourneyNode from '../../screens/Journey/components/JourneyNode';
 
-import {Spacer12, Spacer32} from '../../../lib/components/Spacers/Spacer';
+import {Spacer32, Spacer8} from '../../../lib/components/Spacers/Spacer';
 
 import {
   SessionMode,
@@ -105,7 +105,6 @@ const CompletedSessionsModal = () => {
   const filters = useMemo(
     () => (
       <>
-        <Spacer12 />
         {filterSetting === 'feedback' && (
           <FeedbackFilters
             selectedFeedback={selectedFeedback}
@@ -144,7 +143,6 @@ const CompletedSessionsModal = () => {
         <JourneyNode
           index={index}
           completedSessionEvent={item}
-          isFirst={data.indexOf(section) === 0 && index === 0}
           isLast={
             data.indexOf(section) === data.length - 1 &&
             index === section.data.length - 1
@@ -158,7 +156,7 @@ const CompletedSessionsModal = () => {
   const footer = useMemo(
     () => (
       <>
-        <Spacer12 />
+        <Spacer8 />
         {filters}
         <Spacer32 />
         <Spacer32 />

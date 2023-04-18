@@ -249,11 +249,9 @@ const Journey = () => {
               index={index}
               completedSessionEvent={item.completedSession}
               isLast={!hasCardAfter}
-              isFirst={!hasCardBefore}
             />
             {item.completedSession && !hasCardAfter && (
               <>
-                <Spacer16 />
                 <Row>
                   <FilterStatus
                     onPress={onTotalPress}
