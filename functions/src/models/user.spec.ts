@@ -19,7 +19,7 @@ import {
 } from 'firestore-jest-mock/mocks/firestore';
 import {Timestamp} from 'firebase-admin/firestore';
 
-import {getUser, getUsers, updateHostedCount, updateUser} from './user';
+import {getUser, getUsers, incrementHostedCount, updateUser} from './user';
 
 const users = [
   {
@@ -115,9 +115,9 @@ describe('user - model', () => {
     });
   });
 
-  describe('updateHostedCount', () => {
+  describe('incrementHostedCount', () => {
     it('should update public hosted count', async () => {
-      await updateHostedCount('some-user-id', 'hostedPublicCount');
+      await incrementHostedCount('some-user-id', 'hostedPublicCount');
       const user = await getUser('some-user-id');
 
       expect(mockRunTransaction).toHaveBeenCalledTimes(1);
@@ -132,7 +132,7 @@ describe('user - model', () => {
     });
 
     it('should update private hosted count', async () => {
-      await updateHostedCount('some-host-user-id', 'hostedPrivateCount');
+      await incrementHostedCount('some-host-user-id', 'hostedPrivateCount');
       const user = await getUser('some-host-user-id');
 
       expect(mockRunTransaction).toHaveBeenCalledTimes(1);
@@ -148,7 +148,7 @@ describe('user - model', () => {
     });
 
     it('should update public hosted count on empty user', async () => {
-      await updateHostedCount('some-new-user-id', 'hostedPublicCount');
+      await incrementHostedCount('some-new-user-id', 'hostedPublicCount');
       const user = await getUser('some-new-user-id');
 
       expect(mockRunTransaction).toHaveBeenCalledTimes(1);

@@ -229,7 +229,7 @@ export const updateSessionState = async (
       session.type === SessionType.private
         ? 'hostedPrivateCount'
         : 'hostedPublicCount';
-    userModel.updateHostedCount(userId, prop);
+    userModel.incrementHostedCount(userId, prop);
   }
 
   if (data.started) {

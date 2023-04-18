@@ -42,7 +42,7 @@ import {
 import {generateSessionToken} from '../lib/dailyUtils';
 import {getUser} from './user';
 import {getAuthUserInfo} from '../models/auth';
-import {updateHostedCount} from '../models/user';
+import {incrementHostedCount} from '../models/user';
 
 jest.mock('../lib/utils', () => ({
   ...jest.requireActual('../lib/utils'),
@@ -72,7 +72,7 @@ const mockGetSessionByInviteCode =
 const mockGetUser = getUser as jest.Mock;
 const mockGetAuthUserInfo = getAuthUserInfo as jest.Mock;
 const mockGenerateSessionToken = generateSessionToken as jest.Mock;
-const mockUpdateHostedCount = jest.mocked(updateHostedCount);
+const mockIncrementHostedCount = jest.mocked(incrementHostedCount);
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));
 
@@ -797,8 +797,8 @@ describe('sessions - controller', () => {
         {completed: true},
       );
 
-      expect(mockUpdateHostedCount).toHaveBeenCalledTimes(1);
-      expect(mockUpdateHostedCount).toHaveBeenCalledWith(
+      expect(mockIncrementHostedCount).toHaveBeenCalledTimes(1);
+      expect(mockIncrementHostedCount).toHaveBeenCalledWith(
         'the-host-id',
         'hostedPublicCount',
       );
@@ -831,8 +831,8 @@ describe('sessions - controller', () => {
         {completed: true},
       );
 
-      expect(mockUpdateHostedCount).toHaveBeenCalledTimes(1);
-      expect(mockUpdateHostedCount).toHaveBeenCalledWith(
+      expect(mockIncrementHostedCount).toHaveBeenCalledTimes(1);
+      expect(mockIncrementHostedCount).toHaveBeenCalledWith(
         'the-host-id',
         'hostedPrivateCount',
       );

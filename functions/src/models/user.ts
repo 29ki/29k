@@ -18,7 +18,7 @@ export const updateUser = async (id: string, userData: Partial<UserData>) => {
     .set({...userData, updatedAt: now}, {merge: true});
 };
 
-export const updateHostedCount = async (
+export const incrementHostedCount = async (
   id: string,
   countProperty: keyof HostedCount,
 ) => {
