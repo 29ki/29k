@@ -1,7 +1,7 @@
 {
   "en": {
     "removeButtonTitle": "Remove",
-    "alertCameraSettings": "Please open your system settings, and give 29k access to your camera.",
+    "alertCameraSettings": "Please open your system settings, and give Aware access to your camera.",
     "alertCameraWhy": "Aware needs to use your camera to take your profile picture.",
     "chooseFromLibraryButtonTitle": "Choose from Library",
     "cancelButtonTitle": "Cancel",
@@ -12,8 +12,8 @@
   },
   "pt": {
     "removeButtonTitle": "Remover",
-    "alertCameraSettings": "Por favor, vai às configurações do sistema e dá acesso à 29k FJN para utilizar a tua câmara.",
-    "alertCameraWhy": "A 29k FJN precisa de utilizar a tua câmara para tirar a foto de perfil.",
+    "alertCameraSettings": "Por favor, vai às configurações do sistema e dá acesso à Aware FJN para utilizar a tua câmara.",
+    "alertCameraWhy": "A Aware FJN precisa de utilizar a tua câmara para tirar a foto de perfil.",
     "chooseFromLibraryButtonTitle": "Selecionar da biblioteca",
     "cancelButtonTitle": "Cancelar",
     "alertCameraTitle": "Necessária permissão de acesso à câmara",
@@ -23,8 +23,8 @@
   },
   "sv": {
     "removeButtonTitle": "Radera",
-    "alertCameraSettings": "Öppna din telefons inställningar för att ge 29k åtkomst till din kamera.",
-    "alertCameraWhy": "29k behöver åtkomst till kameran för att ta din profilbild.",
+    "alertCameraSettings": "Öppna din telefons inställningar för att ge Aware åtkomst till din kamera.",
+    "alertCameraWhy": "Aware behöver åtkomst till kameran för att ta din profilbild.",
     "chooseFromLibraryButtonTitle": "Välj från bibliotek",
     "cancelButtonTitle": "Avbryt",
     "alertCameraTitle": "Åtkomst till kameran",
