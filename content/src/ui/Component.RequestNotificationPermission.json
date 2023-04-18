@@ -1,7 +1,7 @@
 {
   "en": {
     "title": "You have denied permission.",
-    "message": "Open settings to give us permission to send you notifications. This will restart the 29k session app.",
+    "message": "Open settings to give us permission to send you notifications. This will restart the Aware app.",
     "actions": {
       "cancel": "Cancel",
       "confirm": "Open Settings"
