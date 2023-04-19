@@ -89,8 +89,9 @@ userRouter.put(
 
 userRouter.get(
   '/publicHosts',
-  responseFilter<User>([
+  responseFilter<keyof User>()([
     'uid',
+    'role',
     'description',
     'displayName',
     'photoURL',
