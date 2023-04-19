@@ -16,7 +16,7 @@
   "memoize-one": "5.2.1",
   "nullthrows": "1.1.1",
   "use-sync-external-store": "1.2.0",
-  "@react-native-firebase/auth": "17.3.2",
+  "@react-native-firebase/auth": "17.4.2",
   "@notifee/react-native": "7.6.1",
   "posthog-react-native": "2.5.2",
   "react-native-device-info": "10.6.0",
@@ -38,8 +38,8 @@
   "html-parse-stringify": "3.0.1",
   "void-elements": "3.1.0",
   "react-native-localize": "2.2.6",
-  "@sentry/react-native": "5.2.0",
-  "@sentry-internal/tracing": "7.44.2",
+  "@sentry/react-native": "5.3.1",
+  "@sentry-internal/tracing": "7.47.0",
   "hoist-non-react-statics": "3.3.2",
   "tslib": "1.14.1",
   "localforage": "1.10.0",
@@ -112,7 +112,7 @@
   "react-native-video": "5.2.1",
   "keymirror": "0.1.1",
   "deprecated-react-native-prop-types": "2.3.0",
-  "react-native-haptic-feedback": "2.0.2",
+  "react-native-haptic-feedback": "2.0.3",
   "react-native-rate": "1.2.12",
   "@th3rdwave/react-navigation-bottom-sheet": "0.2.2"
 }
