@@ -151,6 +151,9 @@
 		<string>https://app.cupcake.29k.org/</string>
 		<string>https://staging.app.cupcake.29k.org/</string>
 		<string>https://dev.app.cupcake.29k.org/</string>
+		<string>https://open.awareapp.org/</string>
+		<string>https://staging.open.awareapp.org/</string>
+		<string>https://dev.open.awareapp.org/</string>
 	</array>
 	<key>FirebaseDeepLinkPasteboardRetrievalEnabled</key>
 	<true/>
