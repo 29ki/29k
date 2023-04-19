@@ -243,6 +243,10 @@ const Journey = () => {
       const hasCardAfter = index !== section.data.length - 1;
 
       if (item.completedSession) {
+        const isLastItem =
+          completedSessions.indexOf(item.completedSession) ===
+          completedSessions.length - 1;
+
         return (
           <Gutters key={item.completedSession.payload.id}>
             <JourneyNode
@@ -250,7 +254,7 @@ const Journey = () => {
               completedSessionEvent={item.completedSession}
               isLast={!hasCardAfter}
             />
-            {item.completedSession && !hasCardAfter && (
+            {item.completedSession && isLastItem && (
               <>
                 <Row>
                   <FilterStatus
@@ -312,7 +316,7 @@ const Journey = () => {
     },
     [
       positiveFeedbacks.length,
-      completedSessions.length,
+      completedSessions,
       completedHostedSessions.length,
       onTotalPress,
       onHostedPress,
