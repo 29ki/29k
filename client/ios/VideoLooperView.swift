@@ -62,7 +62,9 @@ class VideoLooperView: RCTView {
 
   @objc func applicationDidBecomeActiveNotification(notification:NSNotification!) {
     self._playerLayer.player = self._player
-    self._player?.play()
+    if !self._pause {
+      self._player?.play()
+    }
   }
   
   @objc func playerInterruption(notification: NSNotification) {
@@ -82,7 +84,9 @@ class VideoLooperView: RCTView {
       if options.contains(.shouldResume) {
         // Interruption Ended - playback should resume
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+          if !self._pause {
             self._player?.play()
+          }
         }
       }
     }
