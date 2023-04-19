@@ -1,24 +1,24 @@
 {
   "en": {
-    "subject": "Your feedback to 29k",
-    "subject_feedback": "Your feedback to 29k",
-    "subject_misbehaviour": "Your report to 29k",
-    "subject_tech_issue": "Your tech issue report to 29k",
-    "body": "This message was sent from the 29k app:"
+    "subject": "Your feedback to Aware",
+    "subject_feedback": "Your feedback to Aware",
+    "subject_misbehaviour": "Your report to Aware",
+    "subject_tech_issue": "Your tech issue report to Aware",
+    "body": "This message was sent from the Aware app:"
   },
   "sv": {
-    "subject": "Din feedback till 29k",
-    "subject_feedback": "Din feedback till 29k",
-    "subject_misbehaviour": "Din rapport till 29k",
-    "subject_tech_issue": "Ditt teknikproblem med 29k",
-    "body": "Det här meddelandet skickades från 29k-appen:"
+    "subject": "Din feedback till Aware",
+    "subject_feedback": "Din feedback till Aware",
+    "subject_misbehaviour": "Din rapport till Aware",
+    "subject_tech_issue": "Ditt teknikproblem med Aware",
+    "body": "Det här meddelandet skickades från Aware-appen:"
   },
   "pt": {
-    "subject": "Os teus comentários para a 29k FJN",
-    "subject_feedback": "Os teus comentários para a 29k FJN",
-    "subject_misbehaviour": "O teu relatório de mau comportamento para a 29k FJN",
-    "subject_tech_issue": "O teu relatório de problemas técnicos para a 29k FJN",
-    "body": "Esta mensagem foi enviada da aplicação 29k FJN:"
+    "subject": "Os teus comentários para a Aware FJN",
+    "subject_feedback": "Os teus comentários para a Aware FJN",
+    "subject_misbehaviour": "O teu relatório de mau comportamento para a Aware FJN",
+    "subject_tech_issue": "O teu relatório de problemas técnicos para a Aware FJN",
+    "body": "Esta mensagem foi enviada da aplicação Aware FJN:"
   },
   "es": {}
 }

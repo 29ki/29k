@@ -8,13 +8,13 @@
     },
     "camera": {
       "title": "Permission for camera was denied",
-      "message": "Allow 29k sessions to access your camera so that you can participate in the session. This will restart the 29k session app.",
+      "message": "Allow Aware to access your camera so that you can participate in the session. This will restart the Aware app.",
       "dismiss": "Cancel",
       "confirm": "Open Settings"
     },
     "microphone": {
       "title": "Permission for microphone was denied",
-      "message": "Allow 29k sessions to access your microphone so that you can participate in the session. This will restart the 29k session app.",
+      "message": "Allow Aware to access your microphone so that you can participate in the session. This will restart the Aware app.",
       "dismiss": "Cancel",
       "confirm": "Open Settings"
     }
@@ -30,13 +30,13 @@
     },
     "camera": {
       "title": "Autorização de acesso à câmara recusada",
-      "message": "Permitir que as sessões 29k FJN tenham acesso à câmara para participares na sessão. Isto vai reiniciar a app 29k FJN.",
+      "message": "Permitir que as sessões Aware FJN tenham acesso à câmara para participares na sessão. Isto vai reiniciar a app Aware FJN.",
       "dismiss": "Cancelar",
       "confirm": "Abrir configurações"
     },
     "microphone": {
       "title": "Autorização de acesso ao microfone recusada",
-      "message": "Permitir que as sessões 29k FJN tenham acesso ao microfone para participares na sessão. Isto vai reiniciar a app 29k FJN..",
+      "message": "Permitir que as sessões Aware FJN tenham acesso ao microfone para participares na sessão. Isto vai reiniciar a app Aware FJN..",
       "dismiss": "Cancelar",
       "confirm": "Abrir configurações"
     }

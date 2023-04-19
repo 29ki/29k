@@ -49,6 +49,7 @@ const FeedbackFilters: React.FC<{
         onPress={onThumbsUpPress}
         heading={`${positiveFeedbacks.length}`}
         description={t('meaningful')}
+        disabled={!positiveFeedbacks.length}
       />
       <Spacer16 />
       <FilterStatus
@@ -57,6 +58,7 @@ const FeedbackFilters: React.FC<{
         onPress={onThumbsDownPress}
         heading={`${negativeFeedbacks.length}`}
         description={t('notMeaningful')}
+        disabled={!negativeFeedbacks.length}
       />
     </Row>
   );
