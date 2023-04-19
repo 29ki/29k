@@ -14,6 +14,8 @@ import {
   getUser,
   updateUser,
 } from '../../controllers/user';
+import responseFilter from '../lib/responseFilter';
+import {User} from '../../../../shared/src/types/User';
 
 const userRouter = createApiAuthRouter();
 
@@ -85,10 +87,21 @@ userRouter.put(
   },
 );
 
-userRouter.get('/publicHosts', async ctx => {
-  const publicHosts = await getPublicHosts();
-  ctx.body = publicHosts;
-});
+userRouter.get(
+  '/publicHosts',
+  responseFilter<User>([
+    'uid',
+    'description',
+    'displayName',
+    'photoURL',
+    'hostedPrivateCount',
+    'hostedPublicCount',
+  ]),
+  async ctx => {
+    const publicHosts = await getPublicHosts();
+    ctx.body = publicHosts;
+  },
+);
 
 userRouter.get('/', async ctx => {
   const {id} = ctx.user;
