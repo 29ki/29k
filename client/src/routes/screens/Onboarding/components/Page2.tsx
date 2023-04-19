@@ -55,7 +55,7 @@ const NameWrapper = styled(LinearGradient).attrs({
   colors: ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 1)'],
 })({
   position: 'absolute',
-  bottom: 0,
+  bottom: -1, // In rare cases you get a hairline at the bottom of the gradient because of rounding issues
   width: '100%',
   height: 42,
 });
