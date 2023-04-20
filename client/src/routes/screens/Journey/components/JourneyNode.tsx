@@ -66,7 +66,7 @@ const Node = styled.View({
   justifyContent: 'center',
 });
 
-const Line = styled.View<{isLast: boolean}>(({isLast}) => ({
+const Line = styled.View<Pick<JourneyNodeProps, 'isLast'>>(({isLast}) => ({
   height: isLast ? 0 : FULL_HEIGHT,
   width: 1,
   backgroundColor: COLORS.BLACK,
