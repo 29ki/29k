@@ -13,6 +13,8 @@ const ActionWrapper = styled(ActionItem)({
 const IconWrapper = styled.View({
   width: 30,
   height: 30,
+  alignItems: 'center',
+  justifyContent: 'center',
 });
 
 type ActionIconItemProps = {
