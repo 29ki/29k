@@ -1,19 +1,27 @@
-import {UserRecord} from 'firebase-admin/auth';
+import * as yup from 'yup';
 
 export enum ROLE {
   publicHost = 'publicHost',
 }
 
-export type UserProfile = Pick<UserRecord, 'uid' | 'displayName' | 'photoURL'>;
+const UserProfileSchema = yup.object({
+  uid: yup.string().required(),
+  displayName: yup.string(),
+  photoURL: yup.string(),
+});
+export type UserProfile = yup.InferType<typeof UserProfileSchema>;
 
-export type HostedCount = {
-  hostedPublicCount?: number;
-  hostedPrivateCount?: number;
-};
+const HostedCountSchema = yup.object({
+  hostedPublicCount: yup.number(),
+  hostedPrivateCount: yup.number(),
+});
+export type HostedCount = yup.InferType<typeof HostedCountSchema>;
 
-export type UserData = HostedCount & {
-  description?: string;
-  role?: ROLE;
-};
+export const UserDataSchema = HostedCountSchema.shape({
+  description: yup.string(),
+  role: yup.mixed<ROLE>().oneOf(Object.values(ROLE)),
+});
+export type UserData = yup.InferType<typeof UserDataSchema>;
 
-export type User = UserProfile & UserData;
+export const UserSchema = UserProfileSchema.concat(UserDataSchema);
+export type User = yup.InferType<typeof UserSchema>;

@@ -1,6 +1,7 @@
 import type {Timestamp} from 'firebase-admin/firestore';
-import {LANGUAGE_TAG} from '../constants/i18n';
-import {User} from './User';
+import * as yup from 'yup';
+import {LANGUAGE_TAG, LANGUAGE_TAGS} from '../constants/i18n';
+import {UserSchema} from './User';
 
 export enum SessionMode {
   async = 'async',
@@ -12,33 +13,37 @@ export enum SessionType {
   public = 'public',
 }
 
-type SessionStateFields = {
-  index: number;
-  playing: boolean;
-  started: boolean;
-  ended: boolean;
-  id: string;
-  completed?: boolean;
-};
+const SessionStateFieldsSchema = yup.object({
+  index: yup.number().required(),
+  playing: yup.boolean().required(),
+  started: yup.boolean().required(),
+  ended: yup.boolean().required(),
+  id: yup.string().required(),
+  completed: yup.boolean(),
+});
+type SessionStateFields = yup.InferType<typeof SessionStateFieldsSchema>;
 
-type SessionBaseFileds = {
-  id: string;
-  mode: SessionMode;
-  type: SessionType;
-  exerciseId: string;
-  language: LANGUAGE_TAG;
-};
+const SessionBaseFiledsSchema = yup.object({
+  id: yup.string().required(),
+  mode: yup.mixed<SessionMode>().oneOf(Object.values(SessionMode)).required(),
+  type: yup.mixed<SessionType>().oneOf(Object.values(SessionType)).required(),
+  exerciseId: yup.string().required(),
+  language: yup.mixed<LANGUAGE_TAG>().oneOf(LANGUAGE_TAGS).required(),
+});
 
-type LiveSessionFields = SessionBaseFileds & {
-  dailyRoomName: string;
-  url: string;
-  link?: string;
-  inviteCode: number;
-  interestedCount: number;
-  hostId: string;
-  userIds: string[];
-  ended: boolean;
-};
+const LiveSessionFieldsSchema = yup
+  .object({
+    dailyRoomName: yup.string().required(),
+    url: yup.string().required(),
+    link: yup.string(),
+    inviteCode: yup.number().required(),
+    interestedCount: yup.number().required(),
+    hostId: yup.string().required(),
+    userIds: yup.array().of(yup.string()).required(),
+    ended: yup.boolean().required(),
+  })
+  .concat(SessionBaseFiledsSchema);
+type LiveSessionFields = yup.InferType<typeof LiveSessionFieldsSchema>;
 
 // Data stored in DB
 export type SessionStateData = SessionStateFields & {
@@ -53,19 +58,30 @@ export type LiveSessionData = LiveSessionFields & {
 };
 
 // Applicaton schema
-export type SessionState = SessionStateFields & {
-  timestamp: string;
-};
+export const SessionStateSchema = yup
+  .object({
+    timestamp: yup.string(),
+  })
+  .concat(SessionStateFieldsSchema);
+export type SessionState = yup.InferType<typeof SessionStateSchema>;
 
-export type LiveSession = LiveSessionFields & {
-  closingTime: string;
-  startTime: string;
-  createdAt: string;
-  updatedAt: string;
-  hostProfile?: User;
-};
+export const LiveSessionSchema = yup
+  .object({
+    closingTime: yup.string().required(),
+    startTime: yup.string().required(),
+    createdAt: yup.string().required(),
+    updatedAt: yup.string().required(),
+    hostProfile: yup.object().concat(UserSchema).nullable(),
+  })
+  .concat(LiveSessionFieldsSchema);
+export type LiveSession = yup.InferType<typeof LiveSessionSchema>;
 
-export type AsyncSession = SessionBaseFileds & {startTime: string};
+export const AsyncSessionSchema = yup
+  .object({
+    startTime: yup.string().required(),
+  })
+  .concat(SessionBaseFiledsSchema);
+export type AsyncSession = yup.InferType<typeof AsyncSessionSchema>;
 
 export type DailyUserData = {
   inPortal: boolean;

@@ -2,7 +2,11 @@ import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 import 'firebase-functions';
 
-import {SessionType} from '../../../../shared/src/types/Session';
+import {
+  LiveSessionSchema,
+  SessionStateSchema,
+  SessionType,
+} from '../../../../shared/src/types/Session';
 import {createApiAuthRouter} from '../../lib/routers';
 import restrictAccessToRole from '../lib/restrictAccessToRole';
 
@@ -18,10 +22,11 @@ import {
 } from '../../../../shared/src/errors/Session';
 import {RequestError} from '../../controllers/errors/RequestError';
 import {ROLE} from '../../../../shared/src/types/User';
+import {responseFilter} from '../lib/response';
 
 const sessionsRouter = createApiAuthRouter();
 
-sessionsRouter.get('/', async ctx => {
+sessionsRouter.get('/', responseFilter(LiveSessionSchema), async ctx => {
   const {response, user, query} = ctx;
   const exerciseId =
     typeof query.exerciseId === 'string' ? query.exerciseId : undefined;
@@ -36,32 +41,39 @@ sessionsRouter.get('/', async ctx => {
   ctx.body = sessions;
 });
 
-sessionsRouter.get('/:id/sessionToken', async ctx => {
-  const {user, params} = ctx;
+sessionsRouter.get(
+  '/:id/sessionToken',
+  responseFilter(yup.string()),
+  async ctx => {
+    const {user, params} = ctx;
 
-  try {
-    const token = await sessionsController.getSessionToken(user.id, params.id);
-    ctx.status = 200;
-    ctx.body = token;
-  } catch (error) {
-    const requestError = error as RequestError;
-    switch (requestError.code) {
-      case ValidateSessionError.notFound:
-        ctx.status = 404;
-        break;
+    try {
+      const token = await sessionsController.getSessionToken(
+        user.id,
+        params.id,
+      );
+      ctx.status = 200;
+      ctx.body = token;
+    } catch (error) {
+      const requestError = error as RequestError;
+      switch (requestError.code) {
+        case ValidateSessionError.notFound:
+          ctx.status = 404;
+          break;
 
-      case ValidateSessionError.userNotFound:
-        ctx.status = 403;
-        break;
+        case ValidateSessionError.userNotFound:
+          ctx.status = 403;
+          break;
 
-      default:
-        throw error;
+        default:
+          throw error;
+      }
+      ctx.message = requestError.code;
     }
-    ctx.message = requestError.code;
-  }
-});
+  },
+);
 
-sessionsRouter.get('/:id', async ctx => {
+sessionsRouter.get('/:id', responseFilter(LiveSessionSchema), async ctx => {
   const {user, params} = ctx;
 
   try {
@@ -105,6 +117,7 @@ sessionsRouter.post(
     ROLE.publicHost,
     ({type}) => type === SessionType.public,
   ),
+  responseFilter(LiveSessionSchema),
   async ctx => {
     const {exerciseId, type, startTime, language} = ctx.request
       .body as CreateSession;
@@ -119,7 +132,7 @@ sessionsRouter.post(
   },
 );
 
-sessionsRouter.delete('/:id', async ctx => {
+sessionsRouter.delete('/:id', responseFilter(yup.string()), async ctx => {
   const {id} = ctx.params;
 
   try {
@@ -141,6 +154,7 @@ export type JoinSession = yup.InferType<typeof JoinSessionSchema>;
 sessionsRouter.put(
   '/joinSession',
   validator({body: JoinSessionSchema}),
+  responseFilter(LiveSessionSchema),
   async ctx => {
     const {inviteCode} = ctx.request.body as JoinSession;
     const {user} = ctx;
@@ -186,6 +200,7 @@ sessionsRouter.put(
     ROLE.publicHost,
     ({type}) => type === SessionType.public,
   ),
+  responseFilter(LiveSessionSchema),
   async ctx => {
     const {id} = ctx.params;
     const body = ctx.request.body as UpdateSession;
@@ -246,6 +261,7 @@ export type SessionStateUpdate = yup.InferType<typeof SessionStateUpdateSchema>;
 sessionsRouter.put(
   '/:id/state',
   validator({body: SessionStateUpdateSchema}),
+  responseFilter(SessionStateSchema),
   async ctx => {
     const {id} = ctx.params;
     const data = ctx.request.body as SessionStateUpdate;

@@ -11,6 +11,7 @@ export const getSession = (session: LiveSessionData): LiveSession => ({
   closingTime: session.closingTime.toDate().toISOString(),
   createdAt: session.createdAt.toDate().toISOString(),
   updatedAt: session.updatedAt.toDate().toISOString(),
+  hostProfile: null,
 });
 
 export const getSessionState = (

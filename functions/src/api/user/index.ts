@@ -14,8 +14,8 @@ import {
   getUser,
   updateUser,
 } from '../../controllers/user';
-import responseFilter from '../lib/responseFilter';
-import {User} from '../../../../shared/src/types/User';
+import {UserDataSchema, UserSchema} from '../../../../shared/src/types/User';
+import {responseFilter} from '../lib/response';
 
 const userRouter = createApiAuthRouter();
 
@@ -87,30 +87,18 @@ userRouter.put(
   },
 );
 
-userRouter.get(
-  '/publicHosts',
-  responseFilter<keyof User>()([
-    'uid',
-    'role',
-    'description',
-    'displayName',
-    'photoURL',
-    'hostedPrivateCount',
-    'hostedPublicCount',
-  ]),
-  async ctx => {
-    const publicHosts = await getPublicHosts();
-    ctx.body = publicHosts;
-  },
-);
+userRouter.get('/publicHosts', responseFilter(UserSchema), async ctx => {
+  const publicHosts = await getPublicHosts();
+  ctx.body = publicHosts;
+});
 
-userRouter.get('/', async ctx => {
+userRouter.get('/', responseFilter(UserDataSchema), async ctx => {
   const {id} = ctx.user;
   const me = await getMe(id);
   ctx.body = me;
 });
 
-userRouter.get('/:id', async ctx => {
+userRouter.get('/:id', responseFilter(UserSchema), async ctx => {
   try {
     const user = await getUser(ctx.params.id);
     ctx.set('Cache-Control', 'max-age=1800');

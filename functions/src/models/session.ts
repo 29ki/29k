@@ -152,7 +152,13 @@ export const addSession = async ({
   interestedCount,
 }: Omit<
   LiveSession,
-  'mode' | 'ended' | 'userIds' | 'createdAt' | 'updatedAt' | 'closingTime'
+  | 'mode'
+  | 'ended'
+  | 'userIds'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'closingTime'
+  | 'hostProfile'
 > & {
   dailyRoomName: string;
 }) => {
