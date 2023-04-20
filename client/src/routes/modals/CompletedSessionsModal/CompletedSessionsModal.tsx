@@ -147,7 +147,7 @@ const CompletedSessionsModal = () => {
         />
       </Gutters>
     ),
-    [data],
+    [],
   );
 
   const footer = useMemo(
