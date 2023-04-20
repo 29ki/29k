@@ -5,10 +5,13 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance and willingness.\n\nWe’ll be doing a short introduction, followed by a meditation, time for reflection and then finally sharing our experiences."
+            "text": "I am X and today we will work for around 40 minutes on connecting to the outdoors and ourselves, using all of our senses.\n\nYou can participate anywhere where you have access to the outdoors. A street, a balcony, a park or in the wilderness."
           },
           {
-            "text": "Let’s start with a mini check-in. What brought you here today? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "We’ll be listening to a 20-minute meditation together, followed by time for reflection and sharing with each other. \n\nLet’s start with a mini check-in."
+          },
+          {
+            "text": "How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ]
       },
@@ -16,22 +19,23 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "There is often a lot going on inside of us. Thoughts, feelings and sensations pop up without us having any control of their occurance."
+            "text": "Present moment awareness is one of life’s super skills for boosting happiness, connection and life satisfaction."
           },
           {
-            "text": "Some things we tend to resist. Anxiety, worry, thoughts of death, fears of the future are common examples. When they show up, we may try to push them away. Think about something else. Distract ourselves."
+            "text": "In this outdoor meditation we’ll be using all our five senses, hearing, smell, vision, taste and touch to practice fully taking in what’s around us and within us at this moment."
           },
           {
-            "text": "But science tells us that the things we try to get rid of, have a tendency to come knocking over and over again. Welcoming those things with willingness and openness can be a smarter strategy in the long run. Let’s try it out.\n\n> Press play to start the meditation"
+            "text": "Before we start, place yourself where you can comfortably stand for 20 minutes. Take a couple of deeper breaths, and just notice breathing for a few seconds.\n\n> Press play to start the meditation"
           }
         ],
         "content": {
           "video": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674649500/Audio/meditation-the-willingness-stance_obipte.mp3"
+            "audio": "",
+            "durationTimer": false
           },
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674649500/Audio/meditation-the-willingness-stance_obipte.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1682004147/Audio/Outdoor_sensing_qayx0q.mp3",
             "durationTimer": true
           }
         }
@@ -40,17 +44,19 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat was it like, taking a willing attitude towards your stressful thought? Did you notice any differences between the two occasions?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat thoughts, feelings and experiences showed up during the meditation?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
-          "heading": "How did you experience the willingness stance? ",
-          "text": "Any difference?",
+          "heading": "What thoughts, feelings and experiences showed up?",
+          "text": "",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "durationTimer": true,
+            "duration": 60
           }
         }
       },
@@ -68,10 +74,12 @@
           }
         ],
         "content": {
-          "heading": "How did you experience the willingness stance?",
-          "text": "Any difference?",
+          "heading": "What thoughts, feelings and experiences showed up?",
+          "text": "",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json",
+            "durationTimer": true,
+            "duration": 120
           }
         },
         "id": "sharing"
@@ -80,10 +88,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue with a mission for the rest of this day.\n\nWhenever you notice you are resisting something on the inside, open up your willingness stance and try to instead welcoming that experience."
+            "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nFor the coming two days, pick a sweet spot outdoors where you take a few minutes to go through sensing all your senses, one by one."
           },
           {
-            "text": "Science tells us that allowing difficult things on the inside may open up new possibilities to choose our actions and act for purpose.\n\nBefore we leave this space let’s do a mini check-out. How do you feel now, has anything shifted? Please answer in two-three words."
+            "text": " See if you can mindfully observe what’s going on at that spot, and within yourself. \n\nBefore we leave this space let’s do a mini check-out. How do you feel now, has anything shifted? Please answer in two-three words."
           },
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
