@@ -220,16 +220,30 @@ const Journey = () => {
   );
 
   useEffect(() => {
-    if (isFocused && sections[1]?.data?.length && completedSessions.length) {
+    const lastPastSectionIndex =
+      pinnedSessions.length > 0 ||
+      hostedSessions.length > 0 ||
+      pinnedCollections.length > 0
+        ? sections.length - 2
+        : sections.length - 1;
+
+    if (isFocused && completedSessions.length > 5) {
       requestAnimationFrame(() =>
         listRef.current?.scrollToLocation({
-          itemIndex: 0,
-          sectionIndex: 1,
+          itemIndex: sections[lastPastSectionIndex].data.length - 1,
+          sectionIndex: lastPastSectionIndex,
           viewOffset: 380,
         }),
       );
     }
-  }, [isFocused, completedSessions.length, sections]);
+  }, [
+    isFocused,
+    completedSessions.length,
+    sections,
+    pinnedSessions.length,
+    hostedSessions.length,
+    pinnedCollections.length,
+  ]);
 
   const onPressEllipsis = useCallback(() => {
     navigate('AboutOverlay');
