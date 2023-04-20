@@ -25,7 +25,7 @@ const screenOptions: StackNavigationOptions = {
 };
 
 const OverlayStack = () => (
-  <Navigator screenOptions={screenOptions}>
+  <Navigator screenOptions={screenOptions} detachInactiveScreens={false}>
     <Screen name="App" component={AppStack} />
     <Screen name="AboutOverlay" component={AboutOverlay} />
     <Screen name="AboutEditorialOverlay" component={AboutEditorialOverlay} />
