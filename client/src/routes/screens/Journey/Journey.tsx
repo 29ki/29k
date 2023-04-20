@@ -10,7 +10,7 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import dayjs from 'dayjs';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
-import {partition, groupBy} from 'ramda';
+import {partition, groupBy, findLastIndex} from 'ramda';
 
 import {JourneyItem} from './types/JourneyItem';
 import {LiveSession} from '../../../../../shared/src/types/Session';
@@ -220,11 +220,16 @@ const Journey = () => {
   );
 
   useEffect(() => {
-    if (isFocused && sections[1]?.data?.length && completedSessions.length) {
+    const lastCompletedSectionIndex = findLastIndex(
+      ({type}) => type === 'completed',
+      sections,
+    );
+
+    if (isFocused && completedSessions.length > 5) {
       requestAnimationFrame(() =>
         listRef.current?.scrollToLocation({
-          itemIndex: 0,
-          sectionIndex: 1,
+          itemIndex: sections[lastCompletedSectionIndex].data.length - 1,
+          sectionIndex: lastCompletedSectionIndex,
           viewOffset: 380,
         }),
       );
