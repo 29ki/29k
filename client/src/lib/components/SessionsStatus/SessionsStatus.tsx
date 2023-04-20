@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import {Spacer4} from '../../../../lib/components/Spacers/Spacer';
-import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
-import {Body16} from '../../../../lib/components/Typography/Body/Body';
-import {Display28} from '../../../../lib/components/Typography/Display/Display';
-import {COLORS} from '../../../../../../shared/src/constants/colors';
+import {Spacer4} from '../../../lib/components/Spacers/Spacer';
+import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
+import {Body16} from '../../../lib/components/Typography/Body/Body';
+import {Display28} from '../../../lib/components/Typography/Display/Display';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -13,7 +13,7 @@ const Row = styled.View({
   alignItems: 'center',
 });
 
-const FilterContainer = styled(TouchableOpacity)<{selected: boolean}>(
+const Container = styled(TouchableOpacity)<{selected: boolean}>(
   ({selected}) => ({
     backgroundColor: COLORS.MEDIUM_GREEN,
     borderRadius: 16,
@@ -30,22 +30,22 @@ const IconWrapper = styled.View({
   height: 30,
 });
 
-const FilterStatus: React.FC<{
+const SessionsStatus: React.FC<{
   Icon: React.FC;
-  onPress: () => void;
+  onPress?: () => void;
   heading: string;
   description: string;
   selected?: boolean;
   disabled?: boolean;
 }> = ({
-  onPress,
+  onPress = () => {},
   Icon,
   heading,
   description,
   selected = false,
   disabled = false,
 }) => (
-  <FilterContainer selected={selected} onPress={onPress} disabled={disabled}>
+  <Container selected={selected} onPress={onPress} disabled={disabled}>
     <Row>
       <IconWrapper>
         <Icon />
@@ -54,7 +54,7 @@ const FilterStatus: React.FC<{
     </Row>
     <Spacer4 />
     <Body16>{description}</Body16>
-  </FilterContainer>
+  </Container>
 );
 
-export default FilterStatus;
+export default SessionsStatus;
