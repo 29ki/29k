@@ -32,6 +32,7 @@ import CommunityActionList from '../CommunityEditorialOverlay/components/Communi
 import {ScrollView} from 'react-native';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import {COLORS} from '../../../../../shared/src/constants/colors';
+import AppVersionActionButton from './components/AppVersionActionButton';
 
 const BlurbImage = styled.Image({
   aspectRatio: 1.7,
@@ -137,13 +138,14 @@ const Profile = () => {
           <CommunityActionList />
           <Spacer32 />
 
-          {ENVIRONMENT !== 'production' && (
-            <ActionList>
+          <ActionList>
+            {ENVIRONMENT !== 'production' && (
               <ActionButton Icon={CommandIcon} onPress={developerPress}>
                 {t('actions.developer')}
               </ActionButton>
-            </ActionList>
-          )}
+            )}
+            <AppVersionActionButton />
+          </ActionList>
         </Gutters>
         <Spacer24 />
         <BottomSafeArea />
