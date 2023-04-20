@@ -47,10 +47,10 @@ import CollectionCardContainer from './components/CollectionCardContainer';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 import JourneyNode from './components/JourneyNode';
 import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
-import FilterStatus from './components/FilterStatus';
 import {LogoIcon} from '../../../lib/components/Icons';
 import useUser from '../../../lib/user/hooks/useUser';
 import Image from '../../../lib/components/Image/Image';
+import SessionsStatus from '../../../lib/components/SessionsStatus/SessionsStatus';
 
 export type Section = {
   title: string;
@@ -257,7 +257,7 @@ const Journey = () => {
             {item.completedSession && isLastItem && (
               <>
                 <Row>
-                  <FilterStatus
+                  <SessionsStatus
                     onPress={onTotalPress}
                     Icon={LogoIcon}
                     heading={`${completedSessions.length}`}
@@ -266,7 +266,7 @@ const Journey = () => {
                   {positiveFeedbacks.length ? (
                     <>
                       <Spacer16 />
-                      <FilterStatus
+                      <SessionsStatus
                         onPress={onPositivePress}
                         Icon={ThumbsUpWithoutPadding}
                         heading={`${positiveFeedbacks.length}`}
@@ -277,7 +277,7 @@ const Journey = () => {
                   {completedHostedSessions.length ? (
                     <>
                       <Spacer16 />
-                      <FilterStatus
+                      <SessionsStatus
                         onPress={onHostedPress}
                         Icon={UserPic}
                         heading={`${completedHostedSessions.length}`}

@@ -1,10 +1,9 @@
 import React, {useCallback, useMemo} from 'react';
 import styled from 'styled-components/native';
 import {partition} from 'ramda';
+import {useTranslation} from 'react-i18next';
 
 import Gutters from '../../../../lib/components/Gutters/Gutters';
-
-import FilterStatus from '../../../screens/Journey/components/FilterStatus';
 
 import {
   ThumbsDownWithoutPadding,
@@ -12,7 +11,7 @@ import {
 } from '../../../../lib/components/Thumbs/Thumbs';
 import useUserEvents from '../../../../lib/user/hooks/useUserEvents';
 import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
-import {useTranslation} from 'react-i18next';
+import SessionsStatus from '../../../../lib/components/SessionsStatus/SessionsStatus';
 
 const Row = styled(Gutters)({
   flexDirection: 'row',
@@ -43,7 +42,7 @@ const FeedbackFilters: React.FC<{
 
   return (
     <Row>
-      <FilterStatus
+      <SessionsStatus
         selected={selectedFeedback === true}
         Icon={ThumbsUpWithoutPadding}
         onPress={onThumbsUpPress}
@@ -52,7 +51,7 @@ const FeedbackFilters: React.FC<{
         disabled={!positiveFeedbacks.length}
       />
       <Spacer16 />
-      <FilterStatus
+      <SessionsStatus
         selected={selectedFeedback === false}
         Icon={ThumbsDownWithoutPadding}
         onPress={onThumbsDownPress}
