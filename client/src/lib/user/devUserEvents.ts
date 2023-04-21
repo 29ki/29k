@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 const getCompletedSessions = (hostId: string) => [
   {
     type: 'completedSession',
@@ -9,7 +11,7 @@ const getCompletedSessions = (hostId: string) => [
       mode: 'live',
       hostId,
     },
-    timestamp: '2023-05-19T09:56:39.117Z',
+    timestamp: dayjs().subtract(3, 'months'),
   },
   {
     type: 'completedSession',
@@ -20,7 +22,7 @@ const getCompletedSessions = (hostId: string) => [
       type: 'private',
       mode: 'async',
     },
-    timestamp: '2023-05-30T09:56:39.117Z',
+    timestamp: dayjs().subtract(3, 'months'),
   },
   {
     type: 'completedSession',
@@ -31,7 +33,7 @@ const getCompletedSessions = (hostId: string) => [
       type: 'public',
       mode: 'live',
     },
-    timestamp: '2023-04-19T09:56:39.117Z',
+    timestamp: dayjs().subtract(2, 'months'),
   },
   {
     type: 'completedSession',
@@ -43,7 +45,7 @@ const getCompletedSessions = (hostId: string) => [
       mode: 'live',
       hostId,
     },
-    timestamp: '2023-04-20T09:56:39.117Z',
+    timestamp: dayjs().subtract(2, 'months'),
   },
   {
     type: 'completedSession',
@@ -54,7 +56,7 @@ const getCompletedSessions = (hostId: string) => [
       type: 'private',
       mode: 'live',
     },
-    timestamp: '2023-06-19T09:56:39.117Z',
+    timestamp: dayjs().subtract(2, 'months'),
   },
   {
     type: 'completedSession',
@@ -65,7 +67,7 @@ const getCompletedSessions = (hostId: string) => [
       type: 'private',
       mode: 'async',
     },
-    timestamp: '2023-06-30T09:56:39.117Z',
+    timestamp: dayjs(),
   },
 ];
 
