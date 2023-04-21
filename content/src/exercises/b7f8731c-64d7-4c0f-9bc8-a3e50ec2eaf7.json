@@ -16,7 +16,11 @@
             "text": "How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started.",
             "asyncText": "Let's get started."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682070990/Video/Intro_Outdoor_sensing_guzdei.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682070994/Images/host%20image%20outdoors%20sensing.jpg"
+        }
       },
       {
         "type": "content",
@@ -104,7 +108,11 @@
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience.",
             "asyncText": "When you’re ready, finish this session at your own pace."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682070992/Video/outro_outdoors_sensing_efei2u.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682070994/Images/host%20image%20outdoors%20sensing.jpg"
+        }
       }
     ],
     "theme": {
@@ -112,11 +120,15 @@
       "backgroundColor": "#267ae4"
     },
     "hidden": true,
-    "name": "Nature sensing",
+    "name": "Outdoor sensing",
     "published": true,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676992253/Images/card_image_the_willingnes_stance_e2yekr.png"
+      },
+      "host": {
+        "displayName": "Jenny",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682070994/Images/host%20image%20outdoors%20sensing.jpg"
       }
     },
     "duration": 40,
