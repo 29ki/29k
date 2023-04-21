@@ -7,7 +7,9 @@
     "actions": {
       "contact": "Get in touch",
       "publicHostAccess": "Public host access",
-      "safetyToolkit": "Safety toolkit"
+      "safetyToolkit": "Safety toolkit",
+      "privacyNotice": "Privacy notice",
+      "privacyNoticeUrl": "https://wiki.29k.org/aware-privacy-notice"
     }
   },
   "pt": {
