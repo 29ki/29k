@@ -127,7 +127,35 @@ const getFeedback = () => [
   },
 ];
 
+const getSharingPosts = () => [
+  {
+    timestamp: '2023-06-30T09:56:39.117Z',
+    type: 'post',
+    payload: {
+      sessionId: '10abff47-23d5-4587-9683-7c8df85c4d09',
+      exerciseId: '095f9642-73b6-4c9a-ae9a-ea7dea7363f5',
+      sharingId: 'sharing',
+      isPublic: false,
+      isAnonymous: false,
+      text: 'This is my personal private relfections that I added to the exercise etc etc etc etc etc',
+    },
+  },
+  {
+    timestamp: '2023-06-30T09:56:39.117Z',
+    type: 'post',
+    payload: {
+      sessionId: '10abff47-23d5-4587-9683-7c8df85c4d13',
+      exerciseId: '185889ec-753b-4e2c-8322-3004013e8a6e',
+      sharingId: 'sharing-1',
+      isPublic: true,
+      isAnonymous: true,
+      text: 'This is my personal public anonymous relfections that I added to the exercise etc etc etc etc etc',
+    },
+  },
+];
+
 export default ({userId}: {userId: string}) => ({
   completedSessions: getCompletedSessions(userId),
   feedback: getFeedback(),
+  sharingPosts: getSharingPosts(),
 });

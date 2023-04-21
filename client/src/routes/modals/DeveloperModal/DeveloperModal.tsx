@@ -4,6 +4,7 @@ import {useTranslation} from 'react-i18next';
 import {
   CompletedSessionEvent,
   FeedbackEvent,
+  PostEvent,
 } from '../../../../../shared/src/types/Event';
 
 import ActionList from '../../../lib/components/ActionList/ActionList';
@@ -24,12 +25,13 @@ import useClearUpdates from '../../../lib/codePush/hooks/useClearUpdates';
 import useCheckForUpdate from '../../../lib/codePush/hooks/useCheckForUpdate';
 import ActionSwitch from '../../../lib/components/ActionList/ActionItems/ActionSwitch';
 
-import useUserState from '../../../lib/user/state/state';
+import useUserState, {UserState} from '../../../lib/user/state/state';
 import useUser from '../../../lib/user/hooks/useUser';
 
 let getDevUserEvents: ({userId}: {userId: string}) => {
   completedSessions: CompletedSessionEvent[];
   feedback: FeedbackEvent[];
+  sharingPosts: PostEvent[];
 };
 if (__DEV__) {
   getDevUserEvents = require('../../../lib/user/devUserEvents').default;
@@ -49,32 +51,24 @@ const DeveloperModal = () => {
 
   const addDevUserEvents = useCallback(() => {
     if (userId) {
-      const events = getDevUserEvents({userId});
+      const devUserEvents = getDevUserEvents({userId});
 
-      events.completedSessions.forEach(({payload, timestamp, type}) =>
-        setCurrentUserState(({userEvents = []} = {}) => ({
-          userEvents: [
-            ...userEvents,
-            {
-              timestamp,
-              payload,
-              type,
-            },
-          ],
-        })),
-      );
-
-      events.feedback.forEach(({payload, timestamp, type}) =>
-        setCurrentUserState(({userEvents = []} = {}) => ({
-          userEvents: [
-            ...userEvents,
-            {
-              timestamp,
-              payload,
-              type,
-            },
-          ],
-        })),
+      Object.values(devUserEvents).forEach(events =>
+        events.forEach(({payload, timestamp, type}) =>
+          setCurrentUserState(
+            ({userEvents = []} = {}) =>
+              ({
+                userEvents: [
+                  ...userEvents,
+                  {
+                    timestamp,
+                    payload,
+                    type,
+                  },
+                ],
+              } as Partial<UserState>),
+          ),
+        ),
       );
     }
   }, [setCurrentUserState, userId]);
