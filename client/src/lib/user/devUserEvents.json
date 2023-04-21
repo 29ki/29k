@@ -4,10 +4,10 @@
       "type": "completedSession",
       "payload": {
         "id": "10abff47-23d5-4587-9683-7c8df85c4d08",
-        "exerciseId": "185889ec-753b-4e2c-8322-3004013e8a6e",
+        "exerciseId": "c5b1197a-4eec-4699-9dad-0e3d6323967b",
         "language": "en",
         "type": "public",
-        "mode": "async"
+        "mode": "live"
       },
       "timestamp": "2023-05-19T09:56:39.117Z"
     },
@@ -15,9 +15,9 @@
       "type": "completedSession",
       "payload": {
         "id": "10abff47-23d5-4587-9683-7c8df85c4d09",
-        "exerciseId": "185889ec-753b-4e2c-8322-3004013e8a6e",
+        "exerciseId": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
         "language": "en",
-        "type": "public",
+        "type": "private",
         "mode": "async"
       },
       "timestamp": "2023-05-30T09:56:39.117Z"
@@ -29,7 +29,7 @@
         "exerciseId": "185889ec-753b-4e2c-8322-3004013e8a6e",
         "language": "en",
         "type": "public",
-        "mode": "async"
+        "mode": "live"
       },
       "timestamp": "2023-04-19T09:56:39.117Z"
     },
@@ -39,8 +39,8 @@
         "id": "10abff47-23d5-4587-9683-7c8df85c4d11",
         "exerciseId": "185889ec-753b-4e2c-8322-3004013e8a6e",
         "language": "en",
-        "type": "public",
-        "mode": "async"
+        "type": "private",
+        "mode": "live"
       },
       "timestamp": "2023-04-20T09:56:39.117Z"
     },
@@ -48,10 +48,10 @@
       "type": "completedSession",
       "payload": {
         "id": "10abff47-23d5-4587-9683-7c8df85c4d12",
-        "exerciseId": "185889ec-753b-4e2c-8322-3004013e8a6e",
+        "exerciseId": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
         "language": "en",
-        "type": "public",
-        "mode": "async"
+        "type": "private",
+        "mode": "live"
       },
       "timestamp": "2023-06-19T09:56:39.117Z"
     },
@@ -61,7 +61,7 @@
         "id": "10abff47-23d5-4587-9683-7c8df85c4d13",
         "exerciseId": "185889ec-753b-4e2c-8322-3004013e8a6e",
         "language": "en",
-        "type": "public",
+        "type": "private",
         "mode": "async"
       },
       "timestamp": "2023-06-30T09:56:39.117Z"
