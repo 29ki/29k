@@ -10,7 +10,11 @@
           {
             "text": "Let’s start with a mini check-in. What are you grateful for right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682087603/Video/intro_breathing_anchor_jlh9pp.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682087605/Images/host%20thumb%20breathing%20anchor.jpg"
+        }
       },
       {
         "type": "content",
@@ -83,7 +87,11 @@
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
-        ]
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682087586/Video/outro_breathing_anchor_lnhnjw.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682087605/Images/host%20thumb%20breathing%20anchor.jpg"
+        }
       }
     ],
     "theme": {
@@ -96,6 +104,10 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1678973954/Images/card_image_breathing_anchor_vibuvl.png"
+      },
+      "host": {
+        "displayName": "Jenny",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682087605/Images/host%20thumb%20breathing%20anchor.jpg"
       }
     },
     "duration": 30,
@@ -116,6 +128,7 @@
       }
     },
     "id": "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+    "async": true,
     "description": "Guided meditation for grounding ourselves in the present moment with our breathing. Present moment awareness can help us reduce rumination and stress as well as improve decision-making."
   },
   "pt": {
