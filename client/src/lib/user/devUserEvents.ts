@@ -1,4 +1,4 @@
-const getCompletedSessions = hostId => [
+const getCompletedSessions = (hostId: string) => [
   {
     type: 'completedSession',
     payload: {
