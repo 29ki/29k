@@ -3,12 +3,14 @@ import ScreenWrapper from '../../uiLib/decorators/ScreenWrapper';
 import ActionButton from './ActionItems/ActionButton';
 import ActionList from './ActionList';
 import {ProfileIcon} from '../Icons';
-import {Alert} from 'react-native';
+import {ActivityIndicator, Alert} from 'react-native';
 import ActionTextInput from './ActionItems/ActionTextInput';
 import ActionSwitch from './ActionItems/ActionSwitch';
 import {Spacer32, Spacer8} from '../Spacers/Spacer';
 import ActionRadioButton from './ActionItems/ActionRadioButton';
 import {Heading16} from '../Typography/Heading/Heading';
+
+const Spinner = () => <ActivityIndicator size="small" />;
 
 export const AllTypes = () => (
   <ScreenWrapper>
@@ -26,6 +28,9 @@ export const AllTypes = () => (
       </ActionButton>
       <ActionButton Icon={ProfileIcon} onPress={() => Alert.alert('ACTION!')}>
         ActionButton with Icon and very very very very very long text
+      </ActionButton>
+      <ActionButton Icon={Spinner} onPress={() => Alert.alert('ACTION!')}>
+        ActionButton with ActivityIndicator
       </ActionButton>
     </ActionList>
     <Spacer32 />
@@ -78,6 +83,12 @@ export const AllTypes = () => (
         ActionRadioButton with Icon checked and with very very very very very
         very very very very very very long text
       </ActionRadioButton>
+      <ActionRadioButton
+        Icon={Spinner}
+        checked
+        onPress={() => Alert.alert('ACTION!')}>
+        ActionRadioButton with ActivityIndicator
+      </ActionRadioButton>
     </ActionList>
     <Spacer32 />
 
@@ -92,6 +103,9 @@ export const AllTypes = () => (
       <ActionSwitch Icon={ProfileIcon}>ActionSwitch with Icon</ActionSwitch>
       <ActionSwitch Icon={ProfileIcon}>
         ActionSwitch with Icon and very very very very very long text
+      </ActionSwitch>
+      <ActionSwitch Icon={Spinner}>
+        ActionSwitch with ActivityIndicator
       </ActionSwitch>
     </ActionList>
   </ScreenWrapper>

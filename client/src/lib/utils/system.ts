@@ -1,14 +1,7 @@
 import {Platform} from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-import codePush from 'react-native-code-push';
 import {GIT_COMMIT_SHORT} from 'config';
-
-export const getBundleVersion = async () => {
-  const update = await codePush.getUpdateMetadata();
-  if (update && 'label' in update) {
-    return parseInt(update.label.replace(/[^\d]*/, ''), 10);
-  }
-};
+import getBundleVersion from '../codePush/components/utils/getBundleVersion';
 
 export type DeviceInfo = {
   os: string;

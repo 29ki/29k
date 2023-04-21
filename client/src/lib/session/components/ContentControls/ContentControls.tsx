@@ -10,7 +10,7 @@ import {
   ChevronLeftIcon,
   Play,
   Pause,
-  Rewind,
+  RewindIcon,
 } from '../../../components/Icons';
 
 import {Spacer8} from '../../../components/Spacers/Spacer';
@@ -114,7 +114,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
             elevated
             disabled={isDisabled}
             variant="tertiary"
-            Icon={Rewind}
+            Icon={RewindIcon}
             onPress={onResetPlayingPress}
           />
           <Spacer8 />

@@ -10,7 +10,7 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import dayjs from 'dayjs';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
-import {partition, groupBy} from 'ramda';
+import {partition, groupBy, findLastIndex} from 'ramda';
 
 import {JourneyItem} from './types/JourneyItem';
 import {LiveSession} from '../../../../../shared/src/types/Session';
@@ -47,10 +47,10 @@ import CollectionCardContainer from './components/CollectionCardContainer';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 import JourneyNode from './components/JourneyNode';
 import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
-import FilterStatus from './components/FilterStatus';
 import {LogoIcon} from '../../../lib/components/Icons';
 import useUser from '../../../lib/user/hooks/useUser';
 import Image from '../../../lib/components/Image/Image';
+import SessionsStatus from '../../../lib/components/SessionsStatus/SessionsStatus';
 
 export type Section = {
   title: string;
@@ -220,11 +220,16 @@ const Journey = () => {
   );
 
   useEffect(() => {
-    if (isFocused && sections[1]?.data?.length && completedSessions.length) {
+    const lastCompletedSectionIndex = findLastIndex(
+      ({type}) => type === 'completed',
+      sections,
+    );
+
+    if (isFocused && completedSessions.length > 5) {
       requestAnimationFrame(() =>
         listRef.current?.scrollToLocation({
-          itemIndex: 0,
-          sectionIndex: 1,
+          itemIndex: sections[lastCompletedSectionIndex].data.length - 1,
+          sectionIndex: lastCompletedSectionIndex,
           viewOffset: 380,
         }),
       );
@@ -243,6 +248,10 @@ const Journey = () => {
       const hasCardAfter = index !== section.data.length - 1;
 
       if (item.completedSession) {
+        const isLastItem =
+          completedSessions.indexOf(item.completedSession) ===
+          completedSessions.length - 1;
+
         return (
           <Gutters key={item.completedSession.payload.id}>
             <JourneyNode
@@ -250,10 +259,10 @@ const Journey = () => {
               completedSessionEvent={item.completedSession}
               isLast={!hasCardAfter}
             />
-            {item.completedSession && !hasCardAfter && (
+            {item.completedSession && isLastItem && (
               <>
                 <Row>
-                  <FilterStatus
+                  <SessionsStatus
                     onPress={onTotalPress}
                     Icon={LogoIcon}
                     heading={`${completedSessions.length}`}
@@ -262,7 +271,7 @@ const Journey = () => {
                   {positiveFeedbacks.length ? (
                     <>
                       <Spacer16 />
-                      <FilterStatus
+                      <SessionsStatus
                         onPress={onPositivePress}
                         Icon={ThumbsUpWithoutPadding}
                         heading={`${positiveFeedbacks.length}`}
@@ -273,7 +282,7 @@ const Journey = () => {
                   {completedHostedSessions.length ? (
                     <>
                       <Spacer16 />
-                      <FilterStatus
+                      <SessionsStatus
                         onPress={onHostedPress}
                         Icon={UserPic}
                         heading={`${completedHostedSessions.length}`}
@@ -312,7 +321,7 @@ const Journey = () => {
     },
     [
       positiveFeedbacks.length,
-      completedSessions.length,
+      completedSessions,
       completedHostedSessions.length,
       onTotalPress,
       onHostedPress,
