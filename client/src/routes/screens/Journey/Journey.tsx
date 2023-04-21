@@ -366,8 +366,9 @@ const Journey = () => {
         renderSectionHeader={renderSectionHeader}
         renderItem={renderSession}
         initialNumToRender={5}
-        onEndReached={refreshPull}
-        onEndReachedThreshold={-0.1}
+        refreshControl={
+          <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
+        }
       />
       <Spacer16 />
       <BottomFade />
