@@ -26,7 +26,9 @@
     },
     "skipButton": "Skip",
     "continueButton": "Continue",
-    "getStartedButton": "Get started"
+    "getStartedButton": "Get started",
+    "privacyNotice": "Privacy Notice",
+    "privacyNoticeUrl": "https://wiki.29k.org/aware-privacy-notice"
   },
   "pt": {},
   "sv": {},

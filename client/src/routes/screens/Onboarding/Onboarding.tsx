@@ -9,13 +9,18 @@ import Animated, {
 } from 'react-native-reanimated';
 import {Extrapolate} from 'react-native-reanimated';
 import styled from 'styled-components/native';
-import {BodyBold} from '../../../lib/components/Typography/Body/Body';
+import {Body16, BodyBold} from '../../../lib/components/Typography/Body/Body';
 import Button from '../../../lib/components/Buttons/Button';
 import {useTranslation} from 'react-i18next';
 import useAppState from '../../../lib/appState/state/state';
 import {ArrowRightIcon} from '../../../lib/components/Icons';
 import GetStarted from './components/GetStarted';
 import AboutCarousel from './components/AboutCarousel';
+import {COLORS} from '../../../../../shared/src/constants/colors';
+import {Spacer16} from '../../../lib/components/Spacers/Spacer';
+import Footer from './components/Footer';
+import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
+import * as linking from '../../../lib/linking/nativeLinks';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 const BACKGROUND_SEGMENTS = 4;
@@ -43,10 +48,9 @@ const Screen = styled.View({
   justifyContent: 'center',
 });
 
-const ContinueButton = styled(Button)({
-  position: 'absolute',
-  bottom: '8%',
-  alignSelf: 'center',
+const Underline = styled(Body16)({
+  textDecorationLine: 'underline',
+  color: COLORS.WHITE,
 });
 
 const Onboarding = () => {
@@ -100,6 +104,10 @@ const Onboarding = () => {
     setSettings({showOnboarding: false});
   }, [setSettings]);
 
+  const onPrivacyNoticePress = useCallback(() => {
+    linking.openURL(t('privacyNoticeUrl'));
+  }, [t]);
+
   return (
     <>
       <StatusBar hidden />
@@ -107,19 +115,25 @@ const Onboarding = () => {
         <Background style={backgroundStyle} />
         <Screen>
           <AboutCarousel onScroll={onScroll} onPageChange={onPageChange} />
-          <ContinueButton onPress={onContinuePress}>
-            <BodyBold>
-              {lastPage ? t('continueButton') : t('skipButton')}
-            </BodyBold>
-          </ContinueButton>
+          <Footer>
+            <Button onPress={onContinuePress}>
+              <BodyBold>
+                {lastPage ? t('continueButton') : t('skipButton')}
+              </BodyBold>
+            </Button>
+          </Footer>
         </Screen>
         <Screen>
           <GetStarted />
-          <ContinueButton
-            onPress={onGetStartedPress}
-            RightIcon={ArrowRightIcon}>
-            <BodyBold>{t('getStartedButton')}</BodyBold>
-          </ContinueButton>
+          <Footer>
+            <Button onPress={onGetStartedPress} RightIcon={ArrowRightIcon}>
+              <BodyBold>{t('getStartedButton')}</BodyBold>
+            </Button>
+            <Spacer16 />
+            <TouchableOpacity onPress={onPrivacyNoticePress}>
+              <Underline>{t('privacyNotice')}</Underline>
+            </TouchableOpacity>
+          </Footer>
         </Screen>
       </Screens>
     </>
