@@ -1,7 +1,10 @@
 import React, {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 
-import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
+import {
+  CompletedSessionEvent,
+  FeedbackEvent,
+} from '../../../../../shared/src/types/Event';
 
 import ActionList from '../../../lib/components/ActionList/ActionList';
 
@@ -22,10 +25,14 @@ import useCheckForUpdate from '../../../lib/codePush/hooks/useCheckForUpdate';
 import ActionSwitch from '../../../lib/components/ActionList/ActionItems/ActionSwitch';
 
 import useUserState from '../../../lib/user/state/state';
+import useUser from '../../../lib/user/hooks/useUser';
 
-let devUserEvents: {completedSessions: CompletedSessionEvent[]};
+let getDevUserEvents: ({userId}: {userId: string}) => {
+  completedSessions: CompletedSessionEvent[];
+  feedback: FeedbackEvent[];
+};
 if (__DEV__) {
-  devUserEvents = require('../../../lib/user/devUserEvents.json');
+  getDevUserEvents = require('../../../lib/user/devUserEvents').default;
 }
 
 const DeveloperModal = () => {
@@ -38,21 +45,39 @@ const DeveloperModal = () => {
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
   const {setCurrentUserState} = useUserState();
+  const {uid: userId} = useUser() ?? {};
 
   const addDevUserEvents = useCallback(() => {
-    devUserEvents.completedSessions.forEach(({payload, timestamp, type}) =>
-      setCurrentUserState(({userEvents: events = []} = {}) => ({
-        userEvents: [
-          ...events,
-          {
-            timestamp,
-            payload,
-            type,
-          },
-        ],
-      })),
-    );
-  }, [setCurrentUserState]);
+    if (userId) {
+      const events = getDevUserEvents({userId});
+
+      events.completedSessions.forEach(({payload, timestamp, type}) =>
+        setCurrentUserState(({userEvents = []} = {}) => ({
+          userEvents: [
+            ...userEvents,
+            {
+              timestamp,
+              payload,
+              type,
+            },
+          ],
+        })),
+      );
+
+      events.feedback.forEach(({payload, timestamp, type}) =>
+        setCurrentUserState(({userEvents = []} = {}) => ({
+          userEvents: [
+            ...userEvents,
+            {
+              timestamp,
+              payload,
+              type,
+            },
+          ],
+        })),
+      );
+    }
+  }, [setCurrentUserState, userId]);
 
   return (
     <SheetModal>
