@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
+
+import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 
 import ActionList from '../../../lib/components/ActionList/ActionList';
 
@@ -19,6 +21,13 @@ import useClearUpdates from '../../../lib/codePush/hooks/useClearUpdates';
 import useCheckForUpdate from '../../../lib/codePush/hooks/useCheckForUpdate';
 import ActionSwitch from '../../../lib/components/ActionList/ActionItems/ActionSwitch';
 
+import useUserState from '../../../lib/user/state/state';
+
+let devUserEvents: {completedSessions: CompletedSessionEvent[]};
+if (__DEV__) {
+  devUserEvents = require('../../../lib/user/devUserEvents.json');
+}
+
 const DeveloperModal = () => {
   const {t} = useTranslation('Modal.Developer');
   const {toggle: toggleUiLib} = useUiLib();
@@ -28,6 +37,22 @@ const DeveloperModal = () => {
   );
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
+  const {setCurrentUserState} = useUserState();
+
+  const addDevUserEvents = useCallback(() => {
+    devUserEvents.completedSessions.forEach(({payload, timestamp, type}) =>
+      setCurrentUserState(({userEvents: events = []} = {}) => ({
+        userEvents: [
+          ...events,
+          {
+            timestamp,
+            payload,
+            type,
+          },
+        ],
+      })),
+    );
+  }, [setCurrentUserState]);
 
   return (
     <SheetModal>
@@ -50,6 +75,12 @@ const DeveloperModal = () => {
           </ActionButton>
         </ActionList>
         <Spacer16 />
+
+        <ActionList>
+          <ActionButton onPress={addDevUserEvents}>
+            {t('addDevUserEvents')}
+          </ActionButton>
+        </ActionList>
       </Gutters>
     </SheetModal>
   );
