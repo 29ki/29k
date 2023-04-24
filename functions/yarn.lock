@@ -545,16 +545,16 @@
     teeny-request "^8.0.0"
     uuid "^8.0.0"
 
-"@google-cloud/translate@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@google-cloud/translate/-/translate-7.2.0.tgz#ed287ce1de9bb61e58a40c6aac94e39b6eb9f52d"
-  integrity sha512-V1D7Mp+Izz3zjz0g+L0b8AL9dYw0MmdsactlvZv05kUgo+l8DNcmgQn4y3QtIEiyMzbg1F6SilpWLpB7W0p3/Q==
+"@google-cloud/translate@^7.2.1":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@google-cloud/translate/-/translate-7.2.1.tgz#a9bc8e9c249f3a86898d923eb0cbccf0195127bd"
+  integrity sha512-VXmEvMF8qa4c7p5drjUZ06B8v0DxoUfFPyjhFp/wbgoe0GWaD1y1gGk6rUZxGKD/pB19kFU+0LMMSCgBW+a0iA==
   dependencies:
     "@google-cloud/common" "^4.0.0"
     "@google-cloud/promisify" "^3.0.0"
     arrify "^2.0.0"
     extend "^3.0.2"
-    google-gax "^3.5.2"
+    google-gax "^3.5.8"
     is-html "^2.0.0"
 
 "@googleapis/firebasedynamiclinks@^1.0.0":
@@ -4505,10 +4505,10 @@ google-auth-library@^8.0.1, google-auth-library@^8.0.2:
     jws "^4.0.0"
     lru-cache "^6.0.0"
 
-google-gax@^3.0.1, google-gax@^3.5.1, google-gax@^3.5.2:
-  version "3.5.6"
-  resolved "https://registry.yarnpkg.com/google-gax/-/google-gax-3.5.6.tgz#7c3245e63852c8ee563a933e95ec0bd638f5fb26"
-  integrity sha512-gw1phnFuVB8Vtad/An9/4cLfhjNCj4FqyqDA0W09r/ZUWe70VZFZ7SNrvQNX81iLoOEjfTPHKEGZL/anuFxU5w==
+google-gax@^3.0.1, google-gax@^3.5.1, google-gax@^3.5.8:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/google-gax/-/google-gax-3.6.0.tgz#0f4ae350159737fe0aa289815c0d92838b19f6af"
+  integrity sha512-2fyb61vWxUonHiArRNJQmE4tx5oY1ni8VPo08fzII409vDSCWG7apDX4qNOQ2GXXT82gLBn3d3P1Dydh7pWjyw==
   dependencies:
     "@grpc/grpc-js" "~1.8.0"
     "@grpc/proto-loader" "^0.7.0"
@@ -4522,7 +4522,7 @@ google-gax@^3.0.1, google-gax@^3.5.1, google-gax@^3.5.2:
     node-fetch "^2.6.1"
     object-hash "^3.0.0"
     proto3-json-serializer "^1.0.0"
-    protobufjs "7.2.1"
+    protobufjs "7.2.3"
     protobufjs-cli "1.1.1"
     retry-request "^5.0.0"
 
@@ -7571,10 +7571,10 @@ protobufjs-cli@1.1.1:
     tmp "^0.2.1"
     uglify-js "^3.7.7"
 
-protobufjs@7.2.1:
-  version "7.2.1"
-  resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-7.2.1.tgz#939e76a8e69fd5c70b13f7dd78565d65ce20cdcb"
-  integrity sha512-L3pCItypTnPK27+CS8nuhZMYtsY+i8dqdq2vZsYHlG17CnWp1DWPQ/sos0vOKrj1fHEAzo3GBqSHLaeZyKUCDA==
+protobufjs@7.2.3:
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-7.2.3.tgz#01af019e40d9c6133c49acbb3ff9e30f4f0f70b2"
+  integrity sha512-TtpvOqwB5Gdz/PQmOjgsrGH1nHjAQVCN7JG4A6r1sXRWESL5rNMAiRcBQlCAdKxZcAbstExQePYG8xof/JVRgg==
   dependencies:
     "@protobufjs/aspromise" "^1.1.2"
     "@protobufjs/base64" "^1.1.2"
