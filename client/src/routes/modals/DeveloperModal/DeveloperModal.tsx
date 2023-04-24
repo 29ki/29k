@@ -18,6 +18,7 @@ import useAppState from '../../../lib/appState/state/state';
 import useClearUpdates from '../../../lib/codePush/hooks/useClearUpdates';
 import useCheckForUpdate from '../../../lib/codePush/hooks/useCheckForUpdate';
 import ActionSwitch from '../../../lib/components/ActionList/ActionItems/ActionSwitch';
+import useAddDevUserEvents from './hooks/useAddDevUserEvents';
 
 const DeveloperModal = () => {
   const {t} = useTranslation('Modal.Developer');
@@ -28,6 +29,7 @@ const DeveloperModal = () => {
   );
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
+  const addDevUserEvents = useAddDevUserEvents();
 
   return (
     <SheetModal>
@@ -50,6 +52,12 @@ const DeveloperModal = () => {
           </ActionButton>
         </ActionList>
         <Spacer16 />
+
+        <ActionList>
+          <ActionButton onPress={addDevUserEvents}>
+            {t('addDevUserEvents')}
+          </ActionButton>
+        </ActionList>
       </Gutters>
     </SheetModal>
   );
