@@ -1,17 +1,28 @@
 import dayjs from 'dayjs';
+import {
+  CompletedSessionEvent,
+  FeedbackEvent,
+  PostEvent,
+} from '../../../../../../shared/src/types/Event';
+import {
+  SessionMode,
+  SessionType,
+} from '../../../../../../shared/src/types/Session';
 
-const getCompletedSessions = (hostId: string) => [
+export const getCompletedSessions = (
+  hostId: string,
+): CompletedSessionEvent[] => [
   {
     type: 'completedSession',
     payload: {
       id: '10abff47-23d5-4587-9683-7c8df85c4d08',
       exerciseId: 'c5b1197a-4eec-4699-9dad-0e3d6323967b',
       language: 'en',
-      type: 'public',
-      mode: 'live',
+      type: SessionType.private,
+      mode: SessionMode.live,
       hostId,
     },
-    timestamp: dayjs().subtract(3, 'months'),
+    timestamp: dayjs().subtract(3, 'months').toISOString(),
   },
   {
     type: 'completedSession',
@@ -19,10 +30,10 @@ const getCompletedSessions = (hostId: string) => [
       id: '10abff47-23d5-4587-9683-7c8df85c4d09',
       exerciseId: '095f9642-73b6-4c9a-ae9a-ea7dea7363f5',
       language: 'en',
-      type: 'private',
-      mode: 'async',
+      type: SessionType.private,
+      mode: SessionMode.async,
     },
-    timestamp: dayjs().subtract(3, 'months'),
+    timestamp: dayjs().subtract(3, 'months').toISOString(),
   },
   {
     type: 'completedSession',
@@ -30,10 +41,10 @@ const getCompletedSessions = (hostId: string) => [
       id: '10abff47-23d5-4587-9683-7c8df85c4d10',
       exerciseId: '185889ec-753b-4e2c-8322-3004013e8a6e',
       language: 'en',
-      type: 'public',
-      mode: 'live',
+      type: SessionType.public,
+      mode: SessionMode.live,
     },
-    timestamp: dayjs().subtract(2, 'months'),
+    timestamp: dayjs().subtract(2, 'months').toISOString(),
   },
   {
     type: 'completedSession',
@@ -41,11 +52,11 @@ const getCompletedSessions = (hostId: string) => [
       id: '10abff47-23d5-4587-9683-7c8df85c4d11',
       exerciseId: '185889ec-753b-4e2c-8322-3004013e8a6e',
       language: 'en',
-      type: 'private',
-      mode: 'live',
+      type: SessionType.private,
+      mode: SessionMode.live,
       hostId,
     },
-    timestamp: dayjs().subtract(2, 'months'),
+    timestamp: dayjs().subtract(2, 'months').toISOString(),
   },
   {
     type: 'completedSession',
@@ -53,10 +64,10 @@ const getCompletedSessions = (hostId: string) => [
       id: '10abff47-23d5-4587-9683-7c8df85c4d12',
       exerciseId: '3188a5ed-a1d6-451c-ae2a-f44f4df37495',
       language: 'en',
-      type: 'private',
-      mode: 'live',
+      type: SessionType.private,
+      mode: SessionMode.live,
     },
-    timestamp: dayjs().subtract(2, 'months'),
+    timestamp: dayjs().subtract(2, 'months').toISOString(),
   },
   {
     type: 'completedSession',
@@ -64,16 +75,16 @@ const getCompletedSessions = (hostId: string) => [
       id: '10abff47-23d5-4587-9683-7c8df85c4d13',
       exerciseId: '185889ec-753b-4e2c-8322-3004013e8a6e',
       language: 'en',
-      type: 'private',
-      mode: 'async',
+      type: SessionType.private,
+      mode: SessionMode.async,
     },
-    timestamp: dayjs(),
+    timestamp: dayjs().toISOString(),
   },
 ];
 
-const getFeedback = () => [
+export const getFeedback = (): FeedbackEvent[] => [
   {
-    timestamp: '2023-06-30T09:56:39.117Z',
+    timestamp: dayjs().subtract(3, 'months').toISOString(),
     type: 'feedback',
     payload: {
       question: 'Was this meaningful for you?',
@@ -84,7 +95,7 @@ const getFeedback = () => [
     },
   },
   {
-    timestamp: '2023-06-30T09:56:39.117Z',
+    timestamp: dayjs().subtract(3, 'months').toISOString(),
     type: 'feedback',
     payload: {
       question: 'Was this meaningful for you?',
@@ -95,7 +106,7 @@ const getFeedback = () => [
     },
   },
   {
-    timestamp: '2023-06-30T09:56:39.117Z',
+    timestamp: dayjs().subtract(2, 'months').toISOString(),
     type: 'feedback',
     payload: {
       question: 'Was this meaningful for you?',
@@ -106,7 +117,7 @@ const getFeedback = () => [
     },
   },
   {
-    timestamp: '2023-06-30T09:56:39.117Z',
+    timestamp: dayjs().subtract(2, 'months').toISOString(),
     type: 'feedback',
     payload: {
       question: 'Was this meaningful for you?',
@@ -117,7 +128,7 @@ const getFeedback = () => [
     },
   },
   {
-    timestamp: '2023-06-30T09:56:39.117Z',
+    timestamp: dayjs().subtract(2, 'months').toISOString(),
     type: 'feedback',
     payload: {
       question: 'Was this meaningful for you?',
@@ -129,9 +140,9 @@ const getFeedback = () => [
   },
 ];
 
-const getSharingPosts = () => [
+export const getSharingPosts = (): PostEvent[] => [
   {
-    timestamp: '2023-06-30T09:56:39.117Z',
+    timestamp: dayjs().subtract(3, 'months').toISOString(),
     type: 'post',
     payload: {
       sessionId: '10abff47-23d5-4587-9683-7c8df85c4d09',
@@ -143,7 +154,7 @@ const getSharingPosts = () => [
     },
   },
   {
-    timestamp: '2023-06-30T09:56:39.117Z',
+    timestamp: dayjs().toISOString(),
     type: 'post',
     payload: {
       sessionId: '10abff47-23d5-4587-9683-7c8df85c4d13',
@@ -156,8 +167,10 @@ const getSharingPosts = () => [
   },
 ];
 
-export default ({userId}: {userId: string}) => ({
-  completedSessions: getCompletedSessions(userId),
-  feedback: getFeedback(),
-  sharingPosts: getSharingPosts(),
-});
+const getDevUserEvents = ({userId}: {userId: string}) => [
+  ...getCompletedSessions(userId),
+  ...getFeedback(),
+  ...getSharingPosts(),
+];
+
+export default getDevUserEvents;
