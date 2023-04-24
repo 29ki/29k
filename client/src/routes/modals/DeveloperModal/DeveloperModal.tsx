@@ -1,11 +1,5 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import {useTranslation} from 'react-i18next';
-
-import {
-  CompletedSessionEvent,
-  FeedbackEvent,
-  PostEvent,
-} from '../../../../../shared/src/types/Event';
 
 import ActionList from '../../../lib/components/ActionList/ActionList';
 
@@ -24,18 +18,7 @@ import useAppState from '../../../lib/appState/state/state';
 import useClearUpdates from '../../../lib/codePush/hooks/useClearUpdates';
 import useCheckForUpdate from '../../../lib/codePush/hooks/useCheckForUpdate';
 import ActionSwitch from '../../../lib/components/ActionList/ActionItems/ActionSwitch';
-
-import useUserState, {UserState} from '../../../lib/user/state/state';
-import useUser from '../../../lib/user/hooks/useUser';
-
-let getDevUserEvents: ({userId}: {userId: string}) => {
-  completedSessions: CompletedSessionEvent[];
-  feedback: FeedbackEvent[];
-  sharingPosts: PostEvent[];
-};
-if (__DEV__) {
-  getDevUserEvents = require('../../../lib/user/devUserEvents').default;
-}
+import useAddDevUserEvents from './hooks/useAddDevUserEvents';
 
 const DeveloperModal = () => {
   const {t} = useTranslation('Modal.Developer');
@@ -46,32 +29,7 @@ const DeveloperModal = () => {
   );
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
-  const {setCurrentUserState} = useUserState();
-  const {uid: userId} = useUser() ?? {};
-
-  const addDevUserEvents = useCallback(() => {
-    if (userId) {
-      const devUserEvents = getDevUserEvents({userId});
-
-      Object.values(devUserEvents).forEach(events =>
-        events.forEach(({payload, timestamp, type}) =>
-          setCurrentUserState(
-            ({userEvents = []} = {}) =>
-              ({
-                userEvents: [
-                  ...userEvents,
-                  {
-                    timestamp,
-                    payload,
-                    type,
-                  },
-                ],
-              } as Partial<UserState>),
-          ),
-        ),
-      );
-    }
-  }, [setCurrentUserState, userId]);
+  const addDevUserEvents = useAddDevUserEvents();
 
   return (
     <SheetModal>
