@@ -41,7 +41,7 @@
     "jsonwebtoken": "^9.0.0",
     "koa": "^2.14.2",
     "koa-yup-validator": "^4.1.0",
-    "mjml": "^4.14.0",
+    "mjml": "^4.14.1",
     "ramda": "^0.29.0",
     "semver": "^7.5.0",
     "uuid": "^9.0.0",
