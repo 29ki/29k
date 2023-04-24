@@ -2,12 +2,12 @@ import {useCallback, useEffect, useMemo, useState} from 'react';
 import {User} from '../../../../../shared/src/types/User';
 import {getUser} from '../api/user';
 
-const useUserProfile = (userId: string | undefined): User | undefined => {
-  const [user, setUser] = useState<User>();
+const useUserProfile = (userId: string | undefined): User | null => {
+  const [user, setUser] = useState<User | null>(null);
 
   const fetchProfile = useCallback(async () => {
     if (!userId) {
-      return;
+      return null;
     }
 
     setUser(await getUser(userId));

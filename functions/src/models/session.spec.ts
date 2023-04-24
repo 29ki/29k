@@ -120,14 +120,14 @@ describe('session model', () => {
         id: 'some-session-id',
         name: 'some-name',
         exerciseId: 'some-exercise-id',
-        startTime: expect.any(String),
-        closingTime: expect.any(String),
+        startTime: expect.any(Timestamp),
+        closingTime: expect.any(Timestamp),
         url: 'some-url',
         type: 'public',
         userIds: ['*'],
         interestedCount: 0,
-        createdAt: expect.any(String),
-        updatedAt: expect.any(String),
+        createdAt: expect.any(Timestamp),
+        updatedAt: expect.any(Timestamp),
       });
     });
 
@@ -159,28 +159,28 @@ describe('session model', () => {
           id: 'some-session-id',
           name: 'some-name',
           exerciseId: 'some-exercise-id',
-          startTime: expect.any(String),
-          closingTime: expect.any(String),
+          startTime: expect.any(Timestamp),
+          closingTime: expect.any(Timestamp),
           url: 'some-url',
           type: 'public',
           userIds: ['*'],
           interestedCount: 0,
-          createdAt: expect.any(String),
-          updatedAt: expect.any(String),
+          createdAt: expect.any(Timestamp),
+          updatedAt: expect.any(Timestamp),
         },
         {
           hostId: 'some-other-user-id',
           id: 'some-other-session-id',
           name: 'some-other-name',
           exerciseId: 'some-exercise-id',
-          startTime: expect.any(String),
-          closingTime: expect.any(String),
+          startTime: expect.any(Timestamp),
+          closingTime: expect.any(Timestamp),
           url: 'some-other-url',
           type: 'public',
           userIds: ['*'],
           interestedCount: 1,
-          createdAt: expect.any(String),
-          updatedAt: expect.any(String),
+          createdAt: expect.any(Timestamp),
+          updatedAt: expect.any(Timestamp),
         },
       ]);
     });
@@ -233,28 +233,28 @@ describe('session model', () => {
           id: 'some-session-id',
           name: 'some-name',
           exerciseId: 'some-exercise-id',
-          startTime: expect.any(String),
-          closingTime: expect.any(String),
+          startTime: expect.any(Timestamp),
+          closingTime: expect.any(Timestamp),
           url: 'some-url',
           type: 'public',
           userIds: ['*'],
           interestedCount: 0,
-          createdAt: expect.any(String),
-          updatedAt: expect.any(String),
+          createdAt: expect.any(Timestamp),
+          updatedAt: expect.any(Timestamp),
         },
         {
           hostId: 'some-other-user-id',
           id: 'some-other-session-id',
           name: 'some-other-name',
           exerciseId: 'some-exercise-id',
-          startTime: expect.any(String),
-          closingTime: expect.any(String),
+          startTime: expect.any(Timestamp),
+          closingTime: expect.any(Timestamp),
           url: 'some-other-url',
           type: 'public',
           userIds: ['*'],
           interestedCount: 1,
-          createdAt: expect.any(String),
-          updatedAt: expect.any(String),
+          createdAt: expect.any(Timestamp),
+          updatedAt: expect.any(Timestamp),
         },
       ]);
     });
@@ -286,8 +286,8 @@ describe('session model', () => {
   });
 
   describe('addSession', () => {
-    const startTime = new Date('1994-03-08T07:30:00').toISOString();
-    const closingTime = new Date('1994-03-08T08:00:00').toISOString();
+    const startTime = Timestamp.fromDate(new Date('1994-03-08T07:30:00'));
+    const closingTime = Timestamp.fromDate(new Date('1994-03-08T08:00:00'));
 
     it('should return public session', async () => {
       const session = await addSession({
@@ -298,7 +298,7 @@ describe('session model', () => {
         exerciseId: 'content-id',
         link: 'deep-link',
         type: SessionType.public,
-        startTime: startTime,
+        startTime: startTime.toDate().toISOString(),
         hostId: 'some-user-id',
         inviteCode: 1234,
         interestedCount: 0,
@@ -320,8 +320,8 @@ describe('session model', () => {
         userIds: ['*'],
         inviteCode: 1234,
         interestedCount: 0,
-        createdAt: expect.any(String),
-        updatedAt: expect.any(String),
+        createdAt: expect.any(Timestamp),
+        updatedAt: expect.any(Timestamp),
       });
     });
 
@@ -334,7 +334,7 @@ describe('session model', () => {
         exerciseId: 'content-id',
         link: 'deep-link',
         type: SessionType.private,
-        startTime,
+        startTime: startTime.toDate().toISOString(),
         hostId: 'some-user-id',
         inviteCode: 1234,
         interestedCount: 0,
@@ -356,8 +356,8 @@ describe('session model', () => {
         inviteCode: 1234,
         interestedCount: 0,
         closingTime,
-        createdAt: expect.any(String),
-        updatedAt: expect.any(String),
+        createdAt: expect.any(Timestamp),
+        updatedAt: expect.any(Timestamp),
       });
     });
   });
@@ -374,12 +374,12 @@ describe('session model', () => {
         hostId: 'some-user-id',
         exerciseId: 'some-exercise-id',
         interestedCount: 0,
-        startTime: expect.any(String),
-        closingTime: expect.any(String),
+        startTime: expect.any(Timestamp),
+        closingTime: expect.any(Timestamp),
         type: SessionType.private,
         userIds: ['*'],
-        createdAt: expect.any(String),
-        updatedAt: expect.any(String),
+        createdAt: expect.any(Timestamp),
+        updatedAt: expect.any(Timestamp),
       });
     });
 
@@ -396,11 +396,11 @@ describe('session model', () => {
         exerciseId: 'some-exercise-id',
         type: 'public',
         interestedCount: 0,
-        startTime: '1994-03-08T07:00:00.000Z',
-        closingTime: '1994-03-08T07:30:00.000Z',
+        startTime: Timestamp.fromDate(new Date('1994-03-08T07:00:00.000Z')),
+        closingTime: Timestamp.fromDate(new Date('1994-03-08T07:30:00.000Z')),
         userIds: ['*'],
-        createdAt: expect.any(String),
-        updatedAt: expect.any(String),
+        createdAt: expect.any(Timestamp),
+        updatedAt: expect.any(Timestamp),
       });
     });
   });
@@ -453,7 +453,7 @@ describe('session model', () => {
         index: 0,
         playing: true,
         started: false,
-        timestamp: expect.any(String),
+        timestamp: expect.any(Timestamp),
       });
     });
 
@@ -466,7 +466,7 @@ describe('session model', () => {
       expect(state).toEqual({
         index: 2,
         playing: true,
-        timestamp: expect.any(String),
+        timestamp: expect.any(Timestamp),
         ended: false,
         id: 'some-session-id',
         started: false,

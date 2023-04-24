@@ -3,7 +3,7 @@ import memoize from 'fast-memoize';
 import mjml from 'mjml';
 
 import {htmlLight, textWihtoutUnsubscribe} from './template';
-import {ReportParams} from '../../api/report';
+import {ReportParams} from '../../../../shared/src/types/Report';
 
 const htmlTemplate = memoize(() =>
   Handlebars.compile(`

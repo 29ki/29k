@@ -1,6 +1,6 @@
 import sendgrid from '@sendgrid/mail';
 import dayjs from 'dayjs';
-import {ReportParams} from '../api/report';
+import {ReportParams} from '../../../shared/src/types/Report';
 
 import config from '../lib/config';
 import {

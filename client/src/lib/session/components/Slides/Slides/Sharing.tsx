@@ -188,6 +188,7 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
         uid: user.uid,
       };
     }
+    return null;
   }, [user]);
 
   const renderOtherItem = useCallback<ListRenderItem<Post>>(
@@ -209,7 +210,7 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
         <ItemWrapper isLast={index === allMyPosts.length - 1}>
           <ListPostCard
             text={item.payload.text}
-            userProfile={!item.payload.isAnonymous ? userProfile : undefined}
+            userProfile={!item.payload.isAnonymous ? userProfile : null}
             isPublic={item.payload.isPublic}
             sharingAt={item.timestamp}
           />
@@ -267,9 +268,7 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
                 text={currentPostEvent.payload.text}
                 isPublic={currentPostEvent.payload.isPublic}
                 userProfile={
-                  !currentPostEvent.payload.isAnonymous
-                    ? userProfile
-                    : undefined
+                  !currentPostEvent.payload.isAnonymous ? userProfile : null
                 }
               />
             </Gutters>

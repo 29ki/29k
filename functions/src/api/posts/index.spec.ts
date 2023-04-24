@@ -1,5 +1,6 @@
 import request from 'supertest';
 import Koa from 'koa';
+import {Timestamp} from 'firebase-admin/firestore';
 
 import {postsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
@@ -56,8 +57,8 @@ describe('/api/posts', () => {
           },
           approved: true,
           language: 'en',
-          createdAt: '2022-01-01T00:00:00Z',
-          updatedAt: '2022-01-01T00:00:00Z',
+          createdAt: Timestamp.fromDate(new Date('2022-01-01T00:00:00Z')),
+          updatedAt: Timestamp.fromDate(new Date('2022-01-01T00:00:00Z')),
         },
       ]);
       const response = await request(mockServer).get(
@@ -84,8 +85,8 @@ describe('/api/posts', () => {
           },
           approved: true,
           language: 'en',
-          createdAt: '2022-01-01T00:00:00Z',
-          updatedAt: '2022-01-01T00:00:00Z',
+          createdAt: Timestamp.fromDate(new Date('2022-01-01T00:00:00Z')),
+          updatedAt: Timestamp.fromDate(new Date('2022-01-01T00:00:00Z')),
         },
       ]);
     });

@@ -54,7 +54,7 @@ const BottomGradient = styled(LinearGradient)({
 });
 
 type ListPostCardProps = {
-  userProfile?: UserProfile;
+  userProfile: UserProfile | null;
   text: string;
   sharingAt?: string;
   isPublic?: boolean;

@@ -63,7 +63,7 @@ export type ModalStackProps = {
   };
   SharingModal: {exerciseId: string};
   SharingPostModal: {
-    userProfile?: UserProfile;
+    userProfile?: UserProfile | null;
     text: string;
   };
   SessionUnavailableModal: undefined;
@@ -91,7 +91,7 @@ export type ModalStackProps = {
   SafetyToolkitModal: undefined;
   ReportModal: {originScreen: string};
   CalmDownModal: undefined;
-  HostInfoModal: {host?: User};
+  HostInfoModal: {host: User | null};
   CompletedSessionsModal: {
     filterSetting: 'mode' | 'feedback' | 'host';
   };

@@ -27,7 +27,7 @@ const HeaderRow = styled.View({
 });
 
 type MyPostCardProps = {
-  userProfile?: UserProfile;
+  userProfile?: UserProfile | null;
   text: string;
   isPublic: boolean;
   inList?: boolean;

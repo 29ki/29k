@@ -3,19 +3,24 @@ import validator from 'koa-yup-validator';
 import 'firebase-functions';
 
 import {
+  CreateSession,
+  CreateSessionSchema,
+  InterestedCountSchema,
+  InterestedCountUpdate,
+  JoinSession,
+  JoinSessionSchema,
   LiveSessionSchema,
   SessionStateSchema,
+  SessionStateUpdate,
+  SessionStateUpdateSchema,
   SessionType,
+  UpdateSession,
+  UpdateSessionSchema,
 } from '../../../../shared/src/types/Session';
 import {createApiAuthRouter} from '../../lib/routers';
 import restrictAccessToRole from '../lib/restrictAccessToRole';
 
 import * as sessionsController from '../../controllers/sessions';
-import {
-  DEFAULT_LANGUAGE_TAG,
-  LANGUAGE_TAG,
-  LANGUAGE_TAGS,
-} from '../../lib/i18n';
 import {
   JoinSessionError,
   ValidateSessionError,
@@ -98,18 +103,6 @@ sessionsRouter.get('/:id', responseFilter(LiveSessionSchema), async ctx => {
   }
 });
 
-const CreateSessionSchema = yup.object().shape({
-  exerciseId: yup.string().required(),
-  type: yup.mixed<SessionType>().oneOf(Object.values(SessionType)).required(),
-  startTime: yup.string().required(),
-  language: yup
-    .mixed<LANGUAGE_TAG>()
-    .oneOf(LANGUAGE_TAGS)
-    .default(DEFAULT_LANGUAGE_TAG),
-});
-
-type CreateSession = yup.InferType<typeof CreateSessionSchema>;
-
 sessionsRouter.post(
   '/',
   validator({body: CreateSessionSchema}),
@@ -145,12 +138,6 @@ sessionsRouter.delete('/:id', responseFilter(yup.string()), async ctx => {
   ctx.body = 'Session deleted successfully';
 });
 
-const JoinSessionSchema = yup.object({
-  inviteCode: yup.number().required(),
-});
-
-export type JoinSession = yup.InferType<typeof JoinSessionSchema>;
-
 sessionsRouter.put(
   '/joinSession',
   validator({body: JoinSessionSchema}),
@@ -180,19 +167,6 @@ sessionsRouter.put(
   },
 );
 
-const UpdateSessionSchema = yup
-  .object({
-    startTime: yup.string(),
-    type: yup.mixed<SessionType>().oneOf(Object.values(SessionType)),
-  })
-  .test(
-    'nonEmptyObject',
-    'object may not be empty',
-    test => Object.keys(test).length > 0,
-  );
-
-export type UpdateSession = yup.InferType<typeof UpdateSessionSchema>;
-
 sessionsRouter.put(
   '/:id',
   validator({body: UpdateSessionSchema}),
@@ -221,10 +195,6 @@ sessionsRouter.put(
   },
 );
 
-const InterestedCountSchema = yup.object({increment: yup.boolean().required()});
-
-export type InterestedCountUpdate = yup.InferType<typeof InterestedCountSchema>;
-
 sessionsRouter.put(
   '/:id/interestedCount',
   validator({body: InterestedCountSchema}),
@@ -241,22 +211,6 @@ sessionsRouter.put(
     }
   },
 );
-
-const SessionStateUpdateSchema = yup
-  .object({
-    started: yup.boolean(),
-    ended: yup.boolean(),
-    index: yup.number(),
-    playing: yup.boolean(),
-    completed: yup.boolean(),
-  })
-  .test(
-    'nonEmptyObject',
-    'object may not be empty',
-    test => Object.keys(test).length > 0,
-  );
-
-export type SessionStateUpdate = yup.InferType<typeof SessionStateUpdateSchema>;
 
 sessionsRouter.put(
   '/:id/state',

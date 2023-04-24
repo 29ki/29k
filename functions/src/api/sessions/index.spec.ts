@@ -295,7 +295,9 @@ describe('/api/sessions', () => {
     it('should return newly created session', async () => {
       getMockCustomClaims.mockReturnValueOnce({role: ROLE.publicHost});
 
-      mockCreateSession.mockResolvedValueOnce({id: 'new-session'});
+      mockCreateSession.mockResolvedValueOnce({
+        id: 'new-session',
+      });
       const response = await request(mockServer)
         .post('/sessions')
         .send({
@@ -349,7 +351,14 @@ describe('/api/sessions', () => {
 
   describe('PUT /:id', () => {
     it('should return updated session', async () => {
-      mockUpdateSession.mockResolvedValueOnce({id: 'some-session-id'});
+      mockUpdateSession.mockResolvedValueOnce({
+        id: 'some-session-id',
+        completed: false,
+        ended: false,
+        index: 2,
+        playing: false,
+        started: true,
+      });
       const response = await request(mockServer)
         .put('/sessions/some-session-id')
         .send({type: SessionType.private})
@@ -358,6 +367,11 @@ describe('/api/sessions', () => {
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
         id: 'some-session-id',
+        completed: false,
+        ended: false,
+        index: 2,
+        playing: false,
+        started: true,
       });
     });
 
@@ -410,7 +424,14 @@ describe('/api/sessions', () => {
 
   describe('PUT /:id/state', () => {
     it('should call session update', async () => {
-      mockUpdateSessionState.mockResolvedValueOnce({id: 'some-session-id'});
+      mockUpdateSessionState.mockResolvedValueOnce({
+        id: 'some-session-id',
+        completed: false,
+        ended: false,
+        index: 2,
+        playing: false,
+        started: true,
+      });
       const response = await request(mockServer)
         .put('/sessions/some-session-id/state')
         .send({index: 2})
@@ -419,6 +440,11 @@ describe('/api/sessions', () => {
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
         id: 'some-session-id',
+        completed: false,
+        ended: false,
+        index: 2,
+        playing: false,
+        started: true,
       });
     });
 
@@ -444,7 +470,14 @@ describe('/api/sessions', () => {
     });
 
     it('does not accept other fields', async () => {
-      mockUpdateSessionState.mockResolvedValueOnce({id: 'some-session-id'});
+      mockUpdateSessionState.mockResolvedValueOnce({
+        id: 'some-session-id',
+        completed: false,
+        ended: false,
+        index: 1,
+        playing: false,
+        started: true,
+      });
       const response = await request(mockServer)
         .put('/sessions/some-session-id/state')
         .send({index: 1, foo: 'bar'})

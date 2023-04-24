@@ -1,16 +1,11 @@
 import {firestore} from 'firebase-admin';
 import {Timestamp} from 'firebase-admin/firestore';
 import {getData} from '../../../shared/src/modelUtils/firestore';
-import {HostedCount, UserData} from '../../../shared/src/types/User';
+import {UserFilters, UserInput, UserRecord} from './types/types';
 
 const USERS_COLLECTION = 'users';
 
-type User = UserData & {id: string};
-type UserFilters = {
-  role: string;
-};
-
-export const updateUser = async (id: string, userData: Partial<UserData>) => {
+export const updateUser = async (id: string, userData: Partial<UserInput>) => {
   const now = Timestamp.now();
   await firestore()
     .collection(USERS_COLLECTION)
@@ -20,12 +15,17 @@ export const updateUser = async (id: string, userData: Partial<UserData>) => {
 
 export const incrementHostedCount = async (
   id: string,
-  countProperty: keyof HostedCount,
+  countProperty: keyof Pick<
+    UserRecord,
+    'hostedPrivateCount' | 'hostedPublicCount'
+  >,
 ) => {
   const userRef = firestore().collection(USERS_COLLECTION).doc(id);
   await firestore().runTransaction(async transaction => {
     const document = await transaction.get(userRef);
-    const user = document.exists ? getData<UserData>(document) : {};
+    const user = document.exists
+      ? getData<UserRecord>(document)
+      : ({} as UserRecord);
     const updatedAt = Timestamp.now();
     transaction.set(
       userRef,
@@ -52,13 +52,13 @@ export const getUsers = async (filters: Partial<UserFilters>) => {
   }
 
   const snapshot = await (query ?? ref).get();
-  return snapshot.docs.map(doc => getData<User>(doc));
+  return snapshot.docs.map(doc => getData<UserRecord>(doc));
 };
 
 export const getUser = async (id: string) => {
   const userRef = await firestore().collection(USERS_COLLECTION).doc(id).get();
   if (userRef.exists) {
-    return getData<UserData>(userRef);
+    return getData<UserRecord>(userRef);
   }
   return null;
 };

@@ -5,7 +5,7 @@ import createMockServer from '../lib/createMockServer';
 import {createApiPreAuthRouter} from '../../lib/routers';
 
 import * as sessionsController from '../../controllers/sessions';
-import {LiveSession} from '../../../../shared/src/types/Session';
+import {LiveSessionModel} from '../../controllers/types/types';
 
 jest.mock('../../controllers/sessions');
 const mockGetUpcomingPublicSessions = jest.mocked(
@@ -34,7 +34,7 @@ describe('/api/onboarding', () => {
         {
           id: 'some-other-session-id',
         },
-      ] as LiveSession[]);
+      ] as LiveSessionModel[]);
       const response = await request(mockServer).get('/onboarding/sessions');
 
       expect(mockGetUpcomingPublicSessions).toHaveBeenCalledTimes(1);

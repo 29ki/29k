@@ -1,4 +1,4 @@
-import {ReportParams} from '../api/report';
+import {ReportParams} from '../../../shared/src/types/Report';
 import {LANGUAGE_TAG} from '../lib/i18n';
 import {sendReportEmail} from '../models/email';
 

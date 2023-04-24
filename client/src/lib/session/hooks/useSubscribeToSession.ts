@@ -3,10 +3,8 @@ import firestore from '@react-native-firebase/firestore';
 import {
   SessionState,
   LiveSession,
-  SessionStateData,
+  SessionStateSchema,
 } from '../../../../../shared/src/types/Session';
-import {getData} from '../../../../../shared/src/modelUtils/firestore';
-import {getSessionState} from '../../../../../shared/src/modelUtils/session';
 
 const useSubscribeToSession = (sessionId: LiveSession['id']) => {
   return useCallback(
@@ -22,12 +20,7 @@ const useSubscribeToSession = (sessionId: LiveSession['id']) => {
           if (!snapshot.exists) {
             onSnapshot(undefined);
           }
-
-          const sessionState = getSessionState(
-            getData<SessionStateData>(snapshot),
-          );
-
-          onSnapshot(sessionState);
+          onSnapshot(SessionStateSchema.validateSync(snapshot.data()));
         },
         error =>
           console.debug(

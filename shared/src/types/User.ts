@@ -11,15 +11,11 @@ const UserProfileSchema = yup.object({
 });
 export type UserProfile = yup.InferType<typeof UserProfileSchema>;
 
-const HostedCountSchema = yup.object({
-  hostedPublicCount: yup.number(),
-  hostedPrivateCount: yup.number(),
-});
-export type HostedCount = yup.InferType<typeof HostedCountSchema>;
-
-export const UserDataSchema = HostedCountSchema.shape({
+export const UserDataSchema = yup.object({
   description: yup.string(),
   role: yup.mixed<ROLE>().oneOf(Object.values(ROLE)),
+  hostedPublicCount: yup.number(),
+  hostedPrivateCount: yup.number(),
 });
 export type UserData = yup.InferType<typeof UserDataSchema>;
 

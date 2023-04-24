@@ -23,7 +23,7 @@ const ImageContainer = styled.View({
   shadowColor: COLORS.GREYDARK,
 });
 
-type BylineUserProps = {user?: UserProfile};
+type BylineUserProps = {user?: UserProfile | null};
 
 const BylineUser: React.FC<BylineUserProps> = React.memo(({user}) => {
   const {t} = useTranslation('Component.BylineUser');
