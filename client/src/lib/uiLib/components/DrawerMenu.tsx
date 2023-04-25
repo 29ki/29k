@@ -77,7 +77,12 @@ const DrawerContent: (
     ) => (
       <Fragment key={`Top-level-${name}`}>
         <TopLevelText>{name}</TopLevelText>
-        {values(mapObjIndexed(renderMenuItem(name), mergeAll(subLevel)))}
+        {values(
+          mapObjIndexed(
+            renderMenuItem(name),
+            mergeAll([subLevel[0], ...subLevel]),
+          ),
+        )}
       </Fragment>
     );
 
