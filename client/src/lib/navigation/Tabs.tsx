@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {Platform} from 'react-native';
 import {
   BottomTabNavigationOptions,
@@ -10,12 +10,13 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 
 import {
-  HomeFillIcon,
-  HomeIcon,
   IconType,
   JourneyIcon,
   JourneyFillIcon,
-  LogoIcon,
+  SunUpIcon,
+  SunUpFillIcon,
+  ExploreIcon,
+  ExploreFillIcon,
 } from '../components/Icons';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import {TabNavigatorProps} from './constants/routes';
@@ -24,7 +25,7 @@ import {Body14} from '../components/Typography/Body/Body';
 import {BottomSafeArea} from '../components/Spacers/Spacer';
 
 import Home from '../../routes/screens/Home/Home';
-import SessionsStack from './SessionsStack';
+import ExploreStack from './ExploreStack';
 import JourneyStack from './JourneyStack';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
@@ -85,22 +86,34 @@ const getTabOptions: (
 
 const Tabs = () => {
   const {t} = useTranslation('Component.Tabs');
+
+  const homeOptions = useMemo(
+    () => getTabOptions(SunUpIcon, SunUpFillIcon, t('home')),
+    [t],
+  );
+
+  const exploreOptions = useMemo(
+    () => getTabOptions(ExploreIcon, ExploreFillIcon, t('sessions')),
+    [t],
+  );
+
+  const journeyOptions = useMemo(
+    () => getTabOptions(JourneyIcon, JourneyFillIcon, t('journey')),
+    [t],
+  );
+
   return (
     <Tab.Navigator screenOptions={screenOptions} tabBar={TabBar}>
+      <Tab.Screen name={'Home'} component={Home} options={homeOptions} />
       <Tab.Screen
-        name={'Home'}
-        component={Home}
-        options={getTabOptions(HomeIcon, HomeFillIcon, t('home'))}
-      />
-      <Tab.Screen
-        name={'SessionsStack'}
-        component={SessionsStack}
-        options={getTabOptions(LogoIcon, LogoIcon, t('sessions'))}
+        name={'ExploreStack'}
+        component={ExploreStack}
+        options={exploreOptions}
       />
       <Tab.Screen
         name={'JourneyStack'}
         component={JourneyStack}
-        options={getTabOptions(JourneyIcon, JourneyFillIcon, t('journey'))}
+        options={journeyOptions}
       />
     </Tab.Navigator>
   );
