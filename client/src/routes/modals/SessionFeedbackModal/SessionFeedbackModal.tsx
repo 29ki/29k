@@ -17,6 +17,7 @@ import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {
   Spacer16,
   Spacer24,
+  Spacer48,
   Spacer60,
   Spacer8,
 } from '../../../lib/components/Spacers/Spacer';
@@ -30,13 +31,21 @@ import {BottomSheetTextInput} from '../../../lib/components/Typography/TextInput
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 
 import {DEFAULT_LANGUAGE_TAG} from '../../../lib/i18n';
-import {Display36} from '../../../lib/components/Typography/Display/Display';
+import {
+  Display22,
+  Display36,
+} from '../../../lib/components/Typography/Display/Display';
 import {ThumbsUp, ThumbsDown} from '../../../lib/components/Thumbs/Thumbs';
 
 import useCompletedSessionById from '../../../lib/user/hooks/useCompletedSessionById';
 import useSessionFeedback from '../../../lib/session/hooks/useSessionFeedback';
 import useRating from '../../../lib/rating/hooks/useRating';
 import VideoLooper from '../../../lib/components/VideoLooper/VideoLooper';
+import {
+  Body12,
+  BodyBold,
+  BodyItalic,
+} from '../../../lib/components/Typography/Body/Body';
 
 const BackgroundVideo = styled(VideoLooper).attrs({
   repeat: true,
@@ -59,8 +68,13 @@ const ThankYou = styled(Display36)({
   textAlign: 'center',
 });
 
+const Heading = styled(Display22)({
+  alignSelf: 'center',
+});
+
 const Votes = styled.View({
   flexDirection: 'row',
+  alignSelf: 'center',
 });
 
 const Vote = styled(TouchableOpacity)({
@@ -69,13 +83,16 @@ const Vote = styled(TouchableOpacity)({
 });
 
 const Wrapper = styled(Gutters)({
-  alignItems: 'center',
   justifyContent: 'center',
 });
 
 const TextField = styled(BottomSheetTextInput)({
   height: 80,
   width: '100%',
+});
+
+const Submit = styled(Button)({
+  alignSelf: 'flex-start',
 });
 
 const SessionFeedbackModal = () => {
@@ -165,9 +182,9 @@ const SessionFeedbackModal = () => {
         <>
           <BottomSheetScrollView focusHook={useIsFocused}>
             <ModalHeading>{t('title')}</ModalHeading>
-            <Spacer24 />
+            <Spacer16 />
             <Wrapper>
-              <Heading24>{t('question')}</Heading24>
+              <Heading>{t('question')}</Heading>
               <Votes>
                 <Vote onPress={thumbsUpPress}>
                   <ThumbsUp active={answer === true} />
@@ -176,7 +193,7 @@ const SessionFeedbackModal = () => {
                   <ThumbsDown active={answer === false} />
                 </Vote>
               </Votes>
-              <Spacer60 />
+              <Spacer48 />
 
               <Heading16>{t('comments')}</Heading16>
               <Spacer8 />
@@ -186,9 +203,14 @@ const SessionFeedbackModal = () => {
                 placeholder={t('commentsPlaceholder')}
                 numberOfLines={3}
               />
-
+              <Spacer8 />
+              <Body12>
+                <BodyItalic>{t('note')}</BodyItalic>
+              </Body12>
               <Spacer16 />
-              <Button onPress={submit}>{t('submit')}</Button>
+              <Submit onPress={submit}>
+                <BodyBold>{t('submit')}</BodyBold>
+              </Submit>
               <Spacer24 />
             </Wrapper>
           </BottomSheetScrollView>
