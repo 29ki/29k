@@ -141,7 +141,6 @@ const CompletedSessionsModal = () => {
     ({item, index, section}) => (
       <Gutters key={item.payload.id}>
         <JourneyNode
-          index={index}
           completedSessionEvent={item}
           isLast={index === section.data.length - 1}
         />

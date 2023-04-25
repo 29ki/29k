@@ -255,7 +255,6 @@ const Journey = () => {
         return (
           <Gutters key={item.completedSession.payload.id}>
             <JourneyNode
-              index={index}
               completedSessionEvent={item.completedSession}
               isLast={!hasCardAfter}
             />

@@ -4,7 +4,6 @@ import dayjs from 'dayjs';
 import AnimatedLottieView from 'lottie-react-native';
 import React, {useCallback, useMemo} from 'react';
 import styled from 'styled-components/native';
-import Animated, {FadeIn, FadeOut, Layout} from 'react-native-reanimated';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 
@@ -34,15 +33,12 @@ const NODE_SIZE = 22;
 
 type JourneyNodeProps = {
   completedSessionEvent: CompletedSessionEvent;
-  index: number;
   isLast: boolean;
 };
 
 const Lottie = styled(AnimatedLottieView)({
   aspectRatio: '1',
 });
-
-const AnimatedContainer = styled(Animated.View)({});
 
 const Container = styled(TouchableOpacity)({
   flexDirection: 'row',
@@ -99,7 +95,6 @@ const Spacer2 = styled.View({height: 2});
 
 const JourneyNode: React.FC<JourneyNodeProps> = ({
   completedSessionEvent,
-  index,
   isLast = false,
 }) => {
   const {
@@ -140,59 +135,54 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
   );
 
   return (
-    <AnimatedContainer
-      layout={Layout.springify()}
-      entering={FadeIn.delay(index * 100)}
-      exiting={FadeOut}>
-      <Container onPress={openCompleteSessionModal}>
-        <Line isLast={isLast} />
-        <Node>
-          <InnerNode />
-        </Node>
-        <ContentContainer>
-          <Row>
-            <Column>
-              <Row>
-                <Badge
-                  text={dayjs(timestamp).format('ddd, D MMM HH:mm')}
-                  IconAfter={
-                    mode === SessionMode.async ? (
-                      <MeIcon />
-                    ) : type === SessionType.private ? (
-                      <FriendsIcon />
-                    ) : (
-                      <CommunityIcon />
-                    )
-                  }
-                  completed
-                />
-              </Row>
-              <Spacer8 />
-              {exercise?.name && (
-                <Display16 numberOfLines={1}>{exercise.name}</Display16>
-              )}
-              <Spacer2 />
-              <Byline
-                small
-                pictureURL={
-                  hostProfile?.photoURL ?? exercise?.card?.host?.photoURL
+    <Container onPress={openCompleteSessionModal}>
+      <Line isLast={isLast} />
+      <Node>
+        <InnerNode />
+      </Node>
+      <ContentContainer>
+        <Row>
+          <Column>
+            <Row>
+              <Badge
+                text={dayjs(timestamp).format('ddd, D MMM HH:mm')}
+                IconAfter={
+                  mode === SessionMode.async ? (
+                    <MeIcon />
+                  ) : type === SessionType.private ? (
+                    <FriendsIcon />
+                  ) : (
+                    <CommunityIcon />
+                  )
                 }
-                name={
-                  hostProfile?.displayName ?? exercise?.card?.host?.displayName
-                }
+                completed
               />
-            </Column>
-            <GraphicsWrapper>
-              {lottie ? (
-                <Lottie source={lottie} autoPlay loop />
-              ) : image ? (
-                <Image resizeMode="contain" source={image} />
-              ) : null}
-            </GraphicsWrapper>
-          </Row>
-        </ContentContainer>
-      </Container>
-    </AnimatedContainer>
+            </Row>
+            <Spacer8 />
+            {exercise?.name && (
+              <Display16 numberOfLines={1}>{exercise.name}</Display16>
+            )}
+            <Spacer2 />
+            <Byline
+              small
+              pictureURL={
+                hostProfile?.photoURL ?? exercise?.card?.host?.photoURL
+              }
+              name={
+                hostProfile?.displayName ?? exercise?.card?.host?.displayName
+              }
+            />
+          </Column>
+          <GraphicsWrapper>
+            {lottie ? (
+              <Lottie source={lottie} autoPlay loop />
+            ) : image ? (
+              <Image resizeMode="contain" source={image} />
+            ) : null}
+          </GraphicsWrapper>
+        </Row>
+      </ContentContainer>
+    </Container>
   );
 };
 

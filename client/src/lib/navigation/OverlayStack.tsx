@@ -16,7 +16,6 @@ const {Navigator, Screen} = createStackNavigator<OverlayStackProps>();
 const screenOptions: StackNavigationOptions = {
   headerShown: false,
   presentation: 'modal',
-  detachPreviousScreen: false, // Fixes issue with previous screen becoming unresponsive
   cardStyle: Platform.select({
     ios: {
       borderTopLeftRadius: SETTINGS.BORDER_RADIUS.CARDS,
@@ -26,7 +25,7 @@ const screenOptions: StackNavigationOptions = {
 };
 
 const OverlayStack = () => (
-  <Navigator screenOptions={screenOptions}>
+  <Navigator screenOptions={screenOptions} detachInactiveScreens={false}>
     <Screen name="App" component={AppStack} />
     <Screen name="AboutOverlay" component={AboutOverlay} />
     <Screen name="AboutEditorialOverlay" component={AboutEditorialOverlay} />
