@@ -4,14 +4,16 @@
     "uiLib": "UI Library",
     "checkUpdate": "Check for update",
     "clearUpdate": "Clear update",
-    "showHiddenContent": "Show hidden content"
+    "showHiddenContent": "Show hidden content",
+    "addDevUserEvents": "Add development user events"
   },
   "pt": {
     "uiLib": "Biblioteca UI",
     "checkUpdate": "Verificar atualizações",
     "clearUpdate": "Limpar atualização",
     "title": "Programador",
-    "showHiddenContent": "Mostrar conteúdo escondido"
+    "showHiddenContent": "Mostrar conteúdo escondido",
+    "addDevUserEvents": "Adicionar eventos de usuário para desenvolvimento"
   },
   "sv": {},
   "es": {}

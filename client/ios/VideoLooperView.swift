@@ -62,7 +62,9 @@ class VideoLooperView: RCTView {
 
   @objc func applicationDidBecomeActiveNotification(notification:NSNotification!) {
     self._playerLayer.player = self._player
-    self._player?.play()
+    if !self._pause {
+      self._player?.play()
+    }
   }
   
   @objc func playerInterruption(notification: NSNotification) {
@@ -82,7 +84,9 @@ class VideoLooperView: RCTView {
       if options.contains(.shouldResume) {
         // Interruption Ended - playback should resume
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+          if !self._pause {
             self._player?.play()
+          }
         }
       }
     }
@@ -190,7 +194,11 @@ class VideoLooperView: RCTView {
           fullfill(asset)
         }
       } else {
-        fullfill(nil)
+        reject(
+          NSError(
+            domain: "",
+            code: -1,
+            userInfo: [NSLocalizedDescriptionKey: "\(String(describing: source)) not found"]))
       }
     }
   }
@@ -202,6 +210,8 @@ class VideoLooperView: RCTView {
           asset: asset!,
           shouldRepeat: config["repeat"] == nil ? false : config["repeat"] as! Bool
         ))
+      }.catch { error in
+        reject(error)
       }
     }
   }
@@ -226,7 +236,9 @@ class VideoLooperView: RCTView {
           self.onLoad!(event)
         }
       } catch {
-        print("Error creating audioPlayer \(error)")
+        if (self.onError != nil) {
+          self.onError!(["cause": "Error creating audioPlayer \(error)"])
+        }
       }
     }
   }
@@ -244,6 +256,7 @@ class VideoLooperView: RCTView {
   @objc var onEnd: RCTDirectEventBlock?
   @objc var onTransition: RCTDirectEventBlock?
   @objc var onLoad: RCTDirectEventBlock?
+  @objc var onError: RCTDirectEventBlock?
   
   @objc func setSources(_ sources: NSArray) {
     DispatchQueue.global(qos: .default).async {
@@ -296,6 +309,10 @@ class VideoLooperView: RCTView {
                 event["duration"] = NSNumber(value: duration)
               }
               self.onLoad!(event)
+            }
+          }.catch { error in
+            if (self.onError != nil) {
+              self.onError!(["cause": "Could not load asset \(error)"])
             }
           }
         }

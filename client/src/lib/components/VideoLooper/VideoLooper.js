@@ -1,6 +1,7 @@
 import React from 'react';
 import {requireNativeComponent, StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
+import Sentry from '../../sentry';
 
 const RNVideoLooper = requireNativeComponent('VideoLooper');
 
@@ -18,6 +19,7 @@ class VideoLooper extends React.Component {
     super(props);
     this.seek = this.seek.bind(this);
     this.onLoad = this.onLoad.bind(this);
+    this.onError = this.onError.bind(this);
     this.state = {};
   }
 
@@ -35,17 +37,25 @@ class VideoLooper extends React.Component {
     }
   }
 
+  onError(event) {
+    Sentry.captureMessage(event.nativeEvent.cause);
+    if (this.props.onError) {
+      this.props.onError(event.nativeEvent);
+    }
+  }
+
   seek(to) {
     this.setNativeProps({seek: to});
   }
 
   render() {
-    const {onLoad, style, ...rest} = this.props;
+    const {onLoad, onError, style, ...rest} = this.props;
     return (
       <Container style={style}>
         <StyledRNVideoLooper
           ref={this._assignRoot}
           onLoad={this.onLoad}
+          onError={this.onError}
           {...rest}
         />
       </Container>

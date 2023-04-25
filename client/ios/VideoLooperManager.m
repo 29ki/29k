@@ -13,5 +13,6 @@ RCT_EXPORT_VIEW_PROPERTY(seek, NSNumber)
 RCT_EXPORT_VIEW_PROPERTY(onEnd, RCTDirectEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onTransition, RCTDirectEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onLoad, RCTDirectEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onError, RCTDirectEventBlock)
 
 @end
