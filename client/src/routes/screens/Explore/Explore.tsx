@@ -36,12 +36,12 @@ type Section = {
   data: Exercise[];
 };
 
-const Sessions = () => {
+const Explore = () => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<OverlayStackProps>>();
   const exercises = useExercises();
   const collections = useCollections();
-  const {t} = useTranslation('Screen.Sessions');
+  const {t} = useTranslation('Screen.Explore');
 
   const onPressEllipsis = useCallback(() => {
     navigate('AboutOverlay');
@@ -129,4 +129,4 @@ const Sessions = () => {
   );
 };
 
-export default Sessions;
+export default Explore;

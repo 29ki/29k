@@ -26,7 +26,7 @@ import {Display20} from '../../../lib/components/Typography/Display/Display';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import useCollectionById from '../../../lib/content/hooks/useCollectionById';
 import useExercisesByCollectionId from '../../../lib/content/hooks/useExercisesByCollectionId';
-import {SessionsStackProps} from '../../../lib/navigation/constants/routes';
+import {ExploreStackProps} from '../../../lib/navigation/constants/routes';
 import useCompletedSessionByTime from '../../../lib/user/hooks/useCompletedSessionByTime';
 import usePinCollection from '../../../lib/user/hooks/usePinCollection';
 import usePinnedCollectionById from '../../../lib/user/hooks/usePinnedCollectionById';
@@ -67,9 +67,9 @@ const BottomGradient = styled(LinearGradient)({
 const Collection = () => {
   const {
     params: {collectionId},
-  } = useRoute<RouteProp<SessionsStackProps, 'Collection'>>();
+  } = useRoute<RouteProp<ExploreStackProps, 'Collection'>>();
   const {goBack} =
-    useNavigation<NativeStackNavigationProp<SessionsStackProps>>();
+    useNavigation<NativeStackNavigationProp<ExploreStackProps>>();
   const {t} = useTranslation('Screen.Collection');
   const collection = useCollectionById(collectionId);
   const exercises = useExercisesByCollectionId(collectionId);
