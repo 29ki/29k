@@ -93,7 +93,7 @@ const Tabs = () => {
   );
 
   const exploreOptions = useMemo(
-    () => getTabOptions(ExploreIcon, ExploreFillIcon, t('sessions')),
+    () => getTabOptions(ExploreIcon, ExploreFillIcon, t('explore')),
     [t],
   );
 
