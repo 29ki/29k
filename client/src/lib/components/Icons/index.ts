@@ -8,7 +8,6 @@ export type IconType = React.FC<{
 
 export * from './ArrowLeft/ArrowLeft';
 export * from './ArrowRight/ArrowRight';
-export * from './Back/Back';
 export * from './BackwardCircle/BackwardCircle';
 export * from './Bell/Bell';
 export * from './BellFill/BellFill';
@@ -30,7 +29,6 @@ export * from './ExploreFill/ExploreFill';
 export * from './Facebook/Facebook';
 export * from './FilmCamera/FilmCamera';
 export * from './FilmCameraOff/FilmCameraOff';
-export * from './Forward/Forward';
 export * from './ForwardCircle/ForwardCircle';
 export * from './Friends/Friends';
 export * from './HangUp/HangUp';
