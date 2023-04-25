@@ -10,14 +10,7 @@ interface ResponseContext extends Context {
 export const response = () => async (ctx: ResponseContext, next: Next) => {
   await next();
   if (ctx.status === 200 && ctx.body) {
-    if (ctx.validate) {
-      const validate = ctx.validate as Validator;
-      if (Array.isArray(ctx.body)) {
-        ctx.body = ctx.body.map(b => validate(b, {stripUnknown: true}));
-      } else {
-        ctx.body = validate(ctx.body, {stripUnknown: true});
-      }
-    } else {
+    if (!ctx.state?.validated?.response) {
       throw new Error(
         `No schema found for the response to ${ctx.request.method} at ${ctx.request.URL}`,
       );

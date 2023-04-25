@@ -1,5 +1,4 @@
 import * as yup from 'yup';
-import validator from 'koa-yup-validator';
 import 'firebase-functions';
 
 import {
@@ -27,28 +26,32 @@ import {
 } from '../../../../shared/src/errors/Session';
 import {RequestError} from '../../controllers/errors/RequestError';
 import {ROLE} from '../../../../shared/src/types/User';
-import {responseFilter} from '../lib/response';
+import validation from '../lib/validation';
 
 const sessionsRouter = createApiAuthRouter();
 
-sessionsRouter.get('/', responseFilter(LiveSessionSchema), async ctx => {
-  const {response, user, query} = ctx;
-  const exerciseId =
-    typeof query.exerciseId === 'string' ? query.exerciseId : undefined;
-  const hostId = typeof query.hostId === 'string' ? query.hostId : undefined;
+sessionsRouter.get(
+  '/',
+  validation({response: LiveSessionSchema}),
+  async ctx => {
+    const {response, user, query} = ctx;
+    const exerciseId =
+      typeof query.exerciseId === 'string' ? query.exerciseId : undefined;
+    const hostId = typeof query.hostId === 'string' ? query.hostId : undefined;
 
-  const sessions = await sessionsController.getSessionsByUserId(
-    user.id,
-    exerciseId,
-    hostId,
-  );
-  response.status = 200;
-  ctx.body = sessions;
-});
+    const sessions = await sessionsController.getSessionsByUserId(
+      user.id,
+      exerciseId,
+      hostId,
+    );
+    response.status = 200;
+    ctx.body = sessions;
+  },
+);
 
 sessionsRouter.get(
   '/:id/sessionToken',
-  responseFilter(yup.string()),
+  validation({response: yup.string()}),
   async ctx => {
     const {user, params} = ctx;
 
@@ -78,39 +81,42 @@ sessionsRouter.get(
   },
 );
 
-sessionsRouter.get('/:id', responseFilter(LiveSessionSchema), async ctx => {
-  const {user, params} = ctx;
+sessionsRouter.get(
+  '/:id',
+  validation({response: LiveSessionSchema}),
+  async ctx => {
+    const {user, params} = ctx;
 
-  try {
-    const session = await sessionsController.getSession(user.id, params.id);
-    ctx.status = 200;
-    ctx.body = session;
-  } catch (error) {
-    const requestError = error as RequestError;
-    switch (requestError.code) {
-      case ValidateSessionError.notFound:
-        ctx.status = 404;
-        break;
+    try {
+      const session = await sessionsController.getSession(user.id, params.id);
+      ctx.status = 200;
+      ctx.body = session;
+    } catch (error) {
+      const requestError = error as RequestError;
+      switch (requestError.code) {
+        case ValidateSessionError.notFound:
+          ctx.status = 404;
+          break;
 
-      case ValidateSessionError.userNotFound:
-        ctx.status = 403;
-        break;
+        case ValidateSessionError.userNotFound:
+          ctx.status = 403;
+          break;
 
-      default:
-        throw error;
+        default:
+          throw error;
+      }
+      ctx.message = requestError.code;
     }
-    ctx.message = requestError.code;
-  }
-});
+  },
+);
 
 sessionsRouter.post(
   '/',
-  validator({body: CreateSessionSchema}),
   restrictAccessToRole<CreateSession>(
     ROLE.publicHost,
     ({type}) => type === SessionType.public,
   ),
-  responseFilter(LiveSessionSchema),
+  validation({body: CreateSessionSchema, response: LiveSessionSchema}),
   async ctx => {
     const {exerciseId, type, startTime, language} = ctx.request
       .body as CreateSession;
@@ -125,23 +131,26 @@ sessionsRouter.post(
   },
 );
 
-sessionsRouter.delete('/:id', responseFilter(yup.string()), async ctx => {
-  const {id} = ctx.params;
+sessionsRouter.delete(
+  '/:id',
+  validation({response: yup.string()}),
+  async ctx => {
+    const {id} = ctx.params;
 
-  try {
-    await sessionsController.removeSession(ctx.user.id, id);
-  } catch {
-    ctx.status = 500;
-  }
+    try {
+      await sessionsController.removeSession(ctx.user.id, id);
+    } catch {
+      ctx.status = 500;
+    }
 
-  ctx.status = 200;
-  ctx.body = 'Session deleted successfully';
-});
+    ctx.status = 200;
+    ctx.body = 'Session deleted successfully';
+  },
+);
 
 sessionsRouter.put(
   '/joinSession',
-  validator({body: JoinSessionSchema}),
-  responseFilter(LiveSessionSchema),
+  validation({body: JoinSessionSchema, response: LiveSessionSchema}),
   async ctx => {
     const {inviteCode} = ctx.request.body as JoinSession;
     const {user} = ctx;
@@ -169,12 +178,11 @@ sessionsRouter.put(
 
 sessionsRouter.put(
   '/:id',
-  validator({body: UpdateSessionSchema}),
   restrictAccessToRole<UpdateSession>(
     ROLE.publicHost,
     ({type}) => type === SessionType.public,
   ),
-  responseFilter(LiveSessionSchema),
+  validation({body: UpdateSessionSchema, response: LiveSessionSchema}),
   async ctx => {
     const {id} = ctx.params;
     const body = ctx.request.body as UpdateSession;
@@ -197,7 +205,7 @@ sessionsRouter.put(
 
 sessionsRouter.put(
   '/:id/interestedCount',
-  validator({body: InterestedCountSchema}),
+  validation({body: InterestedCountSchema}),
   async ctx => {
     const {id} = ctx.params;
     const body = ctx.request.body as InterestedCountUpdate;
@@ -214,8 +222,7 @@ sessionsRouter.put(
 
 sessionsRouter.put(
   '/:id/state',
-  validator({body: SessionStateUpdateSchema}),
-  responseFilter(SessionStateSchema),
+  validation({body: SessionStateUpdateSchema, response: SessionStateSchema}),
   async ctx => {
     const {id} = ctx.params;
     const data = ctx.request.body as SessionStateUpdate;
