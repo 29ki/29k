@@ -142,14 +142,11 @@ const CompletedSessionsModal = () => {
       <Gutters key={item.payload.id}>
         <JourneyNode
           completedSessionEvent={item}
-          isLast={
-            data.indexOf(section) === data.length - 1 &&
-            index === section.data.length - 1
-          }
+          isLast={index === section.data.length - 1}
         />
       </Gutters>
     ),
-    [data],
+    [],
   );
 
   const footer = useMemo(
