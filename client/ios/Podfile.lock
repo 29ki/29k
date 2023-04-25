@@ -606,7 +606,7 @@ PODS:
   - BoringSSL-GRPC/Interface (0.0.24)
   - BVLinearGradient (2.6.2):
     - React-Core
-  - CodePush (7.1.0):
+  - CodePush (8.0.1):
     - Base64 (~> 1.1)
     - JWT (~> 3.0.0-beta.12)
     - React-Core
@@ -973,7 +973,7 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.39.0):
+  - react-native-daily-js (0.41.0):
     - React
   - react-native-get-random-values (1.8.0):
     - React-Core
@@ -1105,7 +1105,7 @@ PODS:
     - React-Core
   - RNReactNativeHapticFeedback (2.0.3):
     - React-Core
-  - RNReanimated (2.14.4):
+  - RNReanimated (2.17.0):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -1381,7 +1381,7 @@ SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   BVLinearGradient: 34a999fda29036898a09c6a6b728b0b4189e1a44
-  CodePush: dce1b253fde81078249ea9cd4b948e4ac7b761a9
+  CodePush: ff76ebc5c7c50fb198bae9caf0a3ad4f220fde88
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: d3c1d2923b1009f4e709e8f1b793dedf5b323454
   FBReactNativeSpec: d460df7d796ed4979c6cd4e092145b63eb28b5bb
@@ -1425,7 +1425,7 @@ SPEC CHECKSUMS:
   React-logger: 96d904c5bc87c2660d48e6a36fb2edf65f9cfb11
   react-native-add-calendar-event: d7744f983d6770cc9e4f004db22bc4d4b4575f17
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: 71463fdf8ad5471c295f5530bce27ac78f19a6a4
+  react-native-daily-js: 71e95bda78b878e21ce067c78b127d17ca2aea8c
   react-native-get-random-values: a6ea6a8a65dc93e96e24a11105b1a9c8cfe1d72a
   react-native-safe-area-context: f5549f36508b1b7497434baa0cd97d7e470920d4
   react-native-video: c26780b224543c62d5e1b2a7244a5cd1b50e8253
@@ -1456,7 +1456,7 @@ SPEC CHECKSUMS:
   RNNotifee: bdc064c29f4d558046f51f0c3ae02bab4fd3cd85
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReactNativeHapticFeedback: afa5bf2794aecbb2dba2525329253da0d66656df
-  RNReanimated: ba021107f1dd90cb04c35c5d639392d5da27d065
+  RNReanimated: c6f8f70e96dd6ca21b65aef9b3e4efe4965db905
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
   RNSentry: 68d5b2339fc7cd864e8076279345cc90174fa583
   RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
@@ -1469,4 +1469,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: c02d6bf3ddbb12b31972cfec277c2a34a553e27f
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1
