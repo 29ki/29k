@@ -132,8 +132,7 @@ export const getFeedback = (): FeedbackEvent[] => [
     type: 'feedback',
     payload: {
       question: 'Was this meaningful for you?',
-      answer: true,
-      comment: 'Loved it, felt heard and safe.',
+      answer: false,
       sessionId: '10abff47-23d5-4587-9683-7c8df85c4d12',
       exerciseId: '3188a5ed-a1d6-451c-ae2a-f44f4df37495',
     },

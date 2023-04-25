@@ -7,9 +7,11 @@ import {
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import Svg, {Path, SvgProps} from 'react-native-svg';
 import {Spacer4} from '../../../../lib/components/Spacers/Spacer';
+import {FeedbackEvent} from '../../../../../../shared/src/types/Event';
 
 const Container = styled.View({
   width: 22,
+  paddingTop: 2,
   alignItems: 'center',
   alignSelf: 'flex-end',
 });
@@ -36,13 +38,17 @@ const Hook = (props: SvgProps) => (
 );
 
 type FeedbackThumbProps = {
-  answer: boolean;
+  feedback: FeedbackEvent;
 };
-const FeedbackThumb: React.FC<FeedbackThumbProps> = ({answer}) => (
+const FeedbackThumb: React.FC<FeedbackThumbProps> = ({feedback}) => (
   <Container>
-    {answer ? <ThumbsUp /> : <ThumbsDown />}
-    <Spacer4 />
-    <Hook />
+    {feedback.payload.answer ? <ThumbsUp /> : <ThumbsDown />}
+    {feedback.payload.comment && (
+      <>
+        <Spacer4 />
+        <Hook />
+      </>
+    )}
   </Container>
 );
 

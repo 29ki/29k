@@ -210,9 +210,9 @@ const CompletedSessionModal = () => {
             />
             <Spacer4 />
           </VerticalAlign>
-          {feedback && <FeedbackThumb answer={feedback.payload.answer} />}
+          {feedback && <FeedbackThumb feedback={feedback} />}
         </StatusRow>
-        {feedback && (
+        {feedback && feedback.payload.comment && (
           <Gutters>
             <FeedbackComment>{feedback.payload.comment}</FeedbackComment>
           </Gutters>
