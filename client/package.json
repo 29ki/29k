@@ -11,7 +11,7 @@
     "build:content": "yarn --cwd \"../content\" build",
     "clean": "react-native-clean-project",
     "ios": "react-native run-ios --scheme dev --no-packager",
-    "postinstall": "if [ -x \"$(command -v pod)\" ]; then cd ios && pod install; fi",
+    "postinstall": "if [ -x \"$(command -v pod)\" ]; then react-native-asset && cd ios && pod install; fi",
     "start": ". ./scripts/getHostname.sh && . ../shared/scripts/getGitCommitShort.sh && yarn build:content && react-native start",
     "test:jest": "jest",
     "test:lint": "eslint . --ext .js,.jsx,.ts,.tsx",
