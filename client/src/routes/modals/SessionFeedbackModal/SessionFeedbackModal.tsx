@@ -18,13 +18,11 @@ import {
   Spacer16,
   Spacer24,
   Spacer48,
-  Spacer60,
   Spacer8,
 } from '../../../lib/components/Spacers/Spacer';
 import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {
   Heading16,
-  Heading24,
   ModalHeading,
 } from '../../../lib/components/Typography/Heading/Heading';
 import {BottomSheetTextInput} from '../../../lib/components/Typography/TextInput/TextInput';
