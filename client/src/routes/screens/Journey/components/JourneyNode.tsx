@@ -27,6 +27,7 @@ import {SPACINGS} from '../../../../lib/constants/spacings';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
 import useUserProfile from '../../../../lib/user/hooks/useUserProfile';
+import Node from '../../../../lib/components/Node/Node';
 
 const FULL_HEIGHT = 110;
 const NODE_SIZE = 22;
@@ -43,7 +44,6 @@ const Lottie = styled(AnimatedLottieView)({
 const Container = styled(TouchableOpacity)({
   flexDirection: 'row',
   height: FULL_HEIGHT,
-  marginLeft: NODE_SIZE / 2,
 });
 
 const ContentContainer = styled.View({
@@ -51,31 +51,13 @@ const ContentContainer = styled.View({
   flex: 1,
 });
 
-const Node = styled.View({
-  marginLeft: -(NODE_SIZE / 2),
-  height: NODE_SIZE,
-  width: NODE_SIZE,
-  border: 1,
-  borderRadius: NODE_SIZE / 2,
-  backgroundColor: COLORS.WHITE,
-  alignItems: 'center',
-  justifyContent: 'center',
-});
-
 const Line = styled.View<Pick<JourneyNodeProps, 'isLast'>>(({isLast}) => ({
-  height: isLast ? 0 : FULL_HEIGHT,
-  width: 1,
-  backgroundColor: COLORS.BLACK,
   position: 'absolute',
-  left: -1,
+  left: NODE_SIZE / 2,
+  width: 1,
+  height: isLast ? 0 : FULL_HEIGHT,
+  backgroundColor: COLORS.BLACK,
 }));
-
-const InnerNode = styled.View({
-  height: 14,
-  width: 14,
-  borderRadius: 14 / 2,
-  backgroundColor: COLORS.MEDIUM_GREEN,
-});
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -137,9 +119,7 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
   return (
     <Container onPress={openCompleteSessionModal}>
       <Line isLast={isLast} />
-      <Node>
-        <InnerNode />
-      </Node>
+      <Node size={NODE_SIZE} />
       <ContentContainer>
         <Row>
           <Column>

@@ -24,7 +24,6 @@ import {formatExerciseName} from '../../../lib/utils/string';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import Byline from '../../../lib/components/Bylines/Byline';
-import {CheckIcon} from '../../../lib/components/Icons/Check/Check';
 import {Body14} from '../../../lib/components/Typography/Body/Body';
 import Badge from '../../../lib/components/Badge/Badge';
 import {
@@ -47,6 +46,7 @@ import TouchableOpacity from '../../../lib/components/TouchableOpacity/Touchable
 import useGetFeedbackBySessionId from '../../../lib/user/hooks/useGetFeedbackBySessionId';
 import FeedbackThumb from './components/FeedbackThumb';
 import FeedbackComment from './components/FeedbackComment';
+import Node from '../../../lib/components/Node/Node';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -75,11 +75,6 @@ const ImageContainer = styled(Image)({
   aspectRatio: '1',
   flex: 1,
   height: 90,
-});
-
-const CheckIconWrapper = styled(View)({
-  width: 22,
-  height: 22,
 });
 
 const SharingPost = styled(MyPostCard)({
@@ -191,9 +186,8 @@ const CompletedSessionModal = () => {
         <Spacer16 />
         <StatusRow>
           <VerticalAlign>
-            <CheckIconWrapper>
-              <CheckIcon fill={COLORS.PRIMARY} />
-            </CheckIconWrapper>
+            <Node />
+            <Spacer4 />
             <Body14>{t('completed')}</Body14>
             <Spacer4 />
             <Badge
