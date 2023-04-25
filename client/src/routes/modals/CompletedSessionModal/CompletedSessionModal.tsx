@@ -44,6 +44,9 @@ import useUserProfile from '../../../lib/user/hooks/useUserProfile';
 import MyPostCard from '../../../lib/session/components/Posts/MyPostCard';
 import useUser from '../../../lib/user/hooks/useUser';
 import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
+import useGetFeedbackBySessionId from '../../../lib/user/hooks/useGetFeedbackBySessionId';
+import FeedbackThumb from './components/FeedbackThumb';
+import FeedbackComment from './components/FeedbackComment';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -54,7 +57,12 @@ const SpaceBetweenRow = styled(View)({
   justifyContent: 'space-between',
 });
 
-const Row = styled(View)({
+const StatusRow = styled(Gutters)({
+  flexDirection: 'row',
+  alignItems: 'flex-start',
+});
+
+const VerticalAlign = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
 });
@@ -69,10 +77,13 @@ const ImageContainer = styled(Image)({
   height: 90,
 });
 
-const ChekIconWrapper = styled(View)({
+const CheckIconWrapper = styled(View)({
   width: 22,
   height: 22,
-  alignSelf: 'center',
+});
+
+const SharingPost = styled(MyPostCard)({
+  backgroundColor: COLORS.WHITE,
 });
 
 const ButtonWrapper = styled.View({flexDirection: 'row'});
@@ -87,6 +98,9 @@ const CompletedSessionModal = () => {
   const {t} = useTranslation('Modal.CompletedSession');
   const {payload, timestamp} = completedSessionEvent;
   const user = useUser();
+  const exercise = useExerciseById(payload.exerciseId);
+  const {getSharingPostForSession} = useSharingPosts(exercise?.id);
+  const getFeedbackBySessionId = useGetFeedbackBySessionId();
 
   const sessionTime = useMemo(() => dayjs(timestamp), [timestamp]);
 
@@ -102,9 +116,6 @@ const CompletedSessionModal = () => {
     navigate('HostInfoModal', {host: hostProfile});
   }, [navigate, popToTop, hostProfile]);
 
-  const exercise = useExerciseById(payload.exerciseId);
-  const {getSharingPostForSession} = useSharingPosts(exercise?.id);
-
   const sharingPosts = useMemo(() => {
     if (payload.mode === SessionMode.async) {
       return exercise?.slides
@@ -118,6 +129,11 @@ const CompletedSessionModal = () => {
         .filter(complement(isNil)) as PostEvent[];
     }
   }, [getSharingPostForSession, exercise, payload]);
+
+  const feedback = useMemo(
+    () => getFeedbackBySessionId(payload.id),
+    [getFeedbackBySessionId, payload],
+  );
 
   const userProfile = useMemo(() => {
     if (user?.displayName) {
@@ -173,11 +189,11 @@ const CompletedSessionModal = () => {
           </>
         )}
         <Spacer16 />
-        <Gutters>
-          <Row>
-            <ChekIconWrapper>
+        <StatusRow>
+          <VerticalAlign>
+            <CheckIconWrapper>
               <CheckIcon fill={COLORS.PRIMARY} />
-            </ChekIconWrapper>
+            </CheckIconWrapper>
             <Body14>{t('completed')}</Body14>
             <Spacer4 />
             <Badge
@@ -192,14 +208,21 @@ const CompletedSessionModal = () => {
                 )
               }
             />
-          </Row>
-        </Gutters>
+            <Spacer4 />
+          </VerticalAlign>
+          {feedback && <FeedbackThumb answer={feedback.payload.answer} />}
+        </StatusRow>
+        {feedback && (
+          <Gutters>
+            <FeedbackComment>{feedback.payload.comment}</FeedbackComment>
+          </Gutters>
+        )}
         {sharingPosts && sharingPosts.length > 0 && (
           <>
             <Spacer16 />
             <Gutters>
               {sharingPosts.map((post, index) => (
-                <MyPostCard
+                <SharingPost
                   key={index}
                   text={post.payload.text}
                   isPublic={post.payload.isPublic}
