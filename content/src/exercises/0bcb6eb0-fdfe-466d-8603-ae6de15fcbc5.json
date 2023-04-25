@@ -98,24 +98,15 @@
         }
       ]
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
     "async": true,
     "description": "Visualizing our future can guide us in the present moment by shining a light on what’s important in the long run.\n\nThis can be extra helpful when we’re under pressure, when we tend to be short-sighted and out of touch with what truly matters."
   },
   "pt": {
-    "published": false,
-    "hidden": false,
-    "async": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
@@ -171,23 +162,27 @@
         ]
       }
     ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "published": false,
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
-    "duration": 30
+    "async": false
   },
   "sv": {
-    "published": false,
-    "hidden": false,
-    "async": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
@@ -243,23 +238,27 @@
         ]
       }
     ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "published": false,
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
-    "duration": 30
+    "async": false
   },
   "es": {
-    "published": false,
-    "hidden": false,
-    "async": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
@@ -315,7 +314,24 @@
         ]
       }
     ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "published": false,
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
-    "duration": 30
+    "async": false
   }
 }
