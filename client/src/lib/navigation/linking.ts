@@ -19,7 +19,7 @@ const config: LinkingOptions<RootNavigationProps>['config'] = {
 const linking: LinkingOptions<RootNavigationProps> = {
   config,
 
-  prefixes: [DEEP_LINK_SCHEMA, DEEP_LINK_PREFIX],
+  prefixes: [DEEP_LINK_SCHEMA, ...DEEP_LINK_PREFIX.split(',')],
 
   async getInitialURL() {
     const dynamicLinkURL = await dynamicLinks.getInitialURL();
