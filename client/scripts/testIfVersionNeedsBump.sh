@@ -3,6 +3,8 @@
 
 echo "🔍 Checking for iOS / Android native changes"
 
+git --no-pager diff origin/main -- ios
+
 git diff --quiet origin/main -- ios
 if [ $? -ne 0 ]; then
     echo "📱 iOS native changes found! (could be that you're not on par with main)"
