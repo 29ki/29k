@@ -7,7 +7,9 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {DailyContext} from '../../../lib/daily/DailyProvider';
 import useSessionState from '../state/state';
 import {
+  AppStackProps,
   ModalStackProps,
+  OverlayStackProps,
   TabNavigatorProps,
 } from '../../../lib/navigation/constants/routes';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
@@ -21,7 +23,7 @@ import {
 import useAsyncSessionMetricEvents from './useAsyncSessionMetricEvents';
 
 type ScreenNavigationProps = NativeStackNavigationProp<
-  TabNavigatorProps & ModalStackProps
+  OverlayStackProps & AppStackProps & ModalStackProps
 >;
 
 const useLeaveSession = (session: LiveSession | AsyncSession) => {
@@ -42,7 +44,7 @@ const useLeaveSession = (session: LiveSession | AsyncSession) => {
       await leaveMeeting();
     }
 
-    navigate('Home');
+    navigate('App', {screen: 'Tabs'});
     if (session?.id && sessionState?.started) {
       navigate('SessionFeedbackModal', {
         exerciseId: session.exerciseId,
