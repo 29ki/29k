@@ -13,9 +13,13 @@
   "pt": {
     "headings": {
       "completed": "Concluídas",
-      "planned": "Sessões planeadas"
+      "planned": "Sessões planeadas",
+      "collections": "Coleções"
     },
-    "fallback": "🌱 A tua jornada está a começar"
+    "fallback": "🌱 A tua jornada está a começar",
+    "hostedSessions": "Hostedsessions",
+    "totalSessions": "Totalsessions",
+    "meaninfulSessions": "Meaningfulsessions"
   },
   "sv": {},
   "es": {}
