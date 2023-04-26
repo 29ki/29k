@@ -85,8 +85,8 @@ describe('/api/posts', () => {
           },
           approved: true,
           language: 'en',
-          createdAt: Timestamp.fromDate(new Date('2022-01-01T00:00:00Z')),
-          updatedAt: Timestamp.fromDate(new Date('2022-01-01T00:00:00Z')),
+          createdAt: expect.any(String),
+          updatedAt: expect.any(String),
         },
       ]);
     });

@@ -1,5 +1,3 @@
-import validator from 'koa-yup-validator';
-
 import {createApiAuthRouter} from '../../lib/routers';
 import {PostError} from '../../../../shared/src/errors/Post';
 import {
@@ -8,12 +6,8 @@ import {
   getPostsByExerciseAndSharingId,
 } from '../../controllers/posts';
 import {RequestError} from '../../controllers/errors/RequestError';
-import {responseFilter} from '../lib/response';
-import {
-  CreatePostData,
-  CreatePostSchema,
-  PostSchema,
-} from '../../../../shared/src/types/Post';
+import validation from '../lib/validation';
+import {CreatePostSchema, PostSchema} from '../../../../shared/src/types/Post';
 
 const postsRouter = createApiAuthRouter();
 
@@ -21,7 +15,7 @@ const POSTS_LIMIT = 20;
 
 postsRouter.get(
   '/:exerciseId/:sharingId',
-  responseFilter(PostSchema),
+  validation({response: PostSchema}),
   async ctx => {
     const {response} = ctx;
     const {exerciseId, sharingId} = ctx.params;
@@ -37,10 +31,10 @@ postsRouter.get(
   },
 );
 
-postsRouter.post('/', validator({body: CreatePostSchema}), async ctx => {
+postsRouter.post('/', validation({body: CreatePostSchema}), async ctx => {
   const {id} = ctx.user;
   const language = ctx.language;
-  const postData = ctx.request.body as CreatePostData;
+  const postData = ctx.state.body;
 
   await createPost({...postData, language}, id);
   ctx.response.status = 200;

@@ -1,5 +1,4 @@
 import * as yup from 'yup';
-import validator from 'koa-yup-validator';
 
 import {createApiAuthRouter} from '../../lib/routers';
 import {UserError, VerificationError} from '../../../../shared/src/errors/User';
@@ -15,7 +14,7 @@ import {
   updateUser,
 } from '../../controllers/user';
 import {UserDataSchema, UserSchema} from '../../../../shared/src/types/User';
-import {responseFilter} from '../lib/response';
+import validation from '../lib/validation';
 
 const userRouter = createApiAuthRouter();
 
@@ -52,7 +51,7 @@ type PromoteUser = yup.InferType<typeof PromoteUserSchema>;
 
 userRouter.put(
   '/verifyPublicHostCode',
-  validator({body: PromoteUserSchema}),
+  validation({body: PromoteUserSchema}),
   async ctx => {
     const {verificationCode} = ctx.request.body as PromoteUser;
     const {id} = ctx.user;
@@ -87,18 +86,22 @@ userRouter.put(
   },
 );
 
-userRouter.get('/publicHosts', responseFilter(UserSchema), async ctx => {
-  const publicHosts = await getPublicHosts();
-  ctx.body = publicHosts;
-});
+userRouter.get(
+  '/publicHosts',
+  validation({response: UserSchema}),
+  async ctx => {
+    const publicHosts = await getPublicHosts();
+    ctx.body = publicHosts;
+  },
+);
 
-userRouter.get('/', responseFilter(UserDataSchema), async ctx => {
+userRouter.get('/', validation({response: UserDataSchema}), async ctx => {
   const {id} = ctx.user;
   const me = await getMe(id);
   ctx.body = me;
 });
 
-userRouter.get('/:id', responseFilter(UserSchema), async ctx => {
+userRouter.get('/:id', validation({response: UserSchema}), async ctx => {
   try {
     const user = await getUser(ctx.params.id);
     ctx.set('Cache-Control', 'max-age=1800');
@@ -120,7 +123,7 @@ const UpdateUserSchema = yup.object().shape({
   description: yup.string(),
 });
 
-userRouter.post('/', validator({body: UpdateUserSchema}), async ctx => {
+userRouter.post('/', validation({body: UpdateUserSchema}), async ctx => {
   try {
     const {id} = ctx.user;
     await updateUser(id, ctx.state.validated.body);

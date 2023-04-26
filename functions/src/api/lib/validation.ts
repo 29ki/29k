@@ -1,64 +1,17 @@
 import Koa from 'koa';
+import {isEmpty} from 'ramda';
 import * as yup from 'yup';
 
-type Validate = yup.Schema<unknown>['validate'];
-
-type Validator = {
-  body: {validate: Validate};
-  query: {validate: Validate};
-  params: {validate: Validate};
-  headers: {validate: Validate};
-  response: {validate: Validate};
-};
-
-type BaseSchema = yup.Schema;
-type DefaultSchema = yup.AnySchema<unknown, unknown, unknown, ''>;
-
-type Validated<
-  TBody extends BaseSchema = DefaultSchema,
-  TQuery extends BaseSchema = DefaultSchema,
-  TParams extends BaseSchema = DefaultSchema,
-  THead extends BaseSchema = DefaultSchema,
-  TResponse extends BaseSchema = DefaultSchema,
-> = {
-  body: yup.Asserts<TBody>;
-  headers: yup.Asserts<THead>;
-  query: yup.Asserts<TQuery>;
-  params: yup.Asserts<TParams>;
-  response: yup.Asserts<TResponse>;
-};
-
-type RequestValidationErrors = {
-  body: yup.ValidationError;
-  headers: yup.ValidationError;
-  query: yup.ValidationError;
-  params: yup.ValidationError;
-};
-
-interface ValidatedState<
-  TBody extends BaseSchema = DefaultSchema,
-  TQuery extends BaseSchema = DefaultSchema,
-  TParams extends BaseSchema = DefaultSchema,
-  THead extends BaseSchema = DefaultSchema,
-  TResponse extends BaseSchema = DefaultSchema,
-> extends Koa.DefaultState {
-  validated: Validated<TBody, TQuery, TParams, THead, TResponse>;
-}
-
-type ValidationErrors = {
-  [K in keyof Partial<Validator>]: yup.ValidationError;
-};
-
-class RequestValidationError extends Error {
-  constructor(message: string, validationErrors: ValidationErrors) {
+export class RequestValidationError extends Error {
+  constructor(message: string, validationErrors: yup.ValidationError) {
     super(message);
-    this.validationErrors = validationErrors;
+    this.validationError = validationErrors;
   }
 
-  validationErrors: ValidationErrors;
+  validationError: yup.ValidationError;
 }
 
-class ResponseValidationError extends Error {
+export class ResponseValidationError extends Error {
   constructor(message: string, validationError: yup.ValidationError) {
     super(message);
     this.validationError = validationError;
@@ -67,169 +20,146 @@ class ResponseValidationError extends Error {
   validationError: yup.ValidationError;
 }
 
-interface ValidationOptions {
-  partial?: boolean;
-  yup?: yup.ValidateOptions;
+type DefaultSchema = yup.AnySchema<unknown, unknown, unknown, ''>;
+interface ValidatedState<
+  TBody extends yup.Schema = DefaultSchema,
+  TQuery extends yup.Schema = DefaultSchema,
+  TResponse extends yup.Schema = DefaultSchema,
+> extends Koa.DefaultState {
+  body: yup.Asserts<TBody>;
+  query: yup.Asserts<TQuery>;
+  response: yup.Asserts<TResponse>;
 }
 
-type ValidatorOptions = {
-  [k in keyof Partial<Validator>]: ValidationOptions;
+type Validator<
+  TBody extends yup.Schema,
+  TQuery extends yup.Schema,
+  TResponse extends yup.Schema,
+> = {
+  body: TBody;
+  query: TQuery;
+  response: TResponse;
+};
+
+type ValidatorOptions<
+  TBody extends yup.Schema = DefaultSchema,
+  TQuery extends yup.Schema = DefaultSchema,
+  TResponse extends yup.Schema = DefaultSchema,
+> = {
+  [k in keyof Partial<
+    Validator<TBody, TQuery, TResponse>
+  >]: yup.ValidateOptions;
 };
 
 const defaultOptions: ValidatorOptions = {
   body: {
-    yup: {
-      stripUnknown: false,
-    },
-  },
-  headers: {
-    yup: {
-      stripUnknown: false,
-    },
+    stripUnknown: true,
   },
   query: {
-    yup: {
-      stripUnknown: false,
-    },
-  },
-  params: {
-    yup: {
-      stripUnknown: false,
-    },
+    stripUnknown: true,
   },
   response: {
-    yup: {
-      stripUnknown: false,
-    },
+    stripUnknown: true,
   },
 };
 
-export default function createValidationMiddleware<
-  TBody extends BaseSchema,
-  TQuery extends BaseSchema,
-  TParams extends BaseSchema,
-  THead extends BaseSchema,
-  TResponse extends BaseSchema,
->(
-  validators: Partial<Validator>,
-  options: ValidatorOptions = defaultOptions,
-): Koa.Middleware<ValidatedState<TBody, TQuery, TParams, THead, TResponse>> {
-  return async (ctx: Koa.Context, next: Koa.Next) => {
-    const results: Partial<
-      Validated<TBody, TQuery, TParams, THead, TResponse>
-    > = {};
-    const requestValidationErrors: Partial<RequestValidationErrors> = {};
-    let responseValidationError: yup.ValidationError | null = null;
-    const tryValidate = async (
-      validate: () => Promise<void>,
-      onError: (e: yup.ValidationError) => void,
-    ) => {
-      try {
-        await validate();
-      } catch (e) {
-        if (e instanceof yup.ValidationError) {
-          onError(e);
-        } else {
-          throw e;
-        }
+const validation =
+  <
+    TBody extends yup.Schema,
+    TQuery extends yup.Schema,
+    TResponse extends yup.Schema,
+  >(
+    validator: Partial<Validator<TBody, TQuery, TResponse>>,
+    options: ValidatorOptions = defaultOptions,
+  ): Koa.Middleware<ValidatedState<TBody, TQuery, TResponse>> =>
+  async (ctx: Koa.Context, next: Koa.Next) => {
+    try {
+      if (validator.body) {
+        ctx.state.body = await validator.body.validate.bind(validator.body)(
+          ctx.request.body,
+          options.body,
+        );
       }
-    };
 
-    await tryValidate(
-      async () => {
-        if (validators.body) {
-          results.body = await validators.body.validate.bind(validators.body)(
-            ctx.request.body,
-            options.body?.yup,
-          );
-        }
-      },
-      e => {
-        requestValidationErrors.body = e;
-      },
-    );
-
-    await tryValidate(
-      async () => {
-        if (validators.headers) {
-          results.headers = await validators.headers.validate.bind(
-            validators.headers,
-          )(ctx.request.headers, options.headers?.yup);
-        }
-      },
-      e => {
-        requestValidationErrors.headers = e;
-      },
-    );
-
-    await tryValidate(
-      async () => {
-        if (validators.params) {
-          results.params = await validators.params.validate.bind(
-            validators.params,
-          )(ctx.URL.searchParams, options.params?.yup);
-        }
-      },
-      e => {
-        requestValidationErrors.params = e;
-      },
-    );
-
-    await tryValidate(
-      async () => {
-        if (validators.query) {
-          results.query = await validators.query.validate.bind(
-            validators.query,
-          )(ctx.request.query, options.query?.yup);
-        }
-      },
-      e => {
-        requestValidationErrors.query = e;
-      },
-    );
-
-    if (Object.keys(requestValidationErrors).length > 0) {
-      throw new RequestValidationError(
-        'Request validation failed',
-        requestValidationErrors,
-      );
+      if (validator.query) {
+        ctx.state.query = await validator.query.validate.bind(validator.query)(
+          ctx.request.query,
+          options.query,
+        );
+      }
+    } catch (error) {
+      if (error instanceof yup.ValidationError) {
+        console.error(error);
+        throw new RequestValidationError('Request validation failed', error);
+      } else {
+        throw error;
+      }
     }
-    Object.assign(ctx.request, results);
-    ctx.state.validated = results;
+
     await next();
 
-    await tryValidate(
-      async () => {
-        if (validators.response) {
-          const validator = validators.response.validate.bind(
-            validators.response,
+    try {
+      if (ctx.status === 200 && !isEmpty(ctx.body) && validator.response) {
+        const responseValidator = validator.response.validate.bind(
+          validator.response,
+        );
+        if (Array.isArray(ctx.body)) {
+          ctx.state.response = await Promise.all(
+            ctx.body.map(b => responseValidator(b, options.response)),
           );
-          if (Array.isArray(ctx.body)) {
-            results.response = await Promise.all(
-              ctx.body.map(b => validator(b, options.response?.yup)),
-            );
-          } else {
-            results.response = await validator(ctx.body, options.response?.yup);
-          }
+        } else {
+          ctx.state.response = await responseValidator(
+            ctx.body,
+            options.response,
+          );
         }
-      },
-      e => {
-        responseValidationError = e;
-      },
-    );
-
-    if (responseValidationError) {
-      throw new ResponseValidationError(
-        'Response validation failed',
-        responseValidationError,
-      );
-    }
-
-    if (results.response) {
-      ctx.body = results.response;
-      ctx.state.validated = ctx.state.validated
-        ? {...ctx.state.validated, response: results.response}
-        : {response: results.response};
+        ctx.body = ctx.state.response;
+      }
+    } catch (error) {
+      if (error instanceof yup.ValidationError) {
+        console.error(error);
+        throw new ResponseValidationError('Response validation failed', error);
+      } else {
+        throw error;
+      }
     }
   };
+
+export interface ResponseContext extends Koa.Context {
+  state: ValidatedState;
 }
+
+export const assertValidatedRequest =
+  () => async (ctx: ResponseContext, next: Koa.Next) => {
+    if (!isEmpty(ctx.request.query)) {
+      if (!ctx.state.query) {
+        throw new Error(
+          `No schema found for the request query to ${ctx.request.method} at ${ctx.request.URL}`,
+        );
+      }
+    }
+
+    if (!isEmpty(ctx.request.body)) {
+      if (!ctx.state.body) {
+        throw new Error(
+          `No schema found for the request body to ${ctx.request.method} at ${ctx.request.URL}`,
+        );
+      }
+    }
+    await next();
+  };
+
+export const assertValidatedResponse =
+  () => async (ctx: ResponseContext, next: Koa.Next) => {
+    await next();
+
+    if (ctx.status === 200 && ctx.body) {
+      if (!ctx.state.response) {
+        throw new Error(
+          `No schema found for the response to ${ctx.request.method} at ${ctx.request.URL}`,
+        );
+      }
+    }
+  };
+
+export default validation;

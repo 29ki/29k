@@ -5,12 +5,9 @@ import {
   CreateSession,
   CreateSessionSchema,
   InterestedCountSchema,
-  InterestedCountUpdate,
-  JoinSession,
   JoinSessionSchema,
   LiveSessionSchema,
   SessionStateSchema,
-  SessionStateUpdate,
   SessionStateUpdateSchema,
   SessionType,
   UpdateSession,
@@ -44,6 +41,7 @@ sessionsRouter.get(
       exerciseId,
       hostId,
     );
+
     response.status = 200;
     ctx.body = sessions;
   },
@@ -118,8 +116,7 @@ sessionsRouter.post(
   ),
   validation({body: CreateSessionSchema, response: LiveSessionSchema}),
   async ctx => {
-    const {exerciseId, type, startTime, language} = ctx.request
-      .body as CreateSession;
+    const {exerciseId, type, startTime, language} = ctx.state.body;
     const {user} = ctx;
 
     ctx.body = await sessionsController.createSession(user.id, {
@@ -152,7 +149,7 @@ sessionsRouter.put(
   '/joinSession',
   validation({body: JoinSessionSchema, response: LiveSessionSchema}),
   async ctx => {
-    const {inviteCode} = ctx.request.body as JoinSession;
+    const {inviteCode} = ctx.state.body;
     const {user} = ctx;
 
     try {
@@ -185,7 +182,7 @@ sessionsRouter.put(
   validation({body: UpdateSessionSchema, response: LiveSessionSchema}),
   async ctx => {
     const {id} = ctx.params;
-    const body = ctx.request.body as UpdateSession;
+    const body = ctx.state.body;
 
     try {
       const updatedSession = await sessionsController.updateSession(
@@ -208,7 +205,7 @@ sessionsRouter.put(
   validation({body: InterestedCountSchema}),
   async ctx => {
     const {id} = ctx.params;
-    const body = ctx.request.body as InterestedCountUpdate;
+    const body = ctx.state.body;
 
     try {
       await sessionsController.updateInterestedCount(id, body.increment);
@@ -225,7 +222,7 @@ sessionsRouter.put(
   validation({body: SessionStateUpdateSchema, response: SessionStateSchema}),
   async ctx => {
     const {id} = ctx.params;
-    const data = ctx.request.body as SessionStateUpdate;
+    const data = ctx.state.body;
 
     try {
       const updatedState = await sessionsController.updateSessionState(
