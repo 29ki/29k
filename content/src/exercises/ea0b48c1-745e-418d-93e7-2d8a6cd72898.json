@@ -177,6 +177,10 @@
         }
       ]
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+    ],
     "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
     "async": true,
     "description": "How we talk to ourselves affect how we act. In this exercise we practice awareness of our self-talk, and try out how word-switching can be used to open new possibilities to act in meaningful ways."
@@ -334,6 +338,10 @@
         }
       ]
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+    ],
     "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
     "description": "A forma como falamos connosco afeta as nossas ações. Neste exercício, praticamos a consciência da nossa conversa interior e experimentamos trocar palavras que podem abrir novas possibilidades para agirmos com significado."
   },
@@ -344,10 +352,18 @@
       "backgroundColor": "#f1d0b0",
       "textColor": "#2E2E2E"
     },
-    "duration": 30
+    "duration": 30,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+    ]
   },
   "es": {
     "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
-    "duration": 30
+    "duration": 30,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+    ]
   }
 }
