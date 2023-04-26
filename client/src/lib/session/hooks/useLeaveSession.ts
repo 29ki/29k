@@ -10,7 +10,6 @@ import {
   AppStackProps,
   ModalStackProps,
   OverlayStackProps,
-  TabNavigatorProps,
 } from '../../../lib/navigation/constants/routes';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 import useLiveSessionMetricEvents from './useLiveSessionMetricEvents';
