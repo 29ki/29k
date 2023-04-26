@@ -196,6 +196,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672835034/Video/portal2_setting_boundaries_craqov.mp4"
       }
     },
+    "tags": [
+      "aef38753-75d6-4fe4-9410-4a77ca02b05f",
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
+    ],
     "id": "c5b1197a-4eec-4699-9dad-0e3d6323967b",
     "async": true,
     "description": "Relationships are essential for our wellbeing, and sometimes it's hard to set healthy boundaries. In this exercise we practice communicating our needs in an assertive way. Setting boundaries can help us feel better about ourselves, create sustainable relationships and make us more resilient to relationship challenges."
@@ -392,6 +396,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672835034/Video/portal2_setting_boundaries_craqov.mp4"
       }
     },
+    "tags": [
+      "aef38753-75d6-4fe4-9410-4a77ca02b05f",
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
+    ],
     "id": "c5b1197a-4eec-4699-9dad-0e3d6323967b",
     "description": "As relações pessoais são essenciais para o nosso bem-estar, e às vezes é difícil definir limites saudáveis. Neste exercício vamos praticar a comunicação das nossas necessidades de uma forma assertiva. Estabelecermos limites faz-nos sentir melhor connosco, ajuda-nos a criar relações sustentáveis e torna-nos mais resilientes perante os desafios dessas relações."
   },
@@ -461,7 +469,11 @@
       }
     ],
     "id": "c5b1197a-4eec-4699-9dad-0e3d6323967b",
-    "duration": 30
+    "duration": 30,
+    "tags": [
+      "aef38753-75d6-4fe4-9410-4a77ca02b05f",
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
+    ]
   },
   "es": {
     "published": false,
@@ -529,6 +541,10 @@
       }
     ],
     "id": "c5b1197a-4eec-4699-9dad-0e3d6323967b",
-    "duration": 30
+    "duration": 30,
+    "tags": [
+      "aef38753-75d6-4fe4-9410-4a77ca02b05f",
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
+    ]
   }
 }
