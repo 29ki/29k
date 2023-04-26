@@ -44,6 +44,7 @@ type IntroPortalProps = {
   isHost: boolean;
   isFocused: boolean;
   isLive?: boolean;
+  hideHostNotes?: boolean;
   onStartSession: () => void;
   onLeaveSession: () => void;
   onNavigateToSession: () => void;
@@ -55,6 +56,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   isHost,
   isFocused,
   isLive,
+  hideHostNotes = false,
   onStartSession,
   onLeaveSession,
   onNavigateToSession,
@@ -100,7 +102,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
 
   return (
     <Screen>
-      {!isHost && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
+      {(!isHost || hideHostNotes) && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
 
       {isFocused && introPortal?.videoLoop?.audio && (
         <AudioFader
@@ -125,7 +127,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
         />
       )}
 
-      {isHost && (
+      {isHost && !hideHostNotes && (
         <>
           <HostNotes introPortal exercise={exercise} />
           <Spacer16 />
