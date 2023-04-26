@@ -138,6 +138,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal2_the_willingnes_stance_kti6ub.mp4"
       }
     },
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
     "async": true,
     "description": "Guided meditation to stop fighting unwanted inner experiences and instead use our energy where it matters. Accepting inner hardships can help us redirect our focus and propel us into meaningful action."
@@ -262,6 +266,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal2_the_willingnes_stance_kti6ub.mp4"
       }
     },
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
     "description": "Uma meditação guiada para parar a luta interior e canalizar a nossa energia para o que realmente importa. Aceitar os desafios internos pode ajudar-nos a redirecionar o nosso foco e impulsionar-nos para ações com significado."
   },
@@ -331,7 +339,11 @@
       }
     ],
     "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
-    "duration": 30
+    "duration": 30,
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ]
   },
   "es": {
     "published": false,
@@ -399,6 +411,10 @@
       }
     ],
     "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
-    "duration": 30
+    "duration": 30,
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ]
   }
 }
