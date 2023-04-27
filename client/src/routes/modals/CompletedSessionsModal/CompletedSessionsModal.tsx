@@ -26,7 +26,7 @@ import {
   SessionMode,
   SessionType,
 } from '../../../../../shared/src/schemas/Session';
-import useGetSessionsByFeedback from './hooks/useGetSessionsByFeedback';
+import useGetSessionsByFeedback from '../../../lib/user/hooks/useGetSessionsByFeedback';
 import FeedbackFilters from './components/FeedbackFilters';
 import ModeFilters from './components/ModeFilters';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';

@@ -1,20 +1,14 @@
 {
   "en": {
     "home": "Today",
-    "sessions": "Explore",
-    "journey": "You",
-    "profile": "Profile"
+    "explore": "Explore",
+    "journey": "Journey"
   },
   "pt": {
-    "home": "Início",
-    "profile": "Perfil",
+    "home": "Hoje",
     "journey": "Jornada",
-    "sessions": "Sessões"
+    "explore": "Explora"
   },
-  "sv": {
-    "home": "Hem",
-    "sessions": "Sessioner",
-    "profile": "Profil"
-  },
+  "sv": {},
   "es": {}
 }

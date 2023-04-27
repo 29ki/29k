@@ -1,12 +1,12 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook} from '@testing-library/react-hooks';
 
-import useUserState from '../../../../lib/user/state/state';
+import useUserState from '../state/state';
 import useGetSessionsByFeedback from './useGetSessionsByFeedback';
 import {
   CompletedSessionPayload,
   FeedbackPayload,
-} from '../../../../../../shared/src/types/Event';
+} from '../../../../../shared/src/types/Event';
 
 beforeEach(() => {
   jest.clearAllMocks();

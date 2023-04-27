@@ -11,7 +11,7 @@ import {Spacer4, Spacer8} from '../../../components/Spacers/Spacer';
 import Badge from '../../../components/Badge/Badge';
 import {EarthIcon, PrivateEyeIcon} from '../../../components/Icons';
 import {useTranslation} from 'react-i18next';
-import {Dimensions} from 'react-native';
+import {Dimensions, ViewStyle} from 'react-native';
 
 const SharingCard = styled.View<{inList?: boolean}>(({inList}) => ({
   backgroundColor: COLORS.CREAM,
@@ -31,6 +31,7 @@ type MyPostCardProps = {
   text: string;
   isPublic: boolean;
   inList?: boolean;
+  style?: ViewStyle;
 };
 
 const MyPostCard: React.FC<MyPostCardProps> = ({
@@ -38,11 +39,12 @@ const MyPostCard: React.FC<MyPostCardProps> = ({
   userProfile,
   isPublic,
   inList,
+  style,
 }) => {
   const {t} = useTranslation('Component.MyPostCard');
 
   return (
-    <SharingCard inList={inList}>
+    <SharingCard inList={inList} style={style}>
       <HeaderRow>
         <BylineUser user={userProfile} />
         <Spacer4 />

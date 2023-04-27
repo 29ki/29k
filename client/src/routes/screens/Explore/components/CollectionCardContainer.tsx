@@ -4,7 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 
 import {Collection} from '../../../../../../shared/src/types/generated/Collection';
 import CollectionListCard from '../../../../lib/components/Cards/CollectionCards/CollectionListCard';
-import {SessionsStackProps} from '../../../../lib/navigation/constants/routes';
+import {ExploreStackProps} from '../../../../lib/navigation/constants/routes';
 
 export {CARD_WIDTH} from '../../../../lib/components/Cards/CollectionCards/CollectionListCard';
 
@@ -16,9 +16,7 @@ const CollectionCardContainer: React.FC<CollectionCardProps> = ({
   collection,
 }) => {
   const {navigate} =
-    useNavigation<
-      NativeStackNavigationProp<SessionsStackProps, 'Collection'>
-    >();
+    useNavigation<NativeStackNavigationProp<ExploreStackProps, 'Collection'>>();
 
   const image = useMemo(
     () => ({

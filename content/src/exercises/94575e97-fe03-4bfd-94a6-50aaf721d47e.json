@@ -137,6 +137,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317594/Video/portal2_Accepting_thoughts_and_feelings_iyqnuk.mp4"
       }
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
     "async": true,
     "description": "A guided meditation exercise on accepting what's going on inside. Practicing acceptance can help us do more of what matters, and has proven to be an effective way of dealing with inner experiences."
@@ -275,6 +279,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317594/Video/portal2_Accepting_thoughts_and_feelings_iyqnuk.mp4"
       }
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
     "async": true,
     "description": "Um exercício de meditação guiada para aceitar o que está a acontecer dentro de nós. Praticar a aceitação pode ajudar-nos a fazer mais o que é importante para nós e provou ser uma forma eficaz de lidar com as experiências interiores."
@@ -286,10 +294,18 @@
       "backgroundColor": "#fcc9b7"
     },
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
-    "duration": 30
+    "duration": 30,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ]
   },
   "es": {
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
-    "duration": 30
+    "duration": 30,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ]
   }
 }

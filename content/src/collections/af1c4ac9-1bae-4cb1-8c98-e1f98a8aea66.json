@@ -1,0 +1,48 @@
+{
+  "en": {
+    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
+    "exercises": [
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "185889ec-753b-4e2c-8322-3004013e8a6e",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+      "c5b1197a-4eec-4699-9dad-0e3d6323967b"
+    ],
+    "name": "Ease stress",
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682398819/Images/ease_stress_collection_cwrydu.png",
+      "description": "During stressful times, recovery is key. The exercises and meditations in this collection can help us take care of ourselves in times of stress, get some well-deserved breaks and set healthy boundaries."
+    }
+  },
+  "pt": {
+    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
+    "exercises": [
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "185889ec-753b-4e2c-8322-3004013e8a6e",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+      "c5b1197a-4eec-4699-9dad-0e3d6323967b"
+    ],
+    "name": "Alivia o stress",
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682398819/Images/ease_stress_collection_cwrydu.png",
+      "description": "Durante os períodos de stress, garantir que conseguimos recuperar é fundamental. Os exercícios e meditações desta coleção podem ajudar-nos a cuidar de nós mesmos em momentos de stress, a fazer pausas merecidas e a estabelecer limites saudáveis."
+    }
+  },
+  "sv": {
+    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
+    "exercises": [
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "185889ec-753b-4e2c-8322-3004013e8a6e",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+      "c5b1197a-4eec-4699-9dad-0e3d6323967b"
+    ]
+  },
+  "es": {
+    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
+    "exercises": [
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "185889ec-753b-4e2c-8322-3004013e8a6e",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+      "c5b1197a-4eec-4699-9dad-0e3d6323967b"
+    ]
+  }
+}

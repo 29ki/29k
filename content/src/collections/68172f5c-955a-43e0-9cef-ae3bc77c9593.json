@@ -1,0 +1,48 @@
+{
+  "en": {
+    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
+    "exercises": [
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ],
+    "name": "New perspectives",
+    "image": {
+      "description": "We are creatures of habit – we tend to do what we're used to doing. That's a smart thing because it can save energy and time. And sometimes it can make us feel trapped in old patterns. This collection of meditations and exercises can give new perspectives and practices to change or challenge the way we usually go about life.",
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682398823/Images/new_perspective_collection_guflka.png"
+    }
+  },
+  "pt": {
+    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
+    "exercises": [
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ],
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682398823/Images/new_perspective_collection_guflka.png",
+      "description": "Somos criaturas de hábitos – temos tendência a fazer aquilo a que estamos habituados. Isso pode parecer inteligente porque nos ajudar a economizar energia e tempo. E às vezes pode fazer-nos sentir presos em velhos padrões. Esta coleção de meditações e exercícios pretendem dar-nos novas perspetivas e práticas que nos permitam mudar ou desafiar a forma repetitiva como normalmente levamos a vida."
+    },
+    "name": "Novas perspetivas"
+  },
+  "sv": {
+    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
+    "exercises": [
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ]
+  },
+  "es": {
+    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
+    "exercises": [
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ]
+  }
+}

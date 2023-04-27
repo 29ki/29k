@@ -134,6 +134,10 @@
         "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678973955/Images/portal1_breathing_anchor_thumbnail_a9slfm.png"
       }
     },
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
+    ],
     "id": "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
     "async": true,
     "description": "Guided meditation for grounding ourselves in the present moment with our breathing. Present moment awareness can help us reduce rumination and stress as well as improve decision-making."
@@ -254,6 +258,10 @@
         "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678973955/Images/portal1_breathing_anchor_thumbnail_a9slfm.png"
       }
     },
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
+    ],
     "id": "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
     "description": "Uma meditação guiada para nos ancorarmos no momento presente através da nossa respiração. A consciência do momento presente pode ajudar-nos a reduzir a ruminação e o stress assim como melhorar a nossa capacidade de decisão."
   },
@@ -326,7 +334,11 @@
       }
     ],
     "id": "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
-    "duration": 30
+    "duration": 30,
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
+    ]
   },
   "es": {
     "published": false,
@@ -397,6 +409,10 @@
       }
     ],
     "id": "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
-    "duration": 30
+    "duration": 30,
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
+    ]
   }
 }

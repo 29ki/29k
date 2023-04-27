@@ -1,8 +1,9 @@
+import React, {useCallback, useMemo} from 'react';
+import {View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
 import AnimatedLottieView from 'lottie-react-native';
-import React, {useCallback, useMemo} from 'react';
 import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
@@ -20,13 +21,19 @@ import {
   MeIcon,
 } from '../../../../lib/components/Icons';
 import Image from '../../../../lib/components/Image/Image';
-import {Spacer8} from '../../../../lib/components/Spacers/Spacer';
+import {Spacer4, Spacer8} from '../../../../lib/components/Spacers/Spacer';
 import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {Display16} from '../../../../lib/components/Typography/Display/Display';
 import {SPACINGS} from '../../../../lib/constants/spacings';
 import useExerciseById from '../../../../lib/content/hooks/useExerciseById';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
 import useUserProfile from '../../../../lib/user/hooks/useUserProfile';
+import Node from '../../../../lib/components/Node/Node';
+import useGetFeedbackBySessionId from '../../../../lib/user/hooks/useGetFeedbackBySessionId';
+import {
+  ThumbsUpWithoutPadding,
+  ThumbsDownWithoutPadding,
+} from '../../../../lib/components/Thumbs/Thumbs';
 
 const FULL_HEIGHT = 110;
 const NODE_SIZE = 22;
@@ -43,44 +50,22 @@ const Lottie = styled(AnimatedLottieView)({
 const Container = styled(TouchableOpacity)({
   flexDirection: 'row',
   height: FULL_HEIGHT,
-  marginLeft: NODE_SIZE / 2,
 });
 
 const ContentContainer = styled.View({
   marginLeft: SPACINGS.FOUR,
   flex: 1,
-});
-
-const Node = styled.View({
-  marginLeft: -(NODE_SIZE / 2),
-  height: NODE_SIZE,
-  width: NODE_SIZE,
-  border: 1,
-  borderRadius: NODE_SIZE / 2,
-  backgroundColor: COLORS.WHITE,
-  alignItems: 'center',
-  justifyContent: 'center',
-});
-
-const Line = styled.View<Pick<JourneyNodeProps, 'isLast'>>(({isLast}) => ({
-  height: isLast ? 0 : FULL_HEIGHT,
-  width: 1,
-  backgroundColor: COLORS.BLACK,
-  position: 'absolute',
-  left: -1,
-}));
-
-const InnerNode = styled.View({
-  height: 14,
-  width: 14,
-  borderRadius: 14 / 2,
-  backgroundColor: COLORS.MEDIUM_GREEN,
-});
-
-const Row = styled.View({
   flexDirection: 'row',
   justifyContent: 'space-between',
 });
+
+const Line = styled.View<Pick<JourneyNodeProps, 'isLast'>>(({isLast}) => ({
+  position: 'absolute',
+  left: NODE_SIZE / 2,
+  width: 1,
+  height: isLast ? 0 : FULL_HEIGHT,
+  backgroundColor: COLORS.BLACK,
+}));
 
 const GraphicsWrapper = styled.View({
   width: 80,
@@ -89,20 +74,35 @@ const GraphicsWrapper = styled.View({
   marginHorizontal: SPACINGS.SIXTEEN,
 });
 
-const Column = styled.View({});
+const StatusRow = styled.View({
+  flexDirection: 'row',
+});
 
 const Spacer2 = styled.View({height: 2});
+
+const ThumbsUp = styled(ThumbsUpWithoutPadding)({
+  position: 'static',
+  width: 22,
+  aspectRatio: 1,
+});
+
+const ThumbsDown = styled(ThumbsDownWithoutPadding)({
+  position: 'static',
+  width: 22,
+  aspectRatio: 1,
+});
 
 const JourneyNode: React.FC<JourneyNodeProps> = ({
   completedSessionEvent,
   isLast = false,
 }) => {
   const {
-    payload: {mode, exerciseId, hostId, type},
+    payload: {id, mode, exerciseId, hostId, type},
     timestamp,
   } = completedSessionEvent;
   const exercise = useExerciseById(exerciseId);
   const hostProfile = useUserProfile(hostId);
+  const getFeedbackBySessionId = useGetFeedbackBySessionId();
 
   const {navigate} =
     useNavigation<
@@ -115,6 +115,11 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
         completedSessionEvent,
       }),
     [navigate, completedSessionEvent],
+  );
+
+  const feedback = useMemo(
+    () => getFeedbackBySessionId(id),
+    [id, getFeedbackBySessionId],
   );
 
   const image = useMemo(
@@ -137,50 +142,45 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
   return (
     <Container onPress={openCompleteSessionModal}>
       <Line isLast={isLast} />
-      <Node>
-        <InnerNode />
-      </Node>
+      <Node size={NODE_SIZE} />
       <ContentContainer>
-        <Row>
-          <Column>
-            <Row>
-              <Badge
-                text={dayjs(timestamp).format('ddd, D MMM HH:mm')}
-                IconAfter={
-                  mode === SessionMode.async ? (
-                    <MeIcon />
-                  ) : type === SessionType.private ? (
-                    <FriendsIcon />
-                  ) : (
-                    <CommunityIcon />
-                  )
-                }
-                completed
-              />
-            </Row>
-            <Spacer8 />
-            {exercise?.name && (
-              <Display16 numberOfLines={1}>{exercise.name}</Display16>
-            )}
-            <Spacer2 />
-            <Byline
-              small
-              pictureURL={
-                hostProfile?.photoURL ?? exercise?.card?.host?.photoURL
+        <View>
+          <StatusRow>
+            <Badge
+              text={dayjs(timestamp).format('ddd, D MMM HH:mm')}
+              IconAfter={
+                mode === SessionMode.async ? (
+                  <MeIcon />
+                ) : type === SessionType.private ? (
+                  <FriendsIcon />
+                ) : (
+                  <CommunityIcon />
+                )
               }
-              name={
-                hostProfile?.displayName ?? exercise?.card?.host?.displayName
-              }
+              completed
             />
-          </Column>
-          <GraphicsWrapper>
-            {lottie ? (
-              <Lottie source={lottie} autoPlay loop />
-            ) : image ? (
-              <Image resizeMode="contain" source={image} />
-            ) : null}
-          </GraphicsWrapper>
-        </Row>
+            <Spacer4 />
+            {feedback &&
+              (feedback.payload.answer ? <ThumbsUp /> : <ThumbsDown />)}
+          </StatusRow>
+          <Spacer8 />
+          {exercise?.name && (
+            <Display16 numberOfLines={1}>{exercise.name}</Display16>
+          )}
+          <Spacer2 />
+          <Byline
+            small
+            pictureURL={hostProfile?.photoURL ?? exercise?.card?.host?.photoURL}
+            name={hostProfile?.displayName ?? exercise?.card?.host?.displayName}
+          />
+        </View>
+        <GraphicsWrapper>
+          {lottie ? (
+            <Lottie source={lottie} autoPlay loop />
+          ) : image ? (
+            <Image resizeMode="contain" source={image} />
+          ) : null}
+        </GraphicsWrapper>
       </ContentContainer>
     </Container>
   );

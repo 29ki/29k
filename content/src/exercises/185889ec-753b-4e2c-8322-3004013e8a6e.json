@@ -175,6 +175,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673626159/Video/portal2_Be_kind_to_yourself_HD_rv02xs.mp4"
       }
     },
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+    ],
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
     "async": true,
     "description": "We are often harsh on ourselves, and more compassionate with others. In this exercise we'll practice finding a compassionate inner ally to accompany us in difficult situations. Self compassion can help us feel happier and more satisfied with ourselves."
@@ -352,6 +356,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673626159/Video/portal2_Be_kind_to_yourself_HD_rv02xs.mp4"
       }
     },
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+    ],
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
     "async": true,
     "description": "Muitas vezes somos duros connosco e mais compassivos com os outros. Neste exercício vamos aprender a encontrar um aliado interior compassivo que nos acompanhe em situações difíceis. A autocompaixão pode ajudar-nos a sentir mais felizes e satisfeitos com nós mesmos."
@@ -362,10 +370,18 @@
       "textColor": "#2AE2D7"
     },
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
-    "duration": 40
+    "duration": 40,
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+    ]
   },
   "es": {
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
-    "duration": 40
+    "duration": 40,
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+    ]
   }
 }

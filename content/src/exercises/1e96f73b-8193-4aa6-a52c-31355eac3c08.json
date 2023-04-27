@@ -103,24 +103,15 @@
         }
       ]
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+    ],
     "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
     "async": true,
     "description": "In this meditation exercise we’ll practise moving through our difficulties instead of trying to avoid them. Letting ourselves experience the full spectrum of emotions can help us lead more meaningful and fulfilled lives."
   },
   "pt": {
-    "published": false,
-    "hidden": false,
-    "async": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
@@ -176,23 +167,27 @@
         ]
       }
     ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "published": false,
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+    ],
     "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
-    "duration": 30
+    "async": false
   },
   "sv": {
-    "published": false,
-    "hidden": false,
-    "async": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
@@ -248,23 +243,27 @@
         ]
       }
     ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "published": false,
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+    ],
     "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
-    "duration": 30
+    "async": false
   },
   "es": {
-    "published": false,
-    "hidden": false,
-    "async": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
@@ -320,7 +319,24 @@
         ]
       }
     ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "published": false,
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+    ],
     "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
-    "duration": 30
+    "async": false
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
-import {LogoIcon, JourneyIcon} from '../../../../lib/components/Icons';
+import {JourneyIcon, ExploreIcon} from '../../../../lib/components/Icons';
 import {Spacer16, Spacer40} from '../../../../lib/components/Spacers/Spacer';
 import {
   Body14,
@@ -47,9 +47,9 @@ const GetStarted = () => {
       <Background />
       <Tabs>
         <Tab>
-          <LogoIcon />
+          <ExploreIcon />
           <Body14>
-            <BodyBold>{t('sessions', {ns: 'Component.Tabs'})}</BodyBold>
+            <BodyBold>{t('explore', {ns: 'Component.Tabs'})}</BodyBold>
           </Body14>
         </Tab>
         <Spacer16 />
