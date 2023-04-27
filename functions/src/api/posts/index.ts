@@ -1,3 +1,4 @@
+import * as yup from 'yup';
 import {createApiAuthRouter} from '../../lib/routers';
 import {PostError} from '../../../../shared/src/errors/Post';
 import {
@@ -15,7 +16,7 @@ const POSTS_LIMIT = 20;
 
 postsRouter.get(
   '/:exerciseId/:sharingId',
-  validation({response: PostSchema}),
+  validation({response: yup.array().of(PostSchema)}),
   async ctx => {
     const {response} = ctx;
     const {exerciseId, sharingId} = ctx.params;

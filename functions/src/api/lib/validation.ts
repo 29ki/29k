@@ -75,21 +75,20 @@ const validation =
   async (ctx: Koa.Context, next: Koa.Next) => {
     try {
       if (validator.body) {
-        ctx.state.body = await validator.body.validate.bind(validator.body)(
+        ctx.state.body = await validator.body.validate(
           ctx.request.body,
           options.body,
         );
       }
 
       if (validator.query) {
-        ctx.state.query = await validator.query.validate.bind(validator.query)(
+        ctx.state.query = await validator.query.validate(
           ctx.request.query,
           options.query,
         );
       }
     } catch (error) {
       if (error instanceof yup.ValidationError) {
-        console.error(error);
         throw new RequestValidationError('Request validation failed', error);
       } else {
         throw error;
@@ -100,24 +99,14 @@ const validation =
 
     try {
       if (ctx.status === 200 && !isEmpty(ctx.body) && validator.response) {
-        const responseValidator = validator.response.validate.bind(
-          validator.response,
+        ctx.state.response = await validator.response.validate(
+          ctx.body,
+          options.response,
         );
-        if (Array.isArray(ctx.body)) {
-          ctx.state.response = await Promise.all(
-            ctx.body.map(b => responseValidator(b, options.response)),
-          );
-        } else {
-          ctx.state.response = await responseValidator(
-            ctx.body,
-            options.response,
-          );
-        }
         ctx.body = ctx.state.response;
       }
     } catch (error) {
       if (error instanceof yup.ValidationError) {
-        console.error(error);
         throw new ResponseValidationError('Response validation failed', error);
       } else {
         throw error;
@@ -129,31 +118,11 @@ export interface ResponseContext extends Koa.Context {
   state: ValidatedState;
 }
 
-export const assertValidatedRequest =
-  () => async (ctx: ResponseContext, next: Koa.Next) => {
-    if (!isEmpty(ctx.request.query)) {
-      if (!ctx.state.query) {
-        throw new Error(
-          `No schema found for the request query to ${ctx.request.method} at ${ctx.request.URL}`,
-        );
-      }
-    }
-
-    if (!isEmpty(ctx.request.body)) {
-      if (!ctx.state.body) {
-        throw new Error(
-          `No schema found for the request body to ${ctx.request.method} at ${ctx.request.URL}`,
-        );
-      }
-    }
-    await next();
-  };
-
 export const assertValidatedResponse =
   () => async (ctx: ResponseContext, next: Koa.Next) => {
     await next();
 
-    if (ctx.status === 200 && ctx.body) {
+    if (ctx.status === 200 && !isEmpty(ctx.body)) {
       if (!ctx.state.response) {
         throw new Error(
           `No schema found for the response to ${ctx.request.method} at ${ctx.request.URL}`,

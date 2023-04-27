@@ -88,7 +88,7 @@ userRouter.put(
 
 userRouter.get(
   '/publicHosts',
-  validation({response: UserSchema}),
+  validation({response: yup.array().of(UserSchema)}),
   async ctx => {
     const publicHosts = await getPublicHosts();
     ctx.body = publicHosts;

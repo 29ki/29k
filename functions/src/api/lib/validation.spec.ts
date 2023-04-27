@@ -2,7 +2,6 @@ import Koa from 'koa';
 import * as yup from 'yup';
 
 import validation, {
-  assertValidatedRequest,
   assertValidatedResponse,
   RequestValidationError,
   ResponseContext,
@@ -231,7 +230,7 @@ describe('validation', () => {
 
       it('should validate response body array', async () => {
         const middleware = validation({
-          response: yup.object({name: yup.string().required()}),
+          response: yup.array().of(yup.object({name: yup.string().required()})),
         });
         const ctx = {
           body: [
@@ -307,133 +306,6 @@ describe('validation', () => {
           );
         }
       });
-    });
-  });
-
-  describe('assertValidatedRequest', () => {
-    it('should move to next when both body and query has been validated', async () => {
-      const middleware = assertValidatedRequest();
-      const ctx = {
-        request: {
-          query: {
-            param: 'raw value',
-          } as unknown,
-          body: {
-            value: 'raw value',
-          },
-        },
-        state: {
-          query: {
-            param: 'value',
-          },
-          body: {
-            value: 'value',
-          },
-        },
-      } as ResponseContext;
-      const next = jest.fn();
-
-      await middleware(ctx, next);
-
-      expect(next).toHaveBeenCalledTimes(1);
-    });
-
-    it('should move to next when only query was set', async () => {
-      const middleware = assertValidatedRequest();
-      const ctx = {
-        request: {
-          query: {
-            param: 'raw value',
-          } as unknown,
-          body: {},
-        },
-        state: {
-          query: {
-            param: 'value',
-          },
-        },
-      } as ResponseContext;
-      const next = jest.fn();
-
-      await middleware(ctx, next);
-
-      expect(next).toHaveBeenCalledTimes(1);
-    });
-
-    it('should move to next when only body was set', async () => {
-      const middleware = assertValidatedRequest();
-      const ctx = {
-        request: {
-          body: {
-            value: 'raw value',
-          },
-          query: {},
-        },
-        state: {
-          body: {
-            value: 'value',
-          },
-        },
-      } as ResponseContext;
-      const next = jest.fn();
-
-      await middleware(ctx, next);
-
-      expect(next).toHaveBeenCalledTimes(1);
-    });
-
-    it('should throw if query was not validated', async () => {
-      const middleware = assertValidatedRequest();
-      const ctx = {
-        request: {
-          method: 'GET',
-          URL: 'some-url',
-          query: {
-            value: 'raw value',
-          },
-          body: {},
-        },
-        state: {},
-      } as unknown as ResponseContext;
-      const next = jest.fn();
-
-      try {
-        await middleware(ctx, next);
-      } catch (e) {
-        const error = e as Error;
-        expect(error).toEqual(
-          new Error('No schema found for the request query to GET at some-url'),
-        );
-      }
-
-      expect(next).toHaveBeenCalledTimes(0);
-    });
-
-    it('should throw if body was not validated', async () => {
-      const middleware = assertValidatedRequest();
-      const ctx = {
-        request: {
-          method: 'GET',
-          URL: 'some-url',
-          body: {
-            value: 'raw value',
-          },
-          query: {},
-        },
-        state: {},
-      } as unknown as ResponseContext;
-      const next = jest.fn();
-
-      try {
-        await middleware(ctx, next);
-      } catch (e) {
-        const error = e as Error;
-        expect(error).toEqual(
-          new Error('No schema found for the request body to GET at some-url'),
-        );
-      }
-
-      expect(next).toHaveBeenCalledTimes(0);
     });
   });
 

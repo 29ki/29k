@@ -2,6 +2,7 @@ import * as yup from 'yup';
 import {createApiPreAuthRouter} from '../../lib/routers';
 import * as sessionsController from '../../controllers/sessions';
 import validation from '../lib/validation';
+import {LiveSessionSchema} from '../../../../shared/src/types/Session';
 
 const onboardingRouter = createApiPreAuthRouter();
 
@@ -11,7 +12,10 @@ const SessionsQuerySchema = yup.object({
 
 onboardingRouter.get(
   '/sessions',
-  validation({query: SessionsQuerySchema}),
+  validation({
+    query: SessionsQuerySchema,
+    response: yup.array().of(LiveSessionSchema),
+  }),
   async ctx => {
     const {limit} = ctx.state.query;
     const sessions = await sessionsController.getUpcomingPublicSessions(limit);

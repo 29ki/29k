@@ -29,7 +29,7 @@ const sessionsRouter = createApiAuthRouter();
 
 sessionsRouter.get(
   '/',
-  validation({response: LiveSessionSchema}),
+  validation({response: yup.array().of(LiveSessionSchema)}),
   async ctx => {
     const {response, user, query} = ctx;
     const exerciseId =
