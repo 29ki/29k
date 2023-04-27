@@ -190,8 +190,16 @@ class VideoLooperView: RCTView {
       }
       
       if asset != nil {
-        asset!.loadValuesAsynchronously(forKeys: ["duration", "playable"]) {
-          fullfill(asset)
+        asset!.loadValuesAsynchronously(forKeys: ["playable"]) {
+          var error: NSError? = nil
+          switch asset!.statusOfValue(forKey: "playable", error: &error) {
+          case .loaded:
+            fullfill(asset)
+          case .failed:
+            reject(error!)
+          default:
+            reject(error!)
+          }
         }
       } else {
         reject(
