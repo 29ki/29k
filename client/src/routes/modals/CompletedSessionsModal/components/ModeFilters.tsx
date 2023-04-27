@@ -7,7 +7,7 @@ import Gutters from '../../../../lib/components/Gutters/Gutters';
 import {
   SessionMode,
   SessionType,
-} from '../../../../../../shared/src/types/Session';
+} from '../../../../../../shared/src/schemas/Session';
 import {
   CommunityIcon,
   FriendsIcon,

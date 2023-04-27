@@ -5,12 +5,12 @@ import {useTranslation} from 'react-i18next';
 import {Alert as AlertMock} from 'react-native';
 import {CompletedSessionPayload} from '../../../../../shared/src/types/Event';
 import {
-  AsyncSession,
-  LiveSession,
-  SessionState,
+  AsyncSessionType,
+  LiveSessionType,
+  SessionStateType,
   SessionMode,
   SessionType,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import useUserState from '../../user/state/state';
 import useSessionState from '../state/state';
 import useLeaveSession from './useLeaveSession';
@@ -53,7 +53,7 @@ describe('useLeaveSession', () => {
       useSessionState.setState({
         liveSession: {
           id: 'some-session-id',
-        } as LiveSession,
+        } as LiveSessionType,
       });
 
       const {result} = renderHook(() =>
@@ -61,7 +61,7 @@ describe('useLeaveSession', () => {
           id: 'some-session-id',
           type: SessionType.public,
           mode: SessionMode.live,
-        } as LiveSession),
+        } as LiveSessionType),
       );
 
       await act(() => result.current.leaveSession());
@@ -75,7 +75,7 @@ describe('useLeaveSession', () => {
       useSessionState.setState({
         asyncSession: {
           id: 'some-session-id',
-        } as AsyncSession,
+        } as AsyncSessionType,
       });
 
       const {result} = renderHook(() =>
@@ -83,7 +83,7 @@ describe('useLeaveSession', () => {
           id: 'some-session-id',
           type: SessionType.public,
           mode: SessionMode.async,
-        } as AsyncSession),
+        } as AsyncSessionType),
       );
 
       await act(() => result.current.leaveSession());
@@ -98,7 +98,7 @@ describe('useLeaveSession', () => {
         sessionState: {
           started: true,
           completed: true,
-        } as SessionState,
+        } as SessionStateType,
       });
       const {result} = renderHook(() =>
         useLeaveSession({
@@ -107,7 +107,7 @@ describe('useLeaveSession', () => {
           exerciseId: 'some-exercise-id',
           type: SessionType.public,
           mode: SessionMode.live,
-        } as LiveSession),
+        } as LiveSessionType),
       );
 
       await act(() => result.current.leaveSession());
@@ -130,7 +130,7 @@ describe('useLeaveSession', () => {
           id: 'some-session-id',
           type: SessionType.public,
           mode: SessionMode.live,
-        } as LiveSession),
+        } as LiveSessionType),
       );
 
       await act(() => result.current.leaveSessionWithConfirm());
@@ -156,12 +156,12 @@ describe('useLeaveSession', () => {
 
     it('leaves the call, resets the state and navigates on confirming', async () => {
       useSessionState.setState({
-        liveSession: {id: 'some-live-session-id'} as LiveSession,
-        asyncSession: {id: 'some-async-session-id'} as AsyncSession,
+        liveSession: {id: 'some-live-session-id'} as LiveSessionType,
+        asyncSession: {id: 'some-async-session-id'} as AsyncSessionType,
         sessionState: {
           id: 'some-session-id',
           started: true,
-        } as SessionState,
+        } as SessionStateType,
       });
 
       alertConfirmMock.mockImplementationOnce((header, text, config) => {
@@ -174,7 +174,7 @@ describe('useLeaveSession', () => {
           id: 'some-session-id',
           type: SessionType.public,
           mode: SessionMode.live,
-        } as LiveSession),
+        } as LiveSessionType),
       );
 
       await act(() => result.current.leaveSessionWithConfirm());
@@ -202,7 +202,7 @@ describe('useLeaveSession', () => {
           id: 'some-session-id',
           started: true,
           completed: true,
-        } as SessionState,
+        } as SessionStateType,
       });
       useUserState.setState({
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,
@@ -229,7 +229,7 @@ describe('useLeaveSession', () => {
           id: 'some-session-id',
           type: SessionType.private,
           mode: SessionMode.async,
-        } as AsyncSession),
+        } as AsyncSessionType),
       );
 
       await act(() => result.current.leaveSessionWithConfirm());
@@ -252,11 +252,11 @@ describe('useLeaveSession', () => {
 
     it('does nothing on dismiss', async () => {
       useSessionState.setState({
-        liveSession: {id: 'some-session-id'} as LiveSession,
+        liveSession: {id: 'some-session-id'} as LiveSessionType,
         sessionState: {
           id: 'some-session-id',
           started: true,
-        } as SessionState,
+        } as SessionStateType,
       });
 
       alertConfirmMock.mockImplementationOnce((header, text, config) => {
@@ -269,7 +269,7 @@ describe('useLeaveSession', () => {
           id: 'some-session-id',
           type: SessionType.public,
           mode: SessionMode.live,
-        } as LiveSession),
+        } as LiveSessionType),
       );
 
       await act(() => result.current.leaveSessionWithConfirm());

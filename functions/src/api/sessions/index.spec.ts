@@ -4,14 +4,16 @@ import Koa from 'koa';
 import {sessionsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {createApiAuthRouter} from '../../lib/routers';
-import {ROLE} from '../../../../shared/src/types/User';
+import {ROLE} from '../../../../shared/src/schemas/User';
 import * as sessionsController from '../../controllers/sessions';
 import {RequestError} from '../../controllers/errors/RequestError';
 import {
   JoinSessionError,
   ValidateSessionError,
 } from '../../../../shared/src/errors/Session';
-import {SessionType} from '../../../../shared/src/types/Session';
+import {SessionMode, SessionType} from '../../../../shared/src/schemas/Session';
+import {LiveSessionModel} from '../../controllers/types/types';
+import {Timestamp} from 'firebase-admin/firestore';
 
 jest.mock('../../controllers/sessions');
 const mockGetSessionsByUserId =
@@ -44,6 +46,33 @@ const mockServer = createMockServer(
   router.allowedMethods(),
 );
 
+const createMockSession = (
+  id: string,
+  hostId = 'some-host-id',
+): LiveSessionModel => {
+  return {
+    id,
+    hostId,
+    type: SessionType.public,
+    mode: SessionMode.live,
+    exerciseId: 'some-exercise-id',
+    startTime: Timestamp.now(),
+    closingTime: Timestamp.now(),
+    createdAt: Timestamp.now(),
+    updatedAt: Timestamp.now(),
+    ended: false,
+    dailyRoomName: 'some-room-id',
+    url: 'some-url',
+    interestedCount: 0,
+    inviteCode: 123456,
+    userIds: ['*'],
+    language: 'en',
+    hostProfile: {
+      uid: 'some-host-id',
+    },
+  };
+};
+
 afterEach(() => {
   jest.clearAllMocks();
 });
@@ -56,20 +85,8 @@ describe('/api/sessions', () => {
   describe('GET /', () => {
     it('should get sessions', async () => {
       mockGetSessionsByUserId.mockResolvedValueOnce([
-        {
-          id: 'some-session-id',
-          name: 'some-name',
-          url: 'some-url',
-          hostId: 'some-user-id',
-          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
-        },
-        {
-          id: 'some-other-session-id',
-          name: 'some-other-name',
-          url: 'some-other-url',
-          hostId: 'some-other-user-id',
-          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
-        },
+        createMockSession('some-session-id'),
+        createMockSession('some-other-session-id'),
       ]);
 
       const response = await request(mockServer).get('/sessions');
@@ -80,19 +97,13 @@ describe('/api/sessions', () => {
         undefined,
       );
       expect(response.status).toBe(200);
-      expect(response.body).toEqual([
+      expect(response.body).toMatchObject([
         {
           id: 'some-session-id',
-          name: 'some-name',
-          url: 'some-url',
-          hostId: 'some-user-id',
           startTime: expect.any(String),
         },
         {
           id: 'some-other-session-id',
-          name: 'some-other-name',
-          url: 'some-other-url',
-          hostId: 'some-other-user-id',
           startTime: expect.any(String),
         },
       ]);
@@ -100,22 +111,8 @@ describe('/api/sessions', () => {
 
     it('should get sessions by exerciseId', async () => {
       mockGetSessionsByUserId.mockResolvedValueOnce([
-        {
-          id: 'some-session-id',
-          name: 'some-name',
-          url: 'some-url',
-          hostId: 'some-user-id',
-          exerciseId: 'some-exercise-id',
-          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
-        },
-        {
-          id: 'some-other-session-id',
-          name: 'some-other-name',
-          url: 'some-other-url',
-          hostId: 'some-other-user-id',
-          exerciseId: 'some-exercise-id',
-          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
-        },
+        createMockSession('some-session-id'),
+        createMockSession('some-other-session-id'),
       ]);
 
       const response = await request(mockServer).get(
@@ -128,44 +125,22 @@ describe('/api/sessions', () => {
         undefined,
       );
       expect(response.status).toBe(200);
-      expect(response.body).toEqual([
+      expect(response.body).toMatchObject([
         {
           id: 'some-session-id',
-          name: 'some-name',
-          url: 'some-url',
-          hostId: 'some-user-id',
           exerciseId: 'some-exercise-id',
-          startTime: expect.any(String),
         },
         {
           id: 'some-other-session-id',
-          name: 'some-other-name',
-          url: 'some-other-url',
-          hostId: 'some-other-user-id',
           exerciseId: 'some-exercise-id',
-          startTime: expect.any(String),
         },
       ]);
     });
 
     it('should get sessions by hostId', async () => {
       mockGetSessionsByUserId.mockResolvedValueOnce([
-        {
-          id: 'some-session-id-1',
-          name: 'some-name-1',
-          url: 'some-url',
-          hostId: 'some-other-user-id',
-          exerciseId: 'some-exercise-id',
-          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
-        },
-        {
-          id: 'some-session-id-2',
-          name: 'some-name-2',
-          url: 'some-url',
-          hostId: 'some-other-user-id',
-          exerciseId: 'some-other-exercise-id',
-          startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
-        },
+        createMockSession('some-session-id-1', 'some-other-user-id'),
+        createMockSession('some-session-id-2', 'some-other-user-id'),
       ]);
 
       const response = await request(mockServer).get(
@@ -178,22 +153,14 @@ describe('/api/sessions', () => {
         'some-other-user-id',
       );
       expect(response.status).toBe(200);
-      expect(response.body).toEqual([
+      expect(response.body).toMatchObject([
         {
           id: 'some-session-id-1',
-          name: 'some-name-1',
-          url: 'some-url',
           hostId: 'some-other-user-id',
-          exerciseId: 'some-exercise-id',
-          startTime: expect.any(String),
         },
         {
           id: 'some-session-id-2',
-          name: 'some-name-2',
-          url: 'some-url',
           hostId: 'some-other-user-id',
-          exerciseId: 'some-other-exercise-id',
-          startTime: expect.any(String),
         },
       ]);
     });
@@ -201,24 +168,19 @@ describe('/api/sessions', () => {
 
   describe('GET /:id', () => {
     it('should return session', async () => {
-      mockGetSession.mockResolvedValueOnce({
-        id: 'some-session-id',
-        name: 'some-name',
-        url: 'some-url',
-        hostId: 'some-user-id',
-        startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
-      });
+      mockGetSession.mockResolvedValueOnce(
+        createMockSession('some-session-id'),
+      );
 
       const response = await request(mockServer).get(
         '/sessions/some-session-id',
       );
 
       expect(response.status).toBe(200);
-      expect(response.body).toEqual({
+      expect(response.body).toMatchObject({
         id: 'some-session-id',
-        name: 'some-name',
         url: 'some-url',
-        hostId: 'some-user-id',
+        hostId: 'some-host-id',
         startTime: expect.any(String),
       });
     });
@@ -295,7 +257,7 @@ describe('/api/sessions', () => {
     it('should return newly created session', async () => {
       getMockCustomClaims.mockReturnValueOnce({role: ROLE.publicHost});
 
-      mockCreateSession.mockResolvedValueOnce({id: 'new-session'});
+      mockCreateSession.mockResolvedValueOnce(createMockSession('new-session'));
       const response = await request(mockServer)
         .post('/sessions')
         .send({
@@ -306,7 +268,7 @@ describe('/api/sessions', () => {
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
-      expect(response.body).toEqual({
+      expect(response.body).toMatchObject({
         id: 'new-session',
       });
     });
@@ -349,14 +311,16 @@ describe('/api/sessions', () => {
 
   describe('PUT /:id', () => {
     it('should return updated session', async () => {
-      mockUpdateSession.mockResolvedValueOnce({id: 'some-session-id'});
+      mockUpdateSession.mockResolvedValueOnce(
+        createMockSession('some-session-id'),
+      );
       const response = await request(mockServer)
         .put('/sessions/some-session-id')
         .send({type: SessionType.private})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
-      expect(response.body).toEqual({
+      expect(response.body).toMatchObject({
         id: 'some-session-id',
       });
     });
@@ -410,7 +374,15 @@ describe('/api/sessions', () => {
 
   describe('PUT /:id/state', () => {
     it('should call session update', async () => {
-      mockUpdateSessionState.mockResolvedValueOnce({id: 'some-session-id'});
+      mockUpdateSessionState.mockResolvedValueOnce({
+        id: 'some-session-id',
+        completed: false,
+        ended: false,
+        index: 2,
+        playing: false,
+        started: true,
+        timestamp: Timestamp.now(),
+      });
       const response = await request(mockServer)
         .put('/sessions/some-session-id/state')
         .send({index: 2})
@@ -419,6 +391,12 @@ describe('/api/sessions', () => {
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
         id: 'some-session-id',
+        completed: false,
+        ended: false,
+        index: 2,
+        playing: false,
+        started: true,
+        timestamp: expect.any(String),
       });
     });
 
@@ -444,7 +422,15 @@ describe('/api/sessions', () => {
     });
 
     it('does not accept other fields', async () => {
-      mockUpdateSessionState.mockResolvedValueOnce({id: 'some-session-id'});
+      mockUpdateSessionState.mockResolvedValueOnce({
+        id: 'some-session-id',
+        completed: false,
+        ended: false,
+        index: 1,
+        playing: false,
+        started: true,
+        timestamp: Timestamp.now(),
+      });
       const response = await request(mockServer)
         .put('/sessions/some-session-id/state')
         .send({index: 1, foo: 'bar'})
@@ -464,14 +450,16 @@ describe('/api/sessions', () => {
 
   describe('PUT /joinSession', () => {
     it('should return joined session', async () => {
-      mockJoinSession.mockResolvedValueOnce({id: 'some-session-id'});
+      mockJoinSession.mockResolvedValueOnce(
+        createMockSession('some-session-id'),
+      );
       const response = await request(mockServer)
         .put('/sessions/joinSession')
         .send({inviteCode: 12345})
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
-      expect(response.body).toEqual({
+      expect(response.body).toMatchObject({
         id: 'some-session-id',
       });
     });

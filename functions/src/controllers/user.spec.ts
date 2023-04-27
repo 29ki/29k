@@ -4,7 +4,7 @@ import {getMe, getPublicHosts, getUser, updateUser} from './user';
 
 import {RequestError} from './errors/RequestError';
 import {UserError} from '../../../shared/src/errors/User';
-import {ROLE} from '../../../shared/src/types/User';
+import {ROLE} from '../../../shared/src/schemas/User';
 
 jest.mock('../models/auth');
 jest.mock('../models/user');
@@ -19,6 +19,7 @@ describe('user - controller', () => {
       const mockedGetUser = jest
         .mocked(userModel.getUser)
         .mockResolvedValueOnce({
+          id: 'some-user-id',
           description: 'some description',
         });
 
@@ -26,7 +27,10 @@ describe('user - controller', () => {
 
       expect(mockedGetUser).toBeCalledTimes(1);
       expect(mockedGetUser).toHaveBeenCalledWith('some-user-id');
-      expect(data).toEqual({description: 'some description'});
+      expect(data).toEqual({
+        description: 'some description',
+        id: 'some-user-id',
+      });
     });
 
     it('should return empty if no user data found', async () => {
@@ -77,6 +81,7 @@ describe('user - controller', () => {
         {
           description: 'some description',
           role: ROLE.publicHost,
+          id: 'some-user-id',
           uid: 'some-user-id',
           displayName: 'Some Name',
           photoURL: 'http://pic.png',
@@ -84,6 +89,7 @@ describe('user - controller', () => {
         {
           description: 'some other description',
           role: ROLE.publicHost,
+          id: 'some-other-user-id',
           uid: 'some-other-user-id',
           displayName: 'Some Other Name',
           photoURL: 'http://pic2.png',
@@ -112,12 +118,14 @@ describe('user - controller', () => {
       const mockedGetUser = jest
         .mocked(userModel.getUser)
         .mockResolvedValueOnce({
+          id: 'some-user-id',
           description: 'some description',
         });
 
       const profile = await getUser('user-id');
 
       expect(profile).toEqual({
+        id: 'some-user-id',
         uid: 'some-user-id',
         displayName: 'some-name',
         photoURL: 'some-photo-url',

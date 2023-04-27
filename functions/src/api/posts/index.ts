@@ -1,6 +1,4 @@
 import * as yup from 'yup';
-import validator from 'koa-yup-validator';
-
 import {createApiAuthRouter} from '../../lib/routers';
 import {PostError} from '../../../../shared/src/errors/Post';
 import {
@@ -9,38 +7,38 @@ import {
   getPostsByExerciseAndSharingId,
 } from '../../controllers/posts';
 import {RequestError} from '../../controllers/errors/RequestError';
+import validation from '../lib/validation';
+import {
+  CreatePostSchema,
+  PostSchema,
+} from '../../../../shared/src/schemas/Post';
 
 const postsRouter = createApiAuthRouter();
 
 const POSTS_LIMIT = 20;
 
-postsRouter.get('/:exerciseId/:sharingId', async ctx => {
-  const {response} = ctx;
-  const {exerciseId, sharingId} = ctx.params;
+postsRouter.get(
+  '/:exerciseId/:sharingId',
+  validation({response: yup.array().of(PostSchema)}),
+  async ctx => {
+    const {response} = ctx;
+    const {exerciseId, sharingId} = ctx.params;
 
-  const posts = await getPostsByExerciseAndSharingId(
-    exerciseId,
-    sharingId,
-    POSTS_LIMIT,
-  );
+    const posts = await getPostsByExerciseAndSharingId(
+      exerciseId,
+      sharingId,
+      POSTS_LIMIT,
+    );
 
-  response.status = 200;
-  ctx.body = posts;
-});
+    response.status = 200;
+    ctx.body = posts;
+  },
+);
 
-const CreatePostSchema = yup.object().shape({
-  exerciseId: yup.string().required(),
-  sharingId: yup.string().required(),
-  text: yup.string().required(),
-  anonymous: yup.boolean().default(true),
-});
-
-type CreatePostData = yup.InferType<typeof CreatePostSchema>;
-
-postsRouter.post('/', validator({body: CreatePostSchema}), async ctx => {
+postsRouter.post('/', validation({body: CreatePostSchema}), async ctx => {
   const {id} = ctx.user;
   const language = ctx.language;
-  const postData = ctx.request.body as CreatePostData;
+  const postData = ctx.request.body;
 
   await createPost({...postData, language}, id);
   ctx.response.status = 200;

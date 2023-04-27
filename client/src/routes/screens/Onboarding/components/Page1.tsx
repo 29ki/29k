@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import apiClient from '../../../../lib/apiClient/apiClient';
-import {LiveSession} from '../../../../../../shared/src/types/Session';
+import {LiveSessionType} from '../../../../../../shared/src/schemas/Session';
 import SessionCard from '../../../../lib/components/Cards/SessionCard/SessionCard';
 import styled from 'styled-components/native';
 import Gutters from '../../../../lib/components/Gutters/Gutters';
@@ -74,7 +74,7 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
 const Page1 = () => {
   const {t} = useTranslation('Screen.Onboarding');
   const opacity = useSharedValue(0);
-  const [sessions, setSessions] = useState<LiveSession[]>(
+  const [sessions, setSessions] = useState<LiveSessionType[]>(
     getFallbackSessions(),
   );
 

@@ -1,5 +1,5 @@
 import {mockFirebase} from 'firestore-jest-mock';
-import {ROLE} from '../../../shared/src/types/User';
+import {ROLE} from '../../../shared/src/schemas/User';
 
 mockFirebase(
   {

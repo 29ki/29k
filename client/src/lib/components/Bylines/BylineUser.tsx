@@ -2,7 +2,7 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {UserProfile} from '../../../../../shared/src/types/User';
+import {UserProfileType} from '../../../../../shared/src/schemas/User';
 import {SPACINGS} from '../../constants/spacings';
 import Image from '../Image/Image';
 import {Spacer4} from '../Spacers/Spacer';
@@ -23,7 +23,7 @@ const ImageContainer = styled.View({
   shadowColor: COLORS.GREYDARK,
 });
 
-type BylineUserProps = {user?: UserProfile};
+type BylineUserProps = {user?: UserProfileType | null};
 
 const BylineUser: React.FC<BylineUserProps> = React.memo(({user}) => {
   const {t} = useTranslation('Component.BylineUser');

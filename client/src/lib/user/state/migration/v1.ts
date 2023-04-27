@@ -1,4 +1,4 @@
-import {LiveSession} from '../../../../../../shared/src/types/Session';
+import {LiveSessionType} from '../../../../../../shared/src/schemas/Session';
 import {V2State, V2UserState} from './v2';
 
 // Types as they were in v1
@@ -8,11 +8,11 @@ type V1PinnedSession = {
 };
 
 type V1CompletedSession = {
-  id: LiveSession['id'];
-  hostId?: LiveSession['hostId'];
-  contentId: LiveSession['exerciseId'];
-  language: LiveSession['language'];
-  type: LiveSession['type'];
+  id: LiveSessionType['id'];
+  hostId?: LiveSessionType['hostId'];
+  contentId: LiveSessionType['exerciseId'];
+  language: LiveSessionType['language'];
+  type: LiveSessionType['type'];
   completedAt: string; // is deserialized as string
 };
 

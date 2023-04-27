@@ -2,7 +2,7 @@ import type * as BackEndAdaptorType from '.';
 import {
   SessionMode,
   SessionType,
-} from '../../../../../../shared/src/types/Session';
+} from '../../../../../../shared/src/schemas/Session';
 import getMetricsUid from './utils/getMetricsUid';
 import metricsClient from './utils/metricsClient';
 

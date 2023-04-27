@@ -1,4 +1,4 @@
-import {SessionMode, SessionType} from './Session';
+import {SessionMode, SessionType} from '../schemas/Session';
 
 export type Feedback = {
   exerciseId: string;

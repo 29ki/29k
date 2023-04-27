@@ -32,7 +32,7 @@ import {
   updateInterestedCount,
   getSession,
 } from './sessions';
-import {SessionType} from '../../../shared/src/types/Session';
+import {SessionType} from '../../../shared/src/schemas/Session';
 import dayjs from 'dayjs';
 import {RequestError} from './errors/RequestError';
 import {
@@ -43,6 +43,7 @@ import {generateSessionToken} from '../lib/dailyUtils';
 import {getUser} from './user';
 import {getAuthUserInfo} from '../models/auth';
 import {incrementHostedCount} from '../models/user';
+import {Timestamp} from 'firebase-admin/firestore';
 
 jest.mock('../lib/utils', () => ({
   ...jest.requireActual('../lib/utils'),
@@ -97,7 +98,7 @@ describe('sessions - controller', () => {
     it('should get sessions with host profile', async () => {
       mockGetSessionsByUserId.mockResolvedValueOnce([
         {
-          closingTime: '2022-10-10T10:00:00.000Z',
+          closingTime: Timestamp.fromDate(new Date('2022-10-10T10:00:00.000Z')),
           hostId: 'some-user-id',
           userIds: ['*'],
         },
@@ -121,7 +122,7 @@ describe('sessions - controller', () => {
     it('should get public sessions by exerciseId with host profile', async () => {
       mockGetSessionsByUserId.mockResolvedValueOnce([
         {
-          closingTime: '2022-10-10T10:00:00.000Z',
+          closingTime: Timestamp.fromDate(new Date('2022-10-10T10:00:00.000Z')),
           hostId: 'some-user-id',
           userIds: ['*'],
         },
@@ -148,7 +149,7 @@ describe('sessions - controller', () => {
     it('should filter out sessions that have been closed', async () => {
       mockGetSessionsByUserId.mockResolvedValueOnce([
         {
-          closingTime: '2022-10-10T09:00:00.000Z',
+          closingTime: Timestamp.fromDate(new Date('2022-10-10T09:00:00.000Z')),
           hostId: 'some-user-id',
           userIds: ['*'],
         },
@@ -162,7 +163,7 @@ describe('sessions - controller', () => {
     it('should include closed sessions containing userid (aka user has joined)', async () => {
       mockGetSessionsByUserId.mockResolvedValueOnce([
         {
-          closingTime: '2022-10-10T09:00:00.000Z',
+          closingTime: Timestamp.fromDate(new Date('2022-10-10T09:00:00.000Z')),
           hostId: 'the-host-id',
           userIds: ['*', 'some-user-id'],
         },
@@ -173,7 +174,7 @@ describe('sessions - controller', () => {
       expect(sessions).toHaveLength(1);
       expect(sessions).toEqual([
         {
-          closingTime: '2022-10-10T09:00:00.000Z',
+          closingTime: expect.any(Timestamp),
           hostId: 'the-host-id',
           hostProfile: {
             uid: 'the-host-id',
@@ -188,7 +189,7 @@ describe('sessions - controller', () => {
     it('should include closed sessions which userid is the host', async () => {
       mockGetSessionsByUserId.mockResolvedValueOnce([
         {
-          closingTime: '2022-10-10T09:00:00.000Z',
+          closingTime: Timestamp.fromDate(new Date('2022-10-10T09:00:00.000Z')),
           hostId: 'the-host-id',
           userIds: ['*'],
         },
@@ -199,7 +200,7 @@ describe('sessions - controller', () => {
       expect(sessions).toHaveLength(1);
       expect(sessions).toEqual([
         {
-          closingTime: '2022-10-10T09:00:00.000Z',
+          closingTime: expect.any(Timestamp),
           hostId: 'the-host-id',
           hostProfile: {
             uid: 'the-host-id',
@@ -216,7 +217,7 @@ describe('sessions - controller', () => {
     it('should get sessions with host profile', async () => {
       mockGetUpcomingPublicSessions.mockResolvedValueOnce([
         {
-          closingTime: '2022-10-10T10:00:00.000Z',
+          closingTime: Timestamp.fromDate(new Date('2022-10-10T10:00:00.000Z')),
           hostId: 'some-user-id',
           userIds: ['*'],
         },
@@ -319,6 +320,7 @@ describe('sessions - controller', () => {
         hostId: 'some-host-id',
         userIds: ['some-user-id'],
         type: SessionType.private,
+        startTime: Timestamp.fromDate(new Date('2022-10-10T09:00:00.000Z')),
       });
       mockGenerateSessionToken.mockReturnValueOnce('some-token');
 
@@ -333,6 +335,7 @@ describe('sessions - controller', () => {
         hostId: 'some-host-id',
         userIds: ['some-other-user-id'],
         type: SessionType.public,
+        startTime: Timestamp.fromDate(new Date('2022-10-10T09:00:00.000Z')),
       });
       mockGenerateSessionToken.mockReturnValueOnce('some-token');
 
@@ -606,7 +609,7 @@ describe('sessions - controller', () => {
         id: 'some-session-id',
         dailyRoomName: 'some-daily-room-name',
         hostId: 'the-host-id',
-        startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+        startTime: Timestamp.fromDate(new Date('2022-10-10T10:00:00.000Z')),
       });
       mockGetSessionById.mockResolvedValueOnce({
         id: 'some-session-id',
@@ -631,7 +634,7 @@ describe('sessions - controller', () => {
         id: 'some-session-id',
         dailyRoomName: 'some-daily-room-name',
         hostId: 'the-host-id',
-        startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
+        startTime: Timestamp.fromDate(new Date('2022-10-10T10:00:00Z')),
       });
 
       await updateSession('the-host-id', 'some-session-id', {
@@ -646,9 +649,13 @@ describe('sessions - controller', () => {
         id: 'some-session-id',
         dailyRoomName: 'some-daily-room-name',
         hostId: 'the-host-id',
+        startTime: Timestamp.now(),
       });
       mockGetSessionById.mockResolvedValueOnce({
         id: 'some-session-id',
+        dailyRoomName: 'some-daily-room-name',
+        hostId: 'the-host-id',
+        startTime: Timestamp.now(),
       }); // second call (returned value)
 
       const updatedSession = await updateSession(
@@ -661,11 +668,14 @@ describe('sessions - controller', () => {
       });
       expect(updatedSession).toEqual({
         id: 'some-session-id',
+        dailyRoomName: 'some-daily-room-name',
+        hostId: 'the-host-id',
         hostProfile: {
           uid: 'the-host-id',
           displayName: 'some-name',
           photoURL: 'some-photo-url',
         },
+        startTime: expect.any(Timestamp),
       });
     });
   });

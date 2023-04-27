@@ -5,7 +5,7 @@ import createMockServer from '../lib/createMockServer';
 
 import {createMetricsRouter} from '../../lib/routers';
 import {addFeedback} from '../../controllers/feedback';
-import {SessionMode, SessionType} from '../../../../shared/src/types/Session';
+import {SessionMode, SessionType} from '../../../../shared/src/schemas/Session';
 
 jest.mock('../../controllers/feedback');
 

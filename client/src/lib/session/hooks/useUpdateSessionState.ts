@@ -1,12 +1,14 @@
 import {useCallback} from 'react';
 import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 import {
-  SessionState,
-  LiveSession,
-} from '../../../../../shared/src/types/Session';
+  SessionStateType,
+  LiveSessionType,
+} from '../../../../../shared/src/schemas/Session';
 import * as sessionApi from '../../sessions/api/session';
 
-const useUpdateSessionState = (sessionId: LiveSession['id'] | undefined) => {
+const useUpdateSessionState = (
+  sessionId: LiveSessionType['id'] | undefined,
+) => {
   const startSession = useCallback(async () => {
     if (sessionId) {
       sessionApi.updateSessionState(sessionId, {
@@ -28,7 +30,7 @@ const useUpdateSessionState = (sessionId: LiveSession['id'] | undefined) => {
       index,
       content,
     }: {
-      index: SessionState['index'];
+      index: SessionStateType['index'];
       content: ExerciseSlide[];
     }) => {
       if (!sessionId || index < 0 || index > content.length - 1) {
@@ -47,7 +49,7 @@ const useUpdateSessionState = (sessionId: LiveSession['id'] | undefined) => {
   );
 
   const setPlaying = useCallback(
-    async (playing: SessionState['playing']) => {
+    async (playing: SessionStateType['playing']) => {
       if (sessionId) {
         return sessionApi.updateSessionState(sessionId, {playing});
       }

@@ -2,11 +2,13 @@ import {renderHook} from '@testing-library/react-hooks';
 import firestore from '@react-native-firebase/firestore';
 
 import useSubscribeToSession from './useSubscribeToSession';
-import {getSessionState} from '../../../../../shared/src/modelUtils/session';
+import {
+  LiveSessionType,
+  LiveSessionSchema,
+} from '../../../../../shared/src/schemas/Session';
 
-jest.mock('../../../../../shared/src/modelUtils/session', () => ({
-  getSessionState: jest.fn().mockReturnValue('get-session-state-result'),
-}));
+jest.mock('../../../../../shared/src/schemas/Session');
+const mockeLiveSessionSchema = jest.mocked(LiveSessionSchema);
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -21,6 +23,9 @@ describe('useSubscribeToSession', () => {
   };
 
   it('should subscribe to live session document', async () => {
+    mockeLiveSessionSchema.validateSync.mockReturnValueOnce(
+      'get-session-state-result' as unknown as LiveSessionType,
+    );
     renderHook(() => useTestHook());
 
     const sessionDoc = firestore().collection('sessions').doc('session-id');
@@ -40,7 +45,9 @@ describe('useSubscribeToSession', () => {
     );
     await new Promise(process.nextTick);
 
-    expect(getSessionState).toHaveBeenCalledWith({id: 'test-id'});
+    expect(mockeLiveSessionSchema.validateSync).toHaveBeenCalledWith({
+      id: 'test-id',
+    });
     expect(mockCallback).toHaveBeenCalledWith('get-session-state-result');
   });
 });

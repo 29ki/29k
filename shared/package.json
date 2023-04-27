@@ -21,6 +21,7 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
-    "ramda": "^0.28.0"
+    "ramda": "^0.28.0",
+    "yup": "^1.1.1"
   }
 }

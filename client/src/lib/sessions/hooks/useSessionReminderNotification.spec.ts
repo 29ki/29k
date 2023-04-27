@@ -1,5 +1,5 @@
 import {renderHook} from '@testing-library/react-hooks';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import useTriggerNotification from '../../notifications/hooks/useTriggerNotification';
 
 import useSessionReminderNotification from './useSessionReminderNotification';
@@ -26,7 +26,7 @@ describe('useSessionReminderNotification', () => {
       useSessionReminderNotification({
         id: 'some-session-id',
         exerciseId: 'some-content-id',
-      } as LiveSession),
+      } as LiveSessionType),
     );
 
     expect(result.current.reminderEnabled).toEqual(true);
@@ -46,7 +46,7 @@ describe('useSessionReminderNotification', () => {
         id: 'some-session-id',
         exerciseId: 'some-content-id',
         link: 'http://some.deep/link',
-      } as LiveSession),
+      } as LiveSessionType),
     );
 
     result.current.toggleReminder(true);
@@ -70,7 +70,7 @@ describe('useSessionReminderNotification', () => {
       useSessionReminderNotification({
         id: 'some-session-id',
         exerciseId: 'some-content-id',
-      } as LiveSession),
+      } as LiveSessionType),
     );
 
     result.current.toggleReminder(false);

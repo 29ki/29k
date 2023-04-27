@@ -9,7 +9,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import hexToRgba from 'hex-to-rgba';
 
-import {DailyUserData} from '../../../../../../shared/src/types/Session';
+import {DailyUserData} from '../../../../../../shared/src/schemas/Session';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../constants/spacings';
 import {Display36} from '../../../components/Typography/Display/Display';

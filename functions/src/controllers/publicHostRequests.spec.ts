@@ -21,7 +21,7 @@ import {sendPublicHostRequestMessage} from '../models/slack';
 import {VerificationError} from '../../../shared/src/errors/User';
 import {updateUser} from '../models/user';
 import {RequestData} from '../models/types/types';
-import {ROLE} from '../../../shared/src/types/User';
+import {ROLE} from '../../../shared/src/schemas/User';
 
 jest.mock('../models/publicHostRequests');
 jest.mock('../models/slack');

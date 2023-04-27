@@ -7,7 +7,7 @@ import {logFeedback} from '../../metrics';
 import {
   SessionMode,
   SessionType,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 
 jest.mock('../../metrics');
 const mockedLogEvent = jest.mocked(logFeedback);

@@ -1,7 +1,8 @@
 import * as yup from 'yup';
-import validator from 'koa-yup-validator';
 import {createApiPreAuthRouter} from '../../lib/routers';
 import * as sessionsController from '../../controllers/sessions';
+import validation from '../lib/validation';
+import {LiveSessionSchema} from '../../../../shared/src/schemas/Session';
 
 const onboardingRouter = createApiPreAuthRouter();
 
@@ -11,10 +12,12 @@ const SessionsQuerySchema = yup.object({
 
 onboardingRouter.get(
   '/sessions',
-  validator({query: SessionsQuerySchema}),
+  validation({
+    query: SessionsQuerySchema,
+    response: yup.array().of(LiveSessionSchema),
+  }),
   async ctx => {
-    const {limit} = ctx.state.validated.query;
-
+    const {limit} = ctx.request.query;
     const sessions = await sessionsController.getUpcomingPublicSessions(limit);
 
     ctx.status = 200;

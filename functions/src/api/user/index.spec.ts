@@ -12,7 +12,7 @@ import {
 import {RequestError} from '../../controllers/errors/RequestError';
 import {UserError, VerificationError} from '../../../../shared/src/errors/User';
 import {getMe, getPublicHosts, getUser} from '../../controllers/user';
-import {ROLE} from '../../../../shared/src/types/User';
+import {ROLE} from '../../../../shared/src/schemas/User';
 
 jest.mock('../../controllers/publicHostRequests');
 jest.mock('../../controllers/user');

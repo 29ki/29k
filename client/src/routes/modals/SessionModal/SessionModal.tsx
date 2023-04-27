@@ -44,9 +44,9 @@ import TouchableOpacity from '../../../lib/components/TouchableOpacity/Touchable
 import DateTimePicker from '../../../lib/components/DateTimePicker/DateTimePicker';
 import {updateSession} from '../../../lib/sessions/api/session';
 import {
-  LiveSession,
+  LiveSessionType,
   SessionType,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import EditSessionType from '../../../lib/components/EditSessionType/EditSessionType';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
@@ -142,7 +142,7 @@ const SessionModal = () => {
     params: {session: initialSessionData},
   } = useRoute<RouteProp<ModalStackProps, 'SessionModal'>>();
 
-  const [session, setSession] = useState<LiveSession>(initialSessionData);
+  const [session, setSession] = useState<LiveSessionType>(initialSessionData);
 
   const {t} = useTranslation('Modal.Session');
   const user = useUser();

@@ -1,9 +1,9 @@
 import {renderHook} from '@testing-library/react-hooks';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {
-  LiveSession,
-  SessionState,
-} from '../../../../../shared/src/types/Session';
+  LiveSessionType,
+  SessionStateType,
+} from '../../../../../shared/src/schemas/Session';
 import useSessionState from '../state/state';
 import useSessionSlideState from './useSessionSlideState';
 
@@ -31,10 +31,10 @@ describe('useSessionSlideState', () => {
     useSessionState.setState({
       liveSession: {
         exerciseId: 'some-content',
-      } as LiveSession,
+      } as LiveSessionType,
       sessionState: {
         index: 1,
-      } as SessionState,
+      } as SessionStateType,
       exercise: {
         slides: [{type: 'content'}, {type: 'host'}, {type: 'reflection'}],
       } as Exercise,
@@ -54,7 +54,7 @@ describe('useSessionSlideState', () => {
     useSessionState.setState({
       sessionState: {
         index: 1,
-      } as SessionState,
+      } as SessionStateType,
       exercise: {
         slides: [{type: 'content'}, {type: 'host'}, {type: 'reflection'}],
       } as Exercise,
@@ -70,8 +70,8 @@ describe('useSessionSlideState', () => {
 
   it('should return only current slide', () => {
     useSessionState.setState({
-      liveSession: {exerciseId: 'some-content'} as LiveSession,
-      sessionState: {index: 0} as SessionState,
+      liveSession: {exerciseId: 'some-content'} as LiveSessionType,
+      sessionState: {index: 0} as SessionStateType,
       exercise: {
         slides: [{type: 'content'}],
       } as Exercise,
