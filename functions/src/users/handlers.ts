@@ -1,10 +1,10 @@
-import {ROLE, UserData} from '../../../shared/src/schemas/User';
+import {ROLE, UserDataType} from '../../../shared/src/schemas/User';
 import {updateRole} from '../models/auth';
 
 export const userUpdatedHandler = async (
   userId: string,
-  dataBefore?: UserData,
-  dataAfter?: UserData,
+  dataBefore?: UserDataType,
+  dataAfter?: UserDataType,
 ) => {
   if (
     dataBefore?.role !== ROLE.publicHost &&

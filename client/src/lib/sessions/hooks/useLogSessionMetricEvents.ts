@@ -1,5 +1,5 @@
 import {useCallback} from 'react';
-import {LiveSession} from '../../../../../shared/src/schemas/Session';
+import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import * as metrics from '../../metrics';
 import useUser from '../../user/hooks/useUser';
 
@@ -16,7 +16,7 @@ const useLogSessionMetricEvents = () => {
   const user = useUser();
 
   return useCallback(
-    (event: AllowedSharingEvents, session: LiveSession) => {
+    (event: AllowedSharingEvents, session: LiveSessionType) => {
       if (session?.id && user?.uid) {
         metrics.logEvent(event, {
           'Sharing Session ID': session.id,

@@ -14,7 +14,7 @@ import {
   PostEventData,
   CompletedSessionEventData,
 } from '../../../../../shared/src/types/Event';
-import {UserData} from '../../../../../shared/src/schemas/User';
+import {UserDataType} from '../../../../../shared/src/schemas/User';
 
 dayjs.extend(utc);
 
@@ -46,7 +46,7 @@ type SetCurrentUserState = (
 
 export type State = {
   user: FirebaseAuthTypes.User | null;
-  data: UserData | null;
+  data: UserDataType | null;
   claims: FirebaseAuthTypes.IdTokenResult['claims'];
   userState: {[key: string]: UserState};
 };
@@ -56,7 +56,7 @@ export type PersistedState = Pick<State, 'userState'>;
 export type Actions = {
   setUser: (user: State['user']) => void;
   setClaims: (claims: State['claims']) => void;
-  setData: (data: Partial<UserData>) => void;
+  setData: (data: Partial<UserDataType>) => void;
   setUserAndClaims: (state: {
     user: State['user'];
     claims: State['claims'];

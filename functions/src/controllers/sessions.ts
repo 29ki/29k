@@ -7,10 +7,10 @@ import * as authModel from '../models/auth';
 import * as userModel from '../models/user';
 import * as dailyApi from '../lib/dailyApi';
 import {
-  CreateSession,
-  SessionStateUpdate,
+  CreateSessionType,
+  SessionStateUpdateType,
   SessionType,
-  UpdateSession,
+  UpdateSessionType,
 } from '../../../shared/src/schemas/Session';
 import {
   JoinSessionError,
@@ -110,7 +110,7 @@ export const getSession = async (
 
 export const createSession = async (
   userId: string,
-  {exerciseId, type, startTime, language}: CreateSession,
+  {exerciseId, type, startTime, language}: CreateSessionType,
 ) => {
   const {displayName} = await authModel.getAuthUserInfo(userId);
   const expireDate = dayjs(startTime).add(2, 'hour');
@@ -166,7 +166,7 @@ export const removeSession = async (
 export const updateSession = async (
   userId: string,
   sessionId: LiveSessionModel['id'],
-  data: Partial<UpdateSession>,
+  data: Partial<UpdateSessionType>,
 ) => {
   const session = await sessionModel.getSessionById(sessionId);
 
@@ -199,7 +199,7 @@ export const updateInterestedCount = async (
 export const updateSessionState = async (
   userId: string,
   sessionId: LiveSessionModel['id'],
-  data: Partial<SessionStateUpdate>,
+  data: Partial<SessionStateUpdateType>,
 ) => {
   const session = await sessionModel.getSessionById(sessionId);
   const sessionState = await sessionModel.getSessionStateById(sessionId);

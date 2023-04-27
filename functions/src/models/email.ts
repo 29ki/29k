@@ -1,6 +1,6 @@
 import sendgrid from '@sendgrid/mail';
 import dayjs from 'dayjs';
-import {ReportParams} from '../../../shared/src/schemas/Report';
+import {ReportParamsType} from '../../../shared/src/schemas/Report';
 
 import config from '../lib/config';
 import {
@@ -34,7 +34,7 @@ const createReportEmail = (
     emailTo: string | string[];
     emailFrom?: string;
     message: string;
-    params: ReportParams;
+    params: ReportParamsType;
   },
 ) => {
   const t = i18next.getFixedT(language, 'email');
@@ -76,7 +76,7 @@ export const sendReportEmail = ({
   email?: string;
   text: string;
   language: LANGUAGE_TAG;
-  params: ReportParams;
+  params: ReportParamsType;
 }) =>
   sendgrid.send(
     createReportEmail(language, {

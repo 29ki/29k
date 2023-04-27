@@ -1,6 +1,6 @@
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {
-  LiveSession,
+  LiveSessionType,
   SessionMode,
   SessionType,
 } from '../../../../../shared/src/schemas/Session';
@@ -24,10 +24,10 @@ export type ExerciseID = {
 
 // Sharing Session properties - named "Sharing Session" to not be confused with a user "session" in PostHog
 export type SharingSessionProperties = {
-  'Sharing Session ID': LiveSession['id'];
+  'Sharing Session ID': LiveSessionType['id'];
   'Sharing Session Type': SessionType;
   'Sharing Session Mode': SessionMode;
-  'Sharing Session Start Time': LiveSession['startTime'];
+  'Sharing Session Start Time': LiveSessionType['startTime'];
 } & ExerciseID &
   Host &
   Language;

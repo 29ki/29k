@@ -7,7 +7,7 @@ import {useNavigation} from '@react-navigation/native';
 
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 
-import {LiveSession} from '../../../../../shared/src/schemas/Session';
+import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -37,7 +37,7 @@ import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 
 type Section = {
   title: string;
-  data: LiveSession[];
+  data: LiveSessionType[];
   type: 'hostedBy' | 'interested' | 'comming';
 };
 
@@ -78,7 +78,7 @@ const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
   </StickyHeading>
 );
 
-const renderSession: SectionListRenderItem<LiveSession, Section> = ({
+const renderSession: SectionListRenderItem<LiveSessionType, Section> = ({
   item,
   section,
   index,

@@ -17,5 +17,5 @@ export const CreateReportSchema = yup.object().shape({
   params: ReportParamsSchema,
 });
 
-export type CreateReportData = yup.InferType<typeof CreateReportSchema>;
-export type ReportParams = yup.InferType<typeof ReportParamsSchema>;
+export type CreateReportType = yup.InferType<typeof CreateReportSchema>;
+export type ReportParamsType = yup.InferType<typeof ReportParamsSchema>;

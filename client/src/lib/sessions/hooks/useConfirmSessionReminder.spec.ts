@@ -2,7 +2,7 @@ import {Alert} from 'react-native';
 import {renderHook} from '@testing-library/react-hooks';
 
 import useConfirmSessionReminder from './useConfirmSessionReminder';
-import {LiveSession} from '../../../../../shared/src/schemas/Session';
+import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import useReminderNotificationsSetting from '../../notifications/hooks/useReminderNotificationsSetting';
 
 const mockAlert = jest.mocked(Alert.alert);
@@ -31,7 +31,7 @@ describe('useConfirmSessionReminder', () => {
 
     it('toggles reminder on', async () => {
       const {result} = renderHook(() =>
-        useConfirmSessionReminder({id: 'session-id'} as LiveSession),
+        useConfirmSessionReminder({id: 'session-id'} as LiveSessionType),
       );
 
       await result.current(true);
@@ -42,7 +42,7 @@ describe('useConfirmSessionReminder', () => {
 
     it('toggles reminder off', async () => {
       const {result} = renderHook(() =>
-        useConfirmSessionReminder({id: 'session-id'} as LiveSession),
+        useConfirmSessionReminder({id: 'session-id'} as LiveSessionType),
       );
 
       await result.current(false);
@@ -62,7 +62,7 @@ describe('useConfirmSessionReminder', () => {
 
     it('does not toggle reminder on', async () => {
       const {result} = renderHook(() =>
-        useConfirmSessionReminder({id: 'session-id'} as LiveSession),
+        useConfirmSessionReminder({id: 'session-id'} as LiveSessionType),
       );
 
       await result.current(true);
@@ -72,7 +72,7 @@ describe('useConfirmSessionReminder', () => {
 
     it('does not toggle reminder off', async () => {
       const {result} = renderHook(() =>
-        useConfirmSessionReminder({id: 'session-id'} as LiveSession),
+        useConfirmSessionReminder({id: 'session-id'} as LiveSessionType),
       );
 
       await result.current(false);
@@ -91,7 +91,7 @@ describe('useConfirmSessionReminder', () => {
 
     it('prompts the user about enabling notification reminders', async () => {
       const {result} = renderHook(() =>
-        useConfirmSessionReminder({id: 'session-id'} as LiveSession),
+        useConfirmSessionReminder({id: 'session-id'} as LiveSessionType),
       );
 
       await result.current(true);
@@ -120,7 +120,7 @@ describe('useConfirmSessionReminder', () => {
       });
 
       const {result} = renderHook(() =>
-        useConfirmSessionReminder({id: 'session-id'} as LiveSession),
+        useConfirmSessionReminder({id: 'session-id'} as LiveSessionType),
       );
 
       await result.current(true);
@@ -140,7 +140,7 @@ describe('useConfirmSessionReminder', () => {
       });
 
       const {result} = renderHook(() =>
-        useConfirmSessionReminder({id: 'session-id'} as LiveSession),
+        useConfirmSessionReminder({id: 'session-id'} as LiveSessionType),
       );
 
       await result.current(true);
@@ -159,7 +159,7 @@ describe('useConfirmSessionReminder', () => {
       });
 
       const {result} = renderHook(() =>
-        useConfirmSessionReminder({id: 'session-id'} as LiveSession),
+        useConfirmSessionReminder({id: 'session-id'} as LiveSessionType),
       );
 
       await result.current(true);
@@ -180,7 +180,7 @@ describe('useConfirmSessionReminder', () => {
       });
 
       const {result} = renderHook(() =>
-        useConfirmSessionReminder({id: 'session-id'} as LiveSession),
+        useConfirmSessionReminder({id: 'session-id'} as LiveSessionType),
       );
 
       await result.current(false);

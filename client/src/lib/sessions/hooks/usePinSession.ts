@@ -1,13 +1,13 @@
 import dayjs from 'dayjs';
 import {useCallback, useMemo} from 'react';
-import {LiveSession} from '../../../../../shared/src/schemas/Session';
+import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import {updateInterestedCount} from '../api/session';
 import useLogSessionMetricEvents from './useLogSessionMetricEvents';
 import usePinnedSessions from './usePinnedSessions';
 import useUserState from '../../user/state/state';
 import useConfirmSessionReminder from './useConfirmSessionReminder';
 
-const usePinSession = (session: LiveSession) => {
+const usePinSession = (session: LiveSessionType) => {
   const pinnedSessions = usePinnedSessions();
   const setPinnedSessions = useUserState(state => state.setPinnedSessions);
   const confirmToggleReminder = useConfirmSessionReminder(session);

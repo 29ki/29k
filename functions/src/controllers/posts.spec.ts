@@ -16,7 +16,7 @@ import {
   Exercise,
   ExerciseSlideSharingSlide,
 } from '../../../shared/src/types/generated/Exercise';
-import {CreatePostData} from '../../../shared/src/schemas/Post';
+import {CreatePostType} from '../../../shared/src/schemas/Post';
 
 jest.mock('../models/post');
 jest.mock('../models/auth');
@@ -66,7 +66,7 @@ describe('posts - controller', () => {
           language: 'en',
           text: 'some text',
           anonymous: false,
-        } as CreatePostData,
+        } as CreatePostType,
         'some-user-id',
       );
 
@@ -112,7 +112,7 @@ describe('posts - controller', () => {
           language: 'en',
           text: 'some text',
           anonymous: true,
-        } as CreatePostData,
+        } as CreatePostType,
         'some-user-id',
       );
 

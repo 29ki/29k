@@ -22,7 +22,9 @@ const SessionStateFieldsSchema = yup.object({
   id: yup.string().required(),
   completed: yup.boolean(),
 });
-export type SessionStateFields = yup.InferType<typeof SessionStateFieldsSchema>;
+export type SessionStateFieldsType = yup.InferType<
+  typeof SessionStateFieldsSchema
+>;
 
 const SessionBaseFiledsSchema = yup.object({
   id: yup.string().required(),
@@ -44,7 +46,9 @@ const LiveSessionFieldsSchema = yup
     ended: yup.boolean().required(),
   })
   .concat(SessionBaseFiledsSchema);
-export type LiveSessionFields = yup.InferType<typeof LiveSessionFieldsSchema>;
+export type LiveSessionFieldsType = yup.InferType<
+  typeof LiveSessionFieldsSchema
+>;
 
 // Applicaton schema
 export const SessionStateSchema = yup
@@ -52,7 +56,7 @@ export const SessionStateSchema = yup
     timestamp: transformTimestamp.required(),
   })
   .concat(SessionStateFieldsSchema);
-export type SessionState = yup.InferType<typeof SessionStateSchema>;
+export type SessionStateType = yup.InferType<typeof SessionStateSchema>;
 
 export const LiveSessionSchema = yup
   .object({
@@ -63,14 +67,14 @@ export const LiveSessionSchema = yup
     hostProfile: yup.object().concat(UserSchema).nullable(),
   })
   .concat(LiveSessionFieldsSchema);
-export type LiveSession = yup.InferType<typeof LiveSessionSchema>;
+export type LiveSessionType = yup.InferType<typeof LiveSessionSchema>;
 
 export const AsyncSessionSchema = yup
   .object({
     startTime: yup.string().required(),
   })
   .concat(SessionBaseFiledsSchema);
-export type AsyncSession = yup.InferType<typeof AsyncSessionSchema>;
+export type AsyncSessionType = yup.InferType<typeof AsyncSessionSchema>;
 
 export const CreateSessionSchema = LiveSessionSchema.pick([
   'exerciseId',
@@ -81,7 +85,7 @@ export const CreateSessionSchema = LiveSessionSchema.pick([
     language: LanguageSchema.default(DEFAULT_LANGUAGE_TAG),
   }),
 );
-export type CreateSession = yup.InferType<typeof CreateSessionSchema>;
+export type CreateSessionType = yup.InferType<typeof CreateSessionSchema>;
 
 export const UpdateSessionSchema = yup
   .object({
@@ -93,22 +97,26 @@ export const UpdateSessionSchema = yup
     'object may not be empty',
     test => Object.keys(test).length > 0,
   );
-export type UpdateSession = yup.InferType<typeof UpdateSessionSchema>;
+export type UpdateSessionType = yup.InferType<typeof UpdateSessionSchema>;
 
 export const InterestedCountSchema = yup.object({
   increment: yup.boolean().required(),
 });
-export type InterestedCountUpdate = yup.InferType<typeof InterestedCountSchema>;
+export type InterestedCountUpdateType = yup.InferType<
+  typeof InterestedCountSchema
+>;
 
 export const SessionStateUpdateSchema = SessionStateSchema.partial().test(
   'nonEmptyObject',
   'object may not be empty',
   test => Object.keys(test).length > 0,
 );
-export type SessionStateUpdate = yup.InferType<typeof SessionStateUpdateSchema>;
+export type SessionStateUpdateType = yup.InferType<
+  typeof SessionStateUpdateSchema
+>;
 
 export const JoinSessionSchema = LiveSessionSchema.pick(['inviteCode']);
-export type JoinSession = yup.InferType<typeof JoinSessionSchema>;
+export type JoinSessionType = yup.InferType<typeof JoinSessionSchema>;
 
 export type DailyUserData = {
   inPortal: boolean;

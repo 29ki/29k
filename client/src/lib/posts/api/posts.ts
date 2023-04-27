@@ -1,4 +1,4 @@
-import {Post} from '../../../../../shared/src/schemas/Post';
+import {PostType} from '../../../../../shared/src/schemas/Post';
 import apiClient from '../../apiClient/apiClient';
 
 const POSTS_ENDPOINT = '/posts';
@@ -6,7 +6,7 @@ const POSTS_ENDPOINT = '/posts';
 export const fetchPosts = async (
   exerciseId: string,
   sharingId: string,
-): Promise<Post[]> => {
+): Promise<PostType[]> => {
   try {
     const endpont = `${POSTS_ENDPOINT}/${exerciseId}/${sharingId}`;
     const response = await apiClient(endpont);

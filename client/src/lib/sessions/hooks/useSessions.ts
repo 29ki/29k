@@ -5,7 +5,7 @@ import * as sessionsApi from '../api/sessions';
 import * as sessionApi from '../api/session';
 
 import useSessionsState from '../state/state';
-import {LiveSession} from '../../../../../shared/src/schemas/Session';
+import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import usePinnedSessions from './usePinnedSessions';
 import useUser from '../../user/hooks/useUser';
 
@@ -29,10 +29,10 @@ const useSessions = () => {
       startTime,
       language,
     }: {
-      exerciseId: LiveSession['exerciseId'];
-      type: LiveSession['type'];
+      exerciseId: LiveSessionType['exerciseId'];
+      type: LiveSessionType['type'];
       startTime: dayjs.Dayjs;
-      language: LiveSession['language'];
+      language: LiveSessionType['language'];
     }) => {
       const session = await sessionApi.addSession({
         exerciseId,

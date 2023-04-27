@@ -1,5 +1,5 @@
 import {isNil, reject} from 'ramda';
-import {LiveSession} from '../../../../../shared/src/schemas/Session';
+import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import apiClient from '../../apiClient/apiClient';
 
 const SESSIONS_ENDPOINT = '/sessions';
@@ -7,7 +7,7 @@ const SESSIONS_ENDPOINT = '/sessions';
 export const fetchSessions = async (
   exerciseId?: string,
   hostId?: string,
-): Promise<LiveSession[]> => {
+): Promise<LiveSessionType[]> => {
   try {
     const queryParams = new URLSearchParams(
       reject(isNil, {exerciseId, hostId}),

@@ -10,7 +10,7 @@ import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
 import {ExerciseSlideSharingSlide} from '../../../../../../../shared/src/types/generated/Exercise';
 import {PostEvent} from '../../../../../../../shared/src/types/Event';
-import {Post} from '../../../../../../../shared/src/schemas/Post';
+import {PostType} from '../../../../../../../shared/src/schemas/Post';
 import Button from '../../../../components/Buttons/Button';
 import Gutters from '../../../../components/Gutters/Gutters';
 import {PlusIcon} from '../../../../components/Icons';
@@ -123,7 +123,7 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
     [background],
   );
 
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<PostType[]>([]);
 
   useEffect(() => {
     getSharingPosts(slide.id).then(setPosts);
@@ -191,7 +191,7 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
     return null;
   }, [user]);
 
-  const renderOtherItem = useCallback<ListRenderItem<Post>>(
+  const renderOtherItem = useCallback<ListRenderItem<PostType>>(
     ({item, index}) => {
       return (
         <ItemWrapper isLast={index === posts.length - 1}>
@@ -202,7 +202,7 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
     [posts],
   );
 
-  const otherKeyExtractor = useCallback((item: Post) => item.id, []);
+  const otherKeyExtractor = useCallback((item: PostType) => item.id, []);
 
   const renderMyItem = useCallback<ListRenderItem<PostEvent>>(
     ({item, index}) => {

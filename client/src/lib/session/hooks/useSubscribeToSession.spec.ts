@@ -3,7 +3,7 @@ import firestore from '@react-native-firebase/firestore';
 
 import useSubscribeToSession from './useSubscribeToSession';
 import {
-  LiveSession,
+  LiveSessionType,
   LiveSessionSchema,
 } from '../../../../../shared/src/schemas/Session';
 
@@ -24,7 +24,7 @@ describe('useSubscribeToSession', () => {
 
   it('should subscribe to live session document', async () => {
     mockeLiveSessionSchema.validateSync.mockReturnValueOnce(
-      'get-session-state-result' as unknown as LiveSession,
+      'get-session-state-result' as unknown as LiveSessionType,
     );
     renderHook(() => useTestHook());
 

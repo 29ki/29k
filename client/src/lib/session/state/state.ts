@@ -1,9 +1,9 @@
 import {omit} from 'ramda';
 import {create} from 'zustand';
 import {
-  AsyncSession,
-  LiveSession,
-  SessionState,
+  AsyncSessionType,
+  LiveSessionType,
+  SessionStateType,
 } from '../../../../../shared/src/schemas/Session';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {IconType} from '../../../lib/components/Icons';
@@ -18,19 +18,19 @@ export type Notification = {
 };
 
 type State = {
-  liveSession: LiveSession | null;
-  asyncSession: AsyncSession | null;
-  sessionState: SessionState | null;
+  liveSession: LiveSessionType | null;
+  asyncSession: AsyncSessionType | null;
+  sessionState: SessionStateType | null;
   exercise: Exercise | null;
   currentContentReachedEnd: boolean;
   notifications: Notification[];
 };
 
 type Actions = {
-  setPartialSessionState: (sessionState: Partial<SessionState>) => void;
-  setSessionState: (sessionState: SessionState) => void;
-  setLiveSession: (liveSession: LiveSession) => void;
-  setAsyncSession: (asyncSession: AsyncSession) => void;
+  setPartialSessionState: (sessionState: Partial<SessionStateType>) => void;
+  setSessionState: (sessionState: SessionStateType) => void;
+  setLiveSession: (liveSession: LiveSessionType) => void;
+  setAsyncSession: (asyncSession: AsyncSessionType) => void;
   setExercise: (exercise: Exercise) => void;
   setCurrentContentReachedEnd: (currentContentReachedEnd: boolean) => void;
   addNotification: (notification: Notification) => void;
@@ -48,7 +48,7 @@ const initialState: State = {
 
 const useSessionState = create<State & Actions>()((set, get) => ({
   ...initialState,
-  setPartialSessionState: (sessionState: Partial<SessionState>) => {
+  setPartialSessionState: (sessionState: Partial<SessionStateType>) => {
     const existingState = get().sessionState;
     if (existingState) {
       const completed = existingState?.completed;

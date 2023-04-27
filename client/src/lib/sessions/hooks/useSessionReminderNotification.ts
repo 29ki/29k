@@ -1,11 +1,11 @@
 import dayjs from 'dayjs';
 import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
-import {LiveSession} from '../../../../../shared/src/schemas/Session';
+import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import useExerciseById from '../../content/hooks/useExerciseById';
 import useTriggerNotification from '../../notifications/hooks/useTriggerNotification';
 
-const useSessionReminderNotification = (session: LiveSession) => {
+const useSessionReminderNotification = (session: LiveSessionType) => {
   const {id, exerciseId, startTime, link} = session;
 
   const {t} = useTranslation('Component.SessionReminder');

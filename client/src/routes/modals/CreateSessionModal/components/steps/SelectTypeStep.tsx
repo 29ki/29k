@@ -3,7 +3,7 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
 import {
-  LiveSession,
+  LiveSessionType,
   SessionMode,
   SessionType,
 } from '../../../../../../../shared/src/schemas/Session';
@@ -130,7 +130,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const getExerciseById = useGetExerciseById();
   const startSession = useStartAsyncSession();
-  const [sessions, setSessions] = useState<Array<LiveSession>>([]);
+  const [sessions, setSessions] = useState<Array<LiveSessionType>>([]);
   const [isLoadingSessions, setIsLoadingSessions] = useState(false);
 
   useEffect(() => {
@@ -178,7 +178,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
     ],
   );
 
-  const renderItem = useCallback<ListRenderItem<LiveSession>>(
+  const renderItem = useCallback<ListRenderItem<LiveSessionType>>(
     ({item, index}) => {
       const hasCardBefore = index > 0;
       const hasCardAfter = index !== sessions.length - 1;
@@ -198,7 +198,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
     [sessions, popToTop],
   );
 
-  const keyExtractor = useCallback((item: LiveSession) => item.id, []);
+  const keyExtractor = useCallback((item: LiveSessionType) => item.id, []);
 
   const typeSelection = useMemo(
     () => (

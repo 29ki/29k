@@ -13,7 +13,7 @@ const PostFiledsSchema = yup.object({
   approved: yup.boolean().required(),
   text: yup.string().required(),
 });
-export type PostFields = yup.InferType<typeof PostFiledsSchema>;
+export type PostFieldsType = yup.InferType<typeof PostFiledsSchema>;
 
 export const PostSchema = yup
   .object({
@@ -22,7 +22,7 @@ export const PostSchema = yup
     userProfile: yup.object().concat(UserSchema).nullable(),
   })
   .concat(PostFiledsSchema);
-export type Post = yup.InferType<typeof PostSchema>;
+export type PostType = yup.InferType<typeof PostSchema>;
 
 export const CreatePostSchema = PostSchema.pick([
   'exerciseId',
@@ -34,4 +34,4 @@ export const CreatePostSchema = PostSchema.pick([
     language: LanguageSchema.default(DEFAULT_LANGUAGE_TAG),
   }),
 );
-export type CreatePostData = yup.InferType<typeof CreatePostSchema>;
+export type CreatePostType = yup.InferType<typeof CreatePostSchema>;

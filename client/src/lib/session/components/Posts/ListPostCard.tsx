@@ -6,7 +6,7 @@ import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import {UserProfile} from '../../../../../../shared/src/schemas/User';
+import {UserProfileType} from '../../../../../../shared/src/schemas/User';
 import TouchableOpacity from '../../../components/TouchableOpacity/TouchableOpacity';
 import {Body14} from '../../../components/Typography/Body/Body';
 import SETTINGS from '../../../constants/settings';
@@ -54,7 +54,7 @@ const BottomGradient = styled(LinearGradient)({
 });
 
 type ListPostCardProps = {
-  userProfile: UserProfile | null;
+  userProfile: UserProfileType | null;
   text: string;
   sharingAt?: string;
   isPublic?: boolean;

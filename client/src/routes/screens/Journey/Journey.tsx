@@ -13,7 +13,7 @@ import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {partition, groupBy, findLastIndex} from 'ramda';
 
 import {JourneyItem} from './types/JourneyItem';
-import {LiveSession} from '../../../../../shared/src/schemas/Session';
+import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 
 import {
   ModalStackProps,
@@ -309,7 +309,7 @@ const Journey = () => {
       return (
         <Gutters>
           <SessionCard
-            session={item as LiveSession}
+            session={item as LiveSessionType}
             standAlone={true}
             hasCardBefore={hasCardBefore}
             hasCardAfter={hasCardAfter}

@@ -2,7 +2,7 @@ import * as yup from 'yup';
 import 'firebase-functions';
 
 import {
-  CreateSession,
+  CreateSessionType,
   CreateSessionSchema,
   InterestedCountSchema,
   JoinSessionSchema,
@@ -10,7 +10,7 @@ import {
   SessionStateSchema,
   SessionStateUpdateSchema,
   SessionType,
-  UpdateSession,
+  UpdateSessionType,
   UpdateSessionSchema,
 } from '../../../../shared/src/schemas/Session';
 import {createApiAuthRouter} from '../../lib/routers';
@@ -110,7 +110,7 @@ sessionsRouter.get(
 
 sessionsRouter.post(
   '/',
-  restrictAccessToRole<CreateSession>(
+  restrictAccessToRole<CreateSessionType>(
     ROLE.publicHost,
     ({type}) => type === SessionType.public,
   ),
@@ -175,7 +175,7 @@ sessionsRouter.put(
 
 sessionsRouter.put(
   '/:id',
-  restrictAccessToRole<UpdateSession>(
+  restrictAccessToRole<UpdateSessionType>(
     ROLE.publicHost,
     ({type}) => type === SessionType.public,
   ),

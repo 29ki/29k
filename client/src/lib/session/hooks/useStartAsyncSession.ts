@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import {
-  AsyncSession,
+  AsyncSessionType,
   SessionMode,
   SessionType,
 } from '../../../../../shared/src/schemas/Session';
@@ -29,7 +29,7 @@ const useStartAsyncSession = () => {
 
   return useCallback(
     (exerciseId: string) => {
-      const session: AsyncSession = {
+      const session: AsyncSessionType = {
         type: SessionType.public,
         mode: SessionMode.async,
         id: generateId(),

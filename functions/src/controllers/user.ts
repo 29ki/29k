@@ -1,7 +1,7 @@
 import {getAuthUserInfo} from '../models/auth';
 import {RequestError} from './errors/RequestError';
 import {UserError} from '../../../shared/src/errors/User';
-import {ROLE, UserData} from '../../../shared/src/schemas/User';
+import {ROLE, UserDataType} from '../../../shared/src/schemas/User';
 import * as userModel from '../models/user';
 import {UserDataModel, UserModel} from './types/types';
 
@@ -41,6 +41,9 @@ export const getUser = async (userId: string): Promise<UserModel> => {
   return {...user, ...userProfile};
 };
 
-export const updateUser = async (userId: string, data: Partial<UserData>) => {
+export const updateUser = async (
+  userId: string,
+  data: Partial<UserDataType>,
+) => {
   await userModel.updateUser(userId, data);
 };

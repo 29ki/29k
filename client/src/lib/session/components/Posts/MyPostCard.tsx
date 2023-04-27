@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import {UserProfile} from '../../../../../../shared/src/schemas/User';
+import {UserProfileType} from '../../../../../../shared/src/schemas/User';
 import {Body14} from '../../../components/Typography/Body/Body';
 import SETTINGS from '../../../constants/settings';
 import {SPACINGS} from '../../../constants/spacings';
@@ -27,7 +27,7 @@ const HeaderRow = styled.View({
 });
 
 type MyPostCardProps = {
-  userProfile?: UserProfile | null;
+  userProfile?: UserProfileType | null;
   text: string;
   isPublic: boolean;
   inList?: boolean;

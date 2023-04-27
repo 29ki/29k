@@ -1,6 +1,6 @@
 import {
-  LiveSession,
-  SessionState,
+  LiveSessionType,
+  SessionStateType,
 } from '../../../../../shared/src/schemas/Session';
 import apiClient from '../../apiClient/apiClient';
 import Sentry from '../../sentry';
@@ -13,11 +13,11 @@ export const addSession = async ({
   startTime,
   language,
 }: {
-  exerciseId: LiveSession['exerciseId'];
-  type: LiveSession['type'];
-  startTime: LiveSession['startTime'];
-  language: LiveSession['language'];
-}): Promise<LiveSession> => {
+  exerciseId: LiveSessionType['exerciseId'];
+  type: LiveSessionType['type'];
+  startTime: LiveSessionType['startTime'];
+  language: LiveSessionType['language'];
+}): Promise<LiveSessionType> => {
   try {
     const response = await apiClient(SESSIONS_ENDPOINT, {
       method: 'POST',
@@ -56,8 +56,8 @@ export const updateInterestedCount = async (id: string, increment: boolean) => {
 
 export const updateSession = async (
   id: string,
-  data: Partial<Pick<LiveSession, 'startTime' | 'type'>>,
-): Promise<LiveSession> => {
+  data: Partial<Pick<LiveSessionType, 'startTime' | 'type'>>,
+): Promise<LiveSessionType> => {
   try {
     const response = await apiClient(`${SESSIONS_ENDPOINT}/${id}`, {
       method: 'PUT',
@@ -75,8 +75,8 @@ export const updateSession = async (
 };
 
 export const getSession = async (
-  id: LiveSession['id'],
-): Promise<LiveSession> => {
+  id: LiveSessionType['id'],
+): Promise<LiveSessionType> => {
   const response = await apiClient(`${SESSIONS_ENDPOINT}/${id}`, {
     method: 'GET',
   });
@@ -89,7 +89,7 @@ export const getSession = async (
 };
 
 export const getSessionToken = async (
-  id: LiveSession['id'],
+  id: LiveSessionType['id'],
 ): Promise<string> => {
   const response = await apiClient(`${SESSIONS_ENDPOINT}/${id}/sessionToken`, {
     method: 'GET',
@@ -103,8 +103,8 @@ export const getSessionToken = async (
 };
 
 export const joinSession = async (
-  inviteCode: LiveSession['inviteCode'],
-): Promise<LiveSession> => {
+  inviteCode: LiveSessionType['inviteCode'],
+): Promise<LiveSessionType> => {
   const response = await apiClient(`${SESSIONS_ENDPOINT}/joinSession`, {
     method: 'PUT',
     body: JSON.stringify({inviteCode}),
@@ -119,7 +119,7 @@ export const joinSession = async (
 
 export const updateSessionState = async (
   id: string,
-  data: Partial<SessionState>,
+  data: Partial<SessionStateType>,
 ) => {
   try {
     const response = await apiClient(`${SESSIONS_ENDPOINT}/${id}/state`, {

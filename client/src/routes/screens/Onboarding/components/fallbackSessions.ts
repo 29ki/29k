@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import {
-  LiveSession,
+  LiveSessionType,
   SessionMode,
   SessionType,
 } from '../../../../../../shared/src/schemas/Session';
@@ -30,6 +30,6 @@ const getFallbackSessions = () =>
       mode: SessionMode.live,
       startTime: dayjs().add(50, 'minutes').toISOString(),
     },
-  ] as LiveSession[];
+  ] as LiveSessionType[];
 
 export default getFallbackSessions;

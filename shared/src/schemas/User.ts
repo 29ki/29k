@@ -9,7 +9,7 @@ const UserProfileSchema = yup.object({
   displayName: yup.string(),
   photoURL: yup.string(),
 });
-export type UserProfile = yup.InferType<typeof UserProfileSchema>;
+export type UserProfileType = yup.InferType<typeof UserProfileSchema>;
 
 export const UserDataSchema = yup.object({
   description: yup.string(),
@@ -17,7 +17,7 @@ export const UserDataSchema = yup.object({
   hostedPublicCount: yup.number(),
   hostedPrivateCount: yup.number(),
 });
-export type UserData = yup.InferType<typeof UserDataSchema>;
+export type UserDataType = yup.InferType<typeof UserDataSchema>;
 
 export const UserSchema = UserProfileSchema.concat(UserDataSchema);
-export type User = yup.InferType<typeof UserSchema>;
+export type UserType = yup.InferType<typeof UserSchema>;

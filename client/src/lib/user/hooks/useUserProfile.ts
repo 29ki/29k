@@ -1,9 +1,9 @@
 import {useCallback, useEffect, useMemo, useState} from 'react';
-import {User} from '../../../../../shared/src/schemas/User';
+import {UserType} from '../../../../../shared/src/schemas/User';
 import {getUser} from '../api/user';
 
-const useUserProfile = (userId: string | undefined): User | null => {
-  const [user, setUser] = useState<User | null>(null);
+const useUserProfile = (userId: string | undefined): UserType | null => {
+  const [user, setUser] = useState<UserType | null>(null);
 
   const fetchProfile = useCallback(async () => {
     if (!userId) {

@@ -14,8 +14,8 @@ import useSessions from '../../../lib/sessions/hooks/useSessions';
 import useLiveSessionMetricEvents from './useLiveSessionMetricEvents';
 import useIsSessionHost from './useIsSessionHost';
 import {
-  AsyncSession,
-  LiveSession,
+  AsyncSessionType,
+  LiveSessionType,
   SessionMode,
 } from '../../../../../shared/src/schemas/Session';
 import useAsyncSessionMetricEvents from './useAsyncSessionMetricEvents';
@@ -24,7 +24,7 @@ type ScreenNavigationProps = NativeStackNavigationProp<
   TabNavigatorProps & ModalStackProps
 >;
 
-const useLeaveSession = (session: LiveSession | AsyncSession) => {
+const useLeaveSession = (session: LiveSessionType | AsyncSessionType) => {
   const {t} = useTranslation('Component.ConfirmExitSession');
   const {leaveMeeting} = useContext(DailyContext);
   const {navigate} = useNavigation<ScreenNavigationProps>();

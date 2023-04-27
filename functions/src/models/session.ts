@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 
 import {
   SessionMode,
-  SessionStateUpdate,
+  SessionStateUpdateType,
   SessionType,
 } from '../../../shared/src/schemas/Session';
 import {getData} from '../../../shared/src/modelUtils/firestore';
@@ -240,7 +240,7 @@ export const updateInterestedCount = async (
 
 export const updateSessionState = async (
   id: LiveSessionRecord['id'],
-  data: Partial<SessionStateUpdate>,
+  data: Partial<SessionStateUpdateType>,
 ) => {
   const sessionStateDocRef = firestore()
     .collection(SESSIONS_COLLECTION)

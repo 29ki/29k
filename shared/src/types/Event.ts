@@ -1,5 +1,5 @@
-import {LiveSession} from '../schemas/Session';
-import {UserProfile} from '../schemas/User';
+import {LiveSessionType} from '../schemas/Session';
+import {UserProfileType} from '../schemas/User';
 
 export type PostPayload = {
   sessionId: string;
@@ -19,13 +19,13 @@ export type FeedbackPayload = {
 };
 
 export type CompletedSessionPayload = {
-  id: LiveSession['id'];
-  hostId?: LiveSession['hostId'];
-  exerciseId: LiveSession['exerciseId'];
-  language: LiveSession['language'];
-  type: LiveSession['type'];
-  mode: LiveSession['mode'];
-  hostProfile?: UserProfile;
+  id: LiveSessionType['id'];
+  hostId?: LiveSessionType['hostId'];
+  exerciseId: LiveSessionType['exerciseId'];
+  language: LiveSessionType['language'];
+  type: LiveSessionType['type'];
+  mode: LiveSessionType['mode'];
+  hostProfile?: UserProfileType;
 };
 
 type BaseEvent = {

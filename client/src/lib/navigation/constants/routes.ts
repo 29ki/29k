@@ -1,10 +1,13 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import {User, UserProfile} from '../../../../../shared/src/schemas/User';
 import {
-  AsyncSession,
-  LiveSession,
+  UserType,
+  UserProfileType,
+} from '../../../../../shared/src/schemas/User';
+import {
+  AsyncSessionType,
+  LiveSessionType,
   SessionMode,
   SessionType,
 } from '../../../../../shared/src/schemas/Session';
@@ -27,16 +30,16 @@ export type JourneyStackProps = {
 };
 
 export type LiveSessionStackProps = {
-  ChangingRoom: {session: LiveSession};
-  Session: {session: LiveSession};
-  IntroPortal: {session: LiveSession};
-  OutroPortal: {session: LiveSession};
+  ChangingRoom: {session: LiveSessionType};
+  Session: {session: LiveSessionType};
+  IntroPortal: {session: LiveSessionType};
+  OutroPortal: {session: LiveSessionType};
 };
 
 export type AsyncSessionStackProps = {
-  IntroPortal: {session: AsyncSession};
-  Session: {session: AsyncSession};
-  OutroPortal: {session: AsyncSession};
+  IntroPortal: {session: AsyncSessionType};
+  Session: {session: AsyncSessionType};
+  OutroPortal: {session: AsyncSessionType};
 };
 
 export type AppStackProps = {
@@ -57,13 +60,13 @@ export type OverlayStackProps = {
 
 export type ModalStackProps = {
   OverlayStack: NavigatorScreenParams<OverlayStackProps>;
-  SessionModal: {session: LiveSession};
+  SessionModal: {session: LiveSessionType};
   CompletedSessionModal: {
     completedSessionEvent: CompletedSessionEvent;
   };
   SharingModal: {exerciseId: string};
   SharingPostModal: {
-    userProfile?: UserProfile | null;
+    userProfile?: UserProfileType | null;
     text: string;
   };
   SessionUnavailableModal: undefined;
@@ -82,7 +85,7 @@ export type ModalStackProps = {
   ContactModal: undefined;
   SessionFeedbackModal: {
     exerciseId: Exercise['id'];
-    sessionId: LiveSession['id'];
+    sessionId: LiveSessionType['id'];
     completed: boolean;
     isHost: boolean;
     sessionType: SessionType;
@@ -91,7 +94,7 @@ export type ModalStackProps = {
   SafetyToolkitModal: undefined;
   ReportModal: {originScreen: string};
   CalmDownModal: undefined;
-  HostInfoModal: {host: User | null};
+  HostInfoModal: {host: UserType | null};
   CompletedSessionsModal: {
     filterSetting: 'mode' | 'feedback' | 'host';
   };

@@ -1,14 +1,14 @@
 import {useCallback} from 'react';
 import firestore from '@react-native-firebase/firestore';
 import {
-  SessionState,
-  LiveSession,
+  SessionStateType,
+  LiveSessionType,
   SessionStateSchema,
 } from '../../../../../shared/src/schemas/Session';
 
-const useSubscribeToSession = (sessionId: LiveSession['id']) => {
+const useSubscribeToSession = (sessionId: LiveSessionType['id']) => {
   return useCallback(
-    (onSnapshot: (sessionState: SessionState | undefined) => any) => {
+    (onSnapshot: (sessionState: SessionStateType | undefined) => any) => {
       const stateDoc = firestore()
         .collection('sessions')
         .doc(sessionId)

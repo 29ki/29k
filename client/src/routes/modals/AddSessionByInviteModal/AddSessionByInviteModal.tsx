@@ -15,7 +15,7 @@ import {joinSession} from '../../../lib/sessions/api/session';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 import CardModal from '../../../lib/components/Modals/CardModal';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
-import {LiveSession} from '../../../../../shared/src/schemas/Session';
+import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import useLogSessionMetricEvents from '../../../lib/sessions/hooks/useLogSessionMetricEvents';
 
 const ErrorText = styled(Body16)({color: COLORS.ERROR, textAlign: 'center'});
@@ -35,7 +35,7 @@ const AddSessionModal = () => {
   }, [setErrorString]);
 
   const onCodeCompleted = useCallback(
-    async (value: LiveSession['inviteCode']) => {
+    async (value: LiveSessionType['inviteCode']) => {
       try {
         const session = await joinSession(value);
         logSessionMetricEvent('Add Sharing Session', session);

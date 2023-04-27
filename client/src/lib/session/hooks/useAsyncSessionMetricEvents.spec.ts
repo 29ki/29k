@@ -1,7 +1,7 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook} from '@testing-library/react-hooks';
 import dayjs from 'dayjs';
-import {AsyncSession} from '../../../../../shared/src/schemas/Session';
+import {AsyncSessionType} from '../../../../../shared/src/schemas/Session';
 import {logEvent} from '../../metrics';
 import useUserState from '../../user/state/state';
 import useSessionState from '../state/state';
@@ -36,7 +36,7 @@ describe('useAsyncSessionMetricEvents', () => {
         startTime: '2022-02-02T02:02:02Z',
         exerciseId: 'some-exercise-id',
         language: 'en',
-      } as AsyncSession,
+      } as AsyncSessionType,
     });
 
     const {result} = renderHook(() => useAsyncSessionMetricEvents());
@@ -67,7 +67,7 @@ describe('useAsyncSessionMetricEvents', () => {
       asyncSession: {
         id: 'some-session-id',
         startTime: dayjs().subtract(1, 'hour').toISOString(),
-      } as unknown as AsyncSession,
+      } as unknown as AsyncSessionType,
     });
 
     const {result} = renderHook(() => useAsyncSessionMetricEvents());
