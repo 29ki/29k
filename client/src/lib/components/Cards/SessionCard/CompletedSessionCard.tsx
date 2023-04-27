@@ -9,7 +9,7 @@ import {ModalStackProps} from '../../../navigation/constants/routes';
 
 import useExerciseById from '../../../content/hooks/useExerciseById';
 
-import {formatExerciseName} from '../../../utils/string';
+import {formatContentName} from '../../../utils/string';
 
 import SessionWalletCard from '../WalletCards/SessionWalletCard';
 import Badge from '../../Badge/Badge';
@@ -82,7 +82,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
 
   return (
     <SessionWalletCard
-      title={formatExerciseName(exercise)}
+      title={formatContentName(exercise)}
       image={image}
       lottie={lottie}
       hostPictureURL={hostProfile?.photoURL || exercise?.card?.host?.photoURL}

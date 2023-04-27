@@ -20,7 +20,7 @@ import {
 import {Display24} from '../../../lib/components/Typography/Display/Display';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import {formatExerciseName} from '../../../lib/utils/string';
+import {formatContentName} from '../../../lib/utils/string';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import Byline from '../../../lib/components/Bylines/Byline';
@@ -151,7 +151,7 @@ const CompletedSessionModal = () => {
         <Content>
           <SpaceBetweenRow>
             <TitleContainer>
-              <Display24>{formatExerciseName(exercise)}</Display24>
+              <Display24>{formatContentName(exercise)}</Display24>
               <Spacer4 />
               <TouchableOpacity onPress={onHostPress}>
                 <Byline

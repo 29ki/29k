@@ -30,6 +30,7 @@ import {ExploreStackProps} from '../../../lib/navigation/constants/routes';
 import useCompletedSessionByTime from '../../../lib/user/hooks/useCompletedSessionByTime';
 import usePinCollection from '../../../lib/user/hooks/usePinCollection';
 import usePinnedCollectionById from '../../../lib/user/hooks/usePinnedCollectionById';
+import {formatContentName} from '../../../lib/utils/string';
 
 type Section = {
   title: string;
@@ -159,7 +160,9 @@ const Collection = () => {
               <Row>
                 <LeftColumn>
                   <Spacer8 />
-                  <Display20 numberOfLines={3}>{collection?.name}</Display20>
+                  <Display20 numberOfLines={3}>
+                    {formatContentName(collection)}
+                  </Display20>
                   <Spacer8 />
                 </LeftColumn>
                 <GraphicsWrapper>

@@ -34,7 +34,7 @@ import useAddSessionToCalendar from '../../../lib/sessions/hooks/useAddSessionTo
 import useSessionReminderNotification from '../../../lib/sessions/hooks/useSessionReminderNotification';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import Byline from '../../../lib/components/Bylines/Byline';
-import {formatExerciseName, formatInviteCode} from '../../../lib/utils/string';
+import {formatContentName, formatInviteCode} from '../../../lib/utils/string';
 import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTimeBadge';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import useUser from '../../../lib/user/hooks/useUser';
@@ -307,7 +307,7 @@ const SessionModal = () => {
       <Content>
         <SpaceBetweenRow>
           <TitleContainer>
-            <Display24>{formatExerciseName(exercise)}</Display24>
+            <Display24>{formatContentName(exercise)}</Display24>
             <Spacer4 />
             <TouchableOpacity onPress={onHostPress}>
               <Byline
