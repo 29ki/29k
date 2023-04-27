@@ -140,7 +140,7 @@ export const assertValidatedResponse =
   () => async (ctx: ResponseContext, next: Koa.Next) => {
     await next();
 
-    if (ctx.status === 200 && !isEmpty(ctx.body)) {
+    if (ctx.status === 200 && ctx.body && !isEmpty(ctx.body)) {
       if (!ctx.state.responseValidated) {
         throw new Error(
           `No schema found for the response to ${ctx.request.method} at ${ctx.request.URL}`,
