@@ -1,10 +1,7 @@
 import * as yup from 'yup';
-import {
-  DEFAULT_LANGUAGE_TAG,
-  LANGUAGE_TAG,
-  LANGUAGE_TAGS,
-} from '../constants/i18n';
+import {DEFAULT_LANGUAGE_TAG} from '../constants/i18n';
 import {transformTimestamp} from '../modelUtils/transform';
+import {LanguageSchema} from './Language';
 import {UserSchema} from './User';
 
 export enum SessionMode {
@@ -32,7 +29,7 @@ const SessionBaseFiledsSchema = yup.object({
   mode: yup.mixed<SessionMode>().oneOf(Object.values(SessionMode)).required(),
   type: yup.mixed<SessionType>().oneOf(Object.values(SessionType)).required(),
   exerciseId: yup.string().required(),
-  language: yup.mixed<LANGUAGE_TAG>().oneOf(LANGUAGE_TAGS).required(),
+  language: LanguageSchema.required(),
 });
 
 const LiveSessionFieldsSchema = yup
@@ -81,10 +78,7 @@ export const CreateSessionSchema = LiveSessionSchema.pick([
 ]).concat(
   yup.object({
     startTime: yup.string().required(),
-    language: yup
-      .mixed<LANGUAGE_TAG>()
-      .oneOf(LANGUAGE_TAGS)
-      .default(DEFAULT_LANGUAGE_TAG),
+    language: LanguageSchema.default(DEFAULT_LANGUAGE_TAG),
   }),
 );
 export type CreateSession = yup.InferType<typeof CreateSessionSchema>;
