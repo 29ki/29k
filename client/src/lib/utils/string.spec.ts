@@ -11,7 +11,7 @@ describe('formatExerciseName', () => {
   it('should add WIP to hidden exercises', () => {
     expect(
       formatContentName({name: 'Test', hidden: true} as unknown as Exercise),
-    ).toEqual('Test (WIP)');
+    ).toEqual('Test (hidden)');
   });
 
   it('should not add WIP to non hidden exercises', () => {
