@@ -14,6 +14,7 @@ import Gutters from '../../../lib/components/Gutters/Gutters';
 import Image from '../../../lib/components/Image/Image';
 import Screen from '../../../lib/components/Screen/Screen';
 import {
+  Spacer16,
   Spacer24,
   Spacer32,
   Spacer48,
@@ -31,6 +32,7 @@ import useCompletedSessionByTime from '../../../lib/user/hooks/useCompletedSessi
 import usePinCollection from '../../../lib/user/hooks/usePinCollection';
 import usePinnedCollectionById from '../../../lib/user/hooks/usePinnedCollectionById';
 import {formatContentName} from '../../../lib/utils/string';
+import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 
 type Section = {
   title: string;
@@ -46,7 +48,7 @@ const Row = styled.View({
 
 const LeftColumn = styled.View({
   flex: 1,
-  height: 134,
+  minHeight: 134,
   justifyContent: 'space-between',
 });
 
@@ -163,14 +165,16 @@ const Collection = () => {
                   <Display20 numberOfLines={3}>
                     {formatContentName(collection)}
                   </Display20>
-                  <Spacer8 />
+                  <Spacer16 />
+                  <Markdown>{collection?.description}</Markdown>
                 </LeftColumn>
+                <Spacer16 />
                 <GraphicsWrapper>
                   <Image source={image} />
                 </GraphicsWrapper>
               </Row>
 
-              <Spacer32 />
+              <Spacer16 />
               <Row>
                 <Body16>{t('addToJourney')}</Body16>
                 <Switch
