@@ -21,14 +21,24 @@ export class ResponseValidationError extends Error {
 }
 
 type DefaultSchema = yup.AnySchema<unknown, unknown, unknown, ''>;
-interface ValidatedState<
+export interface ValidatedState extends Koa.DefaultState {
+  responseValidated: boolean;
+}
+
+interface ValidatedRequest<
+  TBody extends yup.Schema = DefaultSchema,
+  TQuery extends yup.Schema = DefaultSchema,
+> extends Koa.Request {
+  body: yup.Asserts<TBody>;
+  query: yup.Asserts<TQuery>;
+}
+export interface ValidatedContext<
   TBody extends yup.Schema = DefaultSchema,
   TQuery extends yup.Schema = DefaultSchema,
   TResponse extends yup.Schema = DefaultSchema,
-> extends Koa.DefaultState {
-  body: yup.Asserts<TBody>;
-  query: yup.Asserts<TQuery>;
-  response: yup.Asserts<TResponse>;
+> extends Koa.ExtendableContext {
+  request: ValidatedRequest<TBody, TQuery>;
+  body: yup.Asserts<TResponse>;
 }
 
 type Validator<
@@ -71,21 +81,29 @@ const validation =
   >(
     validator: Partial<Validator<TBody, TQuery, TResponse>>,
     options: ValidatorOptions = defaultOptions,
-  ): Koa.Middleware<ValidatedState<TBody, TQuery, TResponse>> =>
+  ): Koa.Middleware<
+    ValidatedState,
+    ValidatedContext<TBody, TQuery, TResponse>
+  > =>
   async (ctx: Koa.Context, next: Koa.Next) => {
     try {
       if (validator.body) {
-        ctx.state.body = await validator.body.validate(
+        ctx.request.body = await validator.body.validate(
           ctx.request.body,
           options.body,
         );
       }
 
       if (validator.query) {
-        ctx.state.query = await validator.query.validate(
+        const query = await validator.query.validate(
           ctx.request.query,
           options.query,
         );
+        // Overwrites the query in the prototype so it's not stringified
+        Object.defineProperty(ctx.request, 'query', {
+          value: query,
+          writable: false,
+        });
       }
     } catch (error) {
       if (error instanceof yup.ValidationError) {
@@ -99,11 +117,11 @@ const validation =
 
     try {
       if (ctx.status === 200 && !isEmpty(ctx.body) && validator.response) {
-        ctx.state.response = await validator.response.validate(
+        ctx.body = await validator.response.validate(
           ctx.body,
           options.response,
         );
-        ctx.body = ctx.state.response;
+        ctx.state.responseValidated = true;
       }
     } catch (error) {
       if (error instanceof yup.ValidationError) {
@@ -123,7 +141,7 @@ export const assertValidatedResponse =
     await next();
 
     if (ctx.status === 200 && !isEmpty(ctx.body)) {
-      if (!ctx.state.response) {
+      if (!ctx.state.responseValidated) {
         throw new Error(
           `No schema found for the response to ${ctx.request.method} at ${ctx.request.URL}`,
         );

@@ -6,14 +6,18 @@ import validation, {
   RequestValidationError,
   ResponseContext,
   ResponseValidationError,
+  ValidatedContext,
+  ValidatedState,
 } from './validation';
+
+const mockSchema = yup.object({name: yup.string().required()});
 
 describe('validation', () => {
   describe('validator', () => {
     describe('request body', () => {
       it('should validate request body', async () => {
         const middleware = validation({
-          body: yup.object({name: yup.string().required()}),
+          body: mockSchema,
         });
         const ctx = {
           request: {
@@ -23,18 +27,21 @@ describe('validation', () => {
             },
           },
           state: {},
-        } as Koa.Context;
+        } as unknown as Koa.ParameterizedContext<
+          ValidatedState,
+          ValidatedContext<typeof mockSchema>
+        >;
         const next = jest.fn();
 
         await middleware(ctx, next);
 
-        expect(ctx.state.body).toEqual({name: 'value'});
+        expect(ctx.request.body).toEqual({name: 'value'});
       });
 
       it('should validate request body and keep unknown', async () => {
         const middleware = validation(
           {
-            body: yup.object({name: yup.string().required()}),
+            body: mockSchema,
           },
           {body: {stripUnknown: false}},
         );
@@ -46,12 +53,15 @@ describe('validation', () => {
             },
           },
           state: {},
-        } as Koa.Context;
+        } as unknown as Koa.ParameterizedContext<
+          ValidatedState,
+          ValidatedContext<typeof mockSchema>
+        >;
         const next = jest.fn();
 
         await middleware(ctx, next);
 
-        expect(ctx.state.body).toEqual({name: 'value', unknown: 'unkown'});
+        expect(ctx.request.body).toEqual({name: 'value', unknown: 'unkown'});
       });
 
       it('should not validate body if no validation set', async () => {
@@ -64,17 +74,20 @@ describe('validation', () => {
             },
           },
           state: {},
-        } as Koa.Context;
+        } as unknown as Koa.ParameterizedContext<
+          ValidatedState,
+          ValidatedContext<typeof mockSchema>
+        >;
         const next = jest.fn();
 
         await middleware(ctx, next);
 
-        expect(ctx.state.body).toBe(undefined);
+        expect(ctx.request.body).toEqual({name: 'value', unknown: 'unkown'});
       });
 
       it('should throw if body validation fails', async () => {
         const middleware = validation({
-          body: yup.object({name: yup.string().required()}),
+          body: mockSchema,
         });
         const ctx = {
           request: {
@@ -83,7 +96,10 @@ describe('validation', () => {
             },
           },
           state: {},
-        } as Koa.Context;
+        } as unknown as Koa.ParameterizedContext<
+          ValidatedState,
+          ValidatedContext<typeof mockSchema>
+        >;
         const next = jest.fn();
 
         try {
@@ -100,28 +116,31 @@ describe('validation', () => {
     describe('request query', () => {
       it('should validate request query', async () => {
         const middleware = validation({
-          query: yup.object({name: yup.string().required()}),
+          query: mockSchema,
         });
         const ctx = {
           request: {
             query: {
               name: 'value',
               unknown: 'unkown',
-            } as unknown,
+            },
           },
           state: {},
-        } as Koa.Context;
+        } as unknown as Koa.ParameterizedContext<
+          ValidatedState,
+          ValidatedContext<typeof mockSchema, typeof mockSchema>
+        >;
         const next = jest.fn();
 
         await middleware(ctx, next);
 
-        expect(ctx.state.query).toEqual({name: 'value'});
+        expect(ctx.request.query).toEqual({name: 'value'});
       });
 
       it('should validate request query and keep unknown', async () => {
         const middleware = validation(
           {
-            query: yup.object({name: yup.string().required()}),
+            query: mockSchema,
           },
           {query: {stripUnknown: false}},
         );
@@ -130,15 +149,18 @@ describe('validation', () => {
             query: {
               name: 'value',
               unknown: 'unkown',
-            } as unknown,
+            },
           },
           state: {},
-        } as Koa.Context;
+        } as unknown as Koa.ParameterizedContext<
+          ValidatedState,
+          ValidatedContext<typeof mockSchema, typeof mockSchema>
+        >;
         const next = jest.fn();
 
         await middleware(ctx, next);
 
-        expect(ctx.state.query).toEqual({name: 'value', unknown: 'unkown'});
+        expect(ctx.request.query).toEqual({name: 'value', unknown: 'unkown'});
       });
 
       it('should not validate query if no validation set', async () => {
@@ -148,20 +170,23 @@ describe('validation', () => {
             query: {
               name: 'value',
               unknown: 'unkown',
-            } as unknown,
+            },
           },
           state: {},
-        } as Koa.Context;
+        } as unknown as Koa.ParameterizedContext<
+          ValidatedState,
+          ValidatedContext<typeof mockSchema, typeof mockSchema>
+        >;
         const next = jest.fn();
 
         await middleware(ctx, next);
 
-        expect(ctx.state.query).toBe(undefined);
+        expect(ctx.state.responseValidated).toBe(undefined);
       });
 
       it('should throw if query validation fails', async () => {
         const middleware = validation({
-          query: yup.object({name: yup.string().required()}),
+          query: mockSchema,
         });
         const ctx = {
           request: {
@@ -170,7 +195,10 @@ describe('validation', () => {
             } as unknown,
           },
           state: {},
-        } as Koa.Context;
+        } as unknown as Koa.ParameterizedContext<
+          ValidatedState,
+          ValidatedContext<typeof mockSchema, typeof mockSchema>
+        >;
         const next = jest.fn();
 
         try {
@@ -187,7 +215,7 @@ describe('validation', () => {
     describe('response body', () => {
       it('should validate response body', async () => {
         const middleware = validation({
-          response: yup.object({name: yup.string().required()}),
+          response: mockSchema,
         });
         const ctx = {
           body: {
@@ -196,19 +224,26 @@ describe('validation', () => {
           },
           state: {},
           status: 200,
-        } as Koa.Context;
+        } as unknown as Koa.ParameterizedContext<
+          ValidatedState,
+          ValidatedContext<
+            typeof mockSchema,
+            typeof mockSchema,
+            typeof mockSchema
+          >
+        >;
         const next = jest.fn();
 
         await middleware(ctx, next);
 
-        expect(ctx.state.response).toEqual({name: 'value'});
         expect(ctx.body).toEqual({name: 'value'});
+        expect(ctx.state.responseValidated).toBe(true);
       });
 
       it('should validate response body and keep unknown', async () => {
         const middleware = validation(
           {
-            response: yup.object({name: yup.string().required()}),
+            response: mockSchema,
           },
           {response: {stripUnknown: false}},
         );
@@ -219,40 +254,25 @@ describe('validation', () => {
           },
           state: {},
           status: 200,
-        } as Koa.Context;
+        } as unknown as Koa.ParameterizedContext<
+          ValidatedState,
+          ValidatedContext<
+            typeof mockSchema,
+            typeof mockSchema,
+            typeof mockSchema
+          >
+        >;
         const next = jest.fn();
 
         await middleware(ctx, next);
 
-        expect(ctx.state.response).toEqual({name: 'value', unknown: 'unkown'});
         expect(ctx.body).toEqual({name: 'value', unknown: 'unkown'});
-      });
-
-      it('should validate response body array', async () => {
-        const middleware = validation({
-          response: yup.array().of(yup.object({name: yup.string().required()})),
-        });
-        const ctx = {
-          body: [
-            {
-              name: 'value',
-              unknown: 'unkown',
-            },
-          ],
-          state: {},
-          status: 200,
-        } as Koa.Context;
-        const next = jest.fn();
-
-        await middleware(ctx, next);
-
-        expect(ctx.state.response).toEqual([{name: 'value'}]);
-        expect(ctx.body).toEqual([{name: 'value'}]);
+        expect(ctx.state.responseValidated).toBe(true);
       });
 
       it('should validate response body only if status is 200', async () => {
         const middleware = validation({
-          response: yup.object({name: yup.string().required()}),
+          response: mockSchema,
         });
         const ctx = {
           body: {
@@ -261,12 +281,22 @@ describe('validation', () => {
           },
           state: {},
           status: 401,
-        } as Koa.Context;
+        } as unknown as Koa.ParameterizedContext<
+          ValidatedState,
+          ValidatedContext<
+            typeof mockSchema,
+            typeof mockSchema,
+            typeof mockSchema
+          >
+        >;
         const next = jest.fn();
 
         await middleware(ctx, next);
 
-        expect(ctx.state.response).toBe(undefined);
+        expect(ctx.body).toEqual({
+          name: 'value',
+          unknown: 'unkown',
+        });
       });
 
       it('should validate response body only if context has body', async () => {
@@ -277,12 +307,19 @@ describe('validation', () => {
           body: {},
           state: {},
           status: 200,
-        } as Koa.Context;
+        } as unknown as Koa.ParameterizedContext<
+          ValidatedState,
+          ValidatedContext<
+            typeof mockSchema,
+            typeof mockSchema,
+            typeof mockSchema
+          >
+        >;
         const next = jest.fn();
 
         await middleware(ctx, next);
 
-        expect(ctx.state.response).toBe(undefined);
+        expect(ctx.body).toEqual({});
       });
 
       it('should throw if body validation fails', async () => {
@@ -294,7 +331,14 @@ describe('validation', () => {
             unknown: 'unkown',
           },
           state: {},
-        } as Koa.Context;
+        } as unknown as Koa.ParameterizedContext<
+          ValidatedState,
+          ValidatedContext<
+            typeof mockSchema,
+            typeof mockSchema,
+            typeof mockSchema
+          >
+        >;
         const next = jest.fn();
 
         try {
@@ -317,9 +361,7 @@ describe('validation', () => {
           value: 'value',
         },
         state: {
-          response: {
-            value: 'value',
-          },
+          responseValidated: true,
         },
         status: 200,
       } as ResponseContext;

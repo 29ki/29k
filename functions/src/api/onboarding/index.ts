@@ -17,7 +17,7 @@ onboardingRouter.get(
     response: yup.array().of(LiveSessionSchema),
   }),
   async ctx => {
-    const {limit} = ctx.state.query;
+    const {limit} = ctx.request.query;
     const sessions = await sessionsController.getUpcomingPublicSessions(limit);
 
     ctx.status = 200;

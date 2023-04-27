@@ -126,7 +126,7 @@ const UpdateUserSchema = yup.object().shape({
 userRouter.post('/', validation({body: UpdateUserSchema}), async ctx => {
   try {
     const {id} = ctx.user;
-    await updateUser(id, ctx.state.validated.body);
+    await updateUser(id, ctx.request.body);
     ctx.status = 200;
   } catch (error) {
     ctx.status = 500;

@@ -116,7 +116,7 @@ sessionsRouter.post(
   ),
   validation({body: CreateSessionSchema, response: LiveSessionSchema}),
   async ctx => {
-    const {exerciseId, type, startTime, language} = ctx.state.body;
+    const {exerciseId, type, startTime, language} = ctx.request.body;
     const {user} = ctx;
 
     ctx.body = await sessionsController.createSession(user.id, {
@@ -149,7 +149,7 @@ sessionsRouter.put(
   '/joinSession',
   validation({body: JoinSessionSchema, response: LiveSessionSchema}),
   async ctx => {
-    const {inviteCode} = ctx.state.body;
+    const {inviteCode} = ctx.request.body;
     const {user} = ctx;
 
     try {
@@ -182,7 +182,7 @@ sessionsRouter.put(
   validation({body: UpdateSessionSchema, response: LiveSessionSchema}),
   async ctx => {
     const {id} = ctx.params;
-    const body = ctx.state.body;
+    const body = ctx.request.body;
 
     try {
       const updatedSession = await sessionsController.updateSession(
@@ -205,10 +205,10 @@ sessionsRouter.put(
   validation({body: InterestedCountSchema}),
   async ctx => {
     const {id} = ctx.params;
-    const body = ctx.state.body;
+    const {increment} = ctx.request.body;
 
     try {
-      await sessionsController.updateInterestedCount(id, body.increment);
+      await sessionsController.updateInterestedCount(id, increment);
       ctx.status = 200;
     } catch (err) {
       ctx.status = 500;
@@ -222,7 +222,7 @@ sessionsRouter.put(
   validation({body: SessionStateUpdateSchema, response: SessionStateSchema}),
   async ctx => {
     const {id} = ctx.params;
-    const data = ctx.state.body;
+    const data = ctx.request.body;
 
     try {
       const updatedState = await sessionsController.updateSessionState(

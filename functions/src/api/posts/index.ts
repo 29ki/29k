@@ -35,7 +35,7 @@ postsRouter.get(
 postsRouter.post('/', validation({body: CreatePostSchema}), async ctx => {
   const {id} = ctx.user;
   const language = ctx.language;
-  const postData = ctx.state.body;
+  const postData = ctx.request.body;
 
   await createPost({...postData, language}, id);
   ctx.response.status = 200;
