@@ -17,7 +17,7 @@ import {Spacer8} from '../../../components/Spacers/Spacer';
 import Button from '../../../components/Buttons/Button';
 import IconButton from '../../../components/Buttons/IconButton/IconButton';
 import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
-import {SessionState} from '../../../../../../shared/src/types/Session';
+import {SessionState} from '../../../../../../shared/src/schemas/Session';
 
 const Wrapper = styled.View({
   flexDirection: 'row',

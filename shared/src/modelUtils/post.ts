@@ -1,4 +1,4 @@
-import {Post, PostData} from '../types/Post';
+import {Post, PostData} from '../schemas/Post';
 
 export const getPost = (post: PostData): Post => {
   return {

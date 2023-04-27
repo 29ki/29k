@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import dayjs from 'dayjs';
 
-import {LiveSession} from '../../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../../shared/src/schemas/Session';
 
 import {formatExerciseName} from '../../../utils/string';
 

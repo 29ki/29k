@@ -32,7 +32,7 @@ import {
   updateInterestedCount,
   getSession,
 } from './sessions';
-import {SessionType} from '../../../shared/src/types/Session';
+import {SessionType} from '../../../shared/src/schemas/Session';
 import dayjs from 'dayjs';
 import {RequestError} from './errors/RequestError';
 import {

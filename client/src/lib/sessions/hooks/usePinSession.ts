@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import {useCallback, useMemo} from 'react';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/schemas/Session';
 import {updateInterestedCount} from '../api/session';
 import useLogSessionMetricEvents from './useLogSessionMetricEvents';
 import usePinnedSessions from './usePinnedSessions';

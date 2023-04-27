@@ -6,7 +6,7 @@ import {
   LiveSession,
   SessionMode,
   SessionType,
-} from '../../../../../../../shared/src/types/Session';
+} from '../../../../../../../shared/src/schemas/Session';
 import Gutters from '../../../../../lib/components/Gutters/Gutters';
 import {
   CommunityIcon,

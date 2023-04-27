@@ -3,7 +3,7 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/schemas/Session';
 import useSessionStartTime from '../../session/hooks/useSessionStartTime';
 
 import Badge from '../Badge/Badge';

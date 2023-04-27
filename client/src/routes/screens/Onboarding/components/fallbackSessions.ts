@@ -3,7 +3,7 @@ import {
   LiveSession,
   SessionMode,
   SessionType,
-} from '../../../../../../shared/src/types/Session';
+} from '../../../../../../shared/src/schemas/Session';
 
 const getFallbackSessions = () =>
   [

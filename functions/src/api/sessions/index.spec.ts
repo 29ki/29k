@@ -4,14 +4,14 @@ import Koa from 'koa';
 import {sessionsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {createApiAuthRouter} from '../../lib/routers';
-import {ROLE} from '../../../../shared/src/types/User';
+import {ROLE} from '../../../../shared/src/schemas/User';
 import * as sessionsController from '../../controllers/sessions';
 import {RequestError} from '../../controllers/errors/RequestError';
 import {
   JoinSessionError,
   ValidateSessionError,
 } from '../../../../shared/src/errors/Session';
-import {SessionMode, SessionType} from '../../../../shared/src/types/Session';
+import {SessionMode, SessionType} from '../../../../shared/src/schemas/Session';
 import {LiveSessionModel} from '../../controllers/types/types';
 import {Timestamp} from 'firebase-admin/firestore';
 

@@ -1,6 +1,6 @@
 import {Timestamp} from 'firebase-admin/firestore';
-import {SessionMode, SessionType} from '../../../../shared/src/types/Session';
-import {ROLE} from '../../../../shared/src/types/User';
+import {SessionMode, SessionType} from '../../../../shared/src/schemas/Session';
+import {ROLE} from '../../../../shared/src/schemas/User';
 import {LANGUAGE_TAG} from '../../lib/i18n';
 
 export type RequestStatus = 'requested' | 'accepted' | 'declined' | 'verified';

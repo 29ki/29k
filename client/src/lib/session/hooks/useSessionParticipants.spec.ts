@@ -1,7 +1,7 @@
 import {DailyParticipant} from '@daily-co/react-native-daily-js';
 import {renderHook} from '@testing-library/react-hooks';
 
-import {DailyUserData} from '../../../../../shared/src/types/Session';
+import {DailyUserData} from '../../../../../shared/src/schemas/Session';
 import useDailyState from '../../../lib/daily/state/state';
 import useSessionSlideState from './useSessionSlideState';
 import useSessionParticipants from './useSessionParticipants';

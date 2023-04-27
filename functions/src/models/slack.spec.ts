@@ -1,4 +1,4 @@
-import {SessionMode, SessionType} from '../../../shared/src/types/Session';
+import {SessionMode, SessionType} from '../../../shared/src/schemas/Session';
 import {SlackError, SlackErrorCode} from '../controllers/errors/SlackError';
 import {RequestAction} from '../lib/constants/requestAction';
 import {translate} from '../lib/translation';

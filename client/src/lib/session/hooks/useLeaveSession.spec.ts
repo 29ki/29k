@@ -10,7 +10,7 @@ import {
   SessionState,
   SessionMode,
   SessionType,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import useUserState from '../../user/state/state';
 import useSessionState from '../state/state';
 import useLeaveSession from './useLeaveSession';

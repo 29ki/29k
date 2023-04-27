@@ -10,7 +10,7 @@ import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
 import {ExerciseSlideSharingSlide} from '../../../../../../../shared/src/types/generated/Exercise';
 import {PostEvent} from '../../../../../../../shared/src/types/Event';
-import {Post} from '../../../../../../../shared/src/types/Post';
+import {Post} from '../../../../../../../shared/src/schemas/Post';
 import Button from '../../../../components/Buttons/Button';
 import Gutters from '../../../../components/Gutters/Gutters';
 import {PlusIcon} from '../../../../components/Icons';

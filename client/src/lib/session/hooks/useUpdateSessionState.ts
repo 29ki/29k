@@ -3,7 +3,7 @@ import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 import {
   SessionState,
   LiveSession,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import * as sessionApi from '../../sessions/api/session';
 
 const useUpdateSessionState = (sessionId: LiveSession['id'] | undefined) => {

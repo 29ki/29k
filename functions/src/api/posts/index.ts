@@ -8,7 +8,10 @@ import {
 } from '../../controllers/posts';
 import {RequestError} from '../../controllers/errors/RequestError';
 import validation from '../lib/validation';
-import {CreatePostSchema, PostSchema} from '../../../../shared/src/types/Post';
+import {
+  CreatePostSchema,
+  PostSchema,
+} from '../../../../shared/src/schemas/Post';
 
 const postsRouter = createApiAuthRouter();
 

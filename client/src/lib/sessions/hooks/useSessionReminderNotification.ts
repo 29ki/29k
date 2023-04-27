@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/schemas/Session';
 import useExerciseById from '../../content/hooks/useExerciseById';
 import useTriggerNotification from '../../notifications/hooks/useTriggerNotification';
 

@@ -1,7 +1,7 @@
 import {getAuthUserInfo} from '../models/auth';
 import {RequestError} from './errors/RequestError';
 import {UserError} from '../../../shared/src/errors/User';
-import {ROLE, UserData} from '../../../shared/src/types/User';
+import {ROLE, UserData} from '../../../shared/src/schemas/User';
 import * as userModel from '../models/user';
 import {UserDataModel, UserModel} from './types/types';
 

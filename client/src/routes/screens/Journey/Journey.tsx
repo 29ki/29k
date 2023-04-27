@@ -13,7 +13,7 @@ import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {partition, groupBy, findLastIndex} from 'ramda';
 
 import {JourneyItem} from './types/JourneyItem';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/schemas/Session';
 
 import {
   ModalStackProps,

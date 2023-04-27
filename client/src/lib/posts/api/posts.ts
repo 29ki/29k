@@ -1,4 +1,4 @@
-import {Post} from '../../../../../shared/src/types/Post';
+import {Post} from '../../../../../shared/src/schemas/Post';
 import apiClient from '../../apiClient/apiClient';
 
 const POSTS_ENDPOINT = '/posts';

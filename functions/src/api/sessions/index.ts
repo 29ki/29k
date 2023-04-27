@@ -12,7 +12,7 @@ import {
   SessionType,
   UpdateSession,
   UpdateSessionSchema,
-} from '../../../../shared/src/types/Session';
+} from '../../../../shared/src/schemas/Session';
 import {createApiAuthRouter} from '../../lib/routers';
 import restrictAccessToRole from '../lib/restrictAccessToRole';
 
@@ -22,7 +22,7 @@ import {
   ValidateSessionError,
 } from '../../../../shared/src/errors/Session';
 import {RequestError} from '../../controllers/errors/RequestError';
-import {ROLE} from '../../../../shared/src/types/User';
+import {ROLE} from '../../../../shared/src/schemas/User';
 import validation from '../lib/validation';
 
 const sessionsRouter = createApiAuthRouter();

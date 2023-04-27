@@ -5,9 +5,9 @@ import useSubscribeToSession from './useSubscribeToSession';
 import {
   LiveSession,
   LiveSessionSchema,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 
-jest.mock('../../../../../shared/src/types/Session');
+jest.mock('../../../../../shared/src/schemas/Session');
 const mockeLiveSessionSchema = jest.mocked(LiveSessionSchema);
 
 afterEach(() => {

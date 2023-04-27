@@ -1,5 +1,5 @@
 import {useCallback} from 'react';
-import {AsyncSession} from '../../../../../shared/src/types/Session';
+import {AsyncSession} from '../../../../../shared/src/schemas/Session';
 import * as metrics from '../../metrics';
 import useUser from '../../user/hooks/useUser';
 

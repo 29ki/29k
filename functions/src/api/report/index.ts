@@ -1,7 +1,7 @@
 import {
   CreateReportSchema,
   CreateReportData,
-} from '../../../../shared/src/types/Report';
+} from '../../../../shared/src/schemas/Report';
 import {createApiAuthRouter} from '../../lib/routers';
 import validation from '../lib/validation';
 

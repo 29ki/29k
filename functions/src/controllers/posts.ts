@@ -5,7 +5,7 @@ import * as postModel from '../models/post';
 import {sendPostMessage} from '../models/slack';
 import {getAuthUserInfo} from '../models/auth';
 import {RequestError} from './errors/RequestError';
-import {CreatePostData} from '../../../shared/src/types/Post';
+import {CreatePostData} from '../../../shared/src/schemas/Post';
 import {omit} from 'ramda';
 
 const safeGetPublicHostInfo = async (userId: string) => {

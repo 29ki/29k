@@ -1,5 +1,5 @@
 import {isNil, reject} from 'ramda';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/schemas/Session';
 import apiClient from '../../apiClient/apiClient';
 
 const SESSIONS_ENDPOINT = '/sessions';

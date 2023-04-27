@@ -1,5 +1,5 @@
 import {VerificationError} from '../../../../../shared/src/errors/User';
-import {UserData, User} from '../../../../../shared/src/types/User';
+import {UserData, User} from '../../../../../shared/src/schemas/User';
 import apiClient from '../../apiClient/apiClient';
 
 const USER_ENDPOINT = '/user';

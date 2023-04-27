@@ -7,7 +7,7 @@ import {
   SessionMode,
   SessionStateUpdate,
   SessionType,
-} from '../../../shared/src/types/Session';
+} from '../../../shared/src/schemas/Session';
 import {getData} from '../../../shared/src/modelUtils/firestore';
 import {removeEmpty} from '../lib/utils';
 import {

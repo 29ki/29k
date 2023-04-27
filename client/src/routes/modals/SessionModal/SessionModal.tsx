@@ -46,7 +46,7 @@ import {updateSession} from '../../../lib/sessions/api/session';
 import {
   LiveSession,
   SessionType,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import EditSessionType from '../../../lib/components/EditSessionType/EditSessionType';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';

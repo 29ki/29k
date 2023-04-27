@@ -35,7 +35,7 @@ import {
   updateInterestedCount,
   getUpcomingPublicSessions,
 } from './session';
-import {SessionType} from '../../../shared/src/types/Session';
+import {SessionType} from '../../../shared/src/schemas/Session';
 
 const sessions = [
   {

@@ -1,5 +1,5 @@
 import {useCallback, useEffect, useMemo, useState} from 'react';
-import {User} from '../../../../../shared/src/types/User';
+import {User} from '../../../../../shared/src/schemas/User';
 import {getUser} from '../api/user';
 
 const useUserProfile = (userId: string | undefined): User | null => {

@@ -4,7 +4,7 @@ import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 import {
   SessionState,
   AsyncSession,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import useSessionState from '../state/state';
 
 const useUpdateAsyncSessionState = (session: AsyncSession) => {

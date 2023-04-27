@@ -1,13 +1,13 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import {User, UserProfile} from '../../../../../shared/src/types/User';
+import {User, UserProfile} from '../../../../../shared/src/schemas/User';
 import {
   AsyncSession,
   LiveSession,
   SessionMode,
   SessionType,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 
 export type TabNavigatorProps = {

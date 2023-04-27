@@ -1,5 +1,5 @@
 import {useCallback} from 'react';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/schemas/Session';
 import * as metrics from '../../metrics';
 import useUser from '../../user/hooks/useUser';
 

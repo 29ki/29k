@@ -11,7 +11,7 @@ import {
   SessionStateUpdate,
   SessionType,
   UpdateSession,
-} from '../../../shared/src/types/Session';
+} from '../../../shared/src/schemas/Session';
 import {
   JoinSessionError,
   ValidateSessionError,

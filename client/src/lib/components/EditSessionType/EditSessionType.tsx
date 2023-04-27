@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import {
   LiveSession,
   SessionType,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import {ChevronLeftIcon, FriendsIcon, CommunityIcon} from '../Icons';
 import {Spacer4} from '../Spacers/Spacer';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';

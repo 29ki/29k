@@ -3,7 +3,7 @@ import * as feedbackController from './feedback';
 import * as slack from '../models/slack';
 import {getExerciseById} from '../lib/exercise';
 import {Exercise} from '../../../shared/src/types/generated/Exercise';
-import {SessionMode, SessionType} from '../../../shared/src/types/Session';
+import {SessionMode, SessionType} from '../../../shared/src/schemas/Session';
 
 jest.mock('../models/metrics');
 jest.mock('../models/slack');

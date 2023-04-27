@@ -1,4 +1,4 @@
-import {ROLE, UserData} from '../../../shared/src/types/User';
+import {ROLE, UserData} from '../../../shared/src/schemas/User';
 import {updateRole} from '../models/auth';
 
 export const userUpdatedHandler = async (

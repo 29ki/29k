@@ -3,7 +3,7 @@ import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {
   LiveSession,
   SessionState,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import useSessionState from '../state/state';
 import useSessionSlideState from './useSessionSlideState';
 

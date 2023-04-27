@@ -36,7 +36,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {
   SessionMode,
   SessionType,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import {PostEvent} from '../../../../../shared/src/types/Event';
 import useSharingPosts from '../../../lib/posts/hooks/useSharingPosts';
 import {ExerciseSlideSharingSlide} from '../../../../../shared/src/types/generated/Exercise';

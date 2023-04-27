@@ -14,7 +14,7 @@ import {
   PostEventData,
   CompletedSessionEventData,
 } from '../../../../../shared/src/types/Event';
-import {UserData} from '../../../../../shared/src/types/User';
+import {UserData} from '../../../../../shared/src/schemas/User';
 
 dayjs.extend(utc);
 

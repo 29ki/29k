@@ -7,7 +7,7 @@ import {createApiPreAuthRouter} from '../../lib/routers';
 
 import * as sessionsController from '../../controllers/sessions';
 import {LiveSessionModel} from '../../controllers/types/types';
-import {SessionMode, SessionType} from '../../../../shared/src/types/Session';
+import {SessionMode, SessionType} from '../../../../shared/src/schemas/Session';
 
 jest.mock('../../controllers/sessions');
 const mockGetUpcomingPublicSessions = jest.mocked(

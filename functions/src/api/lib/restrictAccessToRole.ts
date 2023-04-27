@@ -1,5 +1,5 @@
 import {Next} from 'koa';
-import {ROLE} from '../../../../shared/src/types/User';
+import {ROLE} from '../../../../shared/src/schemas/User';
 import {FirebaseAuthContext} from './firebaseAuth';
 
 const restrictAccessToRole =

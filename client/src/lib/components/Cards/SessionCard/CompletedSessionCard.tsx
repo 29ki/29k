@@ -17,7 +17,7 @@ import {Body14} from '../../Typography/Body/Body';
 import {CheckIcon, CommunityIcon, MeIcon} from '../../Icons';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Spacer4} from '../../Spacers/Spacer';
-import {SessionMode} from '../../../../../../shared/src/types/Session';
+import {SessionMode} from '../../../../../../shared/src/schemas/Session';
 import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
 import useUserProfile from '../../../user/hooks/useUserProfile';
 

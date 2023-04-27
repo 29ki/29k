@@ -5,7 +5,7 @@ import {
 import {
   SessionMode,
   SessionType,
-} from '../../../../../../shared/src/types/Session';
+} from '../../../../../../shared/src/schemas/Session';
 import v4, {V4State, V4UserState} from './v4';
 
 jest.mock('../../../sessions/api/session');

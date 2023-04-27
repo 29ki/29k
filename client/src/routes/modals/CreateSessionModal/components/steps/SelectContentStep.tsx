@@ -23,7 +23,7 @@ import {
   AppStackProps,
   ModalStackProps,
 } from '../../../../../lib/navigation/constants/routes';
-import {SessionMode} from '../../../../../../../shared/src/types/Session';
+import {SessionMode} from '../../../../../../../shared/src/schemas/Session';
 import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsyncSession';
 import useGetExercisesByMode from '../../../../../lib/content/hooks/useGetExercisesByMode';
 

@@ -1,4 +1,4 @@
-import {LiveSession} from '../../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../../shared/src/schemas/Session';
 import {V2State, V2UserState} from './v2';
 
 // Types as they were in v1

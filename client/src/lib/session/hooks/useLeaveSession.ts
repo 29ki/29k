@@ -17,7 +17,7 @@ import {
   AsyncSession,
   LiveSession,
   SessionMode,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import useAsyncSessionMetricEvents from './useAsyncSessionMetricEvents';
 
 type ScreenNavigationProps = NativeStackNavigationProp<

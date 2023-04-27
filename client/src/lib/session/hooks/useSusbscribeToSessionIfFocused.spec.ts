@@ -5,7 +5,7 @@ import useSessions from '../../../lib/sessions/hooks/useSessions';
 import useSubscribeToSessionIfFocused from './useSusbscribeToSessionIfFocused';
 import useSubscribeToSession from './useSubscribeToSession';
 import useGetExerciseById from '../../content/hooks/useGetExerciseById';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/schemas/Session';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 
 jest.mock('../../../lib/sessions/hooks/useSessions');

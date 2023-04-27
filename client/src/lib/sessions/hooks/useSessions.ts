@@ -5,7 +5,7 @@ import * as sessionsApi from '../api/sessions';
 import * as sessionApi from '../api/session';
 
 import useSessionsState from '../state/state';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/schemas/Session';
 import usePinnedSessions from './usePinnedSessions';
 import useUser from '../../user/hooks/useUser';
 

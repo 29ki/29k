@@ -1,5 +1,5 @@
 import {renderHook} from '@testing-library/react-hooks';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/schemas/Session';
 import useTriggerNotification from '../../notifications/hooks/useTriggerNotification';
 
 import useSessionReminderNotification from './useSessionReminderNotification';

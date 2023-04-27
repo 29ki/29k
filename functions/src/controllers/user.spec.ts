@@ -4,7 +4,7 @@ import {getMe, getPublicHosts, getUser, updateUser} from './user';
 
 import {RequestError} from './errors/RequestError';
 import {UserError} from '../../../shared/src/errors/User';
-import {ROLE} from '../../../shared/src/types/User';
+import {ROLE} from '../../../shared/src/schemas/User';
 
 jest.mock('../models/auth');
 jest.mock('../models/user');

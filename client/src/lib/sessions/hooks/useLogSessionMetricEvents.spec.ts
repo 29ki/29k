@@ -1,6 +1,6 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook} from '@testing-library/react-hooks';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/schemas/Session';
 import {logEvent} from '../../metrics';
 import useUserState from '../../user/state/state';
 import useLogSessionMetricEvents from './useLogSessionMetricEvents';

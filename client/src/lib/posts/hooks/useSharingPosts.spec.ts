@@ -1,7 +1,7 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook, act} from '@testing-library/react-hooks';
-import {Post} from '../../../../../shared/src/types/Post';
-import {AsyncSession} from '../../../../../shared/src/types/Session';
+import {Post} from '../../../../../shared/src/schemas/Post';
+import {AsyncSession} from '../../../../../shared/src/schemas/Session';
 import {
   FeedbackPayload,
   PostPayload,

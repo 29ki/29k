@@ -1,7 +1,7 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook, act} from '@testing-library/react-hooks';
 import MockDate from 'mockdate';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/schemas/Session';
 import useUserState from '../../user/state/state';
 import {updateInterestedCount} from '../api/session';
 import usePinSession from './usePinSession';

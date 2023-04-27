@@ -1,4 +1,4 @@
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/schemas/Session';
 import {create} from 'zustand';
 
 type State = {

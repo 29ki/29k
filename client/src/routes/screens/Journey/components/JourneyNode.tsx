@@ -11,7 +11,7 @@ import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
 import {
   SessionMode,
   SessionType,
-} from '../../../../../../shared/src/types/Session';
+} from '../../../../../../shared/src/schemas/Session';
 import Badge from '../../../../lib/components/Badge/Badge';
 import Byline from '../../../../lib/components/Bylines/Byline';
 import {

@@ -4,7 +4,7 @@ import {
   SessionState,
   LiveSession,
   SessionStateSchema,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 
 const useSubscribeToSession = (sessionId: LiveSession['id']) => {
   return useCallback(

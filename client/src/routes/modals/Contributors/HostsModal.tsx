@@ -13,7 +13,7 @@ import {Header} from './components/Header';
 import {ScrollView} from './components/ScrollView';
 import {ContributorsList} from './components/ContributorsList';
 import {getPublicHosts} from '../../../lib/user/api/user';
-import {User} from '../../../../../shared/src/types/User';
+import {User} from '../../../../../shared/src/schemas/User';
 
 import {
   AppStackProps,

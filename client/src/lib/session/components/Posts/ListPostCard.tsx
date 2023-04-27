@@ -6,7 +6,7 @@ import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import {UserProfile} from '../../../../../../shared/src/types/User';
+import {UserProfile} from '../../../../../../shared/src/schemas/User';
 import TouchableOpacity from '../../../components/TouchableOpacity/TouchableOpacity';
 import {Body14} from '../../../components/Typography/Body/Body';
 import SETTINGS from '../../../constants/settings';

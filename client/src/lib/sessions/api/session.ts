@@ -1,7 +1,7 @@
 import {
   LiveSession,
   SessionState,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import apiClient from '../../apiClient/apiClient';
 import Sentry from '../../sentry';
 

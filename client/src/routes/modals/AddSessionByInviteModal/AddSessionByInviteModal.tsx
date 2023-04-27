@@ -15,7 +15,7 @@ import {joinSession} from '../../../lib/sessions/api/session';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 import CardModal from '../../../lib/components/Modals/CardModal';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/schemas/Session';
 import useLogSessionMetricEvents from '../../../lib/sessions/hooks/useLogSessionMetricEvents';
 
 const ErrorText = styled(Body16)({color: COLORS.ERROR, textAlign: 'center'});

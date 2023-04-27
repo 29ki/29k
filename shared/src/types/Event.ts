@@ -1,5 +1,5 @@
-import {LiveSession} from './Session';
-import {UserProfile} from './User';
+import {LiveSession} from '../schemas/Session';
+import {UserProfile} from '../schemas/User';
 
 export type PostPayload = {
   sessionId: string;

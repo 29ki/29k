@@ -13,7 +13,7 @@ import {
   getUser,
   updateUser,
 } from '../../controllers/user';
-import {UserDataSchema, UserSchema} from '../../../../shared/src/types/User';
+import {UserDataSchema, UserSchema} from '../../../../shared/src/schemas/User';
 import validation from '../lib/validation';
 
 const userRouter = createApiAuthRouter();

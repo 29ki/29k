@@ -4,7 +4,7 @@ import {
   AsyncSession,
   LiveSession,
   SessionState,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {IconType} from '../../../lib/components/Icons';
 

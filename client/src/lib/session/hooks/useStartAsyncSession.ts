@@ -7,7 +7,7 @@ import {
   AsyncSession,
   SessionMode,
   SessionType,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import useGetExerciseById from '../../content/hooks/useGetExerciseById';
 import {LANGUAGE_TAG} from '../../i18n';
 import {

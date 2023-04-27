@@ -2,7 +2,7 @@ import {Alert} from 'react-native';
 import {renderHook} from '@testing-library/react-hooks';
 
 import useConfirmSessionReminder from './useConfirmSessionReminder';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/schemas/Session';
 import useReminderNotificationsSetting from '../../notifications/hooks/useReminderNotificationsSetting';
 
 const mockAlert = jest.mocked(Alert.alert);

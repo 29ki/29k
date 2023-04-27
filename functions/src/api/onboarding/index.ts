@@ -2,7 +2,7 @@ import * as yup from 'yup';
 import {createApiPreAuthRouter} from '../../lib/routers';
 import * as sessionsController from '../../controllers/sessions';
 import validation from '../lib/validation';
-import {LiveSessionSchema} from '../../../../shared/src/types/Session';
+import {LiveSessionSchema} from '../../../../shared/src/schemas/Session';
 
 const onboardingRouter = createApiPreAuthRouter();
 

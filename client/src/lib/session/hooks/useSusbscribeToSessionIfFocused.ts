@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import useSessionState from '../state/state';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSession} from '../../../../../shared/src/schemas/Session';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';

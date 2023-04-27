@@ -16,7 +16,7 @@ import {
   Exercise,
   ExerciseSlideSharingSlide,
 } from '../../../shared/src/types/generated/Exercise';
-import {CreatePostData} from '../../../shared/src/types/Post';
+import {CreatePostData} from '../../../shared/src/schemas/Post';
 
 jest.mock('../models/post');
 jest.mock('../models/auth');
