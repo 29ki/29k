@@ -71,6 +71,7 @@ export const DESCRIPTION_FIELD: CmsField = {
   name: 'description',
   widget: 'markdown',
   required: false,
+  minimal: true,
   i18n: true,
 };
 

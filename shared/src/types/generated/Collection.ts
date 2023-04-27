@@ -9,6 +9,10 @@ export interface CollectionImage {
 export interface Collection {
   id: any;
   name: string;
+  description?: string;
   image?: CollectionImage;
+  tags?: any[];
+  published: boolean;
+  hidden?: boolean;
   exercises: any[];
 }

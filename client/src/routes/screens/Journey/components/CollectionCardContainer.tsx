@@ -8,6 +8,7 @@ import usePinnedCollectionById from '../../../../lib/user/hooks/usePinnedCollect
 import useCompletedSessionByTime from '../../../../lib/user/hooks/useCompletedSessionByTime';
 import CollectionFullCard from '../../../../lib/components/Cards/CollectionCards/CollectionFullCard';
 import useExercisesByCollectionId from '../../../../lib/content/hooks/useExercisesByCollectionId';
+import {formatContentName} from '../../../../lib/utils/string';
 
 type CollectionCardContainer = {
   collectionId: string;
@@ -55,7 +56,7 @@ const CollectionCardContainer: React.FC<CollectionCardContainer> = ({
 
   return (
     <CollectionFullCard
-      title={collection.name}
+      title={formatContentName(collection)}
       image={image}
       progressItems={items}
       onPress={onPress}

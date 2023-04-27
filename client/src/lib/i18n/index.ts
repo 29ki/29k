@@ -19,7 +19,7 @@ import {
   LANGUAGE_TAGS,
 } from '../../../../shared/src/constants/i18n';
 import Backend from './backend/backend';
-import {omitExercises} from './utils/utils';
+import {omitExercisesAndCollections} from './utils/utils';
 
 export * from '../../../../shared/src/constants/i18n';
 
@@ -37,7 +37,7 @@ export const init = () =>
       fallbackLng: DEFAULT_LANGUAGE_TAG,
       // To trigger the backend middleware to load exercises they have to be removed first.
       // Removing them in buildContent creates somewhat of a mess in backend adding them back.
-      resources: omitExercises(content.i18n),
+      resources: omitExercisesAndCollections(content.i18n),
       partialBundledLanguages: true,
       returnNull: false,
       interpolation: {

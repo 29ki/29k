@@ -7,7 +7,7 @@ import dayjs from 'dayjs';
 
 import {LiveSessionType} from '../../../../../../shared/src/schemas/Session';
 
-import {formatExerciseName} from '../../../utils/string';
+import {formatContentName} from '../../../utils/string';
 
 import useExerciseById from '../../../content/hooks/useExerciseById';
 import useSessionStartTime from '../../../session/hooks/useSessionStartTime';
@@ -144,7 +144,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
   if (standAlone) {
     return (
       <Card
-        title={formatExerciseName(exercise)}
+        title={formatContentName(exercise)}
         tags={tags}
         image={image}
         lottie={lottie}
@@ -173,7 +173,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
       hasCardBefore={hasCardBefore}
       foldedComponent={
         <SessionWalletCard
-          title={formatExerciseName(exercise)}
+          title={formatContentName(exercise)}
           image={image}
           lottie={lottie}
           hostPictureURL={
@@ -199,7 +199,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
       expandedComponent={
         <Card
           inWallet
-          title={formatExerciseName(exercise)}
+          title={formatContentName(exercise)}
           tags={tags}
           image={image}
           lottie={lottie}

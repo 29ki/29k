@@ -33,7 +33,7 @@ import Button from '../../../../../lib/components/Buttons/Button';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import useGetExerciseById from '../../../../../lib/content/hooks/useGetExerciseById';
-import {formatExerciseName} from '../../../../../lib/utils/string';
+import {formatContentName} from '../../../../../lib/utils/string';
 import Image from '../../../../../lib/components/Image/Image';
 import {ActivityIndicator, ListRenderItem} from 'react-native';
 import SessionCard from '../../../../../lib/components/Cards/SessionCard/SessionCard';
@@ -253,7 +253,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
             <Gutters>
               <Row>
                 <TextWrapper>
-                  <Display24>{formatExerciseName(exercise)}</Display24>
+                  <Display24>{formatContentName(exercise)}</Display24>
                 </TextWrapper>
                 <Spacer16 />
                 <LogoWrapper>

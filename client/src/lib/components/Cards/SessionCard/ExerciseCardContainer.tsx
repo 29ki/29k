@@ -3,7 +3,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {useCallback, useMemo} from 'react';
 import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
 import {ModalStackProps} from '../../../navigation/constants/routes';
-import {formatExerciseName} from '../../../utils/string';
+import {formatContentName} from '../../../utils/string';
 import ExerciseWalletCard from '../WalletCards/ExerciseWalletCard';
 
 type ExerciseCardContainerProps = {
@@ -36,7 +36,7 @@ const ExerciseCardContainer: React.FC<ExerciseCardContainerProps> = ({
 
   return (
     <ExerciseWalletCard
-      title={formatExerciseName(exercise)}
+      title={formatContentName(exercise)}
       image={image}
       hasCardBefore={hasCardBefore}
       hasCardAfter={hasCardAfter}

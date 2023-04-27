@@ -1,5 +1,5 @@
 import {Exercise} from '../../../../shared/src/types/generated/Exercise';
-import {formatExerciseName, formatInviteCode, trimSlashes} from './string';
+import {formatContentName, formatInviteCode, trimSlashes} from './string';
 
 describe('formatInviteCode', () => {
   it('adds space every three digits', () => {
@@ -10,12 +10,12 @@ describe('formatInviteCode', () => {
 describe('formatExerciseName', () => {
   it('should add WIP to hidden exercises', () => {
     expect(
-      formatExerciseName({name: 'Test', hidden: true} as unknown as Exercise),
-    ).toEqual('Test (WIP)');
+      formatContentName({name: 'Test', hidden: true} as unknown as Exercise),
+    ).toEqual('Test (hidden)');
   });
 
   it('should not add WIP to non hidden exercises', () => {
-    expect(formatExerciseName({name: 'Test'} as unknown as Exercise)).toEqual(
+    expect(formatContentName({name: 'Test'} as unknown as Exercise)).toEqual(
       'Test',
     );
   });
