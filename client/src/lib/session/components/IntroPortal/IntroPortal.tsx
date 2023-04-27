@@ -114,7 +114,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
           repeat
         />
       )}
-      {isFocused && introPortal?.videoLoop?.source && (
+      {introPortal?.videoLoop?.source && (
         <VideoTransition
           repeat={!sessionState?.started}
           loopSource={introPortal?.videoLoop?.source}
