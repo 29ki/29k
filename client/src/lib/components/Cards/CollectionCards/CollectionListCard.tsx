@@ -10,7 +10,7 @@ import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
 import {Spacer8} from '../../Spacers/Spacer';
 
 type CollectionCardProps = {
-  title: string | null;
+  title?: string;
   image: ImageSourcePropType;
   onPress: () => void;
 };
