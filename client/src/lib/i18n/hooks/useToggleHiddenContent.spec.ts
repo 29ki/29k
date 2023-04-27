@@ -18,13 +18,20 @@ describe('useToggleHiddenContent', () => {
     });
 
     expect(useAppState.getState().settings.showHiddenContent).toBe(true);
-    expect(i18n.removeResourceBundle).toHaveBeenCalledTimes(4);
+    expect(i18n.removeResourceBundle).toHaveBeenCalledTimes(8);
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('en', 'exercises');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('pt', 'exercises');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('sv', 'exercises');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('es', 'exercises');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('en', 'collections');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('pt', 'collections');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('sv', 'collections');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('es', 'collections');
     expect(i18n.reloadResources).toHaveBeenCalledTimes(1);
-    expect(i18n.reloadResources).toHaveBeenCalledWith(undefined, 'exercises');
+    expect(i18n.reloadResources).toHaveBeenCalledWith(undefined, [
+      'exercises',
+      'collections',
+    ]);
   });
 
   it('should reload resources on toggle off', () => {
@@ -36,12 +43,19 @@ describe('useToggleHiddenContent', () => {
     });
 
     expect(useAppState.getState().settings.showHiddenContent).toBe(false);
-    expect(i18n.removeResourceBundle).toHaveBeenCalledTimes(4);
+    expect(i18n.removeResourceBundle).toHaveBeenCalledTimes(8);
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('en', 'exercises');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('pt', 'exercises');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('sv', 'exercises');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('es', 'exercises');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('en', 'collections');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('pt', 'collections');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('sv', 'collections');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('es', 'collections');
     expect(i18n.reloadResources).toHaveBeenCalledTimes(1);
-    expect(i18n.reloadResources).toHaveBeenCalledWith(undefined, 'exercises');
+    expect(i18n.reloadResources).toHaveBeenCalledWith(undefined, [
+      'exercises',
+      'collections',
+    ]);
   });
 });
