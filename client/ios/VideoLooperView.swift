@@ -387,7 +387,6 @@ class VideoLooperView: RCTView {
     }
     
     if (_player?.items().last == item) {
-      _player?.actionAtItemEnd = .pause
       if onEnd != nil {
         let event = [AnyHashable: Any]()
         onEnd!(event)
@@ -415,6 +414,7 @@ class VideoLooperView: RCTView {
         addLoopItemObserver(item: playerItem)
       }
     } else {
+      _player?.actionAtItemEnd = .pause
       if onTransition != nil {
         let event = [AnyHashable: Any]()
         onTransition!(event)
