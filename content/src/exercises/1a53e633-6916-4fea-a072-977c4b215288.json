@@ -26,7 +26,7 @@
     },
     "hidden": true,
     "name": "Get started",
-    "published": false,
+    "published": true,
     "duration": 5,
     "introPortal": {
       "hostNotes": [
