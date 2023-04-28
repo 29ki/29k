@@ -15,7 +15,11 @@
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
-        ]
+        ],
+        "video": {
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682676013/Images/Feeling_purpose_thumb_uxkka7.png",
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682676567/Video/Intro_Feeling_purpose_r61bwd.mp4"
+        }
       },
       {
         "type": "content",
@@ -126,7 +130,11 @@
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
-        ]
+        ],
+        "video": {
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682676013/Images/Feeling_purpose_thumb_uxkka7.png",
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682676566/Video/Outro_Feeling_purpose_kf5es3.mp4"
+        }
       }
     ],
     "theme": {
@@ -135,6 +143,12 @@
     "hidden": true,
     "name": "Feeling purpose",
     "published": true,
+    "card": {
+      "host": {
+        "displayName": "Lisa",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675943058/Images/Lisa_host_wkrcf3.jpg"
+      }
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
