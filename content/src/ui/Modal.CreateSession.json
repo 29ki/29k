@@ -40,7 +40,7 @@
     "orJoinUpcoming": "Ou junta-te a uma sessão futura",
     "selectType": {
       "live-public": {
-        "title": "Qualquer pessoa"
+        "title": "Outras pessoas"
       },
       "live-private": {
         "title": "Os meus amigos"
