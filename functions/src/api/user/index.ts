@@ -101,23 +101,29 @@ userRouter.get('/', validation({response: UserDataSchema}), async ctx => {
   ctx.body = me;
 });
 
-userRouter.get('/:id', validation({response: UserSchema}), async ctx => {
-  try {
-    const user = await getUser(ctx.params.id);
-    ctx.set('Cache-Control', 'max-age=1800');
-    ctx.body = user;
-  } catch (error) {
-    const requestError = error as RequestError;
-    switch (requestError.code) {
-      case UserError.userNotFound:
-        ctx.status = 404;
-        break;
-      default:
-        throw error;
+const UserParamsSchema = yup.object({id: yup.string().required()});
+
+userRouter.get(
+  '/:id',
+  validation({params: UserParamsSchema, response: UserSchema}),
+  async ctx => {
+    try {
+      const user = await getUser(ctx.params.id);
+      ctx.set('Cache-Control', 'max-age=1800');
+      ctx.body = user;
+    } catch (error) {
+      const requestError = error as RequestError;
+      switch (requestError.code) {
+        case UserError.userNotFound:
+          ctx.status = 404;
+          break;
+        default:
+          throw error;
+      }
+      ctx.message = requestError.code;
     }
-    ctx.message = requestError.code;
-  }
-});
+  },
+);
 
 const UpdateUserSchema = yup.object().shape({
   description: yup.string(),

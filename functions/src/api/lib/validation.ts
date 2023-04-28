@@ -35,29 +35,34 @@ interface ValidatedRequest<
 export interface ValidatedContext<
   TBody extends yup.Schema = DefaultSchema,
   TQuery extends yup.Schema = DefaultSchema,
+  TParams extends yup.Schema = DefaultSchema,
   TResponse extends yup.Schema = DefaultSchema,
 > extends Koa.ExtendableContext {
   request: ValidatedRequest<TBody, TQuery>;
+  params: yup.Asserts<TParams>;
   body: yup.Asserts<TResponse>;
 }
 
 type Validator<
   TBody extends yup.Schema,
   TQuery extends yup.Schema,
+  TParams extends yup.Schema,
   TResponse extends yup.Schema,
 > = {
   body: TBody;
   query: TQuery;
+  params: TParams;
   response: TResponse;
 };
 
 type ValidatorOptions<
   TBody extends yup.Schema = DefaultSchema,
   TQuery extends yup.Schema = DefaultSchema,
+  TParams extends yup.Schema = DefaultSchema,
   TResponse extends yup.Schema = DefaultSchema,
 > = {
   [k in keyof Partial<
-    Validator<TBody, TQuery, TResponse>
+    Validator<TBody, TQuery, TParams, TResponse>
   >]: yup.ValidateOptions;
 };
 
@@ -66,6 +71,9 @@ const defaultOptions: ValidatorOptions = {
     stripUnknown: true,
   },
   query: {
+    stripUnknown: true,
+  },
+  params: {
     stripUnknown: true,
   },
   response: {
@@ -77,13 +85,14 @@ const validation =
   <
     TBody extends yup.Schema,
     TQuery extends yup.Schema,
+    TParams extends yup.Schema,
     TResponse extends yup.Schema,
   >(
-    validator: Partial<Validator<TBody, TQuery, TResponse>>,
+    validator: Partial<Validator<TBody, TQuery, TParams, TResponse>>,
     options: ValidatorOptions = defaultOptions,
   ): Koa.Middleware<
     ValidatedState,
-    ValidatedContext<TBody, TQuery, TResponse>
+    ValidatedContext<TBody, TQuery, TParams, TResponse>
   > =>
   async (ctx: Koa.Context, next: Koa.Next) => {
     try {
@@ -104,6 +113,13 @@ const validation =
           value: query,
           writable: false,
         });
+      }
+
+      if (validator.params) {
+        ctx.params = await validator.params.validate(
+          ctx.params,
+          options.params,
+        );
       }
     } catch (error) {
       if (error instanceof yup.ValidationError) {

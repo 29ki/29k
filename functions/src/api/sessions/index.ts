@@ -27,6 +27,10 @@ import validation from '../lib/validation';
 
 const sessionsRouter = createApiAuthRouter();
 
+const SessionParamsSchema = yup.object({
+  id: yup.string().required(),
+});
+
 sessionsRouter.get(
   '/',
   validation({response: yup.array().of(LiveSessionSchema)}),
@@ -49,7 +53,7 @@ sessionsRouter.get(
 
 sessionsRouter.get(
   '/:id/sessionToken',
-  validation({response: yup.string()}),
+  validation({params: SessionParamsSchema, response: yup.string()}),
   async ctx => {
     const {user, params} = ctx;
 
@@ -81,7 +85,7 @@ sessionsRouter.get(
 
 sessionsRouter.get(
   '/:id',
-  validation({response: LiveSessionSchema}),
+  validation({params: SessionParamsSchema, response: LiveSessionSchema}),
   async ctx => {
     const {user, params} = ctx;
 
@@ -130,7 +134,7 @@ sessionsRouter.post(
 
 sessionsRouter.delete(
   '/:id',
-  validation({response: yup.string()}),
+  validation({params: SessionParamsSchema, response: yup.string()}),
   async ctx => {
     const {id} = ctx.params;
 
@@ -179,7 +183,11 @@ sessionsRouter.put(
     ROLE.publicHost,
     ({type}) => type === SessionType.public,
   ),
-  validation({body: UpdateSessionSchema, response: LiveSessionSchema}),
+  validation({
+    body: UpdateSessionSchema,
+    params: SessionParamsSchema,
+    response: LiveSessionSchema,
+  }),
   async ctx => {
     const {id} = ctx.params;
     const body = ctx.request.body;
@@ -202,7 +210,7 @@ sessionsRouter.put(
 
 sessionsRouter.put(
   '/:id/interestedCount',
-  validation({body: InterestedCountSchema}),
+  validation({body: InterestedCountSchema, params: SessionParamsSchema}),
   async ctx => {
     const {id} = ctx.params;
     const {increment} = ctx.request.body;
@@ -219,7 +227,11 @@ sessionsRouter.put(
 
 sessionsRouter.put(
   '/:id/state',
-  validation({body: SessionStateUpdateSchema, response: SessionStateSchema}),
+  validation({
+    body: SessionStateUpdateSchema,
+    params: SessionParamsSchema,
+    response: SessionStateSchema,
+  }),
   async ctx => {
     const {id} = ctx.params;
     const data = ctx.request.body;
