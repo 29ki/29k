@@ -12,7 +12,7 @@ const safeGetPublicHostInfo = async (userId: string) => {
   try {
     return await getAuthUserInfo(userId);
   } catch {
-    return undefined;
+    return null;
   }
 };
 
@@ -31,7 +31,7 @@ export const getPostsByExerciseAndSharingId = async (
       ...post,
       userProfile: post.userId
         ? await safeGetPublicHostInfo(post.userId)
-        : undefined,
+        : null,
     })),
   );
 };

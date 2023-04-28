@@ -186,6 +186,7 @@ describe('posts - controller', () => {
       expect(posts).toEqual([
         {
           id: 'some-post-id',
+          userProfile: null,
         },
       ]);
     });
@@ -210,6 +211,7 @@ describe('posts - controller', () => {
         {
           id: 'some-post-id',
           userId: 'some-user-id',
+          userProfile: null,
         },
       ]);
     });
