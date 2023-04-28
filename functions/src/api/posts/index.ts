@@ -17,9 +17,17 @@ const postsRouter = createApiAuthRouter();
 
 const POSTS_LIMIT = 20;
 
+const GetPostsParamsSchema = yup.object({
+  exerciseId: yup.string().required(),
+  sharingId: yup.string().required(),
+});
+
 postsRouter.get(
   '/:exerciseId/:sharingId',
-  validation({response: yup.array().of(PostSchema)}),
+  validation({
+    params: GetPostsParamsSchema,
+    response: yup.array().of(PostSchema),
+  }),
   async ctx => {
     const {response} = ctx;
     const {exerciseId, sharingId} = ctx.params;
@@ -44,24 +52,32 @@ postsRouter.post('/', validation({body: CreatePostSchema}), async ctx => {
   ctx.response.status = 200;
 });
 
-postsRouter.delete('/:postId', async ctx => {
-  const {postId} = ctx.params;
-
-  try {
-    await deletePost(postId);
-    ctx.response.status = 200;
-  } catch (error) {
-    const requestError = error as RequestError;
-    switch (requestError.code) {
-      case PostError.notFound:
-        ctx.status = 404;
-        break;
-
-      default:
-        throw error;
-    }
-    ctx.message = requestError.code;
-  }
+const DeletePostParamsSchema = yup.object({
+  postId: yup.string().required(),
 });
+
+postsRouter.delete(
+  '/:postId',
+  validation({params: DeletePostParamsSchema}),
+  async ctx => {
+    const {postId} = ctx.params;
+
+    try {
+      await deletePost(postId);
+      ctx.response.status = 200;
+    } catch (error) {
+      const requestError = error as RequestError;
+      switch (requestError.code) {
+        case PostError.notFound:
+          ctx.status = 404;
+          break;
+
+        default:
+          throw error;
+      }
+      ctx.message = requestError.code;
+    }
+  },
+);
 
 export {postsRouter};
