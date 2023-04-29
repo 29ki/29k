@@ -1,4 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
+import {StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
@@ -19,6 +20,10 @@ import HostNotes from '../HostNotes/HostNotes';
 import {ArrowLeftIcon} from '../../../components/Icons';
 import Button from '../../../components/Buttons/Button';
 import VideoTransition from '../VideoTransition/VideoTransition';
+
+const Spinner = styled.ActivityIndicator({
+  ...StyleSheet.absoluteFillObject,
+});
 
 const Wrapper = styled.View({
   flex: 1,
@@ -63,8 +68,10 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   statusComponent,
 }) => {
   const {t} = useTranslation('Screen.Portal');
-  const [isReadyForDisplay, setIsReadyForDisplay] = useState(false);
+  const [isReadyForAuidio, setIsReadyForAudio] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   const sessionState = useSessionState(state => state.sessionState);
 
@@ -75,21 +82,27 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     if (sessionState?.started && !introPortal?.videoLoop?.source) {
       // If no video is defined, navigate directly
       onNavigateToSession();
+    } else if (sessionState?.started && (isLoading || hasError)) {
+      // If sesstion is started but video not loaded, navigate directly
+      onNavigateToSession();
     }
   }, [
+    isLoading,
+    hasError,
     sessionState?.started,
     introPortal?.videoLoop?.source,
     onNavigateToSession,
   ]);
 
-  const onVideoReadyForDisplay = useCallback(() => {
+  const onVideoLoad = useCallback(() => {
+    setIsLoading(false);
     // TODO remove this timeout when daily is not joined
     // until after the portal is done
     // https://www.notion.so/29k/Early-Access-2794500652b34c64b0aff0dbbc53e0ab?pvs=4#2f566fc8ac87402aa92eb6798b469918
     setTimeout(() => {
-      setIsReadyForDisplay(true);
+      setIsReadyForAudio(true);
     }, 2000);
-  }, [setIsReadyForDisplay]);
+  }, [setIsReadyForAudio, setIsLoading]);
 
   const onVideoTransition = useCallback(() => {
     setIsTransitioning(true);
@@ -100,14 +113,19 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     onNavigateToSession();
   }, [onNavigateToSession]);
 
+  const onVideoError = useCallback(() => {
+    setHasError(true);
+    setIsLoading(false);
+  }, [setHasError]);
+
   return (
-    <Screen>
+    <Screen backgroundColor={exercise?.theme?.backgroundColor}>
       {(!isHost || hideHostNotes) && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
 
       {isFocused && introPortal?.videoLoop?.audio && (
         <AudioFader
           source={introPortal?.videoLoop?.audio}
-          paused={!isReadyForDisplay}
+          paused={!isReadyForAuidio}
           volume={isTransitioning ? 0 : 1}
           duration={isTransitioning ? 5000 : 10000}
           isLive={isLive}
@@ -120,9 +138,10 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
           loopSource={introPortal?.videoLoop?.source}
           endSource={introPortal?.videoEnd?.source}
           paused={!isFocused}
-          onReadyForDisplay={onVideoReadyForDisplay}
+          onLoad={onVideoLoad}
           onTransition={onVideoTransition}
           onEnd={onVideoEnd}
+          onError={onVideoError}
           isLive={isLive}
         />
       )}
@@ -133,6 +152,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
           <Spacer16 />
         </>
       )}
+      {isLoading && <Spinner color={exercise?.theme?.textColor} size="large" />}
       <Wrapper>
         {isFocused && (
           <Content>

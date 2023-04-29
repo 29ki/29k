@@ -15,6 +15,7 @@ import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
+import com.google.android.exoplayer2.PlaybackException;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.analytics.AnalyticsListener;
 import com.google.android.exoplayer2.source.DefaultMediaSourceFactory;
@@ -75,6 +76,13 @@ public class ReactVideoLooperView extends FrameLayout {
       if (state == Player.STATE_ENDED) {
         sendEvent(_themedReactContext, ReactEvents.EVENT_ON_END.toString(), null);
       }
+    }
+
+    @Override
+    public void onPlayerError(EventTime eventTime, PlaybackException error) {
+      WritableMap eventData = Arguments.createMap();
+      eventData.putString("cause", error.getMessage());
+      sendEvent(_themedReactContext, ReactEvents.EVENT_ON_ERROR.toString(), eventData);
     }
   }
   private ThemedReactContext _themedReactContext;
