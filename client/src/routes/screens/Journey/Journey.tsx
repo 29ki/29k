@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {
-  RefreshControl,
   SectionList as RNSectionList,
+  RefreshControl,
   SectionListData,
   SectionListRenderItem,
 } from 'react-native';
@@ -9,7 +9,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import dayjs from 'dayjs';
-import {useIsFocused, useNavigation} from '@react-navigation/native';
+import {useNavigation, useScrollToTop} from '@react-navigation/native';
 import {partition, groupBy, findLastIndex} from 'ramda';
 
 import {JourneyItem} from './types/JourneyItem';
@@ -101,8 +101,8 @@ const Journey = () => {
   const {completedSessions, completedHostedSessions} = useCompletedSessions();
   const {pinnedCollections} = usePinnedCollections();
   const [isLoading, setIsLoading] = useState(false);
-  const isFocused = useIsFocused();
   const listRef = useRef<RNSectionList<JourneyItem, Section>>(null);
+  const lastCompletedSessionIndex = useRef({sectionIndex: 0, itemIndex: 0});
   const {feedbackEvents} = useUserEvents();
   const user = useUser();
 
@@ -152,6 +152,19 @@ const Journey = () => {
         type: 'planned',
       });
     }
+
+    const lastCompletedSectionIndex = findLastIndex(
+      ({type}) => type === 'completed',
+      sectionsList,
+    );
+
+    lastCompletedSessionIndex.current =
+      lastCompletedSectionIndex > -1
+        ? {
+            sectionIndex: lastCompletedSectionIndex,
+            itemIndex: sectionsList[lastCompletedSectionIndex].data.length - 1,
+          }
+        : {sectionIndex: 0, itemIndex: 0};
 
     return sectionsList;
   }, [pinnedSessions, hostedSessions, completedSessions, pinnedCollections, t]);
@@ -219,26 +232,30 @@ const Journey = () => {
     [completedSessions],
   );
 
-  useEffect(() => {
-    const lastCompletedSectionIndex = findLastIndex(
-      ({type}) => type === 'completed',
-      sections,
-    );
-
-    if (isFocused && completedSessions.length > 5) {
-      requestAnimationFrame(() =>
-        listRef.current?.scrollToLocation({
-          itemIndex: sections[lastCompletedSectionIndex].data.length - 1,
-          sectionIndex: lastCompletedSectionIndex,
-          viewOffset: 380,
-        }),
-      );
-    }
-  }, [isFocused, completedSessions.length, sections]);
-
   const onPressEllipsis = useCallback(() => {
     navigate('AboutOverlay');
   }, [navigate]);
+
+  const scrollToLastCompletedSession = useCallback((animated = false) => {
+    requestAnimationFrame(() => {
+      listRef.current?.scrollToLocation({
+        ...lastCompletedSessionIndex.current,
+        viewPosition: -0.5, // Center of the screen
+        animated,
+      });
+    });
+  }, []);
+
+  useEffect(scrollToLastCompletedSession, [
+    scrollToLastCompletedSession,
+    sections,
+  ]);
+
+  useScrollToTop(
+    useRef({
+      scrollToTop: () => scrollToLastCompletedSession(true),
+    }),
+  );
 
   const renderSession = useCallback<
     SectionListRenderItem<JourneyItem, Section>
@@ -333,7 +350,7 @@ const Journey = () => {
   if (!sections.length) {
     return (
       <Screen backgroundColor={COLORS.GREYLIGHTEST}>
-        <TopSafeArea />
+        <TopSafeArea minSize={SPACINGS.SIXTEEN} />
         <TopBar
           backgroundColor={COLORS.GREYLIGHTEST}
           onPressEllipsis={onPressEllipsis}>
