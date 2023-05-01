@@ -1,6 +1,6 @@
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useScrollToTop} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React, {useCallback, useMemo} from 'react';
+import React, {useCallback, useMemo, useRef} from 'react';
 import {useTranslation} from 'react-i18next';
 import {SectionList, SectionListRenderItem} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
@@ -39,9 +39,12 @@ type Section = {
 const Explore = () => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<OverlayStackProps>>();
+  const {t} = useTranslation('Screen.Explore');
   const exercises = useExercises();
   const collections = useCollections();
-  const {t} = useTranslation('Screen.Explore');
+  const listRef = useRef<SectionList<Exercise, Section>>(null);
+
+  useScrollToTop(listRef);
 
   const onPressEllipsis = useCallback(() => {
     navigate('AboutOverlay');
@@ -93,6 +96,7 @@ const Explore = () => {
       </TopBar>
 
       <SectionList
+        ref={listRef}
         sections={exerciseSections}
         keyExtractor={exercise => exercise.id}
         ListHeaderComponent={
