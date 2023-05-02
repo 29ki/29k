@@ -111,6 +111,7 @@
       }
     ],
     "name": "Pure simple love",
+    "live": true,
     "published": true,
     "card": {
       "image": {
@@ -263,6 +264,7 @@
       }
     ],
     "name": "O amor puro e simples",
+    "live": true,
     "published": true,
     "card": {
       "image": {

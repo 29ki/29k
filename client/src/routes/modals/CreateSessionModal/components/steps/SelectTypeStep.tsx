@@ -212,14 +212,16 @@ const SelectTypeStep: React.FC<StepProps> = ({
             />
           </TypeItemWrapper>
         )}
-        <TypeItemWrapper isLast={!isPublicHost}>
-          <TypeItem
-            onPress={onTypePress(SessionMode.live, SessionType.private)}
-            label={t('selectType.live-private.title')}
-            Icon={<FriendsIcon />}
-          />
-        </TypeItemWrapper>
-        {isPublicHost && (
+        {(!exercise || exercise?.live) && (
+          <TypeItemWrapper isLast={!isPublicHost}>
+            <TypeItem
+              onPress={onTypePress(SessionMode.live, SessionType.private)}
+              label={t('selectType.live-private.title')}
+              Icon={<FriendsIcon />}
+            />
+          </TypeItemWrapper>
+        )}
+        {isPublicHost && (!exercise || exercise?.live) && (
           <TypeItemWrapper isLast>
             <TypeItem
               onPress={onTypePress(SessionMode.live, SessionType.public)}

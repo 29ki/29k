@@ -152,6 +152,7 @@
       "textColor": "#2E2E2E"
     },
     "name": "Bring your feelings along",
+    "live": true,
     "published": true,
     "card": {
       "image": {
@@ -317,6 +318,7 @@
       "textColor": "#2E2E2E"
     },
     "name": "Age independentemente do sentimento",
+    "live": true,
     "published": true,
     "card": {
       "image": {

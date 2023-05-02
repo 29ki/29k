@@ -24,8 +24,12 @@ afterEach(() => {
 describe('useGetExercisesByMode', () => {
   it('returns async enabled translated exercises', () => {
     mockT
-      .mockReturnValueOnce({id: 'some-exercise-id'})
-      .mockReturnValueOnce({id: 'some-async-exercise-id', async: true});
+      .mockReturnValueOnce({id: 'some-exercise-id', live: true})
+      .mockReturnValueOnce({
+        id: 'some-async-exercise-id',
+        live: true,
+        async: true,
+      });
 
     const {result} = renderHook(() => useGetExercisesByMode(SessionMode.async));
 
@@ -37,21 +41,22 @@ describe('useGetExercisesByMode', () => {
     expect(mockGetDataByLanguage).toHaveBeenCalledTimes(1);
 
     expect(result.current).toEqual([
-      {id: 'some-async-exercise-id', async: true},
+      {id: 'some-async-exercise-id', live: true, async: true},
     ]);
   });
 
   // For some reasong it can't find {t} the second time, skipping for now
-  it('returns all translated exercises', () => {
+  it('returns only live enabled translated exercises', () => {
     mockT
-      .mockReturnValueOnce({id: 'some-exercise-id'})
-      .mockReturnValueOnce({id: 'some-async-exercise-id', async: true});
+      .mockReturnValueOnce({id: 'some-exercise-id', live: true})
+      .mockReturnValueOnce({
+        id: 'some-async-exercise-id',
+        live: false,
+        async: true,
+      });
 
     const {result} = renderHook(() => useGetExercisesByMode(SessionMode.live));
 
-    expect(result.current).toEqual([
-      {id: 'some-exercise-id'},
-      {id: 'some-async-exercise-id', async: true},
-    ]);
+    expect(result.current).toEqual([{id: 'some-exercise-id', live: true}]);
   });
 });

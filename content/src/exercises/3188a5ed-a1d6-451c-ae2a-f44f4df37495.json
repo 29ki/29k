@@ -113,6 +113,7 @@
     },
     "hidden": false,
     "name": "Drop all requirements",
+    "live": true,
     "published": true,
     "card": {
       "image": {
@@ -261,6 +262,7 @@
     },
     "hidden": false,
     "name": "Deixa cair todas as exigências",
+    "live": true,
     "published": true,
     "card": {
       "image": {
