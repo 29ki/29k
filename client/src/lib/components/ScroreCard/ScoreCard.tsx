@@ -32,7 +32,7 @@ const IconWrapper = styled.View({
   height: 30,
 });
 
-const SessionsStatus: React.FC<{
+const ScoreCard: React.FC<{
   Icon: React.FC;
   onPress?: () => void;
   heading: string;
@@ -59,4 +59,4 @@ const SessionsStatus: React.FC<{
   </Container>
 );
 
-export default SessionsStatus;
+export default ScoreCard;

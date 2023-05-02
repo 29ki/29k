@@ -9,9 +9,7 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import dayjs from 'dayjs';
 import {useNavigation, useScrollToTop} from '@react-navigation/native';
-import {partition, groupBy, findLastIndex} from 'ramda';
-
-import {JourneyItem} from './types/JourneyItem';
+import {groupBy, findLastIndex} from 'ramda';
 
 import {
   ModalStackProps,
@@ -24,7 +22,6 @@ import {HEIGHT as PLANNED_SESSION_HEIGHT} from '../../../lib/components/Cards/Ca
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessions';
 import usePinnedCollections from '../../../lib/user/hooks/usePinnedCollections';
-import useUserEvents from '../../../lib/user/hooks/useUserEvents';
 
 import {
   Spacer16,
@@ -48,27 +45,15 @@ import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 import JourneyNode, {
   HEIGHT as JOURNEY_NODE_HEIGHT,
 } from './components/JourneyNode';
-import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
-import {LogoIcon} from '../../../lib/components/Icons';
-import useUser from '../../../lib/user/hooks/useUser';
-import Image from '../../../lib/components/Image/Image';
-import SessionsStatus, {
-  HEIGHT as FILTER_HEIGHT,
-} from '../../../lib/components/SessionsStatus/SessionsStatus';
+
+import {HEIGHT as FILTER_HEIGHT} from './components/SessionFilters';
 import getSectionListItemLayout from '../../../lib/utils/getSectionListItemLayout';
 import {HEIGHT as COLLECTION_HEIGHT} from '../../../lib/components/Cards/CollectionCards/CollectionFullCard';
+import SessionFilters from './components/SessionFilters';
 
-export type Section = {
-  title: string;
-  data: JourneyItem[];
-  type:
-    | 'plannedSessions'
-    | 'completedSessions'
-    | 'pinnedCollections'
-    | 'filters';
-};
+import {Section, Item} from './types/Section';
 
-const SectionList = styled(RNSectionList<JourneyItem, Section>)({
+const SectionList = styled(RNSectionList<Item, Section>)({
   flex: 1,
 });
 
@@ -77,21 +62,6 @@ const Container = styled.View({
   justifyContent: 'center',
   flex: 1,
 });
-
-const Row = styled.View({
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-});
-
-const ImageContainer = styled.View<{small?: boolean}>(() => ({
-  backgroundColor: COLORS.GREYMEDIUM,
-  width: SPACINGS.TWENTYFOUR,
-  height: SPACINGS.TWENTYFOUR,
-  borderRadius: SPACINGS.TWELVE,
-  overflow: 'hidden',
-  shadowColor: COLORS.GREYDARK,
-}));
 
 const renderSectionHeader: (info: {
   section: Section;
@@ -102,7 +72,7 @@ const renderSectionHeader: (info: {
     </StickyHeading>
   ) : null;
 
-const getItemLayout = getSectionListItemLayout<JourneyItem, Section>({
+const getItemLayout = getSectionListItemLayout<Item, Section>({
   getItemHeight: item => {
     switch (item?.type) {
       case 'completedSession':
@@ -128,18 +98,11 @@ const Journey = () => {
       NativeStackNavigationProp<OverlayStackProps & ModalStackProps>
     >();
   const {fetchSessions, pinnedSessions, hostedSessions} = useSessions();
-  const {completedSessions, completedHostedSessions} = useCompletedSessions();
+  const {completedSessions} = useCompletedSessions();
   const {pinnedCollections} = usePinnedCollections();
   const [isLoading, setIsLoading] = useState(false);
-  const listRef = useRef<RNSectionList<JourneyItem, Section>>(null);
+  const listRef = useRef<RNSectionList<Item, Section>>(null);
   const filtersScrollIndex = useRef({sectionIndex: 0, itemIndex: 0});
-  const {feedbackEvents} = useUserEvents();
-  const user = useUser();
-
-  const [positiveFeedbacks] = useMemo(
-    () => partition(f => f.payload.answer, feedbackEvents),
-    [feedbackEvents],
-  );
 
   const sections = useMemo(() => {
     let sectionsList: Section[] = [];
@@ -217,30 +180,6 @@ const Journey = () => {
     fetchSessions();
   }, [fetchSessions]);
 
-  const onPositivePress = useCallback(
-    () => navigate('CompletedSessionsModal', {filterSetting: 'feedback'}),
-    [navigate],
-  );
-
-  const onTotalPress = useCallback(
-    () => navigate('CompletedSessionsModal', {filterSetting: 'mode'}),
-    [navigate],
-  );
-
-  const onHostedPress = useCallback(
-    () => navigate('CompletedSessionsModal', {filterSetting: 'host'}),
-    [navigate],
-  );
-
-  const UserPic = useCallback(
-    () => (
-      <ImageContainer>
-        {user?.photoURL && <Image source={{uri: user.photoURL}} />}
-      </ImageContainer>
-    ),
-    [user],
-  );
-
   const refreshPull = useCallback(async () => {
     try {
       setIsLoading(true);
@@ -275,9 +214,7 @@ const Journey = () => {
     }),
   );
 
-  const renderSession = useCallback<
-    SectionListRenderItem<JourneyItem, Section>
-  >(
+  const renderSession = useCallback<SectionListRenderItem<Item, Section>>(
     ({section, item, index}) => {
       switch (item.type) {
         case 'completedSession':
@@ -293,36 +230,7 @@ const Journey = () => {
         case 'filter':
           return (
             <Gutters>
-              <Row>
-                <SessionsStatus
-                  onPress={onTotalPress}
-                  Icon={LogoIcon}
-                  heading={`${completedSessions.length}`}
-                  description={t('totalSessions')}
-                />
-                {positiveFeedbacks.length && (
-                  <>
-                    <Spacer16 />
-                    <SessionsStatus
-                      onPress={onPositivePress}
-                      Icon={ThumbsUpWithoutPadding}
-                      heading={`${positiveFeedbacks.length}`}
-                      description={t('meaninfulSessions')}
-                    />
-                  </>
-                )}
-                {completedHostedSessions.length && (
-                  <>
-                    <Spacer16 />
-                    <SessionsStatus
-                      onPress={onHostedPress}
-                      Icon={UserPic}
-                      heading={`${completedHostedSessions.length}`}
-                      description={t('hostedSessions')}
-                    />
-                  </>
-                )}
-              </Row>
+              <SessionFilters />
               <Spacer28 />
             </Gutters>
           );
@@ -344,16 +252,7 @@ const Journey = () => {
           );
       }
     },
-    [
-      positiveFeedbacks.length,
-      completedSessions,
-      completedHostedSessions.length,
-      onTotalPress,
-      onHostedPress,
-      onPositivePress,
-      t,
-      UserPic,
-    ],
+    [],
   );
 
   if (!sections.length) {

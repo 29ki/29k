@@ -2,7 +2,17 @@ import {LiveSessionType} from '../../../../../../shared/src/schemas/Session';
 import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
 import {PinnedCollection} from '../../../../lib/user/state/state';
 
-export type JourneyItem =
+export type Section = {
+  title: string;
+  data: Item[];
+  type:
+    | 'plannedSessions'
+    | 'completedSessions'
+    | 'pinnedCollections'
+    | 'filters';
+};
+
+export type Item =
   | CompletedSessionItem
   | FilterItem
   | PinnedCollectionItem

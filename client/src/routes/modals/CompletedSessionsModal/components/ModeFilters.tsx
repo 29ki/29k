@@ -14,7 +14,7 @@ import {
   MeIcon,
 } from '../../../../lib/components/Icons';
 import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
-import SessionsStatus from '../../../../lib/components/SessionsStatus/SessionsStatus';
+import ScoreCard from '../../../../lib/components/ScroreCard/ScoreCard';
 
 import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
 
@@ -73,7 +73,7 @@ const ModeFilters: React.FC<{
     <Row>
       {showAsync && (
         <>
-          <SessionsStatus
+          <ScoreCard
             Icon={MeIcon}
             selected={selectedMode === SessionMode.async}
             onPress={onAsyncPress}
@@ -84,7 +84,7 @@ const ModeFilters: React.FC<{
           <Spacer16 />
         </>
       )}
-      <SessionsStatus
+      <ScoreCard
         Icon={FriendsIcon}
         selected={selectedMode === SessionType.private}
         onPress={onPrivatePress}
@@ -93,7 +93,7 @@ const ModeFilters: React.FC<{
         disabled={!privateSessions?.length}
       />
       <Spacer16 />
-      <SessionsStatus
+      <ScoreCard
         Icon={CommunityIcon}
         selected={selectedMode === SessionType.public}
         onPress={onPublicPress}

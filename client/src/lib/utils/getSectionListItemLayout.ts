@@ -1,8 +1,8 @@
-import {SectionListData} from 'react-native';
-
 /**
  * Originally from https://github.com/jsoendermann/rn-section-list-get-item-layout
  */
+import {SectionListData} from 'react-native';
+
 export type SectionListDataProp = Array<{
   title: string;
   data: any[];
