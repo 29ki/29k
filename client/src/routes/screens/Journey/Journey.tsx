@@ -13,7 +13,6 @@ import {useNavigation, useScrollToTop} from '@react-navigation/native';
 import {partition, groupBy, findLastIndex} from 'ramda';
 
 import {JourneyItem} from './types/JourneyItem';
-import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 
 import {
   ModalStackProps,
@@ -55,7 +54,11 @@ import SessionsStatus from '../../../lib/components/SessionsStatus/SessionsStatu
 export type Section = {
   title: string;
   data: JourneyItem[];
-  type: 'planned' | 'completed' | 'collections';
+  type:
+    | 'plannedSessions'
+    | 'completedSessions'
+    | 'pinnedCollections'
+    | 'filters';
 };
 
 const SectionList = styled(RNSectionList<JourneyItem, Section>)({
@@ -124,11 +127,18 @@ const Journey = () => {
         sectionsList.push({
           title: month,
           data: items.map(s => ({
-            completedSession: s,
+            type: 'completedSession',
+            data: s,
             id: s.payload.id,
           })),
-          type: 'completed',
+          type: 'completedSessions',
         });
+      });
+
+      sectionsList.push({
+        title: '',
+        data: [{id: 'completed-sessions-filter', type: 'filter'}],
+        type: 'filters',
       });
     }
 
@@ -136,25 +146,32 @@ const Journey = () => {
       sectionsList.push({
         title: t('headings.collections'),
         data: pinnedCollections.map(s => ({
-          savedCollection: s,
+          data: s,
           id: s.id,
+          type: 'pinnedCollection',
         })),
-        type: 'collections',
+        type: 'pinnedCollections',
       });
     }
 
     if (hostedSessions.length > 0 || pinnedSessions.length > 0) {
       sectionsList.push({
         title: t('headings.planned'),
-        data: [...hostedSessions, ...pinnedSessions].sort((a, b) =>
-          dayjs(a.startTime).isBefore(dayjs(b.startTime)) ? -1 : 1,
-        ),
-        type: 'planned',
+        data: [...hostedSessions, ...pinnedSessions]
+          .sort((a, b) =>
+            dayjs(a.startTime).isBefore(dayjs(b.startTime)) ? -1 : 1,
+          )
+          .map(s => ({
+            id: s.id,
+            data: s,
+            type: 'plannedSession',
+          })),
+        type: 'plannedSessions',
       });
     }
 
     const lastCompletedSectionIndex = findLastIndex(
-      ({type}) => type === 'completed',
+      ({type}) => type === 'completedSessions',
       sectionsList,
     );
 
@@ -261,79 +278,69 @@ const Journey = () => {
     SectionListRenderItem<JourneyItem, Section>
   >(
     ({section, item, index}) => {
-      const hasCardBefore = index > 0;
-      const hasCardAfter = index !== section.data.length - 1;
+      switch (item.type) {
+        case 'completedSession':
+          return (
+            <Gutters>
+              <JourneyNode
+                completedSessionEvent={item.data}
+                isLast={index === section.data.length - 1}
+              />
+            </Gutters>
+          );
 
-      if (item.completedSession) {
-        const isLastItem =
-          completedSessions.indexOf(item.completedSession) ===
-          completedSessions.length - 1;
+        case 'filter':
+          return (
+            <Gutters>
+              <Row>
+                <SessionsStatus
+                  onPress={onTotalPress}
+                  Icon={LogoIcon}
+                  heading={`${completedSessions.length}`}
+                  description={t('totalSessions')}
+                />
+                {positiveFeedbacks.length && (
+                  <>
+                    <Spacer16 />
+                    <SessionsStatus
+                      onPress={onPositivePress}
+                      Icon={ThumbsUpWithoutPadding}
+                      heading={`${positiveFeedbacks.length}`}
+                      description={t('meaninfulSessions')}
+                    />
+                  </>
+                )}
+                {completedHostedSessions.length && (
+                  <>
+                    <Spacer16 />
+                    <SessionsStatus
+                      onPress={onHostedPress}
+                      Icon={UserPic}
+                      heading={`${completedHostedSessions.length}`}
+                      description={t('hostedSessions')}
+                    />
+                  </>
+                )}
+              </Row>
+            </Gutters>
+          );
 
-        return (
-          <Gutters key={item.completedSession.payload.id}>
-            <JourneyNode
-              completedSessionEvent={item.completedSession}
-              isLast={!hasCardAfter}
-            />
-            {item.completedSession && isLastItem && (
-              <>
-                <Row>
-                  <SessionsStatus
-                    onPress={onTotalPress}
-                    Icon={LogoIcon}
-                    heading={`${completedSessions.length}`}
-                    description={t('totalSessions')}
-                  />
-                  {positiveFeedbacks.length ? (
-                    <>
-                      <Spacer16 />
-                      <SessionsStatus
-                        onPress={onPositivePress}
-                        Icon={ThumbsUpWithoutPadding}
-                        heading={`${positiveFeedbacks.length}`}
-                        description={t('meaninfulSessions')}
-                      />
-                    </>
-                  ) : null}
-                  {completedHostedSessions.length ? (
-                    <>
-                      <Spacer16 />
-                      <SessionsStatus
-                        onPress={onHostedPress}
-                        Icon={UserPic}
-                        heading={`${completedHostedSessions.length}`}
-                        description={t('hostedSessions')}
-                      />
-                    </>
-                  ) : null}
-                </Row>
-                <Spacer16 />
-              </>
-            )}
-          </Gutters>
-        );
+        case 'pinnedCollection':
+          return (
+            <Gutters>
+              <CollectionCardContainer collectionId={item.id} />
+              <Spacer16 />
+            </Gutters>
+          );
+
+        case 'plannedSession':
+          return (
+            <Gutters>
+              <SessionCard session={item.data} />
+              <Spacer16 />
+            </Gutters>
+          );
       }
-
-      if (item.savedCollection) {
-        return (
-          <Gutters>
-            <CollectionCardContainer collectionId={item.id} />
-            <Spacer16 />
-          </Gutters>
-        );
-      }
-
-      return (
-        <Gutters>
-          <SessionCard
-            session={item as LiveSessionType}
-            standAlone={true}
-            hasCardBefore={hasCardBefore}
-            hasCardAfter={hasCardAfter}
-          />
-          <Spacer16 />
-        </Gutters>
-      );
     },
     [
       positiveFeedbacks.length,
