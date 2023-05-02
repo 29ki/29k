@@ -82,7 +82,7 @@ const SessionFilters = () => {
         heading={`${completedSessions.length}`}
         description={t('totalSessions')}
       />
-      {positiveFeedbacks.length && (
+      {positiveFeedbacks.length ? (
         <>
           <Spacer16 />
           <ScoreCard
@@ -92,8 +92,8 @@ const SessionFilters = () => {
             description={t('meaninfulSessions')}
           />
         </>
-      )}
-      {completedHostedSessions.length && (
+      ) : null}
+      {completedHostedSessions.length ? (
         <>
           <Spacer16 />
           <ScoreCard
@@ -103,7 +103,7 @@ const SessionFilters = () => {
             description={t('hostedSessions')}
           />
         </>
-      )}
+      ) : null}
     </Container>
   );
 };
