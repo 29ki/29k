@@ -35,7 +35,7 @@ import {
   ThumbsDownWithoutPadding,
 } from '../../../../lib/components/Thumbs/Thumbs';
 
-const FULL_HEIGHT = 110;
+export const HEIGHT = 100;
 const NODE_SIZE = 22;
 
 type JourneyNodeProps = {
@@ -49,7 +49,7 @@ const Lottie = styled(AnimatedLottieView)({
 
 const Container = styled(TouchableOpacity)({
   flexDirection: 'row',
-  height: FULL_HEIGHT,
+  height: HEIGHT,
 });
 
 const ContentContainer = styled.View({
@@ -63,7 +63,7 @@ const Line = styled.View<Pick<JourneyNodeProps, 'isLast'>>(({isLast}) => ({
   position: 'absolute',
   left: NODE_SIZE / 2,
   width: 1,
-  height: isLast ? 0 : FULL_HEIGHT,
+  height: isLast ? 0 : HEIGHT,
   backgroundColor: COLORS.BLACK,
 }));
 

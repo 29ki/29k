@@ -13,9 +13,9 @@ import Byline from '../Bylines/Byline';
 import {Spacer4} from '../Spacers/Spacer';
 import Gutters from '../Gutters/Gutters';
 import Tag from '../Tag/Tag';
-import {WALLET_CARD_HEIGHT} from './WalletCards/SessionWalletCard';
+import {HEIGHT as WALLET_CARD_HEIGHT} from './WalletCards/SessionWalletCard';
 
-export const CARD_HEIGHT = 184;
+export const HEIGHT = 184;
 
 const GraphicsWrapper = styled.View({
   width: 120,
@@ -30,14 +30,14 @@ const WalletWrapper = styled.View<{inWallet?: boolean}>(({inWallet}) => ({
   justifyContent: 'space-between',
   backgroundColor: COLORS.CREAM,
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
-  height: inWallet ? CARD_HEIGHT + WALLET_CARD_HEIGHT * 0.5 : CARD_HEIGHT,
+  height: inWallet ? HEIGHT + WALLET_CARD_HEIGHT * 0.5 : HEIGHT,
 }));
 
 const Wrapper = styled(TouchableOpacity)({
   justifyContent: 'space-between',
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
   backgroundColor: COLORS.CREAM,
-  height: CARD_HEIGHT,
+  height: HEIGHT,
 });
 
 const ContentWrapper = styled.View({

@@ -9,7 +9,7 @@ import {Display16} from '../../Typography/Display/Display';
 import Byline from '../../Bylines/Byline';
 import WalletCardBase, {WalletCardBaseProps} from './WalletCardBase';
 
-export const WALLET_CARD_HEIGHT = 80;
+export const HEIGHT = 80;
 
 const ContentWrapper = styled.View({
   flex: 1,

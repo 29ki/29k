@@ -2,7 +2,6 @@ import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {
   SectionList as RNSectionList,
   RefreshControl,
-  SectionListData,
   SectionListRenderItem,
 } from 'react-native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -20,8 +19,7 @@ import {
 } from '../../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {WALLET_CARD_HEIGHT} from '../../../lib/components/Cards/WalletCards/SessionWalletCard';
-import {CARD_HEIGHT} from '../../../lib/components/Cards/Card';
+import {HEIGHT as PLANNED_SESSION_HEIGHT} from '../../../lib/components/Cards/Card';
 
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessions';
@@ -31,6 +29,7 @@ import useUserEvents from '../../../lib/user/hooks/useUserEvents';
 import {
   Spacer16,
   Spacer24,
+  Spacer28,
   Spacer48,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
@@ -39,17 +38,25 @@ import Screen from '../../../lib/components/Screen/Screen';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
-import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
+import StickyHeading, {
+  HEIGHT as HEADER_HEIGHT,
+} from '../../../lib/components/StickyHeading/StickyHeading';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
 import CollectionCardContainer from './components/CollectionCardContainer';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
-import JourneyNode from './components/JourneyNode';
+import JourneyNode, {
+  HEIGHT as JOURNEY_NODE_HEIGHT,
+} from './components/JourneyNode';
 import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
 import {LogoIcon} from '../../../lib/components/Icons';
 import useUser from '../../../lib/user/hooks/useUser';
 import Image from '../../../lib/components/Image/Image';
-import SessionsStatus from '../../../lib/components/SessionsStatus/SessionsStatus';
+import SessionsStatus, {
+  HEIGHT as FILTER_HEIGHT,
+} from '../../../lib/components/SessionsStatus/SessionsStatus';
+import getSectionListItemLayout from '../../../lib/utils/getSectionListItemLayout';
+import {HEIGHT as COLLECTION_HEIGHT} from '../../../lib/components/Cards/CollectionCards/CollectionFullCard';
 
 export type Section = {
   title: string;
@@ -86,13 +93,33 @@ const ImageContainer = styled.View<{small?: boolean}>(() => ({
   shadowColor: COLORS.GREYDARK,
 }));
 
-const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
-  section: {title},
-}) => (
-  <StickyHeading backgroundColor={COLORS.PURE_WHITE}>
-    <Heading16>{title}</Heading16>
-  </StickyHeading>
-);
+const renderSectionHeader: (info: {
+  section: Section;
+}) => React.ReactElement | null = ({section: {title}}) =>
+  title ? (
+    <StickyHeading backgroundColor={COLORS.PURE_WHITE}>
+      <Heading16>{title}</Heading16>
+    </StickyHeading>
+  ) : null;
+
+const getItemLayout = getSectionListItemLayout<JourneyItem, Section>({
+  getItemHeight: item => {
+    switch (item?.type) {
+      case 'completedSession':
+        return JOURNEY_NODE_HEIGHT;
+      case 'filter':
+        return FILTER_HEIGHT + SPACINGS.TWENTYEIGHT;
+      case 'pinnedCollection':
+        return COLLECTION_HEIGHT + SPACINGS.SIXTEEN;
+      case 'plannedSession':
+        return PLANNED_SESSION_HEIGHT + SPACINGS.SIXTEEN;
+      default:
+        return 0;
+    }
+  },
+  getSectionHeaderHeight: section => (section?.title ? HEADER_HEIGHT : 0),
+  listHeaderHeight: () => SPACINGS.TWENTYFOUR,
+});
 
 const Journey = () => {
   const {t} = useTranslation('Screen.Journey');
@@ -105,7 +132,7 @@ const Journey = () => {
   const {pinnedCollections} = usePinnedCollections();
   const [isLoading, setIsLoading] = useState(false);
   const listRef = useRef<RNSectionList<JourneyItem, Section>>(null);
-  const lastCompletedSessionIndex = useRef({sectionIndex: 0, itemIndex: 0});
+  const filtersScrollIndex = useRef({sectionIndex: 0, itemIndex: 0});
   const {feedbackEvents} = useUserEvents();
   const user = useUser();
 
@@ -170,16 +197,16 @@ const Journey = () => {
       });
     }
 
-    const lastCompletedSectionIndex = findLastIndex(
-      ({type}) => type === 'completedSessions',
+    const filtersSectionIndex = findLastIndex(
+      ({type}) => type === 'filters',
       sectionsList,
     );
 
-    lastCompletedSessionIndex.current =
-      lastCompletedSectionIndex > -1
+    filtersScrollIndex.current =
+      filtersSectionIndex > -1
         ? {
-            sectionIndex: lastCompletedSectionIndex,
-            itemIndex: sectionsList[lastCompletedSectionIndex].data.length - 1,
+            sectionIndex: filtersSectionIndex,
+            itemIndex: 0,
           }
         : {sectionIndex: 0, itemIndex: 0};
 
@@ -225,52 +252,26 @@ const Journey = () => {
     }
   }, [setIsLoading, fetchSessions]);
 
-  const getItemLayout = useCallback(
-    (
-      data: SectionListData<JourneyItem, Section>[] | null,
-      index: number,
-    ): {length: number; offset: number; index: number} => {
-      let offset = 0,
-        length = null,
-        completedSessionsLength = completedSessions.length ?? 0;
-
-      if (index >= completedSessionsLength) {
-        const plannedSessionsOffsetCount = index - completedSessionsLength;
-        length = CARD_HEIGHT;
-        offset += completedSessionsLength * WALLET_CARD_HEIGHT;
-        offset += plannedSessionsOffsetCount * CARD_HEIGHT;
-      } else {
-        length = WALLET_CARD_HEIGHT;
-        offset = index * WALLET_CARD_HEIGHT;
-      }
-
-      return {length, offset, index};
-    },
-    [completedSessions],
-  );
-
   const onPressEllipsis = useCallback(() => {
     navigate('AboutOverlay');
   }, [navigate]);
 
-  const scrollToLastCompletedSession = useCallback((animated = false) => {
+  const scrollToFiltersSection = useCallback((animated = false) => {
     requestAnimationFrame(() => {
       listRef.current?.scrollToLocation({
-        ...lastCompletedSessionIndex.current,
-        viewPosition: -0.5, // Center of the screen
+        ...filtersScrollIndex.current,
+        viewOffset: -(FILTER_HEIGHT / 2),
+        viewPosition: 0.5, // Center of the screen
         animated,
       });
     });
   }, []);
 
-  useEffect(scrollToLastCompletedSession, [
-    scrollToLastCompletedSession,
-    sections,
-  ]);
+  useEffect(scrollToFiltersSection, [scrollToFiltersSection, sections]);
 
   useScrollToTop(
     useRef({
-      scrollToTop: () => scrollToLastCompletedSession(true),
+      scrollToTop: () => scrollToFiltersSection(true),
     }),
   );
 
@@ -322,6 +323,7 @@ const Journey = () => {
                   </>
                 )}
               </Row>
+              <Spacer28 />
             </Gutters>
           );
 
