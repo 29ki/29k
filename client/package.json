@@ -22,7 +22,7 @@
   "dependencies": {
     "@daily-co/react-native-daily-js": "^0.41.0",
     "@daily-co/react-native-webrtc": "1.94.1-daily.8",
-    "@gorhom/bottom-sheet": "^4.4.5",
+    "@gorhom/bottom-sheet": "^4.4.6",
     "@notifee/react-native": "^7.6.1",
     "@react-native-async-storage/async-storage": "^1.18.1",
     "@react-native-community/datetimepicker": "^7.0.1",
