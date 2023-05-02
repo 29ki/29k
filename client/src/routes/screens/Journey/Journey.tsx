@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {
   SectionList as RNSectionList,
   RefreshControl,
@@ -7,9 +7,10 @@ import {
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
-import dayjs from 'dayjs';
 import {useNavigation, useScrollToTop} from '@react-navigation/native';
-import {groupBy, findLastIndex} from 'ramda';
+import {findLastIndex} from 'ramda';
+
+import getSectionListItemLayout from '../../../lib/utils/getSectionListItemLayout';
 
 import {
   ModalStackProps,
@@ -17,11 +18,9 @@ import {
 } from '../../../lib/navigation/constants/routes';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {HEIGHT as PLANNED_SESSION_HEIGHT} from '../../../lib/components/Cards/Card';
 
 import useSessions from '../../../lib/sessions/hooks/useSessions';
-import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessions';
-import usePinnedCollections from '../../../lib/user/hooks/usePinnedCollections';
+import useSections from './hooks/useSections';
 
 import {
   Spacer16,
@@ -35,21 +34,21 @@ import Screen from '../../../lib/components/Screen/Screen';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
-import StickyHeading, {
-  HEIGHT as HEADER_HEIGHT,
-} from '../../../lib/components/StickyHeading/StickyHeading';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
 import CollectionCardContainer from './components/CollectionCardContainer';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
+import SessionFilters from './components/SessionFilters';
+
+import StickyHeading, {
+  HEIGHT as HEADER_HEIGHT,
+} from '../../../lib/components/StickyHeading/StickyHeading';
 import JourneyNode, {
   HEIGHT as JOURNEY_NODE_HEIGHT,
 } from './components/JourneyNode';
-
 import {HEIGHT as FILTER_HEIGHT} from './components/SessionFilters';
-import getSectionListItemLayout from '../../../lib/utils/getSectionListItemLayout';
 import {HEIGHT as COLLECTION_HEIGHT} from '../../../lib/components/Cards/CollectionCards/CollectionFullCard';
-import SessionFilters from './components/SessionFilters';
+import {HEIGHT as PLANNED_SESSION_HEIGHT} from '../../../lib/components/Cards/Card';
 
 import {Section, Item} from './types/Section';
 
@@ -97,72 +96,28 @@ const Journey = () => {
     useNavigation<
       NativeStackNavigationProp<OverlayStackProps & ModalStackProps>
     >();
-  const {fetchSessions, pinnedSessions, hostedSessions} = useSessions();
-  const {completedSessions} = useCompletedSessions();
-  const {pinnedCollections} = usePinnedCollections();
+  const {fetchSessions} = useSessions();
+  const sections = useSections();
   const [isLoading, setIsLoading] = useState(false);
+
   const listRef = useRef<RNSectionList<Item, Section>>(null);
   const filtersScrollIndex = useRef({sectionIndex: 0, itemIndex: 0});
 
-  const sections = useMemo(() => {
-    let sectionsList: Section[] = [];
-
-    if (completedSessions.length > 0) {
-      Object.entries(
-        groupBy(
-          item => dayjs(item.timestamp).format('MMM, YYYY'),
-          completedSessions,
-        ),
-      ).forEach(([month, items]) => {
-        sectionsList.push({
-          title: month,
-          data: items.map(s => ({
-            type: 'completedSession',
-            data: s,
-            id: s.payload.id,
-          })),
-          type: 'completedSessions',
-        });
+  const scrollToFiltersSection = useCallback((animated = false) => {
+    requestAnimationFrame(() => {
+      listRef.current?.scrollToLocation({
+        ...filtersScrollIndex.current,
+        viewOffset: -(FILTER_HEIGHT / 2),
+        viewPosition: 0.5, // Center of the screen
+        animated,
       });
+    });
+  }, []);
 
-      sectionsList.push({
-        title: '',
-        data: [{id: 'completed-sessions-filter', type: 'filter'}],
-        type: 'filters',
-      });
-    }
-
-    if (pinnedCollections.length > 0) {
-      sectionsList.push({
-        title: t('headings.collections'),
-        data: pinnedCollections.map(s => ({
-          data: s,
-          id: s.id,
-          type: 'pinnedCollection',
-        })),
-        type: 'pinnedCollections',
-      });
-    }
-
-    if (hostedSessions.length > 0 || pinnedSessions.length > 0) {
-      sectionsList.push({
-        title: t('headings.planned'),
-        data: [...hostedSessions, ...pinnedSessions]
-          .sort((a, b) =>
-            dayjs(a.startTime).isBefore(dayjs(b.startTime)) ? -1 : 1,
-          )
-          .map(s => ({
-            id: s.id,
-            data: s,
-            type: 'plannedSession',
-          })),
-        type: 'plannedSessions',
-      });
-    }
-
+  useEffect(() => {
     const filtersSectionIndex = findLastIndex(
       ({type}) => type === 'filters',
-      sectionsList,
+      sections,
     );
 
     filtersScrollIndex.current =
@@ -173,8 +128,14 @@ const Journey = () => {
           }
         : {sectionIndex: 0, itemIndex: 0};
 
-    return sectionsList;
-  }, [pinnedSessions, hostedSessions, completedSessions, pinnedCollections, t]);
+    scrollToFiltersSection();
+  }, [scrollToFiltersSection, sections]);
+
+  useScrollToTop(
+    useRef({
+      scrollToTop: () => scrollToFiltersSection(true),
+    }),
+  );
 
   useEffect(() => {
     fetchSessions();
@@ -194,25 +155,6 @@ const Journey = () => {
   const onPressEllipsis = useCallback(() => {
     navigate('AboutOverlay');
   }, [navigate]);
-
-  const scrollToFiltersSection = useCallback((animated = false) => {
-    requestAnimationFrame(() => {
-      listRef.current?.scrollToLocation({
-        ...filtersScrollIndex.current,
-        viewOffset: -(FILTER_HEIGHT / 2),
-        viewPosition: 0.5, // Center of the screen
-        animated,
-      });
-    });
-  }, []);
-
-  useEffect(scrollToFiltersSection, [scrollToFiltersSection, sections]);
-
-  useScrollToTop(
-    useRef({
-      scrollToTop: () => scrollToFiltersSection(true),
-    }),
-  );
 
   const renderSession = useCallback<SectionListRenderItem<Item, Section>>(
     ({section, item, index}) => {
