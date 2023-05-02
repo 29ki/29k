@@ -13,6 +13,7 @@ import firebaseBodyParser from '../lib/firebaseBodyParser';
 import languageResolver from './lib/languageResolver';
 import firebaseAuth from './lib/firebaseAuth';
 import localErrorHandler from '../lib/localErrorHandler';
+import {assertValidatedResponse} from './lib/validation';
 
 const app = new Koa();
 
@@ -37,6 +38,7 @@ app
   .use(preAuthRouter.routes())
   .use(preAuthRouter.allowedMethods())
   .use(firebaseAuth())
+  .use(assertValidatedResponse())
   .use(authRouter.routes())
   .use(authRouter.allowedMethods());
 

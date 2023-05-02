@@ -7,7 +7,13 @@
     "private": "With friends",
     "public": "With anyone"
   },
-  "pt": {},
+  "pt": {
+    "meaningful": "Sessões com Significado",
+    "notMeaningful": "Sessões sem Significado",
+    "async": "Comigo",
+    "private": "Com amigos",
+    "public": "Outras pessoas"
+  },
   "sv": {},
   "es": {}
 }

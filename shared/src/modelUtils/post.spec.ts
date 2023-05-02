@@ -1,5 +1,5 @@
 import {Timestamp} from 'firebase-admin/firestore';
-import {PostData} from '../types/Post';
+import {PostData} from '../schemas/Post';
 import {getPost} from './post';
 
 describe('post', () => {

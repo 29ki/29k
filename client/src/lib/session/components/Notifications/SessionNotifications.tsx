@@ -5,7 +5,7 @@ import {View, ViewStyle} from 'react-native';
 import dayjs from 'dayjs';
 
 import {DailyContext} from '../../../daily/DailyProvider';
-import {DailyUserData} from '../../../../../../shared/src/types/Session';
+import {DailyUserData} from '../../../../../../shared/src/schemas/Session';
 import useLocalParticipant from '../../../daily/hooks/useLocalParticipant';
 import TimedNotification from './TimedNotification';
 import useSessionState from '../../state/state';

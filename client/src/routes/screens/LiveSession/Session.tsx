@@ -14,7 +14,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 
-import {DailyUserData} from '../../../../../shared/src/types/Session';
+import {DailyUserData} from '../../../../../shared/src/schemas/Session';
 import {LiveSessionStackProps} from '../../../lib/navigation/constants/routes';
 import {DailyContext} from '../../../lib/daily/DailyProvider';
 

@@ -5,9 +5,9 @@ import {
   getPostById,
   deletePost,
 } from '../models/post';
+import {PostRecord} from '../models/types/types';
 import {getAuthUserInfo} from '../models/auth';
 import {sendPostMessage} from '../models/slack';
-import {Post, PostParams} from '../../../shared/src/types/Post';
 import {PostError} from '../../../shared/src/errors/Post';
 import {getSharingSlideById} from '../../../shared/src/content/exercise';
 import {RequestError} from './errors/RequestError';
@@ -16,6 +16,7 @@ import {
   Exercise,
   ExerciseSlideSharingSlide,
 } from '../../../shared/src/types/generated/Exercise';
+import {CreatePostType} from '../../../shared/src/schemas/Post';
 
 jest.mock('../models/post');
 jest.mock('../models/auth');
@@ -56,7 +57,7 @@ describe('posts - controller', () => {
         language: 'en',
         approved: true,
         userId: 'some-user-id',
-      } as Post);
+      } as PostRecord);
 
       await postsController.createPost(
         {
@@ -65,7 +66,7 @@ describe('posts - controller', () => {
           language: 'en',
           text: 'some text',
           anonymous: false,
-        } as PostParams,
+        } as CreatePostType,
         'some-user-id',
       );
 
@@ -103,7 +104,7 @@ describe('posts - controller', () => {
         text: 'some text',
         language: 'en',
         approved: true,
-      } as Post);
+      } as PostRecord);
       await postsController.createPost(
         {
           exerciseId: 'some-exercise-id',
@@ -111,7 +112,7 @@ describe('posts - controller', () => {
           language: 'en',
           text: 'some text',
           anonymous: true,
-        } as PostParams,
+        } as CreatePostType,
         'some-user-id',
       );
 
@@ -141,7 +142,7 @@ describe('posts - controller', () => {
         {
           id: 'some-post-id',
           userId: 'some-user-id',
-        } as Post,
+        } as PostRecord,
       ]);
       mockGetPublicUserInfo.mockResolvedValueOnce({
         uid: 'some-user-id',
@@ -172,7 +173,7 @@ describe('posts - controller', () => {
       mockGetPostsByExerciseAndSharingId.mockResolvedValueOnce([
         {
           id: 'some-post-id',
-        } as Post,
+        } as PostRecord,
       ]);
 
       const posts = await postsController.getPostsByExerciseAndSharingId(
@@ -185,6 +186,7 @@ describe('posts - controller', () => {
       expect(posts).toEqual([
         {
           id: 'some-post-id',
+          userProfile: null,
         },
       ]);
     });
@@ -194,7 +196,7 @@ describe('posts - controller', () => {
         {
           id: 'some-post-id',
           userId: 'some-user-id',
-        } as Post,
+        } as PostRecord,
       ]);
       mockGetPublicUserInfo.mockRejectedValueOnce('some error');
 
@@ -209,6 +211,7 @@ describe('posts - controller', () => {
         {
           id: 'some-post-id',
           userId: 'some-user-id',
+          userProfile: null,
         },
       ]);
     });
@@ -216,7 +219,9 @@ describe('posts - controller', () => {
 
   describe('deletePost', () => {
     it('should delete post', async () => {
-      mockGetPostById.mockResolvedValueOnce({userId: 'some-user-id'} as Post);
+      mockGetPostById.mockResolvedValueOnce({
+        userId: 'some-user-id',
+      } as PostRecord);
       await postsController.deletePost('some-post-id');
 
       expect(mockDeletePost).toHaveBeenCalledWith('some-post-id');

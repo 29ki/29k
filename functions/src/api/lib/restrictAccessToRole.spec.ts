@@ -1,5 +1,5 @@
 import {getAuth} from 'firebase-admin/auth';
-import {ROLE} from '../../../../shared/src/types/User';
+import {ROLE} from '../../../../shared/src/schemas/User';
 import {FirebaseAuthContext} from './firebaseAuth';
 import restrictAccessToRole from './restrictAccessToRole';
 

@@ -3,10 +3,10 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
 import {
-  LiveSession,
+  LiveSessionType,
   SessionMode,
   SessionType,
-} from '../../../../../../../shared/src/types/Session';
+} from '../../../../../../../shared/src/schemas/Session';
 import Gutters from '../../../../../lib/components/Gutters/Gutters';
 import {
   CommunityIcon,
@@ -33,7 +33,7 @@ import Button from '../../../../../lib/components/Buttons/Button';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import useGetExerciseById from '../../../../../lib/content/hooks/useGetExerciseById';
-import {formatExerciseName} from '../../../../../lib/utils/string';
+import {formatContentName} from '../../../../../lib/utils/string';
 import Image from '../../../../../lib/components/Image/Image';
 import {ActivityIndicator, ListRenderItem} from 'react-native';
 import SessionCard from '../../../../../lib/components/Cards/SessionCard/SessionCard';
@@ -130,7 +130,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const getExerciseById = useGetExerciseById();
   const startSession = useStartAsyncSession();
-  const [sessions, setSessions] = useState<Array<LiveSession>>([]);
+  const [sessions, setSessions] = useState<Array<LiveSessionType>>([]);
   const [isLoadingSessions, setIsLoadingSessions] = useState(false);
 
   useEffect(() => {
@@ -178,7 +178,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
     ],
   );
 
-  const renderItem = useCallback<ListRenderItem<LiveSession>>(
+  const renderItem = useCallback<ListRenderItem<LiveSessionType>>(
     ({item, index}) => {
       const hasCardBefore = index > 0;
       const hasCardAfter = index !== sessions.length - 1;
@@ -198,7 +198,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
     [sessions, popToTop],
   );
 
-  const keyExtractor = useCallback((item: LiveSession) => item.id, []);
+  const keyExtractor = useCallback((item: LiveSessionType) => item.id, []);
 
   const typeSelection = useMemo(
     () => (
@@ -253,7 +253,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
             <Gutters>
               <Row>
                 <TextWrapper>
-                  <Display24>{formatExerciseName(exercise)}</Display24>
+                  <Display24>{formatContentName(exercise)}</Display24>
                 </TextWrapper>
                 <Spacer16 />
                 <LogoWrapper>

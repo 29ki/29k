@@ -1,5 +1,5 @@
 import {useMemo} from 'react';
-import {SessionMode} from '../../../../../shared/src/types/Session';
+import {SessionMode} from '../../../../../shared/src/schemas/Session';
 
 import useExercises from './useExercises';
 

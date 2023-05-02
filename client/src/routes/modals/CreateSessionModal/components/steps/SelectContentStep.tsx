@@ -17,13 +17,13 @@ import {Exercise} from '../../../../../../../shared/src/types/generated/Exercise
 import {Display16} from '../../../../../lib/components/Typography/Display/Display';
 import Image from '../../../../../lib/components/Image/Image';
 import TouchableOpacity from '../../../../../lib/components/TouchableOpacity/TouchableOpacity';
-import {formatExerciseName} from '../../../../../lib/utils/string';
+import {formatContentName} from '../../../../../lib/utils/string';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {
   AppStackProps,
   ModalStackProps,
 } from '../../../../../lib/navigation/constants/routes';
-import {SessionMode} from '../../../../../../../shared/src/types/Session';
+import {SessionMode} from '../../../../../../../shared/src/schemas/Session';
 import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsyncSession';
 import useGetExercisesByMode from '../../../../../lib/content/hooks/useGetExercisesByMode';
 
@@ -61,7 +61,7 @@ const ContentCard: React.FC<{
     <Gutters>
       <Card onPress={onPress}>
         <TextWrapper>
-          <Display16>{formatExerciseName(exercise)}</Display16>
+          <Display16>{formatContentName(exercise)}</Display16>
         </TextWrapper>
         <Spacer16 />
         <CardImageWrapper>

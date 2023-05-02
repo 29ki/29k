@@ -11,7 +11,7 @@ import {Spacer4, Spacer8} from '../../Spacers/Spacer';
 import SessionProgress from '../../SessionProgress/SessionProgress';
 
 type CollectionFullCardProps = {
-  title: string;
+  title?: string;
   image: ImageSourcePropType;
   progressItems: Array<boolean>;
   onPress: () => void;

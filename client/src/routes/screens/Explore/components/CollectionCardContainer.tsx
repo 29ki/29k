@@ -5,6 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import {Collection} from '../../../../../../shared/src/types/generated/Collection';
 import CollectionListCard from '../../../../lib/components/Cards/CollectionCards/CollectionListCard';
 import {ExploreStackProps} from '../../../../lib/navigation/constants/routes';
+import {formatContentName} from '../../../../lib/utils/string';
 
 export {CARD_WIDTH} from '../../../../lib/components/Cards/CollectionCards/CollectionListCard';
 
@@ -33,7 +34,7 @@ const CollectionCardContainer: React.FC<CollectionCardProps> = ({
     <CollectionListCard
       onPress={onPress}
       image={image}
-      title={collection.name}
+      title={formatContentName(collection)}
     />
   );
 };

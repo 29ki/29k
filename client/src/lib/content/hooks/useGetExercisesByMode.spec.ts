@@ -1,5 +1,5 @@
 import {renderHook} from '@testing-library/react-hooks';
-import {SessionMode} from '../../../../../shared/src/types/Session';
+import {SessionMode} from '../../../../../shared/src/schemas/Session';
 import useGetExercisesByMode from './useGetExercisesByMode';
 
 const mockT = jest.fn();

@@ -1,7 +1,10 @@
 import {getAuth} from 'firebase-admin/auth';
-import {UserProfile, ROLE} from '../../../shared/src/types/User';
+import {ROLE} from '../../../shared/src/schemas/User';
+import {UserProfileRecord} from './types/types';
 
-export const getAuthUserInfo = async (userId: string): Promise<UserProfile> => {
+export const getAuthUserInfo = async (
+  userId: string,
+): Promise<UserProfileRecord> => {
   const user = await getAuth().getUser(userId);
 
   return {

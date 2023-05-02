@@ -4,19 +4,17 @@ import {Timestamp} from 'firebase-admin/firestore';
 import dayjs from 'dayjs';
 
 import {
-  LiveSession,
-  LiveSessionData,
   SessionMode,
-  SessionStateData,
+  SessionStateUpdateType,
   SessionType,
-} from '../../../shared/src/types/Session';
-import {
-  getSession,
-  getSessionState,
-} from '../../../shared/src/modelUtils/session';
+} from '../../../shared/src/schemas/Session';
 import {getData} from '../../../shared/src/modelUtils/firestore';
-import {SessionStateUpdate} from '../api/sessions';
 import {removeEmpty} from '../lib/utils';
+import {
+  LiveSessionInput,
+  LiveSessionRecord,
+  SessionStateRecord,
+} from './types/types';
 
 const defaultSessionState = {
   index: 0,
@@ -34,7 +32,7 @@ const sessionClosingRange = () =>
     dayjs(Timestamp.now().toDate()).subtract(30, 'minutes').toDate(),
   );
 
-export const getSessionById = async (id: LiveSession['id']) => {
+export const getSessionById = async (id: LiveSessionRecord['id']) => {
   const sessionDoc = await firestore()
     .collection(SESSIONS_COLLECTION)
     .doc(id)
@@ -44,10 +42,10 @@ export const getSessionById = async (id: LiveSession['id']) => {
     return;
   }
 
-  return getSession(getData<LiveSessionData>(sessionDoc));
+  return getData<LiveSessionRecord>(sessionDoc);
 };
 
-export const getSessionStateById = async (id: LiveSession['id']) => {
+export const getSessionStateById = async (id: LiveSessionRecord['id']) => {
   const sessionStateDoc = await firestore()
     .collection(SESSIONS_COLLECTION)
     .doc(id)
@@ -59,14 +57,14 @@ export const getSessionStateById = async (id: LiveSession['id']) => {
     return;
   }
 
-  return getSessionState(getData<SessionStateData>(sessionStateDoc));
+  return getData<SessionStateRecord>(sessionStateDoc);
 };
 
 export const getSessionByInviteCode = async ({
   inviteCode,
   activeOnly = true,
 }: {
-  inviteCode: LiveSession['inviteCode'];
+  inviteCode: LiveSessionRecord['inviteCode'];
   activeOnly?: boolean;
 }) => {
   const query = firestore()
@@ -87,7 +85,7 @@ export const getSessionByInviteCode = async ({
     return;
   }
 
-  return getSession(getData<LiveSessionData>(result.docs[0]));
+  return getData<LiveSessionRecord>(result.docs[0]);
 };
 
 export const getUpcomingPublicSessions = async (limit?: number) => {
@@ -104,7 +102,7 @@ export const getUpcomingPublicSessions = async (limit?: number) => {
 
   const snapshot = await query.get();
 
-  return snapshot.docs.map(doc => getSession(getData<LiveSessionData>(doc)));
+  return snapshot.docs.map(doc => getData<LiveSessionRecord>(doc));
 };
 
 export const getSessionsByUserId = async (
@@ -135,7 +133,7 @@ export const getSessionsByUserId = async (
 
   const snapshot = await query.get();
 
-  return snapshot.docs.map(doc => getSession(getData<LiveSessionData>(doc)));
+  return snapshot.docs.map(doc => getData<LiveSessionRecord>(doc));
 };
 
 export const addSession = async ({
@@ -150,12 +148,7 @@ export const addSession = async ({
   link,
   inviteCode,
   interestedCount,
-}: Omit<
-  LiveSession,
-  'mode' | 'ended' | 'userIds' | 'createdAt' | 'updatedAt' | 'closingTime'
-> & {
-  dailyRoomName: string;
-}) => {
+}: LiveSessionInput) => {
   const now = Timestamp.now();
   const session = {
     id,
@@ -187,18 +180,24 @@ export const addSession = async ({
     .doc(id)
     .set({id, ...defaultSessionState});
 
-  return getSession(getData<LiveSessionData>(await sessionDoc.get()));
+  return getData<LiveSessionRecord>(await sessionDoc.get());
 };
 
-export const deleteSession = async (id: LiveSession['id']) => {
+export const deleteSession = async (id: LiveSessionRecord['id']) => {
   const sessionDoc = firestore().collection(SESSIONS_COLLECTION).doc(id);
   await sessionDoc.collection(SESSION_STATE_SUB_COLLECTION).doc(id).delete();
   return sessionDoc.delete();
 };
 
 export const updateSession = async (
-  id: LiveSession['id'],
-  data: Partial<LiveSession>,
+  id: LiveSessionRecord['id'],
+  data: Partial<
+    LiveSessionInput & {
+      closingTime?: string;
+      ended?: boolean;
+      userIds: Array<string>;
+    }
+  >,
 ) => {
   const updateValues = {
     ...data,
@@ -222,13 +221,15 @@ export const updateSession = async (
 };
 
 export const updateInterestedCount = async (
-  id: LiveSession['id'],
+  id: LiveSessionRecord['id'],
   increment: boolean,
 ) => {
   const sessionRef = firestore().collection(SESSIONS_COLLECTION).doc(id);
 
   await firestore().runTransaction(async transaction => {
-    const session = getData<LiveSessionData>(await transaction.get(sessionRef));
+    const session = getData<LiveSessionRecord>(
+      await transaction.get(sessionRef),
+    );
     transaction.update(sessionRef, {
       interestedCount: increment
         ? session.interestedCount + 1
@@ -238,8 +239,8 @@ export const updateInterestedCount = async (
 };
 
 export const updateSessionState = async (
-  id: LiveSession['id'],
-  data: Partial<SessionStateUpdate>,
+  id: LiveSessionRecord['id'],
+  data: Partial<SessionStateUpdateType>,
 ) => {
   const sessionStateDocRef = firestore()
     .collection(SESSIONS_COLLECTION)
@@ -248,7 +249,7 @@ export const updateSessionState = async (
     .doc(id);
 
   await firestore().runTransaction(async transaction => {
-    const sessionState = getData<SessionStateData>(
+    const sessionState = getData<SessionStateRecord>(
       await transaction.get(sessionStateDocRef),
     );
 

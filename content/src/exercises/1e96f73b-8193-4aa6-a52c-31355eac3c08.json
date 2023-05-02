@@ -14,8 +14,8 @@
           }
         ],
         "video": {
-          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678967008/The_way_out_is_through_intro_rnvvyx.mp4",
-          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678967010/The_way_out_is_through_thumb_fxakco.png"
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678967008/Video/The_way_out_is_through_intro_rnvvyx.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678967010/Images/The_way_out_is_through_thumb_fxakco.png"
         }
       },
       {
@@ -84,8 +84,8 @@
           }
         ],
         "video": {
-          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678967008/The_way_out_is_through_outro_waudnc.mp4",
-          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678967010/The_way_out_is_through_thumb_fxakco.png"
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678967008/Video/The_way_out_is_through_outro_waudnc.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678967010/Images/The_way_out_is_through_thumb_fxakco.png"
         }
       }
     ],
@@ -95,6 +95,12 @@
     "hidden": true,
     "name": "The way out is through",
     "published": true,
+    "card": {
+      "host": {
+        "displayName": "Lisa",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675943058/Images/Lisa_host_wkrcf3.jpg"
+      }
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [

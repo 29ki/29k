@@ -1,5 +1,5 @@
 import {useMemo} from 'react';
-import {DailyUserData} from '../../../../../shared/src/types/Session';
+import {DailyUserData} from '../../../../../shared/src/schemas/Session';
 import useDailyState from '../../../lib/daily/state/state';
 import useSessionExercise from './useSessionSlideState';
 import {omit, values} from 'ramda';

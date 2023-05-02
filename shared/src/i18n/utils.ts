@@ -7,20 +7,22 @@ export const filterPublishedContent = <T>(content: T) =>
 export const filterHiddenContent = <T>(content: T) =>
   pickBy<T, T>(e => !e.hidden, content);
 
-export const removeHiddenContent = <T>(
-  resources: Record<LANGUAGE_TAG, Record<string, T>>,
+export const removeHiddenContent = (
+  resources: Record<LANGUAGE_TAG, Record<string, any>>,
 ) => {
   return keys(resources).reduce((res, ln: LANGUAGE_TAG) => {
     res[ln]['exercises'] = filterHiddenContent(res[ln]['exercises']);
+    res[ln]['collections'] = filterHiddenContent(res[ln]['collections']);
     return res;
   }, clone(resources));
 };
 
-export const removeUnpublishedContent = <T>(
-  resources: Record<LANGUAGE_TAG, Record<string, T>>,
+export const removeUnpublishedContent = (
+  resources: Record<LANGUAGE_TAG, Record<string, any>>,
 ) => {
   return keys(resources).reduce((res, ln: LANGUAGE_TAG) => {
     res[ln]['exercises'] = filterPublishedContent(res[ln]['exercises']);
+    res[ln]['collections'] = filterPublishedContent(res[ln]['collections']);
     return res;
   }, clone(resources));
 };

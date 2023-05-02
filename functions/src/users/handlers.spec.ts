@@ -1,4 +1,4 @@
-import {ROLE} from '../../../shared/src/types/User';
+import {ROLE} from '../../../shared/src/schemas/User';
 import {updateRole} from '../models/auth';
 import {userUpdatedHandler} from './handlers';
 

@@ -13,7 +13,7 @@ import {Header} from './components/Header';
 import {ScrollView} from './components/ScrollView';
 import {ContributorsList} from './components/ContributorsList';
 import {getPublicHosts} from '../../../lib/user/api/user';
-import {User} from '../../../../../shared/src/types/User';
+import {UserType} from '../../../../../shared/src/schemas/User';
 
 import {
   AppStackProps,
@@ -33,7 +33,7 @@ const Spinner = styled(ActivityIndicator)({
   marginTop: SPACINGS.EIGHT,
 });
 
-const Profile: React.FC<{host: User}> = ({host}) => {
+const Profile: React.FC<{host: UserType}> = ({host}) => {
   const {navigate, popToTop} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
 
@@ -57,7 +57,7 @@ const Profile: React.FC<{host: User}> = ({host}) => {
 const HostsModal = () => {
   const {t} = useTranslation('Modal.Hosts');
   const [isLoading, setIsLoading] = useState(false);
-  const [hosts, setHosts] = useState<Array<User>>([]);
+  const [hosts, setHosts] = useState<Array<UserType>>([]);
 
   useEffect(() => {
     setIsLoading(true);

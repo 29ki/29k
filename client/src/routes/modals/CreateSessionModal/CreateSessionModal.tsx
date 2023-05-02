@@ -11,9 +11,9 @@ import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {
   SessionMode,
   SessionType,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {UserProfile} from '../../../../../shared/src/types/User';
+import {UserProfileType} from '../../../../../shared/src/schemas/User';
 
 import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
 import useUser from '../../../lib/user/hooks/useUser';
@@ -45,7 +45,7 @@ export type StepProps = {
   firstStep: () => void;
   isPublicHost: boolean;
   selectedModeAndType: SelectedModeAndType;
-  userProfile: UserProfile | undefined;
+  userProfile: UserProfileType | undefined;
   setSelectedModeAndType: Dispatch<
     SetStateAction<StepProps['selectedModeAndType']>
   >;

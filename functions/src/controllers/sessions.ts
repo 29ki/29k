@@ -7,28 +7,32 @@ import * as authModel from '../models/auth';
 import * as userModel from '../models/user';
 import * as dailyApi from '../lib/dailyApi';
 import {
-  LiveSession,
-  SessionState,
+  CreateSessionType,
+  SessionStateUpdateType,
   SessionType,
-} from '../../../shared/src/types/Session';
+  UpdateSessionType,
+} from '../../../shared/src/schemas/Session';
 import {
   JoinSessionError,
   ValidateSessionError,
 } from '../../../shared/src/errors/Session';
-import {SessionStateUpdate, UpdateSession} from '../api/sessions';
 import {generateVerificationCode, removeEmpty} from '../lib/utils';
 import {RequestError} from './errors/RequestError';
 import {generateSessionToken} from '../lib/dailyUtils';
 import {createRctUserId} from '../lib/id';
+import {LiveSessionRecord} from '../models/types/types';
+import {LiveSessionModel} from './types/types';
 
-const mapSession = async (session: LiveSession): Promise<LiveSession> => {
+const mapSession = async (
+  session: LiveSessionRecord,
+): Promise<LiveSessionModel> => {
   return {...session, hostProfile: await getUser(session.hostId)};
 };
 
-const isSessionOpen = (session: LiveSession): boolean =>
-  dayjs(session.closingTime).isAfter(dayjs(Timestamp.now().toDate()));
+const isSessionOpen = (session: LiveSessionRecord): boolean =>
+  dayjs(session.closingTime.toDate()).isAfter(dayjs(Timestamp.now().toDate()));
 
-const isUserAllowedToJoin = (session: LiveSession, userId: string) =>
+const isUserAllowedToJoin = (session: LiveSessionRecord, userId: string) =>
   isSessionOpen(session) ||
   session.userIds.includes(userId) ||
   session.hostId === userId;
@@ -37,7 +41,7 @@ export const getSessionsByUserId = async (
   userId: string,
   exerciseId?: string,
   hostId?: string,
-): Promise<LiveSession[]> => {
+): Promise<LiveSessionModel[]> => {
   const sessions = await sessionModel.getSessionsByUserId(
     userId,
     exerciseId,
@@ -51,7 +55,7 @@ export const getSessionsByUserId = async (
 
 export const getUpcomingPublicSessions = async (
   limit?: number,
-): Promise<LiveSession[]> => {
+): Promise<LiveSessionModel[]> => {
   const sessions = await sessionModel.getUpcomingPublicSessions(limit);
 
   return Promise.all(sessions.map(mapSession));
@@ -59,7 +63,7 @@ export const getUpcomingPublicSessions = async (
 
 export const getSessionToken = async (
   userId: string,
-  sessionId: LiveSession['id'],
+  sessionId: LiveSessionModel['id'],
 ) => {
   const session = await sessionModel.getSessionById(sessionId);
 
@@ -80,13 +84,13 @@ export const getSessionToken = async (
     dailyUserId,
     session.dailyRoomName,
     session.hostId === userId,
-    dayjs(session.startTime).add(2, 'hours'),
+    dayjs(session.startTime.toDate()).add(2, 'hours'),
   );
 };
 
 export const getSession = async (
   userId: string,
-  sessionId: LiveSession['id'],
+  sessionId: LiveSessionModel['id'],
 ) => {
   const session = await sessionModel.getSessionById(sessionId);
 
@@ -106,12 +110,7 @@ export const getSession = async (
 
 export const createSession = async (
   userId: string,
-  {
-    exerciseId,
-    type,
-    startTime,
-    language,
-  }: Pick<LiveSession, 'exerciseId' | 'type' | 'startTime' | 'language'>,
+  {exerciseId, type, startTime, language}: CreateSessionType,
 ) => {
   const {displayName} = await authModel.getAuthUserInfo(userId);
   const expireDate = dayjs(startTime).add(2, 'hour');
@@ -148,13 +147,9 @@ export const createSession = async (
 
 export const removeSession = async (
   userId: string,
-  sessionId: LiveSession['id'],
+  sessionId: LiveSessionModel['id'],
 ) => {
-  const session = (await sessionModel.getSessionById(
-    sessionId,
-  )) as LiveSession & {
-    dailyRoomName: string;
-  };
+  const session = await sessionModel.getSessionById(sessionId);
 
   if (!session) return;
 
@@ -170,20 +165,19 @@ export const removeSession = async (
 
 export const updateSession = async (
   userId: string,
-  sessionId: LiveSession['id'],
-  data: Partial<UpdateSession>,
+  sessionId: LiveSessionModel['id'],
+  data: Partial<UpdateSessionType>,
 ) => {
-  const session = (await sessionModel.getSessionById(
-    sessionId,
-  )) as LiveSession & {
-    dailyRoomName: string;
-  };
+  const session = await sessionModel.getSessionById(sessionId);
 
   if (userId !== session?.hostId) {
     throw new RequestError(ValidateSessionError.userNotAuthorized);
   }
 
-  if (data.startTime && session.startTime !== data.startTime) {
+  if (
+    data.startTime &&
+    !dayjs(session.startTime.toDate()).isSame(data.startTime)
+  ) {
     dailyApi.updateRoom(
       session.dailyRoomName,
       dayjs(data.startTime).add(2, 'hour'),
@@ -196,7 +190,7 @@ export const updateSession = async (
 };
 
 export const updateInterestedCount = async (
-  sessionId: LiveSession['id'],
+  sessionId: LiveSessionModel['id'],
   increment: boolean,
 ) => {
   await sessionModel.updateInterestedCount(sessionId, increment);
@@ -204,13 +198,11 @@ export const updateInterestedCount = async (
 
 export const updateSessionState = async (
   userId: string,
-  sessionId: LiveSession['id'],
-  data: Partial<SessionStateUpdate>,
+  sessionId: LiveSessionModel['id'],
+  data: Partial<SessionStateUpdateType>,
 ) => {
-  const session = (await sessionModel.getSessionById(sessionId)) as LiveSession;
-  const sessionState = (await sessionModel.getSessionStateById(
-    sessionId,
-  )) as SessionState;
+  const session = await sessionModel.getSessionById(sessionId);
+  const sessionState = await sessionModel.getSessionStateById(sessionId);
 
   if (!session || !sessionState) {
     throw new RequestError(ValidateSessionError.notFound);
@@ -245,17 +237,17 @@ export const updateSessionState = async (
 
 export const joinSession = async (
   userId: string,
-  inviteCode: LiveSession['inviteCode'],
+  inviteCode: LiveSessionModel['inviteCode'],
 ) => {
-  const session = (await sessionModel.getSessionByInviteCode({
+  const session = await sessionModel.getSessionByInviteCode({
     inviteCode,
-  })) as LiveSession;
+  });
 
   if (!session) {
-    const unavailableSession = (await sessionModel.getSessionByInviteCode({
+    const unavailableSession = await sessionModel.getSessionByInviteCode({
       inviteCode,
       activeOnly: false,
-    })) as LiveSession;
+    });
 
     if (unavailableSession) {
       throw new RequestError(JoinSessionError.notAvailable);

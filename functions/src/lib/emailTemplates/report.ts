@@ -3,7 +3,7 @@ import memoize from 'fast-memoize';
 import mjml from 'mjml';
 
 import {htmlLight, textWihtoutUnsubscribe} from './template';
-import {ReportParams} from '../../api/report';
+import {ReportParamsType} from '../../../../shared/src/schemas/Report';
 
 const htmlTemplate = memoize(() =>
   Handlebars.compile(`
@@ -37,7 +37,7 @@ export const renderUserReportMjml = ({
 }: {
   body: string;
   content: string;
-  params: ReportParams;
+  params: ReportParamsType;
 }) => {
   const template = htmlTemplate();
   return htmlLight(template({body, content, params}));
@@ -50,7 +50,7 @@ export const renderUserReportHtml = ({
 }: {
   body: string;
   content: string;
-  params: ReportParams;
+  params: ReportParamsType;
 }) => {
   return mjml(renderUserReportMjml({body, content, params})).html;
 };
@@ -62,7 +62,7 @@ export const renderUserReportText = ({
 }: {
   body: string;
   content: string;
-  params: ReportParams;
+  params: ReportParamsType;
 }) => {
   const template = textTemplate();
   return textWihtoutUnsubscribe(template({body, content, params}));

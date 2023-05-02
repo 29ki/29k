@@ -5,9 +5,9 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import dayjs from 'dayjs';
 
-import {LiveSession} from '../../../../../../shared/src/types/Session';
+import {LiveSessionType} from '../../../../../../shared/src/schemas/Session';
 
-import {formatExerciseName} from '../../../utils/string';
+import {formatContentName} from '../../../utils/string';
 
 import useExerciseById from '../../../content/hooks/useExerciseById';
 import useSessionStartTime from '../../../session/hooks/useSessionStartTime';
@@ -40,7 +40,7 @@ const FullInterested = styled(Interested)({
 });
 
 const JoinButton: React.FC<{
-  startTime: LiveSession['startTime'];
+  startTime: LiveSessionType['startTime'];
   onPress: () => void;
 }> = ({startTime, onPress}) => {
   const {t} = useTranslation('Component.SessionCard');
@@ -59,7 +59,7 @@ const JoinButton: React.FC<{
 const WalletResolver: React.FC<{
   expandedComponent: React.ReactNode;
   foldedComponent: React.ReactNode;
-  startTime: LiveSession['startTime'];
+  startTime: LiveSessionType['startTime'];
   hasCardBefore: boolean;
 }> = ({expandedComponent, foldedComponent, startTime, hasCardBefore}) => {
   const sessionTime = useSessionStartTime(dayjs(startTime));
@@ -71,7 +71,7 @@ const WalletResolver: React.FC<{
 };
 
 type SessionCardProps = {
-  session: LiveSession;
+  session: LiveSessionType;
   standAlone?: boolean;
   hasCardBefore?: boolean;
   hasCardAfter?: boolean;
@@ -144,7 +144,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
   if (standAlone) {
     return (
       <Card
-        title={formatExerciseName(exercise)}
+        title={formatContentName(exercise)}
         tags={tags}
         image={image}
         lottie={lottie}
@@ -173,7 +173,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
       hasCardBefore={hasCardBefore}
       foldedComponent={
         <SessionWalletCard
-          title={formatExerciseName(exercise)}
+          title={formatContentName(exercise)}
           image={image}
           lottie={lottie}
           hostPictureURL={
@@ -199,7 +199,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
       expandedComponent={
         <Card
           inWallet
-          title={formatExerciseName(exercise)}
+          title={formatContentName(exercise)}
           tags={tags}
           image={image}
           lottie={lottie}

@@ -66,8 +66,8 @@ describe('post model', () => {
         language: 'en',
         approved: true,
         text: 'some sharing text',
-        createdAt: expect.any(String),
-        updatedAt: expect.any(String),
+        createdAt: expect.any(Timestamp),
+        updatedAt: expect.any(Timestamp),
       });
     });
 
@@ -115,8 +115,8 @@ describe('post model', () => {
         approved: true,
         language: 'en',
         text: 'some text',
-        createdAt: expect.any(String),
-        updatedAt: expect.any(String),
+        createdAt: expect.any(Timestamp),
+        updatedAt: expect.any(Timestamp),
       });
     });
   });

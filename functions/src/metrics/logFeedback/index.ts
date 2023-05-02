@@ -2,7 +2,7 @@ import * as yup from 'yup';
 import validator from 'koa-yup-validator';
 import {createMetricsRouter} from '../../lib/routers';
 import * as feedbackController from '../../controllers/feedback';
-import {SessionMode, SessionType} from '../../../../shared/src/types/Session';
+import {SessionMode, SessionType} from '../../../../shared/src/schemas/Session';
 
 const router = createMetricsRouter();
 

@@ -7,7 +7,7 @@ import {
   setCoreProperties,
   setUserProperties,
 } from '.';
-import {SessionMode, SessionType} from '../../../../shared/src/types/Session';
+import {SessionMode, SessionType} from '../../../../shared/src/schemas/Session';
 import {getCurrentRouteName} from '../navigation/utils/routes';
 import * as backEnd from './adaptors/backEnd';
 import * as postHog from './adaptors/postHog';

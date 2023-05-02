@@ -1,7 +1,7 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook, act} from '@testing-library/react-hooks';
 import MockDate from 'mockdate';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import useUserState from '../../user/state/state';
 import {updateInterestedCount} from '../api/session';
 import usePinSession from './usePinSession';
@@ -35,7 +35,7 @@ describe('usePinSession', () => {
       });
 
       const {result} = renderHook(() =>
-        usePinSession({id: 'session-id-1'} as LiveSession),
+        usePinSession({id: 'session-id-1'} as LiveSessionType),
       );
 
       expect(result.current.isPinned).toBe(true);
@@ -54,7 +54,7 @@ describe('usePinSession', () => {
       });
 
       const {result} = renderHook(() =>
-        usePinSession({id: 'session-id-2'} as LiveSession),
+        usePinSession({id: 'session-id-2'} as LiveSessionType),
       );
 
       expect(result.current.isPinned).toBe(false);
@@ -69,7 +69,7 @@ describe('usePinSession', () => {
       });
 
       const {result} = renderHook(() =>
-        usePinSession({id: 'session-id-1'} as LiveSession),
+        usePinSession({id: 'session-id-1'} as LiveSessionType),
       );
 
       act(() => {
@@ -108,7 +108,7 @@ describe('usePinSession', () => {
       });
 
       const {result} = renderHook(() =>
-        usePinSession({id: 'session-id-1'} as LiveSession),
+        usePinSession({id: 'session-id-1'} as LiveSessionType),
       );
 
       act(() => {
@@ -145,7 +145,7 @@ describe('usePinSession', () => {
       });
 
       const {result} = renderHook(() =>
-        usePinSession({id: 'session-id-2'} as LiveSession),
+        usePinSession({id: 'session-id-2'} as LiveSessionType),
       );
 
       act(() => {
@@ -177,7 +177,7 @@ describe('usePinSession', () => {
       });
 
       const {result} = renderHook(() =>
-        usePinSession({id: 'session-id-2'} as LiveSession),
+        usePinSession({id: 'session-id-2'} as LiveSessionType),
       );
 
       act(() => {

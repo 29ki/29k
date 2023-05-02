@@ -9,7 +9,7 @@ import {ModalStackProps} from '../../../navigation/constants/routes';
 
 import useExerciseById from '../../../content/hooks/useExerciseById';
 
-import {formatExerciseName} from '../../../utils/string';
+import {formatContentName} from '../../../utils/string';
 
 import SessionWalletCard from '../WalletCards/SessionWalletCard';
 import Badge from '../../Badge/Badge';
@@ -17,7 +17,7 @@ import {Body14} from '../../Typography/Body/Body';
 import {CheckIcon, CommunityIcon, MeIcon} from '../../Icons';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Spacer4} from '../../Spacers/Spacer';
-import {SessionMode} from '../../../../../../shared/src/types/Session';
+import {SessionMode} from '../../../../../../shared/src/schemas/Session';
 import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
 import useUserProfile from '../../../user/hooks/useUserProfile';
 
@@ -82,7 +82,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
 
   return (
     <SessionWalletCard
-      title={formatExerciseName(exercise)}
+      title={formatContentName(exercise)}
       image={image}
       lottie={lottie}
       hostPictureURL={hostProfile?.photoURL || exercise?.card?.host?.photoURL}

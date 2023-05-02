@@ -85,12 +85,16 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     } else if (sessionState?.started && (isLoading || hasError)) {
       // If sesstion is started but video not loaded, navigate directly
       onNavigateToSession();
+    } else if (sessionState?.started && !isLive) {
+      // If async, don't wait for the end video
+      onNavigateToSession();
     }
   }, [
     isLoading,
     hasError,
     sessionState?.started,
     introPortal?.videoLoop?.source,
+    isLive,
     onNavigateToSession,
   ]);
 

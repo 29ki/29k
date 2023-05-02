@@ -18,7 +18,7 @@ import Gutters from '../../../lib/components/Gutters/Gutters';
 import {Body18} from '../../../lib/components/Typography/Body/Body';
 import {useTranslation} from 'react-i18next';
 import {fetchSessions} from '../../../lib/sessions/api/sessions';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import {ActivityIndicator, ListRenderItem} from 'react-native';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -57,7 +57,7 @@ const HostInfoModal: React.FC = () => {
   const {popToTop} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const [isLoading, setIsLoading] = useState(false);
-  const [sessions, setSessions] = useState<Array<LiveSession>>([]);
+  const [sessions, setSessions] = useState<Array<LiveSessionType>>([]);
 
   useEffect(() => {
     if (host?.uid) {
@@ -68,7 +68,7 @@ const HostInfoModal: React.FC = () => {
     }
   }, [setSessions, setIsLoading, host?.uid]);
 
-  const renderSession = useCallback<ListRenderItem<LiveSession>>(
+  const renderSession = useCallback<ListRenderItem<LiveSessionType>>(
     data => {
       return (
         <Gutters>

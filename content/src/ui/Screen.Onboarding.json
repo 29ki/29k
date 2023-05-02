@@ -28,7 +28,35 @@
     "continueButton": "Continue",
     "getStartedButton": "Get started"
   },
-  "pt": {},
+  "pt": {
+    "start": {
+      "heading1": "Um planeta próspero começa com",
+      "heading2": "um eu próspero"
+    },
+    "page1": {
+      "heading__text": "Ferramentas psicológicas\nbaseadas em ciência"
+    },
+    "page2": {
+      "heading__text": "Ligações com\nsignificado",
+      "name1": "Ints",
+      "name2": "Jenny",
+      "name3": "Lisa"
+    },
+    "page3": {
+      "heading__text": "Para um \nbem maior",
+      "card": {
+        "heading": "Não lucrativa",
+        "text__markdown": "Gratuita para uso pessoal.\\\nNão vendemos dados. Não fazemos anúncios.\\\nPara que possas focar na prática do bem-estar, prosperar e contribuir para um futuro melhor para todos."
+      }
+    },
+    "page4": {
+      "sessions__text": "Experiências guiadas para\nnovas perspetivas de vida.\n\nIndividualmente, com\nos amigos ou novas ligações.",
+      "journey__text": "O teu caminho pessoal\npara uma vida mais próspera."
+    },
+    "skipButton": "Ignorar",
+    "continueButton": "Continuar",
+    "getStartedButton": "Começar"
+  },
   "sv": {},
   "es": {}
 }

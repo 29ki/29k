@@ -18,19 +18,19 @@ const Backend: BackendModule = {
   // Loads all non included content
   read: function (
     language: LANGUAGE_TAG,
-    namespace: Namespace | 'exercises',
+    namespace: Namespace | 'exercises' | 'collections',
     callback: ReadCallback,
   ) {
-    if (namespace === 'exercises') {
-      const exercises = filterPublishedContent(
-        content.i18n[language].exercises,
+    if (namespace === 'exercises' || namespace === 'collections') {
+      const namespaceContent = filterPublishedContent(
+        content.i18n[language][namespace],
       );
 
       if (getShowHiddenContent()) {
-        callback(null, exercises);
+        callback(null, namespaceContent);
       } else {
         // Default load only non hidden
-        callback(null, filterHiddenContent(exercises));
+        callback(null, filterHiddenContent(namespaceContent));
       }
     } else {
       callback(null, content.i18n[language][namespace]);

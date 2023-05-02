@@ -7,7 +7,7 @@ import {
 import {
   SessionMode,
   SessionType,
-} from '../../../../../../shared/src/types/Session';
+} from '../../../../../../shared/src/schemas/Session';
 
 export const getCompletedSessions = (
   hostId: string,

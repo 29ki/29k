@@ -1,5 +1,5 @@
 import {VerificationError} from '../../../../../shared/src/errors/User';
-import {UserData, User} from '../../../../../shared/src/types/User';
+import {UserDataType, UserType} from '../../../../../shared/src/schemas/User';
 import apiClient from '../../apiClient/apiClient';
 
 const USER_ENDPOINT = '/user';
@@ -45,7 +45,7 @@ export const verifyPromotion = async (
   }
 };
 
-export const getUser = async (userId: string): Promise<User> => {
+export const getUser = async (userId: string): Promise<UserType> => {
   try {
     const response = await apiClient(`${USER_ENDPOINT}/${userId}`, {
       method: 'GET',
@@ -61,7 +61,7 @@ export const getUser = async (userId: string): Promise<User> => {
   }
 };
 
-export const getMe = async (): Promise<UserData> => {
+export const getMe = async (): Promise<UserDataType> => {
   try {
     const response = await apiClient(USER_ENDPOINT, {
       method: 'GET',
@@ -77,7 +77,7 @@ export const getMe = async (): Promise<UserData> => {
   }
 };
 
-export const getPublicHosts = async (): Promise<Array<User>> => {
+export const getPublicHosts = async (): Promise<Array<UserType>> => {
   try {
     const response = await apiClient(`${USER_ENDPOINT}/publicHosts`, {
       method: 'GET',
@@ -94,7 +94,7 @@ export const getPublicHosts = async (): Promise<Array<User>> => {
 };
 
 export const updateUser = async (
-  data: Partial<Omit<UserData, 'id' | 'profile'>>,
+  data: Partial<Omit<UserDataType, 'id' | 'profile'>>,
 ) => {
   try {
     const response = await apiClient(USER_ENDPOINT, {

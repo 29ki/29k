@@ -16,7 +16,7 @@ import {
   mockDoc,
   mockSet,
 } from 'firestore-jest-mock/mocks/firestore';
-import {SessionMode, SessionType} from '../../../shared/src/types/Session';
+import {SessionMode, SessionType} from '../../../shared/src/schemas/Session';
 import {addFeedback, logEvent, setUserProperties} from './metrics';
 
 afterEach(() => {

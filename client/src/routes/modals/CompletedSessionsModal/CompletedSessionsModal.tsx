@@ -25,7 +25,7 @@ import {Spacer32, Spacer8} from '../../../lib/components/Spacers/Spacer';
 import {
   SessionMode,
   SessionType,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import useGetSessionsByFeedback from '../../../lib/user/hooks/useGetSessionsByFeedback';
 import FeedbackFilters from './components/FeedbackFilters';
 import ModeFilters from './components/ModeFilters';

@@ -1,20 +1,21 @@
-import {omit} from 'ramda';
 import {PostError} from '../../../shared/src/errors/Post';
 import {getSharingSlideById} from '../../../shared/src/content/exercise';
-import {PostParams} from '../../../shared/src/types/Post';
 import {getExerciseById} from '../lib/exercise';
 import * as postModel from '../models/post';
 import {sendPostMessage} from '../models/slack';
 import {getAuthUserInfo} from '../models/auth';
 import {RequestError} from './errors/RequestError';
+import {CreatePostType} from '../../../shared/src/schemas/Post';
+import {omit} from 'ramda';
 
 const safeGetPublicHostInfo = async (userId: string) => {
   try {
     return await getAuthUserInfo(userId);
   } catch {
-    return undefined;
+    return null;
   }
 };
+
 export const getPostsByExerciseAndSharingId = async (
   exerciseId: string,
   sharingId: string,
@@ -30,12 +31,15 @@ export const getPostsByExerciseAndSharingId = async (
       ...post,
       userProfile: post.userId
         ? await safeGetPublicHostInfo(post.userId)
-        : undefined,
+        : null,
     })),
   );
 };
 
-export const createPost = async (postParams: PostParams, userId: string) => {
+export const createPost = async (
+  postParams: CreatePostType,
+  userId: string,
+) => {
   const postData = {
     ...omit(['anonymous'], postParams),
     userId: postParams.anonymous === false ? userId : null,

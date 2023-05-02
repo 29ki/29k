@@ -45,7 +45,7 @@
     "selectType": {
       "title": "Sessão com...",
       "public": {
-        "title": "Qualquer pessoa"
+        "title": "Outras pessoas"
       },
       "private": {
         "title": "Os meus amigos"

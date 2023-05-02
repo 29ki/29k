@@ -1,7 +1,7 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {renderHook, act} from '@testing-library/react-hooks';
-import {Post} from '../../../../../shared/src/types/Post';
-import {AsyncSession} from '../../../../../shared/src/types/Session';
+import {PostType} from '../../../../../shared/src/schemas/Post';
+import {AsyncSessionType} from '../../../../../shared/src/schemas/Session';
 import {
   FeedbackPayload,
   PostPayload,
@@ -32,7 +32,7 @@ describe('useSharingPosts', () => {
       mockFetchPosts.mockResolvedValueOnce([
         {
           id: 'some-post-id',
-        } as Post,
+        } as PostType,
       ]);
       const {result} = renderHook(() => useSharingPosts('some-exercise-id'));
 
@@ -63,7 +63,7 @@ describe('useSharingPosts', () => {
   describe('addSharingPost', () => {
     it('should add public post', async () => {
       useSessionState.setState({
-        asyncSession: {id: 'some-session-id'} as AsyncSession,
+        asyncSession: {id: 'some-session-id'} as AsyncSessionType,
       });
       useUserState.setState({
         user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
@@ -115,7 +115,7 @@ describe('useSharingPosts', () => {
 
     it('should add non public post', async () => {
       useSessionState.setState({
-        asyncSession: {id: 'some-session-id'} as AsyncSession,
+        asyncSession: {id: 'some-session-id'} as AsyncSessionType,
       });
       useUserState.setState({
         user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
@@ -161,7 +161,7 @@ describe('useSharingPosts', () => {
 
     it('should not add if exercise id is missing', async () => {
       useSessionState.setState({
-        asyncSession: {id: 'some-session-id'} as AsyncSession,
+        asyncSession: {id: 'some-session-id'} as AsyncSessionType,
       });
       useUserState.setState({
         user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,

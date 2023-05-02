@@ -2,7 +2,7 @@ import {UserEvent} from '../../../../../../shared/src/types/Event';
 import {
   SessionMode,
   SessionType,
-} from '../../../../../../shared/src/types/Session';
+} from '../../../../../../shared/src/schemas/Session';
 import {
   PersistedState,
   State as CurrentState,

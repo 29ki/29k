@@ -1,5 +1,13 @@
 import {CmsField, CmsFieldBase, CmsFieldRelation} from 'netlify-cms-core';
-import {ID_FIELD, IMAGE_FIELD, NAME_FIELD} from './common';
+import {
+  DESCRIPTION_FIELD,
+  HIDDEN_FIELD,
+  ID_FIELD,
+  IMAGE_FIELD,
+  NAME_FIELD,
+  PUBLISHED_FIELD,
+  TAGS_FIELD,
+} from './common';
 
 export const EXERCISES_FIELD: CmsFieldBase & CmsFieldRelation = {
   label: '🚴 Exercises',
@@ -16,6 +24,10 @@ export const EXERCISES_FIELD: CmsFieldBase & CmsFieldRelation = {
 export const COLLECTION_FIELDS: Array<CmsField> = [
   ID_FIELD,
   NAME_FIELD,
+  DESCRIPTION_FIELD,
   IMAGE_FIELD,
+  TAGS_FIELD,
+  PUBLISHED_FIELD,
+  HIDDEN_FIELD,
   EXERCISES_FIELD,
 ];

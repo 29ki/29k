@@ -1,5 +1,5 @@
 import {useCallback} from 'react';
-import {AsyncSession} from '../../../../../shared/src/types/Session';
+import {AsyncSessionType} from '../../../../../shared/src/schemas/Session';
 import * as metrics from '../../metrics';
 import useUser from '../../user/hooks/useUser';
 
@@ -13,7 +13,7 @@ const useLogAsyncSessionMetricEvents = () => {
   const user = useUser();
 
   return useCallback(
-    (event: AllowedSharingEvents, session: AsyncSession) => {
+    (event: AllowedSharingEvents, session: AsyncSessionType) => {
       if (session?.id && user?.uid) {
         metrics.logEvent(event, {
           'Sharing Session ID': session.id,

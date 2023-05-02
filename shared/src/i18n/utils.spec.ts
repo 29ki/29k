@@ -38,21 +38,35 @@ describe('utils', () => {
               'exercise-1': {published: true},
               'exercise-2': {},
             },
+            collections: {
+              'collection-1': {published: true},
+              'collection-2': {},
+            },
           },
           pt: {
             exercises: {
               'exercise-1': {},
               'exercise-2': {published: true},
             },
+            collections: {
+              'collection-1': {},
+              'collection-2': {published: true},
+            },
           },
-          sv: {exercises: {}},
-          es: {exercises: {}},
+          sv: {exercises: {}, collections: {}},
+          es: {exercises: {}, collections: {}},
         }),
       ).toEqual({
-        en: {exercises: {'exercise-1': {published: true}}},
-        pt: {exercises: {'exercise-2': {published: true}}},
-        sv: {exercises: {}},
-        es: {exercises: {}},
+        en: {
+          exercises: {'exercise-1': {published: true}},
+          collections: {'collection-1': {published: true}},
+        },
+        pt: {
+          exercises: {'exercise-2': {published: true}},
+          collections: {'collection-2': {published: true}},
+        },
+        sv: {exercises: {}, collections: {}},
+        es: {exercises: {}, collections: {}},
       });
     });
   });
@@ -66,21 +80,35 @@ describe('utils', () => {
               'exercise-1': {},
               'exercise-2': {hidden: true},
             },
+            collections: {
+              'collection-1': {},
+              'collection-2': {hidden: true},
+            },
           },
           pt: {
             exercises: {
               'exercise-1': {hidden: true},
               'exercise-2': {},
             },
+            collections: {
+              'collection-1': {hidden: true},
+              'collection-2': {},
+            },
           },
-          sv: {exercises: {}},
-          es: {exercises: {}},
+          sv: {exercises: {}, collections: {}},
+          es: {exercises: {}, collections: {}},
         }),
       ).toEqual({
-        en: {exercises: {'exercise-1': {}}},
-        pt: {exercises: {'exercise-2': {}}},
-        sv: {exercises: {}},
-        es: {exercises: {}},
+        en: {
+          exercises: {'exercise-1': {}},
+          collections: {'collection-1': {}},
+        },
+        pt: {
+          exercises: {'exercise-2': {}},
+          collections: {'collection-2': {}},
+        },
+        sv: {exercises: {}, collections: {}},
+        es: {exercises: {}, collections: {}},
       });
     });
   });

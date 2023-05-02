@@ -34,7 +34,7 @@ import useAddSessionToCalendar from '../../../lib/sessions/hooks/useAddSessionTo
 import useSessionReminderNotification from '../../../lib/sessions/hooks/useSessionReminderNotification';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import Byline from '../../../lib/components/Bylines/Byline';
-import {formatExerciseName, formatInviteCode} from '../../../lib/utils/string';
+import {formatContentName, formatInviteCode} from '../../../lib/utils/string';
 import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTimeBadge';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import useUser from '../../../lib/user/hooks/useUser';
@@ -44,9 +44,9 @@ import TouchableOpacity from '../../../lib/components/TouchableOpacity/Touchable
 import DateTimePicker from '../../../lib/components/DateTimePicker/DateTimePicker';
 import {updateSession} from '../../../lib/sessions/api/session';
 import {
-  LiveSession,
+  LiveSessionType,
   SessionType,
-} from '../../../../../shared/src/types/Session';
+} from '../../../../../shared/src/schemas/Session';
 import EditSessionType from '../../../lib/components/EditSessionType/EditSessionType';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
@@ -142,7 +142,7 @@ const SessionModal = () => {
     params: {session: initialSessionData},
   } = useRoute<RouteProp<ModalStackProps, 'SessionModal'>>();
 
-  const [session, setSession] = useState<LiveSession>(initialSessionData);
+  const [session, setSession] = useState<LiveSessionType>(initialSessionData);
 
   const {t} = useTranslation('Modal.Session');
   const user = useUser();
@@ -307,7 +307,7 @@ const SessionModal = () => {
       <Content>
         <SpaceBetweenRow>
           <TitleContainer>
-            <Display24>{formatExerciseName(exercise)}</Display24>
+            <Display24>{formatContentName(exercise)}</Display24>
             <Spacer4 />
             <TouchableOpacity onPress={onHostPress}>
               <Byline

@@ -5,7 +5,7 @@ import useSessions from '../../../lib/sessions/hooks/useSessions';
 import useSubscribeToSessionIfFocused from './useSusbscribeToSessionIfFocused';
 import useSubscribeToSession from './useSubscribeToSession';
 import useGetExerciseById from '../../content/hooks/useGetExerciseById';
-import {LiveSession} from '../../../../../shared/src/types/Session';
+import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 
 jest.mock('../../../lib/sessions/hooks/useSessions');
@@ -41,7 +41,7 @@ describe('useSubscribeToSessionIfFocused', () => {
     id: 'session-id',
     exerciseId: 'some-exercise-id',
     language: 'sv',
-  } as LiveSession;
+  } as LiveSessionType;
 
   const useTestHook = ({exitOnEnded = true} = {}) => {
     useSubscribeToSessionIfFocused(mockSession, {

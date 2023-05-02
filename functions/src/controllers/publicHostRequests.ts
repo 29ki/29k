@@ -1,6 +1,6 @@
 import {getAuth} from 'firebase-admin/auth';
 import {VerificationError} from '../../../shared/src/errors/User';
-import {ROLE} from '../../../shared/src/types/User';
+import {ROLE} from '../../../shared/src/schemas/User';
 import {sendPublicHostRequestMessage} from '../models/slack';
 import {
   addPublicHostRequest,

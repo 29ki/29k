@@ -1,5 +1,5 @@
 import {WebClient, KnownBlock} from '@slack/web-api';
-import {SessionMode, SessionType} from '../../../shared/src/types/Session';
+import {SessionMode, SessionType} from '../../../shared/src/schemas/Session';
 import {SlackError, SlackErrorCode} from '../controllers/errors/SlackError';
 import config from '../lib/config';
 import {SHARING_POST_MIN_LENGTH} from '../lib/constants/post';

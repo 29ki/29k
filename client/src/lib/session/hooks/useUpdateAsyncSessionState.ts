@@ -2,12 +2,12 @@ import dayjs from 'dayjs';
 import {useCallback} from 'react';
 import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 import {
-  SessionState,
-  AsyncSession,
-} from '../../../../../shared/src/types/Session';
+  SessionStateType,
+  AsyncSessionType,
+} from '../../../../../shared/src/schemas/Session';
 import useSessionState from '../state/state';
 
-const useUpdateAsyncSessionState = (session: AsyncSession) => {
+const useUpdateAsyncSessionState = (session: AsyncSessionType) => {
   const setSessionState = useSessionState(state => state.setSessionState);
   const setPartialSessionState = useSessionState(
     state => state.setPartialSessionState,
@@ -37,7 +37,7 @@ const useUpdateAsyncSessionState = (session: AsyncSession) => {
       index,
       content,
     }: {
-      index: SessionState['index'];
+      index: SessionStateType['index'];
       content: ExerciseSlide[];
     }) => {
       if (index < 0 || index > content.length - 1) {
@@ -56,7 +56,7 @@ const useUpdateAsyncSessionState = (session: AsyncSession) => {
   );
 
   const setPlaying = useCallback(
-    async (playing: SessionState['playing']) => {
+    async (playing: SessionStateType['playing']) => {
       setPartialSessionState({playing, timestamp: dayjs.utc().toJSON()});
     },
     [setPartialSessionState],
