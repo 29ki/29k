@@ -6,6 +6,8 @@ import {GUTTERS} from '../../constants/spacings';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import hexToRgba from 'hex-to-rgba';
 
+export const HEIGHT = 40;
+
 type Props = {
   backgroundColor?: string;
 };
@@ -19,7 +21,7 @@ const StickyHeading = styled(LinearGradient).attrs<Props, LinearGradientProps>(
     ],
   }),
 )<Props>({
-  height: 40,
+  height: HEIGHT,
   paddingHorizontal: GUTTERS.SMALL,
   justifyContent: 'center',
   backgroundColor: 'none',

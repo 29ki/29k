@@ -11,7 +11,7 @@ import {
 } from '../../../../lib/components/Thumbs/Thumbs';
 import useUserEvents from '../../../../lib/user/hooks/useUserEvents';
 import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
-import SessionsStatus from '../../../../lib/components/SessionsStatus/SessionsStatus';
+import ScoreCard from '../../../../lib/components/ScroreCard/ScoreCard';
 
 const Row = styled(Gutters)({
   flexDirection: 'row',
@@ -42,7 +42,7 @@ const FeedbackFilters: React.FC<{
 
   return (
     <Row>
-      <SessionsStatus
+      <ScoreCard
         selected={selectedFeedback === true}
         Icon={ThumbsUpWithoutPadding}
         onPress={onThumbsUpPress}
@@ -51,7 +51,7 @@ const FeedbackFilters: React.FC<{
         disabled={!positiveFeedbacks.length}
       />
       <Spacer16 />
-      <SessionsStatus
+      <ScoreCard
         selected={selectedFeedback === false}
         Icon={ThumbsDownWithoutPadding}
         onPress={onThumbsDownPress}
