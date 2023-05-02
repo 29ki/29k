@@ -198,7 +198,10 @@ class VideoLooperView: RCTView {
           case .failed:
             reject(error!)
           default:
-            reject(error!)
+            reject(NSError(
+              domain: "",
+              code: -1,
+              userInfo: [NSLocalizedDescriptionKey: "\(String(describing: source)) unknown error"]))
           }
         }
       } else {
