@@ -137,17 +137,21 @@ const CompletedSessionsModal = () => {
 
   const renderItem = useCallback<
     SectionListRenderItem<CompletedSessionEvent, Section>
-  >(
-    ({item, index, section}) => (
+  >(({item, index, section}) => {
+    const sectionIndex = data.indexOf(section);
+    return (
       <Gutters key={item.payload.id}>
         <JourneyNode
           completedSessionEvent={item}
-          isLast={index === section.data.length - 1}
+          isLast={
+            index === section.data.length - 1 &&
+            sectionIndex === data.length - 1
+          }
+          isFirst={index === 0 && sectionIndex === 0}
         />
       </Gutters>
-    ),
-    [],
-  );
+    );
+  }, []);
 
   const footer = useMemo(
     () => (

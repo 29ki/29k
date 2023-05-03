@@ -8,7 +8,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {useNavigation, useScrollToTop} from '@react-navigation/native';
-import {findLastIndex} from 'ramda';
+import {findLastIndex, propEq} from 'ramda';
 
 import getSectionListItemLayout from '../../../lib/utils/getSectionListItemLayout';
 
@@ -72,12 +72,13 @@ const renderSectionHeader: (info: {
   ) : null;
 
 const getItemLayout = getSectionListItemLayout<Item, Section>({
-  getItemHeight: item => {
+  getItemHeight: (item, sectionIndex, rowIndex) => {
     switch (item?.type) {
       case 'completedSession':
-        return JOURNEY_NODE_HEIGHT;
+        const isFirstItem = sectionIndex === 0 && rowIndex === 0;
+        return JOURNEY_NODE_HEIGHT - (isFirstItem ? SPACINGS.SIXTEEN : 0);
       case 'filter':
-        return FILTER_HEIGHT + SPACINGS.TWENTYEIGHT;
+        return FILTER_HEIGHT + SPACINGS.TWENTYEIGHT * 2;
       case 'pinnedCollection':
         return COLLECTION_HEIGHT + SPACINGS.SIXTEEN;
       case 'plannedSession':
@@ -160,11 +161,20 @@ const Journey = () => {
     ({section, item, index}) => {
       switch (item.type) {
         case 'completedSession':
+          const sectionIndex = sections.indexOf(section);
+          const lastCompletedIndex = findLastIndex(
+            s => s.type === 'completedSessions',
+            sections,
+          );
           return (
             <Gutters>
               <JourneyNode
                 completedSessionEvent={item.data}
-                isLast={index === section.data.length - 1}
+                isLast={
+                  index === section.data.length - 1 &&
+                  sectionIndex === lastCompletedIndex
+                }
+                isFirst={index === 0 && sectionIndex === 0}
               />
             </Gutters>
           );
@@ -172,6 +182,7 @@ const Journey = () => {
         case 'filter':
           return (
             <Gutters>
+              <Spacer28 />
               <SessionFilters />
               <Spacer28 />
             </Gutters>
@@ -194,7 +205,7 @@ const Journey = () => {
           );
       }
     },
-    [],
+    [sections],
   );
 
   if (!sections.length) {
