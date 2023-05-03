@@ -190,8 +190,19 @@ class VideoLooperView: RCTView {
       }
       
       if asset != nil {
-        asset!.loadValuesAsynchronously(forKeys: ["duration", "playable"]) {
-          fullfill(asset)
+        asset!.loadValuesAsynchronously(forKeys: ["playable"]) {
+          var error: NSError? = nil
+          switch asset!.statusOfValue(forKey: "playable", error: &error) {
+          case .loaded:
+            fullfill(asset)
+          case .failed:
+            reject(error!)
+          default:
+            reject(NSError(
+              domain: "",
+              code: -1,
+              userInfo: [NSLocalizedDescriptionKey: "\(String(describing: source)) unknown error"]))
+          }
         }
       } else {
         reject(
@@ -387,7 +398,6 @@ class VideoLooperView: RCTView {
     }
     
     if (_player?.items().last == item) {
-      _player?.actionAtItemEnd = .pause
       if onEnd != nil {
         let event = [AnyHashable: Any]()
         onEnd!(event)
@@ -415,6 +425,7 @@ class VideoLooperView: RCTView {
         addLoopItemObserver(item: playerItem)
       }
     } else {
+      _player?.actionAtItemEnd = .pause
       if onTransition != nil {
         let event = [AnyHashable: Any]()
         onTransition!(event)
