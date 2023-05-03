@@ -18,10 +18,12 @@ export type Item =
   | PinnedCollectionItem
   | PlannedSessionItem;
 
-type CompletedSessionItem = {
+export type CompletedSessionItem = {
   id: string;
   type: 'completedSession';
   data: CompletedSessionEvent;
+  isLast: boolean;
+  isFirst: boolean;
 };
 
 type FilterItem = {

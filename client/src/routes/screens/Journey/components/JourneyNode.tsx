@@ -40,6 +40,7 @@ const NODE_SIZE = 22;
 
 type JourneyNodeProps = {
   completedSessionEvent: CompletedSessionEvent;
+  isFirst: boolean;
   isLast: boolean;
 };
 
@@ -47,23 +48,29 @@ const Lottie = styled(AnimatedLottieView)({
   aspectRatio: '1',
 });
 
-const Container = styled(TouchableOpacity)({
-  flexDirection: 'row',
-  height: HEIGHT,
-});
+const Container = styled(TouchableOpacity)<Pick<JourneyNodeProps, 'isFirst'>>(
+  ({isFirst}) => ({
+    flexDirection: 'row',
+    height: HEIGHT,
+    marginBottom: isFirst ? -SPACINGS.SIXTEEN : 0,
+  }),
+);
 
-const ContentContainer = styled.View({
-  marginLeft: SPACINGS.FOUR,
-  flex: 1,
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-});
+const ContentContainer = styled.View<Pick<JourneyNodeProps, 'isFirst'>>(
+  ({isFirst}) => ({
+    marginLeft: SPACINGS.FOUR,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: isFirst ? 0 : SPACINGS.SIXTEEN,
+  }),
+);
 
 const Line = styled.View<Pick<JourneyNodeProps, 'isLast'>>(({isLast}) => ({
   position: 'absolute',
   left: NODE_SIZE / 2,
   width: 1,
-  height: isLast ? 0 : HEIGHT,
+  height: isLast ? SPACINGS.SIXTEEN : HEIGHT,
   backgroundColor: COLORS.BLACK,
 }));
 
@@ -92,8 +99,13 @@ const ThumbsDown = styled(ThumbsDownWithoutPadding)({
   aspectRatio: 1,
 });
 
+const NodeContainer = styled.View<{isFirst: boolean}>(({isFirst}) => ({
+  marginTop: isFirst ? 0 : SPACINGS.SIXTEEN,
+}));
+
 const JourneyNode: React.FC<JourneyNodeProps> = ({
   completedSessionEvent,
+  isFirst = false,
   isLast = false,
 }) => {
   const {
@@ -140,10 +152,12 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
   );
 
   return (
-    <Container onPress={openCompleteSessionModal}>
+    <Container onPress={openCompleteSessionModal} isFirst={isFirst}>
       <Line isLast={isLast} />
-      <Node size={NODE_SIZE} />
-      <ContentContainer>
+      <NodeContainer isFirst={isFirst}>
+        <Node size={NODE_SIZE} />
+      </NodeContainer>
+      <ContentContainer isFirst={isFirst}>
         <View>
           <StatusRow>
             <Badge
