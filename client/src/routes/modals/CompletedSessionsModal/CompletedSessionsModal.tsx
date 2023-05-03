@@ -2,7 +2,6 @@ import {RouteProp, useIsFocused, useRoute} from '@react-navigation/native';
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {
   SectionList as RNSectionList,
-  SectionListData,
   SectionListRenderItem,
 } from 'react-native';
 import {
@@ -38,8 +37,6 @@ import StickyHeading, {
 } from '../../../lib/components/StickyHeading/StickyHeading';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import getSectionListItemLayout from '../../../lib/utils/getSectionListItemLayout';
-
-const LIST_ITEM_HEIGHT = 110;
 
 type Section = {
   title: string;
