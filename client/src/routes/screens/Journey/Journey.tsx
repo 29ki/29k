@@ -8,7 +8,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {useNavigation, useScrollToTop} from '@react-navigation/native';
-import {findLastIndex, propEq} from 'ramda';
+import {findLastIndex} from 'ramda';
 
 import getSectionListItemLayout from '../../../lib/utils/getSectionListItemLayout';
 
