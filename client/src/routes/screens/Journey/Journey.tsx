@@ -105,13 +105,11 @@ const Journey = () => {
   const filtersScrollIndex = useRef({sectionIndex: 0, itemIndex: 0});
 
   const scrollToFiltersSection = useCallback((animated = false) => {
-    requestAnimationFrame(() => {
-      listRef.current?.scrollToLocation({
-        ...filtersScrollIndex.current,
-        viewOffset: -(FILTER_HEIGHT / 2),
-        viewPosition: 0.5, // Center of the screen
-        animated,
-      });
+    listRef.current?.scrollToLocation({
+      ...filtersScrollIndex.current,
+      viewOffset: -(FILTER_HEIGHT / 2),
+      viewPosition: 0.5, // Center of the screen
+      animated,
     });
   }, []);
 
