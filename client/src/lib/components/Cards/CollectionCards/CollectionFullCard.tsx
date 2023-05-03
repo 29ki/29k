@@ -10,6 +10,8 @@ import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
 import {Spacer4, Spacer8} from '../../Spacers/Spacer';
 import SessionProgress from '../../SessionProgress/SessionProgress';
 
+export const HEIGHT = 174;
+
 type CollectionFullCardProps = {
   title?: string;
   image: ImageSourcePropType;
@@ -18,7 +20,7 @@ type CollectionFullCardProps = {
 };
 
 const Container = styled(TouchableOpacity)({
-  height: 174,
+  height: HEIGHT,
   backgroundColor: COLORS.GREYLIGHTEST,
   paddingVertical: SPACINGS.FOUR,
   paddingHorizontal: SPACINGS.SIXTEEN,

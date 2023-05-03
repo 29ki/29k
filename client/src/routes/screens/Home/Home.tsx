@@ -1,9 +1,9 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {RefreshControl, SectionList} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useScrollToTop} from '@react-navigation/native';
 
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 
@@ -105,7 +105,10 @@ const Home = () => {
     useNavigation<NativeStackNavigationProp<OverlayStackProps>>();
   const {fetchSessions, sessions, pinnedSessions, hostedSessions} =
     useSessions();
+  const listRef = useRef<SectionList<LiveSessionType, Section>>(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  useScrollToTop(listRef);
 
   const sections = useMemo(() => {
     let sectionsList: Section[] = [];
@@ -161,6 +164,7 @@ const Home = () => {
         <MiniProfile />
       </TopBar>
       <SectionList
+        ref={listRef}
         sections={sections}
         keyExtractor={session => session.id}
         ListHeaderComponent={Spacer24}

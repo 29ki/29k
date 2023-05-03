@@ -7,6 +7,8 @@ import {Body16} from '../../../lib/components/Typography/Body/Body';
 import {Display28} from '../../../lib/components/Typography/Display/Display';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 
+export const HEIGHT = 110;
+
 const Row = styled.View({
   flexDirection: 'row',
   justifyContent: 'space-between',
@@ -19,7 +21,7 @@ const Container = styled(TouchableOpacity)<{selected: boolean}>(
     borderRadius: 16,
     padding: 11,
     flex: 1,
-    minHeight: 96,
+    height: HEIGHT,
     border: selected ? `1px ${COLORS.PRIMARY}` : 'none',
     flexGrow: 1 / 2,
   }),
@@ -30,7 +32,7 @@ const IconWrapper = styled.View({
   height: 30,
 });
 
-const SessionsStatus: React.FC<{
+const ScoreCard: React.FC<{
   Icon: React.FC;
   onPress?: () => void;
   heading: string;
@@ -57,4 +59,4 @@ const SessionsStatus: React.FC<{
   </Container>
 );
 
-export default SessionsStatus;
+export default ScoreCard;

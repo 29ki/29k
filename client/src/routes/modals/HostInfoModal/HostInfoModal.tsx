@@ -26,7 +26,7 @@ import {COLORS} from '../../../../../shared/src/constants/colors';
 import {Display18} from '../../../lib/components/Typography/Display/Display';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {CommunityIcon, FriendsIcon} from '../../../lib/components/Icons';
-import SessionsStatus from '../../../lib/components/SessionsStatus/SessionsStatus';
+import ScoreCard from '../../../lib/components/ScroreCard/ScoreCard';
 
 const EmptyListContainer = styled.View({
   alignItems: 'center',
@@ -114,14 +114,14 @@ const HostInfoModal: React.FC = () => {
             <Body18>{host?.description}</Body18>
             <Spacer32 />
             <Row>
-              <SessionsStatus
+              <ScoreCard
                 Icon={CommunityIcon}
                 disabled={true}
                 heading={`${host?.hostedPublicCount ?? 0}`}
                 description={t('publicSessions')}
               />
               <Spacer16 />
-              <SessionsStatus
+              <ScoreCard
                 Icon={FriendsIcon}
                 disabled={true}
                 heading={`${host?.hostedPrivateCount ?? 0}`}
