@@ -156,23 +156,15 @@ const Journey = () => {
   }, [navigate]);
 
   const renderSession = useCallback<SectionListRenderItem<Item, Section>>(
-    ({section, item, index}) => {
+    ({item}) => {
       switch (item.type) {
         case 'completedSession':
-          const sectionIndex = sections.indexOf(section);
-          const lastCompletedIndex = findLastIndex(
-            s => s.type === 'completedSessions',
-            sections,
-          );
           return (
             <Gutters>
               <JourneyNode
                 completedSessionEvent={item.data}
-                isLast={
-                  index === section.data.length - 1 &&
-                  sectionIndex === lastCompletedIndex
-                }
-                isFirst={index === 0 && sectionIndex === 0}
+                isLast={item.isLast}
+                isFirst={item.isFirst}
               />
             </Gutters>
           );
@@ -203,7 +195,7 @@ const Journey = () => {
           );
       }
     },
-    [sections],
+    [],
   );
 
   if (!sections.length) {
