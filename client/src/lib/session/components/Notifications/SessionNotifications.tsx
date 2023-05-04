@@ -60,8 +60,9 @@ const SessionNotifications: React.FC<{
 
   const participantJoined = useCallback(
     (event: DailyEventObject<'participant-joined'> | undefined) => {
-      const image = (event?.participant.userData as DailyUserData)?.photoURL;
-      const name = event?.participant.user_name ?? '';
+      const userData = event?.participant.userData as DailyUserData;
+      const image = userData?.photoURL;
+      const name = userData?.userName ?? '';
       const localParticipantJoinedAt = dayjs.utc(localParticipant?.joined_at);
       const participantJoinedAt = dayjs.utc(event?.participant.joined_at);
 
@@ -78,8 +79,9 @@ const SessionNotifications: React.FC<{
 
   const participantLeft = useCallback(
     (event: DailyEventObject<'participant-left'> | undefined) => {
-      const image = (event?.participant.userData as DailyUserData)?.photoURL;
-      const name = event?.participant.user_name ?? '';
+      const userData = event?.participant.userData as DailyUserData;
+      const image = userData?.photoURL;
+      const name = userData?.userName ?? '';
       addNotification({
         text: t('notifications.left', {name}),
         letter: name[0],

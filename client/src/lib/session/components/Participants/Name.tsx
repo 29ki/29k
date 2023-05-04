@@ -5,11 +5,12 @@ import styled from 'styled-components/native';
 import {Body16} from '../../../components/Typography/Body/Body';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {ViewStyle} from 'react-native';
+import {DailyUserData} from '../../../../../../shared/src/schemas/Session';
 
 const renderName = (participant: DailyParticipant, suffix: string) =>
   participant.local
-    ? `${participant.user_name} (${suffix})`
-    : participant.user_name;
+    ? `${(participant.userData as DailyUserData)?.userName} (${suffix})`
+    : (participant.userData as DailyUserData)?.userName;
 
 const Name = styled(Body16)({
   color: COLORS.PURE_WHITE,
