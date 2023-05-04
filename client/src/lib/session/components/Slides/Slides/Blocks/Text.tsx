@@ -12,13 +12,18 @@ const StyledText = styled(Display16)<StyledTextProp>(({textColor}) => ({
   color: textColor ?? COLORS.BLACK,
 }));
 
-const Text: React.FC<{children: React.ReactNode}> = ({children}) => {
+const Text: React.FC<{children: React.ReactNode; multiline?: boolean}> = ({
+  children,
+  multiline = false,
+}) => {
   const theme = useSessionState(state => state.exercise?.theme);
 
   return (
     <Gutters>
       <Spacer4 />
-      <StyledText textColor={theme?.textColor} numberOfLines={2}>
+      <StyledText
+        textColor={theme?.textColor}
+        numberOfLines={multiline ? undefined : 2}>
         {children}
       </StyledText>
     </Gutters>

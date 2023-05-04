@@ -18,6 +18,7 @@ export const SLIDE_TYPES = {
   CONTENT: 'content',
   REFLECTION: 'reflection',
   SHARING: 'sharing',
+  TEXT: 'text',
 };
 
 export const HOST_NOTES: CmsFieldBase & CmsFieldList = {
@@ -111,6 +112,22 @@ const CONTENT_FIELDS: Array<CmsField> = [
   CONTENT_LOTTIE_FIELD,
 ];
 
+const TEXT_FIELDS: Array<CmsField> = [
+  IMAGE_FIELD,
+  {
+    label: '◾️ Heading',
+    name: 'heading',
+    widget: 'string',
+    required: false,
+  },
+  {
+    label: '◾️ Text',
+    name: 'text',
+    widget: 'markdown',
+    required: false,
+  },
+];
+
 export const HOST_SLIDE: CmsFieldBase & CmsFieldObject = {
   label: '💁‍♀️ Host slide',
   name: SLIDE_TYPES.HOST,
@@ -133,6 +150,23 @@ export const CONTENT_SLIDE: CmsFieldBase & CmsFieldObject = {
       required: false,
       collapsed: false,
       fields: CONTENT_FIELDS,
+    },
+  ],
+};
+
+export const TEXT_SLIDE: CmsFieldBase & CmsFieldObject = {
+  label: '📃 Text slide',
+  name: SLIDE_TYPES.TEXT,
+  widget: 'object',
+  collapsed: true,
+  fields: [
+    {
+      label: 'Content',
+      name: 'content',
+      widget: 'object',
+      required: false,
+      collapsed: false,
+      fields: TEXT_FIELDS,
     },
   ],
 };

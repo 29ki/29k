@@ -37,7 +37,9 @@ const useResolveHostNotes = (
     if (introPortal) {
       return resolveNotes(async, exercise?.introPortal?.hostNotes);
     }
-    return resolveNotes(async, slideState?.current.hostNotes);
+    if (slideState?.current.type !== 'text') {
+      return resolveNotes(async, slideState?.current.hostNotes);
+    }
   }, [async, exercise, introPortal, slideState]);
 };
 
