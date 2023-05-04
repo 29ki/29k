@@ -35,21 +35,18 @@ export const LogoIcon: IconType = ({fill = COLORS.BLACK}) => (
 
 export const LogoIconAnimated = React.memo(() => {
   const rotation = useSharedValue(0);
-  const scale = useSharedValue(0.8);
 
   useEffect(() => {
     rotation.value = withRepeat(
-      withTiming(360, {duration: 20000, easing: Easing.linear}),
+      withTiming(360, {duration: 30000, easing: Easing.linear}),
       -1,
       false,
     );
-
-    scale.value = withRepeat(withTiming(1, {duration: 5000}), -1, true);
   });
 
   const animatedStyle = useAnimatedStyle(
     () => ({
-      transform: [{rotateZ: `${rotation.value}deg`}, {scale: scale.value}],
+      transform: [{rotateZ: `${rotation.value}deg`}],
     }),
     [rotation.value],
   );
