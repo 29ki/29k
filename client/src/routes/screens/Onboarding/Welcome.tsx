@@ -27,6 +27,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {AppStackProps} from '../../../lib/navigation/constants/routes';
 import BackgroundGradient from './components/BackgroundGradient';
+import Footer from './components/Footer';
 
 const {width: WINDOW_WIDTH, height: WINDOW_HEIGHT} = Dimensions.get('window');
 
@@ -102,12 +103,6 @@ const Heading2 = styled(Display36)({
   color: COLORS.PURE_WHITE,
 });
 
-const ContinueButton = styled(Button)({
-  position: 'absolute',
-  bottom: '8%',
-  alignSelf: 'center',
-});
-
 const Welcome = () => {
   const {t} = useTranslation('Screen.Onboarding');
   const {navigate} = useNavigation<NativeStackNavigationProp<AppStackProps>>();
@@ -140,9 +135,11 @@ const Welcome = () => {
         <Heading1>{t('start.heading1')}</Heading1>
         <Heading2>{t('start.heading2')}</Heading2>
       </HeadingWrapper>
-      <ContinueButton onPress={onButtonPress}>
-        <BodyBold>{t('continueButton')}</BodyBold>
-      </ContinueButton>
+      <Footer>
+        <Button onPress={onButtonPress}>
+          <BodyBold>{t('continueButton')}</BodyBold>
+        </Button>
+      </Footer>
     </>
   );
 };
