@@ -34,6 +34,10 @@ import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
+import usePinnedCollections from '../../../lib/user/hooks/usePinnedCollections';
+import useGetStartedCollection from '../../../lib/content/hooks/useGetStartedCollection';
+import useUserEvents from '../../../lib/user/hooks/useUserEvents';
+import CollectionCardContainer from '../../../lib/components/Cards/CollectionCards/CollectionCardContainer';
 
 type Section = {
   title: string;
@@ -68,6 +72,37 @@ const AddSessionForm = () => {
       <Spacer12 />
     </AddSessionWrapper>
   );
+};
+
+const GetStarted = () => {
+  const {pinnedCollections} = usePinnedCollections();
+  const {getStartedCollection} = useGetStartedCollection();
+  const {completedCollectionEvents} = useUserEvents();
+
+  const getStarted = useMemo(() => {
+    const collection = pinnedCollections.find(
+      p => p.id === getStartedCollection?.id,
+    );
+    if (
+      collection &&
+      !completedCollectionEvents.find(
+        c => c.payload.id === getStartedCollection?.id,
+      )
+    ) {
+      return collection;
+    }
+    return null;
+  }, [pinnedCollections, getStartedCollection, completedCollectionEvents]);
+
+  if (getStarted) {
+    return (
+      <Gutters>
+        <Spacer24 />
+        <CollectionCardContainer collectionId={getStarted.id} />
+      </Gutters>
+    );
+  }
+  return <Spacer24 />;
 };
 
 const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
@@ -167,7 +202,7 @@ const Home = () => {
         ref={listRef}
         sections={sections}
         keyExtractor={session => session.id}
-        ListHeaderComponent={Spacer24}
+        ListHeaderComponent={GetStarted}
         ListFooterComponent={Spacer48}
         stickySectionHeadersEnabled
         renderSectionHeader={renderSectionHeader}

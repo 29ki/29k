@@ -13,6 +13,54 @@ afterEach(() => {
 });
 
 describe('user - state', () => {
+  describe('setUserAndClaims', () => {
+    it('should initialize user state if user is anonymous', () => {
+      const {result} = renderHook(() => useUserState());
+
+      act(() => {
+        result.current.setUserAndClaims({
+          user: {
+            uid: 'user-id',
+            isAnonymous: true,
+          } as FirebaseAuthTypes.User,
+          claims: {},
+        });
+      });
+
+      expect(result.current.userState['user-id'].pinnedCollections).toEqual([
+        {
+          id: '46f653cd-b77f-458d-a257-1b171591c08b',
+          startedAt: expect.any(String),
+        },
+      ]);
+    });
+
+    it('should not initialize user state if user is not anonymous', () => {
+      useUserState.setState({
+        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
+        userState: {
+          'user-id': {
+            pinnedCollections: [],
+          },
+        },
+      });
+
+      const {result} = renderHook(() => useUserState());
+
+      act(() => {
+        result.current.setUserAndClaims({
+          user: {
+            uid: 'user-id',
+            isAnonymous: false,
+          } as FirebaseAuthTypes.User,
+          claims: {},
+        });
+      });
+
+      expect(result.current.userState['user-id'].pinnedCollections).toEqual([]);
+    });
+  });
+
   describe('setPinnedState', () => {
     it('should set pinned sessions on empty userState', () => {
       useUserState.setState({
@@ -32,6 +80,7 @@ describe('user - state', () => {
         {id: 'session-id', expires: expect.any(Date)},
       ]);
     });
+
     it('should replace pinned sessions on existing userState', () => {
       useUserState.setState({
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,

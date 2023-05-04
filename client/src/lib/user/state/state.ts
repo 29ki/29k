@@ -18,6 +18,7 @@ import {
 } from '../../../../../shared/src/types/Event';
 import {UserDataType} from '../../../../../shared/src/schemas/User';
 import {Collection} from '../../../../../shared/src/types/generated/Collection';
+import {GET_STARTED_COLLECTION_ID} from '../../content/constants';
 
 dayjs.extend(utc);
 
@@ -77,6 +78,10 @@ export type Actions = {
   setCurrentUserState: SetCurrentUserState;
   reset: (isDelete?: boolean) => void;
 };
+
+const createInitialUserState = (timestamp: string): UserState => ({
+  pinnedCollections: [{id: GET_STARTED_COLLECTION_ID, startedAt: timestamp}],
+});
 
 const initialState: State = {
   user: null,
@@ -150,7 +155,13 @@ const useUserState = create<State & Actions>()(
         setUser: user => set({user}),
         setData: data => set(state => ({data: {...state.data, ...data}})),
         setClaims: claims => set({claims}),
-        setUserAndClaims: ({user, claims}) => set({user, claims}),
+        setUserAndClaims: ({user, claims}) => {
+          set({user, claims});
+          // New user, create the default state
+          if (user?.isAnonymous) {
+            setCurrentUserState(createInitialUserState(dayjs().utc().toJSON()));
+          }
+        },
         setCurrentUserState,
         setPinnedSessions: pinnedSessions =>
           setCurrentUserState({pinnedSessions}),

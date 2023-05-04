@@ -23,12 +23,12 @@ const App = () => (
         <UiLibProvider>
           <Navigation>
             <MetricsProvider>
-              <Bootstrap>
-                <Suspense>
+              <Suspense>
+                <Bootstrap>
                   <RootNavigator />
                   <CodePushOverlay />
-                </Suspense>
-              </Bootstrap>
+                </Bootstrap>
+              </Suspense>
             </MetricsProvider>
           </Navigation>
         </UiLibProvider>

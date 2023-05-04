@@ -33,10 +33,10 @@ import Gutters from '../../../lib/components/Gutters/Gutters';
 import Screen from '../../../lib/components/Screen/Screen';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
+import CollectionCardContainer from '../../../lib/components/Cards/CollectionCards/CollectionCardContainer';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
-import CollectionCardContainer from './components/CollectionCardContainer';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 import SessionFilters from './components/SessionFilters';
 

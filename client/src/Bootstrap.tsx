@@ -20,11 +20,17 @@ i18nLib.init();
 sentry.init();
 metrics.init();
 
+const useInitHidableContent = () => {
+  useTranslation('collections');
+  useTranslation('exercises');
+};
+
 const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
   useAuthenticateUser();
   usePreferredLanguage();
 
   const {i18n} = useTranslation();
+  useInitHidableContent();
 
   const setIsColdStarted = useAppState(state => state.setIsColdStarted);
   const checkKillSwitch = useKillSwitch();

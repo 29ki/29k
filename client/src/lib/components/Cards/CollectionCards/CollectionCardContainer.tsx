@@ -2,13 +2,13 @@ import React, {useCallback, useMemo} from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useNavigation} from '@react-navigation/native';
 
-import {JourneyStackProps} from '../../../../lib/navigation/constants/routes';
-import useCollectionById from '../../../../lib/content/hooks/useCollectionById';
-import usePinnedCollectionById from '../../../../lib/user/hooks/usePinnedCollectionById';
-import useCompletedSessionByTime from '../../../../lib/user/hooks/useCompletedSessionByTime';
-import CollectionFullCard from '../../../../lib/components/Cards/CollectionCards/CollectionFullCard';
-import useExercisesByCollectionId from '../../../../lib/content/hooks/useExercisesByCollectionId';
-import {formatContentName} from '../../../../lib/utils/string';
+import {JourneyStackProps} from '../../../navigation/constants/routes';
+import useCollectionById from '../../../content/hooks/useCollectionById';
+import usePinnedCollectionById from '../../../user/hooks/usePinnedCollectionById';
+import useCompletedSessionByTime from '../../../user/hooks/useCompletedSessionByTime';
+import useExercisesByCollectionId from '../../../content/hooks/useExercisesByCollectionId';
+import CollectionFullCard from './CollectionFullCard';
+import {formatContentName} from '../../../utils/string';
 
 type CollectionCardContainer = {
   collectionId: string;
