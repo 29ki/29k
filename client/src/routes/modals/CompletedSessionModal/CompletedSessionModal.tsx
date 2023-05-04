@@ -1,6 +1,6 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import dayjs from 'dayjs';
-import React, {useCallback, useMemo} from 'react';
+import React, {Fragment, useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
@@ -47,6 +47,9 @@ import useGetFeedbackBySessionId from '../../../lib/user/hooks/useGetFeedbackByS
 import FeedbackThumb from './components/FeedbackThumb';
 import FeedbackComment from './components/FeedbackComment';
 import Node from '../../../lib/components/Node/Node';
+import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
+import {SPACINGS} from '../../../lib/constants/spacings';
+import Tag from '../../../lib/components/Tag/Tag';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -81,6 +84,13 @@ const SharingPost = styled(MyPostCard)({
   backgroundColor: COLORS.WHITE,
 });
 
+const Tags = styled(Gutters)({
+  flexWrap: 'wrap',
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginTop: -SPACINGS.FOUR,
+});
+
 const ButtonWrapper = styled.View({flexDirection: 'row'});
 
 const CompletedSessionModal = () => {
@@ -94,6 +104,7 @@ const CompletedSessionModal = () => {
   const {payload, timestamp} = completedSessionEvent;
   const user = useUser();
   const exercise = useExerciseById(payload.exerciseId);
+  const tags = useGetSessionCardTags(exercise);
   const {getSharingPostForSession} = useSharingPosts(exercise?.id);
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
 
@@ -182,6 +193,16 @@ const CompletedSessionModal = () => {
               <Markdown>{exercise?.description}</Markdown>
             </Gutters>
           </>
+        )}
+        {tags && (
+          <Tags>
+            {tags.map(tag => (
+              <Fragment key={tag}>
+                <Tag>{tag}</Tag>
+                <Spacer4 />
+              </Fragment>
+            ))}
+          </Tags>
         )}
         <Spacer16 />
         <StatusRow>
