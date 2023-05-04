@@ -10,9 +10,9 @@ import {
 import Gutters from '../../../../../lib/components/Gutters/Gutters';
 import {
   CommunityIcon,
-  LogoIcon,
   FriendsIcon,
   MeIcon,
+  LogoIconAnimated,
 } from '../../../../../lib/components/Icons';
 import {
   Spacer16,
@@ -87,8 +87,8 @@ const Centered = styled.View({
 });
 
 const LogoWrapper = styled.View({
-  width: 80,
-  height: 80,
+  width: 100,
+  height: 100,
 });
 
 const ButtonWrapper = styled.View({
@@ -290,7 +290,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
         </TextWrapper>
         <Spacer16 />
         <LogoWrapper>
-          <LogoIcon />
+          <LogoIconAnimated />
         </LogoWrapper>
       </Row>
       <Spacer28 />
