@@ -63,7 +63,6 @@ import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
 import usePinSession from '../../../lib/sessions/hooks/usePinSession';
 import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
 import Tag from '../../../lib/components/Tag/Tag';
-import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
 import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
 
 const TypeWrapper = styled(TouchableOpacity)({
