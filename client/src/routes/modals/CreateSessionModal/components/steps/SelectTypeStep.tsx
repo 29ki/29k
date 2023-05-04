@@ -50,7 +50,7 @@ import {fetchSessions} from '../../../../../lib/sessions/api/sessions';
 import {ModalStackProps} from '../../../../../lib/navigation/constants/routes';
 import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsyncSession';
 import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown';
-import useGetSessionCardTags from '../../../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
+import useGetTagsById from '../../../../../lib/content/hooks/useGetTagsById';
 import Tag from '../../../../../lib/components/Tag/Tag';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
@@ -169,7 +169,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
     [exercise],
   );
 
-  const tags = useGetSessionCardTags(exercise);
+  const tags = useGetTagsById(exercise?.tags);
 
   const onJoinByInvite = useCallback(() => {
     popToTop();
@@ -286,8 +286,8 @@ const SelectTypeStep: React.FC<StepProps> = ({
               )}
               {tags && (
                 <Tags>
-                  {tags.map(tag => (
-                    <Fragment key={tag}>
+                  {tags.map(({id, tag}) => (
+                    <Fragment key={id}>
                       <Tag>{tag}</Tag>
                       <Spacer4 />
                     </Fragment>
