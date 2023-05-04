@@ -64,6 +64,7 @@ import usePinSession from '../../../lib/sessions/hooks/usePinSession';
 import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
 import Tag from '../../../lib/components/Tag/Tag';
 import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
+import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',
@@ -178,7 +179,7 @@ const SessionModal = () => {
 
   const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session?.exerciseId);
-  const tags = useGetSessionCardTags(exercise);
+  const tags = useGetTagsById(exercise?.tags);
   const {reminderEnabled, toggleReminder} =
     useSessionReminderNotification(session);
   const confirmToggleReminder = useConfirmSessionReminder(session);
@@ -351,8 +352,8 @@ const SessionModal = () => {
 
       {tags && (
         <Tags>
-          {tags.map(tag => (
-            <Fragment key={tag}>
+          {tags.map(({id, tag}) => (
+            <Fragment key={id}>
               <Tag>{tag}</Tag>
               <Spacer4 />
             </Fragment>

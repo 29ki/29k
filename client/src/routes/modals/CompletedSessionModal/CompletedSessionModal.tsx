@@ -6,6 +6,7 @@ import {View} from 'react-native';
 import styled from 'styled-components/native';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import {complement, isNil} from 'ramda';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -31,7 +32,6 @@ import {
   FriendsIcon,
   MeIcon,
 } from '../../../lib/components/Icons';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {
   SessionMode,
   SessionType,
@@ -47,9 +47,9 @@ import useGetFeedbackBySessionId from '../../../lib/user/hooks/useGetFeedbackByS
 import FeedbackThumb from './components/FeedbackThumb';
 import FeedbackComment from './components/FeedbackComment';
 import Node from '../../../lib/components/Node/Node';
-import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import Tag from '../../../lib/components/Tag/Tag';
+import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -104,7 +104,7 @@ const CompletedSessionModal = () => {
   const {payload, timestamp} = completedSessionEvent;
   const user = useUser();
   const exercise = useExerciseById(payload.exerciseId);
-  const tags = useGetSessionCardTags(exercise);
+  const tags = useGetTagsById(exercise?.tags);
   const {getSharingPostForSession} = useSharingPosts(exercise?.id);
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
 
@@ -196,8 +196,8 @@ const CompletedSessionModal = () => {
         )}
         {tags && (
           <Tags>
-            {tags.map(tag => (
-              <Fragment key={tag}>
+            {tags.map(({id, tag}) => (
+              <Fragment key={id}>
                 <Tag>{tag}</Tag>
                 <Spacer4 />
               </Fragment>
