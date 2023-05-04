@@ -1,3 +1,5 @@
+import {groupBy} from 'ramda';
+import dayjs from 'dayjs';
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {RefreshControl, SectionList} from 'react-native';
 import {useTranslation} from 'react-i18next';
@@ -34,6 +36,7 @@ import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
+import useGetRelativeDateGroup from '../../../lib/date/hooks/useGetRelativeDateGroup';
 
 type Section = {
   title: string;
@@ -105,6 +108,7 @@ const Home = () => {
     useNavigation<NativeStackNavigationProp<OverlayStackProps>>();
   const {fetchSessions, sessions, pinnedSessions, hostedSessions} =
     useSessions();
+  const getRelativeDateGroup = useGetRelativeDateGroup();
   const listRef = useRef<SectionList<LiveSessionType, Section>>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -127,14 +131,21 @@ const Home = () => {
       });
     }
     if (sessions.length > 0) {
-      sectionsList.push({
-        title: t('sections.comming'),
-        data: sessions,
-        type: 'comming',
+      Object.entries(
+        groupBy(
+          session => getRelativeDateGroup(dayjs(session.startTime)),
+          sessions,
+        ),
+      ).forEach(([group, items]) => {
+        sectionsList.push({
+          title: group,
+          data: items,
+          type: 'comming',
+        });
       });
     }
     return sectionsList;
-  }, [sessions, pinnedSessions, hostedSessions, t]);
+  }, [sessions, pinnedSessions, hostedSessions, t, getRelativeDateGroup]);
 
   useEffect(() => {
     fetchSessions();
