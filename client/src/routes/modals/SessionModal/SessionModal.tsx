@@ -348,7 +348,7 @@ const SessionModal = () => {
           </Gutters>
         </>
       )}
-      <Spacer16 />
+
       {tags && (
         <Tags>
           {tags.map(tag => (
