@@ -87,6 +87,10 @@ const ContentControls: React.FC<ContentControlsProps> = ({
       return false;
     }
 
+    if (slideType === 'text') {
+      return false;
+    }
+
     if (slideType !== 'host' && !hasAutoPlayLoop) {
       return true;
     }
