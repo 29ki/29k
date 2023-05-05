@@ -387,9 +387,6 @@ class VideoLooperView: RCTView {
   
   @objc private func playerItemDidPlayToEnd(_ notification: Notification) {
     let item = notification.object as? AVPlayerItem
-    if (item != nil) {
-      removeItemObserver(item: item!)
-    }
     
     let currentIndex = _itemConfigs.firstIndex(where: {$0.asset == item?.asset})
     if (_itemConfigs.indices.contains(currentIndex! + 1)) {

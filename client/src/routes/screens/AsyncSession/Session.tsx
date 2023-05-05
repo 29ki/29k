@@ -121,6 +121,12 @@ const Session: React.FC = () => {
     }
   }, [sessionState?.ended, navigate, session]);
 
+  useEffect(() => {
+    if (currentContentReachedEnd) {
+      setPlaying(false);
+    }
+  }, [currentContentReachedEnd, setPlaying]);
+
   const onPrevPress = useCallback(() => {
     if (sessionSlideState && exercise?.slides) {
       navigateToIndex({

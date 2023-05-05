@@ -199,6 +199,12 @@ const Session: React.FC = () => {
     scrollView.current?.scrollTo({y: 0, animated: true});
   }, [sessionSlideState?.index]);
 
+  useEffect(() => {
+    if (currentContentReachedEnd) {
+      setPlaying(false);
+    }
+  }, [currentContentReachedEnd, setPlaying]);
+
   const toggleAudioPress = useCallback(() => {
     checkMicrophonePermissions(() => {
       toggleAudio(!hasAudio);

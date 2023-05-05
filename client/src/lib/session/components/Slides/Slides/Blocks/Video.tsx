@@ -63,6 +63,8 @@ const Video: React.FC<VideoProps> = ({
 
       // Reset onEndRef when playing
       if (playing) {
+        console.log('reset');
+
         onEndRef.current = false;
       }
 
@@ -106,9 +108,10 @@ const Video: React.FC<VideoProps> = ({
     // Check that the progressRef is not set back to zero to trigger a reset
     if (!autoPlayLoop && !onEndRef.current) {
       onEndRef.current = true;
+      seek(0);
       setCurrentContentReachedEnd(true);
     }
-  }, [setCurrentContentReachedEnd, autoPlayLoop]);
+  }, [setCurrentContentReachedEnd, seek, autoPlayLoop]);
 
   const videoSource: VideoLooperProperties['sources'] = useMemo(() => {
     if (source) {
