@@ -20,10 +20,10 @@ class VideoLooperView: RCTView {
   private var _itemConfigs: Array<ItemConfig>
   private var _volume: Float = 1.0
   private var _mixWithOhters: Bool = false;
-  
+
   override static var layerClass: AnyClass { AVPlayerLayer.self }
   private var _playerLayer: AVPlayerLayer  { layer as! AVPlayerLayer }
-  
+
   override init(frame: CGRect) {
     self._itemConfigs = []
     super.init(frame: frame)
@@ -40,7 +40,7 @@ class VideoLooperView: RCTView {
         name: UIApplication.didBecomeActiveNotification,
         object: nil
     )
-    
+
     NotificationCenter.default.addObserver(
         self,
         selector: #selector(playerInterruption(notification:)),
@@ -49,13 +49,13 @@ class VideoLooperView: RCTView {
     )
     setupView()
   }
- 
+
   required init?(coder aDecoder: NSCoder) {
     self._itemConfigs = []
     super.init(coder: aDecoder)
     setupView()
   }
-  
+
   @objc func applicationDidEnterBackground(notification:NSNotification!) {
     self._playerLayer.player = nil
   }
@@ -66,7 +66,7 @@ class VideoLooperView: RCTView {
       self._player?.play()
     }
   }
-  
+
   @objc func playerInterruption(notification: NSNotification) {
     guard let userInfo = notification.userInfo,
     let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
@@ -91,7 +91,7 @@ class VideoLooperView: RCTView {
       }
     }
   }
-  
+
   override func layoutSubviews() {
     super.layoutSubviews()
     CATransaction.begin()
@@ -99,7 +99,7 @@ class VideoLooperView: RCTView {
     _playerLayer.frame = bounds
     CATransaction.commit()
   }
-  
+
   deinit {
     NotificationCenter.default.removeObserver(self)
     _player = nil;
@@ -108,24 +108,24 @@ class VideoLooperView: RCTView {
     removeItemObservers()
     removePlayerLayer()
   }
-  
+
   func removePlayerLayer() {
     _playerLayer.removeFromSuperlayer()
   }
- 
+
   private func setupView() {
     _player = AVQueuePlayer()
     _player?.preventsDisplaySleepDuringVideoPlayback = true
     _player?.allowsExternalPlayback = false
     _player?.automaticallyWaitsToMinimizeStalling = true
     _playerLayer.player = _player
-    
+
     _playerLayer.videoGravity = .resizeAspectFill
     _playerLayer.frame = self.layer.bounds
     _playerLayer.needsDisplayOnBoundsChange = true
     self.layer.needsDisplayOnBoundsChange = true
   }
-  
+
   private func configureAudio() {
     if _player?.isMuted != true {
       do {
@@ -139,7 +139,7 @@ class VideoLooperView: RCTView {
       } catch {}
     }
   }
-  
+
   private func addItemObserver(item: AVPlayerItem) {
     NotificationCenter.default.addObserver(
       self,
@@ -147,7 +147,7 @@ class VideoLooperView: RCTView {
       name: .AVPlayerItemDidPlayToEndTime,
       object: item)
   }
-  
+
   private func addLoopItemObserver(item: AVPlayerItem) {
     NotificationCenter.default.addObserver(
       self,
@@ -155,28 +155,28 @@ class VideoLooperView: RCTView {
       name: .AVPlayerItemDidPlayToEndTime,
       object: item)
   }
-  
+
   private func removeItemObservers() {
     guard let items = self._player?.items() else { return }
     for item in items {
       removeItemObserver(item: item)
     }
   }
-  
+
   private func removeItemObserver(item: AVPlayerItem) {
     NotificationCenter.default.removeObserver(
       self,
       name: .AVPlayerItemDidPlayToEndTime,
       object: item)
   }
-  
+
   private func loadAsset(source: NSString?) -> Promise<AVAsset?> {
     return Promise<AVAsset?> { fullfill, reject in
       if source == nil {
         fullfill(nil)
         return
       }
-      
+
       var asset: AVAsset? = nil
       if source?.hasPrefix("http") == true {
         asset = AVAsset(url: URL(string: source! as String)!)
@@ -188,7 +188,7 @@ class VideoLooperView: RCTView {
           asset = AVAsset(url: url!)
         }
       }
-      
+
       if asset != nil {
         asset!.loadValuesAsynchronously(forKeys: ["playable"]) {
           var error: NSError? = nil
@@ -213,7 +213,7 @@ class VideoLooperView: RCTView {
       }
     }
   }
-  
+
   private func createConfig(config: NSDictionary) -> Promise<ItemConfig> {
     return Promise<ItemConfig> { fullfill, reject in
       self.loadAsset(source: config["source"] as? NSString).then { asset in
@@ -226,7 +226,7 @@ class VideoLooperView: RCTView {
       }
     }
   }
-  
+
   private func setUpAudio(source: NSString, shouldRepeat: Bool) {
     let url = URL(string: source as String)
     DispatchQueue.global().async {
@@ -234,11 +234,11 @@ class VideoLooperView: RCTView {
       let data = try? Data(contentsOf: url)
       guard let data = data else { return }
       do {
-        
+
         self._audioPlayer = try AVAudioPlayer(data: data)
         self._audioPlayer?.numberOfLoops = shouldRepeat ? -1 : 0
         self._audioPlayer?.volume = self._volume
-        
+
         if self.onLoad != nil {
           var event = [AnyHashable: Any]()
           if self._audioPlayer?.duration != nil {
@@ -253,7 +253,7 @@ class VideoLooperView: RCTView {
       }
     }
   }
-  
+
   private func delay(seconds: Int = 0) -> Promise<Void> {
     return Promise<Void>(on: .global()) { fulfill, reject in
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(seconds)) / Double(NSEC_PER_SEC), execute: {
@@ -261,14 +261,14 @@ class VideoLooperView: RCTView {
         })
     }
   }
-  
+
   // MARK: react props handlers
-  
+
   @objc var onEnd: RCTDirectEventBlock?
   @objc var onTransition: RCTDirectEventBlock?
   @objc var onLoad: RCTDirectEventBlock?
   @objc var onError: RCTDirectEventBlock?
-  
+
   @objc func setSources(_ sources: NSArray) {
     DispatchQueue.global(qos: .default).async {
       self.delay().then { [weak self] in
@@ -284,7 +284,7 @@ class VideoLooperView: RCTView {
         }
         all(configs).then { loadedConfigs in
             self._itemConfigs = loadedConfigs
-            
+
             for itemConfig in self._itemConfigs {
               if (itemConfig.shouldRepeat) {
                 let playerItem1 = AVPlayerItem(asset: itemConfig.asset)
@@ -301,17 +301,17 @@ class VideoLooperView: RCTView {
                 self.addItemObserver(item: playerItem)
               }
             }
-          
+
             if self._itemConfigs.count == 1 {
               if !self._itemConfigs[0].shouldRepeat {
                 self._player?.actionAtItemEnd = .pause
               }
             }
-            
+
             if self._itemConfigs[0].shouldRepeat {
               self._repeat = true;
             }
-            
+
             if self.onLoad != nil {
               var event = [AnyHashable: Any]()
               let firstItem = self._player?.items().first
@@ -330,7 +330,7 @@ class VideoLooperView: RCTView {
       }
     }
   }
-  
+
   @objc func setSeek(_ val: NSNumber) {
     _audioPlayer?.currentTime = TimeInterval(val.int64Value)
     guard let currentItem = _player?.currentItem else { return }
@@ -338,15 +338,17 @@ class VideoLooperView: RCTView {
     let cmSeekTime: CMTime = CMTimeMakeWithSeconds(Float64(truncating: val), preferredTimescale: Int32(timeScale))
     let current: CMTime = currentItem.currentTime()
     guard CMTimeCompare(current, cmSeekTime) != 0 else { return }
-    
+
     _player?.seek(to: cmSeekTime)
-    
+    if (!_pause) {
+      _player?.play();
+    }
   }
-  
+
   @objc func setRepeat(_ val: Bool) {
     _repeat = val
   }
-  
+
   @objc func setPaused(_ val: Bool) {
     if val {
       _player?.pause()
@@ -360,40 +362,40 @@ class VideoLooperView: RCTView {
       _player?.rate = 1.0
       _audioPlayer?.play()
     }
-    
+
     _pause = val
   }
-  
+
   @objc func setAudioOnly(_ val: Bool) {
     _audioOnly = val
   }
-  
+
   @objc func setMixWithOthers(_ val: Bool) {
     _mixWithOhters = val
   }
-  
+
   @objc func setVolume(_ val: NSNumber?) {
     _volume = val?.floatValue ?? 0
     _player?.volume = _volume
     _audioPlayer?.volume = _volume
   }
-  
+
   @objc func setMuted(_ val: Bool) {
     _player?.isMuted = val
     _audioPlayer?.volume = val ? 0 : _volume
   }
-  
+
   // MARK: Observers
-  
+
   @objc private func playerItemDidPlayToEnd(_ notification: Notification) {
     let item = notification.object as? AVPlayerItem
-    
+
     let currentIndex = _itemConfigs.firstIndex(where: {$0.asset == item?.asset})
     if (_itemConfigs.indices.contains(currentIndex! + 1)) {
       let nextItem = _itemConfigs[currentIndex! + 1]
       _repeat = nextItem.shouldRepeat
     }
-    
+
     if (_player?.items().last == item) {
       if onEnd != nil {
         let event = [AnyHashable: Any]()
@@ -406,14 +408,14 @@ class VideoLooperView: RCTView {
       }
     }
   }
-  
+
   @objc private func loopPlayerItemDidPlayToEnd(_ notification: Notification) {
     let item = notification.object as? AVPlayerItem
     if (item != nil) {
       removeItemObserver(item: item!)
     }
     guard let currentItems = _player?.items() else { return }
-    
+
     if self._repeat {
       let currentIndex = currentItems.firstIndex(of: item!)
       if currentIndex != nil && currentItems.indices.contains(currentIndex! + 1) {
