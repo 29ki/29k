@@ -106,13 +106,13 @@ export interface ExerciseSlideContentSlideContent {
   lottie?: ExerciseSlideContentSlideContentLottie;
 }
 
-export interface ExerciseSlideTextSlideContentImage {
+export interface ExerciseSlideInstructionSlideContentImage {
   description?: string;
   source?: string;
 }
 
-export interface ExerciseSlideTextSlideContent {
-  image?: ExerciseSlideTextSlideContentImage;
+export interface ExerciseSlideInstructionSlideContent {
+  image?: ExerciseSlideInstructionSlideContentImage;
   heading?: string;
   text?: string;
 }
@@ -206,9 +206,9 @@ export interface ExerciseSlideContentSlide {
   content?: ExerciseSlideContentSlideContent;
 }
 
-export interface ExerciseSlideTextSlide {
-  type: 'text';
-  content?: ExerciseSlideTextSlideContent;
+export interface ExerciseSlideInstructionSlide {
+  type: 'instruction';
+  content?: ExerciseSlideInstructionSlideContent;
 }
 
 export interface ExerciseSlideReflectionSlide {
@@ -246,7 +246,7 @@ export interface Exercise {
   outroPortal?: ExerciseOutroPortal;
   slides: (
     | ExerciseSlideContentSlide
-    | ExerciseSlideTextSlide
+    | ExerciseSlideInstructionSlide
     | ExerciseSlideReflectionSlide
     | ExerciseSlideSharingSlide
     | ExerciseSlideHostSlide

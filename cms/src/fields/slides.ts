@@ -18,7 +18,7 @@ export const SLIDE_TYPES = {
   CONTENT: 'content',
   REFLECTION: 'reflection',
   SHARING: 'sharing',
-  TEXT: 'text',
+  INSTRUCTION: 'instruction',
 };
 
 export const HOST_NOTES: CmsFieldBase & CmsFieldList = {
@@ -112,7 +112,7 @@ const CONTENT_FIELDS: Array<CmsField> = [
   CONTENT_LOTTIE_FIELD,
 ];
 
-const TEXT_FIELDS: Array<CmsField> = [
+const IINSTRUCTION_FIELDS: Array<CmsField> = [
   IMAGE_FIELD,
   {
     label: '◾️ Heading',
@@ -154,9 +154,9 @@ export const CONTENT_SLIDE: CmsFieldBase & CmsFieldObject = {
   ],
 };
 
-export const TEXT_SLIDE: CmsFieldBase & CmsFieldObject = {
-  label: '📃 Text slide',
-  name: SLIDE_TYPES.TEXT,
+export const INSTRUCTION_SLIDE: CmsFieldBase & CmsFieldObject = {
+  label: '📃 Instruction slide (Async)',
+  name: SLIDE_TYPES.INSTRUCTION,
   widget: 'object',
   collapsed: true,
   fields: [
@@ -166,7 +166,7 @@ export const TEXT_SLIDE: CmsFieldBase & CmsFieldObject = {
       widget: 'object',
       required: false,
       collapsed: false,
-      fields: TEXT_FIELDS,
+      fields: IINSTRUCTION_FIELDS,
     },
   ],
 };

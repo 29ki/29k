@@ -23,7 +23,7 @@ import {
   HOST_SLIDE,
   REFLECTION_SLIDE,
   SHARING_SLIDE,
-  TEXT_SLIDE,
+  INSTRUCTION_SLIDE,
 } from './slides';
 import {CLOUDINARY_IMAGE_CONFIG} from './constants';
 import {JSONObject} from '../../../shared/src/types/JSON';
@@ -129,7 +129,7 @@ export const SLIDES: CmsField = {
   summary: '{{fields.content.heading}}',
   types: [
     CONTENT_SLIDE,
-    TEXT_SLIDE,
+    INSTRUCTION_SLIDE,
     REFLECTION_SLIDE,
     SHARING_SLIDE,
     HOST_SLIDE,

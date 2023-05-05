@@ -69,12 +69,12 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   const slideType = slideState?.current.type;
   const hasAutoPlayLoop =
     slideType !== 'host' &&
-    slideType !== 'text' &&
+    slideType !== 'instruction' &&
     (slideState?.current.content?.video?.autoPlayLoop ||
       slideState?.current.content?.lottie?.autoPlayLoop);
   const isDisabled =
     slideType !== 'host' &&
-    slideType !== 'text' &&
+    slideType !== 'instruction' &&
     !slideState?.current.content?.video &&
     !slideState?.current.content?.lottie;
 
@@ -87,7 +87,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
       return false;
     }
 
-    if (slideType === 'text') {
+    if (slideType === 'instruction') {
       return false;
     }
 
