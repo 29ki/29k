@@ -112,7 +112,7 @@ const CONTENT_FIELDS: Array<CmsField> = [
   CONTENT_LOTTIE_FIELD,
 ];
 
-const IINSTRUCTION_FIELDS: Array<CmsField> = [
+const INSTRUCTION_FIELDS: Array<CmsField> = [
   IMAGE_FIELD,
   {
     label: '◾️ Heading',
@@ -166,7 +166,7 @@ export const INSTRUCTION_SLIDE: CmsFieldBase & CmsFieldObject = {
       widget: 'object',
       required: false,
       collapsed: false,
-      fields: IINSTRUCTION_FIELDS,
+      fields: INSTRUCTION_FIELDS,
     },
   ],
 };
