@@ -66,7 +66,7 @@ const Slide = ({slide, active, async}: SlideProps) => {
         ) : (
           <Content async={async} slide={slide} active={active} />
         ))}
-      {async && slide.type === 'instruction' && (
+      {slide.type === 'instruction' && (
         <Instruction slide={slide as ExerciseSlideInstructionSlide} />
       )}
     </Wrapper>
