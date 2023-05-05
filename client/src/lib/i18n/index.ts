@@ -11,6 +11,9 @@ import 'dayjs/locale/pt';
 import 'dayjs/locale/sv';
 import 'dayjs/locale/es';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
+import isToday from 'dayjs/plugin/isToday';
+import isTomorrow from 'dayjs/plugin/isTomorrow';
+import isoWeek from 'dayjs/plugin/isoWeek';
 
 import content from '../../../../content/content.json';
 import {
@@ -24,6 +27,9 @@ import {omitExercisesAndCollections} from './utils/utils';
 export * from '../../../../shared/src/constants/i18n';
 
 dayjs.extend(localizedFormat);
+dayjs.extend(isToday);
+dayjs.extend(isTomorrow);
+dayjs.extend(isoWeek);
 
 const DEFAULT_24HOUR_LANGUAGE_TAG = 'en-gb';
 

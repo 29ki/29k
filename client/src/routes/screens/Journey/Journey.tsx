@@ -72,12 +72,13 @@ const renderSectionHeader: (info: {
   ) : null;
 
 const getItemLayout = getSectionListItemLayout<Item, Section>({
-  getItemHeight: item => {
+  getItemHeight: (item, sectionIndex, rowIndex) => {
     switch (item?.type) {
       case 'completedSession':
-        return JOURNEY_NODE_HEIGHT;
+        const isFirstItem = sectionIndex === 0 && rowIndex === 0;
+        return JOURNEY_NODE_HEIGHT - (isFirstItem ? SPACINGS.SIXTEEN : 0);
       case 'filter':
-        return FILTER_HEIGHT + SPACINGS.TWENTYEIGHT;
+        return FILTER_HEIGHT + SPACINGS.TWENTYEIGHT * 2;
       case 'pinnedCollection':
         return COLLECTION_HEIGHT + SPACINGS.SIXTEEN;
       case 'plannedSession':
@@ -104,13 +105,11 @@ const Journey = () => {
   const filtersScrollIndex = useRef({sectionIndex: 0, itemIndex: 0});
 
   const scrollToFiltersSection = useCallback((animated = false) => {
-    requestAnimationFrame(() => {
-      listRef.current?.scrollToLocation({
-        ...filtersScrollIndex.current,
-        viewOffset: -(FILTER_HEIGHT / 2),
-        viewPosition: 0.5, // Center of the screen
-        animated,
-      });
+    listRef.current?.scrollToLocation({
+      ...filtersScrollIndex.current,
+      viewOffset: -(FILTER_HEIGHT / 2),
+      viewPosition: 0.5, // Center of the screen
+      animated,
     });
   }, []);
 
@@ -157,14 +156,15 @@ const Journey = () => {
   }, [navigate]);
 
   const renderSession = useCallback<SectionListRenderItem<Item, Section>>(
-    ({section, item, index}) => {
+    ({item}) => {
       switch (item.type) {
         case 'completedSession':
           return (
             <Gutters>
               <JourneyNode
                 completedSessionEvent={item.data}
-                isLast={index === section.data.length - 1}
+                isLast={item.isLast}
+                isFirst={item.isFirst}
               />
             </Gutters>
           );
@@ -172,6 +172,7 @@ const Journey = () => {
         case 'filter':
           return (
             <Gutters>
+              <Spacer28 />
               <SessionFilters />
               <Spacer28 />
             </Gutters>
