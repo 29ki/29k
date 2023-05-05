@@ -42,7 +42,6 @@ const Video: React.FC<VideoProps> = ({
 }) => {
   const videoRef = useRef<VideoLooper>(null);
   const timerRef = useRef<LottiePlayerHandle>(null);
-  const onEndRef = useRef<boolean>(false);
   const [duration, setDuration] = useState(0);
   const sessionState = useSessionState(state => state.sessionState);
   const setCurrentContentReachedEnd = useSessionState(
@@ -60,14 +59,6 @@ const Video: React.FC<VideoProps> = ({
       // Block is active, video and state is loaded
       const playing = sessionState.playing;
       const timestamp = new Date(sessionState.timestamp);
-
-      // Reset onEndRef when playing
-      if (playing) {
-        console.log('reset');
-
-        onEndRef.current = false;
-      }
-
       if (
         timestamp > previousState.current.timestamp &&
         previousState.current.playing === playing
@@ -104,14 +95,10 @@ const Video: React.FC<VideoProps> = ({
   const paused = !active || (!sessionState?.playing && !autoPlayLoop);
 
   const onEnd = useCallback(() => {
-    // seek(0) does not reset progress so a second onEnd is triggered
-    // Check that the progressRef is not set back to zero to trigger a reset
-    if (!autoPlayLoop && !onEndRef.current) {
-      onEndRef.current = true;
-      seek(0);
+    if (!autoPlayLoop) {
       setCurrentContentReachedEnd(true);
     }
-  }, [setCurrentContentReachedEnd, seek, autoPlayLoop]);
+  }, [setCurrentContentReachedEnd, autoPlayLoop]);
 
   const videoSource: VideoLooperProperties['sources'] = useMemo(() => {
     if (source) {

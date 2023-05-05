@@ -121,12 +121,6 @@ const Session: React.FC = () => {
     }
   }, [sessionState?.ended, navigate, session]);
 
-  useEffect(() => {
-    if (currentContentReachedEnd) {
-      setPlaying(false);
-    }
-  }, [currentContentReachedEnd, setPlaying]);
-
   const onPrevPress = useCallback(() => {
     if (sessionSlideState && exercise?.slides) {
       navigateToIndex({
@@ -145,10 +139,10 @@ const Session: React.FC = () => {
     }
   }, [sessionSlideState, exercise?.slides, navigateToIndex]);
 
-  const onResetPlayingPress = useCallback(
-    () => setPlaying(Boolean(sessionState?.playing)),
-    [sessionState?.playing, setPlaying],
-  );
+  const onResetPlayingPress = useCallback(() => {
+    setPlaying(Boolean(sessionState?.playing));
+    setCurrentContentReachedEnd(false);
+  }, [sessionState?.playing, setPlaying, setCurrentContentReachedEnd]);
 
   const onTogglePlayingPress = useCallback(() => {
     if (currentContentReachedEnd) {

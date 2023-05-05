@@ -199,12 +199,6 @@ const Session: React.FC = () => {
     scrollView.current?.scrollTo({y: 0, animated: true});
   }, [sessionSlideState?.index]);
 
-  useEffect(() => {
-    if (currentContentReachedEnd) {
-      setPlaying(false);
-    }
-  }, [currentContentReachedEnd, setPlaying]);
-
   const toggleAudioPress = useCallback(() => {
     checkMicrophonePermissions(() => {
       toggleAudio(!hasAudio);
@@ -235,10 +229,10 @@ const Session: React.FC = () => {
     }
   }, [sessionSlideState, exercise?.slides, navigateToIndex]);
 
-  const onResetPlayingPress = useCallback(
-    () => setPlaying(Boolean(sessionState?.playing)),
-    [sessionState?.playing, setPlaying],
-  );
+  const onResetPlayingPress = useCallback(() => {
+    setPlaying(Boolean(sessionState?.playing));
+    setCurrentContentReachedEnd(false);
+  }, [sessionState?.playing, setPlaying, setCurrentContentReachedEnd]);
 
   const onTogglePlayingPress = useCallback(() => {
     if (currentContentReachedEnd) {
