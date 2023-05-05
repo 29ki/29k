@@ -120,5 +120,6 @@ export type JoinSessionType = yup.InferType<typeof JoinSessionSchema>;
 
 export type DailyUserData = {
   inPortal: boolean;
+  userName?: string;
   photoURL?: string;
 };
