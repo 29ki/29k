@@ -18,6 +18,16 @@ const GraphicsWrapper = styled.View({
   flex: 1,
 });
 
+const ImageContainer = styled.View({
+  flex: 1,
+  alignItems: 'center',
+});
+
+const ImageWrapper = styled.View({
+  width: 200,
+  height: 200,
+});
+
 const TextWrapper = styled.View({
   justifyContent: 'center',
   flex: 1,
@@ -62,56 +72,65 @@ const Content: React.FC<ContentProps> = ({
     [content.lottie?.duration],
   );
 
+  const playableContent = content.lottie || content.video;
+
+  if (playableContent) {
+    return (
+      <ContentWrapper>
+        <Spacer12 />
+        {!async && content.heading && <Heading>{content.heading}</Heading>}
+        {!async && content.text && <Text>{content.text}</Text>}
+
+        {content.lottie ? (
+          <GraphicsWrapper>
+            <Spacer8 />
+            <Lottie
+              source={lottieSource}
+              audioSource={lottieAudioSource}
+              active={active}
+              duration={lottieDuration}
+              autoPlayLoop={content.lottie.autoPlayLoop}
+              durationTimer={content.lottie.durationTimer}
+            />
+            <Spacer8 />
+          </GraphicsWrapper>
+        ) : content.video ? (
+          <GraphicsWrapper>
+            <Spacer8 />
+            <VideoWrapper>
+              <Video
+                source={content.video.source}
+                audioSource={content.video.audio}
+                active={active}
+                preview={content.video.preview}
+                autoPlayLoop={content.video.autoPlayLoop}
+                durationTimer={content.video.durationTimer}
+                isLive={!async}
+              />
+            </VideoWrapper>
+          </GraphicsWrapper>
+        ) : null}
+      </ContentWrapper>
+    );
+  }
+
   return (
     <ContentWrapper>
       <Spacer12 />
-      {!content.video && !content.image && !content.lottie && (
-        <TextWrapper>
-          {content.heading && <Heading>{content.heading}</Heading>}
-          {content.text && <Text>{content.text}</Text>}
-        </TextWrapper>
-      )}
-      {!async &&
-        (content.video || content.image || content.lottie) &&
-        content.heading && <Heading>{content.heading}</Heading>}
-      {!async &&
-        (content.video || content.image || content.lottie) &&
-        content.text && <Text>{content.text}</Text>}
 
-      {content.lottie ? (
-        <GraphicsWrapper>
-          <Spacer8 />
-          <Lottie
-            source={lottieSource}
-            audioSource={lottieAudioSource}
-            active={active}
-            duration={lottieDuration}
-            autoPlayLoop={content.lottie.autoPlayLoop}
-            durationTimer={content.lottie.durationTimer}
-          />
-          <Spacer8 />
-        </GraphicsWrapper>
-      ) : content.video ? (
-        <GraphicsWrapper>
-          <Spacer8 />
-          <VideoWrapper>
-            <Video
-              source={content.video.source}
-              audioSource={content.video.audio}
-              active={active}
-              preview={content.video.preview}
-              autoPlayLoop={content.video.autoPlayLoop}
-              durationTimer={content.video.durationTimer}
-              isLive={!async}
-            />
-          </VideoWrapper>
-        </GraphicsWrapper>
-      ) : content.image ? (
-        <GraphicsWrapper>
-          <Spacer8 />
-          <Image resizeMode="contain" source={imageSource} />
-        </GraphicsWrapper>
-      ) : null}
+      {content.image && (
+        <ImageContainer>
+          <ImageWrapper>
+            <Spacer8 />
+            <Image resizeMode="contain" source={imageSource} />
+          </ImageWrapper>
+        </ImageContainer>
+      )}
+
+      <TextWrapper>
+        {content.heading && <Heading>{content.heading}</Heading>}
+        {content.text && <Text>{content.text}</Text>}
+      </TextWrapper>
     </ContentWrapper>
   );
 };

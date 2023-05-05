@@ -103,7 +103,7 @@ const CONTENT_FIELDS: Array<CmsField> = [
   {
     label: '◾️ Text',
     name: 'text',
-    widget: 'string',
+    widget: 'markdown',
     required: false,
   },
   IMAGE_FIELD,

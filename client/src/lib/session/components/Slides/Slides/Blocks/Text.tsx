@@ -18,9 +18,7 @@ const Text: React.FC<{children: React.ReactNode}> = ({children}) => {
   return (
     <Gutters>
       <Spacer4 />
-      <StyledText textColor={theme?.textColor} numberOfLines={2}>
-        {children}
-      </StyledText>
+      <StyledText textColor={theme?.textColor}>{children}</StyledText>
     </Gutters>
   );
 };
