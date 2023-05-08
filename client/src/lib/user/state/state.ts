@@ -65,6 +65,7 @@ export type Actions = {
     user: State['user'];
     claims: State['claims'];
   }) => void;
+  setIntialState: () => void;
   setPinnedSessions: (pinnedSessions: Array<PinnedSession>) => void;
   setPinnedCollections: (pinnedCollections: Array<PinnedCollection>) => void;
   addUserEvent: (
@@ -157,8 +158,10 @@ const useUserState = create<State & Actions>()(
         setClaims: claims => set({claims}),
         setUserAndClaims: ({user, claims}) => {
           set({user, claims});
-          // New user, create the default state
-          if (user?.isAnonymous) {
+        },
+        setIntialState: () => {
+          const currentState = getCurrentUserStateSelector(get());
+          if (!currentState?.pinnedCollections) {
             setCurrentUserState(createInitialUserState(dayjs().utc().toJSON()));
           }
         },

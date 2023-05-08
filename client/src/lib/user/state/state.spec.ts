@@ -13,18 +13,16 @@ afterEach(() => {
 });
 
 describe('user - state', () => {
-  describe('setUserAndClaims', () => {
-    it('should initialize user state if user is anonymous', () => {
+  describe('setIntitalState', () => {
+    it('should initialize user state if collections has not been set', () => {
+      useUserState.setState({
+        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
+        userState: {},
+      });
       const {result} = renderHook(() => useUserState());
 
       act(() => {
-        result.current.setUserAndClaims({
-          user: {
-            uid: 'user-id',
-            isAnonymous: true,
-          } as FirebaseAuthTypes.User,
-          claims: {},
-        });
+        result.current.setIntialState();
       });
 
       expect(result.current.userState['user-id'].pinnedCollections).toEqual([
@@ -35,7 +33,7 @@ describe('user - state', () => {
       ]);
     });
 
-    it('should not initialize user state if user is not anonymous', () => {
+    it('should not initialize user state if user collections is already set', () => {
       useUserState.setState({
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,
         userState: {
@@ -48,13 +46,7 @@ describe('user - state', () => {
       const {result} = renderHook(() => useUserState());
 
       act(() => {
-        result.current.setUserAndClaims({
-          user: {
-            uid: 'user-id',
-            isAnonymous: false,
-          } as FirebaseAuthTypes.User,
-          claims: {},
-        });
+        result.current.setIntialState();
       });
 
       expect(result.current.userState['user-id'].pinnedCollections).toEqual([]);
