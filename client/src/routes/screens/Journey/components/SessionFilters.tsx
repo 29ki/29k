@@ -1,7 +1,7 @@
 import React, {useCallback, useMemo} from 'react';
 import styled from 'styled-components/native';
 import ScoreCard from '../../../../lib/components/ScroreCard/ScoreCard';
-import {LogoIcon, ProfileIcon} from '../../../../lib/components/Icons';
+import {LogoIcon} from '../../../../lib/components/Icons';
 import {ThumbsUpWithoutPadding} from '../../../../lib/components/Thumbs/Thumbs';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -12,11 +12,10 @@ import {
 } from '../../../../lib/navigation/constants/routes';
 import useUserEvents from '../../../../lib/user/hooks/useUserEvents';
 import useCompletedSessions from '../../../../lib/sessions/hooks/useCompletedSessions';
-import {Image} from 'react-native';
-import {COLORS} from '../../../../../../shared/src/constants/colors';
 
 import useUser from '../../../../lib/user/hooks/useUser';
 import {useTranslation} from 'react-i18next';
+import ProfilePicture from '../../../../lib/components/User/ProfilePicture';
 
 export {HEIGHT} from '../../../../lib/components/ScroreCard/ScoreCard';
 
@@ -25,15 +24,6 @@ const Container = styled.View({
   justifyContent: 'space-between',
   alignItems: 'center',
 });
-
-const ImageContainer = styled(Image)<{small?: boolean}>(() => ({
-  backgroundColor: COLORS.GREYMEDIUM,
-  width: 30,
-  height: 30,
-  borderRadius: 15,
-  overflow: 'hidden',
-  shadowColor: COLORS.GREYDARK,
-}));
 
 const SessionFilters = () => {
   const {t} = useTranslation('Screen.Journey');
@@ -51,12 +41,13 @@ const SessionFilters = () => {
   );
 
   const UserPic = useCallback(
-    () =>
-      user?.photoURL ? (
-        <ImageContainer source={{uri: user.photoURL}} />
-      ) : (
-        <ProfileIcon />
-      ),
+    () => (
+      <ProfilePicture
+        size={32}
+        pictureURL={user?.photoURL}
+        letter={user?.displayName?.[0]}
+      />
+    ),
     [user],
   );
 
