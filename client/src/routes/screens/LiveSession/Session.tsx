@@ -26,7 +26,7 @@ import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
 import useIsSessionHost from '../../../lib/session/hooks/useIsSessionHost';
 import useLocalParticipant from '../../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../../lib/user/hooks/useUser';
-import useSubscribeToSessionIfFocused from '../../../lib/session/hooks/useSusbscribeToSessionIfFocused';
+import useSubscribeToSessionIfFocused from '../../../lib/session/hooks/useSubscribeToSessionIfFocused';
 import useUpdateSessionState from '../../../lib/session/hooks/useUpdateSessionState';
 import useLiveSessionMetricEvents from '../../../lib/session/hooks/useLiveSessionMetricEvents';
 import useCheckPermissions from '../../../lib/session/hooks/useCheckPermissions';

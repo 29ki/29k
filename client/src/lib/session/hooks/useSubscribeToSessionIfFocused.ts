@@ -1,13 +1,13 @@
 import {useEffect} from 'react';
 import useSessionState from '../state/state';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
-import useSessions from '../../../lib/sessions/hooks/useSessions';
+import useSessions from '../../sessions/hooks/useSessions';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {
   ModalStackProps,
   TabNavigatorProps,
-} from '../../../lib/navigation/constants/routes';
+} from '../../navigation/constants/routes';
 import useSubscribeToSession from './useSubscribeToSession';
 import useGetExerciseById from '../../content/hooks/useGetExerciseById';
 
@@ -34,7 +34,11 @@ const useSubscribeToSessionIfFocused = (
 
   useEffect(() => {
     setSession(session);
-    setExercise(getExerciseById(session.exerciseId, session.language));
+    const exercise = getExerciseById(session.exerciseId, session.language);
+    setExercise({
+      ...exercise,
+      slides: exercise.slides.filter(s => s.type !== 'instruction'),
+    });
   }, [session, setSession, setExercise, getExerciseById]);
 
   useEffect(() => {
