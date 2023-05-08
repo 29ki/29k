@@ -8,6 +8,7 @@ import {
   MegaphoneIcon,
   EnvelopeIcon,
   SafetyIcon,
+  PrivateEyeIcon,
 } from '../../../../lib/components/Icons';
 import {
   ModalStackProps,
@@ -15,6 +16,7 @@ import {
 } from '../../../../lib/navigation/constants/routes';
 import useIsPublicHost from '../../../../lib/user/hooks/useIsPublicHost';
 import useUserState from '../../../../lib/user/state/state';
+import * as linking from '../../../../lib/linking/nativeLinks';
 
 const AboutActionList = () => {
   const {navigate} =
@@ -42,6 +44,10 @@ const AboutActionList = () => {
     [navigate],
   );
 
+  const privacyNoticePress = useCallback(() => {
+    linking.openURL(t('actions.privacyNoticeUrl'));
+  }, [t]);
+
   return (
     <ActionList>
       {!isPublicHost && (
@@ -54,6 +60,9 @@ const AboutActionList = () => {
       </ActionButton>
       <ActionButton Icon={SafetyIcon} onPress={safetyToolkitPress}>
         {t('actions.safetyToolkit')}
+      </ActionButton>
+      <ActionButton Icon={PrivateEyeIcon} onPress={privacyNoticePress}>
+        {t('actions.privacyNotice')}
       </ActionButton>
     </ActionList>
   );

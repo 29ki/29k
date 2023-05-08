@@ -1,6 +1,12 @@
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import dayjs from 'dayjs';
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {
+  Fragment,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Alert, Share, View} from 'react-native';
@@ -56,6 +62,8 @@ import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
 import usePinSession from '../../../lib/sessions/hooks/usePinSession';
 import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
+import Tag from '../../../lib/components/Tag/Tag';
+import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',
@@ -126,6 +134,13 @@ const IconWrapper = styled.View({
   height: 30,
 });
 
+const Tags = styled(Gutters)({
+  flexWrap: 'wrap',
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginTop: -SPACINGS.FOUR,
+});
+
 const TypeItem: React.FC<{
   Icon: React.ReactNode;
   label: string;
@@ -163,6 +178,7 @@ const SessionModal = () => {
 
   const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session?.exerciseId);
+  const tags = useGetTagsById(exercise?.tags);
   const {reminderEnabled, toggleReminder} =
     useSessionReminderNotification(session);
   const confirmToggleReminder = useConfirmSessionReminder(session);
@@ -331,6 +347,17 @@ const SessionModal = () => {
             <Markdown>{exercise?.description}</Markdown>
           </Gutters>
         </>
+      )}
+
+      {tags && (
+        <Tags>
+          {tags.map(({id, tag}) => (
+            <Fragment key={id}>
+              <Tag>{tag}</Tag>
+              <Spacer4 />
+            </Fragment>
+          ))}
+        </Tags>
       )}
       <Spacer16 />
       {!editMode && (

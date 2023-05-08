@@ -1,4 +1,10 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {
+  Fragment,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
@@ -18,6 +24,7 @@ import {
   Spacer16,
   Spacer24,
   Spacer28,
+  Spacer4,
   Spacer40,
   Spacer8,
 } from '../../../../../lib/components/Spacers/Spacer';
@@ -43,6 +50,8 @@ import {fetchSessions} from '../../../../../lib/sessions/api/sessions';
 import {ModalStackProps} from '../../../../../lib/navigation/constants/routes';
 import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsyncSession';
 import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown';
+import useGetTagsById from '../../../../../lib/content/hooks/useGetTagsById';
+import Tag from '../../../../../lib/components/Tag/Tag';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -119,6 +128,13 @@ const EmptyListContainer = styled.View({
   height: 200,
 });
 
+const Tags = styled.View({
+  flexWrap: 'wrap',
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginTop: -SPACINGS.FOUR,
+});
+
 const SelectTypeStep: React.FC<StepProps> = ({
   setSelectedModeAndType,
   nextStep,
@@ -152,6 +168,8 @@ const SelectTypeStep: React.FC<StepProps> = ({
     () => (exercise?.card?.image ? {uri: exercise.card.image.source} : null),
     [exercise],
   );
+
+  const tags = useGetTagsById(exercise?.tags);
 
   const onJoinByInvite = useCallback(() => {
     popToTop();
@@ -266,7 +284,17 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   <Markdown>{exercise.description}</Markdown>
                 </>
               )}
-              <Spacer28 />
+              {tags && (
+                <Tags>
+                  {tags.map(({id, tag}) => (
+                    <Fragment key={id}>
+                      <Tag>{tag}</Tag>
+                      <Spacer4 />
+                    </Fragment>
+                  ))}
+                </Tags>
+              )}
+              <Spacer16 />
               <TypeItemHeading>{t('description')}</TypeItemHeading>
               <Spacer16 />
               {typeSelection}

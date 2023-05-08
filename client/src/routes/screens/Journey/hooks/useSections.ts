@@ -30,6 +30,9 @@ const useSections = () => {
             type: 'completedSession',
             data: s,
             id: s.payload.id,
+            isFirst: completedSessions.indexOf(s) === 0,
+            isLast:
+              completedSessions.indexOf(s) === completedSessions.length - 1,
           })),
           type: 'completedSessions',
         });

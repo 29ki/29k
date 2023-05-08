@@ -155,17 +155,6 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     daily.updateParticipants(updates);
   }, [daily]);
 
-  const setUserName = useCallback(
-    async (userName: string) => {
-      if (!daily) {
-        return;
-      }
-
-      await daily.setUserName(userName);
-    },
-    [daily],
-  );
-
   const preJoinMeeting = useCallback(
     async (url: string, token: string) => {
       if (daily.meetingState() === 'new') {
@@ -184,10 +173,20 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   );
 
   const setUserData = useCallback(
-    async (userData: unknown) => {
-      await daily.setUserData(userData);
+    async (userData: {[key: string]: unknown}) => {
+      await daily.setUserData({
+        ...(daily.participants()?.local?.userData as {[key: string]: unknown}),
+        ...userData,
+      });
     },
     [daily],
+  );
+
+  const setUserName = useCallback(
+    async (userName: string) => {
+      await setUserData({userName});
+    },
+    [setUserData],
   );
 
   const hasCameraPermissions = useCallback(
