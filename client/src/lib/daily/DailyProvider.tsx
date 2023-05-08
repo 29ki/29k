@@ -25,7 +25,7 @@ export type DailyProviderTypes = {
   toggleVideo: (enabled: boolean) => void;
   muteAll: () => void;
   setUserName: (userName: string) => Promise<void>;
-  setUserData: (userData: unknown) => Promise<void>;
+  setUserData: (userData: {[key: string]: unknown}) => Promise<void>;
   setSubscribeToAllTracks: () => void;
 };
 
