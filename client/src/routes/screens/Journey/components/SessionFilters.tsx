@@ -16,6 +16,8 @@ import useCompletedSessions from '../../../../lib/sessions/hooks/useCompletedSes
 import useUser from '../../../../lib/user/hooks/useUser';
 import {useTranslation} from 'react-i18next';
 import ProfilePicture from '../../../../lib/components/User/ProfilePicture';
+import {Spacings} from '../../../../lib/constants/UiSettings.library';
+import {SPACINGS} from '../../../../lib/constants/spacings';
 
 export {HEIGHT} from '../../../../lib/components/ScroreCard/ScoreCard';
 
@@ -43,7 +45,7 @@ const SessionFilters = () => {
   const UserPic = useCallback(
     () => (
       <ProfilePicture
-        size={32}
+        size={30}
         pictureURL={user?.photoURL}
         letter={user?.displayName?.[0]}
       />
