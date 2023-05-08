@@ -14,10 +14,10 @@
         "id": "1"
       },
       {
-        "type": "content",
+        "type": "instruction",
         "content": {
-          "heading": "Well done",
-          "text": "You’ve just completed the Get started session. Now you’re ready to explore sessions that meets your needs and add them to your journey. Hope to see you soon again."
+          "text": "You’ve just completed the Dive in session. Well done.\n\nThe next session in the Get started collection is ready for you to explore  – on your own, with friends or new connections.",
+          "heading": ""
         }
       }
     ],
