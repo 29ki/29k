@@ -12,11 +12,10 @@ import {
 } from '../../../../lib/navigation/constants/routes';
 import useUserEvents from '../../../../lib/user/hooks/useUserEvents';
 import useCompletedSessions from '../../../../lib/sessions/hooks/useCompletedSessions';
-import {Image} from 'react-native';
-import {COLORS} from '../../../../../../shared/src/constants/colors';
-import {SPACINGS} from '../../../../lib/constants/spacings';
+
 import useUser from '../../../../lib/user/hooks/useUser';
 import {useTranslation} from 'react-i18next';
+import ProfilePicture from '../../../../lib/components/User/ProfilePicture';
 
 export {HEIGHT} from '../../../../lib/components/ScroreCard/ScoreCard';
 
@@ -25,15 +24,6 @@ const Container = styled.View({
   justifyContent: 'space-between',
   alignItems: 'center',
 });
-
-const ImageContainer = styled.View<{small?: boolean}>(() => ({
-  backgroundColor: COLORS.GREYMEDIUM,
-  width: SPACINGS.TWENTYFOUR,
-  height: SPACINGS.TWENTYFOUR,
-  borderRadius: SPACINGS.TWELVE,
-  overflow: 'hidden',
-  shadowColor: COLORS.GREYDARK,
-}));
 
 const SessionFilters = () => {
   const {t} = useTranslation('Screen.Journey');
@@ -52,9 +42,11 @@ const SessionFilters = () => {
 
   const UserPic = useCallback(
     () => (
-      <ImageContainer>
-        {user?.photoURL && <Image source={{uri: user.photoURL}} />}
-      </ImageContainer>
+      <ProfilePicture
+        size={30}
+        pictureURL={user?.photoURL}
+        letter={user?.displayName?.[0]}
+      />
     ),
     [user],
   );
