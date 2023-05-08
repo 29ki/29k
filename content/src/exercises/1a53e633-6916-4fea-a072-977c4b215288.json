@@ -2,7 +2,13 @@
   "en": {
     "slides": [
       {
-        "type": "content"
+        "type": "content",
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683554318/Audio/dive_in2_lsrrps.mp3",
+            "durationTimer": true
+          }
+        }
       },
       {
         "type": "sharing",
@@ -16,25 +22,21 @@
       {
         "type": "instruction",
         "content": {
-          "text": "You’ve just completed the Dive in session. Well done.\n\nThe next session in the Get started collection is ready for you to explore  – on your own, with friends or new connections.",
+          "text": "You’ve just completed the Dive in session. Well done.\n\nNow you’re ready to explore the other sessions – on your own, with friends or new connections.",
           "heading": ""
         }
       }
     ],
     "theme": {
       "textColor": "#2E2E2E",
-      "backgroundColor": "#ceebf4"
+      "backgroundColor": ""
     },
     "hidden": true,
-    "name": "Get started",
+    "name": "Dive in",
     "published": true,
     "duration": 5,
     "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
+      "hostNotes": []
     },
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",
