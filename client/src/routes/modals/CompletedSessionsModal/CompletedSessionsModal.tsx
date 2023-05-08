@@ -2,43 +2,51 @@ import {RouteProp, useIsFocused, useRoute} from '@react-navigation/native';
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {
   SectionList as RNSectionList,
-  SectionListData,
   SectionListRenderItem,
 } from 'react-native';
-import {BottomSheetSectionList, useBottomSheet} from '@gorhom/bottom-sheet';
+import {
+  BottomSheetSectionList as RNBottomSheetSectionList,
+  useBottomSheet,
+} from '@gorhom/bottom-sheet';
 import dayjs from 'dayjs';
 import {groupBy} from 'ramda';
 
-import Gutters from '../../../lib/components/Gutters/Gutters';
-
-import SheetModal from '../../../lib/components/Modals/SheetModal';
-
-import {ModalStackProps} from '../../../lib/navigation/constants/routes';
-
-import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
-import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessions';
-
-import JourneyNode from '../../screens/Journey/components/JourneyNode';
-
-import {Spacer32, Spacer8} from '../../../lib/components/Spacers/Spacer';
-
+import {CompletedSessionItem} from '../../screens/Journey/types/Section';
 import {
   SessionMode,
   SessionType,
 } from '../../../../../shared/src/schemas/Session';
+import {COLORS} from '../../../../../shared/src/constants/colors';
+import Gutters from '../../../lib/components/Gutters/Gutters';
+import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
+import {Spacer32, Spacer8} from '../../../lib/components/Spacers/Spacer';
+
+import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessions';
 import useGetSessionsByFeedback from '../../../lib/user/hooks/useGetSessionsByFeedback';
+
+import SheetModal from '../../../lib/components/Modals/SheetModal';
+import {ModalStackProps} from '../../../lib/navigation/constants/routes';
+import JourneyNode, {
+  HEIGHT as JOURNEY_NODE_HEIGHT,
+} from '../../screens/Journey/components/JourneyNode';
 import FeedbackFilters from './components/FeedbackFilters';
 import ModeFilters from './components/ModeFilters';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
-import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
-import {COLORS} from '../../../../../shared/src/constants/colors';
-
-const LIST_ITEM_HEIGHT = 110;
+import StickyHeading, {
+  HEIGHT as HEADER_HEIGHT,
+} from '../../../lib/components/StickyHeading/StickyHeading';
+import {SPACINGS} from '../../../lib/constants/spacings';
+import getSectionListItemLayout from '../../../lib/utils/getSectionListItemLayout';
 
 type Section = {
   title: string;
-  data: CompletedSessionEvent[];
+  data: CompletedSessionItem[];
 };
+
+const BottomSheetSectionList = RNBottomSheetSectionList<
+  CompletedSessionItem,
+  Section
+>;
 
 const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
   section: {title},
@@ -47,6 +55,20 @@ const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
     <Heading16>{title}</Heading16>
   </StickyHeading>
 );
+
+const getItemLayout = getSectionListItemLayout<CompletedSessionItem, Section>({
+  getItemHeight: (item, sectionIndex, rowIndex) => {
+    switch (item?.type) {
+      case 'completedSession':
+        const isFirstItem = sectionIndex === 0 && rowIndex === 0;
+        return JOURNEY_NODE_HEIGHT - (isFirstItem ? SPACINGS.SIXTEEN : 0);
+      default:
+        return 0;
+    }
+  },
+  getSectionHeaderHeight: section => (section?.title ? HEADER_HEIGHT : 0),
+  listHeaderHeight: () => SPACINGS.TWENTYFOUR,
+});
 
 const CompletedSessionsModal = () => {
   const {animatedIndex} = useBottomSheet();
@@ -59,7 +81,7 @@ const CompletedSessionsModal = () => {
   >();
   const [selectedFeedback, setSelectedFeedback] = useState<boolean>();
   const getSessionsByFeedback = useGetSessionsByFeedback();
-  const listRef = useRef<RNSectionList<CompletedSessionEvent, Section>>(null);
+  const listRef = useRef<RNSectionList<CompletedSessionItem, Section>>(null);
   const [listItems, setListItems] = useState<CompletedSessionEvent[]>([]);
 
   const data = useMemo(() => {
@@ -90,7 +112,12 @@ const CompletedSessionsModal = () => {
       groupBy(event => dayjs(event.timestamp).format('MMM, YYYY'), sessions),
     ).map(([month, events]) => ({
       title: month,
-      data: events,
+      data: events.map(event => ({
+        data: event,
+        type: 'completedSession',
+        isLast: sessions.indexOf(event) === sessions.length - 1,
+        isFirst: sessions.indexOf(event) === 0,
+      })) as CompletedSessionItem[],
     }));
   }, [
     completedHostedSessions,
@@ -136,13 +163,14 @@ const CompletedSessionsModal = () => {
   );
 
   const renderItem = useCallback<
-    SectionListRenderItem<CompletedSessionEvent, Section>
+    SectionListRenderItem<CompletedSessionItem, Section>
   >(
-    ({item, index, section}) => (
-      <Gutters key={item.payload.id}>
+    ({item}) => (
+      <Gutters key={item.id}>
         <JourneyNode
-          completedSessionEvent={item}
-          isLast={index === section.data.length - 1}
+          completedSessionEvent={item.data}
+          isLast={item.isLast}
+          isFirst={item.isFirst}
         />
       </Gutters>
     ),
@@ -173,18 +201,6 @@ const CompletedSessionsModal = () => {
       });
     }
   }, [data, animatedIndex.value]);
-
-  const getItemLayout = useCallback(
-    (
-      _: SectionListData<CompletedSessionEvent, Section>[] | null,
-      index: number,
-    ) => ({
-      length: LIST_ITEM_HEIGHT,
-      offset: LIST_ITEM_HEIGHT * index,
-      index,
-    }),
-    [],
-  );
 
   return (
     <SheetModal backgroundColor={COLORS.PURE_WHITE}>
