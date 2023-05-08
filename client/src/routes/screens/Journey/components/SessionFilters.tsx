@@ -1,7 +1,7 @@
 import React, {useCallback, useMemo} from 'react';
 import styled from 'styled-components/native';
 import ScoreCard from '../../../../lib/components/ScroreCard/ScoreCard';
-import {LogoIcon} from '../../../../lib/components/Icons';
+import {LogoIcon, ProfileIcon} from '../../../../lib/components/Icons';
 import {ThumbsUpWithoutPadding} from '../../../../lib/components/Thumbs/Thumbs';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -14,7 +14,7 @@ import useUserEvents from '../../../../lib/user/hooks/useUserEvents';
 import useCompletedSessions from '../../../../lib/sessions/hooks/useCompletedSessions';
 import {Image} from 'react-native';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import {SPACINGS} from '../../../../lib/constants/spacings';
+
 import useUser from '../../../../lib/user/hooks/useUser';
 import {useTranslation} from 'react-i18next';
 
@@ -26,11 +26,11 @@ const Container = styled.View({
   alignItems: 'center',
 });
 
-const ImageContainer = styled.View<{small?: boolean}>(() => ({
+const ImageContainer = styled(Image)<{small?: boolean}>(() => ({
   backgroundColor: COLORS.GREYMEDIUM,
-  width: SPACINGS.TWENTYFOUR,
-  height: SPACINGS.TWENTYFOUR,
-  borderRadius: SPACINGS.TWELVE,
+  width: 30,
+  height: 30,
+  borderRadius: 15,
   overflow: 'hidden',
   shadowColor: COLORS.GREYDARK,
 }));
@@ -51,11 +51,12 @@ const SessionFilters = () => {
   );
 
   const UserPic = useCallback(
-    () => (
-      <ImageContainer>
-        {user?.photoURL && <Image source={{uri: user.photoURL}} />}
-      </ImageContainer>
-    ),
+    () =>
+      user?.photoURL ? (
+        <ImageContainer source={{uri: user.photoURL}} />
+      ) : (
+        <ProfileIcon />
+      ),
     [user],
   );
 
