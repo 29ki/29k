@@ -48,7 +48,7 @@
     "posthog-react-native": "^2.7.0",
     "ramda": "^0.29.0",
     "react": "18.2.0",
-    "react-i18next": "^12.2.0",
+    "react-i18next": "^12.2.2",
     "react-native": "0.69.9",
     "react-native-action-sheet": "^2.2.0",
     "react-native-add-calendar-event": "^4.0.0",
