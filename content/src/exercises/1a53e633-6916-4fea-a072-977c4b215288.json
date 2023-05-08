@@ -22,7 +22,8 @@
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#ceebf4"
     },
     "hidden": true,
     "name": "Get started",
