@@ -10,7 +10,7 @@ import Heading from './Blocks/Heading';
 import Image from '../../../../components/Image/Image';
 import Video from './Blocks/Video';
 import {Spacer12, Spacer8} from '../../../../components/Spacers/Spacer';
-import Text from './Blocks/Text';
+import SubHeading from './Blocks/SubHeading';
 import Lottie from './Blocks/Lottie';
 import ContentWrapper from '../../ContentWrapper/ContentWrapper';
 
@@ -68,7 +68,7 @@ const Content: React.FC<ContentProps> = ({
       {!content.video && !content.image && !content.lottie && (
         <TextWrapper>
           {content.heading && <Heading>{content.heading}</Heading>}
-          {content.text && <Text>{content.text}</Text>}
+          {content.text && <SubHeading>{content.text}</SubHeading>}
         </TextWrapper>
       )}
       {!async &&
@@ -76,7 +76,7 @@ const Content: React.FC<ContentProps> = ({
         content.heading && <Heading>{content.heading}</Heading>}
       {!async &&
         (content.video || content.image || content.lottie) &&
-        content.text && <Text>{content.text}</Text>}
+        content.text && <SubHeading>{content.text}</SubHeading>}
 
       {content.lottie ? (
         <GraphicsWrapper>

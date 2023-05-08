@@ -43,7 +43,7 @@ import Screen from '../../../lib/components/Screen/Screen';
 import useLocalParticipant from '../../../lib/daily/hooks/useLocalParticipant';
 import useUser from '../../../lib/user/hooks/useUser';
 import Image from '../../../lib/components/Image/Image';
-import useSubscribeToSessionIfFocused from '../../../lib/session/hooks/useSusbscribeToSessionIfFocused';
+import useSubscribeToSessionIfFocused from '../../../lib/session/hooks/useSubscribeToSessionIfFocused';
 import {getSessionToken, joinSession} from '../../../lib/sessions/api/session';
 import useLiveSessionMetricEvents from '../../../lib/session/hooks/useLiveSessionMetricEvents';
 import useCheckPermissions from '../../../lib/session/hooks/useCheckPermissions';

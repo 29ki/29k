@@ -17,7 +17,7 @@ import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
 import useIsSessionHost from '../../../lib/session/hooks/useIsSessionHost';
 import usePreventGoingBack from '../../../lib/navigation/hooks/usePreventGoingBack';
 import useUpdateSessionState from '../../../lib/session/hooks/useUpdateSessionState';
-import useSubscribeToSessionIfFocused from '../../../lib/session/hooks/useSusbscribeToSessionIfFocused';
+import useSubscribeToSessionIfFocused from '../../../lib/session/hooks/useSubscribeToSessionIfFocused';
 import IntroPortalComponent from '../../../lib/session/components/IntroPortal/IntroPortal';
 import PortalStatus from '../../../lib/session/components/PortalStatus/PortalStatus';
 import useLiveSessionMetricEvents from '../../../lib/session/hooks/useLiveSessionMetricEvents';
