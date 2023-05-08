@@ -36,7 +36,6 @@ import usePinCollection from '../../../lib/user/hooks/usePinCollection';
 import usePinnedCollectionById from '../../../lib/user/hooks/usePinnedCollectionById';
 import {formatContentName} from '../../../lib/utils/string';
 import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
-import {GET_STARTED_COLLECTION_ID} from '../../../lib/content/constants';
 
 type Section = {
   title: string;
@@ -82,7 +81,6 @@ const Collection = () => {
   const savedCollection = usePinnedCollectionById(collectionId);
   const {getCompletedSessionByExerciseId} = useCompletedSessionByTime();
   const {togglePinned, isPinned} = usePinCollection(collectionId);
-  const isGetStartedCollection = collectionId === GET_STARTED_COLLECTION_ID;
 
   const colors = useMemo(
     () => [hexToRgba(COLORS.WHITE, 0), hexToRgba(COLORS.WHITE, 1)],
@@ -140,13 +138,12 @@ const Collection = () => {
               exercise={item}
               hasCardBefore={hasCardBefore}
               hasCardAfter={hasCardAfter}
-              startImmediatly={isGetStartedCollection && index === 0}
             />
           )}
         </Gutters>
       );
     },
-    [savedCollection, isGetStartedCollection, getCompletedSessionByExerciseId],
+    [savedCollection, getCompletedSessionByExerciseId],
   );
 
   return (

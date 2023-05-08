@@ -149,20 +149,20 @@ const SelectTypeStep: React.FC<StepProps> = ({
   const [sessions, setSessions] = useState<Array<LiveSessionType>>([]);
   const [isLoadingSessions, setIsLoadingSessions] = useState(false);
 
-  useEffect(() => {
-    if (selectedExercise) {
-      setIsLoadingSessions(true);
-      fetchSessions(selectedExercise).then(loadedSessions => {
-        setSessions(loadedSessions);
-        setIsLoadingSessions(false);
-      });
-    }
-  }, [setSessions, setIsLoadingSessions, selectedExercise]);
-
   const exercise = useMemo(
     () => (selectedExercise ? getExerciseById(selectedExercise) : null),
     [getExerciseById, selectedExercise],
   );
+
+  useEffect(() => {
+    if (exercise && exercise.live) {
+      setIsLoadingSessions(true);
+      fetchSessions(exercise.id).then(loadedSessions => {
+        setSessions(loadedSessions);
+        setIsLoadingSessions(false);
+      });
+    }
+  }, [setSessions, exercise, setIsLoadingSessions]);
 
   const exerciseImage = useMemo(
     () => (exercise?.card?.image ? {uri: exercise.card.image.source} : null),
@@ -195,6 +195,13 @@ const SelectTypeStep: React.FC<StepProps> = ({
       selectedExercise,
     ],
   );
+
+  const onStartPress = useCallback(() => {
+    if (selectedExercise) {
+      popToTop();
+      startSession(selectedExercise);
+    }
+  }, [startSession, popToTop, selectedExercise]);
 
   const renderItem = useCallback<ListRenderItem<LiveSessionType>>(
     ({item, index}) => {
@@ -265,7 +272,9 @@ const SelectTypeStep: React.FC<StepProps> = ({
               {isLoadingSessions ? (
                 <Spinner color={COLORS.BLACK} />
               ) : (
-                <Display18>{t('noUpcomingSessions')}</Display18>
+                exercise.live && (
+                  <Display18>{t('noUpcomingSessions')}</Display18>
+                )
               )}
             </EmptyListContainer>
           }
@@ -297,12 +306,23 @@ const SelectTypeStep: React.FC<StepProps> = ({
                 </Tags>
               )}
               <Spacer16 />
-              <TypeItemHeading>{t('description')}</TypeItemHeading>
-              <Spacer16 />
-              {typeSelection}
-              <Spacer40 />
-              <Heading16>{t('orJoinUpcoming')}</Heading16>
-              <Spacer16 />
+
+              {exercise.live ? (
+                <>
+                  <TypeItemHeading>{t('description')}</TypeItemHeading>
+                  <Spacer16 />
+                  {typeSelection}
+                  <Spacer40 />
+                  <Heading16>{t('orJoinUpcoming')}</Heading16>
+                  <Spacer16 />
+                </>
+              ) : (
+                <ButtonWrapper>
+                  <Button variant="secondary" onPress={onStartPress}>
+                    {t('startCta')}
+                  </Button>
+                </ButtonWrapper>
+              )}
             </Gutters>
           }
         />
