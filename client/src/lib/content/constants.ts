@@ -1,0 +1,1 @@
+export const GET_STARTED_COLLECTION_ID = '46f653cd-b77f-458d-a257-1b171591c08b';

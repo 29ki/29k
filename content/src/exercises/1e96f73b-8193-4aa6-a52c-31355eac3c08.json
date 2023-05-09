@@ -94,6 +94,7 @@
     },
     "hidden": true,
     "name": "The way out is through",
+    "live": true,
     "published": true,
     "card": {
       "host": {

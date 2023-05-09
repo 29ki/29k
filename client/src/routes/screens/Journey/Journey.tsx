@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {
   SectionList as RNSectionList,
   RefreshControl,
@@ -33,10 +33,10 @@ import Gutters from '../../../lib/components/Gutters/Gutters';
 import Screen from '../../../lib/components/Screen/Screen';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
+import CollectionCardContainer from '../../../lib/components/Cards/CollectionCards/CollectionCardContainer';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
-import CollectionCardContainer from './components/CollectionCardContainer';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 import SessionFilters from './components/SessionFilters';
 
@@ -104,6 +104,28 @@ const Journey = () => {
   const listRef = useRef<RNSectionList<Item, Section>>(null);
   const filtersScrollIndex = useRef({sectionIndex: 0, itemIndex: 0});
 
+  // Calculate the index of the filters section
+  const filtersSectionIndex = useMemo(
+    () => findLastIndex(({type}) => type === 'filters', sections),
+    [sections],
+  );
+
+  /*
+    Since the items/indexes are flattened in initialScrollIndex, we need to iterate over the sections to find the index of the filters section
+    We provide initialScrollIndex solely to reduce the initial scroll jump when the user opens the tab
+  */
+  const initialScrollIndex = useMemo(
+    () =>
+      sections.reduce(
+        (index, section, currIndex) =>
+          currIndex < filtersSectionIndex
+            ? index + section.data.length + 2 // +2 for the section header and footer of each section (SectionList weirdness)
+            : index,
+        0,
+      ),
+    [filtersSectionIndex, sections],
+  );
+
   const scrollToFiltersSection = useCallback((animated = false) => {
     listRef.current?.scrollToLocation({
       ...filtersScrollIndex.current,
@@ -114,11 +136,7 @@ const Journey = () => {
   }, []);
 
   useEffect(() => {
-    const filtersSectionIndex = findLastIndex(
-      ({type}) => type === 'filters',
-      sections,
-    );
-
+    // We store the index in a ref because of the scrollToTop in useScrolToTop being a ref that won't update on re-render
     filtersScrollIndex.current =
       filtersSectionIndex > -1
         ? {
@@ -128,7 +146,7 @@ const Journey = () => {
         : {sectionIndex: 0, itemIndex: 0};
 
     scrollToFiltersSection();
-  }, [scrollToFiltersSection, sections]);
+  }, [scrollToFiltersSection, sections, filtersSectionIndex]);
 
   useScrollToTop(
     useRef({
@@ -232,7 +250,7 @@ const Journey = () => {
         stickySectionHeadersEnabled
         renderSectionHeader={renderSectionHeader}
         renderItem={renderSession}
-        initialNumToRender={5}
+        initialScrollIndex={initialScrollIndex}
         refreshControl={
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }

@@ -20,11 +20,21 @@ i18nLib.init();
 sentry.init();
 metrics.init();
 
+// Since the i18 backend have not run properly before accessing
+// content on the landing screen we need to make sure this has been done.
+// By calling useTranslation the i18n backend will resolve the resources already in bootstrap.
+// Since this inside suspence it will be loaded before continuting
+const useInitHidableContent = () => {
+  useTranslation('collections');
+  useTranslation('exercises');
+};
+
 const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
   useAuthenticateUser();
   usePreferredLanguage();
 
   const {i18n} = useTranslation();
+  useInitHidableContent();
 
   const setIsColdStarted = useAppState(state => state.setIsColdStarted);
   const checkKillSwitch = useKillSwitch();

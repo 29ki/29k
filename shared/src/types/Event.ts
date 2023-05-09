@@ -28,6 +28,10 @@ export type CompletedSessionPayload = {
   hostProfile?: UserProfileType;
 };
 
+export type CompletedCollectionPayload = {
+  id: string;
+};
+
 type BaseEvent = {
   timestamp: string;
 };
@@ -47,12 +51,25 @@ export type CompletedSessionEvent = BaseEvent & {
   payload: CompletedSessionPayload;
 };
 
-export type UserEvent = PostEvent | FeedbackEvent | CompletedSessionEvent;
+export type CompletedCollectionEvent = BaseEvent & {
+  type: 'completedCollection';
+  payload: CompletedCollectionPayload;
+};
+
+export type UserEvent =
+  | PostEvent
+  | FeedbackEvent
+  | CompletedSessionEvent
+  | CompletedCollectionEvent;
 
 export type PostEventData = Omit<PostEvent, 'timestamp'>;
 export type FeedbackEventData = Omit<FeedbackEvent, 'timestamp'>;
 export type CompletedSessionEventData = Omit<
   CompletedSessionEvent,
+  'timestamp'
+>;
+export type CompletedCollectionEventData = Omit<
+  CompletedCollectionEvent,
   'timestamp'
 >;
 export type UserEventData = Omit<UserEvent, 'timestamp'>;

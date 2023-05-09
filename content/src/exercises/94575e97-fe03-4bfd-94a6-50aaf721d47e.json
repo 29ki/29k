@@ -106,6 +106,7 @@
       "backgroundColor": "#fcc9b7"
     },
     "name": "Accepting thoughts and feelings",
+    "live": true,
     "published": true,
     "card": {
       "image": {
@@ -253,6 +254,7 @@
     },
     "hidden": false,
     "name": "Aceitar pensamentos e sentimentos",
+    "live": true,
     "published": true,
     "card": {
       "image": {
