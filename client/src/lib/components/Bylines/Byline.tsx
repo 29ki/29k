@@ -3,9 +3,9 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
-import Image from '../Image/Image';
 import {Spacer4} from '../Spacers/Spacer';
 import {Body12, Body14} from '../Typography/Body/Body';
+import ProfilePicture from '../User/ProfilePicture';
 
 const Container = styled.View({
   flexDirection: 'row',
@@ -42,7 +42,11 @@ const Byline: React.FC<BylineProps> = React.memo(
     return (
       <Container>
         <ImageContainer small={small}>
-          {pictureURL && <Image source={{uri: pictureURL}} />}
+          <ProfilePicture
+            size={small ? SPACINGS.SIXTEEN : SPACINGS.TWENTYFOUR}
+            pictureURL={pictureURL}
+            letter={name?.[0]}
+          />
         </ImageContainer>
         <Spacer4 />
         {small ? (
