@@ -235,6 +235,9 @@ public class ReactVideoLooperView extends FrameLayout {
   public void setSeek(double to) {
     if (_player != null) {
       _player.seekTo((long)to * 1000L);
+      if (!_paused) {
+        _player.play();
+      }
     }
   }
 

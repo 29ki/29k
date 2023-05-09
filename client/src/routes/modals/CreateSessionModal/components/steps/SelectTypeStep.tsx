@@ -16,9 +16,9 @@ import {
 import Gutters from '../../../../../lib/components/Gutters/Gutters';
 import {
   CommunityIcon,
-  LogoIcon,
   FriendsIcon,
   MeIcon,
+  LogoIconAnimated,
 } from '../../../../../lib/components/Icons';
 import {
   Spacer16,
@@ -318,7 +318,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
         </TextWrapper>
         <Spacer16 />
         <LogoWrapper>
-          <LogoIcon />
+          <LogoIconAnimated />
         </LogoWrapper>
       </Row>
       <Spacer28 />
