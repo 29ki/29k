@@ -1,8 +1,8 @@
 import {renderHook} from '@testing-library/react-hooks';
 import {useNavigation, useIsFocused} from '@react-navigation/native';
 import useSessionState from '../state/state';
-import useSessions from '../../../lib/sessions/hooks/useSessions';
-import useSubscribeToSessionIfFocused from './useSusbscribeToSessionIfFocused';
+import useSessions from '../../sessions/hooks/useSessions';
+import useSubscribeToSessionIfFocused from './useSubscribeToSessionIfFocused';
 import useSubscribeToSession from './useSubscribeToSession';
 import useGetExerciseById from '../../content/hooks/useGetExerciseById';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
@@ -30,9 +30,10 @@ describe('useSubscribeToSessionIfFocused', () => {
   const mockSubscribeToSession = jest.fn();
   mockuseSubscribeToSession.mockReturnValue(mockSubscribeToSession);
 
-  const mockGetExerciseById = jest
-    .fn()
-    .mockReturnValue({name: 'Some Exercise'} as Exercise);
+  const mockGetExerciseById = jest.fn().mockReturnValue({
+    name: 'Some Exercise',
+    slides: [{type: 'instruction'}, {type: 'content'}],
+  } as Exercise);
   mockUseGetExerciseById.mockReturnValue(mockGetExerciseById);
 
   const navigation = useNavigation();
@@ -76,13 +77,14 @@ describe('useSubscribeToSessionIfFocused', () => {
     );
   });
 
-  it('should set session exercise state on mount', () => {
+  it('should set session exercise state on mount, keeping only live slides', () => {
     const {result} = renderHook(() => useTestHook());
 
     expect(result.current).toEqual(
       expect.objectContaining({
         exercise: {
           name: 'Some Exercise',
+          slides: [{type: 'content'}],
         },
       }),
     );
