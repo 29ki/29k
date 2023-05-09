@@ -116,8 +116,14 @@ const ChangingRoom = () => {
         LiveSessionStackProps & TabNavigatorProps & ModalStackProps
       >
     >();
-  const {toggleAudio, toggleVideo, setUserName, joinMeeting, preJoinMeeting} =
-    useContext(DailyContext);
+  const {
+    toggleAudio,
+    toggleVideo,
+    setUserData,
+    setUserName,
+    joinMeeting,
+    preJoinMeeting,
+  } = useContext(DailyContext);
 
   const sessionState = useSessionState(state => state.sessionState);
   const {
@@ -177,11 +183,8 @@ const ChangingRoom = () => {
     } else {
       await joinMeeting({
         subscribeToTracksAutomatically: false,
-        userData: {
-          userName: localUserName,
-          inPortal: true,
-        },
       });
+      setUserData({inPortal: true});
       navigate('IntroPortal', {session});
     }
   }, [
@@ -189,8 +192,8 @@ const ChangingRoom = () => {
     sessionState?.started,
     joinMeeting,
     navigate,
+    setUserData,
     session,
-    localUserName,
   ]);
 
   const joinPress = useCallback(async () => {
