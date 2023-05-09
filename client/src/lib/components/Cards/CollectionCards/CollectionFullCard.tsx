@@ -43,8 +43,6 @@ const LeftColumn = styled.View({
 const GraphicsWrapper = styled.View({
   width: 134,
   height: 134,
-  paddingVertical: SPACINGS.EIGHT,
-  paddingHorizontal: SPACINGS.SIXTEEN,
 });
 
 const CollectionFullCard: React.FC<CollectionFullCardProps> = ({
