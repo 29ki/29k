@@ -14,7 +14,7 @@ import useSessionSlideState from '../../../lib/session/hooks/useSessionSlideStat
 import usePreventGoingBack from '../../../lib/navigation/hooks/usePreventGoingBack';
 import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
 import useAsyncSessionMetricEvents from '../../../lib/session/hooks/useAsyncSessionMetricEvents';
-import useUserState from '../../../lib/user/state/state';
+import useAddUserEvent from '../../../lib/user/hooks/useAddUserEvent';
 
 import {BottomSafeArea, Spacer16} from '../../../lib/components/Spacers/Spacer';
 
@@ -82,7 +82,7 @@ const Session: React.FC = () => {
   const theme = exercise?.theme;
   const logSessionMetricEvent = useAsyncSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession(session);
-  const {addUserEvent} = useUserState();
+  const addUserEvent = useAddUserEvent();
   const {navigateToIndex, setPlaying} = useUpdateAsyncSessionState(session);
 
   usePreventGoingBack(leaveSessionWithConfirm);

@@ -107,6 +107,7 @@
     },
     "hidden": false,
     "name": "Breathing anchor",
+    "live": true,
     "published": true,
     "card": {
       "image": {
@@ -235,6 +236,7 @@
     },
     "hidden": false,
     "name": "A respiração como âncora",
+    "live": true,
     "published": true,
     "card": {
       "image": {

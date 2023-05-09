@@ -88,6 +88,7 @@
     },
     "hidden": true,
     "name": "STOP-skill",
+    "live": true,
     "published": true,
     "duration": 30,
     "introPortal": {

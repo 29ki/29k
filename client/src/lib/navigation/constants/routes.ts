@@ -14,9 +14,14 @@ import {
 import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 
 export type TabNavigatorProps = {
-  Home: undefined;
+  HomeStack: undefined;
   ExploreStack: undefined;
   JourneyStack: undefined;
+};
+
+export type HomeStackProps = {
+  Home: undefined;
+  Collection: {collectionId: string};
 };
 
 export type ExploreStackProps = {

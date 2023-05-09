@@ -1,0 +1,28 @@
+{
+  "en": {
+    "published": true,
+    "hidden": true,
+    "id": "46f653cd-b77f-458d-a257-1b171591c08b",
+    "name": "Get started",
+    "description": "Start here to exploer the Aware app",
+    "exercises": ["095f9642-73b6-4c9a-ae9a-ea7dea7363f5"]
+  },
+  "pt": {
+    "published": false,
+    "hidden": true,
+    "id": "46f653cd-b77f-458d-a257-1b171591c08b",
+    "exercises": ["095f9642-73b6-4c9a-ae9a-ea7dea7363f5"]
+  },
+  "sv": {
+    "published": false,
+    "hidden": true,
+    "id": "46f653cd-b77f-458d-a257-1b171591c08b",
+    "exercises": ["095f9642-73b6-4c9a-ae9a-ea7dea7363f5"]
+  },
+  "es": {
+    "published": false,
+    "hidden": true,
+    "id": "46f653cd-b77f-458d-a257-1b171591c08b",
+    "exercises": ["095f9642-73b6-4c9a-ae9a-ea7dea7363f5"]
+  }
+}
