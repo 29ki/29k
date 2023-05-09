@@ -1,7 +1,6 @@
 import React, {useCallback, useMemo, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
-import RNVideo, {OnLoadData} from 'react-native-video';
 
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
@@ -19,8 +18,8 @@ import styled from 'styled-components/native';
 import LPlayer, {
   LottiePlayerHandle,
 } from '../../../lib/components/LottiePlayer/LottiePlayer';
+import VideoLooper from '../../../lib/components/VideoLooper/VideoLooper';
 import DurationTimer from '../../../lib/session/components/DurationTimer/DurationTimer';
-import VideoBase from '../../../lib/session/components/VideoBase/VideoBase';
 
 const LottiePlayer = styled(LPlayer)({
   flex: 1,
@@ -44,7 +43,7 @@ const Duration = styled(DurationTimer)({
   height: 30,
 });
 
-const AudioPlayer = styled(VideoBase)({
+const AudioPlayer = styled(VideoLooper)({
   display: 'none',
 });
 
@@ -55,7 +54,7 @@ const CalmDownModal = () => {
 
   const lottieRef = useRef<LottiePlayerHandle>(null);
   const timerRef = useRef<LottiePlayerHandle>(null);
-  const videoRef = useRef<RNVideo>(null);
+  const videoRef = useRef<VideoLooper>(null);
 
   const onTogglePlayingPress = useCallback(
     () => setPaused(!paused),
@@ -68,7 +67,11 @@ const CalmDownModal = () => {
     }),
     [t],
   );
-  const lottieAudioSource = useMemo(() => ({uri: t('lottie.audio')}), [t]);
+
+  const lottieAudioSources = useMemo(
+    () => [{source: t('lottie.audio'), repeat: false}],
+    [t],
+  );
 
   const seek = useCallback((seconds: number) => {
     videoRef.current?.seek(seconds);
@@ -76,7 +79,7 @@ const CalmDownModal = () => {
     timerRef.current?.seek(seconds);
   }, []);
 
-  const onLoad = useCallback<(data: OnLoadData) => void>(
+  const onLoad = useCallback<(data: {duration: number}) => void>(
     data => setAudioDuration(data.duration),
     [setAudioDuration],
   );
@@ -92,8 +95,8 @@ const CalmDownModal = () => {
           <ContentWrapper>
             <Duration ref={timerRef} duration={audioDuration} paused={paused} />
             <AudioPlayer
-              source={lottieAudioSource}
-              audioOnly
+              sources={lottieAudioSources}
+              volume={1}
               ref={videoRef}
               onLoad={onLoad}
               paused={paused}

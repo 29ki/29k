@@ -1,19 +1,18 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import styled from 'styled-components/native';
-import RNVideo, {OnLoadData} from 'react-native-video';
 
+import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
 import useSessionState from '../../../../state/state';
 import DurationTimer from '../../../DurationTimer/DurationTimer';
 import LPlayer, {
   LottiePlayerHandle,
 } from '../../../../../components/LottiePlayer/LottiePlayer';
-import {VideoBase} from '../../../VideoBase/VideoBase';
 
 const LottiePlayer = styled(LPlayer)({
   flex: 1,
 });
 
-const AudioPlayer = styled(VideoBase)({
+const AudioPlayer = styled(VideoLooper)({
   display: 'none',
 });
 
@@ -27,12 +26,13 @@ const Duration = styled(DurationTimer)({
 
 type LottieProps = {
   source: {uri: string};
-  audioSource?: {uri: string};
+  audioSource?: string;
   active: boolean;
   duration: number;
   preview?: string;
   autoPlayLoop?: boolean;
   durationTimer?: boolean;
+  isLive?: boolean;
 };
 const Lottie: React.FC<LottieProps> = ({
   active,
@@ -41,9 +41,10 @@ const Lottie: React.FC<LottieProps> = ({
   duration,
   autoPlayLoop = false,
   durationTimer = false,
+  isLive,
 }) => {
   const lottieRef = useRef<LottiePlayerHandle>(null);
-  const videoRef = useRef<RNVideo>(null);
+  const videoRef = useRef<VideoLooper>(null);
   const timerRef = useRef<LottiePlayerHandle>(null);
   const [audioDuration, setAudioDuration] = useState(0);
   const sessionState = useSessionState(state => state.sessionState);
@@ -110,7 +111,7 @@ const Lottie: React.FC<LottieProps> = ({
     seek,
   ]);
 
-  const onLoad = useCallback<(data: OnLoadData) => void>(
+  const onLoad = useCallback<(data: {duration: number}) => void>(
     data => {
       setAudioDuration(data.duration);
     },
@@ -125,6 +126,12 @@ const Lottie: React.FC<LottieProps> = ({
 
   const paused = !active || (!sessionState?.playing && !autoPlayLoop);
 
+  const audioSources = useMemo(() => {
+    if (audioSource) {
+      return [{source: audioSource, repeat: autoPlayLoop}];
+    }
+  }, [audioSource, autoPlayLoop]);
+
   const timer = useMemo(
     () =>
       durationTimer ? (
@@ -137,18 +144,18 @@ const Lottie: React.FC<LottieProps> = ({
     [durationTimer, paused, duration, audioDuration],
   );
 
-  if (audioSource) {
+  if (audioSources) {
     // If audio source is available we allways loop the animation
     return (
       <>
         <AudioPlayer
-          source={audioSource}
-          audioOnly
+          sources={audioSources}
           ref={videoRef}
+          volume={1}
           onLoad={onLoad}
           onEnd={onEnd}
-          repeat={autoPlayLoop}
           paused={paused}
+          mixWithOthers={isLive}
         />
         <LottiePlayer
           paused={paused}

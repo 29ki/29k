@@ -983,11 +983,6 @@ PODS:
     - RCTTypeSafety
     - React-Core
     - ReactCommon/turbomodule/core
-  - react-native-video (5.2.1):
-    - React-Core
-    - react-native-video/Video (= 5.2.1)
-  - react-native-video/Video (5.2.1):
-    - React-Core
   - react-native-webrtc (1.94.1-daily.8):
     - React-Core
   - React-perflogger (0.69.9)
@@ -1138,11 +1133,6 @@ PODS:
   - RNSentry (5.3.1):
     - React-Core
     - Sentry/HybridSDK (= 8.4.0)
-  - RNSound (0.11.2):
-    - React-Core
-    - RNSound/Core (= 0.11.2)
-  - RNSound/Core (0.11.2):
-    - React-Core
   - RNSVG (13.9.0):
     - React-Core
   - Sentry/HybridSDK (8.4.0):
@@ -1183,7 +1173,6 @@ DEPENDENCIES:
   - "react-native-daily-js (from `../node_modules/@daily-co/react-native-daily-js`)"
   - react-native-get-random-values (from `../node_modules/react-native-get-random-values`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
-  - react-native-video (from `../node_modules/react-native-video`)
   - "react-native-webrtc (from `../node_modules/@daily-co/react-native-webrtc`)"
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -1214,7 +1203,6 @@ DEPENDENCIES:
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - "RNSentry (from `../node_modules/@sentry/react-native`)"
-  - RNSound (from `../node_modules/react-native-sound`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -1306,8 +1294,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-get-random-values"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
-  react-native-video:
-    :path: "../node_modules/react-native-video"
   react-native-webrtc:
     :path: "../node_modules/@daily-co/react-native-webrtc"
   React-perflogger:
@@ -1368,8 +1354,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-screens"
   RNSentry:
     :path: "../node_modules/@sentry/react-native"
-  RNSound:
-    :path: "../node_modules/react-native-sound"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   Yoga:
@@ -1428,7 +1412,6 @@ SPEC CHECKSUMS:
   react-native-daily-js: dbf4a4827e5cf691349c3ae69aa5d147cf5226fd
   react-native-get-random-values: a6ea6a8a65dc93e96e24a11105b1a9c8cfe1d72a
   react-native-safe-area-context: f5549f36508b1b7497434baa0cd97d7e470920d4
-  react-native-video: c26780b224543c62d5e1b2a7244a5cd1b50e8253
   react-native-webrtc: ba5088bd040d835cc5df17bb2245d9d27d5d2d70
   React-perflogger: f6f4b3c63629ead2e8a5a22eaedd06368c31617a
   React-RCTActionSheet: 5e95058e99c53313d778d96b7f37697ce3a9418e
@@ -1459,7 +1442,6 @@ SPEC CHECKSUMS:
   RNReanimated: c6f8f70e96dd6ca21b65aef9b3e4efe4965db905
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
   RNSentry: 68d5b2339fc7cd864e8076279345cc90174fa583
-  RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
   RNSVG: 53c661b76829783cdaf9b7a57258f3d3b4c28315
   Sentry: 16d46dd5ca10e7f4469a2611805a3de123188add
   SentryPrivate: 2bb4f8d9ff558b25ac70b66c1dedc58a7c43630b

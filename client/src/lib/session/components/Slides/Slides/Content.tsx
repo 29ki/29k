@@ -52,11 +52,6 @@ const Content: React.FC<ContentProps> = ({
     [content?.lottie?.source],
   );
 
-  const lottieAudioSource = useMemo(
-    () => (content?.lottie?.audio ? {uri: content.lottie.audio} : undefined),
-    [content?.lottie?.audio],
-  );
-
   const lottieDuration = useMemo(
     () => content.lottie?.duration ?? 60,
     [content.lottie?.duration],
@@ -83,11 +78,12 @@ const Content: React.FC<ContentProps> = ({
           <Spacer8 />
           <Lottie
             source={lottieSource}
-            audioSource={lottieAudioSource}
+            audioSource={content.lottie.audio}
             active={active}
             duration={lottieDuration}
             autoPlayLoop={content.lottie.autoPlayLoop}
             durationTimer={content.lottie.durationTimer}
+            isLive={!async}
           />
           <Spacer8 />
         </GraphicsWrapper>
