@@ -40,6 +40,11 @@
     "hidden": true,
     "name": "Dive in",
     "published": true,
+    "card": {
+      "lottie": {
+        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1683648174/Lottie/aware_logo_teal_qszxuj.json"
+      }
+    },
     "duration": 5,
     "introPortal": {
       "hostNotes": [],
