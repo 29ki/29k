@@ -178,6 +178,7 @@ const ChangingRoom = () => {
       await joinMeeting({
         subscribeToTracksAutomatically: false,
         userData: {
+          userName: localUserName,
           inPortal: true,
         },
       });
@@ -189,6 +190,7 @@ const ChangingRoom = () => {
     joinMeeting,
     navigate,
     session,
+    localUserName,
   ]);
 
   const joinPress = useCallback(async () => {
