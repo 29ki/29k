@@ -9,7 +9,7 @@ import {Body14, Body12} from '../../../../lib/components/Typography/Body/Body';
 import {Display14} from '../../../../lib/components/Typography/Display/Display';
 import hexToRgba from 'hex-to-rgba';
 import LinearGradient from 'react-native-linear-gradient';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import {ComingSoonHeading, ComingSoonItem, ComingSoon} from '../Home';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 
@@ -19,8 +19,8 @@ const ComingSoonList = styled(FlatList)({
   overflow: 'visible',
 }) as unknown as FlatList;
 
-const CardContainer = styled.view({width: 136, marginTop: -5, minHeight: 92});
-const CardTag = styled.view({
+const CardContainer = styled.View({width: 136, marginTop: -5, minHeight: 92});
+const CardTag = styled.View({
   position: 'absolute',
   top: -8,
   backgroundColor: 'black',
@@ -32,7 +32,7 @@ const CardTag = styled.view({
 const Tag = styled(Body12)({
   color: COLORS.PURE_WHITE,
 });
-const Description = styled.view({width: 143, marginRight: SPACINGS.SIXTEEN});
+const Description = styled.View({width: 143, marginRight: SPACINGS.SIXTEEN});
 
 const ComingSoonGradient = styled(LinearGradient).attrs({
   colors: [
