@@ -10,7 +10,7 @@ import {Display14} from '../../../../lib/components/Typography/Display/Display';
 import hexToRgba from 'hex-to-rgba';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
-import {ComingSoonHeading, ComingSoonItem, ComingSoon} from '../Home';
+import {ComingSoonDescription, ComingSoonItem, ComingSoon} from '../Home';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 
 const ComingSoonList = styled(FlatList)({
@@ -48,13 +48,12 @@ const ComingSoonGradient = styled(LinearGradient).attrs({
 });
 
 const renderComingSoonItem: ListRenderItem<
-  ComingSoonHeading | ComingSoonItem
+  ComingSoonDescription | ComingSoonItem
 > = ({item}) => {
-  console.log(item);
-  if ((item as ComingSoonHeading).heading) {
+  if ((item as ComingSoonDescription).description) {
     return (
       <Description>
-        <Body14>{(item as ComingSoonHeading).description}</Body14>
+        <Body14>{(item as ComingSoonDescription).description}</Body14>
       </Description>
     );
   } else {
@@ -73,29 +72,23 @@ const renderComingSoonItem: ListRenderItem<
 
 const ComingSoonSlider: React.FC<{comingSoonSection: ComingSoon}> = ({
   comingSoonSection,
-}) => {
-  console.log([
-    pick(['heading', 'description'], comingSoonSection),
-    ...comingSoonSection.items,
-  ]);
-  return (
-    <Gutters>
-      <ComingSoonList
-        horizontal
-        snapToAlignment="center"
-        decelerationRate="fast"
-        snapToInterval={200 + SPACINGS.SIXTEEN}
-        showsHorizontalScrollIndicator={false}
-        ItemSeparatorComponent={Spacer16}
-        data={[
-          pick(['heading', 'description'], comingSoonSection),
-          ...comingSoonSection.items,
-        ]}
-        renderItem={renderComingSoonItem}
-      />
-      <Spacer24 />
-    </Gutters>
-  );
-};
+}) => (
+  <Gutters>
+    <ComingSoonList
+      horizontal
+      snapToAlignment="center"
+      decelerationRate="fast"
+      snapToInterval={200 + SPACINGS.SIXTEEN}
+      showsHorizontalScrollIndicator={false}
+      ItemSeparatorComponent={Spacer16}
+      data={[
+        pick(['heading', 'description'], comingSoonSection),
+        ...comingSoonSection.items,
+      ]}
+      renderItem={renderComingSoonItem}
+    />
+    <Spacer24 />
+  </Gutters>
+);
 
 export default ComingSoonSlider;

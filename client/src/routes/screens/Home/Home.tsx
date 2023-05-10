@@ -43,9 +43,9 @@ import CollectionCardContainer from '../../../lib/components/Cards/CollectionCar
 import useGetRelativeDateGroup from '../../../lib/date/hooks/useGetRelativeDateGroup';
 import ComingSoonSlider from './components/ComingSoon';
 
-export type ComingSoonHeading = {heading: string; description: string};
+export type ComingSoonDescription = {description: string};
 export type ComingSoonItem = {when: string; what: string};
-export type ComingSoon = ComingSoonHeading & {
+export type ComingSoon = ComingSoonDescription & {
   id: 'coming-soon-section';
   items: ComingSoonItem[];
 };
