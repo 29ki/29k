@@ -165,8 +165,8 @@ const Session: React.FC = () => {
     setCurrentContentReachedEnd,
   ]);
 
-  // Use special case with "Dive in" exercise
-  // Will be re-done when we update async sessions
+  // Use special case with "Dive in" exercise.
+  // Will be re-done when we update async sessions.
   return (
     <Screen backgroundColor={theme?.backgroundColor}>
       <Top>
