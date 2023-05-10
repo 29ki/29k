@@ -16,7 +16,11 @@ import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
 import useAsyncSessionMetricEvents from '../../../lib/session/hooks/useAsyncSessionMetricEvents';
 import useAddUserEvent from '../../../lib/user/hooks/useAddUserEvent';
 
-import {BottomSafeArea, Spacer16} from '../../../lib/components/Spacers/Spacer';
+import {
+  BottomSafeArea,
+  Spacer16,
+  TopSafeArea,
+} from '../../../lib/components/Spacers/Spacer';
 
 import ExerciseSlides from '../../../lib/session/components/ExerciseSlides/ExerciseSlides';
 import ContentControls from '../../../lib/session/components/ContentControls/ContentControls';
@@ -27,6 +31,8 @@ import HostNotes from '../../../lib/session/components/HostNotes/HostNotes';
 import Screen from '../../../lib/components/Screen/Screen';
 import useUpdateAsyncSessionState from '../../../lib/session/hooks/useUpdateAsyncSessionState';
 import Gutters from '../../../lib/components/Gutters/Gutters';
+
+const DIVE_IN_EXERCISE = '1a53e633-6916-4fea-a072-977c4b215288';
 
 const Spotlight = styled.View({
   flex: 1,
@@ -159,14 +165,18 @@ const Session: React.FC = () => {
     setCurrentContentReachedEnd,
   ]);
 
+  // Use special case with "Dive in" exercise
+  // Will be re-done when we update async sessions
   return (
     <Screen backgroundColor={theme?.backgroundColor}>
       <Top>
-        {sessionSlideState?.current.type !== 'sharing' && (
-          <HostNotes async exercise={exercise} />
-        )}
+        {exercise?.id !== DIVE_IN_EXERCISE &&
+          sessionSlideState?.current.type !== 'sharing' && (
+            <HostNotes async exercise={exercise} />
+          )}
         {!sessionSlideState?.next && (
           <>
+            {exercise?.id === DIVE_IN_EXERCISE && <TopSafeArea />}
             <Spacer16 />
             <StyledButton small active onPress={endSession}>
               {t('endButton')}

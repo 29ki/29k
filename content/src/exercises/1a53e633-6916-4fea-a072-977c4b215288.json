@@ -57,6 +57,12 @@
         "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png"
       }
     },
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3"
+      }
+    },
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
