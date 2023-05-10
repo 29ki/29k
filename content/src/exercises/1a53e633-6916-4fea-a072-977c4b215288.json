@@ -29,7 +29,10 @@
         "type": "instruction",
         "content": {
           "text": "You’ve just completed the Dive in session. Well done.\n\nNow you’re ready to explore the other sessions – on your own, with friends or new connections.",
-          "heading": ""
+          "heading": "",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1683716635/Images/Rectangle_test_fxkse6.png"
+          }
         }
       }
     ],
