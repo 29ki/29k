@@ -9,16 +9,15 @@
       "comingSoon": "Coming soon"
     },
     "comingSoon": {
-      "heading": "Coming soon",
       "description": "More content with the best tools in the world for wellbeing and inner development.",
       "items": [
         {
-          "when": "Spring",
-          "what": "Manage stress in school or at work"
+          "what": "Manage stress in school or at work",
+          "when": "Spring"
         },
         {
-          "when": "Fall",
-          "what": "Self compassion in relationships"
+          "what": "Self compassion in relationships",
+          "when": "Fall"
         }
       ]
     }
