@@ -4,10 +4,11 @@
     "hidden": true,
     "id": "46f653cd-b77f-458d-a257-1b171591c08b",
     "name": "Get started",
-    "description": "Start here to exploer the Aware app",
+    "description": "Explore and learn the basics of the Aware app.",
     "exercises": [
       "1a53e633-6916-4fea-a072-977c4b215288",
-      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ],
     "image": {
       "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683720597/Images/get_started_collection_chij0k.png"
@@ -19,7 +20,8 @@
     "id": "46f653cd-b77f-458d-a257-1b171591c08b",
     "exercises": [
       "1a53e633-6916-4fea-a072-977c4b215288",
-      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ],
     "name": "Começar",
     "description": "Inicia aqui a exploração da app Aware"
@@ -30,7 +32,8 @@
     "id": "46f653cd-b77f-458d-a257-1b171591c08b",
     "exercises": [
       "1a53e633-6916-4fea-a072-977c4b215288",
-      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ]
   },
   "es": {
@@ -39,7 +42,8 @@
     "id": "46f653cd-b77f-458d-a257-1b171591c08b",
     "exercises": [
       "1a53e633-6916-4fea-a072-977c4b215288",
-      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ]
   }
 }
