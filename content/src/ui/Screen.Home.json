@@ -5,7 +5,22 @@
     "sections": {
       "hostedBy": "Your sessions",
       "interested": "Interested",
-      "comming": "Upcoming sessions"
+      "comming": "Upcoming sessions",
+      "comingSoon": "Coming soon"
+    },
+    "comingSoon": {
+      "heading": "Coming soon",
+      "description": "More content with the best tools in the world for wellbeing and inner development.",
+      "items": [
+        {
+          "when": "Spring",
+          "what": "Manage stress in school or at work"
+        },
+        {
+          "when": "Fall",
+          "what": "Self compassion in relationships"
+        }
+      ]
     }
   },
   "pt": {
