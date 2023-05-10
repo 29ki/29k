@@ -19,6 +19,7 @@ class VideoLooper extends React.Component {
     super(props);
     this.seek = this.seek.bind(this);
     this.onLoad = this.onLoad.bind(this);
+    this.onProgress = this.onProgress.bind(this);
     this.onError = this.onError.bind(this);
     this.state = {};
   }
@@ -37,6 +38,12 @@ class VideoLooper extends React.Component {
     }
   }
 
+  onProgress(event) {
+    if (this.props.onProgress) {
+      this.props.onProgress(event.nativeEvent);
+    }
+  }
+
   onError(event) {
     Sentry.captureMessage(event.nativeEvent.cause);
     if (this.props.onError) {
@@ -49,12 +56,13 @@ class VideoLooper extends React.Component {
   }
 
   render() {
-    const {onLoad, onError, style, ...rest} = this.props;
+    const {onLoad, onProgress, onError, style, ...rest} = this.props;
     return (
       <Container style={style}>
         <StyledRNVideoLooper
           ref={this._assignRoot}
           onLoad={this.onLoad}
+          onProgress={this.onProgress}
           onError={this.onError}
           {...rest}
         />

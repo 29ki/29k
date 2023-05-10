@@ -123,10 +123,14 @@ const Video: React.FC<VideoProps> = ({
   const timer = useMemo(
     () =>
       durationTimer ? (
-        <Duration duration={duration} paused={paused} ref={timerRef} />
+        <Duration duration={duration} paused ref={timerRef} />
       ) : null,
-    [durationTimer, paused, duration],
+    [durationTimer, duration],
   );
+
+  const onProgress = useCallback((data: {time: number}) => {
+    timerRef.current?.seek(data.time);
+  }, []);
 
   if (audioSources) {
     return (
@@ -136,6 +140,7 @@ const Video: React.FC<VideoProps> = ({
           ref={videoRef}
           volume={1}
           onLoad={onLoad}
+          onProgress={onProgress}
           paused={paused}
           mixWithOthers={isLive}
         />
@@ -157,6 +162,7 @@ const Video: React.FC<VideoProps> = ({
         ref={videoRef}
         volume={1}
         onLoad={onLoad}
+        onProgress={onProgress}
         onEnd={onEnd}
         mixWithOthers={isLive}
       />

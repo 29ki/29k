@@ -71,6 +71,7 @@ public class ReactVideoLooperView extends FrameLayout {
         eventData.putDouble("duration", duration / 1000D);
         sendEvent(_themedReactContext, ReactEvents.EVENT_ON_LOAD.toString(), eventData);
 
+        _player.getCurrentPosition()
         setKeepScreenOn(true);
       }
       if (state == Player.STATE_ENDED) {
