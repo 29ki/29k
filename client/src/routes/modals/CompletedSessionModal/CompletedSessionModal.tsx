@@ -7,6 +7,7 @@ import styled from 'styled-components/native';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import {complement, isNil} from 'ramda';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import AnimatedLottieView from 'lottie-react-native';
 
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -74,10 +75,13 @@ const TitleContainer = styled.View({
   flex: 2,
 });
 
-const ImageContainer = styled(Image)({
-  aspectRatio: '1',
-  flex: 1,
+const GraphicsWrapper = styled.View({
+  width: 90,
   height: 90,
+});
+
+const Lottie = styled(AnimatedLottieView)({
+  aspectRatio: 1,
 });
 
 const SharingPost = styled(MyPostCard)({
@@ -151,6 +155,18 @@ const CompletedSessionModal = () => {
     }
   }, [user]);
 
+  const exerciseImage = useMemo(() => {
+    if (exercise?.card?.image?.source) {
+      return {uri: exercise.card.image.source};
+    }
+  }, [exercise]);
+
+  const exerciseLottie = useMemo(() => {
+    if (exercise?.card?.lottie?.source) {
+      return {uri: exercise?.card?.lottie?.source};
+    }
+  }, [exercise]);
+
   if (!exercise) {
     return null;
   }
@@ -180,10 +196,13 @@ const CompletedSessionModal = () => {
               </TouchableOpacity>
             </TitleContainer>
             <Spacer32 />
-            <ImageContainer
-              resizeMode="contain"
-              source={{uri: exercise?.card?.image?.source}}
-            />
+            <GraphicsWrapper>
+              {exerciseLottie ? (
+                <Lottie source={exerciseLottie} autoPlay loop />
+              ) : (
+                <Image resizeMode="contain" source={exerciseImage} />
+              )}
+            </GraphicsWrapper>
           </SpaceBetweenRow>
         </Content>
         {exercise?.description && (
