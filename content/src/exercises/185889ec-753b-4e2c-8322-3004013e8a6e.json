@@ -149,6 +149,7 @@
       "backgroundColor": "#ffffff"
     },
     "name": "Be kind to yourself",
+    "live": true,
     "published": true,
     "card": {
       "image": {
@@ -330,6 +331,7 @@
       "backgroundColor": "#ffffff"
     },
     "name": "Sê gentil contigo",
+    "live": true,
     "published": true,
     "card": {
       "image": {

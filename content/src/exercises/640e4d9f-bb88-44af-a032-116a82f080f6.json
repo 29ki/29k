@@ -142,6 +142,7 @@
     },
     "hidden": true,
     "name": "Feeling purpose",
+    "live": true,
     "published": true,
     "card": {
       "host": {

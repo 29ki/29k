@@ -24,9 +24,9 @@ import {SPACINGS} from '../constants/spacings';
 import {Body14} from '../components/Typography/Body/Body';
 import {BottomSafeArea} from '../components/Spacers/Spacer';
 
-import Home from '../../routes/screens/Home/Home';
 import ExploreStack from './ExploreStack';
 import JourneyStack from './JourneyStack';
+import HomeStack from './HomeStack';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
 
@@ -104,7 +104,11 @@ const Tabs = () => {
 
   return (
     <Tab.Navigator screenOptions={screenOptions} tabBar={TabBar}>
-      <Tab.Screen name={'Home'} component={Home} options={homeOptions} />
+      <Tab.Screen
+        name={'HomeStack'}
+        component={HomeStack}
+        options={homeOptions}
+      />
       <Tab.Screen
         name={'ExploreStack'}
         component={ExploreStack}

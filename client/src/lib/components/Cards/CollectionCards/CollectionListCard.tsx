@@ -26,17 +26,15 @@ const Container = styled(TouchableOpacity)({
 });
 
 const ImageContainer = styled.View({
-  flexDirection: 'row',
   justifyContent: 'center',
-  alignItems: 'center',
   flex: 1,
+  paddingVertical: SPACINGS.EIGHT,
+  paddingHorizontal: SPACINGS.SIXTEEN,
 });
 
 const GraphicsWrapper = styled.View({
   width: '100%',
-  height: '100%',
-  paddingVertical: SPACINGS.EIGHT,
-  paddingHorizontal: SPACINGS.SIXTEEN,
+  aspectRatio: 1,
 });
 
 const CollectionCard: React.FC<CollectionCardProps> = ({

@@ -170,6 +170,7 @@
     },
     "hidden": false,
     "name": "Setting boundaries",
+    "live": true,
     "published": true,
     "card": {
       "image": {
@@ -370,6 +371,7 @@
     },
     "hidden": false,
     "name": "Estabelecer Limites",
+    "live": true,
     "published": true,
     "card": {
       "image": {

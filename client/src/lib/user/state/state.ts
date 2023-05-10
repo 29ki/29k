@@ -2,7 +2,7 @@ import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {create} from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {createJSONStorage, persist} from 'zustand/middleware';
-import {omit} from 'ramda';
+import {equals, omit} from 'ramda';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
@@ -13,8 +13,12 @@ import {
   FeedbackEventData,
   PostEventData,
   CompletedSessionEventData,
+  CompletedCollectionEventData,
+  CompletedSessionPayload,
 } from '../../../../../shared/src/types/Event';
 import {UserDataType} from '../../../../../shared/src/schemas/User';
+import {Collection} from '../../../../../shared/src/types/generated/Collection';
+import {GET_STARTED_COLLECTION_ID} from '../../content/constants';
 
 dayjs.extend(utc);
 
@@ -61,15 +65,24 @@ export type Actions = {
     user: State['user'];
     claims: State['claims'];
   }) => void;
+  setIntialState: () => void;
   setPinnedSessions: (pinnedSessions: Array<PinnedSession>) => void;
   setPinnedCollections: (pinnedCollections: Array<PinnedCollection>) => void;
   addUserEvent: (
     type: UserEvent['type'],
     payload: UserEvent['payload'],
   ) => void;
+  addCompletedSessionEvent: (
+    payload: CompletedSessionPayload,
+    collections: Array<Collection>,
+  ) => void;
   setCurrentUserState: SetCurrentUserState;
   reset: (isDelete?: boolean) => void;
 };
+
+const createInitialUserState = (timestamp: string): UserState => ({
+  pinnedCollections: [{id: GET_STARTED_COLLECTION_ID, startedAt: timestamp}],
+});
 
 const initialState: State = {
   user: null,
@@ -96,6 +109,8 @@ const getTypedEvent = (event: UserEventData) => {
       return event as PostEventData;
     case 'completedSession':
       return event as CompletedSessionEventData;
+    case 'completedCollection':
+      return event as CompletedCollectionEventData;
     default:
       return event as FeedbackEventData; // some type has to be the fallback
   }
@@ -123,25 +138,67 @@ const useUserState = create<State & Actions>()(
         }
       };
 
+      const addUserEvent = (
+        type: UserEvent['type'],
+        payload: UserEvent['payload'],
+      ) => {
+        const typedEventData = getTypedEvent({type, payload});
+        setCurrentUserState(({userEvents: events = []} = {}) => ({
+          userEvents: [
+            ...events,
+            {...typedEventData, timestamp: dayjs().utc().toJSON()},
+          ],
+        }));
+      };
+
       return {
         ...initialState,
         setUser: user => set({user}),
         setData: data => set(state => ({data: {...state.data, ...data}})),
         setClaims: claims => set({claims}),
-        setUserAndClaims: ({user, claims}) => set({user, claims}),
+        setUserAndClaims: ({user, claims}) => {
+          set({user, claims});
+        },
+        setIntialState: () => {
+          const currentState = getCurrentUserStateSelector(get());
+          if (!currentState?.pinnedCollections) {
+            setCurrentUserState(createInitialUserState(dayjs().utc().toJSON()));
+          }
+        },
         setCurrentUserState,
         setPinnedSessions: pinnedSessions =>
           setCurrentUserState({pinnedSessions}),
         setPinnedCollections: pinnedCollections =>
           setCurrentUserState({pinnedCollections}),
-        addUserEvent: (type, payload) => {
-          const typedEventData = getTypedEvent({type, payload});
-          setCurrentUserState(({userEvents: events = []} = {}) => ({
-            userEvents: [
-              ...events,
-              {...typedEventData, timestamp: dayjs().utc().toJSON()},
-            ],
-          }));
+        addUserEvent,
+        addCompletedSessionEvent: (payload, collections) => {
+          addUserEvent('completedSession', payload);
+          const currentState = getCurrentUserStateSelector(get()) ?? {};
+          const collectionIds = collections.map(c => c.id);
+          const pinnedCollections =
+            currentState.pinnedCollections?.filter(c =>
+              collectionIds.includes(c.id),
+            ) ?? [];
+
+          for (const pinnedCollection of pinnedCollections) {
+            const collection = collections.find(
+              c => c.id === pinnedCollection.id,
+            );
+            const completedExerciseIds = currentState.userEvents
+              ?.filter(
+                e =>
+                  e.type === 'completedSession' &&
+                  collection?.exercises.includes(e.payload.exerciseId) &&
+                  dayjs(e.timestamp).isAfter(dayjs(pinnedCollection.startedAt)),
+              )
+              .map(e => (e.payload as CompletedSessionPayload).exerciseId)
+              .sort();
+            const collectionExerciseIds = collection?.exercises.sort();
+
+            if (equals(collectionExerciseIds, completedExerciseIds)) {
+              addUserEvent('completedCollection', {id: pinnedCollection.id});
+            }
+          }
         },
         reset: isDelete => {
           const {user} = get();

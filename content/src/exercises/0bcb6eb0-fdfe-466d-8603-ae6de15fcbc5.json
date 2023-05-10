@@ -89,6 +89,7 @@
     },
     "hidden": true,
     "name": "Your 90th birthday",
+    "live": true,
     "published": true,
     "duration": 30,
     "introPortal": {
