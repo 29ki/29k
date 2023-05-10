@@ -5,8 +5,14 @@
         "type": "content",
         "content": {
           "video": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683554318/Audio/dive_in2_lsrrps.mp3",
-            "durationTimer": true
+            "audio": "",
+            "durationTimer": false
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1683721090/Lottie/dive_in_audio_visual_white_vjvfjo.json",
+            "durationTimer": true,
+            "autoPlayLoop": false,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683708370/Audio/dive_in_intro_kn3di2.mp3"
           }
         }
       },
@@ -23,20 +29,39 @@
         "type": "instruction",
         "content": {
           "text": "You’ve just completed the Dive in session. Well done.\n\nNow you’re ready to explore the other sessions – on your own, with friends or new connections.",
-          "heading": ""
+          "heading": "",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1683716635/Images/Rectangle_test_fxkse6.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": ""
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#378d88"
     },
     "hidden": true,
     "name": "Dive in",
     "published": true,
+    "card": {
+      "lottie": {
+        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1683720732/Lottie/aware_logo_teal_qqweff.json"
+      }
+    },
     "duration": 5,
     "introPortal": {
-      "hostNotes": []
+      "hostNotes": [],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png"
+      }
+    },
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3"
+      }
     },
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",

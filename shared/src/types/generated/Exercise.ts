@@ -238,6 +238,7 @@ export interface Exercise {
   tags?: any[];
   published: boolean;
   hidden?: boolean;
+  live?: boolean;
   async?: boolean;
   socialMeta?: ExerciseSocialMediaMetaTags;
   card: ExerciseCard;

@@ -153,6 +153,7 @@
     },
     "hidden": false,
     "name": "Letting go of control",
+    "live": true,
     "published": true,
     "card": {
       "image": {
@@ -346,6 +347,7 @@
     },
     "hidden": false,
     "name": "Desiste do controlo",
+    "live": true,
     "published": true,
     "card": {
       "image": {

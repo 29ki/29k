@@ -1,5 +1,6 @@
 import {useMemo} from 'react';
 import {
+  CompletedCollectionEvent,
   CompletedSessionEvent,
   FeedbackEvent,
   PostEvent,
@@ -34,13 +35,28 @@ const useUserEvents = () => {
     return [];
   }, [events]);
 
+  const completedCollectionEvents = useMemo(() => {
+    if (events) {
+      return events.filter(
+        e => e.type === 'completedCollection',
+      ) as CompletedCollectionEvent[];
+    }
+    return [];
+  }, [events]);
+
   return useMemo(
     () => ({
       postEvents,
       feedbackEvents,
       completedSessionEvents,
+      completedCollectionEvents,
     }),
-    [postEvents, feedbackEvents, completedSessionEvents],
+    [
+      postEvents,
+      feedbackEvents,
+      completedSessionEvents,
+      completedCollectionEvents,
+    ],
   );
 };
 

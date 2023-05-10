@@ -1,4 +1,4 @@
-import {groupBy} from 'ramda';
+import {groupBy, takeLast} from 'ramda';
 import dayjs from 'dayjs';
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {RefreshControl, SectionList} from 'react-native';
@@ -36,12 +36,25 @@ import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
+import usePinnedCollections from '../../../lib/user/hooks/usePinnedCollections';
+import useGetStartedCollection from '../../../lib/content/hooks/useGetStartedCollection';
+import useUserEvents from '../../../lib/user/hooks/useUserEvents';
+import CollectionCardContainer from '../../../lib/components/Cards/CollectionCards/CollectionCardContainer';
 import useGetRelativeDateGroup from '../../../lib/date/hooks/useGetRelativeDateGroup';
+import ComingSoonSlider from './components/ComingSoon';
+
+export type ComingSoonDescription = {description: string};
+export type ComingSoonItem = {when: string; what: string};
+export type ComingSoon = ComingSoonDescription & {
+  id: 'coming-soon-section';
+  items: ComingSoonItem[];
+};
 
 type Section = {
   title: string;
-  data: LiveSessionType[];
-  type: 'hostedBy' | 'interested' | 'comming';
+  data: (LiveSessionType | ComingSoon)[];
+  type: 'hostedBy' | 'interested' | 'comming' | 'comingSoon';
+  beyondThisWeek?: boolean;
 };
 
 const AddButton = styled(Button)({
@@ -73,6 +86,37 @@ const AddSessionForm = () => {
   );
 };
 
+const GetStarted = () => {
+  const {pinnedCollections} = usePinnedCollections();
+  const {getStartedCollection} = useGetStartedCollection();
+  const {completedCollectionEvents} = useUserEvents();
+
+  const getStarted = useMemo(() => {
+    const collection = pinnedCollections.find(
+      p => p.id === getStartedCollection?.id,
+    );
+    if (
+      collection &&
+      !completedCollectionEvents.find(
+        c => c.payload.id === getStartedCollection?.id,
+      )
+    ) {
+      return collection;
+    }
+    return null;
+  }, [pinnedCollections, getStartedCollection, completedCollectionEvents]);
+
+  if (getStarted) {
+    return (
+      <Gutters>
+        <Spacer24 />
+        <CollectionCardContainer collectionId={getStarted.id} />
+      </Gutters>
+    );
+  }
+  return <Spacer24 />;
+};
+
 const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
   section: {title},
 }) => (
@@ -81,10 +125,14 @@ const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
   </StickyHeading>
 );
 
-const renderSession: SectionListRenderItem<LiveSessionType, Section> = ({
+const renderSession = ({
   item,
   section,
   index,
+}: {
+  item: LiveSessionType;
+  section: Section;
+  index: number;
 }) => {
   const standAlone = section.type === 'comming' || section.data.length === 1;
   const hasCardBefore = index > 0;
@@ -102,6 +150,18 @@ const renderSession: SectionListRenderItem<LiveSessionType, Section> = ({
   );
 };
 
+const renderListItem: SectionListRenderItem<
+  ComingSoon | LiveSessionType,
+  Section
+> = ({item, section, index}) => {
+  switch (section.type) {
+    case 'comingSoon':
+      return <ComingSoonSlider comingSoonSection={item as ComingSoon} />;
+    default:
+      return renderSession({item: item as LiveSessionType, section, index});
+  }
+};
+
 const Home = () => {
   const {t} = useTranslation('Screen.Home');
   const {navigate} =
@@ -109,13 +169,17 @@ const Home = () => {
   const {fetchSessions, sessions, pinnedSessions, hostedSessions} =
     useSessions();
   const getRelativeDateGroup = useGetRelativeDateGroup();
-  const listRef = useRef<SectionList<LiveSessionType, Section>>(null);
+  const listRef =
+    useRef<SectionList<LiveSessionType | ComingSoon, Section>>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const comingSoon: ComingSoon = t('comingSoon', {returnObjects: true});
 
   useScrollToTop(listRef);
 
   const sections = useMemo(() => {
     let sectionsList: Section[] = [];
+    let beyondThisWeek: Section[] = [];
+
     if (hostedSessions.length > 0) {
       sectionsList.push({
         title: t('sections.hostedBy'),
@@ -137,15 +201,45 @@ const Home = () => {
           sessions,
         ),
       ).forEach(([group, items]) => {
-        sectionsList.push({
-          title: group,
-          data: items,
-          type: 'comming',
-        });
+        const isBeyondThisWeek =
+          dayjs(takeLast(1, items)[0].startTime).isoWeek() !==
+          dayjs().isoWeek();
+
+        if (isBeyondThisWeek) {
+          beyondThisWeek.push({
+            title: group,
+            data: items,
+            type: 'comming',
+          });
+        } else {
+          sectionsList.push({
+            title: group,
+            data: items,
+            type: 'comming',
+          });
+        }
       });
     }
+
+    if (comingSoon.items.length > 0) {
+      sectionsList.push({
+        title: t('sections.comingSoon'),
+        data: [comingSoon],
+        type: 'comingSoon',
+      });
+    }
+
+    sectionsList.push(...beyondThisWeek);
+
     return sectionsList;
-  }, [sessions, pinnedSessions, hostedSessions, t, getRelativeDateGroup]);
+  }, [
+    sessions,
+    pinnedSessions,
+    hostedSessions,
+    t,
+    getRelativeDateGroup,
+    comingSoon,
+  ]);
 
   useEffect(() => {
     fetchSessions();
@@ -178,11 +272,11 @@ const Home = () => {
         ref={listRef}
         sections={sections}
         keyExtractor={session => session.id}
-        ListHeaderComponent={Spacer24}
+        ListHeaderComponent={GetStarted}
         ListFooterComponent={Spacer48}
         stickySectionHeadersEnabled
         renderSectionHeader={renderSectionHeader}
-        renderItem={renderSession}
+        renderItem={renderListItem}
         refreshControl={
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }

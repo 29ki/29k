@@ -30,7 +30,7 @@ import useSubscribeToSessionIfFocused from '../../../lib/session/hooks/useSubscr
 import useUpdateSessionState from '../../../lib/session/hooks/useUpdateSessionState';
 import useLiveSessionMetricEvents from '../../../lib/session/hooks/useLiveSessionMetricEvents';
 import useCheckPermissions from '../../../lib/session/hooks/useCheckPermissions';
-import useUserState from '../../../lib/user/state/state';
+import useAddUserEvent from '../../../lib/user/hooks/useAddUserEvent';
 
 import {
   BottomSafeArea,
@@ -146,7 +146,7 @@ const Session: React.FC = () => {
   const {checkCameraPermissions, checkMicrophonePermissions} =
     useCheckPermissions();
   const user = useUser();
-  const {addUserEvent} = useUserState();
+  const addUserEvent = useAddUserEvent();
   const {navigateToIndex, setPlaying} = useUpdateSessionState(session.id);
   const {conditionallyMuteParticipants} = useMuteAudio();
 
@@ -229,10 +229,10 @@ const Session: React.FC = () => {
     }
   }, [sessionSlideState, exercise?.slides, navigateToIndex]);
 
-  const onResetPlayingPress = useCallback(
-    () => setPlaying(Boolean(sessionState?.playing)),
-    [sessionState?.playing, setPlaying],
-  );
+  const onResetPlayingPress = useCallback(() => {
+    setPlaying(Boolean(sessionState?.playing));
+    setCurrentContentReachedEnd(false);
+  }, [sessionState?.playing, setPlaying, setCurrentContentReachedEnd]);
 
   const onTogglePlayingPress = useCallback(() => {
     if (currentContentReachedEnd) {

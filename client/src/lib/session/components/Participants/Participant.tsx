@@ -119,7 +119,9 @@ const Participant: React.FC<ParticipantProps> = ({
 }) => {
   const {call} = useContext(DailyContext);
   const {t} = useTranslation('Screen.Session');
-  const photoURL = (participant?.userData as DailyUserData)?.photoURL;
+  const userData = participant?.userData as DailyUserData;
+  const photoURL = userData?.photoURL;
+  const userName = userData?.userName;
   const theme = useSessionState(state => state.exercise?.theme);
   const background = theme?.backgroundColor ?? COLORS.WHITE;
   const isSessionHost = useIsSessionHost();
@@ -145,7 +147,7 @@ const Participant: React.FC<ParticipantProps> = ({
           {photoURL ? (
             <ProfileImage source={{uri: photoURL}} />
           ) : (
-            <Heading>{participant?.user_name?.[0]}</Heading>
+            <Heading>{userName?.[0]}</Heading>
           )}
         </ParticipantPlaceholder>
       )}

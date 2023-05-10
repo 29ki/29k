@@ -1,11 +1,12 @@
-import {LinkingOptions} from '@react-navigation/native';
+import {LinkingOptions, getStateFromPath} from '@react-navigation/native';
 import {DEEP_LINK_SCHEMA, DEEP_LINK_PREFIX} from 'config';
+import {RootNavigationProps} from './constants/routes';
 
 import * as dynamicLinks from '../linking/dynamicLinks';
 import * as notifications from '../linking/notifications';
 import * as nativeLinks from '../linking/nativeLinks';
 
-import {RootNavigationProps} from './constants/routes';
+import useAppState from '../appState/state/state';
 
 // Deep link configuration
 const config: LinkingOptions<RootNavigationProps>['config'] = {
@@ -13,6 +14,27 @@ const config: LinkingOptions<RootNavigationProps>['config'] = {
   screens: {
     AddSessionByInviteModal: 'joinSessionInvite/:inviteCode',
     UpgradeAccountModal: 'verifyPublicHostCode/:code',
+    CreateSessionModal: 'sessions/:exerciseId',
+    OverlayStack: {
+      initialRouteName: 'App',
+      screens: {
+        App: {
+          screens: {
+            Tabs: {
+              initialRouteName: 'ExploreStack',
+              screens: {
+                ExploreStack: {
+                  initialRouteName: 'Explore',
+                  screens: {
+                    Collection: 'collections/:collectionId',
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
   },
 };
 
@@ -50,6 +72,15 @@ const linking: LinkingOptions<RootNavigationProps> = {
       unsubscribeNotifications();
       unsubscribeNativeLinks();
     };
+  },
+
+  getStateFromPath(path, options) {
+    const state = getStateFromPath(path, options);
+    if (state) {
+      // If state is resolved from deep link - skip onboarding
+      useAppState.getState().setSettings({showOnboarding: false});
+    }
+    return state;
   },
 };
 

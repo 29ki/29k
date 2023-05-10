@@ -6,6 +6,8 @@ import React, {
   useState,
 } from 'react';
 import {useTranslation} from 'react-i18next';
+import AnimatedLottieView from 'lottie-react-native';
+
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
 import {
@@ -16,9 +18,9 @@ import {
 import Gutters from '../../../../../lib/components/Gutters/Gutters';
 import {
   CommunityIcon,
-  LogoIcon,
   FriendsIcon,
   MeIcon,
+  LogoIconAnimated,
 } from '../../../../../lib/components/Icons';
 import {
   Spacer16,
@@ -95,6 +97,10 @@ const Centered = styled.View({
   justifyContent: 'center',
 });
 
+const Lottie = styled(AnimatedLottieView)({
+  aspectRatio: 1,
+});
+
 const LogoWrapper = styled.View({
   width: 80,
   height: 80,
@@ -149,25 +155,31 @@ const SelectTypeStep: React.FC<StepProps> = ({
   const [sessions, setSessions] = useState<Array<LiveSessionType>>([]);
   const [isLoadingSessions, setIsLoadingSessions] = useState(false);
 
-  useEffect(() => {
-    if (selectedExercise) {
-      setIsLoadingSessions(true);
-      fetchSessions(selectedExercise).then(loadedSessions => {
-        setSessions(loadedSessions);
-        setIsLoadingSessions(false);
-      });
-    }
-  }, [setSessions, setIsLoadingSessions, selectedExercise]);
-
   const exercise = useMemo(
     () => (selectedExercise ? getExerciseById(selectedExercise) : null),
     [getExerciseById, selectedExercise],
   );
 
+  useEffect(() => {
+    if (exercise && exercise.live) {
+      setIsLoadingSessions(true);
+      fetchSessions(exercise.id).then(loadedSessions => {
+        setSessions(loadedSessions);
+        setIsLoadingSessions(false);
+      });
+    }
+  }, [setSessions, exercise, setIsLoadingSessions]);
+
   const exerciseImage = useMemo(
     () => (exercise?.card?.image ? {uri: exercise.card.image.source} : null),
     [exercise],
   );
+
+  const exerciseLottie = useMemo(() => {
+    if (exercise?.card?.lottie?.source) {
+      return {uri: exercise?.card?.lottie?.source};
+    }
+  }, [exercise]);
 
   const tags = useGetTagsById(exercise?.tags);
 
@@ -195,6 +207,13 @@ const SelectTypeStep: React.FC<StepProps> = ({
       selectedExercise,
     ],
   );
+
+  const onStartPress = useCallback(() => {
+    if (selectedExercise) {
+      popToTop();
+      startSession(selectedExercise);
+    }
+  }, [startSession, popToTop, selectedExercise]);
 
   const renderItem = useCallback<ListRenderItem<LiveSessionType>>(
     ({item, index}) => {
@@ -230,14 +249,16 @@ const SelectTypeStep: React.FC<StepProps> = ({
             />
           </TypeItemWrapper>
         )}
-        <TypeItemWrapper isLast={!isPublicHost}>
-          <TypeItem
-            onPress={onTypePress(SessionMode.live, SessionType.private)}
-            label={t('selectType.live-private.title')}
-            Icon={<FriendsIcon />}
-          />
-        </TypeItemWrapper>
-        {isPublicHost && (
+        {(!exercise || exercise?.live) && (
+          <TypeItemWrapper isLast={!isPublicHost}>
+            <TypeItem
+              onPress={onTypePress(SessionMode.live, SessionType.private)}
+              label={t('selectType.live-private.title')}
+              Icon={<FriendsIcon />}
+            />
+          </TypeItemWrapper>
+        )}
+        {isPublicHost && (!exercise || exercise?.live) && (
           <TypeItemWrapper isLast>
             <TypeItem
               onPress={onTypePress(SessionMode.live, SessionType.public)}
@@ -263,7 +284,9 @@ const SelectTypeStep: React.FC<StepProps> = ({
               {isLoadingSessions ? (
                 <Spinner color={COLORS.BLACK} />
               ) : (
-                <Display18>{t('noUpcomingSessions')}</Display18>
+                exercise.live && (
+                  <Display18>{t('noUpcomingSessions')}</Display18>
+                )
               )}
             </EmptyListContainer>
           }
@@ -275,7 +298,11 @@ const SelectTypeStep: React.FC<StepProps> = ({
                 </TextWrapper>
                 <Spacer16 />
                 <LogoWrapper>
-                  {exerciseImage && <Image source={exerciseImage} />}
+                  {exerciseLottie ? (
+                    <Lottie source={exerciseLottie} autoPlay loop />
+                  ) : exerciseImage ? (
+                    <Image source={exerciseImage} />
+                  ) : null}
                 </LogoWrapper>
               </Row>
               {exercise.description && (
@@ -295,12 +322,23 @@ const SelectTypeStep: React.FC<StepProps> = ({
                 </Tags>
               )}
               <Spacer16 />
-              <TypeItemHeading>{t('description')}</TypeItemHeading>
-              <Spacer16 />
-              {typeSelection}
-              <Spacer40 />
-              <Heading16>{t('orJoinUpcoming')}</Heading16>
-              <Spacer16 />
+
+              {exercise.live ? (
+                <>
+                  <TypeItemHeading>{t('description')}</TypeItemHeading>
+                  <Spacer16 />
+                  {typeSelection}
+                  <Spacer40 />
+                  <Heading16>{t('orJoinUpcoming')}</Heading16>
+                  <Spacer16 />
+                </>
+              ) : (
+                <ButtonWrapper>
+                  <Button variant="secondary" onPress={onStartPress}>
+                    {t('startCta')}
+                  </Button>
+                </ButtonWrapper>
+              )}
             </Gutters>
           }
         />
@@ -318,7 +356,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
         </TextWrapper>
         <Spacer16 />
         <LogoWrapper>
-          <LogoIcon />
+          <LogoIconAnimated />
         </LogoWrapper>
       </Row>
       <Spacer28 />

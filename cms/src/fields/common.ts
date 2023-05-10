@@ -49,6 +49,16 @@ export const ASYNC_FIELD: CmsField = {
   hint: 'This will make the exercise available as async',
 };
 
+export const LIVE_FIELD: CmsField = {
+  label: '🏙 Live',
+  name: 'live',
+  widget: 'boolean',
+  required: false,
+  default: true,
+  i18n: true,
+  hint: 'This will make the exercise available as live',
+};
+
 export const HIDDEN_FIELD: CmsField = {
   label: '🙈 Hidden',
   name: 'hidden',

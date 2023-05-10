@@ -5,16 +5,44 @@
     "sections": {
       "hostedBy": "Your sessions",
       "interested": "Interested",
-      "comming": "Upcoming sessions"
+      "comming": "Upcoming sessions",
+      "comingSoon": "Coming soon"
+    },
+    "comingSoon": {
+      "description": "More content with the best tools in the world for wellbeing and inner development.",
+      "items": [
+        {
+          "what": "Manage stress in school or at work",
+          "when": "Spring"
+        },
+        {
+          "what": "Self compassion in relationships",
+          "when": "Fall"
+        }
+      ]
     }
   },
   "pt": {
     "heading": "Sessões",
-    "add": "Junta-te ou adiciona sessão",
+    "add": "Sessão",
     "sections": {
       "hostedBy": "As tuas sessões",
       "interested": "Favorito",
-      "comming": "Próximas sessões"
+      "comming": "Próximas sessões",
+      "comingSoon": "Próximas novidades"
+    },
+    "comingSoon": {
+      "description": "Mais conteúdo com as melhores ferramentas de bem-estar e desenvolvimento pessoal.",
+      "items": [
+        {
+          "what": "Gerir o stress na escola e no trabalho",
+          "when": "Primavera"
+        },
+        {
+          "what": "Autocompaixão nas relações",
+          "when": "Outono"
+        }
+      ]
     }
   },
   "sv": {

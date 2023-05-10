@@ -112,6 +112,7 @@
     },
     "hidden": false,
     "name": "The willingness stance",
+    "live": true,
     "published": true,
     "card": {
       "image": {
@@ -244,6 +245,7 @@
     },
     "hidden": false,
     "name": "Estar Predisposta/o",
+    "live": true,
     "published": true,
     "card": {
       "image": {

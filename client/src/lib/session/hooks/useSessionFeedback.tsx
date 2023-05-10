@@ -1,12 +1,12 @@
 import {useCallback} from 'react';
 import {Feedback} from '../../../../../shared/src/types/Feedback';
 import * as metrics from '../../metrics';
+import useAddUserEvent from '../../user/hooks/useAddUserEvent';
 
 import useUserEvents from '../../user/hooks/useUserEvents';
-import useUserState from '../../user/state/state';
 
 const useSessionFeedback = () => {
-  const addUserEvent = useUserState(state => state.addUserEvent);
+  const addUserEvent = useAddUserEvent();
   const {feedbackEvents} = useUserEvents();
 
   const addSessionFeedback = useCallback(
