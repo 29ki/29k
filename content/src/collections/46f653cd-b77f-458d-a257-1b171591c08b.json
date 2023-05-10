@@ -24,7 +24,10 @@
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ],
     "name": "Começar",
-    "description": "Inicia aqui a exploração da app Aware"
+    "description": "Inicia aqui a exploração da app Aware",
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683720597/Images/get_started_collection_chij0k.png"
+    }
   },
   "sv": {
     "published": false,
