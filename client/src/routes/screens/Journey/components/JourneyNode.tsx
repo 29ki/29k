@@ -74,12 +74,14 @@ const Line = styled.View<Pick<JourneyNodeProps, 'isLast'>>(({isLast}) => ({
   backgroundColor: COLORS.BLACK,
 }));
 
-const GraphicsWrapper = styled.View({
-  width: 80,
-  height: 80,
-  marginVertical: SPACINGS.EIGHT,
-  marginHorizontal: SPACINGS.SIXTEEN,
-});
+const GraphicsWrapper = styled.View<Pick<JourneyNodeProps, 'isFirst'>>(
+  ({isFirst}) => ({
+    width: 80,
+    height: 80,
+    marginVertical: isFirst ? 0 : SPACINGS.EIGHT,
+    marginHorizontal: SPACINGS.SIXTEEN,
+  }),
+);
 
 const StatusRow = styled.View({
   flexDirection: 'row',
@@ -188,7 +190,7 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
             name={hostProfile?.displayName ?? exercise?.card?.host?.displayName}
           />
         </View>
-        <GraphicsWrapper>
+        <GraphicsWrapper isFirst={isFirst}>
           {lottie ? (
             <Lottie source={lottie} autoPlay loop />
           ) : image ? (

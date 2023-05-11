@@ -19,7 +19,7 @@ const ComingSoonList = styled(FlatList)({
   overflow: 'visible',
 }) as unknown as FlatList;
 
-const CardContainer = styled.View({width: 136, marginTop: -5, minHeight: 92});
+const CardContainer = styled.View({width: 136, marginTop: 2, minHeight: 92});
 const CardTag = styled.View({
   position: 'absolute',
   top: -8,
