@@ -4,7 +4,7 @@
     "add": "Session",
     "sections": {
       "hostedBy": "Your sessions",
-      "interested": "Interested",
+      "interested": "Going",
       "comming": "Upcoming sessions"
     }
   },
@@ -13,7 +13,6 @@
     "add": "Sessão",
     "sections": {
       "hostedBy": "As tuas sessões",
-      "interested": "Favorito",
       "comming": "Próximas sessões",
       "comingSoon": "Próximas novidades"
     },
@@ -36,7 +35,6 @@
     "add": "Add session",
     "sections": {
       "hostedBy": "Dina sessioner",
-      "interested": "Intresserad",
       "comming": "Kommande sessioner"
     }
   },
