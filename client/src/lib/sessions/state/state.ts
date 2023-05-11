@@ -3,7 +3,7 @@ import {create} from 'zustand';
 
 type State = {
   isLoading: boolean;
-  sessions: LiveSessionType[] | null;
+  sessions: LiveSessionType[];
 };
 
 type Actions = {
@@ -14,7 +14,7 @@ type Actions = {
 
 const initialState: State = {
   isLoading: false,
-  sessions: null,
+  sessions: [],
 };
 
 const useSessionsState = create<State & Actions>()(set => ({

@@ -28,10 +28,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "You’ve just completed the Dive in session. Well done.\n\nNow you’re ready to explore the other sessions – on your own, with friends or new connections.",
+          "text": "You’ve just completed the Dive in session. Well done.\n\nNow you’re ready to continue your journey – on your own, with friends or new connections.",
           "heading": "",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1683716635/Images/Rectangle_test_fxkse6.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683724766/Images/instruction_slide_visual_igndpl.png"
           }
         }
       }
@@ -49,6 +49,13 @@
       }
     },
     "duration": 5,
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png"
+      }
+    },
     "introPortal": {
       "hostNotes": [],
       "videoLoop": {
@@ -63,7 +70,7 @@
     ],
     "id": "1a53e633-6916-4fea-a072-977c4b215288",
     "async": true,
-    "description": "An introduction to practicing presence, gratitude and start using the Aware app."
+    "description": "An introduction to practicing mindfulness, gratitude and start using the Aware app."
   },
   "pt": {
     "slides": [
