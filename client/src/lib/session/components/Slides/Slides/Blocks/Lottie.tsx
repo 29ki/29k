@@ -125,16 +125,12 @@ const Lottie: React.FC<LottieProps> = ({
 
   const paused = !active || (!sessionState?.playing && !autoPlayLoop);
 
-  const timer = useMemo(
+  const audioTimer = useMemo(
     () =>
-      durationTimer ? (
-        <Duration
-          duration={audioDuration > 0 ? audioDuration : duration}
-          paused={paused}
-          ref={timerRef}
-        />
+      durationTimer && audioDuration ? (
+        <Duration duration={audioDuration} paused={paused} ref={timerRef} />
       ) : null,
-    [durationTimer, paused, duration, audioDuration],
+    [durationTimer, paused, audioDuration],
   );
 
   if (audioSource) {
@@ -157,7 +153,7 @@ const Lottie: React.FC<LottieProps> = ({
           ref={lottieRef}
           repeat
         />
-        {timer}
+        {audioTimer}
       </>
     );
   }
@@ -172,7 +168,9 @@ const Lottie: React.FC<LottieProps> = ({
         onEnd={onEnd}
         repeat={autoPlayLoop}
       />
-      {timer}
+      {durationTimer && (
+        <Duration duration={duration} paused={paused} ref={timerRef} />
+      )}
     </>
   );
 };
