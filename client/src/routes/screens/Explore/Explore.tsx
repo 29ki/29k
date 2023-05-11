@@ -31,6 +31,7 @@ import {OverlayStackProps} from '../../../lib/navigation/constants/routes';
 import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 import ComingSoonSlider from './components/ComingSoon';
+import styled from 'styled-components/native';
 
 export type ComingSoonItem = {when: string; what: string};
 export type ComingSoon = {
@@ -42,6 +43,12 @@ type Section = {
   title: string;
   data: Exercise[];
 };
+
+const CollectionsList = styled(FlatList)({
+  flexGrow: 0,
+  width: '100%',
+  overflow: 'visible',
+}) as unknown as FlatList;
 
 const Explore = () => {
   const {navigate} =
@@ -114,7 +121,7 @@ const Explore = () => {
                 <Spacer20 />
                 <Heading16>{t('collectionsHeading')}</Heading16>
                 <Spacer8 />
-                <FlatList
+                <CollectionsList
                   data={collections}
                   keyExtractor={collection => collection.id}
                   snapToAlignment="center"
