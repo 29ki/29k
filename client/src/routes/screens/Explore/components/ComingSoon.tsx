@@ -1,7 +1,6 @@
 import {pick} from 'ramda';
 import React from 'react';
-import Gutters from '../../../../lib/components/Gutters/Gutters';
-import {Spacer16, Spacer24} from '../../../../lib/components/Spacers/Spacer';
+import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
 import {SPACINGS} from '../../../../lib/constants/spacings';
 import {ListRenderItem} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
@@ -10,8 +9,13 @@ import {Display14} from '../../../../lib/components/Typography/Display/Display';
 import hexToRgba from 'hex-to-rgba';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
-import {ComingSoonDescription, ComingSoonItem, ComingSoon} from '../Home';
+
 import {COLORS} from '../../../../../../shared/src/constants/colors';
+import {ComingSoonItem, ComingSoon} from '../Explore';
+
+type ComingSoonDescription = {
+  description: string;
+};
 
 const ComingSoonList = styled(FlatList)({
   flexGrow: 0,
@@ -73,22 +77,18 @@ const renderComingSoonItem: ListRenderItem<
 const ComingSoonSlider: React.FC<{comingSoonSection: ComingSoon}> = ({
   comingSoonSection,
 }) => (
-  <Gutters>
-    <ComingSoonList
-      horizontal
-      snapToAlignment="center"
-      decelerationRate="fast"
-      snapToInterval={200 + SPACINGS.SIXTEEN}
-      showsHorizontalScrollIndicator={false}
-      ItemSeparatorComponent={Spacer16}
-      data={[
-        pick(['heading', 'description'], comingSoonSection),
-        ...comingSoonSection.items,
-      ]}
-      renderItem={renderComingSoonItem}
-    />
-    <Spacer24 />
-  </Gutters>
+  <ComingSoonList
+    horizontal
+    snapToAlignment="center"
+    decelerationRate="fast"
+    showsHorizontalScrollIndicator={false}
+    ItemSeparatorComponent={Spacer16}
+    data={[
+      pick(['heading', 'description'], comingSoonSection),
+      ...comingSoonSection.items,
+    ]}
+    renderItem={renderComingSoonItem}
+  />
 );
 
 export default ComingSoonSlider;
