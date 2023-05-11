@@ -53,6 +53,7 @@ const Container = styled(TouchableOpacity)<Pick<JourneyNodeProps, 'isFirst'>>(
     flexDirection: 'row',
     height: HEIGHT,
     marginBottom: isFirst ? -SPACINGS.SIXTEEN : 0,
+    overflow: 'visible',
   }),
 );
 
@@ -76,10 +77,11 @@ const Line = styled.View<Pick<JourneyNodeProps, 'isLast'>>(({isLast}) => ({
 
 const GraphicsWrapper = styled.View<Pick<JourneyNodeProps, 'isFirst'>>(
   ({isFirst}) => ({
-    width: 80,
-    height: 80,
-    marginVertical: isFirst ? 0 : SPACINGS.EIGHT,
+    width: 85,
+    height: 85,
+    marginVertical: isFirst ? -SPACINGS.FOUR : -2,
     marginHorizontal: SPACINGS.SIXTEEN,
+    overflow: 'visible',
   }),
 );
 
