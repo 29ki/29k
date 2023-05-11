@@ -17,26 +17,38 @@ type ComingSoonDescription = {
   description: string;
 };
 
+const TAG_TOP_SPACING = 10;
+
 const ComingSoonList = styled(FlatList)({
   flexGrow: 0,
   width: '100%',
   overflow: 'visible',
+  marginTop: -TAG_TOP_SPACING / 2,
 }) as unknown as FlatList;
 
-const CardContainer = styled.View({width: 136, marginTop: 2, minHeight: 92});
+const CardContainer = styled.View({
+  width: 136,
+  marginTop: 2,
+  minHeight: 92,
+  alignItems: 'flex-start',
+});
+
 const CardTag = styled.View({
-  position: 'absolute',
-  top: -8,
-  backgroundColor: 'black',
+  backgroundColor: COLORS.BLACK,
   borderRadius: 4,
   paddingVertical: 2,
   paddingHorizontal: 4,
-  left: -12,
+  left: -SPACINGS.TWELVE,
+  zIndex: 2,
 });
 const Tag = styled(Body12)({
   color: COLORS.PURE_WHITE,
 });
-const Description = styled.View({width: 143, marginRight: SPACINGS.SIXTEEN});
+const Description = styled.View({
+  width: 143,
+  marginRight: SPACINGS.SIXTEEN,
+  marginTop: TAG_TOP_SPACING,
+});
 
 const ComingSoonGradient = styled(LinearGradient).attrs({
   colors: [
@@ -49,6 +61,9 @@ const ComingSoonGradient = styled(LinearGradient).attrs({
   flex: 1,
   justifyContent: 'center',
   padding: 15,
+  marginTop: -TAG_TOP_SPACING,
+  zIndex: 1,
+  width: '100%',
 });
 
 const renderComingSoonItem: ListRenderItem<
@@ -63,12 +78,12 @@ const renderComingSoonItem: ListRenderItem<
   } else {
     return (
       <CardContainer>
-        <ComingSoonGradient>
-          <Display14>{(item as ComingSoonItem).what}</Display14>
-        </ComingSoonGradient>
         <CardTag>
           <Tag>{(item as ComingSoonItem).when}</Tag>
         </CardTag>
+        <ComingSoonGradient>
+          <Display14>{(item as ComingSoonItem).what}</Display14>
+        </ComingSoonGradient>
       </CardContainer>
     );
   }
