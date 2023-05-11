@@ -42,7 +42,7 @@
           },
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1682004147/Audio/Outdoor_sensing_qayx0q.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683795468/Audio/Outdoor_sensing_Jenny_x9ztl5.mp3",
             "durationTimer": true
           }
         }
@@ -121,6 +121,7 @@
     },
     "hidden": true,
     "name": "Outdoor sensing",
+    "live": true,
     "published": true,
     "card": {
       "image": {

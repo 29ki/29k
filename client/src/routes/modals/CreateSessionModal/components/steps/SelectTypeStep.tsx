@@ -6,6 +6,8 @@ import React, {
   useState,
 } from 'react';
 import {useTranslation} from 'react-i18next';
+import AnimatedLottieView from 'lottie-react-native';
+
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
 import {
@@ -95,6 +97,10 @@ const Centered = styled.View({
   justifyContent: 'center',
 });
 
+const Lottie = styled(AnimatedLottieView)({
+  aspectRatio: 1,
+});
+
 const LogoWrapper = styled.View({
   width: 80,
   height: 80,
@@ -168,6 +174,12 @@ const SelectTypeStep: React.FC<StepProps> = ({
     () => (exercise?.card?.image ? {uri: exercise.card.image.source} : null),
     [exercise],
   );
+
+  const exerciseLottie = useMemo(() => {
+    if (exercise?.card?.lottie?.source) {
+      return {uri: exercise?.card?.lottie?.source};
+    }
+  }, [exercise]);
 
   const tags = useGetTagsById(exercise?.tags);
 
@@ -286,7 +298,11 @@ const SelectTypeStep: React.FC<StepProps> = ({
                 </TextWrapper>
                 <Spacer16 />
                 <LogoWrapper>
-                  {exerciseImage && <Image source={exerciseImage} />}
+                  {exerciseLottie ? (
+                    <Lottie source={exerciseLottie} autoPlay loop />
+                  ) : exerciseImage ? (
+                    <Image source={exerciseImage} />
+                  ) : null}
                 </LogoWrapper>
               </Row>
               {exercise.description && (

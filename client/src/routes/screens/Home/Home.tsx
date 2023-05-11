@@ -46,6 +46,7 @@ type Section = {
   title: string;
   data: LiveSessionType[];
   type: 'hostedBy' | 'interested' | 'comming';
+  beyondThisWeek?: boolean;
 };
 
 const AddButton = styled(Button)({
@@ -116,10 +117,14 @@ const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
   </StickyHeading>
 );
 
-const renderSession: SectionListRenderItem<LiveSessionType, Section> = ({
+const renderSession = ({
   item,
   section,
   index,
+}: {
+  item: LiveSessionType;
+  section: Section;
+  index: number;
 }) => {
   const standAlone = section.type === 'comming' || section.data.length === 1;
   const hasCardBefore = index > 0;
@@ -137,6 +142,12 @@ const renderSession: SectionListRenderItem<LiveSessionType, Section> = ({
   );
 };
 
+const renderListItem: SectionListRenderItem<LiveSessionType, Section> = ({
+  item,
+  section,
+  index,
+}) => renderSession({item: item as LiveSessionType, section, index});
+
 const Home = () => {
   const {t} = useTranslation('Screen.Home');
   const {navigate} =
@@ -151,6 +162,8 @@ const Home = () => {
 
   const sections = useMemo(() => {
     let sectionsList: Section[] = [];
+    let beyondThisWeek: Section[] = [];
+
     if (hostedSessions.length > 0) {
       sectionsList.push({
         title: t('sections.hostedBy'),
@@ -179,6 +192,9 @@ const Home = () => {
         });
       });
     }
+
+    sectionsList.push(...beyondThisWeek);
+
     return sectionsList;
   }, [sessions, pinnedSessions, hostedSessions, t, getRelativeDateGroup]);
 
@@ -217,7 +233,7 @@ const Home = () => {
         ListFooterComponent={Spacer48}
         stickySectionHeadersEnabled
         renderSectionHeader={renderSectionHeader}
-        renderItem={renderSession}
+        renderItem={renderListItem}
         refreshControl={
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }

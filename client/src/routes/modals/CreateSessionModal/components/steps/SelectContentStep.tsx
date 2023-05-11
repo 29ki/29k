@@ -4,6 +4,7 @@ import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
+import AnimatedLottieView from 'lottie-react-native';
 
 import SETTINGS from '../../../../../lib/constants/settings';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
@@ -32,7 +33,7 @@ const Card = styled(TouchableOpacity)({
   justifyContent: 'space-between',
   alignItems: 'center',
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
-  paddingRight: 0,
+  paddingRight: SPACINGS.EIGHT,
   paddingLeft: SPACINGS.SIXTEEN,
   backgroundColor: COLORS.CREAM,
   overflow: 'hidden',
@@ -48,6 +49,10 @@ const CardImageWrapper = styled.View({
   height: 80,
 });
 
+const Lottie = styled(AnimatedLottieView)({
+  aspectRatio: 1,
+});
+
 const ContentCard: React.FC<{
   exercise: Exercise;
   onPress: () => void;
@@ -57,6 +62,12 @@ const ContentCard: React.FC<{
     [exercise],
   );
 
+  const exerciseLottie = useMemo(() => {
+    if (exercise?.card?.lottie?.source) {
+      return {uri: exercise?.card?.lottie?.source};
+    }
+  }, [exercise]);
+
   return (
     <Gutters>
       <Card onPress={onPress}>
@@ -65,7 +76,11 @@ const ContentCard: React.FC<{
         </TextWrapper>
         <Spacer16 />
         <CardImageWrapper>
-          <Image source={exerciseImg} />
+          {exerciseLottie ? (
+            <Lottie source={exerciseLottie} autoPlay loop />
+          ) : (
+            <Image resizeMode="contain" source={exerciseImg} />
+          )}
         </CardImageWrapper>
       </Card>
     </Gutters>
