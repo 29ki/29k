@@ -36,7 +36,7 @@
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
     "@react-navigation/stack": "^6.3.16",
-    "@sentry/react-native": "^5.4.1",
+    "@sentry/react-native": "^5.4.2",
     "@th3rdwave/react-navigation-bottom-sheet": "^0.2.2",
     "dayjs": "^1.11.7",
     "debug": "^4.3.4",
