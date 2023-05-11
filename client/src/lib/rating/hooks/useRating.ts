@@ -49,13 +49,10 @@ const useRating = () => {
   }, [t]);
 
   return useCallback(() => {
-    // TODO remove android only when app is public on App Store
-    if (Platform.OS === 'android') {
-      if (!appRatedRevision || appRatedRevision < APP_RATING_REVISION) {
-        showAlert();
-        setSetting({appRatedRevision: APP_RATING_REVISION});
-        return true;
-      }
+    if (!appRatedRevision || appRatedRevision < APP_RATING_REVISION) {
+      showAlert();
+      setSetting({appRatedRevision: APP_RATING_REVISION});
+      return true;
     }
 
     return false;
