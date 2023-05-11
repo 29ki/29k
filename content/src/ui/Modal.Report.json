@@ -8,7 +8,15 @@
     "confirmButton": "Send report",
     "confirmationText": "Thank you for reaching out 🌱"
   },
-  "pt": {},
+  "pt": {
+    "title": "Reportar",
+    "reportHeading": "O que gostarias de reportar?",
+    "reportPlaceholder": "Partilha as tuas opiniões para podermos melhorar",
+    "emailHeading": "Responder para:",
+    "emailPlaceholder": "Escreve o email onde pretendes receber a tua resposta",
+    "confirmButton": "Enviar relatório",
+    "confirmationText": "Obrigada por nos contactares 🌱"
+  },
   "sv": {},
   "es": {}
 }
