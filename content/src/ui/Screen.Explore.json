@@ -23,7 +23,25 @@
   },
   "pt": {
     "sessionsHeading": "Sessões",
-    "collectionsHeading": "Coleções"
+    "collectionsHeading": "Coleções",
+    "comingSoonHeading": "Novidades próximas",
+    "comingSoon": {
+      "description": "Mais conteúdo com as melhores ferramentas para o bem-estar e desenvolvimento pessoal.",
+      "items": [
+        {
+          "what": "Gerir o stress na escola e no trabalho",
+          "when": "Primavera"
+        },
+        {
+          "what": "Viver de acordo com os teus valores",
+          "when": "Verão"
+        },
+        {
+          "what": "Autocompaixão nas relações",
+          "when": "Outono"
+        }
+      ]
+    }
   },
   "sv": {
     "collectionsHeading": "Samlingar",
