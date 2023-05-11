@@ -24,7 +24,10 @@
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ],
     "name": "Começa aqui",
-    "description": "Inicia aqui a exploração da Aware FJN"
+    "description": "Dá os primeiros passos, validados cientificamente, para melhorar o teu bem-estar e ficares mais satisfeito com a tua vida. Começa aqui a tua jornada e explora o Aware FJN.",
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683720597/Images/get_started_collection_chij0k.png"
+    }
   },
   "sv": {
     "published": false,
