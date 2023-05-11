@@ -16,15 +16,15 @@
   },
   "pt": {
     "published": true,
-    "hidden": true,
+    "hidden": false,
     "id": "46f653cd-b77f-458d-a257-1b171591c08b",
     "exercises": [
       "1a53e633-6916-4fea-a072-977c4b215288",
       "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ],
-    "name": "Começar",
-    "description": "Inicia aqui a exploração da app Aware"
+    "name": "Começa aqui",
+    "description": "Inicia aqui a exploração da Aware FJN"
   },
   "sv": {
     "published": false,
