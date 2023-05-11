@@ -14,6 +14,27 @@ const config: LinkingOptions<RootNavigationProps>['config'] = {
   screens: {
     AddSessionByInviteModal: 'joinSessionInvite/:inviteCode',
     UpgradeAccountModal: 'verifyPublicHostCode/:code',
+    CreateSessionModal: 'sessions/:exerciseId',
+    OverlayStack: {
+      initialRouteName: 'App',
+      screens: {
+        App: {
+          screens: {
+            Tabs: {
+              initialRouteName: 'ExploreStack',
+              screens: {
+                ExploreStack: {
+                  initialRouteName: 'Explore',
+                  screens: {
+                    Collection: 'collections/:collectionId',
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
   },
 };
 

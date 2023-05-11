@@ -59,24 +59,15 @@ const useSessions = () => {
   );
 
   const userHostedSessions = useMemo(
-    () => (sessions ?? []).filter(s => s.hostId === user?.uid),
+    () => sessions.filter(s => s.hostId === user?.uid),
     [user, sessions],
   );
 
   const userPinnedSessions = useMemo(
     () =>
-      (sessions ?? []).filter(
+      sessions.filter(
         s =>
           pinnedSessions.find(ps => ps.id === s.id) && s.hostId !== user?.uid,
-      ),
-    [sessions, pinnedSessions, user],
-  );
-
-  const unpinnedSessions = useMemo(
-    () =>
-      (sessions ?? []).filter(
-        s =>
-          !pinnedSessions.find(ps => ps.id === s.id) && s.hostId !== user?.uid,
       ),
     [sessions, pinnedSessions, user],
   );
@@ -85,7 +76,7 @@ const useSessions = () => {
     fetchSessions,
     addSession,
     deleteSession,
-    sessions: unpinnedSessions,
+    sessions,
     pinnedSessions: userPinnedSessions,
     hostedSessions: userHostedSessions,
   };
