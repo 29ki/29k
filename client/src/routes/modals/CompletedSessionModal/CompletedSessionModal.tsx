@@ -73,6 +73,7 @@ const VerticalAlign = styled.View({
 
 const TitleContainer = styled.View({
   flex: 2,
+  justifyContent: 'center',
 });
 
 const GraphicsWrapper = styled.View({
