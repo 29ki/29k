@@ -1,4 +1,4 @@
-import {groupBy, takeLast} from 'ramda';
+import {groupBy} from 'ramda';
 import dayjs from 'dayjs';
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {RefreshControl, SectionList} from 'react-native';
@@ -41,19 +41,11 @@ import useGetStartedCollection from '../../../lib/content/hooks/useGetStartedCol
 import useUserEvents from '../../../lib/user/hooks/useUserEvents';
 import CollectionCardContainer from '../../../lib/components/Cards/CollectionCards/CollectionCardContainer';
 import useGetRelativeDateGroup from '../../../lib/date/hooks/useGetRelativeDateGroup';
-import ComingSoonSlider from './components/ComingSoon';
-
-export type ComingSoonDescription = {description: string};
-export type ComingSoonItem = {when: string; what: string};
-export type ComingSoon = ComingSoonDescription & {
-  id: 'coming-soon-section';
-  items: ComingSoonItem[];
-};
 
 type Section = {
   title: string;
-  data: (LiveSessionType | ComingSoon)[];
-  type: 'hostedBy' | 'interested' | 'comming' | 'comingSoon';
+  data: LiveSessionType[];
+  type: 'hostedBy' | 'interested' | 'comming';
   beyondThisWeek?: boolean;
 };
 
@@ -150,17 +142,11 @@ const renderSession = ({
   );
 };
 
-const renderListItem: SectionListRenderItem<
-  ComingSoon | LiveSessionType,
-  Section
-> = ({item, section, index}) => {
-  switch (section.type) {
-    case 'comingSoon':
-      return <ComingSoonSlider comingSoonSection={item as ComingSoon} />;
-    default:
-      return renderSession({item: item as LiveSessionType, section, index});
-  }
-};
+const renderListItem: SectionListRenderItem<LiveSessionType, Section> = ({
+  item,
+  section,
+  index,
+}) => renderSession({item: item as LiveSessionType, section, index});
 
 const Home = () => {
   const {t} = useTranslation('Screen.Home');
@@ -169,10 +155,8 @@ const Home = () => {
   const {fetchSessions, sessions, pinnedSessions, hostedSessions} =
     useSessions();
   const getRelativeDateGroup = useGetRelativeDateGroup();
-  const listRef =
-    useRef<SectionList<LiveSessionType | ComingSoon, Section>>(null);
+  const listRef = useRef<SectionList<LiveSessionType, Section>>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const comingSoon: ComingSoon = t('comingSoon', {returnObjects: true});
 
   useScrollToTop(listRef);
 
@@ -201,45 +185,18 @@ const Home = () => {
           sessions,
         ),
       ).forEach(([group, items]) => {
-        const isBeyondThisWeek =
-          dayjs(takeLast(1, items)[0].startTime).isoWeek() !==
-          dayjs().isoWeek();
-
-        if (isBeyondThisWeek) {
-          beyondThisWeek.push({
-            title: group,
-            data: items,
-            type: 'comming',
-          });
-        } else {
-          sectionsList.push({
-            title: group,
-            data: items,
-            type: 'comming',
-          });
-        }
-      });
-    }
-
-    if (comingSoon.items.length > 0) {
-      sectionsList.push({
-        title: t('sections.comingSoon'),
-        data: [comingSoon],
-        type: 'comingSoon',
+        sectionsList.push({
+          title: group,
+          data: items,
+          type: 'comming',
+        });
       });
     }
 
     sectionsList.push(...beyondThisWeek);
 
     return sectionsList;
-  }, [
-    sessions,
-    pinnedSessions,
-    hostedSessions,
-    t,
-    getRelativeDateGroup,
-    comingSoon,
-  ]);
+  }, [sessions, pinnedSessions, hostedSessions, t, getRelativeDateGroup]);
 
   useEffect(() => {
     fetchSessions();
