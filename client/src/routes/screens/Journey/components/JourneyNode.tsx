@@ -21,7 +21,11 @@ import {
   MeIcon,
 } from '../../../../lib/components/Icons';
 import Image from '../../../../lib/components/Image/Image';
-import {Spacer4, Spacer8} from '../../../../lib/components/Spacers/Spacer';
+import {
+  Spacer16,
+  Spacer4,
+  Spacer8,
+} from '../../../../lib/components/Spacers/Spacer';
 import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {Display16} from '../../../../lib/components/Typography/Display/Display';
 import {SPACINGS} from '../../../../lib/constants/spacings';
@@ -52,36 +56,35 @@ const Container = styled(TouchableOpacity)<Pick<JourneyNodeProps, 'isFirst'>>(
   ({isFirst}) => ({
     flexDirection: 'row',
     height: HEIGHT,
-    marginBottom: isFirst ? -SPACINGS.SIXTEEN : 0,
+    marginBottom: isFirst ? -SPACINGS.FOUR : 0,
+    overflow: 'visible',
   }),
 );
 
-const ContentContainer = styled.View<Pick<JourneyNodeProps, 'isFirst'>>(
-  ({isFirst}) => ({
-    marginLeft: SPACINGS.FOUR,
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: isFirst ? 0 : SPACINGS.SIXTEEN,
+const ContentContainer = styled.View<Pick<JourneyNodeProps, 'isFirst'>>({
+  marginLeft: SPACINGS.FOUR,
+  flex: 1,
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+});
+
+const Line = styled.View<Pick<JourneyNodeProps, 'isLast' | 'isFirst'>>(
+  ({isLast, isFirst}) => ({
+    position: 'absolute',
+    left: NODE_SIZE / 2,
+    width: 1,
+    height: isLast ? SPACINGS.SIXTEEN : HEIGHT,
+    backgroundColor: COLORS.BLACK,
+    marginTop: isFirst ? SPACINGS.SIXTEEN : 0,
   }),
 );
 
-const Line = styled.View<Pick<JourneyNodeProps, 'isLast'>>(({isLast}) => ({
-  position: 'absolute',
-  left: NODE_SIZE / 2,
-  width: 1,
-  height: isLast ? SPACINGS.SIXTEEN : HEIGHT,
-  backgroundColor: COLORS.BLACK,
-}));
-
-const GraphicsWrapper = styled.View<Pick<JourneyNodeProps, 'isFirst'>>(
-  ({isFirst}) => ({
-    width: 80,
-    height: 80,
-    marginVertical: isFirst ? 0 : SPACINGS.EIGHT,
-    marginHorizontal: SPACINGS.SIXTEEN,
-  }),
-);
+const GraphicsWrapper = styled.View({
+  width: 88,
+  height: 88,
+  overflow: 'visible',
+});
 
 const StatusRow = styled.View({
   flexDirection: 'row',
@@ -101,9 +104,9 @@ const ThumbsDown = styled(ThumbsDownWithoutPadding)({
   aspectRatio: 1,
 });
 
-const NodeContainer = styled.View<{isFirst: boolean}>(({isFirst}) => ({
-  marginTop: isFirst ? 0 : SPACINGS.SIXTEEN,
-}));
+const NodeContainer = styled.View<{isFirst: boolean}>({
+  marginTop: 15,
+});
 
 const JourneyNode: React.FC<JourneyNodeProps> = ({
   completedSessionEvent,
@@ -155,7 +158,7 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
 
   return (
     <Container onPress={openCompleteSessionModal} isFirst={isFirst}>
-      <Line isLast={isLast} />
+      <Line isLast={isLast} isFirst={isFirst} />
       <NodeContainer isFirst={isFirst}>
         <Node size={NODE_SIZE} />
       </NodeContainer>
@@ -184,13 +187,16 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
             <Display16 numberOfLines={1}>{exercise.name}</Display16>
           )}
           <Spacer2 />
+          {!hostProfile?.photoURL && !exercise?.card?.host?.photoURL && (
+            <Spacer16 />
+          )}
           <Byline
             small
             pictureURL={hostProfile?.photoURL ?? exercise?.card?.host?.photoURL}
             name={hostProfile?.displayName ?? exercise?.card?.host?.displayName}
           />
         </View>
-        <GraphicsWrapper isFirst={isFirst}>
+        <GraphicsWrapper>
           {lottie ? (
             <Lottie source={lottie} autoPlay loop />
           ) : image ? (
