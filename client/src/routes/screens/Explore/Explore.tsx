@@ -108,9 +108,9 @@ const Explore = () => {
         sections={exerciseSections}
         keyExtractor={exercise => exercise.id}
         ListHeaderComponent={
-          <Gutters>
+          <>
             {collections.length > 0 && (
-              <>
+              <Gutters>
                 <Spacer20 />
                 <Heading16>{t('collectionsHeading')}</Heading16>
                 <Spacer8 />
@@ -130,16 +130,16 @@ const Explore = () => {
                   )}
                 />
                 <Spacer32 />
-              </>
+              </Gutters>
             )}
             {comingSoonSection.items?.length > 0 && (
-              <>
-                <Heading16>{t('ComingSoonHeading')}</Heading16>
+              <Gutters>
+                <Heading16>{t('comingSoonHeading')}</Heading16>
                 <Spacer8 />
                 <ComingSoonSlider comingSoonSection={comingSoonSection} />
-              </>
+              </Gutters>
             )}
-          </Gutters>
+          </>
         }
         renderSectionHeader={renderExerciseSectionHeader}
         ListFooterComponent={Spacer48}
