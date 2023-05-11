@@ -18,11 +18,20 @@
   },
   "pt": {
     "actions": {
-      "contribute": "Como colaborar",
+      "donate": "Doar",
+      "corporate": "Para utilização empresarial",
+      "contribute": "Como podes contribuir",
       "contributors": "Colaboradores",
+      "hosts": "Moderadores",
       "partners": "Parceiros"
     },
-    "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1672393912/Temp/community_hs8apo.jpg"
+    "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1681373965/Images/community_wb6inc.jpg",
+    "heading": "Apoia a Aware",
+    "preamble__markdown": "Somos organizações não-lucrativas.\nTotalmente gratuita para utilização pessoal.\nNão recolhemos nem vendemos nenhuns dados.\nNão temos anúncios.\n\nO nosso único objetivo é tentar construir a melhor aplicação do mundo, para ajudar o maior número possível de pessoas a melhorar o seu bem-estar mental, prosperar e a contribuir para um futuro melhor para todos.",
+    "body__markdown": "",
+    "donateLink": "https://donorbox.org/29ksessions1",
+    "corporateLink": "mailto:partnerships@29k.org",
+    "contributeLink": "https://wiki.29k.org/community-contribution-central"
   },
   "sv": {},
   "es": {}
