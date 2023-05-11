@@ -39,7 +39,6 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
 
   const [isLoading, setIsLoading] = useState(true);
   const [isReadyToLeave, setIsReadyToLeave] = useState(false);
-  const [hasError, setHasError] = useState(false);
   const isFocused = useIsFocused();
   usePreventGoingBack();
   useNavigateWithFade();
@@ -58,8 +57,7 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
 
   const onVideoError = useCallback(() => {
     setIsLoading(false);
-    setHasError(true);
-  }, [setHasError]);
+  }, []);
 
   return (
     <Screen backgroundColor={exercise?.theme?.backgroundColor}>
@@ -99,13 +97,12 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
 
       {isLoading && <Spinner size="large" color={exercise?.theme?.textColor} />}
 
-      {(isReadyToLeave || hasError) && (
-        <TopBar>
-          <Button variant="secondary" small onPress={onLeaveSession}>
-            {t('leavePortal')}
-          </Button>
-        </TopBar>
-      )}
+      <TopBar>
+        <Button variant="secondary" small onPress={onLeaveSession}>
+          {t('leavePortal')}
+        </Button>
+      </TopBar>
+
       <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
     </Screen>
   );
