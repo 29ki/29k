@@ -1,7 +1,9 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useMemo} from 'react';
 import {ImageSourcePropType, ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
 import AnimatedLottieView, {AnimationObject} from 'lottie-react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import hexToRgba from 'hex-to-rgba';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
@@ -49,13 +51,21 @@ const LeftCol = styled.View({
   flex: 2,
   justifyContent: 'space-between',
   padding: SPACINGS.SIXTEEN,
+  overflow: 'hidden',
 });
 
 const Tags = styled.View({
-  flexWrap: 'wrap',
   flexDirection: 'row',
   alignItems: 'center',
   marginTop: -SPACINGS.FOUR,
+});
+
+const TagsGradient = styled(LinearGradient)({
+  position: 'absolute',
+  right: -30,
+  bottom: 0,
+  width: 30,
+  height: 30,
 });
 
 const Header = styled.View({
@@ -97,44 +107,60 @@ export const Card: React.FC<CardProps> = ({
   hostName,
   inWallet,
   style,
-}) => (
-  <WalletWrapper inWallet={inWallet} style={style}>
-    <Wrapper onPress={onPress}>
-      <ContentWrapper>
-        <LeftCol>
-          {tags && (
-            <Tags>
-              {tags.map(tag => (
-                <Fragment key={tag}>
-                  <Tag>{tag}</Tag>
-                  <Spacer4 />
-                </Fragment>
-              ))}
-            </Tags>
-          )}
-          <Header>
-            {title && <Display20 numberOfLines={2}>{title}</Display20>}
-            <Spacer4 />
-            {onHostPress ? (
-              <TouchableOpacity onPress={onHostPress}>
-                <Byline pictureURL={hostPictureURL} name={hostName} />
-              </TouchableOpacity>
-            ) : (
-              <Byline pictureURL={hostPictureURL} name={hostName} />
+}) => {
+  const colors = useMemo(
+    () => [
+      hexToRgba(COLORS.CREAM, 0),
+      hexToRgba(COLORS.CREAM, 1),
+      hexToRgba(COLORS.CREAM, 1),
+    ],
+    [],
+  );
+  return (
+    <WalletWrapper inWallet={inWallet} style={style}>
+      <Wrapper onPress={onPress}>
+        <ContentWrapper>
+          <LeftCol>
+            {tags && (
+              <Tags>
+                {tags.map(tag => (
+                  <Fragment key={tag}>
+                    <Tag>{tag}</Tag>
+                    <Spacer4 />
+                  </Fragment>
+                ))}
+                <TagsGradient
+                  start={{x: 0, y: 0}}
+                  end={{x: 1, y: 0}}
+                  colors={colors}
+                />
+              </Tags>
             )}
-          </Header>
-        </LeftCol>
-        <GraphicsWrapper>
-          {lottie ? (
-            <Lottie source={lottie} autoPlay loop />
-          ) : image ? (
-            <Image resizeMode="contain" source={image} />
-          ) : null}
-        </GraphicsWrapper>
-      </ContentWrapper>
-      <Footer>{children}</Footer>
-    </Wrapper>
-  </WalletWrapper>
-);
+
+            <Header>
+              {title && <Display20 numberOfLines={2}>{title}</Display20>}
+              <Spacer4 />
+              {onHostPress ? (
+                <TouchableOpacity onPress={onHostPress}>
+                  <Byline pictureURL={hostPictureURL} name={hostName} />
+                </TouchableOpacity>
+              ) : (
+                <Byline pictureURL={hostPictureURL} name={hostName} />
+              )}
+            </Header>
+          </LeftCol>
+          <GraphicsWrapper>
+            {lottie ? (
+              <Lottie source={lottie} autoPlay loop />
+            ) : image ? (
+              <Image resizeMode="contain" source={image} />
+            ) : null}
+          </GraphicsWrapper>
+        </ContentWrapper>
+        <Footer>{children}</Footer>
+      </Wrapper>
+    </WalletWrapper>
+  );
+};
 
 export default Card;
