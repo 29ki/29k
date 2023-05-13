@@ -1,7 +1,6 @@
 import React, {useCallback} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {Spacer8} from '../Spacers/Spacer';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
@@ -18,7 +17,6 @@ const Profile = styled(Gutters)({
 });
 
 const MiniProfile = () => {
-  const {t} = useTranslation('Component.MiniProfile');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const user = useUser();
