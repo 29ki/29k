@@ -5,19 +5,22 @@ import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {PlayfairDisplayRegular} from '../../constants/fonts';
 import {SPACINGS} from '../../constants/spacings';
-import {CameraIcon} from '../Icons';
+import {CameraIcon, ProfileIcon} from '../Icons';
 import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 
-const ImageContainer = styled(TouchableOpacity)<{
+const Profile = styled(TouchableOpacity)<{
   size: number;
+  backgroundColor?: string;
   hasError?: boolean;
-}>(({size, hasError}) => ({
+}>(({size, backgroundColor, hasError}) => ({
   width: size,
   height: size,
-  backgroundColor: COLORS.PURE_WHITE,
+  backgroundColor: backgroundColor ? backgroundColor : COLORS.PURE_WHITE,
   borderRadius: size / 2,
   aspectRatio: 1,
+  alignItems: 'center',
+  justifyContent: 'center',
   overflow: 'hidden',
   shadowColor: COLORS.GREYDARK,
   borderColor: hasError ? COLORS.ERROR : undefined,
@@ -30,11 +33,20 @@ const Letter = styled.Text.attrs({
 })<{size: number}>(({size}) => ({
   flex: 1,
   fontFamily: PlayfairDisplayRegular,
-  fontSize: size * 0.9,
-  lineHeight: size,
+  fontSize: size * 0.85,
+  lineHeight: size - 2, // Compensate for the hasError border
   color: COLORS.BLACK,
   textAlign: 'center',
 }));
+
+const ProfileIconContainer = styled.View<{size: number}>(({size}) => {
+  const sizeStop = 32;
+  const newSize = size > sizeStop ? size - (size - sizeStop) * 0.6 : size;
+  return {
+    width: newSize,
+    height: newSize,
+  };
+});
 
 const Spinner = styled.ActivityIndicator({
   position: 'absolute',
@@ -45,7 +57,7 @@ const Spinner = styled.ActivityIndicator({
   backgroundColor: hexToRgba(COLORS.WHITE, 0.7),
 });
 
-const IconContainer = styled.View<{size: number}>(({size}) => ({
+const ActionIconContainer = styled.View<{size: number}>(({size}) => ({
   width: size * 0.25,
   height: size * 0.25,
   padding: SPACINGS.FOUR,
@@ -63,6 +75,7 @@ type ProfilePictureProps = {
   hasError?: boolean;
   loading?: boolean;
   onPress?: TouchableOpacityProps['onPress'];
+  backgroundColor?: string;
   style?: ViewStyle;
 };
 
@@ -73,28 +86,34 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({
   hasError,
   loading,
   onPress,
+  backgroundColor,
   style,
 }) => {
   return (
     <View style={style}>
-      <ImageContainer
+      <Profile
         size={size}
         hasError={hasError}
         onPress={onPress}
-        disabled={!onPress}>
+        disabled={!onPress}
+        backgroundColor={backgroundColor}>
         {pictureURL ? (
           <Image source={{uri: pictureURL}} />
+        ) : letter ? (
+          <Letter size={size}>{letter[0].toUpperCase()}</Letter>
         ) : (
-          <Letter size={size}>{(letter?.[0] || 'A').toUpperCase()}</Letter>
+          <ProfileIconContainer size={size}>
+            <ProfileIcon />
+          </ProfileIconContainer>
         )}
         {loading && (
           <Spinner size={size < 40 ? 'small' : 'large'} color={COLORS.BLACK} />
         )}
-      </ImageContainer>
+      </Profile>
       {onPress && (
-        <IconContainer size={size}>
+        <ActionIconContainer size={size}>
           <CameraIcon fill={COLORS.WHITE} />
-        </IconContainer>
+        </ActionIconContainer>
       )}
     </View>
   );
