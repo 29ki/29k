@@ -8,8 +8,8 @@
         "button": "Update"
       },
       "ios": {
-        "text__markdown": "## We've made the app even ~~better!~~\n\nYou can get the latest version from ~~[Apple TestFlight](https://testflight.apple.com/join/0VdruQ6z)~~",
-        "link": "https://testflight.apple.com/join/0VdruQ6z",
+        "text__markdown": "## We've made the app even ~~better!~~\n\nYou can get the latest version from ~~[Apple TestFlight](https://apps.apple.com/us/app/aware-mindfulness-wellbeing/id1631342681)~~",
+        "link": "https://apps.apple.com/us/app/aware-mindfulness-wellbeing/id1631342681",
         "button": "Update"
       }
     },
@@ -32,8 +32,8 @@
         "button": "Uppdatera"
       },
       "ios": {
-        "text__markdown": "## Vi har gjort appen ännu ~~bättre!~~\n\nDu kan hämta den senaste versionen från ~~[Apple TestFlight](https://testflight.apple.com/join/0VdruQ6z)~~",
-        "link": "https://testflight.apple.com/join/0VdruQ6z",
+        "text__markdown": "## Vi har gjort appen ännu ~~bättre!~~\n\nDu kan hämta den senaste versionen från ~~[Apple TestFlight](https://apps.apple.com/se/app/aware-mindfulness-wellbeing/id1631342681)~~",
+        "link": "https://apps.apple.com/se/app/aware-mindfulness-wellbeing/id1631342681",
         "button": "Uppdatera"
       }
     },
@@ -56,8 +56,8 @@
         "button": "Atualizar"
       },
       "ios": {
-        "text__markdown": "## Tornamos a app ainda ~~melhor!~~\n\nPodes obter a última versão na ~~[Apple TestFlight](https://testflight.apple.com/join/0VdruQ6z)~~",
-        "link": "https://testflight.apple.com/join/0VdruQ6z",
+        "text__markdown": "## Tornamos a app ainda ~~melhor!~~\n\nPodes obter a última versão na ~~[Apple TestFlight](https://apps.apple.com/us/app/aware-mindfulness-wellbeing/id1631342681)~~",
+        "link": "https://apps.apple.com/us/app/aware-mindfulness-wellbeing/id1631342681",
         "button": "Atualizar"
       }
     },
