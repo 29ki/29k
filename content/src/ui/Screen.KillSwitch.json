@@ -56,7 +56,7 @@
         "button": "Uppdatera"
       },
       "ios": {
-        "text__markdown": "## Vi har gjort appen ännu ~~bättre!~~\n\nDu kan hämta den senaste versionen från ~~[Apple TestFlight](https://apps.apple.com/se/app/aware-mindfulness-wellbeing/id1631342681)~~",
+        "text__markdown": "## Vi har gjort appen ännu ~~bättre!~~\n\nDu kan hämta den senaste versionen från ~~[Apple AppStore](https://apps.apple.com/se/app/aware-mindfulness-wellbeing/id1631342681)~~",
         "link": "https://apps.apple.com/se/app/aware-mindfulness-wellbeing/id1631342681",
         "button": "Uppdatera"
       }
