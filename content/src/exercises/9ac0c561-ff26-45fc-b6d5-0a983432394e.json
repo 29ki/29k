@@ -143,6 +143,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
+    "link": "https://aware.29k.org/the-willingness-stance",
     "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
     "async": true,
     "description": "Guided meditation to stop fighting unwanted inner experiences and instead use our energy where it matters. Accepting inner hardships can help us redirect our focus and propel us into meaningful action."
@@ -272,22 +273,11 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
+    "link": "https://aware.29k.org/the-willingness-stance",
     "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
     "description": "Uma meditação guiada para parar a luta interior e canalizar a nossa energia para o que realmente importa. Aceitar os desafios internos pode ajudar-nos a redirecionar o nosso foco e impulsionar-nos para ações com significado."
   },
   "sv": {
-    "published": false,
-    "hidden": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
@@ -340,26 +330,27 @@
         ]
       }
     ],
-    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "published": false,
     "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
-    ]
+    ],
+    "link": "https://aware.29k.org/the-willingness-stance",
+    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e"
   },
   "es": {
-    "published": false,
-    "hidden": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
@@ -412,11 +403,24 @@
         ]
       }
     ],
-    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "published": false,
     "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
-    ]
+    ],
+    "link": "https://aware.29k.org/the-willingness-stance",
+    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e"
   }
 }
