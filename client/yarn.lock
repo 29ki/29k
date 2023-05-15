@@ -4253,10 +4253,10 @@ eslint-plugin-ft-flow@^2.0.1:
     lodash "^4.17.21"
     string-natural-compare "^3.0.1"
 
-eslint-plugin-i18next@^6.0.0-8:
-  version "6.0.0-8"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-i18next/-/eslint-plugin-i18next-6.0.0-8.tgz#3dbe9191d6a1746dabc4540d4f1d67301d40d379"
-  integrity sha512-TMOeq/tcovFnDCxObJsEWm2/pnVAaOPkvvFKfjHrmGQ5oPGa+OmnBGDbTIU2GjVmejlUSBA4R897Y+jQJPmrWQ==
+eslint-plugin-i18next@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-i18next/-/eslint-plugin-i18next-6.0.1.tgz#b0a289179598b247a73881abccb4b73ea8a5e835"
+  integrity sha512-aJ0UlZLVqBK7mdXsl3yFQNz72OPUjSmBfcrMjCNxfMp8YVBAlKE83ZfzzTLCMQvFlXZs0TWYTtoteO/ZiZdDdw==
   dependencies:
     lodash "^4.17.21"
     requireindex "~1.1.0"
