@@ -17,6 +17,7 @@ import {
   TAGS_FIELD,
   ASYNC_FIELD,
   LIVE_FIELD,
+  LINK_FIELD,
 } from './common';
 import {
   CONTENT_SLIDE,
@@ -144,6 +145,7 @@ const EXERCISE_FIELDS: Array<CmsField> = applyDefaults(
     DESCRIPTION_FIELD,
     DURATION_FIELD,
     TAGS_FIELD,
+    LINK_FIELD,
     PUBLISHED_FIELD,
     HIDDEN_FIELD,
     LIVE_FIELD,

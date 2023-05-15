@@ -3,7 +3,7 @@ import {
   ExerciseSlideHostSlide,
   ExerciseSlideReflectionSlide,
   ExerciseSlideSharingSlide,
-  ExerciseSlideInstructionSlide,
+  ExerciseSlideInstructionSlideAsync,
 } from './generated/Exercise';
 
 export type ExerciseSlide =
@@ -11,4 +11,4 @@ export type ExerciseSlide =
   | ExerciseSlideHostSlide
   | ExerciseSlideReflectionSlide
   | ExerciseSlideSharingSlide
-  | ExerciseSlideInstructionSlide;
+  | ExerciseSlideInstructionSlideAsync;

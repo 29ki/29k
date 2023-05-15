@@ -10,6 +10,7 @@ export interface Collection {
   id: any;
   name: string;
   description?: string;
+  link?: string;
   image?: CollectionImage;
   tags?: any[];
   published: boolean;
