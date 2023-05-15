@@ -13,7 +13,8 @@
       "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682398823/Images/new_perspective_collection_guflka.png"
     },
     "published": true,
-    "hidden": false
+    "hidden": false,
+    "link": "https://aware.29k.org/new-perspectives"
   },
   "pt": {
     "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
@@ -28,7 +29,8 @@
       "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682398823/Images/new_perspective_collection_guflka.png"
     },
     "name": "Novas perspetivas",
-    "published": true
+    "published": true,
+    "link": "https://aware.29k.org/new-perspectives"
   },
   "sv": {
     "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
@@ -38,7 +40,8 @@
       "5b0dea9f-c665-41ce-a779-601d0cfa433d",
       "9ac0c561-ff26-45fc-b6d5-0a983432394e"
     ],
-    "published": true
+    "published": true,
+    "link": "https://aware.29k.org/new-perspectives"
   },
   "es": {
     "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
@@ -48,6 +51,7 @@
       "5b0dea9f-c665-41ce-a779-601d0cfa433d",
       "9ac0c561-ff26-45fc-b6d5-0a983432394e"
     ],
-    "published": true
+    "published": true,
+    "link": "https://aware.29k.org/new-perspectives"
   }
 }

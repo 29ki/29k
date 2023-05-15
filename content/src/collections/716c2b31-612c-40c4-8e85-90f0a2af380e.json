@@ -12,7 +12,8 @@
     "image": {
       "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682398819/Images/aware_and_allowe_collection_ctyfxt.png"
     },
-    "published": true
+    "published": true,
+    "link": "https://aware.29k.org/aware-and-allow"
   },
   "pt": {
     "id": "716c2b31-612c-40c4-8e85-90f0a2af380e",
@@ -27,7 +28,8 @@
     "image": {
       "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682398819/Images/aware_and_allowe_collection_ctyfxt.png"
     },
-    "published": true
+    "published": true,
+    "link": "https://aware.29k.org/aware-and-allow"
   },
   "sv": {
     "id": "716c2b31-612c-40c4-8e85-90f0a2af380e",
@@ -37,7 +39,8 @@
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
       "9ac0c561-ff26-45fc-b6d5-0a983432394e"
     ],
-    "published": true
+    "published": true,
+    "link": "https://aware.29k.org/aware-and-allow"
   },
   "es": {
     "id": "716c2b31-612c-40c4-8e85-90f0a2af380e",
@@ -47,6 +50,7 @@
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
       "9ac0c561-ff26-45fc-b6d5-0a983432394e"
     ],
-    "published": true
+    "published": true,
+    "link": "https://aware.29k.org/aware-and-allow"
   }
 }
