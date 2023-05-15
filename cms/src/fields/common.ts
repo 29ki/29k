@@ -77,9 +77,9 @@ export const NAME_FIELD: CmsField = {
 };
 
 export const LINK_FIELD: CmsField = {
-  label: '⛓ Link',
+  label: '🔗 Link',
   name: 'link',
-  i18n: true,
+  i18n: 'duplicate',
   widget: 'string',
   required: false,
   hint: 'Ask dev to get a firebase dynamic link generated',
