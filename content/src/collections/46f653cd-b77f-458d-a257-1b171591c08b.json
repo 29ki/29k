@@ -12,7 +12,8 @@
     ],
     "image": {
       "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683720597/Images/get_started_collection_chij0k.png"
-    }
+    },
+    "link": "https://aware.29k.org/get-started"
   },
   "pt": {
     "published": true,
@@ -27,7 +28,8 @@
     "description": "Dá os primeiros passos, validados cientificamente, para melhorar o teu bem-estar e ficares mais satisfeito com a tua vida. Começa aqui a tua jornada e explora o Aware FJN.",
     "image": {
       "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683720597/Images/get_started_collection_chij0k.png"
-    }
+    },
+    "link": "https://aware.29k.org/get-started"
   },
   "sv": {
     "published": false,
@@ -37,7 +39,8 @@
       "1a53e633-6916-4fea-a072-977c4b215288",
       "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
-    ]
+    ],
+    "link": "https://aware.29k.org/get-started"
   },
   "es": {
     "published": false,
@@ -47,6 +50,7 @@
       "1a53e633-6916-4fea-a072-977c4b215288",
       "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
-    ]
+    ],
+    "link": "https://aware.29k.org/get-started"
   }
 }
