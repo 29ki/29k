@@ -76,6 +76,15 @@ export const NAME_FIELD: CmsField = {
   widget: 'string',
 };
 
+export const LINK_FIELD: CmsField = {
+  label: '🔗 Link',
+  name: 'link',
+  i18n: 'duplicate',
+  widget: 'string',
+  required: false,
+  hint: 'Ask dev to get a firebase dynamic link generated',
+};
+
 export const DESCRIPTION_FIELD: CmsField = {
   label: '📃 Description',
   name: 'description',

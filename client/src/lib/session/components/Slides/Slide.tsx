@@ -4,7 +4,7 @@ import hexToRgba from 'hex-to-rgba';
 import LinearGradient from 'react-native-linear-gradient';
 
 import {ExerciseSlide} from '../../../../../../shared/src/types/Content';
-import {ExerciseSlideInstructionSlide} from '../../../../../../shared/src/types/generated/Exercise';
+import {ExerciseSlideInstructionSlideAsync} from '../../../../../../shared/src/types/generated/Exercise';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import useSessionState from '../../state/state';
 
@@ -67,7 +67,7 @@ const Slide = ({slide, active, async}: SlideProps) => {
           <Content async={async} slide={slide} active={active} />
         ))}
       {slide.type === 'instruction' && (
-        <Instruction slide={slide as ExerciseSlideInstructionSlide} />
+        <Instruction slide={slide as ExerciseSlideInstructionSlideAsync} />
       )}
     </Wrapper>
   );

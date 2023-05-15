@@ -46,6 +46,9 @@
     "card": {
       "lottie": {
         "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1683720732/Lottie/aware_logo_teal_qqweff.json"
+      },
+      "image": {
+        "source": ""
       }
     },
     "duration": 5,
@@ -68,6 +71,7 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
+    "link": "https://aware.29k.org/dive-in",
     "id": "1a53e633-6916-4fea-a072-977c4b215288",
     "async": true,
     "description": "An introduction to practicing mindfulness, gratitude and start using the Aware app."
@@ -141,6 +145,7 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
+    "link": "https://aware.29k.org/dive-in",
     "id": "1a53e633-6916-4fea-a072-977c4b215288",
     "async": true,
     "description": "Uma introdução à prática de atenção plena, gratidão e como começar a utilizar a Aware FJN"
@@ -218,6 +223,7 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
+    "link": "https://aware.29k.org/dive-in",
     "id": "1a53e633-6916-4fea-a072-977c4b215288",
     "async": false
   },
@@ -294,6 +300,7 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
+    "link": "https://aware.29k.org/dive-in",
     "id": "1a53e633-6916-4fea-a072-977c4b215288",
     "async": false
   }

@@ -139,6 +139,7 @@
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
     ],
+    "link": "https://aware.29k.org/breathing-anchor",
     "id": "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
     "async": true,
     "description": "Guided meditation for grounding ourselves in the present moment with our breathing. Present moment awareness can help us reduce rumination and stress as well as improve decision-making."
@@ -264,22 +265,11 @@
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
     ],
+    "link": "https://aware.29k.org/breathing-anchor",
     "id": "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
     "description": "Uma meditação guiada para nos ancorarmos no momento presente através da nossa respiração. A consciência do momento presente pode ajudar-nos a reduzir a ruminação e o stress assim como melhorar a nossa capacidade de decisão."
   },
   "sv": {
-    "published": false,
-    "hidden": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
@@ -335,26 +325,27 @@
         ]
       }
     ],
-    "id": "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "published": false,
     "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
-    ]
+    ],
+    "link": "https://aware.29k.org/breathing-anchor",
+    "id": "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
   },
   "es": {
-    "published": false,
-    "hidden": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
@@ -410,11 +401,24 @@
         ]
       }
     ],
-    "id": "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "published": false,
     "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
-    ]
+    ],
+    "link": "https://aware.29k.org/breathing-anchor",
+    "id": "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
   }
 }

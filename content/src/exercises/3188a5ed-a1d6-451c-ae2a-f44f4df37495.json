@@ -144,6 +144,7 @@
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
+    "link": "https://aware.29k.org/drop-all-requirements",
     "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
     "async": true,
     "description": "Guided meditation for a mindful break during busy days. Re-focusing and grounding ourselves can help reduce stress, reprioritize and give our minds a refreshing break."
@@ -293,23 +294,12 @@
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
+    "link": "https://aware.29k.org/drop-all-requirements",
     "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
     "async": true,
     "description": "Uma meditação guiada para uma pausa consciente nos dias mais atarefados. Re-focar a nossa atenção e ancorarmo-nos no presente pode ajudar-nos a reduzir o stress, compreender as prioridades e refrescar a mente."
   },
   "sv": {
-    "published": false,
-    "hidden": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
@@ -362,26 +352,27 @@
         ]
       }
     ],
-    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "published": false,
     "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
     "tags": [
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ]
+    ],
+    "link": "https://aware.29k.org/drop-all-requirements",
+    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495"
   },
   "es": {
-    "published": false,
-    "hidden": false,
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "slides": [
       {
         "type": "host",
@@ -434,11 +425,24 @@
         ]
       }
     ],
-    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "published": false,
     "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
     "tags": [
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ]
+    ],
+    "link": "https://aware.29k.org/drop-all-requirements",
+    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495"
   }
 }

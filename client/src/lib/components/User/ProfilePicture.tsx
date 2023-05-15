@@ -6,7 +6,6 @@ import {COLORS} from '../../../../../shared/src/constants/colors';
 import {PlayfairDisplayRegular} from '../../constants/fonts';
 import {SPACINGS} from '../../constants/spacings';
 import {CameraIcon, ProfileIcon} from '../Icons';
-import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 
 const Profile = styled(TouchableOpacity)<{
@@ -38,6 +37,11 @@ const Letter = styled.Text.attrs({
   color: COLORS.BLACK,
   textAlign: 'center',
 }));
+
+const Image = styled.Image({
+  width: '100%',
+  height: '100%',
+});
 
 const ProfileIconContainer = styled.View<{size: number}>(({size}) => {
   const sizeStop = 32;
