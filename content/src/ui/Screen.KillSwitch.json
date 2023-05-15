@@ -32,7 +32,7 @@
         "button": "Atualizar"
       },
       "ios": {
-        "text__markdown": "## Tornamos a app ainda ~~melhor!~~\n\nPodes obter a última versão na ~~[Apple TestFlight](https://apps.apple.com/us/app/aware-mindfulness-wellbeing/id1631342681)~~",
+        "text__markdown": "## Tornamos a app ainda ~~melhor!~~\n\nPodes obter a última versão na ~~[Apple AppStore](https://apps.apple.com/us/app/aware-mindfulness-wellbeing/id1631342681)~~",
         "link": "https://apps.apple.com/us/app/aware-mindfulness-wellbeing/id1631342681",
         "button": "Atualizar"
       }
