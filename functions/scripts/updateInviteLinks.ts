@@ -1,6 +1,7 @@
 import admin from 'firebase-admin';
 import {createSessionInviteLink} from '../src/models/dynamicLinks';
-import {getUser} from '../src/controllers/user';
+import {getAuthUserInfo} from '../src/models/auth';
+import {Timestamp} from 'firebase-admin/firestore';
 
 const {GOOGLE_APPLICATION_CREDENTIALS} = process.env;
 
@@ -16,25 +17,33 @@ const firestore = admin.firestore();
 
 (async () => {
   const sessionsCollection = firestore.collection('sessions');
-  const snapshot = await sessionsCollection.where('ended', '==', false).get();
+  const snapshot = await sessionsCollection
+    .where('ended', '==', false)
+    .where('startTime', '>', Timestamp.now())
+    .get();
 
-  await Promise.all(
-    snapshot.docs.map(async doc => {
-      const {id, exerciseId, inviteCode, hostId, language} = doc.data();
+  for (let doc of snapshot.docs) {
+    const {id, exerciseId, inviteCode, hostId, language} = doc.data();
+    let hostDisplayName: string;
 
-      const hostProfile = await getUser(hostId);
-      const link = await createSessionInviteLink(
-        inviteCode,
-        exerciseId,
-        hostProfile.displayName,
-        language,
-      );
+    try {
+      const host = await getAuthUserInfo(hostId);
+      hostDisplayName = host?.displayName ?? '';
+    } catch (err) {
+      hostDisplayName = '';
+    }
 
-      firestore.collection('sessions').doc(id).update({
-        link,
-      });
-    }),
-  );
+    const link = await createSessionInviteLink(
+      inviteCode,
+      exerciseId,
+      hostDisplayName,
+      language,
+    );
+
+    firestore.collection('sessions').doc(id).update({
+      link,
+    });
+  }
 
   console.log(
     `${snapshot.docs.length} session docs were updated with a up to date invitation link.`,
