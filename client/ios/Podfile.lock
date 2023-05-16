@@ -739,6 +739,7 @@ PODS:
     - Libuv-gRPC (= 0.0.10)
   - gRPC-Core/Interface (1.44.0)
   - GTMSessionFetcher/Core (3.1.1)
+  - JitsiWebRTC (106.0.0)
   - JWT (3.0.0-beta.14):
     - Base64 (~> 1.1.2)
   - leveldb-library (1.22.2)
@@ -983,7 +984,8 @@ PODS:
     - RCTTypeSafety
     - React-Core
     - ReactCommon/turbomodule/core
-  - react-native-webrtc (1.94.1-daily.8):
+  - react-native-webrtc (106.0.6-daily.1):
+    - JitsiWebRTC (~> 106.0.0)
     - React-Core
   - React-perflogger (0.69.9)
   - React-RCTActionSheet (0.69.9):
@@ -1226,6 +1228,7 @@ SPEC REPOS:
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
+    - JitsiWebRTC
     - JWT
     - leveldb-library
     - Libuv-gRPC
@@ -1385,6 +1388,7 @@ SPEC CHECKSUMS:
   "gRPC-C++": 9675f953ace2b3de7c506039d77be1f2e77a8db2
   gRPC-Core: 943e491cb0d45598b0b0eb9e910c88080369290b
   GTMSessionFetcher: e8647203b65cee28c5f73d0f473d096653945e72
+  JitsiWebRTC: f441eb0e2d67f0588bf24e21c5162e97342714fb
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
   leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
@@ -1412,7 +1416,7 @@ SPEC CHECKSUMS:
   react-native-daily-js: dbf4a4827e5cf691349c3ae69aa5d147cf5226fd
   react-native-get-random-values: a6ea6a8a65dc93e96e24a11105b1a9c8cfe1d72a
   react-native-safe-area-context: 1d596539b05a78f2b346e954e7c577f6f9be7544
-  react-native-webrtc: ba5088bd040d835cc5df17bb2245d9d27d5d2d70
+  react-native-webrtc: 60fc96b3b882250451eee3fef3ddfcef38232b7b
   React-perflogger: f6f4b3c63629ead2e8a5a22eaedd06368c31617a
   React-RCTActionSheet: 5e95058e99c53313d778d96b7f37697ce3a9418e
   React-RCTAnimation: c4f86d756d8398c674f61d00075993a368d83480
