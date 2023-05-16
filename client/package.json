@@ -91,7 +91,7 @@
     "appcenter-cli": "^2.13.7",
     "babel-jest": "^29.5.0",
     "eslint": "^8.40.0",
-    "eslint-plugin-i18next": "^6.0.0-8",
+    "eslint-plugin-i18next": "^6.0.1",
     "jest": "^29.5.0",
     "jest-fetch-mock": "^3.0.3",
     "jest-transform-stub": "^2.0.0",
