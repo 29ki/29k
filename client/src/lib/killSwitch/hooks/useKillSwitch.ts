@@ -28,7 +28,7 @@ const getKillSwitchUrl = ({
     `platform=${os}`,
     `platformVersion=${osVersion}`,
     `version=${nativeVersion}`,
-    `bundleVersion=${bundleVersion}`,
+    `bundleVersion=${bundleVersion ?? ''}`,
   ].join('&');
 
 const useKillSwitch = () => {
