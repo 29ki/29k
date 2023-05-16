@@ -38,16 +38,15 @@
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
-        <intent-filter>
+        <intent-filter android:autoVerify="true">
             <action android:name="android.intent.action.VIEW" />
 
             <category android:name="android.intent.category.DEFAULT" />
             <category android:name="android.intent.category.BROWSABLE" />
 
-            <data android:scheme="https" />
-            <data android:host="${deepLinkHost1}" />
-            <data android:host="${deepLinkHost2}" />
-            <data android:host="${deepLinkHost3}" />
+            <data android:scheme="https" android:host="${deepLinkHost1}" />
+            <data android:scheme="https" android:host="${deepLinkHost2}" />
+            <data android:scheme="https" android:host="${deepLinkHost3}" />
         </intent-filter>
       </activity>
     </application>
