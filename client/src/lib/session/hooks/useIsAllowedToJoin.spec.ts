@@ -127,6 +127,9 @@ describe('useIsAllowedToJoin', () => {
     useUserState.setState({
       user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
     });
+    useSessionState.setState({
+      liveSession: {id: 'some-sesssion-id'} as LiveSessionType,
+    });
     mockGetSession.mockRejectedValueOnce(null);
 
     const {result} = renderHook(() => useTestHook());
