@@ -47,6 +47,7 @@ import useSubscribeToSessionIfFocused from '../../../lib/session/hooks/useSubscr
 import {getSessionToken, joinSession} from '../../../lib/sessions/api/session';
 import useLiveSessionMetricEvents from '../../../lib/session/hooks/useLiveSessionMetricEvents';
 import useCheckPermissions from '../../../lib/session/hooks/useCheckPermissions';
+import useIsAllowedToJoin from '../../../lib/session/hooks/useIsAllowedToJoin';
 
 const KeyboardWrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'padding', android: undefined}),
@@ -130,6 +131,7 @@ const ChangingRoom = () => {
     params: {session},
   } = useRoute<RouteProp<LiveSessionStackProps, 'ChangingRoom'>>();
 
+  const isAllowedToJoin = useIsAllowedToJoin();
   useSubscribeToSessionIfFocused(session);
   const isFocused = useIsFocused();
   const me = useLocalParticipant();
@@ -167,13 +169,20 @@ const ChangingRoom = () => {
   );
 
   useEffect(() => {
-    // If switching between sessions, the session will first be the old one
-    // and then beacome the current one by useSubscribeToSessionIfFocused.
-    // Only pre join when the session is the same as passed in by params
-    if (isFocused && session?.url && session?.id) {
-      preJoin(session.url, session.id);
-    }
-  }, [isFocused, session?.url, session?.id, preJoin]);
+    const run = async () => {
+      // If switching between sessions, the session will first be the old one
+      // and then beacome the current one by useSubscribeToSessionIfFocused.
+      // Only pre join when the session is the same as passed in by params
+      if (isFocused && session?.url && session?.id) {
+        // Does the same check as the backend
+        const allowedToJoin = await isAllowedToJoin(session.id);
+        if (allowedToJoin) {
+          preJoin(session.url, session.id);
+        }
+      }
+    };
+    run();
+  }, [isFocused, session?.url, session?.id, preJoin, isAllowedToJoin]);
 
   const join = useCallback(async () => {
     setJoiningMeeting(true);
