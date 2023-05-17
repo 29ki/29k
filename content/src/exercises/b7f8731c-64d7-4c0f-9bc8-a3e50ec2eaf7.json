@@ -66,7 +66,7 @@
           "text": "",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
-            "durationTimer": true,
+            "durationTimer": false,
             "duration": 60
           }
         }
@@ -89,7 +89,7 @@
           "text": "",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json",
-            "durationTimer": true,
+            "durationTimer": false,
             "duration": 120
           }
         },
@@ -137,7 +137,7 @@
     "duration": 40,
     "outroPortal": {
       "video": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684316170/Video/outdoor_sensing_portal_outro_f7amvf.mp4"
+        "source": ""
       }
     },
     "introPortal": {
@@ -152,7 +152,7 @@
         "preview": ""
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal2_the_willingnes_stance_kti6ub.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684316170/Video/outdoor_sensing_portal_outro_f7amvf.mp4"
       }
     },
     "tags": [
