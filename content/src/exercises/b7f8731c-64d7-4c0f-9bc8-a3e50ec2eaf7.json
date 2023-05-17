@@ -41,11 +41,6 @@
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684313677/Video/outdoor_sensing_meditation_visual_cbiepb.mp4",
             "autoPlayLoop": false
-          },
-          "lottie": {
-            "source": "",
-            "audio": "",
-            "durationTimer": false
           }
         }
       },
