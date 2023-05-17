@@ -142,9 +142,9 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal1_the_willingnes_stance_cosgwx.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676972801/Audio/portal_audio_the_willingnes_stance_pxrzfe.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676991354/Images/portal_the_willingnes_stance_thumbnail_hvcvof.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684314346/Video/outdoor_sensing_portal_e9cd0v.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1684314370/Audio/outdoor_sensing_portal_audio_sm1ski.mp3",
+        "preview": ""
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal2_the_willingnes_stance_kti6ub.mp4"
