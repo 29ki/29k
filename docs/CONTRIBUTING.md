@@ -2,7 +2,7 @@
 
 🤍🎉 First off, thanks for taking the time to contribute! 🎉🤍
 
-We are in the early stages of our open-source journey and we'd love to keep it as effortless as possible to get in touch with everyone, so please, don't hesitate to say hi and ask questions through github issues or through one of our [comms](#comms)!
+We are in the early stages of our open-source journey and we'd love to keep it as effortless as possible to get in touch with everyone, so please, don't hesitate to say hi and ask questions through github issues or our [Slack community](http://community.29k.org)!
 
 The following is a set of guidelines, these are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
