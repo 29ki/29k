@@ -1164,9 +1164,9 @@
   resolved "https://registry.yarnpkg.com/@expo/sdk-runtime-versions/-/sdk-runtime-versions-1.0.0.tgz#d7ebd21b19f1c6b0395e50d78da4416941c57f7c"
   integrity sha512-Doz2bfiPndXYFPMRwPyGa1k5QaKDVpY806UJj570epIiMzWaYyCtobasyfC++qfIXVb5Ocy7r3tP9d62hAQ7IQ==
 
-"@gorhom/bottom-sheet@https://github.com/29ki/react-native-bottom-sheet#patch-input-scroll":
+"@gorhom/bottom-sheet@https://github.com/29ki/react-native-bottom-sheet.git#patch-input-scroll":
   version "4.4.6"
-  resolved "https://github.com/29ki/react-native-bottom-sheet#65adc74a76445f116bfc0c54c4008ef29af9694d"
+  resolved "https://github.com/29ki/react-native-bottom-sheet.git#468a61d972dbdb8e91bce2d34aa901eba27a1915"
   dependencies:
     "@gorhom/portal" "1.0.14"
     invariant "^2.2.4"

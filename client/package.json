@@ -22,7 +22,7 @@
   "dependencies": {
     "@daily-co/react-native-daily-js": "0.42.1",
     "@daily-co/react-native-webrtc": "106.0.6-daily.1",
-    "@gorhom/bottom-sheet": "https://github.com/29ki/react-native-bottom-sheet#patch-input-scroll",
+    "@gorhom/bottom-sheet": "https://github.com/29ki/react-native-bottom-sheet.git#patch-input-scroll",
     "@notifee/react-native": "^7.7.1",
     "@react-native-async-storage/async-storage": "^1.18.1",
     "@react-native-community/datetimepicker": "^7.1.0",
