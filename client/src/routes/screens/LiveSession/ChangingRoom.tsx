@@ -174,7 +174,7 @@ const ChangingRoom = () => {
       // and then beacome the current one by useSubscribeToSessionIfFocused.
       // Only pre join when the session is the same as passed in by params
       if (isFocused && session?.url && session?.id) {
-        // Does the same check as the backend
+        // Checks against the backend to see that the session is still available
         const allowedToJoin = await isAllowedToJoin(session.id);
         if (allowedToJoin) {
           preJoin(session.url, session.id);
