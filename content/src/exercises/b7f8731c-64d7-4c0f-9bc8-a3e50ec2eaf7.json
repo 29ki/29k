@@ -135,6 +135,11 @@
       }
     },
     "duration": 40,
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684316170/Video/outdoor_sensing_portal_outro_f7amvf.mp4"
+      }
+    },
     "introPortal": {
       "hostNotes": [
         {
