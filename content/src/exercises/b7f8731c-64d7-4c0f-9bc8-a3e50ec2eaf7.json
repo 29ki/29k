@@ -37,13 +37,15 @@
         ],
         "content": {
           "video": {
-            "audio": "",
-            "durationTimer": false
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683795468/Audio/Outdoor_sensing_Jenny_x9ztl5.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684313677/Video/outdoor_sensing_meditation_visual_cbiepb.mp4",
+            "autoPlayLoop": true
           },
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683795468/Audio/Outdoor_sensing_Jenny_x9ztl5.mp3",
-            "durationTimer": true
+            "source": "",
+            "audio": "",
+            "durationTimer": false
           }
         }
       },
@@ -63,7 +65,7 @@
           "heading": "What thoughts, feelings and experiences showed up?",
           "text": "",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
             "duration": 60
           }
@@ -86,7 +88,7 @@
           "heading": "What thoughts, feelings and experiences showed up?",
           "text": "",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json",
             "durationTimer": true,
             "duration": 120
           }
@@ -116,8 +118,8 @@
       }
     ],
     "theme": {
-      "textColor": "#F9F8F4",
-      "backgroundColor": "#267ae4"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#cdf9e6"
     },
     "hidden": true,
     "name": "Outdoor sensing",
@@ -125,7 +127,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676992253/Images/card_image_the_willingnes_stance_e2yekr.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1684313656/Images/outdoor_sensing_thumb_q68hl4.png"
       },
       "host": {
         "displayName": "Jenny",
