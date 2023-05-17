@@ -8,6 +8,7 @@ import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import useUserState from '../../user/state/state';
 import useIsAllowedToJoin from './useIsAllowedToJoin';
 import useSessionState from '../state/state';
+import {ValidateSessionError} from '../../../../../shared/src/errors/Session';
 
 jest.mock('../../sessions/api/session');
 jest.mock('../../sessions/hooks/useSessions');
@@ -28,8 +29,7 @@ describe('useIsAllowedToJoin', () => {
     fetchSessions: mockFetchSessions,
   } as any);
 
-  it('should be allowed to when closing time is not passed', async () => {
-    jest.useFakeTimers().setSystemTime(new Date('2023-05-16T10:00:00Z'));
+  it('should be allowed to when backend returns a valid session', async () => {
     useUserState.setState({
       user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
     });
@@ -49,55 +49,14 @@ describe('useIsAllowedToJoin', () => {
     expect(mockFetchSessions).toHaveBeenCalledTimes(0);
   });
 
-  it('should be allowed to when user is host', async () => {
-    jest.useFakeTimers().setSystemTime(new Date('2023-05-16T10:00:00Z'));
-    useUserState.setState({
-      user: {uid: 'some-host-id'} as FirebaseAuthTypes.User,
-    });
-    mockGetSession.mockResolvedValueOnce({
-      closingTime: '2023-05-16T09:55:00Z',
-      userIds: ['*'],
-      hostId: 'some-host-id',
-    } as LiveSessionType);
-
-    const {result} = renderHook(() => useIsAllowedToJoin());
-
-    const res = await result.current('some-session-id');
-
-    expect(res).toBe(true);
-    expect(mockGetSession).toHaveBeenCalledWith('some-session-id');
-    expect(mockNavigate).toHaveBeenCalledTimes(0);
-    expect(mockFetchSessions).toHaveBeenCalledTimes(0);
-  });
-
-  it('should be allowed to when user is among userIds', async () => {
-    jest.useFakeTimers().setSystemTime(new Date('2023-05-16T10:00:00Z'));
-    useUserState.setState({
-      user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
-    });
-    mockGetSession.mockResolvedValueOnce({
-      closingTime: '2023-05-16T09:55:00Z',
-      userIds: ['*', 'some-user-id'],
-      hostId: 'some-host-id',
-    } as LiveSessionType);
-
-    const {result} = renderHook(() => useIsAllowedToJoin());
-
-    const res = await result.current('some-session-id');
-
-    expect(res).toBe(true);
-    expect(mockGetSession).toHaveBeenCalledWith('some-session-id');
-    expect(mockNavigate).toHaveBeenCalledTimes(0);
-    expect(mockFetchSessions).toHaveBeenCalledTimes(0);
-  });
-
   const useTestHook = () => {
     const isAllowedToJoin = useIsAllowedToJoin();
     const sessionState = useSessionState(state => state);
 
     return {isAllowedToJoin, sessionState};
   };
-  it('should not be allowed to when closingTime has passed', async () => {
+
+  it('should not be allowed to join when session could not be found', async () => {
     jest.useFakeTimers().setSystemTime(new Date('2023-05-16T10:00:00Z'));
     useUserState.setState({
       user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
@@ -105,43 +64,91 @@ describe('useIsAllowedToJoin', () => {
     useSessionState.setState({
       liveSession: {id: 'some-sesssion-id'} as LiveSessionType,
     });
-    mockGetSession.mockResolvedValueOnce({
-      closingTime: '2023-05-16T09:55:00Z',
-      userIds: ['*'],
-      hostId: 'some-host-id',
-    } as LiveSessionType);
-
-    const {result} = renderHook(() => useTestHook());
-
-    const res = await result.current.isAllowedToJoin('some-session-id');
-
-    expect(res).toBe(false);
-    expect(mockGetSession).toHaveBeenCalledWith('some-session-id');
-    expect(mockNavigate).toHaveBeenCalledTimes(2);
-    expect(mockFetchSessions).toHaveBeenCalledTimes(1);
-    expect(result.current.sessionState.liveSession).toBe(null);
-  });
-
-  it('should not be allowed to when session could not be fetched', async () => {
-    jest.useFakeTimers().setSystemTime(new Date('2023-05-16T10:00:00Z'));
-    useUserState.setState({
-      user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
-    });
-    useSessionState.setState({
-      liveSession: {id: 'some-sesssion-id'} as LiveSessionType,
-    });
-    mockGetSession.mockRejectedValueOnce(null);
+    mockGetSession.mockRejectedValueOnce(
+      new Error(ValidateSessionError.notFound),
+    );
 
     const {result} = renderHook(() => useTestHook());
 
     try {
-      const res = await result.current.isAllowedToJoin('some-session-id');
-      expect(res).toBe(false);
+      await result.current.isAllowedToJoin('some-session-id');
     } catch (error) {}
 
     expect(mockGetSession).toHaveBeenCalledWith('some-session-id');
     expect(mockNavigate).toHaveBeenCalledTimes(2);
     expect(mockFetchSessions).toHaveBeenCalledTimes(1);
     expect(result.current.sessionState.liveSession).toBe(null);
+  });
+
+  it('should not be allowed to join when session user is not found', async () => {
+    jest.useFakeTimers().setSystemTime(new Date('2023-05-16T10:00:00Z'));
+    useUserState.setState({
+      user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
+    });
+    useSessionState.setState({
+      liveSession: {id: 'some-sesssion-id'} as LiveSessionType,
+    });
+    mockGetSession.mockRejectedValueOnce(
+      new Error(ValidateSessionError.userNotFound),
+    );
+
+    const {result} = renderHook(() => useTestHook());
+
+    try {
+      await result.current.isAllowedToJoin('some-session-id');
+    } catch (error) {}
+
+    expect(mockGetSession).toHaveBeenCalledWith('some-session-id');
+    expect(mockNavigate).toHaveBeenCalledTimes(2);
+    expect(mockFetchSessions).toHaveBeenCalledTimes(1);
+    expect(result.current.sessionState.liveSession).toBe(null);
+  });
+
+  it('should not be allowed to join when session user is not authorized', async () => {
+    jest.useFakeTimers().setSystemTime(new Date('2023-05-16T10:00:00Z'));
+    useUserState.setState({
+      user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
+    });
+    useSessionState.setState({
+      liveSession: {id: 'some-sesssion-id'} as LiveSessionType,
+    });
+    mockGetSession.mockRejectedValueOnce(
+      new Error(ValidateSessionError.userNotAuthorized),
+    );
+
+    const {result} = renderHook(() => useTestHook());
+
+    try {
+      await result.current.isAllowedToJoin('some-session-id');
+    } catch (error) {}
+
+    expect(mockGetSession).toHaveBeenCalledWith('some-session-id');
+    expect(mockNavigate).toHaveBeenCalledTimes(2);
+    expect(mockFetchSessions).toHaveBeenCalledTimes(1);
+    expect(result.current.sessionState.liveSession).toBe(null);
+  });
+
+  it('should not be allowed to join and not reset on unexpected error', async () => {
+    jest.useFakeTimers().setSystemTime(new Date('2023-05-16T10:00:00Z'));
+    useUserState.setState({
+      user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
+    });
+    useSessionState.setState({
+      liveSession: {id: 'some-sesssion-id'} as LiveSessionType,
+    });
+    mockGetSession.mockRejectedValueOnce(new Error(undefined));
+
+    const {result} = renderHook(() => useTestHook());
+
+    try {
+      await result.current.isAllowedToJoin('some-session-id');
+    } catch (error) {}
+
+    expect(mockGetSession).toHaveBeenCalledWith('some-session-id');
+    expect(mockNavigate).toHaveBeenCalledTimes(0);
+    expect(mockFetchSessions).toHaveBeenCalledTimes(0);
+    expect(result.current.sessionState.liveSession).toEqual({
+      id: 'some-sesssion-id',
+    });
   });
 });

@@ -248,6 +248,7 @@ describe('sessions - controller', () => {
     it('should return the private session', async () => {
       mockGetSessionById.mockResolvedValueOnce({
         dailyRoomName: 'some-room-name',
+        closingTime: Timestamp.fromDate(new Date('2022-10-10T09:05:00Z')),
         hostId: 'the-host-id',
         userIds: ['some-user-id'],
         type: SessionType.private,
@@ -257,6 +258,7 @@ describe('sessions - controller', () => {
 
       expect(result).toEqual({
         dailyRoomName: 'some-room-name',
+        closingTime: expect.any(Timestamp),
         hostId: 'the-host-id',
         hostProfile: {
           uid: 'the-host-id',
@@ -271,6 +273,7 @@ describe('sessions - controller', () => {
     it('should return existing public session', async () => {
       mockGetSessionById.mockResolvedValueOnce({
         dailyRoomName: 'some-room-name',
+        closingTime: Timestamp.fromDate(new Date('2022-10-10T09:05:00Z')),
         hostId: 'the-host-id',
         userIds: ['some-other-user-id'],
         type: SessionType.public,
@@ -280,6 +283,57 @@ describe('sessions - controller', () => {
 
       expect(result).toEqual({
         dailyRoomName: 'some-room-name',
+        closingTime: expect.any(Timestamp),
+        hostId: 'the-host-id',
+        hostProfile: {
+          uid: 'the-host-id',
+          displayName: 'some-name',
+          photoURL: 'some-photo-url',
+        },
+        type: 'public',
+        userIds: ['some-other-user-id'],
+      });
+    });
+
+    it('should return existing public session for host after closingTime', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        dailyRoomName: 'some-room-name',
+        closingTime: Timestamp.fromDate(new Date('2022-10-10T08:05:00Z')),
+        hostId: 'the-host-id',
+        userIds: ['some-other-user-id'],
+        type: SessionType.public,
+      });
+
+      const result = await getSession('the-host-id', 'some-session-id');
+
+      expect(result).toEqual({
+        dailyRoomName: 'some-room-name',
+        closingTime: expect.any(Timestamp),
+        hostId: 'the-host-id',
+        hostProfile: {
+          uid: 'the-host-id',
+          displayName: 'some-name',
+          photoURL: 'some-photo-url',
+        },
+        type: 'public',
+        userIds: ['some-other-user-id'],
+      });
+    });
+
+    it('should return existing public session for included user after closingTime', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        dailyRoomName: 'some-room-name',
+        closingTime: Timestamp.fromDate(new Date('2022-10-10T08:05:00Z')),
+        hostId: 'the-host-id',
+        userIds: ['some-other-user-id'],
+        type: SessionType.public,
+      });
+
+      const result = await getSession('some-other-user-id', 'some-session-id');
+
+      expect(result).toEqual({
+        dailyRoomName: 'some-room-name',
+        closingTime: expect.any(Timestamp),
         hostId: 'the-host-id',
         hostProfile: {
           uid: 'the-host-id',
@@ -302,6 +356,7 @@ describe('sessions - controller', () => {
     it('should throw if user is not part of private session', async () => {
       mockGetSessionById.mockResolvedValueOnce({
         dailyRoomName: 'some-room-name',
+        closingTime: Timestamp.fromDate(new Date('2022-10-10T09:05:00Z')),
         hostId: 'some-host-id',
         userIds: ['some-other-user-id'],
         type: SessionType.private,
@@ -310,6 +365,20 @@ describe('sessions - controller', () => {
       await expect(
         getSession('some-user-id', 'some-session-id'),
       ).rejects.toEqual(Error(ValidateSessionError.userNotFound));
+    });
+
+    it('should throw if user is not allowed to join by closingTime', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        dailyRoomName: 'some-room-name',
+        closingTime: Timestamp.fromDate(new Date('2022-10-10T08:00:00Z')),
+        hostId: 'some-host-id',
+        userIds: ['some-other-user-id'],
+        type: SessionType.public,
+      });
+
+      await expect(
+        getSession('some-user-id', 'some-session-id'),
+      ).rejects.toEqual(Error(ValidateSessionError.userNotAuthorized));
     });
   });
 

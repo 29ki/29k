@@ -105,6 +105,10 @@ export const getSession = async (
     throw new RequestError(ValidateSessionError.userNotFound);
   }
 
+  if (!isUserAllowedToJoin(session, userId)) {
+    throw new RequestError(ValidateSessionError.userNotAuthorized);
+  }
+
   return mapSession(session);
 };
 

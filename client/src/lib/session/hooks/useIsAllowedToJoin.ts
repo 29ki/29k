@@ -1,5 +1,3 @@
-import dayjs from 'dayjs';
-import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import useSessionState from '../state/state';
 import useSessions from '../../sessions/hooks/useSessions';
 import {useNavigation} from '@react-navigation/native';
@@ -10,18 +8,11 @@ import {
 } from '../../navigation/constants/routes';
 import {useCallback} from 'react';
 import {getSession} from '../../sessions/api/session';
-import useUser from '../../user/hooks/useUser';
+import {ValidateSessionError} from '../../../../../shared/src/errors/Session';
 
-const isSessionOpen = (session: LiveSessionType): boolean =>
-  dayjs(session.closingTime).isAfter(dayjs());
-
-const isUserAllowedToJoin = (session: LiveSessionType, userId: string) =>
-  isSessionOpen(session) ||
-  session.userIds.includes(userId) ||
-  session.hostId === userId;
+const ERROR_STATUES = Object.values(ValidateSessionError);
 
 const useIsAllowedToJoin = () => {
-  const user = useUser();
   const reset = useSessionState(state => state.reset);
   const {fetchSessions} = useSessions();
   const {navigate} =
@@ -39,20 +30,19 @@ const useIsAllowedToJoin = () => {
   return useCallback(
     async (sessionId: string) => {
       try {
-        const session = await getSession(sessionId);
-
-        if (user?.uid && !isUserAllowedToJoin(session, user?.uid)) {
-          resetSession();
-
-          return false;
-        }
+        // if the session is found, it's validated by the backend
+        await getSession(sessionId);
         return true;
-      } catch (error) {
-        resetSession();
+      } catch (e) {
+        const error = e as Error;
+        // Only reset session on known errors
+        if (ERROR_STATUES.includes(error.message as ValidateSessionError)) {
+          resetSession();
+        }
         throw error;
       }
     },
-    [user?.uid, resetSession],
+    [resetSession],
   );
 };
 

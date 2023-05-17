@@ -104,6 +104,10 @@ sessionsRouter.get(
           ctx.status = 403;
           break;
 
+        case ValidateSessionError.userNotAuthorized:
+          ctx.status = 401;
+          break;
+
         default:
           throw error;
       }
