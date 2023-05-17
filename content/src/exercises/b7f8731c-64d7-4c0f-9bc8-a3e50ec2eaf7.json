@@ -116,7 +116,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#cdf9e6"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Outdoor sensing",
     "live": true,
     "published": true,
