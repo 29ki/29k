@@ -132,10 +132,6 @@ jobs:
         working-directory: ./client/fastlane
         run: bundle install
 
-      - name: Download Daily Bitcode
-        working-directory: ./client
-        run: ./node_modules/@daily-co/react-native-webrtc/tools/downloadBitcode.sh
-
       - name: Build Content
         working-directory: ./content
         run: yarn build
