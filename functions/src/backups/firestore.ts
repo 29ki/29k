@@ -1,42 +1,48 @@
-/*
- * Copyright (c) 2018-2021 29k International AB
- */
+import {GoogleAuth} from 'google-auth-library';
+import {onSchedule, ScheduledEvent} from 'firebase-functions/v2/scheduler';
+import {firestore} from 'firebase-admin';
+import {getFirestore} from 'firebase-admin/firestore';
+import {cronSentryErrorReporter} from '../lib/sentry.js';
+import config from '../lib/config';
 
-import createDebug from 'debug';
+const googleAuth = new GoogleAuth();
+const firestoreAdmin = new firestore.v1.FirestoreAdminClient();
 
-import { RETRY_CONFIG } from '../constants.js';
+const {BACKUPS_BUCKET} = config;
+const IGNORED_COLLECTION_IDS: string[] = [];
 
-const debug = createDebug('app:backups:firestore');
-
-const IGNORED_COLLECTION_IDS = ['scheduler'];
-
-const createHandler = (services) => async ({ timestamp }) => {
-  const { firestore, firestoreAdmin, env, googleAuth } = services;
-  const { FUNCTIONS_BACKUP_BUCKET: bucketName } = env();
-
+const backup = async (event: ScheduledEvent) => {
   // Creating a path to the database
   // The db name seems to always be the same as the project id
-  const projectId = await googleAuth().getProjectId();
-  const formattedPath = firestoreAdmin().databasePath(projectId, '(default)');
+  const projectId = await googleAuth.getProjectId();
+  const formattedPath = firestoreAdmin.databasePath(projectId, '(default)');
 
-  const collectionRefs = await firestore().listCollections();
+  const collectionRefs = await getFirestore().listCollections();
   const collectionIds = collectionRefs
-    .map((ref) => ref.id)
-    .filter((id) => !IGNORED_COLLECTION_IDS.includes(id));
+    .map(ref => ref.id)
+    .filter(id => !IGNORED_COLLECTION_IDS.includes(id));
 
-  await firestoreAdmin().exportDocuments({
+  await firestoreAdmin.exportDocuments({
     name: formattedPath,
-    outputUriPrefix: `gs://${bucketName}/firestore/${timestamp}`,
+    outputUriPrefix: `gs://${BACKUPS_BUCKET}/firestore/${event.scheduleTime}`,
     collectionIds: collectionIds,
   });
-  debug(`Firestore backup started: ${timestamp}`);
 
   return null;
 };
 
-export default ({ functions, ...services }) =>
-  functions()
-    .runWith({ memory: '256MB', maxInstances: 1, timeoutSeconds: 540 })
-    .pubsub.schedule('every day 00:00')
-    .retryConfig(RETRY_CONFIG)
-    .onRun(createHandler(services));
+export const firestoreBackup = onSchedule(
+  {
+    region: 'europe-west1',
+    memory: '1GiB',
+    schedule: 'every day 00:00',
+    timeZone: 'Europe/Stockholm',
+    maxInstances: 1,
+    timeoutSeconds: 540, // maximum
+    retryCount: 5, // maximum
+    // use a longer backoff to allow to recover in case of failure
+    minBackoffSeconds: 10,
+    maxBackoffSeconds: 120,
+  },
+  cronSentryErrorReporter<ScheduledEvent>('firestore-backup', backup),
+);
