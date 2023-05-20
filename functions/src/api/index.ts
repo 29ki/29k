@@ -8,7 +8,7 @@ import {userRouter} from './user';
 import {postsRouter} from './posts';
 import {reportRouter} from './report';
 import {onboardingRouter} from './onboarding';
-import sentryErrorHandler from '../lib/sentry';
+import {koaSentryErrorReporter} from '../lib/sentry';
 import firebaseBodyParser from '../lib/firebaseBodyParser';
 import languageResolver from './lib/languageResolver';
 import firebaseAuth from './lib/firebaseAuth';
@@ -17,7 +17,7 @@ import {assertValidatedResponse} from './lib/validation';
 
 const app = new Koa();
 
-app.on('error', sentryErrorHandler);
+app.on('error', koaSentryErrorReporter);
 app.on('error', localErrorHandler);
 
 const preAuthRouter = createApiPreAuthRouter();
