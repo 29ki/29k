@@ -5,10 +5,6 @@ import {appendOrigin} from './utils/url';
 export const openURL = async (URL: string) => {
   metrics.logEvent('Open Link', {URL});
 
-  if (!(await Linking.canOpenURL(URL))) {
-    return;
-  }
-
   try {
     await Linking.openURL(URL);
   } catch (e) {}
