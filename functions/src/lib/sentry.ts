@@ -20,7 +20,7 @@ Sentry.init({
   ],
 });
 
-const sentryErrorHandler = (err: Error, ctx: Context) => {
+export const koaSentryErrorReporter = (err: Error, ctx: Context) => {
   const correlationId = ctx.get('X-Correlation-ID');
 
   Sentry.withScope(scope => {
