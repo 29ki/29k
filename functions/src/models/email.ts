@@ -9,6 +9,12 @@ import {
 } from '../lib/emailTemplates/report';
 import i18next, {LANGUAGE_TAG} from '../lib/i18n';
 
+const {SENDGRID_API_KEY} = config;
+
+if (SENDGRID_API_KEY) {
+  sendgrid.setApiKey(SENDGRID_API_KEY);
+}
+
 const TO_HELP = {
   pt: ['help+fjn@29k.org', '29k@joseneves.org'],
   sv: 'help+sv@29k.org',
@@ -64,8 +70,6 @@ const createReportEmail = (
     categories: ['Report from user'],
   };
 };
-
-sendgrid.setApiKey(config.SENDGRID_API_KEY);
 
 export const sendReportEmail = ({
   email,
