@@ -11,32 +11,34 @@ const {BACKUPS_BUCKET} = config;
 const toUserObject = (user: UserRecord) => user.toJSON();
 
 const backup = async (event: ScheduledEvent) => {
-  const bucket = getStorage().bucket(`gs://${BACKUPS_BUCKET}/`);
+  if (BACKUPS_BUCKET) {
+    const bucket = getStorage().bucket(`gs://${BACKUPS_BUCKET}/`);
 
-  const listAllUsers = async (nextPageToken?: string): Promise<object[]> => {
-    const {users, pageToken} = await getAuth().listUsers(1000, nextPageToken);
+    const listAllUsers = async (nextPageToken?: string): Promise<object[]> => {
+      const {users, pageToken} = await getAuth().listUsers(1000, nextPageToken);
 
-    const objects = map(toUserObject, users);
-    const next = pageToken ? await listAllUsers(pageToken) : [];
+      const objects = map(toUserObject, users);
+      const next = pageToken ? await listAllUsers(pageToken) : [];
 
-    return [...objects, ...next];
-  };
+      return [...objects, ...next];
+    };
 
-  const uploadBackup = (data: string) =>
-    new Promise((resolve, reject) => {
-      bucket
-        .file(`auth/${event.scheduleTime}.json`)
-        .createWriteStream()
-        .on('error', reject)
-        .on('finish', resolve)
-        .end(data);
-    });
+    const uploadBackup = (data: string) =>
+      new Promise((resolve, reject) => {
+        bucket
+          .file(`auth/${event.scheduleTime}.json`)
+          .createWriteStream()
+          .on('error', reject)
+          .on('finish', resolve)
+          .end(data);
+      });
 
-  let users: object[] = [];
-  users = await listAllUsers();
+    let users: object[] = [];
+    users = await listAllUsers();
 
-  const usersData = JSON.stringify(users);
-  await uploadBackup(usersData);
+    const usersData = JSON.stringify(users);
+    await uploadBackup(usersData);
+  }
 };
 
 export const authBackup = onSchedule(

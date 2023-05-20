@@ -12,23 +12,23 @@ const {BACKUPS_BUCKET} = config;
 const IGNORED_COLLECTION_IDS: string[] = [];
 
 const backup = async (event: ScheduledEvent) => {
-  // Creating a path to the database
-  // The db name seems to always be the same as the project id
-  const projectId = await googleAuth.getProjectId();
-  const formattedPath = firestoreAdmin.databasePath(projectId, '(default)');
+  if (BACKUPS_BUCKET) {
+    // Creating a path to the database
+    // The db name seems to always be the same as the project id
+    const projectId = await googleAuth.getProjectId();
+    const formattedPath = firestoreAdmin.databasePath(projectId, '(default)');
 
-  const collectionRefs = await getFirestore().listCollections();
-  const collectionIds = collectionRefs
-    .map(ref => ref.id)
-    .filter(id => !IGNORED_COLLECTION_IDS.includes(id));
+    const collectionRefs = await getFirestore().listCollections();
+    const collectionIds = collectionRefs
+      .map(ref => ref.id)
+      .filter(id => !IGNORED_COLLECTION_IDS.includes(id));
 
-  await firestoreAdmin.exportDocuments({
-    name: formattedPath,
-    outputUriPrefix: `gs://${BACKUPS_BUCKET}/firestore/${event.scheduleTime}`,
-    collectionIds: collectionIds,
-  });
-
-  return null;
+    await firestoreAdmin.exportDocuments({
+      name: formattedPath,
+      outputUriPrefix: `gs://${BACKUPS_BUCKET}/firestore/${event.scheduleTime}`,
+      collectionIds: collectionIds,
+    });
+  }
 };
 
 export const firestoreBackup = onSchedule(
