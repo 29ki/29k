@@ -1,17 +1,17 @@
 import {map} from 'ramda';
-import '../lib/sentry';
+import {cronSentryErrorReporter} from '../lib/sentry';
 import {onSchedule, ScheduledEvent} from 'firebase-functions/v2/scheduler';
 import {getAuth, UserRecord} from 'firebase-admin/auth';
 import {getStorage} from 'firebase-admin/storage';
 import config from '../lib/config';
 
-const {BACKUPS_BUCKET: bucketName} = config;
+const {BACKUPS_BUCKET} = config;
 
 // toJSON actually converts it to an object, not json
 const toUserObject = (user: UserRecord) => user.toJSON();
 
-const main = async (event: ScheduledEvent) => {
-  const bucket = getStorage().bucket(`gs://${bucketName}/`);
+const backup = async (event: ScheduledEvent) => {
+  const bucket = getStorage().bucket(`gs://${BACKUPS_BUCKET}/`);
 
   const listAllUsers = async (nextPageToken?: string): Promise<object[]> => {
     const {users, pageToken} = await getAuth().listUsers(1000, nextPageToken);
@@ -39,7 +39,7 @@ const main = async (event: ScheduledEvent) => {
   await uploadBackup(usersData);
 };
 
-export const auth = onSchedule(
+export const authBackup = onSchedule(
   {
     region: 'europe-west1',
     memory: '1GiB',
@@ -52,5 +52,5 @@ export const auth = onSchedule(
     minBackoffSeconds: 10,
     maxBackoffSeconds: 120,
   },
-  main,
+  cronSentryErrorReporter<ScheduledEvent>('auth-backup', backup),
 );
