@@ -34,7 +34,10 @@ export const koaSentryErrorReporter = (err: Error, ctx: Context) => {
 };
 
 export const cronSentryErrorReporter =
-  <argsT, returnT>(monitorSlug: string, fn: (...args: argsT[]) => returnT) =>
+  <argsT, returnT = void>(
+    monitorSlug: string,
+    fn: (...args: argsT[]) => returnT,
+  ) =>
   async (...args: argsT[]) => {
     const checkInId = Sentry.captureCheckIn({
       monitorSlug,
