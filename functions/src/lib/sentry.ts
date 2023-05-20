@@ -33,4 +33,39 @@ export const koaSentryErrorReporter = (err: Error, ctx: Context) => {
   });
 };
 
-export default sentryErrorHandler;
+export const cronSentryErrorReporter =
+  <argsT, returnT>(monitorSlug: string, fn: (...args: argsT[]) => returnT) =>
+  async (...args: argsT[]) => {
+    const checkInId = Sentry.captureCheckIn({
+      monitorSlug,
+      status: 'in_progress',
+    });
+
+    try {
+      const result = await fn(...args);
+
+      Sentry.captureCheckIn({
+        checkInId,
+        monitorSlug,
+        status: 'ok',
+      });
+
+      return result;
+    } catch (err) {
+      Sentry.captureCheckIn({
+        checkInId,
+        monitorSlug,
+        status: 'error',
+      });
+
+      Sentry.withScope(scope => {
+        scope.setContext('monitor', {
+          slug: monitorSlug,
+        });
+
+        Sentry.captureException(err);
+      });
+
+      throw err;
+    }
+  };
