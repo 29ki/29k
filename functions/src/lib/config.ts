@@ -15,6 +15,7 @@ import {cleanEnv, str} from 'envalid';
 const configValidation = {
   GIT_COMMIT_SHORT: str(),
   ENVIRONMENT: str(),
+  BACKUPS_BUCKET: str(),
   DAILY_API_KEY: str(),
   DAILY_DOMAIN_ID: str(),
   DAILY_ID_SALT: str(),
