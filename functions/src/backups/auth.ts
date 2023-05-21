@@ -10,18 +10,18 @@ const {BACKUPS_BUCKET} = config;
 // toJSON actually converts it to an object, not json
 const toUserObject = (user: UserRecord) => user.toJSON();
 
+const listAllUsers = async (nextPageToken?: string): Promise<object[]> => {
+  const {users, pageToken} = await getAuth().listUsers(1000, nextPageToken);
+
+  const objects = map(toUserObject, users);
+  const next = pageToken ? await listAllUsers(pageToken) : [];
+
+  return [...objects, ...next];
+};
+
 const backup = async (event: ScheduledEvent) => {
   if (BACKUPS_BUCKET) {
     const bucket = getStorage().bucket(`gs://${BACKUPS_BUCKET}/`);
-
-    const listAllUsers = async (nextPageToken?: string): Promise<object[]> => {
-      const {users, pageToken} = await getAuth().listUsers(1000, nextPageToken);
-
-      const objects = map(toUserObject, users);
-      const next = pageToken ? await listAllUsers(pageToken) : [];
-
-      return [...objects, ...next];
-    };
 
     const uploadBackup = (data: string) =>
       new Promise((resolve, reject) => {
@@ -33,10 +33,9 @@ const backup = async (event: ScheduledEvent) => {
           .end(data);
       });
 
-    let users: object[] = [];
-    users = await listAllUsers();
-
+    const users = await listAllUsers();
     const usersData = JSON.stringify(users);
+
     await uploadBackup(usersData);
   }
 };
