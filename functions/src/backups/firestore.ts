@@ -2,7 +2,7 @@ import {GoogleAuth} from 'google-auth-library';
 import {onSchedule, ScheduledEvent} from 'firebase-functions/v2/scheduler';
 import {firestore} from 'firebase-admin';
 import {getFirestore} from 'firebase-admin/firestore';
-import {cronSentryErrorReporter} from '../lib/sentry.js';
+import {cronSentryErrorReporter} from '../lib/sentry';
 import config from '../lib/config';
 
 const googleAuth = new GoogleAuth();
