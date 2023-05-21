@@ -34,7 +34,7 @@ const backup = async (event: ScheduledEvent) => {
 export const firestoreBackup = onSchedule(
   {
     region: 'europe-west1',
-    memory: '1GiB',
+    memory: '256MiB',
     schedule: 'every day 00:00',
     timeZone: 'Europe/Stockholm',
     maxInstances: 1,

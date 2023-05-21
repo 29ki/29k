@@ -43,7 +43,7 @@ const backup = async (event: ScheduledEvent) => {
 export const authBackup = onSchedule(
   {
     region: 'europe-west1',
-    memory: '1GiB',
+    memory: '512MiB',
     schedule: 'every day 00:00',
     timeZone: 'Europe/Stockholm',
     maxInstances: 1,
