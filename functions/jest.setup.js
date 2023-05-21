@@ -1,6 +1,7 @@
 process.env = Object.assign(process.env, {
   ENVIRONMENT: 'some-environment',
   GIT_COMMIT_SHORT: 'some-git-commit-short',
+  BACKUPS_BUCKET: 'some-backups-bucket',
   SENTRY_DSN: 'some-sentry-dsn',
   DAILY_API_KEY: 'some-api-endpoint',
   DAILY_DOMAIN_ID: 'some-domain-id',

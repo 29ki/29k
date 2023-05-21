@@ -18,6 +18,7 @@ jobs:
       SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
 
       DOTENV_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+      DOTENV_BACKUPS_BUCKET: ${{ secrets.BACKUPS_BUCKET }}
       DOTENV_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
       DOTENV_DAILY_API_KEY: ${{ secrets.DAILY_API_KEY }}
       DOTENV_DAILY_DOMAIN_ID: ${{ secrets.DAILY_DOMAIN_ID }}
