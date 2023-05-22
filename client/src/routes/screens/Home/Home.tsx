@@ -225,7 +225,7 @@ const Home = () => {
   }, [navigate]);
 
   const throttledRefresh = useMemo(
-    () => throttle(() => refreshPull(), 50000),
+    () => throttle(() => refreshPull(), 5 * 60000),
     [refreshPull],
   );
 
