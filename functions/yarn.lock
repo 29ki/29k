@@ -3950,30 +3950,31 @@ firebase-admin@^11.8.0:
     "@google-cloud/firestore" "^6.5.0"
     "@google-cloud/storage" "^6.9.5"
 
-firebase-functions-test@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/firebase-functions-test/-/firebase-functions-test-3.0.0.tgz#4b31bf52a8259417337c1419c47ea17d57f57ea8"
-  integrity sha512-Uva16mptDR2/YB3DKPUKLPymqVarc3W2cHEzNujfL4QhBk6rthThAaK1Eab5Zgk4p6MgUsw9Jl6KEWU27TxGYw==
+firebase-functions-test@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/firebase-functions-test/-/firebase-functions-test-3.1.0.tgz#5f0946237d004d86db5ff8cfab2ab0a566ffdb75"
+  integrity sha512-yfm9ToguShxmRXb7TINN88zE2bM9gsBbs7vMWVKJAxGcl/n1f/U0sT5k2yho676QIcSqXVSjCONU8W4cUEL+Sw==
   dependencies:
     "@types/lodash" "^4.14.104"
     lodash "^4.17.5"
     ts-deepmerge "^2.0.1"
 
-firebase-functions@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/firebase-functions/-/firebase-functions-4.0.2.tgz#1029ff160b4b0b6521f2f82bcda97d449526ecfb"
-  integrity sha512-y2JEMVRQfKQyib/wRMn6qSEg1kfJhl0nBOPHbcvrWN3cFakOssTVfq78GEQe3m9PPE8toF9ysabsetTUi4vkSg==
+firebase-functions@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/firebase-functions/-/firebase-functions-4.4.0.tgz#ba228a64050fdb30393da1de236d9bdc6da89586"
+  integrity sha512-Vdkr9/y/UKQez//cPm2Iu/9CeayqQ2tQF6o3KXozDDBokK9AOlAalVHImCpKo6nWptT/ncZ8djJFk5cR8l+E+A==
   dependencies:
     "@types/cors" "^2.8.5"
     "@types/express" "4.17.3"
     cors "^2.8.5"
     express "^4.17.1"
     node-fetch "^2.6.7"
+    protobufjs "^7.2.2"
 
-firebase-tools@^12.0.0:
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-12.0.0.tgz#6732f014593faeb99c93e7bb22f663112121e584"
-  integrity sha512-4d+GjyB0opAfuTuFEN8Zcw/0aX3nDZGkKfVo8PmpDIolEt67Q0u6gMER7Rus2wCr6dmyiMur/2LWuGMU765Xyg==
+firebase-tools@^12.1.0:
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-12.1.0.tgz#69f5273902a76db3a9ee7517efd7287edd4b8abd"
+  integrity sha512-nMZHbZCTgREf5yAKNkI47Qg1vY5bLwj4+8C8mfDKOZmCRbYFBmarE+7Pv4e2KZ6O2W+6SHuIW3afDJccnEOkBA==
   dependencies:
     "@google-cloud/pubsub" "^3.0.1"
     abort-controller "^3.0.0"
@@ -7519,7 +7520,7 @@ protobufjs-cli@1.1.1:
     tmp "^0.2.1"
     uglify-js "^3.7.7"
 
-protobufjs@7.2.3:
+protobufjs@7.2.3, protobufjs@^7.2.2:
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-7.2.3.tgz#01af019e40d9c6133c49acbb3ff9e30f4f0f70b2"
   integrity sha512-TtpvOqwB5Gdz/PQmOjgsrGH1nHjAQVCN7JG4A6r1sXRWESL5rNMAiRcBQlCAdKxZcAbstExQePYG8xof/JVRgg==
