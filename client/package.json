@@ -57,7 +57,7 @@
     "react-native-code-push": "^7.1.0",
     "react-native-device-info": "^10.6.0",
     "react-native-gesture-handler": "^2.10.0",
-    "react-native-get-random-values": "^1.8.0",
+    "react-native-get-random-values": "^1.9.0",
     "react-native-haptic-feedback": "^2.0.3",
     "react-native-image-crop-picker": "^0.39.0",
     "react-native-linear-gradient": "^2.6.2",
