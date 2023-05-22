@@ -77,11 +77,7 @@ const mockIncrementHostedCount = jest.mocked(incrementHostedCount);
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));
 
-mockGetUser.mockResolvedValue({
-  uid: 'the-host-id',
-  displayName: 'some-name',
-  photoURL: 'some-photo-url',
-});
+mockGetUser.mockRejectedValue(null);
 
 mockGetAuthUserInfo.mockResolvedValue({
   uid: 'the-host-id',
@@ -95,7 +91,35 @@ beforeEach(async () => {
 
 describe('sessions - controller', () => {
   describe('getSessionsByUserId', () => {
+    it('should get sessions with without host profile', async () => {
+      mockGetSessionsByUserId.mockResolvedValueOnce([
+        {
+          closingTime: Timestamp.fromDate(new Date('2022-10-10T10:00:00.000Z')),
+          hostId: 'some-user-id',
+          userIds: ['*'],
+        },
+      ]);
+
+      const sessions = await getSessionsByUserId('all');
+
+      expect(sessions).toHaveLength(1);
+      expect(sessions[0].hostProfile).toBe(null);
+      expect(mockGetSessionsByUserId).toHaveBeenCalledTimes(1);
+      expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
+        'all',
+        undefined,
+        undefined,
+      );
+      expect(mockGetUser).toHaveBeenCalledTimes(1);
+      expect(mockGetUser).toHaveBeenCalledWith('some-user-id');
+    });
+
     it('should get sessions with host profile', async () => {
+      mockGetUser.mockResolvedValueOnce({
+        uid: 'the-host-id',
+        displayName: 'some-name',
+        photoURL: 'some-photo-url',
+      });
       mockGetSessionsByUserId.mockResolvedValueOnce([
         {
           closingTime: Timestamp.fromDate(new Date('2022-10-10T10:00:00.000Z')),
@@ -120,6 +144,11 @@ describe('sessions - controller', () => {
     });
 
     it('should get public sessions by exerciseId with host profile', async () => {
+      mockGetUser.mockResolvedValueOnce({
+        uid: 'the-host-id',
+        displayName: 'some-name',
+        photoURL: 'some-photo-url',
+      });
       mockGetSessionsByUserId.mockResolvedValueOnce([
         {
           closingTime: Timestamp.fromDate(new Date('2022-10-10T10:00:00.000Z')),
@@ -176,11 +205,7 @@ describe('sessions - controller', () => {
         {
           closingTime: expect.any(Timestamp),
           hostId: 'the-host-id',
-          hostProfile: {
-            uid: 'the-host-id',
-            displayName: 'some-name',
-            photoURL: 'some-photo-url',
-          },
+          hostProfile: null,
           userIds: ['*', 'some-user-id'],
         },
       ]);
@@ -202,11 +227,7 @@ describe('sessions - controller', () => {
         {
           closingTime: expect.any(Timestamp),
           hostId: 'the-host-id',
-          hostProfile: {
-            uid: 'the-host-id',
-            displayName: 'some-name',
-            photoURL: 'some-photo-url',
-          },
+          hostProfile: null,
           userIds: ['*'],
         },
       ]);
@@ -215,6 +236,11 @@ describe('sessions - controller', () => {
 
   describe('getUpcomingPublicSessions', () => {
     it('should get sessions with host profile', async () => {
+      mockGetUser.mockResolvedValueOnce({
+        uid: 'the-host-id',
+        displayName: 'some-name',
+        photoURL: 'some-photo-url',
+      });
       mockGetUpcomingPublicSessions.mockResolvedValueOnce([
         {
           closingTime: Timestamp.fromDate(new Date('2022-10-10T10:00:00.000Z')),
@@ -260,11 +286,7 @@ describe('sessions - controller', () => {
         dailyRoomName: 'some-room-name',
         closingTime: expect.any(Timestamp),
         hostId: 'the-host-id',
-        hostProfile: {
-          uid: 'the-host-id',
-          displayName: 'some-name',
-          photoURL: 'some-photo-url',
-        },
+        hostProfile: null,
         type: 'private',
         userIds: ['some-user-id'],
       });
@@ -285,11 +307,7 @@ describe('sessions - controller', () => {
         dailyRoomName: 'some-room-name',
         closingTime: expect.any(Timestamp),
         hostId: 'the-host-id',
-        hostProfile: {
-          uid: 'the-host-id',
-          displayName: 'some-name',
-          photoURL: 'some-photo-url',
-        },
+        hostProfile: null,
         type: 'public',
         userIds: ['some-other-user-id'],
       });
@@ -310,11 +328,7 @@ describe('sessions - controller', () => {
         dailyRoomName: 'some-room-name',
         closingTime: expect.any(Timestamp),
         hostId: 'the-host-id',
-        hostProfile: {
-          uid: 'the-host-id',
-          displayName: 'some-name',
-          photoURL: 'some-photo-url',
-        },
+        hostProfile: null,
         type: 'public',
         userIds: ['some-other-user-id'],
       });
@@ -335,11 +349,7 @@ describe('sessions - controller', () => {
         dailyRoomName: 'some-room-name',
         closingTime: expect.any(Timestamp),
         hostId: 'the-host-id',
-        hostProfile: {
-          uid: 'the-host-id',
-          displayName: 'some-name',
-          photoURL: 'some-photo-url',
-        },
+        hostProfile: null,
         type: 'public',
         userIds: ['some-other-user-id'],
       });
@@ -613,11 +623,7 @@ describe('sessions - controller', () => {
       expect(unmodifiedSession).toEqual({
         id: 'some-session-id',
         userIds: ['some-other-user-id', 'some-user-id'],
-        hostProfile: {
-          uid: 'the-host-id',
-          displayName: 'some-name',
-          photoURL: 'some-photo-url',
-        },
+        hostProfile: null,
       });
     });
 
@@ -653,11 +659,7 @@ describe('sessions - controller', () => {
       });
       expect(joinedSession).toEqual({
         id: 'some-session-id',
-        hostProfile: {
-          uid: 'the-host-id',
-          displayName: 'some-name',
-          photoURL: 'some-photo-url',
-        },
+        hostProfile: null,
       });
     });
   });
@@ -739,11 +741,7 @@ describe('sessions - controller', () => {
         id: 'some-session-id',
         dailyRoomName: 'some-daily-room-name',
         hostId: 'the-host-id',
-        hostProfile: {
-          uid: 'the-host-id',
-          displayName: 'some-name',
-          photoURL: 'some-photo-url',
-        },
+        hostProfile: null,
         startTime: expect.any(Timestamp),
       });
     });

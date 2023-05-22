@@ -5,7 +5,10 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import dayjs from 'dayjs';
 
-import {LiveSessionType} from '../../../../../../shared/src/schemas/Session';
+import {
+  LiveSessionType,
+  SessionMode,
+} from '../../../../../../shared/src/schemas/Session';
 
 import {formatContentName} from '../../../utils/string';
 
@@ -150,8 +153,16 @@ const SessionCard: React.FC<SessionCardProps> = ({
         lottie={lottie}
         onPress={onContextPress}
         onHostPress={!disableHostPress ? onHostPress : undefined}
-        hostPictureURL={hostProfile?.photoURL || exercise?.card?.host?.photoURL}
-        hostName={hostProfile?.displayName || exercise?.card?.host?.displayName}
+        hostPictureURL={
+          session.mode === SessionMode.live
+            ? hostProfile?.photoURL
+            : exercise?.card?.host?.photoURL
+        }
+        hostName={
+          session.mode === SessionMode.live
+            ? hostProfile?.displayName
+            : exercise?.card?.host?.displayName
+        }
         style={style}>
         <Row>
           <JoinButton onPress={onPress} startTime={startTime} />
@@ -177,10 +188,14 @@ const SessionCard: React.FC<SessionCardProps> = ({
           image={image}
           lottie={lottie}
           hostPictureURL={
-            hostProfile?.photoURL || exercise?.card?.host?.photoURL
+            session.mode === SessionMode.live
+              ? hostProfile?.photoURL
+              : exercise?.card?.host?.photoURL
           }
           hostName={
-            hostProfile?.displayName || exercise?.card?.host?.displayName
+            session.mode === SessionMode.live
+              ? hostProfile?.displayName
+              : exercise?.card?.host?.displayName
           }
           onPress={onContextPress}
           hasCardBefore={hasCardBefore}
@@ -205,10 +220,14 @@ const SessionCard: React.FC<SessionCardProps> = ({
           lottie={lottie}
           onPress={onContextPress}
           hostPictureURL={
-            hostProfile?.photoURL || exercise?.card?.host?.photoURL
+            session.mode === SessionMode.live
+              ? hostProfile?.photoURL
+              : exercise?.card?.host?.photoURL
           }
           hostName={
-            hostProfile?.displayName || exercise?.card?.host?.displayName
+            session.mode === SessionMode.live
+              ? hostProfile?.displayName
+              : exercise?.card?.host?.displayName
           }>
           <Row>
             <Button small variant="secondary" onPress={onPress}>

@@ -28,7 +28,7 @@ export const sessionsRouter = router.get('/', async ({res}) => {
       summary: t('title', {name: exercise?.name}),
       description: t('notes', {
         name: exercise?.name,
-        host: session.hostProfile.displayName,
+        host: session.hostProfile?.displayName,
         url: session.link,
         interpolation: {escapeValue: false},
       }),
