@@ -1,12 +1,11 @@
 import {GoogleAuth} from 'google-auth-library';
 import {onSchedule, ScheduledEvent} from 'firebase-functions/v2/scheduler';
-import {firestore} from 'firebase-admin';
-import {getFirestore} from 'firebase-admin/firestore';
+import {v1, getFirestore} from 'firebase-admin/firestore';
 import {cronSentryErrorReporter} from '../lib/sentry';
 import config from '../lib/config';
 
 const googleAuth = new GoogleAuth();
-const firestoreAdmin = new firestore.v1.FirestoreAdminClient();
+const firestoreAdmin = new v1.FirestoreAdminClient();
 
 const {BACKUPS_BUCKET} = config;
 const IGNORED_COLLECTION_IDS: string[] = [];

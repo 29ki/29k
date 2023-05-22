@@ -11,12 +11,6 @@ const firestoreAdminClientMock = {
   databasePath: jest.fn(() => 'some-path'),
   exportDocuments: jest.fn(),
 };
-jest.mock('firebase-admin', () => ({
-  firestore: {
-    v1: {FirestoreAdminClient: jest.fn(() => firestoreAdminClientMock)},
-  },
-}));
-
 const firestoreMock = {
   listCollections: jest
     .fn()
@@ -26,6 +20,7 @@ const firestoreMock = {
     ]),
 };
 jest.mock('firebase-admin/firestore', () => ({
+  v1: {FirestoreAdminClient: jest.fn(() => firestoreAdminClientMock)},
   getFirestore: () => firestoreMock,
 }));
 
