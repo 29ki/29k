@@ -2065,10 +2065,10 @@
     "@babel/runtime" "^7.12.5"
     react-error-boundary "^3.1.0"
 
-"@th3rdwave/react-navigation-bottom-sheet@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@th3rdwave/react-navigation-bottom-sheet/-/react-navigation-bottom-sheet-0.2.2.tgz#5b3f4221f12af79d7356ace9e4944e74c809c6a0"
-  integrity sha512-PLTFAapEtZw19zkj/A3aa+x/bsCXz8cVCGbW4DmjgHIYHh6lw2SQz1JAUqMjNQbXUBM5unUuSdMT+WkmaqVO8w==
+"@th3rdwave/react-navigation-bottom-sheet@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@th3rdwave/react-navigation-bottom-sheet/-/react-navigation-bottom-sheet-0.2.4.tgz#0b8ea16896ab246eb09adbd332d95e0c7b742541"
+  integrity sha512-LYhKjsoK3Zh1016+TgjmUYFBa7TCkwzJV8/7fk3FW0W0G1I0tvx2JTpLzBk8kazh9AeBxiea9Wh0B02Kuo6HHQ==
 
 "@tootallnate/once@1":
   version "1.1.2"
@@ -8130,10 +8130,10 @@ react-native-action-sheet@^2.2.0:
   resolved "https://registry.yarnpkg.com/react-native-action-sheet/-/react-native-action-sheet-2.2.0.tgz#309a87f53bf4e7b17fdd9d24b10b8dcbaebb7230"
   integrity sha512-4lsuxH+Cn3/aUEs1VCwqvLhEFyXNqYTkT67CzgTwlifD9Ij4OPQAIs8D+HUD9zBvWc4NtT6cyG1lhArPVMQeVw==
 
-react-native-add-calendar-event@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-add-calendar-event/-/react-native-add-calendar-event-4.0.0.tgz#83959cc1953f255ae38ece84214f232fa6552c9c"
-  integrity sha512-gkqidtFquTKR46QWdV12iu86OQJGNTnsT1C58EBPFy1MyCFJZar6y6wRBLaWNfvnhgeGzJeA0ODb8KmD+HU8GQ==
+react-native-add-calendar-event@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-add-calendar-event/-/react-native-add-calendar-event-4.1.0.tgz#be4c1ce50e6d45548b1162b86b784697b4b25c31"
+  integrity sha512-6krkxvU3LMw9fZe8hvVfelYk+u/awnM1g+AaLQGaSX9HvgBsceog51PMnrX6g/C5bzQktwFGTs9OaCf8hg71tQ==
 
 react-native-asset@^2.1.1:
   version "2.1.1"
@@ -8217,10 +8217,10 @@ react-native-gesture-handler@^2.10.0:
     lodash "^4.17.21"
     prop-types "^15.7.2"
 
-react-native-get-random-values@^1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/react-native-get-random-values/-/react-native-get-random-values-1.8.0.tgz#1cb4bd4bd3966a356e59697b8f372999fe97cb16"
-  integrity sha512-H/zghhun0T+UIJLmig3+ZuBCvF66rdbiWUfRSNS6kv5oDSpa1ZiVyvRWtuPesQpT8dXj+Bv7WJRQOUP+5TB1sA==
+react-native-get-random-values@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/react-native-get-random-values/-/react-native-get-random-values-1.9.0.tgz#6cb30511c406922e75fe73833dc1812a85bfb37e"
+  integrity sha512-+29IR2oxzxNVeaRwCqGZ9ABadzMI8SLTBidrIDXPOkKnm5+kEmLt34QKM4JV+d2usPErvKyS85le0OmGTHnyWQ==
   dependencies:
     fast-base64-decode "^1.0.0"
 
@@ -8276,10 +8276,10 @@ react-native-reanimated@^2.17.0:
     setimmediate "^1.0.5"
     string-hash-64 "^1.0.3"
 
-react-native-safe-area-context@^4.5.2:
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-4.5.2.tgz#38438c7a52ce2a6a05fc4de6cd3ee47f78a9366e"
-  integrity sha512-oH4/Dm7/PWOOZtFRiA4HE08lsfA948BRq8Fn7TEndYjoDXFoNdbjQRahXzCV8JGP/tv3qrVNeaDE8rmdRRUOlA==
+react-native-safe-area-context@^4.5.3:
+  version "4.5.3"
+  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-4.5.3.tgz#e98eb1a73a6b3846d296545fe74760754dbaaa69"
+  integrity sha512-ihYeGDEBSkYH+1aWnadNhVtclhppVgd/c0tm4mj0+HV11FoiWJ8N6ocnnZnRLvM5Fxc+hUqxR9bm5AXU3rXiyA==
 
 react-native-safe-modules@^1.0.3:
   version "1.0.3"
