@@ -11,10 +11,11 @@ const Container = styled.View({
   flexDirection: 'row',
   justifyContent: 'flex-start',
   alignItems: 'center',
+  alignSelf: 'flex-start',
 });
 
-const WrapText = styled(Body14)({flex: 1});
-const WrapTextSmall = styled(Body12)({flex: 1});
+const WrapText = styled(Body14)({flexShrink: 0});
+const WrapTextSmall = styled(Body12)({flexShrink: 0});
 
 const ImageContainer = styled.View<{small?: boolean}>(({small}) => ({
   backgroundColor: COLORS.GREYMEDIUM,
