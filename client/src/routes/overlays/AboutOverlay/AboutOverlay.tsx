@@ -33,6 +33,7 @@ import {ScrollView} from 'react-native';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import AppVersionActionButton from './components/AppVersionActionButton';
+import {SPACINGS} from '../../../lib/constants/spacings';
 
 const BlurbImage = styled.Image({
   aspectRatio: 1.7,
@@ -147,8 +148,7 @@ const Profile = () => {
             <AppVersionActionButton />
           </ActionList>
         </Gutters>
-        <Spacer24 />
-        <BottomSafeArea />
+        <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
       </ScrollView>
     </Screen>
   );
