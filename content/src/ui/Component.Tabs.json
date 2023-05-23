@@ -9,6 +9,10 @@
     "journey": "Jornada",
     "explore": "Explora"
   },
-  "sv": {},
+  "sv": {
+    "home": "Idag",
+    "explore": "Utforska",
+    "journey": "Din resa"
+  },
   "es": {}
 }
