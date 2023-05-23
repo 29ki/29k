@@ -24,8 +24,10 @@ import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
 import {
   BellFillIcon,
   BellIcon,
+  CheckIcon,
   CommunityIcon,
   FriendsIcon,
+  PlusIcon,
   ShareIcon,
 } from '../../../lib/components/Icons';
 import Image from '../../../lib/components/Image/Image';
@@ -128,6 +130,10 @@ const FullInterested = styled(Interested)({
 
 const DeleteButton = styled(Button)({
   backgroundColor: COLORS.DELETE,
+});
+
+const JourneyButton = styled(Button)({
+  alignSelf: 'flex-start',
 });
 
 const TypeItemWrapper = styled.View({
@@ -396,12 +402,29 @@ const SessionModal = () => {
                 ) : (
                   <>
                     <SessionTimeBadge session={session} />
-                    <FullInterested active={isPinned} onPress={togglePinned} />
                   </>
                 )}
               </Row>
+              <Spacer16 />
+
+              {isPinned ? (
+                <JourneyButton
+                  small
+                  onPress={togglePinned}
+                  LeftIcon={CheckIcon}>
+                  {t('journeyButton')}
+                </JourneyButton>
+              ) : (
+                <JourneyButton
+                  small
+                  variant="secondary"
+                  onPress={togglePinned}
+                  LeftIcon={PlusIcon}>
+                  {t('journeyButton')}
+                </JourneyButton>
+              )}
             </Gutters>
-            <Spacer16 />
+            <Spacer32 />
 
             <Gutters>
               <Body16>{t('description')}</Body16>
@@ -414,13 +437,17 @@ const SessionModal = () => {
                       variant={'secondary'}
                       onPress={onAddToCalendar}
                     />
-                    <Spacer16 />
-                    <IconButton
-                      Icon={reminderEnabled ? BellFillIcon : BellIcon}
-                      // Toggling variant instead of active state for nicer UI
-                      variant={reminderEnabled ? 'primary' : 'secondary'}
-                      onPress={onToggleReminder}
-                    />
+                    {isPinned && (
+                      <>
+                        <Spacer16 />
+                        <IconButton
+                          Icon={reminderEnabled ? BellFillIcon : BellIcon}
+                          // Toggling variant instead of active state for nicer UI
+                          variant={reminderEnabled ? 'primary' : 'secondary'}
+                          onPress={onToggleReminder}
+                        />
+                      </>
+                    )}
                     <Spacer16 />
                   </>
                 )}

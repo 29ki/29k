@@ -2,6 +2,7 @@
   "en": {
     "edit": "Edit",
     "done": "Save",
+    "journeyButton": "My journey",
     "deleteButton": "Delete session",
     "delete": {
       "header": "Delete session?",
