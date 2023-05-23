@@ -5,7 +5,12 @@ import {RefreshControl, SectionList} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {useNavigation, useScrollToTop} from '@react-navigation/native';
+import {
+  useIsFocused,
+  useNavigation,
+  useScrollToTop,
+} from '@react-navigation/native';
+import throttle from 'lodash.throttle';
 
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 
@@ -41,6 +46,7 @@ import useGetStartedCollection from '../../../lib/content/hooks/useGetStartedCol
 import useUserEvents from '../../../lib/user/hooks/useUserEvents';
 import CollectionCardContainer from '../../../lib/components/Cards/CollectionCards/CollectionCardContainer';
 import useGetRelativeDateGroup from '../../../lib/date/hooks/useGetRelativeDateGroup';
+import useResumeFromBackgrounded from '../../../lib/appState/hooks/useResumeFromBackgrounded';
 
 type Section = {
   title: string;
@@ -157,6 +163,7 @@ const Home = () => {
   const getRelativeDateGroup = useGetRelativeDateGroup();
   const listRef = useRef<SectionList<LiveSessionType, Section>>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const isFocused = useIsFocused();
 
   useScrollToTop(listRef);
 
@@ -216,6 +223,20 @@ const Home = () => {
   const onPressEllipsis = useCallback(() => {
     navigate('AboutOverlay');
   }, [navigate]);
+
+  const throttledRefresh = useMemo(
+    () =>
+      throttle(() => {
+        if (isFocused) {
+          fetchSessions();
+        }
+      }, 5 * 60000),
+    [fetchSessions, isFocused],
+  );
+
+  useEffect(throttledRefresh, [throttledRefresh]);
+
+  useResumeFromBackgrounded(throttledRefresh);
 
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
