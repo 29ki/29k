@@ -104,8 +104,8 @@
   "sv": {
     "title": "Kontakta oss",
     "noEmailClientAlert": {
-      "title": "Vi kunde inte hitta en email-klient.",
-      "message": "Vill du kopiera vår email?"
+      "title": "Vi kunde inte hitta någon email-app.",
+      "message": "Vill du kopiera email-adressen?"
     },
     "contactInformation": {
       "heading": "29k Foundation",
@@ -125,6 +125,10 @@
       "instagram": {
         "label": "Instagram",
         "url": "https://www.instagram.com/29k_org/"
+      },
+      "chat": {
+        "label": "Community chat",
+        "url": "https://community.29k.org"
       }
     },
     "partnerContactInformation": {
