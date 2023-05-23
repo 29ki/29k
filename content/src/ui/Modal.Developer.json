@@ -15,6 +15,13 @@
     "showHiddenContent": "Mostrar conteúdo escondido",
     "addDevUserEvents": "Adicionar eventos de usuário para desenvolvimento"
   },
-  "sv": {},
+  "sv": {
+    "title": "Utvecklare",
+    "uiLib": "UI bibliotek",
+    "checkUpdate": "Sök uppdatering",
+    "showHiddenContent": "Visa gömt innehåll",
+    "addDevUserEvents": "Add development user events",
+    "clearUpdate": "Clear update"
+  },
   "es": {}
 }
