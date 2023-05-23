@@ -11,7 +11,7 @@
   },
   "sv": {
     "title": "Aware-session: {{name}}",
-    "notes": "{{name}}\nMed {{host}}\n{{url}}",
+    "notes": "{{name}} Med {{host}}{{url}}",
     "location": "Aware-appen"
   },
   "es": {}
