@@ -37,11 +37,6 @@ const Row = styled.View({
   alignItems: 'flex-end',
 });
 
-const FullInterested = styled(Interested)({
-  flex: 1,
-  justifyContent: 'flex-end',
-});
-
 const JoinButton: React.FC<{
   startTime: LiveSessionType['startTime'];
   onPress: () => void;
@@ -163,16 +158,12 @@ const SessionCard: React.FC<SessionCardProps> = ({
             ? hostProfile?.displayName
             : exercise?.card?.host?.displayName
         }
+        isPinned={isPinned}
+        reminderEnabled={reminderEnabled}
         style={style}>
         <Row>
           <JoinButton onPress={onPress} startTime={startTime} />
           <SessionTimeBadge session={session} />
-          <Spacer8 />
-          <FullInterested
-            active={isPinned}
-            reminder={reminderEnabled}
-            count={interestedCount}
-          />
         </Row>
       </Card>
     );
@@ -235,12 +226,6 @@ const SessionCard: React.FC<SessionCardProps> = ({
             </Button>
             <Spacer8 />
             <SessionTimeBadge session={session} />
-            <Spacer8 />
-            <FullInterested
-              active={isPinned}
-              reminder={reminderEnabled}
-              count={interestedCount}
-            />
           </Row>
         </Card>
       }

@@ -12,16 +12,19 @@ import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display20} from '../Typography/Display/Display';
 import Byline from '../Bylines/Byline';
-import {Spacer4} from '../Spacers/Spacer';
+import {Spacer16, Spacer4} from '../Spacers/Spacer';
 import Gutters from '../Gutters/Gutters';
 import Tag from '../Tag/Tag';
 import {HEIGHT as WALLET_CARD_HEIGHT} from './WalletCards/SessionWalletCard';
+import {BellFillIcon, CheckIcon} from '../Icons';
+import {useTranslation} from 'react-i18next';
 
 export const HEIGHT = 184;
 
 const GraphicsWrapper = styled.View({
-  width: 120,
-  height: 120,
+  width: 140,
+  height: 140,
+  paddingBottom: SPACINGS.SIXTEEN,
 });
 
 const Lottie = styled(AnimatedLottieView)({
@@ -44,28 +47,30 @@ const Wrapper = styled(TouchableOpacity)({
 
 const ContentWrapper = styled.View({
   flexDirection: 'row',
-  justifyContent: 'space-between',
 });
 
 const LeftCol = styled.View({
   flex: 2,
   justifyContent: 'space-between',
-  padding: SPACINGS.SIXTEEN,
-  overflow: 'hidden',
+  paddingHorizontal: SPACINGS.SIXTEEN,
 });
 
 const Tags = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
-  marginTop: -SPACINGS.FOUR,
+});
+
+const PinnedTag = styled(Tag)({
+  backgroundColor: COLORS.PRIMARY,
+  color: COLORS.WHITE,
 });
 
 const TagsGradient = styled(LinearGradient)({
   position: 'absolute',
-  right: -30,
+  right: -SPACINGS.SIXTEEN,
   bottom: 0,
   width: 30,
-  height: 30,
+  height: 20,
 });
 
 const Header = styled.View({
@@ -73,7 +78,7 @@ const Header = styled.View({
   textOverflow: 'ellipsis',
 });
 
-const Footer = styled(Gutters)({
+const Footer = styled.View({
   justifyContent: 'space-between',
   alignItems: 'flex-end',
   flexDirection: 'row',
@@ -92,6 +97,8 @@ type CardProps = {
   hostPictureURL?: string;
   hostName?: string;
   inWallet?: boolean;
+  isPinned?: boolean;
+  reminderEnabled?: boolean;
   style?: ViewStyle;
 };
 
@@ -106,8 +113,11 @@ export const Card: React.FC<CardProps> = ({
   hostPictureURL,
   hostName,
   inWallet,
+  isPinned,
+  reminderEnabled,
   style,
 }) => {
+  const {t} = useTranslation('Component.Card');
   const colors = useMemo(
     () => [
       hexToRgba(COLORS.CREAM, 0),
@@ -119,24 +129,37 @@ export const Card: React.FC<CardProps> = ({
   return (
     <WalletWrapper inWallet={inWallet} style={style}>
       <Wrapper onPress={onPress}>
+        {tags && (
+          <Gutters>
+            <Spacer16 />
+            <Tags>
+              {isPinned && (
+                <>
+                  <PinnedTag
+                    LeftIcon={reminderEnabled ? BellFillIcon : CheckIcon}
+                    iconFill={COLORS.WHITE}>
+                    {t('myJourneyTag')}
+                  </PinnedTag>
+                  <Spacer4 />
+                </>
+              )}
+              {tags.map(tag => (
+                <Fragment key={tag}>
+                  <Tag>{tag}</Tag>
+                  <Spacer4 />
+                </Fragment>
+              ))}
+              <TagsGradient
+                start={{x: 0, y: 0}}
+                end={{x: 1, y: 0}}
+                colors={colors}
+              />
+            </Tags>
+            <Spacer4 />
+          </Gutters>
+        )}
         <ContentWrapper>
           <LeftCol>
-            {tags && (
-              <Tags>
-                {tags.map(tag => (
-                  <Fragment key={tag}>
-                    <Tag>{tag}</Tag>
-                    <Spacer4 />
-                  </Fragment>
-                ))}
-                <TagsGradient
-                  start={{x: 0, y: 0}}
-                  end={{x: 1, y: 0}}
-                  colors={colors}
-                />
-              </Tags>
-            )}
-
             <Header>
               {title && <Display20 numberOfLines={2}>{title}</Display20>}
               <Spacer4 />
@@ -148,6 +171,7 @@ export const Card: React.FC<CardProps> = ({
                 <Byline pictureURL={hostPictureURL} name={hostName} />
               )}
             </Header>
+            <Footer>{children}</Footer>
           </LeftCol>
           <GraphicsWrapper>
             {lottie ? (
@@ -157,7 +181,6 @@ export const Card: React.FC<CardProps> = ({
             ) : null}
           </GraphicsWrapper>
         </ContentWrapper>
-        <Footer>{children}</Footer>
       </Wrapper>
     </WalletWrapper>
   );
