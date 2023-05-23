@@ -17,6 +17,14 @@
       "dismiss": "Não, obrigada/o"
     }
   },
-  "sv": {},
+  "sv": {
+    "title": "Språk",
+    "unsupportedLanguage": {
+      "title": "Det här språket är under utveckling",
+      "message": "Den {{language}} versionen av appen är inte klar än, men vissa bitar finns på plats. Vill du byta till {{language}} ändå?",
+      "confirm": "Ja, byt",
+      "dismiss": "Nej tack"
+    }
+  },
   "es": {}
 }
