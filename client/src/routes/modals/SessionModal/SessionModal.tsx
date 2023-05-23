@@ -47,7 +47,7 @@ import {
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useAddSessionToCalendar from '../../../lib/sessions/hooks/useAddSessionToCalendar';
 import useSessionReminderNotification from '../../../lib/sessions/hooks/useSessionReminderNotification';
-import {Body16} from '../../../lib/components/Typography/Body/Body';
+import {Body16, BodyBold} from '../../../lib/components/Typography/Body/Body';
 import Byline from '../../../lib/components/Bylines/Byline';
 import {formatContentName, formatInviteCode} from '../../../lib/utils/string';
 import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTimeBadge';
@@ -65,7 +65,6 @@ import {
 import EditSessionType from '../../../lib/components/EditSessionType/EditSessionType';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
-import Interested from '../../../lib/components/Interested/Interested';
 import useLogSessionMetricEvents from '../../../lib/sessions/hooks/useLogSessionMetricEvents';
 import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
@@ -93,6 +92,7 @@ const Content = styled(Gutters)({
 });
 
 const SpaceBetweenRow = styled(View)({
+  flex: 1,
   flexDirection: 'row',
   justifyContent: 'space-between',
 });
@@ -122,10 +122,16 @@ const EditIcon = styled(View)({
   alignSelf: 'center',
 });
 
-const FullInterested = styled(Interested)({
-  flex: 1,
-  flexDirection: 'row',
+const Count = styled(BodyBold)({
   justifyContent: 'flex-end',
+  color: COLORS.PURE_WHITE,
+  fontSize: 14,
+  lineHeight: 18,
+  backgroundColor: COLORS.PRIMARY,
+  paddingVertical: 2,
+  paddingHorizontal: 6,
+  borderRadius: 6,
+  overflow: 'hidden',
 });
 
 const DeleteButton = styled(Button)({
@@ -387,22 +393,19 @@ const SessionModal = () => {
                   </>
                 )}
                 {isHost ? (
-                  <>
+                  <SpaceBetweenRow>
                     <EditButton onPress={onEditMode}>
                       <SessionTimeBadge session={session} />
                       <EditIcon>
                         <PencilIcon />
                       </EditIcon>
                     </EditButton>
-                    <FullInterested
-                      active={isPinned}
-                      count={session.interestedCount}
-                    />
-                  </>
+                    {session.interestedCount && (
+                      <Count>{session.interestedCount}</Count>
+                    )}
+                  </SpaceBetweenRow>
                 ) : (
-                  <>
-                    <SessionTimeBadge session={session} />
-                  </>
+                  <SessionTimeBadge session={session} />
                 )}
               </Row>
               <Spacer16 />
