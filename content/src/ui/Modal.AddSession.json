@@ -10,9 +10,9 @@
     "join": "Juntar-me a uma sessão"
   },
   "sv": {
-    "title": "Pick flow",
-    "create": "Create session",
-    "join": "Join session"
+    "title": "",
+    "create": "Lägg till session",
+    "join": "Gå med i session"
   },
   "es": {}
 }
