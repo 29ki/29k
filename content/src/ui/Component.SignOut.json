@@ -8,6 +8,13 @@
     }
   },
   "pt": {},
-  "sv": {},
+  "sv": {
+    "title": "Logga ut",
+    "message": "Är du säker på att du vill logga ut?",
+    "actions": {
+      "cancel": "Nej",
+      "confirm": "Ja, logga ut"
+    }
+  },
   "es": {}
 }
