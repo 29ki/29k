@@ -10,6 +10,7 @@ import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {
+  BottomSafeArea,
   Spacer16,
   Spacer24,
   Spacer32,
@@ -262,6 +263,7 @@ const ProfileSettingsModal = () => {
             </>
           )}
         </Gutters>
+        <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
       </BottomSheetScrollView>
     </SheetModal>
   );
