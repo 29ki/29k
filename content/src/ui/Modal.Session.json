@@ -2,6 +2,7 @@
   "en": {
     "edit": "Edit",
     "done": "Save",
+    "journeyButton": "My journey",
     "deleteButton": "Delete session",
     "delete": {
       "header": "Delete session?",
@@ -25,7 +26,7 @@
     },
     "join": "Join",
     "shareMessage": "{{link}} Session code {{code}}",
-    "description": "Add to calendar, set reminder or share invite"
+    "description": "Add to calendar or share invite"
   },
   "pt": {
     "edit": "Alterar",
