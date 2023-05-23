@@ -7,6 +7,9 @@
     "private": "Sessão com amigos",
     "public": "Sessão pública"
   },
-  "sv": {},
+  "sv": {
+    "private": "Session med vänner",
+    "public": "Session med andra"
+  },
   "es": {}
 }
