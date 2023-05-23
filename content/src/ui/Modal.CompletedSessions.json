@@ -1,7 +1,7 @@
 {
   "en": {
     "title": "",
-    "meaningful": "Meaningful\nsessions",
+    "meaningful": "Meaningfulsessions",
     "notMeaningful": "Not meaningful\nsessions",
     "async": "Just me",
     "private": "With friends",
@@ -14,6 +14,12 @@
     "private": "Com amigos",
     "public": "Outras pessoas"
   },
-  "sv": {},
+  "sv": {
+    "meaningful": "Meningsfulla sessioner",
+    "notMeaningful": "Inte meningsfulla sessioner",
+    "async": "Mig själv",
+    "private": "Med vänner",
+    "public": "Med andra"
+  },
   "es": {}
 }
