@@ -15,6 +15,13 @@
       "confirm": "Abrir configurações"
     }
   },
-  "sv": {},
+  "sv": {
+    "title": "Du har inte gett tillåtelse.",
+    "message": "Öppna inställningar för att ge Aware tillåtelse att skicka notiser. Appen startas om när inställningar ändras. ",
+    "actions": {
+      "cancel": "Avbryt",
+      "confirm": "Öppna inställningar"
+    }
+  },
   "es": {}
 }
