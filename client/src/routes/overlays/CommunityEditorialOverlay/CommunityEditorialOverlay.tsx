@@ -1,5 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useMemo} from 'react';
+import {StatusBar} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -28,6 +29,7 @@ const CommunityOverlay = () => {
 
   return (
     <Screen>
+      <StatusBar barStyle="light-content" />
       <Spacer16 />
       <TopBar onPressClose={goBack} />
       <HeaderScrollView
