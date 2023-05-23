@@ -399,7 +399,7 @@ const SessionModal = () => {
                         <PencilIcon />
                       </EditIcon>
                     </EditButton>
-                    {session.interestedCount && (
+                    {Boolean(session.interestedCount) && (
                       <Count>{session.interestedCount}</Count>
                     )}
                   </SpaceBetweenRow>
