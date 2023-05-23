@@ -225,21 +225,18 @@ const Home = () => {
   }, [navigate]);
 
   const throttledRefresh = useMemo(
-    () => throttle(() => refreshPull(), 5 * 60000),
-    [refreshPull],
+    () =>
+      throttle(() => {
+        if (isFocused) {
+          fetchSessions();
+        }
+      }, 5 * 60000),
+    [fetchSessions, isFocused],
   );
 
-  useEffect(() => {
-    if (isFocused) {
-      throttledRefresh();
-    }
-  }, [isFocused, throttledRefresh]);
+  useEffect(throttledRefresh, [throttledRefresh]);
 
-  useResumeFromBackgrounded(() => {
-    if (isFocused) {
-      throttledRefresh();
-    }
-  });
+  useResumeFromBackgrounded(throttledRefresh);
 
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
