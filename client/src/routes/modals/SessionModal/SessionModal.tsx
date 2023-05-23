@@ -123,7 +123,6 @@ const EditIcon = styled(View)({
 });
 
 const Count = styled(BodyBold)({
-  justifyContent: 'flex-end',
   color: COLORS.PURE_WHITE,
   fontSize: 14,
   lineHeight: 18,
