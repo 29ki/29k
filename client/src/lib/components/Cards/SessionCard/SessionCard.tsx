@@ -37,11 +37,6 @@ const Row = styled.View({
   alignItems: 'flex-end',
 });
 
-const FullInterested = styled(Interested)({
-  flex: 1,
-  justifyContent: 'flex-end',
-});
-
 const JoinButton: React.FC<{
   startTime: LiveSessionType['startTime'];
   onPress: () => void;
@@ -163,16 +158,14 @@ const SessionCard: React.FC<SessionCardProps> = ({
             ? hostProfile?.displayName
             : exercise?.card?.host?.displayName
         }
+        isHost={isHost}
+        isPinned={isPinned}
+        reminderEnabled={reminderEnabled}
+        interestedCount={session.interestedCount}
         style={style}>
         <Row>
           <JoinButton onPress={onPress} startTime={startTime} />
           <SessionTimeBadge session={session} />
-          <Spacer8 />
-          <FullInterested
-            active={isPinned}
-            reminder={reminderEnabled}
-            count={interestedCount}
-          />
         </Row>
       </Card>
     );
@@ -206,7 +199,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
             <Interested
               compact
               reminder={reminderEnabled}
-              count={interestedCount}
+              count={session.interestedCount}
             />
           </Row>
         </SessionWalletCard>
@@ -228,19 +221,16 @@ const SessionCard: React.FC<SessionCardProps> = ({
             session.mode === SessionMode.live
               ? hostProfile?.displayName
               : exercise?.card?.host?.displayName
-          }>
+          }
+          isPinned={isPinned}
+          reminderEnabled={reminderEnabled}
+          interestedCount={interestedCount}>
           <Row>
             <Button small variant="secondary" onPress={onPress}>
               {t('join')}
             </Button>
             <Spacer8 />
             <SessionTimeBadge session={session} />
-            <Spacer8 />
-            <FullInterested
-              active={isPinned}
-              reminder={reminderEnabled}
-              count={interestedCount}
-            />
           </Row>
         </Card>
       }
