@@ -158,9 +158,10 @@ const SessionCard: React.FC<SessionCardProps> = ({
             ? hostProfile?.displayName
             : exercise?.card?.host?.displayName
         }
+        isHost={isHost}
         isPinned={isPinned}
         reminderEnabled={reminderEnabled}
-        interestedCount={interestedCount}
+        interestedCount={session.interestedCount}
         style={style}>
         <Row>
           <JoinButton onPress={onPress} startTime={startTime} />
@@ -198,7 +199,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
             <Interested
               compact
               reminder={reminderEnabled}
-              count={interestedCount}
+              count={session.interestedCount}
             />
           </Row>
         </SessionWalletCard>

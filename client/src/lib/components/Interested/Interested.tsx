@@ -56,13 +56,15 @@ const Interested: React.FC<InterestedProps> = ({
       )}
       {Boolean(count) && (
         <>
+          {!compact && (
+            <>
+              <Body>{t('text')}</Body>
+              <Spacer4 />
+            </>
+          )}
           <Count>{count}</Count>
           <Spacer4 />
         </>
-      )}
-      {!compact && Boolean(count) && count !== 0 && (
-        // Only show "interested" if not compact and count undefined or > 0
-        <Body>{t('text')}</Body>
       )}
     </Container>
   );

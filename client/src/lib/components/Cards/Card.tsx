@@ -103,6 +103,7 @@ type CardProps = {
   hostPictureURL?: string;
   hostName?: string;
   inWallet?: boolean;
+  isHost?: boolean;
   isPinned?: boolean;
   reminderEnabled?: boolean;
   interestedCount?: number;
@@ -119,6 +120,7 @@ export const Card: React.FC<CardProps> = ({
   children,
   hostPictureURL,
   hostName,
+  isHost,
   inWallet,
   isPinned,
   reminderEnabled,
@@ -140,7 +142,7 @@ export const Card: React.FC<CardProps> = ({
         <Gutters>
           <Spacer16 />
           <Tags>
-            {isPinned && (
+            {isPinned && !isHost ? (
               <>
                 <PinnedTag
                   LeftIcon={reminderEnabled ? BellFillIcon : CheckIcon}
@@ -149,12 +151,16 @@ export const Card: React.FC<CardProps> = ({
                 </PinnedTag>
                 <Spacer4 />
               </>
-            )}
-            {Boolean(interestedCount) && (
-              <>
-                <InterestedTag>{interestedCount}</InterestedTag>
-                <Spacer4 />
-              </>
+            ) : (
+              Boolean(interestedCount) &&
+              isHost && (
+                <>
+                  <PinnedTag>{t('interested')}</PinnedTag>
+                  <Spacer4 />
+                  <InterestedTag>{interestedCount}</InterestedTag>
+                  <Spacer4 />
+                </>
+              )
             )}
             {tags &&
               tags.map(tag => (

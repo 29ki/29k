@@ -325,6 +325,8 @@ const SessionModal = () => {
     return null;
   }
 
+  console.log('pinned', isPinned);
+
   return (
     <SheetModal backgroundColor={COLORS.CREAM}>
       <BottomSheetScrollView focusHook={useIsFocused}>
@@ -431,17 +433,6 @@ const SessionModal = () => {
                       variant={'secondary'}
                       onPress={onAddToCalendar}
                     />
-                    {isPinned && (
-                      <>
-                        <Spacer16 />
-                        <IconButton
-                          Icon={reminderEnabled ? BellFillIcon : BellIcon}
-                          // Toggling variant instead of active state for nicer UI
-                          variant={reminderEnabled ? 'primary' : 'secondary'}
-                          onPress={onToggleReminder}
-                        />
-                      </>
-                    )}
                     <Spacer16 />
                   </>
                 )}
@@ -452,6 +443,17 @@ const SessionModal = () => {
                       variant="secondary"
                       onPress={onShare}
                       Icon={ShareIcon}
+                    />
+                  </>
+                )}
+                {(isPinned || isHost) && (
+                  <>
+                    <Spacer16 />
+                    <IconButton
+                      Icon={reminderEnabled ? BellFillIcon : BellIcon}
+                      // Toggling variant instead of active state for nicer UI
+                      variant={reminderEnabled ? 'primary' : 'secondary'}
+                      onPress={onToggleReminder}
                     />
                   </>
                 )}
