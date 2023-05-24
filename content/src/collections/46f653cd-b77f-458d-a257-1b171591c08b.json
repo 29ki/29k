@@ -32,15 +32,20 @@
     "link": "https://aware.29k.org/get-started"
   },
   "sv": {
-    "published": false,
-    "hidden": true,
+    "published": true,
+    "hidden": false,
     "id": "46f653cd-b77f-458d-a257-1b171591c08b",
     "exercises": [
       "1a53e633-6916-4fea-a072-977c4b215288",
       "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ],
-    "link": "https://aware.29k.org/get-started"
+    "link": "https://aware.29k.org/get-started",
+    "name": "Kom igång",
+    "description": "Ta de första stegen för att att förbättra ditt välmående och känna mer mening i livet – på vetenskaplig grund. Påbörja din resa med Aware här.",
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683720597/Images/get_started_collection_chij0k.png"
+    }
   },
   "es": {
     "published": false,
