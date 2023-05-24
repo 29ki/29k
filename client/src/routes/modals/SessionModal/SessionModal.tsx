@@ -325,54 +325,53 @@ const SessionModal = () => {
     return null;
   }
 
-  console.log('pinned', isPinned);
-
   return (
     <SheetModal backgroundColor={COLORS.CREAM}>
       <BottomSheetScrollView focusHook={useIsFocused}>
         <Spacer16 />
-        <Content>
-          <SpaceBetweenRow>
-            <TitleContainer>
-              <Display24>{formatContentName(exercise)}</Display24>
-              <Spacer4 />
-              <TouchableOpacity onPress={onHostPress}>
-                <Byline
-                  pictureURL={session.hostProfile?.photoURL}
-                  name={session.hostProfile?.displayName}
-                  duration={exercise?.duration}
-                />
-              </TouchableOpacity>
-            </TitleContainer>
-            <Spacer32 />
-            <ImageContainer
-              resizeMode="contain"
-              source={{uri: exercise?.card?.image?.source}}
-            />
-          </SpaceBetweenRow>
-        </Content>
-        {exercise?.description && (
-          <>
-            <Spacer16 />
-            <Gutters>
-              <Markdown>{exercise?.description}</Markdown>
-            </Gutters>
-          </>
-        )}
-
-        {tags && (
-          <Tags>
-            {tags.map(({id, tag}) => (
-              <Fragment key={id}>
-                <Tag>{tag}</Tag>
-                <Spacer4 />
-              </Fragment>
-            ))}
-          </Tags>
-        )}
-        <Spacer16 />
         {!editMode && (
           <>
+            <Content>
+              <SpaceBetweenRow>
+                <TitleContainer>
+                  <Display24>{formatContentName(exercise)}</Display24>
+                  <Spacer4 />
+                  <TouchableOpacity onPress={onHostPress}>
+                    <Byline
+                      pictureURL={session.hostProfile?.photoURL}
+                      name={session.hostProfile?.displayName}
+                      duration={exercise?.duration}
+                    />
+                  </TouchableOpacity>
+                </TitleContainer>
+                <Spacer32 />
+                <ImageContainer
+                  resizeMode="contain"
+                  source={{uri: exercise?.card?.image?.source}}
+                />
+              </SpaceBetweenRow>
+            </Content>
+            {exercise?.description && (
+              <>
+                <Spacer16 />
+                <Gutters>
+                  <Markdown>{exercise?.description}</Markdown>
+                </Gutters>
+              </>
+            )}
+
+            {tags && (
+              <Tags>
+                {tags.map(({id, tag}) => (
+                  <Fragment key={id}>
+                    <Tag>{tag}</Tag>
+                    <Spacer4 />
+                  </Fragment>
+                ))}
+              </Tags>
+            )}
+            <Spacer16 />
+
             <Gutters>
               <Row>
                 {startingNow && (
