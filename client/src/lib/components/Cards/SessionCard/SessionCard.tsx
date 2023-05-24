@@ -139,8 +139,6 @@ const SessionCard: React.FC<SessionCardProps> = ({
     [exercise],
   );
 
-  console.log('pinned', isPinned);
-
   if (standAlone) {
     return (
       <Card
