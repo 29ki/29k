@@ -122,6 +122,11 @@ const EditIcon = styled(View)({
   alignSelf: 'center',
 });
 
+const InterestedWrapper = styled.View({
+  flexDirection: 'row',
+  alignItems: 'center',
+});
+
 const Count = styled(BodyBold)({
   color: COLORS.PURE_WHITE,
   fontSize: 14,
@@ -131,6 +136,10 @@ const Count = styled(BodyBold)({
   paddingHorizontal: 6,
   borderRadius: 6,
   overflow: 'hidden',
+});
+
+const InterestedText = styled(BodyBold)({
+  color: COLORS.PRIMARY,
 });
 
 const DeleteButton = styled(Button)({
@@ -400,7 +409,11 @@ const SessionModal = () => {
                       </EditIcon>
                     </EditButton>
                     {Boolean(session.interestedCount) && (
-                      <Count>{session.interestedCount}</Count>
+                      <InterestedWrapper>
+                        <Count>{session.interestedCount}</Count>
+                        <Spacer4 />
+                        <InterestedText>{t('interested')}</InterestedText>
+                      </InterestedWrapper>
                     )}
                   </SpaceBetweenRow>
                 ) : (
