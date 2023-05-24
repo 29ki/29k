@@ -19,11 +19,11 @@
   },
   "sv": {
     "counterLabel": {
-      "starts": "Startar",
-      "startsIn": "Startar om"
+      "starts": "Börjar",
+      "startsIn": "Börjar om"
     },
     "counter": {
-      "started": "Startad"
+      "started": "Börjat"
     }
   },
   "es": {}

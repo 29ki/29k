@@ -13,6 +13,12 @@
     "nextWeek": "Próxima semana",
     "upcoming": "Proximamente"
   },
-  "sv": {},
+  "sv": {
+    "today": "Idag",
+    "tomorrow": "I morgon",
+    "thisWeek": "I veckan",
+    "nextWeek": "Nästa vecka",
+    "upcoming": "Längre fram"
+  },
   "es": {}
 }

@@ -15,6 +15,13 @@
       "confirm": "Sim, remover"
     }
   },
-  "sv": {},
+  "sv": {
+    "title": "Radera användare och data",
+    "message": "Är du säker på att du vill radera din användare och all data?",
+    "actions": {
+      "cancel": "Nej",
+      "confirm": "Ja, radera"
+    }
+  },
   "es": {}
 }

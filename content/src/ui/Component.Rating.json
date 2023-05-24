@@ -7,7 +7,14 @@
       "confirm": "Yes, of course!"
     }
   },
-  "sv": {},
   "pt": {},
+  "sv": {
+    "header": "Skriv en recension",
+    "text": "Tack! Betygsätt gärna Aware i {{storeType}}.",
+    "buttons": {
+      "cancel": "Nej tack",
+      "confirm": "Ja, gärna!"
+    }
+  },
   "es": {}
 }
