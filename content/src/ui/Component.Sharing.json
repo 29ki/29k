@@ -12,10 +12,10 @@
     "reflectionLabel": "O que disseste:"
   },
   "sv": {
-    "othersHeading": "Vad andra delade:",
-    "emptyText": "Ännu inga delningar för denna övning...",
-    "addReflectionCta": "Lägg till din reflketion",
-    "reflectionLabel": "Vad du sa:"
+    "othersHeading": "Vad andra har sagt:",
+    "emptyText": "Inga reflektioner för den här övningen än...",
+    "addReflectionCta": "Lägg till din reflektion",
+    "reflectionLabel": "Din reflektion:"
   },
   "es": {}
 }

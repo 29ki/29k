@@ -21,6 +21,17 @@
       "auth/user-disabled": "Email inativo"
     }
   },
-  "sv": {},
+  "sv": {
+    "email": "Email",
+    "password": "Lösenord",
+    "confirm": "Bekräfta",
+    "title": "Bekräfta för att radera din data",
+    "errors": {
+      "auth/invalid-email": "Fel email och/eller lösenord",
+      "auth/wrong-password": "Fel email och/eller lösenord",
+      "auth/user-not-found": "Fel email och/eller lösenord",
+      "auth/user-disabled": "Fel email och/eller lösenord"
+    }
+  },
   "es": {}
 }

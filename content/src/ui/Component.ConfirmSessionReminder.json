@@ -17,6 +17,14 @@
       "confirm": "Sim"
     }
   },
-  "sv": {},
+  "sv": {
+    "title": "Påminnelser",
+    "message": "Vill du bli påmind när dina planerade sessioner ska börja? ",
+    "actions": {
+      "dismiss": "Nej",
+      "cancel": "Kanske senare",
+      "confirm": "Ja"
+    }
+  },
   "es": {}
 }
