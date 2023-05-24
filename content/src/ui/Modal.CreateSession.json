@@ -6,6 +6,7 @@
       "text": "To create and host a session you need a user name and profile picture."
     },
     "orJoinUpcoming": "Or join upcoming sessions",
+    "startCta": "Start",
     "selectType": {
       "live-public": {
         "title": "Anyone"
@@ -29,8 +30,7 @@
     },
     "selectContent": {
       "title": "Choose exercise"
-    },
-    "startCta": "Start"
+    }
   },
   "pt": {
     "or": "ou",
@@ -71,12 +71,13 @@
       "text": "För att hålla i sessioner behöver du ett namn och en profilbild."
     },
     "orJoinUpcoming": "Eller gå med i kommande sessioner",
+    "startCta": "Börja",
     "selectType": {
       "live-public": {
         "title": "Alla"
       },
       "live-private": {
-        "title": "Mina vänner"
+        "title": "Vänner"
       },
       "async-public": {
         "title": "Mig själv"
@@ -86,7 +87,11 @@
     "description": "Skapa session för...",
     "setDateTime": {
       "title": "Välj tid",
-      "cta": "Skapa session"
+      "cta": "Skapa session",
+      "sessionType": {
+        "private": "Session med vänner",
+        "public": "Session med alla"
+      }
     },
     "selectContent": {
       "title": "Välj övning"

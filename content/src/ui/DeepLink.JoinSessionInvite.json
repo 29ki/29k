@@ -8,7 +8,7 @@
     "description": "Com {{host}} - {{description}}"
   },
   "sv": {
-    "title": "Aware-session: {{title}}",
+    "title": "Aware session: {{title}}",
     "description": "Med {{host}} - {{description}}"
   },
   "es": {}

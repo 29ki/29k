@@ -1,9 +1,12 @@
 {
   "en": {
     "title": "Session hosts",
-    "text": "Thanks goes to these wonderful people for hosting our public sessions, thank you so much!"
+    "text": "Thanks goes to these wonderful people for hosting our sessions for anyone, thank you so much!"
   },
   "pt": {},
-  "sv": {},
+  "sv": {
+    "text": "Stort tack till er som leder sessioner öppna för alla!",
+    "title": "Sessionsvärdar"
+  },
   "es": {}
 }
