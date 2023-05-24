@@ -17,5 +17,9 @@ export const AllStates = () => (
     <Heading16>Reminder and Count</Heading16>
     <Interested reminder count={1} />
     <Spacer16 />
+
+    <Heading16>Reminder and Count compact</Heading16>
+    <Interested reminder count={1} compact />
+    <Spacer16 />
   </ScreenWrapper>
 );

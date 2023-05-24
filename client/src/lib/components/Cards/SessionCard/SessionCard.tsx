@@ -195,7 +195,11 @@ const SessionCard: React.FC<SessionCardProps> = ({
           <Row>
             <SessionTimeBadge session={session} />
             <Spacer8 />
-            <Interested reminder={reminderEnabled} count={interestedCount} />
+            <Interested
+              compact
+              reminder={reminderEnabled}
+              count={interestedCount}
+            />
           </Row>
         </SessionWalletCard>
       }

@@ -47,7 +47,7 @@ import {
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useAddSessionToCalendar from '../../../lib/sessions/hooks/useAddSessionToCalendar';
 import useSessionReminderNotification from '../../../lib/sessions/hooks/useSessionReminderNotification';
-import {Body16, BodyBold} from '../../../lib/components/Typography/Body/Body';
+import {Body16} from '../../../lib/components/Typography/Body/Body';
 import Byline from '../../../lib/components/Bylines/Byline';
 import {formatContentName, formatInviteCode} from '../../../lib/utils/string';
 import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTimeBadge';
@@ -72,6 +72,7 @@ import usePinSession from '../../../lib/sessions/hooks/usePinSession';
 import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
 import Tag from '../../../lib/components/Tag/Tag';
 import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
+import Interested from '../../../lib/components/Interested/Interested';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',
@@ -120,26 +121,6 @@ const EditIcon = styled(View)({
   width: 22,
   height: 22,
   alignSelf: 'center',
-});
-
-const InterestedWrapper = styled.View({
-  flexDirection: 'row',
-  alignItems: 'center',
-});
-
-const Count = styled(BodyBold)({
-  color: COLORS.PURE_WHITE,
-  fontSize: 14,
-  lineHeight: 18,
-  backgroundColor: COLORS.PRIMARY,
-  paddingVertical: 2,
-  paddingHorizontal: 6,
-  borderRadius: 6,
-  overflow: 'hidden',
-});
-
-const InterestedText = styled(BodyBold)({
-  color: COLORS.PRIMARY,
 });
 
 const DeleteButton = styled(Button)({
@@ -408,13 +389,7 @@ const SessionModal = () => {
                         <PencilIcon />
                       </EditIcon>
                     </EditButton>
-                    {Boolean(session.interestedCount) && (
-                      <InterestedWrapper>
-                        <Count>{session.interestedCount}</Count>
-                        <Spacer4 />
-                        <InterestedText>{t('interested')}</InterestedText>
-                      </InterestedWrapper>
-                    )}
+                    <Interested count={session.interestedCount} />
                   </SpaceBetweenRow>
                 ) : (
                   <SessionTimeBadge session={session} />
@@ -422,24 +397,28 @@ const SessionModal = () => {
               </Row>
               <Spacer16 />
 
-              {isPinned ? (
-                <JourneyButton
-                  small
-                  onPress={togglePinned}
-                  LeftIcon={CheckIcon}>
-                  {t('journeyButton')}
-                </JourneyButton>
-              ) : (
-                <JourneyButton
-                  small
-                  variant="secondary"
-                  onPress={togglePinned}
-                  LeftIcon={PlusIcon}>
-                  {t('journeyButton')}
-                </JourneyButton>
+              {!isHost && (
+                <>
+                  {isPinned ? (
+                    <JourneyButton
+                      small
+                      onPress={togglePinned}
+                      LeftIcon={CheckIcon}>
+                      {t('journeyButton')}
+                    </JourneyButton>
+                  ) : (
+                    <JourneyButton
+                      small
+                      variant="secondary"
+                      onPress={togglePinned}
+                      LeftIcon={PlusIcon}>
+                      {t('journeyButton')}
+                    </JourneyButton>
+                  )}
+                  <Spacer32 />
+                </>
               )}
             </Gutters>
-            <Spacer32 />
 
             <Gutters>
               <Body16>{t('description')}</Body16>
