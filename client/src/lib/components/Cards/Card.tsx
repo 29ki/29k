@@ -61,6 +61,11 @@ const Tags = styled.View({
 });
 
 const PinnedTag = styled(Tag)({
+  backgroundColor: COLORS.CREAM,
+  color: COLORS.PRIMARY,
+});
+
+const InterestedTag = styled(Tag)({
   backgroundColor: COLORS.PRIMARY,
   color: COLORS.WHITE,
 });
@@ -99,6 +104,7 @@ type CardProps = {
   inWallet?: boolean;
   isPinned?: boolean;
   reminderEnabled?: boolean;
+  interestedCount?: number;
   style?: ViewStyle;
 };
 
@@ -115,6 +121,7 @@ export const Card: React.FC<CardProps> = ({
   inWallet,
   isPinned,
   reminderEnabled,
+  interestedCount,
   style,
 }) => {
   const {t} = useTranslation('Component.Card');
@@ -137,9 +144,15 @@ export const Card: React.FC<CardProps> = ({
                 <>
                   <PinnedTag
                     LeftIcon={reminderEnabled ? BellFillIcon : CheckIcon}
-                    iconFill={COLORS.WHITE}>
+                    iconFill={COLORS.PRIMARY}>
                     {t('myJourneyTag')}
                   </PinnedTag>
+                  <Spacer4 />
+                </>
+              )}
+              {Boolean(interestedCount) && (
+                <>
+                  <InterestedTag>{interestedCount}</InterestedTag>
                   <Spacer4 />
                 </>
               )}

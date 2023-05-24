@@ -139,6 +139,8 @@ const SessionCard: React.FC<SessionCardProps> = ({
     [exercise],
   );
 
+  console.log('pinned', isPinned);
+
   if (standAlone) {
     return (
       <Card
@@ -160,6 +162,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
         }
         isPinned={isPinned}
         reminderEnabled={reminderEnabled}
+        interestedCount={interestedCount}
         style={style}>
         <Row>
           <JoinButton onPress={onPress} startTime={startTime} />
@@ -194,11 +197,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
           <Row>
             <SessionTimeBadge session={session} />
             <Spacer8 />
-            <Interested
-              compact
-              reminder={reminderEnabled}
-              count={interestedCount}
-            />
+            <Interested reminder={reminderEnabled} count={interestedCount} />
           </Row>
         </SessionWalletCard>
       }
@@ -219,7 +218,10 @@ const SessionCard: React.FC<SessionCardProps> = ({
             session.mode === SessionMode.live
               ? hostProfile?.displayName
               : exercise?.card?.host?.displayName
-          }>
+          }
+          isPinned={isPinned}
+          reminderEnabled={reminderEnabled}
+          interestedCount={interestedCount}>
           <Row>
             <Button small variant="secondary" onPress={onPress}>
               {t('join')}

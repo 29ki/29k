@@ -18,6 +18,10 @@ const Container = styled.View({
   marginTop: SPACINGS.FOUR,
 });
 
+const StyledBody = styled(Body12)({
+  fontWeight: '500',
+});
+
 const IconWrapper = styled.View({
   width: 16,
   height: 16,
@@ -37,7 +41,7 @@ const Tag: React.FC<TagProps> = ({children, style, LeftIcon, iconFill}) => (
         <LeftIcon fill={iconFill} />
       </IconWrapper>
     )}
-    <Body12 style={style}>{children}</Body12>
+    <StyledBody style={style}>{children}</StyledBody>
   </Container>
 );
 
