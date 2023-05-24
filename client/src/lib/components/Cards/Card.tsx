@@ -63,6 +63,7 @@ const Tags = styled.View({
 const PinnedTag = styled(Tag)({
   backgroundColor: COLORS.CREAM,
   color: COLORS.PRIMARY,
+  paddingHorizontal: 0,
 });
 
 const InterestedTag = styled(Tag)({
@@ -136,41 +137,41 @@ export const Card: React.FC<CardProps> = ({
   return (
     <WalletWrapper inWallet={inWallet} style={style}>
       <Wrapper onPress={onPress}>
-        {tags && (
-          <Gutters>
-            <Spacer16 />
-            <Tags>
-              {isPinned && (
-                <>
-                  <PinnedTag
-                    LeftIcon={reminderEnabled ? BellFillIcon : CheckIcon}
-                    iconFill={COLORS.PRIMARY}>
-                    {t('myJourneyTag')}
-                  </PinnedTag>
-                  <Spacer4 />
-                </>
-              )}
-              {Boolean(interestedCount) && (
-                <>
-                  <InterestedTag>{interestedCount}</InterestedTag>
-                  <Spacer4 />
-                </>
-              )}
-              {tags.map(tag => (
+        <Gutters>
+          <Spacer16 />
+          <Tags>
+            {isPinned && (
+              <>
+                <PinnedTag
+                  LeftIcon={reminderEnabled ? BellFillIcon : CheckIcon}
+                  iconFill={COLORS.PRIMARY}>
+                  {t('myJourneyTag')}
+                </PinnedTag>
+                <Spacer4 />
+              </>
+            )}
+            {Boolean(interestedCount) && (
+              <>
+                <InterestedTag>{interestedCount}</InterestedTag>
+                <Spacer4 />
+              </>
+            )}
+            {tags &&
+              tags.map(tag => (
                 <Fragment key={tag}>
                   <Tag>{tag}</Tag>
                   <Spacer4 />
                 </Fragment>
               ))}
-              <TagsGradient
-                start={{x: 0, y: 0}}
-                end={{x: 1, y: 0}}
-                colors={colors}
-              />
-            </Tags>
-            <Spacer4 />
-          </Gutters>
-        )}
+            <TagsGradient
+              start={{x: 0, y: 0}}
+              end={{x: 1, y: 0}}
+              colors={colors}
+            />
+          </Tags>
+          <Spacer4 />
+        </Gutters>
+
         <ContentWrapper>
           <LeftCol>
             <Header>
