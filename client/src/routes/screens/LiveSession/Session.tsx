@@ -49,6 +49,7 @@ import {
   FilmCameraIcon,
   FilmCameraOffIcon,
   HangUpIcon,
+  HeartIcon,
   MicrophoneIcon,
   MicrophoneOffIcon,
 } from '../../../lib/components/Icons';
@@ -116,6 +117,7 @@ const Session: React.FC = () => {
     toggleVideo,
     setSubscribeToAllTracks,
     leaveMeeting,
+    sendMessage,
   } = useContext(DailyContext);
   const {
     params: {session},
@@ -198,6 +200,10 @@ const Session: React.FC = () => {
   useEffect(() => {
     scrollView.current?.scrollTo({y: 0, animated: true});
   }, [sessionSlideState?.index]);
+
+  const onHeartPress = useCallback(() => {
+    sendMessage('❤️');
+  }, [sendMessage]);
 
   const toggleAudioPress = useCallback(() => {
     checkMicrophonePermissions(() => {
@@ -312,6 +318,12 @@ const Session: React.FC = () => {
       <Spacer16 />
       <SessionControls>
         <Notifications />
+        <IconButton
+          onPress={onHeartPress}
+          variant="secondary"
+          Icon={HeartIcon}
+        />
+        <Spacer12 />
         <IconButton
           onPress={toggleAudioPress}
           active={!hasAudio}
