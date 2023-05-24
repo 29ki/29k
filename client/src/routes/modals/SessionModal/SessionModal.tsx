@@ -1,4 +1,9 @@
-import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {
+  RouteProp,
+  useIsFocused,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 import dayjs from 'dayjs';
 import React, {
   Fragment,
@@ -10,6 +15,7 @@ import React, {
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Alert, Share, View} from 'react-native';
+import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import styled from 'styled-components/native';
 
 import Button from '../../../lib/components/Buttons/Button';
@@ -25,6 +31,7 @@ import {
 import Image from '../../../lib/components/Image/Image';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {
+  BottomSafeArea,
   Spacer16,
   Spacer32,
   Spacer4,
@@ -319,155 +326,158 @@ const SessionModal = () => {
 
   return (
     <SheetModal backgroundColor={COLORS.CREAM}>
-      <Spacer16 />
-      <Content>
-        <SpaceBetweenRow>
-          <TitleContainer>
-            <Display24>{formatContentName(exercise)}</Display24>
-            <Spacer4 />
-            <TouchableOpacity onPress={onHostPress}>
-              <Byline
-                pictureURL={session.hostProfile?.photoURL}
-                name={session.hostProfile?.displayName}
-                duration={exercise?.duration}
-              />
-            </TouchableOpacity>
-          </TitleContainer>
-          <Spacer32 />
-          <ImageContainer
-            resizeMode="contain"
-            source={{uri: exercise?.card?.image?.source}}
-          />
-        </SpaceBetweenRow>
-      </Content>
-      {exercise?.description && (
-        <>
-          <Spacer16 />
-          <Gutters>
-            <Markdown>{exercise?.description}</Markdown>
-          </Gutters>
-        </>
-      )}
-
-      {tags && (
-        <Tags>
-          {tags.map(({id, tag}) => (
-            <Fragment key={id}>
-              <Tag>{tag}</Tag>
+      <BottomSheetScrollView focusHook={useIsFocused}>
+        <Spacer16 />
+        <Content>
+          <SpaceBetweenRow>
+            <TitleContainer>
+              <Display24>{formatContentName(exercise)}</Display24>
               <Spacer4 />
-            </Fragment>
-          ))}
-        </Tags>
-      )}
-      <Spacer16 />
-      {!editMode && (
-        <>
-          <Gutters>
-            <Row>
-              {startingNow && (
-                <>
-                  <Button small variant="secondary" onPress={onJoin}>
-                    {t('join')}
-                  </Button>
-                  <Spacer8 />
-                </>
-              )}
-              {isHost ? (
-                <>
-                  <EditButton onPress={onEditMode}>
-                    <SessionTimeBadge session={session} />
-                    <EditIcon>
-                      <PencilIcon />
-                    </EditIcon>
-                  </EditButton>
-                  <FullInterested
-                    active={isPinned}
-                    count={session.interestedCount}
-                  />
-                </>
-              ) : (
-                <>
-                  <SessionTimeBadge session={session} />
-                  <FullInterested active={isPinned} onPress={togglePinned} />
-                </>
-              )}
-            </Row>
-          </Gutters>
-          <Spacer16 />
-
-          <Gutters>
-            <Body16>{t('description')}</Body16>
+              <TouchableOpacity onPress={onHostPress}>
+                <Byline
+                  pictureURL={session.hostProfile?.photoURL}
+                  name={session.hostProfile?.displayName}
+                  duration={exercise?.duration}
+                />
+              </TouchableOpacity>
+            </TitleContainer>
+            <Spacer32 />
+            <ImageContainer
+              resizeMode="contain"
+              source={{uri: exercise?.card?.image?.source}}
+            />
+          </SpaceBetweenRow>
+        </Content>
+        {exercise?.description && (
+          <>
             <Spacer16 />
-            <Row>
-              {!startingNow && (
-                <>
-                  <IconButton
-                    Icon={CalendarIcon}
-                    variant={'secondary'}
-                    onPress={onAddToCalendar}
-                  />
-                  <Spacer16 />
-                  <IconButton
-                    Icon={reminderEnabled ? BellFillIcon : BellIcon}
-                    // Toggling variant instead of active state for nicer UI
-                    variant={reminderEnabled ? 'primary' : 'secondary'}
-                    onPress={onToggleReminder}
-                  />
-                  <Spacer16 />
-                </>
-              )}
+            <Gutters>
+              <Markdown>{exercise?.description}</Markdown>
+            </Gutters>
+          </>
+        )}
 
-              {session.link && (
-                <>
-                  <IconButton
-                    variant="secondary"
-                    onPress={onShare}
-                    Icon={ShareIcon}
-                  />
-                </>
-              )}
-            </Row>
+        {tags && (
+          <Tags>
+            {tags.map(({id, tag}) => (
+              <Fragment key={id}>
+                <Tag>{tag}</Tag>
+                <Spacer4 />
+              </Fragment>
+            ))}
+          </Tags>
+        )}
+        <Spacer16 />
+        {!editMode && (
+          <>
+            <Gutters>
+              <Row>
+                {startingNow && (
+                  <>
+                    <Button small variant="secondary" onPress={onJoin}>
+                      {t('join')}
+                    </Button>
+                    <Spacer8 />
+                  </>
+                )}
+                {isHost ? (
+                  <>
+                    <EditButton onPress={onEditMode}>
+                      <SessionTimeBadge session={session} />
+                      <EditIcon>
+                        <PencilIcon />
+                      </EditIcon>
+                    </EditButton>
+                    <FullInterested
+                      active={isPinned}
+                      count={session.interestedCount}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <SessionTimeBadge session={session} />
+                    <FullInterested active={isPinned} onPress={togglePinned} />
+                  </>
+                )}
+              </Row>
+            </Gutters>
+            <Spacer16 />
+
+            <Gutters>
+              <Body16>{t('description')}</Body16>
+              <Spacer16 />
+              <Row>
+                {!startingNow && (
+                  <>
+                    <IconButton
+                      Icon={CalendarIcon}
+                      variant={'secondary'}
+                      onPress={onAddToCalendar}
+                    />
+                    <Spacer16 />
+                    <IconButton
+                      Icon={reminderEnabled ? BellFillIcon : BellIcon}
+                      // Toggling variant instead of active state for nicer UI
+                      variant={reminderEnabled ? 'primary' : 'secondary'}
+                      onPress={onToggleReminder}
+                    />
+                    <Spacer16 />
+                  </>
+                )}
+
+                {session.link && (
+                  <>
+                    <IconButton
+                      variant="secondary"
+                      onPress={onShare}
+                      Icon={ShareIcon}
+                    />
+                  </>
+                )}
+              </Row>
+            </Gutters>
+          </>
+        )}
+        {editMode && (
+          <Gutters>
+            {editTypeMode && (
+              <>
+                <TypeItemHeading>{t('selectType.title')}</TypeItemHeading>
+                <Spacer16 />
+                <Row>{sessionTypes}</Row>
+              </>
+            )}
+            {!editTypeMode && (
+              <>
+                {isPublicHost && (
+                  <>
+                    <EditSessionType
+                      sessionType={selectedType}
+                      onPress={onEditType}
+                    />
+                    <Spacer16 />
+                  </>
+                )}
+                <DateTimePicker
+                  initialDateTime={initialStartTime}
+                  minimumDate={dayjs()}
+                  onChange={onChange}
+                />
+                <Spacer16 />
+                <SpaceBetweenRow>
+                  <Button variant="secondary" onPress={onUpdateSession}>
+                    {t('done')}
+                  </Button>
+                  <DeleteButton small onPress={onDelete}>
+                    {t('deleteButton')}
+                  </DeleteButton>
+                </SpaceBetweenRow>
+              </>
+            )}
           </Gutters>
-        </>
-      )}
-      {editMode && (
-        <Gutters>
-          {editTypeMode && (
-            <>
-              <TypeItemHeading>{t('selectType.title')}</TypeItemHeading>
-              <Spacer16 />
-              <Row>{sessionTypes}</Row>
-            </>
-          )}
-          {!editTypeMode && (
-            <>
-              {isPublicHost && (
-                <>
-                  <EditSessionType
-                    sessionType={selectedType}
-                    onPress={onEditType}
-                  />
-                  <Spacer16 />
-                </>
-              )}
-              <DateTimePicker
-                initialDateTime={initialStartTime}
-                minimumDate={dayjs()}
-                onChange={onChange}
-              />
-              <Spacer16 />
-              <SpaceBetweenRow>
-                <Button variant="secondary" onPress={onUpdateSession}>
-                  {t('done')}
-                </Button>
-                <DeleteButton small onPress={onDelete}>
-                  {t('deleteButton')}
-                </DeleteButton>
-              </SpaceBetweenRow>
-            </>
-          )}
-        </Gutters>
-      )}
+        )}
+        <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
+      </BottomSheetScrollView>
     </SheetModal>
   );
 };

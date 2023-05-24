@@ -1,6 +1,6 @@
 import React from 'react';
-import {useBottomSheet} from '@gorhom/bottom-sheet';
-import {useNavigation} from '@react-navigation/native';
+import {BottomSheetScrollView, useBottomSheet} from '@gorhom/bottom-sheet';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
 import {useCallback, useMemo, useState} from 'react';
@@ -12,6 +12,7 @@ import Byline from '../../../../../lib/components/Bylines/Byline';
 import Image from '../../../../../lib/components/Image/Image';
 import Gutters from '../../../../../lib/components/Gutters/Gutters';
 import {
+  BottomSafeArea,
   Spacer16,
   Spacer28,
   Spacer8,
@@ -108,47 +109,50 @@ const SetDateTimeStep: React.FC<StepProps> = ({
   }, [firstStep]);
 
   return (
-    <Gutters>
-      <Spacer8 />
-      <Row>
-        <TextWrapper>
-          <Display24>{formatContentName(exercise)}</Display24>
-          <Spacer8 />
-          <Byline
-            pictureURL={userProfile?.photoURL}
-            name={userProfile?.displayName}
-            duration={exercise?.duration}
+    <BottomSheetScrollView focusHook={useIsFocused}>
+      <Gutters>
+        <Spacer8 />
+        <Row>
+          <TextWrapper>
+            <Display24>{formatContentName(exercise)}</Display24>
+            <Spacer8 />
+            <Byline
+              pictureURL={userProfile?.photoURL}
+              name={userProfile?.displayName}
+              duration={exercise?.duration}
+            />
+          </TextWrapper>
+          <Spacer16 />
+          <CardImageWrapper>
+            <Image source={cardImg} />
+          </CardImageWrapper>
+        </Row>
+        <Spacer28 />
+        {isPublicHost && selectedModeAndType?.type && (
+          <EditSessionType
+            sessionType={selectedModeAndType.type}
+            onPress={onEditSessionType}
           />
-        </TextWrapper>
+        )}
         <Spacer16 />
-        <CardImageWrapper>
-          <Image source={cardImg} />
-        </CardImageWrapper>
-      </Row>
-      <Spacer28 />
-      {isPublicHost && selectedModeAndType?.type && (
-        <EditSessionType
-          sessionType={selectedModeAndType.type}
-          onPress={onEditSessionType}
+        <DateTimePicker
+          minimumDate={dayjs().local()}
+          onChange={onChange}
+          onToggle={onToggle}
         />
-      )}
-      <Spacer16 />
-      <DateTimePicker
-        minimumDate={dayjs().local()}
-        onChange={onChange}
-        onToggle={onToggle}
-      />
-      <Spacer16 />
-      <Cta
-        variant="secondary"
-        small
-        onPress={onSubmit}
-        loading={isLoading}
-        disabled={isLoading}>
-        {t('setDateTime.cta')}
-      </Cta>
-      <Spacer16 />
-    </Gutters>
+        <Spacer16 />
+        <Cta
+          variant="secondary"
+          small
+          onPress={onSubmit}
+          loading={isLoading}
+          disabled={isLoading}>
+          {t('setDateTime.cta')}
+        </Cta>
+        <Spacer16 />
+      </Gutters>
+      <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
+    </BottomSheetScrollView>
   );
 };
 export default SetDateTimeStep;
