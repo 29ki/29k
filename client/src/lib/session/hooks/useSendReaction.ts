@@ -1,5 +1,5 @@
 import throttle from 'lodash.throttle';
-import {useCallback, useContext, useMemo} from 'react';
+import {useContext, useMemo} from 'react';
 import useSessionState, {Reaction} from '../state/state';
 import {DailyContext} from '../../daily/DailyProvider';
 import useLocalParticipant from '../../daily/hooks/useLocalParticipant';
