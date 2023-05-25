@@ -27,6 +27,7 @@ import {BottomSafeArea} from '../components/Spacers/Spacer';
 import ExploreStack from './ExploreStack';
 import JourneyStack from './JourneyStack';
 import HomeStack from './HomeStack';
+import VideoRec from '../../routes/screens/VideoRec/VideoRec';
 
 const Tab = createBottomTabNavigator<TabNavigatorProps>();
 
@@ -116,7 +117,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         name={'JourneyStack'}
-        component={JourneyStack}
+        component={VideoRec}
         options={journeyOptions}
       />
     </Tab.Navigator>
