@@ -25,6 +25,8 @@ import {
   CommunityIcon,
   FriendsIcon,
   ShareIcon,
+  AnimatedBell,
+  AnimatedPlusToCheck,
 } from '../../../lib/components/Icons';
 import Image from '../../../lib/components/Image/Image';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
@@ -70,9 +72,7 @@ import Tag from '../../../lib/components/Tag/Tag';
 import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
 import Interested from '../../../lib/components/Interested/Interested';
 import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
-import {AnimatedPlusToCheck} from '../../../lib/components/Icons/AnimatedPlusToCheck/AnimatedPlusToCheck';
 import AnimatedIconButton from '../../../lib/components/Buttons/IconButton/AnimatedIconButton';
-import {AnimatedBell} from '../../../lib/components/Icons/AnimatedBell/AnimatedBell';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',

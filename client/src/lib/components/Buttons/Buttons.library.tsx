@@ -9,15 +9,15 @@ import IconButton from './IconButton/IconButton';
 import {HomeIcon} from '../Icons/Home/Home';
 import {Body16, Body18, BodyBold} from '../Typography/Body/Body';
 import {PlusIcon} from '../Icons';
+import {AnimatedPlusToCheck} from '../Icons';
+import {AnimatedBell} from '../Icons';
 import ToggleButton from '../../session/components/HostNotes/ToggleButton';
 import TextButton from './TextButton/TextButton';
 import RadioButton from './RadioButton/RadioButton';
 import CloseButton from './CloseButton/CloseButton';
 import AnimatedButton from './AnimatedButton';
 import AnimatedIconButton from './IconButton/AnimatedIconButton';
-import {AnimatedBell} from '../Icons/AnimatedBell/AnimatedBell';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {AnimatedPlusToCheck} from '../Icons/AnimatedPlusToCheck/AnimatedPlusToCheck';
 
 const RowFullWidth = styled.View({
   flex: 1,

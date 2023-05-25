@@ -36,7 +36,7 @@ import usePinnedCollectionById from '../../../lib/user/hooks/usePinnedCollection
 import {formatContentName} from '../../../lib/utils/string';
 import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
-import {AnimatedPlusToCheck} from '../../../lib/components/Icons/AnimatedPlusToCheck/AnimatedPlusToCheck';
+import {AnimatedPlusToCheck} from '../../../lib/components/Icons';
 
 type Section = {
   title: string;
