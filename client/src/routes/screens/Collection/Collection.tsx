@@ -35,8 +35,8 @@ import usePinCollection from '../../../lib/user/hooks/usePinCollection';
 import usePinnedCollectionById from '../../../lib/user/hooks/usePinnedCollectionById';
 import {formatContentName} from '../../../lib/utils/string';
 import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
-import Button from '../../../lib/components/Buttons/Button';
-import {CheckIcon, PlusIcon} from '../../../lib/components/Icons';
+import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
+import plusToCheck from '../../../assets/animations/plus-to-checkmark-white.json';
 
 type Section = {
   title: string;
@@ -50,7 +50,7 @@ const Row = styled.View({
   flex: 1,
 });
 
-const JourneyButton = styled(Button)({
+const JourneyButton = styled(AnimatedButton)({
   alignSelf: 'flex-start',
 });
 
@@ -180,22 +180,16 @@ const Collection = () => {
               </Row>
 
               <Spacer16 />
-              {isPinned ? (
-                <JourneyButton
-                  small
-                  onPress={togglePinned}
-                  LeftIcon={CheckIcon}>
-                  {t('addToJourney')}
-                </JourneyButton>
-              ) : (
-                <JourneyButton
-                  small
-                  variant="secondary"
-                  onPress={togglePinned}
-                  LeftIcon={PlusIcon}>
-                  {t('addToJourney')}
-                </JourneyButton>
-              )}
+              <JourneyButton
+                small
+                onPress={togglePinned}
+                preVariant="secondary"
+                postVariant="primary"
+                animation={plusToCheck}
+                active={isPinned}>
+                {t('addToJourney')}
+              </JourneyButton>
+
               <Spacer24 />
             </Gutters>
           }

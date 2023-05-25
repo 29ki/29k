@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 import styled from 'styled-components/native';
 
 import ScreenWrapper from '../../uiLib/decorators/ScreenWrapper';
@@ -13,6 +13,8 @@ import ToggleButton from '../../session/components/HostNotes/ToggleButton';
 import TextButton from './TextButton/TextButton';
 import RadioButton from './RadioButton/RadioButton';
 import CloseButton from './CloseButton/CloseButton';
+import AnimatedButton from './AnimatedButton';
+import plusToCheck from '../../../assets/animations/plus-to-checkmark-white.json';
 
 const RowFullWidth = styled.View({
   flex: 1,
@@ -25,92 +27,117 @@ const Row = styled.View({flexDirection: 'row'});
 
 const ButtonWrapper = styled.View({alignItems: 'flex-start'});
 
-const ButtonList = () => (
-  <>
-    <Body18>
-      <BodyBold>Buttons</BodyBold>
-    </Body18>
-    <Spacer8 />
-    <RowFullWidth>
-      <Button onPress={() => {}}>Primary</Button>
+const ButtonList = () => {
+  const [pressed, setPressed] = useState(false);
+
+  return (
+    <>
+      <Body18>
+        <BodyBold>Buttons</BodyBold>
+      </Body18>
+      <Spacer8 />
+      <RowFullWidth>
+        <Button onPress={() => {}}>Primary</Button>
+        <Spacer16 />
+        <Button loading elevated onPress={() => {}}>
+          Elevated Loading
+        </Button>
+      </RowFullWidth>
       <Spacer16 />
-      <Button loading elevated onPress={() => {}}>
-        Elevated Loading
-      </Button>
-    </RowFullWidth>
-    <Spacer16 />
-    <RowFullWidth>
-      <Button onPress={() => {}} variant="secondary">
-        Secondary
-      </Button>
+      <RowFullWidth>
+        <Button onPress={() => {}} variant="secondary">
+          Secondary
+        </Button>
+        <Spacer16 />
+        <Button variant="secondary" elevated onPress={() => {}}>
+          Elevated Secondary
+        </Button>
+      </RowFullWidth>
       <Spacer16 />
-      <Button variant="secondary" elevated onPress={() => {}}>
-        Elevated Secondary
-      </Button>
-    </RowFullWidth>
-    <Spacer16 />
-    <RowFullWidth>
-      <Button onPress={() => {}} variant="tertiary">
-        Tertiary
-      </Button>
+      <RowFullWidth>
+        <Button onPress={() => {}} variant="tertiary">
+          Tertiary
+        </Button>
+        <Spacer16 />
+        <Button variant="tertiary" elevated onPress={() => {}}>
+          Elevated Tertiary
+        </Button>
+      </RowFullWidth>
       <Spacer16 />
-      <Button variant="tertiary" elevated onPress={() => {}}>
-        Elevated Tertiary
-      </Button>
-    </RowFullWidth>
-    <Spacer16 />
-    <RowFullWidth>
-      <Button onPress={() => {}} variant="secondary">
-        Secondary
-      </Button>
+      <RowFullWidth>
+        <Button onPress={() => {}} variant="secondary">
+          Secondary
+        </Button>
+        <Spacer16 />
+        <Button variant="secondary" elevated onPress={() => {}}>
+          Elevated Secondary
+        </Button>
+      </RowFullWidth>
       <Spacer16 />
-      <Button variant="secondary" elevated onPress={() => {}}>
-        Elevated Secondary
-      </Button>
-    </RowFullWidth>
-    <Spacer16 />
-    <RowFullWidth>
-      <Button onPress={() => {}} variant="tertiary">
-        Tertiary
-      </Button>
+      <RowFullWidth>
+        <Button onPress={() => {}} variant="tertiary">
+          Tertiary
+        </Button>
+        <Spacer16 />
+        <Button variant="tertiary" elevated onPress={() => {}}>
+          Elevated Tertiary
+        </Button>
+      </RowFullWidth>
       <Spacer16 />
-      <Button variant="tertiary" elevated onPress={() => {}}>
-        Elevated Tertiary
-      </Button>
-    </RowFullWidth>
-    <Spacer16 />
-    <RowFullWidth>
-      <Button onPress={() => {}} LeftIcon={HomeIcon}>
-        Left icon
-      </Button>
+      <RowFullWidth>
+        <Button onPress={() => {}} LeftIcon={HomeIcon}>
+          Left icon
+        </Button>
+        <Spacer16 />
+        <Button onPress={() => {}} RightIcon={HomeIcon}>
+          Right icon
+        </Button>
+      </RowFullWidth>
       <Spacer16 />
-      <Button onPress={() => {}} RightIcon={HomeIcon}>
-        Right icon
-      </Button>
-    </RowFullWidth>
-    <Spacer16 />
-    <RowFullWidth>
-      <Button small onPress={() => {}}>
-        Small Button
-      </Button>
+      <RowFullWidth>
+        <Button small onPress={() => {}}>
+          Small Button
+        </Button>
+        <Spacer16 />
+        <Button small onPress={() => {}} LeftIcon={HomeIcon}>
+          Small with icon
+        </Button>
+      </RowFullWidth>
       <Spacer16 />
-      <Button small onPress={() => {}} LeftIcon={HomeIcon}>
-        Small with icon
-      </Button>
-    </RowFullWidth>
-    <Spacer16 />
-    <RowFullWidth>
-      <Button onPress={() => {}} disabled>
-        Disabled
-      </Button>
+      <RowFullWidth>
+        <Button onPress={() => {}} disabled>
+          Disabled
+        </Button>
+        <Spacer16 />
+        <Button onPress={() => {}} active>
+          Active
+        </Button>
+      </RowFullWidth>
       <Spacer16 />
-      <Button onPress={() => {}} active>
-        Active
-      </Button>
-    </RowFullWidth>
-    <Spacer16 />
-  </>
-);
+      <RowFullWidth>
+        <AnimatedButton
+          animation={plusToCheck}
+          preVariant="secondary"
+          postVariant="primary"
+          active={pressed}
+          onPress={() => setPressed(state => !state)}>
+          Animated
+        </AnimatedButton>
+        <Spacer16 />
+        <AnimatedButton
+          animation={plusToCheck}
+          preVariant="secondary"
+          postVariant="primary"
+          active={pressed}
+          small
+          onPress={() => setPressed(state => !state)}>
+          Animated small
+        </AnimatedButton>
+      </RowFullWidth>
+      <Spacer16 />
+    </>
+  );
+};
 
 const IconButtonList = () => (
   <>
