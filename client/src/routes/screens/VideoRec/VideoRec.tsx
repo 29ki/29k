@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useState, useRef, useMemo} from 'react';
 import {StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import {Camera, CameraType} from 'expo-camera';
@@ -25,16 +25,25 @@ const VideoRec = () => {
   const [showPreview, setShowPreview] = useState(false);
   const [previewVideo, setPreviewVideo] = useState('');
 
+  const camera = useMemo(
+    () => (
+      <Camera
+        ref={cameraRef}
+        type={CameraType.front}
+        style={StyleSheet.absoluteFill}
+      />
+    ),
+    [],
+  );
+
   return (
     <>
-      {!showPreview && (
-        <Camera type={CameraType.front} style={StyleSheet.absoluteFill} />
-      )}
+      {camera}
       {showPreview && previewVideo && (
         <Video
           source={{uri: previewVideo}}
           repeat={true}
-          style={StyleSheet.absoluteFill}
+          style={{...StyleSheet.absoluteFill, zIndex: 2}}
         />
       )}
       <ButtonsWrapper>
@@ -42,7 +51,7 @@ const VideoRec = () => {
           <>
             {!isRecording && (
               <Button
-                onPress={async () => {
+                onPress={() => {
                   setIsRecording(true);
                   cameraRef.current
                     ?.recordAsync()
@@ -54,7 +63,8 @@ const VideoRec = () => {
                     })
                     .catch(err => {
                       console.log('>>> ERROR', err);
-                    });
+                    })
+                    .finally(() => console.log('WHATAAAAAAAA'));
                 }}>
                 {'Record'}
               </Button>
