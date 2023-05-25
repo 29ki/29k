@@ -181,20 +181,19 @@ const CompletedSessionModal = () => {
             <TitleContainer>
               <Display24>{formatContentName(exercise)}</Display24>
               <Spacer4 />
-              <TouchableOpacity onPress={onHostPress}>
-                <Byline
-                  pictureURL={
-                    hostProfile?.photoURL
-                      ? hostProfile.photoURL
-                      : exercise.card?.host?.photoURL
-                  }
-                  name={
-                    hostProfile?.displayName
-                      ? hostProfile.displayName
-                      : exercise.card?.host?.displayName
-                  }
-                />
-              </TouchableOpacity>
+              <Byline
+                pictureURL={
+                  hostProfile?.photoURL
+                    ? hostProfile.photoURL
+                    : exercise.card?.host?.photoURL
+                }
+                name={
+                  hostProfile?.displayName
+                    ? hostProfile.displayName
+                    : exercise.card?.host?.displayName
+                }
+                onPress={onHostPress}
+              />
             </TitleContainer>
             <Spacer32 />
             <GraphicsWrapper>

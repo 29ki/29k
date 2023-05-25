@@ -6,8 +6,10 @@ import {SPACINGS} from '../../constants/spacings';
 import {Spacer4} from '../Spacers/Spacer';
 import {Body12, Body14} from '../Typography/Body/Body';
 import ProfilePicture from '../User/ProfilePicture';
+import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
+import {TouchableOpacityProps} from 'react-native';
 
-const Container = styled.View({
+const Container = styled(TouchableOpacity)({
   flexDirection: 'row',
   justifyContent: 'flex-start',
   alignItems: 'center',
@@ -31,17 +33,18 @@ type BylineProps = {
   name?: string;
   duration?: number;
   small?: boolean;
+  onPress?: TouchableOpacityProps['onPress'];
 };
 
 const Byline: React.FC<BylineProps> = React.memo(
-  ({pictureURL, name, duration, small}) => {
+  ({pictureURL, name, duration, small, onPress}) => {
     const {t} = useTranslation('Component.Byline');
     if (!pictureURL && !name) {
       return null;
     }
 
     return (
-      <Container>
+      <Container onPress={onPress} disabled={!onPress}>
         <ImageContainer small={small}>
           <ProfilePicture
             size={small ? SPACINGS.SIXTEEN : SPACINGS.TWENTYFOUR}
