@@ -338,7 +338,7 @@ const Session: React.FC = () => {
           onPress={onHeartPress}
           variant="secondary"
           Icon={HeartFillIcon}
-          fill={COLORS.HEART}
+          fill={COLORS.WHITE}
         />
         <Spacer12 />
         <IconButton
