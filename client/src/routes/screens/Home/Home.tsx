@@ -1,11 +1,10 @@
 import {groupBy} from 'ramda';
 import dayjs from 'dayjs';
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
-import {RefreshControl, SectionList, StyleSheet} from 'react-native';
+import {RefreshControl, SectionList} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Camera, useCameraDevices} from 'react-native-vision-camera';
 
 import {
   useIsFocused,
@@ -166,15 +165,6 @@ const Home = () => {
   const listRef = useRef<SectionList<LiveSessionType, Section>>(null);
   const [isLoading, setIsLoading] = useState(false);
   const isFocused = useIsFocused();
-  const cameraRef = useRef<Camera>(null);
-
-  useEffect(() => {
-    Camera.getCameraPermissionStatus();
-    Camera.getMicrophonePermissionStatus();
-  }, []);
-
-  const devices = useCameraDevices();
-  const device = devices.front;
 
   useScrollToTop(listRef);
 
@@ -249,7 +239,6 @@ const Home = () => {
 
   useResumeFromBackgrounded(throttledRefresh);
 
-  console.log('>>>>> DEVICE', device);
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
       <TopSafeArea minSize={SPACINGS.SIXTEEN} />
@@ -258,33 +247,6 @@ const Home = () => {
         onPressEllipsis={onPressEllipsis}>
         <MiniProfile />
       </TopBar>
-      {device && (
-        <>
-          <Camera
-            ref={cameraRef}
-            device={device}
-            video={true}
-            audio={true}
-            style={{...StyleSheet.absoluteFill, zIndex: 1}}
-            isActive={true}
-          />
-          <AddSessionWrapper style={{zIndex: 1}}>
-            <AddButton
-              onPress={() =>
-                cameraRef.current?.startRecording({
-                  onRecordingFinished: video => console.log(video),
-                  onRecordingError: error => console.error(error),
-                })
-              }>
-              {'Record'}
-            </AddButton>
-            <AddButton onPress={() => cameraRef.current?.stopRecording()}>
-              {'Stop'}
-            </AddButton>
-            <Spacer12 />
-          </AddSessionWrapper>
-        </>
-      )}
       <SectionList
         ref={listRef}
         sections={sections}

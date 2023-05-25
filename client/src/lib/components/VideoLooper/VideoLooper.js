@@ -8,6 +8,7 @@ const RNVideoLooper = requireNativeComponent('VideoLooper');
 const Container = styled.View({
   ...StyleSheet.absoluteFillObject,
   overflow: 'hidden',
+  backgroundColor: 'red',
 });
 
 const StyledRNVideoLooper = styled(RNVideoLooper)({
