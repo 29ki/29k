@@ -43,7 +43,6 @@ import {ExerciseSlideSharingSlide} from '../../../../../shared/src/types/generat
 import useUserProfile from '../../../lib/user/hooks/useUserProfile';
 import MyPostCard from '../../../lib/session/components/Posts/MyPostCard';
 import useUser from '../../../lib/user/hooks/useUser';
-import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
 import useGetFeedbackBySessionId from '../../../lib/user/hooks/useGetFeedbackBySessionId';
 import FeedbackThumb from './components/FeedbackThumb';
 import FeedbackComment from './components/FeedbackComment';
