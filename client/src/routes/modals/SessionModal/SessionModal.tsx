@@ -405,8 +405,7 @@ const SessionModal = () => {
                     AnimatedIcon={AnimatedPlusToCheck}
                     fill={COLORS.WHITE}
                     onPress={togglePinned}
-                    preVariant="secondary"
-                    postVariant="primary"
+                    variant={isPinned ? 'primary' : 'secondary'}
                     active={isPinned}>
                     {t('journeyButton')}
                   </JourneyButton>
@@ -446,8 +445,7 @@ const SessionModal = () => {
                     <AnimatedIconButton
                       AnimatedIcon={AnimatedBell}
                       fill={COLORS.WHITE}
-                      preVariant="secondary"
-                      postVariant="primary"
+                      variant={reminderEnabled ? 'primary' : 'secondary'}
                       active={reminderEnabled}
                       onPress={onToggleReminder}
                     />

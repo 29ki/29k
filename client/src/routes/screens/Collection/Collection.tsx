@@ -183,8 +183,7 @@ const Collection = () => {
               <JourneyButton
                 small
                 onPress={togglePinned}
-                preVariant="secondary"
-                postVariant="primary"
+                variant={isPinned ? 'primary' : 'secondary'}
                 AnimatedIcon={AnimatedPlusToCheck}
                 fill={COLORS.WHITE}
                 active={isPinned}>

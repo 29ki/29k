@@ -121,8 +121,7 @@ const ButtonList = () => {
         <AnimatedButton
           AnimatedIcon={AnimatedPlusToCheck}
           fill={COLORS.WHITE}
-          preVariant="secondary"
-          postVariant="primary"
+          variant={pressed ? 'primary' : 'secondary'}
           active={pressed}
           onPress={() => setPressed(state => !state)}>
           Animated
@@ -131,8 +130,7 @@ const ButtonList = () => {
         <AnimatedButton
           AnimatedIcon={AnimatedPlusToCheck}
           fill={COLORS.WHITE}
-          preVariant="secondary"
-          postVariant="primary"
+          variant={pressed ? 'primary' : 'secondary'}
           active={pressed}
           small
           onPress={() => setPressed(state => !state)}>
@@ -213,8 +211,7 @@ const IconButtonList = () => {
         <Body16>Animated</Body16>
         <AnimatedIconButton
           AnimatedIcon={AnimatedBell}
-          preVariant="secondary"
-          postVariant="primary"
+          variant={pressed ? 'primary' : 'secondary'}
           fill={COLORS.WHITE}
           active={pressed}
           onPress={() => setPressed(state => !state)}

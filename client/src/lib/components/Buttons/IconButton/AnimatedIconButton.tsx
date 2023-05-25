@@ -18,16 +18,13 @@ const StyledIconButton = styled(BaseButton)<BaseIconButtonProps>(props => ({
   borderRadius: SPACINGS.SIXTEEN,
 }));
 
-export type IconButtonProps = Omit<BaseIconButtonProps, 'variant'> & {
+export type IconButtonProps = BaseIconButtonProps & {
   AnimatedIcon: AnimatedIconType;
-  preVariant: BaseButtonProps['variant'];
-  postVariant: BaseButtonProps['variant'];
 };
 
 const AnimatedIconButton: React.FC<IconButtonProps> = ({
   onPress,
-  preVariant,
-  postVariant,
+  variant,
   AnimatedIcon,
   style,
   disabled,
@@ -69,7 +66,7 @@ const AnimatedIconButton: React.FC<IconButtonProps> = ({
           : {}
       }
       onPress={animatedPress}
-      variant={active ? postVariant : preVariant}
+      variant={variant}
       disabled={disabled}
       style={style}
       small={small}

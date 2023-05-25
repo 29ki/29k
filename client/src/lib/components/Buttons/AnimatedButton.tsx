@@ -36,10 +36,8 @@ const ButtonText = styled(Body16).attrs({selectable: false})<ButtonTextProps>(
   }),
 );
 
-type AnimatedButtonProps = Omit<BaseButtonProps, 'variant'> & {
+type AnimatedButtonProps = BaseButtonProps & {
   AnimatedIcon: AnimatedIconType;
-  preVariant: BaseButtonProps['variant'];
-  postVariant: BaseButtonProps['variant'];
   fill?: string;
 };
 
@@ -52,8 +50,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   AnimatedIcon,
   elevated,
   active,
-  preVariant,
-  postVariant,
+  variant,
   fill,
 }) => {
   const lottieRef = useRef<AnimatedLottieView>(null);
@@ -84,7 +81,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
         top: small ? SPACINGS.EIGHT : undefined,
       }}
       onPress={animatedPress}
-      variant={active ? postVariant : preVariant}
+      variant={variant}
       elevated={elevated}
       small={small}
       style={style}
@@ -99,7 +96,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       </AnimationWrapper>
       <ButtonText
         small={small}
-        variant={active ? postVariant : preVariant}
+        variant={variant}
         active={active}
         disabled={disabled}
         selectable={false}>
