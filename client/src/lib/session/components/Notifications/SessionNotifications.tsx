@@ -47,17 +47,6 @@ const SessionNotifications: React.FC<{
     setWasMuted,
   ]);
 
-  const appMessage = useCallback(
-    (event: DailyEventObject<'app-message'> | undefined) => {
-      const message = event?.data?.message;
-
-      addNotification({
-        text: message,
-      });
-    },
-    [addNotification],
-  );
-
   const trackStopped = useCallback(
     (event: DailyEventObject<'track-stopped'> | undefined) => {
       const participant = event?.participant;
@@ -118,14 +107,12 @@ const SessionNotifications: React.FC<{
     call?.on('participant-left', participantLeft);
     call?.on('network-quality-change', networkQualityChange);
     call?.on('track-stopped', trackStopped);
-    call?.on('app-message', appMessage);
 
     return () => {
       call?.off('participant-joined', participantJoined);
       call?.off('participant-left', participantLeft);
       call?.off('network-quality-change', networkQualityChange);
       call?.off('track-stopped', trackStopped);
-      call?.off('app-message', appMessage);
     };
   }, [
     call,
@@ -133,7 +120,6 @@ const SessionNotifications: React.FC<{
     participantLeft,
     networkQualityChange,
     trackStopped,
-    appMessage,
   ]);
 
   return (
