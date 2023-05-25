@@ -1,10 +1,11 @@
-import React, {useCallback, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
+import AnimatedLottieView from 'lottie-react-native';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import {Body16} from '../Typography/Body/Body';
 import BaseButton, {BaseButtonProps, ButtonVariant} from './BaseButton';
-import AnimatedLottieView, {AnimationObject} from 'lottie-react-native';
+import {AnimatedIconType} from '../Icons/AnimatedIcon';
 
 const AnimationWrapper = styled.View({
   width: 21,
@@ -13,10 +14,6 @@ const AnimationWrapper = styled.View({
   justifyContent: 'center',
   marginRight: -SPACINGS.TWELVE,
   marginLeft: SPACINGS.EIGHT,
-});
-
-const Lottie = styled(AnimatedLottieView)({
-  flex: 1,
 });
 
 type ButtonTextProps = {
@@ -40,9 +37,10 @@ const ButtonText = styled(Body16).attrs({selectable: false})<ButtonTextProps>(
 );
 
 type AnimatedButtonProps = Omit<BaseButtonProps, 'variant'> & {
-  animation: AnimationObject;
+  AnimatedIcon: AnimatedIconType;
   preVariant: BaseButtonProps['variant'];
   postVariant: BaseButtonProps['variant'];
+  fill?: string;
 };
 
 const AnimatedButton: React.FC<AnimatedButtonProps> = ({
@@ -51,14 +49,21 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   style,
   disabled,
   small,
-  animation,
+  AnimatedIcon,
   elevated,
   active,
   preVariant,
   postVariant,
+  fill,
 }) => {
   const lottieRef = useRef<AnimatedLottieView>(null);
   const [allreadyActive, setAllreadyActive] = useState(active);
+
+  useEffect(() => {
+    if (!allreadyActive && active) {
+      lottieRef.current?.play();
+    }
+  }, [allreadyActive, active]);
 
   const animatedPress = useCallback(() => {
     if (!active) {
@@ -85,10 +90,10 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       style={style}
       disabled={disabled}>
       <AnimationWrapper>
-        <Lottie
+        <AnimatedIcon
           ref={lottieRef}
           progress={allreadyActive ? 1 : undefined}
-          source={animation}
+          fill={fill}
           loop={false}
         />
       </AnimationWrapper>

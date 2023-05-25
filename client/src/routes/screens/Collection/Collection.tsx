@@ -36,7 +36,7 @@ import usePinnedCollectionById from '../../../lib/user/hooks/usePinnedCollection
 import {formatContentName} from '../../../lib/utils/string';
 import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
-import plusToCheck from '../../../assets/animations/plus-to-checkmark-white.json';
+import {AnimatedPlusToCheck} from '../../../lib/components/Icons/AnimatedPlusToCheck/AnimatedPlusToCheck';
 
 type Section = {
   title: string;
@@ -185,7 +185,8 @@ const Collection = () => {
                 onPress={togglePinned}
                 preVariant="secondary"
                 postVariant="primary"
-                animation={plusToCheck}
+                AnimatedIcon={AnimatedPlusToCheck}
+                fill={COLORS.WHITE}
                 active={isPinned}>
                 {t('addToJourney')}
               </JourneyButton>

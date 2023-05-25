@@ -22,8 +22,6 @@ import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
 import {
-  BellFillIcon,
-  BellIcon,
   CommunityIcon,
   FriendsIcon,
   ShareIcon,
@@ -72,7 +70,9 @@ import Tag from '../../../lib/components/Tag/Tag';
 import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
 import Interested from '../../../lib/components/Interested/Interested';
 import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
-import plusToCheck from '../../../assets/animations/plus-to-checkmark-white.json';
+import {AnimatedPlusToCheck} from '../../../lib/components/Icons/AnimatedPlusToCheck/AnimatedPlusToCheck';
+import AnimatedIconButton from '../../../lib/components/Buttons/IconButton/AnimatedIconButton';
+import {AnimatedBell} from '../../../lib/components/Icons/AnimatedBell/AnimatedBell';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',
@@ -402,7 +402,8 @@ const SessionModal = () => {
                 <>
                   <JourneyButton
                     small
-                    animation={plusToCheck}
+                    AnimatedIcon={AnimatedPlusToCheck}
+                    fill={COLORS.WHITE}
                     onPress={togglePinned}
                     preVariant="secondary"
                     postVariant="primary"
@@ -442,10 +443,12 @@ const SessionModal = () => {
                 {(isPinned || isHost) && (
                   <>
                     <Spacer16 />
-                    <IconButton
-                      Icon={reminderEnabled ? BellFillIcon : BellIcon}
-                      // Toggling variant instead of active state for nicer UI
-                      variant={reminderEnabled ? 'primary' : 'secondary'}
+                    <AnimatedIconButton
+                      AnimatedIcon={AnimatedBell}
+                      fill={COLORS.WHITE}
+                      preVariant="secondary"
+                      postVariant="primary"
+                      active={reminderEnabled}
                       onPress={onToggleReminder}
                     />
                   </>

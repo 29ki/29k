@@ -14,7 +14,10 @@ import TextButton from './TextButton/TextButton';
 import RadioButton from './RadioButton/RadioButton';
 import CloseButton from './CloseButton/CloseButton';
 import AnimatedButton from './AnimatedButton';
-import plusToCheck from '../../../assets/animations/plus-to-checkmark-white.json';
+import AnimatedIconButton from './IconButton/AnimatedIconButton';
+import {AnimatedBell} from '../Icons/AnimatedBell/AnimatedBell';
+import {COLORS} from '../../../../../shared/src/constants/colors';
+import {AnimatedPlusToCheck} from '../Icons/AnimatedPlusToCheck/AnimatedPlusToCheck';
 
 const RowFullWidth = styled.View({
   flex: 1,
@@ -116,7 +119,8 @@ const ButtonList = () => {
       <Spacer16 />
       <RowFullWidth>
         <AnimatedButton
-          animation={plusToCheck}
+          AnimatedIcon={AnimatedPlusToCheck}
+          fill={COLORS.WHITE}
           preVariant="secondary"
           postVariant="primary"
           active={pressed}
@@ -125,7 +129,8 @@ const ButtonList = () => {
         </AnimatedButton>
         <Spacer16 />
         <AnimatedButton
-          animation={plusToCheck}
+          AnimatedIcon={AnimatedPlusToCheck}
+          fill={COLORS.WHITE}
           preVariant="secondary"
           postVariant="primary"
           active={pressed}
@@ -139,70 +144,86 @@ const ButtonList = () => {
   );
 };
 
-const IconButtonList = () => (
-  <>
-    <Body18>
-      <BodyBold>Icon buttons</BodyBold>
-    </Body18>
-    <RowFullWidth>
-      <Body16>Primary</Body16>
-      <Row>
-        <IconButton onPress={() => {}} Icon={PlusIcon} />
-        <Spacer16 />
-        <IconButton elevated onPress={() => {}} Icon={PlusIcon} />
-      </Row>
-    </RowFullWidth>
-    <Spacer16 />
-    <RowFullWidth>
-      <Body16>Secondary</Body16>
-      <Row>
-        <IconButton variant="secondary" onPress={() => {}} Icon={PlusIcon} />
-        <Spacer16 />
-        <IconButton
-          variant="secondary"
-          elevated
-          onPress={() => {}}
-          Icon={PlusIcon}
+const IconButtonList = () => {
+  const [pressed, setPressed] = useState(false);
+
+  return (
+    <>
+      <Body18>
+        <BodyBold>Icon buttons</BodyBold>
+      </Body18>
+      <RowFullWidth>
+        <Body16>Primary</Body16>
+        <Row>
+          <IconButton onPress={() => {}} Icon={PlusIcon} />
+          <Spacer16 />
+          <IconButton elevated onPress={() => {}} Icon={PlusIcon} />
+        </Row>
+      </RowFullWidth>
+      <Spacer16 />
+      <RowFullWidth>
+        <Body16>Secondary</Body16>
+        <Row>
+          <IconButton variant="secondary" onPress={() => {}} Icon={PlusIcon} />
+          <Spacer16 />
+          <IconButton
+            variant="secondary"
+            elevated
+            onPress={() => {}}
+            Icon={PlusIcon}
+          />
+        </Row>
+      </RowFullWidth>
+      <Spacer16 />
+      <RowFullWidth>
+        <Body16>Tertiary</Body16>
+        <Row>
+          <IconButton variant="tertiary" onPress={() => {}} Icon={PlusIcon} />
+          <Spacer16 />
+          <IconButton
+            variant="tertiary"
+            elevated
+            onPress={() => {}}
+            Icon={PlusIcon}
+          />
+        </Row>
+      </RowFullWidth>
+      <Spacer16 />
+      <RowFullWidth>
+        <Body16>Active and disabled</Body16>
+        <Row>
+          <IconButton onPress={() => {}} Icon={PlusIcon} active />
+          <Spacer16 />
+          <IconButton
+            elevated
+            variant="tertiary"
+            disabled
+            onPress={() => {}}
+            Icon={PlusIcon}
+          />
+        </Row>
+      </RowFullWidth>
+      <Spacer16 />
+      <RowFullWidth>
+        <Body16>Small</Body16>
+        <IconButton small onPress={() => {}} Icon={PlusIcon} />
+      </RowFullWidth>
+      <Spacer16 />
+      <RowFullWidth>
+        <Body16>Animated</Body16>
+        <AnimatedIconButton
+          AnimatedIcon={AnimatedBell}
+          preVariant="secondary"
+          postVariant="primary"
+          fill={COLORS.WHITE}
+          active={pressed}
+          onPress={() => setPressed(state => !state)}
         />
-      </Row>
-    </RowFullWidth>
-    <Spacer16 />
-    <RowFullWidth>
-      <Body16>Tertiary</Body16>
-      <Row>
-        <IconButton variant="tertiary" onPress={() => {}} Icon={PlusIcon} />
-        <Spacer16 />
-        <IconButton
-          variant="tertiary"
-          elevated
-          onPress={() => {}}
-          Icon={PlusIcon}
-        />
-      </Row>
-    </RowFullWidth>
-    <Spacer16 />
-    <RowFullWidth>
-      <Body16>Active and disabled</Body16>
-      <Row>
-        <IconButton onPress={() => {}} Icon={PlusIcon} active />
-        <Spacer16 />
-        <IconButton
-          elevated
-          variant="tertiary"
-          disabled
-          onPress={() => {}}
-          Icon={PlusIcon}
-        />
-      </Row>
-    </RowFullWidth>
-    <Spacer16 />
-    <RowFullWidth>
-      <Body16>Small</Body16>
-      <IconButton small onPress={() => {}} Icon={PlusIcon} />
-    </RowFullWidth>
-    <Spacer16 />
-  </>
-);
+      </RowFullWidth>
+      <Spacer16 />
+    </>
+  );
+};
 
 export const AllButtons = () => (
   <ScreenWrapper>
