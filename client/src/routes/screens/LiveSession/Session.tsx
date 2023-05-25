@@ -49,7 +49,7 @@ import {
   FilmCameraIcon,
   FilmCameraOffIcon,
   HangUpIcon,
-  HeartIcon,
+  HeartFillIcon,
   MicrophoneIcon,
   MicrophoneOffIcon,
 } from '../../../lib/components/Icons';
@@ -60,6 +60,8 @@ import useMuteAudio from '../../../lib/session/hooks/useMuteAudio';
 import ContentWrapper from '../../../lib/session/components/ContentWrapper/ContentWrapper';
 import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
 import SessionNotifications from '../../../lib/session/components/Notifications/SessionNotifications';
+import useSendReaction from '../../../lib/session/hooks/useSendReaction';
+import SessionReactions from '../../../lib/session/components/Reactions/SessionReactions';
 
 const ExerciseControl = styled(ContentControls)({
   position: 'absolute',
@@ -110,6 +112,19 @@ const Notifications = styled(SessionNotifications)({
   justifyContent: 'flex-end',
 });
 
+const Reactions = styled(SessionReactions)({
+  position: 'absolute',
+  minHeight: 1000,
+  left: 0,
+  right: 0,
+  bottom: '100%',
+  padding: SPACINGS.EIGHT,
+  paddingBottom: SPACINGS.TWENTYFOUR,
+  overflow: 'hidden',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+});
+
 const Session: React.FC = () => {
   const {
     setUserData,
@@ -117,7 +132,6 @@ const Session: React.FC = () => {
     toggleVideo,
     setSubscribeToAllTracks,
     leaveMeeting,
-    sendMessage,
   } = useContext(DailyContext);
   const {
     params: {session},
@@ -149,6 +163,7 @@ const Session: React.FC = () => {
     useCheckPermissions();
   const user = useUser();
   const addUserEvent = useAddUserEvent();
+  const sendReaction = useSendReaction();
   const {navigateToIndex, setPlaying} = useUpdateSessionState(session.id);
   const {conditionallyMuteParticipants} = useMuteAudio();
 
@@ -202,8 +217,8 @@ const Session: React.FC = () => {
   }, [sessionSlideState?.index]);
 
   const onHeartPress = useCallback(() => {
-    sendMessage('❤️');
-  }, [sendMessage]);
+    sendReaction('heart');
+  }, [sendReaction]);
 
   const toggleAudioPress = useCallback(() => {
     checkMicrophonePermissions(() => {
@@ -318,10 +333,12 @@ const Session: React.FC = () => {
       <Spacer16 />
       <SessionControls>
         <Notifications />
+        <Reactions />
         <IconButton
           onPress={onHeartPress}
           variant="secondary"
-          Icon={HeartIcon}
+          Icon={HeartFillIcon}
+          fill={COLORS.HEART}
         />
         <Spacer12 />
         <IconButton
