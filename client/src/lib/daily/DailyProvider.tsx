@@ -27,7 +27,7 @@ export type DailyProviderTypes = {
   setUserName: (userName: string) => Promise<void>;
   setUserData: (userData: {[key: string]: unknown}) => Promise<void>;
   setSubscribeToAllTracks: () => void;
-  sendMessage: (message: string) => void;
+  sendMessage: (message: object) => void;
 };
 
 export const DailyContext = createContext<DailyProviderTypes>({
@@ -204,14 +204,11 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   );
 
   const sendMessage = useCallback(
-    (message: string) => {
+    (message: object) => {
       if (!daily) {
         return;
       }
-      daily.sendAppMessage({
-        message,
-        userData: daily.participants()?.local?.userData,
-      });
+      daily.sendAppMessage(message);
     },
     [daily],
   );
