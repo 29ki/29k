@@ -33,6 +33,7 @@ export * from './ForwardCircle/ForwardCircle';
 export * from './Friends/Friends';
 export * from './HangUp/HangUp';
 export * from './Heart/Heart';
+export * from './HeartFill/HeartFill';
 export * from './Helplines/Helplines';
 export * from './Home/Home';
 export * from './HomeFill/HomeFill';

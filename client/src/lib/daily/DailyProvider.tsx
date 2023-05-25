@@ -27,6 +27,7 @@ export type DailyProviderTypes = {
   setUserName: (userName: string) => Promise<void>;
   setUserData: (userData: {[key: string]: unknown}) => Promise<void>;
   setSubscribeToAllTracks: () => void;
+  sendMessage: (message: object) => void;
 };
 
 export const DailyContext = createContext<DailyProviderTypes>({
@@ -41,6 +42,7 @@ export const DailyContext = createContext<DailyProviderTypes>({
   setUserName: () => Promise.resolve(),
   setUserData: () => Promise.resolve(),
   setSubscribeToAllTracks: () => {},
+  sendMessage: () => {},
 });
 
 const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
@@ -201,6 +203,16 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     [daily],
   );
 
+  const sendMessage = useCallback(
+    (message: object) => {
+      if (!daily) {
+        return;
+      }
+      daily.sendAppMessage(message);
+    },
+    [daily],
+  );
+
   useEffect(() => {
     eventHandlers.forEach(([event, handler]) => {
       daily.on(event, handler);
@@ -229,6 +241,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
         toggleAudio,
         toggleVideo,
         muteAll,
+        sendMessage,
         setUserName,
         setUserData,
         setSubscribeToAllTracks,
