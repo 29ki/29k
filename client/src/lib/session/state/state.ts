@@ -13,8 +13,11 @@ export type Notification = {
   letter?: string;
   Icon?: IconType;
   image?: string;
-  timeVisible?: number;
-  visible?: boolean;
+};
+
+export type Reaction = {
+  type: 'heart';
+  name?: string;
 };
 
 type State = {
@@ -24,6 +27,7 @@ type State = {
   exercise: Exercise | null;
   currentContentReachedEnd: boolean;
   notifications: Notification[];
+  reactions: Reaction[];
 };
 
 type Actions = {
@@ -34,6 +38,7 @@ type Actions = {
   setExercise: (exercise: Exercise) => void;
   setCurrentContentReachedEnd: (currentContentReachedEnd: boolean) => void;
   addNotification: (notification: Notification) => void;
+  addReaction: (reaction: Reaction) => void;
   reset: () => void;
 };
 
@@ -44,6 +49,7 @@ const initialState: State = {
   exercise: null,
   currentContentReachedEnd: false,
   notifications: [],
+  reactions: [],
 };
 
 const useSessionState = create<State & Actions>()((set, get) => ({
@@ -66,6 +72,8 @@ const useSessionState = create<State & Actions>()((set, get) => ({
     set({currentContentReachedEnd}),
   addNotification: notification =>
     set(state => ({notifications: [...state.notifications, notification]})),
+  addReaction: reaction =>
+    set(state => ({reactions: [...state.reactions, reaction]})),
   reset: () => set(initialState),
 }));
 
