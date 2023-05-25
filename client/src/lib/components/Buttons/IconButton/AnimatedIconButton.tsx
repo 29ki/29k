@@ -77,6 +77,7 @@ const AnimatedIconButton: React.FC<IconButtonProps> = ({
         progress={allreadyActive ? 1 : undefined}
         loop={false}
         fill={fill}
+        autoPlay={false}
       />
     </StyledIconButton>
   );

@@ -92,6 +92,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
           progress={allreadyActive ? 1 : undefined}
           fill={fill}
           loop={false}
+          autoPlay={false}
         />
       </AnimationWrapper>
       <ButtonText

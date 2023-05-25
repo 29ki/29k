@@ -9,8 +9,8 @@ import IconButton from './IconButton/IconButton';
 import {HomeIcon} from '../Icons/Home/Home';
 import {Body16, Body18, BodyBold} from '../Typography/Body/Body';
 import {PlusIcon} from '../Icons';
-import {AnimatedPlusToCheck} from '../Icons';
-import {AnimatedBell} from '../Icons';
+import {PlusToCheckIconAnimated} from '../Icons';
+import {BellIconAnimated} from '../Icons';
 import ToggleButton from '../../session/components/HostNotes/ToggleButton';
 import TextButton from './TextButton/TextButton';
 import RadioButton from './RadioButton/RadioButton';
@@ -119,7 +119,7 @@ const ButtonList = () => {
       <Spacer16 />
       <RowFullWidth>
         <AnimatedButton
-          AnimatedIcon={AnimatedPlusToCheck}
+          AnimatedIcon={PlusToCheckIconAnimated}
           fill={COLORS.WHITE}
           variant={pressed ? 'primary' : 'secondary'}
           active={pressed}
@@ -128,7 +128,7 @@ const ButtonList = () => {
         </AnimatedButton>
         <Spacer16 />
         <AnimatedButton
-          AnimatedIcon={AnimatedPlusToCheck}
+          AnimatedIcon={PlusToCheckIconAnimated}
           fill={COLORS.WHITE}
           variant={pressed ? 'primary' : 'secondary'}
           active={pressed}
@@ -210,7 +210,7 @@ const IconButtonList = () => {
       <RowFullWidth>
         <Body16>Animated</Body16>
         <AnimatedIconButton
-          AnimatedIcon={AnimatedBell}
+          AnimatedIcon={BellIconAnimated}
           variant={pressed ? 'primary' : 'secondary'}
           fill={COLORS.WHITE}
           active={pressed}

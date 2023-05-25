@@ -66,5 +66,4 @@ export * from './StarFill/StarFill';
 export * from './SunUp/SunUp';
 export * from './SunUpFill/SunUpFill';
 export * from './Wand/Wand';
-export * from './AnimatedBell/AnimatedBell';
-export * from './AnimatedPlusToCheck/AnimatedPlusToCheck';
+export * from './PlusToCheckAnimated/PlusToCheckAnimated';

@@ -25,8 +25,8 @@ import {
   CommunityIcon,
   FriendsIcon,
   ShareIcon,
-  AnimatedBell,
-  AnimatedPlusToCheck,
+  BellIconAnimated,
+  PlusToCheckIconAnimated,
 } from '../../../lib/components/Icons';
 import Image from '../../../lib/components/Image/Image';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
@@ -402,7 +402,7 @@ const SessionModal = () => {
                 <>
                   <JourneyButton
                     small
-                    AnimatedIcon={AnimatedPlusToCheck}
+                    AnimatedIcon={PlusToCheckIconAnimated}
                     fill={COLORS.WHITE}
                     onPress={togglePinned}
                     variant={isPinned ? 'primary' : 'secondary'}
@@ -443,7 +443,7 @@ const SessionModal = () => {
                   <>
                     <Spacer16 />
                     <AnimatedIconButton
-                      AnimatedIcon={AnimatedBell}
+                      AnimatedIcon={BellIconAnimated}
                       fill={COLORS.WHITE}
                       variant={reminderEnabled ? 'primary' : 'secondary'}
                       active={reminderEnabled}

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {forwardRef, useMemo} from 'react';
 import {Path} from 'react-native-svg';
+import AnimatedLottieView from 'lottie-react-native';
 import {IconType} from '..';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import Icon from '../Icon';
+import AnimatedIcon, {AnimatedIconProps} from '../AnimatedIcon';
+import animation from './bell-lottie.json';
 
 export const BellIcon: IconType = ({fill = COLORS.BLACK}) => (
   <Icon>
@@ -12,3 +15,28 @@ export const BellIcon: IconType = ({fill = COLORS.BLACK}) => (
     />
   </Icon>
 );
+
+type BellAnimatedProps = Omit<AnimatedIconProps, 'source'>;
+
+export const BellIconAnimated: React.FC<BellAnimatedProps> = forwardRef<
+  AnimatedLottieView,
+  BellAnimatedProps
+>(({fill = COLORS.BLACK, loop = true, autoPlay = true, ...props}, ref) => {
+  const colorFilters = useMemo(
+    () => [
+      {keypath: 'Layer 1', color: fill},
+      {keypath: 'Layer 2', color: fill},
+    ],
+    [fill],
+  );
+  return (
+    <AnimatedIcon
+      colorFilters={colorFilters}
+      ref={ref}
+      source={animation}
+      loop={loop}
+      autoPlay={autoPlay}
+      {...props}
+    />
+  );
+});
