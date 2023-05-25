@@ -336,13 +336,12 @@ const SessionModal = () => {
                 <TitleContainer>
                   <Display24>{formatContentName(exercise)}</Display24>
                   <Spacer4 />
-                  <TouchableOpacity onPress={onHostPress}>
-                    <Byline
-                      pictureURL={session.hostProfile?.photoURL}
-                      name={session.hostProfile?.displayName}
-                      duration={exercise?.duration}
-                    />
-                  </TouchableOpacity>
+                  <Byline
+                    pictureURL={session.hostProfile?.photoURL}
+                    name={session.hostProfile?.displayName}
+                    duration={exercise?.duration}
+                    onPress={onHostPress}
+                  />
                 </TitleContainer>
                 <Spacer32 />
                 <ImageContainer

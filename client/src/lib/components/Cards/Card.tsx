@@ -183,13 +183,11 @@ export const Card: React.FC<CardProps> = ({
             <Header>
               {title && <Display20 numberOfLines={2}>{title}</Display20>}
               <Spacer4 />
-              {onHostPress ? (
-                <TouchableOpacity onPress={onHostPress}>
-                  <Byline pictureURL={hostPictureURL} name={hostName} />
-                </TouchableOpacity>
-              ) : (
-                <Byline pictureURL={hostPictureURL} name={hostName} />
-              )}
+              <Byline
+                pictureURL={hostPictureURL}
+                name={hostName}
+                onPress={onHostPress}
+              />
             </Header>
             <Footer>{children}</Footer>
           </LeftCol>

@@ -43,7 +43,6 @@ import {ExerciseSlideSharingSlide} from '../../../../../shared/src/types/generat
 import useUserProfile from '../../../lib/user/hooks/useUserProfile';
 import MyPostCard from '../../../lib/session/components/Posts/MyPostCard';
 import useUser from '../../../lib/user/hooks/useUser';
-import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
 import useGetFeedbackBySessionId from '../../../lib/user/hooks/useGetFeedbackBySessionId';
 import FeedbackThumb from './components/FeedbackThumb';
 import FeedbackComment from './components/FeedbackComment';
@@ -181,20 +180,19 @@ const CompletedSessionModal = () => {
             <TitleContainer>
               <Display24>{formatContentName(exercise)}</Display24>
               <Spacer4 />
-              <TouchableOpacity onPress={onHostPress}>
-                <Byline
-                  pictureURL={
-                    hostProfile?.photoURL
-                      ? hostProfile.photoURL
-                      : exercise.card?.host?.photoURL
-                  }
-                  name={
-                    hostProfile?.displayName
-                      ? hostProfile.displayName
-                      : exercise.card?.host?.displayName
-                  }
-                />
-              </TouchableOpacity>
+              <Byline
+                pictureURL={
+                  hostProfile?.photoURL
+                    ? hostProfile.photoURL
+                    : exercise.card?.host?.photoURL
+                }
+                name={
+                  hostProfile?.displayName
+                    ? hostProfile.displayName
+                    : exercise.card?.host?.displayName
+                }
+                onPress={onHostPress}
+              />
             </TitleContainer>
             <Spacer32 />
             <GraphicsWrapper>
