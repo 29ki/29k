@@ -14,7 +14,7 @@ import {Reaction as ReactionProps} from '../../state/state';
 import {HeartFillIcon} from '../../../components/Icons';
 import {Body12} from '../../../components/Typography/Body/Body';
 
-const {height} = Dimensions.get('window');
+const {height: windowHeight} = Dimensions.get('window');
 
 const Content = styled(Animated.View)({
   position: 'absolute',
@@ -34,30 +34,41 @@ const Name = styled(Body12)({
 
 const Reaction: React.FC<ReactionProps> = ({type, name}) => {
   const scale = useSharedValue(0);
+  const translateX = useSharedValue(0);
   const translateY = useSharedValue(0);
   const opacity = useSharedValue(1);
 
   useEffect(() => {
     scale.value = withTiming(Math.random() * 0.2 + 0.8, {
-      duration: Math.random() * 3000 + 1000,
+      duration: Math.random() * 4000 + 1000,
       easing: Easing.bezier(0.25, 0.1, 0.25, 1),
     });
 
-    translateY.value = withTiming(-height / 4, {
-      duration: Math.random() * 3000 + 1000,
+    translateX.value = withTiming(Math.random() * 100 - 50, {
+      duration: 3000,
+      easing: Easing.bezier(0.25, 0.1, 0.25, 1),
+    });
+
+    translateY.value = withTiming(-(windowHeight * 0.6), {
+      duration: Math.random() * 4000 + 1000,
       easing: Easing.bezier(0.25, 0.1, 0.25, 1),
     });
 
     opacity.value = withDelay(
-      1500,
+      Math.random() * 2000 + 1000,
       withTiming(0, {
         duration: 1500,
+        easing: Easing.bezier(0.25, 0.1, 0.25, 1),
       }),
     );
-  }, [scale, translateY, opacity]);
+  }, [scale, translateY, translateX, opacity]);
 
   const style = useAnimatedStyle(() => ({
-    transform: [{translateY: translateY.value}, {scale: scale.value}],
+    transform: [
+      {translateY: translateY.value},
+      {translateX: translateX.value},
+      {scale: scale.value},
+    ],
     opacity: opacity.value,
   }));
 
