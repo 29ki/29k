@@ -1,10 +1,10 @@
 {
   "en": {
-    "edit": "Edit",
     "done": "Save",
+    "shareMessage": "{{link}} Session code {{code}}",
     "interested": "Interested",
-    "journeyButton": "My journey",
-    "deleteButton": "Delete session",
+    "join": "Join",
+    "edit": "Edit",
     "delete": {
       "header": "Delete session?",
       "text": "Are you sure you want to delete the session?",
@@ -13,6 +13,7 @@
         "confirm": "Delete"
       }
     },
+    "journeyButton": "My journey",
     "selectType": {
       "title": "Session with...",
       "public": {
@@ -25,9 +26,8 @@
         "title": "Myself"
       }
     },
-    "join": "Join",
-    "shareMessage": "{{link}} Session code {{code}}",
-    "description": "Add to calendar or share invite"
+    "description": "Add to calendar or share invite",
+    "deleteButton": "Delete session"
   },
   "pt": {
     "edit": "Alterar",
@@ -58,9 +58,11 @@
     }
   },
   "sv": {
-    "edit": "Ändra",
     "done": "Klar",
-    "deleteButton": "Ta bort session",
+    "shareMessage": "{{link}} Session code {{code}}",
+    "interested": "Intresserad",
+    "join": "Gå med",
+    "edit": "Ändra",
     "delete": {
       "header": "Ta bort session?",
       "text": "Är du säker på att du vill ta bort sessionen?",
@@ -69,6 +71,7 @@
         "confirm": "Ta bort"
       }
     },
+    "journeyButton": "Min resa",
     "selectType": {
       "title": "Session för...",
       "public": {
@@ -81,7 +84,8 @@
         "title": "Mig själv"
       }
     },
-    "join": "Gå med"
+    "description": "Lägg till i kalender eller dela inbjudan",
+    "deleteButton": "Ta bort session"
   },
   "es": {}
 }
