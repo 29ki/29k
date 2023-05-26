@@ -22,13 +22,11 @@ import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
 import {
-  BellFillIcon,
-  BellIcon,
-  CheckIcon,
   CommunityIcon,
   FriendsIcon,
-  PlusIcon,
   ShareIcon,
+  BellIconAnimated,
+  PlusToCheckIconAnimated,
 } from '../../../lib/components/Icons';
 import Image from '../../../lib/components/Image/Image';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
@@ -73,6 +71,8 @@ import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSes
 import Tag from '../../../lib/components/Tag/Tag';
 import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
 import Interested from '../../../lib/components/Interested/Interested';
+import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
+import AnimatedIconButton from '../../../lib/components/Buttons/IconButton/AnimatedIconButton';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',
@@ -127,7 +127,7 @@ const DeleteButton = styled(Button)({
   backgroundColor: COLORS.DELETE,
 });
 
-const JourneyButton = styled(Button)({
+const JourneyButton = styled(AnimatedButton)({
   alignSelf: 'flex-start',
 });
 
@@ -399,22 +399,16 @@ const SessionModal = () => {
 
               {!isHost && (
                 <>
-                  {isPinned ? (
-                    <JourneyButton
-                      small
-                      onPress={togglePinned}
-                      LeftIcon={CheckIcon}>
-                      {t('journeyButton')}
-                    </JourneyButton>
-                  ) : (
-                    <JourneyButton
-                      small
-                      variant="secondary"
-                      onPress={togglePinned}
-                      LeftIcon={PlusIcon}>
-                      {t('journeyButton')}
-                    </JourneyButton>
-                  )}
+                  <JourneyButton
+                    small
+                    AnimatedIcon={PlusToCheckIconAnimated}
+                    fill={COLORS.WHITE}
+                    onPress={togglePinned}
+                    variant={isPinned ? 'primary' : 'secondary'}
+                    active={isPinned}>
+                    {t('journeyButton')}
+                  </JourneyButton>
+
                   <Spacer32 />
                 </>
               )}
@@ -447,10 +441,11 @@ const SessionModal = () => {
                 {(isPinned || isHost) && (
                   <>
                     <Spacer16 />
-                    <IconButton
-                      Icon={reminderEnabled ? BellFillIcon : BellIcon}
-                      // Toggling variant instead of active state for nicer UI
+                    <AnimatedIconButton
+                      AnimatedIcon={BellIconAnimated}
+                      fill={COLORS.WHITE}
                       variant={reminderEnabled ? 'primary' : 'secondary'}
+                      active={reminderEnabled}
                       onPress={onToggleReminder}
                     />
                   </>
