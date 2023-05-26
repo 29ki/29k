@@ -16,6 +16,14 @@
     "submit": "Enviar",
     "thankYou__text": "Muito\nobrigada\npelo teu\ncontributo!"
   },
-  "sv": {},
+  "sv": {
+    "title": "En sak till...",
+    "question": "Var den här sessionen meningsfull?",
+    "comments": "Skriv en kommentar:",
+    "commentsPlaceholder": "",
+    "note": "Din kommentar visas anonymt för oss på Aware. ",
+    "submit": "Skicka",
+    "thankYou__text": "Tack så\nmycket\nför din \nfeedback!"
+  },
   "es": {}
 }
