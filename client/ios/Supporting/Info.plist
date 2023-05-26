@@ -60,6 +60,8 @@
 	<string>This allows us to add sessions to your calendar.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This allows us to take a profile picture of you. It also allows us to stream your video during video sharing.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This allows you to record videos with audio for your sharings.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This allows you to upload a profile picture of you from your library</string>
 	<key>NSContactsUsageDescription</key>

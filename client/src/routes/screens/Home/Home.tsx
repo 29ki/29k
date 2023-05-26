@@ -5,6 +5,7 @@ import {RefreshControl, SectionList} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+
 import {
   useIsFocused,
   useNavigation,
