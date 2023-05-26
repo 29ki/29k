@@ -40,22 +40,22 @@ const Reaction: React.FC<ReactionProps> = ({type, name}) => {
 
   useEffect(() => {
     scale.value = withTiming(Math.random() * 0.2 + 0.8, {
-      duration: Math.random() * 4000 + 1000,
+      duration: Math.random() * 6000 + 2000,
       easing: Easing.bezier(0.25, 0.1, 0.25, 1),
     });
 
     translateX.value = withTiming(Math.random() * 100 - 50, {
-      duration: 3000,
+      duration: Math.random() * 6000 + 2000,
       easing: Easing.bezier(0.25, 0.1, 0.25, 1),
     });
 
     translateY.value = withTiming(-(windowHeight * 0.6), {
-      duration: Math.random() * 4000 + 1000,
+      duration: Math.random() * 6000 + 2000,
       easing: Easing.bezier(0.25, 0.1, 0.25, 1),
     });
 
     opacity.value = withDelay(
-      Math.random() * 2000 + 1000,
+      Math.random() * 1000 + 2500,
       withTiming(0, {
         duration: 1500,
         easing: Easing.bezier(0.25, 0.1, 0.25, 1),
