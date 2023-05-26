@@ -4,6 +4,7 @@
       "header": "Success!",
       "text": "You're now able to create and host open sessions for every Aware user to join!"
     },
+    "or": "or",
     "enterCode": "Enter your code",
     "activateButton": "Activate settings",
     "haveCodeButton": "I have a code",
@@ -15,14 +16,14 @@
       "verificationFailed": "Incorrect code, try again."
     },
     "text": "Request a code to create public sessions",
-    "requestCodeButton": "Request a code",
-    "or": "or"
+    "requestCodeButton": "Request a code"
   },
   "pt": {
     "success": {
       "header": "Sucesso!",
       "text": "Já podes criar e moderar sessões para todos os utilizadores da Aware FJN!"
     },
+    "or": "ou",
     "enterCode": "Introduz o código",
     "activateButton": "Ativar configurações",
     "haveCodeButton": "Tenho um código",
@@ -34,27 +35,26 @@
       "verificationFailed": "Validação falhou."
     },
     "text": "Como moderador oficial da Aware FJN pode registar-te aqui para criar sessões públicas.",
-    "requestCodeButton": "Pedir um código",
-    "or": "ou"
+    "requestCodeButton": "Pedir um código"
   },
   "sv": {
     "success": {
-      "header": "Success!",
-      "text": "You're now able to create and host sessions open for every Aware user to join!"
+      "header": "Du lyckades!",
+      "text": "Du kan nu skapa sessioner öppna för alla användare i Aware!"
     },
+    "or": "eller",
     "enterCode": "Skriv in din kod",
     "activateButton": "Aktivera inställningar",
     "haveCodeButton": "Jag har en kod",
     "requestComplete": "Vi har tagit emot din begäran. När den är godkänd får du ett mail med en verifikationskod. ",
     "errors": {
       "verificationNotFound": "Vi kunde inte hitta någon begäran från denna användare.",
-      "verificationDeclined": "Begäran godkändes inte",
+      "verificationDeclined": "Begäran godkändes inte.",
       "verificationAlreadyClaimed": "Koden har redan använts.",
       "verificationFailed": "Ogiltig kod, försök igen."
     },
     "text": "Du behöver registrera dig för att kunna skapa publika sessioner.",
-    "requestCodeButton": "Begär kod",
-    "or": "eller"
+    "requestCodeButton": "Begär kod"
   },
   "es": {}
 }
