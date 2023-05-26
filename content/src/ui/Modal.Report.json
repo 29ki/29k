@@ -17,6 +17,14 @@
     "confirmButton": "Enviar relatório",
     "confirmationText": "Obrigada por nos contactares 🌱"
   },
-  "sv": {},
+  "sv": {
+    "title": "Anmäl",
+    "reportHeading": "Vad vill du anmäla?",
+    "reportPlaceholder": "Berätta vad du tycker så att vi kan bli bättre",
+    "emailHeading": "Svara till: ",
+    "emailPlaceholder": "Skriv den email du vill att vi skickar svar till.",
+    "confirmButton": "Skicka anmälan",
+    "confirmationText": "Tack för att du kontaktar oss 🌱"
+  },
   "es": {}
 }
