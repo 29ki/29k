@@ -199,7 +199,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
             <Interested
               compact
               reminder={reminderEnabled}
-              count={session.interestedCount}
+              count={isHost ? session.interestedCount : undefined}
             />
           </Row>
         </SessionWalletCard>
