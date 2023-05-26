@@ -17,11 +17,11 @@
   },
   "sv": {
     "header": "Din reflektion",
-    "description": "Vem kan se din delning?",
+    "description": "Vem kan se din reflektion?",
     "publicLabel": "Alla",
     "onlyMeLabel": "Bara jag",
-    "submitCta": "Posta",
-    "anonymousLabel": "Posta anonymnt"
+    "submitCta": "Skicka",
+    "anonymousLabel": "Skicka anonymt"
   },
   "es": {}
 }
