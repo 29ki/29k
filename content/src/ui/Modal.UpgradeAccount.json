@@ -12,10 +12,10 @@
     "email": "Email"
   },
   "sv": {
-    "title": "För att hålla i publika sessioner behöver du skapa ett konto.",
+    "title": "För att hålla i sessioner för andra behöver du skapa ett konto.",
     "button": "Uppgradera",
     "password": "Lösenord",
-    "email": "Epost"
+    "email": "Email"
   },
   "es": {}
 }
