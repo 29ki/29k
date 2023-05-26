@@ -36,12 +36,13 @@ const AnimatedIconButton: React.FC<IconButtonProps> = ({
 }) => {
   const lottieRef = useRef<AnimatedLottieView>(null);
   const [allreadyActive, setAllreadyActive] = useState(active);
+  const [pressed, setPressed] = useState(false);
 
   useEffect(() => {
-    if (!allreadyActive && active) {
+    if (!pressed && !allreadyActive && active) {
       lottieRef.current?.play();
     }
-  }, [allreadyActive, active]);
+  }, [allreadyActive, active, pressed]);
 
   const animatedPress = useCallback(() => {
     if (!active) {
@@ -50,6 +51,7 @@ const AnimatedIconButton: React.FC<IconButtonProps> = ({
       setAllreadyActive(false);
       lottieRef.current?.reset();
     }
+    setPressed(true);
     onPress();
   }, [onPress, active, setAllreadyActive]);
 
