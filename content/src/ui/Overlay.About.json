@@ -18,8 +18,12 @@
   "sv": {
     "actions": {
       "signIn": "Logga in",
-      "language": "Språk"
-    }
+      "language": "Språk",
+      "developer": "Utvecklare"
+    },
+    "settings": "Inställningar",
+    "community": "Community",
+    "about": "Om Aware"
   },
   "es": {}
 }
