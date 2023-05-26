@@ -25,6 +25,18 @@
     "heading": "Salva o planeta e sente-te bem durante essa jornada",
     "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1672393909/Temp/about_rgmk8x.jpg"
   },
-  "sv": {},
+  "sv": {
+    "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1681373888/Images/about_t60xet.jpg",
+    "heading": "Rädda planeten och må bra på vägen",
+    "preamble__markdown": "Aware är en ny gratis app från icke vinst-drivande stiftelsen 29k. Här hittar du sessioner för psykisk hälsa mentalt välmående och inre utveckling. Du kan göra sessioner live med en värd tillsammans med vänner eller andra, eller på egen hand. Allt för att öka hållbara beteenden för både människor och planeten.",
+    "body__markdown": "I Aware-appen kan du:\n\n* Få stöd för psykisk hälsa, välmående och inre utveckling för hållbara människor och en hållbar planet.\n* Gå med i öppna live-sessioner med ackrediterade värdar (psykologer eller tränade volontärer). \n* Bjud in din community, vänner eller kolleger och gör en session tillsammans i appen eller runt köksbordet.\n* Göra sessioner på egen hand.\n* Bli inspirerad av andras reflektioner – och dela dina egna. \n\nAwares innehåll är väl förankrat i psykologisk forskning om att hantera livet både när det går upp och ner, må bra och trivas. \n\nVi är en icke vinstdrivande stiftelse som brinner för att göra att den fantastiska kunskapen om psykisk hälsa. beteendeförändring, välmående och inre utveckling tillgänglig för alla.\n\n**Gå med i vår community** i **[Slack](https://join.slack.com/t/29kcommunity/shared_invite/zt-1kedro4zn-wO0yLixyvVyxdukm0viiOA)** eller skicka **[epost ](mailto:hello@29k.org)**för att:\n\n* Rapportera buggar.\n* Föreslå förbättringar.\n* Dela ider om nytt innehåll eller nya funktioner.\n* Bli volontär och hålla i sessioner för alla.",
+    "actions": {
+      "contact": "Hör av dig ",
+      "publicHostAccess": "Vara värd för öppna sessioner",
+      "safetyToolkit": "Trygghetsfunktioner",
+      "privacyNotice": "Integritet",
+      "privacyNoticeUrl": "https://wiki.29k.org/aware-privacy-notice"
+    }
+  },
   "es": {}
 }
