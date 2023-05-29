@@ -2440,10 +2440,10 @@
   resolved "https://registry.yarnpkg.com/@webpack-cli/serve/-/serve-1.7.0.tgz#e1993689ac42d2b16e9194376cfb6753f6254db1"
   integrity sha512-oxnCNGj88fL+xzV+dacXs44HcDwf1ovs3AuEzvP7mqXw7fQntqIhQ1BRmynh4qEKQSSSRSWVyXRjmTbZIX9V2Q==
 
-"@xmldom/xmldom@0.8.6":
-  version "0.8.6"
-  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.8.6.tgz#8a1524eb5bd5e965c1e3735476f0262469f71440"
-  integrity sha512-uRjjusqpoqfmRkTaNuLJ2VohVr67Q5YwDATW3VU7PfzTj6IRaihGrYI7zckGZjxQPBIp63nfvJbM+Yu5ICh0Bg==
+"@xmldom/xmldom@0.8.7":
+  version "0.8.7"
+  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.8.7.tgz#8b1e39c547013941974d83ad5e9cf5042071a9a0"
+  integrity sha512-sI1Ly2cODlWStkINzqGrZ8K6n+MTSbAeQnAipGyL+KZCXuHaRlj2gyyy8B/9MvsFFqN7XHryQnB2QwhzvJXovg==
 
 "@xmldom/xmldom@~0.7.0":
   version "0.7.7"
@@ -2597,16 +2597,16 @@ anymatch@^3.0.3:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-appcenter-cli@^2.13.7:
-  version "2.13.7"
-  resolved "https://registry.yarnpkg.com/appcenter-cli/-/appcenter-cli-2.13.7.tgz#bee1673fa3a0f8e121b9a69c8a43d35eeb7fa666"
-  integrity sha512-SUep94TrWf40/uRX9o70+H/fAOprpMS09MX8MRrSM8WG9PuzXQh+ipZCZcFPB5HTSgA5YJB7aXVFU639U49tEA==
+appcenter-cli@^2.13.8:
+  version "2.13.8"
+  resolved "https://registry.yarnpkg.com/appcenter-cli/-/appcenter-cli-2.13.8.tgz#3d67f4cb683c90d6b6652bf5df2181190df91efc"
+  integrity sha512-I+8uDLFAUaxZyB2mDEVeWxnjtBnmKHKS+ECrM8/uc2pDHRbipsUs8O54KuhPE/J6UdycyVhAc+5YDhnwzZXYWg==
   dependencies:
     "@azure/storage-blob" "^12.14.0"
-    "@xmldom/xmldom" "0.8.6"
+    "@xmldom/xmldom" "0.8.7"
     abort-controller "3.0.0"
     appcenter-file-upload-client "0.1.0"
-    appcenter-file-upload-client-node "^1.2.4"
+    appcenter-file-upload-client-node "^1.2.10"
     bplist "0.0.4"
     chalk "4.1.2"
     cli-spinner "0.2.10"
@@ -2652,10 +2652,10 @@ appcenter-cli@^2.13.7:
     xml2js "^0.5.0"
     yazl "2.5.1"
 
-appcenter-file-upload-client-node@^1.2.4:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/appcenter-file-upload-client-node/-/appcenter-file-upload-client-node-1.2.6.tgz#4301fc0f9892de86036382cab1ca76fa5adc2598"
-  integrity sha512-TaM+YamZD5qEfPakSedoVMbUnabPuftzq/GCUR3NKkZf7ZVbZ9RVkL/zqUmLD+FbdspX9V7k60+wjw/CNmOQgQ==
+appcenter-file-upload-client-node@^1.2.10:
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/appcenter-file-upload-client-node/-/appcenter-file-upload-client-node-1.2.10.tgz#d01674724b80e3a2830ee91315d26376b17b7ab8"
+  integrity sha512-+UY5L6VvDRznrZg/YbnWvCcLFuaQ72lvm1c8pG8VsLGjPwuXmarak8W7Rkt66nBnEOd2twCct2OX3+00LYgFfA==
   dependencies:
     abort-controller "3.0.0"
     node-fetch "~2.6.7"
