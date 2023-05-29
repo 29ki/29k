@@ -47,7 +47,7 @@
     "lodash.throttle": "^4.1.1",
     "lottie-ios": "3.4.4",
     "lottie-react-native": "^5.1.6",
-    "posthog-react-native": "^2.7.0",
+    "posthog-react-native": "^2.7.1",
     "ramda": "^0.29.0",
     "react": "18.2.0",
     "react-i18next": "^12.3.1",
