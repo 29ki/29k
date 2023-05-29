@@ -17,7 +17,7 @@
     "actions": {
       "signIn": "Sign in",
       "signOut": "Sign out",
-      "notifications": "Automatic reminders",
+      "notifications": "Reminders",
       "deleteData": "Delete my data",
       "language": "Language"
     },

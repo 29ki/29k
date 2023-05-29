@@ -1,0 +1,44 @@
+{
+  "en": {
+    "title": "Reminders",
+    "actions": {
+      "sessionReminders": "Session reminders",
+      "practiceReminders": "Practice reminders"
+    },
+    "sessionRemindersText": "Reminds you about upcoming sessions 10 minutes before they start.",
+    "weekday": "Weekday",
+    "time": "Time",
+    "intervals": {
+      "everyDay": "Every day",
+      "monday": "Monday",
+      "tuseday": "Tuseday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    }
+  },
+  "pt": {},
+  "sv": {
+    "title": "Notiser",
+    "actions": {
+      "sessionReminders": "Notiser sessioner",
+      "practiceReminders": "Notiser övning"
+    },
+    "sessionRemindersText": "Påminner dig om kommande sessioner 10 minuter före start.",
+    "weekday": "Veckodag",
+    "time": "Tid",
+    "intervals": {
+      "everyDay": "Varje dag",
+      "monday": "Måndag",
+      "tuseday": "Tisdag",
+      "wednesday": "Onsdag",
+      "thursday": "Torsdag",
+      "friday": "Fredag",
+      "saturday": "Lördag",
+      "sunday": "Söndag"
+    }
+  },
+  "es": {}
+}

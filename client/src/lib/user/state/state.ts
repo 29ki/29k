@@ -34,12 +34,27 @@ export type PinnedCollection = {
   startedAt: string;
 };
 
+export type PracticeReminderConfig = {
+  hour: number;
+  minute: number;
+  interval:
+    | 'everyDay'
+    | 'monday'
+    | 'tuseday'
+    | 'wednesday'
+    | 'thursday'
+    | 'friday'
+    | 'saturday'
+    | 'sunday';
+};
+
 export type UserState = {
   pinnedSessions?: Array<PinnedSession>;
   pinnedCollections?: Array<PinnedCollection>;
   userEvents?: Array<UserEvent>;
   metricsUid?: string;
-  reminderNotifications?: boolean;
+  sessionReminderNotifications?: boolean;
+  practiceReminderConfig?: PracticeReminderConfig | null;
 };
 
 type SetCurrentUserState = (

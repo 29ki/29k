@@ -5,11 +5,11 @@ import useUserState from '../../user/state/state';
 import useRequestNotificationPermission from './useRequestNotificationPermission';
 import useNotificationsState from '../state/state';
 
-const useReminderNotificationsSetting = () => {
+const useSessionReminderNotificationsSetting = () => {
   const userState = useCurrentUserState();
   const setUserState = useUserState(state => state.setCurrentUserState);
   const [remindersEnabled, setEnabled] = useState<boolean | undefined>(
-    userState?.reminderNotifications,
+    userState?.sessionReminderNotifications,
   );
   const resetNotificationState = useNotificationsState(state => state.reset);
   const requestPermission = useRequestNotificationPermission();
@@ -17,15 +17,15 @@ const useReminderNotificationsSetting = () => {
   const checkPermission = useCallback(async () => {
     const permission = await notifee.getNotificationSettings();
 
-    if (userState?.reminderNotifications !== undefined) {
+    if (userState?.sessionReminderNotifications !== undefined) {
       setEnabled(
         permission.authorizationStatus >= AuthorizationStatus.AUTHORIZED &&
-          Boolean(userState?.reminderNotifications),
+          Boolean(userState?.sessionReminderNotifications),
       );
     } else {
       setEnabled(undefined);
     }
-  }, [setEnabled, userState?.reminderNotifications]);
+  }, [setEnabled, userState?.sessionReminderNotifications]);
 
   const setRemindersEnabled = useCallback(
     async (enabled: boolean) => {
@@ -36,7 +36,7 @@ const useReminderNotificationsSetting = () => {
         resetNotificationState();
       }
 
-      setUserState({reminderNotifications: enabled});
+      setUserState({sessionReminderNotifications: enabled});
     },
     [requestPermission, resetNotificationState, setUserState],
   );
@@ -48,4 +48,4 @@ const useReminderNotificationsSetting = () => {
   return {remindersEnabled, setRemindersEnabled};
 };
 
-export default useReminderNotificationsSetting;
+export default useSessionReminderNotificationsSetting;
