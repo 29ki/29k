@@ -80,7 +80,7 @@
     "@react-native-community/eslint-config": "^3.2.0",
     "@sentry/cli": "^2.18.0",
     "@testing-library/react-hooks": "^8.0.1",
-    "@types/debug": "^4.1.7",
+    "@types/debug": "^4.1.8",
     "@types/i18next": "^13.0.0",
     "@types/jest": "^29.5.1",
     "@types/ramda": "^0.29.1",
