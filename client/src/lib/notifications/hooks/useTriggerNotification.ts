@@ -1,50 +1,25 @@
-import {useCallback, useEffect} from 'react';
+import {useCallback} from 'react';
 import notifee, {TimestampTrigger, TriggerType} from '@notifee/react-native';
-import {find} from 'ramda';
 
 import useNotificationsState from '../state/state';
-import useResumeFromBackgrounded from '../../appState/hooks/useResumeFromBackgrounded';
-import useRequestNotificationPermission from './useRequestNotificationPermission';
-
-export const getTriggerNotificationById = async (id: string) => {
-  const notifications = await notifee.getTriggerNotifications();
-  return find(({notification}) => notification.id === id, notifications)
-    ?.notification;
-};
+import useNotificationPermissions from './useNotificationPermissions';
+import useTriggerNotifications from './useTriggerNotifications';
 
 const useTriggerNotification = (id: string) => {
-  const requestPermission = useRequestNotificationPermission();
+  const requestPermission = useNotificationPermissions();
+  const {createTriggerNotification, removeTriggerNotification} =
+    useTriggerNotifications();
   const triggerNotification = useNotificationsState(
     state => state.notifications[id],
   );
-  const setNotification = useNotificationsState(state => state.setNotification);
 
-  const updateNotification = useCallback(async () => {
-    // Allways get notification data from source (notifee)
-    setNotification(id, await getTriggerNotificationById(id));
-  }, [id, setNotification]);
-
-  useEffect(() => {
-    // Get existing notification on mount
-    updateNotification();
-
-    // Keep state in sync with notification events
-    return notifee.onForegroundEvent(async ({detail}) => {
-      if (detail.notification?.id === id) {
-        updateNotification();
-      }
-    });
-  }, [id, updateNotification]);
-
-  // Update notification when coming back from backgrounded
-  useResumeFromBackgrounded(updateNotification);
-
-  const setTriggerNotification = useCallback(
+  const create = useCallback(
     async (
       title: string,
       body: string,
       url: string | undefined = '',
       timestamp: number,
+      channel: string,
     ) => {
       if (timestamp > new Date().getTime()) {
         await requestPermission();
@@ -67,24 +42,21 @@ const useTriggerNotification = (id: string) => {
           },
         };
 
-        // Optimistic add, will be updated when created by notifee
-        setNotification(id, notification);
-
-        await notifee.createTriggerNotification(notification, trigger);
+        createTriggerNotification(id, channel, trigger, notification);
       }
     },
-    [id, requestPermission, setNotification],
+    [id, requestPermission, createTriggerNotification],
   );
 
-  const removeTriggerNotification = useCallback(async () => {
-    await notifee.cancelTriggerNotification(id);
-    setNotification(id, undefined);
-  }, [setNotification, id]);
+  const remove = useCallback(
+    () => removeTriggerNotification(id),
+    [removeTriggerNotification, id],
+  );
 
   return {
     triggerNotification,
-    setTriggerNotification,
-    removeTriggerNotification,
+    setTriggerNotification: create,
+    removeTriggerNotification: remove,
   };
 };
 

@@ -3,7 +3,8 @@ import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import useExerciseById from '../../content/hooks/useExerciseById';
-import useTriggerNotification from '../../notifications/hooks/useTriggerNotification';
+import useTriggerNotifications from '../../notifications/hooks/useTriggerNotifications';
+import {NotificationChannels} from '../../notifications/constants';
 
 const useSessionReminderNotification = (session: LiveSessionType) => {
   const {id, exerciseId, startTime, link} = session;
@@ -12,26 +13,29 @@ const useSessionReminderNotification = (session: LiveSessionType) => {
   const exercise = useExerciseById(exerciseId);
 
   const {
-    triggerNotification,
+    getTriggerNotification,
     setTriggerNotification,
     removeTriggerNotification,
-  } = useTriggerNotification(id);
+  } = useTriggerNotifications();
 
-  const reminderEnabled = Boolean(triggerNotification);
+  const reminderEnabled = Boolean(getTriggerNotification(id));
 
   const toggleReminder = useCallback(
     async (enable = true) =>
       enable
         ? setTriggerNotification(
+            id,
+            NotificationChannels.SESSION_REMINDER,
             t('title', {exercise: exercise?.name}),
             t('body'),
             link,
             dayjs(startTime).subtract(10, 'minutes').valueOf(),
           )
-        : removeTriggerNotification(),
+        : removeTriggerNotification(id),
     [
       setTriggerNotification,
       removeTriggerNotification,
+      id,
       exercise?.name,
       link,
       startTime,

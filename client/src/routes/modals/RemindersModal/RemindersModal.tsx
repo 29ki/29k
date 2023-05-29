@@ -44,7 +44,7 @@ const StyledBold = styled(BodyBold)({fontSize: 16});
 const RemindersModal = () => {
   const {t} = useTranslation('Modal.Reminders');
   const [weekdayOpen, setWeekdayOpen] = useState();
-  const {remindersEnabled, setRemindersEnabled} =
+  const {sessionRemindersEnabled, setSessionRemindersEnabled} =
     useSessionReminderNotificationsSetting();
   const {
     practiceReminderConfig,
@@ -60,8 +60,8 @@ const RemindersModal = () => {
         <ActionList>
           <ActionSwitch
             Icon={BellIcon}
-            onValueChange={setRemindersEnabled}
-            value={remindersEnabled}>
+            onValueChange={setSessionRemindersEnabled}
+            value={sessionRemindersEnabled}>
             {t('actions.sessionReminders')}
           </ActionSwitch>
         </ActionList>
@@ -71,8 +71,8 @@ const RemindersModal = () => {
         <ActionList>
           <ActionSwitch
             Icon={BellIcon}
-            onValueChange={setRemindersEnabled}
-            value={remindersEnabled}>
+            onValueChange={setPracticeRemindersEnabled}
+            value={practiceRemindersEnabled}>
             {t('actions.practiceReminders')}
           </ActionSwitch>
         </ActionList>

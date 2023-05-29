@@ -5,7 +5,7 @@ import notifee, {
   NotificationSettings,
 } from '@notifee/react-native';
 
-import useRequestNotificationPermission from './useRequestNotificationPermission';
+import useNotificationPermissions from './useNotificationPermissions';
 
 const mockRequestPermission = jest.mocked(notifee.requestPermission);
 const mockAlert = jest.mocked(Alert.alert);
@@ -21,7 +21,7 @@ describe('useRequestNotificationPermission', () => {
       authorizationStatus: AuthorizationStatus.AUTHORIZED,
     } as NotificationSettings);
 
-    const {result} = renderHook(() => useRequestNotificationPermission());
+    const {result} = renderHook(() => useNotificationPermissions());
 
     const settings = await result.current();
 
@@ -37,7 +37,7 @@ describe('useRequestNotificationPermission', () => {
       authorizationStatus: AuthorizationStatus.DENIED,
     } as NotificationSettings);
 
-    const {result} = renderHook(() => useRequestNotificationPermission());
+    const {result} = renderHook(() => useNotificationPermissions());
 
     await expect(result.current()).rejects.toThrow(
       'Notification permission denied',
@@ -71,7 +71,7 @@ describe('useRequestNotificationPermission', () => {
       }
     });
 
-    const {result} = renderHook(() => useRequestNotificationPermission());
+    const {result} = renderHook(() => useNotificationPermissions());
 
     await expect(result.current()).rejects.toThrow(
       'Notification permission denied',

@@ -4,14 +4,17 @@ import useNotificationsState from '../state/state';
 import useResumeFromBackgrounded from '../../appState/hooks/useResumeFromBackgrounded';
 
 const useNotificationEventListener = () => {
-  const setNotification = useNotificationsState(state => state.setNotification);
+  const setNotificationState = useNotificationsState(
+    state => state.setNotification,
+  );
 
   const updateNotications = useCallback(async () => {
+    // Allways get notifications data from source (notifee) and not event
     const triggerNotifications = await notifee.getTriggerNotifications();
     triggerNotifications.forEach(({notification}) => {
-      setNotification(notification.id, notification);
+      setNotificationState(notification.id, notification);
     });
-  }, [setNotification]);
+  }, [setNotificationState]);
 
   useEffect(() => notifee.onForegroundEvent(updateNotications));
 

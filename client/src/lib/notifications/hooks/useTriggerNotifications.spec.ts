@@ -8,7 +8,7 @@ import {AppState} from 'react-native';
 
 import useTriggerNotification from './useTriggerNotification';
 import useNotificationsState from '../state/state';
-import useRequestNotificationPermission from './useRequestNotificationPermission';
+import useNotificationPermissions from './useNotificationPermissions';
 
 jest.mock('./useRequestNotificationPermission');
 
@@ -26,15 +26,13 @@ mockAddEventListener.mockImplementation(() => {
 });
 
 const mockRequestPermission = jest.fn().mockResolvedValue(undefined);
-jest
-  .mocked(useRequestNotificationPermission)
-  .mockReturnValue(mockRequestPermission);
+jest.mocked(useNotificationPermissions).mockReturnValue(mockRequestPermission);
 
 afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe('useTriggerNotification', () => {
+describe('useTriggerNotifications', () => {
   it('sets a trigger notification', async () => {
     mockGetTriggerNotifications.mockResolvedValueOnce([
       {notification: {id: 'some-id'}} as TriggerNotification,

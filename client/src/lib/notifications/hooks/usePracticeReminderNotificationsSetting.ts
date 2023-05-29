@@ -1,10 +1,9 @@
 import {useCallback, useEffect, useMemo, useState} from 'react';
-import notifee, {AuthorizationStatus} from '@notifee/react-native';
 import useCurrentUserState from '../../user/hooks/useCurrentUserState';
 import useUserState, {PracticeReminderConfig} from '../../user/state/state';
-import useRequestNotificationPermission from './useRequestNotificationPermission';
-import useNotificationsState from '../state/state';
-import {startsWith} from 'ramda';
+import useNotificationPermissions from './useNotificationPermissions';
+import useTriggerNotifications from './useTriggerNotifications';
+import {NotificationChannels} from '../constants';
 
 const usePracticeReminderNotificationsSetting = () => {
   const userState = useCurrentUserState();
@@ -16,48 +15,36 @@ const usePracticeReminderNotificationsSetting = () => {
       ? false
       : undefined,
   );
-  const resetPracticeNotificationState = useNotificationsState(
-    state => state.resetPracticeNotifications,
-  );
-  const requestPermission = useRequestNotificationPermission();
 
-  const checkPermission = useCallback(async () => {
-    const permission = await notifee.getNotificationSettings();
+  const {removeTriggerNotifications} = useTriggerNotifications();
+  const {requestPermission, checkPermission} = useNotificationPermissions();
+
+  const updateEnabled = useCallback(async () => {
+    const permission = await checkPermission();
 
     if (userState?.practiceReminderConfig !== undefined) {
-      setEnabled(
-        permission.authorizationStatus >= AuthorizationStatus.AUTHORIZED &&
-          Boolean(userState?.practiceReminderConfig),
-      );
+      setEnabled(permission && Boolean(userState?.practiceReminderConfig));
     } else {
       setEnabled(undefined);
     }
-  }, [setEnabled, userState?.practiceReminderConfig]);
+  }, [setEnabled, checkPermission, userState?.practiceReminderConfig]);
 
   const setPracticeRemindersEnabled = useCallback(
     async (config: PracticeReminderConfig | null) => {
       if (config) {
         await requestPermission();
       } else {
-        const notificationIds = (
-          await notifee.getTriggerNotificationIds()
-        ).filter(startsWith('practice/'));
-
-        for (const id of notificationIds) {
-          await notifee.cancelNotification(id);
-        }
-
-        resetPracticeNotificationState();
+        removeTriggerNotifications(NotificationChannels.PRACTICE_REMINDER);
       }
 
       setUserState({practiceReminderConfig: config});
     },
-    [requestPermission, resetPracticeNotificationState, setUserState],
+    [requestPermission, removeTriggerNotifications, setUserState],
   );
 
   useEffect(() => {
-    checkPermission();
-  }, [checkPermission]);
+    updateEnabled();
+  }, [updateEnabled]);
 
   const practiceReminderConfig = useMemo(
     () => userState?.practiceReminderConfig,
