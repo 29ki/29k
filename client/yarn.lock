@@ -8237,10 +8237,10 @@ react-native-action-sheet@^2.2.0:
   resolved "https://registry.yarnpkg.com/react-native-action-sheet/-/react-native-action-sheet-2.2.0.tgz#309a87f53bf4e7b17fdd9d24b10b8dcbaebb7230"
   integrity sha512-4lsuxH+Cn3/aUEs1VCwqvLhEFyXNqYTkT67CzgTwlifD9Ij4OPQAIs8D+HUD9zBvWc4NtT6cyG1lhArPVMQeVw==
 
-react-native-add-calendar-event@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/react-native-add-calendar-event/-/react-native-add-calendar-event-4.1.0.tgz#be4c1ce50e6d45548b1162b86b784697b4b25c31"
-  integrity sha512-6krkxvU3LMw9fZe8hvVfelYk+u/awnM1g+AaLQGaSX9HvgBsceog51PMnrX6g/C5bzQktwFGTs9OaCf8hg71tQ==
+react-native-add-calendar-event@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-add-calendar-event/-/react-native-add-calendar-event-4.2.0.tgz#ea7418402a4e5cce56b892ca6cf0603455f6f4bd"
+  integrity sha512-iPojkG3z1CU8LveDJfDPwc9hie3GmklxZwTUqynYby9HAn9yfs5yFnQRBt6LkupSm7vzzbXnr7jJLAKapIc8fA==
 
 react-native-asset@^2.1.1:
   version "2.1.1"
