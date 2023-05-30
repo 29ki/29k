@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Picker} from '@react-native-picker/picker';
 import dayjs from 'dayjs';
@@ -94,6 +94,12 @@ const RemindersModal = () => {
       : dayjs().set('hour', thisHour).set('minute', closestHalfhour),
   );
 
+  useEffect(() => {
+    if (!timeOpen && !weekdayOpen) {
+      snapToIndex(0);
+    }
+  }, [timeOpen, weekdayOpen, snapToIndex]);
+
   const reminderUpdated = useMemo(() => {
     return (
       practiceReminderConfig?.interval !== selectedInterval ||
@@ -103,13 +109,13 @@ const RemindersModal = () => {
   }, [practiceReminderConfig, selectedInterval, selectedTime]);
 
   const toggleWeekday = useCallback(() => {
-    snapToIndex(1);
+    snapToIndex(2);
     setTimeOpen(false);
     setWeekdayOpen(state => !state);
   }, [snapToIndex, setWeekdayOpen, setTimeOpen]);
 
   const toggleTime = useCallback(() => {
-    snapToIndex(1);
+    snapToIndex(2);
     setWeekdayOpen(false);
     setTimeOpen(state => !state);
   }, [snapToIndex, setTimeOpen, setWeekdayOpen]);
@@ -247,7 +253,7 @@ const RemindersModal = () => {
               </ActionList>
               <Spacer24 />
 
-              {(reminderUpdated || timeOpen || weekdayOpen || isLoading) && (
+              {(reminderUpdated || isLoading) && (
                 <ButtonWrapper>
                   <UpdateButton loading={isLoading} onPress={onUpdateReminder}>
                     {t('updateButton')}
