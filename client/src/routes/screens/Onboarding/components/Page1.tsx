@@ -24,6 +24,7 @@ const Cards = styled(Animated.View)({
 
 const Card = styled(Animated.View).attrs({pointerEvents: 'none'})({
   position: 'absolute',
+  width: '100%',
   bottom: 0,
 });
 
