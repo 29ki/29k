@@ -74,6 +74,7 @@ type SessionCardProps = {
   hasCardBefore?: boolean;
   hasCardAfter?: boolean;
   disableHostPress?: boolean;
+  disableJoinButton?: boolean;
   onBeforeContextPress?: () => void;
   style?: ViewStyle;
 };
@@ -84,13 +85,13 @@ const SessionCard: React.FC<SessionCardProps> = ({
   hasCardBefore = false,
   hasCardAfter = false,
   disableHostPress,
+  disableJoinButton,
   onBeforeContextPress,
   style,
 }) => {
   const {exerciseId, startTime, hostProfile} = session;
   const exercise = useExerciseById(exerciseId);
   const user = useUser();
-  const {t} = useTranslation('Component.SessionCard');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const logSessionMetricEvent = useLogSessionMetricEvents();
@@ -164,7 +165,9 @@ const SessionCard: React.FC<SessionCardProps> = ({
         interestedCount={session.interestedCount}
         style={style}>
         <Row>
-          <JoinButton onPress={onPress} startTime={startTime} />
+          {!disableJoinButton && (
+            <JoinButton onPress={onPress} startTime={startTime} />
+          )}
           <SessionTimeBadge session={session} />
         </Row>
       </Card>
@@ -226,10 +229,9 @@ const SessionCard: React.FC<SessionCardProps> = ({
           reminderEnabled={reminderEnabled}
           interestedCount={interestedCount}>
           <Row>
-            <Button small variant="secondary" onPress={onPress}>
-              {t('join')}
-            </Button>
-            <Spacer8 />
+            {!disableJoinButton && (
+              <JoinButton onPress={onPress} startTime={startTime} />
+            )}
             <SessionTimeBadge session={session} />
           </Row>
         </Card>
