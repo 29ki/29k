@@ -23,6 +23,7 @@ const Container = styled(TouchableOpacity)({
   backgroundColor: COLORS.GREYLIGHTEST,
   paddingVertical: SPACINGS.FOUR,
   paddingHorizontal: SPACINGS.SIXTEEN,
+  borderRadius: SPACINGS.SIXTEEN,
 });
 
 const ImageContainer = styled.View({
