@@ -143,12 +143,14 @@ const RemindersModal = () => {
       hour: selectedTime.hour(),
       minute: selectedTime.minute(),
     });
+    snapToIndex(0);
   }, [
     setPracticeRemindersEnabled,
     setWeekdayOpen,
     setTimeOpen,
     selectedInterval,
     selectedTime,
+    snapToIndex,
   ]);
 
   const onSelectedInterval = useCallback(
