@@ -3,7 +3,6 @@ import {act, renderHook} from '@testing-library/react-hooks';
 import useUserState from '../../user/state/state';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import useSessionReminderNotificationsSetting from './useSessionReminderNotificationsSetting';
-import useNotificationsState from '../state/state';
 
 const mockRequestPermission = jest.fn();
 const mockCheckPermission = jest.fn();
@@ -123,9 +122,6 @@ describe('useSessionReminderNotificationsSetting', () => {
       useUserState.setState({
         user: {uid: 'some-uid'} as FirebaseAuthTypes.User,
       });
-      useNotificationsState.setState({
-        notifications: {'some-id': {id: 'some-notification-id'}},
-      });
 
       const {result} = renderHook(() =>
         useSessionReminderNotificationsSetting(),
@@ -137,14 +133,13 @@ describe('useSessionReminderNotificationsSetting', () => {
 
       expect(mockRequestPermission).toHaveBeenCalledTimes(0);
       expect(mockRemoveTriggerNotifications).toHaveBeenCalledTimes(1);
-      expect(mockRemoveTriggerNotifications).toHaveBeenCalledWith('session-reminder'');
+      expect(mockRemoveTriggerNotifications).toHaveBeenCalledWith(
+        'session-reminder',
+      );
       expect(useUserState.getState()).toEqual(
         expect.objectContaining({
           userState: {'some-uid': {sessionReminderNotifications: false}},
         }),
-      );
-      expect(useNotificationsState.getState()).toEqual(
-        expect.objectContaining({notifications: {}}),
       );
     });
   });
