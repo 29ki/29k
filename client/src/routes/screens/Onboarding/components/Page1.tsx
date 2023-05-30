@@ -101,7 +101,7 @@ const Page1 = () => {
       <Cards style={style}>
         {sessions.map((session, index) => (
           <AnimatedCard index={index} count={sessions.length} key={index}>
-            <StyledSessionCard session={session} />
+            <StyledSessionCard session={session} disableJoinButton />
           </AnimatedCard>
         ))}
       </Cards>
