@@ -8,10 +8,10 @@ import useSessionReminderNotificationsSetting from '../../notifications/hooks/us
 const mockAlert = jest.mocked(Alert.alert);
 
 const mockSetRemindersEnabled = jest.fn();
-const mockUseReminderNotificationsSetting = jest.mocked(
+const mockUseSessionReminderNotificationsSetting = jest.mocked(
   useSessionReminderNotificationsSetting,
 );
-jest.mock('../../notifications/hooks/useReminderNotificationsSetting');
+jest.mock('../../notifications/hooks/useSessionReminderNotificationsSetting');
 
 const mockToggleReminder = jest.fn();
 jest.mock('../../sessions/hooks/useSessionReminderNotification', () => () => ({
@@ -23,9 +23,9 @@ afterEach(jest.clearAllMocks);
 describe('useConfirmSessionReminder', () => {
   describe('reminderNotifications == true', () => {
     beforeEach(() => {
-      mockUseReminderNotificationsSetting.mockReturnValueOnce({
-        remindersEnabled: true,
-        setRemindersEnabled: mockSetRemindersEnabled,
+      mockUseSessionReminderNotificationsSetting.mockReturnValueOnce({
+        sessionRemindersEnabled: true,
+        setSessionRemindersEnabled: mockSetRemindersEnabled,
       });
     });
 
@@ -54,9 +54,9 @@ describe('useConfirmSessionReminder', () => {
 
   describe('reminderNotifications == false', () => {
     beforeEach(() => {
-      mockUseReminderNotificationsSetting.mockReturnValueOnce({
-        remindersEnabled: false,
-        setRemindersEnabled: mockSetRemindersEnabled,
+      mockUseSessionReminderNotificationsSetting.mockReturnValueOnce({
+        sessionRemindersEnabled: false,
+        setSessionRemindersEnabled: mockSetRemindersEnabled,
       });
     });
 
@@ -83,9 +83,9 @@ describe('useConfirmSessionReminder', () => {
 
   describe('reminderNotifications == undefined', () => {
     beforeEach(() => {
-      mockUseReminderNotificationsSetting.mockReturnValueOnce({
-        remindersEnabled: undefined,
-        setRemindersEnabled: mockSetRemindersEnabled,
+      mockUseSessionReminderNotificationsSetting.mockReturnValueOnce({
+        sessionRemindersEnabled: undefined,
+        setSessionRemindersEnabled: mockSetRemindersEnabled,
       });
     });
 

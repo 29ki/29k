@@ -8,18 +8,18 @@ import useSessionReminderNotification from './useSessionReminderNotification';
 const useConfirmSessionReminder = (session: LiveSessionType) => {
   const {t} = useTranslation('Component.ConfirmSessionReminder');
   const {toggleReminder} = useSessionReminderNotification(session);
-  const {remindersEnabled, setRemindersEnabled} =
+  const {sessionRemindersEnabled, setSessionRemindersEnabled} =
     useSessionReminderNotificationsSetting();
 
   const confirmToggleReminder = useCallback(
     async (enable: boolean) => {
-      if (enable && remindersEnabled === undefined) {
+      if (enable && sessionRemindersEnabled === undefined) {
         Alert.alert(t('title'), t('message'), [
           {
             text: t('actions.dismiss'),
             style: 'destructive',
             onPress: async () => {
-              await setRemindersEnabled(false);
+              await setSessionRemindersEnabled(false);
             },
           },
           {
@@ -28,16 +28,16 @@ const useConfirmSessionReminder = (session: LiveSessionType) => {
           {
             text: t('actions.confirm'),
             onPress: async () => {
-              await setRemindersEnabled(true);
+              await setSessionRemindersEnabled(true);
               await toggleReminder(true);
             },
           },
         ]);
-      } else if (remindersEnabled) {
+      } else if (sessionRemindersEnabled) {
         await toggleReminder(enable);
       }
     },
-    [t, remindersEnabled, setRemindersEnabled, toggleReminder],
+    [t, sessionRemindersEnabled, setSessionRemindersEnabled, toggleReminder],
   );
 
   return confirmToggleReminder;
