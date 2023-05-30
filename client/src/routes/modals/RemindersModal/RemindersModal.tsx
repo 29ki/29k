@@ -236,13 +236,13 @@ const RemindersModal = () => {
               </ActionList>
               <Spacer24 />
 
-              <ButtonWrapper>
-                <UpdateButton
-                  disabled={!reminderUpdated}
-                  onPress={onUpdateReminder}>
-                  {t('updateButton')}
-                </UpdateButton>
-              </ButtonWrapper>
+              {(reminderUpdated || timeOpen || weekdayOpen) && (
+                <ButtonWrapper>
+                  <UpdateButton onPress={onUpdateReminder}>
+                    {t('updateButton')}
+                  </UpdateButton>
+                </ButtonWrapper>
+              )}
             </>
           )}
         </Gutters>
