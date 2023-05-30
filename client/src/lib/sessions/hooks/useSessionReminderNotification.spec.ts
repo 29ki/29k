@@ -1,16 +1,20 @@
 import {renderHook} from '@testing-library/react-hooks';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
-import useTriggerNotification from '../../notifications/hooks/useTriggerNotification';
 
 import useSessionReminderNotification from './useSessionReminderNotification';
 
-jest.mock('../../../lib/notifications/hooks/useTriggerNotification', () =>
-  jest.fn(),
+const mockGetTriggerNotification = jest.fn();
+const mockSetTriggerNotification = jest.fn();
+const mockRemoveTriggerNotification = jest.fn();
+jest.mock('../../../lib/notifications/hooks/useTriggerNotifications', () =>
+  jest.fn(() => ({
+    getTriggerNotification: mockGetTriggerNotification,
+    setTriggerNotification: mockSetTriggerNotification,
+    removeTriggerNotification: mockRemoveTriggerNotification,
+  })),
 );
 
 jest.mock('../../../lib/content/hooks/useExerciseById', () => jest.fn());
-
-const mockUseTriggerNotification = useTriggerNotification as jest.Mock;
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -18,9 +22,7 @@ afterEach(() => {
 
 describe('useSessionReminderNotification', () => {
   it('returns the notification for a specific id', () => {
-    mockUseTriggerNotification.mockReturnValueOnce({
-      triggerNotification: {id: 'some-session-id'},
-    });
+    mockGetTriggerNotification.mockReturnValueOnce({id: 'some-session-id'});
 
     const {result} = renderHook(() =>
       useSessionReminderNotification({
@@ -31,16 +33,11 @@ describe('useSessionReminderNotification', () => {
 
     expect(result.current.reminderEnabled).toEqual(true);
 
-    expect(mockUseTriggerNotification).toHaveBeenCalledTimes(1);
-    expect(mockUseTriggerNotification).toHaveBeenCalledWith('some-session-id');
+    expect(mockGetTriggerNotification).toHaveBeenCalledTimes(1);
+    expect(mockGetTriggerNotification).toHaveBeenCalledWith('some-session-id');
   });
 
   it('can enable a reminder', () => {
-    const mockSetNotification = jest.fn();
-    mockUseTriggerNotification.mockReturnValueOnce({
-      setTriggerNotification: mockSetNotification,
-    });
-
     const {result} = renderHook(() =>
       useSessionReminderNotification({
         id: 'some-session-id',
@@ -51,8 +48,10 @@ describe('useSessionReminderNotification', () => {
 
     result.current.toggleReminder(true);
 
-    expect(mockSetNotification).toHaveBeenCalledTimes(1);
-    expect(mockSetNotification).toHaveBeenCalledWith(
+    expect(mockSetTriggerNotification).toHaveBeenCalledTimes(1);
+    expect(mockSetTriggerNotification).toHaveBeenCalledWith(
+      'some-session-id',
+      'session-reminder',
       'title',
       'body',
       'http://some.deep/link',
@@ -61,11 +60,6 @@ describe('useSessionReminderNotification', () => {
   });
 
   it('can remove a reminder', () => {
-    const mockRemoveNotification = jest.fn();
-    mockUseTriggerNotification.mockReturnValueOnce({
-      removeTriggerNotification: mockRemoveNotification,
-    });
-
     const {result} = renderHook(() =>
       useSessionReminderNotification({
         id: 'some-session-id',
@@ -75,7 +69,9 @@ describe('useSessionReminderNotification', () => {
 
     result.current.toggleReminder(false);
 
-    expect(mockRemoveNotification).toHaveBeenCalledTimes(1);
-    expect(mockRemoveNotification).toHaveBeenCalledWith();
+    expect(mockRemoveTriggerNotification).toHaveBeenCalledTimes(1);
+    expect(mockRemoveTriggerNotification).toHaveBeenCalledWith(
+      'some-session-id',
+    );
   });
 });
