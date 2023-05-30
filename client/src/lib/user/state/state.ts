@@ -19,6 +19,7 @@ import {
 import {UserDataType} from '../../../../../shared/src/schemas/User';
 import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import {GET_STARTED_COLLECTION_ID} from '../../content/constants';
+import {IntervalEnum} from '../types/Interval';
 
 dayjs.extend(utc);
 
@@ -37,15 +38,7 @@ export type PinnedCollection = {
 export type PracticeReminderConfig = {
   hour: number;
   minute: number;
-  interval:
-    | 'everyDay'
-    | 'monday'
-    | 'tuseday'
-    | 'wednesday'
-    | 'thursday'
-    | 'friday'
-    | 'saturday'
-    | 'sunday';
+  interval: IntervalEnum;
 };
 
 export type UserState = {

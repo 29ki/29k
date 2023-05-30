@@ -41,7 +41,7 @@ type DateTimePickerProps = {
   minimumDate?: dayjs.Dayjs;
 };
 
-const DateTimePicker: React.FC<DateTimePickerProps> = ({
+export const DateTimePicker: React.FC<DateTimePickerProps> = ({
   mode,
   setValue,
   selectedValue,
