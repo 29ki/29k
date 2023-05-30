@@ -92,7 +92,6 @@ const SessionCard: React.FC<SessionCardProps> = ({
   const {exerciseId, startTime, hostProfile} = session;
   const exercise = useExerciseById(exerciseId);
   const user = useUser();
-  const {t} = useTranslation('Component.SessionCard');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const logSessionMetricEvent = useLogSessionMetricEvents();
