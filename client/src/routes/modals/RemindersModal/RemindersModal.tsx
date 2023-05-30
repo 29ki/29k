@@ -2,6 +2,7 @@ import React, {useCallback, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Picker} from '@react-native-picker/picker';
 import dayjs from 'dayjs';
+import {useIsFocused} from '@react-navigation/native';
 
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
@@ -26,7 +27,7 @@ import {BottomSheetScrollView, useBottomSheet} from '@gorhom/bottom-sheet';
 import {IntervalEnum} from '../../../lib/user/types/Interval';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import Button from '../../../lib/components/Buttons/Button';
-import {useIsFocused} from '@react-navigation/native';
+import useUpdatePracticeNotifications from '../../../lib/schedulers/useUpdatePracticeNotifications';
 
 const PracticeActionWrapper = styled(TouchableOpacity)({
   flex: 1,
@@ -74,7 +75,8 @@ const RemindersModal = () => {
   const {snapToIndex} = useBottomSheet();
   const [weekdayOpen, setWeekdayOpen] = useState(false);
   const [timeOpen, setTimeOpen] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false);
+  const {updatePracticeNotifications} = useUpdatePracticeNotifications();
   const {
     practiceReminderConfig,
     practiceRemindersEnabled,
@@ -134,17 +136,26 @@ const RemindersModal = () => {
     [setPracticeRemindersEnabled, setSelectedInterval, setSelectedTime],
   );
 
-  const onUpdateReminder = useCallback(() => {
+  const onUpdateReminder = useCallback(async () => {
+    setIsLoading(true);
     setWeekdayOpen(false);
     setTimeOpen(false);
 
-    setPracticeRemindersEnabled({
-      interval: selectedInterval,
-      hour: selectedTime.hour(),
-      minute: selectedTime.minute(),
-    });
+    try {
+      await setPracticeRemindersEnabled({
+        interval: selectedInterval,
+        hour: selectedTime.hour(),
+        minute: selectedTime.minute(),
+      });
+      await updatePracticeNotifications();
+    } finally {
+      setIsLoading(false);
+    }
+
     snapToIndex(0);
   }, [
+    setIsLoading,
+    updatePracticeNotifications,
     setPracticeRemindersEnabled,
     setWeekdayOpen,
     setTimeOpen,
@@ -236,9 +247,9 @@ const RemindersModal = () => {
               </ActionList>
               <Spacer24 />
 
-              {(reminderUpdated || timeOpen || weekdayOpen) && (
+              {(reminderUpdated || timeOpen || weekdayOpen || isLoading) && (
                 <ButtonWrapper>
-                  <UpdateButton onPress={onUpdateReminder}>
+                  <UpdateButton loading={isLoading} onPress={onUpdateReminder}>
                     {t('updateButton')}
                   </UpdateButton>
                 </ButtonWrapper>
