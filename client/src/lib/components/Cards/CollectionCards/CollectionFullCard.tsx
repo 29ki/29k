@@ -11,6 +11,8 @@ import {Spacer16, Spacer4, Spacer8} from '../../Spacers/Spacer';
 import SessionProgress from '../../SessionProgress/SessionProgress';
 import {CollectionIcon} from '../../Icons';
 import {Body12} from '../../Typography/Body/Body';
+import {PlayfairDisplayMedium} from '../../../constants/fonts';
+import LinearGradient from 'react-native-linear-gradient';
 
 export const HEIGHT = 114;
 
@@ -19,20 +21,35 @@ type CollectionFullCardProps = {
   description?: string;
   image: ImageSourcePropType;
   progressItems: Array<boolean>;
+  theme: {backgroundColorGradient: string[]; textColor: string};
   onPress: () => void;
 };
 
 const Container = styled(TouchableOpacity)({
   height: HEIGHT,
+
   backgroundColor: COLORS.GREYLIGHTEST,
-  paddingVertical: SPACINGS.FOUR,
-  paddingHorizontal: SPACINGS.SIXTEEN,
   borderRadius: SPACINGS.SIXTEEN,
 });
 
+const Heading = styled(Display22)<{color?: string}>(
+  ({color = COLORS.BLACK}) => ({
+    fontFamily: PlayfairDisplayMedium,
+    lineHeight: 27,
+    color,
+  }),
+);
+
+const Description = styled(Body12)<{color?: string}>(
+  ({color = COLORS.BLACK}) => ({
+    fontWeight: 500,
+    color,
+  }),
+);
+
 const IconWrapper = styled.View({
-  width: 30,
-  height: 30,
+  width: 23,
+  height: 23,
   alignItems: 'center',
   justifyContent: 'center',
 });
@@ -60,33 +77,52 @@ const GraphicsWrapper = styled.View({
   height: 64,
 });
 
+const Gradient = styled(LinearGradient).attrs<{colors: string[]}>(
+  ({colors}) => ({
+    colors: colors ?? ['transparent'],
+    angle: 180,
+  }),
+)({
+  flex: 1,
+  borderRadius: SPACINGS.SIXTEEN,
+  paddingVertical: SPACINGS.FOUR,
+  paddingHorizontal: SPACINGS.SIXTEEN,
+});
+
 const CollectionFullCard: React.FC<CollectionFullCardProps> = ({
   title,
   image,
   description,
   progressItems,
+  theme,
   onPress,
 }) => (
   <Container onPress={onPress}>
-    <Row>
-      <LeftColumn>
-        <TitleWrapper>
-          <IconWrapper>
-            <CollectionIcon />
-          </IconWrapper>
+    <Gradient colors={theme?.backgroundColorGradient}>
+      <Row>
+        <LeftColumn>
+          <TitleWrapper>
+            <IconWrapper>
+              <CollectionIcon fill={theme?.textColor} />
+            </IconWrapper>
+            <Spacer8 />
+            <Heading numberOfLines={3} color={theme?.textColor}>
+              {title}
+            </Heading>
+          </TitleWrapper>
           <Spacer8 />
-          <Display22 numberOfLines={3}>{title}</Display22>
-        </TitleWrapper>
-        <Spacer8 />
-        <Body12 numberOfLines={2}>{description}</Body12>
-      </LeftColumn>
-      <Spacer16 />
-      <GraphicsWrapper>
-        <Image source={image} />
-      </GraphicsWrapper>
-    </Row>
-    <SessionProgress items={progressItems} />
-    <Spacer4 />
+          <Description numberOfLines={2} color={theme?.textColor}>
+            {description}
+          </Description>
+        </LeftColumn>
+        <Spacer16 />
+        <GraphicsWrapper>
+          <Image source={image} />
+        </GraphicsWrapper>
+      </Row>
+      <SessionProgress items={progressItems} />
+      <Spacer4 />
+    </Gradient>
   </Container>
 );
 

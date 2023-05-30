@@ -13,7 +13,12 @@
     "image": {
       "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683720597/Images/get_started_collection_chij0k.png"
     },
-    "link": "https://aware.29k.org/get-started"
+    "link": "https://aware.29k.org/get-started",
+    "card": {
+      "description": "Take the first steps to improve wellbeing and life satisfaction, backed by science.",
+      "backgroundColorGradient": ["#378D88", "#2A605D"],
+      "textColor": "#ffffff"
+    }
   },
   "pt": {
     "published": true,

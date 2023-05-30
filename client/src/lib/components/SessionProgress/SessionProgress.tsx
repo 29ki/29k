@@ -28,8 +28,8 @@ const ProgressLineNotStarted = styled.View({
 });
 
 const ProgressItem = styled.View<{completed: boolean}>(({completed}) => ({
-  height: 10,
-  width: 10,
+  height: 14,
+  width: 14,
   borderRadius: 24,
   backgroundColor: completed ? COLORS.MEDIUM_GREEN : COLORS.PURE_WHITE,
 }));
