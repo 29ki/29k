@@ -29,7 +29,7 @@ const usePracticeReminderNotificationsSetting = () => {
     }
   }, [setEnabled, checkPermission, userState?.practiceReminderConfig]);
 
-  const setPracticeRemindersEnabled = useCallback(
+  const setPracticeRemindersConfig = useCallback(
     async (config: PracticeReminderConfig | null) => {
       if (config) {
         await requestPermission();
@@ -54,7 +54,7 @@ const usePracticeReminderNotificationsSetting = () => {
   return {
     practiceRemindersEnabled,
     practiceReminderConfig,
-    setPracticeRemindersEnabled,
+    setPracticeRemindersConfig,
   };
 };
 

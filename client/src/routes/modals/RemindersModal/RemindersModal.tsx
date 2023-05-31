@@ -80,7 +80,7 @@ const RemindersModal = () => {
   const {
     practiceReminderConfig,
     practiceRemindersEnabled,
-    setPracticeRemindersEnabled,
+    setPracticeRemindersConfig,
   } = usePracticeReminderNotificationsSetting();
   const [selectedInterval, setSelectedInterval] = useState(
     practiceReminderConfig ? practiceReminderConfig.interval : thisWeekday(),
@@ -130,16 +130,16 @@ const RemindersModal = () => {
           dayjs().set('hour', hour).set('minute', minute).local(),
         );
 
-        setPracticeRemindersEnabled({
+        setPracticeRemindersConfig({
           interval,
           hour,
           minute,
         });
       } else {
-        setPracticeRemindersEnabled(null);
+        setPracticeRemindersConfig(null);
       }
     },
-    [setPracticeRemindersEnabled, setSelectedInterval, setSelectedTime],
+    [setPracticeRemindersConfig, setSelectedInterval, setSelectedTime],
   );
 
   const onUpdateReminder = useCallback(async () => {
@@ -148,7 +148,7 @@ const RemindersModal = () => {
     setTimeOpen(false);
 
     try {
-      await setPracticeRemindersEnabled({
+      await setPracticeRemindersConfig({
         interval: selectedInterval,
         hour: selectedTime.hour(),
         minute: selectedTime.minute(),
@@ -162,7 +162,7 @@ const RemindersModal = () => {
   }, [
     setIsLoading,
     updatePracticeNotifications,
-    setPracticeRemindersEnabled,
+    setPracticeRemindersConfig,
     setWeekdayOpen,
     setTimeOpen,
     selectedInterval,
