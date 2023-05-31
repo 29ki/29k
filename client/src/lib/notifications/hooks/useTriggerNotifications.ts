@@ -57,8 +57,6 @@ const useTriggerNotifications = () => {
           },
         };
 
-        notifee.displayNotification(notification);
-
         // Optimistic add, will be updated when created by notifee
         setNotificationState(id, notification);
 
