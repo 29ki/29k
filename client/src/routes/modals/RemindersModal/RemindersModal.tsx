@@ -25,9 +25,9 @@ import TouchableOpacity from '../../../lib/components/TouchableOpacity/Touchable
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {DateTimePicker} from '../../../lib/components/DateTimePicker/DateTimePicker';
 import {BottomSheetScrollView, useBottomSheet} from '@gorhom/bottom-sheet';
-import {IntervalEnum} from '../../../lib/user/types/Interval';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import Button from '../../../lib/components/Buttons/Button';
+import {REMINDER_INTERVALS} from '../../../lib/schedulers/constants';
 
 dayjs.extend(utc);
 
@@ -66,8 +66,10 @@ const nextHalfHour = (): [number, number] => {
   return [time.hour(), 0];
 };
 
-const thisWeekday = (): IntervalEnum => {
-  return Object.keys(IntervalEnum)[dayjs().isoWeekday()] as IntervalEnum;
+const thisWeekday = (): REMINDER_INTERVALS => {
+  return Object.keys(REMINDER_INTERVALS)[
+    dayjs().isoWeekday()
+  ] as REMINDER_INTERVALS;
 };
 
 const RemindersModal = () => {
@@ -168,7 +170,7 @@ const RemindersModal = () => {
   ]);
 
   const onSelectedInterval = useCallback(
-    (interval: IntervalEnum) => {
+    (interval: REMINDER_INTERVALS) => {
       setSelectedInterval(interval);
     },
     [setSelectedInterval],
@@ -222,7 +224,7 @@ const RemindersModal = () => {
                   <Picker
                     onValueChange={onSelectedInterval}
                     selectedValue={selectedInterval}>
-                    {Object.keys(IntervalEnum).map(interval => (
+                    {Object.keys(REMINDER_INTERVALS).map(interval => (
                       <Picker.Item
                         key={interval}
                         value={interval}

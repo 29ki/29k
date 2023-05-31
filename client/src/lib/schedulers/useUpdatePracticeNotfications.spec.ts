@@ -2,9 +2,9 @@ import {renderHook} from '@testing-library/react-hooks';
 import useUpdatePracticeNotifications from './useUpdatePracticeNotifications';
 import {PinnedCollection} from '../user/state/state';
 import {CompletedCollectionEvent} from '../../../../shared/src/types/Event';
-import {IntervalEnum} from '../user/types/Interval';
 import {NOTIFICATION_CHANNELS} from '../notifications/constants';
 import dayjs from 'dayjs';
+import {REMINDER_INTERVALS} from './constants';
 
 let mockPinnedCollections: Array<PinnedCollection> = [];
 jest.mock('../user/hooks/usePinnedCollections', () => () => ({
@@ -58,7 +58,7 @@ describe('useUpdatePracticeNotifications', () => {
     const {result} = renderHook(() => useUpdatePracticeNotifications());
 
     await result.current.updatePracticeNotifications({
-      interval: IntervalEnum.thursday,
+      interval: REMINDER_INTERVALS.THURSDAY,
       hour: 10,
       minute: 0,
     });
@@ -121,7 +121,7 @@ describe('useUpdatePracticeNotifications', () => {
     const {result} = renderHook(() => useUpdatePracticeNotifications());
 
     await result.current.updatePracticeNotifications({
-      interval: IntervalEnum.everyDay,
+      interval: REMINDER_INTERVALS.DAILY,
       hour: 10,
       minute: 0,
     });
@@ -185,7 +185,7 @@ describe('useUpdatePracticeNotifications', () => {
     const {result} = renderHook(() => useUpdatePracticeNotifications());
 
     await result.current.updatePracticeNotifications({
-      interval: IntervalEnum.everyDay,
+      interval: REMINDER_INTERVALS.DAILY,
       hour: 10,
       minute: 0,
     });

@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import isoWeek from 'dayjs/plugin/isoWeek';
 import {PracticeReminderConfig} from '../user/state/state';
-import {IntervalEnum} from '../user/types/Interval';
+import {REMINDER_INTERVALS} from './constants';
 
 dayjs.extend(isoWeek);
 
@@ -9,7 +9,9 @@ export const calculateNextReminderTime = (
   now: dayjs.Dayjs,
   config: PracticeReminderConfig,
 ): dayjs.Dayjs => {
-  const weekdayIndex = Object.values(IntervalEnum).indexOf(config.interval);
+  const weekdayIndex = Object.values(REMINDER_INTERVALS).indexOf(
+    config.interval,
+  );
   const todaysWeekday = now.isoWeekday();
   if (weekdayIndex > 0) {
     if (todaysWeekday < weekdayIndex) {

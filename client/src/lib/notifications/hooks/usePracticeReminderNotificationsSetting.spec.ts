@@ -3,7 +3,7 @@ import {act, renderHook} from '@testing-library/react-hooks';
 import useUserState from '../../user/state/state';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import usePracticeReminderNotificationsSetting from './usePracticeReminderNotificationsSetting';
-import {IntervalEnum} from '../../user/types/Interval';
+import {REMINDER_INTERVALS} from '../../schedulers/constants';
 
 const mockRequestPermission = jest.fn();
 const mockCheckPermission = jest.fn();
@@ -37,7 +37,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
             practiceReminderConfig: {
               hour: 0,
               minute: 0,
-              interval: IntervalEnum.everyDay,
+              interval: REMINDER_INTERVALS.DAILY,
             },
           },
         },
@@ -77,7 +77,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
             practiceReminderConfig: {
               hour: 0,
               minute: 0,
-              interval: IntervalEnum.everyDay,
+              interval: REMINDER_INTERVALS.DAILY,
             },
           },
         },
@@ -119,7 +119,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
             practiceReminderConfig: {
               hour: 0,
               minute: 0,
-              interval: IntervalEnum.everyDay,
+              interval: REMINDER_INTERVALS.DAILY,
             },
           },
         },
@@ -132,7 +132,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
       expect(result.current.practiceReminderConfig).toEqual({
         hour: 0,
         minute: 0,
-        interval: IntervalEnum.everyDay,
+        interval: REMINDER_INTERVALS.DAILY,
       });
     });
 
@@ -178,7 +178,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
         await result.current.setPracticeRemindersConfig({
           hour: 0,
           minute: 0,
-          interval: IntervalEnum.everyDay,
+          interval: REMINDER_INTERVALS.DAILY,
         });
       });
 
@@ -191,7 +191,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
               practiceReminderConfig: {
                 hour: 0,
                 minute: 0,
-                interval: IntervalEnum.everyDay,
+                interval: REMINDER_INTERVALS.DAILY,
               },
             },
           },

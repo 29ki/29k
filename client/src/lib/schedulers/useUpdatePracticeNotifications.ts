@@ -2,19 +2,19 @@ import {useCallback} from 'react';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
-import {
-  DEFAULT_NUMBER_OF_PRACTICE_REMINDERS,
-  NOTIFICATION_CHANNELS,
-} from '../notifications/constants';
+import {NOTIFICATION_CHANNELS} from '../notifications/constants';
 import usePinnedCollections from '../user/hooks/usePinnedCollections';
 import useGetCollectionById from '../content/hooks/useGetCollectionById';
 import useUserEvents from '../user/hooks/useUserEvents';
 import useTriggerNotifications from '../notifications/hooks/useTriggerNotifications';
 import {calculateNextReminderTime} from './utils';
-import {IntervalEnum} from '../user/types/Interval';
 import {useTranslation} from 'react-i18next';
 import {Collection} from '../../../../shared/src/types/generated/Collection';
 import {PracticeReminderConfig} from '../user/state/state';
+import {
+  DEFAULT_NUMBER_OF_PRACTICE_REMINDERS,
+  REMINDER_INTERVALS,
+} from './constants';
 
 dayjs.extend(utc);
 
@@ -50,7 +50,7 @@ const useUpdatePracticeNotifications = () => {
             nextReminderTime
               .add(
                 index,
-                config.interval === IntervalEnum.everyDay ? 'day' : 'week',
+                config.interval === REMINDER_INTERVALS.DAILY ? 'day' : 'week',
               )
               .local()
               .toString(),
@@ -68,7 +68,7 @@ const useUpdatePracticeNotifications = () => {
             nextReminderTime
               .add(
                 index,
-                config.interval === IntervalEnum.everyDay ? 'day' : 'week',
+                config.interval === REMINDER_INTERVALS.DAILY ? 'day' : 'week',
               )
               .valueOf(),
           );

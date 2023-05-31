@@ -1,12 +1,12 @@
 import dayjs from 'dayjs';
 import {calculateNextReminderTime} from './utils';
-import {IntervalEnum} from '../user/types/Interval';
+import {REMINDER_INTERVALS} from './constants';
 
 describe('calculateNextReminderTime', () => {
   it('should give future weekday in current week', () => {
     expect(
       calculateNextReminderTime(dayjs('2023-05-30T09:00:00Z'), {
-        interval: IntervalEnum.thursday,
+        interval: REMINDER_INTERVALS.THURSDAY,
         hour: 10,
         minute: 0,
       }).toDate(),
@@ -16,7 +16,7 @@ describe('calculateNextReminderTime', () => {
   it('should give future weekday in next week', () => {
     expect(
       calculateNextReminderTime(dayjs('2023-05-30T09:00:00Z'), {
-        interval: IntervalEnum.monday,
+        interval: REMINDER_INTERVALS.MONDAY,
         hour: 10,
         minute: 0,
       }).toDate(),
@@ -26,7 +26,7 @@ describe('calculateNextReminderTime', () => {
   it('should give later today if same weekday as today and time is after now', () => {
     expect(
       calculateNextReminderTime(dayjs('2023-05-30T09:00:00Z'), {
-        interval: IntervalEnum.tuseday,
+        interval: REMINDER_INTERVALS.TUESDAY,
         hour: 10,
         minute: 0,
       }).toDate(),
@@ -36,7 +36,7 @@ describe('calculateNextReminderTime', () => {
   it('should give next week if same weekday as today and time before now', () => {
     expect(
       calculateNextReminderTime(dayjs('2023-05-30T11:00:00Z'), {
-        interval: IntervalEnum.tuseday,
+        interval: REMINDER_INTERVALS.TUESDAY,
         hour: 10,
         minute: 0,
       }).toDate(),
@@ -46,7 +46,7 @@ describe('calculateNextReminderTime', () => {
   it('should give tomorrow if every day and time is befor now', () => {
     expect(
       calculateNextReminderTime(dayjs('2023-05-30T11:00:00Z'), {
-        interval: IntervalEnum.everyDay,
+        interval: REMINDER_INTERVALS.DAILY,
         hour: 10,
         minute: 0,
       }).toDate(),
@@ -56,7 +56,7 @@ describe('calculateNextReminderTime', () => {
   it('should give later today if every day and time is after now', () => {
     expect(
       calculateNextReminderTime(dayjs('2023-05-30T10:00:00Z'), {
-        interval: IntervalEnum.everyDay,
+        interval: REMINDER_INTERVALS.DAILY,
         hour: 11,
         minute: 0,
       }).toDate(),

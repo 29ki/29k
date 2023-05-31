@@ -40,5 +40,3 @@ export const NOTIFICATION_CHANNEL_CONFIG: {
     },
   },
 };
-
-export const DEFAULT_NUMBER_OF_PRACTICE_REMINDERS = 4;
