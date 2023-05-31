@@ -5,6 +5,7 @@ import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import useExerciseById from '../../content/hooks/useExerciseById';
 import useTriggerNotifications from '../../notifications/hooks/useTriggerNotifications';
 import {NotificationChannels} from '../../notifications/constants';
+import useNotificationsState from '../../notifications/state/state';
 
 const useSessionReminderNotification = (session: LiveSessionType) => {
   const {id, exerciseId, startTime, link} = session;
@@ -12,13 +13,12 @@ const useSessionReminderNotification = (session: LiveSessionType) => {
   const {t} = useTranslation('Component.SessionReminder');
   const exercise = useExerciseById(exerciseId);
 
-  const {
-    getTriggerNotification,
-    setTriggerNotification,
-    removeTriggerNotification,
-  } = useTriggerNotifications();
+  const {setTriggerNotification, removeTriggerNotification} =
+    useTriggerNotifications();
 
-  const reminderEnabled = Boolean(getTriggerNotification(id));
+  const reminderEnabled = Boolean(
+    useNotificationsState(state => state.notifications[id]),
+  );
 
   const toggleReminder = useCallback(
     async (enable = true) =>

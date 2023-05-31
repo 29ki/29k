@@ -7,16 +7,8 @@ import useNotificationPermissions from './useNotificationPermissions';
 const useTriggerNotifications = () => {
   const {requestPermission} = useNotificationPermissions();
 
-  const notificationsState = useNotificationsState(
-    state => state.notifications,
-  );
   const setNotificationState = useNotificationsState(
     state => state.setNotification,
-  );
-
-  const getTriggerNotification = useCallback(
-    async (id: string) => notificationsState[id],
-    [notificationsState],
   );
 
   const setTriggerNotification = useCallback(
@@ -28,6 +20,7 @@ const useTriggerNotifications = () => {
       url: string | undefined = '',
       timestamp: number,
     ) => {
+      console.log('SET');
       if (timestamp > new Date().getTime()) {
         await requestPermission();
 
@@ -69,19 +62,24 @@ const useTriggerNotifications = () => {
 
   const removeTriggerNotifications = useCallback(
     async (channelId?: NotificationChannels) => {
-      const ids = Object.values(notificationsState.notifications ?? {})
-        .filter(({data}) => (channelId ? data.channelId === channelId : true))
-        .map(({id}) => id);
+      const ids = (await notifee.getTriggerNotifications())
+        .filter(
+          ({notification}) =>
+            notification.id &&
+            (!channelId || notification.data?.channelId === channelId),
+        )
+        .map(({notification}) => notification.id);
 
       for (const id of ids) {
-        await removeTriggerNotification(id);
+        if (id) {
+          await removeTriggerNotification(id);
+        }
       }
     },
-    [notificationsState, removeTriggerNotification],
+    [removeTriggerNotification],
   );
 
   return {
-    getTriggerNotification,
     setTriggerNotification,
     removeTriggerNotification,
     removeTriggerNotifications,
