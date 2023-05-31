@@ -9,7 +9,7 @@
     "weekday": "Weekday",
     "time": "Time",
     "intervals": {
-      "everyDay": "Every day",
+      "daily": "Every day",
       "monday": "Monday",
       "tuseday": "Tuseday",
       "wednesday": "Wednesday",
@@ -31,7 +31,7 @@
     "weekday": "Veckodag",
     "time": "Tid",
     "intervals": {
-      "everyDay": "Varje dag",
+      "daily": "Varje dag",
       "monday": "Måndag",
       "tuseday": "Tisdag",
       "wednesday": "Onsdag",
