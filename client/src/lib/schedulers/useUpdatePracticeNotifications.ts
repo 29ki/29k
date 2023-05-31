@@ -1,7 +1,7 @@
 import {useCallback} from 'react';
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 
-import useCurrentUserState from '../user/hooks/useCurrentUserState';
 import {
   DEFAULT_NUMBER_OF_PRACTICE_REMINDERS,
   NOTIFICATION_CHANNELS,
@@ -12,10 +12,14 @@ import useUserEvents from '../user/hooks/useUserEvents';
 import useTriggerNotifications from '../notifications/hooks/useTriggerNotifications';
 import {calculateNextReminderTime} from './utils';
 import {IntervalEnum} from '../user/types/Interval';
+import {useTranslation} from 'react-i18next';
 import {Collection} from '../../../../shared/src/types/generated/Collection';
+import {PracticeReminderConfig} from '../user/state/state';
+
+dayjs.extend(utc);
 
 const useUpdatePracticeNotifications = () => {
-  const userState = useCurrentUserState();
+  const {t} = useTranslation('Notifications.PracticeReminders');
   const {pinnedCollections} = usePinnedCollections();
   const {completedCollectionEvents} = useUserEvents();
   const getCollectionById = useGetCollectionById();
@@ -23,72 +27,86 @@ const useUpdatePracticeNotifications = () => {
     useTriggerNotifications();
 
   const reCreateNotifications = useCallback(
-    async (collection?: Collection | null) => {
+    async (
+      collection: Collection | null,
+      config: PracticeReminderConfig | null,
+    ) => {
       await removeTriggerNotifications(
         NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       );
-      if (userState?.practiceReminderConfig) {
+      if (config) {
         const nextReminderTime = calculateNextReminderTime(
-          dayjs(),
-          userState.practiceReminderConfig,
+          dayjs().utc(),
+          config,
         );
         for (
           let index = 0;
           index < DEFAULT_NUMBER_OF_PRACTICE_REMINDERS;
           index++
         ) {
+          console.log(
+            'setRminder',
+            index,
+            nextReminderTime
+              .add(
+                index,
+                config.interval === IntervalEnum.everyDay ? 'day' : 'week',
+              )
+              .local()
+              .toString(),
+          );
+
           await setTriggerNotification(
             index.toString(),
             NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-            'Practice reminder',
-            `Time to practice ${
-              collection?.name ? collection?.name : ''
-            }`.trim(),
+            t('title'),
+            collection
+              ? t(`notifications.collection.${index}`, {title: collection.name})
+              : t(`notifications.general.${index}`),
             collection?.link,
             collection?.image?.source,
             nextReminderTime
               .add(
                 index,
-                userState.practiceReminderConfig.interval ===
-                  IntervalEnum.everyDay
-                  ? 'day'
-                  : 'week',
+                config.interval === IntervalEnum.everyDay ? 'day' : 'week',
               )
               .valueOf(),
           );
         }
       }
     },
-    [
-      userState?.practiceReminderConfig,
-      removeTriggerNotifications,
-      setTriggerNotification,
-    ],
+    [t, removeTriggerNotifications, setTriggerNotification],
   );
 
-  const updatePracticeNotifications = useCallback(async () => {
-    const pinnedCollection = pinnedCollections
-      .sort(
-        (a, b) =>
-          new Date(a.startedAt).getTime() - new Date(b.startedAt).getTime(),
-      )
-      .find(c =>
-        completedCollectionEvents.find(
-          cc =>
-            cc.payload.id === c.id && dayjs(c.startedAt).isAfter(cc.timestamp),
-        ),
-      );
-    const collection = pinnedCollection
-      ? getCollectionById(pinnedCollection.id)
-      : undefined;
+  const updatePracticeNotifications = useCallback(
+    async (config: PracticeReminderConfig | null) => {
+      const pinnedCollection = pinnedCollections
+        .sort(
+          (a, b) =>
+            new Date(a.startedAt).getTime() - new Date(b.startedAt).getTime(),
+        )
+        .find(
+          c =>
+            !completedCollectionEvents.find(
+              cc =>
+                cc.payload.id === c.id &&
+                dayjs(c.startedAt).isBefore(cc.timestamp),
+            ),
+        );
 
-    await reCreateNotifications(collection);
-  }, [
-    completedCollectionEvents,
-    pinnedCollections,
-    getCollectionById,
-    reCreateNotifications,
-  ]);
+      const collection = pinnedCollection
+        ? getCollectionById(pinnedCollection.id)
+        : null;
+
+      await reCreateNotifications(collection, config);
+    },
+    [
+      completedCollectionEvents,
+      pinnedCollections,
+      getCollectionById,
+      reCreateNotifications,
+    ],
+  );
 
   return {
     updatePracticeNotifications,

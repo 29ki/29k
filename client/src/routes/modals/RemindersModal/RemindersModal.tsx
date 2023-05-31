@@ -2,6 +2,7 @@ import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Picker} from '@react-native-picker/picker';
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 import {useIsFocused} from '@react-navigation/native';
 
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -27,7 +28,8 @@ import {BottomSheetScrollView, useBottomSheet} from '@gorhom/bottom-sheet';
 import {IntervalEnum} from '../../../lib/user/types/Interval';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import Button from '../../../lib/components/Buttons/Button';
-import useUpdatePracticeNotifications from '../../../lib/schedulers/useUpdatePracticeNotifications';
+
+dayjs.extend(utc);
 
 const PracticeActionWrapper = styled(TouchableOpacity)({
   flex: 1,
@@ -52,7 +54,7 @@ const UpdateButton = styled(Button)({
 });
 
 const nextHalfHour = (): [number, number] => {
-  const now = dayjs();
+  const now = dayjs().utc();
   if (now.minute() === 30) {
     return [now.hour(), now.minute()];
   }
@@ -76,7 +78,6 @@ const RemindersModal = () => {
   const [weekdayOpen, setWeekdayOpen] = useState(false);
   const [timeOpen, setTimeOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const {updatePracticeNotifications} = useUpdatePracticeNotifications();
   const {
     practiceReminderConfig,
     practiceRemindersEnabled,
@@ -126,9 +127,7 @@ const RemindersModal = () => {
         const [hour, minute] = nextHalfHour();
         const interval = thisWeekday();
         setSelectedInterval(interval);
-        setSelectedTime(
-          dayjs().set('hour', hour).set('minute', minute).local(),
-        );
+        setSelectedTime(dayjs().utc().set('hour', hour).set('minute', minute));
 
         setPracticeRemindersConfig({
           interval,
@@ -153,7 +152,6 @@ const RemindersModal = () => {
         hour: selectedTime.hour(),
         minute: selectedTime.minute(),
       });
-      await updatePracticeNotifications();
     } finally {
       setIsLoading(false);
     }
@@ -161,7 +159,6 @@ const RemindersModal = () => {
     snapToIndex(0);
   }, [
     setIsLoading,
-    updatePracticeNotifications,
     setPracticeRemindersConfig,
     setWeekdayOpen,
     setTimeOpen,
@@ -179,7 +176,7 @@ const RemindersModal = () => {
 
   const onSelectedTime = useCallback(
     (value: dayjs.Dayjs) => {
-      setSelectedTime(value.local());
+      setSelectedTime(value);
     },
     [setSelectedTime],
   );
