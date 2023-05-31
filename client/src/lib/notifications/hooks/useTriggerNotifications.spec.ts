@@ -1,16 +1,12 @@
 import {act, renderHook} from '@testing-library/react-hooks';
 import notifee, {
-  EventType,
-  Event,
   TriggerNotification,
+  Notification,
 } from '@notifee/react-native';
-import {AppState} from 'react-native';
 
-import useTriggerNotification from './useTriggerNotification';
+import useTriggerNotifications from './useTriggerNotifications';
 import useNotificationsState from '../state/state';
-import useNotificationPermissions from './useNotificationPermissions';
-
-jest.mock('./useRequestNotificationPermission');
+import {NOTIFICATION_CHANNELS} from '../constants';
 
 const mockCreateTriggerNotification =
   notifee.createTriggerNotification as jest.Mock;
@@ -18,198 +14,200 @@ const mockGetTriggerNotifications =
   notifee.getTriggerNotifications as jest.Mock;
 const mockCancelTriggerNotification =
   notifee.cancelTriggerNotification as jest.Mock;
-const mockAddEventListener = AppState.addEventListener as jest.Mock;
-const mockOnForegroundEvent = notifee.onForegroundEvent as jest.Mock;
-
-mockAddEventListener.mockImplementation(() => {
-  return {remove: jest.fn()};
-});
 
 const mockRequestPermission = jest.fn().mockResolvedValue(undefined);
-jest.mocked(useNotificationPermissions).mockReturnValue(mockRequestPermission);
+jest.mock('./useNotificationPermissions', () =>
+  jest.fn(() => ({
+    requestPermission: mockRequestPermission,
+  })),
+);
 
 afterEach(() => {
   jest.clearAllMocks();
 });
 
 describe('useTriggerNotifications', () => {
-  it('sets a trigger notification', async () => {
-    mockGetTriggerNotifications.mockResolvedValueOnce([
-      {notification: {id: 'some-id'}} as TriggerNotification,
-    ]);
+  describe('getTriggerNotification', () => {
+    it('sets a trigger notification', async () => {
+      const {result} = renderHook(() => useTriggerNotifications());
 
-    const {result, waitForNextUpdate} = renderHook(() =>
-      useTriggerNotification('some-id'),
-    );
+      const timestamp = new Date().getTime() + 10000;
 
-    await waitForNextUpdate();
+      await act(async () => {
+        await result.current.setTriggerNotification(
+          'some-id',
+          NOTIFICATION_CHANNELS.SESSION_REMINDERS,
+          'Some title',
+          'Some body',
+          'http://some.deep/link',
+          'http://some/image.png',
+          timestamp,
+        );
+      });
 
-    const timestamp = new Date().getTime() + 10000;
-
-    await act(async () => {
-      await result.current.setTriggerNotification(
-        'Some title',
-        'Some body',
-        'http://some.deep/link',
-        timestamp,
+      expect(mockRequestPermission).toHaveBeenCalledTimes(1);
+      expect(useNotificationsState.getState()).toEqual(
+        expect.objectContaining({
+          notifications: {
+            'some-id': {
+              id: 'some-id',
+              title: 'Some title',
+              body: 'Some body',
+              data: {
+                channelId: 'session-reminders',
+                url: 'http://some.deep/link',
+              },
+            },
+          },
+        }),
+      );
+      expect(mockCreateTriggerNotification).toHaveBeenCalledTimes(1);
+      expect(mockCreateTriggerNotification).toHaveBeenCalledWith(
+        {
+          android: {
+            channelId: 'session-reminders',
+            importance: 4,
+            largeIcon: 'http://some/image.png',
+          },
+          body: 'Some body',
+          data: {
+            channelId: 'session-reminders',
+            url: 'http://some.deep/link',
+          },
+          id: 'some-id',
+          ios: {
+            attachments: [{url: 'http://some/image.png'}],
+            interruptionLevel: 'timeSensitive',
+          },
+          title: 'Some title',
+        },
+        {
+          timestamp,
+          type: 0,
+        },
       );
     });
 
-    expect(mockRequestPermission).toHaveBeenCalledTimes(1);
-    expect(result.current.triggerNotification).toMatchObject({id: 'some-id'});
-    expect(mockCreateTriggerNotification).toHaveBeenCalledTimes(1);
-    expect(mockCreateTriggerNotification).toHaveBeenCalledWith(
-      {
-        id: 'some-id',
-        title: 'Some title',
-        body: 'Some body',
-        android: {
-          channelId: 'reminders',
-        },
-        data: {
-          url: 'http://some.deep/link',
-        },
-      },
-      {
-        type: 0,
-        timestamp,
-      },
-    );
+    it('does not set notifications for dates in the past', async () => {
+      const {result} = renderHook(() => useTriggerNotifications());
 
-    expect(result.all.length).toBe(3);
+      await act(async () => {
+        await result.current.setTriggerNotification(
+          'some-id',
+          NOTIFICATION_CHANNELS.SESSION_REMINDERS,
+          'Some title',
+          'Some body',
+          'http://some.deep/link',
+          'http://some/image.png',
+          new Date().getTime() - 10000,
+        );
+      });
+
+      expect(mockRequestPermission).toHaveBeenCalledTimes(0);
+      expect(useNotificationsState.getState()).toEqual(
+        expect.objectContaining({
+          notifications: {},
+        }),
+      );
+      expect(mockCreateTriggerNotification).toHaveBeenCalledTimes(0);
+    });
   });
 
-  it('does not set reminders for dates in the past', async () => {
-    const {result} = renderHook(() => useTriggerNotification('some-id'));
+  describe('removeTriggerNotification', () => {
+    it('removes a notification', async () => {
+      useNotificationsState.setState({
+        notifications: {
+          'some-id': {},
+        },
+      });
+      const {result} = renderHook(() => useTriggerNotifications());
 
-    await act(async () => {
-      await result.current.setTriggerNotification(
-        'Some title',
-        'Some body',
-        'http://some.deep/link',
-        new Date().getTime() - 10000,
+      await act(async () => {
+        await result.current.removeTriggerNotification('some-id');
+      });
+
+      expect(useNotificationsState.getState()).toEqual(
+        expect.objectContaining({
+          notifications: {},
+        }),
+      );
+      expect(mockCancelTriggerNotification).toHaveBeenCalledTimes(1);
+      expect(mockCancelTriggerNotification).toHaveBeenCalledWith('some-id');
+    });
+  });
+
+  describe('removeTriggerNotifications', () => {
+    it('removes all notifications', async () => {
+      mockGetTriggerNotifications.mockResolvedValueOnce([
+        {notification: {id: 'some-id'} as Notification},
+        {notification: {id: 'some-other-id'} as Notification},
+      ]);
+      useNotificationsState.setState({
+        notifications: {
+          'some-id': {},
+          'some-other-id': {},
+        },
+      });
+      const {result} = renderHook(() => useTriggerNotifications());
+
+      await act(async () => {
+        await result.current.removeTriggerNotifications();
+      });
+
+      expect(mockGetTriggerNotifications).toHaveBeenCalledTimes(1);
+      expect(mockCancelTriggerNotification).toHaveBeenCalledTimes(2);
+      expect(mockCancelTriggerNotification).toHaveBeenCalledWith('some-id');
+      expect(mockCancelTriggerNotification).toHaveBeenCalledWith(
+        'some-other-id',
+      );
+      expect(useNotificationsState.getState()).toEqual(
+        expect.objectContaining({
+          notifications: {},
+        }),
       );
     });
 
-    expect(mockRequestPermission).toHaveBeenCalledTimes(0);
-    expect(result.current.triggerNotification).toBe(undefined);
-    expect(mockCreateTriggerNotification).toHaveBeenCalledTimes(0);
-  });
-
-  it('supports removing the notification', async () => {
-    mockGetTriggerNotifications.mockResolvedValueOnce([
-      {notification: {id: 'some-id'}} as TriggerNotification,
-    ]);
-
-    const {result, waitForNextUpdate} = renderHook(() =>
-      useTriggerNotification('some-id'),
-    );
-
-    await waitForNextUpdate();
-
-    expect(result.current.triggerNotification).toEqual({id: 'some-id'});
-
-    await act(async () => {
-      await result.current.removeTriggerNotification();
-    });
-
-    expect(result.current.triggerNotification).toBe(undefined);
-
-    expect(mockCancelTriggerNotification).toHaveBeenCalledTimes(1);
-    expect(mockCancelTriggerNotification).toHaveBeenCalledWith('some-id');
-
-    expect(result.all.length).toBe(3);
-  });
-
-  it('supports removing the notification on resume', async () => {
-    AppState.currentState = 'background';
-    mockGetTriggerNotifications
-      .mockResolvedValueOnce([
-        {notification: {id: 'some-id'}} as TriggerNotification,
-      ])
-      .mockResolvedValueOnce([]);
-
-    let eventCallback = (_: string) => Promise.resolve();
-    mockAddEventListener.mockImplementationOnce((_, callback) => {
-      eventCallback = callback;
-      return {remove: jest.fn()};
-    });
-
-    const {result, waitForNextUpdate} = renderHook(() =>
-      useTriggerNotification('some-id'),
-    );
-
-    await waitForNextUpdate();
-
-    expect(result.current.triggerNotification).toEqual({id: 'some-id'});
-
-    await act(async () => {
-      await eventCallback('active');
-    });
-
-    expect(result.current.triggerNotification).toBe(undefined);
-
-    expect(result.all.length).toBe(3);
-  });
-
-  it('adds notification on TRIGGER_NOTIFICATION_CREATED', async () => {
-    mockGetTriggerNotifications.mockResolvedValue([
-      {notification: {id: 'some-id'}} as TriggerNotification,
-    ]);
-
-    type EventCallback = (event?: Event) => Promise<void>;
-    let eventCallback: EventCallback = () => Promise.resolve();
-    mockOnForegroundEvent.mockImplementation(callback => {
-      eventCallback = callback;
-    });
-
-    const {result} = renderHook(() => useTriggerNotification('some-id'));
-
-    await act(async () => {
-      await eventCallback({
-        type: EventType.TRIGGER_NOTIFICATION_CREATED,
-        detail: {notification: {id: 'some-id'}},
+    it('removes all notifications by channelId', async () => {
+      mockGetTriggerNotifications.mockResolvedValueOnce([
+        {
+          notification: {
+            id: 'some-id',
+            data: {
+              channelId: 'session-reminders',
+            },
+          } as Notification,
+        },
+        {
+          notification: {
+            id: 'some-other-id',
+            data: {
+              channelId: 'practice-reminders',
+            },
+          } as Notification,
+        },
+      ]);
+      useNotificationsState.setState({
+        notifications: {
+          'some-id': {},
+          'some-other-id': {},
+        },
       });
-    });
+      const {result} = renderHook(() => useTriggerNotifications());
 
-    expect(result.current.triggerNotification).toEqual({id: 'some-id'});
-  });
-
-  it('removes notification on DELIVERED', async () => {
-    useNotificationsState.setState({
-      notifications: {'some-id': {id: 'some-id'}},
-    });
-
-    mockGetTriggerNotifications.mockResolvedValue([]);
-
-    type EventCallback = (event?: Event) => Promise<void>;
-    let eventCallback: EventCallback = () => Promise.resolve();
-    mockOnForegroundEvent.mockImplementation(callback => {
-      eventCallback = callback as EventCallback;
-    });
-
-    const {result} = renderHook(() => useTriggerNotification('some-id'));
-
-    expect(result.current.triggerNotification).toEqual({id: 'some-id'});
-
-    await act(async () => {
-      await eventCallback({
-        type: EventType.DELIVERED,
-        detail: {notification: {id: 'some-id'}},
+      await act(async () => {
+        await result.current.removeTriggerNotifications(
+          NOTIFICATION_CHANNELS.SESSION_REMINDERS,
+        );
       });
+
+      expect(mockGetTriggerNotifications).toHaveBeenCalledTimes(1);
+      expect(mockCancelTriggerNotification).toHaveBeenCalledTimes(1);
+      expect(mockCancelTriggerNotification).toHaveBeenCalledWith('some-id');
+      expect(useNotificationsState.getState()).toEqual(
+        expect.objectContaining({
+          notifications: {'some-other-id': {}},
+        }),
+      );
     });
-
-    expect(result.current.triggerNotification).toBe(undefined);
-  });
-
-  it('unsubscribes from onForegroundEvent on unmount', async () => {
-    const mockUnsubscribe = jest.fn();
-    mockOnForegroundEvent.mockImplementation(() => mockUnsubscribe);
-
-    const {unmount} = renderHook(() => useTriggerNotification('some-id'));
-
-    unmount();
-
-    expect(mockUnsubscribe).toHaveBeenCalledTimes(1);
   });
 });
