@@ -22,5 +22,5 @@ export interface Collection {
   published: boolean;
   hidden?: boolean;
   exercises: any[];
-  card: CollectionCard;
+  card?: CollectionCard;
 }

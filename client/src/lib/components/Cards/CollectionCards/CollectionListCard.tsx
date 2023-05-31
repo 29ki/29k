@@ -8,10 +8,13 @@ import {Display16} from '../../Typography/Display/Display';
 import {SPACINGS} from '../../../constants/spacings';
 import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
 import {Spacer8} from '../../Spacers/Spacer';
+import LinearGradient from 'react-native-linear-gradient';
+import {PlayfairDisplayMedium} from '../../../constants/fonts';
 
 type CollectionCardProps = {
   title?: string;
   image: ImageSourcePropType;
+  theme?: {backgroundColorGradient?: string[]; textColor?: string};
   onPress: () => void;
 };
 
@@ -21,8 +24,6 @@ const Container = styled(TouchableOpacity)({
   height: CARD_WIDTH,
   width: CARD_WIDTH,
   backgroundColor: COLORS.GREYLIGHTEST,
-  paddingVertical: SPACINGS.FOUR,
-  paddingHorizontal: SPACINGS.SIXTEEN,
   borderRadius: SPACINGS.SIXTEEN,
 });
 
@@ -38,20 +39,43 @@ const GraphicsWrapper = styled.View({
   aspectRatio: 1,
 });
 
+const Heading = styled(Display16)<{color?: string}>(
+  ({color = COLORS.BLACK}) => ({
+    fontFamily: PlayfairDisplayMedium,
+    lineHeight: 27,
+    color,
+  }),
+);
+
+const Gradient = styled(LinearGradient).attrs<{colors: string[]}>(
+  ({colors}) => ({
+    colors,
+    angle: 180,
+  }),
+)({
+  flex: 1,
+  borderRadius: SPACINGS.SIXTEEN,
+  paddingVertical: SPACINGS.FOUR,
+  paddingHorizontal: SPACINGS.SIXTEEN,
+});
+
 const CollectionCard: React.FC<CollectionCardProps> = ({
   title,
   image,
+  theme,
   onPress,
 }) => {
   return (
     <Container onPress={onPress}>
-      <Display16>{title}</Display16>
-      <ImageContainer>
-        <GraphicsWrapper>
-          <Image source={image} />
-        </GraphicsWrapper>
-      </ImageContainer>
-      <Spacer8 />
+      <Gradient colors={theme?.backgroundColorGradient || ['transparent']}>
+        <Heading color={theme?.textColor}>{title}</Heading>
+        <ImageContainer>
+          <GraphicsWrapper>
+            <Image source={image} />
+          </GraphicsWrapper>
+        </ImageContainer>
+        <Spacer8 />
+      </Gradient>
     </Container>
   );
 };

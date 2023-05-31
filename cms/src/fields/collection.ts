@@ -38,6 +38,7 @@ export const COLLECTION_FIELDS: Array<CmsField> = [
     i18n: true,
     widget: 'object',
     collapsed: true,
+    required: false,
     fields: [
       {
         label: '🪪 Card description',
