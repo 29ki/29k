@@ -262,3 +262,31 @@ export const updateSessionState = async (
     await transaction.update(sessionStateDocRef, updatedSessionState);
   });
 };
+
+export const getSessionByHostCode = async ({
+  hostCode,
+  activeOnly = true,
+}: {
+  hostCode: LiveSessionRecord['hostCode'];
+  activeOnly?: boolean;
+}) => {
+  const query = firestore()
+    .collection(SESSIONS_COLLECTION)
+    .where('hostCode', '==', hostCode);
+
+  const result = await (activeOnly
+    ? query
+        .where('ended', '==', false)
+        .orderBy('closingTime')
+        .where('closingTime', '>', sessionClosingRange())
+    : query
+  )
+    .orderBy('startTime', 'asc')
+    .get();
+
+  if (!result.docs.length) {
+    return;
+  }
+
+  return getData<LiveSessionRecord>(result.docs[0]);
+};
