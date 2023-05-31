@@ -15,7 +15,7 @@ import useUser from './lib/user/hooks/useUser';
 import useIsPublicHost from './lib/user/hooks/useIsPublicHost';
 import usePreferredLanguage from './lib/i18n/hooks/usePreferredLanguage';
 import {LANGUAGE_TAG} from './lib/i18n';
-import useNoticationsSetup from './lib/notifications/hooks/useNoticationsSetup';
+import useNotificationsSetup from './lib/notifications/hooks/useNotificationsSetup';
 
 i18nLib.init();
 sentry.init();
@@ -33,7 +33,7 @@ const useInitHidableContent = () => {
 const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
   useAuthenticateUser();
   usePreferredLanguage();
-  useNoticationsSetup();
+  useNotificationsSetup();
 
   const {i18n} = useTranslation();
   useInitHidableContent();
