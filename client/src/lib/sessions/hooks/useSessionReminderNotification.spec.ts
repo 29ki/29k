@@ -2,6 +2,7 @@ import {renderHook} from '@testing-library/react-hooks';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 
 import useSessionReminderNotification from './useSessionReminderNotification';
+import useNotificationsState from '../../notifications/state/state';
 
 const mockGetTriggerNotification = jest.fn();
 const mockSetTriggerNotification = jest.fn();
@@ -22,7 +23,11 @@ afterEach(() => {
 
 describe('useSessionReminderNotification', () => {
   it('returns the notification for a specific id', () => {
-    mockGetTriggerNotification.mockReturnValueOnce({id: 'some-session-id'});
+    useNotificationsState.setState({
+      notifications: {
+        'some-session-id': {},
+      },
+    });
 
     const {result} = renderHook(() =>
       useSessionReminderNotification({
@@ -32,9 +37,6 @@ describe('useSessionReminderNotification', () => {
     );
 
     expect(result.current.reminderEnabled).toEqual(true);
-
-    expect(mockGetTriggerNotification).toHaveBeenCalledTimes(1);
-    expect(mockGetTriggerNotification).toHaveBeenCalledWith('some-session-id');
   });
 
   it('can enable a reminder', () => {
@@ -55,6 +57,7 @@ describe('useSessionReminderNotification', () => {
       'title',
       'body',
       'http://some.deep/link',
+      undefined,
       expect.any(Number),
     );
   });
