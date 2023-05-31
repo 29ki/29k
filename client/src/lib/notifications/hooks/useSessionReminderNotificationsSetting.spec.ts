@@ -134,7 +134,7 @@ describe('useSessionReminderNotificationsSetting', () => {
       expect(mockRequestPermission).toHaveBeenCalledTimes(0);
       expect(mockRemoveTriggerNotifications).toHaveBeenCalledTimes(1);
       expect(mockRemoveTriggerNotifications).toHaveBeenCalledWith(
-        'session-reminder',
+        'session-reminders',
       );
       expect(useUserState.getState()).toEqual(
         expect.objectContaining({
