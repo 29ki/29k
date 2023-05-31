@@ -5,10 +5,10 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import dayjs from 'dayjs';
-import React, {Fragment, useCallback, useEffect, useState} from 'react';
+import React, {Fragment, useCallback, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Alert, Share, View} from 'react-native';
+import {Share, View} from 'react-native';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import styled from 'styled-components/native';
 
@@ -34,7 +34,6 @@ import {
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useAddSessionToCalendar from '../../../lib/sessions/hooks/useAddSessionToCalendar';
 import useUser from '../../../lib/user/hooks/useUser';
-import useSessions from '../../../lib/sessions/hooks/useSessions';
 
 import {formatContentName, formatInviteCode} from '../../../lib/utils/string';
 
@@ -54,11 +53,7 @@ import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTi
 import {COLORS} from '../../../../../shared/src/constants/colors';
 
 import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
-import DateTimePicker from '../../../lib/components/DateTimePicker/DateTimePicker';
-import {updateSession} from '../../../lib/sessions/api/session';
-import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import {SPACINGS} from '../../../lib/constants/spacings';
-import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
 import useLogSessionMetricEvents from '../../../lib/sessions/hooks/useLogSessionMetricEvents';
 import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import usePinSession from '../../../lib/sessions/hooks/usePinSession';
@@ -104,10 +99,6 @@ const EditIcon = styled(View)({
   alignSelf: 'center',
 });
 
-const DeleteButton = styled(Button)({
-  backgroundColor: COLORS.DELETE,
-});
-
 const JourneyButton = styled(AnimatedButton)({
   alignSelf: 'flex-start',
 });
@@ -121,19 +112,14 @@ const Tags = styled(Gutters)({
 
 const SessionModal = () => {
   const {
-    params: {session: initialSessionData},
+    params: {session},
   } = useRoute<RouteProp<ModalStackProps, 'SessionModal'>>();
-
-  const [session, setSession] = useState<LiveSessionType>(initialSessionData);
 
   const {t} = useTranslation('Modal.Session');
   const user = useUser();
-  const {deleteSession, fetchSessions} = useSessions();
-  const [editMode, setEditMode] = useState<'date' | 'host' | null>();
 
   const initialStartTime = dayjs(session.startTime).utc();
-  const [sessionDateTime, setSessionDateTime] =
-    useState<dayjs.Dayjs>(initialStartTime);
+
   const {togglePinned, isPinned} = usePinSession(session);
   const logSessionMetricEvent = useLogSessionMetricEvents();
 
@@ -195,44 +181,19 @@ const SessionModal = () => {
     }
   }, [session.link, session.inviteCode, t]);
 
-  const onDelete = useCallback(() => {
-    Alert.alert(t('delete.header'), t('delete.text'), [
-      {text: t('delete.buttons.cancel'), style: 'cancel', onPress: () => {}},
-      {
-        text: t('delete.buttons.confirm'),
-        style: 'destructive',
-
-        onPress: async () => {
-          await deleteSession(session.id);
-          navigation.popToTop();
-        },
-      },
-    ]);
-  }, [t, navigation, deleteSession, session.id]);
-
-  const onUpdateSession = useCallback(async () => {
-    const updatedSession = await updateSession(session.id, {
-      startTime: sessionDateTime.utc().toISOString(),
-    });
-
-    setSession(updatedSession);
-    fetchSessions();
-    setEditMode(null);
-  }, [setSession, fetchSessions, setEditMode, session.id, sessionDateTime]);
-
-  const onChange = useCallback(
-    (dateTime: dayjs.Dayjs) => setSessionDateTime(dateTime),
-    [setSessionDateTime],
-  );
-
   const onHostPress = useCallback(() => {
     navigation.popToTop();
     navigation.navigate('HostInfoModal', {host: session.hostProfile});
   }, [navigation, session.hostProfile]);
 
-  const onEditMode = useCallback(() => setEditMode('date'), []);
-  const onEditHostMode = useCallback(() => setEditMode('host'), []);
-  const onHostChange = useCallback(() => setEditMode(null), []);
+  const onEditMode = useCallback(
+    () => navigation.navigate('EditSessionDateModal', {session}),
+    [session, navigation],
+  );
+  const onEditHostMode = useCallback(
+    () => navigation.navigate('AssignNewHostModal', {session}),
+    [session, navigation],
+  );
 
   useEffect(() => {
     if (isHost) {
@@ -249,177 +210,136 @@ const SessionModal = () => {
     <SheetModal backgroundColor={COLORS.CREAM}>
       <BottomSheetScrollView focusHook={useIsFocused}>
         <Spacer16 />
-        {!editMode && (
-          <>
-            <Content>
-              <SpaceBetweenRow>
-                <TitleContainer>
-                  <Display24>{formatContentName(exercise)}</Display24>
-                  <Spacer4 />
-                  <Row>
-                    <Byline
-                      pictureURL={session.hostProfile?.photoURL}
-                      name={session.hostProfile?.displayName}
-                      onPress={onHostPress}
-                    />
-                    {isHost && (
-                      <EditButton onPress={onEditHostMode}>
-                        <EditIcon>
-                          <PencilIcon />
-                        </EditIcon>
-                      </EditButton>
-                    )}
-                  </Row>
-                </TitleContainer>
-                <Spacer32 />
-                <ImageContainer
-                  resizeMode="contain"
-                  source={{uri: exercise?.card?.image?.source}}
+
+        <Content>
+          <SpaceBetweenRow>
+            <TitleContainer>
+              <Display24>{formatContentName(exercise)}</Display24>
+              <Spacer4 />
+              <Row>
+                <Byline
+                  pictureURL={session.hostProfile?.photoURL}
+                  name={session.hostProfile?.displayName}
+                  onPress={onHostPress}
                 />
-              </SpaceBetweenRow>
-            </Content>
-            {exercise?.description && (
-              <>
-                <Spacer16 />
-                <Gutters>
-                  <Markdown>{exercise?.description}</Markdown>
-                </Gutters>
-              </>
-            )}
-
-            {tags && (
-              <Tags>
-                {tags.map((tag, idx) => (
-                  <Fragment key={`tag-${idx}`}>
-                    <Tag>{tag}</Tag>
-                    <Spacer4 />
-                  </Fragment>
-                ))}
-              </Tags>
-            )}
+                {isHost && (
+                  <EditButton onPress={onEditHostMode}>
+                    <EditIcon>
+                      <PencilIcon />
+                    </EditIcon>
+                  </EditButton>
+                )}
+              </Row>
+            </TitleContainer>
+            <Spacer32 />
+            <ImageContainer
+              resizeMode="contain"
+              source={{uri: exercise?.card?.image?.source}}
+            />
+          </SpaceBetweenRow>
+        </Content>
+        {exercise?.description && (
+          <>
             <Spacer16 />
-
             <Gutters>
-              <Row>
-                {startingNow && (
-                  <>
-                    <Button small variant="secondary" onPress={onJoin}>
-                      {t('join')}
-                    </Button>
-                    <Spacer8 />
-                  </>
-                )}
-                {isHost ? (
-                  <SpaceBetweenRow>
-                    <EditButton onPress={onEditMode}>
-                      <SessionTimeBadge session={session} />
-                      <EditIcon>
-                        <PencilIcon />
-                      </EditIcon>
-                    </EditButton>
-                    <Interested count={session.interestedCount} />
-                  </SpaceBetweenRow>
-                ) : (
-                  <SessionTimeBadge session={session} />
-                )}
-              </Row>
-              <Spacer16 />
-
-              {!isHost && (
-                <>
-                  <JourneyButton
-                    small
-                    AnimatedIcon={PlusToCheckIconAnimated}
-                    fill={COLORS.WHITE}
-                    onPress={togglePinned}
-                    variant={isPinned ? 'primary' : 'secondary'}
-                    active={isPinned}>
-                    {t('journeyButton')}
-                  </JourneyButton>
-
-                  <Spacer32 />
-                </>
-              )}
-            </Gutters>
-
-            <Gutters>
-              <Body16>{t('description')}</Body16>
-              <Spacer16 />
-              <Row>
-                {!startingNow && (
-                  <>
-                    <IconButton
-                      Icon={CalendarIcon}
-                      variant={'secondary'}
-                      onPress={onAddToCalendar}
-                    />
-                    <Spacer16 />
-                  </>
-                )}
-
-                {session.link && (
-                  <>
-                    <IconButton
-                      variant="secondary"
-                      onPress={onShare}
-                      Icon={ShareIcon}
-                    />
-                  </>
-                )}
-                {(isPinned || isHost) && (
-                  <>
-                    <Spacer16 />
-                    <AnimatedIconButton
-                      AnimatedIcon={BellIconAnimated}
-                      fill={COLORS.WHITE}
-                      variant={reminderEnabled ? 'primary' : 'secondary'}
-                      active={reminderEnabled}
-                      onPress={onToggleReminder}
-                    />
-                  </>
-                )}
-              </Row>
+              <Markdown>{exercise?.description}</Markdown>
             </Gutters>
           </>
         )}
-        {editMode && (
-          <Gutters>
-            {editMode === 'host' && (
+
+        {tags && (
+          <Tags>
+            {tags.map((tag, idx) => (
+              <Fragment key={`tag-${idx}`}>
+                <Tag>{tag}</Tag>
+                <Spacer4 />
+              </Fragment>
+            ))}
+          </Tags>
+        )}
+        <Spacer16 />
+
+        <Gutters>
+          <Row>
+            {startingNow && (
               <>
-                <ModalHeading>{t('editHost.heading')}</ModalHeading>
-                <Spacer16 />
-                <Body16>{t('editHost.description')}</Body16>
-                <Spacer16 />
-                <Row>
-                  <Button
-                    variant="secondary"
-                    onPress={onHostChange}
-                    RightIcon={ShareIcon}>
-                    {t('editHost.button')}
-                  </Button>
-                </Row>
+                <Button small variant="secondary" onPress={onJoin}>
+                  {t('join')}
+                </Button>
+                <Spacer8 />
               </>
             )}
-            {editMode === 'date' && (
+            {isHost ? (
+              <SpaceBetweenRow>
+                <EditButton onPress={onEditMode}>
+                  <SessionTimeBadge session={session} />
+                  <EditIcon>
+                    <PencilIcon />
+                  </EditIcon>
+                </EditButton>
+                <Interested count={session.interestedCount} />
+              </SpaceBetweenRow>
+            ) : (
+              <SessionTimeBadge session={session} />
+            )}
+          </Row>
+          <Spacer16 />
+
+          {!isHost && (
+            <>
+              <JourneyButton
+                small
+                AnimatedIcon={PlusToCheckIconAnimated}
+                fill={COLORS.WHITE}
+                onPress={togglePinned}
+                variant={isPinned ? 'primary' : 'secondary'}
+                active={isPinned}>
+                {t('journeyButton')}
+              </JourneyButton>
+
+              <Spacer32 />
+            </>
+          )}
+        </Gutters>
+
+        <Gutters>
+          <Body16>{t('description')}</Body16>
+          <Spacer16 />
+          <Row>
+            {!startingNow && (
               <>
-                <DateTimePicker
-                  initialDateTime={initialStartTime}
-                  minimumDate={dayjs()}
-                  onChange={onChange}
+                <IconButton
+                  Icon={CalendarIcon}
+                  variant={'secondary'}
+                  onPress={onAddToCalendar}
                 />
                 <Spacer16 />
-                <SpaceBetweenRow>
-                  <Button variant="secondary" onPress={onUpdateSession}>
-                    {t('done')}
-                  </Button>
-                  <DeleteButton small onPress={onDelete}>
-                    {t('deleteButton')}
-                  </DeleteButton>
-                </SpaceBetweenRow>
               </>
             )}
-          </Gutters>
-        )}
+
+            {session.link && (
+              <>
+                <IconButton
+                  variant="secondary"
+                  onPress={onShare}
+                  Icon={ShareIcon}
+                />
+              </>
+            )}
+            {(isPinned || isHost) && (
+              <>
+                <Spacer16 />
+                <AnimatedIconButton
+                  AnimatedIcon={BellIconAnimated}
+                  fill={COLORS.WHITE}
+                  variant={reminderEnabled ? 'primary' : 'secondary'}
+                  active={reminderEnabled}
+                  onPress={onToggleReminder}
+                />
+              </>
+            )}
+          </Row>
+        </Gutters>
         <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
       </BottomSheetScrollView>
     </SheetModal>
