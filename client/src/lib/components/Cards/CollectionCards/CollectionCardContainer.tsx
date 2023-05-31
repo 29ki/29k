@@ -60,7 +60,10 @@ const CollectionCardContainer: React.FC<CollectionCardContainer> = ({
       description={collection.card?.description || collection.description}
       image={image}
       progressItems={items}
-      theme={collection.card}
+      theme={{
+        backgroundColorGradient: collection.card.backgroundColorGradient,
+        textColor: collection.card.textColor,
+      }}
       onPress={onPress}
     />
   );

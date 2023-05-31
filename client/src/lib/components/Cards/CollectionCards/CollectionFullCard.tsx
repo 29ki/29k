@@ -21,13 +21,12 @@ type CollectionFullCardProps = {
   description?: string;
   image: ImageSourcePropType;
   progressItems: Array<boolean>;
-  theme: {backgroundColorGradient: string[]; textColor: string};
+  theme?: {backgroundColorGradient?: string[]; textColor?: string};
   onPress: () => void;
 };
 
 const Container = styled(TouchableOpacity)({
   height: HEIGHT,
-
   backgroundColor: COLORS.GREYLIGHTEST,
   borderRadius: SPACINGS.SIXTEEN,
 });
@@ -79,7 +78,7 @@ const GraphicsWrapper = styled.View({
 
 const Gradient = styled(LinearGradient).attrs<{colors: string[]}>(
   ({colors}) => ({
-    colors: colors ?? ['transparent'],
+    colors,
     angle: 180,
   }),
 )({
@@ -98,7 +97,7 @@ const CollectionFullCard: React.FC<CollectionFullCardProps> = ({
   onPress,
 }) => (
   <Container onPress={onPress}>
-    <Gradient colors={theme?.backgroundColorGradient}>
+    <Gradient colors={theme?.backgroundColorGradient || ['transparent']}>
       <Row>
         <LeftColumn>
           <TitleWrapper>
