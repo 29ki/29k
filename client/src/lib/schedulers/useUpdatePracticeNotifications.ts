@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import useCurrentUserState from '../user/hooks/useCurrentUserState';
 import {
   DEFAULT_NUMBER_OF_PRACTICE_REMINDERS,
-  NotificationChannels,
+  NOTIFICATION_CHANNELS,
 } from '../notifications/constants';
 import usePinnedCollections from '../user/hooks/usePinnedCollections';
 import useGetCollectionById from '../content/hooks/useGetCollectionById';
@@ -12,6 +12,7 @@ import useUserEvents from '../user/hooks/useUserEvents';
 import useTriggerNotifications from '../notifications/hooks/useTriggerNotifications';
 import {calculateNextReminderTime} from './utils';
 import {IntervalEnum} from '../user/types/Interval';
+import {Collection} from '../../../../shared/src/types/generated/Collection';
 
 const useUpdatePracticeNotifications = () => {
   const userState = useCurrentUserState();
@@ -22,8 +23,8 @@ const useUpdatePracticeNotifications = () => {
     useTriggerNotifications();
 
   const reCreateNotifications = useCallback(
-    async (link: string | undefined, collectionName: string | undefined) => {
-      await removeTriggerNotifications(NotificationChannels.PRACTICE_REMINDER);
+    async (collection?: Collection | null) => {
+      await removeTriggerNotifications(NOTIFICATION_CHANNELS.PRACTICE_REMINDER);
       if (userState?.practiceReminderConfig) {
         const nextReminderTime = calculateNextReminderTime(
           dayjs(),
@@ -36,10 +37,13 @@ const useUpdatePracticeNotifications = () => {
         ) {
           await setTriggerNotification(
             index.toString(),
-            NotificationChannels.PRACTICE_REMINDER,
+            NOTIFICATION_CHANNELS.PRACTICE_REMINDER,
             'Practice reminder',
-            `Time to practice ${collectionName ? collectionName : ''}`.trim(),
-            link,
+            `Time to practice ${
+              collection?.name ? collection?.name : ''
+            }`.trim(),
+            collection?.link,
+            collection?.image?.source,
             nextReminderTime
               .add(
                 index,
@@ -76,7 +80,7 @@ const useUpdatePracticeNotifications = () => {
       ? getCollectionById(pinnedCollection.id)
       : undefined;
 
-    await reCreateNotifications(collection?.link, collection?.name);
+    await reCreateNotifications(collection);
   }, [
     completedCollectionEvents,
     pinnedCollections,

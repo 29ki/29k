@@ -1,7 +1,7 @@
 import {useCallback} from 'react';
 import useNotificationsState from '../state/state';
 import notifee, {TimestampTrigger, TriggerType} from '@notifee/react-native';
-import {NotificationChannels} from '../constants';
+import {NOTIFICATION_CHANNELS, NOTIFICATION_CHANNEL_CONFIG} from '../constants';
 import useNotificationPermissions from './useNotificationPermissions';
 
 const useTriggerNotifications = () => {
@@ -14,14 +14,17 @@ const useTriggerNotifications = () => {
   const setTriggerNotification = useCallback(
     async (
       id: string,
-      channelId: NotificationChannels,
+      channelId: NOTIFICATION_CHANNELS,
       title: string,
       body: string,
       url: string | undefined = '',
+      image: string | undefined,
       timestamp: number,
     ) => {
       if (timestamp > new Date().getTime()) {
         await requestPermission();
+
+        const channelConfig = NOTIFICATION_CHANNEL_CONFIG[channelId];
 
         const trigger: TimestampTrigger = {
           type: TriggerType.TIMESTAMP,
@@ -33,14 +36,28 @@ const useTriggerNotifications = () => {
           id,
           title,
           body,
-          android: {
-            channelId,
-          },
           data: {
             url,
             channelId,
           },
+          android: {
+            ...channelConfig.android,
+            channelId,
+            largeIcon: image,
+          },
+          ios: {
+            ...channelConfig.ios,
+            attachments: image
+              ? [
+                  {
+                    url: image,
+                  },
+                ]
+              : [],
+          },
         };
+
+        notifee.displayNotification(notification);
 
         // Optimistic add, will be updated when created by notifee
         setNotificationState(id, notification);
@@ -60,12 +77,11 @@ const useTriggerNotifications = () => {
   );
 
   const removeTriggerNotifications = useCallback(
-    async (channelId?: NotificationChannels) => {
+    async (channelId?: NOTIFICATION_CHANNELS) => {
       const ids = (await notifee.getTriggerNotifications())
         .filter(
           ({notification}) =>
-            notification.id &&
-            (!channelId || notification.data?.channelId === channelId),
+            !channelId || notification.data?.channelId === channelId,
         )
         .map(({notification}) => notification.id);
 

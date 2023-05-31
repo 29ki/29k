@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import useExerciseById from '../../content/hooks/useExerciseById';
 import useTriggerNotifications from '../../notifications/hooks/useTriggerNotifications';
-import {NotificationChannels} from '../../notifications/constants';
+import {NOTIFICATION_CHANNELS} from '../../notifications/constants';
 import useNotificationsState from '../../notifications/state/state';
 
 const useSessionReminderNotification = (session: LiveSessionType) => {
@@ -25,10 +25,11 @@ const useSessionReminderNotification = (session: LiveSessionType) => {
       enable
         ? setTriggerNotification(
             id,
-            NotificationChannels.SESSION_REMINDER,
+            NOTIFICATION_CHANNELS.SESSION_REMINDER,
             t('title', {exercise: exercise?.name}),
             t('body'),
             link,
+            exercise?.card.image?.source,
             dayjs(startTime).subtract(10, 'minutes').valueOf(),
           )
         : removeTriggerNotification(id),
@@ -37,6 +38,7 @@ const useSessionReminderNotification = (session: LiveSessionType) => {
       removeTriggerNotification,
       id,
       exercise?.name,
+      exercise?.card.image?.source,
       link,
       startTime,
       t,
