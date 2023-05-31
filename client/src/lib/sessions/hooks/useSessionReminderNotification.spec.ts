@@ -53,7 +53,7 @@ describe('useSessionReminderNotification', () => {
     expect(mockSetTriggerNotification).toHaveBeenCalledTimes(1);
     expect(mockSetTriggerNotification).toHaveBeenCalledWith(
       'some-session-id',
-      'session-reminder',
+      'session-reminders',
       'title',
       'body',
       'http://some.deep/link',
