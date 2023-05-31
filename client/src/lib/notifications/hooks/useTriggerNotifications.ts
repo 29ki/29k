@@ -20,7 +20,6 @@ const useTriggerNotifications = () => {
       url: string | undefined = '',
       timestamp: number,
     ) => {
-      console.log('SET');
       if (timestamp > new Date().getTime()) {
         await requestPermission();
 
