@@ -3,7 +3,7 @@ import useCurrentUserState from '../../user/hooks/useCurrentUserState';
 import useUserState, {PracticeReminderConfig} from '../../user/state/state';
 import useNotificationPermissions from './useNotificationPermissions';
 import useTriggerNotifications from './useTriggerNotifications';
-import {NotificationChannels} from '../constants';
+import {NOTIFICATION_CHANNELS} from '../constants';
 
 const usePracticeReminderNotificationsSetting = () => {
   const userState = useCurrentUserState();
@@ -34,7 +34,7 @@ const usePracticeReminderNotificationsSetting = () => {
       if (config) {
         await requestPermission();
       } else {
-        removeTriggerNotifications(NotificationChannels.PRACTICE_REMINDER);
+        removeTriggerNotifications(NOTIFICATION_CHANNELS.PRACTICE_REMINDER);
       }
 
       setUserState({practiceReminderConfig: config});

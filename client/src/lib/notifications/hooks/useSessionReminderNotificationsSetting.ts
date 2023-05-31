@@ -3,7 +3,7 @@ import useCurrentUserState from '../../user/hooks/useCurrentUserState';
 import useUserState from '../../user/state/state';
 import useNotificationPermissions from './useNotificationPermissions';
 import useTriggerNotifications from './useTriggerNotifications';
-import {NotificationChannels} from '../constants';
+import {NOTIFICATION_CHANNELS} from '../constants';
 
 const useSessionReminderNotificationsSetting = () => {
   const userState = useCurrentUserState();
@@ -30,7 +30,7 @@ const useSessionReminderNotificationsSetting = () => {
       if (enabled) {
         await requestPermission();
       } else {
-        removeTriggerNotifications(NotificationChannels.SESSION_REMINDER);
+        removeTriggerNotifications(NOTIFICATION_CHANNELS.SESSION_REMINDER);
       }
 
       setUserState({sessionReminderNotifications: enabled});
