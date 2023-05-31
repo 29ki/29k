@@ -1,9 +1,13 @@
-import notifee, {Event} from '@notifee/react-native';
+import notifee, {AndroidImportance, Event} from '@notifee/react-native';
 import {useCallback, useEffect} from 'react';
 import useNotificationsState from '../state/state';
 import useResumeFromBackgrounded from '../../appState/hooks/useResumeFromBackgrounded';
+import {useTranslation} from 'react-i18next';
+import {NOTIFICATION_CHANNELS, NOTIFICATION_CHANNEL_CONFIG} from '../constants';
+import {A} from 'ts-toolbelt';
 
-const useNotificationEventListener = () => {
+const useNoticationsSetup = () => {
+  const {t} = useTranslation('Component.NotificationChannels');
   const setNotificationState = useNotificationsState(
     state => state.setNotification,
   );
@@ -34,10 +38,20 @@ const useNotificationEventListener = () => {
     });
   }, [setNotificationState]);
 
+  useEffect(() => {
+    Object.values(NOTIFICATION_CHANNELS).forEach(id => {
+      notifee.createChannel({
+        id,
+        name: t(id),
+        ...NOTIFICATION_CHANNEL_CONFIG[id].channel,
+      });
+    });
+  }, [t]);
+
   useEffect(() => notifee.onForegroundEvent(updateNotication));
 
   // Update all notifications when coming back from backgrounded
   useResumeFromBackgrounded(updateNotications);
 };
 
-export default useNotificationEventListener;
+export default useNoticationsSetup;
