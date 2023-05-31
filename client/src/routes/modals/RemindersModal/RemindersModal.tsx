@@ -27,7 +27,7 @@ import {DateTimePicker} from '../../../lib/components/DateTimePicker/DateTimePic
 import {BottomSheetScrollView, useBottomSheet} from '@gorhom/bottom-sheet';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import Button from '../../../lib/components/Buttons/Button';
-import {REMINDER_INTERVALS} from '../../../lib/schedulers/constants';
+import {REMINDER_INTERVALS} from '../../../lib/reminders/constants';
 
 dayjs.extend(utc);
 

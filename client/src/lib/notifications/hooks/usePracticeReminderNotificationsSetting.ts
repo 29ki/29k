@@ -2,7 +2,7 @@ import {useCallback, useEffect, useMemo, useState} from 'react';
 import useCurrentUserState from '../../user/hooks/useCurrentUserState';
 import useUserState, {PracticeReminderConfig} from '../../user/state/state';
 import useNotificationPermissions from './useNotificationPermissions';
-import useUpdatePracticeNotifications from '../../schedulers/useUpdatePracticeNotifications';
+import useUpdatePracticeNotifications from '../../reminders/useUpdatePracticeNotifications';
 
 const usePracticeReminderNotificationsSetting = () => {
   const userState = useCurrentUserState();
