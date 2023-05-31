@@ -14,20 +14,13 @@
       }
     },
     "journeyButton": "My journey",
-    "selectType": {
-      "title": "Session with...",
-      "public": {
-        "title": "Anyone"
-      },
-      "private": {
-        "title": "Friends"
-      },
-      "async": {
-        "title": "Myself"
-      }
-    },
     "description": "Add to calendar or share invite",
-    "deleteButton": "Delete session"
+    "deleteButton": "Delete session",
+    "editHost": {
+      "heading": "Change host",
+      "description": "Share the link with the new host.\n\nOnce they accept you will no longer be able to edit this session.",
+      "button": "Assign new host"
+    }
   },
   "pt": {
     "edit": "Alterar",

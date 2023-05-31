@@ -56,7 +56,7 @@ export const updateInterestedCount = async (id: string, increment: boolean) => {
 
 export const updateSession = async (
   id: string,
-  data: Partial<Pick<LiveSessionType, 'startTime' | 'type'>>,
+  data: Partial<Pick<LiveSessionType, 'startTime'>>,
 ): Promise<LiveSessionType> => {
   try {
     const response = await apiClient(`${SESSIONS_ENDPOINT}/${id}`, {

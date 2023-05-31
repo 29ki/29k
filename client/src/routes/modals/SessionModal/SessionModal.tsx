@@ -5,13 +5,7 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import dayjs from 'dayjs';
-import React, {
-  Fragment,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, {Fragment, useCallback, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Alert, Share, View} from 'react-native';
@@ -21,15 +15,29 @@ import styled from 'styled-components/native';
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
+
 import {
-  CommunityIcon,
-  FriendsIcon,
   ShareIcon,
   BellIconAnimated,
   PlusToCheckIconAnimated,
+  PencilIcon,
+  CalendarIcon,
 } from '../../../lib/components/Icons';
 import Image from '../../../lib/components/Image/Image';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
+
+import {
+  ModalStackProps,
+  AppStackProps,
+} from '../../../lib/navigation/constants/routes';
+
+import useExerciseById from '../../../lib/content/hooks/useExerciseById';
+import useAddSessionToCalendar from '../../../lib/sessions/hooks/useAddSessionToCalendar';
+import useUser from '../../../lib/user/hooks/useUser';
+import useSessions from '../../../lib/sessions/hooks/useSessions';
+
+import {formatContentName, formatInviteCode} from '../../../lib/utils/string';
+
 import {
   BottomSafeArea,
   Spacer16,
@@ -38,55 +46,28 @@ import {
   Spacer8,
 } from '../../../lib/components/Spacers/Spacer';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
-import {
-  ModalStackProps,
-  AppStackProps,
-} from '../../../lib/navigation/constants/routes';
-import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import useAddSessionToCalendar from '../../../lib/sessions/hooks/useAddSessionToCalendar';
 import useSessionReminder from '../../../lib/sessions/hooks/useSessionReminder';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import Byline from '../../../lib/components/Bylines/Byline';
-import {formatContentName, formatInviteCode} from '../../../lib/utils/string';
+
 import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTimeBadge';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import useUser from '../../../lib/user/hooks/useUser';
-import useSessions from '../../../lib/sessions/hooks/useSessions';
-import {PencilIcon, CalendarIcon} from '../../../lib/components/Icons';
+
 import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
 import DateTimePicker from '../../../lib/components/DateTimePicker/DateTimePicker';
 import {updateSession} from '../../../lib/sessions/api/session';
-import {
-  LiveSessionType,
-  SessionType,
-} from '../../../../../shared/src/schemas/Session';
-import EditSessionType from '../../../lib/components/EditSessionType/EditSessionType';
+import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
 import useLogSessionMetricEvents from '../../../lib/sessions/hooks/useLogSessionMetricEvents';
 import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
-import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
 import usePinSession from '../../../lib/sessions/hooks/usePinSession';
 import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
 import Tag from '../../../lib/components/Tag/Tag';
-import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
 import Interested from '../../../lib/components/Interested/Interested';
 import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
 import AnimatedIconButton from '../../../lib/components/Buttons/IconButton/AnimatedIconButton';
-
-const TypeWrapper = styled(TouchableOpacity)({
-  justifyContent: 'center',
-  height: 96,
-  flex: 1,
-  backgroundColor: COLORS.PURE_WHITE,
-  borderRadius: SPACINGS.SIXTEEN,
-  paddingHorizontal: SPACINGS.SIXTEEN,
-});
-
-const TypeItemHeading = styled(ModalHeading)({
-  textAlign: 'left',
-  paddingHorizontal: SPACINGS.EIGHT,
-});
+import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -131,34 +112,12 @@ const JourneyButton = styled(AnimatedButton)({
   alignSelf: 'flex-start',
 });
 
-const TypeItemWrapper = styled.View({
-  flexDirection: 'row',
-  height: 96,
-  flex: 1,
-});
-
-const IconWrapper = styled.View({
-  width: 30,
-  height: 30,
-});
-
 const Tags = styled(Gutters)({
   flexWrap: 'wrap',
   flexDirection: 'row',
   alignItems: 'center',
   marginTop: -SPACINGS.FOUR,
 });
-
-const TypeItem: React.FC<{
-  Icon: React.ReactNode;
-  label: string;
-  onPress: () => void;
-}> = ({Icon, label, onPress = () => {}}) => (
-  <TypeWrapper onPress={onPress}>
-    <IconWrapper>{Icon}</IconWrapper>
-    <Body16>{label}</Body16>
-  </TypeWrapper>
-);
 
 const SessionModal = () => {
   const {
@@ -169,11 +128,8 @@ const SessionModal = () => {
 
   const {t} = useTranslation('Modal.Session');
   const user = useUser();
-  const isPublicHost = useIsPublicHost();
   const {deleteSession, fetchSessions} = useSessions();
-  const [editMode, setEditMode] = useState(false);
-  const [editTypeMode, setEditTypeMode] = useState(false);
-  const [selectedType, setSelectedType] = useState(session?.type);
+  const [editMode, setEditMode] = useState<'date' | 'host' | null>();
 
   const initialStartTime = dayjs(session.startTime).utc();
   const [sessionDateTime, setSessionDateTime] =
@@ -186,7 +142,7 @@ const SessionModal = () => {
 
   const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session?.exerciseId);
-  const tags = useGetTagsById(exercise?.tags);
+  const tags = useGetSessionCardTags(exercise);
   const {reminderEnabled, toggleReminder} = useSessionReminder(session);
   const confirmToggleReminder = useConfirmSessionReminder(session);
 
@@ -257,20 +213,12 @@ const SessionModal = () => {
   const onUpdateSession = useCallback(async () => {
     const updatedSession = await updateSession(session.id, {
       startTime: sessionDateTime.utc().toISOString(),
-      type: selectedType,
     });
 
     setSession(updatedSession);
     fetchSessions();
-    setEditMode(false);
-  }, [
-    setSession,
-    fetchSessions,
-    setEditMode,
-    session.id,
-    selectedType,
-    sessionDateTime,
-  ]);
+    setEditMode(null);
+  }, [setSession, fetchSessions, setEditMode, session.id, sessionDateTime]);
 
   const onChange = useCallback(
     (dateTime: dayjs.Dayjs) => setSessionDateTime(dateTime),
@@ -282,18 +230,9 @@ const SessionModal = () => {
     navigation.navigate('HostInfoModal', {host: session.hostProfile});
   }, [navigation, session.hostProfile]);
 
-  const onEditMode = useCallback(() => setEditMode(true), [setEditMode]);
-
-  const onEditType = useCallback(
-    () => setEditTypeMode(true),
-    [setEditTypeMode],
-  );
-
-  useEffect(() => {
-    if (!editMode) {
-      setEditTypeMode(false);
-    }
-  }, [editMode]);
+  const onEditMode = useCallback(() => setEditMode('date'), []);
+  const onEditHostMode = useCallback(() => setEditMode('host'), []);
+  const onHostChange = useCallback(() => setEditMode(null), []);
 
   useEffect(() => {
     if (isHost) {
@@ -301,24 +240,6 @@ const SessionModal = () => {
       confirmToggleReminder(true);
     }
   }, [isHost, confirmToggleReminder]);
-
-  const sessionTypes = useMemo(
-    () =>
-      Object.values(SessionType).map((type, i, arr) => (
-        <TypeItemWrapper key={i}>
-          <TypeItem
-            onPress={() => {
-              setSelectedType(type);
-              setEditTypeMode(false);
-            }}
-            label={t(`selectType.${type}.title`)}
-            Icon={type === 'private' ? <FriendsIcon /> : <CommunityIcon />}
-          />
-          {i < arr.length - 1 && <Spacer16 />}
-        </TypeItemWrapper>
-      )),
-    [t],
-  );
 
   if (!session || !exercise) {
     return null;
@@ -335,12 +256,20 @@ const SessionModal = () => {
                 <TitleContainer>
                   <Display24>{formatContentName(exercise)}</Display24>
                   <Spacer4 />
-                  <Byline
-                    pictureURL={session.hostProfile?.photoURL}
-                    name={session.hostProfile?.displayName}
-                    duration={exercise?.duration}
-                    onPress={onHostPress}
-                  />
+                  <Row>
+                    <Byline
+                      pictureURL={session.hostProfile?.photoURL}
+                      name={session.hostProfile?.displayName}
+                      onPress={onHostPress}
+                    />
+                    {isHost && (
+                      <EditButton onPress={onEditHostMode}>
+                        <EditIcon>
+                          <PencilIcon />
+                        </EditIcon>
+                      </EditButton>
+                    )}
+                  </Row>
                 </TitleContainer>
                 <Spacer32 />
                 <ImageContainer
@@ -360,8 +289,8 @@ const SessionModal = () => {
 
             {tags && (
               <Tags>
-                {tags.map(({id, tag}) => (
-                  <Fragment key={id}>
+                {tags.map((tag, idx) => (
+                  <Fragment key={`tag-${idx}`}>
                     <Tag>{tag}</Tag>
                     <Spacer4 />
                   </Fragment>
@@ -455,24 +384,24 @@ const SessionModal = () => {
         )}
         {editMode && (
           <Gutters>
-            {editTypeMode && (
+            {editMode === 'host' && (
               <>
-                <TypeItemHeading>{t('selectType.title')}</TypeItemHeading>
+                <ModalHeading>{t('editHost.heading')}</ModalHeading>
                 <Spacer16 />
-                <Row>{sessionTypes}</Row>
+                <Body16>{t('editHost.description')}</Body16>
+                <Spacer16 />
+                <Row>
+                  <Button
+                    variant="secondary"
+                    onPress={onHostChange}
+                    RightIcon={ShareIcon}>
+                    {t('editHost.button')}
+                  </Button>
+                </Row>
               </>
             )}
-            {!editTypeMode && (
+            {editMode === 'date' && (
               <>
-                {isPublicHost && (
-                  <>
-                    <EditSessionType
-                      sessionType={selectedType}
-                      onPress={onEditType}
-                    />
-                    <Spacer16 />
-                  </>
-                )}
                 <DateTimePicker
                   initialDateTime={initialStartTime}
                   minimumDate={dayjs()}
