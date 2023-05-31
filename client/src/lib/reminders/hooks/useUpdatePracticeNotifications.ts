@@ -7,7 +7,7 @@ import usePinnedCollections from '../../user/hooks/usePinnedCollections';
 import useGetCollectionById from '../../content/hooks/useGetCollectionById';
 import useUserEvents from '../../user/hooks/useUserEvents';
 import useTriggerNotifications from '../../notifications/hooks/useTriggerNotifications';
-import {calculateNextReminderTime} from '../utils';
+import {calculateNextReminderTime} from '../utils/dates';
 import {useTranslation} from 'react-i18next';
 import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import {PracticeReminderConfig} from '../../user/state/state';

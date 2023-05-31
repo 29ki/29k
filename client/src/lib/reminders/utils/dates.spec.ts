@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
-import {calculateNextReminderTime} from './utils';
-import {REMINDER_INTERVALS} from './constants';
+import {calculateNextReminderTime} from './dates';
+import {REMINDER_INTERVALS} from '../constants';
 
 describe('calculateNextReminderTime', () => {
   it('should give future weekday in current week', () => {

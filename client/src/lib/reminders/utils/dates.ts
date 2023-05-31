@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import isoWeek from 'dayjs/plugin/isoWeek';
-import {PracticeReminderConfig} from '../user/state/state';
-import {REMINDER_INTERVALS} from './constants';
+import {PracticeReminderConfig} from '../../user/state/state';
+import {REMINDER_INTERVALS} from '../constants';
 
 dayjs.extend(isoWeek);
 
