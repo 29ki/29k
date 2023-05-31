@@ -106,8 +106,8 @@ const RemindersModal = () => {
   const reminderUpdated = useMemo(() => {
     return (
       practiceReminderConfig?.interval !== selectedInterval ||
-      practiceReminderConfig.hour !== selectedTime.hour() ||
-      practiceReminderConfig.minute !== selectedTime.minute()
+      practiceReminderConfig?.hour !== selectedTime.hour() ||
+      practiceReminderConfig?.minute !== selectedTime.minute()
     );
   }, [practiceReminderConfig, selectedInterval, selectedTime]);
 
