@@ -1,8 +1,5 @@
 import {act, renderHook} from '@testing-library/react-hooks';
-import notifee, {
-  TriggerNotification,
-  Notification,
-} from '@notifee/react-native';
+import notifee, {Notification} from '@notifee/react-native';
 
 import useTriggerNotifications from './useTriggerNotifications';
 import useNotificationsState from '../state/state';
