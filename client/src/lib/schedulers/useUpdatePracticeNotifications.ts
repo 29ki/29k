@@ -24,7 +24,9 @@ const useUpdatePracticeNotifications = () => {
 
   const reCreateNotifications = useCallback(
     async (collection?: Collection | null) => {
-      await removeTriggerNotifications(NOTIFICATION_CHANNELS.PRACTICE_REMINDER);
+      await removeTriggerNotifications(
+        NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      );
       if (userState?.practiceReminderConfig) {
         const nextReminderTime = calculateNextReminderTime(
           dayjs(),
@@ -37,7 +39,7 @@ const useUpdatePracticeNotifications = () => {
         ) {
           await setTriggerNotification(
             index.toString(),
-            NOTIFICATION_CHANNELS.PRACTICE_REMINDER,
+            NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
             'Practice reminder',
             `Time to practice ${
               collection?.name ? collection?.name : ''

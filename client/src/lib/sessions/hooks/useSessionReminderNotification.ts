@@ -25,7 +25,7 @@ const useSessionReminderNotification = (session: LiveSessionType) => {
       enable
         ? setTriggerNotification(
             id,
-            NOTIFICATION_CHANNELS.SESSION_REMINDER,
+            NOTIFICATION_CHANNELS.SESSION_REMINDERS,
             t('title', {exercise: exercise?.name}),
             t('body'),
             link,

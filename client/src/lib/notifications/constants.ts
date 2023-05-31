@@ -6,8 +6,8 @@ import {
 } from '@notifee/react-native';
 
 export enum NOTIFICATION_CHANNELS {
-  SESSION_REMINDER = 'session-reminder',
-  PRACTICE_REMINDER = 'practice-reminder',
+  SESSION_REMINDERS = 'session-reminders',
+  PRACTICE_REMINDERS = 'practice-reminders',
 }
 
 export const NOTIFICATION_CHANNEL_CONFIG: {
@@ -17,7 +17,7 @@ export const NOTIFICATION_CHANNEL_CONFIG: {
     ios: Partial<NotificationIOS>;
   };
 } = {
-  [NOTIFICATION_CHANNELS.SESSION_REMINDER]: {
+  [NOTIFICATION_CHANNELS.SESSION_REMINDERS]: {
     channel: {
       importance: AndroidImportance.HIGH,
     },
@@ -28,7 +28,7 @@ export const NOTIFICATION_CHANNEL_CONFIG: {
       interruptionLevel: 'timeSensitive',
     },
   },
-  [NOTIFICATION_CHANNELS.PRACTICE_REMINDER]: {
+  [NOTIFICATION_CHANNELS.PRACTICE_REMINDERS]: {
     channel: {
       importance: AndroidImportance.DEFAULT,
     },

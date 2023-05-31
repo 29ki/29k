@@ -34,7 +34,7 @@ const usePracticeReminderNotificationsSetting = () => {
       if (config) {
         await requestPermission();
       } else {
-        removeTriggerNotifications(NOTIFICATION_CHANNELS.PRACTICE_REMINDER);
+        removeTriggerNotifications(NOTIFICATION_CHANNELS.PRACTICE_REMINDERS);
       }
 
       setUserState({practiceReminderConfig: config});

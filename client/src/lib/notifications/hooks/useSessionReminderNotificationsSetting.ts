@@ -30,7 +30,7 @@ const useSessionReminderNotificationsSetting = () => {
       if (enabled) {
         await requestPermission();
       } else {
-        removeTriggerNotifications(NOTIFICATION_CHANNELS.SESSION_REMINDER);
+        removeTriggerNotifications(NOTIFICATION_CHANNELS.SESSION_REMINDERS);
       }
 
       setUserState({sessionReminderNotifications: enabled});
