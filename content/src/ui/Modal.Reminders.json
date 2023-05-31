@@ -17,7 +17,8 @@
       "friday": "Friday",
       "saturday": "Saturday",
       "sunday": "Sunday"
-    }
+    },
+    "updateButton": "Update reminders"
   },
   "pt": {},
   "sv": {
@@ -38,7 +39,8 @@
       "friday": "Fredag",
       "saturday": "Lördag",
       "sunday": "Söndag"
-    }
+    },
+    "updateButton": "Uppdatera notiser"
   },
   "es": {}
 }
