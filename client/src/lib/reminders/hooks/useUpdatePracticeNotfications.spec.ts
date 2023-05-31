@@ -7,24 +7,24 @@ import dayjs from 'dayjs';
 import {REMINDER_INTERVALS} from '../constants';
 
 let mockPinnedCollections: Array<PinnedCollection> = [];
-jest.mock('../user/hooks/usePinnedCollections', () => () => ({
+jest.mock('../../user/hooks/usePinnedCollections', () => () => ({
   pinnedCollections: mockPinnedCollections,
 }));
 
 let mockCompletedCollectionEvents: Array<CompletedCollectionEvent> = [];
-jest.mock('../user/hooks/useUserEvents', () => () => ({
+jest.mock('../../user/hooks/useUserEvents', () => () => ({
   completedCollectionEvents: mockCompletedCollectionEvents,
 }));
 
 const mockGetCollectionById = jest.fn();
 jest.mock(
-  '../content/hooks/useGetCollectionById',
+  '../../content/hooks/useGetCollectionById',
   () => () => mockGetCollectionById,
 );
 
 const mockedSetTriggerNotification = jest.fn();
 const mockedRemoveTriggerNotifications = jest.fn();
-jest.mock('../notifications/hooks/useTriggerNotifications', () => () => ({
+jest.mock('../../notifications/hooks/useTriggerNotifications', () => () => ({
   setTriggerNotification: mockedSetTriggerNotification,
   removeTriggerNotifications: mockedRemoveTriggerNotifications,
 }));

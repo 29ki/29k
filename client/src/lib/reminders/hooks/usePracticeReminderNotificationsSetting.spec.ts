@@ -7,7 +7,7 @@ import {REMINDER_INTERVALS} from '../constants';
 
 const mockRequestPermission = jest.fn();
 const mockCheckPermission = jest.fn();
-jest.mock('./useNotificationPermissions', () =>
+jest.mock('../../notifications/hooks/useNotificationPermissions', () =>
   jest.fn(() => ({
     requestPermission: mockRequestPermission,
     checkPermission: mockCheckPermission,
@@ -15,7 +15,7 @@ jest.mock('./useNotificationPermissions', () =>
 );
 
 const mockRemoveTriggerNotifications = jest.fn();
-jest.mock('./useTriggerNotifications', () =>
+jest.mock('../../notifications/hooks/useTriggerNotifications', () =>
   jest.fn(() => ({
     removeTriggerNotifications: mockRemoveTriggerNotifications,
   })),
