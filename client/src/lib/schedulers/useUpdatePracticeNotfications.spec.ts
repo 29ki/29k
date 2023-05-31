@@ -3,7 +3,7 @@ import useUpdatePracticeNotifications from './useUpdatePracticeNotifications';
 import {PinnedCollection} from '../user/state/state';
 import {CompletedCollectionEvent} from '../../../../shared/src/types/Event';
 import {IntervalEnum} from '../user/types/Interval';
-import {NotificationChannels} from '../notifications/constants';
+import {NOTIFICATION_CHANNELS} from '../notifications/constants';
 import dayjs from 'dayjs';
 
 let mockPinnedCollections: Array<PinnedCollection> = [];
@@ -68,7 +68,7 @@ describe('useUpdatePracticeNotifications', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledTimes(4);
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       '0',
-      NotificationChannels.PRACTICE_REMINDER,
+      NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'notifications.collection.0',
       'some-link',
@@ -76,7 +76,7 @@ describe('useUpdatePracticeNotifications', () => {
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       '1',
-      NotificationChannels.PRACTICE_REMINDER,
+      NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'notifications.collection.1',
       'some-link',
@@ -84,7 +84,7 @@ describe('useUpdatePracticeNotifications', () => {
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       '2',
-      NotificationChannels.PRACTICE_REMINDER,
+      NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'notifications.collection.2',
       'some-link',
@@ -92,7 +92,7 @@ describe('useUpdatePracticeNotifications', () => {
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       '3',
-      NotificationChannels.PRACTICE_REMINDER,
+      NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'notifications.collection.3',
       'some-link',
@@ -131,7 +131,7 @@ describe('useUpdatePracticeNotifications', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledTimes(4);
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       '0',
-      NotificationChannels.PRACTICE_REMINDER,
+      NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'notifications.collection.0',
       'some-link',
@@ -139,7 +139,7 @@ describe('useUpdatePracticeNotifications', () => {
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       '1',
-      NotificationChannels.PRACTICE_REMINDER,
+      NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'notifications.collection.1',
       'some-link',
@@ -147,7 +147,7 @@ describe('useUpdatePracticeNotifications', () => {
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       '2',
-      NotificationChannels.PRACTICE_REMINDER,
+      NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'notifications.collection.2',
       'some-link',
@@ -155,7 +155,7 @@ describe('useUpdatePracticeNotifications', () => {
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       '3',
-      NotificationChannels.PRACTICE_REMINDER,
+      NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'notifications.collection.3',
       'some-link',
@@ -195,7 +195,7 @@ describe('useUpdatePracticeNotifications', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledTimes(4);
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       '0',
-      NotificationChannels.PRACTICE_REMINDER,
+      NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'notifications.general.0',
       undefined,
@@ -203,7 +203,7 @@ describe('useUpdatePracticeNotifications', () => {
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       '1',
-      NotificationChannels.PRACTICE_REMINDER,
+      NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'notifications.general.1',
       undefined,
@@ -211,7 +211,7 @@ describe('useUpdatePracticeNotifications', () => {
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       '2',
-      NotificationChannels.PRACTICE_REMINDER,
+      NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'notifications.general.2',
       undefined,
@@ -219,7 +219,7 @@ describe('useUpdatePracticeNotifications', () => {
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       '3',
-      NotificationChannels.PRACTICE_REMINDER,
+      NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'notifications.general.3',
       undefined,
