@@ -1,10 +1,10 @@
 import {renderHook} from '@testing-library/react-hooks';
 import useUpdatePracticeNotifications from './useUpdatePracticeNotifications';
-import {PinnedCollection} from '../user/state/state';
-import {CompletedCollectionEvent} from '../../../../shared/src/types/Event';
-import {NOTIFICATION_CHANNELS} from '../notifications/constants';
+import {PinnedCollection} from '../../user/state/state';
+import {CompletedCollectionEvent} from '../../../../../shared/src/types/Event';
+import {NOTIFICATION_CHANNELS} from '../../notifications/constants';
 import dayjs from 'dayjs';
-import {REMINDER_INTERVALS} from './constants';
+import {REMINDER_INTERVALS} from '../constants';
 
 let mockPinnedCollections: Array<PinnedCollection> = [];
 jest.mock('../user/hooks/usePinnedCollections', () => () => ({

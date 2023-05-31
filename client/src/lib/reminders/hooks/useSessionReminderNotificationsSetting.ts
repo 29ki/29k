@@ -1,9 +1,9 @@
 import {useCallback, useEffect, useState} from 'react';
 import useCurrentUserState from '../../user/hooks/useCurrentUserState';
 import useUserState from '../../user/state/state';
-import useNotificationPermissions from './useNotificationPermissions';
-import useTriggerNotifications from './useTriggerNotifications';
-import {NOTIFICATION_CHANNELS} from '../constants';
+import useNotificationPermissions from '../../notifications/hooks/useNotificationPermissions';
+import useTriggerNotifications from '../../notifications/hooks/useTriggerNotifications';
+import {NOTIFICATION_CHANNELS} from '../../notifications/constants';
 
 const useSessionReminderNotificationsSetting = () => {
   const userState = useCurrentUserState();

@@ -13,8 +13,8 @@ import {
   Spacer8,
 } from '../../../lib/components/Spacers/Spacer';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
-import useSessionReminderNotificationsSetting from '../../../lib/notifications/hooks/useSessionReminderNotificationsSetting';
-import usePracticeReminderNotificationsSetting from '../../../lib/notifications/hooks/usePracticeReminderNotificationsSetting';
+import useSessionReminderNotificationsSetting from '../../../lib/reminders/hooks/useSessionReminderNotificationsSetting';
+import usePracticeReminderNotificationsSetting from '../../../lib/reminders/hooks/usePracticeReminderNotificationsSetting';
 import ActionSwitch from '../../../lib/components/ActionList/ActionItems/ActionSwitch';
 import {BellIcon} from '../../../lib/components/Icons';
 import ActionList from '../../../lib/components/ActionList/ActionList';

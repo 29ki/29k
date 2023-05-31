@@ -3,7 +3,7 @@ import {act, renderHook} from '@testing-library/react-hooks';
 import useUserState from '../../user/state/state';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import usePracticeReminderNotificationsSetting from './usePracticeReminderNotificationsSetting';
-import {REMINDER_INTERVALS} from '../../reminders/constants';
+import {REMINDER_INTERVALS} from '../constants';
 
 const mockRequestPermission = jest.fn();
 const mockCheckPermission = jest.fn();

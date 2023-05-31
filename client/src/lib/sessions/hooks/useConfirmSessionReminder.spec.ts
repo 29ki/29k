@@ -3,7 +3,7 @@ import {renderHook} from '@testing-library/react-hooks';
 
 import useConfirmSessionReminder from './useConfirmSessionReminder';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
-import useSessionReminderNotificationsSetting from '../../notifications/hooks/useSessionReminderNotificationsSetting';
+import useSessionReminderNotificationsSetting from '../../reminders/hooks/useSessionReminderNotificationsSetting';
 
 const mockAlert = jest.mocked(Alert.alert);
 

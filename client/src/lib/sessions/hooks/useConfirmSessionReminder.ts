@@ -2,7 +2,7 @@ import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Alert} from 'react-native';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
-import useSessionReminderNotificationsSetting from '../../notifications/hooks/useSessionReminderNotificationsSetting';
+import useSessionReminderNotificationsSetting from '../../reminders/hooks/useSessionReminderNotificationsSetting';
 import useSessionReminderNotification from './useSessionReminderNotification';
 
 const useConfirmSessionReminder = (session: LiveSessionType) => {
