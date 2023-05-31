@@ -25,8 +25,8 @@ afterEach(() => {
 });
 
 describe('useSessionReminderNotificationsSetting', () => {
-  describe('reminderNotifications', () => {
-    it('is enabled if having permission and reminderNotifications = true', async () => {
+  describe('sessionRemindersEnabled', () => {
+    it('is enabled if having permission and sessionReminderNotifications = true', async () => {
       mockCheckPermission.mockResolvedValueOnce(true);
 
       useUserState.setState({
@@ -42,7 +42,7 @@ describe('useSessionReminderNotificationsSetting', () => {
       expect(result.current.sessionRemindersEnabled).toBe(true);
     });
 
-    it('is disabled if reminderNotifications == false', async () => {
+    it('is disabled if sessionReminderNotifications == false', async () => {
       mockCheckPermission.mockResolvedValueOnce(true);
 
       useUserState.setState({
@@ -76,7 +76,7 @@ describe('useSessionReminderNotificationsSetting', () => {
       expect(result.current.sessionRemindersEnabled).toBe(false);
     });
 
-    it('is undefined if reminderNotifications == undefined', async () => {
+    it('is undefined if sessionReminderNotifications == undefined', async () => {
       mockCheckPermission.mockResolvedValueOnce(true);
 
       useUserState.setState({
@@ -93,8 +93,8 @@ describe('useSessionReminderNotificationsSetting', () => {
     });
   });
 
-  describe('setRemindersEnabled', () => {
-    it('requests permission and sets reminderNotifications to true', async () => {
+  describe('setSessionRemindersEnabled', () => {
+    it('requests permission and sets sessionReminderNotifications to true', async () => {
       mockRequestPermission.mockResolvedValueOnce(undefined);
       useUserState.setState({
         user: {uid: 'some-uid'} as FirebaseAuthTypes.User,
@@ -117,7 +117,7 @@ describe('useSessionReminderNotificationsSetting', () => {
       );
     });
 
-    it('clears all notifications and set reminderNotifications to false', async () => {
+    it('clears all notifications and set sessionReminderNotifications to false', async () => {
       mockRequestPermission.mockResolvedValueOnce(undefined);
       useUserState.setState({
         user: {uid: 'some-uid'} as FirebaseAuthTypes.User,
