@@ -1,16 +1,21 @@
-import notifee, {Event} from '@notifee/react-native';
 import {useCallback, useEffect} from 'react';
+import {useTranslation} from 'react-i18next';
+import notifee, {Event} from '@notifee/react-native';
+
 import useNotificationsState from '../state/state';
 import useResumeFromBackgrounded from '../../appState/hooks/useResumeFromBackgrounded';
-import {useTranslation} from 'react-i18next';
+import useCurrentUserState from '../../user/hooks/useCurrentUserState';
 import {NOTIFICATION_CHANNELS, NOTIFICATION_CHANNEL_CONFIG} from '../constants';
+import useUpdatePracticeReminders from '../../reminders/hooks/useUpdatePracticeReminders';
 
 const useNotificationsSetup = () => {
   const {t} = useTranslation('Component.NotificationChannels');
+  const userState = useCurrentUserState();
   const resetNotificationsState = useNotificationsState(state => state.reset);
   const setNotificationState = useNotificationsState(
     state => state.setNotification,
   );
+  const {updatePracticeNotifications} = useUpdatePracticeReminders();
 
   useEffect(() => {
     Object.values(NOTIFICATION_CHANNELS).forEach(id => {
@@ -22,21 +27,41 @@ const useNotificationsSetup = () => {
     });
   }, [t]);
 
+  const onPressUpdate = useCallback(async () => {
+    if (userState?.practiceReminderConfig) {
+      updatePracticeNotifications(userState.practiceReminderConfig);
+    }
+  }, [userState?.practiceReminderConfig, updatePracticeNotifications]);
+
   useEffect(
     () =>
       notifee.onForegroundEvent(async ({detail}: Event) => {
-        // Allways get notifications data from source (notifee)
-        const triggerNotifications = await notifee.getTriggerNotifications();
-        const triggerNotification = triggerNotifications.find(
-          ({notification}) => notification.id === detail.notification?.id,
-        );
+        if (detail.pressAction) {
+          await onPressUpdate();
+        } else {
+          // Allways get notifications data from source (notifee)
+          const triggerNotifications = await notifee.getTriggerNotifications();
+          const triggerNotification = triggerNotifications.find(
+            ({notification}) => notification.id === detail.notification?.id,
+          );
 
-        setNotificationState(
-          detail.notification?.id,
-          triggerNotification?.notification,
-        );
+          setNotificationState(
+            detail.notification?.id,
+            triggerNotification?.notification,
+          );
+        }
       }),
-    [setNotificationState],
+    [onPressUpdate, setNotificationState],
+  );
+
+  useEffect(
+    () =>
+      notifee.onBackgroundEvent(async ({detail}: Event) => {
+        if (detail.pressAction) {
+          onPressUpdate();
+        }
+      }),
+    [onPressUpdate],
   );
 
   // Update all notifications when coming back from backgrounded

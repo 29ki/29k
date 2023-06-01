@@ -7,10 +7,10 @@ import useTriggerNotifications from '../../notifications/hooks/useTriggerNotific
 import {NOTIFICATION_CHANNELS} from '../../notifications/constants';
 import useNotificationsState from '../../notifications/state/state';
 
-const useSessionReminderNotification = (session: LiveSessionType) => {
+const useSessionReminder = (session: LiveSessionType) => {
   const {id, exerciseId, startTime, link} = session;
 
-  const {t} = useTranslation('Component.SessionReminder');
+  const {t} = useTranslation('Notification.SessionReminder');
   const exercise = useExerciseById(exerciseId);
 
   const {setTriggerNotification, removeTriggerNotification} =
@@ -52,4 +52,4 @@ const useSessionReminderNotification = (session: LiveSessionType) => {
   return {reminderEnabled, toggleReminder};
 };
 
-export default useSessionReminderNotification;
+export default useSessionReminder;

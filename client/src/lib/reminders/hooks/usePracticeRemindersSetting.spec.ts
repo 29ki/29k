@@ -2,7 +2,7 @@ import {act, renderHook} from '@testing-library/react-hooks';
 
 import useUserState from '../../user/state/state';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import usePracticeReminderNotificationsSetting from './usePracticeReminderNotificationsSetting';
+import usePracticeRemindersSetting from './usePracticeRemindersSetting';
 import {REMINDER_INTERVALS} from '../constants';
 
 const mockRequestPermission = jest.fn();
@@ -14,10 +14,10 @@ jest.mock('../../notifications/hooks/useNotificationPermissions', () =>
   })),
 );
 
-const mockRemoveTriggerNotifications = jest.fn();
-jest.mock('../../notifications/hooks/useTriggerNotifications', () =>
+const mockUpdatePracticeNotifications = jest.fn();
+jest.mock('./useUpdatePracticeReminders', () =>
   jest.fn(() => ({
-    removeTriggerNotifications: mockRemoveTriggerNotifications,
+    updatePracticeNotifications: mockUpdatePracticeNotifications,
   })),
 );
 
@@ -25,7 +25,7 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe('usePracticeReminderNotificationsSetting', () => {
+describe('usePracticeRemindersSetting', () => {
   describe('practiceRemindersEnabled', () => {
     it('is enabled if having permission and practiceReminderConfig is set', async () => {
       mockCheckPermission.mockResolvedValueOnce(true);
@@ -43,9 +43,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
         },
       });
 
-      const {result} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
       expect(mockCheckPermission).toHaveBeenCalledTimes(1);
       expect(result.current.practiceRemindersEnabled).toBe(true);
@@ -59,9 +57,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
         userState: {'some-uid': {practiceReminderConfig: null}},
       });
 
-      const {result} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
       expect(mockCheckPermission).toHaveBeenCalledTimes(1);
       expect(result.current.practiceRemindersEnabled).toBe(false);
@@ -84,7 +80,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
       });
 
       const {result, waitForNextUpdate} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
+        usePracticeRemindersSetting(),
       );
 
       await waitForNextUpdate();
@@ -101,9 +97,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
         userState: {'some-uid': {}},
       });
 
-      const {result} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
       expect(mockCheckPermission).toHaveBeenCalledTimes(1);
       expect(result.current.practiceRemindersEnabled).toBe(undefined);
@@ -125,9 +119,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
         },
       });
 
-      const {result} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
       expect(result.current.practiceReminderConfig).toEqual({
         hour: 0,
@@ -142,9 +134,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
         userState: {'some-uid': {practiceReminderConfig: null}},
       });
 
-      const {result} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
       expect(result.current.practiceReminderConfig).toBe(null);
     });
@@ -155,9 +145,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
         userState: {'some-uid': {}},
       });
 
-      const {result} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
       expect(result.current.practiceReminderConfig).toBe(undefined);
     });
@@ -170,9 +158,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
         user: {uid: 'some-uid'} as FirebaseAuthTypes.User,
       });
 
-      const {result} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
       await act(async () => {
         await result.current.setPracticeRemindersConfig({
@@ -183,7 +169,12 @@ describe('usePracticeReminderNotificationsSetting', () => {
       });
 
       expect(mockRequestPermission).toHaveBeenCalledTimes(1);
-      expect(mockRemoveTriggerNotifications).toHaveBeenCalledTimes(0);
+      expect(mockUpdatePracticeNotifications).toHaveBeenCalledTimes(1);
+      expect(mockUpdatePracticeNotifications).toHaveBeenCalledWith({
+        hour: 0,
+        minute: 0,
+        interval: REMINDER_INTERVALS.DAILY,
+      });
       expect(useUserState.getState()).toEqual(
         expect.objectContaining({
           userState: {
@@ -205,19 +196,15 @@ describe('usePracticeReminderNotificationsSetting', () => {
         user: {uid: 'some-uid'} as FirebaseAuthTypes.User,
       });
 
-      const {result} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
       await act(async () => {
         await result.current.setPracticeRemindersConfig(null);
       });
 
       expect(mockRequestPermission).toHaveBeenCalledTimes(0);
-      expect(mockRemoveTriggerNotifications).toHaveBeenCalledTimes(1);
-      expect(mockRemoveTriggerNotifications).toHaveBeenCalledWith(
-        'practice-reminders',
-      );
+      expect(mockUpdatePracticeNotifications).toHaveBeenCalledTimes(1);
+      expect(mockUpdatePracticeNotifications).toHaveBeenCalledWith(null);
       expect(useUserState.getState()).toEqual(
         expect.objectContaining({
           userState: {'some-uid': {practiceReminderConfig: null}},

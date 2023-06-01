@@ -23,7 +23,7 @@ import {REMINDER_INTERVALS} from '../../reminders/constants';
 
 dayjs.extend(utc);
 
-const USER_STATE_VERSION = 5;
+const USER_STATE_VERSION = 6;
 
 type PinnedSession = {
   id: string;

@@ -1,7 +1,7 @@
 {
   "en": {
     "title": "Practice reminder",
-    "notifications": {
+    "reminders": {
       "collection": {
         "0": "Time to practice {{title}}.",
         "1": "Don't forget to practice {{title}}.",
@@ -19,7 +19,7 @@
   "pt": {},
   "sv": {
     "title": "Övningspåminnelse",
-    "notifications": {
+    "reminders": {
       "collection": {
         "0": "Tid att öva {{title}}.",
         "1": "Glöm inte dina övningar i {{title}}.",

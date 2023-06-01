@@ -13,8 +13,8 @@ import {
   Spacer8,
 } from '../../../lib/components/Spacers/Spacer';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
-import useSessionReminderNotificationsSetting from '../../../lib/reminders/hooks/useSessionReminderNotificationsSetting';
-import usePracticeReminderNotificationsSetting from '../../../lib/reminders/hooks/usePracticeReminderNotificationsSetting';
+import useSessionRemindersSetting from '../../../lib/reminders/hooks/useSessionRemindersSetting';
+import usePracticeRemindersSetting from '../../../lib/reminders/hooks/usePracticeRemindersSetting';
 import ActionSwitch from '../../../lib/components/ActionList/ActionItems/ActionSwitch';
 import {BellIcon} from '../../../lib/components/Icons';
 import ActionList from '../../../lib/components/ActionList/ActionList';
@@ -75,7 +75,7 @@ const thisWeekday = (): REMINDER_INTERVALS => {
 const RemindersModal = () => {
   const {t} = useTranslation('Modal.Reminders');
   const {sessionRemindersEnabled, setSessionRemindersEnabled} =
-    useSessionReminderNotificationsSetting();
+    useSessionRemindersSetting();
   const {snapToIndex} = useBottomSheet();
   const [weekdayOpen, setWeekdayOpen] = useState(false);
   const [timeOpen, setTimeOpen] = useState(false);
@@ -84,7 +84,7 @@ const RemindersModal = () => {
     practiceReminderConfig,
     practiceRemindersEnabled,
     setPracticeRemindersConfig,
-  } = usePracticeReminderNotificationsSetting();
+  } = usePracticeRemindersSetting();
   const [selectedInterval, setSelectedInterval] = useState(
     practiceReminderConfig ? practiceReminderConfig.interval : thisWeekday(),
   );
@@ -92,9 +92,10 @@ const RemindersModal = () => {
   const [selectedTime, setSelectedTime] = useState(
     practiceReminderConfig
       ? dayjs()
+          .utc()
           .set('hour', practiceReminderConfig.hour)
           .set('minute', practiceReminderConfig.minute)
-      : dayjs().set('hour', thisHour).set('minute', closestHalfhour),
+      : dayjs().utc().set('hour', thisHour).set('minute', closestHalfhour),
   );
 
   useEffect(() => {
@@ -194,7 +195,7 @@ const RemindersModal = () => {
               Icon={BellIcon}
               onValueChange={setSessionRemindersEnabled}
               value={sessionRemindersEnabled}>
-              {t('actions.sessionReminders')}
+              {t('session-reminders', {ns: 'Component.NotificationChannels'})}
             </ActionSwitch>
           </ActionList>
           <Spacer8 />
@@ -205,7 +206,7 @@ const RemindersModal = () => {
               Icon={BellIcon}
               onValueChange={onTogglePracticeReminders}
               value={practiceRemindersEnabled}>
-              {t('actions.practiceReminders')}
+              {t('practice-reminders', {ns: 'Component.NotificationChannels'})}
             </ActionSwitch>
           </ActionList>
           <Spacer32 />
@@ -216,7 +217,7 @@ const RemindersModal = () => {
                   <PracticeActionWrapper onPress={toggleWeekday}>
                     <StyledBold>{t('weekday')}</StyledBold>
                     <StyledSelectedValue active={weekdayOpen}>
-                      {t(`intervals.${selectedInterval}`)}
+                      {t(`intervals.${selectedInterval.toLowerCase()}`)}
                     </StyledSelectedValue>
                   </PracticeActionWrapper>
                 </ActionItem>
@@ -228,7 +229,7 @@ const RemindersModal = () => {
                       <Picker.Item
                         key={interval}
                         value={interval}
-                        label={t(`intervals.${interval}`)}
+                        label={t(`intervals.${interval.toLowerCase()}`)}
                       />
                     ))}
                   </Picker>

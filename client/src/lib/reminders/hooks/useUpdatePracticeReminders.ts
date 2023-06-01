@@ -18,8 +18,8 @@ import {
 
 dayjs.extend(utc);
 
-const useUpdatePracticeNotifications = () => {
-  const {t} = useTranslation('Notifications.PracticeReminders');
+const useUpdatePracticeReminders = () => {
+  const {t} = useTranslation('Notification.PracticeReminder');
   const {pinnedCollections} = usePinnedCollections();
   const {completedCollectionEvents} = useUserEvents();
   const getCollectionById = useGetCollectionById();
@@ -44,25 +44,13 @@ const useUpdatePracticeNotifications = () => {
           index < DEFAULT_NUMBER_OF_PRACTICE_REMINDERS;
           index++
         ) {
-          console.log(
-            'setRminder',
-            index,
-            nextReminderTime
-              .add(
-                index,
-                config.interval === REMINDER_INTERVALS.DAILY ? 'day' : 'week',
-              )
-              .local()
-              .toString(),
-          );
-
           await setTriggerNotification(
             index.toString(),
             NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
             t('title'),
             collection
-              ? t(`notifications.collection.${index}`, {title: collection.name})
-              : t(`notifications.general.${index}`),
+              ? t(`reminders.collection.${index}`, {title: collection.name})
+              : t(`reminders.general.${index}`),
             collection?.link,
             collection?.image?.source,
             nextReminderTime
@@ -113,4 +101,4 @@ const useUpdatePracticeNotifications = () => {
   };
 };
 
-export default useUpdatePracticeNotifications;
+export default useUpdatePracticeReminders;

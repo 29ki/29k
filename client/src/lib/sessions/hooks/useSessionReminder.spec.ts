@@ -1,7 +1,7 @@
 import {renderHook} from '@testing-library/react-hooks';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 
-import useSessionReminderNotification from './useSessionReminderNotification';
+import useSessionReminder from './useSessionReminder';
 import useNotificationsState from '../../notifications/state/state';
 
 const mockGetTriggerNotification = jest.fn();
@@ -30,7 +30,7 @@ describe('useSessionReminderNotification', () => {
     });
 
     const {result} = renderHook(() =>
-      useSessionReminderNotification({
+      useSessionReminder({
         id: 'some-session-id',
         exerciseId: 'some-content-id',
       } as LiveSessionType),
@@ -41,7 +41,7 @@ describe('useSessionReminderNotification', () => {
 
   it('can enable a reminder', () => {
     const {result} = renderHook(() =>
-      useSessionReminderNotification({
+      useSessionReminder({
         id: 'some-session-id',
         exerciseId: 'some-content-id',
         link: 'http://some.deep/link',
@@ -64,7 +64,7 @@ describe('useSessionReminderNotification', () => {
 
   it('can remove a reminder', () => {
     const {result} = renderHook(() =>
-      useSessionReminderNotification({
+      useSessionReminder({
         id: 'some-session-id',
         exerciseId: 'some-content-id',
       } as LiveSessionType),

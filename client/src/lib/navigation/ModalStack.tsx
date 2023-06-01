@@ -185,7 +185,7 @@ const ModalStack = () => {
           component={SessionUnavailableModal}
         />
         <Screen name={'ChangeLanguageModal'} component={ChangeLanguageModal} />
-        <Screen name={'NotificationsModal'} component={RemindersModal} />
+        <Screen name={'RemindersModal'} component={RemindersModal} />
         <Screen
           name={'ProfileSettingsModal'}
           component={ProfileSettingsModal}

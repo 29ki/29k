@@ -3,18 +3,18 @@ import {renderHook} from '@testing-library/react-hooks';
 
 import useConfirmSessionReminder from './useConfirmSessionReminder';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
-import useSessionReminderNotificationsSetting from '../../reminders/hooks/useSessionReminderNotificationsSetting';
+import useSessionRemindersSetting from '../../reminders/hooks/useSessionRemindersSetting';
 
 const mockAlert = jest.mocked(Alert.alert);
 
 const mockSetRemindersEnabled = jest.fn();
 const mockUseSessionReminderNotificationsSetting = jest.mocked(
-  useSessionReminderNotificationsSetting,
+  useSessionRemindersSetting,
 );
-jest.mock('../../reminders/hooks/useSessionReminderNotificationsSetting');
+jest.mock('../../reminders/hooks/useSessionRemindersSetting');
 
 const mockToggleReminder = jest.fn();
-jest.mock('../../sessions/hooks/useSessionReminderNotification', () => () => ({
+jest.mock('../../sessions/hooks/useSessionReminder', () => () => ({
   toggleReminder: mockToggleReminder,
 }));
 

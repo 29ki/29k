@@ -1,17 +1,13 @@
 {
   "en": {
     "title": "Reminders",
-    "actions": {
-      "sessionReminders": "Session reminders",
-      "practiceReminders": "Practice reminders"
-    },
     "sessionRemindersText": "Reminds you about upcoming sessions 10 minutes before they start.",
     "weekday": "Weekday",
     "time": "Time",
     "intervals": {
       "daily": "Every day",
       "monday": "Monday",
-      "tuseday": "Tuseday",
+      "tuesday": "Tuesday",
       "wednesday": "Wednesday",
       "thursday": "Thursday",
       "friday": "Friday",
@@ -23,17 +19,13 @@
   "pt": {},
   "sv": {
     "title": "Notiser",
-    "actions": {
-      "sessionReminders": "Notiser sessioner",
-      "practiceReminders": "Notiser övning"
-    },
     "sessionRemindersText": "Påminner dig om kommande sessioner 10 minuter före start.",
     "weekday": "Veckodag",
     "time": "Tid",
     "intervals": {
       "daily": "Varje dag",
       "monday": "Måndag",
-      "tuseday": "Tisdag",
+      "tuesday": "Tisdag",
       "wednesday": "Onsdag",
       "thursday": "Torsdag",
       "friday": "Fredag",

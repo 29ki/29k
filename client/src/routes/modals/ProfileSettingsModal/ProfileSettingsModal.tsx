@@ -108,7 +108,7 @@ const ProfileSettingsModal = () => {
   );
 
   const remindersPress = useCallback(
-    () => navigate('NotificationsModal'),
+    () => navigate('RemindersModal'),
     [navigate],
   );
 
@@ -234,7 +234,7 @@ const ProfileSettingsModal = () => {
                   {t('actions.language')}
                 </ActionButton>
                 <ActionButton Icon={BellIcon} onPress={remindersPress}>
-                  {t('actions.notifications')}
+                  {t('actions.reminders')}
                 </ActionButton>
               </>
             )}
