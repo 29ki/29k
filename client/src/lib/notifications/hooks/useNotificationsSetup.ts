@@ -1,3 +1,4 @@
+import debug from 'debug';
 import {useCallback, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import notifee, {Event} from '@notifee/react-native';
@@ -8,14 +9,26 @@ import useCurrentUserState from '../../user/hooks/useCurrentUserState';
 import {NOTIFICATION_CHANNELS, NOTIFICATION_CHANNEL_CONFIG} from '../constants';
 import useUpdatePracticeReminders from '../../reminders/hooks/useUpdatePracticeReminders';
 
+const logDebug = debug('client:notifications');
+
 const useNotificationsSetup = () => {
   const {t} = useTranslation('Component.NotificationChannels');
   const userState = useCurrentUserState();
+  const notifications = useNotificationsState(state => state.notifications);
   const resetNotificationsState = useNotificationsState(state => state.reset);
   const setNotificationState = useNotificationsState(
     state => state.setNotification,
   );
   const {updatePracticeNotifications} = useUpdatePracticeReminders();
+
+  useEffect(() => {
+    logDebug('----------------------');
+    logDebug('|PLANNED NOTIFICATIONS|');
+    logDebug('----------------------');
+    Object.values(notifications).forEach(({id, title, body, data} = {}) => {
+      logDebug(`${data?.date} ${title} - ${body} (${id})`);
+    });
+  }, [notifications]);
 
   useEffect(() => {
     Object.values(NOTIFICATION_CHANNELS).forEach(id => {
