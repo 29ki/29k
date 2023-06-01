@@ -14,7 +14,7 @@ import {
 } from '../../../lib/components/Spacers/Spacer';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
 import useSessionReminderNotificationsSetting from '../../../lib/reminders/hooks/useSessionReminderNotificationsSetting';
-import usePracticeReminderNotificationsSetting from '../../../lib/reminders/hooks/usePracticeReminderNotificationsSetting';
+import usePracticeRemindersSetting from '../../../lib/reminders/hooks/usePracticeRemindersSetting';
 import ActionSwitch from '../../../lib/components/ActionList/ActionItems/ActionSwitch';
 import {BellIcon} from '../../../lib/components/Icons';
 import ActionList from '../../../lib/components/ActionList/ActionList';
@@ -84,7 +84,7 @@ const RemindersModal = () => {
     practiceReminderConfig,
     practiceRemindersEnabled,
     setPracticeRemindersConfig,
-  } = usePracticeReminderNotificationsSetting();
+  } = usePracticeRemindersSetting();
   const [selectedInterval, setSelectedInterval] = useState(
     practiceReminderConfig ? practiceReminderConfig.interval : thisWeekday(),
   );

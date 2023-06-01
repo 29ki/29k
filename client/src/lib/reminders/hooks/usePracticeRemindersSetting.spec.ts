@@ -2,7 +2,7 @@ import {act, renderHook} from '@testing-library/react-hooks';
 
 import useUserState from '../../user/state/state';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import usePracticeReminderNotificationsSetting from './usePracticeReminderNotificationsSetting';
+import usePracticeRemindersSetting from './usePracticeRemindersSetting';
 import {REMINDER_INTERVALS} from '../constants';
 
 const mockRequestPermission = jest.fn();
@@ -25,7 +25,7 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe('usePracticeReminderNotificationsSetting', () => {
+describe('usePracticeRemindersSetting', () => {
   describe('practiceRemindersEnabled', () => {
     it('is enabled if having permission and practiceReminderConfig is set', async () => {
       mockCheckPermission.mockResolvedValueOnce(true);
@@ -43,9 +43,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
         },
       });
 
-      const {result} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
       expect(mockCheckPermission).toHaveBeenCalledTimes(1);
       expect(result.current.practiceRemindersEnabled).toBe(true);
@@ -59,9 +57,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
         userState: {'some-uid': {practiceReminderConfig: null}},
       });
 
-      const {result} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
       expect(mockCheckPermission).toHaveBeenCalledTimes(1);
       expect(result.current.practiceRemindersEnabled).toBe(false);
@@ -84,7 +80,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
       });
 
       const {result, waitForNextUpdate} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
+        usePracticeRemindersSetting(),
       );
 
       await waitForNextUpdate();
@@ -101,9 +97,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
         userState: {'some-uid': {}},
       });
 
-      const {result} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
       expect(mockCheckPermission).toHaveBeenCalledTimes(1);
       expect(result.current.practiceRemindersEnabled).toBe(undefined);
@@ -125,9 +119,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
         },
       });
 
-      const {result} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
       expect(result.current.practiceReminderConfig).toEqual({
         hour: 0,
@@ -142,9 +134,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
         userState: {'some-uid': {practiceReminderConfig: null}},
       });
 
-      const {result} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
       expect(result.current.practiceReminderConfig).toBe(null);
     });
@@ -155,9 +145,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
         userState: {'some-uid': {}},
       });
 
-      const {result} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
       expect(result.current.practiceReminderConfig).toBe(undefined);
     });
@@ -170,9 +158,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
         user: {uid: 'some-uid'} as FirebaseAuthTypes.User,
       });
 
-      const {result} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
       await act(async () => {
         await result.current.setPracticeRemindersConfig({
@@ -210,9 +196,7 @@ describe('usePracticeReminderNotificationsSetting', () => {
         user: {uid: 'some-uid'} as FirebaseAuthTypes.User,
       });
 
-      const {result} = renderHook(() =>
-        usePracticeReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
       await act(async () => {
         await result.current.setPracticeRemindersConfig(null);

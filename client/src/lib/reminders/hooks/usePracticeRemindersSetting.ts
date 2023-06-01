@@ -4,7 +4,7 @@ import useUserState, {PracticeReminderConfig} from '../../user/state/state';
 import useNotificationPermissions from '../../notifications/hooks/useNotificationPermissions';
 import useUpdatePracticeReminders from './useUpdatePracticeReminders';
 
-const usePracticeReminderNotificationsSetting = () => {
+const usePracticeRemindersSetting = () => {
   const userState = useCurrentUserState();
   const setUserState = useUserState(state => state.setCurrentUserState);
   const {updatePracticeNotifications} = useUpdatePracticeReminders();
@@ -56,4 +56,4 @@ const usePracticeReminderNotificationsSetting = () => {
   };
 };
 
-export default usePracticeReminderNotificationsSetting;
+export default usePracticeRemindersSetting;
