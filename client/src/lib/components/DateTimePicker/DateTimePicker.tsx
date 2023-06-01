@@ -82,7 +82,7 @@ export const DateTimePicker: React.FC<DateTimePickerProps> = ({
       return (
         <RNDateTimePicker
           mode={mode}
-          display={mode === 'date' ? 'calendar' : 'clock'}
+          display="spinner"
           value={selectedValue.local().toDate()}
           minimumDate={minimumDate?.toDate()}
           maximumDate={maximumDate?.toDate()}
