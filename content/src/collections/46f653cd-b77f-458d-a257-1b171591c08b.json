@@ -34,7 +34,12 @@
     "image": {
       "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683720597/Images/get_started_collection_chij0k.png"
     },
-    "link": "https://aware.29k.org/get-started"
+    "link": "https://aware.29k.org/get-started",
+    "card": {
+      "description": "Dá os primeiros passos, validados cientificamente, para melhorar o teu bem-estar e ficares mais satisfeito com a tua vida.",
+      "backgroundColorGradient": ["#378D88", "#2A605D"],
+      "textColor": "#ffffff"
+    }
   },
   "sv": {
     "published": true,
@@ -50,6 +55,11 @@
     "description": "Ta de första stegen för att att förbättra ditt välmående och känna mer mening i livet – på vetenskaplig grund. Påbörja din resa med Aware här.",
     "image": {
       "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683720597/Images/get_started_collection_chij0k.png"
+    },
+    "card": {
+      "description": "Ta de första stegen för att att förbättra ditt välmående och känna mer mening i livet – på vetenskaplig grund.",
+      "backgroundColorGradient": ["#378D88", "#2A605D"],
+      "textColor": "#ffffff"
     }
   },
   "es": {
