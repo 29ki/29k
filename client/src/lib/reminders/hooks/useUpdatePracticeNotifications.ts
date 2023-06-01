@@ -44,18 +44,6 @@ const useUpdatePracticeNotifications = () => {
           index < DEFAULT_NUMBER_OF_PRACTICE_REMINDERS;
           index++
         ) {
-          console.log(
-            'setRminder',
-            index,
-            nextReminderTime
-              .add(
-                index,
-                config.interval === REMINDER_INTERVALS.DAILY ? 'day' : 'week',
-              )
-              .local()
-              .toString(),
-          );
-
           await setTriggerNotification(
             index.toString(),
             NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
