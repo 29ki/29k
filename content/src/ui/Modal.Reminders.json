@@ -11,7 +11,7 @@
     "intervals": {
       "daily": "Every day",
       "monday": "Monday",
-      "tuseday": "Tuseday",
+      "tuesday": "Tuesday",
       "wednesday": "Wednesday",
       "thursday": "Thursday",
       "friday": "Friday",
@@ -33,7 +33,7 @@
     "intervals": {
       "daily": "Varje dag",
       "monday": "Måndag",
-      "tuseday": "Tisdag",
+      "tuesday": "Tisdag",
       "wednesday": "Onsdag",
       "thursday": "Torsdag",
       "friday": "Fredag",

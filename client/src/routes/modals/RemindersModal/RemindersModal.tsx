@@ -217,7 +217,7 @@ const RemindersModal = () => {
                   <PracticeActionWrapper onPress={toggleWeekday}>
                     <StyledBold>{t('weekday')}</StyledBold>
                     <StyledSelectedValue active={weekdayOpen}>
-                      {t(`intervals.${selectedInterval}`)}
+                      {t(`intervals.${selectedInterval.toLowerCase()}`)}
                     </StyledSelectedValue>
                   </PracticeActionWrapper>
                 </ActionItem>
@@ -229,7 +229,7 @@ const RemindersModal = () => {
                       <Picker.Item
                         key={interval}
                         value={interval}
-                        label={t(`intervals.${interval}`)}
+                        label={t(`intervals.${interval.toLowerCase()}`)}
                       />
                     ))}
                   </Picker>
