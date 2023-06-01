@@ -14,7 +14,7 @@ const mockUseSessionReminderNotificationsSetting = jest.mocked(
 jest.mock('../../reminders/hooks/useSessionRemindersSetting');
 
 const mockToggleReminder = jest.fn();
-jest.mock('../../sessions/hooks/useSessionReminderNotification', () => () => ({
+jest.mock('../../sessions/hooks/useSessionReminder', () => () => ({
   toggleReminder: mockToggleReminder,
 }));
 
