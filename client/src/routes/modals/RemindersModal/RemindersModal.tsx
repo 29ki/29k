@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Picker} from '@react-native-picker/picker';
 import dayjs from 'dayjs';
@@ -28,6 +28,7 @@ import {BottomSheetScrollView, useBottomSheet} from '@gorhom/bottom-sheet';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import Button from '../../../lib/components/Buttons/Button';
 import {REMINDER_INTERVALS} from '../../../lib/reminders/constants';
+import {Platform} from 'react-native';
 
 dayjs.extend(utc);
 
@@ -42,6 +43,10 @@ const StyledBold = styled(BodyBold)({fontSize: 16});
 
 const StyledSelectedValue = styled(Body16)<{active?: boolean}>(({active}) => ({
   color: active ? COLORS.PRIMARY : undefined,
+}));
+
+const PickerWrapper = styled.View<{platform: string}>(({platform}) => ({
+  display: platform === 'android' ? 'none' : undefined,
 }));
 
 const ButtonWrapper = styled.View({
@@ -74,6 +79,7 @@ const thisWeekday = (): REMINDER_INTERVALS => {
 
 const RemindersModal = () => {
   const {t} = useTranslation('Modal.Reminders');
+  const pickerRef = useRef<Picker<REMINDER_INTERVALS>>(null);
   const {sessionRemindersEnabled, setSessionRemindersEnabled} =
     useSessionReminderNotificationsSetting();
   const {snapToIndex} = useBottomSheet();
@@ -98,12 +104,6 @@ const RemindersModal = () => {
       : dayjs().utc().set('hour', thisHour).set('minute', closestHalfhour),
   );
 
-  useEffect(() => {
-    if (!timeOpen && !weekdayOpen) {
-      snapToIndex(0);
-    }
-  }, [timeOpen, weekdayOpen, snapToIndex]);
-
   const reminderUpdated = useMemo(() => {
     return (
       practiceReminderConfig?.interval !== selectedInterval ||
@@ -112,14 +112,34 @@ const RemindersModal = () => {
     );
   }, [practiceReminderConfig, selectedInterval, selectedTime]);
 
+  useEffect(() => {
+    if (!timeOpen && !weekdayOpen && !reminderUpdated && !isLoading) {
+      snapToIndex(0);
+    }
+  }, [timeOpen, weekdayOpen, reminderUpdated, isLoading, snapToIndex]);
+
+  useEffect(() => {
+    if (weekdayOpen) {
+      pickerRef.current?.focus();
+    }
+  }, [weekdayOpen]);
+
   const toggleWeekday = useCallback(() => {
-    snapToIndex(2);
-    setTimeOpen(false);
+    if (Platform.OS === 'ios') {
+      snapToIndex(2);
+    }
     setWeekdayOpen(state => !state);
+    setTimeOpen(false);
   }, [snapToIndex, setWeekdayOpen, setTimeOpen]);
 
+  const onPickerBlur = useCallback(() => {
+    setWeekdayOpen(false);
+  }, [setWeekdayOpen]);
+
   const toggleTime = useCallback(() => {
-    snapToIndex(2);
+    if (Platform.OS === 'ios') {
+      snapToIndex(2);
+    }
     setWeekdayOpen(false);
     setTimeOpen(state => !state);
   }, [snapToIndex, setTimeOpen, setWeekdayOpen]);
@@ -222,17 +242,21 @@ const RemindersModal = () => {
                   </PracticeActionWrapper>
                 </ActionItem>
                 {weekdayOpen && (
-                  <Picker
-                    onValueChange={onSelectedInterval}
-                    selectedValue={selectedInterval}>
-                    {Object.keys(REMINDER_INTERVALS).map(interval => (
-                      <Picker.Item
-                        key={interval}
-                        value={interval}
-                        label={t(`intervals.${interval.toLowerCase()}`)}
-                      />
-                    ))}
-                  </Picker>
+                  <PickerWrapper platform={Platform.OS}>
+                    <Picker
+                      ref={pickerRef}
+                      onBlur={onPickerBlur}
+                      onValueChange={onSelectedInterval}
+                      selectedValue={selectedInterval}>
+                      {Object.keys(REMINDER_INTERVALS).map(interval => (
+                        <Picker.Item
+                          key={interval}
+                          value={interval}
+                          label={t(`intervals.${interval.toLowerCase()}`)}
+                        />
+                      ))}
+                    </Picker>
+                  </PickerWrapper>
                 )}
                 <ActionItem hideBorder>
                   <PracticeActionWrapper onPress={toggleTime}>
