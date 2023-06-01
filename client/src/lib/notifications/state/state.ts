@@ -11,6 +11,7 @@ type Actions = {
     id: string | undefined,
     notification: Notification | undefined,
   ) => void;
+  removeNotification: (id: string) => void;
   reset: () => void;
 };
 
@@ -41,6 +42,10 @@ const useNotificationsState = create<State & Actions>()(set => ({
         },
       };
     }),
+  removeNotification: id =>
+    set(state => ({
+      notifications: omit([id], state.notifications),
+    })),
   reset: () => set(initialState),
 }));
 

@@ -10,6 +10,9 @@ const useTriggerNotifications = () => {
   const setNotificationState = useNotificationsState(
     state => state.setNotification,
   );
+  const removeNotificationState = useNotificationsState(
+    state => state.removeNotification,
+  );
 
   const setTriggerNotification = useCallback(
     async (
@@ -70,9 +73,9 @@ const useTriggerNotifications = () => {
   const removeTriggerNotification = useCallback(
     async (id: string) => {
       await notifee.cancelTriggerNotification(id);
-      setNotificationState(id, undefined);
+      removeNotificationState(id);
     },
-    [setNotificationState],
+    [removeNotificationState],
   );
 
   const removeTriggerNotifications = useCallback(
@@ -84,11 +87,9 @@ const useTriggerNotifications = () => {
         )
         .map(({notification}) => notification.id);
 
-      for (const id of ids) {
-        if (id) {
-          await removeTriggerNotification(id);
-        }
-      }
+      await Promise.all(
+        ids.map(async id => id && (await removeTriggerNotification(id))),
+      );
     },
     [removeTriggerNotification],
   );
