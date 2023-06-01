@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {ImageSourcePropType} from 'react-native';
 import styled from 'styled-components/native';
+import LinearGradient from 'react-native-linear-gradient';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
+
 import Image from '../../Image/Image';
 import {Display22} from '../../Typography/Display/Display';
 import {SPACINGS} from '../../../constants/spacings';
@@ -12,7 +14,7 @@ import SessionProgress from '../../SessionProgress/SessionProgress';
 import {CollectionIcon} from '../../Icons';
 import {Body12} from '../../Typography/Body/Body';
 import {PlayfairDisplayMedium} from '../../../constants/fonts';
-import LinearGradient from 'react-native-linear-gradient';
+import SETTINGS from '../../../constants/settings';
 
 export const HEIGHT = 114;
 
@@ -21,7 +23,8 @@ type CollectionFullCardProps = {
   description?: string;
   image: ImageSourcePropType;
   progressItems: Array<boolean>;
-  theme?: {backgroundColorGradient?: string[]; textColor?: string};
+  backgroundColorGradient?: {color: string}[];
+  textColor?: string;
   onPress: () => void;
 };
 
@@ -41,7 +44,7 @@ const Heading = styled(Display22)<{color?: string}>(
 
 const Description = styled(Body12)<{color?: string}>(
   ({color = COLORS.BLACK}) => ({
-    fontWeight: 500,
+    fontFamily: PlayfairDisplayMedium,
     color,
   }),
 );
@@ -83,7 +86,7 @@ const Gradient = styled(LinearGradient).attrs<{colors: string[]}>(
   }),
 )({
   flex: 1,
-  borderRadius: SPACINGS.SIXTEEN,
+  borderRadius: SETTINGS.BORDER_RADIUS.ACTION_LISTS,
   paddingVertical: SPACINGS.FOUR,
   paddingHorizontal: SPACINGS.SIXTEEN,
 });
@@ -93,36 +96,44 @@ const CollectionFullCard: React.FC<CollectionFullCardProps> = ({
   image,
   description,
   progressItems,
-  theme,
+  backgroundColorGradient,
+  textColor,
   onPress,
-}) => (
-  <Container onPress={onPress}>
-    <Gradient colors={theme?.backgroundColorGradient || ['transparent']}>
-      <Row>
-        <LeftColumn>
-          <TitleWrapper>
-            <IconWrapper>
-              <CollectionIcon fill={theme?.textColor} />
-            </IconWrapper>
+}) => {
+  const colors = useMemo(
+    () => backgroundColorGradient?.map(({color}) => color),
+    [backgroundColorGradient],
+  );
+
+  return (
+    <Container onPress={onPress}>
+      <Gradient colors={colors || ['transparent']}>
+        <Row>
+          <LeftColumn>
+            <TitleWrapper>
+              <IconWrapper>
+                <CollectionIcon fill={textColor} />
+              </IconWrapper>
+              <Spacer8 />
+              <Heading numberOfLines={3} color={textColor}>
+                {title}
+              </Heading>
+            </TitleWrapper>
             <Spacer8 />
-            <Heading numberOfLines={3} color={theme?.textColor}>
-              {title}
-            </Heading>
-          </TitleWrapper>
-          <Spacer8 />
-          <Description numberOfLines={2} color={theme?.textColor}>
-            {description}
-          </Description>
-        </LeftColumn>
-        <Spacer16 />
-        <GraphicsWrapper>
-          <Image source={image} />
-        </GraphicsWrapper>
-      </Row>
-      <SessionProgress items={progressItems} />
-      <Spacer4 />
-    </Gradient>
-  </Container>
-);
+            <Description numberOfLines={2} color={textColor}>
+              {description}
+            </Description>
+          </LeftColumn>
+          <Spacer16 />
+          <GraphicsWrapper>
+            <Image source={image} />
+          </GraphicsWrapper>
+        </Row>
+        <SessionProgress items={progressItems} />
+        <Spacer4 />
+      </Gradient>
+    </Container>
+  );
+};
 
 export default React.memo(CollectionFullCard);

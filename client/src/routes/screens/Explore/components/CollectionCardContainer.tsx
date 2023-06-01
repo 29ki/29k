@@ -34,10 +34,8 @@ const CollectionCardContainer: React.FC<CollectionCardProps> = ({
     <CollectionListCard
       onPress={onPress}
       image={image}
-      theme={{
-        backgroundColorGradient: collection.card?.backgroundColorGradient,
-        textColor: collection.card?.textColor,
-      }}
+      backgroundColorGradient={collection.card?.backgroundColorGradient}
+      textColor={collection.card?.textColor}
       title={formatContentName(collection)}
     />
   );

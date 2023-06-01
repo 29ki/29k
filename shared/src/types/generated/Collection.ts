@@ -6,9 +6,13 @@ export interface CollectionImage {
   source?: string;
 }
 
+export interface CollectionCardBackgroundColors {
+  color: string;
+}
+
 export interface CollectionCard {
   description?: string;
-  backgroundColorGradient?: string[];
+  backgroundColorGradient?: CollectionCardBackgroundColors[];
   textColor?: string;
 }
 

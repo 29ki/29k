@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {ImageSourcePropType} from 'react-native';
 import styled from 'styled-components/native';
 
@@ -14,7 +14,8 @@ import {PlayfairDisplayMedium} from '../../../constants/fonts';
 type CollectionCardProps = {
   title?: string;
   image: ImageSourcePropType;
-  theme?: {backgroundColorGradient?: string[]; textColor?: string};
+  backgroundColorGradient?: {color: string}[];
+  textColor?: string;
   onPress: () => void;
 };
 
@@ -62,13 +63,19 @@ const Gradient = styled(LinearGradient).attrs<{colors: string[]}>(
 const CollectionCard: React.FC<CollectionCardProps> = ({
   title,
   image,
-  theme,
+  backgroundColorGradient,
+  textColor,
   onPress,
 }) => {
+  const bgColors = useMemo(
+    () => backgroundColorGradient?.map(({color}) => color),
+    [backgroundColorGradient],
+  );
+
   return (
     <Container onPress={onPress}>
-      <Gradient colors={theme?.backgroundColorGradient || ['transparent']}>
-        <Heading color={theme?.textColor}>{title}</Heading>
+      <Gradient colors={bgColors || ['transparent']}>
+        <Heading color={textColor}>{title}</Heading>
         <ImageContainer>
           <GraphicsWrapper>
             <Image source={image} />
