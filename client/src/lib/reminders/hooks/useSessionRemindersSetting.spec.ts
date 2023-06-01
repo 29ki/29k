@@ -2,7 +2,7 @@ import {act, renderHook} from '@testing-library/react-hooks';
 
 import useUserState from '../../user/state/state';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import useSessionReminderNotificationsSetting from './useSessionReminderNotificationsSetting';
+import useSessionRemindersSetting from './useSessionRemindersSetting';
 
 const mockRequestPermission = jest.fn();
 const mockCheckPermission = jest.fn();
@@ -24,7 +24,7 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe('useSessionReminderNotificationsSetting', () => {
+describe('useSessionRemindersSetting', () => {
   describe('sessionRemindersEnabled', () => {
     it('is enabled if having permission and sessionReminderNotifications = true', async () => {
       mockCheckPermission.mockResolvedValueOnce(true);
@@ -34,9 +34,7 @@ describe('useSessionReminderNotificationsSetting', () => {
         userState: {'some-uid': {sessionReminderNotifications: true}},
       });
 
-      const {result} = renderHook(() =>
-        useSessionReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => useSessionRemindersSetting());
 
       expect(mockCheckPermission).toHaveBeenCalledTimes(1);
       expect(result.current.sessionRemindersEnabled).toBe(true);
@@ -50,9 +48,7 @@ describe('useSessionReminderNotificationsSetting', () => {
         userState: {'some-uid': {sessionReminderNotifications: false}},
       });
 
-      const {result} = renderHook(() =>
-        useSessionReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => useSessionRemindersSetting());
 
       expect(mockCheckPermission).toHaveBeenCalledTimes(1);
       expect(result.current.sessionRemindersEnabled).toBe(false);
@@ -67,7 +63,7 @@ describe('useSessionReminderNotificationsSetting', () => {
       });
 
       const {result, waitForNextUpdate} = renderHook(() =>
-        useSessionReminderNotificationsSetting(),
+        useSessionRemindersSetting(),
       );
 
       await waitForNextUpdate();
@@ -84,9 +80,7 @@ describe('useSessionReminderNotificationsSetting', () => {
         userState: {'some-uid': {sessionReminderNotifications: undefined}},
       });
 
-      const {result} = renderHook(() =>
-        useSessionReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => useSessionRemindersSetting());
 
       expect(mockCheckPermission).toHaveBeenCalledTimes(1);
       expect(result.current.sessionRemindersEnabled).toBe(undefined);
@@ -100,9 +94,7 @@ describe('useSessionReminderNotificationsSetting', () => {
         user: {uid: 'some-uid'} as FirebaseAuthTypes.User,
       });
 
-      const {result} = renderHook(() =>
-        useSessionReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => useSessionRemindersSetting());
 
       await act(async () => {
         await result.current.setSessionRemindersEnabled(true);
@@ -123,9 +115,7 @@ describe('useSessionReminderNotificationsSetting', () => {
         user: {uid: 'some-uid'} as FirebaseAuthTypes.User,
       });
 
-      const {result} = renderHook(() =>
-        useSessionReminderNotificationsSetting(),
-      );
+      const {result} = renderHook(() => useSessionRemindersSetting());
 
       await act(async () => {
         await result.current.setSessionRemindersEnabled(false);

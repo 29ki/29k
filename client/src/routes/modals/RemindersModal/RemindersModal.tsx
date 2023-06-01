@@ -13,7 +13,7 @@ import {
   Spacer8,
 } from '../../../lib/components/Spacers/Spacer';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
-import useSessionReminderNotificationsSetting from '../../../lib/reminders/hooks/useSessionReminderNotificationsSetting';
+import useSessionRemindersSetting from '../../../lib/reminders/hooks/useSessionRemindersSetting';
 import usePracticeRemindersSetting from '../../../lib/reminders/hooks/usePracticeRemindersSetting';
 import ActionSwitch from '../../../lib/components/ActionList/ActionItems/ActionSwitch';
 import {BellIcon} from '../../../lib/components/Icons';
@@ -75,7 +75,7 @@ const thisWeekday = (): REMINDER_INTERVALS => {
 const RemindersModal = () => {
   const {t} = useTranslation('Modal.Reminders');
   const {sessionRemindersEnabled, setSessionRemindersEnabled} =
-    useSessionReminderNotificationsSetting();
+    useSessionRemindersSetting();
   const {snapToIndex} = useBottomSheet();
   const [weekdayOpen, setWeekdayOpen] = useState(false);
   const [timeOpen, setTimeOpen] = useState(false);

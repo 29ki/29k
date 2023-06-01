@@ -5,7 +5,7 @@ import useNotificationPermissions from '../../notifications/hooks/useNotificatio
 import useTriggerNotifications from '../../notifications/hooks/useTriggerNotifications';
 import {NOTIFICATION_CHANNELS} from '../../notifications/constants';
 
-const useSessionReminderNotificationsSetting = () => {
+const useSessionRemindersSetting = () => {
   const userState = useCurrentUserState();
   const setUserState = useUserState(state => state.setCurrentUserState);
   const [sessionRemindersEnabled, setEnabled] = useState<boolean | undefined>(
@@ -45,4 +45,4 @@ const useSessionReminderNotificationsSetting = () => {
   return {sessionRemindersEnabled, setSessionRemindersEnabled};
 };
 
-export default useSessionReminderNotificationsSetting;
+export default useSessionRemindersSetting;
