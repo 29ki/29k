@@ -14,10 +14,10 @@ jest.mock('../../notifications/hooks/useNotificationPermissions', () =>
   })),
 );
 
-const mockRemoveTriggerNotifications = jest.fn();
-jest.mock('../../notifications/hooks/useTriggerNotifications', () =>
+const mockUpdatePracticeNotifications = jest.fn();
+jest.mock('./useUpdatePracticeNotifications', () =>
   jest.fn(() => ({
-    removeTriggerNotifications: mockRemoveTriggerNotifications,
+    updatePracticeNotifications: mockUpdatePracticeNotifications,
   })),
 );
 
@@ -183,7 +183,12 @@ describe('usePracticeReminderNotificationsSetting', () => {
       });
 
       expect(mockRequestPermission).toHaveBeenCalledTimes(1);
-      expect(mockRemoveTriggerNotifications).toHaveBeenCalledTimes(0);
+      expect(mockUpdatePracticeNotifications).toHaveBeenCalledTimes(1);
+      expect(mockUpdatePracticeNotifications).toHaveBeenCalledWith({
+        hour: 0,
+        minute: 0,
+        interval: REMINDER_INTERVALS.DAILY,
+      });
       expect(useUserState.getState()).toEqual(
         expect.objectContaining({
           userState: {
@@ -214,10 +219,8 @@ describe('usePracticeReminderNotificationsSetting', () => {
       });
 
       expect(mockRequestPermission).toHaveBeenCalledTimes(0);
-      expect(mockRemoveTriggerNotifications).toHaveBeenCalledTimes(1);
-      expect(mockRemoveTriggerNotifications).toHaveBeenCalledWith(
-        'practice-reminders',
-      );
+      expect(mockUpdatePracticeNotifications).toHaveBeenCalledTimes(1);
+      expect(mockUpdatePracticeNotifications).toHaveBeenCalledWith(null);
       expect(useUserState.getState()).toEqual(
         expect.objectContaining({
           userState: {'some-uid': {practiceReminderConfig: null}},

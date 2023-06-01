@@ -54,6 +54,7 @@ describe('useUpdatePracticeNotifications', () => {
     mockGetCollectionById.mockReturnValueOnce({
       link: 'some-link',
       name: 'some name',
+      image: {source: 'some-image-url'},
     });
     const {result} = renderHook(() => useUpdatePracticeNotifications());
 
@@ -72,6 +73,7 @@ describe('useUpdatePracticeNotifications', () => {
       expect.any(String),
       'notifications.collection.0',
       'some-link',
+      'some-image-url',
       dayjs('2023-06-01T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
@@ -80,6 +82,7 @@ describe('useUpdatePracticeNotifications', () => {
       expect.any(String),
       'notifications.collection.1',
       'some-link',
+      'some-image-url',
       dayjs('2023-06-08T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
@@ -88,6 +91,7 @@ describe('useUpdatePracticeNotifications', () => {
       expect.any(String),
       'notifications.collection.2',
       'some-link',
+      'some-image-url',
       dayjs('2023-06-15T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
@@ -96,6 +100,7 @@ describe('useUpdatePracticeNotifications', () => {
       expect.any(String),
       'notifications.collection.3',
       'some-link',
+      'some-image-url',
       dayjs('2023-06-22T10:00:00Z').valueOf(),
     );
   });
@@ -117,6 +122,7 @@ describe('useUpdatePracticeNotifications', () => {
     mockGetCollectionById.mockReturnValueOnce({
       link: 'some-link',
       name: 'some name',
+      image: {source: 'some-image-url'},
     });
     const {result} = renderHook(() => useUpdatePracticeNotifications());
 
@@ -135,6 +141,7 @@ describe('useUpdatePracticeNotifications', () => {
       expect.any(String),
       'notifications.collection.0',
       'some-link',
+      'some-image-url',
       dayjs('2023-06-01T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
@@ -143,6 +150,7 @@ describe('useUpdatePracticeNotifications', () => {
       expect.any(String),
       'notifications.collection.1',
       'some-link',
+      'some-image-url',
       dayjs('2023-06-02T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
@@ -151,6 +159,7 @@ describe('useUpdatePracticeNotifications', () => {
       expect.any(String),
       'notifications.collection.2',
       'some-link',
+      'some-image-url',
       dayjs('2023-06-03T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
@@ -159,11 +168,12 @@ describe('useUpdatePracticeNotifications', () => {
       expect.any(String),
       'notifications.collection.3',
       'some-link',
+      'some-image-url',
       dayjs('2023-06-04T10:00:00Z').valueOf(),
     );
   });
 
-  it('should create 4 notifications daily with without collection', async () => {
+  it('should create 4 notifications daily without collection', async () => {
     jest
       .useFakeTimers({doNotFake: ['nextTick', 'setImmediate']})
       .setSystemTime(new Date('2023-05-31T10:00:00Z'));
@@ -199,6 +209,7 @@ describe('useUpdatePracticeNotifications', () => {
       expect.any(String),
       'notifications.general.0',
       undefined,
+      undefined,
       dayjs('2023-06-01T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
@@ -206,6 +217,7 @@ describe('useUpdatePracticeNotifications', () => {
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'notifications.general.1',
+      undefined,
       undefined,
       dayjs('2023-06-02T10:00:00Z').valueOf(),
     );
@@ -215,6 +227,7 @@ describe('useUpdatePracticeNotifications', () => {
       expect.any(String),
       'notifications.general.2',
       undefined,
+      undefined,
       dayjs('2023-06-03T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
@@ -222,6 +235,7 @@ describe('useUpdatePracticeNotifications', () => {
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'notifications.general.3',
+      undefined,
       undefined,
       dayjs('2023-06-04T10:00:00Z').valueOf(),
     );
