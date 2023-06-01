@@ -26,10 +26,13 @@ const useSessionReminderNotification = (session: LiveSessionType) => {
         ? setTriggerNotification(
             id,
             NOTIFICATION_CHANNELS.SESSION_REMINDERS,
-            t('title', {exercise: exercise?.name}),
+            t('title', {
+              exercise: exercise?.name,
+              host: session.hostProfile?.displayName,
+            }),
             t('body'),
             link,
-            exercise?.card.image?.source,
+            session.hostProfile?.photoURL,
             dayjs(startTime).subtract(10, 'minutes').valueOf(),
           )
         : removeTriggerNotification(id),
@@ -38,7 +41,8 @@ const useSessionReminderNotification = (session: LiveSessionType) => {
       removeTriggerNotification,
       id,
       exercise?.name,
-      exercise?.card.image?.source,
+      session.hostProfile?.photoURL,
+      session.hostProfile?.displayName,
       link,
       startTime,
       t,

@@ -1,6 +1,6 @@
 {
   "en": {
-    "title": "{{exercise}}",
+    "title": "{{exercise}} with {{host}}",
     "body": "The session is about to start"
   },
   "pt": {
@@ -8,8 +8,8 @@
     "body": "A sessão começa agora"
   },
   "sv": {
-    "title": "{{exercise}}",
-    "body": "Sessionen startar nu"
+    "title": "{{exercise}} med {{host}}",
+    "body": "Sessionen börjar snart"
   },
   "es": {}
 }
