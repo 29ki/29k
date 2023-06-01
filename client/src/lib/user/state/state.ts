@@ -57,6 +57,7 @@ type SetCurrentUserState = (
 ) => void;
 
 export type State = {
+  __hasHydrated: boolean;
   user: FirebaseAuthTypes.User | null;
   data: UserDataType | null;
   claims: FirebaseAuthTypes.IdTokenResult['claims'];
@@ -66,6 +67,7 @@ export type State = {
 export type PersistedState = Pick<State, 'userState'>;
 
 export type Actions = {
+  __setHasHydrated: (__hasHydrated: boolean) => void;
   setUser: (user: State['user']) => void;
   setClaims: (claims: State['claims']) => void;
   setData: (data: Partial<UserDataType>) => void;
@@ -93,6 +95,7 @@ const createInitialUserState = (timestamp: string): UserState => ({
 });
 
 const initialState: State = {
+  __hasHydrated: false,
   user: null,
   data: null,
   claims: {},
@@ -161,6 +164,7 @@ const useUserState = create<State & Actions>()(
 
       return {
         ...initialState,
+        __setHasHydrated: __hasHydrated => set({__hasHydrated}),
         setUser: user => set({user}),
         setData: data => set(state => ({data: {...state.data, ...data}})),
         setClaims: claims => set({claims}),
@@ -227,6 +231,9 @@ const useUserState = create<State & Actions>()(
       name: 'userState',
       storage: createJSONStorage(() => AsyncStorage),
       partialize: ({userState}): PersistedState => ({userState}),
+      onRehydrateStorage: () => state => {
+        state?.__setHasHydrated(true);
+      },
       // In dev I had change this with the app closed (android)
       // otherwise the "migrate" functions does not run due to diff failure
       version: USER_STATE_VERSION,

@@ -10,7 +10,10 @@ import useTriggerNotifications from '../../notifications/hooks/useTriggerNotific
 import {calculateNextReminderTime} from '../utils/dates';
 import {useTranslation} from 'react-i18next';
 import {Collection} from '../../../../../shared/src/types/generated/Collection';
-import {PracticeReminderConfig} from '../../user/state/state';
+import useUserState, {
+  PracticeReminderConfig,
+  getCurrentUserStateSelector,
+} from '../../user/state/state';
 import {
   DEFAULT_NUMBER_OF_PRACTICE_REMINDERS,
   REMINDER_INTERVALS,
@@ -29,7 +32,7 @@ const useUpdatePracticeReminders = () => {
   const reCreateNotifications = useCallback(
     async (
       collection: Collection | null,
-      config: PracticeReminderConfig | null,
+      config?: PracticeReminderConfig | null,
     ) => {
       await removeTriggerNotifications(
         NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
@@ -44,7 +47,15 @@ const useUpdatePracticeReminders = () => {
           index < DEFAULT_NUMBER_OF_PRACTICE_REMINDERS;
           index++
         ) {
-          await setTriggerNotification(
+          console.log(
+            'create!!',
+            index,
+            config.interval,
+            REMINDER_INTERVALS.DAILY,
+            config.interval === REMINDER_INTERVALS.DAILY,
+          );
+
+          setTriggerNotification(
             index.toString(),
             NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
             t('title'),
@@ -52,7 +63,7 @@ const useUpdatePracticeReminders = () => {
               ? t(`reminders.collection.${index}`, {title: collection.name})
               : t(`reminders.general.${index}`),
             collection?.link,
-            collection?.image?.source,
+            undefined,
             nextReminderTime
               .add(
                 index,
@@ -67,7 +78,7 @@ const useUpdatePracticeReminders = () => {
   );
 
   const updatePracticeNotifications = useCallback(
-    async (config: PracticeReminderConfig | null) => {
+    async (config?: PracticeReminderConfig | null) => {
       const pinnedCollection = pinnedCollections
         .sort(
           (a, b) =>
@@ -86,7 +97,11 @@ const useUpdatePracticeReminders = () => {
         ? getCollectionById(pinnedCollection.id)
         : null;
 
-      await reCreateNotifications(collection, config);
+      const practiceReminderConfig = getCurrentUserStateSelector(
+        useUserState.getState(),
+      )?.practiceReminderConfig;
+
+      await reCreateNotifications(collection, config ?? practiceReminderConfig);
     },
     [
       completedCollectionEvents,

@@ -35,7 +35,7 @@ const usePracticeRemindersSetting = () => {
       }
 
       setUserState({practiceReminderConfig: config});
-      await updatePracticeNotifications(config);
+      updatePracticeNotifications(config);
     },
     [requestPermission, setUserState, updatePracticeNotifications],
   );

@@ -72,7 +72,7 @@ const nextHalfHour = (): [number, number] => {
 };
 
 const thisWeekday = (): REMINDER_INTERVALS => {
-  return Object.keys(REMINDER_INTERVALS)[
+  return Object.values(REMINDER_INTERVALS)[
     dayjs().isoWeekday()
   ] as REMINDER_INTERVALS;
 };
@@ -95,7 +95,7 @@ const RemindersModal = () => {
     practiceReminderConfig ? practiceReminderConfig.interval : thisWeekday(),
   );
   const [thisHour, closestHalfhour] = nextHalfHour();
-  const [selectedTime, setSelectedTime] = useState(
+  const [selectedTime, setSelectedTime] = useState<dayjs.Dayjs>(
     practiceReminderConfig
       ? dayjs()
           .utc()
@@ -164,13 +164,13 @@ const RemindersModal = () => {
     [setPracticeRemindersConfig, setSelectedInterval, setSelectedTime],
   );
 
-  const onUpdateReminder = useCallback(async () => {
+  const onUpdateReminder = useCallback(() => {
     setIsLoading(true);
     setWeekdayOpen(false);
     setTimeOpen(false);
 
     try {
-      await setPracticeRemindersConfig({
+      setPracticeRemindersConfig({
         interval: selectedInterval,
         hour: selectedTime.hour(),
         minute: selectedTime.minute(),
@@ -248,7 +248,7 @@ const RemindersModal = () => {
                       onBlur={onPickerBlur}
                       onValueChange={onSelectedInterval}
                       selectedValue={selectedInterval}>
-                      {Object.keys(REMINDER_INTERVALS).map(interval => (
+                      {Object.values(REMINDER_INTERVALS).map(interval => (
                         <Picker.Item
                           key={interval}
                           value={interval}

@@ -63,7 +63,7 @@ describe('useNotificationsSetup', () => {
         });
       });
 
-      expect(mockGetTriggerNotifications).toHaveBeenCalledTimes(1);
+      expect(mockGetTriggerNotifications).toHaveBeenCalledTimes(2);
       expect(useNotificationsState.getState()).toEqual(
         expect.objectContaining({
           notifications: {'some-id': {id: 'some-id'}},
@@ -92,7 +92,7 @@ describe('useNotificationsSetup', () => {
         });
       });
 
-      expect(mockGetTriggerNotifications).toHaveBeenCalledTimes(1);
+      expect(mockGetTriggerNotifications).toHaveBeenCalledTimes(2);
       expect(useNotificationsState.getState()).toEqual(
         expect.objectContaining({
           notifications: {'some-id': {id: 'some-id'}},
@@ -171,7 +171,7 @@ describe('useNotificationsSetup', () => {
         await eventCallback('active');
       });
 
-      expect(mockGetTriggerNotifications).toHaveBeenCalledTimes(1);
+      expect(mockGetTriggerNotifications).toHaveBeenCalledTimes(2);
       expect(useNotificationsState.getState()).toEqual(
         expect.objectContaining({
           notifications: {'some-other-id': {id: 'some-other-id'}},

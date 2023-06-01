@@ -16,6 +16,7 @@ import useIsPublicHost from './lib/user/hooks/useIsPublicHost';
 import usePreferredLanguage from './lib/i18n/hooks/usePreferredLanguage';
 import {LANGUAGE_TAG} from './lib/i18n';
 import useNotificationsSetup from './lib/notifications/hooks/useNotificationsSetup';
+import useUpdatePracticeReminders from './lib/reminders/hooks/useUpdatePracticeReminders';
 
 i18nLib.init();
 sentry.init();
@@ -39,6 +40,8 @@ const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
   useInitHidableContent();
 
   const setIsColdStarted = useAppState(state => state.setIsColdStarted);
+  const isColdStarted = useAppState(state => state.isColdStarted);
+  const {updatePracticeNotifications} = useUpdatePracticeReminders();
   const checkKillSwitch = useKillSwitch();
   const checkForUpdate = useCheckForUpdate();
   const user = useUser();
@@ -52,6 +55,13 @@ const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
       'App Git Commit': GIT_COMMIT_SHORT,
     });
   }, [checkKillSwitch, checkForUpdate]);
+
+  // Recreate notifications on cold start so there is always 4 fresh ones
+  useEffect(() => {
+    if (isColdStarted && user) {
+      updatePracticeNotifications();
+    }
+  }, [isColdStarted, user, updatePracticeNotifications]);
 
   // Check killswitch and updates when resuming from background
   useResumeFromBackgrounded(() => {
