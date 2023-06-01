@@ -49,8 +49,8 @@ const useUpdatePracticeNotifications = () => {
             NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
             t('title'),
             collection
-              ? t(`notifications.collection.${index}`, {title: collection.name})
-              : t(`notifications.general.${index}`),
+              ? t(`reminders.collection.${index}`, {title: collection.name})
+              : t(`reminders.general.${index}`),
             collection?.link,
             collection?.image?.source,
             nextReminderTime

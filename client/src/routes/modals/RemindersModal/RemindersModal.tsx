@@ -195,7 +195,7 @@ const RemindersModal = () => {
               Icon={BellIcon}
               onValueChange={setSessionRemindersEnabled}
               value={sessionRemindersEnabled}>
-              {t('actions.sessionReminders')}
+              {t('session-reminders', {ns: 'Component.NotificationChannels'})}
             </ActionSwitch>
           </ActionList>
           <Spacer8 />
@@ -206,7 +206,7 @@ const RemindersModal = () => {
               Icon={BellIcon}
               onValueChange={onTogglePracticeReminders}
               value={practiceRemindersEnabled}>
-              {t('actions.practiceReminders')}
+              {t('practice-reminders', {ns: 'Component.NotificationChannels'})}
             </ActionSwitch>
           </ActionList>
           <Spacer32 />

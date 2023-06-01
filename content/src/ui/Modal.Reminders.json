@@ -1,10 +1,6 @@
 {
   "en": {
     "title": "Reminders",
-    "actions": {
-      "sessionReminders": "Session reminders",
-      "practiceReminders": "Practice reminders"
-    },
     "sessionRemindersText": "Reminds you about upcoming sessions 10 minutes before they start.",
     "weekday": "Weekday",
     "time": "Time",
@@ -23,10 +19,6 @@
   "pt": {},
   "sv": {
     "title": "Notiser",
-    "actions": {
-      "sessionReminders": "Notiser sessioner",
-      "practiceReminders": "Notiser övning"
-    },
     "sessionRemindersText": "Påminner dig om kommande sessioner 10 minuter före start.",
     "weekday": "Veckodag",
     "time": "Tid",
