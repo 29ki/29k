@@ -92,9 +92,10 @@ const RemindersModal = () => {
   const [selectedTime, setSelectedTime] = useState(
     practiceReminderConfig
       ? dayjs()
+          .utc()
           .set('hour', practiceReminderConfig.hour)
           .set('minute', practiceReminderConfig.minute)
-      : dayjs().set('hour', thisHour).set('minute', closestHalfhour),
+      : dayjs().utc().set('hour', thisHour).set('minute', closestHalfhour),
   );
 
   useEffect(() => {
