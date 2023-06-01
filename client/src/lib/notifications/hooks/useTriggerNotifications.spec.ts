@@ -51,6 +51,7 @@ describe('useTriggerNotifications', () => {
               title: 'Some title',
               body: 'Some body',
               data: {
+                date: new Date(timestamp).toISOString(),
                 channelId: 'session-reminders',
                 url: 'http://some.deep/link',
               },
@@ -65,9 +66,12 @@ describe('useTriggerNotifications', () => {
             channelId: 'session-reminders',
             importance: 4,
             largeIcon: 'http://some/image.png',
+            smallIcon: 'ic_small_icon',
+            color: '#378D88',
           },
           body: 'Some body',
           data: {
+            date: new Date(timestamp).toISOString(),
             channelId: 'session-reminders',
             url: 'http://some.deep/link',
           },

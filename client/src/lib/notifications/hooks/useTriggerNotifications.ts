@@ -39,6 +39,7 @@ const useTriggerNotifications = () => {
           data: {
             url,
             channelId,
+            date: new Date(timestamp).toISOString(),
           },
           android: {
             ...channelConfig.android,
