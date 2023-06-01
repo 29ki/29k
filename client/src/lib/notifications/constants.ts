@@ -4,6 +4,7 @@ import {
   NotificationAndroid,
   NotificationIOS,
 } from '@notifee/react-native';
+import {COLORS} from '../../../../shared/src/constants/colors';
 
 export enum NOTIFICATION_CHANNELS {
   SESSION_REMINDERS = 'session-reminders',
@@ -23,6 +24,8 @@ export const NOTIFICATION_CHANNEL_CONFIG: {
     },
     android: {
       importance: AndroidImportance.HIGH,
+      smallIcon: 'ic_small_icon',
+      color: COLORS.PRIMARY,
     },
     ios: {
       interruptionLevel: 'timeSensitive',
@@ -34,6 +37,8 @@ export const NOTIFICATION_CHANNEL_CONFIG: {
     },
     android: {
       importance: AndroidImportance.DEFAULT,
+      smallIcon: 'ic_small_icon',
+      color: COLORS.PRIMARY,
     },
     ios: {
       interruptionLevel: 'active',
