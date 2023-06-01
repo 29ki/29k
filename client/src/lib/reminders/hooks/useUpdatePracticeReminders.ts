@@ -18,7 +18,7 @@ import {
 
 dayjs.extend(utc);
 
-const useUpdatePracticeNotifications = () => {
+const useUpdatePracticeReminders = () => {
   const {t} = useTranslation('Notification.PracticeReminder');
   const {pinnedCollections} = usePinnedCollections();
   const {completedCollectionEvents} = useUserEvents();
@@ -101,4 +101,4 @@ const useUpdatePracticeNotifications = () => {
   };
 };
 
-export default useUpdatePracticeNotifications;
+export default useUpdatePracticeReminders;

@@ -15,7 +15,7 @@ jest.mock('../../notifications/hooks/useNotificationPermissions', () =>
 );
 
 const mockUpdatePracticeNotifications = jest.fn();
-jest.mock('./useUpdatePracticeNotifications', () =>
+jest.mock('./useUpdatePracticeReminders', () =>
   jest.fn(() => ({
     updatePracticeNotifications: mockUpdatePracticeNotifications,
   })),

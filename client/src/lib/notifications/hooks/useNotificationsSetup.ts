@@ -6,7 +6,7 @@ import useNotificationsState from '../state/state';
 import useResumeFromBackgrounded from '../../appState/hooks/useResumeFromBackgrounded';
 import useCurrentUserState from '../../user/hooks/useCurrentUserState';
 import {NOTIFICATION_CHANNELS, NOTIFICATION_CHANNEL_CONFIG} from '../constants';
-import useUpdatePracticeNotifications from '../../reminders/hooks/useUpdatePracticeNotifications';
+import useUpdatePracticeReminders from '../../reminders/hooks/useUpdatePracticeReminders';
 
 const useNotificationsSetup = () => {
   const {t} = useTranslation('Component.NotificationChannels');
@@ -15,7 +15,7 @@ const useNotificationsSetup = () => {
   const setNotificationState = useNotificationsState(
     state => state.setNotification,
   );
-  const {updatePracticeNotifications} = useUpdatePracticeNotifications();
+  const {updatePracticeNotifications} = useUpdatePracticeReminders();
 
   useEffect(() => {
     Object.values(NOTIFICATION_CHANNELS).forEach(id => {

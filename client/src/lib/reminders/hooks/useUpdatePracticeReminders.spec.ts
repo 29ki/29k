@@ -1,5 +1,5 @@
 import {renderHook} from '@testing-library/react-hooks';
-import useUpdatePracticeNotifications from './useUpdatePracticeNotifications';
+import useUpdatePracticeReminders from './useUpdatePracticeReminders';
 import {PinnedCollection} from '../../user/state/state';
 import {CompletedCollectionEvent} from '../../../../../shared/src/types/Event';
 import {NOTIFICATION_CHANNELS} from '../../notifications/constants';
@@ -36,7 +36,7 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe('useUpdatePracticeNotifications', () => {
+describe('useUpdatePracticeReminders', () => {
   it('should create 4 notifications weekly with to first ongoing collection', async () => {
     jest
       .useFakeTimers({doNotFake: ['nextTick', 'setImmediate']})
@@ -56,7 +56,7 @@ describe('useUpdatePracticeNotifications', () => {
       name: 'some name',
       image: {source: 'some-image-url'},
     });
-    const {result} = renderHook(() => useUpdatePracticeNotifications());
+    const {result} = renderHook(() => useUpdatePracticeReminders());
 
     await result.current.updatePracticeNotifications({
       interval: REMINDER_INTERVALS.THURSDAY,
@@ -124,7 +124,7 @@ describe('useUpdatePracticeNotifications', () => {
       name: 'some name',
       image: {source: 'some-image-url'},
     });
-    const {result} = renderHook(() => useUpdatePracticeNotifications());
+    const {result} = renderHook(() => useUpdatePracticeReminders());
 
     await result.current.updatePracticeNotifications({
       interval: REMINDER_INTERVALS.DAILY,
@@ -192,7 +192,7 @@ describe('useUpdatePracticeNotifications', () => {
       link: 'some-link',
       name: 'some name',
     });
-    const {result} = renderHook(() => useUpdatePracticeNotifications());
+    const {result} = renderHook(() => useUpdatePracticeReminders());
 
     await result.current.updatePracticeNotifications({
       interval: REMINDER_INTERVALS.DAILY,
