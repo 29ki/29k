@@ -22,7 +22,7 @@ const useNotificationsSetup = () => {
     logDebug('|PLANNED NOTIFICATIONS|');
     logDebug('-----------------------');
     Object.values(notifications).forEach(({id, title, body, data} = {}) => {
-      console.log(`${data?.date} ${title} - ${body} (${id})`);
+      logDebug(`${data?.date} ${title} - ${body} (${id})`);
     });
   }, [notifications]);
 

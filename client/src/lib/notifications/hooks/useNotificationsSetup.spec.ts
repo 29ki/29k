@@ -42,6 +42,28 @@ describe('useNotificationsSetup', () => {
     });
   });
 
+  describe('initialState', () => {
+    it('sets notificationState on render', async () => {
+      mockGetTriggerNotifications.mockResolvedValueOnce([
+        {notification: {id: 'some-id'}} as TriggerNotification,
+        {notification: {id: 'some-other-id'}} as TriggerNotification,
+      ]);
+
+      const {waitForNextUpdate} = renderHook(() => useNotificationsSetup());
+      await waitForNextUpdate();
+
+      expect(mockGetTriggerNotifications).toHaveBeenCalledTimes(1);
+      expect(useNotificationsState.getState()).toEqual(
+        expect.objectContaining({
+          notifications: {
+            'some-id': {id: 'some-id'},
+            'some-other-id': {id: 'some-other-id'},
+          },
+        }),
+      );
+    });
+  });
+
   describe('onForegroundEvent', () => {
     it('adds notification on TRIGGER_NOTIFICATION_CREATED', async () => {
       mockGetTriggerNotifications.mockResolvedValue([
@@ -72,10 +94,19 @@ describe('useNotificationsSetup', () => {
     });
 
     it('only updates the notification from the event', async () => {
-      mockGetTriggerNotifications.mockResolvedValue([
-        {notification: {id: 'some-id'}} as TriggerNotification,
-        {notification: {id: 'some-other-id'}} as TriggerNotification,
-      ]);
+      mockGetTriggerNotifications
+        .mockResolvedValueOnce([
+          {notification: {id: 'some-id'}} as TriggerNotification,
+          {notification: {id: 'some-other-id'}} as TriggerNotification,
+        ])
+        .mockResolvedValueOnce([
+          {
+            notification: {id: 'some-id', title: 'some title'},
+          } as TriggerNotification,
+          {
+            notification: {id: 'some-other-id', title: 'some other title'},
+          } as TriggerNotification,
+        ]);
 
       type EventCallback = (event?: Event) => Promise<void>;
       let eventCallback: EventCallback = () => Promise.resolve();
@@ -95,7 +126,10 @@ describe('useNotificationsSetup', () => {
       expect(mockGetTriggerNotifications).toHaveBeenCalledTimes(2);
       expect(useNotificationsState.getState()).toEqual(
         expect.objectContaining({
-          notifications: {'some-id': {id: 'some-id'}},
+          notifications: {
+            'some-id': {id: 'some-id', title: 'some title'},
+            'some-other-id': {id: 'some-other-id'},
+          },
         }),
       );
     });
@@ -105,7 +139,11 @@ describe('useNotificationsSetup', () => {
         notifications: {'some-id': {id: 'some-id'}},
       });
 
-      mockGetTriggerNotifications.mockResolvedValue([]);
+      mockGetTriggerNotifications
+        .mockResolvedValueOnce([
+          {notification: {id: 'some-id'}} as TriggerNotification,
+        ])
+        .mockResolvedValueOnce([]);
 
       type EventCallback = (event?: Event) => Promise<void>;
       let eventCallback: EventCallback = () => Promise.resolve();
@@ -113,7 +151,8 @@ describe('useNotificationsSetup', () => {
         eventCallback = callback as EventCallback;
       });
 
-      renderHook(() => useNotificationsSetup());
+      const {waitForNextUpdate} = renderHook(() => useNotificationsSetup());
+      await waitForNextUpdate();
 
       expect(useNotificationsState.getState()).toEqual(
         expect.objectContaining({
@@ -155,7 +194,7 @@ describe('useNotificationsSetup', () => {
 
       AppState.currentState = 'background';
 
-      mockGetTriggerNotifications.mockResolvedValueOnce([
+      mockGetTriggerNotifications.mockResolvedValue([
         {notification: {id: 'some-other-id'}},
       ]);
 
