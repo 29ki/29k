@@ -108,7 +108,7 @@ const ProfileSettingsModal = () => {
   );
 
   const remindersPress = useCallback(
-    () => navigate('RemindersModal'),
+    () => navigate('RemindersModal', {}),
     [navigate],
   );
 

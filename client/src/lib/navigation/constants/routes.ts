@@ -80,7 +80,7 @@ export type ModalStackProps = {
   UpgradeAccountModal?: undefined;
   RequestPublicHostModal?: {code?: string; haveRequested?: boolean};
   ChangeLanguageModal: undefined;
-  RemindersModal: undefined;
+  RemindersModal: {hideSessionSetting?: boolean};
   ProfileSettingsModal: undefined;
   SignInModal: undefined;
   DeleteUserModal: undefined;

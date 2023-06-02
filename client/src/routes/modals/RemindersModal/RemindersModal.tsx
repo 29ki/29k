@@ -1,9 +1,10 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import {Platform} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {Picker} from '@react-native-picker/picker';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import {useIsFocused} from '@react-navigation/native';
+import {RouteProp, useIsFocused, useRoute} from '@react-navigation/native';
 
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
@@ -28,7 +29,11 @@ import {BottomSheetScrollView, useBottomSheet} from '@gorhom/bottom-sheet';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import Button from '../../../lib/components/Buttons/Button';
 import {REMINDER_INTERVALS} from '../../../lib/reminders/constants';
-import {Platform} from 'react-native';
+import {
+  calculateNextHalfHour,
+  thisWeekday,
+} from '../../../lib/reminders/utils/timeHelpers';
+import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 
 dayjs.extend(utc);
 
@@ -58,26 +63,10 @@ const UpdateButton = styled(Button)({
   alignSelf: 'center',
 });
 
-const nextHalfHour = (): [number, number] => {
-  const now = dayjs().utc();
-  if (now.minute() === 30) {
-    return [now.hour(), now.minute()];
-  }
-  if (now.minute() < 30) {
-    return [now.hour(), 30];
-  }
-
-  const time = now.add(1, 'hour');
-  return [time.hour(), 0];
-};
-
-const thisWeekday = (): REMINDER_INTERVALS => {
-  return Object.values(REMINDER_INTERVALS)[
-    dayjs().isoWeekday()
-  ] as REMINDER_INTERVALS;
-};
-
 const RemindersModal = () => {
+  const {
+    params: {hideSessionSetting},
+  } = useRoute<RouteProp<ModalStackProps, 'RemindersModal'>>();
   const {t} = useTranslation('Modal.Reminders');
   const pickerRef = useRef<Picker<REMINDER_INTERVALS>>(null);
   const {sessionRemindersEnabled, setSessionRemindersEnabled} =
@@ -94,7 +83,7 @@ const RemindersModal = () => {
   const [selectedInterval, setSelectedInterval] = useState(
     practiceReminderConfig ? practiceReminderConfig.interval : thisWeekday(),
   );
-  const [thisHour, closestHalfhour] = nextHalfHour();
+  const [thisHour, closestHalfhour] = calculateNextHalfHour(dayjs().utc());
   const [selectedTime, setSelectedTime] = useState<dayjs.Dayjs>(
     practiceReminderConfig
       ? dayjs()
@@ -147,7 +136,7 @@ const RemindersModal = () => {
   const onTogglePracticeReminders = useCallback(
     (value: boolean) => {
       if (value) {
-        const [hour, minute] = nextHalfHour();
+        const [hour, minute] = calculateNextHalfHour(dayjs().utc());
         const interval = thisWeekday();
         setSelectedInterval(interval);
         setSelectedTime(dayjs().utc().set('hour', hour).set('minute', minute));
@@ -210,17 +199,23 @@ const RemindersModal = () => {
         <Gutters>
           <ModalHeading>{t('title')}</ModalHeading>
           <Spacer24 />
-          <ActionList>
-            <ActionSwitch
-              Icon={BellIcon}
-              onValueChange={setSessionRemindersEnabled}
-              value={sessionRemindersEnabled}>
-              {t('session-reminders', {ns: 'Component.NotificationChannels'})}
-            </ActionSwitch>
-          </ActionList>
-          <Spacer8 />
-          <Body16>{t('sessionRemindersText')}</Body16>
-          <Spacer32 />
+          {!hideSessionSetting && (
+            <>
+              <ActionList>
+                <ActionSwitch
+                  Icon={BellIcon}
+                  onValueChange={setSessionRemindersEnabled}
+                  value={sessionRemindersEnabled}>
+                  {t('session-reminders', {
+                    ns: 'Component.NotificationChannels',
+                  })}
+                </ActionSwitch>
+              </ActionList>
+              <Spacer8 />
+              <Body16>{t('sessionRemindersText')}</Body16>
+              <Spacer32 />
+            </>
+          )}
           <ActionList>
             <ActionSwitch
               Icon={BellIcon}
