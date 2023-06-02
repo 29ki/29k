@@ -42,25 +42,27 @@ describe('useNotificationsSetup', () => {
     });
   });
 
-  describe('initialState', () => {
-    it('sets notificationState on render', async () => {
+  describe('mount', () => {
+    it('sets notificationState on mount', async () => {
+      const useTestHook = () => {
+        // Wrapper to make the hook react to changes
+        useNotificationsSetup();
+        return useNotificationsState(state => state.notifications);
+      };
+
       mockGetTriggerNotifications.mockResolvedValueOnce([
         {notification: {id: 'some-id'}} as TriggerNotification,
         {notification: {id: 'some-other-id'}} as TriggerNotification,
       ]);
 
-      const {waitForNextUpdate} = renderHook(() => useNotificationsSetup());
+      const {result, waitForNextUpdate} = renderHook(() => useTestHook());
       await waitForNextUpdate();
 
       expect(mockGetTriggerNotifications).toHaveBeenCalledTimes(1);
-      expect(useNotificationsState.getState()).toEqual(
-        expect.objectContaining({
-          notifications: {
-            'some-id': {id: 'some-id'},
-            'some-other-id': {id: 'some-other-id'},
-          },
-        }),
-      );
+      expect(result.current).toEqual({
+        'some-id': {id: 'some-id'},
+        'some-other-id': {id: 'some-other-id'},
+      });
     });
   });
 
@@ -151,8 +153,7 @@ describe('useNotificationsSetup', () => {
         eventCallback = callback as EventCallback;
       });
 
-      const {waitForNextUpdate} = renderHook(() => useNotificationsSetup());
-      await waitForNextUpdate();
+      renderHook(() => useNotificationsSetup());
 
       expect(useNotificationsState.getState()).toEqual(
         expect.objectContaining({
