@@ -68,13 +68,13 @@ const CollectionCard: React.FC<CollectionCardProps> = ({
   onPress,
 }) => {
   const bgColors = useMemo(
-    () => backgroundColorGradient?.map(({color}) => color),
+    () => backgroundColorGradient ?? ['transparent'],
     [backgroundColorGradient],
   );
 
   return (
     <Container onPress={onPress}>
-      <Gradient colors={bgColors || ['transparent']}>
+      <Gradient colors={bgColors}>
         <Heading color={textColor}>{title}</Heading>
         <ImageContainer>
           <GraphicsWrapper>

@@ -101,13 +101,13 @@ const CollectionFullCard: React.FC<CollectionFullCardProps> = ({
   onPress,
 }) => {
   const colors = useMemo(
-    () => backgroundColorGradient?.map(({color}) => color),
+    () => backgroundColorGradient ?? ['transparent'],
     [backgroundColorGradient],
   );
 
   return (
     <Container onPress={onPress}>
-      <Gradient colors={colors || ['transparent']}>
+      <Gradient colors={colors}>
         <Row>
           <LeftColumn>
             <TitleWrapper>
