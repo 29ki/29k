@@ -6,6 +6,16 @@ export interface CollectionImage {
   source?: string;
 }
 
+export interface CollectionCardColor {
+  color: string;
+}
+
+export interface CollectionCard {
+  description?: string;
+  backgroundColorGradient?: CollectionCardColor[];
+  textColor?: string;
+}
+
 export interface Collection {
   id: any;
   name: string;
@@ -16,4 +26,5 @@ export interface Collection {
   published: boolean;
   hidden?: boolean;
   exercises: any[];
+  card?: CollectionCard;
 }

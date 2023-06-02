@@ -32,4 +32,45 @@ export const COLLECTION_FIELDS: Array<CmsField> = [
   PUBLISHED_FIELD,
   HIDDEN_FIELD,
   EXERCISES_FIELD,
+  {
+    label: '🪪 Card',
+    name: 'card',
+    i18n: true,
+    widget: 'object',
+    collapsed: true,
+    required: false,
+    fields: [
+      {
+        label: '🪪 Card description',
+        name: 'description',
+        widget: 'string',
+        i18n: 'duplicate',
+        required: false,
+        hint: 'Description displayed on the card',
+      },
+      {
+        label: '🎨 Background colors',
+        label_singular: 'Color',
+        name: 'backgroundColorGradient',
+        widget: 'list',
+        required: false,
+        summary: '{{fields.color}}',
+        fields: [
+          {
+            name: 'color',
+            label: 'Color',
+            widget: 'color',
+            allowInput: true,
+          },
+        ],
+      },
+      {
+        label: '🎨 Text color',
+        name: 'textColor',
+        widget: 'color',
+        allowInput: true,
+        required: false,
+      },
+    ],
+  },
 ];
