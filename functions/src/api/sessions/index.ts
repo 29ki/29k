@@ -254,4 +254,32 @@ sessionsRouter.put(
   },
 );
 
+sessionsRouter.get(
+  '/hostCode/:hostCode',
+  restrictAccessToRole(ROLE.publicHost),
+  validation({response: LiveSessionSchema}),
+  async ctx => {
+    const {hostCode} = ctx.request.body;
+
+    try {
+      ctx.body = await sessionsController.getSessionByHostCode(hostCode);
+    } catch (error) {
+      const requestError = error as RequestError;
+      switch (requestError.code) {
+        case JoinSessionError.notFound:
+          ctx.status = 404;
+          break;
+
+        case JoinSessionError.notAvailable:
+          ctx.status = 410;
+          break;
+
+        default:
+          throw error;
+      }
+      ctx.message = requestError.code;
+    }
+  },
+);
+
 export {sessionsRouter};

@@ -152,3 +152,17 @@ export const deleteSession = async (id: string) => {
     throw new Error('Could not delete session', {cause});
   }
 };
+
+export const getSessionByHostCode = async (
+  code: LiveSessionType['hostCode'],
+): Promise<LiveSessionType> => {
+  const response = await apiClient(`${SESSIONS_ENDPOINT}/hostCode/${code}`, {
+    method: 'GET',
+  });
+
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+
+  return response.json();
+};

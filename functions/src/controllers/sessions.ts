@@ -277,3 +277,26 @@ export const joinSession = async (
   const updatedSession = await sessionModel.getSessionById(session.id);
   return updatedSession ? mapSession(updatedSession) : undefined;
 };
+
+export const getSessionByHostCode = async (
+  hostCode: LiveSessionModel['hostCode'],
+) => {
+  const session = await sessionModel.getSessionByHostCode({
+    hostCode,
+  });
+
+  if (!session) {
+    const unavailableSession = await sessionModel.getSessionByHostCode({
+      hostCode,
+      activeOnly: false,
+    });
+
+    if (unavailableSession) {
+      throw new RequestError(JoinSessionError.notAvailable);
+    } else {
+      throw new RequestError(JoinSessionError.notFound);
+    }
+  }
+
+  return mapSession(session);
+};
