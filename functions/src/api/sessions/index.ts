@@ -254,6 +254,36 @@ sessionsRouter.put(
   },
 );
 
+sessionsRouter.put(
+  '/:id/hostingLink',
+  validation({params: SessionParamsSchema, response: yup.string()}),
+  async ctx => {
+    const {id} = ctx.params;
+
+    try {
+      ctx.body = await sessionsController.createSessionHostingLink(
+        ctx.user.id,
+        id,
+      );
+    } catch (error) {
+      const requestError = error as RequestError;
+      switch (requestError.code) {
+        case JoinSessionError.notFound:
+          ctx.status = 404;
+          break;
+
+        case JoinSessionError.notAvailable:
+          ctx.status = 410;
+          break;
+
+        default:
+          throw error;
+      }
+      ctx.message = requestError.code;
+    }
+  },
+);
+
 sessionsRouter.get(
   '/hostingCode/:hostingCode',
   restrictAccessToRole(ROLE.publicHost),

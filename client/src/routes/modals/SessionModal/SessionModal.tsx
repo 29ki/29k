@@ -225,15 +225,13 @@ const SessionModal = () => {
                   name={session.hostProfile?.displayName}
                   onPress={onHostPress}
                 />
-                {isHost &&
-                  isPublicHost &&
-                  session.type === SessionType.public && (
-                    <EditButton onPress={onEditHostMode}>
-                      <EditIcon>
-                        <PencilIcon />
-                      </EditIcon>
-                    </EditButton>
-                  )}
+                {isHost && (
+                  <EditButton onPress={onEditHostMode}>
+                    <EditIcon>
+                      <PencilIcon />
+                    </EditIcon>
+                  </EditButton>
+                )}
               </Row>
             </TitleContainer>
             <Spacer32 />

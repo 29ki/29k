@@ -36,7 +36,7 @@ const AssignNewHostModal = () => {
     params: {session},
   } = useRoute<RouteProp<ModalStackProps, 'AssignNewHostModal'>>();
 
-  const {t} = useTranslation('Modal.Session');
+  const {t} = useTranslation('Modal.AssignNewHost');
   const user = useUser();
 
   const exercise = useExerciseById(session?.exerciseId);
@@ -48,13 +48,10 @@ const AssignNewHostModal = () => {
     const link = await getSessionHostingLink(session.id);
     if (link) {
       Share.share({
-        message: t('shareMessage', {
-          link,
-          interpolation: {escapeValue: false},
-        }),
+        message: link,
       });
     }
-  }, [session.id, t]);
+  }, [session.id]);
 
   useEffect(() => {
     if (isHost) {

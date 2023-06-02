@@ -169,15 +169,17 @@ export const getSessionByHostingCode = async (
 
 export const getSessionHostingLink = async (
   sessionId: LiveSessionType['id'],
-): Promise<LiveSessionType> => {
-  const response = await apiClient(`${SESSIONS_ENDPOINT}/hostingLink`, {
-    method: 'POST',
-    body: JSON.stringify({sessionId}),
-  });
+): Promise<string> => {
+  const response = await apiClient(
+    `${SESSIONS_ENDPOINT}/${sessionId}/hostingLink`,
+    {
+      method: 'PUT',
+    },
+  );
 
   if (!response.ok) {
     throw new Error(await response.text());
   }
 
-  return response.json();
+  return response.text();
 };

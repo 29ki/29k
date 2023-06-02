@@ -325,10 +325,10 @@ export const createSessionHostingLink = async (
     throw new RequestError(JoinSessionError.notAvailable);
   }
 
-  const link = createSessionHostTransferLink(
+  const link = await createSessionHostTransferLink(
     updatedSession.hostingCode,
-    displayName || '',
     updatedSession.exerciseId,
+    displayName || '',
     updatedSession.language || 'en',
   );
 
