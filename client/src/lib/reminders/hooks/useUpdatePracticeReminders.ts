@@ -49,7 +49,7 @@ const useUpdatePracticeReminders = () => {
           index < DEFAULT_NUMBER_OF_PRACTICE_REMINDERS;
           index++
         ) {
-          setTriggerNotification(
+          await setTriggerNotification(
             `${ID_PREFIX}-${index}`,
             NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
             t('title'),
