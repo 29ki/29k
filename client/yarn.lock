@@ -1538,9 +1538,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@notifee/react-native@https://github.com/29ki/notifee-react-native.git#main":
+"@notifee/react-native@^7.7.1":
   version "7.7.1"
-  resolved "https://github.com/29ki/notifee-react-native.git#19c7245c2804d74d5ba1203dd573f74868c90cd5"
+  resolved "https://registry.yarnpkg.com/@notifee/react-native/-/react-native-7.7.1.tgz#ce3f982fb7354519406cb7716f8e861bab0056ce"
+  integrity sha512-E+W91ulI4dxdIrhK6YCyjWqXgrUsVNZYYCSn3gDADmveuR2Yd2uGvbbSW2vUIFU4N4gQQT/5HJdk9Jk83KHbVA==
 
 "@opentelemetry/api@^1.0.1":
   version "1.4.1"
