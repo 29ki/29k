@@ -68,7 +68,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedRemoveTriggerNotifications).toHaveBeenCalledTimes(1);
     expect(mockedSetTriggerNotification).toHaveBeenCalledTimes(4);
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      '0',
+      'practice-0',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'reminders.collection.0',
@@ -77,7 +77,7 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-01T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      '1',
+      'practice-1',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'reminders.collection.1',
@@ -86,7 +86,7 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-08T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      '2',
+      'practice-2',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'reminders.collection.2',
@@ -95,7 +95,7 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-15T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      '3',
+      'practice-3',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'reminders.collection.3',
@@ -135,7 +135,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedRemoveTriggerNotifications).toHaveBeenCalledTimes(1);
     expect(mockedSetTriggerNotification).toHaveBeenCalledTimes(4);
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      '0',
+      'practice-0',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'reminders.collection.0',
@@ -144,7 +144,7 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-01T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      '1',
+      'practice-1',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'reminders.collection.1',
@@ -153,7 +153,7 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-02T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      '2',
+      'practice-2',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'reminders.collection.2',
@@ -162,7 +162,7 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-03T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      '3',
+      'practice-3',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'reminders.collection.3',
@@ -203,7 +203,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedRemoveTriggerNotifications).toHaveBeenCalledTimes(1);
     expect(mockedSetTriggerNotification).toHaveBeenCalledTimes(4);
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      '0',
+      'practice-0',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'reminders.general.0',
@@ -212,7 +212,7 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-01T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      '1',
+      'practice-1',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'reminders.general.1',
@@ -221,7 +221,7 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-02T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      '2',
+      'practice-2',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'reminders.general.2',
@@ -230,7 +230,7 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-03T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      '3',
+      'practice-3',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'reminders.general.3',
@@ -279,7 +279,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedRemoveTriggerNotifications).toHaveBeenCalledTimes(1);
     expect(mockedSetTriggerNotification).toHaveBeenCalledTimes(4);
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      '0',
+      'practice-0',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'reminders.general.0',
@@ -288,7 +288,7 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-01T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      '1',
+      'practice-1',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'reminders.general.1',
@@ -297,7 +297,7 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-02T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      '2',
+      'practice-2',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'reminders.general.2',
@@ -306,7 +306,7 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-03T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      '3',
+      'practice-3',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
       expect.any(String),
       'reminders.general.3',

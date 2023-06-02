@@ -21,6 +21,8 @@ import {
 
 dayjs.extend(utc);
 
+const ID_PREFIX = 'practice';
+
 const useUpdatePracticeReminders = () => {
   const {t} = useTranslation('Notification.PracticeReminder');
   const {pinnedCollections} = usePinnedCollections();
@@ -47,16 +49,8 @@ const useUpdatePracticeReminders = () => {
           index < DEFAULT_NUMBER_OF_PRACTICE_REMINDERS;
           index++
         ) {
-          console.log(
-            'create!!',
-            index,
-            config.interval,
-            REMINDER_INTERVALS.DAILY,
-            config.interval === REMINDER_INTERVALS.DAILY,
-          );
-
           setTriggerNotification(
-            index.toString(),
+            `${ID_PREFIX}-${index}`,
             NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
             t('title'),
             collection
