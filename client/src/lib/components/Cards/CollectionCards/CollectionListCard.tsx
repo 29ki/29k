@@ -1,6 +1,7 @@
 import React, {useMemo} from 'react';
 import {ImageSourcePropType} from 'react-native';
 import styled from 'styled-components/native';
+import LinearGradient from 'react-native-linear-gradient';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import Image from '../../Image/Image';
@@ -8,8 +9,8 @@ import {Display16} from '../../Typography/Display/Display';
 import {SPACINGS} from '../../../constants/spacings';
 import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
 import {Spacer8} from '../../Spacers/Spacer';
-import LinearGradient from 'react-native-linear-gradient';
 import {PlayfairDisplayMedium} from '../../../constants/fonts';
+import {prop} from 'ramda';
 
 type CollectionCardProps = {
   title?: string;
@@ -67,10 +68,17 @@ const CollectionCard: React.FC<CollectionCardProps> = ({
   textColor,
   onPress,
 }) => {
-  const bgColors = useMemo(
-    () => backgroundColorGradient ?? ['transparent'],
-    [backgroundColorGradient],
-  );
+  const bgColors = useMemo(() => {
+    const colors = backgroundColorGradient
+      ? backgroundColorGradient.map(prop('color'))
+      : [];
+
+    while (colors.length < 2) {
+      colors.push('transparent');
+    }
+
+    return colors;
+  }, [backgroundColorGradient]);
 
   return (
     <Container onPress={onPress}>

@@ -2,6 +2,7 @@ import React, {useMemo} from 'react';
 import {ImageSourcePropType} from 'react-native';
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
+import {prop} from 'ramda';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 
@@ -100,14 +101,21 @@ const CollectionFullCard: React.FC<CollectionFullCardProps> = ({
   textColor,
   onPress,
 }) => {
-  const colors = useMemo(
-    () => backgroundColorGradient ?? ['transparent'],
-    [backgroundColorGradient],
-  );
+  const bgColors = useMemo(() => {
+    const colors = backgroundColorGradient
+      ? backgroundColorGradient.map(prop('color'))
+      : [];
+
+    while (colors.length < 2) {
+      colors.push('transparent');
+    }
+
+    return colors;
+  }, [backgroundColorGradient]);
 
   return (
     <Container onPress={onPress}>
-      <Gradient colors={colors}>
+      <Gradient colors={bgColors}>
         <Row>
           <LeftColumn>
             <TitleWrapper>
