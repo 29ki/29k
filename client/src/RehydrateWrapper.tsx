@@ -11,7 +11,6 @@ const RehydrateWrapper: React.FC<{children: React.ReactNode}> = ({
   if (isAppStateHydrated && isUserStateHydrated) {
     return <>{children}</>;
   }
-
   return null;
 };
 

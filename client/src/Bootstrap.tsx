@@ -40,14 +40,13 @@ const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
   useInitHidableContent();
 
   const setIsColdStarted = useAppState(state => state.setIsColdStarted);
-  const isColdStarted = useAppState(state => state.isColdStarted);
   const {updatePracticeNotifications} = useUpdatePracticeReminders();
   const checkKillSwitch = useKillSwitch();
   const checkForUpdate = useCheckForUpdate();
   const user = useUser();
   const isPublicHost = useIsPublicHost();
 
-  // Check killswitch and updates on mount
+  // App start
   useEffect(() => {
     checkKillSwitch();
     checkForUpdate();
@@ -56,21 +55,21 @@ const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
     });
   }, [checkKillSwitch, checkForUpdate]);
 
-  // Recreate notifications on cold start so there is always 4 fresh ones
-  useEffect(() => {
-    if (isColdStarted && user) {
-      updatePracticeNotifications();
-    }
-  }, [isColdStarted, user, updatePracticeNotifications]);
-
-  // Check killswitch and updates when resuming from background
+  // Resuming from backgrounded
   useResumeFromBackgrounded(() => {
     setIsColdStarted(false);
     checkKillSwitch();
     checkForUpdate();
   });
 
-  // Update metrics user properties on user changes
+  // Authenticated user changes
+  useEffect(() => {
+    if (user) {
+      updatePracticeNotifications();
+    }
+  }, [user, updatePracticeNotifications]);
+
+  // Authenticated user or language changes
   useEffect(() => {
     if (user) {
       metrics.setUserProperties({

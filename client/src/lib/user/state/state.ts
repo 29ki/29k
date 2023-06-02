@@ -57,7 +57,7 @@ type SetCurrentUserState = (
 ) => void;
 
 export type State = {
-  __hasHydrated: boolean;
+  __hasHydrated?: boolean;
   user: FirebaseAuthTypes.User | null;
   data: UserDataType | null;
   claims: FirebaseAuthTypes.IdTokenResult['claims'];
@@ -95,7 +95,6 @@ const createInitialUserState = (timestamp: string): UserState => ({
 });
 
 const initialState: State = {
-  __hasHydrated: false,
   user: null,
   data: null,
   claims: {},

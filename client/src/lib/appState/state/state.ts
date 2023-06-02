@@ -14,7 +14,7 @@ export type Settings = {
 };
 
 type State = {
-  __hasHydrated: boolean;
+  __hasHydrated?: boolean;
   isColdStarted: boolean;
   settings: Settings;
 };
@@ -27,7 +27,6 @@ type Actions = {
 };
 
 const initialState: State = {
-  __hasHydrated: false,
   isColdStarted: true,
   settings: {
     showHiddenContent: false,
@@ -43,14 +42,12 @@ const useAppState = create<State & Actions>()(
       setIsColdStarted: isColdStarted => set({isColdStarted}),
       setSettings: settings =>
         set(state => ({settings: {...state.settings, ...settings}})),
-      reset: () => set(initialState),
+      reset: () => set(({__hasHydrated}) => ({...initialState, __hasHydrated})),
     }),
     {
       name: 'appState',
       storage: createJSONStorage(() => AsyncStorage),
-      partialize: ({settings}) => ({
-        settings,
-      }),
+      partialize: ({settings}) => ({settings}),
       onRehydrateStorage: () => state => {
         state?.__setHasHydrated(true);
       },
