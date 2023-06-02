@@ -1,7 +1,7 @@
 import {RouteProp, useIsFocused, useRoute} from '@react-navigation/native';
 import React, {useCallback, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
-import {View} from 'react-native';
+import {Share, View} from 'react-native';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import styled from 'styled-components/native';
 
@@ -24,6 +24,7 @@ import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
 import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
+import {getSessionHostingLink} from '../../../lib/sessions/api/session';
 
 const Row = styled(View)({
   flexDirection: 'row',
@@ -43,7 +44,17 @@ const AssignNewHostModal = () => {
 
   const isHost = user?.uid === session.hostId;
 
-  const onHostChange = useCallback(() => {}, []);
+  const onHostChange = useCallback(async () => {
+    const link = await getSessionHostingLink(session.id);
+    if (link) {
+      Share.share({
+        message: t('shareMessage', {
+          link,
+          interpolation: {escapeValue: false},
+        }),
+      });
+    }
+  }, [session.id, t]);
 
   useEffect(() => {
     if (isHost) {

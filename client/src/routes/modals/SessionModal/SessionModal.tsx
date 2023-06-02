@@ -63,6 +63,8 @@ import Interested from '../../../lib/components/Interested/Interested';
 import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
 import AnimatedIconButton from '../../../lib/components/Buttons/IconButton/AnimatedIconButton';
 import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
+import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
+import {SessionType} from '../../../../../shared/src/schemas/Session';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -117,6 +119,7 @@ const SessionModal = () => {
 
   const {t} = useTranslation('Modal.Session');
   const user = useUser();
+  const isPublicHost = useIsPublicHost();
 
   const initialStartTime = dayjs(session.startTime).utc();
 
@@ -222,13 +225,15 @@ const SessionModal = () => {
                   name={session.hostProfile?.displayName}
                   onPress={onHostPress}
                 />
-                {isHost && (
-                  <EditButton onPress={onEditHostMode}>
-                    <EditIcon>
-                      <PencilIcon />
-                    </EditIcon>
-                  </EditButton>
-                )}
+                {isHost &&
+                  isPublicHost &&
+                  session.type === SessionType.public && (
+                    <EditButton onPress={onEditHostMode}>
+                      <EditIcon>
+                        <PencilIcon />
+                      </EditIcon>
+                    </EditButton>
+                  )}
               </Row>
             </TitleContainer>
             <Spacer32 />
