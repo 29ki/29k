@@ -3,14 +3,11 @@ import {equals, omit} from 'ramda';
 import {create} from 'zustand';
 
 type State = {
-  notifications: {[id: string]: Notification | undefined};
+  notifications: {[id: string]: Notification};
 };
 
 type Actions = {
-  setNotification: (
-    id: string | undefined,
-    notification: Notification | undefined,
-  ) => void;
+  setNotification: (id: string | undefined, notification: Notification) => void;
   setNotifications: (notifications: Notification[]) => void;
   removeNotification: (id: string) => void;
   reset: () => void;
