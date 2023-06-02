@@ -1,6 +1,9 @@
 import {Timestamp} from 'firebase-admin/firestore';
 import dayjs from 'dayjs';
-import {createSessionInviteLink} from '../models/dynamicLinks';
+import {
+  createSessionHostTransferLink,
+  createSessionInviteLink,
+} from '../models/dynamicLinks';
 import {getUser} from './user';
 import * as sessionModel from '../models/session';
 import * as authModel from '../models/auth';
@@ -278,16 +281,16 @@ export const joinSession = async (
   return updatedSession ? mapSession(updatedSession) : undefined;
 };
 
-export const getSessionByHostCode = async (
-  hostCode: LiveSessionModel['hostCode'],
+export const getSessionByHostingCode = async (
+  hostingCode: LiveSessionModel['hostingCode'],
 ) => {
-  const session = await sessionModel.getSessionByHostCode({
-    hostCode,
+  const session = await sessionModel.getSessionByHostingCode({
+    hostingCode,
   });
 
   if (!session) {
-    const unavailableSession = await sessionModel.getSessionByHostCode({
-      hostCode,
+    const unavailableSession = await sessionModel.getSessionByHostingCode({
+      hostingCode,
       activeOnly: false,
     });
 
@@ -299,4 +302,35 @@ export const getSessionByHostCode = async (
   }
 
   return mapSession(session);
+};
+
+export const createSessionHostingLink = async (
+  userId: string,
+  sessionId: LiveSessionModel['id'],
+) => {
+  const session = await sessionModel.getSessionById(sessionId);
+
+  if (userId !== session?.hostId) {
+    throw new RequestError(ValidateSessionError.userNotAuthorized);
+  }
+
+  await sessionModel.updateSession(sessionId, {
+    hostingCode: generateVerificationCode(),
+  });
+  const updatedSession = await sessionModel.getSessionById(sessionId);
+
+  const {displayName} = await authModel.getAuthUserInfo(session.hostId);
+
+  if (!updatedSession?.hostingCode) {
+    throw new RequestError(JoinSessionError.notAvailable);
+  }
+
+  const link = createSessionHostTransferLink(
+    updatedSession.hostingCode,
+    displayName || '',
+    updatedSession.exerciseId,
+    updatedSession.language || 'en',
+  );
+
+  return link;
 };

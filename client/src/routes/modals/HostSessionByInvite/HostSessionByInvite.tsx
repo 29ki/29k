@@ -43,7 +43,7 @@ import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import Tag from '../../../lib/components/Tag/Tag';
 import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
-import {getSessionByHostCode} from '../../../lib/sessions/api/session';
+import {getSessionByHostingCode} from '../../../lib/sessions/api/session';
 import Button from '../../../lib/components/Buttons/Button';
 
 const Content = styled(Gutters)({
@@ -79,7 +79,7 @@ const Tags = styled(Gutters)({
 });
 
 const HostSessionByInviteModal = () => {
-  const {params: {hostCode} = {}} =
+  const {params: {hostingCode} = {}} =
     useRoute<RouteProp<ModalStackProps, 'HostSessionByInviteModal'>>();
 
   const {t} = useTranslation('Modal.Session');
@@ -90,11 +90,11 @@ const HostSessionByInviteModal = () => {
 
   const fetchSession = useCallback(async () => {
     try {
-      setSession(await getSessionByHostCode(hostCode));
+      setSession(await getSessionByHostingCode(hostingCode));
     } catch (err) {
       navigation.navigate('SessionUnavailableModal');
     }
-  }, [hostCode, navigation]);
+  }, [hostingCode, navigation]);
 
   useEffect(() => {
     fetchSession();

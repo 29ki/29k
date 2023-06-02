@@ -255,14 +255,14 @@ sessionsRouter.put(
 );
 
 sessionsRouter.get(
-  '/hostCode/:hostCode',
+  '/hostingCode/:hostingCode',
   restrictAccessToRole(ROLE.publicHost),
   validation({response: LiveSessionSchema}),
   async ctx => {
     const {hostCode} = ctx.request.body;
 
     try {
-      ctx.body = await sessionsController.getSessionByHostCode(hostCode);
+      ctx.body = await sessionsController.getSessionByHostingCode(hostCode);
     } catch (error) {
       const requestError = error as RequestError;
       switch (requestError.code) {

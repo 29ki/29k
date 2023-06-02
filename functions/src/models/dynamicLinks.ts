@@ -87,7 +87,7 @@ export const createPublicHostCodeLink = (verificationCode: number) =>
   createDynamicLink(`verifyPublicHostCode/${verificationCode}`);
 
 export const createSessionHostTransferLink = async (
-  hostCode: number,
+  hostingCode: number,
   exerciseId: string,
   host: string | undefined,
   language: LANGUAGE_TAG,
@@ -107,11 +107,11 @@ export const createSessionHostTransferLink = async (
   const socialDescription = t('description', {
     host,
     description: socialMeta?.description || description,
-    hostCode,
+    hostingCode,
     interpolation: {escapeValue: false},
   });
 
-  return createDynamicLink(`hostSessionInvite/${hostCode}`, {
+  return createDynamicLink(`hostSessionInvite/${hostingCode}`, {
     socialImageLink,
     socialTitle,
     socialDescription,

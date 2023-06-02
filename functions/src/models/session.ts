@@ -263,16 +263,16 @@ export const updateSessionState = async (
   });
 };
 
-export const getSessionByHostCode = async ({
-  hostCode,
+export const getSessionByHostingCode = async ({
+  hostingCode,
   activeOnly = true,
 }: {
-  hostCode: LiveSessionRecord['hostCode'];
+  hostingCode: LiveSessionRecord['hostingCode'];
   activeOnly?: boolean;
 }) => {
   const query = firestore()
     .collection(SESSIONS_COLLECTION)
-    .where('hostCode', '==', hostCode);
+    .where('hostingCode', '==', hostingCode);
 
   const result = await (activeOnly
     ? query

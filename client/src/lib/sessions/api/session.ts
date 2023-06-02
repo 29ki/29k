@@ -153,11 +153,26 @@ export const deleteSession = async (id: string) => {
   }
 };
 
-export const getSessionByHostCode = async (
-  code: LiveSessionType['hostCode'],
+export const getSessionByHostingCode = async (
+  code: LiveSessionType['hostingCode'],
 ): Promise<LiveSessionType> => {
-  const response = await apiClient(`${SESSIONS_ENDPOINT}/hostCode/${code}`, {
+  const response = await apiClient(`${SESSIONS_ENDPOINT}/hostingCode/${code}`, {
     method: 'GET',
+  });
+
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+
+  return response.json();
+};
+
+export const getSessionHostingLink = async (
+  sessionId: LiveSessionType['id'],
+): Promise<LiveSessionType> => {
+  const response = await apiClient(`${SESSIONS_ENDPOINT}/hostingLink`, {
+    method: 'POST',
+    body: JSON.stringify({sessionId}),
   });
 
   if (!response.ok) {

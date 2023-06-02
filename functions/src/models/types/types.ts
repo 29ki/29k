@@ -56,7 +56,7 @@ export type LiveSessionRecord = {
   url: string;
   link?: string;
   inviteCode: number;
-  hostCode?: number;
+  hostingCode?: number;
   interestedCount: number;
   hostId: string;
   userIds: Array<string>;
