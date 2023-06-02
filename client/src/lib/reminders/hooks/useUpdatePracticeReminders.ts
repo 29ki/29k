@@ -63,7 +63,7 @@ const useUpdatePracticeReminders = () => {
               ? t(`reminders.collection.${index}`, {title: collection.name})
               : t(`reminders.general.${index}`),
             collection?.link,
-            undefined,
+            collection?.image?.source,
             nextReminderTime
               .add(
                 index,
