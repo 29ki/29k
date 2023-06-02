@@ -24,6 +24,7 @@ const Cards = styled(Animated.View)({
 
 const Card = styled(Animated.View).attrs({pointerEvents: 'none'})({
   position: 'absolute',
+  width: '100%',
   bottom: 0,
 });
 
@@ -100,7 +101,7 @@ const Page1 = () => {
       <Cards style={style}>
         {sessions.map((session, index) => (
           <AnimatedCard index={index} count={sessions.length} key={index}>
-            <StyledSessionCard session={session} />
+            <StyledSessionCard session={session} disableJoinButton />
           </AnimatedCard>
         ))}
       </Cards>
