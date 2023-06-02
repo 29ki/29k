@@ -17,7 +17,7 @@
     "actions": {
       "signIn": "Sign in",
       "signOut": "Sign out",
-      "notifications": "Automatic reminders",
+      "reminders": "Reminders",
       "deleteData": "Delete my data",
       "language": "Language"
     },
@@ -65,7 +65,7 @@
     "actions": {
       "signIn": "Logga in",
       "signOut": "Logga ut",
-      "notifications": "Notiser",
+      "reminders": "Påminnelser",
       "deleteData": "Radera min data",
       "language": "Språk"
     },

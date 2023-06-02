@@ -1,0 +1,38 @@
+{
+  "en": {
+    "title": "Practice reminder",
+    "reminders": {
+      "collection": {
+        "0": "Time to practice {{title}}.",
+        "1": "Don't forget to practice {{title}}.",
+        "2": "Practice over time matters, don't foget {{title}}.",
+        "3": "One last reminder to practice {{title}}."
+      },
+      "general": {
+        "0": "Time to practice, discover upcoming sessions.",
+        "1": "Don't forget to practice.",
+        "2": "Practice over time matters, discover upcoming sessions.",
+        "3": "One last reminder to practice."
+      }
+    }
+  },
+  "pt": {},
+  "sv": {
+    "title": "Övningspåminnelse",
+    "reminders": {
+      "collection": {
+        "0": "Tid att öva {{title}}.",
+        "1": "Glöm inte dina övningar i {{title}}.",
+        "2": "Övning över tid är betydelsefullt, glöm inte {{title}}.",
+        "3": "En sista påminnelse att öva {{title}}."
+      },
+      "general": {
+        "0": "Tid att öva, upptäck kommande sessioner.",
+        "1": "Glöm inte att öva.",
+        "2": "Övning över tid är betydelsefullt, upptäck kommande sessioner.",
+        "3": "En sista påminnelse att öva."
+      }
+    }
+  },
+  "es": {}
+}

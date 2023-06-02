@@ -19,10 +19,11 @@ import {
 import {UserDataType} from '../../../../../shared/src/schemas/User';
 import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import {GET_STARTED_COLLECTION_ID} from '../../content/constants';
+import {REMINDER_INTERVALS} from '../../reminders/constants';
 
 dayjs.extend(utc);
 
-const USER_STATE_VERSION = 5;
+const USER_STATE_VERSION = 6;
 
 type PinnedSession = {
   id: string;
@@ -34,12 +35,19 @@ export type PinnedCollection = {
   startedAt: string;
 };
 
+export type PracticeReminderConfig = {
+  hour: number;
+  minute: number;
+  interval: REMINDER_INTERVALS;
+};
+
 export type UserState = {
   pinnedSessions?: Array<PinnedSession>;
   pinnedCollections?: Array<PinnedCollection>;
   userEvents?: Array<UserEvent>;
   metricsUid?: string;
-  reminderNotifications?: boolean;
+  sessionReminderNotifications?: boolean;
+  practiceReminderConfig?: PracticeReminderConfig | null;
 };
 
 type SetCurrentUserState = (
@@ -49,6 +57,7 @@ type SetCurrentUserState = (
 ) => void;
 
 export type State = {
+  __hasHydrated?: boolean;
   user: FirebaseAuthTypes.User | null;
   data: UserDataType | null;
   claims: FirebaseAuthTypes.IdTokenResult['claims'];
@@ -58,6 +67,7 @@ export type State = {
 export type PersistedState = Pick<State, 'userState'>;
 
 export type Actions = {
+  __setHasHydrated: (__hasHydrated: boolean) => void;
   setUser: (user: State['user']) => void;
   setClaims: (claims: State['claims']) => void;
   setData: (data: Partial<UserDataType>) => void;
@@ -153,6 +163,7 @@ const useUserState = create<State & Actions>()(
 
       return {
         ...initialState,
+        __setHasHydrated: __hasHydrated => set({__hasHydrated}),
         setUser: user => set({user}),
         setData: data => set(state => ({data: {...state.data, ...data}})),
         setClaims: claims => set({claims}),
@@ -219,6 +230,9 @@ const useUserState = create<State & Actions>()(
       name: 'userState',
       storage: createJSONStorage(() => AsyncStorage),
       partialize: ({userState}): PersistedState => ({userState}),
+      onRehydrateStorage: () => state => {
+        state?.__setHasHydrated(true);
+      },
       // In dev I had change this with the app closed (android)
       // otherwise the "migrate" functions does not run due to diff failure
       version: USER_STATE_VERSION,

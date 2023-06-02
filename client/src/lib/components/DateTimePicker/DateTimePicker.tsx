@@ -41,7 +41,7 @@ type DateTimePickerProps = {
   minimumDate?: dayjs.Dayjs;
 };
 
-const DateTimePicker: React.FC<DateTimePickerProps> = ({
+export const DateTimePicker: React.FC<DateTimePickerProps> = ({
   mode,
   setValue,
   selectedValue,
@@ -82,7 +82,7 @@ const DateTimePicker: React.FC<DateTimePickerProps> = ({
       return (
         <RNDateTimePicker
           mode={mode}
-          display={mode === 'date' ? 'calendar' : 'clock'}
+          display="spinner"
           value={selectedValue.local().toDate()}
           minimumDate={minimumDate?.toDate()}
           maximumDate={maximumDate?.toDate()}

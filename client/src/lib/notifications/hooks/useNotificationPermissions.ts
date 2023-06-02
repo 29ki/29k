@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import {Alert, Linking} from 'react-native';
 import useRestartApp from '../../codePush/hooks/useRestartApp';
 
-const useRequestNotificationPermission = () => {
+const useNotificationPermissions = () => {
   const restartApp = useRestartApp();
   const {t} = useTranslation('Component.RequestNotificationPermission');
 
@@ -33,7 +33,12 @@ const useRequestNotificationPermission = () => {
     return permission;
   }, [t, openSettings]);
 
-  return requestPermission;
+  const checkPermission = useCallback(async () => {
+    const permission = await notifee.getNotificationSettings();
+    return permission.authorizationStatus >= AuthorizationStatus.AUTHORIZED;
+  }, []);
+
+  return {requestPermission, checkPermission};
 };
 
-export default useRequestNotificationPermission;
+export default useNotificationPermissions;
