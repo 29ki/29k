@@ -93,7 +93,7 @@ describe('useNotificationsSetup', () => {
       );
     });
 
-    it('only updates the notification from the event', async () => {
+    it('updates all notifications', async () => {
       mockGetTriggerNotifications
         .mockResolvedValueOnce([
           {notification: {id: 'some-id'}} as TriggerNotification,
@@ -128,7 +128,7 @@ describe('useNotificationsSetup', () => {
         expect.objectContaining({
           notifications: {
             'some-id': {id: 'some-id', title: 'some title'},
-            'some-other-id': {id: 'some-other-id'},
+            'some-other-id': {id: 'some-other-id', title: 'some other title'},
           },
         }),
       );

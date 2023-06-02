@@ -1,7 +1,7 @@
 import debug from 'debug';
 import {useCallback, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
-import notifee, {Event} from '@notifee/react-native';
+import notifee from '@notifee/react-native';
 
 import useNotificationsState from '../state/state';
 import useResumeFromBackgrounded from '../../appState/hooks/useResumeFromBackgrounded';
@@ -12,9 +12,8 @@ const logDebug = debug('client:notifications');
 const useNotificationsSetup = () => {
   const {t} = useTranslation('Component.NotificationChannels');
   const notifications = useNotificationsState(state => state.notifications);
-  const resetNotificationsState = useNotificationsState(state => state.reset);
-  const setNotificationState = useNotificationsState(
-    state => state.setNotification,
+  const setNotificationsState = useNotificationsState(
+    state => state.setNotifications,
   );
 
   useEffect(() => {
@@ -36,38 +35,24 @@ const useNotificationsSetup = () => {
     });
   }, [t]);
 
-  useEffect(
-    () =>
-      notifee.onForegroundEvent(async ({detail}: Event) => {
-        // Allways get notifications data from source (notifee)
-        const triggerNotifications = await notifee.getTriggerNotifications();
-        const triggerNotification = triggerNotifications.find(
-          ({notification}) => notification.id === detail.notification?.id,
-        );
-
-        setNotificationState(
-          detail.notification?.id,
-          triggerNotification?.notification,
-        );
-      }),
-    [setNotificationState],
-  );
-
   const updateNotifications = useCallback(async () => {
-    resetNotificationsState();
-    // Allways get notifications data from source (notifee)
+    // Allways get all notifications from source
     const triggerNotifications = await notifee.getTriggerNotifications();
-    triggerNotifications.forEach(({notification}) => {
-      setNotificationState(notification.id, notification);
-    });
-  }, [setNotificationState, resetNotificationsState]);
+    setNotificationsState(
+      triggerNotifications.map(({notification}) => notification),
+    );
+  }, [setNotificationsState]);
 
+  // Update notiiications on mount
   useEffect(() => {
     updateNotifications();
   }, [updateNotifications]);
 
-  // Update all notifications when coming back from backgrounded
+  // Update notifications when coming back from backgrounded
   useResumeFromBackgrounded(updateNotifications);
+
+  // Update notifications when a notification event is received
+  useEffect(() => notifee.onForegroundEvent(updateNotifications));
 };
 
 export default useNotificationsSetup;
