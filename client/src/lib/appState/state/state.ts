@@ -42,7 +42,7 @@ const useAppState = create<State & Actions>()(
       setIsColdStarted: isColdStarted => set({isColdStarted}),
       setSettings: settings =>
         set(state => ({settings: {...state.settings, ...settings}})),
-      reset: () => set(({__hasHydrated}) => ({...initialState, __hasHydrated})),
+      reset: () => set(initialState),
     }),
     {
       name: 'appState',
