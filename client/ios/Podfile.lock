@@ -970,7 +970,7 @@ PODS:
   - React-jsinspector (0.69.9)
   - React-logger (0.69.9):
     - glog
-  - react-native-add-calendar-event (4.1.0):
+  - react-native-add-calendar-event (4.2.0):
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
@@ -1416,7 +1416,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 3b506d7fc50275bf44f8fd5624f23eaedd78bf78
   React-jsinspector: 5b92a5a30e02e1a21802f293cc71e05d887c7378
   React-logger: 96d904c5bc87c2660d48e6a36fb2edf65f9cfb11
-  react-native-add-calendar-event: 038c1b969486c563a97c44903e3b6c23698bf98b
+  react-native-add-calendar-event: 86a16d80086427859d236daf3333ed76d7c88d0a
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
   react-native-daily-js: 372b563dabc45d7832e22378b6833d6402fb48d1
   react-native-get-random-values: dee677497c6a740b71e5612e8dbd83e7539ed5bb
