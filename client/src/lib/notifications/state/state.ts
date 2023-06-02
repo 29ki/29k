@@ -3,7 +3,7 @@ import {equals, omit} from 'ramda';
 import {create} from 'zustand';
 
 type State = {
-  notifications: {[key: string]: Notification | undefined};
+  notifications: {[id: string]: Notification | undefined};
 };
 
 type Actions = {
@@ -11,6 +11,7 @@ type Actions = {
     id: string | undefined,
     notification: Notification | undefined,
   ) => void;
+  setNotifications: (notifications: Notification[]) => void;
   removeNotification: (id: string) => void;
   reset: () => void;
 };
@@ -18,6 +19,8 @@ type Actions = {
 const initialState: State = {
   notifications: {},
 };
+
+const omitData = omit(['android', 'ios']);
 
 /* The only reason to store notifications in a shared state is because notifee.onForegroundEvent
    does not emit anything when a notification is removed
@@ -27,9 +30,7 @@ const useNotificationsState = create<State & Actions>()(set => ({
   setNotification: (id, rawNotification) =>
     id &&
     set(state => {
-      const notification = rawNotification
-        ? omit(['android', 'ios'], rawNotification)
-        : undefined;
+      const notification = omitData(rawNotification);
 
       if (equals(notification, state.notifications[id])) {
         return state;
@@ -42,6 +43,28 @@ const useNotificationsState = create<State & Actions>()(set => ({
         },
       };
     }),
+  setNotifications: rawNotifications =>
+    set(state => ({
+      notifications: rawNotifications.reduce<State['notifications']>(
+        (notifications, rawNotification) => {
+          const notification = omitData(rawNotification);
+
+          if (!notification.id) {
+            return notifications;
+          }
+
+          const stateNotification = state.notifications[notification.id];
+
+          return {
+            ...notifications,
+            [notification.id]: equals(notification, stateNotification)
+              ? stateNotification
+              : notification,
+          };
+        },
+        {},
+      ),
+    })),
   removeNotification: id =>
     set(state => ({
       notifications: omit([id], state.notifications),
