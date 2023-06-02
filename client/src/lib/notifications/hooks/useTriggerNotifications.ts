@@ -47,17 +47,17 @@ const useTriggerNotifications = () => {
           android: {
             ...channelConfig.android,
             channelId,
-            largeIcon: image,
+            ...(image && {largeIcon: image}),
           },
           ios: {
             ...channelConfig.ios,
-            attachments: image
-              ? [
-                  {
-                    url: image,
-                  },
-                ]
-              : [],
+            ...(image && {
+              attachments: [
+                {
+                  url: image,
+                },
+              ],
+            }),
           },
         };
 
