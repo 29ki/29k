@@ -84,7 +84,7 @@
       }
     },
     "noUpcomingSessions": "🌱 Inga planerade sessioner.",
-    "description": "Gör session med...",
+    "description": "Gör sessionen med...",
     "setDateTime": {
       "title": "Välj tid",
       "cta": "Skapa session",
