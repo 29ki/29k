@@ -5,7 +5,7 @@
     "profile": {
       "text": "To create and host a session you need a user name and profile picture."
     },
-    "orJoinUpcoming": "Or join upcoming sessions",
+    "orJoinUpcoming": "Or join an upcoming session",
     "startCta": "Start",
     "selectType": {
       "live-public": {
@@ -19,7 +19,7 @@
       }
     },
     "noUpcomingSessions": "🌱 No planned sessions.",
-    "description": "Create session with…",
+    "description": "Do session with…",
     "setDateTime": {
       "title": "Choose a time",
       "cta": "Create session",
@@ -84,7 +84,7 @@
       }
     },
     "noUpcomingSessions": "🌱 Inga planerade sessioner.",
-    "description": "Skapa session för...",
+    "description": "Gör session med...",
     "setDateTime": {
       "title": "Välj tid",
       "cta": "Skapa session",
