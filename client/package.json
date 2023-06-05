@@ -39,7 +39,7 @@
     "@sentry/react-native": "^5.5.0",
     "@th3rdwave/react-navigation-bottom-sheet": "^0.2.2",
     "@types/lodash.throttle": "^4.1.7",
-    "dayjs": "^1.11.7",
+    "dayjs": "^1.11.8",
     "debug": "^4.3.4",
     "hex-to-rgba": "^2.0.1",
     "i18next": "^22.5.0",
