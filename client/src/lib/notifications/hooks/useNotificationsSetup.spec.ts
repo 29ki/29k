@@ -36,7 +36,7 @@ describe('useNotificationsSetup', () => {
       });
       expect(mockCreateChannel).toHaveBeenCalledWith({
         id: 'practice-reminders',
-        importance: 3,
+        importance: 4,
         name: 'practice-reminders',
       });
     });
