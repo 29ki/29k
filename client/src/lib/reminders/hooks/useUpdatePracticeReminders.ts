@@ -18,6 +18,7 @@ import {
   DEFAULT_NUMBER_OF_PRACTICE_REMINDERS,
   REMINDER_INTERVALS,
 } from '../constants';
+import useUser from '../../user/hooks/useUser';
 
 dayjs.extend(utc);
 
@@ -25,11 +26,31 @@ const ID_PREFIX = 'practice';
 
 const useUpdatePracticeReminders = () => {
   const {t} = useTranslation('Notification.PracticeReminder');
+  const user = useUser();
   const {pinnedCollections} = usePinnedCollections();
   const {completedCollectionEvents} = useUserEvents();
   const getCollectionById = useGetCollectionById();
   const {removeTriggerNotifications, setTriggerNotification} =
     useTriggerNotifications();
+
+  const resolveBody = useCallback(
+    (collection: Collection | null, index: number) => {
+      if (!user || user?.isAnonymous) {
+        return collection
+          ? t(`reminders.collection.${index}.bodyAnonymous`, {
+              collectionName: collection.name,
+            })
+          : t(`reminders.general.${index}.bodyAnonymous`);
+      }
+      return collection
+        ? t(`reminders.collection.${index}.body`, {
+            collectionName: collection.name,
+            userName: user.displayName,
+          })
+        : t(`reminders.general.${index}.body`, {userName: user.displayName});
+    },
+    [t, user],
+  );
 
   const reCreateNotifications = useCallback(
     async (
@@ -52,10 +73,12 @@ const useUpdatePracticeReminders = () => {
           await setTriggerNotification(
             `${ID_PREFIX}-${index}`,
             NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-            t('title'),
             collection
-              ? t(`reminders.collection.${index}`, {title: collection.name})
-              : t(`reminders.general.${index}`),
+              ? t(`reminders.collection.${index}.title`, {
+                  collectionName: collection.name,
+                })
+              : t(`reminders.general.${index}.title`),
+            resolveBody(collection, index),
             collection?.link,
             undefined,
             nextReminderTime
@@ -68,7 +91,7 @@ const useUpdatePracticeReminders = () => {
         }
       }
     },
-    [t, removeTriggerNotifications, setTriggerNotification],
+    [t, removeTriggerNotifications, setTriggerNotification, resolveBody],
   );
 
   const updatePracticeNotifications = useCallback(

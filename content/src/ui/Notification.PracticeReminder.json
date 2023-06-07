@@ -1,18 +1,49 @@
 {
   "en": {
-    "title": "Practice reminder",
     "reminders": {
       "collection": {
-        "0": "Time to practice {{title}}.",
-        "1": "Don't forget to practice {{title}}.",
-        "2": "Practice over time matters, don't foget {{title}}.",
-        "3": "One last reminder to practice {{title}}."
+        "0": {
+          "title": "{{collectionName}}",
+          "body": "Ready for practice, {{userName}}?",
+          "bodyAnonymous": "Ready for practice?"
+        },
+        "1": {
+          "title": "{{collectionName}}",
+          "body": "Don't forget to practice, {{userName}}.",
+          "bodyAnonymous": "Don't forget to practice."
+        },
+        "2": {
+          "title": "{{collectionName}}",
+          "body": "Practice over time matters {{userName}}.",
+          "bodyAnonymous": "Practice over time matters."
+        },
+        "3": {
+          "title": "{{collectionName}}",
+          "body": "One last reminder to practice {{userName}}.",
+          "bodyAnonymous": "One last reminder to practice."
+        }
       },
       "general": {
-        "0": "Time to practice, discover upcoming sessions.",
-        "1": "Don't forget to practice.",
-        "2": "Practice over time matters, discover upcoming sessions.",
-        "3": "One last reminder to practice."
+        "0": {
+          "title": "Reminder",
+          "body": "Ready for practice, {{userName}}?",
+          "bodyAnonymous": "Ready for practice?"
+        },
+        "1": {
+          "title": "Reminder",
+          "body": "Don't forget to practice, {{userName}}.",
+          "bodyAnonymous": "Don't forget to practice."
+        },
+        "2": {
+          "title": "Reminder",
+          "body": "Practice over time matters {{userName}}.",
+          "bodyAnonymous": "Practice over time matters."
+        },
+        "3": {
+          "title": "Reminder",
+          "body": "One last reminder to practice {{userName}}.",
+          "bodyAnonymous": "One last reminder to practice."
+        }
       }
     }
   },
@@ -21,16 +52,48 @@
     "title": "Övningspåminnelse",
     "reminders": {
       "collection": {
-        "0": "Tid att öva {{title}}.",
-        "1": "Glöm inte dina övningar i {{title}}.",
-        "2": "Övning över tid är betydelsefullt, glöm inte {{title}}.",
-        "3": "En sista påminnelse att öva {{title}}."
+        "0": {
+          "title": "{{collectionName}}",
+          "body": "Redo att öva, {{userName}}?",
+          "bodyAnonymous": "Redo att öva?"
+        },
+        "1": {
+          "title": "{{collectionName}}",
+          "body": "Glöm inte din övning, {{userName}}.",
+          "bodyAnonymous": "Glöm inte din övning."
+        },
+        "2": {
+          "title": "{{collectionName}}",
+          "body": "Övning över tid är betydelsefullt, {{userName}}.",
+          "bodyAnonymous": "Övning över tid är betydelsefullt."
+        },
+        "3": {
+          "title": "{{collectionName}}",
+          "body": "En sista påminnelse att öva, {{userName}}.",
+          "bodyAnonymous": "En sista påminnelse att öva."
+        }
       },
       "general": {
-        "0": "Tid att öva, upptäck kommande sessioner.",
-        "1": "Glöm inte att öva.",
-        "2": "Övning över tid är betydelsefullt, upptäck kommande sessioner.",
-        "3": "En sista påminnelse att öva."
+        "0": {
+          "title": "Reminder",
+          "body": "Redo att öva, {{userName}}?",
+          "bodyAnonymous": "Redo att öva?"
+        },
+        "1": {
+          "title": "Reminder",
+          "body": "Glöm inte din övning, {{userName}}.",
+          "bodyAnonymous": "Glöm inte din övning."
+        },
+        "2": {
+          "title": "Reminder",
+          "body": "Övning över tid är betydelsefullt, {{userName}}.",
+          "bodyAnonymous": "Övning över tid är betydelsefullt."
+        },
+        "3": {
+          "title": "Reminder",
+          "body": "En sista påminnelse att öva, {{userName}}.",
+          "bodyAnonymous": "En sista påminnelse att öva."
+        }
       }
     }
   },
