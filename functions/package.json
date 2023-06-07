@@ -31,7 +31,7 @@
     "@types/i18next": "^13.0.0",
     "bs58": "^5.0.0",
     "dayjs": "^1.11.8",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.1.4",
     "envalid": "^7.3.1",
     "fast-memoize": "^2.5.2",
     "firebase-admin": "^11.9.0",
