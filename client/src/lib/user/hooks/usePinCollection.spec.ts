@@ -17,6 +17,16 @@ jest.mock(
       .mockReturnValueOnce({id: 'some-other-collection-id'}),
 );
 
+const mockConfirmPracticeReminders = jest.fn();
+jest.mock(
+  '../../sessions/hooks/useConfirmPracticeReminders',
+  () => () => mockConfirmPracticeReminders,
+);
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
 describe('usePinCollection', () => {
   it('should add collection as pinned', async () => {
     useUserState.setState({
@@ -40,6 +50,8 @@ describe('usePinCollection', () => {
         },
       }),
     );
+    expect(mockConfirmPracticeReminders).toHaveBeenCalledTimes(1);
+    expect(mockConfirmPracticeReminders).toHaveBeenCalledWith(true);
     expect(mockLogEvent).toHaveBeenCalledTimes(1);
     expect(mockLogEvent).toHaveBeenCalledWith('Add Collection To Journey', {
       'Collection ID': 'some-collection-id',
@@ -78,5 +90,6 @@ describe('usePinCollection', () => {
         },
       }),
     );
+    expect(mockConfirmPracticeReminders).toHaveBeenCalledTimes(0);
   });
 });
