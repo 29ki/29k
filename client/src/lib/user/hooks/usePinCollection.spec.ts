@@ -18,7 +18,7 @@ jest.mock(
 );
 
 describe('usePinCollection', () => {
-  it('should add collection as pinned', () => {
+  it('should add collection as pinned', async () => {
     useUserState.setState({
       user: {uid: 'user-id'} as FirebaseAuthTypes.User,
       userState: {},
@@ -26,8 +26,8 @@ describe('usePinCollection', () => {
 
     const {result} = renderHook(() => usePinCollection('some-collection-id'));
 
-    act(() => {
-      result.current.togglePinned();
+    await act(async () => {
+      await result.current.togglePinned();
     });
 
     expect(result.current.isPinned).toBe(true);
