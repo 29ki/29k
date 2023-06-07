@@ -33,15 +33,15 @@ export const NOTIFICATION_CHANNEL_CONFIG: {
   },
   [NOTIFICATION_CHANNELS.PRACTICE_REMINDERS]: {
     channel: {
-      importance: AndroidImportance.DEFAULT,
+      importance: AndroidImportance.HIGH,
     },
     android: {
-      importance: AndroidImportance.DEFAULT,
+      importance: AndroidImportance.HIGH,
       smallIcon: 'ic_small_icon',
       color: COLORS.PRIMARY,
     },
     ios: {
-      interruptionLevel: 'active',
+      interruptionLevel: 'timeSensitive',
     },
   },
 };
