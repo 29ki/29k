@@ -3,7 +3,10 @@
     "myJourneyTag": "My journey",
     "interested": "Interested"
   },
-  "pt": {},
+  "pt": {
+    "myJourneyTag": "A minha jornada",
+    "interested": "Favorito"
+  },
   "sv": {
     "myJourneyTag": "Min resa",
     "interested": "Intresserad"
