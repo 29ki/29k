@@ -27,7 +27,6 @@ LogBox.ignoreLogs([
 
 if (__DEV__) {
   const HOST = process.env.IP_ADDRESS ?? 'localhost';
-  console.log(HOST);
   auth().useEmulator(`http://${HOST}:9099`);
   firestore().useEmulator(HOST, 8080);
   storage().useEmulator(HOST, 9199);
