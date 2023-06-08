@@ -13,7 +13,7 @@
     "ios": "react-native run-ios --scheme dev --no-packager",
     "postinstall": "if [ -x \"$(command -v pod)\" ]; then react-native-asset && cd ios && pod install; fi",
     "start": ". ../shared/scripts/getGitCommitShort.sh && yarn build:content && react-native start",
-    "start:device": ". ./scripts/getIpAddress.sh && yarn start",
+    "start:device": ". ./scripts/getIpAddress.sh && yarn start --reset-cache",
     "test:jest": "jest",
     "test:lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test:ts": "tsc --noEmit",
