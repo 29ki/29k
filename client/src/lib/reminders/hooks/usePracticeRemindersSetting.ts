@@ -38,7 +38,11 @@ const usePracticeRemindersSetting = () => {
       setUserState({practiceReminderConfig: config});
       updatePracticeNotifications(config);
       if (config) {
-        logEvent('Change Practice Reminders', config);
+        logEvent('Change Practice Reminders', {
+          'Reminder Interval': config.interval,
+          'Reminder Hour': config.hour,
+          'Reminder Minute': config.minute,
+        });
       } else {
         logEvent('Remove Practice Reminders', undefined);
       }

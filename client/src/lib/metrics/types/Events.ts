@@ -5,9 +5,11 @@ import {
   ScreenName,
   SharingSessionPost,
   CollectionProperties,
-  PracticeReminderProperties,
-  ToggleReminderProperties,
-  PressReminderProperties,
+  ExerciseID,
+  CollectionID,
+  Enable,
+  ReminderSettingsProperties,
+  ReminderProperties,
 } from './Properties';
 
 type Events = {
@@ -55,15 +57,16 @@ type Events = {
   'Accept Practice Reminders': undefined;
   'Postpone Practice Reminders': undefined;
   'Decline Practice Reminders': undefined;
-  'Change Practice Reminders': PracticeReminderProperties;
+  'Change Practice Reminders': ReminderSettingsProperties;
   'Remove Practice Reminders': undefined;
 
   'Accept Sharing Session Reminders': undefined;
   'Postpone Sharing Session Reminders': undefined;
   'Decline Sharing Session Reminders': undefined;
-  'Toggle Sharing Session Reminders': ToggleReminderProperties;
+  'Toggle Sharing Session Reminders': Enable;
 
-  'Press Reminder': PressReminderProperties;
+  'Press Session Reminder': ReminderProperties & ExerciseID;
+  'Press Practice Reminder': ReminderProperties & CollectionID;
 };
 
 export default Events;

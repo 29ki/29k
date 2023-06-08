@@ -40,7 +40,7 @@ const useSessionReminder = (session: LiveSessionType) => {
       } else {
         removeTriggerNotification(id);
       }
-      logEvent('Toggle Sharing Session Reminders', {enable});
+      logEvent('Toggle Sharing Session Reminders', {Enable: enable});
     },
     [
       setTriggerNotification,
