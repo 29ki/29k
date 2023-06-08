@@ -1,18 +1,89 @@
 {
   "en": {
-    "title": "Practice reminder",
     "reminders": {
       "collection": {
-        "0": "Time to practice {{title}}.",
-        "1": "Don't forget to practice {{title}}.",
-        "2": "Practice over time matters, don't foget {{title}}.",
-        "3": "One last reminder to practice {{title}}."
+        "0": {
+          "personal": {
+            "title": "{{collectionName}}",
+            "body": "Ready for practice, {{userName}}?"
+          },
+          "generic": {
+            "title": "{{collectionName}}",
+            "body": "Ready for practice?"
+          }
+        },
+        "1": {
+          "personal": {
+            "title": "{{collectionName}}",
+            "body": "Don't forget to practice, {{userName}}."
+          },
+          "generic": {
+            "title": "{{collectionName}}",
+            "body": "Don't forget to practice."
+          }
+        },
+        "2": {
+          "personal": {
+            "title": "{{collectionName}}",
+            "body": "Practice over time matters {{userName}}."
+          },
+          "generic": {
+            "title": "{{collectionName}}",
+            "body": "Practice over time matters."
+          }
+        },
+        "3": {
+          "personal": {
+            "title": "{{collectionName}}",
+            "body": "One last reminder to practice {{userName}}."
+          },
+          "generic": {
+            "title": "{{collectionName}}",
+            "body": "One last reminder to practice."
+          }
+        }
       },
       "general": {
-        "0": "Time to practice, discover upcoming sessions.",
-        "1": "Don't forget to practice.",
-        "2": "Practice over time matters, discover upcoming sessions.",
-        "3": "One last reminder to practice."
+        "0": {
+          "personal": {
+            "title": "Reminder",
+            "body": "Ready for practice, {{userName}}?"
+          },
+          "generic": {
+            "title": "Reminder",
+            "body": "Ready for practice?"
+          }
+        },
+        "1": {
+          "personal": {
+            "title": "Reminder",
+            "body": "Don't forget to practice, {{userName}}."
+          },
+          "generic": {
+            "title": "Reminder",
+            "body": "Don't forget to practice."
+          }
+        },
+        "2": {
+          "personal": {
+            "title": "Reminder",
+            "body": "Practice over time matters {{userName}}."
+          },
+          "generic": {
+            "title": "Reminder",
+            "body": "Practice over time matters."
+          }
+        },
+        "3": {
+          "personal": {
+            "title": "Reminder",
+            "body": "One last reminder to practice {{userName}}."
+          },
+          "generic": {
+            "title": "Reminder",
+            "body": "One last reminder to practice."
+          }
+        }
       }
     }
   },
@@ -21,16 +92,88 @@
     "title": "Övningspåminnelse",
     "reminders": {
       "collection": {
-        "0": "Tid att öva {{title}}.",
-        "1": "Glöm inte dina övningar i {{title}}.",
-        "2": "Övning över tid är betydelsefullt, glöm inte {{title}}.",
-        "3": "En sista påminnelse att öva {{title}}."
+        "0": {
+          "personal": {
+            "title": "{{collectionName}}",
+            "body": "Redo att öva, {{userName}}?"
+          },
+          "generic": {
+            "title": "{{collectionName}}",
+            "body": "Redo att öva?"
+          }
+        },
+        "1": {
+          "personal": {
+            "title": "{{collectionName}}",
+            "body": "Glöm inte din övning, {{userName}}."
+          },
+          "generic": {
+            "title": "{{collectionName}}",
+            "body": "Glöm inte din övning."
+          }
+        },
+        "2": {
+          "personal": {
+            "title": "{{collectionName}}",
+            "body": "Övning över tid är betydelsefullt, {{userName}}."
+          },
+          "generic": {
+            "title": "{{collectionName}}",
+            "body": "Övning över tid är betydelsefullt."
+          }
+        },
+        "3": {
+          "personal": {
+            "title": "{{collectionName}}",
+            "body": "En sista påminnelse att öva, {{userName}}."
+          },
+          "generic": {
+            "title": "{{collectionName}}",
+            "body": "En sista påminnelse att öva."
+          }
+        }
       },
       "general": {
-        "0": "Tid att öva, upptäck kommande sessioner.",
-        "1": "Glöm inte att öva.",
-        "2": "Övning över tid är betydelsefullt, upptäck kommande sessioner.",
-        "3": "En sista påminnelse att öva."
+        "0": {
+          "personal": {
+            "title": "Påminnelse",
+            "body": "Redo att öva, {{userName}}?"
+          },
+          "generic": {
+            "title": "Påminnelse",
+            "body": "Redo att öva?"
+          }
+        },
+        "1": {
+          "personal": {
+            "title": "Påminnelse",
+            "body": "Glöm inte din övning, {{userName}}."
+          },
+          "generic": {
+            "title": "Påminnelse",
+            "body": "Glöm inte din övning."
+          }
+        },
+        "2": {
+          "personal": {
+            "title": "Påminnelse",
+            "body": "Övning över tid är betydelsefullt, {{userName}}."
+          },
+          "generic": {
+            "title": "Påminnelse",
+            "body": "Övning över tid är betydelsefullt."
+          }
+        },
+        "3": {
+          "personal": {
+            "title": "Påminnelse",
+            "body": "En sista påminnelse att öva, {{userName}}."
+          },
+          "generic": {
+            "title": "Påminnelse",
+            "body": "En sista påminnelse att öva."
+          }
+        }
       }
     }
   },
