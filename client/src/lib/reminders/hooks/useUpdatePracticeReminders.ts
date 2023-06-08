@@ -19,8 +19,6 @@ import {
 } from '../constants';
 import useUser from '../../user/hooks/useUser';
 
-const ID_PREFIX = 'practice';
-
 const useUpdatePracticeReminders = () => {
   const {t} = useTranslation('Notification.PracticeReminder');
   const user = useUser();
@@ -29,6 +27,15 @@ const useUpdatePracticeReminders = () => {
   const getCollectionById = useGetCollectionById();
   const {removeTriggerNotifications, setTriggerNotification} =
     useTriggerNotifications();
+
+  const resolveId = useCallback(
+    (collection: Collection | null, index: number) => {
+      return collection
+        ? t(`reminders.collection.${index}.id`)
+        : t(`reminders.general.${index}.id`);
+    },
+    [t],
+  );
 
   const resolveTitle = useCallback(
     (collection: Collection | null, index: number) => {
@@ -91,7 +98,7 @@ const useUpdatePracticeReminders = () => {
           index++
         ) {
           await setTriggerNotification(
-            `${ID_PREFIX}-${index}`,
+            resolveId(collection, index),
             NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
             collection?.id,
             resolveTitle(collection, index),
@@ -111,6 +118,7 @@ const useUpdatePracticeReminders = () => {
     [
       removeTriggerNotifications,
       setTriggerNotification,
+      resolveId,
       resolveTitle,
       resolveBody,
     ],
