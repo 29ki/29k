@@ -27,13 +27,19 @@ const sendMetricEvent = async (detail: EventDetail) => {
 
   if (id && channelId && contentId) {
     if (channelId === NOTIFICATION_CHANNELS.PRACTICE_REMINDERS) {
-      logEvent('Press Reminder', {
-        id,
-        channelId,
-        collectionId: contentId,
+      logEvent('Press Practice Reminder', {
+        'Notification ID': id,
+        'Notification Channel ID': channelId,
+        'Collection ID': contentId,
       });
-    } else {
-      logEvent('Press Reminder', {id, channelId, exerciseId: contentId});
+    }
+
+    if (channelId === NOTIFICATION_CHANNELS.SESSION_REMINDERS) {
+      logEvent('Press Session Reminder', {
+        'Notification ID': id,
+        'Notification Channel ID': channelId,
+        'Exercise ID': contentId,
+      });
     }
   }
 };
