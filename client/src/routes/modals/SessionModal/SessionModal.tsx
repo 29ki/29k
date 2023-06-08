@@ -64,7 +64,6 @@ import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
 import AnimatedIconButton from '../../../lib/components/Buttons/IconButton/AnimatedIconButton';
 import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
 import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
-import {SessionType} from '../../../../../shared/src/schemas/Session';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',

@@ -69,16 +69,16 @@ const AssignNewHostModal = () => {
       <BottomSheetScrollView focusHook={useIsFocused}>
         <Spacer16 />
         <Gutters>
-          <ModalHeading>{t('editHost.heading')}</ModalHeading>
+          <ModalHeading>{t('heading')}</ModalHeading>
           <Spacer16 />
-          <Body16>{t('editHost.description')}</Body16>
+          <Body16>{t('description')}</Body16>
           <Spacer16 />
           <Row>
             <Button
               variant="secondary"
               onPress={onHostChange}
               RightIcon={ShareIcon}>
-              {t('editHost.button')}
+              {t('button')}
             </Button>
           </Row>
         </Gutters>

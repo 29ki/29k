@@ -52,6 +52,34 @@ sessionsRouter.get(
 );
 
 sessionsRouter.get(
+  '/hostingCode/:hostingCode',
+  restrictAccessToRole(ROLE.publicHost),
+  validation({response: LiveSessionSchema}),
+  async ctx => {
+    const {hostCode} = ctx.request.body;
+
+    try {
+      ctx.body = await sessionsController.getSessionByHostingCode(hostCode);
+    } catch (error) {
+      const requestError = error as RequestError;
+      switch (requestError.code) {
+        case JoinSessionError.notFound:
+          ctx.status = 404;
+          break;
+
+        case JoinSessionError.notAvailable:
+          ctx.status = 410;
+          break;
+
+        default:
+          throw error;
+      }
+      ctx.message = requestError.code;
+    }
+  },
+);
+
+sessionsRouter.get(
   '/:id/sessionToken',
   validation({params: SessionParamsSchema, response: yup.string()}),
   async ctx => {
@@ -256,6 +284,7 @@ sessionsRouter.put(
 
 sessionsRouter.put(
   '/:id/hostingLink',
+  restrictAccessToRole(ROLE.publicHost),
   validation({params: SessionParamsSchema, response: yup.string()}),
   async ctx => {
     const {id} = ctx.params;
@@ -284,15 +313,26 @@ sessionsRouter.put(
   },
 );
 
-sessionsRouter.get(
-  '/hostingCode/:hostingCode',
+sessionsRouter.put(
+  '/:id/acceptHostingInvite',
   restrictAccessToRole(ROLE.publicHost),
-  validation({response: LiveSessionSchema}),
+  validation({
+    body: yup.object({
+      hostingCode: yup.number().required(),
+    }),
+    params: SessionParamsSchema,
+    response: yup.string(),
+  }),
   async ctx => {
-    const {hostCode} = ctx.request.body;
+    const {id} = ctx.params;
+    const {hostingCode} = ctx.request.body;
 
     try {
-      ctx.body = await sessionsController.getSessionByHostingCode(hostCode);
+      ctx.body = await sessionsController.updateSessionHost(
+        ctx.user.id,
+        id,
+        hostingCode,
+      );
     } catch (error) {
       const requestError = error as RequestError;
       switch (requestError.code) {

@@ -183,3 +183,24 @@ export const getSessionHostingLink = async (
 
   return response.text();
 };
+
+export const acceptHostingInvite = async (
+  sessionId: LiveSessionType['id'],
+  hostingCode: LiveSessionType['hostingCode'],
+) => {
+  const response = await apiClient(
+    `${SESSIONS_ENDPOINT}/${sessionId}/acceptHostingInvite`,
+    {
+      method: 'PUT',
+      body: JSON.stringify({
+        hostingCode,
+      }),
+    },
+  );
+
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+
+  return response.json();
+};

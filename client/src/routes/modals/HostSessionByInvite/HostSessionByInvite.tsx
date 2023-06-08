@@ -43,7 +43,10 @@ import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import Tag from '../../../lib/components/Tag/Tag';
 import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
-import {getSessionByHostingCode} from '../../../lib/sessions/api/session';
+import {
+  getSessionByHostingCode,
+  acceptHostingInvite,
+} from '../../../lib/sessions/api/session';
 import Button from '../../../lib/components/Buttons/Button';
 
 const Content = styled(Gutters)({
@@ -102,6 +105,12 @@ const HostSessionByInviteModal = () => {
 
   const exercise = useExerciseById(session?.exerciseId);
   const tags = useGetSessionCardTags(exercise);
+
+  const acceptInvite = useCallback(() => {
+    if (session?.id) {
+      acceptHostingInvite(session.id, hostingCode);
+    }
+  }, [session?.id, hostingCode]);
 
   if (!session || !exercise) {
     return null;
@@ -163,7 +172,7 @@ const HostSessionByInviteModal = () => {
           <Body16>{t('description')}</Body16>
           <Spacer16 />
           <Row>
-            <Button variant={'secondary'} onPress={() => {}}>
+            <Button variant={'secondary'} onPress={acceptInvite}>
               {'Confirm'}
             </Button>
             <Spacer16 />

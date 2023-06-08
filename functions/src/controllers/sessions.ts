@@ -334,3 +334,22 @@ export const createSessionHostingLink = async (
 
   return link;
 };
+
+export const updateSessionHost = async (
+  userId: string,
+  sessionId: LiveSessionModel['id'],
+  hostingCode: LiveSessionModel['hostingCode'],
+) => {
+  const session = await sessionModel.getSessionById(sessionId);
+
+  if (hostingCode !== session?.hostingCode) {
+    throw new RequestError(ValidateSessionError.userNotAuthorized);
+  }
+
+  await sessionModel.updateSession(sessionId, {
+    hostingCode: undefined,
+    hostId: userId,
+  });
+  const updatedSession = await sessionModel.getSessionById(sessionId);
+  return updatedSession ? mapSession(updatedSession) : undefined;
+};

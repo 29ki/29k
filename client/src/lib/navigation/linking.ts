@@ -13,7 +13,7 @@ const config: LinkingOptions<RootNavigationProps>['config'] = {
   initialRouteName: 'OverlayStack',
   screens: {
     AddSessionByInviteModal: 'joinSessionInvite/:inviteCode',
-    HostSessionByInviteModal: 'hostSessionInvite/:inviteCode',
+    HostSessionByInviteModal: 'hostSessionInvite/:hostingCode',
     UpgradeAccountModal: 'verifyPublicHostCode/:code',
     CreateSessionModal: 'sessions/:exerciseId',
     OverlayStack: {
