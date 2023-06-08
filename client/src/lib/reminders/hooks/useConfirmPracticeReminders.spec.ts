@@ -1,9 +1,13 @@
 import {Alert} from 'react-native';
 import {renderHook} from '@testing-library/react-hooks';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 
 import usePracticeRemindersSetting from './usePracticeRemindersSetting';
 import {REMINDER_INTERVALS} from '../constants';
 import useConfirmPracticeReminders from './useConfirmPracticeReminders';
+
+dayjs.extend(utc);
 
 const mockAlert = jest.mocked(Alert.alert);
 

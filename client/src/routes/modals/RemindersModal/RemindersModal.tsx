@@ -3,7 +3,6 @@ import {Platform} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {Picker} from '@react-native-picker/picker';
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
 import {RouteProp, useIsFocused, useRoute} from '@react-navigation/native';
 
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -34,8 +33,6 @@ import {
   thisWeekday,
 } from '../../../lib/reminders/utils/timeHelpers';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
-
-dayjs.extend(utc);
 
 const PracticeActionWrapper = styled(TouchableOpacity)({
   flex: 1,

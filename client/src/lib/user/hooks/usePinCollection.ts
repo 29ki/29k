@@ -1,12 +1,9 @@
 import {useCallback, useMemo} from 'react';
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
 import useUserState from '../state/state';
 import usePinnedCollections from './usePinnedCollections';
 import * as metrics from '../../metrics';
 import useConfirmPracticeReminders from '../../reminders/hooks/useConfirmPracticeReminders';
-
-dayjs.extend(utc);
 
 const usePinCollection = (collectionId: string) => {
   const {pinnedCollections} = usePinnedCollections();

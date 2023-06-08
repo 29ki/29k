@@ -4,7 +4,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {createJSONStorage, persist} from 'zustand/middleware';
 import {equals, omit} from 'ramda';
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
 
 import migrate from './migration';
 import {
@@ -20,8 +19,6 @@ import {UserDataType} from '../../../../../shared/src/schemas/User';
 import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import {GET_STARTED_COLLECTION_ID} from '../../content/constants';
 import {REMINDER_INTERVALS} from '../../reminders/constants';
-
-dayjs.extend(utc);
 
 const USER_STATE_VERSION = 6;
 

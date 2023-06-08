@@ -1,6 +1,5 @@
 import {useCallback} from 'react';
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
 
 import {NOTIFICATION_CHANNELS} from '../../notifications/constants';
 import usePinnedCollections from '../../user/hooks/usePinnedCollections';
@@ -18,8 +17,6 @@ import {
   DEFAULT_NUMBER_OF_PRACTICE_REMINDERS,
   REMINDER_INTERVALS,
 } from '../constants';
-
-dayjs.extend(utc);
 
 const ID_PREFIX = 'practice';
 
