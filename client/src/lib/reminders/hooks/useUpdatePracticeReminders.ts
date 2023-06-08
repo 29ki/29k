@@ -33,21 +33,44 @@ const useUpdatePracticeReminders = () => {
   const {removeTriggerNotifications, setTriggerNotification} =
     useTriggerNotifications();
 
-  const resolveBody = useCallback(
+  const resolveTitle = useCallback(
     (collection: Collection | null, index: number) => {
-      if (!user || user?.isAnonymous) {
+      if (!user || !user.displayName) {
         return collection
-          ? t(`reminders.collection.${index}.bodyAnonymous`, {
+          ? t(`reminders.collection.${index}.generic.title`, {
               collectionName: collection.name,
             })
-          : t(`reminders.general.${index}.bodyAnonymous`);
+          : t(`reminders.general.${index}.generic.title`);
       }
       return collection
-        ? t(`reminders.collection.${index}.body`, {
+        ? t(`reminders.collection.${index}.personal.title`, {
             collectionName: collection.name,
             userName: user.displayName,
           })
-        : t(`reminders.general.${index}.body`, {userName: user.displayName});
+        : t(`reminders.general.${index}.personal.title`, {
+            userName: user.displayName,
+          });
+    },
+    [t, user],
+  );
+
+  const resolveBody = useCallback(
+    (collection: Collection | null, index: number) => {
+      if (!user || !user.displayName) {
+        return collection
+          ? t(`reminders.collection.${index}.generic.body`, {
+              collectionName: collection.name,
+            })
+          : t(`reminders.general.${index}.generic.body`);
+      }
+      return collection
+        ? t(`reminders.collection.${index}.personal.body`, {
+            collectionName: collection.name,
+            userName: user.displayName,
+          })
+        : t(`reminders.general.${index}.personal.body`, {
+            userName: user.displayName,
+          });
     },
     [t, user],
   );
@@ -73,11 +96,7 @@ const useUpdatePracticeReminders = () => {
           await setTriggerNotification(
             `${ID_PREFIX}-${index}`,
             NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-            collection
-              ? t(`reminders.collection.${index}.title`, {
-                  collectionName: collection.name,
-                })
-              : t(`reminders.general.${index}.title`),
+            resolveTitle(collection, index),
             resolveBody(collection, index),
             collection?.link,
             undefined,
@@ -91,7 +110,12 @@ const useUpdatePracticeReminders = () => {
         }
       }
     },
-    [t, removeTriggerNotifications, setTriggerNotification, resolveBody],
+    [
+      removeTriggerNotifications,
+      setTriggerNotification,
+      resolveTitle,
+      resolveBody,
+    ],
   );
 
   const updatePracticeNotifications = useCallback(

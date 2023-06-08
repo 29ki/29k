@@ -43,7 +43,7 @@ describe('useUpdatePracticeReminders', () => {
       .useFakeTimers({doNotFake: ['nextTick', 'setImmediate']})
       .setSystemTime(new Date('2023-05-31T10:00:00Z'));
     useUserState.setState({
-      user: {uid: 'some-user-id', isAnonymous: false} as FirebaseAuthTypes.User,
+      user: {uid: 'some-user-id', displayName: 'Me'} as FirebaseAuthTypes.User,
     });
     mockPinnedCollections.push(
       {
@@ -73,8 +73,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-0',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.collection.0.title',
-      'reminders.collection.0.body',
+      'reminders.collection.0.personal.title',
+      'reminders.collection.0.personal.body',
       'some-link',
       undefined,
       dayjs('2023-06-01T10:00:00Z').valueOf(),
@@ -82,8 +82,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-1',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.collection.1.title',
-      'reminders.collection.1.body',
+      'reminders.collection.1.personal.title',
+      'reminders.collection.1.personal.body',
       'some-link',
       undefined,
       dayjs('2023-06-08T10:00:00Z').valueOf(),
@@ -91,8 +91,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-2',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.collection.2.title',
-      'reminders.collection.2.body',
+      'reminders.collection.2.personal.title',
+      'reminders.collection.2.personal.body',
       'some-link',
       undefined,
       dayjs('2023-06-15T10:00:00Z').valueOf(),
@@ -100,8 +100,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-3',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.collection.3.title',
-      'reminders.collection.3.body',
+      'reminders.collection.3.personal.title',
+      'reminders.collection.3.personal.body',
       'some-link',
       undefined,
       dayjs('2023-06-22T10:00:00Z').valueOf(),
@@ -113,7 +113,7 @@ describe('useUpdatePracticeReminders', () => {
       .useFakeTimers({doNotFake: ['nextTick', 'setImmediate']})
       .setSystemTime(new Date('2023-05-31T10:00:00Z'));
     useUserState.setState({
-      user: {uid: 'some-user-id', isAnonymous: false} as FirebaseAuthTypes.User,
+      user: {uid: 'some-user-id', displayName: 'Me'} as FirebaseAuthTypes.User,
     });
     mockPinnedCollections.push(
       {
@@ -143,8 +143,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-0',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.collection.0.title',
-      'reminders.collection.0.body',
+      'reminders.collection.0.personal.title',
+      'reminders.collection.0.personal.body',
       'some-link',
       undefined,
       dayjs('2023-06-01T10:00:00Z').valueOf(),
@@ -152,8 +152,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-1',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.collection.1.title',
-      'reminders.collection.1.body',
+      'reminders.collection.1.personal.title',
+      'reminders.collection.1.personal.body',
       'some-link',
       undefined,
       dayjs('2023-06-02T10:00:00Z').valueOf(),
@@ -161,8 +161,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-2',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.collection.2.title',
-      'reminders.collection.2.body',
+      'reminders.collection.2.personal.title',
+      'reminders.collection.2.personal.body',
       'some-link',
       undefined,
       dayjs('2023-06-03T10:00:00Z').valueOf(),
@@ -170,8 +170,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-3',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.collection.3.title',
-      'reminders.collection.3.body',
+      'reminders.collection.3.personal.title',
+      'reminders.collection.3.personal.body',
       'some-link',
       undefined,
       dayjs('2023-06-04T10:00:00Z').valueOf(),
@@ -183,7 +183,7 @@ describe('useUpdatePracticeReminders', () => {
       .useFakeTimers({doNotFake: ['nextTick', 'setImmediate']})
       .setSystemTime(new Date('2023-05-31T10:00:00Z'));
     useUserState.setState({
-      user: {uid: 'some-user-id', isAnonymous: true} as FirebaseAuthTypes.User,
+      user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
     });
     mockPinnedCollections.push(
       {
@@ -213,8 +213,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-0',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.collection.0.title',
-      'reminders.collection.0.bodyAnonymous',
+      'reminders.collection.0.generic.title',
+      'reminders.collection.0.generic.body',
       'some-link',
       undefined,
       dayjs('2023-06-01T10:00:00Z').valueOf(),
@@ -222,8 +222,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-1',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.collection.1.title',
-      'reminders.collection.1.bodyAnonymous',
+      'reminders.collection.1.generic.title',
+      'reminders.collection.1.generic.body',
       'some-link',
       undefined,
       dayjs('2023-06-02T10:00:00Z').valueOf(),
@@ -231,8 +231,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-2',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.collection.2.title',
-      'reminders.collection.2.bodyAnonymous',
+      'reminders.collection.2.generic.title',
+      'reminders.collection.2.generic.body',
       'some-link',
       undefined,
       dayjs('2023-06-03T10:00:00Z').valueOf(),
@@ -240,8 +240,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-3',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.collection.3.title',
-      'reminders.collection.3.bodyAnonymous',
+      'reminders.collection.3.generic.title',
+      'reminders.collection.3.generic.body',
       'some-link',
       undefined,
       dayjs('2023-06-04T10:00:00Z').valueOf(),
@@ -253,7 +253,7 @@ describe('useUpdatePracticeReminders', () => {
       .useFakeTimers({doNotFake: ['nextTick', 'setImmediate']})
       .setSystemTime(new Date('2023-05-31T10:00:00Z'));
     useUserState.setState({
-      user: {uid: 'some-user-id', isAnonymous: false} as FirebaseAuthTypes.User,
+      user: {uid: 'some-user-id', displayName: 'Me'} as FirebaseAuthTypes.User,
     });
     mockPinnedCollections.push({
       id: 'some-collection-id',
@@ -284,8 +284,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-0',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.general.0.title',
-      'reminders.general.0.body',
+      'reminders.general.0.personal.title',
+      'reminders.general.0.personal.body',
       undefined,
       undefined,
       dayjs('2023-06-01T10:00:00Z').valueOf(),
@@ -293,8 +293,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-1',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.general.1.title',
-      'reminders.general.1.body',
+      'reminders.general.1.personal.title',
+      'reminders.general.1.personal.body',
       undefined,
       undefined,
       dayjs('2023-06-02T10:00:00Z').valueOf(),
@@ -302,8 +302,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-2',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.general.2.title',
-      'reminders.general.2.body',
+      'reminders.general.2.personal.title',
+      'reminders.general.2.personal.body',
       undefined,
       undefined,
       dayjs('2023-06-03T10:00:00Z').valueOf(),
@@ -311,8 +311,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-3',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.general.3.title',
-      'reminders.general.3.body',
+      'reminders.general.3.personal.title',
+      'reminders.general.3.personal.body',
       undefined,
       undefined,
       dayjs('2023-06-04T10:00:00Z').valueOf(),
@@ -324,7 +324,7 @@ describe('useUpdatePracticeReminders', () => {
       .useFakeTimers({doNotFake: ['nextTick', 'setImmediate']})
       .setSystemTime(new Date('2023-05-31T10:00:00Z'));
     useUserState.setState({
-      user: {uid: 'some-user-id', isAnonymous: true} as FirebaseAuthTypes.User,
+      user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
       userState: {
         'some-user-id': {
           practiceReminderConfig: {
@@ -360,8 +360,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-0',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.general.0.title',
-      'reminders.general.0.bodyAnonymous',
+      'reminders.general.0.generic.title',
+      'reminders.general.0.generic.body',
       undefined,
       undefined,
       dayjs('2023-06-01T10:00:00Z').valueOf(),
@@ -369,8 +369,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-1',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.general.1.title',
-      'reminders.general.1.bodyAnonymous',
+      'reminders.general.1.generic.title',
+      'reminders.general.1.generic.body',
       undefined,
       undefined,
       dayjs('2023-06-02T10:00:00Z').valueOf(),
@@ -378,8 +378,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-2',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.general.2.title',
-      'reminders.general.2.bodyAnonymous',
+      'reminders.general.2.generic.title',
+      'reminders.general.2.generic.body',
       undefined,
       undefined,
       dayjs('2023-06-03T10:00:00Z').valueOf(),
@@ -387,8 +387,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-3',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.general.3.title',
-      'reminders.general.3.bodyAnonymous',
+      'reminders.general.3.generic.title',
+      'reminders.general.3.generic.body',
       undefined,
       undefined,
       dayjs('2023-06-04T10:00:00Z').valueOf(),
@@ -400,7 +400,7 @@ describe('useUpdatePracticeReminders', () => {
       .useFakeTimers({doNotFake: ['nextTick', 'setImmediate']})
       .setSystemTime(new Date('2023-05-31T10:00:00Z'));
     useUserState.setState({
-      user: {uid: 'some-user-id', isAnonymous: false} as FirebaseAuthTypes.User,
+      user: {uid: 'some-user-id', displayName: 'Me'} as FirebaseAuthTypes.User,
       userState: {
         'some-user-id': {
           practiceReminderConfig: {
@@ -436,8 +436,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-0',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.general.0.title',
-      'reminders.general.0.body',
+      'reminders.general.0.personal.title',
+      'reminders.general.0.personal.body',
       undefined,
       undefined,
       dayjs('2023-06-01T10:00:00Z').valueOf(),
@@ -445,8 +445,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-1',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.general.1.title',
-      'reminders.general.1.body',
+      'reminders.general.1.personal.title',
+      'reminders.general.1.personal.body',
       undefined,
       undefined,
       dayjs('2023-06-02T10:00:00Z').valueOf(),
@@ -454,8 +454,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-2',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.general.2.title',
-      'reminders.general.2.body',
+      'reminders.general.2.personal.title',
+      'reminders.general.2.personal.body',
       undefined,
       undefined,
       dayjs('2023-06-03T10:00:00Z').valueOf(),
@@ -463,8 +463,8 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-3',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
-      'reminders.general.3.title',
-      'reminders.general.3.body',
+      'reminders.general.3.personal.title',
+      'reminders.general.3.personal.body',
       undefined,
       undefined,
       dayjs('2023-06-04T10:00:00Z').valueOf(),
