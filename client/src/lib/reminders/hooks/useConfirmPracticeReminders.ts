@@ -6,12 +6,9 @@ import utc from 'dayjs/plugin/utc';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-import usePracticeRemindersSetting from '../../reminders/hooks/usePracticeRemindersSetting';
+import usePracticeRemindersSetting from './usePracticeRemindersSetting';
 import {ModalStackProps} from '../../navigation/constants/routes';
-import {
-  calculateNextHalfHour,
-  thisWeekday,
-} from '../../reminders/utils/timeHelpers';
+import {calculateNextHalfHour, thisWeekday} from '../utils/timeHelpers';
 
 dayjs.extend(utc);
 

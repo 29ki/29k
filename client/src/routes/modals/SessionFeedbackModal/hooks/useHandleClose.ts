@@ -4,7 +4,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
-import useConfirmPracticeReminders from '../../../../lib/sessions/hooks/useConfirmPracticeReminders';
+import useConfirmPracticeReminders from '../../../../lib/reminders/hooks/useConfirmPracticeReminders';
 import usePinnedCollections from '../../../../lib/user/hooks/usePinnedCollections';
 import useGetCollectionsByExerciseId from '../../../../lib/content/hooks/useGetCollectionsByExerciseId';
 import useRating from '../../../../lib/rating/hooks/useRating';

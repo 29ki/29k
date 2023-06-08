@@ -6,7 +6,7 @@ import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
 
 const mockConfirmPracticeReminders = jest.fn();
 jest.mock(
-  '../../../../lib/sessions/hooks/useConfirmPracticeReminders',
+  '../../../../lib/reminders/hooks/useConfirmPracticeReminders',
   () => () => mockConfirmPracticeReminders,
 );
 

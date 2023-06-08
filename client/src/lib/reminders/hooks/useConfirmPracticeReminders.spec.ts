@@ -1,15 +1,15 @@
 import {Alert} from 'react-native';
 import {renderHook} from '@testing-library/react-hooks';
 
-import usePracticeRemindersSetting from '../../reminders/hooks/usePracticeRemindersSetting';
-import {REMINDER_INTERVALS} from '../../reminders/constants';
+import usePracticeRemindersSetting from './usePracticeRemindersSetting';
+import {REMINDER_INTERVALS} from '../constants';
 import useConfirmPracticeReminders from './useConfirmPracticeReminders';
 
 const mockAlert = jest.mocked(Alert.alert);
 
 const mockSetPracticeRemindersConfig = jest.fn();
 const mockUsePracticeReminderSetting = jest.mocked(usePracticeRemindersSetting);
-jest.mock('../../reminders/hooks/usePracticeRemindersSetting');
+jest.mock('./usePracticeRemindersSetting');
 
 afterEach(jest.clearAllMocks);
 

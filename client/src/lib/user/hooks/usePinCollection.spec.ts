@@ -19,7 +19,7 @@ jest.mock(
 
 const mockConfirmPracticeReminders = jest.fn();
 jest.mock(
-  '../../sessions/hooks/useConfirmPracticeReminders',
+  '../../reminders/hooks/useConfirmPracticeReminders',
   () => () => mockConfirmPracticeReminders,
 );
 
