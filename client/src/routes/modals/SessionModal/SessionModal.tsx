@@ -224,7 +224,7 @@ const SessionModal = () => {
                   name={session.hostProfile?.displayName}
                   onPress={onHostPress}
                 />
-                {isHost && (
+                {isHost && isPublicHost && (
                   <EditButton onPress={onEditHostMode}>
                     <EditIcon>
                       <PencilIcon />
