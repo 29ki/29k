@@ -1,4 +1,5 @@
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
+import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import {
   LiveSessionType,
   SessionMode,
@@ -11,6 +12,7 @@ import {REMINDER_INTERVALS} from '../../reminders/constants';
 export type Origin = {Origin?: string}; // Where is the event originating from
 export type Language = {Language: LANGUAGE_TAG};
 export type Host = {Host: boolean};
+export type Enable = {Enable: boolean};
 
 // Properties available to all events
 export type DefaultProperties = Origin | undefined;
@@ -55,23 +57,19 @@ export type FeedbackProperties = {
 } & ExerciseID;
 
 // Collection properties
-export type CollectionID = {'Collection ID': string};
+export type CollectionID = {
+  'Collection ID': Collection['id'];
+};
 export type CollectionProperties = CollectionID;
 
 //Reminder properties
-export type PressReminderProperties = {
-  id: string;
-  channelId: string;
-  exerciseId?: string;
-  collectionId?: string;
+export type ReminderProperties = {
+  'Notification ID': string;
+  'Notification Channel ID': string;
 };
 
-export type ToggleReminderProperties = {
-  enable: boolean;
-};
-
-export type PracticeReminderProperties = {
-  interval: REMINDER_INTERVALS;
-  hour: number;
-  minute: number;
+export type ReminderSettingsProperties = {
+  'Reminder Interval': REMINDER_INTERVALS;
+  'Reminder Hour': number;
+  'Reminder Minute': number;
 };
