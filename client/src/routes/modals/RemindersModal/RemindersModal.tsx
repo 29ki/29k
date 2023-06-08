@@ -64,9 +64,7 @@ const UpdateButton = styled(Button)({
 });
 
 const RemindersModal = () => {
-  const {
-    params: {hideSessionSetting},
-  } = useRoute<RouteProp<ModalStackProps, 'RemindersModal'>>();
+  const {params} = useRoute<RouteProp<ModalStackProps, 'RemindersModal'>>();
   const {t} = useTranslation('Modal.Reminders');
   const pickerRef = useRef<Picker<REMINDER_INTERVALS>>(null);
   const {sessionRemindersEnabled, setSessionRemindersEnabled} =
@@ -199,7 +197,7 @@ const RemindersModal = () => {
         <Gutters>
           <ModalHeading>{t('title')}</ModalHeading>
           <Spacer24 />
-          {!hideSessionSetting && (
+          {!params?.hideSessionSetting && (
             <>
               <ActionList>
                 <ActionSwitch
