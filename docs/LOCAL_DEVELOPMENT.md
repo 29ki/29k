@@ -44,6 +44,13 @@ cd client
 yarn start
 ```
 
+...or if you need support for running on device:
+
+```
+cd client
+yarn start:device
+```
+
 ## Content
 
 Content needs to be re-built when it's changed.
