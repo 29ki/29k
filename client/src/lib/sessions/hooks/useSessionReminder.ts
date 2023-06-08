@@ -6,7 +6,7 @@ import useExerciseById from '../../content/hooks/useExerciseById';
 import useTriggerNotifications from '../../notifications/hooks/useTriggerNotifications';
 import {NOTIFICATION_CHANNELS} from '../../notifications/constants';
 import useNotificationsState from '../../notifications/state/state';
-import useLogSessionReminderEvents from '../../reminders/hooks/useLogSessionReminderEvents';
+import {logEvent} from '../../metrics';
 
 const useSessionReminder = (session: LiveSessionType) => {
   const {id, exerciseId, startTime, link} = session;
@@ -16,7 +16,6 @@ const useSessionReminder = (session: LiveSessionType) => {
 
   const {setTriggerNotification, removeTriggerNotification} =
     useTriggerNotifications();
-  const logSessionReminderEvents = useLogSessionReminderEvents();
 
   const reminderEnabled = Boolean(
     useNotificationsState(state => state.notifications[id]),
@@ -41,7 +40,7 @@ const useSessionReminder = (session: LiveSessionType) => {
       } else {
         removeTriggerNotification(id);
       }
-      logSessionReminderEvents('Session reminders toggle', enable);
+      logEvent('Sharing Session Reminders Toggle', {enable});
     },
     [
       setTriggerNotification,
@@ -54,7 +53,6 @@ const useSessionReminder = (session: LiveSessionType) => {
       link,
       startTime,
       t,
-      logSessionReminderEvents,
     ],
   );
 

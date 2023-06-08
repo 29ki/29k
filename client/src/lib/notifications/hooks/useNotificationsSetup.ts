@@ -5,14 +5,13 @@ import notifee, {Event} from '@notifee/react-native';
 import useNotificationsState from '../state/state';
 import useResumeFromBackgrounded from '../../appState/hooks/useResumeFromBackgrounded';
 import {NOTIFICATION_CHANNELS, NOTIFICATION_CHANNEL_CONFIG} from '../constants';
-import useLogReminderEvents from '../../reminders/hooks/useLogReminderEvents';
+import {logEvent} from '../../metrics';
 
 const useNotificationsSetup = () => {
   const {t} = useTranslation('Component.NotificationChannels');
   const setNotificationsState = useNotificationsState(
     state => state.setNotifications,
   );
-  const logReminderEvent = useLogReminderEvents();
 
   useEffect(() => {
     Object.values(NOTIFICATION_CHANNELS).forEach(id => {
@@ -32,24 +31,28 @@ const useNotificationsSetup = () => {
     );
   }, [setNotificationsState]);
 
-  const logMetrics = useCallback(
-    async (event: Event) => {
-      if (event.detail.pressAction) {
-        const id = event.detail.notification?.id as string | undefined;
-        const channelId = event.detail.notification?.data?.channelId as
-          | string
-          | undefined;
-        const contentId = event.detail.notification?.data?.contentId as
-          | string
-          | undefined;
+  const logMetrics = useCallback(async (event: Event) => {
+    if (event.detail.pressAction) {
+      const id = event.detail.notification?.id as string | undefined;
+      const channelId = event.detail.notification?.data?.channelId as
+        | string
+        | undefined;
+      const contentId =
+        (event.detail.notification?.data?.contentId as string) ?? '';
 
-        if (id && channelId && contentId) {
-          logReminderEvent('Reminder pressed', id, channelId, contentId);
+      if (id && channelId && contentId) {
+        if (channelId === NOTIFICATION_CHANNELS.PRACTICE_REMINDERS) {
+          logEvent('Reminder Pressed', {
+            id,
+            channelId,
+            collectionId: contentId,
+          });
+        } else {
+          logEvent('Reminder Pressed', {id, channelId, exerciseId: contentId});
         }
       }
-    },
-    [logReminderEvent],
-  );
+    }
+  }, []);
 
   // Update notiiications on mount
   useEffect(() => {

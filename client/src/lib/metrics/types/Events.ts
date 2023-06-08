@@ -52,18 +52,18 @@ type Events = {
   'Add Collection To Journey': CollectionProperties;
 
   //Reminders
-  'Practice reminders accept': undefined;
-  'Practice reminders later': undefined;
-  'Practice reminders decline': undefined;
-  'Practice reminders change': PracticeReminderProperties;
-  'Practice reminders remove': undefined;
+  'Practice Reminders Accept': undefined;
+  'Practice Reminders Later': undefined;
+  'Practice Reminders Decline': undefined;
+  'Practice Reminders Change': PracticeReminderProperties;
+  'Practice Reminders Remove': undefined;
 
-  'Session reminders accept': undefined;
-  'Session reminders later': undefined;
-  'Session reminders decline': undefined;
-  'Session reminders toggle': ToggleReminderProperties;
+  'Sharing Session Reminders Accept': undefined;
+  'Sharing Session Reminders Later': undefined;
+  'Sharing Session Reminders Decline': undefined;
+  'Sharing Session Reminders Toggle': ToggleReminderProperties;
 
-  'Reminder pressed': ReminderPressedProperties;
+  'Reminder Pressed': ReminderPressedProperties;
 };
 
 export default Events;

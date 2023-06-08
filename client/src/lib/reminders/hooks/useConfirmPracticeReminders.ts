@@ -8,7 +8,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import usePracticeRemindersSetting from './usePracticeRemindersSetting';
 import {ModalStackProps} from '../../navigation/constants/routes';
 import {calculateNextHalfHour, thisWeekday} from '../utils/timeHelpers';
-import useLogPracticeReminderEvents from './useLogPracticeReminderEvents';
+import {logEvent} from '../../metrics';
 
 const useConfirmPracticeReminders = () => {
   const {t} = useTranslation('Component.ConfirmPracticeReminders');
@@ -16,7 +16,6 @@ const useConfirmPracticeReminders = () => {
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {practiceReminderConfig, setPracticeRemindersConfig} =
     usePracticeRemindersSetting();
-  const logPracticeReminderEvents = useLogPracticeReminderEvents();
 
   const confirmPracticeReminder = useCallback(
     async (enable: boolean) => {
@@ -27,13 +26,13 @@ const useConfirmPracticeReminders = () => {
             style: 'destructive',
             onPress: async () => {
               await setPracticeRemindersConfig(null);
-              logPracticeReminderEvents('Practice reminders decline');
+              logEvent('Practice Reminders Decline', undefined);
             },
           },
           {
             text: t('actions.cancel'),
             onPress: () => {
-              logPracticeReminderEvents('Practice reminders later');
+              logEvent('Practice Reminders Later', undefined);
             },
           },
           {
@@ -42,7 +41,7 @@ const useConfirmPracticeReminders = () => {
               const interval = thisWeekday();
               const [hour, minute] = calculateNextHalfHour(dayjs().utc());
               await setPracticeRemindersConfig({interval, hour, minute});
-              logPracticeReminderEvents('Practice reminders accept');
+              logEvent('Practice Reminders Accept', undefined);
               navigate('RemindersModal', {hideSessionSetting: true});
             },
           },
@@ -51,13 +50,7 @@ const useConfirmPracticeReminders = () => {
         await setPracticeRemindersConfig(null);
       }
     },
-    [
-      t,
-      navigate,
-      setPracticeRemindersConfig,
-      practiceReminderConfig,
-      logPracticeReminderEvents,
-    ],
+    [t, navigate, setPracticeRemindersConfig, practiceReminderConfig],
   );
 
   return confirmPracticeReminder;
