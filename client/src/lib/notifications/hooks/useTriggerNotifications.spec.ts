@@ -99,6 +99,7 @@ describe('useTriggerNotifications', () => {
         await result.current.setTriggerNotification(
           'some-id',
           NOTIFICATION_CHANNELS.SESSION_REMINDERS,
+          'some-content-id',
           'Some title',
           'Some body',
           'http://some.deep/link',
