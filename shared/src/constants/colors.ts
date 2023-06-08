@@ -6,7 +6,8 @@ export const COLORS = {
   WHITE: '#F9F8F4',
   CREAM: '#FBF5E9',
   PURE_WHITE: '#FFFFFF',
-  MEDIUM_GREEN: '#70BB93',
+  MEDIUM_DARK_GREEN: '#70BB93',
+  MEDIUM_GREEN: '#A9DAC1',
   LIGHT_GREEN: '#D0E2DA',
 
   // Greyscale
