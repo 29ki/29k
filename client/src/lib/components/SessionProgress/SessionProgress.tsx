@@ -31,7 +31,7 @@ const ProgressItem = styled.View<{completed: boolean}>(({completed}) => ({
   height: 14,
   width: 14,
   borderRadius: 24,
-  backgroundColor: completed ? COLORS.MEDIUM_GREEN : COLORS.PURE_WHITE,
+  backgroundColor: completed ? COLORS.MEDIUM_DARK_GREEN : COLORS.PURE_WHITE,
 }));
 
 type SessionProgressProps = {
@@ -41,8 +41,8 @@ type SessionProgressProps = {
 const SessionProgress: React.FC<SessionProgressProps> = ({items}) => {
   const colors = useMemo(
     () => [
-      hexToRgba(COLORS.MEDIUM_GREEN, 1),
-      hexToRgba(COLORS.MEDIUM_GREEN, 1),
+      hexToRgba(COLORS.MEDIUM_DARK_GREEN, 1),
+      hexToRgba(COLORS.MEDIUM_DARK_GREEN, 1),
       hexToRgba(COLORS.PURE_WHITE, 1),
       hexToRgba(COLORS.PURE_WHITE, 1),
       hexToRgba(COLORS.PURE_WHITE, 1),
