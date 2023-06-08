@@ -74,13 +74,9 @@ describe('useNotificationsSetup', () => {
 
       type EventCallback = (event?: Event) => Promise<void>;
       let eventCallback: EventCallback = () => Promise.resolve();
-      mockOnForegroundEvent
-        .mockImplementationOnce(callback => {
-          eventCallback = callback;
-        })
-        .mockImplementationOnce(callback => {
-          callback();
-        });
+      mockOnForegroundEvent.mockImplementation(callback => {
+        eventCallback = callback;
+      });
 
       renderHook(() => useNotificationsSetup());
 
@@ -116,13 +112,9 @@ describe('useNotificationsSetup', () => {
 
       type EventCallback = (event?: Event) => Promise<void>;
       let eventCallback: EventCallback = () => Promise.resolve();
-      mockOnForegroundEvent
-        .mockImplementationOnce(callback => {
-          eventCallback = callback;
-        })
-        .mockImplementationOnce(callback => {
-          callback();
-        });
+      mockOnForegroundEvent.mockImplementation(callback => {
+        eventCallback = callback;
+      });
 
       renderHook(() => useNotificationsSetup());
 
@@ -157,13 +149,9 @@ describe('useNotificationsSetup', () => {
 
       type EventCallback = (event?: Event) => Promise<void>;
       let eventCallback: EventCallback = () => Promise.resolve();
-      mockOnForegroundEvent
-        .mockImplementationOnce(callback => {
-          eventCallback = callback as EventCallback;
-        })
-        .mockImplementationOnce(callback => {
-          callback();
-        });
+      mockOnForegroundEvent.mockImplementation(callback => {
+        eventCallback = callback as EventCallback;
+      });
 
       renderHook(() => useNotificationsSetup());
 
@@ -195,7 +183,7 @@ describe('useNotificationsSetup', () => {
 
       unmount();
 
-      expect(mockUnsubscribe).toHaveBeenCalledTimes(2);
+      expect(mockUnsubscribe).toHaveBeenCalledTimes(1);
     });
   });
 
