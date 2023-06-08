@@ -54,3 +54,21 @@ export const calculateNextReminderTime = (
     return nextTime.add(1, 'day');
   }
 };
+
+export const calculateNextHalfHour = (now: dayjs.Dayjs): [number, number] => {
+  if (now.minute() === 30) {
+    return [now.hour(), now.minute()];
+  }
+  if (now.minute() < 30) {
+    return [now.hour(), 30];
+  }
+
+  const time = now.add(1, 'hour');
+  return [time.hour(), 0];
+};
+
+export const thisWeekday = (): REMINDER_INTERVALS => {
+  return Object.values(REMINDER_INTERVALS)[
+    dayjs().isoWeekday()
+  ] as REMINDER_INTERVALS;
+};

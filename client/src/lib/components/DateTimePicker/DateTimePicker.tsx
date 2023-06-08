@@ -5,7 +5,6 @@ import dayjs from 'dayjs';
 import React, {useCallback, useEffect, useState} from 'react';
 import {Platform} from 'react-native';
 import styled from 'styled-components/native';
-import utc from 'dayjs/plugin/utc';
 import {useTranslation} from 'react-i18next';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -13,8 +12,6 @@ import {SPACINGS} from '../../constants/spacings';
 
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Body16, BodyBold} from '../Typography/Body/Body';
-
-dayjs.extend(utc);
 
 const Wrapper = styled.View({
   backgroundColor: COLORS.WHITE,

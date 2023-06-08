@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import {calculateNextReminderTime} from './dates';
+import {calculateNextReminderTime} from './timeHelpers';
 import {REMINDER_INTERVALS} from '../constants';
 
 describe('calculateNextReminderTime', () => {

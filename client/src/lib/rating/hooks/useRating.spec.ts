@@ -16,6 +16,12 @@ import {Alert as AlertMock} from 'react-native';
 
 const alertConfirmMock = AlertMock.alert as jest.Mock;
 
+const mockGetSessionsByFeedback = jest.fn();
+jest.mock(
+  '../../user/hooks/useGetSessionsByFeedback',
+  () => () => mockGetSessionsByFeedback,
+);
+
 beforeEach(() => {
   jest.clearAllMocks();
 });
@@ -32,6 +38,7 @@ describe('useRating', () => {
         showHiddenContent: false,
       },
     });
+    mockGetSessionsByFeedback.mockReturnValueOnce([{}, {}]);
 
     const {result} = renderHook(() => useRating());
 
@@ -58,6 +65,24 @@ describe('useRating', () => {
     });
   });
 
+  it('should not ask for rating when only one postive feedback given', () => {
+    useAppState.setState({
+      settings: {
+        appRatedRevision: APP_RATING_REVISION - 1,
+        showOnboarding: true,
+        showHiddenContent: false,
+      },
+    });
+    mockGetSessionsByFeedback.mockReturnValueOnce([{}]);
+
+    const {result} = renderHook(() => useRating());
+
+    act(() => {
+      expect(result.current()).toBe(false);
+      expect(alertConfirmMock).toHaveBeenCalledTimes(0);
+    });
+  });
+
   it('should not ask for rating if already given', () => {
     useAppState.setState({
       settings: {
@@ -66,6 +91,7 @@ describe('useRating', () => {
         showHiddenContent: false,
       },
     });
+    mockGetSessionsByFeedback.mockReturnValueOnce([{}, {}]);
 
     const {result} = renderHook(() => useRating());
 

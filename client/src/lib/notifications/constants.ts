@@ -41,7 +41,7 @@ export const NOTIFICATION_CHANNEL_CONFIG: {
       color: COLORS.PRIMARY,
     },
     ios: {
-      interruptionLevel: 'active',
+      interruptionLevel: 'timeSensitive',
     },
   },
 };
