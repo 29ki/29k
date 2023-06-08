@@ -21,13 +21,13 @@ const useConfirmSessionReminder = (session: LiveSessionType) => {
             style: 'destructive',
             onPress: async () => {
               await setSessionRemindersEnabled(false);
-              logEvent('Sharing Session Reminders Decline', undefined);
+              logEvent('Decline Sharing Session Reminders', undefined);
             },
           },
           {
             text: t('actions.cancel'),
             onPress: () => {
-              logEvent('Sharing Session Reminders Later', undefined);
+              logEvent('Postpone Sharing Session Reminders', undefined);
             },
           },
           {
@@ -35,7 +35,7 @@ const useConfirmSessionReminder = (session: LiveSessionType) => {
             onPress: async () => {
               await setSessionRemindersEnabled(true);
               await toggleReminder(true);
-              logEvent('Sharing Session Reminders Accept', undefined);
+              logEvent('Accept Sharing Session Reminders', undefined);
             },
           },
         ]);

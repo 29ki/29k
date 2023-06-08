@@ -42,13 +42,13 @@ const useNotificationsSetup = () => {
 
       if (id && channelId && contentId) {
         if (channelId === NOTIFICATION_CHANNELS.PRACTICE_REMINDERS) {
-          logEvent('Reminder Pressed', {
+          logEvent('Press Reminder', {
             id,
             channelId,
             collectionId: contentId,
           });
         } else {
-          logEvent('Reminder Pressed', {id, channelId, exerciseId: contentId});
+          logEvent('Press Reminder', {id, channelId, exerciseId: contentId});
         }
       }
     }

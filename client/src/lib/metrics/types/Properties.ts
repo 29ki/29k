@@ -59,7 +59,7 @@ export type CollectionID = {'Collection ID': string};
 export type CollectionProperties = CollectionID;
 
 //Reminder properties
-export type ReminderPressedProperties = {
+export type PressReminderProperties = {
   id: string;
   channelId: string;
   exerciseId?: string;

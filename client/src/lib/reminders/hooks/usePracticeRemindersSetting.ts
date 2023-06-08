@@ -38,9 +38,9 @@ const usePracticeRemindersSetting = () => {
       setUserState({practiceReminderConfig: config});
       updatePracticeNotifications(config);
       if (config) {
-        logEvent('Practice Reminders Change', config);
+        logEvent('Change Practice Reminders', config);
       } else {
-        logEvent('Practice Reminders Remove', undefined);
+        logEvent('Remove Practice Reminders', undefined);
       }
     },
     [requestPermission, setUserState, updatePracticeNotifications],

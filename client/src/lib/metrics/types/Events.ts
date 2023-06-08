@@ -7,7 +7,7 @@ import {
   CollectionProperties,
   PracticeReminderProperties,
   ToggleReminderProperties,
-  ReminderPressedProperties,
+  PressReminderProperties,
 } from './Properties';
 
 type Events = {
@@ -52,18 +52,18 @@ type Events = {
   'Add Collection To Journey': CollectionProperties;
 
   //Reminders
-  'Practice Reminders Accept': undefined;
-  'Practice Reminders Later': undefined;
-  'Practice Reminders Decline': undefined;
-  'Practice Reminders Change': PracticeReminderProperties;
-  'Practice Reminders Remove': undefined;
+  'Accept Practice Reminders': undefined;
+  'Postpone Practice Reminders': undefined;
+  'Decline Practice Reminders': undefined;
+  'Change Practice Reminders': PracticeReminderProperties;
+  'Remove Practice Reminders': undefined;
 
-  'Sharing Session Reminders Accept': undefined;
-  'Sharing Session Reminders Later': undefined;
-  'Sharing Session Reminders Decline': undefined;
-  'Sharing Session Reminders Toggle': ToggleReminderProperties;
+  'Accept Sharing Session Reminders': undefined;
+  'Postpone Sharing Session Reminders': undefined;
+  'Decline Sharing Session Reminders': undefined;
+  'Toggle Sharing Session Reminders': ToggleReminderProperties;
 
-  'Reminder Pressed': ReminderPressedProperties;
+  'Press Reminder': PressReminderProperties;
 };
 
 export default Events;

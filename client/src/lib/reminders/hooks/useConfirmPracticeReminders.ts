@@ -26,13 +26,13 @@ const useConfirmPracticeReminders = () => {
             style: 'destructive',
             onPress: async () => {
               await setPracticeRemindersConfig(null);
-              logEvent('Practice Reminders Decline', undefined);
+              logEvent('Decline Practice Reminders', undefined);
             },
           },
           {
             text: t('actions.cancel'),
             onPress: () => {
-              logEvent('Practice Reminders Later', undefined);
+              logEvent('Postpone Practice Reminders', undefined);
             },
           },
           {
@@ -41,7 +41,7 @@ const useConfirmPracticeReminders = () => {
               const interval = thisWeekday();
               const [hour, minute] = calculateNextHalfHour(dayjs().utc());
               await setPracticeRemindersConfig({interval, hour, minute});
-              logEvent('Practice Reminders Accept', undefined);
+              logEvent('Accept Practice Reminders', undefined);
               navigate('RemindersModal', {hideSessionSetting: true});
             },
           },
