@@ -28,6 +28,7 @@ const useSessionReminder = (session: LiveSessionType) => {
         setTriggerNotification(
           id,
           NOTIFICATION_CHANNELS.SESSION_REMINDERS,
+          exerciseId,
           t('title', {
             exercise: exercise?.name,
             host: session.hostProfile?.displayName,
@@ -47,6 +48,7 @@ const useSessionReminder = (session: LiveSessionType) => {
       removeTriggerNotification,
       id,
       exercise?.name,
+      exerciseId,
       session.hostProfile?.photoURL,
       session.hostProfile?.displayName,
       link,

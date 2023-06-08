@@ -59,6 +59,13 @@ export type CollectionID = {'Collection ID': string};
 export type CollectionProperties = CollectionID;
 
 //Reminder properties
+export type ReminderPressedProperties = {
+  id: string;
+  channelId: string;
+  exerciseId?: string;
+  collectionId?: string;
+};
+
 export type ToggleReminderProperties = {
   enable: boolean;
 };

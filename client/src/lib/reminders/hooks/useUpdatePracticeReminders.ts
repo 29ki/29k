@@ -93,6 +93,7 @@ const useUpdatePracticeReminders = () => {
           await setTriggerNotification(
             `${ID_PREFIX}-${index}`,
             NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+            collection?.id,
             resolveTitle(collection, index),
             resolveBody(collection, index),
             collection?.link,

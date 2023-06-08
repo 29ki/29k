@@ -56,6 +56,7 @@ describe('useUpdatePracticeReminders', () => {
       },
     );
     mockGetCollectionById.mockReturnValueOnce({
+      id: 'some-collection-id',
       link: 'some-link',
       name: 'some name',
     });
@@ -73,6 +74,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-0',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.0.personal.title',
       'reminders.collection.0.personal.body',
       'some-link',
@@ -82,6 +84,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-1',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.1.personal.title',
       'reminders.collection.1.personal.body',
       'some-link',
@@ -91,6 +94,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-2',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.2.personal.title',
       'reminders.collection.2.personal.body',
       'some-link',
@@ -100,6 +104,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-3',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.3.personal.title',
       'reminders.collection.3.personal.body',
       'some-link',
@@ -126,6 +131,7 @@ describe('useUpdatePracticeReminders', () => {
       },
     );
     mockGetCollectionById.mockReturnValueOnce({
+      id: 'some-collection-id',
       link: 'some-link',
       name: 'some name',
     });
@@ -143,6 +149,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-0',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.0.personal.title',
       'reminders.collection.0.personal.body',
       'some-link',
@@ -152,6 +159,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-1',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.1.personal.title',
       'reminders.collection.1.personal.body',
       'some-link',
@@ -161,6 +169,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-2',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.2.personal.title',
       'reminders.collection.2.personal.body',
       'some-link',
@@ -170,6 +179,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-3',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.3.personal.title',
       'reminders.collection.3.personal.body',
       'some-link',
@@ -196,6 +206,7 @@ describe('useUpdatePracticeReminders', () => {
       },
     );
     mockGetCollectionById.mockReturnValueOnce({
+      id: 'some-collection-id',
       link: 'some-link',
       name: 'some name',
     });
@@ -213,6 +224,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-0',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.0.generic.title',
       'reminders.collection.0.generic.body',
       'some-link',
@@ -222,6 +234,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-1',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.1.generic.title',
       'reminders.collection.1.generic.body',
       'some-link',
@@ -231,6 +244,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-2',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.2.generic.title',
       'reminders.collection.2.generic.body',
       'some-link',
@@ -240,6 +254,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-3',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.3.generic.title',
       'reminders.collection.3.generic.body',
       'some-link',
@@ -284,6 +299,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-0',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.0.personal.title',
       'reminders.general.0.personal.body',
       undefined,
@@ -293,6 +309,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-1',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.1.personal.title',
       'reminders.general.1.personal.body',
       undefined,
@@ -302,6 +319,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-2',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.2.personal.title',
       'reminders.general.2.personal.body',
       undefined,
@@ -311,6 +329,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-3',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.3.personal.title',
       'reminders.general.3.personal.body',
       undefined,
@@ -360,6 +379,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-0',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.0.generic.title',
       'reminders.general.0.generic.body',
       undefined,
@@ -369,6 +389,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-1',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.1.generic.title',
       'reminders.general.1.generic.body',
       undefined,
@@ -378,6 +399,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-2',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.2.generic.title',
       'reminders.general.2.generic.body',
       undefined,
@@ -387,6 +409,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-3',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.3.generic.title',
       'reminders.general.3.generic.body',
       undefined,
@@ -423,6 +446,7 @@ describe('useUpdatePracticeReminders', () => {
       },
     });
     mockGetCollectionById.mockReturnValueOnce({
+      id: 'some-collection-id',
       link: 'some-link',
       name: 'some name',
     });
@@ -436,6 +460,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-0',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.0.personal.title',
       'reminders.general.0.personal.body',
       undefined,
@@ -445,6 +470,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-1',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.1.personal.title',
       'reminders.general.1.personal.body',
       undefined,
@@ -454,6 +480,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-2',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.2.personal.title',
       'reminders.general.2.personal.body',
       undefined,
@@ -463,6 +490,7 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
       'practice-3',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.3.personal.title',
       'reminders.general.3.personal.body',
       undefined,

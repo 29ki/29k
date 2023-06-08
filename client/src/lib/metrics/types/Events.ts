@@ -7,6 +7,7 @@ import {
   CollectionProperties,
   PracticeReminderProperties,
   ToggleReminderProperties,
+  ReminderPressedProperties,
 } from './Properties';
 
 type Events = {
@@ -61,6 +62,8 @@ type Events = {
   'Session reminders later': undefined;
   'Session reminders decline': undefined;
   'Session reminders toggle': ToggleReminderProperties;
+
+  'Reminder pressed': ReminderPressedProperties;
 };
 
 export default Events;
