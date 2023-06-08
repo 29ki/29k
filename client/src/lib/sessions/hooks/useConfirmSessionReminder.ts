@@ -4,6 +4,7 @@ import {Alert} from 'react-native';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import useSessionRemindersSetting from '../../reminders/hooks/useSessionRemindersSetting';
 import useSessionReminder from './useSessionReminder';
+import {logEvent} from '../../metrics';
 
 const useConfirmSessionReminder = (session: LiveSessionType) => {
   const {t} = useTranslation('Component.ConfirmSessionReminder');
@@ -20,16 +21,21 @@ const useConfirmSessionReminder = (session: LiveSessionType) => {
             style: 'destructive',
             onPress: async () => {
               await setSessionRemindersEnabled(false);
+              logEvent('Decline Sharing Session Reminders', undefined);
             },
           },
           {
             text: t('actions.cancel'),
+            onPress: () => {
+              logEvent('Postpone Sharing Session Reminders', undefined);
+            },
           },
           {
             text: t('actions.confirm'),
             onPress: async () => {
               await setSessionRemindersEnabled(true);
               await toggleReminder(true);
+              logEvent('Accept Sharing Session Reminders', undefined);
             },
           },
         ]);

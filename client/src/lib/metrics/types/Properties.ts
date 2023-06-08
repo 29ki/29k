@@ -5,6 +5,7 @@ import {
   SessionType,
 } from '../../../../../shared/src/schemas/Session';
 import {LANGUAGE_TAG} from '../../i18n';
+import {REMINDER_INTERVALS} from '../../reminders/constants';
 
 // General properties
 export type Origin = {Origin?: string}; // Where is the event originating from
@@ -56,3 +57,21 @@ export type FeedbackProperties = {
 // Collection properties
 export type CollectionID = {'Collection ID': string};
 export type CollectionProperties = CollectionID;
+
+//Reminder properties
+export type PressReminderProperties = {
+  id: string;
+  channelId: string;
+  exerciseId?: string;
+  collectionId?: string;
+};
+
+export type ToggleReminderProperties = {
+  enable: boolean;
+};
+
+export type PracticeReminderProperties = {
+  interval: REMINDER_INTERVALS;
+  hour: number;
+  minute: number;
+};

@@ -56,6 +56,7 @@ describe('useUpdatePracticeReminders', () => {
       },
     );
     mockGetCollectionById.mockReturnValueOnce({
+      id: 'some-collection-id',
       link: 'some-link',
       name: 'some name',
     });
@@ -71,8 +72,9 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedRemoveTriggerNotifications).toHaveBeenCalledTimes(1);
     expect(mockedSetTriggerNotification).toHaveBeenCalledTimes(4);
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-0',
+      'reminders.collection.0.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.0.personal.title',
       'reminders.collection.0.personal.body',
       'some-link',
@@ -80,8 +82,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-01T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-1',
+      'reminders.collection.1.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.1.personal.title',
       'reminders.collection.1.personal.body',
       'some-link',
@@ -89,8 +92,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-08T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-2',
+      'reminders.collection.2.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.2.personal.title',
       'reminders.collection.2.personal.body',
       'some-link',
@@ -98,8 +102,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-15T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-3',
+      'reminders.collection.3.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.3.personal.title',
       'reminders.collection.3.personal.body',
       'some-link',
@@ -126,6 +131,7 @@ describe('useUpdatePracticeReminders', () => {
       },
     );
     mockGetCollectionById.mockReturnValueOnce({
+      id: 'some-collection-id',
       link: 'some-link',
       name: 'some name',
     });
@@ -141,8 +147,9 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedRemoveTriggerNotifications).toHaveBeenCalledTimes(1);
     expect(mockedSetTriggerNotification).toHaveBeenCalledTimes(4);
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-0',
+      'reminders.collection.0.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.0.personal.title',
       'reminders.collection.0.personal.body',
       'some-link',
@@ -150,8 +157,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-01T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-1',
+      'reminders.collection.1.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.1.personal.title',
       'reminders.collection.1.personal.body',
       'some-link',
@@ -159,8 +167,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-02T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-2',
+      'reminders.collection.2.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.2.personal.title',
       'reminders.collection.2.personal.body',
       'some-link',
@@ -168,8 +177,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-03T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-3',
+      'reminders.collection.3.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.3.personal.title',
       'reminders.collection.3.personal.body',
       'some-link',
@@ -196,6 +206,7 @@ describe('useUpdatePracticeReminders', () => {
       },
     );
     mockGetCollectionById.mockReturnValueOnce({
+      id: 'some-collection-id',
       link: 'some-link',
       name: 'some name',
     });
@@ -211,8 +222,9 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedRemoveTriggerNotifications).toHaveBeenCalledTimes(1);
     expect(mockedSetTriggerNotification).toHaveBeenCalledTimes(4);
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-0',
+      'reminders.collection.0.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.0.generic.title',
       'reminders.collection.0.generic.body',
       'some-link',
@@ -220,8 +232,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-01T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-1',
+      'reminders.collection.1.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.1.generic.title',
       'reminders.collection.1.generic.body',
       'some-link',
@@ -229,8 +242,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-02T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-2',
+      'reminders.collection.2.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.2.generic.title',
       'reminders.collection.2.generic.body',
       'some-link',
@@ -238,8 +252,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-03T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-3',
+      'reminders.collection.3.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      'some-collection-id',
       'reminders.collection.3.generic.title',
       'reminders.collection.3.generic.body',
       'some-link',
@@ -282,8 +297,9 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedRemoveTriggerNotifications).toHaveBeenCalledTimes(1);
     expect(mockedSetTriggerNotification).toHaveBeenCalledTimes(4);
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-0',
+      'reminders.general.0.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.0.personal.title',
       'reminders.general.0.personal.body',
       undefined,
@@ -291,8 +307,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-01T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-1',
+      'reminders.general.1.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.1.personal.title',
       'reminders.general.1.personal.body',
       undefined,
@@ -300,8 +317,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-02T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-2',
+      'reminders.general.2.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.2.personal.title',
       'reminders.general.2.personal.body',
       undefined,
@@ -309,8 +327,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-03T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-3',
+      'reminders.general.3.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.3.personal.title',
       'reminders.general.3.personal.body',
       undefined,
@@ -358,8 +377,9 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedRemoveTriggerNotifications).toHaveBeenCalledTimes(1);
     expect(mockedSetTriggerNotification).toHaveBeenCalledTimes(4);
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-0',
+      'reminders.general.0.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.0.generic.title',
       'reminders.general.0.generic.body',
       undefined,
@@ -367,8 +387,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-01T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-1',
+      'reminders.general.1.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.1.generic.title',
       'reminders.general.1.generic.body',
       undefined,
@@ -376,8 +397,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-02T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-2',
+      'reminders.general.2.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.2.generic.title',
       'reminders.general.2.generic.body',
       undefined,
@@ -385,8 +407,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-03T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-3',
+      'reminders.general.3.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.3.generic.title',
       'reminders.general.3.generic.body',
       undefined,
@@ -423,6 +446,7 @@ describe('useUpdatePracticeReminders', () => {
       },
     });
     mockGetCollectionById.mockReturnValueOnce({
+      id: 'some-collection-id',
       link: 'some-link',
       name: 'some name',
     });
@@ -434,8 +458,9 @@ describe('useUpdatePracticeReminders', () => {
     expect(mockedRemoveTriggerNotifications).toHaveBeenCalledTimes(1);
     expect(mockedSetTriggerNotification).toHaveBeenCalledTimes(4);
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-0',
+      'reminders.general.0.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.0.personal.title',
       'reminders.general.0.personal.body',
       undefined,
@@ -443,8 +468,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-01T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-1',
+      'reminders.general.1.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.1.personal.title',
       'reminders.general.1.personal.body',
       undefined,
@@ -452,8 +478,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-02T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-2',
+      'reminders.general.2.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.2.personal.title',
       'reminders.general.2.personal.body',
       undefined,
@@ -461,8 +488,9 @@ describe('useUpdatePracticeReminders', () => {
       dayjs('2023-06-03T10:00:00Z').valueOf(),
     );
     expect(mockedSetTriggerNotification).toHaveBeenCalledWith(
-      'practice-3',
+      'reminders.general.3.id',
       NOTIFICATION_CHANNELS.PRACTICE_REMINDERS,
+      undefined,
       'reminders.general.3.personal.title',
       'reminders.general.3.personal.body',
       undefined,

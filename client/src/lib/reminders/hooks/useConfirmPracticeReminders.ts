@@ -8,6 +8,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import usePracticeRemindersSetting from './usePracticeRemindersSetting';
 import {ModalStackProps} from '../../navigation/constants/routes';
 import {calculateNextHalfHour, thisWeekday} from '../utils/timeHelpers';
+import {logEvent} from '../../metrics';
 
 const useConfirmPracticeReminders = () => {
   const {t} = useTranslation('Component.ConfirmPracticeReminders');
@@ -25,10 +26,14 @@ const useConfirmPracticeReminders = () => {
             style: 'destructive',
             onPress: async () => {
               await setPracticeRemindersConfig(null);
+              logEvent('Decline Practice Reminders', undefined);
             },
           },
           {
             text: t('actions.cancel'),
+            onPress: () => {
+              logEvent('Postpone Practice Reminders', undefined);
+            },
           },
           {
             text: t('actions.confirm'),
@@ -36,6 +41,7 @@ const useConfirmPracticeReminders = () => {
               const interval = thisWeekday();
               const [hour, minute] = calculateNextHalfHour(dayjs().utc());
               await setPracticeRemindersConfig({interval, hour, minute});
+              logEvent('Accept Practice Reminders', undefined);
               navigate('RemindersModal', {hideSessionSetting: true});
             },
           },

@@ -1,6 +1,10 @@
 import {useCallback} from 'react';
 import useNotificationsState from '../state/state';
-import notifee, {TimestampTrigger, TriggerType} from '@notifee/react-native';
+import notifee, {
+  Notification,
+  TimestampTrigger,
+  TriggerType,
+} from '@notifee/react-native';
 import {NOTIFICATION_CHANNELS, NOTIFICATION_CHANNEL_CONFIG} from '../constants';
 import useNotificationPermissions from './useNotificationPermissions';
 
@@ -18,6 +22,7 @@ const useTriggerNotifications = () => {
     async (
       id: string,
       channelId: NOTIFICATION_CHANNELS,
+      contentId: string | undefined = '',
       title: string,
       body: string,
       url: string | undefined = '',
@@ -35,13 +40,14 @@ const useTriggerNotifications = () => {
         };
 
         // Create a trigger notification
-        const notification = {
+        const notification: Notification = {
           id,
           title,
           body,
           data: {
             url,
             channelId,
+            contentId,
             date: new Date(timestamp).toISOString(),
           },
           android: {

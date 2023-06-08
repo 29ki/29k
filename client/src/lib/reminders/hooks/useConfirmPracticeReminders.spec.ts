@@ -88,7 +88,7 @@ describe('useConfirmPracticeReminders', () => {
           style: 'destructive',
           onPress: expect.any(Function),
         },
-        {text: 'actions.cancel'},
+        {text: 'actions.cancel', onPress: expect.any(Function)},
         {
           text: 'actions.confirm',
           onPress: expect.any(Function),

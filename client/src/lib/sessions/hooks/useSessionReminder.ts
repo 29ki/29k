@@ -6,6 +6,7 @@ import useExerciseById from '../../content/hooks/useExerciseById';
 import useTriggerNotifications from '../../notifications/hooks/useTriggerNotifications';
 import {NOTIFICATION_CHANNELS} from '../../notifications/constants';
 import useNotificationsState from '../../notifications/state/state';
+import {logEvent} from '../../metrics';
 
 const useSessionReminder = (session: LiveSessionType) => {
   const {id, exerciseId, startTime, link} = session;
@@ -21,26 +22,32 @@ const useSessionReminder = (session: LiveSessionType) => {
   );
 
   const toggleReminder = useCallback(
-    async (enable = true) =>
-      enable
-        ? setTriggerNotification(
-            id,
-            NOTIFICATION_CHANNELS.SESSION_REMINDERS,
-            t('title', {
-              exercise: exercise?.name,
-              host: session.hostProfile?.displayName,
-            }),
-            t('body'),
-            link,
-            session.hostProfile?.photoURL,
-            dayjs(startTime).subtract(10, 'minutes').valueOf(),
-          )
-        : removeTriggerNotification(id),
+    async (enable = true) => {
+      if (enable) {
+        setTriggerNotification(
+          id,
+          NOTIFICATION_CHANNELS.SESSION_REMINDERS,
+          exerciseId,
+          t('title', {
+            exercise: exercise?.name,
+            host: session.hostProfile?.displayName,
+          }),
+          t('body'),
+          link,
+          session.hostProfile?.photoURL,
+          dayjs(startTime).subtract(10, 'minutes').valueOf(),
+        );
+      } else {
+        removeTriggerNotification(id);
+      }
+      logEvent('Toggle Sharing Session Reminders', {enable});
+    },
     [
       setTriggerNotification,
       removeTriggerNotification,
       id,
       exercise?.name,
+      exerciseId,
       session.hostProfile?.photoURL,
       session.hostProfile?.displayName,
       link,

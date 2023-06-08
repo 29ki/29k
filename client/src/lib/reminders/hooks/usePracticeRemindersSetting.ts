@@ -3,6 +3,7 @@ import useCurrentUserState from '../../user/hooks/useCurrentUserState';
 import useUserState, {PracticeReminderConfig} from '../../user/state/state';
 import useNotificationPermissions from '../../notifications/hooks/useNotificationPermissions';
 import useUpdatePracticeReminders from './useUpdatePracticeReminders';
+import {logEvent} from '../../metrics';
 
 const usePracticeRemindersSetting = () => {
   const userState = useCurrentUserState();
@@ -36,6 +37,11 @@ const usePracticeRemindersSetting = () => {
 
       setUserState({practiceReminderConfig: config});
       updatePracticeNotifications(config);
+      if (config) {
+        logEvent('Change Practice Reminders', config);
+      } else {
+        logEvent('Remove Practice Reminders', undefined);
+      }
     },
     [requestPermission, setUserState, updatePracticeNotifications],
   );

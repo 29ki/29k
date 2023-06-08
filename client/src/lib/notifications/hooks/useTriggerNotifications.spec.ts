@@ -34,6 +34,7 @@ describe('useTriggerNotifications', () => {
         await result.current.setTriggerNotification(
           'some-id',
           NOTIFICATION_CHANNELS.SESSION_REMINDERS,
+          'some-content-id',
           'Some title',
           'Some body',
           'http://some.deep/link',
@@ -53,6 +54,7 @@ describe('useTriggerNotifications', () => {
               data: {
                 date: new Date(timestamp).toISOString(),
                 channelId: 'session-reminders',
+                contentId: 'some-content-id',
                 url: 'http://some.deep/link',
               },
             },
@@ -73,6 +75,7 @@ describe('useTriggerNotifications', () => {
           data: {
             date: new Date(timestamp).toISOString(),
             channelId: 'session-reminders',
+            contentId: 'some-content-id',
             url: 'http://some.deep/link',
           },
           id: 'some-id',
@@ -96,6 +99,7 @@ describe('useTriggerNotifications', () => {
         await result.current.setTriggerNotification(
           'some-id',
           NOTIFICATION_CHANNELS.SESSION_REMINDERS,
+          'some-content-id',
           'Some title',
           'Some body',
           'http://some.deep/link',
