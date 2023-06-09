@@ -37,13 +37,13 @@ import {ThumbsUp, ThumbsDown} from '../../../lib/components/Thumbs/Thumbs';
 
 import useCompletedSessionById from '../../../lib/user/hooks/useCompletedSessionById';
 import useSessionFeedback from '../../../lib/session/hooks/useSessionFeedback';
-import useRating from '../../../lib/rating/hooks/useRating';
 import VideoLooper from '../../../lib/components/VideoLooper/VideoLooper';
 import {
   Body12,
   BodyBold,
   BodyItalic,
 } from '../../../lib/components/Typography/Body/Body';
+import useHandleClose from './hooks/useHandleClose';
 
 const BackgroundVideo = styled(VideoLooper).attrs({
   repeat: true,
@@ -97,13 +97,13 @@ const SessionFeedbackModal = () => {
   const {t} = useTranslation('Modal.SessionFeedback');
   const {params} =
     useRoute<RouteProp<ModalStackProps, 'SessionFeedbackModal'>>();
-  const {popToTop, navigate} =
+  const {popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const {snapToIndex} = useBottomSheet();
   const {exerciseId, sessionId, completed, isHost, sessionMode, sessionType} =
     params;
   const {addSessionFeedback} = useSessionFeedback();
-  const askForRating = useRating();
+  const handleClose = useHandleClose();
 
   const completedSessionEvent = useCompletedSessionById(sessionId);
 
@@ -156,21 +156,15 @@ const SessionFeedbackModal = () => {
     }
   }, [submitted, snapToIndex]);
 
-  const handleClose = useCallback(() => {
+  const onHandleClose = useCallback(() => {
     popToTop();
     if (completedSessionEvent) {
-      navigate('CompletedSessionModal', {
-        completedSessionEvent,
-      });
+      handleClose(completedSessionEvent, answer);
     }
-
-    if (answer) {
-      askForRating();
-    }
-  }, [completedSessionEvent, popToTop, navigate, askForRating, answer]);
+  }, [popToTop, completedSessionEvent, handleClose, answer]);
 
   return (
-    <SheetModal onPressClose={handleClose}>
+    <SheetModal onPressClose={onHandleClose}>
       <BackgroundVideo paused={!submitted} />
       {submitted ? (
         <Gutters big>

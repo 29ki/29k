@@ -14,11 +14,13 @@ export type Settings = {
 };
 
 type State = {
+  __hasHydrated?: boolean;
   isColdStarted: boolean;
   settings: Settings;
 };
 
 type Actions = {
+  __setHasHydrated: (__hasHydrated: boolean) => void;
   setIsColdStarted: (isColdStarted: boolean) => void;
   setSettings: (settings: Partial<State['settings']>) => void;
   reset: () => void;
@@ -36,6 +38,7 @@ const useAppState = create<State & Actions>()(
   persist(
     set => ({
       ...initialState,
+      __setHasHydrated: __hasHydrated => set({__hasHydrated}),
       setIsColdStarted: isColdStarted => set({isColdStarted}),
       setSettings: settings =>
         set(state => ({settings: {...state.settings, ...settings}})),
@@ -44,9 +47,10 @@ const useAppState = create<State & Actions>()(
     {
       name: 'appState',
       storage: createJSONStorage(() => AsyncStorage),
-      partialize: ({settings}) => ({
-        settings,
-      }),
+      partialize: ({settings}) => ({settings}),
+      onRehydrateStorage: () => state => {
+        state?.__setHasHydrated(true);
+      },
     },
   ),
 );

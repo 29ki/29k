@@ -14,6 +14,7 @@ import localizedFormat from 'dayjs/plugin/localizedFormat';
 import isToday from 'dayjs/plugin/isToday';
 import isTomorrow from 'dayjs/plugin/isTomorrow';
 import isoWeek from 'dayjs/plugin/isoWeek';
+import utc from 'dayjs/plugin/utc';
 
 import content from '../../../../content/content.json';
 import {
@@ -30,6 +31,7 @@ dayjs.extend(localizedFormat);
 dayjs.extend(isToday);
 dayjs.extend(isTomorrow);
 dayjs.extend(isoWeek);
+dayjs.extend(utc);
 
 const DEFAULT_24HOUR_LANGUAGE_TAG = 'en-gb';
 

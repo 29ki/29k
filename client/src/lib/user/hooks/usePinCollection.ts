@@ -1,19 +1,18 @@
 import {useCallback, useMemo} from 'react';
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
 import useUserState from '../state/state';
 import usePinnedCollections from './usePinnedCollections';
 import * as metrics from '../../metrics';
-
-dayjs.extend(utc);
+import useConfirmPracticeReminders from '../../reminders/hooks/useConfirmPracticeReminders';
 
 const usePinCollection = (collectionId: string) => {
   const {pinnedCollections} = usePinnedCollections();
   const setPinnedCollections = useUserState(
     state => state.setPinnedCollections,
   );
+  const confirmPracticeReminder = useConfirmPracticeReminders();
 
-  const togglePinned = useCallback(() => {
+  const togglePinned = useCallback(async () => {
     if (pinnedCollections.find(ps => ps.id === collectionId)) {
       setPinnedCollections(
         pinnedCollections.filter(ps => ps.id !== collectionId),
@@ -26,11 +25,17 @@ const usePinCollection = (collectionId: string) => {
           startedAt: dayjs().utc().toJSON(),
         },
       ]);
+      await confirmPracticeReminder(true);
       metrics.logEvent('Add Collection To Journey', {
         'Collection ID': collectionId,
       });
     }
-  }, [collectionId, setPinnedCollections, pinnedCollections]);
+  }, [
+    collectionId,
+    setPinnedCollections,
+    confirmPracticeReminder,
+    pinnedCollections,
+  ]);
 
   const isPinned = useMemo(
     () => Boolean(pinnedCollections.find(ps => ps.id === collectionId)),

@@ -1,0 +1,38 @@
+{
+  "en": {
+    "title": "Reminders",
+    "sessionRemindersText": "Reminds you about upcoming sessions 10 minutes before they start.",
+    "weekday": "Weekday",
+    "time": "Time",
+    "intervals": {
+      "daily": "Every day",
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "updateButton": "Update reminders"
+  },
+  "pt": {},
+  "sv": {
+    "title": "Notiser",
+    "sessionRemindersText": "Påminner dig om kommande sessioner 10 minuter före start.",
+    "weekday": "Veckodag",
+    "time": "Tid",
+    "intervals": {
+      "daily": "Varje dag",
+      "monday": "Måndag",
+      "tuesday": "Tisdag",
+      "wednesday": "Onsdag",
+      "thursday": "Torsdag",
+      "friday": "Fredag",
+      "saturday": "Lördag",
+      "sunday": "Söndag"
+    },
+    "updateButton": "Uppdatera notiser"
+  },
+  "es": {}
+}

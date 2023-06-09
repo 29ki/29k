@@ -3,12 +3,9 @@ import useSessions from './useSessions';
 import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
 import useSessionsState from '../state/state';
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
 import {SessionType} from '../../../../../shared/src/schemas/Session';
 import useUserState from '../../user/state/state';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
-
-dayjs.extend(utc);
 
 enableFetchMocks();
 

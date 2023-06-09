@@ -29,7 +29,7 @@ import {Spacer8} from '../../Spacers/Spacer';
 import useUser from '../../../user/hooks/useUser';
 import Interested from '../../Interested/Interested';
 import usePinSession from '../../../sessions/hooks/usePinSession';
-import useSessionReminderNotification from '../../../sessions/hooks/useSessionReminderNotification';
+import useSessionReminder from '../../../sessions/hooks/useSessionReminder';
 import {ViewStyle} from 'react-native';
 
 const Row = styled.View({
@@ -96,7 +96,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const logSessionMetricEvent = useLogSessionMetricEvents();
   const {isPinned} = usePinSession(session);
-  const {reminderEnabled} = useSessionReminderNotification(session);
+  const {reminderEnabled} = useSessionReminder(session);
 
   const isHost = user?.uid === session.hostId;
   const interestedCount = isHost ? session.interestedCount : undefined;

@@ -5,7 +5,6 @@ import dayjs from 'dayjs';
 import React, {useCallback, useEffect, useState} from 'react';
 import {Platform} from 'react-native';
 import styled from 'styled-components/native';
-import utc from 'dayjs/plugin/utc';
 import {useTranslation} from 'react-i18next';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -13,8 +12,6 @@ import {SPACINGS} from '../../constants/spacings';
 
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Body16, BodyBold} from '../Typography/Body/Body';
-
-dayjs.extend(utc);
 
 const Wrapper = styled.View({
   backgroundColor: COLORS.WHITE,
@@ -41,7 +38,7 @@ type DateTimePickerProps = {
   minimumDate?: dayjs.Dayjs;
 };
 
-const DateTimePicker: React.FC<DateTimePickerProps> = ({
+export const DateTimePicker: React.FC<DateTimePickerProps> = ({
   mode,
   setValue,
   selectedValue,
@@ -82,7 +79,7 @@ const DateTimePicker: React.FC<DateTimePickerProps> = ({
       return (
         <RNDateTimePicker
           mode={mode}
-          display={mode === 'date' ? 'calendar' : 'clock'}
+          display="spinner"
           value={selectedValue.local().toDate()}
           minimumDate={minimumDate?.toDate()}
           maximumDate={maximumDate?.toDate()}

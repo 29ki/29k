@@ -5,6 +5,11 @@ import {
   ScreenName,
   SharingSessionPost,
   CollectionProperties,
+  ExerciseID,
+  CollectionID,
+  Enable,
+  ReminderSettingsProperties,
+  ReminderProperties,
 } from './Properties';
 
 type Events = {
@@ -47,6 +52,21 @@ type Events = {
 
   // Collections
   'Add Collection To Journey': CollectionProperties;
+
+  //Reminders
+  'Accept Practice Reminders': undefined;
+  'Postpone Practice Reminders': undefined;
+  'Decline Practice Reminders': undefined;
+  'Change Practice Reminders': ReminderSettingsProperties;
+  'Remove Practice Reminders': undefined;
+
+  'Accept Sharing Session Reminders': undefined;
+  'Postpone Sharing Session Reminders': undefined;
+  'Decline Sharing Session Reminders': undefined;
+  'Toggle Sharing Session Reminders': Enable;
+
+  'Press Session Reminder': ReminderProperties & ExerciseID;
+  'Press Practice Reminder': ReminderProperties & CollectionID;
 };
 
 export default Events;

@@ -1,0 +1,22 @@
+{
+  "en": {
+    "title": "Make it a habit",
+    "message": "Do you want to set a practice reminder helping you to keep it up?",
+    "actions": {
+      "dismiss": "No",
+      "cancel": "Maybe later",
+      "confirm": "Yes"
+    }
+  },
+  "pt": {},
+  "sv": {
+    "title": "Gör det till en vana",
+    "message": "Vill du sätta en övningspåminnelse för att hjälpa dig hålla det levande?",
+    "actions": {
+      "dismiss": "Nej",
+      "cancel": "Kanske senare",
+      "confirm": "Ja"
+    }
+  },
+  "es": {}
+}
