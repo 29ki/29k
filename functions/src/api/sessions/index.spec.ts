@@ -28,6 +28,10 @@ const mockUpdateSessionState =
 const mockJoinSession = sessionsController.joinSession as jest.Mock;
 const mockGetSessionToken = sessionsController.getSessionToken as jest.Mock;
 const mockGetSession = sessionsController.getSession as jest.Mock;
+const mockGetSessionByHostingCode =
+  sessionsController.getSessionByHostingCode as jest.Mock;
+const mockCreateSessionHostingLink =
+  sessionsController.createSessionHostingLink as jest.Mock;
 
 jest.mock('../../models/session');
 
@@ -524,6 +528,63 @@ describe('/api/sessions', () => {
 
       expect(response.status).toBe(200);
       expect(response.text).toEqual('Session deleted successfully');
+    });
+  });
+
+  describe('GET /hostingCode/:hostingCode', () => {
+    it('should return token', async () => {
+      getMockCustomClaims.mockReturnValueOnce({role: ROLE.publicHost});
+      mockGetSessionByHostingCode.mockResolvedValueOnce(
+        createMockSession('some-session-id'),
+      );
+
+      const response = await request(mockServer).get(
+        '/sessions/hostingCode/some-host-code',
+      );
+
+      expect(response.status).toBe(200);
+      expect(response.body).toMatchObject({
+        id: 'some-session-id',
+      });
+    });
+
+    it('should return 404 if session is not found', async () => {
+      getMockCustomClaims.mockReturnValueOnce({role: ROLE.publicHost});
+      mockGetSessionByHostingCode.mockRejectedValueOnce(
+        new RequestError(JoinSessionError.notFound),
+      );
+      mockGetSessionByHostingCode.mockRejectedValueOnce(
+        new RequestError(JoinSessionError.notFound),
+      );
+
+      const response = await request(mockServer).get(
+        '/sessions/hostingCode/some-host-code',
+      );
+      expect(response.text).toEqual(JoinSessionError.notFound);
+      expect(response.status).toBe(404);
+    });
+  });
+
+  describe('PUT /:id/hostingLink', () => {
+    it('should return a hosting invite link', async () => {
+      const response = await request(mockServer).put(
+        '/sessions/some-session-id/hostingLink',
+      );
+
+      expect(response.status).toBe(200);
+      expect(mockCreateSessionHostingLink).toHaveBeenCalledWith('x');
+    });
+
+    it('should fail when update rejects', async () => {
+      mockCreateSessionHostingLink.mockRejectedValueOnce(
+        new Error('some-error'),
+      );
+      const response = await request(mockServer).put(
+        '/sessions/some-session-id/hostingLink',
+      );
+
+      expect(response.status).toBe(500);
+      expect(response.text).toEqual('Internal Server Error');
     });
   });
 });

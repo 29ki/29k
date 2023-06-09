@@ -25,6 +25,7 @@ import {generateSessionToken} from '../lib/dailyUtils';
 import {createRctUserId} from '../lib/id';
 import {LiveSessionRecord} from '../models/types/types';
 import {LiveSessionModel} from './types/types';
+import {DEFAULT_LANGUAGE_TAG} from '../lib/i18n';
 
 const mapSession = async (
   session: LiveSessionRecord,
@@ -329,7 +330,7 @@ export const createSessionHostingLink = async (
     updatedSession.hostingCode,
     updatedSession.exerciseId,
     displayName || '',
-    updatedSession.language || 'en',
+    updatedSession.language || DEFAULT_LANGUAGE_TAG,
   );
 
   return link;
