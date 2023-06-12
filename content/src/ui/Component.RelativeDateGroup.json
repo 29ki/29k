@@ -6,7 +6,19 @@
     "nextWeek": "Next week",
     "upcoming": "Upcoming"
   },
-  "sv": {},
-  "pt": {},
+  "pt": {
+    "today": "Hoje",
+    "tomorrow": "Amanhã",
+    "thisWeek": "Esta semana",
+    "nextWeek": "Próxima semana",
+    "upcoming": "Proximamente"
+  },
+  "sv": {
+    "today": "Idag",
+    "tomorrow": "I morgon",
+    "thisWeek": "I veckan",
+    "nextWeek": "Nästa vecka",
+    "upcoming": "Längre fram"
+  },
   "es": {}
 }

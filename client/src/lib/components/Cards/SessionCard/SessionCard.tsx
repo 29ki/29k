@@ -5,7 +5,10 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import dayjs from 'dayjs';
 
-import {LiveSessionType} from '../../../../../../shared/src/schemas/Session';
+import {
+  LiveSessionType,
+  SessionMode,
+} from '../../../../../../shared/src/schemas/Session';
 
 import {formatContentName} from '../../../utils/string';
 
@@ -26,17 +29,12 @@ import {Spacer8} from '../../Spacers/Spacer';
 import useUser from '../../../user/hooks/useUser';
 import Interested from '../../Interested/Interested';
 import usePinSession from '../../../sessions/hooks/usePinSession';
-import useSessionReminderNotification from '../../../sessions/hooks/useSessionReminderNotification';
+import useSessionReminder from '../../../sessions/hooks/useSessionReminder';
 import {ViewStyle} from 'react-native';
 
 const Row = styled.View({
   flexDirection: 'row',
   alignItems: 'flex-end',
-});
-
-const FullInterested = styled(Interested)({
-  flex: 1,
-  justifyContent: 'flex-end',
 });
 
 const JoinButton: React.FC<{
@@ -76,6 +74,7 @@ type SessionCardProps = {
   hasCardBefore?: boolean;
   hasCardAfter?: boolean;
   disableHostPress?: boolean;
+  disableJoinButton?: boolean;
   onBeforeContextPress?: () => void;
   style?: ViewStyle;
 };
@@ -86,18 +85,18 @@ const SessionCard: React.FC<SessionCardProps> = ({
   hasCardBefore = false,
   hasCardAfter = false,
   disableHostPress,
+  disableJoinButton,
   onBeforeContextPress,
   style,
 }) => {
   const {exerciseId, startTime, hostProfile} = session;
   const exercise = useExerciseById(exerciseId);
   const user = useUser();
-  const {t} = useTranslation('Component.SessionCard');
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const logSessionMetricEvent = useLogSessionMetricEvents();
   const {isPinned} = usePinSession(session);
-  const {reminderEnabled} = useSessionReminderNotification(session);
+  const {reminderEnabled} = useSessionReminder(session);
 
   const isHost = user?.uid === session.hostId;
   const interestedCount = isHost ? session.interestedCount : undefined;
@@ -150,18 +149,26 @@ const SessionCard: React.FC<SessionCardProps> = ({
         lottie={lottie}
         onPress={onContextPress}
         onHostPress={!disableHostPress ? onHostPress : undefined}
-        hostPictureURL={hostProfile?.photoURL || exercise?.card?.host?.photoURL}
-        hostName={hostProfile?.displayName || exercise?.card?.host?.displayName}
+        hostPictureURL={
+          session.mode === SessionMode.live
+            ? hostProfile?.photoURL
+            : exercise?.card?.host?.photoURL
+        }
+        hostName={
+          session.mode === SessionMode.live
+            ? hostProfile?.displayName
+            : exercise?.card?.host?.displayName
+        }
+        isHost={isHost}
+        isPinned={isPinned}
+        reminderEnabled={reminderEnabled}
+        interestedCount={session.interestedCount}
         style={style}>
         <Row>
-          <JoinButton onPress={onPress} startTime={startTime} />
+          {!disableJoinButton && (
+            <JoinButton onPress={onPress} startTime={startTime} />
+          )}
           <SessionTimeBadge session={session} />
-          <Spacer8 />
-          <FullInterested
-            active={isPinned}
-            reminder={reminderEnabled}
-            count={interestedCount}
-          />
         </Row>
       </Card>
     );
@@ -177,10 +184,14 @@ const SessionCard: React.FC<SessionCardProps> = ({
           image={image}
           lottie={lottie}
           hostPictureURL={
-            hostProfile?.photoURL || exercise?.card?.host?.photoURL
+            session.mode === SessionMode.live
+              ? hostProfile?.photoURL
+              : exercise?.card?.host?.photoURL
           }
           hostName={
-            hostProfile?.displayName || exercise?.card?.host?.displayName
+            session.mode === SessionMode.live
+              ? hostProfile?.displayName
+              : exercise?.card?.host?.displayName
           }
           onPress={onContextPress}
           hasCardBefore={hasCardBefore}
@@ -191,7 +202,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
             <Interested
               compact
               reminder={reminderEnabled}
-              count={interestedCount}
+              count={isHost ? session.interestedCount : undefined}
             />
           </Row>
         </SessionWalletCard>
@@ -205,23 +216,23 @@ const SessionCard: React.FC<SessionCardProps> = ({
           lottie={lottie}
           onPress={onContextPress}
           hostPictureURL={
-            hostProfile?.photoURL || exercise?.card?.host?.photoURL
+            session.mode === SessionMode.live
+              ? hostProfile?.photoURL
+              : exercise?.card?.host?.photoURL
           }
           hostName={
-            hostProfile?.displayName || exercise?.card?.host?.displayName
-          }>
+            session.mode === SessionMode.live
+              ? hostProfile?.displayName
+              : exercise?.card?.host?.displayName
+          }
+          isPinned={isPinned}
+          reminderEnabled={reminderEnabled}
+          interestedCount={interestedCount}>
           <Row>
-            <Button small variant="secondary" onPress={onPress}>
-              {t('join')}
-            </Button>
-            <Spacer8 />
+            {!disableJoinButton && (
+              <JoinButton onPress={onPress} startTime={startTime} />
+            )}
             <SessionTimeBadge session={session} />
-            <Spacer8 />
-            <FullInterested
-              active={isPinned}
-              reminder={reminderEnabled}
-              count={interestedCount}
-            />
           </Row>
         </Card>
       }

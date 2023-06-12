@@ -3,18 +3,18 @@ import {renderHook} from '@testing-library/react-hooks';
 
 import useConfirmSessionReminder from './useConfirmSessionReminder';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
-import useReminderNotificationsSetting from '../../notifications/hooks/useReminderNotificationsSetting';
+import useSessionRemindersSetting from '../../reminders/hooks/useSessionRemindersSetting';
 
 const mockAlert = jest.mocked(Alert.alert);
 
 const mockSetRemindersEnabled = jest.fn();
-const mockUseReminderNotificationsSetting = jest.mocked(
-  useReminderNotificationsSetting,
+const mockUseSessionReminderNotificationsSetting = jest.mocked(
+  useSessionRemindersSetting,
 );
-jest.mock('../../notifications/hooks/useReminderNotificationsSetting');
+jest.mock('../../reminders/hooks/useSessionRemindersSetting');
 
 const mockToggleReminder = jest.fn();
-jest.mock('../../sessions/hooks/useSessionReminderNotification', () => () => ({
+jest.mock('../../sessions/hooks/useSessionReminder', () => () => ({
   toggleReminder: mockToggleReminder,
 }));
 
@@ -23,9 +23,9 @@ afterEach(jest.clearAllMocks);
 describe('useConfirmSessionReminder', () => {
   describe('reminderNotifications == true', () => {
     beforeEach(() => {
-      mockUseReminderNotificationsSetting.mockReturnValueOnce({
-        remindersEnabled: true,
-        setRemindersEnabled: mockSetRemindersEnabled,
+      mockUseSessionReminderNotificationsSetting.mockReturnValueOnce({
+        sessionRemindersEnabled: true,
+        setSessionRemindersEnabled: mockSetRemindersEnabled,
       });
     });
 
@@ -54,9 +54,9 @@ describe('useConfirmSessionReminder', () => {
 
   describe('reminderNotifications == false', () => {
     beforeEach(() => {
-      mockUseReminderNotificationsSetting.mockReturnValueOnce({
-        remindersEnabled: false,
-        setRemindersEnabled: mockSetRemindersEnabled,
+      mockUseSessionReminderNotificationsSetting.mockReturnValueOnce({
+        sessionRemindersEnabled: false,
+        setSessionRemindersEnabled: mockSetRemindersEnabled,
       });
     });
 
@@ -83,9 +83,9 @@ describe('useConfirmSessionReminder', () => {
 
   describe('reminderNotifications == undefined', () => {
     beforeEach(() => {
-      mockUseReminderNotificationsSetting.mockReturnValueOnce({
-        remindersEnabled: undefined,
-        setRemindersEnabled: mockSetRemindersEnabled,
+      mockUseSessionReminderNotificationsSetting.mockReturnValueOnce({
+        sessionRemindersEnabled: undefined,
+        setSessionRemindersEnabled: mockSetRemindersEnabled,
       });
     });
 
@@ -103,7 +103,7 @@ describe('useConfirmSessionReminder', () => {
           style: 'destructive',
           onPress: expect.any(Function),
         },
-        {text: 'actions.cancel'},
+        {text: 'actions.cancel', onPress: expect.any(Function)},
         {
           text: 'actions.confirm',
           onPress: expect.any(Function),

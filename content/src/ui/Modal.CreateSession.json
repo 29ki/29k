@@ -5,7 +5,8 @@
     "profile": {
       "text": "To create and host a session you need a user name and profile picture."
     },
-    "orJoinUpcoming": "Or join upcoming sessions",
+    "orJoinUpcoming": "Or join an upcoming session",
+    "startCta": "Start",
     "selectType": {
       "live-public": {
         "title": "Anyone"
@@ -18,7 +19,7 @@
       }
     },
     "noUpcomingSessions": "🌱 No planned sessions.",
-    "description": "Create session with…",
+    "description": "Do session with…",
     "setDateTime": {
       "title": "Choose a time",
       "cta": "Create session",
@@ -29,8 +30,7 @@
     },
     "selectContent": {
       "title": "Choose exercise"
-    },
-    "startCta": "Start"
+    }
   },
   "pt": {
     "or": "ou",
@@ -70,23 +70,28 @@
     "profile": {
       "text": "För att hålla i sessioner behöver du ett namn och en profilbild."
     },
-    "orJoinUpcoming": "Eller gå med i kommande sessioner",
+    "orJoinUpcoming": "Eller gå med i en kommande session",
+    "startCta": "Börja",
     "selectType": {
       "live-public": {
         "title": "Alla"
       },
       "live-private": {
-        "title": "Mina vänner"
+        "title": "Vänner"
       },
       "async-public": {
         "title": "Mig själv"
       }
     },
     "noUpcomingSessions": "🌱 Inga planerade sessioner.",
-    "description": "Skapa session för...",
+    "description": "Gör sessionen med...",
     "setDateTime": {
       "title": "Välj tid",
-      "cta": "Skapa session"
+      "cta": "Skapa session",
+      "sessionType": {
+        "private": "Session med vänner",
+        "public": "Session med alla"
+      }
     },
     "selectContent": {
       "title": "Välj övning"

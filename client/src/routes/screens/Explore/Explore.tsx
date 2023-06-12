@@ -30,11 +30,25 @@ import useCollections from '../../../lib/content/hooks/useCollections';
 import {OverlayStackProps} from '../../../lib/navigation/constants/routes';
 import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
+import ComingSoonSlider from './components/ComingSoon';
+import styled from 'styled-components/native';
+
+export type ComingSoonItem = {when: string; what: string};
+export type ComingSoon = {
+  description: string;
+  items: ComingSoonItem[];
+};
 
 type Section = {
   title: string;
   data: Exercise[];
 };
+
+const CollectionsList = styled(FlatList)({
+  flexGrow: 0,
+  width: '100%',
+  overflow: 'visible',
+}) as unknown as FlatList;
 
 const Explore = () => {
   const {navigate} =
@@ -43,6 +57,7 @@ const Explore = () => {
   const exercises = useExercises();
   const collections = useCollections();
   const listRef = useRef<SectionList<Exercise, Section>>(null);
+  const comingSoonSection: ComingSoon = t('comingSoon', {returnObjects: true});
 
   useScrollToTop(listRef);
 
@@ -100,29 +115,38 @@ const Explore = () => {
         sections={exerciseSections}
         keyExtractor={exercise => exercise.id}
         ListHeaderComponent={
-          collections.length > 0 ? (
-            <Gutters>
-              <Spacer20 />
-              <Heading16>{t('collectionsHeading')}</Heading16>
-              <Spacer8 />
-              <FlatList
-                data={collections}
-                keyExtractor={collection => collection.id}
-                snapToAlignment="center"
-                decelerationRate="fast"
-                snapToInterval={CARD_WIDTH + SPACINGS.SIXTEEN}
-                showsHorizontalScrollIndicator={false}
-                horizontal
-                renderItem={({item}) => (
-                  <>
-                    <CollectionCardContainer collection={item} />
-                    <Spacer16 />
-                  </>
-                )}
-              />
-              <Spacer32 />
-            </Gutters>
-          ) : null
+          <>
+            {collections.length > 0 && (
+              <Gutters>
+                <Spacer20 />
+                <Heading16>{t('collectionsHeading')}</Heading16>
+                <Spacer8 />
+                <CollectionsList
+                  data={collections}
+                  keyExtractor={collection => collection.id}
+                  snapToAlignment="center"
+                  decelerationRate="fast"
+                  snapToInterval={CARD_WIDTH + SPACINGS.SIXTEEN}
+                  showsHorizontalScrollIndicator={false}
+                  horizontal
+                  renderItem={({item}) => (
+                    <>
+                      <CollectionCardContainer collection={item} />
+                      <Spacer16 />
+                    </>
+                  )}
+                />
+                <Spacer32 />
+              </Gutters>
+            )}
+            {comingSoonSection.items?.length > 0 && (
+              <Gutters>
+                <Heading16>{t('comingSoonHeading')}</Heading16>
+                <Spacer8 />
+                <ComingSoonSlider comingSoonSection={comingSoonSection} />
+              </Gutters>
+            )}
+          </>
         }
         renderSectionHeader={renderExerciseSectionHeader}
         ListFooterComponent={Spacer48}

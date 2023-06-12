@@ -26,6 +26,12 @@ const ExerciseCardContainer: React.FC<ExerciseCardContainerProps> = ({
     }
   }, [exercise]);
 
+  const lottie = useMemo(() => {
+    if (exercise?.card?.lottie?.source) {
+      return {uri: exercise.card.lottie.source};
+    }
+  }, [exercise]);
+
   const onPress = useCallback(() => {
     navigate('CreateSessionModal', {exerciseId: exercise.id});
   }, [exercise, navigate]);
@@ -38,6 +44,7 @@ const ExerciseCardContainer: React.FC<ExerciseCardContainerProps> = ({
     <ExerciseWalletCard
       title={formatContentName(exercise)}
       image={image}
+      lottie={lottie}
       hasCardBefore={hasCardBefore}
       hasCardAfter={hasCardAfter}
       onPress={onPress}

@@ -1,7 +1,6 @@
 {
   "en": {
     "changePassword": "Change password",
-    "currentPassword": "Current password",
     "errors": {
       "auth/invalid-display-name": "The provided value for the displayName user property is invalid. It must be a non-empty string.",
       "auth/email-already-in-use": "The provided email is already in use by an existing user.",
@@ -12,17 +11,18 @@
       "auth/wrong-password": "Incorrect password, please try again."
     },
     "displayName": "What should we call you?",
+    "currentPassword": "Current password",
     "title": "Profile Settings",
     "email": "E-mail",
-    "setPassword": "Set a password",
-    "save": "Save changes",
     "actions": {
       "signIn": "Sign in",
       "signOut": "Sign out",
-      "notifications": "Automatic reminders",
+      "reminders": "Reminders",
       "deleteData": "Delete my data",
       "language": "Language"
-    }
+    },
+    "setPassword": "Set a password",
+    "save": "Save changes"
   },
   "pt": {
     "changePassword": "Alterar password",
@@ -47,6 +47,30 @@
       "notifications": "Notificações"
     }
   },
-  "sv": {},
+  "sv": {
+    "changePassword": "Byt lösenord",
+    "errors": {
+      "auth/invalid-display-name": "The provided value for the displayName user property is invalid. It must be a non-empty string.",
+      "auth/email-already-in-use": "Den här email-adressen är redan kopplat till ett konto.",
+      "auth/invalid-email": "Email-adressen är ogiltig. Prova igen. ",
+      "auth/password-missing": "För att spara email-adressen behöver du också välja ett lösenord.",
+      "auth/current-password-missing": "För att uppdatera din profil, skriv in ditt nuvarande lösenord. ",
+      "auth/weak-password": "Lösenordet måste innehålla minst sex tecken.",
+      "auth/wrong-password": "Fel lösenord, försök igen."
+    },
+    "displayName": "Vad vil du att vi kallar dig?",
+    "currentPassword": "Nuvarande lösenord",
+    "title": "Profil-inställningar",
+    "email": "E-mail",
+    "actions": {
+      "signIn": "Logga in",
+      "signOut": "Logga ut",
+      "reminders": "Påminnelser",
+      "deleteData": "Radera min data",
+      "language": "Språk"
+    },
+    "setPassword": "Välj ett lösenord",
+    "save": "Spara ändringar"
+  },
   "es": {}
 }

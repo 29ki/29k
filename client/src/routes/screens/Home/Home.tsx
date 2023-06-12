@@ -5,7 +5,12 @@ import {RefreshControl, SectionList} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {useNavigation, useScrollToTop} from '@react-navigation/native';
+import {
+  useIsFocused,
+  useNavigation,
+  useScrollToTop,
+} from '@react-navigation/native';
+import throttle from 'lodash.throttle';
 
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 
@@ -41,11 +46,13 @@ import useGetStartedCollection from '../../../lib/content/hooks/useGetStartedCol
 import useUserEvents from '../../../lib/user/hooks/useUserEvents';
 import CollectionCardContainer from '../../../lib/components/Cards/CollectionCards/CollectionCardContainer';
 import useGetRelativeDateGroup from '../../../lib/date/hooks/useGetRelativeDateGroup';
+import useResumeFromBackgrounded from '../../../lib/appState/hooks/useResumeFromBackgrounded';
 
 type Section = {
   title: string;
   data: LiveSessionType[];
   type: 'hostedBy' | 'interested' | 'comming';
+  beyondThisWeek?: boolean;
 };
 
 const AddButton = styled(Button)({
@@ -116,10 +123,14 @@ const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
   </StickyHeading>
 );
 
-const renderSession: SectionListRenderItem<LiveSessionType, Section> = ({
+const renderSession = ({
   item,
   section,
   index,
+}: {
+  item: LiveSessionType;
+  section: Section;
+  index: number;
 }) => {
   const standAlone = section.type === 'comming' || section.data.length === 1;
   const hasCardBefore = index > 0;
@@ -137,6 +148,12 @@ const renderSession: SectionListRenderItem<LiveSessionType, Section> = ({
   );
 };
 
+const renderListItem: SectionListRenderItem<LiveSessionType, Section> = ({
+  item,
+  section,
+  index,
+}) => renderSession({item: item as LiveSessionType, section, index});
+
 const Home = () => {
   const {t} = useTranslation('Screen.Home');
   const {navigate} =
@@ -146,11 +163,14 @@ const Home = () => {
   const getRelativeDateGroup = useGetRelativeDateGroup();
   const listRef = useRef<SectionList<LiveSessionType, Section>>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const isFocused = useIsFocused();
 
   useScrollToTop(listRef);
 
   const sections = useMemo(() => {
     let sectionsList: Section[] = [];
+    let beyondThisWeek: Section[] = [];
+
     if (hostedSessions.length > 0) {
       sectionsList.push({
         title: t('sections.hostedBy'),
@@ -179,6 +199,9 @@ const Home = () => {
         });
       });
     }
+
+    sectionsList.push(...beyondThisWeek);
+
     return sectionsList;
   }, [sessions, pinnedSessions, hostedSessions, t, getRelativeDateGroup]);
 
@@ -201,6 +224,20 @@ const Home = () => {
     navigate('AboutOverlay');
   }, [navigate]);
 
+  const throttledRefresh = useMemo(
+    () =>
+      throttle(() => {
+        if (isFocused) {
+          fetchSessions();
+        }
+      }, 5 * 60000),
+    [fetchSessions, isFocused],
+  );
+
+  useEffect(throttledRefresh, [throttledRefresh]);
+
+  useResumeFromBackgrounded(throttledRefresh);
+
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
       <TopSafeArea minSize={SPACINGS.SIXTEEN} />
@@ -217,7 +254,7 @@ const Home = () => {
         ListFooterComponent={Spacer48}
         stickySectionHeadersEnabled
         renderSectionHeader={renderSectionHeader}
-        renderItem={renderSession}
+        renderItem={renderListItem}
         refreshControl={
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }

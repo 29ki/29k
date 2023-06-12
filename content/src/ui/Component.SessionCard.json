@@ -28,11 +28,11 @@
     "join": "Gå med",
     "minutesAbbreviation": "min",
     "counter": {
-      "started": "Startad"
+      "started": "Börjat"
     },
     "counterLabel": {
-      "starts": "Startar",
-      "startsIn": "Startar om"
+      "starts": "Börjar",
+      "startsIn": "Börjar om"
     }
   },
   "es": {}

@@ -23,6 +23,17 @@
       "auth/user-disabled": "Email inativo"
     }
   },
-  "sv": {},
+  "sv": {
+    "title": "Logga in",
+    "email": "Email",
+    "password": "Lösenord",
+    "signIn": "Logga in",
+    "errors": {
+      "auth/invalid-email": "Fel email och/eller lösenord",
+      "auth/wrong-password": "Fel email och/eller lösenord",
+      "auth/user-not-found": "Fel email och/eller lösenord",
+      "auth/user-disabled": "Fel email och/eller lösenord"
+    }
+  },
   "es": {}
 }

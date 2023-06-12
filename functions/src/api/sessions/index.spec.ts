@@ -210,6 +210,19 @@ describe('/api/sessions', () => {
       expect(response.status).toBe(403);
       expect(response.text).toEqual(ValidateSessionError.userNotFound);
     });
+
+    it('should return 401 if user is not authorized', async () => {
+      mockGetSession.mockRejectedValueOnce(
+        new RequestError(ValidateSessionError.userNotAuthorized),
+      );
+
+      const response = await request(mockServer).get(
+        '/sessions/some-session-id',
+      );
+
+      expect(response.status).toBe(401);
+      expect(response.text).toEqual(ValidateSessionError.userNotAuthorized);
+    });
   });
 
   describe('GET /:id/sessionToken', () => {

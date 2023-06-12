@@ -10,7 +10,27 @@
     "helplines_url": "https://wiki.29k.org/emergency-helplines",
     "faq_url": "https://wiki.29k.org/29k-sessions-faq"
   },
-  "pt": {},
-  "sv": {},
+  "pt": {
+    "title": "Kit de segurança",
+    "actions": {
+      "faq": "Perguntas frequentes",
+      "calmDown": "Acalmar",
+      "report": "Reportar",
+      "helplines": "Linhas de Apoio"
+    },
+    "helplines_url": "https://www.joseneves.org/page/29-k-fjn-linhas-de-ajuda",
+    "faq_url": "https://www.joseneves.org/faqs/faqs-29-k-fjn"
+  },
+  "sv": {
+    "title": "Trygghetsfunktioner",
+    "actions": {
+      "faq": "Vanliga frågor – FAQ",
+      "calmDown": "Varva ner",
+      "report": "Anmäl",
+      "helplines": "Hjälplinjer"
+    },
+    "helplines_url": "https://wiki.29k.org/emergency-helplines",
+    "faq_url": "https://wiki.29k.org/29k-sessions-faq"
+  },
   "es": {}
 }

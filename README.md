@@ -1,17 +1,15 @@
 
 <div align="center">
-
-[![29k](https://user-images.githubusercontent.com/474066/174894987-58605dd7-86b8-4455-9c86-f17346f4e213.png)](https://29k.org)
-
+  <img src="https://github.com/29ki/29k/assets/474066/789cd7ae-b1e5-4025-8b4e-fcac6d8458bc" width="130" height="130" alt="Aware" />&nbsp;
+  <img src="https://user-images.githubusercontent.com/474066/174894987-58605dd7-86b8-4455-9c86-f17346f4e213.png" width="130" height="130" alt="29k" />
 </div>
 
 <p align="center">
-  <strong>Your Mental Health App and Supportive Community</strong></br>
-  Access free exercises, short or extended courses, daily prompts, meditations and connection with peers via chat, audio & video.
+  Aware is a free app for mental health, wellbeing and inner development brought to you by the <a href="https://29k.org">non-profit foundation 29k</a>.
 </p>
 
 <p align="center">
-  This is the 2.0 open-source version based on the learnings from the currently live <a href="https://app.29k.org/download">29k: Mental Health App</a>.
+  This is the 2.0 open-source version based on the learnings from the previous <a href="https://app.29k.org/download">29k: Mental Health App</a>.
 </p>
 
 <p align="center">
@@ -31,10 +29,10 @@
 
 <img src="https://user-images.githubusercontent.com/474066/235715309-6016ce6c-cbeb-4cb1-8191-6803e689e625.jpeg" width="200" align="right"/>
 
-You can get early access to our open beta through iOS TestFlight and Android PlayStore:
+You can download the latest release from iOS AppStore and Android PlayStore:
 
-- 🍎 [29k: Cupcake for iOS](https://testflight.apple.com/join/0VdruQ6z)
-- 🤖 [29k: Cupcake for Android](https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake)
+- 🍎 [Aware for iOS](https://apps.apple.com/us/app/aware-mindfulness-wellbeing/id1631342681)
+- 🤖 [Aware for Android](https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake)
 
 ## Join Our Community
 

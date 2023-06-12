@@ -6,6 +6,11 @@
     "noUpcomingSessions": "🌱 No planned sessions."
   },
   "pt": {},
-  "sv": {},
+  "sv": {
+    "publicSessions": "Med alla",
+    "privateSessions": "Med vänner",
+    "sessions": "Kommande sessioner",
+    "noUpcomingSessions": "🌱 inga sessioner planerade."
+  },
   "es": {}
 }

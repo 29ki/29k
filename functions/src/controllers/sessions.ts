@@ -26,7 +26,14 @@ import {LiveSessionModel} from './types/types';
 const mapSession = async (
   session: LiveSessionRecord,
 ): Promise<LiveSessionModel> => {
-  return {...session, hostProfile: await getUser(session.hostId)};
+  try {
+    // This can fail when host delete their account or
+    // there is a network glitch.
+    const hostProfile = await getUser(session.hostId);
+    return {...session, hostProfile};
+  } catch (error) {
+    return {...session, hostProfile: null};
+  }
 };
 
 const isSessionOpen = (session: LiveSessionRecord): boolean =>
@@ -103,6 +110,10 @@ export const getSession = async (
     !session.userIds.find(id => id === userId)
   ) {
     throw new RequestError(ValidateSessionError.userNotFound);
+  }
+
+  if (!isUserAllowedToJoin(session, userId)) {
+    throw new RequestError(ValidateSessionError.userNotAuthorized);
   }
 
   return mapSession(session);

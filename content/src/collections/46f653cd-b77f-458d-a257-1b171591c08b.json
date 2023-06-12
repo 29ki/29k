@@ -1,28 +1,100 @@
 {
   "en": {
+    "hidden": false,
+    "name": "Start here",
     "published": true,
-    "hidden": true,
+    "card": {
+      "description": "Take the first steps to improve wellbeing and life satisfaction, backed by science.",
+      "backgroundColorGradient": [
+        {
+          "color": "#378D88"
+        },
+        {
+          "color": "#2A605D"
+        }
+      ],
+      "textColor": "#ffffff"
+    },
+    "link": "https://aware.29k.org/get-started",
     "id": "46f653cd-b77f-458d-a257-1b171591c08b",
-    "name": "Get started",
-    "description": "Start here to exploer the Aware app",
-    "exercises": ["095f9642-73b6-4c9a-ae9a-ea7dea7363f5"]
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683720597/Images/get_started_collection_chij0k.png"
+    },
+    "exercises": [
+      "1a53e633-6916-4fea-a072-977c4b215288",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
+    ],
+    "description": "Take the first steps to improve wellbeing and life satisfaction, backed by science. Start your journey and explore Aware right here."
   },
   "pt": {
-    "published": false,
-    "hidden": true,
+    "hidden": false,
+    "name": "Começa aqui",
+    "published": true,
+    "card": {
+      "description": "Take the first steps to improve wellbeing and life satisfaction, backed by science.",
+      "backgroundColorGradient": [
+        {
+          "color": "#378D88"
+        },
+        {
+          "color": "#2A605D"
+        }
+      ],
+      "textColor": "#ffffff"
+    },
+    "link": "https://aware.29k.org/get-started",
     "id": "46f653cd-b77f-458d-a257-1b171591c08b",
-    "exercises": ["095f9642-73b6-4c9a-ae9a-ea7dea7363f5"]
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683720597/Images/get_started_collection_chij0k.png"
+    },
+    "exercises": [
+      "1a53e633-6916-4fea-a072-977c4b215288",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
+    ],
+    "description": "Dá os primeiros passos, validados cientificamente, para melhorar o teu bem-estar e ficares mais satisfeito com a tua vida. Começa aqui a tua jornada e explora o Aware FJN."
   },
   "sv": {
-    "published": false,
-    "hidden": true,
+    "hidden": false,
+    "name": "Kom igång",
+    "published": true,
+    "card": {
+      "description": "Take the first steps to improve wellbeing and life satisfaction, backed by science.",
+      "backgroundColorGradient": [
+        {
+          "color": "#378D88"
+        },
+        {
+          "color": "#2A605D"
+        }
+      ],
+      "textColor": "#ffffff"
+    },
+    "link": "https://aware.29k.org/get-started",
     "id": "46f653cd-b77f-458d-a257-1b171591c08b",
-    "exercises": ["095f9642-73b6-4c9a-ae9a-ea7dea7363f5"]
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683720597/Images/get_started_collection_chij0k.png"
+    },
+    "exercises": [
+      "1a53e633-6916-4fea-a072-977c4b215288",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
+    ],
+    "description": "Ta de första stegen för att att förbättra ditt välmående och känna mer mening i livet – på vetenskaplig grund. Påbörja din resa med Aware här."
   },
   "es": {
     "published": false,
     "hidden": true,
     "id": "46f653cd-b77f-458d-a257-1b171591c08b",
-    "exercises": ["095f9642-73b6-4c9a-ae9a-ea7dea7363f5"]
+    "exercises": [
+      "1a53e633-6916-4fea-a072-977c4b215288",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
+    ],
+    "link": "https://aware.29k.org/get-started",
+    "card": {
+      "description": "Take the first steps to improve wellbeing and life satisfaction, backed by science."
+    }
   }
 }

@@ -8,8 +8,8 @@
         "button": "Update"
       },
       "ios": {
-        "text__markdown": "## We've made the app even ~~better!~~\n\nYou can get the latest version from ~~[Apple TestFlight](https://testflight.apple.com/join/0VdruQ6z)~~",
-        "link": "https://testflight.apple.com/join/0VdruQ6z",
+        "text__markdown": "## We've made the app even ~~better!~~\n\nYou can get the latest version from ~~[Apple AppStore](https://apps.apple.com/us/app/aware-mindfulness-wellbeing/id1631342681)~~",
+        "link": "https://apps.apple.com/us/app/aware-mindfulness-wellbeing/id1631342681",
         "button": "Update"
       }
     },
@@ -23,30 +23,6 @@
     },
     "retry": "Try again"
   },
-  "sv": {
-    "update": {
-      "image__image": "",
-      "android": {
-        "text__markdown": "## Vi har gjort appen ännu ~~bättre!~~\n\nDu kan hämta den senaste versionen från ~~[Google PlayStore](https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake)~~",
-        "link": "https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake",
-        "button": "Uppdatera"
-      },
-      "ios": {
-        "text__markdown": "## Vi har gjort appen ännu ~~bättre!~~\n\nDu kan hämta den senaste versionen från ~~[Apple TestFlight](https://testflight.apple.com/join/0VdruQ6z)~~",
-        "link": "https://testflight.apple.com/join/0VdruQ6z",
-        "button": "Uppdatera"
-      }
-    },
-    "maintenance": {
-      "image__image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1648213290/KillSwitch%20illustrations/Failed_Illutration_wer2cx.png",
-      "text__markdown": "## Vi genomgår lite av ett ~~underhåll~~\n\nBeklagar oredan. Vi kommer att vara igång igen så snart som möjligt."
-    },
-    "failed": {
-      "image__image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1648213290/KillSwitch%20illustrations/Failed_Illutration_wer2cx.png",
-      "text__markdown": "## Något stämmer inte riktigt...\n\n Vi har tekniska problem just nu. Prova igen om en stund."
-    },
-    "retry": "Försök igen"
-  },
   "pt": {
     "update": {
       "image__image": "",
@@ -56,8 +32,8 @@
         "button": "Atualizar"
       },
       "ios": {
-        "text__markdown": "## Tornamos a app ainda ~~melhor!~~\n\nPodes obter a última versão na ~~[Apple TestFlight](https://testflight.apple.com/join/0VdruQ6z)~~",
-        "link": "https://testflight.apple.com/join/0VdruQ6z",
+        "text__markdown": "## Tornamos a app ainda ~~melhor!~~\n\nPodes obter a última versão na ~~[Apple AppStore](https://apps.apple.com/us/app/aware-mindfulness-wellbeing/id1631342681)~~",
+        "link": "https://apps.apple.com/us/app/aware-mindfulness-wellbeing/id1631342681",
         "button": "Atualizar"
       }
     },
@@ -70,6 +46,30 @@
       "text__markdown": "## Algo correu mal...\n\nEstamos com algumas dificuldades técnicas. Tenta de novo daqui a pouco."
     },
     "retry": "Tentar de novo"
+  },
+  "sv": {
+    "update": {
+      "image__image": "",
+      "android": {
+        "text__markdown": "## Vi har gjort appen ännu ~~bättre!~~\n\nDu kan hämta den senaste versionen från ~~[Google PlayStore](https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake)~~",
+        "link": "https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake",
+        "button": "Uppdatera"
+      },
+      "ios": {
+        "text__markdown": "## Vi har gjort appen ännu ~~bättre!~~\n\nDu kan hämta den senaste versionen från ~~[Apple AppStore](https://apps.apple.com/se/app/aware-mindfulness-wellbeing/id1631342681)~~",
+        "link": "https://apps.apple.com/se/app/aware-mindfulness-wellbeing/id1631342681",
+        "button": "Uppdatera"
+      }
+    },
+    "maintenance": {
+      "image__image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1648213290/KillSwitch%20illustrations/Failed_Illutration_wer2cx.png",
+      "text__markdown": "## Vi genomgår lite av ett ~~underhåll~~\n\nBeklagar oredan. Vi kommer att vara igång igen så snart som möjligt."
+    },
+    "failed": {
+      "image__image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1648213290/KillSwitch%20illustrations/Failed_Illutration_wer2cx.png",
+      "text__markdown": "## Något stämmer inte riktigt...\n\n Vi har tekniska problem just nu. Prova igen om en stund."
+    },
+    "retry": "Försök igen"
   },
   "es": {}
 }

@@ -7,7 +7,21 @@
       "confirm": "Yes, of course!"
     }
   },
-  "sv": {},
-  "pt": {},
+  "pt": {
+    "header": "Faz um comentário",
+    "text": "Obrigada! Não te importas de classificar a nossa app na {{storeType}}?",
+    "buttons": {
+      "cancel": "Não, obrigada/o",
+      "confirm": "Sim, claro!"
+    }
+  },
+  "sv": {
+    "header": "Skriv en recension",
+    "text": "Tack! Betygsätt gärna Aware i {{storeType}}.",
+    "buttons": {
+      "cancel": "Nej tack",
+      "confirm": "Ja, gärna!"
+    }
+  },
   "es": {}
 }

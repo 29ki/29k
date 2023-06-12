@@ -77,11 +77,7 @@ const mockIncrementHostedCount = jest.mocked(incrementHostedCount);
 
 jest.useFakeTimers().setSystemTime(new Date('2022-10-10T09:00:00Z'));
 
-mockGetUser.mockResolvedValue({
-  uid: 'the-host-id',
-  displayName: 'some-name',
-  photoURL: 'some-photo-url',
-});
+mockGetUser.mockRejectedValue(null);
 
 mockGetAuthUserInfo.mockResolvedValue({
   uid: 'the-host-id',
@@ -95,7 +91,35 @@ beforeEach(async () => {
 
 describe('sessions - controller', () => {
   describe('getSessionsByUserId', () => {
+    it('should get sessions with without host profile', async () => {
+      mockGetSessionsByUserId.mockResolvedValueOnce([
+        {
+          closingTime: Timestamp.fromDate(new Date('2022-10-10T10:00:00.000Z')),
+          hostId: 'some-user-id',
+          userIds: ['*'],
+        },
+      ]);
+
+      const sessions = await getSessionsByUserId('all');
+
+      expect(sessions).toHaveLength(1);
+      expect(sessions[0].hostProfile).toBe(null);
+      expect(mockGetSessionsByUserId).toHaveBeenCalledTimes(1);
+      expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
+        'all',
+        undefined,
+        undefined,
+      );
+      expect(mockGetUser).toHaveBeenCalledTimes(1);
+      expect(mockGetUser).toHaveBeenCalledWith('some-user-id');
+    });
+
     it('should get sessions with host profile', async () => {
+      mockGetUser.mockResolvedValueOnce({
+        uid: 'the-host-id',
+        displayName: 'some-name',
+        photoURL: 'some-photo-url',
+      });
       mockGetSessionsByUserId.mockResolvedValueOnce([
         {
           closingTime: Timestamp.fromDate(new Date('2022-10-10T10:00:00.000Z')),
@@ -120,6 +144,11 @@ describe('sessions - controller', () => {
     });
 
     it('should get public sessions by exerciseId with host profile', async () => {
+      mockGetUser.mockResolvedValueOnce({
+        uid: 'the-host-id',
+        displayName: 'some-name',
+        photoURL: 'some-photo-url',
+      });
       mockGetSessionsByUserId.mockResolvedValueOnce([
         {
           closingTime: Timestamp.fromDate(new Date('2022-10-10T10:00:00.000Z')),
@@ -176,11 +205,7 @@ describe('sessions - controller', () => {
         {
           closingTime: expect.any(Timestamp),
           hostId: 'the-host-id',
-          hostProfile: {
-            uid: 'the-host-id',
-            displayName: 'some-name',
-            photoURL: 'some-photo-url',
-          },
+          hostProfile: null,
           userIds: ['*', 'some-user-id'],
         },
       ]);
@@ -202,11 +227,7 @@ describe('sessions - controller', () => {
         {
           closingTime: expect.any(Timestamp),
           hostId: 'the-host-id',
-          hostProfile: {
-            uid: 'the-host-id',
-            displayName: 'some-name',
-            photoURL: 'some-photo-url',
-          },
+          hostProfile: null,
           userIds: ['*'],
         },
       ]);
@@ -215,6 +236,11 @@ describe('sessions - controller', () => {
 
   describe('getUpcomingPublicSessions', () => {
     it('should get sessions with host profile', async () => {
+      mockGetUser.mockResolvedValueOnce({
+        uid: 'the-host-id',
+        displayName: 'some-name',
+        photoURL: 'some-photo-url',
+      });
       mockGetUpcomingPublicSessions.mockResolvedValueOnce([
         {
           closingTime: Timestamp.fromDate(new Date('2022-10-10T10:00:00.000Z')),
@@ -248,6 +274,7 @@ describe('sessions - controller', () => {
     it('should return the private session', async () => {
       mockGetSessionById.mockResolvedValueOnce({
         dailyRoomName: 'some-room-name',
+        closingTime: Timestamp.fromDate(new Date('2022-10-10T09:05:00Z')),
         hostId: 'the-host-id',
         userIds: ['some-user-id'],
         type: SessionType.private,
@@ -257,12 +284,9 @@ describe('sessions - controller', () => {
 
       expect(result).toEqual({
         dailyRoomName: 'some-room-name',
+        closingTime: expect.any(Timestamp),
         hostId: 'the-host-id',
-        hostProfile: {
-          uid: 'the-host-id',
-          displayName: 'some-name',
-          photoURL: 'some-photo-url',
-        },
+        hostProfile: null,
         type: 'private',
         userIds: ['some-user-id'],
       });
@@ -271,6 +295,7 @@ describe('sessions - controller', () => {
     it('should return existing public session', async () => {
       mockGetSessionById.mockResolvedValueOnce({
         dailyRoomName: 'some-room-name',
+        closingTime: Timestamp.fromDate(new Date('2022-10-10T09:05:00Z')),
         hostId: 'the-host-id',
         userIds: ['some-other-user-id'],
         type: SessionType.public,
@@ -280,12 +305,51 @@ describe('sessions - controller', () => {
 
       expect(result).toEqual({
         dailyRoomName: 'some-room-name',
+        closingTime: expect.any(Timestamp),
         hostId: 'the-host-id',
-        hostProfile: {
-          uid: 'the-host-id',
-          displayName: 'some-name',
-          photoURL: 'some-photo-url',
-        },
+        hostProfile: null,
+        type: 'public',
+        userIds: ['some-other-user-id'],
+      });
+    });
+
+    it('should return existing public session for host after closingTime', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        dailyRoomName: 'some-room-name',
+        closingTime: Timestamp.fromDate(new Date('2022-10-10T08:05:00Z')),
+        hostId: 'the-host-id',
+        userIds: ['some-other-user-id'],
+        type: SessionType.public,
+      });
+
+      const result = await getSession('the-host-id', 'some-session-id');
+
+      expect(result).toEqual({
+        dailyRoomName: 'some-room-name',
+        closingTime: expect.any(Timestamp),
+        hostId: 'the-host-id',
+        hostProfile: null,
+        type: 'public',
+        userIds: ['some-other-user-id'],
+      });
+    });
+
+    it('should return existing public session for included user after closingTime', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        dailyRoomName: 'some-room-name',
+        closingTime: Timestamp.fromDate(new Date('2022-10-10T08:05:00Z')),
+        hostId: 'the-host-id',
+        userIds: ['some-other-user-id'],
+        type: SessionType.public,
+      });
+
+      const result = await getSession('some-other-user-id', 'some-session-id');
+
+      expect(result).toEqual({
+        dailyRoomName: 'some-room-name',
+        closingTime: expect.any(Timestamp),
+        hostId: 'the-host-id',
+        hostProfile: null,
         type: 'public',
         userIds: ['some-other-user-id'],
       });
@@ -302,6 +366,7 @@ describe('sessions - controller', () => {
     it('should throw if user is not part of private session', async () => {
       mockGetSessionById.mockResolvedValueOnce({
         dailyRoomName: 'some-room-name',
+        closingTime: Timestamp.fromDate(new Date('2022-10-10T09:05:00Z')),
         hostId: 'some-host-id',
         userIds: ['some-other-user-id'],
         type: SessionType.private,
@@ -310,6 +375,20 @@ describe('sessions - controller', () => {
       await expect(
         getSession('some-user-id', 'some-session-id'),
       ).rejects.toEqual(Error(ValidateSessionError.userNotFound));
+    });
+
+    it('should throw if user is not allowed to join by closingTime', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        dailyRoomName: 'some-room-name',
+        closingTime: Timestamp.fromDate(new Date('2022-10-10T08:00:00Z')),
+        hostId: 'some-host-id',
+        userIds: ['some-other-user-id'],
+        type: SessionType.public,
+      });
+
+      await expect(
+        getSession('some-user-id', 'some-session-id'),
+      ).rejects.toEqual(Error(ValidateSessionError.userNotAuthorized));
     });
   });
 
@@ -544,11 +623,7 @@ describe('sessions - controller', () => {
       expect(unmodifiedSession).toEqual({
         id: 'some-session-id',
         userIds: ['some-other-user-id', 'some-user-id'],
-        hostProfile: {
-          uid: 'the-host-id',
-          displayName: 'some-name',
-          photoURL: 'some-photo-url',
-        },
+        hostProfile: null,
       });
     });
 
@@ -584,11 +659,7 @@ describe('sessions - controller', () => {
       });
       expect(joinedSession).toEqual({
         id: 'some-session-id',
-        hostProfile: {
-          uid: 'the-host-id',
-          displayName: 'some-name',
-          photoURL: 'some-photo-url',
-        },
+        hostProfile: null,
       });
     });
   });
@@ -670,11 +741,7 @@ describe('sessions - controller', () => {
         id: 'some-session-id',
         dailyRoomName: 'some-daily-room-name',
         hostId: 'the-host-id',
-        hostProfile: {
-          uid: 'the-host-id',
-          displayName: 'some-name',
-          photoURL: 'some-photo-url',
-        },
+        hostProfile: null,
         startTime: expect.any(Timestamp),
       });
     });

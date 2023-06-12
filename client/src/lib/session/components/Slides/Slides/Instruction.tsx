@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import styled from 'styled-components/native';
 
-import {ExerciseSlideInstructionSlide} from '../../../../../../../shared/src/types/generated/Exercise';
+import {ExerciseSlideInstructionSlideAsync} from '../../../../../../../shared/src/types/generated/Exercise';
 import Heading from './Blocks/Heading';
 import Image from '../../../../components/Image/Image';
 import {Spacer16} from '../../../../components/Spacers/Spacer';
@@ -18,7 +18,7 @@ const TextWrapper = styled.View({
 });
 
 type InstructionProps = {
-  slide: ExerciseSlideInstructionSlide;
+  slide: ExerciseSlideInstructionSlideAsync;
 };
 
 const Instruction: React.FC<InstructionProps> = ({slide: {content = {}}}) => {

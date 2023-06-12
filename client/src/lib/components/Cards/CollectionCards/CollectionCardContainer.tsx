@@ -56,9 +56,12 @@ const CollectionCardContainer: React.FC<CollectionCardContainer> = ({
 
   return (
     <CollectionFullCard
-      title={formatContentName(collection)}
+      title={formatContentName(collection) || ''}
+      description={collection.card?.description || collection.description}
       image={image}
       progressItems={items}
+      backgroundColorGradient={collection.card?.backgroundColorGradient}
+      textColor={collection.card?.textColor}
       onPress={onPress}
     />
   );

@@ -45,8 +45,20 @@
     "join": {
       "title": "Innan du går med",
       "message": "Du har inte gett appen tillåtelse att använda kameran och mikrofonen. Det är helt upp till dig. Vi vill bara att du ska veta att du då inte kan delta fullt ut i sessionen.",
-      "join": "Gå med ändå",
-      "openSettings": "Ändra inställningar"
+      "dismiss": "Gå med ändå",
+      "confirm": "Öppna inställningar"
+    },
+    "camera": {
+      "title": "Åtkomst till kamera nekades",
+      "message": "Ge Aware tillåtelse att använda kameran för att kunna delta i sessionen. Appen startar om när du gett tillåtelse. ",
+      "dismiss": "Avbryt",
+      "confirm": "Öppna inställningar"
+    },
+    "microphone": {
+      "title": "Åtkomst till mikrofon nekades ",
+      "message": "Ge Aware tillåtelse att använda mikrofonen för att kunna delta i sessionen. Appen startar om när du gett tillåtelse. . ",
+      "dismiss": "Avbryt",
+      "confirm": "Öppna inställningar"
     }
   },
   "es": {}

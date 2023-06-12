@@ -13,3 +13,5 @@ export const createApiAuthRouter = () =>
 export const createSlackRouter = () => new Router<DefaultState, SlackContext>();
 
 export const createMetricsRouter = () => new Router<DefaultState>();
+
+export const createCalendarRouter = () => new Router<DefaultState>();

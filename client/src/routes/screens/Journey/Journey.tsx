@@ -72,11 +72,10 @@ const renderSectionHeader: (info: {
   ) : null;
 
 const getItemLayout = getSectionListItemLayout<Item, Section>({
-  getItemHeight: (item, sectionIndex, rowIndex) => {
+  getItemHeight: item => {
     switch (item?.type) {
       case 'completedSession':
-        const isFirstItem = sectionIndex === 0 && rowIndex === 0;
-        return JOURNEY_NODE_HEIGHT - (isFirstItem ? SPACINGS.SIXTEEN : 0);
+        return JOURNEY_NODE_HEIGHT;
       case 'filter':
         return FILTER_HEIGHT + SPACINGS.TWENTYEIGHT * 2;
       case 'pinnedCollection':

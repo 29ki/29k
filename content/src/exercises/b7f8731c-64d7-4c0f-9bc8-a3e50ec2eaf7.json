@@ -37,13 +37,10 @@
         ],
         "content": {
           "video": {
-            "audio": "",
-            "durationTimer": false
-          },
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1682004147/Audio/Outdoor_sensing_qayx0q.mp3",
-            "durationTimer": true
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683795468/Audio/Outdoor_sensing_Jenny_x9ztl5.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684313677/Video/outdoor_sensing_meditation_visual_cbiepb.mp4",
+            "autoPlayLoop": false
           }
         }
       },
@@ -63,8 +60,8 @@
           "heading": "What thoughts, feelings and experiences showed up?",
           "text": "",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json",
-            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "durationTimer": false,
             "duration": 60
           }
         }
@@ -86,8 +83,8 @@
           "heading": "What thoughts, feelings and experiences showed up?",
           "text": "",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json",
-            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json",
+            "durationTimer": false,
             "duration": 120
           }
         },
@@ -116,15 +113,16 @@
       }
     ],
     "theme": {
-      "textColor": "#F9F8F4",
-      "backgroundColor": "#267ae4"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#cdf9e6"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Outdoor sensing",
+    "live": true,
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676992253/Images/card_image_the_willingnes_stance_e2yekr.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1684313656/Images/outdoor_sensing_thumb_q68hl4.png"
       },
       "host": {
         "displayName": "Jenny",
@@ -132,6 +130,11 @@
       }
     },
     "duration": 40,
+    "outroPortal": {
+      "video": {
+        "source": ""
+      }
+    },
     "introPortal": {
       "hostNotes": [
         {
@@ -139,12 +142,12 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal1_the_willingnes_stance_cosgwx.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676972801/Audio/portal_audio_the_willingnes_stance_pxrzfe.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676991354/Images/portal_the_willingnes_stance_thumbnail_hvcvof.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684314346/Video/outdoor_sensing_portal_e9cd0v.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1684314370/Audio/outdoor_sensing_portal_audio_sm1ski.mp3",
+        "preview": ""
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal2_the_willingnes_stance_kti6ub.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684316170/Video/outdoor_sensing_portal_outro_f7amvf.mp4"
       }
     },
     "tags": [

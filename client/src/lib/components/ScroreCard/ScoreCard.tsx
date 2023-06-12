@@ -55,7 +55,9 @@ const ScoreCard: React.FC<{
       <Display28>{heading}</Display28>
     </Row>
     <Spacer4 />
-    <Body16>{description}</Body16>
+    <Body16 adjustsFontSizeToFit numberOfLines={2}>
+      {description}
+    </Body16>
   </Container>
 );
 

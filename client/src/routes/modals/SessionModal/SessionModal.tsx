@@ -1,4 +1,9 @@
-import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {
+  RouteProp,
+  useIsFocused,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 import dayjs from 'dayjs';
 import React, {
   Fragment,
@@ -10,21 +15,23 @@ import React, {
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Alert, Share, View} from 'react-native';
+import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import styled from 'styled-components/native';
 
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
 import {
-  BellFillIcon,
-  BellIcon,
   CommunityIcon,
   FriendsIcon,
   ShareIcon,
+  BellIconAnimated,
+  PlusToCheckIconAnimated,
 } from '../../../lib/components/Icons';
 import Image from '../../../lib/components/Image/Image';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {
+  BottomSafeArea,
   Spacer16,
   Spacer32,
   Spacer4,
@@ -37,7 +44,7 @@ import {
 } from '../../../lib/navigation/constants/routes';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useAddSessionToCalendar from '../../../lib/sessions/hooks/useAddSessionToCalendar';
-import useSessionReminderNotification from '../../../lib/sessions/hooks/useSessionReminderNotification';
+import useSessionReminder from '../../../lib/sessions/hooks/useSessionReminder';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import Byline from '../../../lib/components/Bylines/Byline';
 import {formatContentName, formatInviteCode} from '../../../lib/utils/string';
@@ -56,7 +63,6 @@ import {
 import EditSessionType from '../../../lib/components/EditSessionType/EditSessionType';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
-import Interested from '../../../lib/components/Interested/Interested';
 import useLogSessionMetricEvents from '../../../lib/sessions/hooks/useLogSessionMetricEvents';
 import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
@@ -64,6 +70,9 @@ import usePinSession from '../../../lib/sessions/hooks/usePinSession';
 import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
 import Tag from '../../../lib/components/Tag/Tag';
 import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
+import Interested from '../../../lib/components/Interested/Interested';
+import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
+import AnimatedIconButton from '../../../lib/components/Buttons/IconButton/AnimatedIconButton';
 
 const TypeWrapper = styled(TouchableOpacity)({
   justifyContent: 'center',
@@ -84,6 +93,7 @@ const Content = styled(Gutters)({
 });
 
 const SpaceBetweenRow = styled(View)({
+  flex: 1,
   flexDirection: 'row',
   justifyContent: 'space-between',
 });
@@ -113,14 +123,12 @@ const EditIcon = styled(View)({
   alignSelf: 'center',
 });
 
-const FullInterested = styled(Interested)({
-  flex: 1,
-  flexDirection: 'row',
-  justifyContent: 'flex-end',
-});
-
 const DeleteButton = styled(Button)({
   backgroundColor: COLORS.DELETE,
+});
+
+const JourneyButton = styled(AnimatedButton)({
+  alignSelf: 'flex-start',
 });
 
 const TypeItemWrapper = styled.View({
@@ -179,8 +187,7 @@ const SessionModal = () => {
   const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session?.exerciseId);
   const tags = useGetTagsById(exercise?.tags);
-  const {reminderEnabled, toggleReminder} =
-    useSessionReminderNotification(session);
+  const {reminderEnabled, toggleReminder} = useSessionReminder(session);
   const confirmToggleReminder = useConfirmSessionReminder(session);
 
   const startingNow = dayjs
@@ -319,155 +326,173 @@ const SessionModal = () => {
 
   return (
     <SheetModal backgroundColor={COLORS.CREAM}>
-      <Spacer16 />
-      <Content>
-        <SpaceBetweenRow>
-          <TitleContainer>
-            <Display24>{formatContentName(exercise)}</Display24>
-            <Spacer4 />
-            <TouchableOpacity onPress={onHostPress}>
-              <Byline
-                pictureURL={session.hostProfile?.photoURL}
-                name={session.hostProfile?.displayName}
-                duration={exercise?.duration}
-              />
-            </TouchableOpacity>
-          </TitleContainer>
-          <Spacer32 />
-          <ImageContainer
-            resizeMode="contain"
-            source={{uri: exercise?.card?.image?.source}}
-          />
-        </SpaceBetweenRow>
-      </Content>
-      {exercise?.description && (
-        <>
-          <Spacer16 />
-          <Gutters>
-            <Markdown>{exercise?.description}</Markdown>
-          </Gutters>
-        </>
-      )}
-
-      {tags && (
-        <Tags>
-          {tags.map(({id, tag}) => (
-            <Fragment key={id}>
-              <Tag>{tag}</Tag>
-              <Spacer4 />
-            </Fragment>
-          ))}
-        </Tags>
-      )}
-      <Spacer16 />
-      {!editMode && (
-        <>
-          <Gutters>
-            <Row>
-              {startingNow && (
-                <>
-                  <Button small variant="secondary" onPress={onJoin}>
-                    {t('join')}
-                  </Button>
-                  <Spacer8 />
-                </>
-              )}
-              {isHost ? (
-                <>
-                  <EditButton onPress={onEditMode}>
-                    <SessionTimeBadge session={session} />
-                    <EditIcon>
-                      <PencilIcon />
-                    </EditIcon>
-                  </EditButton>
-                  <FullInterested
-                    active={isPinned}
-                    count={session.interestedCount}
-                  />
-                </>
-              ) : (
-                <>
-                  <SessionTimeBadge session={session} />
-                  <FullInterested active={isPinned} onPress={togglePinned} />
-                </>
-              )}
-            </Row>
-          </Gutters>
-          <Spacer16 />
-
-          <Gutters>
-            <Body16>{t('description')}</Body16>
-            <Spacer16 />
-            <Row>
-              {!startingNow && (
-                <>
-                  <IconButton
-                    Icon={CalendarIcon}
-                    variant={'secondary'}
-                    onPress={onAddToCalendar}
-                  />
-                  <Spacer16 />
-                  <IconButton
-                    Icon={reminderEnabled ? BellFillIcon : BellIcon}
-                    // Toggling variant instead of active state for nicer UI
-                    variant={reminderEnabled ? 'primary' : 'secondary'}
-                    onPress={onToggleReminder}
-                  />
-                  <Spacer16 />
-                </>
-              )}
-
-              {session.link && (
-                <>
-                  <IconButton
-                    variant="secondary"
-                    onPress={onShare}
-                    Icon={ShareIcon}
-                  />
-                </>
-              )}
-            </Row>
-          </Gutters>
-        </>
-      )}
-      {editMode && (
-        <Gutters>
-          {editTypeMode && (
-            <>
-              <TypeItemHeading>{t('selectType.title')}</TypeItemHeading>
-              <Spacer16 />
-              <Row>{sessionTypes}</Row>
-            </>
-          )}
-          {!editTypeMode && (
-            <>
-              {isPublicHost && (
-                <>
-                  <EditSessionType
-                    sessionType={selectedType}
-                    onPress={onEditType}
-                  />
-                  <Spacer16 />
-                </>
-              )}
-              <DateTimePicker
-                initialDateTime={initialStartTime}
-                minimumDate={dayjs()}
-                onChange={onChange}
-              />
-              <Spacer16 />
+      <BottomSheetScrollView focusHook={useIsFocused}>
+        <Spacer16 />
+        {!editMode && (
+          <>
+            <Content>
               <SpaceBetweenRow>
-                <Button variant="secondary" onPress={onUpdateSession}>
-                  {t('done')}
-                </Button>
-                <DeleteButton small onPress={onDelete}>
-                  {t('deleteButton')}
-                </DeleteButton>
+                <TitleContainer>
+                  <Display24>{formatContentName(exercise)}</Display24>
+                  <Spacer4 />
+                  <Byline
+                    pictureURL={session.hostProfile?.photoURL}
+                    name={session.hostProfile?.displayName}
+                    duration={exercise?.duration}
+                    onPress={onHostPress}
+                  />
+                </TitleContainer>
+                <Spacer32 />
+                <ImageContainer
+                  resizeMode="contain"
+                  source={{uri: exercise?.card?.image?.source}}
+                />
               </SpaceBetweenRow>
-            </>
-          )}
-        </Gutters>
-      )}
+            </Content>
+            {exercise?.description && (
+              <>
+                <Spacer16 />
+                <Gutters>
+                  <Markdown>{exercise?.description}</Markdown>
+                </Gutters>
+              </>
+            )}
+
+            {tags && (
+              <Tags>
+                {tags.map(({id, tag}) => (
+                  <Fragment key={id}>
+                    <Tag>{tag}</Tag>
+                    <Spacer4 />
+                  </Fragment>
+                ))}
+              </Tags>
+            )}
+            <Spacer16 />
+
+            <Gutters>
+              <Row>
+                {startingNow && (
+                  <>
+                    <Button small variant="secondary" onPress={onJoin}>
+                      {t('join')}
+                    </Button>
+                    <Spacer8 />
+                  </>
+                )}
+                {isHost ? (
+                  <SpaceBetweenRow>
+                    <EditButton onPress={onEditMode}>
+                      <SessionTimeBadge session={session} />
+                      <EditIcon>
+                        <PencilIcon />
+                      </EditIcon>
+                    </EditButton>
+                    <Interested count={session.interestedCount} />
+                  </SpaceBetweenRow>
+                ) : (
+                  <SessionTimeBadge session={session} />
+                )}
+              </Row>
+              <Spacer16 />
+
+              {!isHost && (
+                <>
+                  <JourneyButton
+                    small
+                    AnimatedIcon={PlusToCheckIconAnimated}
+                    fill={COLORS.WHITE}
+                    onPress={togglePinned}
+                    variant={isPinned ? 'primary' : 'secondary'}
+                    active={isPinned}>
+                    {t('journeyButton')}
+                  </JourneyButton>
+
+                  <Spacer32 />
+                </>
+              )}
+            </Gutters>
+
+            <Gutters>
+              <Body16>{t('description')}</Body16>
+              <Spacer16 />
+              <Row>
+                {!startingNow && (
+                  <>
+                    <IconButton
+                      Icon={CalendarIcon}
+                      variant={'secondary'}
+                      onPress={onAddToCalendar}
+                    />
+                    <Spacer16 />
+                  </>
+                )}
+
+                {session.link && (
+                  <>
+                    <IconButton
+                      variant="secondary"
+                      onPress={onShare}
+                      Icon={ShareIcon}
+                    />
+                  </>
+                )}
+                {(isPinned || isHost) && (
+                  <>
+                    <Spacer16 />
+                    <AnimatedIconButton
+                      AnimatedIcon={BellIconAnimated}
+                      fill={COLORS.WHITE}
+                      variant={reminderEnabled ? 'primary' : 'secondary'}
+                      active={reminderEnabled}
+                      onPress={onToggleReminder}
+                    />
+                  </>
+                )}
+              </Row>
+            </Gutters>
+          </>
+        )}
+        {editMode && (
+          <Gutters>
+            {editTypeMode && (
+              <>
+                <TypeItemHeading>{t('selectType.title')}</TypeItemHeading>
+                <Spacer16 />
+                <Row>{sessionTypes}</Row>
+              </>
+            )}
+            {!editTypeMode && (
+              <>
+                {isPublicHost && (
+                  <>
+                    <EditSessionType
+                      sessionType={selectedType}
+                      onPress={onEditType}
+                    />
+                    <Spacer16 />
+                  </>
+                )}
+                <DateTimePicker
+                  initialDateTime={initialStartTime}
+                  minimumDate={dayjs()}
+                  onChange={onChange}
+                />
+                <Spacer16 />
+                <SpaceBetweenRow>
+                  <Button variant="secondary" onPress={onUpdateSession}>
+                    {t('done')}
+                  </Button>
+                  <DeleteButton small onPress={onDelete}>
+                    {t('deleteButton')}
+                  </DeleteButton>
+                </SpaceBetweenRow>
+              </>
+            )}
+          </Gutters>
+        )}
+        <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
+      </BottomSheetScrollView>
     </SheetModal>
   );
 };

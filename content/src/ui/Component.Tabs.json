@@ -2,13 +2,17 @@
   "en": {
     "home": "Today",
     "explore": "Explore",
-    "journey": "Journey"
+    "journey": "My Journey"
   },
   "pt": {
     "home": "Hoje",
     "journey": "Jornada",
     "explore": "Explora"
   },
-  "sv": {},
+  "sv": {
+    "home": "Idag",
+    "explore": "Utforska",
+    "journey": "Min Plan"
+  },
   "es": {}
 }

@@ -11,6 +11,11 @@
     "corePartners": "Parceiros principais",
     "partners": "Parceiros"
   },
-  "sv": {},
+  "sv": {
+    "title": "Partners",
+    "text": "Tack till alla fina organisationer som stöttar oss!",
+    "corePartners": "Core partners",
+    "partners": "Partners"
+  },
   "es": {}
 }

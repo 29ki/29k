@@ -95,7 +95,7 @@ const SharingModal = () => {
   const sessionState = useSessionSlideState();
   const {addSharingPost} = useSharingPosts(exerciseId);
   const [isPublic, setIsPublic] = useState(true);
-  const [isAnonymous, setIsAnonymous] = useState(false);
+  const [isAnonymous, setIsAnonymous] = useState(true);
   const [text, setText] = useState('');
 
   const userProfile = useMemo(() => {

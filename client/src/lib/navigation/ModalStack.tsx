@@ -34,6 +34,7 @@ import ReportModal from '../../routes/modals/ReportModal/ReportModal';
 import CalmDownModal from '../../routes/modals/CalmDownModal/CalmDownModal';
 import HostInfoModal from '../../routes/modals/HostInfoModal/HostInfoModal';
 import CompletedSessionsModal from '../../routes/modals/CompletedSessionsModal/CompletedSessionsModal';
+import RemindersModal from '../../routes/modals/RemindersModal/RemindersModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -184,6 +185,7 @@ const ModalStack = () => {
           component={SessionUnavailableModal}
         />
         <Screen name={'ChangeLanguageModal'} component={ChangeLanguageModal} />
+        <Screen name={'RemindersModal'} component={RemindersModal} />
         <Screen
           name={'ProfileSettingsModal'}
           component={ProfileSettingsModal}

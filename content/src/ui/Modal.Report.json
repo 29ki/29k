@@ -8,7 +8,23 @@
     "confirmButton": "Send report",
     "confirmationText": "Thank you for reaching out 🌱"
   },
-  "pt": {},
-  "sv": {},
+  "pt": {
+    "title": "Reportar",
+    "reportHeading": "O que gostarias de reportar?",
+    "reportPlaceholder": "Partilha as tuas opiniões para podermos melhorar",
+    "emailHeading": "Responder para:",
+    "emailPlaceholder": "Escreve o email onde pretendes receber a tua resposta",
+    "confirmButton": "Enviar relatório",
+    "confirmationText": "Obrigada por nos contactares 🌱"
+  },
+  "sv": {
+    "title": "Anmäl",
+    "reportHeading": "Vad vill du anmäla?",
+    "reportPlaceholder": "Berätta vad du tycker så att vi kan bli bättre",
+    "emailHeading": "Svara till: ",
+    "emailPlaceholder": "Skriv den email du vill att vi skickar svar till.",
+    "confirmButton": "Skicka anmälan",
+    "confirmationText": "Tack för att du kontaktar oss 🌱"
+  },
   "es": {}
 }

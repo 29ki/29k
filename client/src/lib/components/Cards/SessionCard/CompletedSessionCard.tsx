@@ -14,12 +14,13 @@ import {formatContentName} from '../../../utils/string';
 import SessionWalletCard from '../WalletCards/SessionWalletCard';
 import Badge from '../../Badge/Badge';
 import {Body14} from '../../Typography/Body/Body';
-import {CheckIcon, CommunityIcon, MeIcon} from '../../Icons';
-import {COLORS} from '../../../../../../shared/src/constants/colors';
+import {CommunityIcon, MeIcon} from '../../Icons';
 import {Spacer4} from '../../Spacers/Spacer';
 import {SessionMode} from '../../../../../../shared/src/schemas/Session';
 import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
 import useUserProfile from '../../../user/hooks/useUserProfile';
+import Node from '../../Node/Node';
+import {SPACINGS} from '../../../constants/spacings';
 
 type CompletedSessionCardProps = {
   completedSessionEvent: CompletedSessionEvent;
@@ -30,12 +31,6 @@ type CompletedSessionCardProps = {
 const Row = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
-});
-
-const ChekIconWrapper = styled.View({
-  width: 22,
-  height: 22,
-  alignSelf: 'center',
 });
 
 const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
@@ -92,9 +87,8 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
       hasCardAfter={hasCardAfter}
       completed={true}>
       <Row>
-        <ChekIconWrapper>
-          <CheckIcon fill={COLORS.PRIMARY} />
-        </ChekIconWrapper>
+        <Node size={SPACINGS.SIXTEEN} />
+        <Spacer4 />
         <Body14>{t('completed')}</Body14>
         <Spacer4 />
         <Badge

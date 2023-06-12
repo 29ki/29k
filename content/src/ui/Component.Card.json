@@ -1,0 +1,15 @@
+{
+  "en": {
+    "myJourneyTag": "My journey",
+    "interested": "Interested"
+  },
+  "pt": {
+    "myJourneyTag": "A minha jornada",
+    "interested": "Vou"
+  },
+  "sv": {
+    "myJourneyTag": "Min resa",
+    "interested": "Intresserad"
+  },
+  "es": {}
+}

@@ -11,3 +11,5 @@ export * from './api';
 export * from './slack';
 export * from './metrics';
 export * from './users';
+export * from './calendar';
+export * from './backups';

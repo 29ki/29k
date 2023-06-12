@@ -3,12 +3,9 @@ import useSessions from './useSessions';
 import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
 import useSessionsState from '../state/state';
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
 import {SessionType} from '../../../../../shared/src/schemas/Session';
 import useUserState from '../../user/state/state';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
-
-dayjs.extend(utc);
 
 enableFetchMocks();
 
@@ -149,12 +146,15 @@ describe('useSessions', () => {
   describe('sessions', () => {
     beforeEach(() => {
       fetchMock.mockResponseOnce(
-        JSON.stringify([{id: 'session-id-1'}, {id: 'session-id-2'}]),
+        JSON.stringify([
+          {id: 'session-id-1'},
+          {id: 'session-id-2', hostId: 'user-id'},
+        ]),
         {status: 200},
       );
     });
 
-    it('should return sessions that are not pinned and not hosted by user', async () => {
+    it('should return all sessions even if they are pinned or hosted by user', async () => {
       useUserState.setState({
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,
         userState: {
@@ -172,24 +172,9 @@ describe('useSessions', () => {
         await result.current.fetchSessions();
       });
 
-      expect(result.current.sessions).toEqual([{id: 'session-id-2'}]);
-    });
-
-    it('should return sessions not hosted by user when no session is pinned', async () => {
-      useUserState.setState({
-        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
-        userState: {},
-      });
-
-      const {result} = renderHook(() => useSessions());
-
-      await act(async () => {
-        await result.current.fetchSessions();
-      });
-
       expect(result.current.sessions).toEqual([
         {id: 'session-id-1'},
-        {id: 'session-id-2'},
+        {id: 'session-id-2', hostId: 'user-id'},
       ]);
     });
   });

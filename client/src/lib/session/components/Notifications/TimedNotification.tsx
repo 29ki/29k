@@ -7,22 +7,18 @@ const TimedNotification: React.FC<NotificationProps> = ({
   text,
   Icon,
   image,
-  timeVisible,
-  visible,
 }) => {
   const [active, setActive] = useState(true);
 
   useEffect(() => {
-    if (!visible) {
-      const timeoutId = setTimeout(() => {
-        setActive(false);
-      }, timeVisible ?? 3000);
+    const timeoutId = setTimeout(() => {
+      setActive(false);
+    }, 3000);
 
-      return () => {
-        clearTimeout(timeoutId);
-      };
-    }
-  }, [visible, timeVisible]);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
 
   if (active) {
     return (

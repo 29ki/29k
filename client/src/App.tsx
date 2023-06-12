@@ -11,6 +11,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import RootNavigator from './lib/navigation/RootNavigator';
+import RehydrateWrapper from './RehydrateWrapper';
 
 const GestureHandler = styled(GestureHandlerRootView)({
   flex: 1,
@@ -24,10 +25,12 @@ const App = () => (
           <Navigation>
             <MetricsProvider>
               <Suspense>
-                <Bootstrap>
-                  <RootNavigator />
-                  <CodePushOverlay />
-                </Bootstrap>
+                <RehydrateWrapper>
+                  <Bootstrap>
+                    <RootNavigator />
+                    <CodePushOverlay />
+                  </Bootstrap>
+                </RehydrateWrapper>
               </Suspense>
             </MetricsProvider>
           </Navigation>

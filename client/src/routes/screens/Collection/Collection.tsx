@@ -3,7 +3,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import hexToRgba from 'hex-to-rgba';
 import React, {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {SectionList, SectionListRenderItem, Switch} from 'react-native';
+import {SectionList, SectionListRenderItem} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -22,7 +22,6 @@ import {
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
-import {Body16} from '../../../lib/components/Typography/Body/Body';
 import {Display20} from '../../../lib/components/Typography/Display/Display';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import useCollectionById from '../../../lib/content/hooks/useCollectionById';
@@ -36,6 +35,8 @@ import usePinCollection from '../../../lib/user/hooks/usePinCollection';
 import usePinnedCollectionById from '../../../lib/user/hooks/usePinnedCollectionById';
 import {formatContentName} from '../../../lib/utils/string';
 import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
+import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
+import {PlusToCheckIconAnimated} from '../../../lib/components/Icons';
 
 type Section = {
   title: string;
@@ -47,6 +48,10 @@ const Row = styled.View({
   justifyContent: 'space-between',
   alignItems: 'center',
   flex: 1,
+});
+
+const JourneyButton = styled(AnimatedButton)({
+  alignSelf: 'flex-start',
 });
 
 const LeftColumn = styled.View({
@@ -93,8 +98,6 @@ const Collection = () => {
     }),
     [collection],
   );
-
-  const trackColor = useMemo(() => ({true: COLORS.PRIMARY}), []);
 
   const exerciseSections = useMemo(() => {
     return [
@@ -177,14 +180,16 @@ const Collection = () => {
               </Row>
 
               <Spacer16 />
-              <Row>
-                <Body16>{t('addToJourney')}</Body16>
-                <Switch
-                  trackColor={trackColor}
-                  value={isPinned}
-                  onValueChange={togglePinned}
-                />
-              </Row>
+              <JourneyButton
+                small
+                onPress={togglePinned}
+                variant={isPinned ? 'primary' : 'secondary'}
+                AnimatedIcon={PlusToCheckIconAnimated}
+                fill={COLORS.WHITE}
+                active={isPinned}>
+                {t('addToJourney')}
+              </JourneyButton>
+
               <Spacer24 />
             </Gutters>
           }

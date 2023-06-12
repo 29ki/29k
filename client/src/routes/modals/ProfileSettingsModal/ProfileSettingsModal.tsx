@@ -10,6 +10,7 @@ import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {
+  BottomSafeArea,
   Spacer16,
   Spacer24,
   Spacer32,
@@ -27,14 +28,12 @@ import useUpdateProfileDetails from '../../../lib/user/hooks/useUpdateProfileDet
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import useDeleteUser from '../../../lib/user/hooks/useDeleteUser';
 import ActionButton from '../../../lib/components/ActionList/ActionItems/ActionButton';
-import ActionSwitch from '../../../lib/components/ActionList/ActionItems/ActionSwitch';
 import {
   HangUpIcon,
   LanguagesIcon,
   BellIcon,
   DeleteIcon,
 } from '../../../lib/components/Icons';
-import useReminderNotificationsSetting from '../../../lib/notifications/hooks/useReminderNotificationsSetting';
 import useSignOutUser from '../../../lib/user/hooks/useSignOutUser';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import useUserState from '../../../lib/user/state/state';
@@ -72,8 +71,6 @@ const ProfileSettingsModal = () => {
   const signOut = useSignOutUser();
   const user = useUser();
   const userData = useUserState(state => state.data);
-  const {remindersEnabled, setRemindersEnabled} =
-    useReminderNotificationsSetting();
 
   const [displayName, setDisplayName] = useState(user?.displayName);
   const [email, setEmail] = useState(user?.email);
@@ -107,6 +104,11 @@ const ProfileSettingsModal = () => {
 
   const languagePress = useCallback(
     () => navigate('ChangeLanguageModal'),
+    [navigate],
+  );
+
+  const remindersPress = useCallback(
+    () => navigate('RemindersModal'),
     [navigate],
   );
 
@@ -231,12 +233,9 @@ const ProfileSettingsModal = () => {
                 <ActionButton Icon={LanguagesIcon} onPress={languagePress}>
                   {t('actions.language')}
                 </ActionButton>
-                <ActionSwitch
-                  Icon={BellIcon}
-                  onValueChange={setRemindersEnabled}
-                  value={remindersEnabled}>
-                  {t('actions.notifications')}
-                </ActionSwitch>
+                <ActionButton Icon={BellIcon} onPress={remindersPress}>
+                  {t('actions.reminders')}
+                </ActionButton>
               </>
             )}
           </ActionList>
@@ -262,6 +261,7 @@ const ProfileSettingsModal = () => {
             </>
           )}
         </Gutters>
+        <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
       </BottomSheetScrollView>
     </SheetModal>
   );
