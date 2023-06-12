@@ -35,7 +35,6 @@ describe('useIsAllowedToJoin', () => {
     });
     mockGetSession.mockResolvedValueOnce({
       closingTime: '2023-05-16T10:05:00Z',
-      userIds: ['*'],
       hostId: 'some-host-id',
     } as LiveSessionType);
 

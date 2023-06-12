@@ -82,8 +82,9 @@ const Tags = styled(Gutters)({
 });
 
 const HostSessionByInviteModal = () => {
-  const {params: {hostingCode} = {}} =
-    useRoute<RouteProp<ModalStackProps, 'HostSessionByInviteModal'>>();
+  const {
+    params: {hostingCode},
+  } = useRoute<RouteProp<ModalStackProps, 'HostSessionByInviteModal'>>();
 
   const {t} = useTranslation('Modal.Session');
 

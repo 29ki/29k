@@ -567,15 +567,22 @@ describe('/api/sessions', () => {
 
   describe('PUT /:id/hostingLink', () => {
     it('should return a hosting invite link', async () => {
+      getMockCustomClaims.mockReturnValueOnce({role: ROLE.publicHost});
+      mockCreateSessionHostingLink.mockResolvedValue('hosting-link');
       const response = await request(mockServer).put(
         '/sessions/some-session-id/hostingLink',
       );
 
       expect(response.status).toBe(200);
-      expect(mockCreateSessionHostingLink).toHaveBeenCalledWith('x');
+      expect(mockCreateSessionHostingLink).toHaveBeenCalledWith(
+        'some-user-id',
+        'some-session-id',
+      );
+      expect(response.text).toEqual('hosting-link');
     });
 
     it('should fail when update rejects', async () => {
+      getMockCustomClaims.mockReturnValueOnce({role: ROLE.publicHost});
       mockCreateSessionHostingLink.mockRejectedValueOnce(
         new Error('some-error'),
       );

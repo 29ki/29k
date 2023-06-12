@@ -40,10 +40,8 @@ const LiveSessionFieldsSchema = yup
     url: yup.string().required(),
     link: yup.string(),
     inviteCode: yup.number().required(),
-    hostingCode: yup.number(),
     interestedCount: yup.number().required(),
     hostId: yup.string().required(),
-    userIds: yup.array().of(yup.string().required()).required(),
     ended: yup.boolean().required(),
   })
   .concat(SessionBaseFiledsSchema);

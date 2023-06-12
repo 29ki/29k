@@ -154,7 +154,7 @@ export const deleteSession = async (id: string) => {
 };
 
 export const getSessionByHostingCode = async (
-  code: LiveSessionType['hostingCode'],
+  code: number,
 ): Promise<LiveSessionType> => {
   const response = await apiClient(`${SESSIONS_ENDPOINT}/hostingCode/${code}`, {
     method: 'GET',
@@ -186,7 +186,7 @@ export const getSessionHostingLink = async (
 
 export const acceptHostingInvite = async (
   sessionId: LiveSessionType['id'],
-  hostingCode: LiveSessionType['hostingCode'],
+  hostingCode: number,
 ) => {
   const response = await apiClient(
     `${SESSIONS_ENDPOINT}/${sessionId}/acceptHostingInvite`,
