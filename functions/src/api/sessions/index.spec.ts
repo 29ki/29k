@@ -32,6 +32,7 @@ const mockGetSessionByHostingCode =
   sessionsController.getSessionByHostingCode as jest.Mock;
 const mockCreateSessionHostingLink =
   sessionsController.createSessionHostingLink as jest.Mock;
+const mockUpdateSessionHost = sessionsController.updateSessionHost as jest.Mock;
 
 jest.mock('../../models/session');
 
@@ -592,6 +593,28 @@ describe('/api/sessions', () => {
 
       expect(response.status).toBe(500);
       expect(response.text).toEqual('Internal Server Error');
+    });
+  });
+
+  describe('PUT /:id/acceptHostingInvite', () => {
+    it('should update session host', async () => {
+      getMockCustomClaims.mockReturnValueOnce({role: ROLE.publicHost});
+      mockUpdateSessionHost.mockResolvedValue(
+        createMockSession('updated-host-session-id'),
+      );
+
+      const response = await request(mockServer)
+        .put('/sessions/updated-host-session-id/acceptHostingInvite')
+        .send({hostingCode: 123456})
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(200);
+      expect(mockUpdateSessionHost).toHaveBeenCalledWith(
+        'some-user-id',
+        'updated-host-session-id',
+        123456,
+      );
+      expect(response.body).toMatchObject({id: 'updated-host-session-id'});
     });
   });
 });

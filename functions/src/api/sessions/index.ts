@@ -321,7 +321,7 @@ sessionsRouter.put(
       hostingCode: yup.number().required(),
     }),
     params: SessionParamsSchema,
-    response: yup.string(),
+    response: LiveSessionSchema,
   }),
   async ctx => {
     const {id} = ctx.params;
