@@ -140,6 +140,10 @@ const Lottie: React.FC<LottieProps> = ({
     [durationTimer, paused, audioDuration],
   );
 
+  const onProgress = useCallback((data: {time: number}) => {
+    timerRef.current?.seek(data.time);
+  }, []);
+
   if (audioSources) {
     // If audio source is available we allways loop the animation
     return (
@@ -149,6 +153,7 @@ const Lottie: React.FC<LottieProps> = ({
           ref={videoRef}
           volume={1}
           onLoad={onLoad}
+          onProgress={onProgress}
           onEnd={onEnd}
           paused={paused}
           mixWithOthers={isLive}
