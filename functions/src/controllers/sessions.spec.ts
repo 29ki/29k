@@ -2,6 +2,9 @@ const mockDynamicLinks = {
   createSessionInviteLink: jest
     .fn()
     .mockResolvedValue('http://some.dynamic/link'),
+  createSessionHostTransferLink: jest
+    .fn()
+    .mockResolvedValue('http://some.dynamic/link'),
 };
 const mockDailyApi = {
   createRoom: jest.fn(() => ({
@@ -19,6 +22,8 @@ const mockDailyApi = {
 
 const mockGenerateVerificationCode = jest.fn();
 
+import {Timestamp} from 'firebase-admin/firestore';
+
 import * as sessionModel from '../models/session';
 import {
   createSession,
@@ -31,6 +36,9 @@ import {
   getSessionToken,
   updateInterestedCount,
   getSession,
+  updateSessionHost,
+  createSessionHostingLink,
+  getSessionByHostingCode,
 } from './sessions';
 import {SessionType} from '../../../shared/src/schemas/Session';
 import dayjs from 'dayjs';
@@ -43,7 +51,6 @@ import {generateSessionToken} from '../lib/dailyUtils';
 import {getUser} from './user';
 import {getAuthUserInfo} from '../models/auth';
 import {incrementHostedCount} from '../models/user';
-import {Timestamp} from 'firebase-admin/firestore';
 
 jest.mock('../lib/utils', () => ({
   ...jest.requireActual('../lib/utils'),
@@ -65,6 +72,8 @@ const mockGetSessionById = sessionModel.getSessionById as jest.Mock;
 const mockGetSessionStateById = sessionModel.getSessionStateById as jest.Mock;
 const mockDeleteSession = sessionModel.deleteSession as jest.Mock;
 const mockUpdateSession = sessionModel.updateSession as jest.Mock;
+const mockGetSessionByHostingCode =
+  sessionModel.getSessionByHostingCode as jest.Mock;
 const mockUpdateInterestedCount =
   sessionModel.updateInterestedCount as jest.Mock;
 const mockUpdateSessionState = sessionModel.updateSessionState as jest.Mock;
@@ -918,6 +927,94 @@ describe('sessions - controller', () => {
         ended: true,
         completed: true,
       });
+    });
+  });
+
+  describe('getSessionByHostingCode', () => {
+    it('should get session', async () => {
+      mockGetSessionByHostingCode.mockResolvedValueOnce({
+        id: 'some-session-id',
+        hostId: 'the-host-id',
+        type: SessionType.public,
+      });
+
+      const result = await getSessionByHostingCode(123456);
+
+      expect(mockGetSessionByHostingCode).toHaveBeenCalledWith({
+        hostingCode: 123456,
+      });
+      expect(result).toEqual({
+        hostId: 'the-host-id',
+        hostProfile: null,
+        id: 'some-session-id',
+        type: 'public',
+      });
+    });
+
+    it('should throw if session is unavailable', async () => {
+      mockGetSessionByHostingCode.mockResolvedValueOnce(undefined);
+      mockGetSessionByHostingCode.mockResolvedValueOnce(
+        'some-unavailable-session',
+      );
+      expect(getSessionByHostingCode(123456)).rejects.toThrow(
+        new RequestError(JoinSessionError.notAvailable),
+      );
+    });
+
+    it('should throw if no session is found', async () => {
+      mockGetSessionByHostingCode.mockResolvedValueOnce(undefined);
+      mockGetSessionByHostingCode.mockResolvedValueOnce(undefined);
+      expect(getSessionByHostingCode(123456)).rejects.toThrow(
+        new RequestError(JoinSessionError.notFound),
+      );
+    });
+  });
+
+  describe('createSessionHostingLink', () => {
+    it('should update session host and reset hostingCode', async () => {
+      mockGetSessionById.mockResolvedValueOnce({hostId: 'user-id'});
+      mockGetSessionById.mockResolvedValueOnce({
+        hostingCode: 123456,
+        exerciseId: 'some-exercise-id',
+      });
+      await createSessionHostingLink('user-id', 'some-session-id');
+
+      expect(mockUpdateSession).toHaveBeenCalledWith('some-session-id', {
+        hostingCode: 123456,
+      });
+      expect(
+        mockDynamicLinks.createSessionHostTransferLink,
+      ).toHaveBeenCalledWith(123456, 'some-exercise-id', 'some-name', 'en');
+    });
+
+    it('should fail when user is not the host', async () => {
+      mockGetSessionById.mockResolvedValueOnce({hostId: 'some-user-id'});
+      expect(
+        updateSessionHost('user-id', 'some-session-id', 123456),
+      ).rejects.toThrow(
+        new RequestError(ValidateSessionError.userNotAuthorized),
+      );
+    });
+  });
+
+  describe('updateSessionHost', () => {
+    it('should update session host and reset hostingCode', async () => {
+      mockGetSessionById.mockResolvedValueOnce({hostingCode: 123456});
+      await updateSessionHost('user-id', 'some-session-id', 123456);
+
+      expect(mockUpdateSession).toHaveBeenCalledWith('some-session-id', {
+        hostId: 'user-id',
+        hostingCode: undefined,
+      });
+    });
+
+    it('should fail when hostingCode does not match sessions', async () => {
+      mockGetSessionById.mockResolvedValueOnce({hostingCode: 654321});
+      expect(
+        updateSessionHost('user-id', 'some-session-id', 123456),
+      ).rejects.toThrow(
+        new RequestError(ValidateSessionError.userNotAuthorized),
+      );
     });
   });
 });
