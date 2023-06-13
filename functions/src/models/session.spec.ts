@@ -34,6 +34,7 @@ import {
   getSessionStateById,
   updateInterestedCount,
   getUpcomingPublicSessions,
+  getSessionByHostingCode,
 } from './session';
 import {SessionType} from '../../../shared/src/schemas/Session';
 
@@ -220,6 +221,37 @@ describe('session model', () => {
     it('supports limiting query result', async () => {
       await getSessionsByUserId('some-user-id', undefined, undefined, 5);
       expect(mockLimit).toHaveBeenCalledWith(5);
+    });
+  });
+
+  describe('getSessionByHostingCode', () => {
+    it('should get a session by hosting code', async () => {
+      await getSessionByHostingCode({
+        hostingCode: 123456,
+        activeOnly: true,
+      });
+      expect(mockWhere).toHaveBeenCalledWith('hostingCode', '==', 123456);
+    });
+
+    it('should filter out old sessions', async () => {
+      await getSessionByHostingCode({
+        hostingCode: 123456,
+        activeOnly: true,
+      });
+      expect(mockWhere).toHaveBeenCalledWith('ended', '==', false);
+      expect(mockWhere).toHaveBeenCalledWith(
+        'closingTime',
+        '>',
+        expect.any(Timestamp),
+      );
+    });
+
+    it('should not filter out old sessions', async () => {
+      await getSessionByHostingCode({
+        hostingCode: 123456,
+        activeOnly: false,
+      });
+      expect(mockWhere).toHaveBeenCalledTimes(1);
     });
   });
 
