@@ -48,8 +48,8 @@ type ContentControlsProps = {
   slideState: SessionSlideState | null;
   onPrevPress: () => void;
   onNextPress: () => void;
-  onResetPlayingPress: () => void;
-  onTogglePlayingPress: () => void;
+  onResetPlayingPress?: () => void;
+  onTogglePlayingPress?: () => void;
 };
 
 const ContentControls: React.FC<ContentControlsProps> = ({
@@ -108,39 +108,41 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         variant="tertiary"
         small
         LeftIcon={ChevronLeftIcon}
-        disabled={!slideState.previous}
+        disabled={!slideState.previous && !async}
         elevated
         onPress={onPrevPress}>
         {t('controls.prev')}
       </SlideButton>
-      {shouldRenderMediaControls && (
-        <MediaControls>
-          <IconSlideButton
-            small
-            elevated
-            disabled={isDisabled}
-            variant="tertiary"
-            Icon={RewindIcon}
-            onPress={onResetPlayingPress}
-          />
-          <Spacer8 />
-          <IconSlideButton
-            small
-            elevated
-            disabled={isDisabled}
-            variant="tertiary"
-            Icon={
-              sessionState.playing && !currentContentReachedEnd ? Pause : Play
-            }
-            onPress={onTogglePlayingPress}
-          />
-        </MediaControls>
-      )}
+      {shouldRenderMediaControls &&
+        onResetPlayingPress &&
+        onTogglePlayingPress && (
+          <MediaControls>
+            <IconSlideButton
+              small
+              elevated
+              disabled={isDisabled}
+              variant="tertiary"
+              Icon={RewindIcon}
+              onPress={onResetPlayingPress}
+            />
+            <Spacer8 />
+            <IconSlideButton
+              small
+              elevated
+              disabled={isDisabled}
+              variant="tertiary"
+              Icon={
+                sessionState.playing && !currentContentReachedEnd ? Pause : Play
+              }
+              onPress={onTogglePlayingPress}
+            />
+          </MediaControls>
+        )}
       <SlideButton
         small
         elevated
         variant="tertiary"
-        disabled={!slideState.next}
+        disabled={!slideState.next && !async}
         RightIcon={ChevronRight}
         onPress={onNextPress}>
         {t('controls.next')}

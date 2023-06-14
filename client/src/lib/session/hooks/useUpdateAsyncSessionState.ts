@@ -24,6 +24,10 @@ const useUpdateAsyncSessionState = (session: AsyncSessionType) => {
     });
   }, [session?.id, setSessionState]);
 
+  const resetSession = useCallback(() => {
+    setPartialSessionState({playing: false, started: false});
+  }, [setPartialSessionState]);
+
   const endSession = useCallback(async () => {
     setPartialSessionState({
       ended: true,
@@ -66,6 +70,7 @@ const useUpdateAsyncSessionState = (session: AsyncSessionType) => {
     navigateToIndex,
     setPlaying,
     startSession,
+    resetSession,
     endSession,
   };
 };

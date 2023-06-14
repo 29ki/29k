@@ -1,71 +1,46 @@
 import React, {useEffect, useCallback} from 'react';
 import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
-import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import {SPACINGS} from '../../../lib/constants/spacings';
-import {COLORS} from '../../../../../shared/src/constants/colors';
 
 import {AsyncSessionStackProps} from '../../../lib/navigation/constants/routes';
 
 import useSessionState from '../../../lib/session/state/state';
-import useSessionSlideState from '../../../lib/session/hooks/useSessionSlideState';
-import usePreventGoingBack from '../../../lib/navigation/hooks/usePreventGoingBack';
-import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
+import useAsyncSessionSlideState from '../../../lib/session/hooks/useAsyncSessionSlideState';
 import useAsyncSessionMetricEvents from '../../../lib/session/hooks/useAsyncSessionMetricEvents';
 import useAddUserEvent from '../../../lib/user/hooks/useAddUserEvent';
 
 import {
   BottomSafeArea,
   Spacer16,
+  Spacer8,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
 
 import ExerciseSlides from '../../../lib/session/components/ExerciseSlides/ExerciseSlides';
 import ContentControls from '../../../lib/session/components/ContentControls/ContentControls';
-import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
-import {HangUpIcon} from '../../../lib/components/Icons';
-import Button from '../../../lib/components/Buttons/Button';
-import HostNotes from '../../../lib/session/components/HostNotes/HostNotes';
 import Screen from '../../../lib/components/Screen/Screen';
 import useUpdateAsyncSessionState from '../../../lib/session/hooks/useUpdateAsyncSessionState';
 import Gutters from '../../../lib/components/Gutters/Gutters';
-
-const DIVE_IN_EXERCISE = '1a53e633-6916-4fea-a072-977c4b215288';
+import ProgressBar from '../../../lib/session/components/ProgressBar/ProgressBar';
 
 const Spotlight = styled.View({
   flex: 1,
   justifyContent: 'center',
 });
 
-const ExerciseControl = styled(ContentControls)({
-  position: 'absolute',
-  bottom: SPACINGS.SIXTEEN,
-  left: SPACINGS.SIXTEEN,
-  right: SPACINGS.SIXTEEN,
-  zIndex: 1000,
-});
-
-const SessionControls = styled.View({
+const ProgressWrapper = styled.View({
   flexDirection: 'row',
-  justifyContent: 'flex-start',
+  elevation: 2,
 });
 
-const Top = styled.View({
-  position: 'absolute',
-  top: 0,
-  right: 0,
-  left: 0,
-  zIndex: 1000,
+const Progress = styled(ProgressBar)({
+  flex: 1,
 });
 
-const StyledButton = styled(Button)({
-  alignSelf: 'flex-end',
-  marginRight: SPACINGS.SIXTEEN,
-});
-
-const StyledHangUpIcon = () => <HangUpIcon fill={COLORS.ACTIVE} />;
+const Top = styled.View({});
 
 const Session: React.FC = () => {
   const {
@@ -73,25 +48,18 @@ const Session: React.FC = () => {
   } = useRoute<RouteProp<AsyncSessionStackProps, 'Session'>>();
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AsyncSessionStackProps>>();
-  const {t} = useTranslation('Screen.Session');
 
-  const {endSession} = useUpdateAsyncSessionState(session);
+  const {endSession, resetSession} = useUpdateAsyncSessionState(session);
   const sessionState = useSessionState(state => state.sessionState);
   const currentContentReachedEnd = useSessionState(
     state => state.currentContentReachedEnd,
   );
-  const setCurrentContentReachedEnd = useSessionState(
-    state => state.setCurrentContentReachedEnd,
-  );
   const exercise = useSessionState(state => state.exercise);
-  const sessionSlideState = useSessionSlideState();
+  const sessionSlideState = useAsyncSessionSlideState();
   const theme = exercise?.theme;
   const logSessionMetricEvent = useAsyncSessionMetricEvents();
-  const {leaveSessionWithConfirm} = useLeaveSession(session);
   const addUserEvent = useAddUserEvent();
-  const {navigateToIndex, setPlaying} = useUpdateAsyncSessionState(session);
-
-  usePreventGoingBack(leaveSessionWithConfirm);
+  const {navigateToIndex} = useUpdateAsyncSessionState(session);
 
   useEffect(() => {
     if (sessionState?.id) {
@@ -128,61 +96,53 @@ const Session: React.FC = () => {
   }, [sessionState?.ended, navigate, session]);
 
   const onPrevPress = useCallback(() => {
-    if (sessionSlideState && exercise?.slides) {
+    if (sessionSlideState && sessionSlideState.previous) {
       navigateToIndex({
         index: sessionSlideState.index - 1,
-        content: exercise?.slides,
+        content: sessionSlideState.slides,
       });
+    } else {
+      resetSession();
+      navigate('IntroPortal', {session});
     }
-  }, [sessionSlideState, exercise?.slides, navigateToIndex]);
+  }, [sessionSlideState, navigateToIndex, resetSession, navigate, session]);
 
   const onNextPress = useCallback(() => {
-    if (sessionSlideState && exercise?.slides) {
+    if (sessionSlideState && sessionSlideState.next) {
       navigateToIndex({
         index: sessionSlideState.index + 1,
-        content: exercise?.slides,
+        content: sessionSlideState.slides,
       });
-    }
-  }, [sessionSlideState, exercise?.slides, navigateToIndex]);
-
-  const onResetPlayingPress = useCallback(() => {
-    setPlaying(Boolean(sessionState?.playing));
-    setCurrentContentReachedEnd(false);
-  }, [sessionState?.playing, setPlaying, setCurrentContentReachedEnd]);
-
-  const onTogglePlayingPress = useCallback(() => {
-    if (currentContentReachedEnd) {
-      setPlaying(true);
-      setCurrentContentReachedEnd(false);
     } else {
-      const playing = !sessionState?.playing;
-      setPlaying(playing);
+      endSession();
     }
-  }, [
-    sessionState?.playing,
-    setPlaying,
-    currentContentReachedEnd,
-    setCurrentContentReachedEnd,
-  ]);
+  }, [sessionSlideState, navigateToIndex, endSession]);
 
-  // Use special case with "Dive in" exercise.
-  // Will be re-done when we update async sessions.
   return (
     <Screen backgroundColor={theme?.backgroundColor}>
       <Top>
-        {exercise?.id !== DIVE_IN_EXERCISE &&
-          sessionSlideState?.current.type !== 'sharing' && (
-            <HostNotes async exercise={exercise} />
-          )}
-        {!sessionSlideState?.next && (
-          <>
-            {exercise?.id === DIVE_IN_EXERCISE && <TopSafeArea />}
-            <Spacer16 />
-            <StyledButton small active onPress={endSession}>
-              {t('endButton')}
-            </StyledButton>
-          </>
-        )}
+        <TopSafeArea />
+        <Gutters>
+          <Spacer8 />
+          <ProgressWrapper>
+            <Progress
+              index={sessionSlideState?.index}
+              length={sessionSlideState?.slides.length}
+              color={theme?.textColor}
+            />
+          </ProgressWrapper>
+          <Spacer16 />
+          <ContentControls
+            async
+            exercise={exercise}
+            isHost
+            sessionState={sessionState}
+            slideState={sessionSlideState}
+            currentContentReachedEnd={currentContentReachedEnd}
+            onPrevPress={onPrevPress}
+            onNextPress={onNextPress}
+          />
+        </Gutters>
       </Top>
 
       <Spotlight>
@@ -197,30 +157,8 @@ const Session: React.FC = () => {
             />
           </>
         )}
-        <ExerciseControl
-          async
-          exercise={exercise}
-          isHost
-          sessionState={sessionState}
-          slideState={sessionSlideState}
-          currentContentReachedEnd={currentContentReachedEnd}
-          onPrevPress={onPrevPress}
-          onNextPress={onNextPress}
-          onResetPlayingPress={onResetPlayingPress}
-          onTogglePlayingPress={onTogglePlayingPress}
-        />
       </Spotlight>
       <Spacer16 />
-      <Gutters>
-        <SessionControls>
-          <IconButton
-            variant="secondary"
-            Icon={StyledHangUpIcon}
-            fill={COLORS.ACTIVE}
-            onPress={leaveSessionWithConfirm}
-          />
-        </SessionControls>
-      </Gutters>
       <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
     </Screen>
   );

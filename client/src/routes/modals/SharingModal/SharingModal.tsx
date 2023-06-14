@@ -26,7 +26,7 @@ import {
   BodyBold,
 } from '../../../lib/components/Typography/Body/Body';
 import {EarthIcon, PrivateEyeIcon} from '../../../lib/components/Icons';
-import useSessionSlideState from '../../../lib/session/hooks/useSessionSlideState';
+import useAsyncSessionSlideState from '../../../lib/session/hooks/useAsyncSessionSlideState';
 import BylineUser from '../../../lib/components/Bylines/BylineUser';
 import {HKGroteskBold} from '../../../lib/constants/fonts';
 import RadioButton from '../../../lib/components/Buttons/RadioButton/RadioButton';
@@ -92,7 +92,7 @@ const SharingModal = () => {
   const {goBack} = useNavigation();
   const {t} = useTranslation('Modal.Sharing');
   const user = useUser();
-  const sessionState = useSessionSlideState();
+  const sessionState = useAsyncSessionSlideState();
   const {addSharingPost} = useSharingPosts(exerciseId);
   const [isPublic, setIsPublic] = useState(true);
   const [isAnonymous, setIsAnonymous] = useState(true);

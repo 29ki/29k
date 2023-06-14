@@ -6,6 +6,21 @@ import DurationTimer from '../../../DurationTimer/DurationTimer';
 import {LottiePlayerHandle} from '../../../../../components/LottiePlayer/LottiePlayer';
 import {VideoLooperProperties} from '../../../../../../../types/VideoLooper';
 import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
+import MediaControls from '../../../MediaControls/MediaControls';
+
+const MediaWrapper = styled.View({
+  width: '100%',
+  aspectRatio: '1',
+  alignSelf: 'center',
+});
+
+const MediaControlsWrapper = styled.View({
+  position: 'absolute',
+  width: '100%',
+  bottom: -102, // heigh of MediaControls
+  left: 0,
+  flex: 1,
+});
 
 const VideoPlayer = styled(VideoLooper)({
   flex: 1,
@@ -42,8 +57,13 @@ const Video: React.FC<VideoProps> = ({
 }) => {
   const videoRef = useRef<VideoLooper>(null);
   const timerRef = useRef<LottiePlayerHandle>(null);
+  const progressRef = useRef(0);
   const [duration, setDuration] = useState(0);
+  const [progress, setProgress] = useState(0);
   const sessionState = useSessionState(state => state.sessionState);
+  const [paused, setPaused] = useState(
+    !active || (!sessionState?.playing && !autoPlayLoop),
+  );
   const setCurrentContentReachedEnd = useSessionState(
     state => state.setCurrentContentReachedEnd,
   );
@@ -92,8 +112,6 @@ const Video: React.FC<VideoProps> = ({
     [setDuration],
   );
 
-  const paused = !active || (!sessionState?.playing && !autoPlayLoop);
-
   const onEnd = useCallback(() => {
     if (!autoPlayLoop) {
       setCurrentContentReachedEnd(true);
@@ -128,45 +146,85 @@ const Video: React.FC<VideoProps> = ({
     [durationTimer, duration],
   );
 
-  const onProgress = useCallback((data: {time: number}) => {
-    timerRef.current?.seek(data.time);
+  const onSkipBack = useCallback(() => {
+    videoRef.current?.seek(Math.max(progressRef.current - 15, 0));
   }, []);
+
+  const onSkipForward = useCallback(() => {
+    videoRef.current?.seek(progressRef.current + 15);
+  }, []);
+
+  const onTogglePlay = useCallback(() => {
+    setPaused(state => !state);
+  }, [setPaused]);
+
+  const onProgress = useCallback(
+    (data: {time: number}) => {
+      setProgress(data.time);
+      progressRef.current = data.time;
+      timerRef.current?.seek(data.time);
+    },
+    [setProgress],
+  );
 
   if (audioSources) {
     return (
       <>
-        <AudioPlayer
-          sources={audioSources}
-          ref={videoRef}
-          volume={1}
-          onLoad={onLoad}
-          onProgress={onProgress}
-          paused={paused}
-          mixWithOthers={isLive}
-        />
-        <VideoPlayer
-          sources={videoSource}
-          paused={paused}
-          mixWithOthers={isLive}
-        />
-        {timer}
+        <MediaWrapper>
+          <AudioPlayer
+            sources={audioSources}
+            ref={videoRef}
+            volume={1}
+            onLoad={onLoad}
+            onProgress={onProgress}
+            paused={paused}
+            mixWithOthers={isLive}
+          />
+          <VideoPlayer
+            sources={videoSource}
+            paused={paused}
+            mixWithOthers={isLive}
+          />
+          {isLive && timer}
+        </MediaWrapper>
+        {!isLive && (
+          <MediaControlsWrapper>
+            <MediaControls
+              time={progress}
+              duration={duration}
+              playing={!paused}
+              onSkipBack={onSkipBack}
+              onTogglePlay={onTogglePlay}
+              onSkipForward={onSkipForward}
+            />
+          </MediaControlsWrapper>
+        )}
       </>
     );
   }
 
   return (
     <>
-      <VideoPlayer
-        sources={videoSource}
-        paused={paused}
-        ref={videoRef}
-        volume={1}
-        onLoad={onLoad}
-        onProgress={onProgress}
-        onEnd={onEnd}
-        mixWithOthers={isLive}
-      />
-      {timer}
+      <MediaWrapper>
+        <VideoPlayer
+          sources={videoSource}
+          paused={paused}
+          ref={videoRef}
+          volume={1}
+          onLoad={onLoad}
+          onProgress={onProgress}
+          onEnd={onEnd}
+          mixWithOthers={isLive}
+        />
+        {timer}
+      </MediaWrapper>
+      {!isLive && (
+        <>
+          <MediaControlsWrapper>
+            <MediaControls />
+          </MediaControlsWrapper>
+        </>
+      )}
     </>
   );
 };
