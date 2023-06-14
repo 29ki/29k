@@ -787,13 +787,16 @@ describe('sessions - controller', () => {
     });
 
     it('should update the session state and return it', async () => {
+      mockGetSessionById.mockReset();
+      mockGetSessionStateById.mockReset();
+
       mockGetSessionById.mockResolvedValueOnce({
         id: 'some-session-id',
         hostId: 'the-host-id',
       });
       mockGetSessionStateById.mockResolvedValueOnce({
         id: 'some-session-id',
-        index: 1,
+        index: 0,
       }); // first return (to check if it exists)
       mockGetSessionStateById.mockResolvedValueOnce({
         id: 'some-session-id',
@@ -812,6 +815,13 @@ describe('sessions - controller', () => {
     });
 
     it('should update the session closingTime when started', async () => {
+      mockGetSessionById.mockReset();
+      mockGetSessionStateById.mockReset();
+
+      mockGetSessionById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        hostId: 'the-host-id',
+      });
       mockGetSessionStateById.mockResolvedValueOnce({
         id: 'some-session-id',
         started: true,
