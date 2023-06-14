@@ -98,18 +98,13 @@ export const createSessionHostTransferLink = async (
     return;
   }
 
-  const {name, description, card, socialMeta} = exercise;
+  const {name, card, socialMeta} = exercise;
 
   const t = i18next.getFixedT(language, 'DeepLink.HostSessionInvite');
 
   const socialImageLink = socialMeta?.image || card?.image?.source;
-  const socialTitle = t('title', {title: socialMeta?.title || name});
-  const socialDescription = t('description', {
-    host,
-    description: socialMeta?.description || description,
-    hostingCode,
-    interpolation: {escapeValue: false},
-  });
+  const socialTitle = t('title', {hostName: host, sessionName: name});
+  const socialDescription = t('description');
 
   return createDynamicLink(`hostSessionInvite/${hostingCode}`, {
     socialImageLink,

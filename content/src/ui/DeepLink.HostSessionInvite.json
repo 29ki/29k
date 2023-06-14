@@ -1,0 +1,9 @@
+{
+  "en": {
+    "title": "{{hostName}} would like you to host {{sessionName}}.",
+    "description": "Click the link to view more details and decide if you want to accept hosting it or not"
+  },
+  "pt": {},
+  "sv": {},
+  "es": {}
+}
