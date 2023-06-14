@@ -315,6 +315,10 @@ export const createSessionHostingLink = async (
     throw new RequestError(ValidateSessionError.userNotAuthorized);
   }
 
+  if (session?.type !== SessionType.public) {
+    throw new RequestError(JoinSessionError.notFound);
+  }
+
   await sessionModel.updateSession(sessionId, {
     hostingCode: generateVerificationCode(),
   });

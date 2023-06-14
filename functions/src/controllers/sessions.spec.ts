@@ -987,13 +987,24 @@ describe('sessions - controller', () => {
       ).toHaveBeenCalledWith(123456, 'some-exercise-id', 'some-name', 'en');
     });
 
-    it('should fail when user is not the host', async () => {
+    it('should fail when user is not the host', () => {
       mockGetSessionById.mockResolvedValueOnce({hostId: 'some-user-id'});
       expect(
-        updateSessionHost('user-id', 'some-session-id', 123456),
+        createSessionHostingLink('user-id', 'some-session-id'),
       ).rejects.toThrow(
         new RequestError(ValidateSessionError.userNotAuthorized),
       );
+    });
+
+    it('should fail when session is private', () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        hostId: 'user-id',
+        type: 'private',
+      });
+
+      expect(
+        createSessionHostingLink('user-id', 'some-session-id'),
+      ).rejects.toThrow(new RequestError(JoinSessionError.notFound));
     });
   });
 
