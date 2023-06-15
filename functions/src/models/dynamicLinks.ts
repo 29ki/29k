@@ -85,3 +85,30 @@ export const createSessionInviteLink = async (
 
 export const createPublicHostCodeLink = (verificationCode: number) =>
   createDynamicLink(`verifyPublicHostCode/${verificationCode}`);
+
+export const createSessionHostTransferLink = async (
+  hostingCode: number,
+  exerciseId: string,
+  host: string | undefined,
+  language: LANGUAGE_TAG,
+) => {
+  const exercise = getExerciseById(exerciseId, language);
+
+  if (!exercise) {
+    return;
+  }
+
+  const {name, card, socialMeta} = exercise;
+
+  const t = i18next.getFixedT(language, 'DeepLink.HostSessionInvite');
+
+  const socialImageLink = socialMeta?.image || card?.image?.source;
+  const socialTitle = t('title', {hostName: host, sessionName: name});
+  const socialDescription = t('description');
+
+  return createDynamicLink(`hostSessionInvite/${hostingCode}`, {
+    socialImageLink,
+    socialTitle,
+    socialDescription,
+  });
+};

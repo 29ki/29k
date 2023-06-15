@@ -14,18 +14,6 @@
       }
     },
     "journeyButton": "My journey",
-    "selectType": {
-      "title": "Session with...",
-      "public": {
-        "title": "Anyone"
-      },
-      "private": {
-        "title": "Friends"
-      },
-      "async": {
-        "title": "Myself"
-      }
-    },
     "description": "Add to calendar or share invite",
     "deleteButton": "Delete session"
   },

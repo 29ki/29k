@@ -42,7 +42,6 @@ const LiveSessionFieldsSchema = yup
     inviteCode: yup.number().required(),
     interestedCount: yup.number().required(),
     hostId: yup.string().required(),
-    userIds: yup.array().of(yup.string().required()).required(),
     ended: yup.boolean().required(),
   })
   .concat(SessionBaseFiledsSchema);
