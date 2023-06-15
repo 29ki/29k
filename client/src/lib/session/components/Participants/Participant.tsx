@@ -135,14 +135,7 @@ const Participant: React.FC<ParticipantProps> = ({
 
   return (
     <Wrapper style={style}>
-      {participant.videoTrack ? (
-        <DailyMediaViewWrapper
-          videoTrack={participant.videoTrack ?? null}
-          audioTrack={participant.audioTrack ?? null}
-          objectFit="cover"
-          mirror={participant.local}
-        />
-      ) : (
+      {participant.tracks.video.state === 'off' ? (
         <ParticipantPlaceholder>
           {photoURL ? (
             <ProfileImage source={{uri: photoURL}} />
@@ -150,6 +143,13 @@ const Participant: React.FC<ParticipantProps> = ({
             <Heading>{userName?.[0]}</Heading>
           )}
         </ParticipantPlaceholder>
+      ) : (
+        <DailyMediaViewWrapper
+          videoTrack={participant.tracks.video.persistentTrack ?? null}
+          audioTrack={participant.tracks.audio.persistentTrack ?? null}
+          objectFit="cover"
+          mirror={participant.local}
+        />
       )}
       <NameGradient>
         <ParticipantName participant={participant} suffix={t('nameSuffix')} />
@@ -163,13 +163,13 @@ const Participant: React.FC<ParticipantProps> = ({
       {isSessionHost && !participant.tracks.audio.blocked?.byPermissions ? (
         <AudioTogglerWrapper inSlide={inSlide}>
           <AudioToggler
-            muted={!participant.audioTrack}
+            muted={Boolean(participant.tracks.audio.off?.byUser)}
             onToggle={onAudioToggle}
           />
         </AudioTogglerWrapper>
       ) : (
         <ParticipantAudio
-          muted={!participant.audioTrack}
+          muted={Boolean(participant.tracks.audio.off?.byUser)}
           noPermission={participant.tracks.audio.blocked?.byPermissions}
         />
       )}
