@@ -12,21 +12,20 @@ import Video from './Blocks/Video';
 import {Spacer12, Spacer8} from '../../../../components/Spacers/Spacer';
 import SubHeading from './Blocks/SubHeading';
 import Lottie from './Blocks/Lottie';
-import ContentWrapper from '../../ContentWrapper/ContentWrapper';
+
+const Container = styled.View({
+  flex: 1,
+  alignItems: 'center',
+});
 
 const GraphicsWrapper = styled.View({
   flex: 1,
+  justifyContent: 'flex-end',
 });
 
 const TextWrapper = styled.View({
   justifyContent: 'center',
   flex: 1,
-});
-
-const VideoWrapper = styled.View({
-  flex: 1,
-  aspectRatio: '1',
-  alignSelf: 'center',
 });
 
 type ContentProps = {
@@ -58,7 +57,7 @@ const Content: React.FC<ContentProps> = ({
   );
 
   return (
-    <ContentWrapper>
+    <Container>
       <Spacer12 />
       {!content.video && !content.image && !content.lottie && (
         <TextWrapper>
@@ -90,17 +89,15 @@ const Content: React.FC<ContentProps> = ({
       ) : content.video ? (
         <GraphicsWrapper>
           <Spacer8 />
-          <VideoWrapper>
-            <Video
-              source={content.video.source}
-              audioSource={content.video.audio}
-              active={active}
-              preview={content.video.preview}
-              autoPlayLoop={content.video.autoPlayLoop}
-              durationTimer={content.video.durationTimer}
-              isLive={!async}
-            />
-          </VideoWrapper>
+          <Video
+            source={content.video.source}
+            audioSource={content.video.audio}
+            active={active}
+            preview={content.video.preview}
+            autoPlayLoop={content.video.autoPlayLoop}
+            durationTimer={content.video.durationTimer}
+            isLive={!async}
+          />
         </GraphicsWrapper>
       ) : content.image ? (
         <GraphicsWrapper>
@@ -108,7 +105,7 @@ const Content: React.FC<ContentProps> = ({
           <Image resizeMode="contain" source={imageSource} />
         </GraphicsWrapper>
       ) : null}
-    </ContentWrapper>
+    </Container>
   );
 };
 

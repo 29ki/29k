@@ -1,5 +1,6 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import styled from 'styled-components/native';
+import {View} from 'react-native';
 
 import useSessionState from '../../../../state/state';
 import DurationTimer from '../../../DurationTimer/DurationTimer';
@@ -7,20 +8,8 @@ import {LottiePlayerHandle} from '../../../../../components/LottiePlayer/LottieP
 import {VideoLooperProperties} from '../../../../../../../types/VideoLooper';
 import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
 import MediaControls from '../../../MediaControls/MediaControls';
-
-const MediaWrapper = styled.View({
-  width: '100%',
-  aspectRatio: '1',
-  alignSelf: 'center',
-});
-
-const MediaControlsWrapper = styled.View({
-  position: 'absolute',
-  width: '100%',
-  bottom: -102, // heigh of MediaControls
-  left: 0,
-  flex: 1,
-});
+import {Spacer32} from '../../../../../components/Spacers/Spacer';
+import MediaWrapperResolver from './MediaWrapperResolver';
 
 const VideoPlayer = styled(VideoLooper)({
   flex: 1,
@@ -170,7 +159,7 @@ const Video: React.FC<VideoProps> = ({
   if (audioSources) {
     return (
       <>
-        <MediaWrapper>
+        <MediaWrapperResolver isLive={isLive}>
           <AudioPlayer
             sources={audioSources}
             ref={videoRef}
@@ -186,9 +175,10 @@ const Video: React.FC<VideoProps> = ({
             mixWithOthers={isLive}
           />
           {isLive && timer}
-        </MediaWrapper>
+        </MediaWrapperResolver>
         {!isLive && (
-          <MediaControlsWrapper>
+          <View>
+            <Spacer32 />
             <MediaControls
               time={progress}
               duration={duration}
@@ -197,7 +187,7 @@ const Video: React.FC<VideoProps> = ({
               onTogglePlay={onTogglePlay}
               onSkipForward={onSkipForward}
             />
-          </MediaControlsWrapper>
+          </View>
         )}
       </>
     );
@@ -205,7 +195,7 @@ const Video: React.FC<VideoProps> = ({
 
   return (
     <>
-      <MediaWrapper>
+      <MediaWrapperResolver isLive={isLive}>
         <VideoPlayer
           sources={videoSource}
           paused={paused}
@@ -217,13 +207,19 @@ const Video: React.FC<VideoProps> = ({
           mixWithOthers={isLive}
         />
         {timer}
-      </MediaWrapper>
+      </MediaWrapperResolver>
       {!isLive && (
-        <>
-          <MediaControlsWrapper>
-            <MediaControls />
-          </MediaControlsWrapper>
-        </>
+        <View>
+          <Spacer32 />
+          <MediaControls
+            time={progress}
+            duration={duration}
+            playing={!paused}
+            onSkipBack={onSkipBack}
+            onTogglePlay={onTogglePlay}
+            onSkipForward={onSkipForward}
+          />
+        </View>
       )}
     </>
   );

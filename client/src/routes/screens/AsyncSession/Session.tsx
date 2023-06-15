@@ -3,8 +3,6 @@ import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-import {SPACINGS} from '../../../lib/constants/spacings';
-
 import {AsyncSessionStackProps} from '../../../lib/navigation/constants/routes';
 
 import useSessionState from '../../../lib/session/state/state';
@@ -28,7 +26,7 @@ import ProgressBar from '../../../lib/session/components/ProgressBar/ProgressBar
 
 const Spotlight = styled.View({
   flex: 1,
-  justifyContent: 'center',
+  justifyContent: 'flex-end',
 });
 
 const ProgressWrapper = styled.View({
@@ -159,7 +157,7 @@ const Session: React.FC = () => {
         )}
       </Spotlight>
       <Spacer16 />
-      <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
+      <BottomSafeArea />
     </Screen>
   );
 };
