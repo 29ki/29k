@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, ViewStyle} from 'react-native';
+import {ViewStyle} from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -11,7 +11,6 @@ import hexToRgba from 'hex-to-rgba';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../constants/spacings';
-import {Body14} from '../../../components/Typography/Body/Body';
 
 const Wrapper = styled.View<{color?: string}>(({color}) => ({
   flexDirection: 'row',
@@ -19,12 +18,6 @@ const Wrapper = styled.View<{color?: string}>(({color}) => ({
   borderRadius: SPACINGS.EIGHT,
   height: SPACINGS.FOUR,
   overflow: 'hidden',
-}));
-
-const TimeWrapper = styled.View<{color?: string}>(({color}) => ({
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  color: color ? color : COLORS.BLACK,
 }));
 
 const Fill = styled(Animated.View)<{color?: string}>(({color}) => ({
@@ -70,10 +63,6 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     <Wrapper color={color} style={style}>
       <Progress color={color} percentage={index / (length - 1)} />
     </Wrapper>
-    <TimeWrapper>
-      <Body14>{index}</Body14>
-      <Body14>{length}</Body14>
-    </TimeWrapper>
   </>
 );
 

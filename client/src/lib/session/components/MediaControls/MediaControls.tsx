@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components/native';
 import IconButton from '../../../components/Buttons/IconButton/IconButton';
 import {Pause, Play, RewindIcon} from '../../../components/Icons';
-import {
-  BottomSafeArea,
-  Spacer16,
-  Spacer32,
-} from '../../../components/Spacers/Spacer';
+import {Spacer16, Spacer32, Spacer8} from '../../../components/Spacers/Spacer';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import {View} from 'react-native';
+import {COLORS} from '../../../../../../shared/src/constants/colors';
+import {Body14} from '../../../components/Typography/Body/Body';
+import Gutters from '../../../components/Gutters/Gutters';
+import {SPACINGS} from '../../../constants/spacings';
+import useSessionState from '../../state/state';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -18,7 +19,18 @@ const Wrapper = styled.View({
 
 const ProgressWrapper = styled.View({
   flexDirection: 'row',
+  paddingHorizontal: SPACINGS.SIXTEEN,
 });
+
+const TimeWrapper = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  paddingHorizontal: SPACINGS.SIXTEEN,
+});
+
+const TimeLabel = styled(Body14)<{color?: string}>(({color}) => ({
+  color: color ? color : COLORS.BLACK,
+}));
 
 const Progress = styled(ProgressBar)({
   flex: 1,
@@ -47,35 +59,54 @@ const MediaControls: React.FC<MediaControlsProps> = ({
   onSkipBack,
   onTogglePlay,
 }) => {
+  const theme = useSessionState(state => state.exercise?.theme);
+  const timeMinutes = Math.floor(time / 60);
+  const timeSeconds = Math.round(time - timeMinutes * 60);
+  const left = duration - time;
+  const leftMinutes = Math.floor(left / 60);
+  const leftSeconds = Math.round(left - leftMinutes * 60);
+
+  const displayTime = `${timeMinutes}:${
+    timeSeconds < 10 ? '0' + timeSeconds.toString() : timeSeconds
+  }`;
+  const displayLeft = `-${leftMinutes}:${
+    leftSeconds < 10 ? '0' + leftSeconds.toString() : leftSeconds
+  }`;
+
   return (
     <View>
-      <ProgressWrapper>
-        <Spacer32 />
-        <Progress index={time} length={duration} />
-        <Spacer32 />
-      </ProgressWrapper>
-      <Spacer16 />
-      <Wrapper>
-        <IconButton
-          small
-          variant="tertiary"
-          Icon={RewindIcon}
-          onPress={onSkipBack}
-        />
-        <Spacer32 />
-        <PlayPauseButton
-          variant="tertiary"
-          Icon={playing ? Pause : Play}
-          onPress={onTogglePlay}
-        />
-        <Spacer32 />
-        <IconButton
-          small
-          variant="tertiary"
-          Icon={RewindIcon}
-          onPress={onSkipForward}
-        />
-      </Wrapper>
+      <Gutters>
+        <ProgressWrapper>
+          <Progress color={theme?.textColor} index={time} length={duration} />
+        </ProgressWrapper>
+        <Spacer8 />
+        <TimeWrapper>
+          <TimeLabel color={theme?.textColor}>{displayTime}</TimeLabel>
+          <TimeLabel color={theme?.textColor}>{displayLeft}</TimeLabel>
+        </TimeWrapper>
+        <Spacer16 />
+        <Wrapper>
+          <IconButton
+            small
+            variant="tertiary"
+            Icon={RewindIcon}
+            onPress={onSkipBack}
+          />
+          <Spacer32 />
+          <PlayPauseButton
+            variant="tertiary"
+            Icon={playing ? Pause : Play}
+            onPress={onTogglePlay}
+          />
+          <Spacer32 />
+          <IconButton
+            small
+            variant="tertiary"
+            Icon={RewindIcon}
+            onPress={onSkipForward}
+          />
+        </Wrapper>
+      </Gutters>
     </View>
   );
 };
