@@ -48,6 +48,7 @@ import {
   acceptHostingInvite,
 } from '../../../lib/sessions/api/session';
 import Button from '../../../lib/components/Buttons/Button';
+import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -87,7 +88,7 @@ const HostSessionByInviteModal = () => {
   } = useRoute<RouteProp<ModalStackProps, 'HostSessionByInviteModal'>>();
 
   const {t} = useTranslation('Modal.Session');
-
+  const isPublicHost = useIsPublicHost();
   const [session, setSession] = useState<LiveSessionType>();
   const navigation =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
@@ -99,6 +100,14 @@ const HostSessionByInviteModal = () => {
       navigation.navigate('SessionUnavailableModal');
     }
   }, [hostingCode, navigation]);
+
+  useEffect(() => {
+    if (!isPublicHost) {
+      navigation.navigate('HostingInviteFailModal', {
+        hostName: session?.hostProfile?.displayName,
+      });
+    }
+  }, [isPublicHost, navigation, session?.hostProfile?.displayName]);
 
   useEffect(() => {
     fetchSession();

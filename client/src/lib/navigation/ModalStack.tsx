@@ -37,6 +37,7 @@ import CompletedSessionsModal from '../../routes/modals/CompletedSessionsModal/C
 import RemindersModal from '../../routes/modals/RemindersModal/RemindersModal';
 import AssignNewHostModal from '../../routes/modals/AssignNewHostModal/AssignNewHostModal';
 import EditSessionDateModal from '../../routes/modals/EditSessionDateModal/EditSessionDateModal';
+import HostingInviteFailModal from '../../routes/modals/HostingInviteFailModal/HostingInviteFailModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -171,6 +172,11 @@ const ModalStack = () => {
         <Screen
           name={'CompletedSessionModal'}
           component={CompletedSessionModal}
+          options={tallSheetModalScreenOptions}
+        />
+        <Screen
+          name={'HostingInviteFailModal'}
+          component={HostingInviteFailModal}
           options={tallSheetModalScreenOptions}
         />
         <Screen
