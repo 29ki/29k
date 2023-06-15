@@ -58,6 +58,8 @@ export * from './Profile/Profile';
 export * from './Question/Question';
 export * from './Report/Report';
 export * from './Rewind/Rewind';
+export * from './Backward15/Backward15';
+export * from './Forward15/Forward15';
 export * from './Safety/Safety';
 export * from './Share/Share';
 export * from './Slack/Slack';

@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import IconButton from '../../../components/Buttons/IconButton/IconButton';
-import {Pause, Play, RewindIcon} from '../../../components/Icons';
+import {Backward15, Forward15, Pause, Play} from '../../../components/Icons';
 import {Spacer16, Spacer32, Spacer8} from '../../../components/Spacers/Spacer';
-import ProgressBar from '../ProgressBar/ProgressBar';
 import {View} from 'react-native';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Body14} from '../../../components/Typography/Body/Body';
 import Gutters from '../../../components/Gutters/Gutters';
 import {SPACINGS} from '../../../constants/spacings';
 import useSessionState from '../../state/state';
+import TimeProgressBar from './TimeProgressBar';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -32,7 +32,7 @@ const TimeLabel = styled(Body14)<{color?: string}>(({color}) => ({
   color: color ? color : COLORS.BLACK,
 }));
 
-const Progress = styled(ProgressBar)({
+const Progress = styled(TimeProgressBar)({
   flex: 1,
 });
 
@@ -89,7 +89,7 @@ const MediaControls: React.FC<MediaControlsProps> = ({
           <IconButton
             small
             variant="tertiary"
-            Icon={RewindIcon}
+            Icon={Backward15}
             onPress={onSkipBack}
           />
           <Spacer32 />
@@ -102,7 +102,7 @@ const MediaControls: React.FC<MediaControlsProps> = ({
           <IconButton
             small
             variant="tertiary"
-            Icon={RewindIcon}
+            Icon={Forward15}
             onPress={onSkipForward}
           />
         </Wrapper>
