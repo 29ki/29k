@@ -64,6 +64,7 @@ import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
 import AnimatedIconButton from '../../../lib/components/Buttons/IconButton/AnimatedIconButton';
 import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
 import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
+import {SessionType} from '../../../../../shared/src/schemas/Session';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -224,13 +225,15 @@ const SessionModal = () => {
                   name={session.hostProfile?.displayName}
                   onPress={onHostPress}
                 />
-                {isHost && isPublicHost && (
-                  <EditButton onPress={onEditHostMode}>
-                    <EditIcon>
-                      <PencilIcon />
-                    </EditIcon>
-                  </EditButton>
-                )}
+                {isHost &&
+                  isPublicHost &&
+                  session.type === SessionType.public && (
+                    <EditButton onPress={onEditHostMode}>
+                      <EditIcon>
+                        <PencilIcon />
+                      </EditIcon>
+                    </EditButton>
+                  )}
               </Row>
             </TitleContainer>
             <Spacer32 />
