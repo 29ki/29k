@@ -21,13 +21,13 @@ import {
   FriendsIcon,
   MeIcon,
   LogoIconAnimated,
+  ShareIcon,
 } from '../../../../../lib/components/Icons';
 import {
   Spacer16,
   Spacer24,
   Spacer28,
   Spacer4,
-  Spacer40,
   Spacer8,
 } from '../../../../../lib/components/Spacers/Spacer';
 import TouchableOpacity from '../../../../../lib/components/TouchableOpacity/TouchableOpacity';
@@ -44,7 +44,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import useGetExerciseById from '../../../../../lib/content/hooks/useGetExerciseById';
 import {formatContentName} from '../../../../../lib/utils/string';
 import Image from '../../../../../lib/components/Image/Image';
-import {ActivityIndicator, ListRenderItem} from 'react-native';
+import {ActivityIndicator, ListRenderItem, Share} from 'react-native';
 import SessionCard from '../../../../../lib/components/Cards/SessionCard/SessionCard';
 import {Heading16} from '../../../../../lib/components/Typography/Heading/Heading';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
@@ -54,6 +54,7 @@ import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsync
 import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown';
 import useGetTagsById from '../../../../../lib/content/hooks/useGetTagsById';
 import Tag from '../../../../../lib/components/Tag/Tag';
+import IconButton from '../../../../../lib/components/Buttons/IconButton/IconButton';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -208,6 +209,14 @@ const SelectTypeStep: React.FC<StepProps> = ({
     ],
   );
 
+  const onShare = useCallback(() => {
+    if (exercise?.link) {
+      Share.share({
+        url: exercise.link,
+      });
+    }
+  }, [exercise?.link]);
+
   const onStartPress = useCallback(() => {
     if (selectedExercise) {
       popToTop();
@@ -328,7 +337,20 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   <TypeItemHeading>{t('description')}</TypeItemHeading>
                   <Spacer16 />
                   {typeSelection}
-                  <Spacer40 />
+                  {exercise.link && (
+                    <>
+                      <Spacer24 />
+                      <Body16>{t('shareHeading')}</Body16>
+                      <Spacer16 />
+
+                      <IconButton
+                        variant="secondary"
+                        onPress={onShare}
+                        Icon={ShareIcon}
+                      />
+                    </>
+                  )}
+                  <Spacer24 />
                   <Heading16>{t('orJoinUpcoming')}</Heading16>
                   <Spacer16 />
                 </>
