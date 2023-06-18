@@ -260,7 +260,7 @@ const SessionModal = () => {
             ))}
           </Tags>
         )}
-        <Spacer16 />
+        <Spacer24 />
 
         <Gutters>
           <Row>
