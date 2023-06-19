@@ -1592,10 +1592,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@notifee/react-native@^7.7.1":
-  version "7.7.1"
-  resolved "https://registry.yarnpkg.com/@notifee/react-native/-/react-native-7.7.1.tgz#ce3f982fb7354519406cb7716f8e861bab0056ce"
-  integrity sha512-E+W91ulI4dxdIrhK6YCyjWqXgrUsVNZYYCSn3gDADmveuR2Yd2uGvbbSW2vUIFU4N4gQQT/5HJdk9Jk83KHbVA==
+"@notifee/react-native@^7.8.0":
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/@notifee/react-native/-/react-native-7.8.0.tgz#2990883753990f3585aa0cb5becc5cbdbcd87a43"
+  integrity sha512-sx8h62U4FrR4pqlbN1rkgPsdamDt9Tad0zgfO6VtP6rNJq/78k8nxUnh0xIX3WPDcCV8KAzdYCE7+UNvhF1CpQ==
 
 "@opentelemetry/api@^1.0.1":
   version "1.4.1"
