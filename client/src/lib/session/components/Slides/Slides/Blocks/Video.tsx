@@ -10,6 +10,9 @@ import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
 import MediaControls from '../../../MediaControls/MediaControls';
 import {Spacer32} from '../../../../../components/Spacers/Spacer';
 import MediaWrapperResolver from './MediaWrapperResolver';
+import {COLORS} from '../../../../../../../../shared/src/constants/colors';
+import {SPACINGS} from '../../../../../constants/spacings';
+import Subtitles from './Subtitles';
 
 const VideoPlayer = styled(VideoLooper)({
   flex: 1,
@@ -25,6 +28,19 @@ const Duration = styled(DurationTimer)({
   top: 16,
   width: 30,
   height: 30,
+});
+
+const SubtitleContainer = styled.View({
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  flex: 1,
+  flexDirection: 'row',
+  justifyContent: 'flex-end',
+  alignItems: 'flex-end',
+  paddingHorizontal: SPACINGS.SIXTY,
 });
 
 type VideoProps = {
@@ -149,7 +165,7 @@ const Video: React.FC<VideoProps> = ({
 
   const onProgress = useCallback(
     (data: {time: number}) => {
-      setProgress(data.time);
+      setProgress(Math.round(data.time));
       progressRef.current = data.time;
       timerRef.current?.seek(data.time);
     },
@@ -175,6 +191,12 @@ const Video: React.FC<VideoProps> = ({
             mixWithOthers={isLive}
           />
           {isLive && timer}
+          <SubtitleContainer>
+            <Subtitles
+              src={'file:///Users/emil/dev/accepting-meditation.srt'}
+              time={progress}
+            />
+          </SubtitleContainer>
         </MediaWrapperResolver>
         {!isLive && (
           <View>
