@@ -1,0 +1,10 @@
+{
+  "en": {
+    "description": "{{hostName}} would like you to host this session instead of them.",
+    "confirm": "Accept",
+    "cancel": "Decline"
+  },
+  "pt": {},
+  "sv": {},
+  "es": {}
+}

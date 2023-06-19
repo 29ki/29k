@@ -87,7 +87,7 @@ const HostSessionByInviteModal = () => {
     params: {hostingCode},
   } = useRoute<RouteProp<ModalStackProps, 'HostSessionByInviteModal'>>();
 
-  const {t} = useTranslation('Modal.Session');
+  const {t} = useTranslation('Modal.HostSessionByInvite');
   const isPublicHost = useIsPublicHost();
   const [session, setSession] = useState<LiveSessionType>();
   const navigation =
@@ -95,7 +95,7 @@ const HostSessionByInviteModal = () => {
 
   const fetchSession = useCallback(async () => {
     try {
-      setSession(await getSessionByHostingCode(hostingCode));
+      return getSessionByHostingCode(hostingCode);
     } catch (err) {
       navigation.navigate('SessionUnavailableModal');
     }
@@ -110,17 +110,24 @@ const HostSessionByInviteModal = () => {
   }, [isPublicHost, navigation, session?.hostProfile?.displayName]);
 
   useEffect(() => {
-    fetchSession();
+    (async () => setSession(await fetchSession()))();
   }, [fetchSession]);
 
   const exercise = useExerciseById(session?.exerciseId);
   const tags = useGetSessionCardTags(exercise);
 
-  const acceptInvite = useCallback(() => {
+  const acceptInvite = useCallback(async () => {
     if (session?.id) {
-      acceptHostingInvite(session.id, hostingCode);
+      await acceptHostingInvite(session.id, hostingCode);
+      const updatedSession = await fetchSession();
+      navigation.navigate('SessionModal', {
+        session: updatedSession as LiveSessionType,
+      });
     }
-  }, [session?.id, hostingCode]);
+  }, [session?.id, hostingCode, fetchSession, navigation]);
+  const onCancel = useCallback(() => {
+    navigation.goBack();
+  }, [navigation]);
 
   if (!session || !exercise) {
     return null;
@@ -183,10 +190,10 @@ const HostSessionByInviteModal = () => {
           <Spacer16 />
           <Row>
             <Button variant={'secondary'} onPress={acceptInvite}>
-              {'Confirm'}
+              {t('confirm')}
             </Button>
             <Spacer16 />
-            <Button onPress={() => {}}>{'Cancel'}</Button>
+            <Button onPress={onCancel}>{t('cancel')}</Button>
           </Row>
         </Gutters>
         <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
