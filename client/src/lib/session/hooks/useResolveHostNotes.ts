@@ -3,7 +3,7 @@ import {
   Exercise,
   ExerciseIntroPortalHostNote,
 } from '../../../../../shared/src/types/generated/Exercise';
-import {SessionSlideState} from './useSessionSlideState';
+import {SessionSlideState} from './useLiveSessionSlideState';
 
 const resolveNotes = (
   async?: boolean,

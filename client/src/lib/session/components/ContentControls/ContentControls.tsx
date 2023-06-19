@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import {ViewStyle} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
-import {SessionSlideState} from '../../../session/hooks/useSessionSlideState';
+import {SessionSlideState} from '../../hooks/useLiveSessionSlideState';
 
 import {
   ChevronRight,

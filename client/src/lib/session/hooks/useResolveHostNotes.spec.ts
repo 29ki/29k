@@ -1,7 +1,7 @@
 import {renderHook} from '@testing-library/react-hooks';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import useResolveHostNotes from './useResolveHostNotes';
-import {SessionSlideState} from './useSessionSlideState';
+import {SessionSlideState} from './useLiveSessionSlideState';
 
 describe('useResolveHostNotes', () => {
   it('should return regular introPortal notes for live session', () => {

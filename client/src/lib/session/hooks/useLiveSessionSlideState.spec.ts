@@ -5,15 +5,15 @@ import {
   SessionStateType,
 } from '../../../../../shared/src/schemas/Session';
 import useSessionState from '../state/state';
-import useSessionSlideState from './useSessionSlideState';
+import useLiveSessionSlideState from './useLiveSessionSlideState';
 
-describe('useSessionSlideState', () => {
+describe('useLiveSessionSlideState', () => {
   it('should return null if no exercise exists', () => {
     useSessionState.setState({
       exercise: null,
     });
 
-    const {result} = renderHook(() => useSessionSlideState());
+    const {result} = renderHook(() => useLiveSessionSlideState());
 
     expect(result.current).toBe(null);
   });
@@ -22,7 +22,7 @@ describe('useSessionSlideState', () => {
     useSessionState.setState({
       liveSession: null,
     });
-    const {result} = renderHook(() => useSessionSlideState());
+    const {result} = renderHook(() => useLiveSessionSlideState());
 
     expect(result.current).toBe(null);
   });
@@ -40,7 +40,7 @@ describe('useSessionSlideState', () => {
       } as Exercise,
     });
 
-    const {result} = renderHook(() => useSessionSlideState());
+    const {result} = renderHook(() => useLiveSessionSlideState());
 
     expect(result.current).toEqual({
       index: 1,
@@ -60,7 +60,7 @@ describe('useSessionSlideState', () => {
       } as Exercise,
     });
 
-    const {result, rerender} = renderHook(() => useSessionSlideState());
+    const {result, rerender} = renderHook(() => useLiveSessionSlideState());
 
     rerender();
 
@@ -77,7 +77,7 @@ describe('useSessionSlideState', () => {
       } as Exercise,
     });
 
-    const {result} = renderHook(() => useSessionSlideState());
+    const {result} = renderHook(() => useLiveSessionSlideState());
 
     expect(result.current).toEqual({
       index: 0,

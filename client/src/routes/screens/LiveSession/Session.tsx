@@ -20,7 +20,7 @@ import {DailyContext} from '../../../lib/daily/DailyProvider';
 
 import useSessionState from '../../../lib/session/state/state';
 import useSessionParticipants from '../../../lib/session/hooks/useSessionParticipants';
-import useSessionSlideState from '../../../lib/session/hooks/useSessionSlideState';
+import useLiveSessionSlideState from '../../../lib/session/hooks/useLiveSessionSlideState';
 import usePreventGoingBack from '../../../lib/navigation/hooks/usePreventGoingBack';
 import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
 import useIsSessionHost from '../../../lib/session/hooks/useIsSessionHost';
@@ -156,7 +156,7 @@ const Session: React.FC = () => {
   const setCurrentContentReachedEnd = useSessionState(
     state => state.setCurrentContentReachedEnd,
   );
-  const sessionSlideState = useSessionSlideState();
+  const sessionSlideState = useLiveSessionSlideState();
   const logSessionMetricEvent = useLiveSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession(session);
   const {checkCameraPermissions, checkMicrophonePermissions} =
