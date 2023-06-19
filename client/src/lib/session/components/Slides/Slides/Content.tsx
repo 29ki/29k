@@ -13,7 +13,7 @@ import {Spacer12, Spacer8} from '../../../../components/Spacers/Spacer';
 import SubHeading from './Blocks/SubHeading';
 import Lottie from './Blocks/Lottie';
 
-const Container = styled.View({
+const Wrapper = styled.View({
   flex: 1,
   alignItems: 'center',
 });
@@ -57,7 +57,7 @@ const Content: React.FC<ContentProps> = ({
   );
 
   return (
-    <Container>
+    <Wrapper>
       <Spacer12 />
       {!content.video && !content.image && !content.lottie && (
         <TextWrapper>
@@ -105,7 +105,7 @@ const Content: React.FC<ContentProps> = ({
           <Image resizeMode="contain" source={imageSource} />
         </GraphicsWrapper>
       ) : null}
-    </Container>
+    </Wrapper>
   );
 };
 
