@@ -5,6 +5,10 @@
     "cancel": "Decline"
   },
   "pt": {},
-  "sv": {},
+  "sv": {
+    "description": "{{hostName}} vill att du är värd för denna session istället för dem.",
+    "confirm": "Acceptera",
+    "cancel": "Nedgång"
+  },
   "es": {}
 }
