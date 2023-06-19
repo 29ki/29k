@@ -25,7 +25,7 @@
     "@daily-co/react-native-webrtc": "111.0.0-daily.1",
     "@gorhom/bottom-sheet": "https://github.com/29ki/react-native-bottom-sheet.git#patch-input-scroll",
     "@notifee/react-native": "^7.8.0",
-    "@react-native-async-storage/async-storage": "^1.18.1",
+    "@react-native-async-storage/async-storage": "^1.18.2",
     "@react-native-community/datetimepicker": "^7.1.0",
     "@react-native-firebase/app": "^17.4.2",
     "@react-native-firebase/auth": "^17.4.2",
