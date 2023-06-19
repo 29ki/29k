@@ -64,6 +64,14 @@ const Video: React.FC<VideoProps> = ({
   }, []);
 
   useEffect(() => {
+    if (!active) {
+      setPaused(true);
+    } else if (sessionState) {
+      setPaused(!sessionState.playing);
+    }
+  }, [active, setPaused, sessionState]);
+
+  useEffect(() => {
     if (active && !autoPlayLoop && duration && sessionState) {
       // Block is active, video and state is loaded
       const playing = sessionState.playing;
@@ -104,8 +112,9 @@ const Video: React.FC<VideoProps> = ({
   const onEnd = useCallback(() => {
     if (!autoPlayLoop) {
       setCurrentContentReachedEnd(true);
+      setPaused(true);
     }
-  }, [setCurrentContentReachedEnd, autoPlayLoop]);
+  }, [setCurrentContentReachedEnd, autoPlayLoop, setPaused]);
 
   const videoSource: VideoLooperProperties['sources'] = useMemo(() => {
     if (source) {
@@ -149,11 +158,12 @@ const Video: React.FC<VideoProps> = ({
 
   const onProgress = useCallback(
     (data: {time: number}) => {
-      setProgress(data.time);
-      progressRef.current = data.time;
-      timerRef.current?.seek(data.time);
+      const currentTime = Math.min(duration, data.time);
+      setProgress(currentTime);
+      progressRef.current = currentTime;
+      timerRef.current?.seek(currentTime);
     },
-    [setProgress],
+    [setProgress, duration],
   );
 
   if (audioSources) {
@@ -166,6 +176,7 @@ const Video: React.FC<VideoProps> = ({
             volume={1}
             onLoad={onLoad}
             onProgress={onProgress}
+            onEnd={onEnd}
             paused={paused}
             mixWithOthers={isLive}
           />

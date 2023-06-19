@@ -76,6 +76,14 @@ const Lottie: React.FC<LottieProps> = ({
   );
 
   useEffect(() => {
+    if (!active) {
+      setPaused(true);
+    } else if (sessionState) {
+      setPaused(!sessionState.playing);
+    }
+  }, [active, setPaused, sessionState]);
+
+  useEffect(() => {
     if (
       active &&
       !autoPlayLoop &&
@@ -130,8 +138,9 @@ const Lottie: React.FC<LottieProps> = ({
   const onEnd = useCallback(() => {
     if (!autoPlayLoop) {
       setCurrentContentReachedEnd(true);
+      setPaused(true);
     }
-  }, [setCurrentContentReachedEnd, autoPlayLoop]);
+  }, [setCurrentContentReachedEnd, autoPlayLoop, setPaused]);
 
   const audioSources = useMemo(() => {
     if (audioSource) {
