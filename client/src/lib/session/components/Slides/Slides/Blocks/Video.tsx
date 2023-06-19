@@ -206,7 +206,7 @@ const Video: React.FC<VideoProps> = ({
           onEnd={onEnd}
           mixWithOthers={isLive}
         />
-        {timer}
+        {isLive && timer}
       </MediaWrapperResolver>
       {!isLive && (
         <View>

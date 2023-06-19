@@ -59,11 +59,9 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   color,
   style,
 }) => (
-  <>
-    <Wrapper color={color} style={style}>
-      <Progress color={color} percentage={index / (length - 1)} />
-    </Wrapper>
-  </>
+  <Wrapper color={color} style={style}>
+    <Progress color={color} percentage={index / (length - 1)} />
+  </Wrapper>
 );
 
 export default React.memo(ProgressBar);
