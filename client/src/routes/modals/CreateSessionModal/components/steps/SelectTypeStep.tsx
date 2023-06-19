@@ -24,6 +24,7 @@ import {
   ShareIcon,
 } from '../../../../../lib/components/Icons';
 import {
+  Spacer12,
   Spacer16,
   Spacer24,
   Spacer28,
@@ -88,12 +89,14 @@ const TypeItemHeading = styled(Body16)({
 
 const Row = styled.View({
   flexDirection: 'row',
+});
+
+const SpaceBetweenRow = styled(Row)({
   alignItems: 'center',
   justifyContent: 'space-between',
 });
 
-const Centered = styled.View({
-  flexDirection: 'row',
+const CenteredRow = styled(Row)({
   alignItems: 'center',
   justifyContent: 'center',
 });
@@ -105,11 +108,6 @@ const Lottie = styled(AnimatedLottieView)({
 const LogoWrapper = styled.View({
   width: 80,
   height: 80,
-});
-
-const ButtonWrapper = styled.View({
-  flexDirection: 'row',
-  justifyContent: 'center',
 });
 
 const TypeItem: React.FC<{
@@ -248,7 +246,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
 
   const typeSelection = useMemo(
     () => (
-      <Row>
+      <SpaceBetweenRow>
         {(!exercise || exercise.async) && (
           <TypeItemWrapper>
             <TypeItem
@@ -276,7 +274,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
             />
           </TypeItemWrapper>
         )}
-      </Row>
+      </SpaceBetweenRow>
     ),
     [exercise, isPublicHost, onTypePress, t],
   );
@@ -301,7 +299,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
           }
           ListHeaderComponent={
             <Gutters>
-              <Row>
+              <SpaceBetweenRow>
                 <TextWrapper>
                   <Display24>{formatContentName(exercise)}</Display24>
                 </TextWrapper>
@@ -313,7 +311,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
                     <Image source={exerciseImage} />
                   ) : null}
                 </LogoWrapper>
-              </Row>
+              </SpaceBetweenRow>
               {exercise.description && (
                 <>
                   <Spacer16 />
@@ -330,10 +328,10 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   ))}
                 </Tags>
               )}
-              <Spacer16 />
 
               {exercise.live ? (
                 <>
+                  <Spacer16 />
                   <TypeItemHeading>{t('description')}</TypeItemHeading>
                   <Spacer16 />
                   {typeSelection}
@@ -355,11 +353,20 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   <Spacer16 />
                 </>
               ) : (
-                <ButtonWrapper>
-                  <Button variant="secondary" onPress={onStartPress}>
-                    {t('startCta')}
-                  </Button>
-                </ButtonWrapper>
+                <>
+                  <Spacer24 />
+                  <Row>
+                    <Button variant="secondary" onPress={onStartPress}>
+                      {t('startCta')}
+                    </Button>
+                    <Spacer12 />
+                    <IconButton
+                      variant="secondary"
+                      onPress={onShare}
+                      Icon={ShareIcon}
+                    />
+                  </Row>
+                </>
               )}
             </Gutters>
           }
@@ -372,7 +379,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
   return (
     <Gutters>
       <Spacer8 />
-      <Row>
+      <SpaceBetweenRow>
         <TextWrapper>
           <Display24>{t('description')}</Display24>
         </TextWrapper>
@@ -380,19 +387,19 @@ const SelectTypeStep: React.FC<StepProps> = ({
         <LogoWrapper>
           <LogoIconAnimated />
         </LogoWrapper>
-      </Row>
+      </SpaceBetweenRow>
       <Spacer28 />
       {typeSelection}
       <Spacer16 />
-      <Centered>
+      <CenteredRow>
         <Body16>{t('or')}</Body16>
-      </Centered>
+      </CenteredRow>
       <Spacer16 />
-      <ButtonWrapper>
+      <CenteredRow>
         <Button variant="secondary" onPress={onJoinByInvite}>
           {t('joinByInviteCta')}
         </Button>
-      </ButtonWrapper>
+      </CenteredRow>
     </Gutters>
   );
 };
