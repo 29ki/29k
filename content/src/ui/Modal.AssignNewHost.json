@@ -1,0 +1,14 @@
+{
+  "en": {
+    "heading": "Change host",
+    "description": "Share the link with the new host.\n\nOnce they accept you will no longer be able to edit this session.",
+    "button": "Assign new host"
+  },
+  "sv": {
+    "heading": "Change host",
+    "description": "Share the link with the new host.\n\nOnce they accept you will no longer be able to edit this session.",
+    "button": "Assign new host"
+  },
+  "pt": {},
+  "es": {}
+}
