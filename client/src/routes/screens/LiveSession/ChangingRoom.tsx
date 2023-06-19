@@ -144,8 +144,8 @@ const ChangingRoom = () => {
     checkMicrophonePermissions,
   } = useCheckPermissions();
 
-  const hasAudio = Boolean(me?.audioTrack);
-  const hasVideo = Boolean(me?.videoTrack);
+  const hasAudio = Boolean(me?.tracks.audio.state !== 'off');
+  const hasVideo = Boolean(me?.tracks.video.state !== 'off');
 
   useEffect(() => {
     logSessionMetricEvent('Enter Changing Room');
@@ -243,8 +243,8 @@ const ChangingRoom = () => {
               <VideoWrapper>
                 {isFocused && hasVideo ? (
                   <DailyMediaViewWrapper
-                    videoTrack={me?.videoTrack ?? null}
-                    audioTrack={me?.audioTrack ?? null}
+                    videoTrack={me?.tracks.video.persistentTrack ?? null}
+                    audioTrack={me?.tracks.audio.persistentTrack ?? null}
                     objectFit={'cover'}
                     mirror={me?.local}
                   />
