@@ -25,15 +25,6 @@ const Fill = styled(Animated.View)<{color?: string}>(({color}) => ({
   minWidth: 6,
 }));
 
-const Dot = styled(Animated.View)<{color?: string}>(({color}) => ({
-  position: 'absolute',
-  top: '-100%',
-  backgroundColor: color ? color : COLORS.BLACK,
-  borderRadius: SPACINGS.TWENTYFOUR,
-  height: 12,
-  width: 12,
-}));
-
 const Progress: React.FC<{percentage: number; color?: string}> = ({
   percentage,
   color,
@@ -44,10 +35,6 @@ const Progress: React.FC<{percentage: number; color?: string}> = ({
     width: `${width.value * 100}%`,
   }));
 
-  const dotStyle = useAnimatedStyle(() => ({
-    left: `${width.value * 100}%`,
-  }));
-
   useEffect(() => {
     width.value = withTiming(percentage, {
       duration: 100,
@@ -55,12 +42,7 @@ const Progress: React.FC<{percentage: number; color?: string}> = ({
     });
   }, [width, percentage]);
 
-  return (
-    <>
-      <Fill color={color} style={fillStyle} />
-      <Dot color={color} style={dotStyle} />
-    </>
-  );
+  return <Fill color={color} style={fillStyle} />;
 };
 
 type TimeProgressBarProps = {
