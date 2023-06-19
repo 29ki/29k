@@ -20,7 +20,7 @@ const Wrapper = styled.View({
 
 const GraphicsWrapper = styled.View({
   flex: 1,
-  justifyContent: 'flex-end',
+  justifyContent: 'center',
 });
 
 const TextWrapper = styled.View({
