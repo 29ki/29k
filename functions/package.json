@@ -38,7 +38,7 @@
     "firebase-functions": "^4.4.0",
     "handlebars": "^4.7.7",
     "i18next": "^22.5.1",
-    "ical-generator": "^4.1.0",
+    "ical-generator": "^5.0.0",
     "jsonwebtoken": "^9.0.0",
     "koa": "^2.14.2",
     "koa-yup-validator": "^4.1.0",
