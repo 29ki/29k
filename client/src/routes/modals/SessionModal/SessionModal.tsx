@@ -35,11 +35,13 @@ import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import useAddSessionToCalendar from '../../../lib/sessions/hooks/useAddSessionToCalendar';
 import useUser from '../../../lib/user/hooks/useUser';
 
-import {formatContentName, formatInviteCode} from '../../../lib/utils/string';
+import {formatContentName} from '../../../lib/utils/string';
 
 import {
   BottomSafeArea,
+  Spacer12,
   Spacer16,
+  Spacer24,
   Spacer32,
   Spacer4,
   Spacer8,
@@ -175,14 +177,10 @@ const SessionModal = () => {
   const onShare = useCallback(() => {
     if (session.link) {
       Share.share({
-        message: t('shareMessage', {
-          link: session.link,
-          code: formatInviteCode(session.inviteCode),
-          interpolation: {escapeValue: false},
-        }),
+        url: session.link,
       });
     }
-  }, [session.link, session.inviteCode, t]);
+  }, [session.link]);
 
   const onHostPress = useCallback(() => {
     navigation.popToTop();
@@ -262,7 +260,7 @@ const SessionModal = () => {
             ))}
           </Tags>
         )}
-        <Spacer16 />
+        <Spacer24 />
 
         <Gutters>
           <Row>
@@ -288,29 +286,40 @@ const SessionModal = () => {
               <SessionTimeBadge session={session} />
             )}
           </Row>
-          <Spacer16 />
-
-          {!isHost && (
-            <>
-              <JourneyButton
-                small
-                AnimatedIcon={PlusToCheckIconAnimated}
-                fill={COLORS.WHITE}
-                onPress={togglePinned}
-                variant={isPinned ? 'primary' : 'secondary'}
-                active={isPinned}>
-                {t('journeyButton')}
-              </JourneyButton>
-
-              <Spacer32 />
-            </>
-          )}
+          <Spacer24 />
         </Gutters>
 
         <Gutters>
-          <Body16>{t('description')}</Body16>
+          <Body16>{t('buttonsHeading')}</Body16>
           <Spacer16 />
           <Row>
+            {!isHost && (
+              <>
+                <JourneyButton
+                  AnimatedIcon={PlusToCheckIconAnimated}
+                  fill={COLORS.WHITE}
+                  onPress={togglePinned}
+                  variant={isPinned ? 'primary' : 'secondary'}
+                  active={isPinned}>
+                  {t('journeyButton')}
+                </JourneyButton>
+                <Spacer12 />
+              </>
+            )}
+
+            {(isPinned || isHost) && !startingNow && (
+              <>
+                <AnimatedIconButton
+                  AnimatedIcon={BellIconAnimated}
+                  fill={COLORS.WHITE}
+                  variant={reminderEnabled ? 'primary' : 'secondary'}
+                  active={reminderEnabled}
+                  onPress={onToggleReminder}
+                />
+                <Spacer12 />
+              </>
+            )}
+
             {!startingNow && (
               <>
                 <IconButton
@@ -318,7 +327,7 @@ const SessionModal = () => {
                   variant={'secondary'}
                   onPress={onAddToCalendar}
                 />
-                <Spacer16 />
+                <Spacer12 />
               </>
             )}
 
@@ -328,18 +337,6 @@ const SessionModal = () => {
                   variant="secondary"
                   onPress={onShare}
                   Icon={ShareIcon}
-                />
-              </>
-            )}
-            {(isPinned || isHost) && (
-              <>
-                <Spacer16 />
-                <AnimatedIconButton
-                  AnimatedIcon={BellIconAnimated}
-                  fill={COLORS.WHITE}
-                  variant={reminderEnabled ? 'primary' : 'secondary'}
-                  active={reminderEnabled}
-                  onPress={onToggleReminder}
                 />
               </>
             )}
