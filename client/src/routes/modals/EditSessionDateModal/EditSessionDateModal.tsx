@@ -90,9 +90,10 @@ const EditSessionDateModal = () => {
       startTime: sessionDateTime.utc().toISOString(),
     });
 
-    setSession(updatedSession);
+    await setSession(updatedSession);
     fetchSessions();
-  }, [setSession, fetchSessions, session.id, sessionDateTime]);
+    navigation.goBack();
+  }, [setSession, fetchSessions, session.id, sessionDateTime, navigation]);
 
   const onChange = useCallback(
     (dateTime: dayjs.Dayjs) => setSessionDateTime(dateTime),
