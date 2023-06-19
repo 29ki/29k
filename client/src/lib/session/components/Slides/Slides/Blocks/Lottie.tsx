@@ -170,11 +170,12 @@ const Lottie: React.FC<LottieProps> = ({
 
   const onProgress = useCallback(
     (data: {time: number}) => {
-      setProgress(data.time);
-      progressRef.current = data.time;
-      timerRef.current?.seek(data.time);
+      const currentTime = Math.min(duration, data.time);
+      setProgress(currentTime);
+      progressRef.current = currentTime;
+      timerRef.current?.seek(currentTime);
     },
-    [setProgress],
+    [setProgress, duration],
   );
 
   if (audioSources) {
