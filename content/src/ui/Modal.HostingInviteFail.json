@@ -1,10 +1,14 @@
 {
   "en": {
-    "title": "You do not have permission to host sessions open for anyone to join. ",
-    "description": "Therefore you can not accept hosting the session that {{hostName}} wanted to transfer to you. ",
+    "title": "You do not have permission to host sessions open for anyone to join.",
+    "description": "Therefore you can not accept hosting the session that {{hostName}} wanted to transfer to you.",
     "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1683807355/Images/flowers_slijjk.png"
   },
   "pt": {},
-  "sv": {},
+  "sv": {
+    "title": "Du har inte behörighet att vara värd för sessioner som är öppna för alla att gå med.",
+    "description": "Därför kan du inte acceptera att vara värd för sessionen som {{hostName}} ville överföra till dig.",
+    "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1683807355/Images/flowers_slijjk.png"
+  },
   "es": {}
 }
