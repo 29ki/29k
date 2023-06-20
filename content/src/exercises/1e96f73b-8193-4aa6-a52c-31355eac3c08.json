@@ -31,6 +31,11 @@
         "content": {
           "video": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1678801763/Audio/meditation_The_way_out_is_through_ao5qq6.mp3"
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "durationTimer": true,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1678801763/Audio/meditation_The_way_out_is_through_ao5qq6.mp3"
           }
         }
       },
@@ -47,7 +52,11 @@
           }
         ],
         "content": {
-          "heading": "What would be different if you moved through difficulties?"
+          "heading": "What would be different if you moved through difficulties?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "durationTimer": false
+          }
         }
       },
       {
@@ -64,7 +73,10 @@
           }
         ],
         "content": {
-          "heading": "What would be different if you moved through difficulties?"
+          "heading": "What would be different if you moved through difficulties?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
         },
         "id": "sharing1"
       },
