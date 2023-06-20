@@ -24,6 +24,7 @@ import Screen from '../../../lib/components/Screen/Screen';
 import useUpdateAsyncSessionState from '../../../lib/session/hooks/useUpdateAsyncSessionState';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import ProgressBar from '../../../lib/session/components/ProgressBar/ProgressBar';
+import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
 
 const Spotlight = styled.View({
   flex: 1,
@@ -48,7 +49,8 @@ const Session: React.FC = () => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AsyncSessionStackProps>>();
 
-  const {endSession, resetSession} = useUpdateAsyncSessionState(session);
+  const {leaveSessionWithConfirm} = useLeaveSession(session);
+  const {endSession} = useUpdateAsyncSessionState(session);
   const sessionState = useSessionState(state => state.sessionState);
   const currentContentReachedEnd = useSessionState(
     state => state.currentContentReachedEnd,
@@ -101,10 +103,9 @@ const Session: React.FC = () => {
         content: sessionSlideState.slides,
       });
     } else {
-      resetSession();
-      navigate('IntroPortal', {session});
+      leaveSessionWithConfirm();
     }
-  }, [sessionSlideState, navigateToIndex, resetSession, navigate, session]);
+  }, [sessionSlideState, navigateToIndex, leaveSessionWithConfirm]);
 
   const onNextPress = useCallback(() => {
     if (sessionSlideState && sessionSlideState.next) {
