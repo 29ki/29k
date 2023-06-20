@@ -23,6 +23,7 @@ const Fill = styled(Animated.View)<{color?: string}>(({color}) => ({
   backgroundColor: color ? color : COLORS.BLACK,
   borderRadius: SPACINGS.EIGHT,
   minWidth: 6,
+  maxWidth: '100%',
 }));
 
 const Progress: React.FC<{percentage: number; color?: string}> = ({
