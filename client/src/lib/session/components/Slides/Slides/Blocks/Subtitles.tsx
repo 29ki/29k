@@ -13,6 +13,7 @@ type SubtitleProps = {
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
+    width: '100%',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

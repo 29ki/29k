@@ -8,9 +8,8 @@ import {LottiePlayerHandle} from '../../../../../components/LottiePlayer/LottieP
 import {VideoLooperProperties} from '../../../../../../../types/VideoLooper';
 import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
 import MediaControls from '../../../MediaControls/MediaControls';
-import {Spacer32} from '../../../../../components/Spacers/Spacer';
+import {Spacer16, Spacer32} from '../../../../../components/Spacers/Spacer';
 import MediaWrapperResolver from './MediaWrapperResolver';
-import {COLORS} from '../../../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../../../constants/spacings';
 import Subtitles from './Subtitles';
 
@@ -32,14 +31,13 @@ const Duration = styled(DurationTimer)({
 
 const SubtitleContainer = styled.View({
   position: 'absolute',
-  top: 0,
-  bottom: 0,
+  top: -73,
   left: 0,
   right: 0,
   flex: 1,
-  flexDirection: 'row',
-  justifyContent: 'flex-end',
-  alignItems: 'flex-end',
+  alignItems: 'center',
+
+  height: SPACINGS.SIXTY,
   paddingHorizontal: SPACINGS.SIXTY,
 });
 
@@ -202,16 +200,19 @@ const Video: React.FC<VideoProps> = ({
             mixWithOthers={isLive}
           />
           {isLive && timer}
-          <SubtitleContainer>
-            <Subtitles
-              src={'file:///Users/emil/dev/accepting-meditation.srt'}
-              time={progress}
-            />
-          </SubtitleContainer>
         </MediaWrapperResolver>
+
         {!isLive && (
           <View>
-            <Spacer32 />
+            <SubtitleContainer>
+              <Subtitles
+                src={
+                  'https://res.cloudinary.com/cupcake-29k/raw/upload/v1687244324/accepting-meditation_jrxo8c.srt'
+                }
+                time={progress}
+              />
+            </SubtitleContainer>
+            <Spacer16 />
             <MediaControls
               time={progress}
               duration={duration}
