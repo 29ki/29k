@@ -159,14 +159,16 @@ const InvitationModal: React.FC<{
       </Gutters>
 
       <Gutters>
-        <Body16>{t('description')}</Body16>
+        <Body16>
+          {t('description', {hostName: session.hostProfile?.displayName})}
+        </Body16>
         <Spacer16 />
         <Row>
-          <Button variant={'secondary'} onPress={acceptInvite}>
-            {t('confirm')}
-          </Button>
+          <Button onPress={acceptInvite}>{t('confirm')}</Button>
           <Spacer16 />
-          <Button onPress={onCancel}>{t('cancel')}</Button>
+          <Button variant={'secondary'} onPress={onCancel}>
+            {t('cancel')}
+          </Button>
         </Row>
       </Gutters>
       <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
