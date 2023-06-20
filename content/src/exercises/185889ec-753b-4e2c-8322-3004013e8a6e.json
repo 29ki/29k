@@ -182,7 +182,7 @@
     ],
     "link": "https://aware.29k.org/be-kind-to-yourself",
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
-    "async": true,
+    "async": false,
     "description": "We are often harsh on ourselves, and more compassionate with others. In this exercise we'll practice finding a compassionate inner ally to accompany us in difficult situations. Self compassion can help us feel happier and more satisfied with ourselves."
   },
   "pt": {
@@ -365,7 +365,7 @@
     ],
     "link": "https://aware.29k.org/be-kind-to-yourself",
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
-    "async": true,
+    "async": false,
     "description": "Muitas vezes somos duros connosco e mais compassivos com os outros. Neste exercício vamos aprender a encontrar um aliado interior compassivo que nos acompanhe em situações difíceis. A autocompaixão pode ajudar-nos a sentir mais felizes e satisfeitos com nós mesmos."
   },
   "sv": {
