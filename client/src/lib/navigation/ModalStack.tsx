@@ -168,7 +168,7 @@ const ModalStack = () => {
         <Screen
           name={'HostSessionByInviteModal'}
           component={HostSessionByInviteModal}
-          options={shortSheetModalScreenOptions}
+          options={tallSheetModalScreenOptions}
         />
         <Screen
           name={'EditSessionDateModal'}
