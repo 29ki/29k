@@ -49,12 +49,14 @@ type VideoProps = {
   autoPlayLoop?: boolean;
   durationTimer?: boolean;
   isLive?: boolean;
+  subtitles?: string;
 };
 const Video: React.FC<VideoProps> = ({
   active,
   source,
   audioSource,
   isLive,
+  subtitles,
   autoPlayLoop = false,
   durationTimer = false,
 }) => {
@@ -204,14 +206,11 @@ const Video: React.FC<VideoProps> = ({
 
         {!isLive && (
           <View>
-            <SubtitleContainer>
-              <Subtitles
-                src={
-                  'https://res.cloudinary.com/cupcake-29k/raw/upload/v1687244324/accepting-meditation_jrxo8c.srt'
-                }
-                time={progress}
-              />
-            </SubtitleContainer>
+            {subtitles && (
+              <SubtitleContainer>
+                <Subtitles src={subtitles} time={progress} />
+              </SubtitleContainer>
+            )}
             <Spacer16 />
             <MediaControls
               time={progress}
