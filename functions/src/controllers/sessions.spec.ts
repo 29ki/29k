@@ -1029,7 +1029,7 @@ describe('sessions - controller', () => {
 
       expect(mockUpdateSession).toHaveBeenCalledWith('some-session-id', {
         hostId: 'user-id',
-        hostingCode: undefined,
+        hostingCode: null,
       });
     });
 
