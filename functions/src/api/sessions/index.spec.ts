@@ -533,16 +533,17 @@ describe('/api/sessions', () => {
   });
 
   describe('GET /hostingCode/:hostingCode', () => {
-    it('should return token', async () => {
+    it('should return session', async () => {
       getMockCustomClaims.mockReturnValueOnce({role: ROLE.publicHost});
       mockGetSessionByHostingCode.mockResolvedValueOnce(
         createMockSession('some-session-id'),
       );
 
       const response = await request(mockServer).get(
-        '/sessions/hostingCode/some-host-code',
+        '/sessions/hostingCode/123456',
       );
 
+      expect(mockGetSessionByHostingCode).toHaveBeenCalledWith(123456);
       expect(response.status).toBe(200);
       expect(response.body).toMatchObject({
         id: 'some-session-id',
@@ -559,7 +560,7 @@ describe('/api/sessions', () => {
       );
 
       const response = await request(mockServer).get(
-        '/sessions/hostingCode/some-host-code',
+        '/sessions/hostingCode/123456',
       );
       expect(response.text).toEqual(JoinSessionError.notFound);
       expect(response.status).toBe(404);
