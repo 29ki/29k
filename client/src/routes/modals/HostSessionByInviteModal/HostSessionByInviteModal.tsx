@@ -88,7 +88,7 @@ const InvitationModal: React.FC<{
   session: LiveSessionType;
   hostingCode: number;
   fetchSession: Function;
-}> = ({session, hostingCode, fetchSession}) => {
+}> = ({session, hostingCode}) => {
   const exercise = useExerciseById(session?.exerciseId);
   const tags = useGetSessionCardTags(exercise);
   const {t} = useTranslation('Modal.HostSessionByInvite');
@@ -98,13 +98,12 @@ const InvitationModal: React.FC<{
 
   const acceptInvite = useCallback(async () => {
     if (session?.id) {
-      await acceptHostingInvite(session.id, hostingCode);
-      const updatedSession = await fetchSession();
+      const updatedSession = await acceptHostingInvite(session.id, hostingCode);
       navigation.navigate('SessionModal', {
-        session: updatedSession as LiveSessionType,
+        session: updatedSession,
       });
     }
-  }, [session?.id, hostingCode, fetchSession, navigation]);
+  }, [session?.id, hostingCode, navigation]);
 
   const onCancel = useCallback(() => navigation.goBack(), [navigation]);
 
@@ -186,14 +185,14 @@ const HostSessionByInviteModal = () => {
   const fetchSession = useCallback(async () => {
     try {
       const fetchedSession = await getSessionByHostingCode(hostingCode);
-      return fetchedSession;
+      setSession(fetchedSession);
     } catch (err) {
       setError(err as string);
     }
   }, [hostingCode]);
 
   useEffect(() => {
-    (async () => setSession(await fetchSession()))();
+    fetchSession();
   }, [fetchSession]);
 
   if (
