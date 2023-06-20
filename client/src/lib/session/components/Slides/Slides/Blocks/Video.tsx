@@ -31,14 +31,13 @@ const Duration = styled(DurationTimer)({
 
 const SubtitleContainer = styled.View({
   position: 'absolute',
-  top: -73,
+  top: -70,
   left: 0,
   right: 0,
   flex: 1,
   alignItems: 'center',
-
   height: SPACINGS.SIXTY,
-  paddingHorizontal: SPACINGS.SIXTY,
+  paddingHorizontal: 80,
 });
 
 type VideoProps = {
