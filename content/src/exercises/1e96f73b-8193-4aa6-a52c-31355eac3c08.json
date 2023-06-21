@@ -120,7 +120,10 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687349469/Video/wayout_portal1_i5smbm.mp4"
+      }
     },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
