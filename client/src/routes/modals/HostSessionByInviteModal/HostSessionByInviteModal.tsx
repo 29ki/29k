@@ -48,7 +48,9 @@ import {
   acceptHostingInvite,
 } from '../../../lib/sessions/api/session';
 import Button from '../../../lib/components/Buttons/Button';
-import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
+import {JoinSessionError} from '../../../../../shared/src/errors/Session';
+import SessionUnavailableModal from '../SessionUnavailableModal/SessionUnavailableModal';
+import HostingInviteFailModal from '../HostingInviteFailModal/HostingInviteFailModal';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -82,122 +84,137 @@ const Tags = styled(Gutters)({
   marginTop: -SPACINGS.FOUR,
 });
 
+const InvitationModal: React.FC<{
+  session: LiveSessionType;
+  hostingCode: number;
+  fetchSession: Function;
+}> = ({session, hostingCode}) => {
+  const exercise = useExerciseById(session?.exerciseId);
+  const tags = useGetSessionCardTags(exercise);
+  const {t} = useTranslation('Modal.HostSessionByInvite');
+
+  const navigation =
+    useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
+
+  const acceptInvite = useCallback(async () => {
+    if (session?.id) {
+      const updatedSession = await acceptHostingInvite(session.id, hostingCode);
+      navigation.navigate('SessionModal', {
+        session: updatedSession,
+      });
+    }
+  }, [session?.id, hostingCode, navigation]);
+
+  const onCancel = useCallback(() => navigation.goBack(), [navigation]);
+
+  return (
+    <BottomSheetScrollView focusHook={useIsFocused}>
+      <Spacer16 />
+
+      <Content>
+        <SpaceBetweenRow>
+          <TitleContainer>
+            <Display24>{formatContentName(exercise)}</Display24>
+            <Spacer4 />
+            <Row>
+              <Byline
+                pictureURL={session.hostProfile?.photoURL}
+                name={session.hostProfile?.displayName}
+              />
+            </Row>
+          </TitleContainer>
+          <Spacer32 />
+          <ImageContainer
+            resizeMode="contain"
+            source={{uri: exercise?.card?.image?.source}}
+          />
+        </SpaceBetweenRow>
+      </Content>
+      {exercise?.description && (
+        <>
+          <Spacer16 />
+          <Gutters>
+            <Markdown>{exercise?.description}</Markdown>
+          </Gutters>
+        </>
+      )}
+
+      {tags && (
+        <Tags>
+          {tags.map((tag, idx) => (
+            <Fragment key={`tag-${idx}`}>
+              <Tag>{tag}</Tag>
+              <Spacer4 />
+            </Fragment>
+          ))}
+        </Tags>
+      )}
+      <Spacer16 />
+
+      <Gutters>
+        <Row>
+          <SessionTimeBadge session={session} />
+        </Row>
+        <Spacer16 />
+      </Gutters>
+
+      <Gutters>
+        <Body16>
+          {t('description', {hostName: session.hostProfile?.displayName})}
+        </Body16>
+        <Spacer16 />
+        <Row>
+          <Button onPress={acceptInvite}>{t('confirm')}</Button>
+          <Spacer16 />
+          <Button variant={'secondary'} onPress={onCancel}>
+            {t('cancel')}
+          </Button>
+        </Row>
+      </Gutters>
+      <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
+    </BottomSheetScrollView>
+  );
+};
+
 const HostSessionByInviteModal = () => {
   const {
     params: {hostingCode},
   } = useRoute<RouteProp<ModalStackProps, 'HostSessionByInviteModal'>>();
 
-  const {t} = useTranslation('Modal.HostSessionByInvite');
-  const isPublicHost = useIsPublicHost();
   const [session, setSession] = useState<LiveSessionType>();
-  const navigation =
-    useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
+  const [error, setError] = useState<string>();
 
   const fetchSession = useCallback(async () => {
     try {
-      return getSessionByHostingCode(hostingCode);
+      const fetchedSession = await getSessionByHostingCode(hostingCode);
+      setSession(fetchedSession);
     } catch (err) {
-      navigation.navigate('SessionUnavailableModal');
+      setError(err as string);
     }
-  }, [hostingCode, navigation]);
+  }, [hostingCode]);
 
   useEffect(() => {
-    if (!isPublicHost) {
-      navigation.navigate('HostingInviteFailModal', {
-        hostName: session?.hostProfile?.displayName,
-      });
-    }
-  }, [isPublicHost, navigation, session?.hostProfile?.displayName]);
-
-  useEffect(() => {
-    (async () => setSession(await fetchSession()))();
+    fetchSession();
   }, [fetchSession]);
 
-  const exercise = useExerciseById(session?.exerciseId);
-  const tags = useGetSessionCardTags(exercise);
-
-  const acceptInvite = useCallback(async () => {
-    if (session?.id) {
-      await acceptHostingInvite(session.id, hostingCode);
-      const updatedSession = await fetchSession();
-      navigation.navigate('SessionModal', {
-        session: updatedSession as LiveSessionType,
-      });
-    }
-  }, [session?.id, hostingCode, fetchSession, navigation]);
-  const onCancel = useCallback(() => {
-    navigation.goBack();
-  }, [navigation]);
-
-  if (!session || !exercise) {
-    return null;
+  if (
+    error === JoinSessionError.notAvailable ||
+    error === JoinSessionError.notFound
+  ) {
+    return <SessionUnavailableModal />;
+  } else if (error) {
+    return <HostingInviteFailModal />;
   }
 
   return (
     <SheetModal backgroundColor={COLORS.CREAM}>
-      <BottomSheetScrollView focusHook={useIsFocused}>
-        <Spacer16 />
-
-        <Content>
-          <SpaceBetweenRow>
-            <TitleContainer>
-              <Display24>{formatContentName(exercise)}</Display24>
-              <Spacer4 />
-              <Row>
-                <Byline
-                  pictureURL={session.hostProfile?.photoURL}
-                  name={session.hostProfile?.displayName}
-                />
-              </Row>
-            </TitleContainer>
-            <Spacer32 />
-            <ImageContainer
-              resizeMode="contain"
-              source={{uri: exercise?.card?.image?.source}}
-            />
-          </SpaceBetweenRow>
-        </Content>
-        {exercise?.description && (
-          <>
-            <Spacer16 />
-            <Gutters>
-              <Markdown>{exercise?.description}</Markdown>
-            </Gutters>
-          </>
-        )}
-
-        {tags && (
-          <Tags>
-            {tags.map((tag, idx) => (
-              <Fragment key={`tag-${idx}`}>
-                <Tag>{tag}</Tag>
-                <Spacer4 />
-              </Fragment>
-            ))}
-          </Tags>
-        )}
-        <Spacer16 />
-
-        <Gutters>
-          <Row>
-            <SessionTimeBadge session={session} />
-          </Row>
-          <Spacer16 />
-        </Gutters>
-
-        <Gutters>
-          <Body16>{t('description')}</Body16>
-          <Spacer16 />
-          <Row>
-            <Button variant={'secondary'} onPress={acceptInvite}>
-              {t('confirm')}
-            </Button>
-            <Spacer16 />
-            <Button onPress={onCancel}>{t('cancel')}</Button>
-          </Row>
-        </Gutters>
-        <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
-      </BottomSheetScrollView>
+      {session ? (
+        <InvitationModal
+          session={session}
+          hostingCode={hostingCode}
+          fetchSession={fetchSession}
+        />
+      ) : null}
     </SheetModal>
   );
 };

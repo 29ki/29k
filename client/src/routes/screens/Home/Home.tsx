@@ -75,7 +75,9 @@ const AddSessionForm = () => {
   return (
     <AddSessionWrapper>
       <AddButton
-        onPress={() => navigate('CreateSessionModal', {exerciseId: undefined})}
+        onPress={() =>
+          navigate('HostSessionByInviteModal', {hostingCode: 123456})
+        }
         LeftIcon={PlusIcon}>
         {t('add')}
       </AddButton>

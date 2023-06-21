@@ -187,7 +187,7 @@ export const getSessionHostingLink = async (
 export const acceptHostingInvite = async (
   sessionId: LiveSessionType['id'],
   hostingCode: number,
-) => {
+): Promise<LiveSessionType> => {
   const response = await apiClient(
     `${SESSIONS_ENDPOINT}/${sessionId}/acceptHostingInvite`,
     {

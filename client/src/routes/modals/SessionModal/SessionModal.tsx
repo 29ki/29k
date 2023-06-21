@@ -293,7 +293,7 @@ const SessionModal = () => {
           <Body16>{t('buttonsHeading')}</Body16>
           <Spacer16 />
           <Row>
-            {!isHost && (
+            {!isHost && !startingNow && (
               <>
                 <JourneyButton
                   AnimatedIcon={PlusToCheckIconAnimated}
