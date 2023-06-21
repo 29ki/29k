@@ -16,7 +16,6 @@ import Gutters from '../../../../components/Gutters/Gutters';
 import {PlusIcon} from '../../../../components/Icons';
 import {
   Spacer16,
-  Spacer4,
   Spacer60,
   Spacer8,
 } from '../../../../components/Spacers/Spacer';
@@ -31,7 +30,6 @@ import {
 import useSharingPosts from '../../../../posts/hooks/useSharingPosts';
 import useUser from '../../../../user/hooks/useUser';
 import useSessionState from '../../../state/state';
-import MyPostCard from '../../Posts/MyPostCard';
 import ListPostCard, {CARD_WIDTH} from '../../Posts/ListPostCard';
 
 const Wrapper = styled.View({
@@ -39,20 +37,20 @@ const Wrapper = styled.View({
 });
 
 const TopGradient = styled(LinearGradient)({
-  height: 60,
+  height: 40,
   justifyContent: 'flex-end',
 });
 
 const Content = styled.View({
   flex: 1,
-  marginTop: -SPACINGS.SIXTEEN,
+  marginTop: -SPACINGS.TWELVE,
 });
 
 const StickyHeader = styled(Body16)<{textColor?: string}>(({textColor}) => ({
   textAlign: 'left',
   color: textColor ?? COLORS.BLACK,
   fontFamily: HKGroteskBold,
-  marginTop: -SPACINGS.FOURTYEIGHT,
+  marginTop: -35,
 }));
 
 const StyledHeader = styled(Body16)<{textColor?: string}>(({textColor}) => ({
@@ -68,10 +66,6 @@ const StyledSubHeader = styled(Display24)<{textColor?: string}>(
   }),
 );
 
-const StyledEmptyText = styled(Body16)<{textColor?: string}>(({textColor}) => ({
-  color: textColor ?? COLORS.BLACK,
-}));
-
 const PostsList = styled(FlatList)({
   flexGrow: 0,
   width: '100%',
@@ -80,16 +74,10 @@ const PostsList = styled(FlatList)({
 const ItemWrapper = styled.View<{isLast: boolean}>(({isLast}) => ({
   paddingLeft: SPACINGS.SIXTEEN,
   paddingRight: isLast ? SPACINGS.SIXTEEN : undefined,
-  paddingTop: SPACINGS.SIXTEEN,
+  paddingTop: SPACINGS.EIGHT,
 }));
 
 const ButtonWrapper = styled.View({flexDirection: 'row'});
-
-const EmptyListComponent = styled.View({
-  height: 50,
-  width: '100%',
-  paddingTop: SPACINGS.SIXTEEN,
-});
 
 type SharingProps = {
   slide: ExerciseSlideSharingSlide;
@@ -142,19 +130,10 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
 
   const previousPosts = useMemo(() => {
     if (session?.id) {
-      return getSharingPostsForExercise(slide.id).filter(
-        e => e.payload.sessionId !== currentPostEvent?.payload.sessionId,
-      );
+      return getSharingPostsForExercise(slide.id);
     }
     return [];
-  }, [session?.id, slide.id, getSharingPostsForExercise, currentPostEvent]);
-
-  const allMyPosts = useMemo(() => {
-    if (currentPostEvent) {
-      return [currentPostEvent, ...previousPosts];
-    }
-    return previousPosts;
-  }, [currentPostEvent, previousPosts]);
+  }, [session?.id, slide.id, getSharingPostsForExercise]);
 
   const onOhterPostListLayout = useCallback(
     (event: LayoutChangeEvent) => {
@@ -206,7 +185,7 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
   const renderMyItem = useCallback<ListRenderItem<PostEvent>>(
     ({item, index}) => {
       return (
-        <ItemWrapper isLast={index === allMyPosts.length - 1}>
+        <ItemWrapper isLast={index === previousPosts.length - 1}>
           <ListPostCard
             text={item.payload.text}
             userProfile={!item.payload.isAnonymous ? userProfile : null}
@@ -216,7 +195,7 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
         </ItemWrapper>
       );
     },
-    [allMyPosts, userProfile],
+    [previousPosts, userProfile],
   );
 
   const myKeyExtractor = useCallback(
@@ -229,69 +208,52 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
       <ScrollView stickyHeaderIndices={[0]} ref={scrollRef}>
         <TopGradient colors={topGradientColors}>
           <Gutters>
-            <StickyHeader textColor={theme?.textColor}>
-              {t('othersHeading')}
-            </StickyHeader>
+            {previousPosts.length > 0 ? (
+              <StickyHeader textColor={theme?.textColor}>
+                {t('reflectionLabel')}
+              </StickyHeader>
+            ) : posts.length > 0 ? (
+              <StickyHeader textColor={theme?.textColor}>
+                {t('othersHeading')}
+              </StickyHeader>
+            ) : null}
           </Gutters>
         </TopGradient>
         <Content>
-          <PostsList
-            onLayout={onOhterPostListLayout}
-            renderItem={renderOtherItem}
-            keyExtractor={otherKeyExtractor}
-            ListEmptyComponent={
-              <EmptyListComponent>
-                <Gutters>
-                  <StyledEmptyText textColor={theme?.textColor}>
-                    {t('emptyText')}
-                  </StyledEmptyText>
-                </Gutters>
-              </EmptyListComponent>
-            }
-            horizontal
-            data={posts}
-            snapToAlignment="center"
-            decelerationRate="fast"
-            snapToInterval={CARD_WIDTH + SPACINGS.SIXTEEN}
-            showsHorizontalScrollIndicator={false}
-          />
+          {previousPosts.length > 0 && (
+            <PostsList
+              onLayout={onMyPostListLayout}
+              renderItem={renderMyItem}
+              keyExtractor={myKeyExtractor}
+              horizontal
+              data={previousPosts}
+              snapToAlignment="center"
+              decelerationRate="fast"
+              showsHorizontalScrollIndicator={false}
+              snapToInterval={CARD_WIDTH + SPACINGS.SIXTEEN}
+            />
+          )}
 
-          {currentPostEvent && previousPosts.length === 0 && (
+          {posts.length > 0 && previousPosts.length > 0 && (
             <Gutters>
               <StyledHeader textColor={theme?.textColor}>
-                {t('reflectionLabel')}
+                {t('othersHeading')}
               </StyledHeader>
-              <Spacer16 />
-              <MyPostCard
-                text={currentPostEvent.payload.text}
-                isPublic={currentPostEvent.payload.isPublic}
-                userProfile={
-                  !currentPostEvent.payload.isAnonymous ? userProfile : null
-                }
-              />
             </Gutters>
           )}
 
-          {previousPosts.length > 0 && (
-            <>
-              <Gutters>
-                <StyledHeader textColor={theme?.textColor}>
-                  {t('reflectionLabel')}
-                </StyledHeader>
-              </Gutters>
-              <Spacer4 />
-              <PostsList
-                onLayout={onMyPostListLayout}
-                renderItem={renderMyItem}
-                keyExtractor={myKeyExtractor}
-                horizontal
-                data={allMyPosts}
-                snapToAlignment="center"
-                decelerationRate="fast"
-                showsHorizontalScrollIndicator={false}
-                snapToInterval={CARD_WIDTH + SPACINGS.SIXTEEN}
-              />
-            </>
+          {posts.length > 0 && (
+            <PostsList
+              onLayout={onOhterPostListLayout}
+              renderItem={renderOtherItem}
+              keyExtractor={otherKeyExtractor}
+              horizontal
+              data={posts}
+              snapToAlignment="center"
+              decelerationRate="fast"
+              snapToInterval={CARD_WIDTH + SPACINGS.SIXTEEN}
+              showsHorizontalScrollIndicator={false}
+            />
           )}
 
           {!currentPostEvent && (
