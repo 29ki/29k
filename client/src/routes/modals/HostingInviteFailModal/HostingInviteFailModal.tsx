@@ -10,6 +10,7 @@ import {Spacer16, Spacer28} from '../../../lib/components/Spacers/Spacer';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 
 const ImageWrapper = styled.View({
   width: '65%',
@@ -17,18 +18,22 @@ const ImageWrapper = styled.View({
   alignSelf: 'center',
 });
 
+const Description = styled(Body16)({
+  textAlign: 'center',
+});
+
 const HostingInviteFailModal = () => {
   const {t} = useTranslation('Modal.HostingInviteFail');
   const {
-    params: {hostName = 'the host'},
+    params: {hostName = t('hostNameFallback')},
   } = useRoute<RouteProp<ModalStackProps, 'HostingInviteFailModal'>>();
 
   return (
-    <SheetModal>
+    <SheetModal backgroundColor={COLORS.CREAM}>
       <Gutters big>
         <ModalHeading>{t('title')}</ModalHeading>
         <Spacer16 />
-        <Body16>{t('description', {hostName})}</Body16>
+        <Description>{t('description', {hostName})}</Description>
       </Gutters>
       <ImageWrapper>
         <Spacer28 />

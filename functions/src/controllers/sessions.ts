@@ -352,7 +352,7 @@ export const updateSessionHost = async (
   }
 
   await sessionModel.updateSession(sessionId, {
-    hostingCode: undefined,
+    hostingCode: null,
     hostId: userId,
   });
   const updatedSession = await sessionModel.getSessionById(sessionId);

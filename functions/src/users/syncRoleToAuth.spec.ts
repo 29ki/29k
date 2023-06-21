@@ -1,7 +1,7 @@
 import {QueryDocumentSnapshot} from 'firebase-admin/firestore';
 import {ROLE} from '../../../shared/src/schemas/User';
 import {updateRole} from '../models/auth';
-import {onUserUpdated} from './onUserUpdated';
+import {onUserUpdated} from './syncRoleToAuth';
 import {Change} from 'firebase-functions/v2';
 import {FirestoreEvent} from 'firebase-functions/v2/firestore';
 
@@ -27,7 +27,7 @@ const createChangeEvent = (before: object, after: object) =>
     {userId: string}
   >);
 
-describe('onUserUpdated', () => {
+describe('syncRoleToAuth', () => {
   it('should update the claims if public host role was added', async () => {
     onUserUpdated.run(createChangeEvent({}, {role: ROLE.publicHost}));
     expect(mockUpdateRole).toHaveBeenCalledWith(

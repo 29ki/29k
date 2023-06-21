@@ -54,12 +54,17 @@ sessionsRouter.get(
 sessionsRouter.get(
   '/hostingCode/:hostingCode',
   restrictAccessToRole(ROLE.publicHost),
-  validation({response: LiveSessionSchema}),
+  validation({
+    params: yup.object({
+      hostingCode: yup.number().required(),
+    }),
+    response: LiveSessionSchema,
+  }),
   async ctx => {
-    const {hostCode} = ctx.request.body;
+    const {hostingCode} = ctx.params;
 
     try {
-      ctx.body = await sessionsController.getSessionByHostingCode(hostCode);
+      ctx.body = await sessionsController.getSessionByHostingCode(hostingCode);
     } catch (error) {
       const requestError = error as RequestError;
       switch (requestError.code) {
