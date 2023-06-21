@@ -1,1 +1,1 @@
-export * from './onUserUpdated';
+export * from './syncRoleToAuth';
