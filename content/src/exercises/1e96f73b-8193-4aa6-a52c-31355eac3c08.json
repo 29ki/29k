@@ -112,6 +112,9 @@
       "host": {
         "displayName": "Lisa",
         "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675943058/Images/Lisa_host_wkrcf3.jpg"
+      },
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1687350874/Images/card_image_wayout_wtllwp.png"
       }
     },
     "duration": 30,
