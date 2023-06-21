@@ -3,7 +3,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import hexToRgba from 'hex-to-rgba';
 import React, {useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {SectionList, SectionListRenderItem} from 'react-native';
+import {SectionList, SectionListRenderItem, Share} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -14,6 +14,7 @@ import Gutters from '../../../lib/components/Gutters/Gutters';
 import Image from '../../../lib/components/Image/Image';
 import Screen from '../../../lib/components/Screen/Screen';
 import {
+  Spacer12,
   Spacer16,
   Spacer24,
   Spacer32,
@@ -36,7 +37,12 @@ import usePinnedCollectionById from '../../../lib/user/hooks/usePinnedCollection
 import {formatContentName} from '../../../lib/utils/string';
 import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
-import {PlusToCheckIconAnimated} from '../../../lib/components/Icons';
+import {
+  PlusToCheckIconAnimated,
+  ShareIcon,
+} from '../../../lib/components/Icons';
+import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
+import {Body16} from '../../../lib/components/Typography/Body/Body';
 
 type Section = {
   title: string;
@@ -45,9 +51,12 @@ type Section = {
 
 const Row = styled.View({
   flexDirection: 'row',
-  justifyContent: 'space-between',
   alignItems: 'center',
   flex: 1,
+});
+
+const RowJustified = styled(Row)({
+  justifyContent: 'space-between',
 });
 
 const JourneyButton = styled(AnimatedButton)({
@@ -149,6 +158,14 @@ const Collection = () => {
     [savedCollection, getCompletedSessionByExerciseId],
   );
 
+  const onShare = useCallback(() => {
+    if (collection?.link) {
+      Share.share({
+        url: collection.link,
+      });
+    }
+  }, [collection?.link]);
+
   return (
     <Screen
       onPressBack={goBack}
@@ -164,7 +181,7 @@ const Collection = () => {
           ListHeaderComponent={
             <Gutters>
               <Spacer32 />
-              <Row>
+              <RowJustified>
                 <LeftColumn>
                   <Spacer8 />
                   <Display20 numberOfLines={3}>
@@ -177,18 +194,31 @@ const Collection = () => {
                 <GraphicsWrapper>
                   <Image source={image} />
                 </GraphicsWrapper>
-              </Row>
+              </RowJustified>
 
               <Spacer16 />
-              <JourneyButton
-                small
-                onPress={togglePinned}
-                variant={isPinned ? 'primary' : 'secondary'}
-                AnimatedIcon={PlusToCheckIconAnimated}
-                fill={COLORS.WHITE}
-                active={isPinned}>
-                {t('addToJourney')}
-              </JourneyButton>
+              <Body16>{t('buttonsHeading')}</Body16>
+              <Spacer16 />
+              <Row>
+                <JourneyButton
+                  onPress={togglePinned}
+                  variant={isPinned ? 'primary' : 'secondary'}
+                  AnimatedIcon={PlusToCheckIconAnimated}
+                  fill={COLORS.WHITE}
+                  active={isPinned}>
+                  {t('addToJourney')}
+                </JourneyButton>
+                <Spacer12 />
+                {collection?.link && (
+                  <>
+                    <IconButton
+                      variant="secondary"
+                      onPress={onShare}
+                      Icon={ShareIcon}
+                    />
+                  </>
+                )}
+              </Row>
 
               <Spacer24 />
             </Gutters>

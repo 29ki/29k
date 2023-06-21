@@ -21,13 +21,14 @@ import {
   FriendsIcon,
   MeIcon,
   LogoIconAnimated,
+  ShareIcon,
 } from '../../../../../lib/components/Icons';
 import {
+  Spacer12,
   Spacer16,
   Spacer24,
   Spacer28,
   Spacer4,
-  Spacer40,
   Spacer8,
 } from '../../../../../lib/components/Spacers/Spacer';
 import TouchableOpacity from '../../../../../lib/components/TouchableOpacity/TouchableOpacity';
@@ -44,7 +45,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import useGetExerciseById from '../../../../../lib/content/hooks/useGetExerciseById';
 import {formatContentName} from '../../../../../lib/utils/string';
 import Image from '../../../../../lib/components/Image/Image';
-import {ActivityIndicator, ListRenderItem} from 'react-native';
+import {ActivityIndicator, ListRenderItem, Share} from 'react-native';
 import SessionCard from '../../../../../lib/components/Cards/SessionCard/SessionCard';
 import {Heading16} from '../../../../../lib/components/Typography/Heading/Heading';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
@@ -54,6 +55,7 @@ import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsync
 import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown';
 import useGetTagsById from '../../../../../lib/content/hooks/useGetTagsById';
 import Tag from '../../../../../lib/components/Tag/Tag';
+import IconButton from '../../../../../lib/components/Buttons/IconButton/IconButton';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -87,12 +89,14 @@ const TypeItemHeading = styled(Body16)({
 
 const Row = styled.View({
   flexDirection: 'row',
+});
+
+const SpaceBetweenRow = styled(Row)({
   alignItems: 'center',
   justifyContent: 'space-between',
 });
 
-const Centered = styled.View({
-  flexDirection: 'row',
+const CenteredRow = styled(Row)({
   alignItems: 'center',
   justifyContent: 'center',
 });
@@ -104,11 +108,6 @@ const Lottie = styled(AnimatedLottieView)({
 const LogoWrapper = styled.View({
   width: 80,
   height: 80,
-});
-
-const ButtonWrapper = styled.View({
-  flexDirection: 'row',
-  justifyContent: 'center',
 });
 
 const TypeItem: React.FC<{
@@ -208,6 +207,14 @@ const SelectTypeStep: React.FC<StepProps> = ({
     ],
   );
 
+  const onShare = useCallback(() => {
+    if (exercise?.link) {
+      Share.share({
+        url: exercise.link,
+      });
+    }
+  }, [exercise?.link]);
+
   const onStartPress = useCallback(() => {
     if (selectedExercise) {
       popToTop();
@@ -239,7 +246,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
 
   const typeSelection = useMemo(
     () => (
-      <Row>
+      <SpaceBetweenRow>
         {(!exercise || exercise.async) && (
           <TypeItemWrapper>
             <TypeItem
@@ -267,7 +274,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
             />
           </TypeItemWrapper>
         )}
-      </Row>
+      </SpaceBetweenRow>
     ),
     [exercise, isPublicHost, onTypePress, t],
   );
@@ -292,7 +299,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
           }
           ListHeaderComponent={
             <Gutters>
-              <Row>
+              <SpaceBetweenRow>
                 <TextWrapper>
                   <Display24>{formatContentName(exercise)}</Display24>
                 </TextWrapper>
@@ -304,7 +311,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
                     <Image source={exerciseImage} />
                   ) : null}
                 </LogoWrapper>
-              </Row>
+              </SpaceBetweenRow>
               {exercise.description && (
                 <>
                   <Spacer16 />
@@ -321,23 +328,45 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   ))}
                 </Tags>
               )}
-              <Spacer16 />
 
               {exercise.live ? (
                 <>
+                  <Spacer16 />
                   <TypeItemHeading>{t('description')}</TypeItemHeading>
                   <Spacer16 />
                   {typeSelection}
-                  <Spacer40 />
+                  {exercise.link && (
+                    <>
+                      <Spacer24 />
+                      <Body16>{t('shareHeading')}</Body16>
+                      <Spacer16 />
+
+                      <IconButton
+                        variant="secondary"
+                        onPress={onShare}
+                        Icon={ShareIcon}
+                      />
+                    </>
+                  )}
+                  <Spacer24 />
                   <Heading16>{t('orJoinUpcoming')}</Heading16>
                   <Spacer16 />
                 </>
               ) : (
-                <ButtonWrapper>
-                  <Button variant="secondary" onPress={onStartPress}>
-                    {t('startCta')}
-                  </Button>
-                </ButtonWrapper>
+                <>
+                  <Spacer24 />
+                  <Row>
+                    <Button variant="secondary" onPress={onStartPress}>
+                      {t('startCta')}
+                    </Button>
+                    <Spacer12 />
+                    <IconButton
+                      variant="secondary"
+                      onPress={onShare}
+                      Icon={ShareIcon}
+                    />
+                  </Row>
+                </>
               )}
             </Gutters>
           }
@@ -350,7 +379,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
   return (
     <Gutters>
       <Spacer8 />
-      <Row>
+      <SpaceBetweenRow>
         <TextWrapper>
           <Display24>{t('description')}</Display24>
         </TextWrapper>
@@ -358,19 +387,19 @@ const SelectTypeStep: React.FC<StepProps> = ({
         <LogoWrapper>
           <LogoIconAnimated />
         </LogoWrapper>
-      </Row>
+      </SpaceBetweenRow>
       <Spacer28 />
       {typeSelection}
       <Spacer16 />
-      <Centered>
+      <CenteredRow>
         <Body16>{t('or')}</Body16>
-      </Centered>
+      </CenteredRow>
       <Spacer16 />
-      <ButtonWrapper>
+      <CenteredRow>
         <Button variant="secondary" onPress={onJoinByInvite}>
           {t('joinByInviteCta')}
         </Button>
-      </ButtonWrapper>
+      </CenteredRow>
     </Gutters>
   );
 };

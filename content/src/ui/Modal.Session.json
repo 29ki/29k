@@ -1,7 +1,6 @@
 {
   "en": {
     "done": "Save",
-    "shareMessage": "{{link}} Session code {{code}}",
     "interested": "Interested",
     "join": "Join",
     "edit": "Edit",
@@ -14,19 +13,7 @@
       }
     },
     "journeyButton": "My journey",
-    "selectType": {
-      "title": "Session with...",
-      "public": {
-        "title": "Anyone"
-      },
-      "private": {
-        "title": "Friends"
-      },
-      "async": {
-        "title": "Myself"
-      }
-    },
-    "description": "Add to calendar or share invite",
+    "buttonsHeading": "Add to My journey, calendar or share session",
     "deleteButton": "Delete session"
   },
   "pt": {
@@ -42,8 +29,6 @@
       }
     },
     "join": "Participar",
-    "shareMessage": "{{link}}Código da sessão: {{code}}",
-    "description": "Adiciona ao calendário, configura um lembrete ou partilha o código para convidares os teus amigos.",
     "selectType": {
       "title": "Sessão com...",
       "public": {
@@ -59,7 +44,6 @@
   },
   "sv": {
     "done": "Klar",
-    "shareMessage": "{{link}} Session code {{code}}",
     "interested": "Intresserad",
     "join": "Gå med",
     "edit": "Ändra",
@@ -84,7 +68,7 @@
         "title": "Mig själv"
       }
     },
-    "description": "Lägg till i kalender eller dela inbjudan",
+    "buttonsHeading": "Lägg till i min resa, kalender eller dela sessionen",
     "deleteButton": "Ta bort session"
   },
   "es": {}

@@ -1,0 +1,14 @@
+{
+  "en": {
+    "description": "{{hostName}} would like you to host this session instead of them.",
+    "confirm": "Accept",
+    "cancel": "Decline"
+  },
+  "pt": {},
+  "sv": {
+    "description": "{{hostName}} vill att du är värd för denna session istället för dem.",
+    "confirm": "Acceptera",
+    "cancel": "Nedgång"
+  },
+  "es": {}
+}

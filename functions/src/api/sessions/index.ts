@@ -52,6 +52,39 @@ sessionsRouter.get(
 );
 
 sessionsRouter.get(
+  '/hostingCode/:hostingCode',
+  restrictAccessToRole(ROLE.publicHost),
+  validation({
+    params: yup.object({
+      hostingCode: yup.number().required(),
+    }),
+    response: LiveSessionSchema,
+  }),
+  async ctx => {
+    const {hostingCode} = ctx.params;
+
+    try {
+      ctx.body = await sessionsController.getSessionByHostingCode(hostingCode);
+    } catch (error) {
+      const requestError = error as RequestError;
+      switch (requestError.code) {
+        case JoinSessionError.notFound:
+          ctx.status = 404;
+          break;
+
+        case JoinSessionError.notAvailable:
+          ctx.status = 410;
+          break;
+
+        default:
+          throw error;
+      }
+      ctx.message = requestError.code;
+    }
+  },
+);
+
+sessionsRouter.get(
   '/:id/sessionToken',
   validation({params: SessionParamsSchema, response: yup.string()}),
   async ctx => {
@@ -250,6 +283,76 @@ sessionsRouter.put(
     } catch (err) {
       ctx.status = 500;
       throw err;
+    }
+  },
+);
+
+sessionsRouter.put(
+  '/:id/hostingLink',
+  restrictAccessToRole(ROLE.publicHost),
+  validation({params: SessionParamsSchema, response: yup.string()}),
+  async ctx => {
+    const {id} = ctx.params;
+
+    try {
+      ctx.body = await sessionsController.createSessionHostingLink(
+        ctx.user.id,
+        id,
+      );
+    } catch (error) {
+      const requestError = error as RequestError;
+      switch (requestError.code) {
+        case JoinSessionError.notFound:
+          ctx.status = 404;
+          break;
+
+        case JoinSessionError.notAvailable:
+          ctx.status = 410;
+          break;
+
+        default:
+          throw error;
+      }
+      ctx.message = requestError.code;
+    }
+  },
+);
+
+sessionsRouter.put(
+  '/:id/acceptHostingInvite',
+  restrictAccessToRole(ROLE.publicHost),
+  validation({
+    body: yup.object({
+      hostingCode: yup.number().required(),
+    }),
+    params: SessionParamsSchema,
+    response: LiveSessionSchema,
+  }),
+  async ctx => {
+    const {id} = ctx.params;
+    const {hostingCode} = ctx.request.body;
+
+    try {
+      ctx.body = await sessionsController.updateSessionHost(
+        ctx.user.id,
+        id,
+        hostingCode,
+      );
+    } catch (error) {
+      const requestError = error as RequestError;
+      switch (requestError.code) {
+        case JoinSessionError.notFound:
+          ctx.status = 404;
+          break;
+
+        case JoinSessionError.notAvailable:
+          ctx.status = 410;
+          break;
+
+        default:
+          throw error;
+      }
+      ctx.message = requestError.code;
     }
   },
 );
