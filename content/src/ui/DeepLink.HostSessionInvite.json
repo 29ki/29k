@@ -1,0 +1,12 @@
+{
+  "en": {
+    "title": "{{hostName}} would like you to host {{sessionName}}.",
+    "description": "Click the link to view more details and decide if you want to accept hosting it or not"
+  },
+  "pt": {},
+  "sv": {
+    "title": "{{hostName}} vill att du ska vara värd {{sessionName}}.",
+    "description": "Klicka på länken för att se mer information och bestämma om du vill acceptera värdskapet eller inte"
+  },
+  "es": {}
+}

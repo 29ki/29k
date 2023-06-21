@@ -30,7 +30,8 @@
     },
     "selectContent": {
       "title": "Choose exercise"
-    }
+    },
+    "shareHeading": "Share session"
   },
   "pt": {
     "or": "ou",
@@ -95,7 +96,8 @@
     },
     "selectContent": {
       "title": "Välj övning"
-    }
+    },
+    "shareHeading": "Dela session"
   },
   "es": {}
 }

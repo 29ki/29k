@@ -56,7 +56,7 @@ export const updateInterestedCount = async (id: string, increment: boolean) => {
 
 export const updateSession = async (
   id: string,
-  data: Partial<Pick<LiveSessionType, 'startTime' | 'type'>>,
+  data: Partial<Pick<LiveSessionType, 'startTime'>>,
 ): Promise<LiveSessionType> => {
   try {
     const response = await apiClient(`${SESSIONS_ENDPOINT}/${id}`, {
@@ -151,4 +151,56 @@ export const deleteSession = async (id: string) => {
   } catch (cause) {
     throw new Error('Could not delete session', {cause});
   }
+};
+
+export const getSessionByHostingCode = async (
+  code: number,
+): Promise<LiveSessionType> => {
+  const response = await apiClient(`${SESSIONS_ENDPOINT}/hostingCode/${code}`, {
+    method: 'GET',
+  });
+
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+
+  return response.json();
+};
+
+export const getSessionHostingLink = async (
+  sessionId: LiveSessionType['id'],
+): Promise<string> => {
+  const response = await apiClient(
+    `${SESSIONS_ENDPOINT}/${sessionId}/hostingLink`,
+    {
+      method: 'PUT',
+    },
+  );
+
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+
+  return response.text();
+};
+
+export const acceptHostingInvite = async (
+  sessionId: LiveSessionType['id'],
+  hostingCode: number,
+): Promise<LiveSessionType> => {
+  const response = await apiClient(
+    `${SESSIONS_ENDPOINT}/${sessionId}/acceptHostingInvite`,
+    {
+      method: 'PUT',
+      body: JSON.stringify({
+        hostingCode,
+      }),
+    },
+  );
+
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+
+  return response.json();
 };

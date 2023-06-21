@@ -1,0 +1,14 @@
+{
+  "en": {
+    "heading": "Change host",
+    "description": "Share the link with the new host.\n\nOnce they accept you will no longer be able to edit this session.",
+    "button": "Assign new host"
+  },
+  "sv": {
+    "heading": "Byt värd",
+    "description": "Dela länken med den nya värden.\n\nNär de har accepterat kommer du inte längre att kunna redigera den här sessionen.",
+    "button": "Tilldela ny värd"
+  },
+  "pt": {},
+  "es": {}
+}

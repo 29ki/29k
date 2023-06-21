@@ -66,6 +66,10 @@ export type OverlayStackProps = {
 export type ModalStackProps = {
   OverlayStack: NavigatorScreenParams<OverlayStackProps>;
   SessionModal: {session: LiveSessionType};
+  AssignNewHostModal: {session: LiveSessionType};
+  HostSessionByInviteModal: {hostingCode: number};
+  HostingInviteFailModal: {hostName?: string};
+  EditSessionDateModal: {session: LiveSessionType};
   CompletedSessionModal: {
     completedSessionEvent: CompletedSessionEvent;
   };

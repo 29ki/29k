@@ -1,6 +1,9 @@
 import {Timestamp} from 'firebase-admin/firestore';
 import dayjs from 'dayjs';
-import {createSessionInviteLink} from '../models/dynamicLinks';
+import {
+  createSessionHostTransferLink,
+  createSessionInviteLink,
+} from '../models/dynamicLinks';
 import {getUser} from './user';
 import * as sessionModel from '../models/session';
 import * as authModel from '../models/auth';
@@ -22,6 +25,7 @@ import {generateSessionToken} from '../lib/dailyUtils';
 import {createRctUserId} from '../lib/id';
 import {LiveSessionRecord} from '../models/types/types';
 import {LiveSessionModel} from './types/types';
+import {DEFAULT_LANGUAGE_TAG} from '../lib/i18n';
 
 const mapSession = async (
   session: LiveSessionRecord,
@@ -275,5 +279,82 @@ export const joinSession = async (
     userIds: [...session.userIds, userId],
   });
   const updatedSession = await sessionModel.getSessionById(session.id);
+  return updatedSession ? mapSession(updatedSession) : undefined;
+};
+
+export const getSessionByHostingCode = async (
+  hostingCode: LiveSessionModel['hostingCode'],
+) => {
+  const session = await sessionModel.getSessionByHostingCode({
+    hostingCode,
+  });
+
+  if (!session) {
+    const unavailableSession = await sessionModel.getSessionByHostingCode({
+      hostingCode,
+      activeOnly: false,
+    });
+
+    if (unavailableSession) {
+      throw new RequestError(JoinSessionError.notAvailable);
+    } else {
+      throw new RequestError(JoinSessionError.notFound);
+    }
+  }
+
+  return mapSession(session);
+};
+
+export const createSessionHostingLink = async (
+  userId: string,
+  sessionId: LiveSessionModel['id'],
+) => {
+  const session = await sessionModel.getSessionById(sessionId);
+
+  if (userId !== session?.hostId) {
+    throw new RequestError(ValidateSessionError.userNotAuthorized);
+  }
+
+  if (session?.type !== SessionType.public) {
+    throw new RequestError(JoinSessionError.notFound);
+  }
+
+  await sessionModel.updateSession(sessionId, {
+    hostingCode: generateVerificationCode(),
+  });
+  const updatedSession = await sessionModel.getSessionById(sessionId);
+
+  const {displayName} = await authModel.getAuthUserInfo(session.hostId);
+
+  if (!updatedSession?.hostingCode) {
+    throw new RequestError(JoinSessionError.notAvailable);
+  }
+
+  const link = await createSessionHostTransferLink(
+    updatedSession.hostingCode,
+    updatedSession.exerciseId,
+    displayName || '',
+    updatedSession.language || DEFAULT_LANGUAGE_TAG,
+  );
+
+  return link;
+};
+
+export const updateSessionHost = async (
+  userId: string,
+  sessionId: LiveSessionModel['id'],
+  hostingCode: LiveSessionModel['hostingCode'],
+) => {
+  const session = await sessionModel.getSessionById(sessionId);
+
+  if (hostingCode !== session?.hostingCode) {
+    throw new RequestError(ValidateSessionError.userNotAuthorized);
+  }
+
+  await sessionModel.updateSession(sessionId, {
+    hostingCode: null,
+    hostId: userId,
+  });
+  const updatedSession = await sessionModel.getSessionById(sessionId);
   return updatedSession ? mapSession(updatedSession) : undefined;
 };
