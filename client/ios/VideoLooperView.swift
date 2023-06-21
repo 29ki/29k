@@ -20,6 +20,7 @@ class VideoLooperView: RCTView {
   private var _itemConfigs: Array<ItemConfig>
   private var _volume: Float = 1.0
   private var _mixWithOhters: Bool = false;
+  private var _timeObserverToken: Any?;
 
   override static var layerClass: AnyClass { AVPlayerLayer.self }
   private var _playerLayer: AVPlayerLayer  { layer as! AVPlayerLayer }
@@ -102,9 +103,10 @@ class VideoLooperView: RCTView {
 
   deinit {
     NotificationCenter.default.removeObserver(self)
-    _player = nil;
+    removeProgressListener()
+    _player = nil
     _audioPlayer?.stop()
-    _audioPlayer = nil;
+    _audioPlayer = nil
     removeItemObservers()
     removePlayerLayer()
   }
@@ -115,6 +117,7 @@ class VideoLooperView: RCTView {
 
   private func setupView() {
     _player = AVQueuePlayer()
+    setUpProgressListener()
     _player?.preventsDisplaySleepDuringVideoPlayback = true
     _player?.allowsExternalPlayback = false
     _player?.automaticallyWaitsToMinimizeStalling = true
@@ -124,6 +127,23 @@ class VideoLooperView: RCTView {
     _playerLayer.frame = self.layer.bounds
     _playerLayer.needsDisplayOnBoundsChange = true
     self.layer.needsDisplayOnBoundsChange = true
+  }
+  
+  private func setUpProgressListener() {
+    let interval = CMTime(seconds: 1.0, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+    _timeObserverToken = _player?.addPeriodicTimeObserver(forInterval: interval, queue: .main) {
+      [weak self] _ in
+      let currentTime = self?._player?.currentItem?.currentTime()
+      if currentTime != nil && self?.onProgress != nil {
+        self?.onProgress!(["time": NSNumber(value: CMTimeGetSeconds(currentTime!))])
+      }
+    }
+  }
+  
+  private func removeProgressListener() {
+    if (_timeObserverToken != nil) {
+      _player?.removeTimeObserver(_timeObserverToken!)
+    }
   }
 
   private func configureAudio() {
@@ -268,6 +288,7 @@ class VideoLooperView: RCTView {
   @objc var onTransition: RCTDirectEventBlock?
   @objc var onLoad: RCTDirectEventBlock?
   @objc var onError: RCTDirectEventBlock?
+  @objc var onProgress: RCTDirectEventBlock?
 
   @objc func setSources(_ sources: NSArray) {
     DispatchQueue.global(qos: .default).async {

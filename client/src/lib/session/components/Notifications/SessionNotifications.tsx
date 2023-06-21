@@ -9,7 +9,7 @@ import {DailyUserData} from '../../../../../../shared/src/schemas/Session';
 import useLocalParticipant from '../../../daily/hooks/useLocalParticipant';
 import TimedNotification from './TimedNotification';
 import useSessionState from '../../state/state';
-import useSessionSlideState from '../../hooks/useSessionSlideState';
+import useLiveSessionSlideState from '../../hooks/useLiveSessionSlideState';
 import {MicrophoneOffIcon} from '../../../components/Icons';
 
 const SessionNotifications: React.FC<{
@@ -21,7 +21,7 @@ const SessionNotifications: React.FC<{
   const notifications = useSessionState(state => state.notifications);
   const addNotification = useSessionState(state => state.addNotification);
   const sessionState = useSessionState(state => state.sessionState);
-  const slideState = useSessionSlideState();
+  const slideState = useLiveSessionSlideState();
   const [muted, setWasMuted] = useState(Boolean(localParticipant?.audio));
 
   // State updates and events from daily comes in random order

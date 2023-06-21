@@ -14,7 +14,7 @@ import {
 
 import {SPACINGS} from '../../../constants/spacings';
 
-import useSessionSlideState from '../../../session/hooks/useSessionSlideState';
+import useLiveSessionSlideState from '../../hooks/useLiveSessionSlideState';
 
 import {BackwardCircleIcon} from '../../../components/Icons/BackwardCircle/BackwardCircle';
 import {Body14} from '../../../components/Typography/Body/Body';
@@ -83,7 +83,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
   const listRef = useRef<FlatList>(null);
   const [showNotes, setShowNotes] = useState(introPortal ? true : false);
   const [scroll, setScroll] = useState({index: 0, animated: false});
-  const sessionSlideState = useSessionSlideState();
+  const sessionSlideState = useLiveSessionSlideState();
   const {t} = useTranslation('Component.HostNotes');
   const notes = useResolveHostNotes(
     introPortal,

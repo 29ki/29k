@@ -12,6 +12,7 @@ export interface VideoLooperProperties extends ViewProps {
   mixWithOthers?: boolean;
   onEnd?: () => void;
   onLoad?: ({duration: number}) => void;
+  onProgress?: ({time: number}) => void;
   onTransition?: () => void;
   onError?: ({cause: string}) => void;
 }

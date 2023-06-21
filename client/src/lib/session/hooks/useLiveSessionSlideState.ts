@@ -10,7 +10,7 @@ export type SessionSlideState = {
   next?: ExerciseSlide;
 };
 
-const useSessionSlideState = (): SessionSlideState | null => {
+const useLiveSessionSlideState = (): SessionSlideState | null => {
   const sessionState = useSessionState(state => state.sessionState);
   const exercise = useSessionState(state => state.exercise);
 
@@ -33,4 +33,4 @@ const useSessionSlideState = (): SessionSlideState | null => {
   }, [exercise, sessionState?.index]);
 };
 
-export default useSessionSlideState;
+export default useLiveSessionSlideState;

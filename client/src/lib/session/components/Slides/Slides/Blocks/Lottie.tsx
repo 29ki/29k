@@ -7,6 +7,10 @@ import DurationTimer from '../../../DurationTimer/DurationTimer';
 import LPlayer, {
   LottiePlayerHandle,
 } from '../../../../../components/LottiePlayer/LottiePlayer';
+import MediaWrapperResolver from './MediaWrapperResolver';
+import {View} from 'react-native';
+import {Spacer32} from '../../../../../components/Spacers/Spacer';
+import MediaControls from '../../../MediaControls/MediaControls';
 
 const LottiePlayer = styled(LPlayer)({
   flex: 1,
@@ -46,8 +50,13 @@ const Lottie: React.FC<LottieProps> = ({
   const lottieRef = useRef<LottiePlayerHandle>(null);
   const videoRef = useRef<VideoLooper>(null);
   const timerRef = useRef<LottiePlayerHandle>(null);
+  const progressRef = useRef(0);
+  const [progress, setProgress] = useState(0);
   const [audioDuration, setAudioDuration] = useState(0);
   const sessionState = useSessionState(state => state.sessionState);
+  const [paused, setPaused] = useState(
+    !active || (!sessionState?.playing && !autoPlayLoop),
+  );
   const setCurrentContentReachedEnd = useSessionState(
     state => state.setCurrentContentReachedEnd,
   );
@@ -65,6 +74,14 @@ const Lottie: React.FC<LottieProps> = ({
     },
     [audioSource],
   );
+
+  useEffect(() => {
+    if (!active) {
+      setPaused(true);
+    } else if (sessionState) {
+      setPaused(!sessionState.playing);
+    }
+  }, [active, setPaused, sessionState]);
 
   useEffect(() => {
     if (
@@ -121,10 +138,9 @@ const Lottie: React.FC<LottieProps> = ({
   const onEnd = useCallback(() => {
     if (!autoPlayLoop) {
       setCurrentContentReachedEnd(true);
+      setPaused(true);
     }
-  }, [setCurrentContentReachedEnd, autoPlayLoop]);
-
-  const paused = !active || (!sessionState?.playing && !autoPlayLoop);
+  }, [setCurrentContentReachedEnd, autoPlayLoop, setPaused]);
 
   const audioSources = useMemo(() => {
     if (audioSource) {
@@ -140,44 +156,84 @@ const Lottie: React.FC<LottieProps> = ({
     [durationTimer, paused, audioDuration],
   );
 
+  const onSkipBack = useCallback(() => {
+    videoRef.current?.seek(Math.max(progressRef.current - 15, 0));
+  }, []);
+
+  const onSkipForward = useCallback(() => {
+    videoRef.current?.seek(progressRef.current + 15);
+  }, []);
+
+  const onTogglePlay = useCallback(() => {
+    setPaused(state => !state);
+  }, [setPaused]);
+
+  const onProgress = useCallback(
+    (data: {time: number}) => {
+      const currentTime = Math.min(audioDuration, data.time);
+      setProgress(currentTime);
+      progressRef.current = currentTime;
+      timerRef.current?.seek(currentTime);
+    },
+    [setProgress, audioDuration],
+  );
+
   if (audioSources) {
     // If audio source is available we allways loop the animation
     return (
       <>
-        <AudioPlayer
-          sources={audioSources}
-          ref={videoRef}
-          volume={1}
-          onLoad={onLoad}
-          onEnd={onEnd}
-          paused={paused}
-          mixWithOthers={isLive}
-        />
-        <LottiePlayer
-          paused={paused}
-          source={source}
-          duration={duration}
-          ref={lottieRef}
-          repeat
-        />
-        {audioTimer}
+        <MediaWrapperResolver isLive={isLive}>
+          <AudioPlayer
+            sources={audioSources}
+            ref={videoRef}
+            volume={1}
+            onLoad={onLoad}
+            onProgress={onProgress}
+            onEnd={onEnd}
+            paused={paused}
+            mixWithOthers={isLive}
+          />
+          <LottiePlayer
+            paused={paused}
+            source={source}
+            duration={duration}
+            ref={lottieRef}
+            repeat
+          />
+          {isLive && audioTimer}
+        </MediaWrapperResolver>
+        {!isLive && (
+          <View>
+            <Spacer32 />
+            <MediaControls
+              time={progress}
+              duration={audioDuration}
+              playing={!paused}
+              onSkipBack={onSkipBack}
+              onTogglePlay={onTogglePlay}
+              onSkipForward={onSkipForward}
+            />
+          </View>
+        )}
       </>
     );
   }
 
   return (
     <>
-      <LottiePlayer
-        paused={paused}
-        source={source}
-        duration={duration}
-        ref={lottieRef}
-        onEnd={onEnd}
-        repeat={autoPlayLoop}
-      />
-      {durationTimer && (
-        <Duration duration={duration} paused={paused} ref={timerRef} />
-      )}
+      <MediaWrapperResolver isLive={isLive}>
+        <LottiePlayer
+          paused={paused}
+          source={source}
+          duration={duration}
+          ref={lottieRef}
+          onEnd={onEnd}
+          repeat={autoPlayLoop}
+        />
+        {durationTimer && isLive && (
+          <Duration duration={duration} paused={paused} ref={timerRef} />
+        )}
+      </MediaWrapperResolver>
     </>
   );
 };

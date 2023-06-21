@@ -3,11 +3,11 @@ import {renderHook} from '@testing-library/react-hooks';
 
 import {DailyUserData} from '../../../../../shared/src/schemas/Session';
 import useDailyState from '../../../lib/daily/state/state';
-import useSessionSlideState from './useSessionSlideState';
+import useLiveSessionSlideState from './useLiveSessionSlideState';
 import useSessionParticipants from './useSessionParticipants';
 
-const mockUseSessionSlideState = useSessionSlideState as jest.Mock;
-jest.mock('./useSessionSlideState');
+const mockUseLiveSessionSlideState = useLiveSessionSlideState as jest.Mock;
+jest.mock('./useLiveSessionSlideState');
 
 const createParticipant = (
   session_id: string,
@@ -38,7 +38,7 @@ describe('useSessionParticipants', () => {
   });
 
   it('filter participants if participant is on spotlight', () => {
-    mockUseSessionSlideState.mockReturnValue({
+    mockUseLiveSessionSlideState.mockReturnValue({
       current: {type: 'host'},
     });
 
@@ -57,7 +57,7 @@ describe('useSessionParticipants', () => {
   });
 
   it('returns all participants when no session spotlight participant', () => {
-    mockUseSessionSlideState.mockReturnValue({
+    mockUseLiveSessionSlideState.mockReturnValue({
       current: {type: 'host'},
     });
 
@@ -77,7 +77,7 @@ describe('useSessionParticipants', () => {
   });
 
   it('returns all participants when content is not ”spotlight type"', () => {
-    mockUseSessionSlideState.mockReturnValue({
+    mockUseLiveSessionSlideState.mockReturnValue({
       current: {type: 'not-host'},
     });
 

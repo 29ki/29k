@@ -19,7 +19,6 @@ import {
   Spacer4,
   Spacer60,
   Spacer8,
-  TopSafeArea,
 } from '../../../../components/Spacers/Spacer';
 import {Body16} from '../../../../components/Typography/Body/Body';
 import {Display24} from '../../../../components/Typography/Display/Display';
@@ -53,7 +52,7 @@ const StickyHeader = styled(Body16)<{textColor?: string}>(({textColor}) => ({
   textAlign: 'left',
   color: textColor ?? COLORS.BLACK,
   fontFamily: HKGroteskBold,
-  marginTop: -SPACINGS.FOURTY,
+  marginTop: -SPACINGS.FOURTYEIGHT,
 }));
 
 const StyledHeader = styled(Body16)<{textColor?: string}>(({textColor}) => ({
@@ -227,7 +226,6 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
 
   return (
     <Wrapper>
-      <TopSafeArea />
       <ScrollView stickyHeaderIndices={[0]} ref={scrollRef}>
         <TopGradient colors={topGradientColors}>
           <Gutters>

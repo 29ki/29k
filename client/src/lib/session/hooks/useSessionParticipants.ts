@@ -1,7 +1,7 @@
 import {useMemo} from 'react';
 import {DailyUserData} from '../../../../../shared/src/schemas/Session';
 import useDailyState from '../../../lib/daily/state/state';
-import useSessionExercise from './useSessionSlideState';
+import useSessionExercise from './useLiveSessionSlideState';
 import {omit, values} from 'ramda';
 
 const useSessionParticipants = () => {
