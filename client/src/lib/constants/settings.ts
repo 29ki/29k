@@ -13,6 +13,13 @@ export const SETTINGS = {
     shadowRadius: SPACINGS.TWELVE,
     elevation: SPACINGS.TWELVE,
   },
+  BOXSHADOW_SMALL: {
+    shadowColor: '#000000',
+    shadowOffset: `0 ${SPACINGS.FOUR}px`,
+    shadowOpacity: 0.08,
+    shadowRadius: SPACINGS.FOUR,
+    elevation: SPACINGS.FOUR,
+  },
 };
 
 export default SETTINGS;

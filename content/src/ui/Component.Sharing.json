@@ -1,19 +1,16 @@
 {
   "en": {
     "othersHeading": "What others said:",
-    "emptyText": "No sharings for this exercise yet...",
     "addReflectionCta": "Add your reflection",
-    "reflectionLabel": "What you said:"
+    "reflectionLabel": "Your reflection:"
   },
   "pt": {
     "othersHeading": "O que os outros disseram:",
-    "emptyText": "Ainda não há partilhas para este exercício...",
     "addReflectionCta": "Adiciona a tua reflexão",
     "reflectionLabel": "O que disseste:"
   },
   "sv": {
     "othersHeading": "Vad andra har sagt:",
-    "emptyText": "Inga reflektioner för den här övningen än...",
     "addReflectionCta": "Lägg till din reflektion",
     "reflectionLabel": "Din reflektion:"
   },
