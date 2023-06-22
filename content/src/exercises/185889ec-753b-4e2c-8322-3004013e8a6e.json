@@ -5,12 +5,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 40 minutes on connecting with- and being kind to ourselves.\n\nWe’ll be doing some reflection exercises and there will be opportunities to share those reflections with each other.",
-            "asyncText": "Welcome to this session, on connecting with- and being kind to ourselves. (I am x).\n\nThere will be two reflection exercises and after each an opportunity to share what we experienced."
+            "text": "Welcome. I am X and today we will work for around 40 minutes on connecting with- and being kind to ourselves.\n\nWe’ll be doing some reflection exercises and there will be opportunities to share those reflections with each other."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started.",
-            "asyncText": "Before we get started, check-in with yourself. How are you feeling right now?\n\nLet’s get started."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ],
         "video": {
@@ -43,12 +41,10 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 2 minutes to reflect on our own.\n\nThink of a situation when you felt down. When you failed at something and doubted yourself. How do you usually react to and treat yourself in such situations? What do you say to yourself? What tone do you use?",
-            "asyncText": "Take 1 minute to reflect on a situation when you felt down. When you failed at something and doubted yourself. How do you react to, and treat yourself in such situations? What do you say to yourself? What tone do you use?"
+            "text": "Now we’ll take 2 minutes to reflect on our own.\n\nThink of a situation when you felt down. When you failed at something and doubted yourself. How do you usually react to and treat yourself in such situations? What do you say to yourself? What tone do you use?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong answer, our responses are our own. 2 minutes starting now.\n\n> Press play to start the timer.\n\nThat’s 2 minutes and it’s time to move on.",
-            "asyncText": "Take notes on a piece of paper or just mental notes in your head. There is no right or wrong answer. Our responses are our own.One way to practice self-compassion is by taking a different perspective.\n\nTake another minute to reflect upon how you react when a friend is feeling down, is putting themselves down or perhaps is doubting their ability.\n\nPress play to start the timer."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong answer, our responses are our own. 2 minutes starting now.\n\n> Press play to start the timer.\n\nThat’s 2 minutes and it’s time to move on."
           }
         ],
         "content": {
@@ -94,12 +90,10 @@
         },
         "hostNotes": [
           {
-            "text": "One way of practicing self-compassion is taking a different perspective. Think about how you would respond to a friend who is feeling down, self-critical, or uncertain. What do you say or do? What kind of tone do you take?",
-            "asyncText": "One way to practice self-compassion is by taking a different perspective.\n\nTake another minute to reflect upon how you react when a friend is feeling down, is putting themselves down or perhaps is doubting their ability."
+            "text": "One way of practicing self-compassion is taking a different perspective. Think about how you would respond to a friend who is feeling down, self-critical, or uncertain. What do you say or do? What kind of tone do you take?"
           },
           {
-            "text": "Again, take notes on a piece of paper or just mental notes. 2 minutes starting now.\n\n> Press play to start the timer.\n\nThat’s 2 minutes and it’s time to move on.",
-            "asyncText": "How do you react? What do you say or do? What tone do you use??\n\n> Press play to start the timer."
+            "text": "Again, take notes on a piece of paper or just mental notes. 2 minutes starting now.\n\n> Press play to start the timer.\n\nThat’s 2 minutes and it’s time to move on."
           }
         ]
       },
@@ -123,16 +117,13 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.",
-            "asyncText": "Well done. If you’re up for it, you can continue what we started here today with a mission."
+            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life."
           },
           {
-            "text": "In the coming days, be kind to yourself. Especially in difficult situations. Try using the idea of clothespins to become aware of your inner voice. Then, choose to talk and react to yourself in the same way you would if it were a friend. Notice how it makes you feel.",
-            "asyncText": "In the coming days, be kind to yourself. Especially in difficult situations. Try using the idea of clothespins to become aware of your inner voice. Then, choose to talk and react to yourself in the same way you would if it were a friend. Notice how it makes you feel."
+            "text": "In the coming days, be kind to yourself. Especially in difficult situations. Try using the idea of clothespins to become aware of your inner voice. Then, choose to talk and react to yourself in the same way you would if it were a friend. Notice how it makes you feel."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out.\n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words.",
-            "asyncText": "Before leaving this space, check-in with yourself again: How are you feeling right now? Has anything shifted?\n\nWhen you’re ready, finish this session at your own pace."
+            "text": "Before we leave this space let’s do a mini check-out.\n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
           },
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
@@ -187,12 +178,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Bem-vindos. Eu sou X e hoje vamos estar juntos durante 40 minutos para nos conectarmos e sermos gentis connosco.\n\nFaremos alguns exercícios de reflexão e teremos oportunidades para partilhar essas reflexões uns com os outros.",
-            "asyncText": "Bem-vinda/o a esta sessão acerca de nos conectarmos e sermos gentis connosco.\n\nFaremos dois exercícios de reflexão e teremos oportunidades para partilhar o que sentimos."
+            "text": "Bem-vindos. Eu sou X e hoje vamos estar juntos durante 40 minutos para nos conectarmos e sermos gentis connosco.\n\nFaremos alguns exercícios de reflexão e teremos oportunidades para partilhar essas reflexões uns com os outros."
           },
           {
-            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam o check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar.",
-            "asyncText": "Antes de iniciarmos faz um pequeno check-in. Como te estás a sentir neste momento?\n\nVamos começar."
+            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam o check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
           }
         ],
         "video": {
@@ -225,12 +214,10 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Agora vamos ficar 2 minutos a refletir individualmente.\n\nPensa numa situação em que te sentiste em baixo. Quando falhaste e duvidaste de ti. Como costumas reagir e como te tratas nessas situações? O que dizes a ti mesma/o? Que tom usas?",
-            "asyncText": "Reserva um minuto para pensares numa situação em que te sentiste em baixo. Quando falhaste e duvidaste de ti. Como costumas reagir e como te tratas nessas situações? O que dizes a ti mesma/o? Que tom usas?"
+            "text": "Agora vamos ficar 2 minutos a refletir individualmente.\n\nPensa numa situação em que te sentiste em baixo. Quando falhaste e duvidaste de ti. Como costumas reagir e como te tratas nessas situações? O que dizes a ti mesma/o? Que tom usas?"
           },
           {
-            "text": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Vamos começar agora durante 2 minutos.\n\n> Carrega no play para iniciar o cronômetro.\n\nSão 2 minutos e é hora de continuar em frente.",
-            "asyncText": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Uma forma de praticar a autocompaixão é assumir uma perspetiva diferente.\n\nReserva outro minuto para refletires como reages quando um/a amigo/a se sente em baixo, se está a deitar abaixo ou está simplesmente a duvidar das suas capacidades.\n\nCarrega no play para iniciar o cronómetro."
+            "text": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Vamos começar agora durante 2 minutos.\n\n> Carrega no play para iniciar o cronômetro.\n\nSão 2 minutos e é hora de continuar em frente."
           }
         ],
         "content": {
@@ -302,16 +289,13 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Parabéns. Se estiverem dispostos a isso, podem tornar o que começamos aqui hoje um hábito positivo no vosso dia a dia.",
-            "asyncText": "Parabéns. Se estiveres disposta/o a isso, podes tornar o que começamos aqui hoje num hábito positivo do teu dia a dia."
+            "text": "Parabéns. Se estiverem dispostos a isso, podem tornar o que começamos aqui hoje um hábito positivo no vosso dia a dia."
           },
           {
-            "text": "Nos próximos dias, tenta ser mais gentil contigo. Especialmente em situações difíceis. Usa a ideia das molas da roupa e começa a perceber como soa a tua voz interior. Em seguida, vê se consegues falar e reagir contigo da mesma forma que o farias com uma amiga ou amigo. Observa como isso te faz sentir.",
-            "asyncText": "Nos próximos dias, tenta ser mais gentil contigo. Especialmente em situações difíceis. Usa a ideia das molas da roupa e começa a perceber como soa a tua voz interior. Em seguida, vê se consegues falar e reagir contigo da mesma forma que o farias com uma amiga ou amigo. Observa como isso te faz sentir."
+            "text": "Nos próximos dias, tenta ser mais gentil contigo. Especialmente em situações difíceis. Usa a ideia das molas da roupa e começa a perceber como soa a tua voz interior. Em seguida, vê se consegues falar e reagir contigo da mesma forma que o farias com uma amiga ou amigo. Observa como isso te faz sentir."
           },
           {
-            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.\n\nComo te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras.",
-            "asyncText": "Antes de saíres deste nosso espaço faz um mini check-in. Como te estás a sentir agora? Mudou alguma coisa?\n\nQuando estiveres pronta/o termina a sessão ao teu ritmo."
+            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.\n\nComo te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras."
           },
           {
             "text": "Quem gostaria de começar?\n\n> Permite que todos na sessão façam um check-out individual.\n\nObrigado a todos por este check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão enviando todos os participantes para a experiência de saída."

@@ -69,14 +69,12 @@ const keyExtractor: FlatListProps<any>['keyExtractor'] = (_, i) => `notes-${i}`;
 
 type HostNotesProps = {
   introPortal?: boolean;
-  async?: boolean;
   style?: ViewStyle;
   exercise: Exercise | null;
 };
 
 const HostNotes: React.FC<HostNotesProps> = ({
   introPortal,
-  async,
   style,
   exercise,
 }) => {
@@ -85,12 +83,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
   const [scroll, setScroll] = useState({index: 0, animated: false});
   const sessionSlideState = useLiveSessionSlideState();
   const {t} = useTranslation('Component.HostNotes');
-  const notes = useResolveHostNotes(
-    introPortal,
-    exercise,
-    sessionSlideState,
-    async,
-  );
+  const notes = useResolveHostNotes(introPortal, exercise, sessionSlideState);
 
   const containerWidth = Dimensions.get('screen').width;
   const listItemWidth = containerWidth - SPACINGS.THIRTYTWO;
@@ -116,17 +109,12 @@ const HostNotes: React.FC<HostNotesProps> = ({
   );
 
   useEffect(() => {
-    if (
-      introPortal ||
-      (async &&
-        (sessionSlideState?.current.type === 'content' ||
-          sessionSlideState?.current.type === 'reflection'))
-    ) {
+    if (introPortal) {
       setShowNotes(true);
     } else {
       setShowNotes(false);
     }
-  }, [sessionSlideState, setShowNotes, introPortal, async]);
+  }, [sessionSlideState, setShowNotes, introPortal]);
 
   const toggleNotes = useCallback(
     () => setShowNotes(prevShowNotes => !prevShowNotes),

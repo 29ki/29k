@@ -50,7 +50,6 @@ export interface ExerciseIntroPortalVideoEnd {
 
 export interface ExerciseIntroPortalHostNote {
   text?: string;
-  asyncText?: string;
 }
 
 export interface ExerciseIntroPortal {
@@ -72,7 +71,6 @@ export interface ExerciseOutroPortal {
 
 export interface ExerciseSlideContentSlideHostNote {
   text?: string;
-  asyncText?: string;
 }
 
 export interface ExerciseSlideContentSlideContentImage {
@@ -119,7 +117,6 @@ export interface ExerciseSlideInstructionSlideAsyncContent {
 
 export interface ExerciseSlideReflectionSlideHostNote {
   text?: string;
-  asyncText?: string;
 }
 
 export interface ExerciseSlideReflectionSlideContentImage {
@@ -155,7 +152,6 @@ export interface ExerciseSlideReflectionSlideContent {
 
 export interface ExerciseSlideSharingSlideHostNote {
   text?: string;
-  asyncText?: string;
 }
 
 export interface ExerciseSlideSharingSlideContentImage {
@@ -191,7 +187,6 @@ export interface ExerciseSlideSharingSlideContent {
 
 export interface ExerciseSlideHostSlideHostNote {
   text?: string;
-  asyncText?: string;
 }
 
 export interface ExerciseSlideHostSlideVideo {
