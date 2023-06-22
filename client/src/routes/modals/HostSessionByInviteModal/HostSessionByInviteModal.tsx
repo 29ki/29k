@@ -189,7 +189,7 @@ const HostSessionByInviteModal = () => {
       const fetchedSession = await getSessionByHostingCode(hostingCode);
       setSession(fetchedSession);
     } catch (err) {
-      setError(err as string);
+      setError((err as Error).message as JoinSessionError);
     }
   }, [hostingCode]);
 
