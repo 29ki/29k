@@ -17,7 +17,7 @@ export interface ExerciseCardLottie {
   source?: string;
 }
 
-export interface ExerciseCardHost {
+export interface ExerciseCardAmbassador {
   displayName?: string;
   photoURL?: string;
 }
@@ -25,7 +25,7 @@ export interface ExerciseCardHost {
 export interface ExerciseCard {
   image?: ExerciseCardImage;
   lottie?: ExerciseCardLottie;
-  host?: ExerciseCardHost;
+  ambassador?: ExerciseCardAmbassador;
 }
 
 export type ExerciseThemeTextColorOptions = '#F9F8F4' | '#2E2E2E';

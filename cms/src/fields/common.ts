@@ -131,9 +131,9 @@ export const IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
   ],
 };
 
-export const HOST_PROFILE_FIELD: CmsFieldBase & CmsFieldObject = {
-  label: '🦹‍♂️ Host',
-  name: 'host',
+export const AMBASSADOR_FIELD: CmsFieldBase & CmsFieldObject = {
+  label: '🦹‍♂️ Ambassador',
+  name: 'ambassador',
   widget: 'object',
   collapsed: true,
   required: false,
@@ -275,7 +275,7 @@ export const CARD_FIELD: CmsFieldBase & CmsFieldObject = {
   fields: [
     IMAGE_FIELD,
     {...LOTTE_FIELD, hint: 'Overrides image'},
-    {...HOST_PROFILE_FIELD, hint: 'Only used for the Async version'},
+    {...AMBASSADOR_FIELD, hint: 'Only used for the Async version'},
   ],
 };
 

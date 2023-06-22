@@ -112,10 +112,6 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1678973954/Images/card_image_breathing_anchor_vibuvl.png"
-      },
-      "host": {
-        "displayName": "Jenny",
-        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
       }
     },
     "duration": 30,

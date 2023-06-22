@@ -118,10 +118,6 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
-      },
-      "host": {
-        "displayName": "Ints Ivanovskis",
-        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     },
     "duration": 30,
@@ -268,10 +264,6 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
-      },
-      "host": {
-        "displayName": "Ints Ivanovskis",
-        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     },
     "duration": 30,
