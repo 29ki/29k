@@ -26,7 +26,8 @@
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464756/Temp/Comp_8_jsv5jo.mp4",
             "description": "",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_content_bring_your_feel..._briny6.png",
-            "autoPlayLoop": true
+            "autoPlayLoop": true,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687436243/Audio/Bring_your_feelings_along_jp0tws.mp3"
           },
           "image": {
             "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1646061249/Illustrations_Tests/take-test_c4qa3u.png",
@@ -36,48 +37,7 @@
         },
         "hostNotes": [
           {
-            "text": "When we have difficult things going on inside, it is common to put our lives on hold. Wait for the difficult things to go away, and then we can get started with our lives again. That can put us in a position where we wait, and wait.\n\n*I'll go to the gym another day when I’m not so tired.* \n\n*I'll see a friend some other time when I’m not so stressed.*"
-          },
-          {
-            "text": "One of the things that affect how we deal with inner obstacles in life is language. How we talk to ourselves can impact how we behave. And one word we often use is the word **BUT**, as a condition."
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "content": {
-          "heading": "I would like to do this, but I am so that",
-          "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464767/Temp/Comp_4_wrr4ks.mp4",
-            "autoPlayLoop": false,
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554598/Images/thumb_timer_but_1min_bring_your_feel..._cfuzwm.png"
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "Now we’ll take a minute to reflect on our own. For this step you’ll need a piece of paper.\n\nMost of us have recurring thoughts like *I want to do this, **BUT** I am so that.* It can make us feel like we need to get rid of that, before we do this."
-          },
-          {
-            "text": "See if you can find one or two recent thoughts that contains something you want, but don’t do for a reason on the inside. Write them down. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s one minute. Let’s move on."
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "content": {
-          "heading": "Switch to AND. What happens?",
-          "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464773/Temp/Comp_9_bsizws.mp4",
-            "autoPlayLoop": false,
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_timer_and_1min_bring_your_feel..._hbi0hy.png"
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "The next step is to replace your **BUT** with an **AND** in your sentences. Then read them out loud to yourself. \n\nWhat happens to them, and to you, when you do that?"
-          },
-          {
-            "text": "1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s one minute. Let’s move on."
+            "text": "> Press play to start the audio file."
           }
         ]
       },
@@ -104,27 +64,17 @@
         "id": "sharing1"
       },
       {
-        "type": "content",
+        "type": "host",
         "hostNotes": [
           {
             "text": "Well done. When we wait for unwanted feelings to go away so that we can do the things we want, we tend to put our lives on hold. Sometimes for a very long time. A more helpful strategy can be to open up to our feelings with acceptance, and intentionally choose our actions."
           },
           {
-            "text": "This can allow us to spend time and energy on the things that are important to us – even when they come with difficult emotions. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life."
+            "text": "This can allow us to spend time and energy on the things that are important to us – even when they come with difficult emotions. If you’re up for it, you can continue with a mission to bring this into your everyday life."
           },
           {
             "text": "For the coming three days, see if you can notice when you talk to yourself with “I want to do this, BUT I’m so that”-sentences. When you do, replace your BUTs with ANDs and see if you notice any difference in how you behave."
-          }
-        ],
-        "content": {
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665471249/Temp/BUT_AND-13_pdbsvr.png"
-          }
-        }
-      },
-      {
-        "type": "host",
-        "hostNotes": [
+          },
           {
             "text": "Before we leave this space let’s do a mini check-out. How are you feeling right now? Has anything shifted? Please answer in two-three words.\n\nWho would like to start?"
           },
@@ -148,6 +98,10 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675416302/Images/card_bring_your_fee.._cs3oph.png"
+      },
+      "host": {
+        "displayName": "Jenny",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
       }
     },
     "duration": 30,
@@ -170,7 +124,7 @@
       "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
     ],
     "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
-    "async": false,
+    "async": true,
     "description": "How we talk to ourselves affect how we act. In this exercise we practice awareness of our self-talk, and try out how word-switching can be used to open new possibilities to act in meaningful ways."
   },
   "pt": {
