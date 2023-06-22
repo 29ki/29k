@@ -1,4 +1,5 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import {View} from 'react-native';
 import styled from 'styled-components/native';
 
 import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
@@ -8,9 +9,9 @@ import LPlayer, {
   LottiePlayerHandle,
 } from '../../../../../components/LottiePlayer/LottiePlayer';
 import MediaWrapperResolver from './MediaWrapperResolver';
-import {View} from 'react-native';
-import {Spacer32} from '../../../../../components/Spacers/Spacer';
+import {Spacer16} from '../../../../../components/Spacers/Spacer';
 import MediaControls from '../../../MediaControls/MediaControls';
+import Subtitles from './Subtitles';
 
 const LottiePlayer = styled(LPlayer)({
   flex: 1,
@@ -28,6 +29,15 @@ const Duration = styled(DurationTimer)({
   height: 30,
 });
 
+const SubtitleContainer = styled.View({
+  position: 'absolute',
+  top: -70,
+  left: 0,
+  right: 0,
+  flex: 1,
+  alignItems: 'center',
+});
+
 type LottieProps = {
   source: {uri: string};
   audioSource?: string;
@@ -37,6 +47,7 @@ type LottieProps = {
   autoPlayLoop?: boolean;
   durationTimer?: boolean;
   isLive?: boolean;
+  subtitles?: string;
 };
 const Lottie: React.FC<LottieProps> = ({
   active,
@@ -46,6 +57,7 @@ const Lottie: React.FC<LottieProps> = ({
   autoPlayLoop = false,
   durationTimer = false,
   isLive,
+  subtitles,
 }) => {
   const lottieRef = useRef<LottiePlayerHandle>(null);
   const videoRef = useRef<VideoLooper>(null);
@@ -53,6 +65,9 @@ const Lottie: React.FC<LottieProps> = ({
   const progressRef = useRef(0);
   const [progress, setProgress] = useState(0);
   const [audioDuration, setAudioDuration] = useState(0);
+  const [showSubtitels, setShowSubtitles] = useState<boolean | undefined>(
+    subtitles ? false : undefined,
+  );
   const sessionState = useSessionState(state => state.sessionState);
   const [paused, setPaused] = useState(
     !active || (!sessionState?.playing && !autoPlayLoop),
@@ -178,6 +193,10 @@ const Lottie: React.FC<LottieProps> = ({
     [setProgress, audioDuration],
   );
 
+  const onToggleSubtitles = useCallback(() => {
+    setShowSubtitles(state => !state);
+  }, [setShowSubtitles]);
+
   if (audioSources) {
     // If audio source is available we allways loop the animation
     return (
@@ -204,7 +223,12 @@ const Lottie: React.FC<LottieProps> = ({
         </MediaWrapperResolver>
         {!isLive && (
           <View>
-            <Spacer32 />
+            {showSubtitels && subtitles && (
+              <SubtitleContainer>
+                <Subtitles src={subtitles} time={progress} />
+              </SubtitleContainer>
+            )}
+            <Spacer16 />
             <MediaControls
               time={progress}
               duration={audioDuration}
@@ -212,6 +236,8 @@ const Lottie: React.FC<LottieProps> = ({
               onSkipBack={onSkipBack}
               onTogglePlay={onTogglePlay}
               onSkipForward={onSkipForward}
+              onToggleSubtitles={onToggleSubtitles}
+              subtitles={subtitles ? showSubtitels : undefined}
             />
           </View>
         )}

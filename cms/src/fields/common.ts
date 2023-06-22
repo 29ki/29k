@@ -231,6 +231,16 @@ const AUDIO_FIELD: CmsField = {
   media_library: CLOUDINARY_AUDIO_CONFIG,
 };
 
+const SUBTITLES_FILED: CmsField = {
+  label: '🗒 Subtitles file',
+  name: 'subtitles',
+  widget: 'file',
+  required: false,
+  i18n: true,
+  allow_multiple: false,
+  media_library: CLOUDINARY_IMAGE_CONFIG,
+};
+
 export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
   ...VIDEO_FIELD,
   fields: [
@@ -239,6 +249,7 @@ export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
       ...AUDIO_FIELD,
       hint: 'This will override the audio of the video. Video will automatically loop while playing.',
     },
+    SUBTITLES_FILED,
   ],
 };
 
@@ -250,6 +261,7 @@ export const LOTTIE_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
       ...AUDIO_FIELD,
       hint: 'Animation will automatically loop while playing.',
     },
+    SUBTITLES_FILED,
     {...DURATION_FIELD, hint: 'Duration in seconds', required: false},
   ],
 };
