@@ -10,7 +10,6 @@ import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
 import MediaControls from '../../../MediaControls/MediaControls';
 import {Spacer16} from '../../../../../components/Spacers/Spacer';
 import MediaWrapperResolver from './MediaWrapperResolver';
-import {SPACINGS} from '../../../../../constants/spacings';
 import Subtitles from './Subtitles';
 
 const VideoPlayer = styled(VideoLooper)({
@@ -36,8 +35,6 @@ const SubtitleContainer = styled.View({
   right: 0,
   flex: 1,
   alignItems: 'center',
-  height: SPACINGS.SIXTY,
-  paddingHorizontal: 80,
 });
 
 type VideoProps = {

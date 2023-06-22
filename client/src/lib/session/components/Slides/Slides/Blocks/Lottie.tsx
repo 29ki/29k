@@ -11,7 +11,6 @@ import LPlayer, {
 import MediaWrapperResolver from './MediaWrapperResolver';
 import {Spacer16} from '../../../../../components/Spacers/Spacer';
 import MediaControls from '../../../MediaControls/MediaControls';
-import {SPACINGS} from '../../../../../constants/spacings';
 import Subtitles from './Subtitles';
 
 const LottiePlayer = styled(LPlayer)({
@@ -37,8 +36,6 @@ const SubtitleContainer = styled.View({
   right: 0,
   flex: 1,
   alignItems: 'center',
-  height: SPACINGS.SIXTY,
-  paddingHorizontal: 80,
 });
 
 type LottieProps = {
