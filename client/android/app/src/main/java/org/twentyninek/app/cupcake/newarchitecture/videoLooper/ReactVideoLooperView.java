@@ -1,6 +1,8 @@
 package org.twentyninek.app.cupcake.newarchitecture.videoLooper;
 
 import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.view.Gravity;
 import android.view.TextureView;
 import android.view.ViewGroup;
@@ -27,6 +29,28 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ReactVideoLooperView extends FrameLayout {
+  private final int SHOW_PROGRESS = 1;
+
+  private final Handler progressHandler = new Handler(Looper.getMainLooper()) {
+    @Override
+    public void handleMessage(Message msg) {
+      switch (msg.what) {
+        case SHOW_PROGRESS:
+          if (_player != null) {
+            if (_player.isPlaying()) {
+              long pos = _player.getCurrentPosition();
+              WritableMap eventData = Arguments.createMap();
+              eventData.putDouble("time", pos / 1000D);
+              sendEvent(_themedReactContext, ReactEvents.EVENT_ON_PROGRESS.toString(), eventData);
+            }
+            
+            msg = obtainMessage(SHOW_PROGRESS);
+            sendMessageDelayed(msg, Math.round(_progressUpdateInterval));
+          }
+          break;
+      }
+    }
+  };
 
   private class Listener implements AnalyticsListener {
     @Override
@@ -70,8 +94,15 @@ public class ReactVideoLooperView extends FrameLayout {
         WritableMap eventData = Arguments.createMap();
         eventData.putDouble("duration", duration / 1000D);
         sendEvent(_themedReactContext, ReactEvents.EVENT_ON_LOAD.toString(), eventData);
-
+        progressHandler.removeMessages(SHOW_PROGRESS);
+        progressHandler.sendEmptyMessage(SHOW_PROGRESS);
         setKeepScreenOn(true);
+      }
+      if (state == Player.STATE_IDLE) {
+        progressHandler.sendEmptyMessage(SHOW_PROGRESS);
+      }
+      if (state == Player.STATE_BUFFERING) {
+        progressHandler.sendEmptyMessage(SHOW_PROGRESS);
       }
       if (state == Player.STATE_ENDED) {
         sendEvent(_themedReactContext, ReactEvents.EVENT_ON_END.toString(), null);
@@ -92,6 +123,7 @@ public class ReactVideoLooperView extends FrameLayout {
   private Listener _listener;
   private List<MediaItemConfig> _mediaItemConfigs = new ArrayList<>();
   private float _volume = 0.0f;
+  private float _progressUpdateInterval = 1000.0f;
   private boolean _audioOnly = false;
   private boolean _paused = true;
 
@@ -283,6 +315,7 @@ public class ReactVideoLooperView extends FrameLayout {
   protected void onDetachedFromWindow() {
     super.onDetachedFromWindow();
     if (_player != null) {
+      progressHandler.removeMessages(SHOW_PROGRESS);
       _player.removeAnalyticsListener(_listener);
       _player.clearVideoTextureView(_textureView);
       _player.release();

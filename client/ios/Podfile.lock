@@ -974,8 +974,8 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.43.0):
-    - React
+  - react-native-daily-js (0.44.0):
+    - React-Core
   - react-native-get-random-values (1.9.0):
     - React-Core
   - react-native-safe-area-context (4.5.3):
@@ -1053,7 +1053,7 @@ PODS:
     - React-jsi (= 0.69.9)
     - React-logger (= 0.69.9)
     - React-perflogger (= 0.69.9)
-  - RNCAsyncStorage (1.18.1):
+  - RNCAsyncStorage (1.18.2):
     - React-Core
   - RNCPicker (2.4.10):
     - React-Core
@@ -1082,23 +1082,23 @@ PODS:
     - Firebase/Storage (= 10.7.0)
     - React-Core
     - RNFBApp
-  - RNGestureHandler (2.10.2):
+  - RNGestureHandler (2.11.0):
     - React-Core
-  - RNImageCropPicker (0.39.0):
+  - RNImageCropPicker (0.40.0):
     - React-Core
     - React-RCTImage
-    - RNImageCropPicker/QBImagePickerController (= 0.39.0)
+    - RNImageCropPicker/QBImagePickerController (= 0.40.0)
     - TOCropViewController
-  - RNImageCropPicker/QBImagePickerController (0.39.0):
+  - RNImageCropPicker/QBImagePickerController (0.40.0):
     - React-Core
     - React-RCTImage
     - TOCropViewController
   - RNLocalize (2.2.6):
     - React-Core
-  - RNNotifee (7.7.1):
+  - RNNotifee (7.8.0):
     - React-Core
-    - RNNotifee/NotifeeCore (= 7.7.1)
-  - RNNotifee/NotifeeCore (7.7.1):
+    - RNNotifee/NotifeeCore (= 7.8.0)
+  - RNNotifee/NotifeeCore (7.8.0):
     - React-Core
   - RNRate (1.2.12):
     - React-Core
@@ -1131,7 +1131,7 @@ PODS:
     - React-RCTText
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.20.0):
+  - RNScreens (3.21.1):
     - React-Core
     - React-RCTImage
   - RNSentry (5.5.0):
@@ -1418,7 +1418,7 @@ SPEC CHECKSUMS:
   React-logger: 96d904c5bc87c2660d48e6a36fb2edf65f9cfb11
   react-native-add-calendar-event: 86a16d80086427859d236daf3333ed76d7c88d0a
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: 372b563dabc45d7832e22378b6833d6402fb48d1
+  react-native-daily-js: 5ba34ef282cb537e08408fd518d5e45d469a8d9f
   react-native-get-random-values: dee677497c6a740b71e5612e8dbd83e7539ed5bb
   react-native-safe-area-context: b8979f5eda6ed5903d4dbc885be3846ea3daa753
   react-native-webrtc: 0886967e365188f8210068f4bc11fe16311c08a0
@@ -1434,7 +1434,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: ea899478e6f10ee526f476f769ab33211be2addd
   React-runtimeexecutor: df1518d092e8c74cafddc56690d1ac386ec24d7a
   ReactCommon: fac40473e2c4117522384027ab33ad0cb6717dc5
-  RNCAsyncStorage: b90b71f45b8b97be43bc4284e71a6af48ac9f547
+  RNCAsyncStorage: ddc4ee162bfd41b0d2c68bf2d95acd81dd7f1f93
   RNCPicker: 0bc2f0a29abcca7b7ed44a2d036aac9ab6d25700
   RNDateTimePicker: 7ecd54a97fc3749f38c3c89a171f6cbd52f3c142
   RNDeviceInfo: 475a4c447168d0ad4c807e48ef5e0963a0f4eb1b
@@ -1443,14 +1443,14 @@ SPEC CHECKSUMS:
   RNFBDynamicLinks: 82e9846916034c287333ebbcbdbc31435796663c
   RNFBFirestore: c505e6f96e70fb029ae1961c73965fd13ce92db5
   RNFBStorage: d40ebadfad4755ed1ef6a74cae84c9ee9ca47ffd
-  RNGestureHandler: f75d81410b40aaa99e71ae8f8bb7a88620c95042
-  RNImageCropPicker: 14fe1c29298fb4018f3186f455c475ab107da332
+  RNGestureHandler: 026038a97d4c8649ce397a22e162ca58b4e6c230
+  RNImageCropPicker: 486e2f7e2b0461ce24321f751410dce1b3b49e6d
   RNLocalize: d4b8af4e442d4bcca54e68fc687a2129b4d71a81
-  RNNotifee: 05692d7bb42b6c718a3906aeb8431c48ff2e8097
+  RNNotifee: f3c01b391dd8e98e67f539f9a35a9cbcd3bae744
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReactNativeHapticFeedback: afa5bf2794aecbb2dba2525329253da0d66656df
   RNReanimated: c6f8f70e96dd6ca21b65aef9b3e4efe4965db905
-  RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
+  RNScreens: d3675ab2878704de70c9dae57fa5d024802404cc
   RNSentry: 4fb2cd7d2d6cb94423c24884488206ef881da136
   RNSVG: 53c661b76829783cdaf9b7a57258f3d3b4c28315
   Sentry: 11776f6a25a128808d793d0d41bb7ad873b5ae4f

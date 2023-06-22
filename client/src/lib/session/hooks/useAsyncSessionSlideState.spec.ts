@@ -1,52 +1,49 @@
 import {renderHook} from '@testing-library/react-hooks';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {
-  LiveSessionType,
+  AsyncSessionType,
   SessionStateType,
 } from '../../../../../shared/src/schemas/Session';
 import useSessionState from '../state/state';
-import useSessionSlideState from './useSessionSlideState';
+import useAsyncSessionSlideState from './useAsyncSessionSlideState';
 
-describe('useSessionSlideState', () => {
+describe('useAsyncSessionSlideState', () => {
   it('should return null if no exercise exists', () => {
     useSessionState.setState({
       exercise: null,
     });
 
-    const {result} = renderHook(() => useSessionSlideState());
+    const {result} = renderHook(() => useAsyncSessionSlideState());
 
     expect(result.current).toBe(null);
   });
 
-  it('should return null if no session exists', () => {
+  it('should remove host and reflection slides', () => {
     useSessionState.setState({
-      liveSession: null,
-    });
-    const {result} = renderHook(() => useSessionSlideState());
-
-    expect(result.current).toBe(null);
-  });
-
-  it('should return slide state', () => {
-    useSessionState.setState({
-      liveSession: {
+      asyncSession: {
         exerciseId: 'some-content',
-      } as LiveSessionType,
+      } as AsyncSessionType,
       sessionState: {
         index: 1,
       } as SessionStateType,
       exercise: {
-        slides: [{type: 'content'}, {type: 'host'}, {type: 'reflection'}],
+        slides: [
+          {type: 'content'},
+          {type: 'host'},
+          {type: 'reflection'},
+          {type: 'sharing'},
+        ],
       } as Exercise,
     });
 
-    const {result} = renderHook(() => useSessionSlideState());
+    const {result} = renderHook(() => useAsyncSessionSlideState());
 
     expect(result.current).toEqual({
       index: 1,
-      current: {type: 'host'},
-      next: {type: 'reflection'},
+      current: {type: 'sharing'},
+      next: undefined,
       previous: {type: 'content'},
+      slides: [{type: 'content'}, {type: 'sharing'}],
     });
   });
 
@@ -56,11 +53,16 @@ describe('useSessionSlideState', () => {
         index: 1,
       } as SessionStateType,
       exercise: {
-        slides: [{type: 'content'}, {type: 'host'}, {type: 'reflection'}],
+        slides: [
+          {type: 'content'},
+          {type: 'host'},
+          {type: 'reflection'},
+          {type: 'sharing'},
+        ],
       } as Exercise,
     });
 
-    const {result, rerender} = renderHook(() => useSessionSlideState());
+    const {result, rerender} = renderHook(() => useAsyncSessionSlideState());
 
     rerender();
 
@@ -70,20 +72,21 @@ describe('useSessionSlideState', () => {
 
   it('should return only current slide', () => {
     useSessionState.setState({
-      liveSession: {exerciseId: 'some-content'} as LiveSessionType,
+      asyncSession: {exerciseId: 'some-content'} as AsyncSessionType,
       sessionState: {index: 0} as SessionStateType,
       exercise: {
         slides: [{type: 'content'}],
       } as Exercise,
     });
 
-    const {result} = renderHook(() => useSessionSlideState());
+    const {result} = renderHook(() => useAsyncSessionSlideState());
 
     expect(result.current).toEqual({
       index: 0,
       current: {type: 'content'},
       next: undefined,
       previous: undefined,
+      slides: [{type: 'content'}],
     });
   });
 });

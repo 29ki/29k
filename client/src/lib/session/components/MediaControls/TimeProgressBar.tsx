@@ -17,13 +17,13 @@ const Wrapper = styled.View<{color?: string}>(({color}) => ({
   backgroundColor: color ? hexToRgba(color, 0.5) : COLORS.BLACK_TRANSPARENT_30,
   borderRadius: SPACINGS.EIGHT,
   height: SPACINGS.FOUR,
-  overflow: 'hidden',
 }));
 
 const Fill = styled(Animated.View)<{color?: string}>(({color}) => ({
   backgroundColor: color ? color : COLORS.BLACK,
   borderRadius: SPACINGS.EIGHT,
   minWidth: 6,
+  maxWidth: '100%',
 }));
 
 const Progress: React.FC<{percentage: number; color?: string}> = ({
@@ -32,36 +32,38 @@ const Progress: React.FC<{percentage: number; color?: string}> = ({
 }) => {
   const width = useSharedValue(percentage);
 
-  const style = useAnimatedStyle(() => ({
+  const fillStyle = useAnimatedStyle(() => ({
     width: `${width.value * 100}%`,
   }));
 
   useEffect(() => {
     width.value = withTiming(percentage, {
-      duration: 500,
+      duration: 100,
       easing: Easing.bezier(0.33, 1, 0.68, 1),
     });
   }, [width, percentage]);
 
-  return <Fill color={color} style={style} />;
+  return <Fill color={color} style={fillStyle} />;
 };
 
-type ProgressBarProps = {
+type TimeProgressBarProps = {
   length?: number;
   index?: number;
   color?: string;
   style?: ViewStyle;
 };
 
-const ProgressBar: React.FC<ProgressBarProps> = ({
+const TimeProgressBar: React.FC<TimeProgressBarProps> = ({
   index = 0,
   length = 1,
   color,
   style,
 }) => (
-  <Wrapper color={color} style={style}>
-    <Progress color={color} percentage={index / (length - 1)} />
-  </Wrapper>
+  <>
+    <Wrapper color={color} style={style}>
+      <Progress color={color} percentage={index / (length - 1)} />
+    </Wrapper>
+  </>
 );
 
-export default React.memo(ProgressBar);
+export default React.memo(TimeProgressBar);

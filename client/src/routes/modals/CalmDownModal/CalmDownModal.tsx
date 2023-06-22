@@ -84,6 +84,10 @@ const CalmDownModal = () => {
     [setAudioDuration],
   );
 
+  const onProgress = useCallback((data: {time: number}) => {
+    timerRef.current?.seek(data.time);
+  }, []);
+
   const onRewindPress = useCallback(() => seek(0), [seek]);
 
   return (
@@ -99,6 +103,7 @@ const CalmDownModal = () => {
               volume={1}
               ref={videoRef}
               onLoad={onLoad}
+              onProgress={onProgress}
               paused={paused}
             />
             <LottiePlayer
