@@ -114,7 +114,7 @@
         "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675943058/Images/Lisa_host_wkrcf3.jpg"
       },
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1687350874/Images/card_image_wayout_wtllwp.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
       }
     },
     "duration": 30,
@@ -125,7 +125,8 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687349469/Video/wayout_portal1_i5smbm.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687349469/Video/wayout_portal1_i5smbm.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687404319/Audio/way_out_is_through_portal_szh2h4.mp3"
       }
     },
     "tags": [
