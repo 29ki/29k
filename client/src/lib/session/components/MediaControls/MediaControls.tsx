@@ -1,7 +1,13 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import IconButton from '../../../components/Buttons/IconButton/IconButton';
-import {Backward15, Forward15, Pause, Play} from '../../../components/Icons';
+import {
+  Backward15,
+  Forward15,
+  Pause,
+  Play,
+  SubtitlesIcon,
+} from '../../../components/Icons';
 import {Spacer16, Spacer32, Spacer8} from '../../../components/Spacers/Spacer';
 import {View} from 'react-native';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
@@ -42,22 +48,31 @@ const PlayPauseButton = styled(IconButton)({
   borderRadius: 24,
 });
 
+const SubtitlesWrapper = styled.View({
+  position: 'absolute',
+  right: 20,
+});
+
 type MediaControlsProps = {
   time: number;
   duration: number;
   playing: boolean;
+  subtitles?: boolean;
   onSkipForward: () => void;
   onSkipBack: () => void;
   onTogglePlay: () => void;
+  onToggleSubtitles: () => void;
 };
 
 const MediaControls: React.FC<MediaControlsProps> = ({
   time,
   duration,
   playing,
+  subtitles,
   onSkipForward,
   onSkipBack,
   onTogglePlay,
+  onToggleSubtitles,
 }) => {
   const theme = useSessionState(state => state.exercise?.theme);
   const timeMinutes = Math.floor(time / 60);
@@ -85,6 +100,7 @@ const MediaControls: React.FC<MediaControlsProps> = ({
           <TimeLabel color={theme?.textColor}>{displayLeft}</TimeLabel>
         </TimeWrapper>
         <Spacer16 />
+
         <Wrapper>
           <IconButton
             small
@@ -105,6 +121,26 @@ const MediaControls: React.FC<MediaControlsProps> = ({
             Icon={Forward15}
             onPress={onSkipForward}
           />
+          {subtitles !== undefined && (
+            <SubtitlesWrapper>
+              {subtitles ? (
+                <IconButton
+                  small
+                  variant="tertiary"
+                  fill={COLORS.PRIMARY}
+                  Icon={SubtitlesIcon}
+                  onPress={onToggleSubtitles}
+                />
+              ) : (
+                <IconButton
+                  small
+                  variant="tertiary"
+                  Icon={SubtitlesIcon}
+                  onPress={onToggleSubtitles}
+                />
+              )}
+            </SubtitlesWrapper>
+          )}
         </Wrapper>
       </Gutters>
     </View>

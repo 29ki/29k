@@ -9,7 +9,7 @@ import LPlayer, {
   LottiePlayerHandle,
 } from '../../../../../components/LottiePlayer/LottiePlayer';
 import MediaWrapperResolver from './MediaWrapperResolver';
-import {Spacer32} from '../../../../../components/Spacers/Spacer';
+import {Spacer16} from '../../../../../components/Spacers/Spacer';
 import MediaControls from '../../../MediaControls/MediaControls';
 import {SPACINGS} from '../../../../../constants/spacings';
 import Subtitles from './Subtitles';
@@ -68,6 +68,9 @@ const Lottie: React.FC<LottieProps> = ({
   const progressRef = useRef(0);
   const [progress, setProgress] = useState(0);
   const [audioDuration, setAudioDuration] = useState(0);
+  const [showSubtitels, setShowSubtitles] = useState<boolean | undefined>(
+    subtitles ? false : undefined,
+  );
   const sessionState = useSessionState(state => state.sessionState);
   const [paused, setPaused] = useState(
     !active || (!sessionState?.playing && !autoPlayLoop),
@@ -193,6 +196,10 @@ const Lottie: React.FC<LottieProps> = ({
     [setProgress, audioDuration],
   );
 
+  const onToggleSubtitles = useCallback(() => {
+    setShowSubtitles(state => !state);
+  }, [setShowSubtitles]);
+
   if (audioSources) {
     // If audio source is available we allways loop the animation
     return (
@@ -219,12 +226,12 @@ const Lottie: React.FC<LottieProps> = ({
         </MediaWrapperResolver>
         {!isLive && (
           <View>
-            {subtitles && (
+            {showSubtitels && subtitles && (
               <SubtitleContainer>
                 <Subtitles src={subtitles} time={progress} />
               </SubtitleContainer>
             )}
-            <Spacer32 />
+            <Spacer16 />
             <MediaControls
               time={progress}
               duration={audioDuration}
@@ -232,6 +239,8 @@ const Lottie: React.FC<LottieProps> = ({
               onSkipBack={onSkipBack}
               onTogglePlay={onTogglePlay}
               onSkipForward={onSkipForward}
+              onToggleSubtitles={onToggleSubtitles}
+              subtitles={subtitles ? showSubtitels : undefined}
             />
           </View>
         )}

@@ -8,7 +8,7 @@ import {LottiePlayerHandle} from '../../../../../components/LottiePlayer/LottieP
 import {VideoLooperProperties} from '../../../../../../../types/VideoLooper';
 import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
 import MediaControls from '../../../MediaControls/MediaControls';
-import {Spacer16, Spacer32} from '../../../../../components/Spacers/Spacer';
+import {Spacer16} from '../../../../../components/Spacers/Spacer';
 import MediaWrapperResolver from './MediaWrapperResolver';
 import {SPACINGS} from '../../../../../constants/spacings';
 import Subtitles from './Subtitles';
@@ -64,6 +64,9 @@ const Video: React.FC<VideoProps> = ({
   const progressRef = useRef(0);
   const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [showSubtitels, setShowSubtitles] = useState<boolean | undefined>(
+    subtitles ? false : undefined,
+  );
   const sessionState = useSessionState(state => state.sessionState);
   const [paused, setPaused] = useState(
     !active || (!sessionState?.playing && !autoPlayLoop),
@@ -181,6 +184,10 @@ const Video: React.FC<VideoProps> = ({
     [setProgress, duration],
   );
 
+  const onToggleSubtitles = useCallback(() => {
+    setShowSubtitles(state => !state);
+  }, [setShowSubtitles]);
+
   if (audioSources) {
     return (
       <>
@@ -205,7 +212,7 @@ const Video: React.FC<VideoProps> = ({
 
         {!isLive && (
           <View>
-            {subtitles && (
+            {showSubtitels && subtitles && (
               <SubtitleContainer>
                 <Subtitles src={subtitles} time={progress} />
               </SubtitleContainer>
@@ -218,6 +225,8 @@ const Video: React.FC<VideoProps> = ({
               onSkipBack={onSkipBack}
               onTogglePlay={onTogglePlay}
               onSkipForward={onSkipForward}
+              onToggleSubtitles={onToggleSubtitles}
+              subtitles={subtitles ? showSubtitels : undefined}
             />
           </View>
         )}
@@ -242,7 +251,12 @@ const Video: React.FC<VideoProps> = ({
       </MediaWrapperResolver>
       {!isLive && (
         <View>
-          <Spacer32 />
+          {showSubtitels && subtitles && (
+            <SubtitleContainer>
+              <Subtitles src={subtitles} time={progress} />
+            </SubtitleContainer>
+          )}
+          <Spacer16 />
           <MediaControls
             time={progress}
             duration={duration}
@@ -250,6 +264,8 @@ const Video: React.FC<VideoProps> = ({
             onSkipBack={onSkipBack}
             onTogglePlay={onTogglePlay}
             onSkipForward={onSkipForward}
+            onToggleSubtitles={onToggleSubtitles}
+            subtitles={subtitles ? showSubtitels : undefined}
           />
         </View>
       )}
