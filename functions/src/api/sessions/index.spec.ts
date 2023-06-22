@@ -555,15 +555,25 @@ describe('/api/sessions', () => {
       mockGetSessionByHostingCode.mockRejectedValueOnce(
         new RequestError(JoinSessionError.notFound),
       );
-      mockGetSessionByHostingCode.mockRejectedValueOnce(
-        new RequestError(JoinSessionError.notFound),
-      );
 
       const response = await request(mockServer).get(
         '/sessions/hostingCode/123456',
       );
       expect(response.text).toEqual(JoinSessionError.notFound);
       expect(response.status).toBe(404);
+    });
+
+    it('should return 401 if session is not available', async () => {
+      getMockCustomClaims.mockReturnValueOnce({role: ROLE.publicHost});
+      mockGetSessionByHostingCode.mockRejectedValueOnce(
+        new RequestError(JoinSessionError.notAvailable),
+      );
+
+      const response = await request(mockServer).get(
+        '/sessions/hostingCode/123456',
+      );
+      expect(response.text).toEqual(JoinSessionError.notAvailable);
+      expect(response.status).toBe(410);
     });
   });
 
