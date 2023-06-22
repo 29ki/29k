@@ -18,6 +18,7 @@ import Button from '../../../components/Buttons/Button';
 import IconButton from '../../../components/Buttons/IconButton/IconButton';
 import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
 import {SessionStateType} from '../../../../../../shared/src/schemas/Session';
+import SETTINGS from '../../../constants/settings';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -32,10 +33,12 @@ const MediaControls = styled.View({
 
 const SlideButton = styled(Button)(({disabled}) => ({
   opacity: disabled ? 0 : 1,
+  ...SETTINGS.BOXSHADOW_SMALL,
 }));
 
 const IconSlideButton = styled(IconButton)(({disabled}) => ({
   opacity: disabled ? 0 : 1,
+  ...SETTINGS.BOXSHADOW_SMALL,
 }));
 
 type ContentControlsProps = {
@@ -109,7 +112,6 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         small
         LeftIcon={ChevronLeftIcon}
         disabled={!slideState.previous && !async}
-        elevated
         onPress={onPrevPress}>
         {t('controls.prev')}
       </SlideButton>
@@ -119,7 +121,6 @@ const ContentControls: React.FC<ContentControlsProps> = ({
           <MediaControls>
             <IconSlideButton
               small
-              elevated
               disabled={isDisabled}
               variant="tertiary"
               Icon={RewindIcon}
@@ -128,7 +129,6 @@ const ContentControls: React.FC<ContentControlsProps> = ({
             <Spacer8 />
             <IconSlideButton
               small
-              elevated
               disabled={isDisabled}
               variant="tertiary"
               Icon={
@@ -140,7 +140,6 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         )}
       <SlideButton
         small
-        elevated
         variant="tertiary"
         disabled={!slideState.next && !async}
         RightIcon={ChevronRight}

@@ -13,7 +13,6 @@ import useAddUserEvent from '../../../lib/user/hooks/useAddUserEvent';
 import {
   BottomSafeArea,
   Spacer16,
-  Spacer32,
   Spacer8,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
@@ -142,7 +141,7 @@ const Session: React.FC = () => {
             onPrevPress={onPrevPress}
             onNextPress={onNextPress}
           />
-          <Spacer32 />
+          <Spacer8 />
         </Gutters>
       </Top>
 
