@@ -8,8 +8,9 @@ import {LottiePlayerHandle} from '../../../../../components/LottiePlayer/LottieP
 import {VideoLooperProperties} from '../../../../../../../types/VideoLooper';
 import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
 import MediaControls from '../../../MediaControls/MediaControls';
-import {Spacer32} from '../../../../../components/Spacers/Spacer';
+import {Spacer16} from '../../../../../components/Spacers/Spacer';
 import MediaWrapperResolver from './MediaWrapperResolver';
+import Subtitles from './Subtitles';
 
 const VideoPlayer = styled(VideoLooper)({
   flex: 1,
@@ -27,6 +28,15 @@ const Duration = styled(DurationTimer)({
   height: 30,
 });
 
+const SubtitleContainer = styled.View({
+  position: 'absolute',
+  top: -70,
+  left: 0,
+  right: 0,
+  flex: 1,
+  alignItems: 'center',
+});
+
 type VideoProps = {
   source?: string;
   audioSource?: string;
@@ -35,12 +45,14 @@ type VideoProps = {
   autoPlayLoop?: boolean;
   durationTimer?: boolean;
   isLive?: boolean;
+  subtitles?: string;
 };
 const Video: React.FC<VideoProps> = ({
   active,
   source,
   audioSource,
   isLive,
+  subtitles,
   autoPlayLoop = false,
   durationTimer = false,
 }) => {
@@ -49,6 +61,9 @@ const Video: React.FC<VideoProps> = ({
   const progressRef = useRef(0);
   const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [showSubtitels, setShowSubtitles] = useState<boolean | undefined>(
+    subtitles ? false : undefined,
+  );
   const sessionState = useSessionState(state => state.sessionState);
   const [paused, setPaused] = useState(
     !active || (!sessionState?.playing && !autoPlayLoop),
@@ -158,13 +173,17 @@ const Video: React.FC<VideoProps> = ({
 
   const onProgress = useCallback(
     (data: {time: number}) => {
-      const currentTime = Math.min(duration, data.time);
+      const currentTime = Math.min(Math.round(duration), Math.round(data.time));
       setProgress(currentTime);
       progressRef.current = currentTime;
       timerRef.current?.seek(currentTime);
     },
     [setProgress, duration],
   );
+
+  const onToggleSubtitles = useCallback(() => {
+    setShowSubtitles(state => !state);
+  }, [setShowSubtitles]);
 
   if (audioSources) {
     return (
@@ -187,9 +206,15 @@ const Video: React.FC<VideoProps> = ({
           />
           {isLive && timer}
         </MediaWrapperResolver>
+
         {!isLive && (
           <View>
-            <Spacer32 />
+            {showSubtitels && subtitles && (
+              <SubtitleContainer>
+                <Subtitles src={subtitles} time={progress} />
+              </SubtitleContainer>
+            )}
+            <Spacer16 />
             <MediaControls
               time={progress}
               duration={duration}
@@ -197,6 +222,8 @@ const Video: React.FC<VideoProps> = ({
               onSkipBack={onSkipBack}
               onTogglePlay={onTogglePlay}
               onSkipForward={onSkipForward}
+              onToggleSubtitles={onToggleSubtitles}
+              subtitles={subtitles ? showSubtitels : undefined}
             />
           </View>
         )}
@@ -221,7 +248,12 @@ const Video: React.FC<VideoProps> = ({
       </MediaWrapperResolver>
       {!isLive && (
         <View>
-          <Spacer32 />
+          {showSubtitels && subtitles && (
+            <SubtitleContainer>
+              <Subtitles src={subtitles} time={progress} />
+            </SubtitleContainer>
+          )}
+          <Spacer16 />
           <MediaControls
             time={progress}
             duration={duration}
@@ -229,6 +261,8 @@ const Video: React.FC<VideoProps> = ({
             onSkipBack={onSkipBack}
             onTogglePlay={onTogglePlay}
             onSkipForward={onSkipForward}
+            onToggleSubtitles={onToggleSubtitles}
+            subtitles={subtitles ? showSubtitels : undefined}
           />
         </View>
       )}

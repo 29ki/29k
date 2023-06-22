@@ -40,6 +40,7 @@ export interface ExerciseIntroPortalVideoLoop {
   source?: string;
   preview?: string;
   audio?: string;
+  subtitles?: string;
 }
 
 export interface ExerciseIntroPortalVideoEnd {
@@ -63,6 +64,7 @@ export interface ExerciseOutroPortalVideo {
   source?: string;
   preview?: string;
   audio?: string;
+  subtitles?: string;
 }
 
 export interface ExerciseOutroPortal {
@@ -85,6 +87,7 @@ export interface ExerciseSlideContentSlideContentVideo {
   source?: string;
   preview?: string;
   audio?: string;
+  subtitles?: string;
 }
 
 export interface ExerciseSlideContentSlideContentLottie {
@@ -93,6 +96,7 @@ export interface ExerciseSlideContentSlideContentLottie {
   description?: string;
   source?: string;
   audio?: string;
+  subtitles?: string;
   duration?: number;
 }
 
@@ -131,6 +135,7 @@ export interface ExerciseSlideReflectionSlideContentVideo {
   source?: string;
   preview?: string;
   audio?: string;
+  subtitles?: string;
 }
 
 export interface ExerciseSlideReflectionSlideContentLottie {
@@ -139,6 +144,7 @@ export interface ExerciseSlideReflectionSlideContentLottie {
   description?: string;
   source?: string;
   audio?: string;
+  subtitles?: string;
   duration?: number;
 }
 
@@ -166,6 +172,7 @@ export interface ExerciseSlideSharingSlideContentVideo {
   source?: string;
   preview?: string;
   audio?: string;
+  subtitles?: string;
 }
 
 export interface ExerciseSlideSharingSlideContentLottie {
@@ -174,6 +181,7 @@ export interface ExerciseSlideSharingSlideContentLottie {
   description?: string;
   source?: string;
   audio?: string;
+  subtitles?: string;
   duration?: number;
 }
 
