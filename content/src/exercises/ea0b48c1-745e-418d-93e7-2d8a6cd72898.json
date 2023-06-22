@@ -30,7 +30,7 @@
             "description": "",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_content_bring_your_feel..._briny6.png",
             "autoPlayLoop": true,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687436243/Audio/Bring_your_feelings_along_jp0tws.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687440597/Audio/Bring_your_feelings_along_er9529.mp3"
           },
           "image": {
             "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1646061249/Illustrations_Tests/take-test_c4qa3u.png",
@@ -90,6 +90,15 @@
         "video": {
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679310075/Video/OutroBringYourFeelingAlong_pakygt.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679310510/Images/AsyncThumbHostBringYourFeelingsAlong.png"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done. \n\nIf you’re up for it, you can continue with this mission: \n\nFor the coming three days, see if you can notice when you talk to yourself with “I want to do this, BUT I’m so that”-sentences. When you do, replace your BUTs with ANDs and see if you notice any difference in how you behave.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675416302/Images/card_bring_your_fee.._cs3oph.png"
+          }
         }
       }
     ],
