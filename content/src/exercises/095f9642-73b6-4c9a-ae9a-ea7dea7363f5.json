@@ -116,10 +116,6 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
-      },
-      "host": {
-        "displayName": "Jenny",
-        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
       }
     },
     "duration": 30,
@@ -270,10 +266,6 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
-      },
-      "host": {
-        "displayName": "Jenny",
-        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675420628/Images/thumb_async_intro_outro_pure_simple_love_p7bjul.jpg"
       }
     },
     "duration": 30,

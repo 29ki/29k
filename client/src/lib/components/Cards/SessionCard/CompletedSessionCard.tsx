@@ -80,8 +80,12 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
       title={formatContentName(exercise)}
       image={image}
       lottie={lottie}
-      hostPictureURL={hostProfile?.photoURL || exercise?.card?.host?.photoURL}
-      hostName={hostProfile?.displayName || exercise?.card?.host?.displayName}
+      hostPictureURL={
+        hostProfile?.photoURL || exercise?.card?.ambassador?.photoURL
+      }
+      hostName={
+        hostProfile?.displayName || exercise?.card?.ambassador?.displayName
+      }
       onPress={onContextPress}
       hasCardBefore={hasCardBefore}
       hasCardAfter={hasCardAfter}

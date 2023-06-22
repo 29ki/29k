@@ -152,12 +152,12 @@ const SessionCard: React.FC<SessionCardProps> = ({
         hostPictureURL={
           session.mode === SessionMode.live
             ? hostProfile?.photoURL
-            : exercise?.card?.host?.photoURL
+            : exercise?.card?.ambassador?.photoURL
         }
         hostName={
           session.mode === SessionMode.live
             ? hostProfile?.displayName
-            : exercise?.card?.host?.displayName
+            : exercise?.card?.ambassador?.displayName
         }
         isHost={isHost}
         isPinned={isPinned}
@@ -186,12 +186,12 @@ const SessionCard: React.FC<SessionCardProps> = ({
           hostPictureURL={
             session.mode === SessionMode.live
               ? hostProfile?.photoURL
-              : exercise?.card?.host?.photoURL
+              : exercise?.card?.ambassador?.photoURL
           }
           hostName={
             session.mode === SessionMode.live
               ? hostProfile?.displayName
-              : exercise?.card?.host?.displayName
+              : exercise?.card?.ambassador?.displayName
           }
           onPress={onContextPress}
           hasCardBefore={hasCardBefore}
@@ -218,12 +218,12 @@ const SessionCard: React.FC<SessionCardProps> = ({
           hostPictureURL={
             session.mode === SessionMode.live
               ? hostProfile?.photoURL
-              : exercise?.card?.host?.photoURL
+              : exercise?.card?.ambassador?.photoURL
           }
           hostName={
             session.mode === SessionMode.live
               ? hostProfile?.displayName
-              : exercise?.card?.host?.displayName
+              : exercise?.card?.ambassador?.displayName
           }
           isPinned={isPinned}
           reminderEnabled={reminderEnabled}
