@@ -53,6 +53,7 @@ import SessionUnavailableModal from '../SessionUnavailableModal/SessionUnavailab
 import HostingInviteFailModal from '../HostingInviteFailModal/HostingInviteFailModal';
 import useUser from '../../../lib/user/hooks/useUser';
 import UpdateProfileStep from '../CreateSessionModal/components/steps/ProfileStep';
+import useSessions from '../../../lib/sessions/hooks/useSessions';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -94,6 +95,7 @@ const InvitationModal: React.FC<{
   const exercise = useExerciseById(session?.exerciseId);
   const tags = useGetSessionCardTags(exercise);
   const {t} = useTranslation('Modal.HostSessionByInvite');
+  const {fetchSessions} = useSessions();
 
   const navigation =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
@@ -101,11 +103,13 @@ const InvitationModal: React.FC<{
   const acceptInvite = useCallback(async () => {
     if (session?.id) {
       const updatedSession = await acceptHostingInvite(session.id, hostingCode);
+      fetchSessions();
+      navigation.goBack();
       navigation.navigate('SessionModal', {
         session: updatedSession,
       });
     }
-  }, [session?.id, hostingCode, navigation]);
+  }, [session?.id, hostingCode, navigation, fetchSessions]);
 
   const onCancel = useCallback(() => navigation.goBack(), [navigation]);
 
