@@ -51,6 +51,8 @@ import Button from '../../../lib/components/Buttons/Button';
 import {JoinSessionError} from '../../../../../shared/src/errors/Session';
 import SessionUnavailableModal from '../SessionUnavailableModal/SessionUnavailableModal';
 import HostingInviteFailModal from '../HostingInviteFailModal/HostingInviteFailModal';
+import useUser from '../../../lib/user/hooks/useUser';
+import UpdateProfileStep from '../CreateSessionModal/components/steps/ProfileStep';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -181,6 +183,8 @@ const HostSessionByInviteModal = () => {
     params: {hostingCode},
   } = useRoute<RouteProp<ModalStackProps, 'HostSessionByInviteModal'>>();
 
+  const user = useUser();
+  const userHasProfile = user?.displayName && user?.photoURL;
   const [session, setSession] = useState<LiveSessionType>();
   const [error, setError] = useState<string>();
 
@@ -194,8 +198,18 @@ const HostSessionByInviteModal = () => {
   }, [hostingCode]);
 
   useEffect(() => {
-    fetchSession();
-  }, [fetchSession]);
+    if (userHasProfile) {
+      fetchSession();
+    }
+  }, [fetchSession, userHasProfile]);
+
+  if (!userHasProfile) {
+    return (
+      <SheetModal backgroundColor={COLORS.CREAM}>
+        <UpdateProfileStep />
+      </SheetModal>
+    );
+  }
 
   if (
     error === JoinSessionError.notAvailable ||

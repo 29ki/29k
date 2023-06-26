@@ -53,7 +53,6 @@ sessionsRouter.get(
 
 sessionsRouter.get(
   '/hostingCode/:hostingCode',
-  restrictAccessToRole(ROLE.publicHost),
   validation({
     params: yup.object({
       hostingCode: yup.number().required(),
@@ -289,7 +288,6 @@ sessionsRouter.put(
 
 sessionsRouter.put(
   '/:id/hostingLink',
-  restrictAccessToRole(ROLE.publicHost),
   validation({params: SessionParamsSchema, response: yup.string()}),
   async ctx => {
     const {id} = ctx.params;
@@ -320,7 +318,6 @@ sessionsRouter.put(
 
 sessionsRouter.put(
   '/:id/acceptHostingInvite',
-  restrictAccessToRole(ROLE.publicHost),
   validation({
     body: yup.object({
       hostingCode: yup.number().required(),

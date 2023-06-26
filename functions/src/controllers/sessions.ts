@@ -315,10 +315,6 @@ export const createSessionHostingLink = async (
     throw new RequestError(ValidateSessionError.userNotAuthorized);
   }
 
-  if (session?.type !== SessionType.public) {
-    throw new RequestError(JoinSessionError.notFound);
-  }
-
   await sessionModel.updateSession(sessionId, {
     hostingCode: generateVerificationCode(),
   });
@@ -347,13 +343,18 @@ export const updateSessionHost = async (
 ) => {
   const session = await sessionModel.getSessionById(sessionId);
 
-  if (hostingCode !== session?.hostingCode) {
+  if (!session) {
+    throw new RequestError(ValidateSessionError.notFound);
+  }
+
+  if (hostingCode !== session.hostingCode) {
     throw new RequestError(ValidateSessionError.userNotAuthorized);
   }
 
   await sessionModel.updateSession(sessionId, {
     hostingCode: null,
     hostId: userId,
+    userIds: [userId, ...session.userIds],
   });
   const updatedSession = await sessionModel.getSessionById(sessionId);
   return updatedSession ? mapSession(updatedSession) : undefined;
