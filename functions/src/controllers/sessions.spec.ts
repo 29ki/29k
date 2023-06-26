@@ -1016,7 +1016,14 @@ describe('sessions - controller', () => {
       mockGetSessionById.mockResolvedValueOnce({
         hostingCode: 123456,
         userIds: ['*'],
+        type: 'public',
       });
+      mockGetUser.mockResolvedValueOnce({
+        displayName: 'some-name',
+        photoURL: 'some-photo-url',
+        role: 'publicHost',
+      });
+
       await updateSessionHost('user-id', 'some-session-id', 123456);
 
       expect(mockUpdateSession).toHaveBeenCalledWith('some-session-id', {
@@ -1028,11 +1035,49 @@ describe('sessions - controller', () => {
 
     it('should fail when hostingCode does not match sessions', async () => {
       mockGetSessionById.mockResolvedValueOnce({hostingCode: 654321});
+
       expect(
         updateSessionHost('user-id', 'some-session-id', 123456),
       ).rejects.toThrow(
         new RequestError(ValidateSessionError.userNotAuthorized),
       );
+    });
+
+    it('should fail when session is public and user is not public host', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        hostingCode: 654321,
+        type: 'public',
+      });
+      mockGetUser.mockResolvedValueOnce({
+        displayName: 'some-name',
+        photoURL: 'some-photo-url',
+        role: undefined,
+      });
+      expect(
+        updateSessionHost('user-id', 'some-session-id', 654321),
+      ).rejects.toThrow(
+        new RequestError(ValidateSessionError.userNotAuthorized),
+      );
+    });
+
+    it('should be ok when session is private and user is not public host', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        hostingCode: 654321,
+        type: 'private',
+        userIds: ['previous-host', 'some-other-user'],
+      });
+      mockGetUser.mockResolvedValueOnce({
+        displayName: 'some-name',
+        photoURL: 'some-photo-url',
+      });
+
+      await updateSessionHost('user-id', 'some-session-id', 654321);
+
+      expect(mockUpdateSession).toHaveBeenCalledWith('some-session-id', {
+        hostId: 'user-id',
+        hostingCode: null,
+        userIds: ['user-id', 'previous-host', 'some-other-user'],
+      });
     });
   });
 });

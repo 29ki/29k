@@ -26,6 +26,7 @@ import {createRctUserId} from '../lib/id';
 import {LiveSessionRecord} from '../models/types/types';
 import {LiveSessionModel} from './types/types';
 import {DEFAULT_LANGUAGE_TAG} from '../lib/i18n';
+import {ROLE} from '../../../shared/src/schemas/User';
 
 const mapSession = async (
   session: LiveSessionRecord,
@@ -348,6 +349,11 @@ export const updateSessionHost = async (
   }
 
   if (hostingCode !== session.hostingCode) {
+    throw new RequestError(ValidateSessionError.userNotAuthorized);
+  }
+
+  const user = await getUser(userId);
+  if (session?.type === SessionType.public && user.role !== ROLE.publicHost) {
     throw new RequestError(ValidateSessionError.userNotAuthorized);
   }
 
