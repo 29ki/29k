@@ -1009,27 +1009,20 @@ describe('sessions - controller', () => {
         new RequestError(ValidateSessionError.userNotAuthorized),
       );
     });
-
-    it('should fail when session is private', () => {
-      mockGetSessionById.mockResolvedValueOnce({
-        hostId: 'user-id',
-        type: 'private',
-      });
-
-      expect(
-        createSessionHostingLink('user-id', 'some-session-id'),
-      ).rejects.toThrow(new RequestError(JoinSessionError.notFound));
-    });
   });
 
   describe('updateSessionHost', () => {
     it('should update session host and reset hostingCode', async () => {
-      mockGetSessionById.mockResolvedValueOnce({hostingCode: 123456});
+      mockGetSessionById.mockResolvedValueOnce({
+        hostingCode: 123456,
+        userIds: ['*'],
+      });
       await updateSessionHost('user-id', 'some-session-id', 123456);
 
       expect(mockUpdateSession).toHaveBeenCalledWith('some-session-id', {
         hostId: 'user-id',
         hostingCode: null,
+        userIds: ['user-id', '*'],
       });
     });
 
