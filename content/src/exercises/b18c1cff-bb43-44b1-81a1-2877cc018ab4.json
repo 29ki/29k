@@ -92,6 +92,13 @@
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682087586/Video/outro_breathing_anchor_lnhnjw.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682087605/Images/host%20thumb%20breathing%20anchor.jpg"
         }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Well done",
+          "text": "If you’re up for it, you can continue with this mission:\n\nFor the coming three days, take a couple of minutes each day and ground yourself in the present moment with your breathing."
+        }
       }
     ],
     "theme": {
