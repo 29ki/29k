@@ -26,7 +26,7 @@
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464756/Temp/Comp_8_jsv5jo.mp4",
             "description": "",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_content_bring_your_feel..._briny6.png",
-            "autoPlayLoop": true,
+            "autoPlayLoop": false,
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687440597/Audio/Bring_your_feelings_along_er9529.mp3"
           },
           "image": {
