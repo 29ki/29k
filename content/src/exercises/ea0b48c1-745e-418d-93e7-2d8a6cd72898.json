@@ -110,10 +110,11 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. \n\nIf you’re up for it, you can continue with this mission: \n\nFor the coming three days, see if you can notice when you talk to yourself with “I want to do this, BUT I’m so that”-sentences. When you do, replace your BUTs with ANDs and see if you notice any difference in how you behave.",
+          "text": "If you’re up for it, you can continue with this mission: \n\nFor the coming three days, see if you can notice when you talk to yourself with *I want to do this, BUT I’m so that*-sentences. When you do, replace your BUTs with ANDs and see if you notice any difference in how you behave.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675416302/Images/card_bring_your_fee.._cs3oph.png"
-          }
+          },
+          "heading": "Well done"
         }
       }
     ],
