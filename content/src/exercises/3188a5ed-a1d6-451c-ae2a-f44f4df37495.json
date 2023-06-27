@@ -31,7 +31,8 @@
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674481870/Audio/meditation-drop-all-requirements_i39o6u.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673974099/Video/meditation_Drop_all_requirements_a2a7ws.mp4",
             "durationTimer": true,
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_meditation_drop_all_requirements_ve8rdm.png"
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_meditation_drop_all_requirements_ve8rdm.png",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1687868778/SRT%20(captions)%20files/Drop_all_requirements_wstrha.srt"
           }
         }
       },
