@@ -43,6 +43,22 @@
         ]
       },
       {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take a minute to reflect on our own. What happens to your sentences, and to you, when you replace BUT with AND?\n\n1 minute starting now.\n\n> Press play to start the timer.\n\nOkay, that’s 1 minute Let’s move on."
+          }
+        ],
+        "content": {
+          "text": "What happened when you switch from using 'but' to using 'and'?",
+          "video": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto/v1674554597/Images/thumb_timer_and_1min_bring_your_feel..._hbi0hy.png",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_timer_and_1min_bring_your_feel..._hbi0hy.png"
+          }
+        }
+      },
+      {
         "type": "sharing",
         "content": {
           "heading": "What happened when you switched to AND?",
