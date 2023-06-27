@@ -67,7 +67,8 @@
           "heading": "What happened when you switched to AND?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464766/Temp/Comp_10_ababts.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554598/Images/thumb_timer2min_bring_your_feel..._b90j7h.png"
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554598/Images/thumb_timer2min_bring_your_feel..._b90j7h.png",
+            "durationTimer": true
           }
         },
         "hostNotes": [
