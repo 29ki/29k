@@ -93,6 +93,13 @@
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675960919/Video/async_outro_Accepting_thoughts_and_feelings_jpyrdo.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675954575/Images/async_thumbnail_Accepting_thoughts_and_feelings_yaur8a.jpg"
         }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "If you’re up for it, you can continue with this mission:\n\nWhat can you bring from this for the rest of your day?\n\nTake this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you.",
+          "heading": "Well done"
+        }
       }
     ],
     "theme": {
