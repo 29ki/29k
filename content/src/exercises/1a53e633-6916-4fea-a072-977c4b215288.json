@@ -13,7 +13,7 @@
             "durationTimer": true,
             "autoPlayLoop": false,
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687865086/Audio/Dive_in_spf3bt.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1687869154/SRT%20(captions)%20files/Dive_in_jvdyav_pqebcw.srt"
+            "subtitles": ""
           }
         }
       },
