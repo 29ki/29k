@@ -37,7 +37,8 @@
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683795468/Audio/Outdoor_sensing_Jenny_x9ztl5.mp3",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684313677/Video/outdoor_sensing_meditation_visual_cbiepb.mp4",
-            "autoPlayLoop": false
+            "autoPlayLoop": false,
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1687867079/SRT%20(captions)%20files/Outdoor_sensing_Jenny_hkkcrv.srt"
           }
         }
       },
