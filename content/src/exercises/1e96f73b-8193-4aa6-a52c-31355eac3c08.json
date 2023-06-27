@@ -123,6 +123,9 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687425155/Video/way_out_is_through_portal1_kiod7t.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687418774/Audio/way_out_is_through_portal_audio_doduhc.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687848261/Video/way_out_is_through_portal_end_aw8iyr.mp4"
       }
     },
     "tags": [
