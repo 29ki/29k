@@ -68,7 +68,8 @@
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464766/Temp/Comp_10_ababts.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554598/Images/thumb_timer2min_bring_your_feel..._b90j7h.png",
-            "durationTimer": true
+            "durationTimer": true,
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1687856451/SRT%20(captions)%20files/Bring_your_feelings_along_dwtkw6.srt"
           }
         },
         "hostNotes": [
