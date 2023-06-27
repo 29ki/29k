@@ -5,12 +5,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on exploring purpose.\\\nWe’ll be doing several rounds of reflection around a time when we felt purpose, and then sharing what we experienced.\\\nHeads up that you’ll need pen and paper.",
-            "asyncText": "Welcome, this session is about exploring purpose.\n\nThere will be several rounds of reflection around a time when we felt purpose, and then sharing what we experienced. You’ll need a pen and paper for this exercise."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on exploring purpose.\\\nWe’ll be doing several rounds of reflection around a time when we felt purpose, and then sharing what we experienced.\\\nHeads up that you’ll need pen and paper."
           },
           {
-            "text": "Before we get going, let’s just ground ourselves in the here and now with three cycles of breathing.\n\n> Inhale and exhale slowly x 3",
-            "asyncText": "Before we get started, let’s get grounded here and now with three cycles of breathing.\n\n> Inhale and exhale slowly x 3\n\nLet’s get started."
+            "text": "Before we get going, let’s just ground ourselves in the here and now with three cycles of breathing.\n\n> Inhale and exhale slowly x 3"
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -39,16 +37,13 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\\\nThink back to a time in your life when you’ve felt a sense of meaning and purpose, small or big does not matter. One example could be a time when you were working towards something that really mattered to you.",
-            "asyncText": "Take 1 minute to reflect.\\\nThink back to a time in your life when you’ve felt a sense of meaning and purpose, small or big does not matter. One example could be a time when you were working towards something that really mattered to you."
+            "text": "Now we’ll take 1 minute to reflect on our own.\\\nThink back to a time in your life when you’ve felt a sense of meaning and purpose, small or big does not matter. One example could be a time when you were working towards something that really mattered to you."
           },
           {
-            "text": "Recall a snapshot from that time. \\\nWhat was the situation? \\\nWhere were you? \\\nWas anyone with you?",
-            "asyncText": "Recall a snapshot from that time. \\\nWhat was the situation? \\\nWhere were you? \\\nWas anyone with you?"
+            "text": "Recall a snapshot from that time. \\\nWhat was the situation? \\\nWhere were you? \\\nWas anyone with you?"
           },
           {
-            "text": "Take notes on a piece of paper. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on.",
-            "asyncText": "Take notes on a piece of paper. There is no right or wrong here, our answers are our own.\n\n> Press play to start the timer."
+            "text": "Take notes on a piece of paper. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
@@ -60,12 +55,10 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Great. Now we’ll do another round of private reflections.\\\nNote down your thoughts, feelings and actions from that time you’ve felt a sense of meaning of purpose. What did you feel? What did you think? What did you do?",
-            "asyncText": "Take another minute to reflect.\\\nNote down your thoughts, feelings and actions from that time you’ve felt a sense of meaning of purpose."
+            "text": "Great. Now we’ll do another round of private reflections.\\\nNote down your thoughts, feelings and actions from that time you’ve felt a sense of meaning of purpose. What did you feel? What did you think? What did you do?"
           },
           {
-            "text": "1 minute starting now.\n\n`Press play to start the timer.`\n\nThat’s 1 minute and it’s time for next step.",
-            "asyncText": "What did you feel? \\\nWhat did you think? \\\nWhat did you do? \n\n> Press play to start the timer."
+            "text": "1 minute starting now.\n\n`Press play to start the timer.`\n\nThat’s 1 minute and it’s time for next step."
           }
         ],
         "content": {
@@ -77,12 +70,10 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now take a moment to explore your thoughts, feelings and actions today. What do you feel? What do you think? What do you do?",
-            "asyncText": "Now take a moment to explore your thoughts, feelings and actions today. What do you feel? What do you think? What do you do?"
+            "text": "Now take a moment to explore your thoughts, feelings and actions today. What do you feel? What do you think? What do you do?"
           },
           {
-            "text": "Is there a difference between today and that other time? If so, what does it tell you?",
-            "asyncText": "Is there a difference between today and that other time?\\\nIf so, what does it tell you?\n\n> Press play to start the timer."
+            "text": "Is there a difference between today and that other time? If so, what does it tell you?"
           },
           {
             "text": "Take notes on your paper. \\\n1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
@@ -116,16 +107,13 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Our emotions can be a window into what matters to us in life.\\\nWhen we connect to what gives us a sense of meaning and purpose, we experience life differently than when we are on autopilot.",
-            "asyncText": "Our emotions can be a window into what matters to us in life.\\\nWhen we connect to what gives us a sense of meaning and purpose, we experience life differently than when we are on autopilot."
+            "text": "Our emotions can be a window into what matters to us in life.\\\nWhen we connect to what gives us a sense of meaning and purpose, we experience life differently than when we are on autopilot."
           },
           {
-            "text": "This helps us to show up for and act on what truly matters.\n\nWell done. If you’re up for a mission, take a moment each day for three days to notice where you are, how you feel, think and act, and see if it connects to your sense of purpose.",
-            "asyncText": "This helps us to show up for and act on what truly matters.\n\nWell done. If you’re up for a mission, take a moment each day for three days to notice where you are, how you feel, think and act, and see if it connects to your sense of purpose."
+            "text": "This helps us to show up for and act on what truly matters.\n\nWell done. If you’re up for a mission, take a moment each day for three days to notice where you are, how you feel, think and act, and see if it connects to your sense of purpose."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words.",
-            "asyncText": "Before leaving this space, again take three rounds of mindful breathing.\n\n> Inhale & exhale slowly x 3.\n\nWhen you’re ready, finish the session at your own pace."
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
           },
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."

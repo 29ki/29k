@@ -5,16 +5,13 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome.\n\nI am X and today we will work for around 30 minutes on opening up to our feelings with acceptance and intentionally choosing our actions. We’ll be doing a short intro, then reflect on our own and share with each other. \n\nAnd a heads up that you will need pen and paper.",
-            "asyncText": "Welcome. This session is about opening up to our feelings with acceptance and intentionally choosing our actions.\n\nThere will be a short introduction, two moments to reflect on how we talk to ourselves, and then sharing what we experienced."
+            "text": "Welcome.\n\nI am X and today we will work for around 30 minutes on opening up to our feelings with acceptance and intentionally choosing our actions. We’ll be doing a short intro, then reflect on our own and share with each other. \n\nAnd a heads up that you will need pen and paper."
           },
           {
-            "text": "Before moving on into the exercise, let's ground ourselves in the present moment with three cycles of breathing.\n\n> Inhale + exhale slowly 3 times",
-            "asyncText": "Let’s take a moment to ground ourselves in the present moment with three cycles of breathing.\n\n> Inhale + exhale slowly 3 times"
+            "text": "Before moving on into the exercise, let's ground ourselves in the present moment with three cycles of breathing.\n\n> Inhale + exhale slowly 3 times"
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started.",
-            "asyncText": "Now, check-in with yourself. How are you feeling right now?\n\nLet’s get started."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ],
         "video": {
@@ -79,12 +76,10 @@
             "text": "For the coming three days, see if you can notice when you talk to yourself with “I want to do this, BUT I’m so that”-sentences. When you do, replace your BUTs with ANDs and see if you notice any difference in how you behave."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. How are you feeling right now? Has anything shifted? Please answer in two-three words.\n\nWho would like to start?",
-            "asyncText": "Well done.\n\nBefore leaving this space, check-in with yourself again."
+            "text": "Before we leave this space let’s do a mini check-out. How are you feeling right now? Has anything shifted? Please answer in two-three words.\n\nWho would like to start?"
           },
           {
-            "text": "> Let everyone check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience.",
-            "asyncText": "How are you feeling right now? Has anything shifted? \n\nWhen you’re ready, finish this session at your own pace."
+            "text": "> Let everyone check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ],
         "video": {
