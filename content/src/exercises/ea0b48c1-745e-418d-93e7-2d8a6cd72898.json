@@ -26,8 +26,9 @@
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464756/Temp/Comp_8_jsv5jo.mp4",
             "description": "",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_content_bring_your_feel..._briny6.png",
-            "autoPlayLoop": true,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687440597/Audio/Bring_your_feelings_along_er9529.mp3"
+            "autoPlayLoop": false,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687856280/Audio/Bring_your_feelings_along_aeqeaw.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1687856451/SRT%20(captions)%20files/Bring_your_feelings_along_dwtkw6.srt"
           },
           "image": {
             "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1646061249/Illustrations_Tests/take-test_c4qa3u.png",
@@ -37,9 +38,28 @@
         },
         "hostNotes": [
           {
-            "text": "> Press play to start the audio file."
+            "text": "Let's listen to this exercise together.\n\n> Press play to start the audio file."
           }
         ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take a minute to reflect on our own. What happens to your sentences, and to you, when you replace BUT with AND?"
+          },
+          {
+            "text": "1 minute starting now.\n\n> Press play to start the timer.\n\nOkay, that’s 1 minute Let’s move on."
+          }
+        ],
+        "content": {
+          "text": "What happened when you switch from using 'but' to using 'and'?",
+          "video": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464773/Temp/Comp_9_bsizws.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_timer_and_1min_bring_your_feel..._hbi0hy.png"
+          }
+        }
       },
       {
         "type": "sharing",
@@ -90,10 +110,11 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. \n\nIf you’re up for it, you can continue with this mission: \n\nFor the coming three days, see if you can notice when you talk to yourself with “I want to do this, BUT I’m so that”-sentences. When you do, replace your BUTs with ANDs and see if you notice any difference in how you behave.",
+          "text": "If you’re up for it, you can continue with this mission: \n\nFor the coming three days, see if you can notice when you talk to yourself with *I want to do this, BUT I’m so that*-sentences. When you do, replace your BUTs with ANDs and see if you notice any difference in how you behave.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675416302/Images/card_bring_your_fee.._cs3oph.png"
-          }
+          },
+          "heading": "Well done"
         }
       }
     ],
