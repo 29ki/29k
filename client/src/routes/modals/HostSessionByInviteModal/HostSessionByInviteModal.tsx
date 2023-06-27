@@ -90,8 +90,8 @@ const Tags = styled(Gutters)({
 const InvitationModal: React.FC<{
   session: LiveSessionType;
   hostingCode: number;
-  fetchSession: Function;
-}> = ({session, hostingCode}) => {
+  onError: (err: Error) => void;
+}> = ({session, hostingCode, onError}) => {
   const exercise = useExerciseById(session?.exerciseId);
   const tags = useGetSessionCardTags(exercise);
   const {t} = useTranslation('Modal.HostSessionByInvite');
@@ -102,14 +102,24 @@ const InvitationModal: React.FC<{
 
   const acceptInvite = useCallback(async () => {
     if (session?.id) {
-      const updatedSession = await acceptHostingInvite(session.id, hostingCode);
-      fetchSessions();
-      navigation.goBack();
-      navigation.navigate('SessionModal', {
-        session: updatedSession,
-      });
+      try {
+        const updatedSession = await acceptHostingInvite(
+          session.id,
+          hostingCode,
+        );
+
+        fetchSessions();
+        navigation.goBack();
+        navigation.navigate('SessionModal', {
+          session: updatedSession,
+        });
+      } catch (err) {
+        onError(err as Error);
+      }
+    } else {
+      onError(Error(JoinSessionError.notFound));
     }
-  }, [session?.id, hostingCode, navigation, fetchSessions]);
+  }, [session?.id, hostingCode, navigation, fetchSessions, onError]);
 
   const onCancel = useCallback(() => navigation.goBack(), [navigation]);
 
@@ -192,28 +202,27 @@ const HostSessionByInviteModal = () => {
   const [session, setSession] = useState<LiveSessionType>();
   const [error, setError] = useState<string>();
 
+  const handleError = useCallback(
+    (err: Error) => {
+      setError(err.message as JoinSessionError);
+    },
+    [setError],
+  );
+
   const fetchSession = useCallback(async () => {
     try {
       const fetchedSession = await getSessionByHostingCode(hostingCode);
       setSession(fetchedSession);
     } catch (err) {
-      setError((err as Error).message as JoinSessionError);
+      handleError(err as Error);
     }
-  }, [hostingCode]);
+  }, [hostingCode, handleError]);
 
   useEffect(() => {
     if (userHasProfile) {
       fetchSession();
     }
   }, [fetchSession, userHasProfile]);
-
-  if (!userHasProfile) {
-    return (
-      <SheetModal backgroundColor={COLORS.CREAM}>
-        <UpdateProfileStep />
-      </SheetModal>
-    );
-  }
 
   if (
     error === JoinSessionError.notAvailable ||
@@ -224,13 +233,21 @@ const HostSessionByInviteModal = () => {
     return <HostingInviteFailModal />;
   }
 
+  if (!userHasProfile) {
+    return (
+      <SheetModal backgroundColor={COLORS.CREAM}>
+        <UpdateProfileStep />
+      </SheetModal>
+    );
+  }
+
   return (
     <SheetModal backgroundColor={COLORS.CREAM}>
       {session ? (
         <InvitationModal
           session={session}
           hostingCode={hostingCode}
-          fetchSession={fetchSession}
+          onError={handleError}
         />
       ) : null}
     </SheetModal>
