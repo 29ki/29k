@@ -12,7 +12,8 @@
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1683721090/Lottie/dive_in_audio_visual_white_vjvfjo.json",
             "durationTimer": true,
             "autoPlayLoop": false,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683708370/Audio/dive_in_intro_kn3di2.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687865086/Audio/Dive_in_spf3bt.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1687865117/SRT%20(captions)%20files/Dive_in_jvdyav.srt"
           }
         }
       },
