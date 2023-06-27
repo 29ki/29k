@@ -97,7 +97,10 @@
         "type": "instruction",
         "content": {
           "heading": "Well done",
-          "text": "If you’re up for it, you can continue with this mission:\n\nFor the coming three days, take a couple of minutes each day and ground yourself in the present moment with your breathing."
+          "text": "If you’re up for it, you can continue with this mission:\n\nFor the coming three days, take a couple of minutes each day and ground yourself in the present moment with your breathing.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678973954/Images/card_image_breathing_anchor_vibuvl.png"
+          }
         }
       }
     ],
