@@ -19,8 +19,8 @@ import BylineUser from '../../../lib/components/Bylines/BylineUser';
 
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import VideoLooper from '../../../lib/components/VideoLooper/VideoLooper';
-import MediaControls from '../../../lib/session/components/MediaControls/MediaControls';
-import Subtitles from '../../../lib/session/components/Slides/Slides/Blocks/Subtitles';
+import MediaControls from '../../../lib/components/MediaControls/MediaControls';
+import Subtitles from '../../../lib/components/Subtitles/Subtitles';
 import {StyleSheet} from 'react-native';
 
 const TextWrapper = styled.View({

@@ -2,9 +2,10 @@ import React from 'react';
 import {useMemo} from 'react';
 import {StyleSheet, ViewStyle} from 'react-native';
 import RNSubtitles from 'react-native-subtitles';
-import {COLORS} from '../../../../../../../../shared/src/constants/colors';
-import {SPACINGS} from '../../../../../constants/spacings';
 import hexToRgba from 'hex-to-rgba';
+
+import {COLORS} from '../../../../../shared/src/constants/colors';
+import {SPACINGS} from '../../constants/spacings';
 
 type SubtitleProps = {
   src: string;

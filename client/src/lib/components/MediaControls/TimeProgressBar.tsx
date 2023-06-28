@@ -9,8 +9,8 @@ import Animated, {
 import styled from 'styled-components/native';
 import hexToRgba from 'hex-to-rgba';
 
-import {COLORS} from '../../../../../../shared/src/constants/colors';
-import {SPACINGS} from '../../../constants/spacings';
+import {COLORS} from '../../../../../shared/src/constants/colors';
+import {SPACINGS} from '../../constants/spacings';
 
 const Wrapper = styled.View<{color?: string}>(({color}) => ({
   flexDirection: 'row',

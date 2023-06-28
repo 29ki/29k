@@ -1,19 +1,14 @@
 import React from 'react';
-import styled from 'styled-components/native';
-import IconButton from '../../../components/Buttons/IconButton/IconButton';
-import {
-  Backward15,
-  Forward15,
-  Pause,
-  Play,
-  SubtitlesIcon,
-} from '../../../components/Icons';
-import {Spacer16, Spacer32, Spacer8} from '../../../components/Spacers/Spacer';
 import {View} from 'react-native';
-import {COLORS} from '../../../../../../shared/src/constants/colors';
-import {Body14} from '../../../components/Typography/Body/Body';
-import {SPACINGS} from '../../../constants/spacings';
-import useSessionState from '../../state/state';
+import styled from 'styled-components/native';
+import IconButton from '../Buttons/IconButton/IconButton';
+
+import {Backward15, Forward15, Pause, Play, SubtitlesIcon} from '../Icons';
+import {Spacer16, Spacer32, Spacer8} from '../Spacers/Spacer';
+import {COLORS} from '../../../../../shared/src/constants/colors';
+import {Body14} from '../Typography/Body/Body';
+import {SPACINGS} from '../../constants/spacings';
+import useSessionState from '../../session/state/state';
 import TimeProgressBar from './TimeProgressBar';
 
 const Wrapper = styled.View({

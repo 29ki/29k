@@ -10,8 +10,8 @@ import LPlayer, {
 } from '../../../../../components/LottiePlayer/LottiePlayer';
 import MediaWrapperResolver from './MediaWrapperResolver';
 import {Spacer16} from '../../../../../components/Spacers/Spacer';
-import MediaControls from '../../../MediaControls/MediaControls';
-import Subtitles from './Subtitles';
+import MediaControls from '../../../../../components/MediaControls/MediaControls';
+import Subtitles from '../../../../../components/Subtitles/Subtitles';
 import Gutters from '../../../../../components/Gutters/Gutters';
 
 const LottiePlayer = styled(LPlayer)({
