@@ -2,6 +2,7 @@ import React, {useCallback, useMemo, useRef, useState} from 'react';
 
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import styled from 'styled-components/native';
+import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 
 import Gutters from '../../../lib/components/Gutters/Gutters';
 
@@ -108,16 +109,28 @@ const SharingPostModal = () => {
     setShowSubtitles(state => !state);
   }, [setShowSubtitles]);
 
+  if (text) {
+    return (
+      <SheetModal onPressClose={goBack} backgroundColor={COLORS.WHITE}>
+        <BottomSheetScrollView>
+          <Wrapper>
+            <BylineUser user={userProfile} />
+            <Spacer16 />
+
+            <TextWrapper>
+              <Body18>{text}</Body18>
+            </TextWrapper>
+          </Wrapper>
+        </BottomSheetScrollView>
+      </SheetModal>
+    );
+  }
+
   return (
     <SheetModal onPressClose={goBack} backgroundColor={COLORS.WHITE}>
       <Wrapper>
         <BylineUser user={userProfile} />
         <Spacer16 />
-        {text && (
-          <TextWrapper>
-            <Body18>{text}</Body18>
-          </TextWrapper>
-        )}
 
         {videoSources && (
           <>
@@ -131,7 +144,9 @@ const SharingPostModal = () => {
               />
               {subtitles && showSubtitels && (
                 <SubtitleContainer>
-                  <Subtitles src={subtitles} time={progress} />
+                  <Gutters>
+                    <Subtitles src={subtitles} time={progress} />
+                  </Gutters>
                 </SubtitleContainer>
               )}
             </VideoWrapper>
