@@ -21,6 +21,7 @@ import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import VideoLooper from '../../../lib/components/VideoLooper/VideoLooper';
 import MediaControls from '../../../lib/session/components/MediaControls/MediaControls';
 import Subtitles from '../../../lib/session/components/Slides/Slides/Blocks/Subtitles';
+import {StyleSheet} from 'react-native';
 
 const TextWrapper = styled.View({
   backgroundColor: COLORS.PURE_WHITE,
@@ -30,6 +31,10 @@ const TextWrapper = styled.View({
 
 const Wrapper = styled(Gutters)({
   flex: 1,
+});
+
+const Spinner = styled.ActivityIndicator({
+  ...StyleSheet.absoluteFillObject,
 });
 
 const VideoWrapper = styled.View({
@@ -63,6 +68,7 @@ const SharingPostModal = () => {
   const [showSubtitels, setShowSubtitles] = useState<boolean | undefined>(
     subtitles ? false : undefined,
   );
+  const [isLoading, setIsLoading] = useState(true);
 
   const videoSources = useMemo(() => {
     if (videoSource) {
@@ -78,9 +84,10 @@ const SharingPostModal = () => {
 
   const onLoad = useCallback<(data: {duration: number}) => void>(
     data => {
+      setIsLoading(false);
       setDuration(data.duration);
     },
-    [setDuration],
+    [setDuration, setIsLoading],
   );
 
   const onProgress = useCallback(
@@ -131,7 +138,7 @@ const SharingPostModal = () => {
       <Wrapper>
         <BylineUser user={userProfile} />
         <Spacer16 />
-
+        {isLoading && <Spinner size="large" />}
         {videoSources && (
           <>
             <VideoWrapper>
