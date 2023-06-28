@@ -75,8 +75,10 @@ export type ModalStackProps = {
   };
   SharingModal: {exerciseId: string};
   SharingPostModal: {
-    userProfile?: UserProfileType | null;
-    text: string;
+    userProfile?: Pick<UserProfileType, 'displayName' | 'photoURL'> | null;
+    text?: string;
+    videoSource?: string;
+    subtitles?: string;
   };
   SessionUnavailableModal: undefined;
   AddSessionByInviteModal?: {inviteCode?: number};

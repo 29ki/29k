@@ -197,6 +197,21 @@ export interface ExerciseSlideSharingSlideContent {
   lottie?: ExerciseSlideSharingSlideContentLottie;
 }
 
+export interface ExerciseSlideSharingSlideSharingVideosSharingVideoProfile {
+  displayName?: string;
+  photoURL?: string;
+}
+
+export interface ExerciseSlideSharingSlideSharingVideosSharingVideo {
+  source?: string;
+  subtitles?: string;
+  profile?: ExerciseSlideSharingSlideSharingVideosSharingVideoProfile;
+}
+
+export interface ExerciseSlideSharingSlideSharingVideos {
+  video?: ExerciseSlideSharingSlideSharingVideosSharingVideo;
+}
+
 export interface ExerciseSlideHostSlideHostNote {
   text?: string;
   asyncText?: string;
@@ -230,6 +245,7 @@ export interface ExerciseSlideSharingSlide {
   id: string;
   hostNotes?: ExerciseSlideSharingSlideHostNote[];
   content?: ExerciseSlideSharingSlideContent;
+  sharingVideos?: ExerciseSlideSharingSlideSharingVideos[];
 }
 
 export interface ExerciseSlideHostSlide {

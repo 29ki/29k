@@ -15,12 +15,12 @@ type SubtitleProps = {
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    width: 216,
+    minWidth: '80%',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,
-    backgroundColor: hexToRgba(COLORS.WHITE, 0.51),
+    backgroundColor: hexToRgba(COLORS.PURE_WHITE, 0.51),
   },
   textStyle: {
     textAlign: 'center',

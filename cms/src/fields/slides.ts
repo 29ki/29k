@@ -9,6 +9,7 @@ import {
   IMAGE_FIELD,
   LOTTIE_FIELD_WITH_AUDIO,
   MANUAL_ID_FIELD,
+  SHARING_VIDEO_FIELD,
   VIDEO_FIELD,
   VIDEO_FIELD_WITH_AUDIO,
 } from './common';
@@ -208,6 +209,14 @@ export const SHARING_SLIDE: CmsFieldBase & CmsFieldObject = {
       required: false,
       collapsed: false,
       fields: CONTENT_FIELDS,
+    },
+    {
+      label: 'Sharing videos',
+      name: 'sharingVideos',
+      widget: 'list',
+      required: false,
+      collapsed: true,
+      fields: [SHARING_VIDEO_FIELD],
     },
   ],
 };

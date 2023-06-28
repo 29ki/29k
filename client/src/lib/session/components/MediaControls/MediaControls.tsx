@@ -12,7 +12,6 @@ import {Spacer16, Spacer32, Spacer8} from '../../../components/Spacers/Spacer';
 import {View} from 'react-native';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Body14} from '../../../components/Typography/Body/Body';
-import Gutters from '../../../components/Gutters/Gutters';
 import {SPACINGS} from '../../../constants/spacings';
 import useSessionState from '../../state/state';
 import TimeProgressBar from './TimeProgressBar';
@@ -23,9 +22,15 @@ const Wrapper = styled.View({
   alignItems: 'center',
 });
 
+const ControlsWrapper = styled.View({
+  flex: 1,
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignItems: 'center',
+});
+
 const ProgressWrapper = styled.View({
   flexDirection: 'row',
-  paddingHorizontal: SPACINGS.SIXTEEN,
 });
 
 const TimeWrapper = styled.View({
@@ -50,7 +55,7 @@ const PlayPauseButton = styled(IconButton)({
 
 const SubtitlesWrapper = styled.View({
   position: 'absolute',
-  right: 20,
+  right: 0,
 });
 
 type MediaControlsProps = {
@@ -61,7 +66,8 @@ type MediaControlsProps = {
   onSkipForward: () => void;
   onSkipBack: () => void;
   onTogglePlay: () => void;
-  onToggleSubtitles: () => void;
+  onToggleSubtitles?: () => void;
+  light?: boolean;
 };
 
 const MediaControls: React.FC<MediaControlsProps> = ({
@@ -73,6 +79,7 @@ const MediaControls: React.FC<MediaControlsProps> = ({
   onSkipBack,
   onTogglePlay,
   onToggleSubtitles,
+  light,
 }) => {
   const theme = useSessionState(state => state.exercise?.theme);
   const timeMinutes = Math.floor(time / 60);
@@ -88,45 +95,47 @@ const MediaControls: React.FC<MediaControlsProps> = ({
     leftSeconds < 10 ? '0' + leftSeconds.toString() : leftSeconds
   }`;
 
+  const variant = light ? 'secondary' : 'tertiary';
+
   return (
     <View>
-      <Gutters>
-        <ProgressWrapper>
-          <Progress color={theme?.textColor} index={time} length={duration} />
-        </ProgressWrapper>
-        <Spacer8 />
-        <TimeWrapper>
-          <TimeLabel color={theme?.textColor}>{displayTime}</TimeLabel>
-          <TimeLabel color={theme?.textColor}>{displayLeft}</TimeLabel>
-        </TimeWrapper>
-        <Spacer16 />
+      <ProgressWrapper>
+        <Progress color={theme?.textColor} index={time} length={duration} />
+      </ProgressWrapper>
+      <Spacer8 />
+      <TimeWrapper>
+        <TimeLabel color={theme?.textColor}>{displayTime}</TimeLabel>
+        <TimeLabel color={theme?.textColor}>{displayLeft}</TimeLabel>
+      </TimeWrapper>
+      <Spacer16 />
 
-        <Wrapper>
+      <Wrapper>
+        <ControlsWrapper>
           <IconButton
             small
-            variant="tertiary"
+            variant={variant}
             Icon={Backward15}
             onPress={onSkipBack}
           />
           <Spacer32 />
           <PlayPauseButton
-            variant="tertiary"
+            variant={variant}
             Icon={playing ? Pause : Play}
             onPress={onTogglePlay}
           />
           <Spacer32 />
           <IconButton
             small
-            variant="tertiary"
+            variant={variant}
             Icon={Forward15}
             onPress={onSkipForward}
           />
-          {subtitles !== undefined && (
+          {subtitles !== undefined && onToggleSubtitles && (
             <SubtitlesWrapper>
               {subtitles ? (
                 <IconButton
                   small
-                  variant="tertiary"
+                  variant={variant}
                   fill={COLORS.PRIMARY}
                   Icon={SubtitlesIcon}
                   onPress={onToggleSubtitles}
@@ -134,15 +143,15 @@ const MediaControls: React.FC<MediaControlsProps> = ({
               ) : (
                 <IconButton
                   small
-                  variant="tertiary"
+                  variant={variant}
                   Icon={SubtitlesIcon}
                   onPress={onToggleSubtitles}
                 />
               )}
             </SubtitlesWrapper>
           )}
-        </Wrapper>
-      </Gutters>
+        </ControlsWrapper>
+      </Wrapper>
     </View>
   );
 };
