@@ -9,12 +9,14 @@ export const getInitialURL = async () => {
     const dynamicLink = await dynamicLinks().getInitialLink();
 
     if (dynamicLink) {
-      return appendOrigin(dynamicLink.url, 'link');
+      const {url, utmParameters} = dynamicLink;
+
+      return appendOrigin(url, 'link', utmParameters);
     }
   }
 };
 
 export const addEventListener = (handler: (url: string) => void) =>
-  dynamicLinks().onLink(({url}) => {
-    handler(appendOrigin(url, 'link'));
+  dynamicLinks().onLink(({url, utmParameters}) => {
+    handler(appendOrigin(url, 'link', utmParameters));
   });
