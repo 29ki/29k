@@ -29,17 +29,35 @@ export const logEvent = async (
 export const setUserProperties = async (
   userId: string,
   properties: Properties = {},
+  once = true, // Overwrite existing properties?
 ) => {
-  await firestore()
+  const collectionRef = firestore()
     .collection(USER_PROPERTIES_COLLECTION)
-    .doc(userId)
-    .set(
+    .doc(userId);
+
+  if (once) {
+    // Does not overwrite already exising properties
+    await firestore().runTransaction(async transaction => {
+      const propertiesRef = await transaction.get(collectionRef);
+
+      await transaction.set(
+        collectionRef,
+        {
+          ...properties,
+          ...propertiesRef.data(),
+        },
+        {merge: true},
+      );
+    });
+  } else {
+    await collectionRef.set(
       {
         ...properties,
         updatedAt: Timestamp.now(),
       },
       {merge: true},
     );
+  }
 };
 
 export const addFeedback = async (feedback: Feedback) => {

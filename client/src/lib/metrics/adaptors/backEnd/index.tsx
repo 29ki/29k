@@ -59,11 +59,14 @@ export const logFeeback: LogFeedback = async feedback => {
   });
 };
 
-export const setUserProperties: SetUserProperties = async properties => {
+export const setUserProperties: SetUserProperties = async (
+  properties,
+  once = false, // Overwrite existing properties?
+) => {
   const uid = getMetricsUid();
   if (uid && haveConsent) {
     await metricsClient(`userProperties/${uid}`, {
-      method: 'POST',
+      method: once ? 'PUT' : 'POST',
       body: JSON.stringify(properties),
     });
   }

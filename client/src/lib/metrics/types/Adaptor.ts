@@ -30,6 +30,7 @@ export type LogFeedback = (feedback: Feedback) => Promise<void>;
 
 export type SetUserProperties = (
   properties: AnyUserProperty & AnyCoreProperty,
+  once?: boolean,
 ) => Promise<void>;
 
 export type SetCoreProperties = (properties: AnyCoreProperty) => Promise<void>;
