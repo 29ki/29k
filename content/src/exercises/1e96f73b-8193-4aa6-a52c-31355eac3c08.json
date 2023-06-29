@@ -106,8 +106,7 @@
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": ""
+      "textColor": "#2E2E2E"
     },
     "hidden": true,
     "name": "The way out is through",
