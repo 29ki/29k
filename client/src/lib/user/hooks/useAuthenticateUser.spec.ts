@@ -48,7 +48,7 @@ describe('useAuthenticateUser', () => {
       uid: 'some-user-id',
       isAnonymous: false,
     });
-    expect(result.current.userState['some-user-id']).toBe(undefined);
+    expect(result.current.userState['some-user-id']).toEqual({});
   });
 
   it('should set initial user state if user is anonymous', async () => {

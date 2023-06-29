@@ -6,13 +6,167 @@ import {
   UserEvent,
 } from '../../../../../shared/src/types/Event';
 import {Collection} from '../../../../../shared/src/types/generated/Collection';
-import useUserState from './state';
+import useUserState, {State, getCurrentUserStateSelector} from './state';
 
 afterEach(() => {
   jest.useRealTimers();
 });
 
+describe('getCurrentUserStateSelector', () => {
+  it('should return ephemeral state when user is null', () => {
+    expect(
+      getCurrentUserStateSelector({
+        user: null,
+        data: null,
+        claims: {},
+        userState: {
+          'some-user-id': {
+            metricsUid: 'some-metrics-uid',
+          },
+          ephemeral: {
+            metricsUid: 'some-ephemeral-metrics-uid',
+          },
+        },
+      }),
+    ).toEqual({metricsUid: 'some-ephemeral-metrics-uid'});
+  });
+
+  it('should return current user state when user set', () => {
+    expect(
+      getCurrentUserStateSelector({
+        user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
+        data: null,
+        claims: {},
+        userState: {
+          'some-user-id': {
+            metricsUid: 'some-metrics-uid',
+          },
+          ephemeral: {
+            metricsUid: 'some-ephemeral-metrics-uid',
+          },
+        },
+      }),
+    ).toEqual({metricsUid: 'some-metrics-uid'});
+  });
+});
+
 describe('user - state', () => {
+  describe('setUserAndClaims', () => {
+    it('migrates the ephemeral user state to the user', () => {
+      useUserState.setState({
+        user: null,
+        userState: {
+          ephemeral: {
+            metricsUid: 'some-metrics-uid',
+          },
+        },
+      });
+
+      const {result} = renderHook(() => useUserState());
+
+      act(() => {
+        result.current.setUserAndClaims({
+          user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
+          claims: {},
+        });
+      });
+
+      expect(result.current.userState).toEqual({
+        'some-user-id': {
+          metricsUid: 'some-metrics-uid',
+        },
+      });
+    });
+
+    it('keeps the ephemeral state when user is set to null', () => {
+      useUserState.setState({
+        user: null,
+        userState: {
+          ephemeral: {
+            metricsUid: 'some-metrics-uid',
+          },
+        },
+      });
+
+      const {result} = renderHook(() => useUserState());
+
+      act(() => {
+        result.current.setUserAndClaims({
+          user: null,
+          claims: {},
+        });
+      });
+
+      expect(result.current.userState).toEqual({
+        ephemeral: {
+          metricsUid: 'some-metrics-uid',
+        },
+      });
+    });
+  });
+
+  describe('setCurrentUserState', () => {
+    it('sets an ephemeral user state when user is null', () => {
+      useUserState.setState({
+        user: null,
+      });
+
+      const {result} = renderHook(() => useUserState());
+
+      act(() => {
+        result.current.setCurrentUserState({
+          metricsUid: 'some-metrics-uid',
+        });
+      });
+
+      expect(result.current.userState).toEqual({
+        ephemeral: {
+          metricsUid: 'some-metrics-uid',
+        },
+      });
+    });
+
+    it('sets current user state when user is defined', () => {
+      useUserState.setState({
+        user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
+      });
+
+      const {result} = renderHook(() => useUserState());
+
+      act(() => {
+        result.current.setCurrentUserState({
+          metricsUid: 'some-metrics-uid',
+        });
+      });
+
+      expect(result.current.userState).toEqual({
+        'some-user-id': {
+          metricsUid: 'some-metrics-uid',
+        },
+      });
+    });
+
+    it('supports a setter function', () => {
+      useUserState.setState({
+        user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
+      });
+
+      const {result} = renderHook(() => useUserState());
+
+      act(() => {
+        result.current.setCurrentUserState(() => ({
+          metricsUid: 'some-metrics-uid',
+        }));
+      });
+
+      expect(result.current.userState).toEqual({
+        'some-user-id': {
+          metricsUid: 'some-metrics-uid',
+        },
+      });
+    });
+  });
+
   describe('setIntitalState', () => {
     it('should initialize user state if collections has not been set', () => {
       useUserState.setState({
@@ -498,10 +652,13 @@ describe('user - state', () => {
   });
 
   describe('reset', () => {
-    it('should keep user state when not deleted', () => {
+    it('should keep current user and ephemeral state when not deleted', () => {
       useUserState.setState({
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,
         userState: {
+          ephemeral: {
+            metricsUid: 'some-metrics-uid',
+          },
           'user-id': {
             pinnedSessions: [{id: 'pinned-session-id', expires: new Date()}],
             userEvents: [
@@ -521,22 +678,30 @@ describe('user - state', () => {
         result.current.reset();
       });
 
-      expect(result.current.userState['user-id'].pinnedSessions).toEqual([
-        {id: 'pinned-session-id', expires: expect.any(Date)},
-      ]);
-      expect(result.current.userState['user-id'].userEvents).toEqual([
-        {
-          type: 'post',
-          payload: {sessionId: 'some-session-id'},
-          timestamp: expect.any(String),
+      expect(result.current.userState).toEqual({
+        ephemeral: {metricsUid: 'some-metrics-uid'},
+        'user-id': {
+          pinnedSessions: [
+            {id: 'pinned-session-id', expires: expect.any(Date)},
+          ],
+          userEvents: [
+            {
+              type: 'post',
+              timestamp: expect.any(String),
+              payload: {sessionId: 'some-session-id'},
+            },
+          ],
         },
-      ]);
+      });
     });
 
-    it('should delete only current user state deleted', () => {
+    it('should delete current user and ephemeral state only', () => {
       useUserState.setState({
         user: {uid: 'user-id'} as FirebaseAuthTypes.User,
         userState: {
+          ephemeral: {
+            metricsUid: 'some-metrics-uid',
+          },
           'user-id': {
             pinnedSessions: [{id: 'pinned-session-id', expires: new Date()}],
             userEvents: [
@@ -566,17 +731,23 @@ describe('user - state', () => {
         result.current.reset(true);
       });
 
-      expect(result.current.userState['user-id']).toBe(undefined);
-      expect(result.current.userState['user-id-2'].pinnedSessions).toEqual([
-        {id: 'pinned-session-id', expires: expect.any(Date)},
-      ]);
-      expect(result.current.userState['user-id-2'].userEvents).toEqual([
-        {
-          type: 'post',
-          payload: {sessionId: 'some-session-id'},
-          timestamp: expect.any(String),
+      expect(result.current.userState).toEqual({
+        'user-id-2': {
+          pinnedSessions: [
+            {
+              id: 'pinned-session-id',
+              expires: expect.any(Date),
+            },
+          ],
+          userEvents: [
+            {
+              type: 'post',
+              timestamp: expect.any(String),
+              payload: {sessionId: 'some-session-id'},
+            },
+          ],
         },
-      ]);
+      });
     });
   });
 });
