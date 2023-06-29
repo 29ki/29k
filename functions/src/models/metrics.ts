@@ -29,7 +29,7 @@ export const logEvent = async (
 export const setUserProperties = async (
   userId: string,
   properties: Properties = {},
-  once = true, // Overwrite existing properties?
+  once = false, // Overwrite existing properties?
 ) => {
   const collectionRef = firestore()
     .collection(USER_PROPERTIES_COLLECTION)
