@@ -138,14 +138,25 @@ const ContentControls: React.FC<ContentControlsProps> = ({
             />
           </MediaControls>
         )}
-      <SlideButton
-        small
-        variant="tertiary"
-        disabled={!slideState.next && !async}
-        RightIcon={ChevronRight}
-        onPress={onNextPress}>
-        {t('controls.next')}
-      </SlideButton>
+      {async ? (
+        <SlideButton
+          small
+          variant="tertiary"
+          active={!slideState.next}
+          RightIcon={slideState.next && ChevronRight}
+          onPress={onNextPress}>
+          {slideState.next ? t('controls.next') : t('controls.end')}
+        </SlideButton>
+      ) : (
+        <SlideButton
+          small
+          variant="tertiary"
+          disabled={!slideState.next}
+          RightIcon={ChevronRight}
+          onPress={onNextPress}>
+          {t('controls.next')}
+        </SlideButton>
+      )}
     </Wrapper>
   );
 };
