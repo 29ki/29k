@@ -40,7 +40,6 @@ import {
   ThumbsUpWithoutPadding,
   ThumbsDownWithoutPadding,
 } from '../../../../lib/components/Thumbs/Thumbs';
-import useSharingPosts from '../../../../lib/posts/hooks/useSharingPosts';
 import useUser from '../../../../lib/user/hooks/useUser';
 import {Body14} from '../../../../lib/components/Typography/Body/Body';
 import BylineUser from '../../../../lib/components/Bylines/BylineUser';
