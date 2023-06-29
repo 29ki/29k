@@ -6,7 +6,7 @@ import {
   UserEvent,
 } from '../../../../../shared/src/types/Event';
 import {Collection} from '../../../../../shared/src/types/generated/Collection';
-import useUserState, {State, getCurrentUserStateSelector} from './state';
+import useUserState, {getCurrentUserStateSelector} from './state';
 
 afterEach(() => {
   jest.useRealTimers();
