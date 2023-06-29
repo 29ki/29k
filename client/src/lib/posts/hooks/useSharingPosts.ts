@@ -38,7 +38,7 @@ const useSharingPosts = (exerciseId?: string) => {
           sessionId: session.id,
           sharingId,
           isPublic,
-          isAnonymous,
+          isAnonymous: !isPublic ? false : isAnonymous,
           text,
         });
         logAsyncPostMetricEvent('Create Async Post', isPublic, isAnonymous);
