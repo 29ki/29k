@@ -10,8 +10,9 @@ import LPlayer, {
 } from '../../../../../components/LottiePlayer/LottiePlayer';
 import MediaWrapperResolver from './MediaWrapperResolver';
 import {Spacer16} from '../../../../../components/Spacers/Spacer';
-import MediaControls from '../../../MediaControls/MediaControls';
-import Subtitles from './Subtitles';
+import MediaControls from '../../../../../components/MediaControls/MediaControls';
+import Subtitles from '../../../../../components/Subtitles/Subtitles';
+import Gutters from '../../../../../components/Gutters/Gutters';
 
 const LottiePlayer = styled(LPlayer)({
   flex: 1,
@@ -229,16 +230,18 @@ const Lottie: React.FC<LottieProps> = ({
               </SubtitleContainer>
             )}
             <Spacer16 />
-            <MediaControls
-              time={progress}
-              duration={audioDuration}
-              playing={!paused}
-              onSkipBack={onSkipBack}
-              onTogglePlay={onTogglePlay}
-              onSkipForward={onSkipForward}
-              onToggleSubtitles={onToggleSubtitles}
-              subtitles={subtitles ? showSubtitels : undefined}
-            />
+            <Gutters big>
+              <MediaControls
+                time={progress}
+                duration={audioDuration}
+                playing={!paused}
+                onSkipBack={onSkipBack}
+                onTogglePlay={onTogglePlay}
+                onSkipForward={onSkipForward}
+                onToggleSubtitles={onToggleSubtitles}
+                subtitles={subtitles ? showSubtitels : undefined}
+              />
+            </Gutters>
           </View>
         )}
       </>

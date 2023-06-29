@@ -193,7 +193,7 @@ const ModalStack = () => {
         <Screen
           name={'SharingPostModal'}
           component={SharingPostModal}
-          options={tallSheetModalScreenOptions}
+          options={fullyExtendedSheetModalScreenOptions}
         />
         <Screen
           name={'CreateSessionModal'}

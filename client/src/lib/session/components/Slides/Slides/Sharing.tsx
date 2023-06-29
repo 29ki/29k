@@ -9,7 +9,6 @@ import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
 import {ExerciseSlideSharingSlide} from '../../../../../../../shared/src/types/generated/Exercise';
-import {PostType} from '../../../../../../../shared/src/schemas/Post';
 import Button from '../../../../components/Buttons/Button';
 import Gutters from '../../../../components/Gutters/Gutters';
 import {PlusIcon} from '../../../../components/Icons';
@@ -31,6 +30,7 @@ import useUser from '../../../../user/hooks/useUser';
 import useSessionState from '../../../state/state';
 import ListPostCard, {CARD_WIDTH} from '../../Posts/ListPostCard';
 import MyPostCard from '../../Posts/MyPostCard';
+import {PostItem} from '../../../../posts/types/PostItem';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -106,11 +106,11 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
     [background],
   );
 
-  const [posts, setPosts] = useState<PostType[]>([]);
+  const [posts, setPosts] = useState<PostItem[]>([]);
 
   useEffect(() => {
-    getSharingPosts(slide.id).then(setPosts);
-  }, [getSharingPosts, slide.id]);
+    getSharingPosts(slide.id, slide.sharingVideos).then(setPosts);
+  }, [getSharingPosts, slide.id, slide.sharingVideos]);
 
   const onAddSharing = useCallback(() => {
     if (session?.exerciseId) {
@@ -135,18 +135,36 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
     return null;
   }, [user]);
 
-  const renderItem = useCallback<ListRenderItem<PostType>>(
+  const renderItem = useCallback<ListRenderItem<PostItem>>(
     ({item, index}) => {
+      if (item.type === 'text') {
+        return (
+          <ItemWrapper isLast={index === posts.length - 1}>
+            <ListPostCard
+              text={item.item.text}
+              userProfile={item.item.userProfile}
+            />
+          </ItemWrapper>
+        );
+      }
       return (
         <ItemWrapper isLast={index === posts.length - 1}>
-          <ListPostCard text={item.text} userProfile={item.userProfile} />
+          <ListPostCard
+            videoSource={item.item.video?.source}
+            subtitles={item.item.video?.subtitles}
+            userProfile={item.item.video?.profile ?? null}
+          />
         </ItemWrapper>
       );
     },
     [posts],
   );
 
-  const keyExtractor = useCallback((item: PostType) => item.id, []);
+  const keyExtractor = useCallback(
+    (item: PostItem) =>
+      item.type === 'video' ? item.item.video!.source! : item.item.id,
+    [],
+  );
 
   return (
     <Wrapper>
