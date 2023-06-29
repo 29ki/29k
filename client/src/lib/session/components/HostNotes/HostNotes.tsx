@@ -168,6 +168,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
             <Progress
               index={sessionSlideState?.index}
               length={exercise?.slides.length}
+              empty={introPortal}
             />
             <Spacer8 />
             <ToggleButton
