@@ -8,6 +8,7 @@ import useSessionState from '../../../state/state';
 import {ExerciseSlideHostSlide} from '../../../../../../../shared/src/types/generated/Exercise';
 import Video from './Blocks/Video';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
+import useExerciseTheme from '../../../../content/hooks/useExerciseTheme';
 
 const VideoWrapper = styled.View({
   height: '100%',
@@ -31,7 +32,8 @@ const HostVideo: React.FC<HostVideoProps> = ({
   slide: {video = null},
   active,
 }) => {
-  const theme = useSessionState(state => state.exercise?.theme);
+  const exercise = useSessionState(state => state.exercise);
+  const theme = useExerciseTheme(exercise);
   const background = theme?.backgroundColor ?? COLORS.WHITE;
   const colors = useMemo(
     () => [hexToRgba(background, 0), hexToRgba(background, 1)],

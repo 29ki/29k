@@ -16,6 +16,7 @@ import {SPACINGS} from '../../../constants/spacings';
 import VideoTransition from '../VideoTransition/VideoTransition';
 import AudioFader from '../AudioFader/AudioFader';
 import Button from '../../../components/Buttons/Button';
+import useExerciseTheme from '../../../content/hooks/useExerciseTheme';
 
 const Spinner = styled.ActivityIndicator({
   ...StyleSheet.absoluteFillObject,
@@ -36,7 +37,7 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
   onLeaveSession,
 }) => {
   const {t} = useTranslation('Screen.Portal');
-
+  const theme = useExerciseTheme(exercise);
   const [isLoading, setIsLoading] = useState(true);
   const [isReadyToLeave, setIsReadyToLeave] = useState(false);
   const isFocused = useIsFocused();
@@ -60,7 +61,7 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
   }, []);
 
   return (
-    <Screen backgroundColor={exercise?.theme?.backgroundColor}>
+    <Screen backgroundColor={theme?.backgroundColor}>
       <TopSafeArea minSize={SPACINGS.SIXTEEN} />
       {outroPortal?.video?.source ? (
         <VideoTransition
@@ -95,7 +96,7 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
         )
       )}
 
-      {isLoading && <Spinner size="large" color={exercise?.theme?.textColor} />}
+      {isLoading && <Spinner size="large" color={theme?.textColor} />}
 
       <TopBar>
         <Button variant="secondary" small onPress={onLeaveSession}>

@@ -5,6 +5,7 @@ import Gutters from '../../../../../components/Gutters/Gutters';
 import {Spacer4} from '../../../../../components/Spacers/Spacer';
 import {Body16} from '../../../../../components/Typography/Body/Body';
 import useSessionState from '../../../../state/state';
+import useExerciseTheme from '../../../../../content/hooks/useExerciseTheme';
 
 type StyledBodyProps = {textColor?: string};
 const StyledBody = styled(Body16)<StyledBodyProps>(({textColor}) => ({
@@ -15,7 +16,8 @@ const StyledBody = styled(Body16)<StyledBodyProps>(({textColor}) => ({
 const Body: React.FC<{
   children: React.ReactNode;
 }> = ({children}) => {
-  const theme = useSessionState(state => state.exercise?.theme);
+  const exercise = useSessionState(state => state.exercise);
+  const theme = useExerciseTheme(exercise);
 
   return (
     <Gutters>
