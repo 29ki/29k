@@ -13,6 +13,7 @@ import Host from './Slides/Host';
 import HostVideo from './Slides/HostVideo';
 import Sharing from './Slides/Sharing';
 import Instruction from './Slides/Instruction';
+import useExerciseTheme from '../../../content/hooks/useExerciseTheme';
 
 type WrapperProps = {backgroundColor?: string};
 const Wrapper = styled.View<WrapperProps>(({backgroundColor}) => ({
@@ -36,7 +37,8 @@ type SlideProps = {
 };
 
 const Slide = ({slide, active, async}: SlideProps) => {
-  const theme = useSessionState(state => state.exercise?.theme);
+  const exercise = useSessionState(state => state.exercise);
+  const theme = useExerciseTheme(exercise);
   const background = theme?.backgroundColor ?? COLORS.WHITE;
   const colors = useMemo(
     () => [hexToRgba(background, 0), hexToRgba(background, 1)],

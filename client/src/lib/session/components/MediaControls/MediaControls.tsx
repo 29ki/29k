@@ -16,6 +16,7 @@ import Gutters from '../../../components/Gutters/Gutters';
 import {SPACINGS} from '../../../constants/spacings';
 import useSessionState from '../../state/state';
 import TimeProgressBar from './TimeProgressBar';
+import useExerciseTheme from '../../../content/hooks/useExerciseTheme';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -74,7 +75,8 @@ const MediaControls: React.FC<MediaControlsProps> = ({
   onTogglePlay,
   onToggleSubtitles,
 }) => {
-  const theme = useSessionState(state => state.exercise?.theme);
+  const exercise = useSessionState(state => state.exercise);
+  const theme = useExerciseTheme(exercise);
   const timeMinutes = Math.floor(time / 60);
   const timeSeconds = Math.round(time - timeMinutes * 60);
   const left = duration - time;

@@ -62,6 +62,7 @@ import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollVie
 import SessionNotifications from '../../../lib/session/components/Notifications/SessionNotifications';
 import useSendReaction from '../../../lib/session/hooks/useSendReaction';
 import SessionReactions from '../../../lib/session/components/Reactions/SessionReactions';
+import useExerciseTheme from '../../../lib/content/hooks/useExerciseTheme';
 
 const ExerciseControl = styled(ContentControls)({
   position: 'absolute',
@@ -149,7 +150,7 @@ const Session: React.FC = () => {
   const me = useLocalParticipant();
   const isHost = useIsSessionHost();
   const sessionState = useSessionState(state => state.sessionState);
-  const theme = useSessionState(state => state.exercise?.theme);
+  const theme = useExerciseTheme(exercise);
   const currentContentReachedEnd = useSessionState(
     state => state.currentContentReachedEnd,
   );

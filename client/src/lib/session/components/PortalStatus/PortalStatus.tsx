@@ -11,6 +11,7 @@ import {Body14} from '../../../components/Typography/Body/Body';
 import Gutters from '../../../components/Gutters/Gutters';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {HKGroteskBold} from '../../../constants/fonts';
+import useExerciseTheme from '../../../content/hooks/useExerciseTheme';
 
 export const StatusItem = styled.View({
   flexDirection: 'row',
@@ -33,7 +34,8 @@ export const Container = styled(Gutters)({
 const PortalStatus: React.FC = () => {
   const {t} = useTranslation('Screen.Portal');
   const exercise = useSessionState(state => state.exercise);
-  const textColor = exercise?.theme?.textColor;
+  const theme = useExerciseTheme(exercise);
+  const textColor = theme?.textColor;
   const sessionState = useSessionState(state => state.sessionState);
   const startTime = useSessionState(state => state.liveSession?.startTime);
   const sessionTime = useSessionStartTime(dayjs(startTime));

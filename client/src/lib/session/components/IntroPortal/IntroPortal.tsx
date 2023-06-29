@@ -20,6 +20,7 @@ import HostNotes from '../HostNotes/HostNotes';
 import {ArrowLeftIcon} from '../../../components/Icons';
 import Button from '../../../components/Buttons/Button';
 import VideoTransition from '../VideoTransition/VideoTransition';
+import useExerciseTheme from '../../../content/hooks/useExerciseTheme';
 
 const Spinner = styled.ActivityIndicator({
   ...StyleSheet.absoluteFillObject,
@@ -68,6 +69,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   statusComponent,
 }) => {
   const {t} = useTranslation('Screen.Portal');
+  const theme = useExerciseTheme(exercise);
   const [isReadyForAuidio, setIsReadyForAudio] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -76,7 +78,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   const sessionState = useSessionState(state => state.sessionState);
 
   const introPortal = exercise?.introPortal;
-  const textColor = exercise?.theme?.textColor;
+  const textColor = theme?.textColor;
 
   useEffect(() => {
     if (sessionState?.started && !introPortal?.videoLoop?.source) {
@@ -123,7 +125,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   }, [setHasError]);
 
   return (
-    <Screen backgroundColor={exercise?.theme?.backgroundColor}>
+    <Screen backgroundColor={theme?.backgroundColor}>
       {(!isHost || hideHostNotes) && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
 
       {isFocused && introPortal?.videoLoop?.audio && (
@@ -156,7 +158,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
           <Spacer16 />
         </>
       )}
-      {isLoading && <Spinner color={exercise?.theme?.textColor} size="large" />}
+      {isLoading && <Spinner color={theme?.textColor} size="large" />}
       <Wrapper>
         {isFocused && (
           <Content>

@@ -31,6 +31,7 @@ import useUser from '../../../../user/hooks/useUser';
 import useSessionState from '../../../state/state';
 import ListPostCard, {CARD_WIDTH} from '../../Posts/ListPostCard';
 import MyPostCard from '../../Posts/MyPostCard';
+import useExerciseTheme from '../../../../content/hooks/useExerciseTheme';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -90,7 +91,8 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const user = useUser();
   const session = useSessionState(state => state.asyncSession);
-  const theme = useSessionState(state => state.exercise?.theme);
+  const exercise = useSessionState(state => state.exercise);
+  const theme = useExerciseTheme(exercise);
   const {getSharingPosts, getSharingPostForSession} = useSharingPosts(
     session?.exerciseId,
   );

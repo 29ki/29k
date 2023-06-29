@@ -5,6 +5,7 @@ import Gutters from '../../../../../components/Gutters/Gutters';
 import {Spacer12} from '../../../../../components/Spacers/Spacer';
 import {Display24} from '../../../../../components/Typography/Display/Display';
 import useSessionState from '../../../../state/state';
+import useExerciseTheme from '../../../../../content/hooks/useExerciseTheme';
 
 type StyledHeadingProp = {textColor?: string};
 const StyledHeading = styled(Display24)<StyledHeadingProp>(({textColor}) => ({
@@ -13,7 +14,8 @@ const StyledHeading = styled(Display24)<StyledHeadingProp>(({textColor}) => ({
 }));
 
 const Heading: React.FC<{children: React.ReactNode}> = ({children}) => {
-  const theme = useSessionState(state => state.exercise?.theme);
+  const exercise = useSessionState(state => state.exercise);
+  const theme = useExerciseTheme(exercise);
 
   return (
     <Gutters>

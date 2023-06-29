@@ -21,6 +21,7 @@ import AudioToggler from './AudioToggler';
 import {DailyContext} from '../../../daily/DailyProvider';
 import VideoOffIndicator from './VideoOffIndicator';
 import useSessionState from '../../state/state';
+import useExerciseTheme from '../../../content/hooks/useExerciseTheme';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -122,7 +123,8 @@ const Participant: React.FC<ParticipantProps> = ({
   const userData = participant?.userData as DailyUserData;
   const photoURL = userData?.photoURL;
   const userName = userData?.userName;
-  const theme = useSessionState(state => state.exercise?.theme);
+  const exercise = useSessionState(state => state.exercise);
+  const theme = useExerciseTheme(exercise);
   const background = theme?.backgroundColor ?? COLORS.WHITE;
   const isSessionHost = useIsSessionHost();
 

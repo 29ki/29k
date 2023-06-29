@@ -24,6 +24,7 @@ import useUpdateAsyncSessionState from '../../../lib/session/hooks/useUpdateAsyn
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import ProgressBar from '../../../lib/session/components/ProgressBar/ProgressBar';
 import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
+import useExerciseTheme from '../../../lib/content/hooks/useExerciseTheme';
 
 const Spotlight = styled.View({
   flex: 1,
@@ -56,7 +57,7 @@ const Session: React.FC = () => {
   );
   const exercise = useSessionState(state => state.exercise);
   const sessionSlideState = useAsyncSessionSlideState();
-  const theme = exercise?.theme;
+  const theme = useExerciseTheme(exercise);
   const logSessionMetricEvent = useAsyncSessionMetricEvents();
   const addUserEvent = useAddUserEvent();
   const {navigateToIndex} = useUpdateAsyncSessionState(session);
