@@ -7,12 +7,16 @@ import {useTranslation} from 'react-i18next';
 import useCompletedSessions from '../../../../lib/sessions/hooks/useCompletedSessions';
 import useSessions from '../../../../lib/sessions/hooks/useSessions';
 import usePinnedCollections from '../../../../lib/user/hooks/usePinnedCollections';
+import useSharingPosts from '../../../../lib/posts/hooks/useSharingPosts';
+import {SessionMode} from '../../../../../../shared/src/schemas/Session';
 
 const useSections = () => {
   const {t} = useTranslation('Screen.Journey');
   const {pinnedSessions, hostedSessions} = useSessions();
   const {completedSessions} = useCompletedSessions();
   const {pinnedCollections} = usePinnedCollections();
+
+  const {getSharingPostForSession} = useSharingPosts();
 
   return useMemo(() => {
     let sectionsList: Section[] = [];
@@ -28,7 +32,13 @@ const useSections = () => {
           title: month,
           data: items.map(s => ({
             type: 'completedSession',
-            data: s,
+            data: {
+              ...s,
+              sharingPost:
+                s.payload.mode === SessionMode.async
+                  ? getSharingPostForSession(s.payload.id)
+                  : undefined,
+            },
             id: s.payload.id,
             isFirst: completedSessions.indexOf(s) === 0,
             isLast:
@@ -74,7 +84,14 @@ const useSections = () => {
     }
 
     return sectionsList;
-  }, [pinnedSessions, hostedSessions, completedSessions, pinnedCollections, t]);
+  }, [
+    pinnedSessions,
+    hostedSessions,
+    completedSessions,
+    pinnedCollections,
+    getSharingPostForSession,
+    t,
+  ]);
 };
 
 export default useSections;

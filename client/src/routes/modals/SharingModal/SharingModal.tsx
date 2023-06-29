@@ -59,6 +59,12 @@ const Row = styled.View({
   alignItems: 'center',
 });
 
+const RightAlign = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'flex-end',
+  alignItems: 'center',
+});
+
 const ActionWrapper = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
@@ -148,7 +154,16 @@ const SharingModal = () => {
         </HeaderWrapper>
         <Spacer16 />
         <Gutters>
-          <BylineUser user={userProfile} />
+          <Row>
+            <BylineUser user={userProfile} />
+            <Button
+              variant="primary"
+              disabled={text.length < 5}
+              onPress={onSubmit}>
+              {t('submitCta')}
+            </Button>
+          </Row>
+
           <Spacer16 />
           <Body16>{t('description')}</Body16>
           <Spacer16 />
@@ -184,6 +199,7 @@ const SharingModal = () => {
           <Spacer24 />
 
           <Display24>{question}</Display24>
+
           <Spacer16 />
 
           <SharingInput
@@ -194,13 +210,7 @@ const SharingModal = () => {
             textAlignVertical="top"
           />
           <Spacer16 />
-          <Row>
-            <Button
-              variant="primary"
-              disabled={text.length < 5}
-              onPress={onSubmit}>
-              {t('submitCta')}
-            </Button>
+          <RightAlign>
             {isPublic && user?.displayName && (
               <ActionWrapper>
                 <AnonymousText>{t('anonymousLabel')}</AnonymousText>
@@ -212,7 +222,7 @@ const SharingModal = () => {
                 />
               </ActionWrapper>
             )}
-          </Row>
+          </RightAlign>
         </Gutters>
       </BottomSheetScrollView>
     </SheetModal>

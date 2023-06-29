@@ -5,16 +5,13 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "I am X and today we will work for around 40 minutes on connecting to the outdoors and ourselves, using all of our senses.\n\nYou can participate anywhere where you have access to the outdoors. A street, a balcony, a park or in the wilderness.",
-            "asyncText": "Welcome. This session is about connecting to the outdoors and ourselves, using all of our senses.\n\nYou can do the exercise anywhere where you have access to the outdoors. A street, a balcony, a park or in the wilderness.."
+            "text": "I am X and today we will work for around 40 minutes on connecting to the outdoors and ourselves, using all of our senses.\n\nYou can participate anywhere where you have access to the outdoors. A street, a balcony, a park or in the wilderness."
           },
           {
-            "text": "We’ll be listening to a 20-minute meditation together, followed by time for reflection and sharing with each other. \n\nLet’s start with a mini check-in.",
-            "asyncText": "There will be 20-minute meditation, a moment to reflect, and then sharing what we experienced.\n\nBefore we get started, check-in with yourself. How are you feeling right now?"
+            "text": "We’ll be listening to a 20-minute meditation together, followed by time for reflection and sharing with each other. \n\nLet’s start with a mini check-in."
           },
           {
-            "text": "How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started.",
-            "asyncText": "Let's get started."
+            "text": "How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ],
         "video": {
@@ -40,7 +37,8 @@
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683795468/Audio/Outdoor_sensing_Jenny_x9ztl5.mp3",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684313677/Video/outdoor_sensing_meditation_visual_cbiepb.mp4",
-            "autoPlayLoop": false
+            "autoPlayLoop": false,
+            "subtitles": ""
           }
         }
       },
@@ -48,12 +46,10 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat thoughts, feelings and experiences showed up during the meditation?",
-            "asyncText": "Take 1 minute to reflect.\n\nWhat thoughts, feelings and experiences showed up during the meditation?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat thoughts, feelings and experiences showed up during the meditation?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on.",
-            "asyncText": "Take notes on a piece of paper or just mental notes in your head. There is no right or wrong here, our answers are our own.\n\n> Press play to start the timer."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
@@ -94,21 +90,28 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nFor the coming two days, pick a sweet spot outdoors where you take a few minutes to go through sensing all your senses, one by one.",
-            "asyncText": "Well done. If you’re up for it, you can continue what we started here today with a mission.\n\nFor the coming two days, pick a sweet spot outdoors where you take a few minutes to go through sensing all your senses, one by one."
+            "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nFor the coming two days, pick a sweet spot outdoors where you take a few minutes to go through sensing all your senses, one by one."
           },
           {
-            "text": " See if you can mindfully observe what’s going on at that spot, and within yourself. \n\nBefore we leave this space let’s do a mini check-out. How do you feel now, has anything shifted? Please answer in two-three words.",
-            "asyncText": "See if you can mindfully observe what’s going on at that spot, and within yourself.\n\nBefore leaving this space, check-in with yourself again:\\\nHow are you feeling right now? Has anything shifted?"
+            "text": " See if you can mindfully observe what’s going on at that spot, and within yourself. \n\nBefore we leave this space let’s do a mini check-out. How do you feel now, has anything shifted? Please answer in two-three words."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience.",
-            "asyncText": "When you’re ready, finish this session at your own pace."
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ],
         "video": {
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682070992/Video/outro_outdoors_sensing_efei2u.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682070994/Images/host%20image%20outdoors%20sensing.jpg"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Well done",
+          "text": "If you’re up for it, you can continue with this mission:\n\nFor the coming two days, pick a sweet spot outdoors where you take a few minutes to go through sensing all your senses, one by one.\n\nSee if you can mindfully observe what’s going on at that spot, and within yourself.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1684313656/Images/outdoor_sensing_thumb_q68hl4.png"
+          }
         }
       }
     ],

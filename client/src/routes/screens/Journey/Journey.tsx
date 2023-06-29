@@ -44,6 +44,7 @@ import StickyHeading, {
   HEIGHT as HEADER_HEIGHT,
 } from '../../../lib/components/StickyHeading/StickyHeading';
 import JourneyNode, {
+  HEIGHT_WITH_POST as JOURNEY_NODE_HEIGHT_WITH_POST,
   HEIGHT as JOURNEY_NODE_HEIGHT,
 } from './components/JourneyNode';
 import {HEIGHT as FILTER_HEIGHT} from './components/SessionFilters';
@@ -75,7 +76,9 @@ const getItemLayout = getSectionListItemLayout<Item, Section>({
   getItemHeight: item => {
     switch (item?.type) {
       case 'completedSession':
-        return JOURNEY_NODE_HEIGHT;
+        return item.data.sharingPost
+          ? JOURNEY_NODE_HEIGHT_WITH_POST
+          : JOURNEY_NODE_HEIGHT;
       case 'filter':
         return FILTER_HEIGHT + SPACINGS.TWENTYEIGHT * 2;
       case 'pinnedCollection':

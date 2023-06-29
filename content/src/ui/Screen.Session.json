@@ -5,7 +5,8 @@
     "controls": {
       "start": "Start",
       "next": "Next",
-      "prev": "Back"
+      "prev": "Back",
+      "end": "Finish"
     },
     "notifications": {
       "joined": "{{name}} joined",
@@ -35,7 +36,8 @@
     "controls": {
       "start": "Starta",
       "next": "Nästa",
-      "prev": "Tillbaka"
+      "prev": "Tillbaka",
+      "end": "Avsluta"
     },
     "notifications": {
       "joined": "{{name}} gick med",
