@@ -32,9 +32,9 @@ const useNavigationTracker = () => {
       setUserProperties(
         {
           Origin: origin,
-          'Origin Campaign': utm_source,
+          'Origin Campaign': utm_campaign,
           'Origin Medium': utm_medium,
-          'Origin Source': utm_campaign,
+          'Origin Source': utm_source,
         },
         true,
       );
