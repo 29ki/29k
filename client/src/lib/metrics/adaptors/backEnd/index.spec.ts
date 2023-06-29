@@ -112,6 +112,24 @@ describe('setUserProperties', () => {
 
     expect(metricsClient).toHaveBeenCalledTimes(0);
   });
+
+  it('supports setting properties once (idempotent)', async () => {
+    jest.mocked(getMetricsUid).mockReturnValueOnce('some-metrics-uid');
+
+    await backEnd.setUserProperties(
+      {'App Git Commit': 'some-git-commit'},
+      true,
+    );
+
+    expect(metricsClient).toHaveBeenCalledTimes(1);
+    expect(metricsClient).toHaveBeenCalledWith(
+      'userProperties/some-metrics-uid',
+      {
+        body: '{"App Git Commit":"some-git-commit"}',
+        method: 'PUT',
+      },
+    );
+  });
 });
 
 describe('setCoreProperties', () => {
