@@ -28,6 +28,18 @@ const useNavigationTracker = () => {
     const {origin, utm_source, utm_medium, utm_campaign} =
       currentRoute?.params ?? {};
 
+    if (utm_source || utm_medium || utm_campaign) {
+      setUserProperties(
+        {
+          Origin: origin,
+          'Origin Campaign': utm_source,
+          'Origin Medium': utm_medium,
+          'Origin Source': utm_campaign,
+        },
+        true,
+      );
+    }
+
     logNavigation(name || 'Unknown', {
       Origin: origin,
       'Origin Source': utm_source,
