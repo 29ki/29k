@@ -1,5 +1,8 @@
 import {LiveSessionType} from '../../../../../../shared/src/schemas/Session';
-import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
+import {
+  CompletedSessionEvent,
+  PostEvent,
+} from '../../../../../../shared/src/types/Event';
 import {PinnedCollection} from '../../../../lib/user/state/state';
 
 export type Section = {
@@ -21,7 +24,7 @@ export type Item =
 export type CompletedSessionItem = {
   id: string;
   type: 'completedSession';
-  data: CompletedSessionEvent;
+  data: CompletedSessionEvent & {sharingPost?: PostEvent};
   isLast: boolean;
   isFirst: boolean;
 };

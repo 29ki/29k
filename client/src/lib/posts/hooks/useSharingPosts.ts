@@ -48,12 +48,12 @@ const useSharingPosts = (exerciseId?: string) => {
   );
 
   const getSharingPostForSession = useCallback(
-    (sessionId: string, sharingId: string) => {
+    (sessionId: string, sharingId?: string) => {
       return postEvents.find(
         event =>
-          event.payload.exerciseId === exerciseId &&
           event.payload.sessionId === sessionId &&
-          event.payload.sharingId === sharingId,
+          (exerciseId ? event.payload.exerciseId === exerciseId : true) &&
+          (sharingId ? event.payload.sharingId === sharingId : true),
       );
     },
     [postEvents, exerciseId],
