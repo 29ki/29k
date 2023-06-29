@@ -1,14 +1,15 @@
 import React, {useCallback, useMemo} from 'react';
-import {View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
-import AnimatedLottieView from 'lottie-react-native';
 import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 
-import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
+import {
+  CompletedSessionEvent,
+  PostEvent,
+} from '../../../../../../shared/src/types/Event';
 import {
   SessionMode,
   SessionType,
@@ -17,10 +18,11 @@ import Badge from '../../../../lib/components/Badge/Badge';
 import Byline from '../../../../lib/components/Bylines/Byline';
 import {
   CommunityIcon,
+  EarthIcon,
   FriendsIcon,
   MeIcon,
+  PrivateEyeIcon,
 } from '../../../../lib/components/Icons';
-import Image from '../../../../lib/components/Image/Image';
 import {
   Spacer16,
   Spacer4,
@@ -38,28 +40,38 @@ import {
   ThumbsUpWithoutPadding,
   ThumbsDownWithoutPadding,
 } from '../../../../lib/components/Thumbs/Thumbs';
+import useSharingPosts from '../../../../lib/posts/hooks/useSharingPosts';
+import useUser from '../../../../lib/user/hooks/useUser';
+import {Body14} from '../../../../lib/components/Typography/Body/Body';
+import BylineUser from '../../../../lib/components/Bylines/BylineUser';
+import {useTranslation} from 'react-i18next';
 
 export const HEIGHT = 100;
+export const HEIGHT_WITH_POST = 282;
 const NODE_SIZE = 22;
 
 type JourneyNodeProps = {
-  completedSessionEvent: CompletedSessionEvent;
+  completedSessionEvent: CompletedSessionEvent & {sharingPost?: PostEvent};
   isFirst: boolean;
   isLast: boolean;
 };
 
-const Lottie = styled(AnimatedLottieView)({
-  aspectRatio: '1',
+const Row = styled.View({
+  flexDirection: 'row',
 });
 
-const Container = styled(TouchableOpacity)<Pick<JourneyNodeProps, 'isFirst'>>(
-  ({isFirst}) => ({
-    flexDirection: 'row',
-    height: HEIGHT,
-    marginBottom: isFirst ? -SPACINGS.FOUR : 0,
-    overflow: 'visible',
-  }),
-);
+const Column = styled.View({
+  width: '100%',
+});
+
+const Container = styled(TouchableOpacity)<
+  Pick<JourneyNodeProps, 'isFirst'> & {height?: number}
+>(({isFirst, height}) => ({
+  flexDirection: 'row',
+  height: height ?? HEIGHT,
+  marginBottom: isFirst ? -SPACINGS.FOUR : 0,
+  overflow: 'visible',
+}));
 
 const ContentContainer = styled.View<Pick<JourneyNodeProps, 'isFirst'>>({
   marginLeft: SPACINGS.FOUR,
@@ -69,26 +81,16 @@ const ContentContainer = styled.View<Pick<JourneyNodeProps, 'isFirst'>>({
   alignItems: 'center',
 });
 
-const Line = styled.View<Pick<JourneyNodeProps, 'isLast' | 'isFirst'>>(
-  ({isLast, isFirst}) => ({
-    position: 'absolute',
-    left: NODE_SIZE / 2,
-    width: 1,
-    height: isLast ? SPACINGS.SIXTEEN : HEIGHT,
-    backgroundColor: COLORS.BLACK,
-    marginTop: isFirst ? SPACINGS.SIXTEEN : 0,
-  }),
-);
-
-const GraphicsWrapper = styled.View({
-  width: 88,
-  height: 88,
-  overflow: 'visible',
-});
-
-const StatusRow = styled.View({
-  flexDirection: 'row',
-});
+const Line = styled.View<
+  Pick<JourneyNodeProps, 'isLast' | 'isFirst'> & {height?: number}
+>(({isLast, isFirst, height}) => ({
+  position: 'absolute',
+  left: NODE_SIZE / 2,
+  width: 1,
+  height: isLast ? SPACINGS.SIXTEEN : height ?? HEIGHT,
+  backgroundColor: COLORS.BLACK,
+  marginTop: isFirst ? SPACINGS.SIXTEEN : 0,
+}));
 
 const Spacer2 = styled.View({height: 2});
 
@@ -108,6 +110,15 @@ const NodeContainer = styled.View<{isFirst: boolean}>({
   marginTop: 15,
 });
 
+const SharingPost = styled.View({
+  backgroundColor: COLORS.WHITE,
+  borderRadius: 24,
+  padding: SPACINGS.SIXTEEN,
+  marginBottom: SPACINGS.SIXTEEN,
+  height: 166,
+  overflow: 'hidden',
+});
+
 const JourneyNode: React.FC<JourneyNodeProps> = ({
   completedSessionEvent,
   isFirst = false,
@@ -116,9 +127,12 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
   const {
     payload: {id, mode, exerciseId, hostId, type},
     timestamp,
+    sharingPost,
   } = completedSessionEvent;
+  const {t} = useTranslation('Component.MyPostCard');
   const exercise = useExerciseById(exerciseId);
   const hostProfile = useUserProfile(hostId);
+  const user = useUser();
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
 
   const {navigate} =
@@ -139,32 +153,32 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
     [id, getFeedbackBySessionId],
   );
 
-  const image = useMemo(
-    () => ({
-      uri: exercise?.card?.image?.source,
-    }),
-    [exercise],
-  );
-
-  const lottie = useMemo(
-    () =>
-      exercise?.card?.lottie?.source
-        ? {
-            uri: exercise?.card?.lottie?.source,
-          }
-        : undefined,
-    [exercise],
-  );
+  const userProfile = useMemo(() => {
+    if (user?.displayName) {
+      return {
+        uid: user.uid,
+        displayName: user.displayName,
+        photoURL: user.photoURL ? user.photoURL : undefined,
+      };
+    }
+  }, [user]);
 
   return (
-    <Container onPress={openCompleteSessionModal} isFirst={isFirst}>
-      <Line isLast={isLast} isFirst={isFirst} />
+    <Container
+      onPress={openCompleteSessionModal}
+      isFirst={isFirst}
+      height={sharingPost && HEIGHT_WITH_POST}>
+      <Line
+        isLast={isLast}
+        isFirst={isFirst}
+        height={sharingPost && HEIGHT_WITH_POST}
+      />
       <NodeContainer isFirst={isFirst}>
         <Node size={NODE_SIZE} />
       </NodeContainer>
       <ContentContainer isFirst={isFirst}>
-        <View>
-          <StatusRow>
+        <Column>
+          <Row>
             <Badge
               text={dayjs(timestamp).format('ddd, D MMM HH:mm')}
               IconAfter={
@@ -181,7 +195,7 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
             <Spacer4 />
             {feedback &&
               (feedback.payload.answer ? <ThumbsUp /> : <ThumbsDown />)}
-          </StatusRow>
+          </Row>
           <Spacer8 />
           {exercise?.name && (
             <Display16 numberOfLines={1}>{exercise.name}</Display16>
@@ -200,14 +214,31 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
               exercise?.card?.ambassador?.displayName
             }
           />
-        </View>
-        <GraphicsWrapper>
-          {lottie ? (
-            <Lottie source={lottie} autoPlay loop />
-          ) : image ? (
-            <Image resizeMode="contain" source={image} />
-          ) : null}
-        </GraphicsWrapper>
+          {sharingPost && (
+            <SharingPost>
+              <Row>
+                <BylineUser picSize={SPACINGS.SIXTEEN} user={userProfile} />
+                <Spacer4 />
+                <Badge
+                  IconBefore={
+                    sharingPost.payload.isPublic ? (
+                      <EarthIcon />
+                    ) : (
+                      <PrivateEyeIcon />
+                    )
+                  }
+                  text={
+                    sharingPost.payload.isPublic
+                      ? t('everyoneLabel')
+                      : t('onlyMeLabel')
+                  }
+                />
+              </Row>
+              <Spacer8 />
+              <Body14>{sharingPost.payload.text}</Body14>
+            </SharingPost>
+          )}
+        </Column>
       </ContentContainer>
     </Container>
   );
