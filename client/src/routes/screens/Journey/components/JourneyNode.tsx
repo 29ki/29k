@@ -216,7 +216,12 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
           {sharingPost && (
             <SharingPost>
               <Row>
-                <BylineUser picSize={SPACINGS.SIXTEEN} user={userProfile} />
+                <BylineUser
+                  picSize={SPACINGS.SIXTEEN}
+                  user={
+                    !sharingPost.payload.isAnonymous ? userProfile : undefined
+                  }
+                />
                 <Spacer4 />
                 <Badge
                   IconBefore={
@@ -234,7 +239,7 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
                 />
               </Row>
               <Spacer8 />
-              <Body14>{sharingPost.payload.text}</Body14>
+              <Body14 numberOfLines={6}>{sharingPost.payload.text}</Body14>
             </SharingPost>
           )}
         </Column>
