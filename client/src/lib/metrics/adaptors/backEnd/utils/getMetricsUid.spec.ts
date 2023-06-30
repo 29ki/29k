@@ -38,12 +38,18 @@ describe('getMetricsUid', () => {
     });
   });
 
-  it('returns undefined if no current user is set', () => {
+  it('generates an ephemeral id if no current user is set', () => {
+    jest.mocked(generateId).mockReturnValueOnce('some-uuid');
     useUserState.setState({
       user: null,
       userState: {},
     });
 
-    expect(getMetricsUid()).toBe(undefined);
+    expect(getMetricsUid()).toBe('some-uuid');
+    expect(useUserState.getState().userState).toEqual({
+      ephemeral: {
+        metricsUid: 'some-uuid',
+      },
+    });
   });
 });

@@ -10,6 +10,9 @@ import {REMINDER_INTERVALS} from '../../reminders/constants';
 
 // General properties
 export type Origin = {Origin?: string}; // Where is the event originating from
+export type OriginSource = {'Origin Source'?: string};
+export type OriginMedium = {'Origin Medium'?: string};
+export type OriginCampaign = {'Origin Campaign'?: string};
 export type Language = {Language: LANGUAGE_TAG};
 export type Host = {Host: boolean};
 export type Enable = {Enable: boolean};
@@ -18,7 +21,9 @@ export type Enable = {Enable: boolean};
 export type DefaultProperties = Origin | undefined;
 
 // Navigation properties
-export type ScreenName = {'Screen Name': string};
+export type ScreenName = {'Screen Name': string} & OriginSource &
+  OriginMedium &
+  OriginCampaign;
 
 // Exercise properties
 export type ExerciseID = {

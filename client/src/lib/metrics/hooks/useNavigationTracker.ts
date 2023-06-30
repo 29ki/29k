@@ -4,7 +4,7 @@
 */
 import {useNavigation, useNavigationState} from '@react-navigation/native';
 import {useCallback, useEffect} from 'react';
-import {logNavigation} from '../';
+import {logNavigation, setUserProperties} from '../';
 
 const useNavigationTracker = () => {
   const routes = useNavigationState(state => state?.routes);
@@ -25,12 +25,27 @@ const useNavigationTracker = () => {
       name = route.name;
     }
 
-    logNavigation(
-      name || 'Unknown',
-      currentRoute?.params?.origin && {
-        Origin: currentRoute.params.origin,
-      },
-    );
+    const {origin, utm_source, utm_medium, utm_campaign} =
+      currentRoute?.params ?? {};
+
+    if (utm_source || utm_medium || utm_campaign) {
+      setUserProperties(
+        {
+          Origin: origin,
+          'Origin Campaign': utm_campaign,
+          'Origin Medium': utm_medium,
+          'Origin Source': utm_source,
+        },
+        true,
+      );
+    }
+
+    logNavigation(name || 'Unknown', {
+      Origin: origin,
+      'Origin Source': utm_source,
+      'Origin Medium': utm_medium,
+      'Origin Campaign': utm_campaign,
+    });
   }, [navigation]);
 
   useEffect(() => {

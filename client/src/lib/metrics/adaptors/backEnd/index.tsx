@@ -30,7 +30,7 @@ export const setConsent: SetConsent = async enabled => {
 
 export const logEvent: LogEvent = async (event, properties) => {
   const uid = getMetricsUid();
-  if (uid && haveConsent) {
+  if (haveConsent) {
     await metricsClient(`logEvent/${uid}`, {
       method: 'POST',
       body: JSON.stringify({
@@ -59,11 +59,14 @@ export const logFeeback: LogFeedback = async feedback => {
   });
 };
 
-export const setUserProperties: SetUserProperties = async properties => {
+export const setUserProperties: SetUserProperties = async (
+  properties,
+  once = false, // Overwrite existing properties?
+) => {
   const uid = getMetricsUid();
-  if (uid && haveConsent) {
+  if (haveConsent) {
     await metricsClient(`userProperties/${uid}`, {
-      method: 'POST',
+      method: once ? 'PUT' : 'POST',
       body: JSON.stringify(properties),
     });
   }

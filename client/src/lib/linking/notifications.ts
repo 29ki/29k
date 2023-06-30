@@ -13,9 +13,11 @@ const resolveNotificationUrl = async (
 ): Promise<string | undefined> => {
   const url = source?.notification?.data?.url as string;
   if (url) {
+    const dynamicLink = await dynamicLinks().resolveLink(url);
     return appendOrigin(
-      (await dynamicLinks().resolveLink(url)).url,
+      dynamicLink.url,
       'notification',
+      dynamicLink.utmParameters,
     );
   }
 };
