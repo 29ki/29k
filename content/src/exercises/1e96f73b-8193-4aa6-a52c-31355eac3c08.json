@@ -108,7 +108,7 @@
     "theme": {
       "textColor": "#2E2E2E"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "The way out is through",
     "live": true,
     "published": true,
