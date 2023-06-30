@@ -14,6 +14,8 @@ import {
   mockAdd,
   mockCollection,
   mockDoc,
+  mockGetTransaction,
+  mockRunTransaction,
   mockSet,
 } from 'firestore-jest-mock/mocks/firestore';
 import {SessionMode, SessionType} from '../../../shared/src/schemas/Session';
@@ -25,7 +27,7 @@ afterEach(() => {
 
 describe('metrics model', () => {
   describe('logEvent', () => {
-    it('Inserts events into the metricsEvents collection', async () => {
+    it('inserts events into the metricsEvents collection', async () => {
       await logEvent(
         'some-user-id',
         new Date('2022-02-02T02:02:02Z'),
@@ -48,7 +50,7 @@ describe('metrics model', () => {
       });
     });
 
-    it('Accepts undefined properties', async () => {
+    it('accepts undefined properties', async () => {
       await logEvent(
         'some-user-id',
         new Date('2022-02-02T02:02:02Z'),
@@ -68,7 +70,7 @@ describe('metrics model', () => {
   });
 
   describe('setUserProperties', () => {
-    it('Updates metricsUserProperties collection', async () => {
+    it('updates metricsUserProperties collection', async () => {
       await setUserProperties('some-user-id', {
         'Some Property': 'Some Value',
       });
@@ -85,7 +87,35 @@ describe('metrics model', () => {
       );
     });
 
-    it('Accepts undefined properties', async () => {
+    it('supports setting properties once (idempotent)', async () => {
+      mockGetTransaction.mockResolvedValueOnce({
+        data: () => ({
+          'Some Property': 'Some Value',
+        }),
+      });
+
+      await setUserProperties(
+        'some-user-id',
+        {
+          'Some Property': 'Some Other Value',
+        },
+        true,
+      );
+
+      expect(mockCollection).toHaveBeenCalledWith('metricsUserProperties');
+
+      expect(mockRunTransaction).toHaveBeenCalledTimes(1);
+      expect(mockSet).toHaveBeenCalledTimes(1);
+      expect(mockSet).toHaveBeenCalledWith(
+        {
+          'Some Property': 'Some Value',
+          updatedAt: expect.any(Timestamp),
+        },
+        {merge: true},
+      );
+    });
+
+    it('accepts undefined properties', async () => {
       await setUserProperties('some-user-id');
 
       expect(mockCollection).toHaveBeenCalledWith('metricsUserProperties');
@@ -101,7 +131,7 @@ describe('metrics model', () => {
   });
 
   describe('addFeedback', () => {
-    it('Inserts feedback into metricsFeedback collection', async () => {
+    it('inserts feedback into metricsFeedback collection', async () => {
       const feedback = {
         exerciseId: 'some-exercise-id',
         completed: true,

@@ -45,6 +45,7 @@ export const setUserProperties = async (
         {
           ...properties,
           ...propertiesRef.data(),
+          updatedAt: Timestamp.now(),
         },
         {merge: true},
       );
