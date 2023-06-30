@@ -93,9 +93,9 @@ const Lottie: React.FC<LottieProps> = ({
   );
 
   useEffect(() => {
-    IdleTimerManager.setIdleTimerDisabled(active);
+    IdleTimerManager.setIdleTimerDisabled(active && !paused);
     return () => IdleTimerManager.setIdleTimerDisabled(false);
-  }, [active]);
+  }, [active, paused]);
 
   useEffect(() => {
     if (!active) {
