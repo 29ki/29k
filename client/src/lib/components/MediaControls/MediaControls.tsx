@@ -92,7 +92,8 @@ const MediaControls: React.FC<MediaControlsProps> = ({
 
   const variant = light ? 'secondary' : 'tertiary';
 
-  // Exoplayer in android have issues with sending correct duration for mp3
+  // Exoplayer in android have issues with sending correct duration for mp3. It is flaky but when
+  // it fails it sends -9223372036854775807 as duration. (lowest long value in Java +1)
   // https://github.com/google/ExoPlayer/issues/7314
   // A temporary fix is to not show erronius progress and disable skip buttons when
   // that happens.
