@@ -37,6 +37,7 @@ Create a `.env` file, by duplicating `.env.example`.
 | `SLACK_SHARING_POSTS_CHANNEL`        | _Not needed for local development_ Slack channel to post messages to, e.g. `app-sharing-posts`.                                                                                                                     |
 | `SLACK_OAUTH_TOKEN`                  | _Not needed for local development_ Slack OAuth token. To be able to send messages to slack e.g. `xoxb-XXX...`. [Slack workspace tokens](https://api.slack.com/authentication/token-types#workspace)                 |
 | `SLACK_SIGNING_SECRET`               | _Not needed for local development_ Slack Signing Secret. To verify requests are coming from our slack e.g. `5326f8...`. [Slack signing secrets](https://api.slack.com/authentication/verifying-requests-from-slack) |
+| `STRIPE_API_KEY`                     | _Not needed for local development_ Stripe secret API key e.g. `sk_test_51JWhRY...`. [Stripe API keys](https://stripe.com/docs/keys)                                                                                 |
 
 ## Client
 
