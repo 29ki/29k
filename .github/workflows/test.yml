@@ -207,7 +207,7 @@ jobs:
         working-directory: ./content
         run: yarn test
 
-  content:
+  shared:
     name: Shared
     runs-on: ubuntu-latest
     steps:
