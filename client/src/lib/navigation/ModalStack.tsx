@@ -39,6 +39,7 @@ import AssignNewHostModal from '../../routes/modals/AssignNewHostModal/AssignNew
 import EditSessionDateModal from '../../routes/modals/EditSessionDateModal/EditSessionDateModal';
 import HostingInviteFailModal from '../../routes/modals/HostingInviteFailModal/HostingInviteFailModal';
 import HostSessionByInviteModal from '../../routes/modals/HostSessionByInviteModal/HostSessionByInviteModal';
+import DonateOverlay from '../../routes/overlays/DonateOverlay/DonateOverlay';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -134,6 +135,14 @@ const ModalStack = () => {
     [sheetModalScreenOptions],
   );
 
+  const donateSheetModalScreenOptions = useMemo(
+    () => ({
+      ...sheetModalScreenOptions,
+      snapPoints: ['50%', '90%'],
+    }),
+    [sheetModalScreenOptions],
+  );
+
   const cardModalScreenOptions = useMemo(
     () => ({
       ...modalScreenOptions,
@@ -149,6 +158,22 @@ const ModalStack = () => {
     }),
     [],
   );
+
+  /*
+
+const donateScreenOptions: StackNavigationOptions = {
+  cardStyle: {
+    borderColor: COLORS.ERROR,
+    borderWidth: 10,
+    overflow: 'hidden',
+    ...Platform.select({
+      ios: {
+        borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
+      },
+    }),
+  },
+};
+*/
 
   return (
     <Navigator>
@@ -271,6 +296,11 @@ const ModalStack = () => {
           component={CompletedSessionsModal}
           // Fullscreen is necessary for the scroll to work: https://github.com/gorhom/react-native-bottom-sheet/issues/459
           options={fullyExtendedSheetModalScreenOptions}
+        />
+        <Screen
+          name="DonateModal"
+          component={DonateOverlay}
+          options={donateSheetModalScreenOptions}
         />
       </Group>
 
