@@ -28,7 +28,7 @@ afterEach(() => {
 
 describe('useSharingPosts', () => {
   describe('getSharingPosts', () => {
-    it('should return fetched posts', async () => {
+    it('should return fetched posts as PostItems', async () => {
       mockFetchPosts.mockResolvedValueOnce([
         {
           id: 'some-post-id',
@@ -39,7 +39,61 @@ describe('useSharingPosts', () => {
       await act(async () => {
         const posts = await result.current.getSharingPosts('some-sharing-id');
 
-        expect(posts).toEqual([{id: 'some-post-id'}]);
+        expect(posts).toEqual([{type: 'text', item: {id: 'some-post-id'}}]);
+        expect(mockFetchPosts).toHaveBeenCalledTimes(1);
+        expect(mockFetchPosts).toHaveBeenCalledWith(
+          'some-exercise-id',
+          'some-sharing-id',
+        );
+      });
+    });
+
+    it('should return sharing videos mixed with fetched posts as PostItems', async () => {
+      mockFetchPosts.mockResolvedValueOnce([
+        {
+          id: 'some-post-id',
+        } as PostType,
+      ]);
+      const {result} = renderHook(() => useSharingPosts('some-exercise-id'));
+
+      await act(async () => {
+        const posts = await result.current.getSharingPosts('some-sharing-id', [
+          {video: {source: 'some-video'}},
+        ]);
+
+        expect(posts).toEqual([
+          {type: 'video', item: {video: {source: 'some-video'}}},
+          {type: 'text', item: {id: 'some-post-id'}},
+        ]);
+        expect(mockFetchPosts).toHaveBeenCalledTimes(1);
+        expect(mockFetchPosts).toHaveBeenCalledWith(
+          'some-exercise-id',
+          'some-sharing-id',
+        );
+      });
+    });
+
+    it('should return sharing videos mixed with fetched posts padded as PostItems', async () => {
+      mockFetchPosts.mockResolvedValueOnce([
+        {
+          id: 'some-post-id',
+        } as PostType,
+        {
+          id: 'some-other-post-id',
+        } as PostType,
+      ]);
+      const {result} = renderHook(() => useSharingPosts('some-exercise-id'));
+
+      await act(async () => {
+        const posts = await result.current.getSharingPosts('some-sharing-id', [
+          {video: {source: 'some-video'}},
+        ]);
+
+        expect(posts).toEqual([
+          {type: 'video', item: {video: {source: 'some-video'}}},
+          {type: 'text', item: {id: 'some-post-id'}},
+          {type: 'text', item: {id: 'some-other-post-id'}},
+        ]);
         expect(mockFetchPosts).toHaveBeenCalledTimes(1);
         expect(mockFetchPosts).toHaveBeenCalledWith(
           'some-exercise-id',

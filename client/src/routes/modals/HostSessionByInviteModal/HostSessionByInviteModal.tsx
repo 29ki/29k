@@ -51,6 +51,9 @@ import Button from '../../../lib/components/Buttons/Button';
 import {JoinSessionError} from '../../../../../shared/src/errors/Session';
 import SessionUnavailableModal from '../SessionUnavailableModal/SessionUnavailableModal';
 import HostingInviteFailModal from '../HostingInviteFailModal/HostingInviteFailModal';
+import useUser from '../../../lib/user/hooks/useUser';
+import UpdateProfileStep from '../CreateSessionModal/components/steps/ProfileStep';
+import useSessions from '../../../lib/sessions/hooks/useSessions';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -87,23 +90,36 @@ const Tags = styled(Gutters)({
 const InvitationModal: React.FC<{
   session: LiveSessionType;
   hostingCode: number;
-  fetchSession: Function;
-}> = ({session, hostingCode}) => {
+  onError: (err: Error) => void;
+}> = ({session, hostingCode, onError}) => {
   const exercise = useExerciseById(session?.exerciseId);
   const tags = useGetSessionCardTags(exercise);
   const {t} = useTranslation('Modal.HostSessionByInvite');
+  const {fetchSessions} = useSessions();
 
   const navigation =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
 
   const acceptInvite = useCallback(async () => {
     if (session?.id) {
-      const updatedSession = await acceptHostingInvite(session.id, hostingCode);
-      navigation.navigate('SessionModal', {
-        session: updatedSession,
-      });
+      try {
+        const updatedSession = await acceptHostingInvite(
+          session.id,
+          hostingCode,
+        );
+
+        fetchSessions();
+        navigation.goBack();
+        navigation.navigate('SessionModal', {
+          session: updatedSession,
+        });
+      } catch (err) {
+        onError(err as Error);
+      }
+    } else {
+      onError(Error(JoinSessionError.notFound));
     }
-  }, [session?.id, hostingCode, navigation]);
+  }, [session?.id, hostingCode, navigation, fetchSessions, onError]);
 
   const onCancel = useCallback(() => navigation.goBack(), [navigation]);
 
@@ -181,21 +197,32 @@ const HostSessionByInviteModal = () => {
     params: {hostingCode},
   } = useRoute<RouteProp<ModalStackProps, 'HostSessionByInviteModal'>>();
 
+  const user = useUser();
+  const userHasProfile = user?.displayName && user?.photoURL;
   const [session, setSession] = useState<LiveSessionType>();
   const [error, setError] = useState<string>();
+
+  const handleError = useCallback(
+    (err: Error) => {
+      setError(err.message as JoinSessionError);
+    },
+    [setError],
+  );
 
   const fetchSession = useCallback(async () => {
     try {
       const fetchedSession = await getSessionByHostingCode(hostingCode);
       setSession(fetchedSession);
     } catch (err) {
-      setError((err as Error).message as JoinSessionError);
+      handleError(err as Error);
     }
-  }, [hostingCode]);
+  }, [hostingCode, handleError]);
 
   useEffect(() => {
-    fetchSession();
-  }, [fetchSession]);
+    if (userHasProfile) {
+      fetchSession();
+    }
+  }, [fetchSession, userHasProfile]);
 
   if (
     error === JoinSessionError.notAvailable ||
@@ -206,13 +233,21 @@ const HostSessionByInviteModal = () => {
     return <HostingInviteFailModal />;
   }
 
+  if (!userHasProfile) {
+    return (
+      <SheetModal backgroundColor={COLORS.CREAM}>
+        <UpdateProfileStep />
+      </SheetModal>
+    );
+  }
+
   return (
     <SheetModal backgroundColor={COLORS.CREAM}>
       {session ? (
         <InvitationModal
           session={session}
           hostingCode={hostingCode}
-          fetchSession={fetchSession}
+          onError={handleError}
         />
       ) : null}
     </SheetModal>

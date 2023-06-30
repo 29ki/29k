@@ -51,7 +51,6 @@ export interface ExerciseIntroPortalVideoEnd {
 
 export interface ExerciseIntroPortalHostNote {
   text?: string;
-  asyncText?: string;
 }
 
 export interface ExerciseIntroPortal {
@@ -74,7 +73,6 @@ export interface ExerciseOutroPortal {
 
 export interface ExerciseSlideContentSlideHostNote {
   text?: string;
-  asyncText?: string;
 }
 
 export interface ExerciseSlideContentSlideContentImage {
@@ -123,7 +121,6 @@ export interface ExerciseSlideInstructionSlideAsyncContent {
 
 export interface ExerciseSlideReflectionSlideHostNote {
   text?: string;
-  asyncText?: string;
 }
 
 export interface ExerciseSlideReflectionSlideContentImage {
@@ -161,7 +158,6 @@ export interface ExerciseSlideReflectionSlideContent {
 
 export interface ExerciseSlideSharingSlideHostNote {
   text?: string;
-  asyncText?: string;
 }
 
 export interface ExerciseSlideSharingSlideContentImage {
@@ -197,9 +193,23 @@ export interface ExerciseSlideSharingSlideContent {
   lottie?: ExerciseSlideSharingSlideContentLottie;
 }
 
+export interface ExerciseSlideSharingSlideSharingVideosSharingVideoProfile {
+  displayName?: string;
+  photoURL?: string;
+}
+
+export interface ExerciseSlideSharingSlideSharingVideosSharingVideo {
+  source?: string;
+  subtitles?: string;
+  profile?: ExerciseSlideSharingSlideSharingVideosSharingVideoProfile;
+}
+
+export interface ExerciseSlideSharingSlideSharingVideos {
+  video?: ExerciseSlideSharingSlideSharingVideosSharingVideo;
+}
+
 export interface ExerciseSlideHostSlideHostNote {
   text?: string;
-  asyncText?: string;
 }
 
 export interface ExerciseSlideHostSlideVideo {
@@ -230,6 +240,7 @@ export interface ExerciseSlideSharingSlide {
   id: string;
   hostNotes?: ExerciseSlideSharingSlideHostNote[];
   content?: ExerciseSlideSharingSlideContent;
+  sharingVideos?: ExerciseSlideSharingSlideSharingVideos[];
 }
 
 export interface ExerciseSlideHostSlide {

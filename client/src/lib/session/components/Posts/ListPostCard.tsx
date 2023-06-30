@@ -4,6 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
+import dayjs from 'dayjs';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {UserProfileType} from '../../../../../../shared/src/schemas/User';
@@ -19,8 +20,8 @@ import BylineUser from '../../../components/Bylines/BylineUser';
 import {Spacer4, Spacer8} from '../../../components/Spacers/Spacer';
 import hexToRgba from 'hex-to-rgba';
 import Badge from '../../../components/Badge/Badge';
-import {EarthIcon, PrivateEyeIcon} from '../../../components/Icons';
-import dayjs from 'dayjs';
+import {EarthIcon, Play, PrivateEyeIcon} from '../../../components/Icons';
+import VideoLooper from '../../../components/VideoLooper/VideoLooper';
 
 export const CARD_WIDTH = 216;
 const CARD_LARGE_HEIGHT = 280;
@@ -45,6 +46,26 @@ const SharingText = styled(Body14)({
   width: '100%',
 });
 
+const VideoWrapper = styled.View({
+  flex: 1,
+});
+
+const VideoPlayer = styled(VideoLooper)({
+  aspectRatio: '1',
+  width: '100%',
+  borderRadius: 16,
+});
+
+const PlayIconContainer = styled.View({
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+});
+
+const PlayIconWrapper = styled.View({
+  height: 45,
+});
+
 const BottomGradient = styled(LinearGradient)({
   position: 'absolute',
   left: 0,
@@ -54,14 +75,18 @@ const BottomGradient = styled(LinearGradient)({
 });
 
 type ListPostCardProps = {
-  userProfile: UserProfileType | null;
-  text: string;
+  userProfile: Pick<UserProfileType, 'displayName' | 'photoURL'> | null;
+  text?: string;
+  videoSource?: string;
+  subtitles?: string;
   sharingAt?: string;
   isPublic?: boolean;
 };
 
 const ListPostCard: React.FC<ListPostCardProps> = ({
   text,
+  videoSource,
+  subtitles,
   userProfile,
   sharingAt,
   isPublic,
@@ -73,8 +98,8 @@ const ListPostCard: React.FC<ListPostCardProps> = ({
   const numberOfLines = screenHeight > 750 ? 11 : 8;
 
   const onPress = useCallback(() => {
-    navigate('SharingPostModal', {userProfile, text});
-  }, [navigate, userProfile, text]);
+    navigate('SharingPostModal', {userProfile, text, videoSource, subtitles});
+  }, [navigate, userProfile, text, videoSource, subtitles]);
 
   const gradientColors = useMemo(
     () => [hexToRgba(COLORS.CREAM, 0), hexToRgba(COLORS.CREAM, 1)],
@@ -86,6 +111,18 @@ const ListPostCard: React.FC<ListPostCardProps> = ({
       return dayjs(sharingAt).local().format('ddd, D MMM');
     }
   }, [sharingAt]);
+
+  const videoSources = useMemo(() => {
+    if (videoSource) {
+      return [
+        {
+          source: videoSource,
+          repeat: false,
+          muted: false,
+        },
+      ];
+    }
+  }, [videoSource]);
 
   return (
     <SharingCard onPress={onPress} height={cardHeight}>
@@ -103,8 +140,18 @@ const ListPostCard: React.FC<ListPostCardProps> = ({
       )}
 
       <Spacer8 />
-      <SharingText numberOfLines={numberOfLines}>{text}</SharingText>
-      <BottomGradient colors={gradientColors} />
+      {text && <SharingText numberOfLines={numberOfLines}>{text}</SharingText>}
+      {text && <BottomGradient colors={gradientColors} />}
+      {videoSources && (
+        <VideoWrapper>
+          <VideoPlayer sources={videoSources} paused />
+          <PlayIconContainer>
+            <PlayIconWrapper>
+              <Play fill={hexToRgba(COLORS.PURE_WHITE, 0.51)} />
+            </PlayIconWrapper>
+          </PlayIconContainer>
+        </VideoWrapper>
+      )}
     </SharingCard>
   );
 };
