@@ -21,6 +21,7 @@ import {GET_STARTED_COLLECTION_ID} from '../../content/constants';
 import {REMINDER_INTERVALS} from '../../reminders/constants';
 
 const USER_STATE_VERSION = 6;
+const EPHEMERAL_USER_ID = 'ephemeral';
 
 type PinnedSession = {
   id: string;
@@ -65,7 +66,6 @@ export type PersistedState = Pick<State, 'userState'>;
 
 export type Actions = {
   __setHasHydrated: (__hasHydrated: boolean) => void;
-  setUser: (user: State['user']) => void;
   setClaims: (claims: State['claims']) => void;
   setData: (data: Partial<UserDataType>) => void;
   setUserAndClaims: (state: {
@@ -98,17 +98,16 @@ const initialState: State = {
   userState: {},
 };
 
+const getCurrentUserStateId = (user: State['user']) =>
+  user?.uid ?? EPHEMERAL_USER_ID;
+
 // We don't use selectors but for this case we do :)
 // This should only be used in hooks where we can memoize with useCallback or useMemo
 type GetCurrentUserStateSelector = (state: State) => UserState | undefined;
 export const getCurrentUserStateSelector: GetCurrentUserStateSelector = ({
   user,
   userState,
-}) => {
-  if (user?.uid) {
-    return userState[user.uid];
-  }
-};
+}) => userState[getCurrentUserStateId(user)];
 
 const getTypedEvent = (event: UserEventData) => {
   switch (event.type) {
@@ -127,22 +126,23 @@ const useUserState = create<State & Actions>()(
   persist(
     (set, get) => {
       const setCurrentUserState: SetCurrentUserState = setter => {
-        const {user} = get();
-        if (user?.uid) {
-          const currentState = getCurrentUserStateSelector(get()) ?? {};
-          const newState =
-            typeof setter === 'function' ? setter(currentState) : setter;
+        const state = get();
+        const {user} = state;
+        const userId = getCurrentUserStateId(user);
 
-          set(({userState}) => ({
-            userState: {
-              ...userState,
-              [user.uid]: {
-                ...currentState,
-                ...newState,
-              },
+        const currentState = getCurrentUserStateSelector(state) ?? {};
+        const newState =
+          typeof setter === 'function' ? setter(currentState) : setter;
+
+        set(({userState}) => ({
+          userState: {
+            ...userState,
+            [userId]: {
+              ...currentState,
+              ...newState,
             },
-          }));
-        }
+          },
+        }));
       };
 
       const addUserEvent = (
@@ -161,11 +161,23 @@ const useUserState = create<State & Actions>()(
       return {
         ...initialState,
         __setHasHydrated: __hasHydrated => set({__hasHydrated}),
-        setUser: user => set({user}),
         setData: data => set(state => ({data: {...state.data, ...data}})),
         setClaims: claims => set({claims}),
         setUserAndClaims: ({user, claims}) => {
-          set({user, claims});
+          const userId = getCurrentUserStateId(user);
+
+          set(({userState}) => ({
+            user,
+            claims,
+            userState: {
+              // Migrate ephemeral state to the new user
+              ...omit([EPHEMERAL_USER_ID], userState),
+              [userId]: {
+                ...userState[EPHEMERAL_USER_ID],
+                ...userState[userId],
+              },
+            },
+          }));
         },
         setIntialState: () => {
           const currentState = getCurrentUserStateSelector(get());
@@ -214,11 +226,14 @@ const useUserState = create<State & Actions>()(
             // Remove the state specific to the user on delete
             set(({userState}) => ({
               ...initialState,
-              userState: omit([user.uid], userState),
+              userState: omit([EPHEMERAL_USER_ID, user.uid], userState),
             }));
           } else {
             // Keep persisted state in case of sign out
-            set(({userState}) => ({...initialState, userState}));
+            set(({userState}) => ({
+              ...initialState,
+              userState,
+            }));
           }
         },
       };
