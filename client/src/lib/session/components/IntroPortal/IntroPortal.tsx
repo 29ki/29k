@@ -20,6 +20,7 @@ import HostNotes from '../HostNotes/HostNotes';
 import {ArrowLeftIcon} from '../../../components/Icons';
 import Button from '../../../components/Buttons/Button';
 import VideoTransition from '../VideoTransition/VideoTransition';
+import usePreventScreenSleep from '../../hooks/usePreventScreenSleep';
 
 const Spinner = styled.ActivityIndicator({
   ...StyleSheet.absoluteFillObject,
@@ -77,6 +78,8 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
 
   const introPortal = exercise?.introPortal;
   const textColor = exercise?.theme?.textColor;
+
+  usePreventScreenSleep('introPortal');
 
   useEffect(() => {
     if (sessionState?.started && !introPortal?.videoLoop?.source) {
