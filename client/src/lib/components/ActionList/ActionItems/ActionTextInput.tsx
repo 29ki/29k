@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import styled from 'styled-components/native';
 import {BottomSheetTextInput as BSTextInput} from '@gorhom/bottom-sheet';
 import {SPACINGS} from '../../../constants/spacings';
@@ -29,28 +29,30 @@ const IconWrapper = styled.View({
   height: 21,
 });
 
-const ActionTextInput: React.FC<
+const ActionTextInput = forwardRef<
+  typeof TextInput,
   React.ComponentProps<typeof TextInput>
-> = props => (
+>((props, ref) => (
   <ActionItem>
-    <TextInput {...props} />
+    <TextInput {...props} ref={ref} />
     <IconWrapper>
       <PencilIcon />
     </IconWrapper>
     <Spacer8 />
   </ActionItem>
-);
+));
 
-export const BottomSheetActionTextInput: React.FC<
+export const BottomSheetActionTextInput = forwardRef<
+  typeof BottomSheetTextInput,
   React.ComponentProps<typeof BottomSheetTextInput>
-> = props => (
+>((props, ref) => (
   <ActionItem>
-    <BottomSheetTextInput {...props} />
+    <BottomSheetTextInput {...props} ref={ref} />
     <IconWrapper>
       <PencilIcon />
     </IconWrapper>
     <Spacer8 />
   </ActionItem>
-);
+));
 
 export default ActionTextInput;
