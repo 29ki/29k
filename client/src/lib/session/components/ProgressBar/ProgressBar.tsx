@@ -49,6 +49,7 @@ const Progress: React.FC<{percentage: number; color?: string}> = ({
 type ProgressBarProps = {
   length?: number;
   index?: number;
+  empty?: boolean;
   color?: string;
   style?: ViewStyle;
 };
@@ -56,11 +57,12 @@ type ProgressBarProps = {
 const ProgressBar: React.FC<ProgressBarProps> = ({
   index = 0,
   length = 1,
+  empty,
   color,
   style,
 }) => (
   <Wrapper color={color} style={style}>
-    <Progress color={color} percentage={index / (length - 1)} />
+    <Progress color={color} percentage={empty ? 0 : (index + 1) / length} />
   </Wrapper>
 );
 

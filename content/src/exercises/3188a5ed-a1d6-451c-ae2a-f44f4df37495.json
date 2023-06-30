@@ -31,7 +31,8 @@
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674481870/Audio/meditation-drop-all-requirements_i39o6u.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673974099/Video/meditation_Drop_all_requirements_a2a7ws.mp4",
             "durationTimer": true,
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_meditation_drop_all_requirements_ve8rdm.png"
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_meditation_drop_all_requirements_ve8rdm.png",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1687878835/SRT%20(captions)%20files/Drop_all_requirements_zr2bgr.srt"
           }
         }
       },
@@ -94,6 +95,16 @@
         "video": {
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676394659/Video/async_outro_drop_all_requirements_kuxqiv.mov",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676455405/Images/async_outro_drop_all_requirements_ntxvdp.png"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Well done",
+          "text": "If you’re up for it, you can continue with this mission:\n\nIn stressful periods recovery is key. Give yourself some care and gain perspective by taking a step back and take a breathing break at least once a day for the coming week.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
+          }
         }
       }
     ],

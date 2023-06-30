@@ -97,6 +97,17 @@
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682091066/Video/outro_willingness_stance_ys21jp.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682091070/Images/thumb%20host%20willingness%20stance.jpg"
         }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Well done",
+          "text": "If you’re up for it, you can continue with this mission:\n\nDuring the rest of today, whenever you notice you are resisting something on the inside, open up your willingness stance and try to instead welcoming that experience.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1684329936/Images/card_image_the_willingnes_stance_1_bcwhxk.png",
+            "description": ""
+          }
+        }
       }
     ],
     "theme": {

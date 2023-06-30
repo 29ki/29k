@@ -20,20 +20,16 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Imagine that you took out a pair of clothespins. Next, you grab the voice within yourself and \"lift it out\", so that there’s now a person in front of you. That person is saying all the things you usually say to yourself when something has gone wrong, or when you have failed."
-          },
-          {
-            "text": "Think about it: How long would you stand talking to this person? There's a high probability that you'd want to get out of there as fast as possible. How is it that we humans are usually much tougher on ourselves than we are on others?"
-          },
-          {
-            "text": "In this exercise we will be practicing self-compassion - learning to become less self-critical and instead be kinder to oneself. Research has shown that it can increase happiness and motivation, and reduce anxiety and depressive symptoms."
+            "text": "Let's do this exercise together."
           }
         ],
         "content": {
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043753/Video/content_Be_kind_to_yourself_qfhuch.mp4",
-            "autoPlayLoop": true,
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_content_be_kind_to_yourself_hn38hz.png"
+            "autoPlayLoop": false,
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_content_be_kind_to_yourself_hn38hz.png",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687862667/Audio/Be_kind_to_yourself_audio_exercise_iwpvpt.mp3",
+            "durationTimer": true
           }
         }
       },
@@ -41,14 +37,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 2 minutes to reflect on our own.\n\nThink of a situation when you felt down. When you failed at something and doubted yourself. How do you usually react to and treat yourself in such situations? What do you say to yourself? What tone do you use?"
+            "text": "Now we’ll take 2 minutes to reflect on our own.\n\nWhat do you bring from this exercise? What did you notice or learn about yourself?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong answer, our responses are our own. 2 minutes starting now.\n\n> Press play to start the timer.\n\nThat’s 2 minutes and it’s time to move on."
           }
         ],
         "content": {
-          "heading": "What do you say to yourself?",
+          "heading": "What do you bring from this exercise?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_2_be_kind_to_yourself_pii45p.png"
@@ -58,7 +54,7 @@
       {
         "type": "sharing",
         "content": {
-          "heading": "What do you say to yourself?",
+          "heading": "What do you bring from this exercise?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_3_be_kind_to_yourself_orn39r.png"
@@ -75,43 +71,7 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "sharing-1"
-      },
-      {
-        "type": "reflection",
-        "content": {
-          "heading": "What would you say to a friend?",
-          "video": {
-            "durationTimer": false,
-            "autoPlayLoop": false,
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669898289/Video/reflection2_Be_kind_to_yourself_zlyxgi.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_be_kind_to_yourself_zrunmq.png"
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "One way of practicing self-compassion is taking a different perspective. Think about how you would respond to a friend who is feeling down, self-critical, or uncertain. What do you say or do? What kind of tone do you take?"
-          },
-          {
-            "text": "Again, take notes on a piece of paper or just mental notes. 2 minutes starting now.\n\n> Press play to start the timer.\n\nThat’s 2 minutes and it’s time to move on."
-          }
-        ]
-      },
-      {
-        "type": "sharing",
-        "content": {
-          "heading": "What would you say to a friend?",
-          "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_3_be_kind_to_yourself_orn39r.png"
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "Time to share again. Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much for sharing."
-          }
-        ],
-        "id": "sharing-2"
+        "id": "sharing"
       },
       {
         "type": "host",
@@ -133,6 +93,16 @@
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1677835705/Video/bekindtoyourself_async_outro_aadtym.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1677835944/Images/thumb_host_bekindtoyourself_ysmcnz.png"
         }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Well done",
+          "text": "If you’re up for it, you can continue with this mission:\n\nIn the coming days, be kind to yourself. Especially in difficult situations. Try using the idea of clothespins to become aware of your inner voice. \n\nThen, choose to talk and react to yourself in the same way you would if it were a friend. Notice how it makes you feel.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
+          }
+        }
       }
     ],
     "theme": {
@@ -147,7 +117,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
       }
     },
-    "duration": 40,
+    "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -169,7 +139,7 @@
     ],
     "link": "https://aware.29k.org/be-kind-to-yourself",
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
-    "async": false,
+    "async": true,
     "description": "We are often harsh on ourselves, and more compassionate with others. In this exercise we'll practice finding a compassionate inner ally to accompany us in difficult situations. Self compassion can help us feel happier and more satisfied with ourselves."
   },
   "pt": {
@@ -319,7 +289,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
       }
     },
-    "duration": 40,
+    "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -350,7 +320,7 @@
       "textColor": "#2AE2D7"
     },
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
-    "duration": 40,
+    "duration": 30,
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
@@ -359,7 +329,7 @@
   },
   "es": {
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
-    "duration": 40,
+    "duration": 30,
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"

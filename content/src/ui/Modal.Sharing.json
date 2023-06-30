@@ -4,7 +4,7 @@
     "description": "Who can see your post?",
     "publicLabel": "Everyone",
     "onlyMeLabel": "Only me",
-    "submitCta": "Submit",
+    "submitCta": "Post",
     "anonymousLabel": "Post anonymously"
   },
   "pt": {

@@ -2,9 +2,10 @@ import React from 'react';
 import {useMemo} from 'react';
 import {StyleSheet, ViewStyle} from 'react-native';
 import RNSubtitles from 'react-native-subtitles';
-import {COLORS} from '../../../../../../../../shared/src/constants/colors';
-import {SPACINGS} from '../../../../../constants/spacings';
 import hexToRgba from 'hex-to-rgba';
+
+import {COLORS} from '../../../../../shared/src/constants/colors';
+import {SPACINGS} from '../../constants/spacings';
 
 type SubtitleProps = {
   src: string;
@@ -15,12 +16,12 @@ type SubtitleProps = {
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    width: 216,
+    minWidth: '80%',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,
-    backgroundColor: hexToRgba(COLORS.WHITE, 0.51),
+    backgroundColor: hexToRgba(COLORS.PURE_WHITE, 0.51),
   },
   textStyle: {
     textAlign: 'center',

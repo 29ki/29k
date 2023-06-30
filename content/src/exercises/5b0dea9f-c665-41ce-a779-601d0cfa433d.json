@@ -134,6 +134,16 @@
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679331092/Video/OutroLettingGoOfControl_x8cyes.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679331097/Images/hostThumbLettingGo_l9vxv4.jpg"
         }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
+          },
+          "heading": "Well done",
+          "text": "If you’re up for it, you can continue with this mission:\n\nFor the rest of today and tomorrow, see if you can notice when you have difficult feelings and are trying to push them away. Then re-focus and see if welcoming them, or just letting them be there with you, can help you act differently. Maybe do more of what’s important to you and bring your feelings along."
+        }
       }
     ],
     "theme": {

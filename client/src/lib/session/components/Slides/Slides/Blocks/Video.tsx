@@ -7,10 +7,11 @@ import DurationTimer from '../../../DurationTimer/DurationTimer';
 import {LottiePlayerHandle} from '../../../../../components/LottiePlayer/LottiePlayer';
 import {VideoLooperProperties} from '../../../../../../../types/VideoLooper';
 import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
-import MediaControls from '../../../MediaControls/MediaControls';
+import MediaControls from '../../../../../components/MediaControls/MediaControls';
 import {Spacer16} from '../../../../../components/Spacers/Spacer';
 import MediaWrapperResolver from './MediaWrapperResolver';
-import Subtitles from './Subtitles';
+import Subtitles from '../../../../../components/Subtitles/Subtitles';
+import Gutters from '../../../../../components/Gutters/Gutters';
 
 const VideoPlayer = styled(VideoLooper)({
   flex: 1,
@@ -215,16 +216,18 @@ const Video: React.FC<VideoProps> = ({
               </SubtitleContainer>
             )}
             <Spacer16 />
-            <MediaControls
-              time={progress}
-              duration={duration}
-              playing={!paused}
-              onSkipBack={onSkipBack}
-              onTogglePlay={onTogglePlay}
-              onSkipForward={onSkipForward}
-              onToggleSubtitles={onToggleSubtitles}
-              subtitles={subtitles ? showSubtitels : undefined}
-            />
+            <Gutters big>
+              <MediaControls
+                time={progress}
+                duration={duration}
+                playing={!paused}
+                onSkipBack={onSkipBack}
+                onTogglePlay={onTogglePlay}
+                onSkipForward={onSkipForward}
+                onToggleSubtitles={onToggleSubtitles}
+                subtitles={subtitles ? showSubtitels : undefined}
+              />
+            </Gutters>
           </View>
         )}
       </>
@@ -254,16 +257,18 @@ const Video: React.FC<VideoProps> = ({
             </SubtitleContainer>
           )}
           <Spacer16 />
-          <MediaControls
-            time={progress}
-            duration={duration}
-            playing={!paused}
-            onSkipBack={onSkipBack}
-            onTogglePlay={onTogglePlay}
-            onSkipForward={onSkipForward}
-            onToggleSubtitles={onToggleSubtitles}
-            subtitles={subtitles ? showSubtitels : undefined}
-          />
+          <Gutters big>
+            <MediaControls
+              time={progress}
+              duration={duration}
+              playing={!paused}
+              onSkipBack={onSkipBack}
+              onTogglePlay={onTogglePlay}
+              onSkipForward={onSkipForward}
+              onToggleSubtitles={onToggleSubtitles}
+              subtitles={subtitles ? showSubtitels : undefined}
+            />
+          </Gutters>
         </View>
       )}
     </>

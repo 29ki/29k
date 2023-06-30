@@ -13,14 +13,17 @@ const Container = styled.View({
   alignItems: 'center',
 });
 
-type BylineUserProps = {user?: UserProfileType | null};
+type BylineUserProps = {
+  user?: Pick<UserProfileType, 'displayName' | 'photoURL'> | null;
+  picSize?: number;
+};
 
-const BylineUser: React.FC<BylineUserProps> = React.memo(({user}) => {
+const BylineUser: React.FC<BylineUserProps> = React.memo(({user, picSize}) => {
   const {t} = useTranslation('Component.BylineUser');
   return (
     <Container>
       <ProfilePicture
-        size={SPACINGS.TWENTYFOUR}
+        size={picSize ?? SPACINGS.TWENTYFOUR}
         pictureURL={user?.photoURL}
         letter={user?.displayName?.[0]}
       />
