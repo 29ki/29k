@@ -8,6 +8,7 @@ import {userRouter} from './user';
 import {postsRouter} from './posts';
 import {reportRouter} from './report';
 import {onboardingRouter} from './onboarding';
+import {stripeRouter} from './stripe';
 import {koaSentryErrorReporter} from '../lib/sentry';
 import firebaseBodyParser from '../lib/firebaseBodyParser';
 import languageResolver from './lib/languageResolver';
@@ -23,7 +24,8 @@ app.on('error', localErrorHandler);
 const preAuthRouter = createApiPreAuthRouter();
 preAuthRouter
   .use('/killSwitch', killSwitchRouter.routes())
-  .use('/onboarding', onboardingRouter.routes());
+  .use('/onboarding', onboardingRouter.routes())
+  .use('/stripe', stripeRouter.routes());
 
 const authRouter = createApiAuthRouter();
 authRouter
