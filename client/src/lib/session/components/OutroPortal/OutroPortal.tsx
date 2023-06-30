@@ -16,7 +16,6 @@ import {SPACINGS} from '../../../constants/spacings';
 import VideoTransition from '../VideoTransition/VideoTransition';
 import AudioFader from '../AudioFader/AudioFader';
 import Button from '../../../components/Buttons/Button';
-import usePreventScreenSleep from '../../hooks/usePreventScreenSleep';
 
 const Spinner = styled.ActivityIndicator({
   ...StyleSheet.absoluteFillObject,
@@ -43,7 +42,6 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
   const isFocused = useIsFocused();
   usePreventGoingBack();
   useNavigateWithFade();
-  usePreventScreenSleep('outroPortal');
 
   const outroPortal = exercise?.outroPortal;
   const introPortal = exercise?.introPortal;

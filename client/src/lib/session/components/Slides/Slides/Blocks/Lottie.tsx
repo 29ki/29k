@@ -1,6 +1,7 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
+import IdleTimerManager from 'react-native-idle-timer';
 
 import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
 import useSessionState from '../../../../state/state';
@@ -90,6 +91,11 @@ const Lottie: React.FC<LottieProps> = ({
     },
     [audioSource],
   );
+
+  useEffect(() => {
+    IdleTimerManager.setIdleTimerDisabled(active);
+    return () => IdleTimerManager.setIdleTimerDisabled(false);
+  }, [active]);
 
   useEffect(() => {
     if (!active) {

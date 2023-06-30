@@ -24,7 +24,6 @@ import useUpdateAsyncSessionState from '../../../lib/session/hooks/useUpdateAsyn
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import ProgressBar from '../../../lib/session/components/ProgressBar/ProgressBar';
 import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
-import usePreventScreenSleep from '../../../lib/session/hooks/usePreventScreenSleep';
 
 const Spotlight = styled.View({
   flex: 1,
@@ -61,7 +60,6 @@ const Session: React.FC = () => {
   const logSessionMetricEvent = useAsyncSessionMetricEvents();
   const addUserEvent = useAddUserEvent();
   const {navigateToIndex} = useUpdateAsyncSessionState(session);
-  usePreventScreenSleep('session');
 
   useEffect(() => {
     if (sessionState?.id) {
