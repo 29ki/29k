@@ -279,18 +279,21 @@ android {
             manifestPlaceholders.deepLinkHost1 = 'aware.29k.org'
             manifestPlaceholders.deepLinkHost2 = 'app.cupcake.29k.org'
             manifestPlaceholders.deepLinkHost3 = 'open.awareapp.org'
+            manifestPlaceholders.deepLinkScheme = 'org.twentyninek.app.cupcake.dev'
         }
         staging {
             applicationId 'org.twentyninek.app.cupcake.staging'
             manifestPlaceholders.deepLinkHost1 = 'staging.aware.29k.org'
             manifestPlaceholders.deepLinkHost2 = 'staging.app.cupcake.29k.org'
             manifestPlaceholders.deepLinkHost3 = 'staging.open.awareapp.org'
+            manifestPlaceholders.deepLinkScheme = 'org.twentyninek.app.cupcake.staging'
         }
         dev {
             applicationId 'org.twentyninek.app.cupcake.dev'
             manifestPlaceholders.deepLinkHost1 = 'dev.aware.29k.org'
             manifestPlaceholders.deepLinkHost2 = 'dev.app.cupcake.29k.org'
             manifestPlaceholders.deepLinkHost3 = 'dev.open.awareapp.org'
+            manifestPlaceholders.deepLinkScheme = 'org.twentyninek.app.cupcake'
         }
     }
 }
