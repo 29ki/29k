@@ -1,5 +1,7 @@
 import React, {useCallback, useRef, useState} from 'react';
+import {Alert} from 'react-native';
 import styled from 'styled-components/native';
+import {TextInput} from 'react-native-gesture-handler';
 import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {ONE_TIME_AMOUNTS} from '../constants/donationAmounts';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
@@ -9,15 +11,17 @@ import {
   Body18,
   BodyBold,
 } from '../../../../lib/components/Typography/Body/Body';
-import {preferedCurrency, formatCurrency} from '../utils/currency';
-import {Alert} from 'react-native';
+import {
+  preferedCurrency,
+  formatCurrency,
+  getCurrencySymbol,
+} from '../utils/currency';
 import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
 import Button from '../../../../lib/components/Buttons/Button';
 import {HeartFillIcon} from '../../../../lib/components/Icons';
 import {PlatformPay, useStripe} from '@stripe/stripe-react-native';
 import apiClient from '../../../../lib/apiClient/apiClient';
 import useUser from '../../../../lib/user/hooks/useUser';
-import {BottomSheetTextInput} from '@gorhom/bottom-sheet';
 
 const Choices = styled.View({
   flexDirection: 'row',
@@ -40,8 +44,14 @@ const DonateButton = styled(TouchableOpacity)<{active: boolean}>(
   }),
 );
 
+const CurrencySymbol = () => (
+  <Body18 numberOfLines={1}>
+    <BodyBold>{getCurrencySymbol()}</BodyBold>
+  </Body18>
+);
+
 const OneTimeDonation = () => {
-  const textRef = useRef<typeof BottomSheetActionTextInput | null>(null);
+  const textRef = useRef<TextInput>(null);
   const {initPaymentSheet, presentPaymentSheet} = useStripe();
   const user = useUser();
   const [loading, setLoading] = useState(false);
@@ -55,6 +65,10 @@ const OneTimeDonation = () => {
     },
     [],
   );
+
+  const onCustomAmountChange = useCallback((value: string) => {
+    setAmount(parseInt(value, 10));
+  }, []);
 
   const fetchPaymentSheetParams = useCallback(async () => {
     const response = await apiClient('stripe/paymentIntent/oneTime', {
@@ -145,10 +159,10 @@ const OneTimeDonation = () => {
       </Choices>
       <ActionList>
         <BottomSheetActionTextInput
-          onPress={() => setAmount(0)}
           placeholder="Custom Amount"
-          keyboardType="decimal-pad"
-          onChangeText={setAmount}
+          keyboardType="number-pad"
+          onChangeText={onCustomAmountChange}
+          Icon={CurrencySymbol}
           ref={textRef}
         />
       </ActionList>
