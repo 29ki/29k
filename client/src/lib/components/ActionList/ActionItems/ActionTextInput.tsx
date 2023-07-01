@@ -34,7 +34,14 @@ const BottomSheetTextInput =
   );
 
 const IconWrapper = styled.View({
-  minWidth: 21,
+  minWidth: 30,
+  height: 30,
+  justifyContent: 'center',
+  alignItems: 'center',
+});
+
+const PencilIconWrapper = styled.View({
+  width: 21,
   height: 21,
 });
 
@@ -48,7 +55,15 @@ const ActionTextInput = forwardRef<
 >(({Icon, ...props}, ref) => (
   <ActionItem>
     <TextInput {...props} ref={ref} />
-    <IconWrapper>{Icon ? <Icon /> : <PencilIcon />}</IconWrapper>
+    {Icon ? (
+      <IconWrapper>
+        <Icon />
+      </IconWrapper>
+    ) : (
+      <PencilIconWrapper>
+        <PencilIcon />
+      </PencilIconWrapper>
+    )}
     <Spacer8 />
   </ActionItem>
 ));
@@ -59,7 +74,15 @@ export const BottomSheetActionTextInput = forwardRef<
 >(({Icon, ...props}, ref) => (
   <ActionItem>
     <BottomSheetTextInput {...props} ref={ref} />
-    <IconWrapper>{Icon ? <Icon /> : <PencilIcon />}</IconWrapper>
+    {Icon ? (
+      <IconWrapper>
+        <Icon />
+      </IconWrapper>
+    ) : (
+      <PencilIconWrapper>
+        <PencilIcon />
+      </PencilIconWrapper>
+    )}
     <Spacer8 />
   </ActionItem>
 ));
