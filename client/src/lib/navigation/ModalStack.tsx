@@ -138,7 +138,7 @@ const ModalStack = () => {
   const donateSheetModalScreenOptions = useMemo(
     () => ({
       ...sheetModalScreenOptions,
-      snapPoints: ['50%', '90%'],
+      snapPoints: [400],
     }),
     [sheetModalScreenOptions],
   );
