@@ -15,10 +15,17 @@ export const preferedCurrency = head(
   intersection(CURRENCY_CODES, [...getCurrencies(), DEFAULT_CURRENCY_CODE]),
 ) as CURRENCY_CODE;
 
+const CURRENCY_OPTIONS = {
+  style: 'currency',
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
+  currency: preferedCurrency,
+};
+
+export const getCurrencySymbol = () =>
+  Intl.NumberFormat(preferedLanguageTag, CURRENCY_OPTIONS)
+    .formatToParts(0)
+    .find(({type}) => type === 'currency')?.value;
+
 export const formatCurrency = (amount: number) =>
-  Intl.NumberFormat(preferedLanguageTag, {
-    style: 'currency',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-    currency: preferedCurrency,
-  }).format(amount);
+  Intl.NumberFormat(preferedLanguageTag, CURRENCY_OPTIONS).format(amount);
