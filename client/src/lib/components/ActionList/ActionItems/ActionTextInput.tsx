@@ -1,5 +1,7 @@
 import React, {forwardRef} from 'react';
 import styled from 'styled-components/native';
+import {TextInput as RNTextInput, TextInputProps} from 'react-native';
+import {TextInput as RNGHTextInput} from 'react-native-gesture-handler';
 import {BottomSheetTextInput as BSTextInput} from '@gorhom/bottom-sheet';
 import {SPACINGS} from '../../../constants/spacings';
 import textStyles from '../../Typography/styles';
@@ -8,6 +10,7 @@ import {COLORS} from '../../../../../../shared/src/constants/colors';
 import hexToRgba from 'hex-to-rgba';
 import {PencilIcon} from '../../Icons';
 import {Spacer8} from '../../Spacers/Spacer';
+import {BottomSheetTextInputProps} from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetTextInput';
 
 const style = ({hasError = false}) => ({
   flex: 1,
@@ -20,37 +23,43 @@ const attrs = ({hasError = false}) => ({
   placeholderTextColor: hasError ? hexToRgba(COLORS.ERROR, 0.5) : undefined,
 });
 
-const TextInput = styled.TextInput.attrs(attrs)(style);
+const TextInput =
+  styled(RNTextInput).attrs<ActionTextInputProps>(attrs)<ActionTextInputProps>(
+    style,
+  );
 
-const BottomSheetTextInput = styled(BSTextInput).attrs(attrs)(style);
+const BottomSheetTextInput =
+  styled(BSTextInput).attrs<ActionTextInputProps>(attrs)<ActionTextInputProps>(
+    style,
+  );
 
 const IconWrapper = styled.View({
   width: 21,
   height: 21,
 });
 
+type ActionTextInputProps = {
+  hasError?: boolean;
+  Icon?: React.ComponentType;
+};
 const ActionTextInput = forwardRef<
-  typeof TextInput,
-  React.ComponentProps<typeof TextInput>
->((props, ref) => (
+  RNTextInput,
+  ActionTextInputProps & TextInputProps
+>(({Icon, ...props}, ref) => (
   <ActionItem>
     <TextInput {...props} ref={ref} />
-    <IconWrapper>
-      <PencilIcon />
-    </IconWrapper>
+    <IconWrapper>{Icon ? <Icon /> : <PencilIcon />}</IconWrapper>
     <Spacer8 />
   </ActionItem>
 ));
 
 export const BottomSheetActionTextInput = forwardRef<
-  typeof BottomSheetTextInput,
-  React.ComponentProps<typeof BottomSheetTextInput>
->((props, ref) => (
+  RNGHTextInput,
+  ActionTextInputProps & BottomSheetTextInputProps
+>(({Icon, ...props}, ref) => (
   <ActionItem>
     <BottomSheetTextInput {...props} ref={ref} />
-    <IconWrapper>
-      <PencilIcon />
-    </IconWrapper>
+    <IconWrapper>{Icon ? <Icon /> : <PencilIcon />}</IconWrapper>
     <Spacer8 />
   </ActionItem>
 ));
