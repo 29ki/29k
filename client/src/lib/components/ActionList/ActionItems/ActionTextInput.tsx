@@ -34,7 +34,7 @@ const BottomSheetTextInput =
   );
 
 const IconWrapper = styled.View({
-  width: 21,
+  minWidth: 21,
   height: 21,
 });
 
