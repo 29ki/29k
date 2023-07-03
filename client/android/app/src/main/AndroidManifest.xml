@@ -26,6 +26,9 @@
       android:theme="@style/AppTheme"
       android:hardwareAccelerated="true">
       <service android:name="com.daily.reactlibrary.DailyOngoingMeetingForegroundService"/>
+      <meta-data
+        android:name="com.google.android.gms.wallet.api.enabled"
+        android:value="true" />
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
@@ -47,6 +50,14 @@
             <data android:scheme="https" android:host="${deepLinkHost1}" />
             <data android:scheme="https" android:host="${deepLinkHost2}" />
             <data android:scheme="https" android:host="${deepLinkHost3}" />
+        </intent-filter>
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data android:scheme="${deepLinkScheme}" />
         </intent-filter>
       </activity>
     </application>

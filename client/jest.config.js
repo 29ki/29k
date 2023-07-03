@@ -10,10 +10,12 @@ process.env = Object.assign(process.env, {
   STORAGE_ENDPOINT: 'some-storage-endpoint',
   GIT_COMMIT_SHORT: 'some-git-hash',
   SENTRY_DSN: 'some-sentry-dsn',
-  DEEP_LINK_SCHEMA: 'some-deep-link-schema',
   DEEP_LINK_PREFIX: 'some-deep-link-prefix',
+  DEEP_LINK_SCHEME: 'some-deep-link-schema',
   IOS_APPSTORE_ID: 'some-app-store-id',
   ANDROID_PACKAGE_NAME: 'some-android-package-name',
+  STRIPE_PUBLISHABLE_KEY: 'some-stripe-publishable-key',
+  STRIPE_APPLE_MERCHANT_IDENTIFIER: 'some-apple-merchant-identifier',
 });
 const modules = ['react-native', '@react-native', '@notifee'];
 

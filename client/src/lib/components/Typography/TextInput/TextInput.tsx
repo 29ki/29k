@@ -5,14 +5,15 @@ import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../constants/spacings';
 import textStyles from '../styles';
 
-const style = {
+const style = ({hasError = false}) => ({
   height: 44,
   paddingHorizontal: SPACINGS.SIXTEEN,
   paddingVertical: SPACINGS.TWELVE,
   ...textStyles.Body16,
   backgroundColor: COLORS.PURE_WHITE,
   borderRadius: 16,
-};
+  color: hasError ? COLORS.ERROR : undefined,
+});
 
 const TextInput = styled.TextInput(style);
 

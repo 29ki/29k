@@ -42,6 +42,10 @@ export const AllTypes = () => (
       <ActionTextInput value="ActionTextInput prefilled value" />
       <ActionTextInput value="ActionTextInput with very very very very very very very very very very very long text" />
       <ActionTextInput
+        placeholder="ActionTextInput custom icon"
+        Icon={ProfileIcon}
+      />
+      <ActionTextInput
         placeholder="ActionTextInput placeholder with error"
         hasError
       />
