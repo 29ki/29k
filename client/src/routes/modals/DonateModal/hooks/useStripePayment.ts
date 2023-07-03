@@ -23,6 +23,10 @@ const useStripePayment = () => {
         primaryButtonLabel: 'Donate',
       });
 
+      if (result.error) {
+        return result;
+      }
+
       result = await presentPaymentSheet();
 
       return result;
