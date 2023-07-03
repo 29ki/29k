@@ -1,5 +1,6 @@
 import apiClient from '../../../../lib/apiClient/apiClient';
 import {CURRENCY_CODE} from '../../../../lib/i18n';
+import {Payment} from '../types';
 
 export const getOneTimePaymentIntent = async (
   amount: number,
@@ -17,12 +18,9 @@ export const getOneTimePaymentIntent = async (
     false,
   );
 
-  const {id, clientSecret} = await response.json();
+  const payment = await response.json();
 
-  return {
-    id,
-    clientSecret,
-  };
+  return payment as Payment;
 };
 
 export const getRecurringPaymentIntent = async (
@@ -41,10 +39,23 @@ export const getRecurringPaymentIntent = async (
     false,
   );
 
-  const {id, clientSecret} = await response.json();
+  const payment = await response.json();
 
-  return {
-    id,
-    clientSecret,
-  };
+  return payment as Payment;
+};
+export const sendReceipt = async (paymentIntentId: string, email: string) => {
+  const response = await apiClient(
+    `stripe/paymentIntent/${paymentIntentId}`,
+    {
+      method: 'PUT',
+      body: JSON.stringify({
+        email,
+      }),
+    },
+    false,
+  );
+
+  const payment = await response.json();
+
+  return payment as Payment;
 };

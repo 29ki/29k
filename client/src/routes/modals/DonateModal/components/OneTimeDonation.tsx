@@ -18,12 +18,12 @@ import {
 } from '../utils/currency';
 import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
 import Button from '../../../../lib/components/Buttons/Button';
-import apiClient from '../../../../lib/apiClient/apiClient';
-import useUser from '../../../../lib/user/hooks/useUser';
 import {getOneTimePaymentIntent} from '../api/stripe';
 import useStripePayment from '../hooks/useStripePayment';
 import DonationHeart from './DonationHeart';
 import {head, last} from 'ramda';
+import {Payment} from '../types';
+import Sentry from '../../../../lib/sentry';
 
 const Choices = styled.View({
   flexDirection: 'row',
@@ -52,11 +52,13 @@ const CurrencySymbol = () => (
   </Body18>
 );
 
-const OneTimeDonation = () => {
+type OneTimeDonationProps = {
+  setPayment: (payment: Payment) => void;
+};
+const OneTimeDonation: React.FC<OneTimeDonationProps> = ({setPayment}) => {
   const textRef = useRef<TextInput>(null);
   const startPayment = useStripePayment();
 
-  const user = useUser();
   const [loading, setLoading] = useState(false);
   const [amount, setAmount] = useState(0);
 
@@ -73,45 +75,36 @@ const OneTimeDonation = () => {
     setAmount(parseInt(value, 10));
   }, []);
 
+  const onError = useCallback((err: any) => {
+    setLoading(false);
+    if (err.code !== 'Canceled') {
+      Sentry.captureException(err);
+      Alert.alert(`Error code: ${err.code}`, err.message);
+    }
+  }, []);
+
   const initializePaymentSheet = useCallback(async () => {
     setLoading(true);
-    const {id, clientSecret} = await getOneTimePaymentIntent(
-      amount * 100,
-      preferedCurrency,
-    );
 
-    const {error} = await startPayment(clientSecret);
-
-    if (error) {
-      Alert.alert(`Error code: ${error.code}`, error.message);
-    } else {
-      Alert.prompt(
-        'Thank you for your donation!',
-        'Would you like to receive a receipt?',
-        [
-          {
-            text: 'Yes',
-            style: 'default',
-            onPress: async email => {
-              await apiClient(`stripe/paymentIntent/${id}`, {
-                method: 'put',
-                body: JSON.stringify({
-                  email,
-                }),
-              });
-            },
-          },
-          {
-            text: 'No',
-            style: 'cancel',
-          },
-        ],
-        'plain-text',
-        user?.email ?? undefined,
-      );
+    let payment, result;
+    try {
+      payment = await getOneTimePaymentIntent(amount * 100, preferedCurrency);
+      result = await startPayment(payment.clientSecret);
+    } catch (err) {
+      onError(err);
     }
+
+    if (result?.error) {
+      onError(result.error);
+      return;
+    }
+
     setLoading(false);
-  }, [amount, startPayment, user?.email]);
+
+    if (payment) {
+      setPayment(payment);
+    }
+  }, [amount, startPayment, setPayment, onError]);
 
   const Heart = useCallback(
     () => (

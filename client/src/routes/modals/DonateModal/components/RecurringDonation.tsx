@@ -2,6 +2,7 @@ import React, {useCallback, useState} from 'react';
 import {Alert} from 'react-native';
 import styled from 'styled-components/native';
 import * as yup from 'yup';
+import Sentry from '../../../../lib/sentry';
 import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {
   DEV_RECURRING_OPTIONS,
@@ -17,16 +18,16 @@ import {
   BodyBold,
 } from '../../../../lib/components/Typography/Body/Body';
 import {preferedCurrency, formatCurrency} from '../utils/currency';
-import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
+import {Spacer16, Spacer8} from '../../../../lib/components/Spacers/Spacer';
 import Button from '../../../../lib/components/Buttons/Button';
 import {EnvelopeIcon} from '../../../../lib/components/Icons';
-import apiClient from '../../../../lib/apiClient/apiClient';
 import useUser from '../../../../lib/user/hooks/useUser';
 import {getRecurringPaymentIntent} from '../api/stripe';
 import useStripePayment from '../hooks/useStripePayment';
 import {last, head} from 'ramda';
 import DonationHeart from './DonationHeart';
 import {useTranslation} from 'react-i18next';
+import {Payment} from '../types';
 
 const OPTIONS = __DEV__ ? DEV_RECURRING_OPTIONS : RECURRING_OPTIONS;
 
@@ -50,7 +51,10 @@ const AmountButton = styled(TouchableOpacity)<{active: boolean}>(
   }),
 );
 
-const RecurringDonation = () => {
+type RecurringDonationProps = {
+  setPayment: (payment: Payment) => void;
+};
+const RecurringDonation: React.FC<RecurringDonationProps> = ({setPayment}) => {
   const {t} = useTranslation('Modal.Donate');
   const startPayment = useStripePayment();
 
@@ -72,6 +76,14 @@ const RecurringDonation = () => {
     setError(undefined);
   }, []);
 
+  const onError = useCallback((err: any) => {
+    setLoading(false);
+    if (err.code !== 'Canceled') {
+      Sentry.captureException(err);
+      Alert.alert(`Error code: ${err.code}`, err.message);
+    }
+  }, []);
+
   const initializePaymentSheet = useCallback(async () => {
     if (email && option) {
       if (!yup.string().email().isValidSync(email)) {
@@ -81,44 +93,26 @@ const RecurringDonation = () => {
 
       setLoading(true);
 
-      const {id, clientSecret} = await getRecurringPaymentIntent(
-        email,
-        option.id,
-      );
-
-      const result = await startPayment(clientSecret);
-
-      if (result.error) {
-        Alert.alert(`Error code: ${result.error.code}`, result.error.message);
-      } else {
-        Alert.prompt(
-          'Thank you for your donation!',
-          'Would you like to receive a receipt?',
-          [
-            {
-              text: 'Yes',
-              style: 'default',
-              onPress: async email => {
-                await apiClient(`stripe/paymentIntent/${id}`, {
-                  method: 'put',
-                  body: JSON.stringify({
-                    email,
-                  }),
-                });
-              },
-            },
-            {
-              text: 'No',
-              style: 'cancel',
-            },
-          ],
-          'plain-text',
-          email ?? undefined,
-        );
+      let payment, result;
+      try {
+        payment = await getRecurringPaymentIntent(email, option.id);
+        result = await startPayment(payment.clientSecret);
+      } catch (err) {
+        onError(err);
       }
+
+      if (result?.error) {
+        onError(result.error);
+        return;
+      }
+
       setLoading(false);
+
+      if (payment) {
+        setPayment(payment);
+      }
     }
-  }, [option, startPayment, email]);
+  }, [option, startPayment, email, setPayment, onError]);
 
   const Heart = useCallback(
     () => (
@@ -157,13 +151,13 @@ const RecurringDonation = () => {
           hasError={error === 'invalidEmail'}
         />
       </ActionList>
-      <Spacer16 />
       {error && (
         <>
+          <Spacer8 />
           <Error>{t(`errors.${error}`)}</Error>
-          <Spacer16 />
         </>
       )}
+      <Spacer16 />
       <Button
         variant="secondary"
         loading={loading}
