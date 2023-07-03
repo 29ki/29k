@@ -39,7 +39,7 @@ import AssignNewHostModal from '../../routes/modals/AssignNewHostModal/AssignNew
 import EditSessionDateModal from '../../routes/modals/EditSessionDateModal/EditSessionDateModal';
 import HostingInviteFailModal from '../../routes/modals/HostingInviteFailModal/HostingInviteFailModal';
 import HostSessionByInviteModal from '../../routes/modals/HostSessionByInviteModal/HostSessionByInviteModal';
-import DonateModal from '../../routes/overlays/DonateOverlay/DonateModal';
+import DonateModal from '../../routes/modals/DonateModal/DonateModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
