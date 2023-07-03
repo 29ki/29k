@@ -1,7 +1,9 @@
 import React, {useEffect} from 'react';
 import Animated, {
   Easing,
+  createAnimatedPropAdapter,
   interpolateColor,
+  processColor,
   useAnimatedProps,
   useAnimatedStyle,
   useSharedValue,
@@ -65,13 +67,24 @@ const DonationHeart: React.FC<{
     transform: [{scale: scale.value}],
   }));
 
-  const pathProps = useAnimatedProps(() => ({
-    fill: interpolateColor(
-      fill.value,
-      [1, size],
-      [COLORS.PURE_WHITE, COLORS.HEART],
+  const pathProps = useAnimatedProps(
+    () => ({
+      fill: interpolateColor(
+        fill.value,
+        [1, size],
+        [COLORS.PURE_WHITE, COLORS.HEART],
+      ),
+    }),
+    [],
+    /* fill prop works differently in the native layer and needs to be adapted
+       https://github.com/software-mansion/react-native-svg/issues/1845#issuecomment-1247836723 */
+    createAnimatedPropAdapter(
+      props => {
+        props.fill = {type: 0, payload: processColor(props.fill as string)};
+      },
+      ['fill'],
     ),
-  }));
+  );
 
   return (
     <AnimatedSvg
