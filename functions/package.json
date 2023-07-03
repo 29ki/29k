@@ -57,7 +57,7 @@
     "@types/koa__router": "^12.0.0",
     "@types/mjml": "^4.7.1",
     "@types/node-fetch": "^2.6.4",
-    "@types/ramda": "^0.29.2",
+    "@types/ramda": "^0.29.3",
     "@types/semver": "^7.5.0",
     "@types/supertest": "^2.0.12",
     "@types/uuid": "^9.0.2",
