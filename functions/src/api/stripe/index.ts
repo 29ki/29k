@@ -13,21 +13,22 @@ const stripe = new Stripe(STRIPE_API_KEY, {
   apiVersion: '2022-11-15',
 });
 
+const PaymentIntentResponse = yup.object({
+  id: yup.string().required(),
+  clientSecret: yup.string().required(),
+  receiptEmail: yup.string().email().nullable(),
+});
+
 const OneTimePaymentIntentBodySchema = yup.object({
   amount: yup.number().positive().integer().required(),
   currency: yup.string().oneOf(CURRENCY_CODES).required(),
-});
-
-const OneTimePaymentIntentResponseSchema = yup.object({
-  id: yup.string().required(),
-  clientSecret: yup.string().required(),
 });
 
 stripeRouter.post(
   '/paymentIntent/oneTime',
   validation({
     body: OneTimePaymentIntentBodySchema,
-    response: OneTimePaymentIntentResponseSchema,
+    response: PaymentIntentResponse,
   }),
   async ({request, response}) => {
     const {amount, currency} = request.body;
@@ -43,6 +44,7 @@ stripeRouter.post(
     response.body = {
       id: paymentIntent.id,
       clientSecret: paymentIntent.client_secret,
+      receiptEmail: paymentIntent.receipt_email,
     };
   },
 );
@@ -52,17 +54,11 @@ const RecurringPaymentIntentBodySchema = yup.object({
   priceId: yup.string().required(),
 });
 
-const RecurringPaymentIntentResponseSchema = yup.object({
-  clientSecret: yup.string().required(),
-  ephemeralKey: yup.string().required(),
-  customer: yup.string().required(),
-});
-
 stripeRouter.post(
   '/paymentIntent/recurring',
   validation({
     body: RecurringPaymentIntentBodySchema,
-    response: RecurringPaymentIntentResponseSchema,
+    response: PaymentIntentResponse,
   }),
   async ({request, response}) => {
     const {email, priceId} = request.body;
@@ -70,10 +66,6 @@ stripeRouter.post(
     const customer = await stripe.customers.create({
       email,
     });
-    const ephemeralKey = await stripe.ephemeralKeys.create(
-      {customer: customer.id},
-      {apiVersion: '2022-11-15'},
-    );
 
     const subscription = await stripe.subscriptions.create({
       customer: customer.id,
@@ -88,14 +80,15 @@ stripeRouter.post(
 
     const latestInvoice = subscription.latest_invoice;
     const paymentIntent =
-      typeof latestInvoice !== 'string' ? latestInvoice?.payment_intent : null;
+      typeof latestInvoice !== 'string' &&
+      typeof latestInvoice?.payment_intent !== 'string'
+        ? latestInvoice?.payment_intent
+        : null;
 
     response.body = {
-      id: typeof paymentIntent !== 'string' ? paymentIntent?.id : '',
-      clientSecret:
-        typeof paymentIntent !== 'string' ? paymentIntent?.client_secret : '',
-      ephemeralKey: ephemeralKey.secret,
-      customer: customer.id,
+      id: paymentIntent?.id,
+      clientSecret: paymentIntent?.client_secret,
+      receiptEmail: paymentIntent?.receipt_email,
     };
   },
 );
@@ -112,14 +105,21 @@ stripeRouter.put(
   validation({
     params: UpdatePaymentIntentParamsSchema,
     body: UpdatePaymentIntentBodySchema,
+    response: PaymentIntentResponse,
   }),
-  async ({params, request}) => {
+  async ({params, request, response}) => {
     const {id} = params;
     const {email} = request.body;
 
-    await stripe.paymentIntents.update(id, {
+    const paymentIntent = await stripe.paymentIntents.update(id, {
       receipt_email: email,
     });
+
+    response.body = {
+      id: paymentIntent.id,
+      clientSecret: paymentIntent.client_secret,
+      receiptEmail: paymentIntent.receipt_email,
+    };
   },
 );
 
