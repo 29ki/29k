@@ -3,7 +3,7 @@ import {Alert} from 'react-native';
 import styled from 'styled-components/native';
 import {TextInput} from 'react-native-gesture-handler';
 import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
-import {ONE_TIME_AMOUNTS} from '../constants/donationAmounts';
+import {ONE_TIME_AMOUNTS} from '../constants/donationOptions';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {BottomSheetActionTextInput} from '../../../../lib/components/ActionList/ActionItems/ActionTextInput';
 import ActionList from '../../../../lib/components/ActionList/ActionList';
@@ -18,10 +18,12 @@ import {
 } from '../utils/currency';
 import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
 import Button from '../../../../lib/components/Buttons/Button';
-import {HeartFillIcon} from '../../../../lib/components/Icons';
-import {PlatformPay, useStripe} from '@stripe/stripe-react-native';
 import apiClient from '../../../../lib/apiClient/apiClient';
 import useUser from '../../../../lib/user/hooks/useUser';
+import {getOneTimePaymentIntent} from '../api/stripe';
+import useStripePayment from '../hooks/useStripePayment';
+import DonationHeart from './DonationHeart';
+import {head, last} from 'ramda';
 
 const Choices = styled.View({
   flexDirection: 'row',
@@ -29,7 +31,7 @@ const Choices = styled.View({
   flexWrap: 'wrap',
 });
 
-const DonateButton = styled(TouchableOpacity)<{active: boolean}>(
+const AmountButton = styled(TouchableOpacity)<{active: boolean}>(
   ({active}) => ({
     width: '32%',
     height: 42,
@@ -52,7 +54,8 @@ const CurrencySymbol = () => (
 
 const OneTimeDonation = () => {
   const textRef = useRef<TextInput>(null);
-  const {initPaymentSheet, presentPaymentSheet} = useStripe();
+  const startPayment = useStripePayment();
+
   const user = useUser();
   const [loading, setLoading] = useState(false);
   const [amount, setAmount] = useState(0);
@@ -70,43 +73,14 @@ const OneTimeDonation = () => {
     setAmount(parseInt(value, 10));
   }, []);
 
-  const fetchPaymentSheetParams = useCallback(async () => {
-    const response = await apiClient('stripe/paymentIntent/oneTime', {
-      method: 'post',
-      body: JSON.stringify({
-        amount: amount * 100,
-        currency: preferedCurrency,
-      }),
-    });
-
-    const {id, clientSecret} = await response.json();
-
-    return {
-      id,
-      clientSecret,
-    };
-  }, [amount]);
-
   const initializePaymentSheet = useCallback(async () => {
     setLoading(true);
-    const {id, clientSecret} = await fetchPaymentSheetParams();
+    const {id, clientSecret} = await getOneTimePaymentIntent(
+      amount * 100,
+      preferedCurrency,
+    );
 
-    await initPaymentSheet({
-      merchantDisplayName: 'Stiftelsen 29k Foundation',
-      paymentIntentClientSecret: clientSecret,
-      allowsDelayedPaymentMethods: true,
-      applePay: {
-        merchantCountryCode: 'SE',
-        buttonType: PlatformPay.ButtonType.Donate,
-      },
-      googlePay: {
-        merchantCountryCode: 'SE',
-        testEnv: true, // use test environment
-      },
-      primaryButtonLabel: 'Donate',
-    });
-
-    const {error} = await presentPaymentSheet();
+    const {error} = await startPayment(clientSecret);
 
     if (error) {
       Alert.alert(`Error code: ${error.code}`, error.message);
@@ -137,24 +111,31 @@ const OneTimeDonation = () => {
       );
     }
     setLoading(false);
-  }, [
-    fetchPaymentSheetParams,
-    initPaymentSheet,
-    presentPaymentSheet,
-    user?.email,
-  ]);
+  }, [amount, startPayment, user?.email]);
+
+  const Heart = useCallback(
+    () => (
+      <DonationHeart
+        minAmount={last(ONE_TIME_AMOUNTS[preferedCurrency]) ?? 0}
+        maxAmount={head(ONE_TIME_AMOUNTS[preferedCurrency]) ?? 1}
+        amount={amount ?? 0}
+      />
+    ),
+    [amount],
+  );
 
   return (
     <>
       <Choices>
-        {ONE_TIME_AMOUNTS[preferedCurrency].map(donationAmount => (
-          <DonateButton
+        {ONE_TIME_AMOUNTS[preferedCurrency].map((donationAmount, i) => (
+          <AmountButton
+            key={i}
             onPress={toggleChoice(donationAmount)}
             active={donationAmount === amount}>
             <Body18 numberOfLines={1}>
               <BodyBold>{formatCurrency(donationAmount)}</BodyBold>
             </Body18>
-          </DonateButton>
+          </AmountButton>
         ))}
       </Choices>
       <ActionList>
@@ -172,7 +153,7 @@ const OneTimeDonation = () => {
         loading={loading}
         disabled={loading || !amount}
         onPress={initializePaymentSheet}
-        LeftIcon={HeartFillIcon}>
+        LeftIcon={Heart}>
         Donate
       </Button>
     </>
