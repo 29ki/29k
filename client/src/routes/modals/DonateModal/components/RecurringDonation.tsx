@@ -1,6 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import {Alert} from 'react-native';
 import styled from 'styled-components/native';
+import * as yup from 'yup';
 import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {
   DEV_RECURRING_OPTIONS,
@@ -11,6 +12,7 @@ import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {BottomSheetActionTextInput} from '../../../../lib/components/ActionList/ActionItems/ActionTextInput';
 import ActionList from '../../../../lib/components/ActionList/ActionList';
 import {
+  Body16,
   Body18,
   BodyBold,
 } from '../../../../lib/components/Typography/Body/Body';
@@ -24,10 +26,15 @@ import {getRecurringPaymentIntent} from '../api/stripe';
 import useStripePayment from '../hooks/useStripePayment';
 import {last, head} from 'ramda';
 import DonationHeart from './DonationHeart';
+import {useTranslation} from 'react-i18next';
 
 const OPTIONS = __DEV__ ? DEV_RECURRING_OPTIONS : RECURRING_OPTIONS;
 
 const Choices = styled.View({});
+
+const Error = styled(Body16)({
+  color: COLORS.ERROR,
+});
 
 const AmountButton = styled(TouchableOpacity)<{active: boolean}>(
   ({active}) => ({
@@ -44,12 +51,14 @@ const AmountButton = styled(TouchableOpacity)<{active: boolean}>(
 );
 
 const RecurringDonation = () => {
+  const {t} = useTranslation('Modal.Donate');
   const startPayment = useStripePayment();
 
   const user = useUser();
   const [loading, setLoading] = useState(false);
   const [option, setOption] = useState<RECURRING_OPTION>();
   const [email, setEmail] = useState(user?.email ?? '');
+  const [error, setError] = useState<'invalidEmail' | undefined>();
 
   const toggleChoice = useCallback(
     (newOption: RECURRING_OPTION) => () => {
@@ -58,8 +67,18 @@ const RecurringDonation = () => {
     [],
   );
 
+  const onChangeEmail = useCallback((newEmail: string) => {
+    setEmail(newEmail);
+    setError(undefined);
+  }, []);
+
   const initializePaymentSheet = useCallback(async () => {
     if (email && option) {
+      if (!yup.string().email().isValidSync(email)) {
+        setError('invalidEmail');
+        return;
+      }
+
       setLoading(true);
 
       const {id, clientSecret} = await getRecurringPaymentIntent(
@@ -67,10 +86,10 @@ const RecurringDonation = () => {
         option.id,
       );
 
-      const {error} = await startPayment(clientSecret);
+      const result = await startPayment(clientSecret);
 
-      if (error) {
-        Alert.alert(`Error code: ${error.code}`, error.message);
+      if (result.error) {
+        Alert.alert(`Error code: ${result.error.code}`, result.error.message);
       } else {
         Alert.prompt(
           'Thank you for your donation!',
@@ -132,12 +151,19 @@ const RecurringDonation = () => {
         <BottomSheetActionTextInput
           placeholder="E-mail address"
           keyboardType="email-address"
-          onChangeText={setEmail}
+          onChangeText={onChangeEmail}
           defaultValue={email}
           Icon={EnvelopeIcon}
+          hasError={error === 'invalidEmail'}
         />
       </ActionList>
       <Spacer16 />
+      {error && (
+        <>
+          <Error>{t(`errors.${error}`)}</Error>
+          <Spacer16 />
+        </>
+      )}
       <Button
         variant="secondary"
         loading={loading}
