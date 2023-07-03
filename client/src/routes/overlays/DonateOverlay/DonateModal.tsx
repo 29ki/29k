@@ -7,6 +7,7 @@ import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 import OneTimeDonation from './components/OneTimeDonation';
+import RecurringDonation from './components/RecurringDonation';
 
 const Types = styled.View({
   flexDirection: 'row',
@@ -64,6 +65,7 @@ Best regards,
           </Types>
           <Spacer8 />
           {type === 'one-time' && <OneTimeDonation />}
+          {type === 'recurring' && <RecurringDonation />}
         </Gutters>
         <BottomSafeArea minSize={16} />
       </KeyboardAvoidingView>
