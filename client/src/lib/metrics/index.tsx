@@ -85,12 +85,15 @@ export const logFeedback: LogFeedback = async feedback => {
   ]);
 };
 
-export const setUserProperties: SetUserProperties = async properties => {
-  logDebug('setUserProperties %p', properties);
+export const setUserProperties: SetUserProperties = async (
+  properties,
+  once = false, // Overwrite existing properties?
+) => {
+  logDebug('setUserProperties once=%s %p ', once, properties);
 
   await Promise.all([
-    postHog.setUserProperties(properties),
-    backEnd.setUserProperties(properties),
+    postHog.setUserProperties(properties, once),
+    backEnd.setUserProperties(properties, once),
   ]);
 };
 

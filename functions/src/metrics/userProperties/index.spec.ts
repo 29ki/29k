@@ -22,7 +22,7 @@ afterAll(() => {
   mockServer.close();
 });
 
-describe('/api/userProperties', () => {
+describe('POST /api/userProperties', () => {
   describe('Success', () => {
     it('Accepts incoming events', async () => {
       const response = await request(mockServer)
@@ -77,6 +77,72 @@ describe('/api/userProperties', () => {
     it('Requires valid properties', async () => {
       const response = await request(mockServer)
         .post('/userProperties/123e4567-e89b-12d3-a456-426614174000')
+        .send({foo: []});
+
+      expect(mockSetUserProperties).toHaveBeenCalledTimes(0);
+
+      expect(response.status).toBe(500);
+    });
+  });
+});
+
+describe('PUT /api/userProperties', () => {
+  describe('Success', () => {
+    it('Accepts incoming events', async () => {
+      const response = await request(mockServer)
+        .put('/userProperties/123e4567-e89b-12d3-a456-426614174000')
+        .send({
+          'Some Property': 'Some Value',
+        });
+
+      expect(mockSetUserProperties).toHaveBeenCalledTimes(1);
+      expect(mockSetUserProperties).toHaveBeenCalledWith(
+        '123e4567-e89b-12d3-a456-426614174000',
+        {
+          'Some Property': 'Some Value',
+        },
+        true,
+      );
+
+      expect(response.status).toBe(200);
+    });
+
+    it('Accepts empty properties', async () => {
+      const response = await request(mockServer).put(
+        '/userProperties/123e4567-e89b-12d3-a456-426614174000',
+      );
+
+      expect(mockSetUserProperties).toHaveBeenCalledTimes(1);
+      expect(mockSetUserProperties).toHaveBeenCalledWith(
+        '123e4567-e89b-12d3-a456-426614174000',
+        {},
+        true,
+      );
+
+      expect(response.status).toBe(200);
+    });
+  });
+
+  describe('Failure', () => {
+    it('Requires a userId', async () => {
+      const response = await request(mockServer).put('/userProperties');
+
+      expect(mockSetUserProperties).toHaveBeenCalledTimes(0);
+
+      expect(response.status).toBe(404);
+    });
+
+    it('Requires a valid userId', async () => {
+      const response = await request(mockServer).put('/userProperties/foo');
+
+      expect(mockSetUserProperties).toHaveBeenCalledTimes(0);
+
+      expect(response.status).toBe(500);
+    });
+
+    it('Requires valid properties', async () => {
+      const response = await request(mockServer)
+        .put('/userProperties/123e4567-e89b-12d3-a456-426614174000')
         .send({foo: []});
 
       expect(mockSetUserProperties).toHaveBeenCalledTimes(0);

@@ -108,7 +108,7 @@
     "theme": {
       "textColor": "#2E2E2E"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "The way out is through",
     "live": true,
     "published": true,
@@ -120,8 +120,8 @@
     "duration": 30,
     "outroPortal": {
       "video": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687856251/Video/way_out_is_through_portal1_rpqnfr.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687404319/Audio/way_out_is_through_portal_szh2h4.mp3"
+        "source": "",
+        "audio": ""
       }
     },
     "introPortal": {

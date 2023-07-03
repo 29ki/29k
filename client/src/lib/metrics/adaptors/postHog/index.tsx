@@ -62,8 +62,18 @@ export const logNavigation: LogNavigation = async (screenName, properties) => {
 
 export const logFeeback: LogFeedback = async () => {};
 
-export const setUserProperties: SetUserProperties = async properties => {
-  await postHog?.identify(undefined, properties);
+export const setUserProperties: SetUserProperties = async (
+  properties,
+  once = false, // Overwrite existing properties?
+) => {
+  await postHog?.identify(
+    undefined,
+    once
+      ? {
+          $set_once: properties,
+        }
+      : properties,
+  );
 };
 
 export const setCoreProperties: SetCoreProperties = async properties => {

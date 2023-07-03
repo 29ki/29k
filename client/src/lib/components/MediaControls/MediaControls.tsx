@@ -92,39 +92,59 @@ const MediaControls: React.FC<MediaControlsProps> = ({
 
   const variant = light ? 'secondary' : 'tertiary';
 
+  // Exoplayer in android have issues with sending correct duration for mp3. It is flaky but when
+  // it fails it sends -9223372036854775807 as duration. (lowest long value in Java +1)
+  // https://github.com/google/ExoPlayer/issues/7314
+  // A temporary fix is to not show erronius progress and disable skip buttons when
+  // that happens.
+  const durationValid = duration > 0;
+
   return (
     <View>
-      <ProgressWrapper>
-        <Progress color={theme?.textColor} index={time} length={duration} />
-      </ProgressWrapper>
-      <Spacer8 />
-      <TimeWrapper>
-        <TimeLabel color={theme?.textColor}>{displayTime}</TimeLabel>
-        <TimeLabel color={theme?.textColor}>{displayLeft}</TimeLabel>
-      </TimeWrapper>
-      <Spacer16 />
+      {durationValid && (
+        <>
+          <ProgressWrapper>
+            <Progress color={theme?.textColor} index={time} length={duration} />
+          </ProgressWrapper>
+          <Spacer8 />
+          <TimeWrapper>
+            <TimeLabel color={theme?.textColor}>{displayTime}</TimeLabel>
+            <TimeLabel color={theme?.textColor}>{displayLeft}</TimeLabel>
+          </TimeWrapper>
+          <Spacer16 />
+        </>
+      )}
 
       <Wrapper>
         <ControlsWrapper>
-          <IconButton
-            small
-            variant={variant}
-            Icon={Backward15}
-            onPress={onSkipBack}
-          />
-          <Spacer32 />
+          {durationValid && (
+            <>
+              <IconButton
+                small
+                variant={variant}
+                Icon={Backward15}
+                onPress={onSkipBack}
+              />
+              <Spacer32 />
+            </>
+          )}
           <PlayPauseButton
             variant={variant}
             Icon={playing ? Pause : Play}
             onPress={onTogglePlay}
           />
-          <Spacer32 />
-          <IconButton
-            small
-            variant={variant}
-            Icon={Forward15}
-            onPress={onSkipForward}
-          />
+          {durationValid && (
+            <>
+              <Spacer32 />
+              <IconButton
+                small
+                variant={variant}
+                Icon={Forward15}
+                onPress={onSkipForward}
+              />
+            </>
+          )}
+
           {subtitles !== undefined && onToggleSubtitles && (
             <SubtitlesWrapper>
               {subtitles ? (

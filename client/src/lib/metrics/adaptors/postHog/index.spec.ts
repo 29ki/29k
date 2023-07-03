@@ -129,6 +129,21 @@ describe('setUserProperties', () => {
       'App Git Commit': 'some-git-commit',
     });
   });
+
+  it('supports setting properties once (idempotent)', async () => {
+    await postHog.init();
+    await postHog.setUserProperties(
+      {'App Git Commit': 'some-git-commit'},
+      true,
+    );
+
+    expect(mockPostHogClient.identify).toHaveBeenCalledTimes(1);
+    expect(mockPostHogClient.identify).toHaveBeenCalledWith(undefined, {
+      $set_once: {
+        'App Git Commit': 'some-git-commit',
+      },
+    });
+  });
 });
 
 describe('setCoreProperties', () => {

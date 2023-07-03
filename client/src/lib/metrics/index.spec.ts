@@ -183,13 +183,38 @@ describe('setUserProperties', () => {
     await setUserProperties({'App Git Commit': 'some-git-commit'});
 
     expect(backEnd.setUserProperties).toHaveBeenCalledTimes(1);
-    expect(backEnd.setUserProperties).toHaveBeenCalledWith({
-      'App Git Commit': 'some-git-commit',
-    });
+    expect(backEnd.setUserProperties).toHaveBeenCalledWith(
+      {
+        'App Git Commit': 'some-git-commit',
+      },
+      false,
+    );
     expect(postHog.setUserProperties).toHaveBeenCalledTimes(1);
-    expect(postHog.setUserProperties).toHaveBeenCalledWith({
-      'App Git Commit': 'some-git-commit',
-    });
+    expect(postHog.setUserProperties).toHaveBeenCalledWith(
+      {
+        'App Git Commit': 'some-git-commit',
+      },
+      false,
+    );
+  });
+
+  it('supports setting user properties once (idempotent)', async () => {
+    await setUserProperties({'App Git Commit': 'some-git-commit'}, true);
+
+    expect(backEnd.setUserProperties).toHaveBeenCalledTimes(1);
+    expect(backEnd.setUserProperties).toHaveBeenCalledWith(
+      {
+        'App Git Commit': 'some-git-commit',
+      },
+      true,
+    );
+    expect(postHog.setUserProperties).toHaveBeenCalledTimes(1);
+    expect(postHog.setUserProperties).toHaveBeenCalledWith(
+      {
+        'App Git Commit': 'some-git-commit',
+      },
+      true,
+    );
   });
 });
 

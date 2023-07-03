@@ -206,3 +206,30 @@ jobs:
       - name: Run tests
         working-directory: ./content
         run: yarn test
+
+  shared:
+    name: Shared
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js v16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Cache Shared Dependencies
+        id: cache-shared-node-modules
+        uses: actions/cache@v2
+        with:
+          path: ./shared/node_modules
+          key: shared-node-modules-${{ hashFiles('./shared/yarn.lock') }}
+
+      - name: Install Shared Dependencies
+        if: steps.cache-shared-node-modules.outputs.cache-hit != 'true'
+        working-directory: ./shared
+        run: yarn
+
+      - name: Run tests
+        working-directory: ./shared
+        run: yarn test

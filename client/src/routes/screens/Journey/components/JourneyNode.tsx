@@ -45,9 +45,9 @@ import {Body14} from '../../../../lib/components/Typography/Body/Body';
 import BylineUser from '../../../../lib/components/Bylines/BylineUser';
 import {useTranslation} from 'react-i18next';
 
-export const HEIGHT = 100;
-export const HEIGHT_WITH_POST = 282;
-const NODE_SIZE = 22;
+export const HEIGHT = 93;
+export const HEIGHT_WITH_POST = 275;
+const NODE_SIZE = 16;
 
 type JourneyNodeProps = {
   completedSessionEvent: CompletedSessionEvent & {sharingPost?: PostEvent};
@@ -84,10 +84,10 @@ const Line = styled.View<
   Pick<JourneyNodeProps, 'isLast' | 'isFirst'> & {height?: number}
 >(({isLast, isFirst, height}) => ({
   position: 'absolute',
-  left: NODE_SIZE / 2,
-  width: 1,
+  left: NODE_SIZE / 2 - 1,
+  width: 2,
   height: isLast ? SPACINGS.SIXTEEN : height ?? HEIGHT,
-  backgroundColor: COLORS.BLACK,
+  backgroundColor: COLORS.MEDIUM_DARK_GREEN,
   marginTop: isFirst ? SPACINGS.SIXTEEN : 0,
 }));
 
