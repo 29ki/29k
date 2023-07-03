@@ -1,7 +1,10 @@
 import {PlatformPay, useStripe} from '@stripe/stripe-react-native';
 import {useCallback} from 'react';
+import {useTranslation} from 'react-i18next';
 
 const useStripePayment = () => {
+  const {t} = useTranslation('Modal.Donate');
+
   const {initPaymentSheet, presentPaymentSheet} = useStripe();
 
   const startPayment = useCallback(
@@ -9,7 +12,7 @@ const useStripePayment = () => {
       let result;
 
       result = await initPaymentSheet({
-        merchantDisplayName: 'Stiftelsen 29k Foundation',
+        merchantDisplayName: t('merchantDisplayName'),
         paymentIntentClientSecret,
         allowsDelayedPaymentMethods: true,
         applePay: {
@@ -20,7 +23,7 @@ const useStripePayment = () => {
           merchantCountryCode: 'SE',
           testEnv: __DEV__,
         },
-        primaryButtonLabel: 'Donate',
+        primaryButtonLabel: t('donate'),
       });
 
       if (result.error) {
@@ -31,7 +34,7 @@ const useStripePayment = () => {
 
       return result;
     },
-    [initPaymentSheet, presentPaymentSheet],
+    [initPaymentSheet, presentPaymentSheet, t],
   );
 
   return startPayment;

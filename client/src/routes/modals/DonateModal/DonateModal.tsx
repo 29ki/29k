@@ -14,6 +14,7 @@ import OneTimeDonation from './components/OneTimeDonation';
 import RecurringDonation from './components/RecurringDonation';
 import DoantionSuccess from './components/DonationSuccess';
 import {Payment} from './types';
+import {useTranslation} from 'react-i18next';
 
 const Types = styled.View({
   flexDirection: 'row',
@@ -21,6 +22,8 @@ const Types = styled.View({
 });
 
 export const DonateModal = () => {
+  const {t} = useTranslation('Modal.Donate');
+
   const {goBack} = useNavigation();
   const [type, setType] = useState<'one-time' | 'recurring'>('one-time');
   const [payment, setPayment] = useState<Payment>();
@@ -44,14 +47,14 @@ export const DonateModal = () => {
               variant={type === 'one-time' ? 'primary' : 'tertiary'}
               small
               onPress={() => setType('one-time')}>
-              One time
+              {t('types.one-time')}
             </Button>
             <Spacer8 />
             <Button
               variant={type === 'recurring' ? 'primary' : 'tertiary'}
               small
               onPress={() => setType('recurring')}>
-              Monthly
+              {t('types.recurring')}
             </Button>
           </Types>
           <Spacer16 />

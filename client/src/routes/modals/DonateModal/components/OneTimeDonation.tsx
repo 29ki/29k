@@ -24,6 +24,7 @@ import DonationHeart from './DonationHeart';
 import {head, last} from 'ramda';
 import {Payment} from '../types';
 import Sentry from '../../../../lib/sentry';
+import {useTranslation} from 'react-i18next';
 
 const Choices = styled.View({
   flexDirection: 'row',
@@ -56,6 +57,8 @@ type OneTimeDonationProps = {
   setPayment: (payment: Payment) => void;
 };
 const OneTimeDonation: React.FC<OneTimeDonationProps> = ({setPayment}) => {
+  const {t} = useTranslation('Modal.Donate');
+
   const textRef = useRef<TextInput>(null);
   const startPayment = useStripePayment();
 
@@ -75,13 +78,16 @@ const OneTimeDonation: React.FC<OneTimeDonationProps> = ({setPayment}) => {
     setAmount(parseInt(value, 10));
   }, []);
 
-  const onError = useCallback((err: any) => {
-    setLoading(false);
-    if (err.code !== 'Canceled') {
-      Sentry.captureException(err);
-      Alert.alert(`Error code: ${err.code}`, err.message);
-    }
-  }, []);
+  const onError = useCallback(
+    (err: any) => {
+      setLoading(false);
+      if (err.code !== 'Canceled') {
+        Sentry.captureException(err);
+        Alert.alert('Oops!', t('errors.generic'));
+      }
+    },
+    [t],
+  );
 
   const initializePaymentSheet = useCallback(async () => {
     setLoading(true);
@@ -133,7 +139,7 @@ const OneTimeDonation: React.FC<OneTimeDonationProps> = ({setPayment}) => {
       </Choices>
       <ActionList>
         <BottomSheetActionTextInput
-          placeholder="Custom Amount"
+          placeholder={t('customAmount')}
           keyboardType="number-pad"
           onChangeText={onCustomAmountChange}
           Icon={CurrencySymbol}
@@ -147,7 +153,7 @@ const OneTimeDonation: React.FC<OneTimeDonationProps> = ({setPayment}) => {
         disabled={loading || !amount}
         onPress={initializePaymentSheet}
         LeftIcon={Heart}>
-        Donate
+        {t('donate')}
       </Button>
     </>
   );

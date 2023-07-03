@@ -107,25 +107,22 @@ const DoantionSuccess: React.FC<DonationSuccessProps> = ({
       <Gratitude>
         <BottomGradient />
         <Gutters big>
-          <ThankYou>Thank you for your donation</ThankYou>
+          <ThankYou>{t('thankYou')}</ThankYou>
         </Gutters>
       </Gratitude>
       <Receipt>
         {payment.receiptEmail ? (
           <>
-            <Body18>
-              A receipt has been sent to{' '}
-              <BodyBold>{payment.receiptEmail}</BodyBold>
-            </Body18>
+            <Body18>{t('receiptSentTo', {email: payment.receiptEmail})}</Body18>
             <Spacer24 />
           </>
         ) : (
           <>
             <Row>
               <StyledTextInput
+                placeholder={t('emailAddress')}
                 keyboardType="email-address"
                 textContentType="emailAddress"
-                placeholder="Your email address"
                 onChangeText={onChangeEmail}
                 defaultValue={email}
                 hasError={error === 'invalidEmail'}
@@ -137,7 +134,7 @@ const DoantionSuccess: React.FC<DonationSuccessProps> = ({
                 onPress={onSendReceipt}
                 disabled={!email}
                 loading={loading}>
-                Send receipt
+                {t('sendReceipt')}
               </Button>
             </Row>
             {error && (

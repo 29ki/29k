@@ -76,13 +76,16 @@ const RecurringDonation: React.FC<RecurringDonationProps> = ({setPayment}) => {
     setError(undefined);
   }, []);
 
-  const onError = useCallback((err: any) => {
-    setLoading(false);
-    if (err.code !== 'Canceled') {
-      Sentry.captureException(err);
-      Alert.alert(`Error code: ${err.code}`, err.message);
-    }
-  }, []);
+  const onError = useCallback(
+    (err: any) => {
+      setLoading(false);
+      if (err.code !== 'Canceled') {
+        Sentry.captureException(err);
+        Alert.alert('Oops!', t('errors.generic'));
+      }
+    },
+    [t],
+  );
 
   const initializePaymentSheet = useCallback(async () => {
     if (email && option) {
@@ -135,7 +138,9 @@ const RecurringDonation: React.FC<RecurringDonationProps> = ({setPayment}) => {
             active={recurringOption === option}>
             <Body18 numberOfLines={1}>
               <BodyBold>
-                {formatCurrency(recurringOption.amount)} / month
+                {t('monthlyAmount', {
+                  amount: formatCurrency(recurringOption.amount),
+                })}
               </BodyBold>
             </Body18>
           </AmountButton>
@@ -143,7 +148,7 @@ const RecurringDonation: React.FC<RecurringDonationProps> = ({setPayment}) => {
       </Choices>
       <ActionList>
         <BottomSheetActionTextInput
-          placeholder="E-mail address"
+          placeholder={t('emailAddress')}
           keyboardType="email-address"
           onChangeText={onChangeEmail}
           defaultValue={email}
@@ -164,7 +169,7 @@ const RecurringDonation: React.FC<RecurringDonationProps> = ({setPayment}) => {
         disabled={loading || !option || !email}
         onPress={initializePaymentSheet}
         LeftIcon={Heart}>
-        Donate
+        {t('donate')}
       </Button>
     </>
   );
