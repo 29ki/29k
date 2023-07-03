@@ -43,28 +43,39 @@ const DonationHeart: React.FC<{
         )
       : 1;
 
-  const scale = useSharedValue(size);
-  const fill = useSharedValue(size);
+  const scale = useSharedValue(1);
+  const fill = useSharedValue(1);
+  const rotate = useSharedValue(0);
 
   useEffect(() => {
     scale.value = withRepeat(
-      withTiming(1, {
-        duration: 400,
-        easing: Easing.ease,
+      withTiming(size, {
+        duration: 600,
+        easing: Easing.inOut(Easing.ease),
       }),
       2,
+      true,
     );
     fill.value = withRepeat(
-      withTiming(1, {
-        duration: 400,
-        easing: Easing.cubic,
+      withTiming(size, {
+        duration: 600,
+        easing: Easing.out(Easing.quad),
       }),
       2,
+      true,
     );
-  }, [amount, size, scale, fill]);
+    rotate.value = withRepeat(
+      withTiming(Math.random() * 90 - 45, {
+        duration: 600,
+        easing: Easing.inOut(Easing.ease),
+      }),
+      2,
+      true,
+    );
+  }, [amount, size, scale, fill, rotate]);
 
   const svgStyle = useAnimatedStyle(() => ({
-    transform: [{scale: scale.value}],
+    transform: [{scale: scale.value}, {rotate: `${rotate.value}deg`}],
   }));
 
   const pathProps = useAnimatedProps(
