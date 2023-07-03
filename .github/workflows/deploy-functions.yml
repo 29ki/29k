@@ -36,6 +36,7 @@ jobs:
       DOTENV_SLACK_OAUTH_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
       DOTENV_SLACK_SIGNING_SECRET: ${{ secrets.SLACK_SIGNING_SECRET }}
       DOTENV_SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+      DOTENV_STRIPE_API_KEY: ${{ secrets.STRIPE_API_KEY }}
 
     steps:
       - uses: actions/checkout@v2

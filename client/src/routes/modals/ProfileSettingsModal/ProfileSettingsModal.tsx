@@ -158,7 +158,7 @@ const ProfileSettingsModal = () => {
               onSubmitEditing={updateUserPress}
               placeholder={t('displayName')}
               onChangeText={setDisplayName}
-              defaultValue={displayName}
+              defaultValue={displayName ?? ''}
             />
             <BottomSheetActionTextInput
               textContentType="emailAddress"
@@ -169,7 +169,7 @@ const ProfileSettingsModal = () => {
               onSubmitEditing={updateUserPress}
               placeholder={t('email')}
               onChangeText={setEmail}
-              defaultValue={email}
+              defaultValue={email ?? ''}
             />
             {user && !user?.isAnonymous && (
               <BottomSheetActionTextInput

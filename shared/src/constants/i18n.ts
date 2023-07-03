@@ -17,8 +17,20 @@ export const CLIENT_LANGUAGE_TAGS: LANGUAGE_TAG[] = ['en'];
 // DEFAULT_LANGUAGE defines the default language is used when a translation for
 // a specific language is missing and will also be the default for all users,
 // unless overridden.
-export const DEFAULT_LANGUAGE_TAG = 'en';
+export const DEFAULT_LANGUAGE_TAG: LANGUAGE_TAG = 'en';
 
 // DEFAULT_TIME_LOCATION is the time location used as a fallback for users that
 // doesn't have one set.
 export const DEFAULT_TIME_LOCATION = 'UTC';
+
+export enum CURRENCIES {
+  USD = 'USD',
+  EUR = 'EUR',
+  SEK = 'SEK',
+}
+
+export type CURRENCY_CODE = keyof typeof CURRENCIES;
+
+export const CURRENCY_CODES = Object.keys(CURRENCIES) as CURRENCY_CODE[];
+
+export const DEFAULT_CURRENCY_CODE: CURRENCY_CODE = CURRENCIES.EUR;

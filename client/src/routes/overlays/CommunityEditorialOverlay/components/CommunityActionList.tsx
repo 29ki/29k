@@ -25,7 +25,7 @@ const CommunityActionList = () => {
     () => linking.openURL(t('corporateLink')),
     [t],
   );
-  const donatePress = useCallback(() => linking.openURL(t('donateLink')), [t]);
+  const donatePress = useCallback(() => navigate('DonateModal'), [navigate]);
   const contributePress = useCallback(
     () => linking.openURL(t('contributeLink')),
     [t],
