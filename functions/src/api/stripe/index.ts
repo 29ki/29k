@@ -50,7 +50,6 @@ stripeRouter.post(
 const RecurringPaymentIntentBodySchema = yup.object({
   email: yup.string().email().required(),
   priceId: yup.string().required(),
-  currency: yup.string().oneOf(CURRENCY_CODES).required(),
 });
 
 const RecurringPaymentIntentResponseSchema = yup.object({
