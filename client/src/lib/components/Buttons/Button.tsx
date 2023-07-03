@@ -17,11 +17,13 @@ const IconWrapper = styled.View({
 const LeftIconWrapper = styled(IconWrapper)({
   marginRight: -SPACINGS.TWELVE,
   marginLeft: SPACINGS.EIGHT,
+  zIndex: 1,
 });
 
 const RightIconWrapper = styled(IconWrapper)({
   marginLeft: -SPACINGS.TWELVE,
   marginRight: SPACINGS.EIGHT,
+  zIndex: 1,
 });
 
 const Spinner = styled(ActivityIndicator)({

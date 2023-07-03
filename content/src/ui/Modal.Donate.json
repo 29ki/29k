@@ -1,0 +1,23 @@
+{
+  "en": {
+    "types": {
+      "one-time": "One time",
+      "recurring": "Monthly"
+    },
+    "merchantDisplayName": "Stiftelsen 29k Foundation",
+    "donate": "Donate",
+    "customAmount": "Custom amount",
+    "monthlyAmount": "{{amount}} / month",
+    "emailAddress": "Your email address",
+    "thankYou": "Thank you for your donation!",
+    "sendReceipt": "Send receipt",
+    "receiptSentTo": "Receipt sent to {{email}}",
+    "errors": {
+      "generic": "Something went wrong. Please try again later.",
+      "invalidEmail": "Invalid email address"
+    }
+  },
+  "pt": {},
+  "sv": {},
+  "es": {}
+}

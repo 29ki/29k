@@ -1,5 +1,5 @@
 import {LinkingOptions, getStateFromPath} from '@react-navigation/native';
-import {DEEP_LINK_SCHEMA, DEEP_LINK_PREFIX} from 'config';
+import {DEEP_LINK_SCHEME, DEEP_LINK_PREFIX} from 'config';
 import {RootNavigationProps} from './constants/routes';
 
 import * as dynamicLinks from '../linking/dynamicLinks';
@@ -42,7 +42,7 @@ const config: LinkingOptions<RootNavigationProps>['config'] = {
 const linking: LinkingOptions<RootNavigationProps> = {
   config,
 
-  prefixes: [DEEP_LINK_SCHEMA, ...DEEP_LINK_PREFIX.split(',')],
+  prefixes: [`${DEEP_LINK_SCHEME}://`, ...DEEP_LINK_PREFIX.split(',')],
 
   async getInitialURL() {
     const dynamicLinkURL = await dynamicLinks.getInitialURL();
