@@ -149,6 +149,7 @@ const RecurringDonation: React.FC<RecurringDonationProps> = ({setPayment}) => {
       <ActionList>
         <BottomSheetActionTextInput
           placeholder={t('emailAddress')}
+          autoCapitalize="none"
           keyboardType="email-address"
           onChangeText={onChangeEmail}
           defaultValue={email}

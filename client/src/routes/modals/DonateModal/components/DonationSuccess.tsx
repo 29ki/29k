@@ -18,11 +18,7 @@ import {
 import Button from '../../../../lib/components/Buttons/Button';
 import {CheckIcon, EnvelopeIcon} from '../../../../lib/components/Icons';
 import useUser from '../../../../lib/user/hooks/useUser';
-import {
-  Body16,
-  Body18,
-  BodyBold,
-} from '../../../../lib/components/Typography/Body/Body';
+import {Body16, Body18} from '../../../../lib/components/Typography/Body/Body';
 import {useTranslation} from 'react-i18next';
 import {sendReceipt} from '../api/stripe';
 import {Payment} from '../types';
@@ -88,11 +84,12 @@ const DoantionSuccess: React.FC<DonationSuccessProps> = ({
   }, []);
 
   const onSendReceipt = useCallback(async () => {
-    setLoading(true);
     if (!yup.string().email().isValidSync(email)) {
       setError('invalidEmail');
       return;
     }
+
+    setLoading(true);
 
     setPayment(await sendReceipt(payment.id, email));
 
@@ -121,6 +118,7 @@ const DoantionSuccess: React.FC<DonationSuccessProps> = ({
             <Row>
               <StyledTextInput
                 placeholder={t('emailAddress')}
+                autoCapitalize="none"
                 keyboardType="email-address"
                 textContentType="emailAddress"
                 onChangeText={onChangeEmail}
