@@ -1,31 +1,19 @@
 import React, {useState} from 'react';
 import {KeyboardAvoidingView, Platform} from 'react-native';
-import {
-  BottomSafeArea,
-  Spacer32,
-  Spacer8,
-} from '../../../lib/components/Spacers/Spacer';
+import {BottomSafeArea, Spacer8} from '../../../lib/components/Spacers/Spacer';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import Button from '../../../lib/components/Buttons/Button';
 import {useNavigation} from '@react-navigation/native';
-import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import styled from 'styled-components/native';
-import {BottomGradient} from '../../modals/Contributors/components/BottomGradient';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
-import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import OneTimeDonation from './components/OneTimeDonation';
-//import useUser from '../../../lib/user/hooks/useUser';
-
-const Message = styled.View({
-  flex: 1,
-});
 
 const Types = styled.View({
   flexDirection: 'row',
   justifyContent: 'center',
 });
 
-export const DonateOverlay = () => {
+export const DonateModal = () => {
   const {goBack} = useNavigation();
   const [type, setType] = useState<'one-time' | 'recurring'>('one-time');
 
@@ -76,12 +64,6 @@ Best regards,
           </Types>
           <Spacer8 />
           {type === 'one-time' && <OneTimeDonation />}
-          {/*
-          <Spacer8 />
-          <Button variant="tertiary" onPress={goBack}>
-            No thank you
-          </Button>
-           */}
         </Gutters>
         <BottomSafeArea minSize={16} />
       </KeyboardAvoidingView>
@@ -89,4 +71,4 @@ Best regards,
   );
 };
 
-export default DonateOverlay;
+export default DonateModal;
