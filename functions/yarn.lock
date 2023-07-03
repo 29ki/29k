@@ -544,10 +544,10 @@
     teeny-request "^8.0.0"
     uuid "^8.0.0"
 
-"@google-cloud/translate@^7.2.1":
-  version "7.2.1"
-  resolved "https://registry.yarnpkg.com/@google-cloud/translate/-/translate-7.2.1.tgz#a9bc8e9c249f3a86898d923eb0cbccf0195127bd"
-  integrity sha512-VXmEvMF8qa4c7p5drjUZ06B8v0DxoUfFPyjhFp/wbgoe0GWaD1y1gGk6rUZxGKD/pB19kFU+0LMMSCgBW+a0iA==
+"@google-cloud/translate@^7.2.2":
+  version "7.2.2"
+  resolved "https://registry.yarnpkg.com/@google-cloud/translate/-/translate-7.2.2.tgz#1e3043654c92be8c5be72b74dc7bcba74c2ca02d"
+  integrity sha512-IAJhPKotLH/OF/NzWml/byLDN+OILbs1P4k+7HNUJK618NsShFelRKzh3pRUUQA4DX0je3HaEZw9nR+5uJ6ZEg==
   dependencies:
     "@google-cloud/common" "^4.0.0"
     "@google-cloud/promisify" "^3.0.0"
