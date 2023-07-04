@@ -63,7 +63,6 @@ public class VideoCacheManager {
   }
 
   public void preCache(String url) {
-    //_simpleCache.removeResource(url);
     executorService.execute(() -> {
       DataSpec dataSpec = new DataSpec.Builder()
         .setUri(Uri.parse(url))
