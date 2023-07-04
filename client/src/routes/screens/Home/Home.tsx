@@ -191,7 +191,7 @@ const Home = () => {
           session => getRelativeDateGroup(dayjs(session.startTime)),
           sessions,
         ),
-      ).forEach(([group, items]) => {
+      ).forEach(([group, items = []]) => {
         sectionsList.push({
           title: group,
           data: items,

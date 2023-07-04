@@ -27,7 +27,7 @@ const useSections = () => {
           item => dayjs(item.timestamp).format('MMM, YYYY'),
           completedSessions,
         ),
-      ).forEach(([month, items]) => {
+      ).forEach(([month, items = []]) => {
         sectionsList.push({
           title: month,
           data: items.map(s => ({
