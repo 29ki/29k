@@ -54,7 +54,8 @@ public class VideoCacheManager {
       _dataSourceFactory = createOkHttpFactory();
       _cachedDataSourceFactory = new CacheDataSource.Factory()
         .setUpstreamDataSourceFactory(_dataSourceFactory)
-        .setCache(_simpleCache);
+        .setCache(_simpleCache)
+        .setFlags(CacheDataSource.FLAG_IGNORE_CACHE_FOR_UNSET_LENGTH_REQUESTS);
 
       executorService = Executors.newCachedThreadPool();
       _prepared = true;
@@ -85,7 +86,7 @@ public class VideoCacheManager {
     return mediaSource;
   }
 
-  private OkHttpDataSource.Factory createOkHttpFactory() {
+  public OkHttpDataSource.Factory createOkHttpFactory() {
     OkHttpClient client = new OkHttpClient.Builder().build();
     OkHttpDataSource.Factory factory = new OkHttpDataSource.Factory((Request r) -> client.newCall(r));
     return factory;

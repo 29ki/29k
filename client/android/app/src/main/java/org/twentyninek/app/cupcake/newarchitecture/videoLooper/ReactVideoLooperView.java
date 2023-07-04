@@ -19,7 +19,6 @@ import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.PlaybackException;
 import com.google.android.exoplayer2.Player;
-import com.google.android.exoplayer2.analytics.AnalyticsListener;
 import com.google.android.exoplayer2.source.DefaultMediaSourceFactory;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.video.VideoSize;
@@ -43,7 +42,7 @@ public class ReactVideoLooperView extends FrameLayout {
               eventData.putDouble("time", pos / 1000D);
               sendEvent(_themedReactContext, ReactEvents.EVENT_ON_PROGRESS.toString(), eventData);
             }
-            
+
             msg = obtainMessage(SHOW_PROGRESS);
             sendMessageDelayed(msg, Math.round(_progressUpdateInterval));
           }
@@ -52,23 +51,34 @@ public class ReactVideoLooperView extends FrameLayout {
     }
   };
 
-  private class Listener implements AnalyticsListener {
+  private class PlayerListener implements Player.Listener {
     @Override
-    public void onVideoSizeChanged(EventTime eventTime, VideoSize videoSize) {
-      AnalyticsListener.super.onVideoSizeChanged(eventTime, videoSize);
-      boolean isInitialRatio = _layout.getAspectRatio() == 0;
-      _layout.setAspectRatio(videoSize.height == 0 ? 1 : (videoSize.width * videoSize.pixelWidthHeightRatio) / videoSize.height);
-
-      // React native workaround for measuring and layout on initial load.
-      if (isInitialRatio) {
-        post(measureAndLayout);
+    public void onEvents(Player player, Player.Events events) {
+      if (events.contains(Player.EVENT_PLAYBACK_STATE_CHANGED) || events.contains(Player.EVENT_PLAY_WHEN_READY_CHANGED)) {
+        int state = player.getPlaybackState();
+        if (state == Player.STATE_READY) {
+          long duration = player.getDuration();
+          WritableMap eventData = Arguments.createMap();
+          eventData.putDouble("duration", duration / 1000D);
+          sendEvent(_themedReactContext, ReactEvents.EVENT_ON_LOAD.toString(), eventData);
+          progressHandler.removeMessages(SHOW_PROGRESS);
+          progressHandler.sendEmptyMessage(SHOW_PROGRESS);
+          setKeepScreenOn(true);
+        }
+        if (state == Player.STATE_IDLE) {
+          progressHandler.sendEmptyMessage(SHOW_PROGRESS);
+        }
+        if (state == Player.STATE_BUFFERING) {
+          progressHandler.sendEmptyMessage(SHOW_PROGRESS);
+        }
+        if (state == Player.STATE_ENDED) {
+          sendEvent(_themedReactContext, ReactEvents.EVENT_ON_END.toString(), null);
+        }
       }
     }
 
     @Override
-    public void onMediaItemTransition(EventTime eventTime, @Nullable MediaItem mediaItem, int reason) {
-      AnalyticsListener.super.onMediaItemTransition(eventTime, mediaItem, reason);
-
+    public void onMediaItemTransition(@Nullable MediaItem mediaItem, int reason) {
       if (reason == Player.MEDIA_ITEM_TRANSITION_REASON_AUTO) {
         MediaItemConfig nextConfig = _mediaItemConfigs
           .stream()
@@ -87,30 +97,19 @@ public class ReactVideoLooperView extends FrameLayout {
     }
 
     @Override
-    public void onPlaybackStateChanged(EventTime eventTime, int state) {
-      AnalyticsListener.super.onPlaybackStateChanged(eventTime, state);
-      if (state == Player.STATE_READY) {
-        long duration = _player.getDuration();
-        WritableMap eventData = Arguments.createMap();
-        eventData.putDouble("duration", duration / 1000D);
-        sendEvent(_themedReactContext, ReactEvents.EVENT_ON_LOAD.toString(), eventData);
-        progressHandler.removeMessages(SHOW_PROGRESS);
-        progressHandler.sendEmptyMessage(SHOW_PROGRESS);
-        setKeepScreenOn(true);
-      }
-      if (state == Player.STATE_IDLE) {
-        progressHandler.sendEmptyMessage(SHOW_PROGRESS);
-      }
-      if (state == Player.STATE_BUFFERING) {
-        progressHandler.sendEmptyMessage(SHOW_PROGRESS);
-      }
-      if (state == Player.STATE_ENDED) {
-        sendEvent(_themedReactContext, ReactEvents.EVENT_ON_END.toString(), null);
+    public void onVideoSizeChanged(VideoSize videoSize) {
+      Player.Listener.super.onVideoSizeChanged(videoSize);
+      boolean isInitialRatio = _layout.getAspectRatio() == 0;
+      _layout.setAspectRatio(videoSize.height == 0 ? 1 : (videoSize.width * videoSize.pixelWidthHeightRatio) / videoSize.height);
+
+      // React native workaround for measuring and layout on initial load.
+      if (isInitialRatio) {
+        post(measureAndLayout);
       }
     }
 
     @Override
-    public void onPlayerError(EventTime eventTime, PlaybackException error) {
+    public void onPlayerError(PlaybackException error) {
       WritableMap eventData = Arguments.createMap();
       eventData.putString("cause", error.getMessage());
       sendEvent(_themedReactContext, ReactEvents.EVENT_ON_ERROR.toString(), eventData);
@@ -120,7 +119,7 @@ public class ReactVideoLooperView extends FrameLayout {
   private TextureView _textureView;
   private final AspectRatioFrameLayout _layout;
   private ExoPlayer _player;
-  private Listener _listener;
+  private Player.Listener _playerListener;
   private List<MediaItemConfig> _mediaItemConfigs = new ArrayList<>();
   private float _volume = 0.0f;
   private float _progressUpdateInterval = 1000.0f;
@@ -188,8 +187,8 @@ public class ReactVideoLooperView extends FrameLayout {
           .build();
       }
 
-      _listener = new Listener();
-      _player.addAnalyticsListener(_listener);
+      _playerListener = new PlayerListener();
+      _player.addListener(_playerListener);
     }
   }
 
@@ -316,11 +315,11 @@ public class ReactVideoLooperView extends FrameLayout {
     super.onDetachedFromWindow();
     if (_player != null) {
       progressHandler.removeMessages(SHOW_PROGRESS);
-      _player.removeAnalyticsListener(_listener);
+      _player.removeListener(_playerListener);
       _player.clearVideoTextureView(_textureView);
       _player.release();
       _player = null;
-      _listener = null;
+      _playerListener = null;
     }
   }
 }

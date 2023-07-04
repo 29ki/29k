@@ -144,7 +144,7 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 128
+        versionCode 130
         versionName "2.31.0"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
@@ -306,10 +306,10 @@ dependencies {
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
-    implementation('com.google.android.exoplayer:exoplayer:2.18.4') {
+    implementation('com.google.android.exoplayer:exoplayer:2.18.7') {
       exclude group: 'com.android.support'
     }
-    implementation('com.google.android.exoplayer:extension-okhttp:2.18.4') {
+    implementation('com.google.android.exoplayer:extension-okhttp:2.18.7') {
       exclude group: 'com.squareup.okhttp3', module: 'okhttp'
     }
 
