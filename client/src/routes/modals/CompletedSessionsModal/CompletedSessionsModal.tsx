@@ -110,7 +110,7 @@ const CompletedSessionsModal = () => {
     setListItems(sessions);
     return Object.entries(
       groupBy(event => dayjs(event.timestamp).format('MMM, YYYY'), sessions),
-    ).map(([month, events]) => ({
+    ).map(([month, events = []]) => ({
       title: month,
       data: events.map(event => ({
         data: event,

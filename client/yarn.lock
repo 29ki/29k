@@ -2272,12 +2272,12 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
-"@types/ramda@^0.29.2":
-  version "0.29.2"
-  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.29.2.tgz#b50d52c3958b0988356bc881bf77aadbd2e33651"
-  integrity sha512-JxvBGR3G4gV3RTOBugVHAAOD6iiv2WjlJ8BHr0s7KALdPpx2l+didoTuoJMmrA0eqpUaCm/slKP4TmxMRihd8g==
+"@types/ramda@^0.29.3":
+  version "0.29.3"
+  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.29.3.tgz#6e4d4066df900a3456cf402bcef9b78b6990a754"
+  integrity sha512-Yh/RHkjN0ru6LVhSQtTkCRo6HXkfL9trot/2elzM/yXLJmbLm2v6kJc8yftTnwv1zvUob6TEtqI2cYjdqG3U0Q==
   dependencies:
-    types-ramda "^0.29.3"
+    types-ramda "^0.29.4"
 
 "@types/react-native-background-timer@^2.0.0":
   version "2.0.0"
@@ -2684,10 +2684,10 @@ anymatch@^3.0.3:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-appcenter-cli@^2.13.8:
-  version "2.13.8"
-  resolved "https://registry.yarnpkg.com/appcenter-cli/-/appcenter-cli-2.13.8.tgz#3d67f4cb683c90d6b6652bf5df2181190df91efc"
-  integrity sha512-I+8uDLFAUaxZyB2mDEVeWxnjtBnmKHKS+ECrM8/uc2pDHRbipsUs8O54KuhPE/J6UdycyVhAc+5YDhnwzZXYWg==
+appcenter-cli@^2.13.9:
+  version "2.13.9"
+  resolved "https://registry.yarnpkg.com/appcenter-cli/-/appcenter-cli-2.13.9.tgz#1e0fa33d7f30778c57bb29a939e066d7e16a8366"
+  integrity sha512-DvOVsLJ00aRq3R2bNRk+qFxH4ztRTOdmhs9Pr35h+MODjTcW7x+V0oR01MY0Zkup+kfdR5lGnuIm3KPDcz1QNw==
   dependencies:
     "@azure/storage-blob" "^12.14.0"
     "@xmldom/xmldom" "0.8.7"
@@ -2701,7 +2701,6 @@ appcenter-cli@^2.13.8:
     date-fns "2.29.3"
     debug "4.3.4"
     es5-ext "0.10.53"
-    fast-xml-parser "3.21.1"
     from2 "2.3.0"
     glob "7.2.0"
     gradle-to-js "2.0.1"
@@ -4721,13 +4720,6 @@ fast-safe-stringify@^2.0.6, fast-safe-stringify@^2.1.1:
   resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.1.1.tgz#c406a83b6e70d9e35ce3b30a81141df30aeba884"
   integrity sha512-W+KJc2dmILlPplD/H4K9l9LcAHAfPtP6BY84uVLXQ6Evcz9Lcg33Y2z1IVblT6xdY54PXYVHEv+0Wpq8Io6zkA==
 
-fast-xml-parser@3.21.1:
-  version "3.21.1"
-  resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-3.21.1.tgz#152a1d51d445380f7046b304672dd55d15c9e736"
-  integrity sha512-FTFVjYoBOZTJekiUsawGsSYV9QL0A+zDYCRj7y34IO6Jg+2IMYEtQa+bbictpdpV8dHxXywqU7C0gRDEOFtBFg==
-  dependencies:
-    strnum "^1.0.4"
-
 fastest-levenshtein@^1.0.12:
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/fastest-levenshtein/-/fastest-levenshtein-1.0.12.tgz#9990f7d3a88cc5a9ffd1f1745745251700d497e2"
@@ -5460,10 +5452,10 @@ human-signals@^2.1.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
-i18next@*, i18next@^23.2.3:
-  version "23.2.3"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.2.3.tgz#d89930f0ce343fad2bee0d3c2188f42171a91cdd"
-  integrity sha512-5spO7L0rNmW0jFuNhz+gfirlFt1anle4mTy4+gFkgsH0+T3R5++4oncBrzeKa7v8pweRyGBoGmOpboqlxovg6A==
+i18next@*, i18next@^23.2.6:
+  version "23.2.6"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.2.6.tgz#70c09517c301f206615acd6fc35b4a2570629300"
+  integrity sha512-i0P2XBisewaICJ7UQtwymeJj6cXUigM+s8XNIXmWk4oJ8iTok2taCbOTX0ps+u9DFcQ6FWH6xLIU0dLEnMaNbA==
   dependencies:
     "@babel/runtime" "^7.22.5"
 
@@ -9470,11 +9462,6 @@ strip-json-comments@~2.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha512-4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ==
 
-strnum@^1.0.4:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/strnum/-/strnum-1.0.5.tgz#5c4e829fe15ad4ff0d20c3db5ac97b73c9b072db"
-  integrity sha512-J8bbNyKKXl5qYcR36TIO8W3mVGVHrmmxsd5PAItGkmyzwJvybiw2IVq5nqd0i4LSNSkB/sx9VHllbfFdr9k1JA==
-
 styled-components@^5.3.11, styled-components@^5.3.5:
   version "5.3.11"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-5.3.11.tgz#9fda7bf1108e39bf3f3e612fcc18170dedcd57a8"
@@ -9837,17 +9824,17 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-types-ramda@^0.29.3:
-  version "0.29.3"
-  resolved "https://registry.yarnpkg.com/types-ramda/-/types-ramda-0.29.3.tgz#0a611b4d414bf7c51ba417c3fd3352985b0de97f"
-  integrity sha512-6z8/UCI5/kRorQ91Mo+TUXImHpGAhmhg8ZIdT/tNrG+xSQvDwJXYyT5Nlw2U5VpoKetUZVqQXYYLQyq5Bzccsg==
+types-ramda@^0.29.4:
+  version "0.29.4"
+  resolved "https://registry.yarnpkg.com/types-ramda/-/types-ramda-0.29.4.tgz#8d9b51df2e550a05cedab541cc75dcd72972c625"
+  integrity sha512-XO/820iRsCDwqLjE8XE+b57cVGPyk1h+U9lBGpDWvbEky+NQChvHVwaKM05WnW1c5z3EVQh8NhXFmh2E/1YazQ==
   dependencies:
     ts-toolbelt "^9.6.0"
 
-typescript@^5.1.3:
-  version "5.1.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.1.3.tgz#8d84219244a6b40b6fb2b33cc1c062f715b9e826"
-  integrity sha512-XH627E9vkeqhlZFQuL+UsyAXEnibT0kWR2FWONlr4sTjvxyJYnyefgrkyECLzM5NenmKzRAy2rR/OlYLA1HkZw==
+typescript@^5.1.6:
+  version "5.1.6"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.1.6.tgz#02f8ac202b6dad2c0dd5e0913745b47a37998274"
+  integrity sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==
 
 uc.micro@^1.0.1, uc.micro@^1.0.5:
   version "1.0.6"
