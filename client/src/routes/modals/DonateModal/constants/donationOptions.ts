@@ -15,14 +15,14 @@ export type RECURRING_OPTIONS = {[currency: string]: RECURRING_OPTION[]};
 
 export const RECURRING_OPTIONS: RECURRING_OPTIONS = {
   [CURRENCIES.USD]: [
-    {id: 'price_1NLoU9AMQcdtMIVyOUJFbvt3', amount: 20},
-    {id: 'price_1NLoUGAMQcdtMIVyqQ48TK2A', amount: 15},
-    {id: 'price_1NLoUPAMQcdtMIVynCDHIzeY', amount: 10},
+    {id: 'price_1NQ5pXAMQcdtMIVypPfraj6D', amount: 20},
+    {id: 'price_1NQ5pXAMQcdtMIVyFyBPHYjf', amount: 15},
+    {id: 'price_1NQ5pXAMQcdtMIVyXU1KLwvp', amount: 10},
   ],
   [CURRENCIES.EUR]: [
-    {id: 'price_1NLoUbAMQcdtMIVyJ3h6Srgh', amount: 20},
-    {id: 'price_1NLoUhAMQcdtMIVyPYQMlbTS', amount: 15},
-    {id: 'price_1NLoUnAMQcdtMIVyH8gcdkR2', amount: 10},
+    {id: 'price_1NQ5pXAMQcdtMIVyk8FTpIVu', amount: 20},
+    {id: 'price_1NQ5pXAMQcdtMIVyS5uIEBJp', amount: 15},
+    {id: 'price_1NQ5pXAMQcdtMIVyWayC94kf', amount: 10},
   ],
   [CURRENCIES.SEK]: [
     {id: 'price_1NP06aAMQcdtMIVyVHQED9Kl', amount: 200},
