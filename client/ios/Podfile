@@ -3,7 +3,7 @@ $RNFirebaseAsStaticFramework = true
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-platform :ios, '12.4'
+platform :ios, '13'
 use_frameworks! :linkage => :static
 install! 'cocoapods', :deterministic_uuids => false
 
@@ -25,7 +25,7 @@ def setup
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-  
+
   pod 'PromisesSwift'
 end
 

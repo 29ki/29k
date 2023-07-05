@@ -10,6 +10,10 @@
 		<string>applinks:dev.aware.29k.org</string>
 		<string>applinks:dev.open.awareapp.org</string>
 	</array>
+	<key>com.apple.developer.in-app-payments</key>
+	<array>
+		<string>merchant.org.29k.app</string>
+	</array>
 	<key>com.apple.developer.usernotifications.communication</key>
 	<true/>
 </dict>

@@ -112,7 +112,7 @@ def enableProguardInReleaseBuilds = false
  * give correct results when using with locales other than en-US.  Note that
  * this variant is about 6MiB larger per architecture than default.
  */
-def jscFlavor = 'org.webkit:android-jsc:+'
+def jscFlavor = 'org.webkit:android-jsc-intl:+'
 
 /**
  * Whether to enable the Hermes VM.
@@ -144,8 +144,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 125
-        versionName "2.30.0"
+        versionCode 131
+        versionName "2.31.0"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
         // Solving the issue with binary resource modify time with code push
@@ -279,18 +279,21 @@ android {
             manifestPlaceholders.deepLinkHost1 = 'aware.29k.org'
             manifestPlaceholders.deepLinkHost2 = 'app.cupcake.29k.org'
             manifestPlaceholders.deepLinkHost3 = 'open.awareapp.org'
+            manifestPlaceholders.deepLinkScheme = 'org.twentyninek.app.cupcake.dev'
         }
         staging {
             applicationId 'org.twentyninek.app.cupcake.staging'
             manifestPlaceholders.deepLinkHost1 = 'staging.aware.29k.org'
             manifestPlaceholders.deepLinkHost2 = 'staging.app.cupcake.29k.org'
             manifestPlaceholders.deepLinkHost3 = 'staging.open.awareapp.org'
+            manifestPlaceholders.deepLinkScheme = 'org.twentyninek.app.cupcake.staging'
         }
         dev {
             applicationId 'org.twentyninek.app.cupcake.dev'
             manifestPlaceholders.deepLinkHost1 = 'dev.aware.29k.org'
             manifestPlaceholders.deepLinkHost2 = 'dev.app.cupcake.29k.org'
             manifestPlaceholders.deepLinkHost3 = 'dev.open.awareapp.org'
+            manifestPlaceholders.deepLinkScheme = 'org.twentyninek.app.cupcake'
         }
     }
 }
@@ -303,10 +306,10 @@ dependencies {
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
-    implementation('com.google.android.exoplayer:exoplayer:2.18.4') {
+    implementation('com.google.android.exoplayer:exoplayer:2.18.7') {
       exclude group: 'com.android.support'
     }
-    implementation('com.google.android.exoplayer:extension-okhttp:2.18.4') {
+    implementation('com.google.android.exoplayer:extension-okhttp:2.18.7') {
       exclude group: 'com.squareup.okhttp3', module: 'okhttp'
     }
 
@@ -335,6 +338,10 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    // Stripe and Google Pay
+    implementation 'com.stripe:stripe-android:20.25.4'
+    implementation 'com.google.android.gms:play-services-wallet:19.2.0-beta01'
 }
 
 if (isNewArchitectureEnabled()) {

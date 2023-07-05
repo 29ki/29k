@@ -110,6 +110,7 @@ export type ModalStackProps = {
   CompletedSessionsModal: {
     filterSetting: 'mode' | 'feedback' | 'host';
   };
+  DonateModal: undefined;
 };
 
 export type RootNavigationProps = ModalStackProps;

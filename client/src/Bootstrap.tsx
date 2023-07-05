@@ -4,6 +4,7 @@ import {useTranslation} from 'react-i18next';
 import * as i18nLib from './lib/i18n';
 import * as sentry from './lib/sentry';
 import * as metrics from './lib/metrics';
+import * as stripe from './lib/stripe';
 
 import useResumeFromBackgrounded from './lib/appState/hooks/useResumeFromBackgrounded';
 import useAppState from './lib/appState/state/state';
@@ -21,6 +22,7 @@ import useUpdatePracticeReminders from './lib/reminders/hooks/useUpdatePracticeR
 i18nLib.init();
 sentry.init();
 metrics.init();
+stripe.init();
 
 // Since the i18 backend have not run properly before accessing
 // content on the landing screen we need to make sure this has been done.
