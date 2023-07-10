@@ -1069,10 +1069,10 @@
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
-"@daily-co/daily-js@^0.46.0":
-  version "0.46.0"
-  resolved "https://registry.yarnpkg.com/@daily-co/daily-js/-/daily-js-0.46.0.tgz#0f8e18ebb8eced8c0e46747adbc82f952bfa32f2"
-  integrity sha512-Ukvvuhbhe+5O4WzLyqtG87eZCChZG5zciar9SP7Wu2oLKAMDN+mz3VHEtp+zE5HCWuKqzP69TgOhb7hVMngH8Q==
+"@daily-co/daily-js@^0.47.0":
+  version "0.47.0"
+  resolved "https://registry.yarnpkg.com/@daily-co/daily-js/-/daily-js-0.47.0.tgz#6a446ebc05bbd60e879edcb5cffded54fb57fa4b"
+  integrity sha512-9RtKtgSUiTd3mTqcvfsr6COYJWIKL7cDk8hmqeE6WW9eoWIBOx0PWGjt8QhvnLHsG8IPkbSYH8KQQPAm4pf99g==
   dependencies:
     "@babel/runtime" "^7.12.5"
     bowser "^2.8.1"
@@ -1081,12 +1081,12 @@
     fast-equals "^1.6.3"
     lodash "^4.17.15"
 
-"@daily-co/react-native-daily-js@0.44.0":
-  version "0.44.0"
-  resolved "https://registry.yarnpkg.com/@daily-co/react-native-daily-js/-/react-native-daily-js-0.44.0.tgz#0728b9569c9c15344dacd9450eefeb4e70901421"
-  integrity sha512-aCOTC6KzE6PDTCgwMbAGfuW+xZ78JOy/+01t9SjBvKV8aHuqFggU9tBfemE/lkyC1QNbHJjJgFkG0k7sQTDBJA==
+"@daily-co/react-native-daily-js@0.45.0":
+  version "0.45.0"
+  resolved "https://registry.yarnpkg.com/@daily-co/react-native-daily-js/-/react-native-daily-js-0.45.0.tgz#e3e8a83e6636553d4c14b5300847f8db9e2710d6"
+  integrity sha512-isLHWAmUL5N4WLPCI9C8gYyJFWESep5BbOg36Hl+xHyeZjtfC7/6cVQeWAt0DDeQoq7B2Bf2GuzrPG+PAXLM5Q==
   dependencies:
-    "@daily-co/daily-js" "^0.46.0"
+    "@daily-co/daily-js" "^0.47.0"
     "@types/react-native-background-timer" "^2.0.0"
     react-native-url-polyfill "^1.1.2"
 
