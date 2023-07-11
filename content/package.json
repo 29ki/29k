@@ -14,7 +14,7 @@
     "test": "yarn test:lint && yarn test:jest"
   },
   "dependencies": {
-    "nodemon": "^2.0.22",
+    "nodemon": "^3.0.1",
     "ramda": "^0.29.0"
   },
   "devDependencies": {
