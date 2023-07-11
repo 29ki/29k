@@ -67,6 +67,31 @@ export const SOCIAL_MEDIA: CmsField = {
   ],
 };
 
+export const CO_CREATORS: CmsField = {
+  label: '🪡 Co-creators',
+  label_singular: '🪡 Co-creator',
+  name: 'coCreators',
+  collapsed: true,
+  required: false,
+  i18n: true,
+  widget: 'list',
+  fields: [
+    {
+      label: 'Name',
+      name: 'name',
+      widget: 'string',
+    },
+    {
+      label: 'Avatar',
+      name: 'avatar_url',
+      widget: 'image',
+      media_library: {
+        name: 'cloudinary',
+      },
+    },
+  ],
+};
+
 export const INTRO_PORTAL: CmsField = {
   label: '🌇 Intro Portal',
   name: 'introPortal',
@@ -144,6 +169,7 @@ const EXERCISE_FIELDS: Array<CmsField> = applyDefaults(
     NAME_FIELD,
     DESCRIPTION_FIELD,
     DURATION_FIELD,
+    CO_CREATORS,
     TAGS_FIELD,
     LINK_FIELD,
     PUBLISHED_FIELD,
