@@ -33,11 +33,12 @@ type BylineProps = {
   name?: string;
   duration?: number;
   small?: boolean;
+  prefix?: boolean;
   onPress?: TouchableOpacityProps['onPress'];
 };
 
 const Byline: React.FC<BylineProps> = React.memo(
-  ({pictureURL, name, duration, small, onPress}) => {
+  ({pictureURL, name, duration, small, prefix = true, onPress}) => {
     const {t} = useTranslation('Component.Byline');
     if (!pictureURL && !name) {
       return null;
@@ -55,11 +56,11 @@ const Byline: React.FC<BylineProps> = React.memo(
         <Spacer4 />
         {small ? (
           <WrapTextSmall numberOfLines={1}>
-            {`${t('with')} ${name}`}
+            {prefix ? `${t('with')} ${name}` : name}
           </WrapTextSmall>
         ) : (
           <WrapText numberOfLines={2}>
-            {t('with')} {name}{' '}
+            {prefix ? `${t('with')} ${name}` : name}
             {duration ? `· ${duration} ${t('minutesAbbreviation')}` : ''}
           </WrapText>
         )}

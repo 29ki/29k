@@ -46,7 +46,10 @@ import {
   Spacer4,
   Spacer8,
 } from '../../../lib/components/Spacers/Spacer';
-import {Display24} from '../../../lib/components/Typography/Display/Display';
+import {
+  Display18,
+  Display24,
+} from '../../../lib/components/Typography/Display/Display';
 import useSessionReminder from '../../../lib/sessions/hooks/useSessionReminder';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import Byline from '../../../lib/components/Bylines/Byline';
@@ -65,6 +68,7 @@ import Interested from '../../../lib/components/Interested/Interested';
 import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
 import AnimatedIconButton from '../../../lib/components/Buttons/IconButton/AnimatedIconButton';
 import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
+import {HKGroteskBold} from '../../../lib/constants/fonts';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -110,6 +114,10 @@ const Tags = styled(Gutters)({
   flexDirection: 'row',
   alignItems: 'center',
   marginTop: -SPACINGS.FOUR,
+});
+
+const Heading = styled(Display18)({
+  fontFamily: HKGroteskBold,
 });
 
 const SessionModal = () => {
@@ -336,6 +344,25 @@ const SessionModal = () => {
               </>
             )}
           </Row>
+          {Boolean(exercise.coCreators?.length) && (
+            <View>
+              <Spacer24 />
+              <Heading>{'Co-created with'}</Heading>
+              <Spacer8 />
+              {exercise.coCreators?.map(({name, avatar_url}, idx) => (
+                <>
+                  <Byline
+                    key={`${name}-${idx}`}
+                    small
+                    prefix={false}
+                    pictureURL={avatar_url}
+                    name={name}
+                  />
+                  <Spacer4 />
+                </>
+              ))}
+            </View>
+          )}
         </Gutters>
         <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
       </BottomSheetScrollView>
