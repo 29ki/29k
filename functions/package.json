@@ -39,7 +39,7 @@
     "handlebars": "^4.7.7",
     "i18next": "^23.2.8",
     "ical-generator": "^5.0.0",
-    "jsonwebtoken": "^9.0.0",
+    "jsonwebtoken": "^9.0.1",
     "koa": "^2.14.2",
     "koa-yup-validator": "^4.1.0",
     "mjml": "^4.14.1",
