@@ -1,7 +1,8 @@
 {
   "en": {
     "completed": "Completed",
-    "doAgainButton": "Do this exercise again"
+    "doAgainButton": "Do this exercise again",
+    "coCreatorsHeading": "Co-created with"
   },
   "pt": {
     "completed": "Concluídas",

@@ -69,6 +69,7 @@ import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
 import AnimatedIconButton from '../../../lib/components/Buttons/IconButton/AnimatedIconButton';
 import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
 import {HKGroteskBold} from '../../../lib/constants/fonts';
+import {Heading18} from '../../../lib/components/Typography/Heading/Heading';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -114,10 +115,6 @@ const Tags = styled(Gutters)({
   flexDirection: 'row',
   alignItems: 'center',
   marginTop: -SPACINGS.FOUR,
-});
-
-const Heading = styled(Display18)({
-  fontFamily: HKGroteskBold,
 });
 
 const SessionModal = () => {
@@ -347,7 +344,7 @@ const SessionModal = () => {
           {Boolean(exercise.coCreators?.length) && (
             <View>
               <Spacer24 />
-              <Heading>{'Co-created with'}</Heading>
+              <Heading18>{t('coCreatorsHeading')}</Heading18>
               <Spacer8 />
               {exercise.coCreators?.map(({name, avatar_url}, idx) => (
                 <>
