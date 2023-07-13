@@ -99,6 +99,10 @@ const CenteredRow = styled(Row)({
   justifyContent: 'center',
 });
 
+const VCenteredRow = styled(Row)({
+  alignItems: 'center',
+});
+
 const Lottie = styled(AnimatedLottieView)({
   aspectRatio: 1,
 });
@@ -295,6 +299,20 @@ const SelectTypeStep: React.FC<StepProps> = ({
               {Boolean(exercise.coCreators?.length) && (
                 <>
                   <Spacer24 />
+                  {exercise.link && (
+                    <>
+                      <VCenteredRow>
+                        <IconButton
+                          variant="secondary"
+                          onPress={onShare}
+                          Icon={ShareIcon}
+                        />
+                        <Spacer8 />
+                        <Body16>{t('shareHeading')}</Body16>
+                      </VCenteredRow>
+                      <Spacer24 />
+                    </>
+                  )}
                   <Heading18>{t('coCreatorsHeading')}</Heading18>
                   <Spacer8 />
                   {exercise.coCreators?.map(({name, avatar_url}, idx) => (
@@ -351,19 +369,6 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   <TypeItemHeading>{t('description')}</TypeItemHeading>
                   <Spacer16 />
                   {typeSelection}
-                  {exercise.link && (
-                    <>
-                      <Spacer24 />
-                      <Body16>{t('shareHeading')}</Body16>
-                      <Spacer16 />
-
-                      <IconButton
-                        variant="secondary"
-                        onPress={onShare}
-                        Icon={ShareIcon}
-                      />
-                    </>
-                  )}
                   <Spacer24 />
                   {Boolean(sessions.length) && (
                     <>
