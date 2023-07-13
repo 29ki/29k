@@ -33,10 +33,7 @@ import {
 } from '../../../../../lib/components/Spacers/Spacer';
 import TouchableOpacity from '../../../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {Body16} from '../../../../../lib/components/Typography/Body/Body';
-import {
-  Display18,
-  Display24,
-} from '../../../../../lib/components/Typography/Display/Display';
+import {Display24} from '../../../../../lib/components/Typography/Display/Display';
 import {SPACINGS} from '../../../../../lib/constants/spacings';
 import {StepProps} from '../../CreateSessionModal';
 import Button from '../../../../../lib/components/Buttons/Button';
