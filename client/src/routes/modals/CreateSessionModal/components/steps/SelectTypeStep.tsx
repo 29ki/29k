@@ -47,7 +47,7 @@ import {formatContentName} from '../../../../../lib/utils/string';
 import Image from '../../../../../lib/components/Image/Image';
 import {ActivityIndicator, ListRenderItem, Share} from 'react-native';
 import SessionCard from '../../../../../lib/components/Cards/SessionCard/SessionCard';
-import {Heading16} from '../../../../../lib/components/Typography/Heading/Heading';
+import {Heading18} from '../../../../../lib/components/Typography/Heading/Heading';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
 import {fetchSessions} from '../../../../../lib/sessions/api/sessions';
 import {ModalStackProps} from '../../../../../lib/navigation/constants/routes';
@@ -56,6 +56,7 @@ import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown
 import useGetTagsById from '../../../../../lib/content/hooks/useGetTagsById';
 import Tag from '../../../../../lib/components/Tag/Tag';
 import IconButton from '../../../../../lib/components/Buttons/IconButton/IconButton';
+import Byline from '../../../../../lib/components/Bylines/Byline';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -130,7 +131,6 @@ const EmptyListContainer = styled.View({
   alignItems: 'center',
   justifyContent: 'center',
   flex: 1,
-  height: 200,
 });
 
 const Tags = styled.View({
@@ -162,10 +162,12 @@ const SelectTypeStep: React.FC<StepProps> = ({
   useEffect(() => {
     if (exercise && exercise.live) {
       setIsLoadingSessions(true);
-      fetchSessions(exercise.id).then(loadedSessions => {
-        setSessions(loadedSessions);
-        setIsLoadingSessions(false);
-      });
+      fetchSessions(exercise.id).then(
+        ([first, second, third, fourth, fifth, ..._] = []) => {
+          setSessions([first, second, third, fourth, fifth].filter(Boolean));
+          setIsLoadingSessions(false);
+        },
+      );
     }
   }, [setSessions, exercise, setIsLoadingSessions]);
 
@@ -288,14 +290,31 @@ const SelectTypeStep: React.FC<StepProps> = ({
           keyExtractor={keyExtractor}
           ListEmptyComponent={
             <EmptyListContainer>
-              {isLoadingSessions ? (
-                <Spinner color={COLORS.BLACK} />
-              ) : (
-                exercise.live && (
-                  <Display18>{t('noUpcomingSessions')}</Display18>
-                )
-              )}
+              {isLoadingSessions && <Spinner color={COLORS.BLACK} />}
             </EmptyListContainer>
+          }
+          ListFooterComponent={
+            <Gutters>
+              {Boolean(exercise.coCreators?.length) && (
+                <>
+                  <Spacer24 />
+                  <Heading18>{t('coCreatorsHeading')}</Heading18>
+                  <Spacer8 />
+                  {exercise.coCreators?.map(({name, avatar_url}, idx) => (
+                    <>
+                      <Byline
+                        key={`${name}-${idx}`}
+                        small
+                        prefix={false}
+                        pictureURL={avatar_url}
+                        name={name}
+                      />
+                      <Spacer4 />
+                    </>
+                  ))}
+                </>
+              )}
+            </Gutters>
           }
           ListHeaderComponent={
             <Gutters>
@@ -349,8 +368,12 @@ const SelectTypeStep: React.FC<StepProps> = ({
                     </>
                   )}
                   <Spacer24 />
-                  <Heading16>{t('orJoinUpcoming')}</Heading16>
-                  <Spacer16 />
+                  {Boolean(sessions.length) && (
+                    <>
+                      <Heading18>{t('orJoinUpcoming')}</Heading18>
+                      <Spacer16 />
+                    </>
+                  )}
                 </>
               ) : (
                 <>
