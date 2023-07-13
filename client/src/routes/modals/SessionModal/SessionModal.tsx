@@ -12,10 +12,41 @@ import {Share, View} from 'react-native';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import styled from 'styled-components/native';
 
+import {
+  ModalStackProps,
+  AppStackProps,
+} from '../../../lib/navigation/constants/routes';
+
+import {COLORS} from '../../../../../shared/src/constants/colors';
+import {SPACINGS} from '../../../lib/constants/spacings';
+
+import {formatContentName} from '../../../lib/utils/string';
+
+import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
+import useExerciseById from '../../../lib/content/hooks/useExerciseById';
+import useAddSessionToCalendar from '../../../lib/sessions/hooks/useAddSessionToCalendar';
+import useUser from '../../../lib/user/hooks/useUser';
+import useSessionReminder from '../../../lib/sessions/hooks/useSessionReminder';
+import useLogSessionMetricEvents from '../../../lib/sessions/hooks/useLogSessionMetricEvents';
+import usePinSession from '../../../lib/sessions/hooks/usePinSession';
+import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
+
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
-
+import Image from '../../../lib/components/Image/Image';
+import SheetModal from '../../../lib/components/Modals/SheetModal';
+import {Display24} from '../../../lib/components/Typography/Display/Display';
+import {Heading18} from '../../../lib/components/Typography/Heading/Heading';
+import {Body16} from '../../../lib/components/Typography/Body/Body';
+import Byline from '../../../lib/components/Bylines/Byline';
+import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTimeBadge';
+import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
+import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
+import Tag from '../../../lib/components/Tag/Tag';
+import Interested from '../../../lib/components/Interested/Interested';
+import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
+import AnimatedIconButton from '../../../lib/components/Buttons/IconButton/AnimatedIconButton';
 import {
   ShareIcon,
   BellIconAnimated,
@@ -23,20 +54,6 @@ import {
   PencilIcon,
   CalendarIcon,
 } from '../../../lib/components/Icons';
-import Image from '../../../lib/components/Image/Image';
-import SheetModal from '../../../lib/components/Modals/SheetModal';
-
-import {
-  ModalStackProps,
-  AppStackProps,
-} from '../../../lib/navigation/constants/routes';
-
-import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import useAddSessionToCalendar from '../../../lib/sessions/hooks/useAddSessionToCalendar';
-import useUser from '../../../lib/user/hooks/useUser';
-
-import {formatContentName} from '../../../lib/utils/string';
-
 import {
   BottomSafeArea,
   Spacer12,
@@ -46,30 +63,6 @@ import {
   Spacer4,
   Spacer8,
 } from '../../../lib/components/Spacers/Spacer';
-import {
-  Display18,
-  Display24,
-} from '../../../lib/components/Typography/Display/Display';
-import useSessionReminder from '../../../lib/sessions/hooks/useSessionReminder';
-import {Body16} from '../../../lib/components/Typography/Body/Body';
-import Byline from '../../../lib/components/Bylines/Byline';
-
-import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTimeBadge';
-import {COLORS} from '../../../../../shared/src/constants/colors';
-
-import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
-import {SPACINGS} from '../../../lib/constants/spacings';
-import useLogSessionMetricEvents from '../../../lib/sessions/hooks/useLogSessionMetricEvents';
-import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
-import usePinSession from '../../../lib/sessions/hooks/usePinSession';
-import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
-import Tag from '../../../lib/components/Tag/Tag';
-import Interested from '../../../lib/components/Interested/Interested';
-import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
-import AnimatedIconButton from '../../../lib/components/Buttons/IconButton/AnimatedIconButton';
-import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
-import {HKGroteskBold} from '../../../lib/constants/fonts';
-import {Heading18} from '../../../lib/components/Typography/Heading/Heading';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
