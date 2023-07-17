@@ -38,7 +38,7 @@
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684313677/Video/outdoor_sensing_meditation_visual_cbiepb.mp4",
             "autoPlayLoop": false,
-            "subtitles": ""
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689591586/SRT%20(captions)%20files/Outdoor_sensing_Jenny_hmqwou.srt"
           }
         }
       },
