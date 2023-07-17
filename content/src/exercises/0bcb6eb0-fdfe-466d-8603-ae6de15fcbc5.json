@@ -25,7 +25,8 @@
         "content": {
           "video": {
             "durationTimer": true,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1678971323/Audio/1-_Who_Are_You_At_Ninety_ed_xkfqsv.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1678971323/Audio/1-_Who_Are_You_At_Ninety_ed_xkfqsv.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689602661/SRT%20(captions)%20files/Who_are_you_at_90__to5gcq.srt"
           }
         }
       },
