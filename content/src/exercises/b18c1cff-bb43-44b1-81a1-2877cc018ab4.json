@@ -32,9 +32,9 @@
           },
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674665235/Audio/meditation-breathing-anchor_mbrlw8.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1689599788/Audio/Breathing-anchor_wykjmp.mp3",
             "durationTimer": true,
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689588909/SRT%20(captions)%20files/meditation-breathing-anchor__pub6jb.srt"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689599833/SRT%20(captions)%20files/Breathing-anchor_wc2hfy.srt"
           }
         }
       },
