@@ -4,19 +4,19 @@
     "sessionsHeading": "Sessions",
     "comingSoonHeading": "Coming soon",
     "comingSoon": {
-      "description": "More content with the best tools in the world for wellbeing and inner development.",
+      "description": "More content with the best tools for wellbeing and inner development.",
       "items": [
         {
           "what": "Manage stress in school or at work",
-          "when": "Spring"
+          "when": ""
         },
         {
           "what": "Living in line with your values",
-          "when": "Summer"
+          "when": ""
         },
         {
           "what": "Self compassion in relationships",
-          "when": "Fall"
+          "when": ""
         }
       ]
     }
