@@ -122,7 +122,15 @@
         "id": "sharing-2"
       },
       {
-        "type": "content",
+        "type": "reflection",
+        "content": {
+          "lottie": {
+            "autoPlayLoop": true,
+            "description": "",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1672843496/Lottie/mission_setting_boundaries_cwycbr.json"
+          },
+          "heading": "Time to reach out"
+        },
         "hostNotes": [
           {
             "text": "Well done for your openness to explore your needs and your willingness to set healthy boundaries to meet them."
@@ -130,12 +138,15 @@
           {
             "text": "Your mission to continue what we started here today is to go ahead and talk to the people you’ve identified about your intentions. If that’s not possible right now, book a time this week to do so."
           }
-        ],
+        ]
+      },
+      {
+        "type": "instruction",
         "content": {
+          "text": "Well done for your openness to explore your needs and your willingness to set healthy boundaries to meet them.\n\nYour mission to continue what we started here today is to go ahead and talk to the people you’ve identified about your intentions. If that’s not possible right now, book a time this week to do so.",
           "heading": "Time to reach out",
-          "lottie": {
-            "autoPlayLoop": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1672843496/Lottie/mission_setting_boundaries_cwycbr.json"
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1672845216/Images/cover_setting_boundaries_eprgqj.png"
           }
         }
       },
@@ -190,7 +201,7 @@
     ],
     "link": "https://aware.29k.org/setting-boundaries",
     "id": "c5b1197a-4eec-4699-9dad-0e3d6323967b",
-    "async": false,
+    "async": true,
     "description": "Relationships are essential for our wellbeing, and sometimes it's hard to set healthy boundaries. In this exercise we practice communicating our needs in an assertive way. Setting boundaries can help us feel better about ourselves, create sustainable relationships and make us more resilient to relationship challenges."
   },
   "pt": {
