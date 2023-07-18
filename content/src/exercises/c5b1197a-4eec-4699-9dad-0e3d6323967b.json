@@ -122,7 +122,15 @@
         "id": "sharing-2"
       },
       {
-        "type": "content",
+        "type": "reflection",
+        "content": {
+          "lottie": {
+            "autoPlayLoop": true,
+            "description": "",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1672843496/Lottie/mission_setting_boundaries_cwycbr.json"
+          },
+          "heading": "Time to reach out"
+        },
         "hostNotes": [
           {
             "text": "Well done for your openness to explore your needs and your willingness to set healthy boundaries to meet them."
@@ -130,12 +138,15 @@
           {
             "text": "Your mission to continue what we started here today is to go ahead and talk to the people you’ve identified about your intentions. If that’s not possible right now, book a time this week to do so."
           }
-        ],
+        ]
+      },
+      {
+        "type": "instruction",
         "content": {
+          "text": "Well done for your openness to explore your needs and your willingness to set healthy boundaries to meet them.\n\nYour mission to continue what we started here today is to go ahead and talk to the people you’ve identified about your intentions. If that’s not possible right now, book a time this week to do so.",
           "heading": "Time to reach out",
-          "lottie": {
-            "autoPlayLoop": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1672843496/Lottie/mission_setting_boundaries_cwycbr.json"
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1672845216/Images/cover_setting_boundaries_eprgqj.png"
           }
         }
       },
@@ -152,16 +163,6 @@
         "video": {
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679059266/Video/AsyncOutroSettingBoundaries_qiedlk.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679059308/Images/AsyncHostthumbSettingBoundaries.png"
-        }
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Well done for your openness to explore your needs and your willingness to set healthy boundaries to meet them.\n\nYour mission to continue what we started here today is to go ahead and talk to the people you’ve identified about your intentions. If that’s not possible right now, book a time this week to do so.",
-          "heading": "Time to reach out",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1672845216/Images/cover_setting_boundaries_eprgqj.png"
-          }
         }
       }
     ],
