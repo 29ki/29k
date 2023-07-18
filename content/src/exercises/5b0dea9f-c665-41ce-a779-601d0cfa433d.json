@@ -98,6 +98,15 @@
         }
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "The more time and effort we spend trying to control our feelings, the more they tend to dictate our lives. The same goes for a lot of things in life. Sometimes we believe that the more control we have, the closer we will get to reaching our goals.\n\nThat can be true in some instances... But when we get stuck in a loop of trying to control ourselves and the events around us, we often end up diverging from our values. Or miss out on participating in important occasions that actually matter to us.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
+          }
+        }
+      },
+      {
         "type": "sharing",
         "content": {
           "heading": "What if you let go of your beach ball?",
