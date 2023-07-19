@@ -40,6 +40,8 @@ export type PostRecord = {
   userId: string | null;
   approved: boolean;
   text: string;
+  translatedText?: string;
+  classifications?: string[] | null;
   createdAt: Timestamp;
   updatedAt: Timestamp;
 };
