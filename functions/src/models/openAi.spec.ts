@@ -42,6 +42,37 @@ describe('openaAi model', () => {
       expect(classifications).toEqual(['gibberish', 'non-english']);
     });
 
+    it('returns null on "none" classification', async () => {
+      mockOpenAi.createChatCompletion.mockResolvedValueOnce({
+        data: {
+          choices: [
+            {
+              message: {
+                content: 'none',
+              },
+            },
+          ],
+        },
+      });
+
+      const classifications = await classifyText('some random text');
+
+      expect(mockOpenAi.createChatCompletion).toHaveBeenCalledWith({
+        model: 'gpt-4-0613',
+        temperature: 0,
+        messages: [
+          {
+            role: 'system',
+            content:
+              'Classify if text contains religion,illegal drug use,threat,high risk of physical harm,adult,profanity,racist,gibberish,non-english,mostly capital letters,names,persons. Answer with unique lower case comma separated, without space between classifications. Answer with none when nothing matches.',
+          },
+          {role: 'user', content: 'some random text'},
+        ],
+      });
+
+      expect(classifications).toBe(null);
+    });
+
     it('should return array for bogus results', async () => {
       mockOpenAi.createChatCompletion.mockResolvedValueOnce({
         data: {
@@ -60,12 +91,12 @@ describe('openaAi model', () => {
       ]);
     });
 
-    it('returns undefined on wrong API responses', async () => {
+    it('returns null on wrong API responses', async () => {
       mockOpenAi.createChatCompletion.mockResolvedValueOnce({
         data: {},
       });
 
-      expect(await classifyText('some random text')).toBe(undefined);
+      expect(await classifyText('some random text')).toBe(null);
     });
 
     it('rejects on API errors', async () => {

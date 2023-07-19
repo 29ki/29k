@@ -37,5 +37,7 @@ export const classifyText = async (text: string) => {
     ],
   });
 
-  return completion?.data?.choices?.[0]?.message?.content?.split(',');
+  const content = completion?.data?.choices?.[0]?.message?.content;
+
+  return content && content !== 'none' ? content?.split(',') : null;
 };
