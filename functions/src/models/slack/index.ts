@@ -129,7 +129,7 @@ export const sendPostMessage = async (
   question: string | undefined,
   originalText: string,
   translatedText: string | undefined,
-  classifications: string[] | undefined,
+  classifications: string[] | undefined | null,
   language: LANGUAGE_TAG,
 ) => {
   if (SLACK_SHARING_POSTS_CHANNEL) {

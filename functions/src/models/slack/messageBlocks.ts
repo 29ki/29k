@@ -123,7 +123,7 @@ export const createPostBlocks = (
   question = 'unknown',
   originalText: string,
   translatedText: string | undefined,
-  classifications: string[] | undefined,
+  classifications: string[] | undefined | null,
   language: LANGUAGE_TAG,
 ) => {
   const text = translatedText
@@ -158,7 +158,7 @@ export const createPostBlocks = (
     },
   ];
 
-  if (classifications?.length && classifications[0] !== 'none') {
+  if (classifications?.length) {
     blocks.push({
       type: 'section',
       text: {
