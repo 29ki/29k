@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/node';
-import {RewriteFrames} from '@sentry/integrations';
+import {CaptureConsole, RewriteFrames} from '@sentry/integrations';
 import {Context} from 'koa';
 import config from './config';
 
@@ -17,8 +17,13 @@ Sentry.init({
       root: '/workspace',
       prefix: '/functions/',
     }),
+    new CaptureConsole({
+      levels: ['error'],
+    }),
   ],
 });
+
+export default Sentry;
 
 export const koaSentryErrorReporter = (err: Error, ctx: Context) => {
   const correlationId = ctx.get('X-Correlation-ID');
