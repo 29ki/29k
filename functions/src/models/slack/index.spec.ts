@@ -1,7 +1,6 @@
 import {SessionMode, SessionType} from '../../../../shared/src/schemas/Session';
 import {SlackError, SlackErrorCode} from '../../controllers/errors/SlackError';
 import {RequestAction} from '../../lib/constants/requestAction';
-import {translate} from '../../lib/translation';
 import {
   parseMessage,
   sendFeedbackMessage,
@@ -21,8 +20,6 @@ jest.mock('@slack/web-api', () => ({
     },
   })),
 }));
-jest.mock('../../lib/translation');
-const mockedTranslate = jest.mocked(translate);
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -241,7 +238,6 @@ describe('slack model', () => {
 
   describe('sendPostMessage', () => {
     it('should send expected message to slack with translation', async () => {
-      mockedTranslate.mockResolvedValueOnce('some translated text');
       await sendPostMessage(
         'some-post-id',
         true,
@@ -313,7 +309,6 @@ describe('slack model', () => {
         'en',
       );
 
-      expect(mockedTranslate).toHaveBeenCalledTimes(0);
       expect(mockPostMessage).toHaveBeenCalledTimes(1);
       expect(mockPostMessage).toHaveBeenLastCalledWith({
         blocks: [
@@ -370,7 +365,6 @@ describe('slack model', () => {
         'en',
       );
 
-      expect(mockedTranslate).toHaveBeenCalledTimes(0);
       expect(mockPostMessage).toHaveBeenCalledTimes(1);
       expect(mockPostMessage).toHaveBeenLastCalledWith({
         blocks: [
@@ -434,7 +428,6 @@ describe('slack model', () => {
         'en',
       );
 
-      expect(mockedTranslate).toHaveBeenCalledTimes(0);
       expect(mockPostMessage).toHaveBeenCalledTimes(1);
       expect(mockPostMessage).toHaveBeenLastCalledWith({
         blocks: [
@@ -479,7 +472,6 @@ describe('slack model', () => {
     });
 
     it('should send expected message to slack with short message', async () => {
-      mockedTranslate.mockResolvedValueOnce('some translated text');
       await sendPostMessage(
         'some-post-id',
         true,
