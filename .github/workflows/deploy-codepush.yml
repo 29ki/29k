@@ -111,7 +111,7 @@ jobs:
         run: >
           yarn appcenter codepush release-react
           --app $ANDROID_CODE_PUSH_PROJECT
-          --deployment-name ${{ secrets.ENVIRONMENT }}
+          --deployment-name ${{ vars.ENVIRONMENT }}
           --output-dir $BUILD_DIR
           --sourcemap-output-dir $SOURCEMAPS_DIR
           --disable-duplicate-release-error
@@ -122,7 +122,7 @@ jobs:
         run: >
           yarn appcenter codepush release-react
           --app $IOS_CODE_PUSH_PROJECT
-          --deployment-name ${{ secrets.ENVIRONMENT }}
+          --deployment-name ${{ vars.ENVIRONMENT }}
           --plist-file ./ios/Supporting/Info.plist
           --xcode-project-file ./ios/twentyninek.xcodeproj
           --output-dir $BUILD_DIR
@@ -136,8 +136,8 @@ jobs:
           yarn sentry-cli react-native appcenter
           $ANDROID_CODE_PUSH_PROJECT android
           $BUILD_DIR/CodePush $SOURCEMAPS_DIR
-          --deployment ${{ secrets.ENVIRONMENT }}
-          --dist ${{ secrets.ENVIRONMENT }}
+          --deployment ${{ vars.ENVIRONMENT }}
+          --dist ${{ vars.ENVIRONMENT }}
           --release-name $GIT_COMMIT_SHORT
 
       - name: Upload iOS Source Maps to Sentry
@@ -147,8 +147,8 @@ jobs:
           yarn sentry-cli react-native appcenter
           $IOS_CODE_PUSH_PROJECT ios
           $BUILD_DIR/CodePush $SOURCEMAPS_DIR
-          --deployment ${{ secrets.ENVIRONMENT }}
-          --dist ${{ secrets.ENVIRONMENT }}
+          --deployment ${{ vars.ENVIRONMENT }}
+          --dist ${{ vars.ENVIRONMENT }}
           --release-name $GIT_COMMIT_SHORT
 
       - name: Associate Commits to Sentry Release
