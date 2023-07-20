@@ -44,11 +44,6 @@ export const createPost = async (
   userId: string,
 ) => {
   let classifications, translatedText;
-  try {
-    classifications = await classifyText(postParams.text);
-  } catch (error) {
-    console.error(new Error('Post classification failed', {cause: error}));
-  }
 
   try {
     translatedText =
@@ -57,6 +52,12 @@ export const createPost = async (
         : undefined;
   } catch (error) {
     console.error(new Error('Post translation failed', {cause: error}));
+  }
+
+  try {
+    classifications = await classifyText(translatedText || postParams.text);
+  } catch (error) {
+    console.error(new Error('Post classification failed', {cause: error}));
   }
 
   const approved = !(classifications && classifications.length);

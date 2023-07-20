@@ -202,6 +202,9 @@ describe('posts - controller', () => {
         'some-user-id',
       );
 
+      expect(mockClassifyText).toHaveBeenCalledTimes(1);
+      expect(mockClassifyText).toHaveBeenCalledWith('some text');
+
       expect(mockAddPost).toHaveBeenCalledTimes(1);
       expect(mockAddPost).toHaveBeenCalledWith({
         userId: null,
@@ -264,6 +267,24 @@ describe('posts - controller', () => {
         null,
         'en',
       );
+    });
+
+    it('uses the translated text when classifying', async () => {
+      mockTranslate.mockResolvedValueOnce('Some translated text');
+
+      await postsController.createPost(
+        {
+          exerciseId: 'some-exercise-id',
+          sharingId: 'some-sharing-id',
+          language: 'sv',
+          text: 'some text',
+          anonymous: true,
+        } as CreatePostType,
+        'some-user-id',
+      );
+
+      expect(mockClassifyText).toHaveBeenCalledTimes(1);
+      expect(mockClassifyText).toHaveBeenCalledWith('Some translated text');
     });
 
     it('continues even if translation and classification fails', async () => {
