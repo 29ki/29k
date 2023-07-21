@@ -13,29 +13,30 @@ jobs:
     runs-on: ubuntu-20.04
     environment: functions-${{ inputs.environment }}
     env:
+      SENTRY_ORG: ${{ vars.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
 
-      DOTENV_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
-      DOTENV_BACKUPS_BUCKET: ${{ secrets.BACKUPS_BUCKET }}
+      DOTENV_ENVIRONMENT: ${{ vars.ENVIRONMENT }}
+      DOTENV_BACKUPS_BUCKET: ${{ vars.BACKUPS_BUCKET }}
+      DOTENV_DEEP_LINK_ANDROID_PACKAGE_NAME: ${{ vars.DEEP_LINK_ANDROID_PACKAGE_NAME }}
+      DOTENV_DEEP_LINK_BASE_URL: ${{ vars.DEEP_LINK_BASE_URL }}
+      DOTENV_DEEP_LINK_DOMAIN_URI_PREFIX: ${{ vars.DEEP_LINK_DOMAIN_URI_PREFIX }}
+      DOTENV_DEEP_LINK_IOS_APPSTORE_ID: ${{ vars.DEEP_LINK_IOS_APPSTORE_ID }}
+      DOTENV_DEEP_LINK_IOS_BUNDLE_ID: ${{ vars.DEEP_LINK_IOS_BUNDLE_ID }}
+      DOTENV_SENTRY_DSN: ${{ vars.SENTRY_DSN }}
+      DOTENV_SLACK_BOT_NAME: ${{ vars.SLACK_BOT_NAME }}
+      DOTENV_SLACK_FEEDBACK_CHANNEL: ${{ vars.SLACK_FEEDBACK_CHANNEL }}
+      DOTENV_SLACK_PUBLIC_HOST_REQUESTS_CHANNEL: ${{ vars.SLACK_PUBLIC_HOST_REQUESTS_CHANNEL }}
+      DOTENV_SLACK_SHARING_POSTS_CHANNEL: ${{ vars.SLACK_SHARING_POSTS_CHANNEL }}
+
       DOTENV_DAILY_API_KEY: ${{ secrets.DAILY_API_KEY }}
       DOTENV_DAILY_DOMAIN_ID: ${{ secrets.DAILY_DOMAIN_ID }}
       DOTENV_DAILY_ID_SALT: ${{ secrets.DAILY_ID_SALT }}
-      DOTENV_DEEP_LINK_ANDROID_PACKAGE_NAME: ${{ secrets.DEEP_LINK_ANDROID_PACKAGE_NAME }}
       DOTENV_DEEP_LINK_API_KEY: ${{ secrets.DEEP_LINK_API_KEY }}
-      DOTENV_DEEP_LINK_BASE_URL: ${{ secrets.DEEP_LINK_BASE_URL }}
-      DOTENV_DEEP_LINK_DOMAIN_URI_PREFIX: ${{ secrets.DEEP_LINK_DOMAIN_URI_PREFIX }}
-      DOTENV_DEEP_LINK_IOS_APPSTORE_ID: ${{ secrets.DEEP_LINK_IOS_APPSTORE_ID }}
-      DOTENV_DEEP_LINK_IOS_BUNDLE_ID: ${{ secrets.DEEP_LINK_IOS_BUNDLE_ID }}
       DOTENV_OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       DOTENV_SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
-      DOTENV_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-      DOTENV_SLACK_BOT_NAME: ${{ secrets.SLACK_BOT_NAME }}
-      DOTENV_SLACK_FEEDBACK_CHANNEL: ${{ secrets.SLACK_FEEDBACK_CHANNEL }}
       DOTENV_SLACK_OAUTH_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
-      DOTENV_SLACK_PUBLIC_HOST_REQUESTS_CHANNEL: ${{ secrets.SLACK_PUBLIC_HOST_REQUESTS_CHANNEL }}
-      DOTENV_SLACK_SHARING_POSTS_CHANNEL: ${{ secrets.SLACK_SHARING_POSTS_CHANNEL }}
       DOTENV_SLACK_SIGNING_SECRET: ${{ secrets.SLACK_SIGNING_SECRET }}
       DOTENV_STRIPE_API_KEY: ${{ secrets.STRIPE_API_KEY }}
 
@@ -125,7 +126,7 @@ jobs:
           yarn sentry-cli releases
           files $GIT_COMMIT_SHORT
           upload-sourcemaps
-          --dist ${{ secrets.ENVIRONMENT }}
+          --dist ${{ vars.ENVIRONMENT }}
           --url-prefix /functions
           --ignore node_modules
           --ignore __mocks__
@@ -140,7 +141,7 @@ jobs:
           yarn sentry-cli releases
           files $GIT_COMMIT_SHORT
           upload-sourcemaps
-          --dist ${{ secrets.ENVIRONMENT }}
+          --dist ${{ vars.ENVIRONMENT }}
           --url-prefix /shared
           --ignore node_modules
           --ignore __mocks__
