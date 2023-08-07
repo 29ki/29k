@@ -1045,13 +1045,13 @@
     "@sentry/utils" "7.57.0"
     tslib "^2.4.1 || ^1.9.3"
 
-"@sentry/integrations@^7.57.0":
-  version "7.57.0"
-  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-7.57.0.tgz#298085b3a2fe862cc70bc7f2143aa0fbc617322c"
-  integrity sha512-C3WZo5AGI2L0dj+mIjeZpdAwDEG2nDYvZbTzq5J9hVoHFdP3t7fOWBHSPkSFVtTdMaJrv+82aKnUefVCeAjxGg==
+"@sentry/integrations@^7.61.1":
+  version "7.61.1"
+  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-7.61.1.tgz#ca9bf2fc59c852f5e73543bb7e69b181a4ef2d45"
+  integrity sha512-mdmWzUQmW1viOiW0/Gi6AQ5LXukqhuefjzLdn5o6HMxiAgskIpNX+0+BOQ/6162/o7mHWSTNEHqEzMNTK2ppLw==
   dependencies:
-    "@sentry/types" "7.57.0"
-    "@sentry/utils" "7.57.0"
+    "@sentry/types" "7.61.1"
+    "@sentry/utils" "7.61.1"
     localforage "^1.8.1"
     tslib "^2.4.1 || ^1.9.3"
 
@@ -1074,12 +1074,25 @@
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.57.0.tgz#4fdb80cbd49ba034dd8d9be0c0005a016d5db3ce"
   integrity sha512-D7ifoUfxuVCUyktIr5Gc+jXUbtcUMmfHdTtTbf1XCZHua5mJceK9wtl3YCg3eq/HK2Ppd52BKnTzEcS5ZKQM+w==
 
+"@sentry/types@7.61.1":
+  version "7.61.1"
+  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.61.1.tgz#225912689459c92e62f0b6e3ff145f6dbf72ff0e"
+  integrity sha512-CpPKL+OfwYOduRX9AT3p+Ie1fftgcCPd5WofTVVq7xeWRuerOOf2iJd0v+8yHQ25omgres1YOttDkCcvQRn4Jw==
+
 "@sentry/utils@7.57.0":
   version "7.57.0"
   resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-7.57.0.tgz#8253c6fcf35138b4c424234b8da1596e11b98ad8"
   integrity sha512-YXrkMCiNklqkXctn4mKYkrzNCf/dfVcRUQrkXjeBC+PHXbcpPyaJgInNvztR7Skl8lE3JPGPN4v5XhLxK1bUUg==
   dependencies:
     "@sentry/types" "7.57.0"
+    tslib "^2.4.1 || ^1.9.3"
+
+"@sentry/utils@7.61.1":
+  version "7.61.1"
+  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-7.61.1.tgz#1545db778b7309d122a7f04eb0e803173c80c581"
+  integrity sha512-pUPXoiuYrTEPcBHjRizFB6eZEGm/6cTBwdWSHUjkGKvt19zuZ1ixFJQV6LrIL/AMeiQbmfQ+kTd/8SR7E9rcTQ==
+  dependencies:
+    "@sentry/types" "7.61.1"
     tslib "^2.4.1 || ^1.9.3"
 
 "@shopify/jest-koa-mocks@^5.1.1":
