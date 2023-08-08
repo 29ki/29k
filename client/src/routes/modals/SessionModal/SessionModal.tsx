@@ -174,7 +174,7 @@ const SessionModal = () => {
   const onShare = useCallback(() => {
     if (session.link) {
       Share.share({
-        url: session.link,
+        message: session.link,
       });
     }
   }, [session.link]);
