@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 40 minutes on connecting with- and being kind to ourselves.\n\nWe’ll be doing some reflection exercises and there will be opportunities to share those reflections with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on connecting with- and being kind to ourselves.\n\nWe’ll be doing a meditation exercise and there will be time for reflecting on our own and sharing with each other. Note that it can be useful to keep pen and paper near by."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -25,11 +25,12 @@
         ],
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043753/Video/content_Be_kind_to_yourself_qfhuch.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1689598353/Audio/Be_kind_to_yourself_cekhyv.mp3",
             "autoPlayLoop": false,
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_content_be_kind_to_yourself_hn38hz.png",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687862667/Audio/Be_kind_to_yourself_audio_exercise_iwpvpt.mp3",
-            "durationTimer": true
+            "durationTimer": true,
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689598562/SRT%20(captions)%20files/Be_kind_to_yourself_i1ykx0.srt"
           }
         }
       },
