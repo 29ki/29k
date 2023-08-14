@@ -1,9 +1,15 @@
-import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import styled from 'styled-components/native';
 import {View} from 'react-native';
 
 import useSessionState from '../../../../state/state';
-import DurationTimer from '../../../DurationTimer/DurationTimer';
 import {LottiePlayerHandle} from '../../../../../components/LottiePlayer/LottiePlayer';
 import {VideoLooperProperties} from '../../../../../../../types/VideoLooper';
 import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
@@ -12,6 +18,7 @@ import {Spacer16} from '../../../../../components/Spacers/Spacer';
 import MediaWrapperResolver from './MediaWrapperResolver';
 import Subtitles from '../../../../../components/Subtitles/Subtitles';
 import Gutters from '../../../../../components/Gutters/Gutters';
+import {OnTimerProgress, TimerContext} from '../../../../context/TimerContext';
 
 const VideoPlayer = styled(VideoLooper)({
   flex: 1,
@@ -19,14 +26,6 @@ const VideoPlayer = styled(VideoLooper)({
 
 const AudioPlayer = styled(VideoLooper)({
   display: 'none',
-});
-
-const Duration = styled(DurationTimer)({
-  position: 'absolute',
-  right: 22,
-  top: 16,
-  width: 30,
-  height: 30,
 });
 
 const SubtitleContainer = styled.View({
@@ -44,7 +43,6 @@ type VideoProps = {
   active: boolean;
   preview?: string;
   autoPlayLoop?: boolean;
-  durationTimer?: boolean;
   isLive?: boolean;
   subtitles?: string;
 };
@@ -55,7 +53,6 @@ const Video: React.FC<VideoProps> = ({
   isLive,
   subtitles,
   autoPlayLoop = false,
-  durationTimer = false,
 }) => {
   const videoRef = useRef<VideoLooper>(null);
   const timerRef = useRef<LottiePlayerHandle>(null);
@@ -73,6 +70,7 @@ const Video: React.FC<VideoProps> = ({
     state => state.setCurrentContentReachedEnd,
   );
   const previousState = useRef({playing: false, timestamp: new Date()});
+  const onTimerProgress = useContext(TimerContext);
 
   const seek = useCallback((seconds: number) => {
     videoRef.current?.seek(seconds);
@@ -87,6 +85,15 @@ const Video: React.FC<VideoProps> = ({
     }
   }, [active, setPaused, sessionState]);
 
+  const updateContextProgress = useCallback<OnTimerProgress>(
+    (currentTime: number, contentDuration: number) => {
+      if (onTimerProgress) {
+        onTimerProgress(currentTime, contentDuration);
+      }
+    },
+    [onTimerProgress],
+  );
+
   useEffect(() => {
     if (active && !autoPlayLoop && duration && sessionState) {
       // Block is active, video and state is loaded
@@ -99,14 +106,17 @@ const Video: React.FC<VideoProps> = ({
         // State is equal, but newer - reset to beginning
 
         seek(0);
+        updateContextProgress(0, duration);
       } else if (timestamp < previousState.current.timestamp && playing) {
         // State is old - compensate time played
         const timeDiff = (new Date().getTime() - timestamp.getTime()) / 1000;
         if (timeDiff < duration) {
           // Do not seek passed video length
           seek(timeDiff);
+          updateContextProgress(timeDiff, duration);
         } else {
           seek(duration - 1);
+          updateContextProgress(duration - 1, duration);
         }
       }
 
@@ -116,7 +126,15 @@ const Video: React.FC<VideoProps> = ({
         timestamp,
       };
     }
-  }, [active, autoPlayLoop, duration, previousState, sessionState, seek]);
+  }, [
+    active,
+    autoPlayLoop,
+    duration,
+    previousState,
+    sessionState,
+    seek,
+    updateContextProgress,
+  ]);
 
   const onLoad = useCallback<(data: {duration: number}) => void>(
     data => {
@@ -152,14 +170,6 @@ const Video: React.FC<VideoProps> = ({
     }
   }, [audioSource, autoPlayLoop]);
 
-  const timer = useMemo(
-    () =>
-      durationTimer ? (
-        <Duration duration={duration} paused ref={timerRef} />
-      ) : null,
-    [durationTimer, duration],
-  );
-
   const onSkipBack = useCallback(() => {
     videoRef.current?.seek(Math.max(progressRef.current - 15, 0));
   }, []);
@@ -177,9 +187,9 @@ const Video: React.FC<VideoProps> = ({
       const currentTime = Math.min(Math.round(duration), Math.round(data.time));
       setProgress(currentTime);
       progressRef.current = currentTime;
-      timerRef.current?.seek(currentTime);
+      updateContextProgress(currentTime, duration);
     },
-    [setProgress, duration],
+    [setProgress, duration, updateContextProgress],
   );
 
   const onToggleSubtitles = useCallback(() => {
@@ -205,7 +215,6 @@ const Video: React.FC<VideoProps> = ({
             paused={paused}
             mixWithOthers={isLive}
           />
-          {isLive && timer}
         </MediaWrapperResolver>
 
         {!isLive && (
@@ -247,7 +256,6 @@ const Video: React.FC<VideoProps> = ({
           onEnd={onEnd}
           mixWithOthers={isLive}
         />
-        {isLive && timer}
       </MediaWrapperResolver>
       {!isLive && (
         <View>

@@ -2,6 +2,7 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -10,6 +11,7 @@ import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {AnimatedCircularProgress} from 'react-native-circular-progress';
 
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -62,6 +64,10 @@ import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollVie
 import SessionNotifications from '../../../lib/session/components/Notifications/SessionNotifications';
 import useSendReaction from '../../../lib/session/hooks/useSendReaction';
 import SessionReactions from '../../../lib/session/components/Reactions/SessionReactions';
+import {
+  TimerContext,
+  OnTimerProgress,
+} from '../../../lib/session/context/TimerContext';
 
 const ExerciseControl = styled(ContentControls)({
   position: 'absolute',
@@ -90,6 +96,12 @@ const Top = styled.View({
   right: 0,
   left: 0,
   zIndex: 1000,
+});
+
+const ContentProgressContainer = styled.View({
+  position: 'absolute',
+  right: 22,
+  top: 120,
 });
 
 const StyledButton = styled(Button)({
@@ -143,6 +155,10 @@ const Session: React.FC = () => {
 
   const scrollView = useRef<ScrollView>(null);
   const [scrollHeight, setScrollHeight] = useState(0);
+  const [contentTime, setContentTime] = useState<{
+    currentTime: number;
+    duration: number;
+  }>({currentTime: 0, duration: 100});
   const exercise = useSessionState(state => state.exercise);
   const participants = useSessionParticipants();
   const {endSession} = useUpdateSessionState(session.id);
@@ -278,92 +294,126 @@ const Session: React.FC = () => {
     setScrollHeight(event.nativeEvent.layout.height);
   }, []);
 
+  const showTimerProgress = useMemo(() => {
+    const current = sessionSlideState?.current;
+    return (
+      current &&
+      (current.type === 'content' ||
+        current.type === 'reflection' ||
+        current.type === 'sharing') &&
+      (current.content?.video?.durationTimer ||
+        current.content?.lottie?.durationTimer)
+    );
+  }, [sessionSlideState]);
+
+  const onTimerProgress = useCallback<OnTimerProgress>(
+    (currentTime: number, duration: number) => {
+      setContentTime({currentTime, duration});
+    },
+    [],
+  );
+
   return (
-    <Screen backgroundColor={theme?.backgroundColor}>
-      {isHost && (
-        <Top>
-          <HostNotes exercise={exercise} />
-          {!sessionSlideState?.next && (
-            <>
-              <Spacer16 />
-              <StyledButton small active onPress={endSession}>
-                {t('endButton')}
-              </StyledButton>
-            </>
-          )}
-        </Top>
-      )}
-      <TopSafeArea />
-      {isHost && <Spacer32 />}
-      <AutoScrollView onLayout={onScrollLayout} ref={scrollView}>
-        <ContentWrapper>
-          {sessionSlideState && (
-            <>
-              <ExerciseSlides
-                index={sessionSlideState.index}
-                current={sessionSlideState.current}
-                previous={sessionSlideState.previous}
-                next={sessionSlideState.next}
-              />
-              {!isHost && (
-                <Progress
+    <TimerContext.Provider value={onTimerProgress}>
+      <Screen backgroundColor={theme?.backgroundColor}>
+        {isHost && (
+          <Top>
+            <HostNotes exercise={exercise} />
+            {!sessionSlideState?.next && (
+              <>
+                <Spacer16 />
+                <StyledButton small active onPress={endSession}>
+                  {t('endButton')}
+                </StyledButton>
+              </>
+            )}
+          </Top>
+        )}
+        <TopSafeArea />
+        {isHost && <Spacer32 />}
+        <AutoScrollView onLayout={onScrollLayout} ref={scrollView}>
+          <ContentWrapper>
+            {sessionSlideState && (
+              <>
+                <ExerciseSlides
                   index={sessionSlideState.index}
-                  length={exercise?.slides.length}
+                  current={sessionSlideState.current}
+                  previous={sessionSlideState.previous}
+                  next={sessionSlideState.next}
                 />
-              )}
-            </>
-          )}
-          <ExerciseControl
-            exercise={exercise}
-            isHost={isHost}
-            sessionState={sessionState}
-            slideState={sessionSlideState}
-            currentContentReachedEnd={currentContentReachedEnd}
-            onPrevPress={onPrevPress}
-            onNextPress={onNextPress}
-            onResetPlayingPress={onResetPlayingPress}
-            onTogglePlayingPress={onTogglePlayingPress}
+                {!isHost && (
+                  <Progress
+                    index={sessionSlideState.index}
+                    length={exercise?.slides.length}
+                  />
+                )}
+              </>
+            )}
+            <ExerciseControl
+              exercise={exercise}
+              isHost={isHost}
+              sessionState={sessionState}
+              slideState={sessionSlideState}
+              currentContentReachedEnd={currentContentReachedEnd}
+              onPrevPress={onPrevPress}
+              onNextPress={onNextPress}
+              onResetPlayingPress={onResetPlayingPress}
+              onTogglePlayingPress={onTogglePlayingPress}
+            />
+          </ContentWrapper>
+          <Participants
+            containerHeight={scrollHeight}
+            participants={participants}
           />
-        </ContentWrapper>
-        <Participants
-          containerHeight={scrollHeight}
-          participants={participants}
-        />
-      </AutoScrollView>
-      <Spacer16 />
-      <SessionControls>
-        <Notifications />
-        <Reactions />
-        <IconButton
-          onPress={onHeartPress}
-          variant="secondary"
-          Icon={HeartFillIcon}
-          fill={COLORS.WHITE}
-        />
-        <Spacer12 />
-        <IconButton
-          onPress={toggleAudioPress}
-          active={!hasAudio}
-          variant="secondary"
-          Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
-        />
-        <Spacer12 />
-        <IconButton
-          onPress={toggleVideoPress}
-          active={!hasVideo}
-          variant="secondary"
-          Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
-        />
-        <Spacer12 />
-        <IconButton
-          variant="secondary"
-          Icon={StyledHangUpIcon}
-          fill={COLORS.ACTIVE}
-          onPress={leaveSessionWithConfirm}
-        />
-      </SessionControls>
-      <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
-    </Screen>
+        </AutoScrollView>
+        <Spacer16 />
+        <SessionControls>
+          <Notifications />
+          <Reactions />
+          <IconButton
+            onPress={onHeartPress}
+            variant="secondary"
+            Icon={HeartFillIcon}
+            fill={COLORS.WHITE}
+          />
+          <Spacer12 />
+          <IconButton
+            onPress={toggleAudioPress}
+            active={!hasAudio}
+            variant="secondary"
+            Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
+          />
+          <Spacer12 />
+          <IconButton
+            onPress={toggleVideoPress}
+            active={!hasVideo}
+            variant="secondary"
+            Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
+          />
+          <Spacer12 />
+          <IconButton
+            variant="secondary"
+            Icon={StyledHangUpIcon}
+            fill={COLORS.ACTIVE}
+            onPress={leaveSessionWithConfirm}
+          />
+        </SessionControls>
+        {showTimerProgress && (
+          <ContentProgressContainer>
+            <AnimatedCircularProgress
+              fill={(contentTime.currentTime / contentTime.duration) * 100}
+              size={30}
+              width={4}
+              rotation={0}
+              tintColor={COLORS.BLACK}
+              backgroundColor={COLORS.WHITE}
+              lineCap="round"
+            />
+          </ContentProgressContainer>
+        )}
+        <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
+      </Screen>
+    </TimerContext.Provider>
   );
 };
 
