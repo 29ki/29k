@@ -10,7 +10,7 @@ import {
 } from '../../../../../shared/src/i18n/utils';
 import {getShowHiddenContent} from '../utils/utils';
 
-type Namespace = keyof typeof content.i18n[typeof DEFAULT_LANGUAGE_TAG];
+type Namespace = keyof (typeof content.i18n)[typeof DEFAULT_LANGUAGE_TAG];
 
 const Backend: BackendModule = {
   type: 'backend',
