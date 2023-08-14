@@ -67,7 +67,7 @@
     "@typescript-eslint/parser": "^5.62.0",
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-import": "^2.28.0",
     "eslint-plugin-prettier": "^5.0.0",
     "firebase-functions-test": "^3.1.0",
     "firebase-tools": "^12.4.7",
