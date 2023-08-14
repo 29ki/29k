@@ -5,55 +5,40 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance and willingness.\n\nWe’ll be doing a short introduction, listen to a meditation, followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on values and purpose in life.\n\nWe’ll be listening to an audio exercise with a couple of rounds of reflection, and then fineally share our experience with each other if we're up for it."
           },
           {
-            "text": "Let’s start with a mini check-in. What brought you here today? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
-        ],
-        "video": {
-          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678967008/Video/The_way_out_is_through_intro_rnvvyx.mp4",
-          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678967010/Images/The_way_out_is_through_thumb_fxakco.png"
-        }
+        ]
       },
       {
         "type": "content",
+        "content": {
+          "lottie": {
+            "durationTimer": true,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1689850053/Audio/Personal_values_oupmck.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689850195/SRT%20(captions)%20files/Personal_values_gvtyju.srt"
+          }
+        },
         "hostNotes": [
           {
-            "text": "Running into obstacles is a natural part of life. With the things we want in life – like loving relationships, interesting work or becoming parents – the risk of being hurt is always present. Even though we seldom acknowledge it. And often try to avoid it."
-          },
-          {
-            "text": "In the following exercise we’ll be practising experiencing challenging or difficult emotions. Just as they are. As a way to spend less energy trying to avoid the uncomfortable, and more on what matters to us in the long run."
+            "text": "Defining personal values can give us a sense of direction in life. Heads up you’ll need to take notes somewhere for this exercise. \n\n> Press play to start."
           }
-        ],
-        "content": {
-          "video": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1678801763/Audio/meditation_The_way_out_is_through_ao5qq6.mp3"
-          },
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
-            "durationTimer": true,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1678801763/Audio/meditation_The_way_out_is_through_ao5qq6.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689602010/SRT%20(captions)%20files/The_way_out_is_through_s7rnfi.srt"
-          }
-        }
+        ]
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat would be different in your life if you practised moving through your difficulties instead of trying to avoid them?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nLooking at your values and your scores, what do they tell you?\n\nWhat did you learn about yourself?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
-          "heading": "What would be different if you moved through difficulties?",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
-            "durationTimer": false
-          }
+          "text": "What do your values and scores tell you? What did you learn about yourself?"
         }
       },
       {
@@ -70,82 +55,52 @@
           }
         ],
         "content": {
-          "heading": "What would be different if you moved through difficulties?",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
-          }
+          "heading": "Looking at your values and your scores, what do they tell you? What did you learn about yourself?"
         },
-        "id": "sharing1"
+        "id": "1"
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done.\n\nWe’ve just practised moving through difficulties instead of trying to avoid them. This technique can help us live more in line with our values and lead more meaningful lives."
+            "text": "Well done for defining what matters to you in life, to navigate through both ups and downs.\n\nYou can continue with this mission: Pick a value where it feels more difficult to live in line with it. Define a small behavior in line with this value, that you can do today or tomorrow."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out.\n\nWhat can you bring from this for the rest of your day? Please answer in two-three words."
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
           },
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
-        ],
-        "video": {
-          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678967008/Video/The_way_out_is_through_outro_waudnc.mp4",
-          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678967010/Images/The_way_out_is_through_thumb_fxakco.png"
-        }
+        ]
       },
       {
         "type": "instruction",
         "content": {
-          "heading": "Well done",
-          "text": "We’ve just practised moving through difficulties instead of trying to avoid them. This technique can help us live more in line with our values and lead more meaningful lives.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
-          }
+          "text": "Well done for defining what matters to you in life, to navigate through both ups and downs.\n\nYou can continue with this mission: Pick a value where it feels more difficult to live in line with it. Define a small behavior in line with this value, that you can do today or tomorrow."
         }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E"
+      "textColor": "#2AE2D7"
     },
-    "hidden": false,
-    "name": "The way out is through",
+    "hidden": true,
+    "name": "Personal values",
     "live": true,
     "published": true,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
-      }
-    },
     "duration": 30,
-    "outroPortal": {
-      "video": {
-        "source": "",
-        "audio": ""
-      }
-    },
     "introPortal": {
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687856251/Video/way_out_is_through_portal1_rpqnfr.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687418774/Audio/way_out_is_through_portal_audio_doduhc.mp3"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687856193/Video/way_out_is_through_portal_end_erxgxh.mp4"
-      }
+      ]
     },
     "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
+    "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
     "async": true,
-    "description": "In this meditation exercise we’ll practise moving through our difficulties instead of trying to avoid them. Letting ourselves experience the full spectrum of emotions can help us lead more meaningful and fulfilled lives."
+    "description": "Define personal values to navigate life in both ups and downs. Living a value-based life has been proven to increase sense of purpose and long term happiness."
   },
   "pt": {
     "slides": [
@@ -207,6 +162,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
+    "live": true,
     "published": false,
     "duration": 30,
     "introPortal": {
@@ -217,10 +173,9 @@
       ]
     },
     "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
+    "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
     "async": false
   },
   "sv": {
@@ -283,6 +238,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
+    "live": true,
     "published": false,
     "duration": 30,
     "introPortal": {
@@ -293,10 +249,9 @@
       ]
     },
     "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
+    "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
     "async": false
   },
   "es": {
@@ -359,6 +314,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
+    "live": true,
     "published": false,
     "duration": 30,
     "introPortal": {
@@ -369,10 +325,9 @@
       ]
     },
     "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
+    "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
     "async": false
   }
 }

@@ -18,28 +18,30 @@ jobs:
     env:
       BUILD_DIR: ./build
       SOURCEMAPS_DIR: ./build/sourcemaps
-      APPCENTER_ACCESS_TOKEN: ${{ secrets.APPCENTER_ACCESS_TOKEN }}
-      ANDROID_CODE_PUSH_PROJECT: ${{ secrets.ANDROID_CODE_PUSH_PROJECT }}
-      IOS_CODE_PUSH_PROJECT: ${{ secrets.IOS_CODE_PUSH_PROJECT }}
-      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
 
-      DOTENV_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
-      DOTENV_DEBUG: ${{ secrets.DEBUG }}
-      DOTENV_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-      DOTENV_IOS_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.IOS_CODE_PUSH_DEPLOYMENT_KEY }}
-      DOTENV_ANDROID_CODE_PUSH_DEPLOYMENT_KEY: ${{ secrets.ANDROID_CODE_PUSH_DEPLOYMENT_KEY }}
-      DOTENV_POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
-      DOTENV_API_ENDPOINT: ${{ secrets.API_ENDPOINT }}
-      DOTENV_METRICS_ENDPOINT: ${{ secrets.METRICS_ENDPOINT }}
-      DOTENV_STORAGE_ENDPOINT: ${{ secrets.STORAGE_ENDPOINT }}
-      DOTENV_DEEP_LINK_PREFIX: ${{ secrets.DEEP_LINK_PREFIX }}
-      DOTENV_DEEP_LINK_SCHEME: ${{ secrets.DEEP_LINK_SCHEME }}
-      DOTENV_ANDROID_PACKAGE_NAME: ${{ secrets.ANDROID_PACKAGE_NAME }}
-      DOTENV_IOS_APPSTORE_ID: ${{ secrets.IOS_APPSTORE_ID }}
-      DOTENV_STRIPE_PUBLISHABLE_KEY: ${{ secrets.STRIPE_PUBLISHABLE_KEY }}
-      DOTENV_STRIPE_APPLE_MERCHANT_IDENTIFIER: ${{ secrets.STRIPE_APPLE_MERCHANT_IDENTIFIER }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ vars.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT }}
+
+      APPCENTER_ACCESS_TOKEN: ${{ secrets.APPCENTER_ACCESS_TOKEN }}
+      ANDROID_CODE_PUSH_PROJECT: ${{ vars.ANDROID_CODE_PUSH_PROJECT }}
+      IOS_CODE_PUSH_PROJECT: ${{ vars.IOS_CODE_PUSH_PROJECT }}
+
+      DOTENV_ENVIRONMENT: ${{ vars.ENVIRONMENT }}
+      DOTENV_DEBUG: ${{ vars.DEBUG }}
+      DOTENV_ANDROID_CODE_PUSH_DEPLOYMENT_KEY: ${{ vars.ANDROID_CODE_PUSH_DEPLOYMENT_KEY }}
+      DOTENV_ANDROID_PACKAGE_NAME: ${{ vars.ANDROID_PACKAGE_NAME }}
+      DOTENV_API_ENDPOINT: ${{ vars.API_ENDPOINT }}
+      DOTENV_DEEP_LINK_PREFIX: ${{ vars.DEEP_LINK_PREFIX }}
+      DOTENV_DEEP_LINK_SCHEME: ${{ vars.DEEP_LINK_SCHEME }}
+      DOTENV_IOS_APPSTORE_ID: ${{ vars.IOS_APPSTORE_ID }}
+      DOTENV_IOS_CODE_PUSH_DEPLOYMENT_KEY: ${{ vars.IOS_CODE_PUSH_DEPLOYMENT_KEY }}
+      DOTENV_METRICS_ENDPOINT: ${{ vars.METRICS_ENDPOINT }}
+      DOTENV_POSTHOG_API_KEY: ${{ vars.POSTHOG_API_KEY }}
+      DOTENV_SENTRY_DSN: ${{ vars.SENTRY_DSN }}
+      DOTENV_STORAGE_ENDPOINT: ${{ vars.STORAGE_ENDPOINT }}
+      DOTENV_STRIPE_APPLE_MERCHANT_IDENTIFIER: ${{ vars.STRIPE_APPLE_MERCHANT_IDENTIFIER }}
+      DOTENV_STRIPE_PUBLISHABLE_KEY: ${{ vars.STRIPE_PUBLISHABLE_KEY }}
 
     steps:
       - uses: actions/checkout@v2
@@ -109,7 +111,7 @@ jobs:
         run: >
           yarn appcenter codepush release-react
           --app $ANDROID_CODE_PUSH_PROJECT
-          --deployment-name ${{ secrets.ENVIRONMENT }}
+          --deployment-name ${{ vars.ENVIRONMENT }}
           --output-dir $BUILD_DIR
           --sourcemap-output-dir $SOURCEMAPS_DIR
           --disable-duplicate-release-error
@@ -120,7 +122,7 @@ jobs:
         run: >
           yarn appcenter codepush release-react
           --app $IOS_CODE_PUSH_PROJECT
-          --deployment-name ${{ secrets.ENVIRONMENT }}
+          --deployment-name ${{ vars.ENVIRONMENT }}
           --plist-file ./ios/Supporting/Info.plist
           --xcode-project-file ./ios/twentyninek.xcodeproj
           --output-dir $BUILD_DIR
@@ -134,8 +136,8 @@ jobs:
           yarn sentry-cli react-native appcenter
           $ANDROID_CODE_PUSH_PROJECT android
           $BUILD_DIR/CodePush $SOURCEMAPS_DIR
-          --deployment ${{ secrets.ENVIRONMENT }}
-          --dist ${{ secrets.ENVIRONMENT }}
+          --deployment ${{ vars.ENVIRONMENT }}
+          --dist ${{ vars.ENVIRONMENT }}
           --release-name $GIT_COMMIT_SHORT
 
       - name: Upload iOS Source Maps to Sentry
@@ -145,8 +147,8 @@ jobs:
           yarn sentry-cli react-native appcenter
           $IOS_CODE_PUSH_PROJECT ios
           $BUILD_DIR/CodePush $SOURCEMAPS_DIR
-          --deployment ${{ secrets.ENVIRONMENT }}
-          --dist ${{ secrets.ENVIRONMENT }}
+          --deployment ${{ vars.ENVIRONMENT }}
+          --dist ${{ vars.ENVIRONMENT }}
           --release-name $GIT_COMMIT_SHORT
 
       - name: Associate Commits to Sentry Release

@@ -1968,12 +1968,12 @@
   dependencies:
     nanoid "^3.1.23"
 
-"@react-navigation/stack@^6.3.16":
-  version "6.3.16"
-  resolved "https://registry.yarnpkg.com/@react-navigation/stack/-/stack-6.3.16.tgz#cf94e3c8c1587455515743e91d328beef722e0ab"
-  integrity sha512-KTOn9cNuZ6p154Htbl2DiR95Wl+c7niLPRiGs7gjOkyVDGiaGQF9ODNQTYBDE1OxZGHe/EyYc6T2CbmiItLWDg==
+"@react-navigation/stack@^6.3.17":
+  version "6.3.17"
+  resolved "https://registry.yarnpkg.com/@react-navigation/stack/-/stack-6.3.17.tgz#dd3375916a2adaa130659c0113fe05939bc19470"
+  integrity sha512-8/8ZvJROK3fp6PRmQ9MrXd9epBowA8NkfCaWW/N9H5arqwNX9lTXAkmcjicRhjpX+UNlMBR9dTLkWvPRe2vY9A==
   dependencies:
-    "@react-navigation/elements" "^1.3.17"
+    "@react-navigation/elements" "^1.3.18"
     color "^4.2.3"
     warn-once "^0.1.0"
 
@@ -2127,10 +2127,10 @@
   dependencies:
     "@sinonjs/commons" "^2.0.0"
 
-"@stripe/stripe-react-native@^0.27.2":
-  version "0.27.2"
-  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.27.2.tgz#ad3ee207065f30c262df59fc6661472217815e55"
-  integrity sha512-3qCRWusQHYDrUXiNm8NzNHSRYz/AaSZ8lJnq4jbzvQqP5zCRwv5yZ4aZ1DUa4vS5dn+nFF15BQjvGK7kCggYPA==
+"@stripe/stripe-react-native@^0.30.0":
+  version "0.30.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.30.0.tgz#75fd976ee6cf153569523ba1ccc221ddd160d99f"
+  integrity sha512-uh8XKUA7jmvr/10vf9eCTaLJ3xQ/3IFPpW+oQz2OEi1hUF2gOAEyZU6IDjMu23FX7aYlubBzgtN+iZfP5zuHEQ==
 
 "@szmarczak/http-timer@^5.0.1":
   version "5.0.1"

@@ -161,7 +161,7 @@ const Collection = () => {
   const onShare = useCallback(() => {
     if (collection?.link) {
       Share.share({
-        url: collection.link,
+        message: collection.link,
       });
     }
   }, [collection?.link]);

@@ -7,6 +7,9 @@ import {getAuthUserInfo} from '../models/auth';
 import {RequestError} from './errors/RequestError';
 import {CreatePostType} from '../../../shared/src/schemas/Post';
 import {omit} from 'ramda';
+import {classifyText} from '../models/openAi';
+import {translate} from '../lib/translation';
+import {DEFAULT_LANGUAGE_TAG} from '../lib/i18n';
 
 const safeGetPublicHostInfo = async (userId: string) => {
   try {
@@ -40,10 +43,31 @@ export const createPost = async (
   postParams: CreatePostType,
   userId: string,
 ) => {
+  let classifications, translatedText;
+
+  try {
+    translatedText =
+      postParams.language !== DEFAULT_LANGUAGE_TAG
+        ? await translate(postParams.text, postParams.language)
+        : undefined;
+  } catch (error) {
+    console.error(new Error('Post translation failed', {cause: error}));
+  }
+
+  try {
+    classifications = await classifyText(translatedText || postParams.text);
+  } catch (error) {
+    console.error(new Error('Post classification failed', {cause: error}));
+  }
+
+  const approved = !(classifications && classifications.length);
+
   const postData = {
     ...omit(['anonymous'], postParams),
     userId: postParams.anonymous === false ? userId : null,
-    approved: true,
+    approved,
+    classifications,
+    translatedText,
   };
 
   const {id, exerciseId, sharingId, text, language} = await postModel.addPost(
@@ -53,9 +77,13 @@ export const createPost = async (
   const sharingSlide = getSharingSlideById(exercise, sharingId);
   await sendPostMessage(
     id,
+    approved,
+    exercise?.card?.image?.source,
     exercise?.name,
     sharingSlide?.content?.heading,
     text,
+    translatedText,
+    classifications,
     language,
   );
 };

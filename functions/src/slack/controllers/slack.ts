@@ -4,7 +4,7 @@ import {RequestAction} from '../../lib/constants/requestAction';
 import {
   parseMessage,
   SlackPayload,
-  updatePostMessageAsHidden,
+  updatePostMessageVisibility,
   updatePublicHostRequestMessage,
 } from '../../models/slack';
 import {generateVerificationCode} from '../../lib/utils';
@@ -26,7 +26,25 @@ export const slackHandler = async (slackPayload: string) => {
 
   if (actionId === RequestAction.HIDE_SHARING_POST) {
     await updatePost(value, {approved: false});
-    await updatePostMessageAsHidden(channelId, ts, originalBlocks);
+    await updatePostMessageVisibility(
+      channelId,
+      ts,
+      value,
+      originalBlocks,
+      false,
+    );
+    return;
+  }
+
+  if (actionId === RequestAction.SHOW_SHARING_POST) {
+    await updatePost(value, {approved: true});
+    await updatePostMessageVisibility(
+      channelId,
+      ts,
+      value,
+      originalBlocks,
+      true,
+    );
     return;
   }
 

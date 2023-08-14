@@ -31,7 +31,8 @@
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673871362/Video/meditation_letting_go_of_control_mplxsm.mp4",
             "autoPlayLoop": false,
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1668093018/Audio/meditation_letting_go_of_control_becb1s.mp3",
-            "durationTimer": true
+            "durationTimer": true,
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689679219/SRT%20(captions)%20files/letting_go_of_control_nhnnwa.srt"
           }
         }
       },
@@ -93,6 +94,15 @@
           "heading": "What if you let go of your beach ball?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673875921/Video/timer1_letting_go_of_control_z1x47a.mp4"
+          }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "The more time and effort we spend trying to control our feelings, the more they tend to dictate our lives. The same goes for a lot of things in life. Sometimes we believe that the more control we have, the closer we will get to reaching our goals.\n\nThat can be true in some instances... But when we get stuck in a loop of trying to control ourselves and the events around us, we often end up diverging from our values. Or miss out on participating in important occasions that actually matter to us.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
           }
         }
       },

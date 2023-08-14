@@ -210,7 +210,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
   const onShare = useCallback(() => {
     if (exercise?.link) {
       Share.share({
-        url: exercise.link,
+        message: exercise.link,
       });
     }
   }, [exercise?.link]);
