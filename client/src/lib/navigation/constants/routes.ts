@@ -88,6 +88,7 @@ export type ModalStackProps = {
   ChangeLanguageModal: undefined;
   RemindersModal: {hideSessionSetting?: boolean} | undefined;
   ProfileSettingsModal: undefined;
+  SimpleProfileSettingsModal: undefined;
   SignInModal: undefined;
   DeleteUserModal: undefined;
   ContributorsModal: undefined;
