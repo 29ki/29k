@@ -125,6 +125,7 @@ public class ReactVideoLooperView extends FrameLayout {
   private Player.Listener _playerListener;
   private List<MediaItemConfig> _mediaItemConfigs = new ArrayList<>();
   private float _volume = 0.0f;
+  private boolean _muted = true;
   private float _progressUpdateInterval = 1000.0f;
   private boolean _audioOnly = false;
   private boolean _paused = true;
@@ -206,6 +207,12 @@ public class ReactVideoLooperView extends FrameLayout {
     }
     return true;
   }
+
+  private void setDeviceVolume(float volume) {
+    if (_player != null && !_muted) {
+      _player.setDeviceVolume((int)volume, 0);
+    }
+  }
   public void setSources(ReadableArray sources) {
     new Handler().postDelayed(new Runnable() {
       @Override
@@ -262,6 +269,7 @@ public class ReactVideoLooperView extends FrameLayout {
           _player.setVideoTextureView(_textureView);
         }
         _player.setVolume(_volume);
+        setDeviceVolume(_volume);
         _player.prepare();
         _player.setPlayWhenReady(!_paused);
       }
@@ -307,6 +315,7 @@ public class ReactVideoLooperView extends FrameLayout {
 
   public void setMuted(boolean muted) {
     if (_player != null) {
+      _muted = muted;
       _player.setVolume(muted ? 0f : _volume);
     }
   }
