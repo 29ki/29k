@@ -1,7 +1,10 @@
 import {createContext} from 'react';
 
-export type OnTimerProgress = (currentTime: number, duration: number) => void;
+export type ProgressTimerContextProps = {
+  onLoad: (duration: number) => void;
+  onSeek: (currentTime: number) => void;
+};
 
-export const TimerContext = createContext<OnTimerProgress | undefined>(
-  undefined,
-);
+export const ProgressTimerContext = createContext<
+  ProgressTimerContextProps | undefined
+>(undefined);

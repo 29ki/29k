@@ -11,7 +11,6 @@ import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {AnimatedCircularProgress} from 'react-native-circular-progress';
 
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -64,10 +63,9 @@ import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollVie
 import SessionNotifications from '../../../lib/session/components/Notifications/SessionNotifications';
 import useSendReaction from '../../../lib/session/hooks/useSendReaction';
 import SessionReactions from '../../../lib/session/components/Reactions/SessionReactions';
-import {
-  TimerContext,
-  OnTimerProgress,
-} from '../../../lib/session/context/TimerContext';
+import {ProgressTimerContext} from '../../../lib/session/context/TimerContext';
+import DurationTimer from '../../../lib/session/components/DurationTimer/DurationTimer';
+import {LottiePlayerHandle} from '../../../lib/components/LottiePlayer/LottiePlayer';
 
 const ExerciseControl = styled(ContentControls)({
   position: 'absolute',
@@ -98,10 +96,12 @@ const Top = styled.View({
   zIndex: 1000,
 });
 
-const ContentProgressContainer = styled.View({
+const ContentDurationTimer = styled(DurationTimer)({
   position: 'absolute',
-  right: 22,
+  right: 16,
   top: 120,
+  width: 30,
+  height: 30,
 });
 
 const StyledButton = styled(Button)({
@@ -154,11 +154,9 @@ const Session: React.FC = () => {
   useSubscribeToSessionIfFocused(session, {exitOnEnded: false});
 
   const scrollView = useRef<ScrollView>(null);
+  const timerRef = useRef<LottiePlayerHandle>(null);
+  const [contentDuration, setContentDuration] = useState(0);
   const [scrollHeight, setScrollHeight] = useState(0);
-  const [contentTime, setContentTime] = useState<{
-    currentTime: number;
-    duration: number;
-  }>({currentTime: 0, duration: 100});
   const exercise = useSessionState(state => state.exercise);
   const participants = useSessionParticipants();
   const {endSession} = useUpdateSessionState(session.id);
@@ -306,15 +304,24 @@ const Session: React.FC = () => {
     );
   }, [sessionSlideState]);
 
-  const onTimerProgress = useCallback<OnTimerProgress>(
-    (currentTime: number, duration: number) => {
-      setContentTime({currentTime, duration});
-    },
-    [],
-  );
+  const onContentTimerLoad = useCallback((duration: number) => {
+    setContentDuration(Math.ceil(duration));
+    timerRef.current?.seek(0);
+  }, []);
 
+  const onContentTimerSeek = useCallback((currentTime: number) => {
+    timerRef.current?.seek(currentTime);
+  }, []);
+
+  const contextProps = useMemo(
+    () => ({
+      onLoad: onContentTimerLoad,
+      onSeek: onContentTimerSeek,
+    }),
+    [onContentTimerLoad, onContentTimerSeek],
+  );
   return (
-    <TimerContext.Provider value={onTimerProgress}>
+    <ProgressTimerContext.Provider value={contextProps}>
       <Screen backgroundColor={theme?.backgroundColor}>
         {isHost && (
           <Top>
@@ -399,21 +406,15 @@ const Session: React.FC = () => {
           />
         </SessionControls>
         {showTimerProgress && (
-          <ContentProgressContainer>
-            <AnimatedCircularProgress
-              fill={(contentTime.currentTime / contentTime.duration) * 100}
-              size={30}
-              width={4}
-              rotation={0}
-              tintColor={COLORS.BLACK}
-              backgroundColor={COLORS.WHITE}
-              lineCap="round"
-            />
-          </ContentProgressContainer>
+          <ContentDurationTimer
+            duration={contentDuration}
+            paused={!sessionState?.playing}
+            ref={timerRef}
+          />
         )}
         <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
       </Screen>
-    </TimerContext.Provider>
+    </ProgressTimerContext.Provider>
   );
 };
 

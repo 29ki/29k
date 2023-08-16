@@ -15,7 +15,7 @@ export type LottiePlayerProps = {
   source: AnimatedLottieViewProps['source'];
   paused: boolean;
   repeat: boolean;
-  duration: number;
+  duration?: number;
   onEnd?: () => void;
 };
 
@@ -77,7 +77,7 @@ const LottiePlayer = forwardRef<LottiePlayerHandle, LottiePlayerProps>(
         <AnimatedLottieView
           onAnimationFinish={onAnimationFinish}
           source={lottieSource}
-          speed={duration ? 60 / duration : 1}
+          speed={paused ? 0 : duration > 0 ? 60 / duration : 1}
           loop={repeat}
           autoPlay={!paused}
           progress={progress}

@@ -20,7 +20,7 @@ import {Spacer16} from '../../../../../components/Spacers/Spacer';
 import MediaControls from '../../../../../components/MediaControls/MediaControls';
 import Subtitles from '../../../../../components/Subtitles/Subtitles';
 import Gutters from '../../../../../components/Gutters/Gutters';
-import {OnTimerProgress, TimerContext} from '../../../../context/TimerContext';
+import {ProgressTimerContext} from '../../../../context/TimerContext';
 
 const LottiePlayer = styled(LPlayer)({
   flex: 1,
@@ -74,7 +74,7 @@ const Lottie: React.FC<LottieProps> = ({
     state => state.setCurrentContentReachedEnd,
   );
   const previousState = useRef({playing: false, timestamp: new Date()});
-  const onTimerProgress = useContext(TimerContext);
+  const progressTimerContext = useContext(ProgressTimerContext);
 
   const seek = useCallback(
     (seconds: number) => {
@@ -83,8 +83,9 @@ const Lottie: React.FC<LottieProps> = ({
       } else {
         lottieRef.current?.seek(seconds);
       }
+      progressTimerContext?.onSeek(seconds);
     },
-    [audioSource],
+    [audioSource, progressTimerContext],
   );
 
   useEffect(() => {
@@ -99,15 +100,6 @@ const Lottie: React.FC<LottieProps> = ({
       setPaused(!sessionState.playing);
     }
   }, [active, setPaused, sessionState]);
-
-  const updateContextProgress = useCallback<OnTimerProgress>(
-    (currentTime: number, contentDuration: number) => {
-      if (onTimerProgress) {
-        onTimerProgress(currentTime, contentDuration);
-      }
-    },
-    [onTimerProgress],
-  );
 
   useEffect(() => {
     if (
@@ -127,17 +119,14 @@ const Lottie: React.FC<LottieProps> = ({
       ) {
         // State is equal, but newer - reset to beginning
         seek(0);
-        updateContextProgress(0, contentDuration);
       } else if (timestamp < previousState.current.timestamp && playing) {
         // State is old - compensate time played
         const timeDiff = (new Date().getTime() - timestamp.getTime()) / 1000;
         if (timeDiff < contentDuration) {
           // Do not seek passed video length
           seek(timeDiff);
-          updateContextProgress(timeDiff, contentDuration);
         } else {
           seek(contentDuration - 1);
-          updateContextProgress(contentDuration - 1, contentDuration);
         }
       }
 
@@ -155,8 +144,15 @@ const Lottie: React.FC<LottieProps> = ({
     previousState,
     sessionState,
     seek,
-    updateContextProgress,
   ]);
+
+  useEffect(() => {
+    if (active) {
+      progressTimerContext?.onLoad(
+        audioDuration > 0 ? audioDuration : duration,
+      );
+    }
+  }, [active, duration, audioDuration, progressTimerContext]);
 
   const onLoad = useCallback<(data: {duration: number}) => void>(
     data => {
@@ -195,9 +191,8 @@ const Lottie: React.FC<LottieProps> = ({
       const currentTime = Math.min(audioDuration, data.time);
       setProgress(currentTime);
       progressRef.current = currentTime;
-      updateContextProgress(currentTime, audioDuration);
     },
-    [setProgress, audioDuration, updateContextProgress],
+    [setProgress, audioDuration],
   );
 
   const onToggleSubtitles = useCallback(() => {
@@ -222,7 +217,6 @@ const Lottie: React.FC<LottieProps> = ({
           <LottiePlayer
             paused={paused}
             source={source}
-            duration={duration}
             ref={lottieRef}
             repeat
           />
@@ -259,7 +253,6 @@ const Lottie: React.FC<LottieProps> = ({
         <LottiePlayer
           paused={paused}
           source={source}
-          duration={duration}
           ref={lottieRef}
           onEnd={onEnd}
           repeat={autoPlayLoop}

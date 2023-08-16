@@ -10,7 +10,6 @@ import styled from 'styled-components/native';
 import {View} from 'react-native';
 
 import useSessionState from '../../../../state/state';
-import {LottiePlayerHandle} from '../../../../../components/LottiePlayer/LottiePlayer';
 import {VideoLooperProperties} from '../../../../../../../types/VideoLooper';
 import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
 import MediaControls from '../../../../../components/MediaControls/MediaControls';
@@ -18,7 +17,7 @@ import {Spacer16} from '../../../../../components/Spacers/Spacer';
 import MediaWrapperResolver from './MediaWrapperResolver';
 import Subtitles from '../../../../../components/Subtitles/Subtitles';
 import Gutters from '../../../../../components/Gutters/Gutters';
-import {OnTimerProgress, TimerContext} from '../../../../context/TimerContext';
+import {ProgressTimerContext} from '../../../../context/TimerContext';
 
 const VideoPlayer = styled(VideoLooper)({
   flex: 1,
@@ -55,7 +54,6 @@ const Video: React.FC<VideoProps> = ({
   autoPlayLoop = false,
 }) => {
   const videoRef = useRef<VideoLooper>(null);
-  const timerRef = useRef<LottiePlayerHandle>(null);
   const progressRef = useRef(0);
   const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -70,12 +68,15 @@ const Video: React.FC<VideoProps> = ({
     state => state.setCurrentContentReachedEnd,
   );
   const previousState = useRef({playing: false, timestamp: new Date()});
-  const onTimerProgress = useContext(TimerContext);
+  const progressTimerContext = useContext(ProgressTimerContext);
 
-  const seek = useCallback((seconds: number) => {
-    videoRef.current?.seek(seconds);
-    timerRef.current?.seek(seconds);
-  }, []);
+  const seek = useCallback(
+    (seconds: number) => {
+      videoRef.current?.seek(seconds);
+      progressTimerContext?.onSeek(seconds);
+    },
+    [progressTimerContext],
+  );
 
   useEffect(() => {
     if (!active) {
@@ -84,15 +85,6 @@ const Video: React.FC<VideoProps> = ({
       setPaused(!sessionState.playing);
     }
   }, [active, setPaused, sessionState]);
-
-  const updateContextProgress = useCallback<OnTimerProgress>(
-    (currentTime: number, contentDuration: number) => {
-      if (onTimerProgress) {
-        onTimerProgress(currentTime, contentDuration);
-      }
-    },
-    [onTimerProgress],
-  );
 
   useEffect(() => {
     if (active && !autoPlayLoop && duration && sessionState) {
@@ -106,17 +98,14 @@ const Video: React.FC<VideoProps> = ({
         // State is equal, but newer - reset to beginning
 
         seek(0);
-        updateContextProgress(0, duration);
       } else if (timestamp < previousState.current.timestamp && playing) {
         // State is old - compensate time played
         const timeDiff = (new Date().getTime() - timestamp.getTime()) / 1000;
         if (timeDiff < duration) {
           // Do not seek passed video length
           seek(timeDiff);
-          updateContextProgress(timeDiff, duration);
         } else {
           seek(duration - 1);
-          updateContextProgress(duration - 1, duration);
         }
       }
 
@@ -126,15 +115,13 @@ const Video: React.FC<VideoProps> = ({
         timestamp,
       };
     }
-  }, [
-    active,
-    autoPlayLoop,
-    duration,
-    previousState,
-    sessionState,
-    seek,
-    updateContextProgress,
-  ]);
+  }, [active, autoPlayLoop, duration, previousState, sessionState, seek]);
+
+  useEffect(() => {
+    if (active) {
+      progressTimerContext?.onLoad(duration);
+    }
+  }, [active, duration, progressTimerContext]);
 
   const onLoad = useCallback<(data: {duration: number}) => void>(
     data => {
@@ -187,9 +174,8 @@ const Video: React.FC<VideoProps> = ({
       const currentTime = Math.min(Math.round(duration), Math.round(data.time));
       setProgress(currentTime);
       progressRef.current = currentTime;
-      updateContextProgress(currentTime, duration);
     },
-    [setProgress, duration, updateContextProgress],
+    [setProgress, duration],
   );
 
   const onToggleSubtitles = useCallback(() => {
