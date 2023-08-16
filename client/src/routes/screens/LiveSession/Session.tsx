@@ -11,6 +11,7 @@ import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -83,7 +84,7 @@ const SessionControls = styled.View({
 const Progress = styled(ProgressBar)({
   position: 'absolute',
   left: SPACINGS.SIXTEEN,
-  right: SPACINGS.SIXTEEN,
+  right: SPACINGS.FIFTYTWO,
   top: SPACINGS.EIGHT,
   zIndex: 1,
 });
@@ -96,12 +97,15 @@ const Top = styled.View({
   zIndex: 1000,
 });
 
-const ContentDurationTimer = styled(DurationTimer)({
+const ContentDurationTimerWrapper = styled.View<{top: number}>(({top}) => ({
   position: 'absolute',
-  right: 16,
-  top: 120,
-  width: 30,
-  height: 30,
+  right: SPACINGS.SIXTEEN,
+  top: Math.max(top, SPACINGS.SIXTEEN),
+}));
+
+const ContentDurationTimer = styled(DurationTimer)({
+  width: 22,
+  height: 22,
 });
 
 const StyledButton = styled(Button)({
@@ -153,6 +157,7 @@ const Session: React.FC = () => {
   const {t} = useTranslation('Screen.Session');
   useSubscribeToSessionIfFocused(session, {exitOnEnded: false});
 
+  const top = useSafeAreaInsets().top;
   const scrollView = useRef<ScrollView>(null);
   const timerRef = useRef<LottiePlayerHandle>(null);
   const [contentDuration, setContentDuration] = useState(0);
@@ -300,7 +305,8 @@ const Session: React.FC = () => {
         current.type === 'reflection' ||
         current.type === 'sharing') &&
       (current.content?.video?.durationTimer ||
-        current.content?.lottie?.durationTimer)
+        (current.content?.lottie?.durationTimer &&
+          (current.content.lottie.duration || current.content.lottie.audio)))
     );
   }, [sessionSlideState]);
 
@@ -325,7 +331,15 @@ const Session: React.FC = () => {
       <Screen backgroundColor={theme?.backgroundColor}>
         {isHost && (
           <Top>
-            <HostNotes exercise={exercise} />
+            <HostNotes exercise={exercise}>
+              {showTimerProgress ? (
+                <ContentDurationTimer
+                  duration={contentDuration}
+                  paused={!sessionState?.playing}
+                  ref={timerRef}
+                />
+              ) : null}
+            </HostNotes>
             {!sessionSlideState?.next && (
               <>
                 <Spacer16 />
@@ -336,7 +350,7 @@ const Session: React.FC = () => {
             )}
           </Top>
         )}
-        <TopSafeArea />
+        <TopSafeArea minSize={SPACINGS.SIXTEEN} />
         {isHost && <Spacer32 />}
         <AutoScrollView onLayout={onScrollLayout} ref={scrollView}>
           <ContentWrapper>
@@ -373,6 +387,15 @@ const Session: React.FC = () => {
             participants={participants}
           />
         </AutoScrollView>
+        {showTimerProgress && !isHost && (
+          <ContentDurationTimerWrapper top={top}>
+            <ContentDurationTimer
+              duration={contentDuration}
+              paused={!sessionState?.playing}
+              ref={timerRef}
+            />
+          </ContentDurationTimerWrapper>
+        )}
         <Spacer16 />
         <SessionControls>
           <Notifications />
@@ -405,13 +428,6 @@ const Session: React.FC = () => {
             onPress={leaveSessionWithConfirm}
           />
         </SessionControls>
-        {showTimerProgress && (
-          <ContentDurationTimer
-            duration={contentDuration}
-            paused={!sessionState?.playing}
-            ref={timerRef}
-          />
-        )}
         <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
       </Screen>
     </ProgressTimerContext.Provider>
