@@ -332,13 +332,13 @@ const Session: React.FC = () => {
         {isHost && (
           <Top>
             <HostNotes exercise={exercise}>
-              {showTimerProgress ? (
+              {showTimerProgress && (
                 <ContentDurationTimer
                   duration={contentDuration}
                   paused={!sessionState?.playing}
                   ref={timerRef}
                 />
-              ) : null}
+              )}
             </HostNotes>
             {!sessionSlideState?.next && (
               <>

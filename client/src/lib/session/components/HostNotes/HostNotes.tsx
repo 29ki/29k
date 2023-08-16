@@ -71,7 +71,7 @@ type HostNotesProps = {
   introPortal?: boolean;
   style?: ViewStyle;
   exercise: Exercise | null;
-  children: React.ReactNode | null;
+  children?: React.ReactNode;
 };
 
 const HostNotes: React.FC<HostNotesProps> = ({
