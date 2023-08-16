@@ -306,10 +306,10 @@ dependencies {
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
-    implementation('androidx.media3:media3-exoplayer:1.0.2') {
+    implementation('androidx.media3:media3-exoplayer:1.1.0') {
       exclude group: 'com.android.support'
     }
-    implementation('androidx.media3:media3-datasource-okhttp:1.0.2') {
+    implementation('androidx.media3:media3-datasource-okhttp:1.1.0') {
       exclude group: 'com.squareup.okhttp3', module: 'okhttp'
     }
 
