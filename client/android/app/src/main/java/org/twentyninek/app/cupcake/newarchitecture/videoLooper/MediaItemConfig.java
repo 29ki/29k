@@ -1,6 +1,6 @@
 package org.twentyninek.app.cupcake.newarchitecture.videoLooper;
 
-import com.google.android.exoplayer2.MediaItem;
+import androidx.media3.common.MediaItem;
 
 public class MediaItemConfig {
   private String _source;
