@@ -40,6 +40,7 @@ import EditSessionDateModal from '../../routes/modals/EditSessionDateModal/EditS
 import HostingInviteFailModal from '../../routes/modals/HostingInviteFailModal/HostingInviteFailModal';
 import HostSessionByInviteModal from '../../routes/modals/HostSessionByInviteModal/HostSessionByInviteModal';
 import DonateModal from '../../routes/modals/DonateModal/DonateModal';
+import SimpleProfileSettingsModal from '../../routes/modals/SimpleProfileSettingsModal/SimpleProfileSettingsModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -223,6 +224,10 @@ const ModalStack = () => {
           name={'ProfileSettingsModal'}
           component={ProfileSettingsModal}
           options={fullSheetModalScreenOptions}
+        />
+        <Screen
+          name={'SimpleProfileSettingsModal'}
+          component={SimpleProfileSettingsModal}
         />
         <Screen
           name={'HostInfoModal'}
