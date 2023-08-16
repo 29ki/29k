@@ -6,6 +6,7 @@ import {
 } from 'netlify-cms-core';
 
 import {
+  DURATION_FIELD,
   IMAGE_FIELD,
   LOTTIE_FIELD_WITH_AUDIO,
   MANUAL_ID_FIELD,
@@ -84,6 +85,11 @@ const CONTENT_LOTTIE_FIELD: CmsFieldBase & CmsFieldObject = {
       required: false,
       default: true,
       widget: 'boolean',
+    },
+    {
+      ...DURATION_FIELD,
+      hint: 'Duration in seconds, needed if no audio file is set and timer should be shown.',
+      required: false,
     },
     ...LOTTIE_FIELD_WITH_AUDIO.fields,
   ],
