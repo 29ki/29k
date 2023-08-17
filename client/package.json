@@ -75,6 +75,7 @@
     "react-native-screens": "^3.24.0",
     "react-native-subtitles": "^5.0.5",
     "react-native-svg": "^13.9.0",
+    "react-native-volume-manager": "^1.10.0",
     "styled-components": "^5.3.11",
     "uuid": "^9.0.0",
     "yup": "^1.2.0",
