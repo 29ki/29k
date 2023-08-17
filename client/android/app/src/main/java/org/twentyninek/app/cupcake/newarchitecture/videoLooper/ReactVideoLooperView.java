@@ -208,11 +208,6 @@ public class ReactVideoLooperView extends FrameLayout {
     return true;
   }
 
-  private void setDeviceVolume(float volume) {
-    if (_player != null && !_muted) {
-      _player.setDeviceVolume((int)volume, 0);
-    }
-  }
   public void setSources(ReadableArray sources) {
     new Handler().postDelayed(new Runnable() {
       @Override
@@ -269,7 +264,6 @@ public class ReactVideoLooperView extends FrameLayout {
           _player.setVideoTextureView(_textureView);
         }
         _player.setVolume(_volume);
-        setDeviceVolume(_volume);
         _player.prepare();
         _player.setPlayWhenReady(!_paused);
       }
