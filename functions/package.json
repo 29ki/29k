@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@google-cloud/translate": "^8.0.1",
-    "@googleapis/firebasedynamiclinks": "^1.0.0",
+    "@googleapis/firebasedynamiclinks": "^1.0.1",
     "@koa/router": "^12.0.0",
     "@sendgrid/mail": "^7.7.0",
     "@sentry/integrations": "^7.63.0",

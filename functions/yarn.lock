@@ -561,10 +561,10 @@
     google-gax "^4.0.3"
     is-html "^2.0.0"
 
-"@googleapis/firebasedynamiclinks@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@googleapis/firebasedynamiclinks/-/firebasedynamiclinks-1.0.0.tgz#def7a7b489d88df82b959e2375ae2a77ede81850"
-  integrity sha512-6TGYUEGEINCSk/mtrdH4AKTPP+Xn0SwcK3spn3rNjhiUJx4x3UVYi+zwRrdYvHUHB3g/4lSp84xqbR1xNTCiWw==
+"@googleapis/firebasedynamiclinks@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@googleapis/firebasedynamiclinks/-/firebasedynamiclinks-1.0.1.tgz#5a0438d2d6d761887f94142cdefc82988b6a2e4b"
+  integrity sha512-gDgpI/NyVJHuervQCzKmLdo7QUQqalhtQcr1TFhqJIB7wGWVJGUyFAD5Xh1oHOioFKE4bBA3SnbWEXGQMlaPHg==
   dependencies:
     googleapis-common "^6.0.3"
 
