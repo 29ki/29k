@@ -56,7 +56,9 @@
           "heading": "How did you experience the willingness stance? ",
           "text": "Any difference?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "durationTimer": true,
+            "duration": 60
           }
         }
       },
@@ -77,7 +79,9 @@
           "heading": "How did you experience the willingness stance?",
           "text": "Any difference?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json",
+            "durationTimer": true,
+            "duration": 120
           }
         },
         "id": "sharing"
@@ -201,7 +205,9 @@
           "heading": "Como experienciaste a predisposição?",
           "text": "Alguma diferença?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "durationTimer": true,
+            "duration": 60
           }
         }
       },
@@ -222,7 +228,9 @@
           "heading": "Como experienciaste a predisposição?",
           "text": "Alguma diferença?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json",
+            "durationTimer": true,
+            "duration": 120
           }
         },
         "id": "sharing"

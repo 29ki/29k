@@ -71,12 +71,14 @@ type HostNotesProps = {
   introPortal?: boolean;
   style?: ViewStyle;
   exercise: Exercise | null;
+  children?: React.ReactNode;
 };
 
 const HostNotes: React.FC<HostNotesProps> = ({
   introPortal,
   style,
   exercise,
+  children,
 }) => {
   const listRef = useRef<FlatList>(null);
   const [showNotes, setShowNotes] = useState(introPortal ? true : false);
@@ -171,6 +173,8 @@ const HostNotes: React.FC<HostNotesProps> = ({
               empty={introPortal}
             />
             <Spacer8 />
+            {children}
+
             <ToggleButton
               disabled={!notes}
               isToggled={showNotes}
