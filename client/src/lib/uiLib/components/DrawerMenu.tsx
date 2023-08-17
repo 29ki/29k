@@ -59,17 +59,16 @@ const DrawerContent: (
     const activeRouteName = navState.routes[navState.index].name;
 
     /* eslint-disable react/no-unstable-nested-components */
-    const renderMenuItem = (parentName: string) => (_: any, name: string) =>
-      (
-        <MenuWrapper
-          key={`Menu-item-${parentName}-${name}`}
-          active={activeRouteName === `${parentName}-${name}`}
-          onPress={() => {
-            navigation.navigate(`${parentName}-${name}`);
-          }}>
-          <MenuText active={activeRouteName === name}>{name}</MenuText>
-        </MenuWrapper>
-      );
+    const renderMenuItem = (parentName: string) => (_: any, name: string) => (
+      <MenuWrapper
+        key={`Menu-item-${parentName}-${name}`}
+        active={activeRouteName === `${parentName}-${name}`}
+        onPress={() => {
+          navigation.navigate(`${parentName}-${name}`);
+        }}>
+        <MenuText active={activeRouteName === name}>{name}</MenuText>
+      </MenuWrapper>
+    );
 
     const renderTopLevel = (
       subLevel: Array<ComponentLibrary>,

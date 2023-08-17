@@ -8,9 +8,8 @@ import {
 import useUserState, {getCurrentUserStateSelector} from '../state/state';
 
 const useUserEvents = () => {
-  const events = useUserState(state =>
-    getCurrentUserStateSelector(state),
-  )?.userEvents;
+  const events = useUserState(state => getCurrentUserStateSelector(state))
+    ?.userEvents;
 
   const postEvents = useMemo(() => {
     if (events) {
