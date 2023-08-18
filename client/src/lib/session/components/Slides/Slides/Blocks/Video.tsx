@@ -1,10 +1,15 @@
-import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import styled from 'styled-components/native';
 import {View} from 'react-native';
 
 import useSessionState from '../../../../state/state';
-import DurationTimer from '../../../DurationTimer/DurationTimer';
-import {LottiePlayerHandle} from '../../../../../components/LottiePlayer/LottiePlayer';
 import {VideoLooperProperties} from '../../../../../../../types/VideoLooper';
 import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
 import MediaControls from '../../../../../components/MediaControls/MediaControls';
@@ -12,6 +17,7 @@ import {Spacer16} from '../../../../../components/Spacers/Spacer';
 import MediaWrapperResolver from './MediaWrapperResolver';
 import Subtitles from '../../../../../components/Subtitles/Subtitles';
 import Gutters from '../../../../../components/Gutters/Gutters';
+import {ProgressTimerContext} from '../../../../context/TimerContext';
 
 const VideoPlayer = styled(VideoLooper)({
   flex: 1,
@@ -19,14 +25,6 @@ const VideoPlayer = styled(VideoLooper)({
 
 const AudioPlayer = styled(VideoLooper)({
   display: 'none',
-});
-
-const Duration = styled(DurationTimer)({
-  position: 'absolute',
-  right: 22,
-  top: 16,
-  width: 30,
-  height: 30,
 });
 
 const SubtitleContainer = styled.View({
@@ -44,7 +42,6 @@ type VideoProps = {
   active: boolean;
   preview?: string;
   autoPlayLoop?: boolean;
-  durationTimer?: boolean;
   isLive?: boolean;
   subtitles?: string;
 };
@@ -55,10 +52,8 @@ const Video: React.FC<VideoProps> = ({
   isLive,
   subtitles,
   autoPlayLoop = false,
-  durationTimer = false,
 }) => {
   const videoRef = useRef<VideoLooper>(null);
-  const timerRef = useRef<LottiePlayerHandle>(null);
   const progressRef = useRef(0);
   const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -73,11 +68,15 @@ const Video: React.FC<VideoProps> = ({
     state => state.setCurrentContentReachedEnd,
   );
   const previousState = useRef({playing: false, timestamp: new Date()});
+  const progressTimerContext = useContext(ProgressTimerContext);
 
-  const seek = useCallback((seconds: number) => {
-    videoRef.current?.seek(seconds);
-    timerRef.current?.seek(seconds);
-  }, []);
+  const seek = useCallback(
+    (seconds: number) => {
+      videoRef.current?.seek(seconds);
+      progressTimerContext?.onSeek(seconds);
+    },
+    [progressTimerContext],
+  );
 
   useEffect(() => {
     if (!active) {
@@ -118,6 +117,12 @@ const Video: React.FC<VideoProps> = ({
     }
   }, [active, autoPlayLoop, duration, previousState, sessionState, seek]);
 
+  useEffect(() => {
+    if (active) {
+      progressTimerContext?.onLoad(duration);
+    }
+  }, [active, duration, progressTimerContext]);
+
   const onLoad = useCallback<(data: {duration: number}) => void>(
     data => {
       setDuration(data.duration);
@@ -152,14 +157,6 @@ const Video: React.FC<VideoProps> = ({
     }
   }, [audioSource, autoPlayLoop]);
 
-  const timer = useMemo(
-    () =>
-      durationTimer ? (
-        <Duration duration={duration} paused ref={timerRef} />
-      ) : null,
-    [durationTimer, duration],
-  );
-
   const onSkipBack = useCallback(() => {
     videoRef.current?.seek(Math.max(progressRef.current - 15, 0));
   }, []);
@@ -177,7 +174,6 @@ const Video: React.FC<VideoProps> = ({
       const currentTime = Math.min(Math.round(duration), Math.round(data.time));
       setProgress(currentTime);
       progressRef.current = currentTime;
-      timerRef.current?.seek(currentTime);
     },
     [setProgress, duration],
   );
@@ -205,7 +201,6 @@ const Video: React.FC<VideoProps> = ({
             paused={paused}
             mixWithOthers={isLive}
           />
-          {isLive && timer}
         </MediaWrapperResolver>
 
         {!isLive && (
@@ -247,7 +242,6 @@ const Video: React.FC<VideoProps> = ({
           onEnd={onEnd}
           mixWithOthers={isLive}
         />
-        {isLive && timer}
       </MediaWrapperResolver>
       {!isLive && (
         <View>

@@ -2,6 +2,7 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -10,6 +11,7 @@ import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -62,6 +64,9 @@ import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollVie
 import SessionNotifications from '../../../lib/session/components/Notifications/SessionNotifications';
 import useSendReaction from '../../../lib/session/hooks/useSendReaction';
 import SessionReactions from '../../../lib/session/components/Reactions/SessionReactions';
+import {ProgressTimerContext} from '../../../lib/session/context/TimerContext';
+import DurationTimer from '../../../lib/session/components/DurationTimer/DurationTimer';
+import {LottiePlayerHandle} from '../../../lib/components/LottiePlayer/LottiePlayer';
 
 const ExerciseControl = styled(ContentControls)({
   position: 'absolute',
@@ -79,7 +84,7 @@ const SessionControls = styled.View({
 const Progress = styled(ProgressBar)({
   position: 'absolute',
   left: SPACINGS.SIXTEEN,
-  right: SPACINGS.SIXTEEN,
+  right: SPACINGS.FIFTYTWO,
   top: SPACINGS.EIGHT,
   zIndex: 1,
 });
@@ -90,6 +95,17 @@ const Top = styled.View({
   right: 0,
   left: 0,
   zIndex: 1000,
+});
+
+const ContentDurationTimerWrapper = styled.View<{top: number}>(({top}) => ({
+  position: 'absolute',
+  right: SPACINGS.SIXTEEN,
+  top: Math.max(top, SPACINGS.SIXTEEN),
+}));
+
+const ContentDurationTimer = styled(DurationTimer)({
+  width: 22,
+  height: 22,
 });
 
 const StyledButton = styled(Button)({
@@ -141,7 +157,10 @@ const Session: React.FC = () => {
   const {t} = useTranslation('Screen.Session');
   useSubscribeToSessionIfFocused(session, {exitOnEnded: false});
 
+  const top = useSafeAreaInsets().top;
   const scrollView = useRef<ScrollView>(null);
+  const timerRef = useRef<LottiePlayerHandle>(null);
+  const [contentDuration, setContentDuration] = useState(0);
   const [scrollHeight, setScrollHeight] = useState(0);
   const exercise = useSessionState(state => state.exercise);
   const participants = useSessionParticipants();
@@ -278,92 +297,140 @@ const Session: React.FC = () => {
     setScrollHeight(event.nativeEvent.layout.height);
   }, []);
 
+  const showTimerProgress = useMemo(() => {
+    const current = sessionSlideState?.current;
+    return (
+      current &&
+      (current.type === 'content' ||
+        current.type === 'reflection' ||
+        current.type === 'sharing') &&
+      (current.content?.video?.durationTimer ||
+        (current.content?.lottie?.durationTimer &&
+          (current.content.lottie.duration || current.content.lottie.audio)))
+    );
+  }, [sessionSlideState]);
+
+  const onContentTimerLoad = useCallback((duration: number) => {
+    setContentDuration(Math.ceil(duration));
+    timerRef.current?.seek(0);
+  }, []);
+
+  const onContentTimerSeek = useCallback((currentTime: number) => {
+    timerRef.current?.seek(currentTime);
+  }, []);
+
+  const contextProps = useMemo(
+    () => ({
+      onLoad: onContentTimerLoad,
+      onSeek: onContentTimerSeek,
+    }),
+    [onContentTimerLoad, onContentTimerSeek],
+  );
   return (
-    <Screen backgroundColor={theme?.backgroundColor}>
-      {isHost && (
-        <Top>
-          <HostNotes exercise={exercise} />
-          {!sessionSlideState?.next && (
-            <>
-              <Spacer16 />
-              <StyledButton small active onPress={endSession}>
-                {t('endButton')}
-              </StyledButton>
-            </>
-          )}
-        </Top>
-      )}
-      <TopSafeArea />
-      {isHost && <Spacer32 />}
-      <AutoScrollView onLayout={onScrollLayout} ref={scrollView}>
-        <ContentWrapper>
-          {sessionSlideState && (
-            <>
-              <ExerciseSlides
-                index={sessionSlideState.index}
-                current={sessionSlideState.current}
-                previous={sessionSlideState.previous}
-                next={sessionSlideState.next}
-              />
-              {!isHost && (
-                <Progress
-                  index={sessionSlideState.index}
-                  length={exercise?.slides.length}
+    <ProgressTimerContext.Provider value={contextProps}>
+      <Screen backgroundColor={theme?.backgroundColor}>
+        {isHost && (
+          <Top>
+            <HostNotes exercise={exercise}>
+              {showTimerProgress && (
+                <ContentDurationTimer
+                  duration={contentDuration}
+                  paused={!sessionState?.playing}
+                  ref={timerRef}
                 />
               )}
-            </>
-          )}
-          <ExerciseControl
-            exercise={exercise}
-            isHost={isHost}
-            sessionState={sessionState}
-            slideState={sessionSlideState}
-            currentContentReachedEnd={currentContentReachedEnd}
-            onPrevPress={onPrevPress}
-            onNextPress={onNextPress}
-            onResetPlayingPress={onResetPlayingPress}
-            onTogglePlayingPress={onTogglePlayingPress}
+            </HostNotes>
+            {!sessionSlideState?.next && (
+              <>
+                <Spacer16 />
+                <StyledButton small active onPress={endSession}>
+                  {t('endButton')}
+                </StyledButton>
+              </>
+            )}
+          </Top>
+        )}
+        <TopSafeArea minSize={SPACINGS.SIXTEEN} />
+        {isHost && <Spacer32 />}
+        <AutoScrollView onLayout={onScrollLayout} ref={scrollView}>
+          <ContentWrapper>
+            {sessionSlideState && (
+              <>
+                <ExerciseSlides
+                  index={sessionSlideState.index}
+                  current={sessionSlideState.current}
+                  previous={sessionSlideState.previous}
+                  next={sessionSlideState.next}
+                />
+                {!isHost && (
+                  <Progress
+                    index={sessionSlideState.index}
+                    length={exercise?.slides.length}
+                  />
+                )}
+              </>
+            )}
+            <ExerciseControl
+              exercise={exercise}
+              isHost={isHost}
+              sessionState={sessionState}
+              slideState={sessionSlideState}
+              currentContentReachedEnd={currentContentReachedEnd}
+              onPrevPress={onPrevPress}
+              onNextPress={onNextPress}
+              onResetPlayingPress={onResetPlayingPress}
+              onTogglePlayingPress={onTogglePlayingPress}
+            />
+          </ContentWrapper>
+          <Participants
+            containerHeight={scrollHeight}
+            participants={participants}
           />
-        </ContentWrapper>
-        <Participants
-          containerHeight={scrollHeight}
-          participants={participants}
-        />
-      </AutoScrollView>
-      <Spacer16 />
-      <SessionControls>
-        <Notifications />
-        <Reactions />
-        <IconButton
-          onPress={onHeartPress}
-          variant="secondary"
-          Icon={HeartFillIcon}
-          fill={COLORS.WHITE}
-        />
-        <Spacer12 />
-        <IconButton
-          onPress={toggleAudioPress}
-          active={!hasAudio}
-          variant="secondary"
-          Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
-        />
-        <Spacer12 />
-        <IconButton
-          onPress={toggleVideoPress}
-          active={!hasVideo}
-          variant="secondary"
-          Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
-        />
-        <Spacer12 />
-        <IconButton
-          variant="secondary"
-          Icon={StyledHangUpIcon}
-          fill={COLORS.ACTIVE}
-          onPress={leaveSessionWithConfirm}
-        />
-      </SessionControls>
-      <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
-    </Screen>
+        </AutoScrollView>
+        {showTimerProgress && !isHost && (
+          <ContentDurationTimerWrapper top={top}>
+            <ContentDurationTimer
+              duration={contentDuration}
+              paused={!sessionState?.playing}
+              ref={timerRef}
+            />
+          </ContentDurationTimerWrapper>
+        )}
+        <Spacer16 />
+        <SessionControls>
+          <Notifications />
+          <Reactions />
+          <IconButton
+            onPress={onHeartPress}
+            variant="secondary"
+            Icon={HeartFillIcon}
+            fill={COLORS.WHITE}
+          />
+          <Spacer12 />
+          <IconButton
+            onPress={toggleAudioPress}
+            active={!hasAudio}
+            variant="secondary"
+            Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
+          />
+          <Spacer12 />
+          <IconButton
+            onPress={toggleVideoPress}
+            active={!hasVideo}
+            variant="secondary"
+            Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
+          />
+          <Spacer12 />
+          <IconButton
+            variant="secondary"
+            Icon={StyledHangUpIcon}
+            fill={COLORS.ACTIVE}
+            onPress={leaveSessionWithConfirm}
+          />
+        </SessionControls>
+        <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
+      </Screen>
+    </ProgressTimerContext.Provider>
   );
 };
 

@@ -6,6 +6,7 @@ import {
 } from 'netlify-cms-core';
 
 import {
+  DURATION_FIELD,
   IMAGE_FIELD,
   LOTTIE_FIELD_WITH_AUDIO,
   MANUAL_ID_FIELD,
@@ -59,6 +60,7 @@ const CONTENT_VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
       name: 'durationTimer',
       hint: 'This shows a duration timer in the top right corner. Useful for stand-alone audio.',
       required: false,
+      default: true,
       widget: 'boolean',
     },
     ...VIDEO_FIELD_WITH_AUDIO.fields,
@@ -81,7 +83,13 @@ const CONTENT_LOTTIE_FIELD: CmsFieldBase & CmsFieldObject = {
       name: 'durationTimer',
       hint: 'This shows a duration timer in the top right corner. Useful for stand-alone audio.',
       required: false,
+      default: true,
       widget: 'boolean',
+    },
+    {
+      ...DURATION_FIELD,
+      hint: 'Duration in seconds, needed if no audio file is set and timer should be shown.',
+      required: false,
     },
     ...LOTTIE_FIELD_WITH_AUDIO.fields,
   ],

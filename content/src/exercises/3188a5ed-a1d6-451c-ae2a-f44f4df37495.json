@@ -50,7 +50,8 @@
           "heading": "What did you notice?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/timer_1min_Drop_all_requirements_dahizb.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer1min_drop_all_requirements_qebhbc.png"
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer1min_drop_all_requirements_qebhbc.png",
+            "durationTimer": true
           }
         }
       },
@@ -71,7 +72,8 @@
           "heading": "What did you notice?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1674383225/Video/meditation_2_Drop_all_requirements_jeizf0.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer2min_drop_all_requirements_hzwrlc.png"
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer2min_drop_all_requirements_hzwrlc.png",
+            "durationTimer": true
           }
         },
         "id": "sharing"
