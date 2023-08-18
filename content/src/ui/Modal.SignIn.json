@@ -1,14 +1,22 @@
 {
   "en": {
     "title": "Sign in",
+    "resetTtile": "Forgot password",
     "email": "E-mail",
     "password": "Password",
     "signIn": "Sign in",
+    "sendToEmail": "Send to may email",
     "errors": {
       "auth/invalid-email": "Wrong e-mail and/or password",
       "auth/wrong-password": "Wrong e-mail and/or password",
       "auth/user-not-found": "Wrong e-mail and/or password",
-      "auth/user-disabled": "Wrong e-mail and/or password"
+      "auth/user-disabled": "Wrong e-mail and/or password",
+      "auth/network-request-failed": "Network request failed"
+    },
+    "resetErrors": {
+      "auth/invalid-email": "Invalid email address",
+      "auth/network-request-failed": "Network request failed",
+      "unknown": "Unknown error"
     }
   },
   "pt": {
@@ -25,14 +33,23 @@
   },
   "sv": {
     "title": "Logga in",
+    "resetTtile": "Glömt lösenord",
     "email": "Email",
     "password": "Lösenord",
     "signIn": "Logga in",
+    "sendToEmail": "Skicka till min email",
     "errors": {
       "auth/invalid-email": "Fel email och/eller lösenord",
       "auth/wrong-password": "Fel email och/eller lösenord",
       "auth/user-not-found": "Fel email och/eller lösenord",
-      "auth/user-disabled": "Fel email och/eller lösenord"
+      "auth/user-disabled": "Fel email och/eller lösenord",
+      "auth/network-request-failed": "Nätverksbegäran misslyckades",
+      "unknown": "Okänt fel"
+    },
+    "resetErrors": {
+      "auth/invalid-email": "Ogiltig email",
+      "auth/network-request-failed": "Nätverksbegäran misslyckades",
+      "unknown": "Okänt fel"
     }
   },
   "es": {}

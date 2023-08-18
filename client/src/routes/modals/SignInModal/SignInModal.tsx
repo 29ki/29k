@@ -16,9 +16,20 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import {COLORS} from '../../../../../shared/src/constants/colors';
+import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
+import useResetPassword from '../../../lib/user/hooks/useResetPassword';
+
+const ActionRow = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+});
 
 const StyledButton = styled(Button)({
   alignSelf: 'flex-start',
+});
+
+const StyledTextAction = styled(Body16)({
+  color: COLORS.PRIMARY,
 });
 
 const Error = styled(Body16)({
@@ -29,11 +40,15 @@ const SignInModal = () => {
   const {t} = useTranslation('Modal.SignIn');
   const {popToTop} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
+  const resetPassword = useResetPassword();
 
   const [isSigningIn, setIsSigningIn] = useState(false);
+  const [isResetting, setIsResetting] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [error, setError] = useState('');
+  const [resetError, setResetError] = useState('');
 
   const signIn = useCallback(async () => {
     try {
@@ -46,6 +61,60 @@ const SignInModal = () => {
       setError(e.code ?? e.message);
     }
   }, [setIsSigningIn, popToTop, email, password]);
+
+  const onShowForgotPassword = useCallback(() => {
+    setShowForgotPassword(true);
+  }, []);
+
+  const sendResetEmail = useCallback(async () => {
+    setIsResetting(true);
+    const errorCode = await resetPassword(email);
+    if (errorCode) {
+      setResetError(errorCode);
+    } else {
+      setResetError('');
+      setShowForgotPassword(false);
+    }
+    setIsResetting(false);
+  }, [resetPassword, email]);
+
+  if (showForgotPassword) {
+    return (
+      <SheetModal>
+        <Gutters>
+          <ModalHeading>{t('resetTtile')}</ModalHeading>
+          <Spacer24 />
+          <ActionList>
+            <BottomSheetActionTextInput
+              textContentType="emailAddress"
+              keyboardType="email-address"
+              autoCapitalize="none"
+              autoComplete="email"
+              autoCorrect={false}
+              onSubmitEditing={signIn}
+              placeholder={t('email')}
+              onChangeText={setEmail}
+              defaultValue={email}
+            />
+          </ActionList>
+          <Spacer16 />
+          {resetError && (
+            <>
+              <Error>{t(`resetErrors.${resetError}`)}</Error>
+              <Spacer16 />
+            </>
+          )}
+          <StyledButton
+            variant="primary"
+            disabled={!email}
+            loading={isResetting}
+            onPress={sendResetEmail}>
+            {t('sendToEmail')}
+          </StyledButton>
+        </Gutters>
+      </SheetModal>
+    );
+  }
 
   return (
     <SheetModal>
@@ -82,13 +151,18 @@ const SignInModal = () => {
             <Spacer16 />
           </>
         )}
-        <StyledButton
-          variant="primary"
-          disabled={isSigningIn || !email || !password}
-          loading={isSigningIn}
-          onPress={signIn}>
-          {t('signIn')}
-        </StyledButton>
+        <ActionRow>
+          <StyledButton
+            variant="primary"
+            disabled={isSigningIn || !email || !password}
+            loading={isSigningIn}
+            onPress={signIn}>
+            {t('signIn')}
+          </StyledButton>
+          <TouchableOpacity onPress={onShowForgotPassword}>
+            <StyledTextAction>{'Forgot Password?'}</StyledTextAction>
+          </TouchableOpacity>
+        </ActionRow>
       </Gutters>
     </SheetModal>
   );

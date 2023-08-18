@@ -10,12 +10,14 @@ const linkWithCredential = jest.fn();
 const updateEmail = jest.fn();
 const updatePassword = jest.fn();
 const updateProfile = jest.fn();
+const sendPasswordResetEmail = jest.fn();
 
 const mockAuth = {
   onUserChanged,
   signInAnonymously,
   signInWithCredential,
   signOut,
+  sendPasswordResetEmail,
   currentUser: {
     isAnonymous: true,
     delete: deleteMock,
