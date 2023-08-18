@@ -21,8 +21,6 @@ const IconWrapper = styled.View({
   height: 21,
   alignItems: 'center',
   justifyContent: 'center',
-  marginLeft: -SPACINGS.TWELVE,
-  marginRight: SPACINGS.EIGHT,
 });
 
 const AnimatedPlusIcon: React.FC<{disabled?: boolean}> = ({disabled}) => {
@@ -54,7 +52,8 @@ const ButtonText = styled(Body16)<{disabled?: boolean}>(({disabled}) => ({
   height: SPACINGS.TWENTY,
   color: disabled ? COLORS.GREYMEDIUM : COLORS.BLACK,
   marginVertical: 8,
-  marginHorizontal: SPACINGS.SIXTEEN,
+  marginRight: SPACINGS.FOUR,
+  marginLeft: SPACINGS.EIGHT,
 }));
 
 type ToggleButtonProps = BaseButtonProps & {

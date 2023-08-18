@@ -35,7 +35,11 @@ const StyledButton = styled(Button)<{customDisabled: boolean}>(
   }),
 );
 
-const ProfileInfo = () => {
+type ProfileInfoProps = {
+  onSaveCallback?: () => void;
+};
+
+const ProfileInfo: React.FC<ProfileInfoProps> = ({onSaveCallback}) => {
   const {t} = useTranslation('Component.ProfileInfo');
   const user = useUser();
   const {changeProfilePicture, isUpdatingProfilePicture} =
@@ -78,7 +82,11 @@ const ProfileInfo = () => {
     } else {
       setPictureMissing(false);
     }
-  }, [user, displayName, updateProfileDetails]);
+
+    if (onSaveCallback) {
+      onSaveCallback();
+    }
+  }, [user, displayName, updateProfileDetails, onSaveCallback]);
 
   return (
     <Container>

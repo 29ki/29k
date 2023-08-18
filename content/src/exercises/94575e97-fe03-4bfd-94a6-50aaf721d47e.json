@@ -51,7 +51,8 @@
           "heading": "What did you notice?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317097/Video/1min_Accepting_thoughts_and_feelings_xdvlcn.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554615/Images/thumb_timer1min_accepting_thoughts_and..._izhwhy.png"
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554615/Images/thumb_timer1min_accepting_thoughts_and..._izhwhy.png",
+            "durationTimer": true
           }
         }
       },
@@ -61,7 +62,8 @@
           "heading": "What did you notice?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317099/Video/2min_Accepting_thoughts_and_feelings_b9bxvx.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_timer2min_accepting_thoughts_and..._lzejn1.png"
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_timer2min_accepting_thoughts_and..._lzejn1.png",
+            "durationTimer": true
           }
         },
         "hostNotes": [

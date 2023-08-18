@@ -91,7 +91,6 @@ const Content: React.FC<ContentProps> = ({slide, active, async}) => {
             duration={lottieDuration}
             subtitles={content.lottie.subtitles}
             autoPlayLoop={content.lottie.autoPlayLoop}
-            durationTimer={content.lottie.durationTimer}
             isLive={!async}
           />
           <Spacer8 />
@@ -106,7 +105,6 @@ const Content: React.FC<ContentProps> = ({slide, active, async}) => {
             subtitles={content.video.subtitles}
             preview={content.video.preview}
             autoPlayLoop={content.video.autoPlayLoop}
-            durationTimer={content.video.durationTimer}
             isLive={!async}
           />
         </GraphicsWrapper>
