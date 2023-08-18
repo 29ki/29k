@@ -5,7 +5,7 @@
     "email": "E-mail",
     "password": "Password",
     "signIn": "Sign in",
-    "sendToEmail": "Send to may email",
+    "sendToEmail": "Send to my email",
     "errors": {
       "auth/invalid-email": "Wrong e-mail and/or password",
       "auth/wrong-password": "Wrong e-mail and/or password",
