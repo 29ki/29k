@@ -1,4 +1,4 @@
-import {AnimatedLottieViewProps, AnimationObject} from 'lottie-react-native';
+import {LottieViewProps, AnimationObject} from 'lottie-react-native';
 import {useEffect, useState} from 'react';
 
 function instanceOfAnimationObject(object: any): object is AnimationObject {
@@ -10,10 +10,10 @@ function instanceOfAnimationObject(object: any): object is AnimationObject {
 // * The animation starts playing directly even when autoPlay is false
 // * onAnimationFinnish do not fire
 // Issue reported here https://github.com/lottie-react-native/lottie-react-native/issues/968
-const useFetchLottie = (source: AnimatedLottieViewProps['source']) => {
-  const [content, setContent] = useState<
-    AnimatedLottieViewProps['source'] | null
-  >(null);
+const useFetchLottie = (source: LottieViewProps['source']) => {
+  const [content, setContent] = useState<LottieViewProps['source'] | null>(
+    null,
+  );
 
   useEffect(() => {
     const fetchContent = async () => {

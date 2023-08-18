@@ -6,13 +6,13 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import AnimatedLottieView, {AnimatedLottieViewProps} from 'lottie-react-native';
-import {View, ViewStyle} from 'react-native';
+import AnimatedLottieView, {LottieViewProps} from 'lottie-react-native';
+import {ViewStyle} from 'react-native';
 import useFetchLottie from './hooks/useFetchLottie';
 
 export type LottiePlayerProps = {
   style?: ViewStyle;
-  source: AnimatedLottieViewProps['source'];
+  source: LottieViewProps['source'];
   paused: boolean;
   repeat: boolean;
   duration?: number;
@@ -73,18 +73,17 @@ const LottiePlayer = forwardRef<LottiePlayerHandle, LottiePlayerProps>(
     }
 
     return (
-      <View style={style}>
-        <AnimatedLottieView
-          onAnimationFinish={onAnimationFinish}
-          source={lottieSource}
-          speed={paused ? 0 : duration > 0 ? 60 / duration : 1}
-          loop={repeat}
-          autoPlay={!paused}
-          progress={progress}
-          resizeMode="contain"
-          ref={lottieRef}
-        />
-      </View>
+      <AnimatedLottieView
+        style={style}
+        onAnimationFinish={onAnimationFinish}
+        source={lottieSource}
+        speed={paused ? 0 : duration > 0 ? 60 / duration : 1}
+        loop={repeat}
+        autoPlay={!paused}
+        progress={progress}
+        resizeMode="contain"
+        ref={lottieRef}
+      />
     );
   },
 );
