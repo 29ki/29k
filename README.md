@@ -57,7 +57,7 @@ The content of this repository is bound by the following licenses:
 
 -   The computer software is licensed under the [AGPL-3.0](./LICENSE) license.
 
--   The content in the [`/content`](./content) directory including their subdirectories thereon are licensed under the [CC-BY-SA-4.0](./content/LICENSE) license.
+-   The content in the [`/content`](./content) directory including its subdirectories are licensed under the [CC-BY-SA-4.0](./content/LICENSE) license.
 
 ## Contributors ✨
 
