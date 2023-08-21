@@ -18,7 +18,7 @@ import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 const Container = styled.View<{top: number; hasAction?: boolean}>(
   ({top, hasAction}) => ({
     position: 'absolute',
-    top: top,
+    top: Math.max(top, SPACINGS.SIXTEEN),
     left: 0,
     right: 0,
     borderRadius: SPACINGS.SIXTEEN,
