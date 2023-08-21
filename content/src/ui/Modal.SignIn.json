@@ -1,10 +1,11 @@
 {
   "en": {
     "title": "Sign in",
-    "resetTtile": "Forgot password",
+    "resetTitle": "Forgot password",
     "email": "E-mail",
     "password": "Password",
     "signIn": "Sign in",
+    "reset": "Forgot Password?",
     "sendToEmail": "Send to my email",
     "errors": {
       "auth/invalid-email": "Wrong e-mail and/or password",
@@ -33,10 +34,11 @@
   },
   "sv": {
     "title": "Logga in",
-    "resetTtile": "Glömt lösenord",
+    "resetTitle": "Glömt lösenord",
     "email": "Email",
     "password": "Lösenord",
     "signIn": "Logga in",
+    "reset": "Glömt Lösenord?",
     "sendToEmail": "Skicka till min email",
     "errors": {
       "auth/invalid-email": "Fel email och/eller lösenord",

@@ -82,7 +82,7 @@ const SignInModal = () => {
     return (
       <SheetModal>
         <Gutters>
-          <ModalHeading>{t('resetTtile')}</ModalHeading>
+          <ModalHeading>{t('resetTitle')}</ModalHeading>
           <Spacer24 />
           <ActionList>
             <BottomSheetActionTextInput
@@ -160,7 +160,7 @@ const SignInModal = () => {
             {t('signIn')}
           </StyledButton>
           <TouchableOpacity onPress={onShowForgotPassword}>
-            <StyledTextAction>{'Forgot Password?'}</StyledTextAction>
+            <StyledTextAction>{t('reset')}</StyledTextAction>
           </TouchableOpacity>
         </ActionRow>
       </Gutters>
