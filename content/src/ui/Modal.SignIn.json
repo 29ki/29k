@@ -7,6 +7,9 @@
     "signIn": "Sign in",
     "reset": "Forgot Password?",
     "sendToEmail": "Send to my email",
+    "confirmSent": "Ok, got it!",
+    "checkEmailHeader": "Please check your email",
+    "emailSentInfo": "We sent you a link to reset your password.",
     "errors": {
       "auth/invalid-email": "Wrong e-mail and/or password",
       "auth/wrong-password": "Wrong e-mail and/or password",
@@ -40,6 +43,9 @@
     "signIn": "Logga in",
     "reset": "Glömt Lösenord?",
     "sendToEmail": "Skicka till min email",
+    "confirmSent": "Ok, jag förstår!",
+    "checkEmailHeader": "Kolla din epost",
+    "emailSentInfo": "Vi har skickat en länk för att återställa lösenord.",
     "errors": {
       "auth/invalid-email": "Fel email och/eller lösenord",
       "auth/wrong-password": "Fel email och/eller lösenord",
