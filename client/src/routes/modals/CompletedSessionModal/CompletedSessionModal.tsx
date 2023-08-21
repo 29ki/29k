@@ -53,6 +53,7 @@ import {SPACINGS} from '../../../lib/constants/spacings';
 import Tag from '../../../lib/components/Tag/Tag';
 import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
 import {Heading18} from '../../../lib/components/Typography/Heading/Heading';
+import {openUrl} from 'react-native-markdown-display';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -170,6 +171,27 @@ const CompletedSessionModal = () => {
     }
   }, [exercise]);
 
+  const coCreators = useMemo(
+    () => (
+      <>
+        {exercise?.coCreators?.map(({name, avatar_url, link}, idx) => (
+          <>
+            <Byline
+              key={`${name}-${idx}`}
+              small
+              prefix={false}
+              pictureURL={avatar_url}
+              name={name}
+              onPress={!link ? undefined : () => openUrl(link)}
+            />
+            <Spacer4 />
+          </>
+        ))}
+      </>
+    ),
+    [exercise],
+  );
+
   if (!exercise) {
     return null;
   }
@@ -283,18 +305,7 @@ const CompletedSessionModal = () => {
             <Spacer24 />
             <Heading18>{t('coCreatorsHeading')}</Heading18>
             <Spacer8 />
-            {exercise.coCreators?.map(({name, avatar_url}, idx) => (
-              <>
-                <Byline
-                  key={`${name}-${idx}`}
-                  small
-                  prefix={false}
-                  pictureURL={avatar_url}
-                  name={name}
-                />
-                <Spacer4 />
-              </>
-            ))}
+            {coCreators}
           </Gutters>
         )}
         <Spacer32 />

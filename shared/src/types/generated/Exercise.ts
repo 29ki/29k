@@ -3,6 +3,7 @@
 
 export interface ExerciseCoCreator {
   name: string;
+  link: string;
   avatar_url: string;
 }
 

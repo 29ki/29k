@@ -5,7 +5,7 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import dayjs from 'dayjs';
-import React, {Fragment, useCallback, useEffect} from 'react';
+import React, {Fragment, useCallback, useEffect, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Share, View} from 'react-native';
@@ -63,6 +63,7 @@ import {
   Spacer4,
   Spacer8,
 } from '../../../lib/components/Spacers/Spacer';
+import {openUrl} from 'react-native-markdown-display';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -189,6 +190,27 @@ const SessionModal = () => {
   const onEditHostMode = useCallback(
     () => navigation.navigate('AssignNewHostModal', {session}),
     [session, navigation],
+  );
+
+  const coCreators = useMemo(
+    () => (
+      <>
+        {exercise?.coCreators?.map(({name, avatar_url, link}, idx) => (
+          <>
+            <Byline
+              key={`${name}-${idx}`}
+              small
+              prefix={false}
+              pictureURL={avatar_url}
+              name={name}
+              onPress={!link ? undefined : () => openUrl(link)}
+            />
+            <Spacer4 />
+          </>
+        ))}
+      </>
+    ),
+    [exercise],
   );
 
   useEffect(() => {
@@ -339,18 +361,7 @@ const SessionModal = () => {
               <Spacer24 />
               <Heading18>{t('coCreatorsHeading')}</Heading18>
               <Spacer8 />
-              {exercise.coCreators?.map(({name, avatar_url}, idx) => (
-                <>
-                  <Byline
-                    key={`${name}-${idx}`}
-                    small
-                    prefix={false}
-                    pictureURL={avatar_url}
-                    name={name}
-                  />
-                  <Spacer4 />
-                </>
-              ))}
+              {coCreators}
             </View>
           )}
         </Gutters>

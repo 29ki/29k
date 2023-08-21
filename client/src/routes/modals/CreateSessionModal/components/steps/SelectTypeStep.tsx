@@ -54,6 +54,7 @@ import useGetTagsById from '../../../../../lib/content/hooks/useGetTagsById';
 import Tag from '../../../../../lib/components/Tag/Tag';
 import IconButton from '../../../../../lib/components/Buttons/IconButton/IconButton';
 import Byline from '../../../../../lib/components/Bylines/Byline';
+import {openUrl} from 'react-native-markdown-display';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -245,6 +246,27 @@ const SelectTypeStep: React.FC<StepProps> = ({
     [sessions, popToTop],
   );
 
+  const coCreators = useMemo(
+    () => (
+      <>
+        {exercise?.coCreators?.map(({name, avatar_url, link}, idx) => (
+          <>
+            <Byline
+              key={`${name}-${idx}`}
+              small
+              prefix={false}
+              pictureURL={avatar_url}
+              name={name}
+              onPress={!link ? undefined : () => openUrl(link)}
+            />
+            <Spacer4 />
+          </>
+        ))}
+      </>
+    ),
+    [exercise],
+  );
+
   const keyExtractor = useCallback((item: LiveSessionType) => item.id, []);
 
   const typeSelection = useMemo(
@@ -296,37 +318,26 @@ const SelectTypeStep: React.FC<StepProps> = ({
           }
           ListFooterComponent={
             <Gutters>
+              <Spacer24 />
+              {exercise.link && (
+                <>
+                  <VCenteredRow>
+                    <IconButton
+                      variant="secondary"
+                      onPress={onShare}
+                      Icon={ShareIcon}
+                    />
+                    <Spacer8 />
+                    <Body16>{t('shareHeading')}</Body16>
+                  </VCenteredRow>
+                  <Spacer24 />
+                </>
+              )}
               {Boolean(exercise.coCreators?.length) && (
                 <>
-                  <Spacer24 />
-                  {exercise.link && (
-                    <>
-                      <VCenteredRow>
-                        <IconButton
-                          variant="secondary"
-                          onPress={onShare}
-                          Icon={ShareIcon}
-                        />
-                        <Spacer8 />
-                        <Body16>{t('shareHeading')}</Body16>
-                      </VCenteredRow>
-                      <Spacer24 />
-                    </>
-                  )}
                   <Heading18>{t('coCreatorsHeading')}</Heading18>
                   <Spacer8 />
-                  {exercise.coCreators?.map(({name, avatar_url}, idx) => (
-                    <>
-                      <Byline
-                        key={`${name}-${idx}`}
-                        small
-                        prefix={false}
-                        pictureURL={avatar_url}
-                        name={name}
-                      />
-                      <Spacer4 />
-                    </>
-                  ))}
+                  {coCreators}
                 </>
               )}
             </Gutters>

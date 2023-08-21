@@ -82,6 +82,11 @@ export const CO_CREATORS: CmsField = {
       widget: 'string',
     },
     {
+      label: 'Link',
+      name: 'link',
+      widget: 'string',
+    },
+    {
       label: 'Avatar',
       name: 'avatar_url',
       widget: 'image',
