@@ -12,6 +12,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import RootNavigator from './lib/navigation/RootNavigator';
 import RehydrateWrapper from './RehydrateWrapper';
+import ErrorBanner from './lib/components/ErrorBanner/ErrorBanner';
 
 const GestureHandler = styled(GestureHandlerRootView)({
   flex: 1,
@@ -27,8 +28,10 @@ const App = () => (
               <Suspense>
                 <RehydrateWrapper>
                   <Bootstrap>
-                    <RootNavigator />
-                    <CodePushOverlay />
+                    <ErrorBanner>
+                      <RootNavigator />
+                      <CodePushOverlay />
+                    </ErrorBanner>
                   </Bootstrap>
                 </RehydrateWrapper>
               </Suspense>
