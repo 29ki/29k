@@ -84,6 +84,13 @@ const ErrorBanner: React.FC<{children: React.ReactNode}> = ({children}) => {
     setActionComponent(undefined);
   }, []);
 
+  const onAction = useCallback(() => {
+    if (actionConfig?.action) {
+      actionConfig.action();
+    }
+    onClose();
+  }, [actionConfig, onClose]);
+
   const contextValue = useMemo(() => {
     return {showError: onShowError};
   }, [onShowError]);
@@ -104,10 +111,7 @@ const ErrorBanner: React.FC<{children: React.ReactNode}> = ({children}) => {
 
           <Right hasAction={Boolean(actionConfig)}>
             {actionConfig ? (
-              <ActionButton
-                small
-                variant="secondary"
-                onPress={actionConfig.action}>
+              <ActionButton small variant="secondary" onPress={onAction}>
                 {actionConfig.text}
               </ActionButton>
             ) : (
