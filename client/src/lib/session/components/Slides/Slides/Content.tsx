@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import styled from 'styled-components/native';
 
 import {
@@ -12,6 +12,7 @@ import Video from './Blocks/Video';
 import {Spacer12, Spacer8} from '../../../../components/Spacers/Spacer';
 import SubHeading from './Blocks/SubHeading';
 import Lottie from './Blocks/Lottie';
+import useAdjustVolume from '../../../hooks/useAdjustVolume';
 
 const Wrapper = styled.View({
   flex: 1,
@@ -36,11 +37,19 @@ type ContentProps = {
   active: boolean;
   async?: boolean;
 };
-const Content: React.FC<ContentProps> = ({
-  slide: {content = {}},
-  active,
-  async,
-}) => {
+const Content: React.FC<ContentProps> = ({slide, active, async}) => {
+  const adjustVolume = useAdjustVolume();
+
+  const content = useMemo(() => {
+    return slide.content ?? {};
+  }, [slide.content]);
+
+  useEffect(() => {
+    if (active && !async && slide.type === 'content') {
+      adjustVolume();
+    }
+  }, [active, async, adjustVolume, slide]);
+
   const imageSource = useMemo(
     () => ({uri: content?.image?.source}),
     [content?.image?.source],
@@ -82,7 +91,6 @@ const Content: React.FC<ContentProps> = ({
             duration={lottieDuration}
             subtitles={content.lottie.subtitles}
             autoPlayLoop={content.lottie.autoPlayLoop}
-            durationTimer={content.lottie.durationTimer}
             isLive={!async}
           />
           <Spacer8 />
@@ -97,7 +105,6 @@ const Content: React.FC<ContentProps> = ({
             subtitles={content.video.subtitles}
             preview={content.video.preview}
             autoPlayLoop={content.video.autoPlayLoop}
-            durationTimer={content.video.durationTimer}
             isLive={!async}
           />
         </GraphicsWrapper>
