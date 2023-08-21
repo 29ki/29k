@@ -48,7 +48,8 @@
           "heading": "What do you bring from this exercise?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_2_be_kind_to_yourself_pii45p.png"
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_2_be_kind_to_yourself_pii45p.png",
+            "durationTimer": true
           }
         }
       },
@@ -58,7 +59,8 @@
           "heading": "What do you bring from this exercise?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_3_be_kind_to_yourself_orn39r.png"
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_3_be_kind_to_yourself_orn39r.png",
+            "durationTimer": true
           }
         },
         "hostNotes": [
@@ -177,7 +179,8 @@
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043753/Video/content_Be_kind_to_yourself_qfhuch.mp4",
             "autoPlayLoop": true,
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_content_be_kind_to_yourself_hn38hz.png"
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_content_be_kind_to_yourself_hn38hz.png",
+            "durationTimer": true
           }
         }
       },
@@ -195,7 +198,8 @@
           "heading": "O que dirias a ti próprio/a?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_2_be_kind_to_yourself_pii45p.png"
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_2_be_kind_to_yourself_pii45p.png",
+            "durationTimer": true
           }
         }
       },
@@ -205,7 +209,8 @@
           "heading": "O que dirias a ti próprio/a?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_3_be_kind_to_yourself_orn39r.png"
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_3_be_kind_to_yourself_orn39r.png",
+            "durationTimer": true
           }
         },
         "hostNotes": [
@@ -226,7 +231,7 @@
         "content": {
           "heading": "O que dirias a uma amiga ou a um amigo?",
           "video": {
-            "durationTimer": false,
+            "durationTimer": true,
             "autoPlayLoop": false,
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669898289/Video/reflection2_Be_kind_to_yourself_zlyxgi.mp4"
           }
@@ -246,7 +251,8 @@
           "heading": "O que dirias a uma amiga ou a um amigo?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_3_be_kind_to_yourself_orn39r.png"
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_3_be_kind_to_yourself_orn39r.png",
+            "durationTimer": true
           }
         },
         "hostNotes": [
