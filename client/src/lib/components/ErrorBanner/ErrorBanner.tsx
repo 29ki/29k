@@ -1,4 +1,11 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import Animated, {FadeInUp} from 'react-native-reanimated';
+import {
+  GestureDetector,
+  Gesture,
+  Directions,
+} from 'react-native-gesture-handler';
+
 import {
   ActionConfig,
   ErrorBannerContext,
@@ -15,7 +22,7 @@ import Button from '../Buttons/Button';
 import {CloseIcon} from '../Icons';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 
-const Container = styled.View<{top: number; hasAction?: boolean}>(
+const Container = styled(Animated.View)<{top: number; hasAction?: boolean}>(
   ({top, hasAction}) => ({
     position: 'absolute',
     top: Math.max(top, SPACINGS.SIXTEEN),
@@ -68,12 +75,18 @@ const ErrorBanner: React.FC<{children: React.ReactNode}> = ({children}) => {
   const [actionConfig, setActionComponent] = useState<ActionConfig | undefined>(
     undefined,
   );
+  const [autoClose, setAutoClose] = useState<boolean | undefined>(undefined);
 
   const onShowError = useCallback(
-    (hdr: string, msg: string, action?: ActionConfig) => {
+    (
+      hdr: string,
+      msg: string,
+      options?: {actionConfig?: ActionConfig; disableAutoClose?: boolean},
+    ) => {
       setHeader(hdr);
       setMessage(msg);
-      setActionComponent(action);
+      setActionComponent(options?.actionConfig);
+      setAutoClose(options?.disableAutoClose ? false : true);
     },
     [],
   );
@@ -82,6 +95,7 @@ const ErrorBanner: React.FC<{children: React.ReactNode}> = ({children}) => {
     setHeader('');
     setMessage('');
     setActionComponent(undefined);
+    setAutoClose(undefined);
   }, []);
 
   const onAction = useCallback(() => {
@@ -95,32 +109,51 @@ const ErrorBanner: React.FC<{children: React.ReactNode}> = ({children}) => {
     return {showError: onShowError};
   }, [onShowError]);
 
+  useEffect(() => {
+    let timeout: NodeJS.Timeout | undefined;
+    if (autoClose === true) {
+      timeout = setTimeout(onClose, 5000);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [autoClose, onClose]);
+
+  const swipeUpGesture = useMemo(
+    () => Gesture.Fling().direction(Directions.UP).onEnd(onClose),
+    [onClose],
+  );
+
   return (
     <ErrorBannerContext.Provider value={contextValue}>
       {children}
 
       {header && message && (
-        <Container hasAction={Boolean(actionConfig)} top={top}>
-          <Left>
-            <Lottie source={errorAnimation} repeat paused={false} />
-            <View>
-              <Heading16>{header}</Heading16>
-              <WrapText>{message}</WrapText>
-            </View>
-          </Left>
+        <GestureDetector gesture={swipeUpGesture}>
+          <Container
+            entering={FadeInUp.duration(500)}
+            hasAction={Boolean(actionConfig)}
+            top={top}>
+            <Left>
+              <Lottie source={errorAnimation} repeat paused={false} />
+              <View>
+                <Heading16>{header}</Heading16>
+                <WrapText>{message}</WrapText>
+              </View>
+            </Left>
 
-          <Right hasAction={Boolean(actionConfig)}>
-            {actionConfig ? (
-              <ActionButton small variant="secondary" onPress={onAction}>
-                {actionConfig.text}
-              </ActionButton>
-            ) : (
-              <CloseButton onPress={onClose}>
-                <CloseIcon />
-              </CloseButton>
-            )}
-          </Right>
-        </Container>
+            <Right hasAction={Boolean(actionConfig)}>
+              {actionConfig ? (
+                <ActionButton small variant="secondary" onPress={onAction}>
+                  {actionConfig.text}
+                </ActionButton>
+              ) : (
+                <CloseButton onPress={onClose}>
+                  <CloseIcon />
+                </CloseButton>
+              )}
+            </Right>
+          </Container>
+        </GestureDetector>
       )}
     </ErrorBannerContext.Provider>
   );

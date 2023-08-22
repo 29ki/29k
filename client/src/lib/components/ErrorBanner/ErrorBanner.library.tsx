@@ -17,16 +17,29 @@ const AllErrorBanners = () => {
     errorBannerContext?.showError('Error title', 'Error message');
   }, [errorBannerContext]);
 
-  const onBannerWithActionPress = useCallback(() => {
+  const onBannerWithoutAutoClosePress = useCallback(() => {
     errorBannerContext?.showError('Error title', 'Error message', {
-      text: 'Action',
-      action: () => console.log('on press'),
+      disableAutoClose: true,
     });
   }, [errorBannerContext]);
+
+  const onBannerWithActionPress = useCallback(() => {
+    errorBannerContext?.showError('Error title', 'Error message', {
+      actionConfig: {
+        text: 'Action',
+        action: () => console.log('on press'),
+      },
+    });
+  }, [errorBannerContext]);
+
   return (
     <ScreenWrapper>
       <Button onPress={onBannerWithoutActionPress}>
         {'Banner without action'}
+      </Button>
+      <Spacer16 />
+      <Button onPress={onBannerWithoutAutoClosePress}>
+        {'Banner without auto close'}
       </Button>
       <Spacer16 />
       <Button onPress={onBannerWithActionPress}>{'Banner with action'}</Button>

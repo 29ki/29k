@@ -9,7 +9,10 @@ export type ErrorBannerContextProps = {
   showError: (
     header: string,
     message: string,
-    actionConfig?: ActionConfig,
+    options?: {
+      actionConfig?: ActionConfig;
+      disableAutoClose?: boolean;
+    },
   ) => void;
 };
 
