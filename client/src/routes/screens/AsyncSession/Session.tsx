@@ -61,8 +61,7 @@ const Session: React.FC = () => {
   const logSessionMetricEvent = useAsyncSessionMetricEvents();
   const addUserEvent = useAddUserEvent();
   const {navigateToIndex} = useUpdateAsyncSessionState(session);
-
-  const isConnected = useNetworkListener();
+  useNetworkListener();
 
   useEffect(() => {
     if (sessionState?.id) {
@@ -140,7 +139,7 @@ const Session: React.FC = () => {
             isHost
             sessionState={sessionState}
             slideState={sessionSlideState}
-            isConnected={isConnected}
+            isConnected // No need to disable buttons for async sessions
             currentContentReachedEnd={currentContentReachedEnd}
             onPrevPress={onPrevPress}
             onNextPress={onNextPress}
