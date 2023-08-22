@@ -41,6 +41,7 @@ import HostingInviteFailModal from '../../routes/modals/HostingInviteFailModal/H
 import HostSessionByInviteModal from '../../routes/modals/HostSessionByInviteModal/HostSessionByInviteModal';
 import DonateModal from '../../routes/modals/DonateModal/DonateModal';
 import SimpleProfileSettingsModal from '../../routes/modals/SimpleProfileSettingsModal/SimpleProfileSettingsModal';
+import ForgotPasswordModal from '../../routes/modals/ForgotPasswordModal/ForgotPasswordModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -240,9 +241,15 @@ const ModalStack = () => {
         <Screen name={'PartnersModal'} component={PartnersModal} />
         <Screen name={'DeveloperModal'} component={DeveloperModal} />
         <Screen name={'ContactModal'} component={ContactModal} />
+
         <Screen
           name={'SignInModal'}
           component={SignInModal}
+          options={shortSheetModalScreenOptions}
+        />
+        <Screen
+          name={'ForgotPasswordModal'}
+          component={ForgotPasswordModal}
           options={shortSheetModalScreenOptions}
         />
 

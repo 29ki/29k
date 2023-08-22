@@ -9,26 +9,19 @@ import Button from '../../../lib/components/Buttons/Button';
 
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
-import {
-  Spacer16,
-  Spacer24,
-  Spacer32,
-} from '../../../lib/components/Spacers/Spacer';
-import {
-  Heading16,
-  ModalHeading,
-} from '../../../lib/components/Typography/Heading/Heading';
+import {Spacer16, Spacer24} from '../../../lib/components/Spacers/Spacer';
+import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
-import useResetPassword from '../../../lib/user/hooks/useResetPassword';
 
 const ActionRow = styled.View({
   flexDirection: 'row',
   justifyContent: 'space-between',
+  alignItems: 'center',
 });
 
 const StyledButton = styled(Button)({
@@ -45,18 +38,13 @@ const Error = styled(Body16)({
 
 const SignInModal = () => {
   const {t} = useTranslation('Modal.SignIn');
-  const {popToTop} =
+  const {popToTop, navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
-  const resetPassword = useResetPassword();
 
   const [isSigningIn, setIsSigningIn] = useState(false);
-  const [isResetting, setIsResetting] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showForgotPassword, setShowForgotPassword] = useState(false);
-  const [showResetSent, setResetSent] = useState(false);
   const [error, setError] = useState('');
-  const [resetError, setResetError] = useState('');
 
   const signIn = useCallback(async () => {
     try {
@@ -71,78 +59,8 @@ const SignInModal = () => {
   }, [setIsSigningIn, popToTop, email, password]);
 
   const onShowForgotPassword = useCallback(() => {
-    setShowForgotPassword(true);
-    setResetSent(false);
-  }, []);
-
-  const onHideForgotPassword = useCallback(() => {
-    setShowForgotPassword(false);
-  }, []);
-
-  const sendResetEmail = useCallback(async () => {
-    setIsResetting(true);
-    const errorCode = await resetPassword(email);
-    if (errorCode) {
-      setResetError(errorCode);
-    } else {
-      setResetError('');
-      setResetSent(true);
-    }
-    setIsResetting(false);
-  }, [resetPassword, email]);
-
-  if (showForgotPassword) {
-    return (
-      <SheetModal>
-        <Gutters>
-          <ModalHeading>{t('resetTitle')}</ModalHeading>
-          <Spacer24 />
-          {showResetSent ? (
-            <>
-              <Heading16>{t('checkEmailHeader')}</Heading16>
-              <Spacer16 />
-              <Body16>{t('emailSentInfo')}</Body16>
-              <Spacer32 />
-
-              <StyledButton variant="primary" onPress={onHideForgotPassword}>
-                {t('confirmSent')}
-              </StyledButton>
-            </>
-          ) : (
-            <>
-              <ActionList>
-                <BottomSheetActionTextInput
-                  textContentType="emailAddress"
-                  keyboardType="email-address"
-                  autoCapitalize="none"
-                  autoComplete="email"
-                  autoCorrect={false}
-                  onSubmitEditing={signIn}
-                  placeholder={t('email')}
-                  onChangeText={setEmail}
-                  defaultValue={email}
-                />
-              </ActionList>
-              <Spacer16 />
-              {resetError && (
-                <>
-                  <Error>{t(`resetErrors.${resetError}`)}</Error>
-                  <Spacer16 />
-                </>
-              )}
-              <StyledButton
-                variant="primary"
-                disabled={!email}
-                loading={isResetting}
-                onPress={sendResetEmail}>
-                {t('sendToEmail')}
-              </StyledButton>
-            </>
-          )}
-        </Gutters>
-      </SheetModal>
-    );
-  }
+    navigate('ForgotPasswordModal');
+  }, [navigate]);
 
   return (
     <SheetModal>
