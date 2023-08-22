@@ -15,13 +15,16 @@ import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
-import com.google.android.exoplayer2.ExoPlayer;
-import com.google.android.exoplayer2.MediaItem;
-import com.google.android.exoplayer2.PlaybackException;
-import com.google.android.exoplayer2.Player;
-import com.google.android.exoplayer2.source.DefaultMediaSourceFactory;
-import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.video.VideoSize;
+
+import androidx.annotation.OptIn;
+import androidx.media3.common.MediaItem;
+import androidx.media3.common.PlaybackException;
+import androidx.media3.common.Player;
+import androidx.media3.common.VideoSize;
+import androidx.media3.common.util.UnstableApi;
+import androidx.media3.exoplayer.ExoPlayer;
+import androidx.media3.exoplayer.source.DefaultMediaSourceFactory;
+import androidx.media3.exoplayer.source.MediaSource;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -177,6 +180,7 @@ public class ReactVideoLooperView extends FrameLayout {
       .receiveEvent(getId(), eventName, properties);
   }
 
+  @OptIn(markerClass = UnstableApi.class)
   private void initializeMediaPlayer(boolean isLocal) {
     if (_player == null) {
       if (isLocal) {
@@ -202,9 +206,11 @@ public class ReactVideoLooperView extends FrameLayout {
     }
     return true;
   }
+
   public void setSources(ReadableArray sources) {
     new Handler().postDelayed(new Runnable() {
       @Override
+      @OptIn(markerClass = UnstableApi.class)
       public void run() {
         List<MediaSource> mediaSources = new ArrayList<>();
         List<MediaItem> mediaItems = new ArrayList<>();

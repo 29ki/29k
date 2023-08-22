@@ -3,18 +3,21 @@ package org.twentyninek.app.cupcake.newarchitecture.videoLooper;
 import android.net.Uri;
 
 import com.facebook.react.uimanager.ThemedReactContext;
-import com.google.android.exoplayer2.MediaItem;
-import com.google.android.exoplayer2.database.StandaloneDatabaseProvider;
-import com.google.android.exoplayer2.ext.okhttp.OkHttpDataSource;
-import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.source.ProgressiveMediaSource;
-import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.DataSpec;
-import com.google.android.exoplayer2.upstream.DefaultLoadErrorHandlingPolicy;
-import com.google.android.exoplayer2.upstream.cache.CacheDataSource;
-import com.google.android.exoplayer2.upstream.cache.CacheWriter;
-import com.google.android.exoplayer2.upstream.cache.LeastRecentlyUsedCacheEvictor;
-import com.google.android.exoplayer2.upstream.cache.SimpleCache;
+
+import androidx.annotation.OptIn;
+import androidx.media3.common.MediaItem;
+import androidx.media3.common.util.UnstableApi;
+import androidx.media3.database.StandaloneDatabaseProvider;
+import androidx.media3.datasource.DataSource;
+import androidx.media3.datasource.DataSpec;
+import androidx.media3.datasource.cache.CacheDataSource;
+import androidx.media3.datasource.cache.CacheWriter;
+import androidx.media3.datasource.cache.LeastRecentlyUsedCacheEvictor;
+import androidx.media3.datasource.cache.SimpleCache;
+import androidx.media3.datasource.okhttp.OkHttpDataSource;
+import androidx.media3.exoplayer.source.MediaSource;
+import androidx.media3.exoplayer.source.ProgressiveMediaSource;
+import androidx.media3.exoplayer.upstream.DefaultLoadErrorHandlingPolicy;
 
 import java.io.File;
 import java.io.IOException;
@@ -46,6 +49,7 @@ public class VideoCacheManager {
     return _cachedDataSourceFactory;
   }
 
+  @OptIn(markerClass = UnstableApi.class)
   public void prepare(ThemedReactContext context) {
     if (!_prepared) {
       String cacheDir = context.getExternalCacheDir() + "/ExoVideoCache";
@@ -62,6 +66,7 @@ public class VideoCacheManager {
     }
   }
 
+  @OptIn(markerClass = UnstableApi.class)
   public void preCache(String url) {
     executorService.execute(() -> {
       DataSpec dataSpec = new DataSpec.Builder()
@@ -78,6 +83,7 @@ public class VideoCacheManager {
     });
   }
 
+  @OptIn(markerClass = UnstableApi.class)
   public MediaSource getCachedMediaSource(MediaItem mediaItem) {
     MediaSource mediaSource =
       new ProgressiveMediaSource.Factory(_cachedDataSourceFactory)

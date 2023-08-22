@@ -40,7 +40,11 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import useSharingPosts from '../../../lib/posts/hooks/useSharingPosts';
-import {ModalStackProps} from '../../../lib/navigation/constants/routes';
+import {
+  AppStackProps,
+  ModalStackProps,
+} from '../../../lib/navigation/constants/routes';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 const HeaderWrapper = styled.View({
   flexDirection: 'row',
@@ -95,7 +99,8 @@ const SharingModal = () => {
   const {
     params: {exerciseId},
   } = useRoute<RouteProp<ModalStackProps, 'SharingModal'>>();
-  const {goBack} = useNavigation();
+  const {goBack, navigate} =
+    useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const {t} = useTranslation('Modal.Sharing');
   const user = useUser();
   const sessionState = useAsyncSessionSlideState();
@@ -146,6 +151,10 @@ const SharingModal = () => {
     }
   }, [addSharingPost, sharingId, isPublic, isAnonymous, text, goBack]);
 
+  const onProfilePress = useCallback(() => {
+    navigate('SimpleProfileSettingsModal');
+  }, [navigate]);
+
   return (
     <SheetModal backgroundColor={COLORS.WHITE}>
       <BottomSheetScrollView focusHook={useIsFocused}>
@@ -155,7 +164,9 @@ const SharingModal = () => {
         <Spacer16 />
         <Gutters>
           <Row>
-            <BylineUser user={userProfile} />
+            <TouchableOpacity onPress={onProfilePress}>
+              <BylineUser user={userProfile} />
+            </TouchableOpacity>
             <Button
               variant="primary"
               disabled={text.length < 5}

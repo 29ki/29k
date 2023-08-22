@@ -311,7 +311,6 @@ export const LOTTIE_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
       hint: 'Animation will automatically loop while playing.',
     },
     SUBTITLES_FIELD,
-    {...DURATION_FIELD, hint: 'Duration in seconds', required: false},
   ],
 };
 
