@@ -24,6 +24,7 @@ import useUpdateAsyncSessionState from '../../../lib/session/hooks/useUpdateAsyn
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import ProgressBar from '../../../lib/session/components/ProgressBar/ProgressBar';
 import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
+import useNetworkListener from '../../../lib/network/hooks/useNetworkListener';
 
 const Spotlight = styled.View({
   flex: 1,
@@ -60,6 +61,8 @@ const Session: React.FC = () => {
   const logSessionMetricEvent = useAsyncSessionMetricEvents();
   const addUserEvent = useAddUserEvent();
   const {navigateToIndex} = useUpdateAsyncSessionState(session);
+
+  const isConnected = useNetworkListener();
 
   useEffect(() => {
     if (sessionState?.id) {
@@ -137,6 +140,7 @@ const Session: React.FC = () => {
             isHost
             sessionState={sessionState}
             slideState={sessionSlideState}
+            isConnected={isConnected}
             currentContentReachedEnd={currentContentReachedEnd}
             onPrevPress={onPrevPress}
             onNextPress={onNextPress}

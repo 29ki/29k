@@ -1,0 +1,13 @@
+{
+  "en": {
+    "title": "Network Errors",
+    "message": "App fails to establish or maintain a connection with the server."
+  },
+  "pt": {
+  },
+  "sv": {
+    "title": "Nätverksfel",
+    "message": "Appen misslyckades med att skapa eller hålla kontakten med servern."
+  },
+  "es": {}
+}

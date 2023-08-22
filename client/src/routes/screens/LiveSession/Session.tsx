@@ -67,6 +67,7 @@ import SessionReactions from '../../../lib/session/components/Reactions/SessionR
 import {ProgressTimerContext} from '../../../lib/session/context/TimerContext';
 import DurationTimer from '../../../lib/session/components/DurationTimer/DurationTimer';
 import {LottiePlayerHandle} from '../../../lib/components/LottiePlayer/LottiePlayer';
+import useNetworkListener from '../../../lib/network/hooks/useNetworkListener';
 
 const ExerciseControl = styled(ContentControls)({
   position: 'absolute',
@@ -185,6 +186,7 @@ const Session: React.FC = () => {
   const sendReaction = useSendReaction();
   const {navigateToIndex, setPlaying} = useUpdateSessionState(session.id);
   const {conditionallyMuteParticipants} = useMuteAudio();
+  const isConnected = useNetworkListener();
 
   const hasAudio = Boolean(me?.audioTrack);
   const hasVideo = Boolean(me?.videoTrack);
@@ -375,6 +377,7 @@ const Session: React.FC = () => {
               isHost={isHost}
               sessionState={sessionState}
               slideState={sessionSlideState}
+              isConnected={isConnected}
               currentContentReachedEnd={currentContentReachedEnd}
               onPrevPress={onPrevPress}
               onNextPress={onNextPress}
