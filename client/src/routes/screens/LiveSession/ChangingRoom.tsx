@@ -128,7 +128,7 @@ const ChangingRoom = () => {
 
   const sessionState = useSessionState(state => state.sessionState);
   const {
-    params: {session},
+    params: {session, isReJoining},
   } = useRoute<RouteProp<LiveSessionStackProps, 'ChangingRoom'>>();
 
   const isAllowedToJoin = useIsAllowedToJoin();
@@ -150,6 +150,13 @@ const ChangingRoom = () => {
   useEffect(() => {
     logSessionMetricEvent('Enter Changing Room');
   }, [logSessionMetricEvent]);
+
+  useEffect(() => {
+    if (isReJoining && isFocused) {
+      // If this is a rejoin, reset loading state
+      setJoiningMeeting(false);
+    }
+  }, [isReJoining, isFocused]);
 
   const preJoin = useCallback(
     async (url: string, id: string) => {

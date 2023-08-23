@@ -7,18 +7,22 @@ type State = {
     [session_id: string]: DailyParticipant;
   };
   participantsSortOrder: string[];
+  hasFailed: boolean;
 };
 
 type Actions = {
   setParticipant: (id: string, participant: DailyParticipant) => void;
   removeParticipant: (id: string) => void;
   setParticipantsSortOrder: (sessionId: string) => void;
+  setHasFailed: () => void;
+  resetHasFailed: () => void;
   reset: () => void;
 };
 
 const initialState: State = {
   participants: {},
   participantsSortOrder: [],
+  hasFailed: false,
 };
 
 const useDailyState = create<State & Actions>()((set, get) => ({
@@ -51,6 +55,14 @@ const useDailyState = create<State & Actions>()((set, get) => ({
         ],
       });
     }
+  },
+
+  setHasFailed: () => {
+    set({hasFailed: true});
+  },
+
+  resetHasFailed: () => {
+    set({hasFailed: false});
   },
 
   reset: () => set(initialState),

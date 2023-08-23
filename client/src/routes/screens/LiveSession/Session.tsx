@@ -23,7 +23,6 @@ import {DailyContext} from '../../../lib/daily/DailyProvider';
 import useSessionState from '../../../lib/session/state/state';
 import useSessionParticipants from '../../../lib/session/hooks/useSessionParticipants';
 import useLiveSessionSlideState from '../../../lib/session/hooks/useLiveSessionSlideState';
-import usePreventGoingBack from '../../../lib/navigation/hooks/usePreventGoingBack';
 import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
 import useIsSessionHost from '../../../lib/session/hooks/useIsSessionHost';
 import useLocalParticipant from '../../../lib/daily/hooks/useLocalParticipant';
@@ -33,6 +32,8 @@ import useUpdateSessionState from '../../../lib/session/hooks/useUpdateSessionSt
 import useLiveSessionMetricEvents from '../../../lib/session/hooks/useLiveSessionMetricEvents';
 import useCheckPermissions from '../../../lib/session/hooks/useCheckPermissions';
 import useAddUserEvent from '../../../lib/user/hooks/useAddUserEvent';
+import useNetworkListener from '../../../lib/network/hooks/useNetworkListener';
+import useHandleLeaveLiveSession from '../../../lib/session/hooks/useHandleLeaveLiveSession';
 
 import {
   BottomSafeArea,
@@ -67,7 +68,6 @@ import SessionReactions from '../../../lib/session/components/Reactions/SessionR
 import {ProgressTimerContext} from '../../../lib/session/context/TimerContext';
 import DurationTimer from '../../../lib/session/components/DurationTimer/DurationTimer';
 import {LottiePlayerHandle} from '../../../lib/components/LottiePlayer/LottiePlayer';
-import useNetworkListener from '../../../lib/network/hooks/useNetworkListener';
 
 const ExerciseControl = styled(ContentControls)({
   position: 'absolute',
@@ -191,7 +191,7 @@ const Session: React.FC = () => {
   const hasAudio = Boolean(me?.audioTrack);
   const hasVideo = Boolean(me?.videoTrack);
 
-  usePreventGoingBack(leaveSessionWithConfirm);
+  useHandleLeaveLiveSession(session);
 
   useEffect(() => {
     if (sessionState?.id) {

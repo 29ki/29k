@@ -50,6 +50,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
 
   const resetState = useDailyState(state => state.reset);
   const setParticipant = useDailyState(state => state.setParticipant);
+  const setHasFailed = useDailyState(state => state.setHasFailed);
   const removeParticipant = useDailyState(state => state.removeParticipant);
   const setParticipantsSortOrder = useDailyState(
     state => state.setParticipantsSortOrder,
@@ -81,8 +82,10 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
       setParticipantsSortOrder(peerId);
     };
 
-    const onError = ({error}: DailyEventObject<'error'>) => {
-      Sentry.captureException(error);
+    const onError = (errorEvent: DailyEventObject<'error'>) => {
+      //Seems we only get here when it has totally failed
+      setHasFailed();
+      Sentry.captureException(errorEvent.errorMsg);
     };
 
     return [
@@ -93,7 +96,12 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
       ['error', onError],
       //   ['network-quality-change', connect(networkQualityChange)],
     ];
-  }, [setParticipant, removeParticipant, setParticipantsSortOrder]);
+  }, [
+    setParticipant,
+    removeParticipant,
+    setParticipantsSortOrder,
+    setHasFailed,
+  ]);
 
   const leaveMeeting = useCallback(async () => {
     if (!daily) {
