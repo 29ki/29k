@@ -85,7 +85,9 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     const onError = (errorEvent: DailyEventObject<'error'>) => {
       //Seems we only get here when it has totally failed
       setHasFailed();
-      Sentry.captureException(errorEvent.errorMsg);
+      Sentry.captureException(
+        new Error('Error from Daily', {cause: errorEvent.errorMsg}),
+      );
     };
 
     return [
