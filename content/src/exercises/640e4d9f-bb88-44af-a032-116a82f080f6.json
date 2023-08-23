@@ -31,7 +31,12 @@
           {
             "text": "Maybe we don’t know what we want. Let’s start with a look in the rearview mirror for guidance."
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -48,7 +53,10 @@
         ],
         "content": {
           "heading": "Recall feeling purpose",
-          "text": "What situation? Where? Anyone with you?"
+          "text": "What situation? Where? Anyone with you?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
         }
       },
       {
@@ -63,7 +71,10 @@
         ],
         "content": {
           "heading": "When I felt purpose…",
-          "text": "…I felt…I thought…I did…"
+          "text": "…I felt…I thought…I did…",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
         }
       },
       {
@@ -81,7 +92,10 @@
         ],
         "content": {
           "heading": "What do you feel, think and do today?",
-          "text": "Difference from before?"
+          "text": "Difference from before?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
         }
       },
       {
@@ -99,7 +113,10 @@
         ],
         "content": {
           "heading": "What do you feel, think and do today?",
-          "text": "Difference from that time feeling purpose?"
+          "text": "Difference from that time feeling purpose?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          }
         },
         "id": "1"
       },
@@ -126,20 +143,35 @@
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#1f5b9e"
     },
     "hidden": true,
     "name": "Feeling purpose",
     "live": true,
     "published": true,
-    "card": {},
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692793639/Images/card_image_feeling_purpose_ju8iea.png"
+      }
+    },
+    "socialMeta": {
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692793639/Images/card_image_feeling_purpose_ju8iea.png"
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692793604/Video/portal1_feeling_purpose_vo3ws9.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692793663/Audio/portal_audio_feeling_purpose_gzijae.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692793619/Video/portal2_feeling_purpose_gbk6tc.mp4"
+      }
     },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
