@@ -9,10 +9,12 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {LiveSessionStackProps} from '../../navigation/constants/routes';
 import {DailyContext} from '../../daily/DailyProvider';
 import {ErrorBannerContext} from '../../contexts/ErrorBannerContext';
+import {useTranslation} from 'react-i18next';
 
 const useHandleLeaveLiveSession = (session: LiveSessionType) => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<LiveSessionStackProps>>();
+  const {t} = useTranslation('Component.SessionError');
   const {leaveMeeting} = useContext(DailyContext);
   const errorBannerContext = useContext(ErrorBannerContext);
   const {leaveSessionWithConfirm} = useLeaveSession(session);
@@ -33,19 +35,15 @@ const useHandleLeaveLiveSession = (session: LiveSessionType) => {
 
   useEffect(() => {
     if (hasFailed) {
-      errorBannerContext?.showError(
-        'Session Error',
-        'Pleace rejoin the session',
-        {
-          disableAutoClose: true,
-          actionConfig: {
-            text: 'Rejoin',
-            action: rejoinMeeting,
-          },
+      errorBannerContext?.showError(t('title'), t('message'), {
+        disableAutoClose: true,
+        actionConfig: {
+          text: t('rejoinButton'),
+          action: rejoinMeeting,
         },
-      );
+      });
     }
-  }, [hasFailed, errorBannerContext, rejoinMeeting]);
+  }, [hasFailed, errorBannerContext, rejoinMeeting, t]);
 };
 
 export default useHandleLeaveLiveSession;
