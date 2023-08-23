@@ -16,9 +16,20 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import {COLORS} from '../../../../../shared/src/constants/colors';
+import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
+
+const ActionRow = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+});
 
 const StyledButton = styled(Button)({
   alignSelf: 'flex-start',
+});
+
+const StyledTextAction = styled(Body16)({
+  color: COLORS.PRIMARY,
 });
 
 const Error = styled(Body16)({
@@ -27,7 +38,7 @@ const Error = styled(Body16)({
 
 const SignInModal = () => {
   const {t} = useTranslation('Modal.SignIn');
-  const {popToTop} =
+  const {popToTop, navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
   const [isSigningIn, setIsSigningIn] = useState(false);
@@ -46,6 +57,10 @@ const SignInModal = () => {
       setError(e.code ?? e.message);
     }
   }, [setIsSigningIn, popToTop, email, password]);
+
+  const onShowForgotPassword = useCallback(() => {
+    navigate('ForgotPasswordModal');
+  }, [navigate]);
 
   return (
     <SheetModal>
@@ -82,13 +97,18 @@ const SignInModal = () => {
             <Spacer16 />
           </>
         )}
-        <StyledButton
-          variant="primary"
-          disabled={isSigningIn || !email || !password}
-          loading={isSigningIn}
-          onPress={signIn}>
-          {t('signIn')}
-        </StyledButton>
+        <ActionRow>
+          <StyledButton
+            variant="primary"
+            disabled={isSigningIn || !email || !password}
+            loading={isSigningIn}
+            onPress={signIn}>
+            {t('signIn')}
+          </StyledButton>
+          <TouchableOpacity onPress={onShowForgotPassword}>
+            <StyledTextAction>{t('reset')}</StyledTextAction>
+          </TouchableOpacity>
+        </ActionRow>
       </Gutters>
     </SheetModal>
   );
