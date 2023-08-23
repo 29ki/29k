@@ -7,7 +7,6 @@ const usePreventGoingBack = (callback?: () => void, hasFailed?: boolean) => {
 
   useEffect(() => {
     let unsubscribe = () => {};
-    console.log('****************', hasFailed);
     if (isFocused && !hasFailed) {
       unsubscribe = navigation.addListener('beforeRemove', e => {
         e.preventDefault();
