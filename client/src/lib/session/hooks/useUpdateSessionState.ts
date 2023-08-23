@@ -1,29 +1,48 @@
-import {useCallback} from 'react';
+import {useCallback, useContext} from 'react';
 import {ExerciseSlide} from '../../../../../shared/src/types/Content';
 import {
   SessionStateType,
   LiveSessionType,
 } from '../../../../../shared/src/schemas/Session';
 import * as sessionApi from '../../sessions/api/session';
+import {useTranslation} from 'react-i18next';
+import {ErrorBannerContext} from '../../contexts/ErrorBannerContext';
 
 const useUpdateSessionState = (
   sessionId: LiveSessionType['id'] | undefined,
 ) => {
+  const {t} = useTranslation('Component.NetworkError');
+  const errorBannerContext = useContext(ErrorBannerContext);
+
+  const showNetworkRequestError = useCallback(() => {
+    errorBannerContext?.showError(t('requestTitle'), t('requestMessage'));
+  }, [t, errorBannerContext]);
+
   const startSession = useCallback(async () => {
     if (sessionId) {
-      sessionApi.updateSessionState(sessionId, {
-        started: true,
-      });
+      try {
+        await sessionApi.updateSessionState(sessionId, {
+          started: true,
+        });
+      } catch (error) {
+        showNetworkRequestError();
+        throw error;
+      }
     }
-  }, [sessionId]);
+  }, [sessionId, showNetworkRequestError]);
 
   const endSession = useCallback(async () => {
     if (sessionId) {
-      sessionApi.updateSessionState(sessionId, {
-        ended: true,
-      });
+      try {
+        await sessionApi.updateSessionState(sessionId, {
+          ended: true,
+        });
+      } catch (error) {
+        showNetworkRequestError();
+        throw error;
+      }
     }
-  }, [sessionId]);
+  }, [sessionId, showNetworkRequestError]);
 
   const navigateToIndex = useCallback(
     async ({
@@ -39,22 +58,32 @@ const useUpdateSessionState = (
 
       const completed = index === content.length - 1 ? true : undefined;
 
-      return sessionApi.updateSessionState(sessionId, {
-        index,
-        playing: false,
-        completed,
-      });
+      try {
+        return await sessionApi.updateSessionState(sessionId, {
+          index,
+          playing: false,
+          completed,
+        });
+      } catch (error) {
+        showNetworkRequestError();
+        throw error;
+      }
     },
-    [sessionId],
+    [sessionId, showNetworkRequestError],
   );
 
   const setPlaying = useCallback(
     async (playing: SessionStateType['playing']) => {
       if (sessionId) {
-        return sessionApi.updateSessionState(sessionId, {playing});
+        try {
+          return await sessionApi.updateSessionState(sessionId, {playing});
+        } catch (error) {
+          showNetworkRequestError();
+          throw error;
+        }
       }
     },
-    [sessionId],
+    [sessionId, showNetworkRequestError],
   );
 
   return {
