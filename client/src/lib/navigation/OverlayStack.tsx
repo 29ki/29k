@@ -10,6 +10,7 @@ import CommunityEditorialOverlay from '../../routes/overlays/CommunityEditorialO
 import SETTINGS from '../constants/settings';
 import AppStack from './AppStack';
 import {OverlayStackProps} from './constants/routes';
+import SessionOverlay from '../../routes/overlays/SessionOverlay/SessionOverlay';
 
 const {Navigator, Screen} = createStackNavigator<OverlayStackProps>();
 
@@ -33,6 +34,7 @@ const OverlayStack = () => (
       name="CommunityEditorialOverlay"
       component={CommunityEditorialOverlay}
     />
+    <Screen name="SessionOverlay" component={SessionOverlay} />
   </Navigator>
 );
 

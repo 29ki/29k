@@ -116,7 +116,10 @@ const SessionCard: React.FC<SessionCardProps> = ({
     if (onBeforeContextPress) {
       onBeforeContextPress();
     }
-    navigate('SessionModal', {session: session});
+    navigate('OverlayStack', {
+      screen: 'SessionOverlay',
+      params: {session},
+    });
   }, [navigate, session, onBeforeContextPress]);
 
   const onHostPress = useCallback(() => {
