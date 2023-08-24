@@ -48,7 +48,7 @@ import {
   PlusToCheckIconAnimated,
   PencilIcon,
   CalendarIcon,
-  EnvelopeIcon,
+  QuestionIcon,
 } from '../../../lib/components/Icons';
 import {
   BottomSafeArea,
@@ -367,7 +367,7 @@ const SessionOverlay = () => {
           </Row>
           <Spacer24 />
           <ActionList>
-            <ActionButton Icon={EnvelopeIcon} onPress={howItWorksPress}>
+            <ActionButton Icon={QuestionIcon} onPress={howItWorksPress}>
               {t('howItWorks')}
             </ActionButton>
           </ActionList>
