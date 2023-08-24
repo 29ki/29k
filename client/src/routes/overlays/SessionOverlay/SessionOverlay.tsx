@@ -48,7 +48,6 @@ import {
   PlusToCheckIconAnimated,
   PencilIcon,
   CalendarIcon,
-  QuestionIcon,
 } from '../../../lib/components/Icons';
 import {
   BottomSafeArea,
@@ -64,6 +63,7 @@ import ActionButton from '../../../lib/components/ActionList/ActionItems/ActionB
 import Screen from '../../../lib/components/Screen/Screen';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import {ScrollView} from 'react-native-gesture-handler';
+import MagicIcon from '../../../lib/components/Icons/Magic/Magic';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -367,7 +367,7 @@ const SessionOverlay = () => {
           </Row>
           <Spacer24 />
           <ActionList>
-            <ActionButton Icon={QuestionIcon} onPress={howItWorksPress}>
+            <ActionButton Icon={MagicIcon} onPress={howItWorksPress}>
               {t('howItWorks')}
             </ActionButton>
           </ActionList>
