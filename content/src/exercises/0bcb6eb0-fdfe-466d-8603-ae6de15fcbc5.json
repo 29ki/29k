@@ -70,8 +70,8 @@
           }
         ],
         "content": {
-          "heading": "What insights?",
-          "text": "What simple action?",
+          "heading": "What insights did you get?",
+          "text": "",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json",
             "durationTimer": true,
@@ -93,6 +93,15 @@
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done. We've just imagined ourselves in the future, to see what we can learn from our future selves, right here right now. This can help us identify values, and give us a sense of direction and meaning in life.\n\nAs a mission, decide a simple action you can do today or tomorrow that can take you closer to your values.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
+          }
+        }
       }
     ],
     "theme": {
