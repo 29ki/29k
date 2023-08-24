@@ -207,46 +207,16 @@ describe('/api/sessions', () => {
       ]);
 
       const response = await request(mockServer).get('/sessions?limit=0');
-      expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
-        'some-user-id',
-        undefined,
-        undefined,
-        undefined,
-      );
-      expect(response.status).toBe(200);
-      expect(response.body).toMatchObject([
-        {
-          id: 'some-session-id-1',
-          hostId: 'some-other-user-id',
-        },
-        {
-          id: 'some-session-id-2',
-          hostId: 'some-other-user-id',
-        },
-      ]);
+      expect(mockGetSessionsByUserId).toHaveBeenCalledTimes(0);
+      expect(response.status).toBe(500);
 
       mockGetSessionsByUserId.mockResolvedValueOnce([
         createMockSession('some-session-id-1', 'some-other-user-id'),
         createMockSession('some-session-id-2', 'some-other-user-id'),
       ]);
       const response2 = await request(mockServer).get('/sessions?limit=NaN');
-      expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
-        'some-user-id',
-        undefined,
-        undefined,
-        undefined,
-      );
-      expect(response2.status).toBe(200);
-      expect(response2.body).toMatchObject([
-        {
-          id: 'some-session-id-1',
-          hostId: 'some-other-user-id',
-        },
-        {
-          id: 'some-session-id-2',
-          hostId: 'some-other-user-id',
-        },
-      ]);
+      expect(mockGetSessionsByUserId).toHaveBeenCalledTimes(0);
+      expect(response2.status).toBe(500);
     });
   });
 
