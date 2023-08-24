@@ -19,7 +19,7 @@
             "durationTimer": true,
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1689850053/Audio/Personal_values_oupmck.mp3",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689850195/SRT%20(captions)%20files/Personal_values_gvtyju.srt",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
         },
         "hostNotes": [
@@ -39,7 +39,12 @@
           }
         ],
         "content": {
-          "text": "What do your values and scores tell you? What did you learn about yourself?"
+          "text": "What do your values and scores tell you? What did you learn about yourself?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "durationTimer": true,
+            "duration": 60
+          }
         }
       },
       {
@@ -56,7 +61,12 @@
           }
         ],
         "content": {
-          "heading": "Looking at your values and your scores, what do they tell you? What did you learn about yourself?"
+          "heading": "Looking at your values and your scores, what do they tell you? What did you learn about yourself?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
         },
         "id": "1"
       },
@@ -82,19 +92,32 @@
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#b4a880"
     },
     "hidden": true,
     "name": "Personal values",
     "live": true,
     "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692872012/Images/card_personal_values_xpcp9x.png"
+      }
+    },
+    "socialMeta": {
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692872012/Images/card_personal_values_xpcp9x.png"
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692872047/Video/portal1_personal_values_wdx446.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692871967/Audio/portal_audio_personal_values_iulluj.mp3"
+      }
     },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
