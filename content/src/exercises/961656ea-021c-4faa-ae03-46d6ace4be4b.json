@@ -13,18 +13,28 @@
         ]
       },
       {
-        "type": "content"
+        "type": "content",
+        "content": {
+          "lottie": {
+            "durationTimer": true,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692879791/Audio/Become_present_g8959b.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1692879916/SRT%20(captions)%20files/Three_things_kr66j8.srt"
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat did you notice about yourself?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "text": "What did you notice about yourself?"
+        }
       },
       {
         "type": "sharing",
@@ -39,13 +49,16 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "What did you notice about yourself?"
+        "id": "1",
+        "content": {
+          "text": "What did you notice about yourself?"
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nWhen you feel distracted, practice the 3-2-1-focus with three different senses, and see where that takes you."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -54,6 +67,13 @@
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Well done",
+          "text": "If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nWhen you feel distracted, practice the 3-2-1-focus with three different senses, and see where that takes you."
+        }
       }
     ],
     "theme": {
@@ -77,7 +97,7 @@
     ],
     "id": "961656ea-021c-4faa-ae03-46d6ace4be4b",
     "async": true,
-    "description": "When we are stressed our minds easily wanders off into the future or dwell on past experiences. A more helpful strategy is to be present with what’s right here, right now. This exercise let’s us practice presence using three of our senses."
+    "description": "When we're stressed our minds easily wanders off into the future or dwell on past experiences. A more helpful strategy is to be present with what’s right here, right now. This exercise let’s us practice presence using three of our senses."
   },
   "pt": {
     "slides": [
