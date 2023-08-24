@@ -23,7 +23,6 @@ import {DailyContext} from '../../../lib/daily/DailyProvider';
 import useSessionState from '../../../lib/session/state/state';
 import useSessionParticipants from '../../../lib/session/hooks/useSessionParticipants';
 import useLiveSessionSlideState from '../../../lib/session/hooks/useLiveSessionSlideState';
-import usePreventGoingBack from '../../../lib/navigation/hooks/usePreventGoingBack';
 import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
 import useIsSessionHost from '../../../lib/session/hooks/useIsSessionHost';
 import useLocalParticipant from '../../../lib/daily/hooks/useLocalParticipant';
@@ -33,6 +32,8 @@ import useUpdateSessionState from '../../../lib/session/hooks/useUpdateSessionSt
 import useLiveSessionMetricEvents from '../../../lib/session/hooks/useLiveSessionMetricEvents';
 import useCheckPermissions from '../../../lib/session/hooks/useCheckPermissions';
 import useAddUserEvent from '../../../lib/user/hooks/useAddUserEvent';
+import useNetworkListener from '../../../lib/network/hooks/useNetworkListener';
+import useHandleLeaveLiveSession from '../../../lib/session/hooks/useHandleLeaveLiveSession';
 
 import {
   BottomSafeArea,
@@ -185,11 +186,12 @@ const Session: React.FC = () => {
   const sendReaction = useSendReaction();
   const {navigateToIndex, setPlaying} = useUpdateSessionState(session.id);
   const {conditionallyMuteParticipants} = useMuteAudio();
+  const isConnected = useNetworkListener();
 
   const hasAudio = Boolean(me?.audioTrack);
   const hasVideo = Boolean(me?.videoTrack);
 
-  usePreventGoingBack(leaveSessionWithConfirm);
+  useHandleLeaveLiveSession(session);
 
   useEffect(() => {
     if (sessionState?.id) {
@@ -375,6 +377,7 @@ const Session: React.FC = () => {
               isHost={isHost}
               sessionState={sessionState}
               slideState={sessionSlideState}
+              isConnected={isConnected}
               currentContentReachedEnd={currentContentReachedEnd}
               onPrevPress={onPrevPress}
               onNextPress={onNextPress}

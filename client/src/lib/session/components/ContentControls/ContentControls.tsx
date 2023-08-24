@@ -31,13 +31,13 @@ const MediaControls = styled.View({
   justifyContent: 'center',
 });
 
-const SlideButton = styled(Button)(({disabled}) => ({
-  opacity: disabled ? 0 : 1,
+const SlideButton = styled(Button)<{hidden?: boolean}>(({hidden}) => ({
+  opacity: hidden ? 0 : 1,
   ...SETTINGS.BOXSHADOW_SMALL,
 }));
 
-const IconSlideButton = styled(IconButton)(({disabled}) => ({
-  opacity: disabled ? 0 : 1,
+const IconSlideButton = styled(IconButton)<{hidden?: boolean}>(({hidden}) => ({
+  opacity: hidden ? 0 : 1,
   ...SETTINGS.BOXSHADOW_SMALL,
 }));
 
@@ -49,6 +49,7 @@ type ContentControlsProps = {
   sessionState: SessionStateType | null;
   currentContentReachedEnd: boolean;
   slideState: SessionSlideState | null;
+  isConnected: boolean;
   onPrevPress: () => void;
   onNextPress: () => void;
   onResetPlayingPress?: () => void;
@@ -62,6 +63,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
   sessionState,
   currentContentReachedEnd,
   slideState,
+  isConnected,
   onPrevPress,
   onNextPress,
   onResetPlayingPress,
@@ -75,7 +77,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
     slideType !== 'instruction' &&
     (slideState?.current.content?.video?.autoPlayLoop ||
       slideState?.current.content?.lottie?.autoPlayLoop);
-  const isDisabled =
+  const isHidden =
     slideType !== 'host' &&
     slideType !== 'instruction' &&
     !slideState?.current.content?.video &&
@@ -111,7 +113,8 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         variant="tertiary"
         small
         LeftIcon={ChevronLeftIcon}
-        disabled={!slideState.previous && !async}
+        hidden={!slideState.previous && !async}
+        disabled={!isConnected}
         onPress={onPrevPress}>
         {t('controls.prev')}
       </SlideButton>
@@ -121,7 +124,8 @@ const ContentControls: React.FC<ContentControlsProps> = ({
           <MediaControls>
             <IconSlideButton
               small
-              disabled={isDisabled}
+              hidden={isHidden}
+              disabled={!isConnected}
               variant="tertiary"
               Icon={RewindIcon}
               onPress={onResetPlayingPress}
@@ -129,7 +133,8 @@ const ContentControls: React.FC<ContentControlsProps> = ({
             <Spacer8 />
             <IconSlideButton
               small
-              disabled={isDisabled}
+              hidden={isHidden}
+              disabled={!isConnected}
               variant="tertiary"
               Icon={
                 sessionState.playing && !currentContentReachedEnd ? Pause : Play
@@ -143,6 +148,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
           small
           variant="tertiary"
           active={!slideState.next}
+          disabled={!isConnected}
           RightIcon={slideState.next && ChevronRight}
           onPress={onNextPress}>
           {slideState.next ? t('controls.next') : t('controls.end')}
@@ -151,7 +157,8 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         <SlideButton
           small
           variant="tertiary"
-          disabled={!slideState.next}
+          hidden={!slideState.next}
+          disabled={!isConnected}
           RightIcon={ChevronRight}
           onPress={onNextPress}>
           {t('controls.next')}

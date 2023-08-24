@@ -35,7 +35,7 @@ export type JourneyStackProps = {
 };
 
 export type LiveSessionStackProps = {
-  ChangingRoom: {session: LiveSessionType};
+  ChangingRoom: {session: LiveSessionType; isReJoining?: boolean};
   Session: {session: LiveSessionType};
   IntroPortal: {session: LiveSessionType};
   OutroPortal: {session: LiveSessionType};
