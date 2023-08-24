@@ -5,10 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on exploring purpose.\\\nWe’ll be doing several rounds of reflection around a time when we felt purpose, and then sharing what we experienced.\\\nHeads up that you’ll need pen and paper."
-          },
-          {
-            "text": "Before we get going, let’s just ground ourselves in the here and now with three cycles of breathing.\n\n> Inhale and exhale slowly x 3"
+            "text": "Welcome. I am X and today we will work for around 30 minutes on exploring purpose.\\\nWe’ll be doing an audio exercis together, and then sharing what we experienced.\\\nHeads up that you’ll need pen and paper."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -23,13 +20,7 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Everyone feels lost at some point.\n\nThis can often show up when we’re faced with uncertainty, go through a key transition or realize that the things we do just don’t feel so meaningful anymore."
-          },
-          {
-            "text": "Realizing that our life could be different can be uncomfortable. We are hard-wired to stick to what’s familiar, making it hard to change."
-          },
-          {
-            "text": "Maybe we don’t know what we want. Let’s start with a look in the rearview mirror for guidance."
+            "text": "Great. It's time to explore what purpose feels like.\n\n> Press play to start the audio exercise."
           }
         ],
         "content": {
@@ -88,7 +79,7 @@
             "text": "Our emotions can be a window into what matters to us in life.\\\nWhen we connect to what gives us a sense of meaning and purpose, we experience life differently than when we are on autopilot."
           },
           {
-            "text": "This helps us to show up for and act on what truly matters.\n\nWell done. If you’re up for a mission, take a moment each day for three days to notice where you are, how you feel, think and act, and see if it connects to your sense of purpose."
+            "text": "This helps us to show up for and act on what truly matters.\n\nWell done. If you’re up for a mission, take a moment each day for three days to notice where you are, how you feel, think and act, and see how it connects to your sense of purpose."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -108,7 +99,7 @@
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692793639/Images/card_image_feeling_purpose_ju8iea.png"
           },
-          "text": "Our emotions can be a window into what matters to us in life.\\\nConnecting to what gives us a sense of purpose, helps us to show up for and act on what truly matters.\n\nWell done. If you’re up for a mission, take a moment each day for three days to notice where you are, how you feel, think and act, and see if it connects to your sense of purpose."
+          "text": "Our emotions can be a window into what matters to us in life.\\\nConnecting to what gives us a sense of purpose, helps us to show up for and act on what truly matters.\n\nWell done. If you’re up for a mission, take a moment each day for three days to notice where you are, how you feel, think and act, and see how it connects to your sense of purpose."
         }
       }
     ],
