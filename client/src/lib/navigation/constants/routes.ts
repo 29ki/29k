@@ -90,6 +90,7 @@ export type ModalStackProps = {
   ProfileSettingsModal: undefined;
   SimpleProfileSettingsModal: undefined;
   SignInModal: undefined;
+  ForgotPasswordModal: undefined;
   DeleteUserModal: undefined;
   ContributorsModal: undefined;
   HostsModal: undefined;

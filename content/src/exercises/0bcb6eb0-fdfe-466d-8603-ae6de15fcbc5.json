@@ -24,7 +24,13 @@
         ],
         "content": {
           "video": {
+            "durationTimer": false,
+            "audio": "",
+            "subtitles": ""
+          },
+          "lottie": {
             "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1678971323/Audio/1-_Who_Are_You_At_Ninety_ed_xkfqsv.mp3",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689602661/SRT%20(captions)%20files/Who_are_you_at_90__to5gcq.srt"
           }
@@ -42,7 +48,12 @@
         ],
         "content": {
           "heading": "What insights?",
-          "text": "What simple action?"
+          "text": "What simple action?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "durationTimer": true,
+            "duration": 60
+          }
         }
       },
       {
@@ -60,7 +71,12 @@
         ],
         "content": {
           "heading": "What insights?",
-          "text": "What simple action?"
+          "text": "What simple action?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json",
+            "durationTimer": true,
+            "duration": 120
+          }
         },
         "id": "sharing1"
       },
@@ -80,19 +96,35 @@
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#ffd788"
     },
     "hidden": true,
     "name": "Your 90th birthday",
     "live": true,
     "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
+      }
+    },
+    "socialMeta": {
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855519/Video/portal1_90th_birthday_sjt1ao.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692855561/Audio/portal_audio_90th_birthday_e9ngzj.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855528/Video/portal2_90th_birthday_cofsf7.mp4"
+      }
     },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",

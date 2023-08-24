@@ -1059,13 +1059,13 @@ PODS:
     - React-logger (= 0.69.9)
     - React-perflogger (= 0.69.9)
   - ReactNativeDailyJSScreenShareExtension (0.0.1)
-  - RNCAsyncStorage (1.19.0):
+  - RNCAsyncStorage (1.19.2):
     - React-Core
-  - RNCPicker (2.4.10):
+  - RNCPicker (2.5.0):
     - React-Core
   - RNDateTimePicker (7.4.1):
     - React-Core
-  - RNDeviceInfo (10.7.0):
+  - RNDeviceInfo (10.8.0):
     - React-Core
   - RNFBApp (17.4.2):
     - Firebase/CoreOnly (= 10.7.0)
@@ -1140,14 +1140,14 @@ PODS:
   - RNScreens (3.24.0):
     - React-Core
     - React-RCTImage
-  - RNSentry (5.6.0):
+  - RNSentry (5.9.1):
     - React-Core
-    - Sentry/HybridSDK (= 8.7.3)
-  - RNSVG (13.9.0):
+    - Sentry/HybridSDK (= 8.10.0)
+  - RNSVG (13.11.0):
     - React-Core
-  - Sentry/HybridSDK (8.7.3):
-    - SentryPrivate (= 8.7.3)
-  - SentryPrivate (8.7.3)
+  - Sentry/HybridSDK (8.10.0):
+    - SentryPrivate (= 8.10.0)
+  - SentryPrivate (8.10.0)
   - SSZipArchive (2.2.3)
   - Stripe (23.12.0):
     - StripeApplePay (= 23.12.0)
@@ -1503,10 +1503,10 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: df1518d092e8c74cafddc56690d1ac386ec24d7a
   ReactCommon: fac40473e2c4117522384027ab33ad0cb6717dc5
   ReactNativeDailyJSScreenShareExtension: 70af702672121fcd283d7d567def4e501ce207b1
-  RNCAsyncStorage: 4b98ac3c64efa4e35c1197cb0c5ca5e9f5d4c666
-  RNCPicker: 0bc2f0a29abcca7b7ed44a2d036aac9ab6d25700
+  RNCAsyncStorage: f57e929cd7757f2cb3dd8186d123c09e8281a1ad
+  RNCPicker: 32ca102146bc7d34a8b93a998d9938d9f9ec7898
   RNDateTimePicker: 9b4091348e53f540180abdc54984d839a556f593
-  RNDeviceInfo: 25d818c85db769cc0e7083d39efaa01a6f450df3
+  RNDeviceInfo: 5795b418ed3451ebcaf39384e6cf51f60cb931c9
   RNFBApp: 55dbfc574e5ae414f2984394934f79f87eb4b050
   RNFBAuth: d30acc0f5f169bc28c7fcbf1b45cd061cc647590
   RNFBDynamicLinks: 82e9846916034c287333ebbcbdbc31435796663c
@@ -1520,10 +1520,10 @@ SPEC CHECKSUMS:
   RNReactNativeHapticFeedback: afa5bf2794aecbb2dba2525329253da0d66656df
   RNReanimated: c6f8f70e96dd6ca21b65aef9b3e4efe4965db905
   RNScreens: b21dc57dfa2b710c30ec600786a3fc223b1b92e7
-  RNSentry: 9f0447b3ce13806f544903748de423259ead8552
-  RNSVG: 53c661b76829783cdaf9b7a57258f3d3b4c28315
-  Sentry: c7a86f43510a7d5678d4de28d78c28ab351d295b
-  SentryPrivate: 2eaabf598a46d4b9b8822aef766df2a84caf2e6f
+  RNSentry: 0a1daa8ee81e2776f977ae8c66e67c8d85587828
+  RNSVG: 03e4d258ca355d7836a0a5dd4d4dc63c1eb49cbb
+  Sentry: 71cd4427146ac56eab6e70401ac7a24384c3d3b5
+  SentryPrivate: 9334613897c85a9e30f2c9d7a331af8aaa4fe71f
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Stripe: 15fad81ffb8d553d77ff504a6d50d47b9028bed0
   stripe-react-native: a944368b2694b3046661883df7d40951292e662c
