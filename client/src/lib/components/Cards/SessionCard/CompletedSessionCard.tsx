@@ -40,10 +40,10 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
 }) => {
   const {t} = useTranslation('Component.CompletedSessionCard');
   const {
-    payload: {mode, exerciseId},
+    payload: {mode, exerciseId, language},
     timestamp,
   } = completedSessionEvent;
-  const exercise = useExerciseById(exerciseId);
+  const exercise = useExerciseById(exerciseId, language);
   const hostProfile = useUserProfile(completedSessionEvent.payload.hostId);
   const {navigate} =
     useNavigation<

@@ -124,12 +124,12 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
   isLast = false,
 }) => {
   const {
-    payload: {id, mode, exerciseId, hostId, type},
+    payload: {id, mode, exerciseId, hostId, type, language},
     timestamp,
     sharingPost,
   } = completedSessionEvent;
   const {t} = useTranslation('Component.MyPostCard');
-  const exercise = useExerciseById(exerciseId);
+  const exercise = useExerciseById(exerciseId, language);
   const hostProfile = useUserProfile(hostId);
   const user = useUser();
   const getFeedbackBySessionId = useGetFeedbackBySessionId();

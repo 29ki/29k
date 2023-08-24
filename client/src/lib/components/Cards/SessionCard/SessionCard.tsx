@@ -89,8 +89,8 @@ const SessionCard: React.FC<SessionCardProps> = ({
   onBeforeContextPress,
   style,
 }) => {
-  const {exerciseId, startTime, hostProfile} = session;
-  const exercise = useExerciseById(exerciseId);
+  const {exerciseId, startTime, hostProfile, language} = session;
+  const exercise = useExerciseById(exerciseId, language);
   const user = useUser();
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();

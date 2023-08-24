@@ -111,7 +111,7 @@ const CompletedSessionModal = () => {
   const {t} = useTranslation('Modal.CompletedSession');
   const {payload, timestamp} = completedSessionEvent;
   const user = useUser();
-  const exercise = useExerciseById(payload.exerciseId);
+  const exercise = useExerciseById(payload.exerciseId, payload.language);
   const tags = useGetTagsById(exercise?.tags);
   const {getSharingPostForSession} = useSharingPosts(exercise?.id);
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
