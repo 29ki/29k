@@ -29,7 +29,8 @@
       "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682398819/Images/ease_stress_collection_cwrydu.png"
     },
     "published": true,
-    "link": "https://aware.29k.org/ease-stress"
+    "link": "https://aware.29k.org/ease-stress",
+    "hidden": true
   },
   "sv": {
     "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
@@ -40,7 +41,8 @@
       "c5b1197a-4eec-4699-9dad-0e3d6323967b"
     ],
     "published": true,
-    "link": "https://aware.29k.org/ease-stress"
+    "link": "https://aware.29k.org/ease-stress",
+    "hidden": true
   },
   "es": {
     "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
