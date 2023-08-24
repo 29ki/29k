@@ -33,10 +33,7 @@ import {
 } from '../../../../../lib/components/Spacers/Spacer';
 import TouchableOpacity from '../../../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {Body16} from '../../../../../lib/components/Typography/Body/Body';
-import {
-  Display18,
-  Display24,
-} from '../../../../../lib/components/Typography/Display/Display';
+import {Display24} from '../../../../../lib/components/Typography/Display/Display';
 import {SPACINGS} from '../../../../../lib/constants/spacings';
 import {StepProps} from '../../CreateSessionModal';
 import Button from '../../../../../lib/components/Buttons/Button';
@@ -47,7 +44,7 @@ import {formatContentName} from '../../../../../lib/utils/string';
 import Image from '../../../../../lib/components/Image/Image';
 import {ActivityIndicator, ListRenderItem, Share} from 'react-native';
 import SessionCard from '../../../../../lib/components/Cards/SessionCard/SessionCard';
-import {Heading16} from '../../../../../lib/components/Typography/Heading/Heading';
+import {Heading18} from '../../../../../lib/components/Typography/Heading/Heading';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
 import {fetchSessions} from '../../../../../lib/sessions/api/sessions';
 import {ModalStackProps} from '../../../../../lib/navigation/constants/routes';
@@ -56,6 +53,8 @@ import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown
 import useGetTagsById from '../../../../../lib/content/hooks/useGetTagsById';
 import Tag from '../../../../../lib/components/Tag/Tag';
 import IconButton from '../../../../../lib/components/Buttons/IconButton/IconButton';
+import Byline from '../../../../../lib/components/Bylines/Byline';
+import {openUrl} from 'react-native-markdown-display';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -101,6 +100,10 @@ const CenteredRow = styled(Row)({
   justifyContent: 'center',
 });
 
+const VCenteredRow = styled(Row)({
+  alignItems: 'center',
+});
+
 const Lottie = styled(AnimatedLottieView)({
   aspectRatio: 1,
 });
@@ -130,7 +133,6 @@ const EmptyListContainer = styled.View({
   alignItems: 'center',
   justifyContent: 'center',
   flex: 1,
-  height: 200,
 });
 
 const Tags = styled.View({
@@ -162,8 +164,8 @@ const SelectTypeStep: React.FC<StepProps> = ({
   useEffect(() => {
     if (exercise && exercise.live) {
       setIsLoadingSessions(true);
-      fetchSessions(exercise.id).then(loadedSessions => {
-        setSessions(loadedSessions);
+      fetchSessions(exercise.id, undefined, 5).then(fetchedSessions => {
+        setSessions(fetchedSessions);
         setIsLoadingSessions(false);
       });
     }
@@ -242,6 +244,27 @@ const SelectTypeStep: React.FC<StepProps> = ({
     [sessions, popToTop],
   );
 
+  const coCreators = useMemo(
+    () => (
+      <>
+        {exercise?.coCreators?.map(({name, avatar_url, link}, idx) => (
+          <>
+            <Byline
+              key={`${name}-${idx}`}
+              small
+              prefix={false}
+              pictureURL={avatar_url}
+              name={name}
+              onPress={!link ? undefined : () => openUrl(link)}
+            />
+            <Spacer4 />
+          </>
+        ))}
+      </>
+    ),
+    [exercise],
+  );
+
   const keyExtractor = useCallback((item: LiveSessionType) => item.id, []);
 
   const typeSelection = useMemo(
@@ -288,14 +311,34 @@ const SelectTypeStep: React.FC<StepProps> = ({
           keyExtractor={keyExtractor}
           ListEmptyComponent={
             <EmptyListContainer>
-              {isLoadingSessions ? (
-                <Spinner color={COLORS.BLACK} />
-              ) : (
-                exercise.live && (
-                  <Display18>{t('noUpcomingSessions')}</Display18>
-                )
-              )}
+              {isLoadingSessions && <Spinner color={COLORS.BLACK} />}
             </EmptyListContainer>
+          }
+          ListFooterComponent={
+            <Gutters>
+              <Spacer24 />
+              {exercise.link && (
+                <>
+                  <VCenteredRow>
+                    <IconButton
+                      variant="secondary"
+                      onPress={onShare}
+                      Icon={ShareIcon}
+                    />
+                    <Spacer8 />
+                    <Body16>{t('shareHeading')}</Body16>
+                  </VCenteredRow>
+                  <Spacer24 />
+                </>
+              )}
+              {Boolean(exercise.coCreators?.length) && (
+                <>
+                  <Heading18>{t('coCreatorsHeading')}</Heading18>
+                  <Spacer8 />
+                  {coCreators}
+                </>
+              )}
+            </Gutters>
           }
           ListHeaderComponent={
             <Gutters>
@@ -335,22 +378,13 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   <TypeItemHeading>{t('description')}</TypeItemHeading>
                   <Spacer16 />
                   {typeSelection}
-                  {exercise.link && (
+                  <Spacer24 />
+                  {Boolean(sessions.length) && (
                     <>
-                      <Spacer24 />
-                      <Body16>{t('shareHeading')}</Body16>
+                      <Heading18>{t('orJoinUpcoming')}</Heading18>
                       <Spacer16 />
-
-                      <IconButton
-                        variant="secondary"
-                        onPress={onShare}
-                        Icon={ShareIcon}
-                      />
                     </>
                   )}
-                  <Spacer24 />
-                  <Heading16>{t('orJoinUpcoming')}</Heading16>
-                  <Spacer16 />
                 </>
               ) : (
                 <>

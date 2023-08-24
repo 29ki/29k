@@ -39,11 +39,14 @@ sessionsRouter.get(
     const exerciseId =
       typeof query.exerciseId === 'string' ? query.exerciseId : undefined;
     const hostId = typeof query.hostId === 'string' ? query.hostId : undefined;
+    const lmt = Number(query.limit);
+    const limit = typeof lmt === 'number' && lmt > 0 ? lmt : undefined;
 
     const sessions = await sessionsController.getSessionsByUserId(
       user.id,
       exerciseId,
       hostId,
+      limit,
     );
 
     response.status = 200;

@@ -53,11 +53,13 @@ export const getSessionsByUserId = async (
   userId: string,
   exerciseId?: string,
   hostId?: string,
+  limit?: number,
 ): Promise<LiveSessionModel[]> => {
   const sessions = await sessionModel.getSessionsByUserId(
     userId,
     exerciseId,
     hostId,
+    limit,
   );
 
   return Promise.all(

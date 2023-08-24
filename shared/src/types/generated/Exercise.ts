@@ -1,6 +1,12 @@
 /* eslint-disable */
 /* tslint:disable */
 
+export interface ExerciseCoCreator {
+  name: string;
+  link: string;
+  avatar_url: string;
+}
+
 export interface ExerciseSocialMediaMetaTags {
   title?: string;
   description?: string;
@@ -254,6 +260,7 @@ export interface Exercise {
   name: string;
   description?: string;
   duration: number;
+  coCreators?: ExerciseCoCreator[];
   tags?: any[];
   link?: string;
   published: boolean;
