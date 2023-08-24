@@ -21,8 +21,9 @@ import AudioToggler from './AudioToggler';
 import {DailyContext} from '../../../daily/DailyProvider';
 import VideoOffIndicator from './VideoOffIndicator';
 import useSessionState from '../../state/state';
+import TouchableOpacity from '../../../components/TouchableOpacity/TouchableOpacity';
 
-const Wrapper = styled.View({
+const Wrapper = styled(TouchableOpacity)({
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
@@ -133,8 +134,16 @@ const Participant: React.FC<ParticipantProps> = ({
     [call, participant.session_id],
   );
 
+  const onPress = useCallback(() => {
+    if (isSessionHost) {
+      if (isSessionHost) {
+        call?.updateParticipant(participant.session_id, {eject: true});
+      }
+    }
+  }, [isSessionHost, call, participant.session_id]);
+
   return (
-    <Wrapper style={style}>
+    <Wrapper style={style} onLongPress={onPress}>
       {participant.tracks.video.state === 'off' ? (
         <ParticipantPlaceholder>
           {photoURL ? (

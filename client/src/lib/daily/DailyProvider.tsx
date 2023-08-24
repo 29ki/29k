@@ -65,6 +65,8 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     const onParticipantUpdated = ({
       participant,
     }: DailyEventObject<'participant-updated'>) => {
+      console.log('user data', participant.userData);
+
       setParticipant(participant.session_id, participant);
     };
 
