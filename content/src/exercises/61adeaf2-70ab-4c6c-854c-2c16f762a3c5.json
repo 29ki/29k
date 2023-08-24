@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on values and purpose in life.\n\nWe’ll be listening to an audio exercise with a couple of rounds of reflection, and then fineally share our experience with each other if we're up for it."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on values and purpose in life.\n\nWe’ll be listening to an audio exercise, reflect on our own, and then finally share our experience with each other if we're up for it."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -61,7 +61,7 @@
           }
         ],
         "content": {
-          "heading": "Looking at your values and your scores, what do they tell you? What did you learn about yourself?",
+          "heading": "What can you learn about yourself from your values and your scores?",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
