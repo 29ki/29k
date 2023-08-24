@@ -45,57 +45,15 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\\\nThink back to a time in your life when you’ve felt a sense of meaning and purpose, small or big does not matter. One example could be a time when you were working towards something that really mattered to you."
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nExplore the differences between that time feeling purpose, and today. What can you learn from it?"
           },
           {
-            "text": "Recall a snapshot from that time. \\\nWhat was the situation? \\\nWhere were you? \\\nWas anyone with you?"
-          },
-          {
-            "text": "Take notes on a piece of paper. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Take notes on a piece of paper or in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
-          "heading": "Recall feeling purpose",
-          "text": "What situation? Where? Anyone with you?",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json"
-          }
-        }
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Great. Now we’ll do another round of private reflections.\\\nNote down your thoughts, feelings and actions from that time you’ve felt a sense of meaning of purpose. What did you feel? What did you think? What did you do?"
-          },
-          {
-            "text": "1 minute starting now.\n\n`Press play to start the timer.`\n\nThat’s 1 minute and it’s time for next step."
-          }
-        ],
-        "content": {
-          "heading": "When I felt purpose…",
-          "text": "…I felt…I thought…I did…",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json"
-          }
-        }
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now take a moment to explore your thoughts, feelings and actions today. What do you feel? What do you think? What do you do?"
-          },
-          {
-            "text": "Is there a difference between today and that other time? If so, what does it tell you?"
-          },
-          {
-            "text": "Take notes on your paper. \\\n1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ],
-        "content": {
-          "heading": "What do you feel, think and do today?",
-          "text": "Difference from before?",
+          "heading": "",
+          "text": "What can you learn from any differences from today and that other time?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json"
           }
@@ -115,8 +73,8 @@
           }
         ],
         "content": {
-          "heading": "What do you feel, think and do today?",
-          "text": "Difference from that time feeling purpose?",
+          "heading": "What can you learn from any differences from today and that time feeling purpose?",
+          "text": "",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json"
           }
@@ -142,6 +100,15 @@
         "video": {
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682676013/Images/Feeling_purpose_thumb_uxkka7.png",
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682676566/Video/Outro_Feeling_purpose_kf5es3.mp4"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692793639/Images/card_image_feeling_purpose_ju8iea.png"
+          },
+          "text": "Our emotions can be a window into what matters to us in life.\\\nConnecting to what gives us a sense of purpose, helps us to show up for and act on what truly matters.\n\nWell done. If you’re up for a mission, take a moment each day for three days to notice where you are, how you feel, think and act, and see if it connects to your sense of purpose."
         }
       }
     ],
