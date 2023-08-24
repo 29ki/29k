@@ -64,7 +64,7 @@ const EditSessionDateModal = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
 
-  const exercise = useExerciseById(session?.exerciseId);
+  const exercise = useExerciseById(session?.exerciseId, session?.language);
 
   const confirmToggleReminder = useConfirmSessionReminder(session);
 

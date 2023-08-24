@@ -92,7 +92,7 @@ const InvitationModal: React.FC<{
   hostingCode: number;
   onError: (err: Error) => void;
 }> = ({session, hostingCode, onError}) => {
-  const exercise = useExerciseById(session?.exerciseId);
+  const exercise = useExerciseById(session?.exerciseId, session?.language);
   const tags = useGetSessionCardTags(exercise);
   const {t} = useTranslation('Modal.HostSessionByInvite');
   const {fetchSessions} = useSessions();

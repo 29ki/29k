@@ -26,4 +26,18 @@ describe('useGetExerciseById', () => {
       returnObjects: true,
     });
   });
+
+  it('returns a translated exercise for a specific language', () => {
+    const {result} = renderHook(() => useGetExerciseById());
+
+    act(() => {
+      expect(result.current('some-exercise-id', 'sv')).toBe('some-exercise');
+    });
+
+    expect(mockT).toHaveBeenCalledTimes(1);
+    expect(mockT).toHaveBeenCalledWith('some-exercise-id', {
+      returnObjects: true,
+      lng: 'sv',
+    });
+  });
 });

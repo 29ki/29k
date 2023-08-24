@@ -39,7 +39,7 @@ const AssignNewHostModal = () => {
   const {t} = useTranslation('Modal.AssignNewHost');
   const user = useUser();
 
-  const exercise = useExerciseById(session?.exerciseId);
+  const exercise = useExerciseById(session?.exerciseId, session?.language);
   const confirmToggleReminder = useConfirmSessionReminder(session);
 
   const isHost = user?.uid === session.hostId;

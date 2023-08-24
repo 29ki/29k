@@ -24,6 +24,20 @@ describe('useExerciseById', () => {
     expect(result.current).toBe('some-exercise');
   });
 
+  it('returns a translated exercise for a specific language', () => {
+    const {result} = renderHook(() =>
+      useExerciseById('some-exercise-id', 'sv'),
+    );
+
+    expect(mockT).toHaveBeenCalledTimes(1);
+    expect(mockT).toHaveBeenCalledWith('some-exercise-id', {
+      returnObjects: true,
+      lng: 'sv',
+    });
+
+    expect(result.current).toBe('some-exercise');
+  });
+
   it('returns null when no ID is provided', () => {
     const {result} = renderHook(() => useExerciseById(undefined));
 
