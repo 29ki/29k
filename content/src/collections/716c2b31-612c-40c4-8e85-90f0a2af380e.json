@@ -29,7 +29,8 @@
       "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682398819/Images/aware_and_allowe_collection_ctyfxt.png"
     },
     "published": true,
-    "link": "https://aware.29k.org/aware-and-allow"
+    "link": "https://aware.29k.org/aware-and-allow",
+    "hidden": true
   },
   "sv": {
     "id": "716c2b31-612c-40c4-8e85-90f0a2af380e",
@@ -40,7 +41,8 @@
       "9ac0c561-ff26-45fc-b6d5-0a983432394e"
     ],
     "published": true,
-    "link": "https://aware.29k.org/aware-and-allow"
+    "link": "https://aware.29k.org/aware-and-allow",
+    "hidden": true
   },
   "es": {
     "id": "716c2b31-612c-40c4-8e85-90f0a2af380e",
