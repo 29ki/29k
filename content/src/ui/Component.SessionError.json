@@ -1,0 +1,15 @@
+{
+  "en": {
+    "title": "Session Error",
+    "message": "Please rejoin the session.",
+    "rejoinButton": "Rejoin"
+  },
+  "pt": {
+  },
+  "sv": {
+    "title": "Fel i sessionen",
+    "message": "Försök att gå med i sessionen igen.",
+    "rejoinButton": "Gå med igen"
+  },
+  "es": {}
+}

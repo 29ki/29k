@@ -56,7 +56,7 @@
     "description": "Dá os primeiros passos, validados cientificamente, para melhorar o teu bem-estar e ficares mais satisfeito com a tua vida. Começa aqui a tua jornada e explora o Aware FJN."
   },
   "sv": {
-    "hidden": false,
+    "hidden": true,
     "name": "Kom igång",
     "published": true,
     "card": {

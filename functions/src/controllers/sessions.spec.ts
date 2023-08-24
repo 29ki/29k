@@ -116,6 +116,7 @@ describe('sessions - controller', () => {
         'all',
         undefined,
         undefined,
+        undefined,
       );
       expect(mockGetUser).toHaveBeenCalledTimes(1);
       expect(mockGetUser).toHaveBeenCalledWith('some-user-id');
@@ -143,6 +144,7 @@ describe('sessions - controller', () => {
       expect(mockGetSessionsByUserId).toHaveBeenCalledTimes(1);
       expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
         'all',
+        undefined,
         undefined,
         undefined,
       );
@@ -177,6 +179,7 @@ describe('sessions - controller', () => {
         'some-user-id',
         'some-exercise-id',
         undefined,
+        undefined,
       );
       expect(mockGetUser).toHaveBeenCalledTimes(1);
       expect(mockGetUser).toHaveBeenCalledWith('some-user-id');
@@ -194,6 +197,23 @@ describe('sessions - controller', () => {
       const sessions = await getSessionsByUserId('all');
 
       expect(sessions).toHaveLength(0);
+    });
+
+    it('should pass limit for number of sessions', async () => {
+      mockGetSessionsByUserId.mockResolvedValueOnce([
+        {
+          closingTime: Timestamp.fromDate(new Date('2022-10-10T09:00:00.000Z')),
+          hostId: 'some-user-id',
+          userIds: ['*'],
+        },
+      ]);
+      await getSessionsByUserId('all', undefined, undefined, 5);
+      expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
+        'all',
+        undefined,
+        undefined,
+        5,
+      );
     });
 
     it('should include closed sessions containing userid (aka user has joined)', async () => {

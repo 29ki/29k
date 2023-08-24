@@ -38,35 +38,38 @@ const useLeaveSession = (session: LiveSessionType | AsyncSessionType) => {
 
   const resetSession = useSessionState(state => state.reset);
 
-  const leaveSession = useCallback(async () => {
-    if (session.mode !== SessionMode.async) {
-      await leaveMeeting();
-    }
+  const leaveSession = useCallback(
+    async (isEjected?: boolean) => {
+      if (session.mode !== SessionMode.async) {
+        await leaveMeeting();
+      }
 
-    navigate('App', {screen: 'Tabs'});
-    if (session?.id && sessionState?.started) {
-      navigate('SessionFeedbackModal', {
-        exerciseId: session.exerciseId,
-        sessionId: session.id,
-        completed: Boolean(sessionState?.completed),
-        isHost,
-        sessionMode: session.mode,
-        sessionType: session.type,
-      });
-    }
+      navigate('App', {screen: 'Tabs'});
+      if (session?.id && sessionState?.started && !isEjected) {
+        navigate('SessionFeedbackModal', {
+          exerciseId: session.exerciseId,
+          sessionId: session.id,
+          completed: Boolean(sessionState?.completed),
+          isHost,
+          sessionMode: session.mode,
+          sessionType: session.type,
+        });
+      }
 
-    fetchSessions();
-    resetSession();
-  }, [
-    sessionState?.started,
-    sessionState?.completed,
-    isHost,
-    session,
-    leaveMeeting,
-    resetSession,
-    navigate,
-    fetchSessions,
-  ]);
+      fetchSessions();
+      resetSession();
+    },
+    [
+      sessionState?.started,
+      sessionState?.completed,
+      isHost,
+      session,
+      leaveMeeting,
+      resetSession,
+      navigate,
+      fetchSessions,
+    ],
+  );
 
   const leaveSessionWithConfirm = useCallback(
     () =>

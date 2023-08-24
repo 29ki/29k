@@ -3,7 +3,7 @@ import {
   DailyParticipant,
 } from '@daily-co/react-native-daily-js';
 import React, {useCallback, useContext} from 'react';
-import {ViewStyle} from 'react-native';
+import {Alert, ViewStyle} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
@@ -119,7 +119,7 @@ const Participant: React.FC<ParticipantProps> = ({
   style,
 }) => {
   const {call} = useContext(DailyContext);
-  const {t} = useTranslation('Screen.Session');
+  const {t} = useTranslation('Component.Participant');
   const userData = participant?.userData as DailyUserData;
   const photoURL = userData?.photoURL;
   const userName = userData?.userName;
@@ -134,16 +134,33 @@ const Participant: React.FC<ParticipantProps> = ({
     [call, participant.session_id],
   );
 
-  const onPress = useCallback(() => {
+  const removeParticipant = useCallback(async () => {
+    call?.updateParticipant(participant.session_id, {eject: true});
+  }, [call, participant.session_id]);
+
+  const confirmRemoveUser = useCallback(() => {
     if (isSessionHost) {
-      if (isSessionHost) {
-        call?.updateParticipant(participant.session_id, {eject: true});
-      }
+      Alert.alert(
+        t('removeTitle', {displayName: userName}),
+        t('removeText', {displayName: userName}),
+        [
+          {
+            text: t('removeNo'),
+            onPress: () => {},
+            style: 'cancel',
+          },
+          {
+            text: t('removeYes'),
+            onPress: removeParticipant,
+            style: 'destructive',
+          },
+        ],
+      );
     }
-  }, [isSessionHost, call, participant.session_id]);
+  }, [isSessionHost, removeParticipant, t, userName]);
 
   return (
-    <Wrapper style={style} onLongPress={onPress}>
+    <Wrapper style={style} onLongPress={confirmRemoveUser}>
       {participant.tracks.video.state === 'off' ? (
         <ParticipantPlaceholder>
           {photoURL ? (
@@ -161,7 +178,10 @@ const Participant: React.FC<ParticipantProps> = ({
         />
       )}
       <NameGradient>
-        <ParticipantName participant={participant} suffix={t('nameSuffix')} />
+        <ParticipantName
+          participant={participant}
+          suffix={t('nameSuffix', {ns: 'Screen.Session'})}
+        />
       </NameGradient>
       {topGradient && (
         <SpotlightGradient

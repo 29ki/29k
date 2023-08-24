@@ -15,22 +15,6 @@
       "action": "check for update"
     }
   },
-  "sv": {
-    "checking": {
-      "status": "Söker efter uppdatering"
-    },
-    "downloading": {
-      "status": "Ladda ner uppdatering"
-    },
-    "installed": {
-      "status": "Uppdatering tillgänglig - ",
-      "action": "starta om"
-    },
-    "upToDate": {
-      "status": "Aware är uppdaterad - ",
-      "action": "sök uppdatering"
-    }
-  },
   "pt": {
     "checking": {
       "status": "A verificar atualizações"
@@ -45,6 +29,22 @@
     "upToDate": {
       "status": "Aware FJN está atualizada - ",
       "action": "verificar atualizações"
+    }
+  },
+  "sv": {
+    "checking": {
+      "status": "Söker efter uppdatering"
+    },
+    "downloading": {
+      "status": "Ladda ner uppdatering"
+    },
+    "installed": {
+      "status": "Uppdatering tillgänglig - ",
+      "action": "Starta om"
+    },
+    "upToDate": {
+      "status": "Aware är uppdaterad -",
+      "action": "Sök uppdatering"
     }
   },
   "es": {}

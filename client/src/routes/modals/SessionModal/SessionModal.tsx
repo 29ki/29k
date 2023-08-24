@@ -5,17 +5,48 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import dayjs from 'dayjs';
-import React, {Fragment, useCallback, useEffect} from 'react';
+import React, {Fragment, useCallback, useEffect, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Share, View} from 'react-native';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import styled from 'styled-components/native';
 
+import {
+  ModalStackProps,
+  AppStackProps,
+} from '../../../lib/navigation/constants/routes';
+
+import {COLORS} from '../../../../../shared/src/constants/colors';
+import {SPACINGS} from '../../../lib/constants/spacings';
+
+import {formatContentName} from '../../../lib/utils/string';
+
+import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
+import useExerciseById from '../../../lib/content/hooks/useExerciseById';
+import useAddSessionToCalendar from '../../../lib/sessions/hooks/useAddSessionToCalendar';
+import useUser from '../../../lib/user/hooks/useUser';
+import useSessionReminder from '../../../lib/sessions/hooks/useSessionReminder';
+import useLogSessionMetricEvents from '../../../lib/sessions/hooks/useLogSessionMetricEvents';
+import usePinSession from '../../../lib/sessions/hooks/usePinSession';
+import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
+
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
-
+import Image from '../../../lib/components/Image/Image';
+import SheetModal from '../../../lib/components/Modals/SheetModal';
+import {Display24} from '../../../lib/components/Typography/Display/Display';
+import {Heading18} from '../../../lib/components/Typography/Heading/Heading';
+import {Body16} from '../../../lib/components/Typography/Body/Body';
+import Byline from '../../../lib/components/Bylines/Byline';
+import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTimeBadge';
+import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
+import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
+import Tag from '../../../lib/components/Tag/Tag';
+import Interested from '../../../lib/components/Interested/Interested';
+import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
+import AnimatedIconButton from '../../../lib/components/Buttons/IconButton/AnimatedIconButton';
 import {
   ShareIcon,
   BellIconAnimated,
@@ -23,20 +54,6 @@ import {
   PencilIcon,
   CalendarIcon,
 } from '../../../lib/components/Icons';
-import Image from '../../../lib/components/Image/Image';
-import SheetModal from '../../../lib/components/Modals/SheetModal';
-
-import {
-  ModalStackProps,
-  AppStackProps,
-} from '../../../lib/navigation/constants/routes';
-
-import useExerciseById from '../../../lib/content/hooks/useExerciseById';
-import useAddSessionToCalendar from '../../../lib/sessions/hooks/useAddSessionToCalendar';
-import useUser from '../../../lib/user/hooks/useUser';
-
-import {formatContentName} from '../../../lib/utils/string';
-
 import {
   BottomSafeArea,
   Spacer12,
@@ -46,25 +63,7 @@ import {
   Spacer4,
   Spacer8,
 } from '../../../lib/components/Spacers/Spacer';
-import {Display24} from '../../../lib/components/Typography/Display/Display';
-import useSessionReminder from '../../../lib/sessions/hooks/useSessionReminder';
-import {Body16} from '../../../lib/components/Typography/Body/Body';
-import Byline from '../../../lib/components/Bylines/Byline';
-
-import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTimeBadge';
-import {COLORS} from '../../../../../shared/src/constants/colors';
-
-import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
-import {SPACINGS} from '../../../lib/constants/spacings';
-import useLogSessionMetricEvents from '../../../lib/sessions/hooks/useLogSessionMetricEvents';
-import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
-import usePinSession from '../../../lib/sessions/hooks/usePinSession';
-import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
-import Tag from '../../../lib/components/Tag/Tag';
-import Interested from '../../../lib/components/Interested/Interested';
-import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
-import AnimatedIconButton from '../../../lib/components/Buttons/IconButton/AnimatedIconButton';
-import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
+import {openUrl} from 'react-native-markdown-display';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -129,7 +128,7 @@ const SessionModal = () => {
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
 
   const addToCalendar = useAddSessionToCalendar();
-  const exercise = useExerciseById(session?.exerciseId);
+  const exercise = useExerciseById(session.exerciseId, session.language);
   const tags = useGetSessionCardTags(exercise);
   const {reminderEnabled, toggleReminder} = useSessionReminder(session);
   const confirmToggleReminder = useConfirmSessionReminder(session);
@@ -191,6 +190,27 @@ const SessionModal = () => {
   const onEditHostMode = useCallback(
     () => navigation.navigate('AssignNewHostModal', {session}),
     [session, navigation],
+  );
+
+  const coCreators = useMemo(
+    () => (
+      <>
+        {exercise?.coCreators?.map(({name, avatar_url, link}, idx) => (
+          <>
+            <Byline
+              key={`${name}-${idx}`}
+              small
+              prefix={false}
+              pictureURL={avatar_url}
+              name={name}
+              onPress={!link ? undefined : () => openUrl(link)}
+            />
+            <Spacer4 />
+          </>
+        ))}
+      </>
+    ),
+    [exercise],
   );
 
   useEffect(() => {
@@ -336,6 +356,14 @@ const SessionModal = () => {
               </>
             )}
           </Row>
+          {Boolean(exercise.coCreators?.length) && (
+            <View>
+              <Spacer24 />
+              <Heading18>{t('coCreatorsHeading')}</Heading18>
+              <Spacer8 />
+              {coCreators}
+            </View>
+          )}
         </Gutters>
         <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
       </BottomSheetScrollView>

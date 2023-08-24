@@ -7,10 +7,11 @@ const SESSIONS_ENDPOINT = '/sessions';
 export const fetchSessions = async (
   exerciseId?: string,
   hostId?: string,
+  limit?: number,
 ): Promise<LiveSessionType[]> => {
   try {
     const queryParams = new URLSearchParams(
-      reject(isNil, {exerciseId, hostId}),
+      reject(isNil, {exerciseId, hostId, limit: limit?.toString()}),
     );
 
     const response = await apiClient(`${SESSIONS_ENDPOINT}?${queryParams}`);

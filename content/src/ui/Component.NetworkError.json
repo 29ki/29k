@@ -1,0 +1,21 @@
+{
+  "en": {
+    "title": "Lost internet connection",
+    "message": "It seems like you don't have any connection to the Internet at the moment.",
+    "requestTitle": "Failed to update session",
+    "requestMessage": "Network request failed, please try again.",
+    "subscriptionTitle": "Problem getting progress updates",
+    "subscriptionMessage": "It seems there is a problem getting updates to the session."
+  },
+  "pt": {
+  },
+  "sv": {
+    "title": "Tappat uppkoppling till Internet",
+    "message": "Det verkar som att du inte har uppkoppling till Internet just nu.",
+    "requestTitle": "Failed to update session",
+    "requestMessage": "Nätverksanropet misslyckades, var vänlig försök igen.",
+    "subscriptionTitle": "Problem med att få uppdateringar",
+    "subscriptionMessage": "Det verkar vara problem att få sessionens uppdateringar just nu."
+  },
+  "es": {}
+}

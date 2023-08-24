@@ -1,0 +1,14 @@
+{
+  "en": {
+    "description": "You have been removed from this session by the host.",
+    "info": "You won't be able to rejoin it.",
+    "contactInfo": "For any question please contact hello@29k.org"
+  },
+  "pt": {},
+  "sv": {
+    "description": "Du har blivit borttagen från sessionen av värden.",
+    "info": "Du kommer inte kunna gå med igen.",
+    "contactInfo": "För frågor, kontakta hello@29k.org"
+  },
+  "es": {}
+}

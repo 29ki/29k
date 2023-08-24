@@ -14,7 +14,8 @@
     },
     "journeyButton": "My journey",
     "buttonsHeading": "Add to My journey, calendar or share session",
-    "deleteButton": "Delete session"
+    "deleteButton": "Delete session",
+    "coCreatorsHeading": "Co-created with"
   },
   "pt": {
     "edit": "Alterar",

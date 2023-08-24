@@ -15,13 +15,13 @@ import {
 
 import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
 import useIsSessionHost from '../../../lib/session/hooks/useIsSessionHost';
-import usePreventGoingBack from '../../../lib/navigation/hooks/usePreventGoingBack';
 import useUpdateSessionState from '../../../lib/session/hooks/useUpdateSessionState';
 import useSubscribeToSessionIfFocused from '../../../lib/session/hooks/useSubscribeToSessionIfFocused';
 import IntroPortalComponent from '../../../lib/session/components/IntroPortal/IntroPortal';
 import PortalStatus from '../../../lib/session/components/PortalStatus/PortalStatus';
 import useLiveSessionMetricEvents from '../../../lib/session/hooks/useLiveSessionMetricEvents';
 import useSessionState from '../../../lib/session/state/state';
+import useHandleLeaveLiveSession from '../../../lib/session/hooks/useHandleLeaveLiveSession';
 
 const IntroPortal: React.FC = () => {
   const {
@@ -42,7 +42,7 @@ const IntroPortal: React.FC = () => {
   const logSessionMetricEvent = useLiveSessionMetricEvents();
   useSubscribeToSessionIfFocused(session);
 
-  usePreventGoingBack(leaveSessionWithConfirm);
+  useHandleLeaveLiveSession(session);
 
   useEffect(() => {
     logSessionMetricEvent('Enter Intro Portal');

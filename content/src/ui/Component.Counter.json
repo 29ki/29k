@@ -2,11 +2,11 @@
   "en": {
     "inMinutes": "{{minutes}}m {{seconds}}s"
   },
-  "sv": {
-    "inMinutes": "{{minutes}}m {{seconds}}s"
-  },
   "pt": {
     "inMinutes": "{{minutes}}m {{seconds}}s"
+  },
+  "sv": {
+    "inMinutes": "{{minuter}}m {{sekunder}}s"
   },
   "es": {}
 }

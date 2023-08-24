@@ -16,8 +16,10 @@ import Image from '../../../lib/components/Image/Image';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {
   Spacer16,
+  Spacer24,
   Spacer32,
   Spacer4,
+  Spacer8,
 } from '../../../lib/components/Spacers/Spacer';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
@@ -50,6 +52,8 @@ import Node from '../../../lib/components/Node/Node';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import Tag from '../../../lib/components/Tag/Tag';
 import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
+import {Heading18} from '../../../lib/components/Typography/Heading/Heading';
+import {openUrl} from 'react-native-markdown-display';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -107,7 +111,7 @@ const CompletedSessionModal = () => {
   const {t} = useTranslation('Modal.CompletedSession');
   const {payload, timestamp} = completedSessionEvent;
   const user = useUser();
-  const exercise = useExerciseById(payload.exerciseId);
+  const exercise = useExerciseById(payload.exerciseId, payload.language);
   const tags = useGetTagsById(exercise?.tags);
   const {getSharingPostForSession} = useSharingPosts(exercise?.id);
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
@@ -166,6 +170,27 @@ const CompletedSessionModal = () => {
       return {uri: exercise?.card?.lottie?.source};
     }
   }, [exercise]);
+
+  const coCreators = useMemo(
+    () => (
+      <>
+        {exercise?.coCreators?.map(({name, avatar_url, link}, idx) => (
+          <>
+            <Byline
+              key={`${name}-${idx}`}
+              small
+              prefix={false}
+              pictureURL={avatar_url}
+              name={name}
+              onPress={!link ? undefined : () => openUrl(link)}
+            />
+            <Spacer4 />
+          </>
+        ))}
+      </>
+    ),
+    [exercise],
+  );
 
   if (!exercise) {
     return null;
@@ -275,6 +300,14 @@ const CompletedSessionModal = () => {
             </Button>
           </ButtonWrapper>
         </Gutters>
+        {Boolean(exercise.coCreators?.length) && (
+          <Gutters>
+            <Spacer24 />
+            <Heading18>{t('coCreatorsHeading')}</Heading18>
+            <Spacer8 />
+            {coCreators}
+          </Gutters>
+        )}
         <Spacer32 />
       </BottomSheetScrollView>
     </SheetModal>
