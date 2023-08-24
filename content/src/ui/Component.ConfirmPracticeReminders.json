@@ -11,7 +11,7 @@
   "pt": {},
   "sv": {
     "title": "Gör det till en vana",
-    "message": "Vill du sätta en övningspåminnelse för att hjälpa dig hålla det levande?",
+    "message": "Vill du bli påmind om att träna över tid?",
     "actions": {
       "dismiss": "Nej",
       "cancel": "Kanske senare",
