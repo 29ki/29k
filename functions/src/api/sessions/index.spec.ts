@@ -100,6 +100,7 @@ describe('/api/sessions', () => {
         'some-user-id',
         undefined,
         undefined,
+        undefined,
       );
       expect(response.status).toBe(200);
       expect(response.body).toMatchObject([
@@ -127,6 +128,7 @@ describe('/api/sessions', () => {
       expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
         'some-user-id',
         'some-exercise-id',
+        undefined,
         undefined,
       );
       expect(response.status).toBe(200);
@@ -156,9 +158,86 @@ describe('/api/sessions', () => {
         'some-user-id',
         undefined,
         'some-other-user-id',
+        undefined,
       );
       expect(response.status).toBe(200);
       expect(response.body).toMatchObject([
+        {
+          id: 'some-session-id-1',
+          hostId: 'some-other-user-id',
+        },
+        {
+          id: 'some-session-id-2',
+          hostId: 'some-other-user-id',
+        },
+      ]);
+    });
+
+    it('should get a limited number of sessions', async () => {
+      mockGetSessionsByUserId.mockResolvedValueOnce([
+        createMockSession('some-session-id-1', 'some-other-user-id'),
+        createMockSession('some-session-id-2', 'some-other-user-id'),
+      ]);
+
+      const response = await request(mockServer).get('/sessions?limit=5');
+
+      expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
+        'some-user-id',
+        undefined,
+        undefined,
+        5,
+      );
+      expect(response.status).toBe(200);
+      expect(response.body).toMatchObject([
+        {
+          id: 'some-session-id-1',
+          hostId: 'some-other-user-id',
+        },
+        {
+          id: 'some-session-id-2',
+          hostId: 'some-other-user-id',
+        },
+      ]);
+    });
+
+    it('should only pass a limit if valid', async () => {
+      mockGetSessionsByUserId.mockResolvedValueOnce([
+        createMockSession('some-session-id-1', 'some-other-user-id'),
+        createMockSession('some-session-id-2', 'some-other-user-id'),
+      ]);
+
+      const response = await request(mockServer).get('/sessions?limit=0');
+      expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
+        'some-user-id',
+        undefined,
+        undefined,
+        undefined,
+      );
+      expect(response.status).toBe(200);
+      expect(response.body).toMatchObject([
+        {
+          id: 'some-session-id-1',
+          hostId: 'some-other-user-id',
+        },
+        {
+          id: 'some-session-id-2',
+          hostId: 'some-other-user-id',
+        },
+      ]);
+
+      mockGetSessionsByUserId.mockResolvedValueOnce([
+        createMockSession('some-session-id-1', 'some-other-user-id'),
+        createMockSession('some-session-id-2', 'some-other-user-id'),
+      ]);
+      const response2 = await request(mockServer).get('/sessions?limit=NaN');
+      expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
+        'some-user-id',
+        undefined,
+        undefined,
+        undefined,
+      );
+      expect(response2.status).toBe(200);
+      expect(response2.body).toMatchObject([
         {
           id: 'some-session-id-1',
           hostId: 'some-other-user-id',

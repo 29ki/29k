@@ -164,12 +164,10 @@ const SelectTypeStep: React.FC<StepProps> = ({
   useEffect(() => {
     if (exercise && exercise.live) {
       setIsLoadingSessions(true);
-      fetchSessions(exercise.id).then(
-        ([first, second, third, fourth, fifth, ..._] = []) => {
-          setSessions([first, second, third, fourth, fifth].filter(Boolean));
-          setIsLoadingSessions(false);
-        },
-      );
+      fetchSessions(exercise.id, undefined, 5).then(fetchedSessions => {
+        setSessions(fetchedSessions);
+        setIsLoadingSessions(false);
+      });
     }
   }, [setSessions, exercise, setIsLoadingSessions]);
 
