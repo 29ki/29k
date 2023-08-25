@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on exploring purpose.\\\nWe’ll be doing an audio exercis together, and then sharing what we experienced.\\\nHeads up that you’ll need pen and paper."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on exploring purpose.\\\nWe’ll be doing an audio exercise together, and then sharing what we experienced.\\\nHeads up that you’ll need pen and paper."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -64,7 +64,7 @@
           }
         ],
         "content": {
-          "heading": "What can you learn from any differences from today and that time feeling purpose?",
+          "heading": "What can you learn from any differences between the two time points?",
           "text": "",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json"
@@ -99,7 +99,7 @@
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692793639/Images/card_image_feeling_purpose_ju8iea.png"
           },
-          "text": "Our emotions can be a window into what matters to us in life.\\\nConnecting to what gives us a sense of purpose, helps us to show up for and act on what truly matters.\n\nWell done. If you’re up for a mission, take a moment each day for three days to notice where you are, how you feel, think and act, and see how it connects to your sense of purpose."
+          "text": "Our emotions can be a window into what matters to us in life.\n\nConnecting to what gives us a sense of purpose, helps us to show up for and act on what truly matters.\n\nWell done. If you’re up for a mission, take a moment each day for three days to notice where you are, how you feel, think and act, and see how it connects to your sense of purpose."
         }
       }
     ],
