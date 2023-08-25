@@ -1,6 +1,8 @@
 const mockNavigation = {
   navigate: jest.fn(),
   popToTop: jest.fn(),
+  addListener: jest.fn(),
+  getCurrentRoute: jest.fn(),
 };
 
 export const DefaultTheme = {
