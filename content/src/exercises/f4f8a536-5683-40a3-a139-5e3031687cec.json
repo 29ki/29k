@@ -153,24 +153,29 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Välkommen. Jag heter X och vil kommer att jobba tillsammans i ungefär 30 minuter med fokus på stress och hur den visar sig i våra liv. Vi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. Y, skulle du vilja börja?\n\n> Låt alla i deltagare, även du själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång,"
           }
         ]
       },
       {
-        "type": "content"
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "> Tryck på play för att starta ljud-övningen."
+          }
+        ]
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Nästa steg är att tyst reflektera i en minut. \n\nVad lärde du dig om dig själv som kan vara till hjälp i dag?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara göra mentala anteckningar. Det finns inga rätt eller fel svar här. Vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
           }
         ]
       },
@@ -178,15 +183,16 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Det här steget handlar om att dela våra erfarenheter med varandra. Vi har tre regler: \n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning, ingen mer hjälp behövs. Vi är här för att utforska våra egna och andras upplevelser."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp i oss finns inget rätt eller fel. Det bara är. \n\nVi har en timer som visar två minuter som hjälp att hålla tiden. Om du inte vill dela med dig är det bara att säga 'pass'."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Vem skulle vilja börjaWho would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
-        ]
+        ],
+        "id": "1"
       },
       {
         "type": "host",
@@ -206,9 +212,10 @@
     "theme": {
       "textColor": "#2AE2D7"
     },
-    "hidden": false,
+    "hidden": true,
+    "name": "Du och stress",
     "live": true,
-    "published": false,
+    "published": true,
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -218,7 +225,8 @@
       ]
     },
     "id": "f4f8a536-5683-40a3-a139-5e3031687cec",
-    "async": false
+    "async": true,
+    "description": "Lär dig hur stress fungerar för dig och ta steg mot en mindre stressig tillvaro."
   },
   "es": {
     "slides": [
