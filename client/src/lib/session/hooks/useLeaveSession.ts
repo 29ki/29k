@@ -20,6 +20,7 @@ import {
   SessionMode,
 } from '../../../../../shared/src/schemas/Session';
 import useAsyncSessionMetricEvents from './useAsyncSessionMetricEvents';
+import {removeMyself} from '../../sessions/api/session';
 
 type ScreenNavigationProps = NativeStackNavigationProp<
   OverlayStackProps & AppStackProps & ModalStackProps
@@ -54,6 +55,10 @@ const useLeaveSession = (session: LiveSessionType | AsyncSessionType) => {
           sessionMode: session.mode,
           sessionType: session.type,
         });
+      }
+
+      if (isEjected) {
+        await removeMyself(session.id);
       }
 
       fetchSessions();

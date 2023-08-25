@@ -83,7 +83,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
       setParticipantsSortOrder(peerId);
     };
 
-    const onError = (errorEvent: DailyEventObject<'error'>) => {
+    const onError = async (errorEvent: DailyEventObject<'error'>) => {
       //Seems we only get here when it has totally failed
       if (errorEvent.error.type === 'ejected') {
         setIsEjected();

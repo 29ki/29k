@@ -13,6 +13,7 @@ import {
 import {DailyContext} from '../../daily/DailyProvider';
 import {ErrorBannerContext} from '../../contexts/ErrorBannerContext';
 import {useTranslation} from 'react-i18next';
+import useUser from '../../user/hooks/useUser';
 
 const useHandleLeaveLiveSession = (session: LiveSessionType) => {
   const {navigate} =
@@ -26,6 +27,7 @@ const useHandleLeaveLiveSession = (session: LiveSessionType) => {
   const hasFailed = useDailyState(state => state.hasFailed);
   const isEjected = useDailyState(state => state.isEjected);
   const resetHasFailed = useDailyState(state => state.resetHasFailed);
+  const user = useUser();
 
   usePreventGoingBack(leaveSessionWithConfirm, hasFailed, isEjected);
 
@@ -40,9 +42,11 @@ const useHandleLeaveLiveSession = (session: LiveSessionType) => {
   }, [leaveMeeting, resetHasFailed, navigate, session]);
 
   const ejectFromMeeting = useCallback(async () => {
-    await leaveSession(true);
-    navigate('SessionEjectionModal');
-  }, [leaveSession, navigate]);
+    if (user?.uid) {
+      await leaveSession(true);
+      navigate('SessionEjectionModal');
+    }
+  }, [leaveSession, navigate, user?.uid]);
 
   useEffect(() => {
     if (isEjected) {

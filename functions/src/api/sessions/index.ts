@@ -12,6 +12,7 @@ import {
   SessionType,
   UpdateSessionType,
   UpdateSessionSchema,
+  RemoveMyselfSchema,
 } from '../../../../shared/src/schemas/Session';
 import {createApiAuthRouter} from '../../lib/routers';
 import restrictAccessToRole from '../lib/restrictAccessToRole';
@@ -206,6 +207,30 @@ sessionsRouter.put(
 
         case JoinSessionError.notAvailable:
           ctx.status = 410;
+          break;
+
+        default:
+          throw error;
+      }
+      ctx.message = requestError.code;
+    }
+  },
+);
+
+sessionsRouter.put(
+  '/removeMyself',
+  validation({body: RemoveMyselfSchema}),
+  async ctx => {
+    const {sessionId} = ctx.request.body;
+    const {user} = ctx;
+
+    try {
+      ctx.body = await sessionsController.removeUser(sessionId, user.id);
+    } catch (error) {
+      const requestError = error as RequestError;
+      switch (requestError.code) {
+        case ValidateSessionError.notFound:
+          ctx.status = 404;
           break;
 
         default:

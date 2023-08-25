@@ -117,6 +117,19 @@ export const joinSession = async (
   return response.json();
 };
 
+export const removeMyself = async (
+  sessionId: LiveSessionType['id'],
+): Promise<void> => {
+  const response = await apiClient(`${SESSIONS_ENDPOINT}/removeMyself`, {
+    method: 'PUT',
+    body: JSON.stringify({sessionId}),
+  });
+
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+};
+
 export const updateSessionState = async (
   id: string,
   data: Partial<SessionStateType>,

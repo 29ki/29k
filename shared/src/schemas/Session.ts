@@ -117,6 +117,12 @@ export type SessionStateUpdateType = yup.InferType<
 export const JoinSessionSchema = LiveSessionSchema.pick(['inviteCode']);
 export type JoinSessionType = yup.InferType<typeof JoinSessionSchema>;
 
+export const RemoveMyselfSchema = yup.object({
+  sessionId: yup.string().required(),
+});
+
+export type RemoveMyselfType = yup.InferType<typeof RemoveMyselfSchema>;
+
 export type DailyUserData = {
   inPortal: boolean;
   userName?: string;
