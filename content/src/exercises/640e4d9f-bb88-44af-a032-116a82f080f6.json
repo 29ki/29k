@@ -107,7 +107,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#1f5b9e"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Feeling purpose",
     "live": true,
     "published": true,
