@@ -120,10 +120,10 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692965732/Video/2portal1_become_present_a6tjv1.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692965720/Video/2portal2_become_present_iddvnq.mp4"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692898013/Audio/portal_audio_become_present_bgjavz.mp3"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692897828/Video/portal2_become_present_y5bgsq.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692965720/Video/2portal2_become_present_iddvnq.mp4"
       }
     },
     "tags": [
