@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on present moment awareness.\n\nWe’ll be doing a short meditation followed by time for reflection and sharing with each other."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -21,7 +21,12 @@
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1692879916/SRT%20(captions)%20files/Three_things_kr66j8.srt",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
           }
-        }
+        },
+        "hostNotes": [
+          {
+            "text": "Nice, now we are ready to listen to this together.\n\n> Press play to start the audio file."
+          }
+        ]
       },
       {
         "type": "reflection",
@@ -83,7 +88,10 @@
         "type": "instruction",
         "content": {
           "heading": "Well done",
-          "text": "If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nWhen you feel distracted, practice the 3-2-1-focus with three different senses, and see where that takes you."
+          "text": "If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nWhen you feel distracted, practice the 3-2-1-focus with three different senses, and see where that takes you.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692897989/Images/card_become_present_s5b47y.png"
+          }
         }
       }
     ],
