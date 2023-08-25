@@ -30,7 +30,7 @@
   "pt": {
     "hidden": false,
     "name": "Começa aqui",
-    "published": true,
+    "published": false,
     "card": {
       "description": "Take the first steps to improve wellbeing and life satisfaction, backed by science.",
       "backgroundColorGradient": [

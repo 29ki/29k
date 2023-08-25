@@ -40,7 +40,7 @@
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
       "c5b1197a-4eec-4699-9dad-0e3d6323967b"
     ],
-    "published": true,
+    "published": false,
     "link": "https://aware.29k.org/ease-stress",
     "hidden": true
   },
@@ -52,7 +52,8 @@
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
       "c5b1197a-4eec-4699-9dad-0e3d6323967b"
     ],
-    "published": true,
-    "link": "https://aware.29k.org/ease-stress"
+    "published": false,
+    "link": "https://aware.29k.org/ease-stress",
+    "hidden": true
   }
 }

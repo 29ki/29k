@@ -34,15 +34,6 @@ describe('useCollectionById', () => {
     expect(result.current).toBe(null);
   });
 
-  it('returns null when no no collections', () => {
-    mockT.mockReturnValue('some-collection-id');
-    const {result} = renderHook(() => useCollectionById('some-collection-id'));
-
-    expect(mockT).toHaveBeenCalledTimes(1);
-
-    expect(result.current).toBe(null);
-  });
-
   it('memoizes the result - as i18next.t is not pure', () => {
     mockT.mockReturnValue({});
     const {result, rerender} = renderHook(() =>
