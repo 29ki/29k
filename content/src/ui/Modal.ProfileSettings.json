@@ -58,10 +58,10 @@
       "auth/weak-password": "Lösenordet måste innehålla minst sex tecken.",
       "auth/wrong-password": "Fel lösenord, försök igen."
     },
-    "displayName": "Vad vil du att vi kallar dig?",
+    "displayName": "Vad vill du att vi kallar dig?",
     "currentPassword": "Nuvarande lösenord",
     "title": "Profil-inställningar",
-    "email": "E-mail",
+    "email": "Email",
     "actions": {
       "signIn": "Logga in",
       "signOut": "Logga ut",
