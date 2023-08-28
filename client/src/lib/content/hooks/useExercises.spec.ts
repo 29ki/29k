@@ -33,6 +33,23 @@ describe('useExercises', () => {
     expect(result.current).toEqual([{name: 'aaa'}, {name: 'bbb'}]);
   });
 
+  it('filters out nil exercises', () => {
+    mockUseExerciseIds.mockReturnValueOnce([
+      'some-exercise-id',
+      'some-other-exercise-id',
+    ]);
+    mockGetExerciseById
+      .mockReturnValueOnce(null)
+      .mockReturnValueOnce({name: 'bbb'});
+
+    const {result} = renderHook(() => useExercises());
+
+    expect(mockGetExerciseById).toHaveBeenCalledTimes(2);
+    expect(mockGetExerciseById).toHaveBeenCalledWith('some-exercise-id');
+    expect(mockGetExerciseById).toHaveBeenCalledWith('some-other-exercise-id');
+    expect(result.current).toEqual([{name: 'bbb'}]);
+  });
+
   it('should return empty list if no exercises', () => {
     mockUseExerciseIds.mockReturnValueOnce([]);
 

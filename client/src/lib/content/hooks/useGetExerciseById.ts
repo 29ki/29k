@@ -7,11 +7,15 @@ const useGetExerciseById = () => {
   const {t} = useTranslation('exercises');
 
   return useCallback(
-    (id: string, language?: LANGUAGE_TAG) =>
-      t(id, {
+    (id: string, language?: LANGUAGE_TAG) => {
+      const exercise = t(id, {
         returnObjects: true,
         lng: language,
-      }) as Exercise,
+      });
+
+      // i18next fallbacks to the key if no translation is found
+      return typeof exercise === 'object' ? (exercise as Exercise) : null;
+    },
     [t],
   );
 };
