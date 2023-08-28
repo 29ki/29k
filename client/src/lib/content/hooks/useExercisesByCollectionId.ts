@@ -1,3 +1,4 @@
+import {isNotNil} from 'ramda';
 import {useMemo} from 'react';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import useCollectionById from './useCollectionById';
@@ -13,8 +14,8 @@ const useExercisesByCollectionId = (collectionId?: string) => {
     if (collection) {
       return collection.exercises
         .map(id => getExerciseById(id))
-        .filter(Boolean)
-        .filter(e => showHiddenContent || !e.hidden) as Array<Exercise>;
+        .filter(isNotNil)
+        .filter(e => showHiddenContent || !e.hidden);
     }
     return [];
   }, [collection, showHiddenContent, getExerciseById]);
