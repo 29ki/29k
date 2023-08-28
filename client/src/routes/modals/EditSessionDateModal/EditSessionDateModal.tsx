@@ -20,6 +20,7 @@ import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {
   ModalStackProps,
   AppStackProps,
+  OverlayStackProps,
 } from '../../../lib/navigation/constants/routes';
 
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
@@ -62,7 +63,11 @@ const EditSessionDateModal = () => {
     useState<dayjs.Dayjs>(initialStartTime);
 
   const navigation =
-    useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
+    useNavigation<
+      NativeStackNavigationProp<
+        AppStackProps & ModalStackProps & OverlayStackProps
+      >
+    >();
 
   const exercise = useExerciseById(session?.exerciseId, session?.language);
 
@@ -92,7 +97,7 @@ const EditSessionDateModal = () => {
 
     await setSession(updatedSession);
     fetchSessions();
-    navigation.goBack();
+    navigation.navigate('SessionOverlay', {session: updatedSession});
   }, [setSession, fetchSessions, session.id, sessionDateTime, navigation]);
 
   const onChange = useCallback(
