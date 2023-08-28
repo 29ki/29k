@@ -18,12 +18,14 @@ const getAuthorizationHeader = async () => {
 const apiClient = async (
   input: string,
   init?: RequestInit | undefined,
-  authorize = true,
+  authenticate = true,
 ) => {
   const endpoint = `${trimSlashes(API_ENDPOINT)}/${trimSlashes(input)}`;
 
   const doFetch = async () => {
-    const authHeader = authorize ? await getAuthorizationHeader() : undefined;
+    const authHeader = authenticate
+      ? await getAuthorizationHeader()
+      : undefined;
     const correlationId = getCorrelationId();
 
     const requestInit = {
