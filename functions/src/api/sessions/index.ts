@@ -226,6 +226,7 @@ sessionsRouter.put(
 
     try {
       ctx.body = await sessionsController.removeUser(sessionId, user.id);
+      ctx.status = 200;
     } catch (error) {
       const requestError = error as RequestError;
       switch (requestError.code) {
