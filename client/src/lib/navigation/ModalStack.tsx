@@ -42,7 +42,6 @@ import HostSessionByInviteModal from '../../routes/modals/HostSessionByInviteMod
 import DonateModal from '../../routes/modals/DonateModal/DonateModal';
 import SimpleProfileSettingsModal from '../../routes/modals/SimpleProfileSettingsModal/SimpleProfileSettingsModal';
 import ForgotPasswordModal from '../../routes/modals/ForgotPasswordModal/ForgotPasswordModal';
-import SessionEjectionModal from '../../routes/modals/SessionEjectionModal/SessionEjectionModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
