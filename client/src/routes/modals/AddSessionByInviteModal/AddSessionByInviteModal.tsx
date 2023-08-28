@@ -26,7 +26,9 @@ const AddSessionModal = () => {
     useRoute<RouteProp<ModalStackProps, 'AddSessionByInviteModal'>>();
   const {fetchSessions} = useSessions();
   const {goBack, navigate} =
-    useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
+    useNavigation<
+      NativeStackNavigationProp<ModalStackProps, 'SessionErrorModal'>
+    >();
   const [errorString, setErrorString] = useState<string | null>(null);
   const logSessionMetricEvent = useLogSessionMetricEvents();
 
