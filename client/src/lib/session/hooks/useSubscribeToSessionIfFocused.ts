@@ -48,7 +48,7 @@ const useSubscribeToSessionIfFocused = (
           reset();
           fetchSessions();
           navigate('HomeStack');
-          navigate('SessionUnavailableModal');
+          navigate('SessionErrorModal');
           return;
         }
 

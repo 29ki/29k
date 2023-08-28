@@ -62,6 +62,7 @@ export type LiveSessionRecord = {
   interestedCount: number;
   hostId: string;
   userIds: Array<string>;
+  removedUserIds?: Array<string>;
   ended: boolean;
   closingTime: Timestamp;
   startTime: Timestamp;
@@ -74,6 +75,7 @@ export type LiveSessionInput = Omit<
   | 'mode'
   | 'ended'
   | 'userIds'
+  | 'removedUserIds'
   | 'startTime'
   | 'createdAt'
   | 'updatedAt'

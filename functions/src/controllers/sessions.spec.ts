@@ -39,6 +39,7 @@ import {
   updateSessionHost,
   createSessionHostingLink,
   getSessionByHostingCode,
+  removeUser,
 } from './sessions';
 import {SessionType} from '../../../shared/src/schemas/Session';
 import dayjs from 'dayjs';
@@ -688,6 +689,39 @@ describe('sessions - controller', () => {
         id: 'some-session-id',
         hostProfile: null,
       });
+    });
+  });
+
+  describe('removeUser', () => {
+    it('should call to add user to removedUserIds', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        id: 'some-session-id',
+      });
+      await removeUser('some-session-id', 'some-user-id');
+      expect(mockUpdateSession).toHaveBeenCalledTimes(1);
+      expect(mockUpdateSession).toHaveBeenCalledWith('some-session-id', {
+        removedUserIds: ['some-user-id'],
+      });
+    });
+
+    it('should call to add user to existing removedUserIds', async () => {
+      mockGetSessionById.mockResolvedValueOnce({
+        id: 'some-session-id',
+        removedUserIds: ['some-other-user-id'],
+      });
+      await removeUser('some-session-id', 'some-user-id');
+      expect(mockUpdateSession).toHaveBeenCalledTimes(1);
+      expect(mockUpdateSession).toHaveBeenCalledWith('some-session-id', {
+        removedUserIds: ['some-other-user-id', 'some-user-id'],
+      });
+    });
+
+    it('should throw if session is not found', async () => {
+      mockGetSessionById.mockResolvedValueOnce(undefined);
+
+      await expect(
+        removeUser('some-session-id', 'some-user-id'),
+      ).rejects.toEqual(new RequestError(ValidateSessionError.notFound));
     });
   });
 

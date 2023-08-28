@@ -196,6 +196,7 @@ export const updateSession = async (
       closingTime?: string;
       ended?: boolean;
       userIds: Array<string>;
+      removedUserIds: Array<string>;
     }
   >,
 ) => {

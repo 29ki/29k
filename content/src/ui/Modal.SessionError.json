@@ -1,6 +1,11 @@
 {
   "en": {
     "description": "The session you're looking for is not available anymore.",
+    "descriptionEjected": "You have been removed from this session by the host.",
+    "infoEjected": "You won't be able to rejoin it.",
+    "codeOfConductInfo": "Read our code of conduct ",
+    "codeOfConductHere": "here",
+    "codeOfConductLink": "",
     "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1683807355/Images/flowers_slijjk.png"
   },
   "pt": {
@@ -9,6 +14,11 @@
   },
   "sv": {
     "description": "Sessionen du letar efter finns inte längre.",
+    "descriptionEjected": "Du har blivit borttagen från sessionen av värden.",
+    "infoEjected": "Du kommer inte kunna gå med igen.",
+    "codeOfConductInfo": "Läs våran uppförandekod ",
+    "codeOfConductHere": "här",
+    "codeOfConductLink": "",
     "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669209703/Images/session-unavailable_eb9tjk.png"
   },
   "es": {}

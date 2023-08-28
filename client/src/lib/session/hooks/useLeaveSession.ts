@@ -20,6 +20,7 @@ import {
   SessionMode,
 } from '../../../../../shared/src/schemas/Session';
 import useAsyncSessionMetricEvents from './useAsyncSessionMetricEvents';
+import {removeMyself} from '../../sessions/api/session';
 
 type ScreenNavigationProps = NativeStackNavigationProp<
   OverlayStackProps & AppStackProps & ModalStackProps
@@ -38,35 +39,42 @@ const useLeaveSession = (session: LiveSessionType | AsyncSessionType) => {
 
   const resetSession = useSessionState(state => state.reset);
 
-  const leaveSession = useCallback(async () => {
-    if (session.mode !== SessionMode.async) {
-      await leaveMeeting();
-    }
+  const leaveSession = useCallback(
+    async (hasEjected?: boolean) => {
+      if (session.mode !== SessionMode.async) {
+        await leaveMeeting();
+      }
 
-    navigate('App', {screen: 'Tabs'});
-    if (session?.id && sessionState?.started) {
-      navigate('SessionFeedbackModal', {
-        exerciseId: session.exerciseId,
-        sessionId: session.id,
-        completed: Boolean(sessionState?.completed),
-        isHost,
-        sessionMode: session.mode,
-        sessionType: session.type,
-      });
-    }
+      navigate('App', {screen: 'Tabs'});
+      if (session?.id && sessionState?.started && !hasEjected) {
+        navigate('SessionFeedbackModal', {
+          exerciseId: session.exerciseId,
+          sessionId: session.id,
+          completed: Boolean(sessionState?.completed),
+          isHost,
+          sessionMode: session.mode,
+          sessionType: session.type,
+        });
+      }
 
-    fetchSessions();
-    resetSession();
-  }, [
-    sessionState?.started,
-    sessionState?.completed,
-    isHost,
-    session,
-    leaveMeeting,
-    resetSession,
-    navigate,
-    fetchSessions,
-  ]);
+      if (hasEjected) {
+        await removeMyself(session.id);
+      }
+
+      fetchSessions();
+      resetSession();
+    },
+    [
+      sessionState?.started,
+      sessionState?.completed,
+      isHost,
+      session,
+      leaveMeeting,
+      resetSession,
+      navigate,
+      fetchSessions,
+    ],
+  );
 
   const leaveSessionWithConfirm = useCallback(
     () =>
