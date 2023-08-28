@@ -45,7 +45,7 @@ describe('useHandleLeaveLiveSession', () => {
 
   it('should should leave meeting if ejected', async () => {
     useDailyState.setState({
-      isEjected: true,
+      hasEjected: true,
     });
     useUserState.setState({
       user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
@@ -58,8 +58,8 @@ describe('useHandleLeaveLiveSession', () => {
 
       expect(mockedLeaveSession).toHaveBeenCalledTimes(1);
       expect(mockedNavigate).toHaveBeenCalledTimes(1);
-      expect(mockedNavigate).toHaveBeenCalledWith('SessionUnavailableModal', {
-        userRemoved: true,
+      expect(mockedNavigate).toHaveBeenCalledWith('SessionErrorModal', {
+        hasEjected: true,
       });
     });
   });
@@ -67,7 +67,7 @@ describe('useHandleLeaveLiveSession', () => {
   it('should should show error banner on error', async () => {
     useDailyState.setState({
       hasFailed: true,
-      isEjected: false,
+      hasEjected: false,
     });
 
     await act(async () => {

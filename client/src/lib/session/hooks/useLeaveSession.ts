@@ -40,13 +40,13 @@ const useLeaveSession = (session: LiveSessionType | AsyncSessionType) => {
   const resetSession = useSessionState(state => state.reset);
 
   const leaveSession = useCallback(
-    async (isEjected?: boolean) => {
+    async (hasEjected?: boolean) => {
       if (session.mode !== SessionMode.async) {
         await leaveMeeting();
       }
 
       navigate('App', {screen: 'Tabs'});
-      if (session?.id && sessionState?.started && !isEjected) {
+      if (session?.id && sessionState?.started && !hasEjected) {
         navigate('SessionFeedbackModal', {
           exerciseId: session.exerciseId,
           sessionId: session.id,
@@ -57,7 +57,7 @@ const useLeaveSession = (session: LiveSessionType | AsyncSessionType) => {
         });
       }
 
-      if (isEjected) {
+      if (hasEjected) {
         await removeMyself(session.id);
       }
 

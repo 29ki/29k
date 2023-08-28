@@ -4,14 +4,14 @@ import {useIsFocused, useNavigation} from '@react-navigation/native';
 const usePreventGoingBack = (
   callback?: () => void,
   hasFailed?: boolean,
-  isEjected?: boolean,
+  hasEjected?: boolean,
 ) => {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
 
   useEffect(() => {
     let unsubscribe = () => {};
-    if (isFocused && !hasFailed && !isEjected) {
+    if (isFocused && !hasFailed && !hasEjected) {
       unsubscribe = navigation.addListener('beforeRemove', e => {
         e.preventDefault();
         if (callback) {
@@ -20,7 +20,7 @@ const usePreventGoingBack = (
       });
     }
     return unsubscribe;
-  }, [callback, navigation, isFocused, hasFailed, isEjected]);
+  }, [callback, navigation, isFocused, hasFailed, hasEjected]);
 };
 
 export default usePreventGoingBack;

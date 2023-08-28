@@ -120,10 +120,12 @@ export const joinSession = async (
 export const removeMyself = async (
   sessionId: LiveSessionType['id'],
 ): Promise<void> => {
-  const response = await apiClient(`${SESSIONS_ENDPOINT}/removeMyself`, {
-    method: 'PUT',
-    body: JSON.stringify({sessionId}),
-  });
+  const response = await apiClient(
+    `${SESSIONS_ENDPOINT}/${sessionId}/removeMyself`,
+    {
+      method: 'PUT',
+    },
+  );
 
   if (!response.ok) {
     throw new Error(await response.text());

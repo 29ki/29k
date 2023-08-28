@@ -11,7 +11,7 @@ import CreateSessionModal from '../../routes/modals/CreateSessionModal/CreateSes
 import AddSessionByInviteModal from '../../routes/modals/AddSessionByInviteModal/AddSessionByInviteModal';
 import UpgradeAccountModal from '../../routes/modals/UpgradeAccountModal/UpgradeAccountModal';
 import RequestPublicHostModal from '../../routes/modals/RequestPublicHostModal/RequestPublicHostModal';
-import SessionUnavailableModal from '../../routes/modals/SessionUnavailableModal/SessionUnavailableModal';
+import SessionErrorModal from '../../routes/modals/SessionErrorModal/SessionErrorModal';
 import {COLORS} from '../../../../shared/src/constants/colors';
 import SETTINGS from '../constants/settings';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -215,10 +215,7 @@ const ModalStack = () => {
               : sheetModalScreenOptions
           }
         />
-        <Screen
-          name={'SessionUnavailableModal'}
-          component={SessionUnavailableModal}
-        />
+        <Screen name={'SessionErrorModal'} component={SessionErrorModal} />
         <Screen name={'ChangeLanguageModal'} component={ChangeLanguageModal} />
         <Screen name={'RemindersModal'} component={RemindersModal} />
         <Screen

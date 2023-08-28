@@ -12,7 +12,7 @@ import {
   SessionType,
   UpdateSessionType,
   UpdateSessionSchema,
-  RemoveMyselfSchema,
+  RemoveMyselfParamsSchema,
 } from '../../../../shared/src/schemas/Session';
 import {createApiAuthRouter} from '../../lib/routers';
 import restrictAccessToRole from '../lib/restrictAccessToRole';
@@ -218,14 +218,16 @@ sessionsRouter.put(
 );
 
 sessionsRouter.put(
-  '/removeMyself',
-  validation({body: RemoveMyselfSchema}),
+  '/:sessionId/removeMyself',
+  validation({params: RemoveMyselfParamsSchema}),
   async ctx => {
-    const {sessionId} = ctx.request.body;
     const {user} = ctx;
 
     try {
-      ctx.body = await sessionsController.removeUser(sessionId, user.id);
+      ctx.body = await sessionsController.removeUser(
+        ctx.params.sessionId,
+        user.id,
+      );
       ctx.status = 200;
     } catch (error) {
       const requestError = error as RequestError;

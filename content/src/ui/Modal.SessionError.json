@@ -1,8 +1,8 @@
 {
   "en": {
     "description": "The session you're looking for is not available anymore.",
-    "descriptionUserRemoved": "You have been removed from this session by the host.",
-    "infoRemoved": "You won't be able to rejoin it.",
+    "descriptionEjected": "You have been removed from this session by the host.",
+    "infoEjected": "You won't be able to rejoin it.",
     "codeOfConductInfo": "Read our code of conduct ",
     "codeOfConductHere": "here",
     "codeOfConductLink": "",
@@ -14,8 +14,8 @@
   },
   "sv": {
     "description": "Sessionen du letar efter finns inte längre.",
-    "descriptionUserRemoved": "Du har blivit borttagen från sessionen av värden.",
-    "infoRemoved": "Du kommer inte kunna gå med igen.",
+    "descriptionEjected": "Du har blivit borttagen från sessionen av värden.",
+    "infoEjected": "Du kommer inte kunna gå med igen.",
     "codeOfConductInfo": "Läs våran uppförandekod ",
     "codeOfConductHere": "här",
     "codeOfConductLink": "",

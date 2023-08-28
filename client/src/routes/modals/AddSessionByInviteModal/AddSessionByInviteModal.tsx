@@ -49,7 +49,7 @@ const AddSessionModal = () => {
             break;
           default:
             goBack();
-            navigate('SessionUnavailableModal');
+            navigate('SessionErrorModal');
             break;
         }
       }

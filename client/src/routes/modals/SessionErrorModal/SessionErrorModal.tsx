@@ -31,10 +31,9 @@ const LinkText = styled(Body16)({
   textDecorationLine: 'underline',
 });
 
-const SessionUnavailableModal = () => {
-  const {params} =
-    useRoute<RouteProp<ModalStackProps, 'SessionUnavailableModal'>>();
-  const {t} = useTranslation('Modal.SessionUnavailable');
+const SessionErrorModal = () => {
+  const {params} = useRoute<RouteProp<ModalStackProps, 'SessionErrorModal'>>();
+  const {t} = useTranslation('Modal.SessionError');
 
   const linkPress = useCallback(() => {
     linking.openURL(t('codeOfConductLink'));
@@ -44,12 +43,12 @@ const SessionUnavailableModal = () => {
     <SheetModal>
       <Gutters big>
         <ModalHeading>
-          {params?.userRemoved ? t('descriptionUserRemoved') : t('description')}
+          {params?.hasEjected ? t('descriptionEjected') : t('description')}
         </ModalHeading>
-        {params?.userRemoved && (
+        {params?.hasEjected && (
           <InfoWrapper>
             <Spacer16 />
-            <Body16>{t('infoRemoved')}</Body16>
+            <Body16>{t('infoEjected')}</Body16>
             <Spacer16 />
             <LinkWrapper>
               <Body16>{t('codeOfConductInfo')}</Body16>
@@ -68,4 +67,4 @@ const SessionUnavailableModal = () => {
   );
 };
 
-export default SessionUnavailableModal;
+export default SessionErrorModal;

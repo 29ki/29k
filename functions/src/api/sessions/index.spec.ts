@@ -546,24 +546,14 @@ describe('/api/sessions', () => {
     });
   });
 
-  describe('PUT /removeMyself', () => {
+  describe('PUT /:sessionId/removeMyself', () => {
     it('should remove user', async () => {
       mockRemoveUser.mockResolvedValueOnce({});
       const response = await request(mockServer)
-        .put('/sessions/removeMyself')
-        .send({sessionId: 'some-session-id'})
+        .put('/sessions/some-session-id/removeMyself')
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(200);
-    });
-
-    it('should fail on invalid fields', async () => {
-      const response = await request(mockServer)
-        .put('/sessions/removeMyself')
-        .send({invalidField: 12345})
-        .set('Accept', 'application/json');
-
-      expect(response.status).toBe(500);
     });
 
     it('should fail when session is not found', async () => {
@@ -572,8 +562,7 @@ describe('/api/sessions', () => {
       );
 
       const response = await request(mockServer)
-        .put('/sessions/removeMyself')
-        .send({sessionId: 'some-session-id'})
+        .put('/sessions/some-session-id/removeMyself')
         .set('Accept', 'application/json');
 
       expect(response.status).toBe(404);

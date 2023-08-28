@@ -25,11 +25,11 @@ const useHandleLeaveLiveSession = (session: LiveSessionType) => {
   const errorBannerContext = useContext(ErrorBannerContext);
   const {leaveSessionWithConfirm, leaveSession} = useLeaveSession(session);
   const hasFailed = useDailyState(state => state.hasFailed);
-  const isEjected = useDailyState(state => state.isEjected);
+  const hasEjected = useDailyState(state => state.hasEjected);
   const resetHasFailed = useDailyState(state => state.resetHasFailed);
   const user = useUser();
 
-  usePreventGoingBack(leaveSessionWithConfirm, hasFailed, isEjected);
+  usePreventGoingBack(leaveSessionWithConfirm, hasFailed, hasEjected);
 
   const rejoinMeeting = useCallback(async () => {
     await leaveMeeting();
@@ -44,12 +44,12 @@ const useHandleLeaveLiveSession = (session: LiveSessionType) => {
   const ejectFromMeeting = useCallback(async () => {
     if (user?.uid) {
       await leaveSession(true);
-      navigate('SessionUnavailableModal', {userRemoved: true});
+      navigate('SessionErrorModal', {hasEjected: true});
     }
   }, [leaveSession, navigate, user?.uid]);
 
   useEffect(() => {
-    if (isEjected) {
+    if (hasEjected) {
       ejectFromMeeting();
     } else if (hasFailed) {
       errorBannerContext?.showError(t('title'), t('message'), {
@@ -62,7 +62,7 @@ const useHandleLeaveLiveSession = (session: LiveSessionType) => {
     }
   }, [
     hasFailed,
-    isEjected,
+    hasEjected,
     errorBannerContext,
     rejoinMeeting,
     ejectFromMeeting,

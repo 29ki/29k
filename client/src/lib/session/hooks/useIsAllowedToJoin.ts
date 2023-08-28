@@ -24,7 +24,7 @@ const useIsAllowedToJoin = () => {
     reset();
     fetchSessions();
     navigate('HomeStack');
-    navigate('SessionUnavailableModal');
+    navigate('SessionErrorModal');
   }, [reset, fetchSessions, navigate]);
 
   return useCallback(
