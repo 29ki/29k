@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on stress and how it shows up in our lives.\n\nWe’ll be doing an audio exercise followed by time for reflection and sharing with each other."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -13,18 +13,26 @@
         ]
       },
       {
-        "type": "content"
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "> Press play to start the audio exercise."
+          }
+        ]
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat did you learn about yourself that can help you where you are now?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "heading": "What did you learn and how can you apply that today?"
+        }
       },
       {
         "type": "sharing",
@@ -39,13 +47,16 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "1"
+        "id": "1",
+        "content": {
+          "text": "What did you learn about yourself? How can you apply it today?"
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Well done. We've just reflected on our own stress reaction. It can be a way to discover our own behavioral patterns, and the first step to change. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nFor the next few days, notice if you skip activities that make you feel good, and try to do it the other way around – prioritize your wellbeing activities."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -54,6 +65,12 @@
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done. We've just reflected on our own stress reaction. It can be a way to discover our own behavioral patterns, and the first step to change. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nFor the next few days, notice if you skip activities that make you feel good, and try to do it the other way around – prioritize your wellbeing activities."
+        }
       }
     ],
     "theme": {
@@ -71,8 +88,13 @@
         }
       ]
     },
+    "tags": [
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "f4f8a536-5683-40a3-a139-5e3031687cec",
-    "async": true
+    "async": true,
+    "description": "Learn how stress works for you, and take the first steps towards a less stressful life."
   },
   "pt": {
     "slides": [
@@ -144,6 +166,10 @@
         }
       ]
     },
+    "tags": [
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "f4f8a536-5683-40a3-a139-5e3031687cec",
     "async": false
   },
@@ -153,10 +179,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Välkommen. Jag heter X och vil kommer att jobba tillsammans i ungefär 30 minuter med fokus på stress och hur den visar sig i våra liv. Vi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med fokus på stress och hur den visar sig i våra liv. Vi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
           },
           {
-            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. Y, skulle du vilja börja?\n\n> Låt alla i deltagare, även du själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång,"
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. Y, skulle du vilja börja?\n\n> Låt alla deltagare, även du själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
           }
         ]
       },
@@ -175,30 +201,36 @@
             "text": "Nästa steg är att tyst reflektera i en minut. \n\nVad lärde du dig om dig själv som kan vara till hjälp i dag?"
           },
           {
-            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara göra mentala anteckningar. Det finns inga rätt eller fel svar här. Vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara göra mentala anteckningar. Det finns inga svar som är rätt eller fel här. Vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
           }
-        ]
+        ],
+        "content": {
+          "text": "Vad lärde du dig som du kan ha nytta av i dag?"
+        }
       },
       {
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler: \n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning, ingen mer hjälp behövs. Vi är här för att utforska våra egna och andras upplevelser."
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler: \n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
           },
           {
-            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp i oss finns inget rätt eller fel. Det bara är. \n\nDet finns en timer på två minuter som hjälp att fördela och hålla tiden. Om du inte vill dela med dig är det bara att säga 'pass'."
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är. \n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
           },
           {
             "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
           }
         ],
-        "id": "1"
+        "id": "1",
+        "content": {
+          "text": "Vad lärde du om dig själv och hur kan du ha nytta av det i dag?"
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Vi har just reflekterat kring vår egen reaktion på stress. Det är ett sätt att upptäcka sina beteendemönster, och första steget för att förändra. \n\nOm du vill så finns det ett uppdrag för dig: Närmaste dagarna, lägg märke till om du plockar bort sådant som får dig att må bra när du blir stressad, och försök göra tvärtom: När du blir stressad - prioritera sånt du mår bra av."
+            "text": "Vi har just reflekterat kring vår egen reaktion på stress. Det är ett sätt att upptäcka sina beteendemönster, och första steget för att förändra. \n\nOm du vill så finns det ett uppdrag för dig: Närmaste dagarna, lägg märke till om du plockar bort sådant som får dig att må bra när du blir stressad, och försök göra tvärtom – prioritera sånt du mår bra av."
           },
           {
             "text": "Innan vi avslutar så gör vi en mini-utcheckning. \n\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord."
@@ -207,6 +239,12 @@
             "text": "Vem vill börja?\n\n> Låt alla checka ut en efter en. \n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen. \n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
           }
         ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Vi har just reflekterat kring vår egen reaktion på stress. Det är ett sätt att upptäcka sina beteendemönster, och första steget för att förändra. \n\nOm du vill så finns det ett uppdrag för dig: Närmaste dagarna, lägg märke till om du plockar bort sådant som får dig att må bra när du blir stressad, och försök göra tvärtom – prioritera sånt du mår bra av."
+        }
       }
     ],
     "theme": {
@@ -224,6 +262,10 @@
         }
       ]
     },
+    "tags": [
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "f4f8a536-5683-40a3-a139-5e3031687cec",
     "async": true,
     "description": "Lär dig hur stress fungerar för dig och ta steg mot en mindre stressig tillvaro."
@@ -298,6 +340,10 @@
         }
       ]
     },
+    "tags": [
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "f4f8a536-5683-40a3-a139-5e3031687cec",
     "async": false
   }
