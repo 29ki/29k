@@ -37,8 +37,7 @@
         {
           "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
         }
-      ],
-      "id": "1"
+      ]
     },
     {
       "type": "host",
@@ -58,7 +57,8 @@
       "type": "instruction",
       "content": {
         "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
-      }
+      },
+      "hostNotes": []
     }
   ],
   "introPortal": {
