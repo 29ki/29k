@@ -44,7 +44,7 @@ const useHandleLeaveLiveSession = (session: LiveSessionType) => {
   const ejectFromMeeting = useCallback(async () => {
     if (user?.uid) {
       await leaveSession(true);
-      navigate('SessionEjectionModal');
+      navigate('SessionUnavailableModal', {userRemoved: true});
     }
   }, [leaveSession, navigate, user?.uid]);
 

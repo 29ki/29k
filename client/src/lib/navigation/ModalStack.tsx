@@ -220,10 +220,6 @@ const ModalStack = () => {
           name={'SessionUnavailableModal'}
           component={SessionUnavailableModal}
         />
-        <Screen
-          name={'SessionEjectionModal'}
-          component={SessionEjectionModal}
-        />
         <Screen name={'ChangeLanguageModal'} component={ChangeLanguageModal} />
         <Screen name={'RemindersModal'} component={RemindersModal} />
         <Screen

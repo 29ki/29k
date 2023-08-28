@@ -58,7 +58,9 @@ describe('useHandleLeaveLiveSession', () => {
 
       expect(mockedLeaveSession).toHaveBeenCalledTimes(1);
       expect(mockedNavigate).toHaveBeenCalledTimes(1);
-      expect(mockedNavigate).toHaveBeenCalledWith('SessionEjectionModal');
+      expect(mockedNavigate).toHaveBeenCalledWith('SessionUnavailableModal', {
+        userRemoved: true,
+      });
     });
   });
 
