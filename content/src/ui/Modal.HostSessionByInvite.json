@@ -8,7 +8,7 @@
   "sv": {
     "description": "{{hostName}} vill att du är värd för denna session istället för dem.",
     "confirm": "Acceptera",
-    "cancel": "Nedgång"
+    "cancel": "Tacka nej"
   },
   "es": {}
 }
