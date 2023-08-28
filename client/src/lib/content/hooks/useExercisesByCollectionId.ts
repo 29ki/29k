@@ -1,6 +1,5 @@
 import {isNotNil} from 'ramda';
 import {useMemo} from 'react';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import useCollectionById from './useCollectionById';
 import useGetExerciseById from './useGetExerciseById';
 import useAppState from '../../appState/state/state';
