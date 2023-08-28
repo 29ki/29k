@@ -7,8 +7,8 @@
   },
   "pt": {},
   "sv": {
-    "title": "Du har inte behörighet att vara värd för sessioner som är öppna för alla att gå med.",
-    "description": "Därför kan du inte acceptera att vara värd för sessionen som {{hostName}} ville överföra till dig.",
+    "title": "Du har inte behörighet att vara värd för sessioner som är öppna för alla.",
+    "description": "Därför kan du inte vara värd för sessionen som {{hostName}} ville överföra till dig.",
     "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1683807355/Images/flowers_slijjk.png",
     "hostNameFallback": "värden"
   },
