@@ -1,7 +1,7 @@
 import {renderHook} from '@testing-library/react-hooks';
 import useExerciseById from './useExerciseById';
 
-const mockT = jest.fn().mockReturnValue('some-exercise');
+const mockT = jest.fn().mockReturnValue({name: 'some-exercise'});
 jest.mock('react-i18next', () => ({
   useTranslation: jest.fn(() => ({
     t: mockT,
@@ -21,7 +21,7 @@ describe('useExerciseById', () => {
       returnObjects: true,
     });
 
-    expect(result.current).toBe('some-exercise');
+    expect(result.current).toEqual({name: 'some-exercise'});
   });
 
   it('returns a translated exercise for a specific language', () => {
@@ -35,7 +35,7 @@ describe('useExerciseById', () => {
       lng: 'sv',
     });
 
-    expect(result.current).toBe('some-exercise');
+    expect(result.current).toEqual({name: 'some-exercise'});
   });
 
   it('returns null when no ID is provided', () => {
