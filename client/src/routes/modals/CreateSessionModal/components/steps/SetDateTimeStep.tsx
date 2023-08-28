@@ -20,7 +20,7 @@ import {
 import {Display24} from '../../../../../lib/components/Typography/Display/Display';
 import useExerciseById from '../../../../../lib/content/hooks/useExerciseById';
 import {LANGUAGE_TAG} from '../../../../../lib/i18n';
-import {ModalStackProps} from '../../../../../lib/navigation/constants/routes';
+import {OverlayStackProps} from '../../../../../lib/navigation/constants/routes';
 import useSessions from '../../../../../lib/sessions/hooks/useSessions';
 import {StepProps} from '../../CreateSessionModal';
 import DateTimePicker from '../../../../../lib/components/DateTimePicker/DateTimePicker';
@@ -56,7 +56,9 @@ const SetDateTimeStep: React.FC<StepProps> = ({
   const {t, i18n} = useTranslation('Modal.CreateSession');
   const {expand, collapse} = useBottomSheet();
   const {goBack, navigate} =
-    useNavigation<NativeStackNavigationProp<ModalStackProps, 'SessionModal'>>();
+    useNavigation<
+      NativeStackNavigationProp<OverlayStackProps, 'SessionOverlay'>
+    >();
   const [isLoading, setIsLoading] = useState(false);
   const [sessionDateTime, setSessionDateTime] = useState<dayjs.Dayjs>(dayjs());
 
@@ -81,7 +83,7 @@ const SetDateTimeStep: React.FC<StepProps> = ({
       setIsLoading(false);
       logSessionMetricEvent('Create Sharing Session', session);
       goBack();
-      navigate('SessionModal', {session});
+      navigate('SessionOverlay', {session});
     }
   }, [
     sessionDateTime,

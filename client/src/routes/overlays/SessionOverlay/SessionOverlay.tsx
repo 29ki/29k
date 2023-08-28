@@ -1,20 +1,16 @@
-import {
-  RouteProp,
-  useIsFocused,
-  useNavigation,
-  useRoute,
-} from '@react-navigation/native';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import dayjs from 'dayjs';
 import React, {Fragment, useCallback, useEffect, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Share, View} from 'react-native';
-import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import styled from 'styled-components/native';
+import {openUrl} from 'react-native-markdown-display';
 
 import {
   ModalStackProps,
   AppStackProps,
+  OverlayStackProps,
 } from '../../../lib/navigation/constants/routes';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -35,7 +31,6 @@ import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
 import Image from '../../../lib/components/Image/Image';
-import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
 import {Heading18} from '../../../lib/components/Typography/Heading/Heading';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
@@ -63,14 +58,19 @@ import {
   Spacer4,
   Spacer8,
 } from '../../../lib/components/Spacers/Spacer';
-import {openUrl} from 'react-native-markdown-display';
+import ActionList from '../../../lib/components/ActionList/ActionList';
+import ActionButton from '../../../lib/components/ActionList/ActionItems/ActionButton';
+import Screen from '../../../lib/components/Screen/Screen';
+import TopBar from '../../../lib/components/TopBar/TopBar';
+import {ScrollView} from 'react-native-gesture-handler';
+import MagicIcon from '../../../lib/components/Icons/Magic/Magic';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
 });
 
 const SpaceBetweenRow = styled(View)({
-  flex: 1,
+  flexGrow: 1,
   flexDirection: 'row',
   justifyContent: 'space-between',
 });
@@ -111,12 +111,12 @@ const Tags = styled(Gutters)({
   marginTop: -SPACINGS.FOUR,
 });
 
-const SessionModal = () => {
+const SessionOverlay = () => {
   const {
     params: {session},
-  } = useRoute<RouteProp<ModalStackProps, 'SessionModal'>>();
+  } = useRoute<RouteProp<OverlayStackProps, 'SessionOverlay'>>();
 
-  const {t} = useTranslation('Modal.Session');
+  const {t} = useTranslation('Overlay.Session');
   const user = useUser();
 
   const initialStartTime = dayjs(session.startTime).utc();
@@ -191,14 +191,17 @@ const SessionModal = () => {
     () => navigation.navigate('AssignNewHostModal', {session}),
     [session, navigation],
   );
+  const howItWorksPress = useCallback(
+    () => navigation.navigate('HowItWorksModal'),
+    [navigation],
+  );
 
   const coCreators = useMemo(
     () => (
       <>
         {exercise?.coCreators?.map(({name, avatar_url, link}, idx) => (
-          <>
+          <View key={`${name}-${idx}`}>
             <Byline
-              key={`${name}-${idx}`}
               small
               prefix={false}
               pictureURL={avatar_url}
@@ -206,7 +209,7 @@ const SessionModal = () => {
               onPress={!link ? undefined : () => openUrl(link)}
             />
             <Spacer4 />
-          </>
+          </View>
         ))}
       </>
     ),
@@ -225,8 +228,14 @@ const SessionModal = () => {
   }
 
   return (
-    <SheetModal backgroundColor={COLORS.CREAM}>
-      <BottomSheetScrollView focusHook={useIsFocused}>
+    <Screen>
+      <Spacer16 />
+      <TopBar
+        onPressClose={navigation.goBack}
+        backgroundColor={COLORS.WHITE}
+        fade
+      />
+      <ScrollView>
         <Spacer16 />
 
         <Content>
@@ -356,6 +365,12 @@ const SessionModal = () => {
               </>
             )}
           </Row>
+          <Spacer24 />
+          <ActionList>
+            <ActionButton Icon={MagicIcon} onPress={howItWorksPress}>
+              {t('howItWorks')}
+            </ActionButton>
+          </ActionList>
           {Boolean(exercise.coCreators?.length) && (
             <View>
               <Spacer24 />
@@ -366,9 +381,9 @@ const SessionModal = () => {
           )}
         </Gutters>
         <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
-      </BottomSheetScrollView>
-    </SheetModal>
+      </ScrollView>
+    </Screen>
   );
 };
 
-export default SessionModal;
+export default SessionOverlay;

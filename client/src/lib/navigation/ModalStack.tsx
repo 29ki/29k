@@ -5,7 +5,6 @@ import {
 } from '@th3rdwave/react-navigation-bottom-sheet';
 
 import {ModalStackProps} from './constants/routes';
-import SessionModal from '../../routes/modals/SessionModal/SessionModal';
 import CompletedSessionModal from '../../routes/modals/CompletedSessionModal/CompletedSessionModal';
 import CreateSessionModal from '../../routes/modals/CreateSessionModal/CreateSessionModal';
 import AddSessionByInviteModal from '../../routes/modals/AddSessionByInviteModal/AddSessionByInviteModal';
@@ -42,6 +41,7 @@ import HostSessionByInviteModal from '../../routes/modals/HostSessionByInviteMod
 import DonateModal from '../../routes/modals/DonateModal/DonateModal';
 import SimpleProfileSettingsModal from '../../routes/modals/SimpleProfileSettingsModal/SimpleProfileSettingsModal';
 import ForgotPasswordModal from '../../routes/modals/ForgotPasswordModal/ForgotPasswordModal';
+import HowItWorksModal from '../../routes/modals/HowItWorksModal/HowItWorksModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -167,11 +167,6 @@ const ModalStack = () => {
 
       <Group screenOptions={sheetModalScreenOptions}>
         <Screen
-          name={'SessionModal'}
-          component={SessionModal}
-          options={tallSheetModalScreenOptions}
-        />
-        <Screen
           name={'AssignNewHostModal'}
           component={AssignNewHostModal}
           options={shortSheetModalScreenOptions}
@@ -235,7 +230,11 @@ const ModalStack = () => {
           component={HostInfoModal}
           options={tallSheetModalScreenOptions}
         />
-
+        <Screen
+          name={'HowItWorksModal'}
+          component={HowItWorksModal}
+          options={tallSheetModalScreenOptions}
+        />
         <Screen name={'ContributorsModal'} component={ContributorsModal} />
         <Screen name={'HostsModal'} component={HostsModal} />
         <Screen name={'PartnersModal'} component={PartnersModal} />
