@@ -18,6 +18,7 @@ import usePreferredLanguage from './lib/i18n/hooks/usePreferredLanguage';
 import {LANGUAGE_TAG} from './lib/i18n';
 import useNotificationsSetup from './lib/notifications/hooks/useNotificationsSetup';
 import useUpdatePracticeReminders from './lib/reminders/hooks/useUpdatePracticeReminders';
+import useLanguageFromRoute from './lib/i18n/hooks/useLanguageFromRoute';
 
 i18nLib.init();
 sentry.init();
@@ -36,6 +37,7 @@ const useInitHidableContent = () => {
 const Bootstrap: React.FC<{children: React.ReactNode}> = ({children}) => {
   useAuthenticateUser();
   usePreferredLanguage();
+  useLanguageFromRoute();
   useNotificationsSetup();
 
   const {i18n} = useTranslation();

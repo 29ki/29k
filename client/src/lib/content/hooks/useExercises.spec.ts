@@ -1,15 +1,15 @@
 import {renderHook} from '@testing-library/react-hooks';
-import useAppState from '../../appState/state/state';
 import useExercises from './useExercises';
+import useGetExerciseById from './useGetExerciseById';
+import useExerciseIds from './useExerciseIds';
 
-jest.mock('./useExerciseIds', () => () => [
-  'some-exercise-id',
-  'some-other-exercise-id',
-]);
+const mockUseExerciseIds = jest.mocked(useExerciseIds);
+jest.mock('./useExerciseIds');
 
+const mockUseGetExerciseById = jest.mocked(useGetExerciseById);
 const mockGetExerciseById = jest.fn();
-
-jest.mock('./useGetExerciseById', () => () => mockGetExerciseById);
+mockUseGetExerciseById.mockReturnValue(mockGetExerciseById);
+jest.mock('./useGetExerciseById');
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -17,6 +17,10 @@ afterEach(() => {
 
 describe('useExercises', () => {
   it('should return exercises sorted by name', () => {
+    mockUseExerciseIds.mockReturnValueOnce([
+      'some-exercise-id',
+      'some-other-exercise-id',
+    ]);
     mockGetExerciseById
       .mockReturnValueOnce({name: 'bbb'})
       .mockReturnValueOnce({name: 'aaa'});
@@ -24,34 +28,18 @@ describe('useExercises', () => {
     const {result} = renderHook(() => useExercises());
 
     expect(mockGetExerciseById).toHaveBeenCalledTimes(2);
-    expect(mockGetExerciseById).toHaveBeenCalledWith('some-exercise-id', 'en');
-    expect(mockGetExerciseById).toHaveBeenCalledWith(
-      'some-other-exercise-id',
-      'en',
-    );
+    expect(mockGetExerciseById).toHaveBeenCalledWith('some-exercise-id');
+    expect(mockGetExerciseById).toHaveBeenCalledWith('some-other-exercise-id');
     expect(result.current).toEqual([{name: 'aaa'}, {name: 'bbb'}]);
   });
 
-  it('should return exercises sorted by name with user preferred language', () => {
-    mockGetExerciseById
-      .mockReturnValueOnce({name: 'bbb'})
-      .mockReturnValueOnce({name: 'aaa'});
-    useAppState.setState({
-      settings: {
-        preferredLanguage: 'sv',
-        showOnboarding: true,
-        showHiddenContent: false,
-      },
-    });
+  it('should return empty list if no exercises', () => {
+    mockUseExerciseIds.mockReturnValueOnce([]);
 
     const {result} = renderHook(() => useExercises());
 
-    expect(mockGetExerciseById).toHaveBeenCalledTimes(2);
-    expect(mockGetExerciseById).toHaveBeenCalledWith('some-exercise-id', 'sv');
-    expect(mockGetExerciseById).toHaveBeenCalledWith(
-      'some-other-exercise-id',
-      'sv',
-    );
-    expect(result.current).toEqual([{name: 'aaa'}, {name: 'bbb'}]);
+    expect(mockGetExerciseById).toHaveBeenCalledTimes(0);
+
+    expect(result.current).toEqual([]);
   });
 });

@@ -10,7 +10,7 @@
       "email": {
         "label": "hello@29k.org",
         "email": "hello@29k.org",
-        "subject": "Hello from the 29k app"
+        "subject": "Hello from the Aware app"
       },
       "www": {
         "label": "29k.org",
@@ -112,7 +112,7 @@
       "email": {
         "label": "hello+sv@29k.org",
         "email": "hello+sv@29k.org",
-        "subject": "Hej från 29k-appen"
+        "subject": "Hej från Aware-appen"
       },
       "www": {
         "label": "29k.org",

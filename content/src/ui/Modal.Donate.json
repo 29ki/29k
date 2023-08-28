@@ -1,23 +1,40 @@
 {
   "en": {
-    "types": {
-      "one-time": "One time",
-      "recurring": "Monthly"
-    },
-    "merchantDisplayName": "Stiftelsen 29k Foundation",
-    "donate": "Donate",
-    "customAmount": "Custom amount",
     "monthlyAmount": "{{amount}} / month",
-    "emailAddress": "Your email address",
-    "thankYou": "Thank you for your donation!",
-    "sendReceipt": "Send receipt",
+    "merchantDisplayName": "Stiftelsen 29k Foundation",
+    "customAmount": "Custom amount",
     "receiptSentTo": "Receipt sent to {{email}}",
     "errors": {
       "generic": "Something went wrong. Please try again later.",
       "invalidEmail": "Invalid email address"
+    },
+    "donate": "Donate",
+    "sendReceipt": "Send receipt",
+    "thankYou": "Thank you for your donation!",
+    "emailAddress": "Your email address",
+    "types": {
+      "one-time": "One time",
+      "recurring": "Monthly"
     }
   },
   "pt": {},
-  "sv": {},
+  "sv": {
+    "monthlyAmount": "{{amount}} / månad",
+    "merchantDisplayName": "Stiftelsen 29k",
+    "customAmount": "Välj belopp",
+    "receiptSentTo": "Kvitto skickat till {{email}}",
+    "errors": {
+      "generic": "Något blev fel. Försök igen senare.",
+      "invalidEmail": "Ogiltig emailadress"
+    },
+    "donate": "Donera",
+    "sendReceipt": "Skicka kvitto",
+    "thankYou": "Tack för ditt bidrag!",
+    "emailAddress": "Din email",
+    "types": {
+      "one-time": "En gång",
+      "recurring": "Varje månad"
+    }
+  },
   "es": {}
 }

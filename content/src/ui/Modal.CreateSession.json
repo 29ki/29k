@@ -1,5 +1,6 @@
 {
   "en": {
+    "shareHeading": "Share session",
     "or": "or",
     "joinByInviteCta": "Join by invite code",
     "profile": {
@@ -7,6 +8,7 @@
     },
     "orJoinUpcoming": "Or join an upcoming session",
     "startCta": "Start",
+    "coCreatorsHeading": "Co-created with",
     "selectType": {
       "live-public": {
         "title": "Anyone"
@@ -18,7 +20,6 @@
         "title": "Myself"
       }
     },
-    "coCreatorsHeading": "Co-created with",
     "noUpcomingSessions": "🌱 No planned sessions.",
     "description": "Do session with…",
     "setDateTime": {
@@ -31,8 +32,7 @@
     },
     "selectContent": {
       "title": "Choose exercise"
-    },
-    "shareHeading": "Share session"
+    }
   },
   "pt": {
     "or": "ou",
@@ -67,13 +67,14 @@
     }
   },
   "sv": {
+    "shareHeading": "Dela session",
     "or": "eller",
     "joinByInviteCta": "Använd kod för att gå med",
     "profile": {
       "text": "För att hålla i sessioner behöver du ett namn och en profilbild."
     },
     "orJoinUpcoming": "Eller gå med i en kommande session",
-    "startCta": "Börja",
+    "startCta": "Starta",
     "selectType": {
       "live-public": {
         "title": "Alla"
@@ -97,8 +98,7 @@
     },
     "selectContent": {
       "title": "Välj övning"
-    },
-    "shareHeading": "Dela session"
+    }
   },
   "es": {}
 }

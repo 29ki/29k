@@ -72,3 +72,4 @@ export * from './Subtitles/Subtitles';
 export * from './Wand/Wand';
 export * from './PlusToCheckAnimated/PlusToCheckAnimated';
 export * from './Collection/Collection';
+export * from './Magic/Magic';

@@ -19,6 +19,7 @@ import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {
   ModalStackProps,
   AppStackProps,
+  OverlayStackProps,
 } from '../../../lib/navigation/constants/routes';
 
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
@@ -98,7 +99,9 @@ const InvitationModal: React.FC<{
   const {fetchSessions} = useSessions();
 
   const navigation =
-    useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
+    useNavigation<
+      NativeStackNavigationProp<AppStackProps & OverlayStackProps>
+    >();
 
   const acceptInvite = useCallback(async () => {
     if (session?.id) {
@@ -110,7 +113,7 @@ const InvitationModal: React.FC<{
 
         fetchSessions();
         navigation.goBack();
-        navigation.navigate('SessionModal', {
+        navigation.navigate('SessionOverlay', {
           session: updatedSession,
         });
       } catch (err) {

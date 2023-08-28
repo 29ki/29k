@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am x and today we will work for around 30 minutes on values and finding our direction in life. We’ll be doing a short introduction, listen to an audio file, followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on present moment awareness.\n\nWe’ll be doing a short meditation followed by time for reflection and sharing with each other."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -14,45 +14,36 @@
       },
       {
         "type": "content",
-        "hostNotes": [
-          {
-            "text": "Sometimes life can pass us by, while we’re busy making other plans. Taking a step back, reflecting on what’s most important for us, can help us find direction."
-          },
-          {
-            "text": "A compass to help us steer in a meaningful direction through life’s ups and downs. The first step on that journey is imagining ourselves in a distant future.\n\n> Press play to start the audio exercise"
-          }
-        ],
         "content": {
-          "video": {
-            "durationTimer": false,
-            "audio": "",
-            "subtitles": ""
-          },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692870284/Audio/Who_are_you_at_90__go41fe.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689602661/SRT%20(captions)%20files/Who_are_you_at_90__to5gcq.srt"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692879791/Audio/Become_present_g8959b.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1692879916/SRT%20(captions)%20files/Three_things_kr66j8.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
           }
-        }
+        },
+        "hostNotes": [
+          {
+            "text": "Nice, now we are ready to listen to this together.\n\n> Press play to start the audio file."
+          }
+        ]
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat insights did you get during the exercise? What simple action can you take towards something important to you, right after this session?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat did you notice about yourself?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
-          "heading": "What insights?",
-          "text": "What simple action?",
+          "text": "What did you notice about yourself?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
-            "duration": 60
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json"
           }
         }
       },
@@ -69,22 +60,21 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
+        "id": "1",
         "content": {
-          "heading": "What insights did you get?",
-          "text": "",
+          "text": "What did you notice about yourself?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json",
             "durationTimer": true,
-            "duration": 120
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json"
           }
-        },
-        "id": "sharing1"
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. We've just imagined ourselves in the future, to see what we can learn from our future selves, right here right now. This can help us identify values, and give us a sense of direction and meaning in life."
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nWhen you feel distracted, practice the 3-2-1-focus with three different senses, and see where that takes you."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -97,30 +87,30 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. We've just imagined ourselves in the future, to see what we can learn from our future selves, right here right now. This can help us identify values, and give us a sense of direction and meaning in life.\n\nAs a mission, decide a simple action you can do today or tomorrow that can take you closer to your values.",
+          "heading": "Well done",
+          "text": "If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nWhen you feel distracted, practice the 3-2-1-focus with three different senses, and see where that takes you.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692965918/Images/asynk_image_become_present_sdnk4j.png"
           }
         }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#ffd788"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#263e54"
     },
-    "hidden": false,
-    "name": "Your 90th birthday",
+    "hidden": true,
+    "name": "Become present",
     "live": true,
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692965918/Images/2card_become_present_zhuz9j.png"
       }
     },
     "socialMeta": {
-      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692897989/Images/card_become_present_s5b47y.png"
     },
-    "coCreators": [],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -129,20 +119,20 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855519/Video/portal1_90th_birthday_sjt1ao.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692855561/Audio/portal_audio_90th_birthday_e9ngzj.mp3"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692965732/Video/2portal1_become_present_a6tjv1.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692898013/Audio/portal_audio_become_present_bgjavz.mp3"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855528/Video/portal2_90th_birthday_cofsf7.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692965720/Video/2portal2_become_present_iddvnq.mp4"
       }
     },
     "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+    "id": "961656ea-021c-4faa-ae03-46d6ace4be4b",
     "async": true,
-    "description": "Visualizing our future can guide us in the present moment by shining a light on what’s important in the long run.\n\nThis can be extra helpful when we’re under pressure, when we tend to be short-sighted and out of touch with what truly matters."
+    "description": "When we're stressed our minds easily wanders off into the future or dwell on past experiences. A more helpful strategy is to be present with what’s right here, right now. This exercise let’s us practice presence using three of our senses."
   },
   "pt": {
     "slides": [
@@ -204,6 +194,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
+    "live": true,
     "published": false,
     "duration": 30,
     "introPortal": {
@@ -214,10 +205,10 @@
       ]
     },
     "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+    "id": "961656ea-021c-4faa-ae03-46d6ace4be4b",
     "async": false
   },
   "sv": {
@@ -226,7 +217,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am x and today we will work for around 30 minutes on values and finding our direction in life. We’ll be doing a short introduction, listen to an audio file, followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -234,48 +225,18 @@
         ]
       },
       {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Sometimes life can pass us by, while we’re busy making other plans. Taking a step back, reflecting on what’s most important for us, can help us find direction."
-          },
-          {
-            "text": "A compass to help us steer in a meaningful direction through life’s ups and downs. The first step on that journey is imagining ourselves in a distant future.\n\n> Press play to start the audio exercise"
-          }
-        ],
-        "content": {
-          "video": {
-            "durationTimer": false,
-            "audio": "",
-            "subtitles": ""
-          },
-          "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692871675/Audio/Na%CC%88r_du_a%CC%88r_90_qzfbgy.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1692871689/SRT%20(captions)%20files/Na%CC%88r_du_a%CC%88r_90_pdmpd9.srt"
-          }
-        }
+        "type": "content"
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat insights did you get during the exercise? What simple action can you take towards something important to you, right after this session?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ],
-        "content": {
-          "heading": "What insights?",
-          "text": "What simple action?",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
-            "durationTimer": true,
-            "duration": 60
-          }
-        }
+        ]
       },
       {
         "type": "sharing",
@@ -289,23 +250,13 @@
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
-        ],
-        "content": {
-          "heading": "What insights?",
-          "text": "What simple action?",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json",
-            "durationTimer": true,
-            "duration": 120
-          }
-        },
-        "id": "sharing1"
+        ]
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. We've just imagined ourselves in the future, to see what we can learn from our future selves, right here right now. This can help us identify values, and give us a sense of direction and meaning in life."
+            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -317,44 +268,25 @@
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#ffd788"
+      "textColor": "#2AE2D7"
     },
-    "hidden": true,
-    "name": "Your 90th birthday",
+    "hidden": false,
     "live": true,
-    "published": true,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
-      }
-    },
-    "socialMeta": {
-      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
-    },
-    "coCreators": [],
+    "published": false,
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855519/Video/portal1_90th_birthday_sjt1ao.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692855561/Audio/portal_audio_90th_birthday_e9ngzj.mp3"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855528/Video/portal2_90th_birthday_cofsf7.mp4"
-      }
+      ]
     },
     "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
-    "async": true,
-    "description": "Visualizing our future can guide us in the present moment by shining a light on what’s important in the long run.\n\nThis can be extra helpful when we’re under pressure, when we tend to be short-sighted and out of touch with what truly matters."
+    "id": "961656ea-021c-4faa-ae03-46d6ace4be4b",
+    "async": false
   },
   "es": {
     "slides": [
@@ -416,6 +348,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
+    "live": true,
     "published": false,
     "duration": 30,
     "introPortal": {
@@ -426,10 +359,10 @@
       ]
     },
     "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+    "id": "961656ea-021c-4faa-ae03-46d6ace4be4b",
     "async": false
   }
 }

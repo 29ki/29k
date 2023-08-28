@@ -34,20 +34,22 @@ const SessionParamsSchema = yup.object({
 
 sessionsRouter.get(
   '/',
-  validation({response: yup.array().of(LiveSessionSchema)}),
+  validation({
+    query: yup.object({
+      exerciseId: yup.string(),
+      hostId: yup.string(),
+      limit: yup.number().positive().integer(),
+    }),
+    response: yup.array().of(LiveSessionSchema),
+  }),
   async ctx => {
-    const {response, user, query} = ctx;
-    const exerciseId =
-      typeof query.exerciseId === 'string' ? query.exerciseId : undefined;
-    const hostId = typeof query.hostId === 'string' ? query.hostId : undefined;
-    const lmt = Number(query.limit);
-    const limit = typeof lmt === 'number' && lmt > 0 ? lmt : undefined;
+    const {response, user, request} = ctx;
 
     const sessions = await sessionsController.getSessionsByUserId(
       user.id,
-      exerciseId,
-      hostId,
-      limit,
+      request.query.exerciseId,
+      request.query.hostId,
+      request.query.limit,
     );
 
     response.status = 200;
