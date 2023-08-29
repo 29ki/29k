@@ -18,7 +18,14 @@
           {
             "text": "> Press play to start the audio exercise."
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "durationTimer": true,
+            "duration": "",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -31,7 +38,12 @@
           }
         ],
         "content": {
-          "heading": "What did you learn and how can you apply that today?"
+          "heading": "What did you learn and how can you apply that today?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -49,7 +61,12 @@
         ],
         "id": "1",
         "content": {
-          "text": "What did you learn about yourself? How can you apply it today?"
+          "text": "What did you learn about yourself? How can you apply it today?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
         }
       },
       {
@@ -74,19 +91,35 @@
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#89ddf1"
     },
     "hidden": true,
     "name": "You on stress",
     "live": true,
     "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313331/Images/card_image_new_on_stress_zzmmvx.png"
+      }
+    },
+    "socialMeta": {
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313331/Images/card_image_new_on_stress_zzmmvx.png"
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1693313465/Video/portal1_new_on_stress_bffu5e.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693313422/Audio/portal_audio_new_on_stress_g7xozy.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1693313456/Video/portal2_new_on_stress_u9seti.mp4"
+      }
     },
     "tags": [
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
