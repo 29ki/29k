@@ -1081,23 +1081,10 @@
     lru_map "^0.3.3"
     tslib "^2.4.1 || ^1.9.3"
 
-"@sentry/types@7.63.0":
-  version "7.63.0"
-  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.63.0.tgz#8032029fee6f70e04b667646626a674b03e2f79b"
-  integrity sha512-pZNwJVW7RqNLGuTUAhoygt0c9zmc0js10eANAz0MstygJRhQI1tqPDuiELVdujPrbeL+IFKF+7NvRDAydR2Niw==
-
 "@sentry/types@7.64.0":
   version "7.64.0"
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.64.0.tgz#21fc545ea05c3c8c4c3e518583eca1a8c5429506"
   integrity sha512-LqjQprWXjUFRmzIlUjyA+KL+38elgIYmAeoDrdyNVh8MK5IC1W2Lh1Q87b4yOiZeMiIhIVNBd7Ecoh2rodGrGA==
-
-"@sentry/utils@7.63.0":
-  version "7.63.0"
-  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-7.63.0.tgz#7c598553b4dbb6e3740dc96bc7f112ec32edbe69"
-  integrity sha512-7FQv1RYAwnuTuarruP+1+Jd6YQuN7i/Y7KltwPMVEwU7j5mzYQaexLr/Jz1XIdR2KYVdkbXQyP8jj8BmA6u9Jw==
-  dependencies:
-    "@sentry/types" "7.63.0"
-    tslib "^2.4.1 || ^1.9.3"
 
 "@sentry/utils@7.64.0":
   version "7.64.0"
@@ -8747,10 +8734,10 @@ strip-json-comments@~2.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha512-4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ==
 
-stripe@^13.2.0:
-  version "13.2.0"
-  resolved "https://registry.yarnpkg.com/stripe/-/stripe-13.2.0.tgz#feb10555d55c871188b0e9bc9bdf0f8e52c42e5d"
-  integrity sha512-4a2UHpe/tyxP3sxSGhuKMgbW8hQnqSQIPMigXC8kW3P0+BpsITpKDP+xxriTMDkRAP0xTQwzxcqhfqB+/404Mg==
+stripe@^13.3.0:
+  version "13.3.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-13.3.0.tgz#da52e53a3bbf22e5e06f652cf074618ed8cf421f"
+  integrity sha512-saDZBvk8fCBz9GigKpVXAaAo0K+TQe+DwVmucAzpJq503Y44P2ehMqulfaRoK8a+etuwIUlgsXD+am6YSMxepg==
   dependencies:
     "@types/node" ">=8.1.0"
     qs "^6.11.0"
