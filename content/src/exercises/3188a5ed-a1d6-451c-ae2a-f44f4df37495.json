@@ -292,10 +292,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on dealing with stressful situations. We’ll be doing a short introduction, listen to a meditation exercise, followed by reflection and then finally sharing."
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med att pausa från vardagsstressen.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. Y, skulle du vilja börja?\n\n> Låt alla deltagare, även du själv, checka in en och en.\n\nTack för att ni checkade in. Då kör vi igång."
           }
         ],
         "video": {
@@ -307,10 +307,10 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "When we're stressed, our perceived expectations often exceed our resources. This can lead to a feeling of being overwhelmed, with thoughts and feelings spinning round and round in our heads and bodies."
+            "text": "När vi är stressade räcker våra resurser inte till för att hanter de krav och förväntningar vi upplever. Det kan göra att vi känner oss överväldigade, med känslor och tankar som snurrar runt runt."
           },
           {
-            "text": "In this meditation, we'll practice taking a break from the spinning wheel and gaining some distance from our thoughts. This can help us gain perspective, relax, and change our priorities.\n\n> Press play to start the meditation."
+            "text": "I den här meditationen tränar vi på att ta en paus från snurrandet och skapa lite distans till våra tankar. Det kan hjälpa oss att få perspektiv, slappna av och ändra vad vi prioriterar. \n\n>  Tryck på play för att starta övningen."
           }
         ],
         "content": {
@@ -327,14 +327,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat did you notice as you changed focus to the short to do-list?"
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad lade du märke till när du bytte fokus till den korta listan?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här. Vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
           }
         ],
         "content": {
-          "heading": "What did you notice?",
+          "heading": "Vad lade du märke till?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/timer_1min_Drop_all_requirements_dahizb.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer1min_drop_all_requirements_qebhbc.png",
@@ -346,17 +346,17 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for  2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "**3. Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
           }
         ],
         "content": {
-          "heading": "What did you notice?",
+          "heading": "Vad lade du märke till när du bytte fokus till den korta listan?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1674383225/Video/meditation_2_Drop_all_requirements_jeizf0.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer2min_drop_all_requirements_hzwrlc.png",
@@ -369,16 +369,13 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life."
+            "text": "Bra jobbat. Om du vill så får dedut ett uppdrag: I stressiga perioder är återhämtning det viktigaste. Vi kan ge oss själva lite omtanke och få perspektiv genom att ta ett steg tillbaka och bara andas, minst en gång om dagen den här veckan."
           },
           {
-            "text": "In stressful periods recovery is key. Let’s give ourselves some care and gain perspective by taking a step back and take a breathing break at least once a day for the coming week."
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning. \n\nVad tar du med dig från den här övnignen till resten av den här dagen? Svara med två-tre ord."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nWhat will you bring for the rest of your day from this? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Vem vill börja?\n\n> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
           }
         ],
         "video": {
@@ -401,8 +398,8 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#d56245"
     },
-    "hidden": false,
-    "name": "Drop all requirements",
+    "hidden": true,
+    "name": "Släpp alla krav",
     "live": true,
     "published": true,
     "card": {
@@ -433,7 +430,7 @@
     "link": "https://aware.29k.org/drop-all-requirements",
     "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
     "async": true,
-    "description": "Guided meditation for a mindful break during busy days. Re-focusing and grounding ourselves can help reduce stress, reprioritize and give our minds a refreshing break."
+    "description": "När vi är stressade snurrar tankar och känslor ofta snabbt inuti huvudet och kroppen. I den här övningen tränar vi på att få en paus i vardagsstressen. Det kan hjälpa oss att minska stress, omvärdera och fylla på reserverna igen."
   },
   "es": {
     "slides": [
