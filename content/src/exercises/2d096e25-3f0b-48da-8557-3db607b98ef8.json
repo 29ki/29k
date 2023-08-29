@@ -18,7 +18,13 @@
           {
             "text": "> Press play to start the audio exercise."
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -31,7 +37,16 @@
           }
         ],
         "content": {
-          "text": "With regular recovery, what would be different in your life?"
+          "text": "With regular recovery, what would be different in your life?",
+          "video": {
+            "durationTimer": false,
+            "description": ""
+          },
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -49,7 +64,12 @@
         ],
         "id": "1",
         "content": {
-          "text": "With regular recovery, what would be different in your life?"
+          "text": "With regular recovery, what would be different in your life?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
         }
       },
       {
@@ -74,19 +94,35 @@
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#d1d3cc"
     },
-    "hidden": false,
+    "hidden": true,
     "name": "Your recovery routine",
     "live": true,
-    "published": false,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
+      }
+    },
+    "socialMeta": {
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1693313487/Video/portal1_your_recovery_routine_hfbbb5.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693313411/Audio/portal_audio_your_recovery_routine_b1nukb.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1693313475/Video/portal2_your_recovery_routine_ctnnsu.mp4"
+      }
     },
     "tags": [
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
