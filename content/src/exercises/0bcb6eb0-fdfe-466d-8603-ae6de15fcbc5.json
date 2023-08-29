@@ -314,6 +314,15 @@
             "text": "Vem vill börja?\n\n> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
           }
         ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
+          },
+          "text": "Bra jobbat.\n\nVi har just föreställt oss oss själva i framtiden, för att se vad vi kan lära oss av våra framtida jag här och nu. Det kan hjälpa oss att få syn på vad som är viktigt i längden, och ge en kompassriktning i livet."
+        }
       }
     ],
     "theme": {
