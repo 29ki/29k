@@ -57,8 +57,7 @@
       "type": "instruction",
       "content": {
         "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
-      },
-      "hostNotes": []
+      }
     }
   ],
   "introPortal": {
