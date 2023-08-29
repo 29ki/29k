@@ -17,6 +17,10 @@ const {Navigator, Screen} = createStackNavigator<OverlayStackProps>();
 const screenOptions: StackNavigationOptions = {
   headerShown: false,
   presentation: 'modal',
+};
+
+const overlayOptions: StackNavigationOptions = {
+  ...screenOptions,
   cardStyle: Platform.select({
     ios: {
       borderTopLeftRadius: SETTINGS.BORDER_RADIUS.CARDS,
@@ -28,13 +32,26 @@ const screenOptions: StackNavigationOptions = {
 const OverlayStack = () => (
   <Navigator screenOptions={screenOptions} detachInactiveScreens={false}>
     <Screen name="App" component={AppStack} />
-    <Screen name="AboutOverlay" component={AboutOverlay} />
-    <Screen name="AboutEditorialOverlay" component={AboutEditorialOverlay} />
+    <Screen
+      name="AboutOverlay"
+      component={AboutOverlay}
+      options={overlayOptions}
+    />
+    <Screen
+      name="AboutEditorialOverlay"
+      component={AboutEditorialOverlay}
+      options={overlayOptions}
+    />
     <Screen
       name="CommunityEditorialOverlay"
       component={CommunityEditorialOverlay}
+      options={overlayOptions}
     />
-    <Screen name="SessionOverlay" component={SessionOverlay} />
+    <Screen
+      name="SessionOverlay"
+      component={SessionOverlay}
+      options={overlayOptions}
+    />
   </Navigator>
 );
 
