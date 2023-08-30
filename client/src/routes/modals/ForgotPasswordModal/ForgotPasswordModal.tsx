@@ -57,7 +57,7 @@ const ForgotPasswordModal = () => {
   return (
     <SheetModal>
       <Gutters>
-        <ModalHeading>{t('resetTitle')}</ModalHeading>
+        <ModalHeading>{t('title')}</ModalHeading>
         <Spacer24 />
         {showResetSent ? (
           <>
