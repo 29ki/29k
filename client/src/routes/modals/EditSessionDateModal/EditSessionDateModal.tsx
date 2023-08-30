@@ -19,7 +19,8 @@ import SheetModal from '../../../lib/components/Modals/SheetModal';
 
 import {
   ModalStackProps,
-  AppStackProps,
+  OverlayStackProps,
+  HomeStackProps,
 } from '../../../lib/navigation/constants/routes';
 
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
@@ -53,7 +54,7 @@ const EditSessionDateModal = () => {
 
   const [session, setSession] = useState<LiveSessionType>(initialSessionData);
 
-  const {t} = useTranslation('Modal.Session');
+  const {t} = useTranslation('Modal.EditSessionDate');
   const user = useUser();
   const {deleteSession, fetchSessions} = useSessions();
 
@@ -62,7 +63,9 @@ const EditSessionDateModal = () => {
     useState<dayjs.Dayjs>(initialStartTime);
 
   const navigation =
-    useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
+    useNavigation<
+      NativeStackNavigationProp<HomeStackProps & OverlayStackProps>
+    >();
 
   const exercise = useExerciseById(session?.exerciseId, session?.language);
 
@@ -79,7 +82,7 @@ const EditSessionDateModal = () => {
 
         onPress: async () => {
           await deleteSession(session.id);
-          navigation.popToTop();
+          navigation.navigate('Home');
         },
       },
     ]);
@@ -92,7 +95,7 @@ const EditSessionDateModal = () => {
 
     await setSession(updatedSession);
     fetchSessions();
-    navigation.goBack();
+    navigation.navigate('SessionOverlay', {session: updatedSession});
   }, [setSession, fetchSessions, session.id, sessionDateTime, navigation]);
 
   const onChange = useCallback(

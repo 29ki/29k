@@ -1,77 +1,20 @@
 {
   "en": {
-    "done": "Save",
-    "interested": "Interested",
     "join": "Join",
-    "edit": "Edit",
-    "delete": {
-      "header": "Delete session?",
-      "text": "Are you sure you want to delete the session?",
-      "buttons": {
-        "cancel": "Cancel",
-        "confirm": "Delete"
-      }
-    },
-    "journeyButton": "My journey",
     "buttonsHeading": "Add to My journey, calendar or share session",
-    "deleteButton": "Delete session",
     "coCreatorsHeading": "Co-created with",
-    "howItWorks": "How it works"
+    "howItWorks": "How it works",
+    "journeyButton": "My journey"
   },
   "pt": {
-    "edit": "Alterar",
-    "done": "Terminar",
-    "deleteButton": "Remover sessão",
-    "delete": {
-      "header": "Remover sessão?",
-      "text": "Tens a certeza que queres remover a sessão?",
-      "buttons": {
-        "cancel": "Cancelar",
-        "confirm": "Remover"
-      }
-    },
-    "join": "Participar",
-    "selectType": {
-      "title": "Sessão com...",
-      "public": {
-        "title": "Outras pessoas"
-      },
-      "private": {
-        "title": "Os meus amigos"
-      },
-      "async": {
-        "title": "Comigo"
-      }
-    }
+    "join": "Participar"
   },
   "sv": {
-    "done": "Klar",
-    "interested": "Intresserad",
     "join": "Gå med",
-    "edit": "Ändra",
-    "delete": {
-      "header": "Ta bort session?",
-      "text": "Är du säker på att du vill ta bort sessionen?",
-      "buttons": {
-        "cancel": "Avbryt",
-        "confirm": "Ta bort"
-      }
-    },
     "journeyButton": "Min resa",
-    "selectType": {
-      "title": "Session för...",
-      "public": {
-        "title": "Alla"
-      },
-      "private": {
-        "title": "Mina vänner"
-      },
-      "async": {
-        "title": "Mig själv"
-      }
-    },
     "buttonsHeading": "Lägg till i min resa, kalender eller dela sessionen",
-    "deleteButton": "Ta bort session"
+    "deleteButton": "Ta bort session",
+    "coCreatorsHeading": "Samskapat med"
   },
   "es": {}
 }
