@@ -257,7 +257,7 @@
           }
         ],
         "content": {
-          "text": "Med regelbunden återhämtning, vad skulle vara annorlunda?",
+          "text": "",
           "video": {
             "durationTimer": false,
             "description": ""
@@ -266,7 +266,8 @@
             "durationTimer": true,
             "duration": 60,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json"
-          }
+          },
+          "heading": "Med regelbunden återhämtning, vad skulle vara annorlunda?"
         }
       },
       {
@@ -284,12 +285,13 @@
         ],
         "id": "1",
         "content": {
-          "text": "Med regelbunden återhämtning, vad skulle vara annorlunda?",
+          "text": "",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
-          }
+          },
+          "heading": "Med regelbunden återhämtning, vad skulle vara annorlunda?"
         }
       },
       {
@@ -309,7 +311,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Bra jobbat.\n\nStress i sig är inte farligt – men brist på återhämtning är det. Genom att regelbundet prioritera sådant som laddar våra batterier bygger vi upp våra resurser och kan hantera påfrestningar bättre."
+          "text": "Bra jobbat.\n\nStress i sig är inte farligt – men brist på återhämtning är det. Genom att regelbundet prioritera sådant som laddar våra batterier bygger vi upp våra resurser och kan hantera påfrestningar bättre.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
+          }
         }
       }
     ],
@@ -317,7 +322,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#d1d3cc"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Din återhämtningrutin",
     "live": true,
     "published": true,
@@ -333,7 +338,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Starta sessionen när du är redo att köra igång"
         }
       ],
       "videoLoop": {
