@@ -62,12 +62,13 @@
         ],
         "id": "1",
         "content": {
-          "text": "What did you notice about yourself?",
+          "text": "",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json"
-          }
+          },
+          "heading": "What did you notice about yourself?"
         }
       },
       {
