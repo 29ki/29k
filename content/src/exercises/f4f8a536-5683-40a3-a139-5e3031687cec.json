@@ -212,10 +212,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med fokus på stress och hur den visar sig i våra liv. Vi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+            "text": "Välkommen. Jag heter X och vil kommer att jobba tillsammans i ungefär 30 minuter med fokus på stress och hur den visar sig i våra liv. Vi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
           },
           {
-            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. Y, skulle du vilja börja?\n\n> Låt alla deltagare, även du själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. Y, skulle du vilja börja?\n\n> Låt alla i deltagare, även du själv, checka in en och en.\n\nTack för att ni checkade in. Då kör vi igång,"
           }
         ]
       },
@@ -223,15 +223,16 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "> Tryck på play för att starta ljud-övningen."
+            "text": "> Tryck på play för att starta ljudfilen."
           }
         ],
         "content": {
           "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693470439/Audio/Du_och_stress_o7kf2u.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1693470472/SRT%20(captions)%20files/Du_och_stress_huemkl.srt",
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+            "duration": "",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693513039/Audio/Du_och_stress_qo0aer.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1693513093/SRT%20(captions)%20files/Du_och_stress_chxbkm.srt"
           }
         }
       },
@@ -239,15 +240,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Nästa steg är att tyst reflektera i en minut. \n\nVad lärde du dig om dig själv som kan vara till hjälp i dag?"
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad lärde du dig om dig själv som kan vara till hjälp i dag?"
           },
           {
-            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här. Vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara göra mentala anteckningar. Det finns inga rätt eller fel svar här. Vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
           }
         ],
         "content": {
-          "text": "",
-          "heading": "Vad lärde du dig som du kan ha nytta av i dag?",
+          "heading": "Vad lärde du dig om dig själv som kan vara till hjälp idag?",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
@@ -259,59 +259,77 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler: \n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+            "text": "Det här steget handlar om att dela våra erfarenheter med varandra. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning, ingen mer hjälp behövs här. Vi är här för att utforska våra egna och andras upplevelser."
           },
           {
-            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är. \n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp i oss finns inget rätt eller fel. Det bara är.\n\nVi har en timer som visar två minuter som hjälp att fördela tiden. Om du inte vill dela med dig är det bara att säga 'pass'."
           },
           {
-            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+            "text": "Vem vill börja? \n\n> Låt alla (eller så många du har tid för) dela med sig en och en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket."
           }
         ],
         "id": "1",
         "content": {
-          "text": "Vad lärde du om dig själv och hur kan du ha nytta av det i dag?",
+          "text": "",
           "lottie": {
             "durationTimer": true,
+            "duration": 120,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
-          }
+          },
+          "heading": "Vad lärde du dig om dig själv som kan vara till hjälp idag?"
         }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Vi har just reflekterat kring vår egen reaktion på stress. Det är ett sätt att upptäcka sina beteendemönster, och första steget för att förändra. \n\nOm du vill så finns det ett uppdrag för dig: Närmaste dagarna, lägg märke till om du plockar bort sådant som får dig att må bra när du blir stressad, och försök göra tvärtom – prioritera sånt du mår bra av."
+            "text": "Bra jobbat.\n\nVi har just reflekterat kring vår egen reaktion på stress. Det är ett sätt att upptäcka sina beteendemönster, och första steget för att förändra.\n\nFör att fortsätta träna, lägg märke till när du hoppar över sådant som får dig att må bra och prova att göra tvärtom – prioritera dina återhämtande aktiviteter."
           },
           {
-            "text": "Innan vi avslutar så gör vi en mini-utcheckning. \n\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord."
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\n\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord."
           },
           {
-            "text": "Vem vill börja?\n\n> Låt alla checka ut en efter en. \n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen. \n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+            "text": "Vem vill börja?\n\n> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Vi har just reflekterat kring vår egen reaktion på stress. Det är ett sätt att upptäcka sina beteendemönster, och första steget för att förändra. \n\nOm du vill så finns det ett uppdrag för dig: Närmaste dagarna, lägg märke till om du plockar bort sådant som får dig att må bra när du blir stressad, och försök göra tvärtom – prioritera sånt du mår bra av."
+          "text": "Bra jobbat.\n\nVi har just reflekterat kring vår egen reaktion på stress. Det är ett sätt att upptäcka sina beteendemönster, och första steget för att förändra.\n\nFör att fortsätta träna, lägg märke till när du hoppar över sådant som får dig att må bra och prova att göra tvärtom – prioritera dina återhämtande aktiviteter."
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#89ddf1"
     },
     "hidden": true,
     "name": "Du och stress",
     "live": true,
     "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313331/Images/card_image_new_on_stress_zzmmvx.png"
+      }
+    },
+    "socialMeta": {
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313331/Images/card_image_new_on_stress_zzmmvx.png"
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Starta sessionen när du är redo att köra igång"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1693313465/Video/portal1_new_on_stress_bffu5e.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693313422/Audio/portal_audio_new_on_stress_g7xozy.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1693313456/Video/portal2_new_on_stress_u9seti.mp4"
+      }
     },
     "tags": [
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
