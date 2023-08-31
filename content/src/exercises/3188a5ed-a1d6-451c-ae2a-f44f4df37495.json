@@ -398,7 +398,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#d56245"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Släpp alla krav",
     "live": true,
     "published": true,
