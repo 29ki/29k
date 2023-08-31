@@ -193,7 +193,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#378d88"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Dyk i",
     "published": true,
     "card": {
