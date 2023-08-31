@@ -86,7 +86,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. We've just reflected on our own stress reaction. It can be a way to discover our own behavioral patterns, and the first step to change. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nFor the next few days, notice if you skip activities that make you feel good, and try to do it the other way around – prioritize your wellbeing activities."
+          "text": "Well done. We've just reflected on our own stress reaction. It can be a way to discover our own behavioral patterns, and the first step to change. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nFor the next few days, notice if you skip activities that make you feel good, and try to do it the other way around – prioritize your wellbeing activities.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313331/Images/card_image_new_on_stress_zzmmvx.png"
+          }
         }
       }
     ],
@@ -296,7 +299,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Bra jobbat.\n\nVi har just reflekterat kring vår egen reaktion på stress. Det är ett sätt att upptäcka sina beteendemönster, och första steget för att förändra.\n\nFör att fortsätta träna, lägg märke till när du hoppar över sådant som får dig att må bra och prova att göra tvärtom – prioritera dina återhämtande aktiviteter."
+          "text": "Bra jobbat.\n\nVi har just reflekterat kring vår egen reaktion på stress. Det är ett sätt att upptäcka sina beteendemönster, och första steget för att förändra.\n\nFör att fortsätta träna, lägg märke till när du hoppar över sådant som får dig att må bra och prova att göra tvärtom – prioritera dina återhämtande aktiviteter.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313331/Images/card_image_new_on_stress_zzmmvx.png"
+          }
         }
       }
     ],
@@ -304,7 +310,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#89ddf1"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Du och stress",
     "live": true,
     "published": true,
