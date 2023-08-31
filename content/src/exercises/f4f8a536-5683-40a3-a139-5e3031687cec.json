@@ -225,7 +225,13 @@
           {
             "text": "> Tryck på play för att starta ljud-övningen."
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693470439/Audio/Du_och_stress_o7kf2u.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1693470472/SRT%20(captions)%20files/Du_och_stress_huemkl.srt"
+          }
+        }
       },
       {
         "type": "reflection",
