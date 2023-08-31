@@ -100,7 +100,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#263e54"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Become present",
     "live": true,
     "published": true,
