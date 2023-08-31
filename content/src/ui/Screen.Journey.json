@@ -21,6 +21,16 @@
     "totalSessions": "Sessões Totais",
     "meaninfulSessions": "Sessões com Significado"
   },
-  "sv": {},
+  "sv": {
+    "headings": {
+      "completed": "Avklarade",
+      "collections": "Samlingar",
+      "planned": "Planerade sessioner"
+    },
+    "fallback": "🌱 Du har just börjat din resa",
+    "meaninfulSessions": "Meningsfulla sessioner",
+    "totalSessions": "Sessioner totalt",
+    "hostedSessions": "Värd-sessioner"
+  },
   "es": {}
 }
