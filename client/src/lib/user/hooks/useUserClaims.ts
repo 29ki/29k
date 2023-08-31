@@ -1,10 +1,15 @@
 import {equals} from 'ramda';
 import {useCallback} from 'react';
+import {useStoreWithEqualityFn} from 'zustand/traditional';
 import auth from '@react-native-firebase/auth';
 import useUserState from '../state/state';
 
 const useUserClaims = () => {
-  const claims = useUserState(state => state.claims, equals);
+  const claims = useStoreWithEqualityFn(
+    useUserState,
+    state => state.claims,
+    equals,
+  );
   const setClaims = useUserState(state => state.setClaims);
 
   const updateUserClaims = useCallback(
