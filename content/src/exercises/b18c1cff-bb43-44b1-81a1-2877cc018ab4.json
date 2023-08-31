@@ -379,8 +379,8 @@
       {
         "type": "instruction",
         "content": {
-          "heading": "Well done",
-          "text": "Fint. Om du vill fortsätta träna så är ett förslag att de närmaste tre dagarna ta några minuter varje dag där du stannar upp och landar i nuet med hjälp av din andning. Det kan vara ett sätt att stärka din motståndskraft mot påfrestningar i livet.",
+          "heading": "",
+          "text": "Fint. \n\nOm du vill fortsätta träna så kan du ta några minuter varje dag de närmaste tre dagarna, och bli närvarande i nuet med hjälp av din andning. Det kan vara ett sätt att stärka motståndskraft mot påfrestningar i livet.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678973954/Images/card_image_breathing_anchor_vibuvl.png"
           }
@@ -404,7 +404,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Starta sessionen när du är redo att köra igång"
         }
       ],
       "videoLoop": {
