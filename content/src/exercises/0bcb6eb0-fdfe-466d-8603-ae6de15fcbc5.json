@@ -329,7 +329,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#ffd788"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "90-årsdagen",
     "live": true,
     "published": true,
