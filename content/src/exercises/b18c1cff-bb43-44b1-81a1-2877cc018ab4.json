@@ -391,7 +391,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f0c7d1"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Andningsankaret",
     "live": true,
     "published": true,
