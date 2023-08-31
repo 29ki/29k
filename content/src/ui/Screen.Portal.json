@@ -28,14 +28,15 @@
   "sv": {
     "participants": "Vi är",
     "startSession": "Starta session",
-    "sessionStarted": "Session är igång",
+    "sessionStarted": "Sessionen är igång",
     "skipPortal": "Skippa portal",
     "counterLabel": {
       "startsIn": "Startar om ",
       "starts": "Startar",
       "shortly": "Strax",
       "started": "Nu"
-    }
+    },
+    "leavePortal": "Lämna"
   },
   "es": {}
 }
