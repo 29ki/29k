@@ -237,7 +237,7 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Ibland kan det vara som att livet pågår medan vi gör andra planer. Att ta ett steg tillbaka ch reflektera över vad som är viktigt för oss på riktigt, kan hjälpa oss att hitta en riktning."
+            "text": "Ibland kan det kännas som att livet pågår medan vi gör andra planer. Att ta ett steg tillbaka och reflektera över vad som är viktigt för oss på riktigt, kan hjälpa oss att hitta en riktning."
           },
           {
             "text": "En kompass som kan hjälpa oss navigera både när allt flyter på och när livet är svårare. Det första steget är att fantisera om sig själv i framtiden. \n\n> Tryck på play för att starta ljudövningen."
@@ -261,7 +261,7 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad upptäckte du under övningen? Vad kan du göra för beteende direkt, som är viktigt för dig?"
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad upptäckte du under övningen? Vilket beteende som är viktigt för dig, kan du göra nu direkt?"
           },
           {
             "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här. Vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
@@ -346,7 +346,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Starta sessionen när du är redo att köra igång"
         }
       ],
       "videoLoop": {
