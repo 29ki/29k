@@ -37,7 +37,7 @@
   },
   "sv": {
     "published": true,
-    "hidden": true,
+    "hidden": false,
     "id": "8cb72f0d-3aad-4fe6-bf08-560b108bb439",
     "name": "Hantera skolstress och må bättre",
     "description": "Lär dig hantera stressiga situationer och samtidigt ta hand om dig själv.",
