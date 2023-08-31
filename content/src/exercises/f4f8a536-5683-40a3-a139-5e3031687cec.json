@@ -229,7 +229,9 @@
         "content": {
           "lottie": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693470439/Audio/Du_och_stress_o7kf2u.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1693470472/SRT%20(captions)%20files/Du_och_stress_huemkl.srt"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1693470472/SRT%20(captions)%20files/Du_och_stress_huemkl.srt",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
         }
       },
@@ -245,7 +247,12 @@
         ],
         "content": {
           "text": "",
-          "heading": "Vad lärde du dig som du kan ha nytta av i dag?"
+          "heading": "Vad lärde du dig som du kan ha nytta av i dag?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -263,7 +270,11 @@
         ],
         "id": "1",
         "content": {
-          "text": "Vad lärde du om dig själv och hur kan du ha nytta av det i dag?"
+          "text": "Vad lärde du om dig själv och hur kan du ha nytta av det i dag?",
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
         }
       },
       {
