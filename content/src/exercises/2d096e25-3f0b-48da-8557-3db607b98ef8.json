@@ -23,8 +23,8 @@
           "lottie": {
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693511007/Audio/Your_recovery_routine_hunkip.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1693511091/SRT%20(captions)%20files/Your_recovery_routine_gzm8jw.srt"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693555276/Audio/Your_recovery_routine_mt8i6r.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1693555313/SRT%20(captions)%20files/Your_recovery_routine_tca8yd.srt"
           }
         }
       },
@@ -93,7 +93,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nRemember we're built to handle stress – as long as we get recovery in between. Regularly prioritizing the things that build our resources help us tackle the challenges we face in life."
+          "text": "Well done.\n\nRemember we're built to handle stress – as long as we get recovery in between. Regularly prioritizing the things that build our resources help us tackle the challenges we face in life.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
+          }
         }
       }
     ],
