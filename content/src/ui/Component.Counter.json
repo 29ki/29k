@@ -6,7 +6,7 @@
     "inMinutes": "{{minutes}}m {{seconds}}s"
   },
   "sv": {
-    "inMinutes": "{{minuter}}m {{sekunder}}s"
+    "inMinutes": "{{minutes}}m {{seconds}}s"
   },
   "es": {}
 }
