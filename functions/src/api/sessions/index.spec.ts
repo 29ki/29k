@@ -26,6 +26,7 @@ const mockUpdateInterestedCount =
 const mockUpdateSessionState =
   sessionsController.updateSessionState as jest.Mock;
 const mockJoinSession = sessionsController.joinSession as jest.Mock;
+const mockRemoveUser = sessionsController.removeUser as jest.Mock;
 const mockGetSessionToken = sessionsController.getSessionToken as jest.Mock;
 const mockGetSession = sessionsController.getSession as jest.Mock;
 const mockGetSessionByHostingCode =
@@ -512,6 +513,30 @@ describe('/api/sessions', () => {
           index: 1,
         },
       );
+    });
+  });
+
+  describe('PUT /:sessionId/removeMyself', () => {
+    it('should remove user', async () => {
+      mockRemoveUser.mockResolvedValueOnce({});
+      const response = await request(mockServer)
+        .put('/sessions/some-session-id/removeMyself')
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(200);
+    });
+
+    it('should fail when session is not found', async () => {
+      mockRemoveUser.mockRejectedValueOnce(
+        new RequestError(ValidateSessionError.notFound),
+      );
+
+      const response = await request(mockServer)
+        .put('/sessions/some-session-id/removeMyself')
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(404);
+      expect(response.text).toBe(ValidateSessionError.notFound);
     });
   });
 

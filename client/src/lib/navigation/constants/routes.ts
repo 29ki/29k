@@ -80,7 +80,7 @@ export type ModalStackProps = {
     videoSource?: string;
     subtitles?: string;
   };
-  SessionUnavailableModal: undefined;
+  SessionErrorModal: {hasEjected?: boolean} | undefined;
   AddSessionByInviteModal?: {inviteCode?: number};
   CreateSessionModal: {exerciseId?: Exercise['id']};
   UpgradeAccountModal?: undefined;

@@ -1,6 +1,8 @@
 import {equals} from 'ramda';
-import useUserState from '../state/state';
+import {useStoreWithEqualityFn} from 'zustand/traditional';
+import userState from '../state/state';
 
-const useUser = () => useUserState(state => state.user, equals);
+const useUser = () =>
+  useStoreWithEqualityFn(userState, state => state.user, equals);
 
 export default useUser;

@@ -9,7 +9,13 @@
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
     ],
     "exercises": [
-      "1a53e633-6916-4fea-a072-977c4b215288"
+      "1a53e633-6916-4fea-a072-977c4b215288",
+      "f4f8a536-5683-40a3-a139-5e3031687cec",
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "2d096e25-3f0b-48da-8557-3db607b98ef8",
+      "961656ea-021c-4faa-ae03-46d6ace4be4b",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ]
   },
   "pt": {
@@ -20,12 +26,18 @@
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
     ],
     "exercises": [
-      "1a53e633-6916-4fea-a072-977c4b215288"
+      "1a53e633-6916-4fea-a072-977c4b215288",
+      "f4f8a536-5683-40a3-a139-5e3031687cec",
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "2d096e25-3f0b-48da-8557-3db607b98ef8",
+      "961656ea-021c-4faa-ae03-46d6ace4be4b",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ]
   },
   "sv": {
     "published": true,
-    "hidden": true,
+    "hidden": false,
     "id": "8cb72f0d-3aad-4fe6-bf08-560b108bb439",
     "name": "Hantera skolstress och må bättre",
     "description": "Lär dig hantera stressiga situationer och samtidigt ta hand om dig själv.",
@@ -33,8 +45,17 @@
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
     ],
     "exercises": [
-      "1a53e633-6916-4fea-a072-977c4b215288"
-    ]
+      "1a53e633-6916-4fea-a072-977c4b215288",
+      "f4f8a536-5683-40a3-a139-5e3031687cec",
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "2d096e25-3f0b-48da-8557-3db607b98ef8",
+      "961656ea-021c-4faa-ae03-46d6ace4be4b",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
+    ],
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669209703/Images/session-unavailable_eb9tjk.png"
+    }
   },
   "es": {
     "published": false,
@@ -44,7 +65,13 @@
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
     ],
     "exercises": [
-      "1a53e633-6916-4fea-a072-977c4b215288"
+      "1a53e633-6916-4fea-a072-977c4b215288",
+      "f4f8a536-5683-40a3-a139-5e3031687cec",
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "2d096e25-3f0b-48da-8557-3db607b98ef8",
+      "961656ea-021c-4faa-ae03-46d6ace4be4b",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ]
   }
 }

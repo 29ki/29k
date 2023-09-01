@@ -51,6 +51,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const resetState = useDailyState(state => state.reset);
   const setParticipant = useDailyState(state => state.setParticipant);
   const setHasFailed = useDailyState(state => state.setHasFailed);
+  const setHasEjected = useDailyState(state => state.setHasEjected);
   const removeParticipant = useDailyState(state => state.removeParticipant);
   const setParticipantsSortOrder = useDailyState(
     state => state.setParticipantsSortOrder,
@@ -82,12 +83,16 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
       setParticipantsSortOrder(peerId);
     };
 
-    const onError = (errorEvent: DailyEventObject<'error'>) => {
+    const onError = async (errorEvent: DailyEventObject<'error'>) => {
       //Seems we only get here when it has totally failed
-      setHasFailed();
-      Sentry.captureException(
-        new Error('Error from Daily', {cause: errorEvent.errorMsg}),
-      );
+      if (errorEvent.error.type === 'ejected') {
+        setHasEjected();
+      } else {
+        setHasFailed();
+        Sentry.captureException(
+          new Error('Error from Daily', {cause: errorEvent.errorMsg}),
+        );
+      }
     };
 
     return [
@@ -103,6 +108,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     removeParticipant,
     setParticipantsSortOrder,
     setHasFailed,
+    setHasEjected,
   ]);
 
   const leaveMeeting = useCallback(async () => {

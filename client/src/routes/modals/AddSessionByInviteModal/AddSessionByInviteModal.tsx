@@ -29,7 +29,7 @@ const AddSessionModal = () => {
     useRoute<RouteProp<ModalStackProps, 'AddSessionByInviteModal'>>();
   const {fetchSessions} = useSessions();
   const {goBack, navigate} = useNavigation<
-    NativeStackNavigationProp<ModalStackProps, 'SessionUnavailableModal'> &
+    NativeStackNavigationProp<ModalStackProps, 'SessionErrorModal'> &
       NativeStackNavigationProp<OverlayStackProps, 'SessionOverlay'>
   >();
   const [errorString, setErrorString] = useState<string | null>(null);
@@ -54,7 +54,7 @@ const AddSessionModal = () => {
             break;
           default:
             goBack();
-            navigate('SessionUnavailableModal');
+            navigate('SessionErrorModal');
             break;
         }
       }
