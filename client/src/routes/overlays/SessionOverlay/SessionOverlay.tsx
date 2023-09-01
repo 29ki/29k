@@ -34,7 +34,7 @@ import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
 import Image from '../../../lib/components/Image/Image';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
 import {Heading18} from '../../../lib/components/Typography/Heading/Heading';
-import {Body14, Body16} from '../../../lib/components/Typography/Body/Body';
+import {Body16} from '../../../lib/components/Typography/Body/Body';
 import Byline from '../../../lib/components/Bylines/Byline';
 import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTimeBadge';
 import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
@@ -257,7 +257,7 @@ const SessionOverlay = () => {
         <Spacer16 />
 
         <Content>
-          {count && (
+          {count && count.positive > 0 && (
             <CenteredRow>
               <FeedbackThumb />
               <FeedbackCount>{count.positive}</FeedbackCount>
