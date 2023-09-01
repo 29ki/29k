@@ -65,20 +65,36 @@ import Screen from '../../../lib/components/Screen/Screen';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import {ScrollView} from 'react-native-gesture-handler';
 import MagicIcon from '../../../lib/components/Icons/Magic/Magic';
+import {ThumbsUp} from '../../../lib/components/Thumbs/Thumbs';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
 });
 
-const SpaceBetweenRow = styled(View)({
+const SpaceBetweenRow = styled.View({
   flexGrow: 1,
   flexDirection: 'row',
   justifyContent: 'space-between',
 });
 
-const Row = styled(View)({
+const Row = styled.View({
   flexDirection: 'row',
   alignItems: 'flex-end',
+});
+
+const CenteredRow = styled.View({
+  flexDirection: 'row',
+  alignItems: 'center',
+});
+
+const FeedbackThumb = styled(ThumbsUp)({
+  marginLeft: -12,
+  width: 48,
+  height: 48,
+});
+
+const FeedbackCount = styled(Body16)({
+  marginLeft: -8,
 });
 
 const TitleContainer = styled.View({
@@ -241,7 +257,12 @@ const SessionOverlay = () => {
         <Spacer16 />
 
         <Content>
-          {count && <Body14>{JSON.stringify(count)}</Body14>}
+          {count && (
+            <CenteredRow>
+              <FeedbackThumb />
+              <FeedbackCount>{count.positive}</FeedbackCount>
+            </CenteredRow>
+          )}
           <SpaceBetweenRow>
             <TitleContainer>
               <Display24>{formatContentName(exercise)}</Display24>
