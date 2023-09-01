@@ -1,7 +1,7 @@
 {
   "en": {
     "published": true,
-    "hidden": true,
+    "hidden": false,
     "id": "8cb72f0d-3aad-4fe6-bf08-560b108bb439",
     "name": "Manage stress in school",
     "description": "Learn to tackle stressful situations in school, and take care of yourself in a sustainable way.",
@@ -16,7 +16,10 @@
       "961656ea-021c-4faa-ae03-46d6ace4be4b",
       "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
-    ]
+    ],
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1683807355/Images/flowers_slijjk.png"
+    }
   },
   "pt": {
     "published": false,
@@ -54,7 +57,7 @@
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ],
     "image": {
-      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669209703/Images/session-unavailable_eb9tjk.png"
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683807355/Images/flowers_slijjk.png"
     }
   },
   "es": {
