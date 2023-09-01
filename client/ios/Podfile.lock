@@ -750,7 +750,7 @@ PODS:
     - Libuv-gRPC/Interface (= 0.0.10)
   - Libuv-gRPC/Interface (0.0.10)
   - lottie-ios (4.2.0)
-  - lottie-react-native (6.1.2):
+  - lottie-react-native (6.2.0):
     - lottie-ios (~> 4.2.0)
     - React-Core
   - Mute (0.6.1)
@@ -975,7 +975,7 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.46.0):
+  - react-native-daily-js (0.48.0):
     - React-Core
     - ReactNativeDailyJSScreenShareExtension (= 0.0.1)
   - react-native-get-random-values (1.9.0):
@@ -989,7 +989,7 @@ PODS:
   - react-native-volume-manager (1.10.0):
     - Mute
     - React-Core
-  - react-native-webrtc (111.0.0-daily.1):
+  - react-native-webrtc (111.0.0-daily.2):
     - JitsiWebRTC (~> 111.0.0)
     - React-Core
   - React-perflogger (0.69.9)
@@ -1059,11 +1059,11 @@ PODS:
     - React-logger (= 0.69.9)
     - React-perflogger (= 0.69.9)
   - ReactNativeDailyJSScreenShareExtension (0.0.1)
-  - RNCAsyncStorage (1.19.2):
+  - RNCAsyncStorage (1.19.3):
     - React-Core
   - RNCPicker (2.5.0):
     - React-Core
-  - RNDateTimePicker (7.4.1):
+  - RNDateTimePicker (7.4.2):
     - React-Core
   - RNDeviceInfo (10.8.0):
     - React-Core
@@ -1143,7 +1143,7 @@ PODS:
   - RNSentry (5.9.1):
     - React-Core
     - Sentry/HybridSDK (= 8.10.0)
-  - RNSVG (13.11.0):
+  - RNSVG (13.13.0):
     - React-Core
   - Sentry/HybridSDK (8.10.0):
     - SentryPrivate (= 8.10.0)
@@ -1462,7 +1462,7 @@ SPEC CHECKSUMS:
   leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
   lottie-ios: 809ecf2d460ed650a6aed7aa88b2ec45fab4779c
-  lottie-react-native: 3d6f1b0db1fd9e18b92af1fbfbf67037611bae67
+  lottie-react-native: b04640d81bfc87915cd5c9058caa1112374691ff
   Mute: 20135a96076f140cc82bfc8b810e2d6150d8ec7e
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
@@ -1483,13 +1483,13 @@ SPEC CHECKSUMS:
   React-logger: 96d904c5bc87c2660d48e6a36fb2edf65f9cfb11
   react-native-add-calendar-event: 34ad00f629187cbb97c2f04195e17803b2b3bc5e
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: ddd96b405cb2ad83dbbb3e798d1499b09d9656a9
+  react-native-daily-js: 1c182185571408dd6a85259c4a87efed423bdd68
   react-native-get-random-values: dee677497c6a740b71e5612e8dbd83e7539ed5bb
   react-native-idle-timer: f1920a59fe776340d004ff9de13c4a6eedcc8807
   react-native-netinfo: fefd4e98d75cbdd6e85fc530f7111a8afdf2b0c5
   react-native-safe-area-context: 9697629f7b2cda43cf52169bb7e0767d330648c2
   react-native-volume-manager: 3c7d8047841b6831730dea7bf25250522388b4f4
-  react-native-webrtc: 0886967e365188f8210068f4bc11fe16311c08a0
+  react-native-webrtc: b8f92ed95bff2f8d7189cb544dc647141e6e6dba
   React-perflogger: f6f4b3c63629ead2e8a5a22eaedd06368c31617a
   React-RCTActionSheet: 5e95058e99c53313d778d96b7f37697ce3a9418e
   React-RCTAnimation: c4f86d756d8398c674f61d00075993a368d83480
@@ -1503,9 +1503,9 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: df1518d092e8c74cafddc56690d1ac386ec24d7a
   ReactCommon: fac40473e2c4117522384027ab33ad0cb6717dc5
   ReactNativeDailyJSScreenShareExtension: 70af702672121fcd283d7d567def4e501ce207b1
-  RNCAsyncStorage: f57e929cd7757f2cb3dd8186d123c09e8281a1ad
+  RNCAsyncStorage: c913ede1fa163a71cea118ed4670bbaaa4b511bb
   RNCPicker: 32ca102146bc7d34a8b93a998d9938d9f9ec7898
-  RNDateTimePicker: 9b4091348e53f540180abdc54984d839a556f593
+  RNDateTimePicker: a21bfcc694e3190f8ddb5aacb0dd16f97b6be79f
   RNDeviceInfo: 5795b418ed3451ebcaf39384e6cf51f60cb931c9
   RNFBApp: 55dbfc574e5ae414f2984394934f79f87eb4b050
   RNFBAuth: d30acc0f5f169bc28c7fcbf1b45cd061cc647590
@@ -1521,7 +1521,7 @@ SPEC CHECKSUMS:
   RNReanimated: c6f8f70e96dd6ca21b65aef9b3e4efe4965db905
   RNScreens: b21dc57dfa2b710c30ec600786a3fc223b1b92e7
   RNSentry: 0a1daa8ee81e2776f977ae8c66e67c8d85587828
-  RNSVG: 03e4d258ca355d7836a0a5dd4d4dc63c1eb49cbb
+  RNSVG: ed492aaf3af9ca01bc945f7a149d76d62e73ec82
   Sentry: 71cd4427146ac56eab6e70401ac7a24384c3d3b5
   SentryPrivate: 9334613897c85a9e30f2c9d7a331af8aaa4fe71f
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
