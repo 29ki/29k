@@ -63,11 +63,11 @@
     },
     "maintenance": {
       "image__image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1648213290/KillSwitch%20illustrations/Failed_Illutration_wer2cx.png",
-      "text__markdown": "## Vi genomgår lite av ett ~~underhåll~~\n\nBeklagar oredan. Vi kommer att vara igång igen så snart som möjligt."
+      "text__markdown": "## Vi fixar med lite ~~underhåll~~\n\nBeklagar oredan. Vi kommer att vara igång igen så snart som möjligt."
     },
     "failed": {
       "image__image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1648213290/KillSwitch%20illustrations/Failed_Illutration_wer2cx.png",
-      "text__markdown": "## Något stämmer inte riktigt...\n\n Vi har tekniska problem just nu. Prova igen om en stund."
+      "text__markdown": "## Något stämmer inte...\n\n Vi har tekniska problem just nu. Prova igen om en stund."
     },
     "retry": "Försök igen"
   },
