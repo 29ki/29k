@@ -4,7 +4,7 @@
     "email": "E-mail",
     "password": "Password",
     "signIn": "Sign in",
-    "reset": "Forgot Password?",
+    "reset": "Forgot password?",
     "errors": {
       "auth/invalid-email": "Wrong e-mail and/or password",
       "auth/wrong-password": "Wrong e-mail and/or password",
@@ -30,7 +30,7 @@
     "email": "Email",
     "password": "Lösenord",
     "signIn": "Logga in",
-    "reset": "Glömt Lösenord?",
+    "reset": "Glömt lösenord?",
     "errors": {
       "auth/invalid-email": "Fel email och/eller lösenord",
       "auth/wrong-password": "Fel email och/eller lösenord",
