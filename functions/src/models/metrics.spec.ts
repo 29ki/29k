@@ -17,9 +17,15 @@ import {
   mockGetTransaction,
   mockRunTransaction,
   mockSet,
+  mockWhere,
 } from 'firestore-jest-mock/mocks/firestore';
 import {SessionMode, SessionType} from '../../../shared/src/schemas/Session';
-import {addFeedback, logEvent, setUserProperties} from './metrics';
+import {
+  addFeedback,
+  getFeedbackByExercise,
+  logEvent,
+  setUserProperties,
+} from './metrics';
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -157,6 +163,31 @@ describe('metrics model', () => {
         sessionType: SessionType.public,
         sessionMode: SessionMode.live,
       });
+    });
+  });
+
+  describe('getFeedbackByExercise', () => {
+    it('queries feedback by exercise id only', async () => {
+      await getFeedbackByExercise('exercise-id-123');
+
+      expect(mockCollection).toHaveBeenCalledWith('metricsFeedback');
+      expect(mockWhere).toHaveBeenCalledWith(
+        'exerciseId',
+        '==',
+        'exercise-id-123',
+      );
+    });
+
+    it('queries feedback by exercise id and mode', async () => {
+      await getFeedbackByExercise('exercise-id-123', SessionMode.live);
+
+      expect(mockCollection).toHaveBeenCalledWith('metricsFeedback');
+      expect(mockWhere).toHaveBeenCalledWith(
+        'exerciseId',
+        '==',
+        'exercise-id-123',
+      );
+      expect(mockWhere).toHaveBeenCalledWith('mode', '==', 'live');
     });
   });
 });
