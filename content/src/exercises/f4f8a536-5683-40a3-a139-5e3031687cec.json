@@ -23,7 +23,9 @@
           "lottie": {
             "durationTimer": true,
             "duration": "",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693559096/Audio/You_on_stress_dtvakm.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1693559148/SRT%20(captions)%20files/You_on_stress_c2qsno.srt"
           }
         }
       },
@@ -61,12 +63,13 @@
         ],
         "id": "1",
         "content": {
-          "text": "What did you learn about yourself? How can you apply it today?",
+          "text": "",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
-          }
+          },
+          "heading": "What did you learn and how can you apply that today?"
         }
       },
       {
@@ -97,7 +100,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#89ddf1"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "You on stress",
     "live": true,
     "published": true,
