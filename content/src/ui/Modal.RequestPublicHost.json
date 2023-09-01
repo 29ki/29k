@@ -46,14 +46,14 @@
     "enterCode": "Skriv in din kod",
     "activateButton": "Aktivera inställningar",
     "haveCodeButton": "Jag har en kod",
-    "requestComplete": "Vi har tagit emot din begäran. När den är godkänd får du ett mail med en verifikationskod. ",
+    "requestComplete": "Vi har tagit emot din ansökan. När den är godkänd får du ett mail med en verifikationskod. ",
     "errors": {
-      "verificationNotFound": "Vi kunde inte hitta någon begäran från denna användare.",
-      "verificationDeclined": "Begäran godkändes inte.",
+      "verificationNotFound": "Vi kunde inte hitta någon ansökan från denna användare.",
+      "verificationDeclined": "Ansökan godkändes inte.",
       "verificationAlreadyClaimed": "Koden har redan använts.",
       "verificationFailed": "Ogiltig kod, försök igen."
     },
-    "text": "Du behöver registrera dig för att kunna skapa publika sessioner.",
+    "text": "Ansök om en kod för att kunna skapa sessioner för alla.",
     "requestCodeButton": "Begär kod"
   },
   "es": {}
