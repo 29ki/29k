@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {RouteProp, useRoute} from '@react-navigation/native';
 
 import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
@@ -37,8 +37,12 @@ const OutroPortal: React.FC = () => {
     leaveSession,
   ]);
 
+  const onLeaveSession = useCallback(() => {
+    leaveSession();
+  }, [leaveSession]);
+
   return (
-    <OutroPortalComponent onLeaveSession={leaveSession} exercise={exercise} />
+    <OutroPortalComponent onLeaveSession={onLeaveSession} exercise={exercise} />
   );
 };
 
