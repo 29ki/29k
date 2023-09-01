@@ -26,6 +26,7 @@ import useSessionReminder from '../../../lib/sessions/hooks/useSessionReminder';
 import useLogSessionMetricEvents from '../../../lib/sessions/hooks/useLogSessionMetricEvents';
 import usePinSession from '../../../lib/sessions/hooks/usePinSession';
 import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
+import useExerciseFeedback from '../../../lib/session/hooks/useExerciseFeedback';
 
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -33,7 +34,7 @@ import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
 import Image from '../../../lib/components/Image/Image';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
 import {Heading18} from '../../../lib/components/Typography/Heading/Heading';
-import {Body16} from '../../../lib/components/Typography/Body/Body';
+import {Body14, Body16} from '../../../lib/components/Typography/Body/Body';
 import Byline from '../../../lib/components/Bylines/Byline';
 import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTimeBadge';
 import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
@@ -130,6 +131,7 @@ const SessionOverlay = () => {
   const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session.exerciseId, session.language);
   const tags = useGetSessionCardTags(exercise);
+  const {count} = useExerciseFeedback(session.exerciseId, session.mode);
   const {reminderEnabled, toggleReminder} = useSessionReminder(session);
   const confirmToggleReminder = useConfirmSessionReminder(session);
 
@@ -239,6 +241,7 @@ const SessionOverlay = () => {
         <Spacer16 />
 
         <Content>
+          {count && <Body14>{JSON.stringify(count)}</Body14>}
           <SpaceBetweenRow>
             <TitleContainer>
               <Display24>{formatContentName(exercise)}</Display24>
