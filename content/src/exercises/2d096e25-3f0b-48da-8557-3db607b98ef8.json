@@ -104,7 +104,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#d1d3cc"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Your recovery routine",
     "live": true,
     "published": true,
