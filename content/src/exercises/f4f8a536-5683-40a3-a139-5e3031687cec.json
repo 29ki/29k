@@ -69,7 +69,7 @@
             "duration": 120,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
           },
-          "heading": "What did you learn about yourself? How can you apply it today?"
+          "heading": "What did you learn and how can you apply that today?"
         }
       },
       {
@@ -100,7 +100,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#89ddf1"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "You on stress",
     "live": true,
     "published": true,
