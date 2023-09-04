@@ -84,6 +84,6 @@ export const getFeedbackByExercise = async (
     query = query.where('mode', '==', mode);
   }
 
-  const snapshot = await query.get();
+  const snapshot = await query.orderBy('createdAt', 'desc').get();
   return snapshot.docs.map(getData<Feedback>);
 };
