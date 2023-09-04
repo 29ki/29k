@@ -187,7 +187,7 @@ describe('metrics model', () => {
         '==',
         'exercise-id-123',
       );
-      expect(mockWhere).toHaveBeenCalledWith('mode', '==', 'live');
+      expect(mockWhere).toHaveBeenCalledWith('sessionMode', '==', 'live');
     });
   });
 });
