@@ -64,7 +64,7 @@ import ActionButton from '../../../lib/components/ActionList/ActionItems/ActionB
 import Screen from '../../../lib/components/Screen/Screen';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MagicIcon from '../../../lib/components/Icons/Magic/Magic';
-import {ThumbsUp} from '../../../lib/components/Thumbs/Thumbs';
+import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
 import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
 
 const Content = styled(Gutters)({
@@ -86,18 +86,13 @@ const RatingContainer = styled(Gutters)({
   flexDirection: 'row',
   alignItems: 'center',
   position: 'absolute',
-  top: 6.5,
+  top: 18,
   zIndex: 2,
 });
 
-const FeedbackThumb = styled(ThumbsUp)({
-  marginLeft: -12,
-  width: 48,
-  height: 48,
-});
-
-const FeedbackCount = styled(Body16)({
-  marginLeft: -8,
+const FeedbackThumb = styled(ThumbsUpWithoutPadding)({
+  width: 24,
+  height: 24,
 });
 
 const TitleContainer = styled.View({
@@ -254,7 +249,8 @@ const SessionOverlay = () => {
       {count && count.positive > 0 && (
         <RatingContainer>
           <FeedbackThumb />
-          <FeedbackCount>{count.positive}</FeedbackCount>
+          <Spacer4 />
+          <Body16>{count.positive}</Body16>
         </RatingContainer>
       )}
       <TopBar

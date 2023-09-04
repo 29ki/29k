@@ -81,7 +81,7 @@ export const getFeedbackByExercise = async (
     .where('exerciseId', '==', exerciseId);
 
   if (mode) {
-    query = query.where('mode', '==', mode);
+    query = query.where('sessionMode', '==', mode);
   }
 
   const snapshot = await query.orderBy('createdAt', 'desc').get();

@@ -3,7 +3,7 @@ import {useCallback, useEffect, useState} from 'react';
 import {getFeedbackCountByExercise} from '../../sessions/api/session';
 import {SessionMode} from '../../../../../shared/src/schemas/Session';
 
-const useExerciseFeedback = (exerciseId: string, mode: SessionMode) => {
+const useExerciseFeedback = (exerciseId?: string, mode?: SessionMode) => {
   const [count, setCount] = useState<{
     positive: number;
     negative: number;
@@ -11,10 +11,14 @@ const useExerciseFeedback = (exerciseId: string, mode: SessionMode) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const fetchFeedbackCountForExercise = useCallback(async () => {
-    setLoading(true);
-    const res = await getFeedbackCountByExercise(exerciseId, mode);
-    setCount(res);
-    setLoading(false);
+    if (exerciseId) {
+      setLoading(true);
+      const res = await getFeedbackCountByExercise(exerciseId, mode);
+      setCount(res);
+      setLoading(false);
+    } else {
+      setCount(null);
+    }
   }, [exerciseId, mode]);
 
   useEffect(() => {
