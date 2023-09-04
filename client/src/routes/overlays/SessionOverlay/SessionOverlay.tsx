@@ -64,10 +64,7 @@ import ActionButton from '../../../lib/components/ActionList/ActionItems/ActionB
 import Screen from '../../../lib/components/Screen/Screen';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MagicIcon from '../../../lib/components/Icons/Magic/Magic';
-import {
-  ThumbsUp,
-  ThumbsUpWithoutPadding,
-} from '../../../lib/components/Thumbs/Thumbs';
+import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
 import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
 
 const Content = styled(Gutters)({
@@ -89,7 +86,7 @@ const RatingContainer = styled(Gutters)({
   flexDirection: 'row',
   alignItems: 'center',
   position: 'absolute',
-  top: 6.5,
+  top: 18,
   zIndex: 2,
 });
 

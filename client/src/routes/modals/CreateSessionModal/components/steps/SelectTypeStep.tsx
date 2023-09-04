@@ -55,10 +55,7 @@ import Tag from '../../../../../lib/components/Tag/Tag';
 import IconButton from '../../../../../lib/components/Buttons/IconButton/IconButton';
 import Byline from '../../../../../lib/components/Bylines/Byline';
 import {openUrl} from 'react-native-markdown-display';
-import {
-  ThumbsUp,
-  ThumbsUpWithoutPadding,
-} from '../../../../../lib/components/Thumbs/Thumbs';
+import {ThumbsUpWithoutPadding} from '../../../../../lib/components/Thumbs/Thumbs';
 import useExerciseFeedback from '../../../../../lib/session/hooks/useExerciseFeedback';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
