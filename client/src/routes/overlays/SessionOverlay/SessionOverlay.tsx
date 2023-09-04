@@ -63,9 +63,9 @@ import ActionList from '../../../lib/components/ActionList/ActionList';
 import ActionButton from '../../../lib/components/ActionList/ActionItems/ActionButton';
 import Screen from '../../../lib/components/Screen/Screen';
 import TopBar from '../../../lib/components/TopBar/TopBar';
-import {ScrollView} from 'react-native-gesture-handler';
 import MagicIcon from '../../../lib/components/Icons/Magic/Magic';
 import {ThumbsUp} from '../../../lib/components/Thumbs/Thumbs';
+import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -82,9 +82,12 @@ const Row = styled.View({
   alignItems: 'flex-end',
 });
 
-const CenteredRow = styled.View({
+const RatingContainer = styled(Gutters)({
   flexDirection: 'row',
   alignItems: 'center',
+  position: 'absolute',
+  top: 6.5,
+  zIndex: 2,
 });
 
 const FeedbackThumb = styled(ThumbsUp)({
@@ -248,21 +251,21 @@ const SessionOverlay = () => {
   return (
     <Screen>
       <Spacer16 />
+      {count && count.positive > 0 && (
+        <RatingContainer>
+          <FeedbackThumb />
+          <FeedbackCount>{count.positive}</FeedbackCount>
+        </RatingContainer>
+      )}
       <TopBar
         onPressClose={navigation.goBack}
         backgroundColor={COLORS.WHITE}
         fade
       />
-      <ScrollView>
-        <Spacer16 />
 
+      <AutoScrollView>
         <Content>
-          {count && count.positive > 0 && (
-            <CenteredRow>
-              <FeedbackThumb />
-              <FeedbackCount>{count.positive}</FeedbackCount>
-            </CenteredRow>
-          )}
+          <Spacer16 />
           <SpaceBetweenRow>
             <TitleContainer>
               <Display24>{formatContentName(exercise)}</Display24>
@@ -405,7 +408,7 @@ const SessionOverlay = () => {
           )}
         </Gutters>
         <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
-      </ScrollView>
+      </AutoScrollView>
     </Screen>
   );
 };
