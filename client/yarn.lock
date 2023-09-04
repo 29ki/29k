@@ -1093,10 +1093,10 @@
     "@types/react-native-background-timer" "^2.0.0"
     react-native-url-polyfill "^1.1.2"
 
-"@daily-co/react-native-webrtc@111.0.0-daily.1":
-  version "111.0.0-daily.1"
-  resolved "https://registry.yarnpkg.com/@daily-co/react-native-webrtc/-/react-native-webrtc-111.0.0-daily.1.tgz#9315be83f50c6d64bc7475f13c0cf7d459c24ec6"
-  integrity sha512-sQRfgQE7a7YM7mZ5AtLgcKWwDtBIqyuWUP49hdRstwTFhodSflwDz0ry3KZ1Hd9n60DmWe/stheoFx0GWXseXw==
+"@daily-co/react-native-webrtc@111.0.0-daily.2":
+  version "111.0.0-daily.2"
+  resolved "https://registry.yarnpkg.com/@daily-co/react-native-webrtc/-/react-native-webrtc-111.0.0-daily.2.tgz#dd5f689bd6c3243cb54560aae2d3c935b613945a"
+  integrity sha512-URm658DkT6dvMocIcfIF2gWobDvX4z0uEJfpanwLNspJnjfX1uYfBUb6CQ051RVY+AQGU278CNsvBKhXrWyghg==
   dependencies:
     "@types/react" "17.0.38"
     "@types/react-native" "0.66.12"
