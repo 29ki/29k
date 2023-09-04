@@ -1,5 +1,7 @@
+import {isNil, reject} from 'ramda';
 import {
   LiveSessionType,
+  SessionMode,
   SessionStateType,
 } from '../../../../../shared/src/schemas/Session';
 import apiClient from '../../apiClient/apiClient';
@@ -210,6 +212,25 @@ export const acceptHostingInvite = async (
       body: JSON.stringify({
         hostingCode,
       }),
+    },
+  );
+
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+
+  return response.json();
+};
+
+export const getFeedbackCountByExercise = async (
+  exerciseId: string,
+  mode: SessionMode,
+): Promise<{positive: number; negative: number}> => {
+  const queryParams = new URLSearchParams(reject(isNil, {mode}));
+  const response = await apiClient(
+    `${SESSIONS_ENDPOINT}/exercises/${exerciseId}/rating?${queryParams}`,
+    {
+      method: 'GET',
     },
   );
 

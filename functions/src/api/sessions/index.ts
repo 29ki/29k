@@ -13,6 +13,7 @@ import {
   UpdateSessionType,
   UpdateSessionSchema,
   RemoveMyselfParamsSchema,
+  SessionMode,
 } from '../../../../shared/src/schemas/Session';
 import {createApiAuthRouter} from '../../lib/routers';
 import restrictAccessToRole from '../lib/restrictAccessToRole';
@@ -25,11 +26,16 @@ import {
 import {RequestError} from '../../controllers/errors/RequestError';
 import {ROLE} from '../../../../shared/src/schemas/User';
 import validation from '../lib/validation';
+import {getFeedbackCountByExercise} from '../../controllers/feedback';
 
 const sessionsRouter = createApiAuthRouter();
 
 const SessionParamsSchema = yup.object({
   id: yup.string().required(),
+});
+
+const ExerciseParamsSchema = yup.object({
+  exerciseId: yup.string().required(),
 });
 
 sessionsRouter.get(
@@ -86,6 +92,27 @@ sessionsRouter.get(
       }
       ctx.message = requestError.code;
     }
+  },
+);
+
+sessionsRouter.get(
+  '/exercises/:exerciseId/rating',
+  validation({
+    params: ExerciseParamsSchema,
+    query: yup.object({
+      mode: yup.string().oneOf([SessionMode.async, SessionMode.live]),
+    }),
+    response: yup.object({
+      positive: yup.number().required(),
+      negative: yup.number().required(),
+    }),
+  }),
+  async ctx => {
+    const {mode} = ctx.request.query;
+    const {exerciseId} = ctx.params;
+    const count = await getFeedbackCountByExercise(exerciseId, mode);
+    ctx.set('Cache-Control', 'max-age=1800');
+    ctx.body = count;
   },
 );
 

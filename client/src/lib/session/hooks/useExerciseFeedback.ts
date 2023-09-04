@@ -1,0 +1,30 @@
+import {useCallback, useEffect, useState} from 'react';
+
+import {getFeedbackCountByExercise} from '../../sessions/api/session';
+import {SessionMode} from '../../../../../shared/src/schemas/Session';
+
+const useExerciseFeedback = (exerciseId: string, mode: SessionMode) => {
+  const [count, setCount] = useState<{
+    positive: number;
+    negative: number;
+  } | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const fetchFeedbackCountForExercise = useCallback(async () => {
+    setLoading(true);
+    const res = await getFeedbackCountByExercise(exerciseId, mode);
+    setCount(res);
+    setLoading(false);
+  }, [exerciseId, mode]);
+
+  useEffect(() => {
+    fetchFeedbackCountForExercise();
+  }, [exerciseId, fetchFeedbackCountForExercise]);
+
+  return {
+    count,
+    loading,
+  };
+};
+
+export default useExerciseFeedback;
