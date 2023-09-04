@@ -1,3 +1,4 @@
+import {isNil, reject} from 'ramda';
 import {
   LiveSessionType,
   SessionMode,
@@ -225,8 +226,9 @@ export const getFeedbackCountByExercise = async (
   exerciseId: string,
   mode: SessionMode,
 ): Promise<{positive: number; negative: number}> => {
+  const queryParams = new URLSearchParams(reject(isNil, {mode}));
   const response = await apiClient(
-    `${SESSIONS_ENDPOINT}/exercise/${exerciseId}/${mode}/feedback/count`,
+    `${SESSIONS_ENDPOINT}/exercises/${exerciseId}/rating?${queryParams}`,
     {
       method: 'GET',
     },

@@ -707,7 +707,7 @@ describe('/api/sessions', () => {
     });
   });
 
-  describe('GET /exercise/:exerciseId/:mode/feedback/count', () => {
+  describe('GET /exercises/:exerciseId/rating', () => {
     it('should return count', async () => {
       mockGetFeedbackCountByExercise.mockResolvedValueOnce({
         positive: 2,
@@ -715,7 +715,7 @@ describe('/api/sessions', () => {
       });
 
       const response = await request(mockServer).get(
-        '/sessions/exercise/1234/live/feedback/count',
+        '/sessions/exercises/1234/rating?mode=live',
       );
 
       expect(mockGetFeedbackCountByExercise).toHaveBeenCalledWith(
@@ -727,12 +727,21 @@ describe('/api/sessions', () => {
     });
 
     it('should return count', async () => {
+      mockGetFeedbackCountByExercise.mockResolvedValueOnce({
+        positive: 2,
+        negative: 0,
+      });
+
       const response = await request(mockServer).get(
-        '/sessions/exercise/1234/invalid-mode/feedback/count',
+        '/sessions/exercises/1234/rating',
       );
 
-      expect(mockGetFeedbackCountByExercise).toHaveBeenCalledTimes(0);
-      expect(response.status).toBe(500);
+      expect(mockGetFeedbackCountByExercise).toHaveBeenCalledWith(
+        '1234',
+        undefined,
+      );
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({positive: 2, negative: 0});
     });
   });
 });

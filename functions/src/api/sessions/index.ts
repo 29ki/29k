@@ -36,7 +36,6 @@ const SessionParamsSchema = yup.object({
 
 const ExerciseParamsSchema = yup.object({
   exerciseId: yup.string().required(),
-  mode: yup.string().oneOf([SessionMode.async, SessionMode.live]).required(),
 });
 
 sessionsRouter.get(
@@ -97,16 +96,20 @@ sessionsRouter.get(
 );
 
 sessionsRouter.get(
-  '/exercise/:exerciseId/:mode/feedback/count',
+  '/exercises/:exerciseId/rating',
   validation({
     params: ExerciseParamsSchema,
+    query: yup.object({
+      mode: yup.string().oneOf([SessionMode.async, SessionMode.live]),
+    }),
     response: yup.object({
       positive: yup.number().required(),
       negative: yup.number().required(),
     }),
   }),
   async ctx => {
-    const {exerciseId, mode} = ctx.params;
+    const {mode} = ctx.request.query;
+    const {exerciseId} = ctx.params;
     const count = await getFeedbackCountByExercise(exerciseId, mode);
     ctx.set('Cache-Control', 'max-age=1800');
     ctx.body = count;
