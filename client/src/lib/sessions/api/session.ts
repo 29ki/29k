@@ -224,7 +224,7 @@ export const acceptHostingInvite = async (
 
 export const getFeedbackCountByExercise = async (
   exerciseId: string,
-  mode: SessionMode,
+  mode?: SessionMode,
 ): Promise<{positive: number; negative: number}> => {
   const queryParams = new URLSearchParams(reject(isNil, {mode}));
   const response = await apiClient(

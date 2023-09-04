@@ -55,6 +55,11 @@ import Tag from '../../../../../lib/components/Tag/Tag';
 import IconButton from '../../../../../lib/components/Buttons/IconButton/IconButton';
 import Byline from '../../../../../lib/components/Bylines/Byline';
 import {openUrl} from 'react-native-markdown-display';
+import {
+  ThumbsUp,
+  ThumbsUpWithoutPadding,
+} from '../../../../../lib/components/Thumbs/Thumbs';
+import useExerciseFeedback from '../../../../../lib/session/hooks/useExerciseFeedback';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -113,6 +118,16 @@ const LogoWrapper = styled.View({
   height: 80,
 });
 
+const RatingContainer = styled.View({
+  flexDirection: 'row',
+  alignItems: 'center',
+});
+
+const FeedbackThumb = styled(ThumbsUpWithoutPadding)({
+  width: 24,
+  height: 24,
+});
+
 const TypeItem: React.FC<{
   Icon: React.ReactNode;
   label: string;
@@ -155,6 +170,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
   const startSession = useStartAsyncSession();
   const [sessions, setSessions] = useState<Array<LiveSessionType>>([]);
   const [isLoadingSessions, setIsLoadingSessions] = useState(false);
+  const {count} = useExerciseFeedback(selectedExercise);
 
   const exercise = useMemo(
     () => (selectedExercise ? getExerciseById(selectedExercise) : null),
@@ -344,6 +360,13 @@ const SelectTypeStep: React.FC<StepProps> = ({
             <Gutters>
               <SpaceBetweenRow>
                 <TextWrapper>
+                  {count && count.positive && (
+                    <RatingContainer>
+                      <FeedbackThumb />
+                      <Spacer4 />
+                      <Body16>{count.positive}</Body16>
+                    </RatingContainer>
+                  )}
                   <Display24>{formatContentName(exercise)}</Display24>
                 </TextWrapper>
                 <Spacer16 />
