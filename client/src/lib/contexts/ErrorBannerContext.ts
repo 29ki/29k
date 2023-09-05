@@ -12,6 +12,7 @@ export type ErrorBannerContextProps = {
     options?: {
       actionConfig?: ActionConfig;
       disableAutoClose?: boolean;
+      onClose?: () => void;
     },
   ) => void;
 };

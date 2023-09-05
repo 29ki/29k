@@ -11,25 +11,56 @@ const useApiClient = () => {
       init?: RequestInit | undefined,
       authenticate?: boolean,
       showErrorBanner?: boolean,
-    ) => {
-      const request = () => apiClient(input, init, authenticate);
-      try {
+      disableRetry?: boolean,
+    ) =>
+      new Promise(async (resolve, reject) => {
+        const request = async () => {
+          try {
+            const response = await apiClient(input, init, authenticate);
+
+            if (!response.ok) {
+              throw new Error(await response.text());
+            }
+
+            resolve(response);
+          } catch (error) {
+            if (
+              showErrorBanner ||
+              (showErrorBanner === undefined &&
+                ['POST', 'PUT', 'PATCH', 'DELETE'].includes(
+                  init?.method?.toUpperCase() || '',
+                ))
+            ) {
+              errorBannerContext?.showError(
+                'Error',
+                'Something went wrong',
+                !disableRetry
+                  ? {
+                      disableAutoClose: true,
+                      actionConfig: {
+                        text: 'Retry',
+                        action: request,
+                      },
+                      onClose: () => {
+                        reject(error);
+                      },
+                    }
+                  : undefined,
+              );
+            } else {
+              reject(error);
+              return;
+            }
+
+            if (disableRetry) {
+              reject(error);
+              return;
+            }
+          }
+        };
+
         return await request();
-      } catch (error) {
-        if (
-          showErrorBanner ||
-          (showErrorBanner === undefined &&
-            ['POST', 'PUT', 'PATCH', 'DELETE'].includes(
-              init?.method?.toUpperCase() || '',
-            ))
-        ) {
-          errorBannerContext?.showError('Error', 'Something went wrong', {
-            actionConfig: {text: 'Retry', action: request},
-          });
-        }
-        throw error;
-      }
-    },
+      }),
     [errorBannerContext],
   );
 

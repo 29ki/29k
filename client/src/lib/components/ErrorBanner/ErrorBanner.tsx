@@ -21,6 +21,7 @@ import {Heading16} from '../Typography/Heading/Heading';
 import Button from '../Buttons/Button';
 import {CloseIcon} from '../Icons';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
+import SETTINGS from '../../constants/settings';
 
 const Container = styled(Animated.View)<{top: number; hasAction?: boolean}>(
   ({top, hasAction}) => ({
@@ -35,6 +36,7 @@ const Container = styled(Animated.View)<{top: number; hasAction?: boolean}>(
     justifyContent: 'space-between',
     alignItems: hasAction ? 'center' : undefined,
     backgroundColor: 'rgba(244, 191, 183, 1)',
+    ...SETTINGS.BOXSHADOW,
   }),
 );
 
@@ -54,6 +56,8 @@ const Right = styled.View<{hasAction?: boolean}>(({hasAction}) => ({
 const Lottie = styled(LottiePlayer)({
   width: 44,
   height: 44,
+  marginTop: -4,
+  marginBottom: -4,
   marginRight: SPACINGS.SIXTEEN,
 });
 
@@ -75,48 +79,59 @@ const ErrorBanner: React.FC<{children: React.ReactNode}> = ({children}) => {
   const [actionConfig, setActionComponent] = useState<ActionConfig | undefined>(
     undefined,
   );
-  const [autoClose, setAutoClose] = useState<boolean | undefined>(undefined);
+  const [autoClose, setAutoClose] = useState<boolean | undefined>();
+  const [onCloseCallback, setOnCloseCallback] = useState(() => () => {});
 
-  const onShowError = useCallback(
+  const showError = useCallback(
     (
       hdr: string,
       msg: string,
-      options?: {actionConfig?: ActionConfig; disableAutoClose?: boolean},
+      options?: {
+        actionConfig?: ActionConfig;
+        disableAutoClose?: boolean;
+        onClose?: () => void;
+      },
     ) => {
       setHeader(hdr);
       setMessage(msg);
       setActionComponent(options?.actionConfig);
       setAutoClose(options?.disableAutoClose ? false : true);
+      setOnCloseCallback(() => options?.onClose ?? (() => {}));
     },
     [],
   );
 
-  const onClose = useCallback(() => {
+  const reset = useCallback(() => {
     setHeader('');
     setMessage('');
     setActionComponent(undefined);
     setAutoClose(undefined);
   }, []);
 
+  const onClose = useCallback(() => {
+    onCloseCallback();
+    reset();
+  }, [onCloseCallback, reset]);
+
   const onAction = useCallback(() => {
     if (actionConfig?.action) {
       actionConfig.action();
     }
-    onClose();
-  }, [actionConfig, onClose]);
+    reset();
+  }, [actionConfig, reset]);
 
   const contextValue = useMemo(() => {
-    return {showError: onShowError};
-  }, [onShowError]);
+    return {showError};
+  }, [showError]);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout | undefined;
     if (autoClose === true) {
-      timeout = setTimeout(onClose, 5000);
+      timeout = setTimeout(reset, 5000);
     }
 
     return () => clearTimeout(timeout);
-  }, [autoClose, onClose]);
+  }, [autoClose, reset]);
 
   const swipeUpGesture = useMemo(
     () => Gesture.Fling().direction(Directions.UP).onEnd(onClose),
