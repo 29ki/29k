@@ -220,8 +220,7 @@
       "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1665413335/Contributors/Emil%20Rondahl.jpg",
       "profile": "https://github.com/swemail",
       "contributions": [
-        "code",
-        "coreTeam"
+        "code"
       ]
     },
     {
@@ -231,8 +230,7 @@
       "profile": "http://kajsaunge.se",
       "contributions": [
         "code",
-        "design",
-        "coreTeam"
+        "design"
       ]
     },
     {
@@ -362,7 +360,7 @@
     {
       "name": "Biola Kadiri Fischer",
       "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1665413928/Contributors/Biola%20Kadiri%20Fischer.png",
-      "profile": "https://www.linkedin.com/in/thorarinnjohannsson/",
+      "profile": "https://www.linkedin.com/in/biolakadiri/",
       "contributions": [
         "design"
       ]
