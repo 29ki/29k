@@ -9,7 +9,7 @@ import {SPACINGS} from '../../../lib/constants/spacings';
 
 import useUser from '../../../lib/user/hooks/useUser';
 
-import {submitReport} from '../../../lib/report/api/report';
+import useReportApi from '../../../lib/report/hooks/useReportApi';
 
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import {Spacer16, Spacer8} from '../../../lib/components/Spacers/Spacer';
@@ -46,21 +46,30 @@ const ButtonWrapper = styled.View({
 
 const ReportModal = () => {
   const {t} = useTranslation('Modal.Report');
+  const reportApi = useReportApi();
   const user = useUser();
   const [text, setText] = useState<string>();
   const [email, setEmail] = useState<string>();
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
 
   const {
     params: {originScreen},
   } = useRoute<RouteProp<ModalStackProps, 'ReportModal'>>();
 
-  const onSubmit = useCallback(() => {
+  const onSubmit = useCallback(async () => {
     if (text?.length) {
-      submitReport({text, email, screen: originScreen});
-      setSubmitted(true);
+      setLoading(true);
+      try {
+        await reportApi.submitReport({text, email, screen: originScreen});
+        setSubmitted(true);
+        setLoading(false);
+      } catch (e) {
+        setLoading(false);
+        throw e;
+      }
     }
-  }, [text, email, originScreen]);
+  }, [text, email, originScreen, reportApi]);
 
   return (
     <SheetModal>
@@ -102,7 +111,8 @@ const ReportModal = () => {
                 <Button
                   variant="secondary"
                   onPress={onSubmit}
-                  disabled={!text?.length}>
+                  disabled={!text?.length || loading}
+                  loading={loading}>
                   {t('confirmButton')}
                 </Button>
               </ButtonWrapper>
