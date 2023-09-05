@@ -42,7 +42,7 @@
     "notifications": {
       "joined": "{{name}} gick med",
       "left": "{{name}} lämnade",
-      "networkQuality": "Ostabilt nätverk",
+      "networkQuality": "Instabilt nätverk",
       "muted": "Din mikrofon är av"
     }
   },

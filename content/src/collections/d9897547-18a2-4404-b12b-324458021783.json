@@ -1,7 +1,7 @@
 {
   "en": {
     "published": true,
-    "hidden": false,
+    "hidden": true,
     "id": "d9897547-18a2-4404-b12b-324458021783",
     "name": "Set your values compass",
     "exercises": [
@@ -12,7 +12,8 @@
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "description": "What's important in life? Find out your answers in this collection, exploring values and purpose."
+    "description": "What's important in life? Find out your answers in this collection, exploring values and purpose.",
+    "link": "https://aware.29k.org/set-your-values-compass"
   },
   "pt": {
     "published": false,
@@ -25,7 +26,8 @@
     ],
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    ],
+    "link": "https://aware.29k.org/set-your-values-compass"
   },
   "sv": {
     "published": false,
@@ -38,7 +40,8 @@
     ],
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    ],
+    "link": "https://aware.29k.org/set-your-values-compass"
   },
   "es": {
     "published": false,
@@ -51,6 +54,7 @@
     ],
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    ],
+    "link": "https://aware.29k.org/set-your-values-compass"
   }
 }

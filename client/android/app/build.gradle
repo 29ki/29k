@@ -144,8 +144,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 135
-        versionName "2.32.1"
+        versionCode 137
+        versionName "2.34.0"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
         // Solving the issue with binary resource modify time with code push

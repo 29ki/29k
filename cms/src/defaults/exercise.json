@@ -43,7 +43,7 @@
       "type": "host",
       "hostNotes": [
         {
-          "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
         },
         {
           "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -52,6 +52,12 @@
           "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
         }
       ]
+    },
+    {
+      "type": "instruction",
+      "content": {
+        "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+      }
     }
   ],
   "introPortal": {

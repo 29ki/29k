@@ -118,7 +118,7 @@ describe('useSubscribeToSessionIfFocused', () => {
 
     expect(fetchSessionsMock).toHaveBeenCalledTimes(1);
     expect(navigation.navigate).toHaveBeenCalledWith('HomeStack');
-    expect(navigation.navigate).toHaveBeenCalledWith('SessionUnavailableModal');
+    expect(navigation.navigate).toHaveBeenCalledWith('SessionErrorModal');
   });
 
   it('should handle when session has ended', () => {
@@ -134,7 +134,7 @@ describe('useSubscribeToSessionIfFocused', () => {
 
     expect(fetchSessionsMock).toHaveBeenCalledTimes(1);
     expect(navigation.navigate).toHaveBeenCalledWith('HomeStack');
-    expect(navigation.navigate).toHaveBeenCalledWith('SessionUnavailableModal');
+    expect(navigation.navigate).toHaveBeenCalledWith('SessionErrorModal');
   });
 
   it('should do nothing when session has ended', () => {

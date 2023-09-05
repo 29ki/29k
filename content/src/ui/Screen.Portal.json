@@ -27,15 +27,16 @@
   },
   "sv": {
     "participants": "Vi är",
-    "startSession": "Starta session",
-    "sessionStarted": "Session är igång",
-    "skipPortal": "Skippa portal",
+    "startSession": "Starta sessionen",
+    "sessionStarted": "Sessionen är igång",
+    "skipPortal": "Hoppa över portalen",
     "counterLabel": {
       "startsIn": "Startar om ",
       "starts": "Startar",
       "shortly": "Strax",
       "started": "Nu"
-    }
+    },
+    "leavePortal": "Lämna"
   },
   "es": {}
 }

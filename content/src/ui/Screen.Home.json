@@ -33,10 +33,11 @@
   },
   "sv": {
     "heading": "Sessioner",
-    "add": "Add session",
+    "add": "Ny session",
     "sections": {
       "hostedBy": "Dina sessioner",
-      "comming": "Kommande sessioner"
+      "comming": "Kommande sessioner",
+      "interested": ""
     }
   },
   "es": {}

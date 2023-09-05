@@ -4,6 +4,7 @@ import * as slack from '../models/slack';
 import {getExerciseById} from '../lib/exercise';
 import {Exercise} from '../../../shared/src/types/generated/Exercise';
 import {SessionMode, SessionType} from '../../../shared/src/schemas/Session';
+import {Feedback} from '../../../shared/src/types/Feedback';
 
 jest.mock('../models/metrics');
 jest.mock('../models/slack');
@@ -92,6 +93,29 @@ describe('feedback - controller', () => {
         sessionMode: SessionMode.live,
       });
       expect(slack.sendFeedbackMessage).toHaveBeenCalledTimes(0);
+    });
+  });
+
+  describe('getFeedbackCountByExercise', () => {
+    it('should aggregate quantity of positive/negative feedbacks', async () => {
+      jest
+        .mocked(metricsModel.getFeedbackByExercise)
+        .mockResolvedValue([
+          {answer: true},
+          {answer: true},
+          {answer: true},
+          {answer: false},
+          {answer: false},
+        ] as Feedback[]);
+      const res = await feedbackController.getFeedbackCountByExercise(
+        'exercise-id',
+        SessionMode.live,
+      );
+      expect(metricsModel.getFeedbackByExercise).toHaveBeenCalledWith(
+        'exercise-id',
+        'live',
+      );
+      expect(res).toEqual({negative: 2, positive: 3});
     });
   });
 });

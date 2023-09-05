@@ -7,11 +7,15 @@ const useGetCollectionById = () => {
   const {t} = useTranslation('collections');
 
   return useCallback(
-    (id: string, language?: LANGUAGE_TAG) =>
-      t(id, {
+    (id: string, language?: LANGUAGE_TAG) => {
+      const collection = t(id, {
         returnObjects: true,
         lng: language,
-      }) as Collection,
+      });
+
+      // i18next fallbacks to the key if no translation is found
+      return typeof collection === 'object' ? (collection as Collection) : null;
+    },
     [t],
   );
 };
