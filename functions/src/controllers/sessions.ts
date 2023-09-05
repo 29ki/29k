@@ -45,9 +45,11 @@ const isSessionOpen = (session: LiveSessionRecord): boolean =>
   dayjs(session.closingTime.toDate()).isAfter(dayjs(Timestamp.now().toDate()));
 
 const isUserAllowedToJoin = (session: LiveSessionRecord, userId: string) =>
-  isSessionOpen(session) ||
-  session.userIds.includes(userId) ||
-  session.hostId === userId;
+  (session.removedUserIds === undefined ||
+    !session.removedUserIds.includes(userId)) &&
+  (isSessionOpen(session) ||
+    session.userIds.includes(userId) ||
+    session.hostId === userId);
 
 export const getSessionsByUserId = async (
   userId: string,
@@ -283,6 +285,21 @@ export const joinSession = async (
   });
   const updatedSession = await sessionModel.getSessionById(session.id);
   return updatedSession ? mapSession(updatedSession) : undefined;
+};
+
+export const removeUser = async (sessionId: string, removedUserId: string) => {
+  const session = await sessionModel.getSessionById(sessionId);
+
+  if (!session) {
+    throw new RequestError(ValidateSessionError.notFound);
+  }
+
+  await sessionModel.updateSession(sessionId, {
+    removedUserIds:
+      session.removedUserIds === undefined
+        ? [removedUserId]
+        : [...session.removedUserIds, removedUserId],
+  });
 };
 
 export const getSessionByHostingCode = async (

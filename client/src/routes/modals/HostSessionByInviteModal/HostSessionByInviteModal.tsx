@@ -50,7 +50,7 @@ import {
 } from '../../../lib/sessions/api/session';
 import Button from '../../../lib/components/Buttons/Button';
 import {JoinSessionError} from '../../../../../shared/src/errors/Session';
-import SessionUnavailableModal from '../SessionUnavailableModal/SessionUnavailableModal';
+import SessionErrorModal from '../SessionErrorModal/SessionErrorModal';
 import HostingInviteFailModal from '../HostingInviteFailModal/HostingInviteFailModal';
 import useUser from '../../../lib/user/hooks/useUser';
 import UpdateProfileStep from '../CreateSessionModal/components/steps/ProfileStep';
@@ -231,7 +231,7 @@ const HostSessionByInviteModal = () => {
     error === JoinSessionError.notAvailable ||
     error === JoinSessionError.notFound
   ) {
-    return <SessionUnavailableModal />;
+    return <SessionErrorModal />;
   } else if (error) {
     return <HostingInviteFailModal />;
   }

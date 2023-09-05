@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on present moment awareness.\n\nWe’ll be doing a short meditation followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on recovery.\n\nWe’ll be doing an audio exercise, followed by time for reflection and finally sharing with each other."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -14,37 +14,42 @@
       },
       {
         "type": "content",
+        "hostNotes": [
+          {
+            "text": "> Press play to start the audio exercise."
+          }
+        ],
         "content": {
           "lottie": {
             "durationTimer": true,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692879791/Audio/Become_present_g8959b.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1692879916/SRT%20(captions)%20files/Three_things_kr66j8.srt",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693555276/Audio/Your_recovery_routine_mt8i6r.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1693555313/SRT%20(captions)%20files/Your_recovery_routine_tca8yd.srt"
           }
-        },
-        "hostNotes": [
-          {
-            "text": "Nice, now we are ready to listen to this together.\n\n> Press play to start the audio file."
-          }
-        ]
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat did you notice about yourself?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat would be different in your life if you regularly prioritized recovery?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
-          "text": "What did you notice about yourself?",
+          "text": "",
+          "video": {
+            "durationTimer": false,
+            "description": ""
+          },
           "lottie": {
             "durationTimer": true,
-            "duration": 120,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json"
-          }
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          },
+          "heading": "With regular recovery, what would be different in your life?"
         }
       },
       {
@@ -66,16 +71,16 @@
           "lottie": {
             "durationTimer": true,
             "duration": 120,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
           },
-          "heading": "What did you notice about yourself?"
+          "heading": "With regular recovery, what would be different in your life?"
         }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nWhen you feel distracted, practice the 3-2-1-focus with three different senses, and see where that takes you."
+            "text": "Well done. Remember we're built to handle stress – as long as we get recovery in between. Regularly prioritizing the things that build our resources help us tackle the challenges we face in life."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -88,29 +93,28 @@
       {
         "type": "instruction",
         "content": {
-          "heading": "Well done",
-          "text": "If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nWhen you feel distracted, practice the 3-2-1-focus with three different senses, and see where that takes you.",
+          "text": "Well done.\n\nRemember we're built to handle stress – as long as we get recovery in between. Regularly prioritizing the things that build our resources help us tackle the challenges we face in life.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692965918/Images/asynk_image_become_present_sdnk4j.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
           }
         }
       }
     ],
     "theme": {
-      "textColor": "#F9F8F4",
-      "backgroundColor": "#263e54"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#d1d3cc"
     },
     "hidden": false,
-    "name": "Become present",
+    "name": "Your recovery routine",
     "live": true,
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692965918/Images/2card_become_present_zhuz9j.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
       }
     },
     "socialMeta": {
-      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692897989/Images/card_become_present_s5b47y.png"
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
     },
     "duration": 30,
     "introPortal": {
@@ -120,21 +124,20 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692965732/Video/2portal1_become_present_a6tjv1.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692898013/Audio/portal_audio_become_present_bgjavz.mp3"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1693313487/Video/portal1_your_recovery_routine_hfbbb5.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693313411/Audio/portal_audio_your_recovery_routine_b1nukb.mp3"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692965720/Video/2portal2_become_present_iddvnq.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1693313475/Video/portal2_your_recovery_routine_ctnnsu.mp4"
       }
     },
     "tags": [
-      "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
     ],
-    "link": "https://aware.29k.org/become-present",
-    "id": "961656ea-021c-4faa-ae03-46d6ace4be4b",
+    "link": "https://aware.29k.org/your-recovery-routine",
+    "id": "2d096e25-3f0b-48da-8557-3db607b98ef8",
     "async": true,
-    "description": "When we're stressed our minds easily wanders off into the future or dwell on past experiences. A more helpful strategy is to be present with what’s right here, right now. This exercise let’s us practice presence using three of our senses."
+    "description": "Stress in itself is not dangerous – but lack of recovery can be. In stressful times we often need to help ourselves to make room for recovery, to build our own resources and feel good."
   },
   "pt": {
     "slides": [
@@ -181,7 +184,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -190,6 +193,12 @@
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+        }
       }
     ],
     "theme": {
@@ -207,11 +216,10 @@
       ]
     },
     "tags": [
-      "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
     ],
-    "link": "https://aware.29k.org/become-present",
-    "id": "961656ea-021c-4faa-ae03-46d6ace4be4b",
+    "link": "https://aware.29k.org/your-recovery-routine",
+    "id": "2d096e25-3f0b-48da-8557-3db607b98ef8",
     "async": false
   },
   "sv": {
@@ -220,7 +228,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med att vara närvarande i stunden.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med fokus på återhämtning.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
           },
           {
             "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. Y, skulle du vilja börja?\n\n> Låt alla deltagare, även du själv, checka in en och en.\n\nTack för att ni checkade in. Då kör vi igång."
@@ -229,25 +237,25 @@
       },
       {
         "type": "content",
+        "hostNotes": [
+          {
+            "text": "> Tryck på play för att starta ljudövningen."
+          }
+        ],
         "content": {
           "lottie": {
             "durationTimer": true,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692959751/Audio/Tre_saker_szddpp.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1692959729/SRT%20(captions)%20files/Tre_saker_hznezg.srt",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693514851/Audio/A%CC%8Aterha%CC%88mtningsrutinen_hxkhx0.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1693514883/SRT%20(captions)%20files/A%CC%8Aterha%CC%88mtningsrutinen_uyc9gk.srt"
           }
-        },
-        "hostNotes": [
-          {
-            "text": "Fint, då är vi redo att lyssna på den här övningen tillsammans. \n\n> Tryck på play för att starta ljudfilen."
-          }
-        ]
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad lärde du dig om dig själv under övningen?"
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nHur skulle ditt liv påverkas om du regelbundet prioriterade återhämtning?"
           },
           {
             "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här. Vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
@@ -255,12 +263,16 @@
         ],
         "content": {
           "text": "",
+          "video": {
+            "durationTimer": false,
+            "description": ""
+          },
           "lottie": {
             "durationTimer": true,
-            "duration": 120,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json"
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json"
           },
-          "heading": "Vad lärde du dig om dig själv?"
+          "heading": "Med regelbunden återhämtning, vad skulle vara annorlunda?"
         }
       },
       {
@@ -282,16 +294,16 @@
           "lottie": {
             "durationTimer": true,
             "duration": 120,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
           },
-          "heading": "Vad lärde du dig om dig själv?"
+          "heading": "Med regelbunden återhämtning, vad skulle vara annorlunda?"
         }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Bra jobbat. När du känner dig frånvarande, träna på att använda den här 3-2-1-övningen med tre olika sinnen och se vad som händer."
+            "text": "Bra jobbat.\n\nStress i sig är inte farligt – men brist på återhämtning är det. Genom att regelbundet prioritera sådant som laddar våra batterier bygger vi upp våra resurser och kan hantera påfrestningar bättre."
           },
           {
             "text": "Innan vi avslutar så gör vi en mini-utcheckning.\n\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord."
@@ -304,29 +316,28 @@
       {
         "type": "instruction",
         "content": {
-          "heading": "Bra jobbat",
-          "text": "När du känner dig frånvarande, träna på att använda den här 3-2-1-övningen med tre olika sinnen och se vad som händer.",
+          "text": "Bra jobbat.\n\nStress i sig är inte farligt – men brist på återhämtning är det. Genom att regelbundet prioritera sådant som laddar våra batterier bygger vi upp våra resurser och kan hantera påfrestningar bättre.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692965918/Images/asynk_image_become_present_sdnk4j.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
           }
         }
       }
     ],
     "theme": {
-      "textColor": "#F9F8F4",
-      "backgroundColor": "#263e54"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#d1d3cc"
     },
     "hidden": false,
-    "name": "Här och nu",
+    "name": "Din återhämtningrutin",
     "live": true,
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692965918/Images/2card_become_present_zhuz9j.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
       }
     },
     "socialMeta": {
-      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692897989/Images/card_become_present_s5b47y.png"
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
     },
     "duration": 30,
     "introPortal": {
@@ -336,21 +347,20 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692965732/Video/2portal1_become_present_a6tjv1.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692898013/Audio/portal_audio_become_present_bgjavz.mp3"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1693313487/Video/portal1_your_recovery_routine_hfbbb5.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693313411/Audio/portal_audio_your_recovery_routine_b1nukb.mp3"
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692965720/Video/2portal2_become_present_iddvnq.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1693313475/Video/portal2_your_recovery_routine_ctnnsu.mp4"
       }
     },
     "tags": [
-      "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
     ],
-    "link": "https://aware.29k.org/become-present",
-    "id": "961656ea-021c-4faa-ae03-46d6ace4be4b",
+    "link": "https://aware.29k.org/your-recovery-routine",
+    "id": "2d096e25-3f0b-48da-8557-3db607b98ef8",
     "async": true,
-    "description": "När vi är stressade är det lätt att vi blir oroliga för framtiden och att vi ältar sånt som redan har hänt. En mer hjälpsam strategi är att vara närvarande i nuet. I den här övningen tränar vi på medveten närvaro med tre olika sinnen."
+    "description": "Stress i sig självt är inte farligt – men brist på återhämtning kan vara det.\n\nI stressiga perioder behöver vi ofta hjälpa oss själva göra plats för återhämtning."
   },
   "es": {
     "slides": [
@@ -397,7 +407,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -406,6 +416,12 @@
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+        }
       }
     ],
     "theme": {
@@ -423,11 +439,10 @@
       ]
     },
     "tags": [
-      "da15b7ab-dd95-4fc7-b085-2f022ab7282f",
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+      "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
     ],
-    "link": "https://aware.29k.org/become-present",
-    "id": "961656ea-021c-4faa-ae03-46d6ace4be4b",
+    "link": "https://aware.29k.org/your-recovery-routine",
+    "id": "2d096e25-3f0b-48da-8557-3db607b98ef8",
     "async": false
   }
 }

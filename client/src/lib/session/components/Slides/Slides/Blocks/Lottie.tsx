@@ -89,9 +89,12 @@ const Lottie: React.FC<LottieProps> = ({
   );
 
   useEffect(() => {
-    IdleTimerManager.setIdleTimerDisabled(active && !paused);
-    return () => IdleTimerManager.setIdleTimerDisabled(false);
-  }, [active, paused]);
+    if (!isLive) {
+      // Only disable idle timer for async sessions as daily handles this in live sessions
+      IdleTimerManager.setIdleTimerDisabled(active && !paused);
+      return () => IdleTimerManager.setIdleTimerDisabled(false);
+    }
+  }, [isLive, active, paused]);
 
   useEffect(() => {
     if (!active) {

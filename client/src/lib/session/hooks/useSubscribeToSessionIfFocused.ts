@@ -35,10 +35,12 @@ const useSubscribeToSessionIfFocused = (
   useEffect(() => {
     setSession(session);
     const exercise = getExerciseById(session.exerciseId, session.language);
-    setExercise({
-      ...exercise,
-      slides: exercise.slides.filter(s => s.type !== 'instruction'),
-    });
+    if (exercise) {
+      setExercise({
+        ...exercise,
+        slides: exercise.slides.filter(s => s.type !== 'instruction'),
+      });
+    }
   }, [session, setSession, setExercise, getExerciseById]);
 
   useEffect(() => {
@@ -48,7 +50,7 @@ const useSubscribeToSessionIfFocused = (
           reset();
           fetchSessions();
           navigate('HomeStack');
-          navigate('SessionUnavailableModal');
+          navigate('SessionErrorModal');
           return;
         }
 

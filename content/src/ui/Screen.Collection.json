@@ -12,8 +12,9 @@
   },
   "sv": {
     "collectionHeading": "Samling",
-    "buttonsHeading": "Lägg till i min resa eller dela samlingen",
-    "sessionsHeading": "Sessioner"
+    "buttonsHeading": "Lägg till i min plan eller dela samlingen",
+    "sessionsHeading": "Sessioner",
+    "addToJourney": "Min plan"
   },
   "es": {}
 }

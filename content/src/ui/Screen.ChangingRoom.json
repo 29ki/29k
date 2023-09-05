@@ -23,7 +23,7 @@
     "placeholder": "Skriv ditt namn",
     "join_button": "Gå med",
     "cameraOff": "Kameran är av",
-    "errorTitle": "Gick inte att gå med i sessionen.",
+    "errorTitle": "Det gick inte att gå med i sessionen.",
     "errors": {
       "validateSession/not-found": "Kunde inte hitta sessionen.",
       "validateSession/user-not-found": "Användaren hittades inte för sessionen."

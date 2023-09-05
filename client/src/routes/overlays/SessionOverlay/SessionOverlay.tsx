@@ -26,6 +26,7 @@ import useSessionReminder from '../../../lib/sessions/hooks/useSessionReminder';
 import useLogSessionMetricEvents from '../../../lib/sessions/hooks/useLogSessionMetricEvents';
 import usePinSession from '../../../lib/sessions/hooks/usePinSession';
 import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
+import useExerciseFeedback from '../../../lib/session/hooks/useExerciseFeedback';
 
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -62,22 +63,36 @@ import ActionList from '../../../lib/components/ActionList/ActionList';
 import ActionButton from '../../../lib/components/ActionList/ActionItems/ActionButton';
 import Screen from '../../../lib/components/Screen/Screen';
 import TopBar from '../../../lib/components/TopBar/TopBar';
-import {ScrollView} from 'react-native-gesture-handler';
 import MagicIcon from '../../../lib/components/Icons/Magic/Magic';
+import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
+import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
 });
 
-const SpaceBetweenRow = styled(View)({
+const SpaceBetweenRow = styled.View({
   flexGrow: 1,
   flexDirection: 'row',
   justifyContent: 'space-between',
 });
 
-const Row = styled(View)({
+const Row = styled.View({
   flexDirection: 'row',
   alignItems: 'flex-end',
+});
+
+const RatingContainer = styled(Gutters)({
+  flexDirection: 'row',
+  alignItems: 'center',
+  position: 'absolute',
+  top: 18,
+  zIndex: 2,
+});
+
+const FeedbackThumb = styled(ThumbsUpWithoutPadding)({
+  width: 24,
+  height: 24,
 });
 
 const TitleContainer = styled.View({
@@ -130,6 +145,7 @@ const SessionOverlay = () => {
   const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session.exerciseId, session.language);
   const tags = useGetSessionCardTags(exercise);
+  const {count} = useExerciseFeedback(session.exerciseId, session.mode);
   const {reminderEnabled, toggleReminder} = useSessionReminder(session);
   const confirmToggleReminder = useConfirmSessionReminder(session);
 
@@ -230,15 +246,22 @@ const SessionOverlay = () => {
   return (
     <Screen>
       <Spacer16 />
+      {count && count.positive > 0 && (
+        <RatingContainer>
+          <FeedbackThumb />
+          <Spacer4 />
+          <Body16>{count.positive}</Body16>
+        </RatingContainer>
+      )}
       <TopBar
         onPressClose={navigation.goBack}
         backgroundColor={COLORS.WHITE}
         fade
       />
-      <ScrollView>
-        <Spacer16 />
 
+      <AutoScrollView>
         <Content>
+          <Spacer16 />
           <SpaceBetweenRow>
             <TitleContainer>
               <Display24>{formatContentName(exercise)}</Display24>
@@ -381,7 +404,7 @@ const SessionOverlay = () => {
           )}
         </Gutters>
         <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
-      </ScrollView>
+      </AutoScrollView>
     </Screen>
   );
 };

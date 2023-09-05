@@ -162,6 +162,10 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
     }
   }, [user]);
 
+  if (!exercise) {
+    return null;
+  }
+
   return (
     <Container
       onPress={openCompleteSessionModal}

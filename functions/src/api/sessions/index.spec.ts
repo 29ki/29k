@@ -6,6 +6,7 @@ import createMockServer from '../lib/createMockServer';
 import {createApiAuthRouter} from '../../lib/routers';
 import {ROLE} from '../../../../shared/src/schemas/User';
 import * as sessionsController from '../../controllers/sessions';
+import * as feedbackController from '../../controllers/feedback';
 import {RequestError} from '../../controllers/errors/RequestError';
 import {
   JoinSessionError,
@@ -16,6 +17,7 @@ import {LiveSessionModel} from '../../controllers/types/types';
 import {Timestamp} from 'firebase-admin/firestore';
 
 jest.mock('../../controllers/sessions');
+jest.mock('../../controllers/feedback');
 const mockGetSessionsByUserId =
   sessionsController.getSessionsByUserId as jest.Mock;
 const mockCreateSession = sessionsController.createSession as jest.Mock;
@@ -26,6 +28,7 @@ const mockUpdateInterestedCount =
 const mockUpdateSessionState =
   sessionsController.updateSessionState as jest.Mock;
 const mockJoinSession = sessionsController.joinSession as jest.Mock;
+const mockRemoveUser = sessionsController.removeUser as jest.Mock;
 const mockGetSessionToken = sessionsController.getSessionToken as jest.Mock;
 const mockGetSession = sessionsController.getSession as jest.Mock;
 const mockGetSessionByHostingCode =
@@ -33,6 +36,8 @@ const mockGetSessionByHostingCode =
 const mockCreateSessionHostingLink =
   sessionsController.createSessionHostingLink as jest.Mock;
 const mockUpdateSessionHost = sessionsController.updateSessionHost as jest.Mock;
+const mockGetFeedbackCountByExercise =
+  feedbackController.getFeedbackCountByExercise as jest.Mock;
 
 jest.mock('../../models/session');
 
@@ -515,6 +520,30 @@ describe('/api/sessions', () => {
     });
   });
 
+  describe('PUT /:sessionId/removeMyself', () => {
+    it('should remove user', async () => {
+      mockRemoveUser.mockResolvedValueOnce({});
+      const response = await request(mockServer)
+        .put('/sessions/some-session-id/removeMyself')
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(200);
+    });
+
+    it('should fail when session is not found', async () => {
+      mockRemoveUser.mockRejectedValueOnce(
+        new RequestError(ValidateSessionError.notFound),
+      );
+
+      const response = await request(mockServer)
+        .put('/sessions/some-session-id/removeMyself')
+        .set('Accept', 'application/json');
+
+      expect(response.status).toBe(404);
+      expect(response.text).toBe(ValidateSessionError.notFound);
+    });
+  });
+
   describe('PUT /joinSession', () => {
     it('should return joined session', async () => {
       mockJoinSession.mockResolvedValueOnce(
@@ -675,6 +704,44 @@ describe('/api/sessions', () => {
         123456,
       );
       expect(response.body).toMatchObject({id: 'updated-host-session-id'});
+    });
+  });
+
+  describe('GET /exercises/:exerciseId/rating', () => {
+    it('should return count', async () => {
+      mockGetFeedbackCountByExercise.mockResolvedValueOnce({
+        positive: 2,
+        negative: 0,
+      });
+
+      const response = await request(mockServer).get(
+        '/sessions/exercises/1234/rating?mode=live',
+      );
+
+      expect(mockGetFeedbackCountByExercise).toHaveBeenCalledWith(
+        '1234',
+        'live',
+      );
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({positive: 2, negative: 0});
+    });
+
+    it('should return count', async () => {
+      mockGetFeedbackCountByExercise.mockResolvedValueOnce({
+        positive: 2,
+        negative: 0,
+      });
+
+      const response = await request(mockServer).get(
+        '/sessions/exercises/1234/rating',
+      );
+
+      expect(mockGetFeedbackCountByExercise).toHaveBeenCalledWith(
+        '1234',
+        undefined,
+      );
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual({positive: 2, negative: 0});
     });
   });
 });

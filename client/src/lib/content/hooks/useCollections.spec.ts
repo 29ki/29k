@@ -35,6 +35,25 @@ describe('useCollections', () => {
     expect(result.current).toEqual([{name: 'aaa'}, {name: 'bbb'}]);
   });
 
+  it('filters out nil collections', () => {
+    mockUseCollectionIds.mockReturnValueOnce([
+      'some-collection-id',
+      'some-other-collection-id',
+    ]);
+    mockGetCollectionById
+      .mockReturnValueOnce(null)
+      .mockReturnValueOnce({name: 'bbb'});
+
+    const {result} = renderHook(() => useCollections());
+
+    expect(mockGetCollectionById).toHaveBeenCalledTimes(2);
+    expect(mockGetCollectionById).toHaveBeenCalledWith('some-collection-id');
+    expect(mockGetCollectionById).toHaveBeenCalledWith(
+      'some-other-collection-id',
+    );
+    expect(result.current).toEqual([{name: 'bbb'}]);
+  });
+
   it('should return empty list if no collections', () => {
     mockUseCollectionIds.mockReturnValueOnce([]);
 

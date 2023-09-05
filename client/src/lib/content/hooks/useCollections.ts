@@ -1,5 +1,5 @@
+import {isNotNil} from 'ramda';
 import {useMemo} from 'react';
-
 import useGetCollectionById from './useGetCollectionById';
 import useCollectionIds from './useCollectionIds';
 
@@ -8,7 +8,7 @@ const useCollections = () => {
   const getCollectionById = useGetCollectionById();
 
   return useMemo(
-    () => collectionIds.map(id => getCollectionById(id)),
+    () => collectionIds.map(id => getCollectionById(id)).filter(isNotNil),
     [collectionIds, getCollectionById],
   );
 };

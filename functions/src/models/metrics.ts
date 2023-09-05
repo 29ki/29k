@@ -2,6 +2,8 @@ import 'firebase-functions';
 import {firestore} from 'firebase-admin';
 import {Timestamp} from 'firebase-admin/firestore';
 import {Feedback} from '../../../shared/src/types/Feedback';
+import {getData} from '../../../shared/src/modelUtils/firestore';
+import {SessionMode} from '../../../shared/src/schemas/Session';
 
 const EVENTS_COLLECTION = 'metricsEvents';
 const USER_PROPERTIES_COLLECTION = 'metricsUserProperties';
@@ -68,4 +70,20 @@ export const addFeedback = async (feedback: Feedback) => {
       ...feedback,
       createdAt: Timestamp.now(),
     });
+};
+
+export const getFeedbackByExercise = async (
+  exerciseId: string,
+  mode?: SessionMode,
+) => {
+  let query = firestore()
+    .collection(FEEDBACK_COLLECTION)
+    .where('exerciseId', '==', exerciseId);
+
+  if (mode) {
+    query = query.where('sessionMode', '==', mode);
+  }
+
+  const snapshot = await query.orderBy('createdAt', 'desc').get();
+  return snapshot.docs.map(getData<Feedback>);
 };
