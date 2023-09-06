@@ -10,6 +10,8 @@ jest.mock('../models/metrics');
 jest.mock('../models/slack');
 jest.mock('../lib/exercise');
 
+const mockAddFeedback = jest.mocked(metricsModel.addFeedback);
+
 beforeEach(async () => {
   jest.clearAllMocks();
 });
@@ -25,6 +27,10 @@ describe('feedback - controller', () => {
           },
         },
       } as Exercise);
+
+      mockAddFeedback.mockResolvedValueOnce({
+        id: 'feedback-id',
+      } as Feedback);
 
       const feedback = {
         exerciseId: 'some-exercise-id',
@@ -51,6 +57,7 @@ describe('feedback - controller', () => {
       });
       expect(slack.sendFeedbackMessage).toHaveBeenCalledTimes(1);
       expect(slack.sendFeedbackMessage).toHaveBeenCalledWith(
+        'feedback-id',
         'Some Exercise',
         'https://some.image/url',
         'Some question?',
@@ -58,6 +65,7 @@ describe('feedback - controller', () => {
         'Some comment!',
         SessionType.public,
         SessionMode.live,
+        undefined,
       );
     });
 

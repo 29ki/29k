@@ -1,5 +1,5 @@
 import {useCallback} from 'react';
-import {Feedback} from '../../../../../shared/src/types/Feedback';
+import {FeedbackInput} from '../../../../../shared/src/types/Feedback';
 import * as metrics from '../../metrics';
 import useAddUserEvent from '../../user/hooks/useAddUserEvent';
 
@@ -10,7 +10,7 @@ const useSessionFeedback = () => {
   const {feedbackEvents} = useUserEvents();
 
   const addSessionFeedback = useCallback(
-    (feedback: Feedback) => {
+    (feedback: FeedbackInput) => {
       addUserEvent('feedback', {
         question: feedback.question,
         answer: feedback.answer,

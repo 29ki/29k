@@ -70,9 +70,8 @@ export const createPost = async (
     translatedText,
   };
 
-  const {id, exerciseId, sharingId, text, language} = await postModel.addPost(
-    postData,
-  );
+  const {id, exerciseId, sharingId, text, language} =
+    await postModel.addPost(postData);
   const exercise = getExerciseById(exerciseId, language);
   const sharingSlide = getSharingSlideById(exercise, sharingId);
   await sendPostMessage(
