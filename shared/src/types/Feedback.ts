@@ -1,6 +1,7 @@
 import {SessionMode, SessionType} from '../schemas/Session';
 
 export type Feedback = {
+  id: string;
   exerciseId: string;
   completed: boolean;
   sessionId: string;
@@ -12,4 +13,8 @@ export type Feedback = {
 
   sessionMode: SessionMode;
   sessionType: SessionType;
+
+  approved: boolean;
 };
+
+export type FeedbackInput = Omit<Feedback, 'id' | 'approved'>;

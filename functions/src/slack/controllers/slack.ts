@@ -11,6 +11,7 @@ import {generateVerificationCode} from '../../lib/utils';
 import {createPublicHostCodeLink} from '../../models/dynamicLinks';
 import {updatePublicHostRequest} from '../../models/publicHostRequests';
 import {updatePost} from '../../models/post';
+import {setFeedbackApproval} from '../../models/metrics';
 
 const parseMessageOrThrow = (slackPayload: string) => {
   try {
@@ -38,6 +39,30 @@ export const slackHandler = async (slackPayload: string) => {
 
   if (actionId === RequestAction.SHOW_SHARING_POST) {
     await updatePost(value, {approved: true});
+    await updatePostMessageVisibility(
+      channelId,
+      ts,
+      value,
+      originalBlocks,
+      true,
+    );
+    return;
+  }
+
+  if (actionId === RequestAction.HIDE_SESSION_FEEDBACK) {
+    await setFeedbackApproval(value, false);
+    await updatePostMessageVisibility(
+      channelId,
+      ts,
+      value,
+      originalBlocks,
+      false,
+    );
+    return;
+  }
+
+  if (actionId === RequestAction.SHOW_SESSION_FEEDBACK) {
+    await setFeedbackApproval(value, true);
     await updatePostMessageVisibility(
       channelId,
       ts,
