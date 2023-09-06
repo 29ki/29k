@@ -77,6 +77,8 @@ export const addFeedback = async (feedback: FeedbackInput) => {
 export const getFeedbackByExercise = async (
   exerciseId: string,
   mode?: SessionMode,
+  approved?: boolean,
+  limit?: number,
 ) => {
   let query = firestore()
     .collection(FEEDBACK_COLLECTION)
@@ -85,8 +87,16 @@ export const getFeedbackByExercise = async (
   if (mode) {
     query = query.where('sessionMode', '==', mode);
   }
+  if (approved) {
+    query = query.where('approved', '==', true);
+  }
+  query = query.orderBy('createdAt', 'desc');
 
-  const snapshot = await query.orderBy('createdAt', 'desc').get();
+  if (limit) {
+    query = query.limit(limit);
+  }
+
+  const snapshot = await query.get();
   return snapshot.docs.map(getData<Feedback>);
 };
 

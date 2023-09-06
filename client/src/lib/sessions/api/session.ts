@@ -6,6 +6,7 @@ import {
 } from '../../../../../shared/src/schemas/Session';
 import apiClient from '../../apiClient/apiClient';
 import Sentry from '../../sentry';
+import {Feedback} from '../../../../../shared/src/types/Feedback';
 
 const SESSIONS_ENDPOINT = '/sessions';
 
@@ -229,6 +230,25 @@ export const getFeedbackCountByExercise = async (
   const queryParams = new URLSearchParams(reject(isNil, {mode}));
   const response = await apiClient(
     `${SESSIONS_ENDPOINT}/exercises/${exerciseId}/rating?${queryParams}`,
+    {
+      method: 'GET',
+    },
+  );
+
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+
+  return response.json();
+};
+
+export const getFeedbackByExercise = async (
+  exerciseId: string,
+  mode?: SessionMode,
+): Promise<Feedback[]> => {
+  const queryParams = new URLSearchParams(reject(isNil, {mode}));
+  const response = await apiClient(
+    `${SESSIONS_ENDPOINT}/exercises/${exerciseId}/feedback?${queryParams}`,
     {
       method: 'GET',
     },

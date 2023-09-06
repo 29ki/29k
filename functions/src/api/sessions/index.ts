@@ -14,6 +14,7 @@ import {
   UpdateSessionSchema,
   RemoveMyselfParamsSchema,
   SessionMode,
+  FeedbackSchema,
 } from '../../../../shared/src/schemas/Session';
 import {createApiAuthRouter} from '../../lib/routers';
 import restrictAccessToRole from '../lib/restrictAccessToRole';
@@ -27,6 +28,7 @@ import {RequestError} from '../../controllers/errors/RequestError';
 import {ROLE} from '../../../../shared/src/schemas/User';
 import validation from '../lib/validation';
 import {getFeedbackCountByExercise} from '../../controllers/feedback';
+import {getFeedbackByExercise} from '../../models/metrics';
 
 const sessionsRouter = createApiAuthRouter();
 
@@ -92,6 +94,25 @@ sessionsRouter.get(
       }
       ctx.message = requestError.code;
     }
+  },
+);
+
+sessionsRouter.get(
+  '/exercises/:exerciseId/feedback',
+  validation({
+    params: ExerciseParamsSchema,
+    query: yup.object({
+      mode: yup.string().oneOf([SessionMode.async, SessionMode.live]),
+      limit: yup.number().positive().integer(),
+    }),
+    response: yup.array().of(FeedbackSchema),
+  }),
+  async ctx => {
+    const {mode, limit} = ctx.request.query;
+    const {exerciseId} = ctx.params;
+    const feedback = await getFeedbackByExercise(exerciseId, mode, true, limit);
+    ctx.set('Cache-Control', 'max-age=1800');
+    ctx.body = feedback;
   },
 );
 

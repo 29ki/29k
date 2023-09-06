@@ -56,7 +56,7 @@ import IconButton from '../../../../../lib/components/Buttons/IconButton/IconBut
 import Byline from '../../../../../lib/components/Bylines/Byline';
 import {openUrl} from 'react-native-markdown-display';
 import {ThumbsUpWithoutPadding} from '../../../../../lib/components/Thumbs/Thumbs';
-import useExerciseFeedback from '../../../../../lib/session/hooks/useExerciseFeedback';
+import useExerciseFeedbackCount from '../../../../../lib/session/hooks/useExerciseFeedbackCount';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -167,7 +167,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
   const startSession = useStartAsyncSession();
   const [sessions, setSessions] = useState<Array<LiveSessionType>>([]);
   const [isLoadingSessions, setIsLoadingSessions] = useState(false);
-  const {count} = useExerciseFeedback(selectedExercise);
+  const {count} = useExerciseFeedbackCount(selectedExercise);
 
   const exercise = useMemo(
     () => (selectedExercise ? getExerciseById(selectedExercise) : null),

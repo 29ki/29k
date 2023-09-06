@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import React, {Fragment, useCallback, useEffect, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Share, View} from 'react-native';
+import {ListRenderItem, Share, View} from 'react-native';
 import styled from 'styled-components/native';
 import {openUrl} from 'react-native-markdown-display';
 
@@ -26,7 +26,7 @@ import useSessionReminder from '../../../lib/sessions/hooks/useSessionReminder';
 import useLogSessionMetricEvents from '../../../lib/sessions/hooks/useLogSessionMetricEvents';
 import usePinSession from '../../../lib/sessions/hooks/usePinSession';
 import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
-import useExerciseFeedback from '../../../lib/session/hooks/useExerciseFeedback';
+import useExerciseFeedbackCount from '../../../lib/session/hooks/useExerciseFeedbackCount';
 
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -64,8 +64,15 @@ import ActionButton from '../../../lib/components/ActionList/ActionItems/ActionB
 import Screen from '../../../lib/components/Screen/Screen';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MagicIcon from '../../../lib/components/Icons/Magic/Magic';
-import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
+import {
+  ThumbsDownWithoutPadding,
+  ThumbsUpWithoutPadding,
+} from '../../../lib/components/Thumbs/Thumbs';
 import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
+import useExerciseFeedback from '../../../lib/session/hooks/useExerciseFeedback';
+import {FlatList} from 'react-native-gesture-handler';
+import {Feedback} from '../../../../../shared/src/types/Feedback';
+import SETTINGS from '../../../lib/constants/settings';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -126,6 +133,29 @@ const Tags = styled(Gutters)({
   marginTop: -SPACINGS.FOUR,
 });
 
+const FeedbackList = styled(FlatList)({
+  flexGrow: 0,
+  width: '100%',
+}) as unknown as FlatList;
+
+const ItemWrapper = styled.View<{isLast: boolean}>(({isLast}) => ({
+  paddingLeft: SPACINGS.SIXTEEN,
+  paddingRight: isLast ? SPACINGS.SIXTEEN : undefined,
+}));
+
+const FeedbackCard = styled.View({
+  ...SETTINGS.BOXSHADOW_SMALL,
+  backgroundColor: COLORS.PURE_WHITE,
+  borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
+  padding: SPACINGS.SIXTEEN,
+  maxWidth: 216,
+  marginBottom: SPACINGS.SIXTEEN,
+});
+
+const FeedbackRow = styled.View({
+  flexDirection: 'row',
+});
+
 const SessionOverlay = () => {
   const {
     params: {session},
@@ -145,7 +175,8 @@ const SessionOverlay = () => {
   const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session.exerciseId, session.language);
   const tags = useGetSessionCardTags(exercise);
-  const {count} = useExerciseFeedback(session.exerciseId, session.mode);
+  const {count} = useExerciseFeedbackCount(session.exerciseId, session.mode);
+  const {feedback} = useExerciseFeedback(session.exerciseId, session.mode);
   const {reminderEnabled, toggleReminder} = useSessionReminder(session);
   const confirmToggleReminder = useConfirmSessionReminder(session);
 
@@ -210,6 +241,28 @@ const SessionOverlay = () => {
   const howItWorksPress = useCallback(
     () => navigation.navigate('HowItWorksModal'),
     [navigation],
+  );
+  const keyExtractor = useCallback((item: Feedback) => item.id, []);
+
+  const renderItem = useCallback<ListRenderItem<Feedback>>(
+    ({item, index}) => (
+      <ItemWrapper isLast={index === feedback.length - 1}>
+        <FeedbackCard>
+          <FeedbackRow>
+            {item.answer ? (
+              <ThumbsUpWithoutPadding />
+            ) : (
+              <ThumbsDownWithoutPadding />
+            )}
+            <Spacer8 />
+            <Tag>{dayjs(item.createdAt).format('d MMM')}</Tag>
+          </FeedbackRow>
+          <Spacer8 />
+          <Body16>{item.comment}</Body16>
+        </FeedbackCard>
+      </ItemWrapper>
+    ),
+    [feedback],
   );
 
   const coCreators = useMemo(
@@ -403,6 +456,25 @@ const SessionOverlay = () => {
             </View>
           )}
         </Gutters>
+        {Boolean(feedback?.length) && (
+          <View>
+            <Spacer24 />
+            <Gutters>
+              <Heading18>{t('feedbackHeading')}</Heading18>
+            </Gutters>
+            <Spacer8 />
+            <FeedbackList
+              renderItem={renderItem}
+              keyExtractor={keyExtractor}
+              horizontal
+              data={feedback}
+              snapToAlignment="center"
+              decelerationRate="fast"
+              snapToInterval={216 + SPACINGS.SIXTEEN}
+              showsHorizontalScrollIndicator={false}
+            />
+          </View>
+        )}
         <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
       </AutoScrollView>
     </Screen>
