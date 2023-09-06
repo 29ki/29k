@@ -1,24 +1,21 @@
 import {renderHook} from '@testing-library/react-hooks';
 import {useTranslation} from 'react-i18next';
-import {Alert, Linking} from 'react-native';
+import {Alert} from 'react-native';
+import {
+  PERMISSIONS,
+  checkMultiple,
+  openSettings,
+} from 'react-native-permissions';
 import useCheckPermissions from './useCheckPermissions';
 
 const mockAlert = Alert.alert as jest.Mock;
-const mockOpenSettings = Linking.openSettings as jest.Mock;
 
 jest.mock('../../../lib/daily/DailyProvider', () => ({
   DailyContext: jest.fn(),
 }));
 
-const mockHasCameraPermissions = jest.fn();
-const mockHasMicrophonePermissions = jest.fn();
-jest.mock('react', () => ({
-  ...jest.requireActual('react'),
-  useContext: jest.fn(() => ({
-    hasCameraPermissions: mockHasCameraPermissions,
-    hasMicrophonePermissions: mockHasMicrophonePermissions,
-  })),
-}));
+const mockCheckMultiple = checkMultiple as jest.Mock;
+const mockOpenSettings = openSettings as jest.Mock;
 
 const mockRestartApp = jest.fn();
 jest.mock(
@@ -34,28 +31,82 @@ describe('useCheckPermissions', () => {
   const {t} = useTranslation();
   (t as unknown as jest.Mock).mockReturnValue('Some translation');
 
-  describe('checkCameraPermissions', () => {
+  describe('checkPermissions', () => {
+    it('defaults to check both camera and microphone permissions', async () => {
+      const {result} = renderHook(() => useCheckPermissions());
+
+      mockCheckMultiple.mockResolvedValueOnce({
+        CAMERA: 'granted',
+        MICROPHONE: 'granted',
+      });
+
+      expect(await result.current.checkPermissions()).toBe(true);
+      expect(mockCheckMultiple).toHaveBeenCalledTimes(1);
+      expect(mockCheckMultiple).toHaveBeenCalledWith(
+        expect.arrayContaining(['CAMERA', 'MICROPHONE']),
+      );
+    });
+
+    it('returns false if any permission is not granted', async () => {
+      const {result} = renderHook(() => useCheckPermissions());
+
+      mockCheckMultiple.mockResolvedValueOnce({
+        CAMERA: 'granted',
+        MICROPHONE: 'denied',
+      });
+
+      expect(await result.current.checkPermissions()).toBe(false);
+    });
+
+    it('allows for checking specific permissions', async () => {
+      const {result} = renderHook(() => useCheckPermissions());
+
+      mockCheckMultiple.mockResolvedValueOnce({
+        CAMERA: 'granted',
+      });
+
+      expect(
+        await result.current.checkPermissions([PERMISSIONS.IOS.CAMERA]),
+      ).toBe(true);
+      expect(mockCheckMultiple).toHaveBeenCalledWith(
+        expect.arrayContaining(['CAMERA']),
+      );
+    });
+  });
+
+  describe('checkAndPromptCameraPermissions', () => {
     it('runs onGranted callback if permissions are given', async () => {
       const {result} = renderHook(() => useCheckPermissions());
 
-      mockHasCameraPermissions.mockReturnValue(true);
+      mockCheckMultiple.mockResolvedValueOnce({CAMERA: 'granted'});
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      await result.current.checkCameraPermissions(onGranted, onDismiss);
+      await result.current.checkAndPromptCameraPermissions(
+        onGranted,
+        onDismiss,
+      );
 
       expect(onGranted).toHaveBeenCalledTimes(1);
       expect(onDismiss).toHaveBeenCalledTimes(0);
     });
 
-    it('triggers alert if permissions are denied', () => {
+    it('triggers onDismiss if permissions are denied and user dismiss', async () => {
+      mockAlert.mockImplementationOnce((header, text, config) => {
+        // Run the dimiss action
+        config[0].onPress();
+      });
+
       const {result} = renderHook(() => useCheckPermissions());
 
-      mockHasCameraPermissions.mockReturnValue(false);
+      mockCheckMultiple.mockResolvedValueOnce({CAMERA: 'denied'});
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      result.current.checkCameraPermissions(onGranted, onDismiss);
+      await result.current.checkAndPromptCameraPermissions(
+        onGranted,
+        onDismiss,
+      );
 
       expect(mockAlert).toHaveBeenCalledTimes(1);
       expect(mockAlert).toHaveBeenCalledWith(
@@ -73,24 +124,6 @@ describe('useCheckPermissions', () => {
           },
         ],
       );
-      expect(onGranted).toHaveBeenCalledTimes(0);
-      expect(onDismiss).toHaveBeenCalledTimes(0);
-    });
-
-    it('triggers onDismiss if permissions are denied and user dismiss', async () => {
-      mockAlert.mockImplementationOnce((header, text, config) => {
-        // Run the dimiss action
-        config[0].onPress();
-      });
-
-      const {result} = renderHook(() => useCheckPermissions());
-
-      mockHasCameraPermissions.mockReturnValue(false);
-
-      const onGranted = jest.fn();
-      const onDismiss = jest.fn();
-      await result.current.checkCameraPermissions(onGranted, onDismiss);
-
       expect(onGranted).toHaveBeenCalledTimes(0);
       expect(onDismiss).toHaveBeenCalledTimes(1);
     });
@@ -103,41 +136,14 @@ describe('useCheckPermissions', () => {
 
       const {result} = renderHook(() => useCheckPermissions());
 
-      mockHasCameraPermissions.mockReturnValue(false);
+      mockCheckMultiple.mockResolvedValueOnce({CAMERA: 'denied'});
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      await result.current.checkCameraPermissions(onGranted, onDismiss);
-
-      expect(mockOpenSettings).toHaveBeenCalledTimes(1);
-      expect(mockRestartApp).toHaveBeenCalledTimes(1);
-      expect(onGranted).toHaveBeenCalledTimes(0);
-      expect(onDismiss).toHaveBeenCalledTimes(0);
-    });
-  });
-
-  describe('checkMicrophonePermissions', () => {
-    it('runs onGranted callback if permissions are given', async () => {
-      const {result} = renderHook(() => useCheckPermissions());
-
-      mockHasMicrophonePermissions.mockReturnValue(true);
-
-      const onGranted = jest.fn();
-      const onDismiss = jest.fn();
-      await result.current.checkMicrophonePermissions(onGranted, onDismiss);
-
-      expect(onGranted).toHaveBeenCalledTimes(1);
-      expect(onDismiss).toHaveBeenCalledTimes(0);
-    });
-
-    it('triggers alert if permissions are denied', () => {
-      const {result} = renderHook(() => useCheckPermissions());
-
-      mockHasMicrophonePermissions.mockReturnValue(false);
-
-      const onGranted = jest.fn();
-      const onDismiss = jest.fn();
-      result.current.checkMicrophonePermissions(onGranted, onDismiss);
+      await result.current.checkAndPromptCameraPermissions(
+        onGranted,
+        onDismiss,
+      );
 
       expect(mockAlert).toHaveBeenCalledTimes(1);
       expect(mockAlert).toHaveBeenCalledWith(
@@ -155,7 +161,27 @@ describe('useCheckPermissions', () => {
           },
         ],
       );
+      expect(mockOpenSettings).toHaveBeenCalledTimes(1);
+      expect(mockRestartApp).toHaveBeenCalledTimes(1);
       expect(onGranted).toHaveBeenCalledTimes(0);
+      expect(onDismiss).toHaveBeenCalledTimes(0);
+    });
+  });
+
+  describe('checkAndPromptMicrophonePermissions', () => {
+    it('runs onGranted callback if permissions are given', async () => {
+      const {result} = renderHook(() => useCheckPermissions());
+
+      mockCheckMultiple.mockResolvedValueOnce({MICROPHONE: 'granted'});
+
+      const onGranted = jest.fn();
+      const onDismiss = jest.fn();
+      await result.current.checkAndPromptMicrophonePermissions(
+        onGranted,
+        onDismiss,
+      );
+
+      expect(onGranted).toHaveBeenCalledTimes(1);
       expect(onDismiss).toHaveBeenCalledTimes(0);
     });
 
@@ -167,12 +193,31 @@ describe('useCheckPermissions', () => {
 
       const {result} = renderHook(() => useCheckPermissions());
 
-      mockHasMicrophonePermissions.mockReturnValue(false);
+      mockCheckMultiple.mockResolvedValueOnce({MICROPHONE: 'denied'});
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      await result.current.checkMicrophonePermissions(onGranted, onDismiss);
+      await result.current.checkAndPromptMicrophonePermissions(
+        onGranted,
+        onDismiss,
+      );
 
+      expect(mockAlert).toHaveBeenCalledTimes(1);
+      expect(mockAlert).toHaveBeenCalledWith(
+        'Some translation',
+        'Some translation',
+        [
+          {
+            onPress: expect.any(Function),
+            text: 'Some translation',
+          },
+          {
+            onPress: expect.any(Function),
+            style: 'cancel',
+            text: 'Some translation',
+          },
+        ],
+      );
       expect(onGranted).toHaveBeenCalledTimes(0);
       expect(onDismiss).toHaveBeenCalledTimes(1);
     });
@@ -185,43 +230,14 @@ describe('useCheckPermissions', () => {
 
       const {result} = renderHook(() => useCheckPermissions());
 
-      mockHasMicrophonePermissions.mockReturnValue(false);
+      mockCheckMultiple.mockResolvedValueOnce({MICROPHONE: 'denied'});
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      await result.current.checkMicrophonePermissions(onGranted, onDismiss);
-
-      expect(mockOpenSettings).toHaveBeenCalledTimes(1);
-      expect(mockRestartApp).toHaveBeenCalledTimes(1);
-      expect(onGranted).toHaveBeenCalledTimes(0);
-      expect(onDismiss).toHaveBeenCalledTimes(0);
-    });
-  });
-
-  describe('checkJoinPermissions', () => {
-    it('runs onGranted callback if permissions are given', async () => {
-      const {result} = renderHook(() => useCheckPermissions());
-
-      mockHasCameraPermissions.mockReturnValue(true);
-      mockHasMicrophonePermissions.mockReturnValue(true);
-
-      const onGranted = jest.fn();
-      const onDismiss = jest.fn();
-      await result.current.checkJoinPermissions(onGranted, onDismiss);
-
-      expect(onGranted).toHaveBeenCalledTimes(1);
-      expect(onDismiss).toHaveBeenCalledTimes(0);
-    });
-
-    it('triggers alert if any of the permissions are denied', () => {
-      const {result} = renderHook(() => useCheckPermissions());
-
-      mockHasCameraPermissions.mockReturnValue(true);
-      mockHasMicrophonePermissions.mockReturnValue(false);
-
-      const onGranted = jest.fn();
-      const onDismiss = jest.fn();
-      result.current.checkJoinPermissions(onGranted, onDismiss);
+      await result.current.checkAndPromptMicrophonePermissions(
+        onGranted,
+        onDismiss,
+      );
 
       expect(mockAlert).toHaveBeenCalledTimes(1);
       expect(mockAlert).toHaveBeenCalledWith(
@@ -239,7 +255,27 @@ describe('useCheckPermissions', () => {
           },
         ],
       );
+      expect(mockOpenSettings).toHaveBeenCalledTimes(1);
+      expect(mockRestartApp).toHaveBeenCalledTimes(1);
       expect(onGranted).toHaveBeenCalledTimes(0);
+      expect(onDismiss).toHaveBeenCalledTimes(0);
+    });
+  });
+
+  describe('checkAndPromptJoinPermissions', () => {
+    it('runs onGranted callback if permissions are given', async () => {
+      const {result} = renderHook(() => useCheckPermissions());
+
+      mockCheckMultiple.mockResolvedValueOnce({
+        MICROPHONE: 'granted',
+        CAMERA: 'granted',
+      });
+
+      const onGranted = jest.fn();
+      const onDismiss = jest.fn();
+      await result.current.checkAndPromptJoinPermissions(onGranted, onDismiss);
+
+      expect(onGranted).toHaveBeenCalledTimes(1);
       expect(onDismiss).toHaveBeenCalledTimes(0);
     });
 
@@ -251,13 +287,31 @@ describe('useCheckPermissions', () => {
 
       const {result} = renderHook(() => useCheckPermissions());
 
-      mockHasCameraPermissions.mockReturnValue(false);
-      mockHasMicrophonePermissions.mockReturnValue(false);
+      mockCheckMultiple.mockResolvedValueOnce({
+        MICROPHONE: 'denied',
+        CAMERA: 'denied',
+      });
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      await result.current.checkJoinPermissions(onGranted, onDismiss);
+      await result.current.checkAndPromptJoinPermissions(onGranted, onDismiss);
 
+      expect(mockAlert).toHaveBeenCalledTimes(1);
+      expect(mockAlert).toHaveBeenCalledWith(
+        'Some translation',
+        'Some translation',
+        [
+          {
+            onPress: expect.any(Function),
+            text: 'Some translation',
+          },
+          {
+            onPress: expect.any(Function),
+            style: 'cancel',
+            text: 'Some translation',
+          },
+        ],
+      );
       expect(onGranted).toHaveBeenCalledTimes(0);
       expect(onDismiss).toHaveBeenCalledTimes(1);
     });
@@ -270,11 +324,13 @@ describe('useCheckPermissions', () => {
 
       const {result} = renderHook(() => useCheckPermissions());
 
-      mockHasCameraPermissions.mockReturnValue(false);
-      mockHasMicrophonePermissions.mockReturnValue(false);
+      mockCheckMultiple.mockResolvedValueOnce({
+        MICROPHONE: 'denied',
+        CAMERA: 'denied',
+      });
 
       const onGranted = jest.fn();
-      await result.current.checkJoinPermissions(onGranted);
+      await result.current.checkAndPromptJoinPermissions(onGranted);
 
       expect(onGranted).toHaveBeenCalledTimes(1);
     });
@@ -287,13 +343,31 @@ describe('useCheckPermissions', () => {
 
       const {result} = renderHook(() => useCheckPermissions());
 
-      mockHasCameraPermissions.mockReturnValue(false);
-      mockHasMicrophonePermissions.mockReturnValue(false);
+      mockCheckMultiple.mockResolvedValueOnce({
+        MICROPHONE: 'denied',
+        CAMERA: 'denied',
+      });
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      await result.current.checkJoinPermissions(onGranted, onDismiss);
+      await result.current.checkAndPromptJoinPermissions(onGranted, onDismiss);
 
+      expect(mockAlert).toHaveBeenCalledTimes(1);
+      expect(mockAlert).toHaveBeenCalledWith(
+        'Some translation',
+        'Some translation',
+        [
+          {
+            onPress: expect.any(Function),
+            text: 'Some translation',
+          },
+          {
+            onPress: expect.any(Function),
+            style: 'cancel',
+            text: 'Some translation',
+          },
+        ],
+      );
       expect(mockOpenSettings).toHaveBeenCalledTimes(1);
       expect(mockRestartApp).toHaveBeenCalledTimes(1);
       expect(onGranted).toHaveBeenCalledTimes(0);
