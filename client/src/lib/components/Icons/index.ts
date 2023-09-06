@@ -73,3 +73,4 @@ export * from './Wand/Wand';
 export * from './PlusToCheckAnimated/PlusToCheckAnimated';
 export * from './Collection/Collection';
 export * from './Magic/Magic';
+export * from './Headphones/Headphones';

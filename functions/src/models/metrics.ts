@@ -1,7 +1,7 @@
 import 'firebase-functions';
 import {firestore} from 'firebase-admin';
 import {Timestamp} from 'firebase-admin/firestore';
-import {Feedback} from '../../../shared/src/types/Feedback';
+import {Feedback, FeedbackInput} from '../../../shared/src/types/Feedback';
 import {getData} from '../../../shared/src/modelUtils/firestore';
 import {SessionMode} from '../../../shared/src/schemas/Session';
 
@@ -63,13 +63,15 @@ export const setUserProperties = async (
   }
 };
 
-export const addFeedback = async (feedback: Feedback) => {
-  await firestore()
+export const addFeedback = async (feedback: FeedbackInput) => {
+  const feedbackDoc = await firestore()
     .collection(FEEDBACK_COLLECTION)
     .add({
       ...feedback,
       createdAt: Timestamp.now(),
     });
+
+  return getData<Feedback>(await feedbackDoc.get());
 };
 
 export const getFeedbackByExercise = async (
@@ -86,4 +88,15 @@ export const getFeedbackByExercise = async (
 
   const snapshot = await query.orderBy('createdAt', 'desc').get();
   return snapshot.docs.map(getData<Feedback>);
+};
+
+export const setFeedbackApproval = async (
+  feedbackId: string,
+  approved: boolean,
+) => {
+  const now = Timestamp.now();
+  await firestore()
+    .collection(FEEDBACK_COLLECTION)
+    .doc(feedbackId)
+    .update({approved, updatedAt: now});
 };

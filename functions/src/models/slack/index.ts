@@ -89,6 +89,7 @@ export const updatePublicHostRequestMessage = async (
 };
 
 export const sendFeedbackMessage = async (
+  id: string,
   exercise: string | undefined,
   image: string | undefined,
   question: string,
@@ -96,6 +97,7 @@ export const sendFeedbackMessage = async (
   comment: string,
   sessionType: SessionType | undefined,
   sessionMode: SessionMode | undefined,
+  approved: boolean,
 ) => {
   if (SLACK_FEEDBACK_CHANNEL) {
     try {
@@ -104,6 +106,7 @@ export const sendFeedbackMessage = async (
       await slackClient.chat.postMessage({
         text: `${question}: ${answer ? '👍' : '👎'} ${comment}`,
         blocks: createFeedbackBlocks(
+          id,
           exercise,
           image,
           question,
@@ -111,6 +114,7 @@ export const sendFeedbackMessage = async (
           comment,
           sessionType,
           sessionMode,
+          approved,
         ),
         username: SLACK_BOT_NAME,
         channel: `#${SLACK_FEEDBACK_CHANNEL}`,
