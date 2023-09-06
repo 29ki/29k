@@ -16,8 +16,6 @@ import Sentry from '../sentry';
 
 export type DailyProviderTypes = {
   call?: DailyCall;
-  hasCameraPermissions: () => boolean;
-  hasMicrophonePermissions: () => boolean;
   preJoinMeeting: (url: string, token: string) => Promise<void>;
   joinMeeting: (options?: DailyCallOptions) => Promise<void>;
   leaveMeeting: () => Promise<void>;
@@ -31,8 +29,6 @@ export type DailyProviderTypes = {
 };
 
 export const DailyContext = createContext<DailyProviderTypes>({
-  hasCameraPermissions: () => false,
-  hasMicrophonePermissions: () => false,
   preJoinMeeting: () => Promise.resolve(),
   joinMeeting: () => Promise.resolve(),
   leaveMeeting: () => Promise.resolve(),
@@ -207,18 +203,6 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     [setUserData],
   );
 
-  const hasCameraPermissions = useCallback(
-    () =>
-      daily.participants().local?.tracks.video.blocked?.byPermissions !== true,
-    [daily],
-  );
-
-  const hasMicrophonePermissions = useCallback(
-    () =>
-      daily.participants().local?.tracks.audio.blocked?.byPermissions !== true,
-    [daily],
-  );
-
   const sendMessage = useCallback(
     (message: object) => {
       if (!daily) {
@@ -249,8 +233,6 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     <DailyContext.Provider
       value={{
         call: daily,
-        hasCameraPermissions,
-        hasMicrophonePermissions,
         preJoinMeeting,
         joinMeeting,
         leaveMeeting,
