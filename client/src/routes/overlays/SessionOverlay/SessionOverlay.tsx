@@ -148,7 +148,9 @@ const FeedbackCard = styled.View({
   backgroundColor: COLORS.PURE_WHITE,
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
   padding: SPACINGS.SIXTEEN,
-  maxWidth: 216,
+  width: 216,
+  minHeight: 120,
+  maxHeight: 216,
   marginBottom: SPACINGS.SIXTEEN,
 });
 
