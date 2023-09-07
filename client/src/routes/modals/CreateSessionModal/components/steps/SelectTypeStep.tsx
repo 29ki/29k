@@ -56,7 +56,7 @@ import IconButton from '../../../../../lib/components/Buttons/IconButton/IconBut
 import Byline from '../../../../../lib/components/Bylines/Byline';
 import {openUrl} from 'react-native-markdown-display';
 import {ThumbsUpWithoutPadding} from '../../../../../lib/components/Thumbs/Thumbs';
-import useExerciseFeedbackCount from '../../../../../lib/session/hooks/useExerciseFeedbackCount';
+import useExerciseRating from '../../../../../lib/session/hooks/useExerciseRating';
 import useExerciseFeedback from '../../../../../lib/session/hooks/useExerciseFeedback';
 import FeedbackCarousel from '../../../../../lib/components/FeedbackCarousel/FeedbackCrousel';
 
@@ -169,7 +169,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
   const startSession = useStartAsyncSession();
   const [sessions, setSessions] = useState<Array<LiveSessionType>>([]);
   const [isLoadingSessions, setIsLoadingSessions] = useState(false);
-  const {count} = useExerciseFeedbackCount(selectedExercise);
+  const {rating} = useExerciseRating(selectedExercise);
   const {feedback} = useExerciseFeedback(selectedExercise);
 
   const exercise = useMemo(
@@ -372,11 +372,11 @@ const SelectTypeStep: React.FC<StepProps> = ({
             <Gutters>
               <SpaceBetweenRow>
                 <TextWrapper>
-                  {count && count.positive && (
+                  {rating && rating.positive && (
                     <RatingContainer>
                       <FeedbackThumb />
                       <Spacer4 />
-                      <Body16>{count.positive}</Body16>
+                      <Body16>{rating.positive}</Body16>
                     </RatingContainer>
                   )}
                   <Display24>{formatContentName(exercise)}</Display24>

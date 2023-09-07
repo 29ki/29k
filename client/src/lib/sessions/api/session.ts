@@ -223,7 +223,7 @@ export const acceptHostingInvite = async (
   return response.json();
 };
 
-export const getFeedbackCountByExercise = async (
+export const getExerciseRating = async (
   exerciseId: string,
   mode?: SessionMode,
 ): Promise<{positive: number; negative: number}> => {

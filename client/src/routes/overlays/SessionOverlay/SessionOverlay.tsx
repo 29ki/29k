@@ -26,7 +26,7 @@ import useSessionReminder from '../../../lib/sessions/hooks/useSessionReminder';
 import useLogSessionMetricEvents from '../../../lib/sessions/hooks/useLogSessionMetricEvents';
 import usePinSession from '../../../lib/sessions/hooks/usePinSession';
 import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
-import useExerciseFeedbackCount from '../../../lib/session/hooks/useExerciseFeedbackCount';
+import useExerciseRating from '../../../lib/session/hooks/useExerciseRating';
 
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -147,7 +147,7 @@ const SessionOverlay = () => {
   const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session.exerciseId, session.language);
   const tags = useGetSessionCardTags(exercise);
-  const {count} = useExerciseFeedbackCount(session.exerciseId, session.mode);
+  const {rating} = useExerciseRating(session.exerciseId, session.mode);
   const {feedback} = useExerciseFeedback(session.exerciseId, session.mode);
   const {reminderEnabled, toggleReminder} = useSessionReminder(session);
   const confirmToggleReminder = useConfirmSessionReminder(session);
@@ -249,11 +249,11 @@ const SessionOverlay = () => {
   return (
     <Screen backgroundColor={COLORS.CREAM}>
       <Spacer16 />
-      {count && count.positive > 0 && (
+      {rating && rating.positive > 0 && (
         <RatingContainer>
           <FeedbackThumb />
           <Spacer4 />
-          <Body16>{count.positive}</Body16>
+          <Body16>{rating.positive}</Body16>
         </RatingContainer>
       )}
       <TopBar
