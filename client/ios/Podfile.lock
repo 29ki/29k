@@ -1065,7 +1065,7 @@ PODS:
     - React-Core
   - RNDateTimePicker (7.4.2):
     - React-Core
-  - RNDeviceInfo (10.8.0):
+  - RNDeviceInfo (10.9.0):
     - React-Core
   - RNFBApp (17.4.2):
     - Firebase/CoreOnly (= 10.7.0)
@@ -1511,7 +1511,7 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: c913ede1fa163a71cea118ed4670bbaaa4b511bb
   RNCPicker: 32ca102146bc7d34a8b93a998d9938d9f9ec7898
   RNDateTimePicker: a21bfcc694e3190f8ddb5aacb0dd16f97b6be79f
-  RNDeviceInfo: 5795b418ed3451ebcaf39384e6cf51f60cb931c9
+  RNDeviceInfo: 02ea8b23e2280fa18e00a06d7e62804d74028579
   RNFBApp: 55dbfc574e5ae414f2984394934f79f87eb4b050
   RNFBAuth: d30acc0f5f169bc28c7fcbf1b45cd061cc647590
   RNFBDynamicLinks: 82e9846916034c287333ebbcbdbc31435796663c
