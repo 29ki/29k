@@ -40,3 +40,8 @@ export const getFeedbackCountByExercise = async (
     {positive: 0, negative: 0},
   );
 };
+
+export const getApprovedFeedbackByExercise = async (
+  exerciseId: string,
+  mode?: SessionMode,
+) => metricsModel.getFeedbackByExercise(exerciseId, mode, true);

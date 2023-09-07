@@ -15,6 +15,7 @@ export type Feedback = {
   sessionType: SessionType;
 
   approved: boolean;
+  createdAt?: string;
 };
 
 export type FeedbackInput = Omit<Feedback, 'id' | 'approved'>;

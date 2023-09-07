@@ -8,6 +8,7 @@ import {
   updatePublicHostRequestMessage,
   updatePostMessageVisibility,
   parseMessage,
+  updateFeedbackMessageVisibility,
 } from '../../models/slack';
 import {slackHandler} from './slack';
 import {SlackError, SlackErrorCode} from '../../controllers/errors/SlackError';
@@ -30,6 +31,9 @@ const mockUpdatePostMessageVisibility = jest.mocked(
 );
 const mockUpdatePost = jest.mocked(updatePost);
 const mockSetFeedbackApproval = jest.mocked(setFeedbackApproval);
+const mockUpdateFeedbackMessageVisibility = jest.mocked(
+  updateFeedbackMessageVisibility,
+);
 
 beforeEach(async () => {
   jest.clearAllMocks();
@@ -140,8 +144,8 @@ describe('slack', () => {
           'some-feedback-id',
           true,
         );
-        expect(updatePostMessageVisibility).toHaveBeenCalledTimes(1);
-        expect(updatePostMessageVisibility).toHaveBeenCalledWith(
+        expect(mockUpdateFeedbackMessageVisibility).toHaveBeenCalledTimes(1);
+        expect(mockUpdateFeedbackMessageVisibility).toHaveBeenCalledWith(
           'some-channel-id',
           'some-ts',
           'some-feedback-id',
@@ -168,8 +172,8 @@ describe('slack', () => {
           'some-feedback-id',
           false,
         );
-        expect(mockUpdatePostMessageVisibility).toHaveBeenCalledTimes(1);
-        expect(mockUpdatePostMessageVisibility).toHaveBeenCalledWith(
+        expect(mockUpdateFeedbackMessageVisibility).toHaveBeenCalledTimes(1);
+        expect(mockUpdateFeedbackMessageVisibility).toHaveBeenCalledWith(
           'some-channel-id',
           'some-ts',
           'some-feedback-id',

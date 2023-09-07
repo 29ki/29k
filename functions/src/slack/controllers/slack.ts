@@ -6,6 +6,7 @@ import {
   SlackPayload,
   updatePostMessageVisibility,
   updatePublicHostRequestMessage,
+  updateFeedbackMessageVisibility,
 } from '../../models/slack';
 import {generateVerificationCode} from '../../lib/utils';
 import {createPublicHostCodeLink} from '../../models/dynamicLinks';
@@ -51,7 +52,7 @@ export const slackHandler = async (slackPayload: string) => {
 
   if (actionId === RequestAction.HIDE_SESSION_FEEDBACK) {
     await setFeedbackApproval(value, false);
-    await updatePostMessageVisibility(
+    await updateFeedbackMessageVisibility(
       channelId,
       ts,
       value,
@@ -63,7 +64,7 @@ export const slackHandler = async (slackPayload: string) => {
 
   if (actionId === RequestAction.SHOW_SESSION_FEEDBACK) {
     await setFeedbackApproval(value, true);
-    await updatePostMessageVisibility(
+    await updateFeedbackMessageVisibility(
       channelId,
       ts,
       value,
