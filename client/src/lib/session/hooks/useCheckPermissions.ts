@@ -11,6 +11,11 @@ type Prompt = (
 
 type CheckPermissions = (onGranted: () => void, onDismiss?: () => void) => void;
 
+/*
+  This hook checks the permissions through daily and not react-native-permissions. 
+  Reason is that we won't know if Android users have actually denied permissions until 
+  we've asked for it and since daily is the one asking this is the best source.
+*/
 const useCheckPermissions = () => {
   const {t} = useTranslation('Component.CheckPermissions');
   const restartApp = useRestartApp();
