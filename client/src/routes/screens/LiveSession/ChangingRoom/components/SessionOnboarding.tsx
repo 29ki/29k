@@ -45,7 +45,7 @@ const Center = styled.View({
 });
 
 type SessionOnboardingProps = {
-  onHideOnboarding: () => {};
+  onHideOnboarding: () => void;
 };
 const SessionOnboarding: React.FC<SessionOnboardingProps> = ({
   onHideOnboarding,
