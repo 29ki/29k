@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 import Screen from '../../../../../lib/components/Screen/Screen';
 import {
   Body16,
@@ -15,6 +16,7 @@ import {
 import Button from '../../../../../lib/components/Buttons/Button';
 import useLiveSessionMetricEvents from '../../../../../lib/session/hooks/useLiveSessionMetricEvents';
 import {
+  FilmCameraCheckIcon,
   HeadphonesIcon,
   LogoIconAnimated,
   SparklesIcon,
@@ -48,6 +50,7 @@ type SessionOnboardingProps = {
 const SessionOnboarding: React.FC<SessionOnboardingProps> = ({
   onHideOnboarding,
 }) => {
+  const {t} = useTranslation('Screen.ChangingRoom');
   const {goBack} = useNavigation();
 
   const logSessionMetricEvent = useLiveSessionMetricEvents();
@@ -67,27 +70,24 @@ const SessionOnboarding: React.FC<SessionOnboardingProps> = ({
               <LogoIconAnimated fill={COLORS.PRIMARY} />
             </LogoWrapper>
             <Spacer60 />
-            <Display22>Let's get ready for this session</Display22>
+            <Display22>{t('onboarding.title')}</Display22>
             <Spacer32 />
           </Center>
           <DescriptionBlock Icon={SparklesIcon}>
-            <Body16>
-              This session is a live video call. You can listen in, or share
-              your experience with the group.
-            </Body16>
+            <Body16>{t('onboarding.about')}</Body16>
           </DescriptionBlock>
           <Spacer16 />
           <DescriptionBlock Icon={HeadphonesIcon}>
-            <Body16>Use a headset and find a comfortable, calm space.</Body16>
+            <Body16>{t('onboarding.headset')}</Body16>
           </DescriptionBlock>
           <Spacer16 />
-          <DescriptionBlock Icon={Camera}>
-            <Body16>Use a headset and find a comfortable, calm space.</Body16>
+          <DescriptionBlock Icon={FilmCameraCheckIcon}>
+            <Body16>{t('onboarding.permissions')}</Body16>
           </DescriptionBlock>
           <Spacer32 />
           <Center>
             <Button onPress={onHideOnboarding} variant="secondary">
-              <BodyBold>Got it</BodyBold>
+              <BodyBold>{t('onboarding.button')}</BodyBold>
             </Button>
           </Center>
           <Spacer32 />
