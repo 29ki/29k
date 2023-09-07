@@ -1,32 +1,30 @@
 import {useCallback, useEffect, useState} from 'react';
 
-import {getFeedbackCountByExercise} from '../../sessions/api/session';
+import {getFeedbackByExercise} from '../../sessions/api/session';
 import {SessionMode} from '../../../../../shared/src/schemas/Session';
+import {Feedback} from '../../../../../shared/src/types/Feedback';
 
 const useExerciseFeedback = (exerciseId?: string, mode?: SessionMode) => {
-  const [count, setCount] = useState<{
-    positive: number;
-    negative: number;
-  } | null>(null);
+  const [feedback, setFeedback] = useState<Feedback[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const fetchFeedbackCountForExercise = useCallback(async () => {
+  const fetchFeedbackByExercise = useCallback(async () => {
     if (exerciseId) {
       setLoading(true);
-      const res = await getFeedbackCountByExercise(exerciseId, mode);
-      setCount(res);
+      const res = await getFeedbackByExercise(exerciseId, mode);
+      setFeedback(res);
       setLoading(false);
     } else {
-      setCount(null);
+      setFeedback([]);
     }
   }, [exerciseId, mode]);
 
   useEffect(() => {
-    fetchFeedbackCountForExercise();
-  }, [exerciseId, fetchFeedbackCountForExercise]);
+    fetchFeedbackByExercise();
+  }, [exerciseId, fetchFeedbackByExercise]);
 
   return {
-    count,
+    feedback,
     loading,
   };
 };

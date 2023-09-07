@@ -9,6 +9,7 @@ import {
   createFeedbackBlocks,
   createPostBlocks,
   createVisibilityActionBlock,
+  createFeedbackVisibilityActionBlock,
 } from './messageBlocks';
 
 const {
@@ -180,6 +181,33 @@ export const updatePostMessageVisibility = async (
       blocks: [
         ...blocksWithoutAction,
         createVisibilityActionBlock(postId, visible),
+      ],
+      channel: channelId,
+      ts,
+    });
+  } catch (error) {
+    throw new SlackError(SlackErrorCode.couldNotUpdateMessage, error);
+  }
+};
+
+export const updateFeedbackMessageVisibility = async (
+  channelId: string,
+  ts: string,
+  feedbackId: string,
+  originalBlocks: KnownBlock[],
+  visible: boolean,
+) => {
+  try {
+    const slackClient = createSlackClient();
+
+    const blocksWithoutAction = originalBlocks.filter(
+      block => block.type !== 'actions',
+    );
+
+    await slackClient.chat.update({
+      blocks: [
+        ...blocksWithoutAction,
+        createFeedbackVisibilityActionBlock(feedbackId, visible),
       ],
       channel: channelId,
       ts,

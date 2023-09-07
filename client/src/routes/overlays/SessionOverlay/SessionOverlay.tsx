@@ -26,7 +26,7 @@ import useSessionReminder from '../../../lib/sessions/hooks/useSessionReminder';
 import useLogSessionMetricEvents from '../../../lib/sessions/hooks/useLogSessionMetricEvents';
 import usePinSession from '../../../lib/sessions/hooks/usePinSession';
 import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
-import useExerciseFeedback from '../../../lib/session/hooks/useExerciseFeedback';
+import useExerciseRating from '../../../lib/session/hooks/useExerciseRating';
 
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -66,6 +66,8 @@ import TopBar from '../../../lib/components/TopBar/TopBar';
 import MagicIcon from '../../../lib/components/Icons/Magic/Magic';
 import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
 import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
+import useExerciseFeedback from '../../../lib/session/hooks/useExerciseFeedback';
+import FeedbackCarousel from '../../../lib/components/FeedbackCarousel/FeedbackCrousel';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -109,7 +111,7 @@ const EditButton = styled(TouchableOpacity)({
   flexDirection: 'row',
 });
 
-const EditIcon = styled(View)({
+const EditIcon = styled.View({
   width: 22,
   height: 22,
   alignSelf: 'center',
@@ -145,7 +147,8 @@ const SessionOverlay = () => {
   const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session.exerciseId, session.language);
   const tags = useGetSessionCardTags(exercise);
-  const {count} = useExerciseFeedback(session.exerciseId, session.mode);
+  const {rating} = useExerciseRating(session.exerciseId, session.mode);
+  const {feedback} = useExerciseFeedback(session.exerciseId, session.mode);
   const {reminderEnabled, toggleReminder} = useSessionReminder(session);
   const confirmToggleReminder = useConfirmSessionReminder(session);
 
@@ -244,18 +247,18 @@ const SessionOverlay = () => {
   }
 
   return (
-    <Screen>
+    <Screen backgroundColor={COLORS.CREAM}>
       <Spacer16 />
-      {count && count.positive > 0 && (
+      {rating && rating.positive > 0 && (
         <RatingContainer>
           <FeedbackThumb />
           <Spacer4 />
-          <Body16>{count.positive}</Body16>
+          <Body16>{rating.positive}</Body16>
         </RatingContainer>
       )}
       <TopBar
         onPressClose={navigation.goBack}
-        backgroundColor={COLORS.WHITE}
+        backgroundColor={COLORS.CREAM}
         fade
       />
 
@@ -395,14 +398,24 @@ const SessionOverlay = () => {
             </ActionButton>
           </ActionList>
           {Boolean(exercise.coCreators?.length) && (
-            <View>
+            <>
               <Spacer24 />
               <Heading18>{t('coCreatorsHeading')}</Heading18>
               <Spacer8 />
               {coCreators}
-            </View>
+            </>
           )}
         </Gutters>
+        {Boolean(feedback?.length) && (
+          <>
+            <Spacer24 />
+            <Gutters>
+              <Heading18>{t('feedbackHeading')}</Heading18>
+            </Gutters>
+            <Spacer8 />
+            <FeedbackCarousel feedbackItems={feedback} />
+          </>
+        )}
         <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
       </AutoScrollView>
     </Screen>

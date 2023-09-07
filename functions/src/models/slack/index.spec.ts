@@ -6,6 +6,7 @@ import {
   sendFeedbackMessage,
   sendPostMessage,
   sendPublicHostRequestMessage,
+  updateFeedbackMessageVisibility,
   updatePostMessageVisibility,
   updatePublicHostRequestMessage,
 } from '.';
@@ -638,6 +639,100 @@ describe('slack model', () => {
                 text: {text: 'Hide sharing post', type: 'plain_text'},
                 type: 'button',
                 value: 'some-post-id',
+              },
+            ],
+            type: 'actions',
+          },
+        ],
+        channel: 'some-channel-id',
+        ts: 'some-ts',
+      });
+    });
+  });
+
+  describe('updateFeedbackMessageVisibility', () => {
+    it('should update message as hidden', async () => {
+      updateFeedbackMessageVisibility(
+        'some-channel-id',
+        'some-ts',
+        'some-feedback-id',
+        [
+          {
+            type: 'section',
+            text: {
+              type: 'mrkdwn',
+              text: 'some text',
+            },
+          },
+          {type: 'actions', elements: []},
+        ],
+        false,
+      );
+
+      expect(mockUpdate).toHaveBeenCalledTimes(1);
+      expect(mockUpdate).toHaveBeenCalledWith({
+        blocks: [
+          {text: {text: 'some text', type: 'mrkdwn'}, type: 'section'},
+          {
+            elements: [
+              {
+                action_id: RequestAction.SHOW_SESSION_FEEDBACK,
+                confirm: {
+                  confirm: {text: 'Yes', type: 'plain_text'},
+                  deny: {text: 'No', type: 'plain_text'},
+                  style: 'danger',
+                  text: {text: 'Are you sure?', type: 'plain_text'},
+                },
+                style: 'danger',
+                text: {text: 'Show feedback', type: 'plain_text'},
+                type: 'button',
+                value: 'some-feedback-id',
+              },
+            ],
+            type: 'actions',
+          },
+        ],
+        channel: 'some-channel-id',
+        ts: 'some-ts',
+      });
+    });
+
+    it('should update message as visible', async () => {
+      updateFeedbackMessageVisibility(
+        'some-channel-id',
+        'some-ts',
+        'some-feedback-id',
+        [
+          {
+            type: 'section',
+            text: {
+              type: 'mrkdwn',
+              text: 'some text',
+            },
+          },
+          {type: 'actions', elements: []},
+        ],
+        true,
+      );
+
+      expect(mockUpdate).toHaveBeenCalledTimes(1);
+      expect(mockUpdate).toHaveBeenCalledWith({
+        blocks: [
+          {text: {text: 'some text', type: 'mrkdwn'}, type: 'section'},
+          {
+            elements: [
+              {
+                action_id: RequestAction.HIDE_SESSION_FEEDBACK,
+                confirm: {
+                  confirm: {text: 'Yes', type: 'plain_text'},
+                  deny: {text: 'No', type: 'plain_text'},
+                  style: 'danger',
+                  text: {text: 'Are you sure?', type: 'plain_text'},
+                },
+                style: undefined,
+                text: {text: 'Hide feedback', type: 'plain_text'},
+                type: 'button',
+                value: 'some-feedback-id',
               },
             ],
             type: 'actions',
