@@ -9,6 +9,7 @@
     "orJoinUpcoming": "Or join an upcoming session",
     "startCta": "Start",
     "coCreatorsHeading": "Co-created with",
+    "feedbackHeading": "Reviews",
     "selectType": {
       "live-public": {
         "title": "Anyone"
@@ -88,6 +89,8 @@
     },
     "noUpcomingSessions": "🌱 Inga planerade sessioner.",
     "description": "Gör sessionen med...",
+    "coCreatorsHeading": "Skapad med",
+    "feedbackHeading": "Reviews",
     "setDateTime": {
       "title": "Välj tid",
       "cta": "Skapa session",

@@ -57,6 +57,8 @@ import Byline from '../../../../../lib/components/Bylines/Byline';
 import {openUrl} from 'react-native-markdown-display';
 import {ThumbsUpWithoutPadding} from '../../../../../lib/components/Thumbs/Thumbs';
 import useExerciseFeedbackCount from '../../../../../lib/session/hooks/useExerciseFeedbackCount';
+import useExerciseFeedback from '../../../../../lib/session/hooks/useExerciseFeedback';
+import FeedbackCarousel from '../../../../../lib/components/FeedbackCarousel/FeedbackCrousel';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -168,6 +170,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
   const [sessions, setSessions] = useState<Array<LiveSessionType>>([]);
   const [isLoadingSessions, setIsLoadingSessions] = useState(false);
   const {count} = useExerciseFeedbackCount(selectedExercise);
+  const {feedback} = useExerciseFeedback(selectedExercise);
 
   const exercise = useMemo(
     () => (selectedExercise ? getExerciseById(selectedExercise) : null),
@@ -328,30 +331,42 @@ const SelectTypeStep: React.FC<StepProps> = ({
             </EmptyListContainer>
           }
           ListFooterComponent={
-            <Gutters>
-              <Spacer24 />
-              {exercise.link && (
-                <>
-                  <VCenteredRow>
-                    <IconButton
-                      variant="secondary"
-                      onPress={onShare}
-                      Icon={ShareIcon}
-                    />
+            <>
+              <Gutters>
+                <Spacer24 />
+                {exercise.link && (
+                  <>
+                    <VCenteredRow>
+                      <IconButton
+                        variant="secondary"
+                        onPress={onShare}
+                        Icon={ShareIcon}
+                      />
+                      <Spacer8 />
+                      <Body16>{t('shareHeading')}</Body16>
+                    </VCenteredRow>
+                    <Spacer24 />
+                  </>
+                )}
+                {Boolean(exercise.coCreators?.length) && (
+                  <>
+                    <Heading18>{t('coCreatorsHeading')}</Heading18>
                     <Spacer8 />
-                    <Body16>{t('shareHeading')}</Body16>
-                  </VCenteredRow>
-                  <Spacer24 />
-                </>
-              )}
-              {Boolean(exercise.coCreators?.length) && (
+                    {coCreators}
+                  </>
+                )}
+              </Gutters>
+              {Boolean(feedback?.length) && (
                 <>
-                  <Heading18>{t('coCreatorsHeading')}</Heading18>
+                  <Spacer24 />
+                  <Gutters>
+                    <Heading18>{t('feedbackHeading')}</Heading18>
+                  </Gutters>
                   <Spacer8 />
-                  {coCreators}
+                  <FeedbackCarousel feedbackItems={feedback} />
                 </>
               )}
-            </Gutters>
+            </>
           }
           ListHeaderComponent={
             <Gutters>

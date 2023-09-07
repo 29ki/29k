@@ -15,8 +15,9 @@
     "journeyButton": "Min plan",
     "buttonsHeading": "Lägg till i Min plan, kalender eller dela sessionen",
     "deleteButton": "Ta bort session",
-    "coCreatorsHeading": "Samskapat med",
-    "howItWorks": "Så funkar det"
+    "coCreatorsHeading": "Skapad med",
+    "howItWorks": "Så funkar det",
+    "feedbackHeading": "Reviews"
   },
   "es": {}
 }

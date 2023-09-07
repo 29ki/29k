@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import React, {Fragment, useCallback, useEffect, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {ListRenderItem, Share, View} from 'react-native';
+import {Share, View} from 'react-native';
 import styled from 'styled-components/native';
 import {openUrl} from 'react-native-markdown-display';
 
@@ -64,15 +64,10 @@ import ActionButton from '../../../lib/components/ActionList/ActionItems/ActionB
 import Screen from '../../../lib/components/Screen/Screen';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MagicIcon from '../../../lib/components/Icons/Magic/Magic';
-import {
-  ThumbsDownWithoutPadding,
-  ThumbsUpWithoutPadding,
-} from '../../../lib/components/Thumbs/Thumbs';
+import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
 import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
 import useExerciseFeedback from '../../../lib/session/hooks/useExerciseFeedback';
-import {FlatList} from 'react-native-gesture-handler';
-import {Feedback} from '../../../../../shared/src/types/Feedback';
-import SETTINGS from '../../../lib/constants/settings';
+import FeedbackCarousel from '../../../lib/components/FeedbackCarousel/FeedbackCrousel';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -116,7 +111,7 @@ const EditButton = styled(TouchableOpacity)({
   flexDirection: 'row',
 });
 
-const EditIcon = styled(View)({
+const EditIcon = styled.View({
   width: 22,
   height: 22,
   alignSelf: 'center',
@@ -131,31 +126,6 @@ const Tags = styled(Gutters)({
   flexDirection: 'row',
   alignItems: 'center',
   marginTop: -SPACINGS.FOUR,
-});
-
-const FeedbackList = styled(FlatList)({
-  flexGrow: 0,
-  width: '100%',
-}) as unknown as FlatList;
-
-const ItemWrapper = styled.View<{isLast: boolean}>(({isLast}) => ({
-  paddingLeft: SPACINGS.SIXTEEN,
-  paddingRight: isLast ? SPACINGS.SIXTEEN : undefined,
-}));
-
-const FeedbackCard = styled.View({
-  ...SETTINGS.BOXSHADOW_SMALL,
-  backgroundColor: COLORS.PURE_WHITE,
-  borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
-  padding: SPACINGS.SIXTEEN,
-  width: 216,
-  minHeight: 120,
-  maxHeight: 216,
-  marginBottom: SPACINGS.SIXTEEN,
-});
-
-const FeedbackRow = styled.View({
-  flexDirection: 'row',
 });
 
 const SessionOverlay = () => {
@@ -243,28 +213,6 @@ const SessionOverlay = () => {
   const howItWorksPress = useCallback(
     () => navigation.navigate('HowItWorksModal'),
     [navigation],
-  );
-  const keyExtractor = useCallback((item: Feedback) => item.id, []);
-
-  const renderItem = useCallback<ListRenderItem<Feedback>>(
-    ({item, index}) => (
-      <ItemWrapper isLast={index === feedback.length - 1}>
-        <FeedbackCard>
-          <FeedbackRow>
-            {item.answer ? (
-              <ThumbsUpWithoutPadding />
-            ) : (
-              <ThumbsDownWithoutPadding />
-            )}
-            <Spacer8 />
-            <Tag>{dayjs(item.createdAt).format('d MMM')}</Tag>
-          </FeedbackRow>
-          <Spacer8 />
-          <Body16>{item.comment}</Body16>
-        </FeedbackCard>
-      </ItemWrapper>
-    ),
-    [feedback],
   );
 
   const coCreators = useMemo(
@@ -450,32 +398,23 @@ const SessionOverlay = () => {
             </ActionButton>
           </ActionList>
           {Boolean(exercise.coCreators?.length) && (
-            <View>
+            <>
               <Spacer24 />
               <Heading18>{t('coCreatorsHeading')}</Heading18>
               <Spacer8 />
               {coCreators}
-            </View>
+            </>
           )}
         </Gutters>
         {Boolean(feedback?.length) && (
-          <View>
+          <>
             <Spacer24 />
             <Gutters>
               <Heading18>{t('feedbackHeading')}</Heading18>
             </Gutters>
             <Spacer8 />
-            <FeedbackList
-              renderItem={renderItem}
-              keyExtractor={keyExtractor}
-              horizontal
-              data={feedback}
-              snapToAlignment="center"
-              decelerationRate="fast"
-              snapToInterval={216 + SPACINGS.SIXTEEN}
-              showsHorizontalScrollIndicator={false}
-            />
-          </View>
+            <FeedbackCarousel feedbackItems={feedback} />
+          </>
         )}
         <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
       </AutoScrollView>
