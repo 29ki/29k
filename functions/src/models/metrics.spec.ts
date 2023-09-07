@@ -17,11 +17,13 @@ import {
   mockGetTransaction,
   mockRunTransaction,
   mockSet,
+  mockUpdate,
   mockWhere,
 } from 'firestore-jest-mock/mocks/firestore';
 import {SessionMode, SessionType} from '../../../shared/src/schemas/Session';
 import {
   addFeedback,
+  setFeedbackApproval,
   getFeedbackByExercise,
   logEvent,
   setUserProperties,
@@ -148,7 +150,7 @@ describe('metrics model', () => {
         sessionType: SessionType.public,
         sessionMode: SessionMode.live,
       };
-      await addFeedback(feedback);
+      const doc = await addFeedback(feedback);
 
       expect(mockCollection).toHaveBeenCalledWith('metricsFeedback');
       expect(mockAdd).toHaveBeenCalledTimes(1);
@@ -162,6 +164,11 @@ describe('metrics model', () => {
         createdAt: expect.any(Timestamp),
         sessionType: SessionType.public,
         sessionMode: SessionMode.live,
+      });
+
+      expect(doc).toMatchObject({
+        ...feedback,
+        id: expect.any(String),
       });
     });
   });
@@ -188,6 +195,18 @@ describe('metrics model', () => {
         'exercise-id-123',
       );
       expect(mockWhere).toHaveBeenCalledWith('sessionMode', '==', 'live');
+    });
+  });
+
+  describe('setFeedbackApproval', () => {
+    it('updates feedback to approved', async () => {
+      await setFeedbackApproval('feedback-id', true);
+      expect(mockCollection).toHaveBeenCalledWith('metricsFeedback');
+      expect(mockUpdate).toHaveBeenCalledTimes(1);
+      expect(mockUpdate).toHaveBeenCalledWith({
+        approved: true,
+        updatedAt: expect.any(Timestamp),
+      });
     });
   });
 });

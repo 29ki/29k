@@ -115,6 +115,43 @@ export const createVisibilityActionBlock = (postId: string, visible: boolean) =>
     ],
   }) as ActionsBlock;
 
+export const createFeedbackVisibilityActionBlock = (
+  feedbackId: string,
+  visible: boolean,
+) =>
+  ({
+    type: 'actions',
+    elements: [
+      {
+        type: 'button',
+        text: {
+          text: visible ? 'Hide feedback' : 'Show feedback',
+          type: 'plain_text',
+        },
+        value: feedbackId,
+        style: visible ? undefined : 'danger',
+        action_id: visible
+          ? RequestAction.HIDE_SESSION_FEEDBACK
+          : RequestAction.SHOW_SESSION_FEEDBACK,
+        confirm: {
+          style: 'danger',
+          text: {
+            text: 'Are you sure?',
+            type: 'plain_text',
+          },
+          confirm: {
+            text: 'Yes',
+            type: 'plain_text',
+          },
+          deny: {
+            text: 'No',
+            type: 'plain_text',
+          },
+        },
+      },
+    ],
+  }) as ActionsBlock;
+
 export const createPostBlocks = (
   approved: boolean,
   postId: string,
@@ -183,6 +220,7 @@ export const createPostBlocks = (
   return blocks;
 };
 export const createFeedbackBlocks = (
+  feedbackId: string,
   exercise = 'unknown',
   image: string | undefined,
   question: string,
@@ -190,7 +228,8 @@ export const createFeedbackBlocks = (
   comment: string,
   sessionType: SessionType | undefined,
   sessionMode: SessionMode | undefined,
-) => [
+  approved: boolean,
+): KnownBlock[] => [
   {
     type: 'header',
     text: {
@@ -217,4 +256,5 @@ export const createFeedbackBlocks = (
       },
     }),
   },
+  createFeedbackVisibilityActionBlock(feedbackId, approved),
 ];

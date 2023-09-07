@@ -174,6 +174,7 @@ describe('slack model', () => {
   describe('sendFeedbackMessage', () => {
     it('should send expected message to slack', async () => {
       await sendFeedbackMessage(
+        'feedback-id',
         'Some Exercise Name',
         'https://some.image/url',
         'Some question?',
@@ -181,6 +182,7 @@ describe('slack model', () => {
         'Some comment!',
         SessionType.public,
         SessionMode.live,
+        false,
       );
 
       expect(mockPostMessage).toHaveBeenCalledTimes(1);
@@ -199,6 +201,24 @@ describe('slack model', () => {
             },
             type: 'section',
           },
+          {
+            elements: [
+              {
+                action_id: RequestAction.SHOW_SESSION_FEEDBACK,
+                confirm: {
+                  confirm: {text: 'Yes', type: 'plain_text'},
+                  deny: {text: 'No', type: 'plain_text'},
+                  style: 'danger',
+                  text: {text: 'Are you sure?', type: 'plain_text'},
+                },
+                style: 'danger',
+                text: {text: 'Show feedback', type: 'plain_text'},
+                type: 'button',
+                value: 'feedback-id',
+              },
+            ],
+            type: 'actions',
+          },
         ],
         channel: '#some-channel',
         text: 'Some question?: 👍 Some comment!',
@@ -208,6 +228,7 @@ describe('slack model', () => {
 
     it("doesn't require, exercise, image, session mode or session type", async () => {
       await sendFeedbackMessage(
+        'feedback-id',
         undefined,
         undefined,
         'Some question?',
@@ -215,6 +236,7 @@ describe('slack model', () => {
         'Some comment!',
         undefined,
         undefined,
+        true,
       );
 
       expect(mockPostMessage).toHaveBeenCalledTimes(1);
@@ -227,6 +249,24 @@ describe('slack model', () => {
               type: 'mrkdwn',
             },
             type: 'section',
+          },
+          {
+            elements: [
+              {
+                action_id: RequestAction.HIDE_SESSION_FEEDBACK,
+                confirm: {
+                  confirm: {text: 'Yes', type: 'plain_text'},
+                  deny: {text: 'No', type: 'plain_text'},
+                  style: 'danger',
+                  text: {text: 'Are you sure?', type: 'plain_text'},
+                },
+                style: undefined,
+                text: {text: 'Hide feedback', type: 'plain_text'},
+                type: 'button',
+                value: 'feedback-id',
+              },
+            ],
+            type: 'actions',
           },
         ],
         text: 'Some question?: 👍 Some comment!',

@@ -2,7 +2,7 @@ import Events from './Events';
 import CoreProperties from './CoreProperties';
 import UserProperties from './UserProperties';
 import React from 'react';
-import {Feedback} from '../../../../../shared/src/types/Feedback';
+import {FeedbackInput} from '../../../../../shared/src/types/Feedback';
 import {DefaultProperties} from './Properties';
 
 type AnyUserProperty = Partial<UserProperties>;
@@ -26,7 +26,7 @@ export type LogNavigation = (
   properties?: Omit<Events['Screen'], 'Screen Name'> & DefaultProperties,
 ) => Promise<void>;
 
-export type LogFeedback = (feedback: Feedback) => Promise<void>;
+export type LogFeedback = (feedback: FeedbackInput) => Promise<void>;
 
 export type SetUserProperties = (
   properties: AnyUserProperty & AnyCoreProperty,

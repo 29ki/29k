@@ -2,6 +2,7 @@ import {getAuth} from 'firebase-admin/auth';
 import {updatePublicHostRequest} from '../../models/publicHostRequests';
 import {createPublicHostCodeLink} from '../../models/dynamicLinks';
 import {updatePost} from '../../models/post';
+import {setFeedbackApproval} from '../../models/metrics';
 import {RequestAction} from '../../lib/constants/requestAction';
 import {
   updatePublicHostRequestMessage,
@@ -15,6 +16,7 @@ jest.mock('../../models/slack');
 jest.mock('../../models/publicHostRequests');
 jest.mock('../../models/dynamicLinks');
 jest.mock('../../models/post');
+jest.mock('../../models/metrics');
 
 const mockUpdatePublicHostRequestMessage = jest.mocked(
   updatePublicHostRequestMessage,
@@ -27,6 +29,7 @@ const mockUpdatePostMessageVisibility = jest.mocked(
   updatePostMessageVisibility,
 );
 const mockUpdatePost = jest.mocked(updatePost);
+const mockSetFeedbackApproval = jest.mocked(setFeedbackApproval);
 
 beforeEach(async () => {
   jest.clearAllMocks();
@@ -118,6 +121,62 @@ describe('slack', () => {
         [],
         true,
       );
+    });
+
+    describe('showFeedback', () => {
+      it('should update feedback and send message', async () => {
+        mockParseMessage.mockReturnValueOnce({
+          channelId: 'some-channel-id',
+          ts: 'some-ts',
+          actionId: RequestAction.SHOW_SESSION_FEEDBACK,
+          value: 'some-feedback-id',
+          originalBlocks: [],
+        });
+
+        await slackHandler(JSON.stringify({}));
+
+        expect(mockSetFeedbackApproval).toHaveBeenCalledTimes(1);
+        expect(mockSetFeedbackApproval).toHaveBeenCalledWith(
+          'some-feedback-id',
+          true,
+        );
+        expect(updatePostMessageVisibility).toHaveBeenCalledTimes(1);
+        expect(updatePostMessageVisibility).toHaveBeenCalledWith(
+          'some-channel-id',
+          'some-ts',
+          'some-feedback-id',
+          [],
+          true,
+        );
+      });
+    });
+
+    describe('hideFeedback', () => {
+      it('should update feedback and send message', async () => {
+        mockParseMessage.mockReturnValueOnce({
+          channelId: 'some-channel-id',
+          ts: 'some-ts',
+          actionId: RequestAction.HIDE_SESSION_FEEDBACK,
+          value: 'some-feedback-id',
+          originalBlocks: [],
+        });
+
+        await slackHandler(JSON.stringify({}));
+
+        expect(mockSetFeedbackApproval).toHaveBeenCalledTimes(1);
+        expect(mockSetFeedbackApproval).toHaveBeenCalledWith(
+          'some-feedback-id',
+          false,
+        );
+        expect(mockUpdatePostMessageVisibility).toHaveBeenCalledTimes(1);
+        expect(mockUpdatePostMessageVisibility).toHaveBeenCalledWith(
+          'some-channel-id',
+          'some-ts',
+          'some-feedback-id',
+          [],
+          false,
+        );
+      });
     });
   });
 
