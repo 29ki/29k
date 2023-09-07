@@ -1106,6 +1106,8 @@ PODS:
     - RNNotifee/NotifeeCore (= 7.8.0)
   - RNNotifee/NotifeeCore (7.8.0):
     - React-Core
+  - RNPermissions (3.9.0):
+    - React-Core
   - RNRate (1.2.12):
     - React-Core
   - RNReactNativeHapticFeedback (2.0.3):
@@ -1248,6 +1250,7 @@ DEPENDENCIES:
   - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNLocalize (from `../node_modules/react-native-localize`)
   - "RNNotifee (from `../node_modules/@notifee/react-native`)"
+  - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNRate (from `../node_modules/react-native-rate`)
   - RNReactNativeHapticFeedback (from `../node_modules/react-native-haptic-feedback`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
@@ -1414,6 +1417,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-localize"
   RNNotifee:
     :path: "../node_modules/@notifee/react-native"
+  RNPermissions:
+    :path: "../node_modules/react-native-permissions"
   RNRate:
     :path: "../node_modules/react-native-rate"
   RNReactNativeHapticFeedback:
@@ -1516,6 +1521,7 @@ SPEC CHECKSUMS:
   RNImageCropPicker: 486e2f7e2b0461ce24321f751410dce1b3b49e6d
   RNLocalize: d4b8af4e442d4bcca54e68fc687a2129b4d71a81
   RNNotifee: f3c01b391dd8e98e67f539f9a35a9cbcd3bae744
+  RNPermissions: a68ed3a15baaed5d0b6a54eda9f4897ab79f176d
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReactNativeHapticFeedback: afa5bf2794aecbb2dba2525329253da0d66656df
   RNReanimated: c6f8f70e96dd6ca21b65aef9b3e4efe4965db905
@@ -1537,6 +1543,6 @@ SPEC CHECKSUMS:
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
   Yoga: 7a4d48cfb35dfa542151e615fa73c1a0d88caf21
 
-PODFILE CHECKSUM: a83f36560503cca86349a4dbad655ed602fe23c1
+PODFILE CHECKSUM: 0e1964ffcc47add8ebd542ed126ab9f420e64c33
 
 COCOAPODS: 1.12.1

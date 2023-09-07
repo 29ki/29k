@@ -139,9 +139,10 @@ const ChangingRoom = () => {
   const [localUserName, setLocalUserName] = useState(user?.displayName ?? '');
   const logSessionMetricEvent = useLiveSessionMetricEvents();
   const {
-    checkJoinPermissions,
-    checkCameraPermissions,
-    checkMicrophonePermissions,
+    checkPermissions,
+    checkAndPromptJoinPermissions,
+    checkAndPromptCameraPermissions,
+    checkAndPromptMicrophonePermissions,
   } = useCheckPermissions();
 
   const hasAudio = Boolean(me?.tracks.audio.state !== 'off');
@@ -216,27 +217,27 @@ const ChangingRoom = () => {
     joinSession(session.inviteCode);
     if (localUserName) {
       setUserName(localUserName);
-      checkJoinPermissions(join);
+      checkAndPromptJoinPermissions(join);
     }
   }, [
     localUserName,
     setUserName,
-    checkJoinPermissions,
+    checkAndPromptJoinPermissions,
     join,
     session.inviteCode,
   ]);
 
   const toggleAudioPress = useCallback(() => {
-    checkMicrophonePermissions(() => {
+    checkAndPromptMicrophonePermissions(() => {
       toggleAudio(!hasAudio);
     });
-  }, [checkMicrophonePermissions, toggleAudio, hasAudio]);
+  }, [checkAndPromptMicrophonePermissions, toggleAudio, hasAudio]);
 
   const toggleVideoPress = useCallback(() => {
-    checkCameraPermissions(() => {
+    checkAndPromptCameraPermissions(() => {
       toggleVideo(!hasVideo);
     });
-  }, [checkCameraPermissions, toggleVideo, hasVideo]);
+  }, [checkAndPromptCameraPermissions, toggleVideo, hasVideo]);
 
   return (
     <Screen onPressBack={goBack}>

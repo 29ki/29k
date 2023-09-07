@@ -1,24 +1,39 @@
-import {useCallback, useContext} from 'react';
-import {Alert, Linking} from 'react-native';
+import {useCallback} from 'react';
+import {Alert, Platform} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import useRestartApp from '../../codePush/hooks/useRestartApp';
-import {DailyContext} from '../../daily/DailyProvider';
+import {
+  PERMISSIONS,
+  RESULTS,
+  checkMultiple,
+  openSettings,
+} from 'react-native-permissions';
+
+const CAMERA_PERMISSION = Platform.select({
+  ios: PERMISSIONS.IOS.CAMERA,
+  default: PERMISSIONS.ANDROID.CAMERA,
+});
+const MICROPHONE_PERMISSION = Platform.select({
+  ios: PERMISSIONS.IOS.MICROPHONE,
+  default: PERMISSIONS.ANDROID.RECORD_AUDIO,
+});
 
 type Confirm = (
   keyPrefix: 'join' | 'camera' | 'microphone',
   onDismiss?: () => void,
 ) => Promise<void>;
 
-type CheckPermissions = (onGranted: () => void, onDismiss?: () => void) => void;
+type CheckAndPromptPermissions = (
+  onGranted: () => void,
+  onDismiss?: () => void,
+) => void;
 
 const useCheckPermissions = () => {
   const {t} = useTranslation('Component.CheckPermissions');
   const restartApp = useRestartApp();
-  const {hasCameraPermissions, hasMicrophonePermissions} =
-    useContext(DailyContext);
 
-  const openSettings = useCallback(async () => {
-    await Linking.openSettings();
+  const openSettingsAndRestart = useCallback(async () => {
+    await openSettings();
     // Restart JS-bundle to let permissions come into effect - on Android, iOS already does this.
     restartApp();
   }, [restartApp]);
@@ -38,52 +53,63 @@ const useCheckPermissions = () => {
             style: 'cancel',
             text: t(`${keyPrefix}.confirm`),
             onPress: async () => {
-              await openSettings();
+              await openSettingsAndRestart();
               resolve();
             },
           },
         ]);
       }),
-    [t, openSettings],
+    [t, openSettingsAndRestart],
   );
 
-  const checkJoinPermissions = useCallback<CheckPermissions>(
+  const checkPermissions = useCallback(
+    async (checks = [CAMERA_PERMISSION, MICROPHONE_PERMISSION]) =>
+      Object.values(await checkMultiple(checks)).every(
+        permission => permission === RESULTS.GRANTED,
+      ),
+    [],
+  );
+
+  const checkAndPromptJoinPermissions = useCallback<CheckAndPromptPermissions>(
     async (onGranted, onDismiss) => {
-      if (hasCameraPermissions() && hasMicrophonePermissions()) {
+      if (await checkPermissions()) {
         await onGranted();
       } else {
         await confirm('join', onDismiss ?? onGranted);
       }
     },
-    [hasCameraPermissions, hasMicrophonePermissions, confirm],
+    [confirm, checkPermissions],
   );
 
-  const checkCameraPermissions = useCallback<CheckPermissions>(
-    async (onGranted, onDismiss = () => {}) => {
-      if (hasCameraPermissions()) {
-        await onGranted();
-      } else {
-        await confirm('camera', onDismiss);
-      }
-    },
-    [hasCameraPermissions, confirm],
-  );
+  const checkAndPromptCameraPermissions =
+    useCallback<CheckAndPromptPermissions>(
+      async (onGranted, onDismiss = () => {}) => {
+        if (await checkPermissions([CAMERA_PERMISSION])) {
+          await onGranted();
+        } else {
+          await confirm('camera', onDismiss);
+        }
+      },
+      [confirm, checkPermissions],
+    );
 
-  const checkMicrophonePermissions = useCallback<CheckPermissions>(
-    async (onGranted, onDismiss = () => {}) => {
-      if (hasMicrophonePermissions()) {
-        await onGranted();
-      } else {
-        await confirm('microphone', onDismiss);
-      }
-    },
-    [hasMicrophonePermissions, confirm],
-  );
+  const checkAndPromptMicrophonePermissions =
+    useCallback<CheckAndPromptPermissions>(
+      async (onGranted, onDismiss = () => {}) => {
+        if (await checkPermissions([MICROPHONE_PERMISSION])) {
+          await onGranted();
+        } else {
+          await confirm('microphone', onDismiss);
+        }
+      },
+      [confirm, checkPermissions],
+    );
 
   return {
-    checkJoinPermissions,
-    checkCameraPermissions,
-    checkMicrophonePermissions,
+    checkPermissions,
+    checkAndPromptJoinPermissions,
+    checkAndPromptCameraPermissions,
+    checkAndPromptMicrophonePermissions,
   };
 };
 
