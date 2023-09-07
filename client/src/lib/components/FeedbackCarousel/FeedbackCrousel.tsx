@@ -30,7 +30,7 @@ const CardWrapper = styled.View<{isLast: boolean}>(({isLast}) => ({
 
 const Card = styled.View({
   ...SETTINGS.BOXSHADOW_SMALL,
-  backgroundColor: COLORS.PURE_WHITE,
+  backgroundColor: COLORS.WHITE,
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
   padding: SPACINGS.SIXTEEN,
   width: CARD_WIDTH,
@@ -41,6 +41,17 @@ const Card = styled.View({
 
 const Row = styled.View({
   flexDirection: 'row',
+  alignItems: 'center',
+});
+
+const DateTag = styled(Tag)({
+  marginTop: 0,
+  backgroundColor: COLORS.PURE_WHITE,
+});
+
+const ThumbWrapper = styled.View({
+  width: SPACINGS.TWENTYFOUR,
+  height: SPACINGS.TWENTYFOUR,
 });
 
 const FeedbackCarousel: React.FC<{feedbackItems: Feedback[]}> = ({
@@ -53,13 +64,15 @@ const FeedbackCarousel: React.FC<{feedbackItems: Feedback[]}> = ({
       <CardWrapper isLast={index === feedbackItems.length - 1}>
         <Card>
           <Row>
-            {item.answer ? (
-              <ThumbsUpWithoutPadding />
-            ) : (
-              <ThumbsDownWithoutPadding />
-            )}
+            <ThumbWrapper>
+              {item.answer ? (
+                <ThumbsUpWithoutPadding />
+              ) : (
+                <ThumbsDownWithoutPadding />
+              )}
+            </ThumbWrapper>
             <Spacer8 />
-            <Tag>{dayjs(item.createdAt).format('d MMM')}</Tag>
+            <DateTag>{dayjs(item.createdAt).format('d MMM')}</DateTag>
           </Row>
           <Spacer8 />
           <Body16>{item.comment}</Body16>

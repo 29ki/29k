@@ -247,7 +247,7 @@ const SessionOverlay = () => {
   }
 
   return (
-    <Screen>
+    <Screen backgroundColor={COLORS.CREAM}>
       <Spacer16 />
       {count && count.positive > 0 && (
         <RatingContainer>
@@ -258,7 +258,7 @@ const SessionOverlay = () => {
       )}
       <TopBar
         onPressClose={navigation.goBack}
-        backgroundColor={COLORS.WHITE}
+        backgroundColor={COLORS.CREAM}
         fade
       />
 
