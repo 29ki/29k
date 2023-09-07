@@ -15,6 +15,7 @@ import * as ActionList from '../../components/ActionList/ActionList.library';
 import * as ProfilePicture from '../../components/User/ProfilePicture.library';
 import * as TopBar from '../../components/TopBar/TopBar.library';
 import * as ErrorBanner from '../../components/ErrorBanner/ErrorBanner.library';
+import * as DescriptionBlock from '../../components/DescriptionBlock/DescriptionBlock.library';
 
 export type ComponentLibrary = {[key: string]: React.ComponentType};
 export type ComponentList = {[key: string]: Array<ComponentLibrary>};
@@ -24,6 +25,7 @@ const menuItems: ComponentList = {
   Cards: [Cards],
   Icons: [Icons],
   ActionList: [ActionList],
+  DescriptionBlock: [DescriptionBlock],
   Modals: [Modals],
   Typography: [Typography],
   Screen: [Screen],
