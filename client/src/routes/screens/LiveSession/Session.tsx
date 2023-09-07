@@ -179,8 +179,10 @@ const Session: React.FC = () => {
   const sessionSlideState = useLiveSessionSlideState();
   const logSessionMetricEvent = useLiveSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession(session);
-  const {checkCameraPermissions, checkMicrophonePermissions} =
-    useCheckPermissions();
+  const {
+    checkAndPromptCameraPermissions: checkCameraPermissions,
+    checkAndPromptMicrophonePermissions: checkMicrophonePermissions,
+  } = useCheckPermissions();
   const user = useUser();
   const addUserEvent = useAddUserEvent();
   const sendReaction = useSendReaction();
