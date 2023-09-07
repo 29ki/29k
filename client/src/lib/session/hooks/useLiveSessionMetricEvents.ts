@@ -6,6 +6,7 @@ import useSessionState from '../state/state';
 
 type AllowedSharingEvents =
   | 'Enter Changing Room'
+  | 'Enter Sharing Session Onboarding'
   | 'Enter Intro Portal'
   | 'Start Sharing Session'
   | 'Enter Sharing Session'

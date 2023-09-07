@@ -16,7 +16,10 @@ import Sentry from '../sentry';
 
 export type DailyProviderTypes = {
   call?: DailyCall;
+  hasCameraPermissions: () => boolean;
+  hasMicrophonePermissions: () => boolean;
   preJoinMeeting: (url: string, token: string) => Promise<void>;
+  startCamera: () => Promise<void>;
   joinMeeting: (options?: DailyCallOptions) => Promise<void>;
   leaveMeeting: () => Promise<void>;
   toggleAudio: (enabled: boolean) => void;
@@ -29,7 +32,10 @@ export type DailyProviderTypes = {
 };
 
 export const DailyContext = createContext<DailyProviderTypes>({
+  hasCameraPermissions: () => false,
+  hasMicrophonePermissions: () => false,
   preJoinMeeting: () => Promise.resolve(),
+  startCamera: () => Promise.resolve(),
   joinMeeting: () => Promise.resolve(),
   leaveMeeting: () => Promise.resolve(),
   toggleAudio: () => {},
@@ -115,19 +121,6 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     await daily.leave();
   }, [daily]);
 
-  const prepareMeeting = useCallback(
-    async (url: string, token: string) => {
-      if (daily.meetingState() !== 'joined-meeting') {
-        await daily.preAuth({
-          url,
-          token,
-        });
-      }
-    },
-
-    [daily],
-  );
-
   const setSubscribeToAllTracks = useCallback(() => {
     if (!daily) {
       return;
@@ -172,12 +165,21 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const preJoinMeeting = useCallback(
     async (url: string, token: string) => {
       if (daily.meetingState() === 'new') {
-        await prepareMeeting(url, token);
-        await daily.startCamera({url});
+        await daily.preAuth({
+          url,
+          token,
+        });
+        //await daily.startCamera({url});
       }
     },
-    [daily, prepareMeeting],
+    [daily],
   );
+
+  const startCamera = useCallback(async () => {
+    if (daily.meetingState() !== 'joined-meeting') {
+      await daily.startCamera();
+    }
+  }, [daily]);
 
   const joinMeeting = useCallback(
     async (options?: DailyCallOptions) => {
@@ -201,6 +203,18 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
       await setUserData({userName});
     },
     [setUserData],
+  );
+
+  const hasCameraPermissions = useCallback(
+    () =>
+      daily.participants().local?.tracks.video.blocked?.byPermissions !== true,
+    [daily],
+  );
+
+  const hasMicrophonePermissions = useCallback(
+    () =>
+      daily.participants().local?.tracks.audio.blocked?.byPermissions !== true,
+    [daily],
   );
 
   const sendMessage = useCallback(
@@ -233,7 +247,10 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     <DailyContext.Provider
       value={{
         call: daily,
+        hasCameraPermissions,
+        hasMicrophonePermissions,
         preJoinMeeting,
+        startCamera,
         joinMeeting,
         leaveMeeting,
         toggleAudio,
