@@ -34,7 +34,7 @@ import {
 import TouchableOpacity from '../../../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {Body16} from '../../../../../lib/components/Typography/Body/Body';
 import {Display24} from '../../../../../lib/components/Typography/Display/Display';
-import {SPACINGS} from '../../../../../lib/constants/spacings';
+import {GUTTERS, SPACINGS} from '../../../../../lib/constants/spacings';
 import {StepProps} from '../../CreateSessionModal';
 import Button from '../../../../../lib/components/Buttons/Button';
 import {useNavigation} from '@react-navigation/native';
@@ -118,8 +118,10 @@ const LogoWrapper = styled.View({
 });
 
 const RatingContainer = styled.View({
+  position: 'absolute',
   flexDirection: 'row',
   alignItems: 'center',
+  left: GUTTERS.SMALL,
 });
 
 const FeedbackThumb = styled(ThumbsUpWithoutPadding)({
@@ -370,15 +372,15 @@ const SelectTypeStep: React.FC<StepProps> = ({
           }
           ListHeaderComponent={
             <Gutters>
+              {rating && Boolean(rating.positive) && (
+                <RatingContainer>
+                  <FeedbackThumb />
+                  <Spacer4 />
+                  <Body16>{rating.positive}</Body16>
+                </RatingContainer>
+              )}
               <SpaceBetweenRow>
                 <TextWrapper>
-                  {rating && rating.positive && (
-                    <RatingContainer>
-                      <FeedbackThumb />
-                      <Spacer4 />
-                      <Body16>{rating.positive}</Body16>
-                    </RatingContainer>
-                  )}
                   <Display24>{formatContentName(exercise)}</Display24>
                 </TextWrapper>
                 <Spacer16 />
