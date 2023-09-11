@@ -46,6 +46,7 @@ export type UserState = {
   metricsUid?: string;
   sessionReminderNotifications?: boolean;
   practiceReminderConfig?: PracticeReminderConfig | null;
+  logMindfulMinutes?: boolean;
 };
 
 type SetCurrentUserState = (
