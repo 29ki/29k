@@ -4,7 +4,7 @@
     "question": "Was this meaningful for you?",
     "comments": "Do you have any comments?",
     "commentsPlaceholder": "Optional...",
-    "note": "Your comments will be shared anonymously with us",
+    "note": "Your comments will be shared anonymously.",
     "submit": "Submit",
     "thankYou__text": "Thank you\nso much\nfor your\nfeedback!"
   },
@@ -21,7 +21,7 @@
     "question": "Var den här sessionen meningsfull?",
     "comments": "Skriv en kommentar:",
     "commentsPlaceholder": "",
-    "note": "Din kommentar visas anonymt för oss på Aware. ",
+    "note": "Din kommentar visas anonymt. ",
     "submit": "Skicka",
     "thankYou__text": "Tack så\nmycket\nför din \nfeedback!"
   },
