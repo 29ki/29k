@@ -42,7 +42,7 @@
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationCategoryType</key>
-	<string/>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -65,7 +65,7 @@
 	<key>NSContactsUsageDescription</key>
 	<string>This allows us to add sessions to your calendar.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This allows us to stream your audio during video sharing.</string>
 	<key>UIAppFonts</key>
@@ -160,9 +160,11 @@
 	</array>
 	<key>FirebaseDeepLinkPasteboardRetrievalEnabled</key>
 	<true/>
-  <key>NSUserActivityTypes</key>
-  <array>
-    <string>INSendMessageIntent</string>
-  </array>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Log mindfulness minutes when completing Aware sessions</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>INSendMessageIntent</string>
+	</array>
 </dict>
 </plist>
