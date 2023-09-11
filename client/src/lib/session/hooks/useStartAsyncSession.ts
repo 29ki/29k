@@ -17,6 +17,7 @@ import {
 import useLogAsyncSessionMetricEvents from '../../sessions/hooks/useLogAsyncSessionMetricEvents';
 import {generateId} from '../../utils/id';
 import useSessionState from '../state/state';
+import useConfirmLogMindfulMinutes from '../../mindfulMinutes/hooks/useConfirmLogMindfulMinutes';
 
 const useStartAsyncSession = () => {
   const {navigate} =
@@ -26,6 +27,7 @@ const useStartAsyncSession = () => {
   const setExercise = useSessionState(state => state.setExercise);
   const getExerciseById = useGetExerciseById();
   const logAsyncSessionMetricEvent = useLogAsyncSessionMetricEvents();
+  const confirmLogMindfulMinutes = useConfirmLogMindfulMinutes();
 
   return useCallback(
     (exerciseId: string) => {
@@ -33,7 +35,7 @@ const useStartAsyncSession = () => {
         type: SessionType.public,
         mode: SessionMode.async,
         id: generateId(),
-        startTime: dayjs().toJSON(),
+        startTime: dayjs().toISOString(),
         exerciseId,
         language: i18n.resolvedLanguage as LANGUAGE_TAG,
       };
@@ -46,10 +48,12 @@ const useStartAsyncSession = () => {
           session,
         },
       });
+      confirmLogMindfulMinutes();
       logAsyncSessionMetricEvent('Create Async Session', session);
     },
     [
       navigate,
+      confirmLogMindfulMinutes,
       logAsyncSessionMetricEvent,
       setAsyncSession,
       setExercise,
