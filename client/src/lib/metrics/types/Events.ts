@@ -33,6 +33,8 @@ type Events = {
 
   // Inside Sharing Sessions
   'Enter Changing Room': SharingSessionProperties & SharingSessionDuration;
+  'Enter Sharing Session Onboarding': SharingSessionProperties &
+    SharingSessionDuration;
   'Enter Intro Portal': SharingSessionProperties & SharingSessionDuration;
   'Start Sharing Session': SharingSessionProperties & SharingSessionDuration;
   'Enter Sharing Session': SharingSessionProperties & SharingSessionDuration;

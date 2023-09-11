@@ -179,7 +179,7 @@ const Session: React.FC = () => {
   const sessionSlideState = useLiveSessionSlideState();
   const logSessionMetricEvent = useLiveSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession(session);
-  const {checkCameraPermissions, checkMicrophonePermissions} =
+  const {checkAndPromptCameraPermissions, checkAndPromptMicrophonePermissions} =
     useCheckPermissions();
   const user = useUser();
   const addUserEvent = useAddUserEvent();
@@ -242,16 +242,16 @@ const Session: React.FC = () => {
   }, [sendReaction]);
 
   const toggleAudioPress = useCallback(() => {
-    checkMicrophonePermissions(() => {
+    checkAndPromptMicrophonePermissions(() => {
       toggleAudio(!hasAudio);
     });
-  }, [checkMicrophonePermissions, toggleAudio, hasAudio]);
+  }, [checkAndPromptMicrophonePermissions, toggleAudio, hasAudio]);
 
   const toggleVideoPress = useCallback(() => {
-    checkCameraPermissions(() => {
+    checkAndPromptCameraPermissions(() => {
       toggleVideo(!hasVideo);
     });
-  }, [checkCameraPermissions, toggleVideo, hasVideo]);
+  }, [checkAndPromptCameraPermissions, toggleVideo, hasVideo]);
 
   const onPrevPress = useCallback(() => {
     if (sessionSlideState && exercise?.slides) {

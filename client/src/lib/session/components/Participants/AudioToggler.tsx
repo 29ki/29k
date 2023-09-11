@@ -13,19 +13,21 @@ import TouchableOpacity from '../../../components/TouchableOpacity/TouchableOpac
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 
-const Wrapper = styled(Animated.View)({
-  height: 24,
-  width: 24,
-  borderRadius: 45,
-  padding: 2,
-});
-
 const Container = styled(Animated.View)({
+  marginVertical: 6,
   height: 12,
   width: 38,
   borderRadius: 45,
   flexDirection: 'row',
   alignItems: 'center',
+  backgroundColor: 'red',
+});
+
+const IconWrapper = styled(Animated.View)({
+  height: 24,
+  width: 24,
+  borderRadius: 45,
+  padding: 2,
 });
 
 type AudioTogglerProps = {
@@ -82,13 +84,13 @@ const AudioToggler: React.FC<AudioTogglerProps> = ({
       activeOpacity={1}
       onPress={onPress}>
       <Container style={containerAnimatedStyles}>
-        <Wrapper style={iconAnimatedStyles}>
+        <IconWrapper style={iconAnimatedStyles}>
           {muted ? (
             <MicrophoneOffIcon fill={COLORS.PURE_WHITE} />
           ) : (
             <MicrophoneIcon fill={COLORS.ACTION} />
           )}
-        </Wrapper>
+        </IconWrapper>
       </Container>
     </TouchableOpacity>
   );

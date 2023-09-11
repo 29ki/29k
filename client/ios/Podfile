@@ -2,11 +2,33 @@ $RNFirebaseAsStaticFramework = true
 
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+require_relative '../node_modules/react-native-permissions/scripts/setup'
 
 platform :ios, '13'
 use_frameworks! :linkage => :static
 install! 'cocoapods', :deterministic_uuids => false
 
+setup_permissions([
+  'Calendars',
+  'PhotoLibrary',
+  'Camera',
+  'Microphone',
+  'Notifications'
+  # 'AppTrackingTransparency',
+  # 'BluetoothPeripheral',
+  # 'Contacts',
+  # 'FaceID',
+  # 'LocationAccuracy',
+  # 'LocationAlways',
+  # 'LocationWhenInUse',
+  # 'MediaLibrary',
+  # 'Motion',
+  # 'PhotoLibrary',
+  # 'PhotoLibraryAddOnly',
+  # 'Reminders',
+  # 'SpeechRecognition',
+  # 'StoreKit'
+])
 
 def setup
   production = ENV["PRODUCTION"] == "1"
