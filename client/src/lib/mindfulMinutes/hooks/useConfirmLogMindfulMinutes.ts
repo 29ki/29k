@@ -42,7 +42,12 @@ const useConfirmLogMindfulMinutes = () => {
         ],
       );
     }
-  }, [t, mindfulMinutesEnabled, setMindfulMinutesEnabled]);
+  }, [
+    t,
+    mindfulMinutesEnabled,
+    mindfulMinutesAvailable,
+    setMindfulMinutesEnabled,
+  ]);
 
   return confirmLogMindfulMinutes;
 };
