@@ -17,6 +17,7 @@ import IntroPortalComponent from '../../../lib/session/components/IntroPortal/In
 import useUpdateAsyncSessionState from '../../../lib/session/hooks/useUpdateAsyncSessionState';
 import useAsyncSessionMetricEvents from '../../../lib/session/hooks/useAsyncSessionMetricEvents';
 import useSessionState from '../../../lib/session/state/state';
+import useConfirmLogMindfulMinutes from '../../../lib/mindfulMinutes/hooks/useConfirmLogMindfulMinutes';
 
 const IntroPortal: React.FC = () => {
   const {
@@ -34,12 +35,14 @@ const IntroPortal: React.FC = () => {
   const {leaveSessionWithConfirm} = useLeaveSession(session);
   const isFocused = useIsFocused();
   const logSessionMetricEvent = useAsyncSessionMetricEvents();
+  const confirmLogMindfulMinutes = useConfirmLogMindfulMinutes();
 
   usePreventGoingBack(leaveSessionWithConfirm);
 
   useEffect(() => {
     logSessionMetricEvent('Enter Intro Portal');
-  }, [logSessionMetricEvent]);
+    confirmLogMindfulMinutes();
+  }, [logSessionMetricEvent, confirmLogMindfulMinutes]);
 
   const onStartSession = useCallback(() => {
     startSession();
