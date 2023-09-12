@@ -372,13 +372,13 @@ const SelectTypeStep: React.FC<StepProps> = ({
           }
           ListHeaderComponent={
             <Gutters>
-              {rating && Boolean(rating.positive) && (
+              {rating && rating.positive > 0 ? (
                 <RatingContainer>
                   <FeedbackThumb />
                   <Spacer4 />
                   <Body16>{rating.positive}</Body16>
                 </RatingContainer>
-              )}
+              ) : null}
               <SpaceBetweenRow>
                 <TextWrapper>
                   <Display24>{formatContentName(exercise)}</Display24>
