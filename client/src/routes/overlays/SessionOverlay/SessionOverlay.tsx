@@ -68,6 +68,9 @@ import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
 import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
 import useExerciseFeedback from '../../../lib/session/hooks/useExerciseFeedback';
 import FeedbackCarousel from '../../../lib/components/FeedbackCarousel/FeedbackCarousel';
+import useGetExercisesByTags from '../../../lib/content/hooks/useGetExercisesByTags';
+import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
+import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -151,6 +154,10 @@ const SessionOverlay = () => {
   const {feedback} = useExerciseFeedback(session.exerciseId, session.mode);
   const {reminderEnabled, toggleReminder} = useSessionReminder(session);
   const confirmToggleReminder = useConfirmSessionReminder(session);
+  const exercisesByTags = useGetExercisesByTags(
+    exercise?.tags as TagType[],
+    exercise?.id,
+  );
 
   const startingNow = dayjs
     .utc()
@@ -415,6 +422,25 @@ const SessionOverlay = () => {
             <FeedbackCarousel feedbackItems={feedback} />
           </>
         )}
+
+        {Boolean(exercisesByTags?.length) && (
+          <Gutters>
+            <Spacer24 />
+            <Heading18>{t('moreLikeThis')}</Heading18>
+            <Spacer8 />
+            <View>
+              {exercisesByTags.map((e, idx) => (
+                <ExerciseCardContainer
+                  key={e.id}
+                  exercise={e}
+                  hasCardBefore={idx !== 0}
+                  hasCardAfter={idx < exercisesByTags.length - 1}
+                />
+              ))}
+            </View>
+          </Gutters>
+        )}
+
         <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
       </AutoScrollView>
     </Screen>

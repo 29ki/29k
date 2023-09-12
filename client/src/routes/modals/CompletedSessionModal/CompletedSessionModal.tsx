@@ -8,6 +8,7 @@ import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import {complement, isNil} from 'ramda';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import AnimatedLottieView from 'lottie-react-native';
+import {openUrl} from 'react-native-markdown-display';
 
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -51,10 +52,12 @@ import {SPACINGS} from '../../../lib/constants/spacings';
 import Tag from '../../../lib/components/Tag/Tag';
 import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
 import {Heading18} from '../../../lib/components/Typography/Heading/Heading';
-import {openUrl} from 'react-native-markdown-display';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import useLiveSessionsByExercise from '../../../lib/session/hooks/useLiveSessionsByExercise';
 import FeedbackCard from '../../../lib/components/FeedbackCard/FeedbackCard';
+import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
+import useGetExercisesByTags from '../../../lib/content/hooks/useGetExercisesByTags';
+import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -116,7 +119,10 @@ const CompletedSessionModal = () => {
   const tags = useGetTagsById(exercise?.tags);
   const {getSharingPostForSession} = useSharingPosts(exercise?.id);
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
-
+  const exercisesByTags = useGetExercisesByTags(
+    exercise?.tags as TagType[],
+    exercise?.id,
+  );
   const sessionTime = useMemo(() => dayjs(timestamp), [timestamp]);
 
   const {sessions} = useLiveSessionsByExercise(exercise?.id && exercise, 5);
@@ -335,6 +341,23 @@ const CompletedSessionModal = () => {
           </Gutters>
         )}
         <Spacer32 />
+        {Boolean(exercisesByTags?.length) && (
+          <Gutters>
+            <Spacer24 />
+            <Heading18>{t('moreLikeThis')}</Heading18>
+            <Spacer8 />
+            <View>
+              {exercisesByTags.map((e, idx) => (
+                <ExerciseCardContainer
+                  key={e.id}
+                  exercise={e}
+                  hasCardBefore={idx !== 0}
+                  hasCardAfter={idx < exercisesByTags.length - 1}
+                />
+              ))}
+            </View>
+          </Gutters>
+        )}
       </BottomSheetScrollView>
     </SheetModal>
   );
