@@ -1,7 +1,7 @@
 export const isAvailable = () => false;
 
-export const requestAuthorization = () => {};
+export const requestAuthorization = () => false;
 
-export const getAuthorizationStatus = async () => false;
+export const getAuthorizationStatus = () => false;
 
-export const log = (start: Date, end?: Date) => {};
+export const log = () => false;
