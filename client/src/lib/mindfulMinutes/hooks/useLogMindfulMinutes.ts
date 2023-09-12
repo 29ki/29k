@@ -2,6 +2,7 @@ import {useCallback, useEffect, useState} from 'react';
 import useCurrentUserState from '../../user/hooks/useCurrentUserState';
 import useUserState from '../../user/state/state';
 import * as minfulMinutes from '../lib/logMindfulMinutes';
+import {logEvent} from '../../metrics';
 
 const useLogMindfulMinutes = () => {
   const userState = useCurrentUserState();
@@ -26,12 +27,14 @@ const useLogMindfulMinutes = () => {
   }, [userState?.logMindfulMinutes]);
 
   const setMindfulMinutesEnabled = useCallback(
-    async (enabled: boolean) => {
-      if (enabled) {
+    async (enable: boolean) => {
+      if (enable) {
         await minfulMinutes.requestAuthorization();
       }
 
-      setUserState({logMindfulMinutes: enabled});
+      setUserState({logMindfulMinutes: enable});
+
+      logEvent('Toggle Mindful Minutes Logging', {Enable: enable});
     },
     [setUserState],
   );

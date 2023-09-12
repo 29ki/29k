@@ -57,6 +57,7 @@ type Events = {
   'Accept Mindful Minutes Logging': undefined;
   'Postpone Mindful Minutes Logging': undefined;
   'Decline Mindful Minutes Logging': undefined;
+  'Toggle Mindful Minutes Logging': Enable;
 
   //Reminders
   'Accept Practice Reminders': undefined;
