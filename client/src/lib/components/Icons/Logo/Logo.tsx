@@ -33,7 +33,8 @@ export const LogoIcon: IconType = ({fill = COLORS.BLACK}) => (
   </Icon>
 );
 
-export const LogoIconAnimated = React.memo(() => {
+type LogoAnimatedProps = {fill?: string};
+export const LogoIconAnimated = React.memo<LogoAnimatedProps>(({fill}) => {
   const rotation = useSharedValue(0);
 
   useEffect(() => {
@@ -53,7 +54,7 @@ export const LogoIconAnimated = React.memo(() => {
 
   return (
     <Animated.View style={animatedStyle}>
-      <LogoIcon />
+      <LogoIcon fill={fill} />
     </Animated.View>
   );
 });

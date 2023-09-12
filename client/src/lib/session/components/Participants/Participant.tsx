@@ -13,15 +13,16 @@ import {DailyUserData} from '../../../../../../shared/src/schemas/Session';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../constants/spacings';
 import {Display36} from '../../../components/Typography/Display/Display';
-import AudioIndicator, {AudioIndicatorProps} from './AudioIndicator';
+import AudioIndicator from './AudioIndicator';
 import Name from './Name';
 import Image from '../../../components/Image/Image';
 import useIsSessionHost from '../../../session/hooks/useIsSessionHost';
 import AudioToggler from './AudioToggler';
 import {DailyContext} from '../../../daily/DailyProvider';
-import VideoOffIndicator from './VideoOffIndicator';
+import VideoDeniedIndicator from './VideoDeniedIndicator';
 import useSessionState from '../../state/state';
 import TouchableOpacity from '../../../components/TouchableOpacity/TouchableOpacity';
+import AudioDeniedIndicator from './AudioDeniedIndicator';
 
 const Wrapper = styled(TouchableOpacity)({
   flex: 1,
@@ -46,28 +47,24 @@ const AudioTogglerWrapper = styled.View<{inSlide?: boolean}>(({inSlide}) => ({
   right: SPACINGS.SIXTEEN,
 }));
 
-type ParticipantAudioProps = AudioIndicatorProps & {noPermission?: boolean};
+const ParticipantAudio = styled(AudioIndicator)({
+  position: 'absolute',
+  top: SPACINGS.SIXTEEN,
+  right: SPACINGS.SIXTEEN,
+});
 
-const ParticipantAudio = styled(AudioIndicator)<ParticipantAudioProps>(
-  ({noPermission}) => ({
-    height: 24,
-    width: 24,
-    borderRadius: 45,
-    backgroundColor: noPermission
-      ? COLORS.RED_TRANSPARENT_50
-      : COLORS.BLACK_TRANSPARENT,
-    padding: 2,
-    position: 'absolute',
-    top: SPACINGS.SIXTEEN,
-    right: SPACINGS.SIXTEEN,
-  }),
-);
+const ParticipantAudioDenied = styled(AudioDeniedIndicator)({
+  position: 'absolute',
+  top: SPACINGS.SIXTEEN,
+  right: SPACINGS.SIXTEEN,
+});
 
-const ParticipantVideoOff = styled(VideoOffIndicator)({
+const ParticipantVideoDenied = styled(VideoDeniedIndicator)({
   position: 'absolute',
   top: SPACINGS.FOURTYEIGHT,
   right: SPACINGS.SIXTEEN,
 });
+
 const NameGradient = styled(LinearGradient).attrs({
   colors: ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 1)'],
 })({
@@ -196,14 +193,15 @@ const Participant: React.FC<ParticipantProps> = ({
             onToggle={onAudioToggle}
           />
         </AudioTogglerWrapper>
+      ) : participant.tracks.audio.blocked?.byPermissions ? (
+        <ParticipantAudioDenied />
       ) : (
         <ParticipantAudio
           muted={Boolean(participant.tracks.audio.off?.byUser)}
-          noPermission={participant.tracks.audio.blocked?.byPermissions}
         />
       )}
       {participant.tracks.video.blocked?.byPermissions && (
-        <ParticipantVideoOff />
+        <ParticipantVideoDenied />
       )}
     </Wrapper>
   );

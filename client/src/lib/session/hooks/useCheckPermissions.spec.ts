@@ -34,7 +34,7 @@ describe('useCheckPermissions', () => {
   const {t} = useTranslation();
   (t as unknown as jest.Mock).mockReturnValue('Some translation');
 
-  describe('checkCameraPermissions', () => {
+  describe('checkAndPromptCameraPermissions', () => {
     it('runs onGranted callback if permissions are given', async () => {
       const {result} = renderHook(() => useCheckPermissions());
 
@@ -42,7 +42,10 @@ describe('useCheckPermissions', () => {
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      await result.current.checkCameraPermissions(onGranted, onDismiss);
+      await result.current.checkAndPromptCameraPermissions(
+        onGranted,
+        onDismiss,
+      );
 
       expect(onGranted).toHaveBeenCalledTimes(1);
       expect(onDismiss).toHaveBeenCalledTimes(0);
@@ -55,7 +58,7 @@ describe('useCheckPermissions', () => {
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      result.current.checkCameraPermissions(onGranted, onDismiss);
+      result.current.checkAndPromptCameraPermissions(onGranted, onDismiss);
 
       expect(mockAlert).toHaveBeenCalledTimes(1);
       expect(mockAlert).toHaveBeenCalledWith(
@@ -89,7 +92,10 @@ describe('useCheckPermissions', () => {
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      await result.current.checkCameraPermissions(onGranted, onDismiss);
+      await result.current.checkAndPromptCameraPermissions(
+        onGranted,
+        onDismiss,
+      );
 
       expect(onGranted).toHaveBeenCalledTimes(0);
       expect(onDismiss).toHaveBeenCalledTimes(1);
@@ -107,7 +113,10 @@ describe('useCheckPermissions', () => {
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      await result.current.checkCameraPermissions(onGranted, onDismiss);
+      await result.current.checkAndPromptCameraPermissions(
+        onGranted,
+        onDismiss,
+      );
 
       expect(mockOpenSettings).toHaveBeenCalledTimes(1);
       expect(mockRestartApp).toHaveBeenCalledTimes(1);
@@ -116,7 +125,7 @@ describe('useCheckPermissions', () => {
     });
   });
 
-  describe('checkMicrophonePermissions', () => {
+  describe('checkAndPromptMicrophonePermissions', () => {
     it('runs onGranted callback if permissions are given', async () => {
       const {result} = renderHook(() => useCheckPermissions());
 
@@ -124,7 +133,10 @@ describe('useCheckPermissions', () => {
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      await result.current.checkMicrophonePermissions(onGranted, onDismiss);
+      await result.current.checkAndPromptMicrophonePermissions(
+        onGranted,
+        onDismiss,
+      );
 
       expect(onGranted).toHaveBeenCalledTimes(1);
       expect(onDismiss).toHaveBeenCalledTimes(0);
@@ -137,7 +149,7 @@ describe('useCheckPermissions', () => {
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      result.current.checkMicrophonePermissions(onGranted, onDismiss);
+      result.current.checkAndPromptMicrophonePermissions(onGranted, onDismiss);
 
       expect(mockAlert).toHaveBeenCalledTimes(1);
       expect(mockAlert).toHaveBeenCalledWith(
@@ -171,7 +183,10 @@ describe('useCheckPermissions', () => {
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      await result.current.checkMicrophonePermissions(onGranted, onDismiss);
+      await result.current.checkAndPromptMicrophonePermissions(
+        onGranted,
+        onDismiss,
+      );
 
       expect(onGranted).toHaveBeenCalledTimes(0);
       expect(onDismiss).toHaveBeenCalledTimes(1);
@@ -189,7 +204,10 @@ describe('useCheckPermissions', () => {
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      await result.current.checkMicrophonePermissions(onGranted, onDismiss);
+      await result.current.checkAndPromptMicrophonePermissions(
+        onGranted,
+        onDismiss,
+      );
 
       expect(mockOpenSettings).toHaveBeenCalledTimes(1);
       expect(mockRestartApp).toHaveBeenCalledTimes(1);
@@ -198,7 +216,7 @@ describe('useCheckPermissions', () => {
     });
   });
 
-  describe('checkJoinPermissions', () => {
+  describe('checkAndPromptJoinPermissions', () => {
     it('runs onGranted callback if permissions are given', async () => {
       const {result} = renderHook(() => useCheckPermissions());
 
@@ -207,7 +225,7 @@ describe('useCheckPermissions', () => {
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      await result.current.checkJoinPermissions(onGranted, onDismiss);
+      await result.current.checkAndPromptJoinPermissions(onGranted, onDismiss);
 
       expect(onGranted).toHaveBeenCalledTimes(1);
       expect(onDismiss).toHaveBeenCalledTimes(0);
@@ -221,7 +239,7 @@ describe('useCheckPermissions', () => {
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      result.current.checkJoinPermissions(onGranted, onDismiss);
+      result.current.checkAndPromptJoinPermissions(onGranted, onDismiss);
 
       expect(mockAlert).toHaveBeenCalledTimes(1);
       expect(mockAlert).toHaveBeenCalledWith(
@@ -256,7 +274,7 @@ describe('useCheckPermissions', () => {
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      await result.current.checkJoinPermissions(onGranted, onDismiss);
+      await result.current.checkAndPromptJoinPermissions(onGranted, onDismiss);
 
       expect(onGranted).toHaveBeenCalledTimes(0);
       expect(onDismiss).toHaveBeenCalledTimes(1);
@@ -274,7 +292,7 @@ describe('useCheckPermissions', () => {
       mockHasMicrophonePermissions.mockReturnValue(false);
 
       const onGranted = jest.fn();
-      await result.current.checkJoinPermissions(onGranted);
+      await result.current.checkAndPromptJoinPermissions(onGranted);
 
       expect(onGranted).toHaveBeenCalledTimes(1);
     });
@@ -292,7 +310,7 @@ describe('useCheckPermissions', () => {
 
       const onGranted = jest.fn();
       const onDismiss = jest.fn();
-      await result.current.checkJoinPermissions(onGranted, onDismiss);
+      await result.current.checkAndPromptJoinPermissions(onGranted, onDismiss);
 
       expect(mockOpenSettings).toHaveBeenCalledTimes(1);
       expect(mockRestartApp).toHaveBeenCalledTimes(1);

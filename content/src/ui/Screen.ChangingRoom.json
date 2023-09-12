@@ -3,6 +3,13 @@
     "placeholder": "Please type your name",
     "join_button": "Join",
     "cameraOff": "Camera is off",
+    "onboarding": {
+      "title": "Let's get ready for this session",
+      "about": "This session is a live video call. You can listen in, or share your experience with the group.",
+      "headset": "Use a headset and find a comfortable, calm space.",
+      "permissions": "Make sure to allow access to your camera and microphone.",
+      "button": "Got it"
+    },
     "errorTitle": "Could not join session.",
     "errors": {
       "validateSession/not-found": "Could not find session.",
@@ -23,6 +30,13 @@
     "placeholder": "Skriv ditt namn",
     "join_button": "Gå med",
     "cameraOff": "Kameran är av",
+    "onboarding": {
+      "title": "Låt oss göra oss redo för denna session",
+      "about": "Den här sessionen är ett livevideosamtal. Du kan lyssna-in eller dela din upplevelse med gruppen.",
+      "headset": "Använd ett headset och hitta ett bekvämt, lugnt utrymme.",
+      "permissions": "Se till att tillåta åtkomst till din kamera och mikrofon.",
+      "button": "Jag förstår"
+    },
     "errorTitle": "Det gick inte att gå med i sessionen.",
     "errors": {
       "validateSession/not-found": "Kunde inte hitta sessionen.",

@@ -3,7 +3,7 @@ import {ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import {FilmCameraOffIcon} from '../../../components/Icons';
+import {MicrophoneOffIcon} from '../../../components/Icons';
 
 const Wrapper = styled.View({
   height: 24,
@@ -13,12 +13,12 @@ const Wrapper = styled.View({
   padding: 2,
 });
 
-type VideoOffIndicatorProps = {style?: ViewStyle};
+type AudioDeniedIndicatorProps = {style?: ViewStyle};
 
-const VideoOffIndicator: React.FC<VideoOffIndicatorProps> = ({style}) => (
+const AudioDeniedIndicator: React.FC<AudioDeniedIndicatorProps> = ({style}) => (
   <Wrapper style={style}>
-    <FilmCameraOffIcon fill={COLORS.PURE_WHITE} />
+    <MicrophoneOffIcon fill={COLORS.PURE_WHITE} />
   </Wrapper>
 );
 
-export default React.memo(VideoOffIndicator);
+export default React.memo(AudioDeniedIndicator);
