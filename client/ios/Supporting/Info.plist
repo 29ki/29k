@@ -161,7 +161,7 @@
 	<key>FirebaseDeepLinkPasteboardRetrievalEnabled</key>
 	<true/>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>Log mindfulness minutes when completing Aware sessions</string>
+	<string>Allows us to log Health mindful minutes when you complete Aware sessions</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>INSendMessageIntent</string>
