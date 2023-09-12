@@ -87,7 +87,7 @@
     "@babel/core": "^7.22.17",
     "@babel/runtime": "^7.22.15",
     "@react-native-community/eslint-config": "^3.2.0",
-    "@sentry/cli": "^2.20.5",
+    "@sentry/cli": "^2.20.7",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/debug": "^4.1.8",
     "@types/i18next": "^13.0.0",
