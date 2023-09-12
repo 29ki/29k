@@ -439,20 +439,20 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@google-cloud/common@^4.0.0":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@google-cloud/common/-/common-4.0.3.tgz#d4324ac83087385d727593f7e1b6d81ee66442cf"
-  integrity sha512-fUoMo5b8iAKbrYpneIRV3z95AlxVJPrjpevxs4SKoclngWZvTXBSGpNisF5+x5m+oNGve7jfB1e6vNBZBUs7Fw==
+"@google-cloud/common@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/common/-/common-5.0.0.tgz#578246e0af02d68aa94aefb03d737bca37554dd0"
+  integrity sha512-IsbTVr7Ag+04GMT87X738vDs85QU1rMvaesm2wEQrtTbZAR92tGmUQ8/D/kdnYgAi98Q4zmfhF+T8Xs/Lw4zAA==
   dependencies:
-    "@google-cloud/projectify" "^3.0.0"
-    "@google-cloud/promisify" "^3.0.0"
+    "@google-cloud/projectify" "^4.0.0"
+    "@google-cloud/promisify" "^4.0.0"
     arrify "^2.0.1"
     duplexify "^4.1.1"
     ent "^2.2.0"
     extend "^3.0.2"
-    google-auth-library "^8.0.2"
-    retry-request "^5.0.0"
-    teeny-request "^8.0.0"
+    google-auth-library "^9.0.0"
+    retry-request "^6.0.0"
+    teeny-request "^9.0.0"
 
 "@google-cloud/firestore@^6.6.0":
   version "6.6.1"
@@ -495,6 +495,11 @@
   resolved "https://registry.yarnpkg.com/@google-cloud/projectify/-/projectify-3.0.0.tgz#302b25f55f674854dce65c2532d98919b118a408"
   integrity sha512-HRkZsNmjScY6Li8/kb70wjGlDDyLkVk3KvoEo9uIoxSjYLJasGiCch9+PqRVDOCGUFvEIqyogl+BeqILL4OJHA==
 
+"@google-cloud/projectify@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/projectify/-/projectify-4.0.0.tgz#d600e0433daf51b88c1fa95ac7f02e38e80a07be"
+  integrity sha512-MmaX6HeSvyPbWGwFq7mXdo0uQZLGBYCwziiLIGq5JVX+/bdI3SAq6bP98trV5eTWfLuvsMcIC1YJOF2vfteLFA==
+
 "@google-cloud/promisify@^2.0.0":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@google-cloud/promisify/-/promisify-2.0.4.tgz#9d8705ecb2baa41b6b2673f3a8e9b7b7e1abc52a"
@@ -504,6 +509,11 @@
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@google-cloud/promisify/-/promisify-3.0.0.tgz#5cd6941fc30c4acac18051706aa5af96069bd3e3"
   integrity sha512-91ArYvRgXWb73YvEOBMmOcJc0bDRs5yiVHnqkwoG0f3nm7nZuipllz6e7BvFESBvjkDTBC0zMD8QxedUwNLc1A==
+
+"@google-cloud/promisify@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/promisify/-/promisify-4.0.0.tgz#a906e533ebdd0f754dca2509933334ce58b8c8b1"
+  integrity sha512-Orxzlfb9c67A15cq2JQEyVc7wEsmFBmHjZWZYQMUyJ1qivXyMwdyNOs9odi79hze+2zqdTtu1E19IM/FtqZ10g==
 
 "@google-cloud/pubsub@^3.0.1":
   version "3.0.1"
@@ -549,13 +559,13 @@
     teeny-request "^8.0.0"
     uuid "^8.0.0"
 
-"@google-cloud/translate@^8.0.1":
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@google-cloud/translate/-/translate-8.0.1.tgz#4ddec619ddc6ef1fdcf935e97b7c62086fa042d9"
-  integrity sha512-RpGTIese3Fh10Udc4S5Nbb4ZaqitySX6PcnWaElB15e97tb5dEnukOuTAJ11QDcOQTpDDnpQwX0QSRq9uJ4oMw==
+"@google-cloud/translate@^8.0.2":
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/@google-cloud/translate/-/translate-8.0.2.tgz#4ba85c8659a3ef33f54a3111bb0d070fde548336"
+  integrity sha512-2qX6JlxznIaOp9nuB/oroMJU5zNFSuiIbzcye7YbzF/grYt/YQZxLo89dYTUaCa1pSeGSaXKOJwWXRbQuPStjw==
   dependencies:
-    "@google-cloud/common" "^4.0.0"
-    "@google-cloud/promisify" "^3.0.0"
+    "@google-cloud/common" "^5.0.0"
+    "@google-cloud/promisify" "^4.0.0"
     arrify "^2.0.0"
     extend "^3.0.2"
     google-gax "^4.0.3"
@@ -8901,6 +8911,17 @@ teeny-request@^8.0.0:
     node-fetch "^2.6.1"
     stream-events "^1.0.5"
     uuid "^8.0.0"
+
+teeny-request@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/teeny-request/-/teeny-request-9.0.0.tgz#18140de2eb6595771b1b02203312dfad79a4716d"
+  integrity sha512-resvxdc6Mgb7YEThw6G6bExlXKkv6+YbuzGg9xuXxSgxJF7Ozs+o8Y9+2R3sArdWdW8nOokoQb1yrpFB0pQK2g==
+  dependencies:
+    http-proxy-agent "^5.0.0"
+    https-proxy-agent "^5.0.0"
+    node-fetch "^2.6.9"
+    stream-events "^1.0.5"
+    uuid "^9.0.0"
 
 terminal-link@^2.0.0:
   version "2.1.1"
