@@ -11,7 +11,7 @@ const useLogMindfulMinutes = () => {
     userState?.logMindfulMinutes,
   );
 
-  const updateAvailale = useCallback(async () => {
+  const updateAvailable = useCallback(async () => {
     setAvailable(await minfulMinutes.isAvailable());
   }, []);
 
@@ -46,9 +46,9 @@ const useLogMindfulMinutes = () => {
   );
 
   useEffect(() => {
-    updateAvailale();
+    updateAvailable();
     updateEnabled();
-  }, [updateAvailale, updateEnabled]);
+  }, [updateAvailable, updateEnabled]);
 
   return {
     mindfulMinutesAvailable,
