@@ -10,14 +10,14 @@ import Image from '../../Image/Image';
 import {Display22} from '../../Typography/Display/Display';
 import {SPACINGS} from '../../../constants/spacings';
 import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
-import {Spacer16, Spacer4, Spacer8} from '../../Spacers/Spacer';
+import {Spacer4, Spacer16, Spacer8} from '../../Spacers/Spacer';
 import SessionProgress from '../../SessionProgress/SessionProgress';
 import {CollectionIcon} from '../../Icons';
 import {Body12} from '../../Typography/Body/Body';
 import {PlayfairDisplayMedium} from '../../../constants/fonts';
 import SETTINGS from '../../../constants/settings';
 
-export const HEIGHT = 114;
+export const HEIGHT = 138;
 
 type CollectionFullCardProps = {
   title: string;
@@ -40,6 +40,7 @@ const Heading = styled(Display22)<{color?: string}>(
     fontFamily: PlayfairDisplayMedium,
     lineHeight: 27,
     color,
+    flex: 1,
   }),
 );
 
@@ -66,13 +67,13 @@ const Row = styled.View({
 
 const LeftColumn = styled.View({
   flex: 1,
-  height: 86,
   paddingVertical: SPACINGS.EIGHT,
 });
 
 const TitleWrapper = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
+  flex: 1,
 });
 
 const GraphicsWrapper = styled.View({
@@ -123,7 +124,7 @@ const CollectionFullCard: React.FC<CollectionFullCardProps> = ({
                 <CollectionIcon fill={textColor} />
               </IconWrapper>
               <Spacer8 />
-              <Heading numberOfLines={3} color={textColor}>
+              <Heading numberOfLines={2} color={textColor}>
                 {title}
               </Heading>
             </TitleWrapper>
