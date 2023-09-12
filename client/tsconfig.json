@@ -97,7 +97,8 @@
 
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
+    "moduleSuffixes": [".ios", ".android", ".native", ""],
   },
   "exclude": [
     "node_modules", "babel.config.js", "metro.config.js", "jest.config.js"
