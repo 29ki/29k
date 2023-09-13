@@ -68,6 +68,10 @@
 	<string></string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This allows us to stream your audio during video sharing.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>You should not see this message as Aware does not read your health data</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Allows us to log Health mindful minutes when you complete Aware sessions</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>HKGrotesk-Black.otf</string>
@@ -160,8 +164,6 @@
 	</array>
 	<key>FirebaseDeepLinkPasteboardRetrievalEnabled</key>
 	<true/>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>Allows us to log Health mindful minutes when you complete Aware sessions</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>INSendMessageIntent</string>
