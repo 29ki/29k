@@ -374,6 +374,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
                         exercise={e}
                         hasCardBefore={idx !== 0}
                         hasCardAfter={idx < exercisesByTags.length - 1}
+                        onPress={() => popToTop()}
                       />
                     ))}
                   </View>

@@ -356,6 +356,7 @@ const CompletedSessionModal = () => {
                 />
               ))}
             </View>
+            <Spacer32 />
           </Gutters>
         )}
       </BottomSheetScrollView>

@@ -7,9 +7,10 @@ import {Tag} from '../../../../../shared/src/types/generated/Tag';
 const useGetExercisesByTags = (tags: Tag[], excludeId?: string) => {
   const {showHiddenContent} = useAppState(state => state.settings);
   const exercises = useExercises();
-  const tagNames = useMemo(() => tags.map(t => t.tag), [tags]);
+  const tagNames = useMemo(() => tags?.map(t => t.tag), [tags]);
 
   return useMemo(() => {
+    if (!tagNames) return [];
     const exerciseList = exercises
       .filter(e => showHiddenContent || !e.hidden)
       .filter(
