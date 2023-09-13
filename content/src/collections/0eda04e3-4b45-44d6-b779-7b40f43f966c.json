@@ -1,0 +1,59 @@
+{
+  "en": {
+    "published": true,
+    "hidden": true,
+    "id": "0eda04e3-4b45-44d6-b779-7b40f43f966c",
+    "name": "The Houdini collection",
+    "description": "ix",
+    "exercises": [
+      "1a53e633-6916-4fea-a072-977c4b215288",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "b7f8731c-64d7-4c0f-9bc8-a3e50ec2eaf7",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "1e96f73b-8193-4aa6-a52c-31355eac3c08"
+    ],
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692872012/Images/card_personal_values_xpcp9x.png"
+    }
+  },
+  "pt": {
+    "published": false,
+    "hidden": false,
+    "id": "0eda04e3-4b45-44d6-b779-7b40f43f966c",
+    "exercises": [
+      "1a53e633-6916-4fea-a072-977c4b215288",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "b7f8731c-64d7-4c0f-9bc8-a3e50ec2eaf7",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "1e96f73b-8193-4aa6-a52c-31355eac3c08"
+    ]
+  },
+  "sv": {
+    "published": false,
+    "hidden": false,
+    "id": "0eda04e3-4b45-44d6-b779-7b40f43f966c",
+    "exercises": [
+      "1a53e633-6916-4fea-a072-977c4b215288",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "b7f8731c-64d7-4c0f-9bc8-a3e50ec2eaf7",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "1e96f73b-8193-4aa6-a52c-31355eac3c08"
+    ]
+  },
+  "es": {
+    "published": false,
+    "hidden": false,
+    "id": "0eda04e3-4b45-44d6-b779-7b40f43f966c",
+    "exercises": [
+      "1a53e633-6916-4fea-a072-977c4b215288",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "b7f8731c-64d7-4c0f-9bc8-a3e50ec2eaf7",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "1e96f73b-8193-4aa6-a52c-31355eac3c08"
+    ]
+  }
+}

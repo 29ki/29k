@@ -1,25 +1,30 @@
 {
   "en": {
-    "published": true,
-    "hidden": true,
-    "id": "d9897547-18a2-4404-b12b-324458021783",
+    "hidden": false,
     "name": "Set your values compass",
+    "published": true,
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "link": "https://aware.29k.org/set-your-values-compass",
+    "id": "d9897547-18a2-4404-b12b-324458021783",
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1672845216/Images/cover_setting_boundaries_eprgqj.png"
+    },
     "exercises": [
+      "1a53e633-6916-4fea-a072-977c4b215288",
       "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
       "640e4d9f-bb88-44af-a032-116a82f080f6",
       "61adeaf2-70ab-4c6c-854c-2c16f762a3c5"
     ],
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
-    "description": "What's important in life? Find out your answers in this collection, exploring values and purpose.",
-    "link": "https://aware.29k.org/set-your-values-compass"
+    "description": "What's important in life? Find out your answers in this collection, exploring values and purpose."
   },
   "pt": {
     "published": false,
     "hidden": false,
     "id": "d9897547-18a2-4404-b12b-324458021783",
     "exercises": [
+      "1a53e633-6916-4fea-a072-977c4b215288",
       "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
       "640e4d9f-bb88-44af-a032-116a82f080f6",
       "61adeaf2-70ab-4c6c-854c-2c16f762a3c5"
@@ -34,6 +39,7 @@
     "hidden": false,
     "id": "d9897547-18a2-4404-b12b-324458021783",
     "exercises": [
+      "1a53e633-6916-4fea-a072-977c4b215288",
       "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
       "640e4d9f-bb88-44af-a032-116a82f080f6",
       "61adeaf2-70ab-4c6c-854c-2c16f762a3c5"
@@ -48,6 +54,7 @@
     "hidden": false,
     "id": "d9897547-18a2-4404-b12b-324458021783",
     "exercises": [
+      "1a53e633-6916-4fea-a072-977c4b215288",
       "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
       "640e4d9f-bb88-44af-a032-116a82f080f6",
       "61adeaf2-70ab-4c6c-854c-2c16f762a3c5"
