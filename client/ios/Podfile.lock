@@ -742,6 +742,8 @@ PODS:
   - JitsiWebRTC (111.0.2)
   - JWT (3.0.0-beta.14):
     - Base64 (~> 1.1.2)
+  - kingstinct-react-native-healthkit (7.2.0):
+    - React
   - leveldb-library (1.22.2)
   - Libuv-gRPC (0.0.10):
     - Libuv-gRPC/Implementation (= 0.0.10)
@@ -1198,6 +1200,7 @@ DEPENDENCIES:
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - "kingstinct-react-native-healthkit (from `../node_modules/@kingstinct/react-native-healthkit`)"
   - lottie-ios (from `../node_modules/lottie-ios`)
   - lottie-react-native (from `../node_modules/lottie-react-native`)
   - PromisesSwift
@@ -1317,6 +1320,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/React/FBReactNativeSpec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
+  kingstinct-react-native-healthkit:
+    :path: "../node_modules/@kingstinct/react-native-healthkit"
   lottie-ios:
     :path: "../node_modules/lottie-ios"
   lottie-react-native:
@@ -1464,6 +1469,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: e8647203b65cee28c5f73d0f473d096653945e72
   JitsiWebRTC: 80f62908fcf2a1160e0d14b584323fb6e6be630b
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
+  kingstinct-react-native-healthkit: af4b6072d267eb32214dded1d0b7cf77268eef3d
   leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
   lottie-ios: 809ecf2d460ed650a6aed7aa88b2ec45fab4779c

@@ -25,6 +25,8 @@ import Gutters from '../../../lib/components/Gutters/Gutters';
 import ProgressBar from '../../../lib/session/components/ProgressBar/ProgressBar';
 import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
 import useNetworkListener from '../../../lib/network/hooks/useNetworkListener';
+import useLogMindfulMinutes from '../../../lib/mindfulMinutes/hooks/useLogMindfulMinutes';
+import dayjs from 'dayjs';
 
 const Spotlight = styled.View({
   flex: 1,
@@ -59,6 +61,7 @@ const Session: React.FC = () => {
   const sessionSlideState = useAsyncSessionSlideState();
   const theme = exercise?.theme;
   const logSessionMetricEvent = useAsyncSessionMetricEvents();
+  const {logMindfulMinutes} = useLogMindfulMinutes();
   const addUserEvent = useAddUserEvent();
   const {navigateToIndex} = useUpdateAsyncSessionState(session);
   useNetworkListener();
@@ -78,6 +81,7 @@ const Session: React.FC = () => {
         type: session.type,
         mode: session.mode,
       });
+      logMindfulMinutes(dayjs(session.startTime).toDate());
       logSessionMetricEvent('Complete Sharing Session');
     }
   }, [
@@ -87,7 +91,9 @@ const Session: React.FC = () => {
     session.language,
     session.type,
     session.mode,
+    session.startTime,
     logSessionMetricEvent,
+    logMindfulMinutes,
     addUserEvent,
   ]);
 

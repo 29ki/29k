@@ -1,0 +1,27 @@
+{
+  "en": {
+    "title_ios": "Log Mindful Minutes",
+    "title_android": "Log Meditation Minutes",
+    "message_ios": "Do you want to log your mindful minutes to Apple Health?",
+    "message_android": "Do you want to log your meditation minutes to Google Fit?",
+    "actions": {
+      "dismiss": "No",
+      "cancel": "Maybe later",
+      "confirm": "Yes"
+    }
+  },
+  "pt": {
+  },
+  "sv": {
+    "title_ios": "Logga Mindfulness-minuter",
+    "title_android": "Logga Meditations-minuter",
+    "message_ios": "Vill du logga dina mindfulness-minuter till Apple Hälsa?",
+    "message_android": "Vill du logga dina meditations-minuter till Google Fit?",
+    "actions": {
+      "dismiss": "Nej",
+      "cancel": "Kanske senare",
+      "confirm": "Ja"
+    }
+  },
+  "es": {}
+}

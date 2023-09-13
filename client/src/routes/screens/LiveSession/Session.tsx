@@ -68,6 +68,8 @@ import SessionReactions from '../../../lib/session/components/Reactions/SessionR
 import {ProgressTimerContext} from '../../../lib/session/context/TimerContext';
 import DurationTimer from '../../../lib/session/components/DurationTimer/DurationTimer';
 import {LottiePlayerHandle} from '../../../lib/components/LottiePlayer/LottiePlayer';
+import useLogMindfulMinutes from '../../../lib/mindfulMinutes/hooks/useLogMindfulMinutes';
+import dayjs from 'dayjs';
 
 const ExerciseControl = styled(ContentControls)({
   position: 'absolute',
@@ -177,6 +179,7 @@ const Session: React.FC = () => {
     state => state.setCurrentContentReachedEnd,
   );
   const sessionSlideState = useLiveSessionSlideState();
+  const {logMindfulMinutes} = useLogMindfulMinutes();
   const logSessionMetricEvent = useLiveSessionMetricEvents();
   const {leaveSessionWithConfirm} = useLeaveSession(session);
   const {checkAndPromptCameraPermissions, checkAndPromptMicrophonePermissions} =
@@ -209,12 +212,14 @@ const Session: React.FC = () => {
         language: session.language,
         exerciseId: session.exerciseId,
       });
+      logMindfulMinutes(dayjs(session.startTime).toDate());
       logSessionMetricEvent('Complete Sharing Session');
     }
   }, [
     sessionState?.completed,
     sessionState?.id,
     session,
+    logMindfulMinutes,
     logSessionMetricEvent,
     addUserEvent,
   ]);

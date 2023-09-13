@@ -22,6 +22,7 @@ import PortalStatus from '../../../lib/session/components/PortalStatus/PortalSta
 import useLiveSessionMetricEvents from '../../../lib/session/hooks/useLiveSessionMetricEvents';
 import useSessionState from '../../../lib/session/state/state';
 import useHandleLeaveLiveSession from '../../../lib/session/hooks/useHandleLeaveLiveSession';
+import useConfirmLogMindfulMinutes from '../../../lib/mindfulMinutes/hooks/useConfirmLogMindfulMinutes';
 
 const IntroPortal: React.FC = () => {
   const {
@@ -40,13 +41,15 @@ const IntroPortal: React.FC = () => {
   const {leaveSessionWithConfirm} = useLeaveSession(session);
   const isFocused = useIsFocused();
   const logSessionMetricEvent = useLiveSessionMetricEvents();
+  const confirmLogMindfulMinutes = useConfirmLogMindfulMinutes();
   useSubscribeToSessionIfFocused(session);
 
   useHandleLeaveLiveSession(session);
 
   useEffect(() => {
     logSessionMetricEvent('Enter Intro Portal');
-  }, [logSessionMetricEvent]);
+    confirmLogMindfulMinutes();
+  }, [logSessionMetricEvent, confirmLogMindfulMinutes]);
 
   const onStartSession = useCallback(() => {
     startSession();

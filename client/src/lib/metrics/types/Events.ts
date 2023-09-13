@@ -55,6 +55,12 @@ type Events = {
   // Collections
   'Add Collection To Journey': CollectionProperties;
 
+  // Mindful Minutes
+  'Accept Mindful Minutes Logging': undefined;
+  'Postpone Mindful Minutes Logging': undefined;
+  'Decline Mindful Minutes Logging': undefined;
+  'Toggle Mindful Minutes Logging': Enable;
+
   //Reminders
   'Accept Practice Reminders': undefined;
   'Postpone Practice Reminders': undefined;
