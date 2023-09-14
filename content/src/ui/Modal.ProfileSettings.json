@@ -19,7 +19,9 @@
       "signOut": "Sign out",
       "reminders": "Reminders",
       "deleteData": "Delete my data",
-      "language": "Language"
+      "language": "Language",
+      "mindfulMinutes_ios": "Log Health mindful minutes",
+      "mindfulMinutes_android": "Log meditation minutes"
     },
     "setPassword": "Set a password",
     "save": "Save changes"
@@ -67,7 +69,9 @@
       "signOut": "Logga ut",
       "reminders": "Påminnelser",
       "deleteData": "Radera min data",
-      "language": "Språk"
+      "language": "Språk",
+      "mindfulMinutes_ios": "Logga mindfulness-minuter",
+      "mindfulMinutes_android": "Logga meditations-minuter"
     },
     "setPassword": "Välj ett lösenord",
     "save": "Spara ändringar"

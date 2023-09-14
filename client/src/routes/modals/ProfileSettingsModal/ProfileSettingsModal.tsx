@@ -2,6 +2,7 @@ import React, {useCallback, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import auth from '@react-native-firebase/auth';
+import {Platform} from 'react-native';
 
 import {BottomSheetActionTextInput} from '../../../lib/components/ActionList/ActionItems/ActionTextInput';
 import ActionList from '../../../lib/components/ActionList/ActionList';
@@ -33,10 +34,13 @@ import {
   LanguagesIcon,
   BellIcon,
   DeleteIcon,
+  HeartFillIcon,
 } from '../../../lib/components/Icons';
 import useSignOutUser from '../../../lib/user/hooks/useSignOutUser';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import useUserState from '../../../lib/user/state/state';
+import ActionSwitch from '../../../lib/components/ActionList/ActionItems/ActionSwitch';
+import useLogMindfulMinutes from '../../../lib/mindfulMinutes/hooks/useLogMindfulMinutes';
 
 const Picture = styled(ProfilePicture)({
   width: 144,
@@ -78,6 +82,11 @@ const ProfileSettingsModal = () => {
   const [newPassword, setNewPassword] = useState('');
   const [description, setDescription] = useState(userData?.description);
   const [error, setError] = useState('');
+  const {
+    mindfulMinutesAvailable,
+    mindfulMinutesEnabled,
+    setMindfulMinutesEnabled,
+  } = useLogMindfulMinutes();
 
   const updateUserPress = useCallback(async () => {
     try {
@@ -236,6 +245,14 @@ const ProfileSettingsModal = () => {
                 <ActionButton Icon={BellIcon} onPress={remindersPress}>
                   {t('actions.reminders')}
                 </ActionButton>
+                {mindfulMinutesAvailable && (
+                  <ActionSwitch
+                    Icon={HeartFillIcon}
+                    value={mindfulMinutesEnabled}
+                    onValueChange={setMindfulMinutesEnabled}>
+                    {t('actions.mindfulMinutes', {context: Platform.OS})}
+                  </ActionSwitch>
+                )}
               </>
             )}
           </ActionList>
