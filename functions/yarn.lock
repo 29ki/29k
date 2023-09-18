@@ -1091,23 +1091,10 @@
     lru_map "^0.3.3"
     tslib "^2.4.1 || ^1.9.3"
 
-"@sentry/types@7.66.0":
-  version "7.66.0"
-  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.66.0.tgz#4ec290cc6a3dd2024a61a0bffb468cedb409f7fb"
-  integrity sha512-uUMSoSiar6JhuD8p7ON/Ddp4JYvrVd2RpwXJRPH1A4H4Bd4DVt1mKJy1OLG6HdeQv39XyhB1lPZckKJg4tATPw==
-
 "@sentry/types@7.68.0":
   version "7.68.0"
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.68.0.tgz#6134511106eed90bf033dc2ce76955f61582b48f"
   integrity sha512-5J2pH1Pjx/029zTm3CNY9MaE8Aui81nG7JCtlMp7uEfQ//9Ja4d4Sliz/kV4ARbkIKUZerSgaRAm3xCy5XOXLg==
-
-"@sentry/utils@7.66.0":
-  version "7.66.0"
-  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-7.66.0.tgz#2e37c96610f26bc79ac064fca4222ea91fece68d"
-  integrity sha512-9GYUVgXjK66uXXcLXVMXVzlptqMtq1eJENCuDeezQiEFrNA71KkLDg00wESp+LL+bl3wpVTBApArpbF6UEG5hQ==
-  dependencies:
-    "@sentry/types" "7.66.0"
-    tslib "^2.4.1 || ^1.9.3"
 
 "@sentry/utils@7.68.0":
   version "7.68.0"
@@ -7499,10 +7486,10 @@ open@^9.1.0:
     is-inside-container "^1.0.0"
     is-wsl "^2.2.0"
 
-openai@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/openai/-/openai-4.6.0.tgz#0335111cf71c608b68dbdca19f8ccbd9cfb0cd97"
-  integrity sha512-LuONkTgoe4D172raQCv+eEK5OdLGnY/M4JrUz/pxRGevZwqDqy3xhBbCeWX8QLCbFcnITYsu/VBJXZJ0rDAMpA==
+openai@^4.7.1:
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/openai/-/openai-4.7.1.tgz#dbc13f5e830365f8e927026acc5cf68255e57909"
+  integrity sha512-4Um9A4aLGzZxyENyway0zVgi69BOxaqXmjOCKp3PUteOvSn9TeVf6IjkaNY8k/LXYG5l2e7PpacOl2sxsrTc/w==
   dependencies:
     "@types/node" "^18.11.18"
     "@types/node-fetch" "^2.6.4"
