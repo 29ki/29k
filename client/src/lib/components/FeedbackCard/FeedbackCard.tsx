@@ -3,10 +3,8 @@ import React, {useMemo} from 'react';
 import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {FeedbackInput} from '../../../../../shared/src/types/Feedback';
 import SETTINGS from '../../constants/settings';
 import {SPACINGS} from '../../constants/spacings';
-import {} from '../Cards/CollectionCards/CollectionListCard';
 
 import {Spacer8} from '../Spacers/Spacer';
 import Tag from '../Tag/Tag';
