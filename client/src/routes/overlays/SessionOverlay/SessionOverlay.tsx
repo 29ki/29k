@@ -67,7 +67,7 @@ import MagicIcon from '../../../lib/components/Icons/Magic/Magic';
 import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
 import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
 import useExerciseFeedback from '../../../lib/session/hooks/useExerciseFeedback';
-import FeedbackCarousel from '../../../lib/components/FeedbackCarousel/FeedbackCrousel';
+import FeedbackCarousel from '../../../lib/components/FeedbackCarousel/FeedbackCarousel';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -291,26 +291,6 @@ const SessionOverlay = () => {
             />
           </SpaceBetweenRow>
         </Content>
-        {exercise?.description && (
-          <>
-            <Spacer16 />
-            <Gutters>
-              <Markdown>{exercise?.description}</Markdown>
-            </Gutters>
-          </>
-        )}
-
-        {tags && (
-          <Tags>
-            {tags.map((tag, idx) => (
-              <Fragment key={`tag-${idx}`}>
-                <Tag>{tag}</Tag>
-                <Spacer4 />
-              </Fragment>
-            ))}
-          </Tags>
-        )}
-        <Spacer24 />
 
         <Gutters>
           <Row>
@@ -336,8 +316,29 @@ const SessionOverlay = () => {
               <SessionTimeBadge session={session} />
             )}
           </Row>
-          <Spacer24 />
+          <Spacer8 />
         </Gutters>
+
+        {exercise?.description && (
+          <>
+            <Spacer16 />
+            <Gutters>
+              <Markdown>{exercise?.description}</Markdown>
+            </Gutters>
+          </>
+        )}
+
+        {tags && (
+          <Tags>
+            {tags.map((tag, idx) => (
+              <Fragment key={`tag-${idx}`}>
+                <Tag>{tag}</Tag>
+                <Spacer4 />
+              </Fragment>
+            ))}
+          </Tags>
+        )}
+        <Spacer24 />
 
         <Gutters>
           <Body16>{t('buttonsHeading')}</Body16>
