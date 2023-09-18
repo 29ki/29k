@@ -1091,23 +1091,10 @@
     lru_map "^0.3.3"
     tslib "^2.4.1 || ^1.9.3"
 
-"@sentry/types@7.66.0":
-  version "7.66.0"
-  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.66.0.tgz#4ec290cc6a3dd2024a61a0bffb468cedb409f7fb"
-  integrity sha512-uUMSoSiar6JhuD8p7ON/Ddp4JYvrVd2RpwXJRPH1A4H4Bd4DVt1mKJy1OLG6HdeQv39XyhB1lPZckKJg4tATPw==
-
 "@sentry/types@7.68.0":
   version "7.68.0"
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.68.0.tgz#6134511106eed90bf033dc2ce76955f61582b48f"
   integrity sha512-5J2pH1Pjx/029zTm3CNY9MaE8Aui81nG7JCtlMp7uEfQ//9Ja4d4Sliz/kV4ARbkIKUZerSgaRAm3xCy5XOXLg==
-
-"@sentry/utils@7.66.0":
-  version "7.66.0"
-  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-7.66.0.tgz#2e37c96610f26bc79ac064fca4222ea91fece68d"
-  integrity sha512-9GYUVgXjK66uXXcLXVMXVzlptqMtq1eJENCuDeezQiEFrNA71KkLDg00wESp+LL+bl3wpVTBApArpbF6UEG5hQ==
-  dependencies:
-    "@sentry/types" "7.66.0"
-    tslib "^2.4.1 || ^1.9.3"
 
 "@sentry/utils@7.68.0":
   version "7.68.0"
@@ -4155,10 +4142,10 @@ firebase-functions@^4.4.0:
     node-fetch "^2.6.7"
     protobufjs "^7.2.2"
 
-firebase-tools@^12.5.3:
-  version "12.5.3"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-12.5.3.tgz#9ac9261fba6184c77d1769d4869e855817c83c67"
-  integrity sha512-WYwadSKAKrFV8OeZFj5xALjm3xiOI37Vp21SihzmrORcv/jp70ITj7ZhGGDrgvKV1pcaZjB6uVlCjg63Qcgy7g==
+firebase-tools@^12.5.4:
+  version "12.5.4"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-12.5.4.tgz#5235b857cc0d384b2036cd7a25c812cd487d4746"
+  integrity sha512-fLE+91tJp3PNZPyB6kN9zfn5rkQWhzPX3mlsAGKTMJUA5TLeZA1YlfBbgPr2DJUO47cHN/9b0BYUQjYcYsBPgw==
   dependencies:
     "@google-cloud/pubsub" "^3.0.1"
     abort-controller "^3.0.0"
