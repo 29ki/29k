@@ -197,8 +197,7 @@ const Collection = () => {
               </RowJustified>
 
               <Spacer16 />
-              <Body16>{t('buttonsHeading')}</Body16>
-              <Spacer16 />
+
               <Row>
                 <JourneyButton
                   onPress={togglePinned}

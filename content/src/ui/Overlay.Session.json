@@ -1,7 +1,6 @@
 {
   "en": {
     "join": "Join",
-    "buttonsHeading": "Add to My journey, calendar or share session",
     "coCreatorsHeading": "Co-created with",
     "howItWorks": "How it works",
     "journeyButton": "My journey",
@@ -13,7 +12,6 @@
   "sv": {
     "join": "Gå med",
     "journeyButton": "Min plan",
-    "buttonsHeading": "Lägg till i Min plan, kalender eller dela sessionen",
     "deleteButton": "Ta bort session",
     "coCreatorsHeading": "Skapad med",
     "howItWorks": "Så funkar det",
