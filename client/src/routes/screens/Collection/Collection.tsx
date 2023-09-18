@@ -42,7 +42,6 @@ import {
   ShareIcon,
 } from '../../../lib/components/Icons';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
-import {Body16} from '../../../lib/components/Typography/Body/Body';
 
 type Section = {
   title: string;
