@@ -14,17 +14,13 @@ import {
 } from '../Thumbs/Thumbs';
 import {Body16} from '../Typography/Body/Body';
 
-export const CARD_WIDTH = 216;
-
 const Card = styled.View({
   ...SETTINGS.BOXSHADOW_SMALL,
   backgroundColor: COLORS.WHITE,
   borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
   padding: SPACINGS.SIXTEEN,
-  width: CARD_WIDTH,
   minHeight: 120,
   maxHeight: 216,
-  marginBottom: SPACINGS.SIXTEEN,
 });
 
 const Row = styled.View({

@@ -351,6 +351,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   </Gutters>
                   <Spacer8 />
                   <FeedbackCarousel feedbackItems={feedback} />
+                  <Spacer24 />
                 </>
               )}
             </>

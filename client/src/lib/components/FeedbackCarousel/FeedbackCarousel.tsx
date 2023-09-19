@@ -6,17 +6,24 @@ import styled from 'styled-components/native';
 import {Feedback} from '../../../../../shared/src/types/Feedback';
 
 import {SPACINGS} from '../../constants/spacings';
-import FeedbackCard, {CARD_WIDTH} from '../FeedbackCard/FeedbackCard';
+import FeedbackCard from '../FeedbackCard/FeedbackCard';
 
 const List = styled(FlatList)({
   flexGrow: 0,
   width: '100%',
 }) as unknown as FlatList;
 
-const CardWrapper = styled.View<{isLast: boolean}>(({isLast}) => ({
+const CARD_WIDTH = 216;
+
+const PaddingWrapper = styled.View<{isLast: boolean}>(({isLast}) => ({
   paddingLeft: SPACINGS.SIXTEEN,
   paddingRight: isLast ? SPACINGS.SIXTEEN : undefined,
 }));
+
+const CardWrapper = styled.View({
+  width: CARD_WIDTH,
+  marginBottom: SPACINGS.SIXTEEN,
+});
 
 const FeedbackCarousel: React.FC<{feedbackItems: Feedback[]}> = ({
   feedbackItems,
@@ -25,11 +32,13 @@ const FeedbackCarousel: React.FC<{feedbackItems: Feedback[]}> = ({
 
   const renderItem = useCallback<ListRenderItem<Feedback>>(
     ({item, index}) => (
-      <CardWrapper isLast={index === feedbackItems.length - 1}>
-        <FeedbackCard answer={item.answer} date={item.createdAt}>
-          {item.comment}
-        </FeedbackCard>
-      </CardWrapper>
+      <PaddingWrapper isLast={index === feedbackItems.length - 1}>
+        <CardWrapper>
+          <FeedbackCard answer={item.answer} date={item.createdAt}>
+            {item.comment}
+          </FeedbackCard>
+        </CardWrapper>
+      </PaddingWrapper>
     ),
     [feedbackItems],
   );

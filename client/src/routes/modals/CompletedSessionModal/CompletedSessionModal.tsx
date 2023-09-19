@@ -274,6 +274,7 @@ const CompletedSessionModal = () => {
         </StatusRow>
         {feedback && feedback.payload.comment && (
           <Gutters>
+            <Spacer16 />
             <FeedbackCard
               date={feedback.timestamp}
               answer={feedback.payload.answer}>
@@ -313,6 +314,7 @@ const CompletedSessionModal = () => {
             <View>
               {sessions.map((item, idx) => (
                 <SessionCard
+                  key={item.id}
                   session={item}
                   hasCardBefore={idx > 0}
                   hasCardAfter={idx < sessions.length - 1}
