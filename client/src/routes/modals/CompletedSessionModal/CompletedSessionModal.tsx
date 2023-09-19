@@ -284,7 +284,7 @@ const CompletedSessionModal = () => {
         )}
         {sharingPosts && sharingPosts.length > 0 && (
           <>
-            <Spacer16 />
+            <Spacer24 />
             <Gutters>
               {sharingPosts.map((post, index) => (
                 <SharingPost
@@ -299,7 +299,7 @@ const CompletedSessionModal = () => {
             </Gutters>
           </>
         )}
-        <Spacer16 />
+        <Spacer24 />
         <Gutters>
           <ButtonWrapper>
             <Button small variant="secondary" onPress={onStartSession}>
