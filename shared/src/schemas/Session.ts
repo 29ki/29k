@@ -49,24 +49,6 @@ export type LiveSessionFieldsType = yup.InferType<
   typeof LiveSessionFieldsSchema
 >;
 
-export const FeedbackSchema = yup.object({
-  id: yup.string().required(),
-  exerciseId: yup.string().required(),
-  completed: yup.boolean().required(),
-  sessionId: yup.string().required(),
-  host: yup.string(),
-
-  question: yup.string().required(),
-  answer: yup.boolean().required(),
-  comment: yup.string(),
-
-  sessionMode: yup.string().oneOf([SessionMode.async, SessionMode.live]),
-  sessionType: yup.string().oneOf([SessionType.private, SessionType.public]),
-
-  approved: yup.boolean(),
-  createdAt: transformTimestamp.required(),
-});
-
 // Applicaton schema
 export const SessionStateSchema = yup
   .object({
