@@ -10,12 +10,6 @@ jest.mock('./useExercises', () => () => [
   },
   {id: 'exercise-id-2', name: 'exercise-2', tags: [{tag: 'tag-2'}]},
   {id: 'exercise-id-3', name: 'exercise-3', tags: [{tag: 'tag-3'}]},
-  {
-    id: 'exercise-id-4',
-    name: 'exercise-4',
-    tags: [{tag: 'tag-1'}, {tag: 'tag-4'}],
-    hidden: true,
-  },
 ]);
 
 afterEach(() => {
