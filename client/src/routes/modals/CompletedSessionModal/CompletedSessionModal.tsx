@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
-import {complement, isNil} from 'ramda';
+import {complement, isNil, take} from 'ramda';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import AnimatedLottieView from 'lottie-react-native';
 import {openUrl} from 'react-native-markdown-display';
@@ -56,7 +56,7 @@ import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import useLiveSessionsByExercise from '../../../lib/session/hooks/useLiveSessionsByExercise';
 import FeedbackCard from '../../../lib/components/FeedbackCard/FeedbackCard';
 import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
-import useGetExercisesByTags from '../../../lib/content/hooks/useGetExercisesByTags';
+import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
 
 const Content = styled(Gutters)({
@@ -105,6 +105,8 @@ const Tags = styled(Gutters)({
 
 const ButtonWrapper = styled.View({flexDirection: 'row'});
 
+const MORE_LIKE_THIS_LIMIT = 5;
+
 const CompletedSessionModal = () => {
   const {
     params: {completedSessionEvent},
@@ -119,10 +121,11 @@ const CompletedSessionModal = () => {
   const tags = useGetTagsById(exercise?.tags);
   const {getSharingPostForSession} = useSharingPosts(exercise?.id);
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
-  const exercisesByTags = useGetExercisesByTags(
+  const exercisesByTags = useExercisesByTags(
     exercise?.tags as TagType[],
     exercise?.id,
   );
+
   const sessionTime = useMemo(() => dayjs(timestamp), [timestamp]);
 
   const {sessions} = useLiveSessionsByExercise(exercise?.id && exercise, 5);
@@ -199,6 +202,19 @@ const CompletedSessionModal = () => {
       </>
     ),
     [exercise],
+  );
+
+  const moreLikeThisExercises = useMemo(
+    () =>
+      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map((e, idx) => (
+        <ExerciseCardContainer
+          key={e.id}
+          exercise={e}
+          hasCardBefore={idx !== 0}
+          hasCardAfter={idx < MORE_LIKE_THIS_LIMIT - 1}
+        />
+      )),
+    [exercisesByTags],
   );
 
   if (!exercise) {
@@ -346,16 +362,7 @@ const CompletedSessionModal = () => {
             <Spacer24 />
             <Heading18>{t('moreLikeThis')}</Heading18>
             <Spacer8 />
-            <View>
-              {exercisesByTags.map((e, idx) => (
-                <ExerciseCardContainer
-                  key={e.id}
-                  exercise={e}
-                  hasCardBefore={idx !== 0}
-                  hasCardAfter={idx < exercisesByTags.length - 1}
-                />
-              ))}
-            </View>
+            <View>{moreLikeThisExercises}</View>
             <Spacer32 />
           </Gutters>
         )}

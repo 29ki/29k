@@ -54,8 +54,9 @@ import useExerciseFeedback from '../../../../../lib/session/hooks/useExerciseFee
 import FeedbackCarousel from '../../../../../lib/components/FeedbackCarousel/FeedbackCarousel';
 import useLiveSessionsByExercise from '../../../../../lib/session/hooks/useLiveSessionsByExercise';
 import ExerciseCardContainer from '../../../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
-import useGetExercisesByTags from '../../../../../lib/content/hooks/useGetExercisesByTags';
+import useExercisesByTags from '../../../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../../../shared/src/types/generated/Tag';
+import {take} from 'ramda';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -155,6 +156,8 @@ const Tags = styled.View({
   marginTop: -SPACINGS.FOUR,
 });
 
+const MORE_LIKE_THIS_LIMIT = 5;
+
 const SelectTypeStep: React.FC<StepProps> = ({
   setSelectedModeAndType,
   nextStep,
@@ -174,7 +177,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
     [getExerciseById, selectedExercise],
   );
 
-  const exercisesByTags = useGetExercisesByTags(
+  const exercisesByTags = useExercisesByTags(
     exercise?.tags as TagType[],
     exercise?.id,
   );
@@ -276,6 +279,20 @@ const SelectTypeStep: React.FC<StepProps> = ({
     [exercise],
   );
 
+  const moreLikeThisExercises = useMemo(
+    () =>
+      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map((e, idx) => (
+        <ExerciseCardContainer
+          key={e.id}
+          exercise={e}
+          hasCardBefore={idx !== 0}
+          hasCardAfter={idx < MORE_LIKE_THIS_LIMIT - 1}
+          onPress={() => popToTop()}
+        />
+      )),
+    [exercisesByTags, popToTop],
+  );
+
   const keyExtractor = useCallback((item: LiveSessionType) => item.id, []);
 
   const typeSelection = useMemo(
@@ -367,17 +384,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   <Spacer24 />
                   <Heading18>{t('moreLikeThis')}</Heading18>
                   <Spacer8 />
-                  <View>
-                    {exercisesByTags.map((e, idx) => (
-                      <ExerciseCardContainer
-                        key={e.id}
-                        exercise={e}
-                        hasCardBefore={idx !== 0}
-                        hasCardAfter={idx < exercisesByTags.length - 1}
-                        onPress={() => popToTop()}
-                      />
-                    ))}
-                  </View>
+                  <View>{moreLikeThisExercises}</View>
                 </Gutters>
               )}
             </>

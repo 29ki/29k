@@ -1,6 +1,6 @@
 import {renderHook} from '@testing-library/react-hooks';
 import {act} from 'react-test-renderer';
-import useGetExercisesByTags from './useGetExercisesByTags';
+import useExercisesByTags from './useExercisesByTags';
 
 jest.mock('./useExercises', () => () => [
   {
@@ -22,10 +22,10 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe('useGetExercisesByTags', () => {
+describe('useExercisesByTags', () => {
   it('return exercises containing tags', () => {
     const {result} = renderHook(() =>
-      useGetExercisesByTags([
+      useExercisesByTags([
         {id: 'tag-1', tag: 'tag-1'},
         {id: 'tag-2', tag: 'tag-2'},
       ]),
@@ -45,7 +45,7 @@ describe('useGetExercisesByTags', () => {
 
   it('excludes exercise id', () => {
     const {result} = renderHook(() =>
-      useGetExercisesByTags(
+      useExercisesByTags(
         [
           {id: 'tag-1', tag: 'tag-1'},
           {id: 'tag-2', tag: 'tag-2'},
