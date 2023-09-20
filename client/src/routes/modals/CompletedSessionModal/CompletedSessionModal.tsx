@@ -46,14 +46,15 @@ import useUserProfile from '../../../lib/user/hooks/useUserProfile';
 import MyPostCard from '../../../lib/session/components/Posts/MyPostCard';
 import useUser from '../../../lib/user/hooks/useUser';
 import useGetFeedbackBySessionId from '../../../lib/user/hooks/useGetFeedbackBySessionId';
-import FeedbackThumb from './components/FeedbackThumb';
-import FeedbackComment from './components/FeedbackComment';
 import Node from '../../../lib/components/Node/Node';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import Tag from '../../../lib/components/Tag/Tag';
 import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
 import {Heading18} from '../../../lib/components/Typography/Heading/Heading';
 import {openUrl} from 'react-native-markdown-display';
+import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
+import useLiveSessionsByExercise from '../../../lib/session/hooks/useLiveSessionsByExercise';
+import FeedbackCard from '../../../lib/components/FeedbackCard/FeedbackCard';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -117,6 +118,8 @@ const CompletedSessionModal = () => {
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
 
   const sessionTime = useMemo(() => dayjs(timestamp), [timestamp]);
+
+  const {sessions} = useLiveSessionsByExercise(exercise?.id && exercise, 5);
 
   const onStartSession = useCallback(() => {
     popToTop();
@@ -268,16 +271,20 @@ const CompletedSessionModal = () => {
             />
             <Spacer4 />
           </VerticalAlign>
-          {feedback && <FeedbackThumb feedback={feedback} />}
         </StatusRow>
         {feedback && feedback.payload.comment && (
           <Gutters>
-            <FeedbackComment>{feedback.payload.comment}</FeedbackComment>
+            <Spacer16 />
+            <FeedbackCard
+              date={feedback.timestamp}
+              answer={feedback.payload.answer}>
+              {feedback.payload.comment}
+            </FeedbackCard>
           </Gutters>
         )}
         {sharingPosts && sharingPosts.length > 0 && (
           <>
-            <Spacer16 />
+            <Spacer24 />
             <Gutters>
               {sharingPosts.map((post, index) => (
                 <SharingPost
@@ -292,7 +299,7 @@ const CompletedSessionModal = () => {
             </Gutters>
           </>
         )}
-        <Spacer16 />
+        <Spacer24 />
         <Gutters>
           <ButtonWrapper>
             <Button small variant="secondary" onPress={onStartSession}>
@@ -300,6 +307,25 @@ const CompletedSessionModal = () => {
             </Button>
           </ButtonWrapper>
         </Gutters>
+
+        {Boolean(sessions?.length) && (
+          <Gutters>
+            <Spacer24 />
+            <View>
+              {sessions.map((item, idx) => (
+                <SessionCard
+                  key={item.id}
+                  session={item}
+                  hasCardBefore={idx > 0}
+                  hasCardAfter={idx < sessions.length - 1}
+                  standAlone={false}
+                  onBeforeContextPress={popToTop}
+                />
+              ))}
+            </View>
+          </Gutters>
+        )}
+
         {Boolean(exercise.coCreators?.length) && (
           <Gutters>
             <Spacer24 />

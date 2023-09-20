@@ -1,10 +1,4 @@
-import React, {
-  Fragment,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, {Fragment, useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import AnimatedLottieView from 'lottie-react-native';
 
@@ -46,7 +40,6 @@ import {ActivityIndicator, ListRenderItem, Share} from 'react-native';
 import SessionCard from '../../../../../lib/components/Cards/SessionCard/SessionCard';
 import {Heading18} from '../../../../../lib/components/Typography/Heading/Heading';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
-import {fetchSessions} from '../../../../../lib/sessions/api/sessions';
 import {ModalStackProps} from '../../../../../lib/navigation/constants/routes';
 import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsyncSession';
 import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown';
@@ -58,7 +51,8 @@ import {openUrl} from 'react-native-markdown-display';
 import {ThumbsUpWithoutPadding} from '../../../../../lib/components/Thumbs/Thumbs';
 import useExerciseRating from '../../../../../lib/session/hooks/useExerciseRating';
 import useExerciseFeedback from '../../../../../lib/session/hooks/useExerciseFeedback';
-import FeedbackCarousel from '../../../../../lib/components/FeedbackCarousel/FeedbackCrousel';
+import FeedbackCarousel from '../../../../../lib/components/FeedbackCarousel/FeedbackCarousel';
+import useLiveSessionsByExercise from '../../../../../lib/session/hooks/useLiveSessionsByExercise';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -86,7 +80,7 @@ const TypeWrapper = styled(TouchableOpacity)({
   paddingHorizontal: SPACINGS.SIXTEEN,
 });
 
-const TypeItemHeading = styled(Body16)({
+const TypeItemHeading = styled(Heading18)({
   textAlign: 'left',
 });
 
@@ -169,8 +163,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const getExerciseById = useGetExerciseById();
   const startSession = useStartAsyncSession();
-  const [sessions, setSessions] = useState<Array<LiveSessionType>>([]);
-  const [isLoadingSessions, setIsLoadingSessions] = useState(false);
+
   const {rating} = useExerciseRating(selectedExercise);
   const {feedback} = useExerciseFeedback(selectedExercise);
 
@@ -178,28 +171,20 @@ const SelectTypeStep: React.FC<StepProps> = ({
     () => (selectedExercise ? getExerciseById(selectedExercise) : null),
     [getExerciseById, selectedExercise],
   );
-
-  useEffect(() => {
-    if (exercise && exercise.live) {
-      setIsLoadingSessions(true);
-      fetchSessions(exercise.id, undefined, 5).then(fetchedSessions => {
-        setSessions(fetchedSessions);
-        setIsLoadingSessions(false);
-      });
-    }
-  }, [setSessions, exercise, setIsLoadingSessions]);
-
   const exerciseImage = useMemo(
     () => (exercise?.card?.image ? {uri: exercise.card.image.source} : null),
     [exercise],
   );
-
   const exerciseLottie = useMemo(() => {
     if (exercise?.card?.lottie?.source) {
       return {uri: exercise?.card?.lottie?.source};
     }
   }, [exercise]);
 
+  const {sessions, loading: isLoadingSessions} = useLiveSessionsByExercise(
+    exercise?.id && exercise,
+    5,
+  );
   const tags = useGetTagsById(exercise?.tags);
 
   const onJoinByInvite = useCallback(() => {
@@ -366,6 +351,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   </Gutters>
                   <Spacer8 />
                   <FeedbackCarousel feedbackItems={feedback} />
+                  <Spacer24 />
                 </>
               )}
             </>
@@ -412,8 +398,8 @@ const SelectTypeStep: React.FC<StepProps> = ({
               {exercise.live ? (
                 <>
                   <Spacer16 />
-                  <TypeItemHeading>{t('description')}</TypeItemHeading>
-                  <Spacer16 />
+                  <TypeItemHeading>{t('typeHeading')}</TypeItemHeading>
+                  <Spacer8 />
                   {typeSelection}
                   <Spacer24 />
                   {Boolean(sessions.length) && (
@@ -452,7 +438,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
       <Spacer8 />
       <SpaceBetweenRow>
         <TextWrapper>
-          <Display24>{t('description')}</Display24>
+          <Display24>{t('typeHeading')}</Display24>
         </TextWrapper>
         <Spacer16 />
         <LogoWrapper>
