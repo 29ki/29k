@@ -18,10 +18,12 @@ import {
   ShareIcon,
 } from '../../../../../lib/components/Icons';
 import {
+  BottomSafeArea,
   Spacer12,
   Spacer16,
   Spacer24,
   Spacer28,
+  Spacer32,
   Spacer4,
   Spacer8,
 } from '../../../../../lib/components/Spacers/Spacer';
@@ -376,7 +378,6 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   </Gutters>
                   <Spacer8 />
                   <FeedbackCarousel feedbackItems={feedback} />
-                  <Spacer24 />
                 </>
               )}
               {Boolean(exercisesByTags?.length) && (
@@ -387,6 +388,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   <View>{moreLikeThisExercises}</View>
                 </Gutters>
               )}
+              <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
             </>
           }
           ListHeaderComponent={

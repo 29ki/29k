@@ -447,7 +447,7 @@ const SessionOverlay = () => {
             <View>{moreLikeThisExercises}</View>
           </Gutters>
         )}
-
+        <Spacer32 />
         <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
       </AutoScrollView>
     </Screen>

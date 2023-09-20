@@ -16,6 +16,7 @@ import Gutters from '../../../lib/components/Gutters/Gutters';
 import Image from '../../../lib/components/Image/Image';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {
+  BottomSafeArea,
   Spacer16,
   Spacer24,
   Spacer32,
@@ -356,16 +357,17 @@ const CompletedSessionModal = () => {
             {coCreators}
           </Gutters>
         )}
-        <Spacer32 />
+
         {Boolean(exercisesByTags?.length) && (
           <Gutters>
             <Spacer24 />
             <Heading18>{t('moreLikeThis')}</Heading18>
             <Spacer8 />
             <View>{moreLikeThisExercises}</View>
-            <Spacer32 />
           </Gutters>
         )}
+
+        <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
       </BottomSheetScrollView>
     </SheetModal>
   );
