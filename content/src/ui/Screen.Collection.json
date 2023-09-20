@@ -2,7 +2,6 @@
   "en": {
     "collectionHeading": "Collection",
     "addToJourney": "My journey",
-    "buttonsHeading": "Add to My journey or share collection",
     "sessionsHeading": "Sessions"
   },
   "pt": {
@@ -12,7 +11,6 @@
   },
   "sv": {
     "collectionHeading": "Samling",
-    "buttonsHeading": "Lägg till i min plan eller dela samlingen",
     "sessionsHeading": "Sessioner",
     "addToJourney": "Min plan"
   },

@@ -22,7 +22,7 @@
       }
     },
     "noUpcomingSessions": "🌱 No planned sessions.",
-    "description": "Do session with…",
+    "typeHeading": "Do session with…",
     "setDateTime": {
       "title": "Choose a time",
       "cta": "Create session",
@@ -54,7 +54,7 @@
       }
     },
     "noUpcomingSessions": "🌱 Não há sessões planeadas",
-    "description": "Criar sessão com...",
+    "typeHeading": "Criar sessão com...",
     "setDateTime": {
       "title": "Escolhe o horário",
       "cta": "Criar sessão",
@@ -88,7 +88,7 @@
       }
     },
     "noUpcomingSessions": "🌱 Inga planerade sessioner.",
-    "description": "Gör sessionen med...",
+    "typeHeading": "Gör sessionen med...",
     "coCreatorsHeading": "Skapad med",
     "feedbackHeading": "Recensioner",
     "setDateTime": {

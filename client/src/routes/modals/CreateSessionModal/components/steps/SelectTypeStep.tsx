@@ -86,7 +86,7 @@ const TypeWrapper = styled(TouchableOpacity)({
   paddingHorizontal: SPACINGS.SIXTEEN,
 });
 
-const TypeItemHeading = styled(Body16)({
+const TypeItemHeading = styled(Heading18)({
   textAlign: 'left',
 });
 
@@ -412,8 +412,8 @@ const SelectTypeStep: React.FC<StepProps> = ({
               {exercise.live ? (
                 <>
                   <Spacer16 />
-                  <TypeItemHeading>{t('description')}</TypeItemHeading>
-                  <Spacer16 />
+                  <TypeItemHeading>{t('typeHeading')}</TypeItemHeading>
+                  <Spacer8 />
                   {typeSelection}
                   <Spacer24 />
                   {Boolean(sessions.length) && (
@@ -452,7 +452,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
       <Spacer8 />
       <SpaceBetweenRow>
         <TextWrapper>
-          <Display24>{t('description')}</Display24>
+          <Display24>{t('typeHeading')}</Display24>
         </TextWrapper>
         <Spacer16 />
         <LogoWrapper>

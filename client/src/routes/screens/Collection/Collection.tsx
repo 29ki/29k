@@ -42,7 +42,6 @@ import {
   ShareIcon,
 } from '../../../lib/components/Icons';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
-import {Body16} from '../../../lib/components/Typography/Body/Body';
 
 type Section = {
   title: string;
@@ -197,8 +196,7 @@ const Collection = () => {
               </RowJustified>
 
               <Spacer16 />
-              <Body16>{t('buttonsHeading')}</Body16>
-              <Spacer16 />
+
               <Row>
                 <JourneyButton
                   onPress={togglePinned}
