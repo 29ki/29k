@@ -19,7 +19,7 @@ export const addFeedback = async (feedback: CreateFeedbackBody) => {
       feedback.comment,
       feedback.sessionType,
       feedback.sessionMode,
-      savedData.approved,
+      Boolean(savedData.approved),
     );
   }
 };

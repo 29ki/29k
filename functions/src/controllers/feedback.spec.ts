@@ -67,7 +67,7 @@ describe('feedback - controller', () => {
         'Some comment!',
         SessionType.public,
         SessionMode.live,
-        undefined,
+        false,
       );
     });
 
