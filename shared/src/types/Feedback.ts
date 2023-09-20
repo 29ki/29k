@@ -1,21 +1,17 @@
-import {SessionMode, SessionType} from '../schemas/Session';
+import yup from 'yup';
 
-export type Feedback = {
+import {
+  CreateFeedbackBodySchema,
+  FeedbackParamsSchema,
+  FeedbackInputSchema,
+} from '../schemas/Feedback';
+
+export type FeedbackParams = yup.InferType<typeof FeedbackParamsSchema>;
+export type FeedbackInput = yup.InferType<typeof FeedbackInputSchema>;
+export type CreateFeedbackBody = yup.InferType<typeof CreateFeedbackBodySchema>;
+
+export type Feedback = FeedbackInput & {
   id: string;
-  exerciseId: string;
-  completed: boolean;
-  sessionId: string;
-  host?: boolean;
-
-  question: string;
-  answer: boolean;
-  comment?: string;
-
-  sessionMode: SessionMode;
-  sessionType: SessionType;
-
   approved: boolean;
-  createdAt?: string;
+  createdAt: string;
 };
-
-export type FeedbackInput = Omit<Feedback, 'id' | 'approved'>;

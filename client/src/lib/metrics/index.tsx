@@ -17,6 +17,7 @@ import * as backEnd from './adaptors/backEnd';
 import {getCurrentRouteName} from '../navigation/utils/routes';
 import useNavigationTracker from './hooks/useNavigationTracker';
 import useLifecycleTracker from './hooks/useLifecycleTracker';
+import {getDeviceInfo} from '../utils/system';
 
 const logDebug = debug('client:metrics');
 
@@ -66,6 +67,7 @@ export const logNavigation: LogNavigation = async (screenName, properties) => {
 };
 
 export const logFeedback: LogFeedback = async feedback => {
+  const deviceInfo = await getDeviceInfo();
   logDebug('logFeedback %p', feedback);
 
   await Promise.all([
@@ -80,8 +82,8 @@ export const logFeedback: LogFeedback = async feedback => {
       'Sharing Session Type': feedback.sessionType,
       'Sharing Session Mode': feedback.sessionMode,
     }),
-    postHog.logFeeback(feedback),
-    backEnd.logFeeback(feedback),
+    postHog.logFeedback(feedback),
+    backEnd.logFeedback(feedback, deviceInfo),
   ]);
 };
 

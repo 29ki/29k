@@ -1,10 +1,10 @@
 import * as metricsModel from '../models/metrics';
-import {FeedbackInput} from '../../../shared/src/types/Feedback';
+import {CreateFeedbackBody} from '../../../shared/src/types/Feedback';
 import * as slack from '../models/slack';
 import {getExerciseById} from '../lib/exercise';
 import {SessionMode} from '../../../shared/src/schemas/Session';
 
-export const addFeedback = async (feedback: FeedbackInput) => {
+export const addFeedback = async (feedback: CreateFeedbackBody) => {
   const savedData = await metricsModel.addFeedback(feedback);
 
   if (feedback.comment) {

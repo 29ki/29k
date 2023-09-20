@@ -47,6 +47,7 @@ describe('/metrics/logFeedback', () => {
         comment: 'Some comment!',
         sessionType: SessionType.public,
         sessionMode: SessionMode.live,
+        params: {},
       });
 
       expect(response.status).toBe(200);
@@ -61,6 +62,7 @@ describe('/metrics/logFeedback', () => {
         answer: true,
         sessionType: SessionType.public,
         sessionMode: SessionMode.live,
+        params: {},
       });
 
       expect(addFeedback).toHaveBeenCalledTimes(1);
@@ -72,6 +74,7 @@ describe('/metrics/logFeedback', () => {
         answer: true,
         sessionType: SessionType.public,
         sessionMode: SessionMode.live,
+        params: {},
       });
 
       expect(response.status).toBe(200);

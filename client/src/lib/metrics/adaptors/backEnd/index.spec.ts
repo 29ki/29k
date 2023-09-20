@@ -67,7 +67,7 @@ describe('logNavigation', () => {
 
 describe('logFeedback', () => {
   it('sends feedback to back-end', async () => {
-    await backEnd.logFeeback({
+    await backEnd.logFeedback({
       exerciseId: 'some-exercise-id',
       completed: true,
       sessionId: 'some-session-id',
