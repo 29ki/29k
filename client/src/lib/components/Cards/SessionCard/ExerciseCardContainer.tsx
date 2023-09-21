@@ -10,12 +10,14 @@ type ExerciseCardContainerProps = {
   exercise: Exercise;
   hasCardBefore: boolean;
   hasCardAfter: boolean;
+  onPress?: () => void;
 };
 
 const ExerciseCardContainer: React.FC<ExerciseCardContainerProps> = ({
   exercise,
   hasCardBefore,
   hasCardAfter,
+  onPress = () => {},
 }) => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
@@ -32,9 +34,10 @@ const ExerciseCardContainer: React.FC<ExerciseCardContainerProps> = ({
     }
   }, [exercise]);
 
-  const onPress = useCallback(() => {
+  const onPressHandle = useCallback(() => {
+    onPress();
     navigate('CreateSessionModal', {exerciseId: exercise.id});
-  }, [exercise, navigate]);
+  }, [exercise, onPress, navigate]);
 
   if (!exercise) {
     return null;
@@ -47,7 +50,7 @@ const ExerciseCardContainer: React.FC<ExerciseCardContainerProps> = ({
       lottie={lottie}
       hasCardBefore={hasCardBefore}
       hasCardAfter={hasCardAfter}
-      onPress={onPress}
+      onPress={onPressHandle}
     />
   );
 };
