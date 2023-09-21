@@ -23,7 +23,6 @@ import {
   Spacer16,
   Spacer24,
   Spacer28,
-  Spacer32,
   Spacer4,
   Spacer8,
 } from '../../../../../lib/components/Spacers/Spacer';
