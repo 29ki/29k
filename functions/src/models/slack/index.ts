@@ -11,6 +11,7 @@ import {
   createVisibilityActionBlock,
   createFeedbackVisibilityActionBlock,
 } from './messageBlocks';
+import {FeedbackParams} from '../../../../shared/src/types/Feedback';
 
 const {
   SLACK_OAUTH_TOKEN,
@@ -99,6 +100,7 @@ export const sendFeedbackMessage = async (
   sessionType: SessionType | undefined,
   sessionMode: SessionMode | undefined,
   approved: boolean,
+  params: FeedbackParams,
 ) => {
   if (SLACK_FEEDBACK_CHANNEL) {
     try {
@@ -116,6 +118,7 @@ export const sendFeedbackMessage = async (
           sessionType,
           sessionMode,
           approved,
+          params,
         ),
         username: SLACK_BOT_NAME,
         channel: `#${SLACK_FEEDBACK_CHANNEL}`,
