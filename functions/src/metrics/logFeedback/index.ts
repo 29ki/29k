@@ -1,18 +1,18 @@
 import validator from 'koa-yup-validator';
 import {createMetricsRouter} from '../../lib/routers';
 import * as feedbackController from '../../controllers/feedback';
-import {CreateFeedbackBodySchema} from '../../../../shared/src/schemas/Feedback';
-import {CreateFeedbackBody} from '../../../../shared/src/types/Feedback';
+import {AddFeedbackBodySchema} from '../../../../shared/src/schemas/Feedback';
+import {AddFeedbackBody} from '../../../../shared/src/types/Feedback';
 
 const router = createMetricsRouter();
 
 export const feedbackRouter = router.post(
   '/',
   validator({
-    body: CreateFeedbackBodySchema,
+    body: AddFeedbackBodySchema,
   }),
   async ({request, response}) => {
-    const feedback = request.body as CreateFeedbackBody;
+    const feedback = request.body as AddFeedbackBody;
 
     await feedbackController.addFeedback(feedback);
 

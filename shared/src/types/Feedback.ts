@@ -1,7 +1,7 @@
 import yup from 'yup';
 
 import {
-  CreateFeedbackBodySchema,
+  AddFeedbackBodySchema,
   FeedbackParamsSchema,
   FeedbackInputSchema,
   FeedbackSchema,
@@ -9,5 +9,5 @@ import {
 
 export type FeedbackParams = yup.InferType<typeof FeedbackParamsSchema>;
 export type FeedbackInput = yup.InferType<typeof FeedbackInputSchema>;
-export type CreateFeedbackBody = yup.InferType<typeof CreateFeedbackBodySchema>;
+export type AddFeedbackBody = yup.InferType<typeof AddFeedbackBodySchema>;
 export type Feedback = yup.InferType<typeof FeedbackSchema>;

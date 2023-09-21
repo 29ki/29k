@@ -4,7 +4,7 @@ import {Timestamp} from 'firebase-admin/firestore';
 
 import {getData} from '../../../shared/src/modelUtils/firestore';
 import {SessionMode} from '../../../shared/src/schemas/Session';
-import {CreateFeedbackBody, Feedback} from '../../../shared/src/types/Feedback';
+import {AddFeedbackBody, Feedback} from '../../../shared/src/types/Feedback';
 
 const EVENTS_COLLECTION = 'metricsEvents';
 const USER_PROPERTIES_COLLECTION = 'metricsUserProperties';
@@ -64,7 +64,7 @@ export const setUserProperties = async (
   }
 };
 
-export const addFeedback = async (feedback: CreateFeedbackBody) => {
+export const addFeedback = async (feedback: AddFeedbackBody) => {
   const feedbackDoc = await firestore()
     .collection(FEEDBACK_COLLECTION)
     .add({

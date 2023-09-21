@@ -42,6 +42,6 @@ export const FeedbackSchema = FeedbackInputSchema.concat(
   }),
 );
 
-export const CreateFeedbackBodySchema = FeedbackInputSchema.concat(
+export const AddFeedbackBodySchema = FeedbackInputSchema.concat(
   yup.object().shape({params: FeedbackParamsSchema}),
 );
