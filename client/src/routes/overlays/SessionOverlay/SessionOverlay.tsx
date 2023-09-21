@@ -68,6 +68,10 @@ import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
 import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
 import useExerciseFeedback from '../../../lib/session/hooks/useExerciseFeedback';
 import FeedbackCarousel from '../../../lib/components/FeedbackCarousel/FeedbackCarousel';
+import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
+import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
+import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
+import {take} from 'ramda';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -128,6 +132,8 @@ const Tags = styled(Gutters)({
   marginTop: -SPACINGS.FOUR,
 });
 
+const MORE_LIKE_THIS_LIMIT = 5;
+
 const SessionOverlay = () => {
   const {
     params: {session},
@@ -151,6 +157,10 @@ const SessionOverlay = () => {
   const {feedback} = useExerciseFeedback(session.exerciseId, session.mode);
   const {reminderEnabled, toggleReminder} = useSessionReminder(session);
   const confirmToggleReminder = useConfirmSessionReminder(session);
+  const exercisesByTags = useExercisesByTags(
+    exercise?.tags as TagType[],
+    exercise?.id,
+  );
 
   const startingNow = dayjs
     .utc()
@@ -233,6 +243,19 @@ const SessionOverlay = () => {
       </>
     ),
     [exercise],
+  );
+
+  const moreLikeThisExercises = useMemo(
+    () =>
+      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map((e, idx) => (
+        <ExerciseCardContainer
+          key={e.id}
+          exercise={e}
+          hasCardBefore={idx !== 0}
+          hasCardAfter={idx < MORE_LIKE_THIS_LIMIT - 1}
+        />
+      )),
+    [exercisesByTags],
   );
 
   useEffect(() => {
@@ -415,6 +438,16 @@ const SessionOverlay = () => {
             <FeedbackCarousel feedbackItems={feedback} />
           </>
         )}
+
+        {Boolean(exercisesByTags?.length) && (
+          <Gutters>
+            <Spacer24 />
+            <Heading18>{t('moreLikeThis')}</Heading18>
+            <Spacer8 />
+            <View>{moreLikeThisExercises}</View>
+          </Gutters>
+        )}
+        <Spacer32 />
         <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
       </AutoScrollView>
     </Screen>
