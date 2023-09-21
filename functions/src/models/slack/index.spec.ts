@@ -184,6 +184,12 @@ describe('slack model', () => {
         SessionType.public,
         SessionMode.live,
         false,
+        {
+          bundleVersion: '1234',
+          nativeVersion: '321',
+          os: 'test-os',
+          model: 'test-model',
+        },
       );
 
       expect(mockPostMessage).toHaveBeenCalledTimes(1);
@@ -197,7 +203,7 @@ describe('slack model', () => {
               type: 'image',
             },
             text: {
-              text: '*Answer:* 👍\n\n*Exercise:*\nSome Exercise Name (live - public)\n\n*Comment:*\nSome comment!',
+              text: '*Answer:* 👍\n\n*Exercise:*\nSome Exercise Name (live - public)\n\n*Comment:*\nSome comment!\n\n*Model:* test-model\n\n*OS:* test-os\n\n*Native Version:* 321\n\n*Bundle Version:* 1234',
               type: 'mrkdwn',
             },
             type: 'section',
@@ -227,7 +233,7 @@ describe('slack model', () => {
       });
     });
 
-    it("doesn't require, exercise, image, session mode or session type", async () => {
+    it("doesn't require, exercise, image, session mode or session type or params", async () => {
       await sendFeedbackMessage(
         'feedback-id',
         undefined,
@@ -238,6 +244,12 @@ describe('slack model', () => {
         undefined,
         undefined,
         true,
+        {
+          bundleVersion: '1234',
+          nativeVersion: '321',
+          os: 'test-os',
+          model: 'test-model',
+        },
       );
 
       expect(mockPostMessage).toHaveBeenCalledTimes(1);
@@ -246,7 +258,7 @@ describe('slack model', () => {
           {text: {text: 'Some question?', type: 'plain_text'}, type: 'header'},
           {
             text: {
-              text: '*Answer:* 👍\n\n*Exercise:*\nunknown ( - )\n\n*Comment:*\nSome comment!',
+              text: '*Answer:* 👍\n\n*Exercise:*\nunknown ( - )\n\n*Comment:*\nSome comment!\n\n*Model:* test-model\n\n*OS:* test-os\n\n*Native Version:* 321\n\n*Bundle Version:* 1234',
               type: 'mrkdwn',
             },
             type: 'section',

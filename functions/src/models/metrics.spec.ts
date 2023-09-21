@@ -149,6 +149,7 @@ describe('metrics model', () => {
         sessionId: 'session-id',
         sessionType: SessionType.public,
         sessionMode: SessionMode.live,
+        params: {},
       };
       const doc = await addFeedback(feedback);
 
@@ -164,6 +165,7 @@ describe('metrics model', () => {
         createdAt: expect.any(Timestamp),
         sessionType: SessionType.public,
         sessionMode: SessionMode.live,
+        params: {},
       });
 
       expect(doc).toMatchObject({

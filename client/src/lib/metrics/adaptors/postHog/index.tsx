@@ -60,7 +60,7 @@ export const logNavigation: LogNavigation = async (screenName, properties) => {
   await postHog?.screen(screenName, properties);
 };
 
-export const logFeeback: LogFeedback = async () => {};
+export const logFeedback: LogFeedback = async () => {};
 
 export const setUserProperties: SetUserProperties = async (
   properties,
