@@ -365,6 +365,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   <Body16>{rating.positive}</Body16>
                 </RatingContainer>
               ) : null}
+              <Spacer12 />
               <SpaceBetweenRow>
                 <TextWrapper>
                   <Display24>{formatContentName(exercise)}</Display24>
