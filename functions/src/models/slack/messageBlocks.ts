@@ -3,6 +3,7 @@ import {SessionMode, SessionType} from '../../../../shared/src/schemas/Session';
 import {SHARING_POST_MIN_LENGTH} from '../../lib/constants/post';
 import {RequestAction} from '../../lib/constants/requestAction';
 import {LANGUAGE_TAG} from '../../lib/i18n';
+import {FeedbackParams} from '../../../../shared/src/types/Feedback';
 
 export const createPublicHostRequestBlocks = (
   userId: string,
@@ -229,6 +230,7 @@ export const createFeedbackBlocks = (
   sessionType: SessionType | undefined,
   sessionMode: SessionMode | undefined,
   approved: boolean,
+  params: FeedbackParams,
 ): KnownBlock[] => [
   {
     type: 'header',
@@ -246,7 +248,11 @@ export const createFeedbackBlocks = (
         `*Exercise:*\n${exercise} (${sessionMode ? sessionMode : ''} - ${
           sessionType ? sessionType : ''
         })\n\n` +
-        `*Comment:*\n${comment}`,
+        `*Comment:*\n${comment}\n\n` +
+        `*Model:* ${params.model ?? ''}\n\n` +
+        `*OS:* ${params.os ?? ''}\n\n` +
+        `*Native Version:* ${params.nativeVersion ?? ''}\n\n` +
+        `*Bundle Version:* ${params.bundleVersion ?? ''}`,
     },
     ...(image && {
       accessory: {

@@ -52,10 +52,10 @@ export const logNavigation: LogNavigation = async (screenName, properties) => {
   });
 };
 
-export const logFeeback: LogFeedback = async feedback => {
+export const logFeedback: LogFeedback = async (feedback, deviceInfo) => {
   await metricsClient('logFeedback', {
     method: 'POST',
-    body: JSON.stringify(feedback),
+    body: JSON.stringify({...feedback, params: deviceInfo}),
   });
 };
 

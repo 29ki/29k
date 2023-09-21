@@ -124,21 +124,31 @@ describe('logFeedback', () => {
       sessionMode: SessionMode.live,
     });
 
-    expect(backEnd.logFeeback).toHaveBeenCalledTimes(1);
-    expect(backEnd.logFeeback).toHaveBeenCalledWith({
-      exerciseId: 'some-exercise-id',
-      completed: true,
-      sessionId: 'some-session-id',
-      host: true,
+    expect(backEnd.logFeedback).toHaveBeenCalledTimes(1);
+    expect(backEnd.logFeedback).toHaveBeenCalledWith(
+      {
+        exerciseId: 'some-exercise-id',
+        completed: true,
+        sessionId: 'some-session-id',
+        host: true,
 
-      question: 'Some question?',
-      answer: true,
-      comment: 'Some comment!',
-      sessionType: SessionType.public,
-      sessionMode: SessionMode.live,
-    });
-    expect(postHog.logFeeback).toHaveBeenCalledTimes(1);
-    expect(postHog.logFeeback).toHaveBeenCalledWith({
+        question: 'Some question?',
+        answer: true,
+        comment: 'Some comment!',
+        sessionType: SessionType.public,
+        sessionMode: SessionMode.live,
+      },
+      {
+        bundleVersion: 1337,
+        gitCommit: 'some-git-hash',
+        model: 'some-model',
+        nativeVersion: 'some-version',
+        os: 'some-os',
+        osVersion: 'some-os-version',
+      },
+    );
+    expect(postHog.logFeedback).toHaveBeenCalledTimes(1);
+    expect(postHog.logFeedback).toHaveBeenCalledWith({
       exerciseId: 'some-exercise-id',
       completed: true,
       sessionId: 'some-session-id',

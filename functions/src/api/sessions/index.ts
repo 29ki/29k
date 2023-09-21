@@ -14,7 +14,6 @@ import {
   UpdateSessionSchema,
   RemoveMyselfParamsSchema,
   SessionMode,
-  FeedbackSchema,
 } from '../../../../shared/src/schemas/Session';
 import {createApiAuthRouter} from '../../lib/routers';
 import restrictAccessToRole from '../lib/restrictAccessToRole';
@@ -29,6 +28,7 @@ import {ROLE} from '../../../../shared/src/schemas/User';
 import validation from '../lib/validation';
 import {getFeedbackCountByExercise} from '../../controllers/feedback';
 import {getFeedbackByExercise} from '../../models/metrics';
+import {FeedbackSchema} from '../../../../shared/src/schemas/Feedback';
 
 const sessionsRouter = createApiAuthRouter();
 

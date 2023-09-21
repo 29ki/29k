@@ -41,6 +41,7 @@ describe('feedback - controller', () => {
         sessionId: 'session-id',
         sessionType: SessionType.public,
         sessionMode: SessionMode.live,
+        params: {},
       };
       await feedbackController.addFeedback(feedback);
 
@@ -54,6 +55,7 @@ describe('feedback - controller', () => {
         sessionId: 'session-id',
         sessionType: SessionType.public,
         sessionMode: SessionMode.live,
+        params: {},
       });
       expect(slack.sendFeedbackMessage).toHaveBeenCalledTimes(1);
       expect(slack.sendFeedbackMessage).toHaveBeenCalledWith(
@@ -65,7 +67,8 @@ describe('feedback - controller', () => {
         'Some comment!',
         SessionType.public,
         SessionMode.live,
-        undefined,
+        false,
+        {},
       );
     });
 
@@ -87,6 +90,7 @@ describe('feedback - controller', () => {
         sessionId: 'session-id',
         sessionType: SessionType.public,
         sessionMode: SessionMode.live,
+        params: {},
       };
       await feedbackController.addFeedback(feedback);
 
@@ -99,6 +103,7 @@ describe('feedback - controller', () => {
         sessionId: 'session-id',
         sessionType: SessionType.public,
         sessionMode: SessionMode.live,
+        params: {},
       });
       expect(slack.sendFeedbackMessage).toHaveBeenCalledTimes(0);
     });
