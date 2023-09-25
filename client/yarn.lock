@@ -1827,10 +1827,10 @@
     prompts "^2.4.0"
     semver "^6.3.0"
 
-"@react-native-community/datetimepicker@^7.5.0":
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/@react-native-community/datetimepicker/-/datetimepicker-7.5.0.tgz#479143814a9d6373cdb8cd8f90b5cf03ee0e363a"
-  integrity sha512-nwMje384ib8017P4phJ1v+Y9xkTEGiilV2uoGjFqCNhMFUeBG7kaVy9WKfS1Y0joDlOk4BISm3+3AP4Es5lYZQ==
+"@react-native-community/datetimepicker@^7.6.0":
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@react-native-community/datetimepicker/-/datetimepicker-7.6.0.tgz#4de937ee87572fac555e6e641684ddbf532bada1"
+  integrity sha512-JRQb4bccIWXRV3UWr6ShxtZLhMVHBaV8Fq6fJk0AAysZ35F1U0MdSkRd7eyJWd3JUebsi32j1GK3mdKHoabtrw==
   dependencies:
     invariant "^2.2.4"
 
