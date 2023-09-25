@@ -21,7 +21,7 @@
     "test": "yarn build:content && yarn test:ts && yarn test:lint && yarn test:jest"
   },
   "dependencies": {
-    "@daily-co/react-native-daily-js": "0.48.0",
+    "@daily-co/react-native-daily-js": "0.49.1",
     "@daily-co/react-native-webrtc": "111.0.0-daily.2",
     "@gorhom/bottom-sheet": "https://github.com/29ki/react-native-bottom-sheet.git#patch-input-scroll",
     "@kingstinct/react-native-healthkit": "^7.3.0",
