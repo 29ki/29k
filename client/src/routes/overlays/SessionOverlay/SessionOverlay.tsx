@@ -38,7 +38,6 @@ import {Body16} from '../../../lib/components/Typography/Body/Body';
 import Byline from '../../../lib/components/Bylines/Byline';
 import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTimeBadge';
 import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
-import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import Tag from '../../../lib/components/Tag/Tag';
 import Interested from '../../../lib/components/Interested/Interested';
 import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';

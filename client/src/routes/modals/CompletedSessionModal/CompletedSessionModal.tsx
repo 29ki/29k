@@ -28,7 +28,6 @@ import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import {formatContentName} from '../../../lib/utils/string';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import Byline from '../../../lib/components/Bylines/Byline';
 import {Body14} from '../../../lib/components/Typography/Body/Body';
 import Badge from '../../../lib/components/Badge/Badge';

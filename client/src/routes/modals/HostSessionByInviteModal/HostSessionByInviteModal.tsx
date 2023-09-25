@@ -40,7 +40,6 @@ import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTi
 import {COLORS} from '../../../../../shared/src/constants/colors';
 
 import {SPACINGS} from '../../../lib/constants/spacings';
-import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import Tag from '../../../lib/components/Tag/Tag';
 import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
